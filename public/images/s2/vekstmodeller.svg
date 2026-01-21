@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 400" width="580" height="400">
+  <defs>
+    <marker id="arrowhead7" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Bakgrunn -->
+  <rect width="580" height="400" fill="#fafafa"/>
+
+  <!-- Tittel -->
+  <text x="290" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Eksponentiell vs Logistisk Vekst</text>
+
+  <!-- Koordinatsystem -->
+  <line x1="60" y1="330" x2="420" y2="330" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead7)"/>
+  <line x1="60" y1="330" x2="60" y2="50" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead7)"/>
+
+  <!-- Aksetiketter -->
+  <text x="420" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">Tid (t)</text>
+  <text x="30" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">N(t)</text>
+
+  <!-- Baerekraftgrense (K) - stiplet linje -->
+  <line x1="60" y1="90" x2="410" y2="90" stroke="#f59e0b" stroke-width="2" stroke-dasharray="8,4"/>
+  <text x="418" y="95" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b" font-weight="bold">K</text>
+  <text x="75" y="80" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b">Baerekraftgrense</text>
+
+  <!-- Eksponentiell vekst kurve -->
+  <path d="M 70,300 Q 120,290 170,260 Q 230,210 280,130 Q 310,70 340,30" fill="none" stroke="#ef4444" stroke-width="3"/>
+  <text x="348" y="35" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#ef4444">Eksponentiell</text>
+
+  <!-- Logistisk vekst kurve (S-kurve) -->
+  <path d="M 70,300 Q 100,295 140,280 Q 190,250 240,180 Q 290,110 340,95 Q 380,92 410,91" fill="none" stroke="#22c55e" stroke-width="3"/>
+  <text x="380" y="115" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#22c55e">Logistisk</text>
+
+  <!-- Startpunkt -->
+  <circle cx="70" cy="300" r="5" fill="#3b82f6" stroke="white" stroke-width="2"/>
+  <text x="80" y="315" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6">N_0</text>
+
+  <!-- Vendepunkt markering for logistisk -->
+  <circle cx="240" cy="180" r="5" fill="#22c55e" stroke="white" stroke-width="2"/>
+  <line x1="240" y1="180" x2="240" y2="330" stroke="#22c55e" stroke-width="1" stroke-dasharray="4,3"/>
+
+  <!-- Forklaringsboks eksponentiell -->
+  <rect x="435" y="55" width="135" height="100" rx="6" fill="white" stroke="#ef4444" stroke-width="2"/>
+  <text x="502" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#ef4444">Eksponentiell</text>
+  <line x1="448" y1="88" x2="557" y2="88" stroke="#fee2e2" stroke-width="1"/>
+  <text x="502" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">N'(t) = k * N(t)</text>
+  <text x="502" y="128" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Losning:</text>
+  <text x="502" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">N(t) = N_0 * e^(kt)</text>
+
+  <!-- Forklaringsboks logistisk -->
+  <rect x="435" y="170" width="135" height="120" rx="6" fill="white" stroke="#22c55e" stroke-width="2"/>
+  <text x="502" y="193" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">Logistisk</text>
+  <line x1="448" y1="203" x2="557" y2="203" stroke="#dcfce7" stroke-width="1"/>
+  <text x="502" y="223" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#1e293b">N'(t) = k*N*(1-N/K)</text>
+  <text x="502" y="243" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Losning:</text>
+  <text x="502" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">N(t) = K/(1+Ce^(-kt))</text>
+  <text x="502" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">S-formet kurve</text>
+
+  <!-- Sammenligning -->
+  <rect x="435" y="305" width="135" height="60" rx="6" fill="white" stroke="#64748b" stroke-width="1"/>
+  <text x="502" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">K = baerekraftgrense</text>
+  <text x="502" y="342" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">k = vekstrate</text>
+  <text x="502" y="359" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">N_0 = startverdi</text>
+
+  <!-- Merknad om vendepunkt -->
+  <text x="255" y="345" font-family="Arial, sans-serif" font-size="10" fill="#22c55e">Vendepunkt ved N = K/2</text>
+</svg>

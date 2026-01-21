@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fde68a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="340" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="250" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#92400e" text-anchor="middle">Ulikheter pa tallinje</text>
+
+  <!-- Example 1: x > 2 -->
+  <g transform="translate(30, 50)">
+    <rect x="0" y="0" width="440" height="70" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="20" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">x &gt; 2</text>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">(x er storre enn 2)</text>
+
+    <!-- Number line -->
+    <line x1="30" y1="50" x2="420" y2="50" stroke="#374151" stroke-width="2"/>
+    <!-- Tick marks -->
+    <line x1="70" y1="45" x2="70" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="150" y1="45" x2="150" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="230" y1="45" x2="230" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="310" y1="45" x2="310" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="390" y1="45" x2="390" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <!-- Numbers -->
+    <text x="70" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">0</text>
+    <text x="150" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">1</text>
+    <text x="230" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">2</text>
+    <text x="310" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">3</text>
+    <text x="390" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">4</text>
+
+    <!-- Solution: open circle at 2, line going right -->
+    <circle cx="230" cy="50" r="6" fill="white" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="236" y1="50" x2="420" y2="50" stroke="#3b82f6" stroke-width="4"/>
+    <polygon points="420,50 412,45 412,55" fill="#3b82f6"/>
+  </g>
+
+  <!-- Example 2: x <= 3 -->
+  <g transform="translate(30, 135)">
+    <rect x="0" y="0" width="440" height="70" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="20" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">x &#8804; 3</text>
+    <text x="90" y="25" font-family="Arial, sans-serif" font-size="12" fill="#64748b">(x er mindre enn eller lik 3)</text>
+
+    <!-- Number line -->
+    <line x1="30" y1="50" x2="420" y2="50" stroke="#374151" stroke-width="2"/>
+    <!-- Tick marks -->
+    <line x1="70" y1="45" x2="70" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="150" y1="45" x2="150" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="230" y1="45" x2="230" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="310" y1="45" x2="310" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <line x1="390" y1="45" x2="390" y2="55" stroke="#374151" stroke-width="1.5"/>
+    <!-- Numbers -->
+    <text x="70" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">0</text>
+    <text x="150" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">1</text>
+    <text x="230" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">2</text>
+    <text x="310" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">3</text>
+    <text x="390" y="65" font-family="Arial, sans-serif" font-size="11" fill="#374151" text-anchor="middle">4</text>
+
+    <!-- Solution: filled circle at 3, line going left -->
+    <circle cx="310" cy="50" r="6" fill="#22c55e"/>
+    <line x1="30" y1="50" x2="304" y2="50" stroke="#22c55e" stroke-width="4"/>
+    <polygon points="30,50 38,45 38,55" fill="#22c55e"/>
+  </g>
+
+  <!-- Legend -->
+  <g transform="translate(30, 220)">
+    <rect x="0" y="0" width="440" height="55" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="20" y="20" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#374151">Symboler:</text>
+
+    <!-- Open circle -->
+    <circle cx="50" cy="40" r="6" fill="white" stroke="#ef4444" stroke-width="2"/>
+    <text x="65" y="44" font-family="Arial, sans-serif" font-size="11" fill="#374151">= ikke med (&lt; eller &gt;)</text>
+
+    <!-- Filled circle -->
+    <circle cx="230" cy="40" r="6" fill="#ef4444"/>
+    <text x="245" y="44" font-family="Arial, sans-serif" font-size="11" fill="#374151">= med (&#8804; eller &#8805;)</text>
+  </g>
+
+  <!-- Key rules -->
+  <g transform="translate(30, 285)">
+    <rect x="0" y="0" width="440" height="45" fill="#fef3c7" rx="8" stroke="#f59e0b" stroke-width="1"/>
+
+    <text x="220" y="18" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#92400e" text-anchor="middle">Viktig regel:</text>
+    <text x="220" y="36" font-family="Arial, sans-serif" font-size="11" fill="#92400e" text-anchor="middle">Multipliserer eller dividerer du med negativt tall, ma du snu ulikhetstegnet!</text>
+  </g>
+</svg>

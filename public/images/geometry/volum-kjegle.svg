@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 480" width="500" height="480">
+  <defs>
+    <marker id="arrow-red-kj" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-red-start-kj" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#ef4444"/>
+    </marker>
+    <linearGradient id="coneGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.35"/>
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.3"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bakgrunn -->
+  <rect width="500" height="480" fill="#fafafa"/>
+
+  <!-- Tittel -->
+  <text x="250" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">Volum av kjegle</text>
+
+  <!-- 3D Kjegle -->
+
+  <!-- Kjeglekropp (trekant til ellipse) -->
+  <path d="M 250,80 L 130,350 Q 130,380 190,388 Q 250,395 310,388 Q 370,380 370,350 L 250,80 Z"
+        fill="url(#coneGradient)" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Venstre kant (mer synlig) -->
+  <line x1="250" y1="80" x2="130" y2="350" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Hoyre kant -->
+  <line x1="250" y1="80" x2="370" y2="350" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Bunn-ellipse -->
+  <ellipse cx="250" cy="350" rx="120" ry="40" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Hoyde (senterlinje, stiplet) -->
+  <line x1="250" y1="80" x2="250" y2="350" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Hoyde-etikett -->
+  <text x="235" y="220" text-anchor="end" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#22c55e">h</text>
+
+  <!-- Radius pa bunnen -->
+  <line x1="250" y1="350" x2="370" y2="350" stroke="#ef4444" stroke-width="3"/>
+  <text x="310" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">r</text>
+
+  <!-- Hoyde-pil (til hoyre for kjeglen) -->
+  <line x1="420" y1="85" x2="420" y2="345" stroke="#ef4444" stroke-width="2" marker-start="url(#arrow-red-start-kj)" marker-end="url(#arrow-red-kj)"/>
+  <text x="440" y="220" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ef4444">h</text>
+
+  <!-- Topp-punkt -->
+  <circle cx="250" cy="80" r="5" fill="#3b82f6"/>
+
+  <!-- Sentrum pa bunnen -->
+  <circle cx="250" cy="350" r="4" fill="#3b82f6"/>
+
+  <!-- Punkt pa kanten -->
+  <circle cx="370" cy="350" r="4" fill="#ef4444"/>
+
+  <!-- Formel-boks -->
+  <rect x="30" y="80" width="160" height="120" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <text x="110" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Formel:</text>
+
+  <text x="110" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1e293b">V = 1/3 * pi * r^2 * h</text>
+
+  <text x="110" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">eller</text>
+  <text x="110" y="192" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1e293b">V = G * h / 3</text>
+
+  <!-- Forklaring -->
+  <rect x="30" y="400" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1"/>
+  <text x="45" y="423" font-family="Arial, sans-serif" font-size="13" fill="#64748b">V = volum</text>
+  <text x="45" y="443" font-family="Arial, sans-serif" font-size="13" fill="#64748b">r = radius i grunnflaten</text>
+  <text x="45" y="463" font-family="Arial, sans-serif" font-size="13" fill="#64748b">h = hoyde, G = grunnflate</text>
+
+  <!-- Eksempel-boks -->
+  <rect x="280" y="400" width="190" height="70" rx="8" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="295" y="420" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">Eksempel: r=4, h=9</text>
+  <text x="295" y="440" font-family="Arial, sans-serif" font-size="12" fill="#64748b">V = 1/3 * pi * 4^2 * 9</text>
+  <text x="295" y="460" font-family="Arial, sans-serif" font-size="12" fill="#64748b">V = 48pi ca. 151 cm^3</text>
+
+  <!-- Sammenligning med sylinder -->
+  <text x="110" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">Kjegle = 1/3 av</text>
+  <text x="110" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">sylinder med</text>
+  <text x="110" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64748b">samme r og h</text>
+</svg>

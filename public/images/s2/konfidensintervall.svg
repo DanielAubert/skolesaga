@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 580 400" width="580" height="400">
+  <defs>
+    <marker id="arrowhead9" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+    <linearGradient id="ciGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.35"/>
+      <stop offset="100%" style="stop-color:#22c55e;stop-opacity:0.1"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bakgrunn -->
+  <rect width="580" height="400" fill="#fafafa"/>
+
+  <!-- Tittel -->
+  <text x="290" y="32" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">Konfidensintervall</text>
+
+  <!-- Koordinatsystem -->
+  <line x1="50" y1="280" x2="430" y2="280" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead9)"/>
+  <line x1="50" y1="280" x2="50" y2="70" stroke="#64748b" stroke-width="2" marker-end="url(#arrowhead9)"/>
+
+  <!-- Aksetiketter -->
+  <text x="430" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">x</text>
+  <text x="30" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#64748b">f(x)</text>
+
+  <!-- 95% konfidensintervall areal -->
+  <path d="M 140,280 L 140,195 Q 180,120 220,95 Q 240,90 260,90 Q 290,95 320,120 Q 360,195 360,280 Z" fill="url(#ciGradient)" stroke="none"/>
+
+  <!-- Normalfordeling kurve -->
+  <path d="M 60,278 Q 100,275 130,255 Q 160,200 200,130 Q 230,95 260,90 Q 290,95 320,130 Q 360,200 390,255 Q 410,275 440,278" fill="none" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Halene (avvisningsomrader) -->
+  <path d="M 60,278 Q 90,275 120,260 L 140,280 Z" fill="#ef4444" fill-opacity="0.3" stroke="none"/>
+  <path d="M 360,280 L 380,260 Q 410,275 440,278 L 440,280 Z" fill="#ef4444" fill-opacity="0.3" stroke="none"/>
+
+  <!-- Grensemarkorer -->
+  <line x1="140" y1="280" x2="140" y2="195" stroke="#22c55e" stroke-width="2.5"/>
+  <line x1="360" y1="280" x2="360" y2="195" stroke="#22c55e" stroke-width="2.5"/>
+
+  <!-- Konfidensgrenser etiketter -->
+  <text x="140" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#22c55e" font-weight="bold">x - E</text>
+  <text x="360" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#22c55e" font-weight="bold">x + E</text>
+
+  <!-- Punktestimat -->
+  <line x1="250" y1="280" x2="250" y2="90" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+  <circle cx="250" cy="90" r="5" fill="#f59e0b" stroke="white" stroke-width="2"/>
+  <text x="250" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#f59e0b" font-weight="bold">x (estimat)</text>
+
+  <!-- 95% etikett -->
+  <text x="250" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">95%</text>
+
+  <!-- Halene etiketter -->
+  <text x="95" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">2.5%</text>
+  <text x="405" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#ef4444">2.5%</text>
+
+  <!-- Feilmargin indikator -->
+  <line x1="140" y1="330" x2="250" y2="330" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="250" y1="330" x2="360" y2="330" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="140" y1="325" x2="140" y2="335" stroke="#3b82f6" stroke-width="2"/>
+  <line x1="360" y1="325" x2="360" y2="335" stroke="#3b82f6" stroke-width="2"/>
+  <text x="195" y="348" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6">E</text>
+  <text x="305" y="348" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6">E</text>
+
+  <!-- Forklaringsboks -->
+  <rect x="450" y="55" width="120" height="175" rx="8" fill="white" stroke="#22c55e" stroke-width="2"/>
+  <text x="510" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">95% KI</text>
+  <line x1="460" y1="88" x2="560" y2="88" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="510" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#1e293b">Intervall:</text>
+  <text x="510" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#22c55e">[x - E, x + E]</text>
+
+  <line x1="460" y1="138" x2="560" y2="138" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="510" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">Feilmargin:</text>
+  <text x="510" y="172" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#3b82f6">E = z * sigma/sqrt(n)</text>
+
+  <line x1="460" y1="185" x2="560" y2="185" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="510" y="202" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#64748b">z_{0.025} = 1.96</text>
+  <text x="510" y="222" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#64748b">for 95% konfidns</text>
+
+  <!-- Tolkning boks -->
+  <rect x="450" y="245" width="120" height="70" rx="6" fill="white" stroke="#f59e0b" stroke-width="1.5"/>
+  <text x="510" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#f59e0b">Tolkning</text>
+  <text x="510" y="282" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#1e293b">95% av slike</text>
+  <text x="510" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#1e293b">intervaller dekker</text>
+  <text x="510" y="308" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#1e293b">den sanne mu</text>
+
+  <!-- Bunnlinje -->
+  <text x="250" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Konfidensintervallet gir et intervall der vi med 95% sikkerhet finner parameteren</text>
+</svg>

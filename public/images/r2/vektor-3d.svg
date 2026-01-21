@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <marker id="arrow3d" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e293b"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#3b82f6"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="450" fill="#f8fafc"/>
+
+  <!-- 3D coordinate system -->
+  <!-- Origin at (280, 300) -->
+
+  <!-- y-axis (going left-down in perspective) -->
+  <line x1="280" y1="300" x2="120" y2="380" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow3d)"/>
+
+  <!-- x-axis (going right) -->
+  <line x1="280" y1="300" x2="520" y2="300" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow3d)"/>
+
+  <!-- z-axis (going up) -->
+  <line x1="280" y1="300" x2="280" y2="60" stroke="#1e293b" stroke-width="2" marker-end="url(#arrow3d)"/>
+
+  <!-- Grid on xy-plane (floor) -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <!-- Lines parallel to x-axis -->
+    <line x1="200" y1="340" x2="480" y2="340"/>
+    <line x1="160" y1="360" x2="440" y2="360"/>
+
+    <!-- Lines parallel to y-axis -->
+    <line x1="330" y1="280" x2="170" y2="360"/>
+    <line x1="380" y1="280" x2="220" y2="360"/>
+    <line x1="430" y1="280" x2="270" y2="360"/>
+  </g>
+
+  <!-- Projection lines (dashed) -->
+  <!-- Projection to xy-plane -->
+  <line x1="400" y1="300" x2="320" y2="340" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+  <!-- Vertical line from projection to point -->
+  <line x1="320" y1="340" x2="320" y2="140" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="5,4"/>
+
+  <!-- Component projections -->
+  <!-- x-component -->
+  <line x1="280" y1="300" x2="400" y2="300" stroke="#22c55e" stroke-width="2.5"/>
+  <!-- y-component from x-component end -->
+  <line x1="400" y1="300" x2="320" y2="340" stroke="#8b5cf6" stroke-width="2.5"/>
+  <!-- z-component (vertical at endpoint) -->
+  <line x1="320" y1="340" x2="320" y2="140" stroke="#ef4444" stroke-width="2.5"/>
+
+  <!-- Main vector v -->
+  <line x1="280" y1="300" x2="315" y2="145" stroke="#3b82f6" stroke-width="3.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- Point P at vector tip -->
+  <circle cx="320" cy="140" r="5" fill="#3b82f6"/>
+
+  <!-- Projection point on xy-plane -->
+  <circle cx="320" cy="340" r="4" fill="#94a3b8"/>
+
+  <!-- Axis labels -->
+  <text x="530" y="305" font-family="Times New Roman, serif" font-size="20" font-style="italic" fill="#1e293b">x</text>
+  <text x="100" y="395" font-family="Times New Roman, serif" font-size="20" font-style="italic" fill="#1e293b">y</text>
+  <text x="270" y="50" font-family="Times New Roman, serif" font-size="20" font-style="italic" fill="#1e293b">z</text>
+
+  <!-- Origin -->
+  <text x="260" y="320" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">O</text>
+
+  <!-- Vector label -->
+  <text x="265" y="210" font-family="Times New Roman, serif" font-size="22" font-weight="bold" fill="#3b82f6">v</text>
+  <text x="275" y="210" font-family="Times New Roman, serif" font-size="18" fill="#3b82f6">→</text>
+
+  <!-- Point label -->
+  <text x="330" y="130" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">P(a, b, c)</text>
+
+  <!-- Component labels -->
+  <text x="335" y="290" font-family="Times New Roman, serif" font-size="16" font-style="italic" fill="#22c55e">a</text>
+  <text x="365" y="330" font-family="Times New Roman, serif" font-size="16" font-style="italic" fill="#8b5cf6">b</text>
+  <text x="330" y="250" font-family="Times New Roman, serif" font-size="16" font-style="italic" fill="#ef4444">c</text>
+
+  <!-- Vector notation box -->
+  <rect x="400" y="60" width="170" height="100" fill="white" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+
+  <text x="420" y="90" font-family="Times New Roman, serif" font-size="18" fill="#1e293b">
+    <tspan font-weight="bold" fill="#3b82f6">v</tspan> = (<tspan font-style="italic" fill="#22c55e">a</tspan>, <tspan font-style="italic" fill="#8b5cf6">b</tspan>, <tspan font-style="italic" fill="#ef4444">c</tspan>)
+  </text>
+
+  <text x="420" y="120" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">
+    |<tspan font-weight="bold" fill="#3b82f6">v</tspan>| =
+  </text>
+  <text x="465" y="120" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">√(</text>
+  <text x="485" y="120" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#22c55e">a</text>
+  <text x="495" y="120" font-family="Times New Roman, serif" font-size="10" fill="#1e293b">2</text>
+  <text x="502" y="120" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">+</text>
+  <text x="515" y="120" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#8b5cf6">b</text>
+  <text x="525" y="120" font-family="Times New Roman, serif" font-size="10" fill="#1e293b">2</text>
+  <text x="532" y="120" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">+</text>
+  <text x="545" y="120" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#ef4444">c</text>
+  <text x="555" y="120" font-family="Times New Roman, serif" font-size="10" fill="#1e293b">2</text>
+  <text x="562" y="120" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">)</text>
+
+  <!-- Unit vectors -->
+  <text x="420" y="150" font-family="Times New Roman, serif" font-size="14" fill="#64748b">
+    Enhetsvektorer: <tspan font-weight="bold">i</tspan>, <tspan font-weight="bold">j</tspan>, <tspan font-weight="bold">k</tspan>
+  </text>
+
+  <!-- Small coordinate markers on axes -->
+  <line x1="340" y1="297" x2="340" y2="303" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="336" y="318" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">1</text>
+
+  <line x1="400" y1="297" x2="400" y2="303" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="396" y="318" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">2</text>
+
+  <line x1="277" y1="240" x2="283" y2="240" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="260" y="244" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">1</text>
+
+  <line x1="277" y1="180" x2="283" y2="180" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="260" y="184" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">2</text>
+</svg>

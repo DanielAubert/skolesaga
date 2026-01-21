@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 420">
+  <defs>
+    <marker id="arrowTaylor" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="620" height="420" fill="#f8fafc"/>
+
+  <!-- Grid -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="80" y1="50" x2="80" y2="320"/>
+    <line x1="140" y1="50" x2="140" y2="320"/>
+    <line x1="200" y1="50" x2="200" y2="320"/>
+    <line x1="260" y1="50" x2="260" y2="320"/>
+    <line x1="320" y1="50" x2="320" y2="320"/>
+    <line x1="380" y1="50" x2="380" y2="320"/>
+    <line x1="440" y1="50" x2="440" y2="320"/>
+    <line x1="500" y1="50" x2="500" y2="320"/>
+    <line x1="560" y1="50" x2="560" y2="320"/>
+    <line x1="80" y1="80" x2="560" y2="80"/>
+    <line x1="80" y1="140" x2="560" y2="140"/>
+    <line x1="80" y1="260" x2="560" y2="260"/>
+    <line x1="80" y1="320" x2="560" y2="320"/>
+  </g>
+
+  <!-- Axes -->
+  <line x1="50" y1="200" x2="580" y2="200" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowTaylor)"/>
+  <line x1="200" y1="340" x2="200" y2="40" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowTaylor)"/>
+
+  <!-- Original function f(x) = e^x (thick black curve) -->
+  <path d="M 80 340 Q 140 310, 200 200 Q 260 90, 320 45 Q 350 30, 380 20"
+        fill="none" stroke="#1e293b" stroke-width="3"/>
+
+  <!-- Taylor polynomial T1 (linear - red) -->
+  <line x1="80" y1="320" x2="500" y2="0" stroke="#ef4444" stroke-width="2"/>
+
+  <!-- Taylor polynomial T2 (quadratic - green) -->
+  <path d="M 80 295 Q 200 200, 320 50 Q 380 0, 420 -20"
+        fill="none" stroke="#22c55e" stroke-width="2"/>
+
+  <!-- Taylor polynomial T3 (cubic - blue) -->
+  <path d="M 80 320 Q 140 280, 200 200 Q 260 110, 320 55 Q 360 30, 400 15"
+        fill="none" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Taylor polynomial T4 (quartic - purple) -->
+  <path d="M 80 335 Q 140 300, 200 200 Q 260 95, 320 47 Q 360 28, 395 18"
+        fill="none" stroke="#8b5cf6" stroke-width="2"/>
+
+  <!-- Point of expansion a = 0 -->
+  <circle cx="200" cy="200" r="6" fill="#1e293b"/>
+
+  <!-- Axis labels -->
+  <text x="585" y="205" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">x</text>
+  <text x="205" y="35" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">y</text>
+
+  <!-- Origin -->
+  <text x="180" y="220" font-family="Times New Roman, serif" font-size="14" fill="#1e293b">O</text>
+
+  <!-- Axis markers -->
+  <line x1="260" y1="197" x2="260" y2="203" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="256" y="218" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">1</text>
+  <line x1="320" y1="197" x2="320" y2="203" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="316" y="218" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">2</text>
+  <line x1="140" y1="197" x2="140" y2="203" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="130" y="218" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">-1</text>
+
+  <line x1="197" y1="140" x2="203" y2="140" stroke="#1e293b" stroke-width="1.5"/>
+  <text x="175" y="145" font-family="Times New Roman, serif" font-size="12" fill="#1e293b">1</text>
+
+  <!-- Legend box -->
+  <rect x="420" y="180" width="185" height="170" fill="white" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+
+  <text x="440" y="205" font-family="Times New Roman, serif" font-size="14" font-weight="bold" fill="#1e293b">Taylor-polynomer</text>
+  <text x="440" y="225" font-family="Times New Roman, serif" font-size="13" fill="#1e293b">for <tspan font-style="italic">f</tspan>(<tspan font-style="italic">x</tspan>) = e<tspan baseline-shift="super" font-size="10" font-style="italic">x</tspan> rundt <tspan font-style="italic">a</tspan> = 0</text>
+
+  <line x1="440" y1="245" x2="470" y2="245" stroke="#1e293b" stroke-width="3"/>
+  <text x="480" y="250" font-family="Times New Roman, serif" font-size="13" font-style="italic" fill="#1e293b">f(x) = e<tspan baseline-shift="super" font-size="9">x</tspan></text>
+
+  <line x1="440" y1="268" x2="470" y2="268" stroke="#ef4444" stroke-width="2"/>
+  <text x="480" y="273" font-family="Times New Roman, serif" font-size="13" fill="#ef4444">T<tspan baseline-shift="sub" font-size="10">1</tspan> = 1 + x</text>
+
+  <line x1="440" y1="291" x2="470" y2="291" stroke="#22c55e" stroke-width="2"/>
+  <text x="480" y="296" font-family="Times New Roman, serif" font-size="13" fill="#22c55e">T<tspan baseline-shift="sub" font-size="10">2</tspan> = 1 + x + x<tspan baseline-shift="super" font-size="9">2</tspan>/2</text>
+
+  <line x1="440" y1="314" x2="470" y2="314" stroke="#3b82f6" stroke-width="2"/>
+  <text x="480" y="319" font-family="Times New Roman, serif" font-size="13" fill="#3b82f6">T<tspan baseline-shift="sub" font-size="10">3</tspan></text>
+
+  <line x1="440" y1="337" x2="470" y2="337" stroke="#8b5cf6" stroke-width="2"/>
+  <text x="480" y="342" font-family="Times New Roman, serif" font-size="13" fill="#8b5cf6">T<tspan baseline-shift="sub" font-size="10">4</tspan></text>
+
+  <!-- Taylor formula -->
+  <rect x="60" y="360" width="500" height="50" fill="white" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+
+  <text x="80" y="390" font-family="Times New Roman, serif" font-size="15" fill="#1e293b">
+    T<tspan baseline-shift="sub" font-size="11">n</tspan>(<tspan font-style="italic">x</tspan>) =
+  </text>
+  <text x="145" y="390" font-family="Times New Roman, serif" font-size="22" fill="#1e293b">∑</text>
+  <text x="150" y="404" font-family="Times New Roman, serif" font-size="11" fill="#1e293b">k=0</text>
+  <text x="155" y="373" font-family="Times New Roman, serif" font-size="11" fill="#1e293b">n</text>
+
+  <text x="175" y="390" font-family="Times New Roman, serif" font-size="15" fill="#1e293b">
+    <tspan font-style="italic">f</tspan><tspan baseline-shift="super" font-size="10">(k)</tspan>(<tspan font-style="italic">a</tspan>)
+  </text>
+  <line x1="175" y1="393" x2="230" y2="393" stroke="#1e293b" stroke-width="1"/>
+  <text x="190" y="408" font-family="Times New Roman, serif" font-size="13" fill="#1e293b">
+    <tspan font-style="italic">k</tspan>!
+  </text>
+
+  <text x="235" y="390" font-family="Times New Roman, serif" font-size="15" fill="#1e293b">
+    (<tspan font-style="italic">x</tspan> - <tspan font-style="italic">a</tspan>)<tspan baseline-shift="super" font-size="10" font-style="italic">k</tspan>
+  </text>
+
+  <text x="310" y="390" font-family="Times New Roman, serif" font-size="14" fill="#64748b">
+    = <tspan font-style="italic">f</tspan>(<tspan font-style="italic">a</tspan>) + <tspan font-style="italic">f</tspan>'(<tspan font-style="italic">a</tspan>)(<tspan font-style="italic">x-a</tspan>) +
+  </text>
+  <text x="450" y="385" font-family="Times New Roman, serif" font-size="13" fill="#64748b">
+    <tspan font-style="italic">f</tspan>''(<tspan font-style="italic">a</tspan>)
+  </text>
+  <line x1="450" y1="388" x2="495" y2="388" stroke="#64748b" stroke-width="1"/>
+  <text x="465" y="403" font-family="Times New Roman, serif" font-size="12" fill="#64748b">2!</text>
+  <text x="500" y="390" font-family="Times New Roman, serif" font-size="13" fill="#64748b">
+    (<tspan font-style="italic">x-a</tspan>)<tspan baseline-shift="super" font-size="9">2</tspan> + ...
+  </text>
+
+  <!-- Expansion point label -->
+  <text x="185" y="180" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#1e293b">a</text>
+</svg>

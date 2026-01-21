@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <defs>
+    <linearGradient id="areaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.6"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.2"/>
+    </linearGradient>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8fafc"/>
+
+  <!-- Grid -->
+  <g stroke="#e2e8f0" stroke-width="1">
+    <line x1="100" y1="50" x2="100" y2="320"/>
+    <line x1="150" y1="50" x2="150" y2="320"/>
+    <line x1="200" y1="50" x2="200" y2="320"/>
+    <line x1="250" y1="50" x2="250" y2="320"/>
+    <line x1="300" y1="50" x2="300" y2="320"/>
+    <line x1="350" y1="50" x2="350" y2="320"/>
+    <line x1="400" y1="50" x2="400" y2="320"/>
+    <line x1="450" y1="50" x2="450" y2="320"/>
+    <line x1="500" y1="50" x2="500" y2="320"/>
+    <line x1="50" y1="100" x2="550" y2="100"/>
+    <line x1="50" y1="150" x2="550" y2="150"/>
+    <line x1="50" y1="200" x2="550" y2="200"/>
+    <line x1="50" y1="250" x2="550" y2="250"/>
+  </g>
+
+  <!-- Shaded area under curve (between a and b) -->
+  <path d="M 150 280
+           L 150 195
+           Q 200 140, 250 125
+           Q 300 110, 350 100
+           Q 400 95, 450 105
+           L 450 280 Z"
+        fill="url(#areaGradient)" stroke="none"/>
+
+  <!-- Axes -->
+  <line x1="50" y1="280" x2="560" y2="280" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <line x1="100" y1="320" x2="100" y2="40" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Curve f(x) -->
+  <path d="M 80 220
+           Q 120 200, 150 195
+           Q 200 140, 250 125
+           Q 300 110, 350 100
+           Q 400 95, 450 105
+           Q 500 120, 540 150"
+        fill="none" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Vertical lines at a and b -->
+  <line x1="150" y1="195" x2="150" y2="280" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4"/>
+  <line x1="450" y1="105" x2="450" y2="280" stroke="#ef4444" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Labels -->
+  <text x="560" y="300" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">x</text>
+  <text x="85" y="35" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">y</text>
+
+  <!-- a and b labels -->
+  <text x="145" y="305" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#ef4444">a</text>
+  <text x="445" y="305" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#ef4444">b</text>
+
+  <!-- Function label -->
+  <text x="480" y="135" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#3b82f6">f(x)</text>
+
+  <!-- Origin -->
+  <text x="80" y="300" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">O</text>
+
+  <!-- Integral formula -->
+  <text x="200" y="360" font-family="Times New Roman, serif" font-size="20" fill="#1e293b">
+    <tspan font-style="italic">A</tspan> =
+  </text>
+  <text x="245" y="360" font-family="Times New Roman, serif" font-size="28" fill="#1e293b">∫</text>
+  <text x="260" y="375" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#ef4444">a</text>
+  <text x="260" y="345" font-family="Times New Roman, serif" font-size="14" font-style="italic" fill="#ef4444">b</text>
+  <text x="275" y="360" font-family="Times New Roman, serif" font-size="18" fill="#1e293b">
+    <tspan font-style="italic">f</tspan>(<tspan font-style="italic">x</tspan>) <tspan font-style="italic">dx</tspan>
+  </text>
+
+  <!-- Area label -->
+  <text x="280" y="200" font-family="Times New Roman, serif" font-size="22" font-weight="bold" fill="#1e40af">A</text>
+</svg>

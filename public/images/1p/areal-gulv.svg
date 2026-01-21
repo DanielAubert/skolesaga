@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 380">
+  <!-- Background -->
+  <rect width="520" height="380" fill="#f8fafc" rx="8"/>
+
+  <!-- Title -->
+  <text x="260" y="28" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Beregne areal for gulvbelegg</text>
+  <text x="260" y="48" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#64748b">L-formet rom - del opp i rektangler</text>
+
+  <!-- L-shaped room -->
+  <g transform="translate(40, 70)">
+    <!-- Main L-shape -->
+    <path d="M 0 0 L 200 0 L 200 100 L 120 100 L 120 180 L 0 180 Z" fill="#f0fdf4" stroke="#22c55e" stroke-width="3"/>
+
+    <!-- Grid pattern for floor -->
+    <defs>
+      <pattern id="floorGrid" width="20" height="20" patternUnits="userSpaceOnUse">
+        <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#bbf7d0" stroke-width="0.5"/>
+      </pattern>
+    </defs>
+    <path d="M 0 0 L 200 0 L 200 100 L 120 100 L 120 180 L 0 180 Z" fill="url(#floorGrid)"/>
+
+    <!-- Area A (top rectangle) -->
+    <rect x="2" y="2" width="196" height="96" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="100" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#3b82f6">A</text>
+
+    <!-- Area B (bottom rectangle) -->
+    <rect x="2" y="102" width="116" height="76" fill="#f59e0b" fill-opacity="0.2" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5,3"/>
+    <text x="60" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">B</text>
+
+    <!-- Measurements -->
+    <!-- Top width -->
+    <line x1="0" y1="-15" x2="200" y2="-15" stroke="#1e293b" stroke-width="1"/>
+    <line x1="0" y1="-20" x2="0" y2="-10" stroke="#1e293b" stroke-width="2"/>
+    <line x1="200" y1="-20" x2="200" y2="-10" stroke="#1e293b" stroke-width="2"/>
+    <text x="100" y="-25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">5 m</text>
+
+    <!-- Right height (top part) -->
+    <line x1="215" y1="0" x2="215" y2="100" stroke="#1e293b" stroke-width="1"/>
+    <line x1="210" y1="0" x2="220" y2="0" stroke="#1e293b" stroke-width="2"/>
+    <line x1="210" y1="100" x2="220" y2="100" stroke="#1e293b" stroke-width="2"/>
+    <text x="235" y="55" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">2,5 m</text>
+
+    <!-- Bottom width -->
+    <line x1="0" y1="195" x2="120" y2="195" stroke="#1e293b" stroke-width="1"/>
+    <line x1="0" y1="190" x2="0" y2="200" stroke="#1e293b" stroke-width="2"/>
+    <line x1="120" y1="190" x2="120" y2="200" stroke="#1e293b" stroke-width="2"/>
+    <text x="60" y="215" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">3 m</text>
+
+    <!-- Left total height -->
+    <line x1="-15" y1="0" x2="-15" y2="180" stroke="#1e293b" stroke-width="1"/>
+    <line x1="-20" y1="0" x2="-10" y2="0" stroke="#1e293b" stroke-width="2"/>
+    <line x1="-20" y1="180" x2="-10" y2="180" stroke="#1e293b" stroke-width="2"/>
+    <text x="-35" y="90" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1e293b" transform="rotate(-90, -35, 90)">4,5 m</text>
+
+    <!-- Bottom part height indicator -->
+    <line x1="135" y1="100" x2="135" y2="180" stroke="#64748b" stroke-width="1" stroke-dasharray="3,3"/>
+    <text x="150" y="145" text-anchor="middle" font-family="system-ui, sans-serif" font-size="10" fill="#64748b">2 m</text>
+  </g>
+
+  <!-- Calculations -->
+  <g transform="translate(290, 70)">
+    <rect x="0" y="0" width="200" height="230" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+
+    <text x="100" y="25" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" font-weight="bold" fill="#1e293b">Arealberegning</text>
+
+    <!-- Area A -->
+    <rect x="15" y="40" width="170" height="55" rx="6" fill="#eff6ff"/>
+    <text x="100" y="58" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#3b82f6">Areal A (ovre rektangel)</text>
+    <text x="100" y="78" text-anchor="middle" font-family="monospace" font-size="12" fill="#1e293b">5 m x 2,5 m = 12,5 m2</text>
+
+    <!-- Area B -->
+    <rect x="15" y="105" width="170" height="55" rx="6" fill="#fef3c7"/>
+    <text x="100" y="123" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#f59e0b">Areal B (nedre rektangel)</text>
+    <text x="100" y="143" text-anchor="middle" font-family="monospace" font-size="12" fill="#1e293b">3 m x 2 m = 6 m2</text>
+
+    <!-- Total -->
+    <rect x="15" y="170" width="170" height="50" rx="6" fill="#f0fdf4"/>
+    <text x="100" y="188" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" font-weight="bold" fill="#22c55e">Totalt areal</text>
+    <text x="100" y="208" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#22c55e">12,5 + 6 = 18,5 m2</text>
+  </g>
+
+  <!-- Floor covering info -->
+  <rect x="40" y="310" width="440" height="55" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+  <text x="260" y="332" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="bold" fill="#1e293b">Gulvbelegg: 299 kr/m2 | Mengde: 18,5 m2 | Totalpris:</text>
+  <text x="260" y="352" text-anchor="middle" font-family="monospace" font-size="14" fill="#3b82f6">18,5 m2 x 299 kr/m2 = <tspan font-weight="bold" fill="#22c55e">5 531,50 kr</tspan></text>
+</svg>

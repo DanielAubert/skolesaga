@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 280" width="700" height="280">
+  <!-- SSS: Trekant med A=(0,0), B=(100,0), C=(60,-70) -->
+  <g transform="translate(50,100)">
+    <polygon points="0,0 100,0 60,-70" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Sidemarkeringer vinkelrett på sidene -->
+    <!-- Bunn AB: horisontal, vinkelrett er vertikal -->
+    <line x1="47" y1="-5" x2="53" y2="-5" stroke="#ef4444" stroke-width="3"/>
+
+    <!-- Høyre BC: fra (100,0) til (60,-70), retning ≈ -119.7° -->
+    <!-- Vinkelrett: -119.7° + 90° = -29.7° -->
+    <!-- Midtpunkt: (80, -35) -->
+    <line x1="75.8" y1="-32.1" x2="84.2" y2="-37.9" stroke="#22c55e" stroke-width="3"/>
+
+    <!-- Venstre AC: fra (0,0) til (60,-70), retning ≈ -49.4° -->
+    <!-- Vinkelrett: -49.4° + 90° = 40.6° -->
+    <!-- Midtpunkt: (30, -35) -->
+    <line x1="25.1" y1="-31.8" x2="34.9" y2="-38.2" stroke="#6366f1" stroke-width="3"/>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" font-weight="bold">SSS</text>
+    <text x="50" y="50" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Side-Side-Side</text>
+  </g>
+
+  <!-- SAS -->
+  <g transform="translate(200,100)">
+    <polygon points="0,0 100,0 60,-70" fill="#22c55e" fill-opacity="0.15" stroke="#22c55e" stroke-width="2"/>
+
+    <!-- Sidemarkeringer -->
+    <line x1="47" y1="-5" x2="53" y2="-5" stroke="#ef4444" stroke-width="3"/>
+    <line x1="25.1" y1="-31.8" x2="34.9" y2="-38.2" stroke="#6366f1" stroke-width="3"/>
+
+    <!-- Vinkel ved A: fra retning B (0°) til retning C (-49.4°), sweep=1 for innvendig -->
+    <path d="M 15,0 A 15,15 0 0,0 11.4,-9.7" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" font-weight="bold">SAS</text>
+    <text x="50" y="50" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Side-Vinkel-Side</text>
+  </g>
+
+  <!-- ASA -->
+  <g transform="translate(350,100)">
+    <polygon points="0,0 100,0 60,-70" fill="#ef4444" fill-opacity="0.15" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Vinkler ved A og B -->
+    <!-- Vinkel ved A: sweep=0 -->
+    <path d="M 15,0 A 15,15 0 0,0 11.4,-9.7" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+
+    <!-- Side AB markering -->
+    <line x1="47" y1="-5" x2="53" y2="-5" stroke="#6366f1" stroke-width="3"/>
+
+    <!-- Vinkel ved B: fra retning A (180°) til retning C (-119.7°), sweep=0 -->
+    <path d="M 85,0 A 15,15 0 0,0 90.6,-9.7" fill="#f59e0b" fill-opacity="0.4" stroke="#f59e0b" stroke-width="2"/>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" font-weight="bold">ASA</text>
+    <text x="50" y="50" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Vinkel-Side-Vinkel</text>
+  </g>
+
+  <!-- SSA (med rett vinkel) -->
+  <g transform="translate(500,100)">
+    <polygon points="0,0 100,0 0,-70" fill="#6366f1" fill-opacity="0.15" stroke="#6366f1" stroke-width="2"/>
+
+    <!-- Rett vinkel markering -->
+    <rect x="0" y="-15" width="15" height="15" fill="none" stroke="#f59e0b" stroke-width="2"/>
+
+    <!-- Sidemarkeringer -->
+    <line x1="47" y1="-5" x2="53" y2="-5" stroke="#ef4444" stroke-width="3"/>
+
+    <!-- Hypotenuse BC: fra (100,0) til (0,-70), midtpunkt (50,-35) -->
+    <!-- Retning: ≈ -144.5°, vinkelrett: -54.5° -->
+    <line x1="45.2" y1="-31.1" x2="54.8" y2="-38.9" stroke="#22c55e" stroke-width="3"/>
+
+    <text x="50" y="30" font-family="Arial, sans-serif" font-size="16" fill="#334155" text-anchor="middle" font-weight="bold">SSA*</text>
+    <text x="50" y="50" font-family="Arial, sans-serif" font-size="11" fill="#64748b" text-anchor="middle">(med rett vinkel)</text>
+  </g>
+
+  <!-- Forklaring -->
+  <g transform="translate(0,180)">
+    <rect x="50" y="0" width="600" height="80" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1" rx="8"/>
+    <text x="70" y="25" font-family="Arial, sans-serif" font-size="13" fill="#334155" font-weight="bold">Kongruenssetningene:</text>
+    <text x="70" y="45" font-family="Arial, sans-serif" font-size="12" fill="#64748b">To trekanter er kongruente hvis de har:</text>
+    <text x="70" y="65" font-family="Arial, sans-serif" font-size="12" fill="#64748b">• Tre like sider (SSS) • To sider og mellomliggende vinkel (SAS) • To vinkler og mellomliggende side (ASA)</text>
+  </g>
+</svg>

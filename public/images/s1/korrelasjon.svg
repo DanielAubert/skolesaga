@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#f8fafc"/>
+
+  <!-- Title -->
+  <text x="300" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="600" fill="#1e293b">Korrelasjon</text>
+
+  <!-- Positive correlation -->
+  <g transform="translate(40, 60)">
+    <rect x="0" y="0" width="160" height="140" fill="white" stroke="#e2e8f0" rx="4"/>
+    <text x="80" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#22c55e">Positiv korrelasjon</text>
+    <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">r nær +1</text>
+
+    <!-- Axes -->
+    <line x1="25" y1="120" x2="145" y2="120" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="25" y1="120" x2="25" y2="45" stroke="#94a3b8" stroke-width="1"/>
+
+    <!-- Trend line -->
+    <line x1="30" y1="115" x2="140" y2="50" stroke="#22c55e" stroke-width="2"/>
+
+    <!-- Points -->
+    <g fill="#22c55e">
+      <circle cx="35" cy="110" r="4"/>
+      <circle cx="50" cy="105" r="4"/>
+      <circle cx="60" cy="95" r="4"/>
+      <circle cx="75" cy="85" r="4"/>
+      <circle cx="90" cy="75" r="4"/>
+      <circle cx="105" cy="70" r="4"/>
+      <circle cx="115" cy="60" r="4"/>
+      <circle cx="130" cy="55" r="4"/>
+    </g>
+  </g>
+
+  <!-- Negative correlation -->
+  <g transform="translate(220, 60)">
+    <rect x="0" y="0" width="160" height="140" fill="white" stroke="#e2e8f0" rx="4"/>
+    <text x="80" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#ef4444">Negativ korrelasjon</text>
+    <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">r nær -1</text>
+
+    <!-- Axes -->
+    <line x1="25" y1="120" x2="145" y2="120" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="25" y1="120" x2="25" y2="45" stroke="#94a3b8" stroke-width="1"/>
+
+    <!-- Trend line -->
+    <line x1="30" y1="50" x2="140" y2="115" stroke="#ef4444" stroke-width="2"/>
+
+    <!-- Points -->
+    <g fill="#ef4444">
+      <circle cx="35" cy="55" r="4"/>
+      <circle cx="50" cy="60" r="4"/>
+      <circle cx="65" cy="70" r="4"/>
+      <circle cx="80" cy="80" r="4"/>
+      <circle cx="95" cy="90" r="4"/>
+      <circle cx="110" cy="100" r="4"/>
+      <circle cx="120" cy="105" r="4"/>
+      <circle cx="135" cy="112" r="4"/>
+    </g>
+  </g>
+
+  <!-- No correlation -->
+  <g transform="translate(400, 60)">
+    <rect x="0" y="0" width="160" height="140" fill="white" stroke="#e2e8f0" rx="4"/>
+    <text x="80" y="20" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" font-weight="500" fill="#6b7280">Ingen korrelasjon</text>
+    <text x="80" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">r nær 0</text>
+
+    <!-- Axes -->
+    <line x1="25" y1="120" x2="145" y2="120" stroke="#94a3b8" stroke-width="1"/>
+    <line x1="25" y1="120" x2="25" y2="45" stroke="#94a3b8" stroke-width="1"/>
+
+    <!-- Horizontal line (no trend) -->
+    <line x1="30" y1="82" x2="140" y2="82" stroke="#6b7280" stroke-width="2" stroke-dasharray="4,4"/>
+
+    <!-- Scattered points -->
+    <g fill="#6b7280">
+      <circle cx="40" cy="60" r="4"/>
+      <circle cx="55" cy="100" r="4"/>
+      <circle cx="70" cy="75" r="4"/>
+      <circle cx="85" cy="110" r="4"/>
+      <circle cx="100" cy="55" r="4"/>
+      <circle cx="115" cy="90" r="4"/>
+      <circle cx="130" cy="70" r="4"/>
+      <circle cx="90" cy="65" r="4"/>
+    </g>
+  </g>
+
+  <!-- Correlation scale -->
+  <g transform="translate(80, 230)">
+    <text x="220" y="0" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="500" fill="#374151">Korrelasjonskoeffisient r</text>
+
+    <!-- Scale bar -->
+    <defs>
+      <linearGradient id="corrGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:#ef4444"/>
+        <stop offset="50%" style="stop-color:#6b7280"/>
+        <stop offset="100%" style="stop-color:#22c55e"/>
+      </linearGradient>
+    </defs>
+    <rect x="20" y="20" width="400" height="20" rx="4" fill="url(#corrGradient)"/>
+
+    <!-- Scale labels -->
+    <text x="20" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#374151">-1</text>
+    <text x="120" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#374151">-0.5</text>
+    <text x="220" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#374151">0</text>
+    <text x="320" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#374151">0.5</text>
+    <text x="420" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#374151">1</text>
+
+    <!-- Interpretation -->
+    <text x="70" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#ef4444">Sterk negativ</text>
+    <text x="220" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#6b7280">Ingen sammenheng</text>
+    <text x="370" y="85" text-anchor="middle" font-family="system-ui, sans-serif" font-size="11" fill="#22c55e">Sterk positiv</text>
+  </g>
+
+  <!-- Formula -->
+  <text x="300" y="360" text-anchor="middle" font-family="system-ui, sans-serif" font-size="13" fill="#374151">Pearsons korrelasjonskoeffisient: -1 ≤ r ≤ 1</text>
+</svg>

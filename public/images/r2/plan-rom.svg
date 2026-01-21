@@ -1,0 +1,116 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 450">
+  <defs>
+    <marker id="arrowN" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="arrowAx" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#1e293b"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="600" height="450" fill="#f8fafc"/>
+
+  <!-- 3D coordinate system - Origin at (150, 340) -->
+
+  <!-- y-axis -->
+  <line x1="150" y1="340" x2="60" y2="390" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowAx)"/>
+
+  <!-- x-axis -->
+  <line x1="150" y1="340" x2="320" y2="340" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowAx)"/>
+
+  <!-- z-axis -->
+  <line x1="150" y1="340" x2="150" y2="140" stroke="#1e293b" stroke-width="2" marker-end="url(#arrowAx)"/>
+
+  <!-- The plane (tilted quadrilateral) -->
+  <path d="M 80 200 L 280 160 L 380 280 L 180 320 Z"
+        fill="#3b82f6" fill-opacity="0.25" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Grid lines on the plane -->
+  <g stroke="#3b82f6" stroke-width="0.8" opacity="0.5">
+    <line x1="130" y1="220" x2="330" y2="180"/>
+    <line x1="180" y1="240" x2="380" y2="200"/>
+    <line x1="130" y1="280" x2="230" y2="260"/>
+    <line x1="180" y1="200" x2="280" y2="280"/>
+    <line x1="230" y1="180" x2="330" y2="260"/>
+  </g>
+
+  <!-- Point P on the plane -->
+  <circle cx="230" cy="240" r="5" fill="#22c55e"/>
+
+  <!-- Normal vector n from point P -->
+  <line x1="230" y1="240" x2="270" y2="115" stroke="#ef4444" stroke-width="3.5" marker-end="url(#arrowN)"/>
+
+  <!-- Position vector to P (dashed) -->
+  <line x1="150" y1="340" x2="230" y2="240" stroke="#22c55e" stroke-width="2" stroke-dasharray="6,4"/>
+
+  <!-- Right angle indicator -->
+  <path d="M 240 233 L 247 240 L 240 247" fill="none" stroke="#ef4444" stroke-width="1.5"/>
+
+  <!-- Axis labels -->
+  <text x="325" y="345" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">x</text>
+  <text x="45" y="405" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">y</text>
+  <text x="140" y="130" font-family="Times New Roman, serif" font-size="18" font-style="italic" fill="#1e293b">z</text>
+
+  <!-- Origin -->
+  <text x="130" y="358" font-family="Times New Roman, serif" font-size="14" fill="#1e293b">O</text>
+
+  <!-- Vector labels -->
+  <text x="285" y="105" font-family="Times New Roman, serif" font-size="20" font-weight="bold" fill="#ef4444">n</text>
+  <text x="293" y="102" font-family="Times New Roman, serif" font-size="14" fill="#ef4444">→</text>
+
+  <text x="240" y="255" font-family="Times New Roman, serif" font-size="16" font-style="italic" fill="#22c55e">P</text>
+
+  <!-- Plane label -->
+  <text x="350" y="250" font-family="Times New Roman, serif" font-size="20" font-style="italic" fill="#3b82f6">α</text>
+
+  <!-- Formula box -->
+  <rect x="390" y="50" width="195" height="200" fill="white" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+
+  <text x="410" y="80" font-family="Times New Roman, serif" font-size="16" font-weight="bold" fill="#1e293b">Plan i rommet</text>
+
+  <text x="410" y="110" font-family="Times New Roman, serif" font-size="14" fill="#64748b">Normalform:</text>
+  <text x="410" y="135" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">
+    <tspan font-style="italic" fill="#ef4444">ax</tspan> + <tspan font-style="italic" fill="#ef4444">by</tspan> + <tspan font-style="italic" fill="#ef4444">cz</tspan> = <tspan font-style="italic">d</tspan>
+  </text>
+
+  <text x="410" y="165" font-family="Times New Roman, serif" font-size="14" fill="#64748b">Normalvektor:</text>
+  <text x="410" y="190" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">
+    <tspan font-weight="bold" fill="#ef4444">n</tspan> = (<tspan font-style="italic">a</tspan>, <tspan font-style="italic">b</tspan>, <tspan font-style="italic">c</tspan>)
+  </text>
+
+  <text x="410" y="225" font-family="Times New Roman, serif" font-size="14" fill="#64748b">Punkt i planet:</text>
+  <text x="410" y="245" font-family="Times New Roman, serif" font-size="16" fill="#1e293b">
+    <tspan font-style="italic" fill="#22c55e">P</tspan> = (<tspan font-style="italic">x₀</tspan>, <tspan font-style="italic">y₀</tspan>, <tspan font-style="italic">z₀</tspan>)
+  </text>
+
+  <!-- Parameter form box -->
+  <rect x="390" y="270" width="195" height="130" fill="white" stroke="#e2e8f0" stroke-width="1" rx="5"/>
+
+  <text x="410" y="300" font-family="Times New Roman, serif" font-size="14" font-weight="bold" fill="#1e293b">Parameterform:</text>
+
+  <text x="410" y="330" font-family="Times New Roman, serif" font-size="15" fill="#1e293b">
+    <tspan font-weight="bold" fill="#3b82f6">r</tspan> = <tspan font-weight="bold" fill="#22c55e">r₀</tspan> + <tspan font-style="italic">s</tspan><tspan font-weight="bold" fill="#8b5cf6">u</tspan> + <tspan font-style="italic">t</tspan><tspan font-weight="bold" fill="#8b5cf6">v</tspan>
+  </text>
+
+  <text x="410" y="360" font-family="Times New Roman, serif" font-size="13" fill="#64748b">
+    <tspan font-weight="bold" fill="#22c55e">r₀</tspan>: posisjon til P
+  </text>
+  <text x="410" y="380" font-family="Times New Roman, serif" font-size="13" fill="#64748b">
+    <tspan font-weight="bold" fill="#8b5cf6">u</tspan>, <tspan font-weight="bold" fill="#8b5cf6">v</tspan>: retningsvektorer i planet
+  </text>
+
+  <!-- Direction vectors in plane (small arrows) -->
+  <line x1="230" y1="240" x2="280" y2="220" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="280,220 272,218 274,226" fill="#8b5cf6"/>
+  <text x="288" y="218" font-family="Times New Roman, serif" font-size="14" font-weight="bold" fill="#8b5cf6">u</text>
+
+  <line x1="230" y1="240" x2="270" y2="275" stroke="#8b5cf6" stroke-width="2.5"/>
+  <polygon points="270,275 264,268 272,267" fill="#8b5cf6"/>
+  <text x="278" y="282" font-family="Times New Roman, serif" font-size="14" font-weight="bold" fill="#8b5cf6">v</text>
+
+  <!-- n perpendicular to u and v note -->
+  <text x="80" y="430" font-family="Times New Roman, serif" font-size="14" fill="#64748b">
+    <tspan font-weight="bold" fill="#ef4444">n</tspan> = <tspan font-weight="bold" fill="#8b5cf6">u</tspan> × <tspan font-weight="bold" fill="#8b5cf6">v</tspan> (normalvektor vinkelrett på planet)
+  </text>
+</svg>

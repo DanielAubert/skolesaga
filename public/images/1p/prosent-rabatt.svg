@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320">
+  <defs>
+    <linearGradient id="priceTagGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1d4ed8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="discountGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="newPriceGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="320" fill="#f8fafc" rx="8"/>
+
+  <!-- Title -->
+  <text x="250" y="30" text-anchor="middle" font-family="system-ui, sans-serif" font-size="18" font-weight="bold" fill="#1e293b">Rabattberegning - 30% avslag</text>
+
+  <!-- Original price tag -->
+  <g transform="translate(40, 55)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#priceTagGrad)"/>
+    <circle cx="15" cy="15" r="6" fill="#f8fafc"/>
+    <text x="60" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#e2e8f0">Ordinær pris</text>
+    <text x="60" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="white">500 kr</text>
+  </g>
+
+  <!-- Discount badge -->
+  <g transform="translate(190, 55)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#discountGrad)"/>
+    <text x="60" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#fecaca">Rabatt</text>
+    <text x="60" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="white">30%</text>
+  </g>
+
+  <!-- New price tag -->
+  <g transform="translate(340, 55)">
+    <rect x="0" y="0" width="120" height="80" rx="8" fill="url(#newPriceGrad)"/>
+    <circle cx="15" cy="15" r="6" fill="#f8fafc"/>
+    <text x="60" y="35" text-anchor="middle" font-family="system-ui, sans-serif" font-size="12" fill="#bbf7d0">Ny pris</text>
+    <text x="60" y="60" text-anchor="middle" font-family="system-ui, sans-serif" font-size="22" font-weight="bold" fill="white">350 kr</text>
+  </g>
+
+  <!-- Arrows -->
+  <path d="M165 95 L185 95" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <path d="M315 95 L335 95" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Arrow marker -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#64748b"/>
+    </marker>
+  </defs>
+
+  <!-- Calculation box -->
+  <rect x="40" y="160" width="420" height="140" rx="8" fill="white" stroke="#e2e8f0" stroke-width="2"/>
+
+  <!-- Calculation steps -->
+  <text x="60" y="190" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Metode 1: Finn rabatten</text>
+  <text x="60" y="215" font-family="monospace" font-size="14" fill="#3b82f6">Rabatt = 500 kr × 0,30 = 150 kr</text>
+  <text x="60" y="240" font-family="monospace" font-size="14" fill="#22c55e">Ny pris = 500 kr - 150 kr = 350 kr</text>
+
+  <line x1="250" y1="165" x2="250" y2="290" stroke="#e2e8f0" stroke-width="1"/>
+
+  <text x="270" y="190" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#1e293b">Metode 2: Vekstfaktor</text>
+  <text x="270" y="215" font-family="monospace" font-size="14" fill="#64748b">Vekstfaktor = 1 - 0,30 = 0,70</text>
+  <text x="270" y="240" font-family="monospace" font-size="14" fill="#22c55e">Ny pris = 500 kr × 0,70 = 350 kr</text>
+
+  <!-- Du sparer label -->
+  <rect x="170" y="260" width="160" height="30" rx="15" fill="#fef3c7"/>
+  <text x="250" y="280" text-anchor="middle" font-family="system-ui, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Du sparer 150 kr!</text>
+</svg>

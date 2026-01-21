@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 340">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f3ff;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ede9fe;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="340" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="250" y="28" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#6d28d9" text-anchor="middle">Venn-diagram og sannsynlighet</text>
+
+  <!-- Universe rectangle -->
+  <g transform="translate(30, 45)">
+    <rect x="0" y="0" width="300" height="200" fill="white" stroke="#94a3b8" stroke-width="2" rx="8"/>
+    <text x="10" y="20" font-family="Arial, sans-serif" font-size="12" fill="#64748b">Utfallsrom (U)</text>
+
+    <!-- Circle A -->
+    <circle cx="110" cy="110" r="70" fill="#dbeafe" fill-opacity="0.7" stroke="#3b82f6" stroke-width="2"/>
+    <text x="70" y="110" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#3b82f6">A</text>
+
+    <!-- Circle B -->
+    <circle cx="190" cy="110" r="70" fill="#dcfce7" fill-opacity="0.7" stroke="#22c55e" stroke-width="2"/>
+    <text x="220" y="110" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#22c55e">B</text>
+
+    <!-- Intersection highlighting -->
+    <text x="150" y="115" font-family="Arial, sans-serif" font-size="13" fill="#7c3aed" font-weight="bold">A og B</text>
+
+    <!-- Numbers in regions -->
+    <text x="65" y="85" font-family="Arial, sans-serif" font-size="14" fill="#3b82f6">5</text>
+    <text x="150" y="85" font-family="Arial, sans-serif" font-size="14" fill="#7c3aed">3</text>
+    <text x="230" y="85" font-family="Arial, sans-serif" font-size="14" fill="#22c55e">4</text>
+    <text x="270" y="185" font-family="Arial, sans-serif" font-size="12" fill="#64748b">2</text>
+  </g>
+
+  <!-- Legend and formulas -->
+  <g transform="translate(350, 50)">
+    <rect x="0" y="0" width="130" height="190" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="65" y="22" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#374151" text-anchor="middle">Formler:</text>
+
+    <!-- P(A) -->
+    <text x="10" y="50" font-family="Arial, sans-serif" font-size="11" fill="#3b82f6" font-weight="bold">P(A)</text>
+    <text x="45" y="50" font-family="Arial, sans-serif" font-size="11" fill="#374151">= 8/14</text>
+
+    <!-- P(B) -->
+    <text x="10" y="75" font-family="Arial, sans-serif" font-size="11" fill="#22c55e" font-weight="bold">P(B)</text>
+    <text x="45" y="75" font-family="Arial, sans-serif" font-size="11" fill="#374151">= 7/14</text>
+
+    <!-- P(A and B) -->
+    <text x="10" y="100" font-family="Arial, sans-serif" font-size="11" fill="#7c3aed" font-weight="bold">P(A og B)</text>
+    <text x="75" y="100" font-family="Arial, sans-serif" font-size="11" fill="#374151">= 3/14</text>
+
+    <!-- P(A or B) -->
+    <text x="10" y="130" font-family="Arial, sans-serif" font-size="11" fill="#f59e0b" font-weight="bold">P(A eller B)</text>
+    <text x="85" y="130" font-family="Arial, sans-serif" font-size="11" fill="#374151">= 12/14</text>
+
+    <line x1="10" y1="145" x2="120" y2="145" stroke="#e5e7eb" stroke-width="1"/>
+
+    <text x="65" y="165" font-family="Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">Totalt: 14 utfall</text>
+    <text x="65" y="180" font-family="Arial, sans-serif" font-size="10" fill="#6b7280" text-anchor="middle">(5+3+4+2)</text>
+  </g>
+
+  <!-- Addition rule -->
+  <g transform="translate(30, 255)">
+    <rect x="0" y="0" width="440" height="75" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="220" y="22" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#6d28d9" text-anchor="middle">Addisjonssetningen:</text>
+
+    <text x="220" y="48" font-family="Arial, sans-serif" font-size="14" text-anchor="middle">
+      <tspan fill="#f59e0b" font-weight="bold">P(A eller B)</tspan>
+      <tspan fill="#374151"> = </tspan>
+      <tspan fill="#3b82f6">P(A)</tspan>
+      <tspan fill="#374151"> + </tspan>
+      <tspan fill="#22c55e">P(B)</tspan>
+      <tspan fill="#374151"> - </tspan>
+      <tspan fill="#7c3aed">P(A og B)</tspan>
+    </text>
+
+    <text x="220" y="68" font-family="Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">Vi trekker fra snittet fordi det ellers telles to ganger!</text>
+  </g>
+</svg>

@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 450" width="500" height="450">
+  <defs>
+    <marker id="arrow-red-s" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#ef4444"/>
+    </marker>
+    <marker id="arrow-red-start-s" markerWidth="10" markerHeight="7" refX="1" refY="3.5" orient="auto">
+      <polygon points="10 0, 0 3.5, 10 7" fill="#ef4444"/>
+    </marker>
+    <linearGradient id="cylinderGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:0.3"/>
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.1"/>
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:0.25"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Bakgrunn -->
+  <rect width="500" height="450" fill="#fafafa"/>
+
+  <!-- Tittel -->
+  <text x="250" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1e293b">Volum av sylinder</text>
+
+  <!-- 3D Sylinder -->
+
+  <!-- Sylinderkropp (rektangel med avrundede sider visuelt) -->
+  <path d="M 130,130 L 130,320 Q 130,340 200,345 Q 270,350 340,345 Q 370,340 370,320 L 370,130"
+        fill="url(#cylinderGradient)" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Topp-ellipse (synlig) -->
+  <ellipse cx="250" cy="130" rx="120" ry="35" fill="#3b82f6" fill-opacity="0.2" stroke="#3b82f6" stroke-width="3"/>
+
+  <!-- Bunn-ellipse (delvis skjult, stiplet bakre del) -->
+  <ellipse cx="250" cy="320" rx="120" ry="35" fill="#3b82f6" fill-opacity="0.15" stroke="#3b82f6" stroke-width="2"/>
+
+  <!-- Senterlinje (hoyde) -->
+  <line x1="250" y1="130" x2="250" y2="320" stroke="#22c55e" stroke-width="2" stroke-dasharray="8,4"/>
+
+  <!-- Radius pa toppen -->
+  <line x1="250" y1="130" x2="370" y2="130" stroke="#ef4444" stroke-width="3"/>
+  <text x="310" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#ef4444">r</text>
+
+  <!-- Hoyde-pil (til hoyre for sylinderen) -->
+  <line x1="410" y1="135" x2="410" y2="315" stroke="#ef4444" stroke-width="2" marker-start="url(#arrow-red-start-s)" marker-end="url(#arrow-red-s)"/>
+  <text x="430" y="230" text-anchor="start" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ef4444">h</text>
+
+  <!-- Sentrum pa toppen -->
+  <circle cx="250" cy="130" r="4" fill="#3b82f6"/>
+
+  <!-- Sentrum pa bunnen -->
+  <circle cx="250" cy="320" r="4" fill="#3b82f6"/>
+
+  <!-- Kantpunkter -->
+  <circle cx="370" cy="130" r="4" fill="#ef4444"/>
+  <circle cx="130" cy="130" r="4" fill="#3b82f6"/>
+
+  <!-- Formel-boks -->
+  <rect x="30" y="80" width="150" height="110" rx="10" fill="white" stroke="#f59e0b" stroke-width="2"/>
+  <text x="105" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#f59e0b">Formel:</text>
+  <text x="105" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1e293b">V = pi * r^2 * h</text>
+  <text x="105" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#64748b">eller</text>
+  <text x="105" y="185" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#1e293b">V = G * h</text>
+
+  <!-- Forklaring -->
+  <rect x="30" y="370" width="200" height="70" rx="8" fill="white" stroke="#64748b" stroke-width="1"/>
+  <text x="45" y="393" font-family="Arial, sans-serif" font-size="13" fill="#64748b">V = volum</text>
+  <text x="45" y="413" font-family="Arial, sans-serif" font-size="13" fill="#64748b">r = radius i grunnflaten</text>
+  <text x="45" y="433" font-family="Arial, sans-serif" font-size="13" fill="#64748b">h = hoyde, G = grunnflate</text>
+
+  <!-- Eksempel-boks -->
+  <rect x="280" y="370" width="190" height="70" rx="8" fill="white" stroke="#22c55e" stroke-width="1"/>
+  <text x="295" y="390" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#22c55e">Eksempel: r=3, h=10</text>
+  <text x="295" y="410" font-family="Arial, sans-serif" font-size="12" fill="#64748b">V = pi * 3^2 * 10</text>
+  <text x="295" y="430" font-family="Arial, sans-serif" font-size="12" fill="#64748b">V = 90pi ca. 283 cm^3</text>
+
+  <!-- Grunnflate-indikasjon -->
+  <text x="250" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#3b82f6" fill-opacity="0.5">V</text>
+</svg>

@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 350">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff7ed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffedd5;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="2" dy="2" stdDeviation="2" flood-opacity="0.15"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="500" height="350" fill="url(#bgGrad)" rx="12"/>
+
+  <!-- Title -->
+  <text x="250" y="28" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#c2410c" text-anchor="middle">Valgtre (Kombinatorikk)</text>
+
+  <!-- Problem statement -->
+  <g transform="translate(30, 42)">
+    <rect x="0" y="0" width="440" height="35" fill="white" rx="6" filter="url(#shadow)"/>
+    <text x="220" y="23" font-family="Arial, sans-serif" font-size="13" fill="#374151" text-anchor="middle">
+      Du skal velge <tspan font-weight="bold" fill="#3b82f6">hovedrett</tspan> (2 valg) og <tspan font-weight="bold" fill="#22c55e">dessert</tspan> (3 valg). Hvor mange kombinasjoner?
+    </text>
+  </g>
+
+  <!-- Tree structure -->
+  <g transform="translate(50, 90)">
+    <!-- Start node -->
+    <circle cx="50" cy="30" r="18" fill="#f59e0b"/>
+    <text x="50" y="35" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">Start</text>
+
+    <!-- Level 1 branches (Main courses) -->
+    <line x1="68" y1="30" x2="150" y2="0" stroke="#3b82f6" stroke-width="2"/>
+    <line x1="68" y1="30" x2="150" y2="60" stroke="#3b82f6" stroke-width="2"/>
+
+    <!-- Main course nodes -->
+    <circle cx="170" cy="0" r="22" fill="#3b82f6"/>
+    <text x="170" y="5" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Pizza</text>
+
+    <circle cx="170" cy="60" r="22" fill="#3b82f6"/>
+    <text x="170" y="65" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="bold">Pasta</text>
+
+    <!-- Level 2 branches from Pizza -->
+    <line x1="192" y1="0" x2="280" y2="-40" stroke="#22c55e" stroke-width="2"/>
+    <line x1="192" y1="0" x2="280" y2="0" stroke="#22c55e" stroke-width="2"/>
+    <line x1="192" y1="0" x2="280" y2="40" stroke="#22c55e" stroke-width="2"/>
+
+    <!-- Level 2 branches from Pasta -->
+    <line x1="192" y1="60" x2="280" y2="60" stroke="#22c55e" stroke-width="2"/>
+    <line x1="192" y1="60" x2="280" y2="100" stroke="#22c55e" stroke-width="2"/>
+    <line x1="192" y1="60" x2="280" y2="140" stroke="#22c55e" stroke-width="2"/>
+
+    <!-- Dessert nodes from Pizza -->
+    <circle cx="300" cy="-40" r="18" fill="#22c55e"/>
+    <text x="300" y="-36" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Is</text>
+
+    <circle cx="300" cy="0" r="18" fill="#22c55e"/>
+    <text x="300" y="4" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Kake</text>
+
+    <circle cx="300" cy="40" r="18" fill="#22c55e"/>
+    <text x="300" y="44" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Frukt</text>
+
+    <!-- Dessert nodes from Pasta -->
+    <circle cx="300" cy="60" r="18" fill="#22c55e"/>
+    <text x="300" y="64" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Is</text>
+
+    <circle cx="300" cy="100" r="18" fill="#22c55e"/>
+    <text x="300" y="104" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Kake</text>
+
+    <circle cx="300" cy="140" r="18" fill="#22c55e"/>
+    <text x="300" y="144" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle" font-weight="bold">Frukt</text>
+
+    <!-- Result combinations -->
+    <text x="360" y="-36" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pizza + Is</text>
+    <text x="360" y="4" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pizza + Kake</text>
+    <text x="360" y="44" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pizza + Frukt</text>
+    <text x="360" y="64" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pasta + Is</text>
+    <text x="360" y="104" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pasta + Kake</text>
+    <text x="360" y="144" font-family="Arial, sans-serif" font-size="11" fill="#374151">Pasta + Frukt</text>
+  </g>
+
+  <!-- Formula and result -->
+  <g transform="translate(30, 265)">
+    <rect x="0" y="0" width="440" height="75" fill="white" rx="8" filter="url(#shadow)"/>
+
+    <text x="220" y="22" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#c2410c" text-anchor="middle">Multiplikasjonsprinsippet:</text>
+
+    <text x="220" y="48" font-family="Arial, sans-serif" font-size="16" text-anchor="middle">
+      <tspan fill="#374151">Antall kombinasjoner = </tspan>
+      <tspan fill="#3b82f6" font-weight="bold">2</tspan>
+      <tspan fill="#374151"> x </tspan>
+      <tspan fill="#22c55e" font-weight="bold">3</tspan>
+      <tspan fill="#374151"> = </tspan>
+      <tspan fill="#f59e0b" font-weight="bold" font-size="20">6</tspan>
+    </text>
+
+    <text x="220" y="68" font-family="Arial, sans-serif" font-size="11" fill="#6b7280" text-anchor="middle">(hovedretter) x (desserter) = (totalt antall maltider)</text>
+  </g>
+</svg>
