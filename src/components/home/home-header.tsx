@@ -19,6 +19,9 @@ export function HomeHeader() {
           <Link href="/bok" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
             Lærebøker
           </Link>
+          <Link href="/quiz" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
+            Quiz
+          </Link>
           <Link href="/book" className="text-sm font-medium hover:text-primary transition-colors hidden sm:block">
             Python
           </Link>

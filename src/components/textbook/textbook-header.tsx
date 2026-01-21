@@ -31,6 +31,16 @@ export function TextbookHeader({
             </span>
           </Link>
 
+          {/* Navigation */}
+          <nav className="hidden sm:flex items-center gap-4">
+            <Link href="/bok" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Lærebøker
+            </Link>
+            <Link href="/quiz" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+              Quiz
+            </Link>
+          </nav>
+
           {/* Høyre side */}
           <div className="flex items-center gap-2">
             <ThemeToggle />

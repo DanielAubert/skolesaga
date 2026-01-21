@@ -32082,3 +32082,218 @@ export function hasQuizQuestions(chapterId: string): boolean {
 export function getChapterIdsWithQuiz(): string[] {
   return Object.keys(quizData).filter(id => quizData[id].length >= 10);
 }
+
+/**
+ * Metadata for fag med norske navn og farger
+ */
+export interface SubjectMeta {
+  id: string;
+  name: string;
+  color: string;
+  icon?: string;
+}
+
+const subjectMetadata: Record<string, SubjectMeta> = {
+  'norsk': { id: 'norsk', name: 'Norsk', color: 'from-red-500 to-rose-600' },
+  'engelsk': { id: 'engelsk', name: 'Engelsk', color: 'from-blue-500 to-indigo-600' },
+  'matematikk': { id: 'matematikk', name: 'Matematikk', color: 'from-purple-500 to-violet-600' },
+  'naturfag': { id: 'naturfag', name: 'Naturfag', color: 'from-green-500 to-emerald-600' },
+  'samfunnsfag': { id: 'samfunnsfag', name: 'Samfunnsfag', color: 'from-amber-500 to-orange-600' },
+  'krle': { id: 'krle', name: 'KRLE', color: 'from-cyan-500 to-teal-600' },
+  'kunst': { id: 'kunst', name: 'Kunst og håndverk', color: 'from-pink-500 to-rose-600' },
+  'musikk': { id: 'musikk', name: 'Musikk', color: 'from-fuchsia-500 to-purple-600' },
+  'kroppsoving': { id: 'kroppsoving', name: 'Kroppsøving', color: 'from-lime-500 to-green-600' },
+  'mat-og-helse': { id: 'mat-og-helse', name: 'Mat og helse', color: 'from-orange-500 to-red-600' },
+  'spansk': { id: 'spansk', name: 'Spansk', color: 'from-yellow-500 to-orange-600' },
+  'tysk': { id: 'tysk', name: 'Tysk', color: 'from-gray-600 to-slate-700' },
+  'fransk': { id: 'fransk', name: 'Fransk', color: 'from-blue-600 to-indigo-700' },
+  'fysikk': { id: 'fysikk', name: 'Fysikk', color: 'from-slate-500 to-gray-600' },
+  'kjemi': { id: 'kjemi', name: 'Kjemi', color: 'from-emerald-500 to-teal-600' },
+  'biologi': { id: 'biologi', name: 'Biologi', color: 'from-green-600 to-lime-600' },
+  'geofag': { id: 'geofag', name: 'Geofag', color: 'from-stone-500 to-amber-600' },
+  'geografi': { id: 'geografi', name: 'Geografi', color: 'from-emerald-600 to-green-700' },
+  'historie': { id: 'historie', name: 'Historie', color: 'from-amber-600 to-yellow-700' },
+  'samfunnskunnskap': { id: 'samfunnskunnskap', name: 'Samfunnskunnskap', color: 'from-blue-600 to-cyan-700' },
+  'sosiologi': { id: 'sosiologi', name: 'Sosiologi', color: 'from-violet-500 to-purple-600' },
+  'psykologi': { id: 'psykologi', name: 'Psykologi', color: 'from-pink-600 to-rose-700' },
+  'it': { id: 'it', name: 'Informasjonsteknologi', color: 'from-cyan-600 to-blue-700' },
+  'tof': { id: 'tof', name: 'Teknologi og forskningslære', color: 'from-indigo-500 to-violet-600' },
+  'rettslaere': { id: 'rettslaere', name: 'Rettslære', color: 'from-slate-600 to-gray-700' },
+  'samfokonomi': { id: 'samfokonomi', name: 'Samfunnsøkonomi', color: 'from-emerald-600 to-cyan-700' },
+  'okonomi-drift': { id: 'okonomi-drift', name: 'Økonomi og administrasjon', color: 'from-green-600 to-teal-700' },
+  'okonomi-ledelse': { id: 'okonomi-ledelse', name: 'Økonomi og ledelse', color: 'from-teal-600 to-cyan-700' },
+  'markedsforing': { id: 'markedsforing', name: 'Markedsføring', color: 'from-orange-600 to-red-700' },
+  'regnskap-revisjon': { id: 'regnskap-revisjon', name: 'Regnskap og revisjon', color: 'from-slate-500 to-blue-600' },
+  'entrebed': { id: 'entrebed', name: 'Entreprenørskap', color: 'from-yellow-500 to-amber-600' },
+  'medieinfo': { id: 'medieinfo', name: 'Medieproduksjon', color: 'from-purple-600 to-pink-700' },
+  'komkult': { id: 'komkult', name: 'Kommunikasjon og kultur', color: 'from-rose-500 to-pink-600' },
+  'religion-etikk': { id: 'religion-etikk', name: 'Religion og etikk', color: 'from-indigo-600 to-purple-700' },
+  'filosofi-etikk': { id: 'filosofi-etikk', name: 'Filosofi og etikk', color: 'from-violet-600 to-indigo-700' },
+  'politikk-menneskerett': { id: 'politikk-menneskerett', name: 'Politikk og menneskerettigheter', color: 'from-blue-700 to-indigo-800' },
+  'int-engelsk': { id: 'int-engelsk', name: 'Internasjonal engelsk', color: 'from-blue-500 to-cyan-600' },
+  'helseoppvekst': { id: 'helseoppvekst', name: 'Helse- og oppvekstfag', color: 'from-pink-500 to-red-600' },
+  'trening': { id: 'trening', name: 'Treningslære', color: 'from-lime-600 to-green-700' },
+  'sikkerhetsfag': { id: 'sikkerhetsfag', name: 'Sikkerhetsfag', color: 'from-red-600 to-orange-700' },
+};
+
+/**
+ * Organiserer quiz-data etter fag og klassetrinn
+ */
+export interface OrganizedQuizData {
+  subject: SubjectMeta;
+  grades: {
+    grade: string;
+    gradeName: string;
+    chapters: {
+      chapterId: string;
+      chapterName: string;
+      questionCount: number;
+    }[];
+  }[];
+}
+
+function parseGradeFromId(id: string): { subject: string; grade: string; chapter: string } {
+  const parts = id.split('-');
+
+  // Handle compound subjects like "mat-og-helse" or "okonomi-drift"
+  const subjectParts: string[] = [];
+  let gradeIndex = -1;
+
+  for (let i = 0; i < parts.length; i++) {
+    const part = parts[i];
+    // Check if this looks like a grade (number or vgX)
+    if (/^\d+$/.test(part) || /^vg\d+$/i.test(part)) {
+      gradeIndex = i;
+      break;
+    }
+    subjectParts.push(part);
+  }
+
+  if (gradeIndex === -1) {
+    // No grade found, might be like "geografi-1" format
+    const lastPart = parts[parts.length - 1];
+    if (/^\d+$/.test(lastPart)) {
+      return {
+        subject: parts.slice(0, -1).join('-'),
+        grade: 'vg',
+        chapter: lastPart,
+      };
+    }
+    return { subject: id, grade: 'unknown', chapter: '1' };
+  }
+
+  const subject = subjectParts.join('-');
+  const grade = parts[gradeIndex];
+  const chapter = parts.slice(gradeIndex + 1).join('-');
+
+  return { subject, grade, chapter };
+}
+
+function getGradeName(grade: string): string {
+  if (grade === 'vg' || grade === 'vg1') return 'VG1';
+  if (grade === 'vg2') return 'VG2';
+  if (grade === 'vg3') return 'VG3';
+  if (/^\d+$/.test(grade)) {
+    const num = parseInt(grade, 10);
+    if (num <= 10) return `${num}. klasse`;
+    // For subjects like fysikk-2 where 2 means VG2
+    return `VG${num}`;
+  }
+  return grade.toUpperCase();
+}
+
+function getChapterDisplayName(chapter: string): string {
+  const parts = chapter.split('-');
+  if (parts.length === 2) {
+    return `Kapittel ${parts[0]}.${parts[1]}`;
+  }
+  return `Kapittel ${chapter}`;
+}
+
+export function getOrganizedQuizData(): OrganizedQuizData[] {
+  const chapterIds = Object.keys(quizData).filter(id => quizData[id].length >= 4);
+
+  // Group by subject, then by grade
+  const grouped: Record<string, Record<string, { chapterId: string; chapter: string; questionCount: number }[]>> = {};
+
+  for (const id of chapterIds) {
+    const { subject, grade, chapter } = parseGradeFromId(id);
+
+    if (!grouped[subject]) {
+      grouped[subject] = {};
+    }
+    if (!grouped[subject][grade]) {
+      grouped[subject][grade] = [];
+    }
+
+    grouped[subject][grade].push({
+      chapterId: id,
+      chapter,
+      questionCount: quizData[id].length,
+    });
+  }
+
+  // Convert to array format
+  const result: OrganizedQuizData[] = [];
+
+  for (const [subjectId, grades] of Object.entries(grouped)) {
+    const subjectMeta = subjectMetadata[subjectId] || {
+      id: subjectId,
+      name: subjectId.charAt(0).toUpperCase() + subjectId.slice(1).replace(/-/g, ' '),
+      color: 'from-gray-500 to-slate-600',
+    };
+
+    const gradeArray = Object.entries(grades)
+      .map(([grade, chapters]) => ({
+        grade,
+        gradeName: getGradeName(grade),
+        chapters: chapters
+          .sort((a, b) => a.chapter.localeCompare(b.chapter, 'nb', { numeric: true }))
+          .map(c => ({
+            chapterId: c.chapterId,
+            chapterName: getChapterDisplayName(c.chapter),
+            questionCount: c.questionCount,
+          })),
+      }))
+      .sort((a, b) => {
+        // Sort grades: 5, 6, 7, 8, 9, 10, vg1, vg2, vg3
+        const aNum = parseInt(a.grade.replace('vg', ''), 10);
+        const bNum = parseInt(b.grade.replace('vg', ''), 10);
+        const aIsVg = a.grade.startsWith('vg');
+        const bIsVg = b.grade.startsWith('vg');
+
+        if (aIsVg && !bIsVg) return 1;
+        if (!aIsVg && bIsVg) return -1;
+        return aNum - bNum;
+      });
+
+    result.push({
+      subject: subjectMeta,
+      grades: gradeArray,
+    });
+  }
+
+  // Sort subjects alphabetically by Norwegian name
+  result.sort((a, b) => a.subject.name.localeCompare(b.subject.name, 'nb'));
+
+  return result;
+}
+
+/**
+ * Henter total antall quiz-spørsmål
+ */
+export function getTotalQuizQuestionCount(): number {
+  return Object.values(quizData).reduce((sum, questions) => sum + questions.length, 0);
+}
+
+/**
+ * Henter antall unike fag med quiz
+ */
+export function getUniqueSubjectCount(): number {
+  const subjects = new Set<string>();
+  for (const id of Object.keys(quizData)) {
+    const { subject } = parseGradeFromId(id);
+    subjects.add(subject);
+  }
+  return subjects.size;
+}
