@@ -2,6 +2,7 @@ import { Metadata } from 'next';
 import Link from 'next/link';
 import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { HomeHeader } from '@/components/home/home-header';
 
 export const metadata: Metadata = {
   title: 'Skolesaga - Interaktive lærebøker for norsk skole',
@@ -16,27 +17,7 @@ export default function HomePage() {
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30" />
         <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
-        <header className="relative container mx-auto px-4 py-6">
-          <nav className="flex items-center justify-between">
-            <Link href="/" className="flex items-center space-x-2 group">
-              <div className="rounded-lg bg-primary/10 p-2 transition-all group-hover:bg-primary/20">
-                <BookOpen className="h-6 w-6 text-primary" />
-              </div>
-              <span className="font-bold text-xl">Skolesaga</span>
-            </Link>
-            <div className="flex items-center gap-4">
-              <Link href="/bok" className="text-sm font-medium hover:text-primary transition-colors">
-                Lærebøker
-              </Link>
-              <Link href="/book" className="text-sm font-medium hover:text-primary transition-colors">
-                Python
-              </Link>
-              <Link href="/geogebra" className="text-sm font-medium hover:text-primary transition-colors">
-                GeoGebra
-              </Link>
-            </div>
-          </nav>
-        </header>
+        <HomeHeader />
 
         <div className="relative container mx-auto px-4 py-20 md:py-32 text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
