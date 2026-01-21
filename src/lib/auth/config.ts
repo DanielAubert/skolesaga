@@ -283,6 +283,7 @@ export const authOptions: NextAuthOptions = {
           token.schoolId = userData.school_id;
           token.subscriptionTier = userData.subscription_tier;
           token.onboardingCompleted = userData.onboarding_completed ?? false;
+          token.gradeLevel = userData.grade_level ?? undefined;
         }
       }
 
@@ -296,6 +297,7 @@ export const authOptions: NextAuthOptions = {
         session.user.schoolId = token.schoolId;
         session.user.subscriptionTier = token.subscriptionTier;
         session.user.onboardingCompleted = token.onboardingCompleted;
+        session.user.gradeLevel = token.gradeLevel;
       }
       return session;
     },

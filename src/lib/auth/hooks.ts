@@ -54,11 +54,11 @@ export function useAuth() {
           throw new Error(result.error);
         }
 
-        router.push("/dashboard");
+        router.push("/bok");
         return result;
       }
 
-      return signIn(provider, { callbackUrl: "/dashboard" });
+      return signIn(provider, { callbackUrl: "/bok" });
     },
     [router]
   );

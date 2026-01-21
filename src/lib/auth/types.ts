@@ -12,6 +12,7 @@ export interface ExtendedUser extends DefaultUser {
   subscriptionTier: SubscriptionTier;
   authProvider?: AuthProvider;
   onboardingCompleted?: boolean;
+  gradeLevel?: string;
 }
 
 declare module "next-auth" {
@@ -30,6 +31,7 @@ declare module "next-auth/jwt" {
     schoolId?: string;
     subscriptionTier: SubscriptionTier;
     onboardingCompleted?: boolean;
+    gradeLevel?: string;
   }
 }
 
