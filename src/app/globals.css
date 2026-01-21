@@ -1,0 +1,645 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.5rem;
+  --background: oklch(0.99 0 0);
+  --foreground: oklch(0.15 0 0);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0 0);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0 0);
+  --primary: oklch(0.45 0.18 250);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0 0);
+  --secondary-foreground: oklch(0.25 0 0);
+  --muted: oklch(0.97 0 0);
+  --muted-foreground: oklch(0.45 0 0);
+  --accent: oklch(0.96 0 0);
+  --accent-foreground: oklch(0.25 0 0);
+  --destructive: oklch(0.577 0.245 27.325);
+  --border: oklch(0.92 0 0);
+  --input: oklch(0.92 0 0);
+  --ring: oklch(0.45 0.18 250);
+  --chart-1: oklch(0.646 0.222 41.116);
+  --chart-2: oklch(0.6 0.118 184.704);
+  --chart-3: oklch(0.398 0.07 227.392);
+  --chart-4: oklch(0.828 0.189 84.429);
+  --chart-5: oklch(0.769 0.188 70.08);
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: oklch(0.45 0.18 250);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-border: oklch(0.922 0 0);
+  --sidebar-ring: oklch(0.45 0.18 250);
+}
+
+.dark {
+  --background: oklch(0.12 0 0);
+  --foreground: oklch(0.95 0 0);
+  --card: oklch(0.15 0 0);
+  --card-foreground: oklch(0.95 0 0);
+  --popover: oklch(0.15 0 0);
+  --popover-foreground: oklch(0.95 0 0);
+  --primary: oklch(0.60 0.18 250);
+  --primary-foreground: oklch(1 0 0);
+  --secondary: oklch(0.20 0 0);
+  --secondary-foreground: oklch(0.95 0 0);
+  --muted: oklch(0.20 0 0);
+  --muted-foreground: oklch(0.65 0 0);
+  --accent: oklch(0.25 0 0);
+  --accent-foreground: oklch(0.95 0 0);
+  --destructive: oklch(0.704 0.191 22.216);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.60 0.18 250);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.15 0 0);
+  --sidebar-foreground: oklch(0.95 0 0);
+  --sidebar-primary: oklch(0.60 0.18 250);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.25 0 0);
+  --sidebar-accent-foreground: oklch(0.95 0 0);
+  --sidebar-border: oklch(1 0 0 / 10%);
+  --sidebar-ring: oklch(0.60 0.18 250);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply tracking-tight font-bold;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+  /* Override KaTeX display math centering and spacing */
+  .katex-display {
+    text-align: left !important;
+    margin: 0.25em 0 !important;
+  }
+  .katex-display > .katex {
+    text-align: left !important;
+  }
+  /* Minimal spacing in definition/theorem blocks */
+  [class*="border-l-blue"] .katex-display,
+  [class*="border-l-purple"] .katex-display {
+    margin: 0.4em 0 !important;
+    padding: 0 !important;
+  }
+  [class*="border-l-blue"] .katex-display:first-child,
+  [class*="border-l-purple"] .katex-display:first-child {
+    margin-top: 0 !important;
+  }
+  [class*="border-l-blue"] .katex-display:last-child,
+  [class*="border-l-purple"] .katex-display:last-child {
+    margin-bottom: 0 !important;
+  }
+  [class*="border-l-blue"] p,
+  [class*="border-l-purple"] p {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  [class*="border-l-blue"] .prose,
+  [class*="border-l-purple"] .prose {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+  [class*="border-l-blue"] .prose > *,
+  [class*="border-l-purple"] .prose > * {
+    margin: 0 !important;
+  }
+
+  /* MathLive math-field styling for multiline equations */
+  math-field {
+    --caret-color: oklch(0.45 0.18 250);
+    display: block !important;
+  }
+
+  /* Sørg for at flerlinje-ligninger vises riktig */
+  math-field::part(container) {
+    min-height: 80px;
+    align-items: flex-start !important;
+  }
+
+  /* Støtte for newline (\\) i MathLive */
+  .math-field-container math-field {
+    white-space: pre-wrap;
+  }
+}
+
+@layer utilities {
+  .animate-in {
+    animation: fadeIn 0.5s ease-out;
+  }
+  .animate-gradient {
+    background-size: 200% 200%;
+    animation: gradient 8s ease infinite;
+  }
+  .glass {
+    @apply backdrop-blur-md bg-background/80 border-border/50;
+  }
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary to-primary/70 bg-clip-text text-transparent;
+  }
+  .gradient-hero {
+    background: linear-gradient(
+      135deg,
+      oklch(var(--primary) / 0.05) 0%,
+      oklch(var(--accent) / 0.02) 50%,
+      oklch(var(--secondary) / 0.05) 100%
+    );
+  }
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-xl;
+  }
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-[0_0_30px_rgba(var(--primary)/0.3)];
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes gradient {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* ========================================
+   Accessibility Styles (WCAG 2.1 AA)
+   ======================================== */
+
+/* Forbedret fokus-indikator for alle interaktive elementer */
+@layer base {
+  /* Tydelig fokusring for tastaturnavigasjon */
+  :focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    border-radius: var(--radius);
+  }
+
+  /* Skjul outline for museklikk, vis for tastatur */
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Ekstra tydelig fokus for lenker */
+  a:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    text-decoration: underline;
+    text-decoration-thickness: 2px;
+  }
+
+  /* Knapper med høy kontrast fokus */
+  button:focus-visible,
+  [role="button"]:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(var(--ring) / 0.2);
+  }
+
+  /* Input-felt med tydelig fokus */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 3px solid var(--ring);
+    outline-offset: 0;
+    border-color: var(--ring);
+  }
+
+  /* Reduser bevegelse for brukere som foretrekker det */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  /* Sikre tilstrekkelig tekstkontrast */
+  .text-muted-foreground {
+    /* Minimum 4.5:1 kontrast for liten tekst */
+    opacity: 1;
+  }
+
+  /* Skip-link styling */
+  .skip-nav-container a:focus {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 0.75rem 1rem;
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 9999;
+    border-radius: var(--radius);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    font-weight: 600;
+  }
+}
+
+/* Tilgjengelighetsklasser */
+@layer utilities {
+  /* Visuelt skjult men tilgjengelig for skjermlesere */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+
+  /* Vis ved fokus (for skip-links) */
+  .sr-only-focusable:focus,
+  .sr-only-focusable:active {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
+  /* Tvungen synlig fokus for testing */
+  .focus-always:focus {
+    outline: 3px solid var(--ring) !important;
+    outline-offset: 2px !important;
+  }
+
+  /* Høykontrast-modus støtte */
+  @media (forced-colors: active) {
+    a,
+    button,
+    [role="button"] {
+      forced-color-adjust: none;
+    }
+  }
+}
+
+/* ========================================
+   Print Styles for Book Chapters
+   ======================================== */
+@media print {
+  /* Hide navigation, interactive elements, and UI chrome */
+  .no-print,
+  header,
+  nav,
+  footer,
+  .sticky,
+  button:not(.print-keep),
+  [role="navigation"],
+  [class*="nav"],
+  [class*="Nav"],
+  [class*="sidebar"],
+  [class*="Sidebar"],
+  [class*="toc"],
+  [class*="TableOfContents"],
+  [class*="progress"],
+  [class*="Progress"] {
+    display: none !important;
+  }
+
+  /* Reset body and page styles */
+  body {
+    background: white !important;
+    color: black !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Page setup for A4 format */
+  @page {
+    size: A4;
+    margin: 2cm 1.5cm;
+  }
+
+  /* Main content area */
+  main {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+  }
+
+  /* Container adjustments */
+  .container {
+    max-width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Typography for print */
+  h1 {
+    font-size: 24pt;
+    margin-bottom: 12pt;
+    page-break-after: avoid;
+  }
+
+  h2 {
+    font-size: 18pt;
+    margin-top: 16pt;
+    margin-bottom: 10pt;
+    page-break-after: avoid;
+  }
+
+  h3 {
+    font-size: 14pt;
+    margin-top: 12pt;
+    margin-bottom: 8pt;
+    page-break-after: avoid;
+  }
+
+  p {
+    font-size: 11pt;
+    line-height: 1.6;
+    margin-bottom: 8pt;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin-left: 20pt;
+    margin-bottom: 8pt;
+  }
+
+  li {
+    margin-bottom: 4pt;
+  }
+
+  /* Remove backgrounds and shadows */
+  * {
+    background: transparent !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Card and content containers */
+  [class*="card"],
+  [class*="Card"],
+  section {
+    background: white !important;
+    border: 1px solid #ddd !important;
+    border-radius: 0 !important;
+    padding: 12pt !important;
+    margin-bottom: 12pt !important;
+    page-break-inside: avoid;
+  }
+
+  /* Code blocks - keep readable in print */
+  pre,
+  code {
+    background: #f5f5f5 !important;
+    border: 1px solid #ddd !important;
+    padding: 8pt !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 9pt !important;
+    page-break-inside: avoid;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
+
+  pre code {
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+  }
+
+  /* Inline code */
+  :not(pre) > code {
+    background: #f0f0f0 !important;
+    padding: 2pt 4pt !important;
+    border: 1px solid #ddd !important;
+    border-radius: 2pt;
+  }
+
+  /* Exercise sections */
+  [class*="exercise"],
+  [class*="Exercise"] {
+    border: 2px solid #333 !important;
+    padding: 12pt !important;
+    margin: 12pt 0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Info boxes */
+  [class*="info"],
+  [class*="Info"],
+  [class*="note"],
+  [class*="warning"] {
+    border: 2px solid #666 !important;
+    padding: 12pt !important;
+    margin: 12pt 0 !important;
+    page-break-inside: avoid;
+  }
+
+  /* Links - show URLs in print */
+  a {
+    color: black !important;
+    text-decoration: underline !important;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+    font-size: 9pt;
+    font-style: italic;
+  }
+
+  /* Don't show URLs for internal links or anchors */
+  a[href^="#"]:after,
+  a[href^="/"]:after {
+    content: "";
+  }
+
+  /* Video links - show descriptive text */
+  [class*="video"],
+  [class*="Video"] {
+    border: 1px dashed #999 !important;
+    padding: 8pt !important;
+    background: #fafafa !important;
+  }
+
+  /* Hide interactive elements in code editors */
+  [class*="editor"],
+  [class*="Editor"],
+  [class*="runner"],
+  [class*="Runner"],
+  textarea,
+  input[type="text"] {
+    border: 1px solid #ccc !important;
+    background: #f9f9f9 !important;
+  }
+
+  /* Show code content but hide run buttons */
+  [class*="editor"] button,
+  [class*="Runner"] button {
+    display: none !important;
+  }
+
+  /* Page break control */
+  .page-break-before {
+    page-break-before: always;
+  }
+
+  .page-break-after {
+    page-break-after: always;
+  }
+
+  .page-break-avoid {
+    page-break-inside: avoid;
+  }
+
+  /* Section breaks */
+  section {
+    page-break-inside: avoid;
+  }
+
+  /* Orphans and widows */
+  p, li {
+    orphans: 3;
+    widows: 3;
+  }
+
+  /* Table styles */
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 12pt 0;
+    page-break-inside: avoid;
+  }
+
+  th, td {
+    border: 1px solid #333 !important;
+    padding: 6pt !important;
+    text-align: left;
+  }
+
+  th {
+    background: #f0f0f0 !important;
+    font-weight: bold;
+  }
+
+  /* Images */
+  img {
+    max-width: 100% !important;
+    height: auto !important;
+    page-break-inside: avoid;
+  }
+
+  /* Breadcrumbs can be shown */
+  [class*="breadcrumb"] {
+    display: block !important;
+    margin-bottom: 12pt;
+    font-size: 9pt;
+    color: #666 !important;
+  }
+
+  /* Chapter header styling */
+  [class*="chapter"] h1,
+  main > div > h1 {
+    border-bottom: 2px solid #333 !important;
+    padding-bottom: 8pt;
+    margin-bottom: 16pt;
+  }
+
+  /* Hide decorative icons unless they're meaningful */
+  [class*="icon"]:not([class*="print-keep"]) {
+    display: none !important;
+  }
+
+  /* Ensure good contrast for borders */
+  * {
+    border-color: #333 !important;
+  }
+
+  /* Remove rounded corners for cleaner print */
+  * {
+    border-radius: 0 !important;
+  }
+
+  /* Optimize spacing */
+  .container > * {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}

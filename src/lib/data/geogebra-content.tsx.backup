@@ -1,0 +1,4523 @@
+import { ReactNode } from 'react';
+import { BlockMath, InlineMath } from '@/components/ui/math';
+
+export interface ChapterSection {
+  title: string;
+  content: ReactNode;
+  geogebra?: {
+    title: string;
+    description: string;
+    initialCommands?: string[];
+    appName?: 'graphing' | 'geometry' | 'classic' | '3d' | 'cas';
+  };
+}
+
+export interface ChapterContent {
+  introduction: ReactNode;
+  sections: ChapterSection[];
+  exercises: {
+    title: string;
+    tasks: string[];
+  };
+  summary: string[];
+  commands: {
+    command: string;
+    description: string;
+    example: string;
+  }[];
+}
+
+export const CHAPTER_CONTENT: Record<string, ChapterContent> = {
+  // 8. klasse - Kapittel 8.1: Koordinatsystemet
+  '8-koordinatsystem': {
+    introduction: (
+      <p className="text-lg">
+        Koordinatsystemet er grunnlaget for all grafisk matematikk i GeoGebra.
+        Her lærer du å plotte punkter, forstå akser og navigere i koordinatsystemet.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Hva er et koordinatsystem?',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et koordinatsystem består av to talllinjer som står vinkelrett på hverandre:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">x-aksen (førsteaksen)</h4>
+                <p className="text-muted-foreground">
+                  Den horisontale (vannrette) linjen. Positive verdier går mot høyre,
+                  negative mot venstre.
+                </p>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">y-aksen (andreaksen)</h4>
+                <p className="text-muted-foreground">
+                  Den vertikale (loddrette) linjen. Positive verdier går oppover,
+                  negative nedover.
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted/50 rounded-lg text-center">
+              <p><strong>Origo</strong> = punktet der aksene krysses = (0, 0)</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk koordinatsystemet',
+          description: 'Klikk og dra for å se rundt. Bruk scrollhjulet for å zoome inn/ut.',
+          appName: 'classic',
+          initialCommands: [
+            'A = (2, 3)',
+            'B = (-3, 1)',
+            'C = (4, -2)',
+            'D = (-2, -3)',
+          ],
+        },
+      },
+      {
+        title: 'Plotte punkter',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et punkt skrives som <code className="bg-muted px-2 py-1 rounded">(x, y)</code> der:
+            </p>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>x</strong> er hvor langt punktet er fra y-aksen (horisontalt)</li>
+              <li><strong>y</strong> er hvor langt punktet er fra x-aksen (vertikalt)</li>
+            </ul>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Slik plotter du et punkt i GeoGebra:</h4>
+              <ol className="list-decimal list-inside space-y-2">
+                <li>Skriv koordinatene i inputfeltet, f.eks: <code className="text-blue-600">(3, 5)</code></li>
+                <li>Trykk Enter</li>
+                <li>Punktet vises i koordinatsystemet</li>
+              </ol>
+              <p className="mt-3 text-sm text-muted-foreground">
+                <strong>Tips:</strong> Du kan gi punktet et navn: <code>A = (3, 5)</code>
+              </p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'De fire kvadrantene',
+        content: (
+          <div className="space-y-4">
+            <p>Koordinatsystemet er delt inn i fire kvadranter:</p>
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
+              <div className="p-4 bg-green-100 dark:bg-green-900/30 rounded-lg text-center">
+                <strong>Kvadrant I</strong><br />
+                x &gt; 0, y &gt; 0<br />
+                <span className="text-sm">(+, +)</span>
+              </div>
+              <div className="p-4 bg-yellow-100 dark:bg-yellow-900/30 rounded-lg text-center">
+                <strong>Kvadrant II</strong><br />
+                x &lt; 0, y &gt; 0<br />
+                <span className="text-sm">(-, +)</span>
+              </div>
+              <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-lg text-center">
+                <strong>Kvadrant III</strong><br />
+                x &lt; 0, y &lt; 0<br />
+                <span className="text-sm">(-, -)</span>
+              </div>
+              <div className="p-4 bg-blue-100 dark:bg-blue-900/30 rounded-lg text-center">
+                <strong>Kvadrant IV</strong><br />
+                x &gt; 0, y &lt; 0<br />
+                <span className="text-sm">(+, -)</span>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Plasser punkter i kvadrantene',
+          description: 'Prøv å plassere ett punkt i hver kvadrant.',
+          appName: 'classic',
+          initialCommands: [],
+        },
+      },
+      {
+        title: 'Avstand mellom punkter',
+        content: (
+          <div className="space-y-4">
+            <p>Avstanden mellom to punkter kan du finne med Pytagoras:</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"d = \\sqrt{(x_2 - x_1)^2 + (y_2 - y_1)^2}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <p className="font-semibold mb-2">Eksempel: Finn avstanden mellom A(1, 2) og B(4, 6)</p>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"d = \\sqrt{(4-1)^2 + (6-2)^2}"}</BlockMath>
+                <BlockMath>{"d = \\sqrt{3^2 + 4^2}"}</BlockMath>
+                <BlockMath>{"d = \\sqrt{9 + 16} = \\sqrt{25} = 5"}</BlockMath>
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              I GeoGebra kan du bruke kommandoen <code className="text-blue-600">Distance(A, B)</code>
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Mål avstand',
+          description: 'Lag to punkter og se avstanden mellom dem.',
+          appName: 'classic',
+          initialCommands: [
+            'A = (1, 2)',
+            'B = (4, 6)',
+            'f = Segment(A, B)',
+            'd = Distance(A, B)',
+          ],
+        },
+      },
+      {
+        title: 'Midtpunkt',
+        content: (
+          <div className="space-y-4">
+            <p>Midtpunktet mellom to punkter finner du ved å ta gjennomsnittet av koordinatene:</p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"M = \\left( \\frac{x_1 + x_2}{2}, \\frac{y_1 + y_2}{2} \\right)"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <p className="font-semibold mb-2">Eksempel: Finn midtpunktet mellom A(2, 4) og B(6, 8)</p>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"M = \\left( \\frac{2+6}{2}, \\frac{4+8}{2} \\right)"}</BlockMath>
+                <BlockMath>{"M = \\left( \\frac{8}{2}, \\frac{12}{2} \\right) = (4, 6)"}</BlockMath>
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              I GeoGebra: <code className="text-blue-600">Midpoint(A, B)</code>
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn midtpunkt',
+          description: 'Prøv å finne midtpunktet mellom forskjellige punkter.',
+          appName: 'classic',
+          initialCommands: [
+            'A = (2, 4)',
+            'B = (6, 8)',
+            'M = Midpoint(A, B)',
+            'f = Segment(A, B)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Plott punktene A(3, 4), B(-2, 5), C(-3, -1) og D(4, -3)',
+        'Finn avstanden mellom A og C',
+        'Finn midtpunktet mellom B og D',
+        'Tegn et linjestykke fra A til B med Segment(A, B)',
+        'I hvilken kvadrant ligger hvert punkt?',
+      ],
+    },
+    summary: [
+      'Koordinatsystemet har x-akse (horisontalt) og y-akse (vertikalt)',
+      'Et punkt skrives som (x, y) - husk rekkefølgen!',
+      'Avstand: bruk Distance(A, B) i GeoGebra',
+      'Midtpunkt: bruk Midpoint(A, B) i GeoGebra',
+    ],
+    commands: [
+      { command: '(x, y)', description: 'Lager et punkt', example: '(3, 5)' },
+      { command: 'A = (x, y)', description: 'Lager et punkt med navn', example: 'A = (3, 5)' },
+      { command: 'Distance(A, B)', description: 'Finner avstanden mellom to punkter', example: 'Distance(A, B)' },
+      { command: 'Midpoint(A, B)', description: 'Finner midtpunktet', example: 'Midpoint(A, B)' },
+      { command: 'Segment(A, B)', description: 'Tegner linjestykke', example: 'Segment(A, B)' },
+      { command: 'Line(A, B)', description: 'Tegner linje gjennom punkter', example: 'Line(A, B)' },
+    ],
+  },
+
+  // 8. klasse - Kapittel 8.2: Geometriske figurer
+  '8-geometri': {
+    introduction: (
+      <p className="text-lg">
+        I dette kapittelet lærer du å tegne og utforske geometriske figurer som trekanter,
+        firkanter og sirkler i GeoGebra. Du vil også lære å måle omkrets og areal.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Tegne trekanter',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En trekant består av tre hjørner (punkter) og tre sider. I GeoGebra kan du tegne
+              trekanter på flere måter:
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Metode 1: Bruk Polygon-kommandoen</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Lag tre punkter: <code>A = (0, 0)</code>, <code>B = (4, 0)</code>, <code>C = (2, 3)</code></li>
+                <li>Skriv <code className="text-blue-600">Polygon(A, B, C)</code></li>
+              </ol>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Metode 2: Bruk polygon-verktøyet</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Velg polygon-verktøyet fra verktøylinjen</li>
+                <li>Klikk på tre punkter i koordinatsystemet</li>
+                <li>Klikk på det første punktet igjen for å lukke trekanten</li>
+              </ol>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn en trekant',
+          description: 'Prøv å lage en trekant med tre hjørner.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (0, 0)',
+            'B = (4, 0)',
+            'C = (2, 3)',
+            'Polygon(A, B, C)',
+          ],
+        },
+      },
+      {
+        title: 'Tegne firkanter',
+        content: (
+          <div className="space-y-4">
+            <p>Firkanter har fire hjørner og fire sider. Vanlige typer:</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-bold">Rektangel</h4>
+                <p className="text-sm text-muted-foreground">Fire rette vinkler, motstående sider like lange</p>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-bold">Kvadrat</h4>
+                <p className="text-sm text-muted-foreground">Fire rette vinkler, alle sider like lange</p>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-bold">Parallellogram</h4>
+                <p className="text-sm text-muted-foreground">Motstående sider parallelle og like lange</p>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-bold">Trapes</h4>
+                <p className="text-sm text-muted-foreground">To motstående sider parallelle</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              Bruk <code className="text-blue-600">Polygon(A, B, C, D)</code> for å tegne en firkant.
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn forskjellige firkanter',
+          description: 'Lag et rektangel ved å plassere fire punkter.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (0, 0)',
+            'B = (4, 0)',
+            'C = (4, 2)',
+            'D = (0, 2)',
+            'Polygon(A, B, C, D)',
+          ],
+        },
+      },
+      {
+        title: 'Tegne sirkler',
+        content: (
+          <div className="space-y-4">
+            <p>En sirkel defineres av et sentrum og en radius:</p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Sirkel med sentrum og radius:</h4>
+              <code className="text-blue-600">Circle(M, r)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                der M er sentrum og r er radius
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Sirkel gjennom et punkt:</h4>
+              <code className="text-blue-600">Circle(M, A)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Sirkel med sentrum M som går gjennom punkt A
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn sirkler',
+          description: 'Lag en sirkel med sentrum i origo og radius 3.',
+          appName: 'geometry',
+          initialCommands: [
+            'M = (0, 0)',
+            'Circle(M, 3)',
+          ],
+        },
+      },
+      {
+        title: 'Måle omkrets og areal',
+        content: (
+          <div className="space-y-4">
+            <p>GeoGebra kan automatisk beregne omkrets og areal av figurer:</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Omkrets</h4>
+                <code className="text-blue-600">Perimeter(polygon)</code>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Gir summen av alle sidene
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Areal</h4>
+                <code className="text-blue-600">Area(polygon)</code>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Gir arealet av figuren
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Formler du bør kunne:</h4>
+              <ul className="space-y-3 text-sm">
+                <li className="flex items-center gap-2">
+                  <strong>Rektangel:</strong> <InlineMath>{"A = l \\cdot b"}</InlineMath>
+                </li>
+                <li className="flex items-center gap-2">
+                  <strong>Trekant:</strong> <InlineMath>{"A = \\frac{g \\cdot h}{2}"}</InlineMath>
+                </li>
+                <li className="flex items-center gap-2">
+                  <strong>Sirkel:</strong> <InlineMath>{"A = \\pi r^2"}</InlineMath>, <InlineMath>{"O = 2\\pi r"}</InlineMath>
+                </li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Mål figurer',
+          description: 'Lag en trekant og mål omkrets og areal.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (0, 0)',
+            'B = (6, 0)',
+            'C = (3, 4)',
+            't = Polygon(A, B, C)',
+            'o = Perimeter(t)',
+            'a = Area(t)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Tegn en likesidet trekant (alle sider like lange)',
+        'Tegn et kvadrat med sidelengde 4',
+        'Tegn en sirkel med radius 5',
+        'Finn arealet av trekanten din',
+        'Finn omkretsen av kvadratet',
+      ],
+    },
+    summary: [
+      'Bruk Polygon(A, B, C) for å tegne trekanter',
+      'Bruk Polygon(A, B, C, D) for å tegne firkanter',
+      'Bruk Circle(M, r) for å tegne sirkler',
+      'Bruk Perimeter() og Area() for å måle figurer',
+    ],
+    commands: [
+      { command: 'Polygon(A, B, C)', description: 'Tegner en trekant', example: 'Polygon(A, B, C)' },
+      { command: 'Polygon(A, B, C, D)', description: 'Tegner en firkant', example: 'Polygon(A, B, C, D)' },
+      { command: 'Circle(M, r)', description: 'Tegner sirkel med sentrum M og radius r', example: 'Circle(M, 3)' },
+      { command: 'Perimeter(figur)', description: 'Beregner omkretsen', example: 'Perimeter(t)' },
+      { command: 'Area(figur)', description: 'Beregner arealet', example: 'Area(t)' },
+      { command: 'Angle(A, B, C)', description: 'Måler vinkelen i punkt B', example: 'Angle(A, B, C)' },
+    ],
+  },
+
+  // 8. klasse - Kapittel 8.3: Statistikk og diagrammer
+  '8-statistikk': {
+    introduction: (
+      <p className="text-lg">
+        Lær å lage stolpediagram, sektordiagram og linjediagram i GeoGebra.
+        Du vil også lære å analysere data og presentere resultater visuelt.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Lage datalister',
+        content: (
+          <div className="space-y-4">
+            <p>
+              For å lage diagrammer trenger vi først data. I GeoGebra lagrer vi data i lister:
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Karakterer i en klasse</h4>
+              <code className="text-blue-600">karakterer = {'{'}2, 3, 4, 4, 5, 3, 4, 5, 6, 4, 3, 5{'}'}</code>
+            </div>
+            <p className="text-muted-foreground">
+              Listen lagres som en variabel og kan brukes til å lage diagrammer.
+            </p>
+          </div>
+        ),
+      },
+      {
+        title: 'Stolpediagram',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Stolpediagram viser frekvensen av ulike verdier. Hver stolpe representerer
+              hvor mange ganger en verdi forekommer.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Slik lager du et stolpediagram:</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Lag en liste med data</li>
+                <li>Bruk kommandoen <code className="text-blue-600">BarChart(liste)</code></li>
+              </ol>
+            </div>
+            <p>
+              <strong>Tips:</strong> Du kan også bruke <code className="text-blue-600">Histogram(liste)</code>
+              for grupperte data.
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag stolpediagram',
+          description: 'Lag et stolpediagram av terningkast.',
+          initialCommands: [
+            'terningkast = {1, 3, 2, 5, 4, 6, 3, 2, 4, 5, 1, 3, 4, 6, 2, 3, 5, 4, 3, 2}',
+            'BarChart(terningkast)',
+          ],
+        },
+      },
+      {
+        title: 'Sektordiagram (kakediagram)',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Sektordiagram viser hvordan en helhet er fordelt på ulike kategorier.
+              Hver sektor representerer en andel av helheten.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Slik lager du et sektordiagram:</h4>
+              <p className="text-sm text-muted-foreground mb-2">
+                GeoGebra har ikke en enkel sektordiagram-kommando, men du kan bruke CircularSector:
+              </p>
+              <code className="text-blue-600">CircleSector(M, A, B)</code>
+            </div>
+            <p className="text-muted-foreground">
+              Vinklene beregnes automatisk basert på verdiene i listen.
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag sektordiagram',
+          description: 'Se hvordan sektorer kan representere andeler.',
+          initialCommands: [
+            'M = (0, 0)',
+            'Circle(M, 3)',
+            'A = (3, 0)',
+            'B = (0, 3)',
+            'CircleSector(M, A, B)',
+          ],
+        },
+      },
+      {
+        title: 'Linjediagram',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Linjediagram brukes for å vise hvordan noe endrer seg over tid.
+              Punktene forbindes med linjer.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Slik lager du et linjediagram:</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Lag en liste med x-verdier (f.eks. måneder)</li>
+                <li>Lag en liste med y-verdier (f.eks. temperaturer)</li>
+                <li>Bruk <code className="text-blue-600">Polyline(punktliste)</code></li>
+              </ol>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag linjediagram',
+          description: 'Lag et linjediagram som viser temperaturer gjennom året.',
+          initialCommands: [
+            'temp = {-3, -1, 2, 7, 12, 16, 18, 17, 12, 7, 2, -2}',
+            'Punktliste = Sequence((i, Element(temp, i)), i, 1, 12)',
+            'Polyline(Punktliste)',
+          ],
+        },
+      },
+      {
+        title: 'Frekvens og relativ frekvens',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Frekvens</strong> er antall ganger en verdi forekommer.
+              <strong> Relativ frekvens</strong> er frekvensen delt på totalt antall observasjoner.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold">Frekvens</h4>
+                <code className="text-blue-600">Frequency(liste)</code>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold">Unike verdier</h4>
+                <code className="text-blue-600">Unique(liste)</code>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag en liste med 20 terningkast (tall fra 1-6)',
+        'Lag et stolpediagram av terningkastene',
+        'Lag et sektordiagram som viser hobbyer i klassen',
+        'Lag et linjediagram som viser ukepenger over 12 måneder',
+      ],
+    },
+    summary: [
+      'Bruk lister { } for å lagre data',
+      'BarChart(liste) for stolpediagram',
+      'Polyline(punktliste) for linjediagram',
+      'Linjediagram viser endring over tid',
+    ],
+    commands: [
+      { command: 'liste = {a, b, c}', description: 'Lager en liste med verdier', example: 'tall = {1, 2, 3, 4, 5}' },
+      { command: 'BarChart(liste)', description: 'Lager stolpediagram', example: 'BarChart(karakterer)' },
+      { command: 'Polyline(punktliste)', description: 'Lager linjediagram', example: 'Polyline(punkter)' },
+      { command: 'Histogram(liste)', description: 'Lager histogram', example: 'Histogram(målinger)' },
+      { command: 'Frequency(liste)', description: 'Teller frekvenser', example: 'Frequency(terningkast)' },
+      { command: 'Mean(liste)', description: 'Beregner gjennomsnittet', example: 'Mean(karakterer)' },
+    ],
+  },
+
+  // 8. klasse - Kapittel 8.4: Tall og enkel algebra
+  '8-tall-algebra': {
+    introduction: (
+      <p className="text-lg">
+        I dette kapittelet utforsker vi tallmønstre og lærer grunnleggende algebra i GeoGebra.
+        Du vil lære å bruke variabler og forenkle uttrykk.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Tallmønstre',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et tallmønster er en rekke med tall som følger en bestemt regel.
+              GeoGebra kan hjelpe deg å visualisere og forstå mønstre.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Partall</h4>
+              <p>2, 4, 6, 8, 10, ... (øker med 2 hver gang)</p>
+              <code className="text-blue-600 block mt-2">partall = Sequence(2*n, n, 1, 10)</code>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Oddetall</h4>
+              <p>1, 3, 5, 7, 9, ... (øker med 2 hver gang)</p>
+              <code className="text-blue-600 block mt-2">oddetall = Sequence(2*n - 1, n, 1, 10)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk tallmønstre',
+          description: 'Se på forskjellige tallmønstre.',
+          initialCommands: [
+            'partall = Sequence(2*n, n, 1, 10)',
+            'oddetall = Sequence(2*n - 1, n, 1, 10)',
+            'kvadrattall = Sequence(n^2, n, 1, 10)',
+          ],
+        },
+      },
+      {
+        title: 'Variabler',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En variabel er et symbol (vanligvis en bokstav) som representerer et tall.
+              I GeoGebra kan vi definere variabler og bruke dem i beregninger.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Definere variabler:</h4>
+              <ul className="space-y-1">
+                <li><code className="text-blue-600">a = 5</code> (a er nå lik 5)</li>
+                <li><code className="text-blue-600">b = 3</code> (b er nå lik 3)</li>
+                <li><code className="text-blue-600">c = a + b</code> (c blir 8)</li>
+              </ul>
+            </div>
+            <p className="text-muted-foreground">
+              Du kan bruke glidere for å endre verdien på en variabel interaktivt.
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Bruk variabler',
+          description: 'Definer variabler og gjør beregninger.',
+          initialCommands: [
+            'a = 5',
+            'b = 3',
+            'sum = a + b',
+            'produkt = a * b',
+            'differanse = a - b',
+          ],
+        },
+      },
+      {
+        title: 'Glidere',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En glider er en interaktiv variabel som du kan endre ved å dra en skyveknapp.
+              Dette er nyttig for å utforske hvordan endringer påvirker resultater.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Lag en glider:</h4>
+              <code className="text-blue-600">n = Slider(1, 10, 1)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Lager en glider som går fra 1 til 10, med steg på 1
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Eksperimenter med glidere',
+          description: 'Lag en glider og se hvordan den påvirker beregninger.',
+          initialCommands: [
+            'n = Slider(1, 10, 1)',
+            'kvadrat = n^2',
+            'dobbel = 2*n',
+          ],
+        },
+      },
+      {
+        title: 'Enkle uttrykk',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et algebraisk uttrykk inneholder tall, variabler og regneoperasjoner.
+              GeoGebra kan forenkle og beregne uttrykk.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold mb-2">Addisjon</h4>
+                <BlockMath>{"3x + 2x = 5x"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold mb-2">Multiplikasjon</h4>
+                <BlockMath>{"2 \\cdot 3x = 6x"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold mb-2">Potens</h4>
+                <BlockMath>{"x \\cdot x = x^2"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold mb-2">Parentes</h4>
+                <BlockMath>{"2(x + 3) = 2x + 6"}</BlockMath>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Tallinjen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Tallinjen viser tall ordnet fra venstre (negative) til høyre (positive).
+              I GeoGebra kan vi visualisere tall på tallinjen.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Viktige begreper:</h4>
+              <ul className="space-y-1">
+                <li><strong>Positive tall:</strong> Til høyre for 0</li>
+                <li><strong>Negative tall:</strong> Til venstre for 0</li>
+                <li><strong>Absoluttverdi:</strong> Avstanden fra 0 (alltid positiv)</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk tallinjen',
+          description: 'Plasser tall på tallinjen.',
+          initialCommands: [
+            'A = (3, 0)',
+            'B = (-2, 0)',
+            'C = (0, 0)',
+            'D = (5, 0)',
+            'E = (-4, 0)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag en følge med de 10 første trekanttallene (1, 3, 6, 10, ...)',
+        'Definer to variabler a og b, og beregn summen, produktet og differansen',
+        'Lag en glider fra 1 til 20 og vis tallet opphøyd i andre',
+        'Plasser tallene -5, -2, 0, 3, 7 på tallinjen',
+      ],
+    },
+    summary: [
+      'Sequence() lager tallmønstre',
+      'Variabler defineres med = (f.eks. a = 5)',
+      'Slider() gir interaktive variabler',
+      'Tallinjen viser tall fra negativ til positiv',
+    ],
+    commands: [
+      { command: 'a = 5', description: 'Definerer en variabel', example: 'lengde = 10' },
+      { command: 'Sequence(uttrykk, n, start, slutt)', description: 'Lager en tallrekke', example: 'Sequence(n^2, n, 1, 10)' },
+      { command: 'Slider(min, max, steg)', description: 'Lager en interaktiv glider', example: 'n = Slider(1, 10, 1)' },
+      { command: 'abs(x)', description: 'Absoluttverdien |x| av x', example: 'abs(-5) = 5' },
+      { command: 'sqrt(x)', description: 'Kvadratroten √x av x', example: 'sqrt(16) = 4' },
+      { command: 'x^2', description: 'x opphøyd i andre (x²)', example: '5^2 = 25' },
+    ],
+  },
+
+  // 1P - Kapittel 1: Lineære modeller
+  '1p-funksjoner': {
+    introduction: (
+      <p className="text-lg">
+        Lineære modeller beskriver sammenhenger som kan vises med en rett linje.
+        Du vil lære om stigningstall, startverdi og hvordan dette brukes i praktiske situasjoner.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Hva er en lineær modell?',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En lineær modell beskriver en sammenheng som kan uttrykkes med formelen:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"y = ax + b"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Stigningstall (a)</h4>
+                <p className="text-muted-foreground">
+                  Hvor mye y endrer seg når x øker med 1.
+                  Forteller hvor bratt linjen er.
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Startverdi (b)</h4>
+                <p className="text-muted-foreground">
+                  Verdien av y når x = 0.
+                  Punktet der linjen krysser y-aksen.
+                </p>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk lineære funksjoner',
+          description: 'Endre a og b for å se hvordan linjen endrer seg.',
+          appName: 'graphing',
+          initialCommands: [
+            'a = Slider(-5, 5, 0.1)',
+            'b = Slider(-10, 10, 0.5)',
+            'f(x) = a*x + b',
+          ],
+        },
+      },
+      {
+        title: 'Finne stigningstall',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Stigningstallet finner du ved å se på endringen i y delt på endringen i x:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"a = \\frac{\\Delta y}{\\Delta x} = \\frac{y_2 - y_1}{x_2 - x_1}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Finn stigningstallet for linjen gjennom (1, 3) og (4, 9)</h4>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"a = \\frac{9 - 3}{4 - 1} = \\frac{6}{3} = 2"}</BlockMath>
+              </div>
+              <p className="mt-2">For hver gang x øker med 1, øker y med 2.</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn stigningstall',
+          description: 'Lag to punkter og finn stigningstallet.',
+          appName: 'graphing',
+          initialCommands: [
+            'A = (1, 3)',
+            'B = (4, 9)',
+            'linje = FitLine({A, B})',
+            'a = Slope(linje)',
+          ],
+        },
+      },
+      {
+        title: 'Praktiske eksempler',
+        content: (
+          <div className="space-y-4">
+            <p>Lineære modeller brukes i mange hverdagslige situasjoner:</p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 1: Mobilabonnement</h4>
+              <p>Et mobilabonnement koster 199 kr per måned + 0,50 kr per SMS.</p>
+              <BlockMath>{"\\text{Pris} = 0{,}50 \\cdot \\text{antall SMS} + 199"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                Her er a = 0,50 og b = 199
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 2: Billeie</h4>
+              <p>En bil koster 500 kr per dag + engangskostnad på 200 kr.</p>
+              <BlockMath>{"\\text{Kostnad} = 500 \\cdot \\text{dager} + 200"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                Her er a = 500 og b = 200
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Modeller et mobilabonnement',
+          description: 'Se hvordan kostnaden øker med antall SMS.',
+          appName: 'graphing',
+          initialCommands: [
+            'SMS = Slider(0, 200, 10)',
+            'kostnad(x) = 0.5*x + 199',
+            'punkt = (SMS, kostnad(SMS))',
+          ],
+        },
+      },
+      {
+        title: 'Tilpasse linje til data',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når vi har flere datapunkter, kan GeoGebra finne den beste linjen som passer:
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">FitLine()-kommandoen</h4>
+              <code className="text-blue-600">FitLine({'{'}punktliste{'}'})</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Finner den lineære funksjonen som passer best til punktene
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tilpass linje til data',
+          description: 'Lag datapunkter og finn beste tilpasning.',
+          appName: 'graphing',
+          initialCommands: [
+            'punkter = {(1, 2), (2, 4.5), (3, 6), (4, 8.2), (5, 10)}',
+            'linje = FitLine(punkter)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn stigningstallet for linjen gjennom (2, 5) og (6, 13)',
+        'En taxa koster 50 kr + 15 kr per km. Sett opp en lineær modell',
+        'Lag 5 punkter som omtrent ligger på en rett linje, bruk FitLine()',
+        'Hva er startverdien når f(x) = 3x + 7?',
+        'Tegn grafen til y = -2x + 4 og finn nullpunktet',
+      ],
+    },
+    summary: [
+      'Lineær modell: y = ax + b',
+      'Stigningstall a = (y₂ - y₁) / (x₂ - x₁)',
+      'Startverdi b er verdien når x = 0',
+      'Bruk FitLine() for å tilpasse linje til datapunkter',
+    ],
+    commands: [
+      { command: 'f(x) = ax + b', description: 'Definerer en lineær funksjon', example: 'f(x) = 2x + 3' },
+      { command: 'FitLine({punkter})', description: 'Finner beste lineære tilpasning', example: 'FitLine({A, B, C})' },
+      { command: 'Slope(linje)', description: 'Finner stigningstallet', example: 'Slope(f)' },
+      { command: 'Intercept(linje)', description: 'Finner skjæringspunktet med y-aksen', example: 'Intercept(f)' },
+    ],
+  },
+
+  // 1P - Kapittel 2: Økonomi og renter
+  '1p-okonomi': {
+    introduction: (
+      <p className="text-lg">
+        Lær om renter, lån og sparing. Du vil forstå hvordan penger vokser over tid
+        og hvordan du beregner fremtidig verdi av investeringer.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Hva er rente?',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Rente er en prosentvis økning av en sum penger over tid.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Innskuddsrente</h4>
+                <p className="text-muted-foreground">
+                  Rente du får når du sparer penger i banken.
+                  Du tjener penger på pengene dine.
+                </p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Lånerente</h4>
+                <p className="text-muted-foreground">
+                  Rente du betaler når du låner penger.
+                  Du betaler ekstra for å låne.
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <p className="font-semibold">Rentesats oppgis vanligvis som årlig prosent (p.a. = per annum)</p>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Enkel rente',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Ved enkel rente beregnes renten kun på startbeløpet (hovedstolen):
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"K_n = K_0 + K_0 \\cdot \\frac{r}{100} \\cdot n"}</BlockMath>
+              <p className="text-center text-sm text-muted-foreground mt-2">
+                K₀ = startkapital, r = rentesats (%), n = antall år
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Du setter inn 10 000 kr med 3% enkel rente i 5 år</h4>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"K_5 = 10000 + 10000 \\cdot \\frac{3}{100} \\cdot 5"}</BlockMath>
+                <BlockMath>{"K_5 = 10000 + 1500 = 11500 \\text{ kr}"}</BlockMath>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Enkel rente',
+          description: 'Se hvordan kapitalen vokser lineært med enkel rente.',
+          appName: 'graphing',
+          initialCommands: [
+            'K0 = 10000',
+            'r = 3',
+            'n = Slider(0, 20, 1)',
+            'K(x) = K0 + K0 * r/100 * x',
+            'punkt = (n, K(n))',
+          ],
+        },
+      },
+      {
+        title: 'Sammensatt rente (rentes rente)',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Ved sammensatt rente legges renten til kapitalen hvert år, slik at du også
+              får rente på tidligere renter:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"K_n = K_0 \\cdot \\left(1 + \\frac{r}{100}\\right)^n"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: 10 000 kr med 3% sammensatt rente i 5 år</h4>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"K_5 = 10000 \\cdot \\left(1 + \\frac{3}{100}\\right)^5"}</BlockMath>
+                <BlockMath>{"K_5 = 10000 \\cdot 1{,}03^5 \\approx 11593 \\text{ kr}"}</BlockMath>
+              </div>
+              <p className="mt-2 text-sm">Dette er 93 kr mer enn med enkel rente!</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Sammensatt rente (eksponentiell vekst)',
+          description: 'Sammenlign enkel og sammensatt rente.',
+          appName: 'graphing',
+          initialCommands: [
+            'K0 = 10000',
+            'r = 3',
+            'enkel(x) = K0 + K0 * r/100 * x',
+            'sammensatt(x) = K0 * (1 + r/100)^x',
+          ],
+        },
+      },
+      {
+        title: 'Vekstfaktor',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Vekstfaktoren forteller hvor mye kapitalen multipliseres med per år:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"\\text{Vekstfaktor} = 1 + \\frac{r}{100}"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center">
+                <strong>3% rente</strong><br />
+                Vekstfaktor = 1,03
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+                <strong>5% rente</strong><br />
+                Vekstfaktor = 1,05
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center">
+                <strong>10% rente</strong><br />
+                Vekstfaktor = 1,10
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Lån og nedbetaling',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når du tar opp lån, må du betale både renter og avdrag (tilbakebetaling av lånet).
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Billån</h4>
+              <p>Du låner 200 000 kr til 5% rente i 5 år.</p>
+              <ul className="list-disc list-inside space-y-1 mt-2">
+                <li>Rente første år: 200 000 · 0,05 = 10 000 kr</li>
+                <li>Totalkostnad avhenger av nedbetalingsplan</li>
+              </ul>
+            </div>
+            <p className="text-muted-foreground">
+              <strong>Tips:</strong> Jo raskere du betaler ned, jo mindre renter betaler du totalt.
+            </p>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Du setter inn 5000 kr med 4% enkel rente. Hvor mye har du etter 3 år?',
+        'Beregn verdien av 8000 kr etter 6 år med 3,5% sammensatt rente',
+        'Hva er vekstfaktoren for 7% årlig rente?',
+        'Sammenlign enkel og sammensatt rente for 15 000 kr over 10 år (4% rente)',
+        'Du låner 50 000 kr til 6% rente. Hvor mye rente betaler du første år?',
+      ],
+    },
+    summary: [
+      'Enkel rente: K = K₀ + K₀ · (r/100) · n (lineær vekst)',
+      'Sammensatt rente: K = K₀ · (1 + r/100)ⁿ (eksponentiell vekst)',
+      'Vekstfaktor = 1 + r/100',
+      'Sammensatt rente gir mer over tid enn enkel rente',
+    ],
+    commands: [
+      { command: 'K(x) = K0 * (1 + r/100)^x', description: 'Sammensatt rente funksjon', example: 'K(x) = 10000 * 1.03^x' },
+      { command: 'K(x) = K0 + K0*r/100*x', description: 'Enkel rente funksjon', example: 'K(x) = 10000 + 300*x' },
+      { command: 'Slider(min, max, steg)', description: 'Lag glider for år/rente', example: 'år = Slider(0, 30, 1)' },
+    ],
+  },
+
+  // 1P - Kapittel 3: Prosent og vekstfaktor
+  '1p-prosent': {
+    introduction: (
+      <p className="text-lg">
+        Prosent brukes overalt i hverdagen - fra rabatter i butikken til lønnsvekst.
+        Lær å regne med prosent og forstå vekstfaktor.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Grunnleggende prosentregning',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Prosent betyr &quot;per hundre&quot; og skrives med tegnet %.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"\\text{Prosentandel} = \\frac{\\text{Del}}{\\text{Hele}} \\cdot 100\\%"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: 15 av 60 elever har briller</h4>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"\\text{Prosentandel} = \\frac{15}{60} \\cdot 100\\% = 25\\%"}</BlockMath>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+                <strong>50%</strong> = halvparten = 0,5
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center">
+                <strong>25%</strong> = en fjerdedel = 0,25
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center">
+                <strong>10%</strong> = en tidel = 0,1
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Vekstfaktor ved prosentvis endring',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når noe øker eller minker med p%, bruker vi vekstfaktor:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Økning</h4>
+                <BlockMath>{"\\text{Vekstfaktor} = 1 + \\frac{p}{100}"}</BlockMath>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Eksempel: 15% økning → vekstfaktor = 1,15
+                </p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Reduksjon</h4>
+                <BlockMath>{"\\text{Vekstfaktor} = 1 - \\frac{p}{100}"}</BlockMath>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Eksempel: 20% rabatt → vekstfaktor = 0,80
+                </p>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk vekstfaktor',
+          description: 'Se hvordan prosent påvirker vekstfaktoren.',
+          appName: 'classic',
+          initialCommands: [
+            'p = Slider(-50, 50, 1)',
+            'vekstfaktor = 1 + p/100',
+            'startverdi = 1000',
+            'sluttverdi = startverdi * vekstfaktor',
+          ],
+        },
+      },
+      {
+        title: 'Rabatt og prisøkning',
+        content: (
+          <div className="space-y-4">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 1: 30% rabatt på jakke til 1200 kr</h4>
+              <p className="mb-2">Metode 1: Regn ut rabatten</p>
+              <BlockMath>{"\\text{Rabatt} = 1200 \\cdot \\frac{30}{100} = 360 \\text{ kr}"}</BlockMath>
+              <BlockMath>{"\\text{Ny pris} = 1200 - 360 = 840 \\text{ kr}"}</BlockMath>
+              <p className="mb-2 mt-3">Metode 2: Bruk vekstfaktor</p>
+              <BlockMath>{"\\text{Ny pris} = 1200 \\cdot 0{,}70 = 840 \\text{ kr}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 2: Pris øker med 12%</h4>
+              <BlockMath>{"\\text{Ny pris} = \\text{Gammel pris} \\cdot 1{,}12"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn rabatt',
+          description: 'Prøv ulike rabattsatser.',
+          appName: 'classic',
+          initialCommands: [
+            'originalpris = 1500',
+            'rabatt = Slider(0, 50, 5)',
+            'vekstfaktor = 1 - rabatt/100',
+            'salgspris = originalpris * vekstfaktor',
+          ],
+        },
+      },
+      {
+        title: 'Finne opprinnelig verdi',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Hvis du vet sluttverdien etter en prosentvis endring, kan du finne startverdien:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"\\text{Startverdi} = \\frac{\\text{Sluttverdi}}{\\text{Vekstfaktor}}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: En vare koster 850 kr etter 15% rabatt. Hva var originalprisen?</h4>
+              <div className="space-y-2 text-center">
+                <BlockMath>{"\\text{Vekstfaktor} = 1 - \\frac{15}{100} = 0{,}85"}</BlockMath>
+                <BlockMath>{"\\text{Originalpris} = \\frac{850}{0{,}85} = 1000 \\text{ kr}"}</BlockMath>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Gjentatte prosentvise endringer',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når du har flere prosentvise endringer etter hverandre, multipliserer du vekstfaktorene:
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Først 20% økning, deretter 10% reduksjon</h4>
+              <div className="space-y-2">
+                <BlockMath>{"\\text{Total vekstfaktor} = 1{,}20 \\cdot 0{,}90 = 1{,}08"}</BlockMath>
+                <p className="text-center">Dette tilsvarer 8% økning totalt</p>
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              <strong>Viktig:</strong> Du kan ikke bare legge sammen prosentene! 20% - 10% ≠ 10%
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Gjentatte endringer',
+          description: 'Se hva som skjer med flere prosentvise endringer.',
+          appName: 'classic',
+          initialCommands: [
+            'startverdi = 1000',
+            'økning1 = 20',
+            'reduksjon = 10',
+            'etter_økning = startverdi * (1 + økning1/100)',
+            'sluttverdi = etter_økning * (1 - reduksjon/100)',
+            'total_vekstfaktor = sluttverdi / startverdi',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn 35% av 800 kr',
+        'En vare koster 450 kr og får 25% rabatt. Hva er salgsprisen?',
+        'Hva er vekstfaktoren for: a) 18% økning, b) 12% reduksjon?',
+        'En vare koster 680 kr etter 15% rabatt. Hva var originalprisen?',
+        'En pris øker først med 10%, deretter med 20%. Hva er total vekstfaktor?',
+      ],
+    },
+    summary: [
+      'Prosent = (del/hele) · 100%',
+      'Vekstfaktor ved økning: 1 + p/100',
+      'Vekstfaktor ved reduksjon: 1 - p/100',
+      'Originalpris = Salgspris / Vekstfaktor',
+      'Ved flere endringer: Multipliser vekstfaktorene',
+    ],
+    commands: [
+      { command: 'v = 1 + p/100', description: 'Vekstfaktor ved økning', example: 'v = 1 + 15/100' },
+      { command: 'v = 1 - p/100', description: 'Vekstfaktor ved reduksjon', example: 'v = 1 - 20/100' },
+      { command: 'ny = gammel * v', description: 'Ny verdi etter endring', example: 'ny = 1000 * 1.15' },
+    ],
+  },
+
+  // 1P - Kapittel 4: Statistikk
+  '1p-statistikk': {
+    introduction: (
+      <p className="text-lg">
+        Statistikk handler om å samle inn, organisere og analysere data.
+        Lær om sentrale begreper som gjennomsnitt, median, kvartiler og standardavvik.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Sentralmål',
+        content: (
+          <div className="space-y-4">
+            <p>Sentralmål forteller oss noe om det typiske i et datasett:</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Gjennomsnitt</h4>
+                <BlockMath>{"\\bar{x} = \\frac{\\sum x_i}{n}"}</BlockMath>
+                <p className="text-sm text-muted-foreground">
+                  Summen av alle verdier delt på antallet
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Median</h4>
+                <p className="text-muted-foreground">
+                  Den midterste verdien når tallene er sortert.
+                  50% av verdiene er under medianen.
+                </p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Typetall (modus)</h4>
+                <p className="text-muted-foreground">
+                  Den verdien som forekommer flest ganger
+                  i datasettet.
+                </p>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn sentralmål',
+          description: 'Se gjennomsnitt og median for et datasett.',
+          appName: 'classic',
+          initialCommands: [
+            'data = {12, 15, 18, 18, 20, 22, 25, 28, 30, 35}',
+            'gjennomsnitt = Mean(data)',
+            'median = Median(data)',
+          ],
+        },
+      },
+      {
+        title: 'Kvartiler og boksplot',
+        content: (
+          <div className="space-y-4">
+            <p>Kvartiler deler datasettet inn i fire like store deler:</p>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg text-center">
+                <h4 className="font-bold">1. kvartil (Q₁)</h4>
+                <p className="text-sm">25% av verdiene er under Q₁</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg text-center">
+                <h4 className="font-bold">Median (Q₂)</h4>
+                <p className="text-sm">50% av verdiene er under medianen</p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg text-center">
+                <h4 className="font-bold">3. kvartil (Q₃)</h4>
+                <p className="text-sm">75% av verdiene er under Q₃</p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Kvartilbredde</h4>
+              <BlockMath>{"\\text{Kvartilbredde} = Q_3 - Q_1"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                Forteller hvor spredt de midterste 50% av dataene er
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Kvartiler og boksplot',
+          description: 'Se hvordan et boksplot viser datafordelingen.',
+          appName: 'classic',
+          initialCommands: [
+            'data = {45, 52, 58, 63, 68, 72, 75, 78, 82, 85, 88, 92, 95}',
+            'Q1 = Quartile(data, 1)',
+            'Q2 = Median(data)',
+            'Q3 = Quartile(data, 3)',
+            'BoxPlot(1, 0.5, data)',
+          ],
+        },
+      },
+      {
+        title: 'Standardavvik',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Standardavvik måler hvor spredt verdiene er rundt gjennomsnittet:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"s = \\sqrt{\\frac{\\sum(x_i - \\bar{x})^2}{n-1}}"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Lite standardavvik</h4>
+                <p className="text-sm text-muted-foreground">
+                  Verdiene ligger tett rundt gjennomsnittet.
+                  Dataene er homogene.
+                </p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Stort standardavvik</h4>
+                <p className="text-sm text-muted-foreground">
+                  Verdiene er spredt over et større område.
+                  Dataene er heterogene.
+                </p>
+              </div>
+            </div>
+            <p className="text-muted-foreground">
+              I GeoGebra: <code className="text-blue-600">SD(liste)</code> eller <code className="text-blue-600">stdev(liste)</code>
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Sammenlign standardavvik',
+          description: 'To datasett med samme gjennomsnitt, men ulik spredning.',
+          appName: 'classic',
+          initialCommands: [
+            'data1 = {48, 49, 50, 51, 52}',
+            'data2 = {30, 40, 50, 60, 70}',
+            'gjennomsnitt1 = Mean(data1)',
+            'gjennomsnitt2 = Mean(data2)',
+            'sd1 = SD(data1)',
+            'sd2 = SD(data2)',
+          ],
+        },
+      },
+      {
+        title: 'Histogram',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et histogram viser hvordan data er fordelt i ulike intervaller (klasser):
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Slik lager du et histogram i GeoGebra:</h4>
+              <ol className="list-decimal list-inside space-y-1">
+                <li>Lag en liste med data</li>
+                <li>Definer klassegrenser (f.eks. 0, 10, 20, 30, ...)</li>
+                <li>Bruk <code className="text-blue-600">Histogram(klassegrenser, data)</code></li>
+              </ol>
+            </div>
+            <p className="text-muted-foreground">
+              <strong>Tips:</strong> Stolpene i et histogram står inntil hverandre (ingen mellomrom)
+            </p>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag histogram',
+          description: 'Visualiser fordeling av data i klasser.',
+          appName: 'classic',
+          initialCommands: [
+            'alder = {15, 18, 22, 25, 28, 31, 35, 38, 42, 45, 48, 52, 55, 58, 62, 65}',
+            'klasser = {0, 20, 40, 60, 80}',
+            'Histogram(klasser, alder)',
+          ],
+        },
+      },
+      {
+        title: 'Kumulativ frekvens',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Kumulativ frekvens viser hvor mange verdier som er mindre enn eller lik en gitt verdi:
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Karakterfordeling</h4>
+              <table className="w-full text-sm mt-2">
+                <thead>
+                  <tr className="border-b">
+                    <th className="text-left p-2">Karakter</th>
+                    <th className="text-left p-2">Frekvens</th>
+                    <th className="text-left p-2">Kumulativ</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr><td className="p-2">1-2</td><td className="p-2">3</td><td className="p-2">3</td></tr>
+                  <tr><td className="p-2">3-4</td><td className="p-2">8</td><td className="p-2">11</td></tr>
+                  <tr><td className="p-2">5-6</td><td className="p-2">6</td><td className="p-2">17</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn gjennomsnitt, median og typetall for: {5, 8, 8, 12, 15, 18, 18, 18, 22}',
+        'Lag et boksplot for dataene: {23, 28, 31, 35, 38, 42, 45, 48, 52, 55}',
+        'Beregn kvartilbredden for dataene over',
+        'Finn standardavviket for: {10, 12, 14, 16, 18}',
+        'Lag et histogram med passende klasseinndeling for aldersdata',
+      ],
+    },
+    summary: [
+      'Gjennomsnitt: Mean(liste)',
+      'Median: Median(liste)',
+      'Kvartiler: Quartile(liste, 1/2/3)',
+      'Standardavvik: SD(liste)',
+      'Boksplot: BoxPlot(y-posisjon, bredde, data)',
+      'Histogram: Histogram(klasser, data)',
+    ],
+    commands: [
+      { command: 'Mean(liste)', description: 'Beregner gjennomsnittet', example: 'Mean({5, 10, 15})' },
+      { command: 'Median(liste)', description: 'Finner medianen', example: 'Median(data)' },
+      { command: 'Quartile(liste, n)', description: 'Finner n-te kvartil (n=1,2,3)', example: 'Quartile(data, 1)' },
+      { command: 'SD(liste)', description: 'Beregner standardavviket', example: 'SD(målinger)' },
+      { command: 'BoxPlot(y, b, liste)', description: 'Lager boksplot', example: 'BoxPlot(1, 0.5, data)' },
+      { command: 'Histogram(klasser, data)', description: 'Lager histogram', example: 'Histogram({0,10,20}, data)' },
+    ],
+  },
+
+  // 1P - Kapittel 5: Geometri i praksis
+  '1p-geometri': {
+    introduction: (
+      <p className="text-lg">
+        Geometri brukes i mange praktiske sammenhenger - fra å beregne maling til å
+        finne volum av pakker. Lær om areal, volum og målestokk.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Areal av flate figurer',
+        content: (
+          <div className="space-y-4">
+            <p>Areal måler hvor stor flaten til en figur er (målt i m², cm², etc.):</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Rektangel</h4>
+                <BlockMath>{"A = l \\cdot b"}</BlockMath>
+                <p className="text-sm">lengde · bredde</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Trekant</h4>
+                <BlockMath>{"A = \\frac{g \\cdot h}{2}"}</BlockMath>
+                <p className="text-sm">grunnlinje · høyde / 2</p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Sirkel</h4>
+                <BlockMath>{"A = \\pi r^2"}</BlockMath>
+                <p className="text-sm">pi · radius²</p>
+              </div>
+              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Trapes</h4>
+                <BlockMath>{"A = \\frac{(a+b) \\cdot h}{2}"}</BlockMath>
+                <p className="text-sm">(grunnlinje₁ + grunnlinje₂) · høyde / 2</p>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn areal',
+          description: 'Tegn forskjellige figurer og se arealet.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (0, 0)',
+            'B = (6, 0)',
+            'C = (6, 4)',
+            'D = (0, 4)',
+            'rektangel = Polygon(A, B, C, D)',
+            'areal = Area(rektangel)',
+          ],
+        },
+      },
+      {
+        title: 'Praktisk bruk av areal',
+        content: (
+          <div className="space-y-4">
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 1: Male en vegg</h4>
+              <p>En vegg er 4,5 m lang og 2,5 m høy.</p>
+              <BlockMath>{"A = 4{,}5 \\cdot 2{,}5 = 11{,}25 \\text{ m}^2"}</BlockMath>
+              <p className="mt-2">En liter maling dekker ca. 8 m²:</p>
+              <BlockMath>{"\\text{Maling} = \\frac{11{,}25}{8} \\approx 1{,}4 \\text{ liter}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 2: Plen</h4>
+              <p>En rektangulær plen er 15 m × 8 m. Pris for såing: 25 kr/m²</p>
+              <BlockMath>{"A = 15 \\cdot 8 = 120 \\text{ m}^2"}</BlockMath>
+              <BlockMath>{"\\text{Kostnad} = 120 \\cdot 25 = 3000 \\text{ kr}"}</BlockMath>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Volum av tredimensjonale figurer',
+        content: (
+          <div className="space-y-4">
+            <p>Volum måler hvor mye plass en figur tar (målt i m³, cm³, liter):</p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Kube/Boks</h4>
+                <BlockMath>{"V = l \\cdot b \\cdot h"}</BlockMath>
+                <p className="text-sm">lengde · bredde · høyde</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Sylinder</h4>
+                <BlockMath>{"V = \\pi r^2 \\cdot h"}</BlockMath>
+                <p className="text-sm">grunnflate · høyde</p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Kule</h4>
+                <BlockMath>{"V = \\frac{4}{3}\\pi r^3"}</BlockMath>
+                <p className="text-sm">4/3 · pi · radius³</p>
+              </div>
+              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <h4 className="font-bold mb-2">Pyramide/Kjegle</h4>
+                <BlockMath>{"V = \\frac{1}{3} \\cdot G \\cdot h"}</BlockMath>
+                <p className="text-sm">grunnflate · høyde / 3</p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg mt-4">
+              <p className="font-semibold">Husk: 1 liter = 1 dm³ = 1000 cm³</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn volum',
+          description: 'Visualiser en boks og beregn volumet.',
+          appName: '3d',
+          initialCommands: [
+            'l = 5',
+            'b = 3',
+            'h = 4',
+            'volum = l * b * h',
+          ],
+        },
+      },
+      {
+        title: 'Målestokk',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Målestokk viser forholdet mellom lengder på kart/tegning og virkeligheten:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"\\text{Målestokk } 1:n \\text{ betyr at } 1 \\text{ cm på kartet} = n \\text{ cm i virkeligheten}"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Eksempel 1: Målestokk 1:50 000</h4>
+                <p>3 cm på kartet tilsvarer:</p>
+                <BlockMath>{"3 \\cdot 50000 = 150000 \\text{ cm} = 1{,}5 \\text{ km}"}</BlockMath>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Eksempel 2: Hustekning 1:100</h4>
+                <p>En vegg er 6,5 cm på tegningen:</p>
+                <BlockMath>{"6{,}5 \\cdot 100 = 650 \\text{ cm} = 6{,}5 \\text{ m}"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Areal med målestokk</h4>
+              <p>Husk å kvadrere målestokken når du regner ut areal!</p>
+              <BlockMath>{"\\text{Målestokk } 1:1000 \\Rightarrow \\text{ Arealmålestokk } 1:1000000"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk målestokk',
+          description: 'Se sammenhengen mellom kart og virkelighet.',
+          appName: 'classic',
+          initialCommands: [
+            'malestokk = 50000',
+            'lengde_kart = Slider(0, 10, 0.1)',
+            'lengde_virkelighet = lengde_kart * malestokk / 100000',
+          ],
+        },
+      },
+      {
+        title: 'Pytagoras i praksis',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Pytagoras setning brukes til å finne lengder i rettvinklede trekanter:
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"a^2 + b^2 = c^2"}</BlockMath>
+              <p className="text-center text-sm text-muted-foreground">
+                c er hypotenusen (lengste siden)
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Stige mot vegg</h4>
+              <p>En 5 m lang stige står 1,5 m fra veggen. Hvor høyt når stigen?</p>
+              <BlockMath>{"h^2 = 5^2 - 1{,}5^2 = 25 - 2{,}25 = 22{,}75"}</BlockMath>
+              <BlockMath>{"h = \\sqrt{22{,}75} \\approx 4{,}77 \\text{ m}"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Pytagoras',
+          description: 'Se Pytagoras setning i praksis.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (0, 0)',
+            'B = (3, 0)',
+            'C = (3, 4)',
+            'trekant = Polygon(A, B, C)',
+            'a = Distance(B, C)',
+            'b = Distance(A, B)',
+            'c = Distance(A, C)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn arealet av et rom som er 5,5 m × 4,2 m',
+        'Hvor mange liter maling trengs for å male 45 m² (1 liter = 8 m²)?',
+        'Beregn volumet av en boks: 30 cm × 20 cm × 15 cm. Hvor mange liter er det?',
+        'På et kart med målestokk 1:25 000 er avstanden 8 cm. Hvor langt er det i virkeligheten?',
+        'En 6 m lang stige står 2 m fra veggen. Hvor høyt når den?',
+      ],
+    },
+    summary: [
+      'Rektangel: A = l · b, Trekant: A = g · h / 2, Sirkel: A = πr²',
+      'Boks: V = l · b · h, Sylinder: V = πr² · h',
+      'Målestokk 1:n betyr 1 cm på kart = n cm i virkeligheten',
+      'Arealmålestokk: kvadrer tallmålestokken',
+      'Pytagoras: a² + b² = c²',
+    ],
+    commands: [
+      { command: 'Area(figur)', description: 'Beregner arealet', example: 'Area(trekant)' },
+      { command: 'Perimeter(figur)', description: 'Beregner omkretsen', example: 'Perimeter(rektangel)' },
+      { command: 'Volume(figur)', description: 'Beregner volumet (3D)', example: 'Volume(kube)' },
+      { command: 'Distance(A, B)', description: 'Finner avstanden mellom punkter', example: 'Distance(A, B)' },
+      { command: 'Circle(M, r)', description: 'Tegner sirkel', example: 'Circle((0,0), 5)' },
+    ],
+  },
+
+  // 2P - Praktisk matematikk VG2
+  // Kapittel 1: Modellering
+  '2p-modellering': {
+    introduction: (
+      <p className="text-lg">
+        Modellering handler om å bruke matematikk til å beskrive virkeligheten.
+        I dette kapittelet lærer du å lage matematiske modeller, tilpasse funksjoner til data,
+        og bruke modellene til å gjøre prediksjoner.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Hva er en matematisk modell?',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En matematisk modell er en forenklet matematisk beskrivelse av et fenomen i virkeligheten.
+              Modeller brukes til å forstå, forklare og forutsi.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Lineære modeller</h4>
+                <p className="text-muted-foreground">
+                  Konstant endring. Eksempel: Timelønn, månedlig sparing
+                </p>
+                <div className="mt-2">
+                  <BlockMath>{"y = ax + b"}</BlockMath>
+                </div>
+              </div>
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Eksponentielle modeller</h4>
+                <p className="text-muted-foreground">
+                  Prosentvis endring. Eksempel: Befolkningsvekst, renter
+                </p>
+                <div className="mt-2">
+                  <BlockMath>{"y = a \\cdot b^x"}</BlockMath>
+                </div>
+              </div>
+            </div>
+          </div>
+        ),
+      },
+      {
+        title: 'Tilpasse funksjoner til data',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når vi har måledata, kan vi finne en funksjon som passer godt til punktene.
+              Dette kalles å tilpasse en funksjon eller kurvetilpassing.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Viktige GeoGebra-kommandoer:</h4>
+              <ul className="space-y-2">
+                <li><code className="text-blue-600">FitLine(punktliste)</code> - Tilpasser en lineær funksjon</li>
+                <li><code className="text-blue-600">FitExp(punktliste)</code> - Tilpasser en eksponentiell funksjon</li>
+                <li><code className="text-blue-600">FitPoly(punktliste, grad)</code> - Tilpasser et polynom</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tilpass en lineær modell',
+          description: 'Se hvordan GeoGebra finner best mulig linje gjennom datapunktene.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {{1,2},{2,4},{3,5},{4,7},{5,9}}',
+            'f = FitLine(data)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag et datasett med 5-6 punkter som viser lineær sammenheng',
+        'Bruk FitLine() til å finne beste tilpassede linje',
+        'Gjør en prediksjon for x = 10 med din modell',
+      ],
+    },
+    summary: [
+      'Matematiske modeller forenkler virkeligheten til matematiske sammenhenger',
+      'FitLine(), FitExp() og FitPoly() tilpasser funksjoner til data',
+      'Alle modeller har begrensninger og forutsetninger',
+    ],
+    commands: [
+      { command: 'FitLine(punktliste)', description: 'Lineær regresjonsmodell', example: 'FitLine({{1,2},{2,4},{3,6}})' },
+      { command: 'FitExp(punktliste)', description: 'Eksponentiell regresjonsmodell', example: 'FitExp({{1,2},{2,4},{3,8}})' },
+      { command: 'FitPoly(punktliste, grad)', description: 'Polynomisk regresjonsmodell', example: 'FitPoly(data, 2)' },
+    ],
+  },
+
+  // 2P - Kapittel 2: Regresjon
+  '2p-regresjon': {
+    introduction: (
+      <p className="text-lg">
+        Regresjon er metoden for å finne den funksjonen som best beskriver sammenhengen
+        mellom to variable. Her lærer du å bruke lineær og eksponentiell regresjon,
+        samt å vurdere hvor god tilpasningen er.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Lineær regresjon',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Lineær regresjon finner den rette linjen som passer best til dataene.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <BlockMath>{"y = ax + b"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lineær regresjon',
+          description: 'Se hvordan regresjonslinjen tilpasses datapunktene.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {{1,2.1},{2,3.9},{3,5.8},{4,8.2},{5,10.1}}',
+            'f = FitLine(data)',
+          ],
+        },
+      },
+      {
+        title: 'Korrelasjon og R²',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Korrelasjonskoeffisienten r måler styrken på sammenhengen. R²-verdien viser
+              hvor mye av variasjonen som forklares av modellen.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <code className="text-blue-600 block">r = CorrelationCoefficient(data)</code>
+              <code className="text-blue-600 block mt-2">R2 = R2(f)</code>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag et datasett med sterk positiv korrelasjon (r > 0.9)',
+        'Beregn korrelasjonskoeffisienten med CorrelationCoefficient()',
+        'Lag en lineær regresjonsmodell og finn R²-verdien',
+      ],
+    },
+    summary: [
+      'Regresjon finner funksjonen som best passer til data',
+      'FitLine() for lineær regresjon, FitExp() for eksponentiell',
+      'Korrelasjonskoeffisient r måler styrken på lineær sammenheng (-1 til 1)',
+      'R²-verdien forteller hvor stor andel av variasjonen som forklares (0 til 1)',
+    ],
+    commands: [
+      { command: 'FitLine(data)', description: 'Lineær regresjonsanalyse', example: 'f = FitLine({{1,2},{2,4}})' },
+      { command: 'CorrelationCoefficient(data)', description: 'Beregner r', example: 'r = CorrelationCoefficient(data)' },
+      { command: 'R2(funksjon)', description: 'Beregner R²-verdi', example: 'R2 = R2(f)' },
+    ],
+  },
+
+  // 2P - Kapittel 3: Statistisk analyse
+  '2p-statistikk': {
+    introduction: (
+      <p className="text-lg">
+        Statistikk handler om å samle inn, organisere, analysere og tolke data.
+        Her lærer du å beregne sentralmål, spredningsmål og forstå normalfordeling.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Sentralmål og spredningsmål',
+        content: (
+          <div className="space-y-4">
+            <p>Viktige statistiske mål:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>Mean(liste)</strong> - Gjennomsnitt</li>
+              <li><strong>Median(liste)</strong> - Median</li>
+              <li><strong>SD(liste)</strong> - Standardavvik</li>
+              <li><strong>Q1(liste), Q3(liste)</strong> - Kvartiler</li>
+            </ul>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn statistiske mål',
+          description: 'Analyser datafordelingen.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {12, 15, 18, 20, 22, 25, 28, 30, 35, 40}',
+            'Mean(data)',
+            'SD(data)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag et datasett med 15-20 verdier',
+        'Beregn gjennomsnitt, median og standardavvik',
+        'Lag et boksplott av dataene',
+      ],
+    },
+    summary: [
+      'Sentralmål: Mean(), Median(), Mode()',
+      'Spredningsmål: Q1(), Q3(), SD()',
+      'Boksplott visualiserer kvartiler og spredning',
+    ],
+    commands: [
+      { command: 'Mean(liste)', description: 'Beregner gjennomsnittet', example: 'Mean({1,2,3,4,5})' },
+      { command: 'SD(liste)', description: 'Beregner standardavviket', example: 'SD(data)' },
+      { command: 'BoxPlot(y, bredde, liste)', description: 'Lager boksplott', example: 'BoxPlot(1, 0.5, data)' },
+    ],
+  },
+
+  // 2P - Kapittel 4: Sannsynlighet
+  '2p-sannsynlighet': {
+    introduction: (
+      <p className="text-lg">
+        Sannsynlighet handler om å beregne sjansen for at noe skal skje.
+        Her lærer du sannsynlighetsregler, kombinatorikk, simulering og binomisk sannsynlighet.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Kombinatorikk',
+        content: (
+          <div className="space-y-4">
+            <p>Viktige kombinatoriske verktøy:</p>
+            <ul className="list-disc list-inside space-y-2">
+              <li><strong>n!</strong> - Fakultet</li>
+              <li><strong>nPr(n, r)</strong> - Permutasjoner</li>
+              <li><strong>nCr(n, r)</strong> - Kombinasjoner</li>
+            </ul>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn kombinatorikk',
+          description: 'Bruk fakultet, permutasjoner og kombinasjoner.',
+          appName: 'graphing',
+          initialCommands: [
+            'fakultet = 5!',
+            'perm = nPr(10, 3)',
+            'komb = nCr(10, 3)',
+          ],
+        },
+      },
+      {
+        title: 'Binomisk sannsynlighet',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Binomisk sannsynlighet brukes når vi har et visst antall uavhengige forsøk
+              med to mulige utfall.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <code className="text-blue-600 block">BinomialDist(n, p, k, false)</code>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Beregn nCr(52, 5) (antall pokerhender)',
+        'Simuler 1000 myntkast med RandomBetween()',
+        'Beregn sannsynligheten for nøyaktig 7 mynt i 10 kast',
+      ],
+    },
+    summary: [
+      'P(A) = gunstige/mulige, alltid mellom 0 og 1',
+      'Kombinatorikk: n!, nPr(n,r), nCr(n,r)',
+      'BinomialDist(n, p, k) for binomisk sannsynlighet',
+    ],
+    commands: [
+      { command: 'RandomBetween(a, b)', description: 'Tilfeldig heltall mellom a og b', example: 'RandomBetween(1, 6)' },
+      { command: 'nCr(n, r)', description: 'Kombinasjoner', example: 'nCr(52, 5)' },
+      { command: 'BinomialDist(n, p, k, kum)', description: 'Binomisk sannsynlighet', example: 'BinomialDist(10, 0.5, 6, false)' },
+    ],
+  },
+
+  // 2P - Kapittel 5: Funksjoner og økonomi
+  '2p-funksjoner': {
+    introduction: (
+      <p className="text-lg">
+        I dette kapittelet lærer du å bruke funksjoner til å analysere økonomiske problemstillinger
+        som inntekt, kostnad, profitt, break-even og optimering.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Inntekt, kostnad og profitt',
+        content: (
+          <div className="space-y-4">
+            <p>Økonomiske funksjoner:</p>
+            <div className="space-y-3">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold">Inntekt</h4>
+                <BlockMath>{"I(x) = p \\cdot x"}</BlockMath>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h4 className="font-bold">Kostnad</h4>
+                <BlockMath>{"K(x) = K_f + k_v \\cdot x"}</BlockMath>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold">Profitt</h4>
+                <BlockMath>{"P(x) = I(x) - K(x)"}</BlockMath>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Visualiser økonomi',
+          description: 'Se hvordan inntekt, kostnad og profitt henger sammen.',
+          appName: 'graphing',
+          initialCommands: [
+            'I(x) = 200*x',
+            'K(x) = 10000 + 80*x',
+            'P(x) = I(x) - K(x)',
+          ],
+        },
+      },
+      {
+        title: 'Break-even og optimering',
+        content: (
+          <div className="space-y-4">
+            <p>Finn break-even punktet der inntekt = kostnad:</p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <code className="text-blue-600 block">breakeven = Intersect(I, K)</code>
+            </div>
+            <p>Finn maksimal profitt:</p>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <code className="text-blue-600 block">maks = Extremum(P)</code>
+            </div>
+          </div>
+        ),
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Lag inntekts- og kostnadsfunksjon for en bedrift',
+        'Beregn profittfunksjonen P(x) = I(x) - K(x)',
+        'Finn break-even punktet med Intersect()',
+      ],
+    },
+    summary: [
+      'Inntekt: I(x) = p·x, Kostnad: K(x) = Kf + kv·x',
+      'Profitt: P(x) = I(x) - K(x)',
+      'Break-even: Intersect(I, K)',
+    ],
+    commands: [
+      { command: 'I(x) = p*x', description: 'Inntektsfunksjon', example: 'I(x) = 200*x' },
+      { command: 'K(x) = Kf + kv*x', description: 'Kostnadsfunksjon', example: 'K(x) = 10000 + 80*x' },
+      { command: 'Intersect(f, g)', description: 'Finner skjæringspunkt (break-even)', example: 'Intersect(I, K)' },
+      { command: 'Extremum(f)', description: 'Finner ekstremalpunkt (maks/min)', example: 'Extremum(P)' },
+    ],
+  },
+  // S1 - Samfunnsfaglig matematikk VG2
+  // Kapittel 1: Funksjonsanalyse
+  's1-funksjoner': {
+    introduction: (
+      <p className="text-lg">
+        Funksjonsanalyse handler om å forstå egenskapene til en funksjon:
+        hvor den er definert, hvilke verdier den kan ta, hvor den vokser og avtar,
+        og hvor den har sine høyeste og laveste punkter.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Definisjonsmengde og verdimengde',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Definisjonsmengden</strong> (D<sub>f</sub>) er alle x-verdier funksjonen
+              kan ta. <strong>Verdimengden</strong> (V<sub>f</sub>) er alle y-verdier funksjonen
+              kan gi.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Definisjonsmengde</h4>
+                <p className="text-muted-foreground mb-2">
+                  Hvilke x-verdier kan vi sette inn?
+                </p>
+                <ul className="text-sm space-y-1">
+                  <li>For polynomer: D<sub>f</sub> = ℝ (alle reelle tall)</li>
+                  <li>For brøk: x ≠ verdier som gjør nevner = 0</li>
+                  <li>For √x: x ≥ 0</li>
+                </ul>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold text-lg mb-2">Verdimengde</h4>
+                <p className="text-muted-foreground mb-2">
+                  Hvilke y-verdier kan funksjonen gi?
+                </p>
+                <ul className="text-sm space-y-1">
+                  <li>Se på grafen: hva er laveste/høyeste y?</li>
+                  <li>Kvadratisk funksjon: y ≥ toppunkt (eller y ≤)</li>
+                  <li>Lineær funksjon: V<sub>f</sub> = ℝ</li>
+                </ul>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: f(x) = x² - 4x + 3</h4>
+              <p className="text-sm">
+                D<sub>f</sub> = ℝ (alle reelle tall)<br/>
+                V<sub>f</sub> = [-1, ∞) (funksjonen har minimum -1)
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk definisjonsmengde og verdimengde',
+          description: 'Se hvordan funksjonen oppfører seg og hvilke verdier den kan ta.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^2 - 4x + 3',
+            'Extremum(f)',
+          ],
+        },
+      },
+      {
+        title: 'Monotoni - vokser og avtar',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En funksjon er <strong>voksende</strong> når y-verdiene øker når x øker.
+              Den er <strong>avtagende</strong> når y-verdiene minker når x øker.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-green-100 dark:bg-green-900/30 rounded-lg">
+                <h4 className="font-bold">Voksende</h4>
+                <p className="text-sm text-muted-foreground">
+                  f(x₁) &lt; f(x₂) når x₁ &lt; x₂
+                </p>
+                <p className="text-sm mt-2">
+                  Grafen går oppover når x øker →
+                </p>
+              </div>
+              <div className="p-4 bg-red-100 dark:bg-red-900/30 rounded-lg">
+                <h4 className="font-bold">Avtagende</h4>
+                <p className="text-sm text-muted-foreground">
+                  f(x₁) &gt; f(x₂) når x₁ &lt; x₂
+                </p>
+                <p className="text-sm mt-2">
+                  Grafen går nedover når x øker →
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Finn monotoni grafisk:</h4>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Tegn grafen til funksjonen</li>
+                <li>Se hvor grafen går opp (voksende) og ned (avtagende)</li>
+                <li>Finn x-verdiene for intervallene</li>
+              </ol>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Analyser monotoni',
+          description: 'Se hvor funksjonen vokser og avtar.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = -x^2 + 4x + 1',
+            'Extremum(f)',
+          ],
+        },
+      },
+      {
+        title: 'Ekstremalverdier - topp- og bunnpunkt',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et <strong>toppunkt</strong> (maksimum) er det høyeste punktet lokalt på grafen.
+              Et <strong>bunnpunkt</strong> (minimum) er det laveste punktet lokalt.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra:</h4>
+              <code className="text-blue-600">Extremum(f)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Finner alle topp- og bunnpunkter automatisk
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">For kvadratisk funksjon f(x) = ax² + bx + c:</h4>
+              <BlockMath>{"x_{topp} = -\\frac{b}{2a}"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                a &gt; 0: bunnpunkt (smiler)<br/>
+                a &lt; 0: toppunkt (sur)
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn ekstremalverdier',
+          description: 'Bruk Extremum() for å finne topp- og bunnpunkt.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^3 - 3x^2 - 9x + 5',
+            'E = Extremum(f)',
+          ],
+        },
+      },
+      {
+        title: 'CAS - Computer Algebra System',
+        content: (
+          <div className="space-y-4">
+            <p>
+              GeoGebra CAS kan gjøre symbolske beregninger: forenkle, faktorisere,
+              løse likninger og mye mer.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold">Viktige CAS-kommandoer:</h4>
+                <ul className="text-sm space-y-1 mt-2">
+                  <li><code>Solve(likning, x)</code> - løs likning</li>
+                  <li><code>Factor(uttrykk)</code> - faktoriser</li>
+                  <li><code>Expand(uttrykk)</code> - utvid</li>
+                  <li><code>Simplify(uttrykk)</code> - forenkle</li>
+                </ul>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold">Eksempel:</h4>
+                <p className="text-sm mt-2">
+                  <code>Solve(x² - 5x + 6 = 0, x)</code><br/>
+                  → {'{'}x = 2, x = 3{'}'}
+                </p>
+                <p className="text-sm mt-2">
+                  <code>Factor(x² - 5x + 6)</code><br/>
+                  → (x - 2)(x - 3)
+                </p>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Bruk CAS for funksjonsanalyse',
+          description: 'Løs likninger og forenkle uttrykk symbolsk.',
+          appName: 'cas',
+          initialCommands: [
+            'f(x) := x^2 - 5x + 6',
+            'Solve(f(x) = 0, x)',
+            'Factor(f(x))',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn definisjonsmengde og verdimengde for f(x) = x² - 6x + 5',
+        'Bestem hvor f(x) = -x² + 8x - 7 er voksende og avtagende',
+        'Finn toppunktet til f(x) = -2x² + 12x - 10',
+        'Bruk CAS til å løse x² - 7x + 12 = 0',
+        'Finn nullpunktene til f(x) = x³ - 4x',
+      ],
+    },
+    summary: [
+      'Definisjonsmengde: hvilke x-verdier funksjonen kan ta',
+      'Verdimengde: hvilke y-verdier funksjonen kan gi',
+      'Voksende: grafen går opp, avtagende: grafen går ned',
+      'Extremum(f) finner topp- og bunnpunkt',
+      'Bruk CAS for symbolske beregninger',
+    ],
+    commands: [
+      { command: 'f(x) = uttrykk', description: 'Definerer en funksjon', example: 'f(x) = x^2 - 4x + 3' },
+      { command: 'Extremum(f)', description: 'Finner alle ekstremalverdier', example: 'Extremum(f)' },
+      { command: 'Solve(f(x) = 0, x)', description: 'Løser likning i CAS', example: 'Solve(x^2 - 5x + 6 = 0, x)' },
+      { command: 'Factor(uttrykk)', description: 'Faktoriserer uttrykk', example: 'Factor(x^2 - 5x + 6)' },
+      { command: 'Simplify(uttrykk)', description: 'Forenkler uttrykk', example: 'Simplify((x^2-4)/(x-2))' },
+    ],
+  },
+
+  // S1 - Kapittel 2: Derivasjon
+  's1-derivasjon': {
+    introduction: (
+      <p className="text-lg">
+        Den deriverte av en funksjon forteller oss hvor bratt grafen er i et punkt.
+        Den viser hvor raskt funksjonen endrer seg, og er et kraftig verktøy
+        for å analysere vekst, optimering og bevegelse.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Hva er den deriverte?',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Den deriverte f&apos;(x) til en funksjon f(x) er <strong>stigningstallet</strong> til
+              tangenten i punktet (x, f(x)).
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Definisjon:</h4>
+              <BlockMath>{"f'(x) = \\lim_{h \\to 0} \\frac{f(x+h) - f(x)}{h}"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold">Geometrisk tolkning</h4>
+                <p className="text-sm text-muted-foreground">
+                  f&apos;(x) = stigningstallet til tangenten
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold">Fysisk tolkning</h4>
+                <p className="text-sm text-muted-foreground">
+                  f&apos;(x) = momentan endringshastighet
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg mt-4">
+              <p className="font-semibold">Viktig sammenheng:</p>
+              <ul className="text-sm space-y-1 mt-2">
+                <li>f&apos;(x) &gt; 0 ⟹ f er voksende</li>
+                <li>f&apos;(x) &lt; 0 ⟹ f er avtagende</li>
+                <li>f&apos;(x) = 0 ⟹ horisontal tangent (topp/bunn/terrassepunkt)</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk den deriverte',
+          description: 'Se hvordan tangenten endrer seg langs grafen.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^2 - 4x + 3',
+            'a = Slider(0, 5, 0.1)',
+            'A = (a, f(a))',
+            't = Tangent(A, f)',
+          ],
+        },
+      },
+      {
+        title: 'Derivasjonsregler',
+        content: (
+          <div className="space-y-4">
+            <p>
+              I stedet for å bruke definisjonen hver gang, bruker vi derivasjonsregler:
+            </p>
+            <div className="space-y-3">
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold">Potensregelen:</h4>
+                <BlockMath>{"f(x) = x^n \\quad \\Rightarrow \\quad f'(x) = n \\cdot x^{n-1}"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold">Konstantregel:</h4>
+                <BlockMath>{"f(x) = c \\quad \\Rightarrow \\quad f'(x) = 0"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold">Sumregel:</h4>
+                <BlockMath>{"f(x) = g(x) + h(x) \\quad \\Rightarrow \\quad f'(x) = g'(x) + h'(x)"}</BlockMath>
+              </div>
+              <div className="p-4 bg-muted rounded-lg">
+                <h4 className="font-semibold">Konstantfaktorregel:</h4>
+                <BlockMath>{"f(x) = c \\cdot g(x) \\quad \\Rightarrow \\quad f'(x) = c \\cdot g'(x)"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <BlockMath>{"f(x) = 3x^4 - 5x^2 + 7x - 2"}</BlockMath>
+              <BlockMath>{"f'(x) = 12x^3 - 10x + 7"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Øv på derivasjon',
+          description: 'Bruk Derivative() for å finne den deriverte.',
+          appName: 'cas',
+          initialCommands: [
+            'f(x) := 3x^4 - 5x^2 + 7x - 2',
+            'Derivative(f)',
+          ],
+        },
+      },
+      {
+        title: 'Tangentligning',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Tangenten til f(x) i punktet (a, f(a)) er en rett linje med stigningstall f&apos;(a).
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Ettpunktsformelen:</h4>
+              <BlockMath>{"y - f(a) = f'(a) \\cdot (x - a)"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">eller</p>
+              <BlockMath>{"y = f'(a) \\cdot x + (f(a) - a \\cdot f'(a))"}</BlockMath>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Framgangsmåte:</h4>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Finn f(a) - y-koordinaten til punktet</li>
+                <li>Finn f&apos;(x) - den deriverte</li>
+                <li>Finn f&apos;(a) - stigningstallet i x = a</li>
+                <li>Sett inn i ettpunktsformelen</li>
+              </ol>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">Tangent((a, f(a)), f)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn tangentligning',
+          description: 'Tegn tangenten i et punkt og finn likningen.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^2 - 3x + 2',
+            'a = 2',
+            'A = (a, f(a))',
+            't = Tangent(A, f)',
+          ],
+        },
+      },
+      {
+        title: 'Derivasjon i CAS',
+        content: (
+          <div className="space-y-4">
+            <p>
+              GeoGebra CAS kan derivere funksjoner både symbolsk og numerisk.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold">Symbolsk derivasjon:</h4>
+                <code className="text-blue-600 block mt-2">Derivative(f(x))</code>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Gir den deriverte som en formel
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold">Numerisk derivasjon:</h4>
+                <code className="text-blue-600 block mt-2">Derivative(f, a)</code>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Gir verdien av f&apos;(a)
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Høyere ordens deriverte:</h4>
+              <ul className="text-sm space-y-1">
+                <li><code>Derivative(f, 2)</code> - andrederiverte f&apos;&apos;(x)</li>
+                <li><code>Derivative(f, 3)</code> - tredjederiverte f&apos;&apos;&apos;(x)</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Bruk CAS for derivasjon',
+          description: 'Deriver funksjoner både symbolsk og numerisk.',
+          appName: 'cas',
+          initialCommands: [
+            'f(x) := x^3 - 6x^2 + 9x + 1',
+            'f1 := Derivative(f)',
+            'f2 := Derivative(f, 2)',
+            'f1(2)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Deriver f(x) = 2x³ - 5x² + 3x - 7',
+        'Finn tangentlikningen til f(x) = x² - 4x + 1 i x = 3',
+        'Bestem hvor f(x) = x³ - 3x² har horisontal tangent',
+        'Bruk CAS til å finne f\'\'(x) for f(x) = x⁴ - 8x²',
+        'Finn stigningstallet til f(x) = -x² + 6x i x = 2',
+      ],
+    },
+    summary: [
+      'f\'(x) = stigningstallet til tangenten i x',
+      'Potensregelen: (xⁿ)\' = n·xⁿ⁻¹',
+      'f\'(x) > 0: voksende, f\'(x) < 0: avtagende, f\'(x) = 0: horisontal tangent',
+      'Tangent i (a, f(a)): y - f(a) = f\'(a)·(x - a)',
+      'Derivative(f) i CAS gir den deriverte symbolsk',
+    ],
+    commands: [
+      { command: 'Derivative(f)', description: 'Deriverer funksjonen f symbolsk', example: 'Derivative(x^3 - 2x)' },
+      { command: 'Derivative(f, a)', description: 'Beregner f\'(a) numerisk', example: 'Derivative(f, 2)' },
+      { command: 'Tangent(punkt, f)', description: 'Tegner tangent til f i punktet', example: 'Tangent((2, f(2)), f)' },
+      { command: 'Derivative(f, n)', description: 'n-te deriverte av f', example: 'Derivative(f, 2)' },
+    ],
+  },
+
+  // S1 - Kapittel 3: Optimering
+  's1-optimering': {
+    introduction: (
+      <p className="text-lg">
+        Optimering handler om å finne den beste løsningen på et problem -
+        for eksempel maksimal profitt, minimal kostnad eller optimal størrelse.
+        Derivasjon er nøkkelen til å løse optimeringsproblemer.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Toppunkt og bunnpunkt',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et <strong>toppunkt</strong> (lokalt maksimum) er et punkt hvor funksjonen har
+              høyest verdi i sitt nærområde. Et <strong>bunnpunkt</strong> (lokalt minimum)
+              er et punkt hvor funksjonen har lavest verdi.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Betingelser for ekstremalpunkt:</h4>
+              <BlockMath>{"f'(x_0) = 0 \\quad \\text{(nødvendig betingelse)}"}</BlockMath>
+              <div className="mt-3 space-y-2 text-sm">
+                <p><strong>Toppunkt:</strong> f&apos;&apos;(x₀) &lt; 0 (konkav)</p>
+                <p><strong>Bunnpunkt:</strong> f&apos;&apos;(x₀) &gt; 0 (konveks)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Framgangsmåte:</h4>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Finn f&apos;(x) og løs f&apos;(x) = 0</li>
+                <li>Finn f&apos;&apos;(x)</li>
+                <li>Sjekk f&apos;&apos;(x₀) for å avgjøre type ekstremalpunkt</li>
+                <li>Beregn f(x₀) for å finne y-koordinaten</li>
+              </ol>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">Extremum(f)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Finner alle topp- og bunnpunkter automatisk
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk ekstremalpunkter',
+          description: 'Se topp- og bunnpunkter på grafen.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^3 - 6x^2 + 9x + 1',
+            'Extremum(f)',
+          ],
+        },
+      },
+      {
+        title: 'Vendepunkt',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et <strong>vendepunkt</strong> er et punkt hvor grafen skifter fra å være
+              konkav til konveks, eller omvendt. Her endrer krumningen seg.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Betingelse for vendepunkt:</h4>
+              <BlockMath>{"f''(x_0) = 0 \\quad \\text{og} \\quad f''(x) \\text{ skifter fortegn}"}</BlockMath>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold">Konkav (f&apos;&apos; &lt; 0)</h4>
+                <p className="text-sm text-muted-foreground">
+                  Grafen buer nedover (∩-form)
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold">Konveks (f&apos;&apos; &gt; 0)</h4>
+                <p className="text-sm text-muted-foreground">
+                  Grafen buer oppover (∪-form)
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg mt-4">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">InflectionPoint(f)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn vendepunkt',
+          description: 'Bruk InflectionPoint() for å finne vendepunkter.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^3 - 3x^2 + 2',
+            'InflectionPoint(f)',
+          ],
+        },
+      },
+      {
+        title: 'Praktiske optimeringsproblemer',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Mange praktiske problemer kan løses med optimering - fra å finne
+              optimal emballasje til maksimal profitt i økonomiske modeller.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Typiske optimeringsproblemer:</h4>
+              <ul className="text-sm space-y-2">
+                <li><strong>Område/volum:</strong> Finn dimensjoner for maksimalt areal/volum</li>
+                <li><strong>Økonomi:</strong> Maksimer profitt, minimer kostnader</li>
+                <li><strong>Avstand:</strong> Finn korteste avstand til en kurve</li>
+                <li><strong>Materialer:</strong> Minimer materialbruk</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Generell framgangsmåte:</h4>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Definer hva som skal optimeres (mål-funksjonen)</li>
+                <li>Finn eventuelle bibetingelser (begrensninger)</li>
+                <li>Uttrykk funksjonen med én variabel</li>
+                <li>Deriver og sett f&apos;(x) = 0</li>
+                <li>Sjekk at løsningen gir maks/min (bruk f&apos;&apos;)</li>
+              </ol>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Maksimalt areal</h4>
+              <p className="text-sm">
+                Et rektangel har omkrets 100 m. Finn dimensjonene som gir maksimalt areal.
+              </p>
+              <BlockMath>{"A(x) = x \\cdot (50 - x) = 50x - x^2"}</BlockMath>
+              <BlockMath>{"A'(x) = 50 - 2x = 0 \\quad \\Rightarrow \\quad x = 25"}</BlockMath>
+              <p className="text-sm mt-2">Maksimalt areal når rektangelet er et kvadrat (25×25 m).</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Optimeringsproblem',
+          description: 'Visualiser optimering av areal.',
+          appName: 'cas',
+          initialCommands: [
+            'A(x) := x * (50 - x)',
+            'A1 := Derivative(A)',
+            'Solve(A1(x) = 0, x)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn topp- og bunnpunkt for f(x) = x³ - 12x + 5',
+        'Bestem vendepunktet til f(x) = x³ - 6x² + 9x',
+        'Et rektangel har areal 100 m². Finn dimensjonene som gir minst omkrets.',
+        'Finn punktet på grafen f(x) = x² som ligger nærmest punktet (0, 1)',
+        'En eske uten lokk skal ha volum 500 cm³. Finn dimensjonene som bruker minst materiale.',
+      ],
+    },
+    summary: [
+      'Toppunkt: f\'(x₀) = 0 og f\'\'(x₀) < 0',
+      'Bunnpunkt: f\'(x₀) = 0 og f\'\'(x₀) > 0',
+      'Vendepunkt: f\'\'(x₀) = 0 og f\'\' skifter fortegn',
+      'Extremum(f) finner alle ekstremalpunkter',
+      'InflectionPoint(f) finner vendepunkter',
+    ],
+    commands: [
+      { command: 'Extremum(f)', description: 'Finner topp- og bunnpunkter', example: 'Extremum(x^3 - 6x^2 + 9x)' },
+      { command: 'InflectionPoint(f)', description: 'Finner vendepunkter', example: 'InflectionPoint(x^3 - 3x^2)' },
+      { command: 'Derivative(f)', description: 'Finner f\'(x)', example: 'Derivative(x^3 - 6x^2)' },
+      { command: 'Solve(f\'(x) = 0, x)', description: 'Løser f\'(x) = 0', example: 'Solve(3x^2 - 12 = 0, x)' },
+    ],
+  },
+
+  // S1 - Kapittel 4: Regresjon og korrelasjon
+  's1-regresjon': {
+    introduction: (
+      <p className="text-lg">
+        Regresjon handler om å finne en matematisk modell som passer til et datasett.
+        Korrelasjon måler hvor sterk sammenhengen er mellom to variable.
+        Dette er viktige verktøy i samfunnsfaglig analyse.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Regresjonslinje',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En <strong>regresjonslinje</strong> er en rett linje som best mulig
+              beskriver sammenhengen mellom to variable. Den brukes til å predikere
+              verdier og analysere trender.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Lineær modell:</h4>
+              <BlockMath>{"y = ax + b"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                hvor a er stigningstallet og b er konstantleddet
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Minste kvadraters metode:</h4>
+              <p className="text-sm">
+                Regresjonslinjen plasseres slik at summen av kvadrerte avvik
+                mellom datapunktene og linjen blir minst mulig.
+              </p>
+              <BlockMath>{"\\min \\sum_{i=1}^{n} (y_i - (ax_i + b))^2"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">FitLine(punktliste)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Finner regresjonslinjen automatisk
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag regresjonslinje',
+          description: 'Tegn punkter og finn regresjonslinjen.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {(1, 2.5), (2, 4.1), (3, 5.8), (4, 7.2), (5, 9.1)}',
+            'FitLine(data)',
+          ],
+        },
+      },
+      {
+        title: 'Korrelasjonskoeffisienten',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Korrelasjonskoeffisienten r</strong> måler styrken og retningen
+              på den lineære sammenhengen mellom to variable.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Verdiområde:</h4>
+              <BlockMath>{"-1 \\leq r \\leq 1"}</BlockMath>
+              <div className="space-y-2 text-sm mt-3">
+                <p><strong>r = 1:</strong> Perfekt positiv lineær sammenheng</p>
+                <p><strong>r = -1:</strong> Perfekt negativ lineær sammenheng</p>
+                <p><strong>r = 0:</strong> Ingen lineær sammenheng</p>
+              </div>
+            </div>
+            <div className="grid md:grid-cols-3 gap-4 mt-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold">Sterk korrelasjon</h4>
+                <p className="text-sm text-muted-foreground">
+                  |r| &gt; 0.7
+                </p>
+              </div>
+              <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+                <h4 className="font-bold">Moderat korrelasjon</h4>
+                <p className="text-sm text-muted-foreground">
+                  0.3 &lt; |r| &lt; 0.7
+                </p>
+              </div>
+              <div className="p-4 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                <h4 className="font-bold">Svak korrelasjon</h4>
+                <p className="text-sm text-muted-foreground">
+                  |r| &lt; 0.3
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg mt-4">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">CorrelationCoefficient(data)</code>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <p className="font-semibold">Viktig:</p>
+              <p className="text-sm">
+                Korrelasjon betyr ikke nødvendigvis kausalitet!
+                To variable kan korrelere uten at den ene forårsaker den andre.
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn korrelasjon',
+          description: 'Finn korrelasjonskoeffisienten for et datasett.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {(1, 2), (2, 3.5), (3, 5), (4, 6.5), (5, 8)}',
+            'r = CorrelationCoefficient(data)',
+            'FitLine(data)',
+          ],
+        },
+      },
+      {
+        title: 'Tolking av regresjonsmodeller',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Når du har funnet en regresjonsmodell, er det viktig å kunne tolke
+              den og vurdere hvor godt den passer til dataene.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Tolking av parameterne:</h4>
+              <p className="text-sm">For y = ax + b:</p>
+              <ul className="text-sm space-y-1 mt-2">
+                <li><strong>a (stigningstall):</strong> Endring i y per enhet x øker</li>
+                <li><strong>b (konstantledd):</strong> Verdien av y når x = 0</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Prediksjon:</h4>
+              <p className="text-sm">
+                Bruk modellen til å predikere y-verdier for nye x-verdier.
+              </p>
+              <p className="text-sm text-muted-foreground mt-2">
+                <strong>Interpolasjon:</strong> Predikere innenfor dataområdet<br/>
+                <strong>Ekstrapolasjon:</strong> Predikere utenfor dataområdet (mer usikkert!)
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Befolkningsvekst</h4>
+              <p className="text-sm">
+                Data viser befolkning (i millioner) som funksjon av år:
+              </p>
+              <BlockMath>{"y = 0.05x - 95.2"}</BlockMath>
+              <p className="text-sm mt-2">
+                <strong>Tolking:</strong> Befolkningen øker med 0.05 millioner (50 000) per år.
+                I år 2000: y = 0.05(2000) - 95.2 = 4.8 millioner.
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Bruk regresjonsmodell',
+          description: 'Finn modell og bruk den til prediksjon.',
+          appName: 'graphing',
+          initialCommands: [
+            'data = {(2010, 4.9), (2012, 5.0), (2014, 5.1), (2016, 5.2), (2018, 5.3)}',
+            'modell = FitLine(data)',
+            'predikert2020 = modell(2020)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn regresjonslinjen for punktene: (1,3), (2,5), (3,7), (4,9), (5,11)',
+        'Beregn korrelasjonskoeffisienten for dataene i oppgave 1',
+        'Tolke: y = 0.8x + 12 beskriver inntekt (y) som funksjon av erfaring (x år). Hva betyr tallene?',
+        'Bruk modellen y = 2.5x + 100 til å predikere y når x = 15',
+        'Diskuter: Kan sterk korrelasjon mellom is-salg og drukningsulykker bety kausalitet?',
+      ],
+    },
+    summary: [
+      'FitLine(data) finner regresjonslinjen (minste kvadraters metode)',
+      'Korrelasjonskoeffisienten r måler styrken: -1 ≤ r ≤ 1',
+      '|r| > 0.7: sterk korrelasjon, |r| < 0.3: svak korrelasjon',
+      'Korrelasjon ≠ kausalitet',
+      'Bruk modellen til interpolasjon (innenfor data) og ekstrapolasjon (utenfor data)',
+    ],
+    commands: [
+      { command: 'FitLine(punktliste)', description: 'Finner regresjonslinjen', example: 'FitLine({(1,2), (2,4), (3,6)})' },
+      { command: 'CorrelationCoefficient(data)', description: 'Beregner korrelasjonskoeffisienten r', example: 'CorrelationCoefficient(data)' },
+      { command: 'modell(x)', description: 'Bruker modellen til prediksjon', example: 'modell(10)' },
+    ],
+  },
+
+  // S1 - Kapittel 5: Økonomiske modeller
+  's1-okonomi': {
+    introduction: (
+      <p className="text-lg">
+        Derivasjon er et kraftig verktøy i økonomi for å analysere kostnader,
+        inntekter og profitt. Vi kan finne optimale produksjonsnivåer og
+        forstå hvordan små endringer påvirker økonomiske størrelser.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Grensekostnad og grenseinntekt',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Grensekostnad</strong> (marginal kostnad) er kostnaden ved å
+              produsere én ekstra enhet. Den er den deriverte av kostnadsfunksjonen.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Definisjoner:</h4>
+              <div className="space-y-3">
+                <div>
+                  <p className="text-sm font-semibold">Grensekostnad:</p>
+                  <BlockMath>{"GK(x) = K'(x)"}</BlockMath>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Grenseinntekt:</p>
+                  <BlockMath>{"GI(x) = I'(x)"}</BlockMath>
+                </div>
+                <div>
+                  <p className="text-sm font-semibold">Grenseprofitt:</p>
+                  <BlockMath>{"GP(x) = P'(x) = I'(x) - K'(x)"}</BlockMath>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Tolking:</h4>
+              <p className="text-sm">
+                GK(100) = 45 betyr at kostnaden øker med ca. 45 kr når produksjonen
+                øker fra 100 til 101 enheter.
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">GK := Derivative(K)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk grensekostnad',
+          description: 'Deriver kostnadsfunksjonen for å finne grensekostnad.',
+          appName: 'cas',
+          initialCommands: [
+            'K(x) := 1000 + 50x + 0.1x^2',
+            'GK := Derivative(K)',
+            'GK(100)',
+          ],
+        },
+      },
+      {
+        title: 'Profittmaksimering',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Profitt maksimeres når grenseinntekt er lik grensekostnad.
+              Dette gir det optimale produksjonsnivået.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Profittfunksjon:</h4>
+              <BlockMath>{"P(x) = I(x) - K(x)"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                hvor I(x) er inntekt og K(x) er kostnad
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Maksimal profitt:</h4>
+              <BlockMath>{"P'(x) = 0 \\quad \\Leftrightarrow \\quad I'(x) = K'(x)"}</BlockMath>
+              <p className="text-sm mt-2">
+                <strong>Betingelse:</strong> Grenseinntekt = Grensekostnad
+              </p>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Økonomisk tolking:</h4>
+              <ul className="text-sm space-y-1">
+                <li>GI(x) &gt; GK(x): Øk produksjonen (mer profitt)</li>
+                <li>GI(x) &lt; GK(x): Reduser produksjonen</li>
+                <li>GI(x) = GK(x): Optimal produksjon</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Framgangsmåte:</h4>
+              <ol className="list-decimal list-inside space-y-1 text-sm">
+                <li>Sett opp profittfunksjonen P(x) = I(x) - K(x)</li>
+                <li>Deriver: P&apos;(x)</li>
+                <li>Løs P&apos;(x) = 0</li>
+                <li>Sjekk at P&apos;&apos;(x) &lt; 0 (maksimum)</li>
+                <li>Beregn maksimal profitt: P(x₀)</li>
+              </ol>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn maksimal profitt',
+          description: 'Optimer profitt ved å løse P\'(x) = 0.',
+          appName: 'cas',
+          initialCommands: [
+            'I(x) := 200x - 0.5x^2',
+            'K(x) := 1000 + 20x + 0.1x^2',
+            'P(x) := I(x) - K(x)',
+            'Solve(Derivative(P, x) = 0, x)',
+          ],
+        },
+      },
+      {
+        title: 'Elastisitet',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Elastisitet</strong> måler hvor følsom etterspørselen er for
+              prisendringer. Det er et viktig konsept for prissetting.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Priselastisitet:</h4>
+              <BlockMath>{"E = \\frac{p}{x} \\cdot \\frac{dx}{dp}"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                hvor x er etterspurt mengde og p er pris
+              </p>
+            </div>
+            <div className="grid md:grid-cols-2 gap-4 mt-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-bold">Elastisk etterspørsel</h4>
+                <p className="text-sm text-muted-foreground">
+                  |E| &gt; 1: Stor prisendring gir stor endring i etterspørsel
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-bold">Uelastisk etterspørsel</h4>
+                <p className="text-sm text-muted-foreground">
+                  |E| &lt; 1: Liten endring i etterspørsel ved prisendring
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Etterspørsel: x(p) = 1000 - 20p
+              </p>
+              <BlockMath>{"E = \\frac{p}{1000-20p} \\cdot (-20) = \\frac{-20p}{1000-20p}"}</BlockMath>
+              <p className="text-sm mt-2">
+                Ved p = 30: E = -1.5 (elastisk etterspørsel)
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Beregn elastisitet',
+          description: 'Finn priselastisiteten.',
+          appName: 'cas',
+          initialCommands: [
+            'x(p) := 1000 - 20p',
+            'E(p) := (p/x(p)) * Derivative(x, p)',
+            'E(30)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn grensekostnaden når K(x) = 5000 + 100x + 2x²',
+        'Bestem produksjonsnivået som gir maksimal profitt når I(x) = 300x - x² og K(x) = 2000 + 50x',
+        'Beregn maksimal profitt i oppgave 2',
+        'Finn elastisiteten når x(p) = 500 - 10p og p = 25',
+        'Tolke: GK(200) = 75. Hva betyr dette?',
+      ],
+    },
+    summary: [
+      'Grensekostnad: GK(x) = K\'(x)',
+      'Grenseinntekt: GI(x) = I\'(x)',
+      'Maksimal profitt: Løs P\'(x) = 0, eller GI(x) = GK(x)',
+      'Elastisitet: E = (p/x) · (dx/dp)',
+      '|E| > 1: elastisk, |E| < 1: uelastisk etterspørsel',
+    ],
+    commands: [
+      { command: 'Derivative(K)', description: 'Finner grensekostnad', example: 'Derivative(1000 + 50x + 0.1x^2)' },
+      { command: 'Solve(P\'(x) = 0, x)', description: 'Finner optimalt produksjonsnivå', example: 'Solve(Derivative(P, x) = 0, x)' },
+      { command: 'Derivative(f, 2)', description: 'Finner andrederiverte (for å sjekke maks)', example: 'Derivative(P, 2)' },
+    ],
+  },
+
+  // S1 - Kapittel 6: Sannsynlighetsfordelinger
+  's1-sannsynlighet': {
+    introduction: (
+      <p className="text-lg">
+        Sannsynlighetsfordelinger beskriver hvordan sannsynligheten fordeler seg
+        over ulike utfall. Binomisk fordeling og normalfordeling er de viktigste
+        fordelingene i S1-matematikk.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Binomisk fordeling',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Binomisk fordeling</strong> brukes når vi har n uavhengige
+              forsøk med to mulige utfall (suksess/fiasko), hvor sannsynligheten
+              for suksess er p.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Sannsynlighetsformelen:</h4>
+              <BlockMath>{"P(X = k) = \\binom{n}{k} \\cdot p^k \\cdot (1-p)^{n-k}"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                P(X = k) = sannsynligheten for akkurat k suksesser i n forsøk
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Forventningsverdi og varians:</h4>
+              <BlockMath>{"E(X) = n \\cdot p"}</BlockMath>
+              <BlockMath>{"Var(X) = n \\cdot p \\cdot (1-p)"}</BlockMath>
+              <BlockMath>{"SD(X) = \\sqrt{n \\cdot p \\cdot (1-p)}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">BinomialDist(n, p, k, false)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                false gir P(X = k), true gir P(X ≤ k) (kumulativ)
+              </p>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Kast en mynt 10 ganger. Hva er sannsynligheten for akkurat 6 mynt?
+              </p>
+              <p className="text-sm mt-2">
+                n = 10, p = 0.5, k = 6
+              </p>
+              <code className="text-blue-600 text-sm">BinomialDist(10, 0.5, 6, false) ≈ 0.205</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk binomisk fordeling',
+          description: 'Visualiser binomisk fordeling.',
+          appName: 'graphing',
+          initialCommands: [
+            'n = 20',
+            'p = 0.3',
+            'BinomialDist(n, p)',
+          ],
+        },
+      },
+      {
+        title: 'Normalfordeling',
+        content: (
+          <div className="space-y-4">
+            <p>
+              <strong>Normalfordelingen</strong> (Gauss-kurven) er den viktigste
+              kontinuerlige sannsynlighetsfordelingen. Mange naturlige fenomener
+              følger normalfordeling.
+            </p>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Notasjon:</h4>
+              <BlockMath>{"X \\sim N(\\mu, \\sigma)"}</BlockMath>
+              <p className="text-sm text-muted-foreground mt-2">
+                μ = forventningsverdi (gjennomsnitt), σ = standardavvik
+              </p>
+            </div>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Egenskaper:</h4>
+              <ul className="text-sm space-y-1">
+                <li>Symmetrisk klokkeformet kurve</li>
+                <li>Toppen ligger i x = μ</li>
+                <li>Spredning styres av σ</li>
+                <li>Arealet under kurven = 1</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">68-95-99.7-regelen:</h4>
+              <ul className="text-sm space-y-1">
+                <li>68% av verdiene ligger innen μ ± σ</li>
+                <li>95% ligger innen μ ± 2σ</li>
+                <li>99.7% ligger innen μ ± 3σ</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <p className="font-semibold mb-2">I GeoGebra:</p>
+              <code className="text-blue-600">Normal(μ, σ, x)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Gir P(X ≤ x) for normalfordelt X
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk normalfordeling',
+          description: 'Visualiser normalfordelingen.',
+          appName: 'graphing',
+          initialCommands: [
+            'μ = 100',
+            'σ = 15',
+            'Normal(μ, σ, x)',
+          ],
+        },
+      },
+      {
+        title: 'Bruk av normalfordeling',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Normalfordelingen brukes til å beregne sannsynligheter og
+              finne kritiske verdier (kvantiler).
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Beregne sannsynligheter:</h4>
+              <p className="text-sm">
+                P(X ≤ a) bruker Normal(μ, σ, a)
+              </p>
+              <p className="text-sm mt-2">
+                P(a ≤ X ≤ b) = Normal(μ, σ, b) - Normal(μ, σ, a)
+              </p>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Standardisering:</h4>
+              <p className="text-sm">
+                For å bruke standardnormalfordelingen N(0, 1):
+              </p>
+              <BlockMath>{"Z = \\frac{X - \\mu}{\\sigma}"}</BlockMath>
+              <p className="text-sm mt-2">
+                Z-verdien forteller hvor mange standardavvik X er fra μ
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                IQ-skår er normalfordelt med μ = 100, σ = 15.
+                Hva er P(IQ &gt; 130)?
+              </p>
+              <code className="text-blue-600 text-sm block mt-2">
+                P(X &gt; 130) = 1 - Normal(100, 15, 130) ≈ 0.023
+              </code>
+              <p className="text-sm mt-2">
+                Ca. 2.3% har IQ over 130.
+              </p>
+            </div>
+            <div className="p-4 bg-yellow-50 dark:bg-yellow-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Binomisk ≈ Normal:</h4>
+              <p className="text-sm">
+                Når n er stor (n &gt; 30) og p ikke er for nær 0 eller 1,
+                kan binomisk fordeling tilnærmes med normalfordeling:
+              </p>
+              <BlockMath>{"B(n, p) \\approx N(np, \\sqrt{np(1-p)})"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Bruk normalfordeling',
+          description: 'Beregn sannsynligheter.',
+          appName: 'graphing',
+          initialCommands: [
+            'μ = 100',
+            'σ = 15',
+            'P_over_130 = 1 - Normal(μ, σ, 130)',
+            'P_mellom_85_og_115 = Normal(μ, σ, 115) - Normal(μ, σ, 85)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Beregn P(X = 7) når X ~ B(15, 0.4)',
+        'Finn forventningsverdien og standardavviket når n = 100, p = 0.3',
+        'X ~ N(50, 10). Finn P(X < 60)',
+        'X ~ N(170, 8) (høyde i cm). Finn P(160 < X < 180)',
+        'Standardiser: X = 85 når μ = 100, σ = 15. Hva er Z-verdien?',
+      ],
+    },
+    summary: [
+      'Binomisk: P(X = k) = C(n,k) · p^k · (1-p)^(n-k)',
+      'Binomisk: E(X) = np, SD(X) = √(np(1-p))',
+      'Normal: X ~ N(μ, σ), symmetrisk klokkeformet kurve',
+      '68-95-99.7-regelen for normalfordeling',
+      'BinomialDist(n, p, k, kum) og Normal(μ, σ, x) i GeoGebra',
+    ],
+    commands: [
+      { command: 'BinomialDist(n, p, k, false)', description: 'P(X = k) for binomisk fordeling', example: 'BinomialDist(10, 0.5, 6, false)' },
+      { command: 'BinomialDist(n, p, k, true)', description: 'P(X ≤ k) kumulativ', example: 'BinomialDist(10, 0.5, 6, true)' },
+      { command: 'Normal(μ, σ, x)', description: 'P(X ≤ x) for normalfordeling', example: 'Normal(100, 15, 115)' },
+      { command: 'InverseNormal(μ, σ, p)', description: 'Finn x slik at P(X ≤ x) = p', example: 'InverseNormal(100, 15, 0.95)' },
+    ],
+  },
+
+  // R1 - Realfagsmatematikk VG2 - Kapittel 1: Algebra og CAS
+  'r1-algebra-cas': {
+    introduction: (
+      <p className="text-lg">
+        I R1 utvider vi algebra-kunnskapene fra 1T med fokus på faktorisering,
+        rasjonale uttrykk og avansert likningsløsning. CAS-verktøyet i GeoGebra
+        er et kraftfullt hjelpemiddel for symbolsk manipulasjon.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Faktorisering av polynomer',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Faktorisering er å skrive et polynom som et produkt av enklere faktorer.
+              Dette er nyttig for å finne nullpunkter og forenkle uttrykk.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Vanlige faktoriseringsmetoder:</h4>
+              <div className="space-y-2">
+                <div>
+                  <strong>1. Felles faktor:</strong>
+                  <BlockMath>{"6x^2 + 9x = 3x(2x + 3)"}</BlockMath>
+                </div>
+                <div>
+                  <strong>2. Konjugatsetningen:</strong>
+                  <BlockMath>{"x^2 - 9 = (x-3)(x+3)"}</BlockMath>
+                </div>
+                <div>
+                  <strong>3. Kvadratsetningene:</strong>
+                  <BlockMath>{"x^2 + 6x + 9 = (x+3)^2"}</BlockMath>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Factor(x^2 + 5x + 6)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Returnerer: (x + 2)(x + 3)
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Faktoriser polynomer',
+          description: 'Bruk Factor() for å faktorisere ulike polynomer.',
+          appName: 'cas',
+          initialCommands: [
+            'Factor(x^2 + 5x + 6)',
+            'Factor(x^2 - 16)',
+            'Factor(x^3 - 8)',
+            'Factor(2x^2 + 7x + 3)',
+          ],
+        },
+      },
+      {
+        title: 'Rasjonale uttrykk',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Et rasjonalt uttrykk er en brøk der teller og nevner er polynomer.
+              Vi må ofte forenkle, multiplisere, dividere eller addere slike uttrykk.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Forenkle rasjonale uttrykk:</h4>
+              <BlockMath>{"\\frac{x^2 - 4}{x^2 + 4x + 4} = \\frac{(x-2)(x+2)}{(x+2)^2} = \\frac{x-2}{x+2}"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Simplify((x^2 - 4)/(x^2 + 4x + 4))</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                eller bruk PartialFractions() for å dele i delbrøker
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Arbeid med rasjonale uttrykk',
+          description: 'Forenkle og manipuler rasjonale uttrykk.',
+          appName: 'cas',
+          initialCommands: [
+            'Simplify((x^2 - 9)/(x^2 - 3x))',
+            'PartialFractions((3x + 5)/((x + 1)(x - 2)))',
+            'Simplify(1/x + 2/(x + 1))',
+          ],
+        },
+      },
+      {
+        title: 'Løse likninger',
+        content: (
+          <div className="space-y-4">
+            <p>
+              GeoGebra CAS kan løse både lineære, kvadratiske og høyere grads likninger,
+              samt likningssystemer.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Typer likninger:</h4>
+              <div className="space-y-2">
+                <div>
+                  <strong>Kvadratisk likning:</strong>
+                  <BlockMath>{"x^2 + 3x - 10 = 0"}</BlockMath>
+                </div>
+                <div>
+                  <strong>Rasjonale likninger:</strong>
+                  <BlockMath>{"\\frac{1}{x} + \\frac{2}{x+1} = 3"}</BlockMath>
+                </div>
+                <div>
+                  <strong>Polynomlikninger:</strong>
+                  <BlockMath>{"x^3 - 6x^2 + 11x - 6 = 0"}</BlockMath>
+                </div>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Solve(x^2 + 3x - 10 = 0, x)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Returnerer: x = -5 eller x = 2
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Løs likninger',
+          description: 'Bruk Solve() for å løse ulike typer likninger.',
+          appName: 'cas',
+          initialCommands: [
+            'Solve(x^2 + 3x - 10 = 0, x)',
+            'Solve(x^3 - 6x^2 + 11x - 6 = 0, x)',
+            'Solve(1/x + 2/(x+1) = 3, x)',
+          ],
+        },
+      },
+      {
+        title: 'Ulikheter',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Ulikheter løses på samme måte som likninger, men vi må passe på
+              at retningen på ulikhetstegnet endres når vi multipliserer med negativt tall.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel: Kvadratisk ulikhet</h4>
+              <BlockMath>{"x^2 - 5x + 6 < 0"}</BlockMath>
+              <p className="text-sm">
+                Faktoriser: (x - 2)(x - 3) &lt; 0
+              </p>
+              <p className="text-sm">
+                Løsning: 2 &lt; x &lt; 3
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Solve(x^2 - 5x + 6 &lt; 0, x)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Løs ulikheter',
+          description: 'Bruk Solve() for å løse ulikheter.',
+          appName: 'cas',
+          initialCommands: [
+            'Solve(x^2 - 5x + 6 < 0, x)',
+            'Solve(x^2 - 4 >= 0, x)',
+            'Solve((x - 1)/(x + 2) > 0, x)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Faktoriser: x³ - 27',
+        'Forenkle: (x² - 1)/(x² + 2x + 1)',
+        'Løs: x² - 7x + 12 = 0',
+        'Løs ulikheten: x² - 9 > 0',
+        'Del i delbrøker: (5x + 7)/((x + 1)(x - 3))',
+      ],
+    },
+    summary: [
+      'Factor() faktoriserer polynomer',
+      'Simplify() forenkler algebraiske uttrykk',
+      'Solve() løser likninger og ulikheter',
+      'PartialFractions() deler i delbrøker',
+    ],
+    commands: [
+      { command: 'Factor(uttrykk)', description: 'Faktoriserer et polynom', example: 'Factor(x^2 - 9)' },
+      { command: 'Simplify(uttrykk)', description: 'Forenkler et algebraisk uttrykk', example: 'Simplify((x^2-1)/(x-1))' },
+      { command: 'Solve(likning, x)', description: 'Løser en likning for x', example: 'Solve(x^2 - 5x + 6 = 0, x)' },
+      { command: 'PartialFractions(uttrykk)', description: 'Deler i delbrøker', example: 'PartialFractions(1/(x^2-1))' },
+      { command: 'Expand(uttrykk)', description: 'Utvider parenteser', example: 'Expand((x+2)(x-3))' },
+    ],
+  },
+
+  // R1 - Kapittel 2: Funksjoner
+  'r1-funksjoner': {
+    introduction: (
+      <p className="text-lg">
+        I dette kapittelet studerer vi polynomfunksjoner, rasjonale funksjoner,
+        asymptoter og sammensatte funksjoner. GeoGebra hjelper oss å visualisere
+        og analysere funksjonsegenskaper.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Polynomfunksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En polynomfunksjon har formen:
+            </p>
+            <BlockMath>{"f(x) = a_nx^n + a_{n-1}x^{n-1} + \\cdots + a_1x + a_0"}</BlockMath>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Grad 2 (andregradsfunksjon)</h4>
+                <BlockMath>{"f(x) = ax^2 + bx + c"}</BlockMath>
+                <p className="text-sm text-muted-foreground">Parabelform</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Grad 3 (tredjegradsfunksjon)</h4>
+                <BlockMath>{"f(x) = ax^3 + bx^2 + cx + d"}</BlockMath>
+                <p className="text-sm text-muted-foreground">S-form eller N-form</p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Viktige egenskaper:</h4>
+              <ul className="list-disc list-inside space-y-1">
+                <li>Nullpunkter: der f(x) = 0</li>
+                <li>Topp- og bunnpunkter: der f&apos;(x) = 0</li>
+                <li>Vendepunkter: der f&apos;&apos;(x) = 0</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk polynomfunksjoner',
+          description: 'Tegn ulike polynomfunksjoner og finn nullpunkter.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^2 - 4x + 3',
+            'g(x) = x^3 - 3x^2 + 2',
+            'Root(f)',
+            'Extremum(f)',
+          ],
+        },
+      },
+      {
+        title: 'Rasjonale funksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En rasjonal funksjon er en brøk der teller og nevner er polynomer:
+            </p>
+            <BlockMath>{"f(x) = \\frac{P(x)}{Q(x)}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <BlockMath>{"f(x) = \\frac{2x + 1}{x - 3}"}</BlockMath>
+              <ul className="space-y-1 text-sm">
+                <li><strong>Definisjonsmengde:</strong> x ≠ 3 (nevner kan ikke være null)</li>
+                <li><strong>Vertikal asymptote:</strong> x = 3</li>
+                <li><strong>Horisontal asymptote:</strong> y = 2</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn rasjonale funksjoner',
+          description: 'Se hvordan asymptoter oppstår.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = (2x + 1)/(x - 3)',
+            'x = 3',
+            'y = 2',
+          ],
+        },
+      },
+      {
+        title: 'Asymptoter',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En asymptote er en linje som funksjonsgrafen nærmer seg uten å nå.
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Vertikal</h4>
+                <p className="text-sm">x = a</p>
+                <p className="text-xs text-muted-foreground">
+                  Der nevner = 0
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Horisontal</h4>
+                <p className="text-sm">y = b</p>
+                <p className="text-xs text-muted-foreground">
+                  For x → ±∞
+                </p>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Skrå</h4>
+                <p className="text-sm">y = ax + b</p>
+                <p className="text-xs text-muted-foreground">
+                  Polynomdivisjon
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Finne asymptoter:</h4>
+              <ul className="space-y-1 text-sm">
+                <li><strong>Vertikal:</strong> Løs Q(x) = 0</li>
+                <li><strong>Horisontal:</strong> Sammenlign graden til P(x) og Q(x)</li>
+                <li><strong>Skrå:</strong> Hvis grad(P) = grad(Q) + 1, bruk polynomdivisjon</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Finn asymptoter',
+          description: 'Identifiser vertikale og horisontale asymptoter.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = (x^2 + 1)/(x - 2)',
+            'Asymptote(f)',
+          ],
+        },
+      },
+      {
+        title: 'Sammensatte funksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En sammensatt funksjon oppstår når vi setter én funksjon inn i en annen:
+            </p>
+            <BlockMath>{"(f \\circ g)(x) = f(g(x))"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p>Hvis f(x) = x² og g(x) = x + 1, da:</p>
+              <BlockMath>{"(f \\circ g)(x) = f(g(x)) = f(x+1) = (x+1)^2"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra:</h4>
+              <code className="text-blue-600 block">f(x) = x^2</code>
+              <code className="text-blue-600 block">g(x) = x + 1</code>
+              <code className="text-blue-600 block">h(x) = f(g(x))</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Lag sammensatte funksjoner',
+          description: 'Se hvordan funksjoner kombineres.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = x^2',
+            'g(x) = x + 1',
+            'h(x) = f(g(x))',
+          ],
+        },
+      },
+      {
+        title: 'Inversefunksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Inversefunksjonen f⁻¹(x) gjør det motsatte av f(x). Grafen er
+              symmetrisk om linjen y = x.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Egenskaper:</h4>
+              <BlockMath>{"f(f^{-1}(x)) = x \\quad \\text{og} \\quad f^{-1}(f(x)) = x"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra:</h4>
+              <code className="text-blue-600">Invert(f)</code>
+              <p className="text-sm text-muted-foreground mt-2">
+                Finner inversefunksjonen
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk inversefunksjoner',
+          description: 'Tegn funksjon og dens inverse.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = 2x + 1',
+            'finv = Invert(f)',
+            'y = x',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Tegn f(x) = x³ - 4x og finn alle nullpunkter',
+        'Finn asymptoter for f(x) = (3x + 2)/(x - 1)',
+        'Hvis f(x) = x² og g(x) = 2x - 1, finn (f ∘ g)(x)',
+        'Finn inversefunksjonen til f(x) = 3x - 5',
+        'Tegn en rasjonal funksjon med vertikal asymptote x = 2 og horisontal asymptote y = 3',
+      ],
+    },
+    summary: [
+      'Polynomfunksjoner har grad n og opptil n nullpunkter',
+      'Rasjonale funksjoner har asymptoter',
+      'Asymptoter: vertikale (nevner = 0), horisontale (x → ∞)',
+      'Sammensatt funksjon: (f ∘ g)(x) = f(g(x))',
+      'Invert(f) finner inversefunksjonen',
+    ],
+    commands: [
+      { command: 'f(x) = uttrykk', description: 'Definerer en funksjon', example: 'f(x) = x^2 - 4' },
+      { command: 'Root(f)', description: 'Finner nullpunkter', example: 'Root(f)' },
+      { command: 'Extremum(f)', description: 'Finner topp- og bunnpunkter', example: 'Extremum(f)' },
+      { command: 'Asymptote(f)', description: 'Finner asymptoter', example: 'Asymptote(f)' },
+      { command: 'Invert(f)', description: 'Finner inversefunksjonen', example: 'Invert(f)' },
+      { command: 'f(g(x))', description: 'Sammensatt funksjon', example: 'h(x) = f(g(x))' },
+    ],
+  },
+
+  // R1 - Kapittel 3: Derivasjon
+  'r1-derivasjon': {
+    introduction: (
+      <p className="text-lg">
+        Derivasjon er et sentralt tema i R1. Her lærer du avanserte deriveringsregler
+        som kjerneregelen, produktregelen, kvotientregelen og implisitt derivasjon.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Kjerneregelen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Kjerneregelen brukes når vi deriverer sammensatte funksjoner:
+            </p>
+            <BlockMath>{"\\frac{d}{dx}[f(g(x))] = f'(g(x)) \\cdot g'(x)"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 1:</h4>
+              <p>Deriver h(x) = (3x + 2)⁵</p>
+              <div className="space-y-1 text-sm">
+                <p>Ytre funksjon: f(u) = u⁵, f&apos;(u) = 5u⁴</p>
+                <p>Indre funksjon: g(x) = 3x + 2, g&apos;(x) = 3</p>
+                <BlockMath>{"h'(x) = 5(3x+2)^4 \\cdot 3 = 15(3x+2)^4"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Derivative((3x + 2)^5)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Øv på kjerneregelen',
+          description: 'Deriver sammensatte funksjoner.',
+          appName: 'cas',
+          initialCommands: [
+            'Derivative((3x + 2)^5)',
+            'Derivative(sin(x^2))',
+            'Derivative(e^(2x + 1))',
+          ],
+        },
+      },
+      {
+        title: 'Produktregelen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Produktregelen brukes når vi deriverer et produkt av to funksjoner:
+            </p>
+            <BlockMath>{"\\frac{d}{dx}[f(x) \\cdot g(x)] = f'(x) \\cdot g(x) + f(x) \\cdot g'(x)"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p>Deriver h(x) = x² · sin(x)</p>
+              <div className="space-y-1">
+                <BlockMath>{"h'(x) = (x^2)' \\cdot \\sin(x) + x^2 \\cdot (\\sin(x))'"}</BlockMath>
+                <BlockMath>{"h'(x) = 2x \\cdot \\sin(x) + x^2 \\cdot \\cos(x)"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Derivative(x^2 * sin(x))</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Øv på produktregelen',
+          description: 'Deriver produkter av funksjoner.',
+          appName: 'cas',
+          initialCommands: [
+            'Derivative(x^2 * sin(x))',
+            'Derivative(x * e^x)',
+            'Derivative((x + 1) * (x - 2))',
+          ],
+        },
+      },
+      {
+        title: 'Kvotientregelen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Kvotientregelen brukes når vi deriverer en brøk:
+            </p>
+            <BlockMath>{"\\frac{d}{dx}\\left[\\frac{f(x)}{g(x)}\\right] = \\frac{f'(x) \\cdot g(x) - f(x) \\cdot g'(x)}{[g(x)]^2}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p>Deriver h(x) = x²/(x + 1)</p>
+              <div className="space-y-1">
+                <BlockMath>{"h'(x) = \\frac{2x \\cdot (x+1) - x^2 \\cdot 1}{(x+1)^2}"}</BlockMath>
+                <BlockMath>{"h'(x) = \\frac{2x^2 + 2x - x^2}{(x+1)^2} = \\frac{x^2 + 2x}{(x+1)^2}"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Derivative(x^2/(x + 1))</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Øv på kvotientregelen',
+          description: 'Deriver rasjonale funksjoner.',
+          appName: 'cas',
+          initialCommands: [
+            'Derivative(x^2/(x + 1))',
+            'Derivative(sin(x)/x)',
+            'Derivative((x + 1)/(x - 1))',
+          ],
+        },
+      },
+      {
+        title: 'Implisitt derivasjon',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Implisitt derivasjon brukes når y ikke er uttrykt eksplisitt som funksjon av x.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p>Finn dy/dx for: x² + y² = 25</p>
+              <div className="space-y-1 text-sm">
+                <p>Deriver begge sider med hensyn på x:</p>
+                <BlockMath>{"2x + 2y \\cdot \\frac{dy}{dx} = 0"}</BlockMath>
+                <BlockMath>{"\\frac{dy}{dx} = -\\frac{x}{y}"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">ImplicitDerivative(x^2 + y^2 = 25, y, x)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Implisitt derivasjon',
+          description: 'Finn deriverte av implisitte funksjoner.',
+          appName: 'cas',
+          initialCommands: [
+            'ImplicitDerivative(x^2 + y^2 = 25, y, x)',
+            'ImplicitDerivative(x*y = 1, y, x)',
+          ],
+        },
+      },
+      {
+        title: 'Høyere ordens deriverte',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Den andre deriverte f&apos;&apos;(x) beskriver krumningen til grafen.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">f&apos;&apos;(x) &gt; 0</h4>
+                <p className="text-sm">Grafen er konveks (smiler)</p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">f&apos;&apos;(x) &lt; 0</h4>
+                <p className="text-sm">Grafen er konkav (flirer)</p>
+              </div>
+            </div>
+            <div className="p-4 bg-muted rounded-lg">
+              <h4 className="font-semibold mb-2">Vendepunkt:</h4>
+              <p className="text-sm">Der f&apos;&apos;(x) = 0 og f&apos;&apos; skifter fortegn</p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Andre deriverte',
+          description: 'Finn andre deriverte og vendepunkter.',
+          appName: 'cas',
+          initialCommands: [
+            'f(x) = x^3 - 3x^2 + 2',
+            "f'(x) = Derivative(f)",
+            "f''(x) = Derivative(f, 2)",
+            "Solve(f''(x) = 0, x)",
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Deriver h(x) = (2x + 1)⁴ med kjerneregelen',
+        'Deriver g(x) = x³ · e^x med produktregelen',
+        'Deriver f(x) = (x - 1)/(x + 1) med kvotientregelen',
+        'Finn dy/dx implisitt for x² - xy + y² = 3',
+        'Finn vendepunktet til f(x) = x³ - 6x² + 9x + 1',
+      ],
+    },
+    summary: [
+      'Kjerneregel: (f(g(x)))′ = f′(g(x)) · g′(x)',
+      'Produktregel: (f·g)′ = f′·g + f·g′',
+      'Kvotientregel: (f/g)′ = (f′·g - f·g′)/g²',
+      'ImplicitDerivative() for implisitt derivasjon',
+      'Derivative(f, 2) gir andre deriverte',
+    ],
+    commands: [
+      { command: 'Derivative(f)', description: 'Deriverer funksjonen f', example: 'Derivative(x^2)' },
+      { command: 'Derivative(f, n)', description: 'n-te deriverte', example: 'Derivative(x^3, 2)' },
+      { command: 'ImplicitDerivative(likning, y, x)', description: 'Implisitt derivasjon', example: 'ImplicitDerivative(x^2 + y^2 = 1, y, x)' },
+      { command: "f'(x)", description: 'Alternativ notasjon for derivert', example: "f'(2)" },
+    ],
+  },
+
+  // R1 - Kapittel 4: Vektorer i planet
+  'r1-vektorer': {
+    introduction: (
+      <p className="text-lg">
+        Vektorer er sentrale i R1. Her lærer du om vektoroperasjoner, skalarprodukt,
+        projeksjoner, vinkel mellom vektorer og parameterfremstilling av linjer.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Grunnleggende vektorregning',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En vektor i planet har to komponenter:
+            </p>
+            <BlockMath>{"\\vec{v} = \\begin{pmatrix} v_x \\\\ v_y \\end{pmatrix}"}</BlockMath>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Addisjon</h4>
+                <BlockMath>{"\\vec{a} + \\vec{b} = \\begin{pmatrix} a_x + b_x \\\\ a_y + b_y \\end{pmatrix}"}</BlockMath>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Skalarmultiplikasjon</h4>
+                <BlockMath>{"k\\vec{a} = \\begin{pmatrix} ka_x \\\\ ka_y \\end{pmatrix}"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Lengde (norm)</h4>
+              <BlockMath>{"|\\vec{v}| = \\sqrt{v_x^2 + v_y^2}"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Vektoroperasjoner',
+          description: 'Utforsk vektoraddisjon og skalarmultiplikasjon.',
+          appName: 'geometry',
+          initialCommands: [
+            'v = Vector((3, 2))',
+            'w = Vector((1, 4))',
+            'sum = v + w',
+            'dobbel = 2v',
+          ],
+        },
+      },
+      {
+        title: 'Skalarprodukt',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Skalarproduktet av to vektorer er et tall:
+            </p>
+            <BlockMath>{"\\vec{a} \\cdot \\vec{b} = a_x b_x + a_y b_y"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Alternativ formel:</h4>
+              <BlockMath>{"\\vec{a} \\cdot \\vec{b} = |\\vec{a}| \\cdot |\\vec{b}| \\cdot \\cos(\\theta)"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                der θ er vinkelen mellom vektorene
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Viktig egenskap:</h4>
+              <p className="text-sm">
+                <strong>Ortogonale vektorer:</strong> Hvis <InlineMath>{"\\vec{a} \\cdot \\vec{b} = 0"}</InlineMath>,
+                er vektorene vinkelrette på hverandre.
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Skalarprodukt',
+          description: 'Beregn skalarprodukt av vektorer.',
+          appName: 'geometry',
+          initialCommands: [
+            'a = Vector((3, 4))',
+            'b = Vector((2, -1))',
+            's = a * b',
+            'lena = abs(a)',
+            'lenb = abs(b)',
+          ],
+        },
+      },
+      {
+        title: 'Projeksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Projeksjonen av vektor <InlineMath>{"\\vec{a}"}</InlineMath> på vektor <InlineMath>{"\\vec{b}"}</InlineMath>:
+            </p>
+            <BlockMath>{"\\text{proj}_{\\vec{b}}\\vec{a} = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{b}|^2} \\vec{b}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Finn projeksjonen av <InlineMath>{"\\vec{a} = \\begin{pmatrix} 3 \\\\ 4 \\end{pmatrix}"}</InlineMath>
+                på <InlineMath>{"\\vec{b} = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}"}</InlineMath>
+              </p>
+              <BlockMath>{"\\text{proj}_{\\vec{b}}\\vec{a} = \\frac{3}{1} \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix} = \\begin{pmatrix} 3 \\\\ 0 \\end{pmatrix}"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Vektorprojeksjon',
+          description: 'Visualiser projeksjoner.',
+          appName: 'geometry',
+          initialCommands: [
+            'a = Vector((3, 4))',
+            'b = Vector((5, 0))',
+            'proj = ((a*b)/(b*b))*b',
+          ],
+        },
+      },
+      {
+        title: 'Vinkel mellom vektorer',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Vinkelen θ mellom to vektorer finner vi fra skalarproduktet:
+            </p>
+            <BlockMath>{"\\cos(\\theta) = \\frac{\\vec{a} \\cdot \\vec{b}}{|\\vec{a}| \\cdot |\\vec{b}|}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Finn vinkelen mellom <InlineMath>{"\\vec{a} = \\begin{pmatrix} 1 \\\\ 1 \\end{pmatrix}"}</InlineMath>
+                og <InlineMath>{"\\vec{b} = \\begin{pmatrix} 1 \\\\ 0 \\end{pmatrix}"}</InlineMath>
+              </p>
+              <BlockMath>{"\\cos(\\theta) = \\frac{1}{\\sqrt{2} \\cdot 1} = \\frac{1}{\\sqrt{2}}"}</BlockMath>
+              <BlockMath>{"\\theta = 45°"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra:</h4>
+              <code className="text-blue-600">Angle(a, b)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Vinkel mellom vektorer',
+          description: 'Finn vinkler mellom vektorer.',
+          appName: 'geometry',
+          initialCommands: [
+            'a = Vector((1, 1))',
+            'b = Vector((1, 0))',
+            'vinkel = Angle(a, b)',
+          ],
+        },
+      },
+      {
+        title: 'Parameterfremstilling av linje',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En linje i planet kan beskrives med en parameterfremstilling:
+            </p>
+            <BlockMath>{"\\vec{r}(t) = \\vec{r_0} + t\\vec{v}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Komponenter:</h4>
+              <ul className="space-y-1 text-sm">
+                <li><InlineMath>{"\\vec{r_0}"}</InlineMath>: Ortsvektor til et punkt på linjen</li>
+                <li><InlineMath>{"\\vec{v}"}</InlineMath>: Retningsvektor (parallell med linjen)</li>
+                <li>t: Parameter (kan være alle reelle tall)</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Linje gjennom P(2, 1) med retningsvektor <InlineMath>{"\\vec{v} = \\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix}"}</InlineMath>:
+              </p>
+              <BlockMath>{"\\vec{r}(t) = \\begin{pmatrix} 2 \\\\ 1 \\end{pmatrix} + t\\begin{pmatrix} 3 \\\\ -1 \\end{pmatrix}"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Parameterfremstilling',
+          description: 'Tegn linjer med parameterfremstilling.',
+          appName: 'geometry',
+          initialCommands: [
+            'P = (2, 1)',
+            'v = Vector((3, -1))',
+            'l = Line(P, v)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn lengden av vektoren (4, 3)',
+        'Beregn skalarproduktet av (2, 5) og (3, -1)',
+        'Finn vinkelen mellom (1, 1) og (0, 1)',
+        'Finn projeksjonen av (4, 2) på (1, 0)',
+        'Sett opp parameterfremstilling for linjen gjennom (1, 2) med retningsvektor (2, -3)',
+      ],
+    },
+    summary: [
+      'Vector() lager vektorer i GeoGebra',
+      'Skalarprodukt: a · b = aₓbₓ + aᵧbᵧ',
+      'Ortogonale vektorer: a · b = 0',
+      'Vinkel: cos(θ) = (a·b)/(|a||b|)',
+      'Linje: r(t) = r₀ + tv',
+    ],
+    commands: [
+      { command: 'Vector((x, y))', description: 'Lager en vektor', example: 'Vector((3, 4))' },
+      { command: 'a * b', description: 'Skalarprodukt', example: 'Vector((1,2)) * Vector((3,4))' },
+      { command: 'abs(v)', description: 'Lengde av vektor', example: 'abs(Vector((3, 4)))' },
+      { command: 'Angle(a, b)', description: 'Vinkel mellom vektorer', example: 'Angle(a, b)' },
+      { command: 'Line(P, v)', description: 'Linje gjennom P med retning v', example: 'Line((1,2), Vector((3,-1)))' },
+    ],
+  },
+
+  // R1 - Kapittel 5: Trigonometri
+  'r1-trigonometri': {
+    introduction: (
+      <p className="text-lg">
+        Trigonometri i R1 bygger på enhetssirkelen og trigonometriske identiteter.
+        Du lærer å løse trigonometriske likninger og arbeide med sammensatte vinkler.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Enhetssirkelen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Enhetssirkelen har radius 1 og sentrum i origo. Et punkt P på sirkelen
+              har koordinater (cos θ, sin θ).
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Viktige vinkler:</h4>
+              <div className="grid grid-cols-2 gap-2 text-sm">
+                <div>0°: (1, 0)</div>
+                <div>90°: (0, 1)</div>
+                <div>180°: (-1, 0)</div>
+                <div>270°: (0, -1)</div>
+              </div>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Pytagoreisk identitet:</h4>
+              <BlockMath>{"\\sin^2(\\theta) + \\cos^2(\\theta) = 1"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk enhetssirkelen',
+          description: 'Se sammenhengen mellom vinkel og koordinater.',
+          appName: 'geometry',
+          initialCommands: [
+            'c = Circle((0, 0), 1)',
+            'theta = Slider(0, 2pi, 0.1)',
+            'P = (cos(theta), sin(theta))',
+          ],
+        },
+      },
+      {
+        title: 'Trigonometriske identiteter',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Identiteter er likninger som alltid er sanne for alle vinkler.
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Grunnleggende</h4>
+                <BlockMath>{"\\tan(\\theta) = \\frac{\\sin(\\theta)}{\\cos(\\theta)}"}</BlockMath>
+                <BlockMath>{"\\sin^2(\\theta) + \\cos^2(\\theta) = 1"}</BlockMath>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Addisjon</h4>
+                <BlockMath>{"\\sin(a + b) = \\sin a \\cos b + \\cos a \\sin b"}</BlockMath>
+                <BlockMath>{"\\cos(a + b) = \\cos a \\cos b - \\sin a \\sin b"}</BlockMath>
+              </div>
+            </div>
+            <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Dobbel vinkel</h4>
+              <BlockMath>{"\\sin(2\\theta) = 2\\sin(\\theta)\\cos(\\theta)"}</BlockMath>
+              <BlockMath>{"\\cos(2\\theta) = \\cos^2(\\theta) - \\sin^2(\\theta)"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Verifiser identiteter',
+          description: 'Se at identiteter stemmer grafisk.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = sin(x)^2 + cos(x)^2',
+            'g(x) = 1',
+            'h(x) = sin(2x)',
+            'k(x) = 2sin(x)cos(x)',
+          ],
+        },
+      },
+      {
+        title: 'Trigonometriske likninger',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Trigonometriske likninger løses ved å bruke enhetssirkelen og periodisitet.
+            </p>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 1: Grunnleggende</h4>
+              <p className="text-sm">Løs: sin(x) = 0.5</p>
+              <p className="text-sm">
+                Løsning: x = 30° + n·360° eller x = 150° + n·360°
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel 2: Kvadratisk form</h4>
+              <p className="text-sm">Løs: 2cos²(x) - cos(x) = 0</p>
+              <p className="text-sm">
+                Faktoriser: cos(x)(2cos(x) - 1) = 0
+              </p>
+            </div>
+            <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra CAS:</h4>
+              <code className="text-blue-600">Solve(sin(x) = 0.5, x)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Løs trigonometriske likninger',
+          description: 'Finn løsninger grafisk og algebraisk.',
+          appName: 'graphing',
+          initialCommands: [
+            'f(x) = sin(x)',
+            'g(x) = 0.5',
+            'Intersect(f, g)',
+          ],
+        },
+      },
+      {
+        title: 'Grafene til trigonometriske funksjoner',
+        content: (
+          <div className="space-y-4">
+            <p>
+              De trigonometriske funksjonene har karakteristiske grafer:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">sin(x)</h4>
+                <ul className="text-sm space-y-1">
+                  <li>Periode: 2π</li>
+                  <li>Amplitude: 1</li>
+                  <li>Nullpunkter: nπ</li>
+                </ul>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">cos(x)</h4>
+                <ul className="text-sm space-y-1">
+                  <li>Periode: 2π</li>
+                  <li>Amplitude: 1</li>
+                  <li>Nullpunkter: π/2 + nπ</li>
+                </ul>
+              </div>
+              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">tan(x)</h4>
+                <ul className="text-sm space-y-1">
+                  <li>Periode: π</li>
+                  <li>Asymptoter: π/2 + nπ</li>
+                  <li>Nullpunkter: nπ</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk trigonometriske grafer',
+          description: 'Se hvordan parametere påvirker grafene.',
+          appName: 'graphing',
+          initialCommands: [
+            'a = Slider(0.5, 3, 0.1)',
+            'b = Slider(0.5, 3, 0.1)',
+            'f(x) = a*sin(b*x)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn verdien av sin(45°) og cos(45°)',
+        'Verifiser at sin²(30°) + cos²(30°) = 1',
+        'Løs likningen: cos(x) = 0.5 for 0 ≤ x ≤ 2π',
+        'Vis at sin(2x) = 2sin(x)cos(x) for x = 30°',
+        'Tegn grafen til f(x) = 2sin(3x) og finn perioden',
+      ],
+    },
+    summary: [
+      'Enhetssirkelen: (cos θ, sin θ)',
+      'Pytagoreisk identitet: sin²θ + cos²θ = 1',
+      'Solve() løser trigonometriske likninger',
+      'Periode: sin og cos har 2π, tan har π',
+      'Addisjon: sin(a+b) = sin a cos b + cos a sin b',
+    ],
+    commands: [
+      { command: 'sin(x)', description: 'Sinusfunksjon', example: 'sin(pi/4)' },
+      { command: 'cos(x)', description: 'Cosinusfunksjon', example: 'cos(pi/3)' },
+      { command: 'tan(x)', description: 'Tangensfunksjon', example: 'tan(pi/6)' },
+      { command: 'Solve(sin(x) = a, x)', description: 'Løs trigonometrisk likning', example: 'Solve(sin(x) = 0.5, x)' },
+      { command: 'asin(x)', description: 'Arcus sinus (invers)', example: 'asin(0.5)' },
+    ],
+  },
+
+  // R1 - Kapittel 6: Analytisk geometri
+  'r1-geometri': {
+    introduction: (
+      <p className="text-lg">
+        Analytisk geometri kobler algebra og geometri. Her studerer vi linjer,
+        sirkler, ellipser og parabler i koordinatsystemet.
+      </p>
+    ),
+    sections: [
+      {
+        title: 'Linjens likning',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En linje kan beskrives på flere måter:
+            </p>
+            <div className="grid md:grid-cols-2 gap-4">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Eksplisitt form</h4>
+                <BlockMath>{"y = ax + b"}</BlockMath>
+                <p className="text-sm text-muted-foreground">
+                  a = stigningstall, b = konstantledd
+                </p>
+              </div>
+              <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+                <h4 className="font-semibold mb-2">Generell form</h4>
+                <BlockMath>{"Ax + By + C = 0"}</BlockMath>
+                <p className="text-sm text-muted-foreground">
+                  A, B, C er konstanter
+                </p>
+              </div>
+            </div>
+            <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">To-punktsform</h4>
+              <BlockMath>{"\\frac{y - y_1}{y_2 - y_1} = \\frac{x - x_1}{x_2 - x_1}"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                Linje gjennom (x₁, y₁) og (x₂, y₂)
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk linjer',
+          description: 'Tegn linjer på ulike former.',
+          appName: 'geometry',
+          initialCommands: [
+            'A = (1, 2)',
+            'B = (4, 5)',
+            'l = Line(A, B)',
+            'm: y = 2x + 1',
+          ],
+        },
+      },
+      {
+        title: 'Sirkelens likning',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En sirkel med sentrum (h, k) og radius r har likningen:
+            </p>
+            <BlockMath>{"(x - h)^2 + (y - k)^2 = r^2"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Sirkel med sentrum (2, -1) og radius 3:
+              </p>
+              <BlockMath>{"(x - 2)^2 + (y + 1)^2 = 9"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Generell form:</h4>
+              <BlockMath>{"x^2 + y^2 + Dx + Ey + F = 0"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                Fullføre kvadratet for å finne sentrum og radius
+              </p>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn sirkler',
+          description: 'Utforsk sirkler med ulike sentre og radier.',
+          appName: 'geometry',
+          initialCommands: [
+            'M = (2, -1)',
+            'c = Circle(M, 3)',
+            '(x - 2)^2 + (y + 1)^2 = 9',
+          ],
+        },
+      },
+      {
+        title: 'Ellipsen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En ellipse med sentrum i origo har likningen:
+            </p>
+            <BlockMath>{"\\frac{x^2}{a^2} + \\frac{y^2}{b^2} = 1"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Parametere:</h4>
+              <ul className="space-y-1 text-sm">
+                <li><strong>a:</strong> Halv lengde av x-akse</li>
+                <li><strong>b:</strong> Halv lengde av y-akse</li>
+                <li><strong>Hvis a &gt; b:</strong> Ellipsen er bredere enn høy</li>
+                <li><strong>Hvis b &gt; a:</strong> Ellipsen er høyere enn bred</li>
+              </ul>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Med forskjøvet sentrum (h, k):</h4>
+              <BlockMath>{"\\frac{(x-h)^2}{a^2} + \\frac{(y-k)^2}{b^2} = 1"}</BlockMath>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Tegn ellipser',
+          description: 'Utforsk ellipser med ulike parametere.',
+          appName: 'geometry',
+          initialCommands: [
+            'a = Slider(1, 5, 0.1)',
+            'b = Slider(1, 5, 0.1)',
+            'Ellipse((0, 0), a, b)',
+          ],
+        },
+      },
+      {
+        title: 'Parabelen',
+        content: (
+          <div className="space-y-4">
+            <p>
+              En parabel med vertikalt symmetriakse har formen:
+            </p>
+            <BlockMath>{"y = ax^2 + bx + c"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Toppunktsform:</h4>
+              <BlockMath>{"y = a(x - h)^2 + k"}</BlockMath>
+              <p className="text-sm text-muted-foreground">
+                Toppunkt: (h, k)
+              </p>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Egenskaper:</h4>
+              <ul className="space-y-1 text-sm">
+                <li><strong>a &gt; 0:</strong> Åpner oppover</li>
+                <li><strong>a &lt; 0:</strong> Åpner nedover</li>
+                <li><strong>|a|</strong> stor: Smal parabel</li>
+                <li><strong>|a|</strong> liten: Bred parabel</li>
+              </ul>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Utforsk parabler',
+          description: 'Se hvordan parametere påvirker parabelen.',
+          appName: 'graphing',
+          initialCommands: [
+            'a = Slider(-3, 3, 0.1)',
+            'h = Slider(-5, 5, 0.1)',
+            'k = Slider(-5, 5, 0.1)',
+            'f(x) = a(x - h)^2 + k',
+          ],
+        },
+      },
+      {
+        title: 'Avstand fra punkt til linje',
+        content: (
+          <div className="space-y-4">
+            <p>
+              Avstanden fra punkt P(x₀, y₀) til linjen Ax + By + C = 0 er:
+            </p>
+            <BlockMath>{"d = \\frac{|Ax_0 + By_0 + C|}{\\sqrt{A^2 + B^2}}"}</BlockMath>
+            <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">Eksempel:</h4>
+              <p className="text-sm">
+                Avstand fra P(3, 4) til linjen 3x - 4y + 5 = 0:
+              </p>
+              <BlockMath>{"d = \\frac{|3(3) - 4(4) + 5|}{\\sqrt{3^2 + 4^2}} = \\frac{|-2|}{5} = 0.4"}</BlockMath>
+            </div>
+            <div className="p-4 bg-green-50 dark:bg-green-900/20 rounded-lg">
+              <h4 className="font-semibold mb-2">I GeoGebra:</h4>
+              <code className="text-blue-600">Distance(P, linje)</code>
+            </div>
+          </div>
+        ),
+        geogebra: {
+          title: 'Avstand punkt-linje',
+          description: 'Mål avstanden fra punkt til linje.',
+          appName: 'geometry',
+          initialCommands: [
+            'P = (3, 4)',
+            'l: 3x - 4y + 5 = 0',
+            'd = Distance(P, l)',
+          ],
+        },
+      },
+    ],
+    exercises: {
+      title: 'Øv selv',
+      tasks: [
+        'Finn likningen for linjen gjennom (1, 2) og (4, 8)',
+        'Finn sentrum og radius for sirkelen x² + y² - 4x + 6y - 3 = 0',
+        'Tegn ellipsen x²/9 + y²/4 = 1',
+        'Finn toppunktet til parabelen y = 2x² - 8x + 5',
+        'Finn avstanden fra (2, 3) til linjen 4x + 3y - 10 = 0',
+      ],
+    },
+    summary: [
+      'Linje: y = ax + b eller Ax + By + C = 0',
+      'Sirkel: (x-h)² + (y-k)² = r²',
+      'Ellipse: x²/a² + y²/b² = 1',
+      'Parabel: y = a(x-h)² + k',
+      'Distance(P, linje) finner avstand',
+    ],
+    commands: [
+      { command: 'Line(A, B)', description: 'Linje gjennom to punkter', example: 'Line((1,2), (3,4))' },
+      { command: 'Circle(M, r)', description: 'Sirkel med sentrum M, radius r', example: 'Circle((0,0), 3)' },
+      { command: 'Ellipse(M, a, b)', description: 'Ellipse med halv-akser a, b', example: 'Ellipse((0,0), 4, 2)' },
+      { command: 'Parabola(F, l)', description: 'Parabel med brennpunkt F, direktrise l', example: 'Parabola((0,1), y=-1)' },
+      { command: 'Distance(P, objekt)', description: 'Avstand fra punkt til objekt', example: 'Distance((1,2), linje)' },
+    ],
+  },
+
+  // S1 - Remaining chapters continue with s1-optimering, s1-regresjon, s1-okonomi, s1-sannsynlighet
+  // (Content too long for single response - will add in follow-up)
+};
