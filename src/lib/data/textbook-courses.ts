@@ -646,7 +646,6 @@ export const COURSE_5: TextbookCourse = {
   description: 'Matematikk for 5. trinn i barneskolen',
   curriculum: 'LK20',
   icon: '📕',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og tallforståelse
     {
@@ -863,7 +862,6 @@ export const COURSE_NORSK_5: TextbookCourse = {
   description: 'Norsk for 5. trinn - lesing, skriving, grammatikk og muntlig',
   curriculum: 'LK20',
   icon: '📖',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     // Kapittel 1: Lesing og leseforståelse
     {
@@ -1004,7 +1002,6 @@ export const COURSE_ENGELSK_5: TextbookCourse = {
   description: 'English for 5th grade - reading, writing, speaking and listening',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     // Chapter 1: Reading and vocabulary
     {
@@ -1123,7 +1120,6 @@ export const COURSE_NATURFAG_5: TextbookCourse = {
   description: 'Naturfag for 5. trinn - kroppen, dyr, planter og teknologi',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     // Kapittel 1: Kroppen
     {
@@ -1895,7 +1891,6 @@ export const COURSE_6: TextbookCourse = {
   description: 'Matematikk for 6. trinn i barneskolen',
   curriculum: 'LK20',
   icon: '📓',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og brøkregning
     {
@@ -2116,7 +2111,6 @@ export const COURSE_7: TextbookCourse = {
   description: 'Matematikk for 7. trinn i barneskolen - Forberedelse til ungdomsskolen',
   curriculum: 'LK20',
   icon: '📒',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og tallforståelse
     {
@@ -2355,7 +2349,6 @@ export const COURSE_NORSK_7: TextbookCourse = {
   description: 'Norsk for 7. trinn - lesing, skriving, grammatikk og muntlig',
   curriculum: 'LK20',
   icon: '📖',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     { id: 'norsk-7-1-1', number: '1.1', title: 'Lesestrategier for lengre tekster', description: 'Avanserte lesestrategier.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Lesestrategier', 'Notatteknikk', 'Oppsummering'], competenceGoals: ['bruke varierte lesestrategier'] },
     { id: 'norsk-7-1-2', number: '1.2', title: 'Skjønnlitteratur', description: 'Romaner, noveller og dikt.', estimatedMinutes: 50, exerciseCount: 10, topics: ['Roman', 'Novelle', 'Dikt', 'Litterær analyse'], competenceGoals: ['lese og analysere skjønnlitteratur'] },
@@ -2381,7 +2374,6 @@ export const COURSE_ENGELSK_7: TextbookCourse = {
   description: 'English for 7th grade - reading, writing, speaking and listening',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     { id: 'engelsk-7-1-1', number: '1.1', title: 'Reading Longer Texts', description: 'Read and understand longer stories.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Reading', 'Comprehension', 'Analysis'], competenceGoals: ['lese lengre tekster'] },
     { id: 'engelsk-7-1-2', number: '1.2', title: 'Vocabulary Building', description: 'Expand vocabulary through context.', estimatedMinutes: 40, exerciseCount: 12, topics: ['Vocabulary', 'Context clues', 'Word formation'], competenceGoals: ['utvide ordforrådet'] },
@@ -2406,7 +2398,6 @@ export const COURSE_NATURFAG_7: TextbookCourse = {
   description: 'Naturfag for 7. trinn - kroppen, økologi, fysikk og kjemi',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     { id: 'naturfag-7-1-1', number: '1.1', title: 'Nervesystemet', description: 'Hjerne, ryggmarg og nerver.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Nervesystem', 'Hjerne', 'Sanser', 'Reflekser'], competenceGoals: ['forklare nervesystemet'] },
     { id: 'naturfag-7-1-2', number: '1.2', title: 'Hormoner og pubertet', description: 'Hormonelle endringer.', estimatedMinutes: 50, exerciseCount: 8, topics: ['Hormoner', 'Pubertet', 'Endringer'], competenceGoals: ['forstå hormonelle endringer'] },
@@ -2569,7 +2560,6 @@ export const COURSE_8: TextbookCourse = {
   description: 'Matematikk for 8. trinn i ungdomsskolen',
   curriculum: 'LK20',
   icon: '📘',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og tallforståelse
     {
@@ -2831,7 +2821,6 @@ export const COURSE_9: TextbookCourse = {
   description: 'Matematikk for 9. trinn i ungdomsskolen',
   curriculum: 'LK20',
   icon: '📗',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og algebra
     {
@@ -3106,7 +3095,6 @@ export const COURSE_10: TextbookCourse = {
   description: 'Matematikk for 10. trinn i ungdomsskolen - Eksamensforberedelse',
   curriculum: 'LK20',
   icon: '📙',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Tall og algebra
     {
@@ -3373,7 +3361,6 @@ export const COURSE_1P: TextbookCourse = {
   description: 'Praktisk matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📊',
-  coverImage: '/images/subjects/matematikk-1p-hero.png',
   chapters: [
     // Kapittel 1: Tall og økonomi
     {
@@ -3688,7 +3675,6 @@ export const COURSE_S1: TextbookCourse = {
   description: 'Samfunnsfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📈',
-  coverImage: '/images/subjects/matematikk-s1-hero.png',
   chapters: [
     // Kapittel 1: Algebra
     {
@@ -3962,7 +3948,6 @@ export const COURSE_S2: TextbookCourse = {
   description: 'Samfunnsfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📉',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Kapittel 1: Integrasjon
     {
@@ -4213,7 +4198,6 @@ export const COURSE_2P: TextbookCourse = {
   description: 'Praktisk matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📊',
-  coverImage: '/images/subjects/matematikk-2p-hero.png',
   chapters: [
     // Seksjon 1: Økonomi
     {
@@ -4445,7 +4429,6 @@ export const COURSE_2PY: TextbookCourse = {
   description: 'Praktisk matematikk for yrkesfaglige utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔧',
-  coverImage: '/images/subjects/matematikk-hero.png',
   chapters: [
     // Seksjon 1: Økonomi i hverdagen
     {
@@ -4683,7 +4666,6 @@ export const COURSE_R1: TextbookCourse = {
   description: 'Realfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/matematikk-r1-hero.png',
   chapters: [
     // Seksjon 1: Algebra
     {
@@ -4952,7 +4934,6 @@ export const COURSE_R2: TextbookCourse = {
   description: 'Realfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '🧬',
-  coverImage: '/images/subjects/matematikk-r2-hero.png',
   chapters: [
     // =========================================================================
     // SEKSJON 1: FØLGER OG REKKER
@@ -6978,7 +6959,6 @@ export const COURSE_NAT_VG1: TextbookCourse = {
   description: 'Naturfag for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     {
       id: 'nat-vg1-1-1',
@@ -8296,7 +8276,6 @@ export const COURSE_NORSK_8: TextbookCourse = {
   description: 'Norsk for 8. klasse - lesing, skriving, grammatikk og litteratur',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     // Kapittel 1: Lesing og tekstforståelse
     {
@@ -8498,7 +8477,6 @@ export const COURSE_ENGELSK_8: TextbookCourse = {
   description: 'English for 8th grade - reading, writing, grammar, speaking and culture',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     {
       id: 'engelsk-8-1-1',
@@ -8614,7 +8592,6 @@ export const COURSE_NATURFAG_8: TextbookCourse = {
   description: 'Naturfag for 8. klasse - metode, kjemi, energi, celler og kroppen',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     {
       id: 'naturfag-8-1-1',
@@ -9320,7 +9297,6 @@ export const COURSE_NORSK_9: TextbookCourse = {
   description: 'Norsk for 9. klasse - retorikk, kreativ skriving, språkhistorie, litteratur og mediekompetanse',
   curriculum: 'LK20',
   icon: '📖',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     {
       id: 'norsk-9-1-1',
@@ -9466,7 +9442,6 @@ export const COURSE_ENGELSK_9: TextbookCourse = {
   description: 'English for 9th grade - critical reading, literary analysis, essay writing, culture and oral communication',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     {
       id: 'engelsk-9-1-1',
@@ -9832,7 +9807,6 @@ export const COURSE_NATURFAG_9: TextbookCourse = {
   description: 'Naturfag for 9. klasse - kjemi, fysikk, biologi og teknologi',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     {
       id: 'naturfag-9-1-1',
@@ -10408,7 +10382,6 @@ export const COURSE_NORSK_10: TextbookCourse = {
   description: 'Norsk for 10. klasse - eksamensforberedelse, litteraturhistorie, språkhistorie og mediekritikk',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     {
       id: 'norsk-10-1-1',
@@ -10524,7 +10497,6 @@ export const COURSE_ENGELSK_10: TextbookCourse = {
   description: 'English for 10th grade - exam preparation, literature, academic writing and global English',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     {
       id: 'engelsk-10-1',
@@ -11675,7 +11647,6 @@ export const COURSE_NORSK_VG1: TextbookCourse = {
   description: 'Norsk for VG1 - retorikk, litteratur, språk og skriving',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     { id: 'norsk-vg1-1-1', number: '1.1', title: 'Retorikk og argumentasjon', description: 'Lær om retoriske virkemidler og argumentasjonsteknikk.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Etos', 'Patos', 'Logos', 'Argumentasjon'], competenceGoals: ['bruke retoriske virkemidler i egne tekster'] },
     { id: 'norsk-vg1-1-2', number: '1.2', title: 'Sakprosa og kildebruk', description: 'Lær å analysere sakprosa og bruke kilder kritisk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sakprosa', 'Kildekritikk', 'Referanser'], competenceGoals: ['vurdere teksters troverdighet'] },
@@ -11701,7 +11672,6 @@ export const COURSE_ENGELSK_VG1: TextbookCourse = {
   description: 'English for VG1 - communication, literature, culture and academic skills',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     { id: 'engelsk-vg1-1', number: '1', title: 'Communication and Language Skills', description: 'Utvikle kommunikasjonsferdigheter i engelsk gjennom ulike sjangre og situasjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Register', 'Tone', 'Communication'], competenceGoals: ['bruke ulike strategier for språkklaring og kommunikasjon', 'tilpasse språk og kommunikasjon til formål og mottaker'] },
     { id: 'engelsk-vg1-2', number: '2', title: 'English as a Global Language', description: 'Explore World Englishes and language variation.', estimatedMinutes: 50, exerciseCount: 6, topics: ['World Englishes', 'ELF', 'Language variation'], competenceGoals: ['explore the role of English globally'] },
@@ -11727,17 +11697,94 @@ export const COURSE_SAMFUNNSKUNNSKAP: TextbookCourse = {
   description: 'Samfunnskunnskap - demokrati, politikk, økonomi og internasjonale forhold',
   curriculum: 'LK20',
   icon: '🏛️',
-  chapters: [
-    { id: 'samfunnskunnskap-1-1', number: '1.1', title: 'Demokrati og medborgerskap', description: 'Lær om demokratiske prinsipper og deltakelse.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Demokrati', 'Medborgerskap', 'Deltakelse'], competenceGoals: ['forstå demokratiske prinsipper'] },
-    { id: 'samfunnskunnskap-1-2', number: '1.2', title: 'Menneskerettigheter', description: 'Utforsk menneskerettigheter og internasjonale avtaler.', estimatedMinutes: 55, exerciseCount: 6, topics: ['FN', 'Menneskerettigheter', 'Avtaler'], competenceGoals: ['drøfte menneskerettigheter'] },
-    { id: 'samfunnskunnskap-2-1', number: '2.1', title: 'Politiske systemer og ideologier', description: 'Lær om ulike politiske systemer og ideologier.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Liberalisme', 'Sosialisme', 'Konservatisme'], competenceGoals: ['sammenligne politiske ideologier'] },
-    { id: 'samfunnskunnskap-2-2', number: '2.2', title: 'Det norske politiske systemet', description: 'Forstå det norske styresettet og politiske partier.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Storting', 'Regjering', 'Partier'], competenceGoals: ['forklare det norske politiske systemet'] },
-    { id: 'samfunnskunnskap-3-1', number: '3.1', title: 'Medier og ytringsfrihet', description: 'Utforsk medienes rolle og ytringsfrihet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Pressfrihet', 'Sosiale medier', 'Ytringsfrihet'], competenceGoals: ['drøfte medienes rolle i demokratiet'] },
-    { id: 'samfunnskunnskap-3-2', number: '3.2', title: 'Økonomi og velferdsstat', description: 'Lær om økonomi og den norske velferdsstaten.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Velferdsstat', 'Skatt', 'Trygd'], competenceGoals: ['forklare velferdsstaten'] },
-    { id: 'samfunnskunnskap-4-1', number: '4.1', title: 'Arbeidsliv og rettigheter', description: 'Forstå arbeidslivet og arbeidstakers rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Arbeidsmiljø', 'Fagforeninger', 'Rettigheter'], competenceGoals: ['beskrive arbeidslivets organisering'] },
-    { id: 'samfunnskunnskap-4-2', number: '4.2', title: 'Identitet og mangfold', description: 'Utforsk identitet, kultur og mangfold i Norge.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Identitet', 'Mangfold', 'Integrering'], competenceGoals: ['reflektere over identitet og mangfold'] },
-    { id: 'samfunnskunnskap-5-1', number: '5.1', title: 'Bærekraftig utvikling', description: 'Lær om bærekraft og globale utfordringer.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Bærekraft', 'FNs mål', 'Klimaendringer'], competenceGoals: ['drøfte bærekraftig utvikling'] },
-    { id: 'samfunnskunnskap-5-2', number: '5.2', title: 'Konflikter og samarbeid', description: 'Forstå internasjonale konflikter og samarbeid.', estimatedMinutes: 60, exerciseCount: 6, topics: ['FN', 'NATO', 'EU', 'Konflikter'], competenceGoals: ['analysere internasjonale relasjoner'] },
+    chapters: [
+    // Kapittel 1: Individ og samfunn
+    { id: 'samfunnskunnskap-1-1', number: '1.1', title: 'Sosialisering - hvordan vi formes', description: 'Forstå hvordan vi blir formet som mennesker gjennom primær, sekundær og tertiær sosialisering.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Sosialisering'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-2', number: '1.2', title: 'Identitet og selvfølelse', description: 'Forstå hva identitet er, hvordan den utvikles, og hvordan selvfølelse påvirkes av samfunnet rundt os...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Identitet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-3', number: '1.3', title: 'Personlig økonomi - budsjett og sparing', description: 'Lær å håndtere egen økonomi gjennom budsjett, sparing og smarte økonomiske valg.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Personlig', 'økonomi'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-4', number: '1.4', title: 'Forbruk og kommersiell påvirkning', description: 'Forstå hvordan reklame og kommersiell påvirkning former våre ønsker og valg som forbrukere.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Forbruk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-5', number: '1.5', title: 'Kropp, grenser og samtykke', description: 'Forstå betydningen av personlige grenser, samtykke og respekt for egen og andres kropp.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Kropp,', 'grenser'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-6', number: '1.6', title: 'Kjønn, seksualitet og mangfold', description: 'Forstå mangfoldet i kjønnsidentitet og seksuell orientering, og reflektere over normer og forventnin...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Kjønn,', 'seksualitet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-7', number: '1.7', title: 'Digitale spor og personvern', description: 'Forstå hvordan digitale spor oppstår, hvem som bruker dem, og hvordan du kan beskytte personvernet d...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Digitale', 'spor'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-1-8', number: '1.8', title: 'Kritisk mediebruk', description: 'Utvikle kritisk sans for digitale medier, gjenkjenne desinformasjon og ta bevisste medievalg.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Kritisk', 'mediebruk'], competenceGoals: [''] },
+    // Kapittel 2: Identitet og mangfold
+    { id: 'samfunnskunnskap-2-1', number: '2.1', title: 'Hva er identitet?', description: 'Forstå identitetsbegrepet, hva som former vår identitet, og samspillet mellom individ og samfunn.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Hva', 'er'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-2', number: '2.2', title: 'Kultur og kulturmøter', description: 'Forstå kulturbegrepet, kulturelle forskjeller, og hvordan vi kan møte andre kulturer med åpenhet og ...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Kultur'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-3', number: '2.3', title: 'Det flerkulturelle Norge', description: 'Forstå innvandringens historie, dagens mangfold, og debatter om integrering i Norge.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Det', 'flerkulturelle'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-4', number: '2.4', title: 'Samene - urfolk i Norge', description: 'Lære om samisk historie, kultur og rettigheter som urfolk i Norge.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Samene'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-5', number: '2.5', title: 'Nasjonale minoriteter', description: 'Lære om Norges nasjonale minoriteter: kvener, jøder, rom, romani og skogfinner.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Nasjonale', 'minoriteter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-6', number: '2.6', title: 'Rasisme og diskriminering', description: 'Forstå hva rasisme og diskriminering er, hvordan det kommer til uttrykk, og tiltak mot det.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Rasisme'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-2-7', number: '2.7', title: 'Kjønn og seksualitet', description: 'Forstå likestilling, kjønnsroller, og mangfold knyttet til kjønn og seksualitet.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Kjønn'], competenceGoals: [''] },
+    // Kapittel 3: Arbeidsliv og rettigheter
+    { id: 'samfunnskunnskap-3-1', number: '3.1', title: 'Den norske arbeidslivsmodellen', description: 'Forstå kjennetegnene ved den norske arbeidslivsmodellen, trepartssamarbeidet og organisasjonsgraden.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Den', 'norske'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-2', number: '3.2', title: 'Fagbevegelsen', description: 'Lær om fagbevegelsens historie, LO, NHO og de viktigste hovedorganisasjonene.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Fagbevegelsen'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-3', number: '3.3', title: 'Tariffavtaler og lønnsoppgjør', description: 'Forstå hvordan lønnsforhandlinger foregår, tariffavtaler, streik og megling.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Tariffavtaler'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-4', number: '3.4', title: 'Arbeidsmiljøloven', description: 'Kjenn dine rettigheter og plikter i arbeidslivet: arbeidstid, ferie, oppsigelse og HMS.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Arbeidsmiljøloven'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-5', number: '3.5', title: 'Din første jobb', description: 'Praktisk veiledning til arbeidskontrakt, lønn, skatt og rettigheter i første jobb.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Din', 'første'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-6', number: '3.6', title: 'Nye arbeidsformer', description: 'Forstå gig-økonomi, hjemmekontor, frilansing og hvordan arbeidslivet endrer seg.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Nye', 'arbeidsformer'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-3-7', number: '3.7', title: 'Likestilling og diskriminering', description: 'Forstå likestilling i arbeidslivet, lønnsgap, varsling og tiltak mot diskriminering.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Likestilling'], competenceGoals: [''] },
+    // Kapittel 4: Demokrati og medborgerskap
+    { id: 'samfunnskunnskap-4-1', number: '4.1', title: 'Hva er demokrati?', description: 'Forstå hva demokrati betyr, ulike former for demokrati og demokratiets grunnprinsipper.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Hva', 'er'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-2', number: '4.2', title: 'Demokratiets historie', description: 'Lær om demokratiets opprinnelse i antikken og utviklingen frem til moderne demokrati.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Demokratiets', 'historie'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-3', number: '4.3', title: 'Demokrati i Norge', description: 'Lær om utviklingen av demokratiet i Norge fra 1814 til i dag.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Demokrati'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-4', number: '4.4', title: 'Valgordningen i Norge', description: 'Forstå hvordan valg gjennomføres i Norge, fra stortingsvalg til lokalvalg.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Valgordningen'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-5', number: '4.5', title: 'Lokalt demokrati', description: 'Forstå hvordan kommuner og fylker styres og hva lokalt selvstyre betyr.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Lokalt', 'demokrati'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-6', number: '4.6', title: 'Medborgerskap og deltakelse', description: 'Forstå hva det betyr å være medborger og ulike måter å delta i demokratiet på.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Medborgerskap'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-4-7', number: '4.7', title: 'Utfordringer for demokratiet', description: 'Forstå hvilke utfordringer demokratiet står overfor i dag og hvordan vi kan styrke det.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Utfordringer'], competenceGoals: [''] },
+    // Kapittel 5: Politiske ideologier og Det norske politiske systemet
+    { id: 'samfunnskunnskap-5-1', number: '5.1', title: 'Hva er en ideologi?', description: 'Forstå hva politiske ideologier er, hvordan de fungerer og hvordan vi kan analysere dem.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Hva', 'er'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-2', number: '5.2', title: 'De store ideologiene', description: 'Oversikt over de tre store politiske ideologiene: liberalisme, konservatisme og sosialisme.', estimatedMinutes: 30, exerciseCount: 4, topics: ['De', 'store'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-3', number: '5.3', title: 'Politiske skillelinjer og andre ideologier', description: 'Forstå politiske akser, GAL-TAN-modellen og andre ideologier som grønn ideologi, feminisme og nasjon...', estimatedMinutes: 25, exerciseCount: 4, topics: ['Politiske', 'skillelinjer'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-4', number: '5.4', title: 'Populisme i vår tid', description: 'Forstå hva populisme er, hvordan den arter seg på høyre- og venstresiden, og hvilke utfordringer den...', estimatedMinutes: 25, exerciseCount: 4, topics: ['Populisme'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-5', number: '5.5', title: 'Grunnloven og maktfordeling', description: 'Lær om Grunnloven fra 1814 og hvordan makten er fordelt mellom de tre statsmaktene.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Grunnloven'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-6', number: '5.6', title: 'Stortinget', description: 'Lær om Stortingets oppgaver, organisering og arbeidsmåte.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Stortinget'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-7', number: '5.7', title: 'Regjeringen', description: 'Lær om regjeringens rolle, parlamentarisme og departementene.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Regjeringen'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-8', number: '5.8', title: 'Domstolene', description: 'Lær om rettssystemet, domstolshierarkiet og rettssikkerhet.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Domstolene'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-9', number: '5.9', title: 'Politiske partier', description: 'Lær om partilandskapet, partienes rolle og finansiering.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Politiske', 'partier'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-10', number: '5.10', title: 'Hvordan en lov blir til', description: 'Følg lovprosessen fra idé til vedtatt lov.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Hvordan', 'en'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-11', number: '5.11', title: 'Lokalpolitikk', description: 'Lær om kommuner, fylker og lokalt selvstyre.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Lokalpolitikk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-5-12', number: '5.12', title: 'Påvirkning og lobbyisme', description: 'Lær om interesseorganisasjoner, medier og politisk påvirkning.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Påvirkning'], competenceGoals: [''] },
+    // Kapittel 6: Menneskerettigheter
+    { id: 'samfunnskunnskap-6-1', number: '6.1', title: 'Hva er menneskerettigheter?', description: 'Forstå hva menneskerettigheter er, deres kjennetegn og historiske bakgrunn.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Hva', 'er'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-2', number: '6.2', title: 'Kategorier av rettigheter', description: 'Lær om ulike typer menneskerettigheter: sivile, politiske, økonomiske, sosiale og kulturelle.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Kategorier'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-3', number: '6.3', title: 'FN og menneskerettigheter', description: 'Lær om FNs rolle i å beskytte menneskerettigheter og de viktigste FN-konvensjonene.', estimatedMinutes: 30, exerciseCount: 4, topics: ['FN'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-4', number: '6.4', title: 'Menneskerettigheter i Europa', description: 'Lær om det europeiske menneskerettighetssystemet med EMK og Den europeiske menneskerettsdomstol.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Menneskerettigheter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-5', number: '6.5', title: 'Menneskerettigheter i Norge', description: 'Lær hvordan menneskerettighetene er forankret i norsk lov og hvordan de praktiseres.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Menneskerettigheter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-6', number: '6.6', title: 'Barns rettigheter', description: 'Lær om FNs barnekonvensjon og hvordan barns rettigheter beskyttes i Norge.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Barns', 'rettigheter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-6-7', number: '6.7', title: 'Utfordringer og konflikter', description: 'Forstå hvordan menneskerettigheter kan komme i konflikt og utfordringene med å håndheve dem.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Utfordringer'], competenceGoals: [''] },
+    // Kapittel 7: Medier og ytringsfrihet
+    { id: 'samfunnskunnskap-7-1', number: '7.1', title: 'Ytringsfrihet', description: 'Lær om ytringsfrihetens betydning, grunnlag og grenser.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Ytringsfrihet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-2', number: '7.2', title: 'Medienes rolle i demokratiet', description: 'Forstå medienes funksjoner og betydning som "den fjerde statsmakt".', estimatedMinutes: 25, exerciseCount: 4, topics: ['Medienes', 'rolle'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-3', number: '7.3', title: 'Det norske medielandskapet', description: 'Få oversikt over NRK, aviser og medieeierskap i Norge.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Det', 'norske'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-4', number: '7.4', title: 'Sosiale medier', description: 'Forstå sosiale mediers påvirkning, algoritmer og ekkokammer.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Sosiale', 'medier'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-5', number: '7.5', title: 'Kildekritikk og faktasjekk', description: 'Lær metoder for å vurdere kilder og avsløre feilinformasjon.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Kildekritikk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-6', number: '7.6', title: 'Falske nyheter og desinformasjon', description: 'Forstå hva desinformasjon er, hvordan den spres og hvordan vi kan motvirke den.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Falske', 'nyheter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-7-7', number: '7.7', title: 'Personvern i den digitale tidsalder', description: 'Forstå personvern, GDPR og utfordringer med overvåkning og digitale spor.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Personvern'], competenceGoals: [''] },
+    // Kapittel 8: Økonomi og velferdsstat
+    { id: 'samfunnskunnskap-8-1', number: '8.1', title: 'Den norske velferdsstaten', description: 'Forstå kjennetegnene ved den norske velferdsstaten, universelle ordninger og hvordan den finansieres...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Den', 'norske'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-2', number: '8.2', title: 'Skatter og avgifter', description: 'Forstå ulike typer skatter og avgifter, progressiv beskatning og skattens rolle i samfunnet.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Skatter'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-3', number: '8.3', title: 'Statsbudsjettet', description: 'Forstå hvordan statsbudsjettet utarbeides, prioriteringer og forholdet mellom utgifter og inntekter.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Statsbudsjettet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-4', number: '8.4', title: 'Velferdsordninger', description: 'Oversikt over de viktigste velferdsordningene i Norge: NAV, helse, utdanning og pensjon.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Velferdsordninger'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-5', number: '8.5', title: 'Oljefondet', description: 'Forstå hvordan Statens pensjonsfond utland (Oljefondet) er bygget opp, forvaltes og hvilke etiske re...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Oljefondet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-6', number: '8.6', title: 'Økonomisk ulikhet', description: 'Forstå måling av økonomisk ulikhet, fattigdom i Norge og hvordan omfordeling fungerer.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Økonomisk', 'ulikhet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-7', number: '8.7', title: 'Velferdsmodeller i verden', description: 'Sammenlign den nordiske modellen med liberale og konservative velferdsmodeller.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Velferdsmodeller'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-8-8', number: '8.8', title: 'Velferdsstatens utfordringer', description: 'Forstå utfordringene velferdsstaten står overfor: eldrebølge, innvandring og bærekraft.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Velferdsstatens', 'utfordringer'], competenceGoals: [''] },
+    // Kapittel 9: Bærekraftig utvikling
+    { id: 'samfunnskunnskap-9-1', number: '9.1', title: 'Hva er bærekraftig utvikling?', description: 'Forstå begrepet bærekraftig utvikling og de tre dimensjonene: økologisk, sosial og økonomisk.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Hva', 'er'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-2', number: '9.2', title: 'FNs bærekraftsmål', description: 'Forstå de 17 bærekraftsmålene, sammenhengene mellom dem, og hvordan de styrer internasjonal politikk...', estimatedMinutes: 30, exerciseCount: 4, topics: ['FNs', 'bærekraftsmål'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-3', number: '9.3', title: 'Klimaendringer', description: 'Forstå årsaker til og konsekvenser av klimaendringene, samt hva klimavitenskapen sier.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Klimaendringer'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-4', number: '9.4', title: 'Norsk klimapolitikk', description: 'Forstå Norges klimamål, virkemidler, og debatten om norsk olje- og gassproduksjon.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Norsk', 'klimapolitikk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-5', number: '9.5', title: 'Biologisk mangfold', description: 'Forstå betydningen av biologisk mangfold og truslene mot naturens mangfold.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Biologisk', 'mangfold'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-6', number: '9.6', title: 'Forbruk og bærekraft', description: 'Forstå sammenhengen mellom forbruk og miljøproblemer, og hva et bærekraftig forbruk innebærer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Forbruk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-7', number: '9.7', title: 'Klimarettferdighet', description: 'Forstå de rettferdighetsutfordringene klimakrisen reiser mellom land og generasjoner.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Klimarettferdighet'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-9-8', number: '9.8', title: 'Hva kan du gjøre?', description: 'Forstå hvordan du kan bidra til bærekraftig utvikling som individ, samfunnsborger og velger.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Hva', 'kan'], competenceGoals: [''] },
+    // Kapittel 10: Internasjonale forhold (del 1)
+    { id: 'samfunnskunnskap-10-1', number: '10.1', title: 'Internasjonal politikk', description: 'Forstå grunnleggende begreper i internasjonal politikk som stater, suverenitet og folkerett.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Internasjonal', 'politikk'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-10-2', number: '10.2', title: 'Flyktninger og migrasjon', description: 'Forstå årsakene til flukt og migrasjon, flyktningers rettigheter og Norges rolle.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Flyktninger'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-10-3', number: '10.3', title: 'Fred og konfliktløsning', description: 'Forstå hvordan konflikter kan løses fredelig og Norges rolle som fredsnasjon.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Fred'], competenceGoals: [''] },
+    // Kapittel 11: Internasjonale forhold (del 2)
+    { id: 'samfunnskunnskap-11-1', number: '11.1', title: 'Internasjonale organisasjoner', description: 'Lær om de viktigste internasjonale organisasjonene: FN, NATO og EU/EØS, og deres betydning for Norge...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Internasjonale', 'organisasjoner'], competenceGoals: [''] },
+    { id: 'samfunnskunnskap-11-2', number: '11.2', title: 'Konflikter og sikkerhet', description: 'Forstå ulike typer konflikter, terrorisme og ekstremisme, og hvordan disse utfordrer internasjonal s...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Konflikter'], competenceGoals: [''] },
   ],
 };
 
@@ -11802,7 +11849,6 @@ export const COURSE_NORSK_VG2: TextbookCourse = {
   description: 'Norsk for VG2 - litteraturhistorie, språkdebatt, retorikk og akademisk skriving',
   curriculum: 'LK20',
   icon: '📖',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     { id: 'norsk-vg2-1-1', number: '1.1', title: 'Realismen og det moderne gjennombrudd', description: 'Lær om realismen og det moderne gjennombruddet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Realisme', 'Ibsen', 'Brandes'], competenceGoals: ['analysere tekster fra realismen'] },
     { id: 'norsk-vg2-1-2', number: '1.2', title: 'Naturalismen', description: 'Utforsk naturalismen og dens kjennetegn.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Naturalisme', 'Determinisme', 'Amalie Skram'], competenceGoals: ['sammenligne realisme og naturalisme'] },
@@ -11878,7 +11924,6 @@ export const COURSE_NORSK_VG3: TextbookCourse = {
   description: 'Norsk for VG3 - språkhistorie, samtidslitteratur, akademisk skriving og eksamensforberedelse',
   curriculum: 'LK20',
   icon: '📚',
-  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     { id: 'norsk-vg3-1-1', number: '1.1', title: 'Det moderne gjennombruddet (1870-1890)', description: 'Lær om realismen og det moderne gjennombruddet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Realisme', 'Ibsen', 'Brandes', 'Naturalisme'], competenceGoals: ['analysere tekster fra det moderne gjennombruddet'] },
     { id: 'norsk-vg3-2-1', number: '2.1', title: 'Nyrealisme og mellomkrigstid', description: 'Utforsk mellomkrigstidens litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nyrealisme', 'Mellomkrigstid', 'Arbeiderlitteratur'], competenceGoals: ['analysere mellomkrigslitteratur'] },
@@ -13311,6 +13356,21 @@ export const SECTION_NAMES_NAT_VG1: Record<string, string> = {
   '5': 'Teknologi og bærekraft',
 };
 
+// Seksjonsnavn for Samfunnskunnskap VG1-VG2 (LK20-rekkefølge)
+export const SECTION_NAMES_SAMFUNNSKUNNSKAP: Record<string, string> = {
+  '1': 'Individ og samfunn',
+  '2': 'Identitet og mangfold',
+  '3': 'Arbeidsliv og rettigheter',
+  '4': 'Demokrati og medborgerskap',
+  '5': 'Politiske ideologier og Det norske politiske systemet',
+  '6': 'Menneskerettigheter',
+  '7': 'Medier og ytringsfrihet',
+  '8': 'Økonomi og velferdsstat',
+  '9': 'Bærekraftig utvikling',
+  '10': 'Internasjonale forhold (del 1)',
+  '11': 'Internasjonale forhold (del 2)',
+};
+
 // Hjelpefunksjon for å hente seksjonsnavn basert på kurs
 export function getSectionNames(courseId: string): Record<string, string> {
   switch (courseId) {
@@ -13344,6 +13404,8 @@ export function getSectionNames(courseId: string): Record<string, string> {
       return SECTION_NAMES_NAT_VG1;
     case 'fysikk2':
       return SECTION_NAMES_FYSIKK2;
+    case 'samfunnskunnskap':
+      return SECTION_NAMES_SAMFUNNSKUNNSKAP;
     default:
       return {};
   }
