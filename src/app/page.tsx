@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
+import Image from 'next/image';
+import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
 import { getTotalQuizQuestionCount, getUniqueSubjectCount } from '@/lib/data/quiz-data';
@@ -25,36 +26,27 @@ export default function HomePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Lærebøker-kort */}
             <Link href="/bok" className="block group">
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.01] duration-300 h-full">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
-
-                <div className="relative text-white">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium mb-4">
-                    <BookOpen className="w-4 h-4" />
-                    5. klasse til VG3
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                    Interaktive lærebøker
-                  </h2>
-                  <p className="text-lg text-white/80 mb-6">
-                    Komplette lærebøker med øvingsoppgaver og fremgangsregistrering. Tilpasset LK20.
-                  </p>
-
-                  {/* Stats */}
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
-                      <div className="text-2xl font-bold">60+</div>
-                      <div className="text-white/70 text-sm">lærebøker</div>
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
+                <Image
+                  src="/home/interaktive-lareboker.jpg"
+                  alt="Interaktive lærebøker"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
+                      <div className="text-lg font-bold">60+</div>
+                      <div className="text-white/80 text-xs">lærebøker</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
-                      <div className="text-2xl font-bold">LK20</div>
-                      <div className="text-white/70 text-sm">tilpasset</div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
+                      <div className="text-lg font-bold">LK20</div>
+                      <div className="text-white/80 text-xs">tilpasset</div>
                     </div>
                   </div>
-
-                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8 group-hover:gap-4 transition-all">
+                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8">
                     Utforsk lærebøker
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -64,36 +56,27 @@ export default function HomePage() {
 
             {/* Quiz-kort */}
             <Link href="/quiz" className="block group">
-              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.01] duration-300 h-full">
-                {/* Decorative elements */}
-                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
-                <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
-
-                <div className="relative text-white">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium mb-4">
-                    <Sparkles className="w-4 h-4" />
-                    Quiz for alle fag
-                  </div>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
-                    Test kunnskapen din
-                  </h2>
-                  <p className="text-lg text-white/80 mb-6">
-                    Interaktive quizer tilpasset hvert kapittel. Perfekt for å forberede seg til prøver!
-                  </p>
-
-                  {/* Stats */}
-                  <div className="flex flex-wrap gap-4 mb-6">
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
-                      <div className="text-2xl font-bold">{getTotalQuizQuestionCount().toLocaleString('nb-NO')}+</div>
-                      <div className="text-white/70 text-sm">spørsmål</div>
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
+                <Image
+                  src="/home/prove-quiz.jpg"
+                  alt="Prøve Quiz"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
+                  <div className="flex flex-wrap gap-3 mb-4">
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
+                      <div className="text-lg font-bold">{getTotalQuizQuestionCount().toLocaleString('nb-NO')}+</div>
+                      <div className="text-white/80 text-xs">spørsmål</div>
                     </div>
-                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
-                      <div className="text-2xl font-bold">{getUniqueSubjectCount()}</div>
-                      <div className="text-white/70 text-sm">fag</div>
+                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
+                      <div className="text-lg font-bold">{getUniqueSubjectCount()}</div>
+                      <div className="text-white/80 text-xs">fag</div>
                     </div>
                   </div>
-
-                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 group-hover:gap-4 transition-all">
+                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8">
                     Start quiz nå
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
