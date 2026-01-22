@@ -23,10 +23,10 @@ export default function HomePage() {
 
         {/* Lærebøker og Quiz - Hovedseksjon */}
         <div className="relative container mx-auto px-4 py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
             {/* Lærebøker-kort */}
             <Link href="/bok" className="block group">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square lg:aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
                 <Image
                   src="/home/interaktive-lareboker.jpg"
                   alt="Interaktive lærebøker"
@@ -56,7 +56,7 @@ export default function HomePage() {
 
             {/* Quiz-kort */}
             <Link href="/quiz" className="block group">
-              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square lg:aspect-[4/3]">
+              <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
                 <Image
                   src="/home/prove-quiz.jpg"
                   alt="Prøve Quiz"
