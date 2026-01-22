@@ -5,6 +5,8 @@
  * Første alternativ er alltid riktig svar (vil bli shufflet ved visning).
  */
 
+import { getChapterContent } from './textbook-content';
+
 export interface QuizQuestion {
   question: string;
   options: string[];  // First option is always correct
@@ -32202,7 +32204,19 @@ function getGradeName(grade: string): string {
   return grade.toUpperCase();
 }
 
-function getChapterDisplayName(chapter: string): string {
+function getChapterDisplayName(chapterId: string, chapter: string): string {
+  // First, try to get the actual chapter title from textbook content
+  const textbookChapter = getChapterContent(chapterId);
+  if (textbookChapter?.title) {
+    // Return "X.Y: Title" format for better readability
+    const parts = chapter.split('-');
+    if (parts.length === 2) {
+      return `${parts[0]}.${parts[1]}: ${textbookChapter.title}`;
+    }
+    return `${chapter}: ${textbookChapter.title}`;
+  }
+
+  // Fallback to generic "Kapittel X.Y" format
   const parts = chapter.split('-');
   if (parts.length === 2) {
     return `Kapittel ${parts[0]}.${parts[1]}`;
@@ -32251,7 +32265,7 @@ export function getOrganizedQuizData(): OrganizedQuizData[] {
           .sort((a, b) => a.chapter.localeCompare(b.chapter, 'nb', { numeric: true }))
           .map(c => ({
             chapterId: c.chapterId,
-            chapterName: getChapterDisplayName(c.chapter),
+            chapterName: getChapterDisplayName(c.chapterId, c.chapter),
             questionCount: c.questionCount,
           })),
       }))

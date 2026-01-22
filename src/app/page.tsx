@@ -1,49 +1,105 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
-import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users } from 'lucide-react';
+import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
+import { getTotalQuizQuestionCount, getUniqueSubjectCount } from '@/lib/data/quiz-data';
 
 export const metadata: Metadata = {
   title: 'Skolesaga - Interaktive lærebøker for norsk skole',
-  description: 'Gratis interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3.',
+  description: 'Interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3.',
 };
 
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
-      {/* Hero Section */}
+      {/* Header */}
       <div className="relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30" />
         <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
 
         <HomeHeader />
 
-        <div className="relative container mx-auto px-4 py-20 md:py-32 text-center">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6">
-            Interaktive lærebøker
-            <br />
-            <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 bg-clip-text text-transparent">
-              for alle fag
-            </span>
-          </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
-            Gratis lærebøker med øvingsoppgaver, quiz og fremgangsregistrering.
-            Tilpasset LK20 for alle klassetrinn fra 5. klasse til VG3.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button asChild size="lg" className="text-lg px-8">
-              <Link href="/bok">
-                <BookOpen className="mr-2 h-5 w-5" />
-                Utforsk lærebøker
-              </Link>
-            </Button>
-            <Button asChild variant="outline" size="lg" className="text-lg px-8">
-              <Link href="/book">
-                <Code className="mr-2 h-5 w-5" />
-                Python-lærebok
-              </Link>
-            </Button>
+        {/* Lærebøker og Quiz - Hovedseksjon */}
+        <div className="relative container mx-auto px-4 py-12 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            {/* Lærebøker-kort */}
+            <Link href="/bok" className="block group">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-indigo-600 to-blue-700 p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.01] duration-300 h-full">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-blue-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
+
+                <div className="relative text-white">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium mb-4">
+                    <BookOpen className="w-4 h-4" />
+                    5. klasse til VG3
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                    Interaktive lærebøker
+                  </h2>
+                  <p className="text-lg text-white/80 mb-6">
+                    Komplette lærebøker med øvingsoppgaver og fremgangsregistrering. Tilpasset LK20.
+                  </p>
+
+                  {/* Stats */}
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
+                      <div className="text-2xl font-bold">60+</div>
+                      <div className="text-white/70 text-sm">lærebøker</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
+                      <div className="text-2xl font-bold">LK20</div>
+                      <div className="text-white/70 text-sm">tilpasset</div>
+                    </div>
+                  </div>
+
+                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8 group-hover:gap-4 transition-all">
+                    Utforsk lærebøker
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+            </Link>
+
+            {/* Quiz-kort */}
+            <Link href="/quiz" className="block group">
+              <div className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-violet-600 via-purple-600 to-indigo-700 p-8 shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.01] duration-300 h-full">
+                {/* Decorative elements */}
+                <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl" />
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-purple-400/20 rounded-full translate-y-1/2 -translate-x-1/2 blur-2xl" />
+
+                <div className="relative text-white">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 text-sm font-medium mb-4">
+                    <Sparkles className="w-4 h-4" />
+                    Quiz for alle fag
+                  </div>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-3">
+                    Test kunnskapen din
+                  </h2>
+                  <p className="text-lg text-white/80 mb-6">
+                    Interaktive quizer tilpasset hvert kapittel. Perfekt for å forberede seg til prøver!
+                  </p>
+
+                  {/* Stats */}
+                  <div className="flex flex-wrap gap-4 mb-6">
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
+                      <div className="text-2xl font-bold">{getTotalQuizQuestionCount().toLocaleString('nb-NO')}+</div>
+                      <div className="text-white/70 text-sm">spørsmål</div>
+                    </div>
+                    <div className="bg-white/10 backdrop-blur-sm rounded-xl px-4 py-2 text-center">
+                      <div className="text-2xl font-bold">{getUniqueSubjectCount()}</div>
+                      <div className="text-white/70 text-sm">fag</div>
+                    </div>
+                  </div>
+
+                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 group-hover:gap-4 transition-all">
+                    Start quiz nå
+                    <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
+                  </Button>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
@@ -96,7 +152,7 @@ export default function HomePage() {
             Klar til å begynne?
           </h2>
           <p className="text-lg opacity-90 mb-8 max-w-xl mx-auto">
-            Velg ditt klassetrinn og start å lære med interaktive lærebøker - helt gratis.
+            Velg ditt klassetrinn og start å lære med interaktive lærebøker.
           </p>
           <Button asChild size="lg" variant="secondary" className="text-lg px-8">
             <Link href="/bok">
@@ -116,7 +172,7 @@ export default function HomePage() {
             <span className="font-bold text-lg">Skolesaga</span>
           </Link>
           <p className="text-sm text-muted-foreground mb-4">
-            Gratis interaktive lærebøker for norsk skole
+            Interaktive lærebøker for norsk skole
           </p>
           <div className="flex justify-center gap-6 text-sm text-muted-foreground mb-4">
             <Link href="/personvern" className="hover:text-foreground transition-colors">

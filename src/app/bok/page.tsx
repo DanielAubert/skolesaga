@@ -126,7 +126,7 @@ export default function TextbookOverviewPage() {
                   grade="8. klasse"
                   subtitle="13–14 år"
                   gradient="bg-gradient-to-br from-sky-400 to-blue-500"
-                  image="/images/grades/8-klasse.jpg"
+                  image="/images/grades/8-klasse.png"
                 />
               </div>
               <div className="w-56">
@@ -135,7 +135,7 @@ export default function TextbookOverviewPage() {
                   grade="9. klasse"
                   subtitle="14–15 år"
                   gradient="bg-gradient-to-br from-blue-400 to-indigo-500"
-                  image="/images/grades/9-klasse.jpg"
+                  image="/images/grades/9-klasse.png"
                 />
               </div>
               <div className="w-56">
@@ -144,6 +144,7 @@ export default function TextbookOverviewPage() {
                   grade="10. klasse"
                   subtitle="15–16 år"
                   gradient="bg-gradient-to-br from-indigo-400 to-violet-500"
+                  image="/images/grades/10-klasse.jpg"
                 />
               </div>
             </div>

@@ -6,7 +6,6 @@ import { getToken } from 'next-auth/jwt';
 const protectedRoutes = [
   '/bok',
   '/book',
-  '/quiz',
   '/geogebra',
   '/hoderegning',
   '/dashboard',
@@ -65,7 +64,6 @@ export const config = {
   matcher: [
     '/bok/:path*',
     '/book/:path*',
-    '/quiz/:path*',
     '/geogebra/:path*',
     '/hoderegning/:path*',
     '/dashboard/:path*',

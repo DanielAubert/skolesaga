@@ -17,6 +17,7 @@ export const COURSE_NORSK_6: TextbookCourse = {
   description: 'Norsk for 6. trinn - lesing, skriving, muntlig og språklære',
   curriculum: 'LK20',
   icon: '📚',
+  coverImage: '/images/subjects/norsk-hero.png',
   chapters: [
     // Kapittel 1: Lesing og tekstforståelse
     {
@@ -147,6 +148,7 @@ export const COURSE_ENGELSK_6: TextbookCourse = {
   description: 'Engelsk for 6. trinn - kommunikasjon, språklæring og kultur',
   curriculum: 'LK20',
   icon: '🇬🇧',
+  coverImage: '/images/subjects/engelsk-hero.png',
   chapters: [
     // Kapittel 1: Communication
     {
@@ -256,6 +258,7 @@ export const COURSE_NATURFAG_6: TextbookCourse = {
   description: 'Naturfag for 6. trinn - kroppen, dyr, planter, teknologi og bærekraft',
   curriculum: 'LK20',
   icon: '🔬',
+  coverImage: '/images/subjects/naturfag-hero.png',
   chapters: [
     // Kapittel 1: Kroppen vår
     {

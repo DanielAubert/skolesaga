@@ -12,7 +12,7 @@ const GRADE_CONFIG: Record<string, {
   ageRange: string;
   gradient: string;
   image?: string;
-  subjects: { courseId: string; name: string; icon: string; color: string }[];
+  subjects: { courseId: string; name: string; icon: string; color: string; image?: string }[];
 }> = {
   '5': {
     title: '5. klasse',
@@ -21,10 +21,10 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-lime-400 to-green-500',
     image: '/images/grades/5-klasse.jpg',
     subjects: [
-      { courseId: '5', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600' },
-      { courseId: 'norsk-5', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-5', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-5', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '5', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-5', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-5', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-5', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-5', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-5', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-5', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -40,10 +40,10 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-green-400 to-emerald-500',
     image: '/images/grades/6-klasse.jpg',
     subjects: [
-      { courseId: '6', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600' },
-      { courseId: 'norsk-6', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-6', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-6', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '6', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-6', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-6', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-6', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-6', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-6', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-6', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -59,10 +59,10 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-emerald-400 to-teal-500',
     image: '/images/grades/7-klasse.jpg',
     subjects: [
-      { courseId: '7', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600' },
-      { courseId: 'norsk-7', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-7', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-7', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '7', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-blue-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-7', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-7', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-7', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-7', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-7', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-7', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -76,12 +76,12 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '13–14 år',
     gradient: 'from-sky-400 to-blue-500',
-    image: '/images/grades/8-klasse.jpg',
+    image: '/images/grades/8-klasse.png',
     subjects: [
-      { courseId: '8', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600' },
-      { courseId: 'norsk-8', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-8', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-8', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '8', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-8', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-8', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-8', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-8', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-8', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-8', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -95,12 +95,12 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '14–15 år',
     gradient: 'from-blue-400 to-indigo-500',
-    image: '/images/grades/9-klasse.jpg',
+    image: '/images/grades/9-klasse.png',
     subjects: [
-      { courseId: '9', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600' },
-      { courseId: 'norsk-9', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-9', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-9', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '9', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-9', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-9', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-9', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-9', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-9', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-9', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -114,11 +114,12 @@ const GRADE_CONFIG: Record<string, {
     subtitle: 'Ungdomsskole',
     ageRange: '15–16 år',
     gradient: 'from-indigo-400 to-violet-500',
+    image: '/images/grades/10-klasse.jpg',
     subjects: [
-      { courseId: '10', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600' },
-      { courseId: 'norsk-10', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-10', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'naturfag-10', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '10', name: 'Matematikk', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'norsk-10', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-10', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'naturfag-10', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnsfag-10', name: 'Samfunnsfag', icon: '🌍', color: 'from-amber-500 to-orange-600' },
       { courseId: 'krle-10', name: 'KRLE', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kunst-10', name: 'Kunst og håndverk', icon: '🎨', color: 'from-pink-500 to-rose-600' },
@@ -133,11 +134,11 @@ const GRADE_CONFIG: Record<string, {
     ageRange: '16–17 år',
     gradient: 'from-purple-400 to-fuchsia-500',
     subjects: [
-      { courseId: '1p', name: 'Matematikk 1P', icon: '📐', color: 'from-blue-500 to-indigo-600' },
-      { courseId: '1t', name: 'Matematikk 1T', icon: '📐', color: 'from-indigo-500 to-violet-600' },
-      { courseId: 'norsk-vg1', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
-      { courseId: 'engelsk-vg1', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600' },
-      { courseId: 'nat-vg1', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600' },
+      { courseId: '1p', name: 'Matematikk 1P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-1p-hero.png' },
+      { courseId: '1t', name: 'Matematikk 1T', icon: '📐', color: 'from-indigo-500 to-violet-600', image: '/images/textbook/1t/course-hero.jpg' },
+      { courseId: 'norsk-vg1', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
+      { courseId: 'engelsk-vg1', name: 'Engelsk', icon: '🇬🇧', color: 'from-indigo-500 to-purple-600', image: '/images/subjects/engelsk-hero.png' },
+      { courseId: 'nat-vg1', name: 'Naturfag', icon: '🔬', color: 'from-green-500 to-emerald-600', image: '/images/subjects/naturfag-hero.png' },
       { courseId: 'samfunnskunnskap', name: 'Samfunnskunnskap', icon: '🏛️', color: 'from-amber-500 to-orange-600' },
       { courseId: 'geografi', name: 'Geografi', icon: '🗺️', color: 'from-emerald-500 to-teal-600' },
       { courseId: 'kroppsoving-vg1', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
@@ -152,11 +153,11 @@ const GRADE_CONFIG: Record<string, {
     ageRange: '17–18 år',
     gradient: 'from-fuchsia-400 to-pink-500',
     subjects: [
-      { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600' },
-      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600' },
-      { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600' },
-      { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600' },
-      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
+      { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-2p-hero.png' },
+      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600', image: '/images/subjects/matematikk-s1-hero.png' },
+      { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600', image: '/images/subjects/matematikk-r1-hero.png' },
+      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
       { courseId: 'historie', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600' },
       { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
       { courseId: 'fys1', name: 'Fysikk 1', icon: '⚛️', color: 'from-indigo-500 to-blue-600' },
@@ -169,9 +170,9 @@ const GRADE_CONFIG: Record<string, {
     ageRange: '18–19 år',
     gradient: 'from-pink-400 to-rose-500',
     subjects: [
-      { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600' },
-      { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600' },
-      { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600' },
+      { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600', image: '/images/subjects/matematikk-r2-hero.png' },
+      { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },
       { courseId: 'religion-etikk', name: 'Religion og etikk', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kroppsoving-vg3', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
       { courseId: 'fysikk2', name: 'Fysikk 2', icon: '⚛️', color: 'from-indigo-500 to-blue-600' },
@@ -226,9 +227,10 @@ interface SubjectCardProps {
   name: string;
   icon: string;
   color: string;
+  image?: string;
 }
 
-function SubjectCard({ courseId, name, icon, color }: SubjectCardProps) {
+function SubjectCard({ courseId, name, icon, color, image }: SubjectCardProps) {
   const stats = getCourseStats(courseId);
   const isAvailable = stats.chapters > 0;
 
@@ -256,12 +258,24 @@ function SubjectCard({ courseId, name, icon, color }: SubjectCardProps) {
 
   return (
     <Link href={`/bok/${courseId}`} className="group block">
-      <div className={`relative overflow-hidden rounded-2xl bg-gradient-to-br ${color} p-6 h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
-        {/* Decorative elements */}
-        <div className="absolute inset-0 opacity-20">
-          <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
-          <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
-        </div>
+      <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
+        {/* Background image if provided */}
+        {image && (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={image}
+            alt={name}
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
+
+        {/* Decorative elements (only when no image) */}
+        {!image && (
+          <div className="absolute inset-0 opacity-20">
+            <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
+            <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
+          </div>
+        )}
 
         {/* Hover shine effect */}
         <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
@@ -269,10 +283,11 @@ function SubjectCard({ courseId, name, icon, color }: SubjectCardProps) {
         </div>
 
         {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-between text-white">
+        <div className="relative z-10 h-full flex flex-col justify-between text-white p-6">
           <div className="flex items-start justify-between">
-            <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{icon}</div>
-            <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/20 text-xs font-medium">
+            {!image && <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{icon}</div>}
+            {image && <div />}
+            <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/20 text-xs font-medium backdrop-blur-sm">
               <span>{stats.chapters} kapitler</span>
             </div>
           </div>
@@ -305,7 +320,7 @@ export default async function GradePage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-background">
-      <TextbookHeader showBackLink backHref="/bok" backLabel="Alle trinn" />
+      <TextbookHeader />
 
       {/* Hero Section with image or gradient */}
       {config.image ? (
@@ -366,6 +381,7 @@ export default async function GradePage({ params }: PageProps) {
                 name={subject.name}
                 icon={subject.icon}
                 color={subject.color}
+                image={subject.image}
               />
             ))}
           </div>

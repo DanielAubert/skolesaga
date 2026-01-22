@@ -38,8 +38,8 @@ export const metadata: Metadata = {
     default: "Skolesaga - Interaktive lærebøker for norsk skole",
     template: "%s | Skolesaga"
   },
-  description: "Gratis interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3. Tilpasset LK20.",
-  keywords: ["lærebøker", "interaktive lærebøker", "gratis lærebøker", "matematikk", "norsk", "engelsk", "naturfag", "videregående", "ungdomsskole", "barneskole", "LK20", "øvingsoppgaver", "quiz", "programmering", "GeoGebra"],
+  description: "Interaktive lærebøker med øvingsoppgaver, quiz og fremgangsregistrering for alle fag fra 5. klasse til VG3. Tilpasset LK20.",
+  keywords: ["lærebøker", "interaktive lærebøker", "matematikk", "norsk", "engelsk", "naturfag", "videregående", "ungdomsskole", "barneskole", "LK20", "øvingsoppgaver", "quiz", "programmering", "GeoGebra"],
   authors: [{ name: "Skolesaga" }],
   creator: "Skolesaga",
   publisher: "Skolesaga",
