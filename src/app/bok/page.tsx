@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 
 export const metadata: Metadata = {
@@ -59,12 +60,19 @@ export default function TextbookOverviewPage() {
 
       {/* Hero Section */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30" />
-        <div className="relative container mx-auto px-4 py-12 md:py-20 text-center">
+        <Image
+          src="/home/interaktive-lareboker.jpg"
+          alt="Interaktive lærebøker"
+          fill
+          className="object-cover"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/40 to-black/20" />
+        <div className="relative container mx-auto px-4 py-16 md:py-24 text-center text-white">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-4">
             Interaktive lærebøker
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto">
             Velg ditt klassetrinn og utforsk lærebøker tilpasset LK20
           </p>
         </div>
