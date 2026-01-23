@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BookCheck, GraduationCap, Layers, HelpCircle } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import {
@@ -24,47 +25,47 @@ export default function QuizOverviewPage() {
     <div className="min-h-screen bg-background">
       <TextbookHeader />
 
-      {/* Hero Section */}
+      {/* Hero Section with Image */}
       <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-violet-50 via-purple-50 to-indigo-50 dark:from-violet-950/30 dark:via-purple-950/30 dark:to-indigo-950/30" />
-        <div className="relative container mx-auto px-4 py-12 md:py-16 text-center">
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br from-violet-500 to-purple-600 mb-6">
-            <BookCheck className="w-8 h-8 text-white" />
-          </div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">
+        <div className="absolute inset-0">
+          <Image
+            src="/home/prove-quiz-hero.png"
+            alt="Prøve Quiz"
+            fill
+            className="object-cover object-top"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-background" />
+        </div>
+        <div className="relative container mx-auto px-4 py-16 md:py-24 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 text-white drop-shadow-lg">
             Prøvequiz
           </h1>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8">
+          <p className="text-lg md:text-xl text-white/90 max-w-2xl mx-auto mb-8 drop-shadow">
             Test kunnskapen din med interaktive quizer tilpasset hvert kapittel
           </p>
 
           {/* Stats */}
-          <div className="flex flex-wrap justify-center gap-6 md:gap-10">
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-violet-100 dark:bg-violet-900/30">
-                <HelpCircle className="w-5 h-5 text-violet-600 dark:text-violet-400" />
-              </div>
+          <div className="flex flex-wrap justify-center gap-4 md:gap-8">
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3">
+              <HelpCircle className="w-5 h-5 text-white" />
               <div className="text-left">
-                <div className="text-2xl font-bold text-foreground">{totalQuestions.toLocaleString('nb-NO')}+</div>
-                <div className="text-xs text-muted-foreground">spørsmål</div>
+                <div className="text-2xl font-bold text-white">{totalQuestions.toLocaleString('nb-NO')}+</div>
+                <div className="text-xs text-white/80">spørsmål</div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-900/30">
-                <GraduationCap className="w-5 h-5 text-purple-600 dark:text-purple-400" />
-              </div>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3">
+              <GraduationCap className="w-5 h-5 text-white" />
               <div className="text-left">
-                <div className="text-2xl font-bold text-foreground">{subjectCount}</div>
-                <div className="text-xs text-muted-foreground">fag</div>
+                <div className="text-2xl font-bold text-white">{subjectCount}</div>
+                <div className="text-xs text-white/80">fag</div>
               </div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="p-2 rounded-lg bg-indigo-100 dark:bg-indigo-900/30">
-                <Layers className="w-5 h-5 text-indigo-600 dark:text-indigo-400" />
-              </div>
+            <div className="flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-xl px-4 py-3">
+              <Layers className="w-5 h-5 text-white" />
               <div className="text-left">
-                <div className="text-2xl font-bold text-foreground">{chapterCount}</div>
-                <div className="text-xs text-muted-foreground">kapitler</div>
+                <div className="text-2xl font-bold text-white">{chapterCount}</div>
+                <div className="text-xs text-white/80">kapitler</div>
               </div>
             </div>
           </div>
