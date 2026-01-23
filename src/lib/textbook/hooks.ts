@@ -10,7 +10,7 @@ export interface Submission {
   chapter_id: string;
   course_id: string;
   student_id: string;
-  submission_type: "code" | "geogebra-xml" | "image" | "canvas-drawing" | "text" | "multiple-choice";
+  submission_type: "code" | "geogebra-xml" | "image" | "canvas-drawing" | "text" | "multiple-choice" | "spreadsheet";
   content: string | null;
   image_url: string | null;
   canvas_data: Record<string, unknown> | null;

@@ -232,9 +232,9 @@ export function QuizClient({
     <div className="min-h-screen bg-background flex flex-col">
       <MainNav />
 
-      <main className="flex-1 container mx-auto px-4 py-8">
+      <main className="flex-1 container mx-auto px-4 py-4">
         {/* Breadcrumb */}
-        <Breadcrumb className="mb-6">
+        <Breadcrumb className="mb-4">
           <BreadcrumbList>
             <BreadcrumbItem>
               <BreadcrumbLink href="/bok">Bøker</BreadcrumbLink>
@@ -257,7 +257,7 @@ export function QuizClient({
         </Breadcrumb>
 
         {/* Progress indicator */}
-        <div className="max-w-2xl mx-auto mb-6">
+        <div className="max-w-2xl mx-auto mb-4">
           <div className="flex items-center justify-between text-sm text-muted-foreground mb-2">
             <span>Spørsmål {currentIndex + 1} av {problems.length}</span>
             <span>{score} riktige</span>
@@ -272,20 +272,20 @@ export function QuizClient({
 
         {/* Quiz card */}
         <Card className="max-w-2xl mx-auto" ref={cardRef}>
-          <CardContent className="pt-6">
+          <CardContent className="pt-4 pb-4">
             {/* Question */}
-            <div className="text-xl md:text-2xl font-medium mb-8 text-center">
+            <div className="text-lg md:text-xl font-medium mb-4 text-center">
               <LatexRenderer content={currentProblem?.question || ''} />
             </div>
 
             {/* Options */}
-            <div className="space-y-3">
+            <div className="space-y-2">
               {currentProblem?.options.map((option, idx) => {
                 const isSelected = currentProblem.userAnswer === idx;
                 const isCorrect = idx === currentProblem.correctOptionIndex;
                 const hasAnswered = currentProblem.userAnswer !== undefined;
 
-                let buttonClass = "w-full px-6 py-4 text-base md:text-lg rounded-lg border-2 transition-all text-left";
+                let buttonClass = "w-full px-4 py-2.5 text-sm md:text-base rounded-lg border-2 transition-all text-left";
 
                 if (hasAnswered) {
                   if (isCorrect) {
@@ -306,18 +306,18 @@ export function QuizClient({
                     onClick={() => handleOptionClick(idx)}
                     disabled={hasAnswered}
                   >
-                    <div className="flex items-center gap-3">
-                      <span className="shrink-0 w-8 h-8 rounded-full border-2 flex items-center justify-center text-sm font-medium">
+                    <div className="flex items-center gap-2.5">
+                      <span className="shrink-0 w-6 h-6 rounded-full border-2 flex items-center justify-center text-xs font-medium">
                         {String.fromCharCode(65 + idx)}
                       </span>
                       <span className="flex-1">
                         <LatexRenderer content={option} />
                       </span>
                       {hasAnswered && isCorrect && (
-                        <CheckCircle2 className="h-6 w-6 text-green-500 shrink-0" />
+                        <CheckCircle2 className="h-5 w-5 text-green-500 shrink-0" />
                       )}
                       {hasAnswered && isSelected && !isCorrect && (
-                        <XCircle className="h-6 w-6 text-red-500 shrink-0" />
+                        <XCircle className="h-5 w-5 text-red-500 shrink-0" />
                       )}
                     </div>
                   </button>
@@ -327,9 +327,9 @@ export function QuizClient({
 
             {/* Explanation */}
             {showExplanation && currentProblem?.explanation && (
-              <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
-                <p className="text-sm font-medium text-blue-700 dark:text-blue-300 mb-1">Forklaring:</p>
-                <div className="text-blue-800 dark:text-blue-200">
+              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+                <p className="text-xs font-medium text-blue-700 dark:text-blue-300 mb-0.5">Forklaring:</p>
+                <div className="text-sm text-blue-800 dark:text-blue-200">
                   <LatexRenderer content={currentProblem.explanation} />
                 </div>
               </div>
@@ -337,17 +337,17 @@ export function QuizClient({
 
             {/* Next button */}
             {currentProblem?.userAnswer !== undefined && (
-              <div className="mt-6 flex justify-center">
-                <Button onClick={handleNext} size="lg" className="gap-2">
+              <div className="mt-4 flex justify-center">
+                <Button onClick={handleNext} size="default" className="gap-2">
                   {currentIndex < problems.length - 1 ? (
                     <>
                       Neste spørsmål
-                      <ArrowRight className="h-5 w-5" />
+                      <ArrowRight className="h-4 w-4" />
                     </>
                   ) : (
                     <>
                       Se resultater
-                      <Trophy className="h-5 w-5" />
+                      <Trophy className="h-4 w-4" />
                     </>
                   )}
                 </Button>
@@ -357,7 +357,7 @@ export function QuizClient({
         </Card>
 
         {/* Back link */}
-        <div className="max-w-2xl mx-auto mt-6 text-center">
+        <div className="max-w-2xl mx-auto mt-4 text-center">
           <Link href={`/bok/${courseId}/${chapterId}`} className="text-sm text-muted-foreground hover:text-foreground">
             <ArrowLeft className="h-4 w-4 inline mr-1" />
             Tilbake til kapitlet

@@ -15,12 +15,15 @@ import {
   User,
   Star,
   Dumbbell,
+  Type,
+  Table,
 } from 'lucide-react';
 import Link from 'next/link';
 import type { TextbookExercise } from '@/lib/types/textbook';
 import { LatexRenderer } from './latex-renderer';
 import { ImageUpload } from './image-upload';
 import { CanvasDrawing } from './canvas-drawing';
+import { SpreadsheetInput } from './spreadsheet-input';
 import { MultipleChoiceExercise } from './multiple-choice-exercise';
 import { TeacherCommentPanel, TeacherCommentDisplay } from './teacher-comment-panel';
 import { useExerciseSubmission, useSubmitAnswer, useRecordAttempt, Submission } from '@/lib/textbook/hooks';
@@ -55,7 +58,8 @@ export function TextbookExerciseItem({
 }: TextbookExerciseItemProps) {
   const { user } = useUser();
   const [showHints, setShowHints] = useState(false);
-  const [submissionMode, setSubmissionMode] = useState<'none' | 'upload' | 'canvas'>('none');
+  const [submissionMode, setSubmissionMode] = useState<'none' | 'upload' | 'canvas' | 'text' | 'spreadsheet'>('none');
+  const [textAnswer, setTextAnswer] = useState('');
   const [showSolutionVideo, setShowSolutionVideo] = useState(false);
   const [showSolution, setShowSolution] = useState(false);
 
@@ -76,6 +80,13 @@ export function TextbookExerciseItem({
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  // Last inn eksisterende tekstsvar når submission er lastet
+  useEffect(() => {
+    if (submission?.submission_type === 'text' && submission.content) {
+      setTextAnswer(submission.content);
+    }
+  }, [submission]);
 
   // Hent og lytt på deloppgave-status (fra database og localStorage)
   useEffect(() => {
@@ -409,6 +420,27 @@ export function TextbookExerciseItem({
                 Tegn løsning
               </Button>
             )}
+            {/* Skriv svar - alltid tilgjengelig for klassiske oppgaver */}
+            <Button
+              variant={submissionMode === 'text' ? 'default' : 'outline'}
+              size="sm"
+              onClick={() => setSubmissionMode(submissionMode === 'text' ? 'none' : 'text')}
+            >
+              <Type className="h-4 w-4 mr-1" />
+              Skriv svar
+            </Button>
+
+            {/* Regneark - for budsjett og tabelloppgaver */}
+            {exercise.allowsSpreadsheet && (
+              <Button
+                variant={submissionMode === 'spreadsheet' ? 'default' : 'outline'}
+                size="sm"
+                onClick={() => setSubmissionMode(submissionMode === 'spreadsheet' ? 'none' : 'spreadsheet')}
+              >
+                <Table className="h-4 w-4 mr-1" />
+                Regneark
+              </Button>
+            )}
 
             {/* Løs oppgaven og Tren-knapper - vises for oppgaver med svarsjekk (numerisk, algebraisk eller multipleChoice) */}
             {(exercise.multipleChoiceOptions || (exercise.subTasks && exercise.subTasks.some(st => st.answer !== undefined || st.expressionAnswer !== undefined || st.multipleChoiceOptions))) && (
@@ -466,6 +498,57 @@ export function TextbookExerciseItem({
               onSave={(dataUrl) => {
                 console.log('Canvas saved:', dataUrl.substring(0, 50) + '...');
                 handleSaveSubmission('canvas-drawing', undefined, undefined, { dataUrl });
+              }}
+            />
+          )}
+
+          {/* Tekstsvar */}
+          {submissionMode === 'text' && (
+            <div className="space-y-3 p-4 border rounded-lg bg-card">
+              <label className="text-sm font-medium">Skriv ditt svar:</label>
+              <textarea
+                value={textAnswer}
+                onChange={(e) => setTextAnswer(e.target.value)}
+                placeholder="Skriv svaret ditt her..."
+                className="w-full min-h-[150px] p-3 border rounded-md bg-background text-foreground resize-y focus:outline-none focus:ring-2 focus:ring-ring"
+              />
+              <div className="flex gap-2">
+                <Button
+                  size="sm"
+                  onClick={() => {
+                    if (textAnswer.trim()) {
+                      handleSaveSubmission('text', textAnswer);
+                      setSubmissionMode('none');
+                    }
+                  }}
+                  disabled={!textAnswer.trim()}
+                >
+                  Lagre svar
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setTextAnswer('');
+                    setSubmissionMode('none');
+                  }}
+                >
+                  Avbryt
+                </Button>
+              </div>
+            </div>
+          )}
+
+          {/* Regneark */}
+          {submissionMode === 'spreadsheet' && (
+            <SpreadsheetInput
+              exerciseId={exercise.id}
+              chapterId={chapterId}
+              courseId={courseId}
+              template={exercise.spreadsheetTemplate || 'budget'}
+              onSave={(data) => {
+                console.log('Spreadsheet saved:', data);
+                handleSaveSubmission('spreadsheet', JSON.stringify(data));
               }}
             />
           )}

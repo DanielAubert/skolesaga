@@ -311,6 +311,8 @@ export interface TextbookExercise {
   allowsUpload?: boolean;        // Bildeopplasting
   allowsCanvasDrawing?: boolean; // Tegning på nettbrett
   aiGradingEnabled?: boolean;    // AI-tilbakemelding
+  allowsSpreadsheet?: boolean;   // Regneark for budsjett/tabell-oppgaver
+  spreadsheetTemplate?: 'budget' | 'custom'; // Mal for regnearket
 
   // Metadata
   topic?: string;
@@ -351,7 +353,7 @@ export interface MultipleChoiceOption {
 // Elevbesvarelser
 // ============================================================================
 
-export type SubmissionType = 'code' | 'geogebra-xml' | 'image' | 'canvas-drawing' | 'text' | 'multiple-choice';
+export type SubmissionType = 'code' | 'geogebra-xml' | 'image' | 'canvas-drawing' | 'text' | 'multiple-choice' | 'spreadsheet';
 
 export interface StudentSubmission {
   id: string;
