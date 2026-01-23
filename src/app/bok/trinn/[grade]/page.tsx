@@ -154,7 +154,7 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-fuchsia-400 to-pink-500',
     subjects: [
       { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-2p-hero.png' },
-      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/subjects/matematikk-hero.png' },
+      { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.png' },
       { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600', image: '/images/subjects/matematikk-s1-hero.png' },
       { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600', image: '/images/subjects/matematikk-r1-hero.png' },
       { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/subjects/norsk-hero.png' },

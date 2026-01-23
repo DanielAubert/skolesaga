@@ -172,6 +172,7 @@ export default function TextbookOverviewPage() {
                   grade="VG1"
                   subtitle="16–17 år"
                   gradient="bg-gradient-to-br from-purple-400 to-fuchsia-500"
+                  image="/images/grades/vg1.png"
                 />
               </div>
               <div className="w-56">
@@ -180,6 +181,7 @@ export default function TextbookOverviewPage() {
                   grade="VG2"
                   subtitle="17–18 år"
                   gradient="bg-gradient-to-br from-fuchsia-400 to-pink-500"
+                  image="/images/grades/vg2.png"
                 />
               </div>
               <div className="w-56">
@@ -188,6 +190,7 @@ export default function TextbookOverviewPage() {
                   grade="VG3"
                   subtitle="18–19 år"
                   gradient="bg-gradient-to-br from-pink-400 to-rose-500"
+                  image="/images/grades/vg3.png"
                 />
               </div>
             </div>
