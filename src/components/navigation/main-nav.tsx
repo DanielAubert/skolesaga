@@ -12,6 +12,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
+import { Logo } from "@/components/ui/logo";
 
 export function MainNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -19,13 +20,8 @@ export function MainNav() {
   return (
     <header className="sticky top-0 z-50 w-full border-b glass shadow-sm" role="banner">
       <nav className="container flex h-16 items-center" aria-label="Hovednavigasjon">
-        <Link href="/" className="mr-6 flex items-center space-x-2 group">
-          <div className="rounded-lg bg-primary/10 p-1.5 transition-all group-hover:bg-primary/20">
-            <BookOpen className="h-6 w-6 text-primary" />
-          </div>
-          <span className="font-bold text-lg">
-            Skolesaga
-          </span>
+        <Link href="/" className="mr-6 hover:opacity-80 transition-opacity">
+          <Logo size="sm" />
         </Link>
 
         {/* Desktop Navigation */}

@@ -56,7 +56,7 @@ function parseChapterInfo(chapterId: string): { subjectName: string; gradeName: 
   const parts = chapterId.split('-');
 
   // Find where the grade starts
-  let subjectParts: string[] = [];
+  const subjectParts: string[] = [];
   let gradeIndex = -1;
 
   for (let i = 0; i < parts.length; i++) {

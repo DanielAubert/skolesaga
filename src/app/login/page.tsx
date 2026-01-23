@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import Link from "next/link";
 import { BookOpen, GraduationCap } from "lucide-react";
+import { Logo } from "@/components/ui/logo";
 
 function LoginPageContent() {
   const searchParams = useSearchParams();
@@ -45,9 +46,8 @@ function LoginPageContent() {
       {/* Header */}
       <header className="border-b">
         <div className="container flex h-16 items-center px-4">
-          <Link href="/" className="flex items-center gap-2 font-semibold">
-            <BookOpen className="h-6 w-6" />
-            <span>Skolesaga</span>
+          <Link href="/" className="hover:opacity-80 transition-opacity">
+            <Logo size="sm" />
           </Link>
         </div>
       </header>
@@ -56,10 +56,10 @@ function LoginPageContent() {
       <main className="flex-1 flex items-center justify-center px-4 py-12">
         <div className="w-full max-w-md space-y-6">
           {/* Welcome text */}
-          <div className="text-center space-y-2">
-            <h1 className="text-2xl font-bold tracking-tight">
-              Velkommen til Skolesaga
-            </h1>
+          <div className="text-center space-y-4">
+            <div className="flex justify-center">
+              <Logo size="lg" />
+            </div>
             <p className="text-muted-foreground">
               Logg inn for å spore din progresjon og få tilgang til alle funksjoner
             </p>

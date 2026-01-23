@@ -4,6 +4,7 @@ import { getCourse, getChapterMeta } from "@/lib/data/textbook-courses";
 import { QuizClient } from "./quiz-client";
 import { getQuizQuestions } from "@/lib/data/quiz-data";
 import { getChemistryQuizQuestions } from "@/lib/data/chemistry-quiz-data";
+import { getSamfunnskunnskapQuizQuestions } from "@/lib/data/samfunnskunnskap-quiz-data";
 
 interface PageProps {
   params: Promise<{ courseId: string; chapterId: string }>;
@@ -28,6 +29,16 @@ export default async function QuizPage({ params }: PageProps) {
   if (quizQuestions.length === 0 && (courseId === 'kjemi1' || courseId === 'kjemi2')) {
     const chemQuestions = getChemistryQuizQuestions(chapterId);
     quizQuestions = chemQuestions.map(q => ({
+      question: q.question,
+      options: q.options,
+      explanation: q.explanation,
+    }));
+  }
+
+  // Fallback to samfunnskunnskap quiz data
+  if (quizQuestions.length === 0 && courseId === 'samfunnskunnskap') {
+    const samfQuestions = getSamfunnskunnskapQuizQuestions(chapterId);
+    quizQuestions = samfQuestions.map(q => ({
       question: q.question,
       options: q.options,
       explanation: q.explanation,

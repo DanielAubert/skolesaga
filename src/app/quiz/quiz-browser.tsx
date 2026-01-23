@@ -6,8 +6,6 @@ import {
   ChevronRight,
   ChevronLeft,
   BookCheck,
-  GraduationCap,
-  School,
   BookOpen,
   Library
 } from 'lucide-react';
@@ -19,32 +17,17 @@ interface QuizBrowserProps {
   data: OrganizedQuizData[];
 }
 
-// School level definitions
-const schoolLevels = [
-  {
-    id: 'barneskole',
-    name: 'Barneskole',
-    description: '5.-7. klasse',
-    grades: ['5', '6', '7'],
-    icon: School,
-    color: 'from-green-500 to-emerald-600'
-  },
-  {
-    id: 'ungdomsskole',
-    name: 'Ungdomsskole',
-    description: '8.-10. klasse',
-    grades: ['8', '9', '10'],
-    icon: BookOpen,
-    color: 'from-blue-500 to-indigo-600'
-  },
-  {
-    id: 'vgs',
-    name: 'Videregående',
-    description: 'VG1-VG3',
-    grades: ['vg1', 'vg2', 'vg3', 'vg', '1', '2', '3'],
-    icon: GraduationCap,
-    color: 'from-purple-500 to-violet-600'
-  },
+// All grades in order (3x3 grid: 5-7, 8-10, VG1-VG3)
+const allGrades = [
+  { id: '5', name: '5. klasse', color: 'from-green-500 to-emerald-600' },
+  { id: '6', name: '6. klasse', color: 'from-green-500 to-emerald-600' },
+  { id: '7', name: '7. klasse', color: 'from-green-500 to-emerald-600' },
+  { id: '8', name: '8. klasse', color: 'from-blue-500 to-indigo-600' },
+  { id: '9', name: '9. klasse', color: 'from-blue-500 to-indigo-600' },
+  { id: '10', name: '10. klasse', color: 'from-blue-500 to-indigo-600' },
+  { id: 'vg1', name: 'VG1', color: 'from-purple-500 to-violet-600' },
+  { id: 'vg2', name: 'VG2', color: 'from-purple-500 to-violet-600' },
+  { id: 'vg3', name: 'VG3', color: 'from-purple-500 to-violet-600' },
 ];
 
 // Grade display names
@@ -64,42 +47,59 @@ const gradeDisplayNames: Record<string, string> = {
   '3': 'VG3',
 };
 
-type NavigationStep = 'level' | 'grade' | 'subject' | 'chapters';
+type NavigationStep = 'grade' | 'subject' | 'chapters';
 
 export function QuizBrowser({ data }: QuizBrowserProps) {
-  const [currentStep, setCurrentStep] = useState<NavigationStep>('level');
-  const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
+  const [currentStep, setCurrentStep] = useState<NavigationStep>('grade');
   const [selectedGrade, setSelectedGrade] = useState<string | null>(null);
   const [selectedSubject, setSelectedSubject] = useState<string | null>(null);
 
-  // Get available grades for selected level
-  const availableGrades = useMemo(() => {
-    if (!selectedLevel) return [];
-    const level = schoolLevels.find(l => l.id === selectedLevel);
-    if (!level) return [];
+  // Get grades with quiz counts
+  const gradesWithCounts = useMemo(() => {
+    return allGrades.map(grade => {
+      // Count subjects and questions for this grade
+      const gradeSubjects = data.filter(subject =>
+        subject.grades.some(g =>
+          g.grade === grade.id ||
+          g.grade.toLowerCase() === grade.id ||
+          // Handle VG variants
+          (grade.id === 'vg1' && (g.grade === 'vg' || g.grade === '1')) ||
+          (grade.id === 'vg2' && g.grade === '2') ||
+          (grade.id === 'vg3' && g.grade === '3')
+        )
+      );
+      const subjectCount = gradeSubjects.length;
+      const questionCount = gradeSubjects.reduce((sum, subject) => {
+        const relevantGrades = subject.grades.filter(g =>
+          g.grade === grade.id ||
+          g.grade.toLowerCase() === grade.id ||
+          (grade.id === 'vg1' && (g.grade === 'vg' || g.grade === '1')) ||
+          (grade.id === 'vg2' && g.grade === '2') ||
+          (grade.id === 'vg3' && g.grade === '3')
+        );
+        return sum + relevantGrades.reduce((gs, g) =>
+          gs + g.chapters.reduce((cs, c) => cs + c.questionCount, 0), 0
+        );
+      }, 0);
 
-    // Find grades that have quizzes
-    const gradesWithQuizzes = new Set<string>();
-    data.forEach(subject => {
-      subject.grades.forEach(grade => {
-        if (level.grades.includes(grade.grade) || level.grades.includes(grade.grade.toLowerCase())) {
-          gradesWithQuizzes.add(grade.grade);
-        }
-      });
+      return {
+        ...grade,
+        subjectCount,
+        questionCount,
+        hasContent: subjectCount > 0,
+      };
     });
+  }, [data]);
 
-    // Sort and return unique grades with display names
-    return Array.from(gradesWithQuizzes)
-      .sort((a, b) => {
-        const aNum = parseInt(a.replace('vg', ''), 10);
-        const bNum = parseInt(b.replace('vg', ''), 10);
-        return aNum - bNum;
-      })
-      .map(grade => ({
-        id: grade,
-        name: gradeDisplayNames[grade] || grade,
-      }));
-  }, [selectedLevel, data]);
+  // Helper to check if a grade matches
+  const gradeMatches = (gradeData: string, selectedId: string) => {
+    if (gradeData === selectedId || gradeData.toLowerCase() === selectedId) return true;
+    // Handle VG variants
+    if (selectedId === 'vg1' && (gradeData === 'vg' || gradeData === '1')) return true;
+    if (selectedId === 'vg2' && gradeData === '2') return true;
+    if (selectedId === 'vg3' && gradeData === '3') return true;
+    return false;
+  };
 
   // Get available subjects for selected grade
   const availableSubjects = useMemo(() => {
@@ -107,10 +107,10 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
 
     return data
       .filter(subject =>
-        subject.grades.some(g => g.grade === selectedGrade || g.grade.toLowerCase() === selectedGrade)
+        subject.grades.some(g => gradeMatches(g.grade, selectedGrade))
       )
       .map(subject => {
-        const gradeData = subject.grades.find(g => g.grade === selectedGrade || g.grade.toLowerCase() === selectedGrade);
+        const gradeData = subject.grades.find(g => gradeMatches(g.grade, selectedGrade));
         const chapterCount = gradeData?.chapters.length || 0;
         const questionCount = gradeData?.chapters.reduce((sum, c) => sum + c.questionCount, 0) || 0;
         return {
@@ -129,7 +129,7 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
     const subject = data.find(s => s.subject.id === selectedSubject);
     if (!subject) return [];
 
-    const gradeData = subject.grades.find(g => g.grade === selectedGrade || g.grade.toLowerCase() === selectedGrade);
+    const gradeData = subject.grades.find(g => gradeMatches(g.grade, selectedGrade));
     return gradeData?.chapters || [];
   }, [selectedSubject, selectedGrade, data]);
 
@@ -140,13 +140,6 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
   }, [selectedSubject, data]);
 
   // Navigation handlers
-  const selectLevel = (levelId: string) => {
-    setSelectedLevel(levelId);
-    setSelectedGrade(null);
-    setSelectedSubject(null);
-    setCurrentStep('grade');
-  };
-
   const selectGrade = (gradeId: string) => {
     setSelectedGrade(gradeId);
     setSelectedSubject(null);
@@ -165,27 +158,12 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
     } else if (currentStep === 'subject') {
       setSelectedGrade(null);
       setCurrentStep('grade');
-    } else if (currentStep === 'grade') {
-      setSelectedLevel(null);
-      setCurrentStep('level');
     }
   };
 
   // Breadcrumb
   const getBreadcrumb = () => {
     const parts: { label: string; onClick?: () => void }[] = [];
-
-    if (selectedLevel) {
-      const level = schoolLevels.find(l => l.id === selectedLevel);
-      parts.push({
-        label: level?.name || '',
-        onClick: currentStep !== 'grade' ? () => {
-          setSelectedGrade(null);
-          setSelectedSubject(null);
-          setCurrentStep('grade');
-        } : undefined,
-      });
-    }
 
     if (selectedGrade) {
       parts.push({
@@ -211,7 +189,7 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
   return (
     <div className="max-w-5xl mx-auto space-y-6">
       {/* Breadcrumb navigation */}
-      {currentStep !== 'level' && (
+      {currentStep !== 'grade' && (
         <div className="flex items-center gap-2 flex-wrap">
           <Button
             variant="ghost"
@@ -226,10 +204,9 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
           <div className="flex items-center gap-1 text-sm">
             <button
               onClick={() => {
-                setSelectedLevel(null);
                 setSelectedGrade(null);
                 setSelectedSubject(null);
-                setCurrentStep('level');
+                setCurrentStep('grade');
               }}
               className="text-muted-foreground hover:text-foreground"
             >
@@ -254,90 +231,46 @@ export function QuizBrowser({ data }: QuizBrowserProps) {
         </div>
       )}
 
-      {/* Step 1: Select school level */}
-      {currentStep === 'level' && (
-        <div className="space-y-4">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold mb-2">Velg klassetrinn</h2>
-            <p className="text-muted-foreground">Start med å velge hvilket skolenivå du går på</p>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {schoolLevels.map(level => {
-              const Icon = level.icon;
-              // Count subjects and questions for this level
-              const levelData = data.filter(subject =>
-                subject.grades.some(g =>
-                  level.grades.includes(g.grade) || level.grades.includes(g.grade.toLowerCase())
-                )
-              );
-              const subjectCount = levelData.length;
-              const questionCount = levelData.reduce((sum, subject) => {
-                const relevantGrades = subject.grades.filter(g =>
-                  level.grades.includes(g.grade) || level.grades.includes(g.grade.toLowerCase())
-                );
-                return sum + relevantGrades.reduce((gs, g) =>
-                  gs + g.chapters.reduce((cs, c) => cs + c.questionCount, 0), 0
-                );
-              }, 0);
-
-              return (
-                <button
-                  key={level.id}
-                  onClick={() => selectLevel(level.id)}
-                  className="group bg-card rounded-xl border p-6 text-left hover:border-primary hover:shadow-lg transition-all"
-                >
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${level.color} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <Icon className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-xl font-bold mb-1">{level.name}</h3>
-                  <p className="text-muted-foreground mb-4">{level.description}</p>
-                  <div className="flex items-center gap-4 text-sm">
-                    <span className="text-muted-foreground">{subjectCount} fag</span>
-                    <span className="text-muted-foreground">{questionCount} spørsmål</span>
-                  </div>
-                  <div className="mt-4 flex items-center text-primary font-medium">
-                    Velg
-                    <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
-                  </div>
-                </button>
-              );
-            })}
-          </div>
-        </div>
-      )}
-
-      {/* Step 2: Select grade */}
+      {/* Step 1: Select grade (3x3 grid from 5. klasse to VG3) */}
       {currentStep === 'grade' && (
         <div className="space-y-4">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-bold mb-2">Velg klassetrinn</h2>
             <p className="text-muted-foreground">Hvilken klasse går du i?</p>
           </div>
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-            {availableGrades.map(grade => {
-              // Count subjects and questions for this grade
-              const gradeSubjects = data.filter(subject =>
-                subject.grades.some(g => g.grade === grade.id || g.grade.toLowerCase() === grade.id)
-              );
-              const subjectCount = gradeSubjects.length;
-
-              return (
-                <button
-                  key={grade.id}
-                  onClick={() => selectGrade(grade.id)}
-                  className="group bg-card rounded-xl border p-6 text-center hover:border-primary hover:shadow-lg transition-all"
-                >
-                  <div className="text-3xl font-bold mb-2 group-hover:text-primary transition-colors">
-                    {grade.name}
-                  </div>
-                  <p className="text-sm text-muted-foreground">{subjectCount} fag</p>
-                  <div className="mt-4 flex items-center justify-center text-primary font-medium text-sm">
+          <div className="grid grid-cols-3 gap-4">
+            {gradesWithCounts.map(grade => (
+              <button
+                key={grade.id}
+                onClick={() => grade.hasContent && selectGrade(grade.id)}
+                disabled={!grade.hasContent}
+                className={`group bg-card rounded-xl border p-6 text-center transition-all ${
+                  grade.hasContent
+                    ? 'hover:border-primary hover:shadow-lg cursor-pointer'
+                    : 'opacity-50 cursor-not-allowed'
+                }`}
+              >
+                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${grade.color} flex items-center justify-center mx-auto mb-3 ${
+                  grade.hasContent ? 'group-hover:scale-110' : ''
+                } transition-transform`}>
+                  <span className="text-xl font-bold text-white">
+                    {grade.id.startsWith('vg') ? grade.id.toUpperCase().replace('VG', '') : grade.id}
+                  </span>
+                </div>
+                <div className={`text-lg font-bold mb-1 ${grade.hasContent ? 'group-hover:text-primary' : ''} transition-colors`}>
+                  {grade.name}
+                </div>
+                <p className="text-sm text-muted-foreground">
+                  {grade.hasContent ? `${grade.subjectCount} fag` : 'Kommer snart'}
+                </p>
+                {grade.hasContent && (
+                  <div className="mt-3 flex items-center justify-center text-primary font-medium text-sm">
                     Velg
                     <ChevronRight className="w-4 h-4 ml-1 group-hover:translate-x-1 transition-transform" />
                   </div>
-                </button>
-              );
-            })}
+                )}
+              </button>
+            ))}
           </div>
         </div>
       )}

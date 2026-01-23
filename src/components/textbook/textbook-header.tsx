@@ -1,9 +1,9 @@
 'use client';
 
 import Link from 'next/link';
-import { BookOpen } from 'lucide-react';
 import { ThemeToggle } from '@/components/theme-toggle';
 import { UserMenu } from '@/components/auth/user-menu';
+import { Logo } from '@/components/ui/logo';
 
 export function TextbookHeader() {
   return (
@@ -13,12 +13,9 @@ export function TextbookHeader() {
           {/* Logo - alltid Skolesaga som går til hovedsiden */}
           <Link
             href="/"
-            className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
+            className="flex items-center hover:opacity-80 transition-opacity"
           >
-            <div className="rounded-lg bg-primary/10 p-1.5">
-              <BookOpen className="h-5 w-5 text-primary" />
-            </div>
-            <span className="font-bold">Skolesaga</span>
+            <Logo size="sm" />
           </Link>
 
           {/* Navigation */}

@@ -2,28 +2,17 @@
 
 import Link from "next/link";
 import { BookOpen } from "lucide-react";
-import { useEffect, useState } from "react";
+import { Logo } from "@/components/ui/logo";
 
 export function Footer() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   return (
     <footer className="relative border-t bg-gradient-to-b from-background to-muted/20 mt-auto">
       <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_top,transparent_20%,black)]" />
       <div className="container relative py-12 md:py-16">
         <div className="flex justify-center">
           <div className="max-w-md text-center">
-            <Link href="/" className="inline-flex items-center space-x-2 group">
-              {mounted && (
-                <div className="rounded-lg bg-primary/10 p-1.5 transition-all group-hover:bg-primary/20">
-                  <BookOpen className="h-6 w-6 text-primary" />
-                </div>
-              )}
-              <span className="font-bold text-lg">Skolesaga</span>
+            <Link href="/" className="inline-flex items-center justify-center hover:opacity-80 transition-opacity">
+              <Logo size="md" />
             </Link>
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
               Gratis interaktive lærebøker for norsk skole.
@@ -37,7 +26,7 @@ export function Footer() {
               href="/bok"
               className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
             >
-              {mounted && <BookOpen className="h-4 w-4" />}
+              <BookOpen className="h-4 w-4" />
               Lærebok
             </Link>
             <div className="flex gap-6 text-sm text-muted-foreground">

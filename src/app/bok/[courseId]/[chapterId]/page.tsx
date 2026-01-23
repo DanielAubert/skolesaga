@@ -5,6 +5,7 @@ import { getChapterContent } from '@/lib/data/textbook-content';
 import { TextbookChapterView } from '@/components/textbook/textbook-chapter-view';
 import { hasQuizQuestions } from '@/lib/data/quiz-data';
 import { hasChemistryQuiz } from '@/lib/data/chemistry-quiz-data';
+import { hasSamfunnskunnskapQuiz } from '@/lib/data/samfunnskunnskap-quiz-data';
 
 interface PageProps {
   params: Promise<{ courseId: string; chapterId: string }>;
@@ -45,7 +46,7 @@ export default async function ChapterPage({ params }: PageProps) {
   const prevChapter = prevChapterId ? getChapterMeta(courseId, prevChapterId) : undefined;
 
   // Check quiz availability on the server to avoid hydration mismatch
-  const hasQuiz = hasQuizQuestions(chapterId) || hasChemistryQuiz(chapterId);
+  const hasQuiz = hasQuizQuestions(chapterId) || hasChemistryQuiz(chapterId) || hasSamfunnskunnskapQuiz(chapterId);
 
   return (
     <TextbookChapterView
