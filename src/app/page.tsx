@@ -15,15 +15,36 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50 dark:from-blue-950/30 dark:via-indigo-950/30 dark:to-purple-950/30" />
-        <div className="absolute inset-0 bg-grid-white/5 [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]" />
-
+      <div className="relative overflow-hidden bg-[#f5f7fa] dark:bg-background">
         <HomeHeader />
 
+        {/* Hero med Skolesaga-logo */}
+        <div className="relative container mx-auto px-4 py-8 md:py-12">
+          <div className="max-w-4xl mx-auto">
+            {/* Light mode image */}
+            <Image
+              src="/home/skolesaga-hero-light.png"
+              alt="Skolesaga - Interaktive lærebøker"
+              width={1200}
+              height={400}
+              className="w-full h-auto dark:hidden"
+              priority
+            />
+            {/* Dark mode image */}
+            <Image
+              src="/home/skolesaga-hero-dark.png"
+              alt="Skolesaga - Interaktive lærebøker"
+              width={1200}
+              height={400}
+              className="w-full h-auto hidden dark:block"
+              priority
+            />
+          </div>
+        </div>
+
         {/* Lærebøker og Quiz - Hovedseksjon */}
-        <div className="relative container mx-auto px-4 py-12 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-5xl mx-auto">
+        <div className="relative container mx-auto px-4 pb-12 md:pb-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-4xl mx-auto">
             {/* Lærebøker-kort */}
             <Link href="/bok" className="block group">
               <div className="relative overflow-hidden rounded-3xl shadow-2xl hover:shadow-3xl transition-all hover:scale-[1.02] duration-300 aspect-square">
