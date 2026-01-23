@@ -52,43 +52,6 @@ Sosialiseringen som skjer utenfor familien - i barnehage, skole, fritidsaktivite
 Sosialiseringen som skjer gjennom medier, sosiale medier og samfunnet generelt. Denne formen for sosialisering har blitt stadig viktigere i vår digitale tid.`,
     },
     {
-      id: 'samfunnskunnskap-1-1-def-2',
-      type: 'definition',
-      title: 'Sosialiseringsagenter',
-      content: `**Familie:**
-Den viktigste agenten i primærsosialiseringen. Gir trygghet, omsorg og grunnleggende verdier.
-
-**Barnehage og skole:**
-Viktige arenaer for sekundærsosialisering. Lærer samarbeid, fagkunnskap og samfunnets normer.
-
-**Venner og jevnaldrende:**
-Påvirker holdninger, interesser og identitet, særlig i ungdomsårene.
-
-**Medier og sosiale medier:**
-Formidler verdier, trender og forventninger. Stor påvirkningskraft på unge.
-
-**Arbeidsliv:**
-Sosialiserer oss inn i yrkesroller og profesjonell atferd.`,
-    },
-    {
-      id: 'samfunnskunnskap-1-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Sosialiseringens påvirkning',
-      problem: `Sara vokste opp i en familie der det var vanlig å diskutere politikk rundt middagsbordet. Foreldrene oppmuntret henne til å stille spørsmål og tenke kritisk. Hvordan kan dette ha påvirket Saras sosialisering?`,
-      solution: `**Primærsosialisering i familien:**
-- Sara har lært at det er normalt og verdifullt å engasjere seg i samfunnsspørsmål
-- Hun har utviklet evne til kritisk tenkning
-- Foreldrene har vært rollemodeller for demokratisk deltakelse
-
-**Mulige konsekvenser:**
-- Sara er sannsynligvis mer politisk engasjert enn gjennomsnittet
-- Hun tør kanskje å ytre meningene sine i offentlige sammenhenger
-- Hun kan oppleve at andre familier har andre normer for politisk diskusjon
-
-**Viktig poeng:**
-Sosialiseringen er ikke determinerende - Sara kan fortsatt forme sine egne holdninger, men grunnlaget fra familien vil påvirke utgangspunktet hennes.`,
-    },
-    {
       id: 'samfunnskunnskap-1-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -119,6 +82,25 @@ Sosialiseringen er ikke determinerende - Sara kan fortsatt forme sine egne holdn
       },
     },
     {
+      id: 'samfunnskunnskap-1-1-def-2',
+      type: 'definition',
+      title: 'Sosialiseringsagenter',
+      content: `**Familie:**
+Den viktigste agenten i primærsosialiseringen. Gir trygghet, omsorg og grunnleggende verdier.
+
+**Barnehage og skole:**
+Viktige arenaer for sekundærsosialisering. Lærer samarbeid, fagkunnskap og samfunnets normer.
+
+**Venner og jevnaldrende:**
+Påvirker holdninger, interesser og identitet, særlig i ungdomsårene.
+
+**Medier og sosiale medier:**
+Formidler verdier, trender og forventninger. Stor påvirkningskraft på unge.
+
+**Arbeidsliv:**
+Sosialiserer oss inn i yrkesroller og profesjonell atferd.`,
+    },
+    {
       id: 'samfunnskunnskap-1-1-ex-2',
       type: 'exercise',
       exercise: {
@@ -132,6 +114,25 @@ Sosialiseringen er ikke determinerende - Sara kan fortsatt forme sine egne holdn
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'samfunnskunnskap-1-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Sosialiseringens påvirkning',
+      problem: `Sara vokste opp i en familie der det var vanlig å diskutere politikk rundt middagsbordet. Foreldrene oppmuntret henne til å stille spørsmål og tenke kritisk. Hvordan kan dette ha påvirket Saras sosialisering?`,
+      solution: `**Primærsosialisering i familien:**
+- Sara har lært at det er normalt og verdifullt å engasjere seg i samfunnsspørsmål
+- Hun har utviklet evne til kritisk tenkning
+- Foreldrene har vært rollemodeller for demokratisk deltakelse
+
+**Mulige konsekvenser:**
+- Sara er sannsynligvis mer politisk engasjert enn gjennomsnittet
+- Hun tør kanskje å ytre meningene sine i offentlige sammenhenger
+- Hun kan oppleve at andre familier har andre normer for politisk diskusjon
+
+**Viktig poeng:**
+Sosialiseringen er ikke determinerende - Sara kan fortsatt forme sine egne holdninger, men grunnlaget fra familien vil påvirke utgangspunktet hennes.`,
+    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-1-ex-3',
       type: 'exercise',
@@ -211,49 +212,6 @@ Hvordan vi ser ut påvirker hvordan vi blir møtt av andre, og dermed også vår
 Hvordan vi presenterer oss selv på nett og i sosiale medier - som kan være annerledes enn "offline"-identiteten.`,
     },
     {
-      id: 'samfunnskunnskap-1-2-def-2',
-      type: 'definition',
-      title: 'Selvfølelse og selvbilde',
-      content: `**Selvbilde:**
-Hvordan vi ser på oss selv - våre styrker, svakheter og egenskaper. Selvbildet påvirkes av andres tilbakemeldinger.
-
-**Selvfølelse:**
-Hvordan vi føler om oss selv - om vi verdsetter og aksepterer oss selv. God selvfølelse betyr at man har et positivt forhold til seg selv.
-
-**Selvsikkerhet:**
-Troen på egne evner til å mestre utfordringer og nå mål.
-
-**Faktorer som påvirker selvfølelse:**
-- Oppvekst og omsorg
-- Tilbakemeldinger fra andre
-- Mestringsopplevelser
-- Sammenligning med andre
-- Sosiale medier og idealbilder`,
-    },
-    {
-      id: 'samfunnskunnskap-1-2-example-1',
-      type: 'example',
-      title: 'Eksempel: Identitet i endring',
-      problem: `Marius er 17 år og har alltid definert seg gjennom fotballen. Han har spilt siden han var 6 år og drømmer om å bli proff. Etter en alvorlig kneskade må han slutte å spille. Hvordan kan dette påvirke hans identitet?`,
-      solution: `**Identitetsutfordring:**
-- Marius har bygget mye av sin identitet rundt fotballen
-- Han mister en viktig arena for mestring og tilhørighet
-- Rollen som "fotballspiller" forsvinner
-
-**Mulige reaksjoner:**
-- Sorg og tap - han mister noe som har vært viktig
-- Identitetskrise - "hvem er jeg uten fotballen?"
-- Behov for å finne nye arenaer og interesser
-
-**Veien videre:**
-- Identitet er mer enn én ting - Marius har andre egenskaper og tilhørigheter
-- Han kan finne nye måter å engasjere seg i fotball (trener, dommer, supporter)
-- Krisen kan bli en mulighet for vekst og å oppdage nye sider av seg selv
-
-**Viktig poeng:**
-Identitet er fleksibel og kan tilpasses nye livssituasjoner.`,
-    },
-    {
       id: 'samfunnskunnskap-1-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -284,6 +242,26 @@ Identitet er fleksibel og kan tilpasses nye livssituasjoner.`,
       },
     },
     {
+      id: 'samfunnskunnskap-1-2-def-2',
+      type: 'definition',
+      title: 'Selvfølelse og selvbilde',
+      content: `**Selvbilde:**
+Hvordan vi ser på oss selv - våre styrker, svakheter og egenskaper. Selvbildet påvirkes av andres tilbakemeldinger.
+
+**Selvfølelse:**
+Hvordan vi føler om oss selv - om vi verdsetter og aksepterer oss selv. God selvfølelse betyr at man har et positivt forhold til seg selv.
+
+**Selvsikkerhet:**
+Troen på egne evner til å mestre utfordringer og nå mål.
+
+**Faktorer som påvirker selvfølelse:**
+- Oppvekst og omsorg
+- Tilbakemeldinger fra andre
+- Mestringsopplevelser
+- Sammenligning med andre
+- Sosiale medier og idealbilder`,
+    },
+    {
       id: 'samfunnskunnskap-1-2-ex-2',
       type: 'exercise',
       exercise: {
@@ -297,6 +275,30 @@ Identitet er fleksibel og kan tilpasses nye livssituasjoner.`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'samfunnskunnskap-1-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Identitet i endring',
+      problem: `Marius er 17 år og har alltid definert seg gjennom fotballen. Han har spilt siden han var 6 år og drømmer om å bli proff. Etter en alvorlig kneskade må han slutte å spille. Hvordan kan dette påvirke hans identitet?`,
+      solution: `**Identitetsutfordring:**
+- Marius har bygget mye av sin identitet rundt fotballen
+- Han mister en viktig arena for mestring og tilhørighet
+- Rollen som "fotballspiller" forsvinner
+
+**Mulige reaksjoner:**
+- Sorg og tap - han mister noe som har vært viktig
+- Identitetskrise - "hvem er jeg uten fotballen?"
+- Behov for å finne nye arenaer og interesser
+
+**Veien videre:**
+- Identitet er mer enn én ting - Marius har andre egenskaper og tilhørigheter
+- Han kan finne nye måter å engasjere seg i fotball (trener, dommer, supporter)
+- Krisen kan bli en mulighet for vekst og å oppdage nye sider av seg selv
+
+**Viktig poeng:**
+Identitet er fleksibel og kan tilpasses nye livssituasjoner.`,
+    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-2-ex-3',
       type: 'exercise',
@@ -380,6 +382,19 @@ Hvordan du bruker pengene dine på varer og tjenester.
 Penger du skylder andre - studielån, kredittkort, forbrukslån.`,
     },
     {
+      id: 'samfunnskunnskap-1-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom faste og variable utgifter, og gi eksempler på begge.',
+        solution: 'Faste utgifter er utgifter som er like hver måned (husleie, abonnementer, forsikring). Variable utgifter varierer fra måned til måned (mat, klær, underholdning). Faste utgifter er lettere å planlegge for.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-3-def-2',
       type: 'definition',
       title: 'Hvordan lage budsjett',
@@ -444,19 +459,6 @@ Penger du skylder andre - studielån, kredittkort, forbrukslån.`,
 - Vurder om alle abonnementer er nødvendige`,
     },
     {
-      id: 'samfunnskunnskap-1-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom faste og variable utgifter, og gi eksempler på begge.',
-        solution: 'Faste utgifter er utgifter som er like hver måned (husleie, abonnementer, forsikring). Variable utgifter varierer fra måned til måned (mat, klær, underholdning). Faste utgifter er lettere å planlegge for.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-1-3-ex-2',
       type: 'exercise',
       exercise: {
@@ -468,8 +470,11 @@ Penger du skylder andre - studielån, kredittkort, forbrukslån.`,
         solution: 'Svaret bør inneholde oversikt over inntekter, faste utgifter, variable utgifter og sparing. Budsjettet bør gå i balanse eller ha overskudd.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        allowsSpreadsheet: true,
+        spreadsheetTemplate: 'budget',
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-3-ex-3',
       type: 'exercise',
@@ -552,6 +557,19 @@ Algoritmer analyserer oss og viser reklame tilpasset våre interesser og svakhet
 Produkter vises i filmer, serier og hos influencere uten at det fremstår som reklame.`,
     },
     {
+      id: 'samfunnskunnskap-1-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv tre ulike måter reklame forsøker å påvirke oss på.',
+        solution: 'Eksempler: 1) Emosjonell appell - spiller på følelser som glede eller frykt. 2) Sosial bevis - "alle andre har det". 3) Knapphetseffekt - "kun i dag!". 4) Influencer-markedsføring. 5) Målrettet digital reklame.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-4-def-2',
       type: 'definition',
       title: 'Forbrukerrettigheter og -ansvar',
@@ -605,19 +623,6 @@ Produkter vises i filmer, serier og hos influencere uten at det fremstår som re
 Influencere er ofte betalte selgere - vær kritisk til anbefalinger.`,
     },
     {
-      id: 'samfunnskunnskap-1-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv tre ulike måter reklame forsøker å påvirke oss på.',
-        solution: 'Eksempler: 1) Emosjonell appell - spiller på følelser som glede eller frykt. 2) Sosial bevis - "alle andre har det". 3) Knapphetseffekt - "kun i dag!". 4) Influencer-markedsføring. 5) Målrettet digital reklame.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-1-4-ex-2',
       type: 'exercise',
       exercise: {
@@ -631,6 +636,7 @@ Influencere er ofte betalte selgere - vær kritisk til anbefalinger.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-4-ex-3',
       type: 'exercise',
@@ -719,6 +725,19 @@ Samtykke til én ting betyr ikke samtykke til alt.
 Å være beruset, sove eller være redd gjør at man ikke kan gi gyldig samtykke.`,
     },
     {
+      id: 'samfunnskunnskap-1-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva samtykke er og hvilke krav som stilles til gyldig samtykke.',
+        solution: 'Samtykke er å frivillig si ja til noe. Krav: Må være frivillig (uten press), informert (forstå hva man sier ja til), entusiastisk (ekte ja), kan trekkes tilbake, situasjonsbestemt. Man kan ikke gi samtykke hvis man er beruset, sover eller er redd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-5-def-2',
       type: 'definition',
       title: 'Grensesetting',
@@ -740,6 +759,19 @@ Hvor mye tid du bruker på andre vs. deg selv.
 - Du trenger ikke forklare eller rettferdiggjøre
 - Stå fast ved grensene dine
 - Det er OK å si nei`,
+    },
+    {
+      id: 'samfunnskunnskap-1-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi eksempler på ulike typer grenser (fysiske, emosjonelle, digitale).',
+        solution: 'Fysiske: Hvem som får klemme deg, sitte nær deg. Emosjonelle: Hva du deler av følelser, hva du orker å høre på. Digitale: Hvilke bilder du deler, hvem du svarer, når du er tilgjengelig online.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-1-5-example-1',
@@ -775,32 +807,7 @@ Hvor mye tid du bruker på andre vs. deg selv.
 - Hun kan snakke med noen hun stoler på
 - Hendelsen er ikke hennes feil`,
     },
-    {
-      id: 'samfunnskunnskap-1-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva samtykke er og hvilke krav som stilles til gyldig samtykke.',
-        solution: 'Samtykke er å frivillig si ja til noe. Krav: Må være frivillig (uten press), informert (forstå hva man sier ja til), entusiastisk (ekte ja), kan trekkes tilbake, situasjonsbestemt. Man kan ikke gi samtykke hvis man er beruset, sover eller er redd.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-1-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi eksempler på ulike typer grenser (fysiske, emosjonelle, digitale).',
-        solution: 'Fysiske: Hvem som får klemme deg, sitte nær deg. Emosjonelle: Hva du deler av følelser, hva du orker å høre på. Digitale: Hvilke bilder du deler, hvem du svarer, når du er tilgjengelig online.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-5-ex-3',
       type: 'exercise',
@@ -884,6 +891,19 @@ Hvem man er tiltrukket av:
 Samlebetegnelse for lesbiske, homofile, bifile, transpersoner, interkjønn, queer og andre.`,
     },
     {
+      id: 'samfunnskunnskap-1-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom biologisk kjønn, kjønnsidentitet og seksuell orientering.',
+        solution: 'Biologisk kjønn: Fysiske egenskaper (kroppen). Kjønnsidentitet: Indre opplevelse av eget kjønn (hvem man er). Seksuell orientering: Hvem man er tiltrukket av. De tre tingene er uavhengige av hverandre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-6-def-2',
       type: 'definition',
       title: 'Normer og forventninger',
@@ -904,6 +924,19 @@ Forenklede forestillinger om grupper, f.eks. "jenter liker rosa" eller "gutter g
 
 **Normer endres:**
 Synet på kjønn og seksualitet har endret seg mye de siste tiårene. Det som var tabu før, er mer akseptert nå.`,
+    },
+    {
+      id: 'samfunnskunnskap-1-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi eksempler på kjønnsnormer i samfunnet vårt. Hvordan kan disse påvirke individer?',
+        solution: 'Eksempler: Forventninger om utseende (jenter: sminke, gutter: ikke gråte), yrkesvalg (sykepleier vs. ingeniør), interesser, farger. Påvirkning: Kan begrense valgfrihet, skape press om å passe inn, føre til skam hos de som bryter normene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-1-6-example-1',
@@ -939,32 +972,7 @@ Synet på kjønn og seksualitet har endret seg mye de siste tiårene. Det som va
 **Viktig:**
 Emil bestemmer selv. Hans seksuelle orientering er en naturlig del av hvem han er.`,
     },
-    {
-      id: 'samfunnskunnskap-1-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom biologisk kjønn, kjønnsidentitet og seksuell orientering.',
-        solution: 'Biologisk kjønn: Fysiske egenskaper (kroppen). Kjønnsidentitet: Indre opplevelse av eget kjønn (hvem man er). Seksuell orientering: Hvem man er tiltrukket av. De tre tingene er uavhengige av hverandre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-1-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi eksempler på kjønnsnormer i samfunnet vårt. Hvordan kan disse påvirke individer?',
-        solution: 'Eksempler: Forventninger om utseende (jenter: sminke, gutter: ikke gråte), yrkesvalg (sykepleier vs. ingeniør), interesser, farger. Påvirkning: Kan begrense valgfrihet, skape press om å passe inn, føre til skam hos de som bryter normene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-6-ex-3',
       type: 'exercise',
@@ -1053,6 +1061,19 @@ Små datafiler som lagres i nettleseren din for å huske preferanser og spore ak
 Norsk myndighet som fører tilsyn med personvern.`,
     },
     {
+      id: 'samfunnskunnskap-1-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva digitale spor er og gi tre eksempler.',
+        solution: 'Digitale spor er data som etterlates når vi bruker internett. Eksempler: Søkehistorikk, likes og kommentarer på sosiale medier, lokasjonsdata fra telefonen, kjøpshistorikk i nettbutikker, klikkemønstre på nettsider.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-7-def-2',
       type: 'definition',
       title: 'Risiko og beskyttelse',
@@ -1075,6 +1096,19 @@ Norsk myndighet som fører tilsyn med personvern.`,
 
 **Husk:**
 Det du deler på nett kan være der for alltid, selv om du sletter det.`,
+    },
+    {
+      id: 'samfunnskunnskap-1-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke rettigheter har du i forhold til personopplysninger under GDPR?',
+        solution: 'GDPR-rettigheter: Rett til innsyn (se hva selskaper vet om deg), rett til sletting ("retten til å bli glemt"), rett til dataportabilitet (få ut dataene dine), rett til å protestere mot behandling, rett til å trekke samtykke tilbake.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-1-7-example-1',
@@ -1108,32 +1142,7 @@ Det du deler på nett kan være der for alltid, selv om du sletter det.`,
 **Viktig innsikt:**
 "Hvis tjenesten er gratis, er du produktet." Datene dine har verdi.`,
     },
-    {
-      id: 'samfunnskunnskap-1-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva digitale spor er og gi tre eksempler.',
-        solution: 'Digitale spor er data som etterlates når vi bruker internett. Eksempler: Søkehistorikk, likes og kommentarer på sosiale medier, lokasjonsdata fra telefonen, kjøpshistorikk i nettbutikker, klikkemønstre på nettsider.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-1-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvilke rettigheter har du i forhold til personopplysninger under GDPR?',
-        solution: 'GDPR-rettigheter: Rett til innsyn (se hva selskaper vet om deg), rett til sletting ("retten til å bli glemt"), rett til dataportabilitet (få ut dataene dine), rett til å protestere mot behandling, rett til å trekke samtykke tilbake.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-7-ex-3',
       type: 'exercise',
@@ -1217,6 +1226,19 @@ Manipulerte videoer eller bilder laget med kunstig intelligens.
 Overdrivelser ment som humor, men kan misforstås som ekte nyheter.`,
     },
     {
+      id: 'samfunnskunnskap-1-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom feilinformasjon og desinformasjon.',
+        solution: 'Feilinformasjon er usann informasjon som spres uten intensjon om å villede - avsenderen tror selv det er sant. Desinformasjon er bevisst falsk informasjon spredt for å villede eller manipulere. Begge kan skade, men desinformasjon har ond hensikt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-1-8-def-2',
       type: 'definition',
       title: 'Kildekritikk - TONE-metoden',
@@ -1239,6 +1261,20 @@ Overdrivelser ment som humor, men kan misforstås som ekte nyheter.`,
 - Er kilden relevant for det du undersøker?
 - Er informasjonen oppdatert?
 - Passer kilden til formålet?`,
+    },
+    {
+      id: 'samfunnskunnskap-1-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-1-8-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Bruk TONE-metoden til å vurdere en nyhetskilde du bruker ofte.',
+        hints: ['Velg en spesifikk nettavis, nyhetskanal eller sosial medie-konto'],
+        solution: 'Svaret bør systematisk vurdere: Troverdighet (hvem står bak, hvilken kompetanse), Objektivitet (balanse, skille fakta/meninger), Nøyaktighet (kilder, dokumentasjon), Egnethet (relevans, oppdatering).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-1-8-example-1',
@@ -1275,33 +1311,7 @@ Overdrivelser ment som humor, men kan misforstås som ekte nyheter.`,
 **Konklusjon:**
 Sannsynligvis upålitelig - vær skeptisk og del ikke videre.`,
     },
-    {
-      id: 'samfunnskunnskap-1-8-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-8-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom feilinformasjon og desinformasjon.',
-        solution: 'Feilinformasjon er usann informasjon som spres uten intensjon om å villede - avsenderen tror selv det er sant. Desinformasjon er bevisst falsk informasjon spredt for å villede eller manipulere. Begge kan skade, men desinformasjon har ond hensikt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-1-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-1-8-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Bruk TONE-metoden til å vurdere en nyhetskilde du bruker ofte.',
-        hints: ['Velg en spesifikk nettavis, nyhetskanal eller sosial medie-konto'],
-        solution: 'Svaret bør systematisk vurdere: Troverdighet (hvem står bak, hvilken kompetanse), Objektivitet (balanse, skille fakta/meninger), Nøyaktighet (kilder, dokumentasjon), Egnethet (relevans, oppdatering).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-1-8-ex-3',
       type: 'exercise',
@@ -1385,6 +1395,19 @@ Hvordan identiteten vår kan variere i ulike situasjoner - du er kanskje annerle
 Hvordan du fremstiller deg selv på nett og i sosiale medier.`,
     },
     {
+      id: 'samfunnskunnskap-2-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom individuell og sosial identitet.',
+        solution: 'Individuell identitet er de unike egenskapene som gjør deg til deg - personlighet, verdier, drømmer. Sosial identitet handler om gruppetilhørighet - nasjonalitet, religion, klasse. Begge henger sammen og påvirker hverandre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-2-1-def-2',
       type: 'definition',
       title: 'Identitetsteori',
@@ -1399,6 +1422,19 @@ I moderne samfunn må vi aktivt skape vår egen identitet. Det er ikke lenger gi
 
 **Stuart Hall - Kulturell identitet:**
 Identitet er ikke fast, men flytende og i stadig endring. Vi har flere identiteter som aktiveres i ulike sammenhenger.`,
+    },
+    {
+      id: 'samfunnskunnskap-2-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva mener G.H. Mead med at vi "speiler oss i andre"?',
+        solution: 'Mead mener at vi utvikler vår identitet ved å observere hvordan andre reagerer på oss. Andres tilbakemeldinger blir et speil der vi ser oss selv. Positiv speiling gir bedre selvbilde, negativ speiling kan gi dårlig selvbilde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-2-1-example-1',
@@ -1429,32 +1465,7 @@ Identitet er ikke fast, men flytende og i stadig endring. Vi har flere identitet
 **Viktig poeng:**
 Identitet er kompleks og sammensatt. Ingen kan fortelle Amina hvem hun er - det bestemmer hun selv.`,
     },
-    {
-      id: 'samfunnskunnskap-2-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-2-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom individuell og sosial identitet.',
-        solution: 'Individuell identitet er de unike egenskapene som gjør deg til deg - personlighet, verdier, drømmer. Sosial identitet handler om gruppetilhørighet - nasjonalitet, religion, klasse. Begge henger sammen og påvirker hverandre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-2-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-2-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva mener G.H. Mead med at vi "speiler oss i andre"?',
-        solution: 'Mead mener at vi utvikler vår identitet ved å observere hvordan andre reagerer på oss. Andres tilbakemeldinger blir et speil der vi ser oss selv. Positiv speiling gir bedre selvbilde, negativ speiling kan gi dårlig selvbilde.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-1-ex-3',
       type: 'exercise',
@@ -1536,6 +1547,19 @@ Evnen til å forstå, kommunisere og samhandle på tvers av kulturer. Krever kun
 Når kulturer blandes og skaper nye uttrykk - for eksempel fusion-mat eller musikk som blander tradisjoner.`,
     },
     {
+      id: 'samfunnskunnskap-2-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom etnosentrisme og kulturrelativisme.',
+        solution: 'Etnosentrisme: Å vurdere andre kulturer ut fra egen kultur som målestokk, ofte med antakelse om at egen kultur er best. Kulturrelativisme: Å forstå andre kulturer på deres egne premisser, uten å dømme. Begge har begrensninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-2-2-def-2',
       type: 'definition',
       title: 'Kulturmøter og integrasjon',
@@ -1556,6 +1580,20 @@ Gjensidig tilpasning der minoriteter beholder viktige deler av sin kultur samtid
 - Fordommer og stereotypier
 - Maktforskjeller
 - Spørsmål om verdikonflikter`,
+    },
+    {
+      id: 'samfunnskunnskap-2-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom assimilering og integrering?',
+        hints: ['Tenk på hva som skjer med minoritetskulturen'],
+        solution: 'Assimilering: Minoriteten gir opp sin kultur og blir lik majoriteten. Integrering: Minoriteten beholder viktige deler av sin kultur, samtidig som de deltar i storsamfunnet. Gjensidig tilpasning fra begge sider.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-2-2-example-1',
@@ -1588,32 +1626,7 @@ Gjensidig tilpasning der minoriteter beholder viktige deler av sin kultur samtid
 **Viktig:**
 Kulturmøter handler om mennesker, ikke bare kulturer. Hver person er unik, uavhengig av bakgrunn.`,
     },
-    {
-      id: 'samfunnskunnskap-2-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-2-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva kultur er og gi fem eksempler på elementer som inngår i kultur.',
-        solution: 'Kultur er verdier, normer, tradisjoner og praksiser som kjennetegner en gruppe mennesker. Eksempler: språk, religion, mattradisjoner, klesdrakter, høytider, kunst, familiestruktur, normer for høflighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-2-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-2-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom etnosentrisme og kulturrelativisme.',
-        solution: 'Etnosentrisme: Å vurdere andre kulturer ut fra egen kultur som målestokk, ofte med antakelse om at egen kultur er best. Kulturrelativisme: Å forstå andre kulturer på deres egne premisser, uten å dømme. Begge har begrensninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-2-ex-3',
       type: 'exercise',
@@ -1621,9 +1634,8 @@ Kulturmøter handler om mennesker, ikke bare kulturer. Hver person er unik, uavh
         id: 'samfunnskunnskap-2-2-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hva er forskjellen mellom assimilering og integrering?',
-        hints: ['Tenk på hva som skjer med minoritetskulturen'],
-        solution: 'Assimilering: Minoriteten gir opp sin kultur og blir lik majoriteten. Integrering: Minoriteten beholder viktige deler av sin kultur, samtidig som de deltar i storsamfunnet. Gjensidig tilpasning fra begge sider.',
+        task: 'Forklar hva kultur er og gi fem eksempler på elementer som inngår i kultur.',
+        solution: 'Kultur er verdier, normer, tradisjoner og praksiser som kjennetegner en gruppe mennesker. Eksempler: språk, religion, mattradisjoner, klesdrakter, høytider, kunst, familiestruktur, normer for høflighet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1775,6 +1787,7 @@ Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatte
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-3-ex-3',
       type: 'exercise',
@@ -1936,6 +1949,7 @@ Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-4-ex-3',
       type: 'exercise',
@@ -2094,6 +2108,7 @@ Alta-saken viste at urfolks rettigheter må tas på alvor.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-5-ex-3',
       type: 'exercise',
@@ -2260,6 +2275,7 @@ I visse situasjoner kan det være saklige begrensninger (f.eks. sikkerhet i labo
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-6-ex-3',
       type: 'exercise',
@@ -2450,6 +2466,7 @@ Integrering handler om mer enn jobb og språk - det handler også om tilhørighe
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-2-7-ex-3',
       type: 'exercise',
@@ -2522,6 +2539,19 @@ Arbeid er mer enn bare en inntektskilde. Det er en sentral del av livet som gir 
 Å forstå arbeidslivet og dine rettigheter som arbeidstaker er viktig for å kunne navigere trygt i arbeidsmarkedet.`,
     },
     {
+      id: 'samfunnskunnskap-3-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn minst fem grunner til at arbeid er viktig for individet.',
+        solution: 'Arbeid gir: Inntekt/økonomisk trygghet, sosial tilhørighet/nettverk, mestring/selvrealisering, struktur i hverdagen, identitet/status, bidrag til samfunnet, læring og utvikling, mening og hensikt i livet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-1-def-1',
       type: 'definition',
       title: 'Den norske arbeidslivsmodellen',
@@ -2543,6 +2573,19 @@ Arbeid er mer enn bare en inntektskilde. Det er en sentral del av livet som gir 
 - Høy tillit mellom partene
 - Effektiv omstilling
 - Relativt lave lønnsforskjeller`,
+    },
+    {
+      id: 'samfunnskunnskap-3-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva kjennetegner den norske arbeidslivsmodellen?',
+        solution: 'Kjennetegn: Høy organisasjonsgrad, trepartssamarbeid (arbeidstakere, arbeidsgivere, stat), tariffavtaler, sterkt stillingsvern, medbestemmelse for ansatte, relativt lave lønnsforskjeller, høy tillit mellom partene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-1-def-2',
@@ -2575,6 +2618,19 @@ Skriftlig avtale mellom arbeidsgiver og arbeidstaker. Skal inneholde:
 - Hviletid: Minst 11 timer sammenhengende i døgnet`,
     },
     {
+      id: 'samfunnskunnskap-3-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva skal en arbeidsavtale inneholde ifølge loven?',
+        solution: 'En arbeidsavtale skal inneholde: Partenes navn, arbeidssted, stillingsbeskrivelse, startdato, lønn og utbetalingstidspunkt, arbeidstid, ferierettigheter, oppsigelsesfrister, eventuelle tariffavtaler som gjelder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-1-example-1',
       type: 'example',
       title: 'Eksempel: Din første jobb',
@@ -2604,45 +2660,7 @@ Skriftlig avtale mellom arbeidsgiver og arbeidstaker. Skal inneholde:
 **Viktig:**
 Selv om Mia er ung og dette er en sommerjobb, har hun de samme grunnleggende rettighetene som andre arbeidstakere.`,
     },
-    {
-      id: 'samfunnskunnskap-3-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn minst fem grunner til at arbeid er viktig for individet.',
-        solution: 'Arbeid gir: Inntekt/økonomisk trygghet, sosial tilhørighet/nettverk, mestring/selvrealisering, struktur i hverdagen, identitet/status, bidrag til samfunnet, læring og utvikling, mening og hensikt i livet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva kjennetegner den norske arbeidslivsmodellen?',
-        solution: 'Kjennetegn: Høy organisasjonsgrad, trepartssamarbeid (arbeidstakere, arbeidsgivere, stat), tariffavtaler, sterkt stillingsvern, medbestemmelse for ansatte, relativt lave lønnsforskjeller, høy tillit mellom partene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva skal en arbeidsavtale inneholde ifølge loven?',
-        solution: 'En arbeidsavtale skal inneholde: Partenes navn, arbeidssted, stillingsbeskrivelse, startdato, lønn og utbetalingstidspunkt, arbeidstid, ferierettigheter, oppsigelsesfrister, eventuelle tariffavtaler som gjelder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-1-ex-4',
       type: 'exercise',
@@ -2719,6 +2737,32 @@ Systematisk arbeid for å sikre et trygt og godt arbeidsmiljø. Forkortelse for 
 Statlig etat som fører tilsyn med at arbeidsmiljøloven følges.`,
     },
     {
+      id: 'samfunnskunnskap-3-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva står HMS for, og hva omfatter HMS-arbeid?',
+        solution: 'HMS står for Helse, Miljø og Sikkerhet. HMS-arbeid omfatter: Kartlegging av risiko, forebygging av ulykker og sykdom, opplæring, oppfølging av sykmeldte, fysisk tilrettelegging, og arbeid med psykososialt arbeidsmiljø.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-3-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvem har ansvar for HMS på en arbeidsplass?',
+        solution: 'Ansvar: Arbeidsgiver har hovedansvar for forsvarlig arbeidsmiljø. Arbeidstaker skal medvirke og varsle om farlige forhold. Verneombud representerer ansatte. AMU er samarbeidsorgan. Bedriftshelsetjenesten gir faglig bistand. Arbeidstilsynet fører eksternt tilsyn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-2-def-2',
       type: 'definition',
       title: 'Arbeidsmiljøloven',
@@ -2744,6 +2788,19 @@ Sikre et arbeidsmiljø som gir full trygghet mot fysiske og psykiske skadevirkni
 - Vern mot støy, stråling, kjemikalier
 - Ergonomiske krav
 - Verneutstyr ved behov`,
+    },
+    {
+      id: 'samfunnskunnskap-3-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva menes med psykososialt arbeidsmiljø?',
+        solution: 'Psykososialt arbeidsmiljø handler om de sosiale og psykologiske forholdene på jobben: Trivsel, relasjoner mellom kollegaer, ledelse, stress, mobbing, meningsfullt arbeid, mulighet for utvikling, og grad av selvbestemmelse. Arbeidsmiljøloven beskytter mot trakassering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-2-example-1',
@@ -2779,45 +2836,7 @@ Det Kristian opplever er trakassering/mobbing - dette er brudd på arbeidsmiljø
 **Viktig:**
 Mobbing på arbeidsplassen er alvorlig og forbudt. Kristian har rett til å bli hørt og få hjelp.`,
     },
-    {
-      id: 'samfunnskunnskap-3-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva står HMS for, og hva omfatter HMS-arbeid?',
-        solution: 'HMS står for Helse, Miljø og Sikkerhet. HMS-arbeid omfatter: Kartlegging av risiko, forebygging av ulykker og sykdom, opplæring, oppfølging av sykmeldte, fysisk tilrettelegging, og arbeid med psykososialt arbeidsmiljø.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvem har ansvar for HMS på en arbeidsplass?',
-        solution: 'Ansvar: Arbeidsgiver har hovedansvar for forsvarlig arbeidsmiljø. Arbeidstaker skal medvirke og varsle om farlige forhold. Verneombud representerer ansatte. AMU er samarbeidsorgan. Bedriftshelsetjenesten gir faglig bistand. Arbeidstilsynet fører eksternt tilsyn.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva menes med psykososialt arbeidsmiljø?',
-        solution: 'Psykososialt arbeidsmiljø handler om de sosiale og psykologiske forholdene på jobben: Trivsel, relasjoner mellom kollegaer, ledelse, stress, mobbing, meningsfullt arbeid, mulighet for utvikling, og grad av selvbestemmelse. Arbeidsmiljøloven beskytter mot trakassering.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-2-ex-4',
       type: 'exercise',
@@ -2900,6 +2919,32 @@ Skriftlig avtale mellom en fagforening og en arbeidsgiver/arbeidsgiverorganisasj
 - Lavlønnstillegg: Ekstra til de med lavest lønn`,
     },
     {
+      id: 'samfunnskunnskap-3-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en tariffavtale, og hva inneholder den typisk?',
+        solution: 'Tariffavtale er en skriftlig avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår. Inneholder typisk: Minstelønn, arbeidstid, overtidsbetaling, tillegg for kveld/natt/helg, ferieordninger, pensjonsordninger. Gjelder vanligvis 2 år.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-3-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hva frontfagsmodellen er og hvorfor den er viktig.',
+        solution: 'Frontfagsmodellen: Konkurranseutsatt industri forhandler først og setter rammen for andre sektorer. Viktig fordi: Sikrer at lønnsveksten ikke overstiger det eksportindustrien tåler, bidrar til lav inflasjon, opprettholder konkurransekraft, gir forutsigbarhet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-3-def-2',
       type: 'definition',
       title: 'Streik og lockout',
@@ -2923,6 +2968,19 @@ Streik i solidaritet med andre som streiker - må varsles.
 
 **Politisk streik:**
 Kort streik for å markere et politisk standpunkt - ikke om egne lønnsvilkår.`,
+    },
+    {
+      id: 'samfunnskunnskap-3-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom streik og lockout?',
+        solution: 'Streik: Arbeidstakere nekter å jobbe for å presse frem bedre vilkår - arbeidstakernes virkemiddel. Lockout: Arbeidsgiver stenger arbeidstakere ute fra arbeid - arbeidsgivers virkemiddel. Begge er lovlige virkemidler når tariffavtalen er utløpt og mekling ikke har ført frem.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-3-example-1',
@@ -2957,45 +3015,7 @@ Kort streik for å markere et politisk standpunkt - ikke om egne lønnsvilkår.`
 **I praksis:**
 Resultatet blir ofte et kompromiss, f.eks. 4% lønnsvekst. Frontfagsmodellen sikrer at oppgjøret er økonomisk ansvarlig.`,
     },
-    {
-      id: 'samfunnskunnskap-3-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en tariffavtale, og hva inneholder den typisk?',
-        solution: 'Tariffavtale er en skriftlig avtale mellom fagforening og arbeidsgiver om lønns- og arbeidsvilkår. Inneholder typisk: Minstelønn, arbeidstid, overtidsbetaling, tillegg for kveld/natt/helg, ferieordninger, pensjonsordninger. Gjelder vanligvis 2 år.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva frontfagsmodellen er og hvorfor den er viktig.',
-        solution: 'Frontfagsmodellen: Konkurranseutsatt industri forhandler først og setter rammen for andre sektorer. Viktig fordi: Sikrer at lønnsveksten ikke overstiger det eksportindustrien tåler, bidrar til lav inflasjon, opprettholder konkurransekraft, gir forutsigbarhet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom streik og lockout?',
-        solution: 'Streik: Arbeidstakere nekter å jobbe for å presse frem bedre vilkår - arbeidstakernes virkemiddel. Lockout: Arbeidsgiver stenger arbeidstakere ute fra arbeid - arbeidsgivers virkemiddel. Begge er lovlige virkemidler når tariffavtalen er utløpt og mekling ikke har ført frem.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-3-ex-4',
       type: 'exercise',
@@ -3073,6 +3093,32 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
 - Påvirker lønn, pensjon og karriere`,
     },
     {
+      id: 'samfunnskunnskap-3-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom horisontal og vertikal kjønnsdeling i arbeidsmarkedet.',
+        solution: 'Horisontal kjønnsdeling: Kvinner og menn jobber i ulike yrker/bransjer (f.eks. helse vs. bygg). Vertikal kjønnsdeling: Menn er overrepresentert i lederstillinger og høyere posisjoner, selv i kvinnedominerte bransjer ("glasstaket").',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-3-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-4-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke årsaker kan forklare lønnsforskjellene mellom kvinner og menn?',
+        solution: 'Årsaker: Yrkesvalg (kvinnedominerte yrker har ofte lavere lønn), deltidsarbeid (mer vanlig blant kvinner), karriereavbrudd pga. barn, vertikal kjønnsdeling (færre kvinner i ledelse), forhandlingsstyrke, og en uforklart del som kan skyldes diskriminering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-4-def-2',
       type: 'definition',
       title: 'Likestillingstiltak',
@@ -3098,6 +3144,19 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
 - Fleksibel arbeidstid
 - Mentorprogrammer
 - Bevisstgjøring om ubevisste fordommer`,
+    },
+    {
+      id: 'samfunnskunnskap-3-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-4-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er fedrekvoten, og hvorfor ble den innført?',
+        solution: 'Fedrekvoten er en del av foreldrepermisjonen (minst 15 uker) forbeholdt far - den kan ikke overføres til mor. Innført for å: Øke fedres deltakelse i barneomsorgen, fremme likestilling, normalisere at menn tar permisjon, redusere diskriminering av kvinner i arbeidslivet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-4-example-1',
@@ -3131,45 +3190,7 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
 **Realitet:**
 Selv om det er ulovlig, skjer dette ofte. Det kan være vanskelig å bevise diskriminering.`,
     },
-    {
-      id: 'samfunnskunnskap-3-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom horisontal og vertikal kjønnsdeling i arbeidsmarkedet.',
-        solution: 'Horisontal kjønnsdeling: Kvinner og menn jobber i ulike yrker/bransjer (f.eks. helse vs. bygg). Vertikal kjønnsdeling: Menn er overrepresentert i lederstillinger og høyere posisjoner, selv i kvinnedominerte bransjer ("glasstaket").',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er fedrekvoten, og hvorfor ble den innført?',
-        solution: 'Fedrekvoten er en del av foreldrepermisjonen (minst 15 uker) forbeholdt far - den kan ikke overføres til mor. Innført for å: Øke fedres deltakelse i barneomsorgen, fremme likestilling, normalisere at menn tar permisjon, redusere diskriminering av kvinner i arbeidslivet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvilke årsaker kan forklare lønnsforskjellene mellom kvinner og menn?',
-        solution: 'Årsaker: Yrkesvalg (kvinnedominerte yrker har ofte lavere lønn), deltidsarbeid (mer vanlig blant kvinner), karriereavbrudd pga. barn, vertikal kjønnsdeling (færre kvinner i ledelse), forhandlingsstyrke, og en uforklart del som kan skyldes diskriminering.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-4-ex-4',
       type: 'exercise',
@@ -3244,6 +3265,19 @@ Arbeidsledighet som varer over ett år. Særlig alvorlig fordi kompetansen kan f
 Mennesker som har gitt opp å søke jobb, er på tiltak eller trygd, men som egentlig kunne ha jobbet.`,
     },
     {
+      id: 'samfunnskunnskap-3-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom konjunkturledighet og strukturell ledighet.',
+        solution: 'Konjunkturledighet skyldes nedgangstider i økonomien - når etterspørselen faller og bedrifter sier opp folk. Den er midlertidig. Strukturell ledighet skyldes varige endringer i næringsstrukturen (teknologi, globalisering) - jobber forsvinner permanent og folk må ofte omskoleres.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-5-def-2',
       type: 'definition',
       title: 'Nav og dagpenger',
@@ -3274,6 +3308,19 @@ Arbeids- og velferdsforvaltningen - forvalter arbeidsformidling, trygdeytelser o
 - Oppfølging av arbeidssøkere
 - Kvalifisering og tiltak
 - Utbetaling av ytelser`,
+    },
+    {
+      id: 'samfunnskunnskap-3-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er kravene for å få dagpenger fra Nav?',
+        solution: 'Krav for dagpenger: Ha hatt tilstrekkelig inntekt (minst 1,5 G siste år eller 3 G siste 3 år), være registrert som arbeidssøker hos Nav, aktivt søke jobb, være villig til å ta passende arbeid, ha mistet minst 50% av arbeidstiden.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-5-example-1',
@@ -3310,32 +3357,7 @@ Jonas er rammet av strukturell ledighet - teknologi erstatter deler av hans jobb
 - Det finnes hjelp å få, men det krever egeninnsats
 - Alder kan være en utfordring, men erfaring er også en ressurs`,
     },
-    {
-      id: 'samfunnskunnskap-3-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom konjunkturledighet og strukturell ledighet.',
-        solution: 'Konjunkturledighet skyldes nedgangstider i økonomien - når etterspørselen faller og bedrifter sier opp folk. Den er midlertidig. Strukturell ledighet skyldes varige endringer i næringsstrukturen (teknologi, globalisering) - jobber forsvinner permanent og folk må ofte omskoleres.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er kravene for å få dagpenger fra Nav?',
-        solution: 'Krav for dagpenger: Ha hatt tilstrekkelig inntekt (minst 1,5 G siste år eller 3 G siste 3 år), være registrert som arbeidssøker hos Nav, aktivt søke jobb, være villig til å ta passende arbeid, ha mistet minst 50% av arbeidstiden.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-5-ex-3',
       type: 'exercise',
@@ -3430,6 +3452,32 @@ Datamaskiner som kan lære, resonnere og ta beslutninger. Kan påvirke mange kun
 Teknologien skaper også nye jobber: IT-sikkerhet, dataanalyse, KI-utvikling, robotvedlikehold, grønn teknologi.`,
     },
     {
+      id: 'samfunnskunnskap-3-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn tre drivkrefter som endrer arbeidslivet og forklar kort hver av dem.',
+        solution: 'Drivkrefter: 1) Digitalisering/automatisering - maskiner tar over oppgaver. 2) Kunstig intelligens - datamaskiner som kan lære og ta beslutninger. 3) Globalisering - internasjonal konkurranse om jobber. 4) Grønn omstilling - nye krav til bærekraft. 5) Demografiske endringer - eldrebølge.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-3-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-6-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke typer jobber tror du er mest og minst utsatt for automatisering?',
+        solution: 'Mest utsatt: Rutinepreget arbeid (industriarbeid, kontorarbeid), enkle kundeserviceoppgaver, transport (delvis). Minst utsatt: Kreative yrker, omsorgyrker, håndverk, kompleks problemløsning, ledelse, yrker som krever menneskelig kontakt og tilstedeværelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-6-def-2',
       type: 'definition',
       title: 'Nye arbeidsformer',
@@ -3456,6 +3504,19 @@ Arbeid formidlet via digitale plattformer. Utfordrer tradisjonell arbeidsgiver-a
 
 **Livslang læring:**
 Må oppdatere kompetansen gjennom hele arbeidslivet. Etter- og videreutdanning blir viktigere.`,
+    },
+    {
+      id: 'samfunnskunnskap-3-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-6-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er gig-økonomien, og hvilke utfordringer skaper den?',
+        solution: 'Gig-økonomien: Korttidsoppdrag og frilansarbeid formidlet via plattformer (Uber, Foodora). Utfordringer: Usikre arbeidsforhold, manglende rettigheter (sykepenger, pensjon), uklar arbeidsgiver, uforutsigbar inntekt, manglende stillingsvern, sosial isolasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-6-example-1',
@@ -3495,45 +3556,7 @@ Må oppdatere kompetansen gjennom hele arbeidslivet. Etter- og videreutdanning b
 **Viktig innsikt:**
 Jobber forsvinner sjelden helt - de endres. Tilpasningsevne er nøkkelen.`,
     },
-    {
-      id: 'samfunnskunnskap-3-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn tre drivkrefter som endrer arbeidslivet og forklar kort hver av dem.',
-        solution: 'Drivkrefter: 1) Digitalisering/automatisering - maskiner tar over oppgaver. 2) Kunstig intelligens - datamaskiner som kan lære og ta beslutninger. 3) Globalisering - internasjonal konkurranse om jobber. 4) Grønn omstilling - nye krav til bærekraft. 5) Demografiske endringer - eldrebølge.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er gig-økonomien, og hvilke utfordringer skaper den?',
-        solution: 'Gig-økonomien: Korttidsoppdrag og frilansarbeid formidlet via plattformer (Uber, Foodora). Utfordringer: Usikre arbeidsforhold, manglende rettigheter (sykepenger, pensjon), uklar arbeidsgiver, uforutsigbar inntekt, manglende stillingsvern, sosial isolasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvilke typer jobber tror du er mest og minst utsatt for automatisering?',
-        solution: 'Mest utsatt: Rutinepreget arbeid (industriarbeid, kontorarbeid), enkle kundeserviceoppgaver, transport (delvis). Minst utsatt: Kreative yrker, omsorgyrker, håndverk, kompleks problemløsning, ledelse, yrker som krever menneskelig kontakt og tilstedeværelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-6-ex-4',
       type: 'exercise',
@@ -3611,6 +3634,19 @@ Arbeid som utføres uten at inntekten oppgis til skattemyndighetene. Både den s
 - Ødelegger for fellesskapet`,
     },
     {
+      id: 'samfunnskunnskap-3-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva svart arbeid er og nevn tre grunner til at det er problematisk.',
+        solution: 'Svart arbeid er arbeid der inntekten ikke oppgis til skattemyndighetene. Problematisk fordi: 1) Arbeidstaker mister rettigheter (sykepenger, pensjon, ferie). 2) Samfunnet mister skatteinntekter til velferd. 3) Useriøse bedrifter utkonkurrerer lovlydige bedrifter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-3-7-def-2',
       type: 'definition',
       title: 'Arbeidslivskriminalitet',
@@ -3638,6 +3674,32 @@ Kriminelle handlinger som gjøres i eller påvirker arbeidslivet. Mer alvorlig o
 - Konkurransevridning
 - Seriøse bedrifter taper
 - Organisert kriminalitet styrkes`,
+    },
+    {
+      id: 'samfunnskunnskap-3-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom "vanlig" svart arbeid og arbeidslivskriminalitet?',
+        solution: 'Svart arbeid: Enkelttilfeller der inntekt ikke oppgis til skatt (f.eks. vasking mot kontant betaling). Arbeidslivskriminalitet: Systematisk og organisert kriminalitet - menneskehandel, grov utnytting, falske selskaper, stor skala. Mer alvorlig og ofte knyttet til organisert kriminalitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-3-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-3-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvilke bransjer er mest utsatt for svart arbeid og arbeidslivskriminalitet, og hvorfor?',
+        solution: 'Utsatte bransjer: Bygg og anlegg, renhold, restaurant og servering, transport, landbruk. Hvorfor: Mange underleverandører og lang kjeder, lett å skjule timer, kontantbasert, høy andel innvandret arbeidskraft som kanskje ikke kjenner rettigheter, hardt prispress.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-3-7-example-1',
@@ -3677,45 +3739,7 @@ Kriminelle handlinger som gjøres i eller påvirker arbeidslivet. Mer alvorlig o
 **Lærdommen:**
 Dette er arbeidslivskriminalitet - systematisk utnytting for profitt.`,
     },
-    {
-      id: 'samfunnskunnskap-3-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva svart arbeid er og nevn tre grunner til at det er problematisk.',
-        solution: 'Svart arbeid er arbeid der inntekten ikke oppgis til skattemyndighetene. Problematisk fordi: 1) Arbeidstaker mister rettigheter (sykepenger, pensjon, ferie). 2) Samfunnet mister skatteinntekter til velferd. 3) Useriøse bedrifter utkonkurrerer lovlydige bedrifter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom "vanlig" svart arbeid og arbeidslivskriminalitet?',
-        solution: 'Svart arbeid: Enkelttilfeller der inntekt ikke oppgis til skatt (f.eks. vasking mot kontant betaling). Arbeidslivskriminalitet: Systematisk og organisert kriminalitet - menneskehandel, grov utnytting, falske selskaper, stor skala. Mer alvorlig og ofte knyttet til organisert kriminalitet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-3-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-3-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvilke bransjer er mest utsatt for svart arbeid og arbeidslivskriminalitet, og hvorfor?',
-        solution: 'Utsatte bransjer: Bygg og anlegg, renhold, restaurant og servering, transport, landbruk. Hvorfor: Mange underleverandører og lang kjeder, lett å skjule timer, kontantbasert, høy andel innvandret arbeidskraft som kanskje ikke kjenner rettigheter, hardt prispress.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-3-7-ex-4',
       type: 'exercise',
@@ -3796,6 +3820,19 @@ Makten er delt mellom ulike institusjoner som holder hverandre i sjakk.
 Selv om flertallet bestemmer, har mindretallet grunnleggende rettigheter som ikke kan stemmes bort.`,
     },
     {
+      id: 'samfunnskunnskap-4-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn og forklar fem kjennetegn på et demokratisk samfunn.',
+        solution: 'Kjennetegn: 1) Frie og rettferdige valg med allmenn stemmerett. 2) Ytringsfrihet - rett til å uttrykke meninger. 3) Rettssikkerhet - lover gjelder for alle. 4) Maktfordeling - makten delt mellom institusjoner. 5) Pressefrihet - uavhengige medier kan overvåke makten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-1-def-2',
       type: 'definition',
       title: 'Demokratiformer',
@@ -3819,6 +3856,19 @@ Presidenten velges direkte av folket, uavhengig av parlamentet (som i USA).
 
 **Liberalt demokrati:**
 Kombinerer flertallsstyre med sterkt vern av individuelle rettigheter og friheter.`,
+    },
+    {
+      id: 'samfunnskunnskap-4-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom direkte demokrati og representativt demokrati?',
+        solution: 'Direkte demokrati: Folket stemmer direkte over saker (f.eks. folkeavstemninger). Representativt demokrati: Folket velger representanter som tar beslutninger på deres vegne. Norge har representativt demokrati, men bruker noen ganger folkeavstemninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-1-example-1',
@@ -3852,32 +3902,7 @@ Kombinerer flertallsstyre med sterkt vern av individuelle rettigheter og frihete
 **Viktig innsikt:**
 Demokrati er ikke bare valg - det er hele systemet av institusjoner, normer og kultur som holder makten i sjakk. Demokrati må pleies og forsvares.`,
     },
-    {
-      id: 'samfunnskunnskap-4-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn og forklar fem kjennetegn på et demokratisk samfunn.',
-        solution: 'Kjennetegn: 1) Frie og rettferdige valg med allmenn stemmerett. 2) Ytringsfrihet - rett til å uttrykke meninger. 3) Rettssikkerhet - lover gjelder for alle. 4) Maktfordeling - makten delt mellom institusjoner. 5) Pressefrihet - uavhengige medier kan overvåke makten.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom direkte demokrati og representativt demokrati?',
-        solution: 'Direkte demokrati: Folket stemmer direkte over saker (f.eks. folkeavstemninger). Representativt demokrati: Folket velger representanter som tar beslutninger på deres vegne. Norge har representativt demokrati, men bruker noen ganger folkeavstemninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-1-ex-3',
       type: 'exercise',
@@ -3971,6 +3996,19 @@ Det norske demokratiet regnes som et av verdens best fungerende.`,
 - Beskytter borgernes frihet`,
     },
     {
+      id: 'samfunnskunnskap-4-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva de tre statsmaktene er og hvilke oppgaver de har.',
+        solution: 'Stortinget (lovgivende): Vedtar lover og budsjett, kontrollerer regjeringen. Regjeringen (utøvende): Foreslår lover, gjennomfører vedtak, leder forvaltningen. Domstolene (dømmende): Dømmer i saker, prøver lover mot Grunnloven. Maktfordelingen hindrer maktkonsentrasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-2-def-2',
       type: 'definition',
       title: 'Parlamentarisme',
@@ -3997,6 +4035,32 @@ Regjeringen kan knytte sin skjebne til en sak.
 
 **Negativ parlamentarisme:**
 I Norge trenger ikke regjeringen aktivt godkjennes - den sitter så lenge den ikke får flertallet mot seg.`,
+    },
+    {
+      id: 'samfunnskunnskap-4-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er parlamentarisme, og hvordan fungerer det i Norge?',
+        solution: 'Parlamentarisme: Regjeringen må ha Stortingets tillit. I Norge: Negativ parlamentarisme - regjeringen sitter så lenge det ikke er flertall mot den. Mindretallsregjeringer er vanlige. Mistillitsforslag kan tvinge regjeringen til å gå av.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-4-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom flertallsregjering og mindretallsregjering?',
+        solution: 'Flertallsregjering: Regjeringspartiene har flertall på Stortinget, kan vedta det de vil. Mindretallsregjering: Regjeringen mangler flertall, må søke støtte fra andre partier for å få vedtak. Mindretallsregjering er vanligst i Norge, krever forhandlinger og kompromisser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-2-example-1',
@@ -4027,45 +4091,7 @@ I Norge trenger ikke regjeringen aktivt godkjennes - den sitter så lenge den ik
 **Lærdommen:**
 Mindretallsregjeringer er vanlige i Norge. De fungerer gjennom kompromisser og forhandlinger.`,
     },
-    {
-      id: 'samfunnskunnskap-4-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva de tre statsmaktene er og hvilke oppgaver de har.',
-        solution: 'Stortinget (lovgivende): Vedtar lover og budsjett, kontrollerer regjeringen. Regjeringen (utøvende): Foreslår lover, gjennomfører vedtak, leder forvaltningen. Domstolene (dømmende): Dømmer i saker, prøver lover mot Grunnloven. Maktfordelingen hindrer maktkonsentrasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er parlamentarisme, og hvordan fungerer det i Norge?',
-        solution: 'Parlamentarisme: Regjeringen må ha Stortingets tillit. I Norge: Negativ parlamentarisme - regjeringen sitter så lenge det ikke er flertall mot den. Mindretallsregjeringer er vanlige. Mistillitsforslag kan tvinge regjeringen til å gå av.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom flertallsregjering og mindretallsregjering?',
-        solution: 'Flertallsregjering: Regjeringspartiene har flertall på Stortinget, kan vedta det de vil. Mindretallsregjering: Regjeringen mangler flertall, må søke støtte fra andre partier for å få vedtak. Mindretallsregjering er vanligst i Norge, krever forhandlinger og kompromisser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-2-ex-4',
       type: 'exercise',
@@ -4142,6 +4168,32 @@ Et parti må ha minst 4% av stemmene nasjonalt for å få utjevningsmandater. Ka
 - Hemmelig valg i stemmeavlukke`,
     },
     {
+      id: 'samfunnskunnskap-4-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva sperregrensen er og hvilken effekt den har.',
+        solution: 'Sperregrensen er på 4% av stemmene nasjonalt. Partier under 4% får ikke utjevningsmandater, men kan likevel få distriktsmandater. Effekt: Forhindrer veldig små partier på Stortinget, bidrar til mer stabile regjeringer, men noen mener den er udemokratisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-4-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-3-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom distriktsmandater og utjevningsmandater?',
+        solution: 'Distriktsmandater (150): Fordeles direkte i hvert valgdistrikt basert på stemmetallet der. Utjevningsmandater (19): Ett per distrikt, fordeles for å sikre at partienes totale mandattall bedre gjenspeiler stemmetallet nasjonalt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-3-def-2',
       type: 'definition',
       title: 'Partier og stemmeseddelen',
@@ -4205,51 +4257,13 @@ Partier under 4% får ikke utjevningsmandater, men stemmen teller likevel i dist
 **Viktig:**
 Det er OK å være usikker. Sett deg inn i sakene og stem på det du mener er best.`,
     },
-    {
-      id: 'samfunnskunnskap-4-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er kravene for å ha stemmerett ved stortingsvalg i Norge?',
-        solution: 'Krav: Norsk statsborger, fylt 18 år innen utgangen av valgåret, registrert i folkeregisteret. Ved lokalvalg har også utenlandske statsborgere som har bodd i Norge i minst 3 år stemmerett.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva sperregrensen er og hvilken effekt den har.',
-        solution: 'Sperregrensen er på 4% av stemmene nasjonalt. Partier under 4% får ikke utjevningsmandater, men kan likevel få distriktsmandater. Effekt: Forhindrer veldig små partier på Stortinget, bidrar til mer stabile regjeringer, men noen mener den er udemokratisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom distriktsmandater og utjevningsmandater?',
-        solution: 'Distriktsmandater (150): Fordeles direkte i hvert valgdistrikt basert på stemmetallet der. Utjevningsmandater (19): Ett per distrikt, fordeles for å sikre at partienes totale mandattall bedre gjenspeiler stemmetallet nasjonalt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-3-ex-4',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-4-3-ex-4',
-        number: '4',
+        number: '3',
         type: 'classic',
         task: 'Drøft: Hvorfor er det viktig at unge deltar i valg?',
         solution: 'Viktig fordi: Unge må leve lengst med beslutningene som tas, sikrer at unges perspektiver høres, demokratiet trenger bred deltakelse, lav valgdeltakelse svekker legitimitet, etablerer gode vaner tidlig, unge har andre interesser enn eldre. Politikere lytter mer til grupper som stemmer.',
@@ -4321,6 +4335,19 @@ Høyre-venstre-aksen er en forenkling. Partiene skiller seg også på andre akse
 - Miljø som prioritet`,
     },
     {
+      id: 'samfunnskunnskap-4-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med høyre-venstre-aksen i politikken?',
+        solution: 'Høyre-venstre-aksen: Venstresiden vil ha mer stat, høyere skatter og omfordeling. Høyresiden vil ha mindre stat, lavere skatter og mer marked. Sentrum balanserer mellom disse. Aksen er en forenkling - partiene skiller seg også på andre spørsmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-4-def-2',
       type: 'definition',
       title: 'De norske partiene',
@@ -4350,6 +4377,19 @@ Konservativt parti, lavere skatter, næringsvennlig.
 
 **Fremskrittspartiet (Frp):**
 Liberalistisk/populistisk, lavere skatter, streng innvandring.`,
+    },
+    {
+      id: 'samfunnskunnskap-4-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn de ni stortingspartiene og plasser dem på høyre-venstre-aksen.',
+        solution: 'Venstre: Rødt, SV, Ap. Sentrum: Sp, MDG, KrF, Venstre. Høyre: Høyre, Frp. Merk: Noen partier er vanskeligere å plassere - MDG og Sp har saker som går på tvers av aksen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-4-example-1',
@@ -4384,32 +4424,7 @@ Ap og Sp dannet regjering, fikk budsjettstøtte fra SV, men SV er ikke i regjeri
 **Lærdommen:**
 Norsk politikk er mer nyansert enn to blokker, men blokktenkning preger valgkampen.`,
     },
-    {
-      id: 'samfunnskunnskap-4-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva menes med høyre-venstre-aksen i politikken?',
-        solution: 'Høyre-venstre-aksen: Venstresiden vil ha mer stat, høyere skatter og omfordeling. Høyresiden vil ha mindre stat, lavere skatter og mer marked. Sentrum balanserer mellom disse. Aksen er en forenkling - partiene skiller seg også på andre spørsmål.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn de ni stortingspartiene og plasser dem på høyre-venstre-aksen.',
-        solution: 'Venstre: Rødt, SV, Ap. Sentrum: Sp, MDG, KrF, Venstre. Høyre: Høyre, Frp. Merk: Noen partier er vanskeligere å plassere - MDG og Sp har saker som går på tvers av aksen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-4-ex-3',
       type: 'exercise',
@@ -4485,6 +4500,19 @@ Velges av kommunestyret (i noen kommuner direkte av folket). Leder kommunestyret
 Øverste administrative leder. Ansatt av kommunestyret. Leder administrasjonen og forbereder saker for politikerne.`,
     },
     {
+      id: 'samfunnskunnskap-4-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på kommunestyre og formannskap?',
+        solution: 'Kommunestyret: Øverste organ, alle medlemmer velges av folket, fatter de viktigste vedtakene. Formannskapet: Velges av og blant kommunestyrets medlemmer, forbereder saker, behandler hastesaker, har ofte delegert myndighet i noen saker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-5-def-2',
       type: 'definition',
       title: 'Kommunens oppgaver',
@@ -4509,6 +4537,19 @@ Velges av kommunestyret (i noen kommuner direkte av folket). Leder kommunestyret
 - Rammetilskudd fra staten (ca. 30%)
 - Øremerkede tilskudd
 - Brukerbetalinger og gebyrer`,
+    },
+    {
+      id: 'samfunnskunnskap-4-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fem lovpålagte oppgaver som kommunen har ansvar for.',
+        solution: 'Fem av følgende: Grunnskole, barnehage, helse- og omsorgstjenester (sykehjem), barnevern, sosiale tjenester, plan- og byggesaker, vann og avløp, renovasjon, brann og redning, bibliotek.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-5-example-1',
@@ -4546,32 +4587,7 @@ Noen oppgaver er for store for enkeltkommuner, men trenger lokal forankring. Vid
 **Styring:**
 Fylkestinget (35-57 medlemmer) velges direkte. Ledes av fylkesordfører. Fylkeskommunedirektør leder administrasjonen.`,
     },
-    {
-      id: 'samfunnskunnskap-4-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på kommunestyre og formannskap?',
-        solution: 'Kommunestyret: Øverste organ, alle medlemmer velges av folket, fatter de viktigste vedtakene. Formannskapet: Velges av og blant kommunestyrets medlemmer, forbereder saker, behandler hastesaker, har ofte delegert myndighet i noen saker.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fem lovpålagte oppgaver som kommunen har ansvar for.',
-        solution: 'Fem av følgende: Grunnskole, barnehage, helse- og omsorgstjenester (sykehjem), barnevern, sosiale tjenester, plan- og byggesaker, vann og avløp, renovasjon, brann og redning, bibliotek.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-5-ex-3',
       type: 'exercise',
@@ -4663,6 +4679,19 @@ Demokratiet trenger aktive borgere som deltar, stiller spørsmål og holder makt
 - Delta i frivillige organisasjoner`,
     },
     {
+      id: 'samfunnskunnskap-4-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på konvensjonell og ukonvensjonell politisk deltakelse?',
+        solution: 'Konvensjonell deltakelse følger etablerte demokratiske kanaler: stemme, partimedlemskap, kontakte politikere, høringer. Ukonvensjonell deltakelse går utenfor disse: demonstrasjoner, boikott, sivil ulydighet, aksjoner. Begge er lovlige (med unntak av noen aksjonsformer).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-6-def-2',
       type: 'definition',
       title: 'Sivilsamfunnet',
@@ -4686,6 +4715,19 @@ Den delen av samfunnet som verken er stat eller marked - frivillige organisasjon
 
 **Norge:**
 Norge har et sterkt sivilsamfunn med høy organisasjonsgrad. Over 80% av nordmenn er medlem i minst én organisasjon.`,
+    },
+    {
+      id: 'samfunnskunnskap-4-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva menes med sivilsamfunnet, og hvorfor er det viktig for demokratiet?',
+        solution: 'Sivilsamfunnet er frivillige organisasjoner og foreninger mellom stat og marked. Viktig fordi: Gir folk mulighet til å organisere seg, fremmer interesser, skaper tilhørighet, bidrar til demokratisk opplæring, fungerer som motvekt til staten, bygger sosial kapital.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-6-example-1',
@@ -4725,32 +4767,7 @@ Argumenter mot:
 **Konklusjon:**
 Sivil ulydighet er kontroversielt, men kan i noen tilfeller være etisk forsvarlig når det protesteres mot alvorlig urett.`,
     },
-    {
-      id: 'samfunnskunnskap-4-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på konvensjonell og ukonvensjonell politisk deltakelse?',
-        solution: 'Konvensjonell deltakelse følger etablerte demokratiske kanaler: stemme, partimedlemskap, kontakte politikere, høringer. Ukonvensjonell deltakelse går utenfor disse: demonstrasjoner, boikott, sivil ulydighet, aksjoner. Begge er lovlige (med unntak av noen aksjonsformer).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva menes med sivilsamfunnet, og hvorfor er det viktig for demokratiet?',
-        solution: 'Sivilsamfunnet er frivillige organisasjoner og foreninger mellom stat og marked. Viktig fordi: Gir folk mulighet til å organisere seg, fremmer interesser, skaper tilhørighet, bidrar til demokratisk opplæring, fungerer som motvekt til staten, bygger sosial kapital.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-6-ex-3',
       type: 'exercise',
@@ -4839,6 +4856,19 @@ Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordrin
 - Undergraver prinsippet om politisk likhet`,
     },
     {
+      id: 'samfunnskunnskap-4-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn tre indre trusler mot demokratiet.',
+        solution: 'Tre av følgende: Politisk ekstremisme og terrorisme, økende polarisering, svekket tillit til institusjoner, lav valgdeltakelse, økonomisk ulikhet, hatytringer og trusler mot politikere, radikalisering, konspirasjonsteorier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-4-7-def-2',
       type: 'definition',
       title: 'Ytre trusler og nye utfordringer',
@@ -4865,6 +4895,19 @@ Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordrin
 - Migrasjon skaper politisk konflikt
 - Pandemier kan brukes til maktkonsentrasjon
 - Økonomiske kriser skaper grobunn for ekstremisme`,
+    },
+    {
+      id: 'samfunnskunnskap-4-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-4-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva menes med desinformasjon, og hvorfor er det en trussel mot demokratiet?',
+        solution: 'Desinformasjon er bevisst feilinformasjon for å villede. Trussel fordi: Gjør det vanskelig å ta informerte valg, undergraver tillit til medier og institusjoner, kan manipulere valg, skaper polarisering, spres raskt via sosiale medier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-4-7-example-1',
@@ -4902,32 +4945,6 @@ Gradvis svekkelse av demokratiske institusjoner og normer - ofte uten dramatiske
 Demokrati kan ikke tas for gitt. Selv etablerte demokratier kan svekkes hvis borgerne ikke forsvarer demokratiske verdier og institusjoner.`,
     },
     {
-      id: 'samfunnskunnskap-4-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn tre indre trusler mot demokratiet.',
-        solution: 'Tre av følgende: Politisk ekstremisme og terrorisme, økende polarisering, svekket tillit til institusjoner, lav valgdeltakelse, økonomisk ulikhet, hatytringer og trusler mot politikere, radikalisering, konspirasjonsteorier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-4-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-4-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva menes med desinformasjon, og hvorfor er det en trussel mot demokratiet?',
-        solution: 'Desinformasjon er bevisst feilinformasjon for å villede. Trussel fordi: Gjør det vanskelig å ta informerte valg, undergraver tillit til medier og institusjoner, kan manipulere valg, skaper polarisering, spres raskt via sosiale medier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-4-7-ex-3',
       type: 'exercise',
       exercise: {
@@ -4940,6 +4957,7 @@ Demokrati kan ikke tas for gitt. Selv etablerte demokratier kan svekkes hvis bor
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-4-7-ex-4',
       type: 'exercise',
@@ -5013,6 +5031,19 @@ Ideologier forenkler en kompleks virkelighet til håndterbare kategorier og løs
 Ulike ideologier konkurrerer om oppslutning og politisk makt. De representerer ulike interesser og verdier.`,
     },
     {
+      id: 'samfunnskunnskap-5-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en politisk ideologi?',
+        solution: 'En politisk ideologi er et sammenhengende sett av ideer om hvordan samfunnet bør organiseres. Den inneholder verdier og prinsipper, syn på menneskenaturen, syn på statens rolle, mål for samfunnet og forslag til hvordan målene kan nås.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-1-def-2',
       type: 'definition',
       title: 'De store spørsmålene',
@@ -5032,6 +5063,19 @@ Bør samfunnet endres radikalt, gradvis reformeres, eller bevares slik det er?
 Bør nasjonen prioriteres, eller bør vi tenke globalt? Hvor åpne skal grensene være?
 
 Ulike ideologier gir ulike svar på disse spørsmålene.`,
+    },
+    {
+      id: 'samfunnskunnskap-5-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre sentrale motsetningspar i politisk ideologi.',
+        solution: 'Tre av følgende: Frihet vs. likhet, marked vs. stat, individ vs. fellesskap, endring vs. bevaring, nasjonalt vs. internasjonalt. Disse motsetningene viser de grunnleggende verdivalgene ulike ideologier tar stilling til.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-1-example-1',
@@ -5061,32 +5105,7 @@ Ulike ideologier gir ulike svar på disse spørsmålene.`,
 **Lærdommen:**
 Skattepolitikk handler ikke bare om tall - det handler om verdier. Hvordan vi tenker om skatt avhenger av hvilken ideologisk "brille" vi ser gjennom.`,
     },
-    {
-      id: 'samfunnskunnskap-5-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en politisk ideologi?',
-        solution: 'En politisk ideologi er et sammenhengende sett av ideer om hvordan samfunnet bør organiseres. Den inneholder verdier og prinsipper, syn på menneskenaturen, syn på statens rolle, mål for samfunnet og forslag til hvordan målene kan nås.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre sentrale motsetningspar i politisk ideologi.',
-        solution: 'Tre av følgende: Frihet vs. likhet, marked vs. stat, individ vs. fellesskap, endring vs. bevaring, nasjonalt vs. internasjonalt. Disse motsetningene viser de grunnleggende verdivalgene ulike ideologier tar stilling til.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-1-ex-3',
       type: 'exercise',
@@ -5173,6 +5192,19 @@ Venstre (sosialliberalt), Høyre og Frp (økonomisk liberale)
 John Locke, Adam Smith, John Stuart Mill`,
     },
     {
+      id: 'samfunnskunnskap-5-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er de viktigste kjerneverdiene i liberalismen?',
+        solution: 'Liberalismens kjerneverdier: Individuell frihet, begrenset statsmakt, privat eiendomsrett, markedsøkonomi, likhet for loven, menneskerettigheter. Individet står i sentrum, og staten skal beskytte individets rettigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-2-def-2',
       type: 'definition',
       title: 'Konservatisme',
@@ -5204,6 +5236,19 @@ Høyre, KrF
 Edmund Burke, Roger Scruton`,
     },
     {
+      id: 'samfunnskunnskap-5-2-ex-2a',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-2-ex-2a',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar konservatismens syn på endring og tradisjon.',
+        solution: 'Konservatismen er skeptisk til raske endringer fordi de kan ødelegge verdifulle tradisjoner og institusjoner. Tradisjon ses som opphopet visdom fra tidligere generasjoner. Endringer bør skje gradvis og bygge på det bestående, ikke revolusjonært.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-2-def-3',
       type: 'definition',
       title: 'Sosialisme',
@@ -5232,6 +5277,19 @@ Ap (sosialdemokrati), SV (demokratisk sosialisme), Rødt (sosialisme)
 Karl Marx, Friedrich Engels (kommunisme), Eduard Bernstein (sosialdemokrati)`,
     },
     {
+      id: 'samfunnskunnskap-5-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom sosialdemokrati og kommunisme?',
+        solution: 'Sosialdemokrati: Gradvis endring gjennom demokrati, aksepterer markedsøkonomi med regulering, vil reformere kapitalismen, ikke avskaffe den. Kommunisme: Revolusjonær endring, avskaffelse av privat eiendom og kapitalisme, klassekamp, planøkonomi. Begge er sosialistiske, men metode og mål skiller seg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-2-example-1',
       type: 'example',
       title: 'Sammenligning: Hvordan bør staten håndtere fattigdom?',
@@ -5257,41 +5315,16 @@ Karl Marx, Friedrich Engels (kommunisme), Eduard Bernstein (sosialdemokrati)`,
 **Konklusjon:**
 Synet på fattigdom avhenger av grunnleggende verdier: Frihet (liberal), tradisjon/orden (konservativ), eller likhet (sosialistisk).`,
     },
-    {
-      id: 'samfunnskunnskap-5-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er de viktigste kjerneverdiene i liberalismen?',
-        solution: 'Liberalismens kjerneverdier: Individuell frihet, begrenset statsmakt, privat eiendomsrett, markedsøkonomi, likhet for loven, menneskerettigheter. Individet står i sentrum, og staten skal beskytte individets rettigheter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-2-ex-2',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-2-ex-2',
-        number: '2',
+        number: '4',
         type: 'classic',
         task: 'Sammenlign konservatismens og sosialismens syn på endring.',
         solution: 'Konservatisme: Skeptisk til raske endringer, vil bevare det bestående, vektlegger tradisjon og kontinuitet, endringer må være gradvise. Sosialisme: Ønsker aktiv endring av samfunnet, vil fjerne urettferdighet, varierer fra reformistisk (gradvis) til revolusjonær (rask).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom sosialdemokrati og kommunisme?',
-        solution: 'Sosialdemokrati: Gradvis endring gjennom demokrati, aksepterer markedsøkonomi med regulering, vil reformere kapitalismen, ikke avskaffe den. Kommunisme: Revolusjonær endring, avskaffelse av privat eiendom og kapitalisme, klassekamp, planøkonomi. Begge er sosialistiske, men metode og mål skiller seg.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -5301,7 +5334,7 @@ Synet på fattigdom avhenger av grunnleggende verdier: Frihet (liberal), tradisj
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-2-ex-4',
-        number: '4',
+        number: '5',
         type: 'classic',
         task: 'Hvilket norsk parti vil du knytte til hvilken ideologi, og begrunn.',
         solution: 'Eksempler: Venstre - sosialliberalisme (frihet, marked, men også sosiale hensyn). Høyre - liberalkonservatisme (markedsøkonomi, men bevaring av institusjoner). Ap - sosialdemokrati (omfordeling, velferd, men innenfor demokratisk kapitalisme). KrF - sosialkonservatisme (kristne verdier, familieverdier). SV/Rødt - demokratisk sosialisme (sterk stat, omfordeling, kritisk til kapitalisme).',
@@ -5364,6 +5397,19 @@ En politisk akse som går på tvers av høyre-venstre:
 Et parti kan være økonomisk venstre (for omfordeling) men TAN (skeptisk til innvandring). Eller økonomisk høyre men GAL (for miljø og liberale verdier).`,
     },
     {
+      id: 'samfunnskunnskap-5-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva står GAL og TAN for i GAL-TAN-modellen?',
+        solution: 'GAL: Grønn-Alternativ-Libertær. Vektlegger miljø, personlig frihet, åpenhet, internasjonalisme. TAN: Tradisjonell-Autoritær-Nasjonalistisk. Vektlegger tradisjon, lov og orden, nasjonal identitet, skepsis til innvandring og overnasjonale institusjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-3-def-2',
       type: 'definition',
       title: 'Andre ideologier',
@@ -5392,6 +5438,19 @@ Et parti kan være økonomisk venstre (for omfordeling) men TAN (skeptisk til in
 - Ekstrem individuell frihet
 - Minimal stat
 - Skiller seg fra konservatisme ved å være verdiprogressiv`,
+    },
+    {
+      id: 'samfunnskunnskap-5-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er grønn ideologi, og hvilket norsk parti representerer den?',
+        solution: 'Grønn ideologi/økologisme har miljøvern som overordnet verdi, vektlegger bærekraft, er kritisk til ensidig fokus på økonomisk vekst. MDG (Miljøpartiet De Grønne) representerer denne ideologien i Norge. De vil sette naturen og miljøet først i politikken.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-3-example-1',
@@ -5435,32 +5494,6 @@ Et parti kan være økonomisk venstre (for omfordeling) men TAN (skeptisk til in
 Norsk politikk er kompleks - partiene skiller seg på mange ulike dimensjoner.`,
     },
     {
-      id: 'samfunnskunnskap-5-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva står GAL og TAN for i GAL-TAN-modellen?',
-        solution: 'GAL: Grønn-Alternativ-Libertær. Vektlegger miljø, personlig frihet, åpenhet, internasjonalisme. TAN: Tradisjonell-Autoritær-Nasjonalistisk. Vektlegger tradisjon, lov og orden, nasjonal identitet, skepsis til innvandring og overnasjonale institusjoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er grønn ideologi, og hvilket norsk parti representerer den?',
-        solution: 'Grønn ideologi/økologisme har miljøvern som overordnet verdi, vektlegger bærekraft, er kritisk til ensidig fokus på økonomisk vekst. MDG (Miljøpartiet De Grønne) representerer denne ideologien i Norge. De vil sette naturen og miljøet først i politikken.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-3-ex-3',
       type: 'exercise',
       exercise: {
@@ -5473,6 +5506,7 @@ Norsk politikk er kompleks - partiene skiller seg på mange ulike dimensjoner.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-3-ex-4',
       type: 'exercise',
@@ -5539,6 +5573,19 @@ Populisme baserer seg på en motsetning mellom "folket" (godt, ærlig, hardtarbe
 - Er ikke nødvendigvis anti-demokratisk, men kan utfordre liberalt demokrati`,
     },
     {
+      id: 'samfunnskunnskap-5-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er de viktigste kjennetegnene ved populisme?',
+        solution: 'Populismens kjennetegn: 1) Motsetning mellom "folket" og "eliten", 2) Påstand om å representere det "ekte" folket, 3) Kritikk av etablerte institusjoner, 4) Ofte karismatiske ledere, 5) Forenkling av komplekse problemer, 6) Kritikk av mellomliggende institusjoner som medier og partier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-4-def-2',
       type: 'definition',
       title: 'Høyre- og venstrepopulisme',
@@ -5562,6 +5609,19 @@ Populisme baserer seg på en motsetning mellom "folket" (godt, ærlig, hardtarbe
 **Forskjeller:**
 - Høyre fokuserer på kultur og identitet
 - Venstre fokuserer på økonomi og klasse`,
+    },
+    {
+      id: 'samfunnskunnskap-5-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen på høyre- og venstrepopulisme?',
+        solution: 'Høyrepopulisme: Fokuserer på kulturell elite, nasjonal identitet, er kritisk til innvandring og globalisering. Venstrepopulisme: Fokuserer på økonomisk elite, klassekamp, er kritisk til kapitalisme og ulikhet. Begge kritiserer "systemet" og hevder å representere vanlige folk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-4-example-1',
@@ -5604,32 +5664,6 @@ Populisme baserer seg på en motsetning mellom "folket" (godt, ærlig, hardtarbe
 Populisme er både et symptom på problemer i demokratiet og en potensiell trussel mot det.`,
     },
     {
-      id: 'samfunnskunnskap-5-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er de viktigste kjennetegnene ved populisme?',
-        solution: 'Populismens kjennetegn: 1) Motsetning mellom "folket" og "eliten", 2) Påstand om å representere det "ekte" folket, 3) Kritikk av etablerte institusjoner, 4) Ofte karismatiske ledere, 5) Forenkling av komplekse problemer, 6) Kritikk av mellomliggende institusjoner som medier og partier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er forskjellen på høyre- og venstrepopulisme?',
-        solution: 'Høyrepopulisme: Fokuserer på kulturell elite, nasjonal identitet, er kritisk til innvandring og globalisering. Venstrepopulisme: Fokuserer på økonomisk elite, klassekamp, er kritisk til kapitalisme og ulikhet. Begge kritiserer "systemet" og hevder å representere vanlige folk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-4-ex-3',
       type: 'exercise',
       exercise: {
@@ -5642,6 +5676,7 @@ Populisme er både et symptom på problemer i demokratiet og en potensiell truss
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-4-ex-4',
       type: 'exercise',
@@ -5723,6 +5758,19 @@ Statsmakten er delt i tre for å hindre maktmisbruk. Ideen kommer fra Montesquie
 - Beskytte borgerne mot overgrep`,
     },
     {
+      id: 'samfunnskunnskap-5-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-5-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar maktfordelingsprinsippet og nevn de tre statsmaktene.',
+        solution: 'Maktfordelingsprinsippet: Statsmakten deles i tre for å hindre maktmisbruk. De tre statsmaktene: 1) Stortinget (lovgivende) - vedtar lover og budsjett, 2) Regjeringen (utøvende) - leder landet og setter lover ut i livet, 3) Domstolene (dømmende) - avgjør rettstvister og tolker lover.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-5-def-2',
       type: 'definition',
       title: 'Grunnlovens rettigheter',
@@ -5745,6 +5793,19 @@ Etter revisjonen i 2014 inneholder Grunnloven et styrket rettighetsvern:
 
 **Viktig:**
 Grunnloven har høyere rang enn vanlige lover. Lover som strider mot Grunnloven kan settes til side av domstolene.`,
+    },
+    {
+      id: 'samfunnskunnskap-5-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-5-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fire rettigheter som er beskyttet i Grunnloven.',
+        solution: 'Fire av følgende: Ytringsfrihet, religionsfrihet, forsamlings- og foreningsfrihet, stemmerett, rettssikkerhet, vern av privatlivet, rett til utdanning, rett til arbeid, rett til sunt miljø, barns rettigheter. Rettighetene beskytter borgerne mot overgrep fra staten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-5-example-1',
@@ -5776,53 +5837,28 @@ Grunnloven har høyere rang enn vanlige lover. Lover som strider mot Grunnloven 
 Grunnlovsrevisjonen i 2014 tok mange år å forberede, men ble vedtatt med stort flertall og styrket menneskerettighetsvernet betydelig.`,
     },
     {
-      id: 'samfunnskunnskap-5-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er Grunnloven, og hvorfor er den viktig?',
-        solution: 'Grunnloven er Norges høyeste lov, vedtatt 17. mai 1814. Den er viktig fordi: Den fastsetter statens styreform, fordeler makt mellom statsmaktene, beskytter borgernes grunnleggende rettigheter, og har høyere rang enn vanlige lover. Den er grunnlaget for hele det norske demokratiet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar maktfordelingsprinsippet og nevn de tre statsmaktene.',
-        solution: 'Maktfordelingsprinsippet: Statsmakten deles i tre for å hindre maktmisbruk. De tre statsmaktene: 1) Stortinget (lovgivende) - vedtar lover og budsjett, 2) Regjeringen (utøvende) - leder landet og setter lover ut i livet, 3) Domstolene (dømmende) - avgjør rettstvister og tolker lover.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn fire rettigheter som er beskyttet i Grunnloven.',
-        solution: 'Fire av følgende: Ytringsfrihet, religionsfrihet, forsamlings- og foreningsfrihet, stemmerett, rettssikkerhet, vern av privatlivet, rett til utdanning, rett til arbeid, rett til sunt miljø, barns rettigheter. Rettighetene beskytter borgerne mot overgrep fra staten.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-5-ex-4',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-5-ex-4',
-        number: '4',
+        number: '3',
         type: 'classic',
         task: 'Hvorfor er det vanskeligere å endre Grunnloven enn vanlige lover?',
         solution: 'Vanskeligere fordi: 1) Forslag må fremmes tidlig i valgperioden, 2) Det må være valg mellom forslag og vedtak, 3) Krever 2/3 flertall på Stortinget. Formålet er at Grunnloven skal være stabil, viktige prinsipper ikke endres på impuls, og befolkningen skal ha tid til å vurdere endringer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-5-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-5-ex-1',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er Grunnloven, og hvorfor er den viktig?',
+        solution: 'Grunnloven er Norges høyeste lov, vedtatt 17. mai 1814. Den er viktig fordi: Den fastsetter statens styreform, fordeler makt mellom statsmaktene, beskytter borgernes grunnleggende rettigheter, og har høyere rang enn vanlige lover. Den er grunnlaget for hele det norske demokratiet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -5886,6 +5922,19 @@ Representantene velges fra 19 valgdistrikter (fylkene) for fire år. Stortinget 
 - Votering ved elektronisk avstemning`,
     },
     {
+      id: 'samfunnskunnskap-5-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-6-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva en stortingskomité er og hvordan den arbeider.',
+        solution: 'Stortingskomiteene er fagkomiteer der sakene behandles først. Det finnes 12 komiteer (f.eks. finanskomiteen, justiskomiteen). Representantene fordeles på komiteene. Komiteen studerer saken, holder høringer, diskuterer og avgir innstilling til Stortinget i plenum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-6-def-2',
       type: 'definition',
       title: 'Stortingets kontroll med regjeringen',
@@ -5914,6 +5963,19 @@ Representantene velges fra 19 valgdistrikter (fylkene) for fire år. Stortinget 
 6. **Mistillitsforslag:**
    - Stortinget kan felle regjeringen
    - Krever flertall mot regjeringen`,
+    },
+    {
+      id: 'samfunnskunnskap-5-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-6-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre måter Stortinget kontrollerer regjeringen på.',
+        solution: 'Tre av følgende: Spørretimen (muntlig og skriftlig), interpellasjoner, kontroll- og konstitusjonskomiteen, Riksrevisjonen, Stortingets ombudsmann, mistillitsforslag. Kontrollfunksjonen sikrer at regjeringen er ansvarlig overfor folket.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-6-example-1',
@@ -5951,53 +6013,28 @@ Representantene velges fra 19 valgdistrikter (fylkene) for fire år. Stortinget 
    - Loven trer i kraft på et bestemt tidspunkt`,
     },
     {
-      id: 'samfunnskunnskap-5-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er Stortingets viktigste oppgaver?',
-        solution: 'Stortingets viktigste oppgaver: 1) Vedta lover, 2) Vedta statsbudsjettet, 3) Kontrollere regjeringen, 4) Debattere viktige samfunnsspørsmål, 5) Behandle forslag fra regjeringen og representantene. Stortinget er den lovgivende makt i Norge.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva en stortingskomité er og hvordan den arbeider.',
-        solution: 'Stortingskomiteene er fagkomiteer der sakene behandles først. Det finnes 12 komiteer (f.eks. finanskomiteen, justiskomiteen). Representantene fordeles på komiteene. Komiteen studerer saken, holder høringer, diskuterer og avgir innstilling til Stortinget i plenum.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre måter Stortinget kontrollerer regjeringen på.',
-        solution: 'Tre av følgende: Spørretimen (muntlig og skriftlig), interpellasjoner, kontroll- og konstitusjonskomiteen, Riksrevisjonen, Stortingets ombudsmann, mistillitsforslag. Kontrollfunksjonen sikrer at regjeringen er ansvarlig overfor folket.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-6-ex-4',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-6-ex-4',
-        number: '4',
+        number: '3',
         type: 'classic',
         task: 'Beskriv hovedtrinnene i hvordan en lov blir til.',
         solution: 'Hovedtrinnene: 1) Initiativ fra regjering eller representant, 2) Utredning og høring, 3) Proposisjon fremmes, 4) Komitébehandling, 5) Debatt og votering i plenum, 6) Kongelig sanksjon, 7) Kunngjøring og ikrafttredelse. Prosessen sikrer grundig behandling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-5-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-6-ex-1',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er Stortingets viktigste oppgaver?',
+        solution: 'Stortingets viktigste oppgaver: 1) Vedta lover, 2) Vedta statsbudsjettet, 3) Kontrollere regjeringen, 4) Debattere viktige samfunnsspørsmål, 5) Behandle forslag fra regjeringen og representantene. Stortinget er den lovgivende makt i Norge.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6059,6 +6096,19 @@ Regjeringen må ha Stortingets tillit for å sitte. Hvis flertallet er mot regje
 - **Koalisjonsregjering:** Flere partier i regjering sammen`,
     },
     {
+      id: 'samfunnskunnskap-5-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-7-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva parlamentarisme betyr.',
+        solution: 'Parlamentarisme betyr at regjeringen må ha Stortingets tillit for å sitte. Hvis flertallet er mot regjeringen, må den gå av. Norge har negativ parlamentarisme - det kreves aktivt flertall MOT regjeringen for å felle den, ikke aktivt flertall FOR.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-7-def-2',
       type: 'definition',
       title: 'Departementene',
@@ -6086,6 +6136,19 @@ Under departementene ligger direktorater og etater som utfører praktiske oppgav
 - Skatteetaten
 - Utdanningsdirektoratet
 - Politidirektoratet`,
+    },
+    {
+      id: 'samfunnskunnskap-5-7-ex-dep',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-7-ex-dep',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er et departement, og nevn to eksempler.',
+        solution: 'Et departement er regjeringens sekretariat, ledet av en statsråd. Eksempler: Finansdepartementet (ansvar for statsbudsjettet), Kunnskapsdepartementet (skole og utdanning), Helse- og omsorgsdepartementet (helse), Justis- og beredskapsdepartementet (politi og rettsvesen).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-7-example-1',
@@ -6118,27 +6181,28 @@ Under departementene ligger direktorater og etater som utfører praktiske oppgav
 Etter valget ble det klart at Ap og Sp ville danne regjering. Forhandlet frem Hurdalsplattformen. SV valgte å stå utenfor, men støtter ofte regjeringen.`,
     },
     {
-      id: 'samfunnskunnskap-5-7-ex-1',
+      id: 'samfunnskunnskap-5-7-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'samfunnskunnskap-5-7-ex-1',
-        number: '1',
+        id: 'samfunnskunnskap-5-7-ex-4',
+        number: '3',
         type: 'classic',
-        task: 'Hva er regjeringens viktigste oppgaver?',
-        solution: 'Regjeringens viktigste oppgaver: 1) Lede landet og forvaltningen, 2) Foreslå lover og budsjett til Stortinget, 3) Sette lover og vedtak ut i livet, 4) Representere Norge internasjonalt. Regjeringen er den utøvende makt.',
+        task: 'Beskriv hvordan en ny regjering dannes etter et stortingsvalg.',
+        solution: 'Prosessen: 1) Valgresultatet viser maktfordelingen, 2) Sonderinger om hvem som kan danne regjering, 3) Regjeringsforhandlinger og politisk plattform, 4) Kongen utnevner statsminister og statsråder, 5) Regjeringen presenterer politikken for Stortinget. Prosessen tar noen uker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
-      id: 'samfunnskunnskap-5-7-ex-2',
+      id: 'samfunnskunnskap-5-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'samfunnskunnskap-5-7-ex-2',
-        number: '2',
+        id: 'samfunnskunnskap-5-7-ex-1',
+        number: '4',
         type: 'classic',
-        task: 'Forklar hva parlamentarisme betyr.',
-        solution: 'Parlamentarisme betyr at regjeringen må ha Stortingets tillit for å sitte. Hvis flertallet er mot regjeringen, må den gå av. Norge har negativ parlamentarisme - det kreves aktivt flertall MOT regjeringen for å felle den, ikke aktivt flertall FOR.',
+        task: 'Hva er regjeringens viktigste oppgaver?',
+        solution: 'Regjeringens viktigste oppgaver: 1) Lede landet og forvaltningen, 2) Foreslå lover og budsjett til Stortinget, 3) Sette lover og vedtak ut i livet, 4) Representere Norge internasjonalt. Regjeringen er den utøvende makt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6148,23 +6212,10 @@ Etter valget ble det klart at Ap og Sp ville danne regjering. Forhandlet frem Hu
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-7-ex-3',
-        number: '3',
+        number: '5',
         type: 'classic',
         task: 'Hva er forskjellen på flertalls- og mindretallsregjering?',
         solution: 'Flertallsregjering: Regjeringspartiene har over halvparten av mandatene på Stortinget, kan vedta saker uten støtte fra andre. Mindretallsregjering: Regjeringspartiene har under halvparten, må søke støtte sak for sak. I Norge er mindretallsregjeringer vanligst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-7-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-7-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv hvordan en ny regjering dannes etter et stortingsvalg.',
-        solution: 'Prosessen: 1) Valgresultatet viser maktfordelingen, 2) Sonderinger om hvem som kan danne regjering, 3) Regjeringsforhandlinger og politisk plattform, 4) Kongen utnevner statsminister og statsråder, 5) Regjeringen presenterer politikken for Stortinget. Prosessen tar noen uker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6228,6 +6279,19 @@ Domstolene skal være uavhengige av de andre statsmaktene. Verken regjering elle
 - Trygderetten`,
     },
     {
+      id: 'samfunnskunnskap-5-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-8-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv domstolshierarkiet i Norge.',
+        solution: 'Domstolshierarkiet: 1) Tingrettene - første instans for de fleste saker, 2) Lagmannsrettene - andre instans/ankedomstol, 3) Høyesterett - øverste domstol, behandler prinsipielle saker, avgjørelsene er endelige. I tillegg finnes spesialdomstoler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-8-def-2',
       type: 'definition',
       title: 'Rettssikkerhet',
@@ -6247,6 +6311,19 @@ Man kan ikke straffes to ganger for samme handling (ne bis in idem).
 
 **Domstolskontroll:**
 Domstolene kan kontrollere at forvaltningen følger loven og at lover ikke strider mot Grunnloven.`,
+    },
+    {
+      id: 'samfunnskunnskap-5-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-8-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva betyr rettssikkerhet, og nevn tre prinsipper som sikrer den.',
+        solution: 'Rettssikkerhet er borgernes vern mot overgrep fra staten. Tre av følgende prinsipper: Legalitetsprinsippet (ingen straff uten lov), uskyldspresumsjon, rett til forsvarer, offentlighet, kontradiksjon, ankerett, forbud mot dobbeltstraff.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-8-example-1',
@@ -6280,41 +6357,16 @@ Domstolene kan kontrollere at forvaltningen følger loven og at lover ikke strid
 **Soningsforhold:**
 Hvis dømt til fengsel, sones straffen i fengsel. Norge har fokus på rehabilitering, ikke bare straff.`,
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-8-ex-1',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-8-ex-1',
-        number: '1',
+        number: '3',
         type: 'classic',
         task: 'Hva er domstolenes hovedoppgaver?',
         solution: 'Domstolenes hovedoppgaver: 1) Avgjøre straffesaker, 2) Avgjøre sivile saker (tvister mellom parter), 3) Tolke og anvende lovene, 4) Kontrollere at lover ikke strider mot Grunnloven. Domstolene er den dømmende makt i maktfordelingsprinsippet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-8-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv domstolshierarkiet i Norge.',
-        solution: 'Domstolshierarkiet: 1) Tingrettene - første instans for de fleste saker, 2) Lagmannsrettene - andre instans/ankedomstol, 3) Høyesterett - øverste domstol, behandler prinsipielle saker, avgjørelsene er endelige. I tillegg finnes spesialdomstoler.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-8-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-8-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva betyr rettssikkerhet, og nevn tre prinsipper som sikrer den.',
-        solution: 'Rettssikkerhet er borgernes vern mot overgrep fra staten. Tre av følgende prinsipper: Legalitetsprinsippet (ingen straff uten lov), uskyldspresumsjon, rett til forsvarer, offentlighet, kontradiksjon, ankerett, forbud mot dobbeltstraff.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6396,6 +6448,19 @@ Uten partier ville det være vanskelig å organisere demokratisk styring. Partie
 Alle stortingspartiene har ungdomspartier (AUF, Unge Høyre, FpU, SU, etc.). Viktige for rekruttering og politisk skolering.`,
     },
     {
+      id: 'samfunnskunnskap-5-9-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-9-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv partienes organisasjonsstruktur.',
+        solution: 'Partienes struktur: 1) Lokallag - grunnenheten, verving og lokalpolitikk, 2) Fylkeslag - koordinerer fylkesarbeidet, nominerer stortingskandidater, 3) Sentralt nivå - hovedkontor, nasjonal strategi, stortingsgruppe, 4) Landsmøtet - øverste organ, vedtar program, velger leder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-9-def-2',
       type: 'definition',
       title: 'Partienes finansiering',
@@ -6424,6 +6489,19 @@ Alle stortingspartiene har ungdomspartier (AUF, Unge Høyre, FpU, SU, etc.). Vik
 - Anonyme bidrag over 12 000 kr er forbudt
 - Utenlandske bidrag er begrenset
 - Partifinansiering skal sikre åpenhet og forhindre korrupsjon`,
+    },
+    {
+      id: 'samfunnskunnskap-5-9-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-9-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan finansieres politiske partier i Norge?',
+        solution: 'Finansieringskilder: 1) Statlig partistøtte (hoveddelen) - fordeles etter oppslutning, 2) Medlemskontingent, 3) Gaver og bidrag fra private/organisasjoner, 4) Lotteriinntekter. Bidrag over 35 000 kr må offentliggjøres, anonyme bidrag over 12 000 kr er forbudt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-9-example-1',
@@ -6461,53 +6539,28 @@ Alle stortingspartiene har ungdomspartier (AUF, Unge Høyre, FpU, SU, etc.). Vik
 Det tar vanligvis mange år å bygge seg opp i et parti. De fleste stortingsrepresentanter har lang fartstid som lokalpolitikere eller i ungdomspartiet.`,
     },
     {
-      id: 'samfunnskunnskap-5-9-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-9-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvilke funksjoner har politiske partier i et demokrati?',
-        solution: 'Partienes funksjoner: Rekruttere og skolere politikere, utvikle politiske programmer, mobilisere velgere, forenkle valgene for velgerne, koble folkets ønsker til politiske vedtak, holde regjeringen ansvarlig (opposisjon). Partiene er bindeleddet mellom folk og makt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-9-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-9-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv partienes organisasjonsstruktur.',
-        solution: 'Partienes struktur: 1) Lokallag - grunnenheten, verving og lokalpolitikk, 2) Fylkeslag - koordinerer fylkesarbeidet, nominerer stortingskandidater, 3) Sentralt nivå - hovedkontor, nasjonal strategi, stortingsgruppe, 4) Landsmøtet - øverste organ, vedtar program, velger leder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-9-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-9-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvordan finansieres politiske partier i Norge?',
-        solution: 'Finansieringskilder: 1) Statlig partistøtte (hoveddelen) - fordeles etter oppslutning, 2) Medlemskontingent, 3) Gaver og bidrag fra private/organisasjoner, 4) Lotteriinntekter. Bidrag over 35 000 kr må offentliggjøres, anonyme bidrag over 12 000 kr er forbudt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-9-ex-4',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-9-ex-4',
-        number: '4',
+        number: '3',
         type: 'classic',
         task: 'Beskriv hvordan nominasjonsprosessen til stortingsvalg fungerer.',
         solution: 'Nominasjonsprosessen: Fylkeslaget setter ned nominasjonskomité som foreslår kandidater. Lokallag uttaler seg. Fylkesårsmøte/nominasjonsmøte vedtar listen. Plassering på listen avgjør sjansen for å komme inn. Velgerne kan gi personstemmer, men dette har begrenset effekt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'samfunnskunnskap-5-9-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-9-ex-1',
+        number: '4',
+        type: 'classic',
+        task: 'Hvilke funksjoner har politiske partier i et demokrati?',
+        solution: 'Partienes funksjoner: Rekruttere og skolere politikere, utvikle politiske programmer, mobilisere velgere, forenkle valgene for velgerne, koble folkets ønsker til politiske vedtak, holde regjeringen ansvarlig (opposisjon). Partiene er bindeleddet mellom folk og makt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6582,6 +6635,19 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_5_10: TextbookChapter = {
 - Loven kunngjøres og trer i kraft`,
     },
     {
+      id: 'samfunnskunnskap-5-10-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-10-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv hovedfasene i lovprosessen.',
+        solution: 'Hovedfasene: 1) Initiativ - idé om behov, 2) Utredning - departement/utvalg analyserer, 3) Høring - innspill fra berørte, 4) Proposisjon - regjeringens forslag, 5) Komitébehandling - Stortinget vurderer, 6) Vedtak - debatt og votering, 7) Sanksjon og ikrafttredelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-10-def-2',
       type: 'definition',
       title: 'Viktige dokumenttyper',
@@ -6607,6 +6673,19 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_5_10: TextbookChapter = {
 **Lovteksten:**
 - Den endelige vedtatte loven
 - Kunngjøres i Lovdata`,
+    },
+    {
+      id: 'samfunnskunnskap-5-10-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-10-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen på en NOU og en proposisjon?',
+        solution: 'NOU: Utredning fra offentlig utvalg, grundig analyse av et område, ofte utgangspunkt for lovforslag. Proposisjon: Regjeringens konkrete forslag til Stortinget, kommer senere i prosessen, inneholder selve lovteksten. NOU analyserer, proposisjon foreslår.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-10-example-1',
@@ -6646,24 +6725,11 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_5_10: TextbookChapter = {
 Lovprosessen sikrer at viktige beslutninger tas på et solid grunnlag med bred deltakelse.`,
     },
     {
-      id: 'samfunnskunnskap-5-10-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-10-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv hovedfasene i lovprosessen.',
-        solution: 'Hovedfasene: 1) Initiativ - idé om behov, 2) Utredning - departement/utvalg analyserer, 3) Høring - innspill fra berørte, 4) Proposisjon - regjeringens forslag, 5) Komitébehandling - Stortinget vurderer, 6) Vedtak - debatt og votering, 7) Sanksjon og ikrafttredelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-10-ex-2',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-10-ex-2',
-        number: '2',
+        number: '3',
         type: 'classic',
         task: 'Hva er en høring, og hvorfor er den viktig?',
         solution: 'En høring er når lovforslag sendes ut til berørte parter for innspill (vanligvis 3 mnd). Viktig fordi: Sikrer at alle stemmer høres, avdekker problemer, gir faglig kvalitetssikring, styrker demokratisk legitimitet. Høringssvarene er offentlige.',
@@ -6671,19 +6737,7 @@ Lovprosessen sikrer at viktige beslutninger tas på et solid grunnlag med bred d
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'samfunnskunnskap-5-10-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-10-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen på en NOU og en proposisjon?',
-        solution: 'NOU: Utredning fra offentlig utvalg, grundig analyse av et område, ofte utgangspunkt for lovforslag. Proposisjon: Regjeringens konkrete forslag til Stortinget, kommer senere i prosessen, inneholder selve lovteksten. NOU analyserer, proposisjon foreslår.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-10-ex-4',
       type: 'exercise',
@@ -6759,6 +6813,19 @@ Kommuneloven regulerer hvordan kommunene skal organiseres og styres. Det lokale 
 - F.eks. planutvalg, helse- og sosialutvalg`,
     },
     {
+      id: 'samfunnskunnskap-5-11-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-11-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv kommunestyrets og formannskapets roller.',
+        solution: 'Kommunestyret: Øverste organ, velges direkte, vedtar budsjett og viktige saker. Formannskapet: Velges av kommunestyret, forbereder saker, behandler hastesaker, har ofte delegert myndighet. Kommunestyret er besluttende, formannskapet forberedende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-11-def-2',
       type: 'definition',
       title: 'Stat og kommune',
@@ -6779,6 +6846,19 @@ Det er ofte spenning mellom nasjonale mål og lokalt selvstyre. Staten vil ha li
 
 **Fylkesmannens rolle:**
 Statsforvalteren (tidligere fylkesmannen) fører tilsyn med kommunene og behandler klager på kommunale vedtak.`,
+    },
+    {
+      id: 'samfunnskunnskap-5-11-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-11-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom statlig styring og kommunalt selvstyre?',
+        solution: 'Statlig styring: Lover og forskrifter setter rammer, øremerket finansiering styrer pengebruk, tilsyn og kontroll. Kommunalt selvstyre: Egne prioriteringer innenfor rammene, frie inntekter, organisasjonsfrihet, lokal politikk. Spenning mellom nasjonale mål og lokalt selvstyre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-11-example-1',
@@ -6811,41 +6891,16 @@ Statsforvalteren (tidligere fylkesmannen) fører tilsyn med kommunene og behandl
 **Konklusjon:**
 Kommunestrukturen er stadig under debatt. Balansen mellom stordriftsfordeler og nærhet til innbyggerne er krevende.`,
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-11-ex-1',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-5-11-ex-1',
-        number: '1',
+        number: '3',
         type: 'classic',
         task: 'Hva er fordelene med lokalt selvstyre?',
         solution: 'Fordeler: 1) Beslutninger tas nærmere innbyggerne, 2) Tilpasning til lokale forhold og behov, 3) Demokratisk skolering og deltakelse, 4) Effektiv tjenesteproduksjon, 5) Kortere avstand mellom velger og politiker, 6) Lokalt engasjement.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-11-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-11-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv kommunestyrets og formannskapets roller.',
-        solution: 'Kommunestyret: Øverste organ, velges direkte, vedtar budsjett og viktige saker. Formannskapet: Velges av kommunestyret, forbereder saker, behandler hastesaker, har ofte delegert myndighet. Kommunestyret er besluttende, formannskapet forberedende.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-11-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-11-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom statlig styring og kommunalt selvstyre?',
-        solution: 'Statlig styring: Lover og forskrifter setter rammer, øremerket finansiering styrer pengebruk, tilsyn og kontroll. Kommunalt selvstyre: Egne prioriteringer innenfor rammene, frie inntekter, organisasjonsfrihet, lokal politikk. Spenning mellom nasjonale mål og lokalt selvstyre.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -6921,6 +6976,19 @@ Organisasjoner som representerer bestemte gruppers interesser overfor myndighete
 I Norge har store organisasjoner tradisjonelt hatt formell innflytelse gjennom trepartssamarbeidet og deltakelse i utvalg.`,
     },
     {
+      id: 'samfunnskunnskap-5-12-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-12-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en interesseorganisasjon, og gi tre eksempler.',
+        solution: 'Interesseorganisasjon er en organisasjon som representerer bestemte gruppers interesser overfor myndighetene. Eksempler: LO (arbeidstakere), NHO (arbeidsgivere), Norges Bondelag (bønder), Naturvernforbundet (miljø), FFO (funksjonshemmede).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-5-12-def-2',
       type: 'definition',
       title: 'Lobbyisme',
@@ -6951,6 +7019,19 @@ Profesjonell påvirkning av politiske beslutninger på vegne av klienter.
 - Manglende åpenhet
 - "Svingdører" mellom politikk og lobby
 - Men: Også legitim informasjon til beslutningstagere`,
+    },
+    {
+      id: 'samfunnskunnskap-5-12-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-5-12-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er lobbyisme, og hvilke metoder brukes?',
+        solution: 'Lobbyisme er profesjonell påvirkning av politiske beslutninger på vegne av klienter. Metoder: Direkte møter med politikere, innspill til høringer, mediepåvirkning, nettverksbygging, informasjon og utredninger. Drives av PR-byråer, advokatfirmaer og interesseorganisasjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-5-12-example-1',
@@ -6987,32 +7068,6 @@ Profesjonell påvirkning av politiske beslutninger på vegne av klienter.
 Mediene er mektige, men avhengige av kilder (også mektige). Forholdet mellom medier og politikk er gjensidig påvirkning.`,
     },
     {
-      id: 'samfunnskunnskap-5-12-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-12-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en interesseorganisasjon, og gi tre eksempler.',
-        solution: 'Interesseorganisasjon er en organisasjon som representerer bestemte gruppers interesser overfor myndighetene. Eksempler: LO (arbeidstakere), NHO (arbeidsgivere), Norges Bondelag (bønder), Naturvernforbundet (miljø), FFO (funksjonshemmede).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-5-12-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-5-12-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er lobbyisme, og hvilke metoder brukes?',
-        solution: 'Lobbyisme er profesjonell påvirkning av politiske beslutninger på vegne av klienter. Metoder: Direkte møter med politikere, innspill til høringer, mediepåvirkning, nettverksbygging, informasjon og utredninger. Drives av PR-byråer, advokatfirmaer og interesseorganisasjoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-5-12-ex-3',
       type: 'exercise',
       exercise: {
@@ -7025,6 +7080,7 @@ Mediene er mektige, men avhengige av kilder (også mektige). Forholdet mellom me
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-5-12-ex-4',
       type: 'exercise',
@@ -7102,6 +7158,19 @@ Verdenserklæringen er blitt til juridisk bindende konvensjoner:
 - Økonomiske, sosiale og kulturelle rettigheter (1966)`,
     },
     {
+      id: 'samfunnskunnskap-6-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-1-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn tre viktige milepæler i menneskerettighetenes historie.',
+        solution: 'Tre milepæler: 1) 1776 - USAs uavhengighetserklæring, 2) 1789 - Den franske menneskerettighetserklæringen, 3) 1948 - FNs verdenserklæring om menneskerettigheter. Også viktig: De to FN-konvensjonene fra 1966.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-1-def-2',
       type: 'definition',
       title: 'Rettighetenes grunnlag',
@@ -7121,6 +7190,19 @@ FNs verdenserklæring bygger på menneskets iboende verdighet - alle mennesker e
 - Er menneskerettighetene universelle, eller vestlige verdier?
 - Kulturrelativisme: Rettigheter må forstås i kontekst
 - Svar: Grunnleggende verdighet er universelt, men utøvelse kan variere`,
+    },
+    {
+      id: 'samfunnskunnskap-6-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-1-ex-1',
+        number: '2',
+        type: 'classic',
+        task: 'Hva kjennetegner menneskerettigheter?',
+        solution: 'Menneskerettighetenes kjennetegn: 1) Universelle - gjelder for alle, overalt, 2) Umistelige - kan ikke tas fra deg, 3) Udelelige - alle rettigheter henger sammen, 4) Gjensidig avhengige - oppfyllelse avhenger av hverandre. De bygger på menneskets verdighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-1-example-1',
@@ -7157,32 +7239,6 @@ Rett til utdanning.
 Selv om erklæringen ikke er juridisk bindende, er den blitt internasjonal sedvanerett. Den har inspirert grunnlover og menneskerettighetskonvensjoner verden over.`,
     },
     {
-      id: 'samfunnskunnskap-6-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva kjennetegner menneskerettigheter?',
-        solution: 'Menneskerettighetenes kjennetegn: 1) Universelle - gjelder for alle, overalt, 2) Umistelige - kan ikke tas fra deg, 3) Udelelige - alle rettigheter henger sammen, 4) Gjensidig avhengige - oppfyllelse avhenger av hverandre. De bygger på menneskets verdighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre viktige milepæler i menneskerettighetenes historie.',
-        solution: 'Tre milepæler: 1) 1776 - USAs uavhengighetserklæring, 2) 1789 - Den franske menneskerettighetserklæringen, 3) 1948 - FNs verdenserklæring om menneskerettigheter. Også viktig: De to FN-konvensjonene fra 1966.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-6-1-ex-3',
       type: 'exercise',
       exercise: {
@@ -7195,6 +7251,7 @@ Selv om erklæringen ikke er juridisk bindende, er den blitt internasjonal sedva
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-1-ex-4',
       type: 'exercise',
@@ -7267,6 +7324,19 @@ Alle kategorier er like viktige. Sivile rettigheter uten mat er verdiløse, og m
 - FN-konvensjonen om sivile og politiske rettigheter (1966)`,
     },
     {
+      id: 'samfunnskunnskap-6-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-2-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Gi tre eksempler på sivile og politiske rettigheter.',
+        solution: 'Tre av følgende: Rett til liv, forbud mot tortur, ytringsfrihet, religionsfrihet, stemmerett, organisasjonsfrihet, forsamlingsfrihet, rettssikkerhet, bevegelsesfrihet, vern av privatlivet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-2-def-2',
       type: 'definition',
       title: 'Økonomiske, sosiale og kulturelle rettigheter',
@@ -7294,6 +7364,19 @@ Alle kategorier er like viktige. Sivile rettigheter uten mat er verdiløse, og m
 - Gradvis gjennomføring etter ressurser
 - Krever aktiv innsats fra staten
 - FN-konvensjonen om ØSK-rettigheter (1966)`,
+    },
+    {
+      id: 'samfunnskunnskap-6-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-2-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Gi tre eksempler på økonomiske, sosiale og kulturelle rettigheter.',
+        solution: 'Tre av følgende: Rett til arbeid, rett til utdanning, rett til helse, rett til mat og vann, rett til bolig, rett til sosial trygghet, rett til å delta i kulturlivet, minoriteters kulturelle rettigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-2-example-1',
@@ -7324,7 +7407,7 @@ Begge typer må oppfylles for at mennesker skal leve verdige liv.`,
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-6-2-ex-1',
-        number: '1',
+        number: '3',
         type: 'classic',
         task: 'Hva er forskjellen på sivile/politiske og økonomiske/sosiale rettigheter?',
         solution: 'SP-rettigheter: "Negative" rettigheter - staten skal avstå fra inngrep (frihet fra), umiddelbart gjennomførbare. ØSK-rettigheter: "Positive" rettigheter - staten skal sørge for noe (frihet til), gradvis gjennomføring. Begge er like viktige og henger sammen.',
@@ -7332,32 +7415,7 @@ Begge typer må oppfylles for at mennesker skal leve verdige liv.`,
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'samfunnskunnskap-6-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi tre eksempler på sivile og politiske rettigheter.',
-        solution: 'Tre av følgende: Rett til liv, forbud mot tortur, ytringsfrihet, religionsfrihet, stemmerett, organisasjonsfrihet, forsamlingsfrihet, rettssikkerhet, bevegelsesfrihet, vern av privatlivet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Gi tre eksempler på økonomiske, sosiale og kulturelle rettigheter.',
-        solution: 'Tre av følgende: Rett til arbeid, rett til utdanning, rett til helse, rett til mat og vann, rett til bolig, rett til sosial trygghet, rett til å delta i kulturlivet, minoriteters kulturelle rettigheter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-2-ex-4',
       type: 'exercise',
@@ -7415,6 +7473,19 @@ Erklæringen var banebrytende fordi den:
 Verdenserklæringen er ikke juridisk bindende, men har stor moralsk autoritet og har inspirert nasjonal lovgivning verden over.`,
     },
     {
+      id: 'samfunnskunnskap-6-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på Verdenserklæringen og FNs konvensjoner?',
+        solution: 'Verdenserklæringen (1948) er en politisk erklæring uten juridisk bindende kraft, men med stor moralsk autoritet. Konvensjonene er juridisk bindende avtaler som forplikter stater som har ratifisert dem. Stater kan klages inn for brudd på konvensjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-3-konvensjoner',
       type: 'text',
       content: `## FNs menneskerettighetskonvensjoner
@@ -7436,6 +7507,19 @@ For å gjøre rettighetene **juridisk bindende** har FN vedtatt flere konvensjon
 - Rett til mat, klær og bolig
 
 Sammen med Verdenserklæringen utgjør disse tre dokumentene **"The International Bill of Human Rights"** – det internasjonale menneskerettighetslovverket.`,
+    },
+    {
+      id: 'samfunnskunnskap-6-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn de to hovedkonvensjonene fra 1966 og gi eksempler på rettigheter i hver.',
+        solution: 'SP (sivile og politiske): Ytringsfrihet, religionsfrihet, rett til liv, forbud mot tortur, rett til rettferdig rettergang. ØSK (økonomiske, sosiale, kulturelle): Rett til arbeid, utdanning, helse, mat, bolig, kulturelle rettigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-3-andre-konvensjoner',
@@ -7495,6 +7579,19 @@ Komiteene:
 - Overvåker situasjonen i ulike land`,
     },
     {
+      id: 'samfunnskunnskap-6-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvordan overvåker FN at stater følger menneskerettighetene?',
+        solution: 'Tre hovedmekanismer: 1) Konvensjonsorganer som behandler statsrapporter og individklager, 2) Menneskerettighetsrådet med Universal Periodic Review der alle lands praksis gjennomgås, 3) FNs høykommissær for menneskerettigheter som overvåker og rapporterer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-3-begrensninger',
       type: 'text',
       content: `## Begrensninger og utfordringer
@@ -7522,45 +7619,7 @@ FN-systemet har svakheter:
 
 Likevel: FN-systemet setter **standarder**, dokumenterer **overgrep** og skaper **press** for forbedring. Det er bedre enn intet internasjonalt system.`,
     },
-    {
-      id: 'samfunnskunnskap-6-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på Verdenserklæringen og FNs konvensjoner?',
-        solution: 'Verdenserklæringen (1948) er en politisk erklæring uten juridisk bindende kraft, men med stor moralsk autoritet. Konvensjonene er juridisk bindende avtaler som forplikter stater som har ratifisert dem. Stater kan klages inn for brudd på konvensjoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn de to hovedkonvensjonene fra 1966 og gi eksempler på rettigheter i hver.',
-        solution: 'SP (sivile og politiske): Ytringsfrihet, religionsfrihet, rett til liv, forbud mot tortur, rett til rettferdig rettergang. ØSK (økonomiske, sosiale, kulturelle): Rett til arbeid, utdanning, helse, mat, bolig, kulturelle rettigheter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvordan overvåker FN at stater følger menneskerettighetene?',
-        solution: 'Tre hovedmekanismer: 1) Konvensjonsorganer som behandler statsrapporter og individklager, 2) Menneskerettighetsrådet med Universal Periodic Review der alle lands praksis gjennomgås, 3) FNs høykommissær for menneskerettigheter som overvåker og rapporterer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-3-ex-4',
       type: 'exercise',
@@ -7620,6 +7679,19 @@ Europarådet har i dag **46 medlemsland** og må ikke forveksles med EU. Alle eu
 EMK er **juridisk bindende** for alle medlemsland. Det betyr at borgere kan klage staten inn for brudd.`,
     },
     {
+      id: 'samfunnskunnskap-6-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er EMK og hvilke rettigheter beskytter den?',
+        solution: 'EMK er Den europeiske menneskerettskonvensjonen fra 1950. Den beskytter sivile og politiske rettigheter: rett til liv, forbud mot tortur, rett til frihet, rettferdig rettergang, privatliv, religionsfrihet, ytringsfrihet og forsamlingsfrihet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-4-emd',
       type: 'text',
       content: `## Den europeiske menneskerettsdomstolen (EMD)
@@ -7638,6 +7710,19 @@ EMD ligger i **Strasbourg** i Frankrike og er verdens mest effektive internasjon
 - Kan tilkjenne erstatning til klageren
 - Kan kreve endringer i nasjonal lovgivning
 - Dommene overvåkes av Europarådets ministerkomité`,
+    },
+    {
+      id: 'samfunnskunnskap-6-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan fungerer Den europeiske menneskerettsdomstolen (EMD)?',
+        solution: 'EMD behandler klager fra individer og stater om brudd på EMK. Først må nasjonale rettsmidler være uttømt. EMD kan fastslå brudd, tilkjenne erstatning og kreve lovendringer. Dommene er bindende og overvåkes av Europarådets ministerkomité.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-4-eksempler',
@@ -7662,6 +7747,19 @@ Når Norge dømmes, må vi:
 - Betale eventuell erstatning
 - Vurdere å endre lovgivning
 - Endre praksis hos myndighetene`,
+    },
+    {
+      id: 'samfunnskunnskap-6-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Gi et eksempel på at Norge har blitt dømt i EMD og forklar konsekvensene.',
+        solution: 'Eksempel: Barnevernssaker der Norge er dømt for brudd på retten til familieliv. Konsekvenser: Norge må betale erstatning, endre barnevernspraksis, styrke fokus på gjenforening og gi mer samvær. Lovgivning og retningslinjer har blitt justert.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-4-andre-organer',
@@ -7714,45 +7812,7 @@ Det europeiske menneskerettighetssystemet skiller seg fra FN-systemet:
 - Noen stater motarbeider dommer
 - Press fra populistiske regjeringer`,
     },
-    {
-      id: 'samfunnskunnskap-6-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er EMK og hvilke rettigheter beskytter den?',
-        solution: 'EMK er Den europeiske menneskerettskonvensjonen fra 1950. Den beskytter sivile og politiske rettigheter: rett til liv, forbud mot tortur, rett til frihet, rettferdig rettergang, privatliv, religionsfrihet, ytringsfrihet og forsamlingsfrihet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvordan fungerer Den europeiske menneskerettsdomstolen (EMD)?',
-        solution: 'EMD behandler klager fra individer og stater om brudd på EMK. Først må nasjonale rettsmidler være uttømt. EMD kan fastslå brudd, tilkjenne erstatning og kreve lovendringer. Dommene er bindende og overvåkes av Europarådets ministerkomité.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Gi et eksempel på at Norge har blitt dømt i EMD og forklar konsekvensene.',
-        solution: 'Eksempel: Barnevernssaker der Norge er dømt for brudd på retten til familieliv. Konsekvenser: Norge må betale erstatning, endre barnevernspraksis, styrke fokus på gjenforening og gi mer samvær. Lovgivning og retningslinjer har blitt justert.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-4-ex-4',
       type: 'exercise',
@@ -7818,6 +7878,19 @@ Norge har ratifisert de fleste FN-konvensjoner og EMK. Det betyr at vi er forpli
 Grunnloven har **trinnhøyde** – den står over andre lover.`,
     },
     {
+      id: 'samfunnskunnskap-6-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvordan er menneskerettighetene beskyttet i norsk lov?',
+        solution: 'To hovedpilarer: 1) Grunnloven kapittel E med egen menneskerettighetskatalog (fra 2014), 2) Menneskerettsloven (1999) som gjør EMK og fire FN-konvensjoner til norsk lov med forrang. Domstolene må anvende menneskerettighetene direkte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-5-menneskerettsloven',
       type: 'text',
       content: `## Menneskerettsloven
@@ -7836,6 +7909,19 @@ Dette betyr:
 - Domstolene må anvende konvensjonene direkte
 - Norsk lov må tolkes i samsvar med menneskerettighetene
 - Lover som strider mot konvensjonene, er ugyldige`,
+    },
+    {
+      id: 'samfunnskunnskap-6-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva betyr menneskerettslovens forrangsbestemmelse (§ 3)?',
+        solution: 'Ved konflikt mellom norsk lov og konvensjonene i menneskerettsloven, skal konvensjonene gå foran. Dette betyr at norsk lov som strider mot menneskerettighetene er ugyldig, og domstolene må anvende konvensjonene direkte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-5-institusjoner',
@@ -7866,6 +7952,19 @@ Dette betyr:
 ### Domstolene
 - Prøver om lover og vedtak er i samsvar med menneskerettighetene
 - Høyesterett har utviklet rettspraksis om menneskerettigheter`,
+    },
+    {
+      id: 'samfunnskunnskap-6-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn fire institusjoner som arbeider med menneskerettigheter i Norge og deres oppgaver.',
+        solution: 'Fire av: NIM (overvåker/rapporterer), LDO (likestilling/diskriminering), Sivilombudet (klager mot forvaltning), Barneombudet (barns interesser), Domstolene (prøver lover/vedtak). Alle bidrar til å sikre menneskerettighetene på ulike måter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-5-praksis',
@@ -7928,45 +8027,7 @@ Selv om Norge har sterkt menneskerettighetsvern, finnes utfordringer:
 
 Norge mottar jevnlig kritikk og anbefalinger fra FN-organer og EMD. Dette viser at menneskerettighetsarbeid er en kontinuerlig prosess.`,
     },
-    {
-      id: 'samfunnskunnskap-6-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvordan er menneskerettighetene beskyttet i norsk lov?',
-        solution: 'To hovedpilarer: 1) Grunnloven kapittel E med egen menneskerettighetskatalog (fra 2014), 2) Menneskerettsloven (1999) som gjør EMK og fire FN-konvensjoner til norsk lov med forrang. Domstolene må anvende menneskerettighetene direkte.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva betyr menneskerettslovens forrangsbestemmelse (§ 3)?',
-        solution: 'Ved konflikt mellom norsk lov og konvensjonene i menneskerettsloven, skal konvensjonene gå foran. Dette betyr at norsk lov som strider mot menneskerettighetene er ugyldig, og domstolene må anvende konvensjonene direkte.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn fire institusjoner som arbeider med menneskerettigheter i Norge og deres oppgaver.',
-        solution: 'Fire av: NIM (overvåker/rapporterer), LDO (likestilling/diskriminering), Sivilombudet (klager mot forvaltning), Barneombudet (barns interesser), Domstolene (prøver lover/vedtak). Alle bidrar til å sikre menneskerettighetene på ulike måter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-5-ex-4',
       type: 'exercise',
@@ -8020,6 +8081,19 @@ Konvensjonen inneholder **54 artikler** som dekker alle sider av barns liv:
 **Norge ratifiserte** konvensjonen i 1991 og innarbeidet den i menneskerettsloven i 2003.`,
     },
     {
+      id: 'samfunnskunnskap-6-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er FNs barnekonvensjon og når ble den vedtatt?',
+        solution: 'FNs barnekonvensjon er en internasjonal avtale som fastslår barns egne rettigheter. Den ble vedtatt i 1989 og er verdens mest ratifiserte menneskerettighetskonvensjon. Norge ratifiserte i 1991 og innarbeidet den i menneskerettsloven i 2003.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-6-grunnprinsipper',
       type: 'text',
       content: `## Fire grunnprinsipper
@@ -8045,6 +8119,19 @@ Barnekonvensjonen har fire overordnede prinsipper som gjelder ved tolkning av al
 - Barn som er i stand til å danne egne synspunkter, skal få uttale seg
 - Barnets mening skal tillegges vekt etter alder og modenhet
 - Barn har rett til å bli hørt i alle saker som angår dem`,
+    },
+    {
+      id: 'samfunnskunnskap-6-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar de fire grunnprinsippene i barnekonvensjonen.',
+        solution: '1) Ikke-diskriminering: Alle barn har like rettigheter. 2) Barnets beste: Skal være grunnleggende hensyn i alle avgjørelser. 3) Rett til liv og utvikling: Staten skal sikre overlevelse og utvikling. 4) Rett til å bli hørt: Barn skal få uttale seg og bli tatt hensyn til.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-6-rettigheter',
@@ -8073,6 +8160,19 @@ Barnekonvensjonen har fire overordnede prinsipper som gjelder ved tolkning av al
 - Rett til å kjenne og få omsorg fra foreldrene (artikkel 7)
 - Rett til familieliv (artikkel 9)
 - Rett til samvær ved samlivsbrudd (artikkel 9)`,
+    },
+    {
+      id: 'samfunnskunnskap-6-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva betyr det at barnets beste skal være et "grunnleggende hensyn"?',
+        solution: 'Det betyr at i alle avgjørelser som berører barn, skal barnets beste vurderes og tillegges stor vekt. Det er ikke det eneste hensynet, men et av de viktigste. Gjelder for myndigheter, domstoler og foreldre. Må vurderes konkret i hver sak.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-6-6-norge',
@@ -8130,45 +8230,7 @@ Regulerer forholdet mellom barn og foreldre:
 
 FNs barnekomité overvåker statenes etterlevelse og gir anbefalinger. Norge mottar jevnlig kritikk og pålegg om forbedringer.`,
     },
-    {
-      id: 'samfunnskunnskap-6-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er FNs barnekonvensjon og når ble den vedtatt?',
-        solution: 'FNs barnekonvensjon er en internasjonal avtale som fastslår barns egne rettigheter. Den ble vedtatt i 1989 og er verdens mest ratifiserte menneskerettighetskonvensjon. Norge ratifiserte i 1991 og innarbeidet den i menneskerettsloven i 2003.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar de fire grunnprinsippene i barnekonvensjonen.',
-        solution: '1) Ikke-diskriminering: Alle barn har like rettigheter. 2) Barnets beste: Skal være grunnleggende hensyn i alle avgjørelser. 3) Rett til liv og utvikling: Staten skal sikre overlevelse og utvikling. 4) Rett til å bli hørt: Barn skal få uttale seg og bli tatt hensyn til.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva betyr det at barnets beste skal være et "grunnleggende hensyn"?',
-        solution: 'Det betyr at i alle avgjørelser som berører barn, skal barnets beste vurderes og tillegges stor vekt. Det er ikke det eneste hensynet, men et av de viktigste. Gjelder for myndigheter, domstoler og foreldre. Må vurderes konkret i hver sak.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-6-ex-4',
       type: 'exercise',
@@ -8240,6 +8302,19 @@ Det er viktig å forstå disse utfordringene for å delta i debatten om menneske
 - Offentlige personer vs. privatpersoner`,
     },
     {
+      id: 'samfunnskunnskap-6-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en rettighetskolisjon? Gi to eksempler.',
+        solution: 'Rettighetskolisjon er når ulike rettigheter peker i motsatt retning og må avveies mot hverandre. Eksempler: 1) Ytringsfrihet vs. vern mot hatprat, 2) Privatliv vs. sikkerhet/overvåkning, 3) Religionsfrihet vs. likestilling, 4) Pressefrihet vs. privatliv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-7-avveining',
       type: 'text',
       content: `## Hvordan avveie rettigheter?
@@ -8295,6 +8370,19 @@ Avveiningen gjøres ofte av domstolene, som EMD eller Høyesterett.`,
 - Men ikke aksept av grove overgrep`,
     },
     {
+      id: 'samfunnskunnskap-6-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar debatten mellom universalisme og kulturrelativisme.',
+        solution: 'Universalisme: Menneskerettighetene gjelder alle uavhengig av kultur. Kulturrelativisme: Verdier er kulturelt betinget, og menneskerettighetene er vestlige verdier som påtvinges andre. Mellomposisjon: Kjerneverdier er universelle, men anvendelse kan tilpasses kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-7-handhevelse',
       type: 'example',
       title: 'Utfordringer med håndhevelse',
@@ -8326,6 +8414,19 @@ Avveiningen gjøres ofte av domstolene, som EMD eller Høyesterett.`,
 - Terrorbekjempelse vs. rettssikkerhet`,
     },
     {
+      id: 'samfunnskunnskap-6-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-6-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er de viktigste utfordringene med å håndheve menneskerettigheter internasjonalt?',
+        solution: 'Hovedutfordringer: Suverenitetsprinsippet (staters selvbestemmelse), manglende tvangsmakt (ingen verdenspoliti), politisering (selektiv oppmerksomhet), ressursmangel i FN/EMD, stormakter som blokkerer tiltak, dobbeltmoral som svekker legitimitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-6-7-fremtid',
       type: 'text',
       content: `## Menneskerettighetenes fremtid
@@ -8352,45 +8453,7 @@ Avveiningen gjøres ofte av domstolene, som EMD eller Høyesterett.`,
 
 Menneskerettighetene er ikke perfekte, men de representerer en felles standard for menneskelig verdighet som vi alle kan holde fast ved.`,
     },
-    {
-      id: 'samfunnskunnskap-6-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en rettighetskolisjon? Gi to eksempler.',
-        solution: 'Rettighetskolisjon er når ulike rettigheter peker i motsatt retning og må avveies mot hverandre. Eksempler: 1) Ytringsfrihet vs. vern mot hatprat, 2) Privatliv vs. sikkerhet/overvåkning, 3) Religionsfrihet vs. likestilling, 4) Pressefrihet vs. privatliv.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar debatten mellom universalisme og kulturrelativisme.',
-        solution: 'Universalisme: Menneskerettighetene gjelder alle uavhengig av kultur. Kulturrelativisme: Verdier er kulturelt betinget, og menneskerettighetene er vestlige verdier som påtvinges andre. Mellomposisjon: Kjerneverdier er universelle, men anvendelse kan tilpasses kontekst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-6-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-6-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er de viktigste utfordringene med å håndheve menneskerettigheter internasjonalt?',
-        solution: 'Hovedutfordringer: Suverenitetsprinsippet (staters selvbestemmelse), manglende tvangsmakt (ingen verdenspoliti), politisering (selektiv oppmerksomhet), ressursmangel i FN/EMD, stormakter som blokkerer tiltak, dobbeltmoral som svekker legitimitet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-6-7-ex-4',
       type: 'exercise',
@@ -8456,6 +8519,19 @@ Uten ytringsfrihet kan ikke:
 - Respekt for individets verdighet`,
     },
     {
+      id: 'samfunnskunnskap-7-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-1-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar de tre hovedbegrunnelsene for ytringsfrihet.',
+        solution: 'Sannhetsargumentet: Fri debatt fører til bedre erkjennelse av sannhet. Demokratiargumentet: Demokratiet krever informerte borgere og fri debatt. Autonomiargumentet: Mennesker har rett til å danne egne meninger som uttrykk for personlig frihet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-1-rettslig',
       type: 'text',
       content: `## Ytringsfrihetens rettslige grunnlag
@@ -8503,6 +8579,19 @@ Ytringsfrihet er ikke absolutt. Noen ytringer er forbudt:
 - Pornografi med barn
 - Taushetsplikt
 - Blasfemi var forbudt til 2015`,
+    },
+    {
+      id: 'samfunnskunnskap-7-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-1-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre typer ytringer som ikke er beskyttet av ytringsfriheten i Norge.',
+        solution: 'Tre av: Hatefulle ytringer (strl. § 185), ærekrenkelser (usanne, skadelige påstander), krenkelse av privatlivets fred, trusler, oppfordring til straffbare handlinger, barnepornografi, brudd på taushetsplikt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-1-avveining',
@@ -8565,41 +8654,16 @@ Ytringsfrihet er ikke absolutt. Noen ytringer er forbudt:
 - Ingen demokratisk kontroll
 - Algoritmer som filterer innhold`,
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-1-ex-1',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-7-1-ex-1',
-        number: '1',
+        number: '3',
         type: 'classic',
         task: 'Hva er ytringsfrihet og hvorfor er den viktig i et demokrati?',
         solution: 'Ytringsfrihet er retten til å uttrykke meninger uten forhåndssensur. Viktig fordi: 1) Muliggjør offentlig debatt og informerte borgere, 2) Lar pressen kontrollere makthaverne, 3) Bidrar til sannhetssøken gjennom meningsutveksling, 4) Respekterer individets autonomi.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar de tre hovedbegrunnelsene for ytringsfrihet.',
-        solution: 'Sannhetsargumentet: Fri debatt fører til bedre erkjennelse av sannhet. Demokratiargumentet: Demokratiet krever informerte borgere og fri debatt. Autonomiargumentet: Mennesker har rett til å danne egne meninger som uttrykk for personlig frihet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre typer ytringer som ikke er beskyttet av ytringsfriheten i Norge.',
-        solution: 'Tre av: Hatefulle ytringer (strl. § 185), ærekrenkelser (usanne, skadelige påstander), krenkelse av privatlivets fred, trusler, oppfordring til straffbare handlinger, barnepornografi, brudd på taushetsplikt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -8675,6 +8739,19 @@ Uten frie medier ville:
 - Bidra med perspektiver`,
     },
     {
+      id: 'samfunnskunnskap-7-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-2-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar de fire hovedfunksjonene mediene har i et demokrati.',
+        solution: 'Informasjonsfunksjonen: Opplyse borgerne. Vakthundfunksjonen: Granske makthavere. Arenafunksjonen: Skape rom for debatt. Kommentarfunksjonen: Analysere og fortolke hendelser. Alle er viktige for et fungerende demokrati.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-2-pressefrihet',
       type: 'text',
       content: `## Pressefrihet
@@ -8702,6 +8779,19 @@ Uten frie medier ville:
 - Vedtatt av Norsk Presseforbund
 - Omhandler journalistisk atferd, kilder, publisering
 - Håndheves av Pressens Faglige Utvalg (PFU)`,
+    },
+    {
+      id: 'samfunnskunnskap-7-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-2-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er kildevern og hvorfor er det viktig?',
+        solution: 'Kildevern er journalisters rett til å beskytte identiteten til sine kilder. Viktig fordi: 1) Varslere og informanter tør å tipse om kritikkverdige forhold, 2) Muliggjør avdekking av maktmisbruk, 3) Styrker pressens vakthundfunksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-2-utfordringer',
@@ -8765,41 +8855,16 @@ Uten frie medier ville:
 - Ensidighet i vinkling
 - For nær maktens korridorer`,
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-2-ex-1',
       type: 'exercise',
       exercise: {
         id: 'samfunnskunnskap-7-2-ex-1',
-        number: '1',
+        number: '3',
         type: 'classic',
         task: 'Hva menes med at mediene er "den fjerde statsmakt"?',
         solution: 'Mediene kontrollerer og gransker de tre andre statsmaktene (Storting, regjering, domstoler). De avdekker maktmisbruk, informerer borgerne og holder makthavere ansvarlige. Uten frie medier ville demokratiet svekkes.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar de fire hovedfunksjonene mediene har i et demokrati.',
-        solution: 'Informasjonsfunksjonen: Opplyse borgerne. Vakthundfunksjonen: Granske makthavere. Arenafunksjonen: Skape rom for debatt. Kommentarfunksjonen: Analysere og fortolke hendelser. Alle er viktige for et fungerende demokrati.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er kildevern og hvorfor er det viktig?',
-        solution: 'Kildevern er journalisters rett til å beskytte identiteten til sine kilder. Viktig fordi: 1) Varslere og informanter tør å tipse om kritikkverdige forhold, 2) Muliggjør avdekking av maktmisbruk, 3) Styrker pressens vakthundfunksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -8875,6 +8940,19 @@ Det norske mediemarkedet preges av:
 - Klager behandles av Kringkastingsrådet`,
     },
     {
+      id: 'samfunnskunnskap-7-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er NRKs samfunnsoppdrag?',
+        solution: 'NRK skal informere, utdanne og underholde, dekke hele landet, tilby innhold på nynorsk og samisk, ivareta mangfoldet i samfunnet, og være allment tilgjengelig. NRK skal være redaksjonelt uavhengig av politisk påvirkning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-3-aviser',
       type: 'text',
       content: `## Aviser og avistradisjonen
@@ -8936,6 +9014,19 @@ Det norske mediemarkedet preges av **konsentrasjon** – få store aktører kont
 - Mediestøtte for å sikre mangfold`,
     },
     {
+      id: 'samfunnskunnskap-7-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn de tre største mediekonsernene i Norge og gi eksempler på aviser de eier.',
+        solution: 'Schibsted: VG, Aftenposten, Bergens Tidende. Amedia: Dagbladet, Nettavisen, over 80 lokalaviser. Polaris Media: Adresseavisen og flere aviser i Midt-Norge. Sammen kontrollerer de det meste av det norske avismarkedet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-3-mediestotte',
       type: 'example',
       title: 'Pressestøtte og mediepolitikk',
@@ -8972,32 +9063,6 @@ Det norske mediemarkedet preges av **konsentrasjon** – få store aktører kont
 - Bør markedet bestemme?`,
     },
     {
-      id: 'samfunnskunnskap-7-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er NRKs samfunnsoppdrag?',
-        solution: 'NRK skal informere, utdanne og underholde, dekke hele landet, tilby innhold på nynorsk og samisk, ivareta mangfoldet i samfunnet, og være allment tilgjengelig. NRK skal være redaksjonelt uavhengig av politisk påvirkning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn de tre største mediekonsernene i Norge og gi eksempler på aviser de eier.',
-        solution: 'Schibsted: VG, Aftenposten, Bergens Tidende. Amedia: Dagbladet, Nettavisen, over 80 lokalaviser. Polaris Media: Adresseavisen og flere aviser i Midt-Norge. Sammen kontrollerer de det meste av det norske avismarkedet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-7-3-ex-3',
       type: 'exercise',
       exercise: {
@@ -9010,6 +9075,7 @@ Det norske mediemarkedet preges av **konsentrasjon** – få store aktører kont
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-3-ex-4',
       type: 'exercise',
@@ -9114,6 +9180,19 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
 - Kommersiell motivasjon styrer`,
     },
     {
+      id: 'samfunnskunnskap-7-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en algoritme i sosiale medier og hvordan påvirker den hva du ser?',
+        solution: 'En algoritme er et dataprogram som bestemmer hvilket innhold du får se. Den samler data om din aktivitet (likes, tid, klikk), bygger profil av interessene dine, og viser innhold som er sannsynlig å engasjere deg. Målet er å holde deg lenger på plattformen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-4-ekkokammer',
       type: 'text',
       content: `## Ekkokammer og filterbobler
@@ -9140,6 +9219,19 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
 - Vær bevisst på algoritmefiltrering
 - Oppsøk informasjon aktivt
 - Bruk flere nyhetskilder`,
+    },
+    {
+      id: 'samfunnskunnskap-7-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar begrepene ekkokammer og filterboble.',
+        solution: 'Ekkokammer: Når man hovedsakelig eksponeres for synspunkter man allerede er enig i, og meningene bekreftes. Filterboble: Algoritmer filtrerer bort informasjon som ikke passer preferansene dine. Begge kan forsterke eksisterende holdninger og polarisering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-4-demokrati',
@@ -9172,6 +9264,19 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
 - Nettroll og hatkampanjer`,
     },
     {
+      id: 'samfunnskunnskap-7-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Gi eksempler på hvordan sosiale medier kan styrke og svekke demokratiet.',
+        solution: 'Styrke: Lavere terskel for deltakelse, nye stemmer høres, organisering av bevegelser (MeToo, klimastreik). Svekke: Spredning av desinformasjon, hatprat, valgmanipulasjon, polarisering, utenlandsk påvirkning. Dobbel virkning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-4-regulering',
       type: 'text',
       content: `## Regulering av sosiale medier
@@ -9200,45 +9305,7 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
 - Hvem definerer hva som er skadelig?
 - Privat sensur vs. offentlig kontroll`,
     },
-    {
-      id: 'samfunnskunnskap-7-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en algoritme i sosiale medier og hvordan påvirker den hva du ser?',
-        solution: 'En algoritme er et dataprogram som bestemmer hvilket innhold du får se. Den samler data om din aktivitet (likes, tid, klikk), bygger profil av interessene dine, og viser innhold som er sannsynlig å engasjere deg. Målet er å holde deg lenger på plattformen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar begrepene ekkokammer og filterboble.',
-        solution: 'Ekkokammer: Når man hovedsakelig eksponeres for synspunkter man allerede er enig i, og meningene bekreftes. Filterboble: Algoritmer filtrerer bort informasjon som ikke passer preferansene dine. Begge kan forsterke eksisterende holdninger og polarisering.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Gi eksempler på hvordan sosiale medier kan styrke og svekke demokratiet.',
-        solution: 'Styrke: Lavere terskel for deltakelse, nye stemmer høres, organisering av bevegelser (MeToo, klimastreik). Svekke: Spredning av desinformasjon, hatprat, valgmanipulasjon, polarisering, utenlandsk påvirkning. Dobbel virkning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-4-ex-4',
       type: 'exercise',
@@ -9307,6 +9374,19 @@ I en tid med informasjonsoverflod er det viktigere enn noen gang å kunne vurder
 - Finnes motstridende informasjon?`,
     },
     {
+      id: 'samfunnskunnskap-7-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er de fire grunnspørsmålene i kildekritikk?',
+        solution: '1) Hvem står bak? (avsender, kompetanse, motiver), 2) Hva er formålet? (informere, påvirke, selge), 3) Når ble det publisert? (aktualitet), 4) Hvordan er det fremstilt? (saklighet, dokumentasjon, balanse).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-5-kildetyper',
       type: 'text',
       content: `## Ulike kildetyper
@@ -9333,6 +9413,19 @@ I en tid med informasjonsoverflod er det viktigere enn noen gang å kunne vurder
 - **Design:** Profesjonelt utseende vs. amatørmessig
 - **Kontaktinfo:** Kan du finne ut hvem som står bak?
 - **Kilder:** Er påstander dokumentert med kilder?`,
+    },
+    {
+      id: 'samfunnskunnskap-7-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen på primær-, sekundær- og tertiærkilder.',
+        solution: 'Primærkilder: Førstehånds vitnesbyrd, originaldokumenter. Sekundærkilder: Fortolkninger og analyser av primærkilder (journalistikk, lærebøker). Tertiærkilder: Sammendrag av sekundærkilder (Wikipedia, leksikon). Primærkilder er oftest mest pålitelige.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-5-faktasjekk',
@@ -9398,6 +9491,19 @@ I en tid med informasjonsoverflod er det viktigere enn noen gang å kunne vurder
 - Kan du finne originalbildet?`,
     },
     {
+      id: 'samfunnskunnskap-7-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn fem varselstegn på at en kilde kan være upålitelig.',
+        solution: 'Fem av: Sensasjonelle overskrifter (clickbait), ukjent/anonym avsender, manglende kilder, ensidig fremstilling, mange skrivefeil, sterke følelsesladede formuleringer, deles bare i sosiale medier, virker for godt/ille til å være sant.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-5-laterallesing',
       type: 'text',
       content: `## Laterallesing
@@ -9425,45 +9531,7 @@ I stedet for å vurdere kilden grundig fra innsiden (vertikal lesing), åpner du
 - Sjekk Wikipedia om organisasjonen
 - Se etter kritikk eller avsløringer`,
     },
-    {
-      id: 'samfunnskunnskap-7-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er de fire grunnspørsmålene i kildekritikk?',
-        solution: '1) Hvem står bak? (avsender, kompetanse, motiver), 2) Hva er formålet? (informere, påvirke, selge), 3) Når ble det publisert? (aktualitet), 4) Hvordan er det fremstilt? (saklighet, dokumentasjon, balanse).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen på primær-, sekundær- og tertiærkilder.',
-        solution: 'Primærkilder: Førstehånds vitnesbyrd, originaldokumenter. Sekundærkilder: Fortolkninger og analyser av primærkilder (journalistikk, lærebøker). Tertiærkilder: Sammendrag av sekundærkilder (Wikipedia, leksikon). Primærkilder er oftest mest pålitelige.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn fem varselstegn på at en kilde kan være upålitelig.',
-        solution: 'Fem av: Sensasjonelle overskrifter (clickbait), ukjent/anonym avsender, manglende kilder, ensidig fremstilling, mange skrivefeil, sterke følelsesladede formuleringer, deles bare i sosiale medier, virker for godt/ille til å være sant.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-5-ex-4',
       type: 'exercise',
@@ -9531,6 +9599,19 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
 - Kan ha farlige konsekvenser`,
     },
     {
+      id: 'samfunnskunnskap-7-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på feilinformasjon og desinformasjon?',
+        solution: 'Feilinformasjon: Falsk informasjon spredt uten intensjon om å villede (misforståelse, uvitenhet). Desinformasjon: Falsk informasjon spredt bevisst for å villede, med intensjon om å skade eller manipulere. Forskjellen ligger i intensjonen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-6-spredning',
       type: 'text',
       content: `## Hvordan desinformasjon spres
@@ -9561,6 +9642,19 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
 - Trollfabrikker`,
     },
     {
+      id: 'samfunnskunnskap-7-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar tre faktorer som gjør at desinformasjon spres raskt på sosiale medier.',
+        solution: 'Tre av: 1) Algoritmer prioriterer engasjerende innhold, 2) Bekreftelsesbias – vi tror det vi vil tro, 3) Sosial spredning – stoler på venners delinger, 4) Følelsesappell – sjokkerende innhold spres raskt, 5) Anonyme kontoer og botnett.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-6-eksempler',
       type: 'example',
       title: 'Eksempler på desinformasjon',
@@ -9588,6 +9682,19 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
 - Konspirasjonsteorier om 22. juli
 - Feilinformasjon under pandemien
 - Utenlandsk påvirkning i norsk debatt`,
+    },
+    {
+      id: 'samfunnskunnskap-7-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Gi eksempler på hvordan desinformasjon har påvirket viktige samfunnsspørsmål.',
+        solution: 'Eksempler: Valgpåvirkning (russisk innblanding i USA), covid-19 (falske kurer, vaksinemotstand), klimaendringer (fornektelse finansiert av fossilindustri), krig (propaganda, falske bilder). Kan påvirke valg, folkehelse og politikk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-6-motvirke',
@@ -9647,45 +9754,7 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
 - Styrke tillit gjennom åpenhet
 - Anerkjenne kompleksiteten`,
     },
-    {
-      id: 'samfunnskunnskap-7-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på feilinformasjon og desinformasjon?',
-        solution: 'Feilinformasjon: Falsk informasjon spredt uten intensjon om å villede (misforståelse, uvitenhet). Desinformasjon: Falsk informasjon spredt bevisst for å villede, med intensjon om å skade eller manipulere. Forskjellen ligger i intensjonen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar tre faktorer som gjør at desinformasjon spres raskt på sosiale medier.',
-        solution: 'Tre av: 1) Algoritmer prioriterer engasjerende innhold, 2) Bekreftelsesbias – vi tror det vi vil tro, 3) Sosial spredning – stoler på venners delinger, 4) Følelsesappell – sjokkerende innhold spres raskt, 5) Anonyme kontoer og botnett.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Gi eksempler på hvordan desinformasjon har påvirket viktige samfunnsspørsmål.',
-        solution: 'Eksempler: Valgpåvirkning (russisk innblanding i USA), covid-19 (falske kurer, vaksinemotstand), klimaendringer (fornektelse finansiert av fossilindustri), krig (propaganda, falske bilder). Kan påvirke valg, folkehelse og politikk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-6-ex-4',
       type: 'exercise',
@@ -9759,6 +9828,19 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_7_7: TextbookChapter = {
 - Staten og myndigheter`,
     },
     {
+      id: 'samfunnskunnskap-7-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er personvern og hvorfor er det viktig i et demokrati?',
+        solution: 'Personvern er retten til å kontrollere informasjon om seg selv. Viktig fordi: Beskytter individets autonomi og verdighet, gir kontroll over eget liv, forhindrer misbruk, er forutsetning for ytringsfrihet (folk sensurerer seg hvis de overvåkes).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-7-overvaking',
       type: 'text',
       content: `## Overvåkning
@@ -9785,6 +9867,19 @@ Myndigheter overvåker for å:
 - Hvem kontrollerer kontrollørene?
 - Kan overvåkning misbrukes?
 - "Chilling effect" – selvsensureringseffekt`,
+    },
+    {
+      id: 'samfunnskunnskap-7-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi eksempler på ulike typer digitale spor vi legger igjen.',
+        solution: 'Aktive spor: Poster i sosiale medier, e-poster, søk, nettkjøp. Passive spor: Lokasjonsdata, cookies, IP-adresser. Metadata: Når/hvor kommunikasjon skjedde, hvem du kommuniserte med. Samles av tech-selskaper, annonsører, myndigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-7-7-lovgivning',
@@ -9847,6 +9942,19 @@ EUs personvernforordning fra 2018, også gjeldende i Norge:
 - Produktivitetsmåling`,
     },
     {
+      id: 'samfunnskunnskap-7-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-7-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er GDPR og hvilke rettigheter gir det deg?',
+        solution: 'GDPR er EUs personvernforordning fra 2018, også gjeldende i Norge. Rettigheter: Innsyn i data om deg, retting av feil, sletting ("rett til å bli glemt"), dataportabilitet, informasjon om hvordan data brukes, rett til å protestere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-7-7-beskyttelse',
       type: 'text',
       content: `## Hvordan beskytte personvernet
@@ -9875,45 +9983,7 @@ EUs personvernforordning fra 2018, også gjeldende i Norge:
 - Delta i debatten
 - Krev transparens fra selskaper og myndigheter`,
     },
-    {
-      id: 'samfunnskunnskap-7-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er personvern og hvorfor er det viktig i et demokrati?',
-        solution: 'Personvern er retten til å kontrollere informasjon om seg selv. Viktig fordi: Beskytter individets autonomi og verdighet, gir kontroll over eget liv, forhindrer misbruk, er forutsetning for ytringsfrihet (folk sensurerer seg hvis de overvåkes).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi eksempler på ulike typer digitale spor vi legger igjen.',
-        solution: 'Aktive spor: Poster i sosiale medier, e-poster, søk, nettkjøp. Passive spor: Lokasjonsdata, cookies, IP-adresser. Metadata: Når/hvor kommunikasjon skjedde, hvem du kommuniserte med. Samles av tech-selskaper, annonsører, myndigheter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-7-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-7-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er GDPR og hvilke rettigheter gir det deg?',
-        solution: 'GDPR er EUs personvernforordning fra 2018, også gjeldende i Norge. Rettigheter: Innsyn i data om deg, retting av feil, sletting ("rett til å bli glemt"), dataportabilitet, informasjon om hvordan data brukes, rett til å protestere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-7-7-ex-4',
       type: 'exercise',
@@ -9984,6 +10054,19 @@ En **velferdsstat** er en stat som tar ansvar for innbyggernes velferd gjennom o
 - Privatisering vs. offentlig drift`,
     },
     {
+      id: 'samfunnskunnskap-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva kjennetegner den norske velferdsstaten?',
+        solution: 'Kjennetegn: Universelle ordninger som gjelder alle (ikke behovsprøvd), finansiert gjennom skatter og avgifter, omfattende offentlig sektor, mål om likhet og sosial trygghet, høyt skattenivå, omfattende omfordeling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-1-prinsipper',
       type: 'text',
       content: `## Velferdsstatens prinsipper
@@ -10009,6 +10092,19 @@ En **velferdsstat** er en stat som tar ansvar for innbyggernes velferd gjennom o
 - Like muligheter for alle
 - Gratis utdanning og helsetjenester
 - Uavhengig av foreldres økonomi`,
+    },
+    {
+      id: 'samfunnskunnskap-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar prinsippene universalisme og omfordeling.',
+        solution: 'Universalisme: Velferdsordningene gjelder alle, ikke bare de fattige. Skaper fellesskap og legitimitet. Omfordeling: Skatter etter evne, ytelser etter behov. Reduserer økonomiske forskjeller og sikrer alle verdige levekår.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-8-1-finansiering',
@@ -10072,32 +10168,6 @@ Statsbudsjettet fordeles på:
 - Arbeidsformidling og trygdeutbetalinger`,
     },
     {
-      id: 'samfunnskunnskap-8-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva kjennetegner den norske velferdsstaten?',
-        solution: 'Kjennetegn: Universelle ordninger som gjelder alle (ikke behovsprøvd), finansiert gjennom skatter og avgifter, omfattende offentlig sektor, mål om likhet og sosial trygghet, høyt skattenivå, omfattende omfordeling.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-8-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar prinsippene universalisme og omfordeling.',
-        solution: 'Universalisme: Velferdsordningene gjelder alle, ikke bare de fattige. Skaper fellesskap og legitimitet. Omfordeling: Skatter etter evne, ytelser etter behov. Reduserer økonomiske forskjeller og sikrer alle verdige levekår.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-8-1-ex-3',
       type: 'exercise',
       exercise: {
@@ -10110,6 +10180,7 @@ Statsbudsjettet fordeles på:
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-1-ex-4',
       type: 'exercise',
@@ -10191,6 +10262,19 @@ Inkludert i prisen på varer og tjenester:
 - Sukkeravgift`,
     },
     {
+      id: 'samfunnskunnskap-8-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er skattens hovedfunksjoner i samfunnet?',
+        solution: 'Fire hovedfunksjoner: 1) Finansiere offentlige tjenester (helse, utdanning, politi), 2) Omfordele ressurser (fra rike til fattige), 3) Styre atferd (avgifter på tobakk, alkohol, miljøskadelig), 4) Stabilisere økonomien.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-2-progressiv',
       type: 'text',
       content: `## Progressiv beskatning
@@ -10213,6 +10297,19 @@ Norge har et **progressivt skattesystem** – skatten øker med inntekten.
 - **Betalingsevne:** Marginalkronen verdt mindre for rike
 - **Omfordeling:** Reduserer ulikhet
 - **Stabilisering:** Automatisk stabilisator i økonomien`,
+    },
+    {
+      id: 'samfunnskunnskap-8-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen på direkte og indirekte skatter.',
+        solution: 'Direkte skatter: Betales direkte av den som ilegges (inntektsskatt, formuesskatt, selskapsskatt). Indirekte skatter: Inkludert i prisen på varer og tjenester (moms, særavgifter). Direkte skatter kan være progressive, indirekte rammer relativt likt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'samfunnskunnskap-8-2-debatt',
@@ -10271,32 +10368,6 @@ La oss si du tjener **500 000 kr** i året:
 **Totalt betaler du og arbeidsgiver betydelige beløp i skatt – men får tilbake i form av fellesgoder.**`,
     },
     {
-      id: 'samfunnskunnskap-8-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er skattens hovedfunksjoner i samfunnet?',
-        solution: 'Fire hovedfunksjoner: 1) Finansiere offentlige tjenester (helse, utdanning, politi), 2) Omfordele ressurser (fra rike til fattige), 3) Styre atferd (avgifter på tobakk, alkohol, miljøskadelig), 4) Stabilisere økonomien.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-8-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen på direkte og indirekte skatter.',
-        solution: 'Direkte skatter: Betales direkte av den som ilegges (inntektsskatt, formuesskatt, selskapsskatt). Indirekte skatter: Inkludert i prisen på varer og tjenester (moms, særavgifter). Direkte skatter kan være progressive, indirekte rammer relativt likt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-8-2-ex-3',
       type: 'exercise',
       exercise: {
@@ -10309,6 +10380,7 @@ La oss si du tjener **500 000 kr** i året:
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-2-ex-4',
       type: 'exercise',
@@ -10372,6 +10444,19 @@ Statsbudsjettet er et viktig politisk dokument som viser regjeringens prioriteri
 - Behandles av Stortinget i juni`,
     },
     {
+      id: 'samfunnskunnskap-8-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv prosessen fra regjeringen legger frem statsbudsjettet til det vedtas.',
+        solution: 'Prosess: 1) Regjeringen legger frem forslag i oktober, 2) Finanskomitéen behandler helheten, 3) Fagkomiteene behandler sine områder, 4) Stortinget debatterer og vedtar budsjettet i desember. I mai kommer revidert budsjett.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-3-inntekter',
       type: 'text',
       content: `## Statens inntekter
@@ -10425,6 +10510,19 @@ Statsbudsjettet er et viktig politisk dokument som viser regjeringens prioriteri
 Ca. 1 800 milliarder kroner (2024)`,
     },
     {
+      id: 'samfunnskunnskap-8-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er de viktigste inntektskildene i statsbudsjettet?',
+        solution: 'Hovedkilder: Skatter og avgifter (ca. 80%) – inntektsskatt, moms, arbeidsgiveravgift, særavgifter. Petroleumsinntekter (varierer). Andre: Utbytte fra statlige selskaper, gebyrer. Overføring fra Oljefondet dekker underskuddet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-3-balanse',
       type: 'example',
       title: 'Budsjettbalanse',
@@ -10450,32 +10548,6 @@ Overføring fra Oljefondet etter handlingsregelen.
 - Hvordan sikre bærekraft på lang sikt?`,
     },
     {
-      id: 'samfunnskunnskap-8-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv prosessen fra regjeringen legger frem statsbudsjettet til det vedtas.',
-        solution: 'Prosess: 1) Regjeringen legger frem forslag i oktober, 2) Finanskomitéen behandler helheten, 3) Fagkomiteene behandler sine områder, 4) Stortinget debatterer og vedtar budsjettet i desember. I mai kommer revidert budsjett.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'samfunnskunnskap-8-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er de viktigste inntektskildene i statsbudsjettet?',
-        solution: 'Hovedkilder: Skatter og avgifter (ca. 80%) – inntektsskatt, moms, arbeidsgiveravgift, særavgifter. Petroleumsinntekter (varierer). Andre: Utbytte fra statlige selskaper, gebyrer. Overføring fra Oljefondet dekker underskuddet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'samfunnskunnskap-8-3-ex-3',
       type: 'exercise',
       exercise: {
@@ -10488,6 +10560,7 @@ Overføring fra Oljefondet etter handlingsregelen.
         allowsCanvasDrawing: true,
       },
     },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-3-ex-4',
       type: 'exercise',
@@ -10538,6 +10611,19 @@ Norge har omfattende velferdsordninger som sikrer innbyggerne trygghet gjennom l
 - Sosialtjenester (kommunalt)`,
     },
     {
+      id: 'samfunnskunnskap-8-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er NAVs hovedoppgaver?',
+        solution: 'NAVs oppgaver: Forvalte folketrygden, arbeidsformidling, oppfølging av arbeidssøkere, utbetale trygder og stønader, samt sosialtjenester (sammen med kommunene).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-4-ordninger',
       type: 'text',
       content: `## De viktigste ordningene
@@ -10572,19 +10658,7 @@ Norge har omfattende velferdsordninger som sikrer innbyggerne trygghet gjennom l
 - 100% eller 80% av lønn
 - Fordeles mellom foreldrene`,
     },
-    {
-      id: 'samfunnskunnskap-8-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er NAVs hovedoppgaver?',
-        solution: 'NAVs oppgaver: Forvalte folketrygden, arbeidsformidling, oppfølging av arbeidssøkere, utbetale trygder og stønader, samt sosialtjenester (sammen med kommunene).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-4-ex-2',
       type: 'exercise',
@@ -10636,6 +10710,19 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_8_5: TextbookChapter = {
 - Langsiktig perspektiv`,
     },
     {
+      id: 'samfunnskunnskap-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er formålet med Oljefondet?',
+        solution: 'Formål: Sikre langsiktig forvaltning av petroleumsinntektene, støtte statsfinansene, ivareta fremtidige generasjoners interesser. Unngå overoppheting av økonomien og sikre bærekraft når oljen tar slutt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-5-forvaltning',
       type: 'text',
       content: `## Forvaltning
@@ -10676,19 +10763,7 @@ Etikkrådet gir anbefalinger om utelukkelse av selskaper.
 - Tobakksprodusenter
 - Kullselskaper over visse grenser`,
     },
-    {
-      id: 'samfunnskunnskap-8-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er formålet med Oljefondet?',
-        solution: 'Formål: Sikre langsiktig forvaltning av petroleumsinntektene, støtte statsfinansene, ivareta fremtidige generasjoners interesser. Unngå overoppheting av økonomien og sikre bærekraft når oljen tar slutt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-5-ex-2',
       type: 'exercise',
@@ -10741,6 +10816,19 @@ Norge er et av landene med minst økonomisk ulikhet, men ulikheten har økt de s
 - Sosial mobilitet (mulighet til å klatre)`,
     },
     {
+      id: 'samfunnskunnskap-8-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er Gini-koeffisienten og hva forteller den?',
+        solution: 'Gini-koeffisienten måler ulikhet på en skala fra 0 (fullstendig likhet) til 1 (én person har alt). Norge ligger på ca. 0,27, som er relativt lavt internasjonalt. Jo lavere tall, jo mer lik fordeling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-6-fattigdom',
       type: 'text',
       content: `## Fattigdom i Norge
@@ -10778,19 +10866,7 @@ Norge er et av landene med minst økonomisk ulikhet, men ulikheten har økt de s
 **Venstre:** Ulikhet er urettferdig, hemmer muligheter
 **Midt:** Balanse mellom likhet og insentiver`,
     },
-    {
-      id: 'samfunnskunnskap-8-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er Gini-koeffisienten og hva forteller den?',
-        solution: 'Gini-koeffisienten måler ulikhet på en skala fra 0 (fullstendig likhet) til 1 (én person har alt). Norge ligger på ca. 0,27, som er relativt lavt internasjonalt. Jo lavere tall, jo mer lik fordeling.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-6-ex-2',
       type: 'exercise',
@@ -10841,6 +10917,19 @@ Forskere skiller mellom tre hovedtyper av velferdsstater: sosialdemokratisk (nor
 **Land:** Norge, Sverige, Danmark, Finland, Island`,
     },
     {
+      id: 'samfunnskunnskap-8-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva kjennetegner den nordiske velferdsmodellen?',
+        solution: 'Kjennetegn: Universelle ordninger for alle, høyt skattenivå, omfattende offentlig sektor, sterk omfordeling, trepartssamarbeid mellom stat, arbeidsgivere og fagbevegelse. Finnes i Norge, Sverige, Danmark, Finland, Island.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-7-andre',
       type: 'text',
       content: `## Konservativ modell (kontinentaleuropeisk)
@@ -10858,19 +10947,7 @@ Forskere skiller mellom tre hovedtyper av velferdsstater: sosialdemokratisk (nor
 - Lavt skattenivå
 **Land:** USA, Storbritannia, Australia`,
     },
-    {
-      id: 'samfunnskunnskap-8-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva kjennetegner den nordiske velferdsmodellen?',
-        solution: 'Kjennetegn: Universelle ordninger for alle, høyt skattenivå, omfattende offentlig sektor, sterk omfordeling, trepartssamarbeid mellom stat, arbeidsgivere og fagbevegelse. Finnes i Norge, Sverige, Danmark, Finland, Island.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-7-ex-2',
       type: 'exercise',
@@ -10924,6 +11001,19 @@ Andelen eldre i befolkningen øker kraftig når de store etterkrigskullene pensj
 2050: Ca. 2,5 yrkesaktive per pensjonist`,
     },
     {
+      id: 'samfunnskunnskap-8-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-8-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er eldrebølgen og hvorfor er den en utfordring?',
+        solution: 'Eldrebølgen: Andelen eldre øker kraftig når de store etterkrigskullene pensjoneres. Utfordring: Flere pensjonister, færre i arbeid, økte utgifter til helse/omsorg, færre skattebetalere per pensjonist. Truer velferdsstatens bærekraft.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'samfunnskunnskap-8-8-andre',
       type: 'text',
       content: `## Andre utfordringer
@@ -10958,19 +11048,7 @@ Andelen eldre i befolkningen øker kraftig når de store etterkrigskullene pensj
 - Prioritere hardere
 - Teknologi og innovasjon`,
     },
-    {
-      id: 'samfunnskunnskap-8-8-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'samfunnskunnskap-8-8-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er eldrebølgen og hvorfor er den en utfordring?',
-        solution: 'Eldrebølgen: Andelen eldre øker kraftig når de store etterkrigskullene pensjoneres. Utfordring: Flere pensjonister, færre i arbeid, økte utgifter til helse/omsorg, færre skattebetalere per pensjonist. Truer velferdsstatens bærekraft.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Oppsummeringsoppgaver ---
     {
       id: 'samfunnskunnskap-8-8-ex-2',
       type: 'exercise',
