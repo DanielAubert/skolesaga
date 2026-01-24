@@ -6957,71 +6957,62 @@ export const COURSE_NAT_VG1: TextbookCourse = {
   id: 'nat-vg1',
   title: 'Naturfag VG1',
   level: 'VG1',
-  description: 'Naturfag for studieforberedende utdanningsprogram',
+  description: 'Naturfag for studieforberedende utdanningsprogram - naturvitenskapelig metode, stråling, universet, kjemi, miljø, helse og bioteknologi',
   curriculum: 'LK20',
   icon: '🔬',
   coverImage: '/images/subjects/naturfag-vg1-hero.png',
   chapters: [
-    {
-      id: 'nat-vg1-1-1',
-      number: '1.1',
-      title: 'Den naturvitenskapelige metoden',
-      description: 'Lær om hvordan naturvitenskapen bygger kunnskap gjennom observasjoner, hypoteser, eksperimenter og konklusjoner.',
-      estimatedMinutes: 60,
-      exerciseCount: 8,
-      topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering', 'Observasjon', 'Konklusjon'],
-      competenceGoals: ['beskrive trekk ved den naturvitenskapelige metoden', 'utforske naturfaglige problemstillinger ved å planlegge og gjennomføre undersøkelser'],
-    },
-    {
-      id: 'nat-vg1-1-2',
-      number: '1.2',
-      title: 'Modeller i naturfag',
-      description: 'Lær om forskjellige typer modeller i naturfag, hvordan de brukes og deres begrensninger.',
-      estimatedMinutes: 45,
-      exerciseCount: 7,
-      topics: ['Naturvitenskapelige modeller', 'Atommodeller', 'Klimamodeller'],
-      competenceGoals: ['bruke og lage modeller for å tolke og forklare naturfaglige fenomener', 'beskrive og vurdere hvordan modeller brukes i naturfag'],
-    },
-    {
-      id: 'nat-vg1-1-3',
-      number: '1.3',
-      title: 'Kritisk vurdering av kilder',
-      description: 'Lær å skille mellom pålitelige og upålitelige kilder, forstå forskjellen mellom vitenskap og pseudovitenskap, og utvikle kritisk tenkning.',
-      estimatedMinutes: 50,
-      exerciseCount: 9,
-      topics: ['Kildekritikk', 'Forskning', 'Pseudovitenskap', 'Vitenskapelig artikkel'],
-      competenceGoals: ['identifisere og diskutere naturvitenskapelige forklaringer fra forskjellige kilder', 'vurdere troverdigheten til naturvitenskapelige påstander'],
-    },
-    {
-      id: 'nat-vg1-1-4',
-      number: '1.4',
-      title: 'Etikk og samfunnsansvar',
-      description: 'Lær om forskningsetikk, etiske dilemmaer i naturfag og forskningens samfunnsansvar.',
-      estimatedMinutes: 55,
-      exerciseCount: 10,
-      topics: ['Forskningsetikk', 'Samfunnsansvar', 'Miljøutfordringer', 'Teknologiutvikling'],
-      competenceGoals: ['diskutere etiske dilemmaer knyttet til naturvitenskap og teknologi', 'beskrive sammenhenger mellom naturvitenskap, teknologi og samfunn'],
-    },
-    {
-      id: 'nat-vg1-2-1',
-      number: '2.1',
-      title: 'Atomets bygning',
-      description: 'Lær om atomets bestanddeler, elektronskall, isotoper og Bohrs atommodell.',
-      estimatedMinutes: 50,
-      exerciseCount: 8,
-      topics: ['Atomstruktur', 'Protoner', 'Nøytroner', 'Elektroner', 'Isotoper', 'Bohrs atommodell'],
-      competenceGoals: ['forklare oppbygningen av atomer', 'beskrive elektronkonfigurasjon og isotoper'],
-    },
-    {
-      id: 'nat-vg1-2-2',
-      number: '2.2',
-      title: 'Periodesystemet',
-      description: 'Lær om periodesystemets oppbygging, grupper, perioder og periodetrender.',
-      estimatedMinutes: 45,
-      exerciseCount: 8,
-      topics: ['Periodesystemet', 'Grupper', 'Perioder', 'Grunnstoff', 'Periodetrender'],
-      competenceGoals: ['beskrive hvordan periodesystemet er bygd opp', 'forklare hva grupper og perioder er', 'beskrive ulike grunnstoffgrupper og deres egenskaper'],
-    },
+    // Seksjon 1: Naturvitenskapens tenkemåte
+    { id: 'nat-vg1-1-1', number: '1.1', title: 'Den naturvitenskapelige metoden', description: 'Lær om hvordan naturvitenskapen bygger kunnskap gjennom observasjoner, hypoteser, eksperimenter og konklusjoner.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering'], competenceGoals: ['utforske en selvvalgt naturfaglig problemstilling, presentere funn og argumentere for valg av metoder'] },
+    { id: 'nat-vg1-1-2', number: '1.2', title: 'Hypoteser, modeller og teorier', description: 'Forstå forskjellen mellom hypoteser, modeller og teorier, og hvordan de utvikles i naturvitenskapen.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Hypoteser', 'Modeller', 'Teorier', 'Vitenskapelig utvikling'], competenceGoals: ['drøfte hvordan utvikling av naturvitenskapelige hypoteser, modeller og teorier bidrar til at vi kan forstå og forklare verden'] },
+    { id: 'nat-vg1-1-3', number: '1.3', title: 'Vitenskapelig kommunikasjon', description: 'Lær å presentere naturfaglige funn og argumentere for valg av metoder.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Rapportskriving', 'Presentasjon', 'Argumentasjon'], competenceGoals: ['utforske en selvvalgt naturfaglig problemstilling, presentere funn og argumentere for valg av metoder'] },
+    { id: 'nat-vg1-1-4', number: '1.4', title: 'Risikovurdering og HMS', description: 'Lær om sikkerhet i laboratoriet, risikovurdering og forsvarlig håndtering av avfall.', estimatedMinutes: 40, exerciseCount: 5, topics: ['HMS', 'Risikovurdering', 'Laboratoriesikkerhet', 'Avfallshåndtering'], competenceGoals: ['risikovurdere egne forsøk og håndtere avfallet fra disse på en forsvarlig måte'] },
+    { id: 'nat-vg1-1-5', number: '1.5', title: 'Programmering og modellering', description: 'Bruk programmering til å modellere og utforske naturfaglige fenomener.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Programmering', 'Python', 'Modellering', 'Simulering'], competenceGoals: ['vurdere og lage programmer som modellerer naturfaglige fenomener'] },
+
+    // Seksjon 2: Stråling og bølger
+    { id: 'nat-vg1-2-1', number: '2.1', title: 'Bølger og bølgefenomener', description: 'Utforsk grunnleggende bølgeegenskaper som bølgelengde, frekvens og amplitude.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Bølger', 'Bølgelengde', 'Frekvens', 'Amplitude'], competenceGoals: ['utforske og beskrive noen sentrale bølgefenomener'] },
+    { id: 'nat-vg1-2-2', number: '2.2', title: 'Lydbølger', description: 'Lær om lyd som bølgefenomen, lydhastighet og hvordan vi hører.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Lyd', 'Lydbølger', 'Lydhastighet', 'Hørsel'], competenceGoals: ['utforske og beskrive noen sentrale bølgefenomener'] },
+    { id: 'nat-vg1-2-3', number: '2.3', title: 'Det elektromagnetiske spekteret', description: 'Utforsk de ulike typene elektromagnetisk stråling fra radiobølger til gammastråling.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Elektromagnetisk stråling', 'Lys', 'UV-stråling', 'Infrarød'], competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'] },
+    { id: 'nat-vg1-2-4', number: '2.4', title: 'Ioniserende stråling', description: 'Lær om radioaktiv stråling, halveringstid og biologiske effekter.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Radioaktivitet', 'Alfa', 'Beta', 'Gamma', 'Halveringstid'], competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'] },
+    { id: 'nat-vg1-2-5', number: '2.5', title: 'Stråling og helse', description: 'Vurder helseeffekter av ulike typer stråling og hvordan vi kan beskytte oss.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Strålebeskyttelse', 'Radon', 'UV-skader', 'Medisinsk stråling'], competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'] },
+    { id: 'nat-vg1-2-6', number: '2.6', title: 'Trådløs kommunikasjon', description: 'Forstå hovedprinsippene for trådløs kommunikasjon og anvendelser.', estimatedMinutes: 50, exerciseCount: 7, topics: ['WiFi', 'Mobilnett', '5G', 'Bluetooth', 'Satellittkommunikasjon'], competenceGoals: ['forklare hovedprinsippene for trådløs kommunikasjon og gi eksempler på hva slik teknologi brukes til'] },
+
+    // Seksjon 3: Universet
+    { id: 'nat-vg1-3-1', number: '3.1', title: 'Big bang og universets opprinnelse', description: 'Lær om big bang-teorien og hvordan universet oppsto og utviklet seg.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Big bang', 'Universets alder', 'Kosmisk bakgrunnsstråling'], competenceGoals: ['beskrive big bang-teorien om hvordan universet har oppstått og utviklet seg, og gjøre rede for observasjoner som støtter denne teorien'] },
+    { id: 'nat-vg1-3-2', number: '3.2', title: 'Stjerner og deres livssyklus', description: 'Utforsk hvordan stjerner dannes, lever og dør.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Stjernedannelse', 'Hovedserien', 'Supernovaer', 'Svarte hull'], competenceGoals: ['beskrive big bang-teorien om hvordan universet har oppstått og utviklet seg'] },
+    { id: 'nat-vg1-3-3', number: '3.3', title: 'Galakser og universets struktur', description: 'Lær om galakser, galaksehoper og universets storskalastruktur.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Melkeveien', 'Galakser', 'Mørk materie', 'Universets ekspansjon'], competenceGoals: ['beskrive big bang-teorien om hvordan universet har oppstått og utviklet seg'] },
+    { id: 'nat-vg1-3-4', number: '3.4', title: 'Observasjoner som støtter big bang', description: 'Gjør rede for de viktigste observasjonene som støtter big bang-teorien.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Rødforskyvning', 'Hubbles lov', 'Kosmisk bakgrunnsstråling', 'Grunnstoffenes forekomst'], competenceGoals: ['beskrive big bang-teorien om hvordan universet har oppstått og utviklet seg, og gjøre rede for observasjoner som støtter denne teorien'] },
+
+    // Seksjon 4: Kjemi - stoffer og bindinger
+    { id: 'nat-vg1-4-1', number: '4.1', title: 'Atomets oppbygning', description: 'Repeter og utdyp kunnskap om atomets bestanddeler og elektronkonfigurasjon.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Atomstruktur', 'Elektronskal', 'Valenselektroner'], competenceGoals: ['utforske og gjøre rede for sammenhenger mellom kjemiske bindinger og egenskaper til ulike stoffer'] },
+    { id: 'nat-vg1-4-2', number: '4.2', title: 'Periodesystemet', description: 'Forstå periodesystemets oppbygning og hvordan det forklarer grunnstoffenes egenskaper.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Periodesystemet', 'Grupper', 'Perioder', 'Periodetrender'], competenceGoals: ['utforske og gjøre rede for sammenhenger mellom kjemiske bindinger og egenskaper til ulike stoffer'] },
+    { id: 'nat-vg1-4-3', number: '4.3', title: 'Ionebinding', description: 'Lær om hvordan ionebindinger dannes og egenskapene til ioneforbindelser.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Ioner', 'Ionebinding', 'Salter', 'Gitterstruktur'], competenceGoals: ['utforske og gjøre rede for sammenhenger mellom kjemiske bindinger og egenskaper til ulike stoffer'] },
+    { id: 'nat-vg1-4-4', number: '4.4', title: 'Kovalent binding', description: 'Forstå kovalent binding, elektronparbinding og molekylstruktur.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Kovalent binding', 'Molekyler', 'Elektronparbinding', 'Lewis-strukturer'], competenceGoals: ['utforske og gjøre rede for sammenhenger mellom kjemiske bindinger og egenskaper til ulike stoffer'] },
+    { id: 'nat-vg1-4-5', number: '4.5', title: 'Metallbinding og stoffers egenskaper', description: 'Lær om metallbinding og sammenhengen mellom bindingstype og stoffegenskaper.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Metallbinding', 'Ledningsevne', 'Smeltepunkt', 'Løselighet'], competenceGoals: ['utforske og gjøre rede for sammenhenger mellom kjemiske bindinger og egenskaper til ulike stoffer'] },
+    { id: 'nat-vg1-4-6', number: '4.6', title: 'Organisk kjemi - introduksjon', description: 'Introduksjon til organisk kjemi og karbonets spesielle egenskaper.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Organisk kjemi', 'Karbon', 'Hydrokarboner', 'Alkaner'], competenceGoals: ['utforske egenskaper og reaksjoner til noen organiske og uorganiske karbonforbindelser'] },
+    { id: 'nat-vg1-4-7', number: '4.7', title: 'Funksjonelle grupper', description: 'Lær om viktige funksjonelle grupper og deres egenskaper.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Alkoholer', 'Karboksylsyrer', 'Estere', 'Aminer'], competenceGoals: ['utforske egenskaper og reaksjoner til noen organiske og uorganiske karbonforbindelser, gi eksempler på anvendelser'] },
+    { id: 'nat-vg1-4-8', number: '4.8', title: 'Karbonets kretsløp', description: 'Forstå karbonets kretsløp og betydning for livet og klimaet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Karbonkretsløp', 'Fotosyntese', 'Respirasjon', 'Fossilt brensel'], competenceGoals: ['gjøre rede for karbonets betydning for livet'] },
+
+    // Seksjon 5: Miljø og bærekraft
+    { id: 'nat-vg1-5-1', number: '5.1', title: 'Økosystemer og næringskjeder', description: 'Lær om økosystemer, næringskjeder og energistrøm.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Økosystemer', 'Næringskjeder', 'Næringsnett', 'Produsenter', 'Konsumenter'], competenceGoals: ['gjøre rede for hvordan noen miljøgifter kan akkumuleres i næringskjeder'] },
+    { id: 'nat-vg1-5-2', number: '5.2', title: 'Miljøgifter og bioakkumulering', description: 'Forstå hvordan miljøgifter akkumuleres i næringskjeder og påvirker økosystemer.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Miljøgifter', 'Bioakkumulering', 'Biomagnifisering', 'PCB', 'Tungmetaller'], competenceGoals: ['gjøre rede for hvordan noen miljøgifter kan akkumuleres i næringskjeder, og vurdere tiltak for å ta vare på helse og miljø'] },
+    { id: 'nat-vg1-5-3', number: '5.3', title: 'Klimaendringer', description: 'Lær om drivhuseffekten, klimaendringer og konsekvenser.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Drivhuseffekt', 'Global oppvarming', 'Klimagasser', 'Konsekvenser'], competenceGoals: ['gjøre rede for hvordan klimaendringer påvirker evolusjon, utbredelse av arter og biologisk mangfold'] },
+    { id: 'nat-vg1-5-4', number: '5.4', title: 'Tiltak for miljø og helse', description: 'Vurder tiltak for å beskytte helse og miljø mot forurensning.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Miljøtiltak', 'Bærekraft', 'Resirkulering', 'Fornybar energi'], competenceGoals: ['vurdere tiltak for å ta vare på helse og miljø'] },
+
+    // Seksjon 6: Helse og livsstil
+    { id: 'nat-vg1-6-1', number: '6.1', title: 'Næringsstoffer', description: 'Lær om de ulike næringsstoffene og deres funksjoner i kroppen.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Karbohydrater', 'Proteiner', 'Fett', 'Vitaminer', 'Mineraler'], competenceGoals: ['gjøre rede for funksjonene til noen næringsstoffer'] },
+    { id: 'nat-vg1-6-2', number: '6.2', title: 'Kosthold og bærekraft', description: 'Forstå sammenhengen mellom kosthold, helse og miljø.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Kosthold', 'Matproduksjon', 'Bærekraftig mat', 'Kostråd'], competenceGoals: ['diskutere hvorfor et variert kosthold er viktig i et helse- og bærekraftsperspektiv'] },
+    { id: 'nat-vg1-6-3', number: '6.3', title: 'Livsstil og helse', description: 'Drøft sammenhengen mellom livsstil, helse og sykdom.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Livsstilssykdommer', 'Fysisk aktivitet', 'Søvn', 'Stress'], competenceGoals: ['drøfte aktuelle helse- og livsstilsspørsmål'] },
+    { id: 'nat-vg1-6-4', number: '6.4', title: 'Kildekritikk i helsespørsmål', description: 'Lær å vurdere påliteligheten i helseinformasjon fra ulike kilder.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Kildekritikk', 'Helsemyter', 'Vitenskapelig dokumentasjon'], competenceGoals: ['vurdere pålitelighet i informasjon fra ulike kilder'] },
+
+    // Seksjon 7: Arv, evolusjon og bioteknologi
+    { id: 'nat-vg1-7-1', number: '7.1', title: 'DNA - arvematerialet', description: 'Lær om DNA-molekylets struktur og funksjon.', estimatedMinutes: 55, exerciseCount: 8, topics: ['DNA', 'Nukleotider', 'Dobbelheliks', 'Basepar'], competenceGoals: ['beskrive DNA og hvordan egenskaper arves'] },
+    { id: 'nat-vg1-7-2', number: '7.2', title: 'Gener og proteinsyntese', description: 'Forstå hvordan genetisk informasjon omsettes til proteiner.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Gener', 'Transkripsjon', 'Translasjon', 'Proteiner'], competenceGoals: ['beskrive DNA og hvordan egenskaper arves'] },
+    { id: 'nat-vg1-7-3', number: '7.3', title: 'Arv og variasjon', description: 'Lær om hvordan egenskaper arves og hvordan variasjon oppstår.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Arv', 'Mutasjoner', 'Variasjon', 'Genetisk mangfold'], competenceGoals: ['beskrive DNA og hvordan egenskaper arves, og gjøre rede for hvordan arv er en forutsetning for evolusjon'] },
+    { id: 'nat-vg1-7-4', number: '7.4', title: 'Evolusjon og naturlig utvalg', description: 'Forstå evolusjonsteoriens grunnprinsipper.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Evolusjon', 'Naturlig utvalg', 'Tilpasning', 'Artsdannelse'], competenceGoals: ['gjøre rede for hvordan arv er en forutsetning for evolusjon'] },
+    { id: 'nat-vg1-7-5', number: '7.5', title: 'Klimaendringer og biologisk mangfold', description: 'Lær hvordan klimaendringer påvirker arter og økosystemer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Klimatilpasning', 'Utryddelse', 'Biologisk mangfold', 'Artsforflytning'], competenceGoals: ['gjøre rede for hvordan klimaendringer påvirker evolusjon, utbredelse av arter og biologisk mangfold'] },
+    { id: 'nat-vg1-7-6', number: '7.6', title: 'Bioteknologi - metoder og anvendelser', description: 'Utforsk moderne bioteknologiske metoder og deres bruksområder.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Genteknologi', 'CRISPR', 'GMO', 'Genterapi'], competenceGoals: ['gi eksempler på bruk av bioteknologi'] },
+    { id: 'nat-vg1-7-7', number: '7.7', title: 'Etikk i bioteknologi', description: 'Drøft etiske spørsmål knyttet til bruk av bioteknologi.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bioetikk', 'Genmodifisering', 'Stamceller', 'Kloning'], competenceGoals: ['drøfte etiske spørsmål knyttet til bioteknologi'] },
   ],
 };
 
@@ -11780,7 +11771,8 @@ export const COURSE_SAMFUNNSKUNNSKAP: TextbookCourse = {
   description: 'Samfunnskunnskap - demokrati, politikk, økonomi og internasjonale forhold',
   curriculum: 'LK20',
   icon: '🏛️',
-    chapters: [
+  coverImage: '/images/subjects/samfunnskunnskap-hero.png',
+  chapters: [
     // Kapittel 1: Individ og samfunn
     { id: 'samfunnskunnskap-1-1', number: '1.1', title: 'Sosialisering - hvordan vi formes', description: 'Forstå hvordan vi blir formet som mennesker gjennom primær, sekundær og tertiær sosialisering.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Sosialisering'], competenceGoals: [''] },
     { id: 'samfunnskunnskap-1-2', number: '1.2', title: 'Identitet og selvfølelse', description: 'Forstå hva identitet er, hvordan den utvikles, og hvordan selvfølelse påvirkes av samfunnet rundt os...', estimatedMinutes: 30, exerciseCount: 4, topics: ['Identitet'], competenceGoals: [''] },
@@ -13548,11 +13540,13 @@ export const SECTION_NAMES_NATURFAG_10: Record<string, string> = {
 
 // Seksjonsnavn for Naturfag VG1
 export const SECTION_NAMES_NAT_VG1: Record<string, string> = {
-  '1': 'Naturvitenskapelige praksiser og tenkemåter',
-  '2': 'Energi og materie',
-  '3': 'Jorda og livet på jorda',
-  '4': 'Kropp og helse',
-  '5': 'Teknologi og bærekraft',
+  '1': 'Naturvitenskapens tenkemåte',
+  '2': 'Stråling og bølger',
+  '3': 'Universet',
+  '4': 'Kjemi - stoffer og bindinger',
+  '5': 'Miljø og bærekraft',
+  '6': 'Helse og livsstil',
+  '7': 'Arv, evolusjon og bioteknologi',
 };
 
 // Seksjonsnavn for Samfunnskunnskap VG1-VG2 (LK20-rekkefølge)
