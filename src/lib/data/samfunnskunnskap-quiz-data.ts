@@ -7212,14 +7212,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-6': [
     {
-      question: 'Hvor mange jordkloder ville vi trengt hvis alle levde som nordmenn?',
+      question: 'Hva debatteres om forbruk og baerekraft?',
       options: [
-        '3-4 jordkloder',
-        '1 jordklode',
-        '2 jordkloder',
-        '10 jordkloder',
+        'Balansen mellom velstand og miljohensyn',
+        'At forbruk aldri er et problem',
+        'At alle maa slutte aa forbruke',
+        'At kun fattige land maa endre forbruk',
       ],
-      explanation: 'Nordmenn har et saa hoyt forbruk at hvis alle i verden levde som oss, ville vi trengt ressursene fra 3-4 jordkloder.',
+      explanation: 'Det debatteres hvordan vi balanserer velstand og miljohensyn. Noen vektlegger redusert forbruk, andre vektlegger teknologiske losninger.',
     },
     {
       question: 'Hva er okologisk fotavtrykk?',
@@ -7298,14 +7298,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-7': [
     {
-      question: 'Hva menes med klimarettferdighet?',
+      question: 'Hva er en sentral debatt i internasjonalt klimasamarbeid?',
       options: [
-        'At de som har bidratt minst til klimaproblemet ikke skal rammes hardest',
-        'At alle land skal ha like utslipp',
-        'At alle skal betale like mye i klimaavgift',
-        'At klimaendringer er rettferdige',
+        'Hvordan ansvaret skal fordeles mellom land',
+        'At alle land er helt enige',
+        'At klimaendringer ikke finnes',
+        'At kun ett land skal handle',
       ],
-      explanation: 'Klimarettferdighet handler om at klimakrisen rammer ulikt - de som har bidratt minst (fattige land) rammes ofte hardest, noe som er urettferdig.',
+      explanation: 'Det er debatt om ansvarsfordeling: Noen mener rike land har historisk ansvar og maa kutte mest. Andre mener alle land maa bidra, siden Kina og India naa er store utslippsland.',
     },
     {
       question: 'Hvem har historisk sett sluppet ut mest klimagasser?',
@@ -7384,14 +7384,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
   // ============================================================================
   'samfunnskunnskap-9-8': [
     {
-      question: 'Paa hvilke maater kan du som individ bidra til baerekraft?',
+      question: 'Hvordan kan du delta i samfunnsdebatten om miljo?',
       options: [
-        'Som forbruker, velger og engasjert samfunnsborger',
-        'Kun gjennom politikk',
-        'Kun gjennom forbruk',
-        'Du kan ikke gjore noe som individ',
+        'Ved aa stemme, folge med i debatten og ta bevisste valg',
+        'Du kan ikke delta i debatten',
+        'Kun ved aa demonstrere',
+        'Kun gjennom sosiale medier',
       ],
-      explanation: 'Du kan bidra paa flere maater: gjennom forbruksvalg, som velger ved aa stemme paa klimavennlige partier, og som engasjert samfunnsborger.',
+      explanation: 'Du kan delta ved aa stemme ved valg basert paa dine prioriteringer, folge med i debatten, og ta bevisste valg. Folk har ulike syn paa de beste losningene.',
     },
     {
       question: 'Hvordan kan forbruksvalgene dine pavirke miljoet?',
@@ -7404,24 +7404,24 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Dine forbruksvalg pavirker miljoet - aa kjope mindre, velge baerekraftige produkter og unngaa unodvendig forbruk reduserer miljoebelastningen.',
     },
     {
-      question: 'Hvorfor er det viktig aa stemme for klimavennlig politikk?',
+      question: 'Hvorfor deltar folk i politikk om miljosporsmal?',
       options: [
-        'Fordi politiske beslutninger har storre effekt enn individuelle valg',
+        'Fordi politiske beslutninger kan ha stor effekt',
         'Fordi det er morsomt',
-        'Fordi individuelle valg ikke betyr noe',
-        'Fordi politikere alltid har rett',
+        'Fordi individuelle valg aldri betyr noe',
+        'Fordi alle politikere er enige',
       ],
-      explanation: 'Politiske beslutninger om lover, avgifter og investeringer har mye storre effekt enn individuelle valg. Aa stemme klimavennlig er derfor viktig.',
+      explanation: 'Politiske beslutninger om lover, avgifter og investeringer kan ha stor effekt. Folk deltar i politikk fordi de vil pavirke disse beslutningene basert paa sine verdier.',
     },
     {
-      question: 'Hvordan kan du pavirke andre til aa ta klimavennlige valg?',
+      question: 'Hvordan kan du delta i samfunnsdebatten?',
       options: [
-        'Ved aa snakke med familie og venner om klima og baerekraft',
+        'Ved aa snakke med andre og dele dine synspunkter',
         'Ved aa kritisere alle andre',
         'Ved aa holde meningene dine for deg selv',
-        'Ved aa ignorere klimasaken',
+        'Ved aa ignorere alle sporsmal',
       ],
-      explanation: 'Ved aa snakke med familie, venner og andre om klimasaken kan du inspirere og pavirke flere til aa ta klimavennlige valg.',
+      explanation: 'Du kan delta i samfunnsdebatten ved aa snakke med andre, dele dine synspunkter, og lytte til andres argumenter. Folk har ulike syn paa miljo- og klimasporsmal.',
     },
     {
       question: 'Hvilken transportform er mest klimavennlig for korte avstander?',

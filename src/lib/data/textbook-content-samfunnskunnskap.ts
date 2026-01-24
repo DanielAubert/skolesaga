@@ -11138,9 +11138,10 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_3: TextbookChapter = {
   estimatedMinutes: 30,
   competenceGoals: ['forstå årsakene til klimaendringer', 'kjenne til konsekvensene'],
   content: [
-    { id: 'samfunnskunnskap-9-3-intro', type: 'text', content: `## Klimaendringer\n\nJordens klima endres på grunn av **menneskelige utslipp** av klimagasser, særlig CO2 fra fossile brensler. Konsekvensene er alvorlige.` },
-    { id: 'samfunnskunnskap-9-3-konsekvenser', type: 'definition', title: 'Konsekvenser', content: `**Temperaturøkning:** Global oppvarming på over 1°C allerede.\n**Issmelting:** Arktis og isbreer smelter.\n**Havnivåstigning:** Truer kystsamfunn.\n**Ekstremvær:** Flere hetebølger, flommer, tørke.\n**Naturmangfold:** Arter dør ut, økosystemer endres.` },
-    { id: 'samfunnskunnskap-9-3-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-3-ex-1', number: '1', type: 'classic', task: 'Hva er de viktigste årsakene til klimaendringer?', solution: 'Menneskelige utslipp av klimagasser, særlig CO2 fra fossile brensler (kull, olje, gass). Avskoging bidrar også.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'samfunnskunnskap-9-3-intro', type: 'text', content: `## Klimaendringer\n\nForskere har observert at jordens gjennomsnittstemperatur har økt. FNs klimapanel (IPCC) konkluderer med at menneskelige utslipp av klimagasser bidrar til oppvarmingen. Det er bred vitenskapelig enighet om dette, men det er politisk debatt om omfang av tiltak, tempo og kostnader.` },
+    { id: 'samfunnskunnskap-9-3-konsekvenser', type: 'definition', title: 'Observerte endringer', content: `**Temperaturøkning:** Global oppvarming på over 1°C siden førindustriell tid.\n**Issmelting:** Mindre havis i Arktis.\n**Havnivå:** Gradvis stigning observert.\n**Vær:** Debatt om sammenhengen mellom ekstremvær og klimaendringer.\n**Tilpasning:** Samfunn har alltid tilpasset seg klimaendringer.` },
+    { id: 'samfunnskunnskap-9-3-debatt', type: 'text', content: `### Politisk debatt\n\nDet er uenighet om:\n- Hvor raskt vi må kutte utslipp\n- Hvem som skal bære kostnadene\n- Balansen mellom miljø og økonomisk utvikling\n- Hvor mye som kan løses med ny teknologi\n- Hvilke tiltak som er mest effektive` },
+    { id: 'samfunnskunnskap-9-3-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-3-ex-1', number: '1', type: 'classic', task: 'Hva sier FNs klimapanel om klimaendringer?', solution: 'FNs klimapanel konkluderer med at menneskelige utslipp av klimagasser bidrar til global oppvarming. Det er politisk debatt om omfanget av tiltak og hvordan kostnadene skal fordeles.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
@@ -11154,9 +11155,10 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_4: TextbookChapter = {
   estimatedMinutes: 30,
   competenceGoals: ['kjenne til Norges klimamål', 'forstå debatten om norsk oljepolitikk'],
   content: [
-    { id: 'samfunnskunnskap-9-4-intro', type: 'text', content: `## Norsk klimapolitikk\n\nNorge har forpliktet seg til å kutte utslipp med **55% innen 2030** og bli klimanøytralt innen 2050. Men Norge er også en stor olje- og gasseksportør.` },
-    { id: 'samfunnskunnskap-9-4-virkemidler', type: 'definition', title: 'Virkemidler', content: `**CO2-avgift:** Gjør utslipp dyrere.\n**Kvotehandel:** EU ETS for industrien.\n**Elektrifisering:** Av transport, plattformer.\n**Karbonfangst:** Langskip-prosjektet.\n**Grønn omstilling:** Støtte til ny teknologi.` },
-    { id: 'samfunnskunnskap-9-4-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-4-ex-1', number: '1', type: 'classic', task: 'Hva er Norges klimamål?', solution: 'Kutte utslipp med 55% innen 2030 (sammenlignet med 1990), klimanøytralitet innen 2050. Forpliktet gjennom Parisavtalen og klimaloven.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'samfunnskunnskap-9-4-intro', type: 'text', content: `## Norsk klimapolitikk\n\nNorge har forpliktet seg til å kutte utslipp med **55% innen 2030**. Samtidig er Norge en stor olje- og gasseksportør. Dette skaper politisk debatt.` },
+    { id: 'samfunnskunnskap-9-4-virkemidler', type: 'definition', title: 'Virkemidler', content: `**CO2-avgift:** Gjør utslipp dyrere.\n**Kvotehandel:** EU ETS for industrien.\n**Elektrifisering:** Av transport, plattformer.\n**Karbonfangst:** Langskip-prosjektet.\n**Teknologiutvikling:** Støtte til ny teknologi.` },
+    { id: 'samfunnskunnskap-9-4-debatt', type: 'text', content: `### Debatten om norsk olje og gass\n\n**Argumenter for fortsatt produksjon:**\n- Finansierer velferdsstaten\n- Norsk gass erstatter kull i Europa\n- Arbeidsplasser og kompetanse\n- Verden trenger energi under omstilling\n\n**Argumenter mot:**\n- Bidrar til globale utslipp\n- Bør satse på fornybar energi\n- Klimaforpliktelser\n\nDette er en av de viktigste politiske debattene i Norge.` },
+    { id: 'samfunnskunnskap-9-4-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-4-ex-1', number: '1', type: 'classic', task: 'Hva er Norges klimamål og hva debatteres?', solution: 'Norges mål er å kutte utslipp med 55% innen 2030. Det debatteres hvordan dette skal balanseres mot olje- og gassproduksjon som finansierer velferdsstaten og gir arbeidsplasser.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
@@ -11186,9 +11188,10 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_6: TextbookChapter = {
   estimatedMinutes: 25,
   competenceGoals: ['forstå forbrukets miljøkonsekvenser', 'reflektere over bærekraftig forbruk'],
   content: [
-    { id: 'samfunnskunnskap-9-6-intro', type: 'text', content: `## Forbruk og bærekraft\n\nVårt forbruksmønster har store miljøkonsekvenser. Hvis alle levde som nordmenn, ville vi trengt **3-4 jordkloder**.` },
-    { id: 'samfunnskunnskap-9-6-fotavtrykk', type: 'definition', title: 'Økologisk fotavtrykk', content: `Måler ressursforbruket i areal. Norge har høyt fotavtrykk pga.:\n- Kjøttforbruk\n- Flyreiser\n- Bilbruk\n- Klær og elektronikk\n- Bolig og energi` },
-    { id: 'samfunnskunnskap-9-6-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-6-ex-1', number: '1', type: 'classic', task: 'Hva er økologisk fotavtrykk?', solution: 'Mål på ressursforbruk i areal. Norge har høyt fotavtrykk. Viktige bidrag: Kjøtt, flyreiser, bil, klær, bolig. Må reduseres for bærekraft.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'samfunnskunnskap-9-6-intro', type: 'text', content: `## Forbruk og bærekraft\n\nNordmenn har høy levestandard og relativt høyt forbruk. Dette gir både velstand og miljøutfordringer. Det er debatt om hvordan vi best balanserer disse hensynene.` },
+    { id: 'samfunnskunnskap-9-6-fotavtrykk', type: 'definition', title: 'Økologisk fotavtrykk', content: `Økologisk fotavtrykk måler ressursforbruk. Norge har høyt forbruk, men også:\n- Mye fornybar energi (vannkraft)\n- Høy effektivitet i industrien\n- Strenge miljøkrav\n\nDet er debatt om metodene for å måle fotavtrykk og hva som er rettferdige sammenligninger.` },
+    { id: 'samfunnskunnskap-9-6-debatt', type: 'text', content: `### Ulike syn på forbruk\n\n**Noen mener:**\n- Vi må redusere forbruket betydelig\n- Vekst er ikke bærekraftig\n- Livsstilsendringer er nødvendige\n\n**Andre mener:**\n- Teknologi og innovasjon løser problemene\n- Økonomisk vekst finansierer grønne løsninger\n- Fattige land trenger mer forbruk, ikke mindre\n- Markedet tilpasser seg nye behov` },
+    { id: 'samfunnskunnskap-9-6-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-6-ex-1', number: '1', type: 'classic', task: 'Hva er økologisk fotavtrykk og hva debatteres?', solution: 'Økologisk fotavtrykk måler ressursforbruk. Det debatteres hvordan forbruk skal balanseres mot velstand, og om løsningen er redusert forbruk eller teknologisk utvikling.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
@@ -11202,9 +11205,10 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_7: TextbookChapter = {
   estimatedMinutes: 25,
   competenceGoals: ['forstå klimarettferdighetsbegrepet', 'drøfte ansvarsfordeling'],
   content: [
-    { id: 'samfunnskunnskap-9-7-intro', type: 'text', content: `## Klimarettferdighet\n\nKlimakrisen rammer **ulikt**. De som har bidratt minst til problemet, rammes hardest. Dette reiser spørsmål om rettferdighet.` },
-    { id: 'samfunnskunnskap-9-7-sporsmal', type: 'definition', title: 'Rettferdighetsspørsmål', content: `**Mellom land:** Rike land har forårsaket mest, fattige rammes hardest.\n**Mellom generasjoner:** Dagens unge arver problemene.\n**Historisk ansvar:** Hvem skal betale for fortidas utslipp?` },
-    { id: 'samfunnskunnskap-9-7-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-7-ex-1', number: '1', type: 'classic', task: 'Hva menes med klimarettferdighet?', solution: 'At rike land har forårsaket mest utslipp men fattige rammes hardest. Dagens unge arver problemene. Krever rettferdig ansvarsfordeling og støtte til sårbare land.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'samfunnskunnskap-9-7-intro', type: 'text', content: `## Internasjonalt klimasamarbeid\n\nKlimaendringer er et globalt spørsmål som krever internasjonalt samarbeid. Ulike land har ulike interesser, noe som gjør forhandlinger vanskelige.` },
+    { id: 'samfunnskunnskap-9-7-sporsmal', type: 'definition', title: 'Sentrale spørsmål', content: `**Ansvarsfordeling:** Skal rike land ta mer ansvar fordi de har sluppet ut mest historisk, eller skal alle land bidra likt?\n**Utvikling:** Har fattige land rett til økonomisk vekst selv om det øker utslipp?\n**Kostnader:** Hvem skal betale for omstilling og tilpasning?\n**Suverenitet:** Hvor mye kan internasjonale avtaler binde nasjonale beslutninger?` },
+    { id: 'samfunnskunnskap-9-7-debatt', type: 'text', content: `### Ulike perspektiver\n\n**Noen mener:** Rike land har historisk ansvar og må kutte mest og betale for andres omstilling.\n\n**Andre mener:** Alle land må bidra, og det er dagens utslipp som teller. Kina og India er nå store utslippsland.` },
+    { id: 'samfunnskunnskap-9-7-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-7-ex-1', number: '1', type: 'classic', task: 'Hva gjør internasjonalt klimasamarbeid vanskelig?', solution: 'Ulike land har ulike interesser. Det er uenighet om ansvarsfordeling (historisk vs. dagens utslipp), om fattige lands rett til utvikling, og om hvem som skal betale kostnadene.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
@@ -11218,9 +11222,10 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_9_8: TextbookChapter = {
   estimatedMinutes: 25,
   competenceGoals: ['reflektere over eget bidrag', 'kjenne til handlingsalternativer'],
   content: [
-    { id: 'samfunnskunnskap-9-8-intro', type: 'text', content: `## Hva kan du gjøre?\n\nSom individ, samfunnsborger og velger kan du bidra til bærekraftig utvikling.` },
-    { id: 'samfunnskunnskap-9-8-handlinger', type: 'definition', title: 'Handlingsalternativer', content: `**Forbruk:** Kjøp mindre, velg bærekraftig.\n**Transport:** Sykle, kollektivt, fly mindre.\n**Politikk:** Stem på klimavennlige partier.\n**Engasjement:** Delta i organisasjoner, demonstrasjoner.\n**Snakk:** Påvirk familie og venner.` },
-    { id: 'samfunnskunnskap-9-8-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-8-ex-1', number: '1', type: 'classic', task: 'Nevn fem måter du kan bidra til bærekraft på.', solution: 'Fem av: Forbruk mindre/bærekraftig, velge sykkel/kollektivt, fly mindre, stemme grønt, engasjere seg i organisasjoner, snakke med andre, kreve politisk handling.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'samfunnskunnskap-9-8-intro', type: 'text', content: `## Samfunnsdeltakelse\n\nSom samfunnsborger kan du engasjere deg i miljøspørsmål på ulike måter. Folk har ulike syn på hva som er de beste løsningene.` },
+    { id: 'samfunnskunnskap-9-8-handlinger', type: 'definition', title: 'Måter å delta på', content: `**Forbrukervalg:** Du kan velge produkter basert på dine verdier.\n**Politisk deltakelse:** Stem ved valg basert på dine prioriteringer.\n**Debatt:** Delta i samfunnsdebatten med dine synspunkter.\n**Yrkesvalg:** Velg utdanning og yrke som passer dine interesser.\n**Innovasjon:** Bidra til å utvikle nye løsninger.` },
+    { id: 'samfunnskunnskap-9-8-perspektiver', type: 'text', content: `### Ulike syn på handling\n\n**Noen vektlegger:** Individuell livsstilsendring, redusert forbruk, aktivisme.\n\n**Andre vektlegger:** Teknologisk innovasjon, økonomiske insentiver, markedsløsninger.\n\nDet er legitimt å ha ulike syn på hva som er de beste løsningene.` },
+    { id: 'samfunnskunnskap-9-8-ex-1', type: 'exercise', exercise: { id: 'samfunnskunnskap-9-8-ex-1', number: '1', type: 'classic', task: 'Hvordan kan du delta i samfunnsdebatten om miljøspørsmål?', solution: 'Du kan delta ved å stemme ved valg, følge med i debatten, ta forbrukervalg basert på dine verdier, og velge utdanning/yrke. Folk har ulike syn på hva som er de beste løsningene.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
