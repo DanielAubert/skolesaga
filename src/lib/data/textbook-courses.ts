@@ -6960,6 +6960,7 @@ export const COURSE_NAT_VG1: TextbookCourse = {
   description: 'Naturfag for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔬',
+  coverImage: '/images/subjects/naturfag-vg1-hero.png',
   chapters: [
     {
       id: 'nat-vg1-1-1',
@@ -11671,20 +11672,85 @@ export const COURSE_ENGELSK_VG1: TextbookCourse = {
   id: 'engelsk-vg1',
   title: 'English VG1',
   level: 'VG1',
-  description: 'English for VG1 - communication, literature, culture and academic skills',
+  description: 'English for VG1 studieforberedende - communication, literature, culture and academic skills according to LK20',
   curriculum: 'LK20',
   icon: '🇬🇧',
+  coverImage: '/images/subjects/engelsk-vg1-hero.png',
   chapters: [
-    { id: 'engelsk-vg1-1', number: '1', title: 'Communication and Language Skills', description: 'Utvikle kommunikasjonsferdigheter i engelsk gjennom ulike sjangre og situasjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Register', 'Tone', 'Communication'], competenceGoals: ['bruke ulike strategier for språkklaring og kommunikasjon', 'tilpasse språk og kommunikasjon til formål og mottaker'] },
-    { id: 'engelsk-vg1-2', number: '2', title: 'English as a Global Language', description: 'Explore World Englishes and language variation.', estimatedMinutes: 50, exerciseCount: 6, topics: ['World Englishes', 'ELF', 'Language variation'], competenceGoals: ['explore the role of English globally'] },
-    { id: 'engelsk-vg1-3', number: '3', title: 'Literature from English-speaking Countries', description: 'Analyze literary texts from various English-speaking cultures.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Literary analysis', 'Authors', 'Genres'], competenceGoals: ['analyze literary texts'] },
-    { id: 'engelsk-vg1-4', number: '4', title: 'Critical Thinking and Source Evaluation', description: 'Learn to evaluate sources critically.', estimatedMinutes: 50, exerciseCount: 6, topics: ['SIFT method', 'Source types', 'Fallacies'], competenceGoals: ['evaluate sources critically'] },
-    { id: 'engelsk-vg1-5', number: '5', title: 'Written Communication - Essays and Reports', description: 'Master essay and report writing.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Essays', 'Reports', 'Academic writing'], competenceGoals: ['write various text types'] },
-    { id: 'engelsk-vg1-6', number: '6', title: 'Oral Presentations and Discussions', description: 'Develop presentation and discussion skills.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Presentations', 'Discussions', 'Debate'], competenceGoals: ['present and discuss topics'] },
-    { id: 'engelsk-vg1-7', number: '7', title: 'Culture and Society in the UK', description: 'Explore British history, culture and society.', estimatedMinutes: 55, exerciseCount: 6, topics: ['British history', 'Brexit', 'Culture'], competenceGoals: ['explore UK society and culture'] },
-    { id: 'engelsk-vg1-8', number: '8', title: 'Culture and Society in the USA', description: 'Explore American history, culture and society.', estimatedMinutes: 55, exerciseCount: 6, topics: ['American history', 'Politics', 'Social issues'], competenceGoals: ['explore US society and culture'] },
-    { id: 'engelsk-vg1-9', number: '9', title: 'Indigenous Peoples in English-speaking Countries', description: 'Learn about indigenous peoples in English-speaking countries.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Native Americans', 'Māori', 'Aboriginal peoples'], competenceGoals: ['explore indigenous cultures'] },
-    { id: 'engelsk-vg1-10', number: '10', title: 'Academic Writing and Exam Preparation', description: 'Prepare for exams with academic writing skills.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Exam strategies', 'Text types', 'Assessment'], competenceGoals: ['write academic texts'] },
+    // Section 1: Language Learning and Communication Strategies
+    { id: 'engelsk-vg1-1-1', number: '1.1', title: 'Language Learning Strategies', description: 'Develop effective strategies for learning English and improving your language skills.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Learning strategies', 'Self-assessment', 'Goal setting'], competenceGoals: ['bruke egnede strategier i språklæring, tekstskaping og kommunikasjon'] },
+    { id: 'engelsk-vg1-1-2', number: '1.2', title: 'Digital Resources for Language Learning', description: 'Use digital tools and resources effectively for language learning and communication.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Digital tools', 'Online resources', 'AI in language learning'], competenceGoals: ['bruke egnede digitale ressurser og andre hjelpemidler i språklæring, tekstskaping og samhandling'] },
+    { id: 'engelsk-vg1-1-3', number: '1.3', title: 'Pronunciation and Fluency', description: 'Master pronunciation patterns and develop fluency in spoken English.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pronunciation', 'Intonation', 'Stress patterns', 'Fluency'], competenceGoals: ['bruke mønstre for uttale i kommunikasjon'] },
+    { id: 'engelsk-vg1-1-4', number: '1.4', title: 'Academic Language and Register', description: 'Understand and use academic language when working with texts.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Academic vocabulary', 'Register', 'Formal language'], competenceGoals: ['lytte til, forstå og bruke akademisk språk i arbeid med egne muntlige og skriftlige tekster'] },
+    { id: 'engelsk-vg1-1-5', number: '1.5', title: 'Connections Between Languages', description: 'Use knowledge of connections between English and other languages you know in your own language learning.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Language families', 'Cognates', 'Loan words', 'Transfer strategies', 'Norse influence'], competenceGoals: ['bruke kunnskap om sammenhengar mellom engelsk og andre språk eleven kjenner, i eiga språklæring'] },
+
+    // Section 2: Oral Communication
+    { id: 'engelsk-vg1-2-1', number: '2.1', title: 'Expressing Yourself with Nuance', description: 'Learn to express yourself with precision, fluency and varied sentence structures.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Nuanced expression', 'Sentence variety', 'Coherence'], competenceGoals: ['uttrykke seg nyansert og presist med flyt og sammenheng, idiomatiske uttrykk og varierte setningsstrukturer tilpasset formål, mottaker og situasjon'] },
+    { id: 'engelsk-vg1-2-2', number: '2.2', title: 'Idioms and Expressions', description: 'Master common English idioms and idiomatic expressions.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Idioms', 'Phrasal verbs', 'Collocations'], competenceGoals: ['uttrykke seg nyansert og presist med flyt og sammenheng, idiomatiske uttrykk'] },
+    { id: 'engelsk-vg1-2-3', number: '2.3', title: 'Conversations and Discussions', description: 'Develop skills for meaningful conversations and discussions.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Active listening', 'Turn-taking', 'Building on others\' input'], competenceGoals: ['forklare andres argumenter og bruke og følge opp andres innspill i samtaler og diskusjoner om ulike emner'] },
+    { id: 'engelsk-vg1-2-4', number: '2.4', title: 'Presentations and Public Speaking', description: 'Master the art of giving engaging presentations and speeches.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Presentation skills', 'Body language', 'Visual aids'], competenceGoals: ['uttrykke seg nyansert og presist med flyt og sammenheng tilpasset formål, mottaker og situasjon'] },
+
+    // Section 3: Grammar and Text Structure
+    { id: 'engelsk-vg1-3-1', number: '3.1', title: 'Advanced Grammar Review', description: 'Review and master advanced English grammar structures.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Tenses', 'Conditionals', 'Passive voice', 'Reported speech'], competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'] },
+    { id: 'engelsk-vg1-3-2', number: '3.2', title: 'Sentence Structure and Variety', description: 'Learn to vary sentence structure for more engaging writing.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Simple sentences', 'Compound sentences', 'Complex sentences', 'Sentence combining'], competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'] },
+    { id: 'engelsk-vg1-3-3', number: '3.3', title: 'Text Coherence and Cohesion', description: 'Create well-structured texts with clear connections between ideas.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Cohesive devices', 'Transitions', 'Paragraphing', 'Topic sentences'], competenceGoals: ['bruke kunnskap om grammatikk og tekstoppbygging i arbeid med egne muntlige og skriftlige tekster'] },
+    { id: 'engelsk-vg1-3-4', number: '3.4', title: 'Editing and Revising Texts', description: 'Develop skills for evaluating and improving your own writing.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Proofreading', 'Self-editing', 'Peer review'], competenceGoals: ['vurdere og bearbeide egne tekster ut fra faglige kriterier og kunnskap om språk'] },
+
+    // Section 4: Reading and Literature
+    { id: 'engelsk-vg1-4-1', number: '4.1', title: 'Literary Devices and Techniques', description: 'Understand and identify literary devices in texts.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Metaphor', 'Symbolism', 'Irony', 'Foreshadowing', 'Point of view'], competenceGoals: ['lese, diskutere og reflektere over innhold og virkemidler i ulike typer tekster, også selvvalgte'] },
+    { id: 'engelsk-vg1-4-2', number: '4.2', title: 'Analyzing Short Stories', description: 'Develop skills for analyzing short fiction.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Plot', 'Character', 'Setting', 'Theme', 'Narrative technique'], competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur'] },
+    { id: 'engelsk-vg1-4-3', number: '4.3', title: 'Analyzing Novels', description: 'Explore longer fiction and novel analysis techniques.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Novel structure', 'Character development', 'Themes', 'Historical context'], competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur'] },
+    { id: 'engelsk-vg1-4-4', number: '4.4', title: 'Poetry Analysis', description: 'Learn to read, understand and analyze English poetry.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Poetic devices', 'Rhythm', 'Rhyme', 'Form', 'Interpretation'], competenceGoals: ['lese, analysere og tolke engelskspråklig skjønnlitteratur'] },
+    { id: 'engelsk-vg1-4-5', number: '4.5', title: 'Drama and Film Adaptation', description: 'Explore dramatic texts and their film adaptations.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drama conventions', 'Film analysis', 'Adaptation', 'Shakespeare'], competenceGoals: ['drøfte og reflektere over form, innhold og virkemidler i engelskspråklige kulturuttrykk fra ulike medier'] },
+
+    // Section 5: Non-fiction and Critical Reading
+    { id: 'engelsk-vg1-5-1', number: '5.1', title: 'Reading Non-fiction Texts', description: 'Develop strategies for reading and understanding non-fiction.', estimatedMinutes: 45, exerciseCount: 5, topics: ['News articles', 'Essays', 'Reports', 'Academic texts'], competenceGoals: ['lese og sammenligne ulike sakprosatekster om samme emne fra ulike kilder og vurdere kildens troverdighet'] },
+    { id: 'engelsk-vg1-5-2', number: '5.2', title: 'Comparing Sources', description: 'Learn to compare and evaluate different sources on the same topic.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Source comparison', 'Bias detection', 'Cross-referencing'], competenceGoals: ['lese og sammenligne ulike sakprosatekster om samme emne fra ulike kilder og vurdere kildens troverdighet'] },
+    { id: 'engelsk-vg1-5-3', number: '5.3', title: 'Source Criticism and Evaluation', description: 'Develop critical thinking skills for evaluating sources.', estimatedMinutes: 50, exerciseCount: 6, topics: ['CRAAP test', 'Fact-checking', 'Lateral reading', 'Misinformation'], competenceGoals: ['bruke ulike kilder på en kritisk, hensiktsmessig og etterrettelig måte'] },
+    { id: 'engelsk-vg1-5-4', number: '5.4', title: 'Media Literacy', description: 'Navigate and critically evaluate media in the digital age.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Media bias', 'Fake news', 'Social media', 'Information literacy'], competenceGoals: ['bruke ulike kilder på en kritisk, hensiktsmessig og etterrettelig måte'] },
+
+    // Section 6: Writing Skills
+    { id: 'engelsk-vg1-6-1', number: '6.1', title: 'Formal vs Informal Writing', description: 'Understand and apply appropriate register in different contexts.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Formal writing', 'Informal writing', 'Register', 'Audience awareness'], competenceGoals: ['skrive ulike formelle og uformelle tekster, også komplekse, med struktur og sammenheng'] },
+    { id: 'engelsk-vg1-6-2', number: '6.2', title: 'Argumentative Writing', description: 'Master the art of persuasive and argumentative essays.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Thesis statements', 'Arguments', 'Counter-arguments', 'Persuasion'], competenceGoals: ['skrive ulike tekster som beskriver, diskuterer, begrunner og reflekterer, tilpasset formål, mottaker og situasjon'] },
+    { id: 'engelsk-vg1-6-3', number: '6.3', title: 'Analytical and Reflective Writing', description: 'Develop skills for analytical and reflective text types.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Text analysis', 'Literary essays', 'Reflective writing'], competenceGoals: ['skrive ulike tekster som beskriver, diskuterer, begrunner og reflekterer'] },
+    { id: 'engelsk-vg1-6-4', number: '6.4', title: 'Academic Writing and Essays', description: 'Master academic writing conventions and essay structure.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Essay structure', 'Academic style', 'Citations', 'Referencing'], competenceGoals: ['skrive ulike formelle tekster med struktur og sammenheng'] },
+    { id: 'engelsk-vg1-6-5', number: '6.5', title: 'Creative Writing', description: 'Explore creative writing techniques and genres.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Narrative writing', 'Descriptive writing', 'Dialogue', 'Voice'], competenceGoals: ['skrive ulike tekster tilpasset formål, mottaker og situasjon'] },
+
+    // Section 7: English as a World Language
+    { id: 'engelsk-vg1-7-1', number: '7.1', title: 'The History of English', description: 'Explore the development of English from Old English to today.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Old English', 'Middle English', 'Modern English', 'Language change'], competenceGoals: ['beskrive sentrale trekk ved framveksten av engelsk som verdensspråk'] },
+    { id: 'engelsk-vg1-7-2', number: '7.2', title: 'English as a Global Language', description: 'Understand why English became the world\'s lingua franca.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Lingua franca', 'Globalization', 'Language spread', 'British Empire'], competenceGoals: ['beskrive sentrale trekk ved framveksten av engelsk som verdensspråk'] },
+    { id: 'engelsk-vg1-7-3', number: '7.3', title: 'World Englishes and Varieties', description: 'Explore different varieties of English around the world.', estimatedMinutes: 50, exerciseCount: 6, topics: ['British English', 'American English', 'Indian English', 'African Englishes'], competenceGoals: ['beskrive sentrale trekk ved framveksten av engelsk som verdensspråk'] },
+    { id: 'engelsk-vg1-7-4', number: '7.4', title: 'English in the Digital Age', description: 'Examine how English is used and evolving in digital communication.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Internet English', 'Social media language', 'Emoji', 'Language change'], competenceGoals: ['beskrive sentrale trekk ved framveksten av engelsk som verdensspråk'] },
+
+    // Section 8: The United Kingdom
+    { id: 'engelsk-vg1-8-1', number: '8.1', title: 'British History Overview', description: 'Explore key events and periods in British history.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Roman Britain', 'Medieval England', 'Tudor era', 'Industrial Revolution'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden ut fra historiske sammenhenger'] },
+    { id: 'engelsk-vg1-8-2', number: '8.2', title: 'The British Empire and Its Legacy', description: 'Understand the British Empire and its lasting impact.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Colonialism', 'Commonwealth', 'Post-colonial perspectives', 'Legacy'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden ut fra historiske sammenhenger'] },
+    { id: 'engelsk-vg1-8-3', number: '8.3', title: 'British Politics and Government', description: 'Understand the UK\'s political system and government.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Parliament', 'Monarchy', 'Devolution', 'Brexit'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+    { id: 'engelsk-vg1-8-4', number: '8.4', title: 'British Culture and Identity', description: 'Explore British culture, traditions and contemporary issues.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Multiculturalism', 'Class', 'Youth culture', 'British identity'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+
+    // Section 9: The United States
+    { id: 'engelsk-vg1-9-1', number: '9.1', title: 'American History Overview', description: 'Explore key events and periods in American history.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Colonial America', 'Revolution', 'Civil War', 'Civil Rights'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden ut fra historiske sammenhenger'] },
+    { id: 'engelsk-vg1-9-2', number: '9.2', title: 'The American Dream', description: 'Examine the concept of the American Dream and its reality.', estimatedMinutes: 50, exerciseCount: 5, topics: ['American Dream', 'Social mobility', 'Immigration', 'Inequality'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+    { id: 'engelsk-vg1-9-3', number: '9.3', title: 'American Politics and Society', description: 'Understand the US political system and contemporary issues.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Constitution', 'Two-party system', 'Social issues', 'Polarization'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+    { id: 'engelsk-vg1-9-4', number: '9.4', title: 'American Culture and Diversity', description: 'Explore American culture, diversity and contemporary issues.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Melting pot', 'Cultural diversity', 'Pop culture', 'Regional differences'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+
+    // Section 10: Other English-speaking Countries and Indigenous Peoples
+    { id: 'engelsk-vg1-10-1', number: '10.1', title: 'Australia and New Zealand', description: 'Explore society, culture and history of Australia and New Zealand.', estimatedMinutes: 50, exerciseCount: 5, topics: ['History', 'Culture', 'Society', 'Māori and Aboriginal peoples'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+    { id: 'engelsk-vg1-10-2', number: '10.2', title: 'Canada', description: 'Explore Canadian society, culture and bilingualism.', estimatedMinutes: 45, exerciseCount: 5, topics: ['History', 'Bilingualism', 'Multiculturalism', 'First Nations'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+    { id: 'engelsk-vg1-10-3', number: '10.3', title: 'English in Africa and Asia', description: 'Examine the role of English in African and Asian countries.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Post-colonial English', 'Nigeria', 'India', 'Singapore'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden ut fra historiske sammenhenger'] },
+    { id: 'engelsk-vg1-10-4', number: '10.4', title: 'Indigenous Peoples and Their Rights', description: 'Learn about indigenous peoples in English-speaking countries.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Native Americans', 'Aboriginal Australians', 'Māori', 'First Nations', 'Rights movements'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden ut fra historiske sammenhenger'] },
+
+    // Section 11: Cultural Expressions
+    { id: 'engelsk-vg1-11-1', number: '11.1', title: 'Music and Popular Culture', description: 'Explore English-language music and its cultural significance.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Music genres', 'Lyrics analysis', 'Cultural impact', 'Music history'], competenceGoals: ['drøfte og reflektere over form, innhold og virkemidler i engelskspråklige kulturuttrykk fra ulike medier, deriblant musikk, film og spill'] },
+    { id: 'engelsk-vg1-11-2', number: '11.2', title: 'Film and Television', description: 'Analyze English-language film and television.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Film analysis', 'TV series', 'Cinematography', 'Representation'], competenceGoals: ['drøfte og reflektere over form, innhold og virkemidler i engelskspråklige kulturuttrykk fra ulike medier, deriblant musikk, film og spill'] },
+    { id: 'engelsk-vg1-11-3', number: '11.3', title: 'Games and Digital Media', description: 'Examine video games and digital media as cultural expressions.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Video games', 'Storytelling', 'Digital narratives', 'Gaming culture'], competenceGoals: ['drøfte og reflektere over form, innhold og virkemidler i engelskspråklige kulturuttrykk fra ulike medier, deriblant musikk, film og spill'] },
+    { id: 'engelsk-vg1-11-4', number: '11.4', title: 'Cross-cultural Communication', description: 'Develop skills for effective cross-cultural communication.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Cultural awareness', 'Stereotypes', 'Intercultural competence'], competenceGoals: ['utforske og reflektere over mangfold og samfunnsforhold i den engelskspråklige verden'] },
+
+    // Section 12: Exam Preparation
+    { id: 'engelsk-vg1-12-1', number: '12.1', title: 'Understanding Exam Requirements', description: 'Learn about exam formats and assessment criteria.', estimatedMinutes: 40, exerciseCount: 4, topics: ['Exam format', 'Assessment criteria', 'Grading'], competenceGoals: ['vurdere og bearbeide egne tekster ut fra faglige kriterier'] },
+    { id: 'engelsk-vg1-12-2', number: '12.2', title: 'Written Exam Strategies', description: 'Develop strategies for the written exam.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Time management', 'Planning', 'Text types', 'Common errors'], competenceGoals: ['skrive ulike formelle og uformelle tekster med struktur og sammenheng'] },
+    { id: 'engelsk-vg1-12-3', number: '12.3', title: 'Oral Exam Preparation', description: 'Prepare for the oral exam with effective strategies.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Presentation skills', 'Discussion techniques', 'Handling questions'], competenceGoals: ['uttrykke seg nyansert og presist med flyt og sammenheng tilpasset formål, mottaker og situasjon'] },
+    { id: 'engelsk-vg1-12-4', number: '12.4', title: 'Practice and Review', description: 'Review key concepts and practice for exams.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Review', 'Practice tasks', 'Self-assessment'], competenceGoals: ['bruke egnede strategier i språklæring, tekstskaping og kommunikasjon'] },
   ],
 };
 
@@ -13514,6 +13580,22 @@ export const SECTION_NAMES_HISTORIE_VG3: Record<string, string> = {
   '17': 'Globalisering og samtidshistorie',
 };
 
+// Seksjonsnavn for Engelsk VG1
+export const SECTION_NAMES_ENGELSK_VG1: Record<string, string> = {
+  '1': 'Language Learning and Communication',
+  '2': 'Oral Communication',
+  '3': 'Grammar and Text Structure',
+  '4': 'Reading and Literature',
+  '5': 'Non-fiction and Critical Reading',
+  '6': 'Writing Skills',
+  '7': 'English as a World Language',
+  '8': 'The United Kingdom',
+  '9': 'The United States',
+  '10': 'Other English-speaking Countries',
+  '11': 'Cultural Expressions',
+  '12': 'Exam Preparation',
+};
+
 // Hjelpefunksjon for å hente seksjonsnavn basert på kurs
 export function getSectionNames(courseId: string): Record<string, string> {
   switch (courseId) {
@@ -13553,6 +13635,8 @@ export function getSectionNames(courseId: string): Record<string, string> {
       return SECTION_NAMES_HISTORIE_VG2;
     case 'historie-vg3':
       return SECTION_NAMES_HISTORIE_VG3;
+    case 'engelsk-vg1':
+      return SECTION_NAMES_ENGELSK_VG1;
     default:
       return {};
   }
