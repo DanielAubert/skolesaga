@@ -1387,7 +1387,7 @@ Identitet er et grunnleggende spørsmål som alle mennesker stiller seg: Hvem er
 - Erfaringer og opplevelser
 - Egne valg og handlinger
 
-Identitet er ikke noe vi har - det er noe vi skaper og forhandler gjennom hele livet, i møte med andre mennesker og samfunnet.`,
+Identitet har både stabile og foranderlige elementer. Noen ting ved oss er relativt konstante gjennom livet, mens andre sider utvikles og endres.`,
     },
     {
       id: 'samfunnskunnskap-2-1-def-1',
@@ -1424,18 +1424,21 @@ Hvordan du fremstiller deg selv på nett og i sosiale medier.`,
     {
       id: 'samfunnskunnskap-2-1-def-2',
       type: 'definition',
-      title: 'Identitetsteori',
-      content: `**G.H. Mead - Speilingsteori:**
+      title: 'Ulike syn på identitet',
+      content: `**Tradisjonelt syn:**
+Identitet er i stor grad gitt av familie, kultur og tradisjon. Man arver tilhørighet og verdier fra forrige generasjon. Dette gir stabilitet og kontinuitet.
+
+**Moderne syn:**
+Identitet er noe vi aktivt skaper og velger. I et individualistisk samfunn står vi friere til å definere oss selv.
+
+**G.H. Mead - Speilingsteori:**
 Vi utvikler identitet ved å speile oss i andres reaksjoner. Vi ser oss selv gjennom andres øyne.
 
 **Erik Erikson - Identitetskriser:**
 Identitet utvikles gjennom kriser i ulike livsfaser. Ungdomstiden er særlig viktig for å finne ut hvem man er.
 
-**Anthony Giddens - Refleksiv identitet:**
-I moderne samfunn må vi aktivt skape vår egen identitet. Det er ikke lenger gitt av tradisjon.
-
-**Stuart Hall - Kulturell identitet:**
-Identitet er ikke fast, men flytende og i stadig endring. Vi har flere identiteter som aktiveres i ulike sammenhenger.`,
+**Viktig perspektiv:**
+De fleste mennesker har elementer av begge - arvet tilhørighet og personlige valg former sammen hvem vi er.`,
     },
     {
       id: 'samfunnskunnskap-2-1-ex-2',
@@ -1444,8 +1447,8 @@ Identitet er ikke fast, men flytende og i stadig endring. Vi har flere identitet
         id: 'samfunnskunnskap-2-1-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Hva mener G.H. Mead med at vi "speiler oss i andre"?',
-        solution: 'Mead mener at vi utvikler vår identitet ved å observere hvordan andre reagerer på oss. Andres tilbakemeldinger blir et speil der vi ser oss selv. Positiv speiling gir bedre selvbilde, negativ speiling kan gi dårlig selvbilde.',
+        task: 'Sammenlign det tradisjonelle og det moderne synet på identitet. Hva er styrkene og svakhetene ved hvert syn?',
+        solution: 'Tradisjonelt syn: Styrke - gir tilhørighet, stabilitet og mening. Svakhet - kan begrense individuell frihet. Moderne syn: Styrke - gir valgfrihet og selvbestemmelse. Svakhet - kan føre til rotløshet og usikkerhet. De fleste har elementer av begge.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1453,31 +1456,32 @@ Identitet er ikke fast, men flytende og i stadig endring. Vi har flere identitet
     {
       id: 'samfunnskunnskap-2-1-example-1',
       type: 'example',
-      title: 'Eksempel: Identitet i endring',
-      problem: `Amina er født i Norge av foreldre fra Somalia. Hun føler tilhørighet til begge kulturer, men opplever noen ganger at andre vil plassere henne i én kategori. Hvordan kan vi forstå Aminas identitet?`,
-      solution: `**Aminas sammensatte identitet:**
+      title: 'Eksempel: Kulturell bakgrunn og identitet',
+      problem: `Amina er født i Norge av foreldre fra Somalia. Hvordan kan vi forstå hennes identitetssituasjon?`,
+      solution: `**Aminas situasjon:**
 
-**Flere tilhørigheter:**
+**Fakta:**
 - Norsk statsborger og oppvokst i Norge
 - Somalisk kulturbakgrunn fra familien
-- Ung kvinne
-- Elev, venn, datter
-- Ulike interesser og verdier
+- Har ulike roller: datter, elev, venn
 
-**Utfordringer:**
-- Andre vil kanskje definere henne som "enten-eller"
-- Kan oppleve press fra ulike hold
-- Spørsmål som "hvor kommer du egentlig fra?"
-- Stereotype forventninger
+**Mulige utfordringer:**
+- Forventninger fra familie om å bevare tradisjoner
+- Forventninger fra samfunnet om å tilpasse seg
+- Kan oppleve å måtte forklare bakgrunnen sin
+- Kan føle seg "mellom" to kulturer
 
-**Styrke i mangfold:**
-- Amina har tilgang til flere kulturer og perspektiver
-- Kan bygge broer mellom ulike miljøer
-- Hennes identitet er "både-og", ikke "enten-eller"
-- Hun definerer selv hvem hun er
+**Mulige fordeler:**
+- Kjenner flere kulturer og språk
+- Kan forstå ulike perspektiver
+
+**Ulike veier:**
+- Noen velger å identifisere seg primært med én kultur
+- Noen kombinerer elementer fra begge
+- Noen opplever dette som berikende, andre som utfordrende
 
 **Viktig poeng:**
-Identitet er kompleks og sammensatt. Ingen kan fortelle Amina hvem hun er - det bestemmer hun selv.`,
+Det finnes ikke ett "riktig" svar på hvordan man skal forholde seg til sammensatt bakgrunn. Ulike mennesker gjør ulike valg, og det er legitimt.`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -1487,9 +1491,9 @@ Identitet er kompleks og sammensatt. Ingen kan fortelle Amina hvem hun er - det 
         id: 'samfunnskunnskap-2-1-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hvordan kan det å ha flere kulturelle tilhørigheter være både en utfordring og en styrke?',
-        hints: ['Tenk på eksemplet med Amina'],
-        solution: 'Utfordringer: Press om å velge, stereotype forventninger, "hvor kommer du fra"-spørsmål. Styrker: Tilgang til flere perspektiver, kan bygge broer, rikere identitet, flerkulturell kompetanse. Det handler om å se mangfold som ressurs.',
+        task: 'Diskuter: Kan det å ha tilhørighet til flere kulturer være både positivt og negativt? Begrunn svaret.',
+        hints: ['Tenk på ulike perspektiver og situasjoner'],
+        solution: 'Positivt: Tilgang til flere perspektiver, språkkompetanse, forståelse for ulike kulturer. Negativt: Kan være krevende å balansere forventninger, kan oppleve å ikke passe helt inn noe sted, kan skape identitetsforvirring. Opplevelsen varierer fra person til person.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1501,8 +1505,8 @@ Identitet er kompleks og sammensatt. Ingen kan fortelle Amina hvem hun er - det 
         id: 'samfunnskunnskap-2-1-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Beskriv fem ting som er viktige for din egen identitet. Hvordan har de formet hvem du er?',
-        solution: 'Svaret bør være personlig og reflekterende, og vise forståelse for hvordan ulike faktorer (familie, kultur, interesser, erfaringer, verdier) bidrar til å forme egen identitet.',
+        task: 'Beskriv fem ting som er viktige for din egen identitet. Hvilke er arvet og hvilke har du valgt selv?',
+        solution: 'Svaret bør være personlig og reflekterende, og vise forståelse for at identitet har både arvede elementer (familie, kultur, språk) og valgte elementer (interesser, verdier, venner). Begge deler er viktige.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1516,11 +1520,11 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_2: TextbookChapter = {
   courseId: 'samfunnskunnskap',
   chapterNumber: '2.2',
   title: 'Kultur og kulturmøter',
-  description: 'Forstå kulturbegrepet, kulturelle forskjeller, og hvordan vi kan møte andre kulturer med åpenhet og respekt.',
+  description: 'Forstå kulturbegrepet, kulturelle forskjeller, og ulike perspektiver på kulturmøter.',
   estimatedMinutes: 30,
   competenceGoals: [
     'reflektere over hva kultur er og hvordan den påvirker oss',
-    'drøfte hvordan kulturmøter kan berike og utfordre',
+    'drøfte ulike syn på kulturmøter og kulturelt mangfold',
   ],
   content: [
     {
@@ -1539,26 +1543,23 @@ Kultur er et vidt begrep som omfatter alt vi mennesker skaper, tenker og gjør i
 - Normer og verdier
 - Måter å organisere samfunnet på
 
-Kultur er noe vi lærer gjennom sosialisering - det er ikke medfødt. Samtidig er kultur i stadig endring, og vi påvirkes av mange kulturer gjennom livet.`,
+Kultur er noe vi lærer gjennom sosialisering. Kulturer er i endring over tid, men endringstakten varierer, og noen kulturtrekk er mer bestandige enn andre.`,
     },
     {
       id: 'samfunnskunnskap-2-2-def-1',
       type: 'definition',
       title: 'Kulturelle perspektiver',
-      content: `**Kulturelt mangfold:**
-Tilstedeværelsen av mange ulike kulturer i et samfunn. Norge er et flerkulturelt samfunn med mennesker fra mange kulturbakgrunner.
-
-**Etnosentrisme:**
-Å vurdere andre kulturer ut fra sin egen kultur som målestokk. Kan føre til at man ser egen kultur som "riktig" og andre som "feil".
+      content: `**Etnosentrisme:**
+Å vurdere andre kulturer ut fra sin egen kultur som målestokk. Kan føre til at man ser egen kultur som overlegen. Samtidig er det naturlig å ha egen kultur som utgangspunkt.
 
 **Kulturrelativisme:**
-Å forstå andre kulturer på deres egne premisser, uten å dømme ut fra egen kultur. Viktig for forståelse, men betyr ikke at alt er greit.
+Å forstå andre kulturer på deres egne premisser. Viktig for forståelse, men ekstrem relativisme kan gjøre det vanskelig å kritisere skadelige praksiser.
 
-**Interkulturell kompetanse:**
-Evnen til å forstå, kommunisere og samhandle på tvers av kulturer. Krever kunnskap, empati og respekt.
+**Universalisme:**
+Synet om at noen verdier (som menneskerettigheter) gjelder universelt, uavhengig av kultur.
 
-**Kulturell hybriditet:**
-Når kulturer blandes og skaper nye uttrykk - for eksempel fusion-mat eller musikk som blander tradisjoner.`,
+**Viktig balansegang:**
+De fleste vil mene at man bør forstå andre kulturer, men at noen verdier (som menneskeverd og grunnleggende rettigheter) er universelle. Hvor grensen går, er gjenstand for debatt.`,
     },
     {
       id: 'samfunnskunnskap-2-2-ex-1',
@@ -1567,8 +1568,8 @@ Når kulturer blandes og skaper nye uttrykk - for eksempel fusion-mat eller musi
         id: 'samfunnskunnskap-2-2-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Forklar forskjellen mellom etnosentrisme og kulturrelativisme.',
-        solution: 'Etnosentrisme: Å vurdere andre kulturer ut fra egen kultur som målestokk, ofte med antakelse om at egen kultur er best. Kulturrelativisme: Å forstå andre kulturer på deres egne premisser, uten å dømme. Begge har begrensninger.',
+        task: 'Forklar forskjellen mellom etnosentrisme og kulturrelativisme. Hva er styrkene og svakhetene ved hvert perspektiv?',
+        solution: 'Etnosentrisme: Vurderer andre kulturer ut fra egen kultur. Styrke: Kan forsvare egne verdier. Svakhet: Kan føre til arroganse og manglende forståelse. Kulturrelativisme: Forstår kulturer på egne premisser. Styrke: Fremmer forståelse. Svakhet: Kan gjøre det vanskelig å kritisere skadelige praksiser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1576,24 +1577,21 @@ Når kulturer blandes og skaper nye uttrykk - for eksempel fusion-mat eller musi
     {
       id: 'samfunnskunnskap-2-2-def-2',
       type: 'definition',
-      title: 'Kulturmøter og integrasjon',
+      title: 'Kulturmøter - ulike modeller',
       content: `**Assimilering:**
-Når minoriteter gir opp sin kultur og tilpasser seg majoritetskulturen fullstendig.
+Minoriteter tilpasser seg majoritetskulturen. Noen mener dette er nødvendig for samhold, andre mener det er undertrykkende.
 
 **Segregering:**
-Når ulike kulturgrupper lever atskilt med lite kontakt.
+Kulturgrupper lever atskilt. Kan skje frivillig eller påtvunget. De fleste ser dette som problematisk.
 
 **Integrering:**
-Gjensidig tilpasning der minoriteter beholder viktige deler av sin kultur samtidig som de deltar i storsamfunnet.
+Minoriteter deltar i samfunnet, men beholder deler av egen kultur. Ulike syn på hvor mye tilpasning som kreves.
 
-**Mangfoldsperspektiv:**
-Å se kulturelt mangfold som en ressurs og berikelse for samfunnet.
+**Multikulturalisme:**
+Vektlegger at ulike kulturer skal eksistere side om side med like rettigheter. Kritiseres av noen for å skape parallellsamfunn.
 
-**Utfordringer ved kulturmøter:**
-- Misforståelser på grunn av ulike normer
-- Fordommer og stereotypier
-- Maktforskjeller
-- Spørsmål om verdikonflikter`,
+**Debatt:**
+Det er uenighet om hvilken modell som fungerer best. Noen mener sterkere krav om tilpasning er nødvendig, andre mener mer aksept for forskjellighet.`,
     },
     {
       id: 'samfunnskunnskap-2-2-ex-2',
@@ -1602,9 +1600,8 @@ Gjensidig tilpasning der minoriteter beholder viktige deler av sin kultur samtid
         id: 'samfunnskunnskap-2-2-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Hva er forskjellen mellom assimilering og integrering?',
-        hints: ['Tenk på hva som skjer med minoritetskulturen'],
-        solution: 'Assimilering: Minoriteten gir opp sin kultur og blir lik majoriteten. Integrering: Minoriteten beholder viktige deler av sin kultur, samtidig som de deltar i storsamfunnet. Gjensidig tilpasning fra begge sider.',
+        task: 'Beskriv forskjellen mellom assimilering, integrering og multikulturalisme. Hvilke argumenter finnes for og mot hver modell?',
+        solution: 'Assimilering: Full tilpasning. For: Skaper enhet. Mot: Undertrykkende. Integrering: Delvis tilpasning. For: Balanse mellom enhet og mangfold. Mot: Uklart hvor mye tilpasning som kreves. Multikulturalisme: Kulturer eksisterer parallelt. For: Respekterer mangfold. Mot: Kan skape parallellsamfunn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1612,33 +1609,32 @@ Gjensidig tilpasning der minoriteter beholder viktige deler av sin kultur samtid
     {
       id: 'samfunnskunnskap-2-2-example-1',
       type: 'example',
-      title: 'Eksempel: Kulturmøte i praksis',
-      problem: `Klasse 2B har fått ny elev fra Syria. Læreren ønsker at klassen skal lære om hverandres kulturer. Hvordan kan dette gjøres på en god måte?`,
-      solution: `**Gode tilnærminger:**
+      title: 'Eksempel: Kulturmøter i skolen',
+      problem: `En skole har elever fra mange ulike kulturbakgrunner. Hvordan bør skolen håndtere kulturelt mangfold?`,
+      solution: `**Ulike tilnærminger:**
 
-**Respektfull nysgjerrighet:**
-- Spørre hva eleven selv vil dele
-- Ikke gjøre eleven til "representant for alle syrere"
-- Vise at alle har interessante kulturelle bakgrunner
+**Vektlegge det felles:**
+- Fokusere på felles verdier og normer
+- Lære om norsk kultur og tradisjon
+- Skape felles identitet som skolefellesskap
 
-**Gjensidig deling:**
-- Alle elever deler noe fra sin bakgrunn
-- Fokusere på likheter og forskjeller
-- Lære av hverandre
+**Vektlegge mangfoldet:**
+- Markere ulike kulturelle høytider
+- Dele kunnskap om ulike bakgrunner
+- Verdsette at elever har ulik bakgrunn
 
-**Unngå fallgruver:**
-- Ikke redusere personer til deres kultur
-- Unngå stereotypier ("i Syria gjør de alltid...")
-- Respektere at noen ikke vil snakke om flukterfaringer
-- Huske at kultur er mer enn mat og tradisjoner
+**Praktiske spørsmål:**
+- Matservering (hensyn til ulike kostholdskrav)
+- Fritaksordninger fra undervisning
+- Klesspørsmål
 
-**Bygge broer:**
-- Finne felles interesser
-- Skape naturlige møteplasser
-- Inkludere i sosiale aktiviteter
+**Viktig balansegang:**
+Skolen må balansere respekt for ulikheter med behovet for felles normer og samhold. Det finnes ulike syn på hvor denne balansen bør ligge.
 
-**Viktig:**
-Kulturmøter handler om mennesker, ikke bare kulturer. Hver person er unik, uavhengig av bakgrunn.`,
+**Ulike perspektiver:**
+- Noen mener skolen bør være kulturnøytral
+- Andre mener skolen bør aktivt feire mangfold
+- De fleste søker en middelvei`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -1661,9 +1657,9 @@ Kulturmøter handler om mennesker, ikke bare kulturer. Hver person er unik, uavh
         id: 'samfunnskunnskap-2-2-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvordan kan kulturelt mangfold berike et samfunn?',
-        hints: ['Tenk på ulike perspektiver, kreativitet, økonomi, mat, kunst'],
-        solution: 'Berikelse: Flere perspektiver gir bedre løsninger, kulturell utveksling skaper innovasjon, mangfold i mat/kunst/musikk, internasjonal kompetanse, utfordrer fordommer, gjør samfunnet mer tilpasningsdyktig. Krever innsats for god integrering.',
+        task: 'Drøft: Hvilke fordeler og ulemper kan kulturelt mangfold ha for et samfunn?',
+        hints: ['Tenk på ulike perspektiver og presenter begge sider'],
+        solution: 'Fordeler: Flere perspektiver, kulturell utveksling, innovasjon, internasjonal kompetanse. Ulemper: Kan skape kommunikasjonsproblemer, verdikonflikter, segregering, kostnader til integrering. Hvordan man vurderer dette avhenger av verdisyn og erfaringer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1677,11 +1673,11 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_3: TextbookChapter = {
   courseId: 'samfunnskunnskap',
   chapterNumber: '2.3',
   title: 'Etnisitet og nasjonalitet',
-  description: 'Forstå begrepene etnisitet og nasjonalitet, og hvordan de former tilhørighet og identitet.',
+  description: 'Forstå begrepene etnisitet og nasjonalitet, og ulike perspektiver på nasjonal tilhørighet.',
   estimatedMinutes: 30,
   competenceGoals: [
     'drøfte hva som menes med etnisitet og nasjonalitet',
-    'reflektere over sammenhengen mellom etnisitet, nasjonalitet og identitet',
+    'reflektere over ulike syn på nasjonal identitet og tilhørighet',
   ],
   content: [
     {
@@ -1693,18 +1689,18 @@ Etnisitet og nasjonalitet er to viktige begreper for å forstå hvordan menneske
 
 **Hvorfor er dette viktig?**
 - Etnisitet og nasjonalitet påvirker hvordan vi ser oss selv
-- De kan skape tilhørighet og fellesskap
-- De kan også brukes til å ekskludere og diskriminere
-- Forståelse bidrar til et mer inkluderende samfunn
+- De skaper tilhørighet og fellesskap
+- De er tema for politisk debatt
+- Folk har ulike syn på hva som definerer tilhørighet
 
-I en globalisert verden med migrasjon og mobilitet blir disse begrepene stadig mer komplekse og sammensatte.`,
+Spørsmål om nasjonal identitet og hvem som "hører til" er tema for pågående samfunnsdebatt der folk har ulike synspunkter.`,
     },
     {
       id: 'samfunnskunnskap-2-3-def-1',
       type: 'definition',
       title: 'Etnisitet',
       content: `**Hva er etnisitet?**
-Etnisitet handler om opplevd fellesskap basert på antatt felles opphav, kultur, språk, historie eller tradisjoner. Det er en sosial kategori, ikke en biologisk.
+Etnisitet handler om opplevd fellesskap basert på antatt felles opphav, kultur, språk, historie eller tradisjoner.
 
 **Kjennetegn:**
 - Felles språk eller dialekt
@@ -1713,14 +1709,13 @@ Etnisitet handler om opplevd fellesskap basert på antatt felles opphav, kultur,
 - Følelse av felles opphav
 - Felles religion (ofte, men ikke alltid)
 
-**Viktig:**
-- Etnisitet er ikke det samme som "rase" - rase er et utdatert begrep
-- Etnisitet er sosialt konstruert - ikke biologisk bestemt
-- Man kan ha tilhørighet til flere etniske grupper
-- Etnisk identitet kan endre seg over tid
+**Ulike perspektiver:**
+- Noen vektlegger at etnisitet har dype historiske røtter
+- Andre mener etnisitet primært er sosialt konstruert
+- De fleste er enige om at etnisitet ikke er biologisk bestemt
 
 **Eksempler på etniske grupper i Norge:**
-Samer, kvener, romfolk, norsk-pakistanere, norsk-somaliere.`,
+Samer, kvener, romfolk, samt grupper med bakgrunn fra andre land.`,
     },
     {
       id: 'samfunnskunnskap-2-3-def-2',
@@ -1730,50 +1725,50 @@ Samer, kvener, romfolk, norsk-pakistanere, norsk-somaliere.`,
 Tilhørighet til en nasjon eller stat. Kan være juridisk (statsborgerskap) eller følelsesmessig (nasjonal identitet).
 
 **Nasjon:**
-Et forestilt fellesskap av mennesker som deler kultur, historie, språk og/eller territorium.
+Et fellesskap av mennesker som deler kultur, historie, språk og/eller territorium.
 
 **Stat:**
 Et geografisk område med felles regjering og lover. En stat kan inneholde flere nasjoner.
 
-**Nasjonalisme:**
-Ideologi som vektlegger nasjonal identitet og nasjonens interesser. Kan være:
-- Inkluderende: Fellesskap basert på felles verdier
-- Ekskluderende: "Vi" mot "de andre", kan føre til diskriminering
+**Nasjonalisme - ulike former:**
+- Patriotisme: Kjærlighet til eget land
+- Borgerlig nasjonalisme: Fellesskap basert på felles lover og verdier
+- Etnisk nasjonalisme: Fellesskap basert på felles opphav og kultur
 
-**Statsborgerskap:**
-Juridisk tilhørighet til en stat - gir rettigheter og plikter.
-
-**Norsk identitet:**
-Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatteres stadig.`,
+**Debatt:**
+Nasjonalisme kan skape samhold og fellesskap, men har historisk også blitt brukt til ekskludering. Hvordan man vurderer nasjonalisme avhenger av kontekst og verdisyn.`,
     },
     {
       id: 'samfunnskunnskap-2-3-example-1',
       type: 'example',
-      title: 'Eksempel: Sammensatt identitet',
-      problem: `Fatima er født i Norge med foreldre fra Marokko. Hun har norsk statsborgerskap, snakker flytende norsk og arabisk, og føler tilhørighet til begge kulturer. Hvordan kan vi forstå hennes etnisitet og nasjonalitet?`,
-      solution: `**Fatimas nasjonalitet:**
-- Juridisk: Norsk statsborger med fulle rettigheter
-- Følelsesmessig: Kan føle tilhørighet til Norge og Marokko
+      title: 'Eksempel: Hva vil det si å være norsk?',
+      problem: `Det er uenighet om hva som gjør noen "norsk". Hvilke ulike syn finnes på dette spørsmålet?`,
+      solution: `**Ulike perspektiver:**
 
-**Fatimas etnisitet:**
-- Marokkansk kulturell bakgrunn fra familien
-- Norsk kulturell påvirkning fra oppvekst
-- Kan identifisere seg som norsk-marokkaner, eller begge deler
+**Juridisk definisjon:**
+- Norsk statsborgerskap gir formell tilhørighet
+- Alle statsborgere har like rettigheter
 
-**Sammensatt identitet:**
-- "Både-og" ikke "enten-eller"
-- Kontekstavhengig - ulike sider fremheves i ulike situasjoner
-- Hun definerer selv sin identitet
+**Kulturell definisjon:**
+- Språk, tradisjoner, verdier og levemåte
+- Deltakelse i norsk samfunnsliv
 
-**Utfordringer:**
-- Andre kan stille spørsmål om "hvor hun egentlig er fra"
-- Kan oppleve at hun må "bevise" sin norskhet
-- Press om å velge én identitet
+**Historisk/etnisk definisjon:**
+- Slektskap og opphav
+- Røtter i landet over generasjoner
 
-**Ressurs:**
-- Tilgang til flere kulturer og språk
-- Kan bygge broer mellom ulike miljøer
-- Rik og sammensatt identitet`,
+**Verdimessig definisjon:**
+- Tilslutning til demokrati, likhet for loven, ytringsfrihet
+- Respekt for norske lover og institusjoner
+
+**Debatten:**
+- Noen mener norskhet primært handler om verdier og deltakelse
+- Andre mener historisk og kulturell tilhørighet er viktig
+- Dette er en pågående politisk debatt der folk har ulike syn
+- De fleste er enige om at alle statsborgere skal behandles likt
+
+**Viktig poeng:**
+Det finnes ikke ett "riktig" svar på dette spørsmålet. Det er legitimt å ha ulike syn.`,
     },
     {
       id: 'samfunnskunnskap-2-3-ex-1',
@@ -1783,7 +1778,7 @@ Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatte
         number: '1',
         type: 'classic',
         task: 'Forklar forskjellen mellom etnisitet og nasjonalitet.',
-        solution: 'Etnisitet handler om opplevd fellesskap basert på kultur, språk, historie og tradisjoner - det er sosialt konstruert. Nasjonalitet handler om tilhørighet til en stat, enten juridisk (statsborgerskap) eller følelsesmessig. Man kan ha samme nasjonalitet men ulik etnisitet.',
+        solution: 'Etnisitet handler om opplevd fellesskap basert på kultur, språk, historie og tradisjoner. Nasjonalitet handler om tilhørighet til en stat, enten juridisk (statsborgerskap) eller følelsesmessig. Man kan ha samme nasjonalitet men ulik etnisitet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1796,7 +1791,7 @@ Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatte
         number: '2',
         type: 'classic',
         task: 'Hva er forskjellen mellom en stat og en nasjon?',
-        solution: 'Stat: Et geografisk område med felles regjering og lover - en politisk enhet. Nasjon: Et forestilt fellesskap av mennesker som deler kultur, historie eller språk. En stat kan inneholde flere nasjoner (f.eks. Spania med baskere, katalanere).',
+        solution: 'Stat: Et geografisk område med felles regjering og lover - en politisk enhet. Nasjon: Et fellesskap av mennesker som deler kultur, historie eller språk. En stat kan inneholde flere nasjoner (f.eks. Spania med baskere, katalanere).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1809,9 +1804,9 @@ Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatte
         id: 'samfunnskunnskap-2-3-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Drøft: Hva skal til for å bli "norsk"?',
-        hints: ['Tenk på statsborgerskap, språk, kultur, verdier, utseende'],
-        solution: 'Ulike syn: Statsborgerskap (juridisk), språk, felles verdier (demokrati, likestilling), kulturell tilpasning, følt tilhørighet. Problematisk: Krav om utseende eller etnisk bakgrunn. Norskhet er mangfoldig og i endring. Viktig at definisjonen er inkluderende.',
+        task: 'Drøft ulike syn på hva som gjør noen "norsk". Presenter minst to ulike perspektiver.',
+        hints: ['Tenk på statsborgerskap, kultur, verdier, historie'],
+        solution: 'Ulike perspektiver: 1) Juridisk - statsborgerskap gir formell tilhørighet. 2) Kulturelt - språk, tradisjoner, deltakelse i samfunnslivet. 3) Historisk - opphav og røtter i landet. 4) Verdimessig - tilslutning til demokrati og rettsstaten. Folk har ulike syn på hvilke kriterier som er viktigst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1823,8 +1818,8 @@ Hva vil det si å være norsk? Språk, verdier, statsborgerskap, kultur? Debatte
         id: 'samfunnskunnskap-2-3-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Forklar hvorfor "rase" er et utdatert og problematisk begrep.',
-        solution: 'Rase er utdatert fordi: 1) Det finnes ikke biologiske raser blant mennesker - genetisk variasjon går på tvers av grupper. 2) Begrepet ble brukt til å rettferdiggjøre rasisme og kolonialisme. 3) Forskjeller i utseende sier ingenting om evner eller egenskaper. Bruker heller etnisitet.',
+        task: 'Beskriv ulike former for nasjonalisme og diskuter styrker og svakheter ved hver.',
+        solution: 'Patriotisme: Kjærlighet til eget land. Styrke: Skaper samhold. Svakhet: Kan bli blind for feil. Borgerlig nasjonalisme: Basert på felles lover/verdier. Styrke: Inkluderende. Svakhet: Kan mangle kulturell forankring. Etnisk nasjonalisme: Basert på opphav. Styrke: Sterk identitet. Svakhet: Kan ekskludere.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1837,105 +1832,96 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_4: TextbookChapter = {
   id: 'samfunnskunnskap-2-4',
   courseId: 'samfunnskunnskap',
   chapterNumber: '2.4',
-  title: 'Rasisme og diskriminering',
-  description: 'Forstå hva rasisme og diskriminering er, ulike former for rasisme, og hvordan vi kan motarbeide det.',
+  title: 'Diskriminering og likestilling',
+  description: 'Forstå hva diskriminering er, norsk lovverk, og ulike perspektiver på likestillingspolitikk.',
   estimatedMinutes: 30,
   competenceGoals: [
-    'drøfte ulike former for rasisme og diskriminering',
-    'reflektere over hvordan rasisme kan bekjempes',
+    'drøfte hva diskriminering er og hvordan den kan bekjempes',
+    'reflektere over ulike perspektiver på likestillingspolitikk',
   ],
   content: [
     {
       id: 'samfunnskunnskap-2-4-intro',
       type: 'text',
-      content: `## Rasisme og diskriminering
+      content: `## Diskriminering og likestilling
 
-Rasisme og diskriminering er alvorlige samfunnsproblemer som rammer enkeltmennesker og undergraver fellesskapet. Å forstå hva rasisme er og hvordan den fungerer, er første skritt mot å bekjempe den.
+Diskriminering betyr å behandle noen dårligere enn andre på grunnlag av kjennetegn som etnisitet, kjønn, religion eller funksjonsevne. Norsk lov forbyr slik forskjellsbehandling.
 
-**Hvorfor dette er viktig:**
-- Rasisme krenker menneskeverdet
-- Det bryter med menneskerettighetene
-- Det skader både individer og samfunn
-- Vi har alle et ansvar for å motarbeide rasisme
-- Forståelse er nødvendig for endring
+**Grunnleggende prinsipper:**
+- Alle mennesker har lik verdi
+- Like tilfeller skal behandles likt
+- Usaklig forskjellsbehandling er forbudt
+- Staten skal sikre like muligheter
 
-Norge har forpliktet seg til å bekjempe rasisme gjennom lover og internasjonale avtaler, men rasisme eksisterer fortsatt i ulike former.`,
+Det er bred politisk enighet om at åpen diskriminering er galt. Det er mer debatt om hvor omfattende tiltak som trengs og hvordan problemer best løses.`,
     },
     {
       id: 'samfunnskunnskap-2-4-def-1',
       type: 'definition',
-      title: 'Former for rasisme',
-      content: `**Direkte rasisme:**
-Åpenlys forskjellsbehandling basert på etnisitet, hudfarge eller religion. Eksempel: Å nekte noen jobb på grunn av navn eller utseende.
+      title: 'Diskriminering - definisjoner',
+      content: `**Direkte diskriminering:**
+Å behandle noen dårligere på grunn av f.eks. etnisitet, kjønn eller religion. Eksempel: Å nekte noen jobb fordi de har utenlandsk bakgrunn.
 
-**Strukturell/institusjonell rasisme:**
-Rasisme innebygd i samfunnets systemer - lover, praksiser, normer - som systematisk gir ulike grupper ulike muligheter.
+**Indirekte diskriminering:**
+Tilsynelatende nøytrale regler som slår ulikt ut for ulike grupper. Eksempel: Krav om norske referanser som nykommere ikke kan oppfylle.
 
-**Hverdagsrasisme:**
-"Små" kommentarer og handlinger som signaliserer at noen ikke hører til. "Hvor kommer du egentlig fra?", å ta på noens hår, eller forventninger basert på utseende.
+**Trakassering:**
+Handlinger eller ytringer som krenker noens verdighet. Dette er forbudt ved lov.
 
-**Mikroaggresjoner:**
-Subtile, ofte ubevisste handlinger eller kommentarer som formidler negative holdninger mot marginaliserte grupper.
+**Positiv særbehandling (kvotering):**
+Å gi fordeler til underrepresenterte grupper for å oppnå likestilling. Det er ulike syn på om dette er et godt virkemiddel.
 
-**Internalisert rasisme:**
-Når personer fra minoritetsgrupper internaliserer samfunnets negative holdninger mot sin egen gruppe.
-
-**Online rasisme:**
-Hatytringer, trakassering og rasistisk innhold på nett og i sosiale medier.`,
+**Viktig distinksjon:**
+Saklig forskjellsbehandling kan være lovlig (f.eks. språkkrav til stillinger). Usaklig forskjellsbehandling er forbudt.`,
     },
     {
       id: 'samfunnskunnskap-2-4-def-2',
       type: 'definition',
-      title: 'Diskriminering og lovverk',
-      content: `**Diskriminering:**
-Å behandle personer dårligere på grunn av forhold som etnisitet, religion, kjønn, funksjonsevne, seksuell orientering eller andre beskyttede grunnlag.
-
-**Likestillings- og diskrimineringsloven:**
-Forbyr diskriminering og pålegger arbeidsgivere og myndigheter aktivt likestillingsarbeid.
+      title: 'Lovverk og institusjoner',
+      content: `**Likestillings- og diskrimineringsloven:**
+Forbyr diskriminering på grunn av kjønn, etnisitet, religion, funksjonsevne, seksuell orientering og alder.
 
 **Straffelovens §185 (hatytringer):**
-Forbyr offentlige uttalelser som truer, forhåner eller fremmer hat mot grupper basert på etnisitet, religion m.m.
+Forbyr offentlige uttalelser som truer, forhåner eller fremmer hat mot grupper. Det er debatt om hvor grensen skal gå mellom straffbare ytringer og ytringsfrihet.
 
 **Likestillings- og diskrimineringsombudet (LDO):**
-Fører tilsyn og gir veiledning om diskrimineringssaker.
+Gir veiledning om diskrimineringssaker.
 
 **Diskrimineringsnemnda:**
 Behandler klager på diskriminering og kan gi oppreisning.
 
-**FNs rasediskrimineringskonvensjon:**
-Internasjonal avtale Norge har forpliktet seg til.`,
+**Viktig:**
+Disse lovene og institusjonene eksisterer for å beskytte individer mot usaklig forskjellsbehandling.`,
     },
     {
       id: 'samfunnskunnskap-2-4-example-1',
       type: 'example',
-      title: 'Eksempel: Diskriminering i arbeidslivet',
-      problem: `Hassan har sendt jobbsøknader i flere måneder uten å få svar. Han bestemmer seg for et eksperiment: Han sender samme CV med et typisk norsk navn. Med det norske navnet får han flere innkallinger til intervju. Hva sier dette om diskriminering?`,
-      solution: `**Hva eksperimentet viser:**
+      title: 'Eksempel: Ulike syn på likestillingspolitikk',
+      problem: `Forskning viser at jobbsøkere med utenlandskklingende navn i gjennomsnitt får færre innkallinger til intervju. Hvilke ulike tilnærminger finnes til dette problemet?`,
+      solution: `**Fakta:**
+Studier har vist at søkere med utenlandskklingende navn har lavere sannsynlighet for å bli kalt inn til intervju, selv med like kvalifikasjoner.
 
-**Diskriminering forekommer:**
-- Forskning bekrefter at søkere med "utenlandske" navn har lavere sannsynlighet for å bli kalt inn til intervju
-- Hassan har dokumentert diskriminering basert på navn/antatt etnisitet
+**Ulike forklaringer:**
+- Bevisst diskriminering fra noen arbeidsgivere
+- Ubevisste fordommer
+- Usikkerhet om utenlandske kvalifikasjoner
+- Språkbekymringer (uavhengig av om de er berettigede)
 
-**Strukturell diskriminering:**
-- Det er ikke nødvendigvis bevisst rasisme hos hver enkelt arbeidsgiver
-- Ubevisste fordommer påvirker beslutninger
-- Resultatet er systematisk ulikhet i muligheter
+**Ulike tilnærminger til løsning:**
 
-**Konsekvenser:**
-- Tap av talenter for samfunnet
-- Økonomisk tap for den som rammes
-- Psykologiske belastninger
-- Forsterker ulikhet
+**Liberalt perspektiv:**
+- Fokus på å håndheve eksisterende lover
+- La markedet straffe diskriminerende arbeidsgivere
+- Unngå omfattende statlig regulering
 
-**Løsninger:**
-- Anonyme jobbsøknader (uten navn og bilde)
-- Bevisstgjøring om ubevisste fordommer
+**Aktivt likestillingsperspektiv:**
+- Anonyme jobbsøknader
 - Mangfoldstrening i bedrifter
-- Aktivt likestillingsarbeid
-- Klage til Diskrimineringsnemnda
+- Aktivt rekrutteringsarbeid
+- Kvotering i noen tilfeller
 
-**Viktig:**
-Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.`,
+**Viktig poeng:**
+Det er enighet om at usaklig diskriminering er galt. Det er uenighet om hvilke tiltak som er mest effektive og ønskelige.`,
     },
     {
       id: 'samfunnskunnskap-2-4-ex-1',
@@ -1944,8 +1930,8 @@ Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.
         id: 'samfunnskunnskap-2-4-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Forklar forskjellen mellom direkte rasisme og strukturell rasisme.',
-        solution: 'Direkte rasisme: Åpenlys forskjellsbehandling fra enkeltpersoner, f.eks. rasistiske kommentarer. Strukturell rasisme: Rasisme innebygd i systemer og institusjoner som gir systematisk ulikhet, f.eks. at folk med utenlandske navn får færre jobbintervjuer.',
+        task: 'Forklar forskjellen mellom direkte og indirekte diskriminering. Gi eksempler på hver.',
+        solution: 'Direkte diskriminering: Å behandle noen dårligere pga. bakgrunn, f.eks. nekte jobb pga. etnisitet. Indirekte diskriminering: Nøytrale regler som slår ulikt ut, f.eks. krav som visse grupper vanskeligere kan oppfylle. Begge kan være ulovlige.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1957,8 +1943,8 @@ Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.
         id: 'samfunnskunnskap-2-4-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Hva er hverdagsrasisme og mikroaggresjoner? Gi eksempler.',
-        solution: 'Hverdagsrasisme: Dagligdagse kommentarer og handlinger som signaliserer at noen ikke hører til. Mikroaggresjoner: Subtile, ofte ubevisste handlinger med negative signaler. Eksempler: "Du snakker så godt norsk!", "Hvor kommer du egentlig fra?", å anta at noen ikke er norsk.',
+        task: 'Hva er forskjellen mellom saklig og usaklig forskjellsbehandling? Gi eksempler.',
+        solution: 'Saklig forskjellsbehandling: Har god grunn og er lovlig, f.eks. språkkrav til stillinger der språk er nødvendig. Usaklig forskjellsbehandling: Har ingen god grunn, f.eks. å nekte jobb pga. hudfarge. Bare usaklig forskjellsbehandling er diskriminering.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1972,7 +1958,7 @@ Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.
         number: '3',
         type: 'classic',
         task: 'Hvilke lover beskytter mot diskriminering i Norge?',
-        solution: 'Lover: Likestillings- og diskrimineringsloven (forbyr diskriminering), Straffelovens §185 (hatytringer). Organer: Likestillings- og diskrimineringsombudet (veiledning), Diskrimineringsnemnda (behandler klager). Internasjonalt: FNs rasediskrimineringskonvensjon.',
+        solution: 'Likestillings- og diskrimineringsloven forbyr diskriminering på grunn av kjønn, etnisitet, religion, funksjonsevne, seksuell orientering og alder. Straffelovens §185 forbyr hatytringer. Diskrimineringsnemnda behandler klager.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1984,9 +1970,9 @@ Diskriminering er forbudt ved lov. Hassan kan klage og har krav på oppreisning.
         id: 'samfunnskunnskap-2-4-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvordan kan vi som enkeltpersoner og samfunn bekjempe rasisme?',
-        hints: ['Tenk på både individuelt og strukturelt nivå'],
-        solution: 'Individuelt: Si ifra mot rasisme, utfordre egne fordommer, lytte til de som rammes, være alliert. Strukturelt: Anonyme søknader, mangfoldstrening, aktivt likestillingsarbeid, undervisning om rasisme, styrke lovverket, støtte antirasistiske organisasjoner.',
+        task: 'Drøft: Er kvotering et godt virkemiddel for å oppnå likestilling? Presenter argumenter for og mot.',
+        hints: ['Tenk på ulike verdier som likhet, effektivitet, rettferdighet'],
+        solution: 'For kvotering: Kan utjevne historiske skjevheter, gir rollemodeller, sikrer mangfold. Mot kvotering: Kan føre til at kvalifikasjoner oversees, kan oppleves som urettferdig av de som forbigås, kan stigmatisere de som kvoteres inn. Dette er en pågående politisk debatt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2235,33 +2221,34 @@ Staten skal behandle alle tros- og livssynssamfunn likt, samtidig som den tar he
     {
       id: 'samfunnskunnskap-2-6-example-1',
       type: 'example',
-      title: 'Eksempel: Religionsfrihet i praksis',
-      problem: `Sara vil bruke hijab på skolen. Noen mener skolen bør forby religiøse plagg. Hvordan bør vi tenke om dette dilemmaet?`,
-      solution: `**Ulike hensyn:**
+      title: 'Eksempel: Religiøse plagg i offentligheten',
+      problem: `I mange land debatteres det om religiøse plagg som hijab bør tillates overalt, eller om det bør være begrensninger i visse sammenhenger. Hva er de ulike synspunktene?`,
+      solution: `**Ulike perspektiver:**
 
-**For Saras rett til å bruke hijab:**
+**For full frihet til religiøse plagg:**
 - Religionsfrihet er en grunnleggende rettighet
-- Klesfrihet - rett til å velge egne klær
-- Hijab kan være viktig for Saras identitet
-- Et forbud kan føre til at Sara føler seg ekskludert
-- Staten skal ikke bestemme folks klesvalg
+- Individet bør selv bestemme egen klesdrakt
+- Forbud kan føre til ekskludering
+- Staten bør ikke blande seg inn i personlige valg
 
-**Argumenter for forbud (som noen fremmer):**
-- Nøytralitet i offentlig rom
-- Bekymring for press fra familie/miljø
-- Ønske om "likhet"
+**For visse begrensninger:**
+- Offentlige institusjoner bør være nøytrale
+- Bekymring for at noen presses til å bære religiøse plagg
+- Ønske om felles rammer i skole/arbeidsliv
+- Enkelte land (som Frankrike) har slike begrensninger
 
-**Viktige poeng:**
-- Norsk lov tillater religiøse plagg i skolen
-- Et forbud ville være diskriminering
-- Vi bør ikke anta at alle som bærer hijab er tvunget
-- Respekt for individets valg er sentralt
+**Norsk lov:**
+- I Norge er det i hovedsak tillatt å bære religiøse plagg i skole og offentlighet
+- Det finnes noen unntak knyttet til sikkerhet og identifikasjon
+- Debatten pågår om politi, dommere og andre offentlige posisjoner
 
-**Konklusjon:**
-Sara har rett til å bruke hijab. Religionsfriheten beskytter hennes valg. Et forbud ville være ulovlig diskriminering.
+**Ulike tilnærminger i Europa:**
+- Frankrike: Forbud mot religiøse symboler i offentlig skole
+- Storbritannia: Liberal tilnærming med stor frihet
+- Norge: Mellomposisjon med hovedsakelig frihet
 
-**Unntak:**
-I visse situasjoner kan det være saklige begrensninger (f.eks. sikkerhet i laboratorium).`,
+**Viktig poeng:**
+Dette er en pågående debatt der ulike land har valgt ulike løsninger. Folk kan ha ulike syn basert på ulike verdier (religionsfrihet vs. nøytralitet).`,
     },
     {
       id: 'samfunnskunnskap-2-6-ex-1',
@@ -2325,35 +2312,34 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_7: TextbookChapter = {
   id: 'samfunnskunnskap-2-7',
   courseId: 'samfunnskunnskap',
   chapterNumber: '2.7',
-  title: 'Det flerkulturelle Norge',
-  description: 'Forstå Norge som et flerkulturelt samfunn, innvandringens historie, integreringspolitikk og debatter.',
+  title: 'Innvandring og integrering',
+  description: 'Forstå innvandringens historie til Norge, ulike perspektiver på integreringspolitikk, og pågående debatter.',
   estimatedMinutes: 30,
   competenceGoals: [
-    'drøfte hva det innebærer at Norge er et flerkulturelt samfunn',
-    'reflektere over integreringsutfordringer og -muligheter',
+    'drøfte innvandring og integrering i Norge',
+    'reflektere over ulike perspektiver på innvandringspolitikk',
   ],
   content: [
     {
       id: 'samfunnskunnskap-2-7-intro',
       type: 'text',
-      content: `## Norge som flerkulturelt samfunn
+      content: `## Innvandring til Norge
 
-Norge har alltid vært preget av kulturelt mangfold - med samer, kvener og andre grupper. Men fra 1970-tallet har innvandring fra nye deler av verden gjort Norge til et mer synlig flerkulturelt samfunn.
+Innvandring har forandret det norske samfunnet betydelig de siste 50 årene. I dag har omtrent 1 million mennesker i Norge innvandrerbakgrunn.
 
-**Fakta om mangfoldet:**
-- Ca. 1 million innvandrere og norskfødte med innvandrerforeldre bor i Norge
-- Folk fra over 200 land og territorier
+**Fakta:**
+- Ca. 1 million innvandrere og norskfødte med innvandrerforeldre
+- Folk fra over 200 land
 - Oslo: Ca. 34% har innvandrerbakgrunn
-- Innvandring fra alle verdensdeler
+- Stor variasjon mellom ulike innvandrergrupper
 
 **Hvorfor kommer folk til Norge?**
-- Arbeid
+- Arbeid (særlig fra EØS-land)
 - Familie (familiegjenforening)
-- Flukt (beskyttelse)
+- Flukt (asyl og beskyttelse)
 - Utdanning
-- Kjærlighet
 
-Det flerkulturelle Norge er virkeligheten - spørsmålet er hvordan vi best kan leve sammen.`,
+Innvandringspolitikk er et tema der det er betydelig politisk uenighet. Ulike partier og velgere har ulike syn på hvor mye innvandring Norge bør ha og hvordan integreringen bør foregå.`,
     },
     {
       id: 'samfunnskunnskap-2-7-def-1',
@@ -2372,7 +2358,7 @@ Flyktninger fra Vietnam, Chile, Iran, Sri Lanka, Bosnia. Familiegjenforening.
 EU-utvidelsen: Stor arbeidsinnvandring fra Polen, Litauen og andre østeuropeiske land.
 
 **2015:**
-Flyktningkrisen: Mange asylsøkere fra Syria, Afghanistan, Eritrea.
+Flyktningkrisen: Mange asylsøkere fra Syria, Afghanistan, Eritrea. Førte til innstramminger.
 
 **I dag:**
 Fortsatt arbeidsinnvandring fra EU, familieinnvandring, noen flyktninger. Ukrainske flyktninger fra 2022.
@@ -2385,74 +2371,66 @@ Fortsatt arbeidsinnvandring fra EU, familieinnvandring, noen flyktninger. Ukrain
     {
       id: 'samfunnskunnskap-2-7-def-2',
       type: 'definition',
-      title: 'Integreringspolitikk',
-      content: `**Hva er integrering?**
-En gjensidig prosess der innvandrere og samfunnet tilpasser seg hverandre. Innvandrere får mulighet til å delta, og samfunnet legger til rette.
+      title: 'Ulike syn på innvandringspolitikk',
+      content: `**Liberal tilnærming:**
+- Innvandring beriker samfunnet
+- Åpne grenser og generøs asylpolitikk
+- Fokus på rettigheter og inkludering
+- Mangfold som verdi
 
-**Norsk integreringspolitikk:**
-- Introduksjonsprogram: Norskopplæring, samfunnskunnskap, arbeidsrettet tiltak
-- Tilgang til velferdsordninger
-- Rett til utdanning
-- Arbeidsliv som integrering-arena
-- Sivilsamfunn og frivillighet
+**Restriktiv tilnærming:**
+- Bekymring for integreringsutfordringer
+- Strengere kontroll med innvandring
+- Fokus på plikter og tilpasning
+- Verne om nasjonal kultur og samhold
 
-**Integreringsindikatorer:**
-- Sysselsetting (arbeid)
-- Utdanning
-- Språkferdigheter
-- Bolig
-- Sosiale nettverk
-- Demokratisk deltakelse
+**Mellomposisjoner:**
+- De fleste partier har kompromissposisjoner
+- Støtter regulert innvandring med visse begrensninger
+- Vektlegger både rettigheter og plikter
 
-**Utfordringer:**
-- Arbeidsledighet i noen grupper
-- Diskriminering
-- Språkbarrierer
-- Sosial segregering
-- Manglende godkjenning av utdanning
-
-**Suksessfaktorer:**
-- Arbeid
-- Språk
-- Sosiale nettverk
-- Utdanning
-- Inkluderende holdninger i samfunnet`,
+**Viktige debattspørsmål:**
+- Hvor mange flyktninger bør Norge ta imot?
+- Hvilke krav bør stilles for statsborgerskap?
+- Hvordan sikre god integrering?
+- Hvor mye tilpasning kan kreves?`,
     },
     {
       id: 'samfunnskunnskap-2-7-example-1',
       type: 'example',
-      title: 'Eksempel: Integrering i praksis',
-      problem: `Ahmed kom til Norge som flyktning for fem år siden. Han har deltatt i introduksjonsprogrammet, lært norsk og fått jobb som tømrer. Likevel føler han seg noen ganger som "utenfor". Hva kan forklare dette?`,
-      solution: `**Ahmeds situasjon:**
+      title: 'Eksempel: Debatt om integrering',
+      problem: `Det er uenighet om hva god integrering innebærer og hvordan den best oppnås. Hva er de ulike synspunktene?`,
+      solution: `**Ulike perspektiver på integrering:**
 
-**Strukturell integrering (går bra):**
-- Har jobb og bidrar økonomisk
-- Har lært norsk
-- Fulgt introduksjonsprogram
-- Er selvforsørget
+**Vekt på tilpasning:**
+- Innvandrere bør tilpasse seg norsk kultur og verdier
+- Norskkunnskaper er avgjørende
+- Arbeidsdeltakelse er viktigst
+- Stille klare forventninger og krav
 
-**Sosial integrering (mer utfordrende):**
-- Har kanskje få norske venner
-- Opplever kanskje mikroaggresjoner
-- Føler seg annerledes/synlig
-- Savner kanskje familie og kultur fra hjemlandet
+**Vekt på gjensidighet:**
+- Integrering er en toveis prosess
+- Samfunnet må også tilpasse seg
+- Respektere kulturelle forskjeller
+- Bekjempe diskriminering
 
-**Mulige forklaringer:**
-- Tar tid å bygge sosiale nettverk
-- Diskriminering og fordommer eksisterer
-- Kulturelle forskjeller kan skape avstand
-- Kan oppleve "dobbel utenforskap" - verken helt norsk eller "hjemme"
-- Samfunnet ser kanskje ham som "innvandrer" uansett
+**Måling av integrering:**
+- Arbeidsdeltakelse og selvforsørgelse
+- Språkkunnskaper
+- Utdanning
+- Deltakelse i samfunnslivet
+- Tilslutning til grunnleggende verdier
 
-**Hva kan hjelpe?**
-- Sosiale møteplasser (frivillighet, idrett, foreninger)
-- Inkluderende kollegaer og naboer
-- Arbeid mot diskriminering
-- Anerkjennelse av at integrering er gjensidig
-- Tid og tålmodighet
+**Utfordringer det er enighet om:**
+- Høy arbeidsledighet i noen grupper
+- Språkbarrierer
+- Sosial segregering i noen områder
+- Behov for bedre resultater
 
-**Viktig:**
-Integrering handler om mer enn jobb og språk - det handler også om tilhørighet og aksept.`,
+**Uenighet om løsninger:**
+- Hvor strenge krav kan stilles?
+- Hvilke tiltak virker?
+- Hvordan balansere frihet og krav?`,
     },
     {
       id: 'samfunnskunnskap-2-7-ex-1',
@@ -2462,7 +2440,7 @@ Integrering handler om mer enn jobb og språk - det handler også om tilhørighe
         number: '1',
         type: 'classic',
         task: 'Beskriv hovedfasene i innvandringens historie til Norge fra 1970-tallet til i dag.',
-        solution: '1970-tallet: Arbeidsinnvandring fra Pakistan, Tyrkia, Marokko. 1980-90-tallet: Flyktninger fra Vietnam, Chile, Iran, Bosnia. 2000-tallet: EU-utvidelse, arbeidsinnvandring fra Øst-Europa. 2015: Flyktningkrise (Syria, Afghanistan). 2022: Ukrainske flyktninger.',
+        solution: '1970-tallet: Arbeidsinnvandring fra Pakistan, Tyrkia, Marokko, innvandringsstopp 1975. 1980-90-tallet: Flyktninger fra Vietnam, Chile, Iran, Bosnia. 2000-tallet: EU-utvidelse, arbeidsinnvandring fra Øst-Europa. 2015: Flyktningkrise (Syria, Afghanistan). 2022: Ukrainske flyktninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2474,8 +2452,8 @@ Integrering handler om mer enn jobb og språk - det handler også om tilhørighe
         id: 'samfunnskunnskap-2-7-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Hva er forskjellen mellom integrering og assimilering?',
-        solution: 'Integrering: Gjensidig tilpasning - innvandrere beholder viktige deler av sin kultur, samtidig som de deltar i samfunnet. Begge parter tilpasser seg. Assimilering: Innvandrere gir opp sin kultur og blir helt lik majoriteten. Enveis tilpasning.',
+        task: 'Beskriv to ulike perspektiver på innvandringspolitikk. Hvilke verdier ligger til grunn for hvert syn?',
+        solution: 'Liberal: Vektlegger rettigheter, inkludering, mangfold som verdi, åpenhet. Verdier: humanisme, universalisme. Restriktiv: Vektlegger kontroll, tilpasning, verne nasjonal kultur. Verdier: nasjonalt samhold, bærekraft. De fleste har kompromissposisjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2488,8 +2466,8 @@ Integrering handler om mer enn jobb og språk - det handler også om tilhørighe
         id: 'samfunnskunnskap-2-7-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hvilke faktorer bidrar til god integrering?',
-        solution: 'Viktige faktorer: Arbeid (økonomisk selvstendighet, sosial arena), språk (norskkunnskaper), utdanning, sosiale nettverk, inkluderende holdninger i samfunnet, frivillighet og deltakelse, tilgang til velferdsordninger, bekjempelse av diskriminering.',
+        task: 'Hvilke faktorer måles vanligvis for å vurdere grad av integrering?',
+        solution: 'Vanlige indikatorer: Arbeidsdeltakelse og selvforsørgelse, språkkunnskaper, utdanningsnivå, bolig, deltakelse i samfunnslivet, sosiale nettverk, tilslutning til grunnleggende verdier, demokratisk deltakelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2501,9 +2479,9 @@ Integrering handler om mer enn jobb og språk - det handler også om tilhørighe
         id: 'samfunnskunnskap-2-7-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvilke muligheter og utfordringer gir kulturelt mangfold i Norge?',
-        hints: ['Tenk på både samfunnsnivå og individnivå'],
-        solution: 'Muligheter: Flere perspektiver, innovasjon, kulturell utveksling, internasjonal kompetanse, mangfold i mat/kunst/kultur. Utfordringer: Integreringskostnader, språkbarrierer, kulturelle misforståelser, diskriminering, politisk polarisering, segregering. Krever aktiv innsats.',
+        task: 'Drøft: Hvilke krav er det rimelig å stille til innvandrere som ønsker å bli norske statsborgere?',
+        hints: ['Tenk på språk, verdier, botid, selvforsørgelse'],
+        solution: 'Ulike syn: Noen mener kravene bør være strenge (godt språk, lang botid, selvforsørgelse, verdikunnskap). Andre mener kravene bør være overkommelige for å ikke ekskludere. De fleste er enige om at norskkunnskaper og kjennskap til samfunnet er viktig. Hvor strenge kravene bør være er et politisk spørsmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
