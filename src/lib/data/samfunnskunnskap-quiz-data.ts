@@ -5571,14 +5571,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Filterbobler oppstår når algoritmer filtrerer bort informasjon som ikke passer våre preferanser, slik at vi ikke ser hele bildet.',
     },
     {
-      question: 'Hvilken bevegelse er et eksempel på positiv mobilisering via sosiale medier?',
+      question: 'Hva er et eksempel på mobilisering via sosiale medier?',
       options: [
-        '#MeToo',
+        'Grasrotbevegelser som organiserer seg rundt politiske saker',
         '#FakeNews',
         '#Reklame',
         '#Shopping',
       ],
-      explanation: '#MeToo-bevegelsen er et eksempel på hvordan sosiale medier kan brukes til å organisere og mobilisere rundt viktige samfunnsspørsmål.',
+      explanation: 'Sosiale medier brukes til å organisere grasrotbevegelser på tvers av det politiske spekteret, fra klimaaktivisme til skatteprotester.',
     },
     {
       question: 'Hva er EUs regulering av sosiale medier kalt?',
@@ -5827,14 +5827,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Under covid-19-pandemien spredte det seg mye desinformasjon om falske kurer, vaksineskepsis og konspirasjonsteorier om virusets opprinnelse.',
     },
     {
-      question: 'Hvem tjener på spredning av desinformasjon?',
+      question: 'Hvem kan tjene på spredning av feilinformasjon?',
       options: [
-        'Autoritære regimer, ekstreme politiske krefter og de som tjener penger på klikk',
+        'Ulike politiske aktører, utenlandske påvirkere og de som tjener penger på klikk',
         'Vanlige borgere',
         'Kvalitetsjournalister',
         'Faktasjekktjenester',
       ],
-      explanation: 'Desinformasjon tjener autoritære regimer som vil svekke demokratier, ekstreme politiske krefter, og aktører som tjener penger på klikk.',
+      explanation: 'Feilinformasjon kan tjene ulike aktører: utenlandske stater, politiske aktører på alle sider, og de som tjener penger på engasjement og klikk.',
     },
     {
       question: 'Hva kan myndighetene gjøre for å motvirke desinformasjon?',

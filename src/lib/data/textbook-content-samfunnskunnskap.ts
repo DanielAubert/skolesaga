@@ -8967,9 +8967,9 @@ Norge har tradisjonelt svært høy avislesing. Avisene har vært viktige for dem
 - **VG** – Norges største avis (tabloid)
 - **Dagbladet** – Løssalgsavis
 - **Aftenposten** – Abonnementsavis, riksdekkende
-- **Klassekampen** – Venstreorientert dagsavis
-- **Dagens Næringsliv** – Næringslivsavis
-- **Nationen** – Distrikts- og landbruksavis
+- **Klassekampen** – Dagsavis med venstreorientert profil
+- **Dagens Næringsliv** – Næringslivsavis med liberalistisk profil
+- **Nationen** – Distrikts- og landbruksavis med senterorientert profil
 
 ### Regionale aviser
 - Bergens Tidende
@@ -9245,27 +9245,28 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
 - Lavere terskel for deltakelse
 - Alle kan ytre seg
 - Nye stemmer får plattform
-- Organisering av protestbevegelser
+- Organisering av grasrotbevegelser
 - Makthavere kan holdes ansvarlige
 
-**Eksempler på positiv mobilisering:**
+**Eksempler på mobilisering (ulike politiske retninger):**
 - Den arabiske våren (2011)
-- #MeToo-bevegelsen
-- Klimastreik-bevegelsen
-- Black Lives Matter
+- Tea Party-bevegelsen (USA)
+- Brexit-kampanjen
+- Bompengeopprøret i Norge
+- Gule vester i Frankrike
+- Ulike protestbevegelser på tvers av det politiske spekteret
 
 **Utfordringer:**
-- Spredning av desinformasjon
+- Spredning av feilinformasjon fra alle hold
 - Hatprat og trakassering
-- Manipulasjon av valg
-- Utenlandsk påvirkning
+- Påvirkningskampanjer fra ulike aktører
 - Polarisering av debatt
 
-**Eksempler på negativ bruk:**
-- Russisk påvirkning i amerikanske valg
-- Konspirasjonsteorienes spredning
-- QAnon-bevegelsen
-- Nettroll og hatkampanjer`,
+**Eksempler på problematisk bruk:**
+- Utenlandsk påvirkning i valg (fra flere land)
+- Konspirasjonsteorienes spredning (på tvers av politiske retninger)
+- Koordinerte trollkampanjer
+- Hatkampanjer og trakassering`,
     },
     {
       id: 'samfunnskunnskap-7-4-ex-3',
@@ -9275,7 +9276,7 @@ Sosiale medier bruker **algoritmer** til å bestemme hva du ser. Algoritmene ana
         number: '3',
         type: 'classic',
         task: 'Gi eksempler på hvordan sosiale medier kan styrke og svekke demokratiet.',
-        solution: 'Styrke: Lavere terskel for deltakelse, nye stemmer høres, organisering av bevegelser (MeToo, klimastreik). Svekke: Spredning av desinformasjon, hatprat, valgmanipulasjon, polarisering, utenlandsk påvirkning. Dobbel virkning.',
+        solution: 'Styrke: Lavere terskel for deltakelse, nye stemmer høres, organisering av grasrotbevegelser på tvers av politiske retninger. Svekke: Spredning av feilinformasjon, hatprat, påvirkningskampanjer, polarisering. Sosiale medier har både positive og negative effekter uavhengig av politisk ståsted.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -9663,29 +9664,29 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
       type: 'example',
       title: 'Eksempler på desinformasjon',
       content: `**Valgpåvirkning:**
-- Russisk innblanding i amerikanske valg (2016, 2020)
-- Falske nyheter om kandidater
+- Utenlandsk innblanding i valg (fra flere stater)
+- Falske nyheter om kandidater fra ulike hold
 - Manipulasjon av sosiale medier
 
 **Covid-19-pandemien:**
 - Falske kurer og behandlinger
-- Konspirasjonsteorier om opprinnelse
-- Vaksineskepsis og feilinformasjon
+- Feilinformasjon fra ulike kilder
+- Debatt om grensen mellom legitim skepsis og feilinformasjon
 
-**Klimaendringer:**
-- Fornektelse av menneskeskapt klimaendring
-- Finansiert av fossilindustri
-- Skaper tvil om vitenskapelig konsensus
+**Vitenskapelige spørsmål:**
+- Selektiv bruk av forskningsresultater fra ulike interessegrupper
+- Overdrivelser og forenklinger i begge retninger
+- Viktig å skille mellom vitenskapelige fakta og politiske vurderinger
 
 **Krig og konflikt:**
-- Propaganda fra konfliktsoner
-- Falske bilder og videoer
+- Propaganda fra alle parter i konfliktsoner
+- Falske bilder og videoer fra flere hold
 - Dehumanisering av motstandere
 
-**Norske eksempler:**
-- Konspirasjonsteorier om 22. juli
-- Feilinformasjon under pandemien
-- Utenlandsk påvirkning i norsk debatt`,
+**Generelt:**
+- Feilinformasjon spres på tvers av det politiske spekteret
+- Alle grupper kan være sårbare for bekreftende feilinformasjon
+- Viktig med kritisk tenkning uansett politisk ståsted`,
     },
     {
       id: 'samfunnskunnskap-7-6-ex-3',
@@ -9694,8 +9695,8 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
         id: 'samfunnskunnskap-7-6-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Gi eksempler på hvordan desinformasjon har påvirket viktige samfunnsspørsmål.',
-        solution: 'Eksempler: Valgpåvirkning (russisk innblanding i USA), covid-19 (falske kurer, vaksinemotstand), klimaendringer (fornektelse finansiert av fossilindustri), krig (propaganda, falske bilder). Kan påvirke valg, folkehelse og politikk.',
+        task: 'Gi eksempler på hvordan feilinformasjon har påvirket viktige samfunnsspørsmål.',
+        solution: 'Eksempler: Valgpåvirkning (utenlandsk innblanding fra flere hold), helsespørsmål (falske kurer, overdrivelser i begge retninger), politiske konflikter (propaganda fra alle parter). Feilinformasjon kan påvirke valg, folkehelse og politikk, og spres på tvers av det politiske spekteret.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -9740,11 +9741,11 @@ Spredning av falsk og villedende informasjon er blitt et alvorlig samfunnsproble
 - Polarisering og hat øker
 - Vanskeliggjør saklig debatt
 
-### Hvem tjener på desinformasjon?
-- Autoritære regimer som vil svekke demokratier
-- Ekstreme politiske krefter
-- Aktører som tjener penger på klikk
-- De som vil så splid og kaos
+### Hvem kan tjene på feilinformasjon?
+- Utenlandske aktører som vil påvirke andre lands politikk
+- Politiske aktører på alle sider som vil svekke motstandere
+- Aktører som tjener penger på klikk og engasjement
+- De som har interesse av å undergrave tillit til institusjoner
 
 ### Demokratiets forsvar
 - Fri presse og uavhengig journalistikk
