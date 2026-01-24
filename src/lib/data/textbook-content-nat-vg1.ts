@@ -1282,24 +1282,29 @@ Teknologi er ikke nøytral - den endrer hvordan vi lever, jobber og forholder os
 - Mulighet for kontakt på tvers av kontinenter
 
 **Energi:**
-- Fornybar energi kan erstatte fossilt brensel
-- Elektrisitet har transformert samfunnet
+- Fossilt brensel (kull, olje, gass) har vært grunnlaget for industriell utvikling og velstandsøkning
+- Elektrisitet har transformert samfunnet og økt levestandard dramatisk
+- Fornybar energi (sol, vind, vann) gir mulighet for energiproduksjon med lave utslipp
 
 **Jordbruk:**
 - Kunstgjødsel økte matproduksjonen
 - Mekanisering reduserte tungt arbeid
 
-## Negative effekter av teknologi
+## Negative effekter og utfordringer ved teknologi
 
 **Våpen:**
 - Atomvåpen kan utrydde menneskeheten
 - Kjemiske og biologiske våpen
 - Autonome drapsroboter (drones)
 
+**Energi - avveininger og kostnader:**
+- Fossilt brensel: CO₂-utslipp bidrar til klimaendringer, men gir stabil og rimelig energi
+- Fornybar energi: Lave utslipp, men utfordringer med kostnader, pålitelighet og naturinngrep (vindturbiner, kraftlinjer, demninger)
+- Alle energikilder har miljøpåvirkning - spørsmålet er hvilke avveininger som er akseptable
+
 **Miljø:**
-- Fossilt brensel fører til klimaendringer
+- Industri har ført til forurensning av luft og vann
 - Plast forurenser havet
-- Industri forurenser luft og vann
 
 **Sosiale utfordringer:**
 - Sosiale medier kan spre desinformasjon
@@ -1369,8 +1374,8 @@ Når teknologi forårsaker problemer, hvem er ansvarlig?
 
 ## Borgere
 **Ansvar:**
-- Informere seg
-- Stemme på politikere som prioriterer bærekraft
+- Informere seg om vitenskapelige spørsmål
+- Delta i demokratiske prosesser og gjøre informerte valg
 - Bruke teknologi ansvarlig
 
 ## Fellesansvar
@@ -1490,7 +1495,7 @@ Ansvar er delt. Forskere, bedrifter, myndigheter og borgere må samarbeide for �
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Teknologi er ikke nøytral - den endrer samfunnet. Velg én teknologi (f.eks. sosiale medier, atomkraft, kunstig intelligens, genteknologi) og diskuter både positive og negative samfunnsmessige konsekvenser.',
-        solution: '**Eksempel: Sosiale medier**\n\n**Positive konsekvenser:**\n\n1. **Demokratisering av informasjon:** Alle kan dele meninger og nå et stort publikum\n2. **Kommunikasjon:** Hold kontakt med venner og familie over store avstander\n3. **Mobilisering:** Sosiale bevegelser kan organiseres raskt (f.eks. klimastreik, Black Lives Matter)\n4. **Læring:** Tilgang til kunnskapskilder, YouTube-tutorials, osv.\n5. **Bedrifter:** Små bedrifter kan markedsføre seg gratis\n\n**Negative konsekvenser:**\n\n1. **Desinformasjon:** Falske nyheter spres raskt\n2. **Psykisk helse:** Økt angst, depresjon, sammenligning med andre\n3. **Ekkokamre:** Algoritmer viser deg mer av det du allerede mener, polarisering\n4. **Avhengighet:** Designet for å være vanedannende\n5. **Personvern:** Selskaper samler enorme mengder data\n6. **Mobbing:** Nettmobbing er et stort problem\n7. **Søvnproblemer:** Skjermbruk om kvelden\n\n**Hvem har ansvar?**\n- **Selskaper:** Utvikle tryggere plattformer, beskytte personvern\n- **Myndigheter:** Regulere for å beskytte brukere\n- **Brukere:** Bruke teknologien ansvarlig, kritisk vurdering\n- **Foreldre/lærere:** Lære barn trygg og sunn bruk\n\n**Konklusjon:**\nSosiale medier har både transformert kommunikasjon positivt og skapt nye problemer. Vi må arbeide for å maksimere fordelene og minimere ulempene gjennom regulering, ansvarlig design og opplæring i digital kompetanse.',
+        solution: '**Eksempel: Sosiale medier**\n\n**Positive konsekvenser:**\n\n1. **Demokratisering av informasjon:** Alle kan dele meninger og nå et stort publikum\n2. **Kommunikasjon:** Hold kontakt med venner og familie over store avstander\n3. **Mobilisering:** Sosiale bevegelser kan organiseres raskt (ulike politiske aksjoner og kampanjer)\n4. **Læring:** Tilgang til kunnskapskilder, YouTube-tutorials, osv.\n5. **Bedrifter:** Små bedrifter kan markedsføre seg gratis\n\n**Negative konsekvenser:**\n\n1. **Desinformasjon:** Falske nyheter spres raskt\n2. **Psykisk helse:** Økt angst, depresjon, sammenligning med andre\n3. **Ekkokamre:** Algoritmer viser deg mer av det du allerede mener, polarisering\n4. **Avhengighet:** Designet for å være vanedannende\n5. **Personvern:** Selskaper samler enorme mengder data\n6. **Mobbing:** Nettmobbing er et stort problem\n7. **Søvnproblemer:** Skjermbruk om kvelden\n\n**Hvem har ansvar?**\n- **Selskaper:** Utvikle tryggere plattformer, beskytte personvern\n- **Myndigheter:** Regulere for å beskytte brukere\n- **Brukere:** Bruke teknologien ansvarlig, kritisk vurdering\n- **Foreldre/lærere:** Lære barn trygg og sunn bruk\n\n**Konklusjon:**\nSosiale medier har både transformert kommunikasjon positivt og skapt nye problemer. Vi må arbeide for å maksimere fordelene og minimere ulempene gjennom regulering, ansvarlig design og opplæring i digital kompetanse.',
         hints: ['Velg én teknologi og vær grundig', 'Tenk på ulike grupper i samfunnet', 'Hvem får nytte? Hvem blir skadet?'],
         allowsUpload: true,
         allowsCanvasDrawing: true,

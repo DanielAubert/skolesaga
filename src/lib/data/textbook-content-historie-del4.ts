@@ -2419,9 +2419,10 @@ Norsk nasjonal identitet har ikke vært statisk:
 - Oljenasjonen og velstand
 
 ### I dag
-- Innvandring utfordrer tradisjonelle definisjoner
-- Globalisering og europeisk integrasjon
-- Samisk og minoritetenes plass i det norske`,
+- Innvandring reiser spørsmål om hva norsk identitet innebærer
+- Globalisering og europeisk integrasjon påvirker nasjonale identiteter
+- Økt anerkjennelse av samisk kultur og nasjonale minoriteter
+- Debatt om forholdet mellom tradisjon og fornyelse i nasjonal identitet`,
     },
     {
       id: 'historie-16-1-ex-3',
@@ -2439,24 +2440,25 @@ Norsk nasjonal identitet har ikke vært statisk:
     {
       id: 'historie-16-1-text-4',
       type: 'text',
-      content: `## Kritikk av nasjonsbyggingen
+      content: `## Nasjonsbyggingens lys og skyggesider
 
-Nasjonsbyggingen hadde også problematiske sider:
+Som alle store historiske prosesser hadde nasjonsbyggingen både positive og negative sider:
 
-### Ekskludering
-- Samene ble ikke regnet med i nasjonsprosjektet
-- Kvener og andre minoriteter ble marginalisert
-- "Det norske" ble definert snevert
+### Positive sider
+- Skapte fellesskapsfølelse og nasjonal identitet som grunnlag for demokrati
+- Bidro til folkelig mobilisering og politisk deltakelse
+- Fremmet allmenn utdanning og felles institusjoner
+- Ga grunnlag for selvstendighetskampen og 1905
 
-### Homogenisering
-- Nasjonsbyggingen la vekt på likhet og enhet
-- Lokale og regionale forskjeller ble nedtonet
-- Avvik fra "det norske" ble sett negativt
+### Utfordringer ved nasjonsbyggingen
+- Samene og kvener ble ikke inkludert i det nasjonale prosjektet
+- "Det norske" ble definert på måter som ekskluderte noen
+- Nasjonsbyggingen la vekt på enhet, noe som kunne nedtone mangfold
 
 ### Historiebruk
-- Selektiv bruk av historien - vikingtiden fremhevet, dansketiden nedvurdert
-- Myter og fortellinger som ikke alltid stemte med virkeligheten
-- Nasjonale helter ble idealisert`,
+- Som i alle nasjoner ble historien brukt selektivt - vikingtiden fremhevet
+- Nasjonale helter ble idealisert
+- Dette er vanlig i nasjonsbygging, men viktig å være bevisst på`,
     },
     {
       id: 'historie-16-1-ex-4',
@@ -2465,8 +2467,8 @@ Nasjonsbyggingen hadde også problematiske sider:
         id: 'historie-16-1-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft hvordan den norske nasjonsbyggingen på 1800-tallet bidro til å marginalisere samer og andre minoriteter.',
-        solution: 'Nasjonsbyggingen marginaliserte minoriteter fordi: 1) Definisjon av "norsk" - Det norske ble knyttet til bondekultur, kristendom og norsk/dansk språk. Samisk kultur passet ikke inn. 2) Homogeniseringside - Nasjonen skulle være enhetlig, mangfold ble sett som trussel. 3) Evolusjonistisk tenkning - Samene ble sett som "primitive" som burde "utvikles" til nordmenn. 4) Territoriekrav - Samenes bruk av land kolliderte med statens interesser. 5) Språkideologi - Ett nasjonalt språk var idealet, samisk ble sett som hinder. 6) Rasistiske ideer - Biologisk rasisme ga vitenskapelig legitimitet til diskriminering. Nasjonsbyggingen skapte et "vi" som aktivt ekskluderte dem som var annerledes. Minoritetene ble enten usynliggjort eller definert som problem som måtte løses gjennom assimilering.',
+        task: 'Drøft hvordan nasjonsbyggingen på 1800-tallet påvirket ulike grupper i samfunnet, inkludert majoritetsbefolkningen, samer og andre minoriteter. Hvilke positive og negative sider hadde denne prosessen?',
+        solution: 'Nasjonsbyggingen hadde både positive og negative sider: Positive sider: 1) Skapte fellesskapsfølelse og nasjonal identitet etter århundrer under dansk og svensk styre. 2) Bidro til demokratisering og folkelig deltakelse. 3) Fremmet utdanning og felles institusjoner. 4) Ga grunnlag for selvstendighetskampen og 1905. Negative sider for minoriteter: 1) Det "norske" ble definert snevert rundt bondekultur og norsk språk. 2) Samisk kultur passet ikke inn i dette bildet. 3) Datidens evolusjonistiske tenkning rangerte kulturer og så samene som "primitive". 4) Fornorskingspolitikken som fulgte, påførte minoritetene tap av språk og kultur. Konklusjon: Nasjonsbygging er en kompleks prosess som kan både forene og ekskludere. Den norske nasjonsbyggingen skapte en sterk nasjon, men prisen ble betalt av dem som ikke passet inn i det definerte fellesskapet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2478,8 +2480,8 @@ Nasjonsbyggingen hadde også problematiske sider:
         id: 'historie-16-1-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Drøft hva det vil si å være norsk i dag. Er det mulig å definere en felles norsk identitet i et mangfoldig samfunn?',
-        solution: 'Utfordringen: Norge er mer mangfoldig enn noen gang - innvandring, globalisering, samiske rettigheter. Tradisjonelle definisjoner (etnisitet, kultur, religion) passer ikke alle som bor her. Ulike syn: Noen mener nasjonal identitet bør baseres på statsborgerskap og felles verdier (demokrati, likestilling, menneskerettigheter). Andre mener kulturelt fellesskap (språk, tradisjoner, historie) er nødvendig. Noen frykter at mangfoldet svekker samholdet. Mulige løsninger: En inkluderende identitet som er åpen for nye borgere, samtidig som den anerkjenner historisk kontinuitet. Plass til ulike måter å være norsk på - samisk, nynorsk, innvandrer. Felles verdier fremfor felles opphav. Balanse mellom tradisjon og fornyelse. Svaret er ikke gitt - det forhandles kontinuerlig i den offentlige samtalen.',
+        task: 'Drøft hva det vil si å være norsk i dag. Vurder ulike syn på forholdet mellom tradisjon, kontinuitet og fornyelse i nasjonal identitet.',
+        solution: 'Ulike perspektiver på norsk identitet: 1) Tradisjonsorientert syn: Norsk identitet bygger på historisk kontinuitet - språk, kristendom, bygdekultur, friluftsliv, likhetstanke. Disse verdiene har utviklet seg over lang tid og gir fellesskap og tilhørighet. Bekymring for at for raske endringer kan svekke samholdet. 2) Inkluderingsorientert syn: Norsk identitet bør være åpen og basert på felles verdier (demokrati, likestilling, rettsstaten) snarere enn etnisitet. Nye borgere kan bli norske ved å ta del i samfunnet. 3) Pluralistisk syn: Det finnes mange måter å være norsk på - samisk, nynorsk, bokmål, by og bygd, innvandrer. Mangfold er en styrke. 4) Historisk perspektiv: Norsk identitet har alltid vært i endring - det "norske" på 1800-tallet var annerledes enn i dag. Konklusjon: Dette er et genuint politisk spørsmål der folk har ulike syn. Det finnes ikke ett "riktig" svar, men en løpende demokratisk samtale om hvem vi er og vil være som nasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3605,7 +3607,7 @@ export const CHAPTER_HISTORIE_17_4: TextbookChapter = {
   id: 'historie-17-4',
   courseId: 'historie',
   chapterNumber: '17.4',
-  title: 'Klimakrise og bærekraft',
+  title: 'Klimaendringer og bærekraft',
   description: 'Miljøutfordringer i historisk perspektiv.',
   estimatedMinutes: 50,
   competenceGoals: ['mennesket og naturen, bærekraft'],
@@ -3613,11 +3615,11 @@ export const CHAPTER_HISTORIE_17_4: TextbookChapter = {
     {
       id: 'historie-17-4-intro',
       type: 'text',
-      content: `## Klimakrisen i historisk perspektiv
+      content: `## Klimaendringene i historisk perspektiv
 
-Klimaendringene er vår tids største utfordring. De er resultatet av menneskers aktivitet gjennom de siste 200 årene - siden den industrielle revolusjonen begynte å pumpe klimagasser inn i atmosfæren.
+Klimaendringene er en av vår tids store utfordringer. De fleste klimaforskere mener de hovedsakelig er resultatet av menneskers aktivitet gjennom de siste 200 årene - siden den industrielle revolusjonen begynte å slippe ut klimagasser i atmosfæren. Det finnes også forskere som legger større vekt på naturlige klimavariasjoner, selv om disse utgjør et mindretall i fagmiljøene.
 
-For å forstå klimakrisen må vi se den i historisk sammenheng: Hvordan har forholdet mellom mennesker og natur utviklet seg? Hvorfor har vi kommet dit vi er? Og hvilke valg står vi overfor?`,
+For å forstå klimaendringene må vi se dem i historisk sammenheng: Hvordan har forholdet mellom mennesker og natur utviklet seg? Hvorfor har vi kommet dit vi er? Og hvilke valg står vi overfor?`,
     },
     {
       id: 'historie-17-4-def-1',
@@ -3670,8 +3672,8 @@ Bekymringen for miljøet er ikke ny:
 - Paris-avtalen (2015) - globalt mål om å begrense oppvarming
 
 ### I dag
-- Unge klimaaktivister (Greta Thunberg)
-- Økende erkjennelse av krisens alvor`,
+- Unge klimaaktivister som Greta Thunberg har fått stor medieoppmerksomhet. Noen ser dem som viktige stemmer i klimadebatten, andre kritiserer dem for å forenkle komplekse spørsmål eller for å fremme bestemte politiske løsninger
+- Klimapolitikk er blitt et sentralt og omstridt politisk tema i de fleste land`,
     },
     {
       id: 'historie-17-4-def-2',
@@ -3704,9 +3706,9 @@ FNs bærekraftsmål (2015) operasjonaliserer dette i 17 konkrete mål.`,
     {
       id: 'historie-17-4-text-3',
       type: 'text',
-      content: `## Klimakrisens dimensjoner
+      content: `## Klimaendringenes dimensjoner
 
-Klimaendringene er et sammensatt problem:
+Klimaendringene er et sammensatt tema med vitenskapelige, politiske og etiske dimensjoner:
 
 ### Vitenskapelig
 - CO2-nivået høyere enn på millioner av år
@@ -3785,8 +3787,8 @@ Hva kan gjøres?
         id: 'historie-17-4-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Drøft om klimakrisen kan løses innenfor dagens økonomiske system, eller om den krever grunnleggende systemendring.',
-        solution: 'Argumenter for at dagens system kan løse det (grønn kapitalisme): 1) Teknologi - Solceller, vindkraft, batterier blir stadig billigere. Markedet driver innovasjon. 2) Prissignaler - Karbonprising kan gjøre forurensing dyrt. 3) Grønn vekst - Økonomien kan vokse mens utslippene faller (frakobling). 4) Pragmatisme - Systemendring tar for lang tid, vi må jobbe med det vi har. Argumenter for systemendring: 1) Vekstlogikk - Kapitalismen krever evig vekst, som er uforenlig med begrenset klode. 2) Utilstrekkelig tempo - Utslippene faller ikke raskt nok tross gode intensjoner. 3) Ulikhet - Dagens system produserer ulikhet som hindrer kollektiv handling. 4) Historien - Ingen grønn vekst har vist seg i praksis - utslipp følger BNP. Sannsynlig: En mellomposisjon - verken ren kapitalisme eller total systemendring, men sterke reguleringer, offentlige investeringer og endret forbrukskultur.',
+        task: 'Drøft ulike syn på hvordan klimaendringene best kan håndteres. Vurder argumenter for markedsbaserte løsninger, politisk regulering og teknologisk innovasjon.',
+        solution: 'Ulike tilnærminger: 1) Markedsbaserte løsninger: Karbonprising, utslippskvoter, grønne investeringer. Argumenter for: Effektivt, driver innovasjon, kompatibelt med økonomisk vekst. Argumenter mot: Kan være utilstrekkelig, favoriserer rike aktører. 2) Politisk regulering: Forbud mot utslipp, påbud om grønn teknologi, internasjonale avtaler. Argumenter for: Direkte effekt, kan fremtvinge rask endring. Argumenter mot: Kan hemme økonomisk vekst, vanskelig internasjonal koordinering. 3) Teknologisk innovasjon: Fornybar energi, karbonfangst, kjernekraft. Argumenter for: Kan løse problemet uten å senke levestandard. Argumenter mot: Usikkert om teknologien kommer raskt nok, noen teknologier har egne utfordringer. Et godt svar vurderer avveininger mellom klimahensyn, økonomisk utvikling og fordelingsspørsmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

@@ -20895,7 +20895,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er nasjonalisme?',
     options: ['Ideen om at folk med felles sprak og kultur bor ha egen stat', 'Tro pa kongens gudommelige rett', 'Okonomisk liberalisme', 'Internasjonal solidaritet'],
-    explanation: 'Nasjonalisme er ideen om at folk med felles sprak, kultur og historie bor ha sin egen stat.',
+    explanation: 'Nasjonalisme er ideen om at folk med felles sprak, kultur og historie bor ha sin egen stat. Nasjonalisme har bidratt til bade frigjoring og konflikter historisk.',
   },
 ],
 
@@ -21313,9 +21313,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Gini-koeffisienten maler ulikhet i inntektsfordeling pa en skala fra 0 (perfekt likhet) til 1 (en person har alt).',
   },
   {
-    question: 'Hva er en historisk arsak til global ulikhet?',
+    question: 'Hva nevnes ofte som en historisk arsak til global ulikhet?',
     options: ['Kolonialisme og utbytting av ressurser', 'Klimaendringer', 'Internett', 'Globalisering'],
-    explanation: 'Kolonialisme med utbytting av ressurser og mennesker er en viktig historisk arsak til dagens globale ulikhet.',
+    explanation: 'Kolonialisme nevnes ofte som en historisk arsak til global ulikhet. Det er faglig debatt om hvor stor betydning historiske vs. lokale faktorer (som styresett og institusjoner) har for dagens ulikhet.',
   },
 ],
 
@@ -24520,9 +24520,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Biologisk kjønn (sex) handler om fysiske forskjeller (kromosomer, hormoner), mens sosialt kjønn (gender) er sosialt konstruerte roller, forventninger og identiteter.',
   },
   {
-    question: 'Hva er glasstaket?',
-    options: ['Usynlige barrierer som hindrer kvinner i å nå toppstillinger', 'En fysisk barriere i arbeidslivet', 'Lovfestet diskriminering', 'Menn som hindrer kvinner åpent'],
-    explanation: 'Glasstaket refererer til usynlige barrierer som hindrer kvinner i å nå toppstillinger. Barrierene er ikke formelle, men likevel reelle.',
+    question: 'Hva er debatten om biologi vs. sosialisering i kjønnsforskning?',
+    options: ['Om kjønnsforskjeller hovedsakelig skyldes biologi, sosialisering, eller en kombinasjon', 'Om kvinner er bedre enn menn', 'Om kjønn bør avskaffes', 'Om barn bør oppfostres likt'],
+    explanation: 'Det er faglig debatt om i hvilken grad kjønnsforskjeller skyldes biologi (hormoner, evolusjon) eller sosialisering (kulturelle forventninger). De fleste forskere anerkjenner at begge faktorer spiller inn, men vektingen er omdiskutert.',
+  },
+  {
+    question: 'Hva menes med begrepet glasstaket?',
+    options: ['Et begrep for mulige usynlige barrierer som kan hindre kvinner i å nå toppstillinger', 'En fysisk barriere i arbeidslivet', 'Lovfestet diskriminering', 'Menn som hindrer kvinner åpent'],
+    explanation: 'Glasstaket er et begrep for mulige usynlige barrierer som kan hindre kvinner i å nå toppstillinger. Det er debatt om årsakene - noen peker på diskriminering, andre på ulike preferanser og karrierevalg.',
   },
   {
     question: 'Hva menes med heteronormativitet?',
@@ -24531,8 +24536,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr interseksjonalitet?',
-    options: ['At kjønn, rase, klasse og seksualitet samvirker og skaper ulike former for undertrykking', 'At alle undertrykkes likt', 'At kjønn er den eneste formen for undertrykking', 'At ulike former for undertrykking er helt separate'],
-    explanation: 'Interseksjonalitet viser hvordan kjønn, rase, klasse, seksualitet osv. samvirker. En svart kvinne opplever annen diskriminering enn en hvit kvinne.',
+    options: ['At kjønn, etnisitet, klasse og seksualitet kan samvirke og påvirke livserfaringer', 'At alle undertrykkes likt', 'At kjønn er den eneste formen for ulikhet', 'At ulike faktorer er helt separate'],
+    explanation: 'Interseksjonalitet analyserer hvordan kjønn, etnisitet, klasse og seksualitet samvirker. Begrepet er nyttig for å forstå sammensatte erfaringer, men er også omdiskutert i samfunnsdebatten.',
   },
   {
     question: 'Hva menes med "doing gender"?',
@@ -24756,7 +24761,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er populisme?',
     options: ['Politikk som hevder å representere "folket" mot "eliten"', 'En bestemt plassering på høyre-venstre-aksen', 'Kun venstreorientert politikk', 'Kun høyreorientert politikk'],
-    explanation: 'Populisme hevder å representere "folket" mot "eliten". Den finnes på både høyre- og venstresiden og er vanskelig å plassere på tradisjonelle akser.',
+    explanation: 'Populisme hevder å representere "folket" mot "eliten". Den finnes på både høyre- og venstresiden. Populisme kan uttrykke legitim folkelig misnøye, men kan også forenkle komplekse spørsmål.',
   },
   {
     question: 'Hvilken funksjon har politiske partier i demokratiet?',
@@ -24909,7 +24914,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er sivil ulydighet?',
     options: ['Bevisst og åpen lovbrudd for å protestere mot urettferdige lover, med aksept av straff', 'Voldelig opprør', 'Å ignorere lover man ikke liker', 'Å stemme blankt'],
-    explanation: 'Sivil ulydighet er bevisst og åpen lovbrudd for å protestere mot urettferdige lover eller politikk. Man aksepterer straff for å vise moralsk alvor.',
+    explanation: 'Sivil ulydighet er bevisst og åpen lovbrudd for å protestere mot det man mener er urettferdige lover eller politikk. Det er uenighet om når sivil ulydighet er rettferdiggjort.',
   },
   {
     question: 'Hva er forskjellen mellom konvensjonell og ukonvensjonell politisk deltakelse?',

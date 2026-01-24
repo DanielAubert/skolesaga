@@ -624,7 +624,7 @@ export const CHAPTER_GEOGRAFI_4: TextbookChapter = {
       type: 'text',
       content: `## Klimaendringer
 
-Jordens klima har alltid endret seg, men dagens endringer skjer raskere enn noen gang i menneskets historie. FNs klimapanel (IPCC) slår fast at menneskets aktivitet er hovedårsaken.
+Jordens klima har alltid endret seg. Det er bred vitenskapelig enighet om at dagens endringer skjer raskere enn tidligere i menneskets historie, og FNs klimapanel (IPCC) konkluderer med at menneskets aktivitet er hovedårsaken. Samtidig er det faglig og politisk debatt om hvor alvorlige konsekvensene vil bli, og hvordan vi best bør prioritere mellom ulike tiltak.
 
 **Naturlige klimavariasjoner:**
 - Variasjoner i jordens bane rundt solen
@@ -636,7 +636,10 @@ Jordens klima har alltid endret seg, men dagens endringer skjer raskere enn noen
 - Utslipp av klimagasser (CO₂, metan, lystgass)
 - Avskoging
 - Arealendringer
-- Industrialisering siden ca. 1850`,
+- Industrialisering siden ca. 1850
+
+**Ulike syn på alvorlighetsgrad:**
+Noen forskere og debattanter mener klimaendringene utgjør en akutt krise som krever umiddelbare og omfattende tiltak. Andre mener at selv om endringene er reelle, er usikkerheten stor og at vi bør prioritere tilpasning og teknologiutvikling fremfor raske utslippskutt som kan ha store økonomiske kostnader.`,
     },
     {
       id: 'geografi-1-4-def-1',
@@ -803,8 +806,8 @@ Dette er et eksempel på positiv tilbakekobling som akselererer klimaendringene.
         number: '6',
         type: 'classic',
         task: 'Drøft: Hvem har ansvar for å løse klimaproblemet - enkeltpersoner, bedrifter eller stater? Begrunn svaret ditt.',
-        hints: ['Tenk på ulike nivåer av påvirkning og ansvar'],
-        solution: 'Alle har ansvar på ulike nivåer: Stater må sette rammer gjennom lover og internasjonale avtaler. Bedrifter må omstille til bærekraftig produksjon. Enkeltpersoner kan påvirke gjennom forbruk og stemmegivning. Historisk har rike land størst utslipp og derfor større ansvar.',
+        hints: ['Tenk på ulike nivåer av påvirkning og ansvar', 'Det finnes ulike syn på dette'],
+        solution: 'Dette er et omdiskutert spørsmål med flere perspektiver. Noen mener alle har ansvar på ulike nivåer: Stater gjennom lover og avtaler, bedrifter gjennom omstilling, enkeltpersoner gjennom forbruk. Andre mener ansvaret primært ligger hos stater som har makt til å sette rammer. Noen argumenterer for at rike land har større historisk ansvar på grunn av tidligere utslipp, mens andre mener alle land må bidra basert på nåværende utslipp. Det er også uenighet om hvor mye vekt som bør legges på økonomisk utvikling versus utslippskutt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -912,20 +915,19 @@ Andel av befolkningen som bor i byer.`,
 
 2. **Lav fruktbarhet:**
    - Fruktbarhetstall ca. 1,4 (under reproduksjonsnivå 2,1)
-   - Uten innvandring ville befolkningen synke
+   - Uten innvandring ville befolkningen på sikt synke
 
 3. **Konsekvenser:**
    - Økte utgifter til pensjon og helse
-   - Mangel på arbeidskraft
+   - Mangel på arbeidskraft i visse sektorer
    - Press på velferdsstaten
-   - Behov for innvandring eller økt produktivitet
 
-4. **Mulige løsninger:**
-   - Høyere pensjonsalder
-   - Økt arbeidsinnvandring
-   - Tiltak for å øke fruktbarheten
-   - Automatisering og effektivisering
-   - Integrering av innvandrere i arbeidslivet`,
+4. **Mulige løsninger - det finnes ulike syn:**
+   - **Høyere pensjonsalder:** Mange støtter dette, men noen mener det rammer de med tunge yrker urettferdig
+   - **Arbeidsinnvandring:** Noen mener dette er nødvendig for å dekke arbeidskraftbehov, andre peker på utfordringer med integrering, press på boligmarked og velferdstjenester
+   - **Tiltak for å øke fruktbarheten:** For eksempel bedre familiepolitikk, men effekten er usikker
+   - **Automatisering og effektivisering:** Kan redusere behovet for arbeidskraft, men krever omstilling
+   - **Bedre utnyttelse av eksisterende arbeidskraft:** Øke sysselsettingen blant uføre, deltidsarbeidende og innvandrere som allerede er i landet`,
     },
     {
       id: 'geografi-1-5-ex-1',
@@ -1015,9 +1017,9 @@ Andel av befolkningen som bor i byer.`,
         id: 'geografi-1-5-ex-6',
         number: '6',
         type: 'classic',
-        task: 'Drøft fordeler og ulemper ved innvandring som løsning på Norges demografiske utfordringer.',
-        hints: ['Tenk på økonomi, kultur, integrering'],
-        solution: 'Fordeler: Tilfører arbeidskraft, øker skatteinntekter, kulturelt mangfold, løser akutt arbeidskraftmangel. Ulemper: Krever vellykket integrering, kan skape sosiale spenninger, konkurranse om jobber/bolig, utgifter til integrering. Helhetsvurdering avhenger av hvem som innvandrer og hvor godt integreringen fungerer.',
+        task: 'Drøft fordeler og ulemper ved innvandring som ett av flere mulige svar på Norges demografiske utfordringer.',
+        hints: ['Tenk på økonomi, kultur, integrering', 'Sammenlign med andre løsninger', 'Det finnes ulike politiske syn'],
+        solution: 'Dette er et politisk omdiskutert tema med ulike syn. Mulige fordeler som noen fremhever: Tilfører arbeidskraft, kan øke skatteinntekter, kulturelt mangfold. Mulige ulemper som andre peker på: Krever vellykket integrering (som ikke alltid lykkes), kan skape press på boligmarked og offentlige tjenester, utgifter til integrering, mulige sosiale spenninger. Helhetsvurdering avhenger av type innvandring (arbeids-, familie-, flukt-), opprinnelsesland, og hvor godt integreringen fungerer. Det finnes også alternative løsninger: høyere pensjonsalder, økt fruktbarhet, automatisering, eller aksept av lavere økonomisk vekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1108,7 +1110,7 @@ Gjenbruk, resirkulering, redusert avfall. Byer som kretsløp fremfor gjennomstr�
       id: 'geografi-1-6-example-1',
       type: 'example',
       title: 'Eksempel: Oslos byutvikling',
-      problem: `Hvordan har Oslo forsøkt å utvikle seg mer bærekraftig?`,
+      problem: `Hvordan har Oslo forsøkt å utvikle seg mer bærekraftig, og hvilke debatter har dette skapt?`,
       solution: `**Oslos byutviklingstiltak:**
 
 1. **Fortetting:**
@@ -1134,8 +1136,15 @@ Gjenbruk, resirkulering, redusert avfall. Byer som kretsløp fremfor gjennomstr�
    - Nye parker (Operataket, Sørenga)
    - Bytrær og grønne tak
 
-**Utfordringer:**
-Høye boligpriser, sosial ulikhet, balansere bevaring og utvikling.`,
+**Kritikk og debatter:**
+Oslos byutvikling er politisk omdiskutert:
+- **Boligpriser:** Fortetting har ikke løst boligmangelen, og prisene har fortsatt å stige kraftig
+- **Sosial ulikhet:** Nye områder som Bjørvika oppfattes av noen som ekskluderende og rettet mot høyinntektsgrupper
+- **Bilfritt sentrum:** Kritikere mener det rammer butikker og folk utenfor sentrum som er avhengige av bil
+- **Fortetting vs. bomiljø:** Noen mener fortettingen har gått på bekostning av sol, luft og grønne områder i boligstrøk
+- **Kostnader:** Store offentlige investeringer i kollektivtrafikk og byutvikling
+
+**Ulike syn:** Noen ser Oslo som et forbilde for grønn byutvikling, andre mener politikken har hatt utilsiktede negative konsekvenser for visse grupper.`,
     },
     {
       id: 'geografi-1-6-ex-1',
@@ -1278,14 +1287,17 @@ Utvikling som dekker dagens behov uten å ødelegge fremtidige generasjoners mul
 - Økonomisk bærekraft: Langsiktig verdiskaping
 - Sosial bærekraft: Rettferdig fordeling og gode levekår
 
+**Avveininger og debatter:**
+Det er ofte spenninger mellom de tre dimensjonene. For eksempel kan strenge miljøkrav gi høyere kostnader og tap av arbeidsplasser. Det er politisk uenighet om hvordan disse avveiningene bør gjøres, og hvor mye dagens generasjon bør ofre for fremtidige generasjoner.
+
 **Allmenningens tragedie:**
 Når alle har tilgang til en ressurs, risikerer hver enkelt å overutnytte den. Eksempel: Overfiske i internasjonalt farvann.
 
 **Føre-var-prinsippet:**
-Ved usikkerhet om miljøkonsekvenser skal man være forsiktig og unngå potensielt skadelige handlinger.
+Ved usikkerhet om miljøkonsekvenser bør man være forsiktig. Prinsippet er omdiskutert - noen mener det hindrer innovasjon og utvikling, andre at det er nødvendig for å unngå irreversible skader.
 
 **Forurenser betaler-prinsippet:**
-Den som forurenser skal betale for opprydding og skadene.`,
+Den som forurenser skal betale for opprydding og skadene. Det er debatt om hvordan dette bør praktiseres, og om det rammer ulike grupper rettferdig.`,
     },
     {
       id: 'geografi-1-7-def-2',
@@ -1332,12 +1344,12 @@ Konflikter mellom urfolks tradisjonelle ressursbruk og storsamfunnets interesser
    - Sparing for fremtidige generasjoner
    - Stabiliserer norsk økonomi
 
-4. **Utfordringer:**
-   - Klimaparadokset: Rik på fossil energi i klimakrise
-   - Omstillingsbehov til grønn økonomi
-   - Avhengighet av oljenæringen
+4. **Utfordringer og debatter:**
+   - Noen omtaler det som et "klimaparadoks" at Norge er rik på fossil energi samtidig som vi ønsker å være et foregangsland i klimapolitikken. Andre mener dette ikke er et paradoks, men naturlig ressursutnytting, og at norsk gass erstatter mer forurensende kull i Europa.
+   - Omstillingsbehov: Det er uenighet om hvor raskt Norge bør fase ut olje og gass, og hvem som skal bære kostnadene ved omstilling
+   - Avhengighet: Både arbeidsplasser og statsfinanser er avhengig av næringen
 
-**Spørsmål for fremtiden:** Hvordan fase ut olje/gass på en rettferdig måte?`,
+**Spørsmål for fremtiden:** Hvordan og hvor raskt bør olje- og gassutvinning eventuelt fases ut, og hvordan sikre en rettferdig overgang for berørte lokalsamfunn og arbeidstakere?`,
     },
     {
       id: 'geografi-1-7-ex-1',
@@ -1404,7 +1416,7 @@ Konflikter mellom urfolks tradisjonelle ressursbruk og storsamfunnets interesser
         type: 'classic',
         task: 'Drøft Norges forvaltning av oljeressursene. Hva har vært suksessfaktorer, og hvilke utfordringer står vi overfor?',
         hints: ['Tenk på oljefondet, statlig kontroll, klimautfordringer'],
-        solution: 'Suksessfaktorer: Statlig kontroll, oljefondet, handlingsregelen, unngått korrupsjon. Utfordringer: Klimaparadokset (rik på fossil i klimakrise), omstilling til grønn økonomi, arbeidsplassavhengighet, etiske spørsmål om fortsatt utvinning.',
+        solution: 'Suksessfaktorer: Statlig kontroll, oljefondet, handlingsregelen, stabile institusjoner og lavt korrupsjonsnivå. Utfordringer og debatter: Forholdet mellom oljeinntekter og klimapolitikk er omdiskutert - noen mener Norge har et klimaparadoks, andre at norsk gass er en del av løsningen ved å erstatte kull. Det er også debatt om tempo for omstilling, kostnadsfordeling, og etiske spørsmål om fortsatt utvinning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1926,17 +1938,26 @@ Måler fattigdom ut fra helse, utdanning og levestandard - ikke bare inntekt.
 - Slaveri - tvangsarbeid og menneskehandel
 - Handelsstrukturer som favoriserte kolonimaktene
 
+**Lokale og institusjonelle faktorer:**
+- Styresett og politisk stabilitet
+- Korrupsjon og svake institusjoner
+- Eiendomsrettigheter og rettssikkerhet
+- Konflikter og krig
+- Kulturelle faktorer som påvirker økonomisk aktivitet
+
 **Strukturelle årsaker:**
-- Urettferdige handelsregler
+- Handelsregler som noen mener favoriserer rike land
 - Gjeldsbyrde
-- Svake institusjoner
-- Korrupsjon
+- Begrenset tilgang til internasjonale markeder
 
 **Geografiske faktorer:**
 - Klima og naturressurser
 - Innlandsland uten kyst
 - Sårbarhet for naturkatastrofer
 - Tropiske sykdommer
+
+**Ulike perspektiver på årsaker:**
+Det er faglig og politisk debatt om hvilke faktorer som er viktigst. Noen vektlegger historiske forhold som kolonialisme og urettferdige internasjonale strukturer. Andre peker på at lokale faktorer som styresett, korrupsjon og politikk er avgjørende - og viser til at land med lignende historisk bakgrunn har utviklet seg svært forskjellig (f.eks. Sør-Korea vs. Nord-Korea, Botswana vs. Zimbabwe).
 
 **Fattigdomsfeller:**
 Selvforsterkende sirkler som gjør det vanskelig å komme ut av fattigdom: mangel på utdanning → lav produktivitet → lav inntekt → ikke råd til utdanning.`,
@@ -2001,17 +2022,17 @@ Selvforsterkende sirkler som gjør det vanskelig å komme ut av fattigdom: mange
         id: 'geografi-1-10-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Beskriv tre historiske og tre nåtidige årsaker til global ulikhet.',
+        task: 'Beskriv tre historiske og tre nåtidige årsaker til global ulikhet, og vis at det finnes ulike perspektiver.',
         subTasks: [
           {
             label: 'a',
             task: 'Historiske årsaker',
-            solution: 'Kolonialisme (utbytting av ressurser), slaveri (tvangsarbeid), urettferdige handelsstrukturer etablert under kolonitiden.',
+            solution: 'Kolonialisme (utbytting av ressurser), slaveri (tvangsarbeid), handelsstrukturer etablert under kolonitiden. Merk: Betydningen av disse årsakene er omdiskutert - noen mener de fortsatt har stor effekt, andre peker på at land med lignende historie har utviklet seg svært forskjellig.',
           },
           {
             label: 'b',
             task: 'Nåtidige årsaker',
-            solution: 'Urettferdige handelsregler, gjeldsbyrde, svake institusjoner/korrupsjon, klimaendringer som rammer fattige hardest.',
+            solution: 'Mulige faktorer inkluderer: 1) Internasjonale forhold som handelsregler og gjeldsbyrde, 2) Lokale forhold som styresett, korrupsjon og konflikter, 3) Geografiske faktorer som klima og beliggenhet. Det er faglig debatt om hvilke faktorer som er viktigst.',
           },
         ],
         solution: 'Se deloppgavene.',

@@ -324,7 +324,7 @@ Kombinasjon av parlamentarisme og presidentsystem. Brukes i Frankrike.`,
 - Utenlandsk innblanding i valg
 
 **Indre trusler:**
-- Populistiske bevegelser som angriper demokratiske institusjoner
+- Populistiske bevegelser som utfordrer etablerte institusjoner (populisme kan ogsa uttrykke legitim misnøye med eliter og politikk som ikke ivaretar vanlige folks interesser)
 - Polarisering som gjor kompromiss vanskelig
 - Spredning av feilinformasjon og konspirasjonsteorier
 - Fallende tillit til politikere og media
@@ -332,7 +332,7 @@ Kombinasjon av parlamentarisme og presidentsystem. Brukes i Frankrike.`,
 - Lav valgdeltakelse og politisk apati
 
 **Strukturelle utfordringer:**
-- Klimakrisen krever rask handling som demokratier sliter med
+- Klimaendringene krever langsiktig handling som demokratier kan ha vanskeligheter med
 - Globalisering gjor nasjonale demokratier mindre effektive
 - Teknologigiganter har makt uten demokratisk kontroll
 
@@ -438,9 +438,9 @@ Freedom House rapporterer at demokratiet har gatt tilbake globalt i over 15 ar p
         id: 'politikk-1-2-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Droft: Er demokratiet den beste styreformen for a lose klimakrisen?',
-        hints: ['Tenk pa bade styrker og svakheter ved demokratiet i denne sammenhengen'],
-        solution: 'Argumenter for: Legitimitet, bred oppslutning. Mot: Trege prosesser, kortsiktig tenkning, sterke interessegrupper.',
+        task: 'Droft: Er demokratiet den beste styreformen for a haandtere klimaendringene?',
+        hints: ['Tenk pa bade styrker og svakheter ved demokratiet i denne sammenhengen. Husk at det finnes ulike syn pa klimapolitikk.'],
+        solution: 'Argumenter for: Legitimitet, bred oppslutning, mulighet for debatt og korreksjon. Mot: Trege prosesser, kortsiktig tenkning, sterke interessegrupper. Merk at det er ulike syn pa hvor alvorlige klimaendringene er og hvilke tiltak som er nodvendige.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -789,13 +789,13 @@ Basert pa kristen etikk og menneskesyn. Vekt pa familie og subsidiaritet. Sentru
 Miljovern og barekraft som hovedfokus. Ofte kombinert med radikalt demokrati og sosial rettferdighet.
 
 **Nasjonalisme:**
-Vektlegger nasjonal identitet og suverenitet. Kan vare liberal eller autoritar.
+Vektlegger nasjonal identitet og suverenitet. Finnes i mange varianter: Liberal nasjonalisme fremmer demokrati og selvbestemmelse (som i frigjøringsbevegelser). Konservativ nasjonalisme vektlegger tradisjon og kulturarv. Etnisk nasjonalisme kan vare ekskluderende. Nasjonalisme har bade bidratt til frigjoring og demokrati, og til undertrykkelse og konflikter.
 
 **Feminisme:**
 Kamp for likestilling mellom kjonnene. Pavirker andre ideologier.
 
 **Populisme:**
-Hevder a representere "folket" mot "eliten". Finnes pa bade hoyre- og venstresiden.`,
+Hevder a representere "folket" mot "eliten". Finnes pa bade hoyre- og venstresiden. Populisme kan uttrykke legitim folkelig misnøye med etablerte eliter, men kan ogsa forenkle komplekse sporsmil og undergrave politiske institusjoner. Bade kritikk og forsvar av populisme har relevante argumenter.`,
     },
     {
       id: 'politikk-1-4-text-2',
@@ -1090,10 +1090,10 @@ Siden 1948 har menneskerettighetene utviklet seg pa flere mater:
 
 **Utfordringer:**
 - Mange land bryter menneskerettighetene systematisk
-- Nye trusler: terrorisme, klimakrise, ny teknologi
+- Nye trusler: terrorisme, klimaendringer, ny teknologi
 - Debatt om universalitet vs. kulturrelativisme
 - Svake håndhevingsmekanismer
-- Okende nasjonalisme truer internasjonalt samarbeid`,
+- Spenningen mellom nasjonale interesser og internasjonalt samarbeid (nasjonalisme kan ha bade positive og negative konsekvenser for menneskerettighetene)`,
     },
     {
       id: 'politikk-1-5-ex-1',
@@ -2186,14 +2186,13 @@ export const CHAPTER_POLITIKK_MENNESKERETT_10: TextbookChapter = {
       type: 'text',
       content: `## Demokratisk deltakelse
 
-I et demokrati er det ikke bare rett, men ogsa plikt a delta. Gjennom deltakelse gir vi demokratiet liv og legitimitet.
+I et demokrati har borgere rett til a delta i politiske prosesser. Mange mener dette ogsa er en plikt, men det er ulike syn pa hvor aktivt man bor eller ma engasjere seg.
 
-**Hvorfor delta?**
+**Argumenter for a delta:**
 - Pavirke beslutninger som angår deg
 - Holde makthavere ansvarlige
 - Bidra til fellesskapet
 - Forsvare egne og andres rettigheter
-- Utvikle deg selv som borger
 
 **Former for deltakelse:**
 - Stemme ved valg
@@ -2204,7 +2203,7 @@ I et demokrati er det ikke bare rett, men ogsa plikt a delta. Gjennom deltakelse
 - Frivillig arbeid
 - Sivil ulydighet
 
-Deltakelse kan vare individuell eller kollektiv, konvensjonell eller ukonvensjonell.`,
+Deltakelse kan vare individuell eller kollektiv, konvensjonell eller ukonvensjonell. Ulike former for deltakelse har ulike fordeler og ulemper, og det finnes legitim uenighet om hvilke metoder som er mest effektive og akseptable.`,
     },
     {
       id: 'politikk-1-10-def-1',
@@ -2231,7 +2230,7 @@ Deltakelse kan vare individuell eller kollektiv, konvensjonell eller ukonvensjon
 - Mobilisering via nett
 
 **Sivil ulydighet:**
-Bevisst og apen lovbrudd for a protestere mot urettferdige lover eller politikk. Aksepterer straff for a vise moralsk alvor.`,
+Bevisst og apen lovbrudd for a protestere mot urettferdige lover eller politikk. Tradisjonelt aksepterer man straff for a vise moralsk alvor. Det er betydelig uenighet om nar sivil ulydighet er rettferdiggjort - noen mener det kun er akseptabelt mot klart urettferdige lover, andre mener det kan brukes bredere. Kritikere paviser at sivil ulydighet undergraver respekten for demokratisk fattede lover.`,
     },
     {
       id: 'politikk-1-10-text-2',
@@ -2288,7 +2287,39 @@ Menneskerettighetsaktivister er ofte utsatt for trusler, fengsling, tortur og dr
 - Pride-marsjer som synliggjoring
 - Ekteskap for alle i mange land
 
-Disse bevegelsene viser at grasrotengasjement kan endre verden.`,
+Disse bevegelsene viser at grasrotengasjement kan bidra til endring. Det er imidlertid viktig a merke seg at ikke alle bevegelser lykkes, og at aktivisme kan ha utilsiktede konsekvenser.`,
+    },
+    {
+      id: 'politikk-1-10-text-2b',
+      type: 'text',
+      content: `## Utfordringer og dilemmaer ved aktivisme
+
+Selv om aktivisme kan vare en viktig del av demokratiet, er det ogsa utfordringer og potensielle problemer:
+
+**Demokratiske spenninger:**
+- Aktivisme kan komme i konflikt med valgte representanters beslutninger
+- Minoriteter kan bruke sterke virkemidler for a presse gjennom endringer som flertallet ikke onsker
+- Hvem gir aktivister mandat til a tale pa vegne av andre?
+
+**Metodiske utfordringer:**
+- Sivil ulydighet bryter loven - hvor gar grensen for akseptable metoder?
+- Aksjoner kan forstyrre hverdagen for uskyldige tredjeparter
+- Fare for eskalering til vold eller ødeleggelser
+- Kan skape motstand og polarisering heller enn stotte
+
+**Sporsmal om representativitet:**
+- Er aktivistgrupper representative for befolkningen?
+- Sterke stemmer kan overdove andre synspunkter
+- Ressurssterke grupper har ofte bedre mulighet til a drive aktivisme
+
+**Ulike syn pa klimastreiker og skoleaksjoner:**
+- Noen mener slike aksjoner er en viktig mate for unge a uttrykke seg
+- Andre mener at a forlate skolen undergraver utdanningen og respekten for regler
+- Sporsmal om barn og unges rolle i politiske aksjoner
+- Debatt om hvorvidt klimaaksjoner er effektive eller kontraproduktive
+
+**Balansert vurdering:**
+Aktivisme er en del av et sunt demokrati, men ma vurderes kritisk. Bade de som deltar i aktivisme og de som kritiserer den, har legitime perspektiver.`,
     },
     {
       id: 'politikk-1-10-text-3',

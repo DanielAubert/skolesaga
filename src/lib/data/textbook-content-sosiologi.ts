@@ -974,7 +974,15 @@ Sosial ulikhet handler om forskjeller mellom mennesker og grupper når det gjeld
 Hvordan samfunnet er delt inn i hierarkiske lag eller sjikt basert på ulikhet.
 
 **Sosial stratifikasjon:**
-Systematiske ulikheter mellom grupper som vedvarer over generasjoner.`,
+Systematiske ulikheter mellom grupper som vedvarer over generasjoner.
+
+**Debatt om årsaker til ulikhet:**
+Det finnes ulike syn på hva som forårsaker sosial ulikhet:
+- *Strukturelle forklaringer:* Vektlegger samfunnsstrukturer, klassesystem og ulik tilgang til ressurser
+- *Individuelle forklaringer:* Vektlegger individuelle valg, innsats, evner og personlig ansvar
+- *Kombinerte perspektiver:* De fleste sosiologer anerkjenner at både strukturelle forhold og individuelle faktorer spiller inn
+
+Hvordan man vekter disse faktorene har politiske implikasjoner og er gjenstand for faglig og politisk debatt.`,
     },
     {
       id: 'sosiologi-5-def-1',
@@ -997,7 +1005,16 @@ Klasse handler om ulike former for kapital:
 - Økonomisk kapital (penger, eiendom)
 - Kulturell kapital (utdanning, smak)
 - Sosial kapital (nettverk, kontakter)
-- Symbolsk kapital (anerkjennelse, ære)`,
+- Symbolsk kapital (anerkjennelse, ære)
+
+**Alternative perspektiver:**
+Noen forskere og økonomer vektlegger i større grad:
+- Individuelle forskjeller i evner, talenter og innsats
+- Betydningen av personlige valg og risikovillighet
+- Markedsmekanismer som belønner produktivitet
+- Humankapital (utdanning og ferdigheter den enkelte investerer i)
+
+Debatten mellom strukturelle og individuelle forklaringer er sentral i samfunnsvitenskapen.`,
     },
     {
       id: 'sosiologi-5-def-2',
@@ -1072,13 +1089,19 @@ At barn "arver" foreldrenes sosiale posisjon gjennom oppvekst og muligheter.
 - Lavere inntekt = dårligere helse og kortere liv
 - Forskjellene vedvarer til tross for universell helsetjeneste
 
-**Reproduksjon av ulikhet:**
+**Reproduksjon av ulikhet - ulike perspektiver:**
+Noen sosiologer vektlegger strukturelle forklaringer:
 - Sosial arv er betydelig også i Norge
 - Kulturell kapital overføres i familien
 - Nettverk gir fordeler i arbeidslivet
 
+Andre forskere vektlegger individuelle faktorer:
+- Norge har høy sosial mobilitet sammenlignet med mange land
+- Gratis utdanning gir like muligheter for de som benytter dem
+- Individuelle valg om utdanning og yrke påvirker utfall
+
 **Konklusjon:**
-Norge har lav ulikhet i internasjonal sammenheng, men ulikhet finnes og reproduseres. Velferdsstaten demper, men fjerner ikke ulikhet.`,
+Norge har lav ulikhet i internasjonal sammenheng. Det er faglig debatt om i hvilken grad ulikhet skyldes strukturelle forhold eller individuelle valg. Velferdsstaten bidrar til å utjevne forskjeller, men ulikhet finnes. Hvordan man vurderer dette avhenger ofte av politisk ståsted.`,
     },
     {
       id: 'sosiologi-5-ex-1',
@@ -1204,11 +1227,16 @@ Sosiologien skiller mellom biologisk kjønn (sex) og sosialt kjønn (gender). Me
 **Sentrale spørsmål:**
 - Hva er medfødt og hva er tillært?
 - Hvordan formes kjønnsidentitet?
-- Hvorfor er det ulikhet mellom kjønnene?
-- Hvordan kan likestilling oppnås?
+- Hvorfor er det forskjeller mellom kjønnene?
+- Hva er likestilling, og hvordan kan det oppnås?
 
 **Kjønnsperspektivets utvikling:**
-Fra å ta kjønnsforskjeller for gitt, til å stille spørsmål ved dem og se kjønn som sosialt konstruert.`,
+Fra å ta kjønnsforskjeller for gitt, til å stille spørsmål ved dem. Det er i dag faglig debatt om i hvilken grad kjønnsforskjeller skyldes biologi, sosialisering eller en kombinasjon av begge.
+
+**Biologi vs. sosialisering - en pågående debatt:**
+- *Sosialkonstruktivister* mener kjønnsforskjeller hovedsakelig skyldes sosialisering og kulturelle forventninger
+- *Evolusjonspsykologer* og andre vektlegger biologiske faktorer som hormoner og evolusjonære tilpasninger
+- De fleste forskere anerkjenner at både biologi og miljø spiller en rolle, men vektingen er omdiskutert`,
     },
     {
       id: 'sosiologi-6-def-1',
@@ -1236,42 +1264,59 @@ Antagelsen om at heteroseksualitet er normalt og naturlig, og at kjønn er binæ
       id: 'sosiologi-6-def-2',
       type: 'definition',
       title: 'Perspektiver på kjønn',
-      content: `**Biologisk determinisme:**
-Kjønnsforskjeller er naturlige og medfødte. Biologi bestemmer atferd og evner.
+      content: `**Biologiske perspektiver:**
+Noen forskere vektlegger at kjønnsforskjeller delvis er naturlige og medfødte, påvirket av hormoner, hjerneutvikling og evolusjon. Dette perspektivet er omdiskutert, men har støtte i deler av evolusjonspsykologi og nevrobiologi.
 
 **Sosialkonstruktivisme:**
-Kjønn er sosialt konstruert. Kjønnsforskjeller skyldes sosialisering, ikke biologi.
+Andre forskere mener kjønn primært er sosialt konstruert, og at kjønnsforskjeller hovedsakelig skyldes sosialisering og kulturelle forventninger, ikke biologi.
+
+**Interaksjonistiske perspektiver:**
+De fleste forskere anerkjenner i dag at både biologi og sosialisering påvirker kjønn, men det er uenighet om vektingen.
 
 **Feministiske perspektiver:**
-- Liberal feminisme: Likhet gjennom like rettigheter og muligheter
-- Radikal feminisme: Patriarkatet som system må bekjempes
-- Sosialistisk feminisme: Kjønn og klasse henger sammen
-- Interseksjonalitet: Kjønn samvirker med rase, klasse, seksualitet
+Feminisme omfatter mange ulike retninger:
+- *Liberal feminisme:* Likestilling gjennom like rettigheter og muligheter innenfor eksisterende samfunnssystem
+- *Radikal feminisme:* Mener samfunnet preges av et patriarkalsk system som må endres grunnleggende
+- *Sosialistisk feminisme:* Ser kjønn og klasse som sammenvevde undertrykkelsessystemer
+- *Interseksjonalitet:* Analyserer hvordan kjønn samvirker med andre kategorier som etnisitet, klasse og seksualitet
+
+**Kritikk av feministiske perspektiver:**
+Noen kritikere mener at feministisk teori undervurderer biologiske faktorer, overvurderer strukturell diskriminering, eller ikke tar hensyn til menns utfordringer. Andre mener feminisme er nødvendig for å forstå og endre urettferdige forhold.
 
 **Maskulinitetsforskning:**
-Studerer hvordan maskulinitet konstrueres. Hegemonisk maskulinitet som ideal.`,
+Studerer hvordan maskulinitet konstrueres og uttrykkes. Begrepet "hegemonisk maskulinitet" brukes om dominerende maskulinitetsidealer. Det finnes ulike syn på maskulinitet:
+- Noen forskere fokuserer på problematiske aspekter ved tradisjonell maskulinitet
+- Andre vektlegger positive aspekter som beskyttelse, forsørgelse og ansvarsfølelse
+- Mange mener det finnes mange former for maskulinitet, og at stereotypier er begrensende for begge kjønn`,
     },
     {
       id: 'sosiologi-6-def-3',
       type: 'definition',
       title: 'Kjønnsulikhet',
       content: `**Glasstaket:**
-Usynlige barrierer som hindrer kvinner i å nå toppstillinger.
+Begrepet brukes om usynlige barrierer som kan hindre kvinner i å nå toppstillinger. Det er debatt om årsakene:
+- Noen mener det skyldes diskriminering og strukturelle hindringer
+- Andre peker på ulike preferanser, familieprioriteringer og karrierevalg
+- Forskning viser at bildet er sammensatt og varierer mellom bransjer og land
 
 **Lønnsgapet:**
-Kvinner tjener i gjennomsnitt mindre enn menn, også for likt arbeid.
+Statistikk viser at kvinner i gjennomsnitt tjener mindre enn menn. Årsakene er omdiskutert:
+- *Strukturelle forklaringer:* Diskriminering, undervurdering av kvinnedominerte yrker
+- *Individuelle forklaringer:* Ulike yrkesvalg, arbeidstid, erfaring og forhandlingsatferd
+- Når man justerer for yrke, arbeidstid og erfaring, reduseres gapet betydelig, men forsvinner ikke helt
+- Det er faglig uenighet om hvor mye av det gjenværende gapet som skyldes diskriminering
 
 **Det kjønnsdelte arbeidsmarkedet:**
-Kvinner og menn jobber i ulike yrker og sektorer. Ofte lavere lønn i kvinnedominerte yrker.
+Kvinner og menn jobber ofte i ulike yrker og sektorer. Det diskuteres om dette skyldes:
+- Diskriminering og sosiale barrierer
+- Ulike interesser og preferanser (som kan være påvirket av både biologi og sosialisering)
+- En kombinasjon av begge
 
 **Dobbel byrde:**
-Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
-
-**Symbolsk vold:**
-(Bourdieu) At undertrykkelse internaliseres slik at de undertrykte aksepterer den.
+Forskning viser at kvinner ofte tar mer ansvar for husarbeid og omsorg, selv når de er i lønnsarbeid. Fordelingen har blitt likere over tid, men er fortsatt ujevn i mange familier.
 
 **Doing gender:**
-(West & Zimmerman) Kjønn er noe vi gjør, ikke noe vi er. Vi "gjør" kjønn i daglig interaksjon.`,
+(West & Zimmerman) Kjønn er noe vi gjør, ikke bare noe vi er. Vi "gjør" kjønn i daglig interaksjon gjennom hvordan vi kler oss, snakker og oppfører oss.`,
     },
     {
       id: 'sosiologi-6-example-1',
@@ -1306,9 +1351,15 @@ Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
 - Ulike interesser og valg
 - Ulike personlighetstrekk verdsettes
 - Påvirker utdannings- og yrkesvalg
-- Reproduserer ulikhet
 
-**Viktig poeng:** Sosialiseringen begynner før barnet selv er bevisst kjønn og former forventninger og muligheter gjennom hele livet.`,
+**Debatt om betydning:**
+Det er faglig uenighet om hvor mye kjønnssosialisering påvirker:
+- Noen forskere mener sosialisering er hovedårsaken til kjønnsforskjeller
+- Andre peker på at biologiske forskjeller også bidrar til ulike interesser og valg
+- Tvillingstudier og tverrkulturell forskning brukes av begge sider i debatten
+- De fleste anerkjenner at både biologi og sosialisering spiller en rolle
+
+**Viktig poeng:** Uavhengig av årsak begynner påvirkningen tidlig og former forventninger gjennom hele livet. Å forstå disse prosessene kan hjelpe oss å reflektere over våre egne antagelser.`,
     },
     {
       id: 'sosiologi-6-ex-1',
@@ -1354,10 +1405,10 @@ Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
           {
             label: 'b',
             task: 'Hva vektlegger radikal feminisme?',
-            solution: 'Patriarkatet som undertrykkende system må bekjempes. Fokus på makt, vold og seksuell undertrykking.',
+            solution: 'Radikale feminister mener samfunnet preges av et patriarkalsk system som må endres grunnleggende. De fokuserer på makt, vold og strukturell undertrykkelse. Andre er kritiske til dette perspektivet.',
           },
         ],
-        solution: 'Liberal = like rettigheter innenfor systemet. Radikal = systemkritikk mot patriarkatet.',
+        solution: 'Liberal feminisme vektlegger like rettigheter innenfor systemet. Radikal feminisme mener det patriarkalske systemet må endres grunnleggende. Det finnes ulike syn på disse perspektivene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1369,8 +1420,8 @@ Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
         id: 'sosiologi-6-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Hva menes med det kjønnsdelte arbeidsmarkedet, og hvorfor er det et problem?',
-        solution: 'Kvinner og menn jobber i ulike yrker/sektorer. Problem: Kvinnedominerte yrker har ofte lavere lønn og status. Begrenser valgfrihet. Bidrar til lønnsgapet.',
+        task: 'Hva menes med det kjønnsdelte arbeidsmarkedet, og hvilke perspektiver finnes på dette?',
+        solution: 'Kvinner og menn jobber ofte i ulike yrker/sektorer. Noen mener dette er et problem fordi kvinnedominerte yrker har lavere lønn. Andre mener det delvis reflekterer ulike preferanser. Det er debatt om årsakene - diskriminering, sosialisering eller frie valg.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1383,8 +1434,8 @@ Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
         number: '5',
         type: 'classic',
         task: 'Drøft om Norge er et likestilt land.',
-        hints: ['Se på ulike områder: arbeid, politikk, familie, utdanning'],
-        solution: 'Ja: Lovverk, kvotering, høy yrkesdeltakelse. Nei: Lønnsgap, glasstaket, kjønnsdelt arbeidsmarked, ulikt ansvar hjemme. Konklusjon: Langt fremme, men ikke fullt likestilt.',
+        hints: ['Se på ulike områder: arbeid, politikk, familie, utdanning. Vurder ulike perspektiver.'],
+        solution: 'For: Lovverk, kvotering, høy yrkesdeltakelse, lang foreldrepermisjon. Mot: Lønnsgap, kjønnsdelt arbeidsmarked, ulikt ansvar hjemme. Det er debatt om årsakene til gjenværende forskjeller - strukturelle barrierer vs. ulike preferanser. Norge rangeres høyt internasjonalt på likestilling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1396,9 +1447,9 @@ Kvinner i lønnsarbeid har fortsatt hovedansvar for husarbeid og omsorg.
         id: 'sosiologi-6-ex-6',
         number: '6',
         type: 'classic',
-        task: 'Hva menes med interseksjonalitet, og hvorfor er begrepet viktig?',
-        hints: ['Tenk på hvordan ulike former for ulikhet samvirker'],
-        solution: 'Interseksjonalitet viser hvordan kjønn, rase, klasse, seksualitet osv. samvirker. Viktig fordi undertrykking ikke kan forstås isolert - en svart kvinne opplever annen diskriminering enn en hvit kvinne.',
+        task: 'Hva menes med interseksjonalitet, og hvilke perspektiver finnes på begrepet?',
+        hints: ['Tenk på hvordan ulike faktorer samvirker. Vurder ulike syn på begrepet.'],
+        solution: 'Interseksjonalitet analyserer hvordan kjønn, etnisitet, klasse og seksualitet samvirker. Tilhengere mener det gir bedre forståelse av sammensatte erfaringer. Kritikere mener det kan føre til gruppeinndeling og identitetspolitikk. Begrepet er omdiskutert, men brukes mye i samfunnsforskning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

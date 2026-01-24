@@ -183,9 +183,9 @@ Diktet viser tydelig den rasistiske ideologien bak imperialismen. Det ignorerte 
         id: 'historie-9-1-ex-6',
         number: '6',
         type: 'classic',
-        task: 'Hvordan bidro ideologien om "siviliseringsmisjon" til å skjule imperialismens virkelige konsekvenser? Drøft med utgangspunkt i det du har lært.',
-        hints: ['Tenk på hvordan retorikk kan forme virkelighetsoppfatning'],
-        solution: 'Siviliseringsmisjonen fremstilte kolonisering som en velgjerning - europeere "hjalp" andre folk ved å bringe dem sivilisasjon, kristendom og utvikling. Dette skjulte de virkelige konsekvensene: økonomisk utnyttelse, tvangsarbeid, vold, tap av land og kultur, og millioner av dødsfall. Ved å fokusere på skoler og kirker ble plantasjenes brutalitet og ressursplyndringen usynliggjort. Ideologien gjorde det mulig for europeere å se seg selv som moralske, selv når de deltok i eller støttet undertrykkelse.',
+        task: 'Drøft siviliseringsmisjonen som ideologi. Hvordan ble den brukt til å rettferdiggjøre imperialismen, og hvilke elementer av sannhet og usannhet inneholdt den?',
+        hints: ['Tenk på hvordan ideologier kan inneholde både sannhet og selvbedrag'],
+        solution: 'Siviliseringsmisjonen fremstilte kolonisering som å hjelpe andre folk gjennom utdanning, kristendom og utvikling. Elementer av sannhet: Det ble faktisk bygget skoler, sykehus og infrastruktur i mange kolonier. Misjonærer bidro til skriftspråk og utdanning. Noen koloniale embetsmenn hadde genuint ønske om å forbedre levekår. Elementer av selvbedrag: Ideologien ignorerte at koloniseringen primært tjente økonomiske interesser, at den medførte vold og undertrykkelse, og at afrikanske og asiatiske samfunn hadde egne sofistikerte kulturer og institusjoner. Konklusjon: Siviliseringsmisjonen var en ideologi som blandet genuine intensjoner hos noen med økonomisk egeninteresse og kulturell arroganse. Den gjorde det lettere for europeere å se bort fra de negative sidene ved koloniseringen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -210,7 +210,7 @@ export const CHAPTER_HISTORIE_9_2: TextbookChapter = {
 
 I 1870 kontrollerte europeiske makter bare ca. 10% av det afrikanske kontinentet, hovedsakelig kystområder. I 1914 var over 90% av Afrika under europeisk styre. Denne raske koloniseringen kalles **kapløpet om Afrika** (Scramble for Africa).
 
-Koloniseringen skjedde gjennom en kombinasjon av diplomati, handel, misjonering og militær makt. De afrikanske samfunnene møtte denne invasjonen med ulike strategier - fra motstand til samarbeid - men var til slutt underlegne europeernes teknologi og organisasjon.`,
+Koloniseringen skjedde gjennom en kombinasjon av diplomati, handel, misjonering og militær makt. De afrikanske samfunnene var ikke passive ofre, men aktive aktører som møtte denne utfordringen med ulike strategier. Noen valgte væpnet motstand, andre diplomatisk tilpasning, og noen så muligheter i samarbeid. Afrikanske ledere, handelsmenn og diplomater navigerte aktivt i denne perioden, selv om europeernes overlegne militærteknologi til slutt ga dem overtaket i de fleste konflikter.`,
     },
     {
       id: 'historie-9-2-def-1',
@@ -315,21 +315,24 @@ I 1908 måtte Leopold overgi Kongo til den belgiske staten. Forholdene bedret se
     {
       id: 'historie-9-2-def-3',
       type: 'definition',
-      title: 'Afrikansk motstand',
-      content: `**Væpnet motstand:**
-Mange afrikanske folk kjempet mot kolonisering. Zuluene i Sør-Afrika vant slaget ved Isandlwana (1879). Samori Ture i Vest-Afrika motstod fransk invasjon i 17 år.
+      title: 'Afrikansk handlekraft og motstand',
+      content: `**Afrikanske aktører:**
+Afrikanere var ikke passive ofre for koloniseringen. Afrikanske ledere, handelsmenn og diplomater tok aktive valg i møte med europeisk ekspansjon.
 
-**Etiopia:**
-Det eneste afrikanske landet som beholdt sin uavhengighet. Keiser Menelik II beseiret Italia ved Adwa i 1896.
+**Væpnet motstand:**
+Mange afrikanske folk kjempet mot kolonisering. Zuluene i Sør-Afrika vant slaget ved Isandlwana (1879). Samori Ture i Vest-Afrika bygget et imperium og motstod fransk invasjon i 17 år med moderne våpen og taktikk.
 
-**Maji Maji-opprøret (1905-07):**
-Oppstand mot tysk styre i Tanganyika. Ble brutalt slått ned, 75 000-300 000 døde.
+**Etiopia - afrikansk seier:**
+Det eneste afrikanske landet som beholdt sin uavhengighet. Keiser Menelik II moderniserte hæren, spilte europeiske makter mot hverandre, og beseiret Italia ved Adwa i 1896. Seieren ble et symbol på afrikansk motstandsevne.
 
 **Strategisk tilpasning:**
-Noen afrikanske ledere valgte å samarbeide med kolonimaktene for å beskytte sine folk eller styrke egen posisjon.
+Mange afrikanske ledere valgte pragmatisk samarbeid med kolonimaktene for å beskytte sine folk, beholde noe makt, eller styrke egen posisjon mot rivaler. Dette var aktive valg i en vanskelig situasjon, ikke bare underkastelse.
+
+**Maji Maji-opprøret (1905-07):**
+Oppstand mot tysk styre i Tanganyika. Viste fortsatt vilje til motstand. Ble brutalt slått ned, 75 000-300 000 døde.
 
 **Senere motstand:**
-Utover 1900-tallet vokste nasjonalistbevegelser som til slutt førte til avkolonisering.`,
+Utover 1900-tallet vokste nasjonalistbevegelser ledet av afrikanske intellektuelle og politikere som til slutt førte til avkolonisering.`,
     },
     {
       id: 'historie-9-2-ex-4',
@@ -367,9 +370,9 @@ Utover 1900-tallet vokste nasjonalistbevegelser som til slutt førte til avkolon
         id: 'historie-9-2-ex-6',
         number: '6',
         type: 'classic',
-        task: 'Sammenlign afrikansk motstand mot kolonisering med europeernes syn på kolonisering som "siviliseringsmisjon". Hva forteller dette oss om ulike perspektiver på historien?',
-        hints: ['Tenk på hvem som definerer hva som er "sivilisasjon"'],
-        solution: 'Europeerne fremstilte kolonisering som å bringe sivilisasjon til "primitive" folk. Afrikansk motstand viser at afrikanerne ikke så det slik - de forsvarte sine samfunn, kulturer og frihet. Motstanden varierte fra væpnet kamp til strategisk tilpasning, men viser at afrikanerne var aktive aktører, ikke passive ofre. Dette lærer oss at historiske hendelser ser forskjellige ut avhengig av perspektiv. Europeisk "sivilisering" var fra afrikansk perspektiv ofte vold, tvangsarbeid og undertrykkelse. Å forstå begge perspektiver gir et mer komplett bilde av historien.',
+        task: 'Drøft hvordan afrikanere responderte på europeisk kolonisering. Hvilke ulike strategier benyttet afrikanske ledere og samfunn, og hva kan forklare deres valg?',
+        hints: ['Tenk på at afrikanere var aktive aktører med ulike interesser og muligheter'],
+        solution: 'Afrikanere responderte på kolonisering på mange måter: 1) Væpnet motstand - Mange valgte å kjempe, som zuluene og Samori Ture. Dette krevde militær styrke og vilje til store ofre. 2) Diplomatisk motstand - Ledere som Menelik II i Etiopia brukte diplomati og spilte europeere mot hverandre. 3) Strategisk samarbeid - Noen ledere så fordeler i allianser med europeere, enten for å styrke egen posisjon mot rivaler eller for å beskytte sitt folk. 4) Tilpasning - Mange måtte tilpasse seg nye realiteter mens de bevarte det de kunne av egen kultur og autonomi. Valgene avhang av: lokale maktforhold, tilgang til våpen, geografisk plassering, og vurdering av hva som tjente eget folk best. Det er viktig å se at afrikanere ikke var passive ofre, men tok aktive valg i en vanskelig situasjon. Historien ser forskjellig ut avhengig av perspektiv.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -586,7 +589,9 @@ export const CHAPTER_HISTORIE_9_4: TextbookChapter = {
 
 Kolonialismen formet verden vi lever i på grunnleggende måter. Økonomiske strukturer, politiske grenser, sosiale hierarkier og kulturelle mønstre fra kolonitiden påvirker fortsatt tidligere kolonier og kolonimakter.
 
-Avkoloniseringen etter andre verdenskrig skapte nye stater, men arven fra kolonitiden forsvant ikke. Å forstå disse konsekvensene er viktig for å forstå dagens globale utfordringer.`,
+Historikere og forskere diskuterer kolonialismens konsekvenser. De fleste er enige om at kolonialismen innebar undertrykkelse og utnyttelse, men det debatteres hvor mye av dagens utfordringer i tidligere kolonier som skyldes koloniarven versus andre faktorer. Noen peker også på at kolonitiden etterlot infrastruktur, utdanningsinstitusjoner og rettslige rammeverk som har hatt varig betydning.
+
+Avkoloniseringen etter andre verdenskrig skapte nye stater, men arven fra kolonitiden forsvant ikke. Å forstå disse konsekvensene fra ulike perspektiver er viktig for å forstå dagens globale utfordringer.`,
     },
     {
       id: 'historie-9-4-def-1',
@@ -735,9 +740,9 @@ Nye stater arvet koloniale strukturer og problemer som fortsatt påvirker dem.`,
         id: 'historie-9-4-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Drøft om tidligere kolonimakter har ansvar for dagens utfordringer i tidligere kolonier. Begrunn svaret ditt.',
-        hints: ['Tenk på historisk ansvar versus nåtidige faktorer'],
-        solution: 'Dette er et komplekst spørsmål med argumenter på begge sider. For ansvar: Kolonimaktene skapte strukturer (eksportøkonomier, kunstige grenser, manglende utdanning) som fortsatt påvirker. De tjente på utnyttelse og har ressurser til å bidra. Arv av rasisme og ulikhet er direkte konsekvenser. Mot fullt ansvar: Avkoloniseringen skjedde for tiår siden, og lokale eliter har også ansvar for utviklingen. Andre faktorer som korrupsjon, kalde krigen og globalisering spiller inn. Et balansert svar anerkjenner historisk ansvar samtidig som det ser kompleksiteten i nåtidige utfordringer. Mange argumenterer for at ansvar innebærer å bidra positivt, ikke bare skyld.',
+        task: 'Drøft ulike faktorer som kan forklare utviklingen i tidligere kolonier etter uavhengigheten. Vurder både historiske og nåtidige forhold.',
+        hints: ['Tenk på koloniarv, lokale forhold, internasjonal politikk og egne valg'],
+        solution: 'Flere faktorer påvirker utviklingen i tidligere kolonier: Historiske faktorer: Kolonimaktene etterlot strukturer (eksportøkonomier, kunstige grenser) som skapte utfordringer. Manglende utdanningsinstitusjoner og infrastruktur gjorde nasjonsbygging vanskelig. Lokale faktorer: Politiske valg etter uavhengigheten har variert. Noen land har hatt god ledelse og stabil utvikling (som Botswana), andre har slitt med korrupsjon og konflikter. Lokale eliter har også ansvar for utviklingen. Internasjonale faktorer: Den kalde krigen førte til at stormakter støttet diktatorer. Urettferdige handelsregler og gjeldsproblemer har hemmet utvikling. Samtidig har bistand og investeringer bidratt positivt noen steder. Konklusjon: Utviklingen forklares best av en kombinasjon av historisk arv, lokale valg og internasjonale rammebetingelser. Det er for enkelt å legge alt ansvar enten på kolonimaktene eller på landene selv.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
