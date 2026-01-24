@@ -6352,7 +6352,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
   description: 'Programfag i kjemi for VG3 etter LK20',
   curriculum: 'LK20',
   icon: '🧪',
-  coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+  coverImage: '/images/subjects/kjemi2-hero.png',
   chapters: [
     // ============================================================================
     // Del 1: Grunnleggende kjemiske prinsipper (Repetisjon)
@@ -7035,7 +7035,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
   description: 'Grunnleggende kjemi for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '⚗️',
-  coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+  coverImage: '/images/subjects/kjemi1-hero.png',
   chapters: [
     // Del 1 - Grunnleggende kjemi
     {
@@ -7473,6 +7473,7 @@ export const COURSE_FYS1: TextbookCourse = {
   description: 'Fysikk 1 for studieforberedende utdanningsprogram - utforsk bevegelse, krefter, energi, elektrisitet, varme og moderne fysikk etter LK20',
   curriculum: 'LK20',
   icon: '⚛️',
+  coverImage: '/images/subjects/fysikk1-hero.png',
   chapters: [
     // Seksjon 1: Fysikkens metoder og verktøyfag
     {
@@ -7734,7 +7735,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
   description: 'Fysikk for studieforberedende utdanningsprogram - programfag VG3',
   curriculum: 'LK20',
   icon: '⚛️',
-  coverImage: '/images/textbook/fysikk2/course-hero.jpg',
+  coverImage: '/images/subjects/fysikk2-hero.png',
   chapters: [
     // ============================================================================
     // Seksjon 1: Mekanikk i to dimensjoner
@@ -11875,6 +11876,7 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
   description: 'Historie VG2 - fra antikken til imperialismen. Dekker 11 kompetansemål i LK20.',
   curriculum: 'LK20',
   icon: '🏛️',
+  coverImage: '/images/subjects/historie-vg2-hero.png',
   chapters: [
     // DEL 1: HISTORISK METODE OG TENKNING (Kap 1-2)
     // Kapittel 1: Historisk metode
@@ -11953,6 +11955,7 @@ export const COURSE_HISTORIE_VG3: TextbookCourse = {
   description: 'Historie VG3 - fra første verdenskrig til samtiden. Dekker 17 kompetansemål i LK20.',
   curriculum: 'LK20',
   icon: '🏛️',
+  coverImage: '/images/subjects/historie-vg3-hero.png',
   chapters: [
     // DEL 5: VERDENSKRIGENE (Kap 11-13)
     // Kapittel 11: Første verdenskrig
@@ -13486,6 +13489,31 @@ export const SECTION_NAMES_SAMFUNNSKUNNSKAP: Record<string, string> = {
   '11': 'Internasjonale forhold (del 2)',
 };
 
+// Seksjonsnavn for Historie VG2
+export const SECTION_NAMES_HISTORIE_VG2: Record<string, string> = {
+  '1': 'Historisk metode',
+  '2': 'Å arbeide med historie',
+  '3': 'Antikken',
+  '4': 'Middelalderen',
+  '5': 'Renessanse og reformasjon',
+  '6': 'Opplysningstid og revolusjoner',
+  '7': 'Industrialisering og samfunnsendring',
+  '8': 'Nasjonalisme og nasjonsbygging',
+  '9': 'Imperialisme og kolonialisme',
+  '10': 'Kulturmøter og kommunikasjon',
+};
+
+// Seksjonsnavn for Historie VG3
+export const SECTION_NAMES_HISTORIE_VG3: Record<string, string> = {
+  '11': 'Første verdenskrig',
+  '12': 'Mellomkrigstiden',
+  '13': 'Andre verdenskrig og Holocaust',
+  '14': 'Den kalde krigen',
+  '15': 'Velferdsstaten Norge',
+  '16': 'Norsk og samisk identitet',
+  '17': 'Globalisering og samtidshistorie',
+};
+
 // Hjelpefunksjon for å hente seksjonsnavn basert på kurs
 export function getSectionNames(courseId: string): Record<string, string> {
   switch (courseId) {
@@ -13521,6 +13549,10 @@ export function getSectionNames(courseId: string): Record<string, string> {
       return SECTION_NAMES_FYSIKK2;
     case 'samfunnskunnskap':
       return SECTION_NAMES_SAMFUNNSKUNNSKAP;
+    case 'historie-vg2':
+      return SECTION_NAMES_HISTORIE_VG2;
+    case 'historie-vg3':
+      return SECTION_NAMES_HISTORIE_VG3;
     default:
       return {};
   }
