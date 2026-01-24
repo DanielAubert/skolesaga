@@ -73,16 +73,16 @@ I dag bruker vi retorikk i mange sammenhenger:
       title: 'Eksempel: Analyse av appellformer',
       problem: `Analyser appellformene i denne teksten:
 
-"Som far til tre barn bekymrer jeg meg for deres fremtid. Klimaforskere advarer om at vi har mindre enn ti år på oss. Bare tenk på barna som vokser opp i en verden med ekstremvær og vannmangel. Vi må handle nå!"`,
-      solution: `**Etos:** "Som far til tre barn" - avsenderen etablerer troverdighet gjennom sin rolle som forelder.
+"Som sykepleier med 15 års erfaring har jeg sett hvordan bemanningskrisen rammer pasientene. Tall fra Statistisk sentralbyrå viser at vi mangler 6000 sykepleiere. Tenk på alle de eldre som ikke får den omsorgen de fortjener. Vi trenger handling nå!"`,
+      solution: `**Etos:** "Som sykepleier med 15 års erfaring" - avsenderen etablerer troverdighet gjennom yrkeserfaring og førstehåndskunnskap.
 
-**Patos:** "Bare tenk på barna" og "bekymrer meg" - følelsesmessig appell som skaper empati og engasjement.
+**Patos:** "Tenk på alle de eldre" og "omsorgen de fortjener" - følelsesmessig appell som skaper empati og engasjement.
 
-**Logos:** "Klimaforskere advarer" og "mindre enn ti år" - henvisning til eksperter og konkrete tall.
+**Logos:** "Tall fra Statistisk sentralbyrå" og "6000 sykepleiere" - henvisning til offisiell statistikk og konkrete tall.
 
-**Kairos:** Teksten spiller på aktualiteten til klimadebatten.
+**Kairos:** Teksten spiller på aktualiteten til helsedebatten.
 
-**Hovedappell:** Teksten bruker primært patos (følelser rundt barnas fremtid), støttet av etos (farsrollen) og logos (forskningsreferanser).`,
+**Hovedappell:** Teksten bruker primært patos (følelser rundt eldres situasjon), støttet av etos (yrkeserfaring) og logos (statistikk). Merk at alle disse appellformene kan brukes i ulike politiske debatter - det viktige er å gjenkjenne hvordan de brukes.`,
     },
     {
       id: 'norsk-vg1-1-1-def-2',
@@ -2203,6 +2203,1018 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 };
 
 // ============================================================================
+// KAPITTEL 6.1: Norsk språkhistorie
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_6_1: TextbookChapter = {
+  id: 'norsk-vg1-6-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '6.1',
+  title: 'Norsk språkhistorie',
+  description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'gjøre rede for utvikling og variasjon i norsk språk',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-6-1-intro',
+      type: 'text',
+      content: `## Det norske språkets historie
+
+Norsk språk har utviklet seg over mer enn tusen år. Fra de eldste runeinnskriftene til dagens digitale kommunikasjon har språket gjennomgått store forandringer.
+
+**Hovedperioder i norsk språkhistorie:**
+- **Urnordisk** (ca. 200-700): Felles nordisk språk
+- **Norrønt** (ca. 700-1350): Vikingtid og middelalder
+- **Mellomnorsk** (ca. 1350-1525): Hansatid og språkblanding
+- **Dansk-norsk** (ca. 1525-1814): Unionen med Danmark
+- **Moderne norsk** (1814-): Nasjonsbygging og språkstrid`,
+    },
+    {
+      id: 'norsk-vg1-6-1-def-1',
+      type: 'definition',
+      title: 'Fra urnordisk til norrønt',
+      content: `**Urnordisk (ca. 200-700)**
+De eldste skriftlige kildene er runeinnskrifter. Språket var relativt likt over hele Skandinavia.
+
+**Viktige kjennetegn:**
+- 24 runer (den eldre futharken)
+- Komplekst bøyningssystem
+- Mange kasusformer
+
+**Norrønt (ca. 700-1350)**
+I vikingtiden utviklet det seg regionale forskjeller. Norrønt er språket i sagaene og eddadiktningen.
+
+**Viktige trekk:**
+- Forenklet runesystem (16 runer)
+- Latinsk alfabet innføres med kristendommen
+- Rik litterær tradisjon
+- Fire kasus (nominativ, akkusativ, dativ, genitiv)`,
+    },
+    {
+      id: 'norsk-vg1-6-1-def-2',
+      type: 'definition',
+      title: 'Mellomnorsk og dansk-norsk',
+      content: `**Mellomnorsk (ca. 1350-1525)**
+Svartedauden (1349) førte til stor befolkningsnedgang. Mange skrivekyndige døde, og språket ble mindre standardisert.
+
+**Hanseatisk påvirkning:**
+- Tyske kjøpmenn dominerte handelen
+- Mange tyske lånord kom inn i norsk
+- Eksempler: handel, krig, frue, herskap
+
+**Dansk-norsk periode (ca. 1525-1814)**
+Under unionen med Danmark ble dansk skriftspråk. Talespråket forble norsk, men fikk dansk påvirkning.
+
+**Konsekvenser:**
+- Dansk ble administrasjonsspråk
+- Bibeloversettelser på dansk
+- Norske dialekter levde videre i talespråket
+- Grunnlag for dagens målformsdebatt`,
+    },
+    {
+      id: 'norsk-vg1-6-1-def-3',
+      type: 'definition',
+      title: 'Moderne norsk (1814-)',
+      content: `**Nasjonsbygging og språkstrid**
+Etter 1814 ble spørsmålet om et eget norsk skriftspråk sentralt.
+
+**To hovedretninger:**
+1. **Fornorsking av dansk** (Knud Knudsen)
+   - Gradvis tilpasning til norsk uttale
+   - Førte til riksmål/bokmål
+
+2. **Nytt språk basert på dialekter** (Ivar Aasen)
+   - Samlet dialektord fra hele landet
+   - Skapte landsmål/nynorsk
+
+**Språkpolitiske vedtak:**
+- 1885: Jamstillingsvedtaket - landsmål og riksmål likestilt
+- 1929: Navnene nynorsk og bokmål innføres
+- 1938-2012: Ulike reformer for tilnærming/normering
+
+**I dag:**
+- To offisielle målformer: bokmål og nynorsk
+- Kommuner og institusjoner velger målform
+- Elever har rett til lærebøker på sin målform`,
+    },
+    {
+      id: 'norsk-vg1-6-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Språkendring gjennom tid',
+      problem: 'Sammenlign disse setningene fra ulike perioder:',
+      solution: `**Norrønt (ca. 1200):**
+"Hann réð fyrir landi sínu."
+(Han rådde for landet sitt.)
+
+**Mellomnorsk (ca. 1450):**
+"Han raadde for lande sit."
+
+**Dansk-norsk (ca. 1750):**
+"Han raadede for sit Land."
+
+**Moderne bokmål:**
+"Han styrte landet sitt."
+
+**Moderne nynorsk:**
+"Han styrte landet sitt."
+
+**Observasjoner:**
+- Bøyningsendelser forsvinner gradvis
+- Ordstilling endres
+- Skrivemåten forenkles
+- Dansk påvirkning synlig i mellomperioden`,
+    },
+    {
+      id: 'norsk-vg1-6-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Sett riktig periode til disse språktrekkene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Runeinnskrifter med 24 tegn.',
+            solution: 'Urnordisk periode (ca. 200-700)',
+            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
+          },
+          {
+            label: 'b',
+            task: 'Mange tyske lånord kommer inn i språket.',
+            solution: 'Mellomnorsk periode - hansatiden (ca. 1350-1525)',
+            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
+          },
+          {
+            label: 'c',
+            task: 'Sagaer og eddadikt skrives ned.',
+            solution: 'Norrøn periode (ca. 700-1350)',
+            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
+          },
+        ],
+        solution: 'a) Urnordisk, b) Mellomnorsk, c) Norrønt',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor vi i dag har to skriftspråk i Norge (bokmål og nynorsk).',
+        hints: ['Tenk på unionen med Danmark', 'Hvilke to strategier fantes for å skape et norsk skriftspråk?'],
+        solution: 'Under unionen med Danmark ble dansk skriftspråk i Norge. Etter 1814 oppsto to strategier: Knud Knudsen ville fornorske dansk gradvis (→ bokmål), mens Ivar Aasen ville bygge et nytt språk på norske dialekter (→ nynorsk). Begge ble offisielle i 1885.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Finn fem ord i moderne norsk som er lånt fra tysk i hansatiden.',
+        hints: ['Tenk på ord knyttet til handel, håndverk eller samfunn', 'Mange vanlige ord har tysk opprinnelse'],
+        solution: 'Eksempler: arbeid, betale, handel, frue, herskap, snekker, skomaker, straff, språk, penger. Disse ordene kom inn i norsk gjennom handelskontakt med hanseatene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Diskuter: Burde Norge ha ett felles skriftspråk, eller er det en fordel med to målformer?',
+        hints: ['Vurder argumenter for og mot', 'Tenk på identitet, praktiske hensyn og kulturarv'],
+        solution: 'Dette er et debattspørsmål uten fasitsvar. Argumenter FOR to målformer: bevarer språkmangfold, styrker dialektene, kulturarv. Argumenter FOR ett språk: praktisk forenkling, mindre kostbart, enklere å lære. Det viktige er å forstå argumentene på begge sider.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Les en kort tekst på norrønt (f.eks. fra en saga) og prøv å identifisere ord du gjenkjenner.',
+        hints: ['Mange ord ligner på moderne norsk', 'Se etter navn og vanlige ord'],
+        solution: 'Mange norrøne ord er gjenkjennelige: maðr (mann), kona (kone), skip (skip), land (land). Øvelsen viser kontinuiteten i språket.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 6.2: Nynorsk og bokmål
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_6_2: TextbookChapter = {
+  id: 'norsk-vg1-6-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '6.2',
+  title: 'Nynorsk og bokmål',
+  description: 'Forstå forskjellene mellom målformene og mestre grunnleggende nynorsk.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'skrive tekster på hovedmål og sidemål',
+    'gjøre rede for utvikling og variasjon i norsk språk',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-6-2-intro',
+      type: 'text',
+      content: `## To målformer - én norsk kultur
+
+Norge har to offisielle skriftspråk: bokmål og nynorsk. Begge er fullverdige språk med lang historie og rik litteratur.
+
+**Fakta om målformene:**
+- Ca. 87% bruker bokmål som hovedmål
+- Ca. 13% bruker nynorsk som hovedmål
+- Alle elever lærer begge målformer
+- Offentlige institusjoner skal svare på den målformen de mottar
+
+**Hvorfor to målformer?**
+De to målformene representerer ulike tradisjoner og verdier i norsk språkhistorie, og begge har sin plass i det norske samfunnet.`,
+    },
+    {
+      id: 'norsk-vg1-6-2-def-1',
+      type: 'definition',
+      title: 'Hovedforskjeller mellom bokmål og nynorsk',
+      content: `**Ordformer:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| jeg | eg |
+| ikke | ikkje |
+| hva | kva |
+| hvordan | korleis |
+| noe | noko |
+| mye | mykje |
+
+**Bøyning av verb:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| kaster | kastar |
+| kastet | kasta |
+| har kastet | har kasta |
+
+**Bøyning av substantiv:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| bilen | bilen |
+| bilene | bilane |
+| jenta | jenta |
+| jentene | jentene |
+
+**Merk:** Begge målformer har valgfrihet i mange former. Det finnes konservative og radikale varianter av begge.`,
+    },
+    {
+      id: 'norsk-vg1-6-2-def-2',
+      type: 'definition',
+      title: 'Nynorsk grammatikk',
+      content: `**Infinitiv:**
+Nynorsk bruker a-infinitiv: å kaste, å lese, å skrive
+
+**Sterke verb:**
+Følger ofte andre mønstre enn bokmål:
+- skrive - skreiv - har skrive (nynorsk)
+- skrive - skrev - har skrevet (bokmål)
+
+**Hunkjønnsord:**
+Nynorsk har tydeligere hunkjønn:
+- ei jente - jenta - jenter - jentene
+- ei bok - boka - bøker - bøkene
+
+**Flertall:**
+- -ar for hankjønn: gutar, bilar, hestar
+- -er for hunkjønn: jenter, bøker
+- Variasjon for intetkjønn: hus, barn
+
+**Adjektiv:**
+Samsvarsbøying i nynorsk:
+- ein fin bil (hankjønn)
+- ei fin jente (hunkjønn)
+- eit fint hus (intetkjønn)`,
+    },
+    {
+      id: 'norsk-vg1-6-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Oversettelse mellom målformer',
+      problem: 'Oversett denne teksten til nynorsk:\n\n"Jeg vet ikke hva som skjedde. Det var mye støy, og jeg hørte noen rope. Etterpå fant vi bilen ved veien."',
+      solution: `**Nynorsk versjon:**
+"Eg veit ikkje kva som hende. Det var mykje støy, og eg høyrde nokon rope. Etterpå fann vi bilen ved vegen."
+
+**Forklaring av endringene:**
+- jeg → eg
+- vet → veit
+- ikke → ikkje
+- hva → kva
+- skjedde → hende
+- mye → mykje
+- hørte → høyrde
+- noen → nokon
+- fant → fann
+- veien → vegen`,
+    },
+    {
+      id: 'norsk-vg1-6-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Oversett disse setningene til nynorsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Jeg liker ikke å lese bøker om natten."',
+            solution: '"Eg likar ikkje å lese bøker om natta."',
+          },
+          {
+            label: 'b',
+            task: '"Hun sa at hun ikke visste hva hun skulle gjøre."',
+            solution: '"Ho sa at ho ikkje visste kva ho skulle gjere."',
+          },
+          {
+            label: 'c',
+            task: '"Vi fant mange fine steder i byen."',
+            solution: '"Vi fann mange fine stader i byen."',
+          },
+        ],
+        hints: ['Bruk ordliste hvis nødvendig', 'Husk verbendelser'],
+        solution: 'Nynorsk har andre ordformer og verbendelser enn bokmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Bøy disse verbene på nynorsk (infinitiv - presens - preteritum - perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å kaste',
+            solution: 'å kaste - kastar - kasta - har kasta',
+          },
+          {
+            label: 'b',
+            task: 'å skrive',
+            solution: 'å skrive - skriv - skreiv - har skrive',
+          },
+          {
+            label: 'c',
+            task: 'å finne',
+            solution: 'å finne - finn - fann - har funne',
+          },
+        ],
+        solution: 'Sterke verb har vokalendring, svake verb får -a i preteritum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Skriv en kort tekst (100-150 ord) på nynorsk om en aktivitet du liker.',
+        hints: ['Bruk ordbok og grammatikkhjelp', 'Les gjennom teksten for å sjekke ordformer'],
+        solution: 'Teksten skal vise at du behersker grunnleggende nynorsk grammatikk og ordforråd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Finn tre nynorske forfattere og les et utdrag fra en av dem. Hva legger du merke til ved språket?',
+        hints: ['Jon Fosse, Tarjei Vesaas, Olav H. Hauge er kjente nynorskforfattere'],
+        solution: 'Nynorsk litteratur har en rik tradisjon. Språket kan virke annerledes, men formidler de samme følelsene og ideene som bokmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Sammenlign en tekst på bokmål og nynorsk. Hvilke forskjeller finner du?',
+        hints: ['Se på ordformer, verbendelser og setningsstruktur', 'Bruk en avisartikkel eller offentlig dokument'],
+        solution: 'Sammenligningen skal vise forståelse for de systematiske forskjellene mellom målformene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 7.1: Språkmangfold i Norge
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_7_1: TextbookChapter = {
+  id: 'norsk-vg1-7-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '7.1',
+  title: 'Språkmangfold i Norge',
+  description: 'Utforsk dialekter, sosiolekter og minoritetsspråk i det norske samfunnet.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'reflektere over språklig mangfold i Norge',
+    'gjøre rede for utvikling og variasjon i norsk språk',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-7-1-intro',
+      type: 'text',
+      content: `## Språklig mangfold
+
+Norge har et rikt språkmangfold. I tillegg til bokmål og nynorsk har vi dialekter, samiske språk, minoritetsspråk og innvandrerspråk.
+
+**Språk i Norge:**
+- **Norsk** (bokmål og nynorsk) - offisielt språk
+- **Samiske språk** - offisielle i samiske områder
+- **Kvensk, romani og romanes** - nasjonale minoritetsspråk
+- **Norsk tegnspråk** - anerkjent språk
+- **Innvandrerspråk** - over 150 ulike språk
+
+**Hvorfor er språkmangfold viktig?**
+Språk er knyttet til identitet, kultur og tilhørighet. Et samfunn som respekterer språkmangfold, respekterer også menneskene som snakker disse språkene.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-def-1',
+      type: 'definition',
+      title: 'Dialekter i Norge',
+      content: `**Hva er en dialekt?**
+En dialekt er en geografisk språkvarietet. Norge har et rikt dialektmangfold sammenlignet med mange andre land.
+
+**De fire hoveddialektområdene:**
+
+**1. Østnorsk**
+- Oslo, Østfold, Hedmark, Oppland
+- Kjennetegn: Tjukk l, retroflekser (rd, rt, rn blir én lyd)
+
+**2. Vestnorsk**
+- Vestlandet fra Rogaland til Møre
+- Kjennetegn: Ofte diftongering (stein, røyk, haust)
+
+**3. Trøndersk**
+- Trøndelag
+- Kjennetegn: Palatalisering (ballj, mannj), apokope
+
+**4. Nordnorsk**
+- Nordland, Troms, Finnmark
+- Kjennetegn: Nektingsadverb (ikkje/ikke), vokalutjevning
+
+**Dialektbruk i dag:**
+Norge har sterk tradisjon for dialektbruk. I motsetning til mange land bruker nordmenn dialekt i de fleste sammenhenger, også i media og offentligheten.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-def-2',
+      type: 'definition',
+      title: 'Samiske språk',
+      content: `**Urfolksspråk i Norge**
+Samene er Norges urfolk, og samiske språk har offisiell status i samiske forvaltningsområder.
+
+**Samiske språk i Norge:**
+- **Nordsamisk** - flest talere, ca. 15 000-25 000
+- **Lulesamisk** - ca. 500-1000 talere
+- **Sørsamisk** - ca. 300-500 talere
+
+**Historisk bakgrunn:**
+Samiske språk ble lenge undertrykt gjennom fornorskingspolitikk. Barn ble straffet for å snakke samisk på skolen. Denne politikken varte fra ca. 1850 til 1960-tallet.
+
+**I dag:**
+- Samiske språk undervises i skolen
+- Sametinget arbeider for språkbevaring
+- NRK Sápmi sender på samisk
+- Det finnes samisk litteratur, musikk og media
+
+**Revitalisering:**
+Mange arbeider for å styrke samiske språk. Dette inkluderer språkkurs, barnehager og skoler med samisk som undervisningsspråk.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-def-3',
+      type: 'definition',
+      title: 'Sosiolekter og språklige varianter',
+      content: `**Hva er en sosiolekt?**
+En sosiolekt er en språkvarietet knyttet til sosiale grupper, ikke geografi.
+
+**Faktorer som påvirker sosiolekt:**
+- Alder (ungdomsspråk vs. voksent språk)
+- Sosial bakgrunn
+- Utdanning og yrke
+- Interesser og subkulturer
+
+**Multietnolekt / kebabnorsk:**
+I flerkulturelle bydeler har det utviklet seg nye språkvarieteter. Disse kombinerer norsk med elementer fra innvandrerspråk.
+
+**Kjennetegn:**
+- Forenklet grammatikk
+- Lånord fra flere språk
+- Egen intonasjon
+
+**Språkholdninger:**
+Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiolekter som rikdom, andre som avvik fra "korrekt" språk. Det er viktig å være bevisst på egne språkholdninger.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Identifiser hvilket dialektområde disse trekkene hører til:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Tjukk l og retroflekser.',
+            solution: 'Østnorsk',
+            multipleChoiceOptions: ['Østnorsk', 'Vestnorsk', 'Trøndersk', 'Nordnorsk'],
+          },
+          {
+            label: 'b',
+            task: 'Palatalisering av n og l (ballj, mannj).',
+            solution: 'Trøndersk',
+            multipleChoiceOptions: ['Østnorsk', 'Vestnorsk', 'Trøndersk', 'Nordnorsk'],
+          },
+          {
+            label: 'c',
+            task: 'Sterke diftonger (stein, røyk).',
+            solution: 'Vestnorsk',
+            multipleChoiceOptions: ['Østnorsk', 'Vestnorsk', 'Trøndersk', 'Nordnorsk'],
+          },
+        ],
+        solution: 'a) Østnorsk, b) Trøndersk, c) Vestnorsk',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv din egen dialekt eller talemål. Hvilke kjennetegn har den?',
+        hints: ['Tenk på uttale, ordvalg og grammatikk', 'Sammenlign med standardspråk'],
+        solution: 'Beskrivelsen bør inkludere konkrete eksempler på særtrekk ved talemålet ditt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Undersøk fornorskingspolitikken overfor samer og kvener. Hvordan påvirket den disse gruppenes språk og kultur?',
+        hints: ['Bruk kilder som Store norske leksikon eller Sametingets nettsider', 'Se på konsekvenser for språkbruk i dag'],
+        solution: 'Fornorskingspolitikken førte til at mange mistet morsmålet sitt. I dag arbeides det med revitalisering av samiske språk og kvensk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Diskuter: Bør vi bevare alle dialekter, eller er det greit at språket endrer seg og dialekter forsvinner?',
+        hints: ['Vurder argumenter fra ulike synsvinkler', 'Tenk på identitet, praktiske hensyn og språkutvikling'],
+        solution: 'Dette er en debatt med gode argumenter på begge sider. Noen mener dialekter er viktig kulturarv, andre mener språkendring er naturlig og uunngåelig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Intervju en person med annen dialekt enn deg selv. Hvilke forskjeller oppdager du?',
+        hints: ['Spør om ordvalg, uttale og uttrykk', 'Ta notater om konkrete eksempler'],
+        solution: 'Intervjuet skal vise forståelse for dialektforskjeller og respekt for språklig variasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 7.2: Språk i endring
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_7_2: TextbookChapter = {
+  id: 'norsk-vg1-7-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '7.2',
+  title: 'Språk i endring',
+  description: 'Forstå hvordan og hvorfor språk endrer seg over tid.',
+  estimatedMinutes: 45,
+  competenceGoals: [
+    'gjøre rede for utvikling og variasjon i norsk språk',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-7-2-intro',
+      type: 'text',
+      content: `## Språkendring
+
+Alle levende språk endrer seg. Norsk i dag er annerledes enn norsk for 100 år siden, og det vil fortsette å endre seg.
+
+**Hvorfor endrer språk seg?**
+- Kontakt med andre språk
+- Samfunnsendringer
+- Teknologisk utvikling
+- Generasjonsforskjeller
+- Bevisst språkpolitikk
+
+**Typer språkendring:**
+- **Lydendring:** Uttalen endres
+- **Grammatisk endring:** Bøyninger og setningsbygning endres
+- **Ordforrådsendring:** Nye ord kommer til, gamle forsvinner
+- **Betydningsendring:** Ord får ny betydning`,
+    },
+    {
+      id: 'norsk-vg1-7-2-def-1',
+      type: 'definition',
+      title: 'Nye ord og lånord',
+      content: `**Hvor kommer nye ord fra?**
+
+**1. Lånord fra andre språk**
+Norsk har alltid lånt ord fra andre språk:
+- Tysk (middelalderen): arbeid, straff, handel
+- Fransk (1700-1800-tallet): restaurant, sjåfør, garderobe
+- Engelsk (1900-tallet →): film, jobb, stress, mail, cool
+
+**2. Nyord (neologismer)**
+Ord som skapes for nye fenomener:
+- nettbrett, smarttelefon, strømming
+- influenser, podcast, meme
+
+**3. Sammensetninger**
+Norsk lager mange nye ord ved sammensetning:
+- klimakrise, hjemmekontor, vaksineskepsis
+
+**4. Betydningsutvidelse**
+Gamle ord får ny betydning:
+- "mus" → datamaskinmus
+- "nett" → internett
+- "sky" → datalagring i skyen
+
+**Språkrøkt:**
+Språkrådet arbeider med å finne gode norske ord for nye begreper, men mange engelske ord blir værende.`,
+    },
+    {
+      id: 'norsk-vg1-7-2-def-2',
+      type: 'definition',
+      title: 'Grammatiske endringer',
+      content: `**Forenkling av bøyning**
+Norsk har over tid fått enklere bøyning:
+- Fra fire kasus til null (norrønt → moderne norsk)
+- Færre sterke verb
+- Enklere kjønnssystem i noen dialekter
+
+**Endringer i setningsbygning**
+- Mer bruk av "det" som formelt subjekt
+- Endringer i ordstilling
+- Påvirkning fra engelsk syntaks
+
+**Eksempel på påvirkning fra engelsk:**
+- "Jeg er sulten" (tradisjonelt: "Jeg er sulten")
+- Men: "Jeg trenger ikke det" (påvirket av "I don't need that")
+
+**Ulike syn på språkendring:**
+Noen mener språkendringer er naturlige og positive, mens andre er bekymret for at norsk mister egenart. Begge perspektiver er legitime i språkdebatten.`,
+    },
+    {
+      id: 'norsk-vg1-7-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Ord som har endret betydning',
+      problem: 'Hvilken betydning hadde disse ordene før, og hva betyr de nå?',
+      solution: `**"Dust"**
+- Før: Modig, dristig (positivt)
+- Nå: Dum, tåpelig (negativt)
+
+**"Snill"**
+- Før: Dyktig, flink
+- Nå: Vennlig, godhjertet
+
+**"Høvisk"**
+- Før: Passende for hoffet, dannet
+- Nå: Lite brukt, høytidelig
+
+**"Koste"**
+- Norrønt: Å velge (beslektet med "kår")
+- Nå: Å ha en pris
+
+Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer positiv, mer negativ, snevrere eller videre betydning over tid.`,
+    },
+    {
+      id: 'norsk-vg1-7-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Finn fem engelske lånord som har kommet inn i norsk de siste 20 årene. Finnes det norske alternativer?',
+        hints: ['Tenk på teknologi, sosiale medier og ungdomskultur'],
+        solution: 'Eksempler: poste, streame, influenser, liken, ghoste. Norske alternativer kan være: legge ut, strømme, påvirker, like/gille, forsvinne fra.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Sammenlign en avisartikkel fra 1950-tallet med en fra i dag. Hvilke språklige forskjeller finner du?',
+        hints: ['Se på ordvalg, setningslengde og stilnivå', 'Nasjonalbiblioteket har digitaliserte aviser'],
+        solution: 'Du vil sannsynligvis finne forskjeller i formelt vs. uformelt språk, ordvalg, og engelske lånord.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Diskuter: Er det viktig å begrense engelske lånord i norsk, eller er språkblanding naturlig og uproblematisk?',
+        hints: ['Vurder argumenter for og mot', 'Tenk på identitet, forståelse og språkutvikling'],
+        solution: 'Dette er et debattspørsmål. Noen mener at for mye engelsk truer norsk språk, andre mener at lånord er en naturlig del av språkutvikling og ikke problematisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Lag fem nye norske ord for engelske uttrykk som brukes mye i dag.',
+        hints: ['Bruk sammensetning eller betydningsutvidelse', 'Tenk på hva som ville fungere naturlig på norsk'],
+        solution: 'Kreativ oppgave. Eksempler: "livestrømming" for livestream, "nettprater" for influencer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Intervju en eldre person om ord og uttrykk de brukte da de var unge. Hvilke av disse er ukjente for deg?',
+        hints: ['Spør om ord for teknologi, arbeid og dagligliv', 'Noter ned ukjente ord og finn ut hva de betyr'],
+        solution: 'Intervjuet viser hvordan ordforrådet endres mellom generasjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 8.1: Debattinnlegg og meningsytring
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_8_1: TextbookChapter = {
+  id: 'norsk-vg1-8-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '8.1',
+  title: 'Debattinnlegg og meningsytring',
+  description: 'Lær å skrive effektive debattinnlegg og delta i offentlig debatt.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'skrive debattinnlegg og andre argumenterende tekster',
+    'bruke retoriske appellformer og virkemidler',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-8-1-intro',
+      type: 'text',
+      content: `## Å delta i offentlig debatt
+
+I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Debattinnlegg er en sentral sjanger for meningsytring.
+
+**Hvor publiseres debattinnlegg?**
+- Aviser (Si;D, debattsider)
+- Nettaviser
+- Sosiale medier
+- Blogger
+
+**Hvorfor skrive debattinnlegg?**
+- Påvirke offentlig mening
+- Dele kunnskap og erfaring
+- Bidra til demokratisk samtale
+- Øve på argumentasjon`,
+    },
+    {
+      id: 'norsk-vg1-8-1-def-1',
+      type: 'definition',
+      title: 'Debattinnleggets struktur',
+      content: `**Innledning**
+- Fang leserens oppmerksomhet
+- Presenter tema og standpunkt
+- Si hva du mener (tesen)
+
+**Hoveddel**
+- 2-4 hovedargumenter
+- Begrunn hvert argument
+- Bruk eksempler og fakta
+- Møt motargumenter
+
+**Avslutning**
+- Oppsummer hovedbudskapet
+- Oppfordring til handling eller refleksjon
+- Avslutt med kraft
+
+**Tips:**
+- Skriv kort og konsist
+- Bruk enkelt språk
+- Vær tydelig på hva du mener
+- Respekter meningsmotstandere`,
+    },
+    {
+      id: 'norsk-vg1-8-1-def-2',
+      type: 'definition',
+      title: 'Argumentasjonsteknikker',
+      content: `**Sterke argumenter:**
+- **Fakta og statistikk:** Tall og forskning
+- **Eksempler:** Konkrete tilfeller som illustrerer poenget
+- **Autoritet:** Eksperter som støtter synspunktet
+- **Logikk:** Fornuftige slutninger
+
+**Svake argumenter (som bør unngås):**
+- **Stråmann:** Forvrenge motstanderens argument
+- **Personangrep:** Angripe personen, ikke argumentet
+- **Falsk dilemma:** Presentere bare to alternativer
+- **Appell til følelser uten fakta:** Kun patos uten logos
+
+**Å møte motargumenter:**
+- Anerkjenn gyldige poenger fra motstanderen
+- Forklar hvorfor ditt syn likevel er bedre
+- Vis at du har forstått saken fra flere sider`,
+    },
+    {
+      id: 'norsk-vg1-8-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av debattinnlegg',
+      problem: 'Analyser strukturen i dette debattinnlegget om skolens starttider.',
+      solution: `**Eksempel på debattinnlegg:**
+
+"Som elev på videregående våkner jeg klokka 6 hver dag, og jeg er ikke alene om å være trøtt. Forskning viser at ungdom har en forskjøvet døgnrytme og trenger mer søvn om morgenen.
+
+**Argument 1:** Studier fra NTNU viser at elever presterer bedre med senere skolestart.
+
+**Argument 2:** Mange elever får for lite søvn, noe som går ut over både læring og helse.
+
+**Motargument behandlet:** Noen mener at arbeidslivet krever tidlig oppmøte. Men skolen bør prioritere læring, og fleksibel arbeidstid er vanlig i mange yrker.
+
+**Konklusjon:** Skolen bør starte klokka 9, ikke 8. Det vil gi bedre læring og friskere elever."
+
+**Analyse:** Innlegget har tydelig struktur med tese, argumenter støttet av forskning, og behandling av motargument.`,
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Skriv et debattinnlegg (200-300 ord) om et tema du engasjerer deg i.',
+        hints: ['Følg strukturen: innledning, hoveddel med argumenter, avslutning', 'Bruk minst ett fakta-argument'],
+        solution: 'Innlegget vurderes etter struktur, argumentasjon og språk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Finn et debattinnlegg i en avis og analyser argumentasjonen. Hvilke retoriske virkemidler brukes?',
+        hints: ['Se etter etos, patos og logos', 'Vurder om argumentene er sterke eller svake'],
+        solution: 'Analysen skal identifisere argumenter, virkemidler og vurdere effektiviteten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Skriv et motinnlegg til debattinnlegget du fant i oppgave 2. Argumenter for motsatt standpunkt.',
+        hints: ['Respekter motstanderens synspunkt', 'Bruk egne argumenter, ikke bare kritikk'],
+        solution: 'Motinnlegget skal vise evne til å argumentere fra ulike perspektiver.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Identifiser feilslutninger i disse argumentene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Du kan ikke stole på ham, han har jo tattoveringer."',
+            solution: 'Personangrep / irrelevant kritikk - tattoveringer har ingenting med troverdighet å gjøre.',
+          },
+          {
+            label: 'b',
+            task: '"Enten er du for oss, eller så er du mot oss."',
+            solution: 'Falsk dilemma - det finnes flere alternativer enn bare disse to.',
+          },
+          {
+            label: 'c',
+            task: '"Alle de andre gjør det, så det må være greit."',
+            solution: 'Appell til mengden - at noe er populært betyr ikke at det er riktig.',
+          },
+        ],
+        solution: 'Å gjenkjenne feilslutninger hjelper deg å skrive sterkere argumentasjon selv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Gjennomfør en klassedebatt om et aktuelt tema. Forbered argumenter for begge sider.',
+        hints: ['Trekk lodd om hvem som skal argumentere for hva', 'Respekter taletid og debattregler'],
+        solution: 'Muntlig debatt øver argumentasjon, lytting og saklig uenighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
 // Eksporter alle kapitler
 // ============================================================================
 
@@ -2217,4 +3229,9 @@ export const NORSK_VG1_CHAPTERS = [
   CHAPTER_NORSK_VG1_4_2,
   CHAPTER_NORSK_VG1_5_1,
   CHAPTER_NORSK_VG1_5_2,
+  CHAPTER_NORSK_VG1_6_1,
+  CHAPTER_NORSK_VG1_6_2,
+  CHAPTER_NORSK_VG1_7_1,
+  CHAPTER_NORSK_VG1_7_2,
+  CHAPTER_NORSK_VG1_8_1,
 ];
