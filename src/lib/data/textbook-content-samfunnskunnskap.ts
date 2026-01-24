@@ -3864,34 +3864,34 @@ Kombinerer flertallsstyre med sterkt vern av individuelle rettigheter og frihete
     {
       id: 'samfunnskunnskap-4-1-example-1',
       type: 'example',
-      title: 'Eksempel: Er alle demokratier like?',
-      problem: `Både Norge og Ungarn kaller seg demokratier. Men de fungerer svært ulikt. Hva skiller et velfungerende demokrati fra et som er under press?`,
-      solution: `**Norge - velfungerende demokrati:**
+      title: 'Eksempel: Ulike syn på demokrati',
+      problem: `Ulike land har ulike politiske systemer. Hvordan kan vi analysere forskjeller mellom demokratier?`,
+      solution: `**Kriterier for å vurdere demokratier:**
+
+**Formelle kjennetegn:**
 - Frie og rettferdige valg
-- Sterke, uavhengige medier
+- Uavhengige medier
 - Uavhengig rettsvesen
-- Ytringsfrihet respekteres
-- Makten fordelt mellom institusjoner
-- Sivilt samfunn blomstrer
-- Korrupsjon holdes i sjakk
+- Ytringsfrihet
+- Maktfordeling
+- Aktivt sivilsamfunn
 
-**Ungarn - demokrati under press:**
-- Valg holdes, men spillereglene endres
-- Medier kontrolleres av regjeringsvennlige
-- Rettsvesenet svekkes
-- Sivilsamfunn begrenses
-- Makt konsentreres hos én leder
-- Kritikere stigmatiseres
+**Ulike demokratimodeller:**
+Demokratier kan organiseres ulikt. Noen vektlegger:
+- Sterke individuelle rettigheter (liberalt demokrati)
+- Direkte folkeavstemninger (som i Sveits)
+- Flertallsstyre med nasjonale verdier
+- Konsensusbygging mellom grupper
 
-**Hva gjør forskjellen?**
-- Respekt for demokratiske institusjoner
-- Aksept for maktfordeling
-- Toleranse for opposisjon
-- Uavhengige kontrollmekanismer
-- Demokratisk kultur
+**Debatt om demokrati:**
+Det er uenighet om hva som utgjør et "ekte" demokrati:
+- Noen mener liberale rettigheter er avgjørende
+- Andre mener flertallsviljen er det viktigste
+- Noen land kritiseres av internasjonale organisasjoner
+- Disse landene mener kritikken er politisk motivert
 
 **Viktig innsikt:**
-Demokrati er ikke bare valg - det er hele systemet av institusjoner, normer og kultur som holder makten i sjakk. Demokrati må pleies og forsvares.`,
+Det finnes ulike syn på hva demokrati innebærer. Det er viktig å kunne analysere forskjeller uten å anta at én modell er den eneste riktige.`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -4367,7 +4367,7 @@ Sosialliberalt parti, personlig frihet og miljø.
 Konservativt parti, lavere skatter, næringsvennlig.
 
 **Fremskrittspartiet (Frp):**
-Liberalistisk/populistisk, lavere skatter, streng innvandring.`,
+Lavere skatter, mindre byråkrati, streng innvandringspolitikk, fokus på valgfrihet.`,
     },
     {
       id: 'samfunnskunnskap-4-4-ex-2',
@@ -4804,47 +4804,52 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_4_7: TextbookChapter = {
     {
       id: 'samfunnskunnskap-4-7-intro',
       type: 'text',
-      content: `## Demokrati under press
+      content: `## Utfordringer for demokratiet
 
-Demokratiet er ikke noe vi kan ta for gitt. Over hele verden ser vi demokratiske tilbakeslag - også i land vi trodde var stabile demokratier. Å forstå truslene mot demokratiet er viktig for å kunne forsvare det.
+Demokratiet står overfor ulike utfordringer. Det er uenighet om hva som utgjør de største truslene, og om hvordan de best kan møtes.
 
-**Globale tendenser:**
-- Demokratisk tilbakegang i mange land
-- Økt polarisering i samfunnet
+**Utfordringer som ofte diskuteres:**
+- Lav valgdeltakelse i noen grupper
+- Polarisering og "vi mot dem"-tenkning
+- Desinformasjon og vanskelig å skille sant fra usant
 - Svekket tillit til institusjoner
-- Spredning av desinformasjon
-- Autoritære ledere som undergraver rettsstaten
+- Økende makt til teknologiselskaper
+
+**Ulike perspektiver:**
+- Noen mener eliter og institusjoner har blitt for fjerne fra folket
+- Andre mener populistiske bevegelser truer liberal-demokratiske verdier
+- Noen bekymrer seg for utenlandsk påvirkning
+- Andre mener innenlandsk polarisering er viktigere
 
 **Norge:**
-Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordringer: Lav valgdeltakelse i noen grupper, hatytringer, og press mot frie medier.`,
+Norge regnes som et av verdens sterkeste demokratier. Utfordringer inkluderer lav valgdeltakelse i noen grupper og debatt om ytringsfrihetens grenser.`,
     },
     {
       id: 'samfunnskunnskap-4-7-def-1',
       type: 'definition',
-      title: 'Indre trusler mot demokratiet',
+      title: 'Utfordringer innenfor demokratiet',
       content: `**Politisk ekstremisme:**
-- Høyreekstremisme og venstreekstremisme
-- Terrorisme (22. juli 2011)
+- Ekstremisme på begge ytterfløyer kan true demokratiet
+- Terrorisme (22. juli 2011 fra høyreekstrem, historisk også fra venstreekstreme)
 - Hatytringer og trusler mot politikere
-- Radikalisering
+- Radikalisering på nettet
 
 **Polarisering:**
 - Økende avstand mellom politiske grupper
-- "Vi mot dem"-tenkning
-- Mindre vilje til kompromiss
+- "Vi mot dem"-tenkning på tvers av politiske skillelinjer
 - Ekkokamre i sosiale medier
 
-**Svekket tillit:**
-- Politikerforakt
-- Mistillit til medier
-- Konspirasjonsteorier
+**Tillitsutfordringer:**
+- Noen mener politikere er for fjerne fra folket
+- Andre mener mistillit til institusjoner undergraver demokratiet
+- Debatt om mediers objektivitet
 - Lav valgdeltakelse i noen grupper
 
-**Økonomisk ulikhet:**
-- Kan føre til politisk fremmedgjøring
-- De fattigste deltar minst
-- Rike får uforholdsmessig innflytelse
-- Undergraver prinsippet om politisk likhet`,
+**Ulike syn på økonomiens rolle:**
+- Noen mener økonomisk ulikhet svekker politisk likhet
+- Andre mener høye skatter og regulering begrenser frihet
+- Debatt om pengers rolle i politikken
+- Uenighet om velferdsstatens omfang`,
     },
     {
       id: 'samfunnskunnskap-4-7-ex-1',
@@ -4853,8 +4858,8 @@ Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordrin
         id: 'samfunnskunnskap-4-7-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Nevn tre indre trusler mot demokratiet.',
-        solution: 'Tre av følgende: Politisk ekstremisme og terrorisme, økende polarisering, svekket tillit til institusjoner, lav valgdeltakelse, økonomisk ulikhet, hatytringer og trusler mot politikere, radikalisering, konspirasjonsteorier.',
+        task: 'Nevn tre utfordringer for demokratiet og forklar hvorfor de kan være problematiske.',
+        solution: 'Tre av følgende: Politisk ekstremisme, polarisering og mangel på dialog, lav valgdeltakelse, tillitsproblemer mellom borgere og institusjoner, hatytringer og trusler, desinformasjon, store teknologiselskapers makt. Disse kan svekke demokratisk deltakelse og debatt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -4862,30 +4867,31 @@ Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordrin
     {
       id: 'samfunnskunnskap-4-7-def-2',
       type: 'definition',
-      title: 'Ytre trusler og nye utfordringer',
-      content: `**Autoritær påvirkning:**
-- Russisk desinformasjon og påvirkningsoperasjoner
-- Cyberangrep mot demokratiske institusjoner
-- Støtte til ekstreme grupperinger
-- Forsøk på å så splid i vestlige demokratier
+      title: 'Eksterne og teknologiske utfordringer',
+      content: `**Utenlandsk påvirkning:**
+- Mange land forsøker å påvirke andre lands politikk
+- Cyberangrep og hacking
+- Desinformasjon fra ulike aktører
+- Debatt om hvor alvorlig trusselen er
 
 **Desinformasjon:**
 - Falske nyheter og manipulert informasjon
 - Sosiale medier som spredningskanal
 - Deepfakes og AI-generert innhold
 - Vanskelig å skille sant fra usant
+- Uenighet om hvem som sprer mest desinformasjon
 
 **Teknologiske utfordringer:**
-- Masseovervåking
-- Algoritmers makt over informasjonsflyt
-- Digitale ekkokamre
-- Personvern under press
+- Store teknologiselskapers makt over informasjon
+- Algoritmers påvirkning på hva vi ser
+- Debatt om personvern vs. sikkerhet
+- Spørsmål om regulering av sosiale medier
 
-**Globale kriser:**
-- Klimakrise kan utfordre demokratisk beslutningskapasitet
-- Migrasjon skaper politisk konflikt
-- Pandemier kan brukes til maktkonsentrasjon
-- Økonomiske kriser skaper grobunn for ekstremisme`,
+**Komplekse politiske spørsmål:**
+- Migrasjon er et tema med sterke meninger på alle sider
+- Miljøpolitikk skaper debatt om demokratisk tempo vs. handlekraft
+- Krisesituasjoner reiser spørsmål om maktbalanse
+- Ulike syn på nasjonalstat vs. overnasjonale organisasjoner`,
     },
     {
       id: 'samfunnskunnskap-4-7-ex-2',
@@ -4903,37 +4909,37 @@ Norge regnes som et av verdens sterkeste demokratier, men også vi har utfordrin
     {
       id: 'samfunnskunnskap-4-7-example-1',
       type: 'example',
-      title: 'Demokratisk tilbakegang i verden',
-      problem: `Hva er "demokratisk tilbakegang", og hvor ser vi det?`,
-      solution: `**Hva er demokratisk tilbakegang?**
-Gradvis svekkelse av demokratiske institusjoner og normer - ofte uten dramatiske statskupp, men gjennom langsom uthuling.
+      title: 'Debatter om demokratiets tilstand',
+      problem: `Det er uenighet om demokratiets tilstand i verden. Hva er de ulike synspunktene?`,
+      solution: `**Bekymringer fra liberalt hold:**
+- Valgte ledere endrer spillereglene
+- Medier under press
+- Domstolers uavhengighet utfordres
+- Sivilsamfunn begrenses i noen land
 
-**Kjennetegn:**
-- Angrep på frie medier
-- Svekkelse av uavhengige domstoler
-- Valgmanipulasjon
-- Undertrykkelse av opposisjon
-- Korrupsjon
+**Motargumenter fra andre:**
+- Disse lederne er demokratisk valgt
+- Kritikken kommer fra eliter som mistet makt
+- Ulike demokratitradisjoner er legitime
+- Internasjonale organisasjoner blander seg inn
 
-**Eksempler:**
+**Eksempler på debatt:**
 
 **Ungarn og Polen:**
-- Valgt regjeringer svekker rettsstaten
-- Kontroll over medier og domstoler
-- EU-konflikter om grunnleggende verdier
+- EU kritiserer for brudd på rettsstatsprinsipper
+- Regjeringene mener de forsvarer nasjonal suverenitet
 
-**Tyrkia:**
-- Fra demokrati til autoritært styre
-- Fengsling av journalister og opposisjonelle
-- Konstitusjonelle endringer som gir presidenten mer makt
+**USA:**
+- Sterk polarisering mellom politiske grupper
+- Uenighet om valgintegritet og pressefrihet
+- Begge sider anklager hverandre
 
-**Brasil og USA:**
-- Polarisering og angrep på valginstitusjoner
-- Stormingen av kongressen (USA 2021)
-- Trusler mot frie valg
+**Generelt:**
+- Noen ser populisme som trussel mot demokrati
+- Andre mener populisme er demokrati i praksis
 
-**Lærdommen:**
-Demokrati kan ikke tas for gitt. Selv etablerte demokratier kan svekkes hvis borgerne ikke forsvarer demokratiske verdier og institusjoner.`,
+**Viktig innsikt:**
+Det er genuint uenighet om hva som styrker og svekker demokratiet. Elever bør lære å analysere ulike perspektiver kritisk.`,
     },
     {
       id: 'samfunnskunnskap-4-7-ex-3',
@@ -4942,8 +4948,8 @@ Demokrati kan ikke tas for gitt. Selv etablerte demokratier kan svekkes hvis bor
         id: 'samfunnskunnskap-4-7-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hva er demokratisk tilbakegang, og gi et eksempel fra et land.',
-        solution: 'Demokratisk tilbakegang er gradvis svekkelse av demokratiske institusjoner. Eksempel Ungarn: Orban-regjeringen har svekket uavhengige medier, tatt kontroll over domstoler, endret valglover, begrenset sivilsamfunnet. Skjer gradvis uten formelt statskupp.',
+        task: 'Hva menes med demokratisk tilbakegang, og hvorfor er det uenighet om begrepet?',
+        solution: 'Demokratisk tilbakegang brukes om svekkelse av demokratiske institusjoner. Uenighet fordi: Kritikere mener valgte ledere svekker rettsstaten. Tilhengere mener lederne gjennomfører velgernes vilje. Noen mener begrepet brukes politisk. Andre mener det beskriver reelle endringer. Viser at demokrati kan defineres ulikt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -4956,8 +4962,8 @@ Demokrati kan ikke tas for gitt. Selv etablerte demokratier kan svekkes hvis bor
         id: 'samfunnskunnskap-4-7-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hva kan gjøres for å beskytte demokratiet mot trusler?',
-        solution: 'Tiltak: Styrke kritisk mediekompetanse, bekjempe desinformasjon, sikre uavhengige medier, beskytte frie valg, opprettholde rettsstaten, motvirke polarisering, øke valgdeltakelse, styrke sivilsamfunnet, internasjonalt samarbeid. Viktigst: Aktive borgere som forsvarer demokratiske verdier.',
+        task: 'Drøft: Hva bør vektlegges for å sikre et godt fungerende demokrati?',
+        solution: 'Ulike syn: Noen mener sterke institusjoner og rettssikkerhet er viktigst. Andre mener flertallsviljen må respekteres mer. Noen vektlegger ytringsfrihet, andre ansvarlig debatt. Tiltak kan inkludere: Øke valgdeltakelse, styrke kritisk tenkning, sikre maktfordeling, respektere mindretallet. Det er politisk uenighet om hva som er viktigst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
