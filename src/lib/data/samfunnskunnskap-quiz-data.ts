@@ -7630,6 +7630,26 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       ],
       explanation: 'Flyktningkonvensjonen fastslår at flyktninger har rett til beskyttelse og ikke kan sendes tilbake til et land der de risikerer forfølgelse. Dette kalles non-refoulement-prinsippet.',
     },
+    {
+      question: 'Hva er forskjellen mellom en flyktning og en okonomisk migrant?',
+      options: [
+        'Flyktninger flykter fra forfolgelse, okonomiske migranter soker bedre levekar',
+        'Det er ingen forskjell',
+        'Flyktninger er alltid fattige',
+        'Okonomiske migranter er ulovlige',
+      ],
+      explanation: 'Flyktninger flykter fra forfolgelse eller krig og har rett til beskyttelse etter flyktningkonvensjonen. Okonomiske migranter soker bedre levekar, men har ikke samme rettigheter.',
+    },
+    {
+      question: 'Hva debatteres om innvandringspolitikk?',
+      options: [
+        'Balansen mellom humanitaere hensyn og integreringsutfordringer',
+        'Alle er enige om innvandringspolitikk',
+        'Innvandring debatteres ikke i Norge',
+        'Kun okonomiske sporsmaal',
+      ],
+      explanation: 'Det debatteres om antall innvandrere, integreringspolitikk, kostnader for velferdsstaten og balansen mellom humanitaere forpliktelser og samfunnsutfordringer.',
+    },
   ],
 
   'samfunnskunnskap-10-3': [
