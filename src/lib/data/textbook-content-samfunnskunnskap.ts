@@ -843,52 +843,51 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_1_6: TextbookChapter = {
   id: 'samfunnskunnskap-1-6',
   courseId: 'samfunnskunnskap',
   chapterNumber: '1.6',
-  title: 'Kjønn, seksualitet og mangfold',
-  description: 'Forstå mangfoldet i kjønnsidentitet og seksuell orientering, og reflektere over normer og forventninger.',
+  title: 'Kjønn, seksualitet og samfunn',
+  description: 'Utforske ulike syn på kjønn og seksualitet, og forstå hvordan disse temaene debatteres i samfunnet.',
   estimatedMinutes: 30,
   competenceGoals: [
-    'reflektere over kjønnsmangfold og seksuelt mangfold',
-    'drøfte hvordan normer og forventninger påvirker individer',
+    'reflektere over ulike perspektiver på kjønn og seksualitet',
+    'drøfte hvordan normer og forventninger varierer i samfunnet',
   ],
   content: [
     {
       id: 'samfunnskunnskap-1-6-intro',
       type: 'text',
-      content: `## Mangfold i kjønn og seksualitet
+      content: `## Kjønn og seksualitet i samfunnet
 
-Mennesker er forskjellige - også når det gjelder kjønn og seksualitet. Å forstå og respektere dette mangfoldet er viktig for et inkluderende samfunn.
+Kjønn og seksualitet er temaer der mennesker har ulike syn og verdier. Disse synspunktene kan være formet av biologi, kultur, religion, personlige erfaringer og politisk overbevisning.
 
-**Viktige perspektiver:**
-- Kjønn og seksualitet er mer mangfoldig enn tradisjonelle kategorier
-- Normer og forventninger varierer mellom kulturer og over tid
-- Alle har rett til å være seg selv
-- Diskriminering på grunn av kjønn eller seksualitet er forbudt
-- Kunnskap fremmer forståelse og respekt
+**Ulike perspektiver i samfunnet:**
+- Noen legger hovedvekt på biologiske forskjeller mellom kjønnene
+- Andre fremhever sosiale og kulturelle faktorer
+- Religiøse tradisjoner har ofte definerte syn på kjønn og seksualitet
+- Politiske ståsteder varierer fra tradisjonelle til progressive
+- Vitenskapelige miljøer har også ulike tilnærminger
 
-Norge har kommet langt i å sikre like rettigheter, men fordommer og diskriminering eksisterer fortsatt.`,
+Å forstå at det finnes flere perspektiver på disse spørsmålene, og at folk kan være uenige i god tro, er viktig for å delta i samfunnsdebatten.`,
     },
     {
       id: 'samfunnskunnskap-1-6-def-1',
       type: 'definition',
       title: 'Grunnleggende begreper',
       content: `**Biologisk kjønn:**
-De fysiske egenskapene som tradisjonelt definerer kroppen som mann eller kvinne. Noen mennesker er født med variasjon i biologisk kjønn (interkjønn).
+De fysiske egenskapene som definerer kroppen som mann eller kvinne. Basert på kromosomer, hormoner og reproduktive organer. Et lite mindretall (ca. 0,02-0,05%) fødes med variasjon i kjønnskarakteristika.
 
 **Kjønnsidentitet:**
-Den indre opplevelsen av eget kjønn. De fleste opplever samsvar mellom biologisk kjønn og kjønnsidentitet (ciskjønnet), mens noen opplever at de ikke stemmer overens (transkjønnet).
+Hvordan en person opplever sitt eget kjønn. De aller fleste opplever samsvar mellom biologisk kjønn og kjønnsidentitet. Noen opplever at disse ikke samsvarer (kjønnsinkongruens).
 
-**Kjønnsuttrykk:**
-Hvordan vi uttrykker kjønn gjennom klær, frisyre, oppførsel osv.
+**Kjønnsroller:**
+Samfunnets forventninger til hvordan menn og kvinner skal oppføre seg. Disse har endret seg betydelig over tid.
 
 **Seksuell orientering:**
-Hvem man er tiltrukket av:
-- Heterofil: Tiltrukket av motsatt kjønn
+Hvem man føler romantisk og seksuell tiltrekning til:
+- Heterofil: Tiltrukket av motsatt kjønn (det store flertallet)
 - Homofil/lesbisk: Tiltrukket av samme kjønn
-- Bifil: Tiltrukket av flere kjønn
-- Aseksuell: Opplever lite eller ingen seksuell tiltrekning
+- Bifil: Tiltrukket av begge kjønn
 
-**LHBTIQ+:**
-Samlebetegnelse for lesbiske, homofile, bifile, transpersoner, interkjønn, queer og andre.`,
+**Viktig å merke seg:**
+Det finnes ulike syn på hvordan disse begrepene skal forstås og brukes. Noen vektlegger biologiske definisjoner, andre vektlegger personlig opplevelse.`,
     },
     {
       id: 'samfunnskunnskap-1-6-ex-1',
@@ -897,8 +896,8 @@ Samlebetegnelse for lesbiske, homofile, bifile, transpersoner, interkjønn, quee
         id: 'samfunnskunnskap-1-6-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Forklar forskjellen mellom biologisk kjønn, kjønnsidentitet og seksuell orientering.',
-        solution: 'Biologisk kjønn: Fysiske egenskaper (kroppen). Kjønnsidentitet: Indre opplevelse av eget kjønn (hvem man er). Seksuell orientering: Hvem man er tiltrukket av. De tre tingene er uavhengige av hverandre.',
+        task: 'Forklar hva som menes med biologisk kjønn og seksuell orientering.',
+        solution: 'Biologisk kjønn refererer til de fysiske egenskapene som definerer kroppen som mann eller kvinne - kromosomer, hormoner og reproduktive organer. Seksuell orientering handler om hvem man føler romantisk og seksuell tiltrekning til.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -906,24 +905,26 @@ Samlebetegnelse for lesbiske, homofile, bifile, transpersoner, interkjønn, quee
     {
       id: 'samfunnskunnskap-1-6-def-2',
       type: 'definition',
-      title: 'Normer og forventninger',
-      content: `**Kjønnsnormer:**
-Samfunnets forventninger til hvordan kvinner og menn skal oppføre seg, se ut og hvilke roller de skal ha.
+      title: 'Ulike perspektiver på kjønn',
+      content: `**Biologisk/tradisjonelt perspektiv:**
+- Kjønn er primært biologisk bestemt
+- Mann og kvinne er de to naturlige kategoriene
+- Biologiske forskjeller har betydning for roller og atferd
+- Tradisjonelle kjønnsroller har en funksjon i samfunnet
 
-**Heteronormativitet:**
-Antagelsen om at alle er heterofile og at heterofili er "normalen".
+**Sosialkonstruktivistisk perspektiv:**
+- Kjønnsroller er hovedsakelig sosialt og kulturelt skapt
+- Forventninger til kjønn varierer mellom kulturer og epoker
+- Tradisjonelle kjønnsroller kan begrense individets frihet
+- Kjønnsidentitet kan være mer flytende enn biologien tilsier
 
-**Stereotypier:**
-Forenklede forestillinger om grupper, f.eks. "jenter liker rosa" eller "gutter gråter ikke".
+**Religiøse perspektiver:**
+- Mange religioner har definerte syn på kjønn og seksualitet
+- Tradisjonelle ekteskaps- og familieverdier vektlegges ofte
+- Mennesker av tro kan ha ulike syn på hvordan disse skal tolkes i dag
 
-**Hvordan normer påvirker:**
-- Forventninger til utdanning og yrker
-- Press om å passe inn
-- Kan begrense individuell frihet
-- Kan føre til skam og utenforskap for de som ikke passer inn
-
-**Normer endres:**
-Synet på kjønn og seksualitet har endret seg mye de siste tiårene. Det som var tabu før, er mer akseptert nå.`,
+**Viktig poeng:**
+Folk med ulike syn kan likevel behandle hverandre med respekt og verdighet. Uenighet i sak betyr ikke nødvendigvis diskriminering.`,
     },
     {
       id: 'samfunnskunnskap-1-6-ex-2',
@@ -932,8 +933,8 @@ Synet på kjønn og seksualitet har endret seg mye de siste tiårene. Det som va
         id: 'samfunnskunnskap-1-6-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Gi eksempler på kjønnsnormer i samfunnet vårt. Hvordan kan disse påvirke individer?',
-        solution: 'Eksempler: Forventninger om utseende (jenter: sminke, gutter: ikke gråte), yrkesvalg (sykepleier vs. ingeniør), interesser, farger. Påvirkning: Kan begrense valgfrihet, skape press om å passe inn, føre til skam hos de som bryter normene.',
+        task: 'Beskriv to ulike perspektiver på kjønnsroller og diskuter styrker og svakheter ved hvert syn.',
+        solution: 'Biologisk perspektiv vektlegger at kjønnsforskjeller har biologiske årsaker og at tradisjonelle roller har en naturlig basis. Styrke: Tar hensyn til biologiske realiteter. Svakhet: Kan begrense individuell frihet. Sosialkonstruktivistisk perspektiv vektlegger at roller er kulturelt skapt. Styrke: Åpner for endring og individuell frihet. Svakhet: Kan underkjenne biologiske faktorer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -941,36 +942,48 @@ Synet på kjønn og seksualitet har endret seg mye de siste tiårene. Det som va
     {
       id: 'samfunnskunnskap-1-6-example-1',
       type: 'example',
-      title: 'Eksempel: Å komme ut',
-      problem: `Emil er 17 år og har funnet ut at han er homofil. Han lurer på om han skal fortelle det til familie og venner. Hva kan han tenke på?`,
-      solution: `**Emils situasjon:**
-Å "komme ut" er en personlig beslutning som hver enkelt må ta i sitt eget tempo.
+      title: 'Eksempel: Debatt om kjønnsroller',
+      problem: `I en klassedebatt diskuterer elevene om det bør være like mange menn og kvinner i alle yrker. Noen mener ja, andre mener nei. Hvilke argumenter kan brukes på begge sider?`,
+      solution: `**Argumenter for aktive tiltak for kjønnsbalanse:**
+- Historiske barrierer har hindret like muligheter
+- Mangfold kan gi bedre beslutninger og perspektiver
+- Rollemodeller kan inspirere flere til å velge utradisjonelt
+- Like muligheter er et spørsmål om rettferdighet
 
-**Ting Emil kan vurdere:**
+**Argumenter mot kvotering/aktive tiltak:**
+- Frie valg kan føre til ulik kjønnsfordeling uten at det er et problem
+- Biologiske forskjeller kan påvirke preferanser
+- Tvungen balanse kan gå på bekostning av kvalifikasjoner
+- Individets frie valg bør respekteres
 
-**Trygghet:**
-- Er miljøet hans støttende?
-- Har han noen trygge personer å starte med?
-- Finnes det støttegrupper eller organisasjoner som kan hjelpe?
+**Viktige nyanser:**
+- Like muligheter er noe annet enn like utfall
+- Man kan støtte likestilling og samtidig være skeptisk til kvotering
+- Ulike yrker har ulik kjønnsbalanse av ulike grunner
+- Dette er et spørsmål der rimelige mennesker er uenige`,
+    },
+    {
+      id: 'samfunnskunnskap-1-6-def-3',
+      type: 'definition',
+      title: 'Homofili - fakta og ulike syn',
+      content: `**Fakta om homofili:**
+- Homofili finnes i alle samfunn og har eksistert gjennom historien
+- De fleste forskere mener seksuell orientering ikke er et valg
+- Et mindretall av befolkningen (anslagsvis 2-5%) er homofile eller bifile
 
-**Tidspunkt:**
-- Det er ingen fasit på når man bør komme ut
-- Det er OK å vente til man er klar
-- Man trenger ikke komme ut til alle samtidig
+**Juridisk status i Norge:**
+- Homofili var straffbart i Norge til 1972
+- Partnerskapsloven kom i 1993
+- Felles ekteskapslov ble innført i 2009
+- Diskriminering på grunn av seksuell orientering er forbudt
 
-**Mulige reaksjoner:**
-- Noen reagerer positivt med en gang
-- Noen trenger tid til å prosessere
-- Dessverre reagerer noen negativt
+**Ulike syn i samfunnet:**
+- **Liberalt syn:** Homofili er en naturlig variasjon som bør ha fulle rettigheter på linje med heterofili
+- **Tradisjonelt/religiøst syn:** Noen religioner og tradisjoner ser homofilt samliv som moralsk problematisk, samtidig som de mener homofile skal behandles med respekt
+- **Praktisk kompromiss:** Mange mener at uavhengig av personlig syn, skal alle behandles likt for loven
 
-**Ressurser:**
-- Skeiv Ungdom
-- FRI - Foreningen for kjønns- og seksualitetsmangfold
-- Rådgivningstjenester
-- Nettsamfunn med andre i samme situasjon
-
-**Viktig:**
-Emil bestemmer selv. Hans seksuelle orientering er en naturlig del av hvem han er.`,
+**Viktig distinksjon:**
+Det er forskjell på å ha et syn på hva som er moralsk riktig, og å diskriminere mennesker. Man kan respektere mennesker selv om man er uenig med dem.`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -980,9 +993,9 @@ Emil bestemmer selv. Hans seksuelle orientering er en naturlig del av hvem han e
         id: 'samfunnskunnskap-1-6-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hvordan har synet på homofili endret seg i Norge de siste 50 årene?',
-        hints: ['Tenk på lover, holdninger og synlighet'],
-        solution: 'Endringer: Homofili var straffbart til 1972, partnerskapsloven kom 1993, likekjønnet ekteskap 2009. Holdninger har blitt mye mer positive. LHBTIQ+-personer er mer synlige i media og samfunn. Pride-parader har bred støtte. Men diskriminering finnes fortsatt.',
+        task: 'Hvordan har lovverket knyttet til homofili endret seg i Norge de siste 50 årene? Beskriv de viktigste milepælene.',
+        hints: ['Se på straffelov, partnerskapslov og ekteskapslov'],
+        solution: 'Viktige endringer: Homofili var straffbart frem til 1972. Partnerskapsloven kom i 1993 og ga homofile par mange av de samme rettighetene som ektepar. I 2009 ble ekteskapsloven endret til å også omfatte par av samme kjønn. Diskrimineringsloven beskytter mot forskjellsbehandling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -994,8 +1007,9 @@ Emil bestemmer selv. Hans seksuelle orientering er en naturlig del av hvem han e
         id: 'samfunnskunnskap-1-6-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvorfor er det viktig at skoler lærer om kjønns- og seksualitetsmangfold?',
-        solution: 'Argumenter: Skaper trygghet for LHBTIQ+-elever, fremmer forståelse og respekt, forebygger mobbing og diskriminering, gir kunnskap alle trenger, reflekterer samfunnets mangfold, støtter opp under menneskerettigheter og likeverd.',
+        task: 'Drøft: Hvordan kan samfunnet håndtere at folk har ulike syn på spørsmål knyttet til kjønn og seksualitet, samtidig som alle behandles med respekt?',
+        hints: ['Tenk på ytringsfrihet, antidiskriminering, toleranse og pluralisme'],
+        solution: 'Ulike tilnærminger: Skille mellom personlige syn og offentlig diskriminering. Ytringsfriheten beskytter retten til å uttrykke ulike syn. Antidiskrimineringslover sikrer lik behandling i arbeidslivet og offentlige tjenester. Toleranse betyr å tåle at andre mener noe annet enn deg selv. Et pluralistisk samfunn har rom for mennesker med ulike verdier og livssyn, så lenge alle følger loven.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
