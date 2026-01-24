@@ -1982,14 +1982,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Tvungen lønnsnemnd er når staten griper inn og tvinger partene til å godta en løsning - brukes sjelden.',
     },
     {
-      question: 'Hvorfor har Norge relativt lave lønnsforskjeller?',
+      question: 'Hva forklarer Norges relativt lave lønnsforskjeller?',
       options: [
         'Høy organisasjonsgrad, tariffavtaler og trepartssamarbeid',
         'Staten bestemmer alle lønninger',
         'Det er ingen fagforeninger i Norge',
         'Alle tjener det samme',
       ],
-      explanation: 'Norge har lave lønnsforskjeller på grunn av høy organisasjonsgrad, tariffavtaler og solidarisk lønnspolitikk.',
+      explanation: 'Norge har lave lønnsforskjeller på grunn av tariffavtaler og trepartssamarbeid. Det er uenighet om dette er positivt eller om det hemmer vekst.',
     },
     {
       question: 'Hvor lenge gjelder vanligvis en tariffavtale?',
@@ -2530,14 +2530,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Pressefrihet betyr at mediene er frie og uavhengige, og kan kritisere og overvåke de som har makt.',
     },
     {
-      question: 'Hvilken trussel kan demokratiet stå overfor i dag?',
+      question: 'Hvilke utfordringer kan demokratiet stå overfor?',
       options: [
-        'Spredning av desinformasjon og politisk polarisering',
+        'Polarisering, tillitsproblemer og desinformasjon',
         'For mye ytringsfrihet',
         'For mange politiske partier',
         'For hyppige valg',
       ],
-      explanation: 'Trusler mot demokratiet inkluderer desinformasjon, polarisering, autoritære tendenser og svekket tillit til institusjoner.',
+      explanation: 'Utfordringer for demokratiet kan inkludere polarisering, tillitsproblemer og desinformasjon. Det er uenighet om hva som er de viktigste utfordringene.',
     },
   ],
 
