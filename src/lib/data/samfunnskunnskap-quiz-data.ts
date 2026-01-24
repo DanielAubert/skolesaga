@@ -4979,7 +4979,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Forbud mot religionsfrihet',
         'Sensur av alle medier',
       ],
-      explanation: 'Eksempler pa utfordringer i Norge er samiske rettigheter, barnefattigdom, diskriminering og LHBT+-rettigheter.',
+      explanation: 'Eksempler pa utfordringer som diskuteres i Norge er samiske rettigheter og arealforvaltning, barnefattigdom og tvang i psykiatrien. Det er ofte uenighet om hva som utgjor menneskerettighetsutfordringer.',
     },
     {
       question: 'Hva er Sivilombudets rolle?',
@@ -5178,14 +5178,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Handhevelse er vanskelig fordi det ikke finnes noe verdenspoliti, og suverenitetsprinsippet beskytter staters selvbestemmelse.',
     },
     {
-      question: 'Hva er en trussel mot menneskerettighetene i dag?',
+      question: 'Hva er en utfordring for menneskerettighetene i dag?',
       options: [
-        'Populistiske bevegelser og autoritaere regimer',
+        'Autoritaere regimer og masseovervakningsteknologi',
         'For mange demokratier',
         'For stor ytringsfrihet',
         'For mange menneskerettighetsorganisasjoner',
       ],
-      explanation: 'Trusler inkluderer populistiske bevegelser som avviser menneskerettigheter, autoritaere regimer og masseovervakningsteknologi.',
+      explanation: 'Utfordringer inkluderer autoritaere regimer som undertrykker opposisjon, masseovervakningsteknologi, og debatter om balansen mellom nasjonal suverenitet og internasjonale forpliktelser.',
     },
     {
       question: 'Hvordan kan rettigheter avveies mot hverandre?',

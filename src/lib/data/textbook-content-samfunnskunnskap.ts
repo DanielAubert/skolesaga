@@ -8018,12 +8018,13 @@ Selv om Norge har sterkt menneskerettighetsvern, finnes utfordringer:
 - Bostedsløshet
 - Rus og psykiske lidelser
 
-**Diskriminering:**
-- Rasisme og islamofobi
-- Diskriminering i arbeidslivet
-- LHBT+-personer
+**Debatt om diskriminering:**
+- Uenighet om hva som utgjør diskriminering versus legitime synspunkter
+- Debatt om ansettelsespraksis og likebehandling
+- Spørsmål om balanse mellom ulike gruppers rettigheter og interesser
+- Ulike syn på hvor grensene går mellom meningsforskjeller og diskriminering
 
-Norge mottar jevnlig kritikk og anbefalinger fra FN-organer og EMD. Dette viser at menneskerettighetsarbeid er en kontinuerlig prosess.`,
+Norge mottar jevnlig kritikk og anbefalinger fra FN-organer og EMD. Det er debatt om hvorvidt all slik kritikk er berettiget, eller om den noen ganger reflekterer politiske perspektiver snarere enn objektive standarder.`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -8034,7 +8035,7 @@ Norge mottar jevnlig kritikk og anbefalinger fra FN-organer og EMD. Dette viser 
         number: '4',
         type: 'classic',
         task: 'Gi eksempler på menneskerettighetsutfordringer i Norge i dag.',
-        solution: 'Eksempler: Samiske rettigheter/arealforvaltning, barnefattigdom, diskriminering i arbeidslivet, LHBT+-rettigheter, eldres situasjon i institusjon, ytringsfrihet vs. hatprat, personvern vs. overvåkning, tvang i psykiatrien, asylbarns situasjon.',
+        solution: 'Eksempler: Samiske rettigheter/arealforvaltning, barnefattigdom, eldres situasjon i institusjon, ytringsfrihet vs. hatprat, personvern vs. overvåkning, tvang i psykiatrien, asylbarns situasjon. Det er ofte uenighet om hva som utgjør et menneskerettighetsproblem versus legitime politiske avveininger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -8429,19 +8430,24 @@ Avveiningen gjøres ofte av domstolene, som EMD eller Høyesterett.`,
       type: 'text',
       content: `## Menneskerettighetenes fremtid
 
-### Trusler
-- Populistiske bevegelser som avviser menneskerettigheter
+### Utfordringer og debatter
 - Autoritære regimer som undertrykker opposisjon
 - Teknologi som muliggjør masseovervåkning
-- Nasjonalisme og fremmedfiendtlighet
-- Terrorisme og sikkerhetsargumenter
+- Terrorisme og sikkerhetsargumenter som kan utfordre rettssikkerhet
+- Debatt om balansen mellom nasjonal suverenitet og internasjonale forpliktelser
+- Uenighet om hvordan menneskerettigheter skal tolkes og prioriteres
+- Spørsmål om overnasjonale domstolers demokratiske legitimitet
+
+### Ulike perspektiver
+- Noen mener internasjonale organer går for langt i å overstyre nasjonale demokratier
+- Andre mener internasjonalt press er nødvendig for å beskytte minoriteter
+- Debatt om hvem som skal definere menneskerettighetenes innhold
 
 ### Muligheter
-- Økt bevissthet gjennom sosiale medier
+- Økt bevissthet om rettigheter
 - Sivilsamfunnet som vaktbikkje
-- Nye konvensjoner for nye utfordringer
 - Juridisk utvikling i domstolene
-- Ungdommens engasjement
+- Bred enighet om grunnleggende verdier som rettssikkerhet og ytringsfrihet
 
 ### Viktige prinsipper
 - Menneskerettigheter er aldri fullstendig sikret
