@@ -11296,6 +11296,7 @@ export const COURSE_SPANSK_1: TextbookCourse = {
   description: 'Spansk for nybegynnere - hilsener, tall, farger, familie og hverdagsfraser',
   curriculum: 'LK20',
   icon: '🇪🇸',
+  coverImage: '/images/subjects/spansk-1-hero.png',
   chapters: [
     {
       id: 'spansk-1-1-1',
@@ -11411,6 +11412,7 @@ export const COURSE_TYSK_1: TextbookCourse = {
   description: 'Tysk for nybegynnere - hilsener, tall, farger, familie og hverdagsfraser',
   curriculum: 'LK20',
   icon: '🇩🇪',
+  coverImage: '/images/subjects/tysk-1-hero.png',
   chapters: [
     {
       id: 'tysk-1-1-1',
@@ -11526,6 +11528,7 @@ export const COURSE_FRANSK_1: TextbookCourse = {
   description: 'Fransk for nybegynnere - hilsener, tall, farger, familie og hverdagsfraser',
   curriculum: 'LK20',
   icon: '🇫🇷',
+  coverImage: '/images/subjects/fransk-1-hero.png',
   chapters: [
     {
       id: 'fransk-1-1-1',
@@ -11915,6 +11918,7 @@ export const COURSE_KROPPSOVING_VG1: TextbookCourse = {
   description: 'Kroppsøving - trening, helse, idrett og friluftsliv',
   curriculum: 'LK20',
   icon: '🏃',
+  coverImage: '/images/subjects/kroppsoving-vg1-hero.png',
   chapters: [
     { id: 'kroppsoving-vg1-1', number: '1', title: 'Trening og treningsprinsipper', description: 'Lær om grunnleggende treningsprinsipper og hvordan du kan planlegge effektiv trening.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Treningsprinsipper', 'Overload', 'Progresjon'], competenceGoals: ['planlegge, gjennomføre og vurdere egentrening', 'bruke treningsprinsipper for å utvikle fysiske egenskaper'] },
     { id: 'kroppsoving-vg1-2', number: '2', title: 'Anatomi og fysiologi', description: 'Forstå kroppens oppbygning og funksjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Muskler', 'Skjelett', 'Hjerte-kar'], competenceGoals: ['forklare kroppens funksjon'] },
