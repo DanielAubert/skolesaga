@@ -1,12 +1,21 @@
 /**
  * Tekstbok innhold for Historie (VG2-VG3)
  *
- * Folger LK20 lareplan for historie.
- * Dekker sentrale temaer innen historisk metode, antikken, middelalderen,
- * revolusjoner, imperialisme, verdenskrigene og den kalde krigen.
+ * Følger LK20 læreplan for historie med alle 28 kompetansemål.
+ * Dekker 17 kapitler organisert i 6 deler:
+ * - Del 1: Historisk metode og tenkning (Kap 1-2)
+ * - Del 2: Fra antikken til tidlig nytid (Kap 3-5)
+ * - Del 3: Revolusjoner og nasjonsbygging (Kap 6-8)
+ * - Del 4: Imperialisme og global historie (Kap 9-10)
+ * - Del 5: Verdenskrigene (Kap 11-13)
+ * - Del 6: Etterkrigstid og moderne tid (Kap 14-17)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
+import { HISTORIE_CHAPTERS_DEL1 } from './textbook-content-historie-del1';
+import { HISTORIE_CHAPTERS_DEL2 } from './textbook-content-historie-del2';
+import { HISTORIE_CHAPTERS_DEL3, HISTORIE_CHAPTERS_DEL3_VG2, HISTORIE_CHAPTERS_DEL3_VG3 } from './textbook-content-historie-del3';
+import { HISTORIE_CHAPTERS_DEL4 } from './textbook-content-historie-del4';
 
 // ============================================================================
 // KAPITTEL 1: Historisk metode og kildekritikk
@@ -2338,7 +2347,8 @@ Fiskerigrense, Svalbard, havretten - spenninger og forhandlinger med Sovjet.`,
 // EKSPORT
 // ============================================================================
 
-export const HISTORIE_CHAPTERS = [
+// Behold de gamle kapitlene for bakoverkompatibilitet (brukes av gamle ID-er)
+export const HISTORIE_LEGACY_CHAPTERS = [
   CHAPTER_HISTORIE_1,
   CHAPTER_HISTORIE_2,
   CHAPTER_HISTORIE_3,
@@ -2349,4 +2359,27 @@ export const HISTORIE_CHAPTERS = [
   CHAPTER_HISTORIE_8,
   CHAPTER_HISTORIE_9,
   CHAPTER_HISTORIE_10,
+];
+
+// Ny fullstendig eksport med alle 70 kapitler fra LK20
+export const HISTORIE_CHAPTERS: TextbookChapter[] = [
+  ...HISTORIE_CHAPTERS_DEL1,
+  ...HISTORIE_CHAPTERS_DEL2,
+  ...HISTORIE_CHAPTERS_DEL3,
+  ...HISTORIE_CHAPTERS_DEL4,
+];
+
+// VG2-kapitler (Kapittel 1-10): Historisk metode, antikken, middelalderen, renessanse,
+// revolusjoner, industrialisering, nasjonalisme, imperialisme, kulturmøter
+export const HISTORIE_CHAPTERS_VG2: TextbookChapter[] = [
+  ...HISTORIE_CHAPTERS_DEL1,  // Kap 1-4
+  ...HISTORIE_CHAPTERS_DEL2,  // Kap 5-8
+  ...HISTORIE_CHAPTERS_DEL3_VG2,  // Kap 9-10
+];
+
+// VG3-kapitler (Kapittel 11-17): Første verdenskrig, mellomkrigstid, andre verdenskrig,
+// kald krig, velferdsstat, norsk identitet, samtidshistorie
+export const HISTORIE_CHAPTERS_VG3: TextbookChapter[] = [
+  ...HISTORIE_CHAPTERS_DEL3_VG3,  // Kap 11-12
+  ...HISTORIE_CHAPTERS_DEL4,  // Kap 13-17
 ];

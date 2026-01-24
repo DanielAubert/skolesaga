@@ -3948,6 +3948,7 @@ export const COURSE_S2: TextbookCourse = {
   description: 'Samfunnsfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📉',
+  coverImage: '/images/subjects/matematikk-s2-hero.png',
   chapters: [
     // Kapittel 1: Integrasjon
     {
@@ -11864,27 +11865,140 @@ export const COURSE_NORSK_VG2: TextbookCourse = {
 };
 
 // ============================================================================
-// Historie (VG2-VG3)
+// Historie VG2
 // ============================================================================
 
-export const COURSE_HISTORIE: TextbookCourse = {
-  id: 'historie',
-  title: 'Historie',
-  level: 'VG2-VG3',
-  description: 'Historie - fra antikken til moderne tid, kildekritikk og historisk metode',
+export const COURSE_HISTORIE_VG2: TextbookCourse = {
+  id: 'historie-vg2',
+  title: 'Historie VG2',
+  level: 'VG2',
+  description: 'Historie VG2 - fra antikken til imperialismen. Dekker 11 kompetansemål i LK20.',
   curriculum: 'LK20',
   icon: '🏛️',
   chapters: [
-    { id: 'historie-1-1', number: '1.1', title: 'Historisk metode og kildekritikk', description: 'Lær å arbeide med kilder og historisk metode.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kildekritikk', 'Historisk metode', 'Tolkning'], competenceGoals: ['vurdere historiske kilder kritisk'] },
-    { id: 'historie-1-2', number: '1.2', title: 'Antikken - Hellas og Roma', description: 'Utforsk de antikke sivilisasjonene.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Hellas', 'Roma', 'Demokrati', 'Filosofi'], competenceGoals: ['forklare antikkens betydning'] },
-    { id: 'historie-2-1', number: '2.1', title: 'Middelalderen', description: 'Lær om middelalderen i Europa og Norge.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Føydalisme', 'Kirken', 'Norge i middelalderen'], competenceGoals: ['beskrive middelaldersamfunnet'] },
-    { id: 'historie-2-2', number: '2.2', title: 'Renessanse og reformasjon', description: 'Utforsk renessansen og reformasjonen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Renessanse', 'Reformasjon', 'Humanisme'], competenceGoals: ['analysere endringer i tidlig nytid'] },
-    { id: 'historie-3-1', number: '3.1', title: 'Revolusjoner og nasjonsbygging', description: 'Lær om revolusjonene og nasjonalismen.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Revolusjon', 'Nasjonalisme', '1814'], competenceGoals: ['forklare revolusjonenes betydning'] },
-    { id: 'historie-3-2', number: '3.2', title: 'Imperialisme og kolonialisme', description: 'Forstå imperialismen og dens konsekvenser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Imperialisme', 'Kolonialisme', 'Afrika', 'Asia'], competenceGoals: ['drøfte imperialismens virkninger'] },
-    { id: 'historie-4-1', number: '4.1', title: 'Første verdenskrig', description: 'Utforsk årsaker og konsekvenser av første verdenskrig.', estimatedMinutes: 55, exerciseCount: 6, topics: ['1914-1918', 'Skyttergravskrig', 'Versailles'], competenceGoals: ['analysere første verdenskrig'] },
-    { id: 'historie-4-2', number: '4.2', title: 'Mellomkrigstiden', description: 'Lær om mellomkrigstiden og totalitære ideologier.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fascisme', 'Nazisme', 'Kommunisme', 'Depresjonen'], competenceGoals: ['forklare fremveksten av totalitære ideologier'] },
-    { id: 'historie-5-1', number: '5.1', title: 'Andre verdenskrig og Holocaust', description: 'Forstå andre verdenskrig og Holocaust.', estimatedMinutes: 60, exerciseCount: 6, topics: ['1939-1945', 'Holocaust', 'Okkupasjon'], competenceGoals: ['analysere andre verdenskrig'] },
-    { id: 'historie-5-2', number: '5.2', title: 'Den kalde krigen', description: 'Utforsk den kalde krigen og etterkrigstiden.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kald krig', 'NATO', 'Warszawa', 'Murens fall'], competenceGoals: ['forklare den kalde krigens dynamikk'] },
+    // DEL 1: HISTORISK METODE OG TENKNING (Kap 1-2)
+    // Kapittel 1: Historisk metode
+    { id: 'historie-1-1', number: '1.1', title: 'Hva er historie?', description: 'Historiefagets egenart og hvordan fortiden former oss.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiefaget', 'Fortid og nåtid', 'Historiebevissthet'], competenceGoals: ['reflektere over hvordan fortiden former oss'] },
+    { id: 'historie-1-2', number: '1.2', title: 'Kilder og kildekritikk', description: 'Lær å arbeide med og vurdere historiske kilder.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Primærkilder', 'Sekundærkilder', 'Kildekritikk', 'Tolkning'], competenceGoals: ['utforske fortiden - stille spørsmål, bruke historisk materiale'] },
+    { id: 'historie-1-3', number: '1.3', title: 'Periodisering av fortiden', description: 'Hvordan vi deler inn historien i perioder og epoker.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Periodisering', 'Epoker', 'Tidslinje', 'Historisk tid'], competenceGoals: ['periodisering av fortiden'] },
+    { id: 'historie-1-4', number: '1.4', title: 'Historiebruk og historiebevissthet', description: 'Hvordan historie brukes og tolkes i ulike sammenhenger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiebruk', 'Historiebevissthet', 'Minne', 'Identitet'], competenceGoals: ['fortolkninger av fortiden preget av nåtid', 'historiebruk av ulike aktører'] },
+
+    // Kapittel 2: Å arbeide med historie
+    { id: 'historie-2-1', number: '2.1', title: 'Problemstillinger og undersøkelser', description: 'Formulere spørsmål og gjennomføre historiske undersøkelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Problemstilling', 'Metode', 'Undersøkelse', 'Analyse'], competenceGoals: ['formulere problemstillinger, finne og vurdere materiale'] },
+    { id: 'historie-2-2', number: '2.2', title: 'Ulike framstillinger og perspektiver', description: 'Sammenligne og vurdere ulike historiske framstillinger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Perspektiv', 'Framstilling', 'Tolkning', 'Sammenligning'], competenceGoals: ['sammenligne ulike framstillinger'] },
+    { id: 'historie-2-3', number: '2.3', title: 'Brudd og kontinuitet', description: 'Forstå historiske endringer og det som vedvarer.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Brudd', 'Kontinuitet', 'Endring', 'Stabilitet'], competenceGoals: ['brudd eller kontinuitet i historien'] },
+    { id: 'historie-2-4', number: '2.4', title: 'Lokalt og nasjonalt minne', description: 'Utforske minnekultur og historiske steder.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Minnekultur', 'Minnesmerker', 'Lokalhistorie', 'Nasjonalt minne'], competenceGoals: ['lokalt og nasjonalt minne'] },
+
+    // DEL 2: FRA ANTIKKEN TIL TIDLIG NYTID (Kap 3-5)
+    // Kapittel 3: Antikken
+    { id: 'historie-3-1', number: '3.1', title: 'De første sivilisasjonene', description: 'Mesopotamia, Egypt og de tidlige høykulturene.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mesopotamia', 'Egypt', 'Sivilisasjon', 'Skriftspråk'], competenceGoals: ['reflektere over hvordan fortiden former oss'] },
+    { id: 'historie-3-2', number: '3.2', title: 'Det greske demokratiet', description: 'Demokratiets fødsel i Aten og sammenligning med i dag.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Aten', 'Demokrati', 'Polis', 'Borgerskap'], competenceGoals: ['demokrati i antikken vs i dag'] },
+    { id: 'historie-3-3', number: '3.3', title: 'Romerriket og arven fra antikken', description: 'Romas vekst og fall, og antikkens varige betydning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Roma', 'Republikk', 'Keisertid', 'Rettsvesen'], competenceGoals: ['demokrati i antikken vs i dag'] },
+    { id: 'historie-3-4', number: '3.4', title: 'Religionenes fremvekst', description: 'Tidlige religioner og kristendommens spredning.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Religion', 'Kristendom', 'Jødedom', 'Tro'], competenceGoals: ['religionens betydning for samfunn og makt'] },
+
+    // Kapittel 4: Middelalderen
+    { id: 'historie-4-1', number: '4.1', title: 'Europa i middelalderen', description: 'Føydalsamfunnet og maktstrukturer i middelalderen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Føydalisme', 'Adel', 'Bønder', 'Makt'], competenceGoals: ['makt fra middelalderen til tidlig nytid'] },
+    { id: 'historie-4-2', number: '4.2', title: 'Norge i middelalderen', description: 'Rikssamling, kristning og høymiddelalder i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Rikssamling', 'Kristning', 'Svartedauden', 'Hansa'], competenceGoals: ['makt fra middelalderen til tidlig nytid'] },
+    { id: 'historie-4-3', number: '4.3', title: 'Kirken og religionens makt', description: 'Kirkens rolle som maktfaktor i middelalderen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pavekirken', 'Kloster', 'Investiturstrid', 'Korstog'], competenceGoals: ['religionens betydning for samfunn og makt'] },
+    { id: 'historie-4-4', number: '4.4', title: 'Handel og økonomiske systemer', description: 'Handelsveger, markeder og økonomisk utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Handel', 'Hansaforbundet', 'Marked', 'Byutvikling'], competenceGoals: ['handel og økonomiske systemer'] },
+
+    // Kapittel 5: Renessanse og reformasjon
+    { id: 'historie-5-1', number: '5.1', title: 'Renessansen og humanismen', description: 'Gjenfødelsen av antikkens idealer og ny tenkning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Renessanse', 'Humanisme', 'Kunst', 'Vitenskap'], competenceGoals: ['reflektere over hvordan fortiden former oss'] },
+    { id: 'historie-5-2', number: '5.2', title: 'Reformasjonen og religionskrigene', description: 'Kirkens splittelse og de religiøse konfliktene.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Luther', 'Reformasjon', 'Protestantisme', 'Religionskrig'], competenceGoals: ['religionens betydning for samfunn og makt'] },
+    { id: 'historie-5-3', number: '5.3', title: 'Oppdagelsesreisene og tidlig kolonialisme', description: 'Europeernes ekspansjon og møte med nye verdener.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Oppdagelser', 'Columbus', 'Kolonisering', 'Amerika'], competenceGoals: ['kolonimakter og konsekvenser'] },
+    { id: 'historie-5-4', number: '5.4', title: 'Makt og samfunn i tidlig nytid', description: 'Statsdannelse og enevelde i Europa.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Enevelde', 'Stat', 'Makt', 'Danmark-Norge'], competenceGoals: ['makt fra middelalderen til tidlig nytid'] },
+
+    // DEL 3: REVOLUSJONER OG NASJONSBYGGING (Kap 6-8)
+    // Kapittel 6: Opplysningstid og revolusjoner
+    { id: 'historie-6-1', number: '6.1', title: 'Opplysningstiden og nye ideer', description: 'Fornuftens tidsalder og de nye politiske ideene.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Opplysningstid', 'Fornuft', 'Montesquieu', 'Rousseau'], competenceGoals: ['ideologier bak politiske omveltninger'] },
+    { id: 'historie-6-2', number: '6.2', title: 'Den amerikanske revolusjonen', description: 'Uavhengighetserklæringen og den nye republikken.', estimatedMinutes: 50, exerciseCount: 6, topics: ['USA', 'Uavhengighet', 'Grunnlov', 'Demokrati'], competenceGoals: ['ideologier bak politiske omveltninger'] },
+    { id: 'historie-6-3', number: '6.3', title: 'Den franske revolusjonen', description: 'Revolusjonen som endret Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Frankrike', 'Revolusjon', 'Terror', 'Napoleon'], competenceGoals: ['ideologier bak politiske omveltninger'] },
+    { id: 'historie-6-4', number: '6.4', title: 'Revolusjonenes betydning for demokrati', description: 'Arven fra revolusjonene og demokratiets utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Demokrati', 'Rettigheter', 'Borgerskap', 'Stemmerett'], competenceGoals: ['demokrati i antikken vs i dag'] },
+
+    // Kapittel 7: Industrialisering og samfunnsendring
+    { id: 'historie-7-1', number: '7.1', title: 'Den industrielle revolusjonen', description: 'Fra jordbruk til industri - en ny tid begynner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Industri', 'Fabrikk', 'Urbanisering', 'Teknologi'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'] },
+    { id: 'historie-7-2', number: '7.2', title: 'Teknologiske gjennombrudd', description: 'Dampmaskinen, jernbanen og nye oppfinnelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Dampmaskin', 'Jernbane', 'Telegraf', 'Elektrisitet'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'] },
+    { id: 'historie-7-3', number: '7.3', title: 'Sosiale endringer og arbeiderbevegelsen', description: 'Arbeiderklassens framvekst og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Arbeiderklasse', 'Fagforeninger', 'Sosialisme', 'Arbeiderkamp'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'] },
+    { id: 'historie-7-4', number: '7.4', title: 'Demografiske endringer', description: 'Befolkningsvekst, migrasjon og urbanisering.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Befolkning', 'Migrasjon', 'By', 'Helse'], competenceGoals: ['demografiske endringer'] },
+
+    // Kapittel 8: Nasjonalisme og nasjonsbygging
+    { id: 'historie-8-1', number: '8.1', title: 'Nasjonalismens fremvekst', description: 'Nasjonalismen som politisk kraft i Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Nasjonalisme', 'Nasjonsbygging', 'Identitet', 'Romantikk'], competenceGoals: ['nasjonal identitet i Norge'] },
+    { id: 'historie-8-2', number: '8.2', title: 'Norge 1814 og veien til selvstendighet', description: '1814, union med Sverige og frigjøringen 1905.', estimatedMinutes: 55, exerciseCount: 6, topics: ['1814', 'Grunnlov', 'Union', '1905'], competenceGoals: ['nasjonal identitet i Norge'] },
+    { id: 'historie-8-3', number: '8.3', title: 'Samisk historie og minoriteter', description: 'Samenes historie og minoriteters stilling i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Samer', 'Minoriteter', 'Kultur', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'] },
+    { id: 'historie-8-4', number: '8.4', title: 'Migrasjon på 1800-tallet', description: 'Utvandring fra Norge og innvandring til Amerika.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Utvandring', 'Amerika', 'Push-pull', 'Diaspora'], competenceGoals: ['migrasjon og kulturmøter fra ulike perspektiver'] },
+
+    // DEL 4: IMPERIALISME OG GLOBAL HISTORIE (Kap 9-10)
+    // Kapittel 9: Imperialisme og kolonialisme
+    { id: 'historie-9-1', number: '9.1', title: 'Imperialismens drivkrefter', description: 'Økonomiske, politiske og ideologiske årsaker til imperialismen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Imperialisme', 'Råvarer', 'Rivalisering', 'Ideologi'], competenceGoals: ['kolonimakter og konsekvenser'] },
+    { id: 'historie-9-2', number: '9.2', title: 'Afrika under kolonitiden', description: 'Kapløpet om Afrika og koloniseringens konsekvenser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Afrika', 'Berlin-konferansen', 'Kolonisering', 'Motstand'], competenceGoals: ['kolonimakter og konsekvenser'] },
+    { id: 'historie-9-3', number: '9.3', title: 'Asia og kolonialisme', description: 'Britisk India, Kina og imperialismen i Asia.', estimatedMinutes: 50, exerciseCount: 6, topics: ['India', 'Kina', 'Opiumskrig', 'Japan'], competenceGoals: ['kolonimakter og konsekvenser'] },
+    { id: 'historie-9-4', number: '9.4', title: 'Konsekvenser av kolonialismen', description: 'Langvarige virkninger av kolonitiden.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Konsekvenser', 'Avkolonisering', 'Arv', 'Rasisme'], competenceGoals: ['kolonimakter og konsekvenser'] },
+
+    // Kapittel 10: Kulturmøter og kommunikasjon
+    { id: 'historie-10-1', number: '10.1', title: 'Kulturmøter gjennom historien', description: 'Møter mellom kulturer og deres konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kulturmøte', 'Utveksling', 'Konflikt', 'Påvirkning'], competenceGoals: ['kommunikasjon og kulturmøter'] },
+    { id: 'historie-10-2', number: '10.2', title: 'Handel og økonomisk globalisering', description: 'Verdenshandelens utvikling og økonomiske forbindelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Handel', 'Globalisering', 'Kapitalisme', 'Marked'], competenceGoals: ['handel og økonomiske systemer'] },
+    { id: 'historie-10-3', number: '10.3', title: 'Matproduksjon og ressurser', description: 'Jordbruk, ressursforvaltning og bærekraft i historisk perspektiv.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Jordbruk', 'Ressurser', 'Mat', 'Bærekraft'], competenceGoals: ['matproduksjon og naturressurser - bærekraft'] },
+    { id: 'historie-10-4', number: '10.4', title: 'Mennesket og naturen', description: 'Historiske perspektiver på miljø og naturbruk.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Natur', 'Miljø', 'Ressursbruk', 'Bærekraft'], competenceGoals: ['mennesket og naturen, bærekraft'] },
+  ],
+};
+
+// ============================================================================
+// Historie VG3
+// ============================================================================
+
+export const COURSE_HISTORIE_VG3: TextbookCourse = {
+  id: 'historie-vg3',
+  title: 'Historie VG3',
+  level: 'VG3',
+  description: 'Historie VG3 - fra første verdenskrig til samtiden. Dekker 17 kompetansemål i LK20.',
+  curriculum: 'LK20',
+  icon: '🏛️',
+  chapters: [
+    // DEL 5: VERDENSKRIGENE (Kap 11-13)
+    // Kapittel 11: Første verdenskrig
+    { id: 'historie-11-1', number: '11.1', title: 'Årsaker til første verdenskrig', description: 'Nasjonalisme, imperialisme og veien til krig.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Årsaker', 'Allianser', 'Balkan', 'Attentat'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-11-2', number: '11.2', title: 'Krigens gang og karakter', description: 'Skyttergravskrig, ny teknologi og total krig.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Skyttergrav', 'Teknologi', 'Vestfronten', 'Total krig'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-11-3', number: '11.3', title: 'Norge og Norden under krigen', description: 'Nøytralitetspolitikk og krigens påvirkning på Norge.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Nøytralitet', 'Norge', 'Handel', 'Påvirkning'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-11-4', number: '11.4', title: 'Fredsslutninger og konsekvenser', description: 'Versailles og den nye verdensordenen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Versailles', 'Folkeforbundet', 'Grenser', 'Konsekvenser'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+
+    // Kapittel 12: Mellomkrigstiden
+    { id: 'historie-12-1', number: '12.1', title: 'Etterkrigstid og økonomisk krise', description: 'De brølende 20-årene og den store depresjonen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['1920-tallet', 'Depresjon', 'Arbeidsledighet', 'Krise'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'] },
+    { id: 'historie-12-2', number: '12.2', title: 'Totalitære ideologier', description: 'Fascisme, nazisme og kommunisme.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fascisme', 'Nazisme', 'Kommunisme', 'Diktatur'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'] },
+    { id: 'historie-12-3', number: '12.3', title: 'Norge i mellomkrigstiden', description: 'Politikk, økonomi og samfunn i mellomkrigstidens Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Arbeiderparti', 'Krise', 'Hovedavtalen', 'NS'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'] },
+    { id: 'historie-12-4', number: '12.4', title: 'Veien mot ny verdenskrig', description: 'Appeasement, ekspansjon og krigsutbruddet.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Hitler', 'Ekspansjon', 'Appeasement', 'Krigsutbrudd'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'] },
+
+    // Kapittel 13: Andre verdenskrig og Holocaust
+    { id: 'historie-13-1', number: '13.1', title: 'Årsaker og krigens gang', description: 'Krigens faser fra 1939 til 1945.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Krigsgang', 'Fronter', 'Vendepunkter', 'Allierte'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-13-2', number: '13.2', title: 'Holocaust og folkemord', description: 'Det systematiske folkemordet på jødene.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Holocaust', 'Folkemord', 'Konsentrasjonsleirer', 'Minne'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'] },
+    { id: 'historie-13-3', number: '13.3', title: 'Norge under okkupasjonen', description: 'Okkupasjon, samarbeid og motstand.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Okkupasjon', 'NS', 'Kollaborasjon', 'Hverdagsliv'], competenceGoals: ['handlingsrom i konfliktsituasjoner'] },
+    { id: 'historie-13-4', number: '13.4', title: 'Motstand og handlingsrom', description: 'Motstandskamp og moralske valg under krigen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Motstand', 'Hjemmefront', 'Utefronten', 'Handlingsrom'], competenceGoals: ['handlingsrom i konfliktsituasjoner'] },
+    { id: 'historie-13-5', number: '13.5', title: 'Fredsslutninger og oppgjør', description: 'Krigens slutt og rettsoppgjøret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Frigjøring', 'Rettsoppgjør', 'FN', 'Nürnberg'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+
+    // DEL 6: ETTERKRIGSTID OG MODERNE TID (Kap 14-17)
+    // Kapittel 14: Den kalde krigen
+    { id: 'historie-14-1', number: '14.1', title: 'Supermaktene og blokksystemet', description: 'Øst mot vest og den todelte verden.', estimatedMinutes: 55, exerciseCount: 6, topics: ['USA', 'Sovjet', 'Blokker', 'Ideologi'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-14-2', number: '14.2', title: 'Konflikter og kriger', description: 'Korea, Vietnam, Cuba og andre konflikter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Korea', 'Vietnam', 'Cuba', 'Proxy-krig'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-14-3', number: '14.3', title: 'Norge i den kalde krigen', description: 'NATO-medlemskap og norsk utenrikspolitikk.', estimatedMinutes: 50, exerciseCount: 6, topics: ['NATO', 'Basepolitikk', 'Nordområdene', 'Sikkerhet'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-14-4', number: '14.4', title: 'Murens fall og Sovjetunionens oppløsning', description: 'Slutten på den kalde krigen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Berlinmuren', 'Oppløsning', 'Glasnost', 'Perestrojka'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+
+    // Kapittel 15: Velferdsstaten Norge
+    { id: 'historie-15-1', number: '15.1', title: 'Gjenreisning etter krigen', description: 'Norge bygges opp igjen etter 1945.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Gjenreisning', 'Marshall', 'Planøkonomi', 'Vekst'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'] },
+    { id: 'historie-15-2', number: '15.2', title: 'Velferdsstatens utbygging', description: 'Fra fattigforsorg til velferdsstat.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Trygd', 'Helse', 'Utdanning', 'Velferd'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'] },
+    { id: 'historie-15-3', number: '15.3', title: 'Oljen og det moderne Norge', description: 'Oljealderen og det norske oljeeventyret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Olje', 'Ekofisk', 'Oljefondet', 'Velstand'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'] },
+    { id: 'historie-15-4', number: '15.4', title: 'Likestilling og sosiale reformer', description: 'Kampen for likestilling og sosiale rettigheter.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Likestilling', 'Kvinnekamp', 'Reformer', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'] },
+
+    // Kapittel 16: Norsk og samisk identitet
+    { id: 'historie-16-1', number: '16.1', title: 'Nasjonsbygging og identitet', description: 'Norsk nasjonal identitet i historisk perspektiv.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Identitet', 'Nasjonalisme', 'Kultur', 'Tradisjon'], competenceGoals: ['nasjonal identitet i Norge'] },
+    { id: 'historie-16-2', number: '16.2', title: 'Fornorskingspolitikk og oppgjør', description: 'Assimileringspolitikken overfor samer og minoriteter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fornorsking', 'Assimilering', 'Overgrep', 'Oppgjør'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'] },
+    { id: 'historie-16-3', number: '16.3', title: 'Samisk myndiggjøring', description: 'Samebevegelsen og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Alta-saken', 'Sametinget', 'Rettigheter', 'Selvbestemmelse'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'] },
+    { id: 'historie-16-4', number: '16.4', title: 'Minoriteter og mangfold i Norge', description: 'Nasjonale minoriteter og det flerkulturelle Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Minoriteter', 'Kvener', 'Romani', 'Mangfold'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'] },
+
+    // Kapittel 17: Globalisering og samtidshistorie
+    { id: 'historie-17-1', number: '17.1', title: 'Globalisering og teknologi', description: 'Den digitale revolusjonen og globaliseringen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Globalisering', 'Internett', 'Digitalisering', 'Kommunikasjon'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'] },
+    { id: 'historie-17-2', number: '17.2', title: 'Migrasjon i moderne tid', description: 'Flyktningstrømmer og det flerkulturelle samfunnet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Migrasjon', 'Flyktninger', 'Integrering', 'Mangfold'], competenceGoals: ['migrasjon og kulturmøter fra ulike perspektiver'] },
+    { id: 'historie-17-3', number: '17.3', title: 'Konflikter etter den kalde krigen', description: 'Jugoslavia, terror og nye konflikter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Jugoslavia', 'Terror', '11. september', 'Midtøsten'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
+    { id: 'historie-17-4', number: '17.4', title: 'Klimakrise og bærekraft', description: 'Miljøutfordringer i historisk perspektiv.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Klima', 'Miljø', 'Bærekraft', 'FN'], competenceGoals: ['mennesket og naturen, bærekraft'] },
+    { id: 'historie-17-5', number: '17.5', title: 'Historie og fremtiden', description: 'Hva kan historien lære oss om fremtiden?', estimatedMinutes: 45, exerciseCount: 5, topics: ['Lærdommer', 'Fremtid', 'Historiebruk', 'Refleksjon'], competenceGoals: ['fortolkninger av fortiden preget av nåtid', 'historiebruk av ulike aktører'] },
   ],
 };
 
@@ -13112,7 +13226,8 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_GEOGRAFI,
   COURSE_KROPPSOVING_VG1,
   COURSE_NORSK_VG2,
-  COURSE_HISTORIE,
+  COURSE_HISTORIE_VG2,
+  COURSE_HISTORIE_VG3,
   COURSE_KROPPSOVING_VG2,
   COURSE_NORSK_VG3,
   COURSE_RELIGION_ETIKK,
