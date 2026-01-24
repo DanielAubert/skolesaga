@@ -10867,9 +10867,23 @@ Norge er et av landene med minst økonomisk ulikhet, men ulikheten har økt de s
 - Gratis utdanning og helse
 
 ### Debatt om ulikhet
-**Høyre:** Ulikhet er naturlig, stimulerer innsats
-**Venstre:** Ulikhet er urettferdig, hemmer muligheter
-**Midt:** Balanse mellom likhet og insentiver`,
+**Ulike perspektiver på ulikhet:**
+
+**Vektlegger individuelt ansvar og insentiver:**
+- Inntektsforskjeller motiverer til innsats og utdanning
+- For mye omfordeling kan svekke arbeidsmotivasjon
+- Økonomisk vekst kommer alle til gode
+- Fokus på muligheter fremfor resultater
+
+**Vektlegger strukturelle barrierer og fellesskap:**
+- Ulikhet kan hindre like muligheter
+- Fattigdom kan gå i arv
+- For stor ulikhet skader samfunnsfellesskapet
+- Fokus på jevnere fordeling av goder
+
+**Felles bekymringer:**
+- De fleste ønsker å bekjempe fattigdom
+- Uenighet om hvordan: Arbeidslinje vs. høyere overføringer`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -10919,7 +10933,18 @@ Forskere skiller mellom tre hovedtyper av velferdsstater: sosialdemokratisk (nor
 - Sterk omfordeling
 - Trepartssamarbeid (stat, arbeidsgiver, fagbevegelse)
 
-**Land:** Norge, Sverige, Danmark, Finland, Island`,
+**Land:** Norge, Sverige, Danmark, Finland, Island
+
+**Styrker:**
+- Lav fattigdom og høy sosial mobilitet
+- Høy tillit i samfunnet
+- Sterk arbeidsdeltakelse, også blant kvinner
+
+**Kritikk og utfordringer:**
+- Høyt skattetrykk kan hemme investeringer
+- Offentlig sektor kan bli byråkratisk
+- Debatt om bærekraft med eldrebølgen
+- Avhengig av høy arbeidsdeltakelse`,
     },
     {
       id: 'samfunnskunnskap-8-7-ex-1',
@@ -10961,7 +10986,7 @@ Forskere skiller mellom tre hovedtyper av velferdsstater: sosialdemokratisk (nor
         number: '2',
         type: 'classic',
         task: 'Sammenlign den nordiske og den liberale velferdsmodellen.',
-        solution: 'Nordisk: Universelle ordninger, høye skatter, omfattende offentlig sektor, sterk omfordeling. Liberal: Behovsprøvde ordninger, lave skatter, begrenset offentlig velferd, privat forsikring. Nordisk gir mer likhet, liberal mer valgfrihet.',
+        solution: 'Nordisk: Universelle ordninger, høye skatter, omfattende offentlig sektor, sterk omfordeling. Liberal: Behovsprøvde ordninger, lave skatter, begrenset offentlig velferd, privat forsikring. Hver modell har avveininger: Nordisk gir mer likhet men høyere skatter, liberal gir mer individuell valgfrihet men større ulikhet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
