@@ -5418,8 +5418,9 @@ Et parti kan være økonomisk venstre (for omfordeling) men TAN (skeptisk til in
 
 **Feminisme:**
 - Likestilling mellom kjønnene
-- Bekjempe strukturell diskriminering
-- Finnes i liberale, sosialistiske og radikale varianter
+- Ulike retninger: Liberal feminisme (formell likhet), sosialistisk feminisme (økonomiske strukturer), radikal feminisme (kjønnsmakt)
+- Noen vektlegger strukturelle barrierer, andre vektlegger individuell valgfrihet
+- Debatt om årsakene til kjønnsforskjeller
 
 **Nasjonalisme:**
 - Nasjonen som viktigste fellesskap

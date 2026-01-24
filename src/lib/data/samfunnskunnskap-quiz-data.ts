@@ -3465,7 +3465,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'En økonomisk teori',
         'En variant av sosialisme',
       ],
-      explanation: 'Feminisme er en ideologi som kjemper for likestilling mellom kjønnene og mot strukturell diskriminering.',
+      explanation: 'Feminisme er en ideologi som kjemper for likestilling mellom kjønnene. Den finnes i ulike varianter med ulike syn på årsakene til kjønnsforskjeller.',
     },
     {
       question: 'Hva er sentrum-periferi-skillelinjen i norsk politikk?',
