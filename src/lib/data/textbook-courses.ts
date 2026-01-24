@@ -11874,6 +11874,7 @@ export const COURSE_GEOGRAFI: TextbookCourse = {
   description: 'Geografi - naturgrunnlag, ressurser, befolkning og bærekraft',
   curriculum: 'LK20',
   icon: '🌍',
+  coverImage: '/images/subjects/geografi-hero.png',
   chapters: [
     { id: 'geografi-1-1', number: '1', title: 'Kart, GIS og geografiske metoder', description: 'Lær om kartlesing, skala og geografiske informasjonssystemer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kart', 'GIS', 'Skala', 'Koordinater'], competenceGoals: ['bruke geografiske verktøy'] },
     { id: 'geografi-1-2', number: '2', title: 'Jordens oppbygging og landformer', description: 'Forstå jordens indre struktur og platetektonikk.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Platetektonikk', 'Landformer', 'Vulkaner'], competenceGoals: ['forklare geologiske prosesser'] },
