@@ -2011,7 +2011,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       question: 'Hva er horisontal kjønnsdeling i arbeidsmarkedet?',
       options: [
         'Kvinner og menn jobber i ulike yrker og bransjer',
-        'Menn har høyere stillinger enn kvinner',
+        'Flere menn enn kvinner i lederstillinger',
         'Kvinner og menn har lik lønn',
         'Alle bransjer har like mange kvinner og menn',
       ],
@@ -2020,22 +2020,22 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
     {
       question: 'Hva er vertikal kjønnsdeling?',
       options: [
-        'Menn er overrepresentert i lederstillinger og høyere posisjoner',
+        'Flere menn enn kvinner i lederstillinger',
         'Kvinner og menn jobber i ulike bransjer',
         'Kvinner jobber mer deltid enn menn',
         'Menn og kvinner har lik lønn',
       ],
-      explanation: 'Vertikal kjønnsdeling betyr at menn er overrepresentert i lederstillinger og høyere posisjoner.',
+      explanation: 'Vertikal kjønnsdeling betyr at flere menn enn kvinner er i lederstillinger.',
     },
     {
-      question: 'Hva menes med "glasstaket"?',
+      question: 'Hva er de to hovedforklaringene på kjønnsforskjeller i arbeidslivet?',
       options: [
-        'Usynlige barrierer som hindrer kvinners avansement til toppstillinger',
-        'En type kontorbygg',
-        'Lønnsforskjeller mellom kvinner og menn',
-        'En lov som beskytter kvinner',
+        'Frie valg og preferanser vs. strukturelle barrierer og diskriminering',
+        'Lønn og arbeidstid',
+        'Privat og offentlig sektor',
+        'Fulltid og deltid',
       ],
-      explanation: 'Glasstaket er et begrep for usynlige barrierer som hindrer kvinners avansement til toppstillinger.',
+      explanation: 'Det er uenighet om kjønnsforskjeller skyldes frie valg/preferanser eller strukturelle barrierer/diskriminering. De fleste mener begge faktorer spiller inn.',
     },
     {
       question: 'Hvor mye tjener kvinner i gjennomsnitt sammenlignet med menn?',
@@ -2045,7 +2045,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ca. 95% av menns lønn',
         'Ca. 70% av menns lønn',
       ],
-      explanation: 'Kvinner tjener i gjennomsnitt ca. 87% av menns lønn i Norge.',
+      explanation: 'Kvinner tjener i gjennomsnitt ca. 87% av menns lønn i Norge. Mesteparten forklares av yrkes- og stillingsvalg.',
     },
     {
       question: 'Hva er fedrekvoten?',
@@ -2065,7 +2065,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Det er frivillig å svare',
         'Bare offentlige arbeidsgivere kan spørre',
       ],
-      explanation: 'Det er ulovlig for arbeidsgivere å spørre om graviditetsplaner på jobbintervju - det er diskriminering.',
+      explanation: 'Det er ulovlig for arbeidsgivere å spørre om graviditetsplaner på jobbintervju ifølge likestillings- og diskrimineringsloven.',
     },
     {
       question: 'Hva er styrekvotering i ASA-selskaper?',
@@ -2075,7 +2075,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Lik lønn for styremedlemmer',
         'Maks 30% av hvert kjønn',
       ],
-      explanation: 'ASA-selskaper må ha minst 40% av hvert kjønn i styret - dette er styrekvotering.',
+      explanation: 'ASA-selskaper må ha minst 40% av hvert kjønn i styret. Styrekvotering er omstridt - noen mener det sikrer mangfold, andre mener kvalifikasjoner bør telle mest.',
     },
     {
       question: 'Hvilke yrker er typisk kvinnedominerte?',
@@ -2085,7 +2085,7 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
         'Ingeniørfag og programmering',
         'Transport og logistikk',
       ],
-      explanation: 'Helse, omsorg, undervisning og barnehage er typisk kvinnedominerte yrker i Norge.',
+      explanation: 'Helse, omsorg, undervisning og barnehage er typisk kvinnedominerte yrker. Det er uenighet om dette skyldes valg eller barrierer.',
     },
     {
       question: 'Hva forbyr likestillings- og diskrimineringsloven?',
@@ -2098,14 +2098,14 @@ const quizData: Record<string, SamfunnskunnskapQuizQuestion[]> = {
       explanation: 'Likestillings- og diskrimineringsloven forbyr diskriminering på grunn av kjønn, graviditet og foreldrepermisjon.',
     },
     {
-      question: 'Hvorfor ble fedrekvoten innført?',
+      question: 'Hva er argumenter MOT fedrekvoten?',
       options: [
-        'For å øke fedres deltakelse i barneomsorgen og fremme likestilling',
-        'For å gi mødre mer tid på jobb',
-        'For å spare penger for staten',
-        'For å redusere barnetallet i Norge',
+        'Begrenser familiens frihet til å organisere seg selv',
+        'Den er for kort',
+        'Den koster for lite',
+        'Den gjelder bare i offentlig sektor',
       ],
-      explanation: 'Fedrekvoten ble innført for å øke fedres deltakelse i barneomsorgen og fremme likestilling i arbeidslivet.',
+      explanation: 'Kritikere mener fedrekvoten begrenser familiens frihet til å fordele permisjonen selv. Tilhengere mener den fremmer likestilling.',
     },
   ],
 

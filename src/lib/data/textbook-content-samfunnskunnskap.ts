@@ -2660,9 +2660,9 @@ Selv om Mia er ung og dette er en sommerjobb, har hun de samme grunnleggende ret
         id: 'samfunnskunnskap-3-1-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvorfor er fagforeninger viktige i arbeidslivet?',
-        hints: ['Tenk på forhandlingsmakt, rettigheter og fellesskap'],
-        solution: 'Fagforeninger: Gir forhandlingsmakt overfor arbeidsgivere, sikrer bedre lønns- og arbeidsvilkår, gir juridisk hjelp ved konflikter, bidrar til medbestemmelse, styrker arbeidstakerrettigheter generelt, skaper fellesskap og solidaritet. Viktig motvekt mot arbeidsgivers makt.',
+        task: 'Drøft: Hva er argumentene for og mot fagforeninger i arbeidslivet?',
+        hints: ['Tenk på både fordeler og ulemper, ulike perspektiver'],
+        solution: 'Argumenter FOR: Gir forhandlingsmakt, sikrer bedre vilkår, juridisk hjelp, medbestemmelse, solidaritet. Argumenter MOT: Kan føre til rigiditet og mindre fleksibilitet, konflikter/streiker kan skade økonomien, kan beskytte ineffektive arbeidstakere, høye medlemskontingenter, kan dempe individuell lønnsvekst. Ulike politiske syn vektlegger disse ulikt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3015,8 +3015,8 @@ Resultatet blir ofte et kompromiss, f.eks. 4% lønnsvekst. Frontfagsmodellen sik
         id: 'samfunnskunnskap-3-3-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Hvorfor har Norge relativt små lønnsforskjeller sammenlignet med mange andre land?',
-        solution: 'Årsaker: Høy organisasjonsgrad i fagforeninger, tariffavtaler som sikrer minstelønn, frontfagsmodellen, trepartssamarbeid, tradisjon for solidarisk lønnspolitikk, progressiv skatt, sterke velferdordninger. Den norske modellen fremmer likhet.',
+        task: 'Drøft: Hva er fordeler og ulemper med Norges relativt små lønnsforskjeller?',
+        solution: 'Årsaker til små forskjeller: Høy organisasjonsgrad, tariffavtaler, frontfagsmodellen, trepartssamarbeid. FORDELER: Sosial stabilitet, mindre fattigdom, høy tillit. ULEMPER: Kan gjøre det vanskeligere å rekruttere topptalenter (lavere topplønn), mindre insentiv til ekstra innsats for noen, komprimerte lønnsstrukturer kan føre til at høykvalifiserte drar utenlands. Det er politisk uenighet om optimal lønnsfordeling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3029,60 +3029,56 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_3_4: TextbookChapter = {
   id: 'samfunnskunnskap-3-4',
   courseId: 'samfunnskunnskap',
   chapterNumber: '3.4',
-  title: 'Likestilling i arbeidslivet',
-  description: 'Forstå likestillingssituasjonen i norsk arbeidsliv, kjønnsdelt arbeidsmarked og tiltak for likestilling.',
+  title: 'Kjønn og arbeidsliv',
+  description: 'Forstå kjønnsforskjeller i arbeidslivet, ulike forklaringer på dette, og debatter om tiltak.',
   estimatedMinutes: 30,
   competenceGoals: [
-    'drøfte likestillingssituasjonen i norsk arbeidsliv',
-    'reflektere over årsaker til og konsekvenser av kjønnsdeling i arbeidsmarkedet',
+    'drøfte kjønnsforskjeller i norsk arbeidsliv',
+    'reflektere over ulike forklaringer på kjønnsmønstre i arbeidsmarkedet',
   ],
   content: [
     {
       id: 'samfunnskunnskap-3-4-intro',
       type: 'text',
-      content: `## Likestilling i arbeidslivet
+      content: `## Kjønn og arbeidsliv
 
-Norge regnes som et av verdens mest likestilte land, men det er fortsatt betydelige forskjeller mellom kvinner og menn i arbeidslivet. Likestilling handler om like muligheter og rettigheter uavhengig av kjønn.
+Norge har høy yrkesdeltakelse for begge kjønn og lovfestet likestilling. Likevel er det tydelige forskjeller i menns og kvinners yrkesvalg og karrieremønstre. Hva som forklarer disse forskjellene, og om det er et problem som krever tiltak, er gjenstand for politisk debatt.
 
-**Status i dag:**
-- Høy yrkesdeltakelse blant kvinner
+**Fakta om arbeidsmarkedet:**
+- Høy yrkesdeltakelse blant både kvinner og menn
 - Kvinner dominerer i offentlig sektor, menn i privat
-- Lønnsforskjeller mellom kvinner og menn
-- Få kvinner i toppledelse
-- Kvinner tar mer ansvar for familie og ulønnet arbeid
+- Kvinner dominerer i helse/omsorg, menn i tekniske yrker
+- Flere kvinner enn menn jobber deltid
+- Flere menn enn kvinner i toppledelse
 
-**Hvorfor likestilling i arbeidslivet er viktig:**
-- Rettferdighet og menneskerettigheter
-- Utnytter hele befolkningens kompetanse
-- Bedre beslutninger med mangfold
-- Økonomisk gevinst for samfunnet
-- Rollemodeller for nye generasjoner`,
+**Ulike syn på kjønnsforskjellene:**
+Det er uenighet om hva som forklarer disse forskjellene, og om de er et problem som må løses. Noen mener forskjellene reflekterer ulik diskriminering, andre mener de reflekterer frie valg. De fleste mener sannheten ligger et sted i mellom.`,
     },
     {
       id: 'samfunnskunnskap-3-4-def-1',
       type: 'definition',
-      title: 'Det kjønnsdelte arbeidsmarkedet',
+      title: 'Kjønnsmønstre i arbeidsmarkedet',
       content: `**Horisontal kjønnsdeling:**
-Kvinner og menn jobber i ulike yrker og bransjer.
+Kvinner og menn jobber ofte i ulike yrker og bransjer.
 - Kvinnedominerte: Helse, omsorg, undervisning, barnehage
 - Mannsdominerte: Bygg, teknologi, ingeniørfag, IT
 
+**Forklaringer på horisontal kjønnsdeling:**
+- **Valgperspektivet:** Menn og kvinner har i gjennomsnitt ulike interesser og preferanser, og velger deretter. Biologiske og psykologiske forskjeller kan spille inn.
+- **Strukturperspektivet:** Samfunnets forventninger og sosialisering styrer valg. Diskriminering kan forekomme.
+- **Kombinasjonsperspektivet:** Både biologi, preferanser og sosiale forhold spiller inn.
+
 **Vertikal kjønnsdeling:**
-Menn er overrepresentert i lederstillinger og høyere posisjoner.
-- Glasstaket: Usynlige barrierer som hindrer kvinners avansement
-- Få kvinnelige toppledere i næringsliv
-- Bedre i offentlig sektor
+Flere menn enn kvinner i lederstillinger.
+- Noen mener dette skyldes diskriminering ("glasstaket")
+- Andre peker på at kvinner oftere prioriterer familietid fremfor karriere
+- Atter andre mener menn og kvinner i gjennomsnitt har ulike karriereambisjoner
 
 **Lønnsforskjeller:**
-- Kvinner tjener ca. 87% av menns lønn
-- Delvis forklart av yrkesvalg
-- Delvis forklart av deltid
-- Noe uforklart forskjell (diskriminering?)
-
-**Deltid:**
-- Flere kvinner enn menn jobber deltid
-- Noe er frivillig, noe ufrivillig
-- Påvirker lønn, pensjon og karriere`,
+- Kvinner tjener i gjennomsnitt ca. 87% av menns lønn
+- Mesteparten forklares av yrkes- og stillingsvalg
+- Menn jobber mer overtid og tar færre permisjoner
+- Det er debatt om den uforklarte resten skyldes diskriminering eller andre faktorer`,
     },
     {
       id: 'samfunnskunnskap-3-4-ex-1',
@@ -3092,7 +3088,7 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
         number: '1',
         type: 'classic',
         task: 'Forklar forskjellen mellom horisontal og vertikal kjønnsdeling i arbeidsmarkedet.',
-        solution: 'Horisontal kjønnsdeling: Kvinner og menn jobber i ulike yrker/bransjer (f.eks. helse vs. bygg). Vertikal kjønnsdeling: Menn er overrepresentert i lederstillinger og høyere posisjoner, selv i kvinnedominerte bransjer ("glasstaket").',
+        solution: 'Horisontal kjønnsdeling: Kvinner og menn jobber i ulike yrker/bransjer (f.eks. helse vs. bygg). Vertikal kjønnsdeling: Flere menn enn kvinner i lederstillinger. Det er uenighet om årsaken til dette - noen peker på diskriminering, andre på ulike karrierepreferanser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3104,8 +3100,8 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
         id: 'samfunnskunnskap-3-4-ex-3',
         number: '2',
         type: 'classic',
-        task: 'Hvilke årsaker kan forklare lønnsforskjellene mellom kvinner og menn?',
-        solution: 'Årsaker: Yrkesvalg (kvinnedominerte yrker har ofte lavere lønn), deltidsarbeid (mer vanlig blant kvinner), karriereavbrudd pga. barn, vertikal kjønnsdeling (færre kvinner i ledelse), forhandlingsstyrke, og en uforklart del som kan skyldes diskriminering.',
+        task: 'Hvilke ulike forklaringer finnes på lønnsforskjellene mellom kvinner og menn?',
+        solution: 'Forklaringer: 1) Yrkesvalg - kvinner velger oftere yrker med lavere lønn. 2) Deltidsarbeid - mer vanlig blant kvinner. 3) Karriereavbrudd pga. barn. 4) Overtid - menn jobber mer overtid. 5) Forhandlingsstil. Det er debatt om den uforklarte resten skyldes diskriminering eller andre faktorer som karriereprioriteringer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3113,11 +3109,10 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
     {
       id: 'samfunnskunnskap-3-4-def-2',
       type: 'definition',
-      title: 'Likestillingstiltak',
+      title: 'Likestillingstiltak og debatt',
       content: `**Lovverk:**
-- Likestillings- og diskrimineringsloven forbyr diskriminering
-- Aktivitets- og redegjørelsesplikten: Arbeidsgivere skal jobbe aktivt for likestilling
-- Likelønnsbestemmelser
+- Likestillings- og diskrimineringsloven forbyr diskriminering basert på kjønn
+- Aktivitets- og redegjørelsesplikten: Arbeidsgivere skal rapportere om likestilling
 
 **Permisjonsordninger:**
 - Foreldrepermisjon: Totalt 49 uker (eller 59 med redusert sats)
@@ -3125,17 +3120,16 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
 - Mødrekvote: Minst 15 uker forbeholdt mor
 - Resten kan deles fritt
 
-**Kvotering:**
+**Kvotering - en debatt:**
 - Styrekvotering i ASA-selskaper (minst 40% av hvert kjønn)
-- Kjønnspoeng ved opptak til studier (debattert)
-- Positiv særbehandling ved ansettelser (tillatt i noen tilfeller)
+- Kjønnspoeng ved opptak til studier
+- FOR: Bryter ned barrierer, sikrer mangfold, gir rollemodeller
+- MOT: Kvalifikasjoner bør telle mest, kan oppfattes som urettferdig, skaper tvil om kvinner er der på grunn av kompetanse
 
-**Andre tiltak:**
-- Barnehageutbygging
-- Lønnsløft i kvinnedominerte yrker
-- Fleksibel arbeidstid
-- Mentorprogrammer
-- Bevisstgjøring om ubevisste fordommer`,
+**Politisk uenighet:**
+- Venstresiden vektlegger strukturelle barrierer og vil ha aktive tiltak
+- Høyresiden vektlegger frie valg og er skeptisk til kvotering
+- Mange mener sannheten ligger et sted i mellom`,
     },
     {
       id: 'samfunnskunnskap-3-4-ex-2',
@@ -3144,8 +3138,8 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
         id: 'samfunnskunnskap-3-4-ex-2',
         number: '3',
         type: 'classic',
-        task: 'Hva er fedrekvoten, og hvorfor ble den innført?',
-        solution: 'Fedrekvoten er en del av foreldrepermisjonen (minst 15 uker) forbeholdt far - den kan ikke overføres til mor. Innført for å: Øke fedres deltakelse i barneomsorgen, fremme likestilling, normalisere at menn tar permisjon, redusere diskriminering av kvinner i arbeidslivet.',
+        task: 'Hva er fedrekvoten, og hva er argumentene for og mot den?',
+        solution: 'Fedrekvoten er en del av foreldrepermisjonen forbeholdt far (minst 15 uker). FOR: Øker fedres deltakelse i barneomsorgen, kan fremme likestilling i arbeidslivet. MOT: Begrenser familiens frihet til å organisere seg selv, staten bør ikke bestemme hvordan familier fordeler permisjonen. Det er politisk uenighet om kvotens størrelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3153,34 +3147,39 @@ Menn er overrepresentert i lederstillinger og høyere posisjoner.
     {
       id: 'samfunnskunnskap-3-4-example-1',
       type: 'example',
-      title: 'Eksempel: Jobbintervju og diskriminering',
-      problem: `Elin (28) er på jobbintervju. Arbeidsgiveren spør om hun planlegger å få barn snart. Elin føler seg ukomfortabel. Hva bør hun vite?`,
+      title: 'Eksempel: Jobbintervju og familieplanlegging',
+      problem: `Elin (28) er på jobbintervju. Arbeidsgiveren spør om hun planlegger å få barn snart. Hva sier loven, og hva er dilemmaene?`,
       solution: `**Juridisk situasjon:**
 
 **Spørsmålet er ulovlig:**
 - Arbeidsgivere har IKKE lov til å spørre om graviditetsplaner
-- Det er diskriminering basert på kjønn
+- Det regnes som diskriminering basert på kjønn
 - Brudd på likestillings- og diskrimineringsloven
 
 **Hva Elin kan gjøre:**
 1. Nekte å svare (har full rett til det)
 2. Si at spørsmålet ikke er relevant for jobben
-3. Spørre hvorfor arbeidsgiveren vil vite dette
+3. Klage til Diskrimineringsnemnda hvis hun ikke får jobben
 
-**Etter intervjuet:**
-- Hvis Elin ikke får jobben, kan hun klage
-- Likestillings- og diskrimineringsombudet kan hjelpe
-- Diskrimineringsnemnda kan gi oppreisning
-- Bevisbyrden ligger hos arbeidsgiver
+**Ulike perspektiver på problemet:**
+
+**Arbeidstakerperspektiv:**
+- Privatliv skal ikke påvirke jobbmuligheter
+- Kvinner skal ikke straffes for å kunne bli gravide
+
+**Arbeidsgiverperspektiv (selv om spørsmålet er ulovlig):**
+- Små bedrifter kan slite med lang permisjon i nøkkelstillinger
+- Forutsigbarhet er viktig for planlegging
+
+**Samfunnsperspektiv:**
+- Loven beskytter mot diskriminering
+- Men kostnadene ved permisjoner dekkes av staten og arbeidsgiver
+- Noen mener dette gjør unge kvinner mindre attraktive å ansette
 
 **Viktig å vite:**
 - Graviditet skal ikke påvirke ansettelse
-- Arbeidsgiver kan ikke si opp gravide pga. graviditet
 - Foreldrepermisjon er en rettighet
-- Mange arbeidsgivere vet ikke at spørsmålet er ulovlig
-
-**Realitet:**
-Selv om det er ulovlig, skjer dette ofte. Det kan være vanskelig å bevise diskriminering.`,
+- Loven er klar, men debatten om hvordan tilrettelegge pågår`,
     },
     // --- Oppsummeringsoppgaver ---
     {
@@ -3190,9 +3189,9 @@ Selv om det er ulovlig, skjer dette ofte. Det kan være vanskelig å bevise disk
         id: 'samfunnskunnskap-3-4-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Drøft: Er kvotering et godt virkemiddel for likestilling?',
-        hints: ['Tenk på argumenter for og mot'],
-        solution: 'For: Bryter ned barrierer, sikrer mangfold, gir rollemodeller, virker (styrekvotering økte kvinneandelen). Mot: Kan oppfattes som urettferdig, kvalifikasjoner bør telle mest, kan gi tvil om kvinner er der pga. kompetanse. Viktig å kombinere med andre tiltak.',
+        task: 'Drøft: Hva forklarer kjønnsforskjeller i arbeidslivet - er det valg eller barrierer?',
+        hints: ['Tenk på ulike perspektiver og forklaringer'],
+        solution: 'Valgperspektiv: Menn og kvinner har i snitt ulike interesser og prioriteringer - kvinner velger oftere omsorgsfokuserte yrker og familietid. Barriereperspektiv: Sosialisering, forventninger og diskriminering hindrer frie valg. Kombinasjonsperspektiv: Både biologi, preferanser og sosiale forhold spiller inn. Det er politisk uenighet om hvor mye som er valg vs. barrierer, og dermed om hvilke tiltak som er riktige.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3596,7 +3595,7 @@ Svart arbeid og arbeidslivskriminalitet undergraver det seriøse arbeidslivet og
 **Omfang:**
 - Svart arbeid i Norge anslås til 40-100 milliarder kr årlig
 - Mest i bygg, renhold, restaurant, transport
-- Ofte knyttet til arbeidsinnvandring
+- Utføres av både norske og utenlandske arbeidstakere
 
 Å forstå hvorfor svart arbeid er skadelig, og hva du kan gjøre, er viktig både for deg og for samfunnet.`,
     },
