@@ -1,10 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, Sparkles, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
-import { getTotalQuizQuestionCount, getUniqueSubjectCount } from '@/lib/data/quiz-data';
 
 export const metadata: Metadata = {
   title: 'Skolesaga - Interaktive lærebøker for norsk skole',
@@ -34,31 +33,14 @@ export default function HomePage() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute top-0 left-0 right-0 p-6 text-white">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm font-medium">
+                <div className="absolute top-0 left-0 right-0 p-6">
+                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 backdrop-blur-sm text-sm font-medium text-gray-800">
                     <BookOpen className="w-4 h-4" />
                     5. klasse til VG3
                   </div>
                 </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                    Interaktive lærebøker
-                  </h2>
-                  <p className="text-white/80 mb-4 text-sm md:text-base">
-                    Komplette lærebøker med øvingsoppgaver og fremgangsregistrering.
-                  </p>
-                  <div className="flex flex-wrap gap-3 mb-4">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
-                      <div className="text-lg font-bold">60+</div>
-                      <div className="text-white/80 text-xs">lærebøker</div>
-                    </div>
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
-                      <div className="text-lg font-bold">LK20</div>
-                      <div className="text-white/80 text-xs">tilpasset</div>
-                    </div>
-                  </div>
-                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8">
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <Button size="lg" className="bg-white text-blue-700 hover:bg-white/90 text-lg px-8 shadow-lg">
                     Utforsk lærebøker
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
@@ -76,31 +58,8 @@ export default function HomePage() {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute top-0 left-0 right-0 p-6 text-white">
-                  <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/20 backdrop-blur-sm text-sm font-medium">
-                    <Sparkles className="w-4 h-4" />
-                    Quiz for alle fag
-                  </div>
-                </div>
-                <div className="absolute bottom-0 left-0 right-0 p-6 text-white">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">
-                    Test kunnskapen din
-                  </h2>
-                  <p className="text-white/80 mb-4 text-sm md:text-base">
-                    Interaktive quizer tilpasset hvert kapittel.
-                  </p>
-                  <div className="flex flex-wrap gap-3 mb-4">
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
-                      <div className="text-lg font-bold">{getTotalQuizQuestionCount().toLocaleString('nb-NO')}+</div>
-                      <div className="text-white/80 text-xs">spørsmål</div>
-                    </div>
-                    <div className="bg-white/20 backdrop-blur-sm rounded-lg px-3 py-1.5 text-center">
-                      <div className="text-lg font-bold">{getUniqueSubjectCount()}</div>
-                      <div className="text-white/80 text-xs">fag</div>
-                    </div>
-                  </div>
-                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8">
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <Button size="lg" className="bg-white text-purple-700 hover:bg-white/90 text-lg px-8 shadow-lg">
                     Start quiz nå
                     <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform" />
                   </Button>
