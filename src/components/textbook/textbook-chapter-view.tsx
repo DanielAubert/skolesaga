@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck, ArrowLeftRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -25,12 +25,20 @@ interface ChapterNavInfo {
   title: string;
 }
 
+interface LinkedChapterInfo {
+  id: string;
+  title: string;
+  isNarrativeVersion?: boolean;
+}
+
 interface TextbookChapterViewProps {
   course: TextbookCourse;
   chapterMeta: TextbookChapterMeta;
   chapterContent?: TextbookChapter;
   nextChapter?: ChapterNavInfo;
   prevChapter?: ChapterNavInfo;
+  linkedChapter?: LinkedChapterInfo;
+  isNarrativeVersion?: boolean;
   hasQuiz?: boolean;
 }
 
@@ -40,6 +48,8 @@ export function TextbookChapterView({
   chapterContent,
   nextChapter,
   prevChapter,
+  linkedChapter,
+  isNarrativeVersion = false,
   hasQuiz = false,
 }: TextbookChapterViewProps) {
   const hasContent = !!chapterContent;
@@ -315,6 +325,30 @@ export function TextbookChapterView({
                     {topic}
                   </Badge>
                 ))}
+              </div>
+            )}
+
+            {/* Versjonsvelger */}
+            {linkedChapter && (
+              <div className="mt-4 p-3 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-900 rounded-lg">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="flex items-center gap-2 text-sm text-blue-800 dark:text-blue-200">
+                    <ArrowLeftRight className="h-4 w-4" />
+                    <span>
+                      {isNarrativeVersion
+                        ? 'Du leser den lesevennlige versjonen'
+                        : 'Du leser den tradisjonelle versjonen'}
+                    </span>
+                  </div>
+                  <Link href={`/bok/${course.id}/${linkedChapter.id}`}>
+                    <Button variant="outline" size="sm" className="gap-2 bg-white dark:bg-background">
+                      <BookOpen className="h-4 w-4" />
+                      {linkedChapter.isNarrativeVersion
+                        ? 'Lesevennlig versjon'
+                        : 'Tradisjonell versjon'}
+                    </Button>
+                  </Link>
+                </div>
               </div>
             )}
 

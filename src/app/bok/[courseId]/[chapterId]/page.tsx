@@ -45,6 +45,11 @@ export default async function ChapterPage({ params }: PageProps) {
   const nextChapter = nextChapterId ? getChapterMeta(courseId, nextChapterId) : undefined;
   const prevChapter = prevChapterId ? getChapterMeta(courseId, prevChapterId) : undefined;
 
+  // Hent alternativ versjon hvis den finnes
+  const linkedChapter = chapterMeta.linkedChapterId
+    ? getChapterMeta(courseId, chapterMeta.linkedChapterId)
+    : undefined;
+
   // Check quiz availability on the server to avoid hydration mismatch
   const hasQuiz = hasQuizQuestions(chapterId) || hasChemistryQuiz(chapterId) || hasSamfunnskunnskapQuiz(chapterId);
 
@@ -55,6 +60,8 @@ export default async function ChapterPage({ params }: PageProps) {
       chapterContent={chapterContent}
       nextChapter={nextChapter ? { id: nextChapter.id, number: nextChapter.number, title: nextChapter.title } : undefined}
       prevChapter={prevChapter ? { id: prevChapter.id, number: prevChapter.number, title: prevChapter.title } : undefined}
+      linkedChapter={linkedChapter ? { id: linkedChapter.id, title: linkedChapter.title, isNarrativeVersion: linkedChapter.isNarrativeVersion } : undefined}
+      isNarrativeVersion={chapterMeta.isNarrativeVersion}
       hasQuiz={hasQuiz}
     />
   );

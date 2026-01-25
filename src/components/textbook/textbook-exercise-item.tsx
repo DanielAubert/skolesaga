@@ -17,6 +17,7 @@ import {
   Dumbbell,
   Type,
   Table,
+  Search,
 } from 'lucide-react';
 import Link from 'next/link';
 import type { TextbookExercise } from '@/lib/types/textbook';
@@ -347,6 +348,11 @@ export function TextbookExerciseItem({
       {/* Anbefalt-badge */}
       {isRecommended && (
         <RecommendedBadge difficulty={exercise.difficulty} />
+      )}
+
+      {/* Undersøkelsesoppgave-badge */}
+      {exercise.isInvestigation && (
+        <InvestigationBadge />
       )}
 
       {/* Oppgavetekst */}
@@ -745,6 +751,24 @@ function RecommendedBadge({ difficulty }: { difficulty?: string }) {
           ({difficultyLabels[difficulty] || difficulty})
         </span>
       )}
+    </div>
+  );
+}
+
+// Undersøkelsesoppgave-badge komponent
+function InvestigationBadge() {
+  return (
+    <div className="flex items-center gap-2 p-3 bg-blue-50 dark:bg-blue-950/30 rounded-lg border border-blue-200 dark:border-blue-800">
+      <Badge
+        variant="outline"
+        className="gap-1 bg-blue-100 dark:bg-blue-900/50 border-blue-300 dark:border-blue-700 text-blue-700 dark:text-blue-300"
+      >
+        <Search className="h-3 w-3" />
+        Undersøkelsesoppgave
+      </Badge>
+      <span className="text-xs text-blue-600 dark:text-blue-400">
+        Denne oppgaven krever at du undersøker kilder utenfor læreboka
+      </span>
     </div>
   );
 }

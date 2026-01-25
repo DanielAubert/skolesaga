@@ -708,6 +708,7 @@ Du kan ikke lese alt - du må velge kilder som er relevante for din problemstill
         solution: 'Kilder: Skolens gamle protokoller, elevlister, karakterbøker. Lokale aviser fra perioden. Folketellinger (Digitalarkivet). Fotografier fra lokalhistorisk arkiv. Mulige informanter: Eldre mennesker som kan fortelle hva deres besteforeldre fortalte. Bygninger fra perioden. Steder: Kommunearkivet, lokalhistorisk forening, biblioteket.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        isInvestigation: true,
       },
     },
     {
@@ -1052,6 +1053,7 @@ Revolusjonen var et dramatisk politisk brudd, men dype samfunnsstrukturer endret
         solution: 'Eksempel på brudd: Digital teknologi - besteforeldre vokste opp uten TV, foreldre uten internett, jeg med smarttelefon. Dette har endret kommunikasjon, arbeid og underholdning fundamentalt. Eksempel på kontinuitet: Familieverdier, dialekt, tilknytning til hjemsted, feiringstradisjoner som jul og 17. mai kan ha holdt seg ganske like.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        isInvestigation: true,
       },
     },
     {
@@ -1135,6 +1137,7 @@ Staten, kirken, organisasjoner, medier og enkeltpersoner er alle med på å form
         solution: 'Svaret vil variere. Et godt svar beskriver: Hva minnesmerket viser/minnes, konteksten for når og hvorfor det ble satt opp, hvem som tok initiativet (kommune, forening, stat), og reflekterer over hva valget av akkurat dette minnet sier om lokalsamfunnet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        isInvestigation: true,
       },
     },
     {
@@ -1170,6 +1173,7 @@ Noen gruppers historie har blitt glemt eller undertrykt: samer, romanifolk, kvin
         solution: 'Nasjonalt: 8. mai feirer frigjøring, motstandskamp og alliert seier. Lokalt: Finnmark opplevde tvangsevakuering og nedbrenning. Trondheim var hovedsete for tysk marine. Bygder som hadde mange NS-medlemmer har vanskeligere minner. Lofoten opplevde kommandoraid. Den nasjonale fortellingen forenkler en kompleks lokal virkelighet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        isInvestigation: true,
       },
     },
     {
@@ -1699,6 +1703,7 @@ Overlevde som Bysants med hovedstad i Konstantinopel til 1453.`,
         solution: 'Eksempler: "Et cetera" (etc.) = og så videre. "Status quo" = tingenes tilstand, slik det er nå. "Veto" = jeg forbyr (brukes om nektingsrett). "Alibi" = andre steder (bevis for at man var annetsteds). "Agenda" = ting som skal gjøres (møteliste). "Virus" = gift/slim. "Ultimatum" = siste krav.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        isInvestigation: true,
       },
     },
     {

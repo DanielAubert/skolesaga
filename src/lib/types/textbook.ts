@@ -26,6 +26,7 @@ export interface TextbookChapterMeta {
   id: string;                    // f.eks. "1t-1-1"
   number: string;                // f.eks. "1.1"
   title: string;
+  subtitle?: string;             // Undertittel (f.eks. "Narrativ versjon")
   description: string;
   estimatedMinutes: number;
   exerciseCount: number;
@@ -35,6 +36,8 @@ export interface TextbookChapterMeta {
   wip?: boolean;                 // Under arbeid
   coverImage?: string;           // Unsplash-bilde URL for kapittel
   auraColor?: string;            // Farge for tekst-aura (rgba format), matcher bakgrunnsbildet
+  linkedChapterId?: string;      // ID til alternativ versjon av samme kapittel
+  isNarrativeVersion?: boolean;  // Er dette en narrativ (lesevennlig) versjon?
 }
 
 // ============================================================================
@@ -46,6 +49,7 @@ export interface TextbookChapter {
   courseId: string;
   chapterNumber: string;
   title: string;
+  subtitle?: string;                 // Undertittel (f.eks. "Narrativ versjon")
   description: string;
   content: TextbookContentBlock[];
   exercises: TextbookExercise[];
@@ -54,6 +58,7 @@ export interface TextbookChapter {
   competenceGoals?: string[];
   nextChapter?: string;
   prevChapter?: string;
+  linkedChapterId?: string;          // ID til alternativ versjon av samme kapittel
 }
 
 // Union type for alle innholdsblokker
@@ -67,6 +72,7 @@ export type TextbookContentBlock =
   | WarningBlock
   | TipBlock
   | VideoBlock
+  | AudioBlock
   | GeoGebraBlock
   | ImageBlock
   | FormulaBlock
@@ -144,6 +150,13 @@ export interface VideoBlock extends BaseContentBlock {
   type: 'video';
   title?: string;
   youtubeId: string;
+  description?: string;
+}
+
+export interface AudioBlock extends BaseContentBlock {
+  type: 'audio';
+  title?: string;
+  src: string;                     // Sti til lydfil (f.eks. '/audio/historie/kapittel-1.mp3')
   description?: string;
 }
 
@@ -324,6 +337,9 @@ export interface TextbookExercise {
 
   // For classic exercises - multiple choice alternatives for training mode
   multipleChoiceOptions?: string[];    // Flervalgsalternativer (første er alltid riktig)
+
+  // Oppgavekategori
+  isInvestigation?: boolean;           // Undersøkelsesoppgave (krever research utenfor læreboka)
 }
 
 export interface SubTask {

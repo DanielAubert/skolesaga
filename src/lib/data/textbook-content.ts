@@ -58,6 +58,7 @@ import { GEOGRAFI_CHAPTERS } from './textbook-content-geografi';
 import { KROPPSOVING_VG1_CHAPTERS } from './textbook-content-kroppsoving-vg1';
 import { NORSK_VG2_CHAPTERS } from './textbook-content-norsk-vg2';
 import { HISTORIE_CHAPTERS } from './textbook-content-historie';
+import { HISTORIE_NARRATIV_CHAPTERS } from './textbook-content-historie-narrativ';
 import { KROPPSOVING_VG2_CHAPTERS } from './textbook-content-kroppsoving-vg2';
 import { NORSK_VG3_CHAPTERS } from './textbook-content-norsk-vg3';
 import { RELIGION_ETIKK_CHAPTERS } from './textbook-content-religion-etikk';
@@ -405,6 +406,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Historie
   ...Object.fromEntries(HISTORIE_CHAPTERS.map(c => [c.id, c])),
+
+  // Historie - Narrativ versjon (lesevennlig)
+  ...Object.fromEntries(HISTORIE_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Kroppsøving VG2
   ...Object.fromEntries(KROPPSOVING_VG2_CHAPTERS.map(c => [c.id, c])),

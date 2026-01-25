@@ -13,7 +13,7 @@ import {
   Laptop, Superscript, Plus,
   Radical, FunctionSquare, Target, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon
+  Waves, Activity, Hexagon, BookOpen
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
@@ -200,13 +200,19 @@ export default async function CourseOverviewPage({ params }: PageProps) {
         {/* Kapitler etter seksjon */}
         <div className="space-y-10">
           {Array.from(sections.entries()).map(([sectionNumber, chapters]) => {
+            // Filtrer ut narrative versjoner fra hovedlisten
+            const mainChapters = chapters.filter(ch => !ch.isNarrativeVersion);
+
             // Beregn start-indeks for farger i denne seksjonen
             let colorStartIndex = 0;
             Array.from(sections.entries()).forEach(([secNum, chs]) => {
               if (Number(secNum) < Number(sectionNumber)) {
-                colorStartIndex += chs.length;
+                const mainChs = chs.filter(ch => !ch.isNarrativeVersion);
+                colorStartIndex += mainChs.length;
               }
             });
+
+            if (mainChapters.length === 0) return null;
 
             return (
             <div key={sectionNumber}>
@@ -218,67 +224,82 @@ export default async function CourseOverviewPage({ params }: PageProps) {
               </h2>
 
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
-                {chapters.map((chapter, idx) => {
+                {mainChapters.map((chapter, idx) => {
                   const Icon = getChapterIcon(chapter);
                   const color = getCardColor(colorStartIndex + idx);
+                  const hasNarrativeVersion = chapter.linkedChapterId;
+
                   return (
-                    <Link key={chapter.id} href={`/bok/${courseId}/${chapter.id}`}>
-                      <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${color.border} overflow-hidden`}>
-                        {/* Cover image or colored top-bar */}
-                        {chapter.coverImage ? (
-                          <div className="relative h-24 w-full overflow-hidden">
-                            <Image
-                              src={chapter.coverImage}
-                              alt={chapter.title}
-                              fill
-                              sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                              className={`object-cover transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
-                            <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${color.bg}`}>
-                              {chapter.number}
-                            </div>
-                            {chapter.wip && (
-                              <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-500 text-white">
-                                Under utvikling
+                    <div key={chapter.id} className="flex flex-col">
+                      <Link href={`/bok/${courseId}/${chapter.id}`}>
+                        <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${color.border} overflow-hidden`}>
+                          {/* Cover image or colored top-bar */}
+                          {chapter.coverImage ? (
+                            <div className="relative h-24 w-full overflow-hidden">
+                              <Image
+                                src={chapter.coverImage}
+                                alt={chapter.title}
+                                fill
+                                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
+                                className={`object-cover transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
+                              />
+                              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                              <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${color.bg}`}>
+                                {chapter.number}
                               </div>
-                            )}
-                          </div>
-                        ) : (
-                          <div className={`h-1.5 w-full ${color.bg}`} />
-                        )}
-
-                        <CardHeader className="p-3">
-                          <div className="flex items-start gap-2">
-                            {/* Kompakt ikon */}
-                            <div className={`p-2 rounded-lg ${color.bg} text-white shrink-0`}>
-                              <Icon className="h-4 w-4" />
+                              {chapter.wip && (
+                                <div className="absolute top-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-medium bg-amber-500 text-white">
+                                  Under utvikling
+                                </div>
+                              )}
                             </div>
-                            <div className="min-w-0 flex-1">
-                              <CardTitle className="text-sm leading-tight">
-                                {!chapter.coverImage && (
-                                  <span className={`font-mono text-xs font-semibold ${color.text}`}>{chapter.number}</span>
-                                )}
-                                <span className="font-medium ml-1 line-clamp-2">{chapter.title}</span>
-                              </CardTitle>
-                            </div>
-                          </div>
-                        </CardHeader>
+                          ) : (
+                            <div className={`h-1.5 w-full ${color.bg}`} />
+                          )}
 
-                        <CardContent className="p-3 pt-0">
-                          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <GraduationCap className="h-3 w-3" />
-                              {chapter.exerciseCount}
-                            </span>
-                            <span className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
-                              {chapter.estimatedMinutes}m
-                            </span>
-                          </div>
-                        </CardContent>
-                      </Card>
-                    </Link>
+                          <CardHeader className="p-3">
+                            <div className="flex items-start gap-2">
+                              {/* Kompakt ikon */}
+                              <div className={`p-2 rounded-lg ${color.bg} text-white shrink-0`}>
+                                <Icon className="h-4 w-4" />
+                              </div>
+                              <div className="min-w-0 flex-1">
+                                <CardTitle className="text-sm leading-tight">
+                                  {!chapter.coverImage && (
+                                    <span className={`font-mono text-xs font-semibold ${color.text}`}>{chapter.number}</span>
+                                  )}
+                                  <span className="font-medium ml-1 line-clamp-2">{chapter.title}</span>
+                                </CardTitle>
+                              </div>
+                            </div>
+                          </CardHeader>
+
+                          <CardContent className="p-3 pt-0">
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                              <span className="flex items-center gap-1">
+                                <GraduationCap className="h-3 w-3" />
+                                {chapter.exerciseCount}
+                              </span>
+                              <span className="flex items-center gap-1">
+                                <Clock className="h-3 w-3" />
+                                {chapter.estimatedMinutes}m
+                              </span>
+                            </div>
+                          </CardContent>
+                        </Card>
+                      </Link>
+
+                      {/* Lenke til lesevennlig versjon */}
+                      {hasNarrativeVersion && (
+                        <Link
+                          href={`/bok/${courseId}/${chapter.linkedChapterId}`}
+                          className="mt-1 px-2 py-1 text-xs text-center rounded-md bg-blue-50 dark:bg-blue-950/30 text-blue-600 dark:text-blue-400 hover:bg-blue-100 dark:hover:bg-blue-900/40 transition-colors flex items-center justify-center gap-1"
+                        >
+                          <BookOpen className="h-3 w-3" />
+                          Lesevennlig versjon
+                        </Link>
+                      )}
+                    </div>
                   );
                 })}
               </div>

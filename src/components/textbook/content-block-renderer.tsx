@@ -12,6 +12,7 @@ import {
   ChevronDown,
   ChevronUp,
   Play,
+  Headphones,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import type { TextbookContentBlock, TextbookExercise, SignDiagramBlock, ExampleSolutionBlock, IllustrationBlock, ImageBlock } from '@/lib/types/textbook';
@@ -113,6 +114,8 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
       return <TipBlock content={block.content} />;
     case 'video':
       return <VideoBlock title={block.title} youtubeId={block.youtubeId} description={block.description} />;
+    case 'audio':
+      return <AudioBlockComponent title={block.title} src={block.src} description={block.description} />;
     case 'geogebra':
       return <GeoGebraBlockComponent title={block.title} description={block.description} materialId={block.materialId} commands={block.commands} appType={block.appType} />;
     case 'image':
@@ -483,6 +486,46 @@ function YouTubeEmbed({ videoId, title }: { videoId: string; title?: string }) {
         Åpne i YouTube →
       </a>
     </div>
+  );
+}
+
+// ============================================================================
+// Audio
+// ============================================================================
+
+function AudioBlockComponent({
+  title,
+  src,
+  description,
+}: {
+  title?: string;
+  src: string;
+  description?: string;
+}) {
+  return (
+    <Card className="border-2 border-teal-200 dark:border-teal-800 bg-teal-50/50 dark:bg-teal-950/20">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-lg flex items-center gap-2 text-teal-700 dark:text-teal-300">
+          <Headphones className="h-5 w-5" />
+          {title || 'Lytt til kapitlet'}
+        </CardTitle>
+        {description && (
+          <p className="text-sm text-muted-foreground">
+            {description}
+          </p>
+        )}
+      </CardHeader>
+      <CardContent>
+        <audio
+          controls
+          className="w-full"
+          preload="metadata"
+        >
+          <source src={src} type="audio/mpeg" />
+          Nettleseren din støtter ikke lydavspilling.
+        </audio>
+      </CardContent>
+    </Card>
   );
 }
 
