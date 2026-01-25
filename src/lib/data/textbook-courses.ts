@@ -12707,16 +12707,56 @@ export const COURSE_TYSK_3: TextbookCourse = {
   curriculum: 'LK20',
   icon: '🇦🇹',
   chapters: [
-    { id: 'tysk-3-1', number: '1', title: 'Konjunktiv I', description: 'Indirekte tale.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Konjunktiv I', 'Indirekte tale'], competenceGoals: ['bruke Konjunktiv I'] },
-    { id: 'tysk-3-2', number: '2', title: 'Komplexe Sätze', description: 'Komplekse setninger.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Setningsbygging', 'Konjunksjoner'], competenceGoals: ['bygge komplekse setninger'] },
-    { id: 'tysk-3-3', number: '3', title: 'Stilistik und Rhetorik', description: 'Stilistiske virkemidler.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Stil', 'Retorikk'], competenceGoals: ['bruke stilistiske virkemidler'] },
-    { id: 'tysk-3-4', number: '4', title: 'Klassische Literatur', description: 'Klassisk litteratur.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Goethe', 'Kafka', 'Klassikere'], competenceGoals: ['analysere klassisk litteratur'] },
-    { id: 'tysk-3-5', number: '5', title: 'Moderne Kultur', description: 'Moderne kultur.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Film', 'Musikk', 'Kunst'], competenceGoals: ['drøfte tysk kultur'] },
-    { id: 'tysk-3-6', number: '6', title: 'Geschichte vertieft', description: 'Fordypning i historie.', estimatedMinutes: 90, exerciseCount: 6, topics: ['20. århundre', 'Deling', 'Gjenforening'], competenceGoals: ['analysere tysk historie'] },
-    { id: 'tysk-3-7', number: '7', title: 'Wirtschaft und Handel', description: 'Økonomi og handel.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Økonomi', 'EU', 'Handel'], competenceGoals: ['kommunisere om økonomi'] },
-    { id: 'tysk-3-8', number: '8', title: 'Medien und Journalismus', description: 'Media og journalistikk.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Media', 'Nyheter', 'Presse'], competenceGoals: ['analysere tyske medier'] },
-    { id: 'tysk-3-9', number: '9', title: 'Wissenschaft und Forschung', description: 'Vitenskap og forskning.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Vitenskap', 'Forskning', 'Akademisk'], competenceGoals: ['lese akademisk tysk'] },
-    { id: 'tysk-3-10', number: '10', title: 'Prüfungsvorbereitung', description: 'Eksamensforberedelse.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Eksamen', 'Strategier'], competenceGoals: ['forberede til eksamen'] },
+    // Kapittel 1: Konjunktiv I (Indirekte tale)
+    { id: 'tysk-3-1-1', number: '1.1', title: 'Konjunktiv I Grundlagen', description: 'Grunnleggende om Konjunktiv I.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Konjunktiv I', 'Dannelse'], competenceGoals: ['forstå Konjunktiv I'] },
+    { id: 'tysk-3-1-2', number: '1.2', title: 'Indirekte Rede im Text', description: 'Indirekte tale i tekst.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Indirekte tale', 'Tekst'], competenceGoals: ['bruke indirekte tale'] },
+    { id: 'tysk-3-1-3', number: '1.3', title: 'Zeitenwechsel', description: 'Tidsendringer i indirekte tale.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Tider', 'Transformasjon'], competenceGoals: ['håndtere tidsendringer'] },
+    { id: 'tysk-3-1-4', number: '1.4', title: 'Journalistische Texte', description: 'Journalistisk bruk av Konjunktiv I.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Journalistikk', 'Nyheter'], competenceGoals: ['forstå journalistisk stil'] },
+    // Kapittel 2: Komplexe Sätze
+    { id: 'tysk-3-2-1', number: '2.1', title: 'Nebensätze', description: 'Leddsetninger med ulike konjunksjoner.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Leddsetninger', 'Konjunksjoner'], competenceGoals: ['bygge komplekse setninger'] },
+    { id: 'tysk-3-2-2', number: '2.2', title: 'Partizipialkonstruktionen', description: 'Partisippkonstruksjoner.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Partisipp', 'Konstruksjoner'], competenceGoals: ['bruke partisippkonstruksjoner'] },
+    { id: 'tysk-3-2-3', number: '2.3', title: 'Infinitivkonstruktionen', description: 'Infinitivkonstruksjoner.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Infinitiv', 'um zu', 'ohne zu'], competenceGoals: ['bruke infinitivkonstruksjoner'] },
+    { id: 'tysk-3-2-4', number: '2.4', title: 'Satzverkettung', description: 'Setningskobling og tekstflyt.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Tekstflyt', 'Koherens'], competenceGoals: ['skrive sammenhengende tekst'] },
+    // Kapittel 3: Stilistik und Rhetorik
+    { id: 'tysk-3-3-1', number: '3.1', title: 'Stilmittel erkennen', description: 'Gjenkjenne stilistiske virkemidler.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Stilmidler', 'Analyse'], competenceGoals: ['identifisere stilmidler'] },
+    { id: 'tysk-3-3-2', number: '3.2', title: 'Rhetorische Figuren', description: 'Retoriske figurer.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Retorikk', 'Figurer'], competenceGoals: ['bruke retoriske figurer'] },
+    { id: 'tysk-3-3-3', number: '3.3', title: 'Argumentationsstrategien', description: 'Argumentasjonsstrategier.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Argumentasjon', 'Strategier'], competenceGoals: ['argumentere effektivt'] },
+    { id: 'tysk-3-3-4', number: '3.4', title: 'Textsorten und Register', description: 'Teksttyper og register.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Teksttyper', 'Register'], competenceGoals: ['tilpasse språk til kontekst'] },
+    // Kapittel 4: Klassische Literatur
+    { id: 'tysk-3-4-1', number: '4.1', title: 'Weimarer Klassik', description: 'Goethe og Schiller.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Goethe', 'Schiller', 'Klassikk'], competenceGoals: ['analysere klassisk litteratur'] },
+    { id: 'tysk-3-4-2', number: '4.2', title: 'Romantik', description: 'Tysk romantikk.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Romantikk', 'Novalis', 'Heine'], competenceGoals: ['forstå romantisk litteratur'] },
+    { id: 'tysk-3-4-3', number: '4.3', title: 'Realismus', description: 'Realisme og naturalisme.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Realisme', 'Fontane'], competenceGoals: ['analysere realistisk litteratur'] },
+    { id: 'tysk-3-4-4', number: '4.4', title: 'Literarische Analyse', description: 'Litterær analyse.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Analyse', 'Metode'], competenceGoals: ['utføre litterær analyse'] },
+    // Kapittel 5: Moderne Literatur und Kultur
+    { id: 'tysk-3-5-1', number: '5.1', title: 'Literatur des 20. Jahrhunderts', description: 'Kafka, Mann, Brecht.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Kafka', 'Mann', 'Modernisme'], competenceGoals: ['forstå modernistisk litteratur'] },
+    { id: 'tysk-3-5-2', number: '5.2', title: 'Nachkriegsliteratur', description: 'Etterkrigslitteratur.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Böll', 'Grass', 'Trümmerliteratur'], competenceGoals: ['analysere etterkrigslitteratur'] },
+    { id: 'tysk-3-5-3', number: '5.3', title: 'Gegenwartsliteratur', description: 'Samtidslitteratur.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Samtidslitteratur', 'Nye stemmer'], competenceGoals: ['lese tysk samtidslitteratur'] },
+    { id: 'tysk-3-5-4', number: '5.4', title: 'Film und Theater', description: 'Tysk film og teater.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Film', 'Teater', 'Kultur'], competenceGoals: ['analysere tysk film og teater'] },
+    // Kapittel 6: Deutsche Geschichte vertieft
+    { id: 'tysk-3-6-1', number: '6.1', title: 'Kaiserreich und Erster Weltkrieg', description: 'Keisertiden og første verdenskrig.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Keisertid', '1914-1918'], competenceGoals: ['forstå tysk historie før 1918'] },
+    { id: 'tysk-3-6-2', number: '6.2', title: 'Weimarer Republik', description: 'Weimarrepublikken og nazismen.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Weimar', 'Nazisme', 'Holocaust'], competenceGoals: ['analysere mellomkrigstiden'] },
+    { id: 'tysk-3-6-3', number: '6.3', title: 'Nachkriegszeit', description: 'Etterkrigstid og den kalde krigen.', estimatedMinutes: 45, exerciseCount: 8, topics: ['DDR', 'BRD', 'Kald krig'], competenceGoals: ['forstå etterkrigstidens Tyskland'] },
+    { id: 'tysk-3-6-4', number: '6.4', title: 'Wiedervereinigung bis heute', description: 'Gjenforening til i dag.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Gjenforening', 'Moderne'], competenceGoals: ['forstå moderne tysk historie'] },
+    // Kapittel 7: Wirtschaft und Politik
+    { id: 'tysk-3-7-1', number: '7.1', title: 'Die deutsche Wirtschaft', description: 'Tysk økonomi i dybden.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Økonomi', 'Industri', 'Handel'], competenceGoals: ['forstå tysk økonomi'] },
+    { id: 'tysk-3-7-2', number: '7.2', title: 'Politisches System', description: 'Det politiske systemet.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Bundestag', 'Partier', 'Valg'], competenceGoals: ['forstå tysk politikk'] },
+    { id: 'tysk-3-7-3', number: '7.3', title: 'Deutschland in der EU', description: 'Tyskland i EU.', estimatedMinutes: 45, exerciseCount: 8, topics: ['EU', 'Europa', 'Integrasjon'], competenceGoals: ['forstå Tysklands rolle i EU'] },
+    { id: 'tysk-3-7-4', number: '7.4', title: 'Aktuelle Debatten', description: 'Aktuelle politiske debatter.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Aktualitet', 'Debatter'], competenceGoals: ['diskutere aktuelle temaer'] },
+    // Kapittel 8: Medien und Journalismus
+    { id: 'tysk-3-8-1', number: '8.1', title: 'Deutsche Medienlandschaft', description: 'Tysk medielandskap.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Medier', 'Presse', 'TV'], competenceGoals: ['kjenne tyske medier'] },
+    { id: 'tysk-3-8-2', number: '8.2', title: 'Nachrichtensprache', description: 'Nyhetsspråk.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Nyheter', 'Språk', 'Stil'], competenceGoals: ['forstå nyhetsspråk'] },
+    { id: 'tysk-3-8-3', number: '8.3', title: 'Meinungsartikel', description: 'Meningsartikler og kommentarer.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Meninger', 'Kommentarer'], competenceGoals: ['analysere meningsartikler'] },
+    { id: 'tysk-3-8-4', number: '8.4', title: 'Kritische Medienanalyse', description: 'Kritisk medieanalyse.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Kildekritikk', 'Analyse'], competenceGoals: ['analysere medier kritisk'] },
+    // Kapittel 9: Wissenschaft und Akademie
+    { id: 'tysk-3-9-1', number: '9.1', title: 'Akademische Texte lesen', description: 'Lese akademiske tekster.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Akademisk', 'Lesing'], competenceGoals: ['lese akademisk tysk'] },
+    { id: 'tysk-3-9-2', number: '9.2', title: 'Wissenschaftliches Schreiben', description: 'Vitenskapelig skriving.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Skriving', 'Akademisk'], competenceGoals: ['skrive akademisk'] },
+    { id: 'tysk-3-9-3', number: '9.3', title: 'Fachsprache', description: 'Fagspråk.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Fagspråk', 'Terminologi'], competenceGoals: ['forstå fagspråk'] },
+    { id: 'tysk-3-9-4', number: '9.4', title: 'Präsentationen', description: 'Holde presentasjoner.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Presentasjon', 'Muntlig'], competenceGoals: ['presentere på tysk'] },
+    // Kapittel 10: Prüfungsvorbereitung
+    { id: 'tysk-3-10-1', number: '10.1', title: 'Textverständnis', description: 'Øve på tekstforståelse.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Lesing', 'Forståelse'], competenceGoals: ['mestre tekstforståelse'] },
+    { id: 'tysk-3-10-2', number: '10.2', title: 'Schriftlicher Ausdruck', description: 'Skriftlig uttrykk.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Skriving', 'Uttrykk'], competenceGoals: ['skrive variert'] },
+    { id: 'tysk-3-10-3', number: '10.3', title: 'Mündliche Kommunikation', description: 'Muntlig kommunikasjon.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Muntlig', 'Samtale'], competenceGoals: ['kommunisere muntlig'] },
+    { id: 'tysk-3-10-4', number: '10.4', title: 'Wiederholung', description: 'Repetisjon og strategier.', estimatedMinutes: 50, exerciseCount: 10, topics: ['Repetisjon', 'Eksamen'], competenceGoals: ['forberede til eksamen'] },
   ],
 };
 
