@@ -196,14 +196,26 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-pink-400 to-rose-500',
     image: '/images/grades/vg3.png',
     subjects: [
-      { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600', image: '/images/subjects/matematikk-s2-hero.png' },
-      { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600', image: '/images/subjects/matematikk-r2-hero.png' },
+      // Fellesfag
       { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg3.png' },
       { courseId: 'historie-vg3', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg3-hero.png' },
       { courseId: 'religion-etikk', name: 'Religion og etikk', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
       { courseId: 'kroppsoving-vg3', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
+      // Matematikk
+      { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600', image: '/images/subjects/matematikk-s2-hero.png' },
+      { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600', image: '/images/subjects/matematikk-r2-hero.png' },
+      // Programfag realfag
       { courseId: 'fysikk2', name: 'Fysikk 2', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk2-hero.png' },
       { courseId: 'kjemi2', name: 'Kjemi 2', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi2-hero.png' },
+      { courseId: 'biologi2', name: 'Biologi 2', icon: '🧬', color: 'from-green-500 to-emerald-600' },
+      { courseId: 'it2', name: 'Informasjonsteknologi 2', icon: '💻', color: 'from-sky-500 to-blue-600' },
+      { courseId: 'geofag2', name: 'Geofag 2', icon: '🌋', color: 'from-amber-600 to-orange-700' },
+      { courseId: 'tof2', name: 'Teknologi og forskningslære 2', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
+      // Programfag samfunn/økonomi
+      { courseId: 'psykologi2', name: 'Psykologi 2', icon: '🧠', color: 'from-pink-500 to-rose-600' },
+      { courseId: 'rettslære2', name: 'Rettslære 2', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
+      { courseId: 'markledelse2', name: 'Markedsføring og ledelse 2', icon: '📈', color: 'from-blue-500 to-indigo-600' },
+      { courseId: 'entrebed2', name: 'Entreprenørskap og bedriftsutvikling 2', icon: '💡', color: 'from-yellow-500 to-amber-600' },
     ],
   },
   'hoyere': {
