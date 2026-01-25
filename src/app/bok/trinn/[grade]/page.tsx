@@ -155,16 +155,38 @@ const GRADE_CONFIG: Record<string, {
     gradient: 'from-fuchsia-400 to-pink-500',
     image: '/images/grades/vg2.png',
     subjects: [
+      // Fellesfag
+      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.png' },
+      { courseId: 'historie-vg2', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg2-hero.png' },
+      { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
+      // Matematikk
       { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-2p-hero.png' },
       { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.png' },
       { courseId: 's1', name: 'Matematikk S1', icon: '📐', color: 'from-purple-500 to-violet-600', image: '/images/subjects/matematikk-s1-hero.png' },
       { courseId: 'r1', name: 'Matematikk R1', icon: '📐', color: 'from-rose-500 to-pink-600', image: '/images/subjects/matematikk-r1-hero.png' },
-      { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.png' },
-      { courseId: 'historie-vg2', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg2-hero.png' },
-      { courseId: 'samfunnskunnskap', name: 'Samfunnskunnskap', icon: '🏛️', color: 'from-amber-500 to-orange-600', image: '/images/subjects/samfunnskunnskap-hero.png' },
-      { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
+      // Programfag realfag
       { courseId: 'fys1', name: 'Fysikk 1', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk1-hero.png' },
       { courseId: 'kjemi1', name: 'Kjemi 1', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi1-hero.png' },
+      { courseId: 'biologi1', name: 'Biologi 1', icon: '🧬', color: 'from-green-500 to-emerald-600' },
+      { courseId: 'it1', name: 'Informasjonsteknologi 1', icon: '💻', color: 'from-sky-500 to-blue-600' },
+      { courseId: 'geofag1', name: 'Geofag 1', icon: '🌋', color: 'from-amber-600 to-orange-700' },
+      { courseId: 'tof1', name: 'Teknologi og forskningslære 1', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
+      // Programfag samfunn/økonomi
+      { courseId: 'sosiologi', name: 'Sosiologi og sosialantropologi', icon: '👥', color: 'from-violet-500 to-purple-600' },
+      { courseId: 'psykologi1', name: 'Psykologi 1', icon: '🧠', color: 'from-pink-500 to-rose-600' },
+      { courseId: 'rettslære1', name: 'Rettslære 1', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
+      { courseId: 'politikk', name: 'Politikk og menneskerettigheter', icon: '🏛️', color: 'from-red-600 to-rose-700' },
+      { courseId: 'okonomi-ledelse', name: 'Økonomi og ledelse', icon: '📊', color: 'from-emerald-500 to-green-600' },
+      { courseId: 'markledelse1', name: 'Markedsføring og ledelse 1', icon: '📈', color: 'from-blue-500 to-indigo-600' },
+      { courseId: 'entrebed1', name: 'Entreprenørskap og bedriftsutvikling 1', icon: '💡', color: 'from-yellow-500 to-amber-600' },
+      // Fremmedspråk nivå 2
+      { courseId: 'spansk-2', name: 'Spansk nivå 2', icon: '🇪🇸', color: 'from-red-500 to-orange-600' },
+      { courseId: 'tysk-2', name: 'Tysk nivå 2', icon: '🇩🇪', color: 'from-gray-600 to-gray-700' },
+      { courseId: 'fransk-2', name: 'Fransk nivå 2', icon: '🇫🇷', color: 'from-blue-500 to-red-500' },
+      // Fremmedspråk nivå 3
+      { courseId: 'spansk-3', name: 'Spansk nivå 3', icon: '🇪🇸', color: 'from-red-600 to-orange-700' },
+      { courseId: 'tysk-3', name: 'Tysk nivå 3', icon: '🇩🇪', color: 'from-gray-700 to-gray-800' },
+      { courseId: 'fransk-3', name: 'Fransk nivå 3', icon: '🇫🇷', color: 'from-blue-600 to-red-600' },
     ],
   },
   'vg3': {
