@@ -12115,6 +12115,7 @@ export const COURSE_KROPPSOVING_VG2: TextbookCourse = {
   description: 'Kroppsøving - avansert trening, idrettspsykologi og helse',
   curriculum: 'LK20',
   icon: '🏋️',
+  coverImage: '/images/textbook-covers/kroppsoving-vg2-hero.png',
   chapters: [
     { id: 'kroppsoving-vg2-1', number: '1', title: 'Avansert treningslære', description: 'Lær avanserte treningsprinsipper og metoder.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Treningsmetoder', 'Styrke', 'Utholdenhet', 'Treningsadaptasjon'], competenceGoals: ['anvende avanserte treningsprinsipper'] },
     { id: 'kroppsoving-vg2-2', number: '2', title: 'Periodisering og treningsplanlegging', description: 'Mestre periodisering av trening.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Periodisering', 'Makrosyklus', 'Mesosyklus', 'Tapering'], competenceGoals: ['planlegge trening med periodisering'] },
@@ -12191,6 +12192,7 @@ export const COURSE_KROPPSOVING_VG3: TextbookCourse = {
   description: 'Kroppsøving - livslang bevegelsesglede, selvstendighet og helse',
   curriculum: 'LK20',
   icon: '🎯',
+  coverImage: '/images/textbook-covers/kroppsoving-vg3-hero.png',
   chapters: [
     { id: 'kroppsoving-vg3-1', number: '1', title: 'Livslang bevegelsesglede', description: 'Utvikle varig motivasjon for aktivitet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Motivasjon', 'Egenaktivitet', 'Vaner'], competenceGoals: ['utvikle livslang bevegelsesglede'] },
     { id: 'kroppsoving-vg3-2', number: '2', title: 'Trening og helse gjennom livsløpet', description: 'Forstå aktivitetens betydning i alle livsfaser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Livsfaser', 'Aldring', 'Forebygging'], competenceGoals: ['planlegge aktivitet for ulike livsfaser'] },
@@ -12266,6 +12268,7 @@ export const COURSE_BIOLOGI_1: TextbookCourse = {
   description: 'Biologi 1 - celler, genetikk, evolusjon og økologi',
   curriculum: 'LK20',
   icon: '🧬',
+  coverImage: '/images/textbook-covers/biologi-1-hero.png',
   chapters: [
     { id: 'biologi-1-1', number: '1', title: 'Cellebiologi og cellens oppbygging', description: 'Cellens struktur og organeller.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Celler', 'Organeller', 'Prokaryot', 'Eukaryot'], competenceGoals: ['beskrive cellens oppbygging'] },
     { id: 'biologi-1-2', number: '2', title: 'Celleånding og fotosyntese', description: 'Energiomsetning i celler.', estimatedMinutes: 90, exerciseCount: 6, topics: ['ATP', 'Glykolyse', 'Fotosyntese'], competenceGoals: ['forklare energiomsetning'] },
@@ -12291,6 +12294,7 @@ export const COURSE_BIOLOGI_2: TextbookCourse = {
   description: 'Biologi 2 - fysiologi, atferd, bioteknologi og bærekraft',
   curriculum: 'LK20',
   icon: '🔬',
+  coverImage: '/images/textbook-covers/biologi-2-hero.png',
   chapters: [
     { id: 'biologi-2-1', number: '1', title: 'Fordøyelse og ernæring', description: 'Fordøyelsessystemet og næringsstoffer.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Fordøyelse', 'Næringsstoffer', 'Enzymer'], competenceGoals: ['forklare fordøyelse'] },
     { id: 'biologi-2-2', number: '2', title: 'Sirkulasjon og respirasjon', description: 'Blodomløp og gassutveksling.', estimatedMinutes: 80, exerciseCount: 6, topics: ['Hjerte', 'Blod', 'Lunger'], competenceGoals: ['beskrive sirkulasjon'] },
@@ -12366,6 +12370,7 @@ export const COURSE_GEOFAG_1: TextbookCourse = {
   description: 'Geofag 1 - jordens oppbygging, platetektonikk, klima og landformer',
   curriculum: 'LK20',
   icon: '🌍',
+  coverImage: '/images/textbook-covers/geofag-1-hero.png',
   chapters: [
     { id: 'geofag-1-1', number: '1', title: 'Jordens system og sfærer', description: 'Jordens oppbygging og sfærene.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Geosfære', 'Hydrosfære', 'Atmosfære'], competenceGoals: ['beskrive jordens oppbygging'] },
     { id: 'geofag-1-2', number: '2', title: 'Bergarter og mineraler', description: 'Bergartsdannelse og klassifisering.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Bergarter', 'Mineraler', 'Bergartskretsløp'], competenceGoals: ['identifisere bergarter'] },
@@ -12391,6 +12396,7 @@ export const COURSE_GEOFAG_2: TextbookCourse = {
   description: 'Geofag 2 - jordens historie, paleontologi, ressurser og naturfare',
   curriculum: 'LK20',
   icon: '🗺️',
+  coverImage: '/images/textbook-covers/geofag-2-hero.png',
   chapters: [
     { id: 'geofag-2-1', number: '1', title: 'Jordens historie', description: 'Geologisk tid og datering.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Geotid', 'Datering', 'Fossiler'], competenceGoals: ['gjøre rede for jordens historie'] },
     { id: 'geofag-2-2', number: '2', title: 'Fossiler og paleontologi', description: 'Livets utvikling.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Fossiler', 'Evolusjon', 'Masseutryddelser'], competenceGoals: ['beskrive livets utvikling'] },
