@@ -11644,6 +11644,7 @@ export const COURSE_NORSK_VG1: TextbookCourse = {
   description: 'Norsk for VG1 - retorikk, litteratur, språk og skriving',
   curriculum: 'LK20',
   icon: '📚',
+  coverImage: '/images/courses/norsk-vg1.png',
   chapters: [
     { id: 'norsk-vg1-1-1', number: '1.1', title: 'Retorikk og argumentasjon', description: 'Lær om retoriske virkemidler og argumentasjonsteknikk.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Etos', 'Patos', 'Logos', 'Argumentasjon'], competenceGoals: ['bruke retoriske virkemidler i egne tekster'] },
     { id: 'norsk-vg1-1-2', number: '1.2', title: 'Sakprosa og kildebruk', description: 'Lær å analysere sakprosa og bruke kilder kritisk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sakprosa', 'Kildekritikk', 'Referanser'], competenceGoals: ['vurdere teksters troverdighet'] },
@@ -11944,6 +11945,7 @@ export const COURSE_NORSK_VG2: TextbookCourse = {
   description: 'Norsk for VG2 - litteraturhistorie, språkdebatt, retorikk og akademisk skriving',
   curriculum: 'LK20',
   icon: '📖',
+  coverImage: '/images/courses/norsk-vg2.png',
   chapters: [
     { id: 'norsk-vg2-1-1', number: '1.1', title: 'Realismen og det moderne gjennombrudd', description: 'Lær om realismen og det moderne gjennombruddet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Realisme', 'Ibsen', 'Brandes'], competenceGoals: ['analysere tekster fra realismen'] },
     { id: 'norsk-vg2-1-2', number: '1.2', title: 'Naturalismen', description: 'Utforsk naturalismen og dens kjennetegn.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Naturalisme', 'Determinisme', 'Amalie Skram'], competenceGoals: ['sammenligne realisme og naturalisme'] },
@@ -12134,6 +12136,7 @@ export const COURSE_NORSK_VG3: TextbookCourse = {
   description: 'Norsk for VG3 - språkhistorie, samtidslitteratur, akademisk skriving og eksamensforberedelse',
   curriculum: 'LK20',
   icon: '📚',
+  coverImage: '/images/courses/norsk-vg3.png',
   chapters: [
     { id: 'norsk-vg3-1-1', number: '1.1', title: 'Det moderne gjennombruddet (1870-1890)', description: 'Lær om realismen og det moderne gjennombruddet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Realisme', 'Ibsen', 'Brandes', 'Naturalisme'], competenceGoals: ['analysere tekster fra det moderne gjennombruddet'] },
     { id: 'norsk-vg3-2-1', number: '2.1', title: 'Nyrealisme og mellomkrigstid', description: 'Utforsk mellomkrigstidens litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nyrealisme', 'Mellomkrigstid', 'Arbeiderlitteratur'], competenceGoals: ['analysere mellomkrigslitteratur'] },
