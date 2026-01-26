@@ -10,7 +10,7 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
-import { BookOpen, User, Building2, Calendar, GraduationCap, Loader2, AlertCircle, CheckCircle2, Plus } from "lucide-react";
+import { BookOpen, User, Building2, Calendar, GraduationCap, Loader2, AlertCircle, CheckCircle2, Plus, Users } from "lucide-react";
 
 interface Organization {
   id: string;
@@ -49,6 +49,7 @@ function OnboardingContent() {
   const [birthYear, setBirthYear] = useState<string>("");
   const [gradeLevel, setGradeLevel] = useState<string>("");
   const [phone, setPhone] = useState("");
+  const [classCode, setClassCode] = useState("");
 
   // Organizations
   const [organizations, setOrganizations] = useState<Organization[]>([]);
@@ -100,6 +101,18 @@ function OnboardingContent() {
     // Find organization name from ID
     const selectedOrg = organizations.find(o => o.id === organizationId);
 
+    // Handle special organization values
+    let orgId = organizationId || null;
+    let orgName = selectedOrg?.name || null;
+
+    if (organizationId === "none") {
+      orgId = null;
+      orgName = null;
+    } else if (organizationId === "studenthjelp") {
+      orgId = "studenthjelp";
+      orgName = "Studenthjelp Privatundervisning";
+    }
+
     try {
       const response = await fetch("/api/auth/onboarding", {
         method: "POST",
@@ -108,11 +121,12 @@ function OnboardingContent() {
         },
         body: JSON.stringify({
           name: name.trim(),
-          organizationId: organizationId || null,
-          organization: selectedOrg?.name || null,
+          organizationId: orgId,
+          organization: orgName,
           birthYear: birthYear ? parseInt(birthYear) : null,
           gradeLevel: gradeLevel || null,
           phone: phone.trim() || null,
+          classCode: classCode.trim().toUpperCase() || null,
         }),
       });
 
@@ -302,6 +316,8 @@ function OnboardingContent() {
                         <SelectValue placeholder={orgsLoading ? "Laster..." : "Velg organisasjon"} />
                       </SelectTrigger>
                       <SelectContent>
+                        <SelectItem value="none">Ingen</SelectItem>
+                        <SelectItem value="studenthjelp">Studenthjelp Privatundervisning</SelectItem>
                         {organizations.map((org) => (
                           <SelectItem key={org.id} value={org.id}>
                             {org.name}
@@ -366,6 +382,29 @@ function OnboardingContent() {
                     </Select>
                   </div>
                 </div>
+
+                {/* Klassekode (valgfritt, kun for elever) */}
+                {!isTeacher && (
+                  <div className="space-y-2">
+                    <Label htmlFor="classCode">Klassekode (valgfritt)</Label>
+                    <div className="relative">
+                      <Users className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+                      <Input
+                        id="classCode"
+                        type="text"
+                        placeholder="F.eks. ABC123"
+                        value={classCode}
+                        onChange={(e) => setClassCode(e.target.value.toUpperCase())}
+                        className="pl-10 font-mono tracking-widest"
+                        maxLength={10}
+                        disabled={isLoading}
+                      />
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Har du fått en klassekode fra læreren? Skriv den inn her for å bli med i klassen.
+                    </p>
+                  </div>
+                )}
 
                 {/* Telefon (valgfritt, kun for lærere) */}
                 {isTeacher && (

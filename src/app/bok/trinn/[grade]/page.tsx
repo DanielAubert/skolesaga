@@ -417,6 +417,13 @@ export default async function GradePage({ params }: PageProps) {
       {/* Subjects Grid */}
       <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
+          <Link
+            href="/bok"
+            className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mb-4"
+          >
+            <ChevronLeft className="w-4 h-4" />
+            Se andre klassetrinn
+          </Link>
           <h2 className="text-2xl font-bold mb-8">Velg fag</h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {config.subjects.map((subject) => (
