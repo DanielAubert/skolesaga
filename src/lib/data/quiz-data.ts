@@ -24,9 +24,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er hovedforskjellen mellom skjønnlitteratur og sakprosa?',
       options: [
-        'Skjønnlitteratur er oppdiktet, sakprosa handler om virkeligheten',
+        'Skjønnlitteratur er oppdiktet, sakproså handler om virkeligheten',
         'Skjønnlitteratur er lengre enn sakprosa',
-        'Sakprosa har alltid bilder',
+        'Sakproså har alltid bilder',
         'Skjønnlitteratur er alltid på rim',
       ],
       explanation: 'Skjønnlitteratur er fiksjon (oppdiktet), mens sakprosa formidler faktisk informasjon om virkeligheten.',
@@ -789,7 +789,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Tverrfaglighet innebærer at kunnskap fra flere fag kombineres for dypere forståelse.',
     },
     {
-      question: 'Hva har kunst og vitenskap til felles?',
+      question: 'Hvahar kunst og vitenskap til felles?',
       options: ['Begge krever observasjon, eksperimentering og nysgjerrighet', 'Ingenting', 'Begge handler bare om tall', 'Begge unngår kreativitet'],
       explanation: 'Kunst og vitenskap deler grunnleggende metoder: observasjon, eksperimentering og utforskning.',
     },
@@ -948,7 +948,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     {
       question: 'Hva er særegent med hardingfela?',
       options: ['Den har understrenger som gir resonans', 'Den er mye større', 'Den har bare to strenger', 'Den spilles med pinner'],
-      explanation: 'Hardingfela har 4-5 understrenger som klinger med når man spiller, noe som gir den karakteristiske klangen.',
+      explanation: 'Hardingfelå har 4-5 understrenger som klinger med når man spiller, noe som gir den karakteristiske klangen.',
     },
     {
       question: 'Hvilket kontinent har påvirket jazz, blues og hip-hop sterkt?',
@@ -980,7 +980,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     {
       question: 'Hvorfor er restitusjon viktig?',
       options: ['Kroppen tilpasser seg og blir sterkere i hvileperioden', 'Det er bare behagelig å hvile', 'Restitusjon er ikke så viktig', 'Man mister form under hvile'],
-      explanation: 'Under restitusjon reparerer og forsterker kroppen seg. Uten tilstrekkelig hvile får man ikke full effekt av treningen.',
+      explanation: 'Under restitusjon reparerer og førsterker kroppen seg. Uten tilstrekkelig hvile får man ikke full effekt av treningen.',
     },
     {
       question: 'Hva er forskjellen mellom aerob og anaerob utholdenhet?',
@@ -1257,7 +1257,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Filosofi kommer fra gresk og betyr "kjærlighet til visdom".',
     },
     {
-      question: 'Hvem sa "Jeg vet at jeg ingenting vet"?',
+      question: 'Hvem så"Jeg vet at jeg ingenting vet"?',
       options: [
         'Sokrates',
         'Platon',
@@ -1267,7 +1267,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Sokrates var kjent for dette utsagnet som viser filosofisk ydmykhet.',
     },
     {
-      question: 'Hva handler Platons hulelignelse om?',
+      question: 'Hvahandler Platons hulelignelse om?',
       options: [
         'Forskjellen mellom skinn og sann virkelighet',
         'Hvordan man bygger en hule',
@@ -1354,7 +1354,7 @@ const quizData: Record<string, QuizQuestion[]> = {
         'Friedrich Nietzsche',
         'Albert Camus',
       ],
-      explanation: 'Søren Kierkegaard (1813-1855) regnes som eksistensialismens far med sitt fokus på det enkelte menneskets valg og angst.',
+      explanation: 'Søren Kierkegaard (1813-1855) regnes som eksistensialismens fårmed sitt fokus på det enkelte menneskets valg og angst.',
     },
     {
       question: 'Hva mener eksistensialister med "eksistens går foran essens"?',
@@ -1430,7 +1430,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Apologetikk er systematisk forsvar for religiøs tro med fornuftsargumenter.',
     },
     {
-      question: 'Hvem sa "Gud er død"?',
+      question: 'Hvem så"Gud er død"?',
       options: [
         'Friedrich Nietzsche',
         'Karl Marx',
@@ -2182,7 +2182,7 @@ const quizData: Record<string, QuizQuestion[]> = {
         'Henrik VIII',
         'Paven',
       ],
-      explanation: 'Martin Luther startet reformasjonen med sine 95 teser mot avlatshandel.',
+      explanation: 'Martin Luther stårtet reformasjonen med sine 95 teser mot avlatshandel.',
     },
     {
       question: 'Hva var korstogene?',
@@ -2974,12 +2974,12 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Alle modeller er forenklinger og viser ikke virkeligheten perfekt - de kan utelate viktige detaljer.',
     },
     {
-      question: 'Hva brukes Bohrs atommodell til å forklare?',
+      question: 'Hvabrukes Bohrs atommodell til å forklare?',
       options: [
         'Hvordan elektroner er organisert rundt atomkjernen',
         'Hvordan planeter beveger seg',
         'Hvordan celler fungerer',
-        'Hvordan vann koker',
+        'Hvordan vann køker',
       ],
       explanation: 'Bohrs atommodell viser elektroner i skall rundt kjernen og hjelper oss å forstå atomets oppbygning.',
     },
@@ -3170,7 +3170,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   // Kapittel 2.3
   'naturfag-10-2-3': [
     {
-      question: 'Hva er oktettregelen?',
+      question: 'Hva er øktettregelen?',
       options: [
         'Atomer ønsker 8 elektroner i ytterste skall',
         'Atomer har alltid 8 protoner',
@@ -3392,7 +3392,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Ved nøytralisering reagerer en syre med en base og danner salt og vann.',
     },
     {
-      question: 'Hva brukes en indikator til?',
+      question: 'Hvabrukes en indikator til?',
       options: [
         'Å vise om løsningen er sur eller basisk',
         'Å nøytralisere en syre',
@@ -3510,7 +3510,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Den omdannes vanligvis til varme på grunn av friksjon og andre tap.',
     },
     {
-      question: 'Hva har høyest virkningsgrad: glødelampe eller LED-pære?',
+      question: 'Hvahar høyest virkningsgrad: glødelampe eller LED-pære?',
       options: [
         'LED-pære',
         'Glødelampe',
@@ -3746,24 +3746,24 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Karbondioksid (CO₂) er den viktigste menneskeskapte drivhusgassen, hovedsakelig fra fossile brennstoff.',
     },
     {
-      question: 'Hva er den forsterkede drivhuseffekten?',
+      question: 'Hva er den førsterkede drivhuseffekten?',
       options: [
         'Økt oppvarming pga. mer drivhusgasser fra mennesker',
         'Den naturlige drivhuseffekten',
         'Solen som blir sterkere',
         'Vulkansk aktivitet',
       ],
-      explanation: 'Den forsterkede drivhuseffekten er økt oppvarming på grunn av økte mengder drivhusgasser fra menneskelig aktivitet.',
+      explanation: 'Den førsterkede drivhuseffekten er økt oppvarming på grunn av økte mengder drivhusgasser fra menneskelig aktivitet.',
     },
     {
       question: 'Hva er en tilbakekoblingsmekanisme i klimasystemet?',
       options: [
-        'Når en endring forsterker eller demper seg selv',
+        'Når en endring førsterker eller demper seg selv',
         'Når temperaturen aldri endrer seg',
         'Bare negativ påvirkning',
         'Bare positiv påvirkning',
       ],
-      explanation: 'En tilbakekoblingsmekanisme er når en endring forsterker (positiv) eller demper (negativ) seg selv.',
+      explanation: 'En tilbakekoblingsmekanisme er når en endring førsterker (positiv) eller demper (negativ) seg selv.',
     },
     {
       question: 'Hvorfor smelter isen ved polene på grunn av global oppvarming?',
@@ -4676,7 +4676,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Simuleringer er forenklinger av virkeligheten og kan ikke ta med alle detaljer. Resultatene er bare så gode som modellen og dataene de er basert på.',
     },
     {
-      question: 'Hva brukes klimasimuleringer til?',
+      question: 'Hvabrukes klimasimuleringer til?',
       options: [
         'Forutsi hvordan klimaet vil utvikle seg i fremtiden',
         'Lage værmeldinger for i dag',
@@ -4776,7 +4776,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Ved rentesrente ganges startkapitalen med vekstfaktoren opphøyd i antall år.',
     },
     {
-      question: 'Du setter 10 000 kr i banken med 4% rente. Hva har du etter 1 år?',
+      question: 'Du setter 10 000 kr i banken med 4% rente. Hvahar du etter 1 år?',
       options: ['10 400 kr', '10 040 kr', '14 000 kr', '400 kr'],
       explanation: '$10\\,000 \\times 1{,}04 = 10\\,400$ kr.',
     },
@@ -4959,7 +4959,7 @@ const quizData: Record<string, QuizQuestion[]> = {
       explanation: 'Negativt stigningstall betyr at $y$ avtar når $x$ øker, altså linjen synker.',
     },
     {
-      question: 'Taxi koster 50 kr startpris + 10 kr/km. Hva er funksjonen $f(x)$?',
+      question: 'Taxi koster 50 kr stårtpris + 10 kr/km. Hva er funksjonen $f(x)$?',
       options: ['$f(x) = 10x + 50$', '$f(x) = 50x + 10$', '$f(x) = 60x$', '$f(x) = 10x - 50$'],
       explanation: 'Startprisen er konstantledd (50), pris per km er stigningstall (10).',
     },
@@ -5219,7 +5219,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '1p-7-1': [
     {
-      question: 'Taxi: 60 kr startpris + 15 kr/km. Hva er funksjonen $P(x)$?',
+      question: 'Taxi: 60 kr stårtpris + 15 kr/km. Hva er funksjonen $P(x)$?',
       options: ['$P(x) = 15x + 60$', '$P(x) = 60x + 15$', '$P(x) = 75x$', '$P(x) = 60 - 15x$'],
       explanation: 'Pris = pris per km $\times$ antall km + startpris $= 15x + 60$.',
     },
@@ -5575,7 +5575,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'For polynomer med heltallskoeffisienter prøver vi divisorer av konstantleddet.',
   },
   {
-    question: 'Når vi deler $x^2 - 5x + 6$ på $(x-2)$, hva blir kvotienten?',
+    question: 'Når vi deler $x^2 - 5x + 6$ på $(x-2)$, hvå blir kvotienten?',
     options: ['$x - 3$', '$x + 3$', '$x - 2$', '$x^2 - 3$'],
     explanation: '$x^2 - 5x + 6 = (x-2)(x-3)$, så kvotienten er $(x-3)$.',
   },
@@ -5799,7 +5799,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Når vi deler et tredjegradspolynom på en førstegradsuttrykk, blir kvotienten et andregradspolynom.',
   },
   {
-    question: 'Hvorfor starter vi med å finne ett nullpunkt?',
+    question: 'Hvorfor stårter vi med å finne ett nullpunkt?',
     options: ['For å redusere graden av polynomet', 'Fordi det er nok', 'For å finne alle løsninger direkte', 'Det er tilfeldig'],
     explanation: 'Når vi finner ett nullpunkt, kan vi dele og få et enklere polynom å løse.',
   },
@@ -6237,7 +6237,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Et eksempel viser at noe kan være sant, mens et bevis viser at det alltid er sant.',
   },
   {
-    question: 'Hva bruker vi som grunnlag i matematiske bevis?',
+    question: 'Hvabruker vi som grunnlag i matematiske bevis?',
     options: ['Definisjoner, aksiomer og tidligere beviste setninger', 'Gjetninger', 'Bare intuisjon', 'Eksempler fra virkeligheten'],
     explanation: 'Matematiske bevis bygger på aksepterte definisjoner og tidligere resultater.',
   },
@@ -7803,7 +7803,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En bibetingelse er en restriksjon som begrenser de mulige verdiene for variablene.',
   },
   {
-    question: 'Hvis et rektangel har omkrets $20$ og vi vil maksimere arealet, hva blir sidelengdene?',
+    question: 'Hvis et rektangel har omkrets $20$ og vi vil maksimere arealet, hvå blir sidelengdene?',
     options: ['$5$ og $5$ (kvadrat)', '$10$ og $0$', '$6$ og $4$', '$7$ og $3$'],
     explanation: 'Med omkrets $2a + 2b = 20$, så $b = 10-a$. Areal $A = a(10-a) = 10a - a^2$. $A\'(a) = 10-2a = 0$ gir $a = 5, b = 5$.',
   },
@@ -8181,7 +8181,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   's1-5-3': [
   {
-    question: 'Hva brukes Bayes\' setning til?',
+    question: 'Hvabrukes Bayes\' setning til?',
     options: ['Å oppdatere sannsynlighet basert på ny informasjon', 'Å finne forventningsverdi', 'Å beregne varians', 'Å finne kombinasjoner'],
     explanation: 'Bayes\' setning lar oss beregne $P(A|B)$ når vi kjenner $P(B|A)$.',
   },
@@ -8269,7 +8269,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '$e^x$ er sin egen antideriverte: integralet av $e^x$ er $e^x + C$.',
   },
   {
-    question: 'Ved substitusjon $u = 2x$, hva blir $du$?',
+    question: 'Ved substitusjon $u = 2x$, hvå blir $du$?',
     options: ['$2 \\, dx$', '$dx$', '$x \\, dx$', '$2x \\, dx$'],
     explanation: 'Hvis $u = 2x$, så er $\\frac{du}{dx} = 2$, som gir $du = 2 \\, dx$.',
   },
@@ -8348,7 +8348,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Strekning = integral av $v(t) = [t^3]$ fra 0 til 2 = $8 - 0 = 8$ m.',
   },
   {
-    question: 'Hva brukes integrasjon til i økonomi?',
+    question: 'Hvabrukes integrasjon til i økonomi?',
     options: ['Finne total kostnad/inntekt fra grensefunksjoner', 'Bare å derivere', 'Finne maksimum', 'Ingenting spesielt'],
     explanation: 'Integralet av grensekostnad gir total variabel kostnad (+ fast kostnad).',
   },
@@ -8473,9 +8473,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-5-1-1': [
   {
-    question: 'Hvilket siffer star pa tusenerplassen i tallet 7 349?',
+    question: 'Hvilket siffer står på tusenerplassen i tallet 7 349?',
     options: ['7', '3', '4', '9'],
-    explanation: '7 star pa tusenerplassen, 3 pa hundrerplassen, 4 pa tierplassen, 9 pa enerplassen.',
+    explanation: '7 står på tusenerplassen, 3 på hundrerplassen, 4 på tierplassen, 9 på enerplassen.',
   },
   {
     question: 'Hva er 5 000 + 300 + 40 + 2?',
@@ -8488,9 +8488,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En million = 1 000 000, som har 6 nuller.',
   },
   {
-    question: 'Hvilket tall er storst?',
+    question: 'Hvilket tall er størst?',
     options: ['35 000', '3 500', '350 000', '3 050'],
-    explanation: '350 000 > 35 000 > 3 500 > 3 050. Flere siffer betyr storre tall.',
+    explanation: '350 000 > 35 000 > 3 500 > 3 050. Flere siffer betyr større tall.',
   },
   {
     question: 'Skriv "tjuetre tusen" med siffer:',
@@ -8503,10 +8503,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er verdien til sifferet 5 i tallet 3,52?',
     options: ['5 tideler (0,5)', '5 hundredeler (0,05)', '5', '50'],
-    explanation: 'Sifferet 5 star pa tidelplassen, sa verdien er 5 tideler = 0,5',
+    explanation: 'Sifferet 5 står på tidelplassen, så verdien er 5 tideler = 0,5',
   },
   {
-    question: 'Hvilket tall er storst: 0,7 eller 0,65?',
+    question: 'Hvilket tall er størst: 0,7 eller 0,65?',
     options: ['0,7', '0,65', 'De er like', 'Kan ikke sammenlignes'],
     explanation: '0,7 = 0,70, og 0,70 > 0,65 fordi 70 hundredeler er mer enn 65 hundredeler.',
   },
@@ -8518,7 +8518,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket desimaltall ligger mellom 3 og 4?',
     options: ['3,5', '4,5', '2,5', '34'],
-    explanation: '3,5 ligger mellom 3 og 4 pa tallinjen.',
+    explanation: '3,5 ligger mellom 3 og 4 på tallinjen.',
   },
   {
     question: 'Hva er 0,25 skrevet som brok?',
@@ -8534,9 +8534,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Nevneren er tallet under brokstreken. Den forteller hvor mange deler helheten er delt i.',
   },
   {
-    question: 'Hvilken brok er storst: 2/5 eller 4/5?',
+    question: 'Hvilken brok er størst: 2/5 eller 4/5?',
     options: ['4/5', '2/5', 'De er like', 'Kan ikke sammenlignes'],
-    explanation: 'Nar nevneren er lik, er broken med storst teller storst. 4 > 2, sa 4/5 > 2/5.',
+    explanation: 'Når nevneren er lik, er broken med størst teller størst. 4 > 2, så 4/5 > 2/5.',
   },
   {
     question: 'Hva er 1/2 av 10?',
@@ -8544,14 +8544,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '1/2 av 10 = 10 / 2 = 5',
   },
   {
-    question: 'Hvor mange firedeler gar det i en hel?',
+    question: 'Hvor mange firedeler går det i en hel?',
     options: ['4', '2', '1', '8'],
-    explanation: 'En hel = 4/4, sa det gar 4 firedeler i en hel.',
+    explanation: 'En hel = 4/4, så det går 4 firedeler i en hel.',
   },
   {
     question: 'Hva er 3/4 som desimaltall?',
     options: ['0,75', '0,34', '0,25', '0,5'],
-    explanation: '3/4 = 3 delt pa 4 = 0,75',
+    explanation: '3/4 = 3 delt på 4 = 0,75',
   },
 ],
 
@@ -8559,7 +8559,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket tall er minst: -3 eller -7?',
     options: ['-7', '-3', 'De er like', '0'],
-    explanation: '-7 er lenger til venstre pa tallinjen enn -3, sa -7 er minst.',
+    explanation: '-7 er lenger til venstre på tallinjen enn -3, så -7 er minst.',
   },
   {
     question: 'Det er -5 grader ute. Temperaturen stiger 8 grader. Hva blir temperaturen?',
@@ -8567,9 +8567,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '-5 + 8 = 3 grader',
   },
   {
-    question: 'Hvilket tall er storst: 0, -4, eller 2?',
+    question: 'Hvilket tall er størst: 0, -4, eller 2?',
     options: ['2', '0', '-4', 'De er like'],
-    explanation: 'Pa tallinjen: -4 < 0 < 2, sa 2 er storst.',
+    explanation: 'På tallinjen: -4 < 0 < 2, så 2 er størst.',
   },
   {
     question: 'Hva er 0 - 6?',
@@ -8579,7 +8579,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Plasser riktig: -2 ? 1',
     options: ['-2 < 1', '-2 > 1', '-2 = 1', 'Ingen av dem'],
-    explanation: '-2 er mindre enn 1, sa -2 < 1',
+    explanation: '-2 er mindre enn 1, så -2 < 1',
   },
 ],
 
@@ -8620,7 +8620,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er 45 x 10?',
     options: ['450', '4500', '45', '55'],
-    explanation: 'Nar vi ganger med 10, legger vi til en null: 45 x 10 = 450',
+    explanation: 'Når vi ganger med 10, legger vi til en null: 45 x 10 = 450',
   },
   {
     question: 'Hva er 6 x 9?',
@@ -8714,7 +8714,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange mm er det i 5 cm?',
     options: ['50', '5', '500', '0,5'],
-    explanation: '1 cm = 10 mm, sa 5 cm = 50 mm',
+    explanation: '1 cm = 10 mm, så5 cm = 50 mm',
   },
   {
     question: 'Veien til skolen er 800 m. Hvor mange km er det?',
@@ -8773,7 +8773,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Omkrets = 2 x 12 + 2 x 8 = 24 + 16 = 40 m',
   },
   {
-    question: 'Hva er forskjellen pa omkrets og areal?',
+    question: 'Hva er forskjellen påomkrets og areal?',
     options: ['Omkrets er lengden rundt, areal er flaten inni', 'De er det samme', 'Omkrets males i m2', 'Areal er lengden rundt'],
     explanation: 'Omkrets er lengden rundt figuren, areal er hvor stor flaten er.',
   },
@@ -8798,7 +8798,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva slags vinkel har hjornet av et ark?',
     options: ['Rett vinkel (90 grader)', 'Spiss vinkel', 'Stump vinkel', 'Flat vinkel'],
-    explanation: 'Hjornet av et ark har en rett vinkel pa 90 grader.',
+    explanation: 'Hjornet av et ark har en rett vinkel på90 grader.',
   },
   {
     question: 'Hvor mange grader er en hel sirkel?',
@@ -8831,7 +8831,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'En trekant har sider 4 cm, 4 cm og 6 cm. Hvilken type trekant er dette?',
     options: ['Likebeint trekant', 'Likesidet trekant', 'Ulikesidet trekant', 'Rettvinklet trekant'],
-    explanation: 'To sider er like lange, sa dette er en likebeint trekant.',
+    explanation: 'To sider er like lange, så dette er en likebeint trekant.',
   },
 ],
 
@@ -8859,25 +8859,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange rette vinkler har et rektangel?',
     options: ['4', '2', '1', '0'],
-    explanation: 'Et rektangel har 4 rette vinkler, alle pa 90 grader.',
+    explanation: 'Et rektangel har 4 rette vinkler, alle på90 grader.',
   },
 ],
 
   'matematikk-5-5-1': [
   {
-    question: 'Hva brukes et soylediagram til?',
+    question: 'Hvabrukes et søylediagram til?',
     options: ['Vise og sammenligne data', 'Male lengde', 'Regne ut areal', 'Tegne sirkler'],
-    explanation: 'Et soylediagram brukes til a vise og sammenligne data visuelt.',
+    explanation: 'Et søylediagram brukes til a vise og sammenligne data visuelt.',
   },
   {
     question: 'I en tabell over favorittfrukt har eple 8, banan 6, appelsin 4. Hvilken er mest popular?',
     options: ['Eple', 'Banan', 'Appelsin', 'Alle er like'],
-    explanation: 'Eple har flest (8), sa eple er mest popular.',
+    explanation: 'Eple har flest (8), såeple er mest popular.',
   },
   {
-    question: 'Hva viser hoyde pa en soyle i et soylediagram?',
-    options: ['Verdien eller antallet', 'Arealet', 'Omkretsen', 'Lengden pa figuren'],
-    explanation: 'Jo hoyere soylen er, jo storre er verdien eller antallet den representerer.',
+    question: 'Hva viser høyde påen søyle i et søylediagram?',
+    options: ['Verdien eller antallet', 'Arealet', 'Omkretsen', 'Lengden påfiguren'],
+    explanation: 'Jo høyere søylen er, jo større er verdien eller antallet den representerer.',
   },
   {
     question: 'Eple: 8, Banan: 6, Appelsin: 4, Druer: 3. Hvor mange er spurt totalt?',
@@ -8887,7 +8887,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en tabell?',
     options: ['Organisert data i rader og kolonner', 'En type graf', 'Et mattestykke', 'Et geometrisk verktoy'],
-    explanation: 'En tabell organiserer data i rader og kolonner for a gjore det oversiktlig.',
+    explanation: 'En tabell organiserer data i rader og kolonner for å gjøre det oversiktlig.',
   },
 ],
 
@@ -8903,14 +8903,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '6/8 = (6:2)/(8:2) = 3/4',
   },
   {
-    question: 'Er 2/4 og 1/2 like broker?',
+    question: 'Er 2/4 og 1/2 like brøker?',
     options: ['Ja', 'Nei', 'Bare noen ganger', 'Det avhenger av oppgaven'],
     explanation: '2/4 = 1/2, de representerer samme verdi.',
   },
   {
     question: 'Hva er fellesnevner for 1/3 og 1/4?',
     options: ['12', '7', '3', '4'],
-    explanation: '3 x 4 = 12, sa 12 er en fellesnevner.',
+    explanation: '3 x 4 = 12, så 12 er en fellesnevner.',
   },
   {
     question: 'Hva er 15/20 forkortet?',
@@ -8933,17 +8933,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er 1/2 + 1/4?',
     options: ['3/4', '2/6', '$\\frac{1}{6}$', '2/4'],
-    explanation: '1/2 = 2/4, sa 2/4 + 1/4 = 3/4',
+    explanation: '1/2 = 2/4, så 2/4 + 1/4 = 3/4',
   },
   {
     question: 'Hva er 3/4 - 1/2?',
     options: ['$\\frac{1}{4}$', '2/4', '$\\frac{1}{2}$', '2/2'],
-    explanation: '1/2 = 2/4, sa 3/4 - 2/4 = $\\frac{1}{4}$',
+    explanation: '1/2 = 2/4, så3/4 - 2/4 = $\\frac{1}{4}$',
   },
   {
     question: 'Hva er 2/3 + 1/6?',
     options: ['5/6', '3/9', '3/6', '4/6'],
-    explanation: '2/3 = 4/6, sa 4/6 + 1/6 = 5/6',
+    explanation: '2/3 = 4/6, så4/6 + 1/6 = 5/6',
   },
 ],
 
@@ -8961,7 +8961,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er 3/4 som desimaltall?',
     options: ['0,75', '0,34', '0,25', '0,5'],
-    explanation: '3/4 = 3 delt pa 4 = 0,75',
+    explanation: '3/4 = 3 delt på 4 = 0,75',
   },
   {
     question: 'Hva er 60% som brok (forkortet)?',
@@ -8987,7 +8987,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '50% av 120 = halvparten = 60',
   },
   {
-    question: 'En jakke koster 400 kr. Du far 25% rabatt. Hvor mye sparer du?',
+    question: 'En jakke koster 400 kr. Du får25% rabatt. Hvor mye sparer du?',
     options: ['100 kr', '75 kr', '300 kr', '125 kr'],
     explanation: '25% av 400 = 0,25 x 400 = 100 kr',
   },
@@ -9007,12 +9007,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Forholdet mellom gutter og jenter er 3:5. Hvis det er 9 gutter, hvor mange jenter er det?',
     options: ['15', '12', '5', '8'],
-    explanation: '3:5, og 9 gutter betyr 3 deler = 9, sa 1 del = 3. Da er 5 deler = 15 jenter.',
+    explanation: '3:5, og 9 gutter betyr 3 deler = 9, så1 del = 3. Da er 5 deler = 15 jenter.',
   },
   {
     question: 'Hva er forholdet 4:6 forkortet?',
     options: ['2:3', '1:2', '4:6', '3:2'],
-    explanation: '4:6 = 2:3 (del begge pa 2)',
+    explanation: '4:6 = 2:3 (del begge på2)',
   },
   {
     question: 'Saft blandes med vann i forholdet 1:5. Hvor mye vann trengs til 2 dl saft?',
@@ -9033,9 +9033,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-6-2-2': [
   {
-    question: '3 boker koster 150 kr. Hvor mye koster 5 boker?',
+    question: '3 bøker koster 150 kr. Hvor mye koster 5 bøker?',
     options: ['250 kr', '200 kr', '300 kr', '225 kr'],
-    explanation: 'Pris per bok = 150/3 = 50 kr. 5 boker = 5 x 50 = 250 kr.',
+    explanation: 'Pris per bok = 150/3 = 50 kr. 5 bøker = 5 x 50 = 250 kr.',
   },
   {
     question: '4 kg epler koster 80 kr. Hva koster 7 kg?',
@@ -9043,75 +9043,75 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Pris per kg = 80/4 = 20 kr. 7 kg = 7 x 20 = 140 kr.',
   },
   {
-    question: 'Hva betyr det at to storrelser er proporsjonale?',
-    options: ['De oker/minker i samme takt', 'De er alltid like', 'Den ene er storre', 'De har ingenting med hverandre a gjore'],
-    explanation: 'Proporsjonale storrelser oker eller minker i samme takt.',
+    question: 'Hva betyr det at to størrelser er proporsjonale?',
+    options: ['De øker/minker i samme takt', 'De er alltid like', 'Den ene er større', 'De har ingenting med hverandre å gjøre'],
+    explanation: 'Proporsjonale størrelser øker eller minker i samme takt.',
   },
   {
-    question: 'En bil kjorer 60 km pa 1 time. Hvor langt kjorer den pa 3 timer?',
+    question: 'En bil kjører 60 km på 1 time. Hvor langt kjører den på 3 timer?',
     options: ['180 km', '120 km', '20 km', '63 km'],
     explanation: '60 km/t x 3 t = 180 km',
   },
   {
-    question: 'Hvis prisen dobles, hva skjer med antallet du kan kjope for samme belop?',
+    question: 'Hvis prisen dobles, hva skjer med antallet du kan kjøpe for samme beløp?',
     options: ['Det halveres', 'Det dobles', 'Det forblir likt', 'Det tredobles'],
-    explanation: 'Hvis prisen dobles, far du halvparten sa mye for samme belop.',
+    explanation: 'Hvis prisen dobles, får du halvparten så mye for samme beløp.',
   },
 ],
 
   'matematikk-6-2-3': [
   {
-    question: 'Malestokk 1:100. En vegg er 5 cm pa tegningen. Hvor lang er den i virkeligheten?',
+    question: 'Målestokk 1:100. En vegg er 5 cm på tegningen. Hvor lang er den i virkeligheten?',
     options: ['5 m', '500 m', '0,5 m', '50 m'],
     explanation: '5 cm x 100 = 500 cm = 5 m',
   },
   {
-    question: 'Pa et kart med malestokk 1:50000 er avstanden 4 cm. Hvor langt er det i virkeligheten?',
+    question: 'På et kart med målestokk 1:50000 er avstanden 4 cm. Hvor langt er det i virkeligheten?',
     options: ['2 km', '200 m', '20 km', '4 km'],
     explanation: '4 cm x 50000 = 200000 cm = 2000 m = 2 km',
   },
   {
-    question: 'Hva betyr malestokk 1:50?',
-    options: ['1 cm pa tegningen = 50 cm i virkeligheten', '50 cm pa tegningen = 1 cm i virkeligheten', '1 m = 50 m', 'Figuren er 50 ganger storre'],
-    explanation: '1:50 betyr at 1 enhet pa tegningen tilsvarer 50 enheter i virkeligheten.',
+    question: 'Hva betyr målestokk 1:50?',
+    options: ['1 cm på tegningen = 50 cm i virkeligheten', '50 cm på tegningen = 1 cm i virkeligheten', '1 m = 50 m', 'Figuren er 50 ganger større'],
+    explanation: '1:50 betyr at 1 enhet på tegningen tilsvarer 50 enheter i virkeligheten.',
   },
   {
-    question: 'Malestokk 1:200. Virkelig lengde er 8 m. Hvor lang blir tegningen?',
+    question: 'Målestokk 1:200. Virkelig lengde er 8 m. Hvor lang blir tegningen?',
     options: ['4 cm', '40 cm', '16 cm', '1600 cm'],
-    explanation: '8 m = 800 cm. 800/200 = 4 cm pa tegningen.',
+    explanation: '8 m = 800 cm. 800/200 = 4 cm på tegningen.',
   },
   {
-    question: 'Hvilken malestokk gir storst tegning av et hus?',
+    question: 'Hvilken målestokk gir størst tegning av et hus?',
     options: ['1:50', '1:100', '1:200', '1:500'],
-    explanation: '1:50 gir storst tegning fordi du deler pa et mindre tall.',
+    explanation: '1:50 gir størst tegning fordi du deler på et mindre tall.',
   },
 ],
 
   'matematikk-6-3-1': [
   {
-    question: 'Hva er arealet av en trekant med grunnlinje 8 cm og hoyde 5 cm?',
+    question: 'Hva er arealet av en trekant med grunnlinje 8 cm og høyde 5 cm?',
     options: ['20 cm2', '40 cm2', '13 cm2', '80 cm2'],
     explanation: 'A = (g x h) / 2 = (8 x 5) / 2 = 40/2 = 20 cm2',
   },
   {
     question: 'Formelen for areal av trekant er:',
     options: ['(g x h) / 2', 'g x h', 'g + h', '2 x g x h'],
-    explanation: 'Areal av trekant = (grunnlinje x hoyde) / 2',
+    explanation: 'Areal av trekant = (grunnlinje x høyde) / 2',
   },
   {
-    question: 'Arealet er 24 cm2 og hoyden er 6 cm. Finn grunnlinjen.',
+    question: 'Arealet er 24 cm2 og høyden er 6 cm. Finn grunnlinjen.',
     options: ['8 cm', '4 cm', '18 cm', '144 cm'],
     explanation: 'g = 2A/h = (2 x 24)/6 = 48/6 = 8 cm',
   },
   {
-    question: 'En trekant har grunnlinje 12 m og hoyde 5 m. Hva er arealet?',
+    question: 'En trekant har grunnlinje 12 m og høyde 5 m. Hva er arealet?',
     options: ['30 m2', '60 m2', '17 m2', '120 m2'],
     explanation: 'A = (12 x 5) / 2 = 60/2 = 30 m2',
   },
   {
-    question: 'Hvorfor deler vi pa 2 nar vi regner areal av trekant?',
-    options: ['Fordi trekanten er halvparten av et rektangel', 'Fordi den har 3 sider', 'Fordi hoyden er halv', 'Det er bare en regel'],
-    explanation: 'En trekant er halvparten av et rektangel med samme grunnlinje og hoyde.',
+    question: 'Hvorfor deler vi på2 nårvi regner areal av trekant?',
+    options: ['Fordi trekanten er halvparten av et rektangel', 'Fordi den har 3 sider', 'Fordi høyden er halv', 'Det er bare en regel'],
+    explanation: 'En trekant er halvparten av et rektangel med samme grunnlinje og høyde.',
   },
 ],
 
@@ -9134,7 +9134,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange cm3 er det i 1 dm3?',
     options: ['1000', '100', '10', '10000'],
-    explanation: '1 dm = 10 cm, sa 1 dm3 = 10 x 10 x 10 = 1000 cm3',
+    explanation: '1 dm = 10 cm, så1 dm3 = 10 x 10 x 10 = 1000 cm3',
   },
   {
     question: 'En tank er 80 cm x 50 cm x 40 cm. Hvor mange liter rommer den?',
@@ -9156,7 +9156,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan finner vi overflaten av en boks?',
-    options: ['Legger sammen arealet av alle 6 sidene', 'Ganger lengde x bredde x hoyde', 'Legger sammen alle kantene', 'Finner volumet forst'],
+    options: ['Legger sammen arealet av alle 6 sidene', 'Ganger lengde x bredde x høyde', 'Legger sammen alle kantene', 'Finner volumet forst'],
     explanation: 'Overflate = summen av arealet til alle sidene.',
   },
   {
@@ -9180,7 +9180,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forholdet mellom diameter og radius?',
     options: ['Diameter = 2 x radius', 'Diameter = radius / 2', 'De er like', 'Diameter = radius + 2'],
-    explanation: 'Diameteren er dobbelt sa lang som radius: d = 2r',
+    explanation: 'Diameteren er dobbelt sålang som radius: d = 2r',
   },
   {
     question: 'Formelen for omkrets av sirkel er:',
@@ -9201,7 +9201,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-6-4-1': [
   {
-    question: 'Hva er verdien av 3x + 2 nar x = 4?',
+    question: 'Hva er verdien av 3x + 2 nårx = 4?',
     options: ['14', '12', '9', '34'],
     explanation: '3 x 4 + 2 = 12 + 2 = 14',
   },
@@ -9212,18 +9212,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr 2n?',
-    options: ['2 ganger n', 'n + 2', 'n - 2', '2 delt pa n'],
+    options: ['2 ganger n', 'n + 2', 'n - 2', '2 delt pån'],
     explanation: '2n betyr 2 x n, altsa 2 ganger n.',
   },
   {
-    question: 'Hva er verdien av x + 5 nar x = 3?',
+    question: 'Hva er verdien av x + 5 nårx = 3?',
     options: ['8', '35', '2', '15'],
     explanation: '3 + 5 = 8',
   },
   {
     question: 'Skriv "det dobbelte av et tall" med variabel:',
     options: ['2x', 'x + 2', 'x / 2', 'x - 2'],
-    explanation: 'Det dobbelte = 2 ganger, sa 2x.',
+    explanation: 'Det dobbelte = 2 ganger, så 2x.',
   },
 ],
 
@@ -9246,7 +9246,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr det a lose en likning?',
     options: ['Finne verdien av den ukjente', 'Gange tallene', 'Legge sammen tallene', 'Tegne en graf'],
-    explanation: 'A lose en likning betyr a finne hvilken verdi variabelen ma ha.',
+    explanation: 'A lose en likning betyr a finne hvilken verdi variabelen måha.',
   },
   {
     question: 'Los likningen x/5 = 6',
@@ -9257,29 +9257,29 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-6-4-3': [
   {
-    question: 'Bruk formelen v = s/t. En bil kjorer 120 km pa 2 timer. Hva er farten?',
+    question: 'Bruk formelen v = s/t. En bil kjører 120 km på2 timer. Hva er farten?',
     options: ['60 km/t', '240 km/t', '122 km/t', '118 km/t'],
     explanation: 'v = s/t = 120/2 = 60 km/t',
   },
   {
     question: 'Hva er en formel?',
     options: ['En regel skrevet med symboler', 'Et tall', 'En figur', 'En tabell'],
-    explanation: 'En formel viser sammenhengen mellom storrelser med symboler.',
+    explanation: 'En formel viser sammenhengen mellom størrelser med symboler.',
   },
   {
-    question: 'Bruk A = l x b. Finn arealet nar l = 8 og b = 5.',
+    question: 'Bruk A = l x b. Finn arealet nårl = 8 og b = 5.',
     options: ['40', '13', '3', '85'],
     explanation: 'A = 8 x 5 = 40',
   },
   {
-    question: 'Bruk formelen t = s/v. Hvor lang tid tar det a ga 6 km med fart 3 km/t?',
+    question: 'Bruk formelen t = s/v. Hvor lang tid tar det å gå 6 km med fart 3 km/t?',
     options: ['2 timer', '18 timer', '9 timer', '3 timer'],
     explanation: 't = s/v = 6/3 = 2 timer',
   },
   {
-    question: 'I formelen A = pi x r2, hva star r for?',
+    question: 'I formelen A = pi x r2, hva står r for?',
     options: ['Radius', 'Diameter', 'Omkrets', 'Areal'],
-    explanation: 'r star for radius i sirkelformler.',
+    explanation: 'r står for radius i sirkelformler.',
   },
 ],
 
@@ -9287,7 +9287,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er sannsynligheten for a fa 6 med en vanlig terning?',
     options: ['$\\frac{1}{6}$', '$\\frac{1}{2}$', '6/6', '$\\frac{1}{3}$'],
-    explanation: 'Det er 1 gunstig utfall av 6 mulige, sa P(6) = $\\frac{1}{6}$',
+    explanation: 'Det er 1 gunstig utfall av 6 mulige, såP(6) = $\\frac{1}{6}$',
   },
   {
     question: 'Hva betyr sannsynlighet 0?',
@@ -9297,12 +9297,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er sannsynligheten for a fa kron med en mynt?',
     options: ['$\\frac{1}{2}$', '1', '0', '2'],
-    explanation: 'Det er 1 av 2 mulige utfall, sa P(kron) = $\\frac{1}{2}$',
+    explanation: 'Det er 1 av 2 mulige utfall, såP(kron) = $\\frac{1}{2}$',
   },
   {
     question: 'En kortstokk har 52 kort, 26 er rode. Hva er sannsynligheten for a trekke et rodt kort?',
     options: ['$\\frac{1}{2}$', '26/1', '1/26', '1/52'],
-    explanation: '26 av 52 kort er rode, sa P(rod) = 26/52 = $\\frac{1}{2}$',
+    explanation: '26 av 52 kort er rode, såP(rod) = 26/52 = $\\frac{1}{2}$',
   },
   {
     question: 'Hva betyr sannsynlighet 1?',
@@ -9324,7 +9324,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er median?',
-    options: ['Den midterste verdien nar tallene er sortert', 'Gjennomsnittet', 'Den storste verdien', 'Den minste verdien'],
+    options: ['Den midterste verdien nårtallene er sortert', 'Gjennomsnittet', 'Den største verdien', 'Den minste verdien'],
     explanation: 'Medianen er den midterste verdien i et sortert datasett.',
   },
   {
@@ -9334,35 +9334,35 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er typetall?',
-    options: ['Den verdien som forekommer flest ganger', 'Medianen', 'Gjennomsnittet', 'Den storste verdien'],
+    options: ['Den verdien som forekommer flest ganger', 'Medianen', 'Gjennomsnittet', 'Den største verdien'],
     explanation: 'Typetallet er den verdien som forekommer oftest i datasettet.',
   },
 ],
 
   'matematikk-6-5-3': [
   {
-    question: 'Hva er forste steg i en statistisk undersokelse?',
+    question: 'Hva er første steg i en statistisk undersøkelse?',
     options: ['Bestemme hva du vil finne ut', 'Lage diagram', 'Regne gjennomsnitt', 'Skrive rapport'],
-    explanation: 'Forst ma du bestemme hva du vil undersoke.',
+    explanation: 'Først må du bestemme hva du vil undersøke.',
   },
   {
-    question: 'Hva er et godt sporsmaal til en undersokelse?',
+    question: 'Hva er et godt sporsmaal til en undersøkelse?',
     options: ['Klart og malbart', 'Langt og komplisert', 'Med mange ord', 'Uten svaralternativer'],
     explanation: 'Gode sporsmaal er klare, presise og maalbare.',
   },
   {
     question: 'Hvordan organiserer vi innsamlede data?',
     options: ['I tabeller', 'I setninger', 'I bilder', 'I lydfiler'],
-    explanation: 'Data organiseres vanligvis i tabeller for a gjore dem oversiktlige.',
+    explanation: 'Data organiseres vanligvis i tabeller for å gjøre dem oversiktlige.',
   },
   {
-    question: 'Hvordan presenterer vi resultater fra en undersokelse?',
+    question: 'Hvordan presenterer vi resultater fra en undersøkelse?',
     options: ['Med diagrammer og konklusjoner', 'Bare med tall', 'Uten forklaring', 'Med bare tekst'],
     explanation: 'Resultater presenteres med diagrammer og tydelige konklusjoner.',
   },
   {
-    question: 'Hvilket sporsmaal er best for a undersoke leksetid?',
-    options: ['Hvor mange minutter bruker du pa lekser daglig?', 'Liker du lekser?', 'Har du lekser?', 'Er lekser bra?'],
+    question: 'Hvilket sporsmaal er best for å undersøke leksetid?',
+    options: ['Hvor mange minutter bruker du pålekser daglig?', 'Liker du lekser?', 'Har du lekser?', 'Er lekser bra?'],
     explanation: 'Dette sporsmaalet gir maalbare svar (antall minutter) som kan analyseres.',
   },
 ],
@@ -9386,10 +9386,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Sett i stigende rekkefølge: 3, -5, 0, -2',
     options: ['-5, -2, 0, 3', '-2, -5, 0, 3', '3, 0, -2, -5', '0, -2, -5, 3'],
-    explanation: 'Fra minst til storst: -5 < -2 < 0 < 3',
+    explanation: 'Fra minst til størst: -5 < -2 < 0 < 3',
   },
   {
-    question: 'Temperaturen var -12 grader. Den steg 18 grader. Hva er den na?',
+    question: 'Temperaturen var -12 grader. Den steg 18 grader. Hva er den nå?',
     options: ['6 grader', '-30 grader', '30 grader', '-6 grader'],
     explanation: '-12 + 18 = 6 grader',
   },
@@ -9442,7 +9442,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er regelen for a dele med en brok?',
     options: ['Gang med den omvendte broken', 'Del tellerne', 'Gang nevnerne', 'Snu begge brokene'],
-    explanation: 'A dele med en brok er det samme som a gange med den omvendte.',
+    explanation: 'A dele med en brok er det samme som å gånge med den omvendte.',
   },
   {
     question: 'Hva er 6 div (3/4)?',
@@ -9496,7 +9496,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '2x x 3x = (2 x 3) x (x x x) = 6x2',
   },
   {
-    question: 'Finn verdien av 4x + 1 nar x = 3',
+    question: 'Finn verdien av 4x + 1 nårx = 3',
     options: ['13', '12', '43', '7'],
     explanation: '4 x 3 + 1 = 12 + 1 = 13',
   },
@@ -9525,8 +9525,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er balanseprinsippet?',
-    options: ['Gjor det samme pa begge sider', 'Del pa 2', 'Gang med x', 'Flytt alle ledd'],
-    explanation: 'Balanseprinsippet: gjor samme operasjon pa begge sider av likhetstegnet.',
+    options: ['Gjor det samme påbegge sider', 'Del på2', 'Gang med x', 'Flytt alle ledd'],
+    explanation: 'Balanseprinsippet: gjor samme operasjon påbegge sider av likhetstegnet.',
   },
   {
     question: 'Los likningen 2x - 5 = x + 3',
@@ -9543,7 +9543,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr tegnet <=?',
-    options: ['Mindre enn eller lik', 'Storre enn eller lik', 'Bare mindre enn', 'Ikke lik'],
+    options: ['Mindre enn eller lik', 'Større enn eller lik', 'Bare mindre enn', 'Ikke lik'],
     explanation: '<= betyr "mindre enn eller lik".',
   },
   {
@@ -9552,9 +9552,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '2x > 10, x > 10/2, x > 5',
   },
   {
-    question: 'Hva skjer nar du deler med et negativt tall i en ulikhet?',
-    options: ['Du ma snu ulikhetstegnet', 'Ingenting', 'Du sletter ulikheten', 'Du ganger med -1'],
-    explanation: 'Nar du ganger eller deler med negativt tall, snus ulikhetstegnet.',
+    question: 'Hva skjer når du deler med et negativt tall i en ulikhet?',
+    options: ['Du må snu ulikhetstegnet', 'Ingenting', 'Du sletter ulikheten', 'Du ganger med -1'],
+    explanation: 'Når du ganger eller deler med negativt tall, snus ulikhetstegnet.',
   },
   {
     question: 'Los ulikheten x - 4 < 3',
@@ -9565,14 +9565,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-7-2-4': [
   {
-    question: 'Jonas kjopte 3 like boker og betalte 135 kr. Hva kostet en bok?',
+    question: 'Jonas kjøpte 3 like bøker og betalte 135 kr. Hva kostet en bok?',
     options: ['45 kr', '40 kr', '132 kr', '138 kr'],
     explanation: '3x = 135, x = 135/3 = 45 kr',
   },
   {
-    question: 'Emma er dobbelt sa gammel som broren. Sammen er de 18 ar. Hvor gammel er Emma?',
-    options: ['12 ar', '9 ar', '6 ar', '18 ar'],
-    explanation: 'x + 2x = 18, 3x = 18, x = 6. Emma er 2 x 6 = 12 ar.',
+    question: 'Emma er dobbelt så gammel som broren. Sammen er de 18 år. Hvor gammel er Emma?',
+    options: ['12 år', '9 år', '6 år', '18 år'],
+    explanation: 'x + 2x = 18, 3x = 18, x = 6. Emma er 2 x 6 = 12 år.',
   },
   {
     question: 'Et rektangel har omkrets 28 cm. Lengden er 3 cm mer enn bredden. Hva er bredden?',
@@ -9580,12 +9580,12 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '2(x + 3) + 2x = 28, 4x + 6 = 28, 4x = 22, x = 5,5 cm',
   },
   {
-    question: 'Hva er forste steg nar du loser en tekstoppgave med likning?',
+    question: 'Hva er første steg når du loser en tekstoppgave med likning?',
     options: ['Definer den ukjente (x)', 'Finn svaret', 'Tegn en figur', 'Gjett et svar'],
-    explanation: 'Forst ma du bestemme hva x skal representere.',
+    explanation: 'Først må du bestemme hva x skal representere.',
   },
   {
-    question: 'Tre tall folger etter hverandre (f.eks. 5, 6, 7). Summen er 21. Finn tallene.',
+    question: 'Tre tall følger etter hverandre (f.eks. 5, 6, 7). Summen er 21. Finn tallene.',
     options: ['6, 7, 8', '5, 6, 7', '7, 8, 9', '4, 5, 6'],
     explanation: 'x + (x+1) + (x+2) = 21, 3x + 3 = 21, 3x = 18, x = 6. Tallene er 6, 7, 8.',
   },
@@ -9610,12 +9610,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Et punkt ligger 4 til venstre og 3 ned fra origo. Hva er koordinatene?',
     options: ['(-4, -3)', '(4, 3)', '(-4, 3)', '(4, -3)'],
-    explanation: 'Venstre = negativ x, ned = negativ y, sa (-4, -3)',
+    explanation: 'Venstre = negativ x, ned = negativ y, så(-4, -3)',
   },
   {
     question: 'Hva er x-koordinaten i punktet (5, -7)?',
     options: ['5', '-7', '12', '-2'],
-    explanation: 'x-koordinaten er det forste tallet i parentesen, her 5.',
+    explanation: 'x-koordinaten er det første tallet i parentesen, her 5.',
   },
 ],
 
@@ -9632,40 +9632,40 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvis stigningstallet er negativt, hva skjer med grafen?',
-    options: ['Den gar nedover', 'Den gar oppover', 'Den er horisontal', 'Den er vertikal'],
-    explanation: 'Negativt stigningstall betyr at linjen gar nedover fra venstre mot hoyre.',
+    options: ['Den gårnedover', 'Den gåroppover', 'Den er horisontal', 'Den er vertikal'],
+    explanation: 'Negativt stigningstall betyr at linjen gårnedover fra venstre mot hoyre.',
   },
   {
-    question: 'Hva er y nar x = 2 i y = 3x + 1?',
+    question: 'Hva er y nårx = 2 i y = 3x + 1?',
     options: ['7', '6', '5', '4'],
     explanation: 'y = 3 x 2 + 1 = 6 + 1 = 7',
   },
   {
     question: 'Hvor krysser grafen y = 2x - 4 y-aksen?',
     options: ['(0, -4)', '(0, 2)', '(-4, 0)', '(2, 0)'],
-    explanation: 'Grafen krysser y-aksen nar x = 0: y = 2(0) - 4 = -4, sa (0, -4).',
+    explanation: 'Grafen krysser y-aksen nårx = 0: y = 2(0) - 4 = -4, så(0, -4).',
   },
 ],
 
   'matematikk-7-3-3': [
   {
     question: 'Hva betyr det at en graf er flat (horisontal)?',
-    options: ['Verdien er konstant - ingen endring', 'Verdien oker raskt', 'Verdien synker raskt', 'Grafen er feil'],
+    options: ['Verdien er konstant - ingen endring', 'Verdien øker raskt', 'Verdien synker raskt', 'Grafen er feil'],
     explanation: 'En flat graf betyr at y-verdien ikke endrer seg.',
   },
   {
     question: 'Hva viser en avstand-tid-graf som stiger?',
     options: ['Objektet beveger seg bort', 'Objektet star stille', 'Objektet beveger seg naermere', 'Objektet har stoppet'],
-    explanation: 'Stigende graf betyr at avstanden oker - objektet beveger seg bort.',
+    explanation: 'Stigende graf betyr at avstanden øker - objektet beveger seg bort.',
   },
   {
     question: 'En graf starter i origo, stiger, blir flat, og synker tilbake til 0. Hva kan dette vise?',
-    options: ['En tur fra hjemmet og tilbake', 'En bil som akselererer', 'Temperaturen over et ar', 'Antall elever pa skolen'],
-    explanation: 'Starter og slutter pa 0 = hjemme, stigende = gar bort, flat = stopper, synkende = gar tilbake.',
+    options: ['En tur fra hjemmet og tilbake', 'En bil som akselererer', 'Temperaturen over et år', 'Antall elever påskolen'],
+    explanation: 'Starter og slutter på0 = hjemme, stigende = gårbort, flat = stopper, synkende = gårtilbake.',
   },
   {
     question: 'Hva betyr en bratt graf?',
-    options: ['Stor endring pa kort tid', 'Liten endring', 'Ingen endring', 'Feil i maling'],
+    options: ['Stor endring påkort tid', 'Liten endring', 'Ingen endring', 'Feil i maling'],
     explanation: 'Bratt graf = stor endring i y for liten endring i x = rask endring.',
   },
   {
@@ -9687,7 +9687,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Vinkelsummen i alle trekanter er alltid 180 grader.',
   },
   {
-    question: 'En rettvinklet trekant har en vinkel pa 90 grader og en pa 30 grader. Hva er den tredje?',
+    question: 'En rettvinklet trekant har en vinkel på90 grader og en på 30 grader. Hva er den tredje?',
     options: ['60 grader', '50 grader', '120 grader', '30 grader'],
     explanation: '180 - 90 - 30 = 60 grader',
   },
@@ -9706,11 +9706,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   'matematikk-7-4-2': [
   {
     question: 'Hva er en midtnormal?',
-    options: ['En linje som star vinkelrett pa en annen og gar gjennom midtpunktet', 'En diagonal linje', 'En halv sirkel', 'En tangent'],
-    explanation: 'Midtnormalen star vinkelrett (90 grader) og gar gjennom midtpunktet av et linjestykke.',
+    options: ['En linje som star vinkelrett påen annen og gårgjennom midtpunktet', 'En diagonal linje', 'En halv sirkel', 'En tangent'],
+    explanation: 'Midtnormalen star vinkelrett (90 grader) og gårgjennom midtpunktet av et linjestykke.',
   },
   {
-    question: 'Hva brukes til geometriske konstruksjoner?',
+    question: 'Hvabrukes til geometriske konstruksjoner?',
     options: ['Passer og linjal', 'Gradskive og linjal', 'Bare blyant', 'Kalkulator'],
     explanation: 'Klassiske konstruksjoner gjores med passer og ugraduert linjal.',
   },
@@ -9720,14 +9720,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Halveringslinjen deler vinkelen i to like store deler.',
   },
   {
-    question: 'Alle punkter pa midtnormalen til AB har...',
-    options: ['Lik avstand til A og B', 'Storre avstand til A', 'Storre avstand til B', 'Avstand 0 til begge'],
-    explanation: 'Ethvert punkt pa midtnormalen har lik avstand til begge endepunktene.',
+    question: 'Alle punkter påmidtnormalen til AB har...',
+    options: ['Lik avstand til A og B', 'Større avstand til A', 'Større avstand til B', 'Avstand 0 til begge'],
+    explanation: 'Ethvert punkt påmidtnormalen har lik avstand til begge endepunktene.',
   },
   {
     question: 'Hvor mange grader er vinkelen mellom en linje og dens midtnormal?',
     options: ['90 grader', '45 grader', '180 grader', '60 grader'],
-    explanation: 'Midtnormalen star vinkelrett pa linjen, sa vinkelen er 90 grader.',
+    explanation: 'Midtnormalen star vinkelrett pålinjen, såvinkelen er 90 grader.',
   },
 ],
 
@@ -9761,14 +9761,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'matematikk-7-4-4': [
   {
-    question: 'Hva er volumet av en sylinder med radius 5 cm og hoyde 10 cm? (pi = 3,14)',
+    question: 'Hva er volumet av en sylinder med radius 5 cm og høyde 10 cm? (pi = 3,14)',
     options: ['785 cm3', '50 cm3', '157 cm3', '250 cm3'],
     explanation: 'V = pi x r^2 x h = 3,14 x 25 x 10 = 785 cm3',
   },
   {
     question: 'Formelen for volum av sylinder er:',
     options: ['V = pi x r^2 x h', 'V = 2 x pi x r x h', 'V = pi x r x h', 'V = r^2 x h'],
-    explanation: 'Volum av sylinder = pi x radius^2 x hoyde',
+    explanation: 'Volum av sylinder = pi x radius^2 x høyde',
   },
   {
     question: 'En L-formet figur er satt sammen av to rektangler: 8x3 og 4x5 cm. Hva er totalarealet?',
@@ -9782,14 +9782,14 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan finner vi areal av en sammensatt figur?',
-    options: ['Del opp i kjente figurer og legg sammen', 'Gang alle sidene', 'Ma pa nytt', 'Det er umulig'],
+    options: ['Del opp i kjente figurer og legg sammen', 'Gang alle sidene', 'Ma på nytt', 'Det er umulig'],
     explanation: 'Del figuren i enkle former (rektangler, trekanter), beregn hvert areal, legg sammen.',
   },
 ],
 
   'matematikk-7-5-1': [
   {
-    question: 'Hva er forskjellen pa populasjon og utvalg?',
+    question: 'Hva er forskjellen påpopulasjon og utvalg?',
     options: ['Populasjon er alle, utvalg er de du undersøker', 'De er det samme', 'Utvalg er alle', 'Populasjon er de du undersøker'],
     explanation: 'Populasjon = hele gruppen, utvalg = en del av populasjonen som undersøkes.',
   },
@@ -9799,75 +9799,75 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Et representativt utvalg har samme egenskaper som hele populasjonen.',
   },
   {
-    question: 'Hva er forste steg i en statistisk undersokelse?',
+    question: 'Hva er første steg i en statistisk undersøkelse?',
     options: ['Planlegge - bestemme hva du vil finne ut', 'Lage diagram', 'Skrive konklusjon', 'Samle inn data'],
-    explanation: 'Forst ma du planlegge: hva vil du undersoke, og hvem skal du sporere?',
+    explanation: 'Først må du planlegge: hva vil du undersøke, og hvem skal du spørre?',
   },
   {
     question: 'Hvorfor bruker vi utvalg i stedet for hele populasjonen?',
-    options: ['Det er ofte upraktisk a undersoke alle', 'Utvalg gir bedre svar', 'Populasjonen finnes ikke', 'Fordi vi ma'],
-    explanation: 'Det kan vaere for dyrt, tidkrevende eller umulig a undersoke alle.',
+    options: ['Det er ofte upraktisk å undersøke alle', 'Utvalg gir bedre svar', 'Populasjonen finnes ikke', 'Fordi vi må'],
+    explanation: 'Det kan være for dyrt, tidkrevende eller umulig å undersøke alle.',
   },
   {
     question: 'Hva er et tilfeldig utvalg?',
-    options: ['Alle i populasjonen har lik sjanse til a bli valgt', 'Du velger de du kjenner', 'Du velger de forste', 'Du velger de beste'],
-    explanation: 'Tilfeldig utvalg betyr at alle har samme sjanse til a komme med.',
+    options: ['Alle i populasjonen har lik sjanse til å bli valgt', 'Du velger de du kjenner', 'Du velger de første', 'Du velger de beste'],
+    explanation: 'Tilfeldig utvalg betyr at alle har samme sjanse til å komme med.',
   },
 ],
 
   'matematikk-7-5-2': [
   {
-    question: 'Hvilken diagramtype passer best for a vise utvikling over tid?',
-    options: ['Linjediagram', 'Sektordiagram', 'Soylediagram', 'Punktdiagram'],
+    question: 'Hvilken diagramtype passer best for å vise utvikling over tid?',
+    options: ['Linjediagram', 'Sektordiagram', 'Søylediagram', 'Punktdiagram'],
     explanation: 'Linjediagram viser tydelig hvordan verdier endrer seg over tid.',
   },
   {
     question: 'Hva er et sektordiagram (kakediagram) best til?',
-    options: ['Vise andeler av en helhet (100%)', 'Vise utvikling over tid', 'Sammenligne hoyder', 'Vise avstand'],
-    explanation: 'Sektordiagram viser hvor stor del hver kategori utgjor av helheten.',
+    options: ['Vise andeler av en helhet (100%)', 'Vise utvikling over tid', 'Sammenligne høyder', 'Vise avstand'],
+    explanation: 'Sektordiagram viser hvor stor del hver kategori utgjør av helheten.',
   },
   {
-    question: 'Hvilket diagram passer for a vise favorittfarge i en klasse?',
-    options: ['Soylediagram', 'Linjediagram', 'Punktdiagram', 'Varmekarrt'],
-    explanation: 'Soylediagram er godt for a sammenligne kategorier som favorittfarge.',
+    question: 'Hvilket diagram passer for å vise favorittfarge i en klasse?',
+    options: ['Søylediagram', 'Linjediagram', 'Punktdiagram', 'Varmekarrt'],
+    explanation: 'Søylediagram er godt for å sammenligne kategorier som favorittfarge.',
   },
   {
     question: 'Hva viser et punktdiagram?',
     options: ['Sammenheng mellom to variabler', 'Utvikling over tid', 'Andeler av helhet', 'Bare en variabel'],
-    explanation: 'Punktdiagram brukes for a se om det er en sammenheng mellom to variabler.',
+    explanation: 'Punktdiagram brukes for å se om det er en sammenheng mellom to variabler.',
   },
   {
-    question: 'I et regneark, hva gjor du etter a ha skrevet inn dataene for a lage diagram?',
-    options: ['Marker dataene og velg "Sett inn diagram"', 'Skriver ut papiret', 'Lukker programmet', 'Starter pa nytt'],
+    question: 'I et regneark, hva gjør du etter å ha skrevet inn dataene for å lage diagram?',
+    options: ['Marker dataene og velg "Sett inn diagram"', 'Skriver ut papiret', 'Lukker programmet', 'Starter på nytt'],
     explanation: 'Marker dataene, klikk "Sett inn", velg diagramtype, tilpass utseende.',
   },
 ],
 
   'matematikk-7-5-3': [
   {
-    question: 'Ole far 500 kr. Han bruker 200 kr pa hobbyer og 150 kr pa godteri. Hvor mye sparer han?',
+    question: 'Ole får 500 kr. Han bruker 200 kr på hobbyer og 150 kr på godteri. Hvor mye sparer han?',
     options: ['150 kr', '350 kr', '500 kr', '50 kr'],
     explanation: '500 - 200 - 150 = 150 kr',
   },
   {
     question: 'Hva er et budsjett?',
     options: ['En plan for inntekter og utgifter', 'En bankkonto', 'En kvittering', 'En regning'],
-    explanation: 'Et budsjett er en oversikt over hva du har og hva du planlegger a bruke.',
+    explanation: 'Et budsjett er en oversikt over hva du har og hva du planlegger å bruke.',
   },
   {
-    question: 'Lisa far 800 kr. Hun bruker 40% pa klaer. Hvor mye er det?',
+    question: 'Lisa får 800 kr. Hun bruker 40% på klær. Hvor mye er det?',
     options: ['320 kr', '400 kr', '200 kr', '480 kr'],
     explanation: '40% av 800 = 0,40 x 800 = 320 kr',
   },
   {
     question: 'Hvorfor er det viktig med budsjett?',
-    options: ['For a ha kontroll pa okonomien og ikke bruke mer enn du har', 'For a bruke mest mulig', 'For a imponere andre', 'Det er ikke viktig'],
-    explanation: 'Budsjett hjelper deg a holde oversikt og unnga a bruke mer enn du har.',
+    options: ['For å ha kontroll på økonomien og ikke bruke mer enn du har', 'For å bruke mest mulig', 'For å imponere andre', 'Det er ikke viktig'],
+    explanation: 'Budsjett hjelper deg å holde oversikt og unngå å bruke mer enn du har.',
   },
   {
-    question: 'Hva bor vaere storst: inntekter eller utgifter?',
-    options: ['Inntekter', 'Utgifter', 'De bor vaere like', 'Det spiller ingen rolle'],
-    explanation: 'Inntektene bor vaere storre enn utgiftene for at du skal kunne spare.',
+    question: 'Hva bør være størst: inntekter eller utgifter?',
+    options: ['Inntekter', 'Utgifter', 'De bør være like', 'Det spiller ingen rolle'],
+    explanation: 'Inntektene bør være større enn utgiftene for at du skal kunne spare.',
   },
 ],
 
@@ -9883,14 +9883,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '500 x 0,80 = 400 kr (eller 500 - 100 = 400)',
   },
   {
-    question: 'Prisen okte fra 200 kr til 250 kr. Hvor mange prosent okte den?',
+    question: 'Prisen økte fra 200 kr til 250 kr. Hvor mange prosent økte den?',
     options: ['25%', '50%', '20%', '10%'],
-    explanation: 'Okning: (250-200)/200 x 100% = 50/200 x 100% = 25%',
+    explanation: 'Økning: (250-200)/200 x 100% = 50/200 x 100% = 25%',
   },
   {
-    question: 'Hva er 25% paslag pa 400 kr?',
+    question: 'Hva er 25% påslag på 400 kr?',
     options: ['500 kr', '300 kr', '100 kr', '425 kr'],
-    explanation: '25% av 400 = 100 kr paslag. Ny pris: 400 + 100 = 500 kr',
+    explanation: '25% av 400 = 100 kr påslag. Ny pris: 400 + 100 = 500 kr',
   },
   {
     question: 'Prisen gikk fra 100 til 80 kr. Hvor stor var nedgangen i prosent?',
@@ -9929,7 +9929,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'naturfag-5-1-2': [
   {
-    question: 'Hvor starter fordøyelsen?',
+    question: 'Hvor stårter fordøyelsen?',
     options: ['I munnen', 'I magen', 'I tynntarmen', 'I spiserøret'],
     explanation: 'Fordøyelsen starter i munnen når du tygger maten og spyttet begynner å bryte den ned.',
   },
@@ -10013,7 +10013,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'naturfag-5-2-2': [
   {
-    question: 'Hva har bare fugler?',
+    question: 'Hvahar bare fugler?',
     options: ['Fjær', 'Vinger', 'Egg', 'Nebb'],
     explanation: 'Fjær finnes bare hos fugler. Andre dyr kan ha vinger eller legge egg, men ikke fjær.',
   },
@@ -10175,7 +10175,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er det første steget for å lage en oppfinnelse?',
     options: ['Finne et problem som skal løses', 'Bygge en maskin', 'Selge produktet', 'Lage reklame'],
-    explanation: 'Alle oppfinnelser starter med å identifisere et problem som trenger en løsning.',
+    explanation: 'Alle oppfinnelser stårter med å identifisere et problem som trenger en løsning.',
   },
 ],
 
@@ -10595,7 +10595,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor varmes Arktis opp dobbelt så fort?',
     options: ['Mørkt hav absorberer mer varme når isen smelter', 'Solen er sterkere der', 'Det er mer CO₂ der', 'Vindene er sterkere'],
-    explanation: 'Når hvit is smelter, kommer mørkt hav fram som absorberer mer varme - en selvforsterkende spiral.',
+    explanation: 'Når hvit is smelter, kommer mørkt hav fram som absorberer mer varme - en selvførsterkende spiral.',
   },
 ],
 
@@ -10686,7 +10686,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'naturfag-7-4-2': [
   {
     question: 'Hva er en kjemisk reaksjon?',
-    options: ['En prosess der stoffer omdannes til nye stoffer', 'Når is smelter til vann', 'Når vann koker', 'Når sukker løses i vann'],
+    options: ['En prosess der stoffer omdannes til nye stoffer', 'Når is smelter til vann', 'Når vann køker', 'Når sukker løses i vann'],
     explanation: 'I en kjemisk reaksjon omdannes stoffer til nye stoffer med andre egenskaper.',
   },
   {
@@ -10909,7 +10909,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'naturfag-8-5-1': [
   {
-    question: 'Hvor starter fordøyelsen av stivelse?',
+    question: 'Hvor stårter fordøyelsen av stivelse?',
     options: ['I munnen', 'I magen', 'I tynntarmen', 'I tykktarmen'],
     explanation: 'Enzymet amylase i spyttet begynner å bryte ned stivelse til sukker allerede i munnen.',
   },
@@ -11010,7 +11010,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er antibiotikaresistens et bevis for evolusjon?',
     options: ['Bakterier med naturlig resistens overlever og formerer seg - naturlig utvalg i aksjon', 'Bakterier bestemmer seg for å bli resistente', 'Antibiotika gjør bakteriene sterkere', 'Bakterier lærer å motstå antibiotika'],
-    explanation: 'Når antibiotika brukes, overlever bare de få bakteriene som tilfeldigvis er resistente. Disse formerer seg, og populasjonen blir resistent.',
+    explanation: 'Når antibiotikå brukes, overlever bare de få bakteriene som tilfeldigvis er resistente. Disse formerer seg, og populasjonen blir resistent.',
   },
   {
     question: 'Hva er IKKE et bevis for evolusjon?',
@@ -11223,23 +11223,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en hypotese?',
-    options: ['Et testbart forslag til forklaring pa en observasjon', 'Et bevist faktum i naturen', 'En objektiv beskrivelse av noe vi observerer', 'Resultatet av et eksperiment'],
-    explanation: 'En hypotese er et forslag til forklaring som kan testes gjennom eksperimenter. Den er basert pa tidligere kunnskap og logisk tenkning.',
+    options: ['Et testbart forslag til forklaring påen observasjon', 'Et bevist faktum i naturen', 'En objektiv beskrivelse av noe vi observerer', 'Resultatet av et eksperiment'],
+    explanation: 'En hypotese er et forslag til forklaring som kan testes gjennom eksperimenter. Den er basert påtidligere kunnskap og logisk tenkning.',
   },
   {
     question: 'I et eksperiment om hvordan lys pavirker plantevekst, hva er den uavhengige variabelen?',
-    options: ['Mengde lys', 'Plantens hoyde', 'Vannmengde', 'Jordtype'],
-    explanation: 'Den uavhengige variabelen er det vi endrer med vilje - det vi tester effekten av. I dette tilfellet endrer vi mengden lys for a se hvordan det pavirker planteveksten.',
+    options: ['Mengde lys', 'Plantens høyde', 'Vannmengde', 'Jordtype'],
+    explanation: 'Den uavhengige variabelen er det vi endrer med vilje - det vi tester effekten av. I dette tilfellet endrer vi mengden lys for å se hvordan det pavirker planteveksten.',
   },
   {
     question: 'Hvorfor er det viktig a gjenta et eksperiment flere ganger?',
-    options: ['For a oke paliteligheten og redusere tilfeldige feil', 'Fordi det er morsommere', 'For a bruke opp alt utstyret', 'Fordi ett forsok alltid gir feil svar'],
+    options: ['For a oke paliteligheten og redusere tilfeldige feil', 'Fordi det er morsommere', 'For å bruke opp alt utstyret', 'Fordi ett forsok alltid gir feil svar'],
     explanation: 'Ved a gjenta eksperimenter kan vi beregne et gjennomsnitt som gir mer palitelige resultater. Det hjelper oss ogsa a oppdage tilfeldige feil og variasjoner.',
   },
   {
     question: 'Hva er forskjellen mellom en hypotese og en teori?',
     options: ['En teori er testet mange ganger og stottes av mye bevis, mens en hypotese er et enkelt forslag til forklaring', 'En hypotese er sikrere enn en teori', 'Det er ingen forskjell mellom dem', 'En teori er bare en gjetning'],
-    explanation: 'En teori er en omfattende forklaring som har blitt testet mange ganger og stottes av mye bevis fra uavhengige undersokelser. En hypotese er et enkelt, testbart forslag til forklaring.',
+    explanation: 'En teori er en omfattende forklaring som har blitt testet mange ganger og stottes av mye bevis fra uavhengige undersøkelser. En hypotese er et enkelt, testbart forslag til forklaring.',
   },
 ],
 
@@ -11252,7 +11252,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken type modell er en globus?',
     options: ['Fysisk modell', 'Matematisk modell', 'Datamodell', 'Konseptuell modell'],
-    explanation: 'En globus er en fysisk modell - en konkret, tredimensjonal modell av jorden som du kan ta pa og se.',
+    explanation: 'En globus er en fysisk modell - en konkret, tredimensjonal modell av jorden som du kan ta påog se.',
   },
   {
     question: 'Hva var hovedproblemet med Thomsons "raisinbolle-modell" av atomet?',
@@ -11261,11 +11261,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken begrensning har alle modeller til felles?',
-    options: ['De er forenklinger av virkeligheten og viser ikke alt', 'De er alltid 1:1 i storrelse', 'De kan aldri brukes til a forutsi noe', 'De er alltid digitale'],
+    options: ['De er forenklinger av virkeligheten og viser ikke alt', 'De er alltid 1:1 i størrelse', 'De kan aldri brukes til a forutsi noe', 'De er alltid digitale'],
     explanation: 'Alle modeller er forenklinger. De viser noen sider av virkeligheten, men ikke alt. Som George Box sa: "All models are wrong, but some are useful."',
   },
   {
-    question: 'Hva brukes klimamodeller til?',
+    question: 'Hvabrukes klimamodeller til?',
     options: ['A forutsi fremtidig temperaturstigning og teste effekten av utslippskutt', 'A lage varmelisten', 'A male luftkvaliteten i dag', 'A fotografere skyer fra verdensrommet'],
     explanation: 'Klimamodeller er komplekse datamodeller som simulerer jordens klimasystem. De brukes til a forutsi fremtidig temperatur, teste effekten av utslippskutt og planlegge tiltak mot klimaendringer.',
   },
@@ -11273,14 +11273,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'naturfag-vg1-1-3': [
   {
-    question: 'Hva star bokstaven "A" for i CRAAP-testen (den forste A)?',
+    question: 'Hva star bokstaven "A" for i CRAAP-testen (den første A)?',
     options: ['Authority (Autoritet)', 'Accuracy (Noyyaktighet)', 'Aktualitet', 'Argument'],
-    explanation: 'CRAAP star for Currency (aktualitet), Relevance (relevans), Authority (autoritet), Accuracy (noyyaktighet) og Purpose (formal). Den forste A-en star for Authority.',
+    explanation: 'CRAAP star for Currency (aktualitet), Relevance (relevans), Authority (autoritet), Accuracy (noyyaktighet) og Purpose (formal). Den første A-en star for Authority.',
   },
   {
     question: 'Hva kjennetegner pseudovitenskap?',
-    options: ['Den baserer seg pa anekdoter og er immun mot falsifisering', 'Den publiseres i fagfellevurderte tidsskrifter', 'Den kan etterproves av andre forskere', 'Den bygger pa systematiske eksperimenter'],
-    explanation: 'Pseudovitenskap later som den er vitenskapelig, men mangler dokumentasjon og etterprøvbarhet. Den baserer seg ofte pa anekdoter og har alltid en unnskyldning nar den ikke virker.',
+    options: ['Den baserer seg påanekdoter og er immun mot falsifisering', 'Den publiseres i fagfellevurderte tidsskrifter', 'Den kan etterproves av andre forskere', 'Den bygger påsystematiske eksperimenter'],
+    explanation: 'Pseudovitenskap later som den er vitenskapelig, men mangler dokumentasjon og etterprøvbarhet. Den baserer seg ofte påanekdoter og har alltid en unnskyldning nården ikke virker.',
   },
   {
     question: 'Hva er fagfellevurdering (peer review)?',
@@ -11293,9 +11293,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Korrelasjon betyr at to ting varierer sammen, men det betyr ikke at det ene forarsaker det andre. For a fastslå arsakssammenheng trengs kontrollerte eksperimenter.',
   },
   {
-    question: 'Hvilket av folgende er et eksempel pa pseudovitenskap?',
+    question: 'Hvilket av folgende er et eksempel påpseudovitenskap?',
     options: ['Homeopati', 'Vaksineforskning', 'Evolusjonsteorien', 'Klimaforskning'],
-    explanation: 'Homeopati er pseudovitenskap fordi det ikke finnes vitenskapelig dokumentasjon for at det virker. Stoffene er utvannet til det ikke finnes molekyler igjen, men det pastas likevel a ha effekt.',
+    explanation: 'Homeopati er pseudovitenskap fordi det ikke finnes vitenskapelig dokumentasjon for at det virker. Stoffene er utvannet til det ikke finnes molekyler igjen, men det pastas likevel å ha effekt.',
   },
 ],
 
@@ -11307,22 +11307,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med "informert samtykke" i forskning?',
-    options: ['At deltakere far fullstendig informasjon og frivillig sier ja til a delta', 'At forskeren informerer ledelsen om studien', 'At resultatene publiseres i aviser', 'At deltakerne far betaling'],
-    explanation: 'Informert samtykke betyr at forskningsdeltakere far fullstendig informasjon om studien, forstår risikoen, og frivillig sier ja til a delta. De må kunne trekke seg nar som helst.',
+    options: ['At deltakere fårfullstendig informasjon og frivillig sier ja til a delta', 'At forskeren informerer ledelsen om studien', 'At resultatene publiseres i aviser', 'At deltakerne fårbetaling'],
+    explanation: 'Informert samtykke betyr at forskningsdeltakere fårfullstendig informasjon om studien, forstår risikoen, og frivillig sier ja til a delta. De må kunne trekke seg nårsom helst.',
   },
   {
-    question: 'Hvilket av folgende er et brudd pa forskningsetikk?',
+    question: 'Hvilket av folgende er et brudd påforskningsetikk?',
     options: ['A fabrikkere (finne pa) data', 'A publisere resultater som ikke stotter hypotesen', 'A gjenta eksperimenter', 'A samarbeide med andre forskere'],
-    explanation: 'A fabrikkere data - altsá finne pa resultater - er et alvorlig brudd pa forskningsetikk. Forskere ma vare arlige og rapportere alle resultater, ogsá de som ikke stotter hypotesen.',
+    explanation: 'A fabrikkere data - altsá finne påresultater - er et alvorlig brudd påforskningsetikk. Forskere måvare arlige og rapportere alle resultater, ogsá de som ikke stotter hypotesen.',
   },
   {
-    question: 'Hvorfor er det etisk problematisk nar et tobakksselskap finansierer forskning pa royking og helse?',
-    options: ['Det er en interessekonflikt fordi selskapet tjener pa at royking fremstår som ufarlig', 'Tobakksselskaper har ikke rad til forskning', 'Forskningen blir automatisk feil', 'Det er ikke noe problem'],
-    explanation: 'Tobakksselskapet har okonomisk interesse i resultatet - de tjener penger pa sigarettsalg. Dette skaper en interessekonflikt som kan pavirke hvilke studier som publiseres og hvordan resultater tolkes.',
+    question: 'Hvorfor er det etisk problematisk nåret tobakksselskap finansierer forskning påroyking og helse?',
+    options: ['Det er en interessekonflikt fordi selskapet tjener påat royking fremstår som ufarlig', 'Tobakksselskaper har ikke rad til forskning', 'Forskningen blir automatisk feil', 'Det er ikke noe problem'],
+    explanation: 'Tobakksselskapet har okonomisk interesse i resultatet - de tjener penger påsigarettsalg. Dette skaper en interessekonflikt som kan pavirke hvilke studier som publiseres og hvordan resultater tolkes.',
   },
   {
     question: 'Hva er forskerens ansvar overfor samfunnet?',
-    options: ['A vare open om resultater og vurdere mulige konsekvenser av forskningen', 'A holde all forskning hemmelig', 'A kun forske pa det som gir profitt', 'A unngá kontroversielle temaer'],
+    options: ['A vare open om resultater og vurdere mulige konsekvenser av forskningen', 'A holde all forskning hemmelig', 'A kun forske pådet som gir profitt', 'A unngá kontroversielle temaer'],
     explanation: 'Forskere har samfunnsansvar som inkluderer a vare apne om resultater, vurdere mulige konsekvenser av forskningen, og bidra til at kunnskap brukes til samfunnets beste.',
   },
 ],
@@ -11344,9 +11344,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Isotoper er atomer av samme grunnstoff (samme antall protoner) med ulikt antall noytroner. De har derfor samme atomnummer, men ulikt massetall.',
   },
   {
-    question: 'Hvor mange elektroner kan det ytterste skallet (skall 2 eller hoyere) maksimalt ha for a vare fullt?',
+    question: 'Hvor mange elektroner kan det ytterste skallet (skall 2 eller høyere) maksimalt ha for a vare fullt?',
     options: ['8 elektroner', '2 elektroner', '18 elektroner', '32 elektroner'],
-    explanation: 'For atomer vi jobber med pa VG1-niva, kan skall 2 og 3 ha maksimalt 8 elektroner for a vare fulle. Skall 1 kan bare ha 2 elektroner.',
+    explanation: 'For atomer vi jobber med påVG1-niva, kan skall 2 og 3 ha maksimalt 8 elektroner for a vare fulle. Skall 1 kan bare ha 2 elektroner.',
   },
   {
     question: 'Hva er valenselektroner og hvorfor er de viktige?',
@@ -11362,19 +11362,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Periodenummeret (1-7) forteller hvor mange elektronskall atomet har. For eksempel har alle grunnstoff i periode 3 tre elektronskall.',
   },
   {
-    question: 'Hvorfor er edelgassene (gruppe 18) sa ureaktive?',
+    question: 'Hvorfor er edelgassene (gruppe 18) såureaktive?',
     options: ['De har fulle valensskall og trenger ikke reagere med andre stoffer', 'De er for tunge til a reagere', 'De finnes bare i laboratorier', 'De er radioaktive'],
     explanation: 'Edelgassene har fulle valensskall (8 elektroner, eller 2 for helium), som er en svart stabil konfigurasjon. De "onsker" ikke a ta opp eller avgi elektroner, og danner derfor ikke kjemiske bindinger under normale forhold.',
   },
   {
     question: 'Hva kjennetegner alkalimetallene (gruppe 1)?',
     options: ['De har 1 valenselektron og er svart reaktive', 'De har 8 valenselektroner og er ureaktive', 'De er alle gasser ved romtemperatur', 'De leder ikke strom'],
-    explanation: 'Alkalimetallene har 1 valenselektron som de lett avgir for a fa fullt skall. Dette gjor dem svart reaktive - de reagerer kraftig med vann og ma oppbevares i olje.',
+    explanation: 'Alkalimetallene har 1 valenselektron som de lett avgir for a fa fullt skall. Dette gjor dem svart reaktive - de reagerer kraftig med vann og måoppbevares i olje.',
   },
   {
     question: 'Hvordan endrer atomradiusen seg nedover i en gruppe?',
-    options: ['Den oker fordi atomet far flere elektronskall', 'Den minker fordi kjernen blir sterkere', 'Den forblir uendret', 'Den varierer tilfeldig'],
-    explanation: 'Atomradiusen oker nedover i en gruppe fordi hvert nye periode betyr ett nytt elektronskall. Flere skall betyr at de ytterste elektronene er lenger fra kjernen, noe som gir et storre atom.',
+    options: ['Den øker fordi atomet fårflere elektronskall', 'Den minker fordi kjernen blir sterkere', 'Den forblir uendret', 'Den varierer tilfeldig'],
+    explanation: 'Atomradiusen øker nedover i en gruppe fordi hvert nye periode betyr ett nytt elektronskall. Flere skall betyr at de ytterste elektronene er lenger fra kjernen, noe som gir et større atom.',
   },
   {
     question: 'Hva er halogenene kjent for?',
@@ -11385,9 +11385,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'norsk-5-1-1': [
   {
-    question: 'Hva gjor du i forlesing?',
-    options: ['Ser pa overskrift, bilder og tenker pa hva du vet fra for', 'Leser teksten hoyt', 'Skriver sammendrag', 'Svarer pa sporsmal'],
-    explanation: 'Forlesing er det du gjor FOR du leser: se pa overskrift, bilder, mellomoverskrifter og tenke pa hva du allerede vet om emnet.',
+    question: 'Hva gjør du i forlesing?',
+    options: ['Ser påoverskrift, bilder og tenker påhva du vet fra for', 'Leser teksten hoyt', 'Skriver sammendrag', 'Svarer påsporsmal'],
+    explanation: 'Forlesing er det du gjor FOR du leser: se påoverskrift, bilder, mellomoverskrifter og tenke påhva du allerede vet om emnet.',
   },
   {
     question: 'Hvilken fase kommer ETTER lesing?',
@@ -11396,12 +11396,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bor du gjore hvis du ikke forstar noe mens du leser?',
-    options: ['Lese om igjen', 'Hoppe over det', 'Slutte a lese', 'Begynne pa nytt fra starten'],
+    options: ['Lese om igjen', 'Hoppe over det', 'Slutte a lese', 'Begynne på nytt fra starten'],
     explanation: 'I underveislesing bor du stoppe opp og lese vanskelige avsnitt om igjen for a forsta bedre.',
   },
   {
     question: 'Hva er lesestrategier?',
-    options: ['Ulike mater a lese pa som hjelper deg a forsta bedre', 'Regler for hvor fort du skal lese', 'En liste over boker du bor lese', 'Oving i a lese hoyt'],
+    options: ['Ulike mater a lese påsom hjelper deg a forsta bedre', 'Regler for hvor fort du skal lese', 'En liste over bøker du bor lese', 'Oving i a lese hoyt'],
     explanation: 'Lesestrategier er verktoy du bruker for a forstå tekster bedre - du velger strategi etter hva du leser.',
   },
   {
@@ -11418,13 +11418,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Alle fortellinger har tre hoveddeler: innledning (begynnelse), hoveddel (midten) og avslutning (slutten).',
   },
   {
-    question: 'Hva er hoydepunktet i en fortelling?',
+    question: 'Hva er høydepunktet i en fortelling?',
     options: ['Det mest spennende oyeblikket', 'Slutten av historien', 'Begynnelsen av historien', 'Nar hovedpersonen presenteres'],
-    explanation: 'Hoydepunktet er det mest spennende punktet i spenningskurven, der konflikten er pa sitt sterkeste.',
+    explanation: 'Hoydepunktet er det mest spennende punktet i spenningskurven, der konflikten er påsitt sterkeste.',
   },
   {
     question: 'Hvem er hovedpersonen i en fortelling?',
-    options: ['Den viktigste personen som handlingen dreier seg om', 'Den eldste personen i historien', 'Den forste personen som nevnes', 'Forfatteren av boken'],
+    options: ['Den viktigste personen som handlingen dreier seg om', 'Den eldste personen i historien', 'Den første personen som nevnes', 'Forfatteren av boken'],
     explanation: 'Hovedpersonen er den viktigste personen i fortellingen - hele historien handler om denne personen.',
   },
   {
@@ -11456,14 +11456,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Fagtekster har overskrift, mellomoverskrifter, avsnitt, faktasetninger og ofte bilder og figurer.',
   },
   {
-    question: 'Hva er forskjellen pa fagtekst og fortelling?',
+    question: 'Hva er forskjellen påfagtekst og fortelling?',
     options: ['Fagtekst gir fakta, fortelling forteller en historie', 'Fagtekst har bilder, fortelling har ikke', 'Det er ingen forskjell', 'Fagtekst er kortere enn fortelling'],
     explanation: 'En fagtekst gir fakta og informasjon, mens en fortelling forteller en oppdiktet historie med begynnelse, midtdel og slutt.',
   },
   {
     question: 'Hvor kan du finne fagtekster?',
-    options: ['I laereboker, leksikon og pa nettet', 'Bare i eventyrboker', 'Bare i aviser', 'Bare pa biblioteket'],
-    explanation: 'Fagtekster finnes i laereboker, leksikon, aviser, pa nettsider og mange andre steder.',
+    options: ['I laerebøker, leksikon og pånettet', 'Bare i eventyrbøker', 'Bare i aviser', 'Bare påbiblioteket'],
+    explanation: 'Fagtekster finnes i laerebøker, leksikon, aviser, pånettsider og mange andre steder.',
   },
 ],
 
@@ -11475,12 +11475,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bor du fortelle i innledningen av en fortelling?',
-    options: ['Hvem hovedpersonen er og hvor/nar handlingen skjer', 'Slutten pa historien', 'Alle detaljene i historien', 'Bare forfatterens navn'],
-    explanation: 'Innledningen presenterer hovedpersonen og forteller hvor og nar handlingen skjer.',
+    options: ['Hvem hovedpersonen er og hvor/nar handlingen skjer', 'Slutten påhistorien', 'Alle detaljene i historien', 'Bare forfatterens navn'],
+    explanation: 'Innledningen presenterer hovedpersonen og forteller hvor og nårhandlingen skjer.',
   },
   {
     question: 'Hva skjer i hoveddelen av en fortelling?',
-    options: ['Noe spennende skjer og spenningen bygger seg opp', 'Vi far vite slutten', 'Hovedpersonen presenteres', 'Alle problemer loses'],
+    options: ['Noe spennende skjer og spenningen bygger seg opp', 'Vi fårvite slutten', 'Hovedpersonen presenteres', 'Alle problemer loses'],
     explanation: 'I hoveddelen skjer det spennende. Problemet eller konflikten utvikler seg og spenningen bygger opp.',
   },
   {
@@ -11490,8 +11490,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skjer i avslutningen av en fortelling?',
-    options: ['Problemet loses og vi far vite hvordan det gar', 'Nye problemer oppstar', 'Hovedpersonen presenteres', 'Spenningen bygger seg opp'],
-    explanation: 'I avslutningen loses problemet og leseren far vite hvordan det ender for personene.',
+    options: ['Problemet loses og vi fårvite hvordan det gar', 'Nye problemer oppstar', 'Hovedpersonen presenteres', 'Spenningen bygger seg opp'],
+    explanation: 'I avslutningen loses problemet og leseren fårvite hvordan det ender for personene.',
   },
 ],
 
@@ -11513,11 +11513,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bruker vi avsnitt i fagtekster?',
-    options: ['For a dele teksten inn slik at ett tema far ett avsnitt', 'For a gjore teksten lengre', 'For a skjule viktig informasjon', 'For a gjore teksten vanskeligere a lese'],
+    options: ['For a dele teksten inn slik at ett tema fårett avsnitt', 'For å gjøre teksten lengre', 'For a skjule viktig informasjon', 'For å gjøre teksten vanskeligere a lese'],
     explanation: 'Avsnitt deler teksten inn i deler som handler om ett tema - det gjor teksten lettere a lese og forsta.',
   },
   {
-    question: 'Hva er forskjellen pa fakta og mening?',
+    question: 'Hva er forskjellen påfakta og mening?',
     options: ['Fakta kan bevises, mening er hva noen synes', 'Det er ingen forskjell', 'Fakta er lengre enn mening', 'Mening er alltid riktig'],
     explanation: 'Fakta er pástander som kan bevises eller motbevises, mens meninger er subjektive vurderinger om hva noen synes.',
   },
@@ -11527,12 +11527,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar bruker vi punktum?',
     options: ['Pa slutten av en hel setning', 'Mellom hvert ord', 'Bare etter navn', 'Aldri i norsk'],
-    explanation: 'Punktum brukes pa slutten av en hel setning for a vise at setningen er ferdig.',
+    explanation: 'Punktum brukes påslutten av en hel setning for å vise at setningen er ferdig.',
   },
   {
     question: 'Nar bruker vi stor bokstav?',
     options: ['I begynnelsen av en setning og i egennavn', 'I alle ord', 'Bare i lange ord', 'Aldri i norsk'],
-    explanation: 'Stor bokstav brukes i begynnelsen av setninger og i egennavn (navn pa personer, steder, land).',
+    explanation: 'Stor bokstav brukes i begynnelsen av setninger og i egennavn (navn påpersoner, steder, land).',
   },
   {
     question: 'Nar bruker vi komma ved oppramsing?',
@@ -11541,7 +11541,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken setning har riktig tegnsetting?',
-    options: ['Katten min heter Luna. Hun er tre ar gammel.', 'katten min heter luna hun er tre ar gammel', 'Katten min heter luna, hun er tre ar gammel', 'KATTEN MIN HETER LUNA HUN ER TRE AR'],
+    options: ['Katten min heter Luna. Hun er tre årgammel.', 'katten min heter luna hun er tre årgammel', 'Katten min heter luna, hun er tre årgammel', 'KATTEN MIN HETER LUNA HUN ER TRE AR'],
     explanation: 'Setningen har stor bokstav i begynnelsen, stor bokstav i navnet Luna, og punktum mellom setningene.',
   },
   {
@@ -11563,9 +11563,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Verb er handlingsord - de forteller hva noen gjor eller er (lope, spise, vaere, tenke).',
   },
   {
-    question: 'Hvilke ord er substantiv i setningen "Katten sitter pa stolen"?',
+    question: 'Hvilke ord er substantiv i setningen "Katten sitter påstolen"?',
     options: ['Katten og stolen', 'Sitter', 'Pa', 'Katten, sitter og stolen'],
-    explanation: 'Katten og stolen er substantiv (navneord). Sitter er verb og pa er preposisjon.',
+    explanation: 'Katten og stolen er substantiv (navneord). Sitter er verb og påer preposisjon.',
   },
   {
     question: 'Hvordan boyer vi verbet "a lese" i preteritum (fortid)?',
@@ -11583,22 +11583,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et adjektiv?',
     options: ['Ord som beskriver egenskaper ved substantiv', 'Ord som viser handling', 'Ord som navngir ting', 'Ord som binder setninger sammen'],
-    explanation: 'Adjektiv er beskrivende ord som forteller hvordan noe er - storrelse, farge, form, folelser osv.',
+    explanation: 'Adjektiv er beskrivende ord som forteller hvordan noe er - størrelse, farge, form, folelser osv.',
   },
   {
     question: 'Hva er gradboyning av adjektiv?',
     options: ['A boye adjektiv i positiv, komparativ og superlativ', 'A skrive adjektiv med stor bokstav', 'A sette adjektiv forst i setningen', 'A bruke mange adjektiv i samme setning'],
-    explanation: 'Gradboyning brukes nar vi sammenligner: stor (positiv), storre (komparativ), storst (superlativ).',
+    explanation: 'Gradboyning brukes nårvi sammenligner: stor (positiv), større (komparativ), størst (superlativ).',
   },
   {
     question: 'Hva er komparativ form av "fin"?',
     options: ['Finere', 'Finest', 'Fin', 'Fint'],
-    explanation: 'Komparativ brukes nar vi sammenligner to ting: "Hunden er finere enn katten."',
+    explanation: 'Komparativ brukes nårvi sammenligner to ting: "Hunden er finere enn katten."',
   },
   {
     question: 'Hva er superlativ form av "stor"?',
-    options: ['Storst', 'Storre', 'Stor', 'Stort'],
-    explanation: 'Superlativ brukes nar noe er mest/best av alle: "Hesten er storst av alle dyrene."',
+    options: ['Storst', 'Større', 'Stor', 'Stort'],
+    explanation: 'Superlativ brukes nårnoe er mest/best av alle: "Hesten er størst av alle dyrene."',
   },
   {
     question: 'Hvilke ord er adjektiv i "Den store hunden bjeffer"?',
@@ -11615,7 +11615,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er verbalet i en setning?',
-    options: ['Det som forteller hva som skjer eller gjores', 'Navnet pa personen', 'Stedet handlingen skjer', 'Beskrivelsen av personen'],
+    options: ['Det som forteller hva som skjer eller gjores', 'Navnet påpersonen', 'Stedet handlingen skjer', 'Beskrivelsen av personen'],
     explanation: 'Verbalet er handlingen eller tilstanden - hva subjektet gjor.',
   },
   {
@@ -11631,7 +11631,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva trenger en setning for a vaere fullstendig?',
     options: ['Minst et subjekt og et verbal', 'Minst ti ord', 'Minst ett adjektiv', 'Minst tre substantiver'],
-    explanation: 'En fullstendig setning ma ha minst et subjekt (hvem/hva) og et verbal (hva skjer).',
+    explanation: 'En fullstendig setning måha minst et subjekt (hvem/hva) og et verbal (hva skjer).',
   },
 ],
 
@@ -11643,17 +11643,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bor du bruke stikkord i stedet for a lese alt?',
-    options: ['For a snakke naturlig og ha oyekontakt med publikum', 'For a gjore det vanskeligere', 'For a spare papir', 'For a glemme hva du skal si'],
-    explanation: 'Stikkord hjelper deg a huske hovedpoengene mens du kan snakke naturlig og se pa publikum.',
+    options: ['For a snakke naturlig og ha oyekontakt med publikum', 'For å gjøre det vanskeligere', 'For a spare papir', 'For a glemme hva du skal si'],
+    explanation: 'Stikkord hjelper deg a huske hovedpoengene mens du kan snakke naturlig og se påpublikum.',
   },
   {
     question: 'Hva er viktig for god stemmebruk under en presentasjon?',
-    options: ['Snakke hoyt og tydelig, ikke for fort', 'Snakke sa fort som mulig', 'Hviske hele tiden', 'Rope hele tiden'],
-    explanation: 'God stemmebruk betyr a snakke hoyt nok, tydelig og i et rolig tempo sa alle forstar.',
+    options: ['Snakke hoyt og tydelig, ikke for fort', 'Snakke såfort som mulig', 'Hviske hele tiden', 'Rope hele tiden'],
+    explanation: 'God stemmebruk betyr a snakke hoyt nok, tydelig og i et rolig tempo såalle forstar.',
   },
   {
     question: 'Hva bor du gjore i avslutningen av presentasjonen?',
-    options: ['Oppsummere det viktigste og sporre om sporsmal', 'Bare si "ferdig"', 'Begynne pa et nytt tema', 'Lese hele presentasjonen pa nytt'],
+    options: ['Oppsummere det viktigste og sporre om sporsmal', 'Bare si "ferdig"', 'Begynne på et nytt tema', 'Lese hele presentasjonen på nytt'],
     explanation: 'Avslutningen oppsummerer hovedpoengene og apner for sporsmal fra publikum.',
   },
   {
@@ -11666,28 +11666,28 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-5-4-2': [
   {
     question: 'Hva betyr aktiv lytting?',
-    options: ['A virkelig hore pa den som snakker og vise interesse', 'A snakke mens andre snakker', 'A se pa mobilen mens noen snakker', 'A avbryte ofte'],
-    explanation: 'Aktiv lytting betyr a se pa den som snakker, nikke og vise at du folger med.',
+    options: ['A virkelig hore påden som snakker og vise interesse', 'A snakke mens andre snakker', 'A se påmobilen mens noen snakker', 'A avbryte ofte'],
+    explanation: 'Aktiv lytting betyr a se påden som snakker, nikke og vise at du følger med.',
   },
   {
     question: 'Hva er viktig i en god samtale?',
-    options: ['Bade a snakke og a lytte', 'A snakke mest mulig selv', 'A avbryte andre nar du er uenig', 'A se pa mobilen mens andre snakker'],
-    explanation: 'I en god samtale ma alle bade fa snakke og lytte til hverandre.',
+    options: ['Bade a snakke og a lytte', 'A snakke mest mulig selv', 'A avbryte andre når du er uenig', 'A se påmobilen mens andre snakker'],
+    explanation: 'I en god samtale måalle bade fa snakke og lytte til hverandre.',
   },
   {
-    question: 'Hvordan kan du si at du er uenig pa en respektfull mate?',
+    question: 'Hvordan kan du si at du er uenig påen respektfull mate?',
     options: ['Jeg forstår hva du mener, men jeg tror...', 'Du tar helt feil!', 'Det er det dummeste jeg har hørt', 'Bare avbryt og si din mening'],
-    explanation: 'Det er viktig a vaere saklig og respektfull nar du er uenig - ikke angripe personen.',
+    explanation: 'Det er viktig a vaere saklig og respektfull når du er uenig - ikke angripe personen.',
   },
   {
     question: 'Hva er en god regel for samtaler?',
-    options: ['Vente pa tur og ikke avbryte andre', 'Snakke sa mye som mulig', 'Avbryte nar du har noe viktig a si', 'Bare lytte og aldri si noe'],
-    explanation: 'Det er viktig a vente pa tur og la andre snakke ferdig for de avbrytes.',
+    options: ['Vente påtur og ikke avbryte andre', 'Snakke så mye som mulig', 'Avbryte når du har noe viktig a si', 'Bare lytte og aldri si noe'],
+    explanation: 'Det er viktig a vente påtur og la andre snakke ferdig for de avbrytes.',
   },
   {
     question: 'Hvordan viser du at du lytter til noen?',
-    options: ['Se pa personen og nikke', 'Se ut av vinduet', 'Leke med mobilen', 'Tenke pa noe helt annet'],
-    explanation: 'A se pa personen, nikke og vise interesse er tegn pa aktiv lytting.',
+    options: ['Se påpersonen og nikke', 'Se ut av vinduet', 'Leke med mobilen', 'Tenke pånoe helt annet'],
+    explanation: 'A se påpersonen, nikke og vise interesse er tegn påaktiv lytting.',
   },
 ],
 
@@ -11695,25 +11695,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er drama?',
     options: ['A spille roller og late som du er en annen person', 'A lese hoyt fra en bok', 'A skrive en tekst', 'A synge en sang'],
-    explanation: 'Drama handler om a spille roller, bruke kropp, stemme og folelser for a fortelle en historie.',
+    explanation: 'Dramå handler om a spille roller, bruke kropp, stemme og folelser for a fortelle en historie.',
   },
   {
     question: 'Hva er improvisasjon?',
-    options: ['A finne pa ting der og da, uten manus', 'A lese fra et manus', 'A ove mange ganger for', 'A se pa en film'],
-    explanation: 'Improvisasjon er a finne pa ting mens du spiller, uten a ha ovd eller planlagt.',
+    options: ['A finne påting der og da, uten manus', 'A lese fra et manus', 'A ove mange ganger for', 'A se påen film'],
+    explanation: 'Improvisasjon er a finne påting mens du spiller, uten å ha ovd eller planlagt.',
   },
   {
     question: 'Hva er den gyldne regelen "Ja, og..." i improvisasjon?',
     options: ['Godta det medspilleren sier og legge til noe', 'Si nei til alt', 'Bare gjenta det andre sier', 'Avbryte de andre spillerne'],
-    explanation: '"Ja, og..." betyr a godta det medspilleren sier og bygge videre pa det.',
+    explanation: '"Ja, og..." betyr a godta det medspilleren sier og bygge videre pådet.',
   },
   {
-    question: 'Hvordan kan du bruke kroppen for a vise at du er gammel?',
+    question: 'Hvordan kan du bruke kroppen for å vise at du er gammel?',
     options: ['Boye deg, ga sakte og bruke skjelvende bevegelser', 'Hoppe og lope', 'Sta helt stille', 'Vinke med armene'],
     explanation: 'Kroppssprak kan vise alder gjennom boyd rygg, sakte bevegelser og skjelvende hender.',
   },
   {
-    question: 'Hvordan kan du bruke stemmen for a vise ulike folelser?',
+    question: 'Hvordan kan du bruke stemmen for å vise ulike folelser?',
     options: ['Variere volum, tempo og toneleie', 'Snakke helt likt hele tiden', 'Hviske alltid', 'Rope alltid'],
     explanation: 'Du kan variere hvor hoyt du snakker, hvor fort du snakker og om stemmen er lys eller mork.',
   },
@@ -11723,11 +11723,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan starter eventyr ofte?',
     options: ['Det var en gang...', 'I dag skjedde det...', 'Nyheter fra...', 'En fakta er at...'],
-    explanation: 'Eventyr starter ofte med "Det var en gang..." eller "For lenge, lenge siden..."',
+    explanation: 'Eventyr stårter ofte med "Det var en gang..." eller "For lenge, lenge siden..."',
   },
   {
     question: 'Hva er tretallets lov i eventyr?',
-    options: ['At ting gjentar seg tre ganger (tre brodre, tre oppgaver)', 'At eventyret har tre sider', 'At du ma lese det tre ganger', 'At det er tre forfattere'],
+    options: ['At ting gjentar seg tre ganger (tre brodre, tre oppgaver)', 'At eventyret har tre sider', 'At du målese det tre ganger', 'At det er tre forfattere'],
     explanation: 'Tretallets lov betyr at ting ofte kommer i tre: tre brodre, tre oppgaver, tre onsker.',
   },
   {
@@ -11742,7 +11742,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan slutter eventyr ofte?',
-    options: ['Og sa levde de lykkelig alle sine dager', 'Og sa doyde alle', 'Fortsettelse folger', 'Slutt'],
+    options: ['Og sålevde de lykkelig alle sine dager', 'Og sådoyde alle', 'Fortsettelse følger', 'Slutt'],
     explanation: 'Eventyr har ofte en lykkelig slutt der det gode seirer over det onde.',
   },
 ],
@@ -11755,7 +11755,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er moralen i en fabel?',
-    options: ['Laerdommen vi skal ta med oss', 'Hovedpersonens navn', 'Tittelen pa fabelen', 'Forfatteren av fabelen'],
+    options: ['Laerdommen vi skal ta med oss', 'Hovedpersonens navn', 'Tittelen påfabelen', 'Forfatteren av fabelen'],
     explanation: 'Moralen er det fabelen vil laere oss - en lærdom om livet.',
   },
   {
@@ -11766,7 +11766,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er moralen i "Haren og skilpadden"?',
     options: ['Sakte og sikkert vinner lopet', 'Den raskeste vinner alltid', 'Man skal aldri lope', 'Skilpadder er bedre enn harer'],
-    explanation: 'Moralen er at det er bedre a gjore ting ordentlig enn a gjore dem fort og slurvete.',
+    explanation: 'Moralen er at det er bedre å gjøre ting ordentlig enn å gjøre dem fort og slurvete.',
   },
   {
     question: 'Hva forklarer sagn ofte?',
@@ -11779,11 +11779,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er rim?',
     options: ['Nar ord slutter likt (sol-bol, hus-mus)', 'Nar ord starter likt', 'Nar ord er like lange', 'Nar ord har samme betydning'],
-    explanation: 'Rim er nar ord har samme lyd pa slutten, som sol og bol, eller hus og mus.',
+    explanation: 'Rim er nårord har samme lyd påslutten, som sol og bol, eller hus og mus.',
   },
   {
     question: 'Hva er parrim (AABB)?',
-    options: ['Nar to linjer etter hverandre rimer', 'Nar ingen linjer rimer', 'Nar alle linjer rimer', 'Nar forste og siste linje rimer'],
+    options: ['Nar to linjer etter hverandre rimer', 'Nar ingen linjer rimer', 'Nar alle linjer rimer', 'Nar første og siste linje rimer'],
     explanation: 'Parrim betyr at linje 1 og 2 rimer, og linje 3 og 4 rimer (AABB).',
   },
   {
@@ -11797,17 +11797,17 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Rytme er takten i diktet - noen stavelser er trykklette og noen er trykktunge.',
   },
   {
-    question: 'Hva rimer pa "sol"?',
+    question: 'Hva rimer på"sol"?',
     options: ['Bol', 'Hus', 'Tre', 'Bil'],
-    explanation: 'Sol rimer pa bol, skol, stol - ord som ender pa -ol.',
+    explanation: 'Sol rimer påbol, skol, stol - ord som ender på-ol.',
   },
 ],
 
   'norsk-6-1-1': [
   {
-    question: 'Hva er forskjellen pa skjonnlitteratur og sakprosa?',
-    options: ['Skjonnlitteratur er oppdiktet, sakprosa handler om virkeligheten', 'De er helt like', 'Skjonnlitteratur er kortere', 'Sakprosa har alltid bilder'],
-    explanation: 'Skjonnlitteratur er oppdiktede tekster (eventyr, noveller), sakprosa handler om virkeligheten (faktaboker, artikler).',
+    question: 'Hva er forskjellen påskjonnlitteratur og sakprosa?',
+    options: ['Skjonnlitteratur er oppdiktet, sakproså handler om virkeligheten', 'De er helt like', 'Skjonnlitteratur er kortere', 'Sakproså har alltid bilder'],
+    explanation: 'Skjonnlitteratur er oppdiktede tekster (eventyr, noveller), sakproså handler om virkeligheten (faktabøker, artikler).',
   },
   {
     question: 'Hva kjennetegner en fabel?',
@@ -11835,11 +11835,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr a forutsi i lesing?',
     options: ['A gjette hva som kommer til a skje', 'A lese teksten hoyt', 'A skrive av teksten', 'A tegne bilder'],
-    explanation: 'A forutsi betyr a gjette hva som vil skje basert pa overskrift, bilder og det du har lest sa langt.',
+    explanation: 'A forutsi betyr a gjette hva som vil skje basert påoverskrift, bilder og det du har lest sålangt.',
   },
   {
-    question: 'Hva betyr a visualisere nar du leser?',
-    options: ['A lage bilder i hodet av det du leser', 'A tegne illustrasjoner', 'A ta bilder med kamera', 'A se pa TV'],
+    question: 'Hva betyr a visualisere når du leser?',
+    options: ['A lage bilder i hodet av det du leser', 'A tegne illustrasjoner', 'A ta bilder med kamera', 'A se påTV'],
     explanation: 'Visualisering er a se for seg personene, stedene og handlingen i hodet - som en film.',
   },
   {
@@ -11853,9 +11853,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Gode lesere stiller sporsmal gjennom hele leseprosessen for a forsta teksten bedre.',
   },
   {
-    question: 'Hvilke sporreord er nyttige nar du leser?',
-    options: ['Hvem, hva, hvor, nar og hvorfor', 'Bare hvem', 'Bare hva', 'Ingen sporreord er nyttige'],
-    explanation: 'Sporreordene hvem, hva, hvor, nar og hvorfor hjelper deg a finne viktig informasjon i teksten.',
+    question: 'Hvilke sporreord er nyttige når du leser?',
+    options: ['Hvem, hva, hvor, nårog hvorfor', 'Bare hvem', 'Bare hva', 'Ingen sporreord er nyttige'],
+    explanation: 'Sporreordene hvem, hva, hvor, nårog hvorfor hjelper deg a finne viktig informasjon i teksten.',
   },
 ],
 
@@ -11872,7 +11872,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er budskapet i en tekst?',
-    options: ['Det forfatteren vil laere oss', 'Tittelen pa teksten', 'Antall kapitler', 'Bildene i teksten'],
+    options: ['Det forfatteren vil laere oss', 'Tittelen påteksten', 'Antall kapitler', 'Bildene i teksten'],
     explanation: 'Budskapet er det forfatteren vil at vi skal forsta - laerdommen vi tar med oss.',
   },
   {
@@ -11881,22 +11881,22 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'A lese mellom linjene betyr a forsta ting forfatteren antyder uten a si det direkte.',
   },
   {
-    question: 'Hvis teksten sier "Sara sa ned og svarte ikke", hva forstar vi mellom linjene?',
+    question: 'Hvis teksten sier "Sara såned og svarte ikke", hva forstar vi mellom linjene?',
     options: ['At Sara kanskje er lei seg, flau eller trist', 'At Sara er veldig glad', 'At Sara er sulten', 'At Sara er trott'],
-    explanation: 'A se ned og ikke svare er tegn pa at noe er galt - Sara er nok lei seg eller flau.',
+    explanation: 'A se ned og ikke svare er tegn påat noe er galt - Sara er nok lei seg eller flau.',
   },
 ],
 
   'norsk-6-2-1': [
   {
     question: 'Hva er spenningskurven i en fortelling?',
-    options: ['Hvordan spenningen stiger og faller gjennom historien', 'En kurve du tegner pa papir', 'Antall sider i boken', 'Kapitteloversikten'],
-    explanation: 'Spenningskurven viser hvordan spenningen bygger seg opp til hoydepunktet og deretter faller.',
+    options: ['Hvordan spenningen stiger og faller gjennom historien', 'En kurve du tegner påpapir', 'Antall sider i boken', 'Kapitteloversikten'],
+    explanation: 'Spenningskurven viser hvordan spenningen bygger seg opp til høydepunktet og deretter faller.',
   },
   {
-    question: 'Hva skjer pa hoydepunktet i en fortelling?',
-    options: ['Det mest spennende oyeblikket - konflikten er pa sitt sterkeste', 'Historien begynner', 'Historien slutter', 'Ingenting spesielt'],
-    explanation: 'Hoydepunktet er klimaks - det mest dramatiske punktet der alt star pa spill.',
+    question: 'Hva skjer påhøydepunktet i en fortelling?',
+    options: ['Det mest spennende oyeblikket - konflikten er påsitt sterkeste', 'Historien begynner', 'Historien slutter', 'Ingenting spesielt'],
+    explanation: 'Hoydepunktet er klimaks - det mest dramatiske punktet der alt står påspill.',
   },
   {
     question: 'Hvordan kan du starte en fortelling spennende?',
@@ -11906,12 +11906,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor bruker vi korte setninger i spennende oyeblikk?',
     options: ['For a oke tempoet og spenningen', 'Fordi lange setninger er forbudt', 'For a spare plass', 'Fordi det er lettere a skrive'],
-    explanation: 'Korte setninger gir raskere tempo og oker spenningen: "Hun lopte. Fort. Raskere."',
+    explanation: 'Korte setninger gir raskere tempo og øker spenningen: "Hun lopte. Fort. Raskere."',
   },
   {
     question: 'Hva bor skje i avslutningen av en fortelling?',
-    options: ['Problemet loses og vi far vite hvordan det gar', 'Nye store problemer oppstar', 'Historien stopper plutselig', 'Vi far aldri vite slutten'],
-    explanation: 'Avslutningen runder av historien - problemet loses og leseren far vite hvordan det gar med personene.',
+    options: ['Problemet loses og vi fårvite hvordan det gar', 'Nye store problemer oppstar', 'Historien stopper plutselig', 'Vi fåraldri vite slutten'],
+    explanation: 'Avslutningen runder av historien - problemet loses og leseren fårvite hvordan det gårmed personene.',
   },
 ],
 
@@ -11923,7 +11923,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bruker vi kilder i fagtekster?',
-    options: ['For a vise hvor informasjonen kommer fra', 'For a gjore teksten lengre', 'Fordi det ser fint ut', 'Kilder er ikke viktige'],
+    options: ['For a vise hvor informasjonen kommer fra', 'For å gjøre teksten lengre', 'Fordi det ser fint ut', 'Kilder er ikke viktige'],
     explanation: 'Kilder viser at informasjonen er palitelig og at du ikke har diktet den opp selv.',
   },
   {
@@ -11937,7 +11937,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'A skrive med egne ord viser at du har forstatt innholdet. Kopiering er ogsa juks.',
   },
   {
-    question: 'Hva bor vaere med i avslutningen av en fagtekst?',
+    question: 'Hva bør være med i avslutningen av en fagtekst?',
     options: ['Oppsummering av det viktigste', 'Nye fakta som ikke er nevnt for', 'En morsom vits', 'Ingenting spesielt'],
     explanation: 'Avslutningen oppsummerer hovedpoengene eller gir en konklusjon.',
   },
@@ -11947,7 +11947,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar bruker vi stor bokstav?',
     options: ['I starten av setninger og i egennavn (Oslo, Emma)', 'I alle ord', 'Aldri', 'Bare i lange ord'],
-    explanation: 'Stor bokstav brukes i starten av setninger og i navn pa personer, steder og land.',
+    explanation: 'Stor bokstav brukes i starten av setninger og i navn påpersoner, steder og land.',
   },
   {
     question: 'Nar bruker vi komma i oppramsing?',
@@ -11957,7 +11957,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar trenger vi dobbel konsonant?',
     options: ['Nar vokalen for er kort (hoppe, takk)', 'I alle ord', 'Aldri', 'Bare i lange ord'],
-    explanation: 'Dobbel konsonant brukes nar vokalen for er kort: hoppe (kort o), takk (kort a).',
+    explanation: 'Dobbel konsonant brukes nårvokalen for er kort: hoppe (kort o), takk (kort a).',
   },
   {
     question: 'Hvilken setning har riktig tegnsetting?',
@@ -11967,24 +11967,24 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar bruker vi sporsmalstegn?',
     options: ['Pa slutten av sporsmal', 'I stedet for punktum', 'Etter hvert ord', 'Aldri'],
-    explanation: 'Sporsmalstegn brukes pa slutten av sporsmalssetninger: "Kommer du i dag?"',
+    explanation: 'Sporsmalstegn brukes påslutten av sporsmalssetninger: "Kommer du i dag?"',
   },
 ],
 
   'norsk-6-3-1': [
   {
     question: 'Hvorfor er blikkontakt viktig under en presentasjon?',
-    options: ['For a holde publikum interessert og vise at du snakker til dem', 'Det er ikke viktig', 'For a se hva andre gjor', 'For a lese notater'],
-    explanation: 'Blikkontakt skaper kontakt med publikum og viser at du er trygg pa stoffet.',
+    options: ['For å holde publikum interessert og vise at du snakker til dem', 'Det er ikke viktig', 'For a se hva andre gjor', 'For a lese notater'],
+    explanation: 'Blikkontakt skaper kontakt med publikum og viser at du er trygg påstoffet.',
   },
   {
     question: 'Hvorfor bruker vi stikkord i stedet for a lese alt?',
-    options: ['For a snakke naturlig og ha blikkontakt', 'Fordi det tar kortere tid', 'For a huske mindre', 'Fordi det er vanskeligere'],
+    options: ['For a snakke naturlig og hå blikkontakt', 'Fordi det tar kortere tid', 'For a huske mindre', 'Fordi det er vanskeligere'],
     explanation: 'Stikkord hjelper deg a snakke fritt og naturlig i stedet for a lese opp monotont.',
   },
   {
     question: 'Hvordan bor du bruke stemmen under en presentasjon?',
-    options: ['Snakke hoyt og tydelig, variere tempo', 'Hviske hele tiden', 'Snakke sa fort som mulig', 'Snakke monotont uten variasjon'],
+    options: ['Snakke hoyt og tydelig, variere tempo', 'Hviske hele tiden', 'Snakke såfort som mulig', 'Snakke monotont uten variasjon'],
     explanation: 'God stemmebruk betyr a snakke hoyt nok, tydelig og med variasjon i tempo og toneleie.',
   },
   {
@@ -12003,22 +12003,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr aktiv lytting?',
     options: ['A virkelig hore pa, vise interesse og stille sporsmal', 'A late som du lytter', 'A snakke mens andre snakker', 'A se ut av vinduet'],
-    explanation: 'Aktiv lytting betyr a se pa den som snakker, nikke og vise at du folger med.',
+    explanation: 'Aktiv lytting betyr a se påden som snakker, nikke og vise at du følger med.',
   },
   {
     question: 'Hvordan kan du uttrykke en mening med begrunnelse?',
     options: ['Jeg mener at... fordi...', 'Det er bare slik!', 'Jeg vet ikke', 'Basta!'],
-    explanation: 'Nar du gir begrunnelse (fordi), blir argumentet ditt sterkere og mer overbevisende.',
+    explanation: 'Når du gir begrunnelse (fordi), blir argumentet ditt sterkere og mer overbevisende.',
   },
   {
     question: 'Hvordan kan du vaere uenig uten a vaere ufin?',
     options: ['Jeg forstar hva du mener, men jeg tror...', 'Du tar helt feil!', 'Det er det dummeste jeg har hort', 'Hold kjeft!'],
-    explanation: 'Du kan vaere uenig pa en respektfull mate ved a anerkjenne den andre forst.',
+    explanation: 'Du kan være uenig påen respektfull mate ved a anerkjenne den andre forst.',
   },
   {
-    question: 'Hva bor du gjore nar andre snakker i en samtale?',
-    options: ['Lytte aktivt og vente pa tur', 'Avbryte nar du har noe viktig', 'Se pa mobilen', 'Snakke samtidig'],
-    explanation: 'I gode samtaler lytter vi til hverandre og venter pa tur for a snakke.',
+    question: 'Hva bor du gjore nårandre snakker i en samtale?',
+    options: ['Lytte aktivt og vente påtur', 'Avbryte når du har noe viktig', 'Se påmobilen', 'Snakke samtidig'],
+    explanation: 'I gode samtaler lytter vi til hverandre og venter påtur for a snakke.',
   },
   {
     question: 'Hvordan viser du interesse i en samtale?',
@@ -12051,25 +12051,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en preposisjon?',
     options: ['Smaord som viser forhold - pa, i, til, fra', 'Navneord', 'Handlingsord', 'Beskrivende ord'],
-    explanation: 'Preposisjoner viser forhold i tid og rom: pa bordet, til skolen, fra Oslo.',
+    explanation: 'Preposisjoner viser forhold i tid og rom: påbordet, til skolen, fra Oslo.',
   },
 ],
 
   'norsk-6-4-2': [
   {
     question: 'Hva er subjektet i en setning?',
-    options: ['Den eller det som gjor noe eller er noe', 'Handlingen', 'Det handlingen gar ut over', 'Stedet det skjer'],
+    options: ['Den eller det som gjor noe eller er noe', 'Handlingen', 'Det handlingen gårut over', 'Stedet det skjer'],
     explanation: 'Subjektet er hvem eller hva setningen handler om - den som gjor handlingen.',
   },
   {
     question: 'Hva er predikatet i en setning?',
-    options: ['Handlingen eller tilstanden - det boyede verbet', 'Den som gjor noe', 'Det handlingen gar ut over', 'Stedet det skjer'],
+    options: ['Handlingen eller tilstanden - det boyede verbet', 'Den som gjor noe', 'Det handlingen gårut over', 'Stedet det skjer'],
     explanation: 'Predikatet er verbet - handlingen eller tilstanden i setningen.',
   },
   {
     question: 'Hva er objektet i setningen "Emma spiser is"?',
     options: ['Is', 'Emma', 'Spiser', 'Emma spiser'],
-    explanation: 'Objektet er det handlingen gar ut over - hva spiser Emma? Is.',
+    explanation: 'Objektet er det handlingen gårut over - hva spiser Emma? Is.',
   },
   {
     question: 'Hva er subjektet i "Katten sitter i vinduet"?',
@@ -12079,7 +12079,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en leddsetning?',
     options: ['En setning som ikke kan sta alene (fordi det regnet)', 'En vanlig setning', 'En lang setning', 'En setning uten verb'],
-    explanation: 'Leddsetninger starter ofte med fordi, nar, at, som og kan ikke sta alene.',
+    explanation: 'Leddsetninger stårter ofte med fordi, nar, at, som og kan ikke sta alene.',
   },
 ],
 
@@ -12090,24 +12090,24 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Ivar Aasen reiste rundt i Norge og samlet ord fra dialekter for a skape nynorsk.',
   },
   {
-    question: 'Hva heter "jeg" pa nynorsk?',
+    question: 'Hva heter "jeg" pånynorsk?',
     options: ['Eg', 'Jag', 'Ik', 'Je'],
     explanation: 'Pa nynorsk sier vi "eg" i stedet for "jeg".',
   },
   {
-    question: 'Hva heter "ikke" pa nynorsk?',
+    question: 'Hva heter "ikke" pånynorsk?',
     options: ['Ikkje', 'Inte', 'Niet', 'Nok'],
     explanation: 'Pa nynorsk sier vi "ikkje" i stedet for "ikke".',
   },
   {
-    question: 'Hva heter "boken" pa nynorsk?',
+    question: 'Hva heter "boken" pånynorsk?',
     options: ['Boka', 'Boken', 'Bokje', 'Bokn'],
     explanation: 'Pa nynorsk bruker vi ofte a-endelser: boka, jenta, klokka.',
   },
   {
     question: 'Hvorfor har Norge to skriftsprak?',
-    options: ['Bokmal ble pavirket av dansk, nynorsk er basert pa norske dialekter', 'Det er tilfeldig', 'En feil som aldri ble rettet', 'Fordi vi liker a gjore ting vanskelig'],
-    explanation: 'Norge var styrt av Danmark lenge, sa bokmal ligner dansk. Ivar Aasen laget nynorsk basert pa norske dialekter.',
+    options: ['Bokmal ble pavirket av dansk, nynorsk er basert pånorske dialekter', 'Det er tilfeldig', 'En feil som aldri ble rettet', 'Fordi vi liker å gjøre ting vanskelig'],
+    explanation: 'Norge var styrt av Danmark lenge, såbokmal ligner dansk. Ivar Aasen laget nynorsk basert pånorske dialekter.',
   },
 ],
 
@@ -12115,7 +12115,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva star B for i BLIKK-metoden?',
     options: ['Bli kjent med teksten', 'Begynne a lese', 'Bare les fort', 'Bokstavere vanskelige ord'],
-    explanation: 'B star for "Bli kjent" - se pa overskrifter, bilder og innledning for du leser grundig.',
+    explanation: 'B star for "Bli kjent" - se påoverskrifter, bilder og innledning for du leser grundig.',
   },
   {
     question: 'Hva star I for i BLIKK-metoden?',
@@ -12123,7 +12123,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'I star for "Identifiser" - finn de viktigste ordene og ideene i teksten.',
   },
   {
-    question: 'Hvilken notatteknikk er best for a se sammenhenger mellom ideer?',
+    question: 'Hvilken notatteknikk er best for å se sammenhenger mellom ideer?',
     options: ['Tankekart (mindmap)', 'Punktnotater', 'Avskrift av teksten', 'Understreking'],
     explanation: 'Tankekart viser visuelt hvordan ideer henger sammen med grener fra hovedtemaet.',
   },
@@ -12133,9 +12133,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Koble betyr a knytte ny informasjon til det du kan fra for - det gjor det lettere a huske.',
   },
   {
-    question: 'Hva bor du gjore nar du leser lengre tekster?',
-    options: ['Dele teksten opp og ta pauser', 'Lese alt pa en gang uten pause', 'Hoppe over vanskelige deler', 'Bare lese overskriftene'],
-    explanation: 'Del teksten i mindre deler, ta pauser og oppsummer underveis for a holde oversikt.',
+    question: 'Hva bor du gjore når du leser lengre tekster?',
+    options: ['Dele teksten opp og ta pauser', 'Lese alt påen gang uten pause', 'Hoppe over vanskelige deler', 'Bare lese overskriftene'],
+    explanation: 'Del teksten i mindre deler, ta pauser og oppsummer underveis for å holde oversikt.',
   },
 ],
 
@@ -12148,7 +12148,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en metafor?',
     options: ['Sammenligning uten "som" (Livet er en reise)', 'Sammenligning med "som"', 'Et rim', 'En gjentakelse'],
-    explanation: 'Metafor er a kalle noe for noe annet uten a bruke "som" eller "lik".',
+    explanation: 'Metafor er a kalle noe for noe annet uten å bruke "som" eller "lik".',
   },
   {
     question: 'Hva er personifikasjon?',
@@ -12162,8 +12162,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er enderim?',
-    options: ['Nar ord pa slutten av linjer rimer', 'Nar ord begynner pa samme bokstav', 'Nar diktet slutter bratt', 'Nar setninger gjentas'],
-    explanation: 'Enderim er nar ordene pa slutten av verselinjene rimer, som "dag" og "slag".',
+    options: ['Nar ord påslutten av linjer rimer', 'Nar ord begynner påsamme bokstav', 'Nar diktet slutter bratt', 'Nar setninger gjentas'],
+    explanation: 'Enderim er nårordene påslutten av verselinjene rimer, som "dag" og "slag".',
   },
 ],
 
@@ -12175,21 +12175,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken av disse er en mening, ikke et faktum?',
-    options: ['Fotball er den beste sporten', 'Oslo er hovedstaden i Norge', 'En uke har syv dager', 'Jorda gar i bane rundt sola'],
+    options: ['Fotball er den beste sporten', 'Oslo er hovedstaden i Norge', 'En uke har syv dager', 'Jorda gåri bane rundt sola'],
     explanation: 'At fotball er best er en subjektiv mening. De andre er fakta som kan bevises.',
   },
   {
-    question: 'Hva er et tegn pa at en nettkilde kan vaere upalitelig?',
+    question: 'Hva er et tegn påat en nettkilde kan være upalitelig?',
     options: ['Overdrevne pastander og manglende kilder', 'Oppgitt forfatter og dato', 'Notrale overskrifter', 'Kilder oppgitt'],
     explanation: 'Overdrivelser, manglende kilder og ukjent forfatter er varselsignaler.',
   },
   {
     question: 'Hvilke sporsmal bor du stille ved kildekritikk?',
-    options: ['Hvem star bak, hva er hensikten, nar ble den laget', 'Bare hvor mange bilder den har', 'Bare om den er lang', 'Ingen sporsmal'],
+    options: ['Hvem star bak, hva er hensikten, nårble den laget', 'Bare hvor mange bilder den har', 'Bare om den er lang', 'Ingen sporsmal'],
     explanation: 'Still sporsmal om hvem, hva, nar, hvor og hvorfor for a vurdere kilden.',
   },
   {
-    question: 'Hva er forskjellen pa fakta og mening?',
+    question: 'Hva er forskjellen påfakta og mening?',
     options: ['Fakta kan bevises, mening er subjektiv vurdering', 'Ingen forskjell', 'Fakta er lengre', 'Mening er alltid riktig'],
     explanation: 'Fakta er pastander som kan bevises, meninger er subjektive vurderinger.',
   },
@@ -12214,7 +12214,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et folelsesargument (patos)?',
     options: ['Argument som appellerer til folelser', 'Argument med statistikk', 'Argument fra eksperter', 'Logisk argument'],
-    explanation: 'Folelsesargumenter appellerer til folelser: "Tenk pa alle de som lider..."',
+    explanation: 'Folelsesargumenter appellerer til folelser: "Tenk påalle de som lider..."',
   },
   {
     question: 'Hvordan bor du strukturere en argumenterende tekst?',
@@ -12226,7 +12226,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-7-2-2': [
   {
     question: 'Hva betyr "in medias res"?',
-    options: ['A starte midt i handlingen', 'A skrive pa latin', 'A ha mange personer', 'A bruke mye dialog'],
+    options: ['A starte midt i handlingen', 'A skrive pålatin', 'A ha mange personer', 'A bruke mye dialog'],
     explanation: 'In medias res er latin og betyr a starte fortellingen midt i handlingen, ikke fra begynnelsen.',
   },
   {
@@ -12247,20 +12247,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan skaper du spenning med setningslengde?',
     options: ['Bruk korte setninger for a oke tempoet', 'Bare bruk lange setninger', 'Setningslengde pavirker ikke spenning', 'Bare bruk ett ord per setning'],
-    explanation: 'Korte setninger oker tempoet og spenningen: "Hun lopte. Fort. Raskere."',
+    explanation: 'Korte setninger øker tempoet og spenningen: "Hun lopte. Fort. Raskere."',
   },
 ],
 
   'norsk-7-2-3': [
   {
     question: 'Hvorfor bor du variere setningslengden?',
-    options: ['For a gjore teksten mer interessant og variert', 'Fordi det er obligatorisk', 'For a gjore teksten lengre', 'Det spiller ingen rolle'],
+    options: ['For å gjøre teksten mer interessant og variert', 'Fordi det er obligatorisk', 'For å gjøre teksten lengre', 'Det spiller ingen rolle'],
     explanation: 'Korte setninger gir fart og spenning, lange setninger gir ro og detaljer - variasjon gjor teksten interessant.',
   },
   {
     question: 'Hvilket ord er et mer presist alternativ til "ga"?',
     options: ['Rusle', 'Bevege', 'Gjore', 'Vaere'],
-    explanation: 'Rusle beskriver en bestemt mate a ga pa - rolig og avslappet. Mer presist enn bare "ga".',
+    explanation: 'Rusle beskriver en bestemt mate å gå på- rolig og avslappet. Mer presist enn bare "ga".',
   },
   {
     question: 'Hvilken stil passer best i en jobbsoknad?',
@@ -12275,7 +12275,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket bindeord viser motsetning?',
     options: ['Likevel', 'Dessuten', 'Fordi', 'Deretter'],
-    explanation: 'Likevel, men og derimot viser motsetning mellom det som er sagt og det som folger.',
+    explanation: 'Likevel, men og derimot viser motsetning mellom det som er sagt og det som følger.',
   },
 ],
 
@@ -12293,10 +12293,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en subjunksjon?',
     options: ['Ord som innleder leddsetninger (fordi, hvis, nar)', 'Ord som binder hovedsetninger', 'Navneord', 'Handlingsord'],
-    explanation: 'Subjunksjoner som fordi, hvis, nar innleder leddsetninger som ikke kan sta alene.',
+    explanation: 'Subjunksjoner som fordi, hvis, nårinnleder leddsetninger som ikke kan sta alene.',
   },
   {
-    question: 'Hva er forskjellen pa konjunksjon og subjunksjon?',
+    question: 'Hva er forskjellen påkonjunksjon og subjunksjon?',
     options: ['Konjunksjon binder hovedsetninger (og, men), subjunksjon innleder leddsetninger (fordi)', 'Ingen forskjell', 'De er samme ordklasse', 'Konjunksjon er lengre'],
     explanation: 'Konjunksjoner (og, eller, men) binder likestilte setninger, subjunksjoner innleder underordnede setninger.',
   },
@@ -12316,21 +12316,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et adverbial?',
     options: ['Ord som gir tilleggsinformasjon om tid, sted, mate (fort, i morgen)', 'Subjektet', 'Verbalet', 'Objektet'],
-    explanation: 'Adverbialer svarer pa sporsmal som nar, hvor, hvordan, hvorfor.',
+    explanation: 'Adverbialer svarer påsporsmal som nar, hvor, hvordan, hvorfor.',
   },
   {
-    question: 'Hva er objektet i "Sara ga broren en is"?',
+    question: 'Hva er objektet i "Sarå gå broren en is"?',
     options: ['En is', 'Sara', 'Broren', 'Ga'],
-    explanation: 'Direkte objekt er hva Sara ga - en is. Broren er indirekte objekt (til hvem).',
+    explanation: 'Direkte objekt er hva Sarå gå - en is. Broren er indirekte objekt (til hvem).',
   },
   {
     question: 'Hva slags adverbial er "med toget" i "Vi reiser med toget"?',
     options: ['Matesadverbial (hvordan?)', 'Tidsadverbial', 'Stedsadverbial', 'Arsaksadverbial'],
-    explanation: 'Med toget svarer pa hvordan vi reiser - det er et matesadverbial.',
+    explanation: 'Med toget svarer påhvordan vi reiser - det er et matesadverbial.',
   },
   {
     question: 'Hvordan finner du verbalet i en setning?',
-    options: ['Finn det boyede verbet - handlingen', 'Finn det lengste ordet', 'Finn det forste ordet', 'Finn substantivet'],
+    options: ['Finn det boyede verbet - handlingen', 'Finn det lengste ordet', 'Finn det første ordet', 'Finn substantivet'],
     explanation: 'Verbalet er det boyede verbet som forteller hva som skjer i setningen.',
   },
 ],
@@ -12339,7 +12339,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er ordstyrers oppgave i en debatt?',
     options: ['A lede debatten og gi ordet til deltakerne', 'A vinne debatten', 'A argumentere for en side', 'A stille flest sporsmal'],
-    explanation: 'Ordstyreren leder debatten notralt, gir ordet til deltakerne og passer pa tiden.',
+    explanation: 'Ordstyreren leder debatten notralt, gir ordet til deltakerne og passer påtiden.',
   },
   {
     question: 'Hva er et "stramannsargument"?',
@@ -12347,32 +12347,32 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Stramann er a fremstille motpartens synspunkt feilaktig for a lettere angripe det.',
   },
   {
-    question: 'Hva er forskjellen pa debatt og krangling?',
+    question: 'Hva er forskjellen pådebatt og krangling?',
     options: ['Debatt har saklige argumenter og respekt, krangling har personangrep', 'Ingen forskjell', 'Krangling er bedre', 'Debatt er hoyrere'],
     explanation: 'I en debatt er man saklig og respektfull, i krangling bruker man personangrep og avbryter.',
   },
   {
-    question: 'Hvordan bor du respondere pa motpartens argument?',
+    question: 'Hvordan bor du respondere påmotpartens argument?',
     options: ['Du sier at..., men... (og gi motargument)', 'Du tar helt feil!', 'Bare gjenta dine egne argumenter', 'Ignorer det'],
     explanation: 'Gjengi motpartens poeng korrekt for du tilbakeviser det saklig.',
   },
   {
     question: 'Hvorfor bor du forberede bade for- og motargumenter?',
-    options: ['For a vaere klar til a svare pa motargumenter', 'Det er ikke nødvendig', 'Bare forbered dine egne', 'For a forvirre publikum'],
-    explanation: 'Nar du kjenner motargumentene, kan du forberede gode svar og sta sterkere i debatten.',
+    options: ['For a vaere klar til a svare påmotargumenter', 'Det er ikke nødvendig', 'Bare forbered dine egne', 'For a forvirre publikum'],
+    explanation: 'Når du kjenner motargumentene, kan du forberede gode svar og sta sterkere i debatten.',
   },
 ],
 
   'norsk-7-4-2': [
   {
     question: 'Hva er et godt tips for PowerPoint-presentasjoner?',
-    options: ['Bruk lite tekst og mer bilder', 'Skriv alt du skal si pa slidene', 'Les hoyt fra slidene', 'Bruk sa mange animasjoner som mulig'],
+    options: ['Bruk lite tekst og mer bilder', 'Skriv alt du skal si påslidene', 'Les hoyt fra slidene', 'Bruk såmange animasjoner som mulig'],
     explanation: 'Slides bor stotte deg, ikke erstatte deg. Lite tekst og bilder fungerer best.',
   },
   {
     question: 'Hva bor du gjore med blikket under en presentasjon?',
-    options: ['Ha oyekontakt med publikum', 'Se ned i gulvet', 'Se pa PowerPoint-slidene', 'Se pa notatkortene hele tiden'],
-    explanation: 'Oyekontakt skaper kontakt med publikum og viser at du er trygg pa stoffet.',
+    options: ['Ha oyekontakt med publikum', 'Se ned i gulvet', 'Se påPowerPoint-slidene', 'Se pånotatkortene hele tiden'],
+    explanation: 'Oyekontakt skaper kontakt med publikum og viser at du er trygg påstoffet.',
   },
   {
     question: 'Hvordan kan du starte en presentasjon engasjerende?',
@@ -12380,13 +12380,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Fang publikums interesse fra starten med noe overraskende eller engasjerende.',
   },
   {
-    question: 'Hvorfor bor du variere tempoet nar du snakker?',
-    options: ['For a holde oppmerksomheten og fremheve viktige poenger', 'For a forvirre publikum', 'For a ga raskere', 'Det spiller ingen rolle'],
+    question: 'Hvorfor bor du variere tempoet når du snakker?',
+    options: ['For å holde oppmerksomheten og fremheve viktige poenger', 'For a forvirre publikum', 'For å gå raskere', 'Det spiller ingen rolle'],
     explanation: 'Variasjon holder publikum vaakne. Senk farten og ta pause ved viktige poenger.',
   },
   {
     question: 'Hva kan du gjore mot nervositet for en presentasjon?',
-    options: ['Ove godt, puste dypt og tenke positivt', 'Ikke ove i det hele tatt', 'Tenke pa alt som kan ga galt', 'Holde pusten'],
+    options: ['Ove godt, puste dypt og tenke positivt', 'Ikke ove i det hele tatt', 'Tenke påalt som kan gå gålt', 'Holde pusten'],
     explanation: 'Jo bedre du kan stoffet, jo tryggere blir du. Dyp pust og positiv tenkning hjelper ogsa.',
   },
 ],
@@ -12433,16 +12433,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et stramannsargument?',
     options: ['A forvrenge motstanderens syn for a lettere kunne angripe det', 'A bruke statistikk i argumentasjonen', 'A bygge opp et sterkt argument', 'A bruke personlige erfaringer som bevis'],
-    explanation: 'Et stramannsargument innebarer a tillegge motparten meninger de ikke har, for sa a angripe denne forvrengte versjonen.',
+    explanation: 'Et stramannsargument innebarer a tillegge motparten meninger de ikke har, for såa angripe denne forvrengte versjonen.',
   },
   {
     question: 'Hva skiller fakta fra meninger?',
-    options: ['Fakta kan etterproves og bekreftes, meninger er personlige vurderinger', 'Fakta er alltid riktige, meninger er alltid feil', 'Fakta kommer fra aviser, meninger fra blogger', 'Det er ingen forskjell'],
+    options: ['Fakta kan etterproves og bekreftes, meninger er personlige vurderinger', 'Fakta er alltid riktige, meninger er alltid feil', 'Faktå kommer fra aviser, meninger fra blogger', 'Det er ingen forskjell'],
     explanation: 'Fakta kan etterproves og bekreftes vitenskapelig, mens meninger er subjektive vurderinger som varierer fra person til person.',
   },
   {
     question: 'Hva er "ladede ord" i kritisk lesing?',
-    options: ['Ord som vekker sterke folelser, som "klimahysteri" eller "innvandrerstrom"', 'Ord med mange bokstaver', 'Faguttrykk og teknisk sprak', 'Ord pa fremmedsprak'],
+    options: ['Ord som vekker sterke folelser, som "klimahysteri" eller "innvandrerstrom"', 'Ord med mange bokstaver', 'Faguttrykk og teknisk sprak', 'Ord påfremmedsprak'],
     explanation: 'Ladede ord er ord som vekker sterke folelser og kan pavirke leserens holdning. De brukes ofte for a manipulere.',
   },
 ],
@@ -12451,26 +12451,26 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedforskjellen mellom debatt og diskusjon?',
     options: ['Debatt har klare standpunkter, diskusjon utforsker et tema sammen', 'Debatt er muntlig, diskusjon er skriftlig', 'Debatt er formell, diskusjon er uformell', 'Det er ingen forskjell'],
-    explanation: 'I en debatt forsvarer deltakerne ulike standpunkter, mens en diskusjon er en mer apen samtale der malet kan vaere felles forstaelse.',
+    explanation: 'I en debatt forsvarer deltakerne ulike standpunkter, mens en diskusjon er en mer apen samtale der malet kan være felles forstaelse.',
   },
   {
     question: 'Hva er feil med utsagnet "Du tar alltid feil fordi du ikke forstar noe"?',
     options: ['Det er et personangrep som angriper personen i stedet for argumentet', 'Det bruker for mange ord', 'Det mangler begrunnelse', 'Det er et retorisk sporsmal'],
-    explanation: 'Dette er et personangrep (ad hominem) som fokuserer pa personen i stedet for a diskutere argumentene saklig.',
+    explanation: 'Dette er et personangrep (ad hominem) som fokuserer påpersonen i stedet for a diskutere argumentene saklig.',
   },
   {
-    question: 'Hvilken teknikk bor du bruke nar du svarer pa motargumenter?',
-    options: ['Anerkjenne motpartens poeng for du presenterer ditt motargument', 'Ignorere motargumentet helt', 'Avbryte motparten', 'Gjenta ditt eget argument hoyere'],
+    question: 'Hvilken teknikk bor du bruke når du svarer påmotargumenter?',
+    options: ['Anerkjenne motpartens poeng for du presenterer ditt motargument', 'Ignorere motargumentet helt', 'Avbryte motparten', 'Gjenta ditt eget argument høyere'],
     explanation: 'God debatteknikk innebarer a vise at du har forstatt motparten ved a anerkjenne gode poenger for du presenterer ditt motargument.',
   },
   {
-    question: 'Hva betyr "a holde seg til saken" i en debatt?',
-    options: ['A fokusere pa argumentene og ikke ga til personangrep', 'A snakke sakte og tydelig', 'A vaere enig med motparten', 'A ha mange argumenter klare'],
+    question: 'Hva betyr "å holde seg til saken" i en debatt?',
+    options: ['A fokusere påargumentene og ikke ga til personangrep', 'A snakke sakte og tydelig', 'A vaere enig med motparten', 'A ha mange argumenter klare'],
     explanation: 'A holde seg til saken betyr a diskutere argumentene og ikke angripe personen som fremmer dem.',
   },
   {
     question: 'Hvorfor er det viktig a lytte aktivt i en diskusjon?',
-    options: ['For a forsta motpartens argumenter for du svarer', 'For a finne feil i det motparten sier', 'For a vente pa din tur', 'For a virke hoeflig'],
+    options: ['For a forsta motpartens argumenter for du svarer', 'For a finne feil i det motparten sier', 'For a vente pådin tur', 'For a virke hoeflig'],
     explanation: 'Aktiv lytting hjelper deg a forsta hva motparten faktisk mener, slik at du kan svare relevant og konstruktivt.',
   },
 ],
@@ -12478,7 +12478,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-9-2-1': [
   {
     question: 'Hva betyr "vis, ikke fortell" i kreativ skriving?',
-    options: ['Beskriv handlinger og sanseinntrykk i stedet for a si folelser direkte', 'Bruk bilder i stedet for tekst', 'Skriv korte setninger', 'Unnga a bruke dialog'],
+    options: ['Beskriv handlinger og sanseinntrykk i stedet for a si folelser direkte', 'Bruk bilder i stedet for tekst', 'Skriv korte setninger', 'Unnga å bruke dialog'],
     explanation: 'Vis, ikke fortell betyr at i stedet for a skrive "hun var redd", beskriver du hvordan kroppen reagerer: "hendene skalv, hun holdt pusten".',
   },
   {
@@ -12488,8 +12488,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et vendepunkt i en novelle?',
-    options: ['Et oyeblikk der noe endrer seg i handlingen eller for karakteren', 'Begynnelsen pa novellen', 'Slutten pa novellen', 'En beskrivelse av miljoet'],
-    explanation: 'Vendepunktet er et avgjorende oyeblikk der noe endrer seg - det kan vaere en erkjennelse, en beslutning eller en ytre hendelse.',
+    options: ['Et oyeblikk der noe endrer seg i handlingen eller for karakteren', 'Begynnelsen pånovellen', 'Slutten pånovellen', 'En beskrivelse av miljoet'],
+    explanation: 'Vendepunktet er et avgjorende oyeblikk der noe endrer seg - det kan være en erkjennelse, en beslutning eller en ytre hendelse.',
   },
   {
     question: 'Hva er Freytags pyramide?',
@@ -12506,17 +12506,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-9-2-2': [
   {
     question: 'Hva er en ingress i en artikkel?',
-    options: ['Forste avsnitt som oppsummerer det viktigste og lokker leseren', 'Overskriften pa artikkelen', 'Kildelisten til slutt', 'Mellomoverskriftene i teksten'],
-    explanation: 'Ingressen er forste avsnitt i en artikkel. Den oppsummerer det viktigste og skal fa leseren til a ville lese videre.',
+    options: ['Forste avsnitt som oppsummerer det viktigste og lokker leseren', 'Overskriften påartikkelen', 'Kildelisten til slutt', 'Mellomoverskriftene i teksten'],
+    explanation: 'Ingressen er første avsnitt i en artikkel. Den oppsummerer det viktigste og skal fa leseren til a ville lese videre.',
   },
   {
     question: 'Hva er feil med ingressen "I denne artikkelen skal jeg skrive om sovn"?',
     options: ['Den er for generell og bruker "jeg skal skrive" i stedet for a engasjere', 'Den er for kort', 'Den inneholder fakta', 'Den stiller et sporsmal'],
-    explanation: 'En god ingress unngaer formuleringer som "jeg skal skrive om..." og bruker heller konkrete fakta eller engasjerende formuleringer.',
+    explanation: 'En god ingress unngåer formuleringer som "jeg skal skrive om..." og bruker heller konkrete fakta eller engasjerende formuleringer.',
   },
   {
     question: 'Hvorfor bor du bruke kilder i sakprosa?',
-    options: ['For a styrke troverdigheten og vise at du bygger pa etablert kunnskap', 'For a gjore teksten lengre', 'For a unnga a skrive egne meninger', 'For a imponere lareren'],
+    options: ['For a styrke troverdigheten og vise at du bygger på etablert kunnskap', 'For å gjøre teksten lengre', 'For å unngå a skrive egne meninger', 'For å imponere lareren'],
     explanation: 'Kildebruk styrker tekstens troverdighet, viser at du har satt deg inn i temaet, og lar leseren sjekke pastandene dine.',
   },
   {
@@ -12540,7 +12540,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en metafor?',
     options: ['En overfort betydning uten bruk av "som", for eksempel "livet er en reise"', 'En sammenligning med "som"', 'Gjentakelse av konsonantlyder', 'En motsetning mellom to ting'],
-    explanation: 'En metafor er en overfort betydning der noe beskrives som noe annet uten a bruke "som" eller "lik". Eksempel: "Livet er en reise".',
+    explanation: 'En metafor er en overfort betydning der noe beskrives som noe annet uten å bruke "som" eller "lik". Eksempel: "Livet er en reise".',
   },
   {
     question: 'Hva er personifikasjon?',
@@ -12554,7 +12554,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bor du variere setningsbygningen i tekster?',
-    options: ['For a unnga monotoni og skape bedre flyt og effekt', 'For a gjore teksten lengre', 'For a imponere leseren', 'Det er ikke nødvendig'],
+    options: ['For å unngå monotoni og skape bedre flyt og effekt', 'For å gjøre teksten lengre', 'For å imponere leseren', 'Det er ikke nødvendig'],
     explanation: 'Variasjon i setningslengde og -struktur gjor teksten mer interessant a lese. Korte setninger skaper spenning, lange gir detaljer.',
   },
 ],
@@ -12573,7 +12573,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva het Tors beroemte hammer?',
     options: ['Mjolner', 'Gungnir', 'Draupnir', 'Skidbladner'],
-    explanation: 'Mjolner var Tors mektige hammer som alltid kom tilbake nar den ble kastet. Den var et symbol pa beskyttelse mot jotner.',
+    explanation: 'Mjolner var Tors mektige hammer som alltid kom tilbake nården ble kastet. Den var et symbol påbeskyttelse mot jotner.',
   },
   {
     question: 'Hva ofret Odin for a fa visdom?',
@@ -12596,10 +12596,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem skapte landsmaal (nynorsk)?',
     options: ['Ivar Aasen', 'Knud Knudsen', 'Henrik Ibsen', 'Bjornstjerne Bjornson'],
-    explanation: 'Ivar Aasen (1813-1896) reiste rundt i Norge og samlet dialekter. Han skapte landsmaal (nynorsk) basert pa disse dialektene.',
+    explanation: 'Ivar Aasen (1813-1896) reiste rundt i Norge og samlet dialekter. Han skapte landsmaal (nynorsk) basert pådisse dialektene.',
   },
   {
-    question: 'Hva var de to hovedsynene pa norsk sprak etter 1814?',
+    question: 'Hva var de to hovedsynene pånorsk sprak etter 1814?',
     options: ['Fornorske dansk vs. bygge nytt sprak fra dialektene', 'Beholde dansk vs. ta i bruk svensk', 'Skrive med runer vs. latinske bokstaver', 'Muntlig vs. skriftlig sprak'],
     explanation: 'Etter 1814 oppsto to syn: Knud Knudsen ville fornorske dansk (ble til riksmaal/bokmaal), mens Ivar Aasen ville lage nytt sprak fra dialektene (ble til landsmaal/nynorsk).',
   },
@@ -12610,7 +12610,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var Ivar Aasens motivasjon for a skape et nytt norsk skriftsprak?',
-    options: ['Han mente det norske folket hadde rett til et eget sprak, ikke laant fra Danmark', 'Han ville tjene penger pa boksalg', 'Han likte ikke dansk litteratur', 'Han ville bli beroomt'],
+    options: ['Han mente det norske folket hadde rett til et eget sprak, ikke laant fra Danmark', 'Han ville tjene penger påboksalg', 'Han likte ikke dansk litteratur', 'Han ville bli beroomt'],
     explanation: 'Aasen mente det virkelige norske spraket la i dialektene til vanlige folk, og at Norge fortjente et ekte norsk skriftsprak, ikke ett laant fra Danmark.',
   },
 ],
@@ -12619,15 +12619,15 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke er de fire hovedgruppene av norske dialekter?',
     options: ['Ostnorsk, vestnorsk, troendersk og nordnorsk', 'Bokmaal, nynorsk, samisk og kvensk', 'Bydialekt, bygdedialekt, kystdialekt og fjelldalekt', 'Gammel, moderne, formal og uformell'],
-    explanation: 'Norske dialekter deles tradisjonelt inn i ostnorsk, vestnorsk, troendersk og nordnorsk basert pa geografiske og spraklige kjennetegn.',
+    explanation: 'Norske dialekter deles tradisjonelt inn i ostnorsk, vestnorsk, troendersk og nordnorsk basert pågeografiske og spraklige kjennetegn.',
   },
   {
     question: 'Hva er "tjukk l"?',
-    options: ['En L-lyd som ligner pa en blanding av L og R, typisk for ostnorsk', 'En R-lyd fra Bergen', 'En svensk uttale', 'En skrivemaate pa nynorsk'],
-    explanation: 'Tjukk l er en spesiell L-lyd som finnes i ostnorske og troenderske dialekter. Den ligner pa en blanding mellom L og R.',
+    options: ['En L-lyd som ligner påen blanding av L og R, typisk for ostnorsk', 'En R-lyd fra Bergen', 'En svensk uttale', 'En skrivemaate pånynorsk'],
+    explanation: 'Tjukk l er en spesiell L-lyd som finnes i ostnorske og troenderske dialekter. Den ligner påen blanding mellom L og R.',
   },
   {
-    question: 'Hvorfor har Norge sa mange dialekter?',
+    question: 'Hvorfor har Norge såmange dialekter?',
     options: ['Geografien med fjell og fjorder skapte isolerte samfunn', 'Folk ville vaere forskjellige med vilje', 'Det ble bestemt av Stortinget', 'Norge fikk dialekter fra andre land'],
     explanation: 'Norges geografi med fjell, daler og fjorder skapte isolerte samfunn der spraket utviklet seg forskjellig over tid.',
   },
@@ -12638,26 +12638,26 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med at nordmenn har hoey "dialektaksept"?',
-    options: ['Det er akseptert a snakke dialekt i alle sammenhenger i Norge', 'Nordmenn laerer mange dialekter', 'Dialekter ma registreres offisielt', 'Bare noen dialekter er tillatt'],
-    explanation: 'I Norge har dialektene hoey status, og det er helt normalt a bruke dialekt i alle sammenhenger - pa jobb, i medier og i skolen.',
+    options: ['Det er akseptert a snakke dialekt i alle sammenhenger i Norge', 'Nordmenn laerer mange dialekter', 'Dialekter måregistreres offisielt', 'Bare noen dialekter er tillatt'],
+    explanation: 'I Norge har dialektene hoey status, og det er helt normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i skolen.',
   },
 ],
 
   'norsk-9-4-1': [
   {
     question: 'Hva mente Georg Brandes med at litteraturen skulle "saette problemer under debatt"?',
-    options: ['Litteraturen skulle ta opp samfunnsproblemer og kritisere urettferdighet', 'Forfattere skulle skrive om matematiske problemer', 'Litteraturen skulle vaere underholdende', 'Forfattere skulle unnga kontroversielle temaer'],
+    options: ['Litteraturen skulle ta opp samfunnsproblemer og kritisere urettferdighet', 'Forfattere skulle skrive om matematiske problemer', 'Litteraturen skulle vaere underholdende', 'Forfattere skulle unngå kontroversielle temaer'],
     explanation: 'Georg Brandes krevde at litteraturen skulle engasjere seg i aktuelle samfunnsproblemer og bidra til samfunnsendring.',
   },
   {
     question: 'Hva er hovedforskjellen mellom realisme og naturalisme?',
-    options: ['Naturalismen var mer pessimistisk og fokuserte pa arv og miljoe', 'Realismen var mer pessimistisk', 'Det er ingen forskjell', 'Naturalismen var romantisk'],
-    explanation: 'Naturalismen gikk lenger enn realismen ved a mene at mennesket var fullstendig styrt av arv og miljoe (determinisme) og fokuserte pa livets skyggeside.',
+    options: ['Naturalismen var mer pessimistisk og fokuserte påarv og miljoe', 'Realismen var mer pessimistisk', 'Det er ingen forskjell', 'Naturalismen var romantisk'],
+    explanation: 'Naturalismen gikk lenger enn realismen ved a mene at mennesket var fullstendig styrt av arv og miljoe (determinisme) og fokuserte pålivets skyggeside.',
   },
   {
-    question: 'Hvorfor var "Et dukkehjem" av Ibsen sa kontroversielt?',
-    options: ['Nora forlater mann og barn for a finne seg selv', 'Stykket inneholdt vold', 'Det var skrevet pa nynorsk', 'Det handlet om kongehuset'],
-    explanation: 'Da Nora forlot mann og barn i slutten av stykket, sjokkerte det publikum. En mor som forlot familien var uhort pa den tiden.',
+    question: 'Hvorfor var "Et dukkehjem" av Ibsen såkontroversielt?',
+    options: ['Nora forlater mann og barn for a finne seg selv', 'Stykket inneholdt vold', 'Det var skrevet pånynorsk', 'Det handlet om kongehuset'],
+    explanation: 'Da Nora forlot mann og barn i slutten av stykket, sjokkerte det publikum. En mor som forlot familien var uhort påden tiden.',
   },
   {
     question: 'Hvem var Amalie Skram?',
@@ -12666,8 +12666,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er "dukke-metaforen" i Et dukkehjem?',
-    options: ['Nora har vaert en dukke som andre har lekt med, aldri et selvstendig individ', 'Et dukkehus som star pa scenen', 'Barnas leker', 'En reklamefigur'],
-    explanation: 'Metaforen viser hvordan Nora har gatt fra a vaere farens "dukkebarn" til Torvalds "dukkekone" - aldri et selvstendig menneske.',
+    options: ['Norå har vaert en dukke som andre har lekt med, aldri et selvstendig individ', 'Et dukkehus som står påscenen', 'Barnas leker', 'En reklamefigur'],
+    explanation: 'Metaforen viser hvordan Norå har gatt fra a vaere farens "dukkebarn" til Torvalds "dukkekone" - aldri et selvstendig menneske.',
   },
 ],
 
@@ -12695,25 +12695,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken forfatter skrev "Tante Ulrikkes vei"?',
     options: ['Zeshan Shakar', 'Karl Ove Knausgaard', 'Maja Lunde', 'Jon Fosse'],
-    explanation: 'Zeshan Shakar skrev "Tante Ulrikkes vei" (2017), en roman om oppvekst pa Stovner med autentisk ungdomssprak og flerkulturelt perspektiv.',
+    explanation: 'Zeshan Shakar skrev "Tante Ulrikkes vei" (2017), en roman om oppvekst påStovner med autentisk ungdomssprak og flerkulturelt perspektiv.',
   },
 ],
 
   'norsk-9-5-1': [
   {
     question: 'Hva er en podcast?',
-    options: ['En lydfil som distribueres digitalt', 'En type video', 'En skriftlig blogg', 'Et radioprogram pa FM'],
+    options: ['En lydfil som distribueres digitalt', 'En type video', 'En skriftlig blogg', 'Et radioprogram påFM'],
     explanation: 'En podcast er en lydfil som publiseres digitalt og kan lastes ned eller stroemmes. Den kan inneholde intervjuer, historiefortelling eller samtaler.',
   },
   {
     question: 'Hva er viktig i en god podcast-intro?',
     options: ['Presentere tema og fange lytternes interesse', 'Lese opp kildelisten', 'Snakke i 10 minutter om vaeret', 'Spille hoey musikk'],
-    explanation: 'En god podcast-intro bor vaere kort (ca. 30 sekunder), presentere temaet tydelig og gjore lytteren nysgjerrig pa a hoere mer.',
+    explanation: 'En god podcast-intro bør være kort (ca. 30 sekunder), presentere temaet tydelig og gjore lytteren nysgjerrig påa hoere mer.',
   },
   {
     question: 'Hva er et storyboard?',
     options: ['En visuell plan der scenene tegnes opp for video', 'En type podcst', 'Et manus for teater', 'En liste over lydeffekter'],
-    explanation: 'Et storyboard er en visuell plan for video der scenene tegnes opp pa forhhand. Det hjelper med a planlegge kameravinkler og handlingsforlop.',
+    explanation: 'Et storyboard er en visuell plan for video der scenene tegnes opp påforhhand. Det hjelper med a planlegge kameravinkler og handlingsforlop.',
   },
   {
     question: 'Hva er "voiceover" i digital historiefortelling?',
@@ -12730,27 +12730,27 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-9-5-2': [
   {
     question: 'Hva star T for i TONE-sjekken for kildekritikk?',
-    options: ['Troverdighet - hvem star bak kilden?', 'Tid - nar ble kilden laget?', 'Tekst - hva handler det om?', 'Tema - hvilket emne?'],
-    explanation: 'T i TONE-sjekken star for Troverdighet. Du bor spore hvem som star bak kilden og om avsenderen har kompetanse pa omradet.',
+    options: ['Troverdighet - hvem star bak kilden?', 'Tid - nårble kilden laget?', 'Tekst - hvå handler det om?', 'Tema - hvilket emne?'],
+    explanation: 'T i TONE-sjekken star for Troverdighet. Du bor spore hvem som star bak kilden og om avsenderen har kompetanse påomradet.',
   },
   {
     question: 'Hva er et ekkokammer?',
-    options: ['Nar du bare omgir deg med folk som tenker likt og andre perspektiver filtreres bort', 'Et rom med mye ekko', 'En type mikrofon', 'Et podcaststudio'],
-    explanation: 'Ekkokammer oppstar nar algoritmer og sosiale nettverk gjor at du bare ser meninger du allerede er enig i, og motstemmmer blir usynlige.',
+    options: ['Når du bare omgir deg med folk som tenker likt og andre perspektiver filtreres bort', 'Et rom med mye ekko', 'En type mikrofon', 'Et podcaststudio'],
+    explanation: 'Ekkokammer oppstar nåralgoritmer og sosiale nettverk gjor at du bare ser meninger du allerede er enig i, og motstemmmer blir usynlige.',
   },
   {
     question: 'Hva er falske nyheter?',
-    options: ['Usanne historier som spres som om de var ekte nyheter', 'Nyheter som er kjedelige', 'Gamle nyheter', 'Nyheter pa fremmedsprak'],
+    options: ['Usanne historier som spres som om de var ekte nyheter', 'Nyheter som er kjedelige', 'Gamle nyheter', 'Nyheter påfremmedsprak'],
     explanation: 'Falske nyheter er bevisst usann informasjon som presenteres som ekte nyheter for a villlede, pavirke meninger eller tjene penger.',
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nar internett tilpasses deg personlig slik at du ikke ser annet innhold', 'En type vannflaske', 'Et filter pa kameraet', 'En sikkerhetsinnstilling'],
-    explanation: 'Filterbobler oppstar nar algoritmer viser deg personlig tilpasset innhold basert pa tidligere aktivitet, slik at du ikke ser andre perspektiver.',
+    options: ['Nar internett tilpasses deg personlig slik at du ikke ser annet innhold', 'En type vannflaske', 'Et filter påkameraet', 'En sikkerhetsinnstilling'],
+    explanation: 'Filterbobler oppstar nåralgoritmer viser deg personlig tilpasset innhold basert påtidligere aktivitet, slik at du ikke ser andre perspektiver.',
   },
   {
     question: 'Hvordan kan du faktasjekke en nyhetssak?',
-    options: ['Sjekke kilden, soke etter originalen og kryssjekke med andre kilder', 'Bare lese overskriften', 'Stole pa at det er sant hvis mange har delt det', 'Ignorere det'],
+    options: ['Sjekke kilden, soke etter originalen og kryssjekke med andre kilder', 'Bare lese overskriften', 'Stole påat det er sant hvis mange har delt det', 'Ignorere det'],
     explanation: 'God faktasjekking innebarer a finne originalkilden, sjekke hvem som star bak, og kryss-sjekke informasjonen med andre palitelige kilder.',
   },
 ],
@@ -12763,23 +12763,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er treleddet oppbygning i retorikk?',
-    options: ['Tre elementer i rekke som forsterker hverandre, som "kraft, mot og vilje"', 'Tre avsnitt i en tale', 'Tre appellformer', 'Tre argumenter'],
-    explanation: 'Treleddet oppbygning bruker tre elementer for a skape rytme og forsterke budskapet, som "vi kom, vi sa, vi vant".',
+    options: ['Tre elementer i rekke som førsterker hverandre, som "kraft, mot og vilje"', 'Tre avsnitt i en tale', 'Tre appellformer', 'Tre argumenter'],
+    explanation: 'Treleddet oppbygning bruker tre elementer for a skape rytme og førsterke budskapet, som "vi kom, vi sa, vi vant".',
   },
   {
-    question: 'Hvilken appellform dominerer i "Tenk pa alle de ensomme eldre som sitter alene hver eneste dag"?',
+    question: 'Hvilken appellform dominerer i "Tenk påalle de ensomme eldre som sitter alene hver eneste dag"?',
     options: ['Patos - appellerer til folelser som empati og medfoleelse', 'Logos - bruker fakta', 'Etos - viser kompetanse', 'Kairos - handler om timing'],
     explanation: 'Dette utsagnet appellerer til folelser ved a skape et bilde som vekker empati og medfoleelse hos tilhoreren.',
   },
   {
     question: 'Hva er enjambement i lyrikk?',
-    options: ['Nar setningen fortsetter over linjeskiftet', 'Gjentakelse av ord', 'Rim pa slutten av linjen', 'Rytme i diktet'],
-    explanation: 'Enjambement er nar en setning eller tanke fortsetter fra en verselinje til den neste uten stopp ved linjeskiftet.',
+    options: ['Nar setningen fortsetter over linjeskiftet', 'Gjentakelse av ord', 'Rim påslutten av linjen', 'Rytme i diktet'],
+    explanation: 'Enjambement er nåren setning eller tanke fortsetter fra en verselinje til den neste uten stopp ved linjeskiftet.',
   },
   {
     question: 'Hvorfor larer vi retorikk?',
-    options: ['For a bli bedre kommunikatorer og gjennomskue andres argumentasjon', 'For a kunne manipulere andre', 'For a fa bedre karakterer', 'For a laere gresk'],
-    explanation: 'Kunnskap om retorikk hjelper deg bade a kommunisere bedre selv og a gjennomskue nar andre proever a pavirke deg.',
+    options: ['For å bli bedre kommunikatorer og gjennomskue andres argumentasjon', 'For a kunne manipulere andre', 'For a fa bedre karakterer', 'For a laere gresk'],
+    explanation: 'Kunnskap om retorikk hjelper deg bade a kommunisere bedre selv og a gjennomskue nårandre proever a pavirke deg.',
   },
 ],
 
@@ -12787,7 +12787,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en primerkilde?',
     options: ['Originale dokumenter, forskning eller oyenvitneskildringer', 'En laerebok eller Wikipedia-artikkel', 'En avisartikkel', 'En blogg'],
-    explanation: 'Primaerkilder er originalmateriale som forskningsdata, historiske dokumenter eller forstehandsberetninger - ikke tolkninger av disse.',
+    explanation: 'Primaerkilder er originalmateriale som forskningsdata, historiske dokumenter eller førstehandsberetninger - ikke tolkninger av disse.',
   },
   {
     question: 'Hva star TRAFO for i kildekritikk?',
@@ -12802,7 +12802,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er en YouTube-video av en influencer uten faglig bakgrunn ofte en svak kilde?',
     options: ['Lav troverdighet fordi avsenderen mangler faglig kompetanse', 'Fordi videoer alltid er upaalitelige', 'Fordi YouTube er blokkert', 'Fordi influencere alltid lyver'],
-    explanation: 'Troverdigheten er lav fordi personen mangler faglig kompetanse, og det kan vaere skjulte kommersielle interesser (sponsing).',
+    explanation: 'Troverdigheten er lav fordi personen mangler faglig kompetanse, og det kan være skjulte kommersielle interesser (sponsing).',
   },
   {
     question: 'Hva er plagiat?',
@@ -12824,8 +12824,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er analepse i fortelleteknikk?',
-    options: ['Tilbakeblikk - nar fortellingen hopper tilbake i tid', 'Frempek - antydning om hva som skal skje', 'Klimaks - hoydepunktet', 'Eksposisjon - introduksjonen'],
-    explanation: 'Analepse (tilbakeblikk/flashback) er nar fortellingen hopper tilbake til hendelser som skjedde for hovedhandlingen.',
+    options: ['Tilbakeblikk - nårfortellingen hopper tilbake i tid', 'Frempek - antydning om hva som skal skje', 'Klimaks - høydepunktet', 'Eksposisjon - introduksjonen'],
+    explanation: 'Analepse (tilbakeblikk/flashback) er nårfortellingen hopper tilbake til hendelser som skjedde for hovedhandlingen.',
   },
   {
     question: 'Hvilken novelle av Alexander Kielland kritiserer klasseskiller og dobbeltmoral?',
@@ -12834,7 +12834,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner novellen som sjanger?',
-    options: ['Kort form, fa personer, begrenset tidsrom og ofte ett sentralt vendepunkt', 'Lang form med mange karakterer', 'Alltid lykkelig slutt', 'Alltid skrevet pa vers'],
+    options: ['Kort form, fa personer, begrenset tidsrom og ofte ett sentralt vendepunkt', 'Lang form med mange karakterer', 'Alltid lykkelig slutt', 'Alltid skrevet påvers'],
     explanation: 'Novellen er en kort fortelling med konsentrert handling, fa karakterer, begrenset tid og sted, og ofte et sentralt vendepunkt.',
   },
 ],
@@ -12842,8 +12842,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'norsk-vg1-2-2': [
   {
     question: 'Hva er kryssrim?',
-    options: ['Rimmoenster der annenhver linje rimer (abab)', 'Nar to linjer etter hverandre rimer (aa)', 'Nar forste og siste linje rimer', 'Nar ingen linjer rimer'],
-    explanation: 'Kryssrim (abab) er et rimmoenster der forste linje rimer med tredje, og andre linje rimer med fjerde.',
+    options: ['Rimmoenster der annenhver linje rimer (abab)', 'Nar to linjer etter hverandre rimer (aa)', 'Nar første og siste linje rimer', 'Nar ingen linjer rimer'],
+    explanation: 'Kryssrim (abab) er et rimmoenster der første linje rimer med tredje, og andre linje rimer med fjerde.',
   },
   {
     question: 'Hva er en jambe?',
@@ -12856,9 +12856,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Dette er en sammenligning (simile) fordi det brukes "som" til a sammenligne fjellene med vakter.',
   },
   {
-    question: 'Hvem skrev diktet "Du ma ikke sove"?',
+    question: 'Hvem skrev diktet "Du måikke sove"?',
     options: ['Arnulf Overland', 'Henrik Wergeland', 'Olav H. Hauge', 'Tarjei Vesaas'],
-    explanation: 'Arnulf Overland skrev "Du ma ikke sove" i 1936 som en advarsel mot fascismen og passivitet overfor urettferdighet.',
+    explanation: 'Arnulf Overland skrev "Du måikke sove" i 1936 som en advarsel mot fascismen og passivitet overfor urettferdighet.',
   },
   {
     question: 'Hva er et haiku?',
@@ -12869,19 +12869,19 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'norsk-vg1-3-1': [
   {
-    question: 'Hva er viktigst a tenke pa i innledningen til en presentasjon?',
+    question: 'Hva er viktigst a tenke påi innledningen til en presentasjon?',
     options: ['Fange oppmerksomheten og presentere tema tydelig', 'Gi alle detaljer med en gang', 'Unnskylde seg for a vaere nervoes', 'Lese hele manuset hoyt'],
     explanation: 'Innledningen skal fange publikums interesse med en hook (overraskende fakta, sporsmal, historie) og tydelig presentere hva du skal snakke om.',
   },
   {
     question: 'Hvorfor er oeyekontakt viktig i muntlig presentasjon?',
     options: ['Det skaper kontakt med publikum og viser selvtillit', 'Det gjor deg mindre nervoes', 'Det er obligatorisk', 'Det fyller tid'],
-    explanation: 'Oyekontakt skaper forbindelse med publikum, viser at du er trygg pa stoffet, og gjor at tilhorerne foler seg inkludert.',
+    explanation: 'Oyekontakt skaper forbindelse med publikum, viser at du er trygg påstoffet, og gjor at tilhorerne foler seg inkludert.',
   },
   {
     question: 'Hva er aktiv lytting?',
-    options: ['A vise at du lytter, stille oppfolgingssporsmal og unnga a avbryte', 'A vaere stille', 'A ta notater', 'A nikke uten a hore etter'],
-    explanation: 'Aktiv lytting innebarer a vise interesse med kroppssprak, stille oppfolgingssporsmal, og oppsummere det andre har sagt for a vise at du har forstatt.',
+    options: ['A vise at du lytter, stille oppfolgingssporsmal og unngå å avbryte', 'A vaere stille', 'A ta notater', 'A nikke uten a hore etter'],
+    explanation: 'Aktiv lytting innebarer a vise interesse med kroppssprak, stille oppfolgingssporsmal, og oppsummere det andre har sagt for å vise at du har forstatt.',
   },
   {
     question: 'Hvordan bor hoveddelen i en presentasjon vaere strukturert?',
@@ -12890,7 +12890,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Nar bor du bruke pauser i en presentasjon?',
-    options: ['Etter viktige poenger for a la informasjonen synke inn', 'Aldri - det viser usikkerhet', 'Bare nar du har glemt hva du skal si', 'Hele tiden'],
+    options: ['Etter viktige poenger for a la informasjonen synke inn', 'Aldri - det viser usikkerhet', 'Bare når du har glemt hva du skal si', 'Hele tiden'],
     explanation: 'Strategiske pauser etter viktige poenger gir publikum tid til a tenke og understreker betydningen av det du nettopp sa.',
   },
 ],
@@ -12903,7 +12903,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken effekt har korte setninger i kreativ skriving?',
-    options: ['De skaper spenning og tempo', 'De gjor teksten kjedelig', 'De viser at forfatteren er lat', 'De er alltid feil a bruke'],
+    options: ['De skaper spenning og tempo', 'De gjor teksten kjedelig', 'De viser at forfatteren er lat', 'De er alltid feil å bruke'],
     explanation: 'Korte setninger skaper tempo og spenning. De er effektive i dramatiske oyeblikk eller for a understreke viktige poenger.',
   },
   {
@@ -12913,7 +12913,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er skriveprosessen viktig i kreativ skriving?',
-    options: ['Fordi god skriving krever flere runder med utkast og revisjon', 'Fordi forste utkast alltid er best', 'Fordi man ma skrive fort', 'Fordi det er kjedelig a redigere'],
+    options: ['Fordi god skriving krever flere runder med utkast og revisjon', 'Fordi første utkast alltid er best', 'Fordi man måskrive fort', 'Fordi det er kjedelig a redigere'],
     explanation: 'Skriving er en prosess: idefase, planlegging, utkast, revisjon og korrektur. De beste tekstene blir til gjennom flere runder med forbedring.',
   },
   {
@@ -12946,8 +12946,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor har dialekter hoey status i Norge sammenlignet med andre land?',
-    options: ['Det er akseptert a bruke dialekt i alle sammenhenger, inkludert offentligheten', 'Fordi vi har fa dialekter', 'Fordi Stortinget har vedtatt det', 'Det stemmer ikke at dialekter har hoey status'],
-    explanation: 'I Norge er det normalt a bruke dialekt i alle sammenhenger - pa jobb, i medier og i det offentlige. Dette er uvanlig i internasjonal sammenheng.',
+    options: ['Det er akseptert å bruke dialekt i alle sammenhenger, inkludert offentligheten', 'Fordi vi har fa dialekter', 'Fordi Stortinget har vedtatt det', 'Det stemmer ikke at dialekter har hoey status'],
+    explanation: 'I Norge er det normalt å bruke dialekt i alle sammenhenger - påjobb, i medier og i det offentlige. Dette er uvanlig i internasjonal sammenheng.',
   },
 ],
 
@@ -12959,22 +12959,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er FOMO?',
-    options: ['Fear Of Missing Out - redsel for a ga glipp av noe', 'En type sosiale medier', 'Et kamerafilter', 'En hashtag'],
-    explanation: 'FOMO (Fear Of Missing Out) er sosial angst for a ga glipp av opplevelser eller informasjon, ofte forsterket av sosiale medier.',
+    options: ['Fear Of Missing Out - redsel for å gå glipp av noe', 'En type sosiale medier', 'Et kamerafilter', 'En hashtag'],
+    explanation: 'FOMO (Fear Of Missing Out) er sosial angst for å gå glipp av opplevelser eller informasjon, ofte førsterket av sosiale medier.',
   },
   {
-    question: 'Hva gjor algoritmer pa sosiale medier?',
-    options: ['De velger hvilket innhold du far se basert pa tidligere aktivitet', 'De teller antall folggere', 'De lager bilder automatisk', 'De skriver kommentarer'],
+    question: 'Hva gjor algoritmer påsosiale medier?',
+    options: ['De velger hvilket innhold du fårse basert påtidligere aktivitet', 'De teller antall folggere', 'De lager bilder automatisk', 'De skriver kommentarer'],
     explanation: 'Algoritmer analyserer din tidligere aktivitet og viser innhold de tror du vil like, noe som kan skape filterbobler og ekkokamre.',
   },
   {
-    question: 'Hva betyr det at modaliteter "forsterker" hverandre i en sammensatt tekst?',
+    question: 'Hva betyr det at modaliteter "førsterker" hverandre i en sammensatt tekst?',
     options: ['At tekst, bilde og lyd stotter og underbygger samme budskap', 'At de motssier hverandre', 'At de er uavhengige', 'At de er identiske'],
-    explanation: 'Nar modaliteter forsterker hverandre, jobber tekst, bilde, lyd osv. sammen for a kommunisere samme budskap paa en kraftfull maate.',
+    explanation: 'Nar modaliteter førsterker hverandre, jobber tekst, bilde, lyd osv. sammen for a kommunisere samme budskap paa en kraftfull maate.',
   },
   {
     question: 'Hvorfor er det viktig med kritisk mediebruk?',
-    options: ['For a gjennomskue pavirkning og vaere bevisst algoritmers effekt', 'For a bruke sosiale medier mer', 'For a fa flere folggere', 'Det er ikke viktig'],
+    options: ['For a gjennomskue pavirkning og vaere bevisst algoritmers effekt', 'For å bruke sosiale medier mer', 'For a fa flere folggere', 'Det er ikke viktig'],
     explanation: 'Kritisk mediebruk hjelper deg a forstaa hvordan algoritmer pavirker deg, sjekke kilder, og vaere bevisst paa personvern og manipulasjon.',
   },
 ],
@@ -13021,7 +13021,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er kildehenvisninger viktige i fagartikler?',
     options: ['De viser hvor informasjonen kommer fra og styrker troverdigheten', 'De gjor teksten lengre', 'De er bare noedvendige i akademiske tekster', 'De er ikke viktige'],
-    explanation: 'Kildehenvisninger viser at du bygger paa etablert kunnskap, lar leseren sjekke pastandene, og unngaar plagiat.',
+    explanation: 'Kildehenvisninger viser at du bygger paa etablert kunnskap, lar leseren sjekke pastandene, og unngåar plagiat.',
   },
   {
     question: 'Hva boer en god problemstilling i en fagartikkel inneholde?',
@@ -13157,13 +13157,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et ad hominem-argument?',
-    options: ['Aa angripe personen i stedet for argumentet', 'Aa bruke statistikk', 'Aa appellere til autoritet', 'Aa gi eksempler'],
+    options: ['Aa angripe personen i stedet for argumentet', 'Aå bruke statistikk', 'Aa appellere til autoritet', 'Aa gi eksempler'],
     explanation: 'Ad hominem er en feilslutning der man angriper personen som fremmer argumentet i stedet for aa diskutere selve argumentet.',
   },
   {
     question: 'Hva er et glatte-bakke-argument?',
-    options: ['Aa paastaa at een handling noedvendigvis foerer til ekstreme konsekvenser', 'Aa bruke fakta', 'Aa appellere til foelelser', 'Aa vise til eksperter'],
-    explanation: 'Glatte-bakke-argumentet (slippery slope) paastaar at hvis vi tillater X, vil det uunngaaelig foere til Y, og saa til Z, uten aa bevise denne sammenhengen.',
+    options: ['Aa paastaa at een handling noedvendigvis foerer til ekstreme konsekvenser', 'Aå bruke fakta', 'Aa appellere til foelelser', 'Aa vise til eksperter'],
+    explanation: 'Glatte-bakke-argumentet (slippery slope) paastaar at hvis vi tillater X, vil det uunngåaelig foere til Y, og saa til Z, uten aa bevise denne sammenhengen.',
   },
   {
     question: 'Hva er forskjellen mellom retorikk og propaganda?',
@@ -13196,7 +13196,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er dokudrama?',
     options: ['Dramatisert dokumentar der virkelige hendelser gjenskapes med skuespillere', 'En ren fiksjon', 'En ren dokumentar', 'En komediesjanger'],
-    explanation: 'Dokudrama (dramatisert dokumentar) gjenskaper virkelige hendelser med skuespillere, noe som kan vaere problematisk mht. sannhet.',
+    explanation: 'Dokudrama (dramatisert dokumentar) gjenskaper virkelige hendelser med skuespillere, noe som kan være problematisk mht. sannhet.',
   },
   {
     question: 'Hvorfor er musikkvalg viktig i dokumentar?',
@@ -13222,7 +13222,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Kielland var kjent for sin elegante, ironiske prosa og brukte satire for aa kritisere borgerlig hykleri.',
   },
   {
-    question: 'Hva handlet "En hanske" (1883) av Bjoernson om?',
+    question: 'Hvahandlet "En hanske" (1883) av Bjoernson om?',
     options: ['Likestilling i seksualmoralen mellom menn og kvinner', 'Pressens makt', 'Ekonomisk krise', 'Nordnorsk natur'],
     explanation: '"En hanske" tok opp seksuell dobbeltmoral og krevde at menn skulle holdes til samme moralske standard som kvinner.',
   },
@@ -13386,12 +13386,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan bygger man etos i en tale?',
-    options: ['Ved aa vise kompetanse, aerrlighet og velvilje', 'Ved aa bruke sterke foelelser', 'Ved aa bruke mye statistikk', 'Ved aa snakke hoyt'],
+    options: ['Ved aa vise kompetanse, aerrlighet og velvilje', 'Ved aå bruke sterke foelelser', 'Ved aå bruke mye statistikk', 'Ved aa snakke hoyt'],
     explanation: 'Etos bygges ved aa vise at du er kompetent paa omraadet, aerlig i din fremstilling, og har tilhoerernes beste i tankene.',
   },
   {
     question: 'Hva er en falsk dikotomi?',
-    options: ['Aa presentere bare to alternativer naar det finnes flere', 'Aa bruke feil statistikk', 'Aa angripe motstanderen personlig', 'Aa overdrive'],
+    options: ['Aa presentere bare to alternativer naar det finnes flere', 'Aå bruke feil statistikk', 'Aa angripe motstanderen personlig', 'Aa overdrive'],
     explanation: 'Falsk dikotomi er aa fremstille det som om det bare finnes to muligheter ("enten-eller") naar virkeligheten har flere alternativer.',
   },
   {
@@ -13413,7 +13413,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Context means the words around a word you dont know. You can use context to guess what a new word means.',
   },
   {
-    question: 'Hva betyr "hungry" pa norsk?',
+    question: 'Hva betyr "hungry" pånorsk?',
     options: ['Sulten', 'Trott', 'Glad', 'Sint'],
     explanation: '"Hungry" betyr sulten. If you are hungry, you want food.',
   },
@@ -13423,7 +13423,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Before reading, look at the pictures and the title. This helps you guess what the story might be about.',
   },
   {
-    question: 'Hva betyr "garden" pa norsk?',
+    question: 'Hva betyr "garden" pånorsk?',
     options: ['Hage', 'Bil', 'Hus', 'Skole'],
     explanation: '"Garden" betyr hage. A garden is where you can grow flowers and plants.',
   },
@@ -13441,7 +13441,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'The number 12 is written as "twelve" in English.',
   },
   {
-    question: 'Hvilken farge er "blue" pa norsk?',
+    question: 'Hvilken farge er "blue" pånorsk?',
     options: ['Bla', 'Rod', 'Gronn', 'Gul'],
     explanation: '"Blue" betyr bla. The sky is blue on a sunny day.',
   },
@@ -13474,7 +13474,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '"Kind" means snill - a kind person is nice and helpful to others.',
   },
   {
-    question: 'Hva betyr "tall" nar vi beskriver en person?',
+    question: 'Hva betyr "tall" nårvi beskriver en person?',
     options: ['Hoy', 'Kort', 'Ung', 'Gammel'],
     explanation: '"Tall" betyr hoy. A tall person has a lot of height.',
   },
@@ -13755,7 +13755,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr "Merry Christmas"?',
-    options: ['God jul', 'Godt nytt ar', 'God pake', 'Gratulerer med dagen'],
+    options: ['God jul', 'Godt nytt år', 'God pake', 'Gratulerer med dagen'],
     explanation: '"Merry Christmas!" is the greeting used at Christmas time.',
   },
   {
@@ -13773,7 +13773,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'What does "I am eleven years old" mean?',
-    options: ['Jeg er elleve ar gammel', 'Jeg har elleve ar', 'Jeg blir elleve ar', 'Elleve ar er jeg'],
+    options: ['Jeg er elleve årgammel', 'Jeg har elleve år', 'Jeg blir elleve år', 'Elleve årer jeg'],
     explanation: 'In English we say "I am ... years old" to express age.',
   },
   {
@@ -13806,7 +13806,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'What does "do homework" mean?',
-    options: ['Gjore lekser', 'Ga pa skolen', 'Spise frokost', 'Leke med venner'],
+    options: ['Gjore lekser', 'Ga påskolen', 'Spise frokost', 'Leke med venner'],
     explanation: '"Do homework" means gjore lekser - working on school assignments at home.',
   },
   {
@@ -13816,7 +13816,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'What is "brush my teeth" in Norwegian?',
-    options: ['Pusse tennene', 'Vaske haret', 'Spise frokost', 'Kle pa seg'],
+    options: ['Pusse tennene', 'Vaske haret', 'Spise frokost', 'Kle påseg'],
     explanation: '"Brush my teeth" means pusse tennene.',
   },
 ],
@@ -14609,7 +14609,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Which country is in the "Outer Circle" of World Englishes?',
     options: ['India', 'United Kingdom', 'Norway', 'Japan'],
-    explanation: 'Outer Circle countries like India have English as an official language due to colonial history, though it\'s not the native language.',
+    explanation: 'Outer Circle countries like Indiå have English as an official language due to colonial history, though it\'s not the native language.',
   },
   {
     question: 'What is "English as a Lingua Franca" (ELF)?',
@@ -14977,8 +14977,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en fjord?',
-    options: ['En lang, smal havbukt som gar inn i landet', 'Et hoyt fjell', 'En stor innsjo', 'En vid slette'],
-    explanation: 'En fjord er en lang, smal havbukt som gar inn i landet. Fjordene ble dannet av isbreer under istidene.',
+    options: ['En lang, smal havbukt som gårinn i landet', 'Et hoyt fjell', 'En stor innsjo', 'En vid slette'],
+    explanation: 'En fjord er en lang, smal havbukt som gårinn i landet. Fjordene ble dannet av isbreer under istidene.',
   },
   {
     question: 'Hvilken landsdel ligger lengst nord i Norge?',
@@ -14991,7 +14991,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Glomma er Norges lengste elv med sine 604 kilometer.',
   },
   {
-    question: 'Hvorfor bor det flest mennesker pa Ostlandet?',
+    question: 'Hvorfor bor det flest mennesker påOstlandet?',
     options: ['Flatere landskap og mildere klima', 'Mest fjell', 'Naermest havet', 'Mest skog'],
     explanation: 'Ostlandet har flatere terreng som gjor det enklere a bygge, mildere klima og mer dyrkbar jord.',
   },
@@ -15006,7 +15006,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar feires samefolkets dag?',
     options: ['6. februar', '17. mai', '1. januar', '24. desember'],
-    explanation: '6. februar er samefolkets dag. Pa denne dagen i 1917 ble det forste samiske landsmote holdt i Trondheim.',
+    explanation: '6. februar er samefolkets dag. Pa denne dagen i 1917 ble det første samiske landsmote holdt i Trondheim.',
   },
   {
     question: 'Hva er joik?',
@@ -15016,7 +15016,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva heter samenes folkevalgte organ?',
     options: ['Sametinget', 'Stortinget', 'Samerad', 'Samilag'],
-    explanation: 'Sametinget ble opprettet i 1989 og ligger i Karasjok. Det har 39 representanter som velges hvert fjerde ar.',
+    explanation: 'Sametinget ble opprettet i 1989 og ligger i Karasjok. Det har 39 representanter som velges hvert fjerde år.',
   },
   {
     question: 'Hva kalles samisk handverk?',
@@ -15029,7 +15029,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar var vikingtiden?',
     options: ['Ca. 800-1050', 'Ca. 1200-1400', 'Ca. 1500-1700', 'Ca. 400-600'],
-    explanation: 'Vikingtiden varte fra omtrent ar 800 til 1050, en periode pa rundt 250 ar.',
+    explanation: 'Vikingtiden varte fra omtrent år800 til 1050, en periode pårundt 250 år.',
   },
   {
     question: 'Hvem var guden for torden og styrke i vikingenes religion?',
@@ -15039,17 +15039,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem oppdaget Amerika lenge for Columbus?',
     options: ['Leiv Eiriksson', 'Erik Raude', 'Harald Harfagre', 'Olav den hellige'],
-    explanation: 'Leiv Eiriksson oppdaget Vinland (Nord-Amerika) rundt ar 1000, ca. 500 ar for Columbus.',
+    explanation: 'Leiv Eiriksson oppdaget Vinland (Nord-Amerika) rundt år1000, ca. 500 årfor Columbus.',
   },
   {
-    question: 'Hva het det lange smale skipet vikingene brukte til krigstokter?',
+    question: 'Hva het det lange smale skipet vikingene brukte til krigstøkter?',
     options: ['Langskip', 'Knarr', 'Fiskebat', 'Dampbat'],
-    explanation: 'Langskipet var langt og smalt, kunne ha 20-60 roere og ble brukt til krigstokter og reiser.',
+    explanation: 'Langskipet var langt og smalt, kunne ha 20-60 roere og ble brukt til krigstøkter og reiser.',
   },
   {
     question: 'Hva var de fleste vikinger i hverdagen?',
     options: ['Bonder', 'Krigere', 'Konger', 'Prester'],
-    explanation: 'De fleste vikinger var bonder som dyrket jord, holdt dyr og laget ting de trengte. Bare noen dro pa vikingtokt.',
+    explanation: 'De fleste vikinger var bonder som dyrket jord, holdt dyr og laget ting de trengte. Bare noen dro påvikingtokt.',
   },
 ],
 
@@ -15072,12 +15072,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken konge kristnet Norge og ble helgen?',
     options: ['Olav den hellige', 'Harald Harfagre', 'Hakon den gode', 'Magnus den gode'],
-    explanation: 'Olav den hellige (Olav Haraldsson) kristnet Norge og ble regnet som helgen etter sin dod i slaget pa Stiklestad i 1030.',
+    explanation: 'Olav den hellige (Olav Haraldsson) kristnet Norge og ble regnet som helgen etter sin dod i slaget påStiklestad i 1030.',
   },
   {
     question: 'Hva er Nidarosdomen?',
-    options: ['Nordens storste middelalderkirke', 'En stavkirke', 'Et vikingskip', 'En borg'],
-    explanation: 'Nidarosdomen i Trondheim er Nordens storste middelalderkirke, bygget over graven til Olav den hellige.',
+    options: ['Nordens største middelalderkirke', 'En stavkirke', 'Et vikingskip', 'En borg'],
+    explanation: 'Nidarosdomen i Trondheim er Nordens største middelalderkirke, bygget over graven til Olav den hellige.',
   },
 ],
 
@@ -15088,9 +15088,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Demokrati betyr folkestyre. Ordet kommer fra gresk: demos (folk) + kratos (styre).',
   },
   {
-    question: 'Hvor gammel ma du vaere for a stemme ved stortingsvalg?',
-    options: ['18 ar', '16 ar', '20 ar', '21 ar'],
-    explanation: 'Du ma vaere 18 ar og norsk statsborger for a stemme ved stortingsvalg i Norge.',
+    question: 'Hvor gammel må du vaere for a stemme ved stortingsvalg?',
+    options: ['18 år', '16 år', '20 år', '21 år'],
+    explanation: 'Du måvaere 18 årog norsk statsborger for a stemme ved stortingsvalg i Norge.',
   },
   {
     question: 'Hva er Stortingets viktigste oppgave?',
@@ -15104,8 +15104,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor ofte er det stortingsvalg i Norge?',
-    options: ['Hvert 4. ar', 'Hvert 2. ar', 'Hvert ar', 'Hvert 5. ar'],
-    explanation: 'Det er stortingsvalg hvert fjerde ar i Norge. Kommunevalg holdes ogsa hvert fjerde ar, men to ar etter stortingsvalg.',
+    options: ['Hvert 4. år', 'Hvert 2. år', 'Hvert år', 'Hvert 5. år'],
+    explanation: 'Det er stortingsvalg hvert fjerde åri Norge. Kommunevalg holdes ogsa hvert fjerde ar, men to åretter stortingsvalg.',
   },
 ],
 
@@ -15117,8 +15117,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kommunestyret?',
-    options: ['Folkevalgte politikere som bestemmer i kommunen', 'Ansatte pa radhuset', 'Rektorer pa skolene', 'Folk som bestemmer i staten'],
-    explanation: 'Kommunestyret bestar av folkevalgte politikere som blir valgt ved kommunevalg hvert fjerde ar.',
+    options: ['Folkevalgte politikere som bestemmer i kommunen', 'Ansatte påradhuset', 'Rektorer påskolene', 'Folk som bestemmer i staten'],
+    explanation: 'Kommunestyret bestar av folkevalgte politikere som blir valgt ved kommunevalg hvert fjerde år.',
   },
   {
     question: 'Hva er IKKE kommunens ansvar?',
@@ -15133,7 +15133,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken kommune har flest innbyggere i Norge?',
     options: ['Oslo', 'Bergen', 'Trondheim', 'Stavanger'],
-    explanation: 'Oslo er Norges storste kommune med ca. 700 000 innbyggere.',
+    explanation: 'Oslo er Norges største kommune med ca. 700 000 innbyggere.',
   },
 ],
 
@@ -15145,13 +15145,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er drivhuseffekten?',
-    options: ['Gasser i atmosfaeren holder pa varmen', 'Drivhus brukes til a dyrke planter', 'Havet blir kaldere', 'Sola slutter a skinne'],
-    explanation: 'Drivhuseffekten gjor at jorden blir varmere fordi CO2 og andre gasser holder pa varmen i atmosfaeren.',
+    options: ['Gasser i atmosfaeren holder påvarmen', 'Drivhus brukes til a dyrke planter', 'Havet blir kaldere', 'Sola slutter a skinne'],
+    explanation: 'Drivhuseffekten gjor at jorden blir varmere fordi CO2 og andre gasser holder påvarmen i atmosfaeren.',
   },
   {
     question: 'Hvorfor er plast i havet et problem?',
     options: ['Dyr spiser plasten og kan do', 'Plasten er fin a se pa', 'Plasten gjor vannet varmere', 'Plasten hjelper fiskene'],
-    explanation: 'Plast i havet er farlig fordi dyr spiser det og fordi det tar hundrevis av ar a bryte ned.',
+    explanation: 'Plast i havet er farlig fordi dyr spiser det og fordi det tar hundrevis av åra bryte ned.',
   },
   {
     question: 'Hva er en truet art?',
@@ -15168,7 +15168,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-5-4-2': [
   {
     question: 'Hva betyr baerekraftig utvikling?',
-    options: ['A dekke vare behov uten a odelegge for fremtidige generasjoner', 'A bruke mest mulig ressurser', 'A ikke bry seg om fremtiden', 'A bare tenke pa okonomi'],
+    options: ['A dekke vare behov uten a odelegge for fremtidige generasjoner', 'A bruke mest mulig ressurser', 'A ikke bry seg om fremtiden', 'A bare tenke påokonomi'],
     explanation: 'Baerekraftig utvikling handler om a leve godt i dag uten a odelegge for dem som kommer etter oss.',
   },
   {
@@ -15178,12 +15178,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en sirkulaer okonomi?',
-    options: ['Gjenbruke og resirkulere i stedet for a kaste', 'Kaste alt etter bruk', 'Bare kjope nye ting', 'Bruke mest mulig plast'],
+    options: ['Gjenbruke og resirkulere i stedet for a kaste', 'Kaste alt etter bruk', 'Bare kjøpe nye ting', 'Bruke mest mulig plast'],
     explanation: 'I en sirkulaer okonomi bruker vi ting om igjen og resirkulerer materialer. Malet er null avfall!',
   },
   {
     question: 'Hva er fornybar energi?',
-    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi fra gass'],
+    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gåss'],
     explanation: 'Fornybar energi kommer fra kilder som ikke tar slutt, som sol, vind og vannkraft.',
   },
   {
@@ -15202,17 +15202,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva var Gokstadskipet og Osebergskipet?',
     options: ['Beromte vikingskip funnet i Norge', 'Moderne fiskebater', 'Danske handelsskip', 'Svenske krigsskip'],
-    explanation: 'Gokstadskipet og Osebergskipet er beromte vikingskip som er funnet i Norge og kan ses pa Vikingskipsmuseet.',
+    explanation: 'Gokstadskipet og Osebergskipet er beromte vikingskip som er funnet i Norge og kan ses påVikingskipsmuseet.',
   },
   {
     question: 'Hvor reiste vikingene?',
     options: ['Til Island, Gronland og Nord-Amerika', 'Bare til Sverige', 'Bare innenfor Norge', 'Til Australia'],
-    explanation: 'Vikingene reiste vidt - til Island (870), Gronland (985) og Leiv Eiriksson kom til Nord-Amerika rundt ar 1000.',
+    explanation: 'Vikingene reiste vidt - til Island (870), Gronland (985) og Leiv Eiriksson kom til Nord-Amerika rundt år1000.',
   },
   {
     question: 'Hva var et langhus?',
-    options: ['Det viktigste bygget pa vikingenes gard', 'Et vikingskip', 'Et tempel', 'En festning'],
-    explanation: 'Langhuset var det viktigste bygget pa garden. Hele familien bodde sammen der, og dyrene bodde i den ene enden.',
+    options: ['Det viktigste bygget påvikingenes gard', 'Et vikingskip', 'Et tempel', 'En festning'],
+    explanation: 'Langhuset var det viktigste bygget pågarden. Hele familien bodde sammen der, og dyrene bodde i den ene enden.',
   },
   {
     question: 'Hvilke tre grupper fantes i vikingsamfunnet?',
@@ -15229,8 +15229,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er spesielt med Urnes stavkirke?',
-    options: ['Den er eldst og star pa UNESCO-listen', 'Den er storst', 'Den er bygget av stein', 'Den ligger i Stockholm'],
-    explanation: 'Urnes stavkirke er den eldste bevarte stavkirken og star pa UNESCOs verdensarvliste.',
+    options: ['Den er eldst og står påUNESCO-listen', 'Den er størst', 'Den er bygget av stein', 'Den ligger i Stockholm'],
+    explanation: 'Urnes stavkirke er den eldste bevarte stavkirken og står påUNESCOs verdensarvliste.',
   },
   {
     question: 'Nar kom svartedauden til Norge?',
@@ -15239,21 +15239,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan spredte svartedauden seg?',
-    options: ['Med lopper pa rotter', 'Gjennom lufta', 'Gjennom maten', 'Gjennom vannet'],
-    explanation: 'Svartedauden var byllepest som spredte seg med lopper pa rotter. Folk fikk svarte flekker pa huden.',
+    options: ['Med lopper pårotter', 'Gjennom lufta', 'Gjennom maten', 'Gjennom vannet'],
+    explanation: 'Svartedauden var byllepest som spredte seg med lopper pårotter. Folk fikk svarte flekker påhuden.',
   },
   {
     question: 'Hvor lang tid tok det for befolkningen var like stor igjen etter svartedauden?',
-    options: ['Ca. 200 ar', 'Ca. 10 ar', 'Ca. 50 ar', 'Ca. 500 ar'],
-    explanation: 'Det tok omtrent 200 ar for Norges befolkning var like stor som for svartedauden.',
+    options: ['Ca. 200 år', 'Ca. 10 år', 'Ca. 50 år', 'Ca. 500 år'],
+    explanation: 'Det tok omtrent 200 årfor Norges befolkning var like stor som for svartedauden.',
   },
 ],
 
   'samfunnsfag-6-1-3': [
   {
     question: 'Hva skjedde 17. mai 1814?',
-    options: ['Grunnloven ble underskrevet pa Eidsvoll', 'Norge ble selvstendig fra Sverige', 'Vikingtiden startet', 'Svartedauden kom'],
-    explanation: 'Grunnloven ble underskrevet pa Eidsvoll 17. mai 1814. Derfor feirer vi nasjonaldagen denne datoen.',
+    options: ['Grunnloven ble underskrevet påEidsvoll', 'Norge ble selvstendig fra Sverige', 'Vikingtiden startet', 'Svartedauden kom'],
+    explanation: 'Grunnloven ble underskrevet påEidsvoll 17. mai 1814. Derfor feirer vi nasjonaldagen denne datoen.',
   },
   {
     question: 'Nar ble Norge helt selvstendig?',
@@ -15262,8 +15262,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor lenge var Norge i union med Danmark?',
-    options: ['Over 400 ar (1380-1814)', 'Ca. 100 ar', 'Ca. 50 ar', 'Ca. 200 ar'],
-    explanation: 'Norge var i union med Danmark fra 1380 til 1814, altsåa over 400 ar.',
+    options: ['Over 400 år(1380-1814)', 'Ca. 100 år', 'Ca. 50 år', 'Ca. 200 år'],
+    explanation: 'Norge var i union med Danmark fra 1380 til 1814, altsåa over 400 år.',
   },
   {
     question: 'Hva er Grunnloven?',
@@ -15273,7 +15273,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor feirer vi 17. mai med barnetog og flagg?',
     options: ['Vi feirer Grunnloven og frihet', 'Vi feirer vikingene', 'Vi feirer var', 'Vi feirer jul'],
-    explanation: '17. mai feirer vi Grunnloven, frihet og demokrati. Feiringen utviklet seg gradvis pa 1800-tallet.',
+    explanation: '17. mai feirer vi Grunnloven, frihet og demokrati. Feiringen utviklet seg gradvis på 1800-tallet.',
   },
 ],
 
@@ -15299,9 +15299,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Sognefjorden er Norges lengste fjord med 204 km og er ogsa den dypeste (1308 meter).',
   },
   {
-    question: 'Hvorfor regner det mer pa Vestlandet enn pa Ostlandet?',
-    options: ['Fuktig luft fra havet treffer fjellene', 'Det er varmere der', 'Det er flere elver', 'Det er flere skoger'],
-    explanation: 'Fuktig luft fra havet treffer fjellene og ma stige, noe som gir regn. Ostlandet er i regnskyggen og far mindre nedbor.',
+    question: 'Hvorfor regner det mer påVestlandet enn påOstlandet?',
+    options: ['Fuktig luft frå havet treffer fjellene', 'Det er varmere der', 'Det er flere elver', 'Det er flere skoger'],
+    explanation: 'Fuktig luft frå havet treffer fjellene og måstige, noe som gir regn. Ostlandet er i regnskyggen og fårmindre nedbor.',
   },
 ],
 
@@ -15319,7 +15319,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Er Norge medlem av EU?',
     options: ['Nei, men vi samarbeider gjennom EOS', 'Ja', 'Norge var med for', 'Norge skal bli med snart'],
-    explanation: 'Norge er ikke medlem av EU, men vi samarbeider gjennom EOS-avtalen og folger mange EU-regler.',
+    explanation: 'Norge er ikke medlem av EU, men vi samarbeider gjennom EOS-avtalen og følger mange EU-regler.',
   },
   {
     question: 'Hva heter samarbeidet mellom de nordiske landene?',
@@ -15335,9 +15335,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-6-2-3': [
   {
-    question: 'Hvilken verdensdel er storst?',
+    question: 'Hvilken verdensdel er størst?',
     options: ['Asia', 'Afrika', 'Europa', 'Nord-Amerika'],
-    explanation: 'Asia er verdens storste verdensdel med over 4 milliarder mennesker.',
+    explanation: 'Asia er verdens største verdensdel med over 4 milliarder mennesker.',
   },
   {
     question: 'Hvor mange verdensdeler er det?',
@@ -15350,9 +15350,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Antarktis har ingen fastboende fordi det er for kaldt. Det er bare forskere som bor der midlertidig.',
   },
   {
-    question: 'Hvilken orken er verdens storste?',
+    question: 'Hvilken orken er verdens største?',
     options: ['Sahara', 'Gobi', 'Kalahari', 'Mojave'],
-    explanation: 'Sahara i Afrika er verdens storste orken.',
+    explanation: 'Sahara i Afrika er verdens største orken.',
   },
   {
     question: 'Hva er verdens lengste fjellkjede?',
@@ -15368,14 +15368,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Demokrati kommer fra gresk og betyr folkestyre - at folket bestemmer.',
   },
   {
-    question: 'Hva er forskjellen pa Stortinget og regjeringen?',
+    question: 'Hva er forskjellen påStortinget og regjeringen?',
     options: ['Stortinget lager lover, regjeringen styrer daglig', 'De er det samme', 'Regjeringen lager lover', 'Stortinget styrer daglig'],
     explanation: 'Stortinget lager lover og vedtar budsjett, mens regjeringen styrer landet til daglig og foreslår lover.',
   },
   {
     question: 'Hvor ofte er det stortingsvalg?',
-    options: ['Hvert 4. ar', 'Hvert 2. ar', 'Hvert ar', 'Hvert 5. ar'],
-    explanation: 'Det er stortingsvalg hvert fjerde ar i Norge. Vi velger 169 representanter.',
+    options: ['Hvert 4. år', 'Hvert 2. år', 'Hvert år', 'Hvert 5. år'],
+    explanation: 'Det er stortingsvalg hvert fjerde åri Norge. Vi velger 169 representanter.',
   },
   {
     question: 'Hvilken rolle har kongen i Norge?',
@@ -15398,7 +15398,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier barnekonvensjonen om barnets beste?',
     options: ['Det skal alltid komme forst', 'Det er ikke viktig', 'Bare noen ganger', 'Bare i Norge'],
-    explanation: 'Barnets beste skal alltid komme forst nar voksne tar avgjorelser som pavirker barn.',
+    explanation: 'Barnets beste skal alltid komme forst nårvoksne tar avgjorelser som pavirker barn.',
   },
   {
     question: 'Nevn en menneskerettighet.',
@@ -15407,8 +15407,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en plikt?',
-    options: ['Noe vi ma gjore', 'Noe vi har krav pa', 'Noe vi onsker', 'Noe vi far'],
-    explanation: 'En plikt er noe vi ma gjore, som a folge lovene, betale skatt og respektere andres rettigheter.',
+    options: ['Noe vi må gjøre', 'Noe vi har krav pa', 'Noe vi onsker', 'Noe vi far'],
+    explanation: 'En plikt er noe vi må gjøre, som a folge lovene, betale skatt og respektere andres rettigheter.',
   },
   {
     question: 'Nar ble FNs barnekonvensjon vedtatt?',
@@ -15420,13 +15420,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-6-3-3': [
   {
     question: 'Hva betyr inkludering?',
-    options: ['At alle far vaere med', 'At noen holdes utenfor', 'At alle er like', 'At ingen far bestemme'],
-    explanation: 'Inkludering betyr at alle far vaere med, foler seg velkomne og kan delta.',
+    options: ['At alle fårvaere med', 'At noen holdes utenfor', 'At alle er like', 'At ingen fårbestemme'],
+    explanation: 'Inkludering betyr at alle fårvaere med, foler seg velkomne og kan delta.',
   },
   {
     question: 'Hvorfor er mangfold bra for samfunnet?',
-    options: ['Vi laerer av hverandre og far flere perspektiver', 'Det er ikke bra', 'Det skaper bare problemer', 'Alle bor vaere helt like'],
-    explanation: 'Mangfold er bra fordi vi laerer av hverandre, far flere perspektiver og blir mer kreative.',
+    options: ['Vi laerer av hverandre og fårflere perspektiver', 'Det er ikke bra', 'Det skaper bare problemer', 'Alle bør være helt like'],
+    explanation: 'Mangfold er bra fordi vi laerer av hverandre, fårflere perspektiver og blir mer kreative.',
   },
   {
     question: 'Hva er toleranse?',
@@ -15441,7 +15441,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er det motsatte av inkludering?',
     options: ['Ekskludering', 'Toleranse', 'Respekt', 'Mangfold'],
-    explanation: 'Ekskludering er det motsatte av inkludering - nar noen holdes utenfor eller ikke far delta.',
+    explanation: 'Ekskludering er det motsatte av inkludering - nårnoen holdes utenfor eller ikke fårdelta.',
   },
 ],
 
@@ -15449,7 +15449,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar var opplysningstiden?',
     options: ['1700-tallet', '1500-tallet', '1900-tallet', '1200-tallet'],
-    explanation: 'Opplysningstiden var pa 1700-tallet, ogsa kalt fornuftens tidsalder.',
+    explanation: 'Opplysningstiden var på 1700-tallet, ogsa kalt fornuftens tidsalder.',
   },
   {
     question: 'Hvem foreslo maktfordeling mellom lovgivende, utovende og dommende makt?',
@@ -15459,7 +15459,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva var hovedideen i opplysningstiden?',
     options: ['Mennesker skulle bruke fornuften og tenke selv', 'Kongen skulle ha all makt', 'Religion var viktigere enn vitenskap', 'Bare de rike skulle fa utdanning'],
-    explanation: 'Opplysningstiden handlet om a bruke fornuften, stille sporsmal og tenke kritisk.',
+    explanation: 'Opplysningstiden handlet om å bruke fornuften, stille sporsmal og tenke kritisk.',
   },
   {
     question: 'Hvilken filosof kjempet for ytringsfrihet?',
@@ -15475,7 +15475,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-7-1-2': [
   {
-    question: 'Hvor startet den industrielle revolusjonen?',
+    question: 'Hvor stårtet den industrielle revolusjonen?',
     options: ['England', 'Frankrike', 'USA', 'Norge'],
     explanation: 'Den industrielle revolusjonen startet i England rundt 1760.',
   },
@@ -15485,8 +15485,8 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'James Watt forbedret dampmaskinen i 1769 og gjorde den mer effektiv.',
   },
   {
-    question: 'Hva var typisk arbeidstid i en fabrikk pa 1800-tallet?',
-    options: ['12-16 timer om dagen, 6 dager i uken', '8 timer om dagen', '5 dagers uke med ferie', 'Folk jobbet nar de ville'],
+    question: 'Hva var typisk arbeidstid i en fabrikk på 1800-tallet?',
+    options: ['12-16 timer om dagen, 6 dager i uken', '8 timer om dagen', '5 dagers uke med ferie', 'Folk jobbet nårde ville'],
     explanation: 'Arbeidsforholdene var harde med lange dager, farlige maskiner og darlig lonn.',
   },
   {
@@ -15496,7 +15496,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor organiserte arbeiderne seg i fagforeninger?',
-    options: ['For a kreve bedre lonn og arbeidsforhold', 'Fordi de likte a ga pa moter', 'Fordi fabrikkeierne ba dem', 'For a jobbe mer'],
+    options: ['For a kreve bedre lonn og arbeidsforhold', 'Fordi de likte å gå påmoter', 'Fordi fabrikkeierne ba dem', 'For a jobbe mer'],
     explanation: 'Arbeiderne organiserte seg for a sta sterkere sammen og kunne forhandle om bedre lonn, kortere arbeidsdag og tryggere arbeidsplasser.',
   },
 ],
@@ -15505,12 +15505,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar ble Grunnloven vedtatt?',
     options: ['17. mai 1814', '17. mai 1905', '14. januar 1814', '7. juni 1905'],
-    explanation: 'Grunnloven ble vedtatt pa Eidsvoll 17. mai 1814.',
+    explanation: 'Grunnloven ble vedtatt påEidsvoll 17. mai 1814.',
   },
   {
-    question: 'Hvor mange menn var samlet pa Eidsvoll?',
+    question: 'Hvor mange menn var samlet påEidsvoll?',
     options: ['112', '50', '200', '17'],
-    explanation: '112 menn fra hele Norge motte pa Eidsvoll for a skrive Grunnloven.',
+    explanation: '112 menn fra hele Norge motte påEidsvoll for a skrive Grunnloven.',
   },
   {
     question: 'Hvilket land var Norge i union med for 1814?',
@@ -15520,12 +15520,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem hadde stemmerett i 1814?',
     options: ['Bare menn med eiendom (ca. 10%)', 'Alle voksne', 'Bare kongen', 'Ingen'],
-    explanation: 'I 1814 hadde bare menn over 25 ar med eiendom eller embete stemmerett, ca. 10% av befolkningen.',
+    explanation: 'I 1814 hadde bare menn over 25 årmed eiendom eller embete stemmerett, ca. 10% av befolkningen.',
   },
   {
     question: 'Hva betyr maktfordeling?',
     options: ['At makten er fordelt mellom Stortinget, regjeringen og domstolene', 'At kongen har all makt', 'At bare en person bestemmer', 'At ingen har makt'],
-    explanation: 'Maktfordeling hindrer at en person far all makt ved a dele makten mellom ulike organer.',
+    explanation: 'Maktfordeling hindrer at en person fårall makt ved a dele makten mellom ulike organer.',
   },
 ],
 
@@ -15533,12 +15533,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar fikk kvinner full stemmerett i Norge?',
     options: ['1913', '1814', '1898', '1979'],
-    explanation: 'Kvinner fikk full stemmerett i 1913. Norge var et av de forste landene i verden!',
+    explanation: 'Kvinner fikk full stemmerett i 1913. Norge var et av de første landene i verden!',
   },
   {
     question: 'Hva betyr parlamentarisme?',
-    options: ['At regjeringen ma ha stotte fra Stortinget', 'At kongen bestemmer alt', 'At bare rike far stemme', 'At det ikke er valg'],
-    explanation: 'Parlamentarisme ble innfort i 1884 og betyr at regjeringen ma ha tillit fra flertallet i Stortinget.',
+    options: ['At regjeringen måha stotte fra Stortinget', 'At kongen bestemmer alt', 'At bare rike fårstemme', 'At det ikke er valg'],
+    explanation: 'Parlamentarisme ble innfort i 1884 og betyr at regjeringen måha tillit fra flertallet i Stortinget.',
   },
   {
     question: 'Nar ble unionen med Sverige opphost?',
@@ -15548,11 +15548,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar fikk alle menn stemmerett i Norge?',
     options: ['1898', '1814', '1913', '1979'],
-    explanation: 'Alle menn over 25 ar fikk stemmerett i 1898, uten krav om eiendom.',
+    explanation: 'Alle menn over 25 årfikk stemmerett i 1898, uten krav om eiendom.',
   },
   {
     question: 'Hvem var Gina Krog?',
-    options: ['Leder for kvinnestemmerettsbevegelsen', 'Norges forste statsminister', 'Dronning av Norge', 'Grunnlovens mor'],
+    options: ['Leder for kvinnestemmerettsbevegelsen', 'Norges første statsminister', 'Dronning av Norge', 'Grunnlovens mor'],
     explanation: 'Gina Krog (1847-1916) var leder for kvinnestemmerettsbevegelsen og grunnla Norsk Kvinnesaksforening.',
   },
 ],
@@ -15560,28 +15560,28 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-3-1': [
   {
     question: 'Hva betyr globalisering?',
-    options: ['At land og mennesker blir mer avhengige av hverandre', 'At bare noen fa land handler', 'At alle land er helt uavhengige', 'At vi bare kjoper varer fra Norge'],
+    options: ['At land og mennesker blir mer avhengige av hverandre', 'At bare noen fa land handler', 'At alle land er helt uavhengige', 'At vi bare kjøper varer fra Norge'],
     explanation: 'Globalisering handler om at verden blir mer sammenkoblet gjennom handel, kommunikasjon og kultur.',
   },
   {
-    question: 'Hva har gjort globaliseringen mulig?',
+    question: 'Hvahar gjort globaliseringen mulig?',
     options: ['Internett, billigere transport og frihandelsavtaler', 'Hogere tollmurer', 'Mindre reising', 'Faerre telefoner'],
-    explanation: 'Teknologi og okonomiske avtaler har gjort det mulig a handle og kommunisere over hele verden.',
+    explanation: 'Teknologi og okonomiske avtaler har gjort det mulig å handle og kommunisere over hele verden.',
   },
   {
     question: 'Hva er en negativ side ved globalisering?',
-    options: ['Mer transport og forurensning', 'Storre utvalg av varer', 'Billigere produkter', 'Bedre tilgang til informasjon'],
+    options: ['Mer transport og forurensning', 'Større utvalg av varer', 'Billigere produkter', 'Bedre tilgang til informasjon'],
     explanation: 'Globaliseringen har ogsa negative sider, som okt forurensning fra transport.',
   },
   {
     question: 'Hva er Fairtrade?',
     options: ['En ordning som sikrer rettferdig betaling til produsenter', 'En type butikk', 'Et varemerke for dyre produkter', 'En organisasjon i Norge'],
-    explanation: 'Fairtrade sikrer at bonder og arbeidere i fattige land far en rettferdig pris for varene sine.',
+    explanation: 'Fairtrade sikrer at bonder og arbeidere i fattige land fåren rettferdig pris for varene sine.',
   },
   {
     question: 'Hva er en filterboble?',
     options: ['Nar algoritmer viser deg mer av det du allerede liker', 'En type sapeboble', 'En vanlig boble', 'Et filter for vann'],
-    explanation: 'Filterboble er nar algoritmer pa sosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
+    explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
   },
 ],
 
@@ -15599,7 +15599,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr relativ fattigdom?',
     options: ['A ha mye mindre enn andre i samme samfunn', 'A ha under 2 dollar om dagen', 'A bo i et fattig land', 'A ikke ha noe som helst'],
-    explanation: 'Relativ fattigdom handler om ulikhet innenfor et samfunn - a ha mye mindre enn andre rundt deg.',
+    explanation: 'Relativ fattigdom handler om ulikhet innenfor et samfunn - å ha mye mindre enn andre rundt deg.',
   },
   {
     question: 'Har andelen fattige i verden gatt opp eller ned de siste 30 arene?',
@@ -15616,8 +15616,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-4-1': [
   {
     question: 'Hva er drivhuseffekten?',
-    options: ['Gasser i atmosfaeren holder pa varmen fra sola', 'Sola blir varmere', 'Jorden er et drivhus', 'Atmosfaeren blir tynnere'],
-    explanation: 'Drivhuseffekten gjor at gasser i atmosfaeren holder pa varmen, som i et drivhus.',
+    options: ['Gasser i atmosfaeren holder påvarmen fra sola', 'Solå blir varmere', 'Jorden er et drivhus', 'Atmosfaeren blir tynnere'],
+    explanation: 'Drivhuseffekten gjor at gasser i atmosfaeren holder påvarmen, som i et drivhus.',
   },
   {
     question: 'Hva er den viktigste klimagassen?',
@@ -15626,17 +15626,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en konsekvens av klimaendringer?',
-    options: ['Is smelter og havet stiger', 'Det blir kaldere overalt', 'Det blir mindre ekstremt vaer', 'Alle dyr far det bedre'],
-    explanation: 'Nar jorden blir varmere, smelter is og havet stiger. Vi far ogsa mer ekstremt vaer.',
+    options: ['Is smelter og havet stiger', 'Det blir kaldere overalt', 'Det blir mindre ekstremt vaer', 'Alle dyr fårdet bedre'],
+    explanation: 'Nar jorden blir varmere, smelter is og havet stiger. Vi fårogsa mer ekstremt vaer.',
   },
   {
     question: 'Hva er Parisavtalen?',
     options: ['En avtale om a begrense global oppvarming til under 2 grader', 'En avtale om handel', 'En lov i Norge', 'En avtale om flytrafikk'],
-    explanation: 'Parisavtalen fra 2015 er en internasjonal avtale der landene ble enige om a holde global oppvarming under 2 grader.',
+    explanation: 'Parisavtalen fra 2015 er en internasjonal avtale der landene ble enige om å holde global oppvarming under 2 grader.',
   },
   {
     question: 'Hva er fornybar energi?',
-    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi fra gass'],
+    options: ['Energi fra kilder som ikke tar slutt, som sol og vind', 'Energi fra olje', 'Energi fra kull', 'Energi frå gåss'],
     explanation: 'Fornybar energi kommer fra kilder som ikke tar slutt, som sol, vind og vannkraft, og gir lite klimagassutslipp.',
   },
 ],
@@ -15644,22 +15644,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-7-4-2': [
   {
     question: 'Hva er kildekritikk?',
-    options: ['A vurdere om informasjon er palitelig og sann', 'A kritisere alle kilder', 'A bare bruke en kilde', 'A tro pa alt man leser'],
+    options: ['A vurdere om informasjon er palitelig og sann', 'A kritisere alle kilder', 'A bare bruke en kilde', 'A tro påalt man leser'],
     explanation: 'Kildekritikk er a vurdere om informasjon er palitelig ved a sporre hvem som har laget den, hvorfor, og om den kan bekreftes.',
   },
   {
     question: 'Hva er en filterboble?',
     options: ['Nar algoritmer viser deg det du allerede liker', 'En sapeboble', 'Et vannfilter', 'En type nyheter'],
-    explanation: 'Filterboble er nar algoritmer pa sosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
+    explanation: 'Filterboble er nåralgoritmer påsosiale medier viser deg mer av det du allerede liker, slik at du ser mindre av andre synspunkter.',
   },
   {
     question: 'Hva er falske nyheter?',
     options: ['Usann informasjon som spres som om det var nyheter', 'Alle nyheter', 'Nyheter fra utlandet', 'Gamle nyheter'],
-    explanation: 'Falske nyheter er usann informasjon som er laget for a se ut som ekte nyheter, ofte for a pavirke folk eller tjene penger.',
+    explanation: 'Falske nyheter er usann informasjon som er laget for å se ut som ekte nyheter, ofte for a pavirke folk eller tjene penger.',
   },
   {
-    question: 'Hva bor du gjore for du deler noe pa sosiale medier?',
-    options: ['Sjekke om det er sant', 'Dele med en gang', 'Ikke tenke pa det', 'Bare dele til venner'],
+    question: 'Hva bor du gjore for du deler noe påsosiale medier?',
+    options: ['Sjekke om det er sant', 'Dele med en gang', 'Ikke tenke pådet', 'Bare dele til venner'],
     explanation: 'For du deler noe bor du sjekke om det er sant ved a lete etter kilden og se om andre palitelige kilder sier det samme.',
   },
   {
@@ -15687,7 +15687,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er maktfordelingsprinsippet?',
-    options: ['At makten er delt mellom flere organer', 'At kongen har all makt', 'At bare rike far stemme', 'At militaeret styrer landet'],
+    options: ['At makten er delt mellom flere organer', 'At kongen har all makt', 'At bare rike fårstemme', 'At militaeret styrer landet'],
     explanation: 'Maktfordelingsprinsippet betyr at makten er delt mellom Stortinget, regjeringen og domstolene for a hindre maktmisbruk.',
   },
   {
@@ -15700,28 +15700,28 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-8-1-2': [
   {
     question: 'Hvor ofte er det stortingsvalg i Norge?',
-    options: ['Hvert 4. ar', 'Hvert 2. ar', 'Hvert 5. ar', 'Hvert ar'],
-    explanation: 'Stortingsvalg holdes hvert fjerde ar i Norge. Neste gang velges 169 representanter til Stortinget.',
+    options: ['Hvert 4. år', 'Hvert 2. år', 'Hvert 5. år', 'Hvert år'],
+    explanation: 'Stortingsvalg holdes hvert fjerde åri Norge. Neste gang velges 169 representanter til Stortinget.',
   },
   {
-    question: 'Hvilket parti regnes som lengst til venstre pa den politiske skalaen?',
+    question: 'Hvilket parti regnes som lengst til venstre påden politiske skalaen?',
     options: ['Rodt', 'Arbeiderpartiet', 'Hoyre', 'Senterpartiet'],
     explanation: 'Rodt er det partiet som ligger lengst til venstre av de store partiene i Norge.',
   },
   {
-    question: 'Hva kjennetegner partier pa hoyresiden i politikken?',
-    options: ['De onsker lavere skatter og mer privat naeringsliv', 'De onsker hoyere skatter og mer statlig styring', 'De vil avskaffe alle private bedrifter', 'De prioriterer bare miljo'],
+    question: 'Hva kjennetegner partier påhoyresiden i politikken?',
+    options: ['De onsker lavere skatter og mer privat naeringsliv', 'De onsker høyere skatter og mer statlig styring', 'De vil avskaffe alle private bedrifter', 'De prioriterer bare miljo'],
     explanation: 'Hoyresiden prioriterer individuell frihet, lavere skatter og privat initiativ fremfor statlig styring.',
   },
   {
     question: 'Hva er et flerpartisystem?',
     options: ['Et system der mange partier konkurrerer om velgernes stemmer', 'Et system med bare ett parti', 'Et system uten partier', 'Et system der bare to partier finnes'],
-    explanation: 'Norge har et flerpartisystem der mange partier konkurrerer om velgernes stemmer og kan fa representanter pa Stortinget.',
+    explanation: 'Norge har et flerpartisystem der mange partier konkurrerer om velgernes stemmer og kan fa representanter påStortinget.',
   },
   {
     question: 'Nar kan utenlandske statsborgere stemme ved valg i Norge?',
-    options: ['Ved lokalvalg etter 3 ar i Norge', 'Aldri', 'Ved alle valg umiddelbart', 'Bare ved stortingsvalg'],
-    explanation: 'Utenlandske statsborgere som har bodd i Norge i minst 3 ar kan stemme ved kommune- og fylkestingsvalg.',
+    options: ['Ved lokalvalg etter 3 åri Norge', 'Aldri', 'Ved alle valg umiddelbart', 'Bare ved stortingsvalg'],
+    explanation: 'Utenlandske statsborgere som har bodd i Norge i minst 3 årkan stemme ved kommune- og fylkestingsvalg.',
   },
 ],
 
@@ -15732,32 +15732,32 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Galdhopiggen er 2469 meter hoyt og ligger i Jotunheimen. Det er Norges og Skandinavias hoyeste fjell.',
   },
   {
-    question: 'Hvorfor har Norge et mildere klima enn andre steder pa samme breddegrad?',
+    question: 'Hvorfor har Norge et mildere klima enn andre steder påsamme breddegrad?',
     options: ['Pa grunn av Golfstrommen', 'Pa grunn av fjellene', 'Pa grunn av oljen', 'Pa grunn av mye skog'],
     explanation: 'Golfstrommen bringer varmt vann fra Mexicogolfen langs norskekysten og gir et mildere klima enn beliggenheten tilsier.',
   },
   {
-    question: 'Hvilken naering er Norges storste eksportnaering?',
+    question: 'Hvilken naering er Norges største eksportnaering?',
     options: ['Olje og gass', 'Fiske', 'Turisme', 'Jordbruk'],
-    explanation: 'Olje og gass utgjor den storste delen av Norges eksportinntekter og har gjort Norge til et av verdens rikeste land.',
+    explanation: 'Olje og gass utgjør den største delen av Norges eksportinntekter og har gjort Norge til et av verdens rikeste land.',
   },
   {
     question: 'Hva er Norges lengste elv?',
     options: ['Glomma', 'Drammenselva', 'Namsen', 'Altaelva'],
-    explanation: 'Glomma er Norges lengste elv med en lengde pa 604 km. Den renner gjennom Ostlandet.',
+    explanation: 'Glomma er Norges lengste elv med en lengde på604 km. Den renner gjennom Ostlandet.',
   },
   {
-    question: 'Hvilken landsdel har storst befolkning i Norge?',
+    question: 'Hvilken landsdel har størst befolkning i Norge?',
     options: ['Ostlandet', 'Vestlandet', 'Nord-Norge', 'Trondelag'],
-    explanation: 'Ostlandet har storst befolkning, med Oslo-regionen som det mest befolkede omradet i Norge.',
+    explanation: 'Ostlandet har størst befolkning, med Oslo-regionen som det mest befolkede omradet i Norge.',
   },
 ],
 
   'samfunnsfag-8-3-1': [
   {
-    question: 'I hvilket ar ble Grunnloven vedtatt?',
+    question: 'I hvilket årble Grunnloven vedtatt?',
     options: ['1814', '1905', '1397', '1945'],
-    explanation: 'Grunnloven ble vedtatt pa Eidsvoll 17. mai 1814, og denne datoen feires som Norges nasjonaldag.',
+    explanation: 'Grunnloven ble vedtatt påEidsvoll 17. mai 1814, og denne datoen feires som Norges nasjonaldag.',
   },
   {
     question: 'Hva var Svartedauden?',
@@ -15765,19 +15765,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Svartedauden var en pest som rammet Norge i 1349 og tok livet av omtrent halvparten av befolkningen.',
   },
   {
-    question: 'I hvilket ar ble Norge uavhengig fra Sverige?',
+    question: 'I hvilket årble Norge uavhengig fra Sverige?',
     options: ['1905', '1814', '1940', '1945'],
     explanation: 'Unionen med Sverige ble fredelig opplost i 1905, og Norge ble et helt selvstendig kongerike.',
   },
   {
     question: 'Hvilken konge samlet Norge til ett rike?',
     options: ['Harald Harfagre', 'Olav den hellige', 'Haakon VII', 'Christian IV'],
-    explanation: 'Harald Harfagre regnes som den forste kongen som samlet Norge til ett rike, rundt ar 872.',
+    explanation: 'Harald Harfagre regnes som den første kongen som samlet Norge til ett rike, rundt år872.',
   },
   {
     question: 'Nar ble olje funnet i Nordsoen?',
     options: ['1969', '1814', '1905', '1945'],
-    explanation: 'Det forste store oljefunnet i Nordsoen ble gjort i 1969 (Ekofisk-feltet), noe som forandret Norges okonomi.',
+    explanation: 'Det første store oljefunnet i Nordsoen ble gjort i 1969 (Ekofisk-feltet), noe som forandret Norges okonomi.',
   },
 ],
 
@@ -15795,7 +15795,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er LO?',
     options: ['En fagforening som representerer arbeidstakere', 'En arbeidsgiverorganisasjon', 'Et politisk parti', 'En bank'],
-    explanation: 'LO (Landsorganisasjonen) er Norges storste fagforening som jobber for arbeidstakeres rettigheter.',
+    explanation: 'LO (Landsorganisasjonen) er Norges største fagforening som jobber for arbeidstakeres rettigheter.',
   },
   {
     question: 'Hva er trepartssamarbeidet?',
@@ -15804,21 +15804,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Oljefondet?',
-    options: ['Verdens storste statlige fond som sparer oljeinntekter', 'En bank som laner ut penger', 'Et oljeselskap', 'En type skatt'],
-    explanation: 'Statens pensjonsfond utland (Oljefondet) er verdens storste statlige fond som forvalter Norges oljeinntekter for fremtidige generasjoner.',
+    options: ['Verdens største statlige fond som sparer oljeinntekter', 'En bank som laner ut penger', 'Et oljeselskap', 'En type skatt'],
+    explanation: 'Statens pensjonsfond utland (Oljefondet) er verdens største statlige fond som forvalter Norges oljeinntekter for fremtidige generasjoner.',
   },
 ],
 
   'samfunnsfag-8-5-1': [
   {
     question: 'Hva menes med globalisering?',
-    options: ['At verden blir mer sammenkoblet', 'At Norge blir storre', 'At vi slutter a handle med andre land', 'At alle land blir like'],
+    options: ['At verden blir mer sammenkoblet', 'At Norge blir større', 'At vi slutter å handle med andre land', 'At alle land blir like'],
     explanation: 'Globalisering betyr at verden blir mer sammenkoblet gjennom handel, teknologi, kultur og politikk.',
   },
   {
     question: 'Hvilken organisasjon jobber for fred og menneskerettigheter globalt?',
     options: ['FN', 'NATO', 'WTO', 'EU'],
-    explanation: 'FN (Forente nasjoner) arbeider for fred, sikkerhet og menneskerettigheter pa globalt niva.',
+    explanation: 'FN (Forente nasjoner) arbeider for fred, sikkerhet og menneskerettigheter påglobalt niva.',
   },
   {
     question: 'Hva er en positiv side ved globalisering?',
@@ -15839,9 +15839,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-9-1-1': [
   {
-    question: 'Hvor startet den industrielle revolusjonen?',
+    question: 'Hvor stårtet den industrielle revolusjonen?',
     options: ['Storbritannia', 'USA', 'Tyskland', 'Norge'],
-    explanation: 'Den industrielle revolusjonen startet i Storbritannia rundt 1760, takket vaere tilgang pa kull, kapital og oppfinnelser.',
+    explanation: 'Den industrielle revolusjonen startet i Storbritannia rundt 1760, takket vaere tilgang påkull, kapital og oppfinnelser.',
   },
   {
     question: 'Hvilken oppfinnelse var viktigst for industrialiseringen?',
@@ -15859,7 +15859,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Urbanisering betyr at folk flytter fra landsbygda til byene, noe som skjedde i stor skala under industrialiseringen.',
   },
   {
-    question: 'Hvilken energikilde var viktig for norsk industri pa 1800-tallet?',
+    question: 'Hvilken energikilde var viktig for norsk industri på 1800-tallet?',
     options: ['Vannkraft', 'Olje', 'Kull', 'Atomkraft'],
     explanation: 'Norge hadde lite kull, men mange fossefall som kunne gi vannkraft til industrien.',
   },
@@ -15869,7 +15869,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr imperialisme?',
     options: ['Nar en stat utvider sin makt over andre omrader', 'Nar folk flytter til et nytt land', 'Nar et land blir uavhengig', 'Nar land samarbeider fredelig'],
-    explanation: 'Imperialisme er nar en stat utvider sin makt og innflytelse over andre omrader og folk.',
+    explanation: 'Imperialisme er nåren stat utvider sin makt og innflytelse over andre omrader og folk.',
   },
   {
     question: 'Hvilken konferanse delte Afrika mellom europeiske makter?',
@@ -15878,12 +15878,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var en viktig okonomisk arsak til imperialismen?',
-    options: ['Behov for ravarer til industrien', 'Onske om a spre demokrati', 'Behov for turister', 'Mangel pa mat i Europa'],
+    options: ['Behov for ravarer til industrien', 'Onske om a spre demokrati', 'Behov for turister', 'Mangel påmat i Europa'],
     explanation: 'Industrialiseringen i Europa krevde ravarer som koloniene kunne levere, noe som drev imperialismen.',
   },
   {
     question: 'Hva var en konsekvens av kolonialismen for koloniene?',
-    options: ['Kunstige grenser som skapte konflikter', 'Okonomisk velstand', 'Storre selvstendighet', 'Bevaring av lokal kultur'],
+    options: ['Kunstige grenser som skapte konflikter', 'Okonomisk velstand', 'Større selvstendighet', 'Bevaring av lokal kultur'],
     explanation: 'Europeerne tegnet grenser uten hensyn til eksisterende folkegrupper, noe som har skapt konflikter som varer til i dag.',
   },
   {
@@ -15895,22 +15895,22 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-9-1-3': [
   {
-    question: 'Hva utloste forste verdenskrig?',
-    options: ['Drapet pa erkehertug Franz Ferdinand', 'Angrep pa Pearl Harbor', 'Invasjonen av Polen', 'Berlin-murens fall'],
+    question: 'Hva utloste første verdenskrig?',
+    options: ['Drapet påerkehertug Franz Ferdinand', 'Angrep påPearl Harbor', 'Invasjonen av Polen', 'Berlin-murens fall'],
     explanation: 'Erkehertug Franz Ferdinand av Osterrike ble drept i Sarajevo 28. juni 1914, noe som utloste krigen.',
   },
   {
-    question: 'Hva kjennetegnet krigforingen pa vestfronten?',
+    question: 'Hva kjennetegnet krigforingen påvestfronten?',
     options: ['Skyttergravskrig', 'Ridderslag', 'Sjokrig', 'Geriljakrig'],
     explanation: 'Vestfronten var preget av skyttergravskrig der soldatene kjempet fra nedgravde stillinger med store tap.',
   },
   {
-    question: 'Nar endte forste verdenskrig?',
+    question: 'Nar endte første verdenskrig?',
     options: ['1918', '1914', '1917', '1919'],
     explanation: 'Vapenhvilen ble undertegnet 11. november 1918, og krigen var over.',
   },
   {
-    question: 'Hva star MAIN for som arsaker til forste verdenskrig?',
+    question: 'Hva star MAIN for som arsaker til første verdenskrig?',
     options: ['Militarisme, Allianser, Imperialisme, Nasjonalisme', 'Mat, Arbeid, Industri, Norge', 'Maskiner, Atomkraft, Internet, Natur', 'Mennesker, Aktivitet, Inntekt, Natur'],
     explanation: 'MAIN er en huskemote for de underliggende arsakene til krigen: Militarisme, Allianser, Imperialisme og Nasjonalisme.',
   },
@@ -15923,19 +15923,19 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'samfunnsfag-9-2-1': [
   {
-    question: 'Hvor mange mennesker bor det pa jorden i dag?',
+    question: 'Hvor mange mennesker bor det påjorden i dag?',
     options: ['Over 8 milliarder', '1 milliard', '100 millioner', '5 milliarder'],
     explanation: 'Verdens befolkning passerte 8 milliarder i 2022 og fortsetter a vokse.',
   },
   {
     question: 'Hva er en push-faktor?',
     options: ['Noe som driver folk vekk fra et sted', 'Noe som tiltrekker folk til et sted', 'En type transport', 'En okonomisk teori'],
-    explanation: 'Push-faktorer er negative forhold som far folk til a flytte, som krig, fattigdom eller forfolgelse.',
+    explanation: 'Push-faktorer er negative forhold som fårfolk til a flytte, som krig, fattigdom eller forfolgelse.',
   },
   {
-    question: 'Hvor emigrerte de fleste nordmenn til pa 1800-tallet?',
+    question: 'Hvor emigrerte de fleste nordmenn til på 1800-tallet?',
     options: ['USA', 'Australia', 'Canada', 'Brasil'],
-    explanation: 'Ca. 800 000 nordmenn emigrerte til USA mellom 1825 og 1930 pa jakt etter bedre muligheter.',
+    explanation: 'Ca. 800 000 nordmenn emigrerte til USA mellom 1825 og 1930 påjakt etter bedre muligheter.',
   },
   {
     question: 'Hva er en pull-faktor?',
@@ -15944,7 +15944,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva beskriver den demografiske overgangen?',
-    options: ['Hvordan fodsels- og dodsrater endres nar land utvikles', 'Hvordan folk flytter mellom land', 'Hvordan grenser endres', 'Hvordan politikk pavirker befolkningen'],
+    options: ['Hvordan fodsels- og dodsrater endres nårland utvikles', 'Hvordan folk flytter mellom land', 'Hvordan grenser endres', 'Hvordan politikk pavirker befolkningen'],
     explanation: 'Den demografiske overgangen beskriver hvordan dodsraten forst synker, deretter fodselsraten, noe som gir midlertidig stor befolkningsvekst.',
   },
 ],
@@ -15953,10 +15953,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er okonomisk globalisering?',
     options: ['Okt internasjonal handel og investeringer', 'At alle land har samme okonomi', 'At handel mellom land stopper', 'At alle blir like rike'],
-    explanation: 'Okonomisk globalisering handler om at land handler mer med hverandre og at investeringer gar pa tvers av landegrenser.',
+    explanation: 'Okonomisk globalisering handler om at land handler mer med hverandre og at investeringer gårpåtvers av landegrenser.',
   },
   {
-    question: 'Hva har vaert en viktig driver for globalisering?',
+    question: 'Hvahar vaert en viktig driver for globalisering?',
     options: ['Internett og digital teknologi', 'Okte tollmurer', 'Mindre reising', 'Isolasjon mellom land'],
     explanation: 'Internett og digital teknologi har gjort det lettere a kommunisere og handle globalt.',
   },
@@ -15966,14 +15966,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Bedrifter kan flytte produksjon til land med lavere lonninger, noe som kan fore til tap av arbeidsplasser lokalt.',
   },
   {
-    question: 'Hva har skjedd med ekstrem fattigdom som folge av globalisering?',
+    question: 'Hvahar skjedd med ekstrem fattigdom som folge av globalisering?',
     options: ['Den har sunket dramatisk', 'Den har okt kraftig', 'Den er uendret', 'Den finnes ikke lenger'],
     explanation: 'Ekstrem fattigdom har sunket fra ca. 36% i 1990 til under 10% i dag, delvis takket vaere okonomisk globalisering.',
   },
   {
     question: 'Hva er en global verdikjede?',
     options: ['Produksjon som involverer mange land', 'Handel innad i ett land', 'En type valuta', 'En handelsavtale'],
-    explanation: 'En global verdikjede er nar produksjonen av en vare involverer mange forskjellige land, fra ravarer til ferdig produkt.',
+    explanation: 'En global verdikjede er nårproduksjonen av en vare involverer mange forskjellige land, fra ravarer til ferdig produkt.',
   },
 ],
 
@@ -16001,7 +16001,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en ikke-fornybar ressurs?',
     options: ['Olje', 'Sol', 'Vind', 'Vann'],
-    explanation: 'Olje er en ikke-fornybar ressurs som tar millioner av ar a dannes og vil til slutt ga tom.',
+    explanation: 'Olje er en ikke-fornybar ressurs som tar millioner av åra dannes og vil til slutt ga tom.',
   },
 ],
 
@@ -16014,12 +16014,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken type styresett har Norge?',
     options: ['Parlamentarisk demokrati', 'Presidentstyre', 'Diktatur', 'Teokrati'],
-    explanation: 'Norge har parlamentarisk demokrati der regjeringen utgar fra Stortinget og ma ha stotte der.',
+    explanation: 'Norge har parlamentarisk demokrati der regjeringen utgar fra Stortinget og måha stotte der.',
   },
   {
     question: 'Hvilken ideologi vektlegger individuell frihet og markedsokonomi?',
     options: ['Liberalisme', 'Sosialisme', 'Kommunisme', 'Fascisme'],
-    explanation: 'Liberalismen fokuserer pa individets frihet, begrenset stat og markedsokonomi.',
+    explanation: 'Liberalismen fokuserer påindividets frihet, begrenset stat og markedsokonomi.',
   },
   {
     question: 'Hva er et teokrati?',
@@ -16028,8 +16028,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom direkte og representativt demokrati?',
-    options: ['I direkte stemmer folket pa saker, i representativt velger de representanter', 'De er det samme', 'Direkte demokrati har ingen valg', 'Representativt demokrati har ingen politikere'],
-    explanation: 'I direkte demokrati stemmer folket direkte pa saker, mens i representativt demokrati velger de representanter som tar beslutninger.',
+    options: ['I direkte stemmer folket påsaker, i representativt velger de representanter', 'De er det samme', 'Direkte demokrati har ingen valg', 'Representativt demokrati har ingen politikere'],
+    explanation: 'I direkte demokrati stemmer folket direkte påsaker, mens i representativt demokrati velger de representanter som tar beslutninger.',
   },
 ],
 
@@ -16041,7 +16041,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner menneskerettigheter?',
-    options: ['De er universelle og gjelder alle', 'De gjelder bare i rike land', 'De kan kjopes', 'De gjelder bare voksne'],
+    options: ['De er universelle og gjelder alle', 'De gjelder bare i rike land', 'De kan kjøpes', 'De gjelder bare voksne'],
     explanation: 'Menneskerettigheter er universelle, umistelige og gjelder alle mennesker uansett hvem de er.',
   },
   {
@@ -16051,8 +16051,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gir FNs barnekonvensjon barn?',
-    options: ['Egne rettigheter som barn', 'Plikt til a jobbe', 'Stemmerett ved 10 ar', 'Rett til a kjore bil'],
-    explanation: 'Barnekonvensjonen gir barn egne rettigheter som rett til liv, utdanning, a bli hort og beskyttelse mot vold.',
+    options: ['Egne rettigheter som barn', 'Plikt til a jobbe', 'Stemmerett ved 10 år', 'Rett til a kjore bil'],
+    explanation: 'Barnekonvensjonen gir barn egne rettigheter som rett til liv, utdanning, å bli hort og beskyttelse mot vold.',
   },
   {
     question: 'Hvilken organisasjon dokumenterer menneskerettighetsbrudd?',
@@ -16068,7 +16068,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Borgerkrig er en vaepnet konflikt mellom grupper innad i samme land.',
   },
   {
-    question: 'Hva kan vaere en arsak til konflikt?',
+    question: 'Hva kan være en arsak til konflikt?',
     options: ['Kamp om ressurser', 'For mye demokrati', 'For hoy levestandard', 'For mye fred'],
     explanation: 'Kamp om ressurser som vann, olje eller land er en vanlig arsak til konflikter.',
   },
@@ -16085,7 +16085,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er FNs fredsbevarende styrker kjent som?',
     options: ['Blahjelmer', 'Rodhjelmer', 'Gronhjelmer', 'Hvithjelmer'],
-    explanation: 'FNs fredsbevarende styrker er kjent som blahjelmer pa grunn av deres karakteristiske bla hjelmer.',
+    explanation: 'FNs fredsbevarende styrker er kjent som blahjelmer pågrunn av deres karakteristiske bla hjelmer.',
   },
 ],
 
@@ -16093,10 +16093,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en fagforening?',
     options: ['Organisasjon som jobber for arbeidstakeres rettigheter', 'En type fabrikk', 'Organisasjon for arbeidsgivere', 'Et politisk parti'],
-    explanation: 'Fagforeninger representerer arbeidstakere og forhandler om lonn og arbeidsvilkar pa deres vegne.',
+    explanation: 'Fagforeninger representerer arbeidstakere og forhandler om lonn og arbeidsvilkar påderes vegne.',
   },
   {
-    question: 'Hvor mange feriedager har man krav pa i Norge?',
+    question: 'Hvor mange feriedager har man krav påi Norge?',
     options: ['25 virkedager (5 uker)', '10 dager', '52 dager', 'Ingen lovfestet'],
     explanation: 'I Norge har man lovfestet rett til 25 virkedager ferie, som tilsvarer 5 uker.',
   },
@@ -16120,13 +16120,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'samfunnsfag-9-4-2': [
   {
     question: 'Hva er eksport?',
-    options: ['Varer som selges til utlandet', 'Varer som kjopes fra utlandet', 'Varer som produseres lokalt', 'Varer som gis bort'],
+    options: ['Varer som selges til utlandet', 'Varer som kjøpes fra utlandet', 'Varer som produseres lokalt', 'Varer som gis bort'],
     explanation: 'Eksport er varer og tjenester som selges fra Norge til andre land.',
   },
   {
-    question: 'Hva er Norges storste eksportvare?',
+    question: 'Hva er Norges største eksportvare?',
     options: ['Olje og gass', 'Fisk', 'Klaer', 'Biler'],
-    explanation: 'Olje og gass utgjor ca. 50% av norsk eksport og er den desidert storste eksportvaren.',
+    explanation: 'Olje og gass utgjør ca. 50% av norsk eksport og er den desidert største eksportvaren.',
   },
   {
     question: 'Hva er WTO?',
@@ -16147,9 +16147,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'krle-5-1-1': [
   {
-    question: 'Hvor mange boker er det totalt i Bibelen?',
-    options: ['66 boker', '39 boker', '27 boker', '100 boker'],
-    explanation: 'Bibelen har 66 boker: 39 i Det gamle testamente og 27 i Det nye testamente.',
+    question: 'Hvor mange bøker er det totalt i Bibelen?',
+    options: ['66 bøker', '39 bøker', '27 bøker', '100 bøker'],
+    explanation: 'Bibelen har 66 bøker: 39 i Det gamle testamente og 27 i Det nye testamente.',
   },
   {
     question: 'Hva betyr ordet "evangelium"?',
@@ -16157,14 +16157,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Evangelium betyr "godt budskap". De fire evangeliene forteller om Jesus.',
   },
   {
-    question: 'Hvem mottok De ti bud fra Gud pa fjellet Sinai?',
+    question: 'Hvem mottok De ti bud fra Gud påfjellet Sinai?',
     options: ['Moses', 'Abraham', 'David', 'Noah'],
-    explanation: 'Moses mottok De ti bud fra Gud pa fjellet Sinai.',
+    explanation: 'Moses mottok De ti bud fra Gud påfjellet Sinai.',
   },
   {
-    question: 'Hvilken del av Bibelen handler om Jesus og de forste kristne?',
+    question: 'Hvilken del av Bibelen handler om Jesus og de første kristne?',
     options: ['Det nye testamente', 'Det gamle testamente', 'Toraen', 'Salmenes bok'],
-    explanation: 'Det nye testamente handler om Jesus og de forste kristne menighetene.',
+    explanation: 'Det nye testamente handler om Jesus og de første kristne menighetene.',
   },
   {
     question: 'Hva er en lignelse?',
@@ -16175,7 +16175,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'krle-5-1-2': [
   {
-    question: 'Hva feirer kristne pa paskedag?',
+    question: 'Hva feirer kristne påpaskedag?',
     options: ['At Jesus stod opp fra de dode', 'Jesu fodsel', 'Den hellige ands komme', 'Skapelsen'],
     explanation: 'Paskedag feirer at Jesus stod opp fra de dode (oppstandelsen).',
   },
@@ -16187,7 +16187,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken dag dode Jesus ifølge kristne?',
     options: ['Langfredag', 'Paskedag', 'Palmesøndag', 'Skjaertorsdag'],
-    explanation: 'Langfredag er dagen Jesus dode pa korset.',
+    explanation: 'Langfredag er dagen Jesus dode påkorset.',
   },
   {
     question: 'Hva feires 50 dager etter paske?',
@@ -16197,7 +16197,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor ble Jesus fodt ifølge Bibelen?',
     options: ['Betlehem', 'Jerusalem', 'Nasaret', 'Roma'],
-    explanation: 'Jesus ble fodt i Betlehem, i en stall fordi det ikke var plass pa herberget.',
+    explanation: 'Jesus ble fodt i Betlehem, i en stall fordi det ikke var plass påherberget.',
   },
 ],
 
@@ -16210,7 +16210,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange ganger om dagen ber muslimer?',
     options: ['Fem ganger', 'Tre ganger', 'En gang', 'Ti ganger'],
-    explanation: 'Bonn fem ganger om dagen er en av de fem soylene i islam.',
+    explanation: 'Bonn fem ganger om dagen er en av de fem søylene i islam.',
   },
   {
     question: 'Hva heter fastemåneden i islam?',
@@ -16218,9 +16218,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Ramadan er fastemåneden da muslimer faster fra soloppgang til solnedgang.',
   },
   {
-    question: 'Hvilken by vender muslimer seg mot nar de ber?',
+    question: 'Hvilken by vender muslimer seg mot nårde ber?',
     options: ['Mekka', 'Medina', 'Jerusalem', 'Kairo'],
-    explanation: 'Muslimer vender seg mot Mekka nar de ber, fordi Kabaen ligger der.',
+    explanation: 'Muslimer vender seg mot Mekka nårde ber, fordi Kabaen ligger der.',
   },
   {
     question: 'Hva kalles muslimenes gudshus?',
@@ -16253,7 +16253,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket symbol er en sekstakket stjerne?',
     options: ['Davidsstjernen', 'Korset', 'Halvmanen', 'Lotusblomsten'],
-    explanation: 'Davidsstjernen er et symbol pa det jodiske folket.',
+    explanation: 'Davidsstjernen er et symbol pådet jodiske folket.',
   },
 ],
 
@@ -16266,17 +16266,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er humanisme?',
     options: ['Et ikke-religiost livssyn som vektlegger menneskets verdi', 'En religion', 'En type sport', 'En skole'],
-    explanation: 'Humanisme er et livssyn som vektlegger menneskets verdi uten a tro pa guder.',
+    explanation: 'Humanisme er et livssyn som vektlegger menneskets verdi uten a tro påguder.',
   },
   {
-    question: 'Hva er forskjellen pa et religiost og ikke-religiost livssyn?',
+    question: 'Hva er forskjellen på et religiost og ikke-religiost livssyn?',
     options: ['Religiost inkluderer gudstro', 'Det er ingen forskjell', 'Ikke-religiost har mange guder', 'Religiost har ingen regler'],
-    explanation: 'Et religiost livssyn inkluderer tro pa en gud eller guder.',
+    explanation: 'Et religiost livssyn inkluderer tro påen gud eller guder.',
   },
   {
     question: 'Hva betyr religionsfrihet?',
-    options: ['Alle far tro det de vil', 'Alle ma tro det samme', 'Religion er forbudt', 'Bare en religion er lov'],
-    explanation: 'Religionsfrihet betyr at alle har rett til a ha sitt eget livssyn.',
+    options: ['Alle fårtro det de vil', 'Alle måtro det samme', 'Religion er forbudt', 'Bare en religion er lov'],
+    explanation: 'Religionsfrihet betyr at alle har rett til å ha sitt eget livssyn.',
   },
   {
     question: 'Hvilken organisasjon er for humanister i Norge?',
@@ -16293,21 +16293,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva sier vitenskapen om universets start?',
-    options: ['Big Bang for ca. 13,8 milliarder ar siden', 'Universet har alltid eksistert', 'Det startet for 1000 ar siden', 'Ingen vet noe'],
-    explanation: 'Vitenskapen sier universet startet med Big Bang for ca. 13,8 milliarder ar siden.',
+    options: ['Big Bang for ca. 13,8 milliarder årsiden', 'Universet har alltid eksistert', 'Det startet for 1000 årsiden', 'Ingen vet noe'],
+    explanation: 'Vitenskapen sier universet startet med Big Bang for ca. 13,8 milliarder årsiden.',
   },
   {
     question: 'Hva er et eksistensielt sporsmal?',
-    options: ['Et stort sporsmal om livet', 'Et matematisk problem', 'En oppgave pa skolen', 'Et sporsmal om mat'],
+    options: ['Et stort sporsmal om livet', 'Et matematisk problem', 'En oppgave påskolen', 'Et sporsmal om mat'],
     explanation: 'Eksistensielle sporsmal handler om de store tingene i livet som mening og liv.',
   },
   {
-    question: 'Er det greit a si "jeg vet ikke" pa filosofiske sporsmal?',
-    options: ['Ja, det er helt greit', 'Nei, man ma alltid vite', 'Bare voksne kan si det', 'Aldri'],
+    question: 'Er det greit a si "jeg vet ikke" påfilosofiske sporsmal?',
+    options: ['Ja, det er helt greit', 'Nei, man måalltid vite', 'Bare voksne kan si det', 'Aldri'],
     explanation: 'Det er helt greit a si "jeg vet ikke" - noen sporsmal har ikke enkle svar.',
   },
   {
-    question: 'Hva mener noen at forklarer "hvordan" og "hvorfor" pa ulike mater?',
+    question: 'Hva mener noen at forklarer "hvordan" og "hvorfor" påulike mater?',
     options: ['Vitenskap og religion', 'Matematikk og sport', 'Mat og klær', 'Skole og fritid'],
     explanation: 'Noen mener vitenskapen forklarer hvordan, mens religionen forklarer hvorfor.',
   },
@@ -16335,8 +16335,8 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Den gylne regel finnes i nesten alle religioner og kulturer.',
   },
   {
-    question: 'Hva bor du gjore nar du star overfor et vanskelig valg?',
-    options: ['Tenke seg om og lytte til samvittigheten', 'Gjore det forste du tenker', 'Bare gjore som andre sier', 'Unnga a velge'],
+    question: 'Hva bor du gjore når du star overfor et vanskelig valg?',
+    options: ['Tenke seg om og lytte til samvittigheten', 'Gjore det første du tenker', 'Bare gjore som andre sier', 'Unnga a velge'],
     explanation: 'Vanskelige valg krever at vi tenker oss om og bruker samvittigheten.',
   },
 ],
@@ -16344,7 +16344,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'krle-5-4-2': [
   {
     question: 'Hva er respekt?',
-    options: ['A behandle andre pa en verdig og god mate', 'A alltid vaere enig', 'A gjore alt andre sier', 'A vinne over andre'],
+    options: ['A behandle andre påen verdig og god mate', 'A alltid vaere enig', 'A gjore alt andre sier', 'A vinne over andre'],
     explanation: 'Respekt er a behandle andre verdig - lytte til dem og akseptere at de er forskjellige.',
   },
   {
@@ -16354,12 +16354,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva bor du gjore hvis du ser noen bli mobbet?',
-    options: ['Si fra til en voksen og vaere vennlig mot den som mobbes', 'Late som du ikke ser det', 'Bli med pa mobbingen', 'Mobbe tilbake'],
-    explanation: 'Du bor si fra til en voksen, stotte den som blir mobbet, og ikke vaere med pa mobbingen.',
+    options: ['Si fra til en voksen og vaere vennlig mot den som mobbes', 'Late som du ikke ser det', 'Bli med påmobbingen', 'Mobbe tilbake'],
+    explanation: 'Du bor si fra til en voksen, stotte den som blir mobbet, og ikke vaere med påmobbingen.',
   },
   {
     question: 'Hvorfor er det viktig a akseptere at folk er forskjellige?',
-    options: ['Alle er unike og vi kan laere av hverandre', 'Det er ikke viktig', 'Alle ma vaere like', 'Forskjeller er alltid darlige'],
+    options: ['Alle er unike og vi kan laere av hverandre', 'Det er ikke viktig', 'Alle måvaere like', 'Forskjeller er alltid darlige'],
     explanation: 'Alle er unike, og forskjeller gjor livet interessant. Vi kan laere av hverandre.',
   },
   {
@@ -16371,9 +16371,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'krle-6-1-1': [
   {
-    question: 'Hvor mange boker er det i Det gamle testamentet?',
-    options: ['39 boker', '27 boker', '66 boker', '12 boker'],
-    explanation: 'Det gamle testamentet har 39 boker, skrevet for Jesus ble fodt.',
+    question: 'Hvor mange bøker er det i Det gamle testamentet?',
+    options: ['39 bøker', '27 bøker', '66 bøker', '12 bøker'],
+    explanation: 'Det gamle testamentet har 39 bøker, skrevet for Jesus ble fodt.',
   },
   {
     question: 'Hvor mange evangelier er det i Bibelen?',
@@ -16386,7 +16386,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Det gamle testamentet er ogsâ jodenes hellige skrifter (Tanakh).',
   },
   {
-    question: 'Hva handler lignelsen om Den barmhjertige samaritan om?',
+    question: 'Hvahandler lignelsen om Den barmhjertige samaritan om?',
     options: ['A hjelpe alle mennesker', 'A be til Gud', 'A faste', 'A ga i kirken'],
     explanation: 'Lignelsen laerer oss a hjelpe andre, selv de som er annerledes enn oss selv.',
   },
@@ -16409,9 +16409,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En lignelse er en kort historie Jesus fortalte for a laere folk noe viktig.',
   },
   {
-    question: 'Hva skjedde pa langfredag?',
-    options: ['Jesus dode pa korset', 'Jesus ble fodt', 'Jesus stod opp', 'Jesus ble dopt'],
-    explanation: 'Pa langfredag dode Jesus pa korset.',
+    question: 'Hva skjedde pålangfredag?',
+    options: ['Jesus dode påkorset', 'Jesus ble fodt', 'Jesus stod opp', 'Jesus ble dopt'],
+    explanation: 'Pa langfredag dode Jesus påkorset.',
   },
   {
     question: 'Hvorfor er pasken den viktigste hoytiden for kristne?',
@@ -16437,7 +16437,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Konfirmasjon markerer overgangen til voksenlivet og bekrefter dapen.',
   },
   {
-    question: 'Hva feires pa pinse?',
+    question: 'Hva feires påpinse?',
     options: ['Den hellige ands komme', 'Jesu fodsel', 'Jesu dod', 'Skapelsen'],
     explanation: 'Pinse feirer at Den hellige and kom til disiplene og kalles kirkens fodselsdag.',
   },
@@ -16449,7 +16449,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken dag i uken har kristne vanligvis gudstjeneste?',
     options: ['Sondag', 'Fredag', 'Lordag', 'Mandag'],
-    explanation: 'Kristne samles vanligvis til gudstjeneste pa sondager.',
+    explanation: 'Kristne samles vanligvis til gudstjeneste påsondager.',
   },
 ],
 
@@ -16494,13 +16494,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en kippa?',
-    options: ['En liten hette jodiske menn baerer pa hodet', 'En hellig bok', 'En bonn', 'En fest'],
-    explanation: 'Kippa er en liten lue som jodiske menn baerer som tegn pa respekt for Gud.',
+    options: ['En liten hette jodiske menn baerer påhodet', 'En hellig bok', 'En bonn', 'En fest'],
+    explanation: 'Kippa er en liten lue som jodiske menn baerer som tegn pårespekt for Gud.',
   },
   {
     question: 'Hvorfor kalles jodedommen, kristendommen og islam for sosterreligioner?',
-    options: ['De stammer alle fra Abraham', 'De har samme hellige bok', 'De har samme leder', 'De oppsto pa samme sted'],
-    explanation: 'Alle tre religioner har roter tilbake til Abraham og tror pa en Gud.',
+    options: ['De stammer alle fra Abraham', 'De har samme hellige bok', 'De har samme leder', 'De oppsto påsamme sted'],
+    explanation: 'Alle tre religioner har roter tilbake til Abraham og tror påen Gud.',
   },
   {
     question: 'Hva er Chanukka?',
@@ -16522,8 +16522,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er samsara?',
-    options: ['Gjenfodelse - sjelen fodes pa nytt', 'En hellig bok', 'En gud', 'En bonn'],
-    explanation: 'Samsara er trooen pa at sjelen gjenfoedes i nye kropper etter doden.',
+    options: ['Gjenfodelse - sjelen fodes på nytt', 'En hellig bok', 'En gud', 'En bonn'],
+    explanation: 'Samsara er trooen påat sjelen gjenfoedes i nye kropper etter doden.',
   },
   {
     question: 'Hva er moksha i hinduismen?',
@@ -16545,12 +16545,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner humanisme?',
-    options: ['Vektlegger menneskets verdi og fornuft uten gudstro', 'Tro pa mange guder', 'Tro pa skjebnen', 'At livet er meningsløst'],
+    options: ['Vektlegger menneskets verdi og fornuft uten gudstro', 'Tro påmange guder', 'Tro påskjebnen', 'At livet er meningsløst'],
     explanation: 'Humanisme vektlegger menneskets verdi, fornuft og vitenskap uten gudstro.',
   },
   {
     question: 'Hva er verdier?',
-    options: ['Det vi synes er viktig', 'Penger', 'Ting vi eier', 'Regler pa skolen'],
+    options: ['Det vi synes er viktig', 'Penger', 'Ting vi eier', 'Regler påskolen'],
     explanation: 'Verdier er det vi synes er viktig, som aerlighet, vennskap og rettferdighet.',
   },
   {
@@ -16561,7 +16561,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken organisasjon representerer humanister i Norge?',
     options: ['Human-Etisk Forbund', 'Den norske kirke', 'Rode Kors', 'Amnesty'],
-    explanation: 'Human-Etisk Forbund er Norges storste livssynsorganisasjon utenfor kirken.',
+    explanation: 'Human-Etisk Forbund er Norges største livssynsorganisasjon utenfor kirken.',
   },
 ],
 
@@ -16574,29 +16574,29 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et etisk dilemma?',
     options: ['En situasjon der det er vanskelig a velge', 'Et matematisk problem', 'En enkel oppgave', 'En lek'],
-    explanation: 'Et etisk dilemma er nar det er vanskelig a velge fordi alle valg har negative sider.',
+    explanation: 'Et etisk dilemma er nårdet er vanskelig a velge fordi alle valg har negative sider.',
   },
   {
-    question: 'Hva er forskjellen pa etikk og moral?',
+    question: 'Hva er forskjellen på etikk og moral?',
     options: ['Etikk er tenkning, moral er handlinger', 'De er det samme', 'Moral er for religiose', 'Etikk er for barn'],
-    explanation: 'Etikk er tenkning om rett og galt, moral er de reglene vi faktisk folger.',
+    explanation: 'Etikk er tenkning om rett og galt, moral er de reglene vi faktisk følger.',
   },
   {
     question: 'Hvorfor er den gylne regel viktig?',
     options: ['Den hjelper oss a behandle andre godt', 'Den gjor oss rike', 'Den gir oss makt', 'Den er bare for voksne'],
-    explanation: 'Den gylne regel hjelper oss a tenke pa hvordan vare handlinger pavirker andre.',
+    explanation: 'Den gylne regel hjelper oss a tenke påhvordan vare handlinger pavirker andre.',
   },
   {
-    question: 'Hva bor vi tenke pa nar vi tar vanskelige valg?',
+    question: 'Hva bor vi tenke pånar vi tar vanskelige valg?',
     options: ['Konsekvensene og hva samvittigheten sier', 'Bare hva som er best for oss selv', 'Ingenting', 'Hva som er mest morsomt'],
-    explanation: 'Vi bor tenke pa konsekvensene og lytte til samvittigheten.',
+    explanation: 'Vi bor tenke påkonsekvensene og lytte til samvittigheten.',
   },
 ],
 
   'krle-6-3-3': [
   {
     question: 'Hva er identitet?',
-    options: ['Hvem du er', 'Hvor du bor', 'Hva du spiser', 'Hvilken skole du gar pa'],
+    options: ['Hvem du er', 'Hvor du bor', 'Hva du spiser', 'Hvilken skole du gårpa'],
     explanation: 'Identitet er hvem du er, formet av familie, venner, kultur og egne valg.',
   },
   {
@@ -16616,36 +16616,36 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Kan identiteten forandre seg gjennom livet?',
-    options: ['Ja, identiteten utvikler seg', 'Nei, den er fastsatt fra fodsel', 'Bare i barndommen', 'Bare etter 50 ar'],
-    explanation: 'Identiteten utvikler seg gjennom livet ettersom vi far nye erfaringer.',
+    options: ['Ja, identiteten utvikler seg', 'Nei, den er fastsatt fra fodsel', 'Bare i barndommen', 'Bare etter 50 år'],
+    explanation: 'Identiteten utvikler seg gjennom livet ettersom vi fårnye erfaringer.',
   },
 ],
 
   'krle-7-1-1': [
   {
     question: 'Nar og hvor oppstod kristendommen?',
-    options: ['For ca. 2000 ar siden i Midtosten', 'For 3000 ar siden i Egypt', 'For 1000 ar siden i Roma', 'For 500 ar siden i Norge'],
-    explanation: 'Kristendommen oppstod for ca. 2000 ar siden i omradet som i dag er Israel/Palestina.',
+    options: ['For ca. 2000 årsiden i Midtosten', 'For 3000 årsiden i Egypt', 'For 1000 årsiden i Roma', 'For 500 årsiden i Norge'],
+    explanation: 'Kristendommen oppstod for ca. 2000 årsiden i omradet som i dag er Israel/Palestina.',
   },
   {
     question: 'Hvem var Paulus og hvorfor var han viktig?',
-    options: ['En misjonsaer som spredte kristendommen til ikke-joder', 'Den forste paven', 'Jesu bror', 'En romersk keiser'],
+    options: ['En misjonsaer som spredte kristendommen til ikke-joder', 'Den første paven', 'Jesu bror', 'En romersk keiser'],
     explanation: 'Paulus var en misjonsaer som reiste rundt og startet menigheter for ikke-joder.',
   },
   {
     question: 'Nar ble kristendommen statsreligion i Romerriket?',
     options: ['Ar 380', 'Ar 30', 'Ar 1000', 'Ar 1517'],
-    explanation: 'Keiser Theodosius gjorde kristendommen til statsreligion i ar 380.',
+    explanation: 'Keiser Theodosius gjorde kristendommen til statsreligion i år380.',
   },
   {
     question: 'Hva var reformasjonen?',
-    options: ['En religioes omveltning pa 1500-tallet som skapte protestantismen', 'Da kristendommen oppsto', 'Da kirken kom til Norge', 'Et kirkemote i Roma'],
+    options: ['En religioes omveltning på 1500-tallet som skapte protestantismen', 'Da kristendommen oppsto', 'Da kirken kom til Norge', 'Et kirkemote i Roma'],
     explanation: 'Reformasjonen (1517) var da Martin Luther protesterte mot den katolske kirken.',
   },
   {
     question: 'Nar ble Norge kristnet?',
     options: ['Pa 1000-tallet', 'Pa 500-tallet', 'Pa 1500-tallet', 'Pa 1800-tallet'],
-    explanation: 'Norge ble kristnet pa 1000-tallet under kongene Olav Tryggvason og Olav den hellige.',
+    explanation: 'Norge ble kristnet på 1000-tallet under kongene Olav Tryggvason og Olav den hellige.',
   },
 ],
 
@@ -16671,17 +16671,17 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'De ortodokse kirkene bruker ikoner (religiose bilder) i tilbedelse.',
   },
   {
-    question: 'Hva har alle kristne retninger felles?',
-    options: ['Troen pa Jesus som Guds sonn og frelser', 'Paven som leder', 'Samme gudstjeneste', 'Samme spraak'],
-    explanation: 'Alle kristne deler troen pa Jesus Kristus som Guds sonn og frelser.',
+    question: 'Hvahar alle kristne retninger felles?',
+    options: ['Troen påJesus som Guds sonn og frelser', 'Paven som leder', 'Samme gudstjeneste', 'Samme spraak'],
+    explanation: 'Alle kristne deler troen påJesus Kristus som Guds sonn og frelser.',
   },
 ],
 
   'krle-7-2-1': [
   {
-    question: 'Hvor og nar oppstod hinduismen?',
-    options: ['I India for over 4000 ar siden', 'I Kina for 2000 ar siden', 'I Japan for 1000 ar siden', 'I Egypt for 3000 ar siden'],
-    explanation: 'Hinduismen oppstod i India for over 4000 ar siden.',
+    question: 'Hvor og nåroppstod hinduismen?',
+    options: ['I India for over 4000 årsiden', 'I Kina for 2000 årsiden', 'I Japan for 1000 årsiden', 'I Egypt for 3000 årsiden'],
+    explanation: 'Hinduismen oppstod i India for over 4000 årsiden.',
   },
   {
     question: 'Hva er de tre hovedgudene (Trimurti) i hinduismen?',
@@ -16712,9 +16712,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Buddha var Siddharta Gautama, en prins som oppnadde opplysning.',
   },
   {
-    question: 'Hva er den forste edle sannhet?',
+    question: 'Hva er den første edle sannhet?',
     options: ['Livet inneholder lidelse', 'Gud finnes', 'Alle skal do', 'Verden er god'],
-    explanation: 'Den forste edle sannhet er at livet inneholder lidelse (dukkha).',
+    explanation: 'Den første edle sannhet er at livet inneholder lidelse (dukkha).',
   },
   {
     question: 'Hva er arsaken til lidelse ifølge Buddha?',
@@ -16728,8 +16728,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er den attefoldige veien?',
-    options: ['Buddhas vei til frigjoring', 'En pilegrimsrute', 'Atte guder', 'Atte hellige boker'],
-    explanation: 'Den attefoldige veien er Buddhas oppskrift pa hvordan man kan oppna nirvana.',
+    options: ['Buddhas vei til frigjoring', 'En pilegrimsrute', 'Atte guder', 'Atte hellige bøker'],
+    explanation: 'Den attefoldige veien er Buddhas oppskrift påhvordan man kan oppna nirvana.',
   },
 ],
 
@@ -16755,9 +16755,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Metafysikk er filosofiske sporsmal om virkeligheten - hva finnes egentlig?',
   },
   {
-    question: 'Hva sa Sokrates om sin egen kunnskap?',
+    question: 'Hva såSokrates om sin egen kunnskap?',
     options: ['Det eneste jeg vet, er at jeg ingenting vet', 'Jeg vet alt', 'Bare jeg kan svare', 'Kunnskap er verdilos'],
-    explanation: 'Sokrates sa "Det eneste jeg vet, er at jeg ingenting vet" for a vise ydmykhet.',
+    explanation: 'Sokrates så"Det eneste jeg vet, er at jeg ingenting vet" for å vise ydmykhet.',
   },
 ],
 
@@ -16780,7 +16780,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er barnekonvensjonen?',
     options: ['FN-konvensjon om barns rettigheter', 'En barnebok', 'En leirskole', 'En barnehage'],
-    explanation: 'Barnekonvensjonen er en FN-konvensjon om rettigheter for alle under 18 ar.',
+    explanation: 'Barnekonvensjonen er en FN-konvensjon om rettigheter for alle under 18 år.',
   },
   {
     question: 'Nar ratifiserte Norge barnekonvensjonen?',
@@ -16813,7 +16813,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva feirer kristne i pasken?',
     options: ['Jesu dod og oppstandelse', 'Jesu fodsel', 'Den hellige ands komme', 'Skapelsen'],
-    explanation: 'Pasken feirer at Jesus dode pa korset og stod opp igjen.',
+    explanation: 'Pasken feirer at Jesus dode påkorset og stod opp igjen.',
   },
 ],
 
@@ -16821,7 +16821,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hijra?',
     options: ['Muhammads flukt fra Mekka til Medina', 'En type bonn', 'Fasten i ramadan', 'En pilegrimsreise'],
-    explanation: 'Hijra (622 e.Kr.) er Muhammads flukt til Medina og markerer starten pa islamsk tidsregning.',
+    explanation: 'Hijra (622 e.Kr.) er Muhammads flukt til Medina og markerer stårten påislamsk tidsregning.',
   },
   {
     question: 'Hva heter islams hellige bok?',
@@ -16835,7 +16835,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hovedforskjellen mellom sunni og shia?',
-    options: ['Uenighet om hvem som skulle lede etter Muhammad', 'De tror pa forskjellige guder', 'De har ulike hellige boker', 'De ber pa forskjellige dager'],
+    options: ['Uenighet om hvem som skulle lede etter Muhammad', 'De tror påforskjellige guder', 'De har ulike hellige bøker', 'De ber påforskjellige dager'],
     explanation: 'Splittelsen handler om hvem som var rettmessig leder etter Muhammads dod.',
   },
   {
@@ -16853,7 +16853,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er karma?',
-    options: ['Laeren om at handlinger har konsekvenser', 'En type meditasjon', 'En gud i hinduismen', 'Navnet pa en hellig bok'],
+    options: ['Laeren om at handlinger har konsekvenser', 'En type meditasjon', 'En gud i hinduismen', 'Navnet påen hellig bok'],
     explanation: 'Karma betyr at alle handlinger har konsekvenser - gode eller darlige.',
   },
   {
@@ -16862,12 +16862,12 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Nirvana er den endelige frigjoeringen fra lidelse og syklusen av gjenfodelse.',
   },
   {
-    question: 'Hva er den forste av de fire edle sannheter?',
+    question: 'Hva er den første av de fire edle sannheter?',
     options: ['Livet inneholder lidelse', 'Gud finnes', 'Mennesket er godt', 'Verden er evig'],
-    explanation: 'Den forste edle sannhet er at livet inneholder lidelse (dukkha).',
+    explanation: 'Den første edle sannhet er at livet inneholder lidelse (dukkha).',
   },
   {
-    question: 'Hva er forskjellen mellom hinduisme og buddhisme nar det gjelder guder?',
+    question: 'Hva er forskjellen mellom hinduisme og buddhisme nårdet gjelder guder?',
     options: ['Hinduisme har mange guder, buddhisme har ingen skapergud', 'Begge har mange guder', 'Begge har en gud', 'Buddhisme har flere guder'],
     explanation: 'Hinduisme har mange guder, mens buddhisme ikke har guder i sentrum av laeren.',
   },
@@ -16887,7 +16887,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier den gylne regel?',
     options: ['Gjor mot andre det du vil at andre skal gjore mot deg', 'Den sterkeste har rett', 'Malet helliger midlet', 'Folg alltid loven'],
-    explanation: 'Den gylne regel oppfordrer til a behandle andre slik vi selv onsker a bli behandlet.',
+    explanation: 'Den gylne regel oppfordrer til a behandle andre slik vi selv onsker å bli behandlet.',
   },
   {
     question: 'Hva er pliktetikk?',
@@ -16896,21 +16896,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er dydsetikk?',
-    options: ['Fokuserer pa karaktertrekk og gode egenskaper', 'Bare regler teller', 'Bare folelser teller', 'Alt er lov'],
-    explanation: 'Dydsetikk fokuserer pa a utvikle gode karaktertrekk som mot og rettferdighet.',
+    options: ['Fokuserer påkaraktertrekk og gode egenskaper', 'Bare regler teller', 'Bare folelser teller', 'Alt er lov'],
+    explanation: 'Dydsetikk fokuserer påa utvikle gode karaktertrekk som mot og rettferdighet.',
   },
 ],
 
   'krle-8-3-2': [
   {
     question: 'Hva betyr filosofi?',
-    options: ['Kjaerlighet til visdom', 'Studiet av naturen', 'Kunnskap om fortiden', 'Tro pa Gud'],
+    options: ['Kjaerlighet til visdom', 'Studiet av naturen', 'Kunnskap om fortiden', 'Tro påGud'],
     explanation: 'Filosofi kommer fra gresk: philos (kjaerlighet) + sophia (visdom).',
   },
   {
     question: 'Hva er kritisk tenkning?',
     options: ['A vurdere informasjon og argumenter logisk', 'A alltid vaere negativ', 'A tro alt man horer', 'A krangle med alle'],
-    explanation: 'Kritisk tenkning handler om a vurdere paastander pa en logisk maate.',
+    explanation: 'Kritisk tenkning handler om a vurdere paastander påen logisk maate.',
   },
   {
     question: 'Hva er et personangrep som feilslutning?',
@@ -16919,12 +16919,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var Sokrates kjent for?',
-    options: ['A stille sporsmal for a fa folk til a tenke', 'A skrive lange boker', 'A vaere keiser', 'A oppdage Amerika'],
+    options: ['A stille sporsmal for a fa folk til a tenke', 'A skrive lange bøker', 'A vaere keiser', 'A oppdage Amerika'],
     explanation: 'Sokrates brukte sporsmal for a hjelpe folk tenke dypere (den sokratiske metoden).',
   },
   {
     question: 'Hva er en falsk dikotomi?',
-    options: ['A presentere bare to alternativer nar det finnes flere', 'A snakke sant', 'A vaere enig med alle', 'A tenke logisk'],
+    options: ['A presentere bare to alternativer nårdet finnes flere', 'A snakke sant', 'A vaere enig med alle', 'A tenke logisk'],
     explanation: 'Falsk dikotomi er a late som det bare finnes to muligheter.',
   },
 ],
@@ -16932,12 +16932,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   'krle-8-4-1': [
   {
     question: 'Hva er et livssyn?',
-    options: ['Et helhetlig syn pa livet og verden', 'En politisk mening', 'En hobby', 'En vitenskapelig teori'],
-    explanation: 'Et livssyn er vart helhetlige syn pa livet, verden og hvordan vi bor leve.',
+    options: ['Et helhetlig syn pålivet og verden', 'En politisk mening', 'En hobby', 'En vitenskapelig teori'],
+    explanation: 'Et livssyn er vart helhetlige syn pålivet, verden og hvordan vi bor leve.',
   },
   {
     question: 'Hva kjennetegner sekulaer humanisme?',
-    options: ['Vekt pa fornuft, menneskets verdi og etikk uten religion', 'Tro pa mange guder', 'At livet er meningsløst', 'At bare kristendom er sann'],
+    options: ['Vekt påfornuft, menneskets verdi og etikk uten religion', 'Tro påmange guder', 'At livet er meningsløst', 'At bare kristendom er sann'],
     explanation: 'Humanisme vektlegger fornuft, menneskets verdi og etikk uten gudstro.',
   },
   {
@@ -16951,26 +16951,26 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Toleranse er a akseptere at andre har rett til egne meninger.',
   },
   {
-    question: 'Hva er forskjellen pa religiose og sekulaere livssyn?',
-    options: ['Religiose inkluderer gudstro, sekulaere gjor ikke det', 'De er helt like', 'Sekulaere tror pa mange guder', 'Bare religiose har etikk'],
-    explanation: 'Religiose livssyn inkluderer tro pa overnaturlige krefter, sekulaere gjor ikke det.',
+    question: 'Hva er forskjellen påreligiose og sekulaere livssyn?',
+    options: ['Religiose inkluderer gudstro, sekulaere gjor ikke det', 'De er helt like', 'Sekulaere tror påmange guder', 'Bare religiose har etikk'],
+    explanation: 'Religiose livssyn inkluderer tro påovernaturlige krefter, sekulaere gjor ikke det.',
   },
 ],
 
   'krle-9-1-1': [
   {
-    question: 'Nar startet reformasjonen?',
+    question: 'Nar stårtet reformasjonen?',
     options: ['1517', '1066', '1789', '1814'],
     explanation: 'Reformasjonen startet i 1517 da Martin Luther hengte opp sine 95 teser.',
   },
   {
     question: 'Hva var avlatshandel?',
-    options: ['At kirken tilga synder mot betaling', 'Handel med religiose boker', 'Salg av kirkebygninger', 'Handel mellom klostre'],
+    options: ['At kirken tilga synder mot betaling', 'Handel med religiose bøker', 'Salg av kirkebygninger', 'Handel mellom klostre'],
     explanation: 'Avlatshandel var salg av tilgivelse for synder, noe Luther sterkt kritiserte.',
   },
   {
     question: 'Hva betyr "sola scriptura"?',
-    options: ['Bibelen alene er autoritet', 'Bare paven kan tolke Bibelen', 'Skriften er hellig', 'Bibelen ma vaere pa latin'],
+    options: ['Bibelen alene er autoritet', 'Bare paven kan tolke Bibelen', 'Skriften er hellig', 'Bibelen måvaere pålatin'],
     explanation: 'Sola scriptura betyr at Bibelen alene er autoritet i trossporsmal.',
   },
   {
@@ -16988,8 +16988,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'krle-9-1-2': [
   {
     question: 'Hva er sekularisering?',
-    options: ['At religion far mindre betydning i samfunnet', 'At flere blir religiose', 'At kirken far mer makt', 'At alle blir ateister'],
-    explanation: 'Sekularisering er prosessen der religion far mindre betydning i samfunnet.',
+    options: ['At religion fårmindre betydning i samfunnet', 'At flere blir religiose', 'At kirken fårmer makt', 'At alle blir ateister'],
+    explanation: 'Sekularisering er prosessen der religion fårmindre betydning i samfunnet.',
   },
   {
     question: 'I hvilke deler av verden vokser kristendommen mest?',
@@ -17002,9 +17002,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Den norske kirke ble formelt skilt fra staten i 2012.',
   },
   {
-    question: 'Hvilken kristen retning er storst i verden?',
+    question: 'Hvilken kristen retning er størst i verden?',
     options: ['Katolisisme', 'Protestantisme', 'Ortodoks kristendom', 'Pinsebevegelsen'],
-    explanation: 'Den katolske kirke er storst med ca. 1,3 milliarder medlemmer.',
+    explanation: 'Den katolske kirke er størst med ca. 1,3 milliarder medlemmer.',
   },
   {
     question: 'Hva betyr det at kristendommens tyngdepunkt flytter seg?',
@@ -17016,12 +17016,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   'krle-9-2-1': [
   {
     question: 'Hva er de seks trosartiklene i islam?',
-    options: ['Allah, englene, skriftene, profetene, dommedag og forutbestemmelse', 'Bare Allah og Muhammad', 'De fem soylene', 'Koranen og hadith'],
+    options: ['Allah, englene, skriftene, profetene, dommedag og forutbestemmelse', 'Bare Allah og Muhammad', 'De fem søylene', 'Koranen og hadith'],
     explanation: 'De seks trosartiklene beskriver hva muslimer tror pa.',
   },
   {
     question: 'Hva er hadith?',
-    options: ['Beretninger om hva Muhammad sa og gjorde', 'En annen bok i Koranen', 'Islams helligste sted', 'En type bonn'],
+    options: ['Beretninger om hva Muhammad såog gjorde', 'En annen bok i Koranen', 'Islams helligste sted', 'En type bonn'],
     explanation: 'Hadith er beretninger om profeten Muhammads ord og handlinger.',
   },
   {
@@ -17036,7 +17036,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sharia?',
-    options: ['Islamsk lov basert pa Koranen og hadith', 'En hellig bok', 'En type bonn', 'En moske'],
+    options: ['Islamsk lov basert påKoranen og hadith', 'En hellig bok', 'En type bonn', 'En moske'],
     explanation: 'Sharia er islamsk lov som veileder muslimer i alle livets omrader.',
   },
 ],
@@ -17045,11 +17045,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket land har flest muslimer?',
     options: ['Indonesia', 'Saudi-Arabia', 'Iran', 'Egypt'],
-    explanation: 'Indonesia er verdens storste muslimske land med over 230 millioner muslimer.',
+    explanation: 'Indonesia er verdens største muslimske land med over 230 millioner muslimer.',
   },
   {
     question: 'Hva er hovedforskjellen mellom sunni og shia?',
-    options: ['Uenighet om hvem som skulle lede etter Muhammad', 'De tror pa forskjellige guder', 'De har ulike hellige boker', 'De ber pa forskjellige dager'],
+    options: ['Uenighet om hvem som skulle lede etter Muhammad', 'De tror påforskjellige guder', 'De har ulike hellige bøker', 'De ber påforskjellige dager'],
     explanation: 'Splittelsen handler om hvem som var rettmessig leder etter Muhammad.',
   },
   {
@@ -17072,13 +17072,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'krle-9-3-1': [
   {
     question: 'Hva var de fire synene som endret Buddhas liv?',
-    options: ['En gammel mann, en syk mann, et lik og en asket', 'Fire guder', 'Fire templer', 'Fire boker'],
+    options: ['En gammel mann, en syk mann, et lik og en asket', 'Fire guder', 'Fire templer', 'Fire bøker'],
     explanation: 'De fire synene viste Siddharta at livet inneholder alderdom, sykdom og dod.',
   },
   {
     question: 'Hva er dukkha?',
     options: ['Lidelse eller utilfredshet', 'Lykke', 'En gud', 'Et tempel'],
-    explanation: 'Dukkha er den forste edle sannhet - at livet innebærer lidelse.',
+    explanation: 'Dukkha er den første edle sannhet - at livet innebærer lidelse.',
   },
   {
     question: 'Hva er nirvana?',
@@ -17105,7 +17105,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er trimurti?',
-    options: ['De tre hovedgudene Brahma, Vishnu og Shiva', 'Tre hellige boker', 'Tre hellige steder', 'Tre typer bonn'],
+    options: ['De tre hovedgudene Brahma, Vishnu og Shiva', 'Tre hellige bøker', 'Tre hellige steder', 'Tre typer bonn'],
     explanation: 'Trimurti er de tre hovedgudene: Brahma (skaper), Vishnu (opprettholder) og Shiva (fornyer).',
   },
   {
@@ -17121,20 +17121,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en avatar i hinduismen?',
     options: ['En inkarnasjon av en gud', 'En prest', 'Et tempel', 'En hellig bok'],
-    explanation: 'En avatar er nar en gud tar fysisk form, som Krishna som er Vishnus avatar.',
+    explanation: 'En avatar er nåren gud tar fysisk form, som Krishna som er Vishnus avatar.',
   },
 ],
 
   'krle-9-4-1': [
   {
     question: 'Hva kjennetegner et etisk dilemma?',
-    options: ['Viktige verdier star mot hverandre, alle valg har negative sider', 'Det finnes bare ett riktig svar', 'Det handler om matematikk', 'Det er alltid enkelt a velge'],
-    explanation: 'Et etisk dilemma har flere alternativer der viktige verdier star mot hverandre.',
+    options: ['Viktige verdier står mot hverandre, alle valg har negative sider', 'Det finnes bare ett riktig svar', 'Det handler om matematikk', 'Det er alltid enkelt a velge'],
+    explanation: 'Et etisk dilemmå har flere alternativer der viktige verdier står mot hverandre.',
   },
   {
-    question: 'Hva er det forste steget i a analysere et dilemma?',
+    question: 'Hva er det første steget i a analysere et dilemma?',
     options: ['Beskrive situasjonen', 'Ta en beslutning', 'Ignorere problemet', 'Sporree andre'],
-    explanation: 'Forst ma man forstaa og beskrive situasjonen for man kan analysere.',
+    explanation: 'Først måman forstaa og beskrive situasjonen for man kan analysere.',
   },
   {
     question: 'Hva sier konsekvensetikk om trikk-dilemmaet?',
@@ -17418,7 +17418,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktig når du tar imot en ball?',
-    options: ['Ha blikket på ballen og myke hender', 'Lukke øynene', 'Stå helt stille', 'Ha stive armer'],
+    options: ['Hå blikket på ballen og myke hender', 'Lukke øynene', 'Stå helt stille', 'Ha stive armer'],
     explanation: 'Følg ballen med øynene, beveg deg mot den og ha myke hender som gir etter.',
   },
   {
@@ -17625,7 +17625,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er hvile viktig etter trening?',
     options: ['For at kroppen skal restituere og bli sterkere', 'Det er ikke viktig', 'For å spare tid', 'For å bli svakere'],
-    explanation: 'Under hvile reparerer og forsterker kroppen seg. Uten hvile får du ikke full effekt av treningen.',
+    explanation: 'Under hvile reparerer og førsterker kroppen seg. Uten hvile får du ikke full effekt av treningen.',
   },
 ],
 
@@ -17754,7 +17754,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen på kulestøt og kast?',
-    options: ['Kulen skyves fra halsen med en støtende bevegelse', 'Kulen kastes med sving over hodet', 'Kulen trilles langs bakken', 'Det er ingen forskjell'],
+    options: ['Kulen skyves frå halsen med en støtende bevegelse', 'Kulen kastes med sving over hodet', 'Kulen trilles langs bakken', 'Det er ingen forskjell'],
     explanation: 'I kulestøt holder man kulen mot halsen og støter den ut. Det er ikke tillatt å kaste.',
   },
   {
@@ -17890,7 +17890,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er restitusjon viktig?',
     options: ['For å la kroppen tilpasse seg og bli sterkere', 'For å spare tid', 'For å se TV', 'Det er ikke viktig'],
-    explanation: 'Under hvile reparerer og forsterker kroppen seg etter trening.',
+    explanation: 'Under hvile reparerer og førsterker kroppen seg etter trening.',
   },
   {
     question: 'Hva betyr progresjon i trening?',
@@ -18174,7 +18174,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er superkompensasjon?',
-    options: ['At kroppen bygger seg sterkere enn før etter hvile', 'Å trene ekstra hardt', 'Å hvile i flere uker', 'En type konkurranseform'],
+    options: ['At kroppen bygger seg sterkere enn før etter hvile', 'Å trene ekstrå hardt', 'Å hvile i flere uker', 'En type konkurranseform'],
     explanation: 'Superkompensasjon skjer når kroppen restituerer og bygger seg opp til et høyere nivå.',
   },
   {
@@ -18304,7 +18304,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'kroppsoving-9-3-2': [
   {
     question: 'Hva kjennetegner diagonalgang?',
-    options: ['Motsatt arm og bein arbeider sammen', 'Samme arm og bein arbeider sammen', 'Bare armene brukes', 'Bare beina brukes'],
+    options: ['Motsatt arm og bein arbeider sammen', 'Samme arm og bein arbeider sammen', 'Bare armene brukes', 'Bare beinå brukes'],
     explanation: 'Diagonalgang ligner naturlig gange der motsatt arm og bein beveger seg frem samtidig.',
   },
   {
@@ -18431,7 +18431,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kan du gjøre for å håndtere nervøsitet før en prestasjon?',
-    options: ['Pusteøvelser og visualisering', 'Tenke på alt som kan gå galt', 'Ignorere nervøsiteten helt', 'Trene ekstra hardt rett før'],
+    options: ['Pusteøvelser og visualisering', 'Tenke på alt som kan gå galt', 'Ignorere nervøsiteten helt', 'Trene ekstrå hardt rett før'],
     explanation: 'Rolig pusting og visualisering hjelper kroppen og sinnet å roe seg ned.',
   },
   {
@@ -18520,7 +18520,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er aktiv restitusjon?',
-    options: ['Lett aktivitet dagen etter hard trening for å fremme gjenoppretting', 'Å trene ekstra hardt', 'Å hvile helt uten bevegelse', 'Å ta kosttilskudd'],
+    options: ['Lett aktivitet dagen etter hard trening for å fremme gjenoppretting', 'Å trene ekstrå hardt', 'Å hvile helt uten bevegelse', 'Å ta kosttilskudd'],
     explanation: 'Aktiv restitusjon betyr lett bevegelse som øker blodsirkulasjonen og fremmer raskere gjenoppretting.',
   },
 ],
@@ -18528,7 +18528,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'kroppsoving-vg1-4': [
   {
     question: 'Hva kjennetegner diagonalgang i langrenn?',
-    options: ['Motsatt arm og bein arbeider sammen, som ved naturlig gange', 'Samme arm og bein arbeider sammen', 'Bare armene brukes', 'Bare beina brukes'],
+    options: ['Motsatt arm og bein arbeider sammen, som ved naturlig gange', 'Samme arm og bein arbeider sammen', 'Bare armene brukes', 'Bare beinå brukes'],
     explanation: 'Diagonalgang er den grunnleggende klassiske teknikken der høyre arm og venstre bein beveger seg frem samtidig, og omvendt.',
   },
   {
@@ -18772,7 +18772,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan du håndtere nervøsitet før konkurranse?',
-    options: ['Dyp pusting, positiv selvsnakk og faste rutiner', 'Ignorere nervøsiteten', 'Trene ekstra hardt', 'Unngå å delta'],
+    options: ['Dyp pusting, positiv selvsnakk og faste rutiner', 'Ignorere nervøsiteten', 'Trene ekstrå hardt', 'Unngå å delta'],
     explanation: 'Teknikker som regulerer aktivering og fokuserer oppmerksomheten hjelper med å håndtere press.',
   },
 ],
@@ -19293,7 +19293,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Klassisk musikk spilles ofte av orkestre med strykere, blåsere og slagverk.',
   },
   {
-    question: 'Hvor startet hip-hop som musikksjanger?',
+    question: 'Hvor stårtet hip-hop som musikksjanger?',
     options: ['New York på 1970-tallet', 'London på 1960-tallet', 'Paris på 1980-tallet', 'Oslo på 1990-tallet'],
     explanation: 'Hip-hop startet i New York på 1970-tallet med rap, DJ-ing, breakdance og graffiti.',
   },
@@ -19948,8 +19948,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en resonanskasse?',
-    options: ['Den hule delen av et strengeinstrument som forsterker lyden', 'En type tromme', 'Et blåseinstrument', 'En mikrofon'],
-    explanation: 'Resonanskassen forsterker lyden fra strengene i instrumenter som gitar og fiolin.',
+    options: ['Den hule delen av et strengeinstrument som førsterker lyden', 'En type tromme', 'Et blåseinstrument', 'En mikrofon'],
+    explanation: 'Resonanskassen førsterker lyden fra strengene i instrumenter som gitar og fiolin.',
   },
 ],
 
@@ -20191,7 +20191,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket land kommer samba fra?',
     options: ['Brasil', 'Cuba', 'Argentina', 'Mexico'],
-    explanation: 'Samba kommer fra Brasil og er knyttet til karnevalet i Rio.',
+    explanation: 'Sambå kommer fra Brasil og er knyttet til karnevalet i Rio.',
   },
   {
     question: 'Hva er joik?',
@@ -20381,18 +20381,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor mye energi gir fett per gram sammenlignet med karbohydrater?',
-    options: ['Mer enn dobbelt sa mye', 'Like mye', 'Halvparten sa mye', 'Tre ganger sa mye'],
-    explanation: 'Fett gir 37 kJ per gram, mens karbohydrater gir 17 kJ per gram. Fett gir altsa mer enn dobbelt sa mye energi.',
+    options: ['Mer enn dobbelt så mye', 'Like mye', 'Halvparten så mye', 'Tre ganger så mye'],
+    explanation: 'Fett gir 37 kJ per gram, mens karbohydrater gir 17 kJ per gram. Fett gir altsa mer enn dobbelt så mye energi.',
   },
   {
     question: 'Hvilke vitaminer er vannloselige?',
     options: ['B-vitaminer og C-vitamin', 'A, D, E og K', 'Bare D-vitamin', 'Alle vitaminer'],
-    explanation: 'B-vitaminer og C-vitamin er vannloselige og ma tilfores daglig fordi de ikke lagres i kroppen.',
+    explanation: 'B-vitaminer og C-vitamin er vannloselige og måtilfores daglig fordi de ikke lagres i kroppen.',
   },
   {
     question: 'Hvilket mineral er viktig for oksygentransport i blodet?',
     options: ['Jern', 'Kalsium', 'Jod', 'Natrium'],
-    explanation: 'Jern er nodvendig for a lage hemoglobin som frakter oksygen i blodet. Jernmangel gir blodmangel (anemi).',
+    explanation: 'Jern er nodvendig for å lage hemoglobin som frakter oksygen i blodet. Jernmangel gir blodmangel (anemi).',
   },
   {
     question: 'Hvor stor andel av energiinntaket bor komme fra karbohydrater?',
@@ -20405,7 +20405,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange ganger i uken anbefales det a spise fisk?',
     options: ['2-3 ganger', 'Hver dag', '1 gang', '5-7 ganger'],
-    explanation: 'Kostholdsradene anbefaler fisk 2-3 ganger i uken, hvorav minst en gang bor vaere fet fisk som laks eller makrell.',
+    explanation: 'Kostholdsradene anbefaler fisk 2-3 ganger i uken, hvorav minst en gang bør være fet fisk som laks eller makrell.',
   },
   {
     question: 'Hva kjennetegner matvarer med Nokkelhullet?',
@@ -20413,36 +20413,36 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Nokkelhullet er en merkeordning som viser at produktet er sunnere enn lignende produkter - mindre fett, sukker og salt, og mer fiber.',
   },
   {
-    question: 'Hva viser naeringsdeklarasjonen pa matpakken?',
+    question: 'Hva viser naeringsdeklarasjonen påmatpakken?',
     options: ['Energi og naeringsinnhold per 100 g', 'Bare kaloriinnhold', 'Pris per kilo', 'Holdbarhetsdato'],
     explanation: 'Naeringsdeklarasjonen viser energi (kJ/kcal), fett, karbohydrater, fiber, protein og salt per 100 g.',
   },
   {
-    question: 'Hvorfor star den storste ingrediensen forst i ingredienslisten?',
+    question: 'Hvorfor står den største ingrediensen forst i ingredienslisten?',
     options: ['Fordi ingrediensene listes etter mengde', 'Fordi den er viktigst', 'Fordi den er dyrest', 'Tilfeldig rekkefol'],
     explanation: 'Ingredienser listes etter mengde, med det det er mest av forst. Dette hjelper deg forstå hva produktet hovedsakelig bestar av.',
   },
   {
     question: 'Hvilket rad gjelder for rodt kjott ifolge kostholdsradene?',
-    options: ['Begrens inntaket', 'Spis mye hver dag', 'Unnga helt', 'Spis bare pa helger'],
-    explanation: 'Kostholdsradene anbefaler a begrense inntaket av rodt kjott og bearbeidet kjott pa grunn av helserisiko ved hoy inntak.',
+    options: ['Begrens inntaket', 'Spis mye hver dag', 'Unnga helt', 'Spis bare påhelger'],
+    explanation: 'Kostholdsradene anbefaler a begrense inntaket av rodt kjott og bearbeidet kjott pågrunn av helserisiko ved hoy inntak.',
   },
 ],
 
   'mat-og-helse-8-2-1': [
   {
-    question: 'Hva kan vaere konsekvensen av darlig mathygiene?',
+    question: 'Hva kan være konsekvensen av darlig mathygiene?',
     options: ['Matforgiftning med kvalme, oppkast og diare', 'Maten smaker bedre', 'Maten holder lenger', 'Ingen konsekvenser'],
     explanation: 'Darlig hygiene kan fore til matforgiftning forarsaker av bakterier, virus eller toksiner, med symptomer som kvalme, oppkast og diare.',
   },
   {
-    question: 'Hva bor du gjore etter a ha tatt pa ratt kjott?',
-    options: ['Vaske hendene grundig med sape', 'Fortsette med matlagingen', 'Skylle hendene med vann', 'Torke hendene pa kluten'],
-    explanation: 'Etter a ha tatt pa ratt kjott ma du vaske hendene grundig med sape i minst 20 sekunder for a fjerne bakterier.',
+    question: 'Hva bor du gjore etter å ha tatt påratt kjott?',
+    options: ['Vaske hendene grundig med sape', 'Fortsette med matlagingen', 'Skylle hendene med vann', 'Torke hendene påkluten'],
+    explanation: 'Etter å ha tatt påratt kjott må du vaske hendene grundig med sape i minst 20 sekunder for a fjerne bakterier.',
   },
   {
     question: 'Hvorfor bor du bruke separate skjaerebrett for kjott og gronnsaker?',
-    options: ['For a unnga kryssforurensning', 'For a spare tid', 'For at maten skal smake bedre', 'Det er ikke nødvendig'],
+    options: ['For å unngå kryssforurensning', 'For a spare tid', 'For at maten skal smake bedre', 'Det er ikke nødvendig'],
     explanation: 'Separate skjaerebrett hindrer kryssforurensning - at bakterier fra ratt kjott spres til mat som skal spises ra.',
   },
   {
@@ -20466,12 +20466,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor bor ratt kjott oppbevares i kj?',
     options: ['Nederst i lukket beholder', 'Overst', 'I doren', 'I gronnsaksskuffen'],
-    explanation: 'Ratt kjott bor oppbevares nederst i lukket beholder sa vaeske ikke kan dryppe ned pa andre matvarer og forurense dem.',
+    explanation: 'Ratt kjott bor oppbevares nederst i lukket beholder såvaeske ikke kan dryppe ned påandre matvarer og forurense dem.',
   },
   {
     question: 'Hva er forskjellen mellom "best for" og "siste forbruksdag"?',
     options: ['Best for handler om kvalitet, siste forbruksdag om sikkerhet', 'De betyr det samme', 'Best for er strengere', 'Siste forbruksdag er bare for drikke'],
-    explanation: 'Best for angir nar kvaliteten er best, men maten kan ofte spises etter. Siste forbruksdag er en sikkerhetsgrense som ikke bor overskrides.',
+    explanation: 'Best for angir nårkvaliteten er best, men maten kan ofte spises etter. Siste forbruksdag er en sikkerhetsgrense som ikke bor overskrides.',
   },
   {
     question: 'Hvilken temperatur bor kjoleskapet holde?',
@@ -20499,7 +20499,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva skjer under karamellisering?',
     options: ['Sukker varmes og blir brunt med sot, notteaktig smak', 'Protein stivner', 'Fett smelter', 'Vann fordamper'],
-    explanation: 'Karamellisering skjer nar sukker varmes over 160 grader C og blir brunt. Det gir sot, notteaktig smak, ogsai gronnsaker.',
+    explanation: 'Karamellisering skjer nårsukker varmes over 160 grader C og blir brunt. Det gir sot, notteaktig smak, ogsai gronnsaker.',
   },
   {
     question: 'Hvorfor bor pannen vaere varm for du tilsetter mat?',
@@ -20516,18 +20516,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-8-3-2': [
   {
     question: 'Hva betyr "mise en place"?',
-    options: ['A male opp og gjore klar alle ingredienser for start', 'A rydde etter matlaging', 'En type rett', 'A servere pent'],
-    explanation: 'Mise en place er fransk og betyr "alt pa plass". Du maler opp og klargjor alle ingredienser for du begynner, noe som gjor matlagingen enklere.',
+    options: ['A male opp og gjore klar alle ingredienser for stårt', 'A rydde etter matlaging', 'En type rett', 'A servere pent'],
+    explanation: 'Mise en place er fransk og betyr "alt påplass". Du maler opp og klargjor alle ingredienser for du begynner, noe som gjor matlagingen enklere.',
   },
   {
     question: 'Hva betyr a "jevne" en saus?',
     options: ['A tilsette mel eller maisenna for a tykne', 'A roe i sausen', 'A smake til med salt', 'A avkjole sausen'],
-    explanation: 'A jevne betyr a tilsette et bindemiddel som mel eller maisenna for a gjore sausen tykkere.',
+    explanation: 'A jevne betyr a tilsette et bindemiddel som mel eller maisenna for å gjøre sausen tykkere.',
   },
   {
     question: 'Hvorfor bor du lese hele oppskriften for du begynner?',
     options: ['For a forstå hva som kreves og planlegge tiden', 'For a telle ingrediensene', 'Det er ikke nødvendig', 'For a finne feil'],
-    explanation: 'Ved a lese hele oppskriften forst ungår du overraskelser underveis og kan planlegge når ting ma gjes klart.',
+    explanation: 'Ved a lese hele oppskriften forst ungår du overraskelser underveis og kan planlegge når ting mågjes klart.',
   },
   {
     question: 'Hva betyr det a "redusere" en saus?',
@@ -20544,23 +20544,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-8-4-1': [
   {
     question: 'Hva viser tallerkenmodellen?',
-    options: ['Halvparten gronnsaker, 1/4 karbohydrater, 1/4 protein', 'Bare kjott pa tallerkenen', 'Like mye av alt', 'Mest karbohydrater'],
+    options: ['Halvparten gronnsaker, 1/4 karbohydrater, 1/4 protein', 'Bare kjott påtallerkenen', 'Like mye av alt', 'Mest karbohydrater'],
     explanation: 'Tallerkenmodellen viser et sunt maltid: 1/2 gronnsaker, 1/4 karbohydrater (poteter, ris, pasta), 1/4 protein (kjott, fisk, belgfrukter).',
   },
   {
     question: 'Hvorfor er ukemeny lurt?',
     options: ['Sparer tid, penger og reduserer matsvinn', 'Gjor maten dyrere', 'Tar mer tid', 'Gir mindre variasjon'],
-    explanation: 'Ukemeny sparer tid (slipper a bestemme daglig), penger (handler effektivt) og reduserer matsvinn (kjoper bare det du trenger).',
+    explanation: 'Ukemeny sparer tid (slipper a bestemme daglig), penger (handler effektivt) og reduserer matsvinn (kjøper bare det du trenger).',
   },
   {
     question: 'Hva bor du sjekke for du planlegger ukemenyen?',
     options: ['Hva du allerede har hjemme', 'Vaermeldingen', 'TV-programmet', 'Naboens meny'],
-    explanation: 'Sjekk hva du har hjemme forst, spesielt mat som snart gar ut. Da kan du planlegge maltider som bruker opp dette.',
+    explanation: 'Sjekk hva du har hjemme forst, spesielt mat som snart gårut. Da kan du planlegge maltider som bruker opp dette.',
   },
   {
-    question: 'Hvorfor bor du ikke handle mat nar du er sulten?',
-    options: ['Du kjoper lettere usunne impulskjop', 'Butikken er stengt', 'Maten er dyrere', 'Det gar raskere'],
-    explanation: 'Nar du er sulten, er det vanskeligere a motstå fristelser. Du handler ofte mer usunt og mer enn planlagt.',
+    question: 'Hvorfor bor du ikke handle mat når du er sulten?',
+    options: ['Du kjøper lettere usunne impulskjop', 'Butikken er stengt', 'Maten er dyrere', 'Det gårraskere'],
+    explanation: 'Når du er sulten, er det vanskeligere a motstå fristelser. Du handler ofte mer usunt og mer enn planlagt.',
   },
   {
     question: 'Hva bor du gjore med matrester?',
@@ -20572,8 +20572,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-8-4-2': [
   {
     question: 'Hva er kilopris og hvorfor er den nyttig?',
-    options: ['Pris per kilo - gjor det lett a sammenligne pakker i ulike storrelser', 'Vekten pa varen', 'Antall kalorier', 'Holdbarhetsdato'],
-    explanation: 'Kilopris viser prisen per kilo uavhengig av pakkestorrelse. Dette gjor det enkelt a finne hvilket produkt som gir mest for pengene.',
+    options: ['Pris per kilo - gjor det lett a sammenligne pakker i ulike størrelser', 'Vekten påvaren', 'Antall kalorier', 'Holdbarhetsdato'],
+    explanation: 'Kilopris viser prisen per kilo uavhengig av pakkestørrelse. Dette gjor det enkelt a finne hvilket produkt som gir mest for pengene.',
   },
   {
     question: 'Hvorfor er hjemmelaget mat ofte billigere enn ferdigmat?',
@@ -20581,13 +20581,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Ferdigmat inkluderer kostnader for produksjon, markedsføring og emballasje. Hjemmelaget slipper du disse kostnadene.',
   },
   {
-    question: 'Nar lønner det seg a kjope store pakker?',
-    options: ['Nar du vet at du rekker a bruke opp maten', 'Alltid', 'Aldri', 'Bare i helgene'],
+    question: 'Nar lønner det seg a kjøpe store pakker?',
+    options: ['Når du vet at du rekker å bruke opp maten', 'Alltid', 'Aldri', 'Bare i helgene'],
     explanation: 'Store pakker er bare lønnsomt hvis du faktisk bruker opp maten for den blir darlig. Ellers blir det matsvinn og bortkastede penger.',
   },
   {
     question: 'Hva menes med sesonvarer?',
-    options: ['Varer som dyrkes naturlig i den aktuelle arstiden', 'Varer pa tilbud', 'Importerte varer', 'Frosne varer'],
+    options: ['Varer som dyrkes naturlig i den aktuelle arstiden', 'Varer påtilbud', 'Importerte varer', 'Frosne varer'],
     explanation: 'Sesongvarer er mat som dyrkes naturlig i arstiden, uten oppvarmet drivhus. De er ofte billigere, ferskere og mer miljøvennlige.',
   },
   {
@@ -20601,27 +20601,27 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mye spiselig mat kastes i Norge hvert ar?',
     options: ['Over 400 000 tonn', 'Under 10 000 tonn', 'Ca. 1 million tonn', 'Nesten ingenting'],
-    explanation: 'I Norge kastes over 400 000 tonn spiselig mat hvert ar. Dette er mat som kunne vaert spist, men som ender i sopla.',
+    explanation: 'I Norge kastes over 400 000 tonn spiselig mat hvert år. Dette er mat som kunne vaert spist, men som ender i sopla.',
   },
   {
     question: 'Hva betyr FIFO i forbindelse med matoppbevaring?',
     options: ['First In, First Out - bruk eldst mat forst', 'En type kjoleskap', 'En oppskrift', 'En butikkjede'],
-    explanation: 'FIFO betyr at maten som kom forst inn, skal brukes forst. Sett nye varer bakerst i skapet sa de eldste brukes for.',
+    explanation: 'FIFO betyr at maten som kom forst inn, skal brukes forst. Sett nye varer bakerst i skapet såde eldste brukes for.',
   },
   {
     question: 'Hvorfor er matsvinn et miljoproblem?',
-    options: ['Produksjon av mat krever ressurser som gar til spille', 'Fordi sopla lukter vondt', 'Det er ikke et miljoproblem', 'Fordi det tar plass'],
-    explanation: 'Matproduksjon krever vann, energi og areal, og gir klimagassutslipp. Nar mat kastes, gar alle disse ressursene til spille.',
+    options: ['Produksjon av mat krever ressurser som gårtil spille', 'Fordi sopla lukter vondt', 'Det er ikke et miljoproblem', 'Fordi det tar plass'],
+    explanation: 'Matproduksjon krever vann, energi og areal, og gir klimagassutslipp. Nar mat kastes, gåralle disse ressursene til spille.',
   },
   {
-    question: 'Omtrent hvor mye penger kaster en norsk familie bort pa matsvinn arlig?',
+    question: 'Omtrent hvor mye penger kaster en norsk familie bort påmatsvinn arlig?',
     options: ['Ca. 6000 kr', 'Ca. 100 kr', 'Ca. 50 000 kr', 'Ingenting'],
     explanation: 'En gjennomsnittlig norsk familie kaster mat for ca. 6000 kr i aret. Dette er penger som kunne vaert spart.',
   },
   {
     question: 'Hvilke sanser kan du bruke for a vurdere om mat fortsatt er spiselig?',
-    options: ['Syn, lukt og smak', 'Bare se pa datoen', 'Bare horel', 'Ingen sanser'],
-    explanation: 'Bruk sansene: Se pa maten (mugg?), lukt pa den (sur?), og smak forsiktig. Mat som har passert "best for" kan ofte spises hvis den ser og lukter bra.',
+    options: ['Syn, lukt og smak', 'Bare se pådatoen', 'Bare horel', 'Ingen sanser'],
+    explanation: 'Bruk sansene: Se påmaten (mugg?), lukt påden (sur?), og smak forsiktig. Mat som har passert "best for" kan ofte spises hvis den ser og lukter bra.',
   },
 ],
 
@@ -20638,7 +20638,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor har sesongvarer ofte lavere klimaavtrykk?',
-    options: ['De krever mindre transport og drivhus', 'De smaker bedre', 'De er storre', 'De vokser raskere'],
+    options: ['De krever mindre transport og drivhus', 'De smaker bedre', 'De er større', 'De vokser raskere'],
     explanation: 'Sesongvarer dyrkes lokalt uten oppvarmet drivhus og fraktes ikke langt, noe som gir lavere klimagassutslipp.',
   },
   {
@@ -20667,12 +20667,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva gjor insulin i kroppen?',
     options: ['Hjelper cellene ta opp glukose fra blodet', 'Bryter ned fett', 'Oker blodsukkeret', 'Bygger muskler'],
-    explanation: 'Insulin frigjores nar blodsukkeret er hoyt. Det hjelper cellene ta opp glukose slik at blodsukkeret synker.',
+    explanation: 'Insulin frigjores nårblodsukkeret er hoyt. Det hjelper cellene ta opp glukose slik at blodsukkeret synker.',
   },
   {
     question: 'Hva viser glykemisk indeks (GI)?',
-    options: ['Hvor raskt karbohydrater oker blodsukkeret', 'Kaloriinnhold', 'Fettmengde', 'Proteininnhold'],
-    explanation: 'GI viser hvor raskt karbohydrater fra mat tas opp og oker blodsukkeret. Lav GI gir jevnere energi.',
+    options: ['Hvor raskt karbohydrater øker blodsukkeret', 'Kaloriinnhold', 'Fettmengde', 'Proteininnhold'],
+    explanation: 'GI viser hvor raskt karbohydrater fra mat tas opp og øker blodsukkeret. Lav GI gir jevnere energi.',
   },
   {
     question: 'Hvilken faktor pavirker IKKE stoffskiftet?',
@@ -20684,16 +20684,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-9-1-2': [
   {
     question: 'Hva er hovedforskjellen mellom matallergi og intoleranse?',
-    options: ['Allergi involverer immunsystemet og kan vaere livstruende', 'De er det samme', 'Intoleranse er farligere', 'Allergi gir bare utslett'],
-    explanation: 'Ved allergi reagerer immunsystemet, noe som kan vaere livstruende (anafylaksi). Intoleranse gir ubehag i fordoyelsen men er ikke farlig.',
+    options: ['Allergi involverer immunsystemet og kan være livstruende', 'De er det samme', 'Intoleranse er farligere', 'Allergi gir bare utslett'],
+    explanation: 'Ved allergi reagerer immunsystemet, noe som kan være livstruende (anafylaksi). Intoleranse gir ubehag i fordoyelsen men er ikke farlig.',
   },
   {
-    question: 'Hvilket vitamin ma veganere ta som tilskudd?',
+    question: 'Hvilket vitamin måveganere ta som tilskudd?',
     options: ['Vitamin B12', 'Vitamin C', 'Vitamin A', 'Vitamin K'],
-    explanation: 'Vitamin B12 finnes naturlig kun i animalske produkter. Veganere ma ta tilskudd eller spise berikede produkter.',
+    explanation: 'Vitamin B12 finnes naturlig kun i animalske produkter. Veganere måta tilskudd eller spise berikede produkter.',
   },
   {
-    question: 'Hva ma personer med coliaki unnga helt?',
+    question: 'Hva måpersoner med coliaki unngå helt?',
     options: ['Gluten (hvete, rug, bygg)', 'Laktose', 'Sukker', 'Fett'],
     explanation: 'Coliaki er en autoimmun sykdom der gluten skader tarmen. Glutenfri kost er den eneste behandlingen.',
   },
@@ -20705,14 +20705,14 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken naringsstoffkilde er spesielt viktig for vegetarianere a tenke pa?',
     options: ['Jern fra plantekilde sammen med C-vitamin', 'Bare karbohydrater', 'Sukker', 'Mettet fett'],
-    explanation: 'Jern fra planter (linser, spinat) tas darligere opp enn fra kjott. C-vitamin oker opptaket, sa spis dem sammen.',
+    explanation: 'Jern fra planter (linser, spinat) tas darligere opp enn fra kjott. C-vitamin øker opptaket, såspis dem sammen.',
   },
 ],
 
   'mat-og-helse-9-2-1': [
   {
     question: 'Hva er Maillard-reaksjonen?',
-    options: ['Reaksjon mellom aminosyrer og sukker som gir bruning og smak', 'Nar sukker smelter', 'Nar vann koker', 'Nar fett brennes'],
+    options: ['Reaksjon mellom aminosyrer og sukker som gir bruning og smak', 'Nar sukker smelter', 'Nar vann køker', 'Nar fett brennes'],
     explanation: 'Maillard-reaksjonen skjer mellom aminosyrer og sukker ved hoy temperatur (110-165C) og gir brun farge og dyp smak.',
   },
   {
@@ -20721,9 +20721,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En emulsjon er en stabil blanding av vaesker som vanligvis ikke blandes, som olje og vann i majones. En emulgator holder dem sammen.',
   },
   {
-    question: 'Hva skjer nar protein denatureres?',
+    question: 'Hva skjer nårprotein denatureres?',
     options: ['Proteinstrukturen endres ved varme eller syre', 'Protein forsvinner', 'Protein blir giftig', 'Ingenting skjer'],
-    explanation: 'Denaturering endrer proteinets struktur. Dette er hvorfor egg stivner ved oppvarming og fisk "koker" i sitronsyre (ceviche).',
+    explanation: 'Denaturering endrer proteinets struktur. Dette er hvorfor egg stivner ved oppvarming og fisk "køker" i sitronsyre (ceviche).',
   },
   {
     question: 'Hvorfor bor stekt kjott hvile for det skjaeres?',
@@ -20731,7 +20731,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Under steking presses vaeske mot midten. Hvile lar vaesken fordele seg jevnt tilbake, noe som gir saftigere kjott.',
   },
   {
-    question: 'Hva brukes syre til i matlaging?',
+    question: 'Hvabrukes syre til i matlaging?',
     options: ['Denaturere protein, forhindre bruning og gi smak', 'Bare gi sur smak', 'Oke temperaturen', 'Ingenting spesielt'],
     explanation: 'Syre (eddik, sitronsaft) denaturerer protein (marinering), forhindrer bruning av frukt og gir smak og balanse til retter.',
   },
@@ -20755,11 +20755,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom pasteurisering og sterilisering?',
-    options: ['Pasteurisering dreper de fleste, sterilisering dreper alle mikroorganismer', 'De er det samme', 'Sterilisering er mildere', 'Pasteurisering brukes bare pa vann'],
-    explanation: 'Pasteurisering (72C) dreper de fleste sykdomsframkallende bakterier. Sterilisering bruker hoyere temperatur og dreper alle.',
+    options: ['Pasteurisering dreper de fleste, sterilisering dreper alle mikroorganismer', 'De er det samme', 'Sterilisering er mildere', 'Pasteurisering brukes bare påvann'],
+    explanation: 'Pasteurisering (72C) dreper de fleste sykdomsframkallende bakterier. Sterilisering bruker høyere temperatur og dreper alle.',
   },
   {
-    question: 'Hvilke produkter er eksempler pa fermentert mat?',
+    question: 'Hvilke produkter er eksempler påfermentert mat?',
     options: ['Ost, yoghurt, surkal og ol', 'Frosne gronnsaker', 'Hermetikk', 'Torket frukt'],
     explanation: 'Fermenterte produkter inkluderer ost, yoghurt, surkal, kimchi, ol og vin. Alle bruker mikroorganismer i produksjonen.',
   },
@@ -20768,23 +20768,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-9-3-1': [
   {
     question: 'Hva er julienne-kutt?',
-    options: ['Tynne strimler pa ca. 3mm x 5cm', 'Sma terninger', 'Store biter', 'Runde skiver'],
+    options: ['Tynne strimler påca. 3mm x 5cm', 'Sma terninger', 'Store biter', 'Runde skiver'],
     explanation: 'Julienne er tynne, matchstick-lignende strimler, ofte brukt til gronnsaker i wok, salater og som garnityr.',
   },
   {
     question: 'Hva er sous vide?',
-    options: ['Tilberedning i vakuumpakning i temperaturkontrollert vannbad', 'Rask steking pa hoy varme', 'Koking i saltet vann', 'Grilling over apen flamme'],
+    options: ['Tilberedning i vakuumpakning i temperaturkontrollert vannbad', 'Rask steking påhoy varme', 'Koking i saltet vann', 'Grilling over apen flamme'],
     explanation: 'Sous vide ("under vakuum") bruker presis temperaturkontroll i vannbad. Gir jevn tilberedning og mort resultat.',
   },
   {
-    question: 'Hva er roux og hva brukes det til?',
+    question: 'Hva er roux og hvå brukes det til?',
     options: ['Like deler smor og mel - basis for a jevne sauser', 'En type gronnsakskutt', 'Et krydder', 'En koketeknikk'],
     explanation: 'Roux er en blanding av like deler smor og mel som kokes sammen. Det brukes til a jevne sauser og supper.',
   },
   {
     question: 'Hva er anbefalt kjernetemperatur for kylling?',
     options: ['75 grader C', '55 grader C', '100 grader C', '40 grader C'],
-    explanation: 'Kylling ma ha kjernetemperatur pa minst 75C for a drepe sykdomsfremkallende bakterier som salmonella.',
+    explanation: 'Kylling måha kjernetemperatur påminst 75C for a drepe sykdomsfremkallende bakterier som salmonella.',
   },
   {
     question: 'Hvorfor bor stekt kjott hvile like lenge som det ble stekt?',
@@ -20796,17 +20796,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   'mat-og-helse-9-3-2': [
   {
     question: 'Hva gjor gluten i en deig?',
-    options: ['Gir elastisitet og holder pa gassen fra gjaer', 'Gir sot smak', 'Gjor deigen kald', 'Fargelegger deigen'],
-    explanation: 'Gluten danner et elastisk nettverk som holder pa CO2-gassen fra gjaer, slik at deigen hever og far luftig struktur.',
+    options: ['Gir elastisitet og holder pågassen fra gjaer', 'Gir sot smak', 'Gjor deigen kald', 'Fargelegger deigen'],
+    explanation: 'Gluten danner et elastisk nettverk som holder påCO2-gassen fra gjaer, slik at deigen hever og fårluftig struktur.',
   },
   {
-    question: 'Hva produserer gjaer som far deigen til a heve?',
+    question: 'Hva produserer gjaer som fårdeigen til a heve?',
     options: ['CO2 (karbondioksid)', 'Oksygen', 'Nitrogen', 'Hydrogen'],
-    explanation: 'Gjaer er levende organismer som spiser sukker og produserer CO2 og alkohol. CO2-gassen far deigen til a heve.',
+    explanation: 'Gjaer er levende organismer som spiser sukker og produserer CO2 og alkohol. CO2-gassen fårdeigen til a heve.',
   },
   {
     question: 'Hvorfor brukes smor i mordeig?',
-    options: ['For a forhindre glutendannelse og gi sprohet', 'For a gi gul farge', 'For a fa deigen til a heve', 'For a gjore deigen seig'],
+    options: ['For a forhindre glutendannelse og gi sprohet', 'For a gi gul farge', 'For a fa deigen til a heve', 'For å gjøre deigen seig'],
     explanation: 'Smor dekker melet og forhindrer gluten fra a utvikle seg, noe som gir mordeig sin karakteristiske sprohet.',
   },
   {
@@ -20816,7 +20816,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bor ingredienser ha romtemperatur for baking?',
-    options: ['De blandes bedre og gir jevnere tekstur', 'De smaker bedre', 'Det gar raskere a bake', 'Det er ikke viktig'],
+    options: ['De blandes bedre og gir jevnere tekstur', 'De smaker bedre', 'Det gårraskere a bake', 'Det er ikke viktig'],
     explanation: 'Ingredienser med romtemperatur (egg, smor, melk) blandes lettere og jevnere, noe som gir bedre resultat i kakere.',
   },
 ],
@@ -20830,12 +20830,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor utviklet nordmenn mange konserveringsmetoder som salting og roying?',
     options: ['For a bevare mat til den lange vinteren', 'Fordi de likte salt mat best', 'For a eksportere mat', 'Fordi det var lovpalagt'],
-    explanation: 'Norge har lange, kalde vintre med begrenset tilgang pa fersk mat. Salting, torking og roying var nodvendig for overlevelse.',
+    explanation: 'Norge har lange, kalde vintre med begrenset tilgang påfersk mat. Salting, torking og roying var nodvendig for overlevelse.',
   },
   {
     question: 'Hva betyr halal?',
     options: ['Mat som er tillatt ifolge islamsk lov', 'Vegetarisk mat', 'Okologisk mat', 'Norsk mat'],
-    explanation: 'Halal betyr "tillatt" pa arabisk og refererer til mat som er tillatt a spise ifolge islamsk lov, med regler for slakting og forbud mot svin.',
+    explanation: 'Halal betyr "tillatt" påarabisk og refererer til mat som er tillatt a spise ifolge islamsk lov, med regler for slakting og forbud mot svin.',
   },
   {
     question: 'Hva kjennetegner middelhavskost?',
@@ -20843,7 +20843,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Middelhavskost kjennetegnes av oliveolje, ferske gronnsaker, fisk, fullkorn og belgfrukter. Det regnes som et av verdens sunneste kosthold.',
   },
   {
-    question: 'Hva har kosher- og halalregler til felles?',
+    question: 'Hvahar kosher- og halalregler til felles?',
     options: ['Begge forbyr svin og har regler for slakting', 'Begge tillater alt kjott', 'De er helt like', 'Ingen likheter'],
     explanation: 'Bade kosher (jodisk) og halal (islamsk) forbyr svin og har spesielle krav til hvordan dyr slaktes for at kjottet skal vaere tillatt.',
   },
@@ -20851,29 +20851,29 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'mat-og-helse-9-4-2': [
   {
-    question: 'Hva er forste steg nar du planlegger et selskap?',
+    question: 'Hva er første steg når du planlegger et selskap?',
     options: ['Finne ut hvem gjestene er og deres behov (allergier, preferanser)', 'Handle inn mat', 'Dekke bordet', 'Lage maten'],
-    explanation: 'Du ma vite hvem som kommer og eventuelle allergier/preferanser for du planlegger menyen. Sikkerhet forst!',
+    explanation: 'Du måvite hvem som kommer og eventuelle allergier/preferanser for du planlegger menyen. Sikkerhet forst!',
   },
   {
-    question: 'Hva er riktig rekkefølge pa et tradisjonelt maltid?',
+    question: 'Hva er riktig rekkefølge på et tradisjonelt maltid?',
     options: ['Forrett, hovedrett, dessert', 'Dessert, hovedrett, forrett', 'Hovedrett, dessert, forrett', 'Rekkefølgen spiller ingen rolle'],
     explanation: 'Tradisjonelt serveres forrett forst (lett), deretter hovedrett (mettende), og til slutt dessert (sot avslutning).',
   },
   {
-    question: 'Hvorfor bor du ikke eksperimentere med helt nye oppskrifter pa et selskap?',
-    options: ['Fordi risikoen for at noe gar galt er hoyere', 'Fordi gjester bare liker gammel mat', 'Fordi det tar for lang tid', 'Det er helt greit a gjore det'],
-    explanation: 'Nye oppskrifter har hoyere risiko for a mislykkes. Velg retter du mestrer nar du har gjester, og test nye retter forst.',
+    question: 'Hvorfor bor du ikke eksperimentere med helt nye oppskrifter på et selskap?',
+    options: ['Fordi risikoen for at noe gårgalt er høyere', 'Fordi gjester bare liker gammel mat', 'Fordi det tar for lang tid', 'Det er helt greit å gjøre det'],
+    explanation: 'Nye oppskrifter har høyere risiko for a mislykkes. Velg retter du mestrer når du har gjester, og test nye retter forst.',
   },
   {
     question: 'Hva menes med "odd numbers" i anretning?',
     options: ['At oddetall (3, 5, 7) elementer ser mer tiltalende ut', 'At du bruker runde tall', 'At du ikke teller', 'At tallerkenen er rund'],
-    explanation: 'Oddetall av elementer ser visuelt mer tiltalende ut enn partall. Tre stykker kjott ser ofte bedre ut enn to pa tallerkenen.',
+    explanation: 'Oddetall av elementer ser visuelt mer tiltalende ut enn partall. Tre stykker kjott ser ofte bedre ut enn to påtallerkenen.',
   },
   {
     question: 'Hva kan du gjore for a nyte festen mer sammen med gjestene?',
-    options: ['Forberede sa mye som mulig pa forhand', 'Lage alt rett for servering', 'Bestille ferdigmat', 'Ikke planlegge'],
-    explanation: 'Ved a lage forrett og dessert dagen for, og klargjore gronnsaker pa forhand, har du mer tid til a vaere sammen med gjestene.',
+    options: ['Forberede så mye som mulig påforhand', 'Lage alt rett for servering', 'Bestille ferdigmat', 'Ikke planlegge'],
+    explanation: 'Ved a lage forrett og dessert dagen for, og klargjore gronnsaker påforhand, har du mer tid til a vaere sammen med gjestene.',
   },
 ],
 
@@ -20891,7 +20891,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kjennetegner okologisk landbruk?',
     options: ['Ingen syntetiske sproytemidler eller kunstgjodsel', 'Hoyere avlinger enn vanlig', 'Billigere mat', 'Mer bruk av maskiner'],
-    explanation: 'Okologisk landbruk ungar syntetiske sproytemidler og kunstgjodsel, og fokuserer pa naturlige metoder for a ta vare pa jord og miljø.',
+    explanation: 'Okologisk landbruk ungar syntetiske sproytemidler og kunstgjodsel, og fokuserer pånaturlige metoder for a ta vare påjord og miljø.',
   },
   {
     question: 'Hvorfor regnes insekter som en potensiell fremtidig proteinkilde?',
@@ -20900,8 +20900,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et paradoks med verdens matproduksjon?',
-    options: ['Vi produserer nok mat til alle, men over 800 millioner sulter', 'Det produseres for lite mat', 'All mat er dyrt', 'Alle far nok mat'],
-    explanation: 'Verden produserer nok mat til alle, men pa grunn av ujevn fordeling og matsvinn sulter fortsatt over 800 millioner mennesker.',
+    options: ['Vi produserer nok mat til alle, men over 800 millioner sulter', 'Det produseres for lite mat', 'All mat er dyrt', 'Alle fårnok mat'],
+    explanation: 'Verden produserer nok mat til alle, men pågrunn av ujevn fordeling og matsvinn sulter fortsatt over 800 millioner mennesker.',
   },
 ],
 
@@ -20912,19 +20912,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Gronnvasking er villedende markedsforing der selskaper fremstar mer baerekraftige enn de faktisk er, ofte med vage pastander.',
   },
   {
-    question: 'Hva garanterer Fairtrade-merket?',
+    question: 'Hvagåranterer Fairtrade-merket?',
     options: ['Bedre betingelser for bonder og arbeidere i utviklingsland', 'At maten er okologisk', 'At maten er sunn', 'At maten er norsk'],
-    explanation: 'Fairtrade sikrer at bonder og arbeidere i utviklingsland far bedre betalt og gode arbeidsforhold.',
+    explanation: 'Fairtrade sikrer at bonder og arbeidere i utviklingsland fårbedre betalt og gode arbeidsforhold.',
   },
   {
-    question: 'Hva betyr MSC-merket pa fisk?',
+    question: 'Hva betyr MSC-merket påfisk?',
     options: ['At fisken er fanget baerekraftig', 'At fisken er billig', 'At fisken er frossen', 'At fisken er norsk'],
     explanation: 'MSC (Marine Stewardship Council) sertifiserer villfanget fisk fra baerekraftige fiskerier som ikke overforbruker bestandene.',
   },
   {
-    question: 'Hvilke sporsmal bor du stille deg nar du velger matvarer?',
+    question: 'Hvilke sporsmal bor du stille deg når du velger matvarer?',
     options: ['Hvor kommer maten fra og hvordan er den produsert?', 'Bare om prisen er lav', 'Bare om emballasjen er pen', 'Ingenting spesielt'],
-    explanation: 'Som bevisst forbruker bor du tenke pa opprinnelse, produksjonsmate, innhold og om du faktisk trenger produktet.',
+    explanation: 'Som bevisst forbruker bor du tenke påopprinnelse, produksjonsmate, innhold og om du faktisk trenger produktet.',
   },
   {
     question: 'Hvordan kan du som forbruker pavirke matproduksjonen?',
@@ -20942,7 +20942,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket fagbrev kan du oppna gjennom helse- og oppvekstfag?',
     options: ['Helsefagarbeider', 'Sykepleier', 'Lege', 'Fysioterapeut'],
-    explanation: 'Med fagbrev i helse- og oppvekstfag kan du bli helsefagarbeider eller barne- og ungdomsarbeider. Sykepleier, lege og fysioterapeut krever hoyere utdanning.',
+    explanation: 'Med fagbrev i helse- og oppvekstfag kan du bli helsefagarbeider eller barne- og ungdomsarbeider. Sykepleier, lege og fysioterapeut krever høyere utdanning.',
   },
   {
     question: 'Hva betyr begrepet menneskeverd?',
@@ -20952,7 +20952,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva innebarer autonomi i helse- og oppvekstarbeid?',
     options: ['Retten til a bestemme over eget liv og ta egne valg', 'At helsepersonell bestemmer hva som er best', 'At parorende alltid tar avgjorelser', 'At loven bestemmer alt'],
-    explanation: 'Autonomi handler om menneskers rett til a ta egne valg og bestemme over eget liv, sa langt det er mulig.',
+    explanation: 'Autonomi handler om menneskers rett til a ta egne valg og bestemme over eget liv, sålangt det er mulig.',
   },
   {
     question: 'Hvilken egenskap handler om evnen til a sette seg inn i andres situasjon?',
@@ -20979,8 +20979,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner helsefremmende arbeid til forskjell fra forebygging?',
-    options: ['Fokus pa a styrke ressurser og muligheter for god helse', 'Fokus pa a fjerne risikofaktorer', 'Fokus pa behandling av sykdom', 'Fokus pa medisiner'],
-    explanation: 'Helsefremmende arbeid fokuserer pa a styrke faktorer som fremmer god helse, mens forebygging fokuserer pa a hindre sykdom og fjerne risikofaktorer.',
+    options: ['Fokus påa styrke ressurser og muligheter for god helse', 'Fokus påa fjerne risikofaktorer', 'Fokus påbehandling av sykdom', 'Fokus påmedisiner'],
+    explanation: 'Helsefremmende arbeid fokuserer påa styrke faktorer som fremmer god helse, mens forebygging fokuserer påa hindre sykdom og fjerne risikofaktorer.',
   },
   {
     question: 'Hva er sosial ulikhet i helse?',
@@ -20992,18 +20992,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg1-1-3': [
   {
     question: 'Hva er aktiv lytting?',
-    options: ['A vise med ord og kroppssprak at du horer og forstar', 'A hore pa mens du gjor andre ting', 'A avbryte med egne kommentarer', 'A gi rad sa raskt som mulig'],
+    options: ['A vise med ord og kroppssprak at du horer og forstar', 'A hore påmens du gjor andre ting', 'A avbryte med egne kommentarer', 'A gi rad såraskt som mulig'],
     explanation: 'Aktiv lytting handler om a vise med bade ord og kroppssprak at du horer, forstar og er interessert i det den andre sier.',
   },
   {
     question: 'Hva er nonverbal kommunikasjon?',
-    options: ['Kommunikasjon uten ord, som kroppssprak og ansiktsuttrykk', 'Skriftlig kommunikasjon', 'Muntlig kommunikasjon', 'Kommunikasjon pa telefon'],
+    options: ['Kommunikasjon uten ord, som kroppssprak og ansiktsuttrykk', 'Skriftlig kommunikasjon', 'Muntlig kommunikasjon', 'Kommunikasjon påtelefon'],
     explanation: 'Nonverbal kommunikasjon er alt vi uttrykker uten ord, som ansiktsuttrykk, oyekontakt, kroppsholdning og gester.',
   },
   {
     question: 'Hvor stor andel av kommunikasjonen antas a vaere nonverbal?',
     options: ['Over 70%', 'Under 30%', 'Noyaktig 50%', 'Bare 10%'],
-    explanation: 'Forskning viser at over 70% av kommunikasjonen er nonverbal. Det er derfor viktig a vaere bevisst pa kroppspraket ditt.',
+    explanation: 'Forskning viser at over 70% av kommunikasjonen er nonverbal. Det er derfor viktig a vaere bevisst påkroppspraket ditt.',
   },
   {
     question: 'Hva kjennetegner apne sporsmål?',
@@ -21012,8 +21012,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan bor du kommunisere med barn?',
-    options: ['Tilpass spraket til alder og ga ned pa barnets niva', 'Snakk som til voksne', 'Bruk vanskelige ord for a laere dem', 'Hold alltid avstand'],
-    explanation: 'Nar du kommuniserer med barn, bor du tilpasse spraket til alderen, vaere konkret og tydelig, og ga ned pa barnets fysiske niva.',
+    options: ['Tilpass spraket til alder og ga ned påbarnets niva', 'Snakk som til voksne', 'Bruk vanskelige ord for a laere dem', 'Hold alltid avstand'],
+    explanation: 'Når du kommuniserer med barn, bor du tilpasse spraket til alderen, vaere konkret og tydelig, og ga ned påbarnets fysiske niva.',
   },
 ],
 
@@ -21031,7 +21031,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange bein har det menneskelige skjelettet?',
     options: ['206', '106', '306', '150'],
-    explanation: 'Det menneskelige skjelettet bestar av 206 bein som sammen med muskler og ledd utgjor bevegelsesapparatet.',
+    explanation: 'Det menneskelige skjelettet bestar av 206 bein som sammen med muskler og ledd utgjør bevegelsesapparatet.',
   },
   {
     question: 'Hvilke behov kommer etter fysiologiske behov i Maslows pyramide?',
@@ -21059,7 +21059,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke ledd inngar i smittekjeden?',
     options: ['Smittestoff, smittekilde, smittevei og smittemottaker', 'Bare smittestoff og mottaker', 'Kun bakterier og virus', 'Sykdom og behandling'],
-    explanation: 'Smittekjeden bestar av fire ledd: smittestoff, smittekilde, smittevei og smittemottaker. Alle ma vaere til stede for at smitte skal skje.',
+    explanation: 'Smittekjeden bestar av fire ledd: smittestoff, smittekilde, smittevei og smittemottaker. Alle måvaere til stede for at smitte skal skje.',
   },
   {
     question: 'Hvor lenge bor handvask vare?',
@@ -21076,7 +21076,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg1-3-1': [
   {
     question: 'Hva innebarer taushetsplikten?',
-    options: ['Plikt til a hindre at uvedkommende far opplysninger om brukere', 'At man aldri skal snakke med brukere', 'At man ikke skal dokumentere noe', 'At man ikke skal samarbeide med kolleger'],
+    options: ['Plikt til a hindre at uvedkommende fåropplysninger om brukere', 'At man aldri skal snakke med brukere', 'At man ikke skal dokumentere noe', 'At man ikke skal samarbeide med kolleger'],
     explanation: 'Taushetsplikt betyr at du ikke skal dele opplysninger om brukere med uvedkommende. Du kan dele med kolleger som trenger det for a gi forsvarlig hjelp.',
   },
   {
@@ -21086,18 +21086,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Fra hvilken alder kan barn som hovedregel samtykke til helsehjelp selv?',
-    options: ['16 ar', '12 ar', '18 ar', '10 ar'],
-    explanation: 'Barn over 16 ar samtykker som hovedregel selv til helsehjelp. Yngre barn kan ogsa ha rett til a bli hort i saker som angår dem.',
+    options: ['16 år', '12 år', '18 år', '10 år'],
+    explanation: 'Barn over 16 årsamtykker som hovedregel selv til helsehjelp. Yngre barn kan også ha rett til å bli hort i saker som angår dem.',
   },
   {
     question: 'Hva sier artikkel 3 i FNs barnekonvensjon?',
-    options: ['Barnets beste skal vaere et grunnleggende hensyn', 'Barn har rett til gratis skole', 'Barn kan ikke jobbe', 'Barn ma alltid bo hos foreldre'],
+    options: ['Barnets beste skal vaere et grunnleggende hensyn', 'Barn har rett til gratis skole', 'Barn kan ikke jobbe', 'Barn måalltid bo hos foreldre'],
     explanation: 'Artikkel 3 i FNs barnekonvensjon slar fast at barnets beste skal vaere et grunnleggende hensyn i alle avgjorelser som angår barn.',
   },
   {
     question: 'Gjelder taushetsplikten for elever og laerlinger?',
     options: ['Ja, den gjelder ogsa for elever og laerlinger', 'Nei, bare for ansatte', 'Bare i sykehus', 'Bare for leger og sykepleiere'],
-    explanation: 'Taushetsplikten gjelder ogsa for elever og laerlinger. Du ma aldri dele informasjon om brukere med familie, venner eller pa sosiale medier.',
+    explanation: 'Taushetsplikten gjelder ogsa for elever og laerlinger. Du måaldri dele informasjon om brukere med familie, venner eller påsosiale medier.',
   },
 ],
 
@@ -21132,8 +21132,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg2-2': [
   {
     question: 'Hva er et krav for at et samtykke skal vaere gyldig?',
-    options: ['Pasienten ma ha fatt tilstrekkelig informasjon', 'Samtykket ma vaere skriftlig', 'Samtykket ma godkjennes av lege', 'Parorende ma vaere til stede'],
-    explanation: 'For at et samtykke skal vaere gyldig, ma pasienten ha fatt tilstrekkelig informasjon, forsta informasjonen, gi samtykket frivillig og vaere samtykkekompetent.',
+    options: ['Pasienten måha fatt tilstrekkelig informasjon', 'Samtykket måvaere skriftlig', 'Samtykket mågodkjennes av lege', 'Parorende måvaere til stede'],
+    explanation: 'For at et samtykke skal vaere gyldig, måpasienten ha fatt tilstrekkelig informasjon, forsta informasjonen, gi samtykket frivillig og vaere samtykkekompetent.',
   },
   {
     question: 'Hva er samvalg (shared decision-making)?',
@@ -21142,7 +21142,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvem har rett til individuell plan?',
-    options: ['De med behov for langvarige og koordinerte tjenester', 'Alle som mottar helsetjenester', 'Bare de som er innlagt pa sykehus', 'Bare barn og unge'],
+    options: ['De med behov for langvarige og koordinerte tjenester', 'Alle som mottar helsetjenester', 'Bare de som er innlagt påsykehus', 'Bare barn og unge'],
     explanation: 'Pasienter og brukere med behov for langvarige og koordinerte tjenester fra flere instanser har rett til a fa utarbeidet en individuell plan.',
   },
   {
@@ -21152,8 +21152,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Pa hvilke nivaer kan brukermedvirkning skje?',
-    options: ['Individniva, tjenesteniva og systemniva', 'Bare pa individniva', 'Bare pa systemniva', 'Bare pa tjenesteniva'],
-    explanation: 'Brukermedvirkning skjer pa individniva (egen behandling), tjenesteniva (utforming av tjenester) og systemniva (pavirkning av helsepolitikk).',
+    options: ['Individniva, tjenesteniva og systemniva', 'Bare påindividniva', 'Bare påsystemniva', 'Bare påtjenesteniva'],
+    explanation: 'Brukermedvirkning skjer påindividniva (egen behandling), tjenesteniva (utforming av tjenester) og systemniva (pavirkning av helsepolitikk).',
   },
 ],
 
@@ -21175,8 +21175,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er salutogenese?',
-    options: ['Fokus pa hva som holder oss friske', 'Fokus pa hva som gjor oss syke', 'En type sykdom', 'En behandlingsmetode'],
-    explanation: 'Salutogenese er et begrep fra Aaron Antonovsky som fokuserer pa hva som holder oss friske (helsefremming) i stedet for bare hva som gjor oss syke.',
+    options: ['Fokus påhva som holder oss friske', 'Fokus påhva som gjor oss syke', 'En type sykdom', 'En behandlingsmetode'],
+    explanation: 'Salutogenese er et begrep fra Aaron Antonovsky som fokuserer påhva som holder oss friske (helsefremming) i stedet for bare hva som gjor oss syke.',
   },
   {
     question: 'Hva er KOLS?',
@@ -21194,7 +21194,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor skal depottabletter ikke knuses eller deles?',
     options: ['De frisetter virkestoff gradvis, og knusing odelegger denne funksjonen', 'De smaker vondt', 'De er for harde', 'De er billigere hele'],
-    explanation: 'Depottabletter er designet for a frisette virkestoffet gradvis over tid. Knusing eller deling kan fore til at hele dosen frigjores pa en gang.',
+    explanation: 'Depottabletter er designet for a frisette virkestoffet gradvis over tid. Knusing eller deling kan fore til at hele dosen frigjores påen gang.',
   },
   {
     question: 'Hva er en subkutan injeksjon?',
@@ -21208,26 +21208,26 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skal du gjore forst ved en legemiddelfeil?',
-    options: ['Sikre pasienten og iverksette nodvendige tiltak', 'Skjule feilen', 'Vente og se om det gar bra', 'Kontakte fagforeningen'],
+    options: ['Sikre pasienten og iverksette nodvendige tiltak', 'Skjule feilen', 'Vente og se om det gårbra', 'Kontakte fagforeningen'],
     explanation: 'Ved legemiddelfeil skal du forst sikre pasienten og iverksette nodvendige tiltak, deretter informere ansvarlig lege, dokumentere og melde avvik.',
   },
 ],
 
   'helseoppvekst-vg2-5': [
   {
-    question: 'Hva star ABCDE for i forstehjelp?',
+    question: 'Hva star ABCDE for i førstehjelp?',
     options: ['Airway, Breathing, Circulation, Disability, Expose', 'Arm, Ben, Celle, Dose, Effekt', 'Allergi, Blodning, Celle, Diagnose, Evaluering', 'Analyse, Behandling, Kontroll, Dokumentasjon, Evaluering'],
     explanation: 'ABCDE star for Airway (luftveier), Breathing (respirasjon), Circulation (sirkulasjon), Disability (bevissthet) og Expose/Environment.',
   },
   {
-    question: 'Hvor dypt skal man komprimere ved HLR pa voksne?',
+    question: 'Hvor dypt skal man komprimere ved HLR påvoksne?',
     options: ['5-6 cm', '2-3 cm', '3-4 cm', '7-8 cm'],
-    explanation: 'Ved HLR pa voksne skal man komprimere 5-6 cm dypt, midt pa brystet, med en frekvens pa 100-120 kompresjoner per minutt.',
+    explanation: 'Ved HLR påvoksne skal man komprimere 5-6 cm dypt, midt påbrystet, med en frekvens på 100-120 kompresjoner per minutt.',
   },
   {
     question: 'Hva betyr F i FAST-kriteriene for hjerneslag?',
     options: ['Face - sjekk om ansiktet henger', 'Fot - sjekk om personen kan ga', 'Finger - sjekk fingrenes bevegelighet', 'Feber - sjekk temperatur'],
-    explanation: 'F i FAST star for Face (ansikt). Man ber personen smile for a se om den ene munnviken henger, noe som kan vaere tegn pa hjerneslag.',
+    explanation: 'F i FAST star for Face (ansikt). Man ber personen smile for å se om den ene munnviken henger, noe som kan være tegn påhjerneslag.',
   },
   {
     question: 'Hvilket nummer ringer du ved akutt sykdom eller skade?',
@@ -21253,18 +21253,18 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Panikklidelse kjennetegnes av plutselige, intense angstanfall med fysiske symptomer som hjertebank, svette og svimmelhet.',
   },
   {
-    question: 'Hva bor du gjore hvis du er bekymret for at noen tenker pa selvmord?',
-    options: ['Sporre direkte om de tenker pa a ta sitt eget liv', 'Unnga a snakke om det for ikke a gi dem ideer', 'Vente og se om det gar over', 'Snakke om andre ting for a distrahere dem'],
-    explanation: 'Forskning viser at a sporre direkte om selvmordstanker ikke oker risikoen, men tvert imot kan vaere livreddende.',
+    question: 'Hva bor du gjore hvis du er bekymret for at noen tenker påselvmord?',
+    options: ['Sporre direkte om de tenker påa ta sitt eget liv', 'Unnga a snakke om det for ikke a gi dem ideer', 'Vente og se om det gårover', 'Snakke om andre ting for a distrahere dem'],
+    explanation: 'Forskning viser at a sporre direkte om selvmordstanker ikke øker risikoen, men tvert imot kan være livreddende.',
   },
   {
     question: 'Hva er stigma i forhold til psykisk helse?',
-    options: ['Negative holdninger og fordommer knyttet til psykisk sykdom', 'En type psykisk lidelse', 'En behandlingsmetode', 'Et symptom pa depresjon'],
+    options: ['Negative holdninger og fordommer knyttet til psykisk sykdom', 'En type psykisk lidelse', 'En behandlingsmetode', 'Et symptom pådepresjon'],
     explanation: 'Stigma er negative holdninger, fordommer og diskriminering knyttet til psykisk sykdom. Det hindrer mange i a soke hjelp.',
   },
   {
     question: 'Hva innebarer recovery-tilnaermingen?',
-    options: ['A leve meningsfullt uavhengig av symptomer', 'A bli helt frisk fra psykisk sykdom', 'A ta medisiner resten av livet', 'A vaere innlagt pa sykehus'],
+    options: ['A leve meningsfullt uavhengig av symptomer', 'A bli helt frisk fra psykisk sykdom', 'A ta medisiner resten av livet', 'A vaere innlagt påsykehus'],
     explanation: 'Recovery handler om a leve et meningsfullt liv uavhengig av symptomer, ikke nodvendigvis fravar av sykdom.',
   },
 ],
@@ -21291,9 +21291,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Tverrfaglig samarbeid innebarer at ulike yrkesgrupper (helsefagarbeidere, sykepleiere, leger, fysioterapeuter osv.) samarbeider om felles pasienter.',
   },
   {
-    question: 'Hva kan brudd pa taushetsplikten fore til?',
+    question: 'Hva kan brudd påtaushetsplikten fore til?',
     options: ['Straffeansvar og tap av autorisasjon', 'Bare muntlig advarsel', 'Ingen konsekvenser', 'Bare internt oppgjor'],
-    explanation: 'Brudd pa taushetsplikten kan fore til straffeansvar, oppsigelse og tap av autorisasjon. Det er en lovpalaagt plikt.',
+    explanation: 'Brudd påtaushetsplikten kan fore til straffeansvar, oppsigelse og tap av autorisasjon. Det er en lovpalaagt plikt.',
   },
 ],
 
@@ -21306,7 +21306,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er VAS-skalaen?',
     options: ['Et verktoy for a male smerteintensitet fra 0-10', 'En skala for a male blodtrykk', 'Et verktoy for a male temperatur', 'En skala for a vurdere bevissthet'],
-    explanation: 'VAS (Visuell analog skala) er et verktoy for a male smerteintensitet der pasienten angir smerteniva pa en skala fra 0 (ingen smerte) til 10.',
+    explanation: 'VAS (Visuell analog skala) er et verktoy for a male smerteintensitet der pasienten angir smerteniva påen skala fra 0 (ingen smerte) til 10.',
   },
   {
     question: 'Hva star V for i VIPS-modellen for dokumentasjon?',
@@ -21315,8 +21315,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er snoking i journal?',
-    options: ['A sla opp i journalen til pasienter man ikke har tjenstlig behov for a se', 'A lese egen journal', 'A dokumentere observasjoner', 'A dele journal med kolleger'],
-    explanation: 'Snoking er a sla opp i journalen til pasienter du ikke har tjenstlig behov for a se. Dette er ulovlig og kan fore til oppsigelse, bot eller straff.',
+    options: ['A sla opp i journalen til pasienter man ikke har tjenstlig behov for å se', 'A lese egen journal', 'A dokumentere observasjoner', 'A dele journal med kolleger'],
+    explanation: 'Snoking er a sla opp i journalen til pasienter du ikke har tjenstlig behov for å se. Dette er ulovlig og kan fore til oppsigelse, bot eller straff.',
   },
   {
     question: 'Hva kan mangelfull dokumentasjon fore til?',
@@ -21329,12 +21329,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en uonsket hendelse?',
     options: ['En hendelse som har fort til skade eller kunne ha fort til skade', 'En hendelse som alltid forer til dod', 'Noe som aldri skjer i helsetjenesten', 'En forventet komplikasjon'],
-    explanation: 'En uonsket hendelse er en hendelse som har fort til skade pa pasient, eller som kunne ha fort til skade. Inkluderer bade faktisk skade og nesten-uhell.',
+    explanation: 'En uonsket hendelse er en hendelse som har fort til skade påpasient, eller som kunne ha fort til skade. Inkluderer bade faktisk skade og nesten-uhell.',
   },
   {
     question: 'Hva er Braden-skalaen?',
     options: ['Et verktoy for a vurdere risiko for trykksar', 'En skala for a male smerter', 'Et verktoy for a vurdere fallrisiko', 'En skala for a male blodtrykk'],
-    explanation: 'Braden-skalaen er et verktoy for a vurdere risiko for trykksar basert pa seks faktorer inkludert mobilitet, fuktighet og ernaering.',
+    explanation: 'Braden-skalaen er et verktoy for a vurdere risiko for trykksar basert påseks faktorer inkludert mobilitet, fuktighet og ernaering.',
   },
   {
     question: 'Hva er hensikten med rotarsakanalyse?',
@@ -21348,8 +21348,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebarer systemtenkning i pasientsikkerhet?',
-    options: ['A se pa systemet rundt den enkelte, ikke bare personlig skyld', 'A skylde pa datasystemet', 'A ignorere individuelle feil', 'A ikke holde noen ansvarlig'],
-    explanation: 'Systemtenkning innebarer a se pa hvordan systemet rundt den enkelte bidrar til at feil skjer, i tillegg til individuelt ansvar.',
+    options: ['A se påsystemet rundt den enkelte, ikke bare personlig skyld', 'A skylde pådatasystemet', 'A ignorere individuelle feil', 'A ikke holde noen ansvarlig'],
+    explanation: 'Systemtenkning innebarer a se påhvordan systemet rundt den enkelte bidrar til at feil skjer, i tillegg til individuelt ansvar.',
   },
 ],
 
@@ -21361,22 +21361,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er dodsralling?',
-    options: ['Surklete lyd nar pasienten ikke klarer a hoste opp slim', 'En type pustestopp', 'Et tegn pa smerter', 'En allergisk reaksjon'],
-    explanation: 'Dodsralling er en surklete lyd nar pasienten ikke klarer a hoste opp slim. Det er vanligvis ikke plagsomt for pasienten, men kan vaere belastende for parorende.',
+    options: ['Surklete lyd nårpasienten ikke klarer a hoste opp slim', 'En type pustestopp', 'Et tegn påsmerter', 'En allergisk reaksjon'],
+    explanation: 'Dodsralling er en surklete lyd nårpasienten ikke klarer a hoste opp slim. Det er vanligvis ikke plagsomt for pasienten, men kan være belastende for parorende.',
   },
   {
-    question: 'Hva bor du unnga a si til sorgende?',
-    options: ['Det var nok til det beste', 'Jeg kondolerer', 'Jeg tenker pa deg', 'Det er naturlig a fole det slik'],
-    explanation: 'Man bor unnga a si ting som "det var til det beste", "jeg vet hvordan du har det" eller "du ma komme deg videre" til sorgende.',
+    question: 'Hva bor du unngå å si til sorgende?',
+    options: ['Det var nok til det beste', 'Jeg kondolerer', 'Jeg tenker pådeg', 'Det er naturlig a fole det slik'],
+    explanation: 'Man bor unngå å si ting som "det var til det beste", "jeg vet hvordan du har det" eller "du måkomme deg videre" til sorgende.',
   },
   {
     question: 'Hva er terminal fase?',
-    options: ['Den siste fasen av livet nar doden er naer forestående', 'Forste fase av en sykdom', 'En periode med bedring', 'En type behandling'],
-    explanation: 'Terminal fase er den siste fasen av livet nar doden er naer forestående, vanligvis de siste dagene eller timene.',
+    options: ['Den siste fasen av livet nårdoden er naer forestående', 'Forste fase av en sykdom', 'En periode med bedring', 'En type behandling'],
+    explanation: 'Terminal fase er den siste fasen av livet nårdoden er naer forestående, vanligvis de siste dagene eller timene.',
   },
   {
     question: 'Hva er viktigst i palliativ omsorg?',
-    options: ['A lindre symptomer og gi livskvalitet', 'A kurere sykdommen', 'A forlenge livet mest mulig', 'A unnga alle medisiner'],
+    options: ['A lindre symptomer og gi livskvalitet', 'A kurere sykdommen', 'A forlenge livet mest mulig', 'A unngå ålle medisiner'],
     explanation: 'I palliativ omsorg er hovedmalet a lindre symptomer og gi best mulig livskvalitet for pasienten og de parorende, ikke a kurere sykdommen.',
   },
 ],
@@ -21388,9 +21388,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Avhengighet kjennetegnes av tvangsmessig bruk av rusmiddel til tross for negative konsekvenser, toleranse, abstinens og tap av kontroll.',
   },
   {
-    question: 'Hva er tegn pa overdose?',
+    question: 'Hva er tegn påoverdose?',
     options: ['Bevisstloshet, langsom/ingen pust, bla lepper', 'Oyeblikkelig oppvakning', 'Hoyt blodtrykk', 'Feber og utslett'],
-    explanation: 'Tegn pa overdose inkluderer bevisstloshet, langsom eller ingen pust, og bla lepper. Ring 113 umiddelbart.',
+    explanation: 'Tegn påoverdose inkluderer bevisstloshet, langsom eller ingen pust, og bla lepper. Ring 113 umiddelbart.',
   },
   {
     question: 'Hva er skadereduksjon?',
@@ -21400,7 +21400,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er LAR?',
     options: ['Legemiddelassistert rehabilitering', 'Langtids akutt rusbehandling', 'Lokal avrusningsenhet', 'Lovpalagt avhold og rehabilitering'],
-    explanation: 'LAR star for legemiddelassistert rehabilitering, der pasienter med opioidavhengighet far substitusjonsmedisiner som del av behandlingen.',
+    explanation: 'LAR star for legemiddelassistert rehabilitering, der pasienter med opioidavhengighet fårsubstitusjonsmedisiner som del av behandlingen.',
   },
   {
     question: 'Hvordan bor du mote mennesker med rusutfordringer?',
@@ -21412,13 +21412,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-6': [
   {
     question: 'Hva er avvergingsplikt?',
-    options: ['Plikt til a soke a avverge alvorlige straffbare handlinger', 'Plikt til a holde ting hemmelig', 'Plikt til a rapportere alle samtaler', 'Plikt til a folge ordre'],
+    options: ['Plikt til a soke a avverge alvorlige straffbare handlinger', 'Plikt til å holde ting hemmelig', 'Plikt til a rapportere alle samtaler', 'Plikt til a folge ordre'],
     explanation: 'Alle har plikt til a soke a avverge alvorlige straffbare handlinger som er i ferd med a skje eller vil skje, inkludert vold mot barn.',
   },
   {
     question: 'Hvilke typer vold finnes?',
     options: ['Fysisk, psykisk, seksuell, okonomisk og digital vold', 'Bare fysisk vold', 'Bare psykisk vold', 'Bare seksuell vold'],
-    explanation: 'Vold kan vaere fysisk, psykisk, seksuell, okonomisk, materiell, digital og latent. Alle former er alvorlige og skadelige.',
+    explanation: 'Vold kan være fysisk, psykisk, seksuell, okonomisk, materiell, digital og latent. Alle former er alvorlige og skadelige.',
   },
   {
     question: 'Hva bor du gjore ved mistanke om vold mot et barn?',
@@ -21427,13 +21427,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Gar taushetsplikten foran avvergingsplikten?',
-    options: ['Nei, du kan ikke gjemme deg bak taushetsplikten nar barn er i fare', 'Ja, taushetsplikt gar alltid forst', 'Det kommer an pa situasjonen', 'Bare hvis leder sier det'],
-    explanation: 'Du kan ikke gjemme deg bak taushetsplikten nar barn er i fare. Avvergingsplikten gar foran taushetsplikten ved alvorlige straffbare handlinger.',
+    options: ['Nei, du kan ikke gjemme deg bak taushetsplikten nårbarn er i fare', 'Ja, taushetsplikt gåralltid forst', 'Det kommer an påsituasjonen', 'Bare hvis leder sier det'],
+    explanation: 'Du kan ikke gjemme deg bak taushetsplikten nårbarn er i fare. Avvergingsplikten gårforan taushetsplikten ved alvorlige straffbare handlinger.',
   },
   {
     question: 'Hvordan bor du snakke med en mulig voldsutsatt?',
-    options: ['I et privat og trygt sted, lytte uten a avbryte, tro pa det som fortelles', 'Konfrontere med mange sporsmål', 'Bare snakke nar andre er til stede', 'Presse personen til a anmelde'],
-    explanation: 'Finn et privat og trygt sted, forklar din bekymring, lytt uten a avbryte, tro pa det som fortelles, og respekter valg mens du informerer om hjelpemuligheter.',
+    options: ['I et privat og trygt sted, lytte uten a avbryte, tro pådet som fortelles', 'Konfrontere med mange sporsmål', 'Bare snakke nårandre er til stede', 'Presse personen til a anmelde'],
+    explanation: 'Finn et privat og trygt sted, forklar din bekymring, lytt uten a avbryte, tro pådet som fortelles, og respekter valg mens du informerer om hjelpemuligheter.',
   },
 ],
 
@@ -21444,23 +21444,23 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Kulturell kompetanse er evnen til a arbeide effektivt med mennesker fra ulike kulturer, inkludert bevissthet om egen kultur og sensitivitet for forskjeller.',
   },
   {
-    question: 'Hvorfor bor du unnga stereotypier?',
+    question: 'Hvorfor bor du unngå stereotypier?',
     options: ['Fordi det er stor variasjon innad i alle grupper og mennesker er individer', 'Fordi det er ulovlig', 'Fordi leder sier det', 'Fordi det tar for lang tid'],
     explanation: 'Stereotypier ignorerer den store variasjonen innad i grupper. Mennesker er individer, ikke representanter for sin kultur, og kultur er dynamisk.',
   },
   {
     question: 'Nar bor du bruke tolk?',
-    options: ['Ved viktige samtaler og nar det er behov for a sikre forstaelse', 'Aldri, familie kan alltid tolke', 'Bare ved akutte situasjoner', 'Bare nar pasienten ber om det'],
+    options: ['Ved viktige samtaler og nårdet er behov for a sikre forstaelse', 'Aldri, familie kan alltid tolke', 'Bare ved akutte situasjoner', 'Bare nårpasienten ber om det'],
     explanation: 'Tolk bor brukes ved viktige samtaler for a sikre forstaelse. Familiemedlemmer bor ikke brukes som tolker ved sensitive temaer.',
   },
   {
     question: 'Hvordan bor du mote mennesker fra andre kulturer?',
-    options: ['Se individet, ikke bare kulturen, og spor heller enn a anta', 'Anta hva de onsker basert pa bakgrunn', 'Behandle alle helt likt uten tilpasning', 'Unnga kontakt'],
+    options: ['Se individet, ikke bare kulturen, og spor heller enn a anta', 'Anta hva de onsker basert påbakgrunn', 'Behandle alle helt likt uten tilpasning', 'Unnga kontakt'],
     explanation: 'Se individet, ikke bare kulturen. Spor heller enn a anta, vis interesse og nysgjerrighet, og vear ydmyk overfor det du ikke vet.',
   },
   {
     question: 'Hva er viktig a huske om kultur?',
-    options: ['Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper', 'Alle fra samme land er like', 'Kultur endrer seg aldri', 'Bare forste generasjon innvandrere har kultur'],
+    options: ['Kultur er dynamisk og endrer seg, og det er stor variasjon innad i grupper', 'Alle fra samme land er like', 'Kultur endrer seg aldri', 'Bare første generasjon innvandrere har kultur'],
     explanation: 'Kultur er dynamisk og endrer seg over tid. Det er stor variasjon innad i alle grupper, og man bor aldri generalisere.',
   },
 ],
@@ -21468,7 +21468,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'helseoppvekst-vg3-8': [
   {
     question: 'Hva er velferdsteknologi?',
-    options: ['Teknologisk assistanse som bidrar til okt trygghet og selvstendighet', 'Bare roboter i helsevesenet', 'Kun varslingssystemer', 'Datamaskiner pa sykehus'],
+    options: ['Teknologisk assistanse som bidrar til okt trygghet og selvstendighet', 'Bare roboter i helsevesenet', 'Kun varslingssystemer', 'Datamaskiner påsykehus'],
     explanation: 'Velferdsteknologi er teknologisk assistanse som bidrar til okt trygghet, sikkerhet, sosial deltakelse, mobilitet og aktivitet for brukere med nedsatt funksjonsevne.',
   },
   {
@@ -21479,17 +21479,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et etisk dilemma ved GPS-sporing av personer med demens?',
     options: ['Avveining mellom sikkerhet og frihet/selvbestemmelse', 'Det er ingen etiske dilemmaer', 'Bare at det er for dyrt', 'At det bruker for mye batteri'],
-    explanation: 'GPS-sporing reiser etiske sporsmål om avveining mellom sikkerhet og frihet, spesielt nar personen ikke kan gi informert samtykke.',
+    explanation: 'GPS-sporing reiser etiske sporsmål om avveining mellom sikkerhet og frihet, spesielt nårpersonen ikke kan gi informert samtykke.',
   },
   {
     question: 'Hva er trygghetsalarm?',
-    options: ['En enhet som bruker trykker pa for a tilkalle hjelp', 'En brannalarm', 'En tyverialarm', 'En dorklokkoe'],
-    explanation: 'Trygghetsalarm er en enhet brukeren baerer pa seg og kan trykke pa for a tilkalle hjelp ved behov, for eksempel ved fall.',
+    options: ['En enhet som bruker trykker påfor a tilkalle hjelp', 'En brannalarm', 'En tyverialarm', 'En dorklokkoe'],
+    explanation: 'Trygghetsalarm er en enhet brukeren baerer påseg og kan trykke påfor a tilkalle hjelp ved behov, for eksempel ved fall.',
   },
   {
     question: 'Hva bor vurderes for man tar i bruk velferdsteknologi?',
     options: ['Brukerens behov, samtykke, personvern og etiske hensyn', 'Bare kostnaden', 'Bare hva familien onsker', 'Bare hva kommunen bestemmer'],
-    explanation: 'For man tar i bruk velferdsteknologi ma man vurdere brukerens behov, samtykke, personvern, nytte versus inngripen, og etiske hensyn.',
+    explanation: 'For man tar i bruk velferdsteknologi måman vurdere brukerens behov, samtykke, personvern, nytte versus inngripen, og etiske hensyn.',
   },
 ],
 
@@ -21517,20 +21517,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bor man gjore for man innforer en endring i stor skala?',
     options: ['Teste den i liten skala forst og evaluere resultatene', 'Innfore den umiddelbart for alle', 'Vente til noen andre prover det', 'Sporre bare ledelsen'],
-    explanation: 'Endringer bor testes i liten skala forst for a se om de virker, for de eventuelt innfores i storre skala.',
+    explanation: 'Endringer bor testes i liten skala forst for å se om de virker, for de eventuelt innfores i større skala.',
   },
 ],
 
   'helseoppvekst-vg3-10': [
   {
     question: 'Hva kan du gjore etter fagbrev i helse- og oppvekstfag?',
-    options: ['Jobbe som helsefagarbeider, ta videreutdanning eller studere videre', 'Ingenting mer', 'Bare jobbe i barnehage', 'Du ma bytte karriere'],
+    options: ['Jobbe som helsefagarbeider, ta videreutdanning eller studere videre', 'Ingenting mer', 'Bare jobbe i barnehage', 'Du måbytte karriere'],
     explanation: 'Etter fagbrev kan du jobbe som helsefagarbeider eller barne- og ungdomsarbeider, ta fagskole, videreutdanning, eller studere videre (f.eks. sykepleie via Y-veien).',
   },
   {
     question: 'Hva er Y-veien?',
-    options: ['En vei til hoyskoleutdanning basert pa fagbrev og praksis', 'En fysisk vei til sykehuset', 'En type medisinsk behandling', 'Et dataprogram'],
-    explanation: 'Y-veien gir mulighet til a ta hoyskoleutdanning (f.eks. sykepleie) basert pa fagbrev og relevant praksis, uten generell studiekompetanse.',
+    options: ['En vei til hoyskoleutdanning basert påfagbrev og praksis', 'En fysisk vei til sykehuset', 'En type medisinsk behandling', 'Et dataprogram'],
+    explanation: 'Y-veien gir mulighet til a ta hoyskoleutdanning (f.eks. sykepleie) basert påfagbrev og relevant praksis, uten generell studiekompetanse.',
   },
   {
     question: 'Hvordan kan du holde deg faglig oppdatert?',
@@ -21539,13 +21539,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fagskole?',
-    options: ['Yrkesrettet utdanning pa 1-2 ar etter fagbrev', 'Det samme som hoyskolee', 'Det samme som videregaende', 'En type grunnskole'],
-    explanation: 'Fagskole er en yrkesrettet utdanning pa 1-2 ar som bygger pa fagbrev. Det finnes fagskoleutdanninger i f.eks. demensomsorg, psykisk helse og palliasjon.',
+    options: ['Yrkesrettet utdanning på 1-2 åretter fagbrev', 'Det samme som hoyskolee', 'Det samme som videregaende', 'En type grunnskole'],
+    explanation: 'Fagskole er en yrkesrettet utdanning på 1-2 årsom bygger påfagbrev. Det finnes fagskoleutdanninger i f.eks. demensomsorg, psykisk helse og palliasjon.',
   },
   {
-    question: 'Hva bor du tenke pa nar du planlegger karrieren?',
+    question: 'Hva bor du tenke pånar du planlegger karrieren?',
     options: ['Hva du liker, hva du vil laere mer om, og hvor du ser deg selv i fremtiden', 'Bare hva som gir hoyest lonn', 'Bare hva foreldre mener', 'Ingenting, bare folge strommenl'],
-    explanation: 'Nar du planlegger karrieren bor du tenke pa hva du liker a jobbe med, hvilke omrader du vil laere mer om, og hvor du ser deg selv i fremtiden.',
+    explanation: 'Når du planlegger karrieren bor du tenke påhva du liker a jobbe med, hvilke omrader du vil laere mer om, og hvor du ser deg selv i fremtiden.',
   },
 ],
 
@@ -21553,17 +21553,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom en primærkilde og en sekundærkilde?',
     options: ['Primærkilder er fra tiden man studerer, sekundærkilder er bearbeidede fremstillinger', 'Primærkilder er skriftlige, sekundærkilder er muntlige', 'Primærkilder er offisielle, sekundærkilder er uoffisielle', 'Primærkilder er objektive, sekundærkilder er subjektive'],
-    explanation: 'Primærkilder er kilder fra den tiden man studerer (dagboker, brev, fotografier), mens sekundarkilder er bearbeidede fremstillinger basert pa primaerkilder (historieboker, artikler).',
+    explanation: 'Primærkilder er kilder fra den tiden man studerer (dagbøker, brev, fotografier), mens sekundarkilder er bearbeidede fremstillinger basert påprimaerkilder (historiebøker, artikler).',
   },
   {
     question: 'Hva menes med at en kilde har "tendens"?',
-    options: ['Kilden har en bestemt hensikt eller vinkling', 'Kilden er gammel og slitt', 'Kilden er skrevet pa et fremmed sprak', 'Kilden er vanskelig a lese'],
+    options: ['Kilden har en bestemt hensikt eller vinkling', 'Kilden er gammel og slitt', 'Kilden er skrevet på et fremmed sprak', 'Kilden er vanskelig a lese'],
     explanation: 'Tendens betyr at kilden har en bestemt hensikt eller vinkling. Skaperen kan onske a fremstille noe i et spesielt lys eller pavirke mottakeren.',
   },
   {
-    question: 'Hvilke av disse er et eksempel pa en materiell kilde?',
+    question: 'Hvilke av disse er et eksempel påen materiell kilde?',
     options: ['En vikingtids okse', 'Et brev fra 1814', 'En avisartikkel', 'En dagbok'],
-    explanation: 'Materielle kilder er gjenstander, bygninger, kunst, vapen og redskaper. Brev, avisartikler og dagboker er skriftlige kilder.',
+    explanation: 'Materielle kilder er gjenstander, bygninger, kunst, vapen og redskaper. Brev, avisartikler og dagbøker er skriftlige kilder.',
   },
   {
     question: 'Hva er hovedformalet med kildekritikk?',
@@ -21586,29 +21586,29 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken bystat regnes som demokratiets vugge?',
     options: ['Aten', 'Sparta', 'Roma', 'Korint'],
-    explanation: 'Aten utviklet det forste demokratiet der mannlige borgere kunne delta og stemme i folkeforsamlingen.',
+    explanation: 'Aten utviklet det første demokratiet der mannlige borgere kunne delta og stemme i folkeforsamlingen.',
   },
   {
     question: 'Hva var Pax Romana?',
     options: ['En periode med fred og stabilitet i Romerriket', 'En romersk gud', 'En lov mot krig', 'En fredsavtale med Hellas'],
-    explanation: 'Pax Romana var omtrent 200 ar med relativ fred og stabilitet i Romerriket (27 f.Kr. - 180 e.Kr.).',
+    explanation: 'Pax Romana var omtrent 200 årmed relativ fred og stabilitet i Romerriket (27 f.Kr. - 180 e.Kr.).',
   },
   {
     question: 'Hvem hadde IKKE politiske rettigheter i det athenske demokratiet?',
-    options: ['Kvinner, slaver og fremmede', 'Menn over 18 ar', 'Jordbrukere', 'Handverkere'],
-    explanation: 'Bare frie menn var borgere i Aten. Kvinner, slaver og fremmede (metoker) var utelukket fra politisk deltakelse.',
+    options: ['Kvinner, slaver og fremmede', 'Menn over 18 år', 'Jordbrukere', 'Handverkere'],
+    explanation: 'Bare frie menn var borgere i Aten. Kvinner, slaver og fremmede (metøker) var utelukket fra politisk deltakelse.',
   },
   {
     question: 'Nar falt det vestromerske riket?',
     options: ['476 e.Kr.', '27 f.Kr.', '800 e.Kr.', '1453 e.Kr.'],
-    explanation: 'Det vestromerske riket falt i 476 e.Kr. nar den siste vestromesrke keiseren ble avsatt.',
+    explanation: 'Det vestromerske riket falt i 476 e.Kr. nården siste vestromesrke keiseren ble avsatt.',
   },
 ],
 
   'historie-3': [
   {
     question: 'Hva var foydalisme?',
-    options: ['Et hierarkisk system basert pa jordeiendeler og lojalitetsbånd', 'Et demokratisk styresett', 'Et okonomisk system med fri handel', 'En religiøs bevegelse'],
+    options: ['Et hierarkisk system basert påjordeiendeler og lojalitetsbånd', 'Et demokratisk styresett', 'Et okonomisk system med fri handel', 'En religiøs bevegelse'],
     explanation: 'Foydalisme var et hierarkisk system der kongen sto overst, etterfulgt av vasaller/adelsmenn, riddere og bonder/leilendinger.',
   },
   {
@@ -21617,18 +21617,18 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Svartedauden kom til Norge i 1349 og drepte kanskje halvparten av befolkningen.',
   },
   {
-    question: 'Hvem var pa toppen av det foydale hierarkiet?',
+    question: 'Hvem var påtoppen av det foydale hierarkiet?',
     options: ['Kongen', 'Paven', 'Ridderne', 'Bondene'],
     explanation: 'Kongen var overst i det foydale hierarkiet og eide i prinsippet all jord.',
   },
   {
     question: 'Hvilken periode kalles Norges storhetstid?',
     options: ['Under Hakon Hakonsson (1240-1319)', 'Vikingtiden', 'Kalmarunionen', 'Dansketiden'],
-    explanation: 'Under Hakon Hakonsson var Norge pa sitt storste territorielt, med Island og Gronland, og fikk Landsloven av 1274.',
+    explanation: 'Under Hakon Hakonsson var Norge påsitt største territorielt, med Island og Gronland, og fikk Landsloven av 1274.',
   },
   {
     question: 'Hva var korstogene?',
-    options: ['Militaere ekspedisjoner for a erobre Det hellige land', 'Handelsreiser til Asia', 'Misjonsferd til Skandinavia', 'Vikingraid pa England'],
+    options: ['Militaere ekspedisjoner for a erobre Det hellige land', 'Handelsreiser til Asia', 'Misjonsferd til Skandinavia', 'Vikingraid påEngland'],
     explanation: 'Korstogene (1095-1291) var militaere ekspedisjoner for a erobre Det hellige land fra muslimene.',
   },
 ],
@@ -21642,7 +21642,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kritiserte Martin Luther ved den katolske kirken?',
     options: ['Avlatshandel og korrupsjon', 'At kirken var for fattig', 'At kirken ikke hadde nok makt', 'At Bibelen var oversatt'],
-    explanation: 'Luther kritiserte avlatshandel, korrupsjon og at kirken fokuserte pa ytre gjerninger fremfor indre tro.',
+    explanation: 'Luther kritiserte avlatshandel, korrupsjon og at kirken fokuserte påytre gjerninger fremfor indre tro.',
   },
   {
     question: 'Hvem utviklet maktfordelingsprinsippet?',
@@ -21652,7 +21652,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva var Gutenbergs viktigste oppfinnelse?',
     options: ['Trykkpressen', 'Kompasset', 'Kruttet', 'Teleskopet'],
-    explanation: 'Gutenbergs trykkpresse (ca. 1450) revolusjonerte spredningen av kunnskap og muliggjorde masseproduksjon av boker.',
+    explanation: 'Gutenbergs trykkpresse (ca. 1450) revolusjonerte spredningen av kunnskap og muliggjorde masseproduksjon av bøker.',
   },
   {
     question: 'Nar ble Norge luthersk?',
@@ -21675,16 +21675,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor begynte den industrielle revolusjonen?',
     options: ['England', 'Frankrike', 'Tyskland', 'USA'],
-    explanation: 'Den industrielle revolusjonen begynte i England pa 1700-tallet pa grunn av kull, jernforekomster og kapital fra handel.',
+    explanation: 'Den industrielle revolusjonen begynte i England på 1700-tallet pågrunn av kull, jernforekomster og kapital frå handel.',
   },
   {
     question: 'Nar fikk Norge sin grunnlov?',
     options: ['17. mai 1814', '4. juli 1776', '14. juli 1789', '7. juni 1905'],
-    explanation: 'Norges grunnlov ble vedtatt pa Eidsvoll 17. mai 1814.',
+    explanation: 'Norges grunnlov ble vedtatt påEidsvoll 17. mai 1814.',
   },
   {
     question: 'Hva er nasjonalisme?',
-    options: ['Ideen om at folk med felles sprak og kultur bor ha egen stat', 'Tro pa kongens gudommelige rett', 'Okonomisk liberalisme', 'Internasjonal solidaritet'],
+    options: ['Ideen om at folk med felles sprak og kultur bor ha egen stat', 'Tro påkongens gudommelige rett', 'Okonomisk liberalisme', 'Internasjonal solidaritet'],
     explanation: 'Nasjonalisme er ideen om at folk med felles sprak, kultur og historie bor ha sin egen stat. Nasjonalisme har bidratt til bade frigjoring og konflikter historisk.',
   },
 ],
@@ -21701,7 +21701,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '"Den hvite manns byrde" var en ideologisk rettferdiggjoring av imperialismen - at europeere hadde plikt til a "hjelpe" og "sivilisere" andre folk.',
   },
   {
-    question: 'Hva skjedde pa Berlinkonferansen 1884-85?',
+    question: 'Hva skjedde påBerlinkonferansen 1884-85?',
     options: ['Europeiske stormakter delte Afrika mellom seg', 'Afrika ble uavhengig', 'Slaveriet ble avskaffet', 'FN ble grunnlagt'],
     explanation: 'Pa Berlinkonferansen motes europeiske stormakter for a dele Afrika mellom seg. Ingen afrikanske ledere var invitert.',
   },
@@ -21711,45 +21711,45 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Sosialdarwinisme overforte Darwins evolusjonsteori til samfunn og "raser", og ble brukt til a rettferdiggjore kolonialisme.',
   },
   {
-    question: 'Hvilken kolonimakt hadde det storste imperiet?',
+    question: 'Hvilken kolonimakt hadde det største imperiet?',
     options: ['Storbritannia', 'Frankrike', 'Tyskland', 'Belgia'],
-    explanation: 'Storbritannia hadde det storste imperiet, med kolonier over hele verden, inkludert India, deler av Afrika og Australia.',
+    explanation: 'Storbritanniå hadde det største imperiet, med kolonier over hele verden, inkludert India, deler av Afrika og Australia.',
   },
 ],
 
   'historie-7': [
   {
-    question: 'Hvilken hendelse utloste forste verdenskrig?',
+    question: 'Hvilken hendelse utloste første verdenskrig?',
     options: ['Skuddene i Sarajevo', 'Storming av Bastillen', 'Boston Tea Party', 'Pearl Harbor'],
     explanation: 'Forste verdenskrig ble utlost da den osterriksk-ungarske tronarvingen Franz Ferdinand ble drept i Sarajevo 28. juni 1914.',
   },
   {
     question: 'Hva var skyttergravskrig?',
     options: ['Soldater gravde seg ned i graver og fronten sto nesten stille', 'Rask fremrykning med kavaleri', 'Krig til sjoss', 'Luftkrig med fly'],
-    explanation: 'Pa vestfronten gravde soldatene seg ned i skyttergraver, og fronten beveget seg knapt pa fire ar.',
+    explanation: 'Pa vestfronten gravde soldatene seg ned i skyttergraver, og fronten beveget seg knapt påfire år.',
   },
   {
-    question: 'Omtrent hvor mange dode i forste verdenskrig?',
+    question: 'Omtrent hvor mange dode i første verdenskrig?',
     options: ['17 millioner', '1 million', '50 millioner', '100 000'],
-    explanation: 'Omtrent 17 millioner mennesker dode i forste verdenskrig, inkludert bade soldater og sivile.',
+    explanation: 'Omtrent 17 millioner mennesker dode i første verdenskrig, inkludert bade soldater og sivile.',
   },
   {
-    question: 'Hvilket ar trakk USA inn i krigen?',
+    question: 'Hvilket årtrakk USA inn i krigen?',
     options: ['1917', '1914', '1915', '1918'],
     explanation: 'USA var noytrale til 1917, da tysk ubatkrig og Zimmermann-telegrammet forte til krigserklaring.',
   },
   {
     question: 'Hva var Versaillestraktaten?',
-    options: ['Fredsavtalen som avsluttet forste verdenskrig', 'En handelsavtale', 'En militaerallianse', 'En grunnlov'],
-    explanation: 'Versaillestraktaten var fredsavtalen som avsluttet forste verdenskrig og paforte Tyskland harde betingelser.',
+    options: ['Fredsavtalen som avsluttet første verdenskrig', 'En handelsavtale', 'En militaerallianse', 'En grunnlov'],
+    explanation: 'Versaillestraktaten var fredsavtalen som avsluttet første verdenskrig og paforte Tyskland harde betingelser.',
   },
 ],
 
   'historie-8': [
   {
     question: 'Hva kjennetegner et totalitaert regime?',
-    options: ['Staten soker total kontroll over samfunnet og individet', 'Demokratisk styreform', 'Begrenset kongemakt', 'Foderalt system'],
-    explanation: 'Totalitarisme er en styreform der staten soker total kontroll over samfunnet og individet - ingen sfaere er privat.',
+    options: ['Staten søker total kontroll over samfunnet og individet', 'Demokratisk styreform', 'Begrenset kongemakt', 'Foderalt system'],
+    explanation: 'Totalitarisme er en styreform der staten søker total kontroll over samfunnet og individet - ingen sfaere er privat.',
   },
   {
     question: 'Nar tok Hitler makten i Tyskland?',
@@ -21758,8 +21758,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva utloste den store depresjonen?',
-    options: ['Borskrakket pa Wall Street i 1929', 'Forste verdenskrig', 'Oljekrisen', 'Revolusjonen i Russland'],
-    explanation: 'Den store depresjonen ble utlost av borskrakket pa Wall Street i oktober 1929.',
+    options: ['Borskrakket påWall Street i 1929', 'Forste verdenskrig', 'Oljekrisen', 'Revolusjonen i Russland'],
+    explanation: 'Den store depresjonen ble utlost av borskrakket påWall Street i oktober 1929.',
   },
   {
     question: 'Hva var nazismens viktigste saertrekk sammenlignet med italiensk fascisme?',
@@ -21767,7 +21767,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Nazismens viktigste saertrekk var biologisk rasisme og antisemittisme som kjerneelementer, noe som muliggjorde Holocaust.',
   },
   {
-    question: 'Hva var fascismens syn pa demokrati?',
+    question: 'Hva var fascismens syn pådemokrati?',
     options: ['Avvisning av demokrati og parlamentarisme', 'Stotte til demokrati', 'Noytralitet', 'Reform av demokratiet'],
     explanation: 'Fascismen avviste demokrati og parlamentarisme, og fremmet i stedet lederprinsippet og enpartistyre.',
   },
@@ -21775,9 +21775,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'historie-9': [
   {
-    question: 'Nar startet og sluttet andre verdenskrig?',
+    question: 'Nar stårtet og sluttet andre verdenskrig?',
     options: ['1939-1945', '1914-1918', '1941-1945', '1935-1942'],
-    explanation: 'Andre verdenskrig varte fra 1939 (Tysklands angrep pa Polen) til 1945 (Tysk og japansk kapitulasjon).',
+    explanation: 'Andre verdenskrig varte fra 1939 (Tysklands angrep påPolen) til 1945 (Tysk og japansk kapitulasjon).',
   },
   {
     question: 'Omtrent hvor mange joder ble drept i Holocaust?',
@@ -21785,9 +21785,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Omtrent 6 millioner joder ble drept i det nazistiske folkemordet Holocaust.',
   },
   {
-    question: 'Hva var vendepunktet pa ostfronten?',
+    question: 'Hva var vendepunktet påostfronten?',
     options: ['Slaget om Stalingrad', 'D-dagen', 'Pearl Harbor', 'Slaget om Midway'],
-    explanation: 'Slaget om Stalingrad (1942-1943) var vendepunktet pa ostfronten, der Tyskland led et avgjorende nederlag.',
+    explanation: 'Slaget om Stalingrad (1942-1943) var vendepunktet påostfronten, der Tyskland led et avgjorende nederlag.',
   },
   {
     question: 'Nar ble Norge angrepet av Tyskland?',
@@ -21796,7 +21796,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva var D-dagen?',
-    options: ['Alliert invasjon av Normandie 6. juni 1944', 'Tysk angrep pa Sovjet', 'Japans angrep pa Pearl Harbor', 'Tysklands kapitulasjon'],
+    options: ['Alliert invasjon av Normandie 6. juni 1944', 'Tysk angrep påSovjet', 'Japans angrep påPearl Harbor', 'Tysklands kapitulasjon'],
     explanation: 'D-dagen var den allierte invasjonen av Normandie i Frankrike 6. juni 1944, som apnet vestfronten.',
   },
 ],
@@ -21810,12 +21810,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar falt Berlinmuren?',
     options: ['9. november 1989', '9. november 1991', '3. oktober 1990', '25. desember 1991'],
-    explanation: 'Berlinmuren falt 9. november 1989, et symbol pa slutten av den kalde krigen.',
+    explanation: 'Berlinmuren falt 9. november 1989, et symbol påslutten av den kalde krigen.',
   },
   {
     question: 'Hva var Cuba-krisen?',
-    options: ['En krise i 1962 da Sovjet plasserte atomraketter pa Cuba', 'En revolusjon pa Cuba', 'En handelskrig', 'En naturkatastrofe'],
-    explanation: 'I 1962 oppdaget USA sovjetiske atomraketter pa Cuba. Verden sto pa randen av atomkrig i 13 dager.',
+    options: ['En krise i 1962 da Sovjet plasserte atomraketter påCuba', 'En revolusjon påCuba', 'En handelskrig', 'En naturkatastrofe'],
+    explanation: 'I 1962 oppdaget USA sovjetiske atomraketter påCuba. Verden sto påranden av atomkrig i 13 dager.',
   },
   {
     question: 'Nar ble NATO grunnlagt?',
@@ -21825,20 +21825,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Nar ble Sovjetunionen opplost?',
     options: ['Desember 1991', 'November 1989', 'Oktober 1990', 'Januar 1992'],
-    explanation: 'Sovjetunionen ble opplost i desember 1991, som markerte slutten pa den kalde krigen.',
+    explanation: 'Sovjetunionen ble opplost i desember 1991, som markerte slutten påden kalde krigen.',
   },
 ],
 
   'geografi-1': [
   {
-    question: 'Hva betyr malestokk 1:50 000?',
-    options: ['1 cm pa kartet tilsvarer 500 meter i virkeligheten', '1 cm pa kartet tilsvarer 50 meter i virkeligheten', '1 cm pa kartet tilsvarer 5 km i virkeligheten', '1 cm pa kartet tilsvarer 50 km i virkeligheten'],
-    explanation: '1:50 000 betyr at 1 cm pa kartet tilsvarer 50 000 cm i virkeligheten, som er 500 meter.',
+    question: 'Hva betyr målestokk 1:50 000?',
+    options: ['1 cm påkartet tilsvarer 500 meter i virkeligheten', '1 cm påkartet tilsvarer 50 meter i virkeligheten', '1 cm påkartet tilsvarer 5 km i virkeligheten', '1 cm påkartet tilsvarer 50 km i virkeligheten'],
+    explanation: '1:50 000 betyr at 1 cm påkartet tilsvarer 50 000 cm i virkeligheten, som er 500 meter.',
   },
   {
-    question: 'Hva forteller tette hoydekurver pa et kart?',
+    question: 'Hva forteller tette høydekurver på et kart?',
     options: ['At terrenget er bratt', 'At terrenget er flatt', 'At det er mye vann', 'At det er skog'],
-    explanation: 'Hoydekurver forbinder punkter med samme hoyde. Nar kurvene ligger tett, er terrenget bratt.',
+    explanation: 'Hoydekurver forbinder punkter med samme høyde. Nar kurvene ligger tett, er terrenget bratt.',
   },
   {
     question: 'Hva er GIS?',
@@ -21874,35 +21874,35 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Fjordene ble dannet da isbreer gravde dalene dypere under istidene, og disse ble fylt med sjoovann da isen smeltet.',
   },
   {
-    question: 'Hva er forskjellen pa indre og ytre krefter?',
+    question: 'Hva er forskjellen påindre og ytre krefter?',
     options: ['Indre krefter bygger opp landformer, ytre krefter bryter ned', 'Indre krefter er svake, ytre er sterke', 'Indre krefter kommer fra solen, ytre fra jorden', 'Det er ingen forskjell'],
     explanation: 'Indre (endogene) krefter kommer fra jordens indre og bygger opp (vulkaner, fjellkjeder). Ytre (eksogene) krefter bryter ned (erosjon).',
   },
   {
     question: 'Hva var Pangea?',
-    options: ['Et superkontinent for 200 millioner ar siden', 'En gresk gud', 'Den forste menneskearten', 'En istid'],
-    explanation: 'Pangea var superkontinentet der alle kontinentene var samlet for omtrent 200 millioner ar siden.',
+    options: ['Et superkontinent for 200 millioner årsiden', 'En gresk gud', 'Den første menneskearten', 'En istid'],
+    explanation: 'Pangea var superkontinentet der alle kontinentene var samlet for omtrent 200 millioner årsiden.',
   },
 ],
 
   'geografi-3': [
   {
-    question: 'Hva er forskjellen pa vaer og klima?',
-    options: ['Vaer er her og na, klima er gjennomsnitt over minst 30 ar', 'Vaer er kaldt, klima er varmt', 'Vaer er pa land, klima er i havet', 'Det er ingen forskjell'],
+    question: 'Hva er forskjellen påvaer og klima?',
+    options: ['Vaer er her og na, klima er gjennomsnitt over minst 30 år', 'Vaer er kaldt, klima er varmt', 'Vaer er påland, klima er i havet', 'Det er ingen forskjell'],
     explanation: 'Vaer er atmosfaerens tilstand her og na, mens klima er gjennomsnittlig vaermonster over lang tid (minst 30 ar).',
   },
   {
-    question: 'Hvorfor har Norge et mildere klima enn andre steder pa samme breddegrad?',
+    question: 'Hvorfor har Norge et mildere klima enn andre steder påsamme breddegrad?',
     options: ['Pa grunn av Golfstrommen', 'Pa grunn av fjellene', 'Pa grunn av skogen', 'Pa grunn av solen'],
     explanation: 'Golfstrommen transporterer varmt vann fra tropene nordover langs norskekysten, og gir Norge et mildere klima.',
   },
   {
     question: 'Hva er Coriolis-effekten?',
     options: ['Jordrotasjonen avboyer vinder og havstrommer', 'Manen pavirker tidevann', 'Solen varmer jordoverflaten', 'Fjell stopper vind'],
-    explanation: 'Coriolis-effekten skyldes jordrotasjonen og avboyer bevegende luft og vann - til hoyre pa nordlige halvkule.',
+    explanation: 'Coriolis-effekten skyldes jordrotasjonen og avboyer bevegende luft og vann - til hoyre pånordlige halvkule.',
   },
   {
-    question: 'Hvilket klima har Norge?',
+    question: 'Hvilket klimå har Norge?',
     options: ['Temperert klima', 'Tropisk klima', 'Polart klima', 'Orkenlima'],
     explanation: 'Norge har temperert klima med fire tydelige arstider og moderat nedbor.',
   },
@@ -21915,19 +21915,19 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'geografi-4': [
   {
-    question: 'Hva er forskjellen pa naturlig og forsterket drivhuseffekt?',
-    options: ['Naturlig er livsnodvendig, forsterket skyldes menneskelig aktivitet', 'Naturlig er farlig, forsterket er bra', 'Det er ingen forskjell', 'Naturlig finnes ikke'],
+    question: 'Hva er forskjellen pånaturlig og førsterket drivhuseffekt?',
+    options: ['Naturlig er livsnodvendig, førsterket skyldes menneskelig aktivitet', 'Naturlig er farlig, førsterket er bra', 'Det er ingen forskjell', 'Naturlig finnes ikke'],
     explanation: 'Naturlig drivhuseffekt er livsnodvendig og holder jorden varm. Forsterket drivhuseffekt skyldes menneskeskapte utslipp og gir global oppvarming.',
   },
   {
-    question: 'Hvilken klimagass har storst oppvarmingseffekt per molekyl (sammenlignet med CO2)?',
+    question: 'Hvilken klimagass har størst oppvarmingseffekt per molekyl (sammenlignet med CO2)?',
     options: ['Metan', 'Karbondioksid', 'Vanndamp', 'Oksygen'],
     explanation: 'Metan har ca. 25 ganger sterkere oppvarmingseffekt enn CO2, selv om det finnes mindre av det.',
   },
   {
     question: 'Hva er is-albedo-effekten?',
-    options: ['Nar is smelter, absorberes mer varme, som smelter mer is', 'Is reflekterer varme ut i verdensrommet', 'Is produserer kulde', 'Is forsterker vind'],
-    explanation: 'Is-albedo-effekten er en selvforsterkende prosess: Nar is smelter, eksponeres mork overflate som absorberer mer varme, som smelter mer is.',
+    options: ['Nar is smelter, absorberes mer varme, som smelter mer is', 'Is reflekterer varme ut i verdensrommet', 'Is produserer kulde', 'Is førsterker vind'],
+    explanation: 'Is-albedo-effekten er en selvførsterkende prosess: Nar is smelter, eksponeres mork overflate som absorberer mer varme, som smelter mer is.',
   },
   {
     question: 'Hva er malet i Parisavtalen?',
@@ -21935,15 +21935,15 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Parisavtalen (2015) har som mal a begrense global oppvarming til godt under 2 grader, helst 1,5 grader over forindustrielt niva.',
   },
   {
-    question: 'Hvilken sektor er storste kilde til CO2-utslipp globalt?',
+    question: 'Hvilken sektor er største kilde til CO2-utslipp globalt?',
     options: ['Energiproduksjon og industri', 'Jordbruk', 'Transport', 'Bygg'],
-    explanation: 'Forbrenning av kull, olje og gass til energiproduksjon og industri er den storste kilden til CO2-utslipp.',
+    explanation: 'Forbrenning av kull, olje og gass til energiproduksjon og industri er den største kilden til CO2-utslipp.',
   },
 ],
 
   'geografi-5': [
   {
-    question: 'Omtrent hvor mange mennesker er det pa jorden i 2024?',
+    question: 'Omtrent hvor mange mennesker er det påjorden i 2024?',
     options: ['8 milliarder', '5 milliarder', '10 milliarder', '3 milliarder'],
     explanation: 'I 2024 passerte verdens befolkning 8 milliarder mennesker.',
   },
@@ -21963,7 +21963,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Forsorgerbyrde er forholdet mellom yrkesaktiv befolkning (15-64 ar) og ikke-yrkesaktive (barn og eldre).',
   },
   {
-    question: 'Hvorfor synker fruktbarheten nar land blir rikere?',
+    question: 'Hvorfor synker fruktbarheten nårland blir rikere?',
     options: ['Utdanning, prevensjon og kvinner i arbeidslivet', 'Folk blir for travle', 'Regjeringen forbyr barn', 'Mat blir for dyr'],
     explanation: 'Utdanning (saerlig for kvinner), tilgang til prevensjon, kvinner i arbeidslivet og lavere barnedodelighet bidrar til lavere fruktbarhet.',
   },
@@ -21973,7 +21973,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er urbanisering?',
     options: ['Prosessen der stadig flere flytter til byer', 'Bygging av hoyhus', 'Avfolkning av byer', 'Gronnere byer'],
-    explanation: 'Urbanisering er prosessen der stadig flere mennesker flytter til byer og andelen som bor urbant oker.',
+    explanation: 'Urbanisering er prosessen der stadig flere mennesker flytter til byer og andelen som bor urbant øker.',
   },
   {
     question: 'Hva er en megaby?',
@@ -21983,35 +21983,35 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er "push-faktorer" i urbanisering?',
     options: ['Det som driver folk vekk fra landsbygda', 'Det som trekker folk til byen', 'Byplanlegging', 'Offentlig transport'],
-    explanation: 'Push-faktorer er det som driver folk vekk fra landsbygda: fattigdom, arbeidsledighet, mangel pa tjenester.',
+    explanation: 'Push-faktorer er det som driver folk vekk fra landsbygda: fattigdom, arbeidsledighet, mangel påtjenester.',
   },
   {
     question: 'Hva er gentrification?',
-    options: ['Oppgradering av nedslitte byomrader som ofte presser ut opprinnelige beboere', 'Bygging av nye byer', 'Flytting til forsteder', 'Industrilokalisering'],
+    options: ['Oppgradering av nedslitte byomrader som ofte presser ut opprinnelige beboere', 'Bygging av nye byer', 'Flytting til førsteder', 'Industrilokalisering'],
     explanation: 'Gentrification er oppgradering av nedslitte byomrader, som ofte forer til at opprinnelige beboere presses ut av hoyre priser.',
   },
   {
     question: 'Hva kjennetegner baerekraftig byutvikling?',
-    options: ['Kompakt bystruktur, kollektivtransport og gronnomrader', 'Spredning og bilbasert transport', 'Store kjopesentre i utkanten', 'Hoye bygninger overalt'],
+    options: ['Kompakt bystruktur, kollektivtransport og gronnomrader', 'Spredning og bilbasert transport', 'Store kjøpesentre i utkanten', 'Hoye bygninger overalt'],
     explanation: 'Baerekraftig byutvikling kjennetegnes av kompakt struktur, effektiv kollektivtransport, blandet arealbruk og gronnomrader.',
   },
 ],
 
   'geografi-7': [
   {
-    question: 'Hva er forskjellen pa fornybare og ikke-fornybare ressurser?',
+    question: 'Hva er forskjellen påfornybare og ikke-fornybare ressurser?',
     options: ['Fornybare kan fornye seg, ikke-fornybare er begrensede', 'Fornybare er billige, ikke-fornybare er dyre', 'Fornybare finnes i Norge, ikke-fornybare i utlandet', 'Det er ingen forskjell'],
-    explanation: 'Fornybare ressurser kan fornye seg kontinuerlig (sol, vind), mens ikke-fornybare er dannet over millioner av ar og finnes i begrensede mengder (olje, kull).',
+    explanation: 'Fornybare ressurser kan fornye seg kontinuerlig (sol, vind), mens ikke-fornybare er dannet over millioner av årog finnes i begrensede mengder (olje, kull).',
   },
   {
     question: 'Hva er "allmenningens tragedie"?',
     options: ['Nar alle har tilgang til en ressurs og overutnytter den', 'En teaterforestilling', 'En naturkatastrofe', 'En okonomisk krise'],
-    explanation: 'Allmenningens tragedie oppstar nar alle har fri tilgang til en ressurs og hver enkelt har insentiv til a overutnytte den.',
+    explanation: 'Allmenningens tragedie oppstar nåralle har fri tilgang til en ressurs og hver enkelt har insentiv til a overutnytte den.',
   },
   {
-    question: 'Hva er Norges storste eksportinntekt fra naturressurser?',
+    question: 'Hva er Norges største eksportinntekt fra naturressurser?',
     options: ['Olje og gass', 'Fisk', 'Vannkraft', 'Skog'],
-    explanation: 'Olje og gass er Norges storste eksportinntekt og har vaert grunnlaget for oljefondet.',
+    explanation: 'Olje og gass er Norges største eksportinntekt og har vaert grunnlaget for oljefondet.',
   },
   {
     question: 'Hva er handlingsregelen?',
@@ -22027,9 +22027,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'geografi-8': [
   {
-    question: 'Hva er forskjellen pa en naturhendelse og en naturkatastrofe?',
+    question: 'Hva er forskjellen påen naturhendelse og en naturkatastrofe?',
     options: ['En naturkatastrofe rammer et sarbart samfunn og forarsaker store tap', 'Naturhendelser er smerre', 'Naturkatastrofer skjer oftere', 'Det er ingen forskjell'],
-    explanation: 'En naturhendelse blir en naturkatastrofe forst nar den rammer et samfunn og forarsaker store tap av liv, eiendom eller miljo.',
+    explanation: 'En naturhendelse blir en naturkatastrofe forst nården rammer et samfunn og forarsaker store tap av liv, eiendom eller miljo.',
   },
   {
     question: 'Hva er formelen for risiko?',
@@ -22039,17 +22039,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor doer flere i jordskjelv i fattige land enn i rike land?',
     options: ['Fattige land har darligere bygninger og infrastruktur', 'Jordskjelvene er sterkere i fattige land', 'Fattige land har flere innbyggere', 'Rike land har ingen jordskjelv'],
-    explanation: 'Fattige land har ofte darlig byggekvalitet, svak infrastruktur og manglende varslingssystemer - hoyere sarbarhet.',
+    explanation: 'Fattige land har ofte darlig byggekvalitet, svak infrastruktur og manglende varslingssystemer - høyere sarbarhet.',
   },
   {
     question: 'Hva er resiliens?',
-    options: ['Evnen til a komme tilbake etter en katastrofe', 'Motstandskraft mot jordskjelv', 'En type forsikring', 'Et byggeteknisk begrep'],
-    explanation: 'Resiliens er et samfunns evne til a komme tilbake etter en katastrofe og gjenoppbygge.',
+    options: ['Evnen til å komme tilbake etter en katastrofe', 'Motstandskraft mot jordskjelv', 'En type forsikring', 'Et byggeteknisk begrep'],
+    explanation: 'Resiliens er et samfunns evne til å komme tilbake etter en katastrofe og gjenoppbygge.',
   },
   {
-    question: 'Hvilke naturkatastrofer forventes a oke pa grunn av klimaendringer?',
+    question: 'Hvilke naturkatastrofer forventes a oke pågrunn av klimaendringer?',
     options: ['Hetebølger, flom, kraftigere stormer og skogbranner', 'Jordskjelv og vulkanutbrudd', 'Meteornedslag', 'Ingen'],
-    explanation: 'Klimaendringer forsterker meteorologiske hendelser som hetebølger, intens nedbor/flom, kraftigere tropiske stormer og skogbranner.',
+    explanation: 'Klimaendringer førsterker meteorologiske hendelser som hetebølger, intens nedbor/flom, kraftigere tropiske stormer og skogbranner.',
   },
 ],
 
@@ -22057,12 +22057,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mye av Norges areal er dyrket mark?',
     options: ['Ca. 3%', 'Ca. 15%', 'Ca. 30%', 'Ca. 50%'],
-    explanation: 'Bare ca. 3% av Norges areal er dyrket mark pa grunn av mye fjell, bratt terreng og kort vekstsesong.',
+    explanation: 'Bare ca. 3% av Norges areal er dyrket mark pågrunn av mye fjell, bratt terreng og kort vekstsesong.',
   },
   {
     question: 'Hvor stor andel av Norges stromproduksjon kommer fra vannkraft?',
     options: ['Ca. 90%', 'Ca. 50%', 'Ca. 30%', 'Ca. 10%'],
-    explanation: 'Omtrent 90% av Norges stromproduksjon kommer fra vannkraft, takket vaere mye nedbor og store hoyder.',
+    explanation: 'Omtrent 90% av Norges stromproduksjon kommer fra vannkraft, takket vaere mye nedbor og store høyder.',
   },
   {
     question: 'Hva er strandflaten?',
@@ -22070,21 +22070,21 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Strandflaten er en flat kyststripe langs norskekysten, formet av havet og istidene.',
   },
   {
-    question: 'Hvilken bre er Europas storste fastlandsbre?',
+    question: 'Hvilken bre er Europas største fastlandsbre?',
     options: ['Jostedalsbreen', 'Svartisen', 'Folgefonni', 'Hardangerjokulen'],
-    explanation: 'Jostedalsbreen er Europas storste fastlandsbre, lokalisert i Vestland fylke.',
+    explanation: 'Jostedalsbreen er Europas største fastlandsbre, lokalisert i Vestland fylke.',
   },
   {
     question: 'Hvorfor er bosettingen i Norge konsentrert langs kysten og i lavlandet?',
     options: ['Kysten ga tilgang til fiske og transport, lavlandet har best jordbruksjord', 'Det er varmere der', 'Loven krever det', 'Fjellene er for hoye'],
-    explanation: 'Bosettingen folger naturgrunnlaget: Kysten ga tilgang til fiske og sjotransport, lavlandet har best jordbruksjord og mildest klima.',
+    explanation: 'Bosettingen følger naturgrunnlaget: Kysten ga tilgang til fiske og sjotransport, lavlandet har best jordbruksjord og mildest klima.',
   },
 ],
 
   'geografi-10': [
   {
     question: 'Hva er HDI?',
-    options: ['FNs indeks som maler utvikling basert pa levealder, utdanning og inntekt', 'Et mal pa BNP', 'En type bistand', 'En klimaindeks'],
+    options: ['FNs indeks som maler utvikling basert pålevealder, utdanning og inntekt', 'Et mal påBNP', 'En type bistand', 'En klimaindeks'],
     explanation: 'HDI (Human Development Index) er FNs indeks som kombinerer forventet levealder, utdanningsniva og levestandard.',
   },
   {
@@ -22094,13 +22094,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en fattigdomsfelle?',
-    options: ['En selvforsterkende sirkel som holder mennesker i fattigdom', 'En type skatt', 'Et bistandsprogram', 'En okonomisk teori'],
-    explanation: 'Fattigdomsfelle er selvforsterkende sirkler som gjor det vanskelig a komme ut av fattigdom, f.eks. mangel pa utdanning som gir lav inntekt.',
+    options: ['En selvførsterkende sirkel som holder mennesker i fattigdom', 'En type skatt', 'Et bistandsprogram', 'En okonomisk teori'],
+    explanation: 'Fattigdomsfelle er selvførsterkende sirkler som gjor det vanskelig å komme ut av fattigdom, f.eks. mangel påutdanning som gir lav inntekt.',
   },
   {
     question: 'Hva er Gini-koeffisienten?',
-    options: ['Et mal pa ulikhet i inntektsfordeling', 'Et mal pa BNP', 'En befolkningsindeks', 'Et klimamal'],
-    explanation: 'Gini-koeffisienten maler ulikhet i inntektsfordeling pa en skala fra 0 (perfekt likhet) til 1 (en person har alt).',
+    options: ['Et mal påulikhet i inntektsfordeling', 'Et mal påBNP', 'En befolkningsindeks', 'Et klimamal'],
+    explanation: 'Gini-koeffisienten maler ulikhet i inntektsfordeling påen skala fra 0 (perfekt likhet) til 1 (en person har alt).',
   },
   {
     question: 'Hva nevnes ofte som en historisk arsak til global ulikhet?',
@@ -22112,13 +22112,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'religion-etikk-1': [
   {
     question: 'Hva er hovedforskjellen mellom religionsvitenskap og teologi?',
-    options: ['Religionsvitenskap studerer religion utenfra, teologi studerer innenfra', 'Teologi er eldre enn religionsvitenskap', 'Religionsvitenskap fokuserer bare pa ostlige religioner', 'Teologi bruker ikke vitenskapelige metoder'],
+    options: ['Religionsvitenskap studerer religion utenfra, teologi studerer innenfra', 'Teologi er eldre enn religionsvitenskap', 'Religionsvitenskap fokuserer bare påostlige religioner', 'Teologi bruker ikke vitenskapelige metoder'],
     explanation: 'Religionsvitenskap studerer religion som et menneskelig fenomen utenfra med vitenskapelige metoder, mens teologi ofte studerer religion innenfra, fra et troende perspektiv.',
   },
   {
     question: 'Hva menes med en funksjonell definisjon av religion?',
-    options: ['En definisjon som fokuserer pa hva religion gjor for mennesker og samfunn', 'En definisjon som fokuserer pa tro pa overnaturlige vesener', 'En definisjon som bare gjelder for vestlige religioner', 'En definisjon basert pa antall tilhengere'],
-    explanation: 'Funksjonelle definisjoner fokuserer pa religionens funksjon - hva den gjor for individ og samfunn, som a gi mening, fellesskap og moral.',
+    options: ['En definisjon som fokuserer påhva religion gjor for mennesker og samfunn', 'En definisjon som fokuserer påtro påovernaturlige vesener', 'En definisjon som bare gjelder for vestlige religioner', 'En definisjon basert påantall tilhengere'],
+    explanation: 'Funksjonelle definisjoner fokuserer påreligionens funksjon - hva den gjor for individ og samfunn, som a gi mening, fellesskap og moral.',
   },
   {
     question: 'Hva er en myte i religionsvitenskapelig forstand?',
@@ -22132,8 +22132,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sekularisering?',
-    options: ['Prosessen der religion mister innflytelse i samfunnet', 'Prosessen der religion far mer makt', 'Overgangen fra polyteisme til monoteisme', 'Sammenblanding av ulike religioner'],
-    explanation: 'Sekularisering er prosessen der religion mister innflytelse i samfunnet, noe som viser seg i faerre kirkebesok, synkende medlemstall og mindre religiøs pavirkning pa lovgivning.',
+    options: ['Prosessen der religion mister innflytelse i samfunnet', 'Prosessen der religion fårmer makt', 'Overgangen fra polyteisme til monoteisme', 'Sammenblanding av ulike religioner'],
+    explanation: 'Sekularisering er prosessen der religion mister innflytelse i samfunnet, noe som viser seg i faerre kirkebesok, synkende medlemstall og mindre religiøs pavirkning pålovgivning.',
   },
 ],
 
@@ -22141,7 +22141,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med Luthers prinsipp "sola scriptura"?',
     options: ['Bibelen alene er autoritet i trossporsmal', 'Troen alene frelser', 'Naden alene kan redde mennesket', 'Kirken alene kan tolke Bibelen'],
-    explanation: 'Sola scriptura ("Skriften alene") betyr at Bibelen er den eneste autoritative kilden for kristen tro og lære, i motsetning til katolsk vekt pa bade Bibelen og tradisjonen.',
+    explanation: 'Sola scriptura ("Skriften alene") betyr at Bibelen er den eneste autoritative kilden for kristen tro og lære, i motsetning til katolsk vekt påbade Bibelen og tradisjonen.',
   },
   {
     question: 'Hva var den viktigste arsaken til Det store skisma i 1054?',
@@ -22155,8 +22155,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner den ortodokse kristendommens gudstjeneste?',
-    options: ['Rik liturgi med ikoner, sang og rokelse', 'Enkle seremonier uten bilder', 'Fokus pa preken fremfor ritualer', 'Gudstjenester pa latin'],
-    explanation: 'Ortodoks kristendom kjennetegnes av rik liturgi med sang, rokelse, ikoner som "vinduer til det guddommelige", og sterk vekt pa mystikk og tradisjon fra oldkirken.',
+    options: ['Rik liturgi med ikoner, sang og rokelse', 'Enkle seremonier uten bilder', 'Fokus påpreken fremfor ritualer', 'Gudstjenester pålatin'],
+    explanation: 'Ortodoks kristendom kjennetegnes av rik liturgi med sang, rokelse, ikoner som "vinduer til det guddommelige", og sterk vekt påmystikk og tradisjon fra oldkirken.',
   },
   {
     question: 'Hva var boktrykkerkunstens betydning for reformasjonen?',
@@ -22167,9 +22167,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'religion-etikk-3': [
   {
-    question: 'Hva er de fem soylene i islam?',
+    question: 'Hva er de fem søylene i islam?',
     options: ['Trosbekjennelse, bonn, almisse, faste og pilegrimsreise', 'Bonn, faste, pilegrimsreise, jihad og zakat', 'Shahada, salat, jihad, ramadan og mekka', 'Tro, handlinger, profeter, engler og dommedag'],
-    explanation: 'De fem soylene er: Shahada (trosbekjennelse), salat (bonn fem ganger daglig), zakat (almisse), sawm (faste i ramadan), og hajj (pilegrimsreise til Mekka).',
+    explanation: 'De fem søylene er: Shahada (trosbekjennelse), salat (bonn fem ganger daglig), zakat (almisse), sawm (faste i ramadan), og hajj (pilegrimsreise til Mekka).',
   },
   {
     question: 'Hva er hovedforskjellen mellom sunni- og shia-islam?',
@@ -22178,17 +22178,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er spesielt med Koranens status i islam sammenlignet med Bibelen?',
-    options: ['Koranen regnes som Guds direkte ord pa arabisk, mens Bibelen er gudsinspirert', 'Bibelen regnes som mer hellig enn Koranen', 'Begge regnes som skrevet av mennesker', 'Koranen kan fritt oversettes til alle sprak'],
+    options: ['Koranen regnes som Guds direkte ord påarabisk, mens Bibelen er gudsinspirert', 'Bibelen regnes som mer hellig enn Koranen', 'Begge regnes som skrevet av mennesker', 'Koranen kan fritt oversettes til alle sprak'],
     explanation: 'Koranen regnes som Guds direkte, bokstavelige ord diktert til Muhammad. Arabisk er det hellige spraket og Koranen kan ikke fullt ut oversettes, i motsetning til Bibelen.',
   },
   {
     question: 'Hva er sharia?',
-    options: ['Islamsk lov basert pa Koranen, hadith, konsensus og analogi', 'En islamsk hoytid', 'Navnet pa den storste moskeen', 'En tittel for religiose ledere'],
-    explanation: 'Sharia er islamsk lov som skal veilede muslimer i alle livets omrader. Den er basert pa fire kilder: Koranen, sunna/hadith, ijma (konsensus) og qiyas (analogislutninger).',
+    options: ['Islamsk lov basert påKoranen, hadith, konsensus og analogi', 'En islamsk hoytid', 'Navnet påden største moskeen', 'En tittel for religiose ledere'],
+    explanation: 'Sharia er islamsk lov som skal veilede muslimer i alle livets omrader. Den er basert påfire kilder: Koranen, sunna/hadith, ijma (konsensus) og qiyas (analogislutninger).',
   },
   {
-    question: 'Hvordan ser islam pa Jesus (Isa)?',
-    options: ['Som en stor profet, men ikke Guds sonn eller guddommelig', 'Som Guds sonn og del av treenigheten', 'Som en falsk profet', 'Som den siste og storste profeten'],
+    question: 'Hvordan ser islam påJesus (Isa)?',
+    options: ['Som en stor profet, men ikke Guds sonn eller guddommelig', 'Som Guds sonn og del av treenigheten', 'Som en falsk profet', 'Som den siste og største profeten'],
     explanation: 'Islam anerkjenner Jesus som en av de store profetene, fodt av jomfru Maria og med evne til mirakler. Men han regnes ikke som Guds sonn eller guddommelig - Muhammad er den siste profeten.',
   },
 ],
@@ -22196,8 +22196,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'religion-etikk-4': [
   {
     question: 'Hva er karma i hinduismen?',
-    options: ['Loven om at handlinger far konsekvenser i dette eller neste liv', 'Navnet pa en hinduistisk gud', 'En hellig tekst', 'Et hinduistisk tempel'],
-    explanation: 'Karma er loven om arsak og virkning - handlinger far konsekvenser. God karma gir bedre gjenfodelse, darlig karma gir verre. Dette driver gjenfodelsens hjul (samsara).',
+    options: ['Loven om at handlinger fårkonsekvenser i dette eller neste liv', 'Navnet påen hinduistisk gud', 'En hellig tekst', 'Et hinduistisk tempel'],
+    explanation: 'Karma er loven om arsak og virkning - handlinger fårkonsekvenser. God karma gir bedre gjenfodelse, darlig karma gir verre. Dette driver gjenfodelsens hjul (samsara).',
   },
   {
     question: 'Hva er Buddhas fire edle sannheter?',
@@ -22205,27 +22205,27 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'De fire edle sannheter er: 1) Livet innebærer lidelse (dukkha), 2) Lidelsen skyldes begjær, 3) Lidelsen kan opphore (nirvana), 4) Veien til opphor er den attefoldige vei.',
   },
   {
-    question: 'Hva er den viktigste forskjellen mellom hinduismens og buddhismens syn pa sjelen?',
-    options: ['Hinduismen tror pa en evig sjel (atman), buddhismen avviser dette (anatta)', 'Buddhismen tror pa mange sjeler, hinduismen pa en', 'Begge religioner har identisk syn pa sjelen', 'Hinduismen avviser sjelen, buddhismen bekrefter den'],
+    question: 'Hva er den viktigste forskjellen mellom hinduismens og buddhismens syn påsjelen?',
+    options: ['Hinduismen tror påen evig sjel (atman), buddhismen avviser dette (anatta)', 'Buddhismen tror påmange sjeler, hinduismen påen', 'Begge religioner har identisk syn påsjelen', 'Hinduismen avviser sjelen, buddhismen bekrefter den'],
     explanation: 'Hinduismen lærer at mennesket har en evig sjel (atman) som er identisk med verdenssjelen (Brahman). Buddhismen avviser en evig sjel (anatta) - mennesket er en sammensatt prosess uten permanent kjerne.',
   },
   {
     question: 'Hva kjennetegner sikhismen?',
-    options: ['Monoteisme, avvisning av kastesystemet, vekt pa likhet og tjeneste', 'Polyteisme og streng hierarkisk struktur', 'Fokus pa munkevesen og asketisme', 'Tro pa gjenfodelse uten mulighet for frigjoring'],
+    options: ['Monoteisme, avvisning av kastesystemet, vekt pålikhet og tjeneste', 'Polyteisme og streng hierarkisk struktur', 'Fokus påmunkevesen og asketisme', 'Tro pågjenfodelse uten mulighet for frigjoring'],
     explanation: 'Sikhismen er monoteistisk, avviser kastesystemet, vektlegger likhet mellom mennesker og tjeneste for andre (seva). De ti guruene har gitt apenbaring, og Guru Granth Sahib er na den hellige autoritet.',
   },
   {
     question: 'Hva er moksha i hinduismen?',
-    options: ['Frigjoring fra samsara, der sjelen gar opp i Brahman', 'Den daglige bonnen', 'Et hellig fjell i India', 'Navnet pa den eldste vediske teksten'],
-    explanation: 'Moksha er det ultimate malet i hinduismen - frigjoring fra gjenfodelsens hjul (samsara). Ved moksha gar sjelen (atman) opp i verdenssjelen (Brahman).',
+    options: ['Frigjoring fra samsara, der sjelen gåropp i Brahman', 'Den daglige bonnen', 'Et hellig fjell i India', 'Navnet påden eldste vediske teksten'],
+    explanation: 'Moksha er det ultimate malet i hinduismen - frigjoring fra gjenfodelsens hjul (samsara). Ved moksha gårsjelen (atman) opp i verdenssjelen (Brahman).',
   },
 ],
 
   'religion-etikk-5': [
   {
     question: 'Hva er pakten i jodedommen?',
-    options: ['En avtale mellom Gud og Israel der folket forplikter seg til a holde Guds lov', 'En fredsavtale mellom joder og kristne', 'En handelsavtale med nabonasjonene', 'Et gammelt jodisk tempel'],
-    explanation: 'Pakten er en avtale der Gud velger Israel som sitt folk, og folket forplikter seg til a holde Guds lov (Toraen). Dette gir jodene et spesielt ansvar, ikke overlegenhet.',
+    options: ['En avtale mellom Gud og Israel der folket forplikter seg til å holde Guds lov', 'En fredsavtale mellom joder og kristne', 'En handelsavtale med nabonasjonene', 'Et gammelt jodisk tempel'],
+    explanation: 'Pakten er en avtale der Gud velger Israel som sitt folk, og folket forplikter seg til å holde Guds lov (Toraen). Dette gir jodene et spesielt ansvar, ikke overlegenhet.',
   },
   {
     question: 'Hva er Yom Kippur?',
@@ -22239,8 +22239,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner nyreligiositet?',
-    options: ['Vekt pa personlig erfaring, eklektisisme og ofte kritikk av etablerte religioner', 'Streng overholdelse av gamle tradisjoner', 'Avvisning av all form for spiritualitet', 'Kun fokus pa vestlige religiose tradisjoner'],
-    explanation: 'Nyreligiositet kjennetegnes av vekt pa personlig erfaring, eklektisisme (blanding av ulike tradisjoner), holisme, selvutvikling og ofte kritikk av etablerte religioner.',
+    options: ['Vekt påpersonlig erfaring, eklektisisme og ofte kritikk av etablerte religioner', 'Streng overholdelse av gamle tradisjoner', 'Avvisning av all form for spiritualitet', 'Kun fokus påvestlige religiose tradisjoner'],
+    explanation: 'Nyreligiositet kjennetegnes av vekt påpersonlig erfaring, eklektisisme (blanding av ulike tradisjoner), holisme, selvutvikling og ofte kritikk av etablerte religioner.',
   },
   {
     question: 'Hvilke tre religioner regnes som de abrahamittiske religionene?',
@@ -22252,18 +22252,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'religion-etikk-6': [
   {
     question: 'Hva er grunnprinsippet i utilitarismen?',
-    options: ['En handling er riktig hvis den gir storst lykke for flest mulig', 'En handling er riktig hvis den folger Guds bud', 'En handling er riktig hvis den styrker karakteren', 'En handling er riktig hvis den folger tradisjonelle regler'],
-    explanation: 'Utilitarismen hevder at en handling er moralsk riktig hvis den forer til storst mulig lykke (nytte) for storst mulig antall berørte. Konsekvensene er det eneste som teller.',
+    options: ['En handling er riktig hvis den gir størst lykke for flest mulig', 'En handling er riktig hvis den følger Guds bud', 'En handling er riktig hvis den styrker karakteren', 'En handling er riktig hvis den følger tradisjonelle regler'],
+    explanation: 'Utilitarismen hevder at en handling er moralsk riktig hvis den forer til størst mulig lykke (nytte) for størst mulig antall berørte. Konsekvensene er det eneste som teller.',
   },
   {
     question: 'Hva er Kants kategoriske imperativ?',
     options: ['Handle bare slik du ville at alle skulle handle, og respekter menneskeverdet', 'Gjor mot andre det du vil at andre skal gjore mot deg', 'Maksimer din egen lykke', 'Folg samfunnets lover uten unntak'],
-    explanation: 'Kants kategoriske imperativ sier: Handle kun pa mater du kunne onske ble allmenn lov, og behandle mennesker alltid ogsa som mal i seg selv, aldri bare som midler.',
+    explanation: 'Kants kategoriske imperativ sier: Handle kun påmater du kunne onske ble allmenn lov, og behandle mennesker alltid ogsa som mal i seg selv, aldri bare som midler.',
   },
   {
     question: 'Hva fokuserer dydsetikken pa?',
     options: ['Karaktertrekk (dyder) heller enn enkelhandlinger', 'Konsekvensene av handlinger', 'Overholdelse av moralske plikter', 'Religiose bud og forbud'],
-    explanation: 'Dydsetikk fokuserer pa karaktertrekk (dyder) som mot, rettferdighet og visdom. Sporsmalet er ikke "hva skal jeg gjore?" men "hva slags menneske bor jeg være?"',
+    explanation: 'Dydsetikk fokuserer påkaraktertrekk (dyder) som mot, rettferdighet og visdom. Sporsmalet er ikke "hva skal jeg gjore?" men "hva slags menneske bor jeg være?"',
   },
   {
     question: 'Hva er Aristoteles gylne middelvei?',
@@ -22273,7 +22273,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedkritikken mot utilitarismen?',
     options: ['Den kan rettferdiggjore urettferdighet mot mindretall', 'Den er for opptatt av individuell lykke', 'Den ignorerer konsekvenser', 'Den er for streng og gir ingen handlingsfrihet'],
-    explanation: 'Utilitarismen kritiseres for a kunne rettferdiggjore urettferdighet mot mindretall hvis det gir storre total lykke, og for a ignorere rettigheter og intensjoner.',
+    explanation: 'Utilitarismen kritiseres for a kunne rettferdiggjore urettferdighet mot mindretall hvis det gir større total lykke, og for a ignorere rettigheter og intensjoner.',
   },
 ],
 
@@ -22286,7 +22286,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Peter Singers hovedargument i dyreetikken?',
     options: ['Dyrs lidelse teller moralsk, og a ignorere den er artsdiskriminering', 'Dyr har ingen moralsk status', 'Bare pattedyr har rettigheter', 'Mennesker har alltid forrang over dyr'],
-    explanation: 'Singer argumenterer utilitaristisk: Dyrs lidelse teller moralsk pa lik linje med menneskers. A ignorere dyrs lidelse fordi de tilhorer en annen art er "artsdiskriminering" (speciesism).',
+    explanation: 'Singer argumenterer utilitaristisk: Dyrs lidelse teller moralsk pålik linje med menneskers. A ignorere dyrs lidelse fordi de tilhorer en annen art er "artsdiskriminering" (speciesism).',
   },
   {
     question: 'Hva er forskjellen mellom antroposentrisme og okosentrisme?',
@@ -22295,12 +22295,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er det sentrale sporsmalet i klimaetikken?',
-    options: ['Hvem skal bære ansvaret og byrden for a lose klimakrisen?', 'Om klimaendringer er reelle', 'Hvordan vi kan tjene penger pa klima', 'Om vitenskapen kan lose klimaproblemet alene'],
+    options: ['Hvem skal bære ansvaret og byrden for a lose klimakrisen?', 'Om klimaendringer er reelle', 'Hvordan vi kan tjene penger påklima', 'Om vitenskapen kan lose klimaproblemet alene'],
     explanation: 'Klimaetikken handler om rettferdighet: Hvem bor bære ansvaret? Rike land har historisk sluppet ut mest, men fattige land rammes hardest. Hva skylder vi fremtidige generasjoner?',
   },
   {
     question: 'Hva er aktiv eutanasi?',
-    options: ['At legen aktivt avslutter pasientens liv', 'At legen lar være a behandle slik at pasienten dor', 'At pasienten nekter behandling', 'At pasienten far smertestillende som forkorter livet'],
+    options: ['At legen aktivt avslutter pasientens liv', 'At legen lar være a behandle slik at pasienten dor', 'At pasienten nekter behandling', 'At pasienten fårsmertestillende som forkorter livet'],
     explanation: 'Aktiv eutanasi innebærer at legen aktivt gjor noe for a avslutte pasientens liv, for eksempel gir en dodelig injeksjon. Dette skiller seg fra passiv eutanasi der behandling avsluttes.',
   },
 ],
@@ -22308,16 +22308,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   'religion-etikk-8': [
   {
     question: 'Hva er forskjellen mellom ateisme og agnostisisme?',
-    options: ['Ateisme er fraver av gudstro, agnostisisme mener vi ikke kan vite', 'Ateisme er tro pa mange guder, agnostisisme pa en gud', 'Begge er former for religiøs tro', 'Ateisme er usikkerhet, agnostisisme er sikkerhet'],
-    explanation: 'Ateisme er fravaeret av gudstro - ateister tror ikke pa noen gud. Agnostisisme handler om kunnskap - agnostikere mener vi ikke kan vite om Gud finnes eller ikke.',
+    options: ['Ateisme er fraver av gudstro, agnostisisme mener vi ikke kan vite', 'Ateisme er tro påmange guder, agnostisisme påen gud', 'Begge er former for religiøs tro', 'Ateisme er usikkerhet, agnostisisme er sikkerhet'],
+    explanation: 'Ateisme er fravaeret av gudstro - ateister tror ikke pånoen gud. Agnostisisme handler om kunnskap - agnostikere mener vi ikke kan vite om Gud finnes eller ikke.',
   },
   {
-    question: 'Hva er livssynshumanismens grunnleggende syn pa etikk?',
+    question: 'Hva er livssynshumanismens grunnleggende syn på etikk?',
     options: ['Etikk begrunnes i menneskelige behov og fornuft, ikke guddommelig apenbaring', 'Etikk kommer fra Guds bud', 'Etikk er relativt og har ingen objektiv standard', 'Etikk handler kun om a maksimere nytelse'],
     explanation: 'Livssynshumanismen hevder at etikk kan begrunnes i menneskelige behov og fornuft, uten behov for guddommelig apenbaring. Mennesket skaper selv mening og verdier.',
   },
   {
-    question: 'Hva mente Jean-Paul Sartre med at "eksistensen gar forut for essensen"?',
+    question: 'Hva mente Jean-Paul Sartre med at "eksistensen gårforut for essensen"?',
     options: ['Mennesket har ingen forhåndsgitt natur, vi skaper oss selv gjennom valg', 'Gud har bestemt var essens for vi ble fodt', 'Vi oppdager var essens gjennom meditasjon', 'Var essens er genetisk bestemt'],
     explanation: 'Sartre mente at mennesket ikke har en forhåndsgitt natur. Vi eksisterer forst, deretter skaper vi oss selv gjennom valgene vi tar. Vi er "domt til frihet" og fullt ansvarlige.',
   },
@@ -22328,7 +22328,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner nyateismen?',
-    options: ['Aktiv religionskritikk og syn pa religion som skadelig', 'Stille og personlig gudlöshet', 'Respekt for alle religiose tradisjoner', 'Fokus pa dialog med religiose'],
+    options: ['Aktiv religionskritikk og syn påreligion som skadelig', 'Stille og personlig gudlöshet', 'Respekt for alle religiose tradisjoner', 'Fokus pådialog med religiose'],
     explanation: 'Nyateismen (Dawkins, Harris, Hitchens) driver aktiv religionskritikk og hevder at religion er skadelig. De mener vitenskap bor erstatte religion og at offentlig religionskritikk er nodvendig.',
   },
 ],
@@ -22336,8 +22336,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'religion-etikk-9': [
   {
     question: 'Hva innebærer religionsfrihet som menneskerettighet?',
-    options: ['Frihet til a ha, skifte eller ikke ha religion, og til a praktisere den', 'Kun frihet til a ha en religion', 'Frihet til a pavinge andre sin religion', 'Rett til a gjore alt i religionens navn'],
-    explanation: 'Religionsfrihet innebærer frihet til a ha, skifte eller ikke ha religion, og frihet til a praktisere religionen. Men den kan begrenses av hensyn til andres rettigheter og offentlig orden.',
+    options: ['Frihet til å ha, skifte eller ikke ha religion, og til a praktisere den', 'Kun frihet til å ha en religion', 'Frihet til a pavinge andre sin religion', 'Rett til å gjøre alt i religionens navn'],
+    explanation: 'Religionsfrihet innebærer frihet til å ha, skifte eller ikke ha religion, og frihet til a praktisere religionen. Men den kan begrenses av hensyn til andres rettigheter og offentlig orden.',
   },
   {
     question: 'Hva er forskjellen mellom hard og myk sekularisme?',
@@ -22352,7 +22352,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke spenninger kan oppsta mellom religion og menneskerettigheter?',
     options: ['Religiose normer kan komme i konflikt med likestilling, LHBT+-rettigheter og ytringsfrihet', 'Religion og menneskerettigheter er alltid i harmoni', 'Menneskerettigheter er utelukkende religiøst begrunnet', 'Spenninger finnes bare i ikke-vestlige samfunn'],
-    explanation: 'Det kan oppsta spenninger nar religiose normer kolliderer med f.eks. likestilling, LHBT+-rettigheter, barns rettigheter og ytringsfrihet (blasfemi).',
+    explanation: 'Det kan oppsta spenninger nårreligiose normer kolliderer med f.eks. likestilling, LHBT+-rettigheter, barns rettigheter og ytringsfrihet (blasfemi).',
   },
   {
     question: 'Hva menes med positiv og negativ religionsfrihet?',
@@ -22374,16 +22374,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forutsetninger for god religionsdialog?',
-    options: ['Gjensidig respekt, villighet til a lytte, åpenhet for a lære, ærlig presentasjon', 'At alle er enige pa forhand', 'At en religion dominerer samtalen', 'At man unngår vanskelige temaer'],
+    options: ['Gjensidig respekt, villighet til a lytte, åpenhet for a lære, ærlig presentasjon', 'At alle er enige påforhand', 'At en religion dominerer samtalen', 'At man unngår vanskelige temaer'],
     explanation: 'God religionsdialog krever gjensidig respekt, villighet til a lytte, åpenhet for a lære, ærlig presentasjon av eget standpunkt og aksept av at man har forskjeller.',
   },
   {
-    question: 'Hvordan svarer ulike religioner og livssyn pa sporsmalet om livets mening?',
-    options: ['Religiose: mening i relasjon til Gud/frelse. Sekulære: mennesket skaper selv mening', 'Alle gir identiske svar', 'Bare religion gir svar pa mening', 'Sekulære livssyn avviser sporsmal om mening'],
+    question: 'Hvordan svarer ulike religioner og livssyn påsporsmalet om livets mening?',
+    options: ['Religiose: mening i relasjon til Gud/frelse. Sekulære: mennesket skaper selv mening', 'Alle gir identiske svar', 'Bare religion gir svar påmening', 'Sekulære livssyn avviser sporsmal om mening'],
     explanation: 'Religiose svar finner mening i relasjon til Gud, frelse eller frigjoring. Sekulære svar (som humanisme og eksistensialisme) mener mennesket skaper selv mening gjennom relasjoner og handlinger.',
   },
   {
-    question: 'Hva er det kristne svaret pa teodicéproblemet gjennom "fri vilje"-argumentet?',
+    question: 'Hva er det kristne svaret påteodicéproblemet gjennom "fri vilje"-argumentet?',
     options: ['Gud ga mennesket frihet, og ondskap er prisen for denne friheten', 'Gud er ikke allmektig nok til a stoppe ondskap', 'Ondskap er en illusjon', 'Lidelse er alltid straff for synd'],
     explanation: 'Fri vilje-argumentet hevder at Gud ga mennesket frihet til a velge, og ondskap er prisen for denne friheten. Uten valgfrihet ville ikke ekte kjærlighet eller moral være mulig.',
   },
@@ -22398,12 +22398,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom direkte og representativt demokrati?',
     options: ['I direkte demokrati stemmer folket selv, i representativt velger man representanter', 'Direkte demokrati har president, representativt har konge', 'Det er ingen forskjell', 'Representativt demokrati er eldre enn direkte'],
-    explanation: 'I direkte demokrati stemmer folket selv over politiske saker. I representativt demokrati velger folket representanter som fatter beslutninger pa deres vegne. Norge har representativt demokrati.',
+    explanation: 'I direkte demokrati stemmer folket selv over politiske saker. I representativt demokrati velger folket representanter som fatter beslutninger påderes vegne. Norge har representativt demokrati.',
   },
   {
     question: 'Hva menes med parlamentarisme?',
-    options: ['Regjeringen ma ha stotte fra flertallet i nasjonalforsamlingen', 'Parlamentet har all makt', 'Presidenten utnevner regjeringen', 'Domstolene kontrollerer regjeringen'],
-    explanation: 'Parlamentarisme betyr at regjeringen ma ha stotte fra flertallet i nasjonalforsamlingen (Stortinget i Norge). Hvis regjeringen taper et mistillitsforslag, ma den ga av.',
+    options: ['Regjeringen måha stotte fra flertallet i nasjonalforsamlingen', 'Parlamentet har all makt', 'Presidenten utnevner regjeringen', 'Domstolene kontrollerer regjeringen'],
+    explanation: 'Parlamentarisme betyr at regjeringen måha stotte fra flertallet i nasjonalforsamlingen (Stortinget i Norge). Hvis regjeringen taper et mistillitsforslag, måden ga av.',
   },
   {
     question: 'Hva er sivilsamfunnet?',
@@ -22441,7 +22441,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kan begrense menneskerettighetene?',
     options: ['Hensyn til andres rettigheter, offentlig orden, sikkerhet og helse', 'Ingenting kan begrense dem', 'Statens okonomiske interesser', 'Flertallets ønsker'],
-    explanation: 'Menneskerettigheter kan begrenses av hensyn til andres rettigheter og friheter, offentlig orden og sikkerhet, folkehelsen og den offentlige moral. Begrensningene ma være nodvendige og proporsjonale.',
+    explanation: 'Menneskerettigheter kan begrenses av hensyn til andres rettigheter og friheter, offentlig orden og sikkerhet, folkehelsen og den offentlige moral. Begrensningene måvære nodvendige og proporsjonale.',
   },
 ],
 
@@ -22468,8 +22468,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er populisme?',
-    options: ['En politisk stil som hevder a representere "folket" mot "eliten"', 'En okonomisk teori', 'En bestemt ideologi pa hoyre- eller venstresiden', 'Det samme som demokrati'],
-    explanation: 'Populisme er en politisk stil som hevder a representere "det vanlige folket" mot en korrupt "elite". Den kan finnes pa bade hoyre- og venstresiden av politikken.',
+    options: ['En politisk stil som hevder a representere "folket" mot "eliten"', 'En okonomisk teori', 'En bestemt ideologi påhoyre- eller venstresiden', 'Det samme som demokrati'],
+    explanation: 'Populisme er en politisk stil som hevder a representere "det vanlige folket" mot en korrupt "elite". Den kan finnes påbade hoyre- og venstresiden av politikken.',
   },
 ],
 
@@ -22482,22 +22482,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Stortingets hovedoppgaver?',
     options: ['Vedta lover, vedta statsbudsjettet og kontrollere regjeringen', 'Utfore politikken og lede departementene', 'Domme i straffesaker', 'Underskrive lover og apne Stortinget'],
-    explanation: 'Stortinget (169 representanter) vedtar lover, vedtar statsbudsjettet og kontrollerer regjeringen. Det velges hvert fjerde ar og er den lovgivende makt.',
+    explanation: 'Stortinget (169 representanter) vedtar lover, vedtar statsbudsjettet og kontrollerer regjeringen. Det velges hvert fjerde årog er den lovgivende makt.',
   },
   {
     question: 'Hva innebærer parlamentarisme i Norge?',
-    options: ['Regjeringen ma ha Stortingets tillit for a sitte', 'Stortinget utnevner regjeringen direkte', 'Kongen bestemmer regjeringen', 'Folket stemmer pa statsminister'],
-    explanation: 'Parlamentarisme betyr at regjeringen ma ha stotte fra flertallet i Stortinget. Hvis regjeringen taper et mistillitsvedtak, ma den ga av. Regjeringen star til ansvar overfor Stortinget.',
+    options: ['Regjeringen måha Stortingets tillit for a sitte', 'Stortinget utnevner regjeringen direkte', 'Kongen bestemmer regjeringen', 'Folket stemmer påstatsminister'],
+    explanation: 'Parlamentarisme betyr at regjeringen måha stotte fra flertallet i Stortinget. Hvis regjeringen taper et mistillitsvedtak, måden ga av. Regjeringen star til ansvar overfor Stortinget.',
   },
   {
     question: 'Hva er forskjellen mellom flertalls- og mindretallsregjering?',
-    options: ['Flertallsregjering har over halvparten av Stortinget, mindretallsregjering ma forhandle', 'Det er ingen forskjell', 'Mindretallsregjering er sterkere', 'Flertallsregjering kan ikke vedta lover'],
-    explanation: 'Flertallsregjering har stotte fra over halvparten av Stortinget og kan vedta saker selv. Mindretallsregjering ma forhandle med andre partier for a fa flertall for sine forslag.',
+    options: ['Flertallsregjering har over halvparten av Stortinget, mindretallsregjering måforhandle', 'Det er ingen forskjell', 'Mindretallsregjering er sterkere', 'Flertallsregjering kan ikke vedta lover'],
+    explanation: 'Flertallsregjering har stotte fra over halvparten av Stortinget og kan vedta saker selv. Mindretallsregjering måforhandle med andre partier for a fa flertall for sine forslag.',
   },
   {
-    question: 'Hvor mange representanter sitter pa Stortinget?',
+    question: 'Hvor mange representanter sitter påStortinget?',
     options: ['169 representanter', '150 representanter', '200 representanter', '101 representanter'],
-    explanation: 'Stortinget bestar av 169 representanter som velges fra hele landet. De velges for fire ar om gangen og representerer ulike politiske partier.',
+    explanation: 'Stortinget bestar av 169 representanter som velges fra hele landet. De velges for fire årom gangen og representerer ulike politiske partier.',
   },
 ],
 
@@ -22509,22 +22509,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et ekkokammer?',
-    options: ['Nar man bare eksponeres for meninger man allerede er enig i', 'Et rom for musikk', 'Et debattprogram pa TV', 'En type sosiale medier'],
-    explanation: 'Ekkokammer oppstar nar man bare eksponeres for meninger man er enig i, ofte pa grunn av algoritmer i sosiale medier. Dette kan forsterke eksisterende synspunkter og oke polarisering.',
+    options: ['Nar man bare eksponeres for meninger man allerede er enig i', 'Et rom for musikk', 'Et debattprogram påTV', 'En type sosiale medier'],
+    explanation: 'Ekkokammer oppstar nårman bare eksponeres for meninger man er enig i, ofte pågrunn av algoritmer i sosiale medier. Dette kan førsterke eksisterende synspunkter og oke polarisering.',
   },
   {
     question: 'Hvilke ytringer er ikke beskyttet av ytringsfriheten?',
     options: ['Hatytringer, trusler, oppfordring til vold og ærekrenkelser', 'Kritikk av politikere', 'Upopulære meninger', 'Religiøs kritikk'],
-    explanation: 'Ytringsfriheten beskytter de fleste meninger, men ikke hatytringer (rasisme, homofobi), trusler, oppfordring til vold og ærekrenkelser. Grensen gar ved ytringer som kan skade andre.',
+    explanation: 'Ytringsfriheten beskytter de fleste meninger, men ikke hatytringer (rasisme, homofobi), trusler, oppfordring til vold og ærekrenkelser. Grensen gårved ytringer som kan skade andre.',
   },
   {
     question: 'Hva er kildekritikk?',
-    options: ['A vurdere om en kilde er troverdig, uavhengig og kompetent', 'A kritisere alle kilder', 'A bare bruke offisielle kilder', 'A unnga internettkilder'],
+    options: ['A vurdere om en kilde er troverdig, uavhengig og kompetent', 'A kritisere alle kilder', 'A bare bruke offisielle kilder', 'A unngå internettkilder'],
     explanation: 'Kildekritikk innebærer a vurdere kildens troverdighet, uavhengighet og kompetanse. Man sporr: Hvem star bak? Hva er formalet? Finnes det flere kilder? Er fremstillingen balansert?',
   },
   {
     question: 'Hva er falske nyheter?',
-    options: ['Bevisst feilinformasjon som spres som sannhet', 'Nyheter man er uenig i', 'Nyheter fra sosiale medier', 'Alle nyheter pa internett'],
+    options: ['Bevisst feilinformasjon som spres som sannhet', 'Nyheter man er uenig i', 'Nyheter fra sosiale medier', 'Alle nyheter påinternett'],
     explanation: 'Falske nyheter er bevisst feilinformasjon som spres som om det var sannhet. De kan være laget for a pavirke meninger, tjene penger eller skape kaos.',
   },
 ],
@@ -22537,23 +22537,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er oljefondet?',
-    options: ['Norges sparefond fra oljeinntekter, verdens storste statlige fond', 'Et fond for a kjope olje', 'Et privat investeringsfond', 'Et fond kun for pensjonister'],
-    explanation: 'Oljefondet (Statens pensjonsfond utland) er Norges sparefond der oljeinntekter investeres for fremtiden. Det er verdens storste statlige investeringsfond.',
+    options: ['Norges sparefond fra oljeinntekter, verdens største statlige fond', 'Et fond for a kjøpe olje', 'Et privat investeringsfond', 'Et fond kun for pensjonister'],
+    explanation: 'Oljefondet (Statens pensjonsfond utland) er Norges sparefond der oljeinntekter investeres for fremtiden. Det er verdens største statlige investeringsfond.',
   },
   {
     question: 'Hva er handlingsregelen?',
-    options: ['Staten kan bruke inntil 3 % av oljefondet arlig', 'Staten ma bruke hele oljefondet', 'Staten kan ikke bruke oljepenger', 'Stortinget bestemmer fritt hvor mye som brukes'],
-    explanation: 'Handlingsregelen sier at staten kan bruke inntil 3 % av oljefondets verdi hvert ar. Dette sikrer at pengene varer, unngår overoppheting av okonomien og sparer til fremtidige generasjoner.',
+    options: ['Staten kan bruke inntil 3 % av oljefondet arlig', 'Staten måbruke hele oljefondet', 'Staten kan ikke bruke oljepenger', 'Stortinget bestemmer fritt hvor mye som brukes'],
+    explanation: 'Handlingsregelen sier at staten kan bruke inntil 3 % av oljefondets verdi hvert år. Dette sikrer at pengene varer, unngår overoppheting av okonomien og sparer til fremtidige generasjoner.',
   },
   {
     question: 'Hva er BNP?',
-    options: ['Verdien av alle varer og tjenester produsert i et land pa ett ar', 'Landets totale gjeld', 'Antall arbeidsplasser', 'Statens arlige skatteinntekter'],
-    explanation: 'BNP (bruttonasjonalprodukt) er verdien av alle varer og tjenester som produseres i et land i lopet av ett ar. Det brukes ofte som mal pa landets okonomiske storrelse.',
+    options: ['Verdien av alle varer og tjenester produsert i et land på ett år', 'Landets totale gjeld', 'Antall arbeidsplasser', 'Statens arlige skatteinntekter'],
+    explanation: 'BNP (bruttonasjonalprodukt) er verdien av alle varer og tjenester som produseres i et land i lopet av ett år. Det brukes ofte som mal pålandets okonomiske størrelse.',
   },
   {
-    question: 'Hvilke utfordringer star velferdsstaten overfor i fremtiden?',
-    options: ['Eldrebolge, mindre oljeinntekter og okende helsekostnader', 'For mange unge', 'For mye oljeinntekter', 'For lav levealder'],
-    explanation: 'Velferdsstaten utfordres av eldrebolgen (flere pensjonister), mindre oljeinntekter, okende helsekostnader, klimaomstilling og globalisering med skattekonkurranse.',
+    question: 'Hvilke utfordringer står velferdsstaten overfor i fremtiden?',
+    options: ['Eldrebolge, mindre oljeinntekter og økende helsekostnader', 'For mange unge', 'For mye oljeinntekter', 'For lav levealder'],
+    explanation: 'Velferdsstaten utfordres av eldrebolgen (flere pensjonister), mindre oljeinntekter, økende helsekostnader, klimaomstilling og globalisering med skattekonkurranse.',
   },
 ],
 
@@ -22574,9 +22574,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Streik er arbeidstakernes virkemiddel der de nekter a jobbe for a presse gjennom krav. Lockout er arbeidsgivernes virkemiddel der de stenger arbeidstakerne ute.',
   },
   {
-    question: 'Hva ma en arbeidskontrakt inneholde?',
+    question: 'Hva måen arbeidskontrakt inneholde?',
     options: ['Lonn, arbeidstid, arbeidsoppgaver og oppsigelsesfrister', 'Bare lonn', 'Bare arbeidstid', 'Ingenting spesielt'],
-    explanation: 'En arbeidskontrakt ma inneholde partenes navn, arbeidssted, stillingstittel, arbeidsoppgaver, lonn, arbeidstid, ferierettigheter og oppsigelsesfrister. Skriftlig avtale er pakrevd.',
+    explanation: 'En arbeidskontrakt måinneholde partenes navn, arbeidssted, stillingstittel, arbeidsoppgaver, lonn, arbeidstid, ferierettigheter og oppsigelsesfrister. Skriftlig avtale er pakrevd.',
   },
   {
     question: 'Hva er frontfagsmodellen?',
@@ -22621,7 +22621,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Parisavtalen?',
-    options: ['Internasjonal klimaavtale om a begrense oppvarming til 1,5-2 grader', 'En fredsavtale etter forste verdenskrig', 'En handelsavtale mellom EU-land', 'En menneskerettighetsavtale'],
+    options: ['Internasjonal klimaavtale om a begrense oppvarming til 1,5-2 grader', 'En fredsavtale etter første verdenskrig', 'En handelsavtale mellom EU-land', 'En menneskerettighetsavtale'],
     explanation: 'Parisavtalen fra 2015 er en internasjonal klimaavtale der landene forplikter seg til a begrense global oppvarming til helst 1,5 grader, maksimalt 2 grader over forindustrielt niva.',
   },
   {
@@ -22632,7 +22632,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er de tre dimensjonene i bærekraftig utvikling?',
     options: ['Miljomessig, okonomisk og sosial bærekraft', 'Lokal, nasjonal og global', 'Fortid, natid og fremtid', 'Land, luft og vann'],
-    explanation: 'De tre dimensjonene er miljomessig bærekraft (ta vare pa naturen), okonomisk bærekraft (skape verdier uten a tomme ressurser) og sosial bærekraft (rettferdig fordeling og gode levekar).',
+    explanation: 'De tre dimensjonene er miljomessig bærekraft (ta vare pånaturen), okonomisk bærekraft (skape verdier uten a tomme ressurser) og sosial bærekraft (rettferdig fordeling og gode levekar).',
   },
   {
     question: 'Hva er bistand?',
@@ -22655,7 +22655,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er EOS-avtalen?',
     options: ['Norges avtale med EU om okonomisk samarbeid', 'En forsvarsavtale', 'En klimaavtale', 'En avtale om grensekontroll'],
-    explanation: 'EOS-avtalen gir Norge tilgang til EUs indre marked og forplikter Norge til a folge EUs regler pa mange omrader, uten at Norge er EU-medlem.',
+    explanation: 'EOS-avtalen gir Norge tilgang til EUs indre marked og forplikter Norge til a folge EUs regler påmange omrader, uten at Norge er EU-medlem.',
   },
   {
     question: 'Hva er en NGO?',
@@ -22683,7 +22683,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er interessenter i en virksomhet?',
     options: ['Personer og grupper som pavirkes av eller kan pavirke virksomheten', 'Kun eierne av bedriften', 'Ansatte som har aksjer i selskapet', 'Konkurrentene til bedriften'],
-    explanation: 'Interessenter er alle personer, grupper og organisasjoner som pavirkes av eller kan pavirke virksomheten, inkludert eiere, ansatte, kunder, leverandorer og samfunnet.',
+    explanation: 'Interessenter er alle personer, grupper og organisasjoner som pavirkes av eller kan pavirke virksomheten, inkludert eiere, ansatte, kunder, leverandører og samfunnet.',
   },
   {
     question: 'Hva kjennetegner sma bedrifter i Norge?',
@@ -22711,7 +22711,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en ulempe med funksjonsorganisasjon?',
     options: ['Kan gi silotenkning mellom avdelinger', 'For enkelt a forstaa', 'Gir for mye spesialisering', 'Alle tar ansvar for alt'],
-    explanation: 'En ulempe med funksjonsorganisasjon er at den kan gi "silotenkning" mellom avdelinger, der det blir vanskelig a koordinere pa tvers.',
+    explanation: 'En ulempe med funksjonsorganisasjon er at den kan gi "silotenkning" mellom avdelinger, der det blir vanskelig a koordinere påtvers.',
   },
   {
     question: 'Hva er organisasjonskultur?',
@@ -22719,9 +22719,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Organisasjonskultur er de felles verdier, normer, holdninger og antakelser som preger en organisasjon - "slik gjor vi det her hos oss".',
   },
   {
-    question: 'Hvilken kulturtype fokuserer pa innovasjon og kreativitet?',
+    question: 'Hvilken kulturtype fokuserer påinnovasjon og kreativitet?',
     options: ['Adhokrati-kultur', 'Klankultur', 'Hierarkisk kultur', 'Markedskultur'],
-    explanation: 'Adhokrati-kultur fokuserer pa innovasjon, kreativitet og risikotaking, der lederen er en entreprenor.',
+    explanation: 'Adhokrati-kultur fokuserer påinnovasjon, kreativitet og risikotaking, der lederen er en entreprenor.',
   },
 ],
 
@@ -22733,8 +22733,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Nar passer autoritaer ledelse best?',
-    options: ['I krisesituasjoner eller nar raske beslutninger er nodvendig', 'Alltid i alle situasjoner', 'Nar ansatte er svart selvstendige', 'Nar man har god tid til diskusjoner'],
-    explanation: 'Autoritaer ledelse passer i krisesituasjoner eller nar raske beslutninger er nodvendig, siden lederen tar beslutninger alene.',
+    options: ['I krisesituasjoner eller nårraske beslutninger er nodvendig', 'Alltid i alle situasjoner', 'Nar ansatte er svart selvstendige', 'Nar man har god tid til diskusjoner'],
+    explanation: 'Autoritaer ledelse passer i krisesituasjoner eller nårraske beslutninger er nodvendig, siden lederen tar beslutninger alene.',
   },
   {
     question: 'Hva innebarer situasjonsbestemt ledelse?',
@@ -22748,7 +22748,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner en transformasjonsleder?',
-    options: ['Inspirerer medarbeidere til a jobbe for fellesskapets beste', 'Fokuserer kun pa daglig drift', 'Gir detaljerte instruksjoner hele tiden', 'Unngår a ta beslutninger'],
+    options: ['Inspirerer medarbeidere til a jobbe for fellesskapets beste', 'Fokuserer kun pådaglig drift', 'Gir detaljerte instruksjoner hele tiden', 'Unngår a ta beslutninger'],
     explanation: 'Transformasjonsledere inspirerer medarbeidere til a se utover egne interesser og arbeide for fellesskapets beste gjennom visjon, stimulering og individuell omtanke.',
   },
 ],
@@ -22757,12 +22757,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom indre og ytre motivasjon?',
     options: ['Indre motivasjon kommer innenfra, ytre fra belonninger eller straff', 'De er det samme', 'Ytre motivasjon er alltid bedre', 'Indre motivasjon handler om penger'],
-    explanation: 'Indre motivasjon kommer innenfra - vi gjor noe fordi det er interessant eller meningsfullt. Ytre motivasjon kommer utenfra - vi gjor noe for belonning eller for a unnga straff.',
+    explanation: 'Indre motivasjon kommer innenfra - vi gjor noe fordi det er interessant eller meningsfullt. Ytre motivasjon kommer utenfra - vi gjor noe for belonning eller for å unngå straff.',
   },
   {
     question: 'Ifølge Herzberg, hva er hygienefaktorer?',
-    options: ['Faktorer som kan skape misnøye hvis de mangler, men ikke motiverer i seg selv', 'Faktorer som alltid motiverer', 'Renholdsrutiner pa arbeidsplassen', 'Faktorer som bare handler om helse'],
-    explanation: 'Hygienefaktorer (som lonn og arbeidsforhold) kan skape misnøye hvis de mangler, men motiverer ikke i seg selv. De ma vaere pa plass for a unnga misnøye.',
+    options: ['Faktorer som kan skape misnøye hvis de mangler, men ikke motiverer i seg selv', 'Faktorer som alltid motiverer', 'Renholdsrutiner påarbeidsplassen', 'Faktorer som bare handler om helse'],
+    explanation: 'Hygienefaktorer (som lonn og arbeidsforhold) kan skape misnøye hvis de mangler, men motiverer ikke i seg selv. De måvaere påplass for å unngå misnøye.',
   },
   {
     question: 'Hva er det øverste nivaet i Maslows behovspyramide?',
@@ -22777,7 +22777,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er psykososialt arbeidsmiljo?',
     options: ['Mellommenneskelige forhold som samarbeid, ledelse og arbeidsbelastning', 'Belysning og temperatur', 'Kontorets fysiske utforming', 'Kun lonnsforhold'],
-    explanation: 'Psykososialt arbeidsmiljo handler om mellommenneskelige forhold pa arbeidsplassen: samarbeid, relasjoner, ledelse, arbeidsbelastning og fravaer av mobbing.',
+    explanation: 'Psykososialt arbeidsmiljo handler om mellommenneskelige forhold påarbeidsplassen: samarbeid, relasjoner, ledelse, arbeidsbelastning og fravaer av mobbing.',
   },
 ],
 
@@ -22789,13 +22789,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med kanalrikhet?',
-    options: ['Hvor mye informasjon en kommunikasjonskanal kan formidle', 'Antall kanaler bedriften bruker', 'Hvor mange som mottar meldingen', 'Kostnaden ved a bruke kanalen'],
+    options: ['Hvor mye informasjon en kommunikasjonskanal kan formidle', 'Antall kanaler bedriften bruker', 'Hvor mange som mottar meldingen', 'Kostnaden ved å bruke kanalen'],
     explanation: 'Kanalrikhet beskriver hvor mye informasjon en kommunikasjonskanal kan formidle. Ansikt-til-ansikt er rikest, mens e-post og rapporter er fattigere.',
   },
   {
     question: 'Hva er nedadgaende kommunikasjon?',
     options: ['Kommunikasjon fra ledelse til medarbeidere', 'Kommunikasjon fra medarbeidere til ledelse', 'Kommunikasjon mellom kolleger', 'Kommunikasjon med kunder'],
-    explanation: 'Nedadgaende kommunikasjon gar fra ledelse til medarbeidere og inkluderer instruksjoner, retningslinjer og informasjon om mal og strategi.',
+    explanation: 'Nedadgaende kommunikasjon gårfra ledelse til medarbeidere og inkluderer instruksjoner, retningslinjer og informasjon om mal og strategi.',
   },
   {
     question: 'Nar bør man velge ansikt-til-ansikt kommunikasjon?',
@@ -22812,23 +22812,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   'okonomi-ledelse-6': [
   {
     question: 'Hva er inntekter i en virksomhet?',
-    options: ['Verdien av varer og tjenester som er solgt', 'Alle penger som kommer inn pa konto', 'Kun kontantsalg', 'Det samme som overskudd'],
-    explanation: 'Inntekter er verdien av de varene og tjenestene virksomheten har solgt i en periode, uavhengig av nar betalingen mottas.',
+    options: ['Verdien av varer og tjenester som er solgt', 'Alle penger som kommer inn påkonto', 'Kun kontantsalg', 'Det samme som overskudd'],
+    explanation: 'Inntekter er verdien av de varene og tjenestene virksomheten har solgt i en periode, uavhengig av nårbetalingen mottas.',
   },
   {
     question: 'Hva er forskjellen mellom utgift og kostnad?',
-    options: ['Utgift er pengebruk, kostnad er forbruk av ressurser i en periode', 'De er det samme', 'Kostnad er alltid hoyere enn utgift', 'Utgift kommer for kostnad i regnskapet'],
+    options: ['Utgift er pengebruk, kostnad er forbruk av ressurser i en periode', 'De er det samme', 'Kostnad er alltid høyere enn utgift', 'Utgift kommer for kostnad i regnskapet'],
     explanation: 'Utgift er utlegg av penger, mens kostnad er forbruk av ressurser som belastes en bestemt periode i regnskapet.',
   },
   {
     question: 'Hva er likviditet?',
-    options: ['Evnen til a betale forpliktelser nar de forfaller', 'Totalt salg i perioden', 'Overskudd etter skatt', 'Verdien av varelageret'],
-    explanation: 'Likviditet er virksomhetens evne til a betale sine forpliktelser nar de forfaller - altsaa a ha nok kontanter tilgjengelig.',
+    options: ['Evnen til a betale forpliktelser nårde forfaller', 'Totalt salg i perioden', 'Overskudd etter skatt', 'Verdien av varelageret'],
+    explanation: 'Likviditet er virksomhetens evne til a betale sine forpliktelser nårde forfaller - altsaa å ha nok kontanter tilgjengelig.',
   },
   {
     question: 'Hva er rentabilitet?',
-    options: ['Avkastning pa investert kapital', 'Antall kunder', 'Totale inntekter', 'Markedsandel'],
-    explanation: 'Rentabilitet maler avkastningen pa investert kapital og viser hvor effektivt bedriften utnytter sine ressurser til a skape overskudd.',
+    options: ['Avkastning påinvestert kapital', 'Antall kunder', 'Totale inntekter', 'Markedsandel'],
+    explanation: 'Rentabilitet maler avkastningen påinvestert kapital og viser hvor effektivt bedriften utnytter sine ressurser til a skape overskudd.',
   },
   {
     question: 'Hva er soliditet?',
@@ -22850,12 +22850,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er formalet med et likviditetsbudsjett?',
-    options: ['Vise nar penger kommer inn og gar ut for a sikre betalingsevne', 'Vise forventet overskudd', 'Vise verdien av eiendeler', 'Planlegge antall ansatte'],
-    explanation: 'Et likviditetsbudsjett viser nar penger kommer inn og gar ut, slik at bedriften kan planlegge a ha nok kontanter til a betale sine forpliktelser.',
+    options: ['Vise nårpenger kommer inn og gårut for a sikre betalingsevne', 'Vise forventet overskudd', 'Vise verdien av eiendeler', 'Planlegge antall ansatte'],
+    explanation: 'Et likviditetsbudsjett viser nårpenger kommer inn og gårut, slik at bedriften kan planlegge å ha nok kontanter til a betale sine forpliktelser.',
   },
   {
     question: 'Hva er budsjettavvik?',
-    options: ['Forskjellen mellom budsjetterte og faktiske tall', 'En feil i budsjettet', 'At budsjettet ikke er ferdig', 'At ingen folger budsjettet'],
+    options: ['Forskjellen mellom budsjetterte og faktiske tall', 'En feil i budsjettet', 'At budsjettet ikke er ferdig', 'At ingen følger budsjettet'],
     explanation: 'Budsjettavvik er forskjellen mellom budsjetterte tall og faktiske resultater, og brukes til a analysere og forbedre styringen.',
   },
   {
@@ -22874,12 +22874,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er samfunnsansvar (CSR)?',
     options: ['Bedriftens ansvar for a bidra positivt til samfunn og miljo', 'Bare a betale skatt', 'A sponse idrettslag', 'Kun a gi til veldedighet'],
-    explanation: 'Samfunnsansvar (CSR) innebarer at bedriften tar ansvar for sin pavirkning pa samfunn og miljo utover det loven krever.',
+    explanation: 'Samfunnsansvar (CSR) innebarer at bedriften tar ansvar for sin pavirkning påsamfunn og miljo utover det loven krever.',
   },
   {
     question: 'Hva er den triple bunnlinje?',
-    options: ['Okonomisk resultat, sosiale forhold og miljo', 'Omsetning, kostnader og overskudd', 'Salg, produksjon og marked', 'Kunder, leverandorer og ansatte'],
-    explanation: 'Den triple bunnlinje (people, planet, profit) betyr at bedriften maler suksess pa tre omrader: okonomisk resultat, sosiale forhold og miljopavirkning.',
+    options: ['Okonomisk resultat, sosiale forhold og miljo', 'Omsetning, kostnader og overskudd', 'Salg, produksjon og marked', 'Kunder, leverandører og ansatte'],
+    explanation: 'Den triple bunnlinje (people, planet, profit) betyr at bedriften maler suksess påtre omrader: okonomisk resultat, sosiale forhold og miljopavirkning.',
   },
   {
     question: 'Hva er korrupsjon?',
@@ -22888,7 +22888,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er etikk viktig for en bedrifts omdømme?',
-    options: ['Godt omdømme gir kundetillit, mens uetisk atferd kan odelegge omdømmet', 'Det har ingen betydning', 'Bare for a unnga bøter', 'Kun for store bedrifter'],
+    options: ['Godt omdømme gir kundetillit, mens uetisk atferd kan odelegge omdømmet', 'Det har ingen betydning', 'Bare for å unngå bøter', 'Kun for store bedrifter'],
     explanation: 'Etisk atferd bygger tillit hos kunder, ansatte og samfunnet, mens uetisk atferd kan odelegge omdømmet og fors til boikott og tap.',
   },
 ],
@@ -22906,8 +22906,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er nullpunktet (break-even)?',
-    options: ['Volumet der bedriften verken gar med overskudd eller underskudd', 'Der prisen er lavest', 'Der salget er hoyest', 'Der kostnadene er lavest'],
-    explanation: 'Nullpunktet er det produksjons- og salgsvolumet der bedriften verken gar med overskudd eller underskudd - total dekningsbidrag = faste kostnader.',
+    options: ['Volumet der bedriften verken gårmed overskudd eller underskudd', 'Der prisen er lavest', 'Der salget er hoyest', 'Der kostnadene er lavest'],
+    explanation: 'Nullpunktet er det produksjons- og salgsvolumet der bedriften verken gårmed overskudd eller underskudd - total dekningsbidrag = faste kostnader.',
   },
   {
     question: 'Hvordan beregnes dekningsgrad?',
@@ -22916,8 +22916,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sikkerhetsmargin?',
-    options: ['Hvor mye salget kan synke for bedriften gar med underskudd', 'Minimum fortjeneste', 'Maksimal produksjonskapasitet', 'Bufferlageret'],
-    explanation: 'Sikkerhetsmarginen viser hvor mye salget kan synke for bedriften gar med underskudd, altsaa forskjellen mellom faktisk salg og nullpunkt.',
+    options: ['Hvor mye salget kan synke for bedriften gårmed underskudd', 'Minimum fortjeneste', 'Maksimal produksjonskapasitet', 'Bufferlageret'],
+    explanation: 'Sikkerhetsmarginen viser hvor mye salget kan synke for bedriften gårmed underskudd, altsaa forskjellen mellom faktisk salg og nullpunkt.',
   },
 ],
 
@@ -22925,7 +22925,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedforskjellen mellom selvkost og bidragskalkulasjon?',
     options: ['Selvkost inkluderer bade variable og faste kostnader', 'Selvkost inkluderer bare variable kostnader', 'Bidragskalkulasjon inkluderer faste kostnader', 'Det er ingen forskjell'],
-    explanation: 'Selvkostkalkulasjon fordeler alle kostnader (inkl. faste) pa produktene, mens bidragskalkulasjon kun inkluderer variable kostnader.',
+    explanation: 'Selvkostkalkulasjon fordeler alle kostnader (inkl. faste) påproduktene, mens bidragskalkulasjon kun inkluderer variable kostnader.',
   },
   {
     question: 'Hva er tilvirkningskost?',
@@ -22934,18 +22934,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er minstepris (smertegrense)?',
-    options: ['Variable kostnader - under denne prisen taper man pa hver enhet', 'Selvkost', 'Tilvirkningskost', 'Faste kostnader'],
-    explanation: 'Minstepris = Variable kostnader. Under denne prisen taper bedriften penger pa hver enhet som selges.',
+    options: ['Variable kostnader - under denne prisen taper man påhver enhet', 'Selvkost', 'Tilvirkningskost', 'Faste kostnader'],
+    explanation: 'Minstepris = Variable kostnader. Under denne prisen taper bedriften penger påhver enhet som selges.',
   },
   {
     question: 'Hva er skummingsprising?',
-    options: ['Hoy pris ved lansering som senkes over tid', 'Lav pris for a ta markedsandeler', 'Pris basert pa kostnader', 'Pris basert pa konkurrentene'],
+    options: ['Hoy pris ved lansering som senkes over tid', 'Lav pris for a ta markedsandeler', 'Pris basert påkostnader', 'Pris basert påkonkurrentene'],
     explanation: 'Skumming innebarer hoy pris ved lansering for a maksimere inntektene fra de mest betalingsvillige kundene, for prisen senkes gradvis.',
   },
   {
     question: 'Hva er tilleggssatser i kalkulasjon?',
-    options: ['Prosentsatser for a fordele indirekte kostnader pa produkter', 'Ekstra rabatter til kunder', 'Moms pa varer', 'Fortjenestemargin'],
-    explanation: 'Tilleggssatser brukes for a fordele indirekte kostnader pa produktene, ofte som prosent av direkte lonn eller maskintimer.',
+    options: ['Prosentsatser for a fordele indirekte kostnader påprodukter', 'Ekstra rabatter til kunder', 'Moms påvarer', 'Fortjenestemargin'],
+    explanation: 'Tilleggssatser brukes for a fordele indirekte kostnader påproduktene, ofte som prosent av direkte lonn eller maskintimer.',
   },
 ],
 
@@ -22957,18 +22957,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner ordreproduksjon (Make-to-Order)?',
-    options: ['Produserer forst etter at kundeordre er mottatt', 'Produserer til lager basert pa prognoser', 'Kun standardprodukter', 'Kort leveringstid'],
+    options: ['Produserer forst etter at kundeordre er mottatt', 'Produserer til lager basert påprognoser', 'Kun standardprodukter', 'Kort leveringstid'],
     explanation: 'Ordreproduksjon starter produksjon forst etter at en kundeordre er mottatt, noe som gir lengre leveringstid men ingen ferdigvarelager.',
   },
   {
     question: 'Hva er takttid?',
-    options: ['Tiden som er tilgjengelig per enhet for a mote ettersporselen', 'Total produksjonstid', 'Tiden for a sette opp en maskin', 'Ventetiden mellom operasjoner'],
-    explanation: 'Takttid = Tilgjengelig produksjonstid / Ettersporsel. Den viser hvor ofte man ma fullføre en enhet for a mote ettersporselen.',
+    options: ['Tiden som er tilgjengelig per enhet for a mote ettersporselen', 'Total produksjonstid', 'Tiden for å sette opp en maskin', 'Ventetiden mellom operasjoner'],
+    explanation: 'Takttid = Tilgjengelig produksjonstid / Ettersporsel. Den viser hvor ofte man måfullføre en enhet for a mote ettersporselen.',
   },
   {
     question: 'Hva er hovedmalet med Just-in-Time (JIT)?',
-    options: ['Eliminere slosing og produsere riktig mengde til riktig tid', 'Maksimere lagerbeholdningen', 'Produsere sa mye som mulig', 'Ha lange serier'],
-    explanation: 'JIT fokuserer pa a eliminere alle former for slosing (lager, ventetid, overproduksjon) ved a produsere akkurat det som trengs, nar det trengs.',
+    options: ['Eliminere slosing og produsere riktig mengde til riktig tid', 'Maksimere lagerbeholdningen', 'Produsere så mye som mulig', 'Ha lange serier'],
+    explanation: 'JIT fokuserer påa eliminere alle former for slosing (lager, ventetid, overproduksjon) ved a produsere akkurat det som trengs, nårdet trengs.',
   },
   {
     question: 'Hvilken produksjonsmetode passer best for unike, komplekse produkter?',
@@ -22985,8 +22985,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er bestillingspunkt?',
-    options: ['Lagernivaet der ny bestilling ma sendes', 'Maksimalt lagerniva', 'Minimum lagerniva', 'Okonomisk ordrekvantum'],
-    explanation: 'Bestillingspunkt er det lagernivaet der ny bestilling ma sendes for a unnga a ga tom for varen far leveransen ankommer.',
+    options: ['Lagernivaet der ny bestilling måsendes', 'Maksimalt lagerniva', 'Minimum lagerniva', 'Okonomisk ordrekvantum'],
+    explanation: 'Bestillingspunkt er det lagernivaet der ny bestilling måsendes for å unngå å gå tom for varen fårleveransen ankommer.',
   },
   {
     question: 'Hva er EOQ (Økonomisk ordrekvantum)?',
@@ -23023,13 +23023,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er kontinuerlig forbedring (Kaizen)?',
-    options: ['Sma, stadige forbedringer over tid', 'Store, radikale endringer', 'A beholde alt som det er', 'A bare fokusere pa kostnadskutt'],
+    options: ['Sma, stadige forbedringer over tid', 'Store, radikale endringer', 'A beholde alt som det er', 'A bare fokusere påkostnadskutt'],
     explanation: 'Kaizen er en japansk filosofi som vektlegger sma, stadige forbedringer over tid involvering av alle ansatte.',
   },
   {
     question: 'Hva er feilkostnader?',
-    options: ['Kostnader som oppstar nar noe ikke fungerer som det skal', 'Planlagte vedlikeholdskostnader', 'Investeringer i kvalitet', 'Lonnskostnader'],
-    explanation: 'Feilkostnader er kostnader som oppstar nar noe ikke fungerer som det skal, inkludert reklamasjoner, omarbeid og kassasjon.',
+    options: ['Kostnader som oppstar nårnoe ikke fungerer som det skal', 'Planlagte vedlikeholdskostnader', 'Investeringer i kvalitet', 'Lonnskostnader'],
+    explanation: 'Feilkostnader er kostnader som oppstar nårnoe ikke fungerer som det skal, inkludert reklamasjoner, omarbeid og kassasjon.',
   },
 ],
 
@@ -23041,7 +23041,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er prosjektets "jerntrinkant"?',
-    options: ['Balansen mellom tid, kostnad og kvalitet/omfang', 'De tre viktigste prosjektmedlemmene', 'De tre forste fasene i prosjektet', 'Tre typer risiko'],
+    options: ['Balansen mellom tid, kostnad og kvalitet/omfang', 'De tre viktigste prosjektmedlemmene', 'De tre første fasene i prosjektet', 'Tre typer risiko'],
     explanation: 'Prosjektets jerntrekant viser balansen mellom tid, kostnad og kvalitet/omfang - endringer i en faktor pavirker de andre.',
   },
   {
@@ -23078,13 +23078,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Medarbeidersamtale er en strukturert samtale mellom leder og medarbeider om arbeidsoppgaver, mal, utvikling og trivsel.',
   },
   {
-    question: 'Hva regulerer arbeidsmiljøloven nar det gjelder arbeidstid?',
+    question: 'Hva regulerer arbeidsmiljøloven nårdet gjelder arbeidstid?',
     options: ['Maksimal arbeidstid, overtid, pauser og hviletid', 'Bare lonn', 'Kun ferie', 'Bare oppsigelsesfrister'],
-    explanation: 'Arbeidsmiljoloven regulerer arbeidstid inkludert maksimal arbeidstid, overtid, pauser, hviletid mellom arbeidsokter og nattarbeid.',
+    explanation: 'Arbeidsmiljoloven regulerer arbeidstid inkludert maksimal arbeidstid, overtid, pauser, hviletid mellom arbeidsøkter og nattarbeid.',
   },
   {
     question: 'Hva er formalet med rekruttering?',
-    options: ['Skaffe riktig kompetanse til riktig stilling', 'Ansette flest mulig', 'Spare penger pa lonn', 'Fylle alle ledige stillinger raskt'],
+    options: ['Skaffe riktig kompetanse til riktig stilling', 'Ansette flest mulig', 'Spare penger pålonn', 'Fylle alle ledige stillinger raskt'],
     explanation: 'Formalet med rekruttering er a skaffe riktig kompetanse til riktig stilling til riktig tid for virksomheten.',
   },
 ],
@@ -23098,7 +23098,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en visjon?',
     options: ['Et bilde av onsket fremtidig tilstand for virksomheten', 'Arsbudsjettet', 'Denne ukens oppgaver', 'Organisasjonskartet'],
-    explanation: 'En visjon er et inspirerende bilde av den onskede fremtidige tilstanden for virksomheten - hva den streber mot a bli.',
+    explanation: 'En visjon er et inspirerende bilde av den onskede fremtidige tilstanden for virksomheten - hva den streber mot å bli.',
   },
   {
     question: 'Hva er Porters fem krefter?',
@@ -23113,7 +23113,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et konkurransefortrinn?',
     options: ['Noe som gjor at kunder velger deg fremfor konkurrenter', 'Den laveste prisen', 'Flest ansatte', 'Storst kontor'],
-    explanation: 'Et konkurransefortrinn er noe som gjor at kunder velger din virksomhet fremfor konkurrenter - det kan vaere pris, kvalitet, service eller innovasjon.',
+    explanation: 'Et konkurransefortrinn er noe som gjor at kunder velger din virksomhet fremfor konkurrenter - det kan være pris, kvalitet, service eller innovasjon.',
   },
 ],
 
@@ -23130,46 +23130,46 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner markedsorientering?',
-    options: ['Fokus pa kundens behov - finn ut hva kunden vil ha og lever det', 'Fokus pa a produsere sa mye som mulig', 'Fokus pa a selge det man allerede har', 'Fokus kun pa lavest mulig pris'],
-    explanation: 'Markedsorientering setter kunden i sentrum - man starter med a forsta kundens behov og utvikler produkter basert pa dette.',
+    options: ['Fokus påkundens behov - finn ut hva kunden vil ha og lever det', 'Fokus påa produsere så mye som mulig', 'Fokus påa selge det man allerede har', 'Fokus kun pålavest mulig pris'],
+    explanation: 'Markedsorientering setter kunden i sentrum - man starter med a forsta kundens behov og utvikler produkter basert pådette.',
   },
   {
     question: 'Hva menes med verdi i markedsforing?',
-    options: ['Det kunden far i forhold til det kunden gir', 'Produktets pris', 'Produktets kostnad', 'Bedriftens omsetning'],
-    explanation: 'Verdi er forholdet mellom det kunden oppnar (nytte, fordeler) og det kunden ma gi (pris, tid, innsats).',
+    options: ['Det kunden fåri forhold til det kunden gir', 'Produktets pris', 'Produktets kostnad', 'Bedriftens omsetning'],
+    explanation: 'Verdi er forholdet mellom det kunden oppnar (nytte, fordeler) og det kunden mågi (pris, tid, innsats).',
   },
   {
     question: 'Hvorfor bruker tjenestebedrifter 7P i stedet for 4P?',
     options: ['Tjenester er immaterielle og trenger People, Process og Physical evidence', 'De trenger flere P-er for a forvirre konkurrentene', 'Det er bare en trend', 'De har flere produkter'],
-    explanation: 'Tjenester er immaterielle og produseres/konsumeres samtidig, sa man legger til People (ansatte), Process (leveringsprosess) og Physical evidence (fysiske bevis).',
+    explanation: 'Tjenester er immaterielle og produseres/konsumeres samtidig, såman legger til People (ansatte), Process (leveringsprosess) og Physical evidence (fysiske bevis).',
   },
 ],
 
   'markedsforing-2': [
   {
     question: 'Hva er forbrukeratferd?',
-    options: ['Hvordan forbrukere velger, kjoper, bruker og kvitter seg med produkter', 'Bare hvordan folk handler i butikker', 'Kun online-shoppingvaner', 'Bare impulskjop'],
-    explanation: 'Forbrukeratferd handler om hvordan enkeltpersoner og grupper velger, kjoper, bruker og kvitter seg med varer og tjenester.',
+    options: ['Hvordan forbrukere velger, kjøper, bruker og kvitter seg med produkter', 'Bare hvordan folk handler i butikker', 'Kun online-shoppingvaner', 'Bare impulskjop'],
+    explanation: 'Forbrukeratferd handler om hvordan enkeltpersoner og grupper velger, kjøper, bruker og kvitter seg med varer og tjenester.',
   },
   {
     question: 'Hva er de fem trinnene i kjopsbeslutningsprosessen?',
-    options: ['Problemerkjennelse, informasjonssok, vurdering, kjop og etterkopatferd', 'Se, tenke, ville, kjope og glemme', 'Behov, ønske, søke, finne og betale', 'Annonsering, interesse, kjop, bruk og kast'],
+    options: ['Problemerkjennelse, informasjonssok, vurdering, kjop og etterkopatferd', 'Se, tenke, ville, kjøpe og glemme', 'Behov, ønske, søke, finne og betale', 'Annonsering, interesse, kjop, bruk og kast'],
     explanation: 'Kjopsbeslutningsprosessen: 1) Problemerkjennelse, 2) Informasjonssok, 3) Vurdering av alternativer, 4) Kjopsbeslutning, 5) Etterkopatferd.',
   },
   {
     question: 'Hva er Maslows behovspyramide?',
     options: ['En teori om at behov ordnes hierarkisk fra fysiske til selvrealisering', 'En salgsmodell', 'En prisingsmetode', 'En markedsforingsplan'],
-    explanation: 'Maslows pyramide ordner behov hierarkisk: fysiske behov, trygghet, sosiale behov, anerkjennelse og selvrealisering pa toppen.',
+    explanation: 'Maslows pyramide ordner behov hierarkisk: fysiske behov, trygghet, sosiale behov, anerkjennelse og selvrealisering påtoppen.',
   },
   {
     question: 'Hva er referansegrupper?',
-    options: ['Grupper vi bruker som malestokkk for holdninger og atferd', 'Grupper som gir oss rabatter', 'Kundesegmenter', 'Leverandorer'],
+    options: ['Grupper vi bruker som målestokkk for holdninger og atferd', 'Grupper som gir oss rabatter', 'Kundesegmenter', 'Leverandører'],
     explanation: 'Referansegrupper er grupper vi sammenligner oss med og som pavirker vare holdninger og kjopsatferd.',
   },
   {
     question: 'Hva er kognitiv dissonans?',
-    options: ['Ubehag nar holdninger og handlinger ikke stemmer overens', 'Glemsel etter kjop', 'Glede over et godt kjop', 'Usikkerhet for kjop'],
-    explanation: 'Kognitiv dissonans er ubehag som oppstar nar holdninger og handlinger ikke stemmer overens, f.eks. tvil etter et dyrt kjop.',
+    options: ['Ubehag nårholdninger og handlinger ikke stemmer overens', 'Glemsel etter kjop', 'Glede over et godt kjop', 'Usikkerhet for kjop'],
+    explanation: 'Kognitiv dissonans er ubehag som oppstar nårholdninger og handlinger ikke stemmer overens, f.eks. tvil etter et dyrt kjop.',
   },
 ],
 
@@ -23219,8 +23219,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er merkeutvidelse?',
-    options: ['A bruke et etablert merkenavn pa nye produkter', 'A gjore logoen storre', 'A utvide til nye land', 'A ansette flere'],
-    explanation: 'Merkeutvidelse er a bruke et etablert merkenavn pa nye produkter for a utnytte eksisterende kjennskap og tillit.',
+    options: ['A bruke et etablert merkenavn pånye produkter', 'A gjore logoen større', 'A utvide til nye land', 'A ansette flere'],
+    explanation: 'Merkeutvidelse er å bruke et etablert merkenavn pånye produkter for a utnytte eksisterende kjennskap og tillit.',
   },
   {
     question: 'Hva kjennetegner sterke merkevarer?',
@@ -23232,13 +23232,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'markedsforing-5': [
   {
     question: 'Hva er penetrasjonsprising?',
-    options: ['Lav pris for a oppna rask markedsandel', 'Hoy pris ved lansering', 'Pris basert pa konkurrenter', 'Dynamisk prising'],
+    options: ['Lav pris for a oppna rask markedsandel', 'Hoy pris ved lansering', 'Pris basert påkonkurrenter', 'Dynamisk prising'],
     explanation: 'Penetrasjonsprising innebarer lav pris for a oppna rask markedsandel og bygge volum raskt.',
   },
   {
     question: 'Hva maler priselastisitet?',
-    options: ['Hvor sensitiv etterspørselen er for prisendringer', 'Hvor ofte prisen endres', 'Hvor hoy prisen er', 'Hvor mange som kjoper'],
-    explanation: 'Priselastisitet maler hvor mye etterspørselen endres ved prisendringer - elastisk ettersporsel reagerer mye pa pris.',
+    options: ['Hvor sensitiv etterspørselen er for prisendringer', 'Hvor ofte prisen endres', 'Hvor hoy prisen er', 'Hvor mange som kjøper'],
+    explanation: 'Priselastisitet maler hvor mye etterspørselen endres ved prisendringer - elastisk ettersporsel reagerer mye påpris.',
   },
   {
     question: 'Hva er forskjellen mellom intensiv og eksklusiv distribusjon?',
@@ -23248,12 +23248,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er omnikanal-distribusjon?',
     options: ['Sømloes integrering av alle salgskanaler', 'Bare online-salg', 'Bare fysiske butikker', 'En enkelt salgskanal'],
-    explanation: 'Omnikanal er sømløs integrering av alle salgskanaler (butikk, nett, app) slik at kunden far en helhetlig opplevelse.',
+    explanation: 'Omnikanal er sømløs integrering av alle salgskanaler (butikk, nett, app) slik at kunden fåren helhetlig opplevelse.',
   },
   {
     question: 'Hva er dynamisk prissetting?',
-    options: ['Pris som endres basert pa ettersporsel, tid eller kunde', 'Fast pris som aldri endres', 'Pris basert pa kostnad', 'Gratis produkter'],
-    explanation: 'Dynamisk prising innebarer at prisen endres basert pa ettersporsel, tid, kunde eller andre faktorer - vanlig i reiseliv og e-handel.',
+    options: ['Pris som endres basert på ettersporsel, tid eller kunde', 'Fast pris som aldri endres', 'Pris basert påkostnad', 'Gratis produkter'],
+    explanation: 'Dynamisk prising innebarer at prisen endres basert på ettersporsel, tid, kunde eller andre faktorer - vanlig i reiseliv og e-handel.',
   },
 ],
 
@@ -23293,23 +23293,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er SEO (sokemotoroptimalisering)?',
-    options: ['A optimalisere nettsider for a rangere hoyt i organiske sokeresultater', 'Betalt reklame pa Google', 'E-postmarkedsforing', 'Sosiale medier-marketing'],
-    explanation: 'SEO er a optimalisere nettsider for a rangere hoyere i organiske (ikke-betalte) sokeresultater i sokemotorer.',
+    options: ['A optimalisere nettsider for a rangere hoyt i organiske søkeresultater', 'Betalt reklame påGoogle', 'E-postmarkedsforing', 'Sosiale medier-marketing'],
+    explanation: 'SEO er a optimalisere nettsider for a rangere høyere i organiske (ikke-betalte) søkeresultater i sokemotorer.',
   },
   {
     question: 'Hva er konverteringsrate?',
-    options: ['Andel besokende som utforer en onsket handling', 'Antall besokende', 'Antall likes', 'Antall folgerere'],
-    explanation: 'Konverteringsrate er andelen besokende pa en nettside som utforer en onsket handling, som kjop eller registrering.',
+    options: ['Andel besøkende som utforer en onsket handling', 'Antall besøkende', 'Antall likes', 'Antall følgerere'],
+    explanation: 'Konverteringsrate er andelen besøkende påen nettside som utforer en onsket handling, som kjop eller registrering.',
   },
   {
     question: 'Hva er influencer-markedsforing?',
     options: ['A bruke personer med stor rekkevidde til a promotere produkter', 'Bare tradisjonell reklame', 'Kun e-postmarkedsforing', 'Bare bannerannonser'],
-    explanation: 'Influencer-markedsforing er a samarbeide med personer med stor rekkevidde og pavirkning pa sosiale medier for a promotere produkter.',
+    explanation: 'Influencer-markedsforing er a samarbeide med personer med stor rekkevidde og pavirkning påsosiale medier for a promotere produkter.',
   },
   {
     question: 'Hva er remarketing?',
     options: ['A vise annonser til personer som har besøkt nettsiden for', 'A sende e-post til nye kunder', 'A lage nye produkter', 'A endre logo'],
-    explanation: 'Remarketing er a vise annonser til personer som allerede har besøkt nettsiden din for a minne dem pa produktene.',
+    explanation: 'Remarketing er a vise annonser til personer som allerede har besøkt nettsiden din for a minne dem påproduktene.',
   },
 ],
 
@@ -23321,12 +23321,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er markedsforingsledelse?',
-    options: ['Analyse, planlegging, implementering og kontroll av markedsforingsprogrammer', 'Bare a lage reklame', 'Kun a analysere salg', 'A velge leverandorer'],
+    options: ['Analyse, planlegging, implementering og kontroll av markedsforingsprogrammer', 'Bare a lage reklame', 'Kun a analysere salg', 'A velge leverandører'],
     explanation: 'Markedsforingsledelse omfatter analyse, planlegging, implementering og kontroll av markedsforingsprogrammer for a skape verdi.',
   },
   {
     question: 'Hva er strategisk markedsforing?',
-    options: ['Langsiktig planlegging av markedsforingsaktiviteter for a na virksomhetens mal', 'Bare kortsiktige kampanjer', 'Kun operativ markedsforing', 'A reagere pa konkurrenter'],
+    options: ['Langsiktig planlegging av markedsforingsaktiviteter for a na virksomhetens mal', 'Bare kortsiktige kampanjer', 'Kun operativ markedsforing', 'A reagere påkonkurrenter'],
     explanation: 'Strategisk markedsforing handler om langsiktig planlegging av markedsforingsaktiviteter i samsvar med virksomhetens overordnede mal.',
   },
   {
@@ -23350,7 +23350,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er gronnvasking (greenwashing)?',
     options: ['Villedende markedsforing som overdriver miljofordeler', 'Reell miljovennlig markedsforing', 'A vaske produkter grone', 'Resirkulering av reklame'],
-    explanation: 'Gronnvasking er villedende markedsforing som far produkter eller selskaper til a fremsta mer miljovennlige enn de er.',
+    explanation: 'Gronnvasking er villedende markedsforing som fårprodukter eller selskaper til a fremsta mer miljovennlige enn de er.',
   },
   {
     question: 'Hva er baerekraftig markedsforing?',
@@ -23359,7 +23359,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ansvarlig annonsering?',
-    options: ['Reklame som er aerlig, saklig og ikke villedende', 'A reklamere sa mye som mulig', 'Bare dyr reklame', 'Reklame som overdriver'],
+    options: ['Reklame som er aerlig, saklig og ikke villedende', 'A reklamere så mye som mulig', 'Bare dyr reklame', 'Reklame som overdriver'],
     explanation: 'Ansvarlig annonsering er aerlig, saklig og ikke villedende, og tar hensyn til sarbare grupper.',
   },
   {
@@ -23388,11 +23388,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er KPI i markedsforing?',
     options: ['Key Performance Indicators - nokkelindikatorer for a male suksess', 'Kun personlig innsats', 'Bare kundeklager', 'Antall ansatte'],
-    explanation: 'KPI (Key Performance Indicators) er nokkelindikatorer som brukes til a male om markedsforingen nar sine mal.',
+    explanation: 'KPI (Key Performance Indicators) er nokkelindikatorer som brukes til a male om markedsforingen nårsine mal.',
   },
   {
     question: 'Hvorfor er evaluering viktig i markedsforingen?',
-    options: ['For a lare hva som fungerer og forbedre fremtidige aktiviteter', 'Det er ikke viktig', 'Bare for a tilfredsstille ledelsen', 'Kun for a bruke budsjettet'],
+    options: ['For a lare hva som fungerer og forbedre fremtidige aktiviteter', 'Det er ikke viktig', 'Bare for a tilfredsstille ledelsen', 'Kun for å bruke budsjettet'],
     explanation: 'Evaluering er viktig for a lare hva som fungerer og hva som ikke gjor det, og for a forbedre fremtidige markedsforingsaktiviteter.',
   },
 ],
@@ -23405,31 +23405,31 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebarer opptjeningsprinsippet?',
-    options: ['Inntekt fores nar den er opptjent, uavhengig av betaling', 'Inntekt fores nar pengene mottas', 'Inntekt fores nar fakturaen sendes', 'Inntekt fores ved arsslutt'],
-    explanation: 'Opptjeningsprinsippet sier at inntekt skal resultatfores nar den er opptjent, uavhengig av nar betalingen mottas.',
+    options: ['Inntekt fores nården er opptjent, uavhengig av betaling', 'Inntekt fores nårpengene mottas', 'Inntekt fores nårfakturaen sendes', 'Inntekt fores ved arsslutt'],
+    explanation: 'Opptjeningsprinsippet sier at inntekt skal resultatfores nården er opptjent, uavhengig av nårbetalingen mottas.',
   },
   {
     question: 'Hva sier forsiktighetsprinsippet om urealisert gevinst?',
-    options: ['Urealisert gevinst skal ikke resultatfores', 'Urealisert gevinst skal fores umiddelbart', 'Urealisert gevinst deles over flere ar', 'Urealisert gevinst ignoreres'],
+    options: ['Urealisert gevinst skal ikke resultatfores', 'Urealisert gevinst skal fores umiddelbart', 'Urealisert gevinst deles over flere år', 'Urealisert gevinst ignoreres'],
     explanation: 'Forsiktighetsprinsippet sier at urealisert gevinst ikke skal resultatfores, men urealisert tap skal tas med.',
   },
   {
     question: 'Hva er sammenstillingsprinsippet?',
-    options: ['Kostnader fores i samme periode som tilhorende inntekt', 'Alle kostnader fores nar de betales', 'Inntekter og kostnader fores separat', 'Bare sikre inntekter regnskapsfores'],
+    options: ['Kostnader fores i samme periode som tilhorende inntekt', 'Alle kostnader fores nårde betales', 'Inntekter og kostnader fores separat', 'Bare sikre inntekter regnskapsfores'],
     explanation: 'Sammenstillingsprinsippet krever at kostnader fores i samme periode som de inntektene de har bidratt til.',
   },
   {
     question: 'Hva er transaksjonsprinsippet?',
-    options: ['Transaksjoner fores til verdien av vederlaget pa transaksjonstidspunktet', 'Transaksjoner fores til markedsverdi', 'Transaksjoner fores til historisk kost', 'Transaksjoner fores til fremtidig verdi'],
-    explanation: 'Transaksjonsprinsippet innebarer at transaksjoner fores til verdien av vederlaget pa transaksjonstidspunktet, ikke estimater.',
+    options: ['Transaksjoner fores til verdien av vederlaget påtransaksjonstidspunktet', 'Transaksjoner fores til markedsverdi', 'Transaksjoner fores til historisk kost', 'Transaksjoner fores til fremtidig verdi'],
+    explanation: 'Transaksjonsprinsippet innebarer at transaksjoner fores til verdien av vederlaget påtransaksjonstidspunktet, ikke estimater.',
   },
 ],
 
   'regnskap-revisjon-2': [
   {
-    question: 'Hvor lenge ma bilag oppbevares ifolge bokforingsloven?',
-    options: ['5 ar', '3 ar', '10 ar', '15 ar'],
-    explanation: 'Primardokumentasjon som bilag skal oppbevares i 5 ar etter regnskapsarets slutt.',
+    question: 'Hvor lenge måbilag oppbevares ifolge bokforingsloven?',
+    options: ['5 år', '3 år', '10 år', '15 år'],
+    explanation: 'Primardokumentasjon som bilag skal oppbevares i 5 åretter regnskapsarets slutt.',
   },
   {
     question: 'Hvilken kontoklasse brukes for salgsinntekter i NS 4102?',
@@ -23437,18 +23437,18 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Salgsinntekter fores i kontoklasse 3 (3xxx) i NS 4102.',
   },
   {
-    question: 'Hva betyr debet pa en eiendskonto?',
-    options: ['Okning av eiendelen', 'Reduksjon av eiendelen', 'Ingen endring', 'Korreksjon'],
-    explanation: 'Debet pa en eiendskonto betyr okning av eiendelen (verdien av eiendelen oker).',
+    question: 'Hva betyr debet påen eiendskonto?',
+    options: ['Økning av eiendelen', 'Reduksjon av eiendelen', 'Ingen endring', 'Korreksjon'],
+    explanation: 'Debet påen eiendskonto betyr okning av eiendelen (verdien av eiendelen øker).',
   },
   {
     question: 'Hva er et bilag?',
     options: ['Dokumentasjon for en bokfort transaksjon', 'En faktura til kunde', 'En bankutskrift', 'Et arsregnskap'],
-    explanation: 'Et bilag er dokumentasjon for en bokfort transaksjon, som viser nummer, dato, beskrivelse og belop.',
+    explanation: 'Et bilag er dokumentasjon for en bokfort transaksjon, som viser nummer, dato, beskrivelse og beløp.',
   },
   {
     question: 'Hva innebarer sporbarhetskravet?',
-    options: ['Man skal kunne folge transaksjonssporet fra bilag til arsregnskap og omvendt', 'At alle bilag nummereres', 'At kun elektroniske bilag er gyldige', 'At revisor ma godkjenne alt'],
+    options: ['Man skal kunne folge transaksjonssporet fra bilag til arsregnskap og omvendt', 'At alle bilag nummereres', 'At kun elektroniske bilag er gyldige', 'At revisor mågodkjenne alt'],
     explanation: 'Sporbarhet betyr at man skal kunne folge transaksjonssporet begge veier - fra bilag til rapport og tilbake.',
   },
 ],
@@ -23512,18 +23512,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'regnskap-revisjon-5': [
   {
     question: 'Hva er merverdiavgift (MVA)?',
-    options: ['En avgift pa omsetning av varer og tjenester', 'Skatt pa overskudd', 'Arbeidsgiveravgift', 'Eiendomsskatt'],
-    explanation: 'Merverdiavgift (MVA) er en avgift som legges pa omsetning av varer og tjenester og innkreves av bedriftene pa vegne av staten.',
+    options: ['En avgift påomsetning av varer og tjenester', 'Skatt påoverskudd', 'Arbeidsgiveravgift', 'Eiendomsskatt'],
+    explanation: 'Merverdiavgift (MVA) er en avgift som legges påomsetning av varer og tjenester og innkreves av bedriftene påvegne av staten.',
   },
   {
     question: 'Hva er standard MVA-sats i Norge?',
     options: ['25%', '15%', '12%', '8%'],
-    explanation: 'Standard MVA-sats i Norge er 25%. Det finnes ogsa reduserte satser pa 15% og 12% for visse varer og tjenester.',
+    explanation: 'Standard MVA-sats i Norge er 25%. Det finnes ogsa reduserte satser på 15% og 12% for visse varer og tjenester.',
   },
   {
     question: 'Hva er inngaende MVA?',
-    options: ['MVA pa varer og tjenester bedriften kjoper', 'MVA pa varer bedriften selger', 'Skatt pa overskudd', 'Arbeidsgiveravgift'],
-    explanation: 'Inngaende MVA er merverdiavgiften pa varer og tjenester bedriften kjoper, som kan trekkes fra utgaende MVA.',
+    options: ['MVA påvarer og tjenester bedriften kjøper', 'MVA påvarer bedriften selger', 'Skatt påoverskudd', 'Arbeidsgiveravgift'],
+    explanation: 'Inngaende MVA er merverdiavgiften påvarer og tjenester bedriften kjøper, som kan trekkes fra utgaende MVA.',
   },
   {
     question: 'Hva er selskapsskattesatsen i Norge?',
@@ -23532,8 +23532,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er arbeidsgiveravgift?',
-    options: ['En avgift arbeidsgiver betaler basert pa lonnsutbetalinger', 'En avgift arbeidstaker betaler', 'MVA pa tjenester', 'Skatt pa overskudd'],
-    explanation: 'Arbeidsgiveravgift er en avgift arbeidsgiver betaler til folketrygden basert pa lonnsutbetalinger til ansatte.',
+    options: ['En avgift arbeidsgiver betaler basert pålonnsutbetalinger', 'En avgift arbeidstaker betaler', 'MVA påtjenester', 'Skatt påoverskudd'],
+    explanation: 'Arbeidsgiveravgift er en avgift arbeidsgiver betaler til folketrygden basert pålonnsutbetalinger til ansatte.',
   },
 ],
 
@@ -23541,17 +23541,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bestar et arsregnskap av?',
     options: ['Resultatregnskap, balanse, noter og kontantstromoppstilling', 'Bare resultatregnskap', 'Kun balanse', 'Bare noter'],
-    explanation: 'Et arsregnskap bestar av resultatregnskap, balanse, noter og for storre selskaper kontantstromoppstilling.',
+    explanation: 'Et arsregnskap bestar av resultatregnskap, balanse, noter og for større selskaper kontantstromoppstilling.',
   },
   {
     question: 'Hva er formalet med noter i regnskapet?',
-    options: ['Gi utdypende informasjon om poster i regnskapet', 'Bare pynte pa regnskapet', 'Skjule informasjon', 'Erstatte balansen'],
+    options: ['Gi utdypende informasjon om poster i regnskapet', 'Bare pynte påregnskapet', 'Skjule informasjon', 'Erstatte balansen'],
     explanation: 'Noter gir utdypende informasjon om poster i regnskapet, regnskapsprinsipper og andre vesentlige forhold.',
   },
   {
-    question: 'Hvem ma ha arsberetning?',
-    options: ['Storre foretak over visse terskelverdier', 'Alle bedrifter', 'Bare aksjeselskaper', 'Ingen bedrifter'],
-    explanation: 'Storre foretak over visse terskelverdier (ansatte, omsetning, balanse) ma utarbeide arsberetning.',
+    question: 'Hvem måha arsberetning?',
+    options: ['Større foretak over visse terskelverdier', 'Alle bedrifter', 'Bare aksjeselskaper', 'Ingen bedrifter'],
+    explanation: 'Større foretak over visse terskelverdier (ansatte, omsetning, balanse) måutarbeide arsberetning.',
   },
   {
     question: 'Hva er kontantstrommoppstilling?',
@@ -23559,7 +23559,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Kontantstrommoppstilling viser kontantstrommer inn og ut av virksomheten, delt i drift, investering og finansiering.',
   },
   {
-    question: 'Nar ma arsregnskapet vaere ferdig?',
+    question: 'Nar måarsregnskapet vaere ferdig?',
     options: ['Innen 6 maneder etter regnskapsarets slutt', 'Innen 3 maneder', 'Innen 1 maned', 'Innen 12 maneder'],
     explanation: 'Arsregnskapet skal vaere fastsatt senest 6 maneder etter regnskapsarets slutt.',
   },
@@ -23578,7 +23578,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva maler totalkapitalrentabilitet?',
-    options: ['Avkastningen pa all investert kapital', 'Bare egenkapitalavkastning', 'Kun gjeldskostnader', 'Omsetning per ansatt'],
+    options: ['Avkastningen påall investert kapital', 'Bare egenkapitalavkastning', 'Kun gjeldskostnader', 'Omsetning per ansatt'],
     explanation: 'Totalkapitalrentabilitet = (Driftsresultat + Finansinntekter) / Gjennomsnittlig totalkapital x 100%.',
   },
   {
@@ -23588,7 +23588,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er trendanalyse nyttig?',
-    options: ['Viser utvikling over tid og avdekker tendenser', 'Bare for a lage grafer', 'Kun for a tilfredsstille revisor', 'Har ingen nytte'],
+    options: ['Viser utvikling over tid og avdekker tendenser', 'Bare for å lage grafer', 'Kun for a tilfredsstille revisor', 'Har ingen nytte'],
     explanation: 'Trendanalyse viser utvikling over tid og hjelper med a avdekke positive eller negative tendenser i virksomheten.',
   },
 ],
@@ -23600,9 +23600,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Revisjon er uavhengig kontroll av regnskapet for a bekrefte at det gir et rettvisende bilde av virksomhetens okonomi.',
   },
   {
-    question: 'Hvem ma ha revisjon?',
+    question: 'Hvem måha revisjon?',
     options: ['Aksjeselskaper over visse terskelverdier', 'Alle bedrifter', 'Bare sma bedrifter', 'Ingen bedrifter'],
-    explanation: 'Aksjeselskaper over visse terskelverdier (driftsinntekter, balanse, ansatte) ma ha revisjon av autorisert revisor.',
+    explanation: 'Aksjeselskaper over visse terskelverdier (driftsinntekter, balanse, ansatte) måha revisjon av autorisert revisor.',
   },
   {
     question: 'Hva er intern kontroll?',
@@ -23611,8 +23611,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er vesentlighet i revisjon?',
-    options: ['Terskel for nar feil anses a pavirke beslutningstakere', 'At alt ma vaere 100% riktig', 'Bare store feil', 'Ingen feil tillates'],
-    explanation: 'Vesentlighet er terskelen for nar feil eller utelatelser anses a kunne pavirke okonomiske beslutninger hos brukerne.',
+    options: ['Terskel for nårfeil anses a pavirke beslutningstakere', 'At alt måvaere 100% riktig', 'Bare store feil', 'Ingen feil tillates'],
+    explanation: 'Vesentlighet er terskelen for nårfeil eller utelatelser anses a kunne pavirke okonomiske beslutninger hos brukerne.',
   },
   {
     question: 'Hva er revisjonsberetningen?',
@@ -23625,12 +23625,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem regnes som grunnleggeren av psykologien som vitenskap?',
     options: ['Wilhelm Wundt', 'Sigmund Freud', 'B.F. Skinner', 'Carl Rogers'],
-    explanation: 'Wilhelm Wundt opprettet verdens forste psykologilaboratorium i Leipzig i 1879, og regnes derfor som psykologiens grunnlegger.',
+    explanation: 'Wilhelm Wundt opprettet verdens første psykologilaboratorium i Leipzig i 1879, og regnes derfor som psykologiens grunnlegger.',
   },
   {
-    question: 'Hvilken psykologisk retning fokuserer kun pa observerbar atferd og avviser studiet av mentale prosesser?',
+    question: 'Hvilken psykologisk retning fokuserer kun påobserverbar atferd og avviser studiet av mentale prosesser?',
     options: ['Behaviorisme', 'Psykoanalyse', 'Kognitiv psykologi', 'Humanistisk psykologi'],
-    explanation: 'Behaviorismen, grunnlagt av Watson og videreutviklet av Skinner, fokuserer kun pa observerbar atferd og avviser studiet av indre mentale prosesser.',
+    explanation: 'Behaviorismen, grunnlagt av Watson og videreutviklet av Skinner, fokuserer kun påobserverbar atferd og avviser studiet av indre mentale prosesser.',
   },
   {
     question: 'Hva er de fire hovedformalene med psykologisk forskning?',
@@ -23644,16 +23644,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva skiller psykologi fra filosofi?',
-    options: ['Psykologi bruker vitenskapelige metoder', 'Psykologi studerer bare sinnets struktur', 'Filosofi er eldre enn psykologi', 'Filosofi fokuserer pa atferd'],
-    explanation: 'Psykologi skiller seg fra filosofi ved a bruke vitenskapelige og empiriske metoder for a teste hypoteser, mens filosofi ofte baserer seg pa logisk argumentasjon.',
+    options: ['Psykologi bruker vitenskapelige metoder', 'Psykologi studerer bare sinnets struktur', 'Filosofi er eldre enn psykologi', 'Filosofi fokuserer påatferd'],
+    explanation: 'Psykologi skiller seg fra filosofi ved å bruke vitenskapelige og empiriske metoder for a teste hypoteser, mens filosofi ofte baserer seg pålogisk argumentasjon.',
   },
 ],
 
   'psykologi-1-2': [
   {
-    question: 'Hvilken del av nervesystemet aktiveres ved stress og forbereder kroppen pa "kamp eller flukt"?',
+    question: 'Hvilken del av nervesystemet aktiveres ved stress og forbereder kroppen på"kamp eller flukt"?',
     options: ['Det sympatiske nervesystemet', 'Det parasympatiske nervesystemet', 'Det somatiske nervesystemet', 'Sentralnervesystemet'],
-    explanation: 'Det sympatiske nervesystemet aktiveres ved stress og fare, og forbereder kroppen pa handling ved a oke hjertefrekvens og frigjore energi.',
+    explanation: 'Det sympatiske nervesystemet aktiveres ved stress og fare, og forbereder kroppen påhandling ved a oke hjertefrekvens og frigjore energi.',
   },
   {
     question: 'Hvilken hjernestruktur er sarlig viktig for folelser, spesielt frykt?',
@@ -23681,7 +23681,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er korttidshukommelsens kapasitet ifolgse Millers "magiske tall"?',
     options: ['7 pluss/minus 2 enheter', '5 pluss/minus 1 enheter', '10 pluss/minus 3 enheter', '3 pluss/minus 1 enheter'],
-    explanation: 'George Miller foreslo at korttidshukommelsen kan holde ca. 7 pluss/minus 2 enheter pa en gang.',
+    explanation: 'George Miller foreslo at korttidshukommelsen kan holde ca. 7 pluss/minus 2 enheter påen gang.',
   },
   {
     question: 'Hva kalles fenomenet der vi automatisk "fyller inn" manglende deler i det vi ser?',
@@ -23691,11 +23691,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken type hukommelse lagrer personlige opplevelser og minner?',
     options: ['Episodisk hukommelse', 'Semantisk hukommelse', 'Prosedural hukommelse', 'Sensorisk hukommelse'],
-    explanation: 'Episodisk hukommelse lagrer personlige opplevelser og hendelser fra ens eget liv, som "min forste skoledag".',
+    explanation: 'Episodisk hukommelse lagrer personlige opplevelser og hendelser fra ens eget liv, som "min første skoledag".',
   },
   {
     question: 'Hva er "cocktailparty-effekten"?',
-    options: ['At vi plutselig horer navnet vart i en samtale vi ikke fulgte med pa', 'At vi husker bedre i sosiale situasjoner', 'At alkohol forbedrer hukommelsen', 'At vi glemmer hva vi sa pa fester'],
+    options: ['At vi plutselig horer navnet vart i en samtale vi ikke fulgte med pa', 'At vi husker bedre i sosiale situasjoner', 'At alkohol forbedrer hukommelsen', 'At vi glemmer hva vi såpåfester'],
     explanation: 'Cocktailparty-effekten viser selektiv oppmerksomhet - vi kan plutselig oppfatte relevant informasjon (som navnet vart) selv om vi ikke aktivt lyttet.',
   },
   {
@@ -23707,37 +23707,37 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'psykologi-1-4': [
   {
-    question: 'Hva kalles det nar en noytral stimulus larer a utlose en respons etter a ha blitt koblet med en ubetinget stimulus?',
+    question: 'Hva kalles det nåren noytral stimulus larer a utlose en respons etter å hå blitt koblet med en ubetinget stimulus?',
     options: ['Klassisk betinging', 'Operant betinging', 'Observasjonslaring', 'Innsiktslaring'],
-    explanation: 'Klassisk betinging, oppdaget av Pavlov, er nar en noytral stimulus (som en bjelle) larer a utlose en respons etter gjentatte koblinger med en ubetinget stimulus (som mat).',
+    explanation: 'Klassisk betinging, oppdaget av Pavlov, er nåren noytral stimulus (som en bjelle) larer a utlose en respons etter gjentatte koblinger med en ubetinget stimulus (som mat).',
   },
   {
-    question: 'I operant betinging, hva er forskjellen mellom positiv og negativ forsterkning?',
-    options: ['Positiv legger til noe behagelig, negativ fjerner noe ubehagelig', 'Positiv er bra, negativ er darlig', 'Positiv oker atferd, negativ reduserer atferd', 'Positiv brukes pa barn, negativ pa voksne'],
-    explanation: 'Bade positiv og negativ forsterkning oker atferd. Positiv forsterkning legger til noe behagelig, mens negativ forsterkning fjerner noe ubehagelig.',
+    question: 'I operant betinging, hva er forskjellen mellom positiv og negativ førsterkning?',
+    options: ['Positiv legger til noe behagelig, negativ fjerner noe ubehagelig', 'Positiv er bra, negativ er darlig', 'Positiv øker atferd, negativ reduserer atferd', 'Positiv brukes påbarn, negativ påvoksne'],
+    explanation: 'Bade positiv og negativ førsterkning øker atferd. Positiv førsterkning legger til noe behagelig, mens negativ førsterkning fjerner noe ubehagelig.',
   },
   {
     question: 'Hva viste Banduras Bobo-dukke-eksperiment?',
     options: ['At barn larer atferd ved a observere andre', 'At straff er mer effektivt enn belonning', 'At barn ikke kan kontrollere aggresjon', 'At leker forarsaker vold'],
-    explanation: 'Banduras eksperiment viste at barn larer atferd ved a observere andre (observasjonslaring), uten selv a bli forsterket direkte.',
+    explanation: 'Banduras eksperiment viste at barn larer atferd ved a observere andre (observasjonslaring), uten selv å bli førsterket direkte.',
   },
   {
-    question: 'Hvorfor er variabel ratio-forsterkning sa motstandsdyktig mot ekstinksjon?',
-    options: ['Fordi man aldri vet nar forsterkningen kommer', 'Fordi den gir stonrre belonninger', 'Fordi den er mer rettferdig', 'Fordi den brukes sjeldnere'],
-    explanation: 'Ved variabel ratio vet man aldri nar forsterkningen kommer, sa man fortsetter a respondere i hap om at "neste gang" er den heldige. Dette prinsippet brukes i spilleautomater.',
+    question: 'Hvorfor er variabel ratio-førsterkning såmotstandsdyktig mot ekstinksjon?',
+    options: ['Fordi man aldri vet nårførsterkningen kommer', 'Fordi den gir stonrre belonninger', 'Fordi den er mer rettferdig', 'Fordi den brukes sjeldnere'],
+    explanation: 'Ved variabel ratio vet man aldri nårførsterkningen kommer, såman fortsetter a respondere i hap om at "neste gang" er den heldige. Dette prinsippet brukes i spilleautomater.',
   },
   {
-    question: 'Hva er vikarierende forsterkning?',
-    options: ['A lare av konsekvensene andre far', 'A forsterke seg selv', 'A fa forsterkning gjennom en annen person', 'A forsterke andres atferd'],
-    explanation: 'Vikarierende forsterkning betyr at vi larer av a se konsekvensene andre far. Ser vi at noen blir belannet, er vi mer tilboyelige til a imitere atferden.',
+    question: 'Hva er vikarierende førsterkning?',
+    options: ['A lare av konsekvensene andre far', 'A førsterke seg selv', 'A fa førsterkning gjennom en annen person', 'A førsterke andres atferd'],
+    explanation: 'Vikarierende førsterkning betyr at vi larer av a se konsekvensene andre far. Ser vi at noen blir belannet, er vi mer tilboyelige til a imitere atferden.',
   },
 ],
 
   'psykologi-1-5': [
   {
-    question: 'Ifolgse Maslows behovshierarki, hvilket behov ma tilfredsstilles for behovet for anerkjennelse?',
+    question: 'Ifolgse Maslows behovshierarki, hvilket behov måtilfredsstilles for behovet for anerkjennelse?',
     options: ['Tilhorighet', 'Selvaktualisering', 'Sikkerhet', 'Fysiologiske behov'],
-    explanation: 'I Maslows hierarki kommer tilhorighet (kjarlighet, vennskap) for anerkjennelse. Lavere behov ma vaere rimelig tilfredsstilt for hoyere behov blir motiverende.',
+    explanation: 'I Maslows hierarki kommer tilhorighet (kjarlighet, vennskap) for anerkjennelse. Lavere behov måvaere rimelig tilfredsstilt for høyere behov blir motiverende.',
   },
   {
     question: 'Hva er de tre grunnleggende behovene i selvbestemmelsesteorien?',
@@ -23751,8 +23751,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er "overjustification-effekten"?',
-    options: ['At ytre belonning reduserer indre motivasjon', 'At for mye ros skaper selvtillit', 'At motivasjon oker med belonning', 'At barn trenger mer ros enn voksne'],
-    explanation: 'Overjustification-effekten oppstar nar ytre belonning for noe man allerede liker a gjore, reduserer den indre motivasjonen for aktiviteten.',
+    options: ['At ytre belonning reduserer indre motivasjon', 'At for mye ros skaper selvtillit', 'At motivasjon øker med belonning', 'At barn trenger mer ros enn voksne'],
+    explanation: 'Overjustification-effekten oppstar nårytre belonning for noe man allerede liker å gjøre, reduserer den indre motivasjonen for aktiviteten.',
   },
   {
     question: 'Hvilke seks grunnfolelser foreslo Paul Ekman er universelle?',
@@ -23769,8 +23769,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er objektpermanens?',
-    options: ['Forstaelse av at objekter fortsetter a eksistere selv nar de er ute av syne', 'Evnen til a huske objekter over tid', 'Forstaelse av at objekter har faste egenskaper', 'Evnen til a gjenkjenne kjente objekter'],
-    explanation: 'Objektpermanens er forstaelsen av at objekter fortsetter a eksistere selv nar de er ute av syne, og utvikles i det sensomotoriske stadiet.',
+    options: ['Forstaelse av at objekter fortsetter a eksistere selv nårde er ute av syne', 'Evnen til a huske objekter over tid', 'Forstaelse av at objekter har faste egenskaper', 'Evnen til a gjenkjenne kjente objekter'],
+    explanation: 'Objektpermanens er forstaelsen av at objekter fortsetter a eksistere selv nårde er ute av syne, og utvikles i det sensomotoriske stadiet.',
   },
   {
     question: 'Hvilken tilknytningsstil kjennetegnes av at barnet bruker omsorgspersonen som trygg base?',
@@ -23785,7 +23785,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr akkomodasjon i Piagets teori?',
     options: ['A endre skjemaer for a passe ny informasjon', 'A tilpasse ny informasjon til eksisterende skjemaer', 'A lagre informasjon i langtidshukommelsen', 'A glemme gammel informasjon'],
-    explanation: 'Akkomodasjon er nar vi endrer vare mentale skjemaer for a ta inn ny informasjon som ikke passer med det vi allerede vet.',
+    explanation: 'Akkomodasjon er nårvi endrer vare mentale skjemaer for a ta inn ny informasjon som ikke passer med det vi allerede vet.',
   },
 ],
 
@@ -23820,18 +23820,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'psykologi-1-8': [
   {
     question: 'Hva er den fundamentale attribusjonsfeilen?',
-    options: ['Tendensen til a overvurdere personlige egenskaper og undervurdere situasjon', 'Tendensen til a skylde pa andre', 'Tendensen til a ta aeren for suksess', 'Tendensen til a unnga ansvar'],
-    explanation: 'Den fundamentale attribusjonsfeilen er tendensen til a overvurdere personlige egenskaper og undervurdere situasjonens pavirkning nar vi forklarer andres atferd.',
+    options: ['Tendensen til a overvurdere personlige egenskaper og undervurdere situasjon', 'Tendensen til a skylde påandre', 'Tendensen til a ta aeren for suksess', 'Tendensen til å unngå ansvar'],
+    explanation: 'Den fundamentale attribusjonsfeilen er tendensen til a overvurdere personlige egenskaper og undervurdere situasjonens pavirkning nårvi forklarer andres atferd.',
   },
   {
     question: 'Hva viste Milgrams lydighetseksperiment?',
-    options: ['At vanlige mennesker kan utfore skadelige handlinger pa ordre fra autoritet', 'At mennesker alltid nekter a skade andre', 'At bare onde mennesker lyder autoritet', 'At utdanning beskytter mot lydighet'],
+    options: ['At vanlige mennesker kan utfore skadelige handlinger påordre fra autoritet', 'At mennesker alltid nekter a skade andre', 'At bare onde mennesker lyder autoritet', 'At utdanning beskytter mot lydighet'],
     explanation: 'Milgram viste at 65% av vanlige mennesker fulgte ordrer om a gi farlige elektriske stot, noe som viser situasjonens makt over atferd.',
   },
   {
     question: 'Hva er kognitiv dissonans?',
-    options: ['Ubehaget nar atferd ikke stemmer med holdninger', 'En type hukommelsestap', 'Konflikt mellom to personer', 'En laeringsmetode'],
-    explanation: 'Kognitiv dissonans er det ubehagelige spenningsforholdet som oppstar nar var atferd ikke stemmer overens med vare holdninger eller verdier.',
+    options: ['Ubehaget nåratferd ikke stemmer med holdninger', 'En type hukommelsestap', 'Konflikt mellom to personer', 'En laeringsmetode'],
+    explanation: 'Kognitiv dissonans er det ubehagelige spenningsforholdet som oppstar nårvar atferd ikke stemmer overens med vare holdninger eller verdier.',
   },
   {
     question: 'Hva er tilskuereffekten?',
@@ -23853,8 +23853,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stress-sarbarhetmodellen?',
-    options: ['Psykisk lidelse oppstar nar sarbare individer utsettes for stress', 'Alle har lik sarbarhet for stress', 'Stress alene forarsaker psykisk lidelse', 'Sarbarhet kan ikke pavirkes'],
-    explanation: 'Stress-sarbarhetmodellen forklarer at psykiske lidelser oppstar nar sarbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
+    options: ['Psykisk lidelse oppstar nårsarbare individer utsettes for stress', 'Alle har lik sarbarhet for stress', 'Stress alene forarsaker psykisk lidelse', 'Sarbarhet kan ikke pavirkes'],
+    explanation: 'Stress-sarbarhetmodellen forklarer at psykiske lidelser oppstar nårsarbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
   },
   {
     question: 'Hva er hovedforskjellen mellom normal angst og angstlidelse?',
@@ -23869,7 +23869,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor er stigma knyttet til psykiske lidelser problematisk?',
     options: ['Det hindrer folk fra a soke hjelp', 'Det gir bedre behandling', 'Det styrker selvfolelsen', 'Det er ikke problematisk'],
-    explanation: 'Stigma kan hindre folk fra a soke hjelp pa grunn av skam og frykt for andres reaksjoner, noe som kan forsinke behandling og forverre tilstanden.',
+    explanation: 'Stigma kan hindre folk fra a soke hjelp pågrunn av skam og frykt for andres reaksjoner, noe som kan forsinke behandling og forverre tilstanden.',
   },
 ],
 
@@ -23880,14 +23880,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'I eksperimenter manipulerer forskeren variabler og kan fastslå arsakssammenhenger. Korrelasjonsstudier maler bare sammenhenger uten a kunne si hva som forarsaker hva.',
   },
   {
-    question: 'Hvorfor betyr "korrelasjon er ikke kausalitet" at vi ma vaere forsiktige med konklusjoner?',
+    question: 'Hvorfor betyr "korrelasjon er ikke kausalitet" at vi måvaere forsiktige med konklusjoner?',
     options: ['Fordi en tredje variabel kan forklare sammenhengen', 'Fordi korrelasjon alltid er tilfeldig', 'Fordi kausalitet er umulig a bevise', 'Fordi alle studier er upålitelige'],
     explanation: 'To variabler kan korrelere uten at den ene forarsaker den andre - en tredje variabel kan pavirke begge (f.eks. varmt vaer forklarer bade iskremssalg og drukningsulykker).',
   },
   {
     question: 'Hva innebarer informert samtykke i forskning?',
-    options: ['Deltakere far informasjon og samtykker frivillig', 'Forskeren bestemmer hvem som deltar', 'Deltakere betales for a delta', 'Resultatene holdes hemmelig'],
-    explanation: 'Informert samtykke betyr at deltakere far tilstrekkelig informasjon om studien, samtykker frivillig, og kan trekke seg nar som helst.',
+    options: ['Deltakere fårinformasjon og samtykker frivillig', 'Forskeren bestemmer hvem som deltar', 'Deltakere betales for a delta', 'Resultatene holdes hemmelig'],
+    explanation: 'Informert samtykke betyr at deltakere fårtilstrekkelig informasjon om studien, samtykker frivillig, og kan trekke seg nårsom helst.',
   },
   {
     question: 'Hva er validitet i forskning?',
@@ -23897,7 +23897,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken psykolog arbeider primert med rekruttering, ledelse og arbeidsmiljo?',
     options: ['Arbeids- og organisasjonspsykolog', 'Klinisk psykolog', 'Helsepsykolog', 'Rettspsykolog'],
-    explanation: 'Arbeids- og organisasjonspsykologer anvender psykologi i arbeidslivet, med fokus pa rekruttering, ledelse, motivasjon og arbeidsmiljo.',
+    explanation: 'Arbeids- og organisasjonspsykologer anvender psykologi i arbeidslivet, med fokus pårekruttering, ledelse, motivasjon og arbeidsmiljo.',
   },
 ],
 
@@ -23910,12 +23910,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom episodisk og semantisk hukommelse?',
     options: ['Episodisk er personlige minner, semantisk er faktakunnskap', 'Episodisk er kortvarig, semantisk er langvarig', 'Episodisk er ubevisst, semantisk er bevisst', 'Det er ingen forskjell'],
-    explanation: 'Episodisk hukommelse lagrer personlige opplevelser ("min forste skoledag"), mens semantisk hukommelse lagrer faktakunnskap ("Oslo er Norges hovedstad").',
+    explanation: 'Episodisk hukommelse lagrer personlige opplevelser ("min første skoledag"), mens semantisk hukommelse lagrer faktakunnskap ("Oslo er Norges hovedstad").',
   },
   {
     question: 'Hva er tilgjengelighetsheuristikk?',
-    options: ['A vurdere sannsynlighet basert pa hvor lett eksempler kommer til minnet', 'A bruke all tilgjengelig informasjon', 'A soeke etter mer informasjon for beslutninger', 'A stole pa eksperters rad'],
-    explanation: 'Tilgjengelighetsheuristikk er tendensen til a vurdere sannsynligheten for noe basert pa hvor lett eksempler kommer til minnet, noe som kan gi skjeve vurderinger.',
+    options: ['A vurdere sannsynlighet basert påhvor lett eksempler kommer til minnet', 'A bruke all tilgjengelig informasjon', 'A soeke etter mer informasjon for beslutninger', 'A stole påeksperters rad'],
+    explanation: 'Tilgjengelighetsheuristikk er tendensen til a vurdere sannsynligheten for noe basert påhvor lett eksempler kommer til minnet, noe som kan gi skjeve vurderinger.',
   },
   {
     question: 'Hva er "chunking" i hukommelse?',
@@ -23952,8 +23952,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en begrensning ved fMRI-studier av hjernen?',
-    options: ['Den maler blodstrom indirekte, ikke nevral aktivitet direkte', 'Den er for noyaktig', 'Den kan bare brukes pa dyr', 'Den er helt uten begrensninger'],
-    explanation: 'fMRI maler blodstrom som en indirekte indikator pa nevral aktivitet, har begrenset tidsopplosning, og korrelasjon mellom aktivitet og atferd betyr ikke nodvendigvis kausalitet.',
+    options: ['Den maler blodstrom indirekte, ikke nevral aktivitet direkte', 'Den er for noyaktig', 'Den kan bare brukes pådyr', 'Den er helt uten begrensninger'],
+    explanation: 'fMRI maler blodstrom som en indirekte indikator pånevral aktivitet, har begrenset tidsopplosning, og korrelasjon mellom aktivitet og atferd betyr ikke nodvendigvis kausalitet.',
   },
 ],
 
@@ -23970,7 +23970,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med at stress er subjektivt?',
-    options: ['Samme hendelse kan oppleves ulikt av forskjellige personer', 'Stress er ikke virkelig', 'Alle reagerer likt pa stress', 'Stress kan ikke males'],
+    options: ['Samme hendelse kan oppleves ulikt av forskjellige personer', 'Stress er ikke virkelig', 'Alle reagerer likt påstress', 'Stress kan ikke males'],
     explanation: 'Stress er subjektivt fordi det avhenger av hvordan personen vurderer situasjonen. Samme hendelse kan oppleves som truende av en person og som spennende av en annen.',
   },
   {
@@ -23980,7 +23980,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvordan kan kronisk stress pavirke immunforsvaret?',
-    options: ['Kronisk stress svekker immunforsvaret', 'Kronisk stress styrker immunforsvaret', 'Stress har ingen effekt pa immunforsvaret', 'Bare akutt stress pavirker immunforsvaret'],
+    options: ['Kronisk stress svekker immunforsvaret', 'Kronisk stress styrker immunforsvaret', 'Stress har ingen effekt påimmunforsvaret', 'Bare akutt stress pavirker immunforsvaret'],
     explanation: 'Langvarig forhoyede kortisolnivaer ved kronisk stress kan svekke immunforsvaret og gjore oss mer mottagelige for sykdom.',
   },
 ],
@@ -23993,8 +23993,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er stress-sarbarhetmodellen for psykiske lidelser?',
-    options: ['Lidelse oppstar nar sarbare individer utsettes for tilstrekkelig stress', 'Alle har lik risiko for psykiske lidelser', 'Bare stress forarsaker lidelser', 'Sarbarhet kan ikke endres'],
-    explanation: 'Stress-sarbarhetmodellen sier at psykisk lidelse oppstar nar sarbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
+    options: ['Lidelse oppstar nårsarbare individer utsettes for tilstrekkelig stress', 'Alle har lik risiko for psykiske lidelser', 'Bare stress forarsaker lidelser', 'Sarbarhet kan ikke endres'],
+    explanation: 'Stress-sarbarhetmodellen sier at psykisk lidelse oppstar nårsarbare individer (genetisk, psykologisk) utsettes for tilstrekkelig stress.',
   },
   {
     question: 'Hva kjennetegner bipolar lidelse?',
@@ -24004,7 +24004,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er anhedoni?',
     options: ['Tap av evnen til a fole glede eller interesse', 'Overdreven glede', 'Angst for sosiale situasjoner', 'Hallusinasjoner'],
-    explanation: 'Anhedoni er tap av evnen til a fole glede eller interesse for aktiviteter man tidligere likte, og er et hovedsymptom pa depresjon.',
+    explanation: 'Anhedoni er tap av evnen til a fole glede eller interesse for aktiviteter man tidligere likte, og er et hovedsymptom pådepresjon.',
   },
   {
     question: 'Ca. hvor mange vil oppleve en psykisk lidelse i lopet av livet?',
@@ -24016,8 +24016,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'psykologi-2-5': [
   {
     question: 'Hva er hovedprinsippet i kognitiv atferdsterapi (KAT)?',
-    options: ['Tanker, folelser og atferd pavirker hverandre', 'Ubevisste konflikter ma loses', 'Bare atferd kan endres', 'Medisin er alltid nodvendig'],
-    explanation: 'KAT baseres pa at tanker, folelser og atferd henger sammen. Ved a endre negative tankemonstre kan vi endre folelser og atferd.',
+    options: ['Tanker, folelser og atferd pavirker hverandre', 'Ubevisste konflikter måloses', 'Bare atferd kan endres', 'Medisin er alltid nodvendig'],
+    explanation: 'KAT baseres påat tanker, folelser og atferd henger sammen. Ved a endre negative tankemonstre kan vi endre folelser og atferd.',
   },
   {
     question: 'Hva er eksponering i angstbehandling?',
@@ -24026,17 +24026,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner psykodynamisk terapi?',
-    options: ['Utforsker ubevisste konflikter og tidlige erfaringer', 'Fokuserer kun pa narvarende atferd', 'Er alltid kortvarig', 'Bruker bare atferdsteknikker'],
-    explanation: 'Psykodynamisk terapi utforsker ubevisste konflikter, tidlige erfaringer og forsvarsmekanismer, med fokus pa innsikt og den terapeutiske relasjonen.',
+    options: ['Utforsker ubevisste konflikter og tidlige erfaringer', 'Fokuserer kun pånarvarende atferd', 'Er alltid kortvarig', 'Bruker bare atferdsteknikker'],
+    explanation: 'Psykodynamisk terapi utforsker ubevisste konflikter, tidlige erfaringer og forsvarsmekanismer, med fokus påinnsikt og den terapeutiske relasjonen.',
   },
   {
     question: 'Hva menes med evidensbasert praksis?',
-    options: ['Kombinere forskning, klinisk erfaring og pasientpreferanser', 'Bare bruke det som er nyest', 'Kun stole pa forskning', 'Folge egen intuisjon'],
+    options: ['Kombinere forskning, klinisk erfaring og pasientpreferanser', 'Bare bruke det som er nyest', 'Kun stole påforskning', 'Folge egen intuisjon'],
     explanation: 'Evidensbasert praksis kombinerer best tilgjengelige forskningsbevis med klinisk erfaring og pasientens verdier og preferanser.',
   },
   {
     question: 'Hva er en fordel med medikamentell behandling av psykiske lidelser?',
-    options: ['Kan gi rask symptomlindring', 'Har ingen bivirkninger', 'Kurerer alltid arsaken', 'Virker pa alle'],
+    options: ['Kan gi rask symptomlindring', 'Har ingen bivirkninger', 'Kurerer alltid arsaken', 'Virker påalle'],
     explanation: 'Medikamenter kan gi relativt rask symptomlindring og er nodvendige ved alvorlige lidelser, men behandler ofte symptomer fremfor arsaker.',
   },
 ],
@@ -24064,8 +24064,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er signaturstyrker?',
-    options: ['De styrkene som er mest typiske for deg og gir energi', 'Styrker alle har', 'Fysiske styrker', 'Styrker man ma trene opp'],
-    explanation: 'Signaturstyrker er de karakterstyrkene som er mest typiske og naturlige for deg, og som gir deg energi nar du bruker dem.',
+    options: ['De styrkene som er mest typiske for deg og gir energi', 'Styrker alle har', 'Fysiske styrker', 'Styrker man måtrene opp'],
+    explanation: 'Signaturstyrker er de karakterstyrkene som er mest typiske og naturlige for deg, og som gir deg energi når du bruker dem.',
   },
 ],
 
@@ -24078,21 +24078,21 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kjennetegner engstelig tilknytningsstil i voksne relasjoner?',
     options: ['Bekymring for avvisning og behov for mye bekreftelse', 'Ubehag med narhet', 'Komfortabel med bade narhet og uavhengighet', 'Ingen spesielle kjennetegn'],
-    explanation: 'Personer med engstelig tilknytningsstil er ofte bekymret for avvisning, soker mye bekreftelse og kan bli klamrete i relasjoner.',
+    explanation: 'Personer med engstelig tilknytningsstil er ofte bekymret for avvisning, søker mye bekreftelse og kan bli klamrete i relasjoner.',
   },
   {
     question: 'Hvorfor er sosial stotte viktig for helsen?',
-    options: ['Den demper stress, styrker immunforsvar og gir mening', 'Den har ingen effekt pa helse', 'Den er bare viktig for mental helse', 'Den oker stress'],
+    options: ['Den demper stress, styrker immunforsvar og gir mening', 'Den har ingen effekt påhelse', 'Den er bare viktig for mental helse', 'Den øker stress'],
     explanation: 'Sosial stotte demper stressresponsen, styrker immunforsvaret og gir mening og tilhorighet. Sosial isolasjon er en betydelig helserisiko.',
   },
   {
     question: 'Hva er aktiv lytting?',
-    options: ['A gi full oppmerksomhet, reflektere og validere', 'A lytte mens man gjor andre ting', 'A gi rad sa fort som mulig', 'A lytte til musikk aktivt'],
+    options: ['A gi full oppmerksomhet, reflektere og validere', 'A lytte mens man gjor andre ting', 'A gi rad såfort som mulig', 'A lytte til musikk aktivt'],
     explanation: 'Aktiv lytting innebarer a gi full oppmerksomhet, ikke avbryte, reflektere det man har hort, stille apne sporsmael og validere folelser.',
   },
   {
     question: 'Hva er nonverbal kommunikasjon?',
-    options: ['Kommunikasjon gjennom kroppssprak, tonefall og ansiktsuttrykk', 'Kommunikasjon uten mottaker', 'Skriftlig kommunikasjon', 'Kommunikasjon pa fremmedsprak'],
+    options: ['Kommunikasjon gjennom kroppssprak, tonefall og ansiktsuttrykk', 'Kommunikasjon uten mottaker', 'Skriftlig kommunikasjon', 'Kommunikasjon påfremmedsprak'],
     explanation: 'Nonverbal kommunikasjon inkluderer kroppssprak, ansiktsuttrykk, oynekontakt, beroring, avstand og tonefall.',
   },
 ],
@@ -24100,8 +24100,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'psykologi-2-8': [
   {
     question: 'Hva er placeboeffekten?',
-    options: ['Bedring som skyldes forventning, ikke selve behandlingen', 'Bivirkninger av medisin', 'Effekten av trening pa helse', 'Forverring av symptomer'],
-    explanation: 'Placeboeffekten er bedring som skyldes forventning og tro pa behandlingen, ikke den aktive behandlingen i seg selv.',
+    options: ['Bedring som skyldes forventning, ikke selve behandlingen', 'Bivirkninger av medisin', 'Effekten av trening påhelse', 'Forverring av symptomer'],
+    explanation: 'Placeboeffekten er bedring som skyldes forventning og tro påbehandlingen, ikke den aktive behandlingen i seg selv.',
   },
   {
     question: 'Hva er stadiene i den transteoretiske modellen for atferdsendring?',
@@ -24115,7 +24115,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et grunnprinsipp i motiverende intervju?',
-    options: ['Utforske ambivalens uten a argumentere mot motstand', 'Fortelle folk hva de bor gjore', 'Fokusere pa problemer', 'Gi rad sa tidlig som mulig'],
+    options: ['Utforske ambivalens uten a argumentere mot motstand', 'Fortelle folk hva de bor gjore', 'Fokusere påproblemer', 'Gi rad såtidlig som mulig'],
     explanation: 'Motiverende intervju "ruller med motstand" - i stedet for a argumentere mot, utforsker man ambivalens og hjelper personen a finne egen motivasjon.',
   },
   {
@@ -24132,13 +24132,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Hygienefaktorer (lonn, arbeidsforhold) kan forebygge misnoeye, men skaper ikke motivasjon. Motivasjonsfaktorer (ansvar, anerkjennelse, vekst) skaper faktisk tilfredshet.',
   },
   {
-    question: 'Hva er de tre kjennetegnene pa utbrenthet (burnout)?',
+    question: 'Hva er de tre kjennetegnene påutbrenthet (burnout)?',
     options: ['Emosjonell utmattelse, kynisme, redusert yteevne', 'Tretthet, sovnloshet, hodepine', 'Stress, angst, depresjon', 'Lav lonn, darlig ledelse, kjedelig jobb'],
     explanation: 'Utbrenthet kjennetegnes av emosjonell utmattelse (tappet for energi), kynisme/depersonalisering og redusert profesjonell yteevne.',
   },
   {
     question: 'Hva kjennetegner transformasjonsledelse?',
-    options: ['Inspirerer, utfordrer intellektuelt og er rollemodell', 'Fokuserer pa belonning og straff', 'Gir minimal veiledning', 'Styrer gjennom regler'],
+    options: ['Inspirerer, utfordrer intellektuelt og er rollemodell', 'Fokuserer påbelonning og straff', 'Gir minimal veiledning', 'Styrer gjennom regler'],
     explanation: 'Transformasjonsledelse inspirerer medarbeidere, utfordrer dem intellektuelt, ser den enkelte og fungerer som rollemodell.',
   },
   {
@@ -24147,7 +24147,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Jobbkrav-ressursmodellen sier at balansen mellom krav (tidspress, kompleksitet) og ressurser (stotte, autonomi) pavirker engasjement og risiko for utbrenthet.',
   },
   {
-    question: 'Ifolgse selvbestemmelsesteorien, hva er viktig for indre motivasjon pa jobb?',
+    question: 'Ifolgse selvbestemmelsesteorien, hva er viktig for indre motivasjon påjobb?',
     options: ['Autonomi, kompetanse og tilhorighet', 'Hoy lonn og bonuser', 'Streng kontroll', 'Konkurranse med kolleger'],
     explanation: 'Selvbestemmelsesteorien sier at indre motivasjon avhenger av tre behov: autonomi (valgfrihet), kompetanse (mestring) og tilhorighet (sosial tilknytning).',
   },
@@ -24156,8 +24156,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'psykologi-2-10': [
   {
     question: 'Hva innebarer informert samtykke i psykologisk forskning?',
-    options: ['Deltakere far informasjon og samtykker frivillig, kan trekke seg', 'Forskeren bestemmer alt', 'Deltakere ma fullfoere studien', 'Samtykke er ikke nodvendig'],
-    explanation: 'Informert samtykke betyr at deltakere far tilstrekkelig informasjon, samtykker frivillig uten press, og kan trekke seg nar som helst.',
+    options: ['Deltakere fårinformasjon og samtykker frivillig, kan trekke seg', 'Forskeren bestemmer alt', 'Deltakere måfullfoere studien', 'Samtykke er ikke nodvendig'],
+    explanation: 'Informert samtykke betyr at deltakere fårtilstrekkelig informasjon, samtykker frivillig uten press, og kan trekke seg nårsom helst.',
   },
   {
     question: 'Nar kan en psykolog bryte taushetsplikten?',
@@ -24172,30 +24172,30 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er doble relasjoner i psykologisk praksis?',
     options: ['Nar psykologen har flere roller overfor samme person', 'Nar to psykologer jobber sammen', 'Nar pasienten har to diagnoser', 'Nar behandlingen varer lenge'],
-    explanation: 'Doble relasjoner oppstar nar psykologen har flere roller overfor samme person (f.eks. terapeut og venn), noe som kan kompromittere profesjonaliteten.',
+    explanation: 'Doble relasjoner oppstar nårpsykologen har flere roller overfor samme person (f.eks. terapeut og venn), noe som kan kompromittere profesjonaliteten.',
   },
   {
     question: 'Hva er konfidensialitet i psykologisk praksis?',
     options: ['At opplysninger om klienter beskyttes og ikke deles uten samtykke', 'At psykologen holder sine meninger for seg selv', 'At klienten ikke kan snakke om terapien', 'At journaler slettes etter behandling'],
-    explanation: 'Konfidensialitet betyr at opplysninger om klienter ma beskyttes og anonymiseres, og ikke deles uten samtykke (med unntak for fare for liv og helse).',
+    explanation: 'Konfidensialitet betyr at opplysninger om klienter måbeskyttes og anonymiseres, og ikke deles uten samtykke (med unntak for fare for liv og helse).',
   },
 ],
 
   'it-1-1': [
   {
     question: 'Hva er digitalisering?',
-    options: ['Prosessen med a bruke digital teknologi til a endre prosesser og skape nye verdier', 'A skanne papirdokumenter til PDF', 'A kjope nye datamaskiner til bedriften', 'A lage en konto pa sosiale medier'],
-    explanation: 'Digitalisering handler om a utnytte digital teknologi til a transformere forretningsmodeller, prosesser og tjenester - ikke bare a gjore analoge ting digitale.',
+    options: ['Prosessen med å bruke digital teknologi til a endre prosesser og skape nye verdier', 'A skanne papirdokumenter til PDF', 'A kjøpe nye datamaskiner til bedriften', 'A lage en konto påsosiale medier'],
+    explanation: 'Digitalisering handler om a utnytte digital teknologi til a transformere forretningsmodeller, prosesser og tjenester - ikke bare å gjøre analoge ting digitale.',
   },
   {
     question: 'Hvilken kompetanse handler om evnen til a foreta gode valg i digitale sammenhenger?',
     options: ['Digital dommekraft', 'Tekniske ferdigheter', 'Informasjonskompetanse', 'Produksjonskompetanse'],
-    explanation: 'Digital dommekraft innebarer a vurdere troverdighet av informasjon, forsta konsekvenser av digital deling, og handle etisk ansvarlig pa nett.',
+    explanation: 'Digital dommekraft innebarer a vurdere troverdighet av informasjon, forsta konsekvenser av digital deling, og handle etisk ansvarlig pånett.',
   },
   {
     question: 'Hva menes med digitalt utenforskap?',
-    options: ['At grupper faller utenfor fordi de ikke mestrer digitale verktoy samfunnet forutsetter', 'A bli blokkert pa sosiale medier', 'A ikke ha rad til internett', 'A velge a ikke bruke teknologi'],
-    explanation: 'Digitalt utenforskap oppstar nar personer eller grupper ikke har tilgang til eller kompetanse i a bruke digital teknologi som samfunnet forventer.',
+    options: ['At grupper faller utenfor fordi de ikke mestrer digitale verktoy samfunnet forutsetter', 'A bli blokkert påsosiale medier', 'A ikke ha rad til internett', 'A velge a ikke bruke teknologi'],
+    explanation: 'Digitalt utenforskap oppstar nårpersoner eller grupper ikke har tilgang til eller kompetanse i å bruke digital teknologi som samfunnet forventer.',
   },
   {
     question: 'Hvilket omrade har IKKE blitt pavirket av digitaliseringen?',
@@ -24203,9 +24203,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Digitaliseringen har pavirket nesten alle omrader av samfunnet, inkludert arbeidsliv, utdanning, helse og demokrati.',
   },
   {
-    question: 'Hva er et eksempel pa digital transformasjon i banktjenester?',
+    question: 'Hva er et eksempel pådigital transformasjon i banktjenester?',
     options: ['Nettbank og Vipps som gjor banktjenester tilgjengelige 24/7', 'A ha kontanter i lommeboken', 'A besoke bankfilialen for a sjekke saldo', 'A sende brev til banken'],
-    explanation: 'Digital transformasjon i bank betyr at tjenester som tidligere krevde fysisk oppmate na kan gjores digitalt nar som helst.',
+    explanation: 'Digital transformasjon i bank betyr at tjenester som tidligere krevde fysisk oppmate na kan gjores digitalt nårsom helst.',
   },
 ],
 
@@ -24223,17 +24223,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva returnerer input()-funksjonen alltid i Python?',
     options: ['En tekststreng (str)', 'Et heltall (int)', 'Et desimaltall (float)', 'Datatypen til det brukeren skriver'],
-    explanation: 'input() returnerer alltid en tekststreng. Derfor ma vi bruke int() eller float() for a konvertere til tall.',
+    explanation: 'input() returnerer alltid en tekststreng. Derfor måvi bruke int() eller float() for a konvertere til tall.',
   },
   {
-    question: 'Hvor mange ganger kjorer loekken: for i in range(3):',
+    question: 'Hvor mange ganger kjører loekken: for i in range(3):',
     options: ['3 ganger (0, 1, 2)', '4 ganger (0, 1, 2, 3)', '2 ganger (1, 2)', '3 ganger (1, 2, 3)'],
-    explanation: 'range(3) genererer tallene 0, 1, 2 - altsa 3 tall. Loekken kjorer en gang for hvert tall.',
+    explanation: 'range(3) genererer tallene 0, 1, 2 - altsa 3 tall. Loekken kjører en gang for hvert tall.',
   },
   {
     question: 'Hva er viktig med innrykk i Python?',
     options: ['Innrykk viser hva som hoerer til en betingelse eller loekke', 'Innrykk er bare for lesbarhet', 'Innrykk brukes bare i funksjoner', 'Python ignorerer innrykk'],
-    explanation: 'Python bruker innrykk (typisk 4 mellomrom) for a vise kodeblokker. Feil innrykk gir syntaksfeil.',
+    explanation: 'Python bruker innrykk (typisk 4 mellomrom) for å vise kodeblokker. Feil innrykk gir syntaksfeil.',
   },
 ],
 
@@ -24245,23 +24245,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er pseudokode?',
-    options: ['En uformell beskrivelse av en algoritme pa vanlig sprak', 'Kode med feil i', 'Kommentarer i programmet', 'Et programmeringssprak for nybegynnere'],
+    options: ['En uformell beskrivelse av en algoritme påvanlig sprak', 'Kode med feil i', 'Kommentarer i programmet', 'Et programmeringssprak for nybegynnere'],
     explanation: 'Pseudokode bruker vanlig sprak blandet med programmeringsstrukturer for a beskrive algoritmer for de implementeres.',
   },
   {
     question: 'Hvilket symbol brukes for beslutninger i et flytdiagram?',
     options: ['Rombe (diamant)', 'Rektangel', 'Oval', 'Sirkel'],
-    explanation: 'Rombe brukes for beslutninger med ja/nei-utganger. Rektangel er for prosesser, oval for start/slutt.',
+    explanation: 'Rombe brukes for beslutninger med ja/nei-utganger. Rektangel er for prosesser, oval for stårt/slutt.',
   },
   {
-    question: 'Hva er det forste steget i problemlosning med programmering?',
+    question: 'Hva er det første steget i problemlosning med programmering?',
     options: ['Forsta problemet - hva er input og output', 'Skrive koden', 'Teste programmet', 'Velge programmeringssprak'],
-    explanation: 'For du kan lose et problem, ma du forsta hva det gar ut pa. Hva far du inn, og hva skal ut?',
+    explanation: 'For du kan lose et problem, må du forsta hva det gårut pa. Hva får du inn, og hva skal ut?',
   },
   {
     question: 'Hva skjer i en uendelig loekke?',
-    options: ['Programmet kjorer for alltid fordi betingelsen aldri blir usann', 'Programmet stopper etter 100 iterasjoner', 'Programmet krasjer umiddelbart', 'Loekken hopper over annenhver iterasjon'],
-    explanation: 'En uendelig loekke oppstar nar betingelsen for a fortsette alltid er sann, typisk fordi variabelen som styrer loekken aldri oppdateres.',
+    options: ['Programmet kjører for alltid fordi betingelsen aldri blir usann', 'Programmet stopper etter 100 iterasjoner', 'Programmet krasjer umiddelbart', 'Loekken hopper over annenhver iterasjon'],
+    explanation: 'En uendelig loekke oppstar nårbetingelsen for a fortsette alltid er sann, typisk fordi variabelen som styrer loekken aldri oppdateres.',
   },
 ],
 
@@ -24278,7 +24278,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gjor <head>-elementet i HTML?',
-    options: ['Inneholder metadata som ikke vises pa siden', 'Viser hovedoverskriften', 'Inneholder alt synlig innhold', 'Lager et toppbanner'],
+    options: ['Inneholder metadata som ikke vises påsiden', 'Viser hovedoverskriften', 'Inneholder alt synlig innhold', 'Lager et toppbanner'],
     explanation: 'Head-seksjonen inneholder metadata som tittel, CSS-lenker, og tegnsett - informasjon om siden som ikke vises direkte.',
   },
   {
@@ -24295,9 +24295,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'it-1-5': [
   {
-    question: 'Hva brukes JavaScript til pa nettsider?',
-    options: ['A gjore nettsider interaktive', 'A strukturere innhold', 'A style utseende', 'A lagre data pa serveren'],
-    explanation: 'JavaScript gjor nettsider interaktive ved a reagere pa brukerhandlinger, endre innhold, og manipulere DOM.',
+    question: 'Hvabrukes JavaScript til pånettsider?',
+    options: ['A gjore nettsider interaktive', 'A strukturere innhold', 'A style utseende', 'A lagre data påserveren'],
+    explanation: 'JavaScript gjor nettsider interaktive ved a reagere påbrukerhandlinger, endre innhold, og manipulere DOM.',
   },
   {
     question: 'Hva er forskjellen mellom let og const i JavaScript?',
@@ -24310,7 +24310,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'getElementById("idNavn") returnerer elementet med den angitte ID-en fra DOM-en.',
   },
   {
-    question: 'Hvordan legger du til en klikkhendelse pa en knapp?',
+    question: 'Hvordan legger du til en klikkhendelse påen knapp?',
     options: ['knapp.addEventListener("click", funksjon)', 'knapp.onClick(funksjon)', 'knapp.click = funksjon', 'addClick(knapp, funksjon)'],
     explanation: 'addEventListener() er den moderne og anbefalte maten a legge til hendelseslyttere i JavaScript.',
   },
@@ -24324,7 +24324,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'it-1-6': [
   {
     question: 'Hva er en primaernokkel i en database?',
-    options: ['En unik identifikator for hver rad i tabellen', 'Det forste feltet i tabellen', 'Passordet til databasen', 'Den viktigste kolonnen'],
+    options: ['En unik identifikator for hver rad i tabellen', 'Det første feltet i tabellen', 'Passordet til databasen', 'Den viktigste kolonnen'],
     explanation: 'Primaernokkel identifiserer hver rad unikt og sikrer at ingen duplikater finnes. Ofte et ID-nummer.',
   },
   {
@@ -24334,7 +24334,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva gjor WHERE-klausulen i en SQL-sporring?',
-    options: ['Filtrerer rader basert pa en betingelse', 'Sorterer resultatene', 'Velger hvilke kolonner som vises', 'Sletter data'],
+    options: ['Filtrerer rader basert påen betingelse', 'Sorterer resultatene', 'Velger hvilke kolonner som vises', 'Sletter data'],
     explanation: 'WHERE brukes til a filtrere rader som oppfyller en bestemt betingelse, f.eks. WHERE pris > 100.',
   },
   {
@@ -24357,7 +24357,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr universell utforming?',
-    options: ['At produktet kan brukes av alle, uavhengig av funksjonsevne', 'At designet er likt over hele verden', 'At det fungerer pa alle nettlesere', 'At man bruker universelle symboler'],
+    options: ['At produktet kan brukes av alle, uavhengig av funksjonsevne', 'At designet er likt over hele verden', 'At det fungerer påalle nettlesere', 'At man bruker universelle symboler'],
     explanation: 'Universell utforming sikrer at alle kan bruke produktet, inkludert personer med funksjonsnedsettelser.',
   },
   {
@@ -24371,9 +24371,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Ca. 8% av menn har fargeblindhet. Bruk ogsa tekst, ikoner eller monster for viktig informasjon.',
   },
   {
-    question: 'Hva brukes media queries til i CSS?',
-    options: ['Tilpasse design til ulike skjermstorrelser', 'Legge til bilder', 'Spille av video', 'Koble til databaser'],
-    explanation: 'Media queries lar deg endre CSS basert pa skjermstorrelse, noe som er essensielt for responsive design.',
+    question: 'Hvabrukes media queries til i CSS?',
+    options: ['Tilpasse design til ulike skjermstørrelser', 'Legge til bilder', 'Spille av video', 'Koble til databaser'],
+    explanation: 'Media queries lar deg endre CSS basert påskjermstørrelse, noe som er essensielt for responsive design.',
   },
 ],
 
@@ -24390,7 +24390,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er phishing?',
-    options: ['Forsok pa a lure noen til a oppgi sensitiv informasjon', 'En type datavirus', 'A hacke et nettverk', 'A stjele WiFi'],
+    options: ['Forsok påa lure noen til a oppgi sensitiv informasjon', 'En type datavirus', 'A hacke et nettverk', 'A stjele WiFi'],
     explanation: 'Phishing bruker falske e-poster eller nettsider for a lure folk til a oppgi passord eller annen sensitiv informasjon.',
   },
   {
@@ -24418,24 +24418,24 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken rettighet gir deg mulighet til a be om sletting av dine personopplysninger?',
-    options: ['Retten til a bli glemt', 'Retten til innsyn', 'Retten til dataportabilitet', 'Retten til a protestere'],
+    options: ['Retten til å bli glemt', 'Retten til innsyn', 'Retten til dataportabilitet', 'Retten til a protestere'],
     explanation: 'Under GDPR har du rett til a be om at virksomheter sletter personopplysninger de har lagret om deg.',
   },
   {
     question: 'Hva er opphavsrett?',
-    options: ['Beskyttelse av andsverk som gir skaperen enerett til bruk', 'Rett til a kopiere alt pa internett', 'En lisens for a dele bilder', 'Et patent pa programvare'],
+    options: ['Beskyttelse av andsverk som gir skaperen enerett til bruk', 'Rett til a kopiere alt påinternett', 'En lisens for a dele bilder', 'Et patent påprogramvare'],
     explanation: 'Opphavsrett beskytter kreative verk og gir skaperen kontroll over hvordan verket brukes og distribueres.',
   },
   {
     question: 'Hvilken lisenstype tillater fri bruk med krav om a nevne opphavsmannen?',
     options: ['Creative Commons BY', 'Copyright', 'Alle rettigheter forbeholdt', 'Proprietary'],
-    explanation: 'CC BY (Creative Commons Attribution) tillater bruk, deling og bearbeiding sa lenge du krediterer opphavsmannen.',
+    explanation: 'CC BY (Creative Commons Attribution) tillater bruk, deling og bearbeiding sålenge du krediterer opphavsmannen.',
   },
 ],
 
   'it-1-10': [
   {
-    question: 'Hva er forste fase i et IT-prosjekt?',
+    question: 'Hva er første fase i et IT-prosjekt?',
     options: ['Planlegging - definere mal og krav', 'Utvikling - skrive kode', 'Testing - finne feil', 'Levering - presentere resultatet'],
     explanation: 'Planleggingsfasen er forst, der man definerer mal, krav, tidsplan og fordeler oppgaver.',
   },
@@ -24445,7 +24445,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Smidig utvikling innebarer korte sprinter, fungerende leveranser underveis, og tilpasning til endringer.',
   },
   {
-    question: 'Hva brukes Git til?',
+    question: 'Hvabrukes Git til?',
     options: ['Versjonskontroll - spore endringer i kode', 'A kjore programmer', 'A designe nettsider', 'A teste kode'],
     explanation: 'Git er et versjonskontrollsystem som sporer alle endringer i koden, slik at du kan ga tilbake til tidligere versjoner.',
   },
@@ -24475,7 +24475,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva gjor __init__-metoden i Python?',
     options: ['Den er konstruktoren som initialiserer objektets attributter', 'Den sletter objektet', 'Den skriver ut objektet', 'Den kopierer objektet'],
-    explanation: '__init__ er konstruktoren som kjores automatisk nar et objekt opprettes og setter opp objektets starttilstand.',
+    explanation: '__init__ er konstruktoren som kjores automatisk nåret objekt opprettes og setter opp objektets starttilstand.',
   },
   {
     question: 'Hva betyr arv i programmering?',
@@ -24485,7 +24485,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er polymorfisme?',
     options: ['At samme metodenavn kan ha ulik implementasjon i ulike klasser', 'A bruke mange variabler', 'A skrive lang kode', 'A bruke flere programmeringssprak'],
-    explanation: 'Polymorfisme betyr at objekter av ulike klasser kan behandles likt, mens de utforer metoden pa sin egen mate.',
+    explanation: 'Polymorfisme betyr at objekter av ulike klasser kan behandles likt, mens de utforer metoden påsin egen mate.',
   },
 ],
 
@@ -24493,11 +24493,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom en stakk (stack) og en ko (queue)?',
     options: ['Stakk er LIFO (sist inn, forst ut), ko er FIFO (forst inn, forst ut)', 'De er like', 'Stakk er FIFO, ko er LIFO', 'Stakk brukes bare for tall'],
-    explanation: 'Stakk fungerer som en stabel (siste pa toppen fjernes forst), ko fungerer som en ventekoe (forste i rekken betjenes forst).',
+    explanation: 'Stakk fungerer som en stabel (siste påtoppen fjernes forst), ko fungerer som en ventekoe (første i rekken betjenes forst).',
   },
   {
     question: 'Hva betyr O(n) i Big O-notasjon?',
-    options: ['Lineaer tid - kjoeretiden vokser proporsjonalt med input-storrelsen', 'Konstant tid', 'Logaritmisk tid', 'Eksponentiell tid'],
+    options: ['Lineaer tid - kjoeretiden vokser proporsjonalt med input-størrelsen', 'Konstant tid', 'Logaritmisk tid', 'Eksponentiell tid'],
     explanation: 'O(n) betyr at hvis input dobles, dobles ogsa kjoeretiden. Eksempel: a soke gjennom en usortert liste.',
   },
   {
@@ -24521,11 +24521,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er hovedforskjellen mellom fossefallsmodellen og smidig utvikling?',
     options: ['Fossefall er lineaer og sekvensielt, smidig er iterativ med hyppige leveranser', 'De er like', 'Smidig har ingen planlegging', 'Fossefall har ingen testing'],
-    explanation: 'Fossefall gar gjennom fasene en gang, mens smidig utvikling gjentar korte sykluser med kontinuerlig forbedring.',
+    explanation: 'Fossefall gårgjennom fasene en gang, mens smidig utvikling gjentar korte sykluser med kontinuerlig forbedring.',
   },
   {
     question: 'Hva er enhetstesting (unit testing)?',
-    options: ['A teste enkeltfunksjoner eller komponenter isolert', 'A teste hele systemet', 'A la brukere teste', 'A teste bare brukergrensesnittet'],
+    options: ['A teste enkeltfunksjoner eller komponenter isolert', 'A teste hele systemet', 'A lå brukere teste', 'A teste bare brukergrensesnittet'],
     explanation: 'Enhetstesting verifiserer at individuelle funksjoner eller metoder fungerer korrekt, uavhengig av resten av systemet.',
   },
   {
@@ -24548,18 +24548,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'it-2-4': [
   {
     question: 'Hva er forskjellen mellom native apper og webapper?',
-    options: ['Native apper er laget for spesifikk plattform, webapper kjorer i nettleser', 'De er like', 'Webapper er raskere', 'Native apper bruker bare HTML'],
-    explanation: 'Native apper utvikles spesifikt for iOS eller Android og har full tilgang til enhetsfunksjoner, webapper kjorer i nettleser pa alle enheter.',
+    options: ['Native apper er laget for spesifikk plattform, webapper kjører i nettleser', 'De er like', 'Webapper er raskere', 'Native apper bruker bare HTML'],
+    explanation: 'Native apper utvikles spesifikt for iOS eller Android og har full tilgang til enhetsfunksjoner, webapper kjører i nettleser påalle enheter.',
   },
   {
     question: 'Hva er responsive design?',
-    options: ['At nettsiden tilpasser seg automatisk til ulike skjermstorrelser', 'At nettsiden reagerer raskt', 'At nettsiden har mange knapper', 'At nettsiden fungerer offline'],
+    options: ['At nettsiden tilpasser seg automatisk til ulike skjermstørrelser', 'At nettsiden reagerer raskt', 'At nettsiden har mange knapper', 'At nettsiden fungerer offline'],
     explanation: 'Responsive design bruker CSS media queries og fleksible layouter for a tilpasse visningen til mobil, nettbrett og desktop.',
   },
   {
     question: 'Hva er en wireframe?',
     options: ['En enkel skisse som viser layout og struktur uten detaljer', 'En ferdig nettside', 'En type database', 'Et programmeringssprak'],
-    explanation: 'Wireframes er enkle skisser som fokuserer pa funksjonalitet og informasjonsarkitektur for detaljert design.',
+    explanation: 'Wireframes er enkle skisser som fokuserer påfunksjonalitet og informasjonsarkitektur for detaljert design.',
   },
   {
     question: 'Hva star UX for?',
@@ -24569,7 +24569,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket verktoey brukes ofte til prototyping og UI-design?',
     options: ['Figma', 'Python', 'MySQL', 'Git'],
-    explanation: 'Figma er et populaert verktoey for a lage design, prototyper og samarbeide om brukergrensesnitt.',
+    explanation: 'Figma er et populaert verktoey for å lage design, prototyper og samarbeide om brukergrensesnitt.',
   },
 ],
 
@@ -24577,7 +24577,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom veiledet og uveiledet laering?',
     options: ['Veiledet laering bruker merkede data med fasit, uveiledet finner monster uten fasit', 'De er like', 'Uveiledet er mer noyaktig', 'Veiledet krever ingen data'],
-    explanation: 'Veiledet laering trenes pa data der vi vet riktig svar (f.eks. bilder merket katt/hund). Uveiledet finner monster selv.',
+    explanation: 'Veiledet laering trenes pådata der vi vet riktig svar (f.eks. bilder merket katt/hund). Uveiledet finner monster selv.',
   },
   {
     question: 'Hva er et nevralt nettverk?',
@@ -24587,7 +24587,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er bias i AI-systemer?',
     options: ['Skjevhet som gjor at systemet favoriserer visse grupper eller utfall', 'En type feilmelding', 'En programmeringsteknikk', 'Et merkevarenavn'],
-    explanation: 'Bias oppstar nar treningsdata er skjev, slik at AI-systemet arver og forsterker fordommer.',
+    explanation: 'Bias oppstar nårtreningsdata er skjev, slik at AI-systemet arver og førsterker fordommer.',
   },
   {
     question: 'Hvilket Python-bibliotek brukes ofte til maskinlaering?',
@@ -24605,7 +24605,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er CIA-triaden i informasjonssikkerhet?',
     options: ['Konfidensialitet, Integritet, Tilgjengelighet', 'Computer, Internet, Application', 'Create, Install, Authenticate', 'Copy, Insert, Attach'],
-    explanation: 'CIA-triaden er de tre hovedmalene: Konfidensialitet (hvem ser data), Integritet (er data korrekt), Tilgjengelighet (er data tilgjengelig nar trengs).',
+    explanation: 'CIA-triaden er de tre hovedmalene: Konfidensialitet (hvem ser data), Integritet (er data korrekt), Tilgjengelighet (er data tilgjengelig nårtrengs).',
   },
   {
     question: 'Hva er forskjellen mellom symmetrisk og asymmetrisk kryptering?',
@@ -24619,8 +24619,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor bor passord aldri lagres i klartekst?',
-    options: ['Ved datainnbrudd far angripere alle passord direkte', 'Det tar for mye plass', 'Det er tregere', 'Brukerne liker det ikke'],
-    explanation: 'Klartekst-passord er lesbare for alle med databasetilgang. Bruk hashing med salt sa passord kan verifiseres uten a lagres lesbart.',
+    options: ['Ved datainnbrudd fårangripere alle passord direkte', 'Det tar for mye plass', 'Det er tregere', 'Brukerne liker det ikke'],
+    explanation: 'Klartekst-passord er lesbare for alle med databasetilgang. Bruk hashing med salt såpassord kan verifiseres uten a lagres lesbart.',
   },
   {
     question: 'Hva er phishing?',
@@ -24637,8 +24637,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en brukerhistorie (user story)?',
-    options: ['En kort beskrivelse av funksjonalitet fra brukerens perspektiv', 'En lang teknisk dokumentasjon', 'En biografi om brukeren', 'En feilrapport'],
-    explanation: 'Format: "Som [rolle] onsker jeg [funksjon] slik at [nytte]". Holder fokus pa brukerverdi.',
+    options: ['En kort beskrivelse av funksjonalitet frå brukerens perspektiv', 'En lang teknisk dokumentasjon', 'En biografi om brukeren', 'En feilrapport'],
+    explanation: 'Format: "Som [rolle] onsker jeg [funksjon] slik at [nytte]". Holder fokus påbrukerverdi.',
   },
   {
     question: 'Hva er forskjellen mellom funksjonelle og ikke-funksjonelle krav?',
@@ -24676,10 +24676,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva betyr HTTP-statuskode 404?',
     options: ['Not Found - ressursen finnes ikke', 'OK - alt gikk bra', 'Uautorisert', 'Serverfeil'],
-    explanation: '404 betyr at den forespurte ressursen ikke finnes pa serveren. 200 er OK, 401 uautorisert, 500 serverfeil.',
+    explanation: '404 betyr at den forespurte ressursen ikke finnes påserveren. 200 er OK, 401 uautorisert, 500 serverfeil.',
   },
   {
-    question: 'Hva brukes en API-nokkel til?',
+    question: 'Hvabrukes en API-nokkel til?',
     options: ['A identifisere og autentisere klienten som bruker API-et', 'A kryptere data', 'A formatere JSON', 'A speede opp foresporsler'],
     explanation: 'API-nokkler identifiserer hvem som bruker tjenesten, begrenser tilgang, og sporer bruk.',
   },
@@ -24689,26 +24689,26 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom IaaS, PaaS og SaaS?',
     options: ['IaaS gir infrastruktur, PaaS gir plattform for utvikling, SaaS gir ferdig programvare', 'De er like', 'IaaS er dyrest', 'SaaS krever mest teknisk kunnskap'],
-    explanation: 'IaaS: Du styrer alt over infrastrukturen. PaaS: Du fokuserer pa kode. SaaS: Du bare bruker ferdig software.',
+    explanation: 'IaaS: Du styrer alt over infrastrukturen. PaaS: Du fokuserer påkode. SaaS: Du bare bruker ferdig software.',
   },
   {
     question: 'Hva gjor en load balancer?',
     options: ['Fordeler trafikk mellom flere servere', 'Lagrer data', 'Krypterer trafikk', 'Blokkerer angrep'],
-    explanation: 'Load balancer fordeler innkommende foresporsler for a unnga overbelastning og sikre tilgjengelighet hvis en server svikter.',
+    explanation: 'Load balancer fordeler innkommende foresporsler for å unngå overbelastning og sikre tilgjengelighet hvis en server svikter.',
   },
   {
     question: 'Hva er en CDN (Content Delivery Network)?',
     options: ['Et nettverk som lagrer innhold naer brukerne for raskere levering', 'En type database', 'Et programmeringssprak', 'En sikkerhetslosning'],
-    explanation: 'CDN cacher statisk innhold (bilder, videoer, CSS) pa servere over hele verden for raskere lasting.',
+    explanation: 'CDN cacher statisk innhold (bilder, videoer, CSS) påservere over hele verden for raskere lasting.',
   },
   {
     question: 'Hva er serverless computing?',
-    options: ['A kjore kode uten a administrere servere, betaler kun nar koden kjorer', 'A ikke bruke internett', 'A jobbe offline', 'A bruke bare lokale servere'],
-    explanation: 'Serverless (som AWS Lambda) lar deg fokusere pa kode mens skyleverandoren handterer all infrastruktur og skalering.',
+    options: ['A kjore kode uten a administrere servere, betaler kun nårkoden kjører', 'A ikke bruke internett', 'A jobbe offline', 'A bruke bare lokale servere'],
+    explanation: 'Serverless (som AWS Lambda) lar deg fokusere påkode mens skyleverandoren handterer all infrastruktur og skalering.',
   },
   {
-    question: 'Hvilke store skyleverandorer finnes?',
-    options: ['AWS, Microsoft Azure, Google Cloud Platform', 'Bare Google', 'Bare lokale selskaper', 'Det finnes ingen store leverandorer'],
+    question: 'Hvilke store skyleverandører finnes?',
+    options: ['AWS, Microsoft Azure, Google Cloud Platform', 'Bare Google', 'Bare lokale selskaper', 'Det finnes ingen store leverandører'],
     explanation: 'De tre store er Amazon Web Services (AWS), Microsoft Azure og Google Cloud Platform (GCP).',
   },
 ],
@@ -24727,7 +24727,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke etiske problemstillinger reiser AI?',
     options: ['Bias, personvern, jobbautomatisering, ansvar for beslutninger', 'Ingen problemstillinger', 'Bare tekniske problemer', 'Bare okonomiske kostnader'],
-    explanation: 'AI-etikk omfatter skjevhet i algoritmer, overvaking, erstatning av jobber, og hvem som er ansvarlig nar AI tar feil.',
+    explanation: 'AI-etikk omfatter skjevhet i algoritmer, overvaking, erstatning av jobber, og hvem som er ansvarlig nårAI tar feil.',
   },
   {
     question: 'Hva er digitalt utenforskap?',
@@ -24736,7 +24736,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er barekraftig IT?',
-    options: ['A utvikle og bruke teknologi pa en mate som tar hensyn til miljo og ressursbruk', 'A bruke mye strom', 'A kjope ny teknologi ofte', 'A ikke resirkulere'],
+    options: ['A utvikle og bruke teknologi påen mate som tar hensyn til miljo og ressursbruk', 'A bruke mye strom', 'A kjøpe ny teknologi ofte', 'A ikke resirkulere'],
     explanation: 'Barekraftig IT handler om energieffektivitet, resirkulering av elektronikk, og redusert ressursforbruk i hele livssyklusen.',
   },
 ],
@@ -24753,9 +24753,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'I Norge er minimumskravet til vekterutdanning 105 timer. Dette inkluderer bade teori og praksis, og er regulert i vaktvirksomhetsloven.',
   },
   {
-    question: 'Hvilken etisk grunnverdi innebarer a handle aerlig og konsekvent?',
+    question: 'Hvilken etisk grunnverdi innebarer å handle aerlig og konsekvent?',
     options: ['Integritet', 'Lojalitet', 'Respekt', 'Taushetsplikt'],
-    explanation: 'Integritet betyr a handle aerlig og konsekvent. Det innebarer blant annet a aldri la seg bestikke, rapportere sannferdig og ta ansvar for egne feil.',
+    explanation: 'Integritet betyr å handle aerlig og konsekvent. Det innebarer blant annet a aldri la seg bestikke, rapportere sannferdig og ta ansvar for egne feil.',
   },
   {
     question: 'Hvilken yrkesrolle har det overordnede ansvaret for sikkerheten i en virksomhet?',
@@ -24763,16 +24763,16 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Sikkerhetslederen har det overordnede ansvaret for sikkerheten, inkludert a utvikle sikkerhetsstrategi, gjennomfore risikovurderinger og lede sikkerhetspersonell.',
   },
   {
-    question: 'Nar taushetsplikten for vektere star i konflikt med andre hensyn, hva gar overst?',
+    question: 'Nar taushetsplikten for vektere star i konflikt med andre hensyn, hva gåroverst?',
     options: ['Lojalitet til loven', 'Lojalitet til arbeidsgiver', 'Lojalitet til kolleger', 'Lojalitet til kunden'],
-    explanation: 'Nar det oppstar konflikt mellom lojaliteter, star lojalitet til loven alltid overst. Vektere ma derfor rapportere lovbrudd selv om det gar pa tvers av andre lojaliteter.',
+    explanation: 'Nar det oppstar konflikt mellom lojaliteter, star lojalitet til loven alltid overst. Vektere måderfor rapportere lovbrudd selv om det gårpåtvers av andre lojaliteter.',
   },
 ],
 
   'sikkerhetsfag-2': [
   {
     question: 'Hvordan defineres risiko i sikkerhetsarbeid?',
-    options: ['Sannsynlighet multiplisert med konsekvens', 'Summen av alle trusler', 'Antall sarbarheter delt pa verdier', 'Konsekvens minus forebyggende tiltak'],
+    options: ['Sannsynlighet multiplisert med konsekvens', 'Summen av alle trusler', 'Antall sarbarheter delt påverdier', 'Konsekvens minus forebyggende tiltak'],
     explanation: 'Risiko defineres som kombinasjonen (produktet) av sannsynlighet for at en uonsket hendelse inntreffer og konsekvensene av hendelsen.',
   },
   {
@@ -24781,14 +24781,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En trussel er en potensiell arsak til en uonsket hendelse (f.eks. en innbruddstyv), mens sarbarhet er svakheter som kan utnyttes av trusselen (f.eks. ulast dor).',
   },
   {
-    question: 'Hvilken risikohåndteringsstrategi brukes nar man tegner forsikring?',
+    question: 'Hvilken risikohåndteringsstrategi brukes nårman tegner forsikring?',
     options: ['Overfore risiko', 'Unnga risiko', 'Redusere risiko', 'Akseptere risiko'],
-    explanation: 'Forsikring er et eksempel pa a overfore risiko. Du betaler forsikringsselskapet for a baere den okonomiske risikoen ved en eventuell hendelse.',
+    explanation: 'Forsikring er et eksempel påa overfore risiko. Du betaler forsikringsselskapet for a baere den okonomiske risikoen ved en eventuell hendelse.',
   },
   {
     question: 'Hva kalles risikoen som gjenstår etter at tiltak er implementert?',
     options: ['Restrisiko', 'Gjenvarende trussel', 'Akseptert sarbarhet', 'Minimumsrisiko'],
-    explanation: 'Restrisiko er risikoen som gjensstar etter at sikkerhetstiltak er implementert. Ingen tiltak gir 100% sikkerhet, sa det vil alltid vaere en viss restrisiko.',
+    explanation: 'Restrisiko er risikoen som gjensstar etter at sikkerhetstiltak er implementert. Ingen tiltak gir 100% sikkerhet, så det vil alltid vaere en viss restrisiko.',
   },
   {
     question: 'Hvilken farge i risikomatrisen indikerer at umiddelbar handling kreves?',
@@ -24801,7 +24801,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er dybdeforsvar i sikkerhetssammenheng?',
     options: ['Flere uavhengige sikkerhetslag som overlapper hverandre', 'Et system med ekstra dype grøfter rundt bygningen', 'Ekstra sikring av kjelleren', 'A grave ned verdifulle gjenstander'],
-    explanation: 'Dybdeforsvar handler om a ha flere uavhengige sikkerhetslag (perimeter, bygning, rom, objekt) slik at hvis ett lag svikter, vil de andre fortsatt gi beskyttelse.',
+    explanation: 'Dybdeforsvar handler om å ha flere uavhengige sikkerhetslag (perimeter, bygning, rom, objekt) slik at hvis ett lag svikter, vil de andre fortsatt gi beskyttelse.',
   },
   {
     question: 'Hva star CPTED for?',
@@ -24810,8 +24810,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke fire prinsipper inngår i CPTED?',
-    options: ['Naturlig overvaking, naturlig adgangskontroll, territoriell forsterkning, aktivitetsstotte', 'Forebygging, avdekking, respons, evaluering', 'Fysisk, teknisk, organisatorisk, menneskelig', 'Perimeter, bygning, rom, objekt'],
-    explanation: 'De fire CPTED-prinsippene er naturlig overvaking (god sikt), naturlig adgangskontroll (tydelige grenser), territoriell forsterkning (eierskap) og aktivitetsstotte (legitim bruk).',
+    options: ['Naturlig overvaking, naturlig adgangskontroll, territoriell førsterkning, aktivitetsstotte', 'Forebygging, avdekking, respons, evaluering', 'Fysisk, teknisk, organisatorisk, menneskelig', 'Perimeter, bygning, rom, objekt'],
+    explanation: 'De fire CPTED-prinsippene er naturlig overvaking (god sikt), naturlig adgangskontroll (tydelige grenser), territoriell førsterkning (eierskap) og aktivitetsstotte (legitim bruk).',
   },
   {
     question: 'I sikkerhetssone-inndelingen, hvilken sone har strengest sikkerhet?',
@@ -24829,7 +24829,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke tre faktorer baseres adgangskontroll pa?',
     options: ['Noe du vet, noe du har, noe du er', 'Kort, kode og kamera', 'Alarm, las og vakt', 'Sone, barriere og kontroll'],
-    explanation: 'Adgangskontroll baseres pa tre faktorer: noe du vet (passord/PIN), noe du har (kort/nokkel), og noe du er (biometri). To-faktor kombinerer to av disse.',
+    explanation: 'Adgangskontroll baseres påtre faktorer: noe du vet (passord/PIN), noe du har (kort/nokkel), og noe du er (biometri). To-faktor kombinerer to av disse.',
   },
   {
     question: 'Hva er normal maksimal lagringstid for kameraopptak?',
@@ -24847,7 +24847,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Proximity-kort (RFID) er standard i dag. De har beroringsri avlesning, er vanskeligere a kopiere enn magnetstripe, og har lang levetid.',
   },
   {
-    question: 'Hva ma inkluderes pa skilt om kameraovervaking?',
+    question: 'Hva måinkluderes påskilt om kameraovervaking?',
     options: ['At omradet er overvåket, hvem som er ansvarlig, og kontaktinformasjon', 'Kun at omradet er kameraovervåket', 'Kameraets plassering og type', 'Lagringstid for opptak'],
     explanation: 'Skilting om kameraovervaking skal inneholde at omradet er kameraovervåket, hvem som er ansvarlig for overvakingen, og kontaktinformasjon.',
   },
@@ -24855,9 +24855,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'sikkerhetsfag-5': [
   {
-    question: 'Hvilke tre elementer utgjor branntrekanten?',
+    question: 'Hvilke tre elementer utgjør branntrekanten?',
     options: ['Brennbart materiale, oksygen og varme', 'Ild, luft og brensel', 'Varme, royk og lys', 'Gnist, gass og metall'],
-    explanation: 'Branntrekanten bestar av brennbart materiale (brensel), oksygen og varme (tenntemperatur). Alle tre ma vaere til stede for at brann skal oppsta.',
+    explanation: 'Branntrekanten bestar av brennbart materiale (brensel), oksygen og varme (tenntemperatur). Alle tre måvaere til stede for at brann skal oppsta.',
   },
   {
     question: 'Hvilket slokkemiddel er best egnet for brann i elektronisk utstyr?',
@@ -24905,23 +24905,23 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er grensen for hoyselesskade fra stoy?',
     options: ['85 dB', '60 dB', '100 dB', '70 dB'],
-    explanation: 'Grensen for når støy kan gi hørselsskade er 85 dB. Ved stoy over denne grensen ma horselsvern brukes.',
+    explanation: 'Grensen for når støy kan gi hørselsskade er 85 dB. Ved stoy over denne grensen måhorselsvern brukes.',
   },
 ],
 
   'sikkerhetsfag-7': [
   {
-    question: 'Hva er minimumsalder for a bli vekter i Norge?',
-    options: ['18 ar', '16 ar', '20 ar', '21 ar'],
-    explanation: 'I henhold til vaktvirksomhetsloven ma man vaere minimum 18 ar for a fa vekterlegitimation og arbeide som vekter.',
+    question: 'Hva er minimumsalder for å bli vekter i Norge?',
+    options: ['18 år', '16 år', '20 år', '21 år'],
+    explanation: 'I henhold til vaktvirksomhetsloven måman vaere minimum 18 årfor a fa vekterlegitimation og arbeide som vekter.',
   },
   {
-    question: 'Hvilken lov hjemler enhvers rett til pagripelse pa fersk gjerning?',
+    question: 'Hvilken lov hjemler enhvers rett til pagripelse påfersk gjerning?',
     options: ['Straffeprosessloven § 176', 'Straffeloven § 17', 'Straffeloven § 18', 'Vaktvirksomhetsloven § 12'],
-    explanation: 'Straffeprosessloven § 176 gir enhver rett til a pagripe person som treffes pa fersk gjerning eller pa flukt fra det.',
+    explanation: 'Straffeprosessloven § 176 gir enhver rett til a pagripe person som treffes påfersk gjerning eller påflukt fra det.',
   },
   {
-    question: 'Hva er forskjellen pa nodrett og nodverge?',
+    question: 'Hva er forskjellen pånodrett og nodverge?',
     options: ['Nødrett redder fra fare, nodverge forsvarer mot angrep', 'Nodrett gjelder for vektere, nodverge for alle', 'Det er ingen forskjell', 'Nodrett er lovlig, nodverge er ulovlig'],
     explanation: 'Nodrett (§ 17) gir rett til a bega ellers straffbare handlinger for a redde fra fare. Nodverge (§ 18) gir rett til a forsvare seg mot ulovlige angrep.',
   },
@@ -24932,8 +24932,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor lenge er en vekterlegitimation gyldig?',
-    options: ['5 ar', '1 ar', '3 ar', '10 ar'],
-    explanation: 'Vekterlegitimation utstedes av politiet og er gyldig i 5 ar. Den skal alltid medbringes under tjeneste og fremvises pa oppfordring.',
+    options: ['5 år', '1 år', '3 år', '10 år'],
+    explanation: 'Vekterlegitimation utstedes av politiet og er gyldig i 5 år. Den skal alltid medbringes under tjeneste og fremvises påoppfordring.',
   },
 ],
 
@@ -24941,12 +24941,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva innebærer ansvarsprinsippet i beredskap?',
     options: ['Den som har ansvar til daglig har ogsa ansvar under krise', 'Politiet har alltid ansvar under krise', 'Kriseledelsen overtar alt ansvar', 'Staten har ansvar for all krisehåndtering'],
-    explanation: 'Ansvarsprinsippet innebærer at den som har ansvar i en normalsituasjon ogsa har ansvar under en krise. Ansvaret flyttes ikke til andre.',
+    explanation: 'Ansvarsprinsippet innebærer at den som har ansvar i en normalsituasjon også har ansvar under en krise. Ansvaret flyttes ikke til andre.',
   },
   {
     question: 'Hva er riktig rekkefølge ved terrorsituasjon?',
     options: ['Lop, gjemm, varsle', 'Varsle, gjemm, lop', 'Gjemm, varsle, lop', 'Varsle, lop, gjemm'],
-    explanation: 'Ved terror er rekkefolgen: 1) Lop - kom deg vekk hvis mulig, 2) Gjemm - sok dekning hvis du ikke kan flykte, 3) Varsle - ring 112 nar det er trygt.',
+    explanation: 'Ved terror er rekkefolgen: 1) Lop - kom deg vekk hvis mulig, 2) Gjemm - sok dekning hvis du ikke kan flykte, 3) Varsle - ring 112 nårdet er trygt.',
   },
   {
     question: 'Hvilke fire beredskapsprinsipper gjelder i Norge?',
@@ -24959,9 +24959,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En bordovelse (diskusjonsovelse) innebærer gjennomgang av planer, diskusjon av scenarier og klargjoring av roller. Den krever lite ressurser men gir god laering.',
   },
   {
-    question: 'Hva skal du gjore forst ved en bombetrussel pa telefon?',
-    options: ['Behold roen og hold samtalen gående', 'Legg pa og varsle politiet', 'Start umiddelbar evakuering', 'Ignorer trusselen'],
-    explanation: 'Ved bombetrussel pa telefon skal du behold roen, holde samtalen gaende sa lenge som mulig, og forsoke a fa mest mulig informasjon om bomben for du varsler politiet.',
+    question: 'Hva skal du gjore forst ved en bombetrussel påtelefon?',
+    options: ['Behold roen og hold samtalen gående', 'Legg påog varsle politiet', 'Start umiddelbar evakuering', 'Ignorer trusselen'],
+    explanation: 'Ved bombetrussel påtelefon skal du behold roen, holde samtalen gaende sålenge som mulig, og forsoke a fa mest mulig informasjon om bomben for du varsler politiet.',
   },
 ],
 
@@ -24974,12 +24974,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem regnes tradisjonelt som den første vestlige filosofen?',
     options: ['Thales fra Milet', 'Sokrates', 'Platon', 'Aristoteles'],
-    explanation: 'Thales fra Milet (ca. 624-546 f.Kr.) regnes som den forste vestlige filosofen fordi han sokte naturlige forklaringer pa verdens opprinnelse i stedet for myter.',
+    explanation: 'Thales fra Milet (ca. 624-546 f.Kr.) regnes som den første vestlige filosofen fordi han søkte naturlige forklaringer påverdens opprinnelse i stedet for myter.',
   },
   {
     question: 'Hva er den sokratiske metoden?',
     options: ['A stille sporsmål som avdekker motsetninger', 'A lese gamle tekster kritisk', 'A gjennomfore eksperimenter', 'A meditere over problemer'],
-    explanation: 'Den sokratiske metoden gar ut pa a stille sporsmål som avdekker motsetninger i samtalepartnerens oppfatninger. Sokrates brukte denne metoden for a soke sannhet gjennom dialog.',
+    explanation: 'Den sokratiske metoden gårut påa stille sporsmål som avdekker motsetninger i samtalepartnerens oppfatninger. Sokrates brukte denne metoden for a soke sannhet gjennom dialog.',
   },
   {
     question: 'Hva studerer epistemologi?',
@@ -24997,12 +24997,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan defineres kunnskap tradisjonelt i filosofien?',
     options: ['Berettiget, sann tro', 'Sikker overbevisning', 'Erfaring gjennom sanser', 'Logisk slutning'],
-    explanation: 'Siden Platon har filosofer ofte definert kunnskap som berettiget, sann tro (BST). Du ma tro pastandem, den ma være sann, og du ma ha gode grunner.',
+    explanation: 'Siden Platon har filosofer ofte definert kunnskap som berettiget, sann tro (BST). Du måtro pastandem, den måvære sann, og du måha gode grunner.',
   },
   {
     question: 'Hva er Gettier-problemet?',
     options: ['At man kan ha berettiget, sann tro uten at det er kunnskap', 'At vi aldri kan være sikre på noe', 'At sansene alltid bedrar oss', 'At logikk ikke er palitelig'],
-    explanation: 'Gettier-problemet viser at det er mulig a ha berettiget, sann tro uten at det er kunnskap - for eksempel nar du har rett av feil grunner.',
+    explanation: 'Gettier-problemet viser at det er mulig å ha berettiget, sann tro uten at det er kunnskap - for eksempel når du har rett av feil grunner.',
   },
   {
     question: 'Hva er hovedforskjellen mellom empirisme og rasjonalisme?',
@@ -25012,12 +25012,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva mente Descartes med "Cogito ergo sum"?',
     options: ['Jeg tenker, altså er jeg', 'Jeg ser, altså vet jeg', 'Jeg tviler, altså lærer jeg', 'Jeg føler, altså lever jeg'],
-    explanation: '«Cogito ergo sum» betyr «jeg tenker, altsa er jeg». Selv om jeg tviler pa alt, kan jeg ikke tvile pa at jeg tviler - og dermed at jeg eksisterer som et tenkende vesen.',
+    explanation: '«Cogito ergo sum» betyr «jeg tenker, altsa er jeg». Selv om jeg tviler påalt, kan jeg ikke tvile påat jeg tviler - og dermed at jeg eksisterer som et tenkende vesen.',
   },
   {
     question: 'Hva er bekreftelsesskjevhet?',
-    options: ['Vi søker informasjon som bekrefter det vi allerede tror', 'Vi tror pa det vi hører forst', 'Vi stoler for mye pa eksperter', 'Vi overvurderer egen kunnskap'],
-    explanation: 'Bekreftelsesskjevhet er tendensen til a søke, tolke og huske informasjon pa mater som bekrefter det vi allerede tror, og ignorere motstridende informasjon.',
+    options: ['Vi søker informasjon som bekrefter det vi allerede tror', 'Vi tror pådet vi hører forst', 'Vi stoler for mye påeksperter', 'Vi overvurderer egen kunnskap'],
+    explanation: 'Bekreftelsesskjevhet er tendensen til a søke, tolke og huske informasjon påmater som bekrefter det vi allerede tror, og ignorere motstridende informasjon.',
   },
 ],
 
@@ -25030,7 +25030,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et paradigme ifølge Thomas Kuhn?',
     options: ['Et felles rammeverk for en vitenskapelig disiplin', 'En bevist vitenskapelig teori', 'Et eksperiment som endrer alt', 'En falsk antakelse i vitenskap'],
-    explanation: 'Et paradigme er ifølge Kuhn et felles rammeverk som inkluderer grunnleggende antagelser, aksepterte metoder, standardproblemer og eksempler pa god forskning.',
+    explanation: 'Et paradigme er ifølge Kuhn et felles rammeverk som inkluderer grunnleggende antagelser, aksepterte metoder, standardproblemer og eksempler pågod forskning.',
   },
   {
     question: 'Hva kalles overgangen fra ett paradigme til et annet?',
@@ -25068,7 +25068,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med deontologi (pliktetikk)?',
     options: ['Visse handlinger er riktige eller gale i seg selv, uavhengig av konsekvenser', 'Konsekvenser er det eneste som teller', 'Karakter er viktigere enn handling', 'Moralen er relativ'],
-    explanation: 'Pliktetikk (deontologi) hevder at visse handlinger er riktige eller gale i seg selv, uavhengig av konsekvensene. Fokuset er pa plikter og rettigheter.',
+    explanation: 'Pliktetikk (deontologi) hevder at visse handlinger er riktige eller gale i seg selv, uavhengig av konsekvensene. Fokuset er påplikter og rettigheter.',
   },
   {
     question: 'Hva er eudaimonia i Aristoteles\' filosofi?',
@@ -25090,7 +25090,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom antroposentrisk og biosentrisk miljøetikk?',
-    options: ['Antroposentrisk gir bare mennesker moralsk status, biosentrisk inkluderer alt liv', 'Antroposentrisk er moderne, biosentrisk er gammel', 'Det er ingen vesentlig forskjell', 'Biosentrisk fokuserer pa okosystemer'],
+    options: ['Antroposentrisk gir bare mennesker moralsk status, biosentrisk inkluderer alt liv', 'Antroposentrisk er moderne, biosentrisk er gammel', 'Det er ingen vesentlig forskjell', 'Biosentrisk fokuserer påokosystemer'],
     explanation: 'Antroposentrisk etikk gir bare mennesker direkte moralsk status, mens biosentrisk etikk utvider moralsk status til alle levende vesener.',
   },
   {
@@ -25101,7 +25101,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Aldo Leopolds "landets etikk"?',
     options: ['Handlinger er riktige når de bevarer stabiliteten til det biotiske samfunnet', 'Alle landområder har eiendomsrettigheter', 'Mennesker eier ikke naturen', 'Økosystemer har egen bevissthet'],
-    explanation: 'Leopold formulerte: «En ting er rett nar den bevarer stabiliteten, integriteten og skjonnheten til det biotiske samfunnet. Den er gal nar den gjor det motsatte.»',
+    explanation: 'Leopold formulerte: «En ting er rett nården bevarer stabiliteten, integriteten og skjonnheten til det biotiske samfunnet. Den er gal nården gjor det motsatte.»',
   },
 ],
 
@@ -25139,12 +25139,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom et gyldig og et sunt argument?',
     options: ['Gyldig har riktig form, sunt har ogsa sanne premisser', 'Det er ingen forskjell', 'Gyldig har sanne premisser, sunt har riktig form', 'Sunt er kortere enn gyldig'],
-    explanation: 'Et gyldig argument har riktig logisk form (konklusjonen folger fra premissene). Et sunt argument er i tillegg gyldig med sanne premisser.',
+    explanation: 'Et gyldig argument har riktig logisk form (konklusjonen følger fra premissene). Et sunt argument er i tillegg gyldig med sanne premisser.',
   },
   {
     question: 'Hva er en stråmann-feilslutning?',
     options: ['A forvrenge motstanderens posisjon og angripe den forvrengede versjonen', 'A angripe personen i stedet for argumentet', 'A presentere bare to alternativer', 'A bruke folelser i stedet for argumenter'],
-    explanation: 'Stramann-feilslutningen er a forvrenge motstanderens posisjon og sa angripe den forvrengede versjonen i stedet for det faktiske argumentet.',
+    explanation: 'Stramann-feilslutningen er a forvrenge motstanderens posisjon og såangripe den forvrengede versjonen i stedet for det faktiske argumentet.',
   },
   {
     question: 'Hva er Euthyfros dilemma?',
@@ -25158,16 +25158,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er formålet med et tankeeksperiment?',
-    options: ['A teste intuisjoner og teorier gjennom hypotetiske scenarioer', 'A bevise vitenskapelige teorier', 'A underholde filosofistudenter', 'A unnga a gjøre ekte eksperimenter'],
+    options: ['A teste intuisjoner og teorier gjennom hypotetiske scenarioer', 'A bevise vitenskapelige teorier', 'A underholde filosofistudenter', 'A unngå å gjøre ekte eksperimenter'],
     explanation: 'Tankeeksperimenter er hypotetiske scenarioer som brukes til a teste intuisjoner og teorier. Eksempler inkluderer trolley-problemet og erfaringsmaskinen.',
   },
 ],
 
   'sosiologi-1': [
   {
-    question: 'Hvem regnes som sosiologiens far og introduserte begrepet sosiologi?',
+    question: 'Hvem regnes som sosiologiens fårog introduserte begrepet sosiologi?',
     options: ['Auguste Comte', 'Emile Durkheim', 'Karl Marx', 'Max Weber'],
-    explanation: 'Auguste Comte (1798-1857) regnes som sosiologiens far og introduserte begrepet sosiologi. Han mente at samfunnet kunne studeres vitenskapelig.',
+    explanation: 'Auguste Comte (1798-1857) regnes som sosiologiens fårog introduserte begrepet sosiologi. Han mente at samfunnet kunne studeres vitenskapelig.',
   },
   {
     question: 'Hva innebærer "den sosiologiske fantasien" ifølge C. Wright Mills?',
@@ -25450,7 +25450,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'politikk-menneskerett-1': [
   {
-    question: 'Hva handler politikk grunnleggende om?',
+    question: 'Hvahandler politikk grunnleggende om?',
     options: ['Fordeling av verdier og ressurser med gyldighet for et samfunn', 'Bare om valg og partier', 'Kun om lover og regler', 'Om enkeltpersoners meninger'],
     explanation: 'Politikk handler om hvordan et samfunn organiserer seg, tar beslutninger og fordeler goder og byrder. Det dreier seg om verdier, makt og innflytelse.',
   },
@@ -25498,7 +25498,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Demokratiet trues av populisme som angriper institusjoner, polarisering, spredning av feilinformasjon, fallende tillit til media og politikere, og påvirkning fra autoritære regimer.',
   },
   {
-    question: 'Hva sa Winston Churchill om demokratiet?',
+    question: 'Hva såWinston Churchill om demokratiet?',
     options: ['At demokrati er den verste styreformen, bortsett fra alle de andre som har vært prøvet', 'At demokrati er perfekt', 'At demokrati alltid fungerer', 'At demokrati bør avskaffes'],
     explanation: 'Churchill sa: "Demokrati er den verste styreformen, bortsett fra alle de andre som har vært prøvet." Dette understreker at demokrati har svakheter, men er bedre enn alternativene.',
   },
@@ -25796,7 +25796,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Tener har uregelmessig stamme i futurum: tendr- + é = tendré.',
   },
   {
-    question: 'Hva brukes kondisjonalis til?',
+    question: 'Hvabrukes kondisjonalis til?',
     options: ['Beskrive fortiden', 'Uttrykke høflighet og hypoteser', 'Gi ordre', 'Beskrive vaner'],
     explanation: 'Kondisjonalis brukes for høflige forespørsler, hypotetiske situasjoner og råd.',
   },
@@ -25834,7 +25834,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Med infinitiv kan pronomenet stå foran det bøyde verbet eller festes til infinitiven: Lo quiero ver / Quiero verlo.',
   },
   {
-    question: 'Hva brukes "cuyo/cuya" til?',
+    question: 'Hvabrukes "cuyo/cuya" til?',
     options: ['Å uttrykke sted', 'Å uttrykke eierskap (hvis)', 'Å uttrykke tid', 'Å erstatte direkte objekt'],
     explanation: 'Cuyo/cuya viser eierskap: El autor cuya obra... (Forfatteren hvis verk...).',
   },
@@ -25969,9 +25969,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '"El pasaporte" betyr passet.',
   },
   {
-    question: 'Hva betyr "reservar una habitación"?',
+    question: 'Hva betyr "reservar unå habitación"?',
     options: ['Å forlate et rom', 'Å reservere et rom', 'Å rengjøre et rom', 'Å finne et rom'],
-    explanation: '"Reservar una habitación" betyr å reservere et rom (på hotell).',
+    explanation: '"Reservar unå habitación" betyr å reservere et rom (på hotell).',
   },
   {
     question: 'Hvordan sier du "turist" på spansk?',
@@ -26049,7 +26049,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er pretérito perfecto de subjuntivo av "hablar" for "él"?',
-    options: ['ha hablado', 'haya hablado', 'había hablado', 'hubiera hablado'],
+    options: ['hå hablado', 'hayå hablado', 'habíå hablado', 'hubierå hablado'],
     explanation: 'Pretérito perfecto de subjuntivo: haya, hayas, haya... + partisipp.',
   },
   {
@@ -26086,7 +26086,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Futurum → kondisjonalis: "Vendré" → Dijo que vendría.',
   },
   {
-    question: 'Hva brukes for å gjengi ja/nei-spørsmål i indirekte tale?',
+    question: 'Hvabrukes for å gjengi ja/nei-spørsmål i indirekte tale?',
     options: ['que', 'si', 'qué', 'como'],
     explanation: 'Ja/nei-spørsmål gjengis med "si": Preguntó si venía.',
   },
@@ -26122,7 +26122,7 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'spansk-3-5': [
   {
-    question: 'Hvem regnes som surrealistmaleriens far i Spania?',
+    question: 'Hvem regnes som surrealistmaleriens fåri Spania?',
     options: ['Picasso', 'Dalí', 'Goya', 'Velázquez'],
     explanation: 'Salvador Dalí er kjent som en av surrealistmalingens mestere.',
   },
@@ -26221,9 +26221,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '"El alojamiento" betyr innlosjering eller overnatting.',
   },
   {
-    question: 'Hva betyr "la gastronomía"?',
+    question: 'Hva betyr "lå gåstronomía"?',
     options: ['Astronomi', 'Matkulturen', 'Geografien', 'Økonomien'],
-    explanation: '"La gastronomía" er matkultur eller kulinariske tradisjoner.',
+    explanation: '"Lå gåstronomía" er matkultur eller kulinariske tradisjoner.',
   },
   {
     question: 'Hvordan sier du "severdighet" på spansk?',
@@ -26419,7 +26419,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem er kjent for diktet "Erlkönig"?',
     options: ['Schiller', 'Goethe', 'Heine', 'Rilke'],
-    explanation: 'Goethe skrev balladen "Erlkönig" om en far som rir med sitt syke barn.',
+    explanation: 'Goethe skrev balladen "Erlkönig" om en fårsom rir med sitt syke barn.',
   },
   {
     question: 'Hva er "die Romantik"?',
@@ -26692,7 +26692,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Kraftwerk fra Düsseldorf er pionerer innen elektronisk musikk.',
   },
   {
-    question: 'Hva handler filmen "Das Leben der Anderen" om?',
+    question: 'Hvahandler filmen "Das Leben der Anderen" om?',
     options: ['Andre verdenskrig', 'Stasi-overvåkning i DDR', 'Moderne Berlin', 'Gjenforeningen'],
     explanation: 'Filmen handler om Stasi-overvåkning i Øst-Tyskland.',
   },
@@ -26921,7 +26921,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Si + imparfait, conditionnel. Man bruker ALDRI conditionnel etter si!',
   },
   {
-    question: 'Hva brukes conditionnel til?',
+    question: 'Hvabrukes conditionnel til?',
     options: ['Bare fremtid', 'Høflighet, hypoteser, ønsker', 'Bare fortid', 'Bare spørsmål'],
     explanation: 'Conditionnel uttrykker høflighet, hypotetiske situasjoner og ønsker.',
   },
@@ -26949,7 +26949,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '"Qui" er subjekt, "que" er objekt i relativsetningen.',
   },
   {
-    question: 'Hva brukes "dont" til?',
+    question: 'Hvabrukes "dont" til?',
     options: ['Stedsuttrykk', 'Å erstatte de-uttrykk (som/hvis)', 'Å erstatte direkte objekt', 'Spørsmål'],
     explanation: '"Dont" erstatter "de"-uttrykk: "Le livre dont je parle" (boken jeg snakker om).',
   },
@@ -26982,7 +26982,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Jean de La Fontaine er kjent for sine fabler med moralske lærdommer.',
   },
   {
-    question: 'Hvem er eksistensialismens far i fransk litteratur?',
+    question: 'Hvem er eksistensialismens fåri fransk litteratur?',
     options: ['Albert Camus', 'Jean-Paul Sartre', 'Simone de Beauvoir', 'Marcel Proust'],
     explanation: 'Jean-Paul Sartre regnes som eksistensialismens far.',
   },
@@ -27410,13 +27410,13 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'geofag-1-1': [
   {
-    question: 'Hvilken sfaere omfatter alle levende organismer pa Jorden?',
+    question: 'Hvilken sfaere omfatter alle levende organismer påJorden?',
     options: ['Biosfaeren', 'Geosfaeren', 'Hydrosfaeren', 'Atmosfaeren'],
-    explanation: 'Biosfaeren er den sfaeren som inneholder alt liv pa Jorden, fra bakterier til mennesker.',
+    explanation: 'Biosfaeren er den sfaeren som inneholder alt liv påJorden, fra bakterier til mennesker.',
   },
   {
     question: 'Hva er litosfaeren?',
-    options: ['Det stive ytre laget av Jorden som inneholder jordskorpen og ovre mantel', 'Den flytende delen av mantelen', 'Alt vann pa Jorden', 'Luftlaget rundt Jorden'],
+    options: ['Det stive ytre laget av Jorden som inneholder jordskorpen og ovre mantel', 'Den flytende delen av mantelen', 'Alt vann påJorden', 'Luftlaget rundt Jorden'],
     explanation: 'Litosfaeren er det stive ytre laget som bestar av jordskorpen og den overste delen av mantelen, og er delt i tektoniske plater.',
   },
   {
@@ -27427,7 +27427,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva bestar jordens indre kjerne av?',
     options: ['Fast jern og nikkel', 'Flytende jern og nikkel', 'Smeltet silikater', 'Granitt'],
-    explanation: 'Den indre kjernen er fast pa grunn av det enorme trykket, selv om temperaturen er svart hoy.',
+    explanation: 'Den indre kjernen er fast pågrunn av det enorme trykket, selv om temperaturen er svart hoy.',
   },
   {
     question: 'Hvilket eksempel viser samspill mellom geosfaeren og atmosfaeren?',
@@ -27438,24 +27438,24 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'geofag-1-2': [
   {
-    question: 'Hvilken bergart dannes nar magma storkner langsomt under jordoverflaten?',
+    question: 'Hvilken bergart dannes nårmagma storkner langsomt under jordoverflaten?',
     options: ['Granitt', 'Basalt', 'Marmor', 'Sandstein'],
-    explanation: 'Granitt er en intrusiv (dyp)bergart som dannes nar magma storkner langsomt, noe som gir tid til store krystaller.',
+    explanation: 'Granitt er en intrusiv (dyp)bergart som dannes nårmagma storkner langsomt, noe som gir tid til store krystaller.',
   },
   {
     question: 'Hva er et mineral?',
     options: ['Et naturlig forekommende, uorganisk fast stoff med definert kjemisk sammensetning', 'Enhver stein funnet i naturen', 'Et aggregat av flere stoffer', 'En organisk krystall'],
-    explanation: 'Mineraler ma vaere naturlige, uorganiske, faste, ha definert kjemisk sammensetning og ordnet atomstruktur.',
+    explanation: 'Mineraler måvaere naturlige, uorganiske, faste, ha definert kjemisk sammensetning og ordnet atomstruktur.',
   },
   {
     question: 'Hvilken metamorf bergart dannes fra kalkstein?',
     options: ['Marmor', 'Gneis', 'Kvartsitt', 'Skifer'],
-    explanation: 'Marmor dannes nar kalkstein utsettes for hoyt trykk og temperatur, og kalsittkrystallene rekrystalliserer.',
+    explanation: 'Marmor dannes nårkalkstein utsettes for hoyt trykk og temperatur, og kalsittkrystallene rekrystalliserer.',
   },
   {
     question: 'Hva kjennetegner ekstrusive bergarter?',
-    options: ['De storkner raskt pa overflaten og far sma krystaller', 'De storkner langsomt og far store krystaller', 'De dannes fra sedimenter', 'De dannes ved hoy metamorfose'],
-    explanation: 'Ekstrusive bergarter (dagbergarter) som basalt storkner raskt pa overflaten, noe som gir sma krystaller.',
+    options: ['De storkner raskt påoverflaten og fårsma krystaller', 'De storkner langsomt og fårstore krystaller', 'De dannes fra sedimenter', 'De dannes ved hoy metamorfose'],
+    explanation: 'Ekstrusive bergarter (dagbergarter) som basalt storkner raskt påoverflaten, noe som gir sma krystaller.',
   },
   {
     question: 'Hva beskriver bergartskretslopet?',
@@ -27468,7 +27468,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvem foreslo teorien om kontinentaldrift?',
     options: ['Alfred Wegener', 'Charles Darwin', 'Isaac Newton', 'Albert Einstein'],
-    explanation: 'Alfred Wegener foreslo kontinentaldrift-teorien i 1912, men den ble forst akseptert pa 1960-tallet.',
+    explanation: 'Alfred Wegener foreslo kontinentaldrift-teorien i 1912, men den ble forst akseptert på 1960-tallet.',
   },
   {
     question: 'Hva skjer ved en divergerende plategrense?',
@@ -27478,7 +27478,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er subduksjon?',
     options: ['Prosessen der en tektonisk plate dykker ned under en annen', 'Prosessen der ny havbunn dannes', 'Prosessen der fjell dannes', 'Prosessen der vulkaner oppstar'],
-    explanation: 'Subduksjon skjer typisk nar en tyngre oseanisk plate moter en lettere kontinental plate og synker ned.',
+    explanation: 'Subduksjon skjer typisk nåren tyngre oseanisk plate moter en lettere kontinental plate og synker ned.',
   },
   {
     question: 'Hvilken drivkraft regnes som viktigst for platebevegelser?',
@@ -27488,7 +27488,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan ble Himalaya dannet?',
     options: ['Ved kollisjon mellom den indiske og eurasiske platen', 'Ved vulkanisme', 'Ved subduksjon av oseanisk plate', 'Ved rifting'],
-    explanation: 'Himalaya ble dannet da to kontinentale plater kolliderte - ingen subduseres, sa skorpen presses sammen og opp.',
+    explanation: 'Himalaya ble dannet da to kontinentale plater kolliderte - ingen subduseres, såskorpen presses sammen og opp.',
   },
 ],
 
@@ -27500,8 +27500,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er episenteret til et jordskjelv?',
-    options: ['Punktet pa overflaten rett over hyposenteret', 'Stedet der bruddet starter', 'Malet pa jordskjelvets styrke', 'Avstanden til naermeste by'],
-    explanation: 'Episenteret er punktet pa jordoverflaten rett over hyposenteret (fokus), der jordskjelvet oppstar.',
+    options: ['Punktet påoverflaten rett over hyposenteret', 'Stedet der bruddet starter', 'Malet påjordskjelvets styrke', 'Avstanden til naermeste by'],
+    explanation: 'Episenteret er punktet påjordoverflaten rett over hyposenteret (fokus), der jordskjelvet oppstar.',
   },
   {
     question: 'Hvilke seismiske bolger kan ikke ga gjennom vaeske?',
@@ -27510,31 +27510,31 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva maler Richter-skalaen?',
-    options: ['Jordskjelvets magnitud', 'Jordskjelvets intensitet', 'Dybden til hyposenteret', 'Tsunamiens hoyde'],
-    explanation: 'Richter-skalaen maler jordskjelvets styrke basert pa energien som frigjores.',
+    options: ['Jordskjelvets magnitud', 'Jordskjelvets intensitet', 'Dybden til hyposenteret', 'Tsunamiens høyde'],
+    explanation: 'Richter-skalaen maler jordskjelvets styrke basert påenergien som frigjores.',
   },
   {
-    question: 'Hvorfor har Ildringen sa mange vulkaner og jordskjelv?',
-    options: ['Fordi den folger kanten av Stillehavsplaten som subduseres', 'Fordi det er mest hav der', 'Fordi det er varmest der', 'Fordi det er flest oyer der'],
-    explanation: 'Ildringen folger subduksjonssonene rundt Stillehavet, der jordskjelv og vulkanisme er intense.',
+    question: 'Hvorfor har Ildringen såmange vulkaner og jordskjelv?',
+    options: ['Fordi den følger kanten av Stillehavsplaten som subduseres', 'Fordi det er mest hav der', 'Fordi det er varmest der', 'Fordi det er flest oyer der'],
+    explanation: 'Ildringen følger subduksjonssonene rundt Stillehavet, der jordskjelv og vulkanisme er intense.',
   },
 ],
 
   'geofag-1-5': [
   {
     question: 'Hva er hovedarsaken til frostsprengning?',
-    options: ['Vann utvider seg nar det fryser', 'Is er tyngre enn vann', 'Frost gjor bergarter myke', 'Temperaturen synker'],
-    explanation: 'Vann utvider seg med ca. 9% nar det fryser. I sprekker i berg skaper dette et enormt trykk som sprenger bergarten.',
+    options: ['Vann utvider seg nårdet fryser', 'Is er tyngre enn vann', 'Frost gjor bergarter myke', 'Temperaturen synker'],
+    explanation: 'Vann utvider seg med ca. 9% nårdet fryser. I sprekker i berg skaper dette et enormt trykk som sprenger bergarten.',
   },
   {
     question: 'Hvilken prosess loser opp kalkstein?',
     options: ['Opplosning i surt vann', 'Frostsprengning', 'Oksidasjon', 'Trykkavlastning'],
-    explanation: 'Kalkstein (CaCO3) loses i surt vann som dannes nar CO2 reagerer med regnvann. Dette skaper karstlandskap.',
+    explanation: 'Kalkstein (CaCO3) loses i surt vann som dannes nårCO2 reagerer med regnvann. Dette skaper karstlandskap.',
   },
   {
     question: 'Hva er forskjellen mellom forvitring og erosjon?',
-    options: ['Forvitring er nedbrytning pa stedet, erosjon er transport bort', 'De er det samme', 'Erosjon er nedbrytning, forvitring er transport', 'Forvitring skjer bare i fjell'],
-    explanation: 'Forvitring bryter ned bergarter pa stedet, mens erosjon transporterer det forvitrede materialet bort.',
+    options: ['Forvitring er nedbrytning påstedet, erosjon er transport bort', 'De er det samme', 'Erosjon er nedbrytning, forvitring er transport', 'Forvitring skjer bare i fjell'],
+    explanation: 'Forvitring bryter ned bergarter påstedet, mens erosjon transporterer det forvitrede materialet bort.',
   },
   {
     question: 'Hvilken type forvitring er viktigst i Norge?',
@@ -27562,7 +27562,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken landform dannes der en elv moter havet?',
     options: ['Delta', 'Fjord', 'Botn', 'Morene'],
-    explanation: 'Et delta dannes nar elven mister fart ved havet og avsetter sedimentene den har transportert.',
+    explanation: 'Et delta dannes nårelven mister fart ved havet og avsetter sedimentene den har transportert.',
   },
   {
     question: 'Hva er en botn?',
@@ -27583,9 +27583,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Breddegraden bestemmer solvinkel og dagslengde, som er de viktigste faktorene for temperaturen.',
   },
   {
-    question: 'Hvor mye synker temperaturen per 100 meters hoyde?',
+    question: 'Hvor mye synker temperaturen per 100 meters høyde?',
     options: ['Ca. 0.6C', 'Ca. 1.0C', 'Ca. 0.3C', 'Ca. 2.0C'],
-    explanation: 'Temperaturen synker med ca. 0.6C per 100 meter hoydeoekning i troposfaeren.',
+    explanation: 'Temperaturen synker med ca. 0.6C per 100 meter høydeoekning i troposfaeren.',
   },
   {
     question: 'Hvilken havstrom varmer Norges kyst?',
@@ -27594,8 +27594,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er regnskygge?',
-    options: ['Et tort omrade pa le-siden av et fjell', 'En type sky', 'Skygge fra regnskyer', 'Et tropisk fenomen'],
-    explanation: 'Regnskygge oppstar nar fuktig luft tvinges over fjell, gir nedbor pa lo-siden og tort vaeR pa le-siden.',
+    options: ['Et tort omrade påle-siden av et fjell', 'En type sky', 'Skygge fra regnskyer', 'Et tropisk fenomen'],
+    explanation: 'Regnskygge oppstar nårfuktig luft tvinges over fjell, gir nedbor pålo-siden og tort vaeR påle-siden.',
   },
   {
     question: 'Hva kjennetegner maritimt klima?',
@@ -27608,7 +27608,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'I hvilket atmosfaerelag skjer alt vaer?',
     options: ['Troposfaeren', 'Stratosfaeren', 'Mesosfaeren', 'Termosfaeren'],
-    explanation: 'Troposfaeren er det nederste laget der temperaturen synker med hoyden, noe som gir ustabilitet og skydannelse.',
+    explanation: 'Troposfaeren er det nederste laget der temperaturen synker med høyden, noe som gir ustabilitet og skydannelse.',
   },
   {
     question: 'Hvilken front gir typisk kraftig, kortvarig nedbor?',
@@ -27621,14 +27621,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'I et hoytrykk synker luften, varmes opp og torker ut, noe som gir stabilt, fint vaer.',
   },
   {
-    question: 'Hvilken retning roterer vinden rundt et lavtrykk pa den nordlige halvkulen?',
+    question: 'Hvilken retning roterer vinden rundt et lavtrykk påden nordlige halvkulen?',
     options: ['Mot klokken (moturs)', 'Med klokken (medurs)', 'Rett inn mot senteret', 'Rett ut fra senteret'],
-    explanation: 'Corioliseffekten avboyer vinden mot hoyre pa nordlige halvkule, noe som gir moturs rotasjon rundt lavtrykk.',
+    explanation: 'Corioliseffekten avboyer vinden mot hoyre pånordlige halvkule, noe som gir moturs rotasjon rundt lavtrykk.',
   },
   {
     question: 'Hva er en okklusjon?',
     options: ['Nar en kaldfront tar igjen en varmfront', 'En type hoytrykk', 'En tropisk storm', 'En tordensky'],
-    explanation: 'En okklusjon oppstar nar en kaldfront tar igjen en varmfront i et lavtrykk.',
+    explanation: 'En okklusjon oppstar nåren kaldfront tar igjen en varmfront i et lavtrykk.',
   },
 ],
 
@@ -27656,25 +27656,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en artesisk bronn?',
     options: ['En bronn der vannet stiger av seg selv pga. trykk', 'En bronn som er svart dyp', 'En bronn med saltvann', 'En bronn i fjellet'],
-    explanation: 'Artesisk vann er under trykk mellom to vanntette lag, sa det stiger opp av seg selv nar man borer.',
+    explanation: 'Artesisk vann er under trykk mellom to vanntette lag, så det stiger opp av seg selv nårman borer.',
   },
 ],
 
   'geofag-1-10': [
   {
-    question: 'Hva viser hoydekurvene pa et topografisk kart?',
-    options: ['Linjer som forbinder punkter med samme hoyde', 'Grenser mellom bergarttyper', 'Vannstrommer', 'Vegetasjonsgrenser'],
-    explanation: 'Hoydekurver (koter) forbinder punkter med samme hoyde over havet.',
+    question: 'Hva viser høydekurvene på et topografisk kart?',
+    options: ['Linjer som forbinder punkter med samme høyde', 'Grenser mellom bergarttyper', 'Vannstrommer', 'Vegetasjonsgrenser'],
+    explanation: 'Hoydekurver (koter) forbinder punkter med samme høyde over havet.',
   },
   {
-    question: 'Hva indikerer tette hoydekurver pa et kart?',
+    question: 'Hva indikerer tette høydekurver på et kart?',
     options: ['Bratt terreng', 'Flatt terreng', 'Skog', 'Vann'],
-    explanation: 'Tette hoydekurver betyr at hoyden endrer seg mye over kort avstand, altsa bratt terreng.',
+    explanation: 'Tette høydekurver betyr at høyden endrer seg mye over kort avstand, altsa bratt terreng.',
   },
   {
-    question: 'Hva er ekvidistanse pa et kart?',
-    options: ['Hoydeforskjellen mellom hoydekurvene', 'Avstanden mellom to punkter', 'Kartets malestokk', 'Nordretningen'],
-    explanation: 'Ekvidistansen er den faste hoydeforskjellen mellom to nabokurver, vanligvis 5, 10 eller 20 meter.',
+    question: 'Hva er ekvidistanse på et kart?',
+    options: ['Hoydeforskjellen mellom høydekurvene', 'Avstanden mellom to punkter', 'Kartets målestokk', 'Nordretningen'],
+    explanation: 'Ekvidistansen er den faste høydeforskjellen mellom to nabokurver, vanligvis 5, 10 eller 20 meter.',
   },
   {
     question: 'Hva er GIS?',
@@ -27682,17 +27682,17 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'GIS er digitale verktoy for a samle inn, lagre, analysere og presentere geografiske data.',
   },
   {
-    question: 'Hva brukes saltsyre til i felt?',
+    question: 'Hvabrukes saltsyre til i felt?',
     options: ['A teste om en bergart inneholder kalk', 'A rense prover', 'A lage hull i berg', 'A merke steiner'],
-    explanation: 'Saltsyre (HCl) brukes til a teste kalkstein - den bruiser nar kalkstein loses.',
+    explanation: 'Saltsyre (HCl) brukes til a teste kalkstein - den bruiser nårkalkstein loses.',
   },
 ],
 
   'geofag-2-1': [
   {
     question: 'Hvor gammel er Jorden?',
-    options: ['Ca. 4.6 milliarder ar', 'Ca. 4.6 millioner ar', 'Ca. 6000 ar', 'Ca. 13.8 milliarder ar'],
-    explanation: 'Jorden er ca. 4.6 milliarder ar gammel, dannet fra solnebula samtidig med resten av solsystemet.',
+    options: ['Ca. 4.6 milliarder år', 'Ca. 4.6 millioner år', 'Ca. 6000 år', 'Ca. 13.8 milliarder år'],
+    explanation: 'Jorden er ca. 4.6 milliarder årgammel, dannet fra solnebula samtidig med resten av solsystemet.',
   },
   {
     question: 'Hvilken dateringemetode bruker nedbrytning av radioaktive isotoper?',
@@ -27702,7 +27702,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'I hvilken geologisk aera levde dinosaurene?',
     options: ['Mesozoikum', 'Paleozoikum', 'Kenozoikum', 'Proterozoikum'],
-    explanation: 'Dinosaurene dominerte i Mesozoikum (252-66 millioner ar siden), ofte kalt "reptilenes tidsalder".',
+    explanation: 'Dinosaurene dominerte i Mesozoikum (252-66 millioner årsiden), ofte kalt "reptilenes tidsalder".',
   },
   {
     question: 'Hva er superposisjonsprinsippet?',
@@ -27712,7 +27712,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken isotop brukes til a datere organisk materiale opp til 50 000 ar?',
     options: ['Karbon-14', 'Uran-238', 'Kalium-40', 'Rubidium-87'],
-    explanation: 'Karbon-14 har en halveringstid pa 5730 ar og egner seg for datering av organisk materiale.',
+    explanation: 'Karbon-14 har en halveringstid på5730 årog egner seg for datering av organisk materiale.',
   },
 ],
 
@@ -27728,19 +27728,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Gode ledefossiler har stor utbredelse, kort eksistenstid, er lett gjenkjennelige og hyppige.',
   },
   {
-    question: 'Hvilken masseutryddelse var den storste i jordens historie?',
-    options: ['Perm-Trias (252 mill ar siden)', 'Kritt-Paleogen (66 mill ar siden)', 'Ordovicium-Silur', 'Trias-Jura'],
+    question: 'Hvilken masseutryddelse var den største i jordens historie?',
+    options: ['Perm-Trias (252 mill årsiden)', 'Kritt-Paleogen (66 mill årsiden)', 'Ordovicium-Silur', 'Trias-Jura'],
     explanation: 'Perm-Trias-utryddelsen tok livet av 96% av marine arter og 70% av landdyr.',
   },
   {
     question: 'Hva er permineralisering?',
     options: ['Mineraler fyller porer i bein eller tre', 'Organisk materiale erstattes av karbon', 'Organismer bevares i is', 'Organismer etterlater avtrykk'],
-    explanation: 'Ved permineralisering fyller mineraler porene i organisk materiale og forsterker strukturen.',
+    explanation: 'Ved permineralisering fyller mineraler porene i organisk materiale og førsterker strukturen.',
   },
   {
     question: 'Nar skjedde Kambrium-eksplosjonen?',
-    options: ['For ca. 541 millioner ar siden', 'For ca. 66 millioner ar siden', 'For ca. 252 millioner ar siden', 'For ca. 4 milliarder ar siden'],
-    explanation: 'Kambrium-eksplosjonen var en rask utvikling av dyreliv for ca. 541 millioner ar siden.',
+    options: ['For ca. 541 millioner årsiden', 'For ca. 66 millioner årsiden', 'For ca. 252 millioner årsiden', 'For ca. 4 milliarder årsiden'],
+    explanation: 'Kambrium-eksplosjonen var en rask utvikling av dyreliv for ca. 541 millioner årsiden.',
   },
 ],
 
@@ -27748,12 +27748,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva dannet den kaledonske fjellkjeden?',
     options: ['Kollisjon mellom Baltika og Laurentia', 'Vulkansk aktivitet', 'Istidenes erosjon', 'Meteorittnedslag'],
-    explanation: 'Den kaledonske fjellkjeden ble dannet for 500-400 millioner ar siden ved kontinentkollisjon.',
+    explanation: 'Den kaledonske fjellkjeden ble dannet for 500-400 millioner årsiden ved kontinentkollisjon.',
   },
   {
     question: 'Hvilke bergarter dominerer i grunnfjellet?',
     options: ['Gneiser og granitter', 'Kalkstein og skifer', 'Sandstein og konglomerat', 'Basalt og gabbro'],
-    explanation: 'Grunnfjellet bestar hovedsakelig av gneiser og granitter, dannet for 1-3 milliarder ar siden.',
+    explanation: 'Grunnfjellet bestar hovedsakelig av gneiser og granitter, dannet for 1-3 milliarder årsiden.',
   },
   {
     question: 'Hva er et skyvedekke?',
@@ -27762,8 +27762,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Nar kulminerte siste istid?',
-    options: ['For ca. 20 000 ar siden', 'For ca. 100 000 ar siden', 'For ca. 1000 ar siden', 'For ca. 1 million ar siden'],
-    explanation: 'Siste istid (Weichsel) hadde sin kulminasjon for ca. 20 000 ar siden med is opp til 3 km tykk.',
+    options: ['For ca. 20 000 årsiden', 'For ca. 100 000 årsiden', 'For ca. 1000 årsiden', 'For ca. 1 million årsiden'],
+    explanation: 'Siste istid (Weichsel) hadde sin kulminasjon for ca. 20 000 årsiden med is opp til 3 km tykk.',
   },
   {
     question: 'Hvordan ble fjordene dannet?',
@@ -27775,18 +27775,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'geofag-2-4': [
   {
     question: 'Hva er massebalansen til en isbre?',
-    options: ['Forskjellen mellom akkumulasjon og ablasjon', 'Isbreens totale masse', 'Hastigheten isen beveger seg', 'Tykkelsen pa isen'],
+    options: ['Forskjellen mellom akkumulasjon og ablasjon', 'Isbreens totale masse', 'Hastigheten isen beveger seg', 'Tykkelsen påisen'],
     explanation: 'Massebalansen er forskjellen mellom akkumulasjon (snofall) og ablasjon (smelting/kalving).',
   },
   {
-    question: 'Hvor mye vil havnivaet stige hvis all isen pa Gronland smelter?',
+    question: 'Hvor mye vil havnivaet stige hvis all isen påGronland smelter?',
     options: ['Ca. 7 meter', 'Ca. 1 meter', 'Ca. 20 meter', 'Ca. 58 meter'],
     explanation: 'Gronlands innlandsis inneholder nok is til a heve havnivaet med ca. 7 meter.',
   },
   {
     question: 'Hva er permafrost?',
-    options: ['Grunn som er frossen i minst to sammenhengende ar', 'Is pa overflaten', 'Snoe som ikke smelter', 'Frosset sjovann'],
-    explanation: 'Permafrost er grunn som holder seg under 0C i minst to sammenhengende ar.',
+    options: ['Grunn som er frossen i minst to sammenhengende år', 'Is påoverflaten', 'Snoe som ikke smelter', 'Frosset sjovann'],
+    explanation: 'Permafrost er grunn som holder seg under 0C i minst to sammenhengende år.',
   },
   {
     question: 'Hva er albedo-effekten?',
@@ -27814,15 +27814,15 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan transporterer elver sedimenter i suspensjon?',
     options: ['Finpartikler holdes svevende i vannmassen', 'Partikler ruller langs bunnen', 'Partikler spretter langs bunnen', 'Partikler loses i vannet'],
-    explanation: 'Suspensjon er nar fine partikler (leire, silt) holdes svevende av turbulens.',
+    explanation: 'Suspensjon er nårfine partikler (leire, silt) holdes svevende av turbulens.',
   },
   {
     question: 'Hva er oppholdstiden for vann i atmosfaeren?',
-    options: ['Ca. 9 dager', 'Ca. 1 ar', 'Ca. 100 ar', 'Ca. 1 dag'],
+    options: ['Ca. 9 dager', 'Ca. 1 år', 'Ca. 100 år', 'Ca. 1 dag'],
     explanation: 'Vann i atmosfaeren har kort oppholdstid - bare ca. 9 dager for det faller som nedbor.',
   },
   {
-    question: 'Hvor stor andel av globalt vannforbruk gar til jordbruk?',
+    question: 'Hvor stor andel av globalt vannforbruk gårtil jordbruk?',
     options: ['Ca. 70%', 'Ca. 20%', 'Ca. 10%', 'Ca. 50%'],
     explanation: 'Jordbruk star for ca. 70% av globalt vannforbruk, hovedsakelig til irrigasjon.',
   },
@@ -27830,8 +27830,8 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'geofag-2-6': [
   {
-    question: 'Hva skjer med kvikkleire nar den forstyrres?',
-    options: ['Den gar fra fast til flytende tilstand', 'Den blir hardere', 'Den absorberer mer vann', 'Den ekspanderer'],
+    question: 'Hva skjer med kvikkleire nården forstyrres?',
+    options: ['Den gårfra fast til flytende tilstand', 'Den blir hardere', 'Den absorberer mer vann', 'Den ekspanderer'],
     explanation: 'Kvikkleire er sensitiv marin leire som kollapser fra fast til flytende ved forstyrrelse.',
   },
   {
@@ -27852,7 +27852,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan pavirker klimaendringer naturfarene i Norge?',
     options: ['Mer nedbor gir okt flom- og skredfare', 'Mindre fare generelt', 'Ingen endring', 'Bare mer snoskredfare'],
-    explanation: 'Klimaendringer gir mer intens nedbor, hoyere temperaturer og okt risiko for flom og skred.',
+    explanation: 'Klimaendringer gir mer intens nedbor, høyere temperaturer og okt risiko for flom og skred.',
   },
 ],
 
@@ -27875,12 +27875,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Ved hvilken temperatur dannes olje fra organisk materiale?',
     options: ['60-120C', '0-30C', '200-300C', '500-600C'],
-    explanation: 'Olje genereres ved 60-120C (oljevinduet), mens gass dannes ved hoyere temperaturer.',
+    explanation: 'Olje genereres ved 60-120C (oljevinduet), mens gass dannes ved høyere temperaturer.',
   },
   {
     question: 'Nar ble Ekofisk-feltet oppdaget?',
     options: ['1969', '1959', '1979', '1989'],
-    explanation: 'Ekofisk ble oppdaget i 1969 og markerte starten pa norsk oljevirksomhet.',
+    explanation: 'Ekofisk ble oppdaget i 1969 og markerte starten pånorsk oljevirksomhet.',
   },
 ],
 
@@ -27902,8 +27902,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvor langt tilbake kan iskjerner fra Antarktis ga?',
-    options: ['Ca. 800 000 ar', 'Ca. 10 000 ar', 'Ca. 1 million ar', 'Ca. 100 000 ar'],
-    explanation: 'Iskjerner fra Antarktis gar tilbake ca. 800 000 ar og viser CO2- og temperaturhistorie.',
+    options: ['Ca. 800 000 år', 'Ca. 10 000 år', 'Ca. 1 million år', 'Ca. 100 000 år'],
+    explanation: 'Iskjerner fra Antarktis gårtilbake ca. 800 000 årog viser CO2- og temperaturhistorie.',
   },
   {
     question: 'Hva viser lavere d18O i iskjerner?',
@@ -27926,7 +27926,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mye har CO2-nivaet okt siden forindustriell tid?',
     options: ['Fra ca. 280 til over 420 ppm', 'Fra 100 til 200 ppm', 'Fra 500 til 600 ppm', 'Ingen endring'],
-    explanation: 'CO2-nivaet har okt fra ca. 280 ppm til over 420 ppm pa 150 ar.',
+    explanation: 'CO2-nivaet har okt fra ca. 280 ppm til over 420 ppm på 150 år.',
   },
   {
     question: 'Hva er planetaere grenser?',
@@ -27947,9 +27947,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Uniformitarianisme sier at dagens prosesser kan brukes til a tolke fortiden.',
   },
   {
-    question: 'Hva brukes en geologihammer til?',
+    question: 'Hvabrukes en geologihammer til?',
     options: ['A ta bergartsprover', 'A grave hull', 'A male temperaturer', 'A finne fossiler'],
-    explanation: 'Geologihammeren brukes til a ta prover fra bergarter for narmere undersokelse.',
+    explanation: 'Geologihammeren brukes til a ta prover fra bergarter for narmere undersøkelse.',
   },
   {
     question: 'Hva er XRF?',
@@ -27970,14 +27970,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'tof-1-1': [
   {
-    question: 'Hva er det forste steget i vitenskapelig metode?',
+    question: 'Hva er det første steget i vitenskapelig metode?',
     options: ['Observasjon og problemstilling', 'Hypotese', 'Eksperiment', 'Konklusjon'],
     explanation: 'Vitenskapelig metode starter med a observere et fenomen og stille sporsmsl.',
   },
   {
     question: 'Hva kjennetegner en god hypotese?',
     options: ['Den er testbar og kan falsifiseres', 'Den er alltid sann', 'Den beskriver en mening', 'Den kan ikke testes'],
-    explanation: 'En god hypotese ma kunne testes og potensielt vises feil.',
+    explanation: 'En god hypotese måkunne testes og potensielt vises feil.',
   },
   {
     question: 'Hva er forskjellen mellom validitet og reliabilitet?',
@@ -27987,11 +27987,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en uavhengig variabel?',
     options: ['Variabelen forskeren endrer', 'Variabelen som males', 'Variabler som holdes konstante', 'Tilfeldige feil'],
-    explanation: 'Den uavhengige variabelen er det forskeren manipulerer for a se effekten.',
+    explanation: 'Den uavhengige variabelen er det forskeren manipulerer for å se effekten.',
   },
   {
     question: 'Hvorfor er kontrollgrupper viktige i eksperimenter?',
-    options: ['For a ha en baseline a sammenligne med', 'For a gjore eksperimentet storre', 'For a spare tid', 'De er ikke viktige'],
+    options: ['For å ha en baseline a sammenligne med', 'For å gjøre eksperimentet større', 'For a spare tid', 'De er ikke viktige'],
     explanation: 'Kontrollgrupper gir en baseline slik at vi vet om endringer skyldes det vi tester.',
   },
 ],
@@ -28004,7 +28004,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken metode er best for a etablere arsakssammenheng?',
-    options: ['Eksperiment med kontrollgruppe', 'Observasjon', 'Sporreundersokelse', 'Intervju'],
+    options: ['Eksperiment med kontrollgruppe', 'Observasjon', 'Sporreundersøkelse', 'Intervju'],
     explanation: 'Bare eksperimenter med kontrollgrupper kan etablere arsakssammenheng.',
   },
   {
@@ -28031,13 +28031,13 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Dampmaskinen var nokkeloppfinnelsen som muliggjorde fabrikker og tog.',
   },
   {
-    question: 'Nar startet den digitale revolusjonen?',
+    question: 'Nar stårtet den digitale revolusjonen?',
     options: ['Ca. 1970', 'Ca. 1900', 'Ca. 1950', 'Ca. 2000'],
     explanation: 'Den digitale revolusjonen startet rundt 1970 med utviklingen av mikroprosessorer.',
   },
   {
     question: 'Hva menes med "digital kloeft"?',
-    options: ['Ulikhet i tilgang til digital teknologi', 'En fysisk sprekk i en datamaskin', 'Forskjell mellom gamle og nye programmer', 'Mangel pa internettforbindelse'],
+    options: ['Ulikhet i tilgang til digital teknologi', 'En fysisk sprekk i en datamaskin', 'Forskjell mellom gamle og nye programmer', 'Mangel påinternettforbindelse'],
     explanation: 'Digital kloeft beskriver ulikheten mellom de som har og ikke har tilgang til digital teknologi.',
   },
   {
@@ -28054,9 +28054,9 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   'tof-1-4': [
   {
-    question: 'Hva er det forste steget i designprosessen?',
+    question: 'Hva er det første steget i designprosessen?',
     options: ['Empati / Forsta problemet', 'Lage prototype', 'Brainstorming', 'Testing'],
-    explanation: 'Man ma forst forsta brukeren og problemet for man kan begynne a designe losninger.',
+    explanation: 'Man måforst forstå brukeren og problemet for man kan begynne a designe losninger.',
   },
   {
     question: 'Hva star "S" for i SCAMPER?',
@@ -28088,7 +28088,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor trenger en LED motstand?',
-    options: ['For a begrense strommen og unnga at LED-en brenner', 'For a oke lysstyrken', 'For a lagre energi', 'For a endre fargen'],
+    options: ['For a begrense strommen og unngå åt LED-en brenner', 'For a oke lysstyrken', 'For a lagre energi', 'For a endre fargen'],
     explanation: 'Uten motstand vil for mye strom ga gjennom LED-en og odelegge den.',
   },
   {
@@ -28103,7 +28103,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom setup() og loop() i Arduino?',
-    options: ['setup() kjorer en gang, loop() kjorer kontinuerlig', 'De er det samme', 'loop() kjorer forst', 'setup() kjorer kontinuerlig'],
+    options: ['setup() kjører en gang, loop() kjører kontinuerlig', 'De er det samme', 'loop() kjører forst', 'setup() kjører kontinuerlig'],
     explanation: 'setup() initialiserer og kjores en gang, loop() inneholder hovedprogrammet som gjentas.',
   },
 ],
@@ -28117,17 +28117,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en aktuator?',
     options: ['En komponent som utforer fysiske handlinger', 'En komponent som maler temperatur', 'En type prosessor', 'En type motstand'],
-    explanation: 'Aktuatorer utforer fysiske handlinger basert pa elektriske signaler.',
+    explanation: 'Aktuatorer utforer fysiske handlinger basert påelektriske signaler.',
   },
   {
-    question: 'Hva brukes PWM til?',
+    question: 'Hvabrukes PWM til?',
     options: ['A simulere analog utgang for dimming og hastighet', 'A lese analoge sensorer', 'A kommunisere med andre enheter', 'A lagre data permanent'],
     explanation: 'PWM varierer pulsbredden for a simulere verdier mellom 0 og 5V.',
   },
   {
     question: 'Hva er forskjellen mellom analog og digital input?',
     options: ['Digital har to tilstander, analog kan lese mange verdier', 'De er det samme', 'Analog har to tilstander', 'Digital har mange verdier'],
-    explanation: 'Digital er HIGH/LOW, analog leser verdier fra 0-1023 pa Arduino.',
+    explanation: 'Digital er HIGH/LOW, analog leser verdier fra 0-1023 påArduino.',
   },
   {
     question: 'Hva gjor analogRead(A0)?',
@@ -28144,7 +28144,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva sier energibevaringsloven?',
-    options: ['Energi kan ikke skapes eller odelegges, bare omformes', 'All energi gar tapt til varme', 'Energi ma lagres i batterier', 'Energi kan skapes fra ingenting'],
+    options: ['Energi kan ikke skapes eller odelegges, bare omformes', 'All energi gårtapt til varme', 'Energi målagres i batterier', 'Energi kan skapes fra ingenting'],
     explanation: 'Energibevaringsloven sier at total energi er konstant - den bare omformes.',
   },
   {
@@ -28154,7 +28154,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er virkningsgrad?',
-    options: ['Nyttig energi ut delt pa energi inn, ganger 100%', 'Total energi', 'Energitap', 'Energiforbruk'],
+    options: ['Nyttig energi ut delt påenergi inn, ganger 100%', 'Total energi', 'Energitap', 'Energiforbruk'],
     explanation: 'Virkningsgrad = (Nyttig energi ut / Energi inn) x 100%.',
   },
   {
@@ -28176,14 +28176,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Kompositter kombinerer to eller flere materialer for a utnytte de beste egenskapene.',
   },
   {
-    question: 'Hva er forskjellen pa termoplast og herdeplast?',
+    question: 'Hva er forskjellen påtermoplast og herdeplast?',
     options: ['Termoplast kan smeltes om, herdeplast kan ikke', 'Herdeplast er mykere', 'Termoplast er sterkere', 'De er helt like'],
-    explanation: 'Termoplast kan varmes og formes pa nytt, herdeplast gjennomgar irreversibel reaksjon.',
+    explanation: 'Termoplast kan varmes og formes på nytt, herdeplast gjennomgar irreversibel reaksjon.',
   },
   {
     question: 'Hva er styrke?',
     options: ['Materialets evne til a motsta brudd', 'Materialets evne til a motsta deformasjon', 'Materialets vekt', 'Materialets farge'],
-    explanation: 'Styrke er materialets evne til a tale belastning for det gar i stykker.',
+    explanation: 'Styrke er materialets evne til a tale belastning for det gåri stykker.',
   },
   {
     question: 'Hva er stivhet?',
@@ -28216,25 +28216,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilke hoveddeler bor en teknisk rapport ha?',
     options: ['Innledning, metode, resultater, diskusjon, konklusjon', 'Bare resultater', 'Kun bilder og grafer', 'Bare kode'],
-    explanation: 'En teknisk rapport folger en struktur med innledning, metode, resultater, diskusjon og konklusjon.',
+    explanation: 'En teknisk rapport følger en struktur med innledning, metode, resultater, diskusjon og konklusjon.',
   },
 ],
 
   'tof-1-10': [
   {
-    question: 'Hva bor du gjore nar du presenterer for en ikke-teknisk malgruppe?',
+    question: 'Hva bor du gjore når du presenterer for en ikke-teknisk malgruppe?',
     options: ['Bruke enkelt sprak og analogier', 'Bruke mest mulig faguttrykk', 'Vise detaljert kode', 'Snakke raskt for a fa med alt'],
     explanation: 'For ikke-tekniske malgrupper bor du forenkle spraket og bruke analogier de kjenner.',
   },
   {
-    question: 'Hva bor unngds pa PowerPoint-slides?',
+    question: 'Hva bor unngds påPowerPoint-slides?',
     options: ['Mye tekst og fulle setninger', 'Relevante bilder', 'Enkle diagrammer', 'Nokkelord'],
     explanation: 'Slides bor ha lite tekst - de er visuelle hjelpemidler, ikke manuskript.',
   },
   {
     question: 'Hva er viktig under selve fremforingen?',
     options: ['Oyekontakt med publikum', 'Lese direkte fra notatene', 'Sta med ryggen til publikum', 'Snakke monotont'],
-    explanation: 'Oyekontakt skaper forbindelse med publikum og viser at du er trygg pa stoffet.',
+    explanation: 'Oyekontakt skaper forbindelse med publikum og viser at du er trygg påstoffet.',
   },
   {
     question: 'Hvordan bor du strukturere en god presentasjon?',
@@ -28251,13 +28251,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'tof-2-1': [
   {
     question: 'Hva er intern validitet?',
-    options: ['Om vi kan stole pa arsakssammenhengen i eksperimentet', 'Om resultatene kan generaliseres', 'Om malingen er palitelig', 'Om hypotesen er testbar'],
+    options: ['Om vi kan stole påarsakssammenhengen i eksperimentet', 'Om resultatene kan generaliseres', 'Om malingen er palitelig', 'Om hypotesen er testbar'],
     explanation: 'Intern validitet handler om hvorvidt vi kan si at X faktisk fordrsaket Y i studien.',
   },
   {
     question: 'Hva er konfunderende variabler?',
     options: ['Faktorer som kan pavirke bade uavhengig og avhengig variabel', 'Variabler vi maler', 'Variabler vi kontrollerer', 'Tilfeldige feil'],
-    explanation: 'Konfunderende variabler kan gi falske sammenhenger og ma kontrolleres for.',
+    explanation: 'Konfunderende variabler kan gi falske sammenhenger og måkontrolleres for.',
   },
   {
     question: 'Hva er et kvasi-eksperimentelt design?',
@@ -28271,7 +28271,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er randomisering viktig?',
-    options: ['For a sikre at gruppene er sammenlignbare', 'For a gjore studien storre', 'For a spare tid', 'For a fa flere deltakere'],
+    options: ['For a sikre at gruppene er sammenlignbare', 'For å gjøre studien større', 'For a spare tid', 'For a fa flere deltakere'],
     explanation: 'Randomisering fordeler konfunderende variabler likt mellom gruppene.',
   },
 ],
@@ -28279,28 +28279,28 @@ const quizData: Record<string, QuizQuestion[]> = {
   'tof-2-2': [
   {
     question: 'Hva er p-verdien?',
-    options: ['Sannsynligheten for resultatet gitt at nullhypotesen er sann', 'Sannsynligheten for at hypotesen er sann', 'Effektstorrelsen', 'Antall deltakere'],
+    options: ['Sannsynligheten for resultatet gitt at nullhypotesen er sann', 'Sannsynligheten for at hypotesen er sann', 'Effektstørrelsen', 'Antall deltakere'],
     explanation: 'P-verdien viser hvor sannsynlig resultatet er hvis det ikke er noen reell effekt.',
   },
   {
     question: 'Hva er en Type I feil?',
-    options: ['A forkaste nullhypotesen nar den er sann (falsk positiv)', 'A beholde nullhypotesen nar den er usann', 'A gjore regnefeil', 'A velge feil test'],
-    explanation: 'Type I feil er a konkludere at det er en effekt nar det egentlig ikke er det.',
+    options: ['A forkaste nullhypotesen nården er sann (falsk positiv)', 'A beholde nullhypotesen nården er usann', 'A gjore regnefeil', 'A velge feil test'],
+    explanation: 'Type I feil er a konkludere at det er en effekt nårdet egentlig ikke er det.',
   },
   {
     question: 'Nar brukes t-test?',
     options: ['For a sammenligne gjennomsnitt mellom to grupper', 'For a sammenligne tre grupper', 'For kategoriske variabler', 'For korrelasjon'],
-    explanation: 't-test brukes for a sammenligne gjennomsnitt mellom to grupper.',
+    explanation: 't-test brukes for å sammenligne gjennomsnitt mellom to grupper.',
   },
   {
     question: 'Hva er et 95% konfidensintervall?',
-    options: ['Et intervall der vi er 95% sikre pa at den sanne verdien ligger', 'Gjennomsnittet', 'Standardavviket', 'P-verdien'],
+    options: ['Et intervall der vi er 95% sikre påat den sanne verdien ligger', 'Gjennomsnittet', 'Standardavviket', 'P-verdien'],
     explanation: 'Konfidensintervallet viser usikkerheten i estimatet og inkluderer sannsynligvis den sanne verdien.',
   },
   {
-    question: 'Hva er effektstorrelse?',
-    options: ['Et mal pa hvor stor den praktiske effekten er', 'P-verdien', 'Antall deltakere', 'Standardavviket'],
-    explanation: 'Effektstorrelse viser den praktiske betydningen, ikke bare om effekten er signifikant.',
+    question: 'Hva er effektstørrelse?',
+    options: ['Et mal påhvor stor den praktiske effekten er', 'P-verdien', 'Antall deltakere', 'Standardavviket'],
+    explanation: 'Effektstørrelse viser den praktiske betydningen, ikke bare om effekten er signifikant.',
   },
 ],
 
@@ -28311,8 +28311,8 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En nanometer er 10^-9 meter, altsa en milliardtedel av en meter.',
   },
   {
-    question: 'Hvorfor har materialer andre egenskaper pa nanoskala?',
-    options: ['Stort overflate/volum-forhold og kvanteeffekter', 'De er lettere', 'De er tyngre', 'De er storre'],
+    question: 'Hvorfor har materialer andre egenskaper pånanoskala?',
+    options: ['Stort overflate/volum-forhold og kvanteeffekter', 'De er lettere', 'De er tyngre', 'De er større'],
     explanation: 'Pa nanoskala dominerer overflateeffekter og kvanteeffekter materialenes oppforsel.',
   },
   {
@@ -28321,7 +28321,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Grafen er det sterkeste kjente materialet og en utmerket elektrisk leder.',
   },
   {
-    question: 'Hva brukes karbon-nanoror til?',
+    question: 'Hvabrukes karbon-nanoror til?',
     options: ['Komposittmaterialer og elektronikk', 'Mat', 'Kleskdyr', 'Bygninger'],
     explanation: 'Karbon-nanoror er ekstremt sterke og gode ledere, brukt i avanserte materialer.',
   },
@@ -28335,12 +28335,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   'tof-2-4': [
   {
     question: 'Hvorfor brukes flertrinnsraketter?',
-    options: ['For a kaste tomme drivstofftanker og oke effektiviteten', 'For a se finere ut', 'For a ga saktere', 'For a bruke mer drivstoff'],
+    options: ['For a kaste tomme drivstofftanker og oke effektiviteten', 'For a se finere ut', 'For å gå saktere', 'For å bruke mer drivstoff'],
     explanation: 'Flertrinnsraketter kaster tomme tanker slik at raketten ikke akselererer unodvendig masse.',
   },
   {
     question: 'Hva er en geostasjonar bane?',
-    options: ['En bane der satellitten henger over samme punkt pa ekvator', 'Den laveste banen', 'En elliptisk bane', 'En polar bane'],
+    options: ['En bane der satellitten henger over samme punkt påekvator', 'Den laveste banen', 'En elliptisk bane', 'En polar bane'],
     explanation: 'I geostasjonar bane (35786 km) har satellitten 24 timers omlopstid og henger over samme punkt.',
   },
   {
@@ -28351,11 +28351,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken metode brukes for a oppdage exoplaneter ved a male lysreduksjon?',
     options: ['Transittmetoden', 'Radialhastighetmetoden', 'Direkte avbildning', 'Gravitasjonslinser'],
-    explanation: 'Transittmetoden maler lysreduksjon nar en planet passerer foran stjernen.',
+    explanation: 'Transittmetoden maler lysreduksjon nåren planet passerer foran stjernen.',
   },
   {
-    question: 'Hva er den storste utfordringen ved en bemannet Mars-ferd?',
-    options: ['Lang reisetid og straling', 'At det er for kaldt', 'At det er for varmt', 'Mangel pa interesse'],
+    question: 'Hva er den største utfordringen ved en bemannet Mars-ferd?',
+    options: ['Lang reisetid og straling', 'At det er for kaldt', 'At det er for varmt', 'Mangel påinteresse'],
     explanation: 'Reisen tar 6-9 maneder hver vei, og astronautene utsettes for kosmisk straling.',
   },
 ],
@@ -28378,13 +28378,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er fordelen med robotkirurgi?',
-    options: ['Storre presisjon og mindre invasive inngrep', 'Det er billigere', 'Det gar raskere', 'Det krever ingen trening'],
-    explanation: 'Robotkirurgi gir storre presisjon, mindre snitt og raskere rekonvalesens.',
+    options: ['Større presisjon og mindre invasive inngrep', 'Det er billigere', 'Det gårraskere', 'Det krever ingen trening'],
+    explanation: 'Robotkirurgi gir større presisjon, mindre snitt og raskere rekonvalesens.',
   },
   {
     question: 'Hva viser PET-skanning?',
     options: ['Metabolsk aktivitet i kroppen', 'Bare benstruktur', 'Blodstrom', 'Elektrisk aktivitet'],
-    explanation: 'PET bruker radioaktive sporstoffer for a vise metabolsk aktivitet, f.eks. i svulster.',
+    explanation: 'PET bruker radioaktive sporstoffer for å vise metabolsk aktivitet, f.eks. i svulster.',
   },
 ],
 
@@ -28407,19 +28407,19 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er algoritmisk bias?',
     options: ['Nar AI-systemer systematisk diskriminerer', 'En type feil i koden', 'En laeringsmetode', 'En type nettverk'],
-    explanation: 'Algoritmisk bias oppstar nar treningsdata eller design forer til urettferdig behandling.',
+    explanation: 'Algoritmisk bias oppstar nårtreningsdata eller design forer til urettferdig behandling.',
   },
   {
     question: 'Hva er backpropagation?',
     options: ['Prosessen der feil sendes bakover for a justere vekter', 'Nar data sendes fremover', 'En type sensor', 'En laeringsalgoritme'],
-    explanation: 'Backpropagation justerer vektene i nettverket basert pa feilen i output.',
+    explanation: 'Backpropagation justerer vektene i nettverket basert påfeilen i output.',
   },
 ],
 
   'tof-2-7': [
   {
     question: 'Hva menes med grader av frihet (DOF) i robotikk?',
-    options: ['Antall uavhengige bevegelser en robot kan utfore', 'Robotens storrelse', 'Robotens hastighet', 'Robotens vekt'],
+    options: ['Antall uavhengige bevegelser en robot kan utfore', 'Robotens størrelse', 'Robotens hastighet', 'Robotens vekt'],
     explanation: 'DOF beskriver hvor mange uavhengige bevegelser roboten kan gjore, typisk 6 for full kontroll.',
   },
   {
@@ -28435,7 +28435,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er lidar?',
     options: ['En sensor som maler avstand med laser', 'En type motor', 'Et kamera', 'En mikrofon'],
-    explanation: 'Lidar bruker laserpulser for a lage detaljerte 3D-kart av omgivelsene.',
+    explanation: 'Lidar bruker laserpulser for å lage detaljerte 3D-kart av omgivelsene.',
   },
   {
     question: 'Hva er forskjellen mellom noyaktighet og repeterbarhet i robotikk?',
@@ -28447,27 +28447,27 @@ const quizData: Record<string, QuizQuestion[]> = {
   'tof-2-8': [
   {
     question: 'Hva er konsekvensetikk?',
-    options: ['Etisk vurdering basert pa handlingens konsekvenser', 'Etisk vurdering basert pa regler', 'A folge loven', 'A gjore som andre'],
+    options: ['Etisk vurdering basert påhandlingens konsekvenser', 'Etisk vurdering basert påregler', 'A folge loven', 'A gjore som andre'],
     explanation: 'Konsekvensetikk vurderer handlinger etter om de maksimerer nytte.',
   },
   {
     question: 'Hva er informert samtykke?',
-    options: ['At deltakere frivillig aksepterer etter a ha fatt informasjon', 'At man signerer en kontrakt', 'At man far betalt', 'At man er myndig'],
+    options: ['At deltakere frivillig aksepterer etter å ha fatt informasjon', 'At man signerer en kontrakt', 'At man fårbetalt', 'At man er myndig'],
     explanation: 'Informert samtykke krever frivillighet, tilstrekkelig informasjon og forstaelse.',
   },
   {
     question: 'Hva er fore-var-prinsippet?',
-    options: ['Ved fare for alvorlig skade bor man handle selv med usikkerhet', 'Man skal alltid vente pa full sikkerhet', 'Man bor aldri ta risiko', 'Man bor ignorere risiko'],
+    options: ['Ved fare for alvorlig skade bor man handle selv med usikkerhet', 'Man skal alltid vente påfull sikkerhet', 'Man bor aldri ta risiko', 'Man bor ignorere risiko'],
     explanation: 'Fore-var-prinsippet sier at usikkerhet ikke bor hindre forebyggende tiltak.',
   },
   {
     question: 'Hva er pliktetikk?',
-    options: ['At visse handlinger er rett eller galt uavhengig av konsekvenser', 'At konsekvenser bestemmer alt', 'At man folger folelser', 'At man gjor som andre'],
-    explanation: 'Pliktetikk fokuserer pa selve handlingen og respekt for rettigheter og verdighet.',
+    options: ['At visse handlinger er rett eller galt uavhengig av konsekvenser', 'At konsekvenser bestemmer alt', 'At man følger folelser', 'At man gjor som andre'],
+    explanation: 'Pliktetikk fokuserer påselve handlingen og respekt for rettigheter og verdighet.',
   },
   {
     question: 'Hva menes med Helsinkideklarasjonen?',
-    options: ['Internasjonal standard for medisinsk forskning pa mennesker', 'En fredsavtale', 'En miljoavtale', 'Et patentreglement'],
+    options: ['Internasjonal standard for medisinsk forskning påmennesker', 'En fredsavtale', 'En miljoavtale', 'Et patentreglement'],
     explanation: 'Helsinkideklarasjonen setter etiske standarder for medisinsk forskning.',
   },
 ],
@@ -28476,11 +28476,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva kjennetegner en god problemstilling?',
     options: ['Avgrenset, undersokbar og interessant', 'Bred og generell', 'Umulig a teste', 'Veldig enkel'],
-    explanation: 'En god problemstilling er spesifikk nok til a kunne undersokes med tilgjengelige ressurser.',
+    explanation: 'En god problemstilling er spesifikk nok til a kunne undersøkes med tilgjengelige ressurser.',
   },
   {
     question: 'Hva er formalet med en forskningsdagbok?',
-    options: ['A dokumentere prosessen for reproduserbarhet', 'A skrive penere', 'A imponere lareren', 'A ha noe a gjore'],
+    options: ['A dokumentere prosessen for reproduserbarhet', 'A skrive penere', 'A imponere lareren', 'A ha noe å gjøre'],
     explanation: 'Forskningsdagboken sikrer at arbeidet kan gjentas og sporfolges.',
   },
   {
@@ -28490,13 +28490,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er litteratursok viktig?',
-    options: ['For a vite hva som allerede er gjort og finne kunnskapshull', 'For a kopiere andres arbeid', 'For a unnga a gjore noe nytt', 'Det er ikke viktig'],
+    options: ['For a vite hva som allerede er gjort og finne kunnskapshull', 'For a kopiere andres arbeid', 'For å unngå å gjøre noe nytt', 'Det er ikke viktig'],
     explanation: 'Litteratursok gir oversikt over feltet og hjelper a definere egen problemstilling.',
   },
   {
     question: 'Hva er en milepael i et prosjekt?',
-    options: ['Et viktig sjekkpunkt som markerer fremgang', 'Slutten pa prosjektet', 'Starten pa prosjektet', 'En oppgave'],
-    explanation: 'Milepaler er viktige punkter som viser at prosjektet er pa rett spor.',
+    options: ['Et viktig sjekkpunkt som markerer fremgang', 'Slutten påprosjektet', 'Starten påprosjektet', 'En oppgave'],
+    explanation: 'Milepaler er viktige punkter som viser at prosjektet er pårett spor.',
   },
 ],
 
@@ -28508,18 +28508,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er formalet med referanser?',
-    options: ['A gi kreditt, vise belegg og unnga plagiat', 'A fylle plass', 'A vise at man har lest mye', 'A gjore artikkelen lengre'],
+    options: ['A gi kreditt, vise belegg og unngå plagiat', 'A fylle plass', 'A vise at man har lest mye', 'A gjore artikkelen lengre'],
     explanation: 'Referanser gir kreditt til originale forfattere og lar lesere finne kildene.',
   },
   {
     question: 'Hva bor metodedelen i en rapport inneholde?',
     options: ['Nok detaljer til at andre kan gjenta studien', 'Bare resultatene', 'Kun konklusjonen', 'Bare hypotesen'],
-    explanation: 'Metodedelen ma vaere detaljert nok for reproduserbarhet.',
+    explanation: 'Metodedelen måvaere detaljert nok for reproduserbarhet.',
   },
   {
     question: 'Hva er et abstract?',
     options: ['Et kort sammendrag av hele artikkelen', 'Innledningen', 'Konklusjonen', 'Referanselisten'],
-    explanation: 'Abstractet oppsummerer bakgrunn, metode, resultater og konklusjon pa ca. 200 ord.',
+    explanation: 'Abstractet oppsummerer bakgrunn, metode, resultater og konklusjon påca. 200 ord.',
   },
   {
     question: 'Hva bor diskusjonsdelen inneholde?',
@@ -28531,18 +28531,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'entrebed-1-1': [
   {
     question: 'Hva er entreprenorskap?',
-    options: ['Prosessen med a identifisere muligheter og skape verdi gjennom innovasjon', 'A jobbe i en stor bedrift', 'A studere okonomi pa universitetet', 'A arve en familiebedrift'],
+    options: ['Prosessen med a identifisere muligheter og skape verdi gjennom innovasjon', 'A jobbe i en stor bedrift', 'A studere okonomi påuniversitetet', 'A arve en familiebedrift'],
     explanation: 'Entreprenorskap handler om a se muligheter, ta initiativ og skape noe nytt av verdi.',
   },
   {
-    question: 'Hvilken type entreprenorskap fokuserer pa a lose samfunnsproblemer?',
+    question: 'Hvilken type entreprenorskap fokuserer påa lose samfunnsproblemer?',
     options: ['Sosialt entreprenorskap', 'Kommersielt entreprenorskap', 'Intraprenorskap', 'Livsstilsentreprenorskap'],
     explanation: 'Sosialt entreprenorskap kombinerer forretningsmessig drift med sosiale mal for a lose samfunnsproblemer.',
   },
   {
     question: 'Hva er intraprenorskap?',
-    options: ['Entreprenorskap innenfor en eksisterende organisasjon', 'A starte en helt ny bedrift fra bunnen', 'A investere i andres bedrifter', 'A kjope opp konkurrenter'],
-    explanation: 'Intraprenorskap er nar ansatte tar initiativ til innovasjon og nye prosjekter innenfor en eksisterende bedrift.',
+    options: ['Entreprenorskap innenfor en eksisterende organisasjon', 'A starte en helt ny bedrift fra bunnen', 'A investere i andres bedrifter', 'A kjøpe opp konkurrenter'],
+    explanation: 'Intraprenorskap er nåransatte tar initiativ til innovasjon og nye prosjekter innenfor en eksisterende bedrift.',
   },
   {
     question: 'Hvem definerte entreprenoren som en som skaper "kreativ destruksjon"?',
@@ -28551,7 +28551,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilken egenskap er mest typisk for en entreprenor?',
-    options: ['Villighet til a ta risiko og handle pa muligheter', 'Unnga alle former for usikkerhet', 'Folge etablerte regler uten a stille sporsmal', 'Vente pa at andre skal ta initiativ'],
+    options: ['Villighet til a ta risiko og handle påmuligheter', 'Unnga alle former for usikkerhet', 'Folge etablerte regler uten a stille sporsmal', 'Vente påat andre skal ta initiativ'],
     explanation: 'Entreprenorer kjennetegnes av kreativitet, risikovilje, utholdenhet og evne til a se muligheter.',
   },
 ],
@@ -28565,11 +28565,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er forskjellen mellom en ide og en forretningsmulighet?',
     options: ['En mulighet er en ide med betalende kunder og gjennomforbarhet', 'Det er ingen forskjell', 'En ide er alltid bedre enn en mulighet', 'En mulighet krever ingen planlegging'],
-    explanation: 'En forretningsmulighet er en ide som loser et reelt problem, har kunder villige til a betale, og kan gjennomfores pa en lonsom mate.',
+    explanation: 'En forretningsmulighet er en ide som loser et reelt problem, har kunder villige til a betale, og kan gjennomfores påen lonsom mate.',
   },
   {
     question: 'Hva er et verdiforslag (value proposition)?',
-    options: ['En beskrivelse av hvilket problem du loser, for hvem, og hvorfor din losning er bedre', 'Prisen pa produktet ditt', 'En liste over alle funksjoner', 'Bedriftens arsregnskap'],
+    options: ['En beskrivelse av hvilket problem du loser, for hvem, og hvorfor din losning er bedre', 'Prisen påproduktet ditt', 'En liste over alle funksjoner', 'Bedriftens arsregnskap'],
     explanation: 'Et verdiforslag beskriver tydelig hvilket problem du loser, hvem du loser det for, og hvilken unik verdi du tilbyr.',
   },
   {
@@ -28580,7 +28580,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken metode bruker man for a generere mange ideer i en gruppe uten a kritisere?',
     options: ['Brainstorming', 'SWOT-analyse', 'Konkurrentanalyse', 'Budsjettering'],
-    explanation: 'Brainstorming er en gruppebasert metode der alle forslag noteres uten kritikk, med fokus pa kvantitet.',
+    explanation: 'Brainstorming er en gruppebasert metode der alle forslag noteres uten kritikk, med fokus påkvantitet.',
   },
 ],
 
@@ -28588,7 +28588,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en forretningsmodell?',
     options: ['En plan for hvordan bedriften skaper, leverer og fanger verdi', 'Bare en beskrivelse av produktet', 'Kun bedriftens logo og navn', 'Arsregnskapet til bedriften'],
-    explanation: 'En forretningsmodell beskriver hvordan bedriften skaper verdi for kunder, leverer denne verdien, og tjener penger pa det.',
+    explanation: 'En forretningsmodell beskriver hvordan bedriften skaper verdi for kunder, leverer denne verdien, og tjener penger pådet.',
   },
   {
     question: 'Hvor mange byggeklosser har Business Model Canvas?',
@@ -28625,11 +28625,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er direkte konkurrenter?',
-    options: ['Bedrifter som tilbyr samme produkt til samme malgruppe', 'Bedrifter i andre bransjer', 'Leverandorer', 'Kunder'],
+    options: ['Bedrifter som tilbyr samme produkt til samme malgruppe', 'Bedrifter i andre bransjer', 'Leverandører', 'Kunder'],
     explanation: 'Direkte konkurrenter tilbyr samme produkt eller tjeneste til samme malgruppe som deg.',
   },
   {
-    question: 'Hva handler Porters fem krefter om?',
+    question: 'Hvahandler Porters fem krefter om?',
     options: ['Analyse av konkurransesituasjonen i en bransje', 'De fem viktigste produktene', 'Fem steg til suksess', 'Fem typer kunder'],
     explanation: 'Porters fem krefter analyserer konkurransesituasjonen: nye aktorer, substitutter, kundemakt, leverandormakt og rivalisering.',
   },
@@ -28643,8 +28643,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'entrebed-1-5': [
   {
     question: 'Hva er forskjellen mellom faste og variable kostnader?',
-    options: ['Faste kostnader endres ikke med produksjonen, variable kostnader oker med produksjonen', 'Det er ingen forskjell', 'Variable kostnader er alltid hoyere', 'Faste kostnader kan man unnga'],
-    explanation: 'Faste kostnader (husleie, forsikring) er like uansett produksjonsmengde. Variable kostnader (ravarer) oker med produksjonen.',
+    options: ['Faste kostnader endres ikke med produksjonen, variable kostnader øker med produksjonen', 'Det er ingen forskjell', 'Variable kostnader er alltid høyere', 'Faste kostnader kan man unngå'],
+    explanation: 'Faste kostnader (husleie, forsikring) er like uansett produksjonsmengde. Variable kostnader (ravarer) øker med produksjonen.',
   },
   {
     question: 'Hva er dekningsbidrag?',
@@ -28653,16 +28653,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er nullpunktet (break-even)?',
-    options: ['Antall enheter du ma selge for a dekke alle kostnader', 'Nar bedriften gar med underskudd', 'Startkapitalen', 'Maksimal produksjon'],
-    explanation: 'Nullpunktet viser hvor mange enheter du ma selge for a ga i null - verken overskudd eller underskudd.',
+    options: ['Antall enheter du måselge for a dekke alle kostnader', 'Nar bedriften gårmed underskudd', 'Startkapitalen', 'Maksimal produksjon'],
+    explanation: 'Nullpunktet viser hvor mange enheter du måselge for å gå i null - verken overskudd eller underskudd.',
   },
   {
     question: 'Hvorfor er et likviditetsbudsjett viktig?',
-    options: ['Viser nar penger kommer inn og gar ut, viktig for a unnga betalingsproblemer', 'Viser bare inntekter', 'Er det samme som et resultatbudsjett', 'Er kun nodvendig for store bedrifter'],
-    explanation: 'Et likviditetsbudsjett viser kontantstrommen - nar penger faktisk kommer inn og gar ut. Viktig for a unnga konkurs.',
+    options: ['Viser nårpenger kommer inn og gårut, viktig for å unngå betalingsproblemer', 'Viser bare inntekter', 'Er det samme som et resultatbudsjett', 'Er kun nodvendig for store bedrifter'],
+    explanation: 'Et likviditetsbudsjett viser kontantstrommen - nårpenger faktisk kommer inn og gårut. Viktig for å unngå konkurs.',
   },
   {
-    question: 'Hva er et eksempel pa en fast kostnad?',
+    question: 'Hva er et eksempel påen fast kostnad?',
     options: ['Husleie', 'Ravarer til produksjon', 'Provisjon per salg', 'Emballasje'],
     explanation: 'Husleie er en fast kostnad som ikke endres med produksjonsmengden.',
   },
@@ -28704,13 +28704,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er sirkulaerokonomi?',
-    options: ['Et system der ressurser holdes i bruk lengst mulig gjennom gjenbruk og resirkulering', 'A produsere sa mye som mulig', 'A kaste alt etter bruk', 'Kun a handle lokalt'],
+    options: ['Et system der ressurser holdes i bruk lengst mulig gjennom gjenbruk og resirkulering', 'A produsere så mye som mulig', 'A kaste alt etter bruk', 'Kun å handle lokalt'],
     explanation: 'Sirkulaerokonomi er et alternativ til lineaer okonomi (ta-lag-kast) der ressurser brukes lengst mulig.',
   },
   {
     question: 'Hva er groennvasking?',
     options: ['Falsk eller overdreven markedsforing av miljoinnsats', 'A vaske med miljovennlige produkter', 'En effektiv miljoestrategi', 'A resirkulere alt'],
-    explanation: 'Groennvasking er nar bedrifter overdriver eller lyver om sin miljoinnsats for a fremsta som mer baerekraftige.',
+    explanation: 'Groennvasking er nårbedrifter overdriver eller lyver om sin miljoinnsats for a fremsta som mer baerekraftige.',
   },
   {
     question: 'Hva er CSR (Corporate Social Responsibility)?',
@@ -28727,13 +28727,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'entrebed-1-8': [
   {
     question: 'Hva er en forretningsplan?',
-    options: ['Et dokument som beskriver bedriften, strategien og hvordan malene skal nas', 'Bare et budsjett', 'Kun en produktbeskrivelse', 'En markedsundersokelse'],
+    options: ['Et dokument som beskriver bedriften, strategien og hvordan malene skal nas', 'Bare et budsjett', 'Kun en produktbeskrivelse', 'En markedsundersøkelse'],
     explanation: 'En forretningsplan er et omfattende dokument som beskriver alle aspekter ved bedriften og dens strategi.',
   },
   {
     question: 'Hva er bootstrapping?',
     options: ['Starte med minimale ressurser, finansiere vekst gjennom salg', 'Ta opp stort banklann', 'Selge hele bedriften', 'Hente inn investorer tidlig'],
-    explanation: 'Bootstrapping betyr a starte og vokse med minimale ressurser, ofte ved a bruke overskudd til a finansiere vekst.',
+    explanation: 'Bootstrapping betyr a starte og vokse med minimale ressurser, ofte ved å bruke overskudd til a finansiere vekst.',
   },
   {
     question: 'Hva er en business angel?',
@@ -28743,11 +28743,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor registreres norske bedrifter?',
     options: ['Bronnoysundregistrene', 'Skatteetaten', 'Kommunen', 'Stortinget'],
-    explanation: 'Alle bedrifter i Norge ma registreres i Enhetsregisteret i Bronnoysundregistrene.',
+    explanation: 'Alle bedrifter i Norge måregistreres i Enhetsregisteret i Bronnoysundregistrene.',
   },
   {
     question: 'Hva er crowdfunding?',
-    options: ['Samle inn penger fra mange via plattformer', 'Lan fra banken', 'Offentlig stotte', 'Salg av aksjer pa borsen'],
+    options: ['Samle inn penger fra mange via plattformer', 'Lan fra banken', 'Offentlig stotte', 'Salg av aksjer påborsen'],
     explanation: 'Crowdfunding er en metode for a samle inn kapital fra mange bidragsytere, ofte gjennom nettplattformer.',
   },
 ],
@@ -28760,7 +28760,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva beskriver en visjon i strategisk planlegging?',
-    options: ['Hva bedriften onsker a oppna pa lang sikt', 'Dagens omsetning', 'Antall ansatte', 'Arsbudsjettet'],
+    options: ['Hva bedriften onsker a oppna pålang sikt', 'Dagens omsetning', 'Antall ansatte', 'Arsbudsjettet'],
     explanation: 'Visjonen er et inspirerende fremtidsbilde som gir retning for alle beslutninger.',
   },
   {
@@ -28784,12 +28784,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er Design Thinking?',
     options: ['En menneskesentrert tilnaerming til innovasjon og problemlosning', 'En type regnskap', 'En salgsmetode', 'En juridisk prosess'],
-    explanation: 'Design Thinking fokuserer pa a forsta brukernes behov for a utvikle innovative losninger.',
+    explanation: 'Design Thinking fokuserer påa forstå brukernes behov for a utvikle innovative losninger.',
   },
   {
     question: 'Hva er de fem fasene i Design Thinking?',
     options: ['Empati, Definere, Ideutvikling, Prototype, Teste', 'Planlegge, Gjennomfore, Evaluere, Rapportere, Avslutte', 'Produsere, Selge, Levere, Fakturere, Folge opp', 'Analysere, Budsjettere, Rekruttere, Trene, Evaluere'],
-    explanation: 'Design Thinking folger fem faser: Empathize, Define, Ideate, Prototype og Test.',
+    explanation: 'Design Thinking følger fem faser: Empathize, Define, Ideate, Prototype og Test.',
   },
   {
     question: 'Hva er en MVP (Minimum Viable Product)?',
@@ -28798,7 +28798,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr "pivot" i Lean Startup?',
-    options: ['A endre retning basert pa laering fra markedet', 'A fortsette som for', 'A legge ned bedriften', 'A ansette flere'],
+    options: ['A endre retning basert pålaering fra markedet', 'A fortsette som for', 'A legge ned bedriften', 'A ansette flere'],
     explanation: 'En pivot er en strukturert kursendring for a teste en ny hypotese om produktet eller forretningsmodellen.',
   },
   {
@@ -28826,7 +28826,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er due diligence?',
-    options: ['Grundig gjennomgang av selskapet for investering', 'En salgsmetode', 'En markedsundersokelse', 'En ansettelsesprosess'],
+    options: ['Grundig gjennomgang av selskapet for investering', 'En salgsmetode', 'En markedsundersøkelse', 'En ansettelsesprosess'],
     explanation: 'Due diligence er en systematisk gjennomgang av juridiske, finansielle og kommersielle forhold for investering.',
   },
   {
@@ -28839,7 +28839,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'entrebed-2-4': [
   {
     question: 'Hva er Ansoffs vekstmatrise?',
-    options: ['En modell for a velge vekststrategi basert pa produkt og marked', 'En regnskapsmetode', 'En ansettelsesplan', 'En produksjonsplan'],
+    options: ['En modell for a velge vekststrategi basert påprodukt og marked', 'En regnskapsmetode', 'En ansettelsesplan', 'En produksjonsplan'],
     explanation: 'Ansoffs matrise viser fire vekststrategier: markedspenetrasjon, produktutvikling, markedsutvikling og diversifisering.',
   },
   {
@@ -28850,7 +28850,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en joint venture?',
     options: ['Et samarbeid der to selskaper oppretter et felles selskap', 'En type banklann', 'Et enkeltpersonforetak', 'En offentlig stotteordning'],
-    explanation: 'Joint venture er et felles foretak der to eller flere selskaper gar sammen om et prosjekt eller selskap.',
+    explanation: 'Joint venture er et felles foretak der to eller flere selskaper gårsammen om et prosjekt eller selskap.',
   },
   {
     question: 'Hva er glokalisering?',
@@ -28859,20 +28859,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er nettverkseffekter?',
-    options: ['Nar verdien av et produkt oker jo flere som bruker det', 'En type reklame', 'Et regnskapsprinsipp', 'En produksjonsmetode'],
-    explanation: 'Nettverkseffekter oppstar nar produktets verdi for brukeren oker med antall andre brukere.',
+    options: ['Nar verdien av et produkt øker jo flere som bruker det', 'En type reklame', 'Et regnskapsprinsipp', 'En produksjonsmetode'],
+    explanation: 'Nettverkseffekter oppstar nårproduktets verdi for brukeren øker med antall andre brukere.',
   },
 ],
 
   'entrebed-2-5': [
   {
     question: 'Hva er ESG-rapportering?',
-    options: ['Rapportering om miljomessige, sosiale og styringsmessige faktorer', 'En type regnskap', 'En salgsrapport', 'En markedsundersokelse'],
+    options: ['Rapportering om miljomessige, sosiale og styringsmessige faktorer', 'En type regnskap', 'En salgsrapport', 'En markedsundersøkelse'],
     explanation: 'ESG star for Environmental, Social, Governance - viktige faktorer for baerekraftig forretningsdrift.',
   },
   {
     question: 'Hva er sirkulaerokonomi?',
-    options: ['Et system der ressurser holdes i bruk sa lenge som mulig', 'A produsere mest mulig', 'A kaste alt etter bruk', 'A kun selge brukte varer'],
+    options: ['Et system der ressurser holdes i bruk sålenge som mulig', 'A produsere mest mulig', 'A kaste alt etter bruk', 'A kun selge brukte varer'],
     explanation: 'Sirkulaerokonomi handler om a designe ut avfall, holde produkter i bruk og regenerere naturlige systemer.',
   },
   {
@@ -28887,7 +28887,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er impact investing?',
-    options: ['Investeringer som soker bade finansiell avkastning og positiv samfunnseffekt', 'Kun profittfokuserte investeringer', 'Offentlige tilskudd', 'Banklan'],
+    options: ['Investeringer som søker bade finansiell avkastning og positiv samfunnseffekt', 'Kun profittfokuserte investeringer', 'Offentlige tilskudd', 'Banklan'],
     explanation: 'Impact investing kombinerer okonomisk avkastning med positiv sosial eller miljomessig pavirkning.',
   },
 ],
@@ -28895,18 +28895,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   'entrebed-2-6': [
   {
     question: 'Hva er OKR (Objectives and Key Results)?',
-    options: ['En metode for a sette og folge opp mal', 'En regnskapsstandard', 'En juridisk prosess', 'En markedsforingsstrategi'],
-    explanation: 'OKR er et rammeverk for a sette ambisiose mal (Objectives) og malbare resultater (Key Results).',
+    options: ['En metode for å sette og folge opp mal', 'En regnskapsstandard', 'En juridisk prosess', 'En markedsforingsstrategi'],
+    explanation: 'OKR er et rammeverk for å sette ambisiose mal (Objectives) og malbare resultater (Key Results).',
   },
   {
     question: 'Hva er forskjellen mellom ledelse og styring?',
     options: ['Ledelse handler om mennesker og motivasjon, styring om systemer og prosesser', 'Det er det samme', 'Styring er viktigere', 'Ledelse gjelder bare toppsjefer'],
-    explanation: 'Ledelse fokuserer pa a inspirere og motivere mennesker, mens styring handler om kontroll og systemer.',
+    explanation: 'Ledelse fokuserer påa inspirere og motivere mennesker, mens styring handler om kontroll og systemer.',
   },
   {
-    question: 'Hva er psykologisk trygghet pa arbeidsplassen?',
+    question: 'Hva er psykologisk trygghet påarbeidsplassen?',
     options: ['Et miljo der ansatte tor a ta risiko og uttrykke seg uten frykt', 'Fysisk sikkerhet', 'God lonn', 'Faste arbeidstider'],
-    explanation: 'Psykologisk trygghet er nar teammedlemmer foler seg trygge pa a vare sarbare og ta risiko.',
+    explanation: 'Psykologisk trygghet er nårteammedlemmer foler seg trygge påa vare sarbare og ta risiko.',
   },
   {
     question: 'Hva er Scrum?',
@@ -28916,7 +28916,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er KPI (Key Performance Indicator)?',
     options: ['Nokkeltall som maler bedriftens viktigste resultater', 'En type ansettelseskontrakt', 'En regnskapsstandard', 'En juridisk term'],
-    explanation: 'KPIer er malbare verdier som viser hvor godt bedriften nar sine strategiske mal.',
+    explanation: 'KPIer er malbare verdier som viser hvor godt bedriften nårsine strategiske mal.',
   },
 ],
 
@@ -28924,27 +28924,27 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en exit-strategi?',
     options: ['En plan for hvordan eiere skal realisere verdiene i selskapet', 'A legge ned bedriften', 'A flytte til utlandet', 'A slutte a jobbe'],
-    explanation: 'Exit-strategi beskriver hvordan grunnleggere og investorer skal fa avkastning pa investeringen.',
+    explanation: 'Exit-strategi beskriver hvordan grunnleggere og investorer skal fa avkastning påinvesteringen.',
   },
   {
     question: 'Hva er en IPO?',
     options: ['Initial Public Offering - borsnoteringsprosessen', 'En type banklann', 'En regnskapsrapport', 'En ansettelseskontrakt'],
-    explanation: 'IPO er prosessen der et selskap tilbyr aksjer til offentligheten for forste gang gjennom en borsnotetering.',
+    explanation: 'IPO er prosessen der et selskap tilbyr aksjer til offentligheten for første gang gjennom en borsnotetering.',
   },
   {
     question: 'Hva er en trade sale?',
-    options: ['Salg av hele eller deler av selskapet til en strategisk kjoper', 'Daglig salg av produkter', 'Eksport av varer', 'Nettbutikksalg'],
-    explanation: 'Trade sale er nar selskapet selges til en strategisk kjoper, ofte en storre aktror i samme bransje.',
+    options: ['Salg av hele eller deler av selskapet til en strategisk kjøper', 'Daglig salg av produkter', 'Eksport av varer', 'Nettbutikksalg'],
+    explanation: 'Trade sale er nårselskapet selges til en strategisk kjøper, ofte en større aktror i samme bransje.',
   },
   {
     question: 'Hva er management buyout (MBO)?',
-    options: ['Nar ledelsen kjoper selskapet fra eierne', 'Nar ledelsen far sparken', 'Nar ledelsen far bonus', 'Nar ledelsen utvides'],
-    explanation: 'MBO er nar ledelsen i et selskap kjoper virksomheten fra de eksisterende eierne.',
+    options: ['Nar ledelsen kjøper selskapet fra eierne', 'Nar ledelsen fårsparken', 'Nar ledelsen fårbonus', 'Nar ledelsen utvides'],
+    explanation: 'MBO er nårledelsen i et selskap kjøper virksomheten fra de eksisterende eierne.',
   },
   {
     question: 'Hva er earn-out i et oppkjop?',
-    options: ['Tilleggsbetaling basert pa fremtidig ytelse etter oppkjopet', 'Forhondsbetaling', 'Arslonn', 'Bonus til ansatte'],
-    explanation: 'Earn-out er en betalingsstruktur der deler av kjopesummen avhenger av selskapets fremtidige resultater.',
+    options: ['Tilleggsbetaling basert påfremtidig ytelse etter oppkjøpet', 'Forhondsbetaling', 'Arslonn', 'Bonus til ansatte'],
+    explanation: 'Earn-out er en betalingsstruktur der deler av kjøpesummen avhenger av selskapets fremtidige resultater.',
   },
 ],
 
@@ -28952,22 +28952,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er seriellt entreprenorskap?',
     options: ['Nar en person starter flere bedrifter over tid', 'A starte en bedrift en gang', 'A jobbe i flere bedrifter samtidig', 'A investere i mange selskaper'],
-    explanation: 'Serielle entreprenorer starter flere bedrifter sekvensielt, ofte etter a ha solgt tidligere selskaper.',
+    explanation: 'Serielle entreprenorer stårter flere bedrifter sekvensielt, ofte etter å ha solgt tidligere selskaper.',
   },
   {
     question: 'Hva er intraprenorskap?',
-    options: ['Entreprenorskap innenfor en eksisterende organisasjon', 'A starte egen bedrift', 'A kjope en bedrift', 'A legge ned en bedrift'],
-    explanation: 'Intraprenorskap er nar ansatte driver innovasjon og nye initiativ innenfor rammen av en etablert bedrift.',
+    options: ['Entreprenorskap innenfor en eksisterende organisasjon', 'A starte egen bedrift', 'A kjøpe en bedrift', 'A legge ned en bedrift'],
+    explanation: 'Intraprenorskap er nåransatte driver innovasjon og nye initiativ innenfor rammen av en etablert bedrift.',
   },
   {
     question: 'Hva er corporate venturing?',
-    options: ['Nar store selskaper investerer i eller starter nye ventures', 'Personlig investering', 'Offentlig stotte', 'Banklann'],
-    explanation: 'Corporate venturing er nar etablerte selskaper investerer i eller oppretter nye forretningsomrader.',
+    options: ['Nar store selskaper investerer i eller stårter nye ventures', 'Personlig investering', 'Offentlig stotte', 'Banklann'],
+    explanation: 'Corporate venturing er nåretablerte selskaper investerer i eller oppretter nye forretningsomrader.',
   },
   {
     question: 'Hva er en spin-off?',
-    options: ['Et nytt selskap som skilles ut fra et storre selskap', 'En type fusjon', 'Et oppkjop', 'En konkurs'],
-    explanation: 'Spin-off er nar en del av et selskap skilles ut som et eget uavhengig selskap.',
+    options: ['Et nytt selskap som skilles ut fra et større selskap', 'En type fusjon', 'Et oppkjop', 'En konkurs'],
+    explanation: 'Spin-off er nåren del av et selskap skilles ut som et eget uavhengig selskap.',
   },
   {
     question: 'Hva er akseleratorer?',
@@ -28983,14 +28983,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Medium kommer fra latin og betyr "det som er i mellom" - et bindeledd mellom avsender og mottaker.',
   },
   {
-    question: 'Hvilken funksjon har mediene nar de avslorer kritikkverdige forhold hos makthavere?',
+    question: 'Hvilken funksjon har mediene nårde avslorer kritikkverdige forhold hos makthavere?',
     options: ['Vakthundfunksjonen', 'Informasjonsfunksjonen', 'Underholdningsfunksjonen', 'Arenafunksjonen'],
     explanation: 'Vakthundfunksjonen innebarer at mediene overvaker makthavere og avslorer kritikkverdige forhold.',
   },
   {
     question: 'Hva er forskjellen mellom massemedier og personlige medier?',
-    options: ['Massemedier nar mange, personlige medier er en-til-en', 'Det er ingen forskjell', 'Personlige medier er nyere', 'Massemedier er gratis'],
-    explanation: 'Massemedier nar mange mottakere samtidig, mens personlige medier brukes til kommunikasjon mellom enkeltpersoner.',
+    options: ['Massemedier nårmange, personlige medier er en-til-en', 'Det er ingen forskjell', 'Personlige medier er nyere', 'Massemedier er gratis'],
+    explanation: 'Massemedier nårmange mottakere samtidig, mens personlige medier brukes til kommunikasjon mellom enkeltpersoner.',
   },
   {
     question: 'Hvilken funksjon beskriver at mediene skaper en offentlig arena for debatt?',
@@ -28998,9 +28998,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Arenafunksjonen handler om at mediene skaper rom for offentlig debatt og meningsutveksling.',
   },
   {
-    question: 'Hva er et eksempel pa et digitalt medium?',
+    question: 'Hva er et eksempel på et digitalt medium?',
     options: ['Nettavis', 'Papiravis', 'Vinylplate', 'Tradisjonell radio'],
-    explanation: 'Nettaviser er digitale medier som lar deg lese nyheter pa nett med mulighet for interaksjon.',
+    explanation: 'Nettaviser er digitale medier som lar deg lese nyheter pånett med mulighet for interaksjon.',
   },
 ],
 
@@ -29011,7 +29011,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Johannes Gutenberg utviklet trykkepressen med lose, gjenbrukbare typer rundt 1450.',
   },
   {
-    question: 'Nar startet NRK radio?',
+    question: 'Nar stårtet NRK radio?',
     options: ['1933', '1920', '1960', '1945'],
     explanation: 'NRK (Norsk rikskringkasting) startet radiovirksomhet i 1933. NRK TV startet forst i 1960.',
   },
@@ -29021,9 +29021,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Tim Berners-Lee oppfant World Wide Web i 1991, som la grunnlaget for dagens internett.',
   },
   {
-    question: 'Hvilket ar ble iPhone lansert?',
+    question: 'Hvilket årble iPhone lansert?',
     options: ['2007', '2000', '2010', '2005'],
-    explanation: 'iPhone ble lansert i 2007 og revolusjonerte hvordan vi bruker medier pa mobilen.',
+    explanation: 'iPhone ble lansert i 2007 og revolusjonerte hvordan vi bruker medier påmobilen.',
   },
   {
     question: 'Hva kjennetegner Web 2.0?',
@@ -29035,8 +29035,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'medieinfo-1-3': [
   {
     question: 'Hva kjennetegner en nyhetsartikkel?',
-    options: ['Objektiv, omvendt pyramide-struktur, svarer pa hvem/hva/hvor/nar/hvorfor/hvordan', 'Subjektiv, argumenterende, tydelige meninger', 'Litterar stil, stemningsskildringer', 'Fiksjon, oppdiktede karakterer'],
-    explanation: 'En nyhetsartikkel kjennetegnes av objektivt sprak, omvendt pyramide-struktur og svar pa nyhetskriterier.',
+    options: ['Objektiv, omvendt pyramide-struktur, svarer påhvem/hva/hvor/nar/hvorfor/hvordan', 'Subjektiv, argumenterende, tydelige meninger', 'Litterar stil, stemningsskildringer', 'Fiksjon, oppdiktede karakterer'],
+    explanation: 'En nyhetsartikkel kjennetegnes av objektivt sprak, omvendt pyramide-struktur og svar pånyhetskriterier.',
   },
   {
     question: 'Hva er en sjanger i mediesammenheng?',
@@ -29063,13 +29063,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   'medieinfo-1-4': [
   {
     question: 'Hva menes med "oppmerksomhetsokonomi"?',
-    options: ['At menneskelig oppmerksomhet er en knapp ressurs som medier konkurrerer om', 'At vi ma betale for a fa oppmerksomhet', 'At okonomiske nyheter far mest oppmerksomhet', 'At oppmerksomme mennesker tjener mer'],
+    options: ['At menneskelig oppmerksomhet er en knapp ressurs som medier konkurrerer om', 'At vi måbetale for a fa oppmerksomhet', 'At okonomiske nyheter fårmest oppmerksomhet', 'At oppmerksomme mennesker tjener mer'],
     explanation: 'Oppmerksomhetsokonomi beskriver hvordan medier konkurrerer om var begrensede oppmerksomhet.',
   },
   {
     question: 'Hva er en filterboble?',
-    options: ['Nar algoritmer viser oss innhold basert pa tidligere atferd', 'Et program som blokkerer reklame', 'Et sosialt nettverk', 'En type nettlesertillegg'],
-    explanation: 'En filterboble oppstar nar algoritmer personaliserer innholdet vi ser basert pa var atferd.',
+    options: ['Nar algoritmer viser oss innhold basert påtidligere atferd', 'Et program som blokkerer reklame', 'Et sosialt nettverk', 'En type nettlesertillegg'],
+    explanation: 'En filterboble oppstar nåralgoritmer personaliserer innholdet vi ser basert påvar atferd.',
   },
   {
     question: 'Hva kjennetegner informasjonssamfunnet?',
@@ -29078,13 +29078,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er et ekkokammer?',
-    options: ['Grupper der meninger bekreftes og forsterkes uten motforestillinger', 'Et lydstudio', 'En type mikrofon', 'Et diskusjonsforum med mange syn'],
-    explanation: 'Ekkokamre er grupper der meninger bekreftes og forsterkes uten at man moter motforestillinger.',
+    options: ['Grupper der meninger bekreftes og førsterkes uten motforestillinger', 'Et lydstudio', 'En type mikrofon', 'Et diskusjonsforum med mange syn'],
+    explanation: 'Ekkokamre er grupper der meninger bekreftes og førsterkes uten at man moter motforestillinger.',
   },
   {
     question: 'Hva er konvergens i mediesammenheng?',
-    options: ['Ulike medier smelter sammen pa digitale plattformer', 'At medier blir dyrere', 'At det blir faerre medier', 'At medier blir storre'],
-    explanation: 'Konvergens innebarer at ulike medietyper smelter sammen pa digitale plattformer.',
+    options: ['Ulike medier smelter sammen pådigitale plattformer', 'At medier blir dyrere', 'At det blir faerre medier', 'At medier blir større'],
+    explanation: 'Konvergens innebarer at ulike medietyper smelter sammen pådigitale plattformer.',
   },
 ],
 
@@ -29106,7 +29106,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er trepunktslys?',
-    options: ['Et oppsett med hovedlys, fylllys og bakgrunnslys', 'Tre lyskastere i taket', 'Lys fra tre vinduer', 'Tre farger pa lys'],
+    options: ['Et oppsett med hovedlys, fylllys og bakgrunnslys', 'Tre lyskastere i taket', 'Lys fra tre vinduer', 'Tre farger pålys'],
     explanation: 'Trepunktslys er et klassisk belysningsoppsett med hovedlys, fylllys og bakgrunnslys.',
   },
   {
@@ -29129,8 +29129,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebarer samtidig imotegaelse?',
-    options: ['Den som anklages skal fa svare i samme sak', 'Alle kilder ma vaere enige', 'Journalisten ma vaere til stede', 'Artikkelen ma publiseres samme dag'],
-    explanation: 'Samtidig imotegaelse betyr at den som utsettes for beskyldninger far mulighet til a svare i samme sak.',
+    options: ['Den som anklages skal fa svare i samme sak', 'Alle kilder måvaere enige', 'Journalisten måvaere til stede', 'Artikkelen måpubliseres samme dag'],
+    explanation: 'Samtidig imotegaelse betyr at den som utsettes for beskyldninger fårmulighet til a svare i samme sak.',
   },
   {
     question: 'Hva er kildevern?',
@@ -29148,7 +29148,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er ethos i retorikken?',
     options: ['Troverdighetsappell - avsenderens troverdighet og autoritet', 'Folelsesappell', 'Logisk argumentasjon', 'Gjentakelse'],
-    explanation: 'Ethos er troverdighetsappellen som bygger pa avsenderens troverdighet og autoritet.',
+    explanation: 'Ethos er troverdighetsappellen som bygger påavsenderens troverdighet og autoritet.',
   },
   {
     question: 'Hva er pathos i reklame?',
@@ -29162,8 +29162,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er implisitt budskap i reklame?',
-    options: ['Det skjulte budskapet som formidles indirekte', 'Det uttalte budskapet', 'Produktinformasjon', 'Prisen pa produktet'],
-    explanation: 'Implisitt budskap er det som formidles mellom linjene, uten a bli sagt direkte.',
+    options: ['Det skjulte budskapet som formidles indirekte', 'Det uttalte budskapet', 'Produktinformasjon', 'Prisen påproduktet'],
+    explanation: 'Implisitt budskap er det som formidles mellom linjene, uten å bli sagt direkte.',
   },
   {
     question: 'Hva er malgruppe i markedsforing?',
@@ -29180,17 +29180,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med FOMO?',
-    options: ['Fear of missing out - angst for a ga glipp av noe', 'For ofte mobil-overforbruk', 'Fokusert online media-observasjon', 'Frykten for mange meldinger'],
-    explanation: 'FOMO star for "Fear of missing out" - angsten for a ga glipp av opplevelser andre har.',
+    options: ['Fear of missing out - angst for å gå glipp av noe', 'For ofte mobil-overforbruk', 'Fokusert online media-observasjon', 'Frykten for mange meldinger'],
+    explanation: 'FOMO star for "Fear of missing out" - angsten for å gå glipp av opplevelser andre har.',
   },
   {
-    question: 'Hvordan pavirker algoritmer hva vi ser pa sosiale medier?',
+    question: 'Hvordan pavirker algoritmer hva vi ser påsosiale medier?',
     options: ['De analyserer var atferd og viser innhold som holder oss engasjert', 'De viser alt i kronologisk rekkefolge', 'De velger tilfeldig innhold', 'De viser bare betalt innhold'],
-    explanation: 'Algoritmer analyserer var atferd og optimaliserer for engasjement - det som holder oss pa plattformen lengst.',
+    explanation: 'Algoritmer analyserer var atferd og optimaliserer for engasjement - det som holder oss påplattformen lengst.',
   },
   {
     question: 'Hva er virale mekanismer?',
-    options: ['Innhold som spres raskt fordi mange deler det', 'Datavirus pa sosiale medier', 'Betalte reklamekampanjer', 'Private meldinger'],
+    options: ['Innhold som spres raskt fordi mange deler det', 'Datavirus påsosiale medier', 'Betalte reklamekampanjer', 'Private meldinger'],
     explanation: 'Virale mekanismer gjor at innhold spres raskt fra person til person gjennom deling.',
   },
   {
@@ -29213,7 +29213,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er Creative Commons?',
-    options: ['Fleksible lisenser der opphavspersoner gir tillatelse pa forhand', 'En type sosialt medium', 'Et filmselskap', 'En nyhetskanal'],
+    options: ['Fleksible lisenser der opphavspersoner gir tillatelse påforhand', 'En type sosialt medium', 'Et filmselskap', 'En nyhetskanal'],
     explanation: 'Creative Commons er et system med fleksible lisenser som gjor det enklere a dele og bruke verk lovlig.',
   },
   {
@@ -29224,7 +29224,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er PFU?',
     options: ['Pressens Faglige Utvalg - klageorgan for presseetikk', 'Personvern For Unge', 'Presse og Film Utvalget', 'Programmet for Faktasjekk'],
-    explanation: 'Pressens Faglige Utvalg er klageorganet som behandler brudd pa god presseskikk.',
+    explanation: 'Pressens Faglige Utvalg er klageorganet som behandler brudd pågod presseskikk.',
   },
 ],
 
@@ -29232,12 +29232,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er en primarekilde?',
     options: ['Forstehandsinformasjon, som oyenvitner eller originaldokumenter', 'En avisartikkel om hendelsen', 'Wikipedia', 'Et leksikon'],
-    explanation: 'Primarkilder gir forstehandskunnskap, som oyenvitner, originaldokumenter eller direkte utsagn.',
+    explanation: 'Primarkilder gir førstehandskunnskap, som oyenvitner, originaldokumenter eller direkte utsagn.',
   },
   {
-    question: 'Hva bor man sjekke nar man vurderer en kildes troverdighet?',
-    options: ['Hvem star bak, hva er formalet, nar ble det publisert', 'Bare om det ser bra ut', 'Om det er mye tekst', 'Om det har bilder'],
-    explanation: 'God kildekritikk innebarer a vurdere hvem som star bak, hva formalet er, og nar informasjonen ble publisert.',
+    question: 'Hva bor man sjekke nårman vurderer en kildes troverdighet?',
+    options: ['Hvem star bak, hva er formalet, nårble det publisert', 'Bare om det ser bra ut', 'Om det er mye tekst', 'Om det har bilder'],
+    explanation: 'God kildekritikk innebarer a vurdere hvem som star bak, hva formalet er, og nårinformasjonen ble publisert.',
   },
   {
     question: 'Hva er falske nyheter?',
@@ -29246,7 +29246,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er forskjellen mellom desinformasjon og feilinformasjon?',
-    options: ['Desinformasjon er bevisst villedning, feilinformasjon er utilsiktet feil', 'Det er det samme', 'Feilinformasjon er verre', 'Desinformasjon er bare pa nett'],
+    options: ['Desinformasjon er bevisst villedning, feilinformasjon er utilsiktet feil', 'Det er det samme', 'Feilinformasjon er verre', 'Desinformasjon er bare pånett'],
     explanation: 'Desinformasjon spres bevisst for a villede, mens feilinformasjon spres uten intensjon om a villede.',
   },
   {
@@ -29293,7 +29293,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er nettverkseffekter?',
     options: ['Jo flere som bruker en plattform, jo mer verdifull blir den', 'Nar flere medier samarbeider', 'Effekten av digital annonsering', 'Spredning av nyheter i nettverk'],
-    explanation: 'Nettverkseffekter betyr at en plattforms verdi oker med antall brukere.',
+    explanation: 'Nettverkseffekter betyr at en plattforms verdi øker med antall brukere.',
   },
   {
     question: 'Hvilke tre konsern dominerer det norske avismarkedet?',
@@ -29303,7 +29303,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er oppmerksomhetsokonomi?',
     options: ['Konkurranse om brukernes oppmerksomhet som kan omsettes i reklameinntekter', 'Okonomisk stotte til kvalitetsjournalistikk', 'Betaling for premium-innhold', 'Statlig regulering av mediemarkedet'],
-    explanation: 'Oppmerksomhetsokonomi beskriver hvordan plattformer konkurrerer om brukernes oppmerksomhet for a selge reklame.',
+    explanation: 'Oppmerksomhetsokonomi beskriver hvordan plattformer konkurrerer om brukernes oppmerksomhet for å selge reklame.',
   },
   {
     question: 'Hva er freemium som finansieringsmodell?',
@@ -29316,7 +29316,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva mente Marshall McLuhan med "mediet er budskapet"?',
     options: ['Mediets form pavirker oss mer enn innholdet', 'Innholdet i mediene er det viktigste', 'Alle medier har samme effekt', 'Budskapet er viktigere enn avsender'],
-    explanation: 'McLuhan mente at mediets teknologiske form har storre betydning for samfunnet enn innholdet.',
+    explanation: 'McLuhan mente at mediets teknologiske form har større betydning for samfunnet enn innholdet.',
   },
   {
     question: 'Hva innebarer dagsordenfunksjonen?',
@@ -29326,11 +29326,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er filterbobler ifolge Eli Pariser?',
     options: ['Algoritmer skaper ekkokamre der vi kun eksponeres for bekreftende innhold', 'Fysiske barrierer som hindrer medietilgang', 'Redaksjonelle valg om hva som dekkes', 'Tekniske feil i medieplattformer'],
-    explanation: 'Filterbobler oppstar nar algoritmer personaliserer innholdet slik at vi bare ser bekreftende synspunkter.',
+    explanation: 'Filterbobler oppstar nåralgoritmer personaliserer innholdet slik at vi bare ser bekreftende synspunkter.',
   },
   {
     question: 'Hva kritiserte Frankfurterskolen?',
-    options: ['Massekulturens standardisering og kommersialisering', 'For lite underholdning i mediene', 'For mye offentlig finansiering', 'Mangelen pa digitale medier'],
+    options: ['Massekulturens standardisering og kommersialisering', 'For lite underholdning i mediene', 'For mye offentlig finansiering', 'Mangelen pådigitale medier'],
     explanation: 'Frankfurterskolen kritiserte massekulturen for a standardisere og kommersialisere kulturuttrykk.',
   },
   {
@@ -29348,18 +29348,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebarer prinsippet om samtidig imotegaelse?',
-    options: ['Den som anklages skal fa svare i samme sak', 'Alle parter skal uttale seg for publisering', 'Journalisten ma vaere til stede', 'Kilder ma identifiseres med fullt navn'],
-    explanation: 'Samtidig imotegaelse betyr at den som utsettes for sterke beskyldninger far svare i samme artikkel.',
+    options: ['Den som anklages skal fa svare i samme sak', 'Alle parter skal uttale seg for publisering', 'Journalisten måvaere til stede', 'Kilder måidentifiseres med fullt navn'],
+    explanation: 'Samtidig imotegaelse betyr at den som utsettes for sterke beskyldninger fårsvare i samme artikkel.',
   },
   {
     question: 'Hva kjennetegner gravejournalistikk?',
-    options: ['Undersokende journalistikk som avdekker kritikkverdige forhold', 'Rask nyhetsformidling', 'Underholdende historier om kjendiser', 'Journalistikk basert pa pressekonferanser'],
-    explanation: 'Gravejournalistikk er ressurskrevende, undersokende journalistikk som avdekker skjulte forhold.',
+    options: ['Undersøkende journalistikk som avdekker kritikkverdige forhold', 'Rask nyhetsformidling', 'Underholdende historier om kjendiser', 'Journalistikk basert påpressekonferanser'],
+    explanation: 'Gravejournalistikk er ressurskrevende, undersøkende journalistikk som avdekker skjulte forhold.',
   },
   {
-    question: 'Hvilken institusjon behandler klager pa brudd mot god presseskikk?',
+    question: 'Hvilken institusjon behandler klager påbrudd mot god presseskikk?',
     options: ['Pressens Faglige Utvalg (PFU)', 'Medietilsynet', 'Stortinget', 'Domstolene'],
-    explanation: 'Pressens Faglige Utvalg (PFU) er pressens eget klageorgan for brudd pa Var Varsom-plakaten.',
+    explanation: 'Pressens Faglige Utvalg (PFU) er pressens eget klageorgan for brudd påVar Varsom-plakaten.',
   },
   {
     question: 'Hva er nyhetspyramiden?',
@@ -29372,12 +29372,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva mente John Grierson med at dokumentar er "kreativ behandling av virkelighet"?',
     options: ['Dokumentar innebarer kunstneriske valg i fremstillingen av virkeligheten', 'Dokumentar skal vaere rent objektivt', 'Dokumentar og fiksjon er det samme', 'Dokumentar skal kun bruke arkivmateriale'],
-    explanation: 'Grierson pekte pa at selv dokumentar innebarer kreative valg om hva som filmes og hvordan det presenteres.',
+    explanation: 'Grierson pekte påat selv dokumentar innebarer kreative valg om hva som filmes og hvordan det presenteres.',
   },
   {
     question: 'Hva kjennetegner observerende dokumentar?',
-    options: ['Kameraet observerer uten at filmskaperen griper inn', 'Filmskaperen er synlig og interagerer aktivt', 'Fokus pa estetikk og personlig uttrykk', 'Fiksjon som later som den er dokumentar'],
-    explanation: 'Observerende dokumentar, "flue pa veggen", lar kameraet observere uten at filmskaperen griper inn.',
+    options: ['Kameraet observerer uten at filmskaperen griper inn', 'Filmskaperen er synlig og interagerer aktivt', 'Fokus påestetikk og personlig uttrykk', 'Fiksjon som later som den er dokumentar'],
+    explanation: 'Observerende dokumentar, "flue påveggen", lar kameraet observere uten at filmskaperen griper inn.',
   },
   {
     question: 'Hva er en mockumentary?',
@@ -29386,13 +29386,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva innebarer informert samtykke i dokumentarproduksjon?',
-    options: ['Deltakere ma forsta hvordan de vil fremstilles', 'Publikum ma godkjenne innholdet', 'Myndighetene ma gi tillatelse', 'Alle kilder ma vaere anonyme'],
-    explanation: 'Informert samtykke betyr at personer som filmes ma fa informasjon om prosjektet for de gir samtykke.',
+    options: ['Deltakere måforsta hvordan de vil fremstilles', 'Publikum mågodkjenne innholdet', 'Myndighetene mågi tillatelse', 'Alle kilder måvaere anonyme'],
+    explanation: 'Informert samtykke betyr at personer som filmes måfa informasjon om prosjektet for de gir samtykke.',
   },
   {
     question: 'Hva er rekonstruksjon i dokumentar?',
     options: ['Gjenskaping av hendelser som ikke ble filmet', 'Reparasjon av gammelt filmmateriale', 'Bygging av kulisser', 'Redigering av lyd'],
-    explanation: 'Rekonstruksjon er nar hendelser som ikke ble fanget pa film gjenskapes for dokumentaren.',
+    explanation: 'Rekonstruksjon er nårhendelser som ikke ble fanget påfilm gjenskapes for dokumentaren.',
   },
 ],
 
@@ -29405,11 +29405,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er "bandwagon"-teknikken i propaganda?',
     options: ['Appell til flokkmentalitet - alle andre gjor det', 'Bruk av kjente personer', 'A stemple motstandere negativt', 'A overfore positive assosiasjoner'],
-    explanation: 'Bandwagon-teknikken appellerer til onske om a folge flertallet - "hopp pa vogna".',
+    explanation: 'Bandwagon-teknikken appellerer til onske om a folge flertallet - "hopp påvogna".',
   },
   {
     question: 'Hva er deepfakes?',
-    options: ['AI-genererte videoer som viser personer gjore ting de aldri har gjort', 'Nyhetsartikler med falsk informasjon', 'Falske profiler pa sosiale medier', 'Manipulerte fotografier'],
+    options: ['AI-genererte videoer som viser personer gjore ting de aldri har gjort', 'Nyhetsartikler med falsk informasjon', 'Falske profiler påsosiale medier', 'Manipulerte fotografier'],
     explanation: 'Deepfakes er video- eller lydklipp generert med AI som kan fa personer til a se ut som de gjor ting de aldri har gjort.',
   },
   {
@@ -29436,19 +29436,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'GDPR er EUs personvernforordning som styrker individets rettigheter over egne personopplysninger.',
   },
   {
-    question: 'Hva er retten til a bli glemt?',
-    options: ['Mulighet til a fa slettet personopplysninger', 'Rett til anonymitet pa nett', 'Rett til a glemme passord', 'Rett til a slette andres data'],
-    explanation: 'Retten til a bli glemt gir mulighet til a fa slettet personopplysninger om seg selv fra databaser.',
+    question: 'Hva er retten til å bli glemt?',
+    options: ['Mulighet til a fa slettet personopplysninger', 'Rett til anonymitet pånett', 'Rett til a glemme passord', 'Rett til a slette andres data'],
+    explanation: 'Retten til å bli glemt gir mulighet til a fa slettet personopplysninger om seg selv fra databaser.',
   },
   {
     question: 'Hva er metadata?',
-    options: ['Data om data - hvem som kommuniserer med hvem, nar og hvor', 'Falske nyheter pa sosiale medier', 'Personopplysninger', 'Innholdet i meldinger'],
+    options: ['Data om data - hvem som kommuniserer med hvem, nårog hvor', 'Falske nyheter påsosiale medier', 'Personopplysninger', 'Innholdet i meldinger'],
     explanation: 'Metadata er data om kommunikasjon - ikke innholdet selv, men hvem, nar, hvor lenge og fra hvilken lokasjon.',
   },
   {
-    question: 'Hva er en databroker?',
+    question: 'Hva er en databrøker?',
     options: ['Selskaper som samler inn og selger persondata', 'En type nettleser', 'En programvare for personvern', 'En offentlig tilsynsmyndighet'],
-    explanation: 'Databrokers er selskaper som samler inn, pakker og selger personopplysninger til annonsorer og andre.',
+    explanation: 'Databrøkers er selskaper som samler inn, pakker og selger personopplysninger til annonsorer og andre.',
   },
 ],
 
@@ -29456,7 +29456,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er generativ AI?',
     options: ['AI som kan skape nytt innhold som tekst, bilder og video', 'AI som kun analyserer eksisterende innhold', 'AI som styrer algoritmer', 'AI som oversetter spraak'],
-    explanation: 'Generativ AI er kunstig intelligens som kan skape nytt innhold basert pa tekstinstruksjoner.',
+    explanation: 'Generativ AI er kunstig intelligens som kan skape nytt innhold basert påtekstinstruksjoner.',
   },
   {
     question: 'Hva er forskjellen mellom VR og AR?',
@@ -29466,7 +29466,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med AI-hallusinasjoner?',
     options: ['Nar AI produserer overbevisende, men feilaktig informasjon', 'Visuelle effekter i VR', 'Feil i bildegjenkjenning', 'Kreative AI-kunstverk'],
-    explanation: 'AI-hallusinasjoner er nar store sprakmodeller genererer informasjon som hores troverdig ut, men som er feil.',
+    explanation: 'AI-hallusinasjoner er nårstore sprakmodeller genererer informasjon som hores troverdig ut, men som er feil.',
   },
   {
     question: 'Hva er metaverse?',
@@ -29488,18 +29488,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er glokalisering?',
-    options: ['Globalt innhold tilpasses lokale markeder og kulturer', 'Lokal kultur spres globalt', 'Globale selskaper kjoper lokale medier', 'Lokale medier nekter globalt innhold'],
+    options: ['Globalt innhold tilpasses lokale markeder og kulturer', 'Lokal kultur spres globalt', 'Globale selskaper kjøper lokale medier', 'Lokale medier nekter globalt innhold'],
     explanation: 'Glokalisering beskriver hvordan globale medieselskaper tilpasser innhold til lokale markeder.',
   },
   {
     question: 'Hva er soft power i mediesammenheng?',
-    options: ['Bruk av kultur og medier for a pavirke andre lands holdninger', 'Fysisk kontroll over medieinfrastruktur', 'Okonomisk press pa medieselskaper', 'Militaer sensur'],
+    options: ['Bruk av kultur og medier for a pavirke andre lands holdninger', 'Fysisk kontroll over medieinfrastruktur', 'Okonomisk press påmedieselskaper', 'Militaer sensur'],
     explanation: 'Soft power er evnen til a pavirke andre gjennom tiltrekning via kultur, verdier og medier.',
   },
   {
     question: 'Hva kjennetegner Hallyu (den koreanske bolgen)?',
     options: ['Sor-Koreas globale kultureksport gjennom K-pop, K-drama og film', 'Japansk animasjonskultur', 'Indisk filmindustri', 'Kinesiske sosiale medier'],
-    explanation: 'Hallyu er betegnelsen pa den globale spredningen av sor-koreansk populaerkultur.',
+    explanation: 'Hallyu er betegnelsen påden globale spredningen av sor-koreansk populaerkultur.',
   },
   {
     question: 'Hva er kulturell hybridisering?',
@@ -29549,8 +29549,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva menes med enveisskommunikasjon?',
-    options: ['Kommunikasjon der mottakeren ikke kan svare tilbake umiddelbart', 'Kommunikasjon som bare gar en vei i verden', 'Kommunikasjon mellom to personer', 'Kommunikasjon uten mening'],
-    explanation: 'Enveisskommunikasjon er nar senderen formidler et budskap uten mulighet for umiddelbar tilbakemelding, som TV-sending eller avisartikkel.',
+    options: ['Kommunikasjon der mottakeren ikke kan svare tilbake umiddelbart', 'Kommunikasjon som bare gåren vei i verden', 'Kommunikasjon mellom to personer', 'Kommunikasjon uten mening'],
+    explanation: 'Enveisskommunikasjon er nårsenderen formidler et budskap uten mulighet for umiddelbar tilbakemelding, som TV-sending eller avisartikkel.',
   },
   {
     question: 'Hva er toveisskommunikasjon?',
@@ -29583,7 +29583,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er dekoding?',
     options: ['At mottaker tolker og forstar budskapet', 'At man bryter koder', 'At man oversetter til et annet sprak', 'At man sletter meldinger'],
-    explanation: 'Dekoding er nar mottakeren tolker og gir mening til budskapet som er mottatt, basert paa egne erfaringer og forstaelse.',
+    explanation: 'Dekoding er nårmottakeren tolker og gir mening til budskapet som er mottatt, basert paa egne erfaringer og forstaelse.',
   },
   {
     question: 'Hvorfor kan misforstaelser oppsta i kommunikasjon?',
@@ -29615,8 +29615,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er det viktig aa være bevisst paa nonverbal kommunikasjon?',
-    options: ['Fordi den kan forsterke eller motsi det verbale budskapet', 'Fordi den ikke betyr noe', 'Fordi den er ulovlig', 'Fordi den kun brukes i utlandet'],
-    explanation: 'Nonverbal kommunikasjon utgjor en stor del av budskapet vart. Nar verbal og nonverbal kommunikasjon ikke samstemmer, stoler folk ofte mest paa det nonverbale.',
+    options: ['Fordi den kan førsterke eller motsi det verbale budskapet', 'Fordi den ikke betyr noe', 'Fordi den er ulovlig', 'Fordi den kun brukes i utlandet'],
+    explanation: 'Nonverbal kommunikasjon utgjør en stor del av budskapet vart. Nar verbal og nonverbal kommunikasjon ikke samstemmer, stoler folk ofte mest paa det nonverbale.',
   },
 ],
 
@@ -29638,7 +29638,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en subkultur?',
-    options: ['En gruppe innenfor storre kulturen med egne verdier og uttrykk', 'En underlegen kultur', 'En gammel kultur', 'En kultur under vann'],
+    options: ['En gruppe innenfor større kulturen med egne verdier og uttrykk', 'En underlegen kultur', 'En gammel kultur', 'En kultur under vann'],
     explanation: 'En subkultur er en gruppe som deler kulturens hovedtrekk, men har distinkte verdier, normer eller uttrykksformer som skiller dem fra hovedkulturen.',
   },
   {
@@ -29679,8 +29679,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   'komkult-1-6': [
   {
     question: 'Hva er massemedier?',
-    options: ['Medier som nar mange mennesker samtidig, som TV, radio og aviser', 'Sosiale medier', 'Private meldinger', 'Personlige samtaler'],
-    explanation: 'Massemedier er kommunikasjonskanaler som nar et stort publikum samtidig med samme budskap - tradisjonelt TV, radio, aviser og magasiner.',
+    options: ['Medier som nårmange mennesker samtidig, som TV, radio og aviser', 'Sosiale medier', 'Private meldinger', 'Personlige samtaler'],
+    explanation: 'Massemedier er kommunikasjonskanaler som nåret stort publikum samtidig med samme budskap - tradisjonelt TV, radio, aviser og magasiner.',
   },
   {
     question: 'Hva kjennetegner sosiale medier?',
@@ -29746,12 +29746,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er nettvett?',
     options: ['Kunnskap om trygg og ansvarlig oppforsel paa nett', 'Fiskenett', 'Internettforbindelse', 'E-post'],
-    explanation: 'Nettvett handler om aa oppfore seg trygt, respektfullt og ansvarlig paa internett - beskytte personvern, unngaa mobbing, og tenke for man poster.',
+    explanation: 'Nettvett handler om aa oppfore seg trygt, respektfullt og ansvarlig paa internett - beskytte personvern, unngåa mobbing, og tenke for man poster.',
   },
   {
     question: 'Hva er digitalt fotavtrykk?',
     options: ['Alle spor vi legger igjen paa nett', 'En type sko', 'En app', 'Et dataspill'],
-    explanation: 'Digitalt fotavtrykk er alle sporene vi legger igjen paa internett - poster, soek, likes, bilder - som kan vaere vanskelige aa slette og kan folge oss.',
+    explanation: 'Digitalt fotavtrykk er alle sporene vi legger igjen paa internett - poster, soek, likes, bilder - som kan være vanskelige aa slette og kan folge oss.',
   },
   {
     question: 'Hvorfor er kildekritikk viktig i digital kommunikasjon?',
@@ -29774,7 +29774,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er pressens samfunnsoppdrag?',
     options: ['Aa informere borgerne, overvake makten og være en arena for debatt', 'Aa tjene mest mulig penger', 'Aa underholde', 'Aa stotte regjeringen'],
-    explanation: 'Pressen har et demokratisk oppdrag: informere befolkningen, vokte maktutovere, sette dagsorden, og være forum for offentlig debatt.',
+    explanation: 'Pressen har et demokratisk oppdrag: informere befolkningen, vøkte maktutovere, sette dagsorden, og være forum for offentlig debatt.',
   },
   {
     question: 'Hva er ytringsfrihet?',
@@ -29866,8 +29866,8 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Todorovs narrativstruktur beskriver fortellinger som bevegelse fra likevekt (normal tilstand), gjennom forstyrrelse og erkjennelse, til ny likevekt.',
   },
   {
-    question: 'Hva innebærer det aa gjore en retorisk analyse?',
-    options: ['Aa undersoke hvordan en tekst forsoker aa overbevise', 'Bare aa telle ord', 'Aa sjekke grammatikk', 'Aa finne feil'],
+    question: 'Hva innebærer det aå gjøre en retorisk analyse?',
+    options: ['Aå undersøke hvordan en tekst forsøker aa overbevise', 'Bare aa telle ord', 'Aa sjekke grammatikk', 'Aa finne feil'],
     explanation: 'Retorisk analyse undersøker hvordan en tekst bruker ethos, pathos og logos for aa pavirke publikum - hvilke strategier brukes for aa overbevise?',
   },
 ],
@@ -29886,7 +29886,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er et strawmannsargument?',
     options: ['Aa angripe en forvrengt versjon av motstanderens syn', 'Et sterkt argument', 'Et argument laget av bondestudenter', 'Et argument for jordbruk'],
-    explanation: 'Straamannsargument er nar man angriper en forvrengt, forenklet eller overdrevet versjon av motstanderens syn i stedet for det virkelige argumentet.',
+    explanation: 'Straamannsargument er nårman angriper en forvrengt, forenklet eller overdrevet versjon av motstanderens syn i stedet for det virkelige argumentet.',
   },
   {
     question: 'Hva er forskjellen mellom innledende og avledet ethos?',
@@ -29913,7 +29913,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er interkulturell kompetanse?',
-    options: ['Evnen til aa kommunisere effektivt og respektfullt paa tvers av kulturer', 'Aa kunne mange spraak', 'Aa ha reist mye', 'Aa like utenlandsk mat'],
+    options: ['Evnen til aa kommunisere effektivt og respektfullt paa tvers av kulturer', 'Aa kunne mange spraak', 'Aå ha reist mye', 'Aa like utenlandsk mat'],
     explanation: 'Interkulturell kompetanse omfatter holdninger (respekt, apenhet), kunnskap (om kulturer og prosesser), og ferdigheter (aa tilpasse kommunikasjon) for aa samhandle effektivt paa tvers av kulturer.',
   },
   {
@@ -29924,19 +29924,19 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor kritiseres Hofstedes kulturdimensjoner?',
     options: ['Fordi de generaliserer og kan fore til stereotypisering', 'Fordi de er for kompliserte', 'Fordi de bare gjelder nordmenn', 'Fordi de er for nye'],
-    explanation: 'Kritikken er at modellen forenkler, ignorerer mangfold innad i nasjoner, kan fore til stereotypisering, og er basert paa gammel data som kanskje ikke er gyldig lenger.',
+    explanation: 'Kritikken er at modellen forenkler, ignorerer mangfold innad i nasjoner, kan fore til stereotypisering, og er basert paå gåmmel data som kanskje ikke er gyldig lenger.',
   },
 ],
 
   'komkult-2-7': [
   {
     question: 'Hva kjennetegner en subkultur?',
-    options: ['En gruppe med distinkte verdier, normer og uttrykksformer innenfor en storre kultur', 'En underlegen kultur', 'En kultur under jorden', 'En gammel kultur'],
-    explanation: 'En subkultur er en gruppe innenfor den storre kulturen som har egne distinkte verdier, stiler og praksiser - som punk, hip-hop eller gaming-kulturer.',
+    options: ['En gruppe med distinkte verdier, normer og uttrykksformer innenfor en større kultur', 'En underlegen kultur', 'En kultur under jorden', 'En gammel kultur'],
+    explanation: 'En subkultur er en gruppe innenfor den større kulturen som har egne distinkte verdier, stiler og praksiser - som punk, hip-hop eller gaming-kulturer.',
   },
   {
     question: 'Hva menes med bricolage i kulturstudier?',
-    options: ['Aa gi nye meninger til eksisterende objekter og symboler', 'Aa lage alt selv', 'Aa kopiere mainstreamkultur', 'Aa bruke franske uttrykk'],
+    options: ['Aa gi nye meninger til eksisterende objekter og symboler', 'Aa lage alt selv', 'Aa kopiere mainstreamkultur', 'Aå bruke franske uttrykk'],
     explanation: 'Bricolage handler om aa ta eksisterende objekter og gi dem nye meninger - som naar punkere gjorde sikkerhetsnaler til moteplagg og uttrykk for opprør.',
   },
   {
@@ -29947,7 +29947,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er kulturell appropriasjon?',
     options: ['Naar elementer fra en kultur brukes av en annen paa mater som kan oppfattes som respektlose', 'Kulturell utveksling', 'Aa lære om andre kulturer', 'Aa reise til utlandet'],
-    explanation: 'Kulturell appropriasjon er nar elementer fra en (ofte marginalisert) kultur tas i bruk av en annen (ofte dominant) kultur paa maater som kan være respektlose eller utnyttende.',
+    explanation: 'Kulturell appropriasjon er nårelementer fra en (ofte marginalisert) kultur tas i bruk av en annen (ofte dominant) kultur paa maater som kan være respektlose eller utnyttende.',
   },
   {
     question: 'Hva er kunstens kritiske funksjon?',
@@ -29974,7 +29974,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er dialogetikk?',
-    options: ['At etisk ansvar springer ut av motet med den andre', 'At dialog alltid er bra', 'At man skal unngaa konflikt', 'At regler er viktigst'],
+    options: ['At etisk ansvar springer ut av motet med den andre', 'At dialog alltid er bra', 'At man skal unngåa konflikt', 'At regler er viktigst'],
     explanation: 'Dialogetikken (Buber, Levinas) vektlegger at etisk ansvar oppstaar i motet med den andre. Den andres ansikt forplikter meg til respekt og ansvar.',
   },
   {
@@ -30002,7 +30002,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner konstruktiv interkulturell dialog?',
-    options: ['Anerkjennelse, apenhet, gjensidighet og fokus paa sak', 'At en part maa vinne', 'At man unngaar uenighet', 'At begge maa være enige fra start'],
+    options: ['Anerkjennelse, apenhet, gjensidighet og fokus paa sak', 'At en part maa vinne', 'At man unngåar uenighet', 'At begge maa være enige fra start'],
     explanation: 'God dialog krever aa ta den andre paa alvor, være villig til aa revidere egne syn, dele ansvar, og fokusere paa ideer fremfor personangrep.',
   },
   {
@@ -30034,7 +30034,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'En av de vanligste feilene er aa velge en for bred problemstilling som ikke lar seg besvare godt innenfor prosjektets rammer. Avgrensning er viktig.',
   },
   {
-    question: 'Hvorfor er det viktig aa bruke teori aktivt i analyse?',
+    question: 'Hvorfor er det viktig aå bruke teori aktivt i analyse?',
     options: ['Teorier fungerer som verktoy som hjelper deg se ting du ellers ville oversett', 'For aa vise at du har lest pensum', 'For aa fylle plass', 'Det er ikke viktig'],
     explanation: 'Teori er ikke bare pynt - det er analyseverktoy som gir deg begreper og perspektiver til aa forstaa og tolke materialet ditt paa nye maater.',
   },
@@ -30048,13 +30048,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er hegemoni i kulturstudier?',
-    options: ['Kulturelt lederskap der dominerende ideer aksepteres som naturlige', 'Militær dominans', 'Okonomisk overtak', 'Geografisk storrelse'],
+    options: ['Kulturelt lederskap der dominerende ideer aksepteres som naturlige', 'Militær dominans', 'Okonomisk overtak', 'Geografisk størrelse'],
     explanation: 'Hegemoni (Gramsci) er naar en gruppes verdier og ideer blir saa dominerende at de aksepteres som naturlige og selvfolgelige av hele samfunnet.',
   },
   {
     question: 'Hva er Foucaults syn paa makt?',
     options: ['At makt er overalt og virker gjennom kunnskap og normer', 'At makt bare finnes hos staten', 'At makt er utelukkende undertrykkende', 'At makt ikke finnes'],
-    explanation: 'Foucault sa at makt ikke bare er undertrykkende, men produktiv - den finnes overalt og virker gjennom diskurser, kunnskap og normer som former oss.',
+    explanation: 'Foucault såat makt ikke bare er undertrykkende, men produktiv - den finnes overalt og virker gjennom diskurser, kunnskap og normer som former oss.',
   },
   {
     question: 'Hva menes med definisjonsmakt?',
@@ -30086,13 +30086,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er krisekommunikasjon?',
-    options: ['Strategisk kommunikasjon for aa handtere kriser og beskytte omdømme', 'Kommunikasjon i krig', 'Aa sende mange meldinger', 'Aa ignorere problemer'],
+    options: ['Strategisk kommunikasjon for aå handtere kriser og beskytte omdømme', 'Kommunikasjon i krig', 'Aa sende mange meldinger', 'Aa ignorere problemer'],
     explanation: 'Krisekommunikasjon er planlagt og strategisk kommunikasjon i situasjoner som truer organisasjonens omdømme eller drift - aapenhet og hastighet er viktig.',
   },
   {
     question: 'Hvorfor er kulturforstaelse viktig i internasjonalt samarbeid?',
     options: ['Fordi kulturelle forskjeller pavirker kommunikasjon, forhandlinger og samarbeid', 'Fordi det er hoflig', 'Fordi det er lovpalagt', 'Det er ikke viktig'],
-    explanation: 'Ulike kulturer har ulike kommunikasjonsstiler, forventninger og normer. Kulturforstaelse hjelper aa unngaa misforstaelser og bygge gode relasjoner.',
+    explanation: 'Ulike kulturer har ulike kommunikasjonsstiler, forventninger og normer. Kulturforstaelse hjelper aå unngåa misforstaelser og bygge gode relasjoner.',
   },
 ],
 
@@ -30161,12 +30161,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken fase kommer forst i den kreative prosessen?',
     options: ['Ideutvikling', 'Produksjon', 'Evaluering', 'Lansering'],
-    explanation: 'Ideutvikling er forste fase - brainstorming, research, inspirasjon og konseptutvikling. Deretter kommer forprosjekt, produksjon, lansering og evaluering.',
+    explanation: 'Ideutvikling er første fase - brainstorming, research, inspirasjon og konseptutvikling. Deretter kommer forprosjekt, produksjon, lansering og evaluering.',
   },
   {
     question: 'Hva er hovedformaalet med en risikovurdering i prosjektplanlegging?',
     options: ['Aa identifisere mulige problemer og lage plan B', 'Aa dokumentere alt for ledelsen', 'Aa beregne forsikringskostnader', 'Aa velge bort risikable prosjekter'],
-    explanation: 'Risikovurdering handler om aa tenke gjennom hva som kan gaa galt, slik at man kan forebygge problemer eller ha planer for aa handtere dem.',
+    explanation: 'Risikovurdering handler om aa tenke gjennom hva som kan gaå gålt, slik at man kan forebygge problemer eller ha planer for aå handtere dem.',
   },
   {
     question: 'Hva bor en prosjektbeskrivelse inneholde?',
@@ -30175,7 +30175,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er viktigst for godt samarbeid i prosjekter?',
-    options: ['Tydelig ansvarsfordeling og aapen kommunikasjon', 'At en person tar alle beslutninger', 'At alle gjor det samme', 'At man unngaar uenigheter'],
+    options: ['Tydelig ansvarsfordeling og aapen kommunikasjon', 'At en person tar alle beslutninger', 'At alle gjor det samme', 'At man unngåar uenigheter'],
     explanation: 'Godt samarbeid krever at alle vet hva de skal gjore (tydelig ansvarsfordeling) og at man kan dele informasjon og løse problemer sammen (aapen kommunikasjon).',
   },
 ],
@@ -30217,7 +30217,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er algoritmisk kultur?',
     options: ['Kultur formet av algoritmer som bestemmer hva vi eksponeres for', 'Kultur skapt av programmerere', 'Kultur om matematikk', 'Kultur uten mennesker'],
-    explanation: 'Algoritmisk kultur refererer til at algoritmer i stadig storre grad pavirker hvilke kulturuttrykk vi moter - hva som anbefales, vises og deles.',
+    explanation: 'Algoritmisk kultur refererer til at algoritmer i stadig større grad pavirker hvilke kulturuttrykk vi moter - hva som anbefales, vises og deles.',
   },
   {
     question: 'Hva er digital kloeft?',
@@ -30258,7 +30258,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Start med aa velge et tema du brenner for, og avgrens det til et haandterbart omfang. Dette danner grunnlaget for alt videre arbeid.',
   },
   {
-    question: 'Hvorfor er det viktig aa bruke fagbegreper aktivt i analysen?',
+    question: 'Hvorfor er det viktig aå bruke fagbegreper aktivt i analysen?',
     options: ['De fungerer som verktøy som hjelper deg se og forstaa materialet paa nye maater', 'For aa virke smart', 'For aa fylle plass', 'Det er ikke viktig'],
     explanation: 'Fagbegreper og teorier er ikke pynt - de er analyseverktøy som gir deg perspektiver og konsepter til aa forstaa og tolke materialet dypere og mer presist.',
   },
@@ -30267,26 +30267,26 @@ const quizData: Record<string, QuizQuestion[]> = {
   'trening-1-1': [
   {
     question: 'Hva sier overbelastningsprinsippet?',
-    options: ['Kroppen ma utsettes for storre belastning enn den er vant til for a tilpasse seg', 'Man bor alltid trene til utmattelse', 'Mer trening er alltid bedre', 'Kroppen tilpasser seg best med lite belastning'],
-    explanation: 'Overbelastningsprinsippet sier at kroppen ma utsettes for en belastning utover det normale for a stimulere til tilpasning og utvikling. Uten tilstrekkelig belastning vil kroppen ikke ha grunn til a tilpasse seg.',
+    options: ['Kroppen måutsettes for større belastning enn den er vant til for a tilpasse seg', 'Man bor alltid trene til utmattelse', 'Mer trening er alltid bedre', 'Kroppen tilpasser seg best med lite belastning'],
+    explanation: 'Overbelastningsprinsippet sier at kroppen måutsettes for en belastning utover det normale for a stimulere til tilpasning og utvikling. Uten tilstrekkelig belastning vil kroppen ikke ha grunn til a tilpasse seg.',
   },
   {
     question: 'Hva er superkompensasjon?',
-    options: ['Kroppens tilpasning til et hoyere niva etter trening og restitusjon', 'Nar man trener ekstra hardt', 'A ta proteintilskudd etter trening', 'Oppvarming for trening'],
-    explanation: 'Superkompensasjon er prosessen der kroppen ikke bare reparerer seg etter trening, men bygger seg opp til et hoyere funksjonsniva enn for. Dette er grunnlaget for treningsfremgang.',
+    options: ['Kroppens tilpasning til et høyere niva etter trening og restitusjon', 'Nar man trener ekstrå hardt', 'A ta proteintilskudd etter trening', 'Oppvarming for trening'],
+    explanation: 'Superkompensasjon er prosessen der kroppen ikke bare reparerer seg etter trening, men bygger seg opp til et høyere funksjonsniva enn for. Dette er grunnlaget for treningsfremgang.',
   },
   {
     question: 'Hva betyr spesifisitetsprinsippet?',
-    options: ['Kroppen tilpasser seg spesifikt til den typen belastning den utsettes for', 'All trening gir samme effekt', 'Man ma trene alt samtidig', 'Spesialisering er alltid darlig'],
-    explanation: 'Spesifisitetsprinsippet betyr at treningen ma vaere malrettet. Vil du bli bedre til a lope, ma du lope. Vil du bli sterkere, ma du trene styrke.',
+    options: ['Kroppen tilpasser seg spesifikt til den typen belastning den utsettes for', 'All trening gir samme effekt', 'Man måtrene alt samtidig', 'Spesialisering er alltid darlig'],
+    explanation: 'Spesifisitetsprinsippet betyr at treningen måvaere malrettet. Vil du bli bedre til a lope, må du lope. Vil du bli sterkere, må du trene styrke.',
   },
   {
     question: 'Hvilke er de fem viktigste treningsvariablene?',
-    options: ['Intensitet, volum, frekvens, varighet og type', 'Bare vekt og repetisjoner', 'Kun tid og distanse', 'Bare antall okter per uke'],
+    options: ['Intensitet, volum, frekvens, varighet og type', 'Bare vekt og repetisjoner', 'Kun tid og distanse', 'Bare antall økter per uke'],
     explanation: 'De fem hovedvariablene - intensitet, volum, frekvens, varighet og type - kan justeres for a tilpasse treningen til ulike mal og behov.',
   },
   {
-    question: 'Hva er typiske tegn pa overtrenning?',
+    question: 'Hva er typiske tegn påovertrenning?',
     options: ['Vedvarende tretthet, nedsatt prestasjon, sovnproblemer og humorsvingninger', 'Okt styrke og energi', 'Bedre sovn og appetitt', 'Raskere restitusjon'],
     explanation: 'Overtrenning viser seg gjennom fysiske og mentale symptomer som vedvarende tretthet, darligere prestasjoner, sovnvansker, irritabilitet og okt skaderisiko.',
   },
@@ -30306,7 +30306,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er VO2maks?',
     options: ['Maksimal mengde oksygen kroppen kan ta opp og bruke per minutt', 'Maksimal puls', 'Maksimal styrke', 'Minste oksygenforbruk'],
-    explanation: 'VO2maks maler kroppens maksimale evne til a ta opp og bruke oksygen, og er et viktig mal pa aerob kapasitet.',
+    explanation: 'VO2maks maler kroppens maksimale evne til a ta opp og bruke oksygen, og er et viktig mal påaerob kapasitet.',
   },
   {
     question: 'Hvordan kontraherer en muskel?',
@@ -30315,8 +30315,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvilke tilpasninger skjer i hjerte-kar-systemet ved utholdenhetstrening?',
-    options: ['Storre hjerte, lavere hvilepuls, flere kapillaerer, hoyere VO2maks', 'Mindre hjerte, hoyere hvilepuls', 'Ingen endringer i hjertet', 'Bare musklene pavirkes'],
-    explanation: 'Utholdenhetstrening gir et storre og sterkere hjerte, lavere hvilepuls, okt blodvolum, flere kapillaerer og hoyere VO2maks.',
+    options: ['Større hjerte, lavere hvilepuls, flere kapillaerer, høyere VO2maks', 'Mindre hjerte, høyere hvilepuls', 'Ingen endringer i hjertet', 'Bare musklene pavirkes'],
+    explanation: 'Utholdenhetstrening gir et større og sterkere hjerte, lavere hvilepuls, okt blodvolum, flere kapillaerer og høyere VO2maks.',
   },
 ],
 
@@ -30351,7 +30351,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   'trening-1-4': [
   {
     question: 'Hva er forskjellen mellom maksimal styrke og eksplosiv styrke?',
-    options: ['Maksimal styrke er storst mulig kraft, eksplosiv styrke er kraft utviklet raskt', 'De er det samme', 'Eksplosiv styrke er alltid storre', 'Maksimal styrke er bare for vektloftere'],
+    options: ['Maksimal styrke er størst mulig kraft, eksplosiv styrke er kraft utviklet raskt', 'De er det samme', 'Eksplosiv styrke er alltid større', 'Maksimal styrke er bare for vektloftere'],
     explanation: 'Maksimal styrke handler om hvor mye kraft du kan utvikle uavhengig av tid, mens eksplosiv styrke (power) handler om a utvikle kraft raskt - kraft x hastighet.',
   },
   {
@@ -30399,7 +30399,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva maler Borgs skala (RPE)?',
-    options: ['Opplevd anstrengelse pa en skala fra 6-20', 'Maksimal puls', 'Antall repetisjoner', 'Treningsvolum'],
+    options: ['Opplevd anstrengelse påen skala fra 6-20', 'Maksimal puls', 'Antall repetisjoner', 'Treningsvolum'],
     explanation: 'Borgs skala (Rate of Perceived Exertion) maler subjektiv opplevelse av anstrengelse. 12-14 er moderat, 15-17 er hoyt, og 18-20 er maksimalt.',
   },
 ],
@@ -30413,17 +30413,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken toyingsmetode egner seg best som oppvarming?',
     options: ['Dynamisk toying', 'Langvarig statisk toying', 'PNF-toying', 'Ingen toying'],
-    explanation: 'Dynamisk toying med kontrollerte bevegelser er best egnet som oppvarming fordi det oker kroppstemperatur og blodgjennomstromning uten a redusere kraft.',
+    explanation: 'Dynamisk toying med kontrollerte bevegelser er best egnet som oppvarming fordi det øker kroppstemperatur og blodgjennomstromning uten a redusere kraft.',
   },
   {
     question: 'Hvorfor kan statisk toying redusere kraft rett for eksplosiv aktivitet?',
-    options: ['Langvarig strekk reduserer midlertidig muskelstivhet og nervaktivering', 'Det oker kraften', 'Det har ingen effekt', 'Statisk toying styrker musklene'],
+    options: ['Langvarig strekk reduserer midlertidig muskelstivhet og nervaktivering', 'Det øker kraften', 'Det har ingen effekt', 'Statisk toying styrker musklene'],
     explanation: 'Langvarig statisk toying (over 60 sekunder) kan midlertidig redusere muskelstivhet og nervaktivering, noe som kan pavirke kraft og power negativt.',
   },
   {
     question: 'Hva er de tre stadiene i motorisk laering?',
     options: ['Kognitivt, assosiativt, autonomt', 'Autonomt, kognitivt, assosiativt', 'Assosiativt, autonomt, kognitivt', 'Det er bare ett stadium'],
-    explanation: 'Motorisk laering gar fra kognitivt stadium (forsta og prove), via assosiativt stadium (forbedre og forfine), til autonomt stadium (automatisert bevegelse).',
+    explanation: 'Motorisk laering gårfra kognitivt stadium (forsta og prove), via assosiativt stadium (forbedre og forfine), til autonomt stadium (automatisert bevegelse).',
   },
   {
     question: 'Hva er koordinasjon?',
@@ -30451,11 +30451,11 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er dehydrering?',
     options: ['Vaeske tap som nedsetter prestasjon og helse', 'For mye vaeskeinntak', 'En type treningsmetode', 'Tap av muskelmasse'],
-    explanation: 'Dehydrering oppstar nar kroppen taper mer vaeske enn den far tilfort. Allerede 2% vekttap i vaeske kan nedsette prestasjon betydelig.',
+    explanation: 'Dehydrering oppstar nårkroppen taper mer vaeske enn den fårtilfort. Allerede 2% vekttap i vaeske kan nedsette prestasjon betydelig.',
   },
   {
     question: 'Hva er karbohydratlading?',
-    options: ['A fylle glykogenlagrene for langvarig konkurranse', 'A spise minimalt med karbohydrater', 'En type styrketrening', 'A trene pa tom mage'],
+    options: ['A fylle glykogenlagrene for langvarig konkurranse', 'A spise minimalt med karbohydrater', 'En type styrketrening', 'A trene påtom mage'],
     explanation: 'Karbohydratlading (carboloading) er en strategi for a maksimere glykogenlagrene for utholdenhetsprestasjon gjennom okt karbohydratinntak 1-3 dager for konkurranse.',
   },
 ],
@@ -30467,9 +30467,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Superkompensasjon er prosessen der kroppen ikke bare gjenoppretter seg til utgangsnivat etter trening, men faktisk bygger seg sterkere enn for. Timing av neste okt er kritisk.',
   },
   {
-    question: 'Hva inneberer spesifisitetsprinsippet pa hoyt niva?',
-    options: ['At treningen ma vaere tilpasset idretten man onsker a bli bedre i', 'At all trening bor vaere identisk', 'At man kun skal trene en egenskap om gangen', 'At man skal variere treningen mest mulig'],
-    explanation: 'Spesifisitetsprinsippet sier at treningen ma vaere spesifikk for idretten eller ferdigheten man onsker a forbedre. Dette inkluderer bevegelse, energisystem, muskulatur og hastighet.',
+    question: 'Hva inneberer spesifisitetsprinsippet påhoyt niva?',
+    options: ['At treningen måvaere tilpasset idretten man onsker å bli bedre i', 'At all trening bør være identisk', 'At man kun skal trene en egenskap om gangen', 'At man skal variere treningen mest mulig'],
+    explanation: 'Spesifisitetsprinsippet sier at treningen måvaere spesifikk for idretten eller ferdigheten man onsker a forbedre. Dette inkluderer bevegelse, energisystem, muskulatur og hastighet.',
   },
   {
     question: 'Hvilken treningsmetode er best egnet for a utvikle maksimal styrke?',
@@ -30478,13 +30478,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er 10%-regelen i treningsprogresjon?',
-    options: ['Ikke ok treningsbelastningen med mer enn 10% per uke', 'Tren 10% av tiden pa hoy intensitet', 'Hvil 10% av treningstiden', 'Ok vekten med 10% hver okt'],
-    explanation: 'En vanlig anbefaling er a ikke oke treningsbelastningen med mer enn 10% per uke for a unnga skader og overtrenning.',
+    options: ['Ikke ok treningsbelastningen med mer enn 10% per uke', 'Tren 10% av tiden påhoy intensitet', 'Hvil 10% av treningstiden', 'Ok vekten med 10% hver okt'],
+    explanation: 'En vanlig anbefaling er a ikke oke treningsbelastningen med mer enn 10% per uke for å unngå skader og overtrenning.',
   },
   {
     question: 'Hvorfor trenger veteranutovere (over 35 ar) lengre restitusjon?',
     options: ['Redusert hormonnivå, tregere proteinsyntese og svakere immunforsvar', 'De trener hardere', 'De har mer erfaring', 'De trenger ikke lengre restitusjon'],
-    explanation: 'Med alderen reduseres kroppens evne til a reparere vev. Hormonproduksjonen synker, proteinsyntesen gar langsommere, og immunforsvaret blir mindre effektivt.',
+    explanation: 'Med alderen reduseres kroppens evne til a reparere vev. Hormonproduksjonen synker, proteinsyntesen gårlangsommere, og immunforsvaret blir mindre effektivt.',
   },
 ],
 
@@ -30506,13 +30506,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er en makrosyklus?',
-    options: ['Den lengste planleggingsperioden, typisk et ar eller en olympiade', 'En enkelt treningsokt', 'En uke med trening', 'En treningsovelse'],
-    explanation: 'Makrosyklus er den lengste planleggingsperioden og omfatter typisk en hel sesong eller flere ar. Den inneholder overordnede mal og fordeling av mesosykluser.',
+    options: ['Den lengste planleggingsperioden, typisk et åreller en olympiade', 'En enkelt treningsokt', 'En uke med trening', 'En treningsovelse'],
+    explanation: 'Makrosyklus er den lengste planleggingsperioden og omfatter typisk en hel sesong eller flere år. Den inneholder overordnede mal og fordeling av mesosykluser.',
   },
   {
     question: 'Hvor stor prestasjonforbedring kan optimal tapering gi i utholdenhet?',
     options: ['2-4%', '15-20%', '50%', 'Ingen forbedring'],
-    explanation: 'Forskning viser at optimal tapering kan gi 2-4% forbedring i utholdenhetsprestasjon. Selv om dette virker lite, kan det vaere avgjorende pa toppniva.',
+    explanation: 'Forskning viser at optimal tapering kan gi 2-4% forbedring i utholdenhetsprestasjon. Selv om dette virker lite, kan det vaere avgjorende påtoppniva.',
   },
 ],
 
@@ -30524,12 +30524,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er anaerob terskel (LT2)?',
-    options: ['Punktet der laktatproduksjonen overstiger fjerningen', 'Punktet der kroppen begynner a bruke fett', 'Maksimalt oksygenopptak', 'Den laveste intensiteten der laktat produseres'],
+    options: ['Punktet der laktatproduksjonen overstiger fjerningen', 'Punktet der kroppen begynner å bruke fett', 'Maksimalt oksygenopptak', 'Den laveste intensiteten der laktat produseres'],
     explanation: 'Anaerob terskel er intensiteten der laktatproduksjonen overstiger kroppens evne til a fjerne laktat. Over denne terskelen akkumuleres melkesyre.',
   },
   {
     question: 'Hvorfor er det viktig a standardisere testforhold?',
-    options: ['For a sikre at forskjeller i resultater skyldes reelle endringer, ikke variasjoner i testforholdene', 'For a gjore testen vanskeligere', 'For a spare tid', 'Det er ikke viktig'],
+    options: ['For a sikre at forskjeller i resultater skyldes reelle endringer, ikke variasjoner i testforholdene', 'For å gjøre testen vanskeligere', 'For a spare tid', 'Det er ikke viktig'],
     explanation: 'Standardisering sikrer at forskjeller i testresultater skyldes reelle endringer i utoverens kapasitet, ikke variasjoner i testforholdene.',
   },
   {
@@ -30539,8 +30539,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er ACWR (Acute:Chronic Workload Ratio)?',
-    options: ['Forholdet mellom siste ukes belastning og 4-ukers gjennomsnitt', 'Antall treningstimer per ar', 'Maksimal oksygenopptak', 'Hjertefrekvens under trening'],
-    explanation: 'ACWR sammenligner siste ukes belastning med 4-ukers gjennomsnitt. Optimal ratio er 0.8-1.3, mens over 1.5 oker skaderisikoen.',
+    options: ['Forholdet mellom siste ukes belastning og 4-ukers gjennomsnitt', 'Antall treningstimer per år', 'Maksimal oksygenopptak', 'Hjertefrekvens under trening'],
+    explanation: 'ACWR sammenligner siste ukes belastning med 4-ukers gjennomsnitt. Optimal ratio er 0.8-1.3, mens over 1.5 øker skaderisikoen.',
   },
 ],
 
@@ -30548,12 +30548,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er den viktigste risikofaktoren for ny skade?',
     options: ['Tidligere skade', 'Hoy treningsbelastning', 'Darlig utstyr', 'Kaldt vaer'],
-    explanation: 'Tidligere skade er konsekvent den sterkeste risikofaktoren for ny skade. Derfor er fullstendig rehabilitering sa viktig.',
+    explanation: 'Tidligere skade er konsekvent den sterkeste risikofaktoren for ny skade. Derfor er fullstendig rehabilitering såviktig.',
   },
   {
-    question: 'Hva er optimal ACWR-verdi for a unnga skader?',
+    question: 'Hva er optimal ACWR-verdi for å unngå skader?',
     options: ['0.8-1.3', '0.5-0.8', '1.5-2.0', '2.0-2.5'],
-    explanation: 'Optimal ACWR er 0.8-1.3. Verdier over 1.5 oker skaderisikoen betydelig fordi belastningen oker for raskt.',
+    explanation: 'Optimal ACWR er 0.8-1.3. Verdier over 1.5 øker skaderisikoen betydelig fordi belastningen øker for raskt.',
   },
   {
     question: 'Hva star POLICE for i akutt skadebehandling?',
@@ -30562,20 +30562,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor er Nordic hamstring-ovelsen effektiv for a forebygge hamstringskader?',
-    options: ['Den bygger eksentrisk styrke i hamstrings, som er fasen der de fleste skader oppstar', 'Den gir god oppvarming', 'Den oker bevegeligheten', 'Den styrker korsryggen'],
+    options: ['Den bygger eksentrisk styrke i hamstrings, som er fasen der de fleste skader oppstar', 'Den gir god oppvarming', 'Den øker bevegeligheten', 'Den styrker korsryggen'],
     explanation: 'Hamstringskader skjer typisk under eksentrisk kontraksjon i sprintfasen. Nordic hamstring bygger spesifikt eksentrisk styrke i denne muskelgruppen.',
   },
   {
     question: 'Hva er 10%-regelen for skadeforebygging?',
-    options: ['Ikke ok treningsbelastningen med mer enn 10% per uke', 'Tren 10% av tiden pa hoy intensitet', 'Hvil 10% av hver treningsokt', 'Reduser vekten med 10% ved smerte'],
-    explanation: '10%-regelen anbefaler a ikke oke treningsbelastningen med mer enn 10% per uke for a gi kroppen tid til a tilpasse seg og unnga overbelastningsskader.',
+    options: ['Ikke ok treningsbelastningen med mer enn 10% per uke', 'Tren 10% av tiden påhoy intensitet', 'Hvil 10% av hver treningsokt', 'Reduser vekten med 10% ved smerte'],
+    explanation: '10%-regelen anbefaler a ikke oke treningsbelastningen med mer enn 10% per uke for a gi kroppen tid til a tilpasse seg og unngå overbelastningsskader.',
   },
 ],
 
   'trening-2-5': [
   {
     question: 'Hva er visualisering i mental trening?',
-    options: ['Mentalt ove bevegelser eller situasjoner uten fysisk utforelse', 'A se pa videoer av andre', 'A tegne treningsplaner', 'A lese om teknikk'],
+    options: ['Mentalt ove bevegelser eller situasjoner uten fysisk utforelse', 'A se påvideoer av andre', 'A tegne treningsplaner', 'A lese om teknikk'],
     explanation: 'Visualisering er a mentalt ove bevegelser, situasjoner eller prestasjoner uten fysisk utforelse. Det aktiverer lignende nevrale baner som faktisk utforelse.',
   },
   {
@@ -30596,7 +30596,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er selvbestemmelsesteorien?',
     options: ['Teori om at motivasjon avhenger av autonomi, kompetanse og tilhorighet', 'Teori om at ytre motivasjon er viktigst', 'Teori om at talent er medfodt', 'Teori om periodisering'],
-    explanation: 'Selvbestemmelsesteorien sier at indre motivasjon fremmes nar tre grunnleggende behov er tilfredsstilt: autonomi (valgfrihet), kompetanse (mestring) og tilhorighet (sosial tilknytning).',
+    explanation: 'Selvbestemmelsesteorien sier at indre motivasjon fremmes nårtre grunnleggende behov er tilfredsstilt: autonomi (valgfrihet), kompetanse (mestring) og tilhorighet (sosial tilknytning).',
   },
 ],
 
@@ -30608,36 +30608,36 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner blokkperiodisering?',
-    options: ['Konsentrerte belastningsblokker med fokus pa en egenskap per blokk', 'Lik trening hele aret', 'Bare utholdenhetstrening', 'Trening uten plan'],
-    explanation: 'Blokkperiodisering folger monsteret akkumulering (bygge kapasitet), transmutasjon (konvertere), realisering (peak). Hver blokk fokuserer pa en hovedegenskap.',
+    options: ['Konsentrerte belastningsblokker med fokus påen egenskap per blokk', 'Lik trening hele aret', 'Bare utholdenhetstrening', 'Trening uten plan'],
+    explanation: 'Blokkperiodisering følger monsteret akkumulering (bygge kapasitet), transmutasjon (konvertere), realisering (peak). Hver blokk fokuserer påen hovedegenskap.',
   },
   {
     question: 'Hva er autoregulering i trening?',
-    options: ['Justering av belastning basert pa dagsform og respons', 'A alltid trene med maksimal intensitet', 'Automatisk treningsprogram', 'A trene uten trener'],
-    explanation: 'Autoregulering bruker verktoy som RPE-skala eller velocity-based training til a justere dagens belastning basert pa utoverens faktiske kapasitet den dagen.',
+    options: ['Justering av belastning basert pådagsform og respons', 'A alltid trene med maksimal intensitet', 'Automatisk treningsprogram', 'A trene uten trener'],
+    explanation: 'Autoregulering bruker verktoy som RPE-skala eller velocity-based training til a justere dagens belastning basert påutoverens faktiske kapasitet den dagen.',
   },
   {
     question: 'Hva er polarisert trening?',
-    options: ['80% lav intensitet og 20% hoy intensitet, lite pa terskel', '50% styrke og 50% utholdenhet', 'Bare hoyintensitetstrening', 'Bare lavintensitetstrening'],
-    explanation: 'Polarisert trening unngår grå sone-trening (moderat intensitet) og fordeler trening mellom lett (75-80%) og hardt (15-20%), med lite pa terskel.',
+    options: ['80% lav intensitet og 20% hoy intensitet, lite påterskel', '50% styrke og 50% utholdenhet', 'Bare hoyintensitetstrening', 'Bare lavintensitetstrening'],
+    explanation: 'Polarisert trening unngår grå sone-trening (moderat intensitet) og fordeler trening mellom lett (75-80%) og hardt (15-20%), med lite påterskel.',
   },
   {
     question: 'Hva er PAP (Post-Activation Potentiation)?',
     options: ['Okt kraftutvikling etter en tung muskelaktivering', 'Hvile etter trening', 'Oppvarming for konkurranse', 'En type toying'],
-    explanation: 'PAP er fenomenet der en tung styrkeovelse midlertidig oker kraftutvikling i pafolgende eksplosive ovelser. Brukes i complex training.',
+    explanation: 'PAP er fenomenet der en tung styrkeovelse midlertidig øker kraftutvikling i pafolgende eksplosive ovelser. Brukes i complex training.',
   },
 ],
 
   'trening-3-2': [
   {
     question: 'Hva er biologisk alder?',
-    options: ['Hvor langt en person har kommet i fysisk utvikling, uavhengig av kronologisk alder', 'Antall ar en person har levd', 'Alderen i passet', 'Mental modenhet'],
+    options: ['Hvor langt en person har kommet i fysisk utvikling, uavhengig av kronologisk alder', 'Antall åren person har levd', 'Alderen i passet', 'Mental modenhet'],
     explanation: 'Biologisk alder beskriver fysisk modningsniva. To 12-aringer kan ha flere ars forskjell i biologisk alder, noe som har stor betydning for treningstilpasning.',
   },
   {
     question: 'Hva er Peak Height Velocity (PHV)?',
     options: ['Tidspunktet for maksimal veksthastighet under puberteten', 'Maksimal lopshastighet', 'Hoyeste hopphøyde', 'Beste treningsform'],
-    explanation: 'PHV er tidspunktet for maksimal veksthastighet. Jenter opplever typisk PHV ved 11-12 ar, gutter ved 13-14 ar. Skjelettet er ekstra sarbart under PHV.',
+    explanation: 'PHV er tidspunktet for maksimal veksthastighet. Jenter opplever typisk PHV ved 11-12 ar, gutter ved 13-14 år. Skjelettet er ekstra sarbart under PHV.',
   },
   {
     question: 'Hvilken type trening bor prioriteres for barn (6-12 ar)?',
@@ -30664,8 +30664,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva kjennetegner polarisert treningsfordeling i utholdenhetsidrett?',
-    options: ['75-80% lett, 15-20% hardt, lite pa terskel', '50% lett, 50% hardt', '100% hoy intensitet', '33% i hver intensitetssone'],
-    explanation: 'Polarisert trening unngår grå sone-trening og har vist gode resultater i forskning pa utholdenhetsutovere.',
+    options: ['75-80% lett, 15-20% hardt, lite påterskel', '50% lett, 50% hardt', '100% hoy intensitet', '33% i hver intensitetssone'],
+    explanation: 'Polarisert trening unngår grå sone-trening og har vist gode resultater i forskning påutholdenhetsutovere.',
   },
   {
     question: 'Hvilke fysiske egenskaper er viktigst i ballspill?',
@@ -30675,19 +30675,19 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva menes med overforingsverdi i trening?',
     options: ['Hvor mye treningseffekten fra en ovelse bidrar til prestasjon i idretten', 'A bytte fra en idrett til en annen', 'A overfore penger til treningsklubb', 'A kopiere andres treningsprogram'],
-    explanation: 'Overforingsverdi kan vaere positiv, noytral eller negativ. Jo naermere konkurransesituasjonen, jo mer spesifikk bor treningen vaere.',
+    explanation: 'Overforingsverdi kan være positiv, noytral eller negativ. Jo naermere konkurransesituasjonen, jo mer spesifikk bor treningen vaere.',
   },
   {
     question: 'Hva kjennetegner styrketrening for ballspill?',
     options: ['Funksjonell styrke, unilaterale ovelser, eksplosivitet og skadeforebygging', 'Bare maksimal styrke', 'Bare maskintrening', 'Bare utholdenhetstrening'],
-    explanation: 'Styrketrening for ballspill fokuserer pa funksjonell styrke, enbeins ovelser, eksplosivitet og skadeforebygging for omrader som hamstrings og korsbånd.',
+    explanation: 'Styrketrening for ballspill fokuserer påfunksjonell styrke, enbeins ovelser, eksplosivitet og skadeforebygging for omrader som hamstrings og korsbånd.',
   },
 ],
 
   'trening-3-4': [
   {
     question: 'Hva er HRV (Heart Rate Variability)?',
-    options: ['Variasjon i tid mellom hjerteslag, brukes som indikator pa restitusjon', 'Gjennomsnittlig hjertefrekvens', 'Maksimal hjertefrekvens', 'Hvilepuls'],
+    options: ['Variasjon i tid mellom hjerteslag, brukes som indikator pårestitusjon', 'Gjennomsnittlig hjertefrekvens', 'Maksimal hjertefrekvens', 'Hvilepuls'],
     explanation: 'HRV maler variasjon i tid mellom hjerteslag. Hoyere HRV indikerer generelt bedre restitusjon og lavere stress.',
   },
   {
@@ -30697,8 +30697,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er TSS (Training Stress Score)?',
-    options: ['En metrikk som kvantifiserer treningsbelastning basert pa intensitet og varighet', 'Antall repetisjoner', 'Treningsfrekvens', 'Sovnkvalitet'],
-    explanation: 'TSS brukes til a planlegge progresjon og unnga overtrenning ved a kvantifisere den totale treningsbelastningen.',
+    options: ['En metrikk som kvantifiserer treningsbelastning basert påintensitet og varighet', 'Antall repetisjoner', 'Treningsfrekvens', 'Sovnkvalitet'],
+    explanation: 'TSS brukes til a planlegge progresjon og unngå overtrenning ved a kvantifisere den totale treningsbelastningen.',
   },
   {
     question: 'Hva er NIRS (Near-Infrared Spectroscopy)?',
@@ -30725,17 +30725,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er publikasjonsbias?',
-    options: ['Tendensen til at positive funn publiseres oftere enn negative', 'Feil i publisering', 'Plagiering', 'Mangel pa publisering'],
+    options: ['Tendensen til at positive funn publiseres oftere enn negative', 'Feil i publisering', 'Plagiering', 'Mangel påpublisering'],
     explanation: 'Publikasjonsbias kan fore til at effekter overestimeres i litteraturen fordi negative studier sjeldnere publiseres.',
   },
   {
     question: 'Hva er forskjellen mellom statistisk og praktisk signifikans?',
-    options: ['Statistisk betyr at resultatet neppe er tilfeldig, praktisk at effekten er stor nok til a ha betydning', 'De betyr det samme', 'Statistisk er viktigere enn praktisk', 'Praktisk betyr at det er utfort i praksis'],
-    explanation: 'En liten effekt kan vaere statistisk signifikant med stort utvalg, men uten praktisk betydning. Begge ma vurderes.',
+    options: ['Statistisk betyr at resultatet neppe er tilfeldig, praktisk at effekten er stor nok til å ha betydning', 'De betyr det samme', 'Statistisk er viktigere enn praktisk', 'Praktisk betyr at det er utfort i praksis'],
+    explanation: 'En liten effekt kan være statistisk signifikant med stort utvalg, men uten praktisk betydning. Begge måvurderes.',
   },
   {
     question: 'Hva er en meta-analyse?',
-    options: ['Kvantitativ sammenslaing av flere studier for a beregne samlet effektstorrelse', 'En enkelt studie', 'En type trening', 'En treningstest'],
+    options: ['Kvantitativ sammenslaing av flere studier for a beregne samlet effektstørrelse', 'En enkelt studie', 'En type trening', 'En treningstest'],
     explanation: 'Meta-analyser kombinerer data fra flere studier for a gi et sterkere bevis og avdekke monstre som enkeltstudier kan misse.',
   },
 ],
@@ -30749,12 +30749,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er LTAD (Long-Term Athlete Development)?',
     options: ['En modell for langsiktig utoverutvikling gjennom ulike stadier', 'En treningsmetode', 'En type periodisering', 'En dopingtest'],
-    explanation: 'LTAD fokuserer pa riktig utvikling til riktig tid i utoverens karriere, fra FUNdamentals til Training to Win.',
+    explanation: 'LTAD fokuserer påriktig utvikling til riktig tid i utoverens karriere, fra FUNdamentals til Training to Win.',
   },
   {
     question: 'Hva er relativ alderseffekt (RAE)?',
-    options: ['At barn fodt tidlig pa aret har fordel i aldersbestemte klasser', 'At eldre utovere presterer bedre', 'At biologisk alder er viktigere enn kronologisk', 'At talent avhenger av alder'],
-    explanation: 'RAE kan fore til at senmodne talenter overses i talentutvikling fordi barn fodt tidlig pa aret har fysiske fordeler i aldersbestemte klasser.',
+    options: ['At barn fodt tidlig påaret har fordel i aldersbestemte klasser', 'At eldre utovere presterer bedre', 'At biologisk alder er viktigere enn kronologisk', 'At talent avhenger av alder'],
+    explanation: 'RAE kan fore til at senmodne talenter overses i talentutvikling fordi barn fodt tidlig påaret har fysiske fordeler i aldersbestemte klasser.',
   },
   {
     question: 'Hvor mange timer trening per uke er typisk for toppidrettsutovere?',
@@ -30777,17 +30777,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er RED-S (Relative Energy Deficiency in Sport)?',
     options: ['Tilstand der energiinntaket er utilstrekkelig i forhold til energiforbruket', 'En type treningsmetode', 'En dopingform', 'Overtrening'],
-    explanation: 'RED-S oppstar nar energiinntaket er for lavt i forhold til forbruket, og pavirker helse, prestasjon og mentalt velvare negativt.',
+    explanation: 'RED-S oppstar nårenergiinntaket er for lavt i forhold til forbruket, og pavirker helse, prestasjon og mentalt velvare negativt.',
   },
   {
     question: 'Hva er riktig hydrering under trening?',
-    options: ['Drikke regelmessig, 150-300 ml hvert 15-20 minutt', 'Bare drikke nar man er torst', 'Drikke sa mye som mulig', 'Ikke drikke under trening'],
+    options: ['Drikke regelmessig, 150-300 ml hvert 15-20 minutt', 'Bare drikke nårman er torst', 'Drikke så mye som mulig', 'Ikke drikke under trening'],
     explanation: 'Anbefalt vaeskeinntak under trening er ca. 150-300 ml hvert 15-20 minutt, tilpasset svettetap og forhold.',
   },
   {
     question: 'Hva er overtrening?',
     options: ['Kronisk ubalanse mellom belastning og restitusjon som forer til nedsatt prestasjon', 'A trene for lite', 'Normal tretthet etter trening', 'A ha for mange treningsmaal'],
-    explanation: 'Overtrening er en kronisk tilstand med vedvarende tretthet, nedsatt prestasjon, sovnproblemer og hormonelle forstyrrelser. Det krever langvarig hvile for a bli frisk.',
+    explanation: 'Overtrening er en kronisk tilstand med vedvarende tretthet, nedsatt prestasjon, sovnproblemer og hormonelle forstyrrelser. Det krever langvarig hvile for å bli frisk.',
   },
   {
     question: 'Hvilke faktorer pavirker mental helse hos utovere?',
@@ -30836,7 +30836,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Forarbeider inkluderer NOU-er, proposisjoner og innstillinger som forklarer lovens formål og hvordan den skal forstås.',
   },
   {
-    question: 'Hvor starter man vanligvis ved lovtolkning?',
+    question: 'Hvor stårter man vanligvis ved lovtolkning?',
     options: ['Med ordlyden i loven', 'Med dommer fra Høyesterett', 'Med juridisk teori', 'Med forskriftene'],
     explanation: 'Lovtolkning starter alltid med ordlyden - den naturlige språklige forståelsen av lovens tekst.',
   },
@@ -30894,7 +30894,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Fra hvilken alder kan man inngå bindende avtaler uten samtykke?',
     options: ['18 år', '15 år', '16 år', '21 år'],
-    explanation: 'Myndighetsalderen i Norge er 18 år. Da blir man juridisk myndig og kan inngå alle typer avtaler.',
+    explanation: 'Myndighetsalderen i Norge er 18 år. Då blir man juridisk myndig og kan inngå alle typer avtaler.',
   },
   {
     question: 'Hva skjer hvis en aksept inneholder endringer?',
@@ -31285,7 +31285,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva er prissystemets hovedfunksjoner?',
-    options: ['Å gi informasjon, allokere ressurser og skape insentiver', 'Å garantere lik fordeling', 'Å holde prisene stabile', 'Å beskytte forbrukerne'],
+    options: ['Å gi informasjon, alløkere ressurser og skape insentiver', 'Å garantere lik fordeling', 'Å holde prisene stabile', 'Å beskytte forbrukerne'],
     explanation: 'Prissystemet informerer om knapphet, fordeler ressurser til høyest verdsatt bruk og motiverer aktørene.',
   },
   {
@@ -31840,7 +31840,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Ved å eliminere tiden fra x(t) og y(t) får vi en andregradslikning i x, som beskriver en parabel.',
   },
   {
-    question: 'Ved skråkast med startvinkel 60°, hva er startvinkelens "komplementære vinkel" som gir samme rekkevidde?',
+    question: 'Ved skråkast med startvinkel 60°, hva er stårtvinkelens "komplementære vinkel" som gir samme rekkevidde?',
     options: [
       '30°',
       '45°',
@@ -32680,12 +32680,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvorfor brukes jernkjerner i elektromagneter?',
     options: [
-      'Jern forsterker magnetfeltet mange ganger fordi det er ferromagnetisk',
+      'Jern førsterker magnetfeltet mange ganger fordi det er ferromagnetisk',
       'Jern leder strøm bedre enn kobber',
       'Jern er lettere enn andre metaller',
       'Jern absorberer magnetfeltet',
     ],
-    explanation: 'Jern er ferromagnetisk og forsterker magnetfeltet med en faktor μr (relativ permeabilitet), som kan være flere tusen.',
+    explanation: 'Jern er ferromagnetisk og førsterker magnetfeltet med en faktor μr (relativ permeabilitet), som kan være flere tusen.',
   },
   {
     question: 'Hva er en elektromagnet?',
@@ -32735,7 +32735,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     options: [
       'Nettofluksen gjennom enhver lukket flate er null (magnetiske monopoler finnes ikke)',
       'Magnetisk fluks er alltid positiv',
-      'Magnetiske feltlinjer starter og slutter i magnetiske poler',
+      'Magnetiske feltlinjer stårter og slutter i magnetiske poler',
       'Fluksen gjennom en flate er lik ladningen inni',
     ],
     explanation: 'Gauss\' lov for magnetisme sier at magnetiske feltlinjer alltid er lukkede sløyfer. Det finnes ingen magnetiske "kilder" eller "sluk" (monopoler).',
@@ -32767,7 +32767,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     question: 'Hva sier Lenz\' lov?',
     options: [
       'Den induserte strømmen skaper et magnetfelt som motvirker fluksendringen',
-      'Den induserte strømmen forsterker alltid fluksendringen',
+      'Den induserte strømmen førsterker alltid fluksendringen',
       'Indusert strøm har alltid samme retning som det ytre feltet',
       'Lenz\' lov gjelder bare for permanentmagneter',
     ],
@@ -32798,7 +32798,7 @@ const quizData: Record<string, QuizQuestion[]> = {
     options: [
       'Induserte strømmer i massive ledere, som skaper varme og bremsende krefter',
       'Strømmer i spiralform i en spole',
-      'Strømmer som forsterker magnetfeltet',
+      'Strømmer som førsterker magnetfeltet',
       'Strømmer i vakuum',
     ],
     explanation: 'Virvelstrømmer induseres i massive ledere ved fluksendringer. De kan brukes til indusjonsoppvarming og elektromagnetisk bremsing, men gir også energitap.',
