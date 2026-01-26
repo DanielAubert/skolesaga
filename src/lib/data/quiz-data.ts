@@ -5338,7 +5338,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilket tall er irrasjonalt?',
     options: ['$\\sqrt{2}$', '$0{,}75$', '$\\frac{1}{3}$', '$-5$'],
-    explanation: '$\\sqrt{2}$ kan ikke skrives som en brok og har uendelig mange desimaler uten gjentakende monster.',
+    explanation: '$\\sqrt{2}$ kan ikke skrives som en brøk og har uendelig mange desimaler uten gjentakende monster.',
   },
   {
     question: 'Hva er verdien av $|-7|$?',
@@ -5348,12 +5348,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken sammenheng er riktig for tallmengdene?',
     options: ['$\\mathbb{N}$ er delmengde av $\\mathbb{Z}$', '$\\mathbb{Z}$ er delmengde av $\\mathbb{N}$', '$\\mathbb{R}$ er delmengde av $\\mathbb{Q}$', '$\\mathbb{Q}$ er delmengde av $\\mathbb{N}$'],
-    explanation: 'Alle naturlige tall er ogsa heltall, sa $\\mathbb{N}$ er en delmengde av $\\mathbb{Z}$.',
+    explanation: 'Alle naturlige tall er også heltall, så $\\mathbb{N}$ er en delmengde av $\\mathbb{Z}$.',
   },
   {
-    question: 'Hvilken tallmengde tilhorer tallet $-3$?',
+    question: 'Hvilken tallmengde tilhører tallet $-3$?',
     options: ['Heltall $(\\mathbb{Z})$', 'Naturlige tall $(\\mathbb{N})$', 'Kun reelle tall', 'Ingen av disse'],
-    explanation: '$-3$ er et negativt heltall og tilhorer dermed mengden $\\mathbb{Z}$.',
+    explanation: '$-3$ er et negativt heltall og tilhører dermed mengden $\\mathbb{Z}$.',
   },
 ],
 
@@ -5361,17 +5361,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $2^3 \\cdot 2^4$?',
     options: ['$2^7$', '$2^{12}$', '$4^7$', '$2^{-1}$'],
-    explanation: 'Nar vi ganger potenser med samme grunntall, adderer vi eksponentene: $2^3 \cdot 2^4 = 2^{3+4} = 2^7$.',
+    explanation: 'Når vi ganger potenser med samme grunntall, adderer vi eksponentene: $2^3 \\cdot 2^4 = 2^{3+4} = 2^7$.',
   },
   {
     question: 'Hva er $(3^2)^3$?',
     options: ['$3^6$', '$3^5$', '$3^8$', '$9^3$'],
-    explanation: 'Nar vi opphoeyer en potens i en potens, ganger vi eksponentene: $(3^2)^3 = 3^{2 \cdot 3} = 3^6$.',
+    explanation: 'Når vi opphøyer en potens i en potens, ganger vi eksponentene: $(3^2)^3 = 3^{2 \\cdot 3} = 3^6$.',
   },
   {
     question: 'Hva er $5^0$?',
     options: ['$1$', '$0$', '$5$', 'Udefinert'],
-    explanation: 'Alle tall (unntatt $0$) opphoeyd i $0$ er lik $1$. Dette foelger av potensreglene.',
+    explanation: 'Alle tall (unntatt $0$) opphøyd i $0$ er lik $1$. Dette følger av potensreglene.',
   },
   {
     question: 'Hva er $4^{-2}$?',
@@ -5381,7 +5381,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $\left(\frac{a}{b}\right)^2$?',
     options: ['$\frac{a^2}{b^2}$', '$a^2 \cdot b^2$', '$\frac{2a}{2b}$', '$\frac{a}{b^2}$'],
-    explanation: 'Nar vi opphoeyer en brok i en potens, opphoeyer vi bade teller og nevner: $\left(\frac{a}{b}\right)^2 = \frac{a^2}{b^2}$.',
+    explanation: 'Når vi opphøyer en brøk i en potens, opphøyer vi både teller og nevner: $\\left(\\frac{a}{b}\\right)^2 = \\frac{a^2}{b^2}$.',
   },
 ],
 
@@ -5389,7 +5389,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan faktoriseres $x^2 - 9$?',
     options: ['$(x-3)(x+3)$', '$(x-9)(x+1)$', '$x(x-9)$', '$(x-3)^2$'],
-    explanation: '$x^2 - 9$ er en differanse mellom to kvadrater: $a^2 - b^2 = (a-b)(a+b)$, sa $x^2 - 9 = (x-3)(x+3)$.',
+    explanation: '$x^2 - 9$ er en differanse mellom to kvadrater: $a^2 - b^2 = (a-b)(a+b)$, så $x^2 - 9 = (x-3)(x+3)$.',
   },
   {
     question: 'Hva er konjugatsetningen?',
@@ -5404,7 +5404,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $(x + 3)^2$?',
     options: ['$x^2 + 6x + 9$', '$x^2 + 9$', '$x^2 + 3x + 9$', '$2x + 6$'],
-    explanation: 'Vi bruker forste kvadratsetning: $(a+b)^2 = a^2 + 2ab + b^2$, sa $(x+3)^2 = x^2 + 6x + 9$.',
+    explanation: 'Vi bruker første kvadratsetning: $(a+b)^2 = a^2 + 2ab + b^2$, så $(x+3)^2 = x^2 + 6x + 9$.',
   },
   {
     question: 'Hvordan faktoriseres $x^2 - 5x + 6$?',
@@ -5417,27 +5417,27 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $\frac{2}{3} \cdot \frac{3}{4}$?',
     options: ['$\frac{1}{2}$', '$\frac{6}{12}$', '$\frac{5}{7}$', '$\frac{2}{4}$'],
-    explanation: 'Nar vi ganger broker, ganger vi teller med teller og nevner med nevner: $\frac{2 \cdot 3}{3 \cdot 4} = \frac{6}{12} = \frac{1}{2}$.',
+    explanation: 'Når vi ganger brøker, ganger vi teller med teller og nevner med nevner: $\frac{2 \cdot 3}{3 \cdot 4} = \frac{6}{12} = \frac{1}{2}$.',
   },
   {
     question: 'Hva er $\frac{2}{5} \div \frac{4}{3}$?',
     options: ['$\frac{3}{10}$', '$\frac{8}{15}$', '$\frac{6}{20}$', '$\frac{2}{5}$'],
-    explanation: 'A dele med en brok er det samme som a gange med den omvendte: $\frac{2}{5} \cdot \frac{3}{4} = \frac{6}{20} = \frac{3}{10}$.',
+    explanation: 'Å dele med en brøk er det samme som å gange med den omvendte: $\frac{2}{5} \cdot \frac{3}{4} = \frac{6}{20} = \frac{3}{10}$.',
   },
   {
-    question: 'Hva far vi nar vi forkorter $\frac{12}{18}$?',
+    question: 'Hva får vi når vi forkorter $\frac{12}{18}$?',
     options: ['$\frac{2}{3}$', '$\frac{6}{9}$', '$\frac{4}{6}$', '$\frac{3}{2}$'],
-    explanation: 'Bade $12$ og $18$ kan deles pa $6$: $\frac{12}{18} = \frac{2}{3}$.',
+    explanation: 'Både $12$ og $18$ kan deles på $6$: $\frac{12}{18} = \frac{2}{3}$.',
   },
   {
     question: 'Hva er $\frac{1}{3} + \frac{1}{4}$?',
     options: ['$\frac{7}{12}$', '$\frac{2}{7}$', '$\frac{1}{7}$', '$\frac{2}{12}$'],
-    explanation: 'Vi ma ha fellesnevner: $\frac{1}{3} = \frac{4}{12}$ og $\frac{1}{4} = \frac{3}{12}$. $\frac{4}{12} + \frac{3}{12} = \frac{7}{12}$.',
+    explanation: 'Vi må ha fellesnevner: $\frac{1}{3} = \frac{4}{12}$ og $\frac{1}{4} = \frac{3}{12}$. $\frac{4}{12} + \frac{3}{12} = \frac{7}{12}$.',
   },
   {
     question: 'Hvordan utvider vi $\frac{2}{5}$ til nevner $15$?',
     options: ['$\frac{6}{15}$', '$\frac{10}{15}$', '$\frac{2}{15}$', '$\frac{3}{15}$'],
-    explanation: 'Vi ganger bade teller og nevner med $3$: $\frac{2 \cdot 3}{5 \cdot 3} = \frac{6}{15}$.',
+    explanation: 'Vi ganger både teller og nevner med $3$: $\frac{2 \cdot 3}{5 \cdot 3} = \frac{6}{15}$.',
   },
 ],
 
@@ -5473,12 +5473,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvordan forkortes $\frac{x^2 - 4}{x + 2}$?',
     options: ['$x - 2$', '$x + 2$', '$x^2 - 2$', '$\frac{x-4}{x+2}$'],
-    explanation: '$x^2 - 4 = (x-2)(x+2)$. Nar vi forkorter med $(x+2)$ far vi $x - 2$.',
+    explanation: '$x^2 - 4 = (x-2)(x+2)$. Når vi forkorter med $(x+2)$ får vi $x - 2$.',
   },
   {
     question: 'Hva er $\frac{2}{x} + \frac{3}{x}$?',
     options: ['$\frac{5}{x}$', '$\frac{6}{x^2}$', '$\frac{5}{2x}$', '$2x + 3x$'],
-    explanation: 'Nar nevnerne er like, adderer vi tellerne: $\frac{2}{x} + \frac{3}{x} = \frac{5}{x}$.',
+    explanation: 'Når nevnerne er like, adderer vi tellerne: $\frac{2}{x} + \frac{3}{x} = \frac{5}{x}$.',
   },
   {
     question: 'Hva er fellesnevneren for $\frac{1}{x}$ og $\frac{1}{x+1}$?',
@@ -5493,15 +5493,15 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er $\frac{x}{2} \div \frac{x}{4}$?',
     options: ['2', '$\\frac{1}{2}$', 'x^2/8', '4x'],
-    explanation: 'A dele med en brok er a gange med den omvendte: $\frac{x}{2} \cdot \frac{4}{x} = \frac{4x}{2x} = 2$.',
+    explanation: 'Å dele med en brøk er å gange med den omvendte: $\frac{x}{2} \cdot \frac{4}{x} = \frac{4x}{2x} = 2$.',
   },
 ],
 
   '1t-1-7': [
   {
     question: 'Hva betyr symbolet "element av" i mengdenotasjon?',
-    options: ['Tilhorer mengden', 'Er lik', 'Er storre enn', 'Er delmengde av'],
-    explanation: 'Symbolet element av betyr at et element tilhorer en mengde.',
+    options: ['Tilhører mengden', 'Er lik', 'Er større enn', 'Er delmengde av'],
+    explanation: 'Symbolet element av betyr at et element tilhører en mengde.',
   },
   {
     question: 'Hvordan skrives intervallet fra $2$ til $5$, der begge er inkludert?',
@@ -5532,9 +5532,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Vi deler koeffisientene ($6/2=3$) og trekker fra eksponentene ($3-1=2$): $3x^2$.',
   },
   {
-    question: 'Hva kalles svaret nar vi deler et polynom pa et annet?',
+    question: 'Hva kalles svaret når vi deler et polynom på et annet?',
     options: ['Kvotienten', 'Dividenden', 'Divisoren', 'Resten'],
-    explanation: 'Nar vi deler P(x) pa D(x), kalles svaret Q(x) for kvotienten.',
+    explanation: 'Når vi deler P(x) på D(x), kalles svaret Q(x) for kvotienten.',
   },
   {
     question: 'Hva er $\frac{8x^4 + 4x^2}{2x}$?',
@@ -5543,8 +5543,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr det at resten er 0 ved polynomdivisjon?',
-    options: ['Divisoren gar opp i dividenden', 'Kvotienten er 0', 'Dividenden er 0', 'Divisoren er 0'],
-    explanation: 'Nar resten er 0, gar divisoren opp i dividenden uten rest.',
+    options: ['Divisoren går opp i dividenden', 'Kvotienten er 0', 'Dividenden er 0', 'Divisoren er 0'],
+    explanation: 'Når resten er 0, går divisoren opp i dividenden uten rest.',
   },
   {
     question: 'Hva er $\frac{12x^5}{4x^2}$?',
@@ -5556,12 +5556,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   '1t-1-9': [
   {
     question: 'Hva sier faktorteoremet?',
-    options: ['Hvis $P(a)=0$, sa er $(x-a)$ en faktor i $P(x)$', 'Alle polynomer kan faktoriseres', '$P(a) = a$', '$(x-a)$ er alltid en faktor'],
-    explanation: 'Faktorteoremet sier at hvis $a$ er et nullpunkt for $P(x)$, sa er $(x-a)$ en faktor.',
+    options: ['Hvis $P(a)=0$, så er $(x-a)$ en faktor i $P(x)$', 'Alle polynomer kan faktoriseres', '$P(a) = a$', '$(x-a)$ er alltid en faktor'],
+    explanation: 'Faktorteoremet sier at hvis $a$ er et nullpunkt for $P(x)$, så er $(x-a)$ en faktor.',
   },
   {
-    question: 'For a sjekke om $(x-2)$ er en faktor i $P(x)$, hva gjor vi?',
-    options: ['Beregner $P(2)$', 'Beregner $P(-2)$', 'Beregner $P(0)$', 'Deler pa $x-2$'],
+    question: 'For å sjekke om $(x-2)$ er en faktor i $P(x)$, hva gjør vi?',
+    options: ['Beregner $P(2)$', 'Beregner $P(-2)$', 'Beregner $P(0)$', 'Deler på $x-2$'],
     explanation: 'Vi setter inn $x=2$ i $P(x)$. Hvis $P(2)=0$, er $(x-2)$ en faktor.',
   },
   {
@@ -5570,53 +5570,53 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Siden $P(1)=0$, er $x=1$ et nullpunkt, og dermed er $(x-1)$ en faktor.',
   },
   {
-    question: 'Hvilke verdier bor vi proeve forst for a finne nullpunkter i $x^3 - 6$?',
+    question: 'Hvilke verdier bør vi prøve forst for å finne nullpunkter i $x^3 - 6$?',
     options: ['Divisorer av konstantleddet: $1, 2, 3, 6$', 'Alle tall fra $1$ til $100$', 'Bare positive tall', 'Bare $0$'],
-    explanation: 'For polynomer med heltallskoeffisienter prover vi divisorer av konstantleddet.',
+    explanation: 'For polynomer med heltallskoeffisienter prøver vi divisorer av konstantleddet.',
   },
   {
-    question: 'Nar vi deler $x^2 - 5x + 6$ pa $(x-2)$, hva blir kvotienten?',
+    question: 'Når vi deler $x^2 - 5x + 6$ på $(x-2)$, hva blir kvotienten?',
     options: ['$x - 3$', '$x + 3$', '$x - 2$', '$x^2 - 3$'],
-    explanation: '$x^2 - 5x + 6 = (x-2)(x-3)$, sa kvotienten er $(x-3)$.',
+    explanation: '$x^2 - 5x + 6 = (x-2)(x-3)$, så kvotienten er $(x-3)$.',
   },
 ],
 
   '1t-2-1': [
   {
-    question: 'Hva er losningen pa $x + 5 = 12$?',
+    question: 'Hva er løsningen på $x + 5 = 12$?',
     options: ['$x = 7$', '$x = 17$', '$x = -7$', '$x = 5$'],
-    explanation: 'Vi trekker fra $5$ pa begge sider: $x = 12 - 5 = 7$.',
+    explanation: 'Vi trekker fra $5$ på begge sider: $x = 12 - 5 = 7$.',
   },
   {
     question: 'Hvis $3x = 15$, hva er $x$?',
     options: ['$x = 5$', '$x = 45$', '$x = 12$', '$x = 18$'],
-    explanation: 'Vi deler begge sider pa $3$: $x = \frac{15}{3} = 5$.',
+    explanation: 'Vi deler begge sider på $3$: $x = \frac{15}{3} = 5$.',
   },
   {
-    question: 'Los likningen $2x - 4 = 10$.',
+    question: 'Løs likningen $2x - 4 = 10$.',
     options: ['$x = 7$', '$x = 3$', '$x = 6$', '$x = 14$'],
-    explanation: 'Forst legger vi til $4$: $2x = 14$. Sa deler vi pa $2$: $x = 7$.',
+    explanation: 'Først legger vi til $4$: $2x = 14$. Så deler vi på $2$: $x = 7$.',
   },
   {
-    question: 'Hva er hovedprinsippet for a lose likninger?',
-    options: ['Gjore det samme pa begge sider', 'Flytte alt til venstre', 'Gange med x', 'Sette x = 0'],
-    explanation: 'Hovedprinsippet er at vi alltid gjor det samme pa begge sider av likhetstegnet.',
+    question: 'Hva er hovedprinsippet for å løse likninger?',
+    options: ['Gjøre det samme på begge sider', 'Flytte alt til venstre', 'Gange med x', 'Sette x = 0'],
+    explanation: 'Hovedprinsippet er at vi alltid gjør det samme på begge sider av likhetstegnet.',
   },
   {
-    question: 'Hva er losningen pa $5 - x = 3$?',
+    question: 'Hva er løsningen på $5 - x = 3$?',
     options: ['$x = 2$', '$x = -2$', '$x = 8$', '$x = -8$'],
-    explanation: 'Vi trekker fra $5$ pa begge sider: $-x = -2$, sa $x = 2$.',
+    explanation: 'Vi trekker fra $5$ på begge sider: $-x = -2$, så $x = 2$.',
   },
 ],
 
   '1t-2-2': [
   {
     question: 'Hva er nullregelen?',
-    options: ['Hvis $A \cdot B = 0$, sa er $A = 0$ eller $B = 0$', '$A + B = 0$ betyr $A = B$', '$0 \cdot x = x$', '$A/0 = 0$'],
-    explanation: 'Nullregelen sier at hvis et produkt er null, ma minst en av faktorene vaere null.',
+    options: ['Hvis $A \cdot B = 0$, så er $A = 0$ eller $B = 0$', '$A + B = 0$ betyr $A = B$', '$0 \cdot x = x$', '$A/0 = 0$'],
+    explanation: 'Nullregelen sier at hvis et produkt er null, må minst en av faktorene være null.',
   },
   {
-    question: 'Los $(x-3)(x+2) = 0$.',
+    question: 'Løs $(x-3)(x+2) = 0$.',
     options: ['$x = 3$ eller $x = -2$', '$x = -3$ eller $x = 2$', '$x = 6$', '$x = -6$'],
     explanation: 'Vi setter hver faktor lik null: $x-3=0$ gir $x=3$, $x+2=0$ gir $x=-2$.',
   },
@@ -5626,14 +5626,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Vi leter etter tall med sum $5$ og produkt $6$: $-2$ og $-3$.',
   },
   {
-    question: 'Hva er losningene til $x(x-4) = 0$?',
+    question: 'Hva er løsningene til $x(x-4) = 0$?',
     options: ['$x = 0$ eller $x = 4$', '$x = 4$', '$x = 0$', '$x = -4$'],
-    explanation: 'Nullregelen gir $x = 0$ eller $x - 4 = 0$, altsa $x = 0$ eller $x = 4$.',
+    explanation: 'Nullregelen gir $x = 0$ eller $x - 4 = 0$, altså $x = 0$ eller $x = 4$.',
   },
   {
-    question: 'Hvordan loser vi $x^2 - 9 = 0$ ved faktorisering?',
-    options: ['$(x-3)(x+3) = 0$, sa $x = 3$ eller $x = -3$', '$x = 9$', '$x = 3$', '$(x-9)(x+1) = 0$'],
-    explanation: '$x^2 - 9 = (x-3)(x+3)$, sa losningene er $x = 3$ og $x = -3$.',
+    question: 'Hvordan løser vi $x^2 - 9 = 0$ ved faktorisering?',
+    options: ['$(x-3)(x+3) = 0$, så $x = 3$ eller $x = -3$', '$x = 9$', '$x = 3$', '$(x-9)(x+1) = 0$'],
+    explanation: '$x^2 - 9 = (x-3)(x+3)$, så løsningene er $x = 3$ og $x = -3$.',
   },
 ],
 
@@ -5641,17 +5641,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er abc-formelen?',
     options: ['$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$', '$x = -\frac{b}{a}$', '$x = \frac{c}{a}$', '$x = a + b + c$'],
-    explanation: 'ABC-formelen gir losningene til $ax^2 + bx + c = 0$.',
+    explanation: 'ABC-formelen gir løsningene til $ax^2 + bx + c = 0$.',
   },
   {
     question: 'Hva kalles uttrykket b^2 - 4ac?',
     options: ['Diskriminanten', 'Kvotienten', 'Koeffisienten', 'Eksponenten'],
-    explanation: 'b^2 - 4ac kalles diskriminanten og bestemmer antall losninger.',
+    explanation: 'b^2 - 4ac kalles diskriminanten og bestemmer antall løsninger.',
   },
   {
-    question: 'Hvor mange losninger har likningen hvis diskriminanten er negativ?',
-    options: ['Ingen reelle losninger', 'En losning', 'To losninger', 'Uendelig mange'],
-    explanation: 'Negativ diskriminant betyr at vi ma ta roten av et negativt tall, som ikke gir reelle losninger.',
+    question: 'Hvor mange løsninger har likningen hvis diskriminanten er negativ?',
+    options: ['Ingen reelle løsninger', 'En løsning', 'To løsninger', 'Uendelig mange'],
+    explanation: 'Negativ diskriminant betyr at vi må ta roten av et negativt tall, som ikke gir reelle løsninger.',
   },
   {
     question: 'I likningen $2x^2 - 4x + 2 = 0$, hva er $a$, $b$ og $c$?',
@@ -5659,63 +5659,63 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Vi leser koeffisientene direkte: foran $x^2$ er $2$, foran $x$ er $-4$, konstantleddet er $2$.',
   },
   {
-    question: 'Hvis diskriminanten er 0, hvor mange losninger har likningen?',
-    options: ['En losning (dobbeltrot)', 'Ingen losninger', 'To losninger', 'Tre losninger'],
-    explanation: 'Nar diskriminanten er 0, har vi en dobbeltrot (samme losning to ganger).',
+    question: 'Hvis diskriminanten er 0, hvor mange løsninger har likningen?',
+    options: ['En løsning (dobbeltrot)', 'Ingen løsninger', 'To løsninger', 'Tre løsninger'],
+    explanation: 'Når diskriminanten er 0, har vi en dobbeltrot (samme løsning to ganger).',
   },
 ],
 
   '1t-2-5': [
   {
-    question: 'Hvordan loser vi $\frac{x}{3} = 4$?',
-    options: ['Ganger begge sider med 3', 'Deler begge sider pa 3', 'Trekker fra 3', 'Legger til 3'],
+    question: 'Hvordan løser vi $\frac{x}{3} = 4$?',
+    options: ['Ganger begge sider med 3', 'Deler begge sider på 3', 'Trekker fra 3', 'Legger til 3'],
     explanation: 'Vi ganger begge sider med nevneren $3$: $x = 4 \cdot 3 = 12$.',
   },
   {
-    question: 'Hva er losningen pa $\frac{6}{x} = 2$?',
+    question: 'Hva er løsningen på $\frac{6}{x} = 2$?',
     options: ['x = 3', 'x = 12', 'x = 4', 'x = $\\frac{1}{3}$'],
-    explanation: 'Vi ganger begge sider med $x$: $6 = 2x$, sa $x = 3$.',
+    explanation: 'Vi ganger begge sider med $x$: $6 = 2x$, så $x = 3$.',
   },
   {
-    question: 'Nar ma vi vaere forsiktige med broklikninger?',
-    options: ['Nar nevneren kan bli 0', 'Nar telleren er stor', 'Nar x er positiv', 'Alltid'],
-    explanation: 'Vi kan ikke dele pa 0, sa vi ma sjekke at losningen ikke gjor nevneren lik 0.',
+    question: 'Når må vi være forsiktige med brøklikninger?',
+    options: ['Når nevneren kan bli 0', 'Når telleren er stor', 'Når x er positiv', 'Alltid'],
+    explanation: 'Vi kan ikke dele på 0, så vi må sjekke at løsningen ikke gjør nevneren lik 0.',
   },
   {
-    question: 'Hvordan loser vi $\frac{2}{x} + \frac{3}{x} = 10$?',
-    options: ['5/x = 10, sa x = $\\frac{1}{2}$', 'x = 50', 'x = 5', 'x = 2'],
-    explanation: 'Vi trekker sammen: $\frac{5}{x} = 10$, sa $x = \frac{5}{10} = \frac{1}{2}$.',
+    question: 'Hvordan løser vi $\frac{2}{x} + \frac{3}{x} = 10$?',
+    options: ['5/x = 10, så x = $\\frac{1}{2}$', 'x = 50', 'x = 5', 'x = 2'],
+    explanation: 'Vi trekker sammen: $\frac{5}{x} = 10$, så $x = \frac{5}{10} = \frac{1}{2}$.',
   },
   {
-    question: 'Hva er produktregelen for broklikninger?',
-    options: ['Hvis a/b = c/d, sa er a*d = b*c', 'a/b + c/d = (a+c)/(b+d)', 'a/b = b/a', 'a*b = c*d'],
+    question: 'Hva er produktregelen for brøklikninger?',
+    options: ['Hvis a/b = c/d, så er a*d = b*c', 'a/b + c/d = (a+c)/(b+d)', 'a/b = b/a', 'a*b = c*d'],
     explanation: 'Vi kan krysse og gange: a*d = b*c.',
   },
 ],
 
   '1t-2-6': [
   {
-    question: 'Hvordan loser vi $\sqrt{x} = 5$?',
-    options: ['Kvadrerer begge sider: $x = 25$', 'Tar roten: $x = \sqrt{5}$', 'Deler pa $2$: $x = 2{,}5$', '$x = 10$'],
-    explanation: 'Vi kvadrerer begge sider: $(\sqrt{x})^2 = 5^2$, sa $x = 25$.',
+    question: 'Hvordan løser vi $\sqrt{x} = 5$?',
+    options: ['Kvadrerer begge sider: $x = 25$', 'Tar roten: $x = \sqrt{5}$', 'Deler på $2$: $x = 2{,}5$', '$x = 10$'],
+    explanation: 'Vi kvadrerer begge sider: $(\sqrt{x})^2 = 5^2$, så $x = 25$.',
   },
   {
-    question: 'Hvorfor ma vi kontrollere losningene i rotlikninger?',
-    options: ['Kvadrering kan gi falske losninger', 'For a sjekke regnefeil', 'Det er ikke nødvendig', 'Fordi sqrt er negativ'],
-    explanation: 'Nar vi kvadrerer, kan vi introdusere losninger som ikke fungerer i den opprinnelige likningen.',
+    question: 'Hvorfor må vi kontrollere løsningene i rotlikninger?',
+    options: ['Kvadrering kan gi falske løsninger', 'For å sjekke regnefeil', 'Det er ikke nødvendig', 'Fordi sqrt er negativ'],
+    explanation: 'Når vi kvadrerer, kan vi introdusere løsninger som ikke fungerer i den opprinnelige likningen.',
   },
   {
-    question: 'Hva er losningen pa $\sqrt{x+3} = 4$?',
+    question: 'Hva er løsningen på $\sqrt{x+3} = 4$?',
     options: ['$x = 13$', '$x = 1$', '$x = 7$', '$x = 19$'],
-    explanation: 'Vi kvadrerer: $x + 3 = 16$, sa $x = 13$. Kontroll: $\sqrt{16} = 4$.',
+    explanation: 'Vi kvadrerer: $x + 3 = 16$, så $x = 13$. Kontroll: $\sqrt{16} = 4$.',
   },
   {
-    question: 'Kan $\sqrt{x} = -3$ ha en losning?',
+    question: 'Kan $\sqrt{x} = -3$ ha en løsning?',
     options: ['Nei, $\sqrt{}$ gir alltid positiv verdi', 'Ja, $x = 9$', 'Ja, $x = -9$', 'Ja, $x = -3$'],
-    explanation: 'Kvadratroten er alltid positiv eller null, sa $\sqrt{x} = -3$ har ingen losning.',
+    explanation: 'Kvadratroten er alltid positiv eller null, så $\sqrt{x} = -3$ har ingen løsning.',
   },
   {
-    question: 'Los $\sqrt{2x-1} = 3$.',
+    question: 'Løs $\sqrt{2x-1} = 3$.',
     options: ['$x = 5$', '$x = 4$', '$x = 2$', '$x = 8$'],
     explanation: 'Vi kvadrerer: $2x - 1 = 9$, $2x = 10$, $x = 5$.',
   },
@@ -5723,14 +5723,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '1t-2-8': [
   {
-    question: 'Hva er forste steg nar vi loser tekstoppgaver med likninger?',
-    options: ['Velge en variabel for det ukjente', 'Finne svaret', 'Tegne en figur', 'Prove og feile'],
-    explanation: 'Vi starter med a la x (eller en annen variabel) representere det vi skal finne.',
+    question: 'Hva er første steg når vi løser tekstoppgaver med likninger?',
+    options: ['Velge en variabel for det ukjente', 'Finne svaret', 'Tegne en figur', 'Prøve og feile'],
+    explanation: 'Vi starter med å la x (eller en annen variabel) representere det vi skal finne.',
   },
   {
     question: 'Summen av et tall og 12 er 30. Hva er likningen?',
     options: ['x + 12 = 30', 'x - 12 = 30', '12x = 30', 'x = 30 + 12'],
-    explanation: 'Summen betyr addisjon, sa $x + 12 = 30$.',
+    explanation: 'Summen betyr addisjon, så $x + 12 = 30$.',
   },
   {
     question: 'Det tredoble av et tall minus 5 er 16. Hva er tallet?',
@@ -5739,13 +5739,13 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvorfor sjekker vi alltid svaret i tekstoppgaver?',
-    options: ['For a se at det gir mening i konteksten', 'For a finne andre losninger', 'Det er ikke nødvendig', 'For a lose likningen'],
-    explanation: 'Vi ma sjekke at svaret er fornuftig i den praktiske situasjonen.',
+    options: ['For å se at det gir mening i konteksten', 'For å finne andre løsninger', 'Det er ikke nødvendig', 'For å løse likningen'],
+    explanation: 'Vi må sjekke at svaret er fornuftig i den praktiske situasjonen.',
   },
   {
-    question: 'Produktet av to pafolgende tall er 72. Hvilken likning beskriver dette?',
+    question: 'Produktet av to påfølgende tall er 72. Hvilken likning beskriver dette?',
     options: ['$x(x+1) = 72$', '$x + (x+1) = 72$', '$2x = 72$', '$x^2 = 72$'],
-    explanation: 'Pafolgende tall er $x$ og $x+1$, produktet er $x(x+1) = 72$.',
+    explanation: 'Påfølgende tall er $x$ og $x+1$, produktet er $x(x+1) = 72$.',
   },
 ],
 
@@ -5753,17 +5753,17 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Et rektangel har omkrets 24 og areal 32. Hvilken likning finner sidene?',
     options: ['$x(12-x) = 32$', '$x + y = 32$', '$2x = 24$', '$x^2 = 32$'],
-    explanation: 'Omkrets gir $x + y = 12$, sa $y = 12 - x$. Areal gir $x(12-x) = 32$.',
+    explanation: 'Omkrets gir $x + y = 12$, så $y = 12 - x$. Areal gir $x(12-x) = 32$.',
   },
   {
-    question: 'Hvorfor far vi ofte to losninger i arealproblemer?',
-    options: ['Fordi andregradslikninger kan ha to losninger', 'Fordi det finnes to rektangler', 'Det er en feil', 'Vi far bare en losning'],
-    explanation: 'Andregradslikninger gir ofte to losninger, men begge ma sjekkes for a se om de gir mening.',
+    question: 'Hvorfor får vi ofte to løsninger i arealproblemer?',
+    options: ['Fordi andregradslikninger kan ha to løsninger', 'Fordi det finnes to rektangler', 'Det er en feil', 'Vi får bare en løsning'],
+    explanation: 'Andregradslikninger gir ofte to løsninger, men begge må sjekkes for å se om de gir mening.',
   },
   {
-    question: 'Nar forkaster vi en losning i et praktisk problem?',
-    options: ['Nar den gir negativt resultat for noe som ma vaere positivt', 'Alltid den storste losningen', 'Aldri', 'Alltid den minste losningen'],
-    explanation: 'For eksempel kan lengder ikke vaere negative, sa slike losninger forkastes.',
+    question: 'Når forkaster vi en løsning i et praktisk problem?',
+    options: ['Når den gir negativt resultat for noe som må være positivt', 'Alltid den største løsningen', 'Aldri', 'Alltid den minste løsningen'],
+    explanation: 'For eksempel kan lengder ikke være negative, så slike løsninger forkastes.',
   },
   {
     question: 'En hage er $3$ m lengre enn bred og har areal $40$ m$^2$. Hvilken likning gjelder?',
@@ -5773,20 +5773,20 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvilken formel brukes for arealet av en trekant?',
     options: ['$A = \frac{1}{2} \cdot g \cdot h$', '$A = g \cdot h$', '$A = g + h$', '$A = g^2$'],
-    explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger hoyde.',
+    explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger høyde.',
   },
 ],
 
   '1t-2-10': [
   {
-    question: 'Hva er forste steg for a lose $x^3 - 6x^2 + 11x - 6 = 0$?',
-    options: ['Finne et nullpunkt ved a prove divisorer', 'Bruke abc-formelen', 'Faktorisere direkte', 'Dele pa x'],
-    explanation: 'Vi prover divisorer av konstantleddet for a finne et nullpunkt.',
+    question: 'Hva er første steg for å løse $x^3 - 6x^2 + 11x - 6 = 0$?',
+    options: ['Finne et nullpunkt ved å prøve divisorer', 'Bruke abc-formelen', 'Faktorisere direkte', 'Dele på x'],
+    explanation: 'Vi prøver divisorer av konstantleddet for å finne et nullpunkt.',
   },
   {
-    question: 'Nar vi har funnet at $x = 1$ er nullpunkt, hva er neste steg?',
-    options: ['Dele polynomet pa $(x-1)$', 'Likningen er lost', 'Prove $x = 2$', 'Gange med $(x-1)$'],
-    explanation: 'Vi bruker polynomdivisjon for a dele polynomet pa $(x-1)$ og fa et enklere polynom.',
+    question: 'Når vi har funnet at $x = 1$ er nullpunkt, hva er neste steg?',
+    options: ['Dele polynomet på $(x-1)$', 'Likningen er lost', 'Prøve $x = 2$', 'Gange med $(x-1)$'],
+    explanation: 'Vi bruker polynomdivisjon for å dele polynomet på $(x-1)$ og få et enklere polynom.',
   },
   {
     question: 'Et tredjegradspolynom kan maksimalt ha hvor mange nullpunkter?',
@@ -5796,12 +5796,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvis $x^3 + 2x^2 - 5x - 6 = (x-2) \cdot Q(x)$, hva er graden til $Q(x)$?',
     options: ['$2$', '$3$', '$1$', '$4$'],
-    explanation: 'Nar vi deler et tredjegradspolynom pa en forstegradsuttrykk, blir kvotienten et andregradspolynom.',
+    explanation: 'Når vi deler et tredjegradspolynom på en førstegradsuttrykk, blir kvotienten et andregradspolynom.',
   },
   {
-    question: 'Hvorfor starter vi med a finne ett nullpunkt?',
-    options: ['For a redusere graden av polynomet', 'Fordi det er nok', 'For a finne alle losninger direkte', 'Det er tilfeldig'],
-    explanation: 'Nar vi finner ett nullpunkt, kan vi dele og fa et enklere polynom a lose.',
+    question: 'Hvorfor starter vi med å finne ett nullpunkt?',
+    options: ['For å redusere graden av polynomet', 'Fordi det er nok', 'For å finne alle løsninger direkte', 'Det er tilfeldig'],
+    explanation: 'Når vi finner ett nullpunkt, kan vi dele og få et enklere polynom å løse.',
   },
 ],
 
@@ -5814,7 +5814,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'I punktet $(3, -2)$, hva er y-koordinaten?',
     options: ['$-2$', '$3$', '$1$', '$-3$'],
-    explanation: 'I et punkt $(x, y)$ er det andre tallet y-koordinaten, altsa $-2$.',
+    explanation: 'I et punkt $(x, y)$ er det andre tallet y-koordinaten, altså $-2$.',
   },
   {
     question: 'Linjen $x = 4$ er?',
@@ -5828,48 +5828,48 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'I hvilket kvadrant ligger punktet $(-2, 3)$?',
-    options: ['Andre kvadrant', 'Forste kvadrant', 'Tredje kvadrant', 'Fjerde kvadrant'],
-    explanation: 'Negativ x og positiv y plasserer punktet i andre kvadrant (ovre venstre).',
+    options: ['Andre kvadrant', 'Første kvadrant', 'Tredje kvadrant', 'Fjerde kvadrant'],
+    explanation: 'Negativ x og positiv y plasserer punktet i andre kvadrant (øvre venstre).',
   },
 ],
 
   '1t-3-2': [
   {
     question: 'Hva forteller stigningstallet $a$ i $y = ax + b$?',
-    options: ['Hvor bratt linjen er', 'Hvor linjen krysser y-aksen', 'Nullpunktet', 'Lengden pa linjen'],
-    explanation: 'Stigningstallet $a$ forteller hvor mye $y$ oker nar $x$ oker med $1$.',
+    options: ['Hvor bratt linjen er', 'Hvor linjen krysser y-aksen', 'Nullpunktet', 'Lengden på linjen'],
+    explanation: 'Stigningstallet $a$ forteller hvor mye $y$ øker når $x$ øker med $1$.',
   },
   {
     question: 'I $y = 3x - 2$, hvor krysser grafen y-aksen?',
     options: ['$(0, -2)$', '$(0, 3)$', '$(-2, 0)$', '$(3, 0)$'],
-    explanation: 'Konstantleddet $-2$ er y-verdien der $x = 0$, altsa punktet $(0, -2)$.',
+    explanation: 'Konstantleddet $-2$ er y-verdien der $x = 0$, altså punktet $(0, -2)$.',
   },
   {
     question: 'Hvis stigningstallet er negativt, hva skjer med linjen?',
-    options: ['Den faller mot hoyre', 'Den stiger mot hoyre', 'Den er horisontal', 'Den er vertikal'],
-    explanation: 'Negativt stigningstall betyr at y synker nar x oker.',
+    options: ['Den faller mot høyre', 'Den stiger mot høyre', 'Den er horisontal', 'Den er vertikal'],
+    explanation: 'Negativt stigningstall betyr at y synker når x øker.',
   },
   {
-    question: 'To linjer er parallelle nar de har?',
+    question: 'To linjer er parallelle når de har?',
     options: ['Samme stigningstall', 'Samme konstantledd', 'Motsatte stigningstall', 'Produktet av stigningstallene er -1'],
     explanation: 'Parallelle linjer har samme stigningstall men forskjellig konstantledd.',
   },
   {
     question: 'Hva er stigningstallet til linjen $y = -2x + 5$?',
     options: ['$-2$', '$5$', '$2$', '$-5$'],
-    explanation: 'Stigningstallet er koeffisienten foran $x$, altsa $-2$.',
+    explanation: 'Stigningstallet er koeffisienten foran $x$, altså $-2$.',
   },
 ],
 
   '1t-3-3': [
   {
-    question: 'Hva er $f(2)$ nar $f(x) = 3x + 1$?',
+    question: 'Hva er $f(2)$ når $f(x) = 3x + 1$?',
     options: ['$7$', '$6$', '$5$', '$8$'],
     explanation: 'Vi setter inn $x = 2$: $f(2) = 3 \cdot 2 + 1 = 6 + 1 = 7$.',
   },
   {
     question: 'Hva kjennetegner en funksjon?',
-    options: ['Hver x-verdi gir noyaktig en y-verdi', 'Hver y-verdi gir noyaktig en x-verdi', 'Grafen er alltid en rett linje', 'Den gar alltid gjennom origo'],
+    options: ['Hver x-verdi gir nøyaktig en y-verdi', 'Hver y-verdi gir nøyaktig en x-verdi', 'Grafen er alltid en rett linje', 'Den går alltid gjennom origo'],
     explanation: 'En funksjon gir en unik y-verdi for hver x-verdi i definisjonsmengden.',
   },
   {
@@ -5898,7 +5898,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvis $a > 0$ i $f(x) = ax^2 + bx + c$, har parabelen?',
     options: ['Bunnpunkt', 'Toppunkt', 'Ingen ekstremalpunkt', 'To toppunkter'],
-    explanation: 'Nar $a > 0$ apner parabelen oppover og har et bunnpunkt.',
+    explanation: 'Når $a > 0$ åpner parabelen oppover og har et bunnpunkt.',
   },
   {
     question: 'Hva er symmetrilinjen til $f(x) = x^2 - 4x + 3$?',
@@ -5911,9 +5911,9 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Y-aksen krysses der $x = 0$: $f(0) = 0 - 1 = -1$.',
   },
   {
-    question: 'Hva bestemmer bredden pa en parabel?',
+    question: 'Hva bestemmer bredden på en parabel?',
     options: ['Verdien av $|a|$', 'Verdien av $b$', 'Verdien av $c$', 'Toppunktet'],
-    explanation: 'Jo storre $|a|$ er, jo smalere er parabelen.',
+    explanation: 'Jo større $|a|$ er, jo smalere er parabelen.',
   },
 ],
 
@@ -5921,7 +5921,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er nullpunktene til $f(x) = x^2 - 4$?',
     options: ['$x = 2$ og $x = -2$', '$x = 4$ og $x = -4$', '$x = 2$', '$x = 0$'],
-    explanation: '$x^2 - 4 = 0$ gir $x^2 = 4$, sa $x = 2$ eller $x = -2$.',
+    explanation: '$x^2 - 4 = 0$ gir $x^2 = 4$, så $x = 2$ eller $x = -2$.',
   },
   {
     question: 'Hva forteller diskriminanten om nullpunktene?',
@@ -5929,19 +5929,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: '$D > 0$ gir to nullpunkter, $D = 0$ gir ett, $D < 0$ gir ingen.',
   },
   {
-    question: 'Nar er $f(x) = x^2 - 9$ positiv?',
-    options: ['Nar $x < -3$ eller $x > 3$', 'Nar $-3 < x < 3$', 'Alltid', 'Aldri'],
+    question: 'Når er $f(x) = x^2 - 9$ positiv?',
+    options: ['Når $x < -3$ eller $x > 3$', 'Når $-3 < x < 3$', 'Alltid', 'Aldri'],
     explanation: 'Parabelen er over x-aksen utenfor nullpunktene.',
   },
   {
     question: 'Hvor mange nullpunkter har $f(x) = x^2 + 4$?',
     options: ['Ingen', 'Ett', 'To', 'Uendelig mange'],
-    explanation: '$x^2 + 4 = 0$ gir $x^2 = -4$, som ikke har reelle losninger.',
+    explanation: '$x^2 + 4 = 0$ gir $x^2 = -4$, som ikke har reelle løsninger.',
   },
   {
     question: 'Hva er nullpunktene til $f(x) = x^2 - 5x + 6$?',
     options: ['$x = 2$ og $x = 3$', '$x = -2$ og $x = -3$', '$x = 1$ og $x = 6$', '$x = 5$ og $x = 6$'],
-    explanation: 'Vi faktoriserer: $(x-2)(x-3) = 0$, sa $x = 2$ eller $x = 3$.',
+    explanation: 'Vi faktoriserer: $(x-2)(x-3) = 0$, så $x = 2$ eller $x = 3$.',
   },
 ],
 
@@ -5949,12 +5949,12 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er graden til $f(x) = 3x^4 - 2x^2 + 1$?',
     options: ['$4$', '$3$', '$2$', '$7$'],
-    explanation: 'Graden er den hoyeste eksponenten, altsa $4$.',
+    explanation: 'Graden er den høyeste eksponenten, altså $4$.',
   },
   {
     question: 'Hva er den ledende koeffisienten til $f(x) = -5x^3 + 2x^2$?',
     options: ['$-5$', '$3$', '$2$', '$5$'],
-    explanation: 'Den ledende koeffisienten er koeffisienten foran det hogeste x-leddet.',
+    explanation: 'Den ledende koeffisienten er koeffisienten foran det høyeste x-leddet.',
   },
   {
     question: 'Hvor mange nullpunkter kan et tredjegradspolynom maksimalt ha?',
@@ -5963,41 +5963,41 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hvis graden er partall og ledende koeffisient er positiv, hva skjer med grafen for store |x|?',
-    options: ['Begge ender gar oppover', 'Begge ender gar nedover', 'Venstre ned, hoyre opp', 'Venstre opp, hoyre ned'],
-    explanation: 'Partall grad med positiv ledende koeffisient gir at begge ender gar mot pluss uendelig.',
+    options: ['Begge ender går oppover', 'Begge ender går nedover', 'Venstre ned, høyre opp', 'Venstre opp, høyre ned'],
+    explanation: 'Partall grad med positiv ledende koeffisient gir at begge ender går mot pluss uendelig.',
   },
   {
     question: 'Hva er konstantleddet til $f(x) = x^3 - 2x + 7$?',
     options: ['$7$', '$1$', '$-2$', '$3$'],
-    explanation: 'Konstantleddet er leddet uten $x$, altsa $7$.',
+    explanation: 'Konstantleddet er leddet uten $x$, altså $7$.',
   },
 ],
 
   '1t-3-7': [
   {
     question: 'Hva er en vertikal asymptote?',
-    options: ['En vertikal linje grafen naermer seg men ikke krysser', 'En horisontal linje', 'Nullpunktet', 'Toppunktet'],
-    explanation: 'Vertikal asymptote er der nevneren er null og funksjonen gar mot uendelig.',
+    options: ['En vertikal linje grafen nærmer seg men ikke krysser', 'En horisontal linje', 'Nullpunktet', 'Toppunktet'],
+    explanation: 'Vertikal asymptote er der nevneren er null og funksjonen går mot uendelig.',
   },
   {
     question: 'Hva er definisjonsmengden til $f(x) = \frac{1}{x-3}$?',
     options: ['Alle $x$ unntatt $3$', 'Alle $x$', 'Bare $x = 3$', '$x > 3$'],
-    explanation: 'Nevneren er null nar $x = 3$, sa $x = 3$ er utelukket.',
+    explanation: 'Nevneren er null når $x = 3$, så $x = 3$ er utelukket.',
   },
   {
     question: 'Hvor har $f(x) = \frac{2}{x^2-4}$ vertikale asymptoter?',
     options: ['$x = 2$ og $x = -2$', '$x = 4$ og $x = -4$', '$x = 0$', 'Ingen'],
-    explanation: '$x^2 - 4 = 0$ nar $x = 2$ eller $x = -2$.',
+    explanation: '$x^2 - 4 = 0$ når $x = 2$ eller $x = -2$.',
   },
   {
-    question: 'Hva skjer med $f(x) = \frac{1}{x}$ nar $x$ gar mot uendelig?',
-    options: ['$f(x)$ gar mot $0$', '$f(x)$ gar mot uendelig', '$f(x)$ gar mot $1$', '$f(x)$ gar mot $-1$'],
-    explanation: 'Nar nevneren blir stor, blir broken liten og naermer seg $0$.',
+    question: 'Hva skjer med $f(x) = \frac{1}{x}$ når $x$ går mot uendelig?',
+    options: ['$f(x)$ går mot $0$', '$f(x)$ går mot uendelig', '$f(x)$ går mot $1$', '$f(x)$ går mot $-1$'],
+    explanation: 'Når nevneren blir stor, blir brøken liten og nærmer seg $0$.',
   },
   {
     question: 'Hva er en horisontal asymptote?',
-    options: ['En horisontal linje grafen naermer seg for store |x|', 'En vertikal linje', 'Nullpunktet', 'Y-aksen'],
-    explanation: 'Horisontal asymptote viser hva funksjonsverdien naermer seg nar x gar mot uendelig.',
+    options: ['En horisontal linje grafen nærmer seg for store |x|', 'En vertikal linje', 'Nullpunktet', 'Y-aksen'],
+    explanation: 'Horisontal asymptote viser hva funksjonsverdien nærmer seg når x går mot uendelig.',
   },
 ],
 
@@ -6005,25 +6005,25 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er vekstfaktoren i $f(x) = 500 \cdot 1{,}05^x$?',
     options: ['$1{,}05$', '$500$', '$0{,}05$', '$5$'],
-    explanation: 'Vekstfaktoren er grunntallet i eksponenten, altsa $1{,}05$.',
+    explanation: 'Vekstfaktoren er grunntallet i eksponenten, altså $1{,}05$.',
   },
   {
-    question: 'Hvis en befolkning vokser med 3% arlig, hva er vekstfaktoren?',
+    question: 'Hvis en befolkning vokser med 3% årlig, hva er vekstfaktoren?',
     options: ['$1{,}03$', '$0{,}03$', '$3$', '$1{,}3$'],
-    explanation: '$3\%$ okning betyr at vi beholder $100\%$ og legger til $3\%$: $1 + 0{,}03 = 1{,}03$.',
+    explanation: '$3\%$ økning betyr at vi beholder $100\%$ og legger til $3\%$: $1 + 0{,}03 = 1{,}03$.',
   },
   {
     question: 'Hvis $b < 1$ i $f(x) = a \cdot b^x$, hva skjer?',
-    options: ['Funksjonen synker (eksponentiell nedgang)', 'Funksjonen oker', 'Funksjonen er konstant', 'Funksjonen oscillerer'],
-    explanation: 'Nar $0 < b < 1$, minker funksjonsverdien nar $x$ oker.',
+    options: ['Funksjonen synker (eksponentiell nedgang)', 'Funksjonen øker', 'Funksjonen er konstant', 'Funksjonen oscillerer'],
+    explanation: 'Når $0 < b < 1$, minker funksjonsverdien når $x$ øker.',
   },
   {
     question: 'Hva er halveringstid?',
-    options: ['Tiden det tar for verdien a bli halvert', 'Tiden det tar for verdien a dobles', 'Halvparten av x', 'Halvparten av y'],
-    explanation: 'Halveringstid er tiden det tar for en mengde a reduseres til halvparten.',
+    options: ['Tiden det tar for verdien å bli halvert', 'Tiden det tar for verdien å dobles', 'Halvparten av x', 'Halvparten av y'],
+    explanation: 'Halveringstid er tiden det tar for en mengde å reduseres til halvparten.',
   },
   {
-    question: 'En bil mister 20% av verdien arlig. Hva er vekstfaktoren?',
+    question: 'En bil mister 20% av verdien årlig. Hva er vekstfaktoren?',
     options: ['$0{,}80$', '$1{,}20$', '$0{,}20$', '$0{,}02$'],
     explanation: '$20\%$ nedgang betyr vi beholder $80\%$: $1 - 0{,}20 = 0{,}80$.',
   },
@@ -6036,14 +6036,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Vinkelsummen i en trekant er alltid $180°$.',
   },
   {
-    question: 'Hva kalles en vinkel pa noyaktig $90°$?',
+    question: 'Hva kalles en vinkel på nøyaktig $90°$?',
     options: ['Rett vinkel', 'Spiss vinkel', 'Stump vinkel', 'Refleks vinkel'],
-    explanation: 'En vinkel pa $90°$ kalles en rett vinkel.',
+    explanation: 'En vinkel på $90°$ kalles en rett vinkel.',
   },
   {
     question: 'Hva er toppvinkler?',
-    options: ['Motstaaende vinkler nar to linjer krysser', 'Vinkler ved siden av hverandre', 'Vinkler i en trekant', 'Vinkler pa 180 grader'],
-    explanation: 'Toppvinkler dannes nar to linjer krysser og er alltid like store.',
+    options: ['Motstående vinkler når to linjer krysser', 'Vinkler ved siden av hverandre', 'Vinkler i en trekant', 'Vinkler på 180 grader'],
+    explanation: 'Toppvinkler dannes når to linjer krysser og er alltid like store.',
   },
   {
     question: 'Hvis to vinkler i en trekant er $50°$ og $60°$, hva er den tredje?',
@@ -6060,8 +6060,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   '1t-5-2': [
   {
     question: 'Hva betyr det at to trekanter er kongruente?',
-    options: ['De har samme form og storrelse', 'De har samme form men ulik storrelse', 'De har samme areal', 'De har samme vinkler'],
-    explanation: 'Kongruente trekanter er identiske kopier - samme form og storrelse.',
+    options: ['De har samme form og størrelse', 'De har samme form men ulik størrelse', 'De har samme areal', 'De har samme vinkler'],
+    explanation: 'Kongruente trekanter er identiske kopier - samme form og størrelse.',
   },
   {
     question: 'Hva er SSS-kriteriet for kongruens?',
@@ -6070,8 +6070,8 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Hva betyr formlikhet?',
-    options: ['Samme form men kan ha ulik storrelse', 'Samme storrelse men ulik form', 'Identiske figurer', 'Samme areal'],
-    explanation: 'Formlike figurer har samme form, men kan vaere skalert (storre eller mindre).',
+    options: ['Samme form men kan ha ulik størrelse', 'Samme størrelse men ulik form', 'Identiske figurer', 'Samme areal'],
+    explanation: 'Formlike figurer har samme form, men kan være skalert (større eller mindre).',
   },
   {
     question: 'Hvis to trekanter er formlike, hva vet vi om vinklene?',
@@ -6103,7 +6103,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: 'Et pytagoreisk trippel er?',
-    options: ['Tre heltall som oppfyller $a^2 + b^2 = c^2$', 'Tre like tall', 'Tre primtall', 'Tre pafolgende tall'],
+    options: ['Tre heltall som oppfyller $a^2 + b^2 = c^2$', 'Tre like tall', 'Tre primtall', 'Tre påfølgende tall'],
     explanation: 'Et pytagoreisk trippel er tre positive heltall som tilfredsstiller Pytagoras.',
   },
   {
@@ -6116,18 +6116,18 @@ const quizData: Record<string, QuizQuestion[]> = {
   '1t-5-4': [
   {
     question: 'Hva er $\sin v$ i en rettvinklet trekant?',
-    options: ['Motstaende katet / hypotenus', 'Hosliggende katet / hypotenus', 'Motstaende / hosliggende', 'Hypotenus / motstaende'],
-    explanation: 'Sinus er forholdet mellom motstaende katet og hypotenus.',
+    options: ['Motstående katet / hypotenus', 'Hosliggende katet / hypotenus', 'Motstående / hosliggende', 'Hypotenus / motstående'],
+    explanation: 'Sinus er forholdet mellom motstående katet og hypotenus.',
   },
   {
     question: 'Hva er $\cos v$?',
-    options: ['Hosliggende katet / hypotenus', 'Motstaende katet / hypotenus', 'Motstaende / hosliggende', 'Hypotenus / hosliggende'],
+    options: ['Hosliggende katet / hypotenus', 'Motstående katet / hypotenus', 'Motstående / hosliggende', 'Hypotenus / hosliggende'],
     explanation: 'Cosinus er forholdet mellom hosliggende katet og hypotenus.',
   },
   {
     question: 'Hva er $\tan v$?',
-    options: ['Motstaende katet / hosliggende katet', 'Hosliggende / motstaende', 'Hypotenus / motstaende', 'Motstaende / hypotenus'],
-    explanation: 'Tangens er forholdet mellom motstaende og hosliggende katet.',
+    options: ['Motstående katet / hosliggende katet', 'Hosliggende / motstående', 'Hypotenus / motstående', 'Motstående / hypotenus'],
+    explanation: 'Tangens er forholdet mellom motstående og hosliggende katet.',
   },
   {
     question: 'Hva er huskeregelen SOH-CAH-TOA?',
@@ -6145,7 +6145,7 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva er grunnformelen for arealet av en trekant?',
     options: ['$A = \frac{1}{2}gh$', '$A = gh$', '$A = g + h$', '$A = 2gh$'],
-    explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger hoyde.',
+    explanation: 'Arealet av en trekant er halvparten av grunnlinje ganger høyde.',
   },
   {
     question: 'Hva er arealsetningen?',
@@ -6153,14 +6153,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Arealsetningen bruker to sider og vinkelen mellom dem.',
   },
   {
-    question: 'Finn arealet av en trekant med grunnlinje $8$ og hoyde $5$.',
+    question: 'Finn arealet av en trekant med grunnlinje $8$ og høyde $5$.',
     options: ['$20$', '$40$', '$13$', '$80$'],
     explanation: '$A = \frac{1}{2} \cdot 8 \cdot 5 = 20$.',
   },
   {
-    question: 'Nar bruker vi arealsetningen?',
-    options: ['Nar vi kjenner to sider og vinkelen mellom dem', 'Nar vi kjenner grunnlinje og hoyde', 'Nar vi bare kjenner sidene', 'Alltid'],
-    explanation: 'Arealsetningen brukes nar vi kjenner to sider og den mellomliggende vinkelen.',
+    question: 'Når bruker vi arealsetningen?',
+    options: ['Når vi kjenner to sider og vinkelen mellom dem', 'Når vi kjenner grunnlinje og høyde', 'Når vi bare kjenner sidene', 'Alltid'],
+    explanation: 'Arealsetningen brukes når vi kjenner to sider og den mellomliggende vinkelen.',
   },
   {
     question: 'Hva er arealet av en likesidet trekant med side $6$?',
@@ -6173,16 +6173,16 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hva sier sinussetningen?',
     options: ['$\frac{a}{\sin A} = \frac{b}{\sin B} = \frac{c}{\sin C}$', '$a + b = c$', '$\sin A = \sin B$', '$a \cdot \sin A = b \cdot \sin B$'],
-    explanation: 'Sinussetningen gir forholdet mellom sider og sinus til motstaaende vinkler.',
+    explanation: 'Sinussetningen gir forholdet mellom sider og sinus til motstående vinkler.',
   },
   {
-    question: 'Nar bruker vi sinussetningen?',
-    options: ['Nar vi kjenner to vinkler og en side, eller to sider og en motstaaende vinkel', 'Bare i rettvinklede trekanter', 'Bare for a finne areal', 'Aldri'],
-    explanation: 'Sinussetningen brukes i alle trekanter nar vi har riktig kombinasjon av informasjon.',
+    question: 'Når bruker vi sinussetningen?',
+    options: ['Når vi kjenner to vinkler og en side, eller to sider og en motstående vinkel', 'Bare i rettvinklede trekanter', 'Bare for å finne areal', 'Aldri'],
+    explanation: 'Sinussetningen brukes i alle trekanter når vi har riktig kombinasjon av informasjon.',
   },
   {
     question: 'Hva er det tvetydige tilfellet i sinussetningen?',
-    options: ['Nar vi finner en vinkel, kan det vaere to mulige losninger', 'Nar det ikke finnes losning', 'Nar det er tre losninger', 'Nar alle vinkler er like'],
+    options: ['Når vi finner en vinkel, kan det være to mulige løsninger', 'Når det ikke finnes løsning', 'Når det er tre løsninger', 'Når alle vinkler er like'],
     explanation: 'Siden $\sin v = \sin(180° - v)$, kan en vinkel ha to mulige verdier.',
   },
   {
@@ -6204,78 +6204,78 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Cosinussetningen generaliserer Pytagoras til alle trekanter.',
   },
   {
-    question: 'Nar bruker vi cosinussetningen?',
-    options: ['Nar vi kjenner tre sider, eller to sider og vinkelen mellom dem', 'Bare i rettvinklede trekanter', 'Bare for vinkler', 'Aldri'],
-    explanation: 'Cosinussetningen brukes nar vi har to sider og mellomliggende vinkel, eller alle tre sider.',
+    question: 'Når bruker vi cosinussetningen?',
+    options: ['Når vi kjenner tre sider, eller to sider og vinkelen mellom dem', 'Bare i rettvinklede trekanter', 'Bare for vinkler', 'Aldri'],
+    explanation: 'Cosinussetningen brukes når vi har to sider og mellomliggende vinkel, eller alle tre sider.',
   },
   {
-    question: 'Hva blir cosinussetningen nar $C = 90°$?',
+    question: 'Hva blir cosinussetningen når $C = 90°$?',
     options: ['Pytagoras setning: $c^2 = a^2 + b^2$', '$c = a + b$', '$c^2 = a^2 - b^2$', '$c = ab$'],
-    explanation: 'Nar $C = 90°$, er $\cos C = 0$, og vi far $c^2 = a^2 + b^2$.',
+    explanation: 'Når $C = 90°$, er $\cos C = 0$, og vi får $c^2 = a^2 + b^2$.',
   },
   {
     question: 'I en trekant er $a = 7$, $b = 8$, $C = 60°$. Finn $c$.',
     options: ['$\sqrt{57}$', '$\sqrt{113}$', '$15$', '$\sqrt{169}$'],
-    explanation: '$c^2 = 49 + 64 - 2 \cdot 7 \cdot 8 \cdot \cos 60° = 113 - 56 = 57$, sa $c = \sqrt{57}$.',
+    explanation: '$c^2 = 49 + 64 - 2 \cdot 7 \cdot 8 \cdot \cos 60° = 113 - 56 = 57$, så $c = \sqrt{57}$.',
   },
   {
-    question: 'Kan cosinussetningen brukes til a finne vinkler?',
-    options: ['Ja, nar vi kjenner alle tre sidene', 'Nei, bare for sider', 'Bare i rettvinklede trekanter', 'Bare for 90-gradersvinkler'],
-    explanation: 'Vi kan lose for cos C og finne vinkelen med invers cosinus.',
+    question: 'Kan cosinussetningen brukes til å finne vinkler?',
+    options: ['Ja, når vi kjenner alle tre sidene', 'Nei, bare for sider', 'Bare i rettvinklede trekanter', 'Bare for 90-gradersvinkler'],
+    explanation: 'Vi kan løse for cos C og finne vinkelen med invers cosinus.',
   },
 ],
 
   '1t-6-1': [
   {
     question: 'Hva kjennetegner et godt matematisk argument?',
-    options: ['Logisk rekkefolge fra premisser til konklusjon', 'Mange eksempler', 'Kort tekst', 'Vanskelige ord'],
+    options: ['Logisk rekkefølge fra premisser til konklusjon', 'Mange eksempler', 'Kort tekst', 'Vanskelige ord'],
     explanation: 'Et godt argument er en logisk kjede fra kjente fakta til konklusjonen.',
   },
   {
-    question: 'Hva er forskjellen pa et eksempel og et bevis?',
-    options: ['Et bevis viser at noe alltid er sant, et eksempel viser bare ett tilfelle', 'De er det samme', 'Et eksempel er bedre', 'Et bevis trenger ikke vaere sant'],
-    explanation: 'Et eksempel viser at noe kan vaere sant, mens et bevis viser at det alltid er sant.',
+    question: 'Hva er forskjellen på et eksempel og et bevis?',
+    options: ['Et bevis viser at noe alltid er sant, et eksempel viser bare ett tilfelle', 'De er det samme', 'Et eksempel er bedre', 'Et bevis trenger ikke være sant'],
+    explanation: 'Et eksempel viser at noe kan være sant, mens et bevis viser at det alltid er sant.',
   },
   {
     question: 'Hva bruker vi som grunnlag i matematiske bevis?',
     options: ['Definisjoner, aksiomer og tidligere beviste setninger', 'Gjetninger', 'Bare intuisjon', 'Eksempler fra virkeligheten'],
-    explanation: 'Matematiske bevis bygger pa aksepterte definisjoner og tidligere resultater.',
+    explanation: 'Matematiske bevis bygger på aksepterte definisjoner og tidligere resultater.',
   },
   {
     question: 'Hva er et moteksempel?',
-    options: ['Et eksempel som viser at en paststand er usann', 'Et ekstra eksempel', 'Et feilaktig eksempel', 'Et vanskelig eksempel'],
-    explanation: 'Et moteksempel er nok til a motbevise en generell paststand.',
+    options: ['Et eksempel som viser at en påstand er usann', 'Et ekstra eksempel', 'Et feilaktig eksempel', 'Et vanskelig eksempel'],
+    explanation: 'Et moteksempel er nok til å motbevise en generell påstand.',
   },
   {
-    question: 'Hvorfor er det viktig a begrunne losninger?',
-    options: ['For a vise at losningen er riktig og hvorfor', 'Det er ikke viktig', 'Bare for a fa poeng', 'Fordi laereren krever det'],
-    explanation: 'Begrunnelser viser forstaelse og sikrer at losningen faktisk er korrekt.',
+    question: 'Hvorfor er det viktig å begrunne løsninger?',
+    options: ['For å vise at løsningen er riktig og hvorfor', 'Det er ikke viktig', 'Bare for å få poeng', 'Fordi læreren krever det'],
+    explanation: 'Begrunnelser viser forståelse og sikrer at løsningen faktisk er korrekt.',
   },
 ],
 
   '2p-1': [
   {
-    question: 'Hvilket tall er $4\\,820\\,000$ skrevet pa standardform?',
+    question: 'Hvilket tall er $4\\,820\\,000$ skrevet på standardform?',
     options: ['$4{,}82 \\cdot 10^6$', '$48{,}2 \\cdot 10^5$', '$4{,}82 \\cdot 10^7$', '$0{,}482 \\cdot 10^7$'],
-    explanation: 'Pa standardform skal tallet foran vare mellom 1 og 10. Vi flytter komma 6 plasser til venstre, sa $4\\,820\\,000 = 4{,}82 \\cdot 10^6$.',
+    explanation: 'På standardform skal tallet foran være mellom 1 og 10. Vi flytter komma 6 plasser til venstre, så $4\\,820\\,000 = 4{,}82 \\cdot 10^6$.',
   },
   {
     question: 'Hvor mange gjeldende siffer har tallet $0{,}00250$?',
     options: ['$3$', '$5$', '$2$', '$6$'],
-    explanation: 'Gjeldende siffer er 2, 5 og den siste 0-en (som viser noyaktighet). Nullene foran desimalkommaet teller ikke, sa svaret er $3$.',
+    explanation: 'Gjeldende siffer er 2, 5 og den siste 0-en (som viser nøyaktighet). Nullene foran desimalkommaet teller ikke, så svaret er $3$.',
   },
   {
     question: 'Hva blir $3{,}5 \\cdot 10^4$ skrevet som vanlig tall?',
     options: ['$35\\,000$', '$3\\,500$', '$350\\,000$', '$3{,}5$'],
-    explanation: 'Vi flytter desimalkommaet 4 plasser til hoyre: $3{,}5 \\cdot 10^4 = 35\\,000$.',
+    explanation: 'Vi flytter desimalkommaet 4 plasser til høyre: $3{,}5 \\cdot 10^4 = 35\\,000$.',
   },
   {
-    question: 'Hvilket av disse tallene har storst verdi?',
+    question: 'Hvilket av disse tallene har størst verdi?',
     options: ['$2{,}5 \\cdot 10^5$', '$9{,}8 \\cdot 10^4$', '$1{,}2 \\cdot 10^5$', '$8{,}3 \\cdot 10^4$'],
-    explanation: '$2{,}5 \\cdot 10^5 = 250\\,000$ er storst. De andre er $98\\,000$, $120\\,000$ og $83\\,000$.',
+    explanation: '$2{,}5 \\cdot 10^5 = 250\\,000$ er størst. De andre er $98\\,000$, $120\\,000$ og $83\\,000$.',
   },
   {
-    question: 'Hva blir produktet $2 \\cdot 10^3 \\cdot 4 \\cdot 10^2$ pa standardform?',
+    question: 'Hva blir produktet $2 \\cdot 10^3 \\cdot 4 \\cdot 10^2$ på standardform?',
     options: ['$8 \\cdot 10^5$', '$8 \\cdot 10^6$', '$6 \\cdot 10^5$', '$8 \\cdot 10^4$'],
     explanation: 'Vi ganger tallene: $2 \\cdot 4 = 8$, og legger sammen eksponentene: $10^3 \\cdot 10^2 = 10^5$. Svaret er $8 \\cdot 10^5$.',
   },
@@ -6283,22 +6283,22 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2p-2': [
   {
-    question: 'En vare oker fra 400 kr til 480 kr. Hva er den prosentvise okningen?',
+    question: 'En vare øker fra 400 kr til 480 kr. Hva er den prosentvise økningen?',
     options: ['20%', '80 kr', '16,7%', '25%'],
-    explanation: 'Prosentvis okning = $\\frac{480-400}{400} \\cdot 100\\% = \\frac{80}{400} \\cdot 100\\% = 20\\%$.',
+    explanation: 'Prosentvis økning = $\\frac{480-400}{400} \\cdot 100\\% = \\frac{80}{400} \\cdot 100\\% = 20\\%$.',
   },
   {
-    question: 'Hva er vekstfaktoren ved en prisreduksjon pa 30%?',
+    question: 'Hva er vekstfaktoren ved en prisreduksjon på 30%?',
     options: ['$0{,}70$', '$1{,}30$', '$0{,}30$', '$1{,}70$'],
     explanation: 'Ved reduksjon trekker vi fra 1: Vekstfaktor $= 1 - 0{,}30 = 0{,}70$.',
   },
   {
-    question: 'Hvis renta oker fra 2% til 5%, hvor mange prosentpoeng er okningen?',
+    question: 'Hvis renta øker fra 2% til 5%, hvor mange prosentpoeng er økningen?',
     options: ['3 prosentpoeng', '150%', '3%', '2,5 prosentpoeng'],
-    explanation: 'Prosentpoeng maler forskjellen mellom to prosenttall: 5% - 2% = 3 prosentpoeng.',
+    explanation: 'Prosentpoeng måler forskjellen mellom to prosenttall: 5% - 2% = 3 prosentpoeng.',
   },
   {
-    question: 'Du setter 20 000 kr i banken til 4% arlig rente. Hvor mye har du etter 3 ar med rentes rente?',
+    question: 'Du setter 20 000 kr i banken til 4% årlig rente. Hvor mye har du etter 3 år med rentes rente?',
     options: ['22 497 kr', '22 400 kr', '22 000 kr', '24 000 kr'],
     explanation: 'Sluttverdi $= 20\\,000 \\cdot 1{,}04^3 = 20\\,000 \\cdot 1{,}1249 = 22\\,497$ kr.',
   },
@@ -6311,24 +6311,24 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2p-3': [
   {
-    question: 'Hvilken lanetype gir lavest totale rentekostnader?',
-    options: ['Serielan', 'Annuitetslan', 'Forbrukslan', 'Alle gir like rentekostnader'],
-    explanation: 'Serielan gir lavest totale rentekostnader fordi du betaler ned mer av lanet tidlig.',
+    question: 'Hvilken lånetype gir lavest totale rentekostnader?',
+    options: ['Serielån', 'Annuitetslån', 'Forbrukslån', 'Alle gir like rentekostnader'],
+    explanation: 'Serielån gir lavest totale rentekostnader fordi du betaler ned mer av lånet tidlig.',
   },
   {
     question: 'Hva er hovedfordelen med BSU?',
-    options: ['Skattefradrag pa 20% av innskuddet', 'Hoyere rente enn vanlig sparekonto', 'Ingen bindingstid', 'Ubegrenset innskudd'],
-    explanation: 'BSU gir 20% skattefradrag pa innskuddet, opp til maks 27 500 kr per ar.',
+    options: ['Skattefradrag på 20% av innskuddet', 'Høyere rente enn vanlig sparekonto', 'Ingen bindingstid', 'Ubegrenset innskudd'],
+    explanation: 'BSU gir 20% skattefradrag på innskuddet, opp til maks 27 500 kr per år.',
   },
   {
     question: 'Hva er forskjellen mellom nominell og effektiv rente?',
-    options: ['Effektiv rente inkluderer alle kostnader', 'Nominell rente er alltid hoyest', 'De er alltid like', 'Nominell rente inkluderer gebyrer'],
-    explanation: 'Effektiv rente inkluderer alle kostnader (gebyrer, termingebyr) og gir det faktiske bildet av lanekostnaden.',
+    options: ['Effektiv rente inkluderer alle kostnader', 'Nominell rente er alltid høyest', 'De er alltid like', 'Nominell rente inkluderer gebyrer'],
+    explanation: 'Effektiv rente inkluderer alle kostnader (gebyrer, termingebyr) og gir det faktiske bildet av lånekostnaden.',
   },
   {
-    question: 'Ifølge 50/30/20-regelen, hvor mye bor ga til sparing?',
+    question: 'Ifølge 50/30/20-regelen, hvor mye bør gå til sparing?',
     options: ['20%', '50%', '30%', '10%'],
-    explanation: '50/30/20-regelen sier: 50% til nodvendige utgifter, 30% til onsker, og 20% til sparing og nedbetaling av gjeld.',
+    explanation: '50/30/20-regelen sier: 50% til nødvendige utgifter, 30% til ønsker, og 20% til sparing og nedbetaling av gjeld.',
   },
   {
     question: 'Bruttolonn er 35 000 kr og skattetrekket er 28%. Hva blir nettolonnen?',
@@ -6339,29 +6339,29 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2p-4': [
   {
-    question: 'Los likningen $4x - 6 = 2x + 10$',
+    question: 'Løs likningen $4x - 6 = 2x + 10$',
     options: ['$x = 8$', '$x = 2$', '$x = 4$', '$x = -8$'],
-    explanation: '$4x - 6 = 2x + 10$ gir $4x - 2x = 10 + 6$, altsa $2x = 16$, og $x = 8$.',
+    explanation: '$4x - 6 = 2x + 10$ gir $4x - 2x = 10 + 6$, altså $2x = 16$, og $x = 8$.',
   },
   {
-    question: 'Hva skjer med ulikhetstegnet nar vi deler med et negativt tall?',
-    options: ['Tegnet snur', 'Tegnet forblir det samme', 'Ulikheten blir ugyldig', 'Vi ma gange med positivt tall forst'],
-    explanation: 'Nar vi ganger eller deler med et negativt tall, ma vi snu ulikhetstegnet.',
+    question: 'Hva skjer med ulikhetstegnet når vi deler med et negativt tall?',
+    options: ['Tegnet snur', 'Tegnet forblir det samme', 'Ulikheten blir ugyldig', 'Vi må gange med positivt tall først'],
+    explanation: 'Når vi ganger eller deler med et negativt tall, må vi snu ulikhetstegnet.',
   },
   {
-    question: 'Los ulikheten $3x + 5 > 20$',
+    question: 'Løs ulikheten $3x + 5 > 20$',
     options: ['$x > 5$', '$x > 25$', '$x < 5$', '$x > 15$'],
     explanation: '$3x + 5 > 20$ gir $3x > 15$, og dermed $x > 5$.',
   },
   {
-    question: 'Hva er losningen pa likningssettett: $x + y = 7$ og $x - y = 3$?',
+    question: 'Hva er løsningen på likningssettett: $x + y = 7$ og $x - y = 3$?',
     options: ['$x = 5, y = 2$', '$x = 7, y = 0$', '$x = 4, y = 3$', '$x = 3, y = 4$'],
-    explanation: 'Legger vi sammen likningene far vi $2x = 10$, sa $x = 5$. Setter inn: $5 + y = 7$ gir $y = 2$.',
+    explanation: 'Legger vi sammen likningene får vi $2x = 10$, så $x = 5$. Setter inn: $5 + y = 7$ gir $y = 2$.',
   },
   {
-    question: 'Hvilken metode brukes for a lose likningssett ved a legge sammen likningene?',
+    question: 'Hvilken metode brukes for å løse likningssett ved å legge sammen likningene?',
     options: ['Addisjonsmetoden', 'Innsettingsmetoden', 'Grafisk metode', 'Faktorisering'],
-    explanation: 'Addisjonsmetoden (eliminasjonsmetoden) legger sammen eller trekker fra likninger for a eliminere en variabel.',
+    explanation: 'Addisjonsmetoden (eliminasjonsmetoden) legger sammen eller trekker fra likninger for å eliminere en variabel.',
   },
 ],
 
@@ -6369,22 +6369,22 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'En funksjon er gitt ved $f(x) = 4x - 8$. Hva er nullpunktet?',
     options: ['$x = 2$', '$x = -2$', '$x = 8$', '$x = 4$'],
-    explanation: 'Nullpunkt: $4x - 8 = 0$ gir $4x = 8$, altsa $x = 2$.',
+    explanation: 'Nullpunkt: $4x - 8 = 0$ gir $4x = 8$, altså $x = 2$.',
   },
   {
     question: 'Hva forteller stigningstallet i en linear funksjon $f(x) = ax + b$?',
-    options: ['Hvor mye $y$ oker nar $x$ oker med 1', 'Hvor grafen krysser $y$-aksen', 'Nullpunktet', 'Arealet under grafen'],
-    explanation: 'Stigningstallet $a$ forteller hvor mye $y$-verdien endrer seg nar $x$ oker med 1.',
+    options: ['Hvor mye $y$ øker når $x$ øker med 1', 'Hvor grafen krysser $y$-aksen', 'Nullpunktet', 'Arealet under grafen'],
+    explanation: 'Stigningstallet $a$ forteller hvor mye $y$-verdien endrer seg når $x$ øker med 1.',
   },
   {
     question: 'Funksjonen $f(x) = -3x^2 + 12x$ har en parabel som graf. Hvor ligger toppunktet?',
     options: ['$x = 2$', '$x = -2$', '$x = 4$', '$x = 6$'],
-    explanation: 'Toppunkt nar $a < 0$: $x = \\frac{-b}{2a} = \\frac{-12}{2 \\cdot (-3)} = \\frac{-12}{-6} = 2$.',
+    explanation: 'Toppunkt når $a < 0$: $x = \\frac{-b}{2a} = \\frac{-12}{2 \\cdot (-3)} = \\frac{-12}{-6} = 2$.',
   },
   {
     question: 'Hva er diskriminanten for likningen $x^2 + 4x + 5 = 0$?',
     options: ['$-4$', '$4$', '$36$', '$0$'],
-    explanation: 'Diskriminanten $D = b^2 - 4ac = 16 - 20 = -4$. Negativt betyr ingen reelle losninger.',
+    explanation: 'Diskriminanten $D = b^2 - 4ac = 16 - 20 = -4$. Negativt betyr ingen reelle løsninger.',
   },
   {
     question: 'Hvilken type graf har en andregradsfunksjon?',
@@ -6395,29 +6395,29 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2p-6': [
   {
-    question: 'Et datasett er: 3, 5, 7, 9, 100. Hvilket sentralmal gir best bilde av typisk verdi?',
+    question: 'Et datasett er: 3, 5, 7, 9, 100. Hvilket sentralmål gir best bilde av typisk verdi?',
     options: ['Median', 'Gjennomsnitt', 'Typetall', 'Variasjonsbredde'],
     explanation: 'Median (7) er best fordi 100 er en ekstremverdi som trekker gjennomsnittet kraftig opp.',
   },
   {
-    question: 'Hva forteller et hoyt standardavvik om datasettet?',
-    options: ['Verdiene er spredt langt fra gjennomsnittet', 'Verdiene ligger tett rundt gjennomsnittet', 'Gjennomsnittet er hoyt', 'Datasettet har mange verdier'],
-    explanation: 'Hoyt standardavvik betyr at verdiene i gjennomsnitt ligger langt fra gjennomsnittet.',
+    question: 'Hva forteller et høyt standardavvik om datasettet?',
+    options: ['Verdiene er spredt langt fra gjennomsnittet', 'Verdiene ligger tett rundt gjennomsnittet', 'Gjennomsnittet er høyt', 'Datasettet har mange verdier'],
+    explanation: 'Høyt standardavvik betyr at verdiene i gjennomsnitt ligger langt fra gjennomsnittet.',
   },
   {
     question: 'I et datasett med 9 verdier, hvilken verdi er medianen?',
-    options: ['Den 5. verdien nar sortert', 'Den 4. verdien nar sortert', 'Gjennomsnittet av alle', 'Den storste verdien'],
-    explanation: 'Med 9 verdier er medianen den midterste, altsa verdi nummer 5 nar dataene er sortert.',
+    options: ['Den 5. verdien når sortert', 'Den 4. verdien når sortert', 'Gjennomsnittet av alle', 'Den største verdien'],
+    explanation: 'Med 9 verdier er medianen den midterste, altså verdi nummer 5 når dataene er sortert.',
   },
   {
     question: 'Hva er interkvartilbredden (IQR)?',
-    options: ['$Q_3 - Q_1$', 'Storste - minste verdi', 'Median - gjennomsnitt', 'Standardavviket'],
-    explanation: 'Interkvartilbredden er forskjellen mellom tredje og forste kvartil: $\\text{IQR} = Q_3 - Q_1$.',
+    options: ['$Q_3 - Q_1$', 'Største - minste verdi', 'Median - gjennomsnitt', 'Standardavviket'],
+    explanation: 'Interkvartilbredden er forskjellen mellom tredje og første kvartil: $\\text{IQR} = Q_3 - Q_1$.',
   },
   {
-    question: 'Hvilken diagramtype er best for a vise andeler av en helhet?',
+    question: 'Hvilken diagramtype er best for å vise andeler av en helhet?',
     options: ['Sektordiagram (kakediagram)', 'Linjediagram', 'Punktdiagram', 'Histogram'],
-    explanation: 'Sektordiagram viser hvordan en helhet er fordelt pa ulike deler, og egner seg godt for a vise prosentandeler.',
+    explanation: 'Sektordiagram viser hvordan en helhet er fordelt på ulike deler, og egner seg godt for å vise prosentandeler.',
   },
 ],
 
@@ -6438,14 +6438,14 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Komplementsetningen sier at sannsynligheten for at A IKKE skjer er 1 minus sannsynligheten for at A skjer.',
   },
   {
-    question: 'I en kortstokk (52 kort), hva er sannsynligheten for a trekke et hjerterkort?',
+    question: 'I en kortstokk (52 kort), hva er sannsynligheten for å trekke et hjerterkort?',
     options: ['13/52 = $\\frac{1}{4}$', '4/52 = 1/13', '1/52', '26/52 = $\\frac{1}{2}$'],
-    explanation: 'Det er 13 hjerterkort av 52 kort totalt, sa P(hjerter) = 13/52 = 1/4.',
+    explanation: 'Det er 13 hjerterkort av 52 kort totalt, så P(hjerter) = 13/52 = 1/4.',
   },
   {
     question: 'Hva betyr det at to hendelser er uavhengige?',
-    options: ['Den ene pavirker ikke sannsynligheten for den andre', 'De kan ikke skje samtidig', 'De har samme sannsynlighet', 'De ma skje i rekkefolge'],
-    explanation: 'Uavhengige hendelser betyr at utfallet av den ene hendelsen ikke pavirker sannsynligheten for den andre.',
+    options: ['Den ene påvirker ikke sannsynligheten for den andre', 'De kan ikke skje samtidig', 'De har samme sannsynlighet', 'De må skje i rekkefølge'],
+    explanation: 'Uavhengige hendelser betyr at utfallet av den ene hendelsen ikke påvirker sannsynligheten for den andre.',
   },
 ],
 
@@ -6453,10 +6453,10 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'En rettvinklet trekant har kateter 5 cm og 12 cm. Hvor lang er hypotenusen?',
     options: ['13 cm', '17 cm', '7 cm', '169 cm'],
-    explanation: 'Pytagoras: $c^2 = 5^2 + 12^2 = 25 + 144 = 169$, sa $c = 13$ cm.',
+    explanation: 'Pytagoras: $c^2 = 5^2 + 12^2 = 25 + 144 = 169$, så $c = 13$ cm.',
   },
   {
-    question: 'Hva er volumet av en sylinder med radius 3 cm og hoyde 10 cm?',
+    question: 'Hva er volumet av en sylinder med radius 3 cm og høyde 10 cm?',
     options: ['90pi cm^3 (ca. 283 cm^3)', '30pi cm^3', '60pi cm^3', '900pi cm^3'],
     explanation: 'Volum sylinder = pi * r^2 * h = pi * 9 * 10 = 90pi cm^3.',
   },
@@ -6479,14 +6479,14 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2p-9': [
   {
-    question: 'Gjor om 72 km/t til m/s.',
+    question: 'Gjør om 72 km/t til m/s.',
     options: ['20 m/s', '259,2 m/s', '12 m/s', '72 m/s'],
-    explanation: '72 km/t = 72 / 3,6 m/s = 20 m/s. Del pa 3,6 for a ga fra km/t til m/s.',
+    explanation: '72 km/t = 72 / 3,6 m/s = 20 m/s. Del på 3,6 for å gå fra km/t til m/s.',
   },
   {
     question: 'Hvor mange liter er 2,5 m^3?',
     options: ['2 500 liter', '250 liter', '25 000 liter', '25 liter'],
-    explanation: '1 m^3 = 1000 liter, sa 2,5 m^3 = 2 500 liter.',
+    explanation: '1 m^3 = 1000 liter, så 2,5 m^3 = 2 500 liter.',
   },
   {
     question: 'Hvilken prefiks betyr 10^6?',
@@ -6496,40 +6496,40 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'Hvor mange cm^2 er 3 m^2?',
     options: ['30 000 cm^2', '300 cm^2', '3 000 cm^2', '300 000 cm^2'],
-    explanation: '1 m^2 = 10 000 cm^2, sa 3 m^2 = 30 000 cm^2.',
+    explanation: '1 m^2 = 10 000 cm^2, så 3 m^2 = 30 000 cm^2.',
   },
   {
-    question: 'Hva er maleusikkerheten typisk for en linjal med mm-inndeling?',
+    question: 'Hva er måleusikkerheten typisk for en linjal med mm-inndeling?',
     options: ['pluss/minus 0,5 mm', 'pluss/minus 1 mm', 'pluss/minus 0,1 mm', 'pluss/minus 5 mm'],
-    explanation: 'Ved avlesing av analoge instrumenter er usikkerheten ofte halve minste skalainndeling, altsa pluss/minus 0,5 mm.',
+    explanation: 'Ved avlesing av analoge instrumenter er usikkerheten ofte halve minste skalainndeling, altså pluss/minus 0,5 mm.',
   },
 ],
 
   '2p-10': [
   {
-    question: 'Hva er forste steg i matematisk modellering?',
-    options: ['Forsta problemet', 'Sette opp en likning', 'Gjore beregninger', 'Tegne en graf'],
-    explanation: 'Det forste steget er alltid a forsta problemet - hva skal vi finne ut, og hvilken informasjon har vi?',
+    question: 'Hva er første steg i matematisk modellering?',
+    options: ['Forstå problemet', 'Sette opp en likning', 'Gjøre beregninger', 'Tegne en graf'],
+    explanation: 'Det første steget er alltid å forstå problemet - hva skal vi finne ut, og hvilken informasjon har vi?',
   },
   {
-    question: 'En befolkning vokser med 5% per ar. Hva er vekstfaktoren?',
+    question: 'En befolkning vokser med 5% per år. Hva er vekstfaktoren?',
     options: ['1,05', '0,05', '1,5', '0,95'],
-    explanation: 'Ved okning pa p% er vekstfaktoren 1 + p/100 = 1 + 0,05 = 1,05.',
+    explanation: 'Ved økning på p% er vekstfaktoren 1 + p/100 = 1 + 0,05 = 1,05.',
   },
   {
     question: 'Tommelfingerregelen for doblingstid ved vekst er:',
     options: ['70 / vekstprosent', 'Vekstprosent * 2', '100 / vekstprosent', 'ln(2) * vekstprosent'],
-    explanation: 'Doblingstid er ca. 70 delt pa vekstprosenten. F.eks. ved 5% vekst: 70/5 = 14 ar.',
+    explanation: 'Doblingstid er ca. 70 delt på vekstprosenten. F.eks. ved 5% vekst: 70/5 = 14 år.',
   },
   {
-    question: 'En bil synker 20% i verdi hvert ar. Hva er vekstfaktoren?',
+    question: 'En bil synker 20% i verdi hvert år. Hva er vekstfaktoren?',
     options: ['0,80', '1,20', '0,20', '1,80'],
-    explanation: 'Ved nedgang pa p% er vekstfaktoren 1 - p/100 = 1 - 0,20 = 0,80.',
+    explanation: 'Ved nedgang på p% er vekstfaktoren 1 - p/100 = 1 - 0,20 = 0,80.',
   },
   {
-    question: 'Hvorfor ma vi vurdere om svaret er rimelig etter modellering?',
-    options: ['For a sjekke at modellen fungerer i virkeligheten', 'For a imponere lareren', 'Det er ikke nødvendig', 'For a fa flere poeng'],
-    explanation: 'Modeller forenkler virkeligheten, sa vi ma alltid vurdere om svaret er fornuftig og stemmer med det vi vet om situasjonen.',
+    question: 'Hvorfor må vi vurdere om svaret er rimelig etter modellering?',
+    options: ['For å sjekke at modellen fungerer i virkeligheten', 'For å imponere læreren', 'Det er ikke nødvendig', 'For å få flere poeng'],
+    explanation: 'Modeller forenkler virkeligheten, så vi må alltid vurdere om svaret er fornuftig og stemmer med det vi vet om situasjonen.',
   },
 ],
 
@@ -6540,75 +6540,75 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Budsjettbalanse = Inntekter - Utgifter. Positivt resultat betyr overskudd.',
   },
   {
-    question: 'Ifølge 50/30/20-regelen, hvor mye bor ga til nodvendige utgifter?',
-    options: ['50%', '30%', '20%', '40%'],
-    explanation: '50/30/20-regelen sier: 50% til nodvendige utgifter, 30% til onsker, 20% til sparing.',
+    question: 'Ifølge 50/30/20-regelen, hvor mye bør gå til nødvendige utgifter?',
+    options: ['$50\\%$', '$30\\%$', '$20\\%$', '$40\\%$'],
+    explanation: '50/30/20-regelen sier: 50% til nødvendige utgifter, 30% til ønsker, 20% til sparing.',
   },
   {
-    question: 'Bruttolonn er 25 000 kr og trekkprosent er 30%. Hva blir nettolonnen?',
+    question: 'Bruttolønn er 25 000 kr og trekkprosent er 30%. Hva blir nettolønnen?',
     options: ['17 500 kr', '7 500 kr', '32 500 kr', '22 500 kr'],
-    explanation: 'Nettolonn = 25 000 * (1 - 0,30) = 25 000 * 0,70 = 17 500 kr.',
+    explanation: 'Nettolønn $= 25\\,000 \\cdot (1 - 0{,}30) = 25\\,000 \\cdot 0{,}70 = 17\\,500$ kr.',
   },
   {
     question: 'Hva er forskjellen mellom faste og variable utgifter?',
-    options: ['Faste er like hver maned, variable varierer', 'Variable er like hver maned', 'Det er ingen forskjell', 'Faste betales arlig'],
-    explanation: 'Faste utgifter (husleie, forsikring) er like hver maned. Variable utgifter (mat, fritid) varierer.',
+    options: ['Faste er like hver måned, variable varierer', 'Variable er like hver måned', 'Det er ingen forskjell', 'Faste betales årlig'],
+    explanation: 'Faste utgifter (husleie, forsikring) er like hver måned. Variable utgifter (mat, fritid) varierer.',
   },
   {
-    question: 'En larling tjener 185 kr/time og jobber 40 timer. Hva er bruttolonnen?',
+    question: 'En lærling tjener 185 kr/time og jobber 40 timer. Hva er bruttolønnen?',
     options: ['7 400 kr', '225 kr', '4 625 kr', '7 000 kr'],
-    explanation: 'Bruttolonn = Timelonn * Antall timer = 185 * 40 = 7 400 kr.',
+    explanation: 'Bruttolønn $= \\text{Timelønn} \\cdot \\text{Antall timer} = 185 \\cdot 40 = 7\\,400$ kr.',
   },
 ],
 
   '2py-1-2': [
   {
-    question: 'Et lan pa 50 000 kr har 6% arlig rente. Hvor mye er renten forste ar?',
+    question: 'Et lån på 50 000 kr har 6% årlig rente. Hvor mye er renten første år?',
     options: ['3 000 kr', '300 kr', '30 000 kr', '6 000 kr'],
-    explanation: 'Rente = Kapital * Rentesats = 50 000 * 0,06 = 3 000 kr.',
+    explanation: 'Rente $= \\text{Kapital} \\cdot \\text{Rentesats} = 50\\,000 \\cdot 0{,}06 = 3\\,000$ kr.',
   },
   {
     question: 'Hva er forskjellen mellom nominell og effektiv rente?',
-    options: ['Effektiv inkluderer alle kostnader', 'Nominell inkluderer gebyrer', 'De er alltid like', 'Nominell er alltid hoyere'],
-    explanation: 'Effektiv rente inkluderer alle kostnader og gir et realistisk bilde av lanekostnaden.',
+    options: ['Effektiv inkluderer alle kostnader', 'Nominell inkluderer gebyrer', 'De er alltid like', 'Nominell er alltid høyere'],
+    explanation: 'Effektiv rente inkluderer alle kostnader og gir et realistisk bilde av lånekostnaden.',
   },
   {
-    question: 'Ved et annuitetslan er terminbelopet:',
-    options: ['Likt hver maned', 'Synkende', 'Stigende', 'Tilfeldig'],
-    explanation: 'Ved annuitetslan er terminbelopet (rente + avdrag) likt gjennom hele laneperioden.',
+    question: 'Ved et annuitetslån er terminbeløpet:',
+    options: ['Likt hver måned', 'Synkende', 'Stigende', 'Tilfeldig'],
+    explanation: 'Ved annuitetslån er terminbeløpet (rente + avdrag) likt gjennom hele låneperioden.',
   },
   {
-    question: 'Hva er manedlig rente hvis arsrenten er 12%?',
-    options: ['1%', '12%', '0,1%', '6%'],
-    explanation: 'Manedlig rente = Arsrente / 12 = 12% / 12 = 1%.',
+    question: 'Hva er månedlig rente hvis årsrenten er 12%?',
+    options: ['$1\\%$', '$12\\%$', '$0{,}1\\%$', '$6\\%$'],
+    explanation: 'Månedlig rente $= \\frac{\\text{Årsrente}}{12} = \\frac{12\\%}{12} = 1\\%$.',
   },
   {
-    question: 'Terminbelopet er 2 500 kr og renten er 800 kr. Hvor mye gar til avdrag?',
+    question: 'Terminbeløpet er 2 500 kr og renten er 800 kr. Hvor mye går til avdrag?',
     options: ['1 700 kr', '3 300 kr', '800 kr', '2 500 kr'],
-    explanation: 'Avdrag = Terminbelop - Rente = 2 500 - 800 = 1 700 kr.',
+    explanation: 'Avdrag $= \\text{Terminbeløp} - \\text{Rente} = 2\\,500 - 800 = 1\\,700$ kr.',
   },
 ],
 
   '2py-1-3': [
   {
-    question: 'Hva er mva-satsen pa matvarer i Norge?',
-    options: ['15%', '25%', '12%', '0%'],
+    question: 'Hva er mva-satsen på matvarer i Norge?',
+    options: ['$15\\%$', '$25\\%$', '$12\\%$', '$0\\%$'],
     explanation: 'Mat og drikke har 15% mva i Norge. Generell sats er 25%.',
   },
   {
     question: 'En vare koster 1 250 kr inkl. 25% mva. Hva er prisen ekskl. mva?',
     options: ['1 000 kr', '937,50 kr', '1 562,50 kr', '1 250 kr'],
-    explanation: 'Pris ekskl. mva = 1 250 / 1,25 = 1 000 kr.',
+    explanation: 'Pris ekskl. mva $= \\frac{1\\,250}{1{,}25} = 1\\,000$ kr.',
   },
   {
-    question: 'Hva gar mva-inntektene til?',
+    question: 'Hva går mva-inntektene til?',
     options: ['Finansiere fellesgoder som skoler og helsetjenester', 'Bedriftenes overskudd', 'Kun veier', 'Kun forsvar'],
     explanation: 'Mva (merverdiavgift) er skatt som finansierer offentlige tjenester som skoler, helse, veier osv.',
   },
   {
     question: 'Pris ekskl. mva er 800 kr. Hva blir prisen inkl. 25% mva?',
     options: ['1 000 kr', '1 200 kr', '600 kr', '825 kr'],
-    explanation: 'Pris inkl. mva = 800 * 1,25 = 1 000 kr.',
+    explanation: 'Pris inkl. mva $= 800 \\cdot 1{,}25 = 1\\,000$ kr.',
   },
   {
     question: 'Hvilken mva-sats gjelder for persontransport?',
@@ -6619,80 +6619,80 @@ const quizData: Record<string, QuizQuestion[]> = {
 
   '2py-2-1': [
   {
-    question: 'I funksjonen f(x) = 3x + 50, hva representerer 3?',
-    options: ['Stigningstallet', 'Konstantleddet', 'Nullpunktet', 'y-verdien'],
-    explanation: 'I f(x) = ax + b er a stigningstallet. Her er 3 stigningstallet som viser okning per enhet.',
+    question: 'I funksjonen $f(x) = 3x + 50$, hva representerer 3?',
+    options: ['Stigningstallet', 'Konstantleddet', 'Nullpunktet', '$y$-verdien'],
+    explanation: 'I $f(x) = ax + b$ er $a$ stigningstallet. Her er 3 stigningstallet som viser økning per enhet.',
   },
   {
-    question: 'En elektriker tar 800 kr i utkjoring og 450 kr/time. Hva er funksjonen for totalpris?',
-    options: ['P(t) = 450t + 800', 'P(t) = 800t + 450', 'P(t) = 1250t', 'P(t) = 450t - 800'],
-    explanation: 'Pris = Timepris * timer + Fast kostnad = 450t + 800.',
+    question: 'En elektriker tar 800 kr i utkjøring og 450 kr/time. Hva er funksjonen for totalpris?',
+    options: ['$P(t) = 450t + 800$', '$P(t) = 800t + 450$', '$P(t) = 1250t$', '$P(t) = 450t - 800$'],
+    explanation: 'Pris $= \\text{Timepris} \\cdot \\text{timer} + \\text{Fast kostnad} = 450t + 800$.',
   },
   {
     question: 'Hva betyr negativt stigningstall?',
-    options: ['Linjen synker mot hoyre', 'Linjen stiger mot hoyre', 'Linjen er vannrett', 'Linjen er loddrett'],
-    explanation: 'Negativt stigningstall betyr at y-verdien synker nar x oker, altsa linjen gar nedover mot hoyre.',
+    options: ['Linjen synker mot høyre', 'Linjen stiger mot høyre', 'Linjen er vannrett', 'Linjen er loddrett'],
+    explanation: 'Negativt stigningstall betyr at $y$-verdien synker når $x$ øker, altså linjen går nedover mot høyre.',
   },
   {
     question: 'En taxitur kostet 330 kr. Startpris er 60 kr og kilometerpris er 18 kr. Hvor lang var turen?',
     options: ['15 km', '18 km', '270 km', '5 km'],
-    explanation: '18x + 60 = 330 gir 18x = 270, sa x = 15 km.',
+    explanation: '$18x + 60 = 330$ gir $18x = 270$, så $x = 15$ km.',
   },
   {
-    question: 'Konstantleddet i en linear funksjon viser:',
-    options: ['Hvor grafen krysser y-aksen', 'Stigningen pa linjen', 'Nullpunktet', 'Maksimumsverdien'],
-    explanation: 'Konstantleddet b i f(x) = ax + b er y-verdien nar x = 0, altsa hvor grafen krysser y-aksen.',
+    question: 'Konstantleddet i en lineær funksjon viser:',
+    options: ['Hvor grafen krysser $y$-aksen', 'Stigningen på linjen', 'Nullpunktet', 'Maksimumsverdien'],
+    explanation: 'Konstantleddet $b$ i $f(x) = ax + b$ er $y$-verdien når $x = 0$, altså hvor grafen krysser $y$-aksen.',
   },
 ],
 
   '2py-2-2': [
   {
     question: 'Hva er vekstfaktoren ved 18% nedgang?',
-    options: ['0,82', '1,18', '0,18', '1,82'],
-    explanation: 'Ved nedgang: Vekstfaktor = 1 - 0,18 = 0,82.',
+    options: ['$0{,}82$', '$1{,}18$', '$0{,}18$', '$1{,}82$'],
+    explanation: 'Ved nedgang: Vekstfaktor $= 1 - 0{,}18 = 0{,}82$.',
   },
   {
     question: 'En bil kostet 300 000 kr og har falt 25% i verdi. Hva er ny verdi?',
     options: ['225 000 kr', '75 000 kr', '375 000 kr', '200 000 kr'],
-    explanation: 'Ny verdi = 300 000 * 0,75 = 225 000 kr.',
+    explanation: 'Ny verdi $= 300\\,000 \\cdot 0{,}75 = 225\\,000$ kr.',
   },
   {
-    question: 'En vare okte 10% forste ar og 10% andre ar. Total okning er:',
-    options: ['21%', '20%', '100%', '11%'],
-    explanation: 'Vekstfaktor = 1,10 * 1,10 = 1,21, altsa 21% total okning (rentes rente-effekt).',
+    question: 'En vare økte 10% første år og 10% andre år. Total økning er:',
+    options: ['$21\\%$', '$20\\%$', '$100\\%$', '$11\\%$'],
+    explanation: 'Vekstfaktor $= 1{,}10 \\cdot 1{,}10 = 1{,}21$, altså 21% total økning (rentes rente-effekt).',
   },
   {
-    question: 'En maskin koster 200 000 kr og avskrives 15% arlig. Hva er verdien etter 2 ar?',
+    question: 'En maskin koster 200 000 kr og avskrives 15% årlig. Hva er verdien etter 2 år?',
     options: ['144 500 kr', '170 000 kr', '140 000 kr', '150 000 kr'],
-    explanation: 'Verdi = 200 000 * 0,85^2 = 200 000 * 0,7225 = 144 500 kr.',
+    explanation: 'Verdi $= 200\\,000 \\cdot 0{,}85^2 = 200\\,000 \\cdot 0{,}7225 = 144\\,500$ kr.',
   },
   {
     question: 'Prisen sank fra 500 kr til 400 kr. Hva var prosentvis nedgang?',
-    options: ['20%', '25%', '100 kr', '80%'],
-    explanation: 'Nedgang = (500-400)/500 * 100% = 100/500 * 100% = 20%.',
+    options: ['$20\\%$', '$25\\%$', '100 kr', '$80\\%$'],
+    explanation: 'Nedgang $= \\frac{500-400}{500} \\cdot 100\\% = \\frac{100}{500} \\cdot 100\\% = 20\\%$.',
   },
 ],
 
   '2py-2-3': [
   {
     question: 'Hva er break-even punktet?',
-    options: ['Nar inntekter = kostnader', 'Nar fortjenesten er maksimal', 'Nar kostnadene er null', 'Nar inntektene er null'],
-    explanation: 'Break-even er punktet der inntekter er lik kostnader, altsa null i fortjeneste eller tap.',
+    options: ['Når inntekter = kostnader', 'Når fortjenesten er maksimal', 'Når kostnadene er null', 'Når inntektene er null'],
+    explanation: 'Break-even er punktet der inntekter er lik kostnader, altså null i fortjeneste eller tap.',
   },
   {
     question: 'Faste kostnader er 10 000 kr/mnd og fortjeneste per enhet er 50 kr. Hvor mange enheter for break-even?',
     options: ['200 enheter', '500 enheter', '10 000 enheter', '50 enheter'],
-    explanation: 'Break-even: 10 000 / 50 = 200 enheter ma selges for a dekke faste kostnader.',
+    explanation: 'Break-even: $\\frac{10\\,000}{50} = 200$ enheter må selges for å dekke faste kostnader.',
   },
   {
-    question: 'I modellering, hva gjor vi etter a ha lost problemet matematisk?',
-    options: ['Vurderer om svaret er rimelig', 'Starter pa nytt', 'Ignorer svaret', 'Alltid runder opp'],
-    explanation: 'Etter beregning ma vi alltid vurdere om svaret gir mening i den praktiske situasjonen.',
+    question: 'I modellering, hva gjør vi etter å ha løst problemet matematisk?',
+    options: ['Vurderer om svaret er rimelig', 'Starter på nytt', 'Ignorer svaret', 'Alltid runder opp'],
+    explanation: 'Etter beregning må vi alltid vurdere om svaret gir mening i den praktiske situasjonen.',
   },
   {
-    question: 'Inntektsfunksjon er I(x) = 100x og kostnadsfunksjon er K(x) = 60x + 2000. Hva er fortjeneste ved 80 enheter?',
+    question: 'Inntektsfunksjon er $I(x) = 100x$ og kostnadsfunksjon er $K(x) = 60x + 2000$. Hva er fortjeneste ved 80 enheter?',
     options: ['1 200 kr', '8 000 kr', '4 800 kr', '3 200 kr'],
-    explanation: 'Fortjeneste = I(80) - K(80) = 8 000 - (4 800 + 2 000) = 8 000 - 6 800 = 1 200 kr.',
+    explanation: 'Fortjeneste $= I(80) - K(80) = 8\\,000 - (4\\,800 + 2\\,000) = 8\\,000 - 6\\,800 = 1\\,200$ kr.',
   },
   {
     question: 'Hvilken type kostnader endres med produksjonsmengden?',
@@ -6704,56 +6704,56 @@ const quizData: Record<string, QuizQuestion[]> = {
   '2py-3-1': [
   {
     question: 'Et rom er 5 m langt og 4 m bredt. Hva er arealet?',
-    options: ['20 m^2', '18 m', '9 m^2', '40 m^2'],
-    explanation: 'Areal = lengde * bredde = 5 * 4 = 20 m^2.',
+    options: ['$20 \\text{ m}^2$', '18 m', '$9 \\text{ m}^2$', '$40 \\text{ m}^2$'],
+    explanation: 'Areal $= \\text{lengde} \\cdot \\text{bredde} = 5 \\cdot 4 = 20 \\text{ m}^2$.',
   },
   {
     question: 'Hva er formelen for arealet av en trekant?',
-    options: ['A = (g * h) / 2', 'A = g * h', 'A = 2 * g * h', 'A = g + h'],
-    explanation: 'Arealet av en trekant er grunnlinje ganger hoyde delt pa 2.',
+    options: ['$A = \\frac{g \\cdot h}{2}$', '$A = g \\cdot h$', '$A = 2 \\cdot g \\cdot h$', '$A = g + h$'],
+    explanation: 'Arealet av en trekant er grunnlinje ganger høyde delt på 2.',
   },
   {
     question: 'En sirkel har radius 5 m. Hva er arealet?',
-    options: ['25pi m^2 (ca. 78,5 m^2)', '10pi m^2', '5pi m^2', '50pi m^2'],
-    explanation: 'Areal sirkel = pi * r^2 = pi * 25 = 25pi m^2.',
+    options: ['$25\\pi \\text{ m}^2$ (ca. 78,5 m$^2$)', '$10\\pi \\text{ m}^2$', '$5\\pi \\text{ m}^2$', '$50\\pi \\text{ m}^2$'],
+    explanation: 'Areal sirkel $= \\pi \\cdot r^2 = \\pi \\cdot 25 = 25\\pi \\text{ m}^2$.',
   },
   {
-    question: 'Malingen dekker 10 m^2/liter. Hvor mange liter trengs for 45 m^2 med to strok?',
+    question: 'Malingen dekker 10 m$^2$/liter. Hvor mange liter trengs for 45 m$^2$ med to strøk?',
     options: ['9 liter', '4,5 liter', '90 liter', '18 liter'],
-    explanation: 'For to strok: 45 * 2 = 90 m^2. Liter: 90 / 10 = 9 liter.',
+    explanation: 'For to strøk: $45 \\cdot 2 = 90 \\text{ m}^2$. Liter: $\\frac{90}{10} = 9$ liter.',
   },
   {
-    question: 'En gang er 8 m lang og 1,5 m bred. Laminat selges i pakker pa 2,4 m^2. Hvor mange pakker trengs?',
+    question: 'En gang er 8 m lang og 1,5 m bred. Laminat selges i pakker på 2,4 m$^2$. Hvor mange pakker trengs?',
     options: ['5 pakker', '4 pakker', '12 pakker', '3 pakker'],
-    explanation: 'Areal = 8 * 1,5 = 12 m^2. Pakker = 12 / 2,4 = 5 pakker.',
+    explanation: 'Areal $= 8 \\cdot 1{,}5 = 12 \\text{ m}^2$. Pakker $= \\frac{12}{2{,}4} = 5$ pakker.',
   },
 ],
 
   '2py-3-2': [
   {
-    question: 'Hva er volumet av en boks som er 2 m * 3 m * 1,5 m?',
-    options: ['9 m^3', '6,5 m^3', '6 m^3', '11 m^3'],
-    explanation: 'Volum = lengde * bredde * hoyde = 2 * 3 * 1,5 = 9 m^3.',
+    question: 'Hva er volumet av en boks som er $2 \\text{ m} \\times 3 \\text{ m} \\times 1{,}5 \\text{ m}$?',
+    options: ['$9 \\text{ m}^3$', '$6{,}5 \\text{ m}^3$', '$6 \\text{ m}^3$', '$11 \\text{ m}^3$'],
+    explanation: 'Volum $= \\text{lengde} \\cdot \\text{bredde} \\cdot \\text{høyde} = 2 \\cdot 3 \\cdot 1{,}5 = 9 \\text{ m}^3$.',
   },
   {
-    question: 'Hvor mange liter er 1 m^3?',
+    question: 'Hvor mange liter er 1 m$^3$?',
     options: ['1 000 liter', '100 liter', '10 liter', '10 000 liter'],
-    explanation: '1 m^3 = 1 000 liter. Dette er en viktig omregning a huske.',
+    explanation: '$1 \\text{ m}^3 = 1\\,000$ liter. Dette er en viktig omregning å huske.',
   },
   {
-    question: 'En sylinder har radius 2 m og hoyde 3 m. Hva er volumet?',
-    options: ['12pi m^3 (ca. 37,7 m^3)', '6pi m^3', '18pi m^3', '4pi m^3'],
-    explanation: 'Volum sylinder = pi * r^2 * h = pi * 4 * 3 = 12pi m^3.',
+    question: 'En sylinder har radius 2 m og høyde 3 m. Hva er volumet?',
+    options: ['$12\\pi \\text{ m}^3$ (ca. 37,7 m$^3$)', '$6\\pi \\text{ m}^3$', '$18\\pi \\text{ m}^3$', '$4\\pi \\text{ m}^3$'],
+    explanation: 'Volum sylinder $= \\pi \\cdot r^2 \\cdot h = \\pi \\cdot 4 \\cdot 3 = 12\\pi \\text{ m}^3$.',
   },
   {
     question: 'Hva er overflatearealet av en kube med side 3 m?',
-    options: ['54 m^2', '27 m^2', '9 m^2', '81 m^2'],
-    explanation: 'Overflate kube = 6 * s^2 = 6 * 9 = 54 m^2.',
+    options: ['$54 \\text{ m}^2$', '$27 \\text{ m}^2$', '$9 \\text{ m}^2$', '$81 \\text{ m}^2$'],
+    explanation: 'Overflate kube $= 6 \\cdot s^2 = 6 \\cdot 9 = 54 \\text{ m}^2$.',
   },
   {
-    question: 'Betong koster 1 800 kr/m^3. Hva koster 2,5 m^3 betong?',
+    question: 'Betong koster 1 800 kr/m$^3$. Hva koster 2,5 m$^3$ betong?',
     options: ['4 500 kr', '720 kr', '7 200 kr', '4 050 kr'],
-    explanation: 'Kostnad = 2,5 * 1 800 = 4 500 kr.',
+    explanation: 'Kostnad $= 2{,}5 \\cdot 1\\,800 = 4\\,500$ kr.',
   },
 ],
 
@@ -6761,55 +6761,55 @@ const quizData: Record<string, QuizQuestion[]> = {
   {
     question: 'En rettvinklet trekant har kateter 3 m og 4 m. Hvor lang er hypotenusen?',
     options: ['5 m', '7 m', '12 m', '25 m'],
-    explanation: 'Pytagoras: c^2 = 3^2 + 4^2 = 9 + 16 = 25, sa c = 5 m.',
+    explanation: 'Pytagoras: $c^2 = 3^2 + 4^2 = 9 + 16 = 25$, så $c = 5$ m.',
   },
   {
     question: 'Hva er formelen for sinus i en rettvinklet trekant?',
-    options: ['sin(v) = motstaaende/hypotenus', 'sin(v) = hosliggende/hypotenus', 'sin(v) = motstaaende/hosliggende', 'sin(v) = hypotenus/motstaaende'],
-    explanation: 'Sinus = motstaaende katet delt pa hypotenusen. Huskeregel: SOH-CAH-TOA.',
+    options: ['$\\sin(v) = \\frac{\\text{motstående}}{\\text{hypotenus}}$', '$\\sin(v) = \\frac{\\text{hosliggende}}{\\text{hypotenus}}$', '$\\sin(v) = \\frac{\\text{motstående}}{\\text{hosliggende}}$', '$\\sin(v) = \\frac{\\text{hypotenus}}{\\text{motstående}}$'],
+    explanation: 'Sinus = motstående katet delt på hypotenusen. Huskeregel: SOH-CAH-TOA.',
   },
   {
-    question: 'En stige pa 5 m star 3 m fra veggen. Hvor hoyt rekker stigen?',
+    question: 'En stige på 5 m står 3 m fra veggen. Hvor høyt rekker stigen?',
     options: ['4 m', '8 m', '2 m', '16 m'],
-    explanation: 'Pytagoras: h^2 = 5^2 - 3^2 = 25 - 9 = 16, sa h = 4 m.',
+    explanation: 'Pytagoras: $h^2 = 5^2 - 3^2 = 25 - 9 = 16$, så $h = 4$ m.',
   },
   {
     question: 'En rampe har 8% stigning. Hva er vinkelen (ca.)?',
-    options: ['4,6 grader', '8 grader', '45 grader', '80 grader'],
-    explanation: 'tan(v) = 0,08 gir v = arctan(0,08) ca. 4,6 grader.',
+    options: ['$4{,}6°$', '$8°$', '$45°$', '$80°$'],
+    explanation: '$\\tan(v) = 0{,}08$ gir $v = \\arctan(0{,}08) \\approx 4{,}6°$.',
   },
   {
-    question: 'Takvinkel er 30 grader og halv spennvidde er 4 m. Hvor hoy er monen?',
+    question: 'Takvinkel er 30° og halv spennvidde er 4 m. Hvor høy er mønen?',
     options: ['Ca. 2,3 m', 'Ca. 4 m', 'Ca. 8 m', 'Ca. 1 m'],
-    explanation: 'tan(30 grader) = h/4 gir h = 4 * tan(30 grader) = 4 * 0,577 = ca. 2,3 m.',
+    explanation: '$\\tan(30°) = \\frac{h}{4}$ gir $h = 4 \\cdot \\tan(30°) = 4 \\cdot 0{,}577 \\approx 2{,}3$ m.',
   },
 ],
 
   '2py-4-1': [
   {
     question: 'Hva er en frekvenstabell?',
-    options: ['Tabell som viser hvor ofte hver verdi forekommer', 'Tabell med alle maleresultater', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
+    options: ['Tabell som viser hvor ofte hver verdi forekommer', 'Tabell med alle måleresultater', 'Tabell med kun gjennomsnittet', 'Tabell med standardavvik'],
     explanation: 'En frekvenstabell organiserer data og viser frekvensen (antall ganger) hver verdi eller klasse forekommer.',
   },
   {
     question: 'Hva er populasjon i statistikk?',
-    options: ['Hele gruppen vi onsker a si noe om', 'En del av gruppen', 'En enkelt maling', 'Gjennomsnittet'],
-    explanation: 'Populasjon er hele gruppen vi onsker a undersoke. Utvalg er en del av populasjonen.',
+    options: ['Hele gruppen vi ønsker å si noe om', 'En del av gruppen', 'En enkelt måling', 'Gjennomsnittet'],
+    explanation: 'Populasjon er hele gruppen vi ønsker å undersøke. Utvalg er en del av populasjonen.',
   },
   {
     question: 'Hvilken diagramtype viser utvikling over tid best?',
     options: ['Linjediagram', 'Kakediagram', 'Histogram', 'Punktdiagram'],
-    explanation: 'Linjediagram er best for a vise hvordan noe utvikler seg over tid.',
+    explanation: 'Linjediagram er best for å vise hvordan noe utvikler seg over tid.',
   },
   {
-    question: 'I en undersokelse var 12 av 60 svar negative. Hva er prosentandelen negative?',
-    options: ['20%', '12%', '48%', '5%'],
-    explanation: 'Prosent = (12/60) * 100% = 20%.',
+    question: 'I en undersøkelse var 12 av 60 svar negative. Hva er prosentandelen negative?',
+    options: ['$20\\%$', '$12\\%$', '$48\\%$', '$5\\%$'],
+    explanation: 'Prosent $= \\frac{12}{60} \\cdot 100\\% = 20\\%$.',
   },
   {
-    question: 'Hva er forskjellen mellom soyle- og stolpediagram?',
-    options: ['Soylediagram har horisontale soyle, stolpediagram har vertikale', 'De er like', 'Soylediagram brukes kun for prosent', 'Stolpediagram viser bare to verdier'],
-    explanation: 'I praksis brukes begrepene ofte om hverandre, men soylediagram har ofte horisontale soyle.',
+    question: 'Hva er forskjellen mellom søyle- og stolpediagram?',
+    options: ['Søylediagram har horisontale søyler, stolpediagram har vertikale', 'De er like', 'Søylediagram brukes kun for prosent', 'Stolpediagram viser bare to verdier'],
+    explanation: 'I praksis brukes begrepene ofte om hverandre, men søylediagram har ofte horisontale søyler.',
   },
 ],
 
@@ -6825,19 +6825,19 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Typetallet er verdien som forekommer oftest. 5 forekommer 3 ganger.',
   },
   {
-    question: 'Hva maler variasjonsbredden?',
-    options: ['Storste verdi minus minste verdi', 'Gjennomsnittet', 'Medianen', 'Standardavviket'],
-    explanation: 'Variasjonsbredde = max - min. Det er et enkelt spredningsmol.',
+    question: 'Hva måler variasjonsbredden?',
+    options: ['Største verdi minus minste verdi', 'Gjennomsnittet', 'Medianen', 'Standardavviket'],
+    explanation: 'Variasjonsbredde $= \\max - \\min$. Det er et enkelt spredningsmål.',
   },
   {
-    question: 'Hvilket sentralmol pavirkes mest av ekstremverdier?',
-    options: ['Gjennomsnitt', 'Median', 'Typetall', 'Alle pavirkes likt'],
-    explanation: 'Gjennomsnittet pavirkes mest av ekstremverdier. Median er mer robust.',
+    question: 'Hvilket sentralmål påvirkes mest av ekstremverdier?',
+    options: ['Gjennomsnitt', 'Median', 'Typetall', 'Alle påvirkes likt'],
+    explanation: 'Gjennomsnittet påvirkes mest av ekstremverdier. Median er mer robust.',
   },
   {
     question: 'Datasettet har verdier fra 10 til 45. Hva er variasjonsbredden?',
-    options: ['35', '55', '27,5', '10'],
-    explanation: 'Variasjonsbredde = 45 - 10 = 35.',
+    options: ['$35$', '$55$', '$27{,}5$', '$10$'],
+    explanation: 'Variasjonsbredde $= 45 - 10 = 35$.',
   },
 ],
 
@@ -6849,51 +6849,51 @@ const quizData: Record<string, QuizQuestion[]> = {
   },
   {
     question: '3 av 100 produkter har feil. Hva er sannsynligheten for feil?',
-    options: ['0,03 (3%)', '0,30 (30%)', '0,003', '3'],
-    explanation: 'P(feil) = 3/100 = 0,03 = 3%.',
+    options: ['$0{,}03$ (3%)', '$0{,}30$ (30%)', '$0{,}003$', '$3$'],
+    explanation: '$P(\\text{feil}) = \\frac{3}{100} = 0{,}03 = 3\\%$.',
   },
   {
-    question: 'P(A) = 0,25. Hva er P(ikke A)?',
-    options: ['0,75', '0,25', '1,25', '0'],
-    explanation: 'P(ikke A) = 1 - P(A) = 1 - 0,25 = 0,75.',
+    question: '$P(A) = 0{,}25$. Hva er $P(\\text{ikke } A)$?',
+    options: ['$0{,}75$', '$0{,}25$', '$1{,}25$', '$0$'],
+    explanation: '$P(\\text{ikke } A) = 1 - P(A) = 1 - 0{,}25 = 0{,}75$.',
   },
   {
     question: 'Sannsynligheten for regn er 40%. Hvor mange dager med regn kan forventes i en 30-dagersperiode?',
     options: ['12 dager', '40 dager', '4 dager', '18 dager'],
-    explanation: 'Forventet antall = 30 * 0,40 = 12 dager.',
+    explanation: 'Forventet antall $= 30 \\cdot 0{,}40 = 12$ dager.',
   },
   {
     question: 'Hva betyr relativ frekvens?',
-    options: ['Antall ganger delt pa totalt antall forsok', 'Antall gunstige utfall', 'Sannsynlighet ganger 100', 'Medianen av utfallene'],
-    explanation: 'Relativ frekvens = Antall ganger hendelsen skjer / Totalt antall forsok.',
+    options: ['Antall ganger delt på totalt antall forsøk', 'Antall gunstige utfall', 'Sannsynlighet ganger 100', 'Medianen av utfallene'],
+    explanation: 'Relativ frekvens $= \\frac{\\text{Antall ganger hendelsen skjer}}{\\text{Totalt antall forsøk}}$.',
   },
 ],
 
   '2py-5-2': [
   {
     question: 'Hvordan beregnes risikotall?',
-    options: ['Sannsynlighet * Konsekvens', 'Sannsynlighet + Konsekvens', 'Sannsynlighet / Konsekvens', 'Konsekvens - Sannsynlighet'],
-    explanation: 'Risikotall = Sannsynlighet * Konsekvens. Brukes i risikovurderinger.',
+    options: ['$\\text{Sannsynlighet} \\cdot \\text{Konsekvens}$', '$\\text{Sannsynlighet} + \\text{Konsekvens}$', '$\\text{Sannsynlighet} / \\text{Konsekvens}$', '$\\text{Konsekvens} - \\text{Sannsynlighet}$'],
+    explanation: 'Risikotall $= \\text{Sannsynlighet} \\cdot \\text{Konsekvens}$. Brukes i risikovurderinger.',
   },
   {
     question: 'En hendelse har sannsynlighet 3 og konsekvens 4. Hva er risikotallet?',
-    options: ['12', '7', '1', '34'],
-    explanation: 'Risikotall = 3 * 4 = 12.',
+    options: ['$12$', '$7$', '$1$', '$34$'],
+    explanation: 'Risikotall $= 3 \\cdot 4 = 12$.',
   },
   {
-    question: 'I en risikomatrise, hva prioriteres forst?',
-    options: ['Hoyest risikotall', 'Lavest risikotall', 'Hoyest sannsynlighet alene', 'Tilfeldig'],
-    explanation: 'Hendelser med hoyest risikotall bor prioriteres for tiltak forst.',
+    question: 'I en risikomatrise, hva prioriteres først?',
+    options: ['Høyest risikotall', 'Lavest risikotall', 'Høyest sannsynlighet alene', 'Tilfeldig'],
+    explanation: 'Hendelser med høyest risikotall bør prioriteres for tiltak først.',
   },
   {
-    question: 'Sannsynlighet for ulykke er 2% og gjennomsnittlig kostnad er 50 000 kr. Hva er forventet arlig kostnad?',
+    question: 'Sannsynlighet for ulykke er 2% og gjennomsnittlig kostnad er 50 000 kr. Hva er forventet årlig kostnad?',
     options: ['1 000 kr', '2 500 kr', '50 000 kr', '100 000 kr'],
-    explanation: 'Forventet kostnad = 0,02 * 50 000 = 1 000 kr per ar.',
+    explanation: 'Forventet kostnad $= 0{,}02 \\cdot 50\\,000 = 1\\,000$ kr per år.',
   },
   {
     question: 'Hvorfor brukes risikovurdering i HMS-arbeid?',
-    options: ['For a identifisere og prioritere farer', 'For a okte produksjonen', 'For a spare penger', 'Det er ikke nødvendig'],
-    explanation: 'Risikovurdering hjelper med a identifisere farer og prioritere tiltak for a forebygge ulykker.',
+    options: ['For å identifisere og prioritere farer', 'For å øke produksjonen', 'For å spare penger', 'Det er ikke nødvendig'],
+    explanation: 'Risikovurdering hjelper med å identifisere farer og prioritere tiltak for å forebygge ulykker.',
   },
 ],
 
@@ -6904,24 +6904,24 @@ const quizData: Record<string, QuizQuestion[]> = {
     explanation: 'Trevirke har typisk 10-15% svinn pga. kapping, feil og spill.',
   },
   {
-    question: 'Gulv er 20 m^2. Med 10% svinn, hvor mye materiale trengs?',
-    options: ['22 m^2', '20 m^2', '18 m^2', '30 m^2'],
-    explanation: 'Med 10% svinn: 20 * 1,10 = 22 m^2.',
+    question: 'Gulv er 20 m$^2$. Med 10% svinn, hvor mye materiale trengs?',
+    options: ['$22 \\text{ m}^2$', '$20 \\text{ m}^2$', '$18 \\text{ m}^2$', '$30 \\text{ m}^2$'],
+    explanation: 'Med 10% svinn: $20 \\cdot 1{,}10 = 22 \\text{ m}^2$.',
   },
   {
-    question: 'Fliser er 30 cm * 30 cm. Hvor mange trengs for 5,4 m^2?',
+    question: 'Fliser er $30 \\text{ cm} \\times 30 \\text{ cm}$. Hvor mange trengs for 5,4 m$^2$?',
     options: ['60 fliser', '18 fliser', '5,4 fliser', '180 fliser'],
-    explanation: 'Areal per flis = 0,3 * 0,3 = 0,09 m^2. Antall = 5,4 / 0,09 = 60 fliser.',
+    explanation: 'Areal per flis $= 0{,}3 \\cdot 0{,}3 = 0{,}09 \\text{ m}^2$. Antall $= \\frac{5{,}4}{0{,}09} = 60$ fliser.',
   },
   {
     question: 'Kabel koster 85 kr/m. Hvor mye koster 38 m med 8% svinn?',
     options: ['3 488,40 kr', '3 230 kr', '3 808 kr', '85 kr'],
-    explanation: 'Med svinn: 38 * 1,08 = 41,04 m. Kostnad: 41,04 * 85 = 3 488,40 kr.',
+    explanation: 'Med svinn: $38 \\cdot 1{,}08 = 41{,}04$ m. Kostnad: $41{,}04 \\cdot 85 = 3\\,488{,}40$ kr.',
   },
   {
     question: 'Hvorfor legger vi til svinn i materialberegninger?',
-    options: ['For a dekke kapp, feil og spill', 'For a fa rabatt', 'For a redusere kostnadene', 'Det er ikke nødvendig'],
-    explanation: 'Svinn dekker materiale som gar tapt ved kapping, malefeil og spill under arbeidet.',
+    options: ['For å dekke kapp, feil og spill', 'For å få rabatt', 'For å redusere kostnadene', 'Det er ikke nødvendig'],
+    explanation: 'Svinn dekker materiale som går tapt ved kapping, målefeil og spill under arbeidet.',
   },
 ],
 
