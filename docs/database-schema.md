@@ -109,6 +109,7 @@ CREATE TABLE quiz_results (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   user_id UUID REFERENCES users(id) ON DELETE CASCADE,
   quiz_id TEXT NOT NULL,
+  course_id TEXT NOT NULL,
   score INTEGER NOT NULL,
   total_questions INTEGER NOT NULL,
   answers JSONB NOT NULL,
@@ -116,6 +117,17 @@ CREATE TABLE quiz_results (
 );
 
 CREATE INDEX idx_quiz_results_user ON quiz_results(user_id);
+CREATE INDEX idx_quiz_results_quiz ON quiz_results(quiz_id);
+CREATE INDEX idx_quiz_results_course ON quiz_results(course_id);
+```
+
+**Migrasjon fra gammel versjon** (hvis tabellen allerede eksisterer):
+```sql
+ALTER TABLE quiz_results ADD COLUMN IF NOT EXISTS course_id TEXT;
+UPDATE quiz_results SET course_id = '' WHERE course_id IS NULL;
+ALTER TABLE quiz_results ALTER COLUMN course_id SET NOT NULL;
+CREATE INDEX IF NOT EXISTS idx_quiz_results_quiz ON quiz_results(quiz_id);
+CREATE INDEX IF NOT EXISTS idx_quiz_results_course ON quiz_results(course_id);
 ```
 
 ## Row Level Security (RLS)

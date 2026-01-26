@@ -43,7 +43,7 @@ export function useAuth() {
   const router = useRouter();
 
   const login = useCallback(
-    async (provider: "credentials" | "google" | "microsoft" | "feide", credentials?: { email: string; password: string }) => {
+    async (provider: "credentials" | "google" | "feide", credentials?: { email: string; password: string }) => {
       if (provider === "credentials" && credentials) {
         const result = await signIn("credentials", {
           ...credentials,

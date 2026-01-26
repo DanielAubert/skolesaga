@@ -15,7 +15,7 @@ import {
   Headphones,
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
-import type { TextbookContentBlock, TextbookExercise, SignDiagramBlock, ExampleSolutionBlock, IllustrationBlock, ImageBlock } from '@/lib/types/textbook';
+import type { TextbookContentBlock, TextbookExercise, SignDiagramBlock, ExampleSolutionBlock, IllustrationBlock, ImageBlock, AsymptoteBlock } from '@/lib/types/textbook';
 import { useIllustrationApproval } from '@/lib/illustration-approval-context';
 import { LatexRenderer } from './latex-renderer';
 import { TextbookExerciseItem } from './textbook-exercise-item';
@@ -38,6 +38,11 @@ import {
   RightTriangleIllustration,
   TriangleTypesOverviewIllustration,
 } from './illustrations/triangle-illustrations';
+import {
+  QuadrantsIllustration,
+  PointsPlottingIllustration,
+  BasicCoordinateSystemIllustration,
+} from './illustrations/coordinate-system-illustrations';
 
 // Dynamisk import av GeoGebra for å unngå SSR-problemer
 const GeoGebraEmbed = dynamic(
@@ -73,21 +78,18 @@ function FilteredImageBlock({ block }: { block: ImageBlock }) {
   return <ImageBlockComponent block={block} />;
 }
 
-// Wrapper komponent for å filtrere illustrasjoner - kun godkjente vises
+// Wrapper komponent for å filtrere illustrasjoner - skjul kun avviste
 function FilteredIllustrationBlock({ block }: { block: IllustrationBlock }) {
-  const { approvals, isLoading } = useIllustrationApproval();
-
-  // Sjekk om illustrasjonen er godkjent
-  const approval = approvals[block.id];
-  const isApproved = approval?.status === 'approved';
+  const { isApproved, isLoading } = useIllustrationApproval();
 
   // Mens vi laster, vis ingenting (for å unngå flash av ikke-godkjente illustrasjoner)
   if (isLoading) {
     return null;
   }
 
-  // Kun vis godkjente illustrasjoner
-  if (!isApproved) {
+  // Skjul kun illustrasjoner som er eksplisitt avvist
+  // Illustrasjoner uten godkjenningsstatus vises (pending)
+  if (!isApproved(block.id)) {
     return null;
   }
 
@@ -131,6 +133,8 @@ export function ContentBlockRenderer({ block, chapterId, courseId, viewingAsStud
       return <SignDiagramBlockComponent block={block} />;
     case 'illustration':
       return <FilteredIllustrationBlock block={block} />;
+    case 'asymptote':
+      return <AsymptoteBlockComponent block={block} />;
     default:
       return null;
   }
@@ -605,6 +609,74 @@ function ImageBlockComponent({ block }: { block: ImageBlock }) {
 }
 
 // ============================================================================
+// Asymptote-figur
+// ============================================================================
+
+function AsymptoteBlockComponent({ block }: { block: AsymptoteBlock }) {
+  const [showCode, setShowCode] = useState(false);
+  const [imageError, setImageError] = useState(false);
+
+  return (
+    <figure className="my-6">
+      {block.title && (
+        <div className="text-center text-sm font-medium text-muted-foreground mb-2">
+          {block.title}
+        </div>
+      )}
+      <div className="flex justify-center">
+        {imageError ? (
+          <div className="p-4 border border-dashed border-muted-foreground/30 rounded-lg text-center text-muted-foreground">
+            <p>Kunne ikke laste figuren</p>
+            <p className="text-xs mt-1">{block.svgPath}</p>
+          </div>
+        ) : (
+          /* eslint-disable-next-line @next/next/no-img-element */
+          <img
+            src={block.svgPath}
+            alt={block.caption || block.title || 'Asymptote-figur'}
+            className="max-w-full h-auto"
+            style={block.width ? { maxWidth: block.width } : undefined}
+            onError={() => setImageError(true)}
+          />
+        )}
+      </div>
+      {block.caption && (
+        <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
+          {block.caption}
+        </figcaption>
+      )}
+      {block.showCode && (
+        <div className="mt-4 max-w-2xl mx-auto">
+          <Button
+            variant="ghost"
+            size="sm"
+            onClick={() => setShowCode(!showCode)}
+            className="text-xs text-muted-foreground"
+          >
+            {showCode ? (
+              <>
+                <ChevronUp className="h-3 w-3 mr-1" />
+                Skjul Asymptote-kode
+              </>
+            ) : (
+              <>
+                <ChevronDown className="h-3 w-3 mr-1" />
+                Vis Asymptote-kode
+              </>
+            )}
+          </Button>
+          {showCode && (
+            <pre className="mt-2 p-4 bg-slate-900 text-slate-100 rounded-lg overflow-x-auto text-xs">
+              <code>{block.code}</code>
+            </pre>
+          )}
+        </div>
+      )}
+    </figure>
+  );
+}
+
+// ============================================================================
 // Formel
 // ============================================================================
 
@@ -890,6 +962,10 @@ const ILLUSTRATIONS: Record<string, React.ComponentType<{ className?: string }>>
   'triangle-isosceles': IsoscelesTriangleIllustration,
   'triangle-right': RightTriangleIllustration,
   'triangle-types-overview': TriangleTypesOverviewIllustration,
+  // Koordinatsystem-illustrasjoner
+  'coordinate-quadrants': QuadrantsIllustration,
+  'coordinate-points-abcd': PointsPlottingIllustration,
+  'coordinate-basic': BasicCoordinateSystemIllustration,
 };
 
 function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
@@ -902,9 +978,11 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
   if (typeof block.illustrationId !== 'string' && block.illustrationId.svgContent) {
     return (
       <figure className="my-6">
-        <div className="flex justify-center" dangerouslySetInnerHTML={{ __html: block.illustrationId.svgContent }} />
+        <div className="flex justify-center">
+          <div className="max-w-full w-full sm:max-w-sm md:max-w-md" dangerouslySetInnerHTML={{ __html: block.illustrationId.svgContent }} />
+        </div>
         {block.caption && (
-          <figcaption className="text-center text-sm text-muted-foreground mt-2">
+          <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
             {block.caption}
           </figcaption>
         )}
@@ -922,10 +1000,10 @@ function IllustrationBlockComponent({ block }: { block: IllustrationBlock }) {
   return (
     <figure className="my-6">
       <div className="flex justify-center">
-        <IllustrationComponent className="max-w-full h-auto" />
+        <IllustrationComponent className="max-w-full h-auto w-full sm:max-w-sm md:max-w-md" />
       </div>
       {block.caption && (
-        <figcaption className="text-center text-sm text-muted-foreground mt-2">
+        <figcaption className="text-center text-sm text-muted-foreground mt-2 max-w-md mx-auto">
           {block.caption}
         </figcaption>
       )}

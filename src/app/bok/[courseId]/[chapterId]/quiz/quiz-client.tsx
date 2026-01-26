@@ -173,6 +173,37 @@ export function QuizClient({
     );
   }
 
+  // Save quiz result to database when showing results
+  useEffect(() => {
+    if (showResults && problems.length > 0) {
+      const saveQuizResult = async () => {
+        try {
+          const answers = problems.map((p) => ({
+            questionId: p.id,
+            selectedOption: p.userAnswer ?? -1,
+            isCorrect: p.isCorrect ?? false,
+          }));
+
+          await fetch("/api/textbook/quiz-results", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              quizId: chapterId,
+              courseId,
+              score,
+              totalQuestions: problems.length,
+              answers,
+            }),
+          });
+        } catch (error) {
+          console.error("Failed to save quiz result:", error);
+        }
+      };
+
+      saveQuizResult();
+    }
+  }, [showResults, score, problems, chapterId, courseId]);
+
   // Show results screen
   if (showResults) {
     const percentage = Math.round((score / problems.length) * 100);

@@ -4451,6 +4451,381 @@ $$f'(a) \\approx \\frac{f(a+h) - f(a-h)}{2h}$$
   exercises: [],
 };
 
+// ============================================================================
+// KAPITTEL 3.4: L'Hôpitals regel
+// ============================================================================
+
+export const CHAPTER_R1_3_4: TextbookChapter = {
+  id: 'r1-3-4',
+  courseId: 'r1',
+  chapterNumber: '3.4',
+  title: "L'Hôpitals regel",
+  description: "Lær å beregne grenseverdier av ubestemte former som 0/0 og ∞/∞ ved hjelp av L'Hôpitals regel.",
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner',
+  ],
+  content: [
+    {
+      id: 'r1-3-4-intro',
+      type: 'text',
+      content: `## Ubestemte former
+
+Når vi skal beregne grenseverdier, møter vi noen ganger **ubestemte former** – uttrykk der vanlige regneregler ikke gir oss svaret direkte.
+
+**De vanligste ubestemte formene:**
+- $\\frac{0}{0}$ – både teller og nevner går mot 0
+- $\\frac{\\infty}{\\infty}$ – både teller og nevner går mot uendelig
+
+**Eksempel på ubestemt form:**
+$$\\lim_{x \\to 0} \\frac{\\sin x}{x}$$
+
+Når $x \\to 0$: Teller $\\sin x \\to 0$ og nevner $x \\to 0$. Vi får $\\frac{0}{0}$, som er ubestemt.
+
+**L'Hôpitals regel** gir oss et kraftig verktøy for å løse slike grenseverdier.`,
+    },
+    {
+      id: 'r1-3-4-def-1',
+      type: 'definition',
+      title: "L'Hôpitals regel",
+      content: `Hvis $\\lim_{x \\to a} \\frac{f(x)}{g(x)}$ gir en ubestemt form $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, og hvis $\\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$ eksisterer, så er:
+
+$$\\lim_{x \\to a} \\frac{f(x)}{g(x)} = \\lim_{x \\to a} \\frac{f'(x)}{g'(x)}$$
+
+**Viktig:** Vi deriverer teller og nevner **hver for seg**, ikke som en brøk!
+
+Regelen gjelder også for $x \\to \\pm\\infty$.`,
+    },
+    {
+      id: 'r1-3-4-example-1',
+      type: 'example',
+      title: 'Eksempel 1: Klassisk grenseverdi',
+      problem: `Beregn $\\lim_{x \\to 0} \\frac{\\sin x}{x}$`,
+      solution: `**Sjekk ubestemt form:**
+- Teller: $\\sin 0 = 0$
+- Nevner: $0$
+- Form: $\\frac{0}{0}$ ✓
+
+**Bruk L'Hôpitals regel:**
+$$\\lim_{x \\to 0} \\frac{\\sin x}{x} = \\lim_{x \\to 0} \\frac{(\\sin x)'}{(x)'} = \\lim_{x \\to 0} \\frac{\\cos x}{1} = \\cos 0 = 1$$
+
+**Svar:** $\\lim_{x \\to 0} \\frac{\\sin x}{x} = 1$`,
+    },
+    {
+      id: 'r1-3-4-example-2',
+      type: 'example',
+      title: 'Eksempel 2: Eksponentialfunksjon',
+      problem: `Beregn $\\lim_{x \\to 0} \\frac{e^x - 1}{x}$`,
+      solution: `**Sjekk ubestemt form:**
+- Teller: $e^0 - 1 = 0$
+- Nevner: $0$
+- Form: $\\frac{0}{0}$ ✓
+
+**Bruk L'Hôpitals regel:**
+$$\\lim_{x \\to 0} \\frac{e^x - 1}{x} = \\lim_{x \\to 0} \\frac{(e^x - 1)'}{(x)'} = \\lim_{x \\to 0} \\frac{e^x}{1} = e^0 = 1$$
+
+**Svar:** $\\lim_{x \\to 0} \\frac{e^x - 1}{x} = 1$`,
+    },
+    {
+      id: 'r1-3-4-example-3',
+      type: 'example',
+      title: 'Eksempel 3: Uendelig/uendelig',
+      problem: `Beregn $\\lim_{x \\to \\infty} \\frac{x^2}{e^x}$`,
+      solution: `**Sjekk ubestemt form:**
+- Teller: $x^2 \\to \\infty$
+- Nevner: $e^x \\to \\infty$
+- Form: $\\frac{\\infty}{\\infty}$ ✓
+
+**Første anvendelse av L'Hôpitals regel:**
+$$\\lim_{x \\to \\infty} \\frac{x^2}{e^x} = \\lim_{x \\to \\infty} \\frac{2x}{e^x}$$
+
+Fortsatt $\\frac{\\infty}{\\infty}$, så vi bruker regelen igjen:
+
+**Andre anvendelse:**
+$$\\lim_{x \\to \\infty} \\frac{2x}{e^x} = \\lim_{x \\to \\infty} \\frac{2}{e^x} = 0$$
+
+**Svar:** $\\lim_{x \\to \\infty} \\frac{x^2}{e^x} = 0$
+
+**Tolkning:** Eksponentialfunksjonen vokser raskere enn ethvert polynom.`,
+    },
+    {
+      id: 'r1-3-4-example-4',
+      type: 'example',
+      title: 'Eksempel 4: Logaritme',
+      problem: `Beregn $\\lim_{x \\to \\infty} \\frac{\\ln x}{x}$`,
+      solution: `**Sjekk ubestemt form:**
+- Teller: $\\ln x \\to \\infty$
+- Nevner: $x \\to \\infty$
+- Form: $\\frac{\\infty}{\\infty}$ ✓
+
+**Bruk L'Hôpitals regel:**
+$$\\lim_{x \\to \\infty} \\frac{\\ln x}{x} = \\lim_{x \\to \\infty} \\frac{1/x}{1} = \\lim_{x \\to \\infty} \\frac{1}{x} = 0$$
+
+**Svar:** $\\lim_{x \\to \\infty} \\frac{\\ln x}{x} = 0$
+
+**Tolkning:** Logaritmen vokser langsommere enn lineære funksjoner.`,
+    },
+    {
+      id: 'r1-3-4-advarsel',
+      type: 'definition',
+      title: 'Viktige advarsler',
+      content: `**Når kan du IKKE bruke L'Hôpitals regel:**
+
+1. **Ikke ubestemt form:** Hvis grenseverdien ikke er $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$, gir regelen feil svar!
+
+2. **Derivert eksisterer ikke:** Hvis $f'(x)$ eller $g'(x)$ ikke eksisterer nær $a$.
+
+3. **Grenseverdien av deriverte eksisterer ikke:** Selv om regelen kan brukes, må $\\lim \\frac{f'}{g'}$ eksistere.
+
+**Eksempel på feil bruk:**
+$\\lim_{x \\to 1} \\frac{x^2 - 1}{x - 1}$
+
+Dette er $\\frac{0}{0}$, men det er enklere å faktorisere:
+$\\frac{(x-1)(x+1)}{x-1} = x + 1 \\to 2$`,
+    },
+    {
+      id: 'r1-3-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: "Bruk L'Hôpitals regel til å beregne følgende grenseverdier.",
+        subTasks: [
+          { label: 'a', task: '$\\lim_{x \\to 0} \\frac{1 - \\cos x}{x^2}$', solution: "Ubestemt form $\\frac{0}{0}$. L'Hôpital: $\\frac{\\sin x}{2x}$, fortsatt $\\frac{0}{0}$. Igjen: $\\frac{\\cos x}{2} = \\frac{1}{2}$" },
+          { label: 'b', task: '$\\lim_{x \\to 0} \\frac{e^x - 1 - x}{x^2}$', solution: "Ubestemt $\\frac{0}{0}$. L'Hôpital: $\\frac{e^x - 1}{2x}$, fortsatt $\\frac{0}{0}$. Igjen: $\\frac{e^x}{2} = \\frac{1}{2}$" },
+          { label: 'c', task: '$\\lim_{x \\to 0} \\frac{\\tan x - x}{x^3}$', solution: "Bruk L'Hôpital tre ganger: $\\frac{\\sec^2 x - 1}{3x^2} = \\frac{\\tan^2 x}{3x^2}$, deretter $\\frac{2\\tan x \\sec^2 x}{6x}$, osv. Svar: $\\frac{1}{3}$" },
+        ],
+        hints: ["Sjekk alltid at du har ubestemt form før du bruker L'Hôpitals regel"],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beregn grenseverdiene.',
+        subTasks: [
+          { label: 'a', task: '$\\lim_{x \\to \\infty} \\frac{x^3}{e^x}$', solution: "Bruk L'Hôpital tre ganger: $\\frac{3x^2}{e^x} \\to \\frac{6x}{e^x} \\to \\frac{6}{e^x} = 0$" },
+          { label: 'b', task: '$\\lim_{x \\to 0^+} x \\ln x$', solution: "Skriv som $\\frac{\\ln x}{1/x}$, form $\\frac{-\\infty}{\\infty}$. L'Hôpital: $\\frac{1/x}{-1/x^2} = -x \\to 0$" },
+          { label: 'c', task: '$\\lim_{x \\to \\infty} \\frac{\\ln x}{\\sqrt{x}}$', solution: "Form $\\frac{\\infty}{\\infty}$. L'Hôpital: $\\frac{1/x}{1/(2\\sqrt{x})} = \\frac{2\\sqrt{x}}{x} = \\frac{2}{\\sqrt{x}} \\to 0$" },
+        ],
+        hints: ['For b), omform produktet til en brøk'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**L'Hôpitals regel:**
+Hvis $\\lim \\frac{f(x)}{g(x)}$ gir $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$:
+$$\\lim \\frac{f(x)}{g(x)} = \\lim \\frac{f'(x)}{g'(x)}$$
+
+**Fremgangsmåte:**
+1. Sjekk at du har ubestemt form
+2. Deriver teller og nevner hver for seg
+3. Beregn den nye grenseverdien
+4. Gjenta om nødvendig
+
+**Veksthastighet:**
+$$\\ln x \\ll x^a \\ll e^x \\quad \\text{for alle } a > 0$$`,
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 3.5: Newtons metode
+// ============================================================================
+
+export const CHAPTER_R1_3_5: TextbookChapter = {
+  id: 'r1-3-5',
+  courseId: 'r1',
+  chapterNumber: '3.5',
+  title: 'Newtons metode',
+  description: 'Lær å finne tilnærmede løsninger av ligninger ved hjelp av Newtons iterasjonsmetode.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder',
+  ],
+  content: [
+    {
+      id: 'r1-3-5-intro',
+      type: 'text',
+      content: `## Numerisk løsning av ligninger
+
+Mange ligninger kan ikke løses eksakt med algebraiske metoder. For eksempel:
+- $x^5 - 3x + 1 = 0$
+- $e^x = 3x$
+- $\\cos x = x$
+
+**Newtons metode** gir oss en måte å finne tilnærmede løsninger med høy presisjon.
+
+**Ideen:** Start med en gjetning, og forbedre den iterativt ved å følge tangentlinjen.`,
+    },
+    {
+      id: 'r1-3-5-def-1',
+      type: 'definition',
+      title: 'Newtons metode',
+      content: `For å finne nullpunkter til $f(x) = 0$:
+
+1. **Velg en startverdi** $x_0$ nær løsningen
+2. **Iterer** med formelen:
+$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$
+
+**Geometrisk tolkning:**
+- Tegn tangenten til $f$ i punktet $(x_n, f(x_n))$
+- Finn hvor tangenten krysser $x$-aksen
+- Dette gir $x_{n+1}$
+
+Prosessen gjentas til ønsket nøyaktighet er oppnådd.`,
+    },
+    {
+      id: 'r1-3-5-utledning',
+      type: 'text',
+      content: `## Utledning av formelen
+
+Tangentlinjen til $f$ i $(x_n, f(x_n))$ har likning:
+$$y - f(x_n) = f'(x_n)(x - x_n)$$
+
+Vi finner hvor tangenten krysser $x$-aksen ($y = 0$):
+$$0 - f(x_n) = f'(x_n)(x - x_n)$$
+$$x = x_n - \\frac{f(x_n)}{f'(x_n)}$$
+
+Dette gir oss $x_{n+1}$.`,
+    },
+    {
+      id: 'r1-3-5-example-1',
+      type: 'example',
+      title: 'Eksempel 1: Finne kvadratroten av 2',
+      problem: `Bruk Newtons metode til å finne $\\sqrt{2}$ ved å løse $x^2 - 2 = 0$.`,
+      solution: `**Sett opp:**
+- $f(x) = x^2 - 2$
+- $f'(x) = 2x$
+- Iterasjonsformel: $x_{n+1} = x_n - \\frac{x_n^2 - 2}{2x_n} = \\frac{x_n^2 + 2}{2x_n} = \\frac{x_n}{2} + \\frac{1}{x_n}$
+
+**Startverdi:** $x_0 = 1$
+
+**Iterasjoner:**
+| $n$ | $x_n$ |
+|-----|-------|
+| 0 | 1 |
+| 1 | $\\frac{1}{2} + \\frac{1}{1} = 1{,}5$ |
+| 2 | $\\frac{1{,}5}{2} + \\frac{1}{1{,}5} = 1{,}4167$ |
+| 3 | $1{,}4142$ |
+
+**Svar:** $\\sqrt{2} \\approx 1{,}4142$ (etter bare 3 iterasjoner!)`,
+    },
+    {
+      id: 'r1-3-5-example-2',
+      type: 'example',
+      title: 'Eksempel 2: Løse en transcendent ligning',
+      problem: `Finn en løsning av $\\cos x = x$ med Newtons metode.`,
+      solution: `**Omform til nullpunktsproblem:**
+$f(x) = \\cos x - x = 0$
+
+**Derivert:**
+$f'(x) = -\\sin x - 1$
+
+**Iterasjonsformel:**
+$$x_{n+1} = x_n - \\frac{\\cos x_n - x_n}{-\\sin x_n - 1}$$
+
+**Startverdi:** $x_0 = 0{,}5$ (fra grafisk inspeksjon)
+
+**Iterasjoner:**
+| $n$ | $x_n$ | $f(x_n)$ |
+|-----|-------|----------|
+| 0 | 0,5 | 0,378 |
+| 1 | 0,7552 | 0,0235 |
+| 2 | 0,7391 | 0,00005 |
+
+**Svar:** $x \\approx 0{,}7391$ er løsningen av $\\cos x = x$.`,
+    },
+    {
+      id: 'r1-3-5-konvergens',
+      type: 'definition',
+      title: 'Konvergens og problemer',
+      content: `**Når fungerer Newtons metode godt?**
+- Startverdien er nær løsningen
+- $f'(x) \\neq 0$ nær løsningen
+- $f$ er "pent" oppførende (kontinuerlig, deriverbar)
+
+**Når kan det gå galt?**
+- $f'(x_n) = 0$ (divisjon med null)
+- Dårlig startverdi (kan gi divergens eller feil løsning)
+- Flere løsninger (kan lande på "feil" løsning)
+
+**Konvergenshastighet:**
+Når metoden fungerer, dobles vanligvis antall korrekte siffer for hver iterasjon (kvadratisk konvergens).`,
+    },
+    {
+      id: 'r1-3-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Bruk Newtons metode med 3 iterasjoner.',
+        subTasks: [
+          { label: 'a', task: 'Finn $\\sqrt{5}$ ved å løse $x^2 - 5 = 0$ med $x_0 = 2$.', solution: '$x_1 = 2{,}25$, $x_2 = 2{,}2361$, $x_3 = 2{,}2361$. Svar: $\\sqrt{5} \\approx 2{,}2361$' },
+          { label: 'b', task: 'Finn $\\sqrt[3]{10}$ ved å løse $x^3 - 10 = 0$ med $x_0 = 2$.', solution: 'Formel: $x_{n+1} = x_n - \\frac{x_n^3-10}{3x_n^2}$. $x_1 = 2{,}167$, $x_2 = 2{,}1545$, $x_3 = 2{,}1544$' },
+          { label: 'c', task: 'Løs $e^x = 3x$ med $x_0 = 2$.', solution: '$f(x) = e^x - 3x$, $f\'(x) = e^x - 3$. $x_1 = 1{,}857$, $x_2 = 1{,}8571$. Svar: $x \\approx 1{,}857$' },
+        ],
+        hints: ['Husk å sette opp $f(x)$ og $f\'(x)$ først'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Ligningen $x^3 - 2x - 5 = 0$ har én reell løsning.',
+        subTasks: [
+          { label: 'a', task: 'Vis at løsningen ligger mellom 2 og 3.', solution: '$f(2) = 8 - 4 - 5 = -1 < 0$ og $f(3) = 27 - 6 - 5 = 16 > 0$. Fortegnskifte betyr nullpunkt.' },
+          { label: 'b', task: 'Bruk Newtons metode med $x_0 = 2$ til å finne løsningen med 4 desimalers nøyaktighet.', solution: '$f\'(x) = 3x^2 - 2$. $x_1 = 2{,}1$, $x_2 = 2{,}0946$, $x_3 = 2{,}0946$. Svar: $x \\approx 2{,}0946$' },
+        ],
+        hints: ['Bruk skjæringssetningen for å vise at det finnes en løsning'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Newtons metode:**
+$$x_{n+1} = x_n - \\frac{f(x_n)}{f'(x_n)}$$
+
+**Fremgangsmåte:**
+1. Omform ligningen til $f(x) = 0$
+2. Finn $f'(x)$
+3. Velg en god startverdi $x_0$
+4. Iterer til ønsket nøyaktighet
+
+**Fordeler:**
+- Rask konvergens (dobler presisjon per steg)
+- Fungerer for de fleste funksjoner
+
+**Ulemper:**
+- Krever god startverdi
+- Krever at $f'(x) \\neq 0$`,
+    },
+  ],
+  exercises: [],
+};
+
 export const CHAPTER_R1_4_1: TextbookChapter = {
   id: 'r1-4-1',
   courseId: 'r1',
@@ -7634,6 +8009,386 @@ $$f''(x) = \\frac{2}{(x-1)^3}$$
         'SetColor(f1, "Red")',
         'SetColor(f2, "Green")',
       ],
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 4.7: Relaterte rater
+// ============================================================================
+
+export const CHAPTER_R1_4_7: TextbookChapter = {
+  id: 'r1-4-7',
+  courseId: 'r1',
+  chapterNumber: '4.7',
+  title: 'Relaterte rater',
+  description: 'Lær å bruke derivasjon til å løse problemer der flere størrelser endrer seg samtidig.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer',
+  ],
+  content: [
+    {
+      id: 'r1-4-7-intro',
+      type: 'text',
+      content: `## Hva er relaterte rater?
+
+**Relaterte rater** er problemer der flere størrelser endrer seg med tiden, og disse størrelsene er knyttet sammen gjennom en ligning.
+
+**Typiske problemer:**
+- En ballong blåses opp – hvordan endres radiusen når volumet øker?
+- En stige sklir ned en vegg – hvor fort beveger toppen seg?
+- Vann fylles i en tank – hvor fort stiger vannstanden?
+
+**Nøkkelidé:** Vi deriverer en ligning med hensyn på tid $t$ for å finne sammenhengen mellom endringsratene.`,
+    },
+    {
+      id: 'r1-4-7-def-1',
+      type: 'definition',
+      title: 'Fremgangsmåte for relaterte rater',
+      content: `**Steg 1:** Tegn en figur og definer variabler.
+
+**Steg 2:** Skriv ned det som er gitt og det du skal finne (med $\\frac{d}{dt}$-notasjon).
+
+**Steg 3:** Finn en ligning som knytter variablene sammen.
+
+**Steg 4:** Deriver ligningen implisitt med hensyn på $t$.
+
+**Steg 5:** Sett inn kjente verdier og løs for den ukjente raten.`,
+    },
+    {
+      id: 'r1-4-7-example-1',
+      type: 'example',
+      title: 'Eksempel 1: Ballongen',
+      problem: `En kuleformet ballong blåses opp slik at volumet øker med $100 \\text{ cm}^3/\\text{s}$. Hvor fort øker radiusen når radiusen er $25$ cm?`,
+      solution: `**Steg 1-2: Definer variabler**
+- $V$ = volum av kule, $r$ = radius
+- Gitt: $\\frac{dV}{dt} = 100$ cm³/s
+- Finn: $\\frac{dr}{dt}$ når $r = 25$ cm
+
+**Steg 3: Ligning som knytter $V$ og $r$**
+$$V = \\frac{4}{3}\\pi r^3$$
+
+**Steg 4: Deriver med hensyn på $t$**
+$$\\frac{dV}{dt} = \\frac{4}{3}\\pi \\cdot 3r^2 \\cdot \\frac{dr}{dt} = 4\\pi r^2 \\frac{dr}{dt}$$
+
+**Steg 5: Sett inn og løs**
+$$100 = 4\\pi (25)^2 \\frac{dr}{dt}$$
+$$\\frac{dr}{dt} = \\frac{100}{4\\pi \\cdot 625} = \\frac{1}{25\\pi} \\approx 0{,}013 \\text{ cm/s}$$
+
+**Svar:** Radiusen øker med ca. $0{,}013$ cm/s.`,
+    },
+    {
+      id: 'r1-4-7-example-2',
+      type: 'example',
+      title: 'Eksempel 2: Stigen',
+      problem: `En 5 meter lang stige står mot en vegg. Bunnen av stigen sklir utover med $0{,}5$ m/s. Hvor fort synker toppen av stigen når bunnen er 3 meter fra veggen?`,
+      solution: `**Steg 1-2: Definer variabler**
+- $x$ = avstand fra vegg til bunnen av stigen
+- $y$ = høyde av stigens topp
+- Gitt: $\\frac{dx}{dt} = 0{,}5$ m/s
+- Finn: $\\frac{dy}{dt}$ når $x = 3$ m
+
+**Steg 3: Ligning (Pytagoras)**
+$$x^2 + y^2 = 25$$
+
+Når $x = 3$: $y = \\sqrt{25 - 9} = 4$ m
+
+**Steg 4: Deriver med hensyn på $t$**
+$$2x\\frac{dx}{dt} + 2y\\frac{dy}{dt} = 0$$
+
+**Steg 5: Sett inn og løs**
+$$2(3)(0{,}5) + 2(4)\\frac{dy}{dt} = 0$$
+$$3 + 8\\frac{dy}{dt} = 0$$
+$$\\frac{dy}{dt} = -\\frac{3}{8} = -0{,}375 \\text{ m/s}$$
+
+**Svar:** Toppen synker med $0{,}375$ m/s (negativt fortegn = synker).`,
+    },
+    {
+      id: 'r1-4-7-example-3',
+      type: 'example',
+      title: 'Eksempel 3: Kjegleformet tank',
+      problem: `Vann renner inn i en kjegleformet tank med rate $2 \\text{ m}^3/\\text{min}$. Kjeglen har høyde 6 m og radius 3 m på toppen. Hvor fort stiger vannstanden når vannet er 2 m dypt?`,
+      solution: `**Steg 1-2: Definer variabler**
+- $h$ = vannhøyde, $r$ = vannradius
+- Gitt: $\\frac{dV}{dt} = 2$ m³/min
+- Finn: $\\frac{dh}{dt}$ når $h = 2$ m
+
+**Steg 3: Ligninger**
+Fra likedannede trekanter: $\\frac{r}{h} = \\frac{3}{6} = \\frac{1}{2}$, så $r = \\frac{h}{2}$
+
+Volum av kjegle: $V = \\frac{1}{3}\\pi r^2 h = \\frac{1}{3}\\pi \\left(\\frac{h}{2}\\right)^2 h = \\frac{\\pi h^3}{12}$
+
+**Steg 4: Deriver med hensyn på $t$**
+$$\\frac{dV}{dt} = \\frac{\\pi}{12} \\cdot 3h^2 \\frac{dh}{dt} = \\frac{\\pi h^2}{4} \\frac{dh}{dt}$$
+
+**Steg 5: Sett inn og løs**
+$$2 = \\frac{\\pi (2)^2}{4} \\frac{dh}{dt} = \\pi \\frac{dh}{dt}$$
+$$\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64 \\text{ m/min}$$
+
+**Svar:** Vannstanden stiger med ca. $0{,}64$ m/min.`,
+    },
+    {
+      id: 'r1-4-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Løs følgende relaterte rater-problemer.',
+        subTasks: [
+          { label: 'a', task: 'En sirkulær oljelekkasje på havet utvider seg slik at arealet øker med $10 \\text{ m}^2/\\text{s}$. Hvor fort øker radiusen når radiusen er 20 m?', solution: '$A = \\pi r^2$, $\\frac{dA}{dt} = 2\\pi r \\frac{dr}{dt}$. $10 = 2\\pi(20)\\frac{dr}{dt}$. $\\frac{dr}{dt} = \\frac{1}{4\\pi} \\approx 0{,}08$ m/s' },
+          { label: 'b', task: 'En kube utvider seg slik at kantlengden øker med 2 cm/s. Hvor fort øker volumet når kantlengden er 10 cm?', solution: '$V = s^3$, $\\frac{dV}{dt} = 3s^2\\frac{ds}{dt} = 3(100)(2) = 600$ cm³/s' },
+        ],
+        hints: ['Identifiser ligningen som knytter variablene sammen', 'Husk kjerneregelen når du deriverer'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-4-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-7-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'En person 1,8 m høy går bort fra en gatelykt som er 6 m høy, med hastighet 1,5 m/s.',
+        subTasks: [
+          { label: 'a', task: 'Tegn figuren og finn en ligning som knytter personens avstand fra lykten ($x$) til skyggens lengde ($s$).', solution: 'Fra likedannede trekanter: $\\frac{6}{x+s} = \\frac{1{,}8}{s}$. Gir $6s = 1{,}8x + 1{,}8s$, altså $s = \\frac{3x}{7}$.' },
+          { label: 'b', task: 'Hvor fort beveger skyggens spiss seg?', solution: 'Spissens posisjon er $x + s = x + \\frac{3x}{7} = \\frac{10x}{7}$. $\\frac{d(x+s)}{dt} = \\frac{10}{7}\\frac{dx}{dt} = \\frac{10}{7}(1{,}5) \\approx 2{,}14$ m/s.' },
+        ],
+        hints: ['Bruk likedannede trekanter for å finne sammenhengen'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-4-7-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Relaterte rater:**
+Problemer der flere variable endrer seg med tiden og er knyttet sammen.
+
+**Fremgangsmåte:**
+1. Tegn figur og definer variabler
+2. Skriv ned gitt informasjon med $\\frac{d}{dt}$-notasjon
+3. Finn ligning som kobler variablene
+4. Deriver implisitt med hensyn på $t$
+5. Sett inn verdier og løs
+
+**Vanlige formler:**
+- Sirkel: $A = \\pi r^2$
+- Kule: $V = \\frac{4}{3}\\pi r^3$
+- Kjegle: $V = \\frac{1}{3}\\pi r^2 h$
+- Pytagoras: $a^2 + b^2 = c^2$`,
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 4.8: Globale ekstremalpunkter
+// ============================================================================
+
+export const CHAPTER_R1_4_8: TextbookChapter = {
+  id: 'r1-4-8',
+  courseId: 'r1',
+  chapterNumber: '4.8',
+  title: 'Globale ekstremalpunkter',
+  description: 'Lær å finne absolutte maksimums- og minimumsverdier på lukkede intervaller.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'analysere og tolke ulike funksjoner ved å bruke derivasjon',
+    'forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer',
+  ],
+  content: [
+    {
+      id: 'r1-4-8-intro',
+      type: 'text',
+      content: `## Lokale vs. globale ekstremalpunkter
+
+**Lokalt ekstremalpunkt:** Høyeste/laveste verdi i et lite område rundt punktet.
+
+**Globalt (absolutt) ekstremalpunkt:** Høyeste/laveste verdi i hele definisjonsområdet.
+
+**Viktig:** Et lokalt maksimum trenger ikke være et globalt maksimum!
+
+**Eksempel:** For $f(x) = x^3 - 3x$ på $[-2, 3]$:
+- Lokalt maksimum i $x = -1$: $f(-1) = 2$
+- Lokalt minimum i $x = 1$: $f(1) = -2$
+- Men hva er det globale maksimum?`,
+    },
+    {
+      id: 'r1-4-8-def-1',
+      type: 'definition',
+      title: 'Ekstremalverdisetningen',
+      content: `Hvis $f$ er **kontinuerlig** på et **lukket intervall** $[a, b]$, så har $f$ både et globalt maksimum og et globalt minimum på dette intervallet.
+
+**Hvor kan ekstremalpunktene ligge?**
+1. I **stasjonære punkter** (der $f'(x) = 0$)
+2. I **endepunktene** ($x = a$ eller $x = b$)
+3. Der $f'(x)$ **ikke eksisterer**
+
+**Merk:** På åpne intervaller eller for diskontinuerlige funksjoner trenger ikke globale ekstremalpunkter å eksistere!`,
+    },
+    {
+      id: 'r1-4-8-metode',
+      type: 'definition',
+      title: 'Metode for å finne globale ekstremalpunkter',
+      content: `**For en kontinuerlig funksjon $f$ på $[a, b]$:**
+
+**Steg 1:** Finn alle kritiske punkter
+- Løs $f'(x) = 0$
+- Finn der $f'(x)$ ikke eksisterer
+
+**Steg 2:** Regn ut $f(x)$ i alle kandidatpunkter
+- I hvert kritiske punkt innenfor $(a, b)$
+- I endepunktene $x = a$ og $x = b$
+
+**Steg 3:** Sammenlign verdiene
+- Størst verdi = globalt maksimum
+- Minst verdi = globalt minimum`,
+    },
+    {
+      id: 'r1-4-8-example-1',
+      type: 'example',
+      title: 'Eksempel 1: Polynom på lukket intervall',
+      problem: `Finn globalt maksimum og minimum for $f(x) = x^3 - 3x + 1$ på $[-2, 2]$.`,
+      solution: `**Steg 1: Finn kritiske punkter**
+$f'(x) = 3x^2 - 3 = 3(x^2 - 1) = 3(x-1)(x+1)$
+$f'(x) = 0$ når $x = -1$ eller $x = 1$
+
+Begge er innenfor $(-2, 2)$ ✓
+
+**Steg 2: Beregn funksjonsverdier**
+| $x$ | $f(x) = x^3 - 3x + 1$ |
+|-----|----------------------|
+| $-2$ (endepunkt) | $-8 + 6 + 1 = -1$ |
+| $-1$ (kritisk) | $-1 + 3 + 1 = 3$ |
+| $1$ (kritisk) | $1 - 3 + 1 = -1$ |
+| $2$ (endepunkt) | $8 - 6 + 1 = 3$ |
+
+**Steg 3: Sammenlign**
+- Globalt maksimum: $f(-1) = f(2) = 3$
+- Globalt minimum: $f(-2) = f(1) = -1$
+
+**Svar:** Globalt maks er 3 (i $x = -1$ og $x = 2$), globalt min er $-1$ (i $x = -2$ og $x = 1$).`,
+    },
+    {
+      id: 'r1-4-8-example-2',
+      type: 'example',
+      title: 'Eksempel 2: Optimeringsproblem',
+      problem: `En bonde har 200 meter gjerde og vil lage et rektangulært innhegning mot en elv (trenger ikke gjerde langs elven). Hva er det største arealet han kan få?`,
+      solution: `**Sett opp problemet:**
+La $x$ = lengde parallelt med elven, $y$ = bredde.
+
+Begrensning: $x + 2y = 200$ (gjerde på tre sider)
+Så $x = 200 - 2y$
+
+Areal: $A = xy = (200 - 2y)y = 200y - 2y^2$
+
+**Hva er definisjonsområdet?**
+$y > 0$ og $x > 0$, så $y < 100$
+Definisjonsområde: $y \\in [0, 100]$
+
+**Finn kritiske punkter:**
+$A'(y) = 200 - 4y = 0$
+$y = 50$ m
+
+**Beregn funksjonsverdier:**
+| $y$ | $A(y)$ |
+|-----|--------|
+| $0$ | $0$ |
+| $50$ | $200(50) - 2(2500) = 5000$ |
+| $100$ | $0$ |
+
+**Svar:** Maksimalt areal er $5000 \\text{ m}^2$ når $y = 50$ m og $x = 100$ m.`,
+    },
+    {
+      id: 'r1-4-8-example-3',
+      type: 'example',
+      title: 'Eksempel 3: Funksjon med ikke-deriverbart punkt',
+      problem: `Finn globale ekstremalpunkter for $f(x) = |x - 1| + 2x$ på $[-1, 3]$.`,
+      solution: `**Skriv om funksjonen:**
+$f(x) = \\begin{cases} -(x-1) + 2x = x + 1 & \\text{hvis } x < 1 \\\\ (x-1) + 2x = 3x - 1 & \\text{hvis } x \\geq 1 \\end{cases}$
+
+**Kritiske punkter:**
+- For $x < 1$: $f'(x) = 1 \\neq 0$ (ingen stasjonære punkter)
+- For $x > 1$: $f'(x) = 3 \\neq 0$ (ingen stasjonære punkter)
+- I $x = 1$: $f'(x)$ eksisterer ikke (knekk)
+
+**Kandidatpunkter:** $x = -1, 1, 3$
+
+**Beregn funksjonsverdier:**
+| $x$ | $f(x)$ |
+|-----|--------|
+| $-1$ | $2 + (-2) = 0$ |
+| $1$ | $0 + 2 = 2$ |
+| $3$ | $2 + 6 = 8$ |
+
+**Svar:** Globalt minimum er $0$ i $x = -1$. Globalt maksimum er $8$ i $x = 3$.`,
+    },
+    {
+      id: 'r1-4-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Finn globalt maksimum og minimum.',
+        subTasks: [
+          { label: 'a', task: '$f(x) = x^2 - 4x + 3$ på $[0, 4]$', solution: "$f'(x) = 2x - 4 = 0$ gir $x = 2$. $f(0) = 3$, $f(2) = -1$, $f(4) = 3$. Globalt maks: 3 (i $x=0$ og $x=4$), globalt min: $-1$ (i $x=2$)." },
+          { label: 'b', task: '$f(x) = x^3 - 6x^2 + 9x$ på $[0, 4]$', solution: "$f'(x) = 3x^2 - 12x + 9 = 3(x-1)(x-3) = 0$. $f(0) = 0$, $f(1) = 4$, $f(3) = 0$, $f(4) = 4$. Globalt maks: 4, globalt min: 0." },
+          { label: 'c', task: '$f(x) = \\frac{x}{x^2 + 1}$ på $[-2, 2]$', solution: "$f'(x) = \\frac{1-x^2}{(x^2+1)^2} = 0$ når $x = \\pm 1$. $f(-2) = -0{,}4$, $f(-1) = -0{,}5$, $f(1) = 0{,}5$, $f(2) = 0{,}4$. Globalt maks: $0{,}5$ i $x=1$, min: $-0{,}5$ i $x=-1$." },
+        ],
+        hints: ['Husk å sjekke endepunktene!'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-4-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-8-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Optimeringsproblemer.',
+        subTasks: [
+          { label: 'a', task: 'En åpen boks skal lages av et 12×12 cm ark ved å klippe like kvadrater fra hjørnene og brette opp. Hva er det maksimale volumet?', solution: 'Klipper $x$ cm fra hvert hjørne. $V = x(12-2x)^2$. $V\' = 12(x-2)(3x-6) = 0$ gir $x = 2$. Sjekk $x \\in [0, 6]$. $V(2) = 2(8)^2 = 128$ cm³.' },
+          { label: 'b', task: 'Finn det punktet på kurven $y = \\sqrt{x}$ som ligger nærmest punktet $(3, 0)$.', solution: 'Avstand $d^2 = (x-3)^2 + x$. $\\frac{d(d^2)}{dx} = 2(x-3) + 1 = 0$ gir $x = 2{,}5$. Punktet er $(2{,}5, \\sqrt{2{,}5})$.' },
+        ],
+        hints: ['Sett opp funksjonen som skal optimeres og finn definisjonsområdet'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-4-8-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Ekstremalverdisetningen:**
+Kontinuerlig funksjon på lukket intervall har alltid globalt maks og min.
+
+**Metode:**
+1. Finn kritiske punkter ($f'(x) = 0$ eller $f'$ eksisterer ikke)
+2. Beregn $f$ i kritiske punkter og endepunkter
+3. Sammenlign verdiene
+
+**Kandidatpunkter:**
+- Stasjonære punkter
+- Knekkpunkter
+- Endepunkter
+
+**Optimeringsproblemer:**
+1. Sett opp funksjonen
+2. Finn naturlig definisjonsområde
+3. Bruk metoden over`,
     },
   ],
   exercises: [],
@@ -11044,12 +11799,16 @@ export const CHAPTERS_R1: Record<string, TextbookChapter> = {
   'r1-3-1': CHAPTER_R1_3_1,
   'r1-3-2': CHAPTER_R1_3_2,
   'r1-3-3': CHAPTER_R1_3_3,
+  'r1-3-4': CHAPTER_R1_3_4,
+  'r1-3-5': CHAPTER_R1_3_5,
   'r1-4-1': CHAPTER_R1_4_1,
   'r1-4-2': CHAPTER_R1_4_2,
   'r1-4-3': CHAPTER_R1_4_3,
   'r1-4-4': CHAPTER_R1_4_4,
   'r1-4-5': CHAPTER_R1_4_5,
   'r1-4-6': CHAPTER_R1_4_6,
+  'r1-4-7': CHAPTER_R1_4_7,
+  'r1-4-8': CHAPTER_R1_4_8,
   'r1-5-1': CHAPTER_R1_5_1,
   'r1-5-2': CHAPTER_R1_5_2,
   'r1-5-3': CHAPTER_R1_5_3,

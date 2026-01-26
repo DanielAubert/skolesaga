@@ -158,7 +158,7 @@ const GRADE_CONFIG: Record<string, {
       // Fellesfag
       { courseId: 'norsk-vg2', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg2.png' },
       { courseId: 'historie-vg2', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg2-hero.png' },
-      { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
+      { courseId: 'kroppsoving-vg2', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600', image: '/images/textbook-covers/kroppsoving-vg2-hero.png' },
       // Matematikk
       { courseId: '2p', name: 'Matematikk 2P', icon: '📐', color: 'from-blue-500 to-indigo-600', image: '/images/subjects/matematikk-2p-hero.png' },
       { courseId: '2py', name: 'Matematikk 2P-Y', icon: '📐', color: 'from-slate-500 to-gray-600', image: '/images/courses/matematikk-2p-y.png' },
@@ -167,9 +167,9 @@ const GRADE_CONFIG: Record<string, {
       // Programfag realfag
       { courseId: 'fys1', name: 'Fysikk 1', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk1-hero.png' },
       { courseId: 'kjemi1', name: 'Kjemi 1', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi1-hero.png' },
-      { courseId: 'biologi1', name: 'Biologi 1', icon: '🧬', color: 'from-green-500 to-emerald-600' },
+      { courseId: 'biologi-1', name: 'Biologi 1', icon: '🧬', color: 'from-green-500 to-emerald-600', image: '/images/textbook-covers/biologi-1-hero.png' },
       { courseId: 'it1', name: 'Informasjonsteknologi 1', icon: '💻', color: 'from-sky-500 to-blue-600' },
-      { courseId: 'geofag1', name: 'Geofag 1', icon: '🌋', color: 'from-amber-600 to-orange-700' },
+      { courseId: 'geofag-1', name: 'Geofag 1', icon: '🌋', color: 'from-amber-600 to-orange-700', image: '/images/textbook-covers/geofag-1-hero.png' },
       { courseId: 'tof1', name: 'Teknologi og forskningslære 1', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
       // Programfag samfunn/økonomi
       { courseId: 'sosiologi', name: 'Sosiologi og sosialantropologi', icon: '👥', color: 'from-violet-500 to-purple-600' },
@@ -200,16 +200,16 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'norsk-vg3', name: 'Norsk', icon: '📚', color: 'from-red-500 to-rose-600', image: '/images/courses/norsk-vg3.png' },
       { courseId: 'historie-vg3', name: 'Historie', icon: '📜', color: 'from-amber-500 to-orange-600', image: '/images/subjects/historie-vg3-hero.png' },
       { courseId: 'religion-etikk', name: 'Religion og etikk', icon: '🕊️', color: 'from-purple-500 to-violet-600' },
-      { courseId: 'kroppsoving-vg3', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600' },
+      { courseId: 'kroppsoving-vg3', name: 'Kroppsøving', icon: '🏃', color: 'from-cyan-500 to-teal-600', image: '/images/textbook-covers/kroppsoving-vg3-hero.png' },
       // Matematikk
       { courseId: 's2', name: 'Matematikk S2', icon: '📐', color: 'from-violet-500 to-purple-600', image: '/images/subjects/matematikk-s2-hero.png' },
       { courseId: 'r2', name: 'Matematikk R2', icon: '📐', color: 'from-pink-500 to-rose-600', image: '/images/subjects/matematikk-r2-hero.png' },
       // Programfag realfag
       { courseId: 'fysikk2', name: 'Fysikk 2', icon: '⚛️', color: 'from-indigo-500 to-blue-600', image: '/images/subjects/fysikk2-hero.png' },
       { courseId: 'kjemi2', name: 'Kjemi 2', icon: '🧪', color: 'from-orange-500 to-amber-600', image: '/images/subjects/kjemi2-hero.png' },
-      { courseId: 'biologi2', name: 'Biologi 2', icon: '🧬', color: 'from-green-500 to-emerald-600' },
+      { courseId: 'biologi-2', name: 'Biologi 2', icon: '🧬', color: 'from-green-500 to-emerald-600', image: '/images/textbook-covers/biologi-2-hero.png' },
       { courseId: 'it2', name: 'Informasjonsteknologi 2', icon: '💻', color: 'from-sky-500 to-blue-600' },
-      { courseId: 'geofag2', name: 'Geofag 2', icon: '🌋', color: 'from-amber-600 to-orange-700' },
+      { courseId: 'geofag-2', name: 'Geofag 2', icon: '🌋', color: 'from-amber-600 to-orange-700', image: '/images/textbook-covers/geofag-2-hero.png' },
       { courseId: 'tof2', name: 'Teknologi og forskningslære 2', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
       // Programfag samfunn/økonomi
       { courseId: 'psykologi2', name: 'Psykologi 2', icon: '🧠', color: 'from-pink-500 to-rose-600' },

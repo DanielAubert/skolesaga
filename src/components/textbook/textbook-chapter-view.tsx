@@ -89,6 +89,34 @@ export function TextbookChapterView({
   const [completedExercisesCount, setCompletedExercisesCount] = useState(0);
   const [subTaskStats, setSubTaskStats] = useState({ completed: 0, skipped: 0, total: 0 });
 
+  // Track quiz result
+  const [quizResult, setQuizResult] = useState<{ score: number; total: number; percentage: number; completedAt: string } | null>(null);
+
+  // Load quiz result from database
+  useEffect(() => {
+    if (hasQuiz) {
+      const fetchQuizResult = async () => {
+        try {
+          let url = `/api/textbook/quiz-results?quizId=${chapterMeta.id}&courseId=${course.id}`;
+          if (selectedStudentId) {
+            url += `&studentId=${selectedStudentId}`;
+          }
+          const response = await fetch(url);
+          if (response.ok) {
+            const data = await response.json();
+            if (data.result) {
+              setQuizResult(data.result);
+            }
+          }
+        } catch (error) {
+          console.error('Failed to fetch quiz result:', error);
+        }
+      };
+
+      fetchQuizResult();
+    }
+  }, [hasQuiz, chapterMeta.id, course.id, selectedStudentId]);
+
   useEffect(() => {
     // Fetch progress from database API
     const fetchProgressFromDatabase = async (studentId?: string | null) => {
@@ -416,6 +444,15 @@ export function TextbookChapterView({
                     Test deg selv
                   </Button>
                 </Link>
+                {quizResult && (
+                  <div className="mt-2 text-center text-sm text-muted-foreground">
+                    <span className={`font-medium ${quizResult.percentage >= 70 ? 'text-green-600 dark:text-green-400' : 'text-orange-600 dark:text-orange-400'}`}>
+                      {quizResult.percentage}% riktig
+                    </span>
+                    <span className="mx-1">•</span>
+                    <span>{quizResult.score}/{quizResult.total} poeng</span>
+                  </div>
+                )}
               </div>
             )}
 

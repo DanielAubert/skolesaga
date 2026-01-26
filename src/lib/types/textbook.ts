@@ -80,7 +80,8 @@ export type TextbookContentBlock =
   | QuizBlock
   | CollapsibleBlock
   | SignDiagramBlock
-  | IllustrationBlock;
+  | IllustrationBlock
+  | AsymptoteBlock;
 
 // Basis for alle innholdsblokker
 interface BaseContentBlock {
@@ -274,6 +275,16 @@ export interface InlineIllustration {
   width?: number;
   height?: number;
   svgContent: string;
+}
+
+export interface AsymptoteBlock extends BaseContentBlock {
+  type: 'asymptote';
+  title?: string;
+  code: string;              // Asymptote kildekode
+  svgPath: string;           // Sti til forhåndsgenerert SVG
+  caption?: string;
+  showCode?: boolean;        // Vis kode til eleven (default: false)
+  width?: number;            // Bredde i piksler
 }
 
 // ============================================================================
@@ -473,6 +484,10 @@ export function isVideo(block: TextbookContentBlock): block is VideoBlock {
 
 export function isGeoGebra(block: TextbookContentBlock): block is GeoGebraBlock {
   return block.type === 'geogebra';
+}
+
+export function isAsymptote(block: TextbookContentBlock): block is AsymptoteBlock {
+  return block.type === 'asymptote';
 }
 
 export function isInteractiveExercise(exercise: TextbookExercise): boolean {

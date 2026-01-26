@@ -1192,6 +1192,12 @@ Koordinatsystemet deles inn i fire områder (kvadranter):
 | IV | + | - | $(5, -1)$ |`,
     },
     {
+      id: '7-3-1-quadrants-illustration',
+      type: 'illustration',
+      illustrationId: 'coordinate-quadrants',
+      caption: 'De fire kvadrantene med ett eksempelpunkt i hver. Legg merke til fortegnene: I (+,+), II (−,+), III (−,−), IV (+,−).',
+    },
+    {
       id: '7-3-1-example-1',
       type: 'example',
       title: 'Eksempel 1: Plassere punkter',
@@ -1201,6 +1207,12 @@ Koordinatsystemet deles inn i fire områder (kvadranter):
 - $B(-3, 1)$: x negativ, y positiv → **Kvadrant II**
 - $C(-2, -4)$: x negativ, y negativ → **Kvadrant III**
 - $D(4, -2)$: x positiv, y negativ → **Kvadrant IV**`,
+    },
+    {
+      id: '7-3-1-points-illustration',
+      type: 'illustration',
+      illustrationId: 'coordinate-points-abcd',
+      caption: 'Punktene A, B, C og D plassert i koordinatsystemet. De stiplede linjene viser hvordan vi leser av koordinatene fra aksene.',
     },
     {
       id: '7-3-1-ex-1',

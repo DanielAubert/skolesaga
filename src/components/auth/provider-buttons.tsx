@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "@/lib/auth/hooks";
 import { Button } from "@/components/ui/button";
 import { Loader2 } from "lucide-react";
@@ -29,17 +29,6 @@ function GoogleIcon() {
   );
 }
 
-function MicrosoftIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5">
-      <path fill="#F25022" d="M1 1h10v10H1z" />
-      <path fill="#00A4EF" d="M1 13h10v10H1z" />
-      <path fill="#7FBA00" d="M13 1h10v10H13z" />
-      <path fill="#FFB900" d="M13 13h10v10H13z" />
-    </svg>
-  );
-}
-
 function FeideIcon() {
   return (
     <svg viewBox="0 0 24 24" className="h-5 w-5" fill="currentColor">
@@ -50,19 +39,36 @@ function FeideIcon() {
 
 interface ProviderButtonsProps {
   showGoogle?: boolean;
-  showMicrosoft?: boolean;
   showFeide?: boolean;
 }
 
 export function ProviderButtons({
   showGoogle = true,
-  showMicrosoft = true,
   showFeide = true,
 }: ProviderButtonsProps) {
   const { login } = useAuth();
   const [loadingProvider, setLoadingProvider] = useState<string | null>(null);
+  const [availableProviders, setAvailableProviders] = useState<string[]>([]);
+  const [isLoadingProviders, setIsLoadingProviders] = useState(true);
 
-  const handleProviderLogin = async (provider: "google" | "microsoft" | "feide") => {
+  // Hent tilgjengelige providers fra NextAuth
+  useEffect(() => {
+    const fetchProviders = async () => {
+      try {
+        const response = await fetch("/api/auth/providers");
+        const providers = await response.json();
+        setAvailableProviders(Object.keys(providers));
+      } catch {
+        // Fallback til å vise alle
+        setAvailableProviders(["google", "feide", "credentials"]);
+      } finally {
+        setIsLoadingProviders(false);
+      }
+    };
+    fetchProviders();
+  }, []);
+
+  const handleProviderLogin = async (provider: "google" | "feide") => {
     setLoadingProvider(provider);
     try {
       await login(provider);
@@ -73,9 +79,25 @@ export function ProviderButtons({
     }
   };
 
+  if (isLoadingProviders) {
+    return (
+      <div className="space-y-3">
+        <div className="h-10 bg-muted animate-pulse rounded-md" />
+      </div>
+    );
+  }
+
+  const hasGoogle = showGoogle && availableProviders.includes("google");
+  const hasFeide = showFeide && availableProviders.includes("feide");
+
+  // Hvis ingen OAuth-providers er konfigurert, vis ingenting
+  if (!hasGoogle && !hasFeide) {
+    return null;
+  }
+
   return (
     <div className="space-y-3">
-      {showGoogle && (
+      {hasGoogle && (
         <Button
           variant="outline"
           className="w-full"
@@ -91,23 +113,7 @@ export function ProviderButtons({
         </Button>
       )}
 
-      {showMicrosoft && (
-        <Button
-          variant="outline"
-          className="w-full"
-          onClick={() => handleProviderLogin("microsoft")}
-          disabled={loadingProvider !== null}
-        >
-          {loadingProvider === "microsoft" ? (
-            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-          ) : (
-            <MicrosoftIcon />
-          )}
-          <span className="ml-2">Fortsett med Microsoft</span>
-        </Button>
-      )}
-
-      {showFeide && (
+      {hasFeide && (
         <Button
           variant="outline"
           className="w-full bg-[#00205B] hover:bg-[#001845] text-white border-[#00205B]"

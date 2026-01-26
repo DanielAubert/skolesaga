@@ -137,7 +137,7 @@ export async function POST(request: Request) {
     }
 
     // Valider submissionType
-    const validTypes = ["code", "geogebra-xml", "image", "canvas-drawing", "text", "multiple-choice"];
+    const validTypes = ["code", "geogebra-xml", "image", "canvas-drawing", "text", "multiple-choice", "spreadsheet"];
     if (!validTypes.includes(submissionType)) {
       return NextResponse.json(
         { message: "Ugyldig besvarelsestype" },

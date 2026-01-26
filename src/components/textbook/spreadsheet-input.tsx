@@ -61,20 +61,13 @@ export function SpreadsheetInput({
   template = 'custom',
   onSave,
 }: SpreadsheetInputProps) {
-  const storageKey = `spreadsheet-${courseId}-${chapterId}-${exerciseId}`;
+  const [isLoadingFromDb, setIsLoadingFromDb] = useState(true);
+  const [dbLoadedCells, setDbLoadedCells] = useState<SpreadsheetCell[][] | null>(null);
 
   const getInitialData = useCallback((): SpreadsheetCell[][] => {
-    // Check localStorage for saved data
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem(storageKey);
-      if (saved) {
-        try {
-          const parsed = JSON.parse(saved) as SpreadsheetData;
-          return parsed.cells;
-        } catch {
-          // Ignore parse errors
-        }
-      }
+    // If we have data loaded from database, use that
+    if (dbLoadedCells) {
+      return dbLoadedCells;
     }
 
     // Use template if specified
@@ -91,7 +84,36 @@ export function SpreadsheetInput({
     return Array(initialRows).fill(null).map(() =>
       Array(initialCols).fill(null).map(() => ({ value: '' }))
     );
-  }, [storageKey, template, initialRows, initialCols]);
+  }, [dbLoadedCells, template, initialRows, initialCols]);
+
+  // Load from database on mount
+  useEffect(() => {
+    const loadFromDatabase = async () => {
+      try {
+        const params = new URLSearchParams({
+          courseId,
+          chapterId,
+          exerciseId,
+        });
+
+        const response = await fetch(`/api/textbook/submissions?${params}`);
+        if (response.ok) {
+          const data = await response.json();
+          const submission = data.submissions?.[0];
+          if (submission?.content?.cells) {
+            setDbLoadedCells(submission.content.cells);
+            setCells(submission.content.cells);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading spreadsheet from database:', error);
+      } finally {
+        setIsLoadingFromDb(false);
+      }
+    };
+
+    loadFromDatabase();
+  }, [courseId, chapterId, exerciseId]);
 
   const [cells, setCells] = useState<SpreadsheetCell[][]>(getInitialData);
   const [activeCell, setActiveCell] = useState<{ row: number; col: number } | null>(null);
@@ -242,25 +264,52 @@ export function SpreadsheetInput({
     setIsSaved(false);
   }, []);
 
-  // Save to localStorage
-  const saveData = useCallback(() => {
+  // Save to database
+  const saveData = useCallback(async () => {
     const data: SpreadsheetData = {
       cells,
       savedAt: new Date().toISOString(),
     };
-    localStorage.setItem(storageKey, JSON.stringify(data));
-    setIsSaved(true);
-    onSave?.(data);
-  }, [cells, storageKey, onSave]);
+
+    try {
+      await fetch('/api/textbook/submissions', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          exerciseId,
+          chapterId,
+          courseId,
+          submissionType: 'spreadsheet',
+          content: data,
+        }),
+      });
+      setIsSaved(true);
+      onSave?.(data);
+    } catch (error) {
+      console.error('Error saving spreadsheet:', error);
+    }
+  }, [cells, exerciseId, chapterId, courseId, onSave]);
 
   // Reset to template
   const resetData = useCallback(() => {
     if (confirm('Er du sikker på at du vil tilbakestille regnearket?')) {
-      localStorage.removeItem(storageKey);
-      setCells(getInitialData());
+      setDbLoadedCells(null);
+      // Reset to template data
+      if (template === 'budget') {
+        setCells(BUDGET_TEMPLATE.rows.map(row =>
+          row.map(cell => ({
+            value: cell.startsWith('=') ? '' : cell,
+            formula: cell.startsWith('=') ? cell : undefined,
+          }))
+        ));
+      } else {
+        setCells(Array(initialRows).fill(null).map(() =>
+          Array(initialCols).fill(null).map(() => ({ value: '' }))
+        ));
+      }
       setIsSaved(false);
     }
-  }, [storageKey, getInitialData]);
+  }, [template, initialRows, initialCols]);
 
   // Export to CSV
   const exportCSV = useCallback(() => {

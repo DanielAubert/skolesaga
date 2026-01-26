@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { CheckCircle2, XCircle, Circle } from 'lucide-react';
@@ -32,26 +32,63 @@ export function MultipleChoiceExercise({
   options: rawOptions,
   exerciseId,
   chapterId,
-  courseId: _courseId,
+  courseId,
   viewingAsStudentId,
   onSave,
 }: MultipleChoiceExerciseProps) {
-  // courseId er tilgjengelig for fremtidig bruk med database-lagring
-  void _courseId;
   const options = normalizeOptions(rawOptions);
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isCorrect, setIsCorrect] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   // Hvis vi ser som en annen elev, deaktiver interaksjon
   const isReadOnly = !!viewingAsStudentId;
+
+  // Last lagret svar fra database
+  useEffect(() => {
+    const loadSavedAnswer = async () => {
+      if (!courseId) {
+        setIsLoading(false);
+        return;
+      }
+
+      try {
+        const params = new URLSearchParams({
+          courseId,
+          chapterId,
+          exerciseId,
+        });
+        if (viewingAsStudentId) {
+          params.set('studentId', viewingAsStudentId);
+        }
+
+        const response = await fetch(`/api/textbook/submissions?${params}`);
+        if (response.ok) {
+          const data = await response.json();
+          const submission = data.submissions?.[0];
+          if (submission?.content?.selectedId) {
+            setSelectedId(submission.content.selectedId);
+            setIsCorrect(submission.is_correct || false);
+            setIsSubmitted(true);
+          }
+        }
+      } catch (error) {
+        console.error('Error loading saved answer:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    loadSavedAnswer();
+  }, [courseId, chapterId, exerciseId, viewingAsStudentId]);
 
   const handleSelect = (optionId: string) => {
     if (isSubmitted || isReadOnly) return;
     setSelectedId(optionId);
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!selectedId || isReadOnly) return;
 
     const selectedOption = options.find((o) => o.id === selectedId);
@@ -60,11 +97,27 @@ export function MultipleChoiceExercise({
     setIsCorrect(correct);
     setIsSubmitted(true);
 
-    // Lagre til localStorage (bakoverkompatibilitet)
-    const key = `mc-${chapterId}-${exerciseId}`;
-    localStorage.setItem(key, JSON.stringify({ selectedId, isCorrect: correct }));
+    // Lagre til database
+    if (courseId) {
+      try {
+        await fetch('/api/textbook/submissions', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            exerciseId,
+            chapterId,
+            courseId,
+            submissionType: 'multiple-choice',
+            content: { selectedId },
+            isCorrect: correct,
+          }),
+        });
+      } catch (error) {
+        console.error('Error saving answer:', error);
+      }
+    }
 
-    // Lagre til database via callback
+    // Callback for parent component
     if (onSave) {
       onSave(selectedId, correct);
     }
@@ -75,6 +128,16 @@ export function MultipleChoiceExercise({
     setIsSubmitted(false);
     setIsCorrect(false);
   };
+
+  if (isLoading) {
+    return (
+      <div className="space-y-2 animate-pulse">
+        {[1, 2, 3, 4].map((i) => (
+          <div key={i} className="h-14 bg-muted rounded-lg" />
+        ))}
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-4">
