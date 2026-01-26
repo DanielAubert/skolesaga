@@ -3,6 +3,9 @@
 import { useEffect, useState } from "react";
 import { useRequireAuth, useAuth } from "@/lib/auth/hooks";
 import { useProgress } from "@/lib/progress/hooks";
+import { useStudentCourses } from "@/lib/hooks/use-student-courses";
+import { TEXTBOOK_COURSES } from "@/lib/data/textbook-courses";
+import { COURSE_IMAGES } from "@/lib/data/course-images";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
@@ -21,8 +24,11 @@ import {
   UserPlus,
   BookMarked,
   Users,
-  LogOut
+  LogOut,
+  Plus,
+  X
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface StudentClass {
   id: string;
@@ -38,8 +44,14 @@ export default function StudentDashboard() {
   const { logout } = useAuth();
   const weekProgress = useProgress({ period: "week" });
   const allProgress = useProgress({ period: "all" });
+  const { courses: selectedCourses, removeCourse, isLoading: coursesLoading } = useStudentCourses();
   const [myClasses, setMyClasses] = useState<StudentClass[]>([]);
   const [_classesLoading, setClassesLoading] = useState(true);
+
+  // Hent kursdata for valgte fag
+  const selectedCourseData = selectedCourses
+    .map(courseId => TEXTBOOK_COURSES.find(c => c.id === courseId))
+    .filter(Boolean);
 
   // Hent data når komponenten laster
   useEffect(() => {
@@ -155,6 +167,7 @@ export default function StudentDashboard() {
                 Min profil
               </Button>
             </Link>
+            <ThemeToggle />
             <Button variant="ghost" size="sm" onClick={() => logout()}>
               <LogOut className="h-4 w-4" />
             </Button>
@@ -257,50 +270,86 @@ export default function StudentDashboard() {
             </Link>
           </Card>
 
-          {/* Lærebøker */}
+          {/* Mine fag */}
           <div>
-            <h2 className="text-xl font-semibold mb-4">Lærebøker</h2>
-            <div className="grid gap-4 md:grid-cols-2">
-              <Card className="hover:border-primary/50 transition-colors">
-                <Link href="/bok/1t">
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-950/50">
-                        <BookMarked className="h-6 w-6 text-blue-600" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">1T Matematikk</CardTitle>
-                        <CardDescription>Komplett lærebok for VG1</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">67 kapitler med oppgaver</span>
-                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                  </CardContent>
-                </Link>
-              </Card>
-
-              <Card className="hover:border-primary/50 transition-colors">
-                <Link href="/book">
-                  <CardHeader>
-                    <div className="flex items-center gap-3">
-                      <div className="p-2 rounded-lg bg-purple-100 dark:bg-purple-950/50">
-                        <BookOpen className="h-6 w-6 text-purple-600" />
-                      </div>
-                      <div>
-                        <CardTitle className="text-lg">Python-hefte</CardTitle>
-                        <CardDescription>Lær programmering</CardDescription>
-                      </div>
-                    </div>
-                  </CardHeader>
-                  <CardContent className="flex justify-between items-center">
-                    <span className="text-sm text-muted-foreground">Interaktive oppgaver</span>
-                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
-                  </CardContent>
-                </Link>
-              </Card>
+            <div className="flex items-center justify-between mb-4">
+              <h2 className="text-xl font-semibold">Mine fag</h2>
+              <Link href="/bok">
+                <Button variant="outline" size="sm" className="gap-2">
+                  <Plus className="h-4 w-4" />
+                  Legg til fag
+                </Button>
+              </Link>
             </div>
+
+            {coursesLoading ? (
+              <div className="flex items-center justify-center py-8">
+                <div className="h-6 w-6 border-2 border-primary border-t-transparent rounded-full animate-spin" />
+              </div>
+            ) : selectedCourseData.length === 0 ? (
+              <Card className="border-dashed border-2">
+                <CardContent className="flex flex-col items-center justify-center py-12 text-center">
+                  <div className="p-3 rounded-full bg-muted mb-4">
+                    <BookMarked className="h-8 w-8 text-muted-foreground" />
+                  </div>
+                  <h3 className="font-semibold mb-2">Ingen fag lagt til ennå</h3>
+                  <p className="text-sm text-muted-foreground mb-4 max-w-sm">
+                    Legg til fag fra lærebøkene for å få rask tilgang til dem her på dashboardet ditt.
+                  </p>
+                  <Link href="/bok">
+                    <Button className="gap-2">
+                      <Plus className="h-4 w-4" />
+                      Utforsk lærebøker
+                    </Button>
+                  </Link>
+                </CardContent>
+              </Card>
+            ) : (
+              <div className="grid gap-4 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+                {selectedCourseData.map((course) => course && (
+                  <div key={course.id} className="group relative">
+                    {/* Fjern-knapp */}
+                    <button
+                      onClick={() => removeCourse(course.id)}
+                      className="absolute top-2 right-2 z-10 p-1.5 rounded-full bg-black/50 text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/70"
+                      title="Fjern fra mine fag"
+                    >
+                      <X className="h-4 w-4" />
+                    </button>
+
+                    <Link href={`/bok/${course.id}`} className="block">
+                      <div className="relative overflow-hidden rounded-xl aspect-[16/10] transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-xl">
+                        {(course.coverImage || COURSE_IMAGES[course.id]) ? (
+                          /* eslint-disable-next-line @next/next/no-img-element */
+                          <img
+                            src={course.coverImage || COURSE_IMAGES[course.id]}
+                            alt={course.title}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div className="w-full h-full bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+                            <span className="text-4xl">{course.icon || "📚"}</span>
+                          </div>
+                        )}
+                        {/* Tittel-overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-3 text-white bg-gradient-to-t from-black/60 to-transparent">
+                          <h3 className="font-bold text-sm line-clamp-1">{course.title}</h3>
+                          <p className="text-xs opacity-80">{course.level}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  </div>
+                ))}
+
+                {/* Legg til flere kort */}
+                <Link href="/bok" className="block">
+                  <div className="relative overflow-hidden rounded-xl aspect-[16/10] border-2 border-dashed border-muted-foreground/30 flex flex-col items-center justify-center text-muted-foreground hover:border-primary hover:text-primary transition-colors">
+                    <Plus className="h-8 w-8 mb-2" />
+                    <span className="text-sm font-medium">Legg til fag</span>
+                  </div>
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Mine klasser */}

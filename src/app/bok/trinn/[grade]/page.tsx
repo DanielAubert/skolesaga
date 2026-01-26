@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { ChevronLeft } from 'lucide-react';
 import { TextbookHeader } from '@/components/textbook/textbook-header';
 import { TEXTBOOK_COURSES } from '@/lib/data/textbook-courses';
+import { AddCourseButton } from '@/components/student/add-course-button';
 
 // Define grade configurations
 const GRADE_CONFIG: Record<string, {
@@ -296,56 +297,61 @@ function SubjectCard({ courseId, name, icon, color, image }: SubjectCardProps) {
   }
 
   return (
-    <Link href={`/bok/${courseId}`} className="group block">
-      <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
-        {/* Background image if provided */}
-        {image && (
-          /* eslint-disable-next-line @next/next/no-img-element */
-          <img
-            src={image}
-            alt={name}
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
+    <div className="relative group">
+      {/* Add to dashboard button */}
+      <AddCourseButton courseId={courseId} />
 
-        {/* Decorative elements (only when no image) */}
-        {!image && (
-          <div className="absolute inset-0 opacity-20">
-            <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
-            <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
+      <Link href={`/bok/${courseId}`} className="block">
+        <div className={`relative overflow-hidden rounded-2xl ${image ? '' : `bg-gradient-to-br ${color}`} h-48 transition-all duration-300 group-hover:scale-[1.02] group-hover:shadow-2xl group-hover:shadow-black/20`}>
+          {/* Background image if provided */}
+          {image && (
+            /* eslint-disable-next-line @next/next/no-img-element */
+            <img
+              src={image}
+              alt={name}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
+          )}
+
+          {/* Decorative elements (only when no image) */}
+          {!image && (
+            <div className="absolute inset-0 opacity-20">
+              <div className="absolute top-4 right-4 w-24 h-24 rounded-full bg-white/30 blur-2xl" />
+              <div className="absolute -bottom-4 -left-4 w-32 h-32 rounded-full bg-black/20 blur-2xl" />
+            </div>
+          )}
+
+          {/* Hover shine effect */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+            <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
           </div>
-        )}
 
-        {/* Hover shine effect */}
-        <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
-          <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 h-full flex flex-col justify-between text-white p-6">
-          <div className="flex items-start justify-between">
-            {!image && <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{icon}</div>}
-            {image && <div />}
-            <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/20 text-xs font-medium backdrop-blur-sm">
-              <span>{stats.chapters} kapitler</span>
+          {/* Content */}
+          <div className="relative z-10 h-full flex flex-col justify-between text-white p-6">
+            <div className="flex items-start justify-between">
+              {!image && <div className="text-4xl transform group-hover:scale-110 transition-transform duration-300">{icon}</div>}
+              {image && <div />}
+              <div className="flex items-center gap-1 px-2 py-1 rounded-full bg-white/20 text-xs font-medium backdrop-blur-sm mr-10">
+                <span>{stats.chapters} kapitler</span>
+              </div>
+            </div>
+            <div>
+              <h3 className="text-xl font-bold mb-1">{name}</h3>
+              <div className="flex items-center gap-3 text-sm opacity-80">
+                <span>{stats.exercises} oppgaver</span>
+              </div>
             </div>
           </div>
-          <div>
-            <h3 className="text-xl font-bold mb-1">{name}</h3>
-            <div className="flex items-center gap-3 text-sm opacity-80">
-              <span>{stats.exercises} oppgaver</span>
-            </div>
+
+          {/* Arrow indicator */}
+          <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
+            <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
           </div>
         </div>
-
-        {/* Arrow indicator */}
-        <div className="absolute bottom-4 right-4 w-8 h-8 rounded-full bg-white/20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-x-2 group-hover:translate-x-0">
-          <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 

@@ -46,6 +46,7 @@ import {
 } from "lucide-react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 interface Organization {
   id: string;
@@ -358,6 +359,7 @@ export default function TeacherDashboard() {
                 Min profil
               </Button>
             </Link>
+            <ThemeToggle />
             <Button variant="ghost" size="sm" onClick={() => logout()}>
               <LogOut className="h-4 w-4" />
             </Button>

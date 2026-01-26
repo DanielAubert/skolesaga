@@ -10,6 +10,7 @@ function getSupabaseAdmin(): SupabaseClient {
     const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
     if (!supabaseUrl || !supabaseServiceKey) {
+      console.error("Missing Supabase env vars - URL:", !!supabaseUrl, "Service Key:", !!supabaseServiceKey);
       throw new Error("Missing Supabase environment variables");
     }
 
@@ -59,17 +60,50 @@ export async function POST(request: Request) {
     }
 
     // Opprett bruker i Supabase Auth
-    const { data: authData, error: authError } = await supabase.auth.admin.createUser({
+    let { data: authData, error: authError } = await supabase.auth.admin.createUser({
       email,
       password,
       email_confirm: true, // Auto-bekrefter e-post i utvikling
       user_metadata: { name, role },
     });
 
-    if (authError || !authData.user) {
+    // Hvis brukeren allerede finnes i Auth men ikke i users-tabellen,
+    // slett og opprett på nytt (kan skje ved ufullstendig opprydding)
+    if (authError?.message?.includes("already") && !existingUser) {
+      console.log("User exists in Auth but not in users table, recreating...");
+
+      // Finn og slett eksisterende auth-bruker
+      const { data: authUsers } = await supabase.auth.admin.listUsers();
+      const existingAuthUser = authUsers?.users?.find(u => u.email === email);
+
+      if (existingAuthUser) {
+        await supabase.auth.admin.deleteUser(existingAuthUser.id);
+
+        // Prøv å opprette på nytt
+        const retryResult = await supabase.auth.admin.createUser({
+          email,
+          password,
+          email_confirm: true,
+          user_metadata: { name, role },
+        });
+        authData = retryResult.data;
+        authError = retryResult.error;
+      }
+    }
+
+    if (authError || !authData?.user) {
       console.error("Auth error:", authError);
+      // Gi mer spesifikk feilmelding basert på feiltypen
+      let errorMessage = "Kunne ikke opprette bruker";
+      if (authError?.message?.includes("already registered") || authError?.message?.includes("already exists")) {
+        errorMessage = "E-postadressen er allerede registrert i systemet";
+      } else if (authError?.message?.includes("invalid")) {
+        errorMessage = "Ugyldig e-postadresse eller passord";
+      } else if (authError?.message) {
+        errorMessage = `Feil ved registrering: ${authError.message}`;
+      }
       return NextResponse.json(
-        { message: "Kunne ikke opprette bruker" },
+        { message: errorMessage },
         { status: 500 }
       );
     }
@@ -100,8 +134,16 @@ export async function POST(request: Request) {
     );
   } catch (error) {
     console.error("Registration error:", error);
+    const errorMessage = error instanceof Error ? error.message : "En feil oppstod under registrering";
+    // Sjekk om det er en miljøvariabel-feil
+    if (errorMessage.includes("Missing Supabase")) {
+      return NextResponse.json(
+        { message: "Server er ikke riktig konfigurert. Kontakt administrator." },
+        { status: 500 }
+      );
+    }
     return NextResponse.json(
-      { message: "En feil oppstod under registrering" },
+      { message: errorMessage },
       { status: 500 }
     );
   }

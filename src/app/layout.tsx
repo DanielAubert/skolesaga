@@ -9,6 +9,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PWAProvider } from "@/components/pwa";
 import { IllustrationApprovalProvider } from "@/lib/illustration-approval-context";
+import { StudentCoursesProvider } from "@/lib/contexts/student-courses-context";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -123,12 +124,14 @@ export default function RootLayout({
             <PWAProvider>
               {/* OPTIONAL: ToastProvider wrapper - can be removed to disable toast notifications */}
               <ToastProvider>
-                <IllustrationApprovalProvider>
-                  <SkipNav />
-                  {children}
-                  <Analytics />
-                  <GoogleAnalytics />
-                </IllustrationApprovalProvider>
+                <StudentCoursesProvider>
+                  <IllustrationApprovalProvider>
+                    <SkipNav />
+                    {children}
+                    <Analytics />
+                    <GoogleAnalytics />
+                  </IllustrationApprovalProvider>
+                </StudentCoursesProvider>
               </ToastProvider>
             </PWAProvider>
           </ThemeProvider>

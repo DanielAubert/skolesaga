@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
+import { AddCourseButton } from '@/components/student/add-course-button';
 import {
   Clock, ChevronRight, GraduationCap,
   Calculator, Variable, Divide, Grid3X3, Sigma, Binary,
@@ -174,6 +175,8 @@ export default async function CourseOverviewPage({ params }: PageProps) {
               sizes="(max-width: 1200px) 100vw, 1200px"
               className="object-cover"
             />
+            {/* Add to dashboard button */}
+            <AddCourseButton courseId={courseId} className="top-4 right-4" />
           </div>
         )}
 
@@ -188,9 +191,12 @@ export default async function CourseOverviewPage({ params }: PageProps) {
               </h1>
               <p className="text-xl text-muted-foreground mt-2">{course.level}</p>
             </div>
-            <Badge variant="outline" className="text-sm">
-              {course.curriculum}
-            </Badge>
+            <div className="flex items-center gap-3">
+              <AddCourseButton courseId={courseId} variant="full" />
+              <Badge variant="outline" className="text-sm">
+                {course.curriculum}
+              </Badge>
+            </div>
           </div>
 
           <p className="text-lg text-muted-foreground">{course.description}</p>

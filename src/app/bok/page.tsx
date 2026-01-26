@@ -232,29 +232,6 @@ export default function TextbookOverviewPage() {
         </div>
       </div>
 
-      {/* Stats Banner */}
-      <div className="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
-        <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-wrap justify-center gap-8 md:gap-16">
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold">60+</div>
-              <div className="text-sm opacity-80">Lærebøker</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold">5000+</div>
-              <div className="text-sm opacity-80">Oppgaver</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold">LK20</div>
-              <div className="text-sm opacity-80">Læreplan</div>
-            </div>
-            <div className="text-center">
-              <div className="text-3xl md:text-4xl font-bold">100%</div>
-              <div className="text-sm opacity-80">Gratis</div>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
   );
 }
