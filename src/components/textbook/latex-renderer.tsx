@@ -122,6 +122,9 @@ function renderMixedContent(content: string): string {
   // Code (`code`)
   result = result.replace(/`([^`]+)`/g, '<code class="px-1.5 py-0.5 bg-muted rounded text-sm font-mono">$1</code>');
 
+  // Images (![alt](url)) - max 200px on desktop for inline figures
+  result = result.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<img src="$2" alt="$1" style="max-width: 200px; height: auto; margin: 1rem 0;" />');
+
   // Line breaks
   result = result.replace(/\n\n/g, '</p><p class="my-3">');
   result = result.replace(/\n/g, '<br />');

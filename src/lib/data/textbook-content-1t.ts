@@ -9026,11 +9026,52 @@ En **vinkel** dannes når to linjer eller linjestykker møtes i et punkt. Vi må
 
     // ========== FIGUR: VINKELTYPER ==========
     {
-      id: '1t-5-1-img-vinkler',
-      type: 'image',
-      src: '/images/geometry/spiss-rett-stump-vinkel.svg',
-      alt: 'Illustrasjon av spiss vinkel (45°), rett vinkel (90°) og stump vinkel (135°)',
-      caption: 'De tre hovedtypene vinkler: spiss, rett og stump',
+      id: '1t-5-1-asy-vinkler',
+      type: 'asymptote',
+      title: 'Vinkeltyper',
+      code: `// Vinkeltyper: spiss, rett, stump
+settings.outformat = "svg";
+unitsize(1cm);
+
+import geometry;
+
+// Farger
+pen spissfarge = rgb(59/255, 130/255, 246/255); // Blå
+pen rettfarge = rgb(239/255, 68/255, 68/255);   // Rød
+pen stumpfarge = rgb(34/255, 197/255, 94/255);  // Grønn
+pen linjefarge = gray(0.2);
+
+real spacing = 4.5;
+
+// Spiss vinkel (45°)
+pair O1 = (0, 0);
+draw(O1--(2.5, 0), linjefarge+1.2);
+draw(O1--2*dir(45), linjefarge+1.2);
+draw(arc(O1, 0.6, 0, 45), spissfarge+1.2);
+label("$45°$", O1 + 0.9*dir(22.5), spissfarge);
+label("\\\\textbf{Spiss vinkel}", (1.25, -0.8), fontsize(10pt));
+label("$< 90°$", (1.25, -1.3), fontsize(8pt)+gray(0.4));
+
+// Rett vinkel (90°)
+pair O2 = (spacing, 0);
+draw(O2--(O2.x+2.5, 0), linjefarge+1.2);
+draw(O2--(O2.x, 2), linjefarge+1.2);
+draw((O2.x+0.4, 0)--(O2.x+0.4, 0.4)--(O2.x, 0.4), rettfarge+0.8);
+label("$90°$", O2 + (0.7, 0.7), rettfarge);
+label("\\\\textbf{Rett vinkel}", (O2.x+1.25, -0.8), fontsize(10pt));
+label("$= 90°$", (O2.x+1.25, -1.3), fontsize(8pt)+gray(0.4));
+
+// Stump vinkel (135°)
+pair O3 = (2*spacing, 0);
+draw(O3--(O3.x+2.5, 0), linjefarge+1.2);
+draw(O3--O3+2*dir(135), linjefarge+1.2);
+draw(arc(O3, 0.6, 0, 135), stumpfarge+1.2);
+label("$135°$", O3 + 0.95*dir(67.5), stumpfarge);
+label("\\\\textbf{Stump vinkel}", (O3.x+0.5, -0.8), fontsize(10pt));
+label("$> 90°$", (O3.x+0.5, -1.3), fontsize(8pt)+gray(0.4));`,
+      svgPath: '/images/asymptote/1t-kap5/vinkeltyper.svg',
+      caption: 'De tre hovedtypene vinkler: spiss (< 90°), rett (= 90°), stump (> 90°)',
+      showCode: false,
     },
 
     // ========== DEFINISJON: VINKLER ==========
@@ -9048,7 +9089,9 @@ En **vinkel** dannes når to linjer eller linjestykker møtes i et punkt. Vi må
       id: '1t-5-1-example-1',
       type: 'example',
       title: 'Eksempel 1',
-      problem: `To vinkler er nærliggende. Den ene vinkelen er 65°. Hvor stor er den andre vinkelen?`,
+      problem: `To vinkler er nærliggende. Den ene vinkelen er 65°. Hvor stor er den andre vinkelen?
+
+![Nærliggende vinkler](/images/asymptote/1t-kap5/eksempel-naerliggende-65.svg)`,
       solution: `**Løsning:**
 
 Nærliggende vinkler er til sammen 180°.
@@ -9101,11 +9144,39 @@ $$\\angle A + \\angle B + \\angle C = 180°$$`,
 
     // ========== FIGUR: VINKELSUM I TREKANT ==========
     {
-      id: '1t-5-1-img-vinkelsum',
-      type: 'image',
-      src: '/images/geometry/trekant-vinkelsum.svg',
-      alt: 'Trekant med vinklene A, B og C markert, som viser at A + B + C = 180°',
+      id: '1t-5-1-asy-vinkelsum',
+      type: 'asymptote',
+      title: 'Vinkelsum i trekant',
+      code: `// Vinkelsum i trekant: A + B + C = 180°
+settings.outformat = "svg";
+unitsize(1cm);
+
+import geometry;
+
+pen linjefarge = gray(0.2);
+pen fargeA = rgb(59/255, 130/255, 246/255);  // Blå
+pen fargeB = rgb(239/255, 68/255, 68/255);   // Rød
+pen fargeC = rgb(34/255, 197/255, 94/255);   // Grønn
+
+// Trekanthjørner
+pair A = (0, 0);
+pair B = (5, 0);
+pair C = (1.5, 3);
+
+// Tegn trekanten
+draw(A--B--C--cycle, linjefarge+1.5);
+
+// Vinkler med farger
+real radius = 0.6;
+draw(arc(A, radius, 0, degrees(C-A)), fargeA+1.2);
+label("$A$", A + 0.9*dir(degrees(C-A)/2), fargeA);
+// ... (fortsetter for B og C)
+
+// Formel
+label("$A + B + C = 180°$", (2.5, -1.2), fontsize(12pt));`,
+      svgPath: '/images/asymptote/1t-kap5/trekant-vinkelsum.svg',
       caption: 'Vinkelsummen i en trekant er alltid 180°',
+      showCode: false,
     },
 
     // ========== SETNING: VINKELSUM ==========
@@ -9123,7 +9194,9 @@ $$\\angle A + \\angle B + \\angle C = 180°$$`,
       id: '1t-5-1-example-2',
       type: 'example',
       title: 'Eksempel 2',
-      problem: `I en trekant er to av vinklene 50° og 70°. Finn den tredje vinkelen.`,
+      problem: `I en trekant er to av vinklene 50° og 70°. Finn den tredje vinkelen.
+
+![Trekant med vinkler 50° og 70°](/images/asymptote/1t-kap5/eksempel-trekant-50-70.svg)`,
       solution: `**Løsning:**
 
 Vinkelsummen i en trekant er 180°.
@@ -9187,11 +9260,27 @@ $v = 60°$
 
     // ========== FIGUR: TREKANTTYPER ==========
     {
-      id: '1t-5-1-img-trekanttyper',
-      type: 'image',
-      src: '/images/geometry/trekanttyper.svg',
-      alt: 'Illustrasjon av likebeint, likesidet og rettvinklet trekant',
-      caption: 'Tre vanlige trekanttyper: likebeint, likesidet og rettvinklet',
+      id: '1t-5-1-asy-trekanttyper',
+      type: 'asymptote',
+      title: 'Trekanttyper',
+      code: `// Trekanttyper: likesidet, likebeint, rettvinklet
+settings.outformat = "svg";
+unitsize(1cm);
+
+import geometry;
+
+pen linjefarge = gray(0.2);
+pen markfarge = rgb(59/255, 130/255, 246/255);  // Blå
+pen vinkelfarge = rgb(239/255, 68/255, 68/255); // Rød
+
+real spacing = 5;
+
+// LIKESIDET TREKANT - alle sider og vinkler like
+// LIKEBEINT TREKANT - to like sider
+// RETTVINKLET TREKANT - én vinkel på 90°`,
+      svgPath: '/images/asymptote/1t-kap5/trekanttyper.svg',
+      caption: 'Tre vanlige trekanttyper: likesidet, likebeint og rettvinklet',
+      showCode: false,
     },
 
     // ========== EKSEMPEL 3 ==========
@@ -9199,7 +9288,9 @@ $v = 60°$
       id: '1t-5-1-example-3',
       type: 'example',
       title: 'Eksempel 3',
-      problem: `En likebeint trekant har en toppvinkel på 40°. Finn de to andre vinklene.`,
+      problem: `En likebeint trekant har en toppvinkel på 40°. Finn de to andre vinklene.
+
+![Likebeint trekant med toppvinkel 40°](/images/asymptote/1t-kap5/eksempel-likebeint-40.svg)`,
       solution: `**Løsning:**
 
 I en likebeint trekant er grunnvinklene like store.
@@ -9252,11 +9343,21 @@ Når en linje krysser to parallelle linjer, dannes det flere vinkler.
 
     // ========== FIGUR: PARALLELLE LINJER ==========
     {
-      id: '1t-5-1-img-parallelle',
-      type: 'image',
-      src: '/images/geometry/parallelle-linjer-toppvinkler.svg',
-      alt: 'To parallelle linjer krysset av en transversal med toppvinkler markert',
+      id: '1t-5-1-asy-parallelle',
+      type: 'asymptote',
+      title: 'Parallelle linjer',
+      code: `// Parallelle linjer med transversal
+settings.outformat = "svg";
+unitsize(1cm);
+
+import geometry;
+
+// To parallelle linjer krysset av transversal
+// Viser toppvinkler (α = α) og samsvarende vinkler
+// Nærliggende vinkler: α + β = 180°`,
+      svgPath: '/images/asymptote/1t-kap5/parallelle-linjer.svg',
       caption: 'Toppvinkler og samsvarende vinkler ved parallelle linjer',
+      showCode: false,
     },
 
     // ========== EKSEMPEL 4 ==========
@@ -9264,7 +9365,9 @@ Når en linje krysser to parallelle linjer, dannes det flere vinkler.
       id: '1t-5-1-example-4',
       type: 'example',
       title: 'Eksempel 4',
-      problem: `To parallelle linjer krysses av en transversal. En av vinklene er 70°. Finn alle de andre vinklene.`,
+      problem: `To parallelle linjer krysses av en transversal. En av vinklene er 70°. Finn alle de andre vinklene.
+
+![Parallelle linjer med transversal](/images/asymptote/1t-kap5/eksempel-parallell-70.svg)`,
       solution: `**Løsning:**
 
 Ved hvert krysspunkt dannes fire vinkler.
@@ -9312,7 +9415,7 @@ Ved hvert krysspunkt dannes fire vinkler.
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Bestem hvilken type trekant det er (etter vinkler)',
+        task: 'Bestem hvilken type trekant det er (etter vinkler). **Tegn hver trekant selv med omtrentlig riktige vinkler.**',
         subTasks: [
           { label: 'a', task: 'Vinklene er 60°, 60° og 60°', solution: 'Spissvinlet (og likesidet)' },
           { label: 'b', task: 'Vinklene er 30°, 60° og 90°', solution: 'Rettvinklet' },
@@ -9355,7 +9458,7 @@ Ved hvert krysspunkt dannes fire vinkler.
         number: '7',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En yttervinkel i en trekant er summen av de to ikke-nærliggende indre vinklene. Finn vinkelen $v$',
+        task: 'En yttervinkel i en trekant er summen av de to ikke-nærliggende indre vinklene. Finn vinkelen $v$. **Tegn en trekant med en yttervinkel for å forstå situasjonen.**',
         subTasks: [
           { label: 'a', task: 'Yttervinkelen er 120°, en indre vinkel er 50°', solution: '$v = 70°$' },
           { label: 'b', task: 'Yttervinkelen er 140°, en indre vinkel er 65°', solution: '$v = 75°$' },
@@ -9375,7 +9478,7 @@ Ved hvert krysspunkt dannes fire vinkler.
         number: '8',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Sammensatte oppgaver med vinkler',
+        task: 'Sammensatte oppgaver med vinkler. **Tegn figurer som hjelp til å løse oppgavene.**',
         subTasks: [
           { label: 'a', task: 'I en likebeint trekant er toppvinkelen dobbelt så stor som grunnvinkelen. Finn alle vinklene.', solution: 'Grunnvinkler: $45°$, Toppvinkel: $90°$' },
           { label: 'b', task: 'I en trekant er den største vinkelen 3 ganger så stor som den minste, og den mellomste er 20° større enn den minste. Finn alle vinklene.', solution: '$32°$, $52°$, $96°$' },
@@ -9431,20 +9534,36 @@ Kongruente figurer har:
 
     // ========== FIGUR: KONGRUENTE TREKANTER ==========
     {
-      id: '1t-5-2-img-kongruens',
-      type: 'image',
-      src: '/images/geometry/kongruente-trekanter.svg',
-      alt: 'To kongruente trekanter ABC og DEF med like sider markert',
+      id: '1t-5-2-asy-kongruens',
+      type: 'asymptote',
+      title: 'Kongruente trekanter',
+      code: `// Kongruente trekanter
+settings.outformat = "svg";
+unitsize(1cm);
+
+// To identiske trekanter side om side
+// Med markeringer for like sider (1, 2, 3 streker)
+// △ABC ≅ △DEF`,
+      svgPath: '/images/asymptote/1t-kap5/kongruente-trekanter.svg',
       caption: 'Kongruente trekanter har samme form og størrelse',
+      showCode: false,
     },
 
     // ========== FIGUR: KONGRUENSSETNINGER ==========
     {
-      id: '1t-5-2-img-kongruenssetninger',
-      type: 'image',
-      src: '/images/geometry/kongruenssetninger.svg',
-      alt: 'Illustrasjon av kongruenssetningene SSS, SAS, ASA og SSA',
-      caption: 'De fire kongruenssetningene for trekanter',
+      id: '1t-5-2-asy-kongruenssetninger',
+      type: 'asymptote',
+      title: 'Kongruenssetninger',
+      code: `// Kongruenssetninger: SSS, SAS, ASA
+settings.outformat = "svg";
+unitsize(0.8cm);
+
+// SSS: Alle tre sider like (blå markeringer)
+// SAS: To sider + vinkel mellom (blå + rød)
+// ASA: To vinkler + side mellom (rød + blå)`,
+      svgPath: '/images/asymptote/1t-kap5/kongruenssetninger.svg',
+      caption: 'De tre viktigste kongruenssetningene for trekanter',
+      showCode: false,
     },
 
     // ========== EKSEMPEL 1 ==========
@@ -9521,11 +9640,20 @@ Forholdstallet mellom samsvarende sider kalles **skaleringsfaktoren** eller **fo
 
     // ========== FIGUR: FORMLIKE TREKANTER ==========
     {
-      id: '1t-5-2-img-formlikhet',
-      type: 'image',
-      src: '/images/geometry/formlike-trekanter.svg',
-      alt: 'To formlike trekanter med forstørrelsesfaktor 2, med like vinkler markert',
+      id: '1t-5-2-asy-formlikhet',
+      type: 'asymptote',
+      title: 'Formlike trekanter',
+      code: `// Formlike trekanter
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Liten trekant med sider a, b, c
+// Stor trekant (k=1.8x) med sider ka, kb, kc
+// Like vinkler i begge (rød markering)
+// Forholdstall: ka/a = kb/b = kc/c = k`,
+      svgPath: '/images/asymptote/1t-kap5/formlike-trekanter.svg',
       caption: 'Formlike trekanter har samme form, men forskjellig størrelse',
+      showCode: false,
     },
 
     // ========== EKSEMPEL 2 ==========
@@ -9769,7 +9897,7 @@ $x = 6$ cm
         number: '8',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Praktiske oppgaver med formlikhet',
+        task: 'Praktiske oppgaver med formlikhet. **Tegn figurer som viser situasjonene.**',
         subTasks: [
           { label: 'a', task: 'Et tre kaster en skygge på 12 m. Samtidig kaster en 2 m høy stolpe en skygge på 3 m. Hvor høyt er treet?', solution: '8 m' },
           { label: 'b', task: 'Et foto er 10 cm × 15 cm. Det skal forstørres slik at den lange siden blir 45 cm. Hvor lang blir den korte siden?', solution: '30 cm' },
@@ -9789,7 +9917,7 @@ $x = 6$ cm
         number: '9',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Bevis at trekantene er formlike og finn ukjente mål',
+        task: 'Bevis at trekantene er formlike og finn ukjente mål. **Tegn begge trekantene selv.**',
         subTasks: [
           { label: 'a', task: 'Trekant ABC har vinkler 30°, 60°, 90°. Trekant DEF har vinkler 30°, 60°, 90°. Begrunn at de er formlike.', solution: 'AA-kriteriet: to vinkler er like' },
           { label: 'b', task: 'I oppgave a), hvis AB = 4 og DE = 12, hva er forstørrelsesfaktoren?', solution: '3' },
@@ -16815,7 +16943,9 @@ Alle multipler av et pytagoreisk trippel er også et pytagoreisk trippel. For ek
       id: '1t-5-3-example-3',
       type: 'example',
       title: 'Eksempel 3',
-      problem: 'En stige på 5 meter lener mot en vegg. Foten av stigen står 3 meter fra veggen. Hvor høyt opp på veggen når stigen?',
+      problem: `En stige på 5 meter lener mot en vegg. Foten av stigen står 3 meter fra veggen. Hvor høyt opp på veggen når stigen?
+
+![Stige mot vegg](/images/asymptote/1t-kap5/eksempel-stige.svg)`,
       solution: `La $h$ være høyden på veggen der stigen treffer.
 
 Stigen, veggen og bakken danner en rettvinklet trekant der stigen er hypotenusen.
@@ -16831,7 +16961,9 @@ $h = 4$
       id: '1t-5-3-example-4',
       type: 'example',
       title: 'Eksempel 4',
-      problem: 'Finn diagonalen i et rektangel med sider 6 cm og 8 cm.',
+      problem: `Finn diagonalen i et rektangel med sider 6 cm og 8 cm.
+
+![Rektangel med diagonal](/images/asymptote/1t-kap5/eksempel-diagonal-rektangel.svg)`,
       solution: `Diagonalen i et rektangel deler det i to rettvinklede trekanter.
 
 $d^2 = 6^2 + 8^2$
@@ -16933,7 +17065,9 @@ Siden $9^2 + 12^2 = 15^2$, **er trekanten rettvinklet**.`,
         number: '4',
         type: 'classic',
         difficulty: 'medium',
-        task: 'En fotballbane er 100 m lang og 70 m bred. Hvor lang er diagonalen?',
+        task: `En fotballbane er 100 m lang og 70 m bred. Hvor lang er diagonalen?
+
+![Fotballbane med diagonal](/images/asymptote/1t-kap5/oppgave-fotballbane.svg)`,
         solution: '$d = \\sqrt{100^2 + 70^2} = \\sqrt{10000 + 4900} = \\sqrt{14900} \\approx 122{,}1$ m',
         hints: ['Bruk Pytagoras med lengde og bredde som kateter'],
       },
@@ -16946,7 +17080,7 @@ Siden $9^2 + 12^2 = 15^2$, **er trekanten rettvinklet**.`,
         number: '5',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Et telt har form som et prisme. Teltduken på kortsiden er en likebent trekant med grunnlinje 4 m og høyde 2 m. Hvor langt er det fra midten av grunnlinjen til toppen langs teltduken?',
+        task: 'Et telt har form som et prisme. Teltduken på kortsiden er en likebent trekant med grunnlinje 4 m og høyde 2 m. Hvor langt er det fra midten av grunnlinjen til toppen langs teltduken? **Tegn figuren selv før du regner.**',
         solution: 'Høyden fra toppen til midten av grunnlinjen er 2 m. Avstanden fra midten til hjørnet er 2 m. Men vi trenger skråsiden: $s = \\sqrt{2^2 + 2^2} = \\sqrt{8} = 2\\sqrt{2} \\approx 2{,}83$ m',
         hints: ['Tegn trekanten og del den i to rettvinklede trekanter'],
       },
@@ -16959,7 +17093,9 @@ Siden $9^2 + 12^2 = 15^2$, **er trekanten rettvinklet**.`,
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En stige er 6 m lang. Hvor langt fra veggen må foten stå for at toppen skal nå 5 m opp?',
+        task: `En stige er 6 m lang. Hvor langt fra veggen må foten stå for at toppen skal nå 5 m opp?
+
+![Stige mot vegg](/images/asymptote/1t-kap5/oppgave-stige-6m.svg)`,
         solution: '$x = \\sqrt{6^2 - 5^2} = \\sqrt{36 - 25} = \\sqrt{11} \\approx 3{,}32$ m',
         hints: ['Stigen er hypotenusen'],
       },
@@ -16972,18 +17108,26 @@ Siden $9^2 + 12^2 = 15^2$, **er trekanten rettvinklet**.`,
         number: '7',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Finn høyden i en likesidet trekant med sider 10 cm.',
+        task: 'Finn høyden i en likesidet trekant med sider 10 cm. **Tegn trekanten og høyden selv. Hva skjer når du tegner høyden?**',
         solution: 'Høyden deler grunnlinjen i to. $h = \\sqrt{10^2 - 5^2} = \\sqrt{100 - 25} = \\sqrt{75} = 5\\sqrt{3} \\approx 8{,}66$ cm',
         hints: ['Høyden deler den likesidede trekanten i to like rettvinklede trekanter'],
       },
     },
     // ========== NYE OPPGAVER MED ILLUSTRASJONER ==========
     {
-      id: '1t-5-3-ill-pytagoras',
-      type: 'image',
-      src: '/images/geometry/pytagoras.svg',
-      alt: 'Pytagoras setning illustrasjon med rettvinklet trekant og formler',
+      id: '1t-5-3-asy-pytagoras',
+      type: 'asymptote',
+      title: 'Pytagoras\' setning',
+      code: `// Pytagoras' setning med areal-bevis
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Rettvinklet trekant med kateter a, b og hypotenus c
+// Kvadrater på hver side viser:
+// a² (rød) + b² (blå) = c² (grønn)`,
+      svgPath: '/images/asymptote/1t-kap5/pytagoras.svg',
       caption: 'Pytagoras\' setning: $a^2 + b^2 = c^2$',
+      showCode: false,
     },
     {
       id: '1t-5-3-ex-8',
@@ -17150,17 +17294,29 @@ $$\\tan v = \\frac{\\text{motstående katet}}{\\text{hosliggende katet}}$$
 - **T**an = **O**pposite / **A**djacent`,
     },
     {
-      id: '1t-5-4-sincos-trekant-bilde',
-      type: 'image',
-      src: '/images/trigonometry/sincos-trekant.svg',
-      alt: 'Rettvinklet trekant med sinus, cosinus og tangens markert',
+      id: '1t-5-4-asy-trig-definisjon',
+      type: 'asymptote',
+      title: 'Trigonometri i rettvinklet trekant',
+      code: `// Trigonometri i rettvinklet trekant
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Rettvinklet trekant med vinkel v ved A
+// Motstående katet (rød), Hosliggende katet (blå), Hypotenus
+// sin v = motstående/hypotenus
+// cos v = hosliggende/hypotenus
+// tan v = motstående/hosliggende`,
+      svgPath: '/images/asymptote/1t-kap5/trigonometri-definisjon.svg',
       caption: 'De trigonometriske forholdene i en rettvinklet trekant',
+      showCode: false,
     },
     {
       id: '1t-5-4-example-1',
       type: 'example',
       title: 'Eksempel 1',
-      problem: 'I en rettvinklet trekant er vinkelen $v = 30°$, og hypotenusen er 10 cm. Finn motstående katet.',
+      problem: `I en rettvinklet trekant er vinkelen $v = 30°$, og hypotenusen er 10 cm. Finn motstående katet.
+
+![Trekant med v=30° og hypotenus 10](/images/asymptote/1t-kap5/eksempel-trig-30-hyp10.svg)`,
       solution: `Vi bruker sinus fordi vi skal finne motstående katet når vi kjenner hypotenusen:
 
 $\\sin 30° = \\frac{\\text{motstående}}{\\text{hypotenus}}$
@@ -17175,7 +17331,9 @@ $x = 10 \\cdot \\sin 30° = 10 \\cdot 0{,}5 = 5$
       id: '1t-5-4-example-2',
       type: 'example',
       title: 'Eksempel 2',
-      problem: 'I en rettvinklet trekant er vinkelen $v = 45°$, og hosliggende katet er 8 cm. Finn hypotenusen.',
+      problem: `I en rettvinklet trekant er vinkelen $v = 45°$, og hosliggende katet er 8 cm. Finn hypotenusen.
+
+![Trekant med v=45° og hosliggende 8](/images/asymptote/1t-kap5/eksempel-trig-45-hosl8.svg)`,
       solution: `Vi bruker cosinus:
 
 $\\cos 45° = \\frac{\\text{hosliggende}}{\\text{hypotenus}}$
@@ -17210,7 +17368,9 @@ På kalkulatoren finner du disse som «sin⁻¹», «cos⁻¹» og «tan⁻¹».
       id: '1t-5-4-example-3',
       type: 'example',
       title: 'Eksempel 3',
-      problem: 'I en rettvinklet trekant er katetene 3 cm og 4 cm. Finn den minste spisse vinkelen.',
+      problem: `I en rettvinklet trekant er katetene 3 cm og 4 cm. Finn den minste spisse vinkelen.
+
+![Trekant med kateter 3 og 4](/images/asymptote/1t-kap5/eksempel-trig-kateter-3-4.svg)`,
       solution: `Den minste vinkelen ligger overfor den korteste kateten (3 cm).
 
 La $v$ være denne vinkelen. Da er 3 cm motstående og 4 cm hosliggende.
@@ -17225,7 +17385,9 @@ $v = \\tan^{-1}(0{,}75) \\approx 36{,}9°$
       id: '1t-5-4-example-4',
       type: 'example',
       title: 'Eksempel 4',
-      problem: 'En rampe skal ha en stigning på 8°. Hvor lang må rampen være for å nå en høyde på 1,2 m?',
+      problem: `En rampe skal ha en stigning på 8°. Hvor lang må rampen være for å nå en høyde på 1,2 m?
+
+![Rampe med vinkel 8° og høyde 1,2 m](/images/asymptote/1t-kap5/eksempel-rampe.svg)`,
       solution: `Høyden (1,2 m) er motstående katet, rampen er hypotenusen.
 
 $\\sin 8° = \\frac{1{,}2}{L}$
@@ -17509,7 +17671,9 @@ Denne formelen fungerer for **alle** trekanter.`,
       id: '1t-5-5-example-1',
       type: 'example',
       title: 'Eksempel 1',
-      problem: 'Finn arealet av en trekant med grunnlinje 8 cm og høyde 5 cm.',
+      problem: `Finn arealet av en trekant med grunnlinje 8 cm og høyde 5 cm.
+
+![Trekant med grunnlinje 8 og høyde 5](/images/asymptote/1t-kap5/eksempel-areal-gh.svg)`,
       solution: `$A = \\frac{1}{2} \\cdot g \\cdot h = \\frac{1}{2} \\cdot 8 \\cdot 5 = 20$ cm²`,
     },
     {
@@ -17545,7 +17709,9 @@ $A = \\frac{1}{2} \\cdot b \\cdot h = \\frac{1}{2} \\cdot b \\cdot a \\cdot \\si
       id: '1t-5-5-example-2',
       type: 'example',
       title: 'Eksempel 2',
-      problem: 'En trekant har sider 7 cm og 9 cm, og vinkelen mellom dem er 50°. Finn arealet.',
+      problem: `En trekant har sider 7 cm og 9 cm, og vinkelen mellom dem er 50°. Finn arealet.
+
+![Trekant med sider 7 og 9, vinkel 50°](/images/asymptote/1t-kap5/eksempel-areal-sider-vinkel.svg)`,
       solution: `$A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$
 $A = \\frac{1}{2} \\cdot 7 \\cdot 9 \\cdot \\sin 50°$
 $A = \\frac{1}{2} \\cdot 7 \\cdot 9 \\cdot 0{,}766...$
@@ -17555,7 +17721,9 @@ $A \\approx 24{,}1$ cm²`,
       id: '1t-5-5-example-3',
       type: 'example',
       title: 'Eksempel 3',
-      problem: 'Finn arealet av en likesidet trekant med side 6 cm.',
+      problem: `Finn arealet av en likesidet trekant med side 6 cm.
+
+![Likesidet trekant med side 6](/images/asymptote/1t-kap5/eksempel-likesidet-6.svg)`,
       solution: `I en likesidet trekant er alle vinkler 60°.
 
 $A = \\frac{1}{2} \\cdot 6 \\cdot 6 \\cdot \\sin 60°$
@@ -17671,11 +17839,18 @@ Dette kalles **Herons formel**.`,
     },
     // ========== NYE OPPGAVER MED ILLUSTRASJONER ==========
     {
-      id: '1t-5-5-ill-areal',
-      type: 'image',
-      src: '/images/geometry/areal-trekant.svg',
-      alt: 'Areal av trekant med grunnlinje og høyde',
+      id: '1t-5-5-asy-areal',
+      type: 'asymptote',
+      title: 'Areal av trekant',
+      code: `// Areal av trekant: grunnlinje og høyde
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Trekant med grunnlinje g (blå) og høyde h (rød stiplet)
+// Arealformel: A = (g · h) / 2`,
+      svgPath: '/images/asymptote/1t-kap5/trekant-areal.svg',
       caption: 'Arealformelen for trekant: $A = \\frac{g \\cdot h}{2}$',
+      showCode: false,
     },
     {
       id: '1t-5-5-ill-areal-parallellogram',
@@ -17897,11 +18072,21 @@ eller ekvivalent:
 $$\\frac{\\sin A}{a} = \\frac{\\sin B}{b} = \\frac{\\sin C}{c}$$`,
     },
     {
-      id: '1t-5-6-sinussetningen-bilde',
-      type: 'image',
-      src: '/images/trigonometry/sinussetningen.svg',
-      alt: 'Trekant med sider a, b, c og motstående vinkler A, B, C',
+      id: '1t-5-6-asy-sinussetningen',
+      type: 'asymptote',
+      title: 'Sinussetningen',
+      code: `// Sinussetningen
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Vilkårlig trekant med:
+// Side a (rød) mot vinkel A
+// Side b (blå) mot vinkel B
+// Side c (grønn) mot vinkel C
+// Formel: a/sin A = b/sin B = c/sin C`,
+      svgPath: '/images/asymptote/1t-kap5/sinussetningen.svg',
       caption: 'Sinussetningen gir sammenheng mellom sider og motstående vinkler',
+      showCode: false,
     },
     {
       id: '1t-5-6-text-bevis',
@@ -17935,7 +18120,9 @@ Sinussetningen brukes når vi kjenner:
       id: '1t-5-6-example-1',
       type: 'example',
       title: 'Eksempel 1',
-      problem: 'I trekant ABC er $A = 40°$, $B = 75°$ og $a = 10$. Finn side $b$.',
+      problem: `I trekant ABC er $A = 40°$, $B = 75°$ og $a = 10$. Finn side $b$.
+
+![Trekant med A=40°, B=75°, a=10](/images/asymptote/1t-kap5/eksempel-sinus-1.svg)`,
       solution: `Vi bruker sinussetningen:
 $$\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$$
 
@@ -18058,7 +18245,7 @@ Tårnets høyde: $h_t = h_b + x \\approx 18{,}2 + 35{,}0 = 53{,}2$ m`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'I en trekant er $A = 55°$, $B = 65°$ og $c = 12$. Finn alle sider.',
+        task: 'I en trekant er $A = 55°$, $B = 65°$ og $c = 12$. Finn alle sider. **Tegn trekanten selv og merk av vinkler og sider.**',
         solution: '$C = 180° - 55° - 65° = 60°$. $a = \\frac{12 \\cdot \\sin 55°}{\\sin 60°} \\approx 11{,}4$. $b = \\frac{12 \\cdot \\sin 65°}{\\sin 60°} \\approx 12{,}6$',
         hints: ['Finn først vinkel C'],
       },
@@ -18071,7 +18258,7 @@ Tårnets høyde: $h_t = h_b + x \\approx 18{,}2 + 35{,}0 = 53{,}2$ m`,
         number: '4',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'I en trekant er $a = 5$, $b = 8$ og $A = 25°$. Vis at det finnes to ulike trekanter, og finn begge verdier for $B$.',
+        task: 'I en trekant er $a = 5$, $b = 8$ og $A = 25°$. Vis at det finnes to ulike trekanter, og finn begge verdier for $B$. **Tegn begge mulige trekanter.**',
         solution: '$\\sin B = \\frac{8 \\cdot \\sin 25°}{5} \\approx 0{,}676$. $B_1 \\approx 42{,}5°$ og $B_2 \\approx 137{,}5°$. Begge gir $C > 0$, så begge trekanter finnes.',
         hints: ['Sjekk om begge verdier gir en gyldig tredje vinkel'],
       },
@@ -18109,11 +18296,20 @@ $$c^2 = a^2 + b^2 - 2ab \\cos C$$
 **Merk:** Når $C = 90°$ blir $\\cos C = 0$, og vi får Pytagoras: $c^2 = a^2 + b^2$.`,
     },
     {
-      id: '1t-5-7-cosinussetningen-bilde',
-      type: 'image',
-      src: '/images/trigonometry/cosinussetningen.svg',
-      alt: 'Trekant med alle tre sider og vinkler markert for cosinussetningen',
+      id: '1t-5-7-asy-cosinussetningen',
+      type: 'asymptote',
+      title: 'Cosinussetningen',
+      code: `// Cosinussetningen
+settings.outformat = "svg";
+unitsize(1cm);
+
+// Vilkårlig trekant med:
+// Side a (rød), b (blå), c (grønn)
+// Vinkel C markert spesielt (lilla)
+// Formel: c² = a² + b² - 2ab·cos C`,
+      svgPath: '/images/asymptote/1t-kap5/cosinussetningen.svg',
       caption: 'Cosinussetningen utvider Pytagoras til alle trekanter',
+      showCode: false,
     },
     {
       id: '1t-5-7-text-bevis',
@@ -18146,7 +18342,9 @@ $$\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}$$`,
       id: '1t-5-7-example-1',
       type: 'example',
       title: 'Eksempel 1',
-      problem: 'I trekant ABC er $b = 7$, $c = 10$ og $A = 60°$. Finn side $a$.',
+      problem: `I trekant ABC er $b = 7$, $c = 10$ og $A = 60°$. Finn side $a$.
+
+![Trekant med b=7, c=10, A=60°](/images/asymptote/1t-kap5/eksempel-cosinus-1.svg)`,
       solution: `$$a^2 = b^2 + c^2 - 2bc \\cos A$$
 $$a^2 = 7^2 + 10^2 - 2 \\cdot 7 \\cdot 10 \\cdot \\cos 60°$$
 $$a^2 = 49 + 100 - 140 \\cdot 0{,}5$$
@@ -18171,7 +18369,9 @@ $$C = \\cos^{-1}(-0{,}1) \\approx 95{,}7°$$
       id: '1t-5-7-example-3',
       type: 'example',
       title: 'Eksempel 3',
-      problem: 'To skip starter fra samme havn. Skip A seiler 30 km mot nord, skip B seiler 40 km i retning 70° øst for nord. Hvor langt fra hverandre er skipene?',
+      problem: `To skip starter fra samme havn. Skip A seiler 30 km mot nord, skip B seiler 40 km i retning 70° øst for nord. Hvor langt fra hverandre er skipene?
+
+![To skip fra havn](/images/asymptote/1t-kap5/eksempel-skip.svg)`,
       solution: `Vinkelen mellom rutene er 70°.
 
 $$d^2 = 30^2 + 40^2 - 2 \\cdot 30 \\cdot 40 \\cdot \\cos 70°$$
@@ -18251,7 +18451,9 @@ Den andre vinkelen er $180° - 95{,}1° = 84{,}9°$`,
         number: '3',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Et tomt har form som en firkant. Fra et hjørne måler du at de to sidene er 25 m og 35 m, og vinkelen mellom dem er 110°. Hvor lang er diagonalen mellom de to andre hjørnene?',
+        task: `Et tomt har form som en firkant. Fra et hjørne måler du at de to sidene er 25 m og 35 m, og vinkelen mellom dem er 110°. Hvor lang er diagonalen mellom de to andre hjørnene?
+
+![Tomt med diagonal](/images/asymptote/1t-kap5/oppgave-tomt.svg)`,
         solution: '$d = \\sqrt{25^2 + 35^2 - 2 \\cdot 25 \\cdot 35 \\cdot \\cos 110°} = \\sqrt{625 + 1225 + 598} \\approx 49{,}5$ m',
         hints: ['Bruk cosinussetningen med den gitte vinkelen'],
       },
@@ -18277,7 +18479,7 @@ Den andre vinkelen er $180° - 95{,}1° = 84{,}9°$`,
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En trekant har sider 10, 12 og 14. Finn alle tre vinkler.',
+        task: 'En trekant har sider 10, 12 og 14. Finn alle tre vinkler. **Tegn trekanten selv og merk av sidene før du regner.**',
         solution: '$\\cos A = \\frac{144+196-100}{336} = 0{,}714$, $A \\approx 44°$. $\\cos B = \\frac{100+196-144}{280} = 0{,}543$, $B \\approx 57°$. $C = 180° - 44° - 57° = 79°$',
         hints: ['Bruk cosinussetningen tre ganger, eller finn to vinkler og bruk at summen er 180°'],
       },
@@ -18290,7 +18492,9 @@ Den andre vinkelen er $180° - 95{,}1° = 84{,}9°$`,
         number: '6',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'En likebent trekant har to sider på 10 cm og en grunnlinje på 12 cm. Finn toppvinkelen.',
+        task: `En likebent trekant har to sider på 10 cm og en grunnlinje på 12 cm. Finn toppvinkelen.
+
+![Likebent trekant](/images/asymptote/1t-kap5/oppgave-likebent-toppvinkel.svg)`,
         solution: '$\\cos C = \\frac{100+100-144}{200} = \\frac{56}{200} = 0{,}28$, $C \\approx 73{,}7°$',
         hints: ['Toppvinkelen er vinkelen mellom de to like sidene'],
       },
