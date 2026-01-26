@@ -6184,6 +6184,3174 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 };
 
 // ============================================================================
+// KAPITTEL 14.1: De samiske språkene i Norge
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_14_1: TextbookChapter = {
+  id: 'norsk-vg1-14-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '14.1',
+  title: 'De samiske språkene i Norge',
+  description: 'Lær om de samiske språkene, deres utbredelse og status i Norge.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge',
+    'reflektere over språklig mangfold i Norge og Norden',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-14-1-intro',
+      type: 'text',
+      content: `## Samisk - Norges urfolksspråk
+
+Samene er Norges urfolk, og de samiske språkene har vært talt i Skandinavia i tusenvis av år - lenge før Norges grenser ble trukket. Samisk kultur og språk er en viktig del av Norges kulturarv.
+
+**Sápmi - samenes hjemland:**
+Sápmi strekker seg over fire land: Norge, Sverige, Finland og Russland. I Norge bor det samer over hele landet, men de tradisjonelle samiske områdene finnes hovedsakelig i Nord-Norge, Trøndelag og deler av Hedmark.
+
+**Samisk som offisielt språk:**
+Siden 1988 har samisk og norsk vært likestilte språk i Norge gjennom Grunnloven. Dette betyr at staten har et ansvar for å bevare og utvikle samisk språk og kultur.
+
+**Hvorfor lære om samisk?**
+- Det er en del av Norges historie og kulturarv
+- Det er del av læreplanen (LK20)
+- Det gir forståelse for språklig mangfold
+- Det bidrar til forsoning etter fornorskingspolitikken`,
+    },
+    {
+      id: 'norsk-vg1-14-1-def-1',
+      type: 'definition',
+      title: 'De tre samiske språkene i Norge',
+      content: `Norge har tre samiske språk, som alle er selvstendige språk - ikke dialekter:
+
+**1. Nordsamisk (davvisámegiella)**
+- Det største samiske språket
+- Ca. 20 000-25 000 talere totalt (Norge, Sverige, Finland)
+- Snakkes i Finnmark og Nord-Troms
+- Viktige områder: Kautokeino, Karasjok, Tana, Nesseby
+- Har mest utviklet skriftspråk og litteratur
+
+**2. Lulesamisk (julevsámegiella)**
+- Ca. 500-1000 talere i Norge
+- Snakkes i Tysfjord og Hamarøy i Nordland
+- Også snakket i Sverige (Jokkmokk-området)
+- Klassifisert som truet språk
+
+**3. Sørsamisk (åarjelsaemien gïele)**
+- Ca. 500-600 talere totalt
+- Snakkes i Trøndelag, Nordland og Hedmark
+- Språksentre i Snåsa og Røros
+- Alvorlig truet språk
+- Svært forskjellig fra nordsamisk
+
+**Viktig:** Disse språkene er ikke gjensidig forståelige. En nordsamisktalende forstår ikke sørsamisk uten å lære det.`,
+    },
+    {
+      id: 'norsk-vg1-14-1-def-2',
+      type: 'definition',
+      title: 'Språkfamilie og særtrekk',
+      content: `**Samisk tilhører den finsk-ugriske språkfamilien:**
+
+Samisk er slekt med finsk, estisk og ungarsk - men IKKE med norsk. Dette gjør samisk til et helt annerledes språk enn norsk.
+
+**Særtrekk ved samiske språk:**
+
+**Kasus-system:**
+- Samisk har mange kasus (bøyningsformer for substantiv)
+- Nordsamisk har 7 kasus
+- Viser grammatiske funksjoner som norsk uttrykker med ordstilling
+
+**Verbsystem:**
+- Rik verbbøyning
+- Skiller mellom entall, totall og flertall
+- "Vi to" har egen form forskjellig fra "vi mange"
+
+**Ordforråd:**
+- Rikt ordforråd for natur, vær og reindrift
+- Mange ord for snø, is og reinsdyr
+- Gjenspeiler tradisjonell levemåte
+
+**Eksempel på nordsamisk:**
+- "Buorre beaivi" = God dag
+- "Giitu" = Takk
+- "Mii lea du namma?" = Hva heter du?
+
+**Samisk i dag:**
+Moderne samisk brukes i alle sammenhenger - fra tradisjonell joik til hip-hop, fra reindrift til programmering.`,
+    },
+    {
+      id: 'norsk-vg1-14-1-def-3',
+      type: 'definition',
+      title: 'Status og truethet',
+      content: `**Samiske språks status i dag:**
+
+UNESCO klassifiserer språkenes truethetsnivå:
+
+**Nordsamisk: Definert truet**
+- Det sterkeste samiske språket
+- Har skoler, medier, litteratur
+- Men færre barn lærer det som førstespråk
+- Utfordring: Overføring mellom generasjoner
+
+**Lulesamisk: Alvorlig truet**
+- Få talere, få barn lærer språket
+- Aktive revitaliseringstiltak
+- Språksentre jobber for bevaring
+
+**Sørsamisk: Alvorlig truet**
+- Svært få førstespråkstalere
+- Mange lærer det som andrespråk
+- Stor innsats for revitalisering
+- Språkreir og språkbad
+
+**Hva truer språkene?**
+- Fornorskingspolitikkens langtidsvirkninger
+- Urbanisering (samer flytter til byer)
+- Dominansen av norsk i samfunnet
+- Manglende lærere og læremidler
+
+**Positive utviklinger:**
+- Økt interesse for å lære samisk
+- Flere samiske barnehager
+- Samisk på Duolingo og andre apper
+- NRK Sápmi og annen samisk media
+- Stolthet over samisk identitet`,
+    },
+    {
+      id: 'norsk-vg1-14-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Samiske stedsnavn i Norge',
+      problem: 'Mange steder i Norge har samiske navn. Hva forteller stedsnavnene oss?',
+      solution: `**Samiske stedsnavn finnes over hele Nord-Norge og Trøndelag:**
+
+**Eksempler med betydning:**
+- **Tromsø** (Romsa) - kan bety "sted med sterk strøm"
+- **Alta** (Áltá) - relatert til "alda" (bølge)
+- **Kautokeino** (Guovdageaidnu) - "midtveis"
+- **Karasjok** (Kárášjohka) - "elva ved den steinete/barkede"
+- **Hammerfest** (Hámmerfeasta) - samisk versjon av det norske navnet
+
+**Hva stedsnavnene viser:**
+1. **Samisk tilstedeværelse:** Beviser at samer har bodd i områdene lenge
+2. **Naturobservasjon:** Navnene beskriver ofte naturen
+3. **Bruksområder:** Viser hvordan landskapet ble brukt
+4. **Språkhistorie:** Viser samisk språks utbredelse
+
+**Lovfesting:**
+Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting på samisk er blitt vanligere, særlig i samiske forvaltningsområder.
+
+**Refleksjon:** Stedsnavn er kulturminner. De viser hvem som har bodd der og hvordan de har brukt området.`,
+    },
+    {
+      id: 'norsk-vg1-14-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Svar på spørsmål om de samiske språkene.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvor mange samiske språk snakkes i Norge?',
+            solution: 'Tre: nordsamisk, lulesamisk og sørsamisk.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilket samisk språk har flest talere?',
+            solution: 'Nordsamisk, med ca. 20 000-25 000 talere totalt.',
+          },
+          {
+            label: 'c',
+            task: 'Hvilken språkfamilie tilhører samisk?',
+            solution: 'Den finsk-ugriske (eller uralske) språkfamilien.',
+          },
+          {
+            label: 'd',
+            task: 'Er samisk i slekt med norsk? Forklar.',
+            solution: 'Nei, samisk tilhører den finsk-ugriske familien, mens norsk tilhører den germanske/indoeuropeiske familien.',
+          },
+        ],
+        solution: 'De samiske språkene er selvstendige språk med lang historie i Norge.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Undersøk samiske stedsnavn i Norge.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn tre norske byer eller tettsteder som har samiske navn.',
+            solution: 'Eksempler: Tromsø (Romsa), Alta (Áltá), Kautokeino (Guovdageaidnu), Hammerfest (Hámmerfeasta), Vardø (Várggát).',
+          },
+          {
+            label: 'b',
+            task: 'Hva betyr stedsnavnloven for samiske stedsnavn?',
+            solution: 'Loven sikrer at samiske stedsnavn tas vare på og kan brukes på skilt og kart.',
+          },
+        ],
+        hints: ['Søk på nettstedet til Kartverket', 'Samiske stedsnavn finnes ofte på skilt i Nord-Norge'],
+        solution: 'Samiske stedsnavn er kulturminner som viser samisk tilstedeværelse gjennom historien.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Reflekter over språklig mangfold.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvorfor er det viktig å bevare samiske språk?',
+            solution: 'Svar kan inkludere: kulturarv, identitet, kunnskap, rettigheter, mangfold, forsoning.',
+          },
+          {
+            label: 'b',
+            task: 'Hva mister vi hvis et språk dør ut?',
+            solution: 'Vi mister en unik måte å forstå verden på, kulturell kunnskap, tradisjonell viten, og et perspektiv som ikke kan gjenskapes.',
+          },
+        ],
+        hints: ['Tenk på hva språk inneholder utover ord', 'Tenk på forholdet mellom språk og identitet'],
+        solution: 'Språk bærer med seg kultur, historie og verdensforståelse som går tapt hvis språket dør.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Finn ut mer om samisk i media.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er NRK Sápmi?',
+            solution: 'NRKs samiske redaksjon som lager nyheter, programmer og innhold på samisk.',
+          },
+          {
+            label: 'b',
+            task: 'Finn et eksempel på moderne samisk kultur (musikk, film, litteratur).',
+            solution: 'Eksempler: Mari Boine (musikk), Elle Marja Eira (joik/pop), filmen Sameblod, Sofia Jannok, Maxida Märak.',
+          },
+        ],
+        hints: ['Besøk NRK Sápmis nettsider', 'Søk på samisk musikk på Spotify'],
+        solution: 'Samisk kultur er levende og utvikler seg i moderne former.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv en kort tekst (150-200 ord) om hvorfor kunnskap om samiske språk bør være del av norskfaget.',
+        hints: ['Tenk på Norges historie', 'Tenk på LK20 og læreplanmål', 'Tenk på forsoning og forståelse'],
+        solution: 'Teksten bør argumentere for at kunnskap om samisk er viktig for å forstå norsk historie, kultur og språklig mangfold, og for forsoning etter fornorskingspolitikken.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 14.2: Fornorskingspolitikken
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_14_2: TextbookChapter = {
+  id: 'norsk-vg1-14-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '14.2',
+  title: 'Fornorskingspolitikken',
+  description: 'Lær om den norske statens assimileringspolitikk overfor samer og kvener.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge',
+    'reflektere over hvordan språkpolitikk har påvirket minoritetsgrupper',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-14-2-intro',
+      type: 'text',
+      content: `## Fornorskingspolitikken - et mørkt kapittel
+
+Fornorskingspolitikken var den norske statens offisielle politikk for å assimilere samer, kvener og andre minoriteter til norsk kultur og språk. Denne politikken varte i over 100 år og har hatt dype konsekvenser som fortsatt merkes i dag.
+
+**Hva var fornorsking?**
+Fornorsking innebar at minoriteter skulle bli "norske" - de skulle slutte å snakke sine egne språk, gi opp sin kultur og tilpasse seg det norske majoritetssamfunnet.
+
+**Perioden:**
+Fornorskingspolitikken var på sitt sterkeste fra ca. 1850 til 1980, men enkelte tiltak varte enda lenger.
+
+**Hvem ble rammet?**
+- Samer i hele Norge
+- Kvener (norsk-finner) i Nord-Norge
+- Skogfinner i Hedmark
+- Romani/tatere
+
+**Hvorfor lære om dette?**
+- For å forstå minoritetenes situasjon i dag
+- For å bidra til forsoning
+- For å unngå å gjenta historiens feil
+- Fordi det er del av norsk historie alle bør kjenne`,
+    },
+    {
+      id: 'norsk-vg1-14-2-def-1',
+      type: 'definition',
+      title: 'Fornorskingspolitikkens metoder',
+      content: `**Hvordan foregikk fornorskingen?**
+
+**I skolen:**
+- Samisk og kvensk var forbudt som undervisningsspråk
+- Barn ble straffet for å snakke morsmålet
+- Internatskoler fjernet barn fra familie og kultur
+- Lærebøker fremstilte samisk kultur negativt
+- Lærere måtte beherske norsk, ikke samisk
+
+**Jordsalgsloven (1902):**
+- Krevde at kjøpere av jord måtte kunne norsk
+- Samiske stedsnavn ble fornorsket
+- Presset samer vekk fra tradisjonelle områder
+
+**I kirken:**
+- Gudstjenester bare på norsk
+- Konfirmasjon krevde norskkunnskaper
+- Samisk religiøs praksis ble motarbeidet
+
+**I offentligheten:**
+- Samisk var usynlig i det offentlige rom
+- Ingen samiske aviser eller bøker
+- Skam knyttet til samisk identitet
+
+**Internatskolene:**
+Mange samiske barn ble sendt på internat langt fra hjemmet. De fikk ikke snakke samisk, måtte lære norsk tvang, og mistet kontakt med familie og kultur.`,
+    },
+    {
+      id: 'norsk-vg1-14-2-def-2',
+      type: 'definition',
+      title: 'Bakgrunn og ideologi',
+      content: `**Hvorfor fornorsking?**
+
+Fornorskingspolitikken hadde flere årsaker:
+
+**Nasjonsbygging:**
+- Norge ble selvstendig i 1814/1905
+- Staten ville skape en enhetlig nasjon
+- "Ett folk, ett språk, én kultur"
+- Minoriteter ble sett som hindring
+
+**Sosialdarwinisme:**
+- Vanlig tankesett på 1800-tallet
+- Noen kulturer ble ansett som "høyere" enn andre
+- Samisk kultur ble sett som "primitiv"
+- Man trodde assimilering var "til deres eget beste"
+
+**Sikkerhetspolitikk:**
+- Frykt for finsk/russisk innflytelse i nord
+- Kvener og samer ble sett som sikkerhetstrussel
+- "Norsk" befolkning i nord var strategisk viktig
+
+**Økonomiske interesser:**
+- Ressurser i samiske områder
+- Lettere å utnytte land uten samiske rettigheter
+
+**Viktig:** Dette var statlig politikk støttet av lover, bevilgninger og institusjoner - ikke bare holdninger blant enkeltpersoner.`,
+    },
+    {
+      id: 'norsk-vg1-14-2-def-3',
+      type: 'definition',
+      title: 'Konsekvenser av fornorskingen',
+      content: `**Virkninger som fortsatt merkes:**
+
+**Språktap:**
+- Mange mistet morsmålet sitt
+- Samisk ble ikke overført til nye generasjoner
+- Noen samiske språk er nå truet av utryddelse
+- Tapt kunnskap om tradisjonell terminologi
+
+**Kulturelt brudd:**
+- Tradisjoner, joik og håndverk gikk tapt
+- Generasjoner vokste opp uten kulturell forankring
+- Skam over samisk bakgrunn
+- Mange skjulte sin samiske identitet
+
+**Psykiske konsekvenser:**
+- Traumer fra internatskoler
+- Skam og mindreverd
+- Identitetsforvirring
+- Virkninger går i arv gjennom generasjoner
+
+**Sosiale konsekvenser:**
+- Brutte familiebånd
+- Tap av tradisjonell kunnskap
+- Vanskeligheter med å videreføre kultur
+- Fortsatte effekter i form av lavere utdanning og helse
+
+**Mange samer i dag har foreldre eller besteforeldre som ikke fikk snakke samisk som barn, og som aldri lærte barna sine språket.**`,
+    },
+    {
+      id: 'norsk-vg1-14-2-def-4',
+      type: 'definition',
+      title: 'Sannings- og forsoningskommisjonen',
+      content: `**Oppgjør med fortiden:**
+
+I 2018 oppnevnte Stortinget Sannhets- og forsoningskommisjonen for å granske fornorskingspolitikken.
+
+**Kommisjonens mandat:**
+- Granske fornorskingspolitikken overfor samer, kvener og skogfinner
+- Undersøke virkningene frem til i dag
+- Foreslå tiltak for forsoning
+
+**Rapporten (2023):**
+Kommisjonen la frem sin rapport til Stortinget med:
+- Dokumentasjon av overgrep og urett
+- Personlige historier fra dem som ble rammet
+- Analyse av langtidsvirkninger
+- Anbefalinger for veien videre
+
+**Noen funn:**
+- Systematisk og bevisst politikk fra staten
+- Varige skader på individer og samfunn
+- Behov for fortsatt forsoning
+- Språkrevitalisering er avgjørende
+
+**Forsoningsarbeidet:**
+- Offisielle unnskyldninger fra staten
+- Økt støtte til samisk språk og kultur
+- Synliggjøring av samisk historie
+- Dialog mellom majoritet og minoriteter
+
+**Forsoning er en pågående prosess som krever kunnskap, anerkjennelse og handling.**`,
+    },
+    {
+      id: 'norsk-vg1-14-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Personlige historier fra fornorskingen',
+      problem: 'Hvordan opplevde enkeltpersoner fornorskingspolitikken?',
+      solution: `**Autentiske fortellinger (anonymisert/sammensatt):**
+
+**"Jeg fikk ikke snakke samisk på skolen"**
+"Da jeg begynte på skolen, kunne jeg bare samisk. Læreren slo meg over fingrene hver gang jeg sa et samisk ord. Jeg lærte fort å tie. Men jeg glemte også morsmålet mitt."
+
+**"Jeg visste ikke at jeg var same"**
+"Mine foreldre fortalte aldri at vi var samer. Jeg fant ut det først som voksen, da jeg spurte hvorfor bestemor snakket så rart med de gamle nabokona."
+
+**"Skammen sitter dypt"**
+"Selv om fornorskingen er over, bærer jeg fortsatt på skam. Jeg valgte å ikke lære barna mine samisk fordi jeg ville skåne dem for det jeg opplevde."
+
+**"Å finne tilbake"**
+"I voksen alder begynte jeg på samiskkurs. Det var som å finne en del av meg selv jeg ikke visste manglet. Nå lærer jeg sammen med barnebarna mine."
+
+**Refleksjon:**
+Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan virkningene går i arv. Mange lever fortsatt med konsekvensene av fornorskingen.`,
+    },
+    {
+      id: 'norsk-vg1-14-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Svar på spørsmål om fornorskingspolitikken.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva var fornorskingspolitikken?',
+            solution: 'Statlig politikk for å assimilere samer, kvener og andre minoriteter til norsk språk og kultur.',
+          },
+          {
+            label: 'b',
+            task: 'Hvor lenge varte fornorskingspolitikken omtrent?',
+            solution: 'Fra ca. 1850 til 1980 - over 100 år.',
+          },
+          {
+            label: 'c',
+            task: 'Nevn tre metoder som ble brukt i fornorskingen.',
+            solution: 'Eksempler: Forbud mot samisk i skolen, internatskoler, jordsalgsloven, fornorsking av stedsnavn, straff for å snakke morsmål.',
+          },
+        ],
+        solution: 'Fornorskingspolitikken var systematisk statlig politikk med alvorlige konsekvenser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Analyser årsakene til fornorskingspolitikken.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med nasjonsbygging, og hvordan bidro det til fornorskingen?',
+            solution: 'Nasjonsbygging er prosessen med å skape en samlet nasjon. Minoriteter ble sett som hinder for enhet.',
+          },
+          {
+            label: 'b',
+            task: 'Hva var sosialdarwinisme, og hvordan påvirket det synet på samer?',
+            solution: 'Ideen om at noen kulturer/folk er "høyere" enn andre. Samisk kultur ble sett som "primitiv" og assimilering som "fremskritt".',
+          },
+        ],
+        hints: ['Tenk på konteksten: Norge som ny selvstendig stat', 'Hvilke tankesett var vanlige på 1800-tallet?'],
+        solution: 'Fornorskingen hadde ideologiske, politiske og økonomiske årsaker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Drøft konsekvensene av fornorskingspolitikken.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke konsekvenser hadde fornorskingen for samisk språk?',
+            solution: 'Mange mistet morsmålet, språk ble ikke overført mellom generasjoner, noen samiske språk er nå truet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan kan traumer fra fornorskingen påvirke senere generasjoner?',
+            solution: 'Skam og tabu rundt samisk identitet, brutte familiebånd, manglende språk- og kulturoverføring, psykiske ettervirkninger.',
+          },
+        ],
+        hints: ['Tenk på hva det betyr å ikke kunne snakke med besteforeldrene', 'Tenk på identitet og tilhørighet'],
+        solution: 'Fornorskingen har hatt varige konsekvenser for enkeltpersoner, familier og samfunn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Undersøk Sannhets- og forsoningskommisjonen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Når ble kommisjonen oppnevnt og av hvem?',
+            solution: 'Stortinget oppnevnte kommisjonen i 2018.',
+          },
+          {
+            label: 'b',
+            task: 'Hva var kommisjonens hovedoppgave?',
+            solution: 'Å granske fornorskingspolitikken, undersøke virkningene og foreslå tiltak for forsoning.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor er slike granskninger viktige?',
+            solution: 'For å dokumentere urett, anerkjenne lidelse, lære av historien og legge grunnlag for forsoning.',
+          },
+        ],
+        hints: ['Søk på kommisjonens nettsider', 'Tenk på lignende prosesser i andre land'],
+        solution: 'Sannhetskommisjoner er viktige for å bearbeide historisk urett og muliggjøre forsoning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv en refleksjonstekst (200-250 ord) om hva du tenker om fornorskingspolitikken og dens betydning for Norge i dag.',
+        hints: ['Hva har du lært som var nytt?', 'Hvordan kan kunnskap bidra til forsoning?', 'Hva er statens ansvar?', 'Hva kan du som enkeltperson gjøre?'],
+        solution: 'Teksten bør vise refleksjon over historien, forståelse for konsekvensene og tanker om forsoning og veien videre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 14.3: Samiske språklige rettigheter
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_14_3: TextbookChapter = {
+  id: 'norsk-vg1-14-3',
+  courseId: 'norsk-vg1',
+  chapterNumber: '14.3',
+  title: 'Samiske språklige rettigheter',
+  description: 'Lær om lover og rettigheter som beskytter samisk språk i dag.',
+  estimatedMinutes: 45,
+  competenceGoals: [
+    'gjøre rede for språkpolitikk og språklige rettigheter i Norge',
+    'reflektere over forholdet mellom språk, makt og identitet',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-14-3-intro',
+      type: 'text',
+      content: `## Fra undertrykkelse til rettigheter
+
+Etter over 100 år med fornorskingspolitikk har situasjonen for samisk språk endret seg dramatisk. I dag har samisk en rekke lovfestede rettigheter, og staten har ansvar for å bevare og utvikle samisk språk.
+
+**Vendepunkter:**
+- 1988: Sameparagrafen i Grunnloven
+- 1989: Opprettelse av Sametinget
+- 1990: Sameloven med språkregler
+- 2021: Ny språklov styrker samisk
+
+**Fra forbud til rettigheter:**
+Utviklingen viser hvordan politikk kan endre seg. Det som var forbudt for noen tiår siden, er nå beskyttet av loven.
+
+**I dette kapittelet lærer du:**
+- Om sameloven og språkforvaltningsområder
+- Om samiske rettigheter i skole og offentlighet
+- Om samisk i medier og på internett
+- Om utfordringer og muligheter fremover`,
+    },
+    {
+      id: 'norsk-vg1-14-3-def-1',
+      type: 'definition',
+      title: 'Grunnloven og sameloven',
+      content: `**Grunnlovens sameparagraf (§ 108):**
+
+"Det påligger statens myndigheter å legge forholdene til rette for at den samiske folkegruppe kan sikre og utvikle sitt språk, sin kultur og sitt samfunnsliv."
+
+**Hva betyr dette?**
+- Staten har PLIKT til å støtte samisk språk
+- Samisk språk og kultur har grunnlovsvern
+- Samene har rett til å utvikle sitt samfunnsliv
+
+**Sameloven (1987):**
+Gir konkrete rettigheter:
+- Rett til å bruke samisk i kontakt med offentlige myndigheter
+- Rett til svar på samisk i forvaltningsområdet
+- Rett til samiskopplæring i skolen
+- Rett til samiske stedsnavn
+
+**Språkforvaltningsområdet:**
+Kommuner der samisk og norsk er likestilte:
+- Kautokeino, Karasjok, Tana, Nesseby, Porsanger
+- Kåfjord, Lavangen, Tysfjord
+- Snåsa, Røyrvik, Hattfjelldal
+- Flere kan søke om å bli del av området
+
+**I disse kommunene har du rett til å bruke samisk i alle offentlige sammenhenger.**`,
+    },
+    {
+      id: 'norsk-vg1-14-3-def-2',
+      type: 'definition',
+      title: 'Samisk i skolen',
+      content: `**Opplæringsloven gir rettigheter:**
+
+**I samiske distrikt:**
+- Samisk som førstespråk i grunnskolen
+- Undervisning i og på samisk
+- Samisk som hovedspråk i barnehagen
+
+**Utenfor samiske distrikt:**
+- Rett til opplæring i samisk hvis eleven ønsker det
+- Gjelder uansett hvor i landet du bor
+- Kan gis som fjernundervisning
+
+**Praktiske utfordringer:**
+- Mangel på samisktalende lærere
+- Få læremidler på samisk
+- Lange avstander til andre samiske elever
+- Fjernundervisning kan være vanskelig
+
+**Samisk videregående:**
+- Samisk videregående skole i Karasjok og Kautokeino
+- Undervisning på samisk
+- Kombinerer akademisk og tradisjonell kunnskap
+
+**Samiskkurs for voksne:**
+- Voksne som mistet språket kan få gratis opplæring
+- Språksentre tilbyr kurs
+- Apper og nettressurser finnes
+
+**Revitalisering i skolen:**
+Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig bruk, ikke bare som fag.`,
+    },
+    {
+      id: 'norsk-vg1-14-3-def-3',
+      type: 'definition',
+      title: 'Samisk i medier og samfunn',
+      content: `**Samisk i medier:**
+
+**NRK Sápmi:**
+- Nyheter på nordsamisk daglig
+- Radioprogrammer på alle tre samiske språk
+- TV-programmer og nettinnhold
+- Barneprogram på samisk
+
+**Aviser:**
+- Ávvir (dagsavis på nordsamisk)
+- Ságat (norskspråklig avis om samiske saker)
+- Nuorttanaste (sørsamisk)
+
+**Samisk på internett:**
+- Samisk på Facebook, Instagram, TikTok
+- Wikipedia på nordsamisk
+- Oversettelse i Google og Microsoft
+- Samisk tastatur på alle enheter
+
+**Samiske stedsnavn:**
+- Stedsnavnloven beskytter samiske navn
+- Skilting på både norsk og samisk
+- Samiske navn på kart
+- Økt synlighet de siste årene
+
+**Samisk i offentligheten:**
+- Samiske farger og flagg 6. februar (samefolkets dag)
+- Samisk i Stortinget
+- Økt synlighet i nasjonale arrangementer
+- Samisk i offentlige bygg og institusjoner`,
+    },
+    {
+      id: 'norsk-vg1-14-3-def-4',
+      type: 'definition',
+      title: 'Utfordringer og muligheter',
+      content: `**Utfordringer for samisk språk i dag:**
+
+**Strukturelle:**
+- For få lærere
+- Mangel på læremidler
+- Vanskelig å bruke samisk i hverdagen
+- Norsk dominerer
+
+**Holdninger:**
+- Fortsatt noe stigma
+- Manglende kunnskap i majoritetsbefolkningen
+- Samisk kan føles "unyttig"
+
+**Praktiske:**
+- Få samisktalende i mange områder
+- Digitale verktøy mangler
+- Vanskelig å bruke i jobb og utdanning
+
+**Muligheter og positive trender:**
+
+**Økt interesse:**
+- Flere vil lære samisk
+- Stolthet over samisk identitet
+- "Samisk er kult" blant unge
+
+**Teknologi:**
+- Samisk på Duolingo (kommer/under utvikling)
+- Talesyntese og oversettelsesverktøy
+- Samisk i smart-teknologi
+
+**Revitalisering:**
+- Språkreir gir resultater
+- Voksne lærer tilbake språket
+- Nye generasjoner vokser opp med samisk
+
+**Det tar tid å rette opp 100 års fornorsking, men utviklingen går i riktig retning.**`,
+    },
+    {
+      id: 'norsk-vg1-14-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Dine rettigheter',
+      problem: 'Hvilke rettigheter har du hvis du vil lære eller bruke samisk?',
+      solution: `**Dine samiske språkrettigheter:**
+
+**Som elev:**
+- Du har rett til opplæring i samisk uansett hvor du bor
+- Du kan velge samisk som valgfag
+- Du kan ta eksamen i samisk
+
+**I offentlige tjenester (i forvaltningsområdet):**
+- Rett til å henvende deg på samisk
+- Rett til svar på samisk
+- Rett til tolk hvis nødvendig
+
+**I retten:**
+- Rett til å bruke samisk i rettssaker
+- Rett til tolk
+
+**I helsevesenet:**
+- Rett til informasjon du forstår
+- SANKS (Samisk nasjonalt kompetansesenter) tilbyr helsetjenester
+
+**Som voksen:**
+- Rett til gratis samiskopplæring (for de som mistet språket)
+- Språksentre tilbyr kurs
+
+**Hvordan bruke rettighetene:**
+1. Kontakt skolen din om samiskopplæring
+2. Kontakt kommunen om tjenester på samisk
+3. Besøk Sametingets nettsider for informasjon
+4. Bruk språksenteret i din region`,
+    },
+    {
+      id: 'norsk-vg1-14-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Svar på spørsmål om samiske språkrettigheter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva sier Grunnlovens § 108 om samisk?',
+            solution: 'Staten har plikt til å legge til rette for at samene kan sikre og utvikle sitt språk, kultur og samfunnsliv.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er språkforvaltningsområdet?',
+            solution: 'Kommuner der samisk og norsk er likestilte og du har rett til å bruke samisk i offentlige tjenester.',
+          },
+          {
+            label: 'c',
+            task: 'Hvilke rettigheter har elever til samiskopplæring?',
+            solution: 'Alle elever i Norge har rett til opplæring i samisk hvis de ønsker det, uansett hvor de bor.',
+          },
+        ],
+        solution: 'Samisk har sterkt lovvern i Norge etter Grunnloven og sameloven.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Undersøk samisk i medier.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Besøk NRK Sápmis nettsider. Hva slags innhold finner du der?',
+            solution: 'Nyheter, radio, TV-programmer, kulturstoff, barneinnhold - mye på samisk.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er samiske medier viktige for språkbevaring?',
+            solution: 'De gir folk mulighet til å bruke og høre samisk daglig, viser at samisk er et moderne språk, og styrker identitet.',
+          },
+        ],
+        hints: ['Gå til nrk.no/sapmi', 'Tenk på hva medier betyr for språk'],
+        solution: 'Medier på samisk er avgjørende for å holde språket levende og relevant.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Drøft forholdet mellom rettigheter og praksis.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Selv om elever har rett til samiskopplæring, er det ikke alltid lett å få. Hvorfor?',
+            solution: 'Mangel på lærere, få læremidler, lange avstander, fjernundervisning kan være utfordrende.',
+          },
+          {
+            label: 'b',
+            task: 'Hva kan gjøres for å lukke gapet mellom rettigheter og praksis?',
+            solution: 'Utdanne flere lærere, utvikle digitale læremidler, mer ressurser, bedre fjernundervisningsløsninger.',
+          },
+        ],
+        hints: ['Tenk på praktiske hindringer', 'Tenk på hva som trengs for at rettigheter skal fungere'],
+        solution: 'Rettigheter på papiret må følges opp med ressurser for å fungere i praksis.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Sammenlign samisk med andre minoritetsspråk i Norge.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke andre minoritetsspråk har rettigheter i Norge?',
+            solution: 'Kvensk, romanes, romani, norsk tegnspråk har status som nasjonale minoritetsspråk.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor har samisk sterkere rettigheter enn andre minoritetsspråk?',
+            solution: 'Samer er urfolk med særskilte rettigheter etter internasjonal lov, og har lengst historie i landet.',
+          },
+        ],
+        hints: ['Søk på nasjonale minoritetsspråk', 'Hva er forskjellen på urfolk og minoritet?'],
+        solution: 'Samisk har særstilling som urfolksspråk, men andre minoritetsspråk har også vern.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-14-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-14-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv en tekst (200 ord) om hvordan du mener Norge bør jobbe med samisk språk fremover.',
+        hints: ['Hva fungerer bra i dag?', 'Hva bør forbedres?', 'Hva kan du selv gjøre?', 'Hvordan kan teknologi hjelpe?'],
+        solution: 'Teksten bør vise forståelse for utfordringer og muligheter, og komme med konkrete forslag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 15.1: Setningsanalyse
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_15_1: TextbookChapter = {
+  id: 'norsk-vg1-15-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '15.1',
+  title: 'Setningsanalyse',
+  description: 'Lær å analysere setninger og identifisere setningsledd.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'bruke grammatisk kunnskap til å analysere og vurdere egen og andres tekst',
+    'gjøre rede for setningsoppbygging og bruke dette i egen skriving',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-15-1-intro',
+      type: 'text',
+      content: `## Setningsanalyse - å forstå hvordan setninger er bygd opp
+
+Setningsanalyse handler om å identifisere de ulike delene (leddene) i en setning og forstå hvordan de fungerer sammen.
+
+**Hvorfor setningsanalyse?**
+- Gir deg et språk for å snakke om språk
+- Hjelper deg å skrive klarere setninger
+- Gjør det lettere å finne feil
+- Grunnlag for å lære andre språk
+- Viktig på eksamen i norsk
+
+**Hva er et setningsledd?**
+Et setningsledd er en del av setningen som har en bestemt funksjon. Hvert ledd svarer på et spørsmål vi kan stille til setningen.
+
+**De viktigste setningsleddene:**
+- Verbal (V) - handlingen
+- Subjekt (S) - hvem handler
+- Objekt (O) - hvem/hva handlingen rammer
+- Adverbial (A) - omstendighetene
+- Predikativ (P) - beskrivelse av subjekt/objekt
+
+**I dette kapittelet lærer du å identifisere og analysere alle disse leddene.**`,
+    },
+    {
+      id: 'norsk-vg1-15-1-def-1',
+      type: 'definition',
+      title: 'Verbal (V)',
+      content: `**Verbalet er setningens kjerne.**
+
+Verbalet forteller hva som skjer i setningen - handlingen eller tilstanden.
+
+**Hvordan finne verbalet:**
+Spør: "Hva skjer?" eller "Hva gjøres?"
+
+**Eksempler:**
+- "Lise **leser** en bok." (leser = V)
+- "Det **regner** ute." (regner = V)
+- "Hun **har jobbet** hele dagen." (har jobbet = V)
+
+**Verbalet kan bestå av flere ord:**
+- Hjelpeverb + hovedverb: "har spist", "vil reise", "ble invitert"
+- Sammensatt verb: "har blitt gitt"
+
+**Finitt og infinitt verbal:**
+- **Finitt:** Bøyd i tid (presens, preteritum): "spiser", "spiste"
+- **Infinitt:** Infinitiv eller partisipp: "å spise", "spist"
+
+**Husk:** Enhver fullstendig setning må ha et verbal. Verbalet er obligatorisk.
+
+**Tips:** Finn verbalet først - det gjør det lettere å finne de andre leddene.`,
+    },
+    {
+      id: 'norsk-vg1-15-1-def-2',
+      type: 'definition',
+      title: 'Subjekt (S)',
+      content: `**Subjektet er den eller det som handler eller beskrives.**
+
+Subjektet forteller hvem eller hva setningen handler om.
+
+**Hvordan finne subjektet:**
+Spør: "Hvem/hva + verbalet?"
+
+**Eksempler:**
+- "**Lise** leser en bok." → Hvem leser? = Lise (S)
+- "**Bilen** står i garasjen." → Hva står? = Bilen (S)
+- "**Det** regner ute." → Hva regner? = Det (S)
+
+**Subjektet kan være:**
+- Substantiv: "Hunden bjeffer."
+- Pronomen: "Han kommer."
+- Egenavn: "Oslo er Norges hovedstad."
+- Setning: "At han kom, overrasket meg."
+
+**Formelt subjekt:**
+Noen setninger har "det" som formelt subjekt:
+- "Det regner." (hva regner egentlig?)
+- "Det er kaldt."
+- "Det finnes mange muligheter."
+
+**Samsvarsbøyning:**
+Subjektet styrer verbalformen:
+- "Jeg **er**" / "Vi **er**"
+- "Hun **løper**" / "De **løper**"`,
+    },
+    {
+      id: 'norsk-vg1-15-1-def-3',
+      type: 'definition',
+      title: 'Objekt (DO og IO)',
+      content: `**Objektet er den/det handlingen rammer.**
+
+Vi skiller mellom direkte og indirekte objekt.
+
+**Direkte objekt (DO):**
+Spør: "Hvem/hva + verbalet + subjektet?"
+
+**Eksempler på direkte objekt:**
+- "Lise leser **en bok**." → Lise leser hva? = en bok (DO)
+- "Han kjøpte **en bil**." → Han kjøpte hva? = en bil (DO)
+- "Jeg så **henne**." → Jeg så hvem? = henne (DO)
+
+**Indirekte objekt (IO):**
+Den som mottar noe. Spør: "Til hvem/for hvem?"
+
+**Eksempler på indirekte objekt:**
+- "Hun ga **ham** en gave." → Ga til hvem? = ham (IO)
+- "Læreren fortalte **oss** en historie." → Fortalte til hvem? = oss (IO)
+
+**Rekkefølge:**
+Normalt kommer IO før DO:
+- "Han ga [henne IO] [blomster DO]."
+
+**Ikke alle setninger har objekt:**
+- "Solen skinner." (ingen objekt)
+- "Hun sover." (ingen objekt)
+
+**Transitive verb** krever objekt: "spise", "se", "lese"
+**Intransitive verb** tar ikke objekt: "sove", "le", "gå"`,
+    },
+    {
+      id: 'norsk-vg1-15-1-def-4',
+      type: 'definition',
+      title: 'Adverbial (A)',
+      content: `**Adverbialet forteller om omstendighetene.**
+
+Adverbial gir tilleggsinformasjon om tid, sted, måte, årsak osv.
+
+**Typer adverbial:**
+
+**Tidsadverbial:**
+Spør: "Når?"
+- "**I går** reiste vi til Bergen."
+- "Han kommer **snart**."
+- "**Hver dag** trener hun."
+
+**Stedsadverbial:**
+Spør: "Hvor?"
+- "Boken ligger **på bordet**."
+- "De bor **i Oslo**."
+- "**Her** er det kaldt."
+
+**Måtesadverbial:**
+Spør: "Hvordan?"
+- "Hun sang **vakkert**."
+- "De arbeidet **hardt**."
+- "Han gikk **sakte**."
+
+**Årsaksadverbial:**
+Spør: "Hvorfor?"
+- "**På grunn av regnet** ble kampen avlyst."
+- "De feiret **fordi de vant**."
+
+**Setningsadverbial:**
+Modifiserer hele setningen:
+- "**Dessverre** kan jeg ikke komme."
+- "**Kanskje** har han rett."
+- "Hun er **nok** syk."
+
+**En setning kan ha flere adverbialer.**`,
+    },
+    {
+      id: 'norsk-vg1-15-1-def-5',
+      type: 'definition',
+      title: 'Predikativ (P)',
+      content: `**Predikativet beskriver subjektet eller objektet.**
+
+**Subjektspredikativ (SP):**
+Beskriver subjektet via kopulaverb (være, bli, virke, synes).
+
+Spør: "Hva er/blir subjektet?"
+
+**Eksempler:**
+- "Hun er **lærer**." → Hun = lærer (SP)
+- "Maten smaker **godt**." → Maten = godt (SP)
+- "Han ble **sur**." → Han = sur (SP)
+- "De virker **trøtte**." → De = trøtte (SP)
+
+**Objektspredikativ (OP):**
+Beskriver objektet.
+
+**Eksempler:**
+- "De kalte ham **feig**." → ham = feig (OP)
+- "Vi malte veggen **blå**." → veggen = blå (OP)
+- "Hun gjør meg **glad**." → meg = glad (OP)
+
+**Forskjell på predikativ og adverbial:**
+- "Han er **rask**." → rask beskriver HAN (predikativ)
+- "Han løper **raskt**." → raskt beskriver LØPINGEN (adverbial)
+
+**Kopulaverb:**
+Verb som forbinder subjekt og predikativ:
+være, bli, virke, synes, føles, lukter, smaker, høres...`,
+    },
+    {
+      id: 'norsk-vg1-15-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Fullstendig setningsanalyse',
+      problem: 'Analyser setningen: "I går ga læreren elevene en vanskelig oppgave på skolen."',
+      solution: `**Steg for steg:**
+
+**1. Finn verbalet (V):**
+"Hva skjer?" → **ga** (V)
+
+**2. Finn subjektet (S):**
+"Hvem ga?" → **læreren** (S)
+
+**3. Finn direkte objekt (DO):**
+"Hva ga læreren?" → **en vanskelig oppgave** (DO)
+
+**4. Finn indirekte objekt (IO):**
+"Til hvem ga læreren?" → **elevene** (IO)
+
+**5. Finn adverbialene (A):**
+"Når?" → **I går** (tidsadverbial)
+"Hvor?" → **på skolen** (stedsadverbial)
+
+**Fullstendig analyse:**
+| I går | ga | læreren | elevene | en vanskelig oppgave | på skolen |
+|-------|-----|---------|---------|---------------------|-----------|
+| A (tid) | V | S | IO | DO | A (sted) |
+
+**Setningsskjema:**
+Forfelt | V | S | IO | DO | Adverbial
+I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
+    },
+    {
+      id: 'norsk-vg1-15-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Finn verbalet i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Katten sover på sofaen."',
+            solution: 'sover',
+          },
+          {
+            label: 'b',
+            task: '"Hun har alltid elsket musikk."',
+            solution: 'har elsket',
+          },
+          {
+            label: 'c',
+            task: '"Boken ble skrevet av en berømt forfatter."',
+            solution: 'ble skrevet',
+          },
+          {
+            label: 'd',
+            task: '"De skulle ha kommet tidligere."',
+            solution: 'skulle ha kommet',
+          },
+        ],
+        solution: 'Verbalet kan bestå av ett eller flere ord (hjelpeverb + hovedverb).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Finn subjekt og eventuelt objekt i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Gutten spiste et eple."',
+            solution: 'Subjekt: Gutten. Direkte objekt: et eple.',
+          },
+          {
+            label: 'b',
+            task: '"Det regner."',
+            solution: 'Subjekt: Det (formelt subjekt). Ingen objekt.',
+          },
+          {
+            label: 'c',
+            task: '"Moren ga barnet en is."',
+            solution: 'Subjekt: Moren. Indirekte objekt: barnet. Direkte objekt: en is.',
+          },
+          {
+            label: 'd',
+            task: '"Solen skinner."',
+            solution: 'Subjekt: Solen. Ingen objekt.',
+          },
+        ],
+        hints: ['Spør "hvem/hva + verbalet" for å finne subjekt', 'Spør "hvem/hva + verbalet + subjektet" for objekt'],
+        solution: 'Alle setninger har subjekt, men ikke alle har objekt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Identifiser adverbialer og bestem type (tid, sted, måte):',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"I morgen skal vi reise til Paris."',
+            solution: 'I morgen = tidsadverbial. Til Paris = stedsadverbial.',
+          },
+          {
+            label: 'b',
+            task: '"Hun løp fort gjennom skogen."',
+            solution: 'Fort = måtesadverbial. Gjennom skogen = stedsadverbial.',
+          },
+          {
+            label: 'c',
+            task: '"Dessverre kan jeg ikke komme i kveld."',
+            solution: 'Dessverre = setningsadverbial. I kveld = tidsadverbial.',
+          },
+        ],
+        hints: ['Spør når, hvor, hvordan', 'En setning kan ha flere adverbialer'],
+        solution: 'Adverbialer gir tilleggsinformasjon om tid, sted, måte og annet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Finn predikativet og avgjør om det er subjekts- eller objektspredikativ:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun er lege."',
+            solution: 'lege = subjektspredikativ (beskriver subjektet "hun")',
+          },
+          {
+            label: 'b',
+            task: '"Maten smaker deilig."',
+            solution: 'deilig = subjektspredikativ (beskriver subjektet "maten")',
+          },
+          {
+            label: 'c',
+            task: '"De malte huset rødt."',
+            solution: 'rødt = objektspredikativ (beskriver objektet "huset")',
+          },
+          {
+            label: 'd',
+            task: '"Nyheten gjorde ham trist."',
+            solution: 'trist = objektspredikativ (beskriver objektet "ham")',
+          },
+        ],
+        solution: 'Predikativet beskriver enten subjektet (SP) eller objektet (OP).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Gjør fullstendig setningsanalyse av disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Læreren forklarte elevene grammatikken grundig i går."',
+            solution: 'Læreren (S) forklarte (V) elevene (IO) grammatikken (DO) grundig (A-måte) i går (A-tid).',
+          },
+          {
+            label: 'b',
+            task: '"Den gamle mannen satt stille på benken hele dagen."',
+            solution: 'Den gamle mannen (S) satt (V) stille (A-måte) på benken (A-sted) hele dagen (A-tid).',
+          },
+          {
+            label: 'c',
+            task: '"Regjeringen ga kommunene mer penger i statsbudsjettet."',
+            solution: 'Regjeringen (S) ga (V) kommunene (IO) mer penger (DO) i statsbudsjettet (A-sted/kontekst).',
+          },
+        ],
+        hints: ['Start med verbalet', 'Gå systematisk gjennom ledd for ledd'],
+        solution: 'Fullstendig setningsanalyse identifiserer alle leddene og deres funksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 15.2: Tekstbinding
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_15_2: TextbookChapter = {
+  id: 'norsk-vg1-15-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '15.2',
+  title: 'Tekstbinding',
+  description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'bruke grammatisk kunnskap til å skape sammenheng i tekst',
+    'vurdere og forbedre tekstbinding i egen og andres tekst',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-15-2-intro',
+      type: 'text',
+      content: `## Tekstbinding - å skape sammenheng
+
+En tekst er mer enn en samling setninger. For at teksten skal fungere godt, må setningene henge sammen på en logisk og tydelig måte. Dette kalles tekstbinding eller kohesjon.
+
+**Hva er tekstbinding?**
+Tekstbinding er teknikkene vi bruker for å skape sammenheng mellom setninger og avsnitt.
+
+**Hvorfor er tekstbinding viktig?**
+- Gjør teksten lettere å lese
+- Viser hvordan ideer henger sammen
+- Hjelper leseren følge tankegangen
+- Gir teksten flyt
+- Viser at du behersker språket
+
+**Hovedtyper tekstbinding:**
+1. **Konjunksjoner og subjunksjoner** - bindeord
+2. **Referentbinding** - å vise tilbake/fremover
+3. **Tematisk binding** - å holde fokus
+4. **Leksikalsk binding** - ord som henger sammen
+
+**God tekstbinding = god tekst. Svak tekstbinding = forvirrende tekst.**`,
+    },
+    {
+      id: 'norsk-vg1-15-2-def-1',
+      type: 'definition',
+      title: 'Konjunksjoner',
+      content: `**Konjunksjoner binder sammen likeverdige setningsledd.**
+
+Konjunksjoner (sideordnende bindeord) forbinder ord, fraser eller setninger som er på samme nivå.
+
+**Vanlige konjunksjoner og deres funksjon:**
+
+**Additive (legger til):**
+- **og**: "Hun leste og skrev."
+- **både...og**: "Både Per og Kari kom."
+- **dessuten**: "Han er smart. Dessuten er han snill."
+- **også**: "Jeg kommer. Per kommer også."
+
+**Adversative (motsetning):**
+- **men**: "Han er ung, men erfaren."
+- **ellers**: "Skynd deg, ellers kommer vi for sent."
+- **likevel**: "Det regnet. Likevel gikk vi ut."
+- **derimot**: "Hun er utadvendt. Han er derimot introvert."
+
+**Alternative:**
+- **eller**: "Vil du ha te eller kaffe?"
+- **enten...eller**: "Enten vinner vi, eller så taper vi."
+
+**Kausale (årsak):**
+- **for**: "Vi ble hjemme, for det regnet."
+
+**Husk:** Konjunksjoner påvirker ikke ordstillingen i setningen.`,
+    },
+    {
+      id: 'norsk-vg1-15-2-def-2',
+      type: 'definition',
+      title: 'Subjunksjoner',
+      content: `**Subjunksjoner innleder leddsetninger.**
+
+Subjunksjoner (underordnende bindeord) innleder setninger som er underordnet hovedsetningen.
+
+**Vanlige subjunksjoner:**
+
+**Tid:**
+- **da**: "Da jeg kom hjem, var han der."
+- **når**: "Når det regner, blir hun våt."
+- **mens**: "Jeg leste mens han sov."
+- **etter at**: "Etter at hun dro, ble det stille."
+- **før**: "Før du går, må du rydde."
+
+**Årsak:**
+- **fordi**: "Jeg gråt fordi jeg var trist."
+- **siden**: "Siden du spør, skal jeg svare."
+- **ettersom**: "Ettersom det regner, tar vi buss."
+
+**Betingelse:**
+- **hvis/dersom**: "Hvis du kommer, blir jeg glad."
+- **med mindre**: "Med mindre du slutter, blir det bråk."
+
+**Innrømmelse:**
+- **selv om**: "Selv om han var syk, kom han."
+- **til tross for at**: "Til tross for at det regnet..."
+
+**Hensikt:**
+- **for at**: "Jeg trener for at jeg skal bli sterk."
+- **slik at**: "Snakk høyere slik at alle hører."
+
+**At-setninger:**
+- **at**: "Jeg vet at du har rett."`,
+    },
+    {
+      id: 'norsk-vg1-15-2-def-3',
+      type: 'definition',
+      title: 'Referentbinding',
+      content: `**Referentbinding viser til noe som er nevnt før eller kommer etterpå.**
+
+**Pronomen:**
+Den vanligste formen for referentbinding.
+
+"**Per** kom sent. **Han** hadde sovet."
+→ "Han" viser tilbake til "Per"
+
+**Typer pronomenbinding:**
+- Personlige: han, hun, de, den, det
+- Demonstrative: dette, disse, den der
+- Possessive: hans, hennes, sin, sitt
+
+**Synonymer og overbegreper:**
+"**Katten** løp over veien. **Dyret** var redd."
+→ "Dyret" er overbegrep for "katten"
+
+**Parafrasering:**
+"**Oslo** vokser. **Hovedstaden** trenger flere boliger."
+→ "Hovedstaden" er alternativ betegnelse
+
+**Ellipse (utelatelse):**
+"Per liker fotball. Kari [liker] tennis."
+→ Verbet er underforstått
+
+**Feil å unngå:**
+- Uklar referanse: "Per og Ole kom. Han var sur." (Hvem?)
+- For lang avstand: Pronomen langt fra det det viser til
+- Inkonsekvent: Bytte mellom "du" og "man"`,
+    },
+    {
+      id: 'norsk-vg1-15-2-def-4',
+      type: 'definition',
+      title: 'Tematisk binding',
+      content: `**Tematisk binding handler om å holde fokus i teksten.**
+
+**Tema og rema:**
+- **Tema**: Det setningen handler om (ofte kjent informasjon)
+- **Rema**: Ny informasjon om temaet
+
+"**Per** [tema] kom i går [rema]."
+"**Han** [tema] hadde vært på reise [rema]."
+
+**Tematisk progresjon:**
+Hvordan teksten utvikler seg fra kjent til ny informasjon.
+
+**Type 1: Konstant tema**
+Samme tema gjentas:
+- "Hunden løp. Den bjeffet. Den var sulten."
+→ Passer for å holde fokus på én ting
+
+**Type 2: Lineær progresjon**
+Ny informasjon blir tema i neste setning:
+- "Per møtte en mann. Mannen ga ham en bok. Boken handlet om historie."
+→ Passer for fortellinger og forklaringer
+
+**Type 3: Overordnet tema**
+Flere undertemaer under ett hovedtema:
+- "Byen har mye å by på. Museer er gratis. Parkene er vakre. Restaurantene er gode."
+→ Passer for beskrivelser og opplistinger
+
+**Tips:** Vær bevisst på hva som er tema i setningene dine. Det hjelper leseren å følge med.`,
+    },
+    {
+      id: 'norsk-vg1-15-2-def-5',
+      type: 'definition',
+      title: 'Leksikalsk binding',
+      content: `**Leksikalsk binding bruker ordvalg for å skape sammenheng.**
+
+**Gjentagelse:**
+Samme ord gjentas:
+- "Miljøet er truet. Miljøet trenger beskyttelse."
+→ Enkel og tydelig, men kan bli monotont
+
+**Synonymer:**
+Ord med lignende betydning:
+- "Bilen er gammel. Kjøretøyet trenger reparasjon."
+→ Variasjon og flyt
+
+**Antonymer:**
+Motsetninger:
+- "Noen er rike, andre er fattige."
+→ Kontrasterer og fremhever
+
+**Kollokasjon:**
+Ord som ofte opptrer sammen:
+- "Doktor - pasient - sykehus - behandling"
+- "Skole - elev - lærer - undervisning"
+→ Skaper et semantisk felt
+
+**Ordkjeder:**
+Serier av relaterte ord gjennom teksten:
+"Klimaet endrer seg. Temperaturen stiger. Isen smelter. Havet stiger."
+→ Alle ordene hører til samme tema
+
+**Tips:** Varier ordbruken for å unngå gjentagelser, men behold klarhet. For faglige tekster kan gjentagelse være klargjørende.`,
+    },
+    {
+      id: 'norsk-vg1-15-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av tekstbinding',
+      problem: 'Analyser tekstbindingen i dette avsnittet:\n\n"Klimaendringene er vår tids største utfordring. De truer livet på jorda. Derfor må vi handle nå. Hvis vi ikke reduserer utslippene, vil konsekvensene bli katastrofale."',
+      solution: `**Analyse av tekstbinding:**
+
+**Setning 1 → 2:**
+- **Referentbinding:** "De" viser tilbake til "Klimaendringene"
+- **Leksikalsk:** "truer livet" relaterer til "utfordring"
+
+**Setning 2 → 3:**
+- **Konjunksjon:** "Derfor" viser årsak-virkning
+- **Tematisk:** Konsekvensen av trusselen → handling
+
+**Setning 3 → 4:**
+- **Subjunksjon:** "Hvis" innleder betingelse
+- **Leksikalsk:** "handle" og "reduserer utslippene" hører sammen tematisk
+
+**Tematisk progresjon:**
+Teksten holder fokus på klima hele veien:
+klimaendringer → trussel → handling → utslipp → konsekvenser
+
+**Vurdering:**
+Avsnittet har god tekstbinding:
+- Klare logiske forbindelser
+- Tydelige referanser
+- Konsekvent tema
+- Variasjon i bindemetoder`,
+    },
+    {
+      id: 'norsk-vg1-15-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Identifiser konjunksjoner og subjunksjoner og bestem typen:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun kom sent fordi bussen var forsinket."',
+            solution: 'fordi = subjunksjon (årsak)',
+          },
+          {
+            label: 'b',
+            task: '"Jeg liker kaffe, men foretrekker te."',
+            solution: 'men = konjunksjon (motsetning/adversativ)',
+          },
+          {
+            label: 'c',
+            task: '"Hvis du øver, blir du bedre."',
+            solution: 'Hvis = subjunksjon (betingelse)',
+          },
+          {
+            label: 'd',
+            task: '"Han leste både avisen og boken."',
+            solution: 'både...og = konjunksjon (additiv)',
+          },
+        ],
+        solution: 'Konjunksjoner binder likeverdige ledd, subjunksjoner innleder leddsetninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Finn referansene og avgjør hva de viser til:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Lise kjøpte en bok. Den var spennende."',
+            solution: '"Den" viser til "en bok".',
+          },
+          {
+            label: 'b',
+            task: '"Per og Ole spilte fotball. Etterpå var de slitne."',
+            solution: '"de" viser til "Per og Ole".',
+          },
+          {
+            label: 'c',
+            task: '"Regjeringen la fram budsjettet. Dette skapte debatt."',
+            solution: '"Dette" viser til at regjeringen la fram budsjettet (hele setningen).',
+          },
+        ],
+        hints: ['Se på pronomenene', 'Hva kommer rett før?'],
+        solution: 'Referentbinding bruker pronomen og demonstrativer for å vise tilbake.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forbedre tekstbindingen i dette avsnittet:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les og vurder: "Skolen vår er gammel. Skolen har dårlige vinduer. Skolen trenger renovering. Kommunen har ikke penger."',
+            solution: 'Svak tekstbinding: Monoton gjentagelse av "Skolen", brå overgang til "Kommunen".',
+          },
+          {
+            label: 'b',
+            task: 'Skriv avsnittet på nytt med bedre tekstbinding.',
+            solution: 'Eksempel: "Skolen vår er gammel og har dårlige vinduer. Den trenger derfor renovering. Dessverre har kommunen ikke penger til dette."',
+          },
+        ],
+        hints: ['Bruk pronomen i stedet for gjentagelse', 'Legg til bindeord som viser sammenheng'],
+        solution: 'God tekstbinding krever variasjon og tydelige logiske forbindelser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Sett inn passende bindeord:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Det regnet kraftig. ___ ble kampen avlyst."',
+            solution: 'Derfor / Følgelig / Dermed',
+          },
+          {
+            label: 'b',
+            task: '"Hun trente hardt, ___ hun tapte kampen."',
+            solution: 'men / likevel',
+          },
+          {
+            label: 'c',
+            task: '"___ du studerer, vil du bestå eksamen."',
+            solution: 'Hvis / Dersom',
+          },
+          {
+            label: 'd',
+            task: '"Han var sulten. ___ spiste han en stor middag."',
+            solution: 'Derfor / Så',
+          },
+        ],
+        hints: ['Tenk på logisk sammenheng', 'Prøv ulike alternativer'],
+        solution: 'Riktig bindeord viser den logiske sammenhengen mellom setningene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-15-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-15-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv et avsnitt (5-6 setninger) om et selvvalgt tema. Bruk minst tre ulike typer tekstbinding.',
+        hints: ['Bruk konjunksjoner/subjunksjoner', 'Bruk pronomen for referanse', 'Hold tematisk fokus', 'Varier ordbruken'],
+        solution: 'Avsnittet bør vise bevisst bruk av ulike bindemetoder som skaper god sammenheng.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 16.1: Rettskriving bokmål
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_16_1: TextbookChapter = {
+  id: 'norsk-vg1-16-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '16.1',
+  title: 'Rettskriving bokmål',
+  description: 'Lær regler for rettskriving på bokmål med fokus på vanlige feil.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'mestre rettskriving og formverk på bokmål',
+    'bruke grammatisk kunnskap i egen skriving',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-16-1-intro',
+      type: 'text',
+      content: `## Rettskriving på bokmål
+
+Rettskriving handler om å skrive ordene riktig i henhold til gjeldende normer. God rettskriving gjør teksten lettere å lese og gir et profesjonelt inntrykk.
+
+**Hvorfor rettskriving er viktig:**
+- Gjør teksten lettere å forstå
+- Viser respekt for leseren
+- Gir godt inntrykk på eksamen og jobbsøknader
+- Er del av vurderingskriteriene i norsk
+
+**Bokmålets valgfrihet:**
+Bokmål har mange valgfrie former. Du kan velge mellom ulike skrivemåter, men du bør være konsekvent i samme tekst.
+
+**Hjelpemidler:**
+- Ordbøker (Bokmålsordboka - ordbok.uib.no)
+- Rettskrivningsprogrammer
+- Språkrådets nettsider
+
+**I dette kapittelet lærer du:**
+- Valgfrie former i bokmål
+- De vanligste rettskrivingsfeilene
+- Tegnsettingsregler
+- Hvordan bli en bedre rettskriver`,
+    },
+    {
+      id: 'norsk-vg1-16-1-def-1',
+      type: 'definition',
+      title: 'Valgfrie former i bokmål',
+      content: `**Bokmål har stor valgfrihet. Her er de viktigste:**
+
+**Substantiv - bestemt form flertall:**
+- bøkene/bøker, hestene/hester, visene/viser
+- -ene eller -er (mange hunkjønnsord og svake hankjønnsord)
+
+**Hunkjønn - valgfritt:**
+- ei/en bok, ei/en jente, ei/en dør
+- Du kan velge om du bruker hunkjønn eller ikke
+- Hvis du bruker hunkjønn: boka, jenta, døra
+- Hvis du bruker hankjønn: boken, jenten, døren
+
+**Fortid av verb (preteritum):**
+- kastet/kasta, hoppet/hoppa, snakket/snakka
+- -et eller -a for svake verb
+
+**Perfektum partisipp:**
+- har kastet/kasta, har snakket/snakka
+
+**Infinitiv:**
+- å kaste/å kasta, å være/å være
+- De fleste holder seg til -e
+
+**Viktig regel:**
+**Vær konsekvent i samme tekst!**
+Velg EN stil og hold deg til den:
+- Enten: boka, jenta, kasta, hoppa (a-endelser)
+- Eller: boken, jenten, kastet, hoppet (konservativt)
+
+**Tips:** Finn din stil og vær konsekvent.`,
+    },
+    {
+      id: 'norsk-vg1-16-1-def-2',
+      type: 'definition',
+      title: 'Vanlige rettskrivingsfeil',
+      content: `**De vanligste feilene på bokmål:**
+
+**1. Feil i dobbeltkonsonant:**
+- ✗ takk → ✓ tak (verb: å ta)
+- ✗ har kommet → ✓ har kommet (riktig)
+- ✗ han sat → ✓ han satt
+- Regel: Kort vokal = dobbelt konsonant
+
+**2. Sammenskriving vs. særskriving:**
+- ✗ is krem → ✓ iskrem
+- ✗ fotball kamp → ✓ fotballkamp
+- ✗ idag → ✓ i dag
+- ✗ tilslutt → ✓ til slutt
+- Sammensatte substantiv = ett ord
+- Adverbiale uttrykk = ofte to ord
+
+**3. Da/når-feil:**
+- ✗ "Når jeg var liten..." → ✓ "Da jeg var liten..."
+- Da = fortid, engangshendelase
+- Når = nåtid/fremtid, gjentakelse
+
+**4. De/dem:**
+- De = subjekt ("De kom")
+- Dem = objekt ("Jeg så dem")
+- Test: Bytt ut med "vi/oss"
+
+**5. Sin/si/sitt vs. hans/hennes:**
+- "Per vasket bilen sin" (Per sin bil)
+- "Per vasket bilen hans" (en annens bil)
+
+**6. Og/å:**
+- og = konjunksjon (eple og pære)
+- å = infinitivsmerke (å gå)`,
+    },
+    {
+      id: 'norsk-vg1-16-1-def-3',
+      type: 'definition',
+      title: 'Flere vanlige feil',
+      content: `**Flere feil å unngå:**
+
+**7. Ikke/ikkje:**
+På bokmål: alltid "ikke" (ikkje er nynorsk)
+
+**8. Hvilket/hvilken:**
+- Hvilket = intetkjønn ("Hvilket hus?")
+- Hvilken = hankjønn/hunkjønn ("Hvilken bok?")
+
+**9. Feil i verb:**
+- ✗ jeg synger → ✓ jeg synger
+- ✗ jeg skriver → ✓ jeg skriver
+- Husk samsvar: jeg er, han er, vi er
+
+**10. Stor/liten bokstav:**
+- Små: mandag, januar, norsk (språk), kristendom
+- Store: Per, Oslo, Stortinget, Gud (gudsnavn)
+
+**11. Apostrof:**
+- ✗ Per's bil → ✓ Pers bil
+- Norsk bruker ikke apostrof i genitiv
+- Unntak: Når navnet slutter på s: "Hans' bil" eller "til Hans"
+
+**12. Preposisjoner:**
+- interessert i (ikke "interessert av")
+- forskjellig fra (ikke "forskjellig enn")
+- gift med (ikke "gift til")
+
+**13. Det/de:**
+- Det = entall, intetkjønn ("Det er fint")
+- De = flertall ("De er fine")
+
+**Bruk ordboka når du er usikker!**`,
+    },
+    {
+      id: 'norsk-vg1-16-1-def-4',
+      type: 'definition',
+      title: 'Tegnsetting',
+      content: `**Regler for tegnsetting på bokmål:**
+
+**Komma:**
+Komma brukes:
+- Mellom helsetninger med konjunksjon: "Han kom, og hun gikk."
+- Etter leddsetning først: "Da han kom, gikk hun."
+- Ved innskudd: "Boken, som var rød, lå der."
+- Ved tiltale: "Per, kom hit!"
+- I oppramsinger: "epler, pærer og bananer"
+
+Komma brukes IKKE:
+- Mellom subjekt og verbal: ✗ "Per, kom."
+- Før "at" (vanligvis): "Jeg vet at du kommer."
+
+**Punktum:**
+- Etter fullstendige setninger
+- I forkortelser: f.eks., bl.a., osv.
+
+**Kolon:**
+- Før oppramsingsledd: "Han kjøpte: epler, pærer og melk."
+- Før forklaring: "Resultatet var klart: vi tapte."
+- Ved klokken: kl. 14:30
+
+**Semikolon:**
+- Mellom nært beslektede setninger
+- "Hun er student; han er lærer."
+- Sjeldent brukt
+
+**Anførselstegn:**
+- Ved sitater: Hun sa: "Jeg kommer."
+- «Gåseøyne» eller "engelske"
+
+**Tankestrek:**
+- Ved innskudd: Boken – den røde – var fin.
+- Lengre enn bindestrek (–)`,
+    },
+    {
+      id: 'norsk-vg1-16-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Retting av tekst',
+      problem: 'Finn og rett feilene i denne teksten:\n\n"Når jeg var liten likte jeg og lese bøker. Per\'s favoritt var detektiv historier, og dem var spennenede. Idag leser jeg fremdeles mye men det er vanskelig og finne tid."',
+      solution: `**Feil og rettinger:**
+
+1. "Når jeg var liten" → **"Da jeg var liten"**
+   - "Da" for fortid, engangshendelase
+
+2. "og lese" → **"å lese"**
+   - Infinitivsmerke, ikke konjunksjon
+
+3. "Per's" → **"Pers"**
+   - Ingen apostrof i norsk genitiv
+
+4. "detektiv historier" → **"detektivhistorier"**
+   - Sammenskriving
+
+5. "dem var" → **"de var"**
+   - "De" som subjekt
+
+6. "spennenede" → **"spennende"**
+   - Skrivefeil
+
+7. "Idag" → **"I dag"**
+   - To ord
+
+8. "og finne" → **"å finne"**
+   - Infinitivsmerke
+
+**Rettet tekst:**
+"Da jeg var liten, likte jeg å lese bøker. Pers favoritt var detektivhistorier, og de var spennende. I dag leser jeg fremdeles mye, men det er vanskelig å finne tid."`,
+    },
+    {
+      id: 'norsk-vg1-16-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Velg riktig form:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"(Da/Når) jeg var ti år, flyttet vi til Bergen."',
+            solution: 'Da - fortid, engangshendelse',
+          },
+          {
+            label: 'b',
+            task: '"Jeg liker (og/å) svømme."',
+            solution: 'å - infinitivsmerke',
+          },
+          {
+            label: 'c',
+            task: '"(De/Dem) kom tidlig."',
+            solution: 'De - subjekt',
+          },
+          {
+            label: 'd',
+            task: '"Jeg så (de/dem) i går."',
+            solution: 'dem - objekt',
+          },
+        ],
+        solution: 'Riktig ordvalg avhenger av grammatisk funksjon og kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Rett opp særskrivingsfeilene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Fotball kampen ble avlyst."',
+            solution: 'Fotballkampen - sammensatt ord',
+          },
+          {
+            label: 'b',
+            task: '"Jeg kjøpte en is krem."',
+            solution: 'iskrem - sammensatt ord',
+          },
+          {
+            label: 'c',
+            task: '"Skole sekken var tung."',
+            solution: 'Skolesekken - sammensatt ord',
+          },
+          {
+            label: 'd',
+            task: '"Vi møttes iforveien."',
+            solution: 'i forveien - to ord',
+          },
+        ],
+        hints: ['Sammensatte substantiv skrives i ett ord', 'Adverb og preposisjonsuttrykk kan være to ord'],
+        solution: 'Særskriving av sammensatte ord er en vanlig feil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Sett inn riktig tegn (komma, punktum, kolon):',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Han kom _ og hun gikk"',
+            solution: '"Han kom, og hun gikk." - komma før og når to helsetninger',
+          },
+          {
+            label: 'b',
+            task: '"Da han kom _ gikk hun"',
+            solution: '"Da han kom, gikk hun." - komma etter leddsetning først',
+          },
+          {
+            label: 'c',
+            task: '"Vi trenger _ melk brød og ost"',
+            solution: '"Vi trenger: melk, brød og ost." - kolon før oppramsing',
+          },
+        ],
+        hints: ['Komma mellom helsetninger med konjunksjon', 'Komma etter leddsetning først'],
+        solution: 'Tegnsetting følger grammatiske regler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Finn og rett feilene i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Ole\'s hund løpte over veien."',
+            solution: '"Oles hund løp over veien." (apostrof + preteritum av løpe)',
+          },
+          {
+            label: 'b',
+            task: '"Når jeg kommer hjem, skal jeg og spise."',
+            solution: '"Når jeg kommer hjem, skal jeg spise." (å → utelates etter hjelpeverb)',
+          },
+          {
+            label: 'c',
+            task: '"Dem likte boken som var spennenede."',
+            solution: '"De likte boken som var spennende." (de som subjekt + skrivefeil)',
+          },
+        ],
+        hints: ['Se etter de vanligste feilene', 'Bruk ordboka hvis usikker'],
+        solution: 'Å finne egne feil krever øvelse og oppmerksomhet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv et avsnitt (100-150 ord) om et selvvalgt tema. Fokuser på riktig rettskriving og tegnsetting.',
+        hints: ['Les gjennom teksten flere ganger', 'Sjekk de vanligste feilene', 'Bruk ordbok ved usikkerhet', 'Pass på særskriving og komma'],
+        solution: 'Avsnittet bør vise god beherskelse av rettskriving og tegnsetting.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 16.2: Rettskriving nynorsk
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_16_2: TextbookChapter = {
+  id: 'norsk-vg1-16-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '16.2',
+  title: 'Rettskriving nynorsk',
+  description: 'Lær nynorskens særtrekk og unngå vanlige bokmålsfeil på nynorsk.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'mestre rettskriving og formverk på nynorsk',
+    'skrive tekster på nynorsk med god språkføring',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-16-2-intro',
+      type: 'text',
+      content: `## Nynorsk - et eget språk
+
+Nynorsk er ikke "dårlig bokmål" eller bokmål med andre endelser. Det er et eget skriftspråk med sin egen grammatikk, sine egne ord og sin egen stil.
+
+**Nynorskens bakgrunn:**
+Ivar Aasen skapte landsmål (senere nynorsk) på 1800-tallet basert på norske dialekter. Målet var et skriftspråk som lå nærmere folkemålet enn dansk-norsk.
+
+**Viktig å forstå:**
+- Nynorsk har andre ord enn bokmål
+- Nynorsk har annen grammatikk
+- Nynorsk er ikke "bokmål med a-endelser"
+- God nynorsk krever å tenke nynorsk
+
+**I dette kapittelet lærer du:**
+- Nynorskens viktigste særtrekk
+- De vanligste bokmålsfeilene på nynorsk
+- Praktiske skriveråd for nynorsk
+- Hvordan bygge nynorskkompetanse
+
+**Tips:** Bruk Nynorskordboka (ordbok.uib.no) aktivt!`,
+    },
+    {
+      id: 'norsk-vg1-16-2-def-1',
+      type: 'definition',
+      title: 'Nynorskens grammatiske særtrekk',
+      content: `**Viktige forskjeller fra bokmål:**
+
+**1. Obligatorisk hunkjønn:**
+Nynorsk skiller alltid mellom hankjønn, hunkjønn og intetkjønn.
+- ei bok - boka - bøker - bøkene
+- ein gut - guten - gutar - gutane
+- eit hus - huset - hus - husa
+
+**2. Verbbøyning:**
+Infinitiv: å kaste, å lese, å bu
+Presens: kastar, les, bur
+Preteritum: kasta, las, budde
+
+**Sterke verb:**
+- å skrive - skriv - skreiv - har skrive
+- å finne - finn - fann - har funne
+- å ta - tek - tok - har teke
+
+**3. A-infinitiv eller e-infinitiv:**
+Begge er tillatt: å kasta/å kaste
+Velg én form og vær konsekvent.
+
+**4. Flertallsendelser:**
+- Hankjønn: -ar (gutar, bilar)
+- Hunkjønn: -er (jenter, bøker)
+- Intetkjønn: ofte ingen ending (hus, barn)
+
+**5. Adjektivbøyning:**
+- ein fin bil - eit fint hus - fine bilar
+- Intetkjønn entall: -t
+- Flertall og bestemt: -e`,
+    },
+    {
+      id: 'norsk-vg1-16-2-def-2',
+      type: 'definition',
+      title: 'Ord som er annerledes på nynorsk',
+      content: `**Mange ord er helt forskjellige på nynorsk og bokmål:**
+
+**Vanlige ord:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| ikke | ikkje |
+| meg, deg, seg | meg, deg, seg |
+| noe, noen | noko, nokon |
+| mye | mykje |
+| bare | berre |
+| hvilken | kva for ein |
+| hver | kvar |
+| også | òg / også |
+| etter | etter |
+| mellom | mellom |
+| gjøre | gjere |
+| spørre | spørje |
+| fortelle | fortelje |
+
+**Spørreord:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| hva | kva |
+| hvem | kven |
+| hvor | kvar |
+| hvordan | korleis |
+| hvorfor | kvifor |
+
+**Pronomen:**
+| Bokmål | Nynorsk |
+|--------|---------|
+| hun | ho |
+| de (subjekt) | dei |
+| dem | dei |
+| vi | vi |
+
+**Husk:** Disse ordene er ikke valgfrie - de MÅ brukes på nynorsk.`,
+    },
+    {
+      id: 'norsk-vg1-16-2-def-3',
+      type: 'definition',
+      title: 'Vanlige bokmålsfeil på nynorsk',
+      content: `**Feil som mange gjør:**
+
+**1. Pronomen:**
+- ✗ "ikke" → ✓ "ikkje"
+- ✗ "hun" → ✓ "ho"
+- ✗ "noe" → ✓ "noko"
+- ✗ "noen" → ✓ "nokon"
+- ✗ "mye" → ✓ "mykje"
+
+**2. Spørreord:**
+- ✗ "hva" → ✓ "kva"
+- ✗ "hvem" → ✓ "kven"
+- ✗ "hvor" → ✓ "kvar"
+- ✗ "hvordan" → ✓ "korleis"
+- ✗ "hvorfor" → ✓ "kvifor"
+
+**3. Verbbøyning:**
+- ✗ "han kommer" → ✓ "han kjem"
+- ✗ "de gjør" → ✓ "dei gjer"
+- ✗ "jeg vet" → ✓ "eg veit"
+- ✗ "har gjort" → ✓ "har gjort/gjert"
+
+**4. Substantivbøyning:**
+- ✗ "bøkene" → ✓ "bøkene"
+- ✗ "gutene" → ✓ "gutane"
+- ✗ "husene" → ✓ "husa"
+
+**5. Bokmålsord:**
+- ✗ "derfor" → ✓ "difor"
+- ✗ "bare" → ✓ "berre"
+- ✗ "aldri" → ✓ "aldri" (lik)
+- ✗ "sammen" → ✓ "saman"`,
+    },
+    {
+      id: 'norsk-vg1-16-2-def-4',
+      type: 'definition',
+      title: 'Praktiske skriveråd for nynorsk',
+      content: `**Slik skriver du god nynorsk:**
+
+**1. Bruk nynorskordboka:**
+Slå opp ord du er usikker på. Ordbok.uib.no har både bokmåls- og nynorskordbok.
+
+**2. Les nynorsk:**
+Jo mer du leser, jo bedre blir du. Les:
+- NRK Nynorsk
+- Dag og Tid (avis)
+- Nynorske bøker
+- Framtida.no
+
+**3. Lær deg de vanligste ordene:**
+Lag en liste over ord du ofte bruker, og lær dem på nynorsk.
+
+**4. Tenk nynorsk - ikke oversett:**
+Ikke skriv på bokmål og "oversett". Prøv å tenke direkte på nynorsk.
+
+**5. Bruk dialekten din:**
+Hvis du har en dialekt som ligger nær nynorsk, bruk det som støtte.
+
+**6. Skriv mye:**
+Øvelse gjør mester. Skriv dagbok, meldinger eller sosiale medier på nynorsk.
+
+**7. Sjekk de vanligste feilene:**
+Før du leverer, sjekk at du har:
+- ikkje (ikke "ikke")
+- kva, kven, kvar, korleis, kvifor
+- ho (ikke "hun")
+- noko, nokon, mykje
+
+**8. Vær konsekvent:**
+Velg former og hold deg til dem gjennom hele teksten.`,
+    },
+    {
+      id: 'norsk-vg1-16-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Fra bokmål til nynorsk',
+      problem: 'Oversett denne teksten til korrekt nynorsk:\n\n"Hun visste ikke hva hun skulle gjøre. Noen hadde fortalt henne at det var farlig, men hun ville gå dit allikevel. Hvorfor var det så vanskelig?"',
+      solution: `**Steg for steg:**
+
+**Ord som må endres:**
+- Hun → Ho
+- visste → visste/visste
+- ikke → ikkje
+- hva → kva
+- skulle → skulle
+- gjøre → gjere
+- Noen → Nokon
+- fortalt → fortalt/fortald
+- henne → henne
+- det var → det var
+- ville → ville
+- gå → gå
+- dit → dit
+- allikevel → likevel
+- Hvorfor → Kvifor
+- vanskelig → vanskeleg
+
+**Nynorsk versjon:**
+"Ho visste ikkje kva ho skulle gjere. Nokon hadde fortalt henne at det var farleg, men ho ville gå dit likevel. Kvifor var det så vanskeleg?"
+
+**Merknader:**
+- "allikevel" → "likevel" (vanlegare på nynorsk)
+- "farlig/vanskelig" → "farleg/vanskeleg" (typisk nynorsk)
+- Alle pronomen og spørjeord er endra`,
+    },
+    {
+      id: 'norsk-vg1-16-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Skriv om til nynorsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun vet ikke hva han gjør."',
+            solution: '"Ho veit ikkje kva han gjer."',
+          },
+          {
+            label: 'b',
+            task: '"Hvorfor kommer de ikke?"',
+            solution: '"Kvifor kjem dei ikkje?"',
+          },
+          {
+            label: 'c',
+            task: '"Noen har sagt noe."',
+            solution: '"Nokon har sagt noko."',
+          },
+          {
+            label: 'd',
+            task: '"Hvor mye koster det?"',
+            solution: '"Kva/Kor mykje kostar det?"',
+          },
+        ],
+        solution: 'Nynorsk har egne ord for mange vanlige bokmålsord.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Bøy disse substantivene på nynorsk (ubest. ent. - best. ent. - ubest. fl. - best. fl.):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'gut (hankjønn)',
+            solution: 'ein gut - guten - gutar - gutane',
+          },
+          {
+            label: 'b',
+            task: 'bok (hunkjønn)',
+            solution: 'ei bok - boka - bøker - bøkene',
+          },
+          {
+            label: 'c',
+            task: 'hus (intetkjønn)',
+            solution: 'eit hus - huset - hus - husa',
+          },
+          {
+            label: 'd',
+            task: 'jente (hunkjønn)',
+            solution: 'ei jente - jenta - jenter - jentene',
+          },
+        ],
+        hints: ['Hankjønn: -ar i flertall', 'Hunkjønn: -er i flertall', 'Intetkjønn: ofte uendra i flertall'],
+        solution: 'Nynorsk har klare mønstre for substantivbøyning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Bøy disse verbene på nynorsk (infinitiv - presens - preteritum - perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å kome (komme)',
+            solution: 'å kome - kjem - kom - har kome',
+          },
+          {
+            label: 'b',
+            task: 'å skrive',
+            solution: 'å skrive - skriv - skreiv - har skrive',
+          },
+          {
+            label: 'c',
+            task: 'å gjere (gjøre)',
+            solution: 'å gjere - gjer - gjorde - har gjort',
+          },
+          {
+            label: 'd',
+            task: 'å vite (vite)',
+            solution: 'å vite - veit - visste - har visst',
+          },
+        ],
+        hints: ['Bruk nynorskordboka', 'Mange sterke verb har annen vokalveksling enn på bokmål'],
+        solution: 'Verbbøyning på nynorsk følger bestemte mønstre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Finn og rett bokmålsfeilene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Jeg vet ikke hva hun gjør."',
+            solution: '"Eg veit ikkje kva ho gjer."',
+          },
+          {
+            label: 'b',
+            task: '"De kom ikke fordi det regnet mye."',
+            solution: '"Dei kom ikkje fordi det regna mykje."',
+          },
+          {
+            label: 'c',
+            task: '"Hvorfor sa han ikke noe?"',
+            solution: '"Kvifor sa han ikkje noko?"',
+          },
+        ],
+        hints: ['Sjekk pronomen, spørreord og vanlige bokmålsord'],
+        solution: 'Å finne bokmålsfeil krever at du kjenner nynorskens ordforråd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-16-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-16-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv et kort avsnitt (100-150 ord) på nynorsk om en hobby eller interesse du har.',
+        hints: ['Bruk nynorskordboka aktivt', 'Sjekk pronomen og spørreord', 'Les gjennom og se etter bokmålsfeil', 'Vær konsekvent i formvalg'],
+        solution: 'Avsnittet bør vise korrekt nynorsk med riktige ordformer og bøyninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 17.1: Flerkulturell litteratur
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_17_1: TextbookChapter = {
+  id: 'norsk-vg1-17-1',
+  courseId: 'norsk-vg1',
+  chapterNumber: '17.1',
+  title: 'Flerkulturell litteratur',
+  description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'lese og tolke tekster som utforsker kulturmøter og identitet',
+    'reflektere over hvordan litteratur speiler samfunnet',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-17-1-intro',
+      type: 'text',
+      content: `## Flerkulturell litteratur i Norge
+
+Norge har blitt et flerkulturelt samfunn, og dette speiles i litteraturen. Forfattere med innvandrerbakgrunn eller flerkulturell erfaring beriker norsk litteratur med nye perspektiver, temaer og stemmer.
+
+**Hva er flerkulturell litteratur?**
+Litteratur som utforsker kulturmøter, migrasjon, identitet mellom kulturer, og erfaringen av å tilhøre flere steder.
+
+**Hvorfor lese flerkulturell litteratur?**
+- Gir innsikt i andre erfaringer
+- Utvider forståelsen av hva "norsk" er
+- Utfordrer stereotypier
+- Speiler et mangfoldig samfunn
+- Er del av LK20s fokus på kulturforståelse
+
+**Viktige norske forfattere:**
+- Maria Navarro Skaranger
+- Zeshan Shakar
+- Sumaya Jirde Ali
+- Gulraiz Sharif
+- Hassan Khemiri (svensk, men lest i Norge)
+
+**I dette kapittelet utforsker vi:**
+- Identitet mellom kulturer
+- Tilhørighet og utenforskap
+- Språk og identitet
+- Representasjon i litteratur`,
+    },
+    {
+      id: 'norsk-vg1-17-1-def-1',
+      type: 'definition',
+      title: 'Identitet mellom kulturer',
+      content: `**Å tilhøre flere steder**
+
+Et gjennomgående tema i flerkulturell litteratur er opplevelsen av å stå mellom kulturer - å føle tilhørighet til flere steder, men kanskje ikke fullt ut til noen.
+
+**Nøkkelbegreper:**
+
+**Hybrididentitet:**
+En identitet som kombinerer elementer fra flere kulturer. Ikke halvt-halvt, men noe nytt og eget.
+
+**Tredje rom:**
+Begrepet kommer fra Homi Bhabha. Det "tredje rommet" er stedet der kulturer møtes og skaper noe nytt - verken den ene eller andre kulturen, men noe mellom.
+
+**Bindestrek-identitet:**
+"Norsk-pakistansk", "norsk-somalisk" - identiteter som kombinerer opprinnelse og tilhørighet. Kan både berike og oppleves begrensende.
+
+**Dobbelthet:**
+Opplevelsen av å se verden fra flere perspektiver samtidig, å kunne "kode-veksle" mellom kulturer.
+
+**Litterære eksempler:**
+- Karakterer som føler seg "for norske" hjemme og "for utenlandske" ute
+- Språklig veksling mellom norsk og andre språk
+- Konflikter mellom generasjoner
+- Forhandling om tradisjoner og modernitet`,
+    },
+    {
+      id: 'norsk-vg1-17-1-def-2',
+      type: 'definition',
+      title: 'Maria Navarro Skaranger',
+      content: `**Maria Navarro Skaranger (f. 1994)**
+
+En av de viktigste unge stemmene i norsk flerkulturell litteratur.
+
+**Bakgrunn:**
+- Vokst opp på Romsås i Oslo
+- Mor fra Spania, far fra Chile
+- Debuterte som 21-åring
+
+**"Alle utlendinger har lukka gardiner" (2015):**
+Debutromanen handler om Mariana, en jente på 16 år som vokser opp i en drabantby i Oslo.
+
+**Viktige temaer:**
+- Livet i drabantbyen
+- Identitet mellom kulturer
+- Klasseforskjeller
+- Fordommer og stereotypier
+- Vennskap og lojalitet
+
+**Språket:**
+Skaranger bruker et muntlig, ekte språk inspirert av Oslo-slang med innslag av flere språk. Dette har vært nyskapende i norsk litteratur.
+
+**Eksempel på stil:**
+"Hu moren min var full av hat. Hu hata hu nabodama som hadde BMW og nese i sky."
+
+**Betydning:**
+- Viser Oslo fra et nytt perspektiv
+- Språklig nyskapende
+- Representerer erfaringer som sjelden har vært i litteraturen
+- Priser: Talentstipend, kritikerrost`,
+    },
+    {
+      id: 'norsk-vg1-17-1-def-3',
+      type: 'definition',
+      title: 'Zeshan Shakar',
+      content: `**Zeshan Shakar (f. 1982)**
+
+Forfatter og samfunnsøkonom som har skrevet noen av de mest leste romanene i norsk litteratur de siste årene.
+
+**Bakgrunn:**
+- Vokst opp på Stovner i Oslo
+- Foreldre fra Pakistan
+- Utdannet samfunnsøkonom
+
+**"Tante Ulrikkes vei" (2017):**
+Gjennombruddsromanen handler om Jamal og Mo, to gutter som vokser opp på Stovner.
+
+**Temaer:**
+- Oppvekst i drabantby
+- Klasseforskjeller og sosial mobilitet
+- Forventninger fra familie og samfunn
+- Utdanning som vei ut
+- Identitet og tilhørighet
+
+**Fortellerteknikk:**
+- Veksler mellom Jamals dagboknotater og Mos e-poster
+- Kontrasterer to ulike veier gjennom livet
+- Muntlig, autentisk språk
+
+**"Gull" (2020):**
+Oppfølgeren som fortsetter å utforske klasse og kulturmøter.
+
+**Betydning:**
+- Bestselger og kritikerfavoritt
+- Filmatisert
+- Setter søkelys på klasseperspektivet
+- Viser hvordan bakgrunn påvirker muligheter`,
+    },
+    {
+      id: 'norsk-vg1-17-1-def-4',
+      type: 'definition',
+      title: 'Andre viktige stemmer',
+      content: `**Flere forfattere å kjenne til:**
+
+**Sumaya Jirde Ali (f. 1997):**
+- Poet og samfunnsdebattant
+- "Ikkje ver redd, jiansen" - diktsamling
+- Skriver om identitet, rasisme, kjønn
+- Modig og direkte stemme
+
+**Gulraiz Sharif (f. 1984):**
+- "Hør her'a!" (2020) - debutroman
+- Handler om Mahmoud på 15 som skriver brev til lillebroren
+- Temaer: maskulinitet, forventninger, identitet
+- Morsom og alvorlig på samme tid
+
+**Hassan Khemiri (f. 1978, svensk):**
+- "Et øye rødt" - lest i norsk skole
+- Utforsker språk og identitet
+- Eksperimenterer med form
+
+**Mona Asadi:**
+- Forfatter og komiker
+- Skriver om det å være norsk-iraner
+- Humoristisk og treffende
+
+**Felles trekk:**
+- Utforsker identitet mellom kulturer
+- Bruker språk bevisst og nyskapende
+- Setter søkelys på klasseperspektiver
+- Representerer erfaringer som har manglet i litteraturen
+- Balanserer det personlige og det politiske`,
+    },
+    {
+      id: 'norsk-vg1-17-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av flerkulturell tekst',
+      problem: 'Les dette utdraget fra "Alle utlendinger har lukka gardiner" og analyser hvordan identitet fremstilles:\n\n"Jeg er jo egentlig bare norsk, sier jeg. Ja, men du er ikke hvit norsk, sier hu. Nei, men hva er jeg da, sier jeg. Du er utlending, sier hu. Men jeg er jo født her, sier jeg."',
+      solution: `**Analyse:**
+
+**Tema:**
+Dialogen handler om definisjonen av "norsk" og hvem som får lov til å definere seg selv.
+
+**Identitetsforhandling:**
+- Jeg-personen identifiserer seg som norsk
+- Den andre personen kategoriserer basert på utseende
+- Konflikten mellom selvoppfatning og andres kategorisering
+
+**Språklige trekk:**
+- Kort, direkte dialog
+- Muntlig språk ("hu")
+- Gjentagelse av "sier jeg" / "sier hu" understreker fram-og-tilbake
+- Enkel setningsstruktur forsterker frustrasjonen
+
+**Samfunnsrelevans:**
+Teksten tar opp:
+- Hvem definerer "norsk"?
+- Betydningen av hudfarge i identitetsspørsmål
+- Forskjellen på juridisk og sosial tilhørighet
+- "Evig utlending"-opplevelsen
+
+**Litterær betydning:**
+Skaranger gir stemme til en erfaring mange har, men som sjelden har vært representert i norsk litteratur. Den enkle dialogen avslører kompliserte maktstrukturer.`,
+    },
+    {
+      id: 'norsk-vg1-17-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Svar på spørsmål om flerkulturell litteratur:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med "hybrididentitet"?',
+            solution: 'En identitet som kombinerer elementer fra flere kulturer og skaper noe nytt og eget.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er språket viktig i flerkulturell litteratur?',
+            solution: 'Språket speiler identitet og kulturmøter. Mange forfattere bruker nyskapende språk med innslag fra flere kulturer.',
+          },
+          {
+            label: 'c',
+            task: 'Hva handler Maria Navarro Skarangers "Alle utlendinger har lukka gardiner" om?',
+            solution: 'Romanen handler om Mariana, en jente på 16 år som vokser opp i en drabantby i Oslo, og utforsker identitet, klasseforskjeller og fordommer.',
+          },
+        ],
+        solution: 'Flerkulturell litteratur utforsker identitet, tilhørighet og kulturmøter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Sammenlign Maria Navarro Skaranger og Zeshan Shakar:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva har de to forfatterne til felles?',
+            solution: 'Begge skriver om oppvekst i drabantby i Oslo, bruker muntlig språk, utforsker identitet og klasse.',
+          },
+          {
+            label: 'b',
+            task: 'Hva skiller dem?',
+            solution: 'Forskjellig bakgrunn (latinamerikansk vs. pakistansk), ulik fortellerteknikk (enestående forteller vs. vekslende perspektiver).',
+          },
+        ],
+        hints: ['Se på temaer, språk og fortellerteknikk'],
+        solution: 'Begge representerer viktige stemmer i norsk flerkulturell litteratur med noen fellestrekk og noen forskjeller.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Reflekter over begrepet "bindestrek-identitet".',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med "bindestrek-identitet" (f.eks. norsk-pakistansk)?',
+            solution: 'Identitet som kombinerer nasjonalitet/opprinnelse med tilhørighet til Norge.',
+          },
+          {
+            label: 'b',
+            task: 'Kan slike betegnelser være både berikende og begrensende? Forklar.',
+            solution: 'Berikende: anerkjenner flere tilhørigheter. Begrensende: kan oppleves som at man aldri er "helt" norsk.',
+          },
+        ],
+        hints: ['Tenk på hvem som definerer identitet', 'Tenk på forskjellen på selvvalgt og påtvunget betegnelse'],
+        solution: 'Identitetsbetegnelser er komplekse og kan oppleves ulikt av ulike mennesker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Les et utdrag eller en hel tekst av en av forfatterne nevnt i kapittelet og gjør en kort analyse.',
+        hints: ['Velg en tekst fra pensum eller biblioteket', 'Se på temaer: identitet, tilhørighet, språk', 'Analyser språklige virkemidler', 'Knytt til samfunnet'],
+        solution: 'Analysen bør identifisere temaer, analysere språk og virkemidler, og reflektere over tekstens betydning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Drøft: Hvorfor er det viktig at norsk litteratur inkluderer stemmer fra ulike bakgrunner?',
+        hints: ['Tenk på representasjon', 'Tenk på hvem som leser', 'Tenk på hva litteratur kan gjøre', 'Tenk på samfunnsendringer'],
+        solution: 'Drøftingen bør ta opp representasjon, at lesere kan kjenne seg igjen, at litteratur kan utvide forståelse, og at litteraturen bør speile et mangfoldig samfunn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 17.2: Postkolonial lesning
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_17_2: TextbookChapter = {
+  id: 'norsk-vg1-17-2',
+  courseId: 'norsk-vg1',
+  chapterNumber: '17.2',
+  title: 'Postkolonial lesning',
+  description: 'Lær å lese tekster med et kulturkritisk blikk.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'lese tekster med et kritisk og kulturelt perspektiv',
+    'reflektere over representasjon og stereotypier i tekster',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-17-2-intro',
+      type: 'text',
+      content: `## Postkolonial lesning - å lese med kritisk blikk
+
+Postkolonial teori gir oss verktøy til å analysere hvordan kulturer fremstilles i tekster, og hvordan maktforhold påvirker hvem som får fortelle og hvordan.
+
+**Hva betyr "postkolonial"?**
+- "Post" betyr "etter"
+- "Kolonial" viser til kolonitiden
+- Postkolonialisme analyserer ettervirkningene av kolonialisme
+- Handler om makt, representasjon og hvem som har definisjonsmakt
+
+**Relevans for norsk:**
+Selv om Norge ikke var en stormakt, er vi del av en vestlig tradisjon som har fremstilt andre kulturer på bestemte måter. Postkolonial lesning hjelper oss å se disse mønstrene.
+
+**I dette kapittelet lærer du:**
+- Grunnleggende begreper fra postkolonial teori
+- Hvordan analysere representasjon i tekster
+- Hvordan identifisere stereotypier
+- Hvordan lese tekster med kulturkritisk blikk`,
+    },
+    {
+      id: 'norsk-vg1-17-2-def-1',
+      type: 'definition',
+      title: 'Grunnbegreper i postkolonial teori',
+      content: `**Viktige begreper å kjenne:**
+
+**Kolonialisme:**
+Europeiske stormakters erobring og kontroll over andre områder i verden (ca. 1500-1960-tallet).
+
+**Postkolonialisme:**
+Analyse av hvordan kolonialismen fortsetter å påvirke kultur, identitet og maktforhold i dag.
+
+**Den andre (The Other):**
+Et sentralt begrep fra Edward Said. "Vi" definerer oss selv i kontrast til "de andre". De andre fremstilles ofte som:
+- Eksotiske
+- Primitive
+- Farlige
+- Mystiske
+- Underlegne
+
+**Orientalisme:**
+Edward Saids begrep for Vestens måte å fremstille Østen (Orienten) på - ofte stereotypt og forenklet.
+
+**Sentrum og periferi:**
+- Sentrum: Vestlige, "utviklede" land
+- Periferi: Resten av verden, fremstilt som mindre viktig
+
+**Definisjonsmakt:**
+Hvem har makt til å definere virkeligheten? Hvem bestemmer hva som er "normalt"?
+
+**Disse begrepene hjelper oss å se mønstre i hvordan kulturer fremstilles.**`,
+    },
+    {
+      id: 'norsk-vg1-17-2-def-2',
+      type: 'definition',
+      title: 'Representasjon og stereotypier',
+      content: `**Hvordan kulturer fremstilles i tekst:**
+
+**Representasjon:**
+Hvordan grupper eller kulturer gjengis i tekster, bilder og medier.
+
+**Spørsmål om representasjon:**
+- Hvem fremstilles?
+- Hvordan fremstilles de?
+- Hvem forteller?
+- Hva er perspektivet?
+- Hva utelates?
+
+**Stereotypier:**
+Forenklede, ofte negative fremstillinger av grupper.
+
+**Vanlige stereotypier i litteratur:**
+- "Den edle ville" - naturmennesker som enkle og uskyldige
+- "Den farlige fremmed" - andre kulturer som truende
+- "Den undertrykte kvinnen" - kvinner fra andre kulturer som ofre
+- "Den eksotiske" - andre kulturer som spennende og annerledes
+
+**Hvitt blikk (white gaze):**
+Når tekster fremstiller andre kulturer primært sett fra et hvitt, vestlig perspektiv.
+
+**Internalisert underlegenhet:**
+Når undertrykte grupper overtar majoritetens negative syn på seg selv.
+
+**Å se stereotypier er første steg mot å forstå dem kritisk.**`,
+    },
+    {
+      id: 'norsk-vg1-17-2-def-3',
+      type: 'definition',
+      title: 'Hvordan lese postkolonialt',
+      content: `**Spørsmål å stille til teksten:**
+
+**Om forteller og perspektiv:**
+- Hvem forteller historien?
+- Fra hvilket perspektiv?
+- Er det en insider eller outsider som forteller?
+- Hvem har definisjonsmakten?
+
+**Om representasjon:**
+- Hvordan fremstilles karakterer fra ulike kulturer?
+- Er det stereotypier?
+- Hvem er subjekt (handler) og hvem er objekt (passiv)?
+- Hvem har stemme og hvem er tause?
+
+**Om makt:**
+- Hvilke maktforhold vises i teksten?
+- Er det noen som fremstilles som overlegne/underlegne?
+- Hvordan fremstilles møtet mellom kulturer?
+
+**Om språk:**
+- Hvordan omtales kulturer og grupper?
+- Er det eksotifiserende eller generaliserende språk?
+- Hvem får snakke "riktig" språk?
+
+**Om kontekst:**
+- Når ble teksten skrevet?
+- Hvilke holdninger var vanlige da?
+- Hvordan leser vi teksten i dag?
+
+**Tips:** Ikke alle tekster er problematiske, men alle kan analyseres kritisk.`,
+    },
+    {
+      id: 'norsk-vg1-17-2-def-4',
+      type: 'definition',
+      title: 'Eksempler fra norsk litteratur',
+      content: `**Postkolonial lesning av norske tekster:**
+
+**Hamsun og "Sult":**
+Hamsuns tekster kan leses i lys av hans syn på "primitive" kulturer. Hvordan fremstilles karakterer fra ulike bakgrunner?
+
+**Eventyr og folkeeventyr:**
+- "Askeladden og de gode hjelperne" - hvem er "de gode" og "de onde"?
+- Fremstilling av "trollet" - den farlige andre?
+- Hvordan fremstilles kvinner fra andre kulturer?
+
+**Misjonslitteratur:**
+Tekster fra misjonstiden fremstilte ofte afrikanske kulturer stereotypt. Hvordan?
+
+**Moderne tekster:**
+Også moderne tekster kan ha problematiske fremstillinger. Kritisk lesning gjelder all litteratur.
+
+**Motfortellinger:**
+Flerkulturell litteratur kan leses som motfortellinger - tekster som forteller andre historier enn de dominerende.
+
+**Viktig balanse:**
+- Eldre tekster kan ha verdi selv om de har problematiske elementer
+- Vi kan kritisere aspekter uten å forkaste hele teksten
+- Kontekst er viktig - andre tider hadde andre normer
+- Kritisk lesning betyr ikke sensur, men bevissthet`,
+    },
+    {
+      id: 'norsk-vg1-17-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Postkolonial analyse',
+      problem: 'Les dette fiktive utdraget og analyser det postkolonialt:\n\n"Reisende kom til landsbyen i hjertet av Afrika. De innfødte møtte dem med nysgjerrige blikk. En gammel medisinmann kom frem og tilbød dem underlige drikker. De primitive ritualene fascinerte de vestlige gjestene."',
+      solution: `**Postkolonial analyse:**
+
+**Perspektiv:**
+- Fortalt fra de "reisendes" (vestlige) perspektiv
+- Afrika fremstilles som objekt, ikke subjekt
+- Afrikanerne har ikke egen stemme i teksten
+
+**Språklige valg:**
+- "De innfødte" - generaliserende, objektiverende
+- "Hjertet av Afrika" - eksotifiserende
+- "Primitive ritualer" - nedvurderende
+- "Underlige" - fremmedgjørende
+- "Fascinerte" - de vestlige som de aktive tilskuerne
+
+**Stereotypier:**
+- "Medisinmannen" - stereotyp fremstilling
+- Afrika som mystisk og primitivt
+- Innfødte som kuriositeter
+
+**Maktforhold:**
+- De vestlige er subjekter (de som handler, ser, fascineres)
+- Afrikanerne er objekter (de som blir sett på)
+- Ingen dialog - bare enveis observasjon
+
+**Hva mangler:**
+- Afrikanernes eget perspektiv
+- Individualisering av karakterene
+- Kontekst og kompleksitet
+- Afrikanernes tanker og følelser
+
+**Konklusjon:**
+Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere som "de andre" sett utenfra.`,
+    },
+    {
+      id: 'norsk-vg1-17-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar disse begrepene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med "den andre" (The Other)?',
+            solution: 'Begrepet beskriver hvordan "vi" definerer oss i kontrast til "dem" - de andre fremstilles ofte som forskjellige, eksotiske eller underlegne.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er orientalisme?',
+            solution: 'Edward Saids begrep for Vestens stereotypiske fremstilling av Østen som eksotisk, mystisk og annerledes.',
+          },
+          {
+            label: 'c',
+            task: 'Hva betyr definisjonsmakt?',
+            solution: 'Makten til å definere virkeligheten - hvem bestemmer hva som er "normalt", hvem som er "vi" og hvem som er "de".',
+          },
+        ],
+        solution: 'Postkoloniale begreper hjelper oss å analysere makt og representasjon i tekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Identifiser potensielle stereotypier i disse beskrivelsene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Den mystiske kvinnen fra Østen"',
+            solution: 'Eksotifiserende, generaliserende ("fra Østen"), fremstiller kvinner som mystiske/uforklarlige.',
+          },
+          {
+            label: 'b',
+            task: '"De fargerike stammene i jungelen"',
+            solution: '"Fargerike" er eksotifiserende, "stammer" er generaliserende, "jungelen" fremstiller som primitive.',
+          },
+          {
+            label: 'c',
+            task: '"Den undertrykte muslimske kvinnen"',
+            solution: 'Generaliserer alle muslimske kvinner, fremstiller dem som passive ofre uten egen stemme.',
+          },
+        ],
+        hints: ['Se etter generalisering', 'Se etter eksotifisering', 'Se etter forenkling'],
+        solution: 'Stereotypier forenkler og generaliserer komplekse grupper.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Velg en tekst fra pensum og still postkoloniale spørsmål til den:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvem forteller og fra hvilket perspektiv?',
+            solution: 'Svar avhenger av teksten. Analyser om fortelleren er insider eller outsider, og hvilke konsekvenser det har.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan fremstilles karakterer fra ulike bakgrunner?',
+            solution: 'Se etter stereotypier, generalisering, eksotifisering. Er karakterene komplekse eller forenklede?',
+          },
+          {
+            label: 'c',
+            task: 'Hva er maktforholdene i teksten?',
+            solution: 'Analyser hvem som har stemme, hvem som er aktive/passive, hvem som fremstilles positivt/negativt.',
+          },
+        ],
+        hints: ['Bruk spørsmålene fra definisjonen om postkolonial lesning'],
+        solution: 'Postkolonial lesning avdekker mønstre i representasjon og makt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Drøft: Hvordan kan vi lese eldre tekster som har problematiske fremstillinger?',
+        hints: ['Tenk på historisk kontekst', 'Kan vi kritisere og verdsette samtidig?', 'Hva er forskjellen på kritikk og sensur?', 'Hva kan vi lære av problematiske tekster?'],
+        solution: 'Drøftingen bør ta opp kontekstualisering, kritisk lesning, verdien av å forstå historien, og forskjellen på kritikk og sensur.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-17-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-17-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Skriv en kort analyse (200-250 ord) av hvordan en kultur fremstilles i en selvvalgt tekst, film eller medietekst.',
+        hints: ['Bruk postkoloniale begreper', 'Analyser perspektiv og representasjon', 'Se etter stereotypier', 'Vurder maktforhold'],
+        solution: 'Analysen bør vise bruk av postkoloniale begreper og evne til å identifisere mønstre i representasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
 // Eksporter alle kapitler
 // ============================================================================
 
@@ -6213,4 +9381,17 @@ export const NORSK_VG1_CHAPTERS = [
   CHAPTER_NORSK_VG1_12_1,
   CHAPTER_NORSK_VG1_12_2,
   CHAPTER_NORSK_VG1_13_1,
+  // Kapittel 14: Samisk språk og kultur
+  CHAPTER_NORSK_VG1_14_1,
+  CHAPTER_NORSK_VG1_14_2,
+  CHAPTER_NORSK_VG1_14_3,
+  // Kapittel 15: Grammatikk og setningsanalyse
+  CHAPTER_NORSK_VG1_15_1,
+  CHAPTER_NORSK_VG1_15_2,
+  // Kapittel 16: Rettskriving og språknorm
+  CHAPTER_NORSK_VG1_16_1,
+  CHAPTER_NORSK_VG1_16_2,
+  // Kapittel 17: Kulturmøter i litteratur
+  CHAPTER_NORSK_VG1_17_1,
+  CHAPTER_NORSK_VG1_17_2,
 ];
