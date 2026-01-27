@@ -166,14 +166,14 @@ export default async function CourseOverviewPage({ params }: PageProps) {
 
         {/* Hero Image */}
         {course.coverImage && (
-          <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-xl overflow-hidden mb-8">
+          <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-xl overflow-hidden mb-8 bg-muted">
             <Image
               src={course.coverImage}
               alt={course.title}
               fill
               priority
               sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover"
+              className="object-contain"
             />
             {/* Add to dashboard button */}
             <AddCourseButton courseId={courseId} className="top-4 right-4" />
@@ -241,13 +241,13 @@ export default async function CourseOverviewPage({ params }: PageProps) {
                         <Card className={`h-full transition-all duration-200 cursor-pointer hover:-translate-y-1 hover:shadow-lg group border ${color.border} overflow-hidden`}>
                           {/* Cover image or colored top-bar */}
                           {chapter.coverImage ? (
-                            <div className="relative h-24 w-full overflow-hidden">
+                            <div className="relative h-32 w-full overflow-hidden bg-muted">
                               <Image
                                 src={chapter.coverImage}
                                 alt={chapter.title}
                                 fill
                                 sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 20vw"
-                                className={`object-cover transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
+                                className={`object-contain transition-transform duration-300 group-hover:scale-105 ${chapter.wip ? 'grayscale opacity-70' : ''}`}
                               />
                               <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
                               <div className={`absolute bottom-2 left-2 px-2 py-0.5 rounded text-xs font-mono font-semibold text-white ${color.bg}`}>
