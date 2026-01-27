@@ -1811,17 +1811,14 @@ Hun ble også en viktig essayist og kvinnesaksforkjemper i sine senere år.`,
 };
 
 // ============================================================================
-// KAPITTEL 2: NATURALISME
-// ============================================================================
-
 // ----------------------------------------------------------------------------
-// 2.1 Naturalismens kjennetegn
+// 1.7 Naturalismens kjennetegn
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_2_1: TextbookChapter = {
-  id: 'norsk-vg3-2-1',
+export const CHAPTER_NORSK_VG3_1_7: TextbookChapter = {
+  id: 'norsk-vg3-1-7',
   courseId: 'norsk-vg3',
-  chapterNumber: '2.1',
+  chapterNumber: '1.7',
   title: 'Naturalismens kjennetegn',
   description: 'Naturalismen som litterær retning - teori og praksis.',
   estimatedMinutes: 55,
@@ -1831,7 +1828,7 @@ export const CHAPTER_NORSK_VG3_2_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-2-1-intro',
+      id: 'norsk-vg3-1-7-intro',
       type: 'text',
       content: `## Naturalismen - litteratur som vitenskap
 
@@ -1879,7 +1876,7 @@ Naturalismen ble heftig kritisert:
 Men forfatterne selv mente de avslørte sannheten om menneskelig tilværelse - en sannhet som borgerskapet helst ville skjule.`,
     },
     {
-      id: 'norsk-vg3-2-1-def-1',
+      id: 'norsk-vg3-1-7-def-1',
       type: 'definition',
       title: 'Émile Zola (1840-1902)',
       content: `**Émile Zola** var en fransk forfatter som regnes som naturalismens grunnlegger.
@@ -1910,7 +1907,7 @@ Men forfatterne selv mente de avslørte sannheten om menneskelig tilværelse - e
 Zola definerte naturalismen som bevegelse og inspirerte forfattere over hele Europa, inkludert Amalie Skram i Norge.`,
     },
     {
-      id: 'norsk-vg3-2-1-def-2',
+      id: 'norsk-vg3-1-7-def-2',
       type: 'definition',
       title: 'Den eksperimentelle roman',
       content: `**«Le roman expérimental»** (Den eksperimentelle roman) er Émile Zolas programskrift for naturalismen fra 1880.
@@ -1938,7 +1935,7 @@ Teorien ble kritisert for å være mekanistisk og for å ignorere forskjellen me
 Selv om teorien var overdrevet, påvirket den generasjoner av forfattere og førte til økt fokus på sosiale forhold i litteraturen.`,
     },
     {
-      id: 'norsk-vg3-2-1-def-3',
+      id: 'norsk-vg3-1-7-def-3',
       type: 'definition',
       title: 'Arv og miljø',
       content: `**Arv og miljø** er de to hovedfaktorene som ifølge naturalismen bestemmer menneskers liv og handlinger.
@@ -1968,7 +1965,7 @@ Kombinasjonen av arv og miljø bestemmer hvordan mennesket blir. Fri vilje er st
 Vi vet i dag at forholdet mellom arv og miljø er mer komplekst enn naturalismen antok. Epigenetikk viser at miljø påvirker hvordan gener uttrykkes, og mennesker har mer handlingsrom enn deterministene mente.`,
     },
     {
-      id: 'norsk-vg3-2-1-example-1',
+      id: 'norsk-vg3-1-7-example-1',
       type: 'example',
       title: 'Naturalisme i praksis: Zolas «Germinal»',
       problem: `Analyser Zolas roman «Germinal» (1885) som naturalistisk verk.`,
@@ -1999,10 +1996,10 @@ Romanen er et kraftig angrep på kapitalismen og dens utbytting av arbeiderne. Z
 Trass i det teoretiske programmet er «Germinal» et sterkt kunstnerisk verk med minneverdige karakterer og gripende scener.`,
     },
     {
-      id: 'norsk-vg3-2-1-ex-1',
+      id: 'norsk-vg3-1-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-1-ex-1',
+        id: 'norsk-vg3-1-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign realisme og naturalisme.',
@@ -2024,10 +2021,10 @@ Trass i det teoretiske programmet er «Germinal» et sterkt kunstnerisk verk med
       },
     },
     {
-      id: 'norsk-vg3-2-1-ex-2',
+      id: 'norsk-vg3-1-7-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-1-ex-2',
+        id: 'norsk-vg3-1-7-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter naturalismens menneskesyn.',
@@ -2038,10 +2035,10 @@ Trass i det teoretiske programmet er «Germinal» et sterkt kunstnerisk verk med
       },
     },
     {
-      id: 'norsk-vg3-2-1-ex-3',
+      id: 'norsk-vg3-1-7-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-1-ex-3',
+        id: 'norsk-vg3-1-7-ex-3',
         number: '3',
         type: 'classic',
         task: 'Vurder Zolas teori om «den eksperimentelle roman».',
@@ -2067,13 +2064,13 @@ Trass i det teoretiske programmet er «Germinal» et sterkt kunstnerisk verk med
 };
 
 // ----------------------------------------------------------------------------
-// 2.2 Determinisme og arv/miljo
+// 1.8 Determinisme og arv/miljo
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_2_2: TextbookChapter = {
-  id: 'norsk-vg3-2-2',
+export const CHAPTER_NORSK_VG3_1_8: TextbookChapter = {
+  id: 'norsk-vg3-1-8',
   courseId: 'norsk-vg3',
-  chapterNumber: '2.2',
+  chapterNumber: '1.8',
   title: 'Determinisme og arv/miljo',
   description: 'Det naturalistiske menneskesynet - hvordan arv og miljo former individet.',
   estimatedMinutes: 50,
@@ -2083,7 +2080,7 @@ export const CHAPTER_NORSK_VG3_2_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-2-2-intro',
+      id: 'norsk-vg3-1-8-intro',
       type: 'text',
       content: `## Determinisme - mennesket som produkt
 
@@ -2134,7 +2131,7 @@ Det deterministiske menneskesynet fikk flere litteraere konsekvenser:
 4. **Utfallet:** Forsok pa a bryte ut av determinismen mislykkes som regel. Tragedien er uunngaelig.`,
     },
     {
-      id: 'norsk-vg3-2-2-def-1',
+      id: 'norsk-vg3-1-8-def-1',
       type: 'definition',
       title: 'Determinisme',
       content: `**Determinisme** er den filosofiske posisjonen som hevder at alle hendelser er arsaksbestemt.
@@ -2161,7 +2158,7 @@ Naturalismens forfattere abonnerte pa en form for hard determinisme anvendt pa m
 Dagens vitenskap viser at forholdet mellom gener og miljo er mer komplekst enn naturalismen antok. Epigenetikk og nevroplastisitet demonstrerer at mennesker har storre handlingsrom enn deterministene mente.`,
     },
     {
-      id: 'norsk-vg3-2-2-def-2',
+      id: 'norsk-vg3-1-8-def-2',
       type: 'definition',
       title: 'Degenerasjonslaren',
       content: `**Degenerasjonslaren** var en pseudovitenskapelig teori som var utbredt pa 1800-tallet og sterkt pavirket naturalismen.
@@ -2189,7 +2186,7 @@ Mange naturalistiske verk skildrer degenerasjon over generasjoner:
 Teorien er i dag fullstendig avvist. Den bygde pa feilaktig forstaelse av arvelighet og ble misbrukt til a rettferdiggjore sosial ulikhet og eugenikk. Men dens innflytelse pa litteraturen er fortsatt synlig.`,
     },
     {
-      id: 'norsk-vg3-2-2-example-1',
+      id: 'norsk-vg3-1-8-example-1',
       type: 'example',
       title: 'Arv og miljo i Hellemyrsfolket',
       problem: `Analyser hvordan arv og miljo fungerer som determinerende faktorer i Amalie Skrams «Hellemyrsfolket».`,
@@ -2222,10 +2219,10 @@ Skram viser hvordan arv og miljo sammen skaper en ubrytelig sirkel:
 Selv om Skram følger det naturalistiske programmet, ligger det sympati i fremstillingen. Hun viser at karakterene er ofre for krefter de ikke kan kontrollere. Ansvaret ligger like mye hos samfunnet som hos individene.`,
     },
     {
-      id: 'norsk-vg3-2-2-ex-1',
+      id: 'norsk-vg3-1-8-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-2-ex-1',
+        id: 'norsk-vg3-1-8-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter determinismens menneskesyn.',
@@ -2247,10 +2244,10 @@ Selv om Skram følger det naturalistiske programmet, ligger det sympati i fremst
       },
     },
     {
-      id: 'norsk-vg3-2-2-ex-2',
+      id: 'norsk-vg3-1-8-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-2-ex-2',
+        id: 'norsk-vg3-1-8-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign datidens og dagens forstaelse av arv.',
@@ -2261,10 +2258,10 @@ Selv om Skram følger det naturalistiske programmet, ligger det sympati i fremst
       },
     },
     {
-      id: 'norsk-vg3-2-2-ex-3',
+      id: 'norsk-vg3-1-8-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-2-ex-3',
+        id: 'norsk-vg3-1-8-ex-3',
         number: '3',
         type: 'classic',
         task: 'Analyser et naturalistisk verk med fokus pa arv og miljo.',
@@ -2295,13 +2292,13 @@ Selv om Skram følger det naturalistiske programmet, ligger det sympati i fremst
 };
 
 // ----------------------------------------------------------------------------
-// 2.3 Amalie Skram: Hellemyrsfolket
+// 1.9 Amalie Skram: Hellemyrsfolket
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_2_3: TextbookChapter = {
-  id: 'norsk-vg3-2-3',
+export const CHAPTER_NORSK_VG3_1_9: TextbookChapter = {
+  id: 'norsk-vg3-1-9',
   courseId: 'norsk-vg3',
-  chapterNumber: '2.3',
+  chapterNumber: '1.9',
   title: 'Amalie Skram: Hellemyrsfolket',
   description: 'Dybdestudie av Amalie Skrams naturalistiske hovedverk.',
   estimatedMinutes: 70,
@@ -2312,7 +2309,7 @@ export const CHAPTER_NORSK_VG3_2_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-2-3-intro',
+      id: 'norsk-vg3-1-9-intro',
       type: 'text',
       content: `## Hellemyrsfolket - Norges fremste naturalistiske romansyklus
 
@@ -2351,7 +2348,7 @@ Særlig kvinneskildringene utmerker seg. Skram gir de undertrykte kvinnene stemm
 Verket ble anerkjent av kritikere, men nådde aldri det brede publikum. Det var for mørkt, for ubehagelig. Men i ettertid har «Hellemyrsfolket» fått sin rettmessige plass som et hovedverk i norsk litteratur.`,
     },
     {
-      id: 'norsk-vg3-2-3-def-1',
+      id: 'norsk-vg3-1-9-def-1',
       type: 'definition',
       title: 'Romansyklusen som sjanger',
       content: `**Romansyklusen** (eller romanserien) er en rekke romaner som henger sammen gjennom felles karakterer, tema eller setting.
@@ -2378,7 +2375,7 @@ Verket ble anerkjent av kritikere, men nådde aldri det brede publikum. Det var 
 Romansyklusen var særlig populær i naturalismen fordi den tillot forfølging av arvelige trekk over generasjoner - «det naturlige eksperimentet».`,
     },
     {
-      id: 'norsk-vg3-2-3-example-1',
+      id: 'norsk-vg3-1-9-example-1',
       type: 'example',
       title: 'Analyse av Sjur Gabriel',
       problem: `Analyser det første bindet av «Hellemyrsfolket», «Sjur Gabriel» (1887).`,
@@ -2414,7 +2411,7 @@ Skram bruker dialekt og muntlig språk for å skape autentisitet. Scenene er kor
 - Determinisme og skjebne`,
     },
     {
-      id: 'norsk-vg3-2-3-example-2',
+      id: 'norsk-vg3-1-9-example-2',
       type: 'example',
       title: 'Utviklingen gjennom fire bind',
       problem: `Analyser hvordan «Hellemyrsfolket» utvikler seg gjennom de fire bindene.`,
@@ -2457,7 +2454,7 @@ Det ligger en bitter ironi i at jo mer slekten forsøker å skjule sin bakgrunn,
 Med Severin i bind 4 fullføres degenerasjonen. Han representerer enden på linjen - det finnes ingen fremtid, ingen håp. Det naturalistiske eksperimentet er fullført.`,
     },
     {
-      id: 'norsk-vg3-2-3-tip-1',
+      id: 'norsk-vg3-1-9-tip-1',
       type: 'tip',
       title: 'Leseveiledning til Hellemyrsfolket',
       content: `**Hvordan lese Hellemyrsfolket:**
@@ -2484,10 +2481,10 @@ Med Severin i bind 4 fullføres degenerasjonen. Han representerer enden på linj
 Skram bruker dialekt og muntlig språk. Dette kan kreve tilvanning, men gir autentisitet.`,
     },
     {
-      id: 'norsk-vg3-2-3-ex-1',
+      id: 'norsk-vg3-1-9-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-3-ex-1',
+        id: 'norsk-vg3-1-9-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra «Hellemyrsfolket» og analyser det.',
@@ -2514,10 +2511,10 @@ Skram bruker dialekt og muntlig språk. Dette kan kreve tilvanning, men gir aute
       },
     },
     {
-      id: 'norsk-vg3-2-3-ex-2',
+      id: 'norsk-vg3-1-9-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-3-ex-2',
+        id: 'norsk-vg3-1-9-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign «Hellemyrsfolket» med Zolas «Germinal» eller andre naturalistiske verk.',
@@ -2528,10 +2525,10 @@ Skram bruker dialekt og muntlig språk. Dette kan kreve tilvanning, men gir aute
       },
     },
     {
-      id: 'norsk-vg3-2-3-ex-3',
+      id: 'norsk-vg3-1-9-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-2-3-ex-3',
+        id: 'norsk-vg3-1-9-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter «Hellemyrsfolkets» aktualitet.',
@@ -2556,18 +2553,14 @@ Skram bruker dialekt og muntlig språk. Dette kan kreve tilvanning, men gir aute
   exercises: [],
 };
 
-// ============================================================================
-// KAPITTEL 3: NYROMANTIKK (1890-tallet)
-// ============================================================================
-
 // ----------------------------------------------------------------------------
-// 3.1 Reaksjon mot realismen
+// 1.10 Reaksjon mot realismen
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_3_1: TextbookChapter = {
-  id: 'norsk-vg3-3-1',
+export const CHAPTER_NORSK_VG3_1_10: TextbookChapter = {
+  id: 'norsk-vg3-1-10',
   courseId: 'norsk-vg3',
-  chapterNumber: '3.1',
+  chapterNumber: '1.10',
   title: 'Reaksjon mot realismen',
   description: 'Nyromantikkens oppgjør med realismen og naturalismen på 1890-tallet.',
   estimatedMinutes: 55,
@@ -2577,7 +2570,7 @@ export const CHAPTER_NORSK_VG3_3_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-3-1-intro',
+      id: 'norsk-vg3-1-10-intro',
       type: 'text',
       content: `## Nyromantikken - oppgjøret med realismen
 
@@ -2619,7 +2612,7 @@ Nyromantikken i Skandinavia var del av en europeisk bevegelse. I Frankrike var d
 Perioden var en overgang fra det 19. århundrets realisme til det 20. århundrets modernisme.`,
     },
     {
-      id: 'norsk-vg3-3-1-def-1',
+      id: 'norsk-vg3-1-10-def-1',
       type: 'definition',
       title: 'Nyromantikk',
       content: `**Nyromantikken** (ca. 1890-1910) er en litterær periode som kjennetegnes av reaksjon mot realismen og interesse for det indre liv.
@@ -2654,7 +2647,7 @@ Også kalt:
 «Nyromantikk» antyder en gjenopptakelse av romantikkens idealer, men i ny form. Interessen for det subjektive, det mystiske og naturen knytter an til romantikken, men uttrykksformen er moderne.`,
     },
     {
-      id: 'norsk-vg3-3-1-def-2',
+      id: 'norsk-vg3-1-10-def-2',
       type: 'definition',
       title: 'Symbolisme',
       content: `**Symbolismen** er en litterær retning som oppsto i Frankrike på 1880-tallet og spredte seg til resten av Europa.
@@ -2687,7 +2680,7 @@ Også kalt:
 Symbolismen var en viktig forløper for modernismen. Dens eksperimentering med språk og form peker fremover mot 1900-tallets litteratur.`,
     },
     {
-      id: 'norsk-vg3-3-1-example-1',
+      id: 'norsk-vg3-1-10-example-1',
       type: 'example',
       title: 'Hamsuns angrep på realismen',
       problem: `I 1890 holdt Knut Hamsun en forelesning i Studentersamfundet der han angrep den etablerte litteraturen. Analyser hans kritikk.`,
@@ -2726,10 +2719,10 @@ Forelesningene skapte skandale. De etablerte forfatterne ble fornærmet. Men Ham
 Hamsuns forelesninger markerte et generasjonsskifte. De formulerte et nytt litterært program som pekte fremover mot modernismen.`,
     },
     {
-      id: 'norsk-vg3-3-1-ex-1',
+      id: 'norsk-vg3-1-10-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-1-ex-1',
+        id: 'norsk-vg3-1-10-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign realismen og nyromantikken.',
@@ -2756,10 +2749,10 @@ Hamsuns forelesninger markerte et generasjonsskifte. De formulerte et nytt litte
       },
     },
     {
-      id: 'norsk-vg3-3-1-ex-2',
+      id: 'norsk-vg3-1-10-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-1-ex-2',
+        id: 'norsk-vg3-1-10-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter Hamsuns kritikk av de etablerte forfatterne.',
@@ -2770,10 +2763,10 @@ Hamsuns forelesninger markerte et generasjonsskifte. De formulerte et nytt litte
       },
     },
     {
-      id: 'norsk-vg3-3-1-ex-3',
+      id: 'norsk-vg3-1-10-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-1-ex-3',
+        id: 'norsk-vg3-1-10-ex-3',
         number: '3',
         type: 'classic',
         task: 'Plasser nyromantikken i europeisk sammenheng.',
@@ -2788,13 +2781,13 @@ Hamsuns forelesninger markerte et generasjonsskifte. De formulerte et nytt litte
 };
 
 // ----------------------------------------------------------------------------
-// 3.2 Knut Hamsun - Sult og Mysterier
+// 1.11 Knut Hamsun - Sult og Mysterier
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_3_2: TextbookChapter = {
-  id: 'norsk-vg3-3-2',
+export const CHAPTER_NORSK_VG3_1_11: TextbookChapter = {
+  id: 'norsk-vg3-1-11',
   courseId: 'norsk-vg3',
-  chapterNumber: '3.2',
+  chapterNumber: '1.11',
   title: 'Knut Hamsun - Sult og Mysterier',
   description: 'Knut Hamsuns tidlige romaner og hans litterære revolusjon.',
   estimatedMinutes: 70,
@@ -2805,7 +2798,7 @@ export const CHAPTER_NORSK_VG3_3_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-3-2-intro',
+      id: 'norsk-vg3-1-11-intro',
       type: 'text',
       content: `## Knut Hamsun - modernismens forløper
 
@@ -2843,7 +2836,7 @@ I 1920 fikk Hamsun Nobelprisen i litteratur for «Markens grøde» (1917). Men h
 Dette har preget resepsjonen av Hamsun siden. Kan vi skille verket fra mannen? Debatten fortsetter.`,
     },
     {
-      id: 'norsk-vg3-3-2-def-1',
+      id: 'norsk-vg3-1-11-def-1',
       type: 'definition',
       title: 'Knut Hamsun (1859-1952)',
       content: `**Biografi:**
@@ -2878,7 +2871,7 @@ Hamsun regnes som en forløper for modernismen. Hans teknikker påvirket forfatt
 Nazisympatien har preget resepsjonen av Hamsun. Debatten om verk og person fortsetter.`,
     },
     {
-      id: 'norsk-vg3-3-2-def-2',
+      id: 'norsk-vg3-1-11-def-2',
       type: 'definition',
       title: 'Bevissthetsstrøm',
       content: `**Bevissthetsstrøm** (stream of consciousness) er en litterær teknikk som søker å gjengi tankenes strøm slik de oppleves innenfra.
@@ -2906,7 +2899,7 @@ William James (psykolog) introduserte begrepet «stream of consciousness» i 189
 Teknikken ble sentral i modernismen og endret hvordan litteratur kunne skildre indre liv.`,
     },
     {
-      id: 'norsk-vg3-3-2-example-1',
+      id: 'norsk-vg3-1-11-example-1',
       type: 'example',
       title: 'Analyse: Sult (1890)',
       problem: `Analyser «Sult» med fokus på Hamsuns litterære nyskaping.`,
@@ -2943,7 +2936,7 @@ Førstepersonsfortelleren er upålitelig. Vi ser alt gjennom hans forvrengte per
 «Sult» regnes som en av de første moderne romaner. Den peker fremover mot det 20. århundrets litteratur.`,
     },
     {
-      id: 'norsk-vg3-3-2-example-2',
+      id: 'norsk-vg3-1-11-example-2',
       type: 'example',
       title: 'Analyse: Mysterier (1892)',
       problem: `Analyser «Mysterier» og karakteren Johan Nilsen Nagel.`,
@@ -2976,7 +2969,7 @@ Romanen er full av symboler og gjentakelser som skaper et nettverk av mening - u
 «Mysterier» utvider det Hamsun begynte i «Sult». Karakteren Nagel er blitt et ikon på den moderne, splittede bevissthet.`,
     },
     {
-      id: 'norsk-vg3-3-2-tip-1',
+      id: 'norsk-vg3-1-11-tip-1',
       type: 'tip',
       title: 'Hamsuns åpning av «Sult»',
       content: `**Den berømte åpningen:**
@@ -2994,10 +2987,10 @@ Denne ene setningen etablerer romanens atmosfære: den navnløse jeg-personens f
 Sammenlign med tradisjonelle åpninger som etablerer tid, sted og personer. Hamsun kaster oss rett inn i en bevissthet.`,
     },
     {
-      id: 'norsk-vg3-3-2-ex-1',
+      id: 'norsk-vg3-1-11-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-2-ex-1',
+        id: 'norsk-vg3-1-11-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser et utdrag fra «Sult».',
@@ -3019,10 +3012,10 @@ Sammenlign med tradisjonelle åpninger som etablerer tid, sted og personer. Hams
       },
     },
     {
-      id: 'norsk-vg3-3-2-ex-2',
+      id: 'norsk-vg3-1-11-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-2-ex-2',
+        id: 'norsk-vg3-1-11-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign hovedpersonene i «Sult» og «Mysterier».',
@@ -3033,10 +3026,10 @@ Sammenlign med tradisjonelle åpninger som etablerer tid, sted og personer. Hams
       },
     },
     {
-      id: 'norsk-vg3-3-2-ex-3',
+      id: 'norsk-vg3-1-11-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-2-ex-3',
+        id: 'norsk-vg3-1-11-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter forholdet mellom Hamsuns verk og hans politiske holdninger.',
@@ -3058,10 +3051,10 @@ Sammenlign med tradisjonelle åpninger som etablerer tid, sted og personer. Hams
       },
     },
     {
-      id: 'norsk-vg3-3-2-ex-4',
+      id: 'norsk-vg3-1-11-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-2-ex-4',
+        id: 'norsk-vg3-1-11-ex-4',
         number: '4',
         type: 'classic',
         task: 'Forklar hvorfor Hamsun regnes som modernismens forløper.',
@@ -3076,13 +3069,13 @@ Sammenlign med tradisjonelle åpninger som etablerer tid, sted og personer. Hams
 };
 
 // ----------------------------------------------------------------------------
-// 3.3 Symbolisme og stemningsdiktning
+// 1.12 Symbolisme og stemningsdiktning
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_3_3: TextbookChapter = {
-  id: 'norsk-vg3-3-3',
+export const CHAPTER_NORSK_VG3_1_12: TextbookChapter = {
+  id: 'norsk-vg3-1-12',
   courseId: 'norsk-vg3',
-  chapterNumber: '3.3',
+  chapterNumber: '1.12',
   title: 'Symbolisme og stemningsdiktning',
   description: 'Symbolismen i norsk lyrikk og prosa på 1890-tallet.',
   estimatedMinutes: 55,
@@ -3092,7 +3085,7 @@ export const CHAPTER_NORSK_VG3_3_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-3-3-intro',
+      id: 'norsk-vg3-1-12-intro',
       type: 'text',
       content: `## Symbolisme og stemning i norsk 1890-tallslitteratur
 
@@ -3135,7 +3128,7 @@ Et særtrekk ved den norske 1890-tallslitteraturen er vekten på stemning. Natur
 Dette var en bevegelse bort fra realismens klarhet mot noe mer ubestemt og flyktig - en forsmak på modernismens utforsking av bevissthetens gåter.`,
     },
     {
-      id: 'norsk-vg3-3-3-def-1',
+      id: 'norsk-vg3-1-12-def-1',
       type: 'definition',
       title: 'Symbolisme (litterær retning)',
       content: `**Symbolismen** er en litterær og kunstnerisk bevegelse som oppsto i Frankrike på 1880-tallet.
@@ -3171,7 +3164,7 @@ Dette var en bevegelse bort fra realismens klarhet mot noe mer ubestemt og flykt
 - Ibsens sene dramaer`,
     },
     {
-      id: 'norsk-vg3-3-3-def-2',
+      id: 'norsk-vg3-1-12-def-2',
       type: 'definition',
       title: 'Synestesi',
       content: `**Synestesi** er en litterær teknikk der sanseinntrykk fra ett område overføres til et annet.
@@ -3201,7 +3194,7 @@ Obstfelder bruker synestesi for å skildre fremmedgjøring og forvirring. Sansen
 - Bryter med konvensjonell beskrivelse`,
     },
     {
-      id: 'norsk-vg3-3-3-example-1',
+      id: 'norsk-vg3-1-12-example-1',
       type: 'example',
       title: 'Obstfelders «Jeg ser»',
       problem: `Analyser Sigbjørn Obstfelders dikt «Jeg ser» (1893).`,
@@ -3256,10 +3249,10 @@ Diktet handler ikke om noe konkret, men om en tilstand - en eksistensiell følel
 «Jeg ser» er blitt et av de mest siterte norske dikt. Det fanger en moderne opplevelse av fremmedgjøring med forbausende enkelhet.`,
     },
     {
-      id: 'norsk-vg3-3-3-ex-1',
+      id: 'norsk-vg3-1-12-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-3-ex-1',
+        id: 'norsk-vg3-1-12-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser «Jeg ser» av Obstfelder.',
@@ -3281,10 +3274,10 @@ Diktet handler ikke om noe konkret, men om en tilstand - en eksistensiell følel
       },
     },
     {
-      id: 'norsk-vg3-3-3-ex-2',
+      id: 'norsk-vg3-1-12-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-3-ex-2',
+        id: 'norsk-vg3-1-12-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign symbolismen med realismen.',
@@ -3295,10 +3288,10 @@ Diktet handler ikke om noe konkret, men om en tilstand - en eksistensiell følel
       },
     },
     {
-      id: 'norsk-vg3-3-3-ex-3',
+      id: 'norsk-vg3-1-12-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-3-ex-3',
+        id: 'norsk-vg3-1-12-ex-3',
         number: '3',
         type: 'classic',
         task: 'Finn et annet symbolistisk dikt og analyser det.',
@@ -3313,13 +3306,13 @@ Diktet handler ikke om noe konkret, men om en tilstand - en eksistensiell følel
 };
 
 // ----------------------------------------------------------------------------
-// 3.4 Sigbjørn Obstfelder
+// 1.13 Sigbjørn Obstfelder
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_3_4: TextbookChapter = {
-  id: 'norsk-vg3-3-4',
+export const CHAPTER_NORSK_VG3_1_13: TextbookChapter = {
+  id: 'norsk-vg3-1-13',
   courseId: 'norsk-vg3',
-  chapterNumber: '3.4',
+  chapterNumber: '1.13',
   title: 'Sigbjørn Obstfelder',
   description: 'Sigbjørn Obstfelders liv og forfatterskap - Norges fremste symbolist.',
   estimatedMinutes: 50,
@@ -3329,7 +3322,7 @@ export const CHAPTER_NORSK_VG3_3_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-3-4-intro',
+      id: 'norsk-vg3-1-13-intro',
       type: 'text',
       content: `## Sigbjørn Obstfelder - den fremmede
 
@@ -3377,7 +3370,7 @@ Obstfelders stil er unik i norsk litteratur:
 Obstfelder var lite kjent i sin samtid, men hans betydning har vokst. Han peker fremover mot modernismens fremmedgjøring og eksistensielle tematikk. Diktet «Jeg ser» er blitt en klassiker.`,
     },
     {
-      id: 'norsk-vg3-3-4-def-1',
+      id: 'norsk-vg3-1-13-def-1',
       type: 'definition',
       title: 'Sigbjørn Obstfelder (1866-1900)',
       content: `**Biografi:**
@@ -3409,7 +3402,7 @@ Obstfelder var lite kjent i sin samtid, men hans betydning har vokst. Han peker 
 Obstfelder er Norges fremste symbolist og en forløper for modernismen. Hans korte liv og lille produksjon har fått stadig større anerkjennelse.`,
     },
     {
-      id: 'norsk-vg3-3-4-example-1',
+      id: 'norsk-vg3-1-13-example-1',
       type: 'example',
       title: 'Analyse av Obstfelders prosadikt',
       problem: `Les og analyser følgende prosadikt av Obstfelder:
@@ -3442,10 +3435,10 @@ Stjernene er et symbol på det uoppnåelige, det fremmedgjørende ved tilværels
 Samme teknikk: gjentakelse, distansert blikk, eksistensiell fremmedgjøring. Stjernene i dette diktet tilsvarer verden i «Jeg ser».`,
     },
     {
-      id: 'norsk-vg3-3-4-ex-1',
+      id: 'norsk-vg3-1-13-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-4-ex-1',
+        id: 'norsk-vg3-1-13-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les flere dikt av Obstfelder og identifiser gjennomgående trekk.',
@@ -3456,10 +3449,10 @@ Samme teknikk: gjentakelse, distansert blikk, eksistensiell fremmedgjøring. Stj
       },
     },
     {
-      id: 'norsk-vg3-3-4-ex-2',
+      id: 'norsk-vg3-1-13-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-4-ex-2',
+        id: 'norsk-vg3-1-13-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign Obstfelder med Hamsun.',
@@ -3481,10 +3474,10 @@ Samme teknikk: gjentakelse, distansert blikk, eksistensiell fremmedgjøring. Stj
       },
     },
     {
-      id: 'norsk-vg3-3-4-ex-3',
+      id: 'norsk-vg3-1-13-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-3-4-ex-3',
+        id: 'norsk-vg3-1-13-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter fremmedgjøring som tema i litteraturen.',
@@ -3499,17 +3492,17 @@ Samme teknikk: gjentakelse, distansert blikk, eksistensiell fremmedgjøring. Stj
 };
 
 // ============================================================================
-// KAPITTEL 4: TIDLIG MODERNISME (1900-1930)
+// KAPITTEL 2: MODERNISME OG MELLOMKRIGSTID (1900-1945)
 // ============================================================================
 
 // ----------------------------------------------------------------------------
-// 4.1 Modernismens kjennetegn
+// 2.1 Modernismens kjennetegn
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_4_1: TextbookChapter = {
-  id: 'norsk-vg3-4-1',
+export const CHAPTER_NORSK_VG3_2_1: TextbookChapter = {
+  id: 'norsk-vg3-2-1',
   courseId: 'norsk-vg3',
-  chapterNumber: '4.1',
+  chapterNumber: '2.1',
   title: 'Modernismens kjennetegn',
   description: 'Innføring i modernismen som litterær epoke og dens særtrekk.',
   estimatedMinutes: 60,
@@ -3519,7 +3512,7 @@ export const CHAPTER_NORSK_VG3_4_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-4-1-intro',
+      id: 'norsk-vg3-2-1-intro',
       type: 'text',
       content: `## Modernismen - det 20. århundrets litterære revolusjon
 
@@ -3568,7 +3561,7 @@ Norge var noe sen med å ta til seg modernismen. Mens Joyce og Woolf skrev sine 
 Men det fantes tidlige modernistiske tendenser. Hamsuns tidlige romaner, Obstfelders lyrikk og Sigrid Undsets samtidsromaner viser modernistiske trekk. Og forfattere som Tarjei Vesaas arbeidet i modernismens ånd lenge før etiketten ble vanlig.`,
     },
     {
-      id: 'norsk-vg3-4-1-def-1',
+      id: 'norsk-vg3-2-1-def-1',
       type: 'definition',
       title: 'Modernisme',
       content: `**Modernismen** er en litterær og kunstnerisk bevegelse som dominerte første halvdel av det 20. århundre.
@@ -3608,7 +3601,7 @@ Men det fantes tidlige modernistiske tendenser. Hamsuns tidlige romaner, Obstfel
 - Lyrikk: Rolf Jacobsen, Olav H. Hauge`,
     },
     {
-      id: 'norsk-vg3-4-1-def-2',
+      id: 'norsk-vg3-2-1-def-2',
       type: 'definition',
       title: 'Fragmentering',
       content: `**Fragmentering** er et sentralt trekk ved modernistisk litteratur.
@@ -3639,7 +3632,7 @@ Fragmenteringen krever en aktiv leser som skaper mening av bitene. Leseren blir 
 Vesaas' romaner har ofte fragmentarisk struktur med poetiske scener som knyttes løst sammen.`,
     },
     {
-      id: 'norsk-vg3-4-1-example-1',
+      id: 'norsk-vg3-2-1-example-1',
       type: 'example',
       title: 'T.S. Eliots «The Waste Land»',
       problem: `Analyser åpningen av T.S. Eliots «The Waste Land» (1922) som eksempel på modernistisk teknikk.
@@ -3673,10 +3666,10 @@ Diktet er full av sitater og allusjoner. Leseren må kjenne tradisjonen for å f
 - Sivilisasjonskritikk`,
     },
     {
-      id: 'norsk-vg3-4-1-ex-1',
+      id: 'norsk-vg3-2-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-1-ex-1',
+        id: 'norsk-vg3-2-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar modernismens hovedtrekk.',
@@ -3703,10 +3696,10 @@ Diktet er full av sitater og allusjoner. Leseren må kjenne tradisjonen for å f
       },
     },
     {
-      id: 'norsk-vg3-4-1-ex-2',
+      id: 'norsk-vg3-2-1-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-1-ex-2',
+        id: 'norsk-vg3-2-1-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter sammenhengen mellom første verdenskrig og modernismen.',
@@ -3717,10 +3710,10 @@ Diktet er full av sitater og allusjoner. Leseren må kjenne tradisjonen for å f
       },
     },
     {
-      id: 'norsk-vg3-4-1-ex-3',
+      id: 'norsk-vg3-2-1-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-1-ex-3',
+        id: 'norsk-vg3-2-1-ex-3',
         number: '3',
         type: 'classic',
         task: 'Sammenlign modernismen med realismen.',
@@ -3746,13 +3739,13 @@ Diktet er full av sitater og allusjoner. Leseren må kjenne tradisjonen for å f
 };
 
 // ----------------------------------------------------------------------------
-// 4.2 Olav Duun
+// 2.2 Olav Duun
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_4_2: TextbookChapter = {
-  id: 'norsk-vg3-4-2',
+export const CHAPTER_NORSK_VG3_2_2: TextbookChapter = {
+  id: 'norsk-vg3-2-2',
   courseId: 'norsk-vg3',
-  chapterNumber: '4.2',
+  chapterNumber: '2.2',
   title: 'Olav Duun',
   description: 'Olav Duuns forfatterskap og romansyklusen Juvikfolke.',
   estimatedMinutes: 55,
@@ -3763,7 +3756,7 @@ export const CHAPTER_NORSK_VG3_4_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-4-2-intro',
+      id: 'norsk-vg3-2-2-intro',
       type: 'text',
       content: `## Olav Duun - slektsromanens mester
 
@@ -3816,7 +3809,7 @@ Duuns stil er særpreget:
 Duun var nominert til Nobelprisen i litteratur flere ganger, men fikk den aldri. Hans verk har fått status som klassikere, og «Juvikfolke» regnes som noe av det ypperste i norsk romankunst.`,
     },
     {
-      id: 'norsk-vg3-4-2-def-1',
+      id: 'norsk-vg3-2-2-def-1',
       type: 'definition',
       title: 'Olav Duun (1876-1939)',
       content: `**Biografi:**
@@ -3850,7 +3843,7 @@ Duun var nominert til Nobelprisen i litteratur flere ganger, men fikk den aldri.
 Regnes som en av Norges største romanforfattere. Nominert til Nobelprisen flere ganger. «Juvikfolke» er blitt stående som et hovedverk i norsk litteratur.`,
     },
     {
-      id: 'norsk-vg3-4-2-example-1',
+      id: 'norsk-vg3-2-2-example-1',
       type: 'example',
       title: 'Analyse av Juvikfolke',
       problem: `Analyser hvordan Duun skildrer kampen mellom godt og ondt i «Juvikfolke».`,
@@ -3880,10 +3873,10 @@ Duuns verk er gjennomsyret av etisk alvor. Valgene har konsekvenser, og menneske
 Den seksbinds strukturen tillater en utforsking av temaene over tid og generasjoner. Verket har episk tyngde.`,
     },
     {
-      id: 'norsk-vg3-4-2-ex-1',
+      id: 'norsk-vg3-2-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-2-ex-1',
+        id: 'norsk-vg3-2-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign Duuns «Juvikfolke» med Skrams «Hellemyrsfolket».',
@@ -3905,10 +3898,10 @@ Den seksbinds strukturen tillater en utforsking av temaene over tid og generasjo
       },
     },
     {
-      id: 'norsk-vg3-4-2-ex-2',
+      id: 'norsk-vg3-2-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-2-ex-2',
+        id: 'norsk-vg3-2-2-ex-2',
         number: '2',
         type: 'classic',
         task: 'Les et utdrag fra «Juvikfolke» og analyser språket.',
@@ -3919,10 +3912,10 @@ Den seksbinds strukturen tillater en utforsking av temaene over tid og generasjo
       },
     },
     {
-      id: 'norsk-vg3-4-2-ex-3',
+      id: 'norsk-vg3-2-2-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-2-ex-3',
+        id: 'norsk-vg3-2-2-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter kampen mellom godt og ondt som litterært tema.',
@@ -3937,13 +3930,13 @@ Den seksbinds strukturen tillater en utforsking av temaene over tid og generasjo
 };
 
 // ----------------------------------------------------------------------------
-// 4.3 Sigrid Undset - Kristin Lavransdatter
+// 2.3 Sigrid Undset - Kristin Lavransdatter
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_4_3: TextbookChapter = {
-  id: 'norsk-vg3-4-3',
+export const CHAPTER_NORSK_VG3_2_3: TextbookChapter = {
+  id: 'norsk-vg3-2-3',
   courseId: 'norsk-vg3',
-  chapterNumber: '4.3',
+  chapterNumber: '2.3',
   title: 'Sigrid Undset - Kristin Lavransdatter',
   description: 'Sigrid Undsets middelalderroman og Nobelprisen.',
   estimatedMinutes: 70,
@@ -3954,7 +3947,7 @@ export const CHAPTER_NORSK_VG3_4_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-4-3-intro',
+      id: 'norsk-vg3-2-3-intro',
       type: 'text',
       content: `## Sigrid Undset - Nobelprisen og middelalderen
 
@@ -3998,7 +3991,7 @@ Sentrale temaer i trilogien:
 I 1928 mottok Undset Nobelprisen «for hennes mektige skildringer av livet i Norden i middelalderen». Hun var den tredje kvinnen og den tredje nordmannen som mottok prisen.`,
     },
     {
-      id: 'norsk-vg3-4-3-def-1',
+      id: 'norsk-vg3-2-3-def-1',
       type: 'definition',
       title: 'Sigrid Undset (1882-1949)',
       content: `**Biografi:**
@@ -4028,7 +4021,7 @@ I 1928 mottok Undset Nobelprisen «for hennes mektige skildringer av livet i Nor
 En av de viktigste norske forfatterne. Nobelprisen bekreftet hennes internasjonale status. «Kristin Lavransdatter» er oversatt til over 80 språk.`,
     },
     {
-      id: 'norsk-vg3-4-3-def-2',
+      id: 'norsk-vg3-2-3-def-2',
       type: 'definition',
       title: 'Historisk roman',
       content: `**Den historiske romanen** er en sjanger som plasserer fiktive karakterer og hendelser i en autentisk historisk setting.
@@ -4060,7 +4053,7 @@ Den gode historiske romanen gjør fortiden levende uten å gjøre den eksotisk. 
 - Falkberget: Christianus Sextus`,
     },
     {
-      id: 'norsk-vg3-4-3-example-1',
+      id: 'norsk-vg3-2-3-example-1',
       type: 'example',
       title: 'Analyse: Kristin Lavransdatter',
       problem: `Analyser hvordan Undset skildrer Kristins utvikling gjennom trilogien.`,
@@ -4090,10 +4083,10 @@ Undset skildrer indre konflikter med stor innsikt. Kristins stolthet, kjærlighe
 Synd, anger, soning, nåde - den katolske strukturen gir trilogien en åndelig dimensjon. Kristins liv blir en pilegrimsreise.`,
     },
     {
-      id: 'norsk-vg3-4-3-ex-1',
+      id: 'norsk-vg3-2-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-3-ex-1',
+        id: 'norsk-vg3-2-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra «Kristin Lavransdatter» og analyser det.',
@@ -4115,10 +4108,10 @@ Synd, anger, soning, nåde - den katolske strukturen gir trilogien en åndelig d
       },
     },
     {
-      id: 'norsk-vg3-4-3-ex-2',
+      id: 'norsk-vg3-2-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-3-ex-2',
+        id: 'norsk-vg3-2-3-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter kvinneperspektivet i «Kristin Lavransdatter».',
@@ -4129,10 +4122,10 @@ Synd, anger, soning, nåde - den katolske strukturen gir trilogien en åndelig d
       },
     },
     {
-      id: 'norsk-vg3-4-3-ex-3',
+      id: 'norsk-vg3-2-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-3-ex-3',
+        id: 'norsk-vg3-2-3-ex-3',
         number: '3',
         type: 'classic',
         task: 'Sammenlign Undsets middelalderroman med en moderne historisk roman.',
@@ -4147,13 +4140,13 @@ Synd, anger, soning, nåde - den katolske strukturen gir trilogien en åndelig d
 };
 
 // ----------------------------------------------------------------------------
-// 4.4 Cora Sandel
+// 2.4 Cora Sandel
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_4_4: TextbookChapter = {
-  id: 'norsk-vg3-4-4',
+export const CHAPTER_NORSK_VG3_2_4: TextbookChapter = {
+  id: 'norsk-vg3-2-4',
   courseId: 'norsk-vg3',
-  chapterNumber: '4.4',
+  chapterNumber: '2.4',
   title: 'Cora Sandel',
   description: 'Cora Sandels forfatterskap og Alberte-trilogien.',
   estimatedMinutes: 55,
@@ -4164,7 +4157,7 @@ export const CHAPTER_NORSK_VG3_4_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-4-4-intro',
+      id: 'norsk-vg3-2-4-intro',
       type: 'text',
       content: `## Cora Sandel - kvinnens indre kamp
 
@@ -4211,7 +4204,7 @@ Sandels stil er særpreget:
 Cora Sandel er gjenoppdaget som en av periodens viktigste forfattere. Hennes presise skildring av kvinnelivet er blitt stadig mer verdsatt.`,
     },
     {
-      id: 'norsk-vg3-4-4-def-1',
+      id: 'norsk-vg3-2-4-def-1',
       type: 'definition',
       title: 'Cora Sandel (1880-1974)',
       content: `**Biografi:**
@@ -4240,7 +4233,7 @@ Cora Sandel er gjenoppdaget som en av periodens viktigste forfattere. Hennes pre
 Lenge oversett, nå anerkjent som en av periodens viktigste forfattere. Alberte-trilogien regnes som et hovedverk i norsk litteratur.`,
     },
     {
-      id: 'norsk-vg3-4-4-example-1',
+      id: 'norsk-vg3-2-4-example-1',
       type: 'example',
       title: 'Analyse: Alberte og Jakob',
       problem: `Analyser hvordan Sandel skildrer Albertes situasjon i trilogiens første bind.`,
@@ -4272,10 +4265,10 @@ Sandel bruker en tilbakeholdt stil der mye ligger mellom linjene. Leseren må to
 Bind 1 ender med at Alberte reiser fra byen. Det er en åpen slutt, men full av håp.`,
     },
     {
-      id: 'norsk-vg3-4-4-ex-1',
+      id: 'norsk-vg3-2-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-4-ex-1',
+        id: 'norsk-vg3-2-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra Alberte-trilogien og analyser stilen.',
@@ -4297,10 +4290,10 @@ Bind 1 ender med at Alberte reiser fra byen. Det er en åpen slutt, men full av 
       },
     },
     {
-      id: 'norsk-vg3-4-4-ex-2',
+      id: 'norsk-vg3-2-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-4-ex-2',
+        id: 'norsk-vg3-2-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign Alberte med Nora i «Et dukkehjem».',
@@ -4311,10 +4304,10 @@ Bind 1 ender med at Alberte reiser fra byen. Det er en åpen slutt, men full av 
       },
     },
     {
-      id: 'norsk-vg3-4-4-ex-3',
+      id: 'norsk-vg3-2-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-4-4-ex-3',
+        id: 'norsk-vg3-2-4-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter hvorfor Cora Sandel lenge ble oversett.',
@@ -4328,14 +4321,14 @@ Bind 1 ender med at Alberte reiser fra byen. Det er en åpen slutt, men full av 
   exercises: [],
 };
 
-// ============================================================================
-// KAPITTEL 5: MELLOMKRIGSLITTERATUR
-// ============================================================================
+// ----------------------------------------------------------------------------
+// 2.5 Politisk engasjert litteratur
+// ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_5_1: TextbookChapter = {
-  id: 'norsk-vg3-5-1',
+export const CHAPTER_NORSK_VG3_2_5: TextbookChapter = {
+  id: 'norsk-vg3-2-5',
   courseId: 'norsk-vg3',
-  chapterNumber: '5.1',
+  chapterNumber: '2.5',
   title: 'Politisk engasjert litteratur',
   description: 'Litteraturen i mellomkrigstiden - mellom verdenskrigene.',
   estimatedMinutes: 55,
@@ -4345,7 +4338,7 @@ export const CHAPTER_NORSK_VG3_5_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-5-1-intro',
+      id: 'norsk-vg3-2-5-intro',
       type: 'text',
       content: `## Mellomkrigstiden - litteratur i en krisetid
 
@@ -4387,7 +4380,7 @@ Perioden reiser vanskelige spørsmål:
 Disse spørsmålene er fortsatt aktuelle.`,
     },
     {
-      id: 'norsk-vg3-5-1-def-1',
+      id: 'norsk-vg3-2-5-def-1',
       type: 'definition',
       title: 'Tendenskunst',
       content: `**Tendenskunst** er kunst som har et bevisst politisk eller ideologisk budskap.
@@ -4419,10 +4412,10 @@ Disse spørsmålene er fortsatt aktuelle.`,
 «L'art pour l'art» (kunst for kunstens skyld) - ideen om at kunst skal vurderes estetisk, uavhengig av politisk innhold.`,
     },
     {
-      id: 'norsk-vg3-5-1-ex-1',
+      id: 'norsk-vg3-2-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-5-1-ex-1',
+        id: 'norsk-vg3-2-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter forholdet mellom kunst og politikk.',
@@ -4447,10 +4440,14 @@ Disse spørsmålene er fortsatt aktuelle.`,
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_5_2: TextbookChapter = {
-  id: 'norsk-vg3-5-2',
+// ----------------------------------------------------------------------------
+// 2.6 Arnulf Øverland
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_2_6: TextbookChapter = {
+  id: 'norsk-vg3-2-6',
   courseId: 'norsk-vg3',
-  chapterNumber: '5.2',
+  chapterNumber: '2.6',
   title: 'Arnulf Øverland',
   description: 'Arnulf Øverlands lyrikk og hans kamp mot nazismen.',
   estimatedMinutes: 50,
@@ -4460,7 +4457,7 @@ export const CHAPTER_NORSK_VG3_5_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-5-2-intro',
+      id: 'norsk-vg3-2-6-intro',
       type: 'text',
       content: `## Arnulf Øverland - dikteren og antifascisten
 
@@ -4488,7 +4485,7 @@ den urett som ikke rammer deg selv!»
 Øverland viste at lyrikk kunne være våpen i kampen mot undertrykkelse. Hans dikt er blitt tidløse uttrykk for moralsk ansvar.`,
     },
     {
-      id: 'norsk-vg3-5-2-def-1',
+      id: 'norsk-vg3-2-6-def-1',
       type: 'definition',
       title: 'Arnulf Øverland (1889-1968)',
       content: `**Biografi:**
@@ -4514,10 +4511,10 @@ den urett som ikke rammer deg selv!»
 «Du må ikke tåle så inderlig vel / den urett som ikke rammer deg selv!»`,
     },
     {
-      id: 'norsk-vg3-5-2-ex-1',
+      id: 'norsk-vg3-2-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-5-2-ex-1',
+        id: 'norsk-vg3-2-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser diktet «Du må ikke sove».',
@@ -4531,10 +4528,14 @@ den urett som ikke rammer deg selv!»
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_5_3: TextbookChapter = {
-  id: 'norsk-vg3-5-3',
+// ----------------------------------------------------------------------------
+// 2.7 Nordahl Grieg
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_2_7: TextbookChapter = {
+  id: 'norsk-vg3-2-7',
   courseId: 'norsk-vg3',
-  chapterNumber: '5.3',
+  chapterNumber: '2.7',
   title: 'Nordahl Grieg',
   description: 'Nordahl Griegs forfatterskap og kamp mot fascismen.',
   estimatedMinutes: 50,
@@ -4544,7 +4545,7 @@ export const CHAPTER_NORSK_VG3_5_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-5-3-intro',
+      id: 'norsk-vg3-2-7-intro',
       type: 'text',
       content: `## Nordahl Grieg - dikteren som falt
 
@@ -4580,7 +4581,7 @@ Griegs dikt fra krigstiden er blitt folkeeie:
 Grieg ble et symbol på den idealistiske kampen mot fascismen. Hans unge død styrket mytologiseringen.`,
     },
     {
-      id: 'norsk-vg3-5-3-def-1',
+      id: 'norsk-vg3-2-7-def-1',
       type: 'definition',
       title: 'Nordahl Grieg (1902-1943)',
       content: `**Biografi:**
@@ -4603,10 +4604,10 @@ Grieg ble et symbol på den idealistiske kampen mot fascismen. Hans unge død st
 - Lyrisk kraft`,
     },
     {
-      id: 'norsk-vg3-5-3-ex-1',
+      id: 'norsk-vg3-2-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-5-3-ex-1',
+        id: 'norsk-vg3-2-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser diktet «Til ungdommen».',
@@ -4621,13 +4622,17 @@ Grieg ble et symbol på den idealistiske kampen mot fascismen. Hans unge død st
 };
 
 // ============================================================================
-// KAPITTEL 6: ETTERKRIGSLITTERATUREN
+// KAPITTEL 3: ETTERKRIGSLITTERATUR TIL I DAG (1945-)
 // ============================================================================
 
-export const CHAPTER_NORSK_VG3_6_1: TextbookChapter = {
-  id: 'norsk-vg3-6-1',
+// ----------------------------------------------------------------------------
+// 3.1 Eksistensiell tematikk
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_3_1: TextbookChapter = {
+  id: 'norsk-vg3-3-1',
   courseId: 'norsk-vg3',
-  chapterNumber: '6.1',
+  chapterNumber: '3.1',
   title: 'Eksistensiell tematikk',
   description: 'Eksistensialismen og dens innflytelse på norsk etterkrigslitteratur.',
   estimatedMinutes: 60,
@@ -4637,7 +4642,7 @@ export const CHAPTER_NORSK_VG3_6_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-6-1-intro',
+      id: 'norsk-vg3-3-1-intro',
       type: 'text',
       content: `## Eksistensialismen - filosofi og litteratur
 
@@ -4676,7 +4681,7 @@ Eksistensialismens tematikk preget litteraturen:
 Tarjei Vesaas, Jens Bjørneboe og andre lot seg inspirere av eksistensialismen, om enn på sine egne måter.`,
     },
     {
-      id: 'norsk-vg3-6-1-def-1',
+      id: 'norsk-vg3-3-1-def-1',
       type: 'definition',
       title: 'Eksistensialisme',
       content: `**Eksistensialismen** er en filosofisk retning som setter menneskets eksistens i sentrum.
@@ -4705,10 +4710,10 @@ Tarjei Vesaas, Jens Bjørneboe og andre lot seg inspirere av eksistensialismen, 
 - Overdriver friheten?`,
     },
     {
-      id: 'norsk-vg3-6-1-ex-1',
+      id: 'norsk-vg3-3-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-1-ex-1',
+        id: 'norsk-vg3-3-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar eksistensialismens hovedtanker.',
@@ -4733,10 +4738,14 @@ Tarjei Vesaas, Jens Bjørneboe og andre lot seg inspirere av eksistensialismen, 
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_6_2: TextbookChapter = {
-  id: 'norsk-vg3-6-2',
+// ----------------------------------------------------------------------------
+// 3.2 Tarjei Vesaas
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_3_2: TextbookChapter = {
+  id: 'norsk-vg3-3-2',
   courseId: 'norsk-vg3',
-  chapterNumber: '6.2',
+  chapterNumber: '3.2',
   title: 'Tarjei Vesaas',
   description: 'Tarjei Vesaas som modernist og hans hovedverk.',
   estimatedMinutes: 65,
@@ -4747,7 +4756,7 @@ export const CHAPTER_NORSK_VG3_6_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-6-2-intro',
+      id: 'norsk-vg3-3-2-intro',
       type: 'text',
       content: `## Tarjei Vesaas - Norges fremste modernist
 
@@ -4790,7 +4799,7 @@ Vesaas' stil er særpreget:
 - Kjærlighet og tap`,
     },
     {
-      id: 'norsk-vg3-6-2-def-1',
+      id: 'norsk-vg3-3-2-def-1',
       type: 'definition',
       title: 'Tarjei Vesaas (1897-1970)',
       content: `**Biografi:**
@@ -4817,7 +4826,7 @@ Vesaas' stil er særpreget:
 Norges fremste modernist. Internasjonalt anerkjent. Flere ganger nominert til Nobelprisen.`,
     },
     {
-      id: 'norsk-vg3-6-2-example-1',
+      id: 'norsk-vg3-3-2-example-1',
       type: 'example',
       title: 'Analyse: Fuglane',
       problem: `Analyser «Fuglane» (1957) med fokus på symbolikk og tematikk.`,
@@ -4849,10 +4858,10 @@ Grensen mellom liv og død. Mattis' forhold til vannet er ambivalent.
 Vesaas skriver enkelt og poetisk. Under den enkle overflaten ligger dybde. Det usagte er like viktig som det sagte.`,
     },
     {
-      id: 'norsk-vg3-6-2-ex-1',
+      id: 'norsk-vg3-3-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-2-ex-1',
+        id: 'norsk-vg3-3-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra «Fuglane» eller «Is-slottet» og analyser det.',
@@ -4866,15 +4875,14 @@ Vesaas skriver enkelt og poetisk. Under den enkle overflaten ligger dybde. Det u
   exercises: [],
 };
 
-// ============================================================================
-// KAPITTEL 7-15: VIDERE KAPITLER
-// Lyrikk, Drama, Essay, Retorikk, Litterær analyse, Språk, Sidemål, Eksamen
-// ============================================================================
+// ----------------------------------------------------------------------------
+// 3.5 Samtidslitteratur 1970-i dag
+// ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_7_1: TextbookChapter = {
-  id: 'norsk-vg3-7-1',
+export const CHAPTER_NORSK_VG3_3_5: TextbookChapter = {
+  id: 'norsk-vg3-3-5',
   courseId: 'norsk-vg3',
-  chapterNumber: '7.1',
+  chapterNumber: '3.5',
   title: 'Samtidslitteratur 1970-i dag',
   description: 'Hovedtrekk ved norsk samtidslitteratur fra 1970-tallet til i dag.',
   estimatedMinutes: 60,
@@ -4884,7 +4892,7 @@ export const CHAPTER_NORSK_VG3_7_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-7-1-intro',
+      id: 'norsk-vg3-3-5-intro',
       type: 'text',
       content: `## Samtidslitteraturen - fra 1970 til i dag
 
@@ -4916,7 +4924,7 @@ En ny generasjon reagerte mot 70-tallets politiske korrekthet:
 - Mangfold i sjangre og temaer`,
     },
     {
-      id: 'norsk-vg3-7-1-def-1',
+      id: 'norsk-vg3-3-5-def-1',
       type: 'definition',
       title: 'Autofiskjon',
       content: `**Autofiskjon** er litteratur som blander selvbiografi og fiksjon.
@@ -4938,10 +4946,10 @@ En ny generasjon reagerte mot 70-tallets politiske korrekthet:
 - Litteratur: Er dette kunst eller bekjennelse?`,
     },
     {
-      id: 'norsk-vg3-7-1-ex-1',
+      id: 'norsk-vg3-3-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-1-ex-1',
+        id: 'norsk-vg3-3-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter utviklingen i norsk litteratur fra 1970 til i dag.',
@@ -4955,10 +4963,14 @@ En ny generasjon reagerte mot 70-tallets politiske korrekthet:
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_8_1: TextbookChapter = {
-  id: 'norsk-vg3-8-1',
+// ----------------------------------------------------------------------------
+// 4.1 Lyrikk fra 1850 til i dag
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_4_1: TextbookChapter = {
+  id: 'norsk-vg3-4-1',
   courseId: 'norsk-vg3',
-  chapterNumber: '8.1',
+  chapterNumber: '4.1',
   title: 'Lyrikk fra 1850 til i dag',
   description: 'Lyrikkens utvikling og analyse av dikt fra ulike perioder.',
   estimatedMinutes: 70,
@@ -4969,7 +4981,7 @@ export const CHAPTER_NORSK_VG3_8_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-8-1-intro',
+      id: 'norsk-vg3-4-1-intro',
       type: 'text',
       content: `## Lyrikk - fra romantikk til samtid
 
@@ -5001,7 +5013,7 @@ Lyrikken har gjennomgått store endringer fra romantikkens formfaste dikt til sa
 - Hanne Bramness, Ruth Lillegraven og mange andre`,
     },
     {
-      id: 'norsk-vg3-8-1-def-1',
+      id: 'norsk-vg3-4-1-def-1',
       type: 'definition',
       title: 'Lyrisk analyse',
       content: `**Modell for lyrisk analyse:**
@@ -5032,10 +5044,10 @@ Lyrikken har gjennomgått store endringer fra romantikkens formfaste dikt til sa
 - Aktualitet`,
     },
     {
-      id: 'norsk-vg3-8-1-ex-1',
+      id: 'norsk-vg3-4-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-8-1-ex-1',
+        id: 'norsk-vg3-4-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Velg et dikt fra pensum og gjør en fullstendig analyse.',
@@ -5049,10 +5061,14 @@ Lyrikken har gjennomgått store endringer fra romantikkens formfaste dikt til sa
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_9_1: TextbookChapter = {
-  id: 'norsk-vg3-9-1',
+// ----------------------------------------------------------------------------
+// 4.4 Drama og teater
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_4_4: TextbookChapter = {
+  id: 'norsk-vg3-4-4',
   courseId: 'norsk-vg3',
-  chapterNumber: '9.1',
+  chapterNumber: '4.4',
   title: 'Drama og teater',
   description: 'Dramaets utvikling og analyse av dramatiske tekster.',
   estimatedMinutes: 60,
@@ -5062,7 +5078,7 @@ export const CHAPTER_NORSK_VG3_9_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-9-1-intro',
+      id: 'norsk-vg3-4-4-intro',
       type: 'text',
       content: `## Drama - fra Ibsen til Fosse
 
@@ -5090,7 +5106,7 @@ Norsk drama har en stolt tradisjon fra Ibsen til Jon Fosse, som mottok Nobelpris
 - Eksistensielle temaer`,
     },
     {
-      id: 'norsk-vg3-9-1-def-1',
+      id: 'norsk-vg3-4-4-def-1',
       type: 'definition',
       title: 'Dramaanalyse',
       content: `**Modell for dramaanalyse:**
@@ -5120,10 +5136,10 @@ Norsk drama har en stolt tradisjon fra Ibsen til Jon Fosse, som mottok Nobelpris
 - Aktualitet`,
     },
     {
-      id: 'norsk-vg3-9-1-ex-1',
+      id: 'norsk-vg3-4-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-9-1-ex-1',
+        id: 'norsk-vg3-4-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser en scene fra et drama på pensum.',
@@ -5137,10 +5153,14 @@ Norsk drama har en stolt tradisjon fra Ibsen til Jon Fosse, som mottok Nobelpris
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_10_1: TextbookChapter = {
-  id: 'norsk-vg3-10-1',
+// ----------------------------------------------------------------------------
+// 4.6 Essay og kreativ sakprosa
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_4_6: TextbookChapter = {
+  id: 'norsk-vg3-4-6',
   courseId: 'norsk-vg3',
-  chapterNumber: '10.1',
+  chapterNumber: '4.6',
   title: 'Essay og kreativ sakprosa',
   description: 'Essaysjangeren og skriving av essay.',
   estimatedMinutes: 60,
@@ -5150,7 +5170,7 @@ export const CHAPTER_NORSK_VG3_10_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-10-1-intro',
+      id: 'norsk-vg3-4-6-intro',
       type: 'text',
       content: `## Essayet - den utforskende sjangeren
 
@@ -5175,7 +5195,7 @@ Essayet er en sakprosasjanger som kombinerer personlig refleksjon med faglig inn
 - Debattessay`,
     },
     {
-      id: 'norsk-vg3-10-1-def-1',
+      id: 'norsk-vg3-4-6-def-1',
       type: 'definition',
       title: 'Essayskriving',
       content: `**Hvordan skrive essay:**
@@ -5206,10 +5226,10 @@ Essayet er en sakprosasjanger som kombinerer personlig refleksjon med faglig inn
 - Men din stemme skal dominere`,
     },
     {
-      id: 'norsk-vg3-10-1-ex-1',
+      id: 'norsk-vg3-4-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-10-1-ex-1',
+        id: 'norsk-vg3-4-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Skriv et essay om et litterært tema.',
@@ -5223,10 +5243,14 @@ Essayet er en sakprosasjanger som kombinerer personlig refleksjon med faglig inn
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_11_1: TextbookChapter = {
-  id: 'norsk-vg3-11-1',
+// ----------------------------------------------------------------------------
+// 4.8 Retorisk analyse
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_4_8: TextbookChapter = {
+  id: 'norsk-vg3-4-8',
   courseId: 'norsk-vg3',
-  chapterNumber: '11.1',
+  chapterNumber: '4.8',
   title: 'Retorisk analyse',
   description: 'Retorisk analyse av sakprosa og taler.',
   estimatedMinutes: 65,
@@ -5236,7 +5260,7 @@ export const CHAPTER_NORSK_VG3_11_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-11-1-intro',
+      id: 'norsk-vg3-4-8-intro',
       type: 'text',
       content: `## Retorikk - overtalelsens kunst
 
@@ -5260,7 +5284,7 @@ Retorikken har røtter tilbake til antikken. Den handler om hvordan vi bruker sp
 - Med hvilket formål?`,
     },
     {
-      id: 'norsk-vg3-11-1-def-1',
+      id: 'norsk-vg3-4-8-def-1',
       type: 'definition',
       title: 'Retorisk analyse - modell',
       content: `**Modell for retorisk analyse:**
@@ -5291,10 +5315,10 @@ Retorikken har røtter tilbake til antikken. Den handler om hvordan vi bruker sp
 - Hva fungerer, hva fungerer ikke?`,
     },
     {
-      id: 'norsk-vg3-11-1-ex-1',
+      id: 'norsk-vg3-4-8-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-11-1-ex-1',
+        id: 'norsk-vg3-4-8-ex-1',
         number: '1',
         type: 'classic',
         task: 'Gjør en retorisk analyse av en kronikk eller tale.',
@@ -5308,10 +5332,14 @@ Retorikken har røtter tilbake til antikken. Den handler om hvordan vi bruker sp
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_12_1: TextbookChapter = {
-  id: 'norsk-vg3-12-1',
+// ----------------------------------------------------------------------------
+// 4.10 Litterær analyse og tolkning
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_4_10: TextbookChapter = {
+  id: 'norsk-vg3-4-10',
   courseId: 'norsk-vg3',
-  chapterNumber: '12.1',
+  chapterNumber: '4.10',
   title: 'Litterær analyse og tolkning',
   description: 'Analysemetoder og sammenlignende analyse.',
   estimatedMinutes: 70,
@@ -5321,7 +5349,7 @@ export const CHAPTER_NORSK_VG3_12_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-12-1-intro',
+      id: 'norsk-vg3-4-10-intro',
       type: 'text',
       content: `## Litterær analyse - metoder og tilnærminger
 
@@ -5348,7 +5376,7 @@ Litterær analyse handler om å tolke og forstå tekster. Det finnes ulike tiln�
 - Tematiske forbindelser`,
     },
     {
-      id: 'norsk-vg3-12-1-def-1',
+      id: 'norsk-vg3-4-10-def-1',
       type: 'definition',
       title: 'Sammenlignende analyse',
       content: `**Sammenlignende analyse** innebærer å analysere to eller flere tekster i forhold til hverandre.
@@ -5373,10 +5401,10 @@ Litterær analyse handler om å tolke og forstå tekster. Det finnes ulike tiln�
 - Trekk konklusjoner`,
     },
     {
-      id: 'norsk-vg3-12-1-ex-1',
+      id: 'norsk-vg3-4-10-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-12-1-ex-1',
+        id: 'norsk-vg3-4-10-ex-1',
         number: '1',
         type: 'classic',
         task: 'Skriv en sammenlignende analyse av to tekster.',
@@ -5390,11 +5418,15 @@ Litterær analyse handler om å tolke og forstå tekster. Det finnes ulike tiln�
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_13_1: TextbookChapter = {
-  id: 'norsk-vg3-13-1',
+// ----------------------------------------------------------------------------
+// 5.1 Språk i endring
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_5_1: TextbookChapter = {
+  id: 'norsk-vg3-5-1',
   courseId: 'norsk-vg3',
-  chapterNumber: '13.1',
-  title: 'Sprak i endring',
+  chapterNumber: '5.1',
+  title: 'Språk i endring',
   description: 'Talemålsendringer og språk i dag.',
   estimatedMinutes: 55,
   competenceGoals: [
@@ -5402,7 +5434,7 @@ export const CHAPTER_NORSK_VG3_13_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-13-1-intro',
+      id: 'norsk-vg3-5-1-intro',
       type: 'text',
       content: `## Språk i endring - norsk talemål i dag
 
@@ -5431,7 +5463,7 @@ Norsk talemål er i konstant endring. Dialekter utvikler seg, nye språkvarietet
 - Uformelt skriftspråk`,
     },
     {
-      id: 'norsk-vg3-13-1-def-1',
+      id: 'norsk-vg3-5-1-def-1',
       type: 'definition',
       title: 'Multietnolekt',
       content: `**Multietnolekt** er en språkvarietet som har oppstått i flerkulturelle bymiljøer.
@@ -5454,10 +5486,10 @@ Norsk talemål er i konstant endring. Dialekter utvikler seg, nye språkvarietet
 - Sosiale konsekvenser`,
     },
     {
-      id: 'norsk-vg3-13-1-ex-1',
+      id: 'norsk-vg3-5-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-13-1-ex-1',
+        id: 'norsk-vg3-5-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter endringer i norsk talemål.',
@@ -5471,10 +5503,14 @@ Norsk talemål er i konstant endring. Dialekter utvikler seg, nye språkvarietet
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_14_1: TextbookChapter = {
-  id: 'norsk-vg3-14-1',
+// ----------------------------------------------------------------------------
+// 5.3 Sidemål og språknormer
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_5_3: TextbookChapter = {
+  id: 'norsk-vg3-5-3',
   courseId: 'norsk-vg3',
-  chapterNumber: '14.1',
+  chapterNumber: '5.3',
   title: 'Sidemål og språknormer',
   description: 'Hovedmål og sidemål - praktisk språkkompetanse.',
   estimatedMinutes: 50,
@@ -5483,7 +5519,7 @@ export const CHAPTER_NORSK_VG3_14_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-14-1-intro',
+      id: 'norsk-vg3-5-3-intro',
       type: 'text',
       content: `## Hovedmål og sidemål
 
@@ -5511,7 +5547,7 @@ I Norge har vi to offisielle skriftspråk: bokmål og nynorsk. Alle elever lære
 - Lær bøyningsreglene`,
     },
     {
-      id: 'norsk-vg3-14-1-def-1',
+      id: 'norsk-vg3-5-3-def-1',
       type: 'definition',
       title: 'Bokmål og nynorsk - hovedforskjeller',
       content: `**Hovedforskjeller:**
@@ -5534,10 +5570,10 @@ I Norge har vi to offisielle skriftspråk: bokmål og nynorsk. Alle elever lære
 - Følg én linje konsekvent`,
     },
     {
-      id: 'norsk-vg3-14-1-ex-1',
+      id: 'norsk-vg3-5-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-14-1-ex-1',
+        id: 'norsk-vg3-5-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Skriv en tekst på sidemålet ditt.',
@@ -5551,10 +5587,14 @@ I Norge har vi to offisielle skriftspråk: bokmål og nynorsk. Alle elever lære
   exercises: [],
 };
 
-export const CHAPTER_NORSK_VG3_15_1: TextbookChapter = {
-  id: 'norsk-vg3-15-1',
+// ----------------------------------------------------------------------------
+// 5.5 Eksamensforberedelse
+// ----------------------------------------------------------------------------
+
+export const CHAPTER_NORSK_VG3_5_5: TextbookChapter = {
+  id: 'norsk-vg3-5-5',
   courseId: 'norsk-vg3',
-  chapterNumber: '15.1',
+  chapterNumber: '5.5',
   title: 'Eksamensforberedelse',
   description: 'Forberedelse til skriftlig og muntlig eksamen.',
   estimatedMinutes: 75,
@@ -5565,7 +5605,7 @@ export const CHAPTER_NORSK_VG3_15_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-15-1-intro',
+      id: 'norsk-vg3-5-5-intro',
       type: 'text',
       content: `## Eksamensforberedelse
 
@@ -5594,7 +5634,7 @@ Eksamen i norsk har to deler: skriftlig (hovedmål eller sidemål) og muntlig.
 - Vis bredde og dybde`,
     },
     {
-      id: 'norsk-vg3-15-1-def-1',
+      id: 'norsk-vg3-5-5-def-1',
       type: 'definition',
       title: 'Vurderingskriterier',
       content: `**Hva vurderes:**
@@ -5620,10 +5660,10 @@ Eksamen i norsk har to deler: skriftlig (hovedmål eller sidemål) og muntlig.
 - Grammatikk`,
     },
     {
-      id: 'norsk-vg3-15-1-ex-1',
+      id: 'norsk-vg3-5-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-15-1-ex-1',
+        id: 'norsk-vg3-5-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Øv på en eksamensoppgave under tidspress.',
@@ -5642,13 +5682,13 @@ Eksamen i norsk har to deler: skriftlig (hovedmål eller sidemål) og muntlig.
 // ============================================================================
 
 // ----------------------------------------------------------------------------
-// 6.3 Jens Bjørneboe
+// 3.3 Jens Bjørneboe
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_6_3: TextbookChapter = {
-  id: 'norsk-vg3-6-3',
+export const CHAPTER_NORSK_VG3_3_3: TextbookChapter = {
+  id: 'norsk-vg3-3-3',
   courseId: 'norsk-vg3',
-  chapterNumber: '6.3',
+  chapterNumber: '3.3',
   title: 'Jens Bjørneboe',
   description: 'Jens Bjørneboes forfatterskap og samfunnskritikk.',
   estimatedMinutes: 65,
@@ -5659,7 +5699,7 @@ export const CHAPTER_NORSK_VG3_6_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-6-3-intro',
+      id: 'norsk-vg3-3-3-intro',
       type: 'text',
       content: `## Jens Bjørneboe - opprøreren
 
@@ -5701,7 +5741,7 @@ Bjørneboes stil er direkte, ofte provoserende. Han bruker ironi, sarkasme og ov
 Bjørneboe var en uredd forfatter som tok opp temaer andre unnlot. Hans kritikk av institusjoner og maktstrukturer er fortsatt aktuell. Han påvirket senere generasjoner av samfunnskritiske forfattere.`,
     },
     {
-      id: 'norsk-vg3-6-3-def-1',
+      id: 'norsk-vg3-3-3-def-1',
       type: 'definition',
       title: 'Jens Bjørneboe (1920-1976)',
       content: `**Biografi:**
@@ -5733,7 +5773,7 @@ Bjørneboe var en uredd forfatter som tok opp temaer andre unnlot. Hans kritikk 
 En av norsk litteraturs mest kompromissløse stemmer. Fortsatt aktuell og omdiskutert.`,
     },
     {
-      id: 'norsk-vg3-6-3-def-2',
+      id: 'norsk-vg3-3-3-def-2',
       type: 'definition',
       title: 'Bestialitetens historie',
       content: `**Bestialitetens historie** er Jens Bjørneboes hovedverk - en trilogi om menneskets kapasitet for ondskap.
@@ -5759,7 +5799,7 @@ Blanding av historisk dokumentasjon og fiksjon. Direkte, til tider grotesk skild
 Verket er blitt stående som et av de viktigste i norsk litteratur. Det er ubehagelig, men nødvendig lesning.`,
     },
     {
-      id: 'norsk-vg3-6-3-example-1',
+      id: 'norsk-vg3-3-3-example-1',
       type: 'example',
       title: 'Analyse: Jonas (1955)',
       problem: `Analyser Bjørneboes debutroman «Jonas» som skolekritikk.`,
@@ -5787,7 +5827,7 @@ Romanen skapte debatt om skolepolitikk. Den er fortsatt relevant i diskusjoner o
 «Jonas» er ikke bare et pamflett - det er en roman med litterær kvalitet. Jonas er en levende karakter, ikke bare et talerør.`,
     },
     {
-      id: 'norsk-vg3-6-3-tip-1',
+      id: 'norsk-vg3-3-3-tip-1',
       type: 'tip',
       title: 'Bjørneboe-sitater',
       content: `**Berømte sitater fra Bjørneboe:**
@@ -5804,10 +5844,10 @@ Romanen skapte debatt om skolepolitikk. Den er fortsatt relevant i diskusjoner o
 Sitatene viser Bjørneboes mørke, men nødvendige blikk på menneskets natur.`,
     },
     {
-      id: 'norsk-vg3-6-3-ex-1',
+      id: 'norsk-vg3-3-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-3-ex-1',
+        id: 'norsk-vg3-3-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra «Bestialitetens historie» og diskuter.',
@@ -5834,10 +5874,10 @@ Sitatene viser Bjørneboes mørke, men nødvendige blikk på menneskets natur.`,
       },
     },
     {
-      id: 'norsk-vg3-6-3-ex-2',
+      id: 'norsk-vg3-3-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-3-ex-2',
+        id: 'norsk-vg3-3-3-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign Bjørneboe med andre samfunnskritiske forfattere.',
@@ -5848,10 +5888,10 @@ Sitatene viser Bjørneboes mørke, men nødvendige blikk på menneskets natur.`,
       },
     },
     {
-      id: 'norsk-vg3-6-3-ex-3',
+      id: 'norsk-vg3-3-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-3-ex-3',
+        id: 'norsk-vg3-3-3-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter Bjørneboes aktualitet.',
@@ -5877,13 +5917,13 @@ Sitatene viser Bjørneboes mørke, men nødvendige blikk på menneskets natur.`,
 };
 
 // ----------------------------------------------------------------------------
-// 6.4 Kvinnestemmer: Torborg Nedreaas
+// 3.4 Kvinnestemmer: Torborg Nedreaas
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_6_4: TextbookChapter = {
-  id: 'norsk-vg3-6-4',
+export const CHAPTER_NORSK_VG3_3_4: TextbookChapter = {
+  id: 'norsk-vg3-3-4',
   courseId: 'norsk-vg3',
-  chapterNumber: '6.4',
+  chapterNumber: '3.4',
   title: 'Kvinnestemmer: Torborg Nedreaas',
   description: 'Torborg Nedreaas og kvinnestemmer i etterkrigslitteraturen.',
   estimatedMinutes: 55,
@@ -5893,7 +5933,7 @@ export const CHAPTER_NORSK_VG3_6_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-6-4-intro',
+      id: 'norsk-vg3-3-4-intro',
       type: 'text',
       content: `## Torborg Nedreaas og kvinnestemmene
 
@@ -5933,7 +5973,7 @@ Nedreaas var ikke alene. Andre viktige kvinnelige forfattere i perioden inkluder
 - Cecilie Løveid`,
     },
     {
-      id: 'norsk-vg3-6-4-def-1',
+      id: 'norsk-vg3-3-4-def-1',
       type: 'definition',
       title: 'Torborg Nedreaas (1906-1987)',
       content: `**Biografi:**
@@ -5957,7 +5997,7 @@ Nedreaas var ikke alene. Andre viktige kvinnelige forfattere i perioden inkluder
 En av de viktigste kvinnelige forfatterne i norsk litteratur. Herdis-romanene er blitt klassikere.`,
     },
     {
-      id: 'norsk-vg3-6-4-example-1',
+      id: 'norsk-vg3-3-4-example-1',
       type: 'example',
       title: 'Analyse: Musikk fra en blå brønn',
       problem: `Analyser Herdis som karakter i «Musikk fra en blå brønn» (1960).`,
@@ -5986,10 +6026,10 @@ Nedreaas skildrer Herdis' indre liv med stor innsikt. Vi forstår hennes drømme
 «Musikk fra en blå brønn» er ikke en tradisjonell dannelsesroman. Den er mer fragmentarisk, mer poetisk, med fokus på øyeblikk og stemninger.`,
     },
     {
-      id: 'norsk-vg3-6-4-ex-1',
+      id: 'norsk-vg3-3-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-4-ex-1',
+        id: 'norsk-vg3-3-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign Herdis med Alberte (Cora Sandel).',
@@ -6000,10 +6040,10 @@ Nedreaas skildrer Herdis' indre liv med stor innsikt. Vi forstår hennes drømme
       },
     },
     {
-      id: 'norsk-vg3-6-4-ex-2',
+      id: 'norsk-vg3-3-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-6-4-ex-2',
+        id: 'norsk-vg3-3-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter betydningen av kvinnelige forfattere i norsk litteratur.',
@@ -6029,13 +6069,13 @@ Nedreaas skildrer Herdis' indre liv med stor innsikt. Vi forstår hennes drømme
 };
 
 // ----------------------------------------------------------------------------
-// 7.2 Postmodernisme og metafiksjon
+// 3.6 Postmodernisme og metafiksjon
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_7_2: TextbookChapter = {
-  id: 'norsk-vg3-7-2',
+export const CHAPTER_NORSK_VG3_3_6: TextbookChapter = {
+  id: 'norsk-vg3-3-6',
   courseId: 'norsk-vg3',
-  chapterNumber: '7.2',
+  chapterNumber: '3.6',
   title: 'Postmodernisme og metafiksjon',
   description: 'Postmodernismen i norsk litteratur og metafiksjonens teknikker.',
   estimatedMinutes: 60,
@@ -6045,7 +6085,7 @@ export const CHAPTER_NORSK_VG3_7_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-7-2-intro',
+      id: 'norsk-vg3-3-6-intro',
       type: 'text',
       content: `## Postmodernismen - etter det moderne
 
@@ -6081,7 +6121,7 @@ Sentrale postmodernistiske forfattere:
 - Erlend Loe: Ironi og minimalisme`,
     },
     {
-      id: 'norsk-vg3-7-2-def-1',
+      id: 'norsk-vg3-3-6-def-1',
       type: 'definition',
       title: 'Metafiksjon',
       content: `**Metafiksjon** er fiksjon som reflekterer over sin egen status som fiksjon.
@@ -6112,7 +6152,7 @@ Sentrale postmodernistiske forfattere:
 Metafiksjon minner leseren om at teksten er konstruert. Den avslører fiksjonen som fiksjon og inviterer til refleksjon over fortellingens natur.`,
     },
     {
-      id: 'norsk-vg3-7-2-def-2',
+      id: 'norsk-vg3-3-6-def-2',
       type: 'definition',
       title: 'Intertekstualitet',
       content: `**Intertekstualitet** betyr at tekster forholder seg til andre tekster.
@@ -6137,7 +6177,7 @@ Julia Kristeva introduserte begrepet. Roland Barthes: «Teksten er et vev av sit
 Postmodernister bruker intertekstualitet bevisst og lekent. De siterer og blander sjangre, høy og lav kultur.`,
     },
     {
-      id: 'norsk-vg3-7-2-example-1',
+      id: 'norsk-vg3-3-6-example-1',
       type: 'example',
       title: 'Jan Kjærstads romankunst',
       problem: `Analyser Jan Kjærstads romaner som eksempler på postmodernistisk litteratur.`,
@@ -6177,10 +6217,10 @@ Krimi, biografi, essayistikk - alt blandes.
 Kjærstads romaner er ambisiøse og intellektuelt stimulerende. De krever mye av leseren, men belønner innsatsen.`,
     },
     {
-      id: 'norsk-vg3-7-2-ex-1',
+      id: 'norsk-vg3-3-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-2-ex-1',
+        id: 'norsk-vg3-3-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar postmodernismens hovedtrekk.',
@@ -6202,10 +6242,10 @@ Kjærstads romaner er ambisiøse og intellektuelt stimulerende. De krever mye av
       },
     },
     {
-      id: 'norsk-vg3-7-2-ex-2',
+      id: 'norsk-vg3-3-6-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-2-ex-2',
+        id: 'norsk-vg3-3-6-ex-2',
         number: '2',
         type: 'classic',
         task: 'Finn eksempler på intertekstualitet i en tekst du kjenner.',
@@ -6216,10 +6256,10 @@ Kjærstads romaner er ambisiøse og intellektuelt stimulerende. De krever mye av
       },
     },
     {
-      id: 'norsk-vg3-7-2-ex-3',
+      id: 'norsk-vg3-3-6-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-2-ex-3',
+        id: 'norsk-vg3-3-6-ex-3',
         number: '3',
         type: 'classic',
         task: 'Diskuter fordeler og ulemper ved postmodernistisk litteratur.',
@@ -6245,13 +6285,13 @@ Kjærstads romaner er ambisiøse og intellektuelt stimulerende. De krever mye av
 };
 
 // ----------------------------------------------------------------------------
-// 7.3 Jan Kjærstad og Dag Solstad
+// 3.7 Jan Kjærstad og Dag Solstad
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_7_3: TextbookChapter = {
-  id: 'norsk-vg3-7-3',
+export const CHAPTER_NORSK_VG3_3_7: TextbookChapter = {
+  id: 'norsk-vg3-3-7',
   courseId: 'norsk-vg3',
-  chapterNumber: '7.3',
+  chapterNumber: '3.7',
   title: 'Jan Kjærstad og Dag Solstad',
   description: 'To sentrale forfattere i norsk samtidslitteratur.',
   estimatedMinutes: 60,
@@ -6262,7 +6302,7 @@ export const CHAPTER_NORSK_VG3_7_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-7-3-intro',
+      id: 'norsk-vg3-3-7-intro',
       type: 'text',
       content: `## Kjærstad og Solstad - to giganter
 
@@ -6297,7 +6337,7 @@ Kjærstads romaner er fulle av referanser, strukturelle eksperimenter og tematis
 Begge er postmodernistiske, men på ulike måter. Solstad er mer selvutleverende og eksistensiell. Kjærstad er mer konstruerende og leken.`,
     },
     {
-      id: 'norsk-vg3-7-3-def-1',
+      id: 'norsk-vg3-3-7-def-1',
       type: 'definition',
       title: 'Dag Solstad (f. 1941)',
       content: `**Biografi:**
@@ -6322,7 +6362,7 @@ Begge er postmodernistiske, men på ulike måter. Solstad er mer selvutleverende
 Nordisk råds litteraturpris, Brageprisen m.fl.`,
     },
     {
-      id: 'norsk-vg3-7-3-example-1',
+      id: 'norsk-vg3-3-7-example-1',
       type: 'example',
       title: 'Analyse: Genanse og verdighet',
       problem: `Analyser Dag Solstads roman «Genanse og verdighet» (1994).`,
@@ -6345,10 +6385,10 @@ Solstads karakteristiske stil er tydelig: lange setninger som buker seg, refleks
 Romanen ble en bestselger og har fått klassikerstatus. Den fanget noe tidstypisk om mannlig midtlivskrise.`,
     },
     {
-      id: 'norsk-vg3-7-3-ex-1',
+      id: 'norsk-vg3-3-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-3-ex-1',
+        id: 'norsk-vg3-3-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign Kjærstad og Solstad.',
@@ -6374,13 +6414,13 @@ Romanen ble en bestselger og har fått klassikerstatus. Den fanget noe tidstypis
 };
 
 // ----------------------------------------------------------------------------
-// 7.4 Karl Ove Knausgård
+// 3.8 Karl Ove Knausgård
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_7_4: TextbookChapter = {
-  id: 'norsk-vg3-7-4',
+export const CHAPTER_NORSK_VG3_3_8: TextbookChapter = {
+  id: 'norsk-vg3-3-8',
   courseId: 'norsk-vg3',
-  chapterNumber: '7.4',
+  chapterNumber: '3.8',
   title: 'Karl Ove Knausgård',
   description: 'Karl Ove Knausgårds «Min kamp» og autofiskjonens gjennombrudd.',
   estimatedMinutes: 60,
@@ -6391,7 +6431,7 @@ export const CHAPTER_NORSK_VG3_7_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-7-4-intro',
+      id: 'norsk-vg3-3-8-intro',
       type: 'text',
       content: `## Karl Ove Knausgård - Min kamp
 
@@ -6426,7 +6466,7 @@ Knausgårds stil er detaljert, langsom, dveling ved det hverdagslige. Han beskri
 «Min kamp» ble oversatt til mange språk og etablerte Knausgård som en internasjonal forfatter.`,
     },
     {
-      id: 'norsk-vg3-7-4-def-1',
+      id: 'norsk-vg3-3-8-def-1',
       type: 'definition',
       title: 'Karl Ove Knausgård (f. 1968)',
       content: `**Biografi:**
@@ -6452,7 +6492,7 @@ Knausgårds stil er detaljert, langsom, dveling ved det hverdagslige. Han beskri
 - Tittelen «Min kamp» (Hitlers tittel)`,
     },
     {
-      id: 'norsk-vg3-7-4-example-1',
+      id: 'norsk-vg3-3-8-example-1',
       type: 'example',
       title: 'Analyse av «Min kamp»',
       problem: `Diskuter hvorfor «Min kamp» ble så populær og kontroversiell.`,
@@ -6488,10 +6528,10 @@ Er det litteratur eller bare bekjennelse?
 Uansett hva man mener, har «Min kamp» endret norsk litteratur. Autofiskjonen har fått sin klassiker.`,
     },
     {
-      id: 'norsk-vg3-7-4-ex-1',
+      id: 'norsk-vg3-3-8-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-4-ex-1',
+        id: 'norsk-vg3-3-8-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter de etiske spørsmålene ved autofiskjon.',
@@ -6517,13 +6557,13 @@ Uansett hva man mener, har «Min kamp» endret norsk litteratur. Autofiskjonen h
 };
 
 // ----------------------------------------------------------------------------
-// 7.5 Mangfoldige stemmer i norsk litteratur
+// 3.9 Mangfoldige stemmer i norsk litteratur
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_7_5: TextbookChapter = {
-  id: 'norsk-vg3-7-5',
+export const CHAPTER_NORSK_VG3_3_9: TextbookChapter = {
+  id: 'norsk-vg3-3-9',
   courseId: 'norsk-vg3',
-  chapterNumber: '7.5',
+  chapterNumber: '3.9',
   title: 'Mangfoldige stemmer i norsk litteratur',
   description: 'Flerkulturelle og nye stemmer i samtidslitteraturen.',
   estimatedMinutes: 55,
@@ -6533,7 +6573,7 @@ export const CHAPTER_NORSK_VG3_7_5: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-7-5-intro',
+      id: 'norsk-vg3-3-9-intro',
       type: 'text',
       content: `## Mangfold i norsk litteratur
 
@@ -6572,7 +6612,7 @@ Også samiske forfattere har fått større plass:
 Mangfoldet beriker litteraturen med nye erfaringer og perspektiver. Det utfordrer hva vi mener med «norsk» litteratur.`,
     },
     {
-      id: 'norsk-vg3-7-5-def-1',
+      id: 'norsk-vg3-3-9-def-1',
       type: 'definition',
       title: 'Flerkulturell litteratur',
       content: `**Flerkulturell litteratur** er litteratur skrevet av forfattere med tilknytning til flere kulturer, eller litteratur som tematiserer flerkulturelle erfaringer.
@@ -6599,7 +6639,7 @@ Fremveksten av flerkulturell litteratur reflekterer samfunnsutviklingen. Norge h
 - Jonas Hassen Khemiri (Sverige)`,
     },
     {
-      id: 'norsk-vg3-7-5-example-1',
+      id: 'norsk-vg3-3-9-example-1',
       type: 'example',
       title: 'Analyse: Tante Ulrikkes vei',
       problem: `Analyser Zeshan Shakars «Tante Ulrikkes vei» (2017).`,
@@ -6628,10 +6668,10 @@ Romanen viser forskjells-Norge - gapet mellom øst og vest, mellom muligheter og
 Romanen ble en bestselger og er tatt inn på pensum mange steder.`,
     },
     {
-      id: 'norsk-vg3-7-5-ex-1',
+      id: 'norsk-vg3-3-9-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-7-5-ex-1',
+        id: 'norsk-vg3-3-9-ex-1',
         number: '1',
         type: 'classic',
         task: 'Diskuter hva «flerkulturell litteratur» betyr.',
@@ -6657,13 +6697,13 @@ Romanen ble en bestselger og er tatt inn på pensum mange steder.`,
 };
 
 // ----------------------------------------------------------------------------
-// 8.2 Modernistisk lyrikk
+// 4.2 Modernistisk lyrikk
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_8_2: TextbookChapter = {
-  id: 'norsk-vg3-8-2',
+export const CHAPTER_NORSK_VG3_4_2: TextbookChapter = {
+  id: 'norsk-vg3-4-2',
   courseId: 'norsk-vg3',
-  chapterNumber: '8.2',
+  chapterNumber: '4.2',
   title: 'Modernistisk lyrikk',
   description: 'Modernismens gjennombrudd i norsk lyrikk.',
   estimatedMinutes: 60,
@@ -6673,7 +6713,7 @@ export const CHAPTER_NORSK_VG3_8_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-8-2-intro',
+      id: 'norsk-vg3-4-2-intro',
       type: 'text',
       content: `## Modernistisk lyrikk i Norge
 
@@ -6711,7 +6751,7 @@ Men den brede anerkjennelsen av modernistisk lyrikk kom først etter krigen.
 - Jan Erik Vold`,
     },
     {
-      id: 'norsk-vg3-8-2-def-1',
+      id: 'norsk-vg3-4-2-def-1',
       type: 'definition',
       title: 'Fri vers',
       content: `**Fri vers** (vers libre) er dikt uten fast rim eller rytme.
@@ -6739,7 +6779,7 @@ Fri vers ble utviklet i Frankrike på 1880-tallet. Det spredte seg til resten av
 Fri vers ble dominerende fra 1950-tallet. I dag skriver de fleste poeter på fri vers.`,
     },
     {
-      id: 'norsk-vg3-8-2-example-1',
+      id: 'norsk-vg3-4-2-example-1',
       type: 'example',
       title: 'Rolf Jacobsens lyrikk',
       problem: `Analyser Rolf Jacobsens dikt som eksempel på norsk modernistisk lyrikk.`,
@@ -6777,10 +6817,10 @@ blinker over skinnene.»
 Jacobsen åpnet for modernismen i norsk lyrikk. Hans dikt er blitt klassikere og er mye brukt i skolen.`,
     },
     {
-      id: 'norsk-vg3-8-2-ex-1',
+      id: 'norsk-vg3-4-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-8-2-ex-1',
+        id: 'norsk-vg3-4-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser et modernistisk dikt.',
@@ -6795,13 +6835,13 @@ Jacobsen åpnet for modernismen i norsk lyrikk. Hans dikt er blitt klassikere og
 };
 
 // ----------------------------------------------------------------------------
-// 8.3 Olav H. Hauge og Rolf Jacobsen
+// 4.3 Olav H. Hauge og Rolf Jacobsen
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_8_3: TextbookChapter = {
-  id: 'norsk-vg3-8-3',
+export const CHAPTER_NORSK_VG3_4_3: TextbookChapter = {
+  id: 'norsk-vg3-4-3',
   courseId: 'norsk-vg3',
-  chapterNumber: '8.3',
+  chapterNumber: '4.3',
   title: 'Olav H. Hauge og Rolf Jacobsen',
   description: 'To mestere i norsk etterkrigslyrikkk.',
   estimatedMinutes: 60,
@@ -6812,7 +6852,7 @@ export const CHAPTER_NORSK_VG3_8_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-8-3-intro',
+      id: 'norsk-vg3-4-3-intro',
       type: 'text',
       content: `## Hauge og Jacobsen - to lyriske mestere
 
@@ -6844,7 +6884,7 @@ Stil: Bilderik, moderne, urban. Bokmål.
 - Begge: Korte dikt, bilder, dybde`,
     },
     {
-      id: 'norsk-vg3-8-3-def-1',
+      id: 'norsk-vg3-4-3-def-1',
       type: 'definition',
       title: 'Olav H. Hauge (1908-1994)',
       content: `**Biografi:**
@@ -6870,7 +6910,7 @@ Stil: Bilderik, moderne, urban. Bokmål.
 - «Eg stend og bit meg i tunga»`,
     },
     {
-      id: 'norsk-vg3-8-3-example-1',
+      id: 'norsk-vg3-4-3-example-1',
       type: 'example',
       title: 'Analyse: «Det er den draumen»',
       problem: `Analyser Olav H. Hauges dikt «Det er den draumen».`,
@@ -6909,10 +6949,10 @@ Enkelt språk, dype tanker. Diktet er lett å lese, vanskelig å glemme.
 Diktet treffer fordi drømmen det beskriver er allmennmenneskelig.`,
     },
     {
-      id: 'norsk-vg3-8-3-ex-1',
+      id: 'norsk-vg3-4-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-8-3-ex-1',
+        id: 'norsk-vg3-4-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign et dikt av Hauge med et av Jacobsen.',
@@ -6927,13 +6967,13 @@ Diktet treffer fordi drømmen det beskriver er allmennmenneskelig.`,
 };
 
 // ----------------------------------------------------------------------------
-// 9.2 Jon Fosse
+// 4.5 Jon Fosse
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_9_2: TextbookChapter = {
-  id: 'norsk-vg3-9-2',
+export const CHAPTER_NORSK_VG3_4_5: TextbookChapter = {
+  id: 'norsk-vg3-4-5',
   courseId: 'norsk-vg3',
-  chapterNumber: '9.2',
+  chapterNumber: '4.5',
   title: 'Jon Fosse',
   description: 'Jon Fosses forfatterskap og Nobelprisen 2023.',
   estimatedMinutes: 65,
@@ -6943,7 +6983,7 @@ export const CHAPTER_NORSK_VG3_9_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-9-2-intro',
+      id: 'norsk-vg3-4-5-intro',
       type: 'text',
       content: `## Jon Fosse - Nobelprisen 2023
 
@@ -6982,7 +7022,7 @@ Fosses stil er umiskjennelig:
 Nobelprisen i 2023 var en anerkjennelse av Fosses unike stemme i verdenslitteraturen. Han er den fjerde nordmannen som mottar prisen.`,
     },
     {
-      id: 'norsk-vg3-9-2-def-1',
+      id: 'norsk-vg3-4-5-def-1',
       type: 'definition',
       title: 'Jon Fosse (f. 1959)',
       content: `**Biografi:**
@@ -7007,7 +7047,7 @@ Nobelprisen i 2023 var en anerkjennelse av Fosses unike stemme i verdenslitterat
 «for hans nyskapande dramatikk og prosa som gjev stemme til det usigelege»`,
     },
     {
-      id: 'norsk-vg3-9-2-example-1',
+      id: 'norsk-vg3-4-5-example-1',
       type: 'example',
       title: 'Analyse av Fosses stil',
       problem: `Analyser Jon Fosses karakteristiske stil med utgangspunkt i et utdrag.`,
@@ -7040,10 +7080,10 @@ Teksten har en musikalsk kvalitet. Den er komponert, ikke bare skrevet.
 Fosses stil fremmedgjør og fascinerer. Den tvinger leseren/tilskueren til å lytte på nye måter.`,
     },
     {
-      id: 'norsk-vg3-9-2-ex-1',
+      id: 'norsk-vg3-4-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-9-2-ex-1',
+        id: 'norsk-vg3-4-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et utdrag fra Fosse og analyser stilen.',
@@ -7058,13 +7098,13 @@ Fosses stil fremmedgjør og fascinerer. Den tvinger leseren/tilskueren til å ly
 };
 
 // ----------------------------------------------------------------------------
-// 10.2 Norske essayister
+// 4.7 Norske essayister
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_10_2: TextbookChapter = {
-  id: 'norsk-vg3-10-2',
+export const CHAPTER_NORSK_VG3_4_7: TextbookChapter = {
+  id: 'norsk-vg3-4-7',
   courseId: 'norsk-vg3',
-  chapterNumber: '10.2',
+  chapterNumber: '4.7',
   title: 'Norske essayister',
   description: 'Sentrale norske essayister fra Vinje til i dag.',
   estimatedMinutes: 65,
@@ -7075,7 +7115,7 @@ export const CHAPTER_NORSK_VG3_10_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-10-2-intro',
+      id: 'norsk-vg3-4-7-intro',
       type: 'text',
       content: `## Norske essayister - en tradisjon
 
@@ -7137,7 +7177,7 @@ I dag finnes en rekke dyktige essayister:
 Essayet lever fortsatt som sjanger - i aviser, tidsskrifter og bøker. Det er en arena for refleksjon i en tid preget av rask meningsutveksling på sosiale medier.`,
     },
     {
-      id: 'norsk-vg3-10-2-def-1',
+      id: 'norsk-vg3-4-7-def-1',
       type: 'definition',
       title: 'Aasmund Olavsson Vinje',
       content: `**Aasmund Olavsson Vinje (1818-1870)** regnes som den norske essayets grunnlegger.
@@ -7164,7 +7204,7 @@ Essayet lever fortsatt som sjanger - i aviser, tidsskrifter og bøker. Det er en
 Vinje etablerte essayet som kunstform i Norge. Han viste at personlig refleksjon kunne kombineres med skarp samfunnskritikk.`,
     },
     {
-      id: 'norsk-vg3-10-2-def-2',
+      id: 'norsk-vg3-4-7-def-2',
       type: 'definition',
       title: 'Georg Johannesen',
       content: `**Georg Johannesen (1931-2005)** var poet, essayist og retoriker.
@@ -7191,7 +7231,7 @@ Vinje etablerte essayet som kunstform i Norge. Han viste at personlig refleksjon
 Johannesen fornyet norsk retorikk og essayistikk. Han lærte oss å lese maktens språk kritisk.`,
     },
     {
-      id: 'norsk-vg3-10-2-example-1',
+      id: 'norsk-vg3-4-7-example-1',
       type: 'example',
       title: 'Analyse: Vinjes Ferdaminne',
       problem: `Analyser essaystilen i Vinjes «Ferdaminne frå sumaren 1860».`,
@@ -7221,7 +7261,7 @@ Vinje skriver på landsmål. Språket er levende, variert og personlig. Han vise
 «Ferdaminne» etablerte en norsk essaytradisjon der personlig erfaring møter kulturrefleksjon. Mange senere norske forfattere følger i Vinjes spor.`,
     },
     {
-      id: 'norsk-vg3-10-2-tip-1',
+      id: 'norsk-vg3-4-7-tip-1',
       type: 'tip',
       title: 'Tips for essaylesing',
       content: `**Hvordan lese essay:**
@@ -7252,10 +7292,10 @@ Vinje skriver på landsmål. Språket er levende, variert og personlig. Han vise
 - Hva var samtidens respons?`,
     },
     {
-      id: 'norsk-vg3-10-2-ex-1',
+      id: 'norsk-vg3-4-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-10-2-ex-1',
+        id: 'norsk-vg3-4-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Les et essay av Vinje og analyser stilen.',
@@ -7282,10 +7322,10 @@ Vinje skriver på landsmål. Språket er levende, variert og personlig. Han vise
       },
     },
     {
-      id: 'norsk-vg3-10-2-ex-2',
+      id: 'norsk-vg3-4-7-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-10-2-ex-2',
+        id: 'norsk-vg3-4-7-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign to norske essayister.',
@@ -7296,10 +7336,10 @@ Vinje skriver på landsmål. Språket er levende, variert og personlig. Han vise
       },
     },
     {
-      id: 'norsk-vg3-10-2-ex-3',
+      id: 'norsk-vg3-4-7-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-10-2-ex-3',
+        id: 'norsk-vg3-4-7-ex-3',
         number: '3',
         type: 'classic',
         task: 'Skriv et essay inspirert av Vinje.',
@@ -7314,13 +7354,13 @@ Vinje skriver på landsmål. Språket er levende, variert og personlig. Han vise
 };
 
 // ----------------------------------------------------------------------------
-// 11.2 Retoriske virkemidler i dybden
+// 4.9 Retoriske virkemidler i dybden
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_11_2: TextbookChapter = {
-  id: 'norsk-vg3-11-2',
+export const CHAPTER_NORSK_VG3_4_9: TextbookChapter = {
+  id: 'norsk-vg3-4-9',
   courseId: 'norsk-vg3',
-  chapterNumber: '11.2',
+  chapterNumber: '4.9',
   title: 'Retoriske virkemidler i dybden',
   description: 'Detaljert gjennomgang av retoriske virkemidler og deres effekt.',
   estimatedMinutes: 70,
@@ -7331,7 +7371,7 @@ export const CHAPTER_NORSK_VG3_11_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-11-2-intro',
+      id: 'norsk-vg3-4-9-intro',
       type: 'text',
       content: `## Retoriske virkemidler - verktøykassen
 
@@ -7398,7 +7438,7 @@ Gjentakelse av konsonantlyder: «Støvet siver stille ned.»
 Gjentakelse av vokallyder.`,
     },
     {
-      id: 'norsk-vg3-11-2-def-1',
+      id: 'norsk-vg3-4-9-def-1',
       type: 'definition',
       title: 'Metafor',
       content: `**Metafor** er et uttrykk der et ord eller en frase overføres til noe det ikke bokstavelig refererer til.
@@ -7434,7 +7474,7 @@ Kognitive lingvister (Lakoff og Johnson) viser at metaforer strukturerer tenknin
 - Påvirker hvordan vi tenker om et tema`,
     },
     {
-      id: 'norsk-vg3-11-2-def-2',
+      id: 'norsk-vg3-4-9-def-2',
       type: 'definition',
       title: 'Anafor',
       content: `**Anafor** er gjentakelse av samme ord eller frase i begynnelsen av påfølgende setninger eller verselinjer.
@@ -7462,7 +7502,7 @@ Jeg har en drøm at en dag vil selv staten Mississippi...»
 Anafor er særlig effektiv i taler og lyrikk. Den skaper forventning hos publikum og gir kraft til budskapet.`,
     },
     {
-      id: 'norsk-vg3-11-2-def-3',
+      id: 'norsk-vg3-4-9-def-3',
       type: 'definition',
       title: 'Antitese',
       content: `**Antitese** er en figur der motsetninger stilles mot hverandre for å skape kontrast.
@@ -7488,7 +7528,7 @@ Anafor er særlig effektiv i taler og lyrikk. Den skaper forventning hos publiku
 Antitese er effektiv fordi hjernen lett griper kontraster. Det gjør argumenter tydelige og minneverdige.`,
     },
     {
-      id: 'norsk-vg3-11-2-example-1',
+      id: 'norsk-vg3-4-9-example-1',
       type: 'example',
       title: 'Analyse: Martin Luther Kings «I Have a Dream»',
       problem: `Analyser bruken av retoriske virkemidler i Martin Luther Kings tale «I Have a Dream» (1963).`,
@@ -7532,7 +7572,7 @@ Logikken er enkel: Amerika lovte likhet. Løftet er ikke holdt. Nå må det hold
 Kings tale er et mesterlig eksempel på retorisk håndverk. Den viser hvordan virkemidler forsterker budskapet.`,
     },
     {
-      id: 'norsk-vg3-11-2-tip-1',
+      id: 'norsk-vg3-4-9-tip-1',
       type: 'tip',
       title: 'Identifiser retoriske virkemidler',
       content: `**Sjekkliste for retorisk analyse:**
@@ -7567,10 +7607,10 @@ Kings tale er et mesterlig eksempel på retorisk håndverk. Den viser hvordan vi
 Ikke bare list opp virkemidler - analyser effekten! Hvorfor brukes akkurat dette virkemiddelet her? Hva oppnås?`,
     },
     {
-      id: 'norsk-vg3-11-2-ex-1',
+      id: 'norsk-vg3-4-9-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-11-2-ex-1',
+        id: 'norsk-vg3-4-9-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser retoriske virkemidler i en tale.',
@@ -7597,10 +7637,10 @@ Ikke bare list opp virkemidler - analyser effekten! Hvorfor brukes akkurat dette
       },
     },
     {
-      id: 'norsk-vg3-11-2-ex-2',
+      id: 'norsk-vg3-4-9-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-11-2-ex-2',
+        id: 'norsk-vg3-4-9-ex-2',
         number: '2',
         type: 'classic',
         task: 'Skriv en kort tekst der du bevisst bruker retoriske virkemidler.',
@@ -7615,13 +7655,13 @@ Ikke bare list opp virkemidler - analyser effekten! Hvorfor brukes akkurat dette
 };
 
 // ----------------------------------------------------------------------------
-// 12.2 Tolkning og hermeneutikk
+// 4.11 Tolkning og hermeneutikk
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_12_2: TextbookChapter = {
-  id: 'norsk-vg3-12-2',
+export const CHAPTER_NORSK_VG3_4_11: TextbookChapter = {
+  id: 'norsk-vg3-4-11',
   courseId: 'norsk-vg3',
-  chapterNumber: '12.2',
+  chapterNumber: '4.11',
   title: 'Tolkning og hermeneutikk',
   description: 'Tolkningsteori og den hermeneutiske sirkel.',
   estimatedMinutes: 65,
@@ -7632,7 +7672,7 @@ export const CHAPTER_NORSK_VG3_12_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-12-2-intro',
+      id: 'norsk-vg3-4-11-intro',
       type: 'text',
       content: `## Hermeneutikk - kunsten å tolke
 
@@ -7689,7 +7729,7 @@ Kan en tekst bety hva som helst? Nei. Selv om tolkning er subjektiv, er det gren
 Men det betyr ikke at det finnes én «riktig» tolkning. Ulike tolkninger kan være gyldige samtidig.`,
     },
     {
-      id: 'norsk-vg3-12-2-def-1',
+      id: 'norsk-vg3-4-11-def-1',
       type: 'definition',
       title: 'Den hermeneutiske sirkel',
       content: `**Den hermeneutiske sirkel** beskriver det gjensidige forholdet mellom del og helhet i forståelsen.
@@ -7715,7 +7755,7 @@ Den hermeneutiske sirkel gjelder også:
 «Sirkel» kan virke lukket, men prosessen er egentlig en spiral. For hver runde øker forståelsen.`,
     },
     {
-      id: 'norsk-vg3-12-2-def-2',
+      id: 'norsk-vg3-4-11-def-2',
       type: 'definition',
       title: 'Forforståelse',
       content: `**Forforståelse** er de forutsetningene vi har med oss når vi møter en tekst.
@@ -7743,7 +7783,7 @@ En god leser er bevisst på sin forforståelse:
 Hans-Georg Gadamer argumenterte for at forforståelsen ikke er en feil som må elimineres, men en forutsetning for forståelse som må bevisstgjøres.`,
     },
     {
-      id: 'norsk-vg3-12-2-example-1',
+      id: 'norsk-vg3-4-11-example-1',
       type: 'example',
       title: 'Den hermeneutiske sirkel i praksis',
       problem: `Vis hvordan den hermeneutiske sirkel fungerer ved tolkning av et dikt.`,
@@ -7781,7 +7821,7 @@ Kanskje handler diktet om døden? Om en kjæreste som forlot? Om et minne som fa
 Vi veksler mellom del og helhet. Hver lesning utdyper forståelsen. Sirkelen (spiralen) fortsetter.`,
     },
     {
-      id: 'norsk-vg3-12-2-tip-1',
+      id: 'norsk-vg3-4-11-tip-1',
       type: 'tip',
       title: 'Tips for god tolkning',
       content: `**Slik utvikler du gode tolkninger:**
@@ -7811,10 +7851,10 @@ Finnes det alternative lesninger? Hvilken er mest overbevisende?
 En tolkning må kunne begrunnes med referanse til teksten.`,
     },
     {
-      id: 'norsk-vg3-12-2-ex-1',
+      id: 'norsk-vg3-4-11-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-12-2-ex-1',
+        id: 'norsk-vg3-4-11-ex-1',
         number: '1',
         type: 'classic',
         task: 'Bruk den hermeneutiske sirkel på et dikt.',
@@ -7846,10 +7886,10 @@ En tolkning må kunne begrunnes med referanse til teksten.`,
       },
     },
     {
-      id: 'norsk-vg3-12-2-ex-2',
+      id: 'norsk-vg3-4-11-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-12-2-ex-2',
+        id: 'norsk-vg3-4-11-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter: Kan en tekst bety hva som helst?',
@@ -7864,13 +7904,13 @@ En tolkning må kunne begrunnes med referanse til teksten.`,
 };
 
 // ----------------------------------------------------------------------------
-// 13.2 Norske dialekter
+// 5.2 Norske dialekter
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_13_2: TextbookChapter = {
-  id: 'norsk-vg3-13-2',
+export const CHAPTER_NORSK_VG3_5_2: TextbookChapter = {
+  id: 'norsk-vg3-5-2',
   courseId: 'norsk-vg3',
-  chapterNumber: '13.2',
+  chapterNumber: '5.2',
   title: 'Norske dialekter',
   description: 'Oversikt over norske dialekter og dialektgeografi.',
   estimatedMinutes: 60,
@@ -7880,7 +7920,7 @@ export const CHAPTER_NORSK_VG3_13_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-13-2-intro',
+      id: 'norsk-vg3-5-2-intro',
       type: 'text',
       content: `## Norske dialekter - et språklig mangfold
 
@@ -7951,7 +7991,7 @@ Samtidig skjer det endringer:
 - Globalisering og mobilitet påvirker`,
     },
     {
-      id: 'norsk-vg3-13-2-def-1',
+      id: 'norsk-vg3-5-2-def-1',
       type: 'definition',
       title: 'Dialektgrupper',
       content: `**De fire hovedgruppene av norske dialekter:**
@@ -7980,7 +8020,7 @@ Samtidig skjer det endringer:
 Grensene mellom gruppene er ikke skarpe. Det finnes overgangssoner og lokale variasjoner.`,
     },
     {
-      id: 'norsk-vg3-13-2-def-2',
+      id: 'norsk-vg3-5-2-def-2',
       type: 'definition',
       title: 'Tonelag (tonem)',
       content: `**Tonelag** eller **tonem** er bruk av toneforskjeller til å skille betydning.
@@ -8007,7 +8047,7 @@ Tonelag finnes i de fleste norske dialekter, men mønstrene varierer. Bergen og 
 Tonelag er viktig for forståelsen og bidrar til den karakteristiske melodien i norsk tale.`,
     },
     {
-      id: 'norsk-vg3-13-2-example-1',
+      id: 'norsk-vg3-5-2-example-1',
       type: 'example',
       title: 'Sammenligning av dialekter',
       problem: `Sammenlign hvordan setningen «Jeg kaster ikke ballen til henne» ville bli uttalt i ulike dialekter.`,
@@ -8042,7 +8082,7 @@ Tonelag er viktig for forståelsen og bidrar til den karakteristiske melodien i 
 Samme setning kan høres svært forskjellig ut i ulike deler av landet, men forståelsen er likevel god.`,
     },
     {
-      id: 'norsk-vg3-13-2-tip-1',
+      id: 'norsk-vg3-5-2-tip-1',
       type: 'tip',
       title: 'Lær å gjenkjenne dialekter',
       content: `**Tips for dialektgjenkjenning:**
@@ -8073,10 +8113,10 @@ Samme setning kan høres svært forskjellig ut i ulike deler av landet, men fors
 - Dialektkart og lydopptak`,
     },
     {
-      id: 'norsk-vg3-13-2-ex-1',
+      id: 'norsk-vg3-5-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-13-2-ex-1',
+        id: 'norsk-vg3-5-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser din egen dialekt eller en dialekt du kjenner.',
@@ -8103,10 +8143,10 @@ Samme setning kan høres svært forskjellig ut i ulike deler av landet, men fors
       },
     },
     {
-      id: 'norsk-vg3-13-2-ex-2',
+      id: 'norsk-vg3-5-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-13-2-ex-2',
+        id: 'norsk-vg3-5-2-ex-2',
         number: '2',
         type: 'classic',
         task: 'Diskuter: Bør dialekter bevares?',
@@ -8121,13 +8161,13 @@ Samme setning kan høres svært forskjellig ut i ulike deler av landet, men fors
 };
 
 // ----------------------------------------------------------------------------
-// 14.2 Praktisk sidemålstrening
+// 5.4 Praktisk sidemålstrening
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_14_2: TextbookChapter = {
-  id: 'norsk-vg3-14-2',
+export const CHAPTER_NORSK_VG3_5_4: TextbookChapter = {
+  id: 'norsk-vg3-5-4',
   courseId: 'norsk-vg3',
-  chapterNumber: '14.2',
+  chapterNumber: '5.4',
   title: 'Praktisk sidemålstrening',
   description: 'Øvelser og tips for bedre sidemålskompetanse.',
   estimatedMinutes: 55,
@@ -8137,7 +8177,7 @@ export const CHAPTER_NORSK_VG3_14_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-14-2-intro',
+      id: 'norsk-vg3-5-4-intro',
       type: 'text',
       content: `## Sidemålstrening - praktiske strategier
 
@@ -8199,7 +8239,7 @@ Hovedutfordringen er at vi ikke bruker sidemålet daglig. Vi eksponeres mindre f
 - Vær konsekvent i rettskrivingen`,
     },
     {
-      id: 'norsk-vg3-14-2-def-1',
+      id: 'norsk-vg3-5-4-def-1',
       type: 'definition',
       title: 'Bøyning av substantiv - nynorsk',
       content: `**Substantivbøyning i nynorsk:**
@@ -8225,7 +8265,7 @@ Hovedutfordringen er at vi ikke bruker sidemålet daglig. Vi eksponeres mindre f
 Tenk på dialekten din! Mange dialekter har lignende bøyning som nynorsk.`,
     },
     {
-      id: 'norsk-vg3-14-2-def-2',
+      id: 'norsk-vg3-5-4-def-2',
       type: 'definition',
       title: 'Bøyning av verb - nynorsk',
       content: `**Verbbøyning i nynorsk:**
@@ -8257,7 +8297,7 @@ Tenk på dialekten din! Mange dialekter har lignende bøyning som nynorsk.`,
 - å bli - blir - blei - har blitt`,
     },
     {
-      id: 'norsk-vg3-14-2-example-1',
+      id: 'norsk-vg3-5-4-example-1',
       type: 'example',
       title: 'Oversettelse til sidemål',
       problem: `Oversett følgende tekst fra bokmål til nynorsk.`,
@@ -8280,7 +8320,7 @@ Tenk på dialekten din! Mange dialekter har lignende bøyning som nynorsk.`,
 - liker → likar`,
     },
     {
-      id: 'norsk-vg3-14-2-tip-1',
+      id: 'norsk-vg3-5-4-tip-1',
       type: 'tip',
       title: 'Vanlige feil i nynorsk',
       content: `**De vanligste feilene bokmålsbrukere gjør i nynorsk:**
@@ -8316,10 +8356,10 @@ Tenk på dialekten din! Mange dialekter har lignende bøyning som nynorsk.`,
 Lag deg en liste over ord du ofte skriver feil. Repeter dem!`,
     },
     {
-      id: 'norsk-vg3-14-2-ex-1',
+      id: 'norsk-vg3-5-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-14-2-ex-1',
+        id: 'norsk-vg3-5-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Oversett en tekst til sidemålet.',
@@ -8330,10 +8370,10 @@ Lag deg en liste over ord du ofte skriver feil. Repeter dem!`,
       },
     },
     {
-      id: 'norsk-vg3-14-2-ex-2',
+      id: 'norsk-vg3-5-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-14-2-ex-2',
+        id: 'norsk-vg3-5-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Skriv et essay på sidemålet.',
@@ -8364,13 +8404,13 @@ Lag deg en liste over ord du ofte skriver feil. Repeter dem!`,
 };
 
 // ----------------------------------------------------------------------------
-// 15.2 Muntlig eksamen
+// 5.6 Muntlig eksamen
 // ----------------------------------------------------------------------------
 
-export const CHAPTER_NORSK_VG3_15_2: TextbookChapter = {
-  id: 'norsk-vg3-15-2',
+export const CHAPTER_NORSK_VG3_5_6: TextbookChapter = {
+  id: 'norsk-vg3-5-6',
   courseId: 'norsk-vg3',
-  chapterNumber: '15.2',
+  chapterNumber: '5.6',
   title: 'Muntlig eksamen',
   description: 'Forberedelse til muntlig eksamen i norsk.',
   estimatedMinutes: 65,
@@ -8381,7 +8421,7 @@ export const CHAPTER_NORSK_VG3_15_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg3-15-2-intro',
+      id: 'norsk-vg3-5-6-intro',
       type: 'text',
       content: `## Muntlig eksamen - forberedelse og gjennomføring
 
@@ -8464,7 +8504,7 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 - Breddekunnskaper i faget`,
     },
     {
-      id: 'norsk-vg3-15-2-def-1',
+      id: 'norsk-vg3-5-6-def-1',
       type: 'definition',
       title: 'Presentasjonsteknikk',
       content: `**God presentasjonsteknikk:**
@@ -8498,7 +8538,7 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 - Fokuser på budskapet, ikke deg selv`,
     },
     {
-      id: 'norsk-vg3-15-2-def-2',
+      id: 'norsk-vg3-5-6-def-2',
       type: 'definition',
       title: 'Fagsamtalen',
       content: `**Fagsamtalen - hva forventes?**
@@ -8531,7 +8571,7 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 - Vis engasjement`,
     },
     {
-      id: 'norsk-vg3-15-2-example-1',
+      id: 'norsk-vg3-5-6-example-1',
       type: 'example',
       title: 'Eksempel på presentasjonsstruktur',
       problem: `Lag en struktur for en presentasjon om «Realismen i norsk litteratur».`,
@@ -8572,7 +8612,7 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 - Åpning for spørsmål`,
     },
     {
-      id: 'norsk-vg3-15-2-tip-1',
+      id: 'norsk-vg3-5-6-tip-1',
       type: 'tip',
       title: 'Sjekkliste for muntlig eksamen',
       content: `**Før eksamen:**
@@ -8602,10 +8642,10 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 - [ ] Hold deg rolig`,
     },
     {
-      id: 'norsk-vg3-15-2-ex-1',
+      id: 'norsk-vg3-5-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-15-2-ex-1',
+        id: 'norsk-vg3-5-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Øv på muntlig presentasjon.',
@@ -8632,10 +8672,10 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
       },
     },
     {
-      id: 'norsk-vg3-15-2-ex-2',
+      id: 'norsk-vg3-5-6-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg3-15-2-ex-2',
+        id: 'norsk-vg3-5-6-ex-2',
         number: '2',
         type: 'classic',
         task: 'Forbered deg på breddekunnskaper.',
@@ -8654,65 +8694,55 @@ Muntlig eksamen i norsk består av en presentasjon og en fagsamtale. Du får 24 
 // ============================================================================
 
 export const NORSK_VG3_CHAPTERS = [
-  // Kapittel 1: Det moderne gjennombruddet
+  // Kapittel 1: Realisme og naturalisme (1870-1900)
   CHAPTER_NORSK_VG3_1_1,
   CHAPTER_NORSK_VG3_1_2,
   CHAPTER_NORSK_VG3_1_3,
   CHAPTER_NORSK_VG3_1_4,
   CHAPTER_NORSK_VG3_1_5,
   CHAPTER_NORSK_VG3_1_6,
-  // Kapittel 2: Naturalisme
+  CHAPTER_NORSK_VG3_1_7,
+  CHAPTER_NORSK_VG3_1_8,
+  CHAPTER_NORSK_VG3_1_9,
+  CHAPTER_NORSK_VG3_1_10,
+  CHAPTER_NORSK_VG3_1_11,
+  CHAPTER_NORSK_VG3_1_12,
+  CHAPTER_NORSK_VG3_1_13,
+  // Kapittel 2: Modernisme og mellomkrigstid (1900-1945)
   CHAPTER_NORSK_VG3_2_1,
   CHAPTER_NORSK_VG3_2_2,
   CHAPTER_NORSK_VG3_2_3,
-  // Kapittel 3: Nyromantikk
+  CHAPTER_NORSK_VG3_2_4,
+  CHAPTER_NORSK_VG3_2_5,
+  CHAPTER_NORSK_VG3_2_6,
+  CHAPTER_NORSK_VG3_2_7,
+  // Kapittel 3: Etterkrigslitteratur til i dag (1945-)
   CHAPTER_NORSK_VG3_3_1,
   CHAPTER_NORSK_VG3_3_2,
   CHAPTER_NORSK_VG3_3_3,
   CHAPTER_NORSK_VG3_3_4,
-  // Kapittel 4: Tidlig modernisme
+  CHAPTER_NORSK_VG3_3_5,
+  CHAPTER_NORSK_VG3_3_6,
+  CHAPTER_NORSK_VG3_3_7,
+  CHAPTER_NORSK_VG3_3_8,
+  CHAPTER_NORSK_VG3_3_9,
+  // Kapittel 4: Sjangerlære og analyse
   CHAPTER_NORSK_VG3_4_1,
   CHAPTER_NORSK_VG3_4_2,
   CHAPTER_NORSK_VG3_4_3,
   CHAPTER_NORSK_VG3_4_4,
-  // Kapittel 5: Mellomkrigslitteratur
+  CHAPTER_NORSK_VG3_4_5,
+  CHAPTER_NORSK_VG3_4_6,
+  CHAPTER_NORSK_VG3_4_7,
+  CHAPTER_NORSK_VG3_4_8,
+  CHAPTER_NORSK_VG3_4_9,
+  CHAPTER_NORSK_VG3_4_10,
+  CHAPTER_NORSK_VG3_4_11,
+  // Kapittel 5: Språk og eksamensforberedelse
   CHAPTER_NORSK_VG3_5_1,
   CHAPTER_NORSK_VG3_5_2,
   CHAPTER_NORSK_VG3_5_3,
-  // Kapittel 6: Etterkrigslitteratur
-  CHAPTER_NORSK_VG3_6_1,
-  CHAPTER_NORSK_VG3_6_2,
-  CHAPTER_NORSK_VG3_6_3,
-  CHAPTER_NORSK_VG3_6_4,
-  // Kapittel 7: Samtidslitteratur
-  CHAPTER_NORSK_VG3_7_1,
-  CHAPTER_NORSK_VG3_7_2,
-  CHAPTER_NORSK_VG3_7_3,
-  CHAPTER_NORSK_VG3_7_4,
-  CHAPTER_NORSK_VG3_7_5,
-  // Kapittel 8: Lyrikk
-  CHAPTER_NORSK_VG3_8_1,
-  CHAPTER_NORSK_VG3_8_2,
-  CHAPTER_NORSK_VG3_8_3,
-  // Kapittel 9: Drama
-  CHAPTER_NORSK_VG3_9_1,
-  CHAPTER_NORSK_VG3_9_2,
-  // Kapittel 10: Essay
-  CHAPTER_NORSK_VG3_10_1,
-  CHAPTER_NORSK_VG3_10_2,
-  // Kapittel 11: Retorisk analyse
-  CHAPTER_NORSK_VG3_11_1,
-  CHAPTER_NORSK_VG3_11_2,
-  // Kapittel 12: Litterær analyse
-  CHAPTER_NORSK_VG3_12_1,
-  CHAPTER_NORSK_VG3_12_2,
-  // Kapittel 13: Språk i endring
-  CHAPTER_NORSK_VG3_13_1,
-  CHAPTER_NORSK_VG3_13_2,
-  // Kapittel 14: Sidemål
-  CHAPTER_NORSK_VG3_14_1,
-  CHAPTER_NORSK_VG3_14_2,
-  // Kapittel 15: Eksamensforberedelse
-  CHAPTER_NORSK_VG3_15_1,
-  CHAPTER_NORSK_VG3_15_2,
+  CHAPTER_NORSK_VG3_5_4,
+  CHAPTER_NORSK_VG3_5_5,
+  CHAPTER_NORSK_VG3_5_6,
 ];

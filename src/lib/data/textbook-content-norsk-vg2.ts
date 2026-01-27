@@ -2322,13 +2322,13 @@ Salmen har levd i norsk tradisjon i over 300 år og synges fortsatt i kirker.`,
 };
 
 // ============================================================================
-// KAPITTEL 3.1: Barokkens kjennetegn
+// KAPITTEL 2.4: Barokkens kjennetegn
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_3_1: TextbookChapter = {
-  id: 'norsk-vg2-3-1',
+export const CHAPTER_NORSK_VG2_2_4: TextbookChapter = {
+  id: 'norsk-vg2-2-4',
   courseId: 'norsk-vg2',
-  chapterNumber: '3.1',
+  chapterNumber: '2.4',
   title: 'Barokkens kjennetegn',
   description: 'Utforsk barokken som litterær epoke med fokus på kontraster, forgjengelighet og religiøsitet.',
   estimatedMinutes: 55,
@@ -2338,7 +2338,7 @@ export const CHAPTER_NORSK_VG2_3_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-3-1-intro',
+      id: 'norsk-vg2-2-4-intro',
       type: 'text',
       content: `## Barokken - kunstens overdådige epoke
 
@@ -2374,7 +2374,7 @@ Barokken kom sent til Norden. Viktige forfattere var:
 - Petter Dass (norsk) - salmer og topografisk diktning`,
     },
     {
-      id: 'norsk-vg2-3-1-def-1',
+      id: 'norsk-vg2-2-4-def-1',
       type: 'definition',
       title: 'Barokkens litterære begreper',
       content: `**Vanitas:** "Forfengelighet" - alt jordisk er forgjengelig. Vanitas-motiver inkluderer hodeskaller, vissne blomster, timeglass.
@@ -2396,7 +2396,7 @@ Barokken kom sent til Norden. Viktige forfattere var:
 - Patos og følelsesladethet`,
     },
     {
-      id: 'norsk-vg2-3-1-example-1',
+      id: 'norsk-vg2-2-4-example-1',
       type: 'example',
       title: 'Eksempel: Thomas Kingo - "Sorrig og Glæde"',
       problem: `Les dette utdraget fra Thomas Kingos salme "Sorrig og Glæde de vandre til Hobe" (1681):
@@ -2426,10 +2426,10 @@ Livet er vekslende - gode og onde tider følger hverandre. Dette er typisk barok
 Salmen uttrykker barokkens syn på livets ustabilitet og behovet for å finne trøst i det evige.`,
     },
     {
-      id: 'norsk-vg2-3-1-ex-1',
+      id: 'norsk-vg2-2-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-1-ex-1',
+        id: 'norsk-vg2-2-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar barokkens kjennetegn som litterær epoke.',
@@ -2455,13 +2455,13 @@ Salmen uttrykker barokkens syn på livets ustabilitet og behovet for å finne tr
 };
 
 // ============================================================================
-// KAPITTEL 3.2: Dorothe Engelbretsdatter
+// KAPITTEL 2.5: Dorothe Engelbretsdatter
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_3_2: TextbookChapter = {
-  id: 'norsk-vg2-3-2',
+export const CHAPTER_NORSK_VG2_2_5: TextbookChapter = {
+  id: 'norsk-vg2-2-5',
   courseId: 'norsk-vg2',
-  chapterNumber: '3.2',
+  chapterNumber: '2.5',
   title: 'Dorothe Engelbretsdatter',
   description: 'Lær om Norges første kvinnelige forfatter og hennes religiøse diktning.',
   estimatedMinutes: 50,
@@ -2471,7 +2471,7 @@ export const CHAPTER_NORSK_VG2_3_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-3-2-intro',
+      id: 'norsk-vg2-2-5-intro',
       type: 'text',
       content: `## Dorothe Engelbretsdatter - Nordens første kvinnelige forfatter
 
@@ -2500,7 +2500,7 @@ Dorothes diktning viser typiske barokktrekk:
 - Personlig, følelsesladet tone`,
     },
     {
-      id: 'norsk-vg2-3-2-def-1',
+      id: 'norsk-vg2-2-5-def-1',
       type: 'definition',
       title: 'Dorothe Engelbretsdatter - sentrale trekk',
       content: `**Biografiske fakta:**
@@ -2526,7 +2526,7 @@ Dorothes diktning viser typiske barokktrekk:
 - Personlig, følelsesladet stil`,
     },
     {
-      id: 'norsk-vg2-3-2-example-1',
+      id: 'norsk-vg2-2-5-example-1',
       type: 'example',
       title: 'Eksempel: Fra Siælens Sang-Offer',
       problem: `Les dette utdraget fra Dorothe Engelbretsdatter:
@@ -2553,10 +2553,10 @@ Det jordiske er forgjengelig. Kun det himmelske gir virkelig verdi.
 Utdraget viser hvordan Dorothe kombinerer barokkens vanitas-tenkning med personlig erfaring av sorg.`,
     },
     {
-      id: 'norsk-vg2-3-2-ex-1',
+      id: 'norsk-vg2-2-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-2-ex-1',
+        id: 'norsk-vg2-2-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Dorothe Engelbretsdatters diktning.',
@@ -2582,13 +2582,13 @@ Utdraget viser hvordan Dorothe kombinerer barokkens vanitas-tenkning med personl
 };
 
 // ============================================================================
-// KAPITTEL 3.3: Thomas Kingo og salmediktning
+// KAPITTEL 2.6: Thomas Kingo og salmediktning
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_3_3: TextbookChapter = {
-  id: 'norsk-vg2-3-3',
+export const CHAPTER_NORSK_VG2_2_6: TextbookChapter = {
+  id: 'norsk-vg2-2-6',
   courseId: 'norsk-vg2',
-  chapterNumber: '3.3',
+  chapterNumber: '2.6',
   title: 'Thomas Kingo og salmediktning',
   description: 'Lær om den store danske salmedikteren Thomas Kingo og barokkens religiøse lyrikk.',
   estimatedMinutes: 60,
@@ -2598,7 +2598,7 @@ export const CHAPTER_NORSK_VG2_3_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-3-3-intro',
+      id: 'norsk-vg2-2-6-intro',
       type: 'text',
       content: `## Thomas Kingo - barokkens mester i salmesang
 
@@ -2655,7 +2655,7 @@ Hans innflytelse på senere salmediktere er enorm. Grundtvig, som fornyelsenes m
 Som litterært verk representerer Kingos salmer høydepunktet i dansk-norsk barokkdiktning. Kombinasjonen av stilistisk raffinement og religiøs intensitet gjør dem til varige mesterverk i skandinavisk litteratur.`,
     },
     {
-      id: 'norsk-vg2-3-3-def-1',
+      id: 'norsk-vg2-2-6-def-1',
       type: 'definition',
       title: 'Thomas Kingo - sentrale begreper',
       content: `**Biografiske fakta:**
@@ -2682,7 +2682,7 @@ Som litterært verk representerer Kingos salmer høydepunktet i dansk-norsk baro
 - "Som den gyldne Sol frembryder"`,
     },
     {
-      id: 'norsk-vg2-3-3-def-2',
+      id: 'norsk-vg2-2-6-def-2',
       type: 'definition',
       title: 'Salmen som sjanger',
       content: `**Salme:** En religiøs sang ment for fellesskapets bruk i gudstjeneste eller andakt.
@@ -2707,7 +2707,7 @@ Som litterært verk representerer Kingos salmer høydepunktet i dansk-norsk baro
 - Markering av livets overganger`,
     },
     {
-      id: 'norsk-vg2-3-3-example-1',
+      id: 'norsk-vg2-2-6-example-1',
       type: 'example',
       title: 'Eksempel: "Sorrig og Glæde de vandre tilhobe"',
       problem: `Les denne strofen fra Kingos mest kjente salme:
@@ -2750,7 +2750,7 @@ Strofen har et dansende, vuggende versemål som understreker temaet om veksling 
 Kingo trøster leseren: Det er naturlig at livet svinger mellom glede og sorg. Men bak alle svingningene finnes en evig salighet som venter. Denne visdommen gjør det lettere å bære livets motgang.`,
     },
     {
-      id: 'norsk-vg2-3-3-example-2',
+      id: 'norsk-vg2-2-6-example-2',
       type: 'example',
       title: 'Eksempel: Morgensalme - "Som den gyldne Sol frembryder"',
       problem: `Les begynnelsen av Kingos morgensalme:
@@ -2792,7 +2792,7 @@ Salmen knytter den religiøse opplevelsen til hverdagen. Soloppgangen, som alle 
 Som morgensalme skulle den synges ved dagens begynnelse. Den minner om Guds godhet og gir styrke til dagens gjerninger.`,
     },
     {
-      id: 'norsk-vg2-3-3-tip-1',
+      id: 'norsk-vg2-2-6-tip-1',
       type: 'tip',
       title: 'Tips for salmeanalyse',
       content: `**Slik analyserer du en salme:**
@@ -2825,10 +2825,10 @@ Barokksalmer er fulle av kontraster. Disse bærer ofte budskapet.
 - Hva var funksjonen?`,
     },
     {
-      id: 'norsk-vg2-3-3-ex-1',
+      id: 'norsk-vg2-2-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-3-ex-1',
+        id: 'norsk-vg2-2-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Thomas Kingos salmediktning.',
@@ -2855,10 +2855,10 @@ Barokksalmer er fulle av kontraster. Disse bærer ofte budskapet.
       },
     },
     {
-      id: 'norsk-vg2-3-3-ex-2',
+      id: 'norsk-vg2-2-6-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-3-ex-2',
+        id: 'norsk-vg2-2-6-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign barokkens salmediktere.',
@@ -2885,10 +2885,10 @@ Barokksalmer er fulle av kontraster. Disse bærer ofte budskapet.
       },
     },
     {
-      id: 'norsk-vg2-3-3-ex-3',
+      id: 'norsk-vg2-2-6-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-3-ex-3',
+        id: 'norsk-vg2-2-6-ex-3',
         number: '3',
         type: 'classic',
         task: 'Skriv om salmetradisjonen.',
@@ -2914,13 +2914,13 @@ Barokksalmer er fulle av kontraster. Disse bærer ofte budskapet.
 };
 
 // ============================================================================
-// KAPITTEL 4.1: Opplysningstidens ideer
+// KAPITTEL 2.7: Opplysningstidens ideer
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_4_1: TextbookChapter = {
-  id: 'norsk-vg2-4-1',
+export const CHAPTER_NORSK_VG2_2_7: TextbookChapter = {
+  id: 'norsk-vg2-2-7',
   courseId: 'norsk-vg2',
-  chapterNumber: '4.1',
+  chapterNumber: '2.7',
   title: 'Opplysningstidens ideer',
   description: 'Utforsk 1700-tallets tro på fornuft, vitenskap og fremskritt.',
   estimatedMinutes: 55,
@@ -2930,7 +2930,7 @@ export const CHAPTER_NORSK_VG2_4_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-4-1-intro',
+      id: 'norsk-vg2-2-7-intro',
       type: 'text',
       content: `## Opplysningstiden - fornuftens tidsalder
 
@@ -2967,7 +2967,7 @@ I Danmark-Norge ble opplysningsideer fremmet gjennom:
 Norge fikk sitt første universitet i 1811, delvis inspirert av opplysningstidens idealer.`,
     },
     {
-      id: 'norsk-vg2-4-1-def-1',
+      id: 'norsk-vg2-2-7-def-1',
       type: 'definition',
       title: 'Opplysningstidens begreper',
       content: `**Opplysning (Enlightenment):** Intellektuell bevegelse som vektla fornuft, vitenskap og fremskritt.
@@ -2987,7 +2987,7 @@ Norge fikk sitt første universitet i 1811, delvis inspirert av opplysningstiden
 **Naturrett:** Tanken om at mennesker har medfødte rettigheter uavhengig av lover.`,
     },
     {
-      id: 'norsk-vg2-4-1-example-1',
+      id: 'norsk-vg2-2-7-example-1',
       type: 'example',
       title: 'Eksempel: Kant om opplysning',
       problem: `Les dette utdraget fra Immanuel Kants essay "Hva er opplysning?" (1784):
@@ -3011,10 +3011,10 @@ Implisitt kritiserer Kant kirke og myndigheter som holder folk i uvitenhet.
 Kants budskap er fortsatt aktuelt: Vi må tenke kritisk og ikke ukritisk akseptere det autoriteter forteller oss.`,
     },
     {
-      id: 'norsk-vg2-4-1-ex-1',
+      id: 'norsk-vg2-2-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-1-ex-1',
+        id: 'norsk-vg2-2-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar opplysningstidens sentrale ideer.',
@@ -3040,13 +3040,13 @@ Kants budskap er fortsatt aktuelt: Vi må tenke kritisk og ikke ukritisk aksepte
 };
 
 // ============================================================================
-// KAPITTEL 4.2: Ludvig Holberg
+// KAPITTEL 2.8: Ludvig Holberg
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_4_2: TextbookChapter = {
-  id: 'norsk-vg2-4-2',
+export const CHAPTER_NORSK_VG2_2_8: TextbookChapter = {
+  id: 'norsk-vg2-2-8',
   courseId: 'norsk-vg2',
-  chapterNumber: '4.2',
+  chapterNumber: '2.8',
   title: 'Ludvig Holberg - forfatter og opplysningsmann',
   description: 'Lær om Ludvig Holberg og hans betydning for dansk-norsk litteratur og kultur.',
   estimatedMinutes: 60,
@@ -3056,7 +3056,7 @@ export const CHAPTER_NORSK_VG2_4_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-4-2-intro',
+      id: 'norsk-vg2-2-8-intro',
       type: 'text',
       content: `## Ludvig Holberg - den dansk-norske opplysningens far
 
@@ -3090,7 +3090,7 @@ Holberg var mer enn underholder - han var opplysningsmann:
 Holberg hadde et realistisk syn på mennesker. Han trodde ikke alle kunne bli like kloke, men han mente at utdanning og opplysning kunne forbedre samfunnet. Han satiriserte både bondsk uvitenhet og akademisk pedanteri.`,
     },
     {
-      id: 'norsk-vg2-4-2-def-1',
+      id: 'norsk-vg2-2-8-def-1',
       type: 'definition',
       title: 'Holbergs komedier - sjangertrekk',
       content: `**Komedie:** Dramatisk sjanger som bruker humor og satire til å kritisere og underholde.
@@ -3114,7 +3114,7 @@ Holberg hadde et realistisk syn på mennesker. Han trodde ikke alle kunne bli li
 - Fornuft mot overtro`,
     },
     {
-      id: 'norsk-vg2-4-2-example-1',
+      id: 'norsk-vg2-2-8-example-1',
       type: 'example',
       title: 'Eksempel: Fra Erasmus Montanus',
       problem: `I "Erasmus Montanus" (1723) kommer studenten Rasmus Berg hjem til landsbyen etter studier i København. Han vil vise sin lærdom ved å bevise at jorden er rund:
@@ -3142,10 +3142,10 @@ Kunnskap er viktig, men må kombineres med sunn fornuft og ydmykhet. Pedanteri e
 Han kritiserer overtro uten å idealisere akademisk lærdom. Ekte opplysning krever mer enn boklig kunnskap.`,
     },
     {
-      id: 'norsk-vg2-4-2-ex-1',
+      id: 'norsk-vg2-2-8-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-2-ex-1',
+        id: 'norsk-vg2-2-8-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Holberg som opplysningsforfatter.',
@@ -3171,13 +3171,13 @@ Han kritiserer overtro uten å idealisere akademisk lærdom. Ekte opplysning kre
 };
 
 // ============================================================================
-// KAPITTEL 4.3: Holbergs komedier i dybden
+// KAPITTEL 2.9: Holbergs komedier i dybden
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_4_3: TextbookChapter = {
-  id: 'norsk-vg2-4-3',
+export const CHAPTER_NORSK_VG2_2_9: TextbookChapter = {
+  id: 'norsk-vg2-2-9',
   courseId: 'norsk-vg2',
-  chapterNumber: '4.3',
+  chapterNumber: '2.9',
   title: 'Holbergs komedier - Jeppe på Bjerget og Erasmus Montanus',
   description: 'Dykk dypt inn i Holbergs to mest kjente komedier med utfyllende tekstutdrag og analyser.',
   estimatedMinutes: 75,
@@ -3188,7 +3188,7 @@ export const CHAPTER_NORSK_VG2_4_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-4-3-intro',
+      id: 'norsk-vg2-2-9-intro',
       type: 'text',
       content: `## Holbergs komedier - mesterverker i dansk-norsk dramatikk
 
@@ -3329,7 +3329,7 @@ Erasmus ender med å bli tvunget til å erkjenne at "jorden er flat" for å få 
 Holberg gir ikke et enkelt svar. Han viser kompleksiteten i opplysningsprosjektet: Kunnskap er viktig, men hvordan formidles den? Og hva gjør vi når sannhet og samhold står mot hverandre?`,
     },
     {
-      id: 'norsk-vg2-4-3-def-1',
+      id: 'norsk-vg2-2-9-def-1',
       type: 'definition',
       title: 'Dramatiske begreper i Holbergs komedier',
       content: `**Sentrale dramatiske begreper:**
@@ -3361,7 +3361,7 @@ Holberg gir ikke et enkelt svar. Han viser kompleksiteten i opplysningsprosjekte
 **Verbal ironi:** Når noen sier det motsatte av det de mener.`,
     },
     {
-      id: 'norsk-vg2-4-3-def-2',
+      id: 'norsk-vg2-2-9-def-2',
       type: 'definition',
       title: 'Satire som virkemiddel',
       content: `**Satire:** Bruk av humor, ironi og overdrivelse for å kritisere.
@@ -3390,7 +3390,7 @@ Holberg gir ikke et enkelt svar. Han viser kompleksiteten i opplysningsprosjekte
 Holberg satirierer alle sider - både bønders uvitenhet og akademikeres pedanteri. Dette gir satiren dybde og troverdighet.`,
     },
     {
-      id: 'norsk-vg2-4-3-example-1',
+      id: 'norsk-vg2-2-9-example-1',
       type: 'example',
       title: 'Eksempel: Sammenligning av Jeppe og Erasmus',
       problem: `Sammenlign hovedpersonene i "Jeppe på Bjerget" og "Erasmus Montanus". Hva satirierer Holberg gjennom dem?`,
@@ -3435,7 +3435,7 @@ Jeppe vekker sympati tross sine feil - han er offer for et urettferdig system. E
 Verken uvitenhet eller pedanteri er veien til et godt samfunn. Opplysning må kombineres med ydmykhet og praktisk klokskap.`,
     },
     {
-      id: 'norsk-vg2-4-3-tip-1',
+      id: 'norsk-vg2-2-9-tip-1',
       type: 'tip',
       title: 'Tips for å lese Holbergs komedier',
       content: `**Slik får du mest ut av Holberg:**
@@ -3465,10 +3465,10 @@ Er slutten tilfredsstillende? Hvem "vinner"? Er det rettferdig?
 Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
     },
     {
-      id: 'norsk-vg2-4-3-ex-1',
+      id: 'norsk-vg2-2-9-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-3-ex-1',
+        id: 'norsk-vg2-2-9-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Jeppes monolog fra åpningsscenen.',
@@ -3500,10 +3500,10 @@ Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
       },
     },
     {
-      id: 'norsk-vg2-4-3-ex-2',
+      id: 'norsk-vg2-2-9-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-3-ex-2',
+        id: 'norsk-vg2-2-9-ex-2',
         number: '2',
         type: 'classic',
         task: 'Analyser konflikten i Erasmus Montanus.',
@@ -3535,10 +3535,10 @@ Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
       },
     },
     {
-      id: 'norsk-vg2-4-3-ex-3',
+      id: 'norsk-vg2-2-9-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-3-ex-3',
+        id: 'norsk-vg2-2-9-ex-3',
         number: '3',
         type: 'classic',
         task: 'Drøft Holbergs doble satire.',
@@ -3565,10 +3565,10 @@ Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
       },
     },
     {
-      id: 'norsk-vg2-4-3-ex-4',
+      id: 'norsk-vg2-2-9-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-3-ex-4',
+        id: 'norsk-vg2-2-9-ex-4',
         number: '4',
         type: 'classic',
         task: 'Skriv en scene i Holbergs stil.',
@@ -3594,13 +3594,13 @@ Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
 };
 
 // ============================================================================
-// KAPITTEL 4.4: Sakprosa i opplysningstiden
+// KAPITTEL 2.10: Sakprosa i opplysningstiden
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_4_4: TextbookChapter = {
-  id: 'norsk-vg2-4-4',
+export const CHAPTER_NORSK_VG2_2_10: TextbookChapter = {
+  id: 'norsk-vg2-2-10',
   courseId: 'norsk-vg2',
-  chapterNumber: '4.4',
+  chapterNumber: '2.10',
   title: 'Sakprosa i opplysningstiden',
   description: 'Utforsk opplysningstidens sakprosatradisjoner: essays, pamfletter og vitenskapelig skriving.',
   estimatedMinutes: 60,
@@ -3611,7 +3611,7 @@ export const CHAPTER_NORSK_VG2_4_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-4-4-intro',
+      id: 'norsk-vg2-2-10-intro',
       type: 'text',
       content: `## Sakprosa i opplysningstiden - fornuftens språk
 
@@ -3692,7 +3692,7 @@ Opplysningstidens sakprosaidealer - klarhet, saklighet, argumentasjon - lever vi
 Opplysningstiden lærte oss at språk er makt, og at klare tanker krever klart språk. Dette er fortsatt grunnleggende for sakprosaen.`,
     },
     {
-      id: 'norsk-vg2-4-4-def-1',
+      id: 'norsk-vg2-2-10-def-1',
       type: 'definition',
       title: 'Sakprosasjangre i opplysningstiden',
       content: `**Essay:** Personlig, resonerende tekst som utforsker et tema. Kombinerer kunnskap med refleksjon. Eksempel: Holbergs Epistler.
@@ -3710,7 +3710,7 @@ Opplysningstiden lærte oss at språk er makt, og at klare tanker krever klart s
 **Reisebeskrivelse:** Fortelling fra reiser som formidler kunnskap om andre land og folk.`,
     },
     {
-      id: 'norsk-vg2-4-4-def-2',
+      id: 'norsk-vg2-2-10-def-2',
       type: 'definition',
       title: 'Retoriske virkemidler i opplysningsprosa',
       content: `**Klarhet:** Enkel, forståelig fremstilling. Komplekse tanker i enkelt språk.
@@ -3730,7 +3730,7 @@ Opplysningstiden lærte oss at språk er makt, og at klare tanker krever klart s
 **Kildekritikk:** Vurdere hvor informasjon kommer fra. Tidlig form for akademisk metode.`,
     },
     {
-      id: 'norsk-vg2-4-4-example-1',
+      id: 'norsk-vg2-2-10-example-1',
       type: 'example',
       title: 'Eksempel: Kants svar på "Hva er opplysning?"',
       problem: `Les dette utdraget fra Kants berømte essay "Besvarelse av spørsmålet: Hva er opplysning?" (1784):
@@ -3773,7 +3773,7 @@ Opplysning handler ikke primært om å få kunnskap, men om å TØR bruke den ku
 Dette essayet er blitt selve definisjonen på opplysningstiden. Kant formulerte hva bevegelsen handlet om: frigjøring gjennom selvstendig tenkning.`,
     },
     {
-      id: 'norsk-vg2-4-4-example-2',
+      id: 'norsk-vg2-2-10-example-2',
       type: 'example',
       title: 'Eksempel: Holbergs Epistler',
       problem: `Les dette utdraget fra Holbergs Epistel 347 om kvinners utdanning:
@@ -3816,7 +3816,7 @@ Kvinner er like begavede som menn. Forskjellen skyldes oppdragelse, ikke natur.
 Dette var radikalt i 1750. Holberg argumenterer for kvinners likeverdighet i en tid der dette var kontroversielt. Han bruker saklige argumenter, ikke følelsesmessige appeller.`,
     },
     {
-      id: 'norsk-vg2-4-4-tip-1',
+      id: 'norsk-vg2-2-10-tip-1',
       type: 'tip',
       title: 'Tips for analyse av sakprosatekster',
       content: `**Slik analyserer du sakprosa fra opplysningstiden:**
@@ -3853,10 +3853,10 @@ Hva er tekstens sentrale påstand? Ofte formulert i begynnelsen.
 - Finnes det lignende debatter i dag?`,
     },
     {
-      id: 'norsk-vg2-4-4-ex-1',
+      id: 'norsk-vg2-2-10-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-4-ex-1',
+        id: 'norsk-vg2-2-10-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser opplysningstidens sakprosa.',
@@ -3883,10 +3883,10 @@ Hva er tekstens sentrale påstand? Ofte formulert i begynnelsen.
       },
     },
     {
-      id: 'norsk-vg2-4-4-ex-2',
+      id: 'norsk-vg2-2-10-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-4-ex-2',
+        id: 'norsk-vg2-2-10-ex-2',
         number: '2',
         type: 'classic',
         task: 'Arbeid med Holbergs Epistler.',
@@ -3918,10 +3918,10 @@ Hva er tekstens sentrale påstand? Ofte formulert i begynnelsen.
       },
     },
     {
-      id: 'norsk-vg2-4-4-ex-3',
+      id: 'norsk-vg2-2-10-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-4-4-ex-3',
+        id: 'norsk-vg2-2-10-ex-3',
         number: '3',
         type: 'classic',
         task: 'Skriv i opplysningstidens stil.',
@@ -3947,13 +3947,13 @@ Hva er tekstens sentrale påstand? Ofte formulert i begynnelsen.
 };
 
 // ============================================================================
-// KAPITTEL 5.1: Romantikkens ideer
+// KAPITTEL 3.1: Romantikkens ideer
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_5_1: TextbookChapter = {
-  id: 'norsk-vg2-5-1',
+export const CHAPTER_NORSK_VG2_3_1: TextbookChapter = {
+  id: 'norsk-vg2-3-1',
   courseId: 'norsk-vg2',
-  chapterNumber: '5.1',
+  chapterNumber: '3.1',
   title: 'Romantikkens ideer og impulser',
   description: 'Utforsk romantikken som reaksjon på opplysningstiden, med fokus på følelser, natur og det nasjonale.',
   estimatedMinutes: 55,
@@ -3963,7 +3963,7 @@ export const CHAPTER_NORSK_VG2_5_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-5-1-intro',
+      id: 'norsk-vg2-3-1-intro',
       type: 'text',
       content: `## Romantikken - følelsenes revolusjon
 
@@ -4001,7 +4001,7 @@ I Norge kom romantikken ca. 1814-1850, nært knyttet til nasjonsbyggingen etter 
 - Andreas Munch (1811-1884)`,
     },
     {
-      id: 'norsk-vg2-5-1-def-1',
+      id: 'norsk-vg2-3-1-def-1',
       type: 'definition',
       title: 'Romantikkens sentrale begreper',
       content: `**Romantikk:** Kultur- og litteraturbevegelse ca. 1800-1850 som vektla følelse, fantasi og natur.
@@ -4026,7 +4026,7 @@ I Norge kom romantikken ca. 1814-1850, nært knyttet til nasjonsbyggingen etter 
 - Eventyr og folketro`,
     },
     {
-      id: 'norsk-vg2-5-1-example-1',
+      id: 'norsk-vg2-3-1-example-1',
       type: 'example',
       title: 'Eksempel: Wergelands naturopplevelse',
       problem: `Les dette utdraget fra Henrik Wergelands dikt "Mig Selv" (1833):
@@ -4055,10 +4055,10 @@ Dikteren har en særlig følsomhet som gjør ham i stand til å sanse det andre 
 - Høystemt, følelsesladet tone`,
     },
     {
-      id: 'norsk-vg2-5-1-ex-1',
+      id: 'norsk-vg2-3-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-1-ex-1',
+        id: 'norsk-vg2-3-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar romantikkens ideer.',
@@ -4084,13 +4084,13 @@ Dikteren har en særlig følsomhet som gjør ham i stand til å sanse det andre 
 };
 
 // ============================================================================
-// KAPITTEL 5.2: Henrik Wergeland
+// KAPITTEL 3.2: Henrik Wergeland
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_5_2: TextbookChapter = {
-  id: 'norsk-vg2-5-2',
+export const CHAPTER_NORSK_VG2_3_2: TextbookChapter = {
+  id: 'norsk-vg2-3-2',
   courseId: 'norsk-vg2',
-  chapterNumber: '5.2',
+  chapterNumber: '3.2',
   title: 'Henrik Wergeland - dikter og agitator',
   description: 'Lær om Henrik Wergeland, den store norske romantiske dikteren og folkeopplyseren.',
   estimatedMinutes: 55,
@@ -4100,7 +4100,7 @@ export const CHAPTER_NORSK_VG2_5_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-5-2-intro',
+      id: 'norsk-vg2-3-2-intro',
       type: 'text',
       content: `## Henrik Wergeland - Norges nasjonaldikter
 
@@ -4127,7 +4127,7 @@ Wergelands forfatterskap er enormt og variert:
 Wergeland sto i en bitter strid med Johan Sebastian Welhaven om norsk kulturutvikling. Wergeland ("patriotene") ville bryte med dansk kultur og bygge noe genuint norsk. Welhaven ("intelligenspartiet") mente Norge trengte europeisk dannelse.`,
     },
     {
-      id: 'norsk-vg2-5-2-def-1',
+      id: 'norsk-vg2-3-2-def-1',
       type: 'definition',
       title: 'Wergeland - sentrale trekk',
       content: `**Biografiske fakta:**
@@ -4154,7 +4154,7 @@ Wergeland sto i en bitter strid med Johan Sebastian Welhaven om norsk kulturutvi
 - Norsk egenart vs. europeisk dannelse`,
     },
     {
-      id: 'norsk-vg2-5-2-example-1',
+      id: 'norsk-vg2-3-2-example-1',
       type: 'example',
       title: 'Eksempel: "Den første Sang"',
       problem: `Les dette utdraget fra "Skabelsen, Mennesket og Messias" (1830), der Wergeland skildrer naturens oppvåkning:
@@ -4183,10 +4183,10 @@ Utropet "O, Natur!" viser dikterens følelsesmessige engasjement.
 Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og full av mening.`,
     },
     {
-      id: 'norsk-vg2-5-2-ex-1',
+      id: 'norsk-vg2-3-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-2-ex-1',
+        id: 'norsk-vg2-3-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Wergelands betydning.',
@@ -4212,13 +4212,13 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
 };
 
 // ============================================================================
-// KAPITTEL 5.3: Johan Sebastian Welhaven
+// KAPITTEL 3.3: Johan Sebastian Welhaven
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_5_3: TextbookChapter = {
-  id: 'norsk-vg2-5-3',
+export const CHAPTER_NORSK_VG2_3_3: TextbookChapter = {
+  id: 'norsk-vg2-3-3',
   courseId: 'norsk-vg2',
-  chapterNumber: '5.3',
+  chapterNumber: '3.3',
   title: 'Johan Sebastian Welhaven - dikteren og kritikeren',
   description: 'Lær om Wergelands store motstander og hans betydning for norsk litteratur og kulturliv.',
   estimatedMinutes: 65,
@@ -4229,7 +4229,7 @@ export const CHAPTER_NORSK_VG2_5_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-5-3-intro',
+      id: 'norsk-vg2-3-3-intro',
       type: 'text',
       content: `## Johan Sebastian Welhaven - romantikkens klassisist
 
@@ -4304,7 +4304,7 @@ Welhavens betydning er stor på flere områder:
 Det er en vanlig misforståelse at Wergeland "vant" striden. I virkeligheten trengte Norge begge: Wergelands energi og folkelighet, og Welhavens kvalitetsbevissthet og europeiske perspektiv. Sammen skapte de grunnlaget for en moden norsk litteratur.`,
     },
     {
-      id: 'norsk-vg2-5-3-def-1',
+      id: 'norsk-vg2-3-3-def-1',
       type: 'definition',
       title: 'Johan Sebastian Welhaven - sentrale begreper',
       content: `**Biografiske fakta:**
@@ -4332,7 +4332,7 @@ Det er en vanlig misforståelse at Wergeland "vant" striden. I virkeligheten tre
 - Dikteren som kunstner, ikke agitator`,
     },
     {
-      id: 'norsk-vg2-5-3-def-2',
+      id: 'norsk-vg2-3-3-def-2',
       type: 'definition',
       title: 'Striden Wergeland-Welhaven',
       content: `**Bakgrunn:**
@@ -4360,7 +4360,7 @@ Den største kulturstriden i norsk historie, 1830-1840-tallet.
 Begge sider bidro til å forme norsk kultur. Norge fikk både folkelig og elitekultur, både nasjonal egenart og europeisk tilknytning.`,
     },
     {
-      id: 'norsk-vg2-5-3-example-1',
+      id: 'norsk-vg2-3-3-example-1',
       type: 'example',
       title: 'Eksempel: "Lokkende Toner"',
       problem: `Les Welhavens dikt "Lokkende Toner":
@@ -4421,7 +4421,7 @@ Vemodig, lengtende, melankolsk. Diktet handler om noe tapt og uoppnåelig - en e
 Diktet er et mesterstykke i romantisk stemningslyrikk og viser Welhavens evne til å skape dyp virkning med enkle midler.`,
     },
     {
-      id: 'norsk-vg2-5-3-example-2',
+      id: 'norsk-vg2-3-3-example-2',
       type: 'example',
       title: 'Eksempel: Fra "Norges Dæmring"',
       problem: `Les dette utdraget fra Welhavens kontroversielle dikt "Norges Dæmring" (1834):
@@ -4476,7 +4476,7 @@ Selv kritikerne måtte innrømme at diktet var teknisk briljant. Welhaven behers
 Diktet er ensidig og urettferdig mot Wergeland-leiren. Men det peker på et reelt problem: Nasjonalisme uten substans er tom. Norge trengte både Wergelands entusiasme og Welhavens kvalitetskrav.`,
     },
     {
-      id: 'norsk-vg2-5-3-tip-1',
+      id: 'norsk-vg2-3-3-tip-1',
       type: 'tip',
       title: 'Tips for å sammenligne Wergeland og Welhaven',
       content: `**Slik kan du sammenligne de to dikterne:**
@@ -4513,10 +4513,10 @@ Diktet er ensidig og urettferdig mot Wergeland-leiren. Men det peker på et reel
 Ikke spør hvem som var "best". Spør hva hver av dem bidro med, og hvorfor norsk litteratur trengte begge.`,
     },
     {
-      id: 'norsk-vg2-5-3-ex-1',
+      id: 'norsk-vg2-3-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-3-ex-1',
+        id: 'norsk-vg2-3-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser Welhavens diktning.',
@@ -4543,10 +4543,10 @@ Ikke spør hvem som var "best". Spør hva hver av dem bidro med, og hvorfor nors
       },
     },
     {
-      id: 'norsk-vg2-5-3-ex-2',
+      id: 'norsk-vg2-3-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-3-ex-2',
+        id: 'norsk-vg2-3-3-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign Wergeland og Welhaven.',
@@ -4573,10 +4573,10 @@ Ikke spør hvem som var "best". Spør hva hver av dem bidro med, og hvorfor nors
       },
     },
     {
-      id: 'norsk-vg2-5-3-ex-3',
+      id: 'norsk-vg2-3-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-3-ex-3',
+        id: 'norsk-vg2-3-3-ex-3',
         number: '3',
         type: 'classic',
         task: 'Drøft kulturstriden.',
@@ -4602,13 +4602,13 @@ Ikke spør hvem som var "best". Spør hva hver av dem bidro med, og hvorfor nors
 };
 
 // ============================================================================
-// KAPITTEL 5.4: Romantisk lyrikk og naturopplevelse
+// KAPITTEL 3.4: Romantisk lyrikk og naturopplevelse
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_5_4: TextbookChapter = {
-  id: 'norsk-vg2-5-4',
+export const CHAPTER_NORSK_VG2_3_4: TextbookChapter = {
+  id: 'norsk-vg2-3-4',
   courseId: 'norsk-vg2',
-  chapterNumber: '5.4',
+  chapterNumber: '3.4',
   title: 'Romantisk lyrikk og naturopplevelse',
   description: 'Utforsk hvordan romantikkens diktere skildret naturen og brukte den som uttrykk for følelser og ideer.',
   estimatedMinutes: 60,
@@ -4619,7 +4619,7 @@ export const CHAPTER_NORSK_VG2_5_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-5-4-intro',
+      id: 'norsk-vg2-3-4-intro',
       type: 'text',
       content: `## Romantisk naturlyrikk - når naturen taler til sjelen
 
@@ -4709,7 +4709,7 @@ Lyd og rytme i språket gjenspeiler naturens lyder - bekkers risling, vindens su
 Romantikkens naturlyrikk har satt dype spor. Fremdeles skriver norske diktere om naturen, og mange av bildene og motivene stammer fra romantikken. Men forholdet til naturen har endret seg - i dag er naturlyrikken ofte preget av miljøbekymring og tap, ikke bare av andakt og henrykkelse.`,
     },
     {
-      id: 'norsk-vg2-5-4-def-1',
+      id: 'norsk-vg2-3-4-def-1',
       type: 'definition',
       title: 'Romantikkens naturbegreper',
       content: `**Panteisme:** Forestillingen om at Gud er til stede i alt i naturen. Naturen er guddommelig.
@@ -4727,7 +4727,7 @@ Romantikkens naturlyrikk har satt dype spor. Fremdeles skriver norske diktere om
 **Naturlengsel:** Romantisk lengsel bort fra byen og sivilisasjonen til ren og hellig natur.`,
     },
     {
-      id: 'norsk-vg2-5-4-def-2',
+      id: 'norsk-vg2-3-4-def-2',
       type: 'definition',
       title: 'Virkemidler i naturlyrikk',
       content: `**Besjeling (personifikasjon):** Naturen får menneskelige egenskaper. "Fjellet troner", "bekken synger".
@@ -4747,7 +4747,7 @@ Romantikkens naturlyrikk har satt dype spor. Fremdeles skriver norske diktere om
 **Rytme og klang:** Versets lyd speiler naturens lyder.`,
     },
     {
-      id: 'norsk-vg2-5-4-example-1',
+      id: 'norsk-vg2-3-4-example-1',
       type: 'example',
       title: 'Eksempel: Wergelands "Til Foraaret"',
       problem: `Les dette utdraget fra Wergelands dikt "Til Foraaret":
@@ -4801,7 +4801,7 @@ Diktet bygger opp til en direkte oppfordring: "Menneske! Glæd dig!" Naturen fei
 Dette er Wergeland på sitt mest karakteristiske: en hyllest til livet selv, uttrykt gjennom naturens våroppvåkning.`,
     },
     {
-      id: 'norsk-vg2-5-4-example-2',
+      id: 'norsk-vg2-3-4-example-2',
       type: 'example',
       title: 'Eksempel: Welhavens "Dalen"',
       problem: `Les Welhavens dikt "Dalen":
@@ -4853,7 +4853,7 @@ Naturen speiler - eller i dette tilfellet kontrasterer - sjelen. Welhaven bruker
 Dette er romantisk naturlyrikk der naturen viser frem det sjelen mangler, ikke det den opplever.`,
     },
     {
-      id: 'norsk-vg2-5-4-tip-1',
+      id: 'norsk-vg2-3-4-tip-1',
       type: 'tip',
       title: 'Tips for analyse av romantisk naturlyrikk',
       content: `**Slik analyserer du romantisk naturlyrikk:**
@@ -4886,10 +4886,10 @@ Hvem skrev det? Når? Hvilken type romantikk representerer det?
 Hvordan ville Wergeland vs. Welhaven skrevet om samme scene?`,
     },
     {
-      id: 'norsk-vg2-5-4-ex-1',
+      id: 'norsk-vg2-3-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-4-ex-1',
+        id: 'norsk-vg2-3-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser romantisk naturlyrikk.',
@@ -4916,10 +4916,10 @@ Hvordan ville Wergeland vs. Welhaven skrevet om samme scene?`,
       },
     },
     {
-      id: 'norsk-vg2-5-4-ex-2',
+      id: 'norsk-vg2-3-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-4-ex-2',
+        id: 'norsk-vg2-3-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Skriv romantisk naturlyrikk.',
@@ -4941,10 +4941,10 @@ Hvordan ville Wergeland vs. Welhaven skrevet om samme scene?`,
       },
     },
     {
-      id: 'norsk-vg2-5-4-ex-3',
+      id: 'norsk-vg2-3-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-4-ex-3',
+        id: 'norsk-vg2-3-4-ex-3',
         number: '3',
         type: 'classic',
         task: 'Sammenlign romantikkens og nåtidens natursyn.',
@@ -4975,13 +4975,13 @@ Hvordan ville Wergeland vs. Welhaven skrevet om samme scene?`,
 };
 
 // ============================================================================
-// KAPITTEL 6.1: Nasjonalromantikken og nasjonsbygging
+// KAPITTEL 3.5: Nasjonalromantikken og nasjonsbygging
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_6_1: TextbookChapter = {
-  id: 'norsk-vg2-6-1',
+export const CHAPTER_NORSK_VG2_3_5: TextbookChapter = {
+  id: 'norsk-vg2-3-5',
   courseId: 'norsk-vg2',
-  chapterNumber: '6.1',
+  chapterNumber: '3.5',
   title: 'Nasjonalromantikken og nasjonsbygging',
   description: 'Utforsk hvordan litteratur og kultur bidro til å skape norsk nasjonal identitet på 1800-tallet.',
   estimatedMinutes: 55,
@@ -4991,7 +4991,7 @@ export const CHAPTER_NORSK_VG2_6_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-6-1-intro',
+      id: 'norsk-vg2-3-5-intro',
       type: 'text',
       content: `## Nasjonalromantikken - jakten på det norske
 
@@ -5025,7 +5025,7 @@ De norske nasjonalromantikerne fulgte europeiske forbilder:
 - Edvard Grieg: Musikk inspirert av folkemusikk`,
     },
     {
-      id: 'norsk-vg2-6-1-def-1',
+      id: 'norsk-vg2-3-5-def-1',
       type: 'definition',
       title: 'Nasjonalromantikkens begreper',
       content: `**Nasjonalromantikk:** Kulturell bevegelse som søkte å definere og dyrke det spesifikt nasjonale.
@@ -5043,10 +5043,10 @@ De norske nasjonalromantikerne fulgte europeiske forbilder:
 **Folkedrakt (bunad):** Regionale drakter som ble gjenoppdaget og idealisert.`,
     },
     {
-      id: 'norsk-vg2-6-1-ex-1',
+      id: 'norsk-vg2-3-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-1-ex-1',
+        id: 'norsk-vg2-3-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar nasjonalromantikkens betydning for norsk identitet.',
@@ -5072,13 +5072,13 @@ De norske nasjonalromantikerne fulgte europeiske forbilder:
 };
 
 // ============================================================================
-// KAPITTEL 6.2: Asbjørnsen og Moe - folkeeventyr
+// KAPITTEL 3.6: Asbjørnsen og Moe - folkeeventyr
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_6_2: TextbookChapter = {
-  id: 'norsk-vg2-6-2',
+export const CHAPTER_NORSK_VG2_3_6: TextbookChapter = {
+  id: 'norsk-vg2-3-6',
   courseId: 'norsk-vg2',
-  chapterNumber: '6.2',
+  chapterNumber: '3.6',
   title: 'Asbjørnsen og Moe - folkeeventyr',
   description: 'Lær om innsamlingen av norske folkeeventyr og deres betydning for nasjonal identitet.',
   estimatedMinutes: 55,
@@ -5088,7 +5088,7 @@ export const CHAPTER_NORSK_VG2_6_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-6-2-intro',
+      id: 'norsk-vg2-3-6-intro',
       type: 'text',
       content: `## Asbjørnsen og Moe - skaperne av det norske eventyret
 
@@ -5125,7 +5125,7 @@ Folkeeventyrene fikk enorm betydning:
 - "Gutten som gikk til Nordavinden"`,
     },
     {
-      id: 'norsk-vg2-6-2-def-1',
+      id: 'norsk-vg2-3-6-def-1',
       type: 'definition',
       title: 'Eventyrsjangeren',
       content: `**Folkeeventyr:** Eventyr fra muntlig tradisjon, samlet og nedskrevet.
@@ -5148,10 +5148,10 @@ Folkeeventyrene fikk enorm betydning:
 Den typiske norske eventyrhelten - yngste bror, blir undervurdert, bruker list og vinner.`,
     },
     {
-      id: 'norsk-vg2-6-2-ex-1',
+      id: 'norsk-vg2-3-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-2-ex-1',
+        id: 'norsk-vg2-3-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser folkeeventyrenes betydning.',
@@ -5177,13 +5177,13 @@ Den typiske norske eventyrhelten - yngste bror, blir undervurdert, bruker list o
 };
 
 // ============================================================================
-// KAPITTEL 6.3: Ivar Aasen og landsmålet
+// KAPITTEL 3.7: Ivar Aasen og landsmålet
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_6_3: TextbookChapter = {
-  id: 'norsk-vg2-6-3',
+export const CHAPTER_NORSK_VG2_3_7: TextbookChapter = {
+  id: 'norsk-vg2-3-7',
   courseId: 'norsk-vg2',
-  chapterNumber: '6.3',
+  chapterNumber: '3.7',
   title: 'Ivar Aasen og landsmålet',
   description: 'Lær om Ivar Aasens arbeid med å skape et norsk skriftspråk basert på dialektene.',
   estimatedMinutes: 55,
@@ -5193,7 +5193,7 @@ export const CHAPTER_NORSK_VG2_6_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-6-3-intro',
+      id: 'norsk-vg2-3-7-intro',
       type: 'text',
       content: `## Ivar Aasen - skaperen av nynorsk
 
@@ -5224,7 +5224,7 @@ Aasens landsmål (senere: nynorsk) ble et av Norges to offisielle skriftspråk. 
 - Inspirerte målrørsla (nynorskbevegelsen)`,
     },
     {
-      id: 'norsk-vg2-6-3-def-1',
+      id: 'norsk-vg2-3-7-def-1',
       type: 'definition',
       title: 'Ivar Aasen - sentrale begreper',
       content: `**Landsmål:** Aasens navn på skriftspråket han skapte (nå: nynorsk).
@@ -5245,10 +5245,10 @@ Aasens landsmål (senere: nynorsk) ble et av Norges to offisielle skriftspråk. 
 Landsmålet skulle bygge på de dialektene som hadde bevart mest fra norrønt.`,
     },
     {
-      id: 'norsk-vg2-6-3-ex-1',
+      id: 'norsk-vg2-3-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-3-ex-1',
+        id: 'norsk-vg2-3-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar Ivar Aasens språkarbeid.',
@@ -5274,13 +5274,13 @@ Landsmålet skulle bygge på de dialektene som hadde bevart mest fra norrønt.`,
 };
 
 // ============================================================================
-// KAPITTEL 6.4: Norske folkeviser og ballader
+// KAPITTEL 3.8: Norske folkeviser og ballader
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_6_4: TextbookChapter = {
-  id: 'norsk-vg2-6-4',
+export const CHAPTER_NORSK_VG2_3_8: TextbookChapter = {
+  id: 'norsk-vg2-3-8',
   courseId: 'norsk-vg2',
-  chapterNumber: '6.4',
+  chapterNumber: '3.8',
   title: 'Norske folkeviser og ballader',
   description: 'Utforsk den norske folkevisetradisjonen med ridderballader, kjempeviser og trollviser.',
   estimatedMinutes: 65,
@@ -5291,7 +5291,7 @@ export const CHAPTER_NORSK_VG2_6_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-6-4-intro',
+      id: 'norsk-vg2-3-8-intro',
       type: 'text',
       content: `## Norske folkeviser - stemmer fra middelalderen
 
@@ -5382,7 +5382,7 @@ Folkevisene har hatt stor betydning:
 5. *For identiteten:* Folkevisene ble en del av norsk selvforståelse - "slik var vi før dansketiden".`,
     },
     {
-      id: 'norsk-vg2-6-4-def-1',
+      id: 'norsk-vg2-3-8-def-1',
       type: 'definition',
       title: 'Folkevisesjangeren - sentrale begreper',
       content: `**Folkevise (ballade):** Fortellende sang fra middelalderen, overlevert muntlig.
@@ -5409,7 +5409,7 @@ Folkevisene har hatt stor betydning:
 - Symbolspråk`,
     },
     {
-      id: 'norsk-vg2-6-4-example-1',
+      id: 'norsk-vg2-3-8-example-1',
       type: 'example',
       title: 'Eksempel: "Draumkvedet"',
       problem: `"Draumkvedet" regnes som den ypperste norske folkevisen. Les dette utdraget:
@@ -5461,7 +5461,7 @@ Blandingen viser hvordan førkristen og kristen tro sameksisterte i folkereligi�
 Draumkvedet regnes som norsk litteraturs fremste folkevise - et mesterstykke i visjonær dikting som har inspirert kunstnere fra Ibsen til Nils Aslak Valkeapää.`,
     },
     {
-      id: 'norsk-vg2-6-4-example-2',
+      id: 'norsk-vg2-3-8-example-2',
       type: 'example',
       title: 'Eksempel: "Margit Hjukse" (trollvise)',
       problem: `Les begynnelsen av trollvisen "Margit Hjukse":
@@ -5513,7 +5513,7 @@ Visene advarer mot å la seg lokke av det ukjente. De forteller om farene i gren
 "Berget det let seg upp" er en fast vending i trollviser. Den signaliserer at noe overnaturlig skjer.`,
     },
     {
-      id: 'norsk-vg2-6-4-tip-1',
+      id: 'norsk-vg2-3-8-tip-1',
       type: 'tip',
       title: 'Tips for analyse av folkeviser',
       content: `**Slik analyserer du en folkevise:**
@@ -5550,10 +5550,10 @@ Finnes lignende viser fra andre land? Hva er særnorsk?
 **Les gjerne visene høyt** - de var ment for sang og får ny mening når de fremføres.`,
     },
     {
-      id: 'norsk-vg2-6-4-ex-1',
+      id: 'norsk-vg2-3-8-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-4-ex-1',
+        id: 'norsk-vg2-3-8-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser folkevisesjangeren.',
@@ -5580,10 +5580,10 @@ Finnes lignende viser fra andre land? Hva er særnorsk?
       },
     },
     {
-      id: 'norsk-vg2-6-4-ex-2',
+      id: 'norsk-vg2-3-8-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-4-ex-2',
+        id: 'norsk-vg2-3-8-ex-2',
         number: '2',
         type: 'classic',
         task: 'Arbeid med Draumkvedet.',
@@ -5610,10 +5610,10 @@ Finnes lignende viser fra andre land? Hva er særnorsk?
       },
     },
     {
-      id: 'norsk-vg2-6-4-ex-3',
+      id: 'norsk-vg2-3-8-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-4-ex-3',
+        id: 'norsk-vg2-3-8-ex-3',
         number: '3',
         type: 'classic',
         task: 'Sammenlign folkeviser med moderne tekster.',
@@ -5639,13 +5639,13 @@ Finnes lignende viser fra andre land? Hva er særnorsk?
 };
 
 // ============================================================================
-// KAPITTEL 6.5: Språkdebatten - landsmål vs riksmål
+// KAPITTEL 3.9: Språkdebatten - landsmål vs riksmål
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_6_5: TextbookChapter = {
-  id: 'norsk-vg2-6-5',
+export const CHAPTER_NORSK_VG2_3_9: TextbookChapter = {
+  id: 'norsk-vg2-3-9',
   courseId: 'norsk-vg2',
-  chapterNumber: '6.5',
+  chapterNumber: '3.9',
   title: 'Språkdebatten - landsmål mot riksmål',
   description: 'Utforsk den store norske språkstriden fra 1800-tallet og dens ettervirkninger.',
   estimatedMinutes: 60,
@@ -5655,7 +5655,7 @@ export const CHAPTER_NORSK_VG2_6_5: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-6-5-intro',
+      id: 'norsk-vg2-3-9-intro',
       type: 'text',
       content: `## Språkstriden - Norges lengste kulturkamp
 
@@ -5746,7 +5746,7 @@ Striden har hatt store konsekvenser:
 5. *Rikdom:* To skriftspråk og mange dialekter gir et rikt språklig repertoar.`,
     },
     {
-      id: 'norsk-vg2-6-5-def-1',
+      id: 'norsk-vg2-3-9-def-1',
       type: 'definition',
       title: 'Språkstrid - sentrale begreper',
       content: `**Landsmål / Nynorsk:** Skriftspråket Ivar Aasen skapte basert på dialektene. Heter nynorsk fra 1929.
@@ -5768,7 +5768,7 @@ Striden har hatt store konsekvenser:
 **Språkrådet:** Statlig organ for språknormering (opprettet 1972).`,
     },
     {
-      id: 'norsk-vg2-6-5-def-2',
+      id: 'norsk-vg2-3-9-def-2',
       type: 'definition',
       title: 'Viktige personer i språkstriden',
       content: `**For landsmål/nynorsk:**
@@ -5794,7 +5794,7 @@ Striden har hatt store konsekvenser:
 **Didrik Arup Seip (1884-1963):** Språkforsker og normeringsstrateg.`,
     },
     {
-      id: 'norsk-vg2-6-5-example-1',
+      id: 'norsk-vg2-3-9-example-1',
       type: 'example',
       title: 'Eksempel: Argumenter i språkstriden',
       problem: `Studer disse argumentene fra språkstriden:
@@ -5836,7 +5836,7 @@ Begge argumenter appellerer til hva som er "ekte" og "naturlig". Striden handlet
 Språkdebatten handler aldri bare om språk. Den handler om makt, identitet og hvem som får definere hva nasjonen er.`,
     },
     {
-      id: 'norsk-vg2-6-5-tip-1',
+      id: 'norsk-vg2-3-9-tip-1',
       type: 'tip',
       title: 'Tips for å forstå språkstriden',
       content: `**Nøkler til å forstå språkstriden:**
@@ -5863,10 +5863,10 @@ Sidemålsdebatten, nynorskprosenten og språkpolitikk generelt viser at spørsm�
 - Hva er sterke og svake sider ved argumentasjonen?`,
     },
     {
-      id: 'norsk-vg2-6-5-ex-1',
+      id: 'norsk-vg2-3-9-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-5-ex-1',
+        id: 'norsk-vg2-3-9-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar språkstridens bakgrunn.',
@@ -5893,10 +5893,10 @@ Sidemålsdebatten, nynorskprosenten og språkpolitikk generelt viser at spørsm�
       },
     },
     {
-      id: 'norsk-vg2-6-5-ex-2',
+      id: 'norsk-vg2-3-9-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-5-ex-2',
+        id: 'norsk-vg2-3-9-ex-2',
         number: '2',
         type: 'classic',
         task: 'Drøft språkstridens ettervirkninger.',
@@ -5923,10 +5923,10 @@ Sidemålsdebatten, nynorskprosenten og språkpolitikk generelt viser at spørsm�
       },
     },
     {
-      id: 'norsk-vg2-6-5-ex-3',
+      id: 'norsk-vg2-3-9-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-6-5-ex-3',
+        id: 'norsk-vg2-3-9-ex-3',
         number: '3',
         type: 'classic',
         task: 'Analyser språkpolitisk argumentasjon.',
@@ -5952,13 +5952,13 @@ Sidemålsdebatten, nynorskprosenten og språkpolitikk generelt viser at spørsm�
 };
 
 // ============================================================================
-// KAPITTEL 7.1: Fra norrønt til moderne norsk
+// KAPITTEL 4.1: Fra norrønt til moderne norsk
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_7_1: TextbookChapter = {
-  id: 'norsk-vg2-7-1',
+export const CHAPTER_NORSK_VG2_4_1: TextbookChapter = {
+  id: 'norsk-vg2-4-1',
   courseId: 'norsk-vg2',
-  chapterNumber: '7.1',
+  chapterNumber: '4.1',
   title: 'Fra norrønt til moderne norsk',
   description: 'Utforsk hvordan norsk språk har utviklet seg fra norrøn tid til i dag.',
   estimatedMinutes: 55,
@@ -5968,7 +5968,7 @@ export const CHAPTER_NORSK_VG2_7_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-7-1-intro',
+      id: 'norsk-vg2-4-1-intro',
       type: 'text',
       content: `## Norsk språkhistorie - de store linjene
 
@@ -6004,7 +6004,7 @@ Svartedauden (1349-50) tok livet av kanskje halvparten av befolkningen. Dette fi
 - Dialektene utviklet seg fritt`,
     },
     {
-      id: 'norsk-vg2-7-1-def-1',
+      id: 'norsk-vg2-4-1-def-1',
       type: 'definition',
       title: 'Språkhistoriske perioder',
       content: `**Urnordisk (ca. 200-700):** Eldste kjente stadium, runer.
@@ -6024,10 +6024,10 @@ Svartedauden (1349-50) tok livet av kanskje halvparten av befolkningen. Dette fi
 - Dansk skriftspråk`,
     },
     {
-      id: 'norsk-vg2-7-1-ex-1',
+      id: 'norsk-vg2-4-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-1-ex-1',
+        id: 'norsk-vg2-4-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Beskriv hovedtrekkene i norsk språkhistorie.',
@@ -6053,13 +6053,13 @@ Svartedauden (1349-50) tok livet av kanskje halvparten av befolkningen. Dette fi
 };
 
 // ============================================================================
-// KAPITTEL 7.2: Dansk-norsk og fornorskning
+// KAPITTEL 4.2: Dansk-norsk og fornorskning
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_7_2: TextbookChapter = {
-  id: 'norsk-vg2-7-2',
+export const CHAPTER_NORSK_VG2_4_2: TextbookChapter = {
+  id: 'norsk-vg2-4-2',
   courseId: 'norsk-vg2',
-  chapterNumber: '7.2',
+  chapterNumber: '4.2',
   title: 'Dansk-norsk og fornorskning',
   description: 'Utforsk hvordan dansketiden påvirket norsk og hvordan fornorskingen skjedde.',
   estimatedMinutes: 60,
@@ -6069,7 +6069,7 @@ export const CHAPTER_NORSK_VG2_7_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-7-2-intro',
+      id: 'norsk-vg2-4-2-intro',
       type: 'text',
       content: `## Dansketiden og språket - 400 år som formet norsk
 
@@ -6144,7 +6144,7 @@ Bokmål i dag er et særegent språk - verken dansk eller norrønt, men noe midt
 Nynorsk har holdt seg nærmere dialektene og norrønt, men har også gjennomgått endringer og tilnærminger til bokmål.`,
     },
     {
-      id: 'norsk-vg2-7-2-def-1',
+      id: 'norsk-vg2-4-2-def-1',
       type: 'definition',
       title: 'Dansketiden og fornorsking - begreper',
       content: `**Dansketiden:** Perioden 1397-1814 da Norge var i union med Danmark og dansk var skriftspråk.
@@ -6165,7 +6165,7 @@ Nynorsk har holdt seg nærmere dialektene og norrønt, men har også gjennomgåt
 - 1959, 1981, 2005: Justeringer`,
     },
     {
-      id: 'norsk-vg2-7-2-example-1',
+      id: 'norsk-vg2-4-2-example-1',
       type: 'example',
       title: 'Eksempel: Tekstutvikling fra dansk til bokmål',
       problem: `Sammenlign disse versjonene av samme setning:
@@ -6209,10 +6209,10 @@ Denne formen er lik. Noen danske former beholdes.
 4. Endringene skjedde gradvis over 200 år`,
     },
     {
-      id: 'norsk-vg2-7-2-ex-1',
+      id: 'norsk-vg2-4-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-2-ex-1',
+        id: 'norsk-vg2-4-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar hvordan dansk ble Norges skriftspråk.',
@@ -6239,10 +6239,10 @@ Denne formen er lik. Noen danske former beholdes.
       },
     },
     {
-      id: 'norsk-vg2-7-2-ex-2',
+      id: 'norsk-vg2-4-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-2-ex-2',
+        id: 'norsk-vg2-4-2-ex-2',
         number: '2',
         type: 'classic',
         task: 'Studer fornorskingen av bokmål.',
@@ -6273,13 +6273,13 @@ Denne formen er lik. Noen danske former beholdes.
 };
 
 // ============================================================================
-// KAPITTEL 7.3: Sammenligning - norsk, svensk, dansk
+// KAPITTEL 4.3: Sammenligning - norsk, svensk, dansk
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_7_3: TextbookChapter = {
-  id: 'norsk-vg2-7-3',
+export const CHAPTER_NORSK_VG2_4_3: TextbookChapter = {
+  id: 'norsk-vg2-4-3',
   courseId: 'norsk-vg2',
-  chapterNumber: '7.3',
+  chapterNumber: '4.3',
   title: 'Sammenligning - norsk, svensk, dansk',
   description: 'Utforsk likhetene og forskjellene mellom de skandinaviske språkene.',
   estimatedMinutes: 60,
@@ -6289,7 +6289,7 @@ export const CHAPTER_NORSK_VG2_7_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-7-3-intro',
+      id: 'norsk-vg2-4-3-intro',
       type: 'text',
       content: `## De skandinaviske språkene - søsken med ulike personligheter
 
@@ -6385,7 +6385,7 @@ Grunner til at nordmenn forstår best:
 De nordiske landene samarbeider om å bevare den gjensidige forståeligheten. Man kan bruke sitt eget språk i offisielle nordiske sammenhenger. Men engelsk tar over som felles språk blant yngre generasjoner.`,
     },
     {
-      id: 'norsk-vg2-7-3-def-1',
+      id: 'norsk-vg2-4-3-def-1',
       type: 'definition',
       title: 'Skandinaviske språkforskjeller',
       content: `**Lydlige forskjeller:**
@@ -6410,7 +6410,7 @@ De nordiske landene samarbeider om å bevare den gjensidige forståeligheten. Ma
 - Ulik verbøyning i presens: norsk "snakker", svensk "pratar", dansk "taler"`,
     },
     {
-      id: 'norsk-vg2-7-3-example-1',
+      id: 'norsk-vg2-4-3-example-1',
       type: 'example',
       title: 'Eksempel: Samme tekst på tre språk',
       problem: `Les teksten på norsk, svensk og dansk:
@@ -6462,7 +6462,7 @@ Analyser likhetene og forskjellene.`,
 Skandinavene kan lese hverandres tekster med litt øvelse. Norsk har en mellomposisjon: skriftlig nær dansk, lydlig nær svensk.`,
     },
     {
-      id: 'norsk-vg2-7-3-tip-1',
+      id: 'norsk-vg2-4-3-tip-1',
       type: 'tip',
       title: 'Tips for å forstå svensk og dansk',
       content: `**Slik forstår du de andre skandinaviske språkene bedre:**
@@ -6492,10 +6492,10 @@ Skandinavene kan lese hverandres tekster med litt øvelse. Norsk har en mellompo
 - "Frokost" er tidlig på norsk/dansk, sen på svensk`,
     },
     {
-      id: 'norsk-vg2-7-3-ex-1',
+      id: 'norsk-vg2-4-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-3-ex-1',
+        id: 'norsk-vg2-4-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Sammenlign de skandinaviske språkene.',
@@ -6522,10 +6522,10 @@ Skandinavene kan lese hverandres tekster med litt øvelse. Norsk har en mellompo
       },
     },
     {
-      id: 'norsk-vg2-7-3-ex-2',
+      id: 'norsk-vg2-4-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-3-ex-2',
+        id: 'norsk-vg2-4-3-ex-2',
         number: '2',
         type: 'classic',
         task: 'Arbeid med ordforråd.',
@@ -6551,13 +6551,13 @@ Skandinavene kan lese hverandres tekster med litt øvelse. Norsk har en mellompo
 };
 
 // ============================================================================
-// KAPITTEL 7.4: Språksituasjonen i Norge i dag
+// KAPITTEL 4.4: Språksituasjonen i Norge i dag
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_7_4: TextbookChapter = {
-  id: 'norsk-vg2-7-4',
+export const CHAPTER_NORSK_VG2_4_4: TextbookChapter = {
+  id: 'norsk-vg2-4-4',
   courseId: 'norsk-vg2',
-  chapterNumber: '7.4',
+  chapterNumber: '4.4',
   title: 'Språksituasjonen i Norge i dag',
   description: 'Utforsk dagens norske språksituasjon med bokmål, nynorsk, dialekter og minoritetsspråk.',
   estimatedMinutes: 55,
@@ -6567,7 +6567,7 @@ export const CHAPTER_NORSK_VG2_7_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-7-4-intro',
+      id: 'norsk-vg2-4-4-intro',
       type: 'text',
       content: `## Norsk i dag - et språklig mangfold
 
@@ -6658,7 +6658,7 @@ Hvordan vil norsk se ut om 50 år? Noen tendenser:
 - Flerspråklighet blir normalen for mange`,
     },
     {
-      id: 'norsk-vg2-7-4-def-1',
+      id: 'norsk-vg2-4-4-def-1',
       type: 'definition',
       title: 'Språksituasjonen - begreper',
       content: `**Hovedmål:** Skriftspråket eleven har som sitt primære (bokmål eller nynorsk).
@@ -6680,7 +6680,7 @@ Hvordan vil norsk se ut om 50 år? Noen tendenser:
 **Språkloven (2021):** Norges lov om språk, som fastslår norsk som nasjonalspråk og likestiller bokmål og nynorsk.`,
     },
     {
-      id: 'norsk-vg2-7-4-example-1',
+      id: 'norsk-vg2-4-4-example-1',
       type: 'example',
       title: 'Eksempel: Språkdebatt i dag',
       problem: `Les disse synspunktene fra dagens språkdebatt:
@@ -6728,7 +6728,7 @@ Kjernen er konflikt mellom:
 - Hvordan balansere individets og fellesskapets interesser?`,
     },
     {
-      id: 'norsk-vg2-7-4-tip-1',
+      id: 'norsk-vg2-4-4-tip-1',
       type: 'tip',
       title: 'Tips for å forstå språkpolitiske debatter',
       content: `**Slik analyserer du språkdebatter:**
@@ -6760,10 +6760,10 @@ Kjernen er konflikt mellom:
 - Er du åpen for motargumenter?`,
     },
     {
-      id: 'norsk-vg2-7-4-ex-1',
+      id: 'norsk-vg2-4-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-4-ex-1',
+        id: 'norsk-vg2-4-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Beskriv dagens norske språksituasjon.',
@@ -6790,10 +6790,10 @@ Kjernen er konflikt mellom:
       },
     },
     {
-      id: 'norsk-vg2-7-4-ex-2',
+      id: 'norsk-vg2-4-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-7-4-ex-2',
+        id: 'norsk-vg2-4-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Drøft språkpolitiske spørsmål.',
@@ -6824,13 +6824,13 @@ Kjernen er konflikt mellom:
 };
 
 // ============================================================================
-// KAPITTEL 8.1: Retorikkens grunnbegreper
+// KAPITTEL 5.1: Retorikkens grunnbegreper
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_8_1: TextbookChapter = {
-  id: 'norsk-vg2-8-1',
+export const CHAPTER_NORSK_VG2_5_1: TextbookChapter = {
+  id: 'norsk-vg2-5-1',
   courseId: 'norsk-vg2',
-  chapterNumber: '8.1',
+  chapterNumber: '5.1',
   title: 'Retorikkens grunnbegreper',
   description: 'Lær om retorikkens historie og grunnleggende begreper.',
   estimatedMinutes: 55,
@@ -6840,7 +6840,7 @@ export const CHAPTER_NORSK_VG2_8_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-8-1-intro',
+      id: 'norsk-vg2-5-1-intro',
       type: 'text',
       content: `## Retorikk - overtalelsens kunst
 
@@ -6872,7 +6872,7 @@ Arbeidet med en tale ble delt i fem faser:
 5. Actio - fremføre talen`,
     },
     {
-      id: 'norsk-vg2-8-1-def-1',
+      id: 'norsk-vg2-5-1-def-1',
       type: 'definition',
       title: 'Retoriske grunnbegreper',
       content: `**Retorikk:** Kunsten å tale og skrive overbevisende.
@@ -6898,10 +6898,10 @@ Arbeidet med en tale ble delt i fem faser:
 - Festtale (seremonier)`,
     },
     {
-      id: 'norsk-vg2-8-1-ex-1',
+      id: 'norsk-vg2-5-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-1-ex-1',
+        id: 'norsk-vg2-5-1-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar retorikkens grunnbegreper.',
@@ -6927,13 +6927,13 @@ Arbeidet med en tale ble delt i fem faser:
 };
 
 // ============================================================================
-// KAPITTEL 8.2: Etos, logos, patos
+// KAPITTEL 5.2: Etos, logos, patos
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_8_2: TextbookChapter = {
-  id: 'norsk-vg2-8-2',
+export const CHAPTER_NORSK_VG2_5_2: TextbookChapter = {
+  id: 'norsk-vg2-5-2',
   courseId: 'norsk-vg2',
-  chapterNumber: '8.2',
+  chapterNumber: '5.2',
   title: 'Retoriske appellformer - etos, logos, patos',
   description: 'Lær om de tre appellformene og hvordan de brukes for å overbevise.',
   estimatedMinutes: 55,
@@ -6943,7 +6943,7 @@ export const CHAPTER_NORSK_VG2_8_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-8-2-intro',
+      id: 'norsk-vg2-5-2-intro',
       type: 'text',
       content: `## De tre appellformene
 
@@ -6977,7 +6977,7 @@ Patos-virkemidler:
 - Appell til verdier`,
     },
     {
-      id: 'norsk-vg2-8-2-def-1',
+      id: 'norsk-vg2-5-2-def-1',
       type: 'definition',
       title: 'Appellformene',
       content: `**Etos:** Appell til avsenderens troverdighet og karakter.
@@ -6996,10 +6996,10 @@ Patos-virkemidler:
 - Verdier`,
     },
     {
-      id: 'norsk-vg2-8-2-ex-1',
+      id: 'norsk-vg2-5-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-2-ex-1',
+        id: 'norsk-vg2-5-2-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser bruken av appellformene.',
@@ -7025,13 +7025,13 @@ Patos-virkemidler:
 };
 
 // ============================================================================
-// KAPITTEL 8.3: Analyse av sakprosatekster
+// KAPITTEL 5.3: Analyse av sakprosatekster
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_8_3: TextbookChapter = {
-  id: 'norsk-vg2-8-3',
+export const CHAPTER_NORSK_VG2_5_3: TextbookChapter = {
+  id: 'norsk-vg2-5-3',
   courseId: 'norsk-vg2',
-  chapterNumber: '8.3',
+  chapterNumber: '5.3',
   title: 'Analyse av sakprosatekster',
   description: 'Lær systematisk analyse av sakprosa med retoriske og sjangermessige begreper.',
   estimatedMinutes: 65,
@@ -7042,7 +7042,7 @@ export const CHAPTER_NORSK_VG2_8_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-8-3-intro',
+      id: 'norsk-vg2-5-3-intro',
       type: 'text',
       content: `## Sakprosaanalyse - et verktøy for kritisk lesing
 
@@ -7138,7 +7138,7 @@ Unngå disse feilene i sakprosaanalyse:
 - *Ureflektert kritikk:* Vær rettferdig, ikke bare negativ`,
     },
     {
-      id: 'norsk-vg2-8-3-def-1',
+      id: 'norsk-vg2-5-3-def-1',
       type: 'definition',
       title: 'Sakprosaanalysens begreper',
       content: `**Den retoriske situasjonen:**
@@ -7161,7 +7161,7 @@ Unngå disse feilene i sakprosaanalyse:
 - *Appellerende:* Oppfordrer til handling`,
     },
     {
-      id: 'norsk-vg2-8-3-def-2',
+      id: 'norsk-vg2-5-3-def-2',
       type: 'definition',
       title: 'Sakprosasjangre',
       content: `**Kronikk:** Lengre, argumenterende tekst i avis. Personlig vinkling på samfunnsspørsmål.
@@ -7181,7 +7181,7 @@ Unngå disse feilene i sakprosaanalyse:
 **Fagartikkel:** Akademisk tekst med kilder og strukturert argumentasjon.`,
     },
     {
-      id: 'norsk-vg2-8-3-example-1',
+      id: 'norsk-vg2-5-3-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av en kronikk',
       problem: `Analyser denne fiktive kronikken:
@@ -7263,7 +7263,7 @@ Analyser tekstens retoriske situasjon og virkemidler.`,
 - Generalisering ("hver dag ser jeg")`,
     },
     {
-      id: 'norsk-vg2-8-3-tip-1',
+      id: 'norsk-vg2-5-3-tip-1',
       type: 'tip',
       title: 'Tips for sakprosaanalyse',
       content: `**Sjekkliste for analyse:**
@@ -7299,10 +7299,10 @@ Analyser tekstens retoriske situasjon og virkemidler.`,
 - "Strukturen støtter argumentasjonen ved..."`,
     },
     {
-      id: 'norsk-vg2-8-3-ex-1',
+      id: 'norsk-vg2-5-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-3-ex-1',
+        id: 'norsk-vg2-5-3-ex-1',
         number: '1',
         type: 'classic',
         task: 'Analyser en kronikk eller debattinnlegg.',
@@ -7329,10 +7329,10 @@ Analyser tekstens retoriske situasjon og virkemidler.`,
       },
     },
     {
-      id: 'norsk-vg2-8-3-ex-2',
+      id: 'norsk-vg2-5-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-3-ex-2',
+        id: 'norsk-vg2-5-3-ex-2',
         number: '2',
         type: 'classic',
         task: 'Sammenlign to tekster om samme emne.',
@@ -7358,13 +7358,13 @@ Analyser tekstens retoriske situasjon og virkemidler.`,
 };
 
 // ============================================================================
-// KAPITTEL 8.4: Retoriske virkemidler i praksis
+// KAPITTEL 5.4: Retoriske virkemidler i praksis
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_8_4: TextbookChapter = {
-  id: 'norsk-vg2-8-4',
+export const CHAPTER_NORSK_VG2_5_4: TextbookChapter = {
+  id: 'norsk-vg2-5-4',
   courseId: 'norsk-vg2',
-  chapterNumber: '8.4',
+  chapterNumber: '5.4',
   title: 'Retoriske virkemidler i praksis',
   description: 'Lær å identifisere og bruke retoriske virkemidler i egne og andres tekster.',
   estimatedMinutes: 60,
@@ -7374,7 +7374,7 @@ export const CHAPTER_NORSK_VG2_8_4: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-8-4-intro',
+      id: 'norsk-vg2-5-4-intro',
       type: 'text',
       content: `## Retoriske virkemidler - verktøykassen for overbevisning
 
@@ -7512,7 +7512,7 @@ Virkemidler kan misbrukes. Vær obs på:
 - Glatte formuleringer uten substans`,
     },
     {
-      id: 'norsk-vg2-8-4-def-1',
+      id: 'norsk-vg2-5-4-def-1',
       type: 'definition',
       title: 'Retoriske virkemidler - oversikt',
       content: `**Troper (overført betydning):**
@@ -7537,7 +7537,7 @@ Virkemidler kan misbrukes. Vær obs på:
 - *Dysefemisme:* Hardere ord`,
     },
     {
-      id: 'norsk-vg2-8-4-example-1',
+      id: 'norsk-vg2-5-4-example-1',
       type: 'example',
       title: 'Eksempel: Virkemidler i tale',
       problem: `Les dette utdraget fra en fiktiv tale:
@@ -7598,7 +7598,7 @@ Talen bygger fra refleksjon ("veiskille") til spørsmål til overbevisning til m
 Resultatet er en tale som er lett å følge, lett å huske, og som appellerer til både fornuft og følelser.`,
     },
     {
-      id: 'norsk-vg2-8-4-tip-1',
+      id: 'norsk-vg2-5-4-tip-1',
       type: 'tip',
       title: 'Tips for å bruke virkemidler',
       content: `**Slik bruker du virkemidler effektivt:**
@@ -7634,10 +7634,10 @@ Studer taler og tekster som fungerer.
 - Hvorfor valgte forfatteren dette?`,
     },
     {
-      id: 'norsk-vg2-8-4-ex-1',
+      id: 'norsk-vg2-5-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-4-ex-1',
+        id: 'norsk-vg2-5-4-ex-1',
         number: '1',
         type: 'classic',
         task: 'Identifiser virkemidler.',
@@ -7659,10 +7659,10 @@ Studer taler og tekster som fungerer.
       },
     },
     {
-      id: 'norsk-vg2-8-4-ex-2',
+      id: 'norsk-vg2-5-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-4-ex-2',
+        id: 'norsk-vg2-5-4-ex-2',
         number: '2',
         type: 'classic',
         task: 'Skriv med bevisst bruk av virkemidler.',
@@ -7684,10 +7684,10 @@ Studer taler og tekster som fungerer.
       },
     },
     {
-      id: 'norsk-vg2-8-4-ex-3',
+      id: 'norsk-vg2-5-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-8-4-ex-3',
+        id: 'norsk-vg2-5-4-ex-3',
         number: '3',
         type: 'classic',
         task: 'Kritisk analyse av virkemiddelbruk.',
@@ -7713,13 +7713,13 @@ Studer taler og tekster som fungerer.
 };
 
 // ============================================================================
-// KAPITTEL 9.1: Fagartikkelens oppbygging
+// KAPITTEL 5.5: Fagartikkelens oppbygging
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_9_1: TextbookChapter = {
-  id: 'norsk-vg2-9-1',
+export const CHAPTER_NORSK_VG2_5_5: TextbookChapter = {
+  id: 'norsk-vg2-5-5',
   courseId: 'norsk-vg2',
-  chapterNumber: '9.1',
+  chapterNumber: '5.5',
   title: 'Fagartikkelens oppbygging',
   description: 'Lær å skrive fagartikler med god struktur og argumentasjon.',
   estimatedMinutes: 55,
@@ -7729,7 +7729,7 @@ export const CHAPTER_NORSK_VG2_9_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-9-1-intro',
+      id: 'norsk-vg2-5-5-intro',
       type: 'text',
       content: `## Fagartikkelen - akademisk skriving
 
@@ -7760,7 +7760,7 @@ Fagartikkelen er en sentral sjanger i videregående skole og høyere utdanning. 
 - Logisk oppbygning`,
     },
     {
-      id: 'norsk-vg2-9-1-def-1',
+      id: 'norsk-vg2-5-5-def-1',
       type: 'definition',
       title: 'Fagartikkelens kjennetegn',
       content: `**Fagartikkel:** Saklig, argumenterende tekst om et faglig emne.
@@ -7777,10 +7777,10 @@ Fagartikkelen er en sentral sjanger i videregående skole og høyere utdanning. 
 3. Avslutning (konklusjon)`,
     },
     {
-      id: 'norsk-vg2-9-1-ex-1',
+      id: 'norsk-vg2-5-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-9-1-ex-1',
+        id: 'norsk-vg2-5-5-ex-1',
         number: '1',
         type: 'classic',
         task: 'Skriv en disposisjon for en fagartikkel.',
@@ -7806,13 +7806,13 @@ Fagartikkelen er en sentral sjanger i videregående skole og høyere utdanning. 
 };
 
 // ============================================================================
-// KAPITTEL 9.2: Kildebruk og referanser
+// KAPITTEL 5.6: Kildebruk og referanser
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_9_2: TextbookChapter = {
-  id: 'norsk-vg2-9-2',
+export const CHAPTER_NORSK_VG2_5_6: TextbookChapter = {
+  id: 'norsk-vg2-5-6',
   courseId: 'norsk-vg2',
-  chapterNumber: '9.2',
+  chapterNumber: '5.6',
   title: 'Kildebruk og referanser',
   description: 'Lær god kildebruk, referansesystemer og hvordan du unngår plagiat.',
   estimatedMinutes: 55,
@@ -7822,7 +7822,7 @@ export const CHAPTER_NORSK_VG2_9_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-9-2-intro',
+      id: 'norsk-vg2-5-6-intro',
       type: 'text',
       content: `## Kildebruk - akademisk redelighet
 
@@ -7942,7 +7942,7 @@ God kildebruk er ikke bare teknisk riktig - kildene skal integreres smidig i tek
 Sammenlign kilder, kommenter dem, bruk dem som støtte for egne argumenter.`,
     },
     {
-      id: 'norsk-vg2-9-2-def-1',
+      id: 'norsk-vg2-5-6-def-1',
       type: 'definition',
       title: 'Kildebruk - sentrale begreper',
       content: `**Kilde:** Opphav til informasjon - bok, artikkel, nettside, person.
@@ -7964,7 +7964,7 @@ Sammenlign kilder, kommenter dem, bruk dem som støtte for egne argumenter.`,
 **Referansesystem:** Standardisert måte å oppgi kilder på (APA, Harvard, Chicago).`,
     },
     {
-      id: 'norsk-vg2-9-2-example-1',
+      id: 'norsk-vg2-5-6-example-1',
       type: 'example',
       title: 'Eksempel: Kildebruk i praksis',
       problem: `Se på denne teksten uten kilder:
@@ -7997,7 +7997,7 @@ Hansen, J. (2019). Nasjonsbygging og litteratur. Norsk Litteraturvitenskapelig T
 5. *Litteraturlisten* gir full informasjon om kildene`,
     },
     {
-      id: 'norsk-vg2-9-2-tip-1',
+      id: 'norsk-vg2-5-6-tip-1',
       type: 'tip',
       title: 'Tips for god kildebruk',
       content: `**Sjekkliste for kildebruk:**
@@ -8031,10 +8031,10 @@ Hansen, J. (2019). Nasjonsbygging og litteratur. Norsk Litteraturvitenskapelig T
 Når i tvil - oppgi kilde. Det er bedre å referere for mye enn for lite.`,
     },
     {
-      id: 'norsk-vg2-9-2-ex-1',
+      id: 'norsk-vg2-5-6-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-9-2-ex-1',
+        id: 'norsk-vg2-5-6-ex-1',
         number: '1',
         type: 'classic',
         task: 'Øv på referering.',
@@ -8056,10 +8056,10 @@ Når i tvil - oppgi kilde. Det er bedre å referere for mye enn for lite.`,
       },
     },
     {
-      id: 'norsk-vg2-9-2-ex-2',
+      id: 'norsk-vg2-5-6-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-9-2-ex-2',
+        id: 'norsk-vg2-5-6-ex-2',
         number: '2',
         type: 'classic',
         task: 'Identifiser plagiat.',
@@ -8085,13 +8085,13 @@ Når i tvil - oppgi kilde. Det er bedre å referere for mye enn for lite.`,
 };
 
 // ============================================================================
-// KAPITTEL 9.3: Kritisk lesing av kilder
+// KAPITTEL 5.7: Kritisk lesing av kilder
 // ============================================================================
 
-export const CHAPTER_NORSK_VG2_9_3: TextbookChapter = {
-  id: 'norsk-vg2-9-3',
+export const CHAPTER_NORSK_VG2_5_7: TextbookChapter = {
+  id: 'norsk-vg2-5-7',
   courseId: 'norsk-vg2',
-  chapterNumber: '9.3',
+  chapterNumber: '5.7',
   title: 'Kritisk lesing av kilder',
   description: 'Lær å vurdere kilders troverdighet og kvalitet.',
   estimatedMinutes: 55,
@@ -8101,7 +8101,7 @@ export const CHAPTER_NORSK_VG2_9_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg2-9-3-intro',
+      id: 'norsk-vg2-5-7-intro',
       type: 'text',
       content: `## Kritisk kildevurdering - veien til pålitelig kunnskap
 
@@ -8273,7 +8273,7 @@ Overdrevne overskrifter for å få klikk.
 - For godt til å være sant`,
     },
     {
-      id: 'norsk-vg2-9-3-def-1',
+      id: 'norsk-vg2-5-7-def-1',
       type: 'definition',
       title: 'Kritisk kildevurdering - begreper',
       content: `**Kildekritikk:** Systematisk vurdering av kilders troverdighet og relevans.
@@ -8295,7 +8295,7 @@ Overdrevne overskrifter for å få klikk.
 **Misinformasjon:** Utilsiktet spredning av feil.`,
     },
     {
-      id: 'norsk-vg2-9-3-example-1',
+      id: 'norsk-vg2-5-7-example-1',
       type: 'example',
       title: 'Eksempel: Vurdering av en nettside',
       problem: `Du finner en nettside som hevder: "Ny forskning viser at sukker er like avhengighetsskapende som kokain."
@@ -8345,7 +8345,7 @@ Sjekk påstanden mot:
 Påstanden er sannsynligvis overdrevet eller sensasjonalisert. Den originale forskningen finnes, men sier noe mer forsiktig. Vær skeptisk til sterke påstander som mangler nyansering og kilder.`,
     },
     {
-      id: 'norsk-vg2-9-3-tip-1',
+      id: 'norsk-vg2-5-7-tip-1',
       type: 'tip',
       title: 'Tips for kritisk kildelesing',
       content: `**Sjekkliste for nettsider:**
@@ -8389,10 +8389,10 @@ Påstanden er sannsynligvis overdrevet eller sensasjonalisert. Den originale for
 - Store norske leksikon`,
     },
     {
-      id: 'norsk-vg2-9-3-ex-1',
+      id: 'norsk-vg2-5-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-9-3-ex-1',
+        id: 'norsk-vg2-5-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Vurder kilder kritisk.',
@@ -8419,10 +8419,10 @@ Påstanden er sannsynligvis overdrevet eller sensasjonalisert. Den originale for
       },
     },
     {
-      id: 'norsk-vg2-9-3-ex-2',
+      id: 'norsk-vg2-5-7-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-9-3-ex-2',
+        id: 'norsk-vg2-5-7-ex-2',
         number: '2',
         type: 'classic',
         task: 'Analyser falsk informasjon.',
@@ -8452,39 +8452,44 @@ Påstanden er sannsynligvis overdrevet eller sensasjonalisert. Den originale for
 // ============================================================================
 
 export const NORSK_VG2_CHAPTERS = [
+  // Kapittel 1: Norrøn tid og middelalder
   CHAPTER_NORSK_VG2_1_1,
   CHAPTER_NORSK_VG2_1_2,
   CHAPTER_NORSK_VG2_1_3,
   CHAPTER_NORSK_VG2_1_4,
   CHAPTER_NORSK_VG2_1_5,
+  // Kapittel 2: Fra renessanse til opplysningstid (1500-1800)
   CHAPTER_NORSK_VG2_2_1,
   CHAPTER_NORSK_VG2_2_2,
   CHAPTER_NORSK_VG2_2_3,
+  CHAPTER_NORSK_VG2_2_4,
+  CHAPTER_NORSK_VG2_2_5,
+  CHAPTER_NORSK_VG2_2_6,
+  CHAPTER_NORSK_VG2_2_7,
+  CHAPTER_NORSK_VG2_2_8,
+  CHAPTER_NORSK_VG2_2_9,
+  CHAPTER_NORSK_VG2_2_10,
+  // Kapittel 3: Romantikk og nasjonsbygging (1800-1870)
   CHAPTER_NORSK_VG2_3_1,
   CHAPTER_NORSK_VG2_3_2,
   CHAPTER_NORSK_VG2_3_3,
+  CHAPTER_NORSK_VG2_3_4,
+  CHAPTER_NORSK_VG2_3_5,
+  CHAPTER_NORSK_VG2_3_6,
+  CHAPTER_NORSK_VG2_3_7,
+  CHAPTER_NORSK_VG2_3_8,
+  CHAPTER_NORSK_VG2_3_9,
+  // Kapittel 4: Språkhistorie
   CHAPTER_NORSK_VG2_4_1,
   CHAPTER_NORSK_VG2_4_2,
   CHAPTER_NORSK_VG2_4_3,
   CHAPTER_NORSK_VG2_4_4,
+  // Kapittel 5: Retorikk og fagskriving
   CHAPTER_NORSK_VG2_5_1,
   CHAPTER_NORSK_VG2_5_2,
   CHAPTER_NORSK_VG2_5_3,
   CHAPTER_NORSK_VG2_5_4,
-  CHAPTER_NORSK_VG2_6_1,
-  CHAPTER_NORSK_VG2_6_2,
-  CHAPTER_NORSK_VG2_6_3,
-  CHAPTER_NORSK_VG2_6_4,
-  CHAPTER_NORSK_VG2_6_5,
-  CHAPTER_NORSK_VG2_7_1,
-  CHAPTER_NORSK_VG2_7_2,
-  CHAPTER_NORSK_VG2_7_3,
-  CHAPTER_NORSK_VG2_7_4,
-  CHAPTER_NORSK_VG2_8_1,
-  CHAPTER_NORSK_VG2_8_2,
-  CHAPTER_NORSK_VG2_8_3,
-  CHAPTER_NORSK_VG2_8_4,
-  CHAPTER_NORSK_VG2_9_1,
-  CHAPTER_NORSK_VG2_9_2,
-  CHAPTER_NORSK_VG2_9_3,
+  CHAPTER_NORSK_VG2_5_5,
+  CHAPTER_NORSK_VG2_5_6,
+  CHAPTER_NORSK_VG2_5_7,
 ];
