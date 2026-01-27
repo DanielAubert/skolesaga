@@ -205,54 +205,54 @@ export default function StudentDashboard() {
       </header>
 
       {/* Main content */}
-      <main className="container px-4 py-8">
-        <div className="space-y-8">
+      <main className="container px-4 py-3 md:py-8">
+        <div className="space-y-4 md:space-y-8">
           {/* Welcome section */}
           <div className="flex items-center justify-between">
             <div>
-              <h1 className="text-3xl font-bold tracking-tight">
-                Velkommen tilbake, {user?.name?.split(" ")[0]}!
+              <h1 className="text-lg md:text-3xl font-bold tracking-tight">
+                Velkommen, {user?.name?.split(" ")[0]}!
               </h1>
-              <p className="text-muted-foreground mt-1">
-                Her er en oversikt over din fremgang
+              <p className="text-muted-foreground text-sm md:text-base">
+                Oversikt over din fremgang
               </p>
             </div>
             {streak > 0 && (
-              <div className="flex items-center gap-2 bg-orange-100 dark:bg-orange-950/30 px-4 py-2 rounded-full">
-                <Flame className="h-5 w-5 text-orange-500" />
-                <span className="font-medium text-orange-700 dark:text-orange-400">
-                  {streak} dagers streak!
+              <div className="flex items-center gap-1.5 md:gap-2 bg-orange-100 dark:bg-orange-950/30 px-2.5 py-1 md:px-4 md:py-2 rounded-full">
+                <Flame className="h-4 w-4 md:h-5 md:w-5 text-orange-500" />
+                <span className="font-medium text-sm md:text-base text-orange-700 dark:text-orange-400">
+                  {streak} dager
                 </span>
               </div>
             )}
           </div>
 
           {/* Stats cards */}
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-2 gap-2 md:gap-4 lg:grid-cols-4">
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Oppgaver gjort</CardTitle>
-                <Target className="h-4 w-4 text-muted-foreground" />
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
+                <CardTitle className="text-xs md:text-sm font-medium">Denne uken</CardTitle>
+                <Target className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{textbookCompletions.thisWeek}</div>
-                <p className="text-xs text-muted-foreground">
-                  {textbookCompletions.thisWeek > 0 ? "Denne uken" : "Start med å øve i dag!"}
+              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
+                <div className="text-xl md:text-2xl font-bold">{textbookCompletions.thisWeek}</div>
+                <p className="text-xs text-muted-foreground hidden md:block">
+                  {textbookCompletions.thisWeek > 0 ? "Oppgaver gjort" : "Start med å øve!"}
                 </p>
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Riktige svar</CardTitle>
-                <TrendingUp className="h-4 w-4 text-muted-foreground" />
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
+                <CardTitle className="text-xs md:text-sm font-medium">Riktige svar</CardTitle>
+                <TrendingUp className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
+              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
                 {(() => {
                   const rate = textbookCompletions.total > 0 ? Math.round((textbookCompletions.passed / textbookCompletions.total) * 100) : 0;
                   return (
                     <>
-                      <div className="text-2xl font-bold">{rate}%</div>
-                      <p className="text-xs text-muted-foreground">
+                      <div className="text-xl md:text-2xl font-bold">{rate}%</div>
+                      <p className="text-xs text-muted-foreground hidden md:block">
                         {textbookCompletions.passed} av {textbookCompletions.total} bestått
                       </p>
                     </>
@@ -261,50 +261,30 @@ export default function StudentDashboard() {
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Totalt fullført</CardTitle>
-                <CheckCircle2 className="h-4 w-4 text-muted-foreground" />
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
+                <CardTitle className="text-xs md:text-sm font-medium">Totalt</CardTitle>
+                <CheckCircle2 className="h-3.5 w-3.5 md:h-4 md:w-4 text-muted-foreground" />
               </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">
-                  {textbookCompletions.total}
-                </div>
-                <p className="text-xs text-muted-foreground">
+              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
+                <div className="text-xl md:text-2xl font-bold">{textbookCompletions.total}</div>
+                <p className="text-xs text-muted-foreground hidden md:block">
                   Oppgaver totalt
                 </p>
               </CardContent>
             </Card>
             <Card>
-              <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                <CardTitle className="text-sm font-medium">Streak</CardTitle>
-                <Flame className={`h-4 w-4 ${streak > 0 ? "text-orange-500" : "text-muted-foreground"}`} />
+              <CardHeader className="flex flex-row items-center justify-between space-y-0 p-3 pb-1 md:p-6 md:pb-2">
+                <CardTitle className="text-xs md:text-sm font-medium">Streak</CardTitle>
+                <Flame className={`h-3.5 w-3.5 md:h-4 md:w-4 ${streak > 0 ? "text-orange-500" : "text-muted-foreground"}`} />
               </CardHeader>
-              <CardContent>
-                <div className="text-2xl font-bold">{streak} dager</div>
-                <p className="text-xs text-muted-foreground">
-                  {streak > 0 ? "Fortsett sånn!" : "Øv daglig for å bygge streak"}
+              <CardContent className="p-3 pt-0 md:p-6 md:pt-0">
+                <div className="text-xl md:text-2xl font-bold">{streak} d</div>
+                <p className="text-xs text-muted-foreground hidden md:block">
+                  {streak > 0 ? "Fortsett sånn!" : "Øv daglig for streak"}
                 </p>
               </CardContent>
             </Card>
           </div>
-
-          {/* Join class card */}
-          <Card className="border-dashed border-2 hover:border-primary/50 transition-colors bg-muted/30">
-            <Link href="/join">
-              <CardContent className="flex items-center justify-between py-4">
-                <div className="flex items-center gap-3">
-                  <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-950/50">
-                    <UserPlus className="h-5 w-5 text-blue-600" />
-                  </div>
-                  <div>
-                    <p className="font-medium">Bli med i en klasse</p>
-                    <p className="text-sm text-muted-foreground">Skriv inn invitasjonskoden fra læreren din</p>
-                  </div>
-                </div>
-                <ChevronRight className="h-5 w-5 text-muted-foreground" />
-              </CardContent>
-            </Link>
-          </Card>
 
           {/* Mine fag */}
           <div>
@@ -387,6 +367,24 @@ export default function StudentDashboard() {
               </div>
             )}
           </div>
+
+          {/* Join class card */}
+          <Card className="border-dashed border-2 hover:border-primary/50 transition-colors bg-muted/30">
+            <Link href="/join">
+              <CardContent className="flex items-center justify-between py-3 md:py-4">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-blue-100 dark:bg-blue-950/50">
+                    <UserPlus className="h-5 w-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="font-medium text-sm md:text-base">Bli med i en klasse</p>
+                    <p className="text-xs md:text-sm text-muted-foreground">Skriv inn invitasjonskoden fra læreren din</p>
+                  </div>
+                </div>
+                <ChevronRight className="h-5 w-5 text-muted-foreground" />
+              </CardContent>
+            </Link>
+          </Card>
 
           {/* Mine klasser */}
           {myClasses.length > 0 && (
