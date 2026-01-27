@@ -13,12 +13,19 @@ import {
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+interface UploadedImage {
+  url: string;
+  preview: string;
+}
+
 interface ImageUploadProps {
   exerciseId: string;
   chapterId: string;
   courseId: string;
-  onUpload: (url: string) => void;
+  onUpload: (urls: string[]) => void;
   maxSizeMB?: number;
+  maxImages?: number;
+  existingUrls?: string[];
 }
 
 export function ImageUpload({
@@ -27,18 +34,49 @@ export function ImageUpload({
   courseId,
   onUpload,
   maxSizeMB = 5,
+  maxImages = 3,
+  existingUrls = [],
 }: ImageUploadProps) {
   const [isDragging, setIsDragging] = useState(false);
-  const [preview, setPreview] = useState<string | null>(null);
+  const [uploadedImages, setUploadedImages] = useState<UploadedImage[]>(
+    existingUrls.map((url) => ({ url, preview: url }))
+  );
   const [isUploading, setIsUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [isUploaded, setIsUploaded] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
   const cameraInputRef = useRef<HTMLInputElement>(null);
 
+  const canUploadMore = uploadedImages.length < maxImages;
+
+  const uploadFile = useCallback(async (file: File): Promise<string | null> => {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('exerciseId', exerciseId);
+    formData.append('chapterId', chapterId);
+    formData.append('courseId', courseId);
+
+    const response = await fetch('/api/uploads/image', {
+      method: 'POST',
+      body: formData,
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.message || 'Opplasting feilet');
+    }
+
+    return data.url;
+  }, [exerciseId, chapterId, courseId]);
+
   const handleFile = useCallback(async (file: File) => {
     setError(null);
+
+    if (!canUploadMore) {
+      setError(`Du kan laste opp maks ${maxImages} bilder per oppgave.`);
+      return;
+    }
 
     // Sjekk filtype
     if (!file.type.startsWith('image/')) {
@@ -53,42 +91,28 @@ export function ImageUpload({
       return;
     }
 
-    // Vis forhåndsvisning
+    // Vis forhåndsvisning og last opp
     const reader = new FileReader();
-    reader.onload = (e) => {
-      setPreview(e.target?.result as string);
+    reader.onload = async (e) => {
+      const preview = e.target?.result as string;
+
+      setIsUploading(true);
+      try {
+        const url = await uploadFile(file);
+        if (url) {
+          const newImages = [...uploadedImages, { url, preview }];
+          setUploadedImages(newImages);
+          onUpload(newImages.map((img) => img.url));
+        }
+      } catch (err) {
+        setError(err instanceof Error ? err.message : 'Kunne ikke laste opp bildet. Prøv igjen.');
+        console.error('Upload error:', err);
+      } finally {
+        setIsUploading(false);
+      }
     };
     reader.readAsDataURL(file);
-
-    // Last opp til Supabase via API
-    setIsUploading(true);
-    try {
-      const formData = new FormData();
-      formData.append('file', file);
-      formData.append('exerciseId', exerciseId);
-      formData.append('chapterId', chapterId);
-      formData.append('courseId', courseId);
-
-      const response = await fetch('/api/uploads/image', {
-        method: 'POST',
-        body: formData,
-      });
-
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Opplasting feilet');
-      }
-
-      setIsUploaded(true);
-      onUpload(data.url);
-    } catch (err) {
-      setError(err instanceof Error ? err.message : 'Kunne ikke laste opp bildet. Prøv igjen.');
-      console.error('Upload error:', err);
-    } finally {
-      setIsUploading(false);
-    }
-  }, [maxSizeMB, onUpload, exerciseId, chapterId, courseId]);
+  }, [canUploadMore, maxImages, maxSizeMB, uploadFile, uploadedImages, onUpload]);
 
   const handleDrop = useCallback(
     (e: React.DragEvent) => {
@@ -119,80 +143,82 @@ export function ImageUpload({
       if (file) {
         handleFile(file);
       }
+      // Reset input så samme fil kan velges igjen
+      if (e.target) {
+        e.target.value = '';
+      }
     },
     [handleFile]
   );
 
-  const clearPreview = () => {
-    setPreview(null);
-    setIsUploaded(false);
+  const removeImage = useCallback((index: number) => {
+    const newImages = uploadedImages.filter((_, i) => i !== index);
+    setUploadedImages(newImages);
+    onUpload(newImages.map((img) => img.url));
     setError(null);
-    if (fileInputRef.current) {
-      fileInputRef.current.value = '';
-    }
-    if (cameraInputRef.current) {
-      cameraInputRef.current.value = '';
-    }
-  };
+  }, [uploadedImages, onUpload]);
 
   return (
     <div className="space-y-4">
-      {/* Forhåndsvisning */}
-      {preview ? (
-        <div className="relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={preview}
-            alt="Forhåndsvisning av løsning"
-            className="max-w-full max-h-96 rounded-lg border mx-auto"
-          />
-          <Button
-            variant="destructive"
-            size="icon"
-            className="absolute top-2 right-2"
-            onClick={clearPreview}
-          >
-            <X className="h-4 w-4" />
-          </Button>
-
-          {isUploading && (
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center rounded-lg">
-              <div className="text-white text-center">
-                <Loader2 className="h-8 w-8 animate-spin mx-auto mb-2" />
-                <span>Laster opp...</span>
+      {/* Opplastede bilder */}
+      {uploadedImages.length > 0 && (
+        <div className="grid gap-3">
+          {uploadedImages.map((img, index) => (
+            <div key={index} className="relative">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={img.preview}
+                alt={`Opplastet bilde ${index + 1}`}
+                className="max-w-full max-h-96 rounded-lg border mx-auto"
+              />
+              <Button
+                variant="destructive"
+                size="icon"
+                className="absolute top-2 right-2 h-7 w-7"
+                onClick={() => removeImage(index)}
+              >
+                <X className="h-4 w-4" />
+              </Button>
+              <div className="absolute top-2 left-2">
+                <div className="bg-green-500 text-white px-3 py-1 rounded-full flex items-center gap-1 text-sm">
+                  <CheckCircle2 className="h-4 w-4" />
+                  Bilde {index + 1}
+                </div>
               </div>
             </div>
-          )}
-
-          {isUploaded && (
-            <div className="absolute top-2 left-2">
-              <div className="bg-green-500 text-white px-3 py-1 rounded-full flex items-center gap-1 text-sm">
-                <CheckCircle2 className="h-4 w-4" />
-                Lastet opp
-              </div>
-            </div>
-          )}
+          ))}
         </div>
-      ) : (
-        /* Drop-sone */
+      )}
+
+      {/* Opplastingsstatus */}
+      {isUploading && (
+        <div className="flex items-center justify-center gap-2 p-4 border rounded-lg bg-muted/50">
+          <Loader2 className="h-5 w-5 animate-spin" />
+          <span className="text-sm">Laster opp...</span>
+        </div>
+      )}
+
+      {/* Drop-sone - vis kun hvis vi kan laste opp flere */}
+      {canUploadMore && !isUploading && (
         <div
           onDrop={handleDrop}
           onDragOver={handleDragOver}
           onDragLeave={handleDragLeave}
           className={cn(
-            'border-2 border-dashed rounded-lg p-8 text-center transition-colors',
+            'border-2 border-dashed rounded-lg p-6 text-center transition-colors',
             isDragging
               ? 'border-primary bg-primary/10'
               : 'border-muted-foreground/25 hover:border-primary/50'
           )}
         >
-          <ImageIcon className="h-12 w-12 mx-auto mb-4 text-muted-foreground" />
-          <p className="text-muted-foreground mb-4">
+          <ImageIcon className="h-10 w-10 mx-auto mb-3 text-muted-foreground" />
+          <p className="text-muted-foreground mb-3 text-sm">
             Dra og slipp et bilde her, eller
           </p>
           <div className="flex flex-wrap justify-center gap-2">
             <Button
               variant="outline"
+              size="sm"
               onClick={() => fileInputRef.current?.click()}
             >
               <Upload className="h-4 w-4 mr-2" />
@@ -200,16 +226,27 @@ export function ImageUpload({
             </Button>
             <Button
               variant="outline"
+              size="sm"
               onClick={() => cameraInputRef.current?.click()}
             >
               <Camera className="h-4 w-4 mr-2" />
               Ta bilde
             </Button>
           </div>
-          <p className="text-xs text-muted-foreground mt-4">
+          <p className="text-xs text-muted-foreground mt-3">
             JPG, PNG eller GIF. Maks {maxSizeMB} MB.
+            {uploadedImages.length > 0 && (
+              <> ({uploadedImages.length}/{maxImages} bilder lastet opp)</>
+            )}
           </p>
         </div>
+      )}
+
+      {/* Maks nådd */}
+      {!canUploadMore && !isUploading && (
+        <p className="text-xs text-muted-foreground text-center">
+          Maks {maxImages} bilder lastet opp.
+        </p>
       )}
 
       {/* Skjulte input-felter */}

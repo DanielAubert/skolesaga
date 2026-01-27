@@ -486,9 +486,15 @@ export function TextbookExerciseItem({
               exerciseId={exercise.id}
               chapterId={chapterId}
               courseId={courseId}
-              onUpload={(url) => {
-                console.log('Uploaded:', url);
-                // TODO: Lagre til database
+              existingUrls={
+                submission?.submission_type === 'image' && submission.image_url
+                  ? parseImageUrls(submission.image_url)
+                  : []
+              }
+              onUpload={(urls) => {
+                if (urls.length > 0) {
+                  handleSaveSubmission('image', undefined, JSON.stringify(urls));
+                }
               }}
             />
           )}
@@ -773,6 +779,17 @@ function InvestigationBadge() {
   );
 }
 
+// Hjelpefunksjon for å parse image_url som kan være en enkelt URL eller JSON-array
+function parseImageUrls(imageUrl: string): string[] {
+  try {
+    const parsed = JSON.parse(imageUrl);
+    if (Array.isArray(parsed)) return parsed;
+  } catch {
+    // Ikke JSON - returner som enkelt URL
+  }
+  return [imageUrl];
+}
+
 // Vis lagret besvarelse
 function SavedSubmissionDisplay({
   submission,
@@ -842,14 +859,18 @@ function SavedSubmissionDisplay({
         );
       case 'image':
         if (!submission.image_url) return null;
+        const imageUrls = parseImageUrls(submission.image_url);
         return (
-          <div className="mt-2">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src={submission.image_url}
-              alt="Opplastet bilde"
-              className="max-w-full max-h-64 rounded border"
-            />
+          <div className="mt-2 grid gap-2">
+            {imageUrls.map((url, i) => (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                key={i}
+                src={url}
+                alt={`Opplastet bilde ${i + 1}`}
+                className="max-w-full max-h-64 rounded border"
+              />
+            ))}
           </div>
         );
       default:
