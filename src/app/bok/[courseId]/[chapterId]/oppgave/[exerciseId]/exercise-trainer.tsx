@@ -138,6 +138,13 @@ export function ExerciseTrainer({
     return subTasksWithAnswers.some(st => st.expressionAnswer !== undefined);
   }, [subTasksWithAnswers]);
 
+  // Check if numeric exercises need a minus key (e.g. chapter 1.1: Fortegn og regnerekkefølge)
+  const needsNumericKeyboard = useMemo(() => {
+    if (hasAlgebraicAnswers) return false;
+    // Chapter 1.1 (1t-1-1) is about negative numbers - all exercises can have negative answers
+    return chapterId === '1t-1-1';
+  }, [chapterId, hasAlgebraicAnswers]);
+
   // Convert subtasks to problems format, restoring saved progress
   const createProblems = (): Problem[] => {
     const savedProgress = getExerciseSubTaskProgress(courseId, chapterId, exerciseId);
@@ -274,9 +281,9 @@ export function ExerciseTrainer({
       setShowResults(false);
       setWrongOrderMessage(null);
 
-      // Auto-show keyboard only on touch devices for algebraic exercises
+      // Auto-show keyboard on touch devices for algebraic or numeric-with-minus exercises
       const isMobile = window.innerWidth < 1024;
-      if (hasAlgebraicAnswers && isMobile) {
+      if ((hasAlgebraicAnswers || chapterId === '1t-1-1') && isMobile) {
         setTimeout(() => setKeyboardVisible(true), 300);
       }
 
@@ -332,12 +339,12 @@ export function ExerciseTrainer({
     return () => clearInterval(pollInterval);
   }, [session?.user?.id, isInitialized, showResults, courseId, chapterId, exerciseId]);
 
-  // Focus input
+  // Focus input (skip on touch devices with custom keyboard to prevent native keyboard)
   useEffect(() => {
-    if (isActive && inputRef.current) {
+    if (isActive && inputRef.current && !(isTouchDevice && needsNumericKeyboard)) {
       requestAnimationFrame(() => inputRef.current?.focus());
     }
-  }, [currentIndex, isActive]);
+  }, [currentIndex, isActive, isTouchDevice, needsNumericKeyboard]);
 
   // Restart training (used by "Prøv igjen" button) - keeps progress in localStorage
   const restartTraining = () => {
@@ -821,8 +828,26 @@ export function ExerciseTrainer({
                     </div>
                   );
                 })()
+              ) : needsNumericKeyboard && isTouchDevice ? (
+                /* Touch device: Numeric input with custom keyboard (no native keyboard) */
+                <Input
+                  ref={inputRef}
+                  type="text"
+                  inputMode="none"
+                  value={currentProblem.userAnswer}
+                  onChange={(e) => handleInputChange(e.target.value)}
+                  onKeyPress={handleKeyPress}
+                  onFocus={() => setKeyboardVisible(true)}
+                  className={`w-16 md:w-20 lg:w-24 h-12 md:h-14 lg:h-14 text-center text-xl md:text-2xl lg:text-2xl font-mono border-2 ${
+                    wrongAnswer
+                      ? 'border-red-500 bg-red-50 dark:bg-red-950/30 focus:border-red-600'
+                      : 'border-blue-300 focus:border-blue-500'
+                  }`}
+                  disabled={!isActive}
+                  readOnly
+                />
               ) : (
-                /* Numeric input (unchanged) */
+                /* Desktop or standard numeric input */
                 <Input
                   ref={inputRef}
                   type="text"
@@ -1009,7 +1034,7 @@ export function ExerciseTrainer({
       <Footer />
 
       {/* Fixed iOS-style keyboard at bottom - only on touch devices */}
-      {isTouchDevice && hasAlgebraicAnswers && isActive && !showResults && (
+      {isTouchDevice && (hasAlgebraicAnswers || needsNumericKeyboard) && isActive && !showResults && (
         <div
           className={`fixed bottom-0 left-0 right-0 z-50 transition-transform duration-300 ease-out ${
             keyboardVisible ? 'translate-y-0' : 'translate-y-full'
@@ -1025,8 +1050,68 @@ export function ExerciseTrainer({
 
           {/* Keyboard */}
           <div className="bg-[#D1D3D9] dark:bg-zinc-800 p-1.5 pb-6 safe-area-inset-bottom">
-            {/* Main keyboard grid: variables left, numbers center, operators right */}
+            {/* Main keyboard grid - layout varies by chapter */}
             <div className="flex gap-1.5 max-w-md mx-auto">
+              {needsNumericKeyboard ? (
+                /* Numerisk tastatur for kap 1.1: tall + minus/komma/slett */
+                <>
+                  {/* Number pad - 3 column grid */}
+                  <div className="grid grid-cols-3 gap-1.5 flex-1">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                      <button
+                        key={n}
+                        type="button"
+                        onClick={() => insertAtCursor(String(n))}
+                        className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                        disabled={!isActive}
+                      >
+                        {n}
+                      </button>
+                    ))}
+                    {/* Row 4: (tom), 0, (tom) */}
+                    <div />
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor('0')}
+                      className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      0
+                    </button>
+                    <div />
+                  </div>
+
+                  {/* Right column: −, komma, ⌫ */}
+                  <div className="grid grid-cols-1 gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor('-')}
+                      className="w-14 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      −
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor(',')}
+                      className="w-14 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      ,
+                    </button>
+                    <button
+                      type="button"
+                      onClick={deleteAtCursor}
+                      className="w-14 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
+                      disabled={!isActive}
+                    >
+                      ⌫
+                    </button>
+                  </div>
+                </>
+              ) : (
+                /* Algebraisk tastatur (kap 1.2+) */
+                <>
               {/* Left column: Variables (x, y, a, b) */}
               <div className="grid grid-cols-1 gap-1.5">
                 {['x', 'y', 'a', 'b'].map((v) => (
@@ -1044,34 +1129,7 @@ export function ExerciseTrainer({
 
               {/* Center: Number pad - 3 column grid */}
               <div className="grid grid-cols-3 gap-1.5 flex-1">
-                {/* Row 1: 1, 2, 3 */}
-                {[1, 2, 3].map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    onClick={() => insertAtCursor(String(n))}
-                    className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    {n}
-                  </button>
-                ))}
-
-                {/* Row 2: 4, 5, 6 */}
-                {[4, 5, 6].map((n) => (
-                  <button
-                    key={n}
-                    type="button"
-                    onClick={() => insertAtCursor(String(n))}
-                    className="h-12 text-2xl font-light rounded-lg bg-white dark:bg-zinc-700 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-300 dark:active:bg-zinc-600 active:shadow-none transition-all duration-75 select-none touch-manipulation"
-                    disabled={!isActive}
-                  >
-                    {n}
-                  </button>
-                ))}
-
-                {/* Row 3: 7, 8, 9 */}
-                {[7, 8, 9].map((n) => (
+                {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
                   <button
                     key={n}
                     type="button"
@@ -1110,7 +1168,7 @@ export function ExerciseTrainer({
                 </button>
               </div>
 
-              {/* Right column(s): operators - dynamisk basert på kapittel */}
+              {/* Right column(s): operators */}
               {chapterId === '1t-1-2' ? (
                 /* Algebra-tastatur: +, -, ×, ÷, ^, ⌫ i 2x3 grid */
                 <div className="grid grid-cols-2 gap-1.5">
@@ -1199,6 +1257,8 @@ export function ExerciseTrainer({
                     ⌫
                   </button>
                 </div>
+              )}
+                </>
               )}
             </div>
           </div>
