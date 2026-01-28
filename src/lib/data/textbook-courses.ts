@@ -13787,6 +13787,21 @@ export const COURSE_ELEKTRO_DATA_VG1: TextbookCourse = {
     { id: 'elektro-data-vg1-12', number: '12', title: 'Dokumentasjon og tegning', description: 'Teknisk dokumentasjon og elektroniske kretsskjemaer.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dokumentasjon', 'Kretsskjemaer', 'Standarder'], competenceGoals: [] },
     { id: 'elektro-data-vg1-13', number: '13', title: 'Bærekraft og teknologi', description: 'Bærekraftig bruk av elektronikk og energi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Gjenbruk'], competenceGoals: [] },
     { id: 'elektro-data-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier innen elektro og data.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Spesialisering'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-15', number: '15', title: 'Digitalteknikk - logiske porter og sannhetstabeller', description: 'Grunnleggende logiske porter og sannhetstabeller.', estimatedMinutes: 60, exerciseCount: 6, topics: ['AND/OR/NOT-porter', 'Sannhetstabeller', 'Boolsk algebra'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-16', number: '16', title: 'Digitalteknikk - flip-flops og tellere', description: 'Sekvensiell logikk og tellerkretsers virkemåte.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Flip-flops', 'Tellere', 'Sekvensiell logikk'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-17', number: '17', title: 'Mikrokontrollere og Arduino', description: 'Programmering av mikrokontrollere med Arduino-plattformen.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Arduino', 'Mikrokontrollere', 'Innebygde systemer'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-18', number: '18', title: 'Signalbehandling og filtre', description: 'Analoge og digitale filtre for signalbehandling.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Signalfiltrering', 'Lavpass-filter', 'Høypass-filter'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-19', number: '19', title: 'Elektriske installasjoner i bygg', description: 'Bygningsinstallasjoner og installasjonsmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Installasjoner', 'Kabelføring', 'NEK 400'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-20', number: '20', title: 'Fornybar energi - solceller', description: 'Solcelleteknologi og fotovoltaiske systemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Solenergi', 'Fotovoltaisk effekt', 'Solcellepaneler'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-21', number: '21', title: 'Fornybar energi - vindkraft', description: 'Vindkraftteknologi og generatorer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vindkraft', 'Generatorer', 'Vindindusering'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-22', number: '22', title: 'Feilsøking og måleteknikk', description: 'Systematisk feilsøking med måleinstrumenter.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Feilsøking', 'Multimeter', 'Oscilloskop'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-23', number: '23', title: 'Kommunikasjonsprotokoller (I2C, SPI, UART)', description: 'Serielle kommunikasjonsprotokoller i digitale systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['I2C', 'SPI', 'UART'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-24', number: '24', title: 'Sensorer og transdusere', description: 'Sensorer som omdanner fysiske størrelser til elektriske signaler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sensorer', 'Transdusere', 'Signalomforming'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-25', number: '25', title: 'Aktuatorer og motorer', description: 'Motorer og aktuatorer i automatiserte systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Motorer', 'Aktuatorer', 'Servoer'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-26', number: '26', title: 'Reguleringsteknikk grunnleggende', description: 'Grunnleggende reguleringsteknikk og PID-regulering.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regulering', 'PID', 'Tilbakekobling'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-27', number: '27', title: 'PLS-programmering intro', description: 'Introduksjon til programmering av PLS-systemer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['PLS', 'Ladder-logikk', 'Industriell styring'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-28', number: '28', title: 'Elektromagnetisme og induksjon', description: 'Elektromagnetiske felt og elektromagnetisk induksjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Elektromagnetisme', 'Induksjon', 'Transformatorer'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-29', number: '29', title: 'Prosjektarbeid og dokumentasjon', description: 'Gjennomføring av prosjekt med teknisk dokumentasjon.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Prosjektarbeid', 'Dokumentasjon', 'Rapportskriving'], competenceGoals: [] },
   ],
 };
 
@@ -13815,6 +13830,21 @@ export const COURSE_TIF_VG1: TextbookCourse = {
     { id: 'tif-vg1-11', number: '11', title: 'Bærekraftig produksjon', description: 'Miljøvennlig og ressurseffektiv produksjon.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Resirkulering', 'Energieffektivisering'], competenceGoals: [] },
     { id: 'tif-vg1-12', number: '12', title: 'Prosjektarbeid', description: 'Planlegging og gjennomføring av produksjonsprosjekt.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Prosjektstyring', 'Planlegging', 'Gjennomføring'], competenceGoals: [] },
     { id: 'tif-vg1-13', number: '13', title: 'Yrkesmuligheter', description: 'Karriereveier innen industri og teknologi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Lærlingordning', 'Videreutdanning'], competenceGoals: [] },
+    { id: 'tif-vg1-14', number: '14', title: 'Grunnleggende mekanikk og krefter', description: 'Mekaniske prinsipper og kraftberegninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Krefter', 'Moment', 'Friksjon'], competenceGoals: [] },
+    { id: 'tif-vg1-15', number: '15', title: 'Dreiing og dreiebenk', description: 'Dreieteknikker og bruk av dreiebenk.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Dreiebenk', 'Dreieteknikker', 'Verktøy'], competenceGoals: [] },
+    { id: 'tif-vg1-16', number: '16', title: 'Fresing og fresemaskin', description: 'Frese teknikker og bruk av fresemaskin.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Fresemaskin', 'Freseteknikker', 'Frese verktøy'], competenceGoals: [] },
+    { id: 'tif-vg1-17', number: '17', title: 'Lodding, liming og mekanisk festing', description: 'Ulike sammenføyningsteknikker for materialer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Lodding', 'Liming', 'Bolter og skruer'], competenceGoals: [] },
+    { id: 'tif-vg1-18', number: '18', title: 'Overflatebehandling og korrosjonsvern', description: 'Beskyttelse av metaller mot korrosjon.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Maling', 'Galvanisering', 'Korrosjonsbeskyttelse'], competenceGoals: [] },
+    { id: 'tif-vg1-19', number: '19', title: 'Toleranser og pasninger', description: 'Mekaniske toleranser og pasningsklasser.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Toleranser', 'Pasninger', 'ISO-pasninger'], competenceGoals: [] },
+    { id: 'tif-vg1-20', number: '20', title: 'Arbeidstegninger og ISO-standarder', description: 'Lesing og tolkning av tekniske tegninger.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Tegninger', 'ISO-standarder', 'Symboler'], competenceGoals: [] },
+    { id: 'tif-vg1-21', number: '21', title: 'Industriell produksjon og serieproduksjon', description: 'Produksjonsmetoder for serieproduksjon.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Serieproduksjon', 'Produksjonslinjer', 'Takt'], competenceGoals: [] },
+    { id: 'tif-vg1-22', number: '22', title: 'Robotteknologi grunnleggende', description: 'Introduksjon til industrielle roboter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Roboter', 'Robotprogrammering', 'Arbeidscelle'], competenceGoals: [] },
+    { id: 'tif-vg1-23', number: '23', title: 'Lean manufacturing og 5S', description: 'Lean-prinsipper og 5S-metodikk.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Lean', '5S', 'Kontinuerlig forbedring'], competenceGoals: [] },
+    { id: 'tif-vg1-24', number: '24', title: 'Materialprøving og kvalitetskontroll', description: 'Prøving av materialegenskaper og kvalitetssikring.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Materialprøving', 'Hardhetsprøving', 'Strekkprøving'], competenceGoals: [] },
+    { id: 'tif-vg1-25', number: '25', title: 'Plast og komposittmaterialer', description: 'Egenskaper og bruk av plast og kompositter.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Plast', 'Kompositter', 'Fiber'], competenceGoals: [] },
+    { id: 'tif-vg1-26', number: '26', title: 'Trykkluftverktøy og pneumatikk', description: 'Bruk av trykkluftdrevne verktøy og systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Trykkluft', 'Pneumatiske verktøy', 'Kompressor'], competenceGoals: [] },
+    { id: 'tif-vg1-27', number: '27', title: 'Måleteknikk og målingsinstrumenter', description: 'Presisjonsmåling med ulike instrumenter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Skyvelære', 'Mikrometer', 'Måleur'], competenceGoals: [] },
+    { id: 'tif-vg1-28', number: '28', title: 'Prosjektplanlegging og gjennomføring', description: 'Fullføring av større produksjonsprosjekt med dokumentasjon.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Prosjekt', 'Planlegging', 'Dokumentasjon'], competenceGoals: [] },
   ],
 };
 
@@ -13842,6 +13872,23 @@ export const COURSE_BYGG_ANLEGG_VG1: TextbookCourse = {
     { id: 'bygg-anlegg-vg1-10', number: '10', title: 'Prosjektplanlegging', description: 'Planlegging av byggeprosjekter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Prosjektplanlegging', 'Kostnadsberegning', 'Fremdrift'], competenceGoals: [] },
     { id: 'bygg-anlegg-vg1-11', number: '11', title: 'Miljø og bærekraft', description: 'Miljøvennlig bygging og gjenbruk.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Sirkulær økonomi'], competenceGoals: [] },
     { id: 'bygg-anlegg-vg1-12', number: '12', title: 'Yrkesmuligheter', description: 'Karriereveier innen bygg og anlegg.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Fagbrev', 'Spesialisering'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-13', number: '13', title: 'Drenering og fuktsikring', description: 'Drenering av bygninger og håndtering av fukt.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drenering', 'Fuktsikring', 'Drensledning'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-14', number: '14', title: 'Stillas og fallsikring', description: 'Oppbygging av stillaser og sikring mot fall.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Stillas', 'Fallsikring', 'Arbeidsplattform'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-15', number: '15', title: 'Takarbeid og taktekking', description: 'Takkonstruksjoner og ulike typer taktekking.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Takarbeid', 'Takstein', 'Taktekking'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-16', number: '16', title: 'Rørleggerarbeid grunnleggende', description: 'Grunnleggende teknikker i rørleggerarbeid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rørlegging', 'Sanitæranlegg', 'Vannledning'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-17', number: '17', title: 'Ventilasjon grunnleggende', description: 'Ventilasjonsanlegg og luftbehandling i bygg.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Ventilasjon', 'Luftbehandling', 'Ventilasjonskanaler'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-18', number: '18', title: 'Våtrom og membran', description: 'Bygging av våtrom og bruk av membran.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Våtrom', 'Membran', 'Fliser'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-19', number: '19', title: 'Innvendig arbeid og overflater', description: 'Innvendig overflatebehandling og innredning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Overflater', 'Gipsplater', 'Sparkkel'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-20', number: '20', title: 'Anleggsmaskiner og sikkerhet', description: 'Bruk av anleggsmaskiner og sikkerhet på anleggsplasser.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Anleggsmaskiner', 'Gravemaskin', 'Sikkerhet'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-21', number: '21', title: 'Veibygging grunnleggende', description: 'Grunnleggende teknikker for bygging av veier.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Veibygging', 'Asfalt', 'Bærelag'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-22', number: '22', title: 'Betongforskaling', description: 'Forskaling for støping av betongkonstruksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Forskaling', 'Betongstøping', 'Armering'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-23', number: '23', title: 'Rehabilitering og renovering', description: 'Oppgradering og restaurering av eksisterende bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rehabilitering', 'Renovering', 'Restaurering'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-24', number: '24', title: 'Brannsikring og rømningsveier', description: 'Brannsikring av bygninger og utforming av rømningsveier.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Brannsikring', 'Rømningsveier', 'Brannpåvirkning'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-25', number: '25', title: 'Energieffektivisering og BREEAM', description: 'Energieffektive løsninger og miljøsertifisering.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Energieffektivisering', 'BREEAM', 'Passivhus'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-26', number: '26', title: 'Digitale verktøy i bygg (BIM)', description: 'BIM og digitale verktøy i byggeprosessen.', estimatedMinutes: 60, exerciseCount: 5, topics: ['BIM', 'Digitalisering', '3D-modellering'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-27', number: '27', title: 'Byggelogistikk og rigging', description: 'Planlegging av logistikk og rigging på byggeplass.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Byggelogistikk', 'Rigging', 'Materialflyt'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-28', number: '28', title: 'Kvalitetssikring og kontroll', description: 'Kvalitetssikringssystemer i byggeprosessen.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kvalitetssikring', 'Kontrollplan', 'SHA-plan'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-29', number: '29', title: 'Sluttprosjekt og dokumentasjon', description: 'Gjennomføring av sluttprosjekt med fullstendig dokumentasjon.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Prosjekt', 'Dokumentasjon', 'Presentasjon'], competenceGoals: [] },
   ],
 };
 
@@ -13871,6 +13918,20 @@ export const COURSE_RESTAURANT_MAT_VG1: TextbookCourse = {
     { id: 'restaurant-mat-vg1-12', number: '12', title: 'Økonomi og drift', description: 'Kalkyle, prising og lønnsomhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kalkulasjon', 'Prising', 'Drift'], competenceGoals: [] },
     { id: 'restaurant-mat-vg1-13', number: '13', title: 'HMS i kjøkken', description: 'Arbeidsmiljø og sikkerhet i kjøkkenet.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Sikkerhet', 'Ergonomi', 'Vernetiltak'], competenceGoals: [] },
     { id: 'restaurant-mat-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier i restaurant- og matfag.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-15', number: '15', title: 'Kjøtt - kvalitet, stykking og tilberedning', description: 'Ulike kjøtttyper, kjøttkvalitet, stykkingsprinsipper og tilberedningsteknikker.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kjøtt', 'Stykking', 'Tilberedning', 'Kvalitetsvurdering'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-16', number: '16', title: 'Fisk og sjømat - håndtering og tilberedning', description: 'Ferskhetsgrader, filetering, sjømattyper og tilberedningsmåter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fisk', 'Sjømat', 'Ferskvurdering', 'Filetering'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-17', number: '17', title: 'Grønnsaker og frukt - sesong og bruk', description: 'Sesongvariasjon, lagring, forbehandling og bruk i kjøkkenet.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Grønnsaker', 'Frukt', 'Sesong', 'Forbehandling'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-18', number: '18', title: 'Melk og meieriprodukter', description: 'Meieriproduksjon, ost, smør, fløte og bruk i matlaging.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Melkeprodukter', 'Ost', 'Fermentering', 'Meierivare'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-19', number: '19', title: 'Korn, mel og bakevarer', description: 'Korntyper, melsorter, glutenstruktur og baketeori.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Korn', 'Mel', 'Gluten', 'Baketeori'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-20', number: '20', title: 'Konservering og foredling', description: 'Sylting, fermentering, røyking, tørking og andre konserveringsmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Konservering', 'Fermentering', 'Sylting', 'Røyking'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-21', number: '21', title: 'Smak og sensorikk', description: 'Smaksopplevelser, smakskombinasjon og sensorisk vurdering.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Smak', 'Sensorikk', 'Smakskombinasjon', 'Degustasjon'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-22', number: '22', title: 'Profesjonell kjøkkendrift og organisering', description: 'Kjøkkenorganisering, mise en place, arbeidsflyt og effektivitet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kjøkkenorganisering', 'Mise en place', 'Arbeidsflyt', 'Effektivitet'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-23', number: '23', title: 'Matsvinn og bærekraftig kjøkkendrift', description: 'Redusere matsvinn, ressursutnyttelse og miljøvennlig drift.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Matsvinn', 'Ressursbruk', 'Bærekraft', 'Miljø'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-24', number: '24', title: 'Matmerking og lovverk', description: 'Merkekrav, lovverk, allergenhåndtering og matinformasjon.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Matmerking', 'Lovverk', 'Allergener', 'Informasjonskrav'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-25', number: '25', title: 'Drikke og drikkekultur', description: 'Vin, øl, kaffe, te og drikkeservering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Vin', 'Øl', 'Kaffe', 'Drikkeparing'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-26', number: '26', title: 'Catering og selskapsmeny', description: 'Planlegging, produksjon og servering av større arrangement.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Catering', 'Selskapsmeny', 'Storproduksjon', 'Arrangement'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-27', number: '27', title: 'Vegetarisk og vegansk mat', description: 'Plantebasert kosthold, proteinalternativer og vegetarisk matlaging.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vegetarmat', 'Veganmat', 'Planteproteiner', 'Alternativ'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-28', number: '28', title: 'Lokal og kortreist mat', description: 'Lokale råvarer, kortreist mat og regional matkultur.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Lokale råvarer', 'Kortreist', 'Regional mat', 'Produsenter'], competenceGoals: [] },
   ],
 };
 
@@ -13900,6 +13961,19 @@ export const COURSE_NATURBRUK_VG1: TextbookCourse = {
     { id: 'naturbruk-vg1-12', number: '12', title: 'Klima og miljø', description: 'Klimaendringer og miljøutfordringer.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Klima', 'Miljø', 'Tilpasning'], competenceGoals: [] },
     { id: 'naturbruk-vg1-13', number: '13', title: 'Entreprenørskap i naturbruk', description: 'Etablering og drift av naturbruksvirksomhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Forretningsidé', 'Økonomi', 'Innovasjon'], competenceGoals: [] },
     { id: 'naturbruk-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier i naturbruksnæringen.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-15', number: '15', title: 'Treslag og skogøkologi', description: 'Norske treslag, vekstvilkår og skogens økosystem.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Treslag', 'Skogøkologi', 'Artskunnskaper', 'Vekstvilkår'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-16', number: '16', title: 'Jakt og viltstell', description: 'Jaktformer, viltarter, viltbestandsforvaltning og etisk jakt.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Jakt', 'Viltarter', 'Jaktmetoder', 'Viltforvaltning'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-17', number: '17', title: 'Ferskvannsfiske og forvaltning', description: 'Fiskearter, fiskeforvaltning, elver og innsjøer.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Ferskvannsfiske', 'Fiskearter', 'Elvefiske', 'Fiskeforvaltning'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-18', number: '18', title: 'Hagebruk og gartneri', description: 'Planteproduksjon, veksthus, grøntdyrking og hageanlegg.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Hagebruk', 'Grøntdyrking', 'Veksthus', 'Planteproduksjon'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-19', number: '19', title: 'Jordbruksmaskiner og vedlikehold', description: 'Traktorer, redskaper, maskindrift og vedlikehold.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Traktor', 'Jordbruksmaskiner', 'Vedlikehold', 'Maskindrift'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-20', number: '20', title: 'Beitebruk og utmarksforvaltning', description: 'Beite, utmarksressurser, sauehold og utmarksbruk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Beitebruk', 'Utmark', 'Sauehold', 'Utmarksressurser'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-21', number: '21', title: 'Viltforvaltning og jaktlovgivning', description: 'Viltloven, jaktloven, rettigheter og forvaltningsansvar.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Viltlov', 'Jaktlov', 'Rettigheter', 'Forvaltning'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-22', number: '22', title: 'Økologisk landbruk', description: 'Økologisk drift, krav, sertifisering og prinsipper.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Økologisk drift', 'Sertifisering', 'Økologiske prinsipper', 'Økokrav'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-23', number: '23', title: 'Naturveiledning og guiding', description: 'Naturformidling, guideteknikker og turledelse.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Naturveiledning', 'Guiding', 'Formidling', 'Turledelse'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-24', number: '24', title: 'GPS, kart og kartlegging', description: 'GPS-bruk, kartlesing, kartlegging og orientering.', estimatedMinutes: 55, exerciseCount: 5, topics: ['GPS', 'Kartlesing', 'Kartlegging', 'Orientering'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-25', number: '25', title: 'Biologisk mangfold i praksis', description: 'Artskunnskap, habitatforvaltning og bevaring av mangfold.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Biologisk mangfold', 'Artskunnskap', 'Habitat', 'Naturvern'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-26', number: '26', title: 'Kulturlandskap og skjøtsel', description: 'Kulturmark, slått, beite og skjøtsel av kulturlandskap.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Kulturlandskap', 'Skjøtsel', 'Kulturmark', 'Slått'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-27', number: '27', title: 'Klimatilpasning i naturbruk', description: 'Klimaendringer, tilpasningsstrategier og klimasmarte løsninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Klimatilpasning', 'Klimaendring', 'Tilpasningsstrategier', 'Klimasmart'], competenceGoals: [] },
   ],
 };
 
@@ -13928,6 +14002,20 @@ export const COURSE_IM_VG1: TextbookCourse = {
     { id: 'im-vg1-11', number: '11', title: 'Prosjektarbeid', description: 'Prosjektmetodikk og samarbeid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Prosjekt', 'Samarbeid', 'Agil'], competenceGoals: [] },
     { id: 'im-vg1-12', number: '12', title: 'Bærekraft og teknologi', description: 'Grønn IT og bærekraftig teknologibruk.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Bærekraft', 'Energi', 'E-avfall'], competenceGoals: [] },
     { id: 'im-vg1-13', number: '13', title: 'Yrkesmuligheter', description: 'Karriereveier i IT og medieproduksjon.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+    { id: 'im-vg1-14', number: '14', title: 'HTML grunnleggende', description: 'HTML-struktur, elementer, attributter og semantisk HTML.', estimatedMinutes: 60, exerciseCount: 6, topics: ['HTML', 'Elementer', 'Semantikk', 'Struktur'], competenceGoals: [] },
+    { id: 'im-vg1-15', number: '15', title: 'CSS og styling', description: 'CSS-selektorer, farger, layout og responsivt design.', estimatedMinutes: 65, exerciseCount: 6, topics: ['CSS', 'Styling', 'Layout', 'Responsivt'], competenceGoals: [] },
+    { id: 'im-vg1-16', number: '16', title: 'JavaScript introduksjon', description: 'Grunnleggende JavaScript, funksjoner og DOM-manipulering.', estimatedMinutes: 60, exerciseCount: 5, topics: ['JavaScript', 'Funksjoner', 'DOM', 'Events'], competenceGoals: [] },
+    { id: 'im-vg1-17', number: '17', title: 'Grafisk design og komposisjon', description: 'Designprinsipper, fargelære, balanse og komposisjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Design', 'Komposisjon', 'Fargelære', 'Balanse'], competenceGoals: [] },
+    { id: 'im-vg1-18', number: '18', title: 'Typografi og skriftvalg', description: 'Fontvalg, lesbarhet, hierarki og typografiske prinsipper.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Typografi', 'Font', 'Lesbarhet', 'Hierarki'], competenceGoals: [] },
+    { id: 'im-vg1-19', number: '19', title: 'Fotografering og bildebehandling', description: 'Fotografiske prinsipper, bilderedigering og bildekomprimering.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Foto', 'Bildebehandling', 'Komposisjon', 'Redigering'], competenceGoals: [] },
+    { id: 'im-vg1-20', number: '20', title: 'Animasjon og motion graphics', description: 'Animasjonsprinsipper, tidslinjer og bevegelsesdesign.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Animasjon', 'Motion graphics', 'Tidslinje', 'Bevegelse'], competenceGoals: [] },
+    { id: 'im-vg1-21', number: '21', title: 'Podcast og lydproduksjon', description: 'Lydopptak, mikrofoner, redigering og publisering av podcast.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Podcast', 'Lydopptak', 'Lydredigering', 'Publisering'], competenceGoals: [] },
+    { id: 'im-vg1-22', number: '22', title: 'Spillutvikling introduksjon', description: 'Spillmekanikk, spilldesign og enkel spillutvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Spillutvikling', 'Spilldesign', 'Mekanikk', 'Game engines'], competenceGoals: [] },
+    { id: 'im-vg1-23', number: '23', title: 'Skyteknologi og nettsky', description: 'Cloud computing, lagringstjenester og skybaserte verktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Cloud', 'Skytjenester', 'Lagring', 'SaaS'], competenceGoals: [] },
+    { id: 'im-vg1-24', number: '24', title: 'Operativsystemer (Windows, Mac, Linux)', description: 'Ulike operativsystemer, filsystemer og systemadministrasjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Operativsystemer', 'Windows', 'Mac', 'Linux'], competenceGoals: [] },
+    { id: 'im-vg1-25', number: '25', title: 'Brukergrensesnitt og interaksjonsdesign', description: 'UI-design, interaksjonsdesign og designsystemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['UI', 'Interaksjonsdesign', 'Brukergrensesnitt', 'Designsystemer'], competenceGoals: [] },
+    { id: 'im-vg1-26', number: '26', title: 'Digital historiefortelling', description: 'Narrativ, storytelling og digitale fortellerteknikker.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Historiefortelling', 'Narrativ', 'Storytelling', 'Digitale medier'], competenceGoals: [] },
+    { id: 'im-vg1-27', number: '27', title: 'Agil prosjektstyring', description: 'Scrum, Kanban, sprintplanlegging og agile arbeidsmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Agile', 'Scrum', 'Kanban', 'Prosjektstyring'], competenceGoals: [] },
   ],
 };
 
@@ -14081,6 +14169,146 @@ export const COURSE_SALG_SERVICE_VG1: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 4,
       topics: ['Karriereveier', 'Videregående utdanning', 'Arbeidsmarked', 'Praksis'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-15',
+      number: '15',
+      title: 'Visuell merchandising og butikkdesign',
+      description: 'Butikkinnredning, varedisplay, fargebruk, belysning og skapning av kjøpsatmosfære.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Butikkinnredning', 'Varedisplay', 'Belysning', 'Kjøpsatmosfære'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-16',
+      number: '16',
+      title: 'CRM og kundelojalitet',
+      description: 'Customer Relationship Management, lojalitetsprogrammer, kundedata og personalisert service.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['CRM-systemer', 'Lojalitetsprogrammer', 'Kundedata', 'Personalisering'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-17',
+      number: '17',
+      title: 'E-handel og nettbutikk',
+      description: 'Netthandel, betalingsløsninger, logistikk, kundeservice online og omnikanalhandel.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Netthandel', 'Betalingsløsninger', 'E-handelslogistikk', 'Omnikanalhandel'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-18',
+      number: '18',
+      title: 'Reiselivsprodukter og pakkereiser',
+      description: 'Reiselivsprodukter, pakkereiser, charterreiser, cruise og fleksible reisepakker.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Reiselivsprodukter', 'Pakkereiser', 'Charterreiser', 'Cruise'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-19',
+      number: '19',
+      title: 'Hotell og overnatting',
+      description: 'Hotelltyper, romkategorier, innsjekking, utsjekking og servicestandarder i overnattingsbransjen.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Hotelltyper', 'Romkategorier', 'Innsjekking', 'Servicestandarder'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-20',
+      number: '20',
+      title: 'Eventplanlegging og arrangement',
+      description: 'Planlegging av arrangementer, konferanser, bryllup, messer og kurs. Logistikk og koordinering.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Eventplanlegging', 'Konferanser', 'Arrangement', 'Logistikk'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-21',
+      number: '21',
+      title: 'Klagebehandling og konflikthåndtering',
+      description: 'Reklamasjoner, konfliktløsning, de-eskalering og profesjonell håndtering av vanskelige kunder.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Reklamasjoner', 'Konfliktløsning', 'De-eskalering', 'Vanskelige kunder'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-22',
+      number: '22',
+      title: 'Salgsteknikker og overtalelse',
+      description: 'Mersalg, kryssalg, påvirkningsteknikker, argumentasjon og etisk salg.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Mersalg', 'Kryssalg', 'Påvirkningsteknikker', 'Etisk salg'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-23',
+      number: '23',
+      title: 'Innkjøp og leverandørforhold',
+      description: 'Innkjøpsprosessen, leverandøravtaler, forhandlinger, kvalitetskontroll og leverandørstyring.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Innkjøpsprosessen', 'Leverandøravtaler', 'Forhandlinger', 'Kvalitetskontroll'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-24',
+      number: '24',
+      title: 'Butikkøkonomi og nøkkeltall',
+      description: 'Salgsnøkkeltall, margin, dekningsbidrag, lønnsomhetsanalyse og økonomisk styring.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Salgsnøkkeltall', 'Margin', 'Dekningsbidrag', 'Lønnsomhetsanalyse'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-25',
+      number: '25',
+      title: 'Internasjonalt reiseliv og destinasjoner',
+      description: 'Populære reisemål, geografi, klimasoner, tidssoner og internasjonale reisebestemmelser.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Reisemål', 'Geografi', 'Klimasoner', 'Reisebestemmelser'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-26',
+      number: '26',
+      title: 'Kulturforståelse og interkulturell kommunikasjon',
+      description: 'Kulturelle forskjeller, interkulturell kommunikasjon, kultursjokk og servicekultur i ulike land.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Kulturforskjeller', 'Interkulturell kommunikasjon', 'Kultursjokk', 'Servicekultur'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-27',
+      number: '27',
+      title: 'Bookingsystemer og teknologi',
+      description: 'Bookingsystemer, POS-systemer, betalingsterminaler, digitale verktøy i handel og reiseliv.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Bookingsystemer', 'POS-systemer', 'Betalingsterminaler', 'Digitale verktøy'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-28',
+      number: '28',
+      title: 'Trender i handel og reiseliv',
+      description: 'Fremtidens handel, digitalisering, automatisering, personalisering og nye forbrukertrend.',
+      estimatedMinutes: 50,
+      exerciseCount: 4,
+      topics: ['Fremtidstrender', 'Digitalisering', 'Automatisering', 'Forbrukertrend'],
       competenceGoals: []
     }
   ]
@@ -14237,6 +14465,146 @@ export const COURSE_HANDVERK_DESIGN_VG1: TextbookCourse = {
       exerciseCount: 4,
       topics: ['Karriereveier', 'Fagbrev', 'Design-utdanning', 'Arbeidsmarked'],
       competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-15',
+      number: '15',
+      title: 'Trearbeid og snekring',
+      description: 'Trebearbeiding, snekkerverktøy, saging, høvling, sammenføyning og overflatebehandling av tre.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Trebearbeiding', 'Snekkerverktøy', 'Sammenføyning', 'Overflatebehandling'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-16',
+      number: '16',
+      title: 'Tekstil og søm',
+      description: 'Tekstilmaterialer, symaskiner, søm, sying, broderi og tekstilreparasjon.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Tekstilmaterialer', 'Symaskiner', 'Søm', 'Broderi'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-17',
+      number: '17',
+      title: 'Keramikk og leire',
+      description: 'Leirtyper, keramikkteknikker, dreiing, modellering, glasur og brenning.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Leirtyper', 'Dreiing', 'Modellering', 'Glasur', 'Brenning'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-18',
+      number: '18',
+      title: 'Metallarbeid og smiing',
+      description: 'Metaller, smiing, sveising, lodding, filing og metalloverflatebehandling.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Smiing', 'Sveising', 'Lodding', 'Metallbehandling'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-19',
+      number: '19',
+      title: '3D-printing og digital fabrikasjon',
+      description: '3D-printing, 3D-modellering for print, printmaterialer, laserskjæring og CNC-fresing.',
+      estimatedMinutes: 65,
+      exerciseCount: 6,
+      topics: ['3D-printing', '3D-modellering', 'Laserskjæring', 'CNC-fresing'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-20',
+      number: '20',
+      title: 'Mønsterkonstruksjon og snittutvikling',
+      description: 'Grunnleggende mønsterkonstruksjon, måltagning, snittutvikling og tilpasning av mønstre.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Mønsterkonstruksjon', 'Måltagning', 'Snittutvikling', 'Tilpasning'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-21',
+      number: '21',
+      title: 'Designprosessen - dobbel diamant',
+      description: 'Dobbel diamant-modellen, oppdage, definere, utvikle og levere. Designmetoder og verktøy.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Dobbel diamant', 'Designmetoder', 'Oppdage', 'Utvikle'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-22',
+      number: '22',
+      title: 'Modellbygging og prototyping',
+      description: 'Lage modeller og prototyper, skala, materialer for prototyping og testing av konsepter.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Modellbygging', 'Prototyping', 'Skala', 'Konsepttesting'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-23',
+      number: '23',
+      title: 'Ergonomi og brukervennlighet',
+      description: 'Ergonomiske prinsipper, universell utforming, brukervennlighet og human-centered design.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Ergonomi', 'Universell utforming', 'Brukervennlighet', 'Human-centered design'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-24',
+      number: '24',
+      title: 'Emballasjedesign',
+      description: 'Emballasjetyper, emballasjefunksjoner, materialvalg, grafisk design på emballasje og bærekraft.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Emballasjetyper', 'Emballasjefunksjoner', 'Grafisk emballasjedesign', 'Bærekraftig emballasje'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-25',
+      number: '25',
+      title: 'Utstillingsdesign og scenografi',
+      description: 'Utstillingsdesign, scenografi, romskaping, lyssetting og dramaturgisk fremstilling.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Utstillingsdesign', 'Scenografi', 'Romskaping', 'Lyssetting'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-26',
+      number: '26',
+      title: 'Verktøyvedlikehold og sikkerhet',
+      description: 'Vedlikehold av verktøy og maskiner, slipe, rengjøring, sikker oppbevaring og forebyggende vedlikehold.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Verktøyvedlikehold', 'Slipe', 'Rengjøring', 'Sikkerhet'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-27',
+      number: '27',
+      title: 'Gjenbruk, reparasjon og sirkulærøkonomi',
+      description: 'Reparasjon av produkter, upcycling, redesign, cradle to cradle og sirkulære forretningsmodeller.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Reparasjon', 'Upcycling', 'Redesign', 'Sirkulærøkonomi'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-28',
+      number: '28',
+      title: 'Kulturarv og tradisjonsteknikker',
+      description: 'Norske håndverkstradisjoner, kulturarv, tradisjonelle teknikker og bevaring av håndverkskunnskap.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Håndverkstradisjoner', 'Kulturarv', 'Tradisjonelle teknikker', 'Bevaring'],
+      competenceGoals: []
     }
   ]
 };
@@ -14391,6 +14759,146 @@ export const COURSE_FRISOR_BLOMSTER_VG1: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 4,
       topics: ['Fagbrev', 'Karriereveier', 'Spesialisering', 'Arbeidsmarked'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-15',
+      number: '15',
+      title: 'Hårpleie og produktkunnskap',
+      description: 'Hårprodukter, shampoo, balsam, hårkur, styling-produkter og ingredienslære.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Hårprodukter', 'Shampoo', 'Hårkur', 'Styling-produkter'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-16',
+      number: '16',
+      title: 'Klippeteknikker grunnleggende',
+      description: 'Grunnleggende klippeteknikker, klippelinjer, vinkling, saksføring og sikkerhet.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Klippeteknikker', 'Klippelinjer', 'Vinkling', 'Saksføring'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-17',
+      number: '17',
+      title: 'Hårfarging og fargelære',
+      description: 'Fargelære, fargeteorier, fargelegging, blondering, toning og fargekorreksjon.',
+      estimatedMinutes: 65,
+      exerciseCount: 6,
+      topics: ['Fargelære', 'Fargelegging', 'Blondering', 'Fargekorreksjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-18',
+      number: '18',
+      title: 'Permanent og strukturendring',
+      description: 'Permanent, retting av hår, strukturendring, kjemisk behandling og sikkerhet.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Permanent', 'Retting', 'Strukturendring', 'Kjemisk behandling'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-19',
+      number: '19',
+      title: 'Bukettbinding og teknikker',
+      description: 'Bukettbinding, spiralteknikk, parallellbinding, bindemetoder og bryllupsbuketter.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Bukettbinding', 'Spiralteknikk', 'Parallellbinding', 'Bryllupsbuketter'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-20',
+      number: '20',
+      title: 'Plantepleie og botanikk',
+      description: 'Plantelære, botanikk, vanning, gjødsling, beskjæring og plantesykdommer.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Plantelære', 'Botanikk', 'Vanning', 'Plantesykdommer'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-21',
+      number: '21',
+      title: 'Blomsterdekorasjon til arrangement',
+      description: 'Blomsterdekorasjon til bryllup, konfirmasjon, begravelse, borddekorasjoner og festlokaler.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Bryllupsdekkor', 'Begravelsesdekorasjon', 'Borddekorasjon', 'Festdekorasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-22',
+      number: '22',
+      title: 'Romplanlegging og plassutnyttelse',
+      description: 'Romplanlegging, møblering, plassutnyttelse, romopplevelse og funksjonalitet.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Romplanlegging', 'Møblering', 'Plassutnyttelse', 'Funksjonalitet'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-23',
+      number: '23',
+      title: 'Møbler og innredningselementer',
+      description: 'Møbeltyper, møbelstiler, møbelmaterialer, møbelplassering og innredningsløsninger.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Møbeltyper', 'Møbelstiler', 'Møbelmaterialer', 'Innredningsløsninger'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-24',
+      number: '24',
+      title: 'Vindusdekorasjon og utstilling',
+      description: 'Vindusutstilling, vindusdekorasjon, sesongutstillinger, tematiske utstillinger og salgsfremmende visning.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Vindusutstilling', 'Vindusdekorasjon', 'Sesongutstillinger', 'Salgsfremmende visning'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-25',
+      number: '25',
+      title: 'Belysning og atmosfære',
+      description: 'Lyssetting, lystyper, lystemperatur, spotlights, ambient lighting og atmosfæreskaping.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Lyssetting', 'Lystyper', 'Lystemperatur', 'Atmosfæreskaping'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-26',
+      number: '26',
+      title: 'Stilhistorie og perioder',
+      description: 'Stilhistorie, design- og moteperioder, historiske stiler, barokk, jugend, funksjonalisme og moderne design.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Stilhistorie', 'Designperioder', 'Barokk', 'Funksjonalisme'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-27',
+      number: '27',
+      title: 'Visuell kommunikasjon og merkevare',
+      description: 'Visuell identitet, merkevarebygging, logodesign, fargevalg, typografi og konsistent visuell profil.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Visuell identitet', 'Merkevarebygging', 'Logodesign', 'Visuell profil'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-28',
+      number: '28',
+      title: 'Salongstyring og kundebehandling',
+      description: 'Salongstyring, timebestilling, kundeoppfølging, prissetting, salongadministrasjon og kundetilfredshet.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Salongstyring', 'Timebestilling', 'Kundeoppfølging', 'Kundetilfredshet'],
       competenceGoals: []
     }
   ]
