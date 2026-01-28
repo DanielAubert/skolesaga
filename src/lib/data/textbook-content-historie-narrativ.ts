@@ -1353,6 +1353,13 @@ export const CHAPTER_HISTORIE_2_2_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-2-2',
   content: [
     {
+      id: 'historie-2-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-2-2-n-intro',
       type: 'text',
       content: `## Historien har mange stemmer
@@ -1398,6 +1405,13 @@ Disse fire perspektivene er sentrale i det vi kaller **historiografi** – studi
       },
     },
     {
+      id: 'historie-2-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til andre quiz.',
+    },
+    {
       id: 'historie-2-2-n-section2',
       type: 'text',
       content: `## Hvorfor fremstillinger er forskjellige
@@ -1430,6 +1444,13 @@ Når to historikere skriver om den samme hendelsen og likevel produserer vidt fo
       },
     },
     {
+      id: 'historie-2-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til tredje quiz.',
+    },
+    {
       id: 'historie-2-2-n-section3',
       type: 'text',
       content: `## Vikingene i ulike fremstillinger
@@ -1458,6 +1479,13 @@ Hvem har rett? Begge – og ingen. Den engelske munken beskrev reelle opplevelse
         ],
         solution: 'Begge fremstillingene inneholder sannhet, men er formet av forfatternes ståsted. Munken var et offer for vikingangrep og skrev fra frykt og fortvilelse. Lærebokforfatteren skrev i en tid da vikingene var en kilde til nasjonal stolthet. Perspektivet former fremstillingen.',
       },
+    },
+    {
+      id: 'historie-2-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til fjerde quiz.',
     },
     {
       id: 'historie-2-2-n-section4',
@@ -1490,6 +1518,13 @@ Dette betyr ikke at alle perspektiver er like gyldige i enhver sammenheng. En hi
       },
     },
     {
+      id: 'historie-2-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til femte quiz.',
+    },
+    {
       id: 'historie-2-2-n-section5',
       type: 'text',
       content: `## Hvorfor dette angår deg
@@ -1518,6 +1553,13 @@ Poenget er ikke at du skal bli kynisk og tro at alt er løgn. Poenget er at du s
         ],
         solution: 'Den viktigste ferdigheten er kritisk lesning: å kunne identifisere perspektivet bak en fremstilling, forstå hvilke valg som er gjort, og vurdere hva som er inkludert og utelatt. Dette er verdifullt langt utover historiefaget – det gjør deg til en mer bevisst medborger.',
       },
+    },
+    {
+      id: 'historie-2-2-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-2-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-2-2-n-summary',
@@ -1556,6 +1598,13 @@ export const CHAPTER_HISTORIE_2_4_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-2-4',
   content: [
     {
+      id: 'historie-2-4-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-2-4-n-intro',
       type: 'text',
       content: `## Steinen som husker
@@ -1584,6 +1633,13 @@ Tenk på det slik: Hukommelsen din er personlig. Du husker bursdagen din, den ga
         ],
         solution: 'Minnekultur – også kalt kollektiv erindring – er måten et samfunn husker og markerer fortiden. Det handler om fysiske minnesmerker, tidsmessige markeringer som minnedager, og narrative former som nasjonale fortellinger.',
       },
+    },
+    {
+      id: 'historie-2-4-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til andre quiz.',
     },
     {
       id: 'historie-2-4-n-section1',
@@ -1618,6 +1674,13 @@ Men hvem bestemmer alt dette? Hvem former minnekulturen? Svaret er sammensatt: S
       },
     },
     {
+      id: 'historie-2-4-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til tredje quiz.',
+    },
+    {
       id: 'historie-2-4-n-section2',
       type: 'text',
       content: `## To nivåer av minne
@@ -1648,6 +1711,13 @@ Og her oppstår spenninger. Lokal historie kan utfordre eller nyansere nasjonal 
         ],
         solution: 'Den nasjonale fortellingen om heltemodige motstandsfolk og frigjøring forenkler en mye mer kompleks virkelighet. Finnmark opplevde tvangsevakuering og nedbrenning. Bygder med mange NS-medlemmer har vanskeligere minner. Lofoten opplevde kommandoraid. Ulike steder opplevde krigen svært forskjellig.',
       },
+    },
+    {
+      id: 'historie-2-4-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til fjerde quiz.',
     },
     {
       id: 'historie-2-4-n-section3',
@@ -1684,6 +1754,13 @@ Men dette har endret seg, langsomt. Samisk kulturarv er nå beskyttet. Kvinnehis
       },
     },
     {
+      id: 'historie-2-4-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til femte quiz.',
+    },
+    {
       id: 'historie-2-4-n-section4',
       type: 'text',
       content: `## Når statuene faller
@@ -1714,6 +1791,13 @@ Uansett hva du mener, tvinger debatten oss til å skille mellom to ting: å *hus
         ],
         solution: 'Det avgjørende skillet er mellom å huske og å hedre. En statue på et torg er en æresbevisning, mens et museum kan fortelle den samme historien uten å hylle personen. Debatten handler om hva som hører hjemme i det offentlige rom som hedersbetoning, og hva som bør kontekstualiseres.',
       },
+    },
+    {
+      id: 'historie-2-4-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-4-narrativ-oppsummering.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-2-4-n-summary',
@@ -1755,6 +1839,13 @@ export const CHAPTER_HISTORIE_2_5_NARRATIV: TextbookChapter = {
   competenceGoals: ['utforske fortiden - kommunisere historisk kunnskap skriftlig'],
   linkedChapterId: 'historie-2-5',
   content: [
+    {
+      id: 'historie-2-5-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
     {
       id: 'historie-2-5-n-intro',
       type: 'text',
@@ -1803,6 +1894,13 @@ Felles for alle disse sjangrene er at de krever god struktur, presis kildebruk o
       },
     },
     {
+      id: 'historie-2-5-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til andre quiz.',
+    },
+    {
       id: 'historie-2-5-n-section2',
       type: 'text',
       content: `## Oppbygging og struktur – skjelettet i teksten din
@@ -1837,6 +1935,13 @@ Denne strukturen er ikke bare en formalitet – den er et verktøy for klar tenk
       },
     },
     {
+      id: 'historie-2-5-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til tredje quiz.',
+    },
+    {
       id: 'historie-2-5-n-section3',
       type: 'text',
       content: `## Kildebruk og kildehenvisning – belegget for påstandene dine
@@ -1869,6 +1974,13 @@ Husk: Å la være å oppgi kilder er ikke bare slurvete – det er juks. I akade
         ],
         solution: 'Et direkte sitat gjengir kildens eksakte ordlyd i anførselstegn, mens en parafrase gjengir det samme innholdet med dine egne ord. Begge krever kildehenvisning.',
       },
+    },
+    {
+      id: 'historie-2-5-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til fjerde quiz.',
     },
     {
       id: 'historie-2-5-n-section4',
@@ -1916,6 +2028,13 @@ Legg merke til hvordan avsnittet bruker drøftingsordene «på den ene siden» o
       },
     },
     {
+      id: 'historie-2-5-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til femte quiz.',
+    },
+    {
       id: 'historie-2-5-n-section5',
       type: 'text',
       content: `## Ulike skriveoppgaver og eksamensskriving
@@ -1948,6 +2067,13 @@ En **framstillingsoppgave** ber deg fortelle en sammenhengende historie om en he
         ],
         solution: 'En sammenligningsoppgave krever at du velger klare kriterier å sammenligne etter (for eksempel årsaker, forløp og konsekvenser) og systematisk peker på likheter og forskjeller mellom fenomenene. Du må hele tiden relatere dem til hverandre.',
       },
+    },
+    {
+      id: 'historie-2-5-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-5-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-2-5-n-summary',
@@ -1995,6 +2121,13 @@ export const CHAPTER_HISTORIE_2_6_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-2-6',
   content: [
     {
+      id: 'historie-2-6-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-2-6-n-intro',
       type: 'text',
       content: `## Stemmen som våpen og verktøy
@@ -2038,6 +2171,13 @@ En god muntlig framstilling i historie balanserer alle tre. Du trenger troverdig
       },
     },
     {
+      id: 'historie-2-6-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til andre quiz.',
+    },
+    {
       id: 'historie-2-6-n-section2',
       type: 'text',
       content: `## Å bygge en historisk presentasjon
@@ -2070,6 +2210,13 @@ Praktisk sett bør du øve presentasjonen høyt minst to ganger. Ha stikkord på
       },
     },
     {
+      id: 'historie-2-6-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til tredje quiz.',
+    },
+    {
       id: 'historie-2-6-n-section3',
       type: 'text',
       content: `## Debatt og diskusjon – å bryne argumentene
@@ -2098,6 +2245,13 @@ Diskusjoner i historiefaget kan ta ulike former. I en **paneldebatt** forsvarer 
         ],
         solution: 'Kontekstualisering er den beste teknikken her. Ved å forklare den historiske konteksten – konsulatsaken, den voksende nasjonalismen, Stortingets kamp for selvstyre – viser du at det fantes sterke grunner for unionsoppløsningen, uten å angripe motparten personlig.',
       },
+    },
+    {
+      id: 'historie-2-6-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til fjerde quiz.',
     },
     {
       id: 'historie-2-6-n-section4',
@@ -2134,6 +2288,13 @@ Slike rollespill tvinger deg til å forlate ditt eget perspektiv og virkelig pr�
       },
     },
     {
+      id: 'historie-2-6-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til femte quiz.',
+    },
+    {
       id: 'historie-2-6-n-section5',
       type: 'text',
       content: `## Lytting og kritisk vurdering – den undervurderte ferdigheten
@@ -2162,6 +2323,13 @@ Alt dette er ferdigheter du trenger til muntlig eksamen i historie. Der skal du 
         ],
         solution: 'Det viktigste er å vurdere kildegrunnlaget og om noe er utelatt. Vikingene var både handelsfolk og krigere – en dokumentar som bare viser én side, utelater viktig informasjon. Kritisk lytting handler om å spørre etter kilder, perspektiver og det som mangler.',
       },
+    },
+    {
+      id: 'historie-2-6-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-6-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-2-6-n-summary',
@@ -2202,6 +2370,13 @@ export const CHAPTER_HISTORIE_2_3_NARRATIV: TextbookChapter = {
   competenceGoals: ['brudd eller kontinuitet i historien'],
   linkedChapterId: 'historie-2-3',
   content: [
+    {
+      id: 'historie-2-3-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
     {
       id: 'historie-2-3-n-intro',
       type: 'text',
@@ -2248,6 +2423,13 @@ Men her er det avgjørende poenget: **Brudd på ett område kan skje samtidig me
       },
     },
     {
+      id: 'historie-2-3-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til andre quiz.',
+    },
+    {
       id: 'historie-2-3-n-section2',
       type: 'text',
       content: `## Kontinuitet – de stille strømmene
@@ -2276,6 +2458,13 @@ Og det er nettopp dette som gjør studiet av kontinuitet så viktig. Det er lett
         ],
         solution: 'Innføringen av kristendommen er et klassisk eksempel på at brudd og kontinuitet eksisterer side om side. Religionen endret seg dramatisk (brudd), men språket forble norrønt, sosiale strukturer bestod, norrøne skikker ble innlemmet i kristen praksis, og bondesamfunnet fortsatte som før (kontinuitet).',
       },
+    },
+    {
+      id: 'historie-2-3-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til tredje quiz.',
     },
     {
       id: 'historie-2-3-n-section3',
@@ -2310,6 +2499,13 @@ La oss ta et konkret eksempel: den industrielle revolusjon. **Hendelsen** kan v�
       },
     },
     {
+      id: 'historie-2-3-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til fjerde quiz.',
+    },
+    {
       id: 'historie-2-3-n-section4',
       type: 'text',
       content: `## Revolusjonen som var – og ikke var
@@ -2338,6 +2534,13 @@ Så var den franske revolusjon et brudd eller en kontinuitet? Historikere har di
         ],
         solution: 'Den franske revolusjon var et dramatisk politisk brudd (monarkiet avskaffet, menneskerettigheter erklært), men samtidig bestod mange dype strukturer (sentralstyrt stat, bøndenes hverdag, sosiale forskjeller, kvinners stilling). Dette viser at brudd og kontinuitet ikke er absolutter, men kan eksistere parallelt.',
       },
+    },
+    {
+      id: 'historie-2-3-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til femte quiz.',
     },
     {
       id: 'historie-2-3-n-section5',
@@ -2372,6 +2575,13 @@ Det betyr ikke at vendepunkter er meningsløse. Verdenskrigene, industrialiserin
         ],
         solution: 'Vi peker ut vendepunkter i ettertid, med kunnskap om konsekvensene som samtiden ikke hadde. Mange hendelser vi kaller vendepunkter var dessuten del av lengre prosesser. Vendepunkter er nyttige analytiske verktøy, men vi må huske at de er konstruksjoner – historien hadde ikke visst at den var ved et vendepunkt.',
       },
+    },
+    {
+      id: 'historie-2-3-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-2-3-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-2-3-n-summary',
