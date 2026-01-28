@@ -292,14 +292,14 @@ export function TextbookChapterView({
 
       {/* Hero image */}
       {chapterMeta.coverImage && (
-        <div className="relative w-full h-48 sm:h-64 md:h-80 overflow-hidden bg-muted">
+        <div className="relative w-full h-56 sm:h-72 md:h-96 overflow-hidden bg-muted">
           <Image
             src={chapterMeta.coverImage}
             alt={chapterMeta.title}
             fill
             priority
             sizes="100vw"
-            className="object-contain"
+            className="object-cover"
           />
           <div className="absolute bottom-0 left-0 right-0">
             <div className="bg-gradient-to-t from-black/70 via-black/40 to-transparent pt-16 pb-6 px-6">
