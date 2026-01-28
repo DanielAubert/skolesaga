@@ -2717,6 +2717,37 @@ Det athenske demokratiet har inspirert politisk tenkning helt frem til i dag, me
 **Loddtrekning** var sentralt - det sikret at makten ble fordelt og ikke monopolisert av eliten.`,
     },
     {
+      id: 'historie-3-2-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Perikles\' gravtale (ca. 431 f.Kr.)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Vår statsforfatning er ikke en etterligning av andre folks lover. Vi er snarere selv et forbilde for andre enn vi etterligner noen. Navnet den bærer er demokrati, fordi styret ikke hviler på noen få, men på flertallet. I private tvister har alle like rettigheter etter lovene. Hva angår anseelse, så foretrekkes en mann for offentlige verv etter hva han utmerker seg i, ikke på grunn av sin stilling, men på grunn av sin dyktighet."*
+
+**Kilde:** Thukydid, *Peloponneserkrigen* (ca. 400 f.Kr.), bok 2, kap. 37
+
+**Kontekst:** Perikles holdt denne talen ved begravelsen av falne athenske soldater under Peloponneskrigen. Thukydid gjengir talen i sitt historieverk. Perikles var Athens fremste politiker og strateg, og talen er både et minne over de falne og et forsvar for det athenske demokratiet.
+
+**Kildeanalyse:**
+- **Avsender:** Perikles, Athens ledende politiker, gjengitt av historikeren Thukydid
+- **Formål:** Hylle de falne soldatene og forsvare det athenske demokratiet som verdt å kjempe for
+- **Perspektiv:** Representerer den athenske elitens syn på demokratiet - et idealisert bilde
+- **Kildeverdi:** Forteller oss hvordan athenerne selv oppfattet sitt demokrati, men gir et forskjønnet bilde. Talen nevner ikke begrensningene (kvinner, slaver, metoiker uten stemmerett)`,
+    },
+    {
+      id: 'historie-3-2-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-3-2-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Perikles\' gravtale: a) Hva fremhever Perikles som det beste ved det athenske demokratiet? b) Hva sier talen IKKE noe om? Hvem er utelatt fra dette idealet? c) Thukydid skrev ned talen mange år etter at den ble holdt. Hva betyr det for kildens pålitelighet?',
+        hints: ['Tenk på hvem som faktisk hadde rettigheter i Aten', 'Vurder forskjellen mellom ideal og virkelighet', 'Husk at Thukydid gjengir talen etter hukommelsen'],
+        solution: 'a) Perikles fremhever at Aten er et forbilde, at flertallet styrer, at alle er like for loven, og at dyktighet (ikke sosial bakgrunn) avgjør hvem som får offentlige verv. b) Talen nevner ikke at kvinner, slaver og metoiker (innflyttere) var fullstendig utelukket fra demokratiet. Bare ca. 10-20 % av befolkningen hadde politiske rettigheter. Talen gir et idealisert bilde som ignorerer majoriteten av Atens befolkning. c) Thukydid skrev talen ned etter hukommelsen, kanskje flere år senere. Han innrømmer selv at han gjengir "hovedinnholdet" snarere enn ordrett. Talen kan derfor være påvirket av Thukydids egne syn og senere hendelser. Den er likevel vår beste kilde til athensk demokratisk ideologi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'historie-3-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -2887,6 +2918,37 @@ Makten var delt for å hindre tyranni. Kollegialitet (to konsuler) og ettårige 
 
 **Patrisiere vs. plebeiere:**
 Adelen (patrisiere) dominerte først, men vanlige borgere (plebeiere) kjempet seg til flere rettigheter over tid.`,
+    },
+    {
+      id: 'historie-3-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Cicero om republikken (ca. 54 f.Kr.)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"En stat er folkets eiendom. Men et folk er ikke en hvilken som helst samling av mennesker, men en sammenslutning av et stort antall mennesker som er forent gjennom en felles oppfatning av rett og gjennom felles interesser."*
+
+**Kilde:** Cicero, *Om staten* (*De re publica*), bok 1 (ca. 54 f.Kr.)
+
+**Kontekst:** Cicero var romersk politiker, advokat og filosof. Han skrev dette verket i en tid da den romerske republikken var truet av borgerkrig og maktkamper mellom sterke generaler som Caesar og Pompeius. Cicero ønsket å forsvare den tradisjonelle republikanske styreformen.
+
+**Kildeanalyse:**
+- **Avsender:** Marcus Tullius Cicero, senator og eks-konsul, en av Romas fremste talere og tenkere
+- **Formål:** Forsvare den republikanske styreformen og definere hva en rettferdig stat er
+- **Perspektiv:** Representerer den romerske overklassens (optimatenes) ideal om republikken
+- **Kildeverdi:** Gir innsikt i romersk politisk filosofi og hvordan eliten tenkte om staten. Viser at romerne reflekterte over statens grunnlag, ikke bare makt. Men Ciceros ideal var langt fra virkeligheten i hans samtid.`,
+    },
+    {
+      id: 'historie-3-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-3-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Ciceros definisjon av en stat: a) Hva mener Cicero med at en stat er "folkets eiendom"? b) Hvilke to ting må et folk være forent gjennom, ifølge Cicero? c) Sammenlign Ciceros definisjon med et moderne demokrati. Hva er likt, og hva er forskjellig?',
+        hints: ['Tenk på hva "felles oppfatning av rett" betyr i praksis', 'Vurder hvem som ble regnet som "folket" i Roma', 'Sammenlign med den norske Grunnloven'],
+        solution: 'a) Cicero mener at staten ikke tilhører en enkelt hersker, men folket som helhet. Staten er en "fellessak" (res publica). Dette er radikalt sammenlignet med enevelde, men "folket" var for Cicero primært de frie, mannlige borgerne. b) Folket må være forent gjennom felles oppfatning av rett (rettssystem og rettferdighet) og felles interesser (felles mål og goder). Uten disse er det bare en tilfeldig samling mennesker, ikke et folk. c) Likheter: Moderne demokratier bygger også på felles rettssystem og felles interesser. Grunnloven definerer spillereglene. Forskjeller: I dag inkluderer vi alle voksne borgere, ikke bare eliten. Vi har menneskerettigheter som beskytter minoriteter. Ciceros ideal utelukket slaver, kvinner og mange andre fra "folket".',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'historie-3-3-ex-1',
@@ -3206,6 +3268,37 @@ Personlig lojalitetsforhold mellom herre og vasall, bekreftet gjennom ed og sere
 **Viktig:** Føydalisme var ikke et enhetlig "system" som ble innført, men et begrep historikere bruker for å beskrive lignende forhold i ulike land.`,
     },
     {
+      id: 'historie-4-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: En føydaled (800-1100-tallet)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Jeg lover på min tro at jeg fra denne dag fremover vil være trofast mot grev [navn] og ikke med vilje gjøre ham skade på liv eller eiendom. Jeg vil holde min ed så lenge greven holder sin ed til meg og beskytter meg som en herre skal beskytte sin mann."*
+
+**Kilde:** Eksempel på føydalkontrakt/lensed, basert på flere historiske forelegg fra 800-1100-tallet
+
+**Kontekst:** Føydaleden var en gjensidig avtale mellom herre og vasall. Vasallen knilet ned, la sine hender i herrens hender, og avla eden. Til gjengjeld fikk vasallen et len (jordområde) og herrens beskyttelse. Denne seremonien kaltes hommage (mannskap).
+
+**Kildeanalyse:**
+- **Avsender:** En vasall som avgir ed til sin lensherre
+- **Formål:** Formalisere det gjensidige lojalitetsforholdet mellom herre og vasall
+- **Perspektiv:** Representerer det føydale systemets idealer om gjensidig forpliktelse
+- **Kildeverdi:** Viser at føydalismen bygde på personlige lojalitetsbånd, ikke abstrakte lover. Eden viser gjensidighet - begge parter hadde plikter. Men vi vet at virkeligheten ofte var mer brutal enn idealet.`,
+    },
+    {
+      id: 'historie-4-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser føydaleden: a) Hvilke gjensidige forpliktelser kommer frem i teksten? b) Hva betyr det at vasallen lover troskap "så lenge greven holder sin ed"? c) Sammenlign føydaleden med en moderne arbeidskontrakt. Hva er likt og hva er forskjellig?',
+        hints: ['Legg merke til at eden er betinget - den gjelder begge veier', 'Tenk på forholdet mellom personlig lojalitet og skriftlige avtaler', 'Vurder hva som skjer hvis en av partene bryter avtalen'],
+        solution: 'a) Vasallen lover troskap og å ikke skade herrens liv eller eiendom. Til gjengjeld skal herren beskytte vasallen. Forholdet er gjensidig - begge har plikter. b) Betingelsen viser at eden ikke er ensidig underkastelse. Hvis herren svikter sin plikt til å beskytte vasallen, kan vasallen anse seg løst fra eden. Dette er et viktig prinsipp som skiller føydalisme fra rent tyranni. c) Likheter: Begge er gjensidige avtaler med rettigheter og plikter for begge parter. Begge kan brytes hvis en part misligholder. Forskjeller: Føydaleden er personlig og totalomfattende (lojalitet med livet), mens en arbeidskontrakt er saklig og avgrenset. Arbeidskontrakter er skriftlige og regulert av lover, mens føydaleden var muntlig og personlig. En arbeidstaker kan si opp fritt - en vasall kunne ikke enkelt bryte båndet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'historie-4-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -3462,6 +3555,37 @@ Norsk middelalder var kortere enn den europeiske - fra vikingtiden til svartedau
 Storhetstiden tok slutt da pesten drepte kanskje halvparten av befolkningen. Norge gikk inn i en lang nedgangsperiode.`,
     },
     {
+      id: 'historie-4-2-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Kongespeilet (ca. 1250)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Nå skal du vite at det er tre ting som mest av alt driver menneskene til å fare på havet, trass i all faren. Den ene er lærelyst, den andre er berømmelse, den tredje er vinning. [...] Dersom du vil bli en fullkommen kjøpmann, må du kjenne til lovene overalt der du driver handel."*
+
+**Kilde:** *Kongespeilet* (*Konungs skuggsjá*), ca. 1250, ukjent forfatter
+
+**Kontekst:** Kongespeilet er et norsk læreverk fra høymiddelalderen, skrevet som en dialog mellom far og sønn. Verket gir råd om kongens plikter, handel og krigskunst. Det ble trolig skrevet i kretsen rundt kong Håkon Håkonsson og er et av de viktigste norske prosaverk fra middelalderen.
+
+**Kildeanalyse:**
+- **Avsender:** Ukjent forfatter, trolig i kongens nære krets, skrevet for overklassen
+- **Formål:** Oppdra unge menn i overklassen - gi råd om handel, krigføring og kongens plikter
+- **Perspektiv:** Representerer den norske elitens verdier og idealer i høymiddelalderen
+- **Kildeverdi:** Gir unikt innblikk i hva nordmenn i høymiddelalderen verdsatte: kunnskap, ære og rikdom. Viser at handel var en respektert virksomhet og at lovkunnskap var viktig. Men verket beskriver idealer, ikke nødvendigvis virkeligheten for alle.`,
+    },
+    {
+      id: 'historie-4-2-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-2-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser utdraget fra Kongespeilet: a) Hvilke tre motivasjoner for sjøfart nevnes? Hva forteller dette om nordmenns verdier i middelalderen? b) Hvorfor understreker teksten at en kjøpmann må kjenne lovene? c) Hva kan Kongespeilet fortelle oss om det norske samfunnet på 1200-tallet - og hva kan det IKKE fortelle oss?',
+        hints: ['Tenk på hvem teksten er skrevet for', 'Vurder hva det betyr at handel og lovkunnskap fremheves', 'Husk at teksten representerer elitens syn'],
+        solution: 'a) Lærelyst, berømmelse og vinning (økonomisk gevinst). Dette viser at nordmenn i middelalderen verdsatte kunnskap og utforsking, ikke bare rikdom. Ære og berømmelse var sentralt i norrøn kultur, og dette levde videre inn i kristen middelalder. b) Lovkunnskap var viktig fordi kjøpmenn handlet i ulike land med ulike lover. Uten lovkunnskap risikerte man å bli lurt eller straffet. Dette viser at internasjonal handel krevde kompetanse, og at det fantes et fungerende rettssystem. c) Kongespeilet kan fortelle oss om elitens idealer, verdier og kunnskapssyn. Det viser at Norge var en del av et internasjonalt handelsnettverk, og at utdanning ble verdsatt. Men det kan IKKE fortelle oss om vanlige bønders og fiskeres hverdag, kvinners liv, eller de fattiges situasjon. Det er skrevet av og for overklassen og gir et idealisert bilde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'historie-4-2-ex-3',
       type: 'exercise',
       exercise: {
@@ -3590,6 +3714,37 @@ Kirken og kongemakten samarbeidet ofte, men kom også i konflikt om hvem som had
 - Definerte rett og galt (moral)
 - Ekteskap, arv, seksualitet regulert av kirken
 - Fattigomsorg og sykehus`,
+    },
+    {
+      id: 'historie-4-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Pave Gregor VIIs Dictatus Papae (1075)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"At den romerske kirken ble grunnlagt av Herren alene. At bare den romerske paven med rette kan kalles universell. At han alene kan avsette eller gjeninnsette biskoper. [...] At han har rett til å avsette keisere. At ingen kan dømme ham."*
+
+**Kilde:** Pave Gregor VII, *Dictatus Papae* (1075), utdrag
+
+**Kontekst:** Dokumentet ble skrevet under investiturstriden - konflikten mellom paven og den tysk-romerske keiseren om hvem som hadde rett til å utnevne biskoper. Gregor VII hevdet pavens overherredømme over alle verdslige herskere. Dokumentet førte til åpen konflikt med keiser Henrik IV.
+
+**Kildeanalyse:**
+- **Avsender:** Pave Gregor VII, den katolske kirkens overhode
+- **Formål:** Slå fast pavens absolutte makt over både kirke og verdslige herskere
+- **Perspektiv:** Representerer pavens maktambisjon på sitt mest ekstreme - et program for pavelig verdensherredømme
+- **Kildeverdi:** Viser omfanget av pavens maktambisjoner i høymiddelalderen. Dokumentet er ikke en beskrivelse av virkeligheten, men et krav - paven ønsket denne makten, men hadde den ikke nødvendigvis i praksis.`,
+    },
+    {
+      id: 'historie-4-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Dictatus Papae: a) Hvilke maktambisjoner kommer frem i dokumentet? Nevn minst tre konkrete krav. b) Hvorfor ville kravene om å avsette keisere og dømme biskoper føre til konflikt med verdslige herskere? c) Er dette dokumentet en beskrivelse av pavens faktiske makt, eller er det et program for ønsket makt? Begrunn svaret.',
+        hints: ['Se på de konkrete kravene og tenk på hva de innebærer for konger og keisere', 'Tenk på hvem som kontrollerte biskopene i praksis', 'Vurder forskjellen mellom krav og virkelighet'],
+        solution: 'a) Pavens krav inkluderer: 1) Bare paven kan kalles universell - han er over alle. 2) Han alene kan avsette eller utnevne biskoper - konger mister innflytelse over kirken. 3) Han kan avsette keisere - paven er over verdslig makt. 4) Ingen kan dømme paven - han er uangripelig. b) Disse kravene truet verdslige herskeres makt direkte. Konger og keisere hadde utnevnt biskoper fordi biskoper kontrollerte store jordeiendommer og hadde politisk makt. Hvis paven kontrollerte alle biskoper, ville han kontrollere store deler av riket. Kravet om å kunne avsette keisere gjorde paven til en overordnet myndighet over alle verdslige herskere. c) Dokumentet er først og fremst et program for ønsket makt, ikke en beskrivelse av virkeligheten. Paven hadde i praksis ikke makt til å avsette keisere uten videre - det krevde allianser med andre fyrster. Investiturstriden viste at paven hadde stor innflytelse (Henrik IV måtte gjøre bot i Canossa), men kompromisset i Worms (1122) viser at paven måtte akseptere begrensninger. Dokumentet forteller oss om pavens ambisjoner, ikke om hans faktiske makt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'historie-4-3-ex-2',
@@ -3757,6 +3912,37 @@ For Norges del var handelen med fisk og tømmer avgjørende - og her kom Hansafo
 - Hadde privilegier og egen rettsmyndighet i Bergen
 - Norske kjøpmenn ble marginalisert
 - Hanseatene hadde ofte konflikter med norske myndigheter`,
+    },
+    {
+      id: 'historie-4-4-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Hanseatiske privilegier i Bergen (1300-tallet)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"De tyske kjøpmenn i Bergen skal ha rett til å handle fritt i byen og på Bryggen. De skal beholde sine egne lover og dømmes etter dem. Ingen nordmann skal ha lov til å drive handel i de tyske kjøpmenns kvartaler uten deres tillatelse."*
+
+**Kilde:** Basert på hanseatiske privilegiebrev til det tyske kontoret i Bergen, 1300-tallet
+
+**Kontekst:** Hanseatene kontrollerte store deler av handelen i Bergen gjennom sine privilegier. De levde i egne kvartaler på Bryggen med egne lover og regler. Det tyske kontoret i Bergen var en av Hansaforbundets fire viktigste utenlandske handelsposter og varte fra ca. 1360 til 1754.
+
+**Kildeanalyse:**
+- **Avsender:** Norske konger ga disse privilegiene, trolig under press fra hanseatenes økonomiske makt
+- **Formål:** Sikre hanseatenes handelsrettigheter og juridiske selvstendighet i Bergen
+- **Perspektiv:** Representerer et kompromiss mellom norsk kongemakt og hanseatisk handelsmakt
+- **Kildeverdi:** Viser hanseatenes enorme innflytelse i Bergen og Norges avhengighet av utenlandsk handel. Privilegiene avslører også at norske myndigheter aksepterte en "stat i staten" for å sikre handelen.`,
+    },
+    {
+      id: 'historie-4-4-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-4-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser de hanseatiske privilegiene: a) Hvilke rettigheter fikk de tyske kjøpmennene ifølge teksten? b) Hvordan påvirket disse privilegiene norske kjøpmenn og den norske økonomien? c) Hva forteller privilegiene oss om internasjonal handel i middelalderen - og hva forteller de oss om maktforholdet mellom Norge og Hansaforbundet?',
+        hints: ['Legg merke til at hanseatene hadde egne lover i en norsk by', 'Tenk på hva det betyr at nordmenn ble utestengt fra handelen', 'Vurder hvorfor norske konger ga disse privilegiene'],
+        solution: 'a) Hanseatene fikk: 1) Rett til fri handel i Bergen og på Bryggen. 2) Rett til å beholde egne lover og dømmes etter dem (juridisk selvstendighet). 3) Rett til å stenge nordmenn ute fra sine handelskvartaler. Dette ga dem i praksis en "stat i staten" på norsk jord. b) Norske kjøpmenn ble marginalisert - de kunne ikke konkurrere med hanseatenes kapital, nettverk og privilegier. Handelsprofitten gikk ut av Norge. Samtidig sikret hanseatene at norsk fisk nådde europeiske markeder og at nordmenn fikk tilgang til korn og andre varer de trengte. Norge ble økonomisk avhengig. c) Privilegiene viser at internasjonal handel i middelalderen var regulert gjennom spesielle avtaler og privilegier, ikke frihandel. Maktforholdet var ujevnt: Norge var avhengig av hanseatenes handelskompetanse og nettverk, mens hanseatene hadde den økonomiske makten. Norske konger ga privilegiene trolig fordi de trengte handelen, men mistet kontroll over egen økonomi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'historie-4-4-ex-2',

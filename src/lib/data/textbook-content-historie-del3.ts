@@ -161,6 +161,45 @@ Diktet viser tydelig den rasistiske ideologien bak imperialismen. Det ignorerte 
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-9-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Rudyard Kipling - "The White Man\'s Burden" (1899)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Bær den hvite manns byrde –
+Send ut de beste av dine sønner –
+Døm dine sønner til eksil
+For å tjene fangenes behov;
+Til å vente i tungt utstyr
+På et sky og vilt folk –
+Halvt djevler og halvt barn,
+Nylig fanget og urolige."*
+
+**Kilde:** Rudyard Kipling, *The White Man's Burden* (1899), vers 1, norsk oversettelse
+
+**Kontekst:** Diktet ble skrevet i forbindelse med USAs kolonisering av Filippinene. Det oppfordret hvite nasjoner til å «sivilisere» andre folkeslag. Diktet har blitt et symbol på rasistiske holdninger i imperialismens tid, og viser tydelig hvordan ideologien om den hvite manns overlegenhet ble brukt til å rettferdiggjøre kolonial undertrykkelse.
+
+**Kildeanalyse:**
+- **Avsender:** Rudyard Kipling, britisk forfatter født i India, sterk tilhenger av det britiske imperiet
+- **Formål:** Å oppfordre USA til å påta seg koloniale forpliktelser i Filippinene, og legitimere imperialismen som en moralsk plikt
+- **Perspektiv:** Representerer et europeisk, imperialistisk perspektiv som ser kolonisering som en byrde for de «siviliserte» nasjonene, ikke som utnyttelse
+- **Kildeverdi:** Verdifull for å forstå den ideologiske rettferdiggjøringen av imperialismen. Viser rasistiske holdninger som var vanlige i samtiden. Kan ikke brukes som kilde til de kolonisertes opplevelser`,
+    },
+    {
+      id: 'historie-9-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-9-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser perspektivet i Kiplings dikt. Hvordan fremstiller han koloniserte folk? Hva avslører diktet om den ideologiske rettferdiggjøringen av imperialismen? Kan du finne motargumenter fra samme tidsperiode?',
+        hints: ['Se på ordvalgene Kipling bruker om koloniserte folk', 'Tenk på hvem som «bærer byrden» ifølge diktet, og hvem som faktisk bar de tyngste byrdene under kolonialismen'],
+        solution: 'Kipling fremstiller koloniserte folk som «halvt djevler og halvt barn» – altså som både farlige og umodne, ute av stand til å styre seg selv. De beskrives som «sky og ville», «nylig fanget og urolige». Denne dehumaniseringen rettferdiggjør kolonisering ved å fremstille den som en oppdragelsesoppgave. Diktet avslører den ideologiske kjernen i imperialismen: forestillingen om at europeere hadde en moralsk plikt til å «sivilisere» andre. Byrden ligger angivelig på den hvite mann, mens kolonialismens reelle byrder – tap av land, frihet, liv og kultur – bæres av de koloniserte. Motargumenter fra samtiden finnes blant annet i Henry Labouchères satiriske svar «The Brown Man\'s Burden» (1899), som viste at mange samtidige kritikere så gjennom den imperialistiske retorikken.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-9-1-ex-5',
@@ -344,6 +383,38 @@ Utover 1900-tallet vokste nasjonalistbevegelser ledet av afrikanske intellektuel
         task: 'Hvorfor klarte Etiopia å forbli uavhengig mens resten av Afrika ble kolonisert?',
         hints: ['Tenk på militær styrke og diplomati'],
         solution: 'Etiopia klarte å forbli uavhengig av flere grunner: 1) Keiser Menelik II bygget opp en moderne hær med importerte våpen. 2) Ved slaget ved Adwa i 1896 beseiret etiopierne den italienske invasjonsstyrken fullstendig. 3) Etiopia hadde en sterk sentralisert stat og lang tradisjon for uavhengighet. 4) Menelik var dyktig diplomat som spilte europeiske makter mot hverandre. Seieren ved Adwa ble et symbol på afrikansk motstand og viste at europeisk seier ikke var uunngåelig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-9-2-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Berlin-konferansens sluttakt (1885)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Artikkel 6: Alle makter som utøver suverenitet eller innflytelse i disse territorier, forplikter seg til å ivareta de innfødtes moralske og materielle velferd og bidra til å avskaffe slaveriet [...] De skal beskytte og støtte alle religiøse, vitenskapelige og veldedige institusjoner og foretak som er grunnlagt med dette formål."*
+
+**Kilde:** *General Act of the Berlin Conference* (1885), artikkel 6, norsk oversettelse
+
+**Kontekst:** Berlin-konferansen (1884–85) samlet europeiske stormakter for å dele Afrika mellom seg. Artikkel 6 om «de innfødtes velferd» ble brukt som moralsk rettferdiggjøring, men stod i skarp kontrast til den brutale virkeligheten i koloniene – særlig i Kongofristaten under kong Leopold II av Belgia.
+
+**Kildeanalyse:**
+- **Avsender:** Representanter for europeiske stormakter, samlet i Berlin under ledelse av Tysklands rikskansler Otto von Bismarck
+- **Formål:** Å regulere europeisk kolonisering av Afrika og forebygge konflikter mellom kolonimaktene. Artikkel 6 tjente som moralsk legitimering
+- **Perspektiv:** Rent europeisk – ingen afrikanske representanter var til stede. Afrikanere omtales som passive mottakere av europeisk «velferd»
+- **Kildeverdi:** Viser hvordan europeiske makter legitimerte delingen av Afrika med humanitær retorikk. Gapet mellom retorikk og virkelighet gjør kilden verdifull for å forstå imperialistisk dobbeltmoral. Kan ikke brukes som kilde til afrikanske perspektiver`,
+    },
+    {
+      id: 'historie-9-2-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-9-2-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Sammenlign løftene i artikkel 6 med virkeligheten i kolonialismens Afrika (f.eks. Kongofristaten under Leopold II). Hva forteller gapet mellom retorikk og virkelighet oss om hvordan imperialismen ble rettferdiggjort?',
+        hints: ['Undersøk hva som faktisk skjedde i Kongofristaten', 'Tenk på hvorfor det var viktig for kolonimaktene å ha et «moralsk alibi»'],
+        solution: 'Artikkel 6 lover å ivareta «de innfødtes moralske og materielle velferd» og avskaffe slaveri. Virkeligheten i Kongofristaten under Leopold II var det stikk motsatte: Tvangsarbeid, lemlesting (avhugde hender som straff), massakrer og sult førte til at befolkningen ble halvert – anslagsvis 10 millioner døde. Også i andre kolonier var realiteten preget av tvangsarbeid, jordran og brutal undertrykkelse. Gapet viser at den humanitære retorikken primært var et redskap for å legitimere økonomisk utnyttelse. Kolonimaktene trengte et «moralsk alibi» overfor egen befolkning og hverandre. Det viser også at internasjonale avtaler kan brukes til å skjule maktpolitikk bak vakre formuleringer – en innsikt som er relevant også i dag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -540,6 +611,38 @@ Opprøret viste kinesisk motstand mot imperialismen, men også Kinas svakhet ove
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-9-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Lin Zexus brev til dronning Victoria (1839)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Vi har hørt at i ditt land er opium strengt forbudt. Det viser at du vet hvor skadelig opium er. Siden du ikke tillater at det forgifter ditt eget land, burde du med enda sterkere grunn ikke tillate at det selges til andre land. [...] La oss anta at fremmede fra et annet land kom til England og solgte opium der, og forledet folket ditt til å kjøpe og røyke det – ville ikke du, Dronningen, bli rasende?"*
+
+**Kilde:** Lin Zexu, brev til dronning Victoria av Storbritannia (1839), utdrag i norsk oversettelse
+
+**Kontekst:** Lin Zexu var keiserlig kommissær i Kina, utnevnt av keiseren for å stanse den britiske opiumshandelen som forårsaket masseavhengighet blant kinesere. Brevet ble aldri levert til dronningen. Konflikten førte til den første opiumskrigen (1839–42), der Storbritannia tvang Kina til å åpne havner og avstå Hong Kong.
+
+**Kildeanalyse:**
+- **Avsender:** Lin Zexu, høytstående kinesisk embetsmann med ansvar for å bekjempe opiumshandelen
+- **Formål:** Å appellere til dronningens moral og fornuft for å stanse den britiske opiumseksporten til Kina
+- **Perspektiv:** Kinesisk perspektiv som utfordrer europeisk imperialisme med logikk og moralsk argumentasjon
+- **Kildeverdi:** Svært verdifull som motperspektiv til europeiske kilder. Viser at Kina hadde veloverveide argumenter mot vestlig innblanding. Kilden er også et eksempel på diplomatisk kommunikasjon mellom ulike maktsfærer`,
+    },
+    {
+      id: 'historie-9-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-9-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Lin Zexus argumentasjonsstrategi. Hvordan bruker han logikk og moralske argumenter? Hva forteller denne kilden oss om maktdynamikken mellom Kina og Storbritannia? Hvorfor er dette et viktig motperspektiv til europeiske fortellinger om «frihandel»?',
+        hints: ['Legg merke til hvordan Lin Zexu bruker Storbritannias egne lover mot dem', 'Tenk på hva det betyr at brevet aldri ble levert'],
+        solution: 'Lin Zexu bruker en briljant argumentasjonsstrategi: Han tar utgangspunkt i et faktum Storbritannia ikke kan benekte – at opium er forbudt i deres eget land – og bruker det som premiss for et logisk argument: Hvis opium er skadelig nok til å forbys i England, er det umoralsk å selge det til andre. Han bruker også et tankeeksperiment (hva om noen solgte opium i England?) for å vekke empati. Argumentene er rasjonelle, moralske og diplomatiske. Kilden viser at Kina hadde sofistikerte argumenter mot imperialismen, noe som utfordrer bildet av Kina som «tilbakestående». At brevet aldri ble levert, avslører maktdynamikken: Storbritannia behøvde ikke å lytte til kinesiske argumenter fordi de hadde militær overlegenhet. Som motperspektiv til europeisk «frihandel»-retorikk viser kilden at det som ble kalt «fri handel» i praksis var tvungen handel med et stoff som ødela millioner av liv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-9-3-ex-5',
@@ -732,6 +835,38 @@ Nye stater arvet koloniale strukturer og problemer som fortsatt påvirker dem.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-9-4-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Frantz Fanon - "Jordens fordømte" (1961)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Kolonialismen er ikke en tenkende maskin, ikke et legeme utstyrt med fornuft. Den er vold i sin naturlige tilstand, og den vil bare gi etter for enda større vold. [...] For det koloniserte folket er den mest essensielle verdien, fordi den er den mest konkrete, først og fremst jorda: jorda som skal skaffe brød og, framfor alt, verdighet."*
+
+**Kilde:** Frantz Fanon, *Jordens fordømte* (*Les Damnés de la Terre*), 1961, norsk oversettelse
+
+**Kontekst:** Fanon var en franskfødt martinikansk psykiater og filosof som deltok i den algeriske frigjøringskrigen mot Frankrike. Han skrev om kolonialismens psykologiske og politiske virkninger på de koloniserte. Boken ble et nøkkelverk for avkoloniseringsbevegelser verden over og inspirerte frigjøringskamper i Afrika, Asia og Latin-Amerika.
+
+**Kildeanalyse:**
+- **Avsender:** Frantz Fanon, martinikansk psykiater og revolusjonær, selv fra en kolonisert bakgrunn
+- **Formål:** Å analysere kolonialismens vesen og argumentere for at avkolonisering krever fundamental endring – om nødvendig gjennom vold
+- **Perspektiv:** De kolonisertes perspektiv – en radikal motfortelling til europeisk kolonialhistorie
+- **Kildeverdi:** Gir et unikt innblikk i kolonialismens virkning sett fra de kolonisertes side. Viktig for å forstå avkoloniseringsbevegelsenes tankegods. Kilden er politisk og polemisk, og må leses som et kampskrift, ikke en nøytral analyse`,
+    },
+    {
+      id: 'historie-9-4-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-9-4-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Fanon hevder at kolonialismen i sin natur er basert på vold. Drøft denne påstanden ved hjelp av eksempler fra kapitlene om imperialisme. Hva tilfører Fanons perspektiv som europeiske kilder ikke gir?',
+        hints: ['Tenk på konkrete eksempler på kolonial vold fra tidligere kapitler', 'Vurder forskjellen mellom å studere kolonialisme «utenfra» og «innenfra»'],
+        solution: 'Fanons påstand om at kolonialismen er vold «i sin naturlige tilstand» kan støttes med tallrike eksempler: Kongofristatens brutale tvangsarbeid og lemlesting, nedslakting av herero-folket i Tysk Sørvest-Afrika (1904), Amritsar-massakren i India (1919), og den systematiske undertrykkelsen i Algerie der Fanon selv opplevde kolonialismen. Selv der direkte vold ikke ble brukt, hvilte systemet på trusselen om vold. Fanons perspektiv tilfører noe europeiske kilder sjelden gir: en forståelse av kolonialismens psykologiske virkning – følelsen av å bli fratatt ikke bare land og ressurser, men også verdighet og menneskeverd. Der europeiske kilder ofte diskuterer kolonialisme i abstrakte termer (økonomi, strategi, sivilisering), beskriver Fanon den konkrete opplevelsen av å leve under fremmed herredømme. Hans kobling mellom jord og verdighet viser at avkolonisering handlet om mye mer enn politisk uavhengighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-9-4-ex-5',
@@ -919,6 +1054,38 @@ Nye kulturelle uttrykk som oppstår i møtet mellom kulturer, verken helt den en
         task: 'Hva menes med "asymmetriske kulturmøter"? Gi et historisk eksempel.',
         hints: ['Tenk på maktforhold mellom partene'],
         solution: 'Asymmetriske kulturmøter er møter der partene har ulik makt, slik at utvekslingen ikke skjer på like vilkår. Den sterkere parten kan påtvinge sin kultur, mens den svakere må tilpasse seg. Et historisk eksempel er møtet mellom europeere og urfolk i Amerika etter 1492. Europeerne hadde våpen, sykdommer urfolk ikke hadde immunitet mot, og organisatoriske ressurser som gjorde dem dominerende. De kunne påtvinge religion, språk og verdier, mens urfolks kulturer ble undertrykt eller ødelagt. Et annet eksempel er kolonialismen i Afrika og Asia.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-10-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Ibn Battuta om Mali-riket (ca. 1354)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"De svarte har en beundringsverdig egenskap, som er at de sjelden begår urett, og at kongen ikke tilgir noen som gjør det. Det hersker fullstendig sikkerhet i hele landet. Verken den reisende eller den fastboende trenger å frykte tyver eller røvere. [...] De er ivrige etter å lære Koranens vers utenat. Dersom et barn ikke lærer seg versene, legges det i lenker til det kan dem."*
+
+**Kilde:** Ibn Battuta, *Rihla* (Reiseboken), ca. 1354, utdrag om besøk i Mali-riket, norsk oversettelse
+
+**Kontekst:** Ibn Battuta var en marokkansk reisende som besøkte store deler av den kjente verden på 1300-tallet. Hans beretning om Mali-riket i Vest-Afrika er en av få samtidige skriftlige beskrivelser av dette mektige riket, som på denne tiden var blant verdens rikeste stater under ledere som Mansa Musa.
+
+**Kildeanalyse:**
+- **Avsender:** Ibn Battuta, marokkansk muslimsk reisende og rettslærd fra en velstående familie i Tangier
+- **Formål:** Å dokumentere sine reiser og beskrive fremmede land og kulturer for et arabisktalende publikum
+- **Perspektiv:** Nordafrikansk, muslimsk perspektiv. Han vurderer Mali ut fra islamske og nordafrikanske normer – beundrer rettferdigheten, men reagerer på kulturforskjeller
+- **Kildeverdi:** Uvurderlig som en av svært få samtidige skriftlige kilder om Mali-riket. Gir et ikke-europeisk blikk på afrikansk sivilisasjon. Må leses med bevissthet om Ibn Battutas egne kulturelle fordommer`,
+    },
+    {
+      id: 'historie-10-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-10-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Ibn Battuta som kilde. Hva beundrer han ved Mali? Hvilke kulturforskjeller legger han merke til? Hvordan utfordrer hans beretning forestillingen om at Afrika før kolonitiden var «usivilisert»?',
+        hints: ['Legg merke til hva Ibn Battuta roser og hva han kritiserer', 'Tenk på hva begrepet «sivilisasjon» innebærer – rettferdighet, sikkerhet, lærdom'],
+        solution: 'Ibn Battuta beundrer flere ting ved Mali: det velfungerende rettssystemet («kongen tilgir ikke urett»), den fullstendige sikkerheten i landet (ingen tyver eller røvere), og folkets iver etter lærdom. Dette er kjennetegn på et velorganisert, stabilt og kulturelt utviklet samfunn. Samtidig vurderer han Mali ut fra islamske normer – han beundrer koranstudier men reagerer på lokale skikker som avviker fra hans egen tradisjon. Beretningen utfordrer kraftig forestillingen om et «usivilisert» Afrika: Mali hadde et rettssystem, offentlig sikkerhet og utdanningsinstitusjoner – alt vi forbinder med «sivilisasjon». Dette viser at den europeiske ideen om afrikansk «primitivitet», som ble brukt til å rettferdiggjøre kolonisering, var feilaktig. Afrika hadde avanserte statsdannelser og kulturer lenge før europeerne kom. Ibn Battutas perspektiv er verdifullt nettopp fordi det er ikke-europeisk og skrevet flere hundre år før imperialismens tidsalder.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

@@ -136,6 +136,38 @@ Før Gutenberg måtte bøker kopieres for hånd av munker. Dette var tidkrevende
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-5-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Pico della Mirandola - «Om menneskets verdighet» (1486)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Vi har ikke gitt deg, o Adam, noen bestemt plass, noen egen form eller noen særskilt egenskap, for at du etter eget ønske og egen vilje skal kunne velge den plassen, den formen og de egenskapene du selv ønsker. Alle andre veseners natur er begrenset av lover vi har fastsatt. Du derimot er ikke begrenset av noe bånd, men skal selv bestemme din natur etter din egen frie vilje."*
+
+**Kilde:** Giovanni Pico della Mirandola, *Om menneskets verdighet* (*Oratio de hominis dignitate*), 1486
+
+**Kontekst:** Denne teksten regnes som renessansehumanismens manifest. Den er skrevet som Guds tale til Adam ved skapelsen, der Gud gir mennesket en unik posisjon blant alle skapninger.
+
+**Kildeanalyse:**
+- **Avsender:** Giovanni Pico della Mirandola (1463-1494), italiensk filosof og humanist. Han var en av renessansens mest lærde menn og behersket flere språk.
+- **Formål:** Teksten var ment som åpningstale til en planlagt debatt om 900 teser i Roma. Den skulle feire menneskets verdighet og potensial.
+- **Perspektiv:** Representerer det humanistiske eliteperspektivet - en ung, velstående, lærd mann i renessansens Italia. Teksten gjenspeiler optimismen blant de øvre klassene.
+- **Kildeverdi:** Teksten er svært verdifull for å forstå renessansehumanismens menneskesyn. Den viser et radikalt brudd med middelalderens syn på mennesket som en synder bundet av Guds vilje. Teksten sier lite om vanlige folks liv, men mye om den intellektuelle elitens idealer.`,
+    },
+    {
+      id: 'historie-5-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser kildeteksten fra Pico della Mirandola. Hvordan skiller dette menneskesynet seg fra middelalderens syn på mennesket? Hva sier teksten om renessansens verdensbilde?',
+        hints: ['Tenk på hvordan middelalderens kirke definerte menneskets rolle og muligheter sammenlignet med det som beskrives her.'],
+        solution: 'Pico della Mirandolas tekst skiller seg radikalt fra middelalderens menneskesyn: I middelalderen ble mennesket sett som en synder, underordnet Gud og bundet av den plassen det var født til i samfunnet. Kirken la vekt på at menneskets oppgave var å tjene Gud og forberede seg på det neste livet. Menneskets skjebne var bestemt av Gud. I Picos tekst gir Gud mennesket frihet til å forme seg selv. Mennesket er ikke bundet av noen forutbestemt natur, men kan velge sin egen vei. Dette er revolusjonerende fordi det plasserer ansvaret hos mennesket selv, ikke hos Gud eller kirken. Om renessansens verdensbilde forteller teksten: 1) Mennesket er i sentrum av skapelsen. 2) Fri vilje og selvbestemmelse er menneskets fremste egenskap. 3) Mennesket har ubegrenset potensial for utvikling. 4) Optimisme og tro på menneskets evner. Teksten oppsummerer kjernen i renessansehumanismen - troen på menneskets verdighet og muligheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-5-1-ex-5',
@@ -274,6 +306,44 @@ Religionskrigene viste at religiøs splittelse kunne føre til enorm ødeleggels
         type: 'classic',
         task: 'Hva var Trettiårskrigen, og hvordan endte den?',
         solution: 'Trettiårskrigen (1618-1648) var en omfattende europeisk konflikt som startet som en religionskrig mellom katolikker og protestanter i Det tysk-romerske riket. Krigen utviklet seg etter hvert til en maktkamp mellom europeiske stormakter. Store deler av Sentral-Europa ble ødelagt, og millioner døde. Krigen endte med Westfalerfreden i 1648. Freden etablerte prinsippet "cuius regio, eius religio" - at hver fyrste bestemte religionen i sitt territorium. Freden regnes også som starten på det moderne statssystemet med suverene stater.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-5-2-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Martin Luthers 95 teser (1517) - utdrag',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Tese 1: Da vår Herre og Mester Jesus Kristus sa 'Gjør bot', ville han at de troendes hele liv skulle være en botøvelse."*
+
+*"Tese 27: De preker bare menneskeverk, de som sier at sjelen flyr ut av skjærsilden straks pengene klirrer i kisten."*
+
+*"Tese 36: Enhver kristen som angrer sine synder oppriktig, har full tilgivelse fra straff og skyld, og dette tilkommer ham også uten avlatsbrev."*
+
+*"Tese 86: Hvorfor bygger paven, som i dag er rikere enn den rikeste Crassus, Peterskirken for de fattiges penger fremfor sine egne?"*
+
+**Kilde:** Martin Luther, *95 teser mot avlatshandelen* (1517), utdrag i norsk oversettelse
+
+**Kontekst:** Martin Luther slo ifølge tradisjonen tesene opp på kirkedøren i Wittenberg 31. oktober 1517 som protest mot kirkens avlatshandel. Avlatshandelen innebar at folk kunne kjøpe seg fri fra syndestraff ved å betale penger til kirken.
+
+**Kildeanalyse:**
+- **Avsender:** Martin Luther (1483-1546), augustinermunk og professor i teologi ved universitetet i Wittenberg. Han var en from mann som ønsket å reformere kirken innenfra, ikke nødvendigvis å splitte den.
+- **Formål:** Tesene var i utgangspunktet en akademisk invitasjon til debatt, ikke et opprør. Men de ble raskt spredt takket være boktrykkerkunsten og ble et politisk manifest.
+- **Perspektiv:** En teologisk kritikk fra en kirkemann. Luther kritiserer ikke kristendommen, men kirkens praksis. Han argumenterer ut fra Bibelen og sin forståelse av Guds vilje.
+- **Kildeverdi:** Tesene er uvurderlige for å forstå reformasjonens begynnelse. De viser hva som provoserte Luther og hva folk reagerte på. Men de forteller oss lite om vanlige folks opplevelse av avlatshandelen eller om kirkens forsvar for praksisen.`,
+    },
+    {
+      id: 'historie-5-2-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-2-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser utdragene fra Luthers 95 teser. Hva var det Luther kritiserte, og hvorfor var tesene så revolusjonære? Hva forteller tonen i tesene oss om Luther som person?',
+        hints: ['Legg merke til hvordan Luther bruker ironi og retoriske spørsmål. Tenk også på hvem han retter kritikken mot.'],
+        solution: 'Luthers kritikk: 1) Avlatshandelen - kirken solgte tilgivelse for penger (tese 27 og 36). Luther mente at oppriktig anger var nok for tilgivelse, og at man ikke trengte avlatsbrev. 2) Pavens rikdom - Luther stiller et provoserende spørsmål om hvorfor paven bruker de fattiges penger i stedet for sine egne (tese 86). 3) Kirkens maktmisbruk - ved å kontrollere veien til frelse kontrollerte kirken folks liv. Revolusjonært fordi: 1) Luther utfordret selve grunnlaget for kirkens makt - retten til å tilgi synder. 2) Han sa at forholdet mellom menneske og Gud var direkte, uten behov for kirken som mellommann. 3) Tesene ble trykt og spredt over hele Europa på bare uker, noe som var nytt. 4) De ga uttrykk for en frustrasjon mange følte, men ikke våget å si. Luthers tone: Tese 86 viser ironi og mot - han tør å kritisere paven direkte med et retorisk spørsmål. Samtidig er tese 1 teologisk og nøktern. Luther var både en akademiker og en folkelig skikkelse som kunne veksle mellom saklig argumentasjon og spiss polemikk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -436,6 +506,38 @@ Erobringene førte til at urbefolkningen ble underkastet, tvunget til arbeid i g
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-5-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Bartolomé de las Casas - «Kort beretning om ødeleggelsen av Vestindia» (1552)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"De kristne med sine hester og sverd og lanser begynte å utføre massakrer og grufulle gjerninger mot disse folkene. De gikk inn i landsbyer og skånte verken barn, gamle, gravide kvinner eller fødende, men skar dem opp og hakket dem i stykker som om de slaktet lam i et slaktehus. [...] De tvang indianerne til å bære dem på skuldrene som i bærestoler, og andre til å bære store blader for å skjerme dem mot solen."*
+
+**Kilde:** Bartolomé de las Casas, *Kort beretning om ødeleggelsen av Vestindia* (*Brevísima relación de la destrucción de las Indias*), 1552
+
+**Kontekst:** Bartolomé de las Casas (1484-1566) var en spansk dominikanermunk som selv hadde oppholdt seg i Amerika. Han ble en sterk kritiker av spanjolenes behandling av urbefolkningen og skrev denne beretningen til den spanske kongen Karl V for å overbevise ham om å stanse overgrepene.
+
+**Kildeanalyse:**
+- **Avsender:** En spansk munk som selv hadde vært conquistador og slaveeier, men som snudde og ble urbefolkningens fremste forsvarer. Hans personlige erfaring gir troverdighet, men hans omvendelse påvirker også fremstillingen.
+- **Formål:** Å sjokkere kongen til å gripe inn mot overgrep. Teksten er bevisst retorisk og dramatisk for å oppnå politisk endring.
+- **Perspektiv:** Selv om de las Casas forsvarer urbefolkningen, ser han dem gjennom europeiske øyne. Han ønsker å kristne dem «med mildhet», ikke å la dem beholde sin egen religion.
+- **Kildeverdi:** Teksten er et unikt førstehåndsvitnesbyrd om kolonialismens brutalitet. Den gir oss urbefolkningens lidelse sett gjennom en europeers øyne. Svakheter: De las Casas kan ha overdrevet for effekt, og han representerer ikke urbefolkningens eget perspektiv.`,
+    },
+    {
+      id: 'historie-5-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser de las Casas som kilde. Hvorfor skrev han denne beretningen? Hva er kildens styrker og begrensninger? Hvordan gir den oss et annet perspektiv enn Columbus\' egne skrifter?',
+        hints: ['Tenk på hva de las Casas\' bakgrunn og formål betyr for hvordan vi bør lese teksten. Hvem er det som ikke får fortelle sin historie?'],
+        solution: 'Hvorfor de las Casas skrev beretningen: Han ønsket å overbevise den spanske kongen om å stanse overgrepene mot urbefolkningen. Etter å ha sett og selv deltatt i koloniseringen, gjennomgikk han en moralsk omvendelse og viet resten av livet til å forsvare urbefolkningens rettigheter. Kildens styrker: 1) Førstehåndsvitnesbyrd - han var selv til stede og hadde sett overgrepene. 2) Detaljert beskrivelse av spesifikke hendelser. 3) Motet til å kritisere sine egne landsmenn og den spanske kronen. 4) Gir stemme til ofrene som ellers ikke ville blitt hørt i europeiske kilder. Kildens begrensninger: 1) De las Casas kan ha overdrevet for å sjokkere kongen til handling - teksten er retorisk, ikke nøytral. 2) Han ser urbefolkningen som «edle villmenn» som må frelses, ikke som likeverdige med en egen gyldig kultur. 3) Han representerer ikke urbefolkningens eget perspektiv - de forteller ikke selv sin historie. 4) Han var opptatt av å kristne urbefolkningen, bare med mildere metoder. Forskjell fra Columbus: Columbus beskrev urbefolkningen som naive, gavmilde folk som kunne underlegges spansk herredømme. Han så dem som ressurser. De las Casas ser dem som mennesker som lider urett. Dette viser at kildens perspektiv avgjør hva som fortelles - og hva som utelates.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-5-3-ex-5',
@@ -583,6 +685,38 @@ Merkantilistene mente at verdens rikdom var begrenset, og at statene konkurrerte
         type: 'classic',
         task: 'Hva var merkantilisme, og hvilke virkemidler brukte de eneveldige statene i sin økonomiske politikk?',
         solution: 'Merkantilisme var den økonomiske politikken i de eneveldige statene. Målet var å gjøre staten rik og mektig ved å eksportere mer enn man importerte. Virkemidler: 1) Toll på importvarer for å beskytte egen industri mot konkurranse. 2) Støtte til etablering av manufakturer (tidlige fabrikker). 3) Kolonier som skulle levere råvarer billig og kjøpe dyre ferdigvarer fra moderlandet. 4) Handelsmonopoler og privilegerte handelskompnaier (som Dansk Ostindisk Kompani). 5) Forbud mot utførsel av gull og sølv. 6) Kontroll over utenrikshandelen gjennom navigasjonslover.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-5-4-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Kongeloven av 1665 - utdrag',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Kongen alene skal have den høieste Magt og Myndighed til at giøre Love og Forordninger efter sin egen gode Villie og Velbehag, at op- og afsætte dem som hand vil af alle Betieninger [...] Kongen skal ingen anden Lov at være undergivet end Guds Lov allene."*
+
+**Kilde:** *Kongeloven* (Lex Regia), 1665, § 2 og § 6 (tilpasset moderne rettskrivning)
+
+**Kontekst:** Kongeloven av 1665 var Europas eneste skriftlige eneveldige forfatning. Den ga den danske kongen nesten ubegrenset makt over Danmark-Norge. Loven ble vedtatt etter at Frederik III gjennomførte et statskupp med støtte fra borgerskapet i 1660 og innførte eneveldet.
+
+**Kildeanalyse:**
+- **Avsender:** Loven ble utformet av kongens rådgivere og representerte den nye eneveldige statens syn på makt. Den ble holdt hemmelig for offentligheten i lang tid.
+- **Formål:** Å gi kongen juridisk grunnlag for ubegrenset makt og fjerne all motstand fra adelen og andre stender. Den skulle sikre at makten var samlet hos kongen alene.
+- **Perspektiv:** Eneveldig perspektiv - all makt til kongen. Folkets rettigheter er ikke nevnt. Kongen er bare underlagt Guds lov, noe som i praksis betydde at ingen kunne holde ham ansvarlig.
+- **Kildeverdi:** Kongeloven er uvurderlig for å forstå eneveldet som styreform og den politiske tenkningen i perioden. Den viser tydelig hva absolutt makt betyr i praksis. Den sier derimot ingenting om folkets liv eller hvordan styret faktisk ble opplevd.`,
+    },
+    {
+      id: 'historie-5-4-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-4-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Sammenlign Kongeloven med moderne demokratiske grunnlover. Hvilke rettigheter hevder kongen i denne teksten? Hva mangler i dette dokumentet sammenlignet med for eksempel den norske Grunnloven av 1814?',
+        hints: ['Tenk på hva en moderne grunnlov inneholder: maktfordeling, folkesuverenitet, individuelle rettigheter. Hva finnes i Kongeloven, og hva mangler?'],
+        solution: 'Kongens rettigheter ifølge Kongeloven: 1) All lovgivende makt - kongen lager lovene alene etter eget ønske. 2) All utøvende makt - han ansetter og avsetter embetsmenn fritt. 3) Han er bare underlagt Guds lov - ingen jordisk instans kan kontrollere ham. I praksis betyr dette at kongen er lovgiver, dommer og utøvende makt i én person. Hva som mangler sammenlignet med Grunnloven av 1814: 1) Maktfordeling - Grunnloven deler makten mellom Storting (lovgivende), regjering (utøvende) og domstoler (dømmende). Kongeloven samler all makt hos kongen. 2) Folkesuverenitet - Grunnloven sier at makten utgår fra folket. I Kongeloven utgår all makt fra kongen. 3) Individuelle rettigheter - Grunnloven sikrer ytringsfrihet, religionsfrihet, eiendomsrett osv. Kongeloven nevner ingen individuelle rettigheter. 4) Kontrollmekanismer - I et demokrati kontrollerer de ulike maktorganene hverandre. I eneveldet er det ingen kontroll. 5) Representasjon - Grunnloven gir folket rett til å velge representanter. Kongeloven gir folket ingen politisk rolle. Denne sammenligningen viser det enorme gapet mellom enevelde og demokrati, og hvor revolusjonerende de demokratiske ideene fra opplysningstiden var.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -973,6 +1107,38 @@ Opplysningstidens tro på fornuft og fremskritt preger fortsatt moderne samfunn.
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-6-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Montesquieu - «Lovenes ånd» (1748)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Når den lovgivende og den utøvende makt er forent i samme person eller i samme myndighetsorgan, finnes det ingen frihet. [...] Det finnes heller ingen frihet dersom den dømmende makt ikke er atskilt fra den lovgivende og den utøvende. [...] Alt ville være tapt dersom den samme personen eller det samme organet utøvde alle tre maktene."*
+
+**Kilde:** Charles de Montesquieu, *Lovenes ånd* (*De l'esprit des lois*), 1748, bok 11, kapittel 6
+
+**Kontekst:** Montesquieu (1689-1755) var en fransk filosof og jurist som utviklet maktfordelingsprinsippet. Han lot seg inspirere av det engelske systemet med parlamentarisk kontroll av kongemakten. Hans ideer ble grunnleggende for moderne demokratier.
+
+**Kildeanalyse:**
+- **Avsender:** Charles de Montesquieu, en adelig fransk filosof og dommer. Han hadde praktisk erfaring med rettsvesenet og kombinerte dette med politisk filosofi.
+- **Formål:** Å beskrive hvordan stater bør organiseres for å sikre frihet og hindre tyranni. Verket analyserer ulike styreformer og argumenterer for at maktfordeling er nødvendig.
+- **Perspektiv:** Et opplysningsfilosofisk perspektiv preget av troen på fornuft og systemer. Montesquieu er opptatt av institusjonelle løsninger og ser mindre på sosiale ulikheter og hvem som faktisk får delta i styret.
+- **Kildeverdi:** Teksten er helt sentral for å forstå moderne politisk tenkning. Maktfordelingsprinsippet er bygget inn i de fleste demokratiske grunnlover. Den viser opplysningstidens tro på at fornuftige systemer kan hindre maktmisbruk.`,
+    },
+    {
+      id: 'historie-6-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-6-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Forklar Montesquieus maktfordelingsprinsipp. Hvordan er dette prinsippet gjennomført i Norge i dag (Stortinget, regjeringen, domstolene)?',
+        hints: ['Tenk på hvilke tre makter Montesquieu skiller mellom, og koble dem til norske institusjoner.'],
+        solution: 'Montesquieus maktfordelingsprinsipp: Montesquieu mener at statens makt må deles i tre uavhengige grener for å sikre frihet: 1) Den lovgivende makten - lager lovene. 2) Den utøvende makten - gjennomfører lovene. 3) Den dømmende makten - dømmer etter lovene. Dersom disse maktene samles hos én person eller ett organ, blir resultatet tyranni, fordi ingen kan kontrollere makthaveren. I Norge i dag: 1) Stortinget (lovgivende makt) vedtar lover, statsbudsjettet og kontrollerer regjeringen. 2) Regjeringen (utøvende makt) styrer landet til daglig, gjennomfører Stortingets vedtak og foreslår nye lover. 3) Domstolene (dømmende makt) dømmer i tvister og straffesaker og kan prøve om lover er i tråd med Grunnloven. Eksempler på maktfordeling i praksis: Stortinget kan kaste regjeringen gjennom mistillitsforslag. Domstolene kan underkjenne lover som strider mot Grunnloven. Regjeringen kan ikke lage lover på egen hånd. Montesquieus ideer fra 1748 er altså direkte synlige i hvordan Norge er styrt i dag - noe som viser opplysningstidens enorme innflytelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-6-1-ex-5',
@@ -1292,6 +1458,44 @@ Napoleons nederlag i 1815 førte til restaurasjon av de gamle monarkiene, men id
         type: 'classic',
         task: 'Hvordan videreførte og forandret Napoleon den franske revolusjonens arv?',
         solution: 'Napoleon videreførte flere av revolusjonens reformer: 1) Likhet for loven gjennom Code civil (Napoleons lovbok). 2) Karriere åpen for talent - man kunne stige i gradene uavhengig av fødsel. 3) Avskaffelse av føydale privilegier og livegenskap. 4) Religiøs toleranse og likestilling av trossamfunn. 5) Spredning av revolusjonens ideer til erobrede land. Samtidig forandret han revolusjonen: 1) Avskaffet demokratiet og grep all makt selv. 2) Kronet seg til keiser - ny monark i stedet for republikk. 3) Innskrenket ytringsfrihet og pressefrihet. 4) Gjeninnførte slaveriet i koloniene. 5) Førte aggressive erobringskriger. Napoleon var altså både en viderefører og en forræder mot revolusjonens idealer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-6-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Menneskerettighetserklæringen (1789) - utdrag',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Artikkel 1: Menneskene fødes og forblir frie og like i rettigheter. Sosiale forskjeller kan bare begrunnes med felles nytte."*
+
+*"Artikkel 2: Formålet med enhver politisk sammenslutning er å bevare menneskets naturlige og umistelige rettigheter. Disse rettighetene er frihet, eiendom, sikkerhet og motstand mot undertrykkelse."*
+
+*"Artikkel 3: Prinsippet for all suverenitet hviler i sin helhet hos nasjonen. Ingen stand og intet individ kan utøve myndighet som ikke uttrykkelig utgår fra den."*
+
+*"Artikkel 11: Fri meddelelse av tanker og meninger er en av menneskets mest dyrebare rettigheter."*
+
+**Kilde:** *Erklæringen om menneskets og borgerens rettigheter* (*Déclaration des droits de l'homme et du citoyen*), 26. august 1789
+
+**Kontekst:** Erklæringen ble vedtatt av den franske nasjonalforsamlingen under revolusjonen. Den var inspirert av filosofene Locke og Montesquieu og av den amerikanske uavhengighetserklæringen (1776). Erklæringen regnes som et av de viktigste dokumentene i menneskerettighetenes historie.
+
+**Kildeanalyse:**
+- **Avsender:** Den franske nasjonalforsamlingen, dominert av borgerskapet (tredjestanden). Erklæringen reflekterer dermed borgerskapets interesser og verdier.
+- **Formål:** Å fastslå universelle menneskerettigheter som grunnlag for en ny politisk orden. Erklæringen skulle rettferdiggjøre revolusjonen og erstatte det gamle stendersamfunnet.
+- **Perspektiv:** Erklæringen hevder å gjelde alle mennesker, men «mennesket» betydde i praksis hvite, eiendomsbesittende menn. Kvinner, slaver i koloniene og de fattigste var ekskludert.
+- **Kildeverdi:** Erklæringen er et nøkkeldokument i demokratiets og menneskerettighetenes historie. Den viser opplysningstidens idealer omsatt i politisk handling. Samtidig viser gapet mellom idealene og virkeligheten at universelle rettigheter ikke ble universelle med én gang.`,
+    },
+    {
+      id: 'historie-6-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-6-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Sammenlign disse artiklene fra 1789 med moderne menneskerettigheter. Hva er overraskende moderne? Hva mangler i erklæringen dersom vi tenker på hvem «mennesket» egentlig viste til i 1789?',
+        hints: ['Tenk på at ordet «homme» på fransk betyr både «menneske» og «mann». Hvem var inkludert og hvem var ekskludert fra disse rettighetene?'],
+        solution: 'Overraskende moderne: 1) Artikkel 1 om at alle fødes frie og like i rettigheter - dette er nesten identisk med FNs menneskerettighetserklæring fra 1948. 2) Artikkel 2 om umistelige rettigheter (frihet, sikkerhet, motstand mot undertrykkelse) - disse finnes i alle moderne rettighetskataloger. 3) Artikkel 3 om folkesuverenitet - grunnlaget for alle moderne demokratier. 4) Artikkel 11 om ytringsfrihet - en grunnpilar i demokratiet. Hva som mangler: 1) Kvinner var ekskludert - «mennesket» (l\'homme) betydde i praksis menn. Olympe de Gouges som skrev en tilsvarende erklæring for kvinner, ble henrettet. 2) Slaveriet i franske kolonier ble ikke avskaffet (det ble det i 1794, men gjeninnført av Napoleon i 1802). 3) Eiendomsrett som grunnleggende rettighet favoriserte borgerskapet. 4) Ingen sosiale rettigheter - retten til utdanning, helse eller arbeid er fraværende. 5) Religiøse minoriteter ble ikke eksplisitt vernet. Gapet mellom idealene og virkeligheten viser at rettigheter ikke gis én gang for alle - de utvides gradvis gjennom kamp og debatt. Det tok nesten 200 år før idealene fra 1789 begynte å gjelde alle mennesker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1622,6 +1826,38 @@ Fra Storbritannia spredte industrialiseringen seg gradvis til resten av Europa o
         type: 'classic',
         task: 'Hvordan og når spredte industrialiseringen seg fra Storbritannia til andre land?',
         solution: 'Industrialiseringens spredning: 1) Belgia var først på kontinentet (fra 1820-tallet), med rike kull- og jernforekomster. 2) Frankrike industrialiserte gradvis, men langsommere pga. mindre kull og svakere befolkningsvekst. 3) Tyskland industrialiserte raskt etter samlingen i 1871 og ble en ledende industrinasjon med kjemisk og elektrisk industri. 4) USA hadde enormt potensial og industrialiserte kraftig etter borgerkrigen (1865) - ble verdens største økonomi. 5) Norge kom sent i gang, fra midten av 1800-tallet. Tekstilindustri og treforedling kom først, senere ble vannkraften viktig. Spredningen skyldtes overføring av teknologi og kunnskap, samt at andre land hadde lignende forutsetninger som Storbritannia.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-7-1-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Adam Smith - «Nasjonenes velstand» (1776) - om arbeidsdeling',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"En arbeider som ikke er opplært i dette faget, og som heller ikke er kjent med maskinene som brukes i det, kunne knapt lage én nål om dagen, og absolutt ikke tjue. Men slik dette faget nå drives, er hele arbeidet delt inn i en rekke prosesser [...] Ti personer kan lage opptil førtiogtretusen nåler om dagen. Hver person lager altså fire tusen åtte hundre nåler om dagen."*
+
+**Kilde:** Adam Smith, *Nasjonenes velstand* (*An Inquiry into the Nature and Causes of the Wealth of Nations*), 1776, bok 1, kapittel 1
+
+**Kontekst:** Adam Smiths berømte eksempel om nålefabrikken er et av de mest kjente eksemplene i økonomisk teori. Det viser hvordan arbeidsdeling kan øke produktiviteten dramatisk. Smith (1723-1790) regnes som grunnleggeren av moderne økonomi.
+
+**Kildeanalyse:**
+- **Avsender:** Adam Smith, skotsk filosof og økonom. Han var professor i moralfilosofi og observerte den tidlige industrialiseringen på nært hold. Han var ikke selv industrieier, men en akademisk observatør.
+- **Formål:** Å forklare hvordan velstand skapes og hvorfor noen nasjoner er rikere enn andre. Smith argumenterer for fri handel og markedsøkonomi som veien til velstand.
+- **Perspektiv:** Et teoretisk-økonomisk perspektiv som fokuserer på effektivitet og produktivitet. Smith ser arbeidsdelingen fra eierens og samfunnets perspektiv, ikke fra arbeiderens. Han diskuterer ikke arbeidsforholdene.
+- **Kildeverdi:** Teksten er helt sentral for å forstå den økonomiske tenkningen bak industrialiseringen. Den forklarer hvorfor fabrikksystemet ble så produktivt. Men den sier lite om arbeiderens opplevelse av monotont, repetitivt arbeid og konsekvensene for helsen.`,
+    },
+    {
+      id: 'historie-7-1-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-7-1-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Hvordan illustrerer Smiths nålefabrikk-eksempel kjerneprinsippet i den industrielle revolusjonen? Hva er fordelene og ulempene ved ekstrem arbeidsdeling?',
+        hints: ['Tenk på hva arbeidsdelingen betyr for produktiviteten, men også hva den gjør med den enkelte arbeideren.'],
+        solution: 'Smiths nålefabrikk og den industrielle revolusjonen: Eksemplet illustrerer kjerneprinsippet om at spesialisering og arbeidsdeling øker produktiviteten enormt. En person alene kan lage kanskje 1 nål om dagen. Med arbeidsdeling mellom 10 personer kan de produsere 48 000 - nesten 5 000 ganger mer effektivt. Dette er det grunnleggende prinsippet bak fabrikkene: spesialisering, standardisering og koordinering av arbeid. Fordeler med arbeidsdeling: 1) Dramatisk økt produktivitet - flere varer til lavere pris. 2) Arbeiderene blir svært dyktige i sin spesialiserte oppgave. 3) Maskiner kan utvikles for spesifikke oppgaver. 4) Billigere varer for forbrukerne. 5) Grunnlaget for velstandsvekst i samfunnet. Ulemper med arbeidsdeling: 1) Monotont, kjedelig arbeid - arbeideren gjør samme bevegelse tusenvis av ganger. 2) Fremmedgjøring - arbeideren ser aldri det ferdige produktet og mister stolthet over arbeidet. 3) Tap av allsidige ferdigheter - arbeideren kan bare én ting. 4) Avhengighet - arbeideren er lett å erstatte. 5) Helseproblemer - ensformig arbeid gir belastningsskader. Smith selv advarte faktisk mot at arbeidsdeling kunne gjøre mennesker «så dumme og uvitende som det er mulig for en menneskelig skapning å bli». Eksemplet viser altså både styrken og skyggesiden ved industrialiseringen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1967,6 +2203,38 @@ Men thranitterbevegelsen viste at arbeidere og småkårsfolk kunne organisere se
         type: 'classic',
         task: 'Hva var hovedtrekkene i Karl Marx sin kritikk av kapitalismen?',
         solution: 'Marx kritikk av kapitalismen: 1) Utbytting: Arbeiderne skaper verdiene gjennom sitt arbeid, men kapitalistene (eierne) tar profitten. Merverdi-teorien forklarer dette. 2) Klassekamp: Historien er en kamp mellom klasser - under kapitalismen mellom borgerskapet og proletariatet. 3) Fremmedgjøring: Arbeiderne blir fremmedgjort fra sitt arbeid, produktene, hverandre og seg selv. 4) Kriser: Kapitalismen skaper periodiske kriser fordi arbeiderne ikke har råd til å kjøpe varene de produserer. 5) Konsentrasjon: Kapitalen vil bli stadig mer konsentrert hos færre eiere. Marx mente kapitalismen var ustabil og urettferdig, og at den ville bli erstattet av sosialisme gjennom arbeiderklassens revolusjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-7-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Friedrich Engels - «Arbeiderklassens stilling i England» (1845)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Arbeiderne spiser halvråttent kjøtt og grønnsaker som knapt er egnet til menneskeføde. [...] De bor i hus der ethvert vindu er knust og tettet med kluter, der dørene og gulvene er halvråtne, der det er møkkete og fuktig. [...] Barn vokser opp i boliger som ikke engang er verdige for dyr."*
+
+**Kilde:** Friedrich Engels, *Arbeiderklassens stilling i England* (*Die Lage der arbeitenden Klasse in England*), 1845
+
+**Kontekst:** Friedrich Engels (1820-1895) bodde i Manchester, Englands viktigste industriby, i perioden 1842-1844. Han dokumenterte arbeiderklassens levekår under den industrielle revolusjonen gjennom personlige observasjoner og samtaler med arbeidere. Engels var selv sønn av en tysk fabrikkeier som hadde en tekstilfabrikk i Manchester.
+
+**Kildeanalyse:**
+- **Avsender:** Friedrich Engels, ung tysk intellektuell og sønn av en fabrikkeier. Han hadde direkte tilgang til begge sider av industrisamfunnet - fabrikkeiernes verden og arbeiderklassens slum.
+- **Formål:** Å dokumentere og fordømme arbeiderklassens elendige kår for å mobilisere til politisk endring. Engels ønsket å vise at kapitalismen var urettferdig og skadelig.
+- **Perspektiv:** Et klart politisk perspektiv - Engels var allerede sosialist da han skrev boken, og han ble senere Karl Marx' nærmeste medarbeider. Han ønsket å overbevise leseren om nødvendigheten av revolusjon.
+- **Kildeverdi:** Boken er en av de mest detaljerte førstehåndsbeskrivelsene av arbeiderklassens levekår under tidlig industrialisering. Den gir uvurderlig innsikt i hverdagen til vanlige arbeidere. Svakheter: Engels var politisk motivert og kan ha valgt de verste eksemplene for effekt. Han representerer ikke fabrikkeierens perspektiv eller de arbeiderne som hadde det bedre.`,
+    },
+    {
+      id: 'historie-7-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-7-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser Engels som kilde. Hva gjør beskrivelsen hans kraftfull? Hvilken mulig slagside (bias) kan han ha? Sammenlign med arbeiderforholdene i Norge under industrialiseringen.',
+        hints: ['Tenk på Engels\' bakgrunn som sønn av en fabrikkeier og hans politiske overbevisning. Hvordan påvirker dette det han skriver?'],
+        solution: 'Hva som gjør beskrivelsen kraftfull: 1) Konkrete, sanselige detaljer - vi kan nesten lukte og se de elendige boforholdene. 2) Førstehåndsobservasjon - Engels var der selv og snakket med folk. 3) Kontrasten - som fabrikkeiers sønn kjente han også de rikes liv, noe som gjør kontrasten skarpere. 4) Systematisk dokumentasjon - han kartlegger hele byer, ikke bare enkelttilfeller. 5) Fokus på barn - barns lidelse vekker sterkere reaksjoner. Mulig slagside (bias): 1) Engels var sosialist og hadde en politisk agenda - han ville overbevise folk om at kapitalismen var urettferdig. 2) Han kan ha valgt de verste eksemplene og utelatt tilfeller der forholdene var bedre. 3) Hans fokus er ensidig på elendighet - han forteller lite om arbeiderklassens egne strategier for å bedre sin situasjon. 4) Han ser arbeiderklassen som en masse, ikke som individer med ulike erfaringer. Sammenligning med Norge: Norsk industrialisering kom senere (fra midten av 1800-tallet) og i mindre skala, men lignende problemer oppsto: Trange arbeiderboliger i byene, barnearbeid i tekstilfabrikker, farlige arbeidsforhold i gruver og sagbruk. Marcus Thranes arbeiderbevegelse (1849) viser at norske arbeidere også reagerte. Over tid ble norske forhold bedre gjennom fagforeninger, arbeidervern og til slutt velferdsstaten.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2475,6 +2743,40 @@ Norge var endelig en fullt uavhengig nasjon etter nesten 500 år.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Kildetekst ---
+    {
+      id: 'historie-8-2-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Grunnloven § 1 og § 2 (1814, original tekst)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"§ 1. Kongeriget Norge er et frit, selvstændigt, udeleligt og uafhændeligt Rige. Dets Regjeringsform er indskrænket og arvelig monarkisk."*
+
+*"§ 2. Den evangelisk-lutherske Religion forbliver Statens offentlige Religion. De Indvaanere, der bekjende sig til den, ere forpligtede til at opdrage sine Børn i samme. Jesuiter og Munkeordener maae ikke taales. Jøder ere fremdeles udelukkede fra Adgang til Riget."*
+
+**Kilde:** *Kongeriket Norges Grundlov*, vedtatt på Eidsvoll 17. mai 1814 (originalspråk)
+
+**Kontekst:** Grunnloven ble skrevet på bare noen uker av 112 menn på Eidsvoll. Den var inspirert av den amerikanske og den franske grunnloven og regnes som en av Europas mest liberale grunnlover på den tiden. Samtidig inneholdt den bestemmelser som vi i dag ser som diskriminerende.
+
+**Kildeanalyse:**
+- **Avsender:** Riksforsamlingen på Eidsvoll - 112 menn fra embetsstanden, borgerskapet og bondestanden. Ingen kvinner, ingen samiske representanter, ingen representanter for de laveste klassene.
+- **Formål:** Å etablere Norge som en selvstendig stat med en moderne grunnlov. Grunnloven skulle sikre folkesuverenitet, maktfordeling og individuelle rettigheter.
+- **Perspektiv:** Grunnloven representerer opplysningstidens idealer, men sett gjennom øynene til en bestemt gruppe i samfunnet. Den er liberal i sin tid, men ekskluderer grupper vi i dag anser som selvfølgelige rettighetshavere.
+- **Kildeverdi:** Grunnloven er Norges viktigste historiske dokument. Den viser både idealene og begrensningene i datidens tenkning. Paragraf 2 er spesielt verdifull fordi den viser at selv de mest progressive dokumentene kan inneholde diskriminerende bestemmelser.`,
+    },
+    {
+      id: 'historie-8-2-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-8-2-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Analyser begge paragrafene. Hva er fremskrittsvennlig ved § 1? Hva er problematisk ved § 2? «Jødeparagrafen» ble fjernet i 1851, og bestemmelsen om munkeordener i 1897. Hva forteller dette oss om hvordan verdier endrer seg over tid?',
+        hints: ['Sammenlign § 1 med Kongeloven fra 1665 for å se fremskrittet. Tenk på hvem som ble ekskludert i § 2, og hvorfor.'],
+        solution: 'Hva som er fremskrittsvennlig ved § 1: 1) Norge erklæres som et «frit» og «selvstændigt» rike - en revolusjonerende tanke etter 400 år under Danmark. 2) Styreformen er «indskrænket» monarki - kongens makt er begrenset av grunnloven, i motsetning til Kongeloven av 1665. 3) Paragrafens språk uttrykker nasjonal selvbestemmelse og folkesuverenitet. Hva som er problematisk ved § 2: 1) Statsreligion - alle plikter å oppdra barna i den lutherske tro. Dette bryter med moderne religionsfrihet. 2) Jesuitter og munkeordener er forbudt - religiøs intoleranse mot katolikker. 3) «Jøder ere fremdeles udelukkede fra Adgang til Riget» - jøder ble nektet å bo i Norge. Dette er den mest åpenbart diskriminerende bestemmelsen. Hva dette forteller om verdier over tid: 1) Selv progressive dokumenter reflekterer sin tids fordommer. Eidsvollsmennene så seg selv som opplyste, men aksepterte diskriminering. 2) Verdier endrer seg gradvis - jødeparagrafen ble fjernet i 1851 etter påtrykk fra blant andre Henrik Wergeland. 3) Det tar tid å innse egne blinde flekker. Munkeforbudet sto i 83 år, jødeparagrafen i 37 år. 4) Grunnloven er et levende dokument som endres med samfunnet - den er endret over 300 ganger. 5) Vi bør også stille spørsmålet: Hva i vår egen lovgivning vil fremtidige generasjoner se som uakseptabelt? Denne analysen viser at historie handler om å forstå fortiden på dens egne premisser, samtidig som vi anerkjenner at fremskritt er mulig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     // --- Oppsummeringsoppgaver ---
     {
       id: 'historie-8-2-ex-5',
@@ -2646,6 +2948,38 @@ I 1999 anerkjente Norge disse som nasjonale minoriteter med særlige rettigheter
         type: 'classic',
         task: 'Hvilke minoritetsgrupper har Norge, og hvordan har den norske staten behandlet dem historisk?',
         solution: 'Norges minoriteter: 1) Samer (urfolk): Utsatt for fornorskingspolitikk - språkforbud, internatskoler, kulturell nedvurdering. 2) Kvener/norskfinner: Finsktalende innvandrere i Nord-Norge. Også utsatt for fornorskingspolitikk. 3) Skogfinner: Finske innvandrere på Østlandet. Assimilert. 4) Romani (tatere): Omreisende folk utsatt for grove overgrep - barn ble tatt fra foreldre, tvangssterilisering. 5) Rom (sigøynere): Nektet innreise i perioder, utsatt for diskriminering. 6) Jøder: Forbudt adgang 1687-1851 (jødeparagrafen). 772 norske jøder ble drept i Holocaust. Felles trekk: Staten har forsøkt å assimilere, utelukke eller kontrollere minoritetene. Overgrep ble begått i "nasjonens" og "sivilisasjonens" navn. Siden 1999 er disse anerkjent som nasjonale minoriteter med særlige rettigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Kildetekst ---
+    {
+      id: 'historie-8-3-kildetekst-1',
+      type: 'example',
+      title: 'Kildetekst: Wexelsen-plakaten (1898) - instruks for fornorskningspolitikken',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Undervisningen i de lappiske og kvænske overgangsdistrikter bør have til hovedformaal at bibringe Børnene Kundskab i det norske Sprog. Lappisk og Kvænsk maa alene benyttes som Hjælpemiddel til at forklare, hvad der er dem uforstaaeligt."*
+
+**Kilde:** *Instruks for undervisningen i de samiske og kvenske overgangsdistrikter* (Wexelsen-plakaten), 1898
+
+**Kontekst:** Wexelsen-plakaten er oppkalt etter kirke- og undervisningsminister Vilhelm Andreas Wexelsen. Den var et offisielt vedtak som fastslo at samisk og kvensk bare skulle brukes som hjelpespråk i skolen - ikke som undervisningsspråk. Dokumentet er et sentralt uttrykk for fornorskningspolitikken som ble ført overfor samer og kvener fra midten av 1800-tallet til langt ut på 1900-tallet.
+
+**Kildeanalyse:**
+- **Avsender:** Den norske regjeringen, representert ved kirke- og undervisningsministeren. Dokumentet reflekterer den norske statens offisielle politikk overfor minoriteter.
+- **Formål:** Å fornorske samiske og kvenske barn gjennom skolen. Målet var at barn med samisk eller kvensk morsmål skulle lære norsk og bli «norske» i kultur og identitet.
+- **Perspektiv:** Et ensidig majoritetsperspektiv. Samisk og kvensk kultur blir ikke anerkjent som verdifulle i seg selv, men sees som hindringer for integrering. Samenes og kvenenes eget perspektiv er helt fraværende.
+- **Kildeverdi:** Dokumentet er svært verdifullt for å forstå fornorskningspolitikkens konkrete virkemidler. Det viser hvordan staten brukte skolen som verktøy for kulturell assimilering. Dokumentet sier mye om majoritetssamfunnets holdninger, men ingenting om hvordan politikken ble opplevd av dem den rammet.`,
+    },
+    {
+      id: 'historie-8-3-kildetekst-1-ex',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-8-3-kildetekst-1-ex',
+        number: 'K1',
+        type: 'classic',
+        task: 'Hva forteller dette dokumentet oss om norske myndigheters holdning til samisk og kvensk kultur? Hvordan henger dette sammen med 1800-tallets nasjonalisme? Sammenlign med dagens språkpolitikk overfor samisk.',
+        hints: ['Tenk på hva nasjonalismen krevde av «homogenitet» og hvordan minoritetskulturer ble oppfattet som trusler.'],
+        solution: 'Hva dokumentet forteller om myndighetenes holdning: 1) Samisk og kvensk ble ikke anerkjent som fullverdige språk - de var bare «hjelpemidler» for å lære norsk. 2) Målet var assimilering - samiske og kvenske barn skulle bli norskspråklige og dermed «norske». 3) Barnas morsmål og kulturelle identitet ble sett som et problem som skulle løses, ikke som en verdi. 4) Myndighetene brukte skolen som det viktigste verktøyet for kulturell homogenisering. Sammenheng med nasjonalismen: 1800-tallets nasjonalisme bygde på ideen om at en nasjon = ett folk = ett språk = én kultur. Minoriteter som snakket andre språk eller hadde andre tradisjoner, passet ikke inn i dette bildet. Fornorskningspolitikken var en logisk konsekvens av nasjonalismens krav om kulturell enhet. I tillegg spilte sosialdarwinistiske ideer inn - samisk kultur ble sett som «primitiv» sammenlignet med norsk. Sammenligning med dagens politikk: I dag er situasjonen fundamentalt endret. 1) Samisk er offisielt likestilt med norsk i samiske forvaltningsområder. 2) Sametinget ble opprettet i 1989. 3) Samisk kan brukes i skolen som undervisningsspråk. 4) Norge har ratifisert ILO-konvensjon nr. 169 om urfolks rettigheter. 5) I 1997 ba kong Harald om unnskyldning for fornorskningspolitikken. 6) Sannhets- og forsoningskommisjonen leverte sin rapport i 2023 om urett begått mot samer, kvener og norskfinner. Denne endringen viser at politikk og verdier kan forandres fundamentalt, men også at konsekvensene av fornorskningspolitikken fortsatt merkes i dag gjennom tap av språk og kultur.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
