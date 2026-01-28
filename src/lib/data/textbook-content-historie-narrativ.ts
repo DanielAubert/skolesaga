@@ -225,6 +225,13 @@ export const CHAPTER_HISTORIE_1_2_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-1-2',
   content: [
     {
+      id: 'historie-1-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-1-2-n-intro',
       type: 'text',
       content: `## Vinduet til fortiden
@@ -278,6 +285,13 @@ Brevet er en **primærkilde** – en førstehåndsberetning fra den tiden vi stu
       },
     },
     {
+      id: 'historie-1-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-2-n-section2',
       type: 'text',
       content: `## Primærkilder og sekundærkilder
@@ -322,6 +336,13 @@ Det viktige er ikke *hvilken type* kilde du bruker, men *hvordan* du bruker den.
       },
     },
     {
+      id: 'historie-1-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-2-n-section3',
       type: 'text',
       content: `## De fire kildekritiske spørsmålene
@@ -362,6 +383,13 @@ Stemmer innholdet på plakaten med det vi vet fra andre kilder? Vi vet fra andre
       },
     },
     {
+      id: 'historie-1-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-2-n-section4',
       type: 'text',
       content: `## Levning og beretning
@@ -396,6 +424,13 @@ Som levning er brevet alltid pålitelig – det *er* et ekte brev fra den tiden.
         ],
         solution: 'Som levning er dagboken et direkte bevis på at den eksisterer – at noen førte dagbok, brukte dette språket, hadde tilgang til papir osv. Innholdet (beretningen) må vurderes mer kritisk.',
       },
+    },
+    {
+      id: 'historie-1-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-1-2-n-section5',
@@ -439,6 +474,13 @@ Moderne historikere prøver å løse dette ved å lete etter andre typer kilder:
         ],
         solution: 'Kildene fra vikingtiden – sagaene – ble skrevet av og for eliten, og handler derfor mest om konger, høvdinger og stormenn. Vanlige bønders liv var ikke «verdt» å skrive om.',
       },
+    },
+    {
+      id: 'historie-1-2-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-2-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-1-2-n-summary',
