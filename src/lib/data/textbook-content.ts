@@ -124,22 +124,16 @@ import { MAT_7_CHAPTERS } from './textbook-content-mat-7';
 import { KROPPSOVING_7_CHAPTERS } from './textbook-content-kroppsoving-7';
 
 // Importer enkeltstående kapitler fra Naturfag VG1 (de som har egne filer)
+import { CHAPTER_NAT_VG1_2_3 } from './textbook-chapter-nat-vg1-2-3';
 import { CHAPTER_NAT_VG1_3_1 } from './textbook-chapter-nat-vg1-3-1';
 import { CHAPTER_NAT_VG1_3_2 } from './textbook-chapter-nat-vg1-3-2';
 import { CHAPTER_NAT_VG1_3_3 } from './textbook-chapter-nat-vg1-3-3';
 import { CHAPTER_NAT_VG1_3_4 } from './textbook-chapter-nat-vg1-3-4';
 import { CHAPTER_NAT_VG1_3_5 } from './textbook-chapter-nat-vg1-3-5';
-import { CHAPTER_NAT_VG1_2_3 } from './textbook-chapter-nat-vg1-2-3';
-import { CHAPTER_NAT_VG1_2_4 } from './textbook-chapter-nat-vg1-2-4';
-import { CHAPTER_NAT_VG1_2_5 } from './textbook-chapter-nat-vg1-2-5';
 import { CHAPTER_NAT_VG1_4_1 } from './textbook-chapter-nat-vg1-4-1';
 import { CHAPTER_NAT_VG1_4_2 } from './textbook-chapter-nat-vg1-4-2';
-import { CHAPTER_NAT_VG1_5_1 } from './textbook-chapter-nat-vg1-5-1';
-import { CHAPTER_NAT_VG1_5_2 } from './textbook-chapter-nat-vg1-5-2';
 import { CHAPTER_NAT_VG1_4_3 } from './textbook-chapter-nat-vg1-4-3';
 import { CHAPTER_NAT_VG1_4_4 } from './textbook-chapter-nat-vg1-4-4';
-import { CHAPTER_NAT_VG1_5_3 } from './textbook-chapter-nat-vg1-5-3';
-import { CHAPTER_NAT_VG1_5_4 } from './textbook-chapter-nat-vg1-5-4';
 
 // ============================================================================
 // Samle alle kapitler
@@ -268,8 +262,6 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Naturfag VG1 - enkeltstående kapitler (override med mer detaljerte versjoner)
   'nat-vg1-2-3': CHAPTER_NAT_VG1_2_3,
-  'nat-vg1-2-4': CHAPTER_NAT_VG1_2_4,
-  'nat-vg1-2-5': CHAPTER_NAT_VG1_2_5,
   'nat-vg1-3-1': CHAPTER_NAT_VG1_3_1,
   'nat-vg1-3-2': CHAPTER_NAT_VG1_3_2,
   'nat-vg1-3-3': CHAPTER_NAT_VG1_3_3,
@@ -279,10 +271,6 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   'nat-vg1-4-2': CHAPTER_NAT_VG1_4_2,
   'nat-vg1-4-3': CHAPTER_NAT_VG1_4_3,
   'nat-vg1-4-4': CHAPTER_NAT_VG1_4_4,
-  'nat-vg1-5-1': CHAPTER_NAT_VG1_5_1,
-  'nat-vg1-5-2': CHAPTER_NAT_VG1_5_2,
-  'nat-vg1-5-3': CHAPTER_NAT_VG1_5_3,
-  'nat-vg1-5-4': CHAPTER_NAT_VG1_5_4,
 
   // Naturfag 10. klasse
   ...NATURFAG_10_CHAPTERS,

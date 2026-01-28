@@ -1,7 +1,7 @@
 /**
  * Tekstbok innhold for Naturfag VG1 DEL 1
  * Seksjon 1: Naturvitenskapens tenkemåte (1.1-1.5)
- * Seksjon 2: Stråling og bølger (2.1-2.6)
+ * Seksjon 2: Bølger, stråling og radioaktivitet (2.1-2.7)
  *
  * Dekker LK20 kompetansemål for NAT01-04.
  */
@@ -439,7 +439,7 @@ Programmet viser hvordan mengden reduseres til halvparten hver 10. år.`,
 };
 
 // ============================================================================
-// SEKSJON 2: Stråling og bølger
+// SEKSJON 2: Bølger, stråling og radioaktivitet
 // ============================================================================
 
 export const CHAPTER_NAT_VG1_2_1: TextbookChapter = {
@@ -515,8 +515,8 @@ export const CHAPTER_NAT_VG1_2_2: TextbookChapter = {
   id: 'nat-vg1-2-2',
   courseId: 'nat-vg1',
   chapterNumber: '2.2',
-  title: 'Lydbølger',
-  description: 'Lær om lyd som bølgefenomen, lydhastighet og hvordan vi hører.',
+  title: 'Lydbølger og akustikk',
+  description: 'Lær om lyd som bølgefenomen, lydhastighet og akustiske fenomener.',
   estimatedMinutes: 45,
   competenceGoals: ['utforske og beskrive noen sentrale bølgefenomener'],
   content: [
@@ -658,21 +658,25 @@ export const CHAPTER_NAT_VG1_2_4: TextbookChapter = {
   id: 'nat-vg1-2-4',
   courseId: 'nat-vg1',
   chapterNumber: '2.4',
-  title: 'Ioniserende stråling',
-  description: 'Lær om radioaktiv stråling, halveringstid og biologiske effekter.',
+  title: 'Radioaktivitet og kjerneforandringer',
+  description: 'Lær om radioaktiv stråling, kjerneforandringer og de tre strålingstypene alfa, beta og gamma.',
   estimatedMinutes: 50,
   competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'],
   content: [
     {
       id: 'nat-vg1-2-4-intro',
       type: 'text',
-      content: `## Ioniserende stråling
+      content: `## Radioaktivitet
 
-Ioniserende stråling har nok energi til å slå løs elektroner fra atomer, og dermed danne ioner. Dette kan skade biologisk vev.
+Noen atomkjerner er ustabile og sender ut stråling for å bli mer stabile. Denne prosessen kalles **radioaktiv nedbryting** eller **radioaktivitet**.
 
-**Kilder:**
-- Naturlige: Kosmisk stråling, radon i grunnen, radioaktive stoffer
-- Kunstige: Røntgen, kjernekraft, atomvåpen`,
+**Hvorfor er noen kjerner ustabile?**
+- For mange nøytroner i forhold til protoner
+- For stor kjerne (tunge grunnstoffer)
+- Kjernen har for mye energi
+
+**Kjerneforandringer:**
+Når en ustabil kjerne sender ut stråling, forandres kjernen - den kan bli et helt annet grunnstoff!`,
     },
     {
       id: 'nat-vg1-2-4-def-1',
@@ -680,36 +684,56 @@ Ioniserende stråling har nok energi til å slå løs elektroner fra atomer, og 
       title: 'Typer radioaktiv stråling',
       content: `**Alfastråling (α):**
 - Heliumkjerner (2 protoner + 2 nøytroner)
+- Atomnummeret synker med 2, massetallet med 4
 - Stoppes av papir/hud
 - Farlig ved innånding/svelging
 
 **Betastråling (β):**
-- Elektroner eller positroner
+- Et nøytron omdannes til et proton + et elektron
+- Atomnummeret øker med 1, massetallet er uendret
 - Stoppes av aluminiumsfolie/tynn plast
 - Kan trenge inn i huden
 
 **Gammastråling (γ):**
 - Høyenergetisk elektromagnetisk stråling
-- Trenger gjennom det meste
+- Kjernen kvitter seg med overskuddsenergi
+- Atomnummer og massetall uendret
 - Krever bly eller tykk betong for skjerming`,
     },
     {
       id: 'nat-vg1-2-4-def-2',
       type: 'definition',
-      title: 'Halveringstid',
-      content: `**Halveringstid (t½):** Tiden det tar før halvparten av et radioaktivt stoff har brutt ned.
+      title: 'Kjerneforandringer og isotoper',
+      content: `**Isotoper:** Varianter av et grunnstoff med ulikt antall nøytroner.
+- Karbon-12: 6 protoner + 6 nøytroner (stabil)
+- Karbon-14: 6 protoner + 8 nøytroner (radioaktiv)
 
-**Eksempler:**
-| Isotop | Halveringstid |
-|--------|---------------|
-| Radon-222 | 3,8 dager |
-| Jod-131 | 8 dager |
-| Cesium-137 | 30 år |
-| Karbon-14 | 5730 år |
-| Uran-238 | 4,5 milliarder år |
+**Eksempler på kjerneforandringer:**
 
-**Formel:**
-$$N = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$`,
+**Alfanedbryting av uran-238:**
+²³⁸U → ²³⁴Th + ⁴He (alfapartikkel)
+Uran-238 blir til thorium-234.
+
+**Betanedbryting av karbon-14:**
+¹⁴C → ¹⁴N + e⁻ (betapartikkel)
+Karbon-14 blir til nitrogen-14.
+
+**Nedbryting i kjeder:**
+Mange radioaktive isotoper brytes ned gjennom flere trinn (nedbrytinskjeder) før de når en stabil isotop.`,
+    },
+    {
+      id: 'nat-vg1-2-4-def-3',
+      type: 'definition',
+      title: 'Sammenligning av strålingstypene',
+      content: `| Egenskap | Alfa (α) | Beta (β) | Gamma (γ) |
+|----------|----------|----------|-----------|
+| Partikkel | ²He-kjerne | Elektron | Foton |
+| Ladning | +2 | −1 | 0 |
+| Masse | Stor | Liten | Ingen |
+| Rekkevidde i luft | Noen cm | Noen m | Svært lang |
+| Stoppes av | Papir/hud | Aluminium | Bly/betong |
+| Ioniseringsevne | Høy | Middels | Lav |
+| Fare | Innvendig | Hud/innvendig | Gjennomtrengning |`,
     },
     {
       id: 'nat-vg1-2-4-ex-1',
@@ -718,9 +742,22 @@ $$N = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$`,
         id: 'nat-vg1-2-4-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Jod-131 har halveringstid på 8 dager. Hvor mye er igjen av 100 g etter 24 dager?',
-        hints: ['24 dager = 3 halveringstider', 'Etter hver halveringstid er halvparten igjen'],
-        solution: '24/8 = 3 halveringstider. 100 g → 50 g → 25 g → 12,5 g',
+        task: 'Forklar hva som skjer med atomnummeret og massetallet ved alfanedbryting og betanedbryting.',
+        hints: ['En alfapartikkel har 2 protoner og 2 nøytroner', 'Ved betanedbryting omdannes et nøytron til et proton'],
+        solution: 'Ved alfanedbryting mister kjernen 2 protoner og 2 nøytroner, så atomnummeret synker med 2 og massetallet synker med 4. Ved betanedbryting omdannes et nøytron til et proton og et elektron (som sendes ut), så atomnummeret øker med 1 mens massetallet er uendret.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-2-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-2-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Radon-222 (atomnummer 86) sender ut en alfapartikkel. Hvilket grunnstoff dannes, og hva er massetallet?',
+        solution: 'Atomnummer: 86 − 2 = 84 (polonium). Massetall: 222 − 4 = 218. Det dannes polonium-218.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -733,58 +770,98 @@ export const CHAPTER_NAT_VG1_2_5: TextbookChapter = {
   id: 'nat-vg1-2-5',
   courseId: 'nat-vg1',
   chapterNumber: '2.5',
-  title: 'Stråling og helse',
-  description: 'Vurder helseeffekter av ulike typer stråling og hvordan vi kan beskytte oss.',
-  estimatedMinutes: 45,
+  title: 'Halveringstid og stråledoser',
+  description: 'Forstå halveringstid, beregn reststoff og lær om stråledoser og måleenheter.',
+  estimatedMinutes: 50,
   competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'],
   content: [
     {
       id: 'nat-vg1-2-5-intro',
       type: 'text',
-      content: `## Stråling og kroppen
+      content: `## Halveringstid
 
-Ulike typer stråling påvirker kroppen forskjellig. Det er viktig å kunne vurdere reell risiko basert på vitenskap, ikke frykt.
+Radioaktive stoffer brytes ned over tid. **Halveringstid** (t½) er tiden det tar før halvparten av atomene i et radioaktivt stoff har brutt ned.
 
-**Stråledose** måles i **Sievert (Sv)** og tar hensyn til stråletype og vev som bestråles.`,
+**Viktig:** Halveringstiden er konstant for hver isotop og kan ikke påvirkes av temperatur, trykk eller kjemiske reaksjoner.`,
     },
     {
       id: 'nat-vg1-2-5-def-1',
       type: 'definition',
-      title: 'Strålingskilder og doser',
-      content: `**Årlig bakgrunnsstråling i Norge:** ca. 3 mSv
+      title: 'Halveringstid og beregninger',
+      content: `**Formel:**
+$$N = N_0 \\cdot \\left(\\frac{1}{2}\\right)^{t/t_{1/2}}$$
+
+Der:
+- N₀ = startmengde
+- N = gjenstående mengde
+- t = tid som har gått
+- t½ = halveringstid
+
+**Eksempler på halveringstider:**
+| Isotop | Halveringstid | Bruksområde |
+|--------|---------------|-------------|
+| Radon-222 | 3,8 dager | Naturlig gass i grunnen |
+| Jod-131 | 8 dager | Kreftbehandling |
+| Cesium-137 | 30 år | Kjernekraftulykker |
+| Karbon-14 | 5730 år | Datering av organisk materiale |
+| Uran-238 | 4,5 mrd. år | Datering av bergarter |`,
+    },
+    {
+      id: 'nat-vg1-2-5-def-2',
+      type: 'definition',
+      title: 'Stråledoser og måleenheter',
+      content: `**Aktivitet - Becquerel (Bq):**
+Antall nedbrytninger per sekund. 1 Bq = 1 nedbryting/s.
+
+**Absorbert dose - Gray (Gy):**
+Energi absorbert per kg vev. 1 Gy = 1 J/kg.
+
+**Ekvivalent dose - Sievert (Sv):**
+Tar hensyn til stråletype og biologisk virkning.
+- Gammastråling: 1 Gy = 1 Sv
+- Alfastråling: 1 Gy = 20 Sv (20× mer skadelig!)
 
 **Typiske doser:**
 | Kilde | Dose |
 |-------|------|
 | Røntgen av brystet | 0,1 mSv |
-| Flytur Oslo-New York | 0,05 mSv |
-| CT-skanning | 5-10 mSv |
-| Årlig grense for arbeidere | 20 mSv |
-| Akutt strålesyke | > 1000 mSv |
-
-**ALARA-prinsippet:** As Low As Reasonably Achievable - hold stråledosen så lav som praktisk mulig.`,
+| Flytur Oslo–New York | 0,05 mSv |
+| Årlig bakgrunnsstråling (Norge) | ca. 3 mSv |
+| CT-skanning | 5–10 mSv |
+| Akutt strålesyke | > 1000 mSv |`,
     },
     {
-      id: 'nat-vg1-2-5-def-2',
+      id: 'nat-vg1-2-5-def-3',
       type: 'definition',
-      title: 'UV-stråling og helse',
-      content: `**UV-stråling fra solen:**
+      title: 'Dateringsmetoder',
+      content: `**Karbondatering (C-14-metoden):**
+Levende organismer tar opp karbon-14 fra atmosfæren. Når organismen dør, slutter opptaket, og C-14 brytes ned med halveringstid 5730 år.
 
-**UV-A (315-400 nm):**
-- Trenger dypest i huden
-- Aldring, rynker
-- Bidrar til hudkreft
+Ved å måle hvor mye C-14 som er igjen, kan vi beregne alderen på organisk materiale opptil ca. 50 000 år.
 
-**UV-B (280-315 nm):**
-- Forårsaker solbrenthet
-- Viktig for vitamin D-produksjon
-- Hovedårsak til hudkreft
+**Eksempel:** Et bein har 25% av opprinnelig C-14.
+- 100% → 50% (1 halveringstid) → 25% (2 halveringstider)
+- Alder: 2 × 5730 = 11 460 år
 
-**Beskyttelse:**
-- Solkrem (SPF)
-- Klær og solbriller
-- Unngå sol midt på dagen
-- Vær ekstra forsiktig på fjellet og ved vann`,
+**Bergartsdatering:**
+For eldre materialer brukes isotoper med lenger halveringstid, f.eks. uran-bly-metoden (milliarder av år).`,
+    },
+    {
+      id: 'nat-vg1-2-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregning med halveringstid',
+      problem: 'Et sykehus har 200 mg jod-131 (t½ = 8 dager). Hvor mye er igjen etter 32 dager?',
+      solution: `**Løsning:**
+
+Antall halveringstider: 32 / 8 = 4
+
+Gjenstående mengde:
+200 mg → 100 mg → 50 mg → 25 mg → 12,5 mg
+
+Eller med formel:
+N = 200 · (1/2)⁴ = 200 · 1/16 = **12,5 mg**
+
+Etter 32 dager er det bare 12,5 mg igjen av de opprinnelige 200 mg.`,
     },
     {
       id: 'nat-vg1-2-5-ex-1',
@@ -793,13 +870,23 @@ Ulike typer stråling påvirker kroppen forskjellig. Det er viktig å kunne vurd
         id: 'nat-vg1-2-5-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Vurder disse påstandene - er de korrekte eller myter?',
-        subTasks: [
-          { label: 'a', task: '"Mobilstråling forårsaker kreft"', solution: 'Ikke bevist - mobilstråling er ikke-ioniserende og har ikke nok energi til å skade DNA direkte. Omfattende forskning har ikke funnet sammenheng.' },
-          { label: 'b', task: '"Radon i boliger er den nest største årsaken til lungekreft etter røyking"', solution: 'Korrekt - radon er en radioaktiv gass som kan hope seg opp i boliger og forårsake lungekreft.' },
-          { label: 'c', task: '"All stråling er farlig"', solution: 'Myte - synlig lys og infrarød stråling er ufarlig ved normale nivåer. Mengde og type stråling avgjør risikoen.' },
-        ],
-        solution: 'Det er viktig å basere seg på vitenskapelig dokumentasjon, ikke frykt.',
+        task: 'Cesium-137 har halveringstid på 30 år. Etter Tsjernobyl-ulykken i 1986 ble store områder forurenset. Hvor stor andel av det opprinnelige cesium-137 er igjen i 2046?',
+        hints: ['Beregn antall halveringstider fra 1986 til 2046', 'Bruk formelen N = N₀ · (1/2)^n'],
+        solution: 'Fra 1986 til 2046 er det 60 år = 2 halveringstider. Gjenstående andel: (1/2)² = 1/4 = 25%. Altså er 25% av det opprinnelige cesium-137 igjen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'nat-vg1-2-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-2-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Et arkeologisk funn inneholder 12,5% av den opprinnelige mengden karbon-14. Halveringstiden for C-14 er 5730 år. Hvor gammelt er funnet?',
+        hints: ['Hvor mange halveringstider trengs for å komme fra 100% til 12,5%?', '100% → 50% → 25% → 12,5%'],
+        solution: '100% → 50% → 25% → 12,5% = 3 halveringstider. Alder: 3 × 5730 = 17 190 år.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -812,13 +899,110 @@ export const CHAPTER_NAT_VG1_2_6: TextbookChapter = {
   id: 'nat-vg1-2-6',
   courseId: 'nat-vg1',
   chapterNumber: '2.6',
+  title: 'Stråling, helse og strålevern',
+  description: 'Vurder helseeffekter av ulike typer stråling og lær om strålevern og beskyttelsestiltak.',
+  estimatedMinutes: 45,
+  competenceGoals: ['utforske og beskrive elektromagnetisk og ioniserende stråling, og vurdere informasjon om stråling og helseeffekter'],
+  content: [
+    {
+      id: 'nat-vg1-2-6-intro',
+      type: 'text',
+      content: `## Stråling og kroppen
+
+Ulike typer stråling påvirker kroppen forskjellig. Det er viktig å kunne vurdere reell risiko basert på vitenskap, ikke frykt.
+
+**Hvordan skader ioniserende stråling?**
+- Bryter kjemiske bindinger i celler
+- Kan skade DNA og føre til mutasjoner
+- Høye doser dreper celler direkte
+- Lave doser kan øke kreftrisiko over tid`,
+    },
+    {
+      id: 'nat-vg1-2-7-def-1',
+      type: 'definition',
+      title: 'Strålevern og ALARA',
+      content: `**ALARA-prinsippet:** As Low As Reasonably Achievable – hold stråledosen så lav som praktisk mulig.
+
+**Tre prinsipper for strålevern:**
+
+**1. Tid:** Reduser tiden du er eksponert
+**2. Avstand:** Øk avstanden til kilden (dosen synker med kvadratet av avstanden)
+**3. Skjerming:** Bruk materialer som stopper strålingen (bly, betong)
+
+**Radon i boliger:**
+- Radon er en naturlig radioaktiv gass fra grunnen
+- Nest største årsak til lungekreft etter røyking
+- Ca. 300 lungekrefttilfeller årlig i Norge
+- Tiltak: Måle radon, ventilere, tette sprekker i grunnmur`,
+    },
+    {
+      id: 'nat-vg1-2-7-def-2',
+      type: 'definition',
+      title: 'UV-stråling og helse',
+      content: `**UV-stråling fra solen:**
+
+**UV-A (315–400 nm):**
+- Trenger dypest i huden
+- Aldring, rynker
+- Bidrar til hudkreft
+
+**UV-B (280–315 nm):**
+- Forårsaker solbrenthet
+- Viktig for vitamin D-produksjon
+- Hovedårsak til hudkreft
+
+**Beskyttelse:**
+- Solkrem (SPF)
+- Klær og solbriller
+- Unngå sol midt på dagen
+- Vær ekstra forsiktig på fjellet og ved vann`,
+    },
+    {
+      id: 'nat-vg1-2-6-def-3',
+      type: 'definition',
+      title: 'Medisinsk bruk av stråling',
+      content: `**Røntgen:** Diagnostisering av beinbrudd og sykdommer
+**CT-skanning:** Detaljerte tverrsnittsbilder
+**MR:** Bruker magnetfelt, ikke ioniserende stråling
+**PET-skanning:** Radioaktive markører viser metabolsk aktivitet
+**Strålebehandling:** Målrettet gammastråling dreper kreftceller
+
+**Nytte vs. risiko:**
+Medisinsk stråling brukes fordi nytten (korrekt diagnose/behandling) er større enn risikoen ved den lave stråledosen.`,
+    },
+    {
+      id: 'nat-vg1-2-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'nat-vg1-2-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Vurder disse påstandene – er de korrekte eller myter?',
+        subTasks: [
+          { label: 'a', task: '"Mobilstråling forårsaker kreft"', solution: 'Ikke bevist – mobilstråling er ikke-ioniserende og har ikke nok energi til å skade DNA direkte. Omfattende forskning har ikke funnet sammenheng.' },
+          { label: 'b', task: '"Radon i boliger er den nest største årsaken til lungekreft etter røyking"', solution: 'Korrekt – radon er en radioaktiv gass som kan hope seg opp i boliger og forårsake lungekreft.' },
+          { label: 'c', task: '"All stråling er farlig"', solution: 'Myte – synlig lys og infrarød stråling er ufarlig ved normale nivåer. Mengde og type stråling avgjør risikoen.' },
+        ],
+        solution: 'Det er viktig å basere seg på vitenskapelig dokumentasjon, ikke frykt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+export const CHAPTER_NAT_VG1_2_7: TextbookChapter = {
+  id: 'nat-vg1-2-7',
+  courseId: 'nat-vg1',
+  chapterNumber: '2.7',
   title: 'Trådløs kommunikasjon',
   description: 'Forstå hovedprinsippene for trådløs kommunikasjon og anvendelser.',
   estimatedMinutes: 50,
   competenceGoals: ['forklare hovedprinsippene for trådløs kommunikasjon og gi eksempler på hva slik teknologi brukes til'],
   content: [
     {
-      id: 'nat-vg1-2-6-intro',
+      id: 'nat-vg1-2-7-intro',
       type: 'text',
       content: `## Trådløs kommunikasjon
 
@@ -831,7 +1015,7 @@ Trådløs kommunikasjon bruker elektromagnetiske bølger til å overføre inform
 4. Mottaker dekoder signalene tilbake til informasjon`,
     },
     {
-      id: 'nat-vg1-2-6-def-1',
+      id: 'nat-vg1-2-7-def-1',
       type: 'definition',
       title: 'Teknologier og frekvenser',
       content: `**Mobilnett:**
@@ -853,7 +1037,7 @@ Trådløs kommunikasjon bruker elektromagnetiske bølger til å overføre inform
 - Bruker tidsforsinkelse til å beregne posisjon`,
     },
     {
-      id: 'nat-vg1-2-6-def-2',
+      id: 'nat-vg1-2-7-def-2',
       type: 'definition',
       title: 'Hvordan 5G fungerer',
       content: `**5G-teknologi:**
@@ -875,10 +1059,10 @@ Trådløs kommunikasjon bruker elektromagnetiske bølger til å overføre inform
 - Internet of Things (IoT)`,
     },
     {
-      id: 'nat-vg1-2-6-ex-1',
+      id: 'nat-vg1-2-7-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'nat-vg1-2-6-ex-1',
+        id: 'nat-vg1-2-7-ex-1',
         number: '1',
         type: 'classic',
         task: 'Forklar hvorfor 5G-nett som bruker høye frekvenser (millimeterbølger) krever flere basestasjoner enn 4G.',
@@ -905,4 +1089,5 @@ export const NAT_VG1_CHAPTERS_DEL1 = [
   CHAPTER_NAT_VG1_2_4,
   CHAPTER_NAT_VG1_2_5,
   CHAPTER_NAT_VG1_2_6,
+  CHAPTER_NAT_VG1_2_7,
 ];
