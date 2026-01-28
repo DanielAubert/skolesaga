@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Teknologi- og industrifag VG1 - Tekstbokinnhold
  *

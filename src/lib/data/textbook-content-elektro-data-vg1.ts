@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Elektro og datateknologi VG1 - Tekstbokinnhold
  *

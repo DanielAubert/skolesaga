@@ -605,6 +605,240 @@ Merkantilistene mente at verdens rikdom var begrenset, og at statene konkurrerte
   exercises: [],
 };
 
+export const CHAPTER_HISTORIE_5_5: TextbookChapter = {
+  id: 'historie-5-5',
+  courseId: 'historie',
+  chapterNumber: '5.5',
+  title: 'Norge i dansketiden',
+  description: 'Norges stilling under dansk styre fra 1380 til 1814.',
+  estimatedMinutes: 55,
+  competenceGoals: ['makt fra middelalderen til tidlig nytid', 'nasjonal identitet i Norge'],
+  content: [
+    {
+      id: 'historie-5-5-intro',
+      type: 'text',
+      content: `## Norge under dansk styre (1380-1814)
+
+I 1380 fikk Norge og Danmark felles konge da den norske kongen Håkon VI døde og sønnen Olav Håkonsson allerede var dansk konge. Dette markerte begynnelsen på en union som skulle vare i over 400 år - den lengste perioden i norsk historie der landet var styrt fra utlandet.
+
+I 1397 ble **Kalmarunionen** dannet, en union mellom Danmark, Norge og Sverige under den danske dronningen Margrete. Unionen var ment å være et likeverdig samarbeid, men i praksis var det Danmark som dominerte. Sverige brøt ut av unionen i 1523 under Gustav Vasa, mens Norge forble i union med Danmark.
+
+Etter hvert ble Norge stadig mer underordnet. I 1536/37 vedtok den danske riksdagen at Norge ikke lenger skulle være et eget rike, men en del av Danmark "ligesom et af de andre lande". Norge ble formelt et **lydrike** - et underordnet land uten eget riksråd eller egne politiske institusjoner. Likevel var Norges stilling mer sammensatt enn betegnelsen "lydrike" kan gi inntrykk av.`,
+    },
+    {
+      id: 'historie-5-5-def-1',
+      type: 'definition',
+      title: 'Lydrike',
+      content: `**Lydrike** betyr bokstavelig et rike som "lyder" (adlyder) et annet. Etter 1536/37 ble Norge formelt et lydrike under Danmark. I praksis innebar dette at Norge mistet sitt riksråd, ikke hadde egne politiske organer, og ble styrt fra København. Likevel beholdt Norge egne lover (Norges lov av 1687), egen kirkeorganisasjon og en viss grad av administrativ egenart.`,
+    },
+    {
+      id: 'historie-5-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva Kalmarunionen var, og hvorfor Norge ble stadig mer underordnet Danmark i denne perioden.',
+        solution: 'Kalmarunionen ble dannet i 1397 og var en union mellom Danmark, Norge og Sverige under den danske dronningen Margrete. Unionen var ment som et likeverdig samarbeid, men Danmark dominerte i praksis fordi det var det rikeste og mest folkerike landet. Sverige brøt ut i 1523, mens Norge ble værende. Norge ble stadig mer underordnet fordi: 1) Svartedauden hadde rammet Norge ekstra hardt - store deler av adelen og geistligheten døde, og det ble ikke bygd opp en ny norsk elite som kunne forsvare norske interesser. 2) Den norske adelen ble gradvis erstattet av danske og tyske adelsmenn. 3) I 1536/37 ble det norske riksrådet avskaffet, og Norge ble formelt et lydrike. 4) All styring ble sentralisert i København.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-5-5-text-2',
+      type: 'text',
+      content: `## Reformasjonen i Norge (1537)
+
+**Reformasjonen** ble innført i Norge i 1536/37 - ikke gjennom en folkelig bevegelse, men som et påbud ovenfra fra den danske kongen Christian III. Denne overgangen fra katolisisme til protestantisme fikk vidtrekkende konsekvenser for Norge.
+
+Den katolske kirken i Norge hadde vært en viktig institusjon med stor makt og rikdom. Erkebiskop Olav Engelbrektsson i Nidaros forsøkte å motstå reformasjonen og forsvare norsk selvstyre, men ble tvunget til å flykte til Nederlandene i 1537. Med ham forsvant den siste norske institusjonen som kunne utfordre dansk overmakt.
+
+**Konsekvenser av reformasjonen for Norge:**
+- Alt kirkegods ble overført til den danske kongen, noe som ga kronen enorm rikdom og makt i Norge
+- Det norske riksrådet ble avskaffet, og Norge mistet sin siste rest av politisk selvstyre
+- Dansk ble innført som kirkespråk og skriftspråk, noe som fortrengte norsk fra det offentlige livet
+- Utdanningssystemet ble omorganisert etter dansk modell - de som ville studere, måtte reise til København
+- Mange katolske helgener og tradisjoner som var viktige for norsk kultur ble fjernet
+- Samtidig ble Bibelen og salmene tilgjengelige for folket på et språk de i det minste delvis kunne forstå`,
+    },
+    {
+      id: 'historie-5-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke konsekvenser fikk reformasjonen for Norges politiske og kulturelle stilling? Drøft om reformasjonen utelukkende var negativ for Norge.',
+        solution: 'Reformasjonen fikk store konsekvenser for Norge: Politisk mistet Norge sitt riksråd og sin siste institusjon som kunne utfordre dansk makt - erkebiskopen. Kirkegodset ble overført til kongen, som styrket den danske kronens makt i Norge. Kulturelt ble dansk innført som kirke- og skriftspråk, noe som fortrengte norsk. Utdanning ble sentralisert til København. Likevel var reformasjonen ikke utelukkende negativ: 1) Bibelen og salmer ble tilgjengelige for folk flest, noe som fremmet leseferdighet. 2) Klostre som hadde forfalt etter svartedauden, ble erstattet av nye utdanningsinstitusjoner. 3) På lengre sikt bidro protestantismens vekt på individuell bibellesning til at nordmenn ble et lesekyndig folk. Man kan si at reformasjonen svekket Norges politiske stilling, men på noen områder brakte den også nye muligheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-5-5-text-3',
+      type: 'text',
+      content: `## Næringer og økonomi i dansketiden
+
+Selv om Norge var politisk underordnet, var landet økonomisk viktig for Danmark-Norge. Norske naturressurser var etterspurte i Europa, og flere næringer vokste kraftig i denne perioden.
+
+**Trelast** ble Norges viktigste eksportvare fra 1500-tallet. Europeisk etterspørsel etter tømmer til skipbygging, husbygging og gruvedrift skapte en stor trelasthandel langs kysten. Sagbrukene ble viktige arbeidsplasser, og en ny overklasse av trelasthandlere vokste fram i byer som Drammen, Fredrikstad og Christiania.
+
+**Fiske** forble en bærebjelke i norsk økonomi, særlig tørrfiskhandelen fra Nord-Norge. Bergen var sentrum for fiskehandelen, men her var det lenge **hanseatene** - tyske kjøpmenn fra Hansaforbundet - som kontrollerte handelen fra sitt kontor på Bryggen. De hadde handelsmonopol og utnyttet de norske fiskerne gjennom et system der fiskerne leverte fisk på kreditt og ble holdt i permanent gjeld.
+
+**Bergverk** ble en ny og viktig næring fra 1600-tallet. Kongsberg sølvverk (grunnlagt 1624) og Røros kobberverk (grunnlagt 1644) ble store virksomheter som tiltrakk arbeidere og kapital. Bergverksdriften var regulert av kongen og bidro til statens inntekter.
+
+**Norske byer** vokste i denne perioden. Bergen var Norges desidert største by og en av Nordens viktigste handelssteder. Trondheim var sentrum for handel i Midt-Norge. Oslo brant ned i 1624 og ble gjenoppbygd som **Christiania** av kong Christian IV, med et mer moderne byplan. Kongen grunnla også Kristiansand (1641) og Kongsberg.`,
+    },
+    {
+      id: 'historie-5-5-def-2',
+      type: 'definition',
+      title: 'Odelsbonde',
+      content: `**Odelsbonde** var en bonde som eide sin egen gård med odel - det vil si arverett til jorden. I motsetning til danske bønder, som var **livegne** (stavnsbundet til godseierens jord og uten frihet til å flytte), var mange norske bønder frie odelsbønder. Odelsretten ga norske bønder en sterkere og mer selvstendig stilling enn bøndene i de fleste andre europeiske land. Denne tradisjonen ble viktig for norsk selvforståelse og fikk stor betydning da Grunnloven ble utformet i 1814.`,
+    },
+    {
+      id: 'historie-5-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Sammenlign norske odelsbønder med danske livegne bønder. Hvilken betydning hadde denne forskjellen for utviklingen av norsk identitet?',
+        solution: 'Norske odelsbønder eide sin egen jord og hadde arverett (odel), noe som ga dem økonomisk selvstendighet og personlig frihet. Danske bønder var livegne (stavnsbundne) - de var bundet til godseierens jord og måtte ha godseierens tillatelse for å flytte. Forskjellene var store: 1) Norske bønder hadde eiendomsrett og kunne ta selvstendige økonomiske valg. 2) Det fantes ingen mektig norsk adel som kontrollerte bøndene slik som i Danmark. 3) Norske bønder hadde tradisjon for å hevde sine rettigheter overfor myndighetene. Betydningen for norsk identitet: Den frie norske bonden ble et symbol på norskhet og ble idealisert i nasjonsbyggingen. Da Grunnloven ble skrevet i 1814, fikk odelsbønder stemmerett - noe som reflekterte den norske bondestandens sterke posisjon. Forskjellen mellom norske og danske bønder bidro til å forme en norsk selvforståelse der frihet, likhet og uavhengighet sto sentralt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-5-5-text-4',
+      type: 'text',
+      content: `## Eneveldet i praksis i Norge
+
+Da eneveldet ble innført i Danmark-Norge i 1660, fikk det også konsekvenser for styringen av Norge. Landet ble delt inn i **stiftamt** (senere amt), styrt av **stiftamtmenn** utnevnt av kongen i København. Under stiftamtmennene fantes **fogder** som krevde inn skatter og håndhevet lov og orden på lokalt nivå. De fleste av disse embetsmennene var danske eller tyskættede, og det oppsto ofte konflikter mellom dem og den lokale befolkningen.
+
+**Christiania** vokste i betydning som norsk administrativt sentrum. Etter bybrannen i 1624 beordret kong Christian IV byen gjenoppbygd under Akershus festning med murtvang (husene måtte bygges i mur for å hindre nye branner) og et moderne gatenett. Byen ble et viktig knutepunkt for handel og forvaltning.
+
+Det norske **militærvesenet** var en viktig del av Norges rolle i unionen. Norge stilte soldater og sjøfolk til unionens kriger, og den norske hæren ble brukt i de mange krigene mot Sverige. Den gamle **leidangen** - plikten til å utruste skip for forsvar - ble gradvis erstattet av en mer moderne militærorganisasjon. Norske soldater kjempet tappert, men det var kongen i København som bestemte hvem Norge skulle krige mot.
+
+Selv om eneveldet formelt ga kongen all makt, var styringen av Norge i praksis preget av store avstander, dårlige kommunikasjoner og en selvstendig norsk befolkning som ikke alltid lot seg styre like lett som danskene.`,
+    },
+    {
+      id: 'historie-5-5-def-3',
+      type: 'definition',
+      title: 'Stiftamtmann',
+      content: `**Stiftamtmann** var kongens øverste representant i et norsk stiftamt (region). Stiftamtmannen hadde ansvar for den sivile forvaltningen, inkludert rettsvesen, skatteinnkreving og offentlig orden. Stillingen ble som regel besatt av dansker eller tyskættede embetsmenn. Under stiftamtmannen var det fogder som styrte på lokalt nivå. Systemet innebar at Norge i praksis ble styrt av utenlandske embetsmenn som representerte kongemakten i København.`,
+    },
+    {
+      id: 'historie-5-5-example-1',
+      type: 'example',
+      title: 'Lofthus-opprøret (1786-1787)',
+      content: `**Lofthus-opprøret** er et viktig eksempel på norsk motstand mot dansk styre og urettferdige forhold i siste del av dansketiden.
+
+**Kristian Jensen Lofthus** var en velstående bonde og skipsfører fra Lillesand som i 1786 organiserte en protestbevegelse blant bønder på Agder og i Telemark. Klagene handlet om:
+
+- **Urettferdige fogder** som krevde for høye skatter og avgifter
+- **Handelsmonopoler** som hindret bøndene i å selge varene sine fritt
+- **Borgerprivilegier** som ga kjøpmennene i byene enerett på handel, noe som tvang bøndene til å selge billig og kjøpe dyrt
+- **Korrupsjon** blant lokale embetsmenn
+
+Lofthus reiste til København to ganger for å legge klagene direkte fram for kronprins Fredrik. Han ble mottatt, men myndighetene slo til slutt hardt ned på opprøret. Lofthus ble arrestert i 1787 og dømt til livstid på Akershus festning, der han døde i 1797.
+
+**Betydningen av opprøret:** Selv om Lofthus ikke oppnådde sine mål, viste opprøret at norske bønder var villige til å stå opp mot urettferdighet. Det tiltrakk seg også oppmerksomhet i København og bidro til reformer. Opprøret illustrerer spenningen mellom sentralstyrt enevelde og lokale krav om rettferdighet.`,
+    },
+    {
+      id: 'historie-5-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva var Lofthus-opprøret, og hva forteller det oss om forholdet mellom norske bønder og det dansk-norske eneveldet?',
+        solution: 'Lofthus-opprøret (1786-87) var en protestbevegelse ledet av Kristian Jensen Lofthus blant bønder på Agder og i Telemark. Bøndene klagde over urettferdige fogder, for høye skatter, handelsmonopoler som hindret fri handel, og korrupsjon blant embetsmenn. Lofthus reiste til København for å legge fram klagene for kronprinsen. Opprøret ble slått ned, og Lofthus døde i fengsel i 1797. Opprøret forteller oss flere ting om forholdet mellom norske bønder og eneveldet: 1) Norske bønder var selvbevisste og villige til å hevde sine rettigheter, i motsetning til livegne bønder i andre europeiske land. 2) Det var en grunnleggende spenning mellom kongens embetsmenn (som ofte var dansker) og lokalbefolkningen. 3) Bøndene rettet klagene mot embetsmennene, ikke mot kongen selv - de hadde fortsatt tillit til at kongen ville hjelpe dem. 4) Opprøret viste voksende politisk bevissthet blant norske bønder, noe som pekte framover mot 1814.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-5-5-text-5',
+      type: 'text',
+      content: `## Norsk kultur og identitet i dansketiden
+
+Selv om Norge var politisk underordnet og dansk var skriftspråket, utviklet det seg en voksende norsk kulturell bevissthet gjennom dansketiden. Flere viktige kulturpersonligheter bidro til å holde liv i en norsk identitet.
+
+**Petter Dass** (1647-1707) var prest og dikter i Nordland. Hans hovedverk *Nordlands Trompet* skildrer livet, naturen og menneskene i Nord-Norge med stor innlevelse og humor. Dass skrev på dansk, men med mange norske ord og vendinger, og verket hans ble enormt populært blant vanlige folk. Han regnes som en av de første norske nasjonaldikterne.
+
+**Ludvig Holberg** (1684-1754) ble født i Bergen, men virket mesteparten av livet i København. Han skrev komedier, historiske verk og filosofiske tekster som gjorde ham til en av Nordens fremste forfattere. Holberg er et godt eksempel på dobbeltheten i det dansk-norske kulturlivet - var han norsk eller dansk? I samtiden ville spørsmålet knapt gitt mening, men for senere tiders nasjonsbygging ble Holberg viktig som "bevis" på norsk kulturell kapasitet.
+
+**Det Kongelige Norske Videnskabers Selskab** ble grunnlagt i Trondheim i 1760 av biskop Johan Ernst Gunnerus. Dette var den første norske vitenskapelige institusjonen og markerte et viktig steg i utviklingen av et norsk intellektuelt miljø utenfor København. Selskapet drev forskning på norsk natur, historie og kultur.
+
+På 1700-tallet vokste det fram en tydeligere norsk nasjonalfølelse, særlig blant en ny norsk embetsmannsstand og blant studenter i København som dannet "Det Norske Selskab" (1772). Disse kretsene diskuterte norsk identitet, norsk historie og Norges stilling i unionen. De la et viktig grunnlag for den norske nasjonalismen som blomstret opp i forbindelse med 1814.`,
+    },
+    {
+      id: 'historie-5-5-example-2',
+      type: 'example',
+      title: 'Kildeanalyse - Petter Dass om livet i Nord-Norge',
+      content: `I *Nordlands Trompet* (ca. 1700) skildrer Petter Dass livet, naturen og menneskene i Nord-Norge. Verket er en poetisk reise gjennom Nordland, der Dass beskriver alt fra fiske og værforhold til kirker og folketro.
+
+Dass formidler et bilde av et hardt, men stolt folk som lever av havet og naturen. Han skriver med kjærlighet om landsdelen sin, men også med humor og realisme om fattigdom og slit. Verket ble enormt populært og ble lest og avskrevet i generasjoner.
+
+**Kildeanalyse:**
+- **Avsender**: Petter Dass var prest i Alstahaug, Nordland. Han kjente livet i Nord-Norge godt.
+- **Formål**: Å skildre det norske folkets liv for et dansk-norsk publikum. Verket fungerte som et forsvar for den nordnorske livsmåten.
+- **Kontekst**: Skrevet i en tid da Norge var et lydrike og norsk kultur ble oversett fra København.
+- **Perspektiv**: Dass skriver med sympati for vanlige folk, men som prest representerer han også øvrigheten.
+- **Kildeverdi**: Gir et verdifullt innblikk i hverdagslivet i Nord-Norge rundt 1700, men er farget av Dass' posisjon som prest og dikter.`,
+    },
+    {
+      id: 'historie-5-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvordan bidro kulturpersonligheter som Petter Dass og Ludvig Holberg til utviklingen av en norsk identitet, selv om Norge var under dansk styre?',
+        solution: 'Petter Dass bidro til norsk identitet ved å skildre norsk natur, hverdagsliv og folk i Nord-Norge gjennom verket Nordlands Trompet. Selv om han skrev på dansk, brukte han norske ord og vendinger, og verket hans ble svært populært blant vanlige nordmenn. Han ga nordmenn en litterær representasjon av seg selv og sitt liv. Ludvig Holberg, født i Bergen men bosatt i København, ble en av Nordens fremste forfattere. Han viste at nordmenn kunne hevde seg kulturelt og intellektuelt, noe som ble viktig for norsk selvtillit. Begge illustrerer hvordan norsk kultur overlevde og utviklet seg under dansketiden, selv uten egne politiske institusjoner. Kulturpersonlighetene skapte en bevissthet om det norske som var forskjellig fra det danske - de la grunnlag for den norske nasjonalismen som vokste fram på slutten av 1700-tallet og kulminerte i 1814.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-5-5-note-1',
+      type: 'note',
+      title: 'Norges stilling i dansketiden - mer nyansert enn "400-årsnatten"',
+      content: `Det har vært vanlig å kalle dansketiden for "400-årsnatten" - en periode der Norge var fullstendig undertrykket og uten egen identitet. Denne framstillingen er for enkel.
+
+**Mot denne framstillingen taler:**
+- Norge beholdt egne lover og en viss administrativ egenart gjennom hele perioden
+- Norske bønder var friere enn bønder i de fleste andre europeiske land
+- Norsk kultur og identitet overlevde og utviklet seg, om enn i danske former
+- Norske ressurser (trelast, fisk, bergverk) var avgjørende for unionens økonomi
+- Mot slutten av perioden vokste det fram et sterkt norsk sivilt samfunn
+
+**For denne framstillingen taler:**
+- Norge mistet sine politiske institusjoner og ble styrt fra København
+- Dansk ble skriftspråket, og norsk ble fortrengt
+- Norsk utdanning, kultur og vitenskap ble underordnet København
+- Norske interesser ble ofte satt til side for danske
+
+Sannheten ligger et sted imellom: Norge var ikke en koloni, men heller ikke et likeverdig rike. Forholdet var komplekst og endret seg gjennom 400 år.`,
+    },
+    // --- Oppsummeringsoppgaver ---
+    {
+      id: 'historie-5-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Drøft påstanden: "Dansketiden var 400 år med undertrykkelse av Norge." Bruk konkrete eksempler for å argumentere for og mot denne påstanden, og forklar hvordan denne perioden la grunnlaget for norsk selvstendighet i 1814.',
+        solution: 'Argumenter for at dansketiden var undertrykkelse: 1) Norge mistet sine politiske institusjoner - riksrådet ble avskaffet i 1536/37. 2) Landet ble styrt fra København av danske embetsmenn. 3) Dansk ble skriftspråket, og norsk kultur ble marginalisert. 4) Norske ressurser ble utnyttet for å finansiere unionens kriger og den danske kongens prosjekter. Argumenter mot: 1) Norske bønder var friere enn de fleste europeiske bønder takket være odelsretten. 2) Norge beholdt egne lover, blant annet Norges lov av 1687. 3) Norsk kultur overlevde og utviklet seg - Petter Dass, Ludvig Holberg og Det Kongelige Norske Videnskabers Selskab. 4) Norske næringer (trelast, fisk, bergverk) blomstret og skapte en selvstendig norsk elite. Grunnlaget for 1814: 1) Odelsretten og frie bønder skapte en selvbevisst bondestand. 2) Kulturell vekst på 1700-tallet styrket norsk identitet. 3) Det Norske Selskab i København samlet norske studenter som diskuterte norsk selvstyre. 4) Lofthus-opprøret og andre protester viste politisk bevissthet. 5) Erfaringene med dansk styre skapte et ønske om egne institusjoner. Konklusjon: Dansketiden var preget av politisk underordning, men den var også en periode der Norge utviklet en egen identitet og bygde opp ressurser - både materielle og kulturelle - som gjorde selvstendigheten i 1814 mulig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 // ============================================================================
 // KAPITTEL 6: Opplysningstid og revolusjoner
 // ============================================================================
@@ -2617,6 +2851,7 @@ export const HISTORIE_CHAPTERS_DEL2 = [
   CHAPTER_HISTORIE_5_2,
   CHAPTER_HISTORIE_5_3,
   CHAPTER_HISTORIE_5_4,
+  CHAPTER_HISTORIE_5_5,
   CHAPTER_HISTORIE_6_1,
   CHAPTER_HISTORIE_6_2,
   CHAPTER_HISTORIE_6_3,

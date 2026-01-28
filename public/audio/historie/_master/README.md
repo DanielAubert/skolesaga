@@ -8,6 +8,8 @@ Denne mappen inneholder master-versjoner av genererte lydfiler.
 | Fil | Beskrivelse | Dato |
 |-----|-------------|------|
 | historie-1-2-narrativ-full-master.mp3 | Komplett kapittel 1.2 narrativ (10:15) | 2026-01-28 |
+| historie-1-3-narrativ-full-master.mp3 | Komplett kapittel 1.3 narrativ (9:38) | 2026-01-28 |
+| historie-1-4-narrativ-full-master.mp3 | Komplett kapittel 1.4 narrativ (10:43) | 2026-01-28 |
 
 ## Bruk
 

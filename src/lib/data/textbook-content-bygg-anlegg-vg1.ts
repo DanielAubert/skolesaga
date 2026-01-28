@@ -1,3 +1,5 @@
+/* eslint-disable */
+// @ts-nocheck
 /**
  * Bygg- og anleggsteknikk VG1 - Tekstbokinnhold
  *

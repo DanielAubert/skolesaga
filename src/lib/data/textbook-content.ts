@@ -90,6 +90,16 @@ import { CHAPTERS_5KLASSE } from './textbook-content-5klasse';
 import { CHAPTERS_6KLASSE } from './textbook-content-6klasse';
 import { CHAPTERS_7KLASSE } from './textbook-content-7klasse';
 
+// Yrkesfag VG1
+import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART1 } from './textbook-content-bygg-anlegg-vg1';
+import { CHAPTERS_TIF_VG1_PART1 } from './textbook-content-tif-vg1';
+import { TEXTBOOK_CONTENT_HANDVERK_DESIGN_VG1_PART1 } from './textbook-content-handverk-design-vg1';
+import { CHAPTERS_NATURBRUK_VG1 } from './textbook-content-naturbruk-vg1';
+import { CHAPTERS_RESTAURANT_MAT_VG1 } from './textbook-content-restaurant-mat-vg1';
+import { CHAPTERS_SALG_SERVICE_VG1 } from './textbook-content-salg-service-vg1';
+import { HELSEOPPVEKST_VG1_CHAPTERS } from './textbook-content-helseoppvekst-vg1';
+
 // 5. klasse fag (andre fag enn matematikk)
 import { NORSK_5_CHAPTERS } from './textbook-content-norsk-5';
 import { ENGELSK_5_CHAPTERS } from './textbook-content-engelsk-5';
@@ -388,6 +398,31 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Kroppsøving VG1
   ...Object.fromEntries(KROPPSOVING_VG1_CHAPTERS.map(c => [c.id, c])),
+
+  // Yrkesfag VG1
+  // Elektro og datateknologi VG1
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART1.map(c => [c.id, c])),
+
+  // Bygg- og anleggsteknikk VG1
+  ...Object.fromEntries(CHAPTERS_BYGG_ANLEGG_VG1_PART1.map(c => [c.id, c])),
+
+  // Teknologi- og industrifag VG1
+  ...Object.fromEntries(CHAPTERS_TIF_VG1_PART1.map(c => [c.id, c])),
+
+  // Håndverk, design og produktutvikling VG1
+  ...Object.fromEntries(TEXTBOOK_CONTENT_HANDVERK_DESIGN_VG1_PART1.map(c => [c.id, c])),
+
+  // Naturbruk VG1
+  ...Object.fromEntries(CHAPTERS_NATURBRUK_VG1.map(c => [c.id, c])),
+
+  // Restaurant- og matfag VG1
+  ...Object.fromEntries(CHAPTERS_RESTAURANT_MAT_VG1.map(c => [c.id, c])),
+
+  // Salg, service og reiseliv VG1
+  ...Object.fromEntries(CHAPTERS_SALG_SERVICE_VG1.map(c => [c.id, c])),
+
+  // Helse- og oppvekstfag VG1
+  ...HELSEOPPVEKST_VG1_CHAPTERS,
 
   // Norsk VG2
   ...Object.fromEntries(NORSK_VG2_CHAPTERS.map(c => [c.id, c])),

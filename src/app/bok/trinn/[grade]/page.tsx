@@ -147,6 +147,15 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'spansk-1', name: 'Spansk nivå 1', icon: '🇪🇸', color: 'from-red-500 to-orange-600', image: '/images/subjects/spansk-1-hero.png' },
       { courseId: 'tysk-1', name: 'Tysk nivå 1', icon: '🇩🇪', color: 'from-gray-600 to-gray-700', image: '/images/subjects/tysk-1-hero.png' },
       { courseId: 'fransk-1', name: 'Fransk nivå 1', icon: '🇫🇷', color: 'from-blue-500 to-red-500', image: '/images/subjects/fransk-1-hero.png' },
+      // Yrkesfag VG1
+      { courseId: 'helseoppvekst-vg1', name: 'Helse- og oppvekstfag', icon: '🏥', color: 'from-pink-500 to-rose-600' },
+      { courseId: 'elektro-data-vg1', name: 'Elektro og datateknologi', icon: '⚡', color: 'from-yellow-500 to-amber-600' },
+      { courseId: 'tif-vg1', name: 'Teknologi- og industrifag', icon: '🔧', color: 'from-slate-500 to-zinc-600' },
+      { courseId: 'bygg-anlegg-vg1', name: 'Bygg- og anleggsteknikk', icon: '🏗️', color: 'from-orange-500 to-amber-600' },
+      { courseId: 'restaurant-mat-vg1', name: 'Restaurant- og matfag', icon: '🍳', color: 'from-red-500 to-orange-600' },
+      { courseId: 'naturbruk-vg1', name: 'Naturbruk', icon: '🌲', color: 'from-green-600 to-emerald-700' },
+      { courseId: 'salg-service-vg1', name: 'Salg, service og reiseliv', icon: '🛒', color: 'from-blue-500 to-indigo-600' },
+      { courseId: 'handverk-design-vg1', name: 'Håndverk, design og produktutvikling', icon: '🎨', color: 'from-purple-500 to-violet-600' },
     ],
   },
   'vg2': {

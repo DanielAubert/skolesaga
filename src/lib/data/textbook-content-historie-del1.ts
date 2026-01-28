@@ -1236,6 +1236,1285 @@ Minnekultur er ikke nøytral - den er politisk. Hva vi minnes og hvordan, sier m
   exercises: [],
 };
 
+export const CHAPTER_HISTORIE_2_5: TextbookChapter = {
+  id: 'historie-2-5',
+  courseId: 'historie',
+  chapterNumber: '2.5',
+  title: 'Å skrive i historiefaget',
+  description: 'Lære å skrive gode fagtekster, drøftinger og kildeanalyser i historie.',
+  estimatedMinutes: 50,
+  competenceGoals: ['formulere problemstillinger, finne og vurdere materiale', 'sammenligne ulike framstillinger'],
+  content: [
+    {
+      id: 'historie-2-5-intro',
+      type: 'text',
+      content: `## Å skrive i historiefaget
+
+Skriving er en av de viktigste ferdighetene du utvikler i historiefaget. Gjennom skriving viser du at du forstår historiske sammenhenger, kan bruke kilder kritisk, og evner å drøfte komplekse spørsmål. Å skrive i historie handler ikke bare om å gjengi fakta - det handler om å argumentere, analysere og reflektere.
+
+**Hvorfor er skriving viktig i historie?**
+- Du lærer å tenke systematisk og strukturert
+- Du øver på å underbygge påstander med kilder og eksempler
+- Du utvikler evnen til å se saker fra flere sider
+- Du forbereder deg til skriftlig eksamen
+
+I dette kapittelet skal du lære om de ulike skrivesjangrene i historiefaget, hvordan du bygger opp en god fagtekst, og hvordan du bruker kilder og fagbegreper på en overbevisende måte.`,
+    },
+    {
+      id: 'historie-2-5-def-1',
+      type: 'definition',
+      title: 'Fagtekst i historie',
+      content: `**Fagtekst** er en saklig, velbegrunnet tekst som bruker fagbegreper og kilder for å belyse et historisk emne.
+
+**Kjennetegn på en god fagtekst i historie:**
+- Klar problemstilling eller tematisk fokus
+- Logisk oppbygging med innledning, hoveddel og avslutning
+- Bruk av relevante kilder og kildehenvisninger
+- Presis bruk av historiske fagbegreper
+- Balansert framstilling som viser flere perspektiver
+- Egne refleksjoner og vurderinger, ikke bare gjengivelse
+
+**Vanlige sjangre i historiefaget:**
+- **Kildeanalyse** - systematisk analyse av en eller flere historiske kilder
+- **Drøftingsoppgave** - diskusjon av et historisk spørsmål fra flere sider
+- **Sammenligningsoppgave** - sammenligning av hendelser, perioder eller framstillinger
+- **Framstillingsoppgave** - redegjørelse for en historisk utvikling eller hendelse`,
+    },
+    {
+      id: 'historie-2-5-text-2',
+      type: 'text',
+      content: `## Oppbygging og struktur
+
+En god historisk fagtekst følger en tydelig struktur. Uansett om du skriver en kort oppgave eller en lengre drøfting, bør teksten ha tre hoveddeler:
+
+**Innledning:**
+- Presenter emnet og sett det i kontekst
+- Formuler en klar problemstilling eller tese
+- Fortell kort hva du skal gjøre i teksten
+- Gi leseren en «veiviser» for resten av teksten
+
+**Hoveddel:**
+- Bygg opp argumentasjonen steg for steg
+- Bruk avsnitt med tydelige temasetninger
+- Underbygg påstander med kilder og eksempler
+- Vis at du kan se saken fra flere sider
+- Bruk fagbegreper presist
+
+**Avslutning:**
+- Oppsummer de viktigste poengene
+- Svar på problemstillingen
+- Løft blikket - hva er de større sammenhengene?
+- Unngå å introdusere helt nye poenger
+
+**Husk:** Hvert avsnitt bør ha én hovedidé. Start med en temasetning som forteller hva avsnittet handler om, utdyp med fakta og eksempler, og avslutt med en kobling tilbake til problemstillingen.`,
+    },
+    {
+      id: 'historie-2-5-text-3',
+      type: 'text',
+      content: `## Kildebruk og kildehenvisning
+
+I historiefaget er det helt avgjørende å vise hvor du har informasjonen fra. God kildebruk styrker argumentasjonen din og viser faglig integritet.
+
+**Hvordan bruke kilder i teksten:**
+- **Direkte sitat** - når du gjengir nøyaktig det kilden sier (bruk anførselstegn)
+- **Parafrase** - når du gjengir innholdet med egne ord (referer likevel til kilden)
+- **Referanse** - når du viser til en kilde som støtte for et poeng
+
+**Kildehenvisning i teksten:**
+Bruk fotnoter eller parenteser for å vise hvor informasjonen kommer fra.
+- Eksempel med parentes: «Mange bønder mistet gårdene sine under svartedauden (Moseng m.fl., 2007, s. 234).»
+- Eksempel med fotnote: «Mange bønder mistet gårdene sine under svartedauden.¹»
+
+**Kildeliste:**
+Oppgi alle kilder du har brukt i en egen liste til slutt i teksten. Inkluder forfatter, tittel, utgiver, årstall og eventuelt sidetall.
+
+**Viktige prinsipper:**
+- Bruk flere kilder for å belyse et emne, ikke bare én
+- Vurder kildene kritisk - hvem har skrevet dette, og i hvilken kontekst?
+- Skill mellom primærkilder (fra samtiden) og sekundærkilder (historikeres tolkninger)
+- Vær ærlig om usikkerhet og uenighet mellom kilder`,
+    },
+    {
+      id: 'historie-2-5-def-2',
+      type: 'definition',
+      title: 'Argumentasjon og drøfting',
+      content: `**Drøfting** betyr å belyse et spørsmål fra flere sider og veie argumentene mot hverandre for å komme fram til en begrunnet konklusjon.
+
+**PBE-modellen (Påstand - Begrunnelse - Eksempel):**
+- **Påstand** - hva du mener eller hevder
+- **Begrunnelse** - hvorfor du mener dette (logisk resonnement)
+- **Eksempel** - konkret historisk bevis som støtter påstanden
+
+**Drøftingsord du bør bruke:**
+- «På den ene siden ... på den andre siden ...»
+- «Et argument for dette er ... men det kan også hevdes at ...»
+- «Til tross for ... kan vi likevel se at ...»
+- «Selv om ... er det rimelig å hevde at ...»
+- «En innvending mot dette synspunktet er ...»
+
+**Viktig:** Å drøfte er ikke det samme som å liste opp argumenter. Du må aktivt veie argumentene mot hverandre og ta stilling til hva som er mest overbevisende.`,
+    },
+    {
+      id: 'historie-2-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Oppbygging av et drøftingsavsnitt',
+      problem: 'Hvordan strukturerer du et godt drøftingsavsnitt om årsaker til den franske revolusjon?',
+      solution: `**Eksempel på et godt strukturert drøftingsavsnitt:**
+
+«En viktig årsak til den franske revolusjon var de store sosiale ulikhetene i det franske samfunnet. **(Påstand)** Den tredje stand, som utgjorde over 95 prosent av befolkningen, måtte bære nesten hele skattebyrden, mens adel og geistlighet var fritatt. **(Begrunnelse med fakta)** Opplysningsfilosofen Rousseau kritiserte dette systemet og argumenterte for at all makt burde utgå fra folket. **(Eksempel/kilde)** Det kan imidlertid innvendes at sosial ulikhet hadde eksistert i århundrer uten å utløse revolusjon. **(Motargument)** Det som var nytt i 1789, var kombinasjonen av økonomisk krise, politisk handlingslammelse og nye ideer om folkestyre som gjorde at befolkningen ikke lenger aksepterte urettferdigheten. **(Vurdering/konklusjon)**»
+
+**Hva gjør dette avsnittet godt?**
+1. Det starter med en tydelig påstand
+2. Påstanden underbygges med konkrete fakta
+3. Det trekker inn en relevant kilde (Rousseau)
+4. Det viser evne til å se motargumenter
+5. Det avslutter med en vurdering som binder argumentene sammen`,
+    },
+    {
+      id: 'historie-2-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Innledning til en historisk drøftingsoppgave',
+      problem: 'Hvordan skriver du en god innledning til oppgaven: «Vurder betydningen av den industrielle revolusjon for utviklingen av det moderne samfunnet»?',
+      solution: `**Eksempel på en god innledning:**
+
+«Den industrielle revolusjon, som startet i Storbritannia på slutten av 1700-tallet, regnes ofte som et av de viktigste vendepunktene i menneskehetens historie. Overgangen fra håndverk og jordbruk til maskinbasert industriproduksjon endret ikke bare økonomien, men også samfunnsstrukturer, politikk og menneskers dagligliv. Men hvor stor var egentlig betydningen av denne omveltningen? I denne oppgaven vil jeg drøfte hvordan den industrielle revolusjon påvirket utviklingen av det moderne samfunnet, med vekt på økonomiske, sosiale og politiske endringer. Jeg vil argumentere for at den industrielle revolusjon la grunnlaget for det moderne samfunnet slik vi kjenner det, men at den også skapte nye problemer som vi fortsatt sliter med i dag.»
+
+**Hva gjør denne innledningen god?**
+1. **Kontekstualisering** - plasserer emnet i tid og sted
+2. **Relevans** - forklarer hvorfor dette er viktig
+3. **Problemstilling** - stiller et tydelig spørsmål
+4. **Veiviser** - forteller hva teksten skal handle om
+5. **Tese** - antyder hva forfatteren vil argumentere for`,
+    },
+    {
+      id: 'historie-2-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Skriv et drøftingsavsnitt der du bruker PBE-modellen (Påstand - Begrunnelse - Eksempel) til å besvare følgende spørsmål: Var vikingtiden hovedsakelig preget av plyndring og vold, eller var handel og kulturutveksling like viktig?',
+        hints: [
+          'Start med en tydelig påstand som svarer på spørsmålet',
+          'Bruk konkrete historiske eksempler som bevis',
+          'Husk å vise at du ser saken fra flere sider',
+        ],
+        solution: 'Et godt svar bruker PBE-modellen: Påstand (f.eks. «Vikingtiden var preget av både vold og handel, men handelen har blitt undervurdert»), Begrunnelse (vikingene etablerte handelsruter fra Skandinavia til Bysants og Bagdad), Eksempel (handelsbyene Birka og Hedeby, arabiske sølvmynter funnet i Skandinavia). Et sterkt svar inkluderer også et motargument (kildene fra klostrene som ble plyndret gir et ensidig bilde) og en avsluttende vurdering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Skriv en innledning til følgende drøftingsoppgave: «Vurder hvordan svartedauden påvirket det norske samfunnet på kort og lang sikt.» Innledningen skal inneholde kontekstualisering, problemstilling og veiviser.',
+        hints: [
+          'Plasser svartedauden i tid og sted i innledningen',
+          'Formuler et tydelig spørsmål du vil besvare',
+          'Fortell kort hva du vil ta opp i hoveddelen',
+        ],
+        solution: 'En god innledning kontekstualiserer (svartedauden kom til Norge i 1349, drepte anslagsvis halvparten av befolkningen), stiller en tydelig problemstilling (hvordan påvirket dette samfunnet?), og gir en veiviser (jeg vil se på konsekvenser for økonomi, politikk og sosiale forhold på kort sikt, og deretter vurdere langtidsvirkningene). En tese kan antydes: at svartedauden var en katastrofe på kort sikt, men at den på lang sikt bidro til sosiale endringer som gagnet de overlevende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-5-text-4',
+      type: 'text',
+      content: `## Ulike skriveoppgaver i historie
+
+I historiefaget møter du flere typer skriveoppgaver, og hver type krever sin egen tilnærming:
+
+**Kildeanalyse:**
+Her skal du analysere en eller flere historiske kilder systematisk. Du bør vurdere:
+- Hva slags kilde er dette? (brev, lov, tale, bilde, statistikk)
+- Hvem har laget kilden, når og hvorfor?
+- Hva forteller kilden oss om tiden den ble laget i?
+- Hvor pålitelig er kilden, og hva kan den ikke fortelle oss?
+
+**Drøftingsoppgave:**
+Her skal du diskutere et historisk spørsmål fra flere sider. Du bør:
+- Presentere ulike perspektiver og argumenter
+- Veie argumentene mot hverandre
+- Bruke kilder og eksempler som bevis
+- Konkludere med din egen vurdering
+
+**Sammenligningsoppgave:**
+Her skal du finne likheter og forskjeller mellom to eller flere historiske fenomener. Du bør:
+- Velge klare sammenligningskriterier
+- Behandle begge sider likt grundig
+- Forklare hvorfor det er interessant å sammenligne dem
+- Vurdere hva likhetene og forskjellene forteller oss
+
+**Framstillingsoppgave:**
+Her skal du redegjøre for en historisk utvikling eller hendelse. Du bør:
+- Strukturere framstillingen kronologisk eller tematisk
+- Forklare årsaker, forløp og konsekvenser
+- Sette hendelsen i en større sammenheng`,
+    },
+    {
+      id: 'historie-2-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Du skal skrive en kort kildeanalyse (ca. 300 ord). Velg én av følgende kilder: a) Et fotografi fra en norsk fabrikk rundt 1900, b) En tale av Martin Luther King Jr. fra 1963, c) En propagandaplakat fra andre verdenskrig. Bruk spørsmålene i teksten over som utgangspunkt for analysen.',
+        hints: [
+          'Begynn med å identifisere kildetypen og opphavet',
+          'Sett kilden i historisk kontekst',
+          'Vurder kildens pålitelighet og begrensninger',
+        ],
+        solution: 'En god kildeanalyse følger en systematisk tilnærming: 1) Presentasjon av kilden (type, opphav, tidspunkt), 2) Historisk kontekst (hva skjedde i samtiden?), 3) Innholdsanalyse (hva forteller kilden?), 4) Kildekritisk vurdering (pålitelighet, tendenser, begrensninger). For eksempel ved et fabrikkfotografi fra 1900: Kilden er et fotografi, trolig tatt av en profesjonell fotograf. Det viser arbeidsforhold under industrialiseringen. Fotografiet kan gi et realistisk inntrykk, men fotografen kan ha valgt motiv bevisst. Hvem bestilte bildet, og i hvilken hensikt?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Skriv en sammenligningsoppgave (ca. 400 ord) der du sammenligner den franske revolusjon (1789) med den amerikanske revolusjon (1776). Bruk minst to sammenligningskriterier (f.eks. årsaker, ideologisk grunnlag, utfall).',
+        hints: [
+          'Lag en tabell med likheter og forskjeller før du begynner å skrive',
+          'Behandle begge revolusjonene like grundig',
+          'Bruk sammenligningsord som «i likhet med», «til forskjell fra», «på samme måte»',
+        ],
+        solution: 'Et godt svar struktureres tematisk (ikke først den ene, så den andre). For eksempel: 1) Årsaker - begge hadde bakgrunn i opplysningsfilosofien og motstand mot urettferdig styre, men den amerikanske handlet om frigjøring fra kolonimakt mens den franske handlet om intern omveltning. 2) Ideologisk grunnlag - begge bygde på ideer om frihet og rettigheter, men den franske gikk lenger i sosial omveltning. 3) Utfall - den amerikanske førte til en stabil republikk, mens den franske førte til terror og til slutt Napoleons diktatur. Konklusjonen bør reflektere over hva sammenligningen viser oss om revolusjoner generelt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-5-tip-1',
+      type: 'tip',
+      title: 'Tips for eksamensskriving i historie',
+      content: `**Før eksamen:**
+- Øv på å skrive under tidspress - sett en tidsbegrensning og skriv
+- Lag deg et repertoar av historiske eksempler du kan bruke
+- Repeter fagbegreper og sørg for at du bruker dem korrekt
+- Øv på å lage disposisjoner raskt
+
+**Under eksamen:**
+- Les oppgaven nøye - hva er det du faktisk blir bedt om å gjøre?
+- Bruk 10-15 minutter på å planlegge før du skriver
+- Lag en kort disposisjon med hovedpoengene
+- Skriv tydelig og strukturert med avsnitt
+- Bruk fagbegreper og vis at du kan dem
+- Referer til kilder og konkrete eksempler
+- Svar på det oppgaven spør om - ikke skriv alt du kan om emnet
+
+**Typiske feil å unngå:**
+- Å bare gjengi fakta uten å analysere eller drøfte
+- Å glemme å svare på problemstillingen
+- Å skrive for lange innledninger på bekostning av hoveddelen
+- Å presentere bare én side av en sak i en drøftingsoppgave
+- Å bruke upresist eller hverdagslig språk i stedet for fagbegreper`,
+    },
+    {
+      id: 'historie-2-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Velg én av følgende problemstillinger og skriv en komplett fagtekst (ca. 500-700 ord) med innledning, hoveddel og avslutning: a) «Vurder betydningen av reformasjonen for utviklingen av det norske samfunnet.» b) «Drøft i hvilken grad kolonialismen kan forklare fattigdom i Afrika i dag.» c) «Sammenlign årsaker til første og andre verdenskrig.»',
+        hints: [
+          'Lag en disposisjon med minst tre hovedpoenger før du skriver',
+          'Bruk PBE-modellen i hvert avsnitt i hoveddelen',
+          'Sørg for at innledningen inneholder problemstilling og veiviser',
+          'Avslutningen skal oppsummere og svare på problemstillingen',
+        ],
+        solution: 'Et godt svar følger tydelig tredelt struktur: Innledningen kontekstualiserer emnet, formulerer problemstillingen tydelig og gir en veiviser. Hoveddelen er organisert i avsnitt som hvert bruker PBE-modellen, med klar argumentasjon og konkrete historiske eksempler. Teksten viser evne til å se saken fra flere sider og bruker fagbegreper presist. Avslutningen oppsummerer hovedfunnene og gir et klart svar på problemstillingen, gjerne med en refleksjon om relevansen for vår tid.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+export const CHAPTER_HISTORIE_2_6: TextbookChapter = {
+  id: 'historie-2-6',
+  courseId: 'historie',
+  chapterNumber: '2.6',
+  title: 'Muntlige ferdigheter og debatt',
+  description: 'Utvikle muntlige ferdigheter gjennom presentasjoner, debatter og rollespill i historie.',
+  estimatedMinutes: 45,
+  competenceGoals: ['sammenligne ulike framstillinger', 'historiebruk av ulike aktører'],
+  content: [
+    {
+      id: 'historie-2-6-intro',
+      type: 'text',
+      content: `## Muntlige ferdigheter i historiefaget
+
+Muntlig kommunikasjon er en grunnleggende ferdighet i historiefaget. Å kunne presentere historisk kunnskap muntlig, delta i debatter og diskusjoner, og formidle komplekse sammenhenger til andre, er ferdigheter du trenger både på eksamen og i livet ellers.
+
+**Muntlige ferdigheter i historie handler om å:**
+- Formidle historisk kunnskap klart og strukturert
+- Argumentere for et synspunkt med historiske kilder som grunnlag
+- Lytte kritisk til andres framstillinger og stille gode spørsmål
+- Sette seg inn i ulike perspektiver og formidle dem troverdig
+- Bruke fagspråk presist i muntlige framstillinger
+
+I læreplanen (LK20) legges det vekt på at elevene skal kunne sammenligne ulike framstillinger og vurdere hvordan ulike aktører bruker historie. Muntlige ferdigheter er sentrale for å mestre dette.`,
+    },
+    {
+      id: 'historie-2-6-def-1',
+      type: 'definition',
+      title: 'Muntlig framstilling og retorikk',
+      content: `**Muntlig framstilling** i historie betyr å presentere historisk kunnskap, analyser eller vurderinger gjennom tale.
+
+**Retorikk** er kunsten å overbevise gjennom tale. De tre klassiske appellformene er:
+- **Etos** - troverdighet: Vis at du har kunnskap og er pålitelig. I historie betyr dette å bruke kilder og fagbegreper korrekt.
+- **Patos** - følelser: Engasjer tilhørerne gjennom konkrete eksempler, fortellinger og levende framstilling.
+- **Logos** - logikk: Bygg opp argumentene logisk og sammenhengende. Underbygg påstander med fakta og kilder.
+
+**Formidlingsevne** er evnen til å gjøre komplekst stoff forståelig og interessant for tilhørerne. God formidling krever at du tilpasser språk og innhold til målgruppen.`,
+    },
+    {
+      id: 'historie-2-6-text-2',
+      type: 'text',
+      content: `## Å holde en historisk presentasjon
+
+Enten du holder et foredrag i klassen, presenterer et prosjekt eller forbereder deg til muntlig eksamen, gjelder de samme grunnprinsippene for en god historisk presentasjon.
+
+**Struktur for en historisk presentasjon:**
+
+**1. Åpning (fang oppmerksomheten):**
+- Start med et spørsmål, et sitat eller en overraskende opplysning
+- Presenter emnet og problemstillingen tydelig
+- Fortell hva du skal snakke om (veiviser)
+
+**2. Hoveddel (presenter innholdet):**
+- Organiser stoffet tematisk eller kronologisk
+- Ha 3-4 hovedpoenger - ikke prøv å dekke alt
+- Bruk konkrete eksempler og kildereferanser
+- Vis at du kan drøfte, ikke bare gjengi
+
+**3. Avslutning (oppsummer og konkluder):**
+- Oppsummer hovedpoengene kort
+- Svar på problemstillingen
+- Avslutt med en tankevekkende refleksjon eller et spørsmål
+
+**Praktiske råd:**
+- Bruk stikkord, ikke ferdigskrevet manus du leser opp
+- Ha øyekontakt med tilhørerne
+- Varier stemmebruk - tempo, volum og pauser
+- Bruk visuelle hjelpemidler (bilder, kart, tidslinje) med måte
+- Hold deg innenfor tidsrammen - øv med klokke`,
+    },
+    {
+      id: 'historie-2-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Struktur for en presentasjon om den industrielle revolusjon',
+      problem: 'Hvordan kan en 10-minutters presentasjon om den industrielle revolusjonens konsekvenser struktureres?',
+      solution: `**Forslag til presentasjonsstruktur:**
+
+**Åpning (1-2 minutter):**
+«Visste dere at en tekstilarbeider i Manchester i 1830 jobbet 14-16 timer om dagen, seks dager i uken, og at barn helt ned i fem-årsalderen ble brukt som arbeidskraft? Den industrielle revolusjon forandret verden - men til det bedre, eller til det verre? I denne presentasjonen vil jeg se på tre konsekvenser: økonomiske, sosiale og miljømessige.»
+
+**Hovedpoeng 1: Økonomiske konsekvenser (2-3 minutter)**
+- Enorm økning i produksjon og rikdom
+- Men rikdommen var svært ujevnt fordelt
+- Kildeeksempel: Statistikk over BNP-vekst i Storbritannia
+
+**Hovedpoeng 2: Sosiale konsekvenser (2-3 minutter)**
+- Urbanisering og nye sosiale klasser
+- Elendige arbeids- og boforhold for arbeiderklassen
+- Kildeeksempel: Friedrich Engels' beskrivelse av Manchester
+
+**Hovedpoeng 3: Miljøkonsekvenser (2 minutter)**
+- Forurensning og naturødeleggelse
+- Starten på klimaendringene vi ser i dag
+- Kildeeksempel: Samtidige beskrivelser av London-smog
+
+**Avslutning (1-2 minutter):**
+«Den industrielle revolusjon la grunnlaget for velstanden vi nyter i dag, men prisen var høy - for arbeiderne den gang, og for miljøet vårt i dag.»
+
+**Denne strukturen fungerer fordi den:**
+- Starter med noe konkret og engasjerende
+- Har tre klare hovedpoenger (ikke for mange)
+- Bruker kilder i hvert hovedpoeng
+- Avslutter med en refleksjon som knytter fortid og nåtid sammen`,
+    },
+    {
+      id: 'historie-2-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Lag en disposisjon for en 10-minutters presentasjon om ett av følgende emner: a) Den franske revolusjonens betydning for demokratiutviklingen, b) Hvordan andre verdenskrig endret kvinners rolle i samfunnet, c) Kolonialismens konsekvenser i Afrika. Disposisjonen skal inneholde åpning, tre hovedpoenger med kildereferanser, og avslutning.',
+        hints: [
+          'Bruk strukturen fra eksempelet over',
+          'Tenk på en engasjerende åpning som fanger oppmerksomheten',
+          'Hvert hovedpoeng bør ha minst én kildereferanse',
+        ],
+        solution: 'En god disposisjon har: 1) En konkret og engasjerende åpning (spørsmål, sitat, overraskende fakta), 2) Tre avgrenset hovedpoenger som til sammen belyser emnet, 3) Kildereferanser knyttet til hvert poeng, 4) En avslutning som oppsummerer og reflekterer. For eksempel om den franske revolusjonens betydning: Åpning med erklæringen om menneskerettighetene, hovedpoenger om politiske rettigheter, folkesuverenitetsideen og inspirasjon for senere revolusjoner, avslutning om arven fra 1789 i dagens demokratier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-6-text-3',
+      type: 'text',
+      content: `## Debatt og diskusjon i historiefaget
+
+Historisk debatt er en viktig læringsform der du øver på å argumentere, lytte kritisk og se saker fra flere sider. I en historisk debatt bruker du kunnskap og kilder som våpen - ikke personlige meninger uten grunnlag.
+
+**Regler for god historisk debatt:**
+- Baser argumentene dine på historiske fakta og kilder
+- Lytt til motpartens argumenter før du svarer
+- Angrip argumenter, ikke personer
+- Innrøm når motparten har gode poenger
+- Bruk fagspråk og vær presis
+- Hold deg til temaet
+
+**Debatteknikker:**
+- **Tilbakevisning:** Vis at motpartens argument bygger på feil fakta eller svak logikk
+- **Nyansering:** Anerkjenn motpartens poeng, men vis at bildet er mer komplekst
+- **Kontekstualisering:** Sett motpartens argument i en bredere sammenheng som svekker det
+- **Kildebruk:** Trekk inn en kilde som motbeviser motpartens påstand
+
+**Diskusjonsformer i historiefaget:**
+- **Plenumsdebatt:** Hele klassen diskuterer et tema med ordstyrer
+- **Paneldebatt:** En gruppe debatterer mens resten av klassen observerer og stiller spørsmål
+- **Rollespill-debatt:** Elevene inntar roller som historiske personer eller grupper
+- **Filosofisk samtale:** Åpen utforsking av et historisk spørsmål uten forhåndsbestemte svar`,
+    },
+    {
+      id: 'historie-2-6-def-2',
+      type: 'definition',
+      title: 'Historisk empati og perspektivtaking',
+      content: `**Historisk empati** er evnen til å sette seg inn i hvordan mennesker i fortiden tenkte, følte og handlet ut fra sin tids forutsetninger. Det betyr ikke å unnskylde eller godta alt som ble gjort, men å forsøke å forstå hvorfor mennesker handlet som de gjorde.
+
+**Perspektivtaking** betyr å se en historisk hendelse fra ulike aktørers synspunkt. For eksempel kan kolonialismen ses fra:
+- Kolonimaktenes perspektiv
+- De kolonisertes perspektiv
+- Handelsselskapenes perspektiv
+- Misjonærenes perspektiv
+
+**Viktige prinsipper:**
+- Unngå **presentisme** - å bedømme fortiden utelukkende med nåtidens verdier
+- Anerkjenn at mennesker i fortiden hadde andre kunnskaper, verdier og muligheter enn vi har
+- Skill mellom å **forstå** og å **forsvare** historiske handlinger
+- Bruk kilder fra samtiden for å forstå hvordan mennesker faktisk tenkte
+
+**Rollespill** er en effektiv metode for å trene historisk empati. Ved å innta en historisk persons rolle, tvinges du til å tenke deg inn i deres situasjon.`,
+    },
+    {
+      id: 'historie-2-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forbered og gjennomfør en debatt i grupper: «Var unionsoppløsningen i 1905 det viktigste vendepunktet i norsk historie?» Del klassen i to - én gruppe argumenterer for, én gruppe argumenterer mot. Bruk minst tre historiske argumenter med kildereferanser på hver side.',
+        hints: [
+          'Tenk på alternative vendepunkter: 1814, 1884, 1945, EF-avstemningen 1972',
+          'Bruk konkrete historiske kilder og fakta, ikke bare meninger',
+          'Forbered også motargumenter til det dere tror motparten vil si',
+        ],
+        solution: 'For-siden kan argumentere med: Norges selvstendighet som nasjon, betydningen for demokratisk utvikling, og nasjonal identitet. Mot-siden kan peke på 1814 (Grunnloven), 1884 (parlamentarisme) eller 1945 (frigjøring fra okkupasjon) som viktigere vendepunkter. Gode debattanter bruker kilder (f.eks. Grunnloven, taler fra 1905, statistikk over stemmegivning ved folkeavstemningen) og nyanserer ved å anerkjenne motpartens poenger. Det viktigste er ikke hvem som «vinner», men kvaliteten på argumentasjonen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Rollespill: Du skal innta rollen som én av følgende historiske personer og holde en kort tale (2-3 minutter) der du forsvarer ditt synspunkt: a) En norsk bonde under Grunnlovsforsamlingen i 1814, b) En suffragette som kjemper for kvinners stemmerett rundt 1910, c) En samisk aktivist under Alta-konflikten i 1981. Forbered talen skriftlig før du framfører den.',
+        hints: [
+          'Undersøk den historiske personen/gruppens faktiske argumenter og situasjon',
+          'Bruk språk og argumenter som er troverdige for tidsperioden',
+          'Prøv å formidle personens følelser og motivasjon, ikke bare fakta',
+        ],
+        solution: 'En god rolletale viser historisk empati ved å bruke argumenter og språk som er troverdig for tiden. For bonden i 1814: argumenter om bondestanden som nasjonens ryggrad, krav om representasjon. For suffragetten: argumenter om likestilling, kvinner som skattebetalere og samfunnsborgere. For den samiske aktivisten: argumenter om urfolksrettigheter, naturvern, kulturell overlevelse. Viktig: bruk faktisk historisk kunnskap, ikke bare det du tror personen ville sagt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-6-text-4',
+      type: 'text',
+      content: `## Lytting og kritisk vurdering
+
+En viktig del av muntlige ferdigheter er å lytte kritisk til andres framstillinger av historie. Enten det er en medelev som presenterer, en politiker som bruker historiske argumenter, eller en dokumentar du ser, bør du stille deg selv noen viktige spørsmål.
+
+**Kritiske spørsmål til muntlige framstillinger:**
+- Hva er framstillingens hovedbudskap?
+- Hvilke kilder og bevis brukes? Er de troverdige?
+- Hvilke perspektiver kommer fram - og hvilke mangler?
+- Er framstillingen balansert, eller er den ensidig?
+- Brukes det retoriske virkemidler for å overbevise? Hvilke?
+- Stemmer framstillingen med det du allerede vet om emnet?
+
+**Å gi konstruktiv tilbakemelding:**
+Når du skal vurdere en medelevs presentasjon, bør du:
+- Starte med det som fungerte godt
+- Peke på konkrete ting som kan forbedres
+- Gi faglige tilbakemeldinger (innhold, kildebruk, argumentasjon)
+- Gi formelle tilbakemeldinger (struktur, formidling, tidsbruk)
+- Være saklig og respektfull
+
+**Å stille gode spørsmål:**
+Gode spørsmål etter en presentasjon er ikke «gotcha-spørsmål» designet for å ta presentatøren, men spørsmål som utdyper forståelsen:
+- «Kan du utdype hva du mente med...?»
+- «Hvordan ville du svart på innvendingen om at...?»
+- «Hvilke andre perspektiver finnes på dette?»
+- «Hvilke kilder brukte du for å komme fram til denne konklusjonen?»`,
+    },
+    {
+      id: 'historie-2-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-6-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Se eller lytt til en historisk dokumentar, en politisk tale som bruker historiske argumenter, eller en medelevs presentasjon. Skriv en kort kritisk vurdering (ca. 200 ord) der du svarer på: Hva er hovedbudskapet? Hvilke kilder brukes? Hvilke perspektiver mangler? Er framstillingen balansert?',
+        hints: [
+          'Bruk de kritiske spørsmålene fra teksten over som utgangspunkt',
+          'Vær konkret - pek på spesifikke eksempler',
+          'Skille mellom faglig innhold og formidlingsform',
+        ],
+        solution: 'En god kritisk vurdering identifiserer tydelig framstillingens hovedbudskap, vurderer kildebruken (er det primærkilder eller sekundærkilder? Hvor mange?), peker på perspektiver som mangler (f.eks. en dokumentar om kolonialismen som bare viser europeisk perspektiv), og vurderer balansen (presenteres flere sider av saken?). Vurderingen bør være saklig og begrunnet, ikke bare «bra» eller «dårlig».',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-2-6-tip-1',
+      type: 'tip',
+      title: 'Tips for muntlig eksamen i historie',
+      content: `**Forberedelse til muntlig eksamen:**
+- Lag oversikter over de viktigste emnene i læreplanen
+- Øv på å snakke om historiske emner uten manus - bruk stikkord
+- Forbered deg på å bli stilt oppfølgingsspørsmål
+- Øv med en venn eller foran speilet - ta tiden
+- Lag et «eksempelbibliotek» med historiske eksempler du kan bruke
+
+**Under eksamen:**
+- Les oppgaven grundig og bruk forberedelsestiden godt
+- Lag en kort disposisjon med stikkord
+- Start med en tydelig innledning der du viser at du forstår oppgaven
+- Bruk fagbegreper og vis at du kan dem
+- Trekk inn konkrete eksempler og kildereferanser
+- Vis at du kan drøfte - ikke bare gjengi
+- Vær forberedt på å svare på spørsmål fra sensor
+- Avslutt med en tydelig konklusjon
+
+**Vanlige fallgruver:**
+- Å lese rett fra manus uten øyekontakt
+- Å snakke for fort eller for lavt
+- Å bare ramse opp fakta uten analyse
+- Å ikke svare på spørsmålene sensor stiller
+- Å gå tom for stoff fordi du ikke har øvd nok
+
+**Husk:** Sensor ser etter om du kan bruke historisk kunnskap aktivt - ikke bare om du kan gjengi det. Vis at du forstår sammenhenger, kan drøfte og vurdere.`,
+    },
+    {
+      id: 'historie-2-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-2-6-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Tren til muntlig eksamen: Trekk et emne fra læreplanen i historie (eller velg selv) og forbered en 5-minutters presentasjon. Bruk 30 minutter på forberedelse med stikkordark. Framfør presentasjonen for en medelev, som deretter stiller tre oppfølgingsspørsmål. Bytt roller.',
+        hints: [
+          'Bruk forberedelsestiden til å lage en disposisjon, ikke et ferdigskrevet manus',
+          'Sørg for å ha en tydelig innledning, hoveddel og avslutning',
+          'Forbered deg på å bli spurt om kilder, perspektiver og sammenhenger',
+        ],
+        solution: 'Denne øvelsen simulerer en ekte eksamenssituasjon. Et godt resultat viser: 1) Strukturert presentasjon med innledning, hoveddel og avslutning, 2) Bruk av fagbegreper og konkrete historiske eksempler, 3) Evne til å drøfte og ikke bare gjengi, 4) Evne til å svare saklig og faglig på oppfølgingsspørsmål. Den som stiller spørsmål, øver på kritisk lytting og på å formulere gode faglige spørsmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// FORHISTORIE: Menneskets utvikling og de første samfunnene
+// ============================================================================
+
+export const CHAPTER_HISTORIE_FORHISTORIE_1: TextbookChapter = {
+  id: 'historie-forhistorie-1',
+  courseId: 'historie',
+  chapterNumber: '3.1',
+  title: 'Menneskets utvikling og steinalderen',
+  description:
+    'Fra de tidligste hominidene til steinalderens jeger-sanker-samfunn, hulemaleriene og de første menneskene i Norden.',
+  estimatedMinutes: 55,
+  competenceGoals: ['reflektere over hvordan fortiden former oss'],
+  content: [
+    {
+      id: 'historie-forhistorie-1-intro',
+      type: 'text',
+      content: `## Menneskets lange reise
+
+Historien om menneskeheten begynner ikke med de første byene eller skriftspråkene -- den begynner millioner av år tilbake, på det afrikanske kontinentet. Her utviklet våre tidligste forfedre seg fra apeliknende skapninger til det moderne mennesket vi kjenner i dag. Forhistorien -- tiden før skriftens oppfinnelse -- utgjør den aller lengste delen av menneskets historie, og det er i denne perioden de mest grunnleggende trekkene ved det å være menneske ble formet.
+
+**Forhistorien deles gjerne inn i:**
+- **Eldre steinalder** (paleolitikum): ca. 2,5 millioner år siden -- ca. 10 000 f.Kr.
+- **Yngre steinalder** (neolitikum): ca. 10 000 -- ca. 1800 f.Kr. (i Norden)
+- **Bronsealder**: ca. 1800 -- 500 f.Kr. (i Norden)
+- **Jernalder**: ca. 500 f.Kr. -- ca. 1050 e.Kr. (i Norden)
+
+Disse periodene overlapper geografisk -- ulike deler av verden gikk gjennom fasene til ulik tid. I dette kapittelet fokuserer vi på den eldste perioden: menneskets opprinnelse og eldre steinalder.`,
+    },
+    {
+      id: 'historie-forhistorie-1-def-1',
+      type: 'definition',
+      title: 'Hominider og Homo sapiens',
+      content: `**Hominider** er den biologiske familien som inkluderer mennesker og våre nærmeste utdødde slektninger. De viktigste er:
+
+**Australopithecus** (ca. 4--2 millioner år siden):
+- Tidlige hominider som levde i Afrika
+- Gikk oppreist, men hadde små hjerner
+- "Lucy" (funnet i Etiopia, 1974) er det mest kjente fossilet
+
+**Homo erectus** (ca. 1,9 millioner -- 100 000 år siden):
+- Første hominid til å forlate Afrika
+- Større hjerne enn Australopithecus
+- Brukte avanserte steinredskaper og kontrollerte ild
+
+**Homo sapiens** (ca. 300 000 år siden -- nå):
+- Det moderne mennesket
+- Oppsto i Afrika
+- Utviklet språk, kunst og kompleks tenkning
+- Den eneste gjenlevende menneskearten
+
+**Viktig:** Mennesket "stammer ikke fra apene". Vi deler en felles forfader med moderne aper, men har utviklet oss langs ulike evolusjonære linjer.`,
+    },
+    {
+      id: 'historie-forhistorie-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom Australopithecus, Homo erectus og Homo sapiens. Hva var de viktigste utviklingstrekkene fra den ene arten til den neste?',
+        hints: [
+          'Tenk på hjernestørrelse, verktøybruk, spredning og evne til abstrakt tenkning',
+        ],
+        solution:
+          'Australopithecus gikk oppreist, men hadde liten hjerne og brukte enkle verktøy. Homo erectus hadde større hjerne, brukte mer avanserte steinredskaper, kontrollerte ild og var første hominid til å forlate Afrika. Homo sapiens har den største hjernen, utviklet språk, kunst og evne til abstrakt tenkning. De viktigste utviklingstrekkene er: 1) Økende hjernestørrelse. 2) Stadig mer avansert verktøybruk. 3) Bedre kommunikasjon og sosialt samarbeid. 4) Evne til å tilpasse seg ulike miljøer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-1-text-2',
+      type: 'text',
+      content: `## "Out of Africa" -- menneskets spredning
+
+Den rådende vitenskapelige teorien om menneskets opprinnelse kalles "Out of Africa"-teorien (også kalt "den afrikanske opprinnelsesmodellen"). Den hevder at alle moderne mennesker stammer fra en felles populasjon som levde i Afrika, og at grupper av Homo sapiens vandret ut derfra og spredte seg over hele kloden.
+
+**Hovedtrekkene i "Out of Africa"-teorien:**
+- Homo sapiens oppsto i Afrika for ca. 300 000 år siden
+- For ca. 70 000--100 000 år siden begynte grupper å vandre ut av Afrika
+- De spredte seg først til Midtøsten, deretter til Asia, Europa og til slutt Amerika og Oseania
+- Alle ikke-afrikanske mennesker nedstammer fra disse utvandrergruppene
+- Eldre menneskearter (som neandertalerne i Europa) døde ut, men noe genblanding fant sted
+
+**Bevisene:**
+- DNA-studier viser at alle mennesker har afrikansk opprinnelse
+- Fossilfunn støtter tidslinjen
+- Ikke-afrikanere har 1--4 % neandertaler-DNA, noe som viser at artene møttes og fikk barn`,
+    },
+    {
+      id: 'historie-forhistorie-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Drøft: "Out of Africa"-teorien viser at alle mennesker har felles opprinnelse. Hvilken betydning kan denne kunnskapen ha for hvordan vi ser på forskjeller mellom mennesker i dag?',
+        hints: [
+          'Tenk på rasisme, nasjonalisme og identitet',
+          'Hva betyr det at genetiske forskjeller mellom menneskegrupper er minimale?',
+        ],
+        solution:
+          'En god drøfting kan peke på at: 1) Alle mennesker er biologisk sett én art med felles opprinnelse, noe som undergraver rasistiske ideologier. 2) Genetiske forskjeller mellom menneskegrupper er svært små (ca. 0,1 % variasjon). 3) Ytre trekk som hudfarge er overfladiske tilpasninger til ulike miljøer. 4) Kulturelle forskjeller skyldes historiske og geografiske forhold, ikke biologiske. 5) Kunnskapen kan fremme fellesskap og forståelse på tvers av kulturer, men den kan også bli ignorert av de som ønsker å opprettholde skillelinjer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-1-text-3',
+      type: 'text',
+      content: `## Livet som jeger og sanker
+
+I hundretusener av år levde mennesker som jegere og sankere. Dette betyr at de fikk maten sin ved å jakte på dyr, fiske og samle inn spiselige planter, nøtter, bær og røtter. De produserte ikke mat -- de hentet det naturen tilbød.
+
+**Kjennetegn ved jeger-sanker-samfunn:**
+- **Små grupper:** Typisk 20--50 personer i en flokk
+- **Nomadisk livsstil:** Fulgte byttedyrene og sesongene
+- **Arbeidsdeling:** Menn jaktet gjerne storvilt, kvinner samlet planter (men dette var ikke absolutt)
+- **Egalitært samfunn:** Lite sosial lagdeling, ingen formelle ledere med makt
+- **Muntlig kultur:** Kunnskap og tradisjoner ble overført gjennom fortellertradisjoner
+- **Kort arbeidstid:** Studier av moderne jeger-sankere viser at de "arbeidet" bare 3--5 timer daglig
+
+**Verktøy og teknologi:**
+- Steinredskaper (håndøkser, skrapere, pilspisser)
+- Ild til matlaging, varme og beskyttelse
+- Klær av dyrehuder
+- Våpen som spyd, bue og pil (fra ca. 70 000 år siden)
+
+**Sosial organisering:**
+Jeger-sanker-samfunn var preget av samarbeid og deling. Mat ble delt i gruppen, og gjensidig avhengighet var nødvendig for overlevelse. Eldre medlemmer hadde viktige roller som kunnskapsbærere.`,
+    },
+    {
+      id: 'historie-forhistorie-1-def-2',
+      type: 'definition',
+      title: 'Steinalderens perioder',
+      content: `**Paleolitikum** (eldre steinalder, ca. 2,5 millioner -- ca. 10 000 f.Kr.):
+- Mennesker lever som jegere og sankere
+- Steinredskapene er hugget, ikke slipt
+- Nomadisk livsstil
+- Deles inn i eldre, midtre og yngre paleolitikum
+
+**Mesolitikum** (mellomsteinalder, ca. 10 000 -- ca. 4000 f.Kr. i Norden):
+- Overgangsfase etter istiden
+- Mer variert kosthold (mer fisk og skalldyr)
+- Mindre, mer spesialiserte verktøy
+- Begynnende bofasthet i noen områder
+
+**Neolitikum** (yngre steinalder, ca. 4000 -- ca. 1800 f.Kr. i Norden):
+- Jordbruk introduseres
+- Slipte steinredskaper
+- Bofasthet og de første landsbyene
+- Keramikk og veving
+
+Dateringene varierer sterkt mellom ulike deler av verden. I Midtøsten begynte neolitikum allerede ca. 10 000 f.Kr., mens det i Norden først kom ca. 4000 f.Kr.`,
+    },
+    {
+      id: 'historie-forhistorie-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Noen forskere har kalt jeger-sanker-samfunnet for "det opprinnelige velstandssamfunnet" fordi folk hadde rikelig fritid og få materielle bekymringer. Drøft denne påstanden. Hva var fordelene og ulempene med jeger-sanker-livsstilen sammenlignet med moderne liv?',
+        hints: [
+          'Tenk på arbeidstid, helse, frihet, men også risiko, barnedødelighet og sult',
+        ],
+        solution:
+          'Fordeler: 1) Kort arbeidstid (3--5 timer daglig). 2) Variert kosthold ga god ernæring. 3) Egalitært samfunn uten formelt hierarki. 4) Sterk sosial tilhørighet. 5) Ingen gjeld, skatt eller lønnsslaveri. Ulemper: 1) Høy barnedødelighet. 2) Kort forventet levealder (ca. 30--35 år). 3) Sårbar for naturkatastrofer, sykdom og skader. 4) Begrenset befolkningsvekst. 5) Ingen medisin, skrift eller akkumulert kunnskap på tvers av generasjoner. Påstanden er delvis riktig -- det var et godt liv på mange måter, men med store risikoer vi ikke aksepterer i dag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-1-text-4',
+      type: 'text',
+      content: `## Hulemaleriene -- den første kunsten
+
+Blant de mest fascinerende sporene fra forhistorien er hulemaleriene. Disse maleriene, som finnes i huler i Europa, Afrika, Asia og Australia, gir oss et unikt innblikk i fortidens menneskers tankegang og kreativitet.
+
+**De mest kjente hulemaleriene:**
+- **Lascaux** (Frankrike, ca. 17 000 år gamle): Fargerike malerier av hester, okser, hjorter og andre dyr
+- **Altamira** (Spania, ca. 15 000 år gamle): Bisonokser malt med okerfarge
+- **Chauvet** (Frankrike, ca. 36 000 år gamle): Noen av de eldste kjente hulemaleriene, med løver, neshorn og mammuter
+
+**Hva forteller hulemaleriene oss?**
+1. **Kunstnerisk evne:** Menneskene hadde utviklet abstrakt tenkning og estetisk sans
+2. **Symbolsk tenkning:** Evnen til å representere virkeligheten gjennom bilder
+3. **Religion og magi:** Mange forskere tror maleriene hadde rituell betydning, kanskje knyttet til jaktmagi
+4. **Sosiale strukturer:** Noen huler ble brukt gjentatte ganger over lang tid, noe som tyder på tradisjon og fellesskap
+5. **Observasjonsevne:** Dyrene er malt med imponerende realisme og detaljrikdom
+
+Hulemaleriene viser at mennesker for titusenvis av år siden hadde de samme grunnleggende kognitive evnene som oss -- evnen til å tenke abstrakt, uttrykke seg kreativt og skape mening.`,
+    },
+    {
+      id: 'historie-forhistorie-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Hva kan vi lese ut av hulemaleriet i Lascaux?',
+      problem:
+        'I Lascaux-hulen i Frankrike finnes det over 600 malerier og 1500 innrissede figurer. De fleste forestiller dyr. Hva kan vi lære om steinaldermennesker ut fra disse maleriene?',
+      solution: `**Analyse av Lascaux-maleriene:**
+
+Maleriene i Lascaux ble oppdaget i 1940 av fire tenåringer. Her er hva vi kan tolke:
+
+**1. Dyremotivene:**
+- Hester, okser, hjorter og steinbukker dominerer
+- Rovdyr er sjeldne -- dette kan tyde på at maleriene er knyttet til byttedyr
+- Dyrene er malt i bevegelse, noe som viser observasjonsevne
+
+**2. Teknikken:**
+- Brukte naturlige pigmenter (oker, trekull, jernoksid)
+- Noen malerier utnytter hulens naturlige form for å skape 3D-effekt
+- Hender ble brukt som sjablong (håndavtrykk)
+
+**3. Mulige tolkninger:**
+- **Jaktmagi:** Å male byttedyr kunne være et ritual for å sikre vellykket jakt
+- **Undervisning:** Maleriene kunne brukes til å lære unge jegere om dyr
+- **Religiøse ritualer:** Hulene kan ha vært hellige steder
+- **Ren kunst:** Kanskje menneskene rett og slett likte å lage vakre bilder
+
+**Konklusjon:** Vi kan ikke være sikre på hensikten, men maleriene viser at steinaldermennesker var intelligente, kreative og hadde et rikt indre liv.`,
+    },
+    {
+      id: 'historie-forhistorie-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvorfor tror du steinaldermennesker malte bilder på huleveggene? Vurder minst to ulike teorier og begrunn hvilken du synes er mest sannsynlig.',
+        hints: [
+          'Tenk på jaktmagi, religion, undervisning og ren kunstnerisk utfoldelse',
+          'Husk at vi ikke kan spørre dem -- vi tolker ut fra det vi finner',
+        ],
+        solution:
+          'Ulike teorier: 1) Jaktmagi -- å male dyr ga makt over dem og sikret god jakt. Støtter dette: de fleste motiver er byttedyr, maleriene finnes dypt inne i huler (hellige steder). 2) Undervisning -- maleriene ble brukt til å lære unge om dyr og jakt. Støtter dette: detaljert og realistisk fremstilling av dyrene. 3) Religion/ritualer -- hulene var hellige steder for seremonier. Støtter dette: maleriene finnes ofte i utilgjengelige områder, ikke der folk bodde. 4) Sosial tilhørighet -- maleriene styrket gruppens identitet og fellesskap. Eleven bør argumentere for sitt valg med konkrete begrunnelser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-1-text-5',
+      type: 'text',
+      content: `## Steinalderen i Norden og Norge
+
+Nordens forhistorie er tett knyttet til istiden og dens ettervirkninger. Under den siste istiden (ca. 110 000 -- 10 000 f.Kr.) var store deler av Skandinavia dekket av en enorm isbre som var opptil tre kilometer tykk. Norden var rett og slett ubeboelig.
+
+**Istidens slutt og de første menneskene:**
+- Ca. 10 000 f.Kr. begynte isen å smelte
+- Kysten ble isfri først, deretter innlandet
+- De første menneskene kom til Norge langs kysten, trolig nordfra og sørfra
+- **Fosna-kulturen** (på Vestlandet) og **Komsa-kulturen** (i Nord-Norge) er de eldste kjente kulturene i Norge (ca. 9500--8000 f.Kr.)
+- De levde av jakt på sel, fisk, fugl og reinsdyr
+
+**Landskapsendringer:**
+- Isen hadde trykket ned landmassene -- nå hevet landet seg (landhevning)
+- Havnivået var annerledes enn i dag
+- Vegetasjonen endret seg fra tundra til skog
+- Nye dyrearter vandret inn etter hvert som klimaet ble varmere
+
+**Mellomsteinalder i Norge (ca. 8000--4000 f.Kr.):**
+- Befolkningen økte sakte
+- Rikere kystmiljø ga bedre mattilgang
+- Fangst av sel, hval, fisk og skalldyr
+- Noen av de eldste bosetningene i Nord-Europa finnes langs norskekysten
+- Helleristninger (bilder risset i stein) fra denne perioden viser jaktscener`,
+    },
+    {
+      id: 'historie-forhistorie-1-note-1',
+      type: 'note',
+      title: 'Norges eldste bosettinger',
+      content: `Det finnes flere steder i Norge med svært gamle spor etter mennesker:
+
+**Blomvåg (Øygarden, Vestland):** Et av de eldste funnstedene i Norge, datert til ca. 10 000 f.Kr. Her er det funnet steinredskaper.
+
+**Meling (Rogaland):** Spor etter bosetning fra ca. 9500 f.Kr.
+
+**Kirkehelleren (Nordland):** Hulelokale med funn fra ca. 9000 f.Kr.
+
+Felles for de eldste funnstedene er at de ligger langs kysten. De første nordmennene var kystfolk som utnyttet havets ressurser. Innlandet ble kolonisert senere, etter hvert som isen smeltet og skogen vokste frem.`,
+    },
+    {
+      id: 'historie-forhistorie-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvorfor de første menneskene i Norge bosatte seg langs kysten og ikke i innlandet. Hvilke ressurser og fordeler ga kystlivet?',
+        hints: [
+          'Tenk på mat, klima og isens utbredelse',
+          'Kysten var isfri først',
+        ],
+        solution:
+          'De første menneskene bosatte seg langs kysten fordi: 1) Kysten var isfri først -- innlandet var fortsatt dekket av is. 2) Havet ga rikelig tilgang på mat: fisk, sel, hval, skalldyr og sjøfugl. 3) Golfstrømmen ga et mildere klima langs kysten enn i innlandet. 4) Kysten ga transportmuligheter med båt. 5) Strandflaten ga boplasser med utsikt og tilgang til havet. Innlandet ble først beboelig etter hvert som isen smeltet og skog og dyreliv etablerte seg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Drøft: Hva kan steinalderen lære oss om hva det vil si å være menneske? Pek på minst tre trekk ved steinaldersamfunnet som fortsatt er relevante i dag.',
+        hints: [
+          'Tenk på samarbeid, kunst, fellesskap, tilpasningsevne og forholdet til naturen',
+        ],
+        solution:
+          'Relevante trekk: 1) Samarbeid -- steinaldermennesker overlevde gjennom samarbeid i grupper, og vi er fortsatt fundamentalt sosiale vesener. 2) Kreativitet og kunst -- hulemaleriene viser at behovet for å uttrykke seg kreativt er grunnleggende menneskelig. 3) Tilpasningsevne -- mennesket spredte seg over hele kloden og tilpasset seg vidt forskjellige miljøer, noe vi fortsatt gjør. 4) Forholdet til naturen -- jeger-sankere var avhengige av og levde i pakt med naturen, noe vi i dag må gjenoppdage i lys av klimakrisen. 5) Muntlig tradisjon og kunnskapsoverføring -- vi deler fortsatt kunnskap mellom generasjoner, nå gjennom skrift og teknologi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+export const CHAPTER_HISTORIE_FORHISTORIE_2: TextbookChapter = {
+  id: 'historie-forhistorie-2',
+  courseId: 'historie',
+  chapterNumber: '3.2',
+  title: 'Jordbruksrevolusjonen og de første byene',
+  description:
+    'Den neolittiske revolusjon, overgangen til jordbruk, de første bosettingene og konsekvensene for menneskehetens utvikling.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'reflektere over hvordan fortiden former oss',
+    'matproduksjon og naturressurser - bærekraft',
+  ],
+  content: [
+    {
+      id: 'historie-forhistorie-2-intro',
+      type: 'text',
+      content: `## Den største omveltningen i menneskets historie
+
+For omtrent 12 000 år siden begynte noen menneskegrupper å gjøre noe helt nytt: i stedet for å lete etter mat i naturen, begynte de å dyrke planter og holde dyr. Denne overgangen fra jakt og sanking til jordbruk kalles den neolittiske revolusjon, og den endret menneskets livsvilkår fundamentalt.
+
+**Hvorfor er dette så viktig?**
+- For første gang kunne mennesker produsere sin egen mat
+- Dette gjorde det mulig å bo fast på ett sted
+- Befolkningen kunne vokse dramatisk
+- Sosiale strukturer ble mer komplekse
+- Det la grunnlaget for byer, stater og sivilisasjoner
+
+Den neolittiske revolusjon regnes som et av de viktigste vendepunktene i menneskets historie -- kanskje det aller viktigste. Alt som kom etterpå -- byer, kongeriker, skrift, industri -- bygger på denne ene endringen: at mennesker begynte å dyrke jorda.`,
+    },
+    {
+      id: 'historie-forhistorie-2-warning-1',
+      type: 'warning',
+      title: 'Vær forsiktig med ordet "revolusjon"',
+      content: `Begrepet "den neolittiske revolusjon" kan være misvisende. Overgangen til jordbruk skjedde **ikke** plutselig, men over tusenvis av år. Mange samfunn kombinerte jordbruk med jakt og sanking i lang tid. Dessuten skjedde overgangen uavhengig på forskjellige steder i verden til ulik tid.
+
+Ordet "revolusjon" brukes her fordi **konsekvensene** var revolusjonære -- de endret menneskets liv fullstendig -- ikke fordi endringen skjedde raskt.`,
+    },
+    {
+      id: 'historie-forhistorie-2-def-1',
+      type: 'definition',
+      title: 'Neolittisk revolusjon og domestisering',
+      content: `**Den neolittiske revolusjon** (fra gresk neos = ny, lithos = stein) er betegnelsen på overgangen fra jeger-sanker-livsstil til jordbruk. Den begynte uavhengig på flere steder i verden:
+
+- **Den fruktbare halvmåne** (Midtøsten): ca. 10 000 f.Kr. -- det tidligste kjente jordbruksområdet
+- **Kina**: ca. 8000 f.Kr. (ris og hirse)
+- **Mellom-Amerika**: ca. 5000 f.Kr. (mais, bønner, squash)
+- **Afrika sør for Sahara**: ca. 3000 f.Kr. (durra, hirse)
+
+**Domestisering** betyr at mennesker bevisst avler planter og dyr for å forsterke ønskede egenskaper:
+
+**Planter:** Hvete, bygg, linser, erter (Midtøsten); ris (Asia); mais (Amerika)
+
+**Dyr:** Hund (det første tamme dyret, ca. 15 000 f.Kr.), sau, geit, storfe, gris
+
+Domestisering er en langsiktig prosess der mennesker over generasjoner velger ut de plantene og dyrene med best egenskaper for videre avl.`,
+    },
+    {
+      id: 'historie-forhistorie-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvorfor tror du overgangen til jordbruk begynte akkurat i Den fruktbare halvmåne? Hva var det med dette området som gjorde det egnet for tidlig jordbruk?',
+        hints: [
+          'Tenk på klima, ville plantearter, dyr, geografi og tilgang på vann',
+        ],
+        solution:
+          'Den fruktbare halvmåne (området fra dagens Israel/Palestina via Syria og Tyrkia til Irak) hadde flere fordeler: 1) Villkorn som hvete og bygg vokste naturlig her. 2) Klimaet var gunstig med tilstrekkelig nedbør. 3) Det fantes ville dyr som lot seg domestisere (sau, geit, storfe). 4) Elvene Eufrat og Tigris ga vann til irrigasjon. 5) Variert topografi med fjell, sletter og elvesletter ga ulike økologiske nisjer. 6) Etter istiden ga klimaendringer bedre vilkår for korndyrking.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-2-text-2',
+      type: 'text',
+      content: `## Konsekvenser av jordbruket
+
+Overgangen til jordbruk forandret ikke bare maten mennesker spiste -- den endret hele måten vi organiserer samfunnet på. Konsekvensene var enorme og vidtrekkende.
+
+**Bofasthet:**
+- Bønder må bli på ett sted for å pleie avlingene
+- Faste bosettinger og landsbyer oppsto
+- Folk bygde permanente hus av leire, tre og stein
+- Eiendom ble viktig -- jorda tilhørte noen
+
+**Befolkningsvekst:**
+- Jordbruk ga mer forutsigbar mattilgang
+- Kvinner kunne få flere barn (fordi de ikke lenger måtte bære dem på vandring)
+- Befolkningen vokste fra noen få millioner til titalls millioner på noen tusen år
+
+**Sosial lagdeling:**
+- Jordbruksoverskudd betydde at ikke alle trengte å produsere mat
+- Noen ble håndverkere, prester, krigere, ledere
+- De som kontrollerte jorda og overskuddet fikk makt
+- Hierarkier og ulikhet oppsto -- noe jeger-sankere i stor grad hadde vært uten
+
+**Nye utfordringer:**
+- Sykdommer spredte seg lettere i tette bosettinger
+- Nærhet til dyr ga nye sykdommer (zoonoser)
+- Ensidig kost (mye korn) ga dårligere ernæring enn jeger-sanker-kosten
+- Konflikter om jord og ressurser økte
+- Kvinner fikk ofte en mer underordnet rolle enn i jeger-sanker-samfunn`,
+    },
+    {
+      id: 'historie-forhistorie-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Historikeren Yuval Noah Harari har kalt jordbruksrevolusjonen for "historiens største svindel" -- fordi den førte til hardere arbeid, dårligere helse og mer ulikhet. Drøft denne påstanden. Var overgangen til jordbruk et fremskritt eller et tilbakeskritt for menneskeheten?',
+        hints: [
+          'Tenk på både fordeler og ulemper',
+          'Hva menes med "fremskritt"?',
+          'Kan noe være et fremskritt for arten, men ikke for individet?',
+        ],
+        solution:
+          'Argumenter for at det var et tilbakeskritt: 1) Hardere og mer monotont arbeid. 2) Dårligere ernæring (ensidig kosthold). 3) Flere sykdommer. 4) Mer sosial ulikhet. 5) Tap av frihet og mobilitet. Argumenter for at det var et fremskritt: 1) Større og mer stabile samfunn. 2) Teknologisk utvikling muliggjort av spesialisering. 3) Skrift, vitenskap og kunst ble mulig. 4) Befolkningsvekst (flere mennesker ble født). Konklusjon: Svaret avhenger av hva vi mener med "fremskritt". For individet var jeger-sanker-livet kanskje bedre, men uten jordbruk ville ingen av de tingene vi forbinder med sivilisasjon vært mulig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-2-text-3',
+      type: 'text',
+      content: `## Yngre steinalder og bronsealder i Norden
+
+Jordbruket nådde Norden relativt sent -- først rundt 4000 f.Kr. -- flere tusen år etter Midtøsten. Men når det først kom, endret det de nordiske samfunnene fundamentalt.
+
+**Yngre steinalder i Norden (ca. 4000--1800 f.Kr.):**
+- **Traktbegerkulturen** (ca. 4000--2800 f.Kr.) brakte jordbruket til Skandinavia
+- Dyrket hvete og bygg, holdt storfe, sau og gris
+- Bygde megalittgraver (store steingraver som dysser og jettestuer)
+- Kombinerte jordbruk med jakt og fiske
+- Keramikk med traktformet munning (derav navnet)
+- Bosetningene var små gårder spredt i landskapet
+
+**Stridsøkskulturen** (ca. 2800--2400 f.Kr.):
+- Ny kultur med andre gravskikker og keramikk
+- Stridsøkser som statusgjenstand
+- Muligens innvandring fra øst
+
+**Bronsealder i Norden (ca. 1800--500 f.Kr.):**
+- Bronse (legering av kobber og tinn) ble importert fra sør
+- Rikere materiell kultur med smykker, våpen og redskaper
+- Helleristninger med skip, solvogner og menneskefigurer
+- Sterkere sosial lagdeling -- høvdinger og stormenn
+- Handelsnettverk strakte seg over hele Europa
+
+**Jernalder i Norden (ca. 500 f.Kr.--1050 e.Kr.):**
+- Jern kunne utvinnes lokalt (fra myrmalm)
+- Billigere enn bronse -- flere fikk tilgang til metallredskaper
+- Jordbruket ble effektivisert med jernplogen
+- Perioden ender med vikingtiden`,
+    },
+    {
+      id: 'historie-forhistorie-2-def-2',
+      type: 'definition',
+      title: 'Traktbegerkulturen',
+      content: `**Traktbegerkulturen** (ca. 4000--2800 f.Kr.) var den første jordbrukskulturen i Skandinavia. Kjennetegn:
+
+**Navn:** Oppkalt etter keramikkens traktformede munning
+
+**Utbredelse:** Danmark, Sør-Sverige, Sør-Norge og Nord-Tyskland
+
+**Jordbruk:** Dyrket hvete og bygg, holdt storfe, sau, geit og gris
+
+**Gravskikker:** Bygde megalittgraver -- store steinkonstruksjoner:
+- **Dysser:** Gravkamre av store steinheller
+- **Jettestuer (gangganger):** Store gravkamre med inngangsgang
+- Disse monumentene krevde stort arbeid og viser organisert samarbeid
+
+**Betydning:** Traktbegerkulturen markerer overgangen fra jeger-sanker-samfunn til bondesamfunn i Norden. Den viser at jordbruk, bofasthet og nye sosiale strukturer hang tett sammen.`,
+    },
+    {
+      id: 'historie-forhistorie-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Megalittgravene (dysser og jettestuer) krevde enormt arbeid å bygge. Hvorfor tror du steinalderens mennesker investerte så mye tid og krefter i gravmonumenter? Hva kan gravene fortelle oss om samfunnet?',
+        hints: [
+          'Tenk på religion, sosial organisering og makt',
+          'Hva betyr det at noen fikk storslagne graver mens andre ikke fikk det?',
+        ],
+        solution:
+          'Gravene forteller oss: 1) Religion -- troen på et liv etter døden var viktig, og de døde måtte få en verdig "bolig". 2) Sosial organisering -- byggingen krevde koordinering av mange menneskers arbeid, noe som forutsetter ledelse. 3) Sosial lagdeling -- ikke alle fikk slike graver, noe som tyder på at noen hadde høyere status. 4) Territorium -- monumentene markerte tilhørighet til et område og en gruppe. 5) Fellesskap -- det å bygge sammen styrket gruppens samhold. 6) Overskudd -- folk hadde tid til annet enn matproduksjon, noe som tyder på et visst jordbruksoverskudd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-2-text-4',
+      type: 'text',
+      content: `## Fra landsby til by: de første byene
+
+Etter hvert som jordbruket ble mer effektivt, vokste bosettingene. De første "byene" oppsto i Midtøsten tusenvis av år før de klassiske sivilisasjonene i Mesopotamia og Egypt.
+
+**Jeriko (dagens Palestina):**
+- En av verdens eldste kontinuerlig bebodde byer
+- Bosetting fra ca. 9000 f.Kr.
+- Hadde en bymur og et stort steintårn allerede ca. 8000 f.Kr.
+- Befolkning på kanskje 2000--3000 mennesker
+- Livnærte seg av jordbruk i den fruktbare Jordandalen
+
+**Catalhoyuk (dagens Tyrkia):**
+- Stor bosetting fra ca. 7500--5700 f.Kr.
+- Opptil 8000 innbyggere -- en stor "by" etter datidens målestokk
+- Husene var bygd tett i tett, uten gater -- man gikk på takene
+- Inngang via stiger gjennom hull i taket
+- Veggmalerier, skulpturer og religiøse symboler
+- Overraskende lite tegn til sosial lagdeling -- et relativt egalitært samfunn
+- Ingen tydelig leder eller tempel -- religionen var knyttet til hjemmet
+
+**Fra landsby til by:**
+Overgangen fra landsby til by innebar mer enn bare større befolkning:
+- Spesialisering av yrker
+- Handel med andre bosettinger
+- Behov for felles regler og ledelse
+- Offentlige bygninger (templer, lager)
+- Begynnende ulikhet og hierarki`,
+    },
+    {
+      id: 'historie-forhistorie-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Catalhoyuk -- en by uten gater',
+      problem:
+        'Catalhoyuk i Tyrkia er en av verdens eldste byer. Den hadde en svært uvanlig utforming. Hva kan arkitekturen og funnene fortelle oss om samfunnet?',
+      solution: `**Catalhoyuk -- et vindu til fortiden:**
+
+**Arkitekturen:**
+- Husene var bygd vegg i vegg, uten gater eller mellomrom
+- Man gikk på takene og klatret ned i husene via stiger
+- Hvert hus hadde en ildplass, lagerplass og soveplass
+- De døde ble gravlagt under husgulvet
+
+**Hva funnene forteller:**
+1. **Likhet:** Husene er omtrent like store -- ingen "palass" eller spesielt store hus. Dette tyder på et relativt egalitært samfunn.
+2. **Religion i hjemmet:** Veggmalerier med oksehorn, jaktscener og fruktbarhetssymboler finnes i mange hus, men det er ikke funnet noe sentralt tempel.
+3. **Fellesskap:** Den tette bebyggelsen tyder på et samfunn der folk levde nært hverandre og samarbeidet.
+4. **Overgang:** Catalhoyuk representerer et tidlig stadium i overgangen fra landsby til by -- større enn en landsby, men uten de sosiale strukturene vi forbinder med senere byer.
+
+**Betydning for forskningen:** Catalhoyuk utfordrer antakelsen om at byer alltid innebar hierarki og ulikhet. Det viser at tidlige storbosettinger kunne være relativt egalitære.`,
+    },
+    {
+      id: 'historie-forhistorie-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Sammenlign livet i Catalhoyuk med livet i en norsk by i dag. Hva er likt og hva er forskjellig? Tenk på både fysiske forhold og sosial organisering.',
+        hints: [
+          'Tenk på bolig, arbeidsdeling, styreform, religion og fellesskap',
+        ],
+        solution:
+          'Likheter: 1) Folk bor tett -- både Catalhoyuk og moderne byer har konsentrert bebyggelse. 2) Handel og spesialisering -- folk har ulike yrker. 3) Fellesskap og sosial interaksjon. 4) Behov for regler for sameksistens. Forskjeller: 1) Catalhoyuk hadde ingen gater, offentlige bygninger eller sentral ledelse -- moderne byer har alt dette. 2) Catalhoyuk var mer egalitært, mens moderne byer har stor sosial ulikhet. 3) Religion var privat i Catalhoyuk, mens moderne byer har kirker/templer. 4) Catalhoyuk hadde ingen skrift, penger eller formelt rettssystem. 5) Størrelsesforskjell: 8000 vs. hundretusener/millioner av innbyggere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-2-text-5',
+      type: 'text',
+      content: `## Matproduksjon og bærekraft i historisk perspektiv
+
+Jordbruksrevolusjonen endret ikke bare menneskets forhold til hverandre -- den endret også forholdet til naturen. For første gang begynte mennesker å omforme naturlandskapet i stor skala. Dette er et tema med stor relevans i dag.
+
+**Jordbrukets miljøpåvirkning gjennom historien:**
+- Skog ble ryddet for å gi plass til åkrer (svedjebruk)
+- Overbeiting førte til erosjon og ørkenspredning
+- Irrigasjonssystemer endret vannstrømninger
+- I noen områder (som Mesopotamia) førte intensivt jordbruk til forsalting av jorda
+
+**Den fruktbare halvmåne i dag:**
+Det er tankevekkende at området der jordbruket først oppsto -- Den fruktbare halvmåne -- i dag er langt tørrere og mindre fruktbart enn for tusenvis av år siden. Årelang overutnyttelse av jorda har bidratt til dette.
+
+**Læringspunkter for vår tid:**
+- Jordbruk kan være både skapende og ødeleggende
+- Overutnyttelse av naturressurser er ikke et moderne fenomen
+- Bærekraftig matproduksjon har vært en utfordring gjennom hele menneskets historie
+- Klimaendringer har alltid påvirket sivilisasjoners skjebne
+- I dag står vi overfor lignende utfordringer i mye større skala
+
+**Statistikk i perspektiv:**
+- Ca. 10 000 f.Kr.: Verdens befolkning var ca. 5--10 millioner
+- Ca. 1 e.Kr.: Ca. 200--300 millioner
+- I dag: Over 8 milliarder
+- Denne veksten ble muliggjort av jordbruket, men den utfordrer planetens bæreevne`,
+    },
+    {
+      id: 'historie-forhistorie-2-def-3',
+      type: 'definition',
+      title: 'Bærekraft i historisk perspektiv',
+      content: `**Bærekraft** betyr å dekke dagens behov uten å ødelegge mulighetene for fremtidige generasjoner. Begrepet er moderne, men utfordringen er eldgammel.
+
+**Historiske eksempler på manglende bærekraft:**
+- Mesopotamia: Intensiv irrigasjon førte til forsalting av jorda
+- Romerriket: Avskoging rundt Middelhavet førte til erosjon
+- Påskeøyas sivilisasjon: Overutnyttelse av ressurser førte til samfunnskollaps
+
+**Historiske eksempler på bærekraft:**
+- Vekselsbruk i europeisk middelalder (treskiftebruk)
+- Tradisjonell norsk seterdrift -- utnyttet ulike soner etter sesong
+- Urfolks forvaltning av naturressurser gjennom tusenvis av år
+
+**LK20-relevans:** Kompetansemålet om "matproduksjon og naturressurser -- bærekraft" handler om å forstå at historien til matproduksjon gir viktige lærdommer for fremtiden.`,
+    },
+    {
+      id: 'historie-forhistorie-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Drøft: Hvilke lærdommer kan vi trekke fra jordbruksrevolusjonen og tidlige sivilisasjoners erfaringer med matproduksjon, når vi i dag står overfor utfordringer med bærekraftig matproduksjon og klimaendringer?',
+        hints: [
+          'Tenk på overutnyttelse, monokultur, avhengighet av få arter',
+          'Se på historiske eksempler på både bærekraft og kollaps',
+        ],
+        solution:
+          'Lærdommer: 1) Overutnyttelse av jord og vann kan få katastrofale konsekvenser (Mesopotamias forsalting, avskogingen rundt Middelhavet). 2) Avhengighet av få avlingstyper (monokultur) gjør samfunn sårbare. 3) Klimaendringer har alltid påvirket matproduksjon og kan utløse kriser. 4) Bærekraftige praksiser (vekselsbruk, mangfoldig jordbruk) har historisk vist seg mer holdbare. 5) Befolkningsvekst øker presset på ressursene -- en utfordring som er mye større i dag. 6) Teknologiske løsninger (irrigasjon den gang, genteknologi i dag) kan hjelpe, men kan også skape nye problemer. Historien viser at matproduksjon krever langsiktig tenkning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'historie-forhistorie-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-forhistorie-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Lag en tidslinje som viser de viktigste hendelsene fra menneskets opprinnelse (ca. 300 000 år siden) til de første bystatene (ca. 3500 f.Kr.). Inkluder minst 8 hendelser og forklar kort hvorfor hver hendelse var viktig.',
+        hints: [
+          'Bruk hendelser fra både dette og forrige kapittel',
+          'Tenk på teknologi, sosial organisering og miljøendringer',
+        ],
+        solution:
+          'Tidslinje: 1) Ca. 300 000 år siden: Homo sapiens oppstår i Afrika -- det moderne mennesket. 2) Ca. 70 000 år siden: "Out of Africa" -- mennesket sprer seg ut av Afrika. 3) Ca. 40 000 år siden: Hulemaleriene i Europa (Chauvet) -- symbolsk tenkning. 4) Ca. 15 000 år siden: Hunden domestiseres -- første tamme dyr. 5) Ca. 10 000 f.Kr.: Jordbruksrevolusjonen begynner i Den fruktbare halvmåne. 6) Ca. 9000 f.Kr.: Jeriko grunnlegges -- en av verdens første byer. 7) Ca. 7500 f.Kr.: Catalhoyuk -- stor tidlig bosetting med opptil 8000 innbyggere. 8) Ca. 4000 f.Kr.: Traktbegerkulturen bringer jordbruk til Norden. 9) Ca. 3500 f.Kr.: De første bystatene i Mesopotamia -- sivilisasjonens begynnelse. Hver hendelse representerer et viktig steg i menneskets utvikling mot stadig mer komplekse samfunn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 // ============================================================================
 // KAPITTEL 3: Antikken
 // ============================================================================
@@ -2565,6 +3844,10 @@ export const HISTORIE_CHAPTERS_DEL1 = [
   CHAPTER_HISTORIE_2_2,
   CHAPTER_HISTORIE_2_3,
   CHAPTER_HISTORIE_2_4,
+  CHAPTER_HISTORIE_2_5,
+  CHAPTER_HISTORIE_2_6,
+  CHAPTER_HISTORIE_FORHISTORIE_1,
+  CHAPTER_HISTORIE_FORHISTORIE_2,
   CHAPTER_HISTORIE_3_1,
   CHAPTER_HISTORIE_3_2,
   CHAPTER_HISTORIE_3_3,

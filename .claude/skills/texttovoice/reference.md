@@ -118,6 +118,17 @@ ffprobe -v error -show_entries format=duration -of default=noprint_wrappers=1:no
 ffprobe input.mp3
 ```
 
+## Norsk intro-prefix
+
+For å tvinge norsk uttale, må **ALLE** chunks til ElevenLabs starte med:
+```
+Jeg er en norsk nordmann og heter Daniel. Jeg vil gjerne fortelle deg om noe spennende.
+```
+
+- Lengde: ~90 tegn (trekk fra maks chunk-størrelse)
+- Lydvarighet: ~5-7 sekunder (må kuttes fra hver chunk etterpå)
+- Kutt-metode: Bruk Whisper tiny for å finne slutten av "spennende", kutt med ffmpeg `-ss`
+
 ## Markdown-stripping
 
 ```typescript

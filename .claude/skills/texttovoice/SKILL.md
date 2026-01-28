@@ -60,8 +60,17 @@ Lag skript som:
 
 ### Steg 3: Generer lyd med ElevenLabs
 
+**VIKTIG – Norsk intro-prefix:** For å tvinge ElevenLabs til å bruke norsk uttale (ikke dansk), må **ALLE** chunks starte med denne setningen:
+
+```
+Jeg er en norsk nordmann og heter Daniel. Jeg vil gjerne fortelle deg om noe spennende.
+```
+
+Legg den til i starten av **hver** chunk som sendes til API-et. Introen kuttes bort fra lyden etterpå (se steg 6).
+
 ```typescript
 const VOICE_ID = 'TX3LPaxmHKxFdv7VOQHJ'; // Liam
+const NORSK_INTRO = 'Jeg er en norsk nordmann og heter Daniel. Jeg vil gjerne fortelle deg om noe spennende.\n\n';
 
 await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
   method: 'POST',
@@ -70,7 +79,7 @@ await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({
-    text: chunkText, // Maks 5000 tegn per request
+    text: NORSK_INTRO + chunkText, // Intro + innhold, maks 5000 tegn totalt
     model_id: 'eleven_v3',
     language_code: 'no',
     voice_settings: {
@@ -83,18 +92,33 @@ await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
 });
 ```
 
-**Viktig:** Maks 5000 tegn per API-kall. Del opp ved naturlige pauser (avsnitt).
+**Viktig:** Maks 5000 tegn per API-kall (inkl. intro). Del opp ved naturlige pauser (avsnitt). Husk å trekke fra intro-lengden (~90 tegn) fra chunk-størrelsen.
 
-### Steg 4: Sett sammen chunks (hvis flere)
+### Steg 4: Kutt intro fra hver chunk og sett sammen
+
+Hver chunk starter med den norske introen (~5-7 sekunder). Bruk Whisper på hver chunk for å finne hvor introen slutter, og kutt den bort:
+
+```bash
+# For hver chunk: finn intro-slutt med Whisper
+whisper --model tiny --language no chunk1.mp3 --output_format json --output_dir /tmp/whisper-chunk
+
+# Typisk: introen slutter ved ~5-7 sekunder (se etter "spennende" i transkripsjonen)
+# Kutt introen bort
+ffmpeg -y -i chunk1.mp3 -ss 6.8 -c copy chunk1-clean.mp3
+```
+
+Sett sammen de rensede chunk-filene:
 
 ```bash
 # Lag liste-fil
-echo "file 'chunk1.mp3'" > concat_list.txt
-echo "file 'chunk2.mp3'" >> concat_list.txt
+echo "file 'chunk1-clean.mp3'" > concat_list.txt
+echo "file 'chunk2-clean.mp3'" >> concat_list.txt
 
 # Sett sammen
 ffmpeg -y -f concat -safe 0 -i concat_list.txt -c copy output-full.mp3
 ```
+
+Lagre denne sammensatte filen (uten intro) som master i `_master/`-mappen.
 
 ### Steg 5: Finn segmentgrenser med Whisper
 
@@ -158,9 +182,10 @@ public/audio/historie/
 ## Feilsøking
 
 ### Dansk/svensk uttale
-ElevenLabs kan noen ganger produsere dansk selv med `language_code: "no"`. Løsning:
-1. Generer hele kapittelet som én fil (konsistent språk)
-2. Splitt etterpå med ffmpeg
+ElevenLabs kan noen ganger produsere dansk selv med `language_code: "no"`. Løsninger:
+1. **Norsk intro-prefix (obligatorisk):** Alle chunks MÅ starte med "Jeg er en norsk nordmann og heter Daniel. Jeg vil gjerne fortelle deg om noe spennende." – dette tvinger modellen til norsk uttale. Introen kuttes fra lyden etterpå.
+2. Generer hele kapittelet som én fil (konsistent språk)
+3. Splitt etterpå med ffmpeg
 
 ### For lang tekst (>5000 tegn)
 Del teksten ved avsnitt (dobbel linjeskift) og generer chunks separat.

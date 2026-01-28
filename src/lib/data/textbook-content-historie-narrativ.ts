@@ -522,6 +522,13 @@ export const CHAPTER_HISTORIE_1_3_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-1-3',
   content: [
     {
+      id: 'historie-1-3-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-1-3-n-intro',
       type: 'text',
       content: `## Historiens kapitler
@@ -572,6 +579,13 @@ Den industrielle revolusjon, nasjonalismen, verdenskrigene, den kalde krigen, gl
       },
     },
     {
+      id: 'historie-1-3-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-3-n-section2',
       type: 'text',
       content: `## Problemet med periodegrenser
@@ -604,6 +618,13 @@ Dessuten skjedde ikke endringene over natten. Renessansen begynte i Italia på 1
         ],
         solution: 'Historiske endringer skjer gradvis, ikke plutselig. Renessansen kom til ulike deler av Europa til forskjellige tider, og ulike hendelser er viktige i ulike lands historie.',
       },
+    },
+    {
+      id: 'historie-1-3-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-1-3-n-section3',
@@ -645,6 +666,13 @@ Fra et fattig utkantsland til en av verdens rikeste nasjoner. To verdenskriger, 
       },
     },
     {
+      id: 'historie-1-3-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-3-n-section4',
       type: 'text',
       content: `## «Den mørke middelalderen» – en myte
@@ -680,6 +708,13 @@ Middelalderen var perioden da:
       },
     },
     {
+      id: 'historie-1-3-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-3-n-section5',
       type: 'text',
       content: `## Problemet med eurosentrisme
@@ -710,6 +745,13 @@ Dette betyr ikke at periodisering er ubrukelig. Men vi må huske at det er et *v
         ],
         solution: 'Eurosentrisme betyr at perspektivet tar utgangspunkt i Europa. Den vanlige periodiseringen (antikken, middelalder osv.) er utviklet for å forstå europeisk historie og passer ikke like godt for andre deler av verden.',
       },
+    },
+    {
+      id: 'historie-1-3-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-3-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-1-3-n-summary',
@@ -754,6 +796,13 @@ export const CHAPTER_HISTORIE_1_4_NARRATIV: TextbookChapter = {
   competenceGoals: ['fortolkninger av fortiden preget av nåtid', 'historiebruk av ulike aktører'],
   linkedChapterId: 'historie-1-4',
   content: [
+    {
+      id: 'historie-1-4-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
     {
       id: 'historie-1-4-n-intro',
       type: 'text',
@@ -804,6 +853,13 @@ Ingen av disse bruksmåtene er automatisk «god» eller «dårlig». Men de har 
       },
     },
     {
+      id: 'historie-1-4-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-4-n-section2',
       type: 'text',
       content: `## Vikingene: Et lærerikt eksempel
@@ -841,6 +897,13 @@ Vikingene selv har ikke forandret seg – de levde og døde for over tusen år s
         ],
         solution: 'På 1800-tallet bygget Norge nasjonal identitet etter århundrer under Danmark. Man trengte en stolt fortid å identifisere seg med, og vikingene passet perfekt til dette formålet.',
       },
+    },
+    {
+      id: 'historie-1-4-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-1-4-n-section3',
@@ -883,6 +946,13 @@ Historiemisbruk kan brukes til å rettferdiggjøre hat, diskriminering og vold. 
       },
     },
     {
+      id: 'historie-1-4-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-1-4-n-section4',
       type: 'text',
       content: `## 17. mai: Norsk historiebruk i praksis
@@ -919,6 +989,13 @@ Er dette historiemisbruk? Ikke nødvendigvis. Det er legitimt å feire det gode 
         ],
         solution: 'Den opprinnelige Grunnloven inneholdt en paragraf som nektet jøder, munker og jesuitter adgang til riket. Denne ble først opphevet i 1851 (for jøder) og 1897/1956 (for munker og jesuitter).',
       },
+    },
+    {
+      id: 'historie-1-4-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-1-4-n-section5',
@@ -980,6 +1057,13 @@ For historien er aldri bare fortid. Den er levende, den formes, den brukes – o
         ],
         solution: 'Kritisk historiebevissthet handler om å stille spørsmål: Hvem forteller? Hvorfor? Hva utelates? Det handler ikke om å være kynisk, men om å være bevisst på at alle fremstillinger av fortiden er formet av noen.',
       },
+    },
+    {
+      id: 'historie-1-4-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-1-4-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-1-4-n-summary',
