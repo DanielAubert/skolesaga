@@ -1366,10 +1366,20 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_1: TextbookChapter = {
   chapterNumber: '2.1',
   title: 'Hva er identitet?',
   description: 'Forstå identitetsbegrepet, hva som former vår identitet, og samspillet mellom individ og samfunn.',
-  estimatedMinutes: 30,
+  estimatedMinutes: 45,
   competenceGoals: [
     'reflektere over hvordan identitet utvikles og formes i samspill med andre',
     'drøfte sammenhengen mellom individ og fellesskap',
+  ],
+  keyTerms: [
+    { term: 'Identitet', definition: 'Hvem vi er og hvordan vi oppfatter oss selv - summen av egenskaper, verdier, erfaringer og tilhørigheter' },
+    { term: 'Individuell identitet', definition: 'De unike egenskapene som gjør deg til den du er - personlighet, verdier, drømmer' },
+    { term: 'Sosial identitet', definition: 'Identitet knyttet til gruppetilhørighet - nasjonalitet, etnisitet, religion, kjønn' },
+    { term: 'Speilingsteori', definition: 'G.H. Meads teori om at vi utvikler identitet ved å speile oss i andres reaksjoner' },
+    { term: 'Identitetskrise', definition: 'Perioder i livet der vi søker å finne ut hvem vi er - særlig vanlig i ungdomsårene' },
+    { term: 'Digital identitet', definition: 'Hvordan vi fremstiller oss selv på nett og i sosiale medier' },
+    { term: 'Situasjonell identitet', definition: 'Hvordan identiteten vår kan variere i ulike situasjoner og kontekster' },
+    { term: 'Kulturell identitet', definition: 'Identitet formet av kulturelle verdier, tradisjoner og praksiser du har vokst opp med' },
   ],
   content: [
     {
@@ -1387,7 +1397,14 @@ Identitet er et grunnleggende spørsmål som alle mennesker stiller seg: Hvem er
 - Erfaringer og opplevelser
 - Egne valg og handlinger
 
-Identitet har både stabile og foranderlige elementer. Noen ting ved oss er relativt konstante gjennom livet, mens andre sider utvikles og endres.`,
+Identitet har både stabile og foranderlige elementer. Noen ting ved oss er relativt konstante gjennom livet, mens andre sider utvikles og endres.
+
+**Identitet i det norske samfunnet:**
+I Norge formes identitet både av tradisjonelle norske verdier som likhet, fellesskap og tilknytning til naturen, og av det moderne, pluralistiske samfunnet med rom for individuell selvrealisering. Unge nordmenn navigerer i et landskap der de kan velge mellom ulike identiteter - fra å identifisere seg sterkt med lokal tilhørighet og dialekt, til å definere seg gjennom internasjonale subkulturer på nett.
+
+Mange norske ungdommer opplever at identiteten deres endres avhengig av kontekst. På skolen kan man fremstå på én måte, hjemme hos familie på en annen, og i sosiale medier på en tredje. Dette fenomenet kalles situasjonell identitet og er særlig tydelig i en tid med økt mobilitet og digitale arenaer.
+
+I et samfunn preget av individualisering står nordmenn friere enn tidligere generasjoner til å forme sin egen identitet. Samtidig kan denne friheten også oppleves som et press - kravet om å "finne seg selv" og skape sin egen unike identitet kan være krevende, særlig i ungdomsårene.`,
     },
     {
       id: 'samfunnskunnskap-2-1-def-1',
@@ -1511,6 +1528,32 @@ Det finnes ikke ett "riktig" svar på hvordan man skal forholde seg til sammensa
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'samfunnskunnskap-2-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvordan sosiale medier kan påvirke identitetsutviklingen til unge mennesker. Nevn både positive og negative aspekter.',
+        solution: 'Positive aspekter: Mulighet til å utforske ulike sider av seg selv, finne likesinnede, bygge nettverk. Negative aspekter: Press om å fremstille et perfekt bilde, sammenligning med andre, usikkerhet om hvem man egentlig er versus hvem man fremstår som. Sosiale medier gir en arena for identitetsutforskning, men kan også skape forvirring mellom autentisk selv og digital fasade.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-2-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Analyser hvordan geografisk tilhørighet kan forme identitet i Norge. Sammenlign for eksempel identitetsfølelse knyttet til å vokse opp i Oslo versus en liten bygd i Nord-Norge.',
+        solution: 'Geografisk tilhørighet påvirker identitet gjennom lokal kultur, dialekt, verdier og levemåte. I små bygder kan identitet knyttes sterkere til lokalsamfunn, tradisjonelle yrker og nær tilknytning til naturen. I storbyer som Oslo kan identitet formes mer av mangfold, urban kultur og internasjonale påvirkninger. Begge former for tilhørighet er verdifulle og gir ulik type fellesskap. Mange nordmenn opplever sterk lokal identitet uavhengig av hvor de bor.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
   exercises: [],
 };
@@ -1521,10 +1564,19 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_2: TextbookChapter = {
   chapterNumber: '2.2',
   title: 'Kultur og kulturmøter',
   description: 'Forstå kulturbegrepet, kulturelle forskjeller, og ulike perspektiver på kulturmøter.',
-  estimatedMinutes: 30,
+  estimatedMinutes: 40,
   competenceGoals: [
     'reflektere over hva kultur er og hvordan den påvirker oss',
     'drøfte ulike syn på kulturmøter og kulturelt mangfold',
+  ],
+  keyTerms: [
+    { term: 'Kultur', definition: 'Verdier, normer, tradisjoner og praksiser som kjennetegner en gruppe mennesker' },
+    { term: 'Etnosentrisme', definition: 'Å vurdere andre kulturer ut fra sin egen kultur som målestokk' },
+    { term: 'Kulturrelativisme', definition: 'Å forstå andre kulturer på deres egne premisser' },
+    { term: 'Assimilering', definition: 'Minoriteter tilpasser seg fullstendig til majoritetskulturen' },
+    { term: 'Integrering', definition: 'Minoriteter deltar i samfunnet, men beholder deler av egen kultur' },
+    { term: 'Multikulturalisme', definition: 'Ulike kulturer skal eksistere side om side med like rettigheter' },
+    { term: 'Segregering', definition: 'Kulturgrupper lever atskilt fra hverandre' },
   ],
   content: [
     {
@@ -1543,7 +1595,14 @@ Kultur er et vidt begrep som omfatter alt vi mennesker skaper, tenker og gjør i
 - Normer og verdier
 - Måter å organisere samfunnet på
 
-Kultur er noe vi lærer gjennom sosialisering. Kulturer er i endring over tid, men endringstakten varierer, og noen kulturtrekk er mer bestandige enn andre.`,
+Kultur er noe vi lærer gjennom sosialisering. Kulturer er i endring over tid, men endringstakten varierer, og noen kulturtrekk er mer bestandige enn andre.
+
+**Kultur i Norge:**
+Den norske kulturen er formet av geografiske forhold, historiske hendelser og verdier som har utviklet seg over tid. Typiske norske verdier inkluderer likhet ("janteloven"), nærhet til naturen, dugnad og fellesskap. Men Norge har aldri vært kulturelt homogent - det har alltid eksistert regionale forskjeller, minoritetskulturer og variasjoner i tradisjoner.
+
+I moderne tid har Norge blitt et mer flerkulturelt samfunn gjennom innvandring. Samtidig påvirkes norsk kultur sterkt av global populærkultur, teknologi og internasjonale trender. Unge nordmenn i dag vokser opp med både lokale tradisjoner og globale kulturuttrykk - de kan like både lutefisk og sushi, feire både 17. mai og delefinale i Champions League.
+
+Kulturmøter skaper både muligheter og utfordringer. Mange opplever det som berikende å få kjennskap til andre kulturer, mens andre er bekymret for at tradisjonelle verdier utfordres. Hvordan Norge best skal håndtere kulturelt mangfold er et tema for pågående debatt.`,
     },
     {
       id: 'samfunnskunnskap-2-2-def-1',
@@ -1664,6 +1723,32 @@ Skolen må balansere respekt for ulikheter med behovet for felles normer og samh
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'samfunnskunnskap-2-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Gi konkrete eksempler på hvordan norsk kultur har endret seg de siste 50 årene. Hva har forblitt relativt stabilt?',
+        solution: 'Endret: Matkultur (mer internasjonalt), klesstil, familiestrukturer, holdninger til likestilling og LHBTQ+, religiøsitet. Stabilt: Friluftsliv, dugnad, likhetsverdier, 17. mai-feiring, bålforbud i skogen, allemannsretten. Kulturer endres kontinuerlig, men i ulik takt på ulike områder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-2-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Beskriv en kulturkonflikt som kan oppstå i Norge mellom tradisjonelle norske verdier og andre kulturelle praksiser. Hvordan kan slike konflikter håndteres?',
+        solution: 'Eksempel: Konflikter om kjønnsroller, religiøse klesplagg på arbeidsplassen, forventninger til individets autonomi versus familiens autoritet, syn på likestilling. Håndtering: Åpen dialog, forståelse for ulike perspektiver, tydelige grenser basert på lover og menneskerettigheter, kompromissvilje på begge sider der det er mulig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
   exercises: [],
 };
@@ -1674,10 +1759,20 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_3: TextbookChapter = {
   chapterNumber: '2.3',
   title: 'Etnisitet og nasjonalitet',
   description: 'Forstå begrepene etnisitet og nasjonalitet, og ulike perspektiver på nasjonal tilhørighet.',
-  estimatedMinutes: 30,
+  estimatedMinutes: 40,
   competenceGoals: [
     'drøfte hva som menes med etnisitet og nasjonalitet',
     'reflektere over ulike syn på nasjonal identitet og tilhørighet',
+  ],
+  keyTerms: [
+    { term: 'Etnisitet', definition: 'Opplevd fellesskap basert på antatt felles opphav, kultur, språk, historie eller tradisjoner' },
+    { term: 'Nasjonalitet', definition: 'Tilhørighet til en nasjon eller stat - juridisk (statsborgerskap) eller følelsesmessig' },
+    { term: 'Nasjon', definition: 'Et fellesskap av mennesker som deler kultur, historie, språk og/eller territorium' },
+    { term: 'Stat', definition: 'Et geografisk område med felles regjering og lover' },
+    { term: 'Nasjonalisme', definition: 'Ideologi som vektlegger nasjonen som politisk enhet og nasjonal identitet' },
+    { term: 'Patriotisme', definition: 'Kjærlighet til eget land og dets verdier' },
+    { term: 'Borgerlig nasjonalisme', definition: 'Fellesskap basert på felles lover, verdier og institusjoner' },
+    { term: 'Etnisk nasjonalisme', definition: 'Fellesskap basert på felles opphav og kultur' },
   ],
   content: [
     {
@@ -1693,7 +1788,14 @@ Etnisitet og nasjonalitet er to viktige begreper for å forstå hvordan menneske
 - De er tema for politisk debatt
 - Folk har ulike syn på hva som definerer tilhørighet
 
-Spørsmål om nasjonal identitet og hvem som "hører til" er tema for pågående samfunnsdebatt der folk har ulike synspunkter.`,
+Spørsmål om nasjonal identitet og hvem som "hører til" er tema for pågående samfunnsdebatt der folk har ulike synspunkter.
+
+**Det flerkulturelle Norge:**
+Norge har gått fra å være et relativt homogent samfunn til å bli et flerkulturelt samfunn med innbyggere fra over 200 ulike land. I Oslo snakkes det over 200 språk. Dette mangfoldet har beriket Norge kulturelt og økonomisk, men har også skapt debatter om nasjonal identitet, integrering og hva det vil si å være norsk.
+
+Mange nordmenn med innvandrerbakgrunn opplever å ha sammensatt identitet - de er både norske og har tilhørighet til andre kulturer. En kan for eksempel være både norsk statsborger, etnisk pakistansk, muslim og fotballfan av Manchester United. Slike flerdelte identiteter er vanlige i moderne, flerkulturelle samfunn.
+
+Samtidig finnes det debatt om hvordan det flerkulturelle Norge skal formes. Noen mener at mangfold i seg selv er en styrke og at Norge bør feire ulike kulturer. Andre er bekymret for at sterkt kulturelt mangfold kan undergrave felles verdier og samhold. De fleste nordmenn befinner seg et sted mellom disse ytterpunktene.`,
     },
     {
       id: 'samfunnskunnskap-2-3-def-1',
@@ -1820,6 +1922,32 @@ Det finnes ikke ett "riktig" svar på dette spørsmålet. Det er legitimt å ha 
         type: 'classic',
         task: 'Beskriv ulike former for nasjonalisme og diskuter styrker og svakheter ved hver.',
         solution: 'Patriotisme: Kjærlighet til eget land. Styrke: Skaper samhold. Svakhet: Kan bli blind for feil. Borgerlig nasjonalisme: Basert på felles lover/verdier. Styrke: Inkluderende. Svakhet: Kan mangle kulturell forankring. Etnisk nasjonalisme: Basert på opphav. Styrke: Sterk identitet. Svakhet: Kan ekskludere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-2-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvorfor Norge regnes som et flerkulturelt samfunn i dag. Gi konkrete eksempler på dette mangfoldet.',
+        solution: 'Norge har innbyggere fra over 200 land, over 200 språk snakkes i Oslo, mange religioner praktiseres, ulike kulturelle tradisjoner feires. Eksempler: Eid og Diwali feires sammen med jul og påske, ulike mattradisjoner, internasjonale skoler, religiøse bygg (moskeer, templer, synagoger), kulturarrangementer fra ulike land.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'samfunnskunnskap-2-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'samfunnskunnskap-2-3-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Diskuter: Kan en person ha flere nasjonale identiteter samtidig? Gi eksempler og begrunn svaret.',
+        solution: 'Ja, mange opplever sammensatt nasjonal identitet. Eksempler: Norsk-pakistansk, norsk-samisk, norsk-amerikansk. En kan identifisere seg med flere nasjoner gjennom oppvekst, familie, språk og tilhørighet. Moderne samfunn med migrasjon og globalisering gjør flerdelte identiteter vanligere. Dette kan oppleves som berikende, men også som krevende å navigere.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1987,10 +2115,20 @@ export const CHAPTER_SAMFUNNSKUNNSKAP_2_5: TextbookChapter = {
   chapterNumber: '2.5',
   title: 'Urfolk og nasjonale minoriteter',
   description: 'Lære om samene som urfolk og de nasjonale minoritetene i Norge, deres historie og rettigheter.',
-  estimatedMinutes: 30,
+  estimatedMinutes: 45,
   competenceGoals: [
     'drøfte samenes status som urfolk og deres rettigheter',
     'reflektere over de nasjonale minoritetenes historie og situasjon i Norge',
+  ],
+  keyTerms: [
+    { term: 'Urfolk', definition: 'Folk som har bodd i et område før dagens statsgrenser ble trukket og har opprettholdt egen kultur' },
+    { term: 'Samene', definition: 'Norges urfolk som har bodd i Sápmi i tusenvis av år' },
+    { term: 'Sápmi', definition: 'Det samiske området som strekker seg over Norge, Sverige, Finland og Russland' },
+    { term: 'Sametinget', definition: 'Folkevalgt organ som representerer det samiske folket, opprettet 1989' },
+    { term: 'Fornorskingspolitikken', definition: 'Assimileringspolitikk overfor samer og kvener fra 1850-tallet til 1980-tallet' },
+    { term: 'Nasjonale minoriteter', definition: 'Grupper med lang historie i landet som har opprettholdt kultur og identitet (kvener, skogfinner, jøder, romfolk, romanifolk/tatere)' },
+    { term: 'Duodji', definition: 'Samisk håndverk og kunsthåndverk' },
+    { term: 'Alta-saken', definition: 'Konflikt om kraftutbygging i samisk område (1979-1981) som førte til vendepunkt i samepolitikken' },
   ],
   content: [
     {
@@ -2004,7 +2142,14 @@ Norge er et mangfoldig land med urfolk og nasjonale minoriteter som har bodd her
 - **Urfolk:** Samene
 - **Nasjonale minoriteter:** Kvener/norskfinner, skogfinner, jøder, romfolk og romanifolk/tatere
 
-Disse gruppene har særlige rettigheter i norsk lov og gjennom internasjonale avtaler. Norge har også forpliktet seg til å beskytte og fremme deres kultur og språk.`,
+Disse gruppene har særlige rettigheter i norsk lov og gjennom internasjonale avtaler. Norge har også forpliktet seg til å beskytte og fremme deres kultur og språk.
+
+**Historisk urett og forsoning:**
+Norge har i lang tid ført en politikk som undertrykte og diskriminerte urfolk og nasjonale minoriteter. Fornorskingspolitikken, tvangssterilisering av romanifolk, deportasjon av jøder under 2. verdenskrig og ekskludering av romfolk er mørke kapitler i norsk historie. I dag arbeider Norge for å rette opp historisk urett gjennom anerkjennelse, unnskyldninger og forsoningsprosesser.
+
+Sannhets- og forsoningskommisjonen (opprettet 2018) har dokumentert fornorskingspolitikkens konsekvenser for samer og kvener. Kommisjonen avdekket systematisk kulturutsletting, språkforbud og psykologiske skader som går i generasjoner. Denne erkjennelsen er viktig for læring og forsoning.
+
+I dagens Norge har urfolk og nasjonale minoriteter rettigheter som skal sikre deres kultur, språk og identitet. Samene har særlige rettigheter som urfolk gjennom ILO-konvensjon 169 og Grunnlovens § 108, som slår fast at statens myndigheter skal legge forholdene til rette for at det samiske folk kan sikre og utvikle sitt språk, sin kultur og sitt samfunnsliv.`,
     },
     {
       id: 'samfunnskunnskap-2-5-def-1',

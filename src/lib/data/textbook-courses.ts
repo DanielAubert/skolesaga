@@ -13762,6 +13762,641 @@ export const COURSE_HELSEOPPVEKST_VG3: TextbookCourse = {
 };
 
 // ============================================================================
+// Elektro og datateknologi
+// ============================================================================
+
+export const COURSE_ELEKTRO_DATA_VG1: TextbookCourse = {
+  id: 'elektro-data-vg1',
+  title: 'Elektro og datateknologi VG1',
+  level: 'VG1',
+  description: 'Introduksjon til elektronikk, programmering og digital teknologi',
+  curriculum: 'LK20',
+  icon: '⚡',
+  chapters: [
+    { id: 'elektro-data-vg1-1', number: '1', title: 'Elektronikk grunnleggende', description: 'Grunnleggende elektroniske prinsipper og komponenter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Elektrisitet', 'Elektronikk', 'Komponenter'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-2', number: '2', title: 'Kretser og komponenter', description: 'Bygging og analyse av elektriske kretser.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Kretsanalyse', 'Seriekobling', 'Parallellkobling'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-3', number: '3', title: 'Digital elektronikk', description: 'Digitale signaler og logiske porter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Digitale systemer', 'Logiske porter', 'Tallsystemer'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-4', number: '4', title: 'Programmering grunnleggende', description: 'Introduksjon til programmering og algoritmer.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Programmeringsspråk', 'Algoritmer', 'Variabler'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-5', number: '5', title: 'Nettverk og kommunikasjon', description: 'Nettverksteknologi og datakommunikasjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nettverk', 'Protokoller', 'Dataoverføring'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-6', number: '6', title: 'Elektrisk energi', description: 'Energiproduksjon, overføring og forbruk.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Energi', 'Effekt', 'Energiforsyning'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-7', number: '7', title: 'Sikkerhet og HMS', description: 'Sikker arbeidsmetode og HMS-rutiner.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Arbeidssikkerhet', 'HMS', 'Førstehjelp'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-8', number: '8', title: 'Måleteknikk', description: 'Bruk av måleinstrumenter og måling av elektriske størrelser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Måleinstrumenter', 'Måleteknikk', 'Feilsøking'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-9', number: '9', title: 'Automasjon', description: 'Automatiserte systemer og styring.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Automatisering', 'Sensorer', 'Aktuatorer'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-10', number: '10', title: 'Styringssystemer', description: 'Programmering og drift av styringssystemer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['PLS', 'Styringssystemer', 'Programmering'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-11', number: '11', title: 'Energiforsyning', description: 'Fornybar energi og energiforvaltning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fornybar energi', 'Energisparing', 'Bærekraft'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-12', number: '12', title: 'Dokumentasjon og tegning', description: 'Teknisk dokumentasjon og elektroniske kretsskjemaer.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dokumentasjon', 'Kretsskjemaer', 'Standarder'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-13', number: '13', title: 'Bærekraft og teknologi', description: 'Bærekraftig bruk av elektronikk og energi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Gjenbruk'], competenceGoals: [] },
+    { id: 'elektro-data-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier innen elektro og data.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Spesialisering'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Teknologi- og industrifag
+// ============================================================================
+
+export const COURSE_TIF_VG1: TextbookCourse = {
+  id: 'tif-vg1',
+  title: 'Teknologi- og industrifag VG1',
+  level: 'VG1',
+  description: 'Grunnleggende teknologi, materiallære og produksjonsteknikker',
+  curriculum: 'LK20',
+  icon: '🔧',
+  chapters: [
+    { id: 'tif-vg1-1', number: '1', title: 'Materiallære', description: 'Egenskaper og bruk av ulike materialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Metaller', 'Plast', 'Kompositter'], competenceGoals: [] },
+    { id: 'tif-vg1-2', number: '2', title: 'Sveising og sammenføyning', description: 'Teknikker for å sammenføye materialer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Sveising', 'Lodding', 'Liming'], competenceGoals: [] },
+    { id: 'tif-vg1-3', number: '3', title: 'Maskinering', description: 'Bearbeiding av metall og andre materialer.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Dreiebenk', 'Fresing', 'Boring'], competenceGoals: [] },
+    { id: 'tif-vg1-4', number: '4', title: 'Tegning og dokumentasjon', description: 'Teknisk tegning og dokumentasjon av produksjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Teknisk tegning', 'CAD', 'Toleranser'], competenceGoals: [] },
+    { id: 'tif-vg1-5', number: '5', title: 'HMS og sikkerhet', description: 'Sikker arbeidsmetode i industrien.', estimatedMinutes: 50, exerciseCount: 4, topics: ['HMS', 'Verneutstyr', 'Risikovurdering'], competenceGoals: [] },
+    { id: 'tif-vg1-6', number: '6', title: 'Hydraulikk og pneumatikk', description: 'Væske- og luftdrevne systemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Hydraulikk', 'Pneumatikk', 'Trykkluft'], competenceGoals: [] },
+    { id: 'tif-vg1-7', number: '7', title: 'Vedlikehold', description: 'Forebyggende og korrektivt vedlikehold.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vedlikehold', 'Smøring', 'Inspeksjon'], competenceGoals: [] },
+    { id: 'tif-vg1-8', number: '8', title: 'Kvalitetskontroll', description: 'Kvalitetssikring og kontrollmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kvalitet', 'Måling', 'Toleranser'], competenceGoals: [] },
+    { id: 'tif-vg1-9', number: '9', title: 'Automatisering', description: 'Automatiserte produksjonssystemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Automasjon', 'Roboter', 'PLS'], competenceGoals: [] },
+    { id: 'tif-vg1-10', number: '10', title: 'CNC-teknikk', description: 'Datastyrt maskinering og programmering.', estimatedMinutes: 65, exerciseCount: 6, topics: ['CNC', 'G-kode', 'CAM'], competenceGoals: [] },
+    { id: 'tif-vg1-11', number: '11', title: 'Bærekraftig produksjon', description: 'Miljøvennlig og ressurseffektiv produksjon.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Resirkulering', 'Energieffektivisering'], competenceGoals: [] },
+    { id: 'tif-vg1-12', number: '12', title: 'Prosjektarbeid', description: 'Planlegging og gjennomføring av produksjonsprosjekt.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Prosjektstyring', 'Planlegging', 'Gjennomføring'], competenceGoals: [] },
+    { id: 'tif-vg1-13', number: '13', title: 'Yrkesmuligheter', description: 'Karriereveier innen industri og teknologi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Lærlingordning', 'Videreutdanning'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Bygg- og anleggsteknikk
+// ============================================================================
+
+export const COURSE_BYGG_ANLEGG_VG1: TextbookCourse = {
+  id: 'bygg-anlegg-vg1',
+  title: 'Bygg- og anleggsteknikk VG1',
+  level: 'VG1',
+  description: 'Grunnleggende byggteknikk, materialer og konstruksjonsmetoder',
+  curriculum: 'LK20',
+  icon: '🏗️',
+  chapters: [
+    { id: 'bygg-anlegg-vg1-1', number: '1', title: 'Byggematerialer', description: 'Egenskaper og bruk av byggematerialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Betong', 'Tre', 'Tegl'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-2', number: '2', title: 'Tegning og BIM', description: 'Byggetegninger og digitale verktøy.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Byggetegninger', 'BIM', 'Målestokk'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-3', number: '3', title: 'Grunnarbeid og betong', description: 'Fundamentering og betongarbeider.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Grunnarbeid', 'Betongstøping', 'Forskaling'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-4', number: '4', title: 'Trekonstruksjoner', description: 'Bygging med tre og trekonstruksjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Bindingsverk', 'Takstol', 'Trebearbeiding'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-5', number: '5', title: 'Muring og pussing', description: 'Murverksteknikk og overflatebehandling.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Muring', 'Puss', 'Murblokker'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-6', number: '6', title: 'Verktøy og maskiner', description: 'Bruk og vedlikehold av byggverktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Håndverktøy', 'Maskiner', 'Vedlikehold'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-7', number: '7', title: 'HMS og sikkerhet', description: 'Sikker arbeidsmetode på byggeplass.', estimatedMinutes: 50, exerciseCount: 4, topics: ['HMS', 'Verneutstyr', 'Sikkerhet'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-8', number: '8', title: 'Isolasjon og tetting', description: 'Energi og fuktsperre i bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Isolasjon', 'Dampsperre', 'Tetting'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-9', number: '9', title: 'Bygningsfysikk', description: 'Varme, fukt og lyd i bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Varmeisolering', 'Fuktsperre', 'Lyddemping'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-10', number: '10', title: 'Prosjektplanlegging', description: 'Planlegging av byggeprosjekter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Prosjektplanlegging', 'Kostnadsberegning', 'Fremdrift'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-11', number: '11', title: 'Miljø og bærekraft', description: 'Miljøvennlig bygging og gjenbruk.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Sirkulær økonomi'], competenceGoals: [] },
+    { id: 'bygg-anlegg-vg1-12', number: '12', title: 'Yrkesmuligheter', description: 'Karriereveier innen bygg og anlegg.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Fagbrev', 'Spesialisering'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Restaurant- og matfag
+// ============================================================================
+
+export const COURSE_RESTAURANT_MAT_VG1: TextbookCourse = {
+  id: 'restaurant-mat-vg1',
+  title: 'Restaurant- og matfag VG1',
+  level: 'VG1',
+  description: 'Grunnleggende kunnskaper om matlagingsteknikker, hygiene, ernæring og servering',
+  curriculum: 'LK20',
+  icon: '🍳',
+  chapters: [
+    { id: 'restaurant-mat-vg1-1', number: '1', title: 'Råvarer og matvarekunnskap', description: 'Kjøtt, fisk, grønnsaker og andre råvarer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Råvarer', 'Kvalitetsvurdering', 'Lagring'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-2', number: '2', title: 'Hygiene og mattrygghet', description: 'Personlig hygiene og trygg håndtering av mat.', estimatedMinutes: 55, exerciseCount: 5, topics: ['HACCP', 'Renhold', 'Bakterier'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-3', number: '3', title: 'Grunnleggende matlagingsteknikker', description: 'Koking, steking, baking og andre teknikker.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Koketeknikker', 'Varmebehandling', 'Smakssetting'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-4', number: '4', title: 'Bakst og desserter', description: 'Brød, kaker og søte retter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Deigtyper', 'Bakeprosessen', 'Desserter'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-5', number: '5', title: 'Ernæring og kosthold', description: 'Sunne matvaner og næringsinnhold.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Næringsstoffer', 'Kostråd', 'Helse'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-6', number: '6', title: 'Menyplanlegging', description: 'Planlegge og komponere menyer.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Menyutvikling', 'Sesong', 'Kostnadskontroll'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-7', number: '7', title: 'Servering og vertskap', description: 'Kundeservice og bordservering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Service', 'Kommunikasjon', 'Borddekning'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-8', number: '8', title: 'Norsk matkultur og tradisjoner', description: 'Tradisjonelle norske retter og mattradisjoner.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Mattradisjoner', 'Lokale råvarer', 'Kulturarv'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-9', number: '9', title: 'Internasjonal mat', description: 'Retter fra ulike kulturer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Verdenskjøkken', 'Kulturforståelse', 'Smaksnyanser'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-10', number: '10', title: 'Allergener og spesialkost', description: 'Matvareallergier og spesielle kostbehov.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Allergener', 'Intoleranser', 'Merking'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-11', number: '11', title: 'Bærekraftig matproduksjon', description: 'Miljøvennlig matproduksjon og matsvinn.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Matsvinn', 'Miljø'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-12', number: '12', title: 'Økonomi og drift', description: 'Kalkyle, prising og lønnsomhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kalkulasjon', 'Prising', 'Drift'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-13', number: '13', title: 'HMS i kjøkken', description: 'Arbeidsmiljø og sikkerhet i kjøkkenet.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Sikkerhet', 'Ergonomi', 'Vernetiltak'], competenceGoals: [] },
+    { id: 'restaurant-mat-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier i restaurant- og matfag.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Naturbruk
+// ============================================================================
+
+export const COURSE_NATURBRUK_VG1: TextbookCourse = {
+  id: 'naturbruk-vg1',
+  title: 'Naturbruk VG1',
+  level: 'VG1',
+  description: 'Introduksjon til naturbruksfag med fokus på bærekraftig ressursforvaltning',
+  curriculum: 'LK20',
+  icon: '🌿',
+  chapters: [
+    { id: 'naturbruk-vg1-1', number: '1', title: 'Økosystemer og naturmangfold', description: 'Naturens sammenhenger og artsmangfold.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Økologi', 'Biodiversitet', 'Naturtyper'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-2', number: '2', title: 'Jord og plantelære', description: 'Jordtyper, jordkvalitet og plantevekst.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Jordbunn', 'Plantevekst', 'Næring'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-3', number: '3', title: 'Skogbruk', description: 'Skogforvaltning og trevirke.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Skogsdrift', 'Treslagslære', 'Hogst'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-4', number: '4', title: 'Dyrehold og dyrevelferd', description: 'Husdyrhold og ansvarlig dyrestell.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Dyrevelferd', 'Fôring', 'Helse'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-5', number: '5', title: 'Landbruk og matproduksjon', description: 'Plantedyrking og matproduksjon.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Åkerdrift', 'Plantekultur', 'Gjødsling'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-6', number: '6', title: 'Akvakultur og fiskeri', description: 'Fiskeoppdrett og ressursforvaltning i havet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Havbruk', 'Fiskeslag', 'Produksjon'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-7', number: '7', title: 'Utmarksforvaltning', description: 'Jakt, fiske og bærekraftig forvaltning.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Jakt', 'Fiske', 'Viltforvaltning'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-8', number: '8', title: 'Friluftsliv og naturveiledning', description: 'Naturopplevelser og veiledning.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Friluftsliv', 'Naturformidling', 'Alenemansretten'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-9', number: '9', title: 'Maskinlære og verktøy', description: 'Maskiner og utstyr i naturbruk.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Traktor', 'Redskaper', 'Vedlikehold'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-10', number: '10', title: 'HMS og sikkerhet', description: 'Arbeidsmiljø og sikkerhet i naturbruk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sikkerhet', 'Risiko', 'Verneutstyr'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-11', number: '11', title: 'Bærekraftig ressursforvaltning', description: 'Ansvarlig bruk av naturressurser.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Bærekraft', 'Ressursbruk', 'Sertifisering'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-12', number: '12', title: 'Klima og miljø', description: 'Klimaendringer og miljøutfordringer.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Klima', 'Miljø', 'Tilpasning'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-13', number: '13', title: 'Entreprenørskap i naturbruk', description: 'Etablering og drift av naturbruksvirksomhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Forretningsidé', 'Økonomi', 'Innovasjon'], competenceGoals: [] },
+    { id: 'naturbruk-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier i naturbruksnæringen.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Informasjonsteknologi og medieproduksjon
+// ============================================================================
+
+export const COURSE_IM_VG1: TextbookCourse = {
+  id: 'im-vg1',
+  title: 'Informasjonsteknologi og medieproduksjon VG1',
+  level: 'VG1',
+  description: 'Grunnleggende digital kompetanse, programmering og medieproduksjon',
+  curriculum: 'LK20',
+  icon: '💻',
+  chapters: [
+    { id: 'im-vg1-1', number: '1', title: 'Grunnleggende IT', description: 'Datamaskiner, nettverk og digitale verktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Maskinvare', 'Programvare', 'Nettverksteknologi'], competenceGoals: [] },
+    { id: 'im-vg1-2', number: '2', title: 'Programmering intro', description: 'Grunnleggende programmeringskonsepter.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Algoritmer', 'Variabler', 'Løkker'], competenceGoals: [] },
+    { id: 'im-vg1-3', number: '3', title: 'Webutvikling', description: 'HTML, CSS og grunnleggende webutvikling.', estimatedMinutes: 65, exerciseCount: 6, topics: ['HTML', 'CSS', 'Webdesign'], competenceGoals: [] },
+    { id: 'im-vg1-4', number: '4', title: 'Databaser', description: 'Grunnleggende databasekunnskap.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Database', 'SQL', 'Datamodellering'], competenceGoals: [] },
+    { id: 'im-vg1-5', number: '5', title: 'Nettverk og sikkerhet', description: 'Nettverksteknologi og informasjonssikkerhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nettverk', 'Sikkerhet', 'Trusler'], competenceGoals: [] },
+    { id: 'im-vg1-6', number: '6', title: 'Bildeproduksjon og design', description: 'Grafikk, bildebehandling og designprinsipper.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Grafikk', 'Bildebehandling', 'Design'], competenceGoals: [] },
+    { id: 'im-vg1-7', number: '7', title: 'Video- og lydproduksjon', description: 'Filmproduksjon og lydopptak.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Video', 'Lyd', 'Redigering'], competenceGoals: [] },
+    { id: 'im-vg1-8', number: '8', title: 'Sosiale medier og innholdsproduksjon', description: 'Sosiale medier og digitalt innhold.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sosiale medier', 'Innholdsmarkedsføring', 'Strategi'], competenceGoals: [] },
+    { id: 'im-vg1-9', number: '9', title: 'UX-design og brukervennlighet', description: 'Brukeropplevelse og design.', estimatedMinutes: 55, exerciseCount: 4, topics: ['UX', 'Brukbarhet', 'Prototyping'], competenceGoals: [] },
+    { id: 'im-vg1-10', number: '10', title: 'Personvern og etikk', description: 'GDPR, etiske dilemmaer og digitale rettigheter.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Personvern', 'GDPR', 'Etikk'], competenceGoals: [] },
+    { id: 'im-vg1-11', number: '11', title: 'Prosjektarbeid', description: 'Prosjektmetodikk og samarbeid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Prosjekt', 'Samarbeid', 'Agil'], competenceGoals: [] },
+    { id: 'im-vg1-12', number: '12', title: 'Bærekraft og teknologi', description: 'Grønn IT og bærekraftig teknologibruk.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Bærekraft', 'Energi', 'E-avfall'], competenceGoals: [] },
+    { id: 'im-vg1-13', number: '13', title: 'Yrkesmuligheter', description: 'Karriereveier i IT og medieproduksjon.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
+  ],
+};
+
+// ============================================================================
+// Salg, service og reiseliv
+// ============================================================================
+
+export const COURSE_SALG_SERVICE_VG1: TextbookCourse = {
+  id: 'salg-service-vg1',
+  title: 'Salg, service og reiseliv VG1',
+  level: 'VG1',
+  description: 'Grunnleggende kunnskap om salg, kundebehandling, markedsføring og reiseliv. Kurset gir en innføring i varehandel, service, kommunikasjon og bærekraftig forretningsdrift.',
+  curriculum: 'LK20',
+  icon: '🛍️',
+  chapters: [
+    {
+      id: 'salg-service-vg1-1',
+      number: '1',
+      title: 'Salgsprosessen',
+      description: 'Fasene i salgsprosessen fra kundemøte til avslutning. Aktiv lytting, behovsavklaring og salgsteknikker.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Salgsfaser', 'Kundemøte', 'Behovsavklaring', 'Salgsavslutning'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-2',
+      number: '2',
+      title: 'Kundebehandling og service',
+      description: 'Kundeservice, reklamasjonsbehandling, konflikthåndtering og kundetilfredshet.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Kundeservice', 'Reklamasjoner', 'Konfliktløsning', 'Kundetilfredshet'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-3',
+      number: '3',
+      title: 'Markedsføring grunnleggende',
+      description: 'Markedsmiks, målgrupper, merkevarebygging og markedsføringskanaler.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Markedsmiks', 'Målgrupper', 'Merkevare', 'Markedskanaler'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-4',
+      number: '4',
+      title: 'Digital markedsføring',
+      description: 'Sosiale medier, netthandel, SEO og digital kommunikasjon med kunder.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Sosiale medier', 'Netthandel', 'SEO', 'Digital kommunikasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-5',
+      number: '5',
+      title: 'Reiseliv og turisme',
+      description: 'Reiselivsbransjen, destinasjonsutvikling, kulturomsorg og bærekraftig turisme.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Reiselivsbransjen', 'Destinasjoner', 'Kulturturisme', 'Bærekraftig reiseliv'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-6',
+      number: '6',
+      title: 'Økonomi og regnskap grunnleggende',
+      description: 'Lønnsomhet, prissetting, kostnader, budsjett og enkel regnskapsføring.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Lønnsomhet', 'Prissetting', 'Kostnader', 'Budsjett', 'Regnskap'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-7',
+      number: '7',
+      title: 'Kommunikasjon og presentasjon',
+      description: 'Muntlig og skriftlig kommunikasjon, presentasjonsteknikk og kroppsspråk.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Kommunikasjon', 'Presentasjonsteknikk', 'Kroppsspråk', 'Skriftlig formidling'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-8',
+      number: '8',
+      title: 'Forbrukerrettigheter',
+      description: 'Forbrukerkjøpsloven, angrerett, garanti, reklamasjon og personvern.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Forbrukerkjøpsloven', 'Angrerett', 'Garanti', 'Personvern'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-9',
+      number: '9',
+      title: 'Butikkdrift og varehandel',
+      description: 'Butikkorganisering, varemottak, kassarutiner og varepresentasjon.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Butikkorganisering', 'Varemottak', 'Kasse', 'Varepresentasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-10',
+      number: '10',
+      title: 'Logistikk og lagerstyring',
+      description: 'Lagerstyring, bestilling, vareflyt og FIFO-prinsippet.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Lagerstyring', 'Bestilling', 'Vareflyt', 'FIFO'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-11',
+      number: '11',
+      title: 'Bærekraftig handel og turisme',
+      description: 'Miljøbevisst forretningsdrift, etisk handel, sirkulærøkonomi og grønne verdikjeder.',
+      estimatedMinutes: 45,
+      exerciseCount: 5,
+      topics: ['Bærekraft', 'Etisk handel', 'Sirkulærøkonomi', 'Grønne verdikjeder'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-12',
+      number: '12',
+      title: 'HMS og arbeidsmiljø',
+      description: 'Helse, miljø og sikkerhet i servicebransjen. Ergonomi, brannsikkerhet og arbeidsmiljøloven.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['HMS', 'Ergonomi', 'Brannsikkerhet', 'Arbeidsmiljøloven'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-13',
+      number: '13',
+      title: 'Entreprenørskap',
+      description: 'Forretningsidé, forretningsplan, oppstart av bedrift og innovasjon.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Forretningsidé', 'Forretningsplan', 'Bedriftsoppstart', 'Innovasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'salg-service-vg1-14',
+      number: '14',
+      title: 'Yrkesmuligheter',
+      description: 'Karriereveier i salg, service og reiseliv. Videregående opplæring og arbeidsmarked.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Karriereveier', 'Videregående utdanning', 'Arbeidsmarked', 'Praksis'],
+      competenceGoals: []
+    }
+  ]
+};
+
+// ============================================================================
+// Håndverk, design og produktutvikling
+// ============================================================================
+
+export const COURSE_HANDVERK_DESIGN_VG1: TextbookCourse = {
+  id: 'handverk-design-vg1',
+  title: 'Håndverk, design og produktutvikling VG1',
+  level: 'VG1',
+  description: 'Grunnleggende kunnskap om design, materialer, håndverksteknikker og produktutvikling. Kurset kombinerer tradisjonelt håndverk med digital design og bærekraftig produksjon.',
+  curriculum: 'LK20',
+  icon: '🎨',
+  chapters: [
+    {
+      id: 'handverk-design-vg1-1',
+      number: '1',
+      title: 'Design og formgiving',
+      description: 'Designprinsipper, proporsjoner, balanse, kontrast og harmoni. Estetikk og funksjonalitet.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Designprinsipper', 'Proporsjoner', 'Balanse', 'Estetikk', 'Funksjonalitet'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-2',
+      number: '2',
+      title: 'Materialer og teknikker',
+      description: 'Tre, metall, tekstil, keramikk, plast og kompositter. Materialegenskaper og bearbeidingsmetoder.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Tre', 'Metall', 'Tekstil', 'Keramikk', 'Materialkunnskap'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-3',
+      number: '3',
+      title: 'Tegning og skissering',
+      description: 'Frihåndstegning, perspektiv, skygge, proporsjoner og idéskisser.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Frihåndstegning', 'Perspektiv', 'Skygge', 'Idéskisser'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-4',
+      number: '4',
+      title: 'Digital design og verktøy',
+      description: 'CAD, 3D-modellering, laserskjæring, 3D-printing og digitale designverktøy.',
+      estimatedMinutes: 65,
+      exerciseCount: 6,
+      topics: ['CAD', '3D-modellering', 'Laserskjæring', '3D-printing'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-5',
+      number: '5',
+      title: 'Håndverksteknikker',
+      description: 'Tradisjonelle teknikker innen tresnekring, smiing, sying, keramikk og annet håndverk.',
+      estimatedMinutes: 60,
+      exerciseCount: 5,
+      topics: ['Tresnekring', 'Smiing', 'Sying', 'Keramikk', 'Håndverkskunst'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-6',
+      number: '6',
+      title: 'Produktutvikling og prototyping',
+      description: 'Idégenerering, konseptutvikling, prototyping og testing av produkter.',
+      estimatedMinutes: 65,
+      exerciseCount: 6,
+      topics: ['Idégenerering', 'Konseptutvikling', 'Prototyping', 'Testing'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-7',
+      number: '7',
+      title: 'Farge og komposisjon',
+      description: 'Fargelære, fargeharmonier, kontrast, komplementærfarger og fargebruk i design.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Fargelære', 'Fargeharmonier', 'Kontrast', 'Komplementærfarger'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-8',
+      number: '8',
+      title: 'Designhistorie og tradisjoner',
+      description: 'Designhistorie fra antikken til modernismen. Norsk designtradisjon og internasjonale stilretninger.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Designhistorie', 'Modernisme', 'Norsk design', 'Stilretninger'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-9',
+      number: '9',
+      title: 'Bærekraftig design',
+      description: 'Miljøvennlige materialer, sirkulær design, gjenbruk, reparasjon og redusert avfall.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Miljøvennlig design', 'Sirkulær design', 'Gjenbruk', 'Reparasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-10',
+      number: '10',
+      title: 'Entreprenørskap og forretning',
+      description: 'Å starte egen håndverksbedrift, prissetting, markedsføring og nettbutikk.',
+      estimatedMinutes: 55,
+      exerciseCount: 6,
+      topics: ['Håndverksbedrift', 'Prissetting', 'Markedsføring', 'Nettbutikk'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-11',
+      number: '11',
+      title: 'HMS i verksted',
+      description: 'Sikkerhet med verktøy og maskiner, verneutstyr, arbeidsmiljø og førstehjelpsberedskap.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Verktøysikkerhet', 'Verneutstyr', 'Arbeidsmiljø', 'Førstehjelp'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-12',
+      number: '12',
+      title: 'Presentasjon og utstilling',
+      description: 'Hvordan presentere egne produkter, portefølje, utstillingsteknikk og visuell kommunikasjon.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Produktpresentasjon', 'Portefølje', 'Utstillingsteknikk', 'Visuell kommunikasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-13',
+      number: '13',
+      title: 'Norsk håndverkstradisjon',
+      description: 'Rosemaling, bunad, tredreiing, smijing og andre norske håndverkstradisjoner.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Rosemaling', 'Bunad', 'Tredreiing', 'Norsk håndverk'],
+      competenceGoals: []
+    },
+    {
+      id: 'handverk-design-vg1-14',
+      number: '14',
+      title: 'Yrkesmuligheter',
+      description: 'Karriereveier innen håndverk, design og produktutvikling. Fagbrev og høyere utdanning.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Karriereveier', 'Fagbrev', 'Design-utdanning', 'Arbeidsmarked'],
+      competenceGoals: []
+    }
+  ]
+};
+
+// ============================================================================
+// Frisør, blomster, interiør og eksponeringsdesign
+// ============================================================================
+
+export const COURSE_FRISOR_BLOMSTER_VG1: TextbookCourse = {
+  id: 'frisor-blomster-vg1',
+  title: 'Frisør, blomster, interiør og eksponeringsdesign VG1',
+  level: 'VG1',
+  description: 'Grunnleggende kunnskap om frisørfaget, blomsterdesign, interiørdesign og visuell eksponering. Kurset kombinerer kreativitet, håndverk, kundebehandling og estetisk forståelse.',
+  curriculum: 'LK20',
+  icon: '💐',
+  chapters: [
+    {
+      id: 'frisor-blomster-vg1-1',
+      number: '1',
+      title: 'Faget og yrkene',
+      description: 'Oversikt over yrkene frisør, blomsterdekoratør, interiørdesigner og visuell merchandiser. Karriereveier og utdanningsmuligheter.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Frisør', 'Blomsterdekoratør', 'Interiørdesigner', 'Visuell merchandiser', 'Karriereveier'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-2',
+      number: '2',
+      title: 'Farge og form',
+      description: 'Fargelære, fargeharmonier, formspråk, proporsjoner og komposisjonsprinsipper.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Fargelære', 'Fargeharmonier', 'Formspråk', 'Proporsjoner', 'Komposisjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-3',
+      number: '3',
+      title: 'Materialkunnskap',
+      description: 'Hårtyper, hårprodukter, blomster, planter, interiørmaterialer og verktøy.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Hårtyper', 'Hårprodukter', 'Blomster', 'Planter', 'Interiørmaterialer'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-4',
+      number: '4',
+      title: 'Hygiene og HMS',
+      description: 'Hygiene i salong, desinfeksjon, ergonomi, kjemikaliesikkerhet og arbeidsmiljøloven.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Hygiene', 'Desinfeksjon', 'Ergonomi', 'Kjemikaliesikkerhet', 'HMS'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-5',
+      number: '5',
+      title: 'Kundebehandling og kommunikasjon',
+      description: 'Kundedialog, behovsavklaring, service, reklamasjonsbehandling og kommunikasjonsteknikker.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Kundedialog', 'Behovsavklaring', 'Service', 'Reklamasjoner', 'Kommunikasjon'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-6',
+      number: '6',
+      title: 'Hår - grunnleggende teknikker',
+      description: 'Hårvask, føning, klipping, fargelegging og permanentteknikker. Verktøybruk og sikkerhet.',
+      estimatedMinutes: 65,
+      exerciseCount: 6,
+      topics: ['Hårvask', 'Føning', 'Klipping', 'Fargelegging', 'Permanent'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-7',
+      number: '7',
+      title: 'Blomster og plantelære',
+      description: 'Blomstertyper, plantepleie, bindeteknikker, buketter, kranse og arrangementer.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Blomstertyper', 'Plantepleie', 'Bindeteknikker', 'Buketter', 'Kranse'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-8',
+      number: '8',
+      title: 'Interiør og romforståelse',
+      description: 'Romplanlegging, møblering, lyssetting, tekstiler og interiørstiler.',
+      estimatedMinutes: 55,
+      exerciseCount: 5,
+      topics: ['Romplanlegging', 'Møblering', 'Lyssetting', 'Tekstiler', 'Interiørstiler'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-9',
+      number: '9',
+      title: 'Eksponeringsdesign og visuell merchandising',
+      description: 'Vindusutstilling, butikkeksponering, visuell kommunikasjon, reklameutstilling og salgsfremmende tiltak.',
+      estimatedMinutes: 60,
+      exerciseCount: 6,
+      topics: ['Vindusutstilling', 'Butikkeksponering', 'Visuell kommunikasjon', 'Salgsfremmende tiltak'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-10',
+      number: '10',
+      title: 'Trender og stilhistorie',
+      description: 'Mote- og designhistorie, stilretninger, aktuelle trender og trendanalyse.',
+      estimatedMinutes: 50,
+      exerciseCount: 5,
+      topics: ['Motehistorie', 'Designhistorie', 'Stilretninger', 'Trender', 'Trendanalyse'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-11',
+      number: '11',
+      title: 'Bærekraft og miljø',
+      description: 'Miljøvennlige produkter, avfallshåndtering, økologiske blomster og bærekraftig forretningsdrift.',
+      estimatedMinutes: 45,
+      exerciseCount: 5,
+      topics: ['Miljøvennlige produkter', 'Avfallshåndtering', 'Økologiske blomster', 'Bærekraft'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-12',
+      number: '12',
+      title: 'Entreprenørskap',
+      description: 'Starte egen salong, prissetting, markedsføring, kundebase og forretningsplan.',
+      estimatedMinutes: 55,
+      exerciseCount: 6,
+      topics: ['Salong-oppstart', 'Prissetting', 'Markedsføring', 'Kundebase', 'Forretningsplan'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-13',
+      number: '13',
+      title: 'Kreativt prosjektarbeid',
+      description: 'Planlegge og gjennomføre et kreativt prosjekt. Idéutvikling, gjennomføring, presentasjon og evaluering.',
+      estimatedMinutes: 65,
+      exerciseCount: 5,
+      topics: ['Prosjektplanlegging', 'Idéutvikling', 'Gjennomføring', 'Presentasjon', 'Evaluering'],
+      competenceGoals: []
+    },
+    {
+      id: 'frisor-blomster-vg1-14',
+      number: '14',
+      title: 'Yrkesmuligheter',
+      description: 'Fagbrev, karriereveier, spesialisering og arbeidsmarked innen frisør, blomster, interiør og eksponeringsdesign.',
+      estimatedMinutes: 45,
+      exerciseCount: 4,
+      topics: ['Fagbrev', 'Karriereveier', 'Spesialisering', 'Arbeidsmarked'],
+      competenceGoals: []
+    }
+  ]
+};
+
+// ============================================================================
 // Alle kurs
 // ============================================================================
 
@@ -13904,6 +14539,24 @@ export const TEXTBOOK_COURSES: TextbookCourse[] = [
   COURSE_HELSEOPPVEKST_VG1,
   COURSE_HELSEOPPVEKST_VG2,
   COURSE_HELSEOPPVEKST_VG3,
+  // Elektro og datateknologi
+  COURSE_ELEKTRO_DATA_VG1,
+  // Teknologi- og industrifag
+  COURSE_TIF_VG1,
+  // Bygg- og anleggsteknikk
+  COURSE_BYGG_ANLEGG_VG1,
+  // Restaurant- og matfag
+  COURSE_RESTAURANT_MAT_VG1,
+  // Naturbruk
+  COURSE_NATURBRUK_VG1,
+  // Informasjonsteknologi og medieproduksjon
+  COURSE_IM_VG1,
+  // Salg, service og reiseliv
+  COURSE_SALG_SERVICE_VG1,
+  // Håndverk, design og produktutvikling
+  COURSE_HANDVERK_DESIGN_VG1,
+  // Frisør, blomster, interiør og eksponeringsdesign
+  COURSE_FRISOR_BLOMSTER_VG1,
 ];
 
 // Hjelpefunksjoner

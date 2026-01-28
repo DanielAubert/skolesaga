@@ -56,6 +56,7 @@ export interface TextbookChapter {
   estimatedMinutes: number;
   prerequisites?: string[];
   competenceGoals?: string[];
+  keyTerms?: { term: string; definition: string }[];
   nextChapter?: string;
   prevChapter?: string;
   linkedChapterId?: string;          // ID til alternativ versjon av samme kapittel

@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck, ArrowLeftRight } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck, ArrowLeftRight, LayoutGrid } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -18,6 +18,14 @@ import { UserMenu } from '@/components/auth/user-menu';
 import { useUser } from '@/lib/auth/hooks';
 import { SkillLevelIndicator } from './skill-level-indicator';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
+
+function getLevelGradeSlug(level: string): string {
+  const lower = level.toLowerCase();
+  if (lower.startsWith('vg')) return lower;
+  const match = lower.match(/^(\d+)/);
+  if (match) return match[1];
+  return lower;
+}
 
 interface ChapterNavInfo {
   id: string;
@@ -315,6 +323,19 @@ export function TextbookChapterView({
           </div>
         </div>
       )}
+
+      {/* Tilbake til fagoversikt */}
+      <div className="container mx-auto px-4 pt-4">
+        <div className="max-w-3xl mx-auto">
+          <Link
+            href={`/bok/trinn/${getLevelGradeSlug(course.level)}`}
+            className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <LayoutGrid className="h-4 w-4" />
+            <span>Alle fag for {course.level}</span>
+          </Link>
+        </div>
+      </div>
 
       {/* Hovedinnhold */}
       <main className="container mx-auto px-4 py-8">
