@@ -27,15 +27,15 @@ export const CHAPTER_HISTORIE_4_1_NARRATIV: TextbookChapter = {
     {
       id: 'historie-4-1-n-intro',
       type: 'text',
-      content: `## Da lyset sluknet i Roma
+      content: `## Da Vest-Europa ble omformet
 
-Forestill deg at du lever i Vest-Europa en gang på 500-tallet. Det enorme Romerriket, som i århundrer holdt orden, bygde veier, drev handel og beskyttet innbyggerne med sine legioner, har kollapset. Veiene forfaller. Byene krymper. Mynter forsvinner fra omlop. Den sentraliserte makten som holdt alt sammen er borte, og i vakuumet vokser kaos.
+Forestill deg at du lever i Vest-Europa en gang på 500-tallet. Det enorme Vest-Romerriket, som i århundrer bygde veier, drev handel og opprettholdt en sentralisert administrasjon, har gått i oppløsning. Veiene forfaller. Byene krymper. Mynter forsvinner fra omløp. Den sentraliserte makten er borte, og nye maktstrukturer må ta dens plass.
 
-Hvem beskytter deg nå? Hvem dommer i tvister mellom naboer? Hvem hindrer banditter fra å plyndre gården din?
+Hvem beskytter deg nå? Hvem dømmer i tvister mellom naboer? Hvem hindrer banditter fra å plyndre gården din?
 
-Svaret ble lokale herrer. Mektige menn med sverd og jord tok på seg oppgaven med å beskytte de som bodde rundt dem - men til en pris. Slik vokste det frem et helt nytt samfunnssystem som vi kaller **føydalismen**. Og den eneste institusjonen som overlevde Romas fall noenlunde intakt, var den katolske kirken. I en tid med usikkerhet og fragmentering ble kirken Europas lim.
+Svaret ble lokale herrer. Mektige menn med sverd og jord tok på seg oppgaven med å beskytte de som bodde rundt dem - mot avgifter og tjenester til gjengjeld. Slik vokste det frem et nytt samfunnssystem som vi kaller **føydalismen**. Det ga en lokal stabilitet og beskyttelse i en tid med politisk fragmentering. Den eneste institusjonen som overlevde Vest-Romas fall noenlunde intakt, var den katolske kirken - som ble en viktig samlende kraft i Vest-Europa.
 
-Denne perioden - **middelalderen** - varte i rundt tusen år, fra Romerrikets fall i 476 til rundt 1500. Lenge ble den kalt "den morke tid", men det er en urettferdig betegnelse. Det var en periode med gotiske katedraler som strakte seg mot himmelen, med de forste universitetene, med sagaer og ridderdiktning. Middelalderen la grunnlaget for det Europa vi kjenner i dag.`,
+Denne perioden - **middelalderen** - varte i rundt tusen år, fra Vest-Romerrikets fall i 476 til rundt 1500. Lenge ble den kalt "den mørke tid", men det er en misvisende betegnelse. Det var en periode med gotiske katedraler som strakte seg mot himmelen, med de første universitetene, med sagaer og ridderdiktning. Og mens Vest-Europa gjennomgikk denne omformingen, blomstret andre sivilisasjoner: Det islamske kalifatet opplevde sin gylne tid med banebrytende vitenskap og filosofi, mens Kinas Song-dynasti ledet an innen teknologi og handel. Middelalderen var en global periode - og den la grunnlaget for det Europa vi kjenner i dag.`,
     },
     {
       id: 'historie-4-1-n-section1',
@@ -95,7 +95,7 @@ Den andre standen var **adelen** - de som slåss. Konger, fyrster og riddere had
 
 Den tredje standen var **bøndene** - de som arbeider. De utgjorde omtrent 90 prosent av hele befolkningen. Blant dem fantes det frie bønder, leilendinger som leide jord, og **livegne** som var bundet til jorden de dyrket. De produserte all maten og betalte skatt til de andre stendene.
 
-Standstilhørighet var noe du ble fodt med. Sosial mobilitet var sterkt begrenset. Men det fantes unntak: Kirken var en vei oppover for begavede fattige gutter, og rike kjøpmenn kunne kjøpe seg adelig status. Systemet ble rettferdiggjort religiost - det var Guds vilje at samfunnet var organisert slik. Alle trengte hverandre: Prestene ba for alle, adelen beskyttet alle, og bondene brodfødte alle.`,
+Standstilhørighet var noe du ble født med. Sosial mobilitet var sterkt begrenset. Men det fantes unntak: Kirken var en vei oppover for begavede fattige gutter, og rike kjøpmenn kunne kjøpe seg adelig status. Kvinner hadde formelt lavere status enn menn i alle stender, men spilte likevel viktige roller: Adelige kvinner styrte gods og eiendommer når ektemennene var i krig, bondekvinner var uunnværlige i gårdsdriften, og kvinner i klosterlivet kunne oppnå lærdom og lederposisjoner. I Norden hadde kvinner dessuten sterkere arve- og eiendomsrettigheter enn i mange andre deler av Europa. Systemet ble rettferdiggjort religiøst - det var Guds vilje at samfunnet var organisert slik. Alle trengte hverandre: Prestene ba for alle, adelen beskyttet alle, og bøndene brødfødte alle.`,
     },
     {
       id: 'historie-4-1-n-quiz2',
@@ -128,7 +128,7 @@ Jorden er fordelt i smale striper kalt **teiger**, der hver bonde har sine. Man 
 
 Som bonde har du en rekke plikter. Du har **hoveri** - arbeidsplikt på herrens jord. Du betaler avgifter i form av korn, dyr og andre produkter. Du er pliktig til å bruke herrens mølle og ovn, og betale for det. Til gjengjeld skal herren beskytte deg mot fiender, holde rettssaker rettferdig, og vedlikeholde veier og broer.
 
-Sesongene styrer alt. Våren bringer såing, sommeren bringer luking og stell, høsten bringer innhøsting - den mest intense perioden på hele året. Vinteren bringer slakting og reparasjoner. Alle arbeider: barn, voksne og gamle. Det er et hardt liv, men det gir en viss trygghet - du vet hvor du hører til, og du vet at herren skal beskytte deg.`,
+Sesongene styrer alt. Våren bringer såing, sommeren bringer luking og stell, høsten bringer innhøsting - den mest intense perioden på hele året. Vinteren bringer slakting og reparasjoner. Alle arbeider: barn, voksne og gamle. Kvinnene spilte en sentral rolle i gårdsdriften - de hadde ansvar for husdyrhold, meieriproduksjon, tekstilarbeid og matkonservering, og når mennene var borte i krig eller på reise, styrte kvinnene gården alene. Det er et hardt liv, men det gir en viss trygghet - du vet hvor du hører til, og du vet at herren skal beskytte deg.`,
     },
     {
       id: 'historie-4-1-n-quiz3',
@@ -224,7 +224,7 @@ Fra **bondens perspektiv** var svaret mer sammensatt. Du fikk beskyttelse og til
 
 Fra **prestens perspektiv** var svaret selvfølgelig ja. Standssamfunnet var Guds orden. Enhver hadde sin plass i skaperverket, og å protestere mot sin stand var å protestere mot Guds vilje.
 
-Fra et **moderne perspektiv** virker systemet åpenbart urettferdig. Vi avviser tanken om at mennesker er født med ulike rettigheter. Men vi bør være forsiktige med å dømme fortiden etter nåtidens målestokk. For sin tid ga foydalismen en viss orden og trygghet i en kaotisk verden. "Rettferdighet" er et begrep som endrer innhold med tiden - og det er kanskje noe av det viktigste vi kan lære av middelalderen.`,
+Fra et **moderne perspektiv** bygger dagens demokratier på tanken om at mennesker er født med like rettigheter - et prinsipp som er grunnleggende forskjellig fra middelalderens standssamfunn. Men historikere advarer mot å dømme fortiden etter nåtidens målestokk. Føydalismen ga orden, beskyttelse og forutsigbarhet i en tid med politisk fragmentering, og menneskene som levde i systemet forstod sin verden ut fra helt andre forutsetninger enn våre. "Rettferdighet" er et begrep som endrer innhold med tiden - og det er kanskje noe av det viktigste vi kan lære av middelalderen.`,
     },
     {
       id: 'historie-4-1-n-quiz5',
@@ -275,7 +275,7 @@ Etter Romerrikets fall i 476 oppsto en ny samfunnsorden i Europa. Uten sentralis
 - **Livegen**: Bonde som var bundet til jorden, men ikke en slave
 
 **Det viktigste du tar med deg:**
-Middelalderens samfunnssystem var bygd på personlige lojalitetsforhold i stedet for abstrakte lover og byråkrati. Systemet ble rettferdiggjort religiøst, og ga en viss orden i en urolig tid - men det bygde på ulikhet vi i dag avviser. "Rettferdighet" er et historisk betinget begrep.`,
+Middelalderens samfunnssystem var bygd på personlige lojalitetsforhold i stedet for abstrakte lover og byråkrati. Systemet ble rettferdiggjort religiøst og ga orden og beskyttelse i en urolig tid, men det var grunnleggende forskjellig fra moderne demokratiske prinsipper om like rettigheter. "Rettferdighet" er et historisk betinget begrep.`,
     },
   ],
   exercises: [],
@@ -395,7 +395,7 @@ Men kristningen brakte også noe mer enn religion. Med kirken kom **skriftkultur
 
 1200-tallet regnes som Norges storhetstid, og det med god grunn. Etter en lang og blodig **borgerkrigsperiode** fra 1130 til 1240, der ulike tronkrevere kjempet om makten, kom endelig stabilitet.
 
-**Håkon Håkonsson** (1217-1263) samlet riket og innledet en gullalter. Under ham var Norge på sitt aller største: I tillegg til fastlandet kontrollerte kongen Grønland, Island, Færøyene, Orknøyene, Shetland og Man. Hålogaland i Nord-Norge ble fullt integrert i riket.
+**Håkon Håkonsson** (1217-1263) samlet riket og innledet en blomstringstid. Under ham var Norge på sitt aller største: I tillegg til fastlandet kontrollerte kongen Grønland, Island, Færøyene, Orknøyene, Shetland og Man. Hålogaland i Nord-Norge ble fullt integrert i riket. I nord levde den samiske befolkningen med sin egen kultur, næringsliv og samfunnsorganisasjon. Samene drev reindrift, fiske og fangst, og hadde omfattende handelsnettverk som strakte seg langt østover. Forholdet mellom den norske kongemakten og samene var sammensatt - det innebar både handel, skattlegging og tidvis konflikt.
 
 Kulturelt blomstret Norge som aldri før. **Håkonshallen** i Bergen ble ferdigstilt i 1261 - et praktbygg som skulle vise at den norske kongen var en europeisk monark på linje med andre. Steinkirker ble reist over hele landet. Den norrøne litteraturen ble skrevet ned: Sagaene, Eddadiktene, og ikke minst **Kongespeilet**, et læreverk som ga råd om kongens plikter, handel og krigskunst.
 
@@ -581,11 +581,11 @@ export const CHAPTER_HISTORIE_4_3_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## Nøklene til himmelen
 
-Tenk deg at du lever i en middelalderby. Du er syk, fattig og redd. Livet er kort og hardt, og det eneste som gir deg trøst er vissheten om at det finnes noe bedre etter døden - et paradis der all lidelse opphører. Men det er én hake: Du kommer ikke inn i paradiset på egen hånd. Du trenger noen som kan formidle Guds nåde til deg. Du trenger kirken.
+Tenk deg at du lever i en middelalderby. Du er syk, og munkene i klosteret pleier deg. Barna dine lærer å lese hos presten. Når livet er vanskelig, gir troen deg trøst - vissheten om at det finnes noe bedre etter døden. Men veien til frelsen går gjennom kirken. Du trenger noen som kan formidle Guds nåde til deg.
 
-I middelalderen var den katolske kirken den mektigste institusjonen i hele Europa - mektigere enn noen konge eller keiser. Paven i Roma krevde makt over både det åndelige og det verdslige. Kirken eide enorme jordeiendommer, kontrollerte utdanning og skriftkultur, og definerte hva som var rett og galt for alle mennesker.
+I middelalderen var den katolske kirken den mektigste institusjonen i hele Europa - mektigere enn noen konge eller keiser. Kirken var på én gang Europas største velgjører og dets mest innflytelsesrike maktstruktur. Den bevarte antikkens lærdom, grunnla universiteter og hospitaler, bygde katedraler som fremdeles står - og den krevde makt over både det åndelige og det verdslige. Kirken eide enorme jordeiendommer, kontrollerte utdanning og skriftkultur, og definerte hva som var rett og galt.
 
-Men kirkens virkelige makt lå dypere enn jord og gull. Den lå i at kirken hadde **monopol på frelsen**. Bare gjennom kirkens **sakramenter** - dåp, nattverd, skriftemål, siste olje og de andre - kunne et menneske oppnå evig liv. Uten kirken ventet helvete. I en tid der alle trodde på dette bokstavelig, ga det kirken en makt over sinnene som ingen verdslig hersker kunne matche.`,
+En sentral kilde til kirkens innflytelse var dens rolle som formidler av **frelsen**. Bare gjennom kirkens **sakramenter** - dåp, nattverd, skriftemål, siste olje og de andre - kunne et menneske, ifølge kirkelæren, oppnå evig liv. I en tid der troen på himmel og helvete var allestedsnærværende, ga dette kirken en innflytelse over menneskenes indre liv som ingen verdslig hersker kunne matche.`,
     },
     {
       id: 'historie-4-3-n-section1',
@@ -598,9 +598,9 @@ På toppen tronet **paven**, biskopen av Roma, som kalte seg Guds stedfortreder 
 
 Under erkebiskopene satt **biskopene**, som styrte hvert sitt bispedømme med både åndelig og verdslig makt. Deretter kom **prestene** - sokneprestene og kapellanene som var kirkens ansikt ute i bygdene. Det var presten som døpte barna dine, giftet deg, hørte dine synder i skriftemålet, og ga deg den siste olje på dødsleiet.
 
-I tillegg fantes **munker og nonner**, som levde etter strenge klosterregler. Klostrene var ikke bare steder for bønn og meditasjon - de var viktige sentre for lærdom og jordbruk, og de fylte mange av de funksjonene vi i dag har offentlige institusjoner for.
+I tillegg fantes **munker og nonner**, som levde etter strenge klosterregler. Klostrene var ikke bare steder for bønn og meditasjon - de var viktige sentre for lærdom, jordbruk og omsorg, og de fylte mange av de funksjonene vi i dag har offentlige institusjoner for. Kvinner som gikk i kloster, som den berømte teologen og naturforskeren Hildegard von Bingen (1098-1179), kunne oppnå lærdom, innflytelse og lederposisjoner som ellers var utilgjengelige for kvinner i middelalderen.
 
-Det viktigste å forstå er at kirken var en **overnasjonal organisasjon**. Den strakte seg over alle landegrenser, hadde egen domsmakt, krevde inn sin egen skatt i form av **tiende** - ti prosent av all avling - og administrerte seg selv uavhengig av kongen. Kirken var, med dagens ord, en stat i staten.`,
+Det viktigste å forstå er at kirken var en **overnasjonal organisasjon**. Den strakte seg over alle landegrenser, hadde egen domsmakt, krevde inn sin egen skatt i form av **tiende** - ti prosent av all avling - og administrerte seg selv parallelt med den verdslige makten. Kirken fungerte som en egen maktstruktur på tvers av kongerikene.`,
     },
     {
       id: 'historie-4-3-n-quiz1',
@@ -629,7 +629,7 @@ Kirkens enorme makt i middelalderen hvilte på fire søyler som forsterket hvera
 
 Den første var **økonomisk makt**. Kirken krevde **tiende** - ti prosent av all avling - fra alle bønder. Den eide enorme jordeiendommer, i Norge opptil en tredjedel av all jord. Folk ga testamenter til kirken for å sikre seg sjelemesser etter døden, og pilegrimsreiser og **avlat** - tilgivelse for synder mot betaling - brakte ytterligere inntekter.
 
-Den andre søylen var **kulturell makt**. Kirken hadde monopol på utdanning gjennom katedralskolene og de første universitetene. Munkene kopierte bøker og bevarte antikkens tekster. All den store kunsten og arkitekturen i middelalderen - gotiske katedraler, fresker, skulpturer - ble skapt for kirken. Til og med kalenderen og helligdagene ble bestemt av kirken. Kirken eide, med andre ord, *kunnskapen*.
+Den andre søylen var **kulturell makt**. Kirken hadde tilnærmet monopol på utdanning i Vest-Europa gjennom katedralskolene og de første universitetene. Munkene kopierte bøker og bevarte deler av antikkens tekster - selv om mye av den greske filosofien og vitenskapen ble bevart og videreutviklet av islamske lærde, og først kom tilbake til Europa gjennom oversettelser fra arabisk på 1100- og 1200-tallet. All den store kunsten og arkitekturen i middelalderens Europa - gotiske katedraler, fresker, skulpturer - ble skapt for kirken. Til og med kalenderen og helligdagene ble bestemt av kirken.
 
 Den tredje søylen var **politisk makt**. Konger trengte kirkens godkjenning for å bli kronet. Paven kunne **ekskommunisere** konger - det vil si utelukke dem fra kirken - noe som løste undersåttene fra sin troskap. Paven opptrådte som megler mellom konger, og den berømte **investiturstriden** handlet om hvem som hadde rett til å utnevne biskoper - paven eller kongen.
 
@@ -672,7 +672,7 @@ Den fjerde søylen var **sosial makt**. Kirken definerte hva som var rett og gal
     {
       id: 'historie-4-3-n-section3',
       type: 'text',
-      content: `## Når paven bøyde keiseren
+      content: `## Pave mot keiser
 
 Det mest dramatiske eksempelet på kirkens makt er **investiturstriden** - konflikten mellom pave og keiser om hvem som egentlig hadde den øverste myndigheten i kristenheten.
 
@@ -682,7 +682,7 @@ I 1075 skrev **pave Gregor VII** et oppsiktsvekkende dokument kalt *Dictatus Pap
 
 Da **keiser Henrik IV** nektet å akseptere dette, gikk Gregor til det ytterste: Han **ekskommuniserte** keiseren. Plutselig sto Henrik utenfor kirken. Hans undersåtter ble løst fra sin troskapsed. Fyrstene i riket truet med opprør. I desperat nød reiste Henrik vinterstid over Alpene til borgen Canossa i Italia, der han i tre dager sto barfot i snøen og ba paven om tilgivelse. I januar 1077 ble han tatt inn i kirken igjen.
 
-**Canossa-ydmykelsen** viser kirkens makt på sitt mest dramatiske - selv verdens mektigste verdslige hersker måtte bøye seg. Men konflikten varte videre, og først med **Wormskonkordatet** i 1122 ble et kompromiss nådd: Paven utnevnte biskoper til åndelig embete, mens keiseren ga dem verdslige len. Prinsippet om at det finnes en grense mellom åndelig og verdslig makt var etablert - et prinsipp vi lever med den dag i dag.`,
+Hendelsen ved **Canossa** viser kirkens makt på sitt mest dramatiske - selv verdens mektigste verdslige hersker så seg nødt til å søke pavens tilgivelse. Noen historikere har imidlertid påpekt at Henrik også oppnådde noe: ved å få opphevet ekskommunikasjonen tok han brodden av fyrstenes opprør. Konflikten varte videre, og først med **Wormskonkordatet** i 1122 ble et kompromiss nådd: Paven utnevnte biskoper til åndelig embete, mens keiseren ga dem verdslige len. Prinsippet om at det finnes en grense mellom åndelig og verdslig makt var etablert - et prinsipp som fortsatt preger vestlig statstenkning.`,
     },
     {
       id: 'historie-4-3-n-quiz3',
@@ -721,9 +721,9 @@ Da **keiser Henrik IV** nektet å akseptere dette, gikk Gregor til det ytterste:
     {
       id: 'historie-4-3-n-section4',
       type: 'text',
-      content: `## Frelsens monopol - sakramentene som maktmiddel
+      content: `## Sakramentene - tro og innflytelse
 
-Men kirkens makt over keisere og konger var kanskje ikke det mest avgjørende. Den virkelig dype makten handlet om noe langt mer personlig: kontrollen over hvert enkelt menneskes evige sjel.
+Men kirkens makt over keisere og konger var kanskje ikke det mest avgjørende. Den dypeste innflytelsen handlet om noe langt mer personlig: kirkens rolle i hvert enkelt menneskes åndelige liv.
 
 Kirkens **sakramenter** - dåp, konfirmasjon, nattverd, skriftemål, ekteskapsinngåelse, prestevielse og siste olje - var ifølge kirkelæren absolutt nødvendige for å oppnå frelse. Uten dåp kom barnet ikke til himmelen. Uten nattverd fikk du ikke del i Kristi legeme. Uten siste olje risikerte du å møte Gud uforberedt.
 
@@ -731,7 +731,7 @@ Og bare en ordinert prest kunne formidle disse sakramentene. Kirken hadde altså
 
 **Ekskommunikasjon** - å bli utelukket fra kirken og sakramentene - var dermed det mest fryktede straffemiddelet som fantes. En ekskommunisert person var avskåret fra frelse, noe som i praksis betydde evig fortapelse. Men konsekvensene var også sosiale og juridiske: Ingen kunne omgås en ekskommunisert uten selv å risikere straff. Kontrakter ble ugyldige. Hvis det var en konge som ble ekskommunisert, ble undersåttene løst fra sin troskap.
 
-I en tid der alle - fra tigger til keiser - virkelig trodde på himmel og helvete, var ekskommunikasjon en dødsdom for sjelen.`,
+I en tid der troen på himmel og helvete var dypt forankret i alle samfunnslag, ble ekskommunikasjon oppfattet som den mest alvorlige straff et menneske kunne rammes av.`,
     },
     {
       id: 'historie-4-3-n-quiz4',
@@ -774,13 +774,13 @@ I en tid der alle - fra tigger til keiser - virkelig trodde på himmel og helvet
 
 Vi har snakket mye om kirkens makt, men kirken var mer enn bare maktpolitikk. **Klostrene** er et godt eksempel på at kirken også var en av middelalderens viktigste institusjoner for kunnskap, omsorg og utvikling.
 
-Munker og nonner levde etter strenge regler - de ba, arbeidet og studerte etter en fast døgnrytme. Men det som foregikk bak klostermurene hadde virkninger langt utenfor dem. I klosternes **scriptorier** kopierte munker bøker for hånd, og bevarte dermed antikkens tekster for ettertiden. Uten klostermunkenes tålmodige kopiarbeid ville vi ha mistet mye av den greske og romerske litteraturen og filosofien.
+Munker og nonner levde etter strenge regler - de ba, arbeidet og studerte etter en fast døgnrytme. Men det som foregikk bak klostermurene hadde virkninger langt utenfor dem. I klosternes **scriptorier** kopierte munker bøker for hånd, og bevarte dermed mange av antikkens tekster for ettertiden. Samtidig ble antikkens arv også bevart og videreutviklet i den islamske verden, der lærde i byer som Bagdad, Cordoba og Kairo oversatte og kommenterte gresk filosofi og vitenskap. Europas klostre og den islamske verdens lærdomssentre utgjorde til sammen et nettverk som sikret at antikkens kunnskap overlevde.
 
 Klostrene drev også **utdanning**, og underviste både prester og andre. De utviklet nye **jordbruksmetoder** og ryddet ny jord. De drev **fattigomsorg** og ga mat og ly til de som trengte det. De pleide syke i en tid uten sykehus. De tilbød overnatting for reisende. De drev handel, håndverk og brygging.
 
 Klostrene var som små, selvforsynte samfunn som fylte mange av de funksjonene vi i dag har offentlige institusjoner for: skole, sykehus, sosialtjeneste, herberge og forskningssenter.
 
-Var kirkens makt i middelalderen altså positiv eller negativ for vanlige mennesker? Svaret er at den var begge deler. Kirken ga mening og trøst i en hard tilværelse, drev skoler og sykehus, tok seg av fattige, skapte vakker kunst og arkitektur. Men den krevde også tiende og avgifter fra fattige, kontrollerte folks mest intime forhold, straffet annerledestenkende som kjettere, og brukte frykten for helvete som kontrollmiddel. Kirken var på en gang omsorgsinstitusjon og maktapparat - den ga tjenester, men krevde underkastelse.`,
+Var kirkens rolle i middelalderen positiv eller negativ for vanlige mennesker? Svaret er at den var begge deler, og historikere diskuterer vektingen. Kirken ga mening og trøst i en hard tilværelse, drev skoler og hospitaler, tok seg av fattige, skapte kunst og arkitektur som fremdeles preger Europa. Men den krevde også tiende og avgifter, regulerte folks privatliv gjennom kirkeretten, og forfulgte de som avvek fra den rette lære. Kirken var på én gang omsorgsinstitusjon og maktstruktur - den ga tjenester og fellesskap, men forventet troskap og lydighet til gjengjeld.`,
     },
     {
       id: 'historie-4-3-n-quiz5',
@@ -821,7 +821,7 @@ Var kirkens makt i middelalderen altså positiv eller negativ for vanlige mennes
       type: 'text',
       content: `## Oppsummering
 
-Den katolske kirken var middelalderens suverent mektigste institusjon. Makten hvilte på kontroll over frelsen, enorme eiendommer, utdanningsmonopol og en overnasjonal organisasjon.
+Den katolske kirken var middelalderens mest innflytelsesrike institusjon i Vest-Europa. Dens rolle hvilte på formidling av frelsen, enorme eiendommer, lederskap innen utdanning og en overnasjonal organisasjon.
 
 **Nøkkelbegreper du nå kjenner:**
 - **Sakramentene**: Kirkelige handlinger (dåp, nattverd, skriftemål osv.) som var nødvendige for frelse - kirkens monopol
@@ -837,7 +837,7 @@ Den katolske kirken var middelalderens suverent mektigste institusjon. Makten hv
 4. Sosial makt - moral, ekteskap, fattigomsorg
 
 **Det viktigste du tar med deg:**
-Kirkens virkelige makt lå ikke i gull og jord, men i monopolet på frelse. I en tid der alle trodde på himmel og helvete, var kontrollen over sakramentene den ultimate makten. Samtidig var kirken også en positiv kraft gjennom klostre som bevarte kunnskap, drev utdanning og tok seg av de svakeste.`,
+Kirkens innflytelse hadde mange kilder, men den dypeste var rollen som formidler av frelsen. I en tid med sterk tro på himmel og helvete ga sakramentene kirken en unik posisjon i menneskers liv. Samtidig var kirken også en viktig drivkraft for lærdom og omsorg gjennom klostre som bevarte kunnskap, grunnla universiteter, drev utdanning og tok seg av syke og fattige.`,
     },
   ],
   exercises: [],
@@ -967,7 +967,7 @@ I byene organiserte håndverkerne seg i **laug** (også kalt gilder). Laugene fa
     {
       id: 'historie-4-4-n-section3',
       type: 'text',
-      content: `## Hansaforbundet - middelalderens multinasjonale selskap
+      content: `## Hansaforbundet - middelalderens handelsgigant
 
 Det mektigste handelsnettverket i middelalderen var **Hansaforbundet** - et forbund av tyske handelsbyer som dominerte all handel i Nord-Europa fra rundt 1200 til 1600. På sitt høydepunkt hadde forbundet opptil 200 medlemsbyer, med **Lübeck** som ubestridt hovedkvarter.
 
@@ -1004,9 +1004,9 @@ Hvis du besøker Bergen i dag, kan du fortsatt se sporene etter hanseatene. **Ty
 
 De hanseatiske privilegiene i Bergen var oppsiktsvekkende. De tyske kjøpmennene hadde rett til å handle fritt i byen og på Bryggen. De beholdt sine egne lover og ble dømt etter dem - norsk lov gjaldt ikke innenfor deres kvartaler. Nordmenn hadde ikke engang lov til å drive handel i de tyske kvartalene uten hanseatenes tillatelse.
 
-Norske konger ga disse privilegiene, men trolig ikke frivillig. Hanseatene hadde den økonomiske makten, og Norge var avhengig av handelen de brakte. Kongen trengte kornet hanseatene fraktet fra Nord-Tyskland, og han trengte at noen kjøpte den norske tørrfisken. Privilegiene var prisen for dette.
+Norske konger ga disse privilegiene i en situasjon der hanseatene hadde betydelig økonomisk innflytelse og Norge var avhengig av handelen de brakte. Kongen trengte kornet hanseatene fraktet fra Nord-Tyskland, og han trengte at noen kjøpte den norske tørrfisken. Privilegiene kan forstås som en del av dette gjensidige avhengighetsforholdet.
 
-Konsekvensene for norske kjøpmenn var alvorlige. De ble utkonkurrert av hanseatenes kapital, nettverk og privilegier. Handelsprofitten gikk ut av landet. Norge ble økonomisk avhengig av utlendinger - noe som svekket landets selvstendighet. Hanseatene i Bergen hadde ofte konflikter med norske myndigheter, men forholdet varte i flere hundre år. Det tyske kontoret i Bergen eksisterte fra ca. 1360 helt til 1754.`,
+Konsekvensene var sammensatte. Norske kjøpmenn ble utkonkurrert av hanseatenes kapital, nettverk og privilegier, og mye av handelsprofitten gikk ut av landet. Men hanseatene brakte også varer som nordmenn var avhengige av - korn, mel, øl, klede og andre nødvendighetsvarer - og de bygde opp en handelsinfrastruktur som knyttet norske kystsamfunn til europeiske markeder. Uten hanseatenes nettverk ville det vært langt vanskeligere å få solgt norsk tørrfisk i stor skala. Forholdet mellom hanseatene og norske myndigheter var preget av både samarbeid og konflikter, og det varte i flere hundre år. Det tyske kontoret i Bergen eksisterte fra ca. 1360 helt til 1754.`,
     },
     {
       id: 'historie-4-4-n-quiz4',
@@ -1039,7 +1039,7 @@ Konsekvensene for norske kjøpmenn var alvorlige. De ble utkonkurrert av hanseat
           },
         ],
         solution:
-          'Den viktigste ulempen var at norske kjøpmenn ble utkonkurrert, og at handelsprofitten gikk ut av landet. Norge ble økonomisk avhengig av hanseatene, noe som svekket landets selvstendighet. Norske myndigheter aksepterte i praksis en "stat i staten" på norsk jord.',
+          'En viktig ulempe var at norske kjøpmenn ble utkonkurrert, og at mye av handelsprofitten gikk ut av landet. Samtidig ga hanseatenes tilstedeværelse tilgang til korn og andre varer Norge trengte, og knyttet norsk økonomi til europeiske markeder.',
       },
     },
     {
@@ -1057,7 +1057,7 @@ Produksjonen foregikk hovedsakelig i **Lofoten** og resten av Nord-Norge. Om vin
 
 Tørrfiskhandelen var avgjørende for Norge. Den var landets viktigste eksportvare gjennom hele middelalderen og bandt det langstrakte, spredte landet økonomisk sammen. Nord-Norge, som ellers lå i utkanten, ble uunnværlig for landets økonomi. Tørrfisken skapte en forbindelse mellom Lofoten og Europa som formet norsk historie i århundrer.
 
-Og her ser vi et mønster som også er relevant i dag: Spørsmålet om hvem som kontrollerer handelen med en nasjons viktigste ressurser, og hvor profitten havner, er like aktuelt nå som det var i middelalderen.`,
+Tørrfiskhandelen reiser spørsmål som historikere diskuterer den dag i dag: Hvordan påvirkes et land av at utenlandske aktører kontrollerer handelen med viktige ressurser? Og veier fordelene ved tilgang til internasjonale markeder opp for ulempene ved tapt kontroll? Dette er spørsmål det er verdt å reflektere over.`,
     },
     {
       id: 'historie-4-4-n-quiz5',
@@ -1112,7 +1112,7 @@ Handel og økonomisk utvikling var drivkrefter som formet middelalderens Europa 
 Fisker i Lofoten - Oppkjøper i Nord-Norge - Bergen - Hanseatene - Europa
 
 **Det viktigste du tar med deg:**
-Middelalderens handel var overraskende "global" for sin tid, men langt mer regulert enn i dag. Hansaforbundet viser hvordan økonomisk makt kunne true et lands selvstendighet, og tørrfiskhandelen viser hvordan en enkelt ressurs kunne forme et helt lands økonomi. Spørsmålet om hvem som kontrollerer handelen med viktige ressurser, og hvor profitten havner, er like aktuelt i dag som for 700 år siden.`,
+Middelalderens handel var overraskende vidtrekkende for sin tid. Hansaforbundet viser hvordan organisert handelsvirksomhet kunne gi både fordeler og ulemper for et land, og tørrfiskhandelen viser hvordan en enkelt ressurs kunne forme et helt lands økonomi. Forholdet mellom internasjonal handel, lokal kontroll og økonomisk utvikling er et tema historikere fortsatt diskuterer.`,
     },
   ],
   exercises: [],

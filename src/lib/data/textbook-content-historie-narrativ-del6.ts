@@ -75,7 +75,7 @@ Den industrielle revolusjonen begynte ikke med store stålproduserende fabrikker
 
 I 1764 oppfant James Hargreaves **spinning jenny** - en maskin som kunne spinne flere tråder samtidig. Fem år senere bygde Richard Arkwright de første fabrikkene drevet av vannkraft, med sin **vannkraftdrevne spinnemaskin**. Og i 1785 kom Edmund Cartwrights **mekaniske vevstol**, som fullførte mekaniseringen av hele tekstilproduksjonen.
 
-Resultatet var oppsiktsvekkende. Storbritannia kunne nå produsere enorme mengder billig bomullstøy. Prisene falt dramatisk, og vanlige folk fikk råd til klær som tidligere bare de rike kunne kjøpe. Men medaljen hadde en bakside: Håndverkere som i generasjoner hadde livnært seg av spinning og veving, mistet levebrødet sitt nesten over natten.
+Resultatet var oppsiktsvekkende. Storbritannia kunne nå produsere enorme mengder billig bomullstøy. Prisene falt dramatisk, og vanlige folk fikk råd til klær som tidligere bare de rike kunne kjøpe. For forbrukerne var dette et stort fremskritt. Men for håndverkere som i generasjoner hadde livnært seg av spinning og veving, innebar omstillingen tap av levebrød og yrkesidentitet. Noen av disse håndverkerne - de såkalte **luddittene** - protesterte ved å ødelegge maskiner, men maskinknusing kunne ikke stoppe den teknologiske utviklingen. Over tid skapte den nye industrien langt flere arbeidsplasser enn de som gikk tapt, og de nye jobbene ga etter hvert høyere levestandard.
 
 For å forstå hvor dramatisk denne endringen var, kan vi se på hvordan tekstilproduksjonen foregikk før. Under det gamle systemet, kalt **hjemmeindustrien**, leverte en handelsmann rå bomull til bondekoner og håndverkere. De spant og vevde hjemme, ofte ved siden av gårdsarbeidet, og handelsmannen hentet de ferdige produktene. Arbeiderne bestemte selv takten og rytmen.
 
@@ -163,17 +163,17 @@ Mønsteret var tydelig: Industrialiseringen spredte seg som ringer i vannet, men
     {
       id: 'historie-7-1-n-section5',
       type: 'text',
-      content: `## Revolusjonens pris - hvem vant og hvem tapte?
+      content: `## Revolusjonens pris og gevinster - hvem vant og hvem tapte?
 
-Når vi ser tilbake på den industrielle revolusjonen, er det fristende å tenke i svart-hvitt. Var den et fremskritt eller en katastrofe? Sannheten er at den var begge deler - og svaret avhenger av hvem du spør og når du spør.
+Når vi ser tilbake på den industrielle revolusjonen, er det fristende å tenke i svart-hvitt. Var den et fremskritt eller en katastrofe? Sannheten er at den var begge deler - og svaret avhenger av hvem du spør, når du spør, og hvilket tidsperspektiv du legger til grunn.
 
-På den ene siden skapte industrialiseringen en velstandsvekst uten sidestykke. **Masseproduksjon** ga billigere varer som flere hadde råd til. Ny teknologi og vitenskap utviklet seg i rasende fart. På lang sikt la den industrielle revolusjonen grunnlaget for velferdssamfunnet vi lever i i dag.
+På den ene siden skapte industrialiseringen en velstandsvekst uten sidestykke i menneskehistorien. **Masseproduksjon** ga billigere varer som flere hadde råd til. Klær, redskaper og husholdningsartikler som tidligere var luksus, ble tilgjengelig for vanlige folk. Ny teknologi og vitenskap utviklet seg raskt. Over tid økte gjennomsnittlig **levealder** betydelig, og flere fikk tilgang til varer og tjenester som forbedret hverdagen. På lang sikt la den industrielle revolusjonen grunnlaget for velferdssamfunnet vi lever i i dag.
 
-Men prisen ble betalt av de som sto nederst. Arbeidsforholdene i fabrikkene var brutale - lange dager, farlige maskiner, lave lønninger. **Barnearbeid** ble utbredt, med barn så unge som fem-seks år i fabrikker og gruver. Håndverkere som hadde levd godt av sine ferdigheter, ble utkonkurrert av maskiner. Byene ble overfylte og forurensede.
+Men i den tidlige fasen var kostnadene reelle og ble ujevnt fordelt. Arbeidsforholdene i mange fabrikker var krevende - lange dager, farlige maskiner, lave lønninger. **Barnearbeid** ble utbredt, med barn i fabrikker og gruver. Håndverkere som hadde livnært seg av sine ferdigheter, ble utkonkurrert av maskiner. Byene vokste raskere enn infrastrukturen kunne følge med.
 
-De som tjente mest, var fabrikkeierne og investorene - **borgerskapet** - som bygde formuer på det nye systemet. Forbrukerne fikk på sikt billigere varer. Men arbeiderklassen i den første fasen betalte en høy pris i form av helse, verdighet og tapt selvstendighet.
+De som tjente mest i den tidlige fasen, var fabrikkeierne og investorene - **borgerskapet** - som bygde formuer på det nye systemet. Men mange av disse skapte også arbeidsplasser og velferd i sine lokalsamfunn, og bildet var sjelden entydig. Forbrukerne fikk billigere varer. Arbeiderklassen i den første fasen opplevde vanskelige forhold, men over tid steg også arbeidernes levestandard betraktelig.
 
-Det tok generasjoner før gevinstene ble mer rettferdig fordelt. Og den kampen - arbeidernes kamp for rettigheter og verdighet - er en historie vi skal følge videre.`,
+Det tok generasjoner før gevinstene ble mer jevnt fordelt - gjennom fagforeningskamp, lovgivning, teknologisk utvikling og økonomisk vekst. Den prosessen er en historie vi skal følge videre.`,
     },
     {
       id: 'historie-7-1-n-quiz5',
@@ -431,7 +431,7 @@ export const CHAPTER_HISTORIE_7_3_NARRATIV: TextbookChapter = {
   chapterNumber: '7.3',
   title: 'Sosiale endringer og arbeiderbevegelsen',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om arbeiderklassens fremvekst, barnearbeid, fagforeninger og kampen for rettigheter.',
+  description: 'En fortelling om arbeiderklassens fremvekst, barnearbeid, fagforeninger og utviklingen av sosiale rettigheter.',
   estimatedMinutes: 45,
   competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'],
   linkedChapterId: 'historie-7-3',
@@ -439,26 +439,28 @@ export const CHAPTER_HISTORIE_7_3_NARRATIV: TextbookChapter = {
     {
       id: 'historie-7-3-n-intro',
       type: 'text',
-      content: `## Maskinenes skyggesider
+      content: `## Industrialiseringens sosiale sider
 
-Vi har hørt om oppfinnelser, fabrikker og fremskritt. Men la oss nå snu blikket og se på den industrielle revolusjonen fra en annen vinkel - fra de som sto ved maskinene, dag etter dag, i støv og støy, for noen få skillinger i lønning.
+Vi har hørt om oppfinnelser, fabrikker og teknologiske fremskritt. Men la oss nå se på den industrielle revolusjonen fra et annet perspektiv - hverdagen til de som arbeidet i de nye fabrikkene.
 
-Industrialiseringen skapte en helt ny sosial klasse som verden aldri hadde sett før: **arbeiderklassen**, eller som Karl Marx kalte den, **proletariatet**. Dette var mennesker som ikke eide jord, verktøy eller fabrikker. Det eneste de hadde å selge, var sin egen arbeidskraft. De møtte opp ved fabrikkportene hver morgen og byttet timene sine mot en lønn som knapt holdt til mat og husleie.
+Industrialiseringen skapte en helt ny sosial klasse: **arbeiderklassen**, eller som Karl Marx senere kalte den, **proletariatet**. Dette var mennesker som ikke eide jord, verktøy eller fabrikker. Det de hadde å tilby, var sin egen arbeidskraft, som de solgte mot timelønn.
 
-I den første fasen av industrialiseringen var arbeidsforholdene nesten ufattelig harde etter vår tids målestokk. Arbeidsdager på 12-16 timer, seks dager i uken, var normalt. Lønningene var så lave at hele familien - inkludert barna - måtte jobbe for å overleve. Fabrikkene var farlige steder der ulykker var vanlige og ingen stilte spørsmål. Og hvis du ble syk, skadet eller gammel? Da var du overlatt til deg selv. Ingen sykepenger, ingen pensjon, ingen arbeidsledighetstrygd. Det fantes rett og slett ikke.`,
+I den første fasen av industrialiseringen var arbeidsforholdene svært krevende etter vår tids målestokk. Arbeidsdager på 12-16 timer, seks dager i uken, var vanlig. Lønningene var lave, og i mange familier måtte også barna jobbe for at familien skulle klare seg. Fabrikkene kunne være farlige steder der ulykker forekom. Sosiale sikkerhetsnett som sykepenger, pensjon og arbeidsledighetstrygd fantes ennå ikke - slike ordninger ville først komme etter hvert som samfunnet utviklet seg.
+
+Det er verdt å merke seg at arbeidsforholdene varierte betydelig mellom ulike fabrikker, bransjer og regioner. Noen arbeidsgivere sørget for relativt anstendige forhold for sine ansatte, mens andre holdt forholdene på et minimum. Bildet var mer sammensatt enn det noen ganger fremstilles.`,
     },
     {
       id: 'historie-7-3-n-section1',
       type: 'text',
       content: `## Barna i maskinene
 
-Det kanskje mest opprørende trekket ved den tidlige industrialiseringen var det utbredte **barnearbeidet**. Barn var billig arbeidskraft - de fikk langt lavere lønn enn voksne. Og små fingre og små kropper var nyttige for å komme til i maskineriet der voksne hender var for store.
+Et trekk ved den tidlige industrialiseringen som har fått mye oppmerksomhet fra historikere, er det utbredte **barnearbeidet**. Barn var billig arbeidskraft - de fikk langt lavere lønn enn voksne. Og små fingre og små kropper var nyttige for å komme til i maskineriet der voksne hender var for store.
 
 I tekstilfabrikkene krøp barn under de farlige maskinene for å samle opp løsrevne tråfibrer og rense mekanismen - mens maskinene fortsatt gikk. I kullgruvene dro barn på åtte-ni år tunge kullvogner gjennom lave, mørke tunneler der voksne ikke fikk plass. Mange ble lemlestet av maskiner eller utviklet lungesykdommer som tok livet av dem før de ble voksne.
 
 Hvorfor aksepterte folk dette? For det første fordi fattige familier trengte barnas lønn for å overleve. Barna tjente lite, men uten de pengene gikk regnestykket ikke opp. For det andre fordi mange så på barnearbeid som naturlig - barn hadde alltid jobbet på gården, så hvorfor ikke i fabrikken? Og for det tredje fordi det ikke fantes lover som beskyttet barn.
 
-Men gradvis begynte samvittigheten å våkne. Reformatorer, leger og journalister dokumenterte barnas lidelser, og etter hvert kom de første lovene. **Factory Act** i 1833 forbød arbeid for barn under ni år i britiske tekstilfabrikker. **Mines Act** i 1842 forbød barn under ti år i gruver. Og over tid erstattet **skoleplikten** barnearbeidet - barna skulle lære, ikke slite. I Norge ble fabrikklovene fra 1892 en viktig milepæl.`,
+Men gradvis vokste motstanden mot barnearbeid. Det var en bred koalisjon som drev frem endringene: Liberale reformpolitikere som **Lord Shaftesbury** kjempet i parlamentet for lovgivning. Leger og vitenskapsfolk dokumenterte helsekonsekvensene. Journalister spredte kunnskap om forholdene. Og fagforeninger presset på for bedre vilkår. **Factory Act** i 1833, fremmet av liberale politikere, forbød arbeid for barn under ni år i britiske tekstilfabrikker. **Mines Act** i 1842 forbød barn under ti år i gruver. Og over tid erstattet **skoleplikten** barnearbeidet. I Norge ble fabrikklovene fra 1892 en viktig milepæl.`,
     },
     {
       id: 'historie-7-3-n-quiz1',
@@ -480,17 +482,17 @@ Men gradvis begynte samvittigheten å våkne. Reformatorer, leger og journaliste
     {
       id: 'historie-7-3-n-section2',
       type: 'text',
-      content: `## Sammen er vi sterke - fagforeningenes fremvekst
+      content: `## Fagforeningenes fremvekst
 
-En enkeltstående arbeider sto maktesløs overfor sin arbeidsgiver. Hvis du klagde på lønnen, ble du sparket. Hvis du nektet å jobbe overtid, sto ti andre klare til å ta jobben din. Arbeidsgiveren hadde all makt.
+En enkeltstående arbeider hadde begrenset forhandlingsposisjon overfor sin arbeidsgiver. Dersom du klagde på lønnen, risikerte du å miste jobben. Tilbudet av arbeidskraft var stort, og det ga arbeidsgiverne en sterk forhandlingsposisjon.
 
-Men hva om alle arbeiderne sto sammen? Hva om de nektet å jobbe - alle sammen, på en gang? Da hadde plutselig arbeidsgiveren et problem. Ingen arbeidere, ingen produksjon, ingen profitt.
+Løsningen ble **fagforeningene**: å samle arbeidere i samme yrke eller bransje for å forhandle kollektivt med arbeidsgiverne. Alene hadde den enkelte arbeider lite forhandlingsmakt. Sammen hadde arbeiderne en reell forhandlingsposisjon.
 
-Dette var grunntanken bak **fagforeningene**: å samle arbeidere i samme yrke eller bransje for å forhandle kollektivt med arbeidsgiverne. Alene var du svak. Sammen hadde du forhandlingsstyrke.
+Men veien dit var lang. I mange land var fagforeninger **forbudt** i begynnelsen. Myndighetene og mange arbeidsgivere fryktet at organiserte arbeidere ville forstyrre produksjonen og den økonomiske utviklingen. Noen arbeidsgivere mente oppriktig at frie forhandlinger mellom den enkelte arbeider og arbeidsgiver var det mest rettferdige systemet, og at fagforeninger innførte en tvang som begrenset både arbeidernes og arbeidsgivernes frihet.
 
-Men veien dit var lang og farlig. I mange land var fagforeninger rett og slett **forbudt**. Arbeidsgivere og myndigheter så på dem som en trussel mot den frie markedsøkonomien og samfunnsordenen. Arbeidere som forsøkte å organisere seg, risikerte å bli arrestert, fengslet eller avskjediget.
+Det viktigste virkemiddelet til fagforeningene var **streiken** - å nekte å arbeide for å presse frem forhandlinger. Store arbeidskonflikter ble utkjempet. Gradvis ble fagforeningene legalisert, og arbeiderne vant retten til å organisere seg, retten til å forhandle kollektivt, og retten til å streike. Disse rettighetene, som vi tar for gitt i dag, ble vunnet gjennom langvarig organisering og politisk kamp.
 
-Likevel ga arbeiderne seg ikke. Deres sterkeste våpen var **streiken** - å nekte å arbeide for å presse arbeidsgiverne til forhandlingsbordet. Store konflikter ble utkjempet, og mange arbeidere betalte en høy pris. Men gradvis, gjennom tiårs seig kamp, ble fagforeningene legalisert. Arbeiderne vant retten til å organisere seg, retten til å forhandle kollektivt, og retten til å streike. Disse rettighetene, som vi tar for gitt i dag, ble vunnet med blod, svett og tårer.`,
+Samtidig er det verdt å merke seg at også noen arbeidsgivere bidro positivt til bedre arbeidsforhold. Fabrikkeiere som Robert Owen i Skottland innførte kortere arbeidstid, bygde boliger og opprettet skoler for arbeidernes barn allerede tidlig på 1800-tallet. Slike eksempler viser at forbedringene kom fra flere hold - ikke bare gjennom konfrontasjon, men også gjennom samarbeid og nyskapende arbeidsgivere.`,
     },
     {
       id: 'historie-7-3-n-quiz2',
@@ -514,17 +516,19 @@ Likevel ga arbeiderne seg ikke. Deres sterkeste våpen var **streiken** - å nek
       type: 'text',
       content: `## Karl Marx og sosialismens ideer
 
-Mens arbeiderne organiserte seg i fagforeninger, vokste det også frem nye politiske ideer som forsøkte å forklare - og løse - industrisamfunnets urettferdighet. Den mest innflytelsesrike tenkeren var **Karl Marx** (1818-1883).
+Mens arbeiderne organiserte seg i fagforeninger, vokste det også frem nye politiske ideer som forsøkte å forklare - og løse - industrisamfunnets problemer. Den mest innflytelsesrike tenkeren var **Karl Marx** (1818-1883).
 
-Marx, en tysk filosof som tilbrakte mesteparten av sitt voksne liv i London, observerte industrialiseringens brutalitet på nært hold. Sammen med **Friedrich Engels** - som ironisk nok var sønn av en fabrikkeier i Manchester - utviklet han en systematisk kritikk av kapitalismen.
+Marx, en tysk filosof som tilbrakte mesteparten av sitt voksne liv i London, observerte industrialiseringens harde sider på nært hold. Sammen med **Friedrich Engels** utviklet han en systematisk kritikk av kapitalismen.
 
 Marx mente at hele historien var drevet av **klassekamp** - en kamp mellom de som eier og de som arbeider. Under kapitalismen var det borgerskapet (fabrikkeierne) som eide **produksjonsmidlene** - fabrikkene, maskinene, råvarene - mens arbeiderklassen bare hadde sin arbeidskraft å selge.
 
-Kjernen i Marx' kritikk var at kapitalismen **utbyttet** arbeiderne. Arbeiderne skapte verdiene gjennom sitt arbeid, men eierne tok profitten. Marx mente dette var en grunnleggende urettferdighet som løp som en rød tråd gjennom hele det kapitalistiske systemet.
+Sentralt i Marx' analyse sto det som kalles **arbeidsverdilæren** - teorien om at arbeiderne skapte all verdi gjennom sitt arbeid, mens eierne tok profitten. Det er viktig å understreke at dette er Marx' *teori*, ikke et etablert økonomisk faktum. Fra 1870-tallet utviklet økonomer som William Stanley Jevons, Carl Menger og Leon Walras alternative forklaringer - den såkalte **marginalistiske revolusjonen** - som argumenterte for at verdien av en vare bestemmes av tilbud og etterspørsel, ikke bare av arbeidet som er lagt ned. Denne debatten om hva som skaper verdi fortsetter i dag.
 
-Han spådde at kapitalismen til slutt ville bryte sammen på grunn av sine egne motsetninger - at arbeiderklassen ville gjøre revolusjon og opprette et sosialistisk samfunn der produksjonsmidlene var felleseie. Til slutt ville staten "visne bort" og et klasseløst kommunistisk samfunn oppstå.
+Marx spådde at kapitalismen til slutt ville bryte sammen på grunn av sine egne motsetninger - at arbeiderklassen ville gjøre revolusjon og opprette et sosialistisk samfunn der produksjonsmidlene var felleseie. Til slutt ville staten "visne bort" og et klasseløst kommunistisk samfunn oppstå.
 
-Uansett hva man mener om Marx' løsninger, er det liten tvil om at hans analyse av industrikapitalismens urettferdighet traff en nerve. Ideene hans inspirerte arbeiderbevegelser over hele verden i over hundre år.`,
+Historien har i stor grad vist at disse spådommene ikke slo til. Kapitalismen kollapset ikke slik Marx forutsa - i stedet ble den reformert gjennom demokratiske prosesser, velferdsstater og regulering. Der marxistiske ideer ble forsøkt gjennomført som statssystem - i Sovjetunionen, Maos Kina og Kambodsja under Røde Khmer - førte det til autoritære regimer, undertrykkelse av grunnleggende friheter og i flere tilfeller massiv menneskelig lidelse. Dette betyr ikke at Marx' analyse av industrialiseringens problemer var verdiløs - hans beskrivelser av arbeiderklassens vilkår var ofte treffende. Men det er et viktig skille mellom hans evne til å diagnostisere problemer og de løsningene han foreslo.
+
+Marx' ideer inspirerte arbeiderbevegelser over hele verden i over hundre år, men de mest vellykkede forbedringene av arbeidernes kår kom gjerne gjennom en kombinasjon av fagforeningskamp, liberal reformpolitikk og demokratisk lovgivning - ikke gjennom den revolusjonen Marx så for seg.`,
     },
     {
       id: 'historie-7-3-n-quiz3',
@@ -540,7 +544,7 @@ Uansett hva man mener om Marx' løsninger, er det liten tvil om at hans analyse 
           { id: 'c', text: 'Religiøse konflikter og trosforskjeller', isCorrect: false },
           { id: 'd', text: 'Kriger mellom nasjoner og stormakter', isCorrect: false },
         ],
-        solution: 'Marx mente at historien ble drevet av klassekamp - en vedvarende konflikt mellom de som eier produksjonsmidlene og de som arbeider. Under kapitalismen var dette kampen mellom borgerskapet (fabrikkeierne) og proletariatet (arbeiderklassen). Marx mente denne motsetningen var uforsonlig og ville føre til revolusjon.',
+        solution: 'Marx mente at historien ble drevet av klassekamp - en vedvarende konflikt mellom de som eier produksjonsmidlene og de som arbeider. Under kapitalismen var dette kampen mellom borgerskapet (fabrikkeierne) og proletariatet (arbeiderklassen). Marx mente denne motsetningen var uforsonlig og ville føre til revolusjon. Det er viktig å merke seg at dette er Marx\' teori - andre historikere og samfunnsvitere har pekt på mange andre drivkrefter i historien, som teknologisk utvikling, ideer, religion og geografi.',
       },
     },
     {
@@ -576,15 +580,19 @@ Likevel satte thranitterbevegelsen dype spor. Den viste at vanlige folk - arbeid
     {
       id: 'historie-7-3-n-section5',
       type: 'text',
-      content: `## Arven etter arbeiderbevegelsen
+      content: `## Arven - hvem skapte velferdssamfunnet?
 
 Det er lett å ta ting for gitt. Vi jobber åtte timer om dagen og synes det er slitsomt. Vi klager på ferien som er for kort. Vi synes det er irriterende å fylle ut skjemaer for sykepenger.
 
-Men stopp opp et øyeblikk og tenk på hva arbeiderbevegelsen faktisk oppnådde. Nesten alle de sosiale rettighetene vi tar som en selvfølge i dag, ble kjempet frem gjennom generasjoner med arbeiderkamp.
+Men stopp opp et øyeblikk og tenk over hvordan disse rettighetene faktisk ble til. Veien fra 1800-tallets arbeidsforhold til dagens velferdssamfunn var lang - og den ble gått av mange ulike aktører.
 
-**Åtte-timers arbeidsdag** - kjempet frem gjennom streiker og politisk arbeid, etter tiårs kamp. **Ferie med lønn** - en gang fullstendig utenkelig; hvorfor skulle noen få betalt for å ikke jobbe? **Retten til å organisere seg og streike** - en gang forbudt og straffbart. **Sykepenger** - lønn når du er syk, noe som ikke fantes før. **Alderspensjon** - så du kan leve med verdighet når kroppen er utslitt. **Oppsigelsesvern** - så sjefen ikke kan sparke deg på dagen uten grunn. **Arbeidsmiljølover** - så arbeidsplassen din skal være trygg. **Forbud mot barnearbeid** - så barn får være barn.
+**Åtte-timers arbeidsdag**, **ferie med lønn**, **retten til å organisere seg og streike**, **sykepenger**, **alderspensjon**, **oppsigelsesvern**, **arbeidsmiljølover** og **forbud mot barnearbeid** - alt dette vokste frem gradvis gjennom 1800- og 1900-tallet. Fagforeningene og arbeiderbevegelsen spilte en viktig rolle i å presse frem disse rettighetene gjennom streiker, demonstrasjoner og politisk arbeid.
 
-Listen er lang, og alt dette ble kjempet frem, steg for steg, gjennom streiker, demonstrasjoner og politisk arbeid over mange tiår. Friedrich Engels dokumenterte arbeiderklassens elendige kår i Manchester på 1840-tallet - trange, mørke boliger uten vann og kloakk, barn som vokste opp i forhold uverdige for dyr. Fra den elendigheten til dagens velferdssamfunn er det en lang vei. Og den veien ble gått av arbeiderbevegelsen.`,
+Men de var ikke alene. **Liberale reformpolitikere** som Lord Shaftesbury og Robert Peel drev frem de første fabrikklovene i Storbritannia, ofte mot sterk motstand fra både konservative og deler av næringslivet. **Filantroper og opplyste arbeidsgivere** som Robert Owen eksperimenterte med kortere arbeidstid, bedre boliger og utdanning for sine arbeidere - og viste at god behandling kunne lønne seg. **Leger og vitenskapsfolk** som Edwin Chadwick dokumenterte sammenhengen mellom sanitære forhold og folkehelse, noe som drev frem lovgivning om rent vann og kloakk. Og ikke minst bidro **økonomisk vekst og teknologisk utvikling** til at samfunnet fikk råd til bedre vilkår - velstand som måtte skapes før den kunne fordeles.
+
+Friedrich Engels dokumenterte arbeiderklassens kår i Manchester på 1840-tallet, og hans beskrivelser av trange, mørke boliger uten vann og kloakk fikk stor innflytelse. Det bør nevnes at senere historikere har påpekt at Engels' fremstilling var selektiv - han fokuserte på de verste forholdene og undervurderte forbedringer som allerede var i gang. Men hans hovedpoeng om at forholdene for mange arbeidere var svært vanskelige, støttes av et bredt kildemateriale.
+
+Fra de vanskelige forholdene på 1800-tallet til dagens velferdssamfunn er det en lang vei. Den veien ble gått av fagforeninger, liberale reformatorer, opplyste arbeidsgivere, vitenskapsfolk, parlamentarikere og mange andre - alle bidro med sine brikker til det puslespillet vi kaller det moderne velferdssamfunnet.`,
     },
     {
       id: 'historie-7-3-n-quiz5',
@@ -593,14 +601,14 @@ Listen er lang, og alt dette ble kjempet frem, steg for steg, gjennom streiker, 
         id: 'historie-7-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvilken av følgende rettigheter ble IKKE kjempet frem av arbeiderbevegelsen?',
+        task: 'Hvilke aktører bidro til utviklingen av sosiale rettigheter på 1800- og 1900-tallet?',
         options: [
-          { id: 'a', text: 'Åtte-timers arbeidsdag', isCorrect: false },
-          { id: 'b', text: 'Kongens rett til å utnevne regjering', isCorrect: true },
-          { id: 'c', text: 'Ferie med lønn', isCorrect: false },
-          { id: 'd', text: 'Sykepenger og alderspensjon', isCorrect: false },
+          { id: 'a', text: 'Kun fagforeningene gjennom streiker', isCorrect: false },
+          { id: 'b', text: 'Fagforeninger, liberale reformpolitikere, opplyste arbeidsgivere og teknologisk utvikling i samspill', isCorrect: true },
+          { id: 'c', text: 'Kun staten som innførte reformer fra toppen', isCorrect: false },
+          { id: 'd', text: 'Kun fabrikkeierne som frivillig forbedret forholdene', isCorrect: false },
         ],
-        solution: 'Kongens rett til å utnevne regjering er en del av monarkiets tradisjonelle makt og ble ikke kjempet frem av arbeiderbevegelsen. Derimot var åtte-timers arbeidsdag, ferie med lønn, sykepenger og alderspensjon alle rettigheter som ble vunnet gjennom arbeiderbevegelsens langvarige kamp med streiker, demonstrasjoner og politisk arbeid.',
+        solution: 'De sosiale rettighetene vi har i dag ble utviklet gjennom et samspill mellom flere aktører: Fagforeninger presset på gjennom streiker og organisering. Liberale politikere som Lord Shaftesbury drev frem fabrikklover. Opplyste arbeidsgivere som Robert Owen viste at gode arbeidsforhold kunne fungere. Og teknologisk utvikling og økonomisk vekst skapte det materielle grunnlaget for velferdsreformer.',
       },
     },
     {
@@ -608,18 +616,18 @@ Listen er lang, og alt dette ble kjempet frem, steg for steg, gjennom streiker, 
       type: 'text',
       content: `## Oppsummering
 
-Industrialiseringen skapte enorm velstand, men den første generasjonen av arbeidere betalte en brutal pris. Fra arbeiderklassens elendige kår vokste fagforeninger, sosialistiske ideer og politiske bevegelser som gradvis kjempet frem de rettighetene vi tar for gitt i dag.
+Industrialiseringen skapte enorm velstand, men arbeidsforholdene i den tidlige fasen var svært krevende. Gradvis vokste det frem fagforeninger, politiske bevegelser og reforminitiativ som sammen bidro til de rettighetene vi har i dag.
 
 **Nøkkelbegreper du nå kjenner:**
 - **Arbeiderklassen (proletariatet)**: Den nye sosiale klassen som levde av å selge sin arbeidskraft
 - **Barnearbeid**: Barn helt ned i fem-seks års alder jobbet i fabrikker og gruver
 - **Fagforeninger**: Organisasjoner av arbeidere som forhandlet kollektivt for bedre vilkår
 - **Streik**: Arbeidsnektelse som kampmiddel mot arbeidsgivere
-- **Karl Marx**: Sosialismens viktigste tenker, som kritiserte kapitalismens utbytting
+- **Karl Marx**: Innflytelsesrik tenker som utviklet en systematisk kritikk av kapitalismen, men hvis løsninger viste seg problematiske i praksis
 - **Marcus Thrane**: Lederen for Norges første arbeiderbevegelse (rundt 1850)
 
 **Det viktigste du tar med deg:**
-Nesten alle de sosiale rettighetene vi har i dag - fra åtte-timers dag til sykepenger og ferie - ble kjempet frem av arbeiderbevegelsen gjennom generasjoner med kamp. Når du neste gang irriterer deg over å være på jobb, husk at dine tippoldeforeldre kanskje jobbet seksten timer om dagen, seks dager i uken, uten noen av de rettighetene du har.`,
+De sosiale rettighetene vi har i dag - fra åtte-timers dag til sykepenger og ferie - ble utviklet gjennom et samspill mellom fagforeningskamp, liberale reformatorer, opplyste arbeidsgivere, teknologisk utvikling og økonomisk vekst. Forbedringene kom ikke fra en enkelt kilde, men fra mange aktører som på ulike måter bidro til å forme det moderne velferdssamfunnet.`,
     },
   ],
   exercises: [],
@@ -694,7 +702,7 @@ I **arbeiderstrøkene** var virkeligheten dyster. Familier bodde i trange, mørk
 
 Bare noen kvartaler unna lå **borgerskapets bydeler**. Her var det store, luftige villaer og leiligheter med innlagt vann, gassbelysning og etter hvert elektrisitet. Brede boulevarder og vakre parker ga frisk luft og rekreasjon. Tjenerskap tok seg av husarbeidet, og barna gikk på private skoler.
 
-Denne kontrasten - ekstrem rikdom og ekstrem fattigdom i samme by - var synlig for alle. Det var umulig å ignorere. Og det var nettopp denne synligheten som bidro til sosial uro og krav om reformer. Når de rike og de fattige levde så nær hverandre, ble urettferdigheten umulig å skjule.`,
+Denne kontrasten - stor velstand og stor fattigdom i samme by - var synlig for alle. Det var nettopp denne synligheten som bidro til debatt og krav om reformer. Når ulike samfunnsklasser levde så nær hverandre, ble de sosiale forskjellene tydelige og skapte engasjement hos reformatorer av ulike politiske overbevisninger.`,
     },
     {
       id: 'historie-7-4-n-quiz2',

@@ -26,9 +26,9 @@ export const CHAPTER_HISTORIE_5_1_NARRATIV: TextbookChapter = {
     {
       id: 'historie-5-1-n-intro',
       type: 'text',
-      content: `## En verden som våkner
+      content: `## Forandringens tid
 
-Tenk deg at du lever i Europa på 1300-tallet. Svartedauden har nettopp feid over kontinentet og drept kanskje en tredjedel av befolkningen. Kirkene er fulle av angst, og prestene prediker om verdens ende. Mennesket er en synder, sier de, og livet på jorden er bare en prøvelse før det neste livet. Din eneste jobb er å tjene Gud og håpe på frelse.
+Tenk deg at du lever i Europa på 1300-tallet. Svartedauden har nettopp feid over kontinentet og drept kanskje en tredjedel av befolkningen. Kirken preger hverdagen, og prestene minner om verdens forgjengelighet. Mennesket er en synder, sier de, og livet på jorden er en prøvelse før det neste livet. Men middelalderens kristendom ga også mennesker fellesskap, mening og moralsk struktur. Kirken bygde katedraler og grunnla universiteter, og teologer som Thomas Aquinas hadde allerede utviklet avanserte filosofiske systemer som forente tro og fornuft.
 
 Så skjer det noe. I de italienske bystatene -- Firenze, Venezia, Milano -- begynner noen å tenke annerledes. De graver frem gamle bøker og skulpturer fra antikkens Roma og Hellas. De leser filosofene Platon og Aristoteles. De studerer de gamle skulpturene og undrer seg: Hvordan kunne mennesker for over tusen år siden skape noe så vakkert? Og hvorfor hadde denne kunnskapen gått tapt?
 
@@ -71,7 +71,7 @@ Hvorfor begynte alt dette akkurat i Italia? Fordi de italienske bystatene var ri
       type: 'text',
       content: `## Renessansens store kunstnere
 
-Ingen periode i historien har produsert så mange geniale kunstnere som renessansen. Og ingen av dem illustrerer renessansens idealer bedre enn **Leonardo da Vinci** (1452--1519).
+Renessansen produserte en usedvanlig konsentrasjon av kunstnerisk talent i Europa. Og ingen av renessansens kunstnere illustrerer periodens idealer bedre enn **Leonardo da Vinci** (1452--1519).
 
 Leonardo var det vi kaller et **universalgeni** -- et menneske som mestret alt. Han var maler, og ga oss mesterverk som *Mona Lisa* og *Nattverden*. Men han var også anatom som dissekerte lik for å forstå kroppen, ingeniør som tegnet planer for flygemaskiner og stridsvogner hundrevis av år før de ble virkelighet, vitenskapsmann som studerte optikk og hydraulikk, og arkitekt som designet bygninger og broer. Hans notatbøker, fulle av tusenvis av tegninger og observasjoner, er et vindu inn i et sinn som aldri sluttet å undre seg.
 
@@ -103,7 +103,7 @@ Det som kjennetegner renessansekunsten, er **realisme**, bruk av **sentralperspe
       type: 'text',
       content: `## Boktrykkerkunsten -- en revolusjon i kunnskap
 
-I 1450, i den tyske byen Mainz, skjedde kanskje den viktigste hendelsen i hele renessansen -- og kanskje en av de viktigste i hele menneskehetens historie. **Johannes Gutenberg** oppfant boktrykkerkunsten med **løse typer**.
+I 1450, i den tyske byen Mainz, skjedde kanskje den viktigste hendelsen i hele renessansen. **Johannes Gutenberg** oppfant boktrykkerkunsten med **løse typer**. Trykking med løse typer var allerede oppfunnet i Kina og Korea flere hundre år tidligere, men Gutenbergs system -- med metalltyper, trykkpresse og oljebasert blekk -- var en selvstendig oppfinnelse som fikk enorme konsekvenser i Europa.
 
 For å forstå hvor revolusjonerende dette var, må vi tenke på hvordan verden var før Gutenberg. Bøker ble kopiert for hånd, vanligvis av munker i klostre. Det tok måneder å kopiere én bok. Bøker var derfor ekstremt dyre, og bare de rikeste eller de store kirkelige institusjonene hadde dem. Kunnskap var forbeholdt en liten elite.
 
@@ -139,7 +139,7 @@ For å virkelig forstå hvor radikalt renessansens menneskesyn var, la oss se n�
 
 Pico var en av renessansens mest lærde menn. Han behersket mange språk og hadde studert filosofi fra ulike tradisjoner. I talen sin lot han Gud tale direkte til Adam: *"Vi har ikke gitt deg noen bestemt plass, noen egen form eller noen særskilt egenskap, for at du etter eget ønske og egen vilje skal kunne velge den plassen, den formen og de egenskapene du selv ønsker. Alle andre veseners natur er begrenset av lover vi har fastsatt. Du derimot er ikke begrenset av noe bånd, men skal selv bestemme din natur etter din egen frie vilje."*
 
-Tenk over hvor revolusjonerende dette var. I middelalderen ble mennesket definert av sin plass i Guds plan. Du ble født som bonde, adelsmann eller geistlig, og det var Guds vilje. Du skulle ikke prøve å bli noe annet. Mennesket var en synder som bare kunne håpe på frelse gjennom kirken.
+Tenk over hvor revolusjonerende dette var. I middelalderen ble mennesket i stor grad definert av sin plass i Guds plan. Du ble som regel født som bonde, adelsmann eller geistlig, og det ble sett som Guds vilje. Riktignok fantes det veier til sosial mobilitet -- gjennom kirken, handel eller lærdom -- og teologer som Thomas Aquinas hadde argumentert for menneskets verdighet og fornuft innenfor en kristen ramme. Men Picos visjon om menneskets radikale frihet var noe nytt.
 
 Pico sier det stikk motsatte: Mennesket har **ingen forutbestemt natur**. Det er fritt til å forme seg selv. Det kan synke ned til dyrenes nivå, eller det kan heve seg opp mot det guddommelige. Valget er menneskets eget. Denne teksten regnes som **renessansehumanismens manifest** -- selve kjernen i den nye tenkningen om menneskets verdi og muligheter.
 
@@ -165,15 +165,17 @@ Vi må likevel huske at Pico representerte en intellektuell elite. For de fleste
     {
       id: 'historie-5-1-n-section5',
       type: 'text',
-      content: `## Renessansens arv -- grunnlaget for vår verden
+      content: `## Renessansens arv -- ulike tolkninger
 
-Renessansen varte i omtrent to hundre år, fra rundt 1400 til rundt 1600. Men dens virkninger lever videre den dag i dag. Faktisk er mange av de ideene vi tar for gitt i det moderne samfunnet, barn av renessansen.
+Renessansen varte i omtrent to hundre år, fra rundt 1400 til rundt 1600. Men dens virkninger lever videre den dag i dag. Mange av de ideene vi tar for gitt i det moderne samfunnet, har røtter i renessansen.
 
-Ideen om at mennesket har iboende **verdighet** og kan forme sitt eget liv -- den ligger til grunn for moderne **menneskerettigheter**. Humanistenes vekt på **fornuft** fremfor blind autoritetstro banet vei for **opplysningstiden** og moderne **vitenskap**. Fokuset på **individet** la grunnlag for senere ideer om individuelle rettigheter og friheter. Humanistenes vekt på **dannelse** og kunnskap inspirerte moderne utdanningsidealer.
+Ideen om at mennesket har **verdighet** og kan forme sitt eget liv, har blitt brukt som filosofisk grunnlag for moderne **menneskerettigheter**. Humanistenes vekt på **fornuft** fremfor blind autoritetstro banet vei for **opplysningstiden** og moderne **vitenskap**. Fokuset på **individet** la grunnlag for senere ideer om individuelle rettigheter og friheter. Humanistenes vekt på **dannelse** og kunnskap inspirerte moderne utdanningsidealer.
+
+Men renessansens arv er sammensatt. De samme ideene om europeisk overlegenhet og vitenskap som vokste ut av perioden, ble også brukt til å rettferdiggjøre kolonialisme og imperialisme i århundrene som fulgte. Renessansens fokus på individet og fornuften har blitt tolket på svært ulike måter gjennom historien.
 
 Selv om humanistene ikke var anti-religiøse, bidro de til å skille mellom religiøs og verdslig kunnskap -- et skille som er grunnleggende for moderne, sekulære samfunn.
 
-Vi kan si det slik: Renessansen plantet frøene. Reformasjonen, opplysningstiden og de demokratiske revolusjonene som fulgte, var blomstene. Og det moderne samfunnet -- med sine universiteter, menneskerettigheter, vitenskapelige metoder og tro på individets verdi -- er frukten.`,
+En vanlig tolkning er at renessansen plantet frøene for opplysningstiden og de demokratiske revolusjonene som fulgte. Men historisk utvikling er sjelden lineær, og det er viktig å huske at mange andre faktorer og tradisjoner -- også fra middelalderen, islam og andre kulturer -- bidro til den moderne verden.`,
     },
     {
       id: 'historie-5-1-n-quiz5',
@@ -342,11 +344,11 @@ Reformasjonen hadde altså ikke bare religiøse årsaker. Mange fyrster og konge
 
 Reformasjonen splittet ikke bare kirken -- den splittet hele Europa og utløste over hundre år med blodige konflikter. Når mennesker er overbevist om at de kjemper for Guds sannhet, er kompromiss vanskelig.
 
-De verste konfliktene var **de franske religionskrigene** (1562--1598) mellom katolikker og hugenotter. Det mest sjokkerende øyeblikket kom natten mellom 23. og 24. august 1572: **Bartolomeusnattmassakren**. Katolske mobber gikk løs på hugenottene i Paris, og volden spredte seg til andre byer. Tusenvis av hugenotter ble drept. Massakren ble et symbol på religiøs fanatisme på sitt verste.
+De verste konfliktene var **de franske religionskrigene** (1562--1598) mellom katolikker og hugenotter. Det mest sjokkerende øyeblikket kom natten mellom 23. og 24. august 1572: **Bartolomeusnattmassakren**. Katolske mobber gikk løs på hugenottene i Paris, og volden spredte seg til andre byer. Tusenvis av hugenotter ble drept. Massakren hadde ikke bare religiøse, men også sterke politiske motiver: den var knyttet til maktkampen mellom de mektige **Guise**- og **Bourbon**-familiene om innflytelse over det franske kongehuset. Religion og maktpolitikk var tett sammenvevd.
 
 Men den største og mest ødeleggende konflikten var **Trettiårskrigen** (1618--1648). Den startet som en religionskrig mellom katolikker og protestanter i Det tysk-romerske riket, men utviklet seg til en europeisk storkrig der stormakter som Frankrike, Sverige, Spania og Danmark kjempet om makt og territorium. Store deler av Sentral-Europa ble lagt øde. I noen tyske regioner døde opptil en tredjedel av befolkningen av krig, sykdom og hungersnød.
 
-Trettiårskrigen endte med **Westfalerfreden** i 1648. Denne fredsavtalen er en av de viktigste i europeisk historie. Den etablerte prinsippet om at **hver fyrste bestemte religionen i sitt territorium** (*cuius regio, eius religio*), og den la grunnlaget for det moderne **statssystemet** der suverene stater anerkjenner hverandres rett til å styre seg selv.
+Trettiårskrigen endte med **Westfalerfreden** i 1648. Denne fredsavtalen er en av de viktigste i europeisk historie. Den bekreftet prinsippet om at **hver fyrste bestemte religionen i sitt territorium** (*cuius regio, eius religio*) -- et prinsipp som allerede var etablert ved **Augsburg-freden i 1555**, men som nå ble utvidet til også å gjelde kalvinister. Westfalerfreden la dessuten grunnlaget for det moderne **statssystemet** der suverene stater anerkjenner hverandres rett til å styre seg selv.
 
 Religionskrigenes grusomheter lærte Europa en bitter leksjon: Religiøs splittelse kunne føre til total ødeleggelse. Gradvis vokste tanken om **religiøs toleranse** fram -- ideen om at mennesker med forskjellig tro kunne leve side om side. Denne tanken ble et av grunnlagene for opplysningstiden som fulgte.`,
     },
@@ -445,7 +447,7 @@ Tenk deg at du står ved kysten av Portugal på slutten av 1400-tallet og ser ut
 
 Det er dette øyeblikket som innleder en av verdenshistoriens mest dramatiske perioder: **oppdagelsenes tidsalder**. Fra slutten av 1400-tallet begynte europeiske sjøfarere å seile ut i ukjente havområder, og i løpet av bare noen tiår forandret de verdenskartet for alltid.
 
-Men la oss stoppe opp ved selve begrepet "oppdagelsesreiser". Det er et ord som reflekterer et europeisk perspektiv. Amerika, Afrika og Asia var jo allerede "oppdaget" -- av de millionene av mennesker som bodde der. Det europeerne oppdaget, var at verden var større enn de hadde trodd. Det urbefolkningene oppdaget, var at fremmede med våpen og sykdommer var på vei.`,
+Men la oss stoppe opp ved selve begrepet "oppdagelsesreiser". Det er et ord som reflekterer et europeisk perspektiv. Amerika, Afrika og Asia var jo allerede "oppdaget" -- av de millionene av mennesker som bodde der. Det europeerne oppdaget, var at verden var større enn de hadde trodd. Det urbefolkningene oppdaget, var at fremmede med våpen og sykdommer var på vei. Samme type kildekritisk blikk kan for øvrig også rettes mot begreper som "renessanse" og "reformasjon", som også gjenspeiler bestemte perspektiver og verdivurderinger.`,
     },
     {
       id: 'historie-5-3-n-section1',
@@ -518,9 +520,9 @@ Den 12. oktober 1492 nådde Columbus en øy i Karibia som han kalte San Salvador
 
 Møtet mellom Europa og Amerika satte i gang noe vi kaller **det columbianske byttet** -- en massiv utveksling av planter, dyr, sykdommer og mennesker mellom den "gamle" og "nye" verden. Konsekvensene var enorme -- og svært ulikt fordelt.
 
-**Fra Amerika til Europa** kom planter som forandret europeisk kosthold for alltid: **poteter**, **mais**, **tomater**, **kakao**, **tobakk** og **chili**. Poteten alene ble en av Europas viktigste matvarer og bidro til betydelig befolkningsvekst i århundrene som fulgte.
+**Fra Amerika til Europa** kom planter som forandret europeisk kosthold for alltid: **poteter**, **mais**, **tomater**, **kakao**, **tobakk** og **chili**. Poteten alene ble en av Europas viktigste matvarer og bidro til betydelig befolkningsvekst i århundrene som fulgte. Også sykdommer kan ha krysset havet den andre veien -- mange forskere mener at **syfilis** ble brakt til Europa fra Amerika, selv om dette fortsatt er omdiskutert. Den enorme tilstrømningen av sølv fra Amerika skapte dessuten kraftig **inflasjon** i Europa -- den såkalte prisrevolusjonen -- som rammet mange europeere hardt.
 
-**Fra Europa til Amerika** kom **hvete**, **ris**, **sukker**, **hester**, **kuer** og **griser**. Hesten forandret mange urfolks levesett totalt -- tenk på prerien-indianerne i Nord-Amerika som ble ryttere.
+**Fra Europa til Amerika** kom **hvete**, **ris**, **sukker**, **hester**, **kuer** og **griser**. Hesten forandret mange urfolks levesett totalt -- tenk på præriefolkene i Nord-Amerika som ble ryttere.
 
 Men det mest katastrofale som krysset Atlanterhavet, var usynlig: **sykdommer**. Europeerne brakte med seg **kopper**, **meslinger**, **influensa** og andre sykdommer som urbefolkningen i Amerika aldri hadde vært utsatt for. De hadde ingen immunitet. Resultatet var en demografisk katastrofe uten sidestykke i verdenshistorien. Noen forskere anslår at opptil **90 prosent av urbefolkningen** i Amerika døde av europeiske sykdommer i løpet av det første århundret etter kontakten. Hele sivilisasjoner ble utslettet, ikke primært av sverd og kuler, men av virus og bakterier.`,
     },
@@ -544,21 +546,21 @@ Men det mest katastrofale som krysset Atlanterhavet, var usynlig: **sykdommer**.
     {
       id: 'historie-5-3-n-section4',
       type: 'text',
-      content: `## Konkvistadorene -- erobring og ødeleggelse
+      content: `## Konkvistadorene -- erobringen av Amerika
 
 Etter Columbus fulgte **konkvistadorene** -- spanske erobrere som la under seg store områder i Amerika med rå makt.
 
-**Hernán Cortés** ankom Mexico i 1519 med noen hundre soldater. Han møtte **Aztekerriket**, et mektig imperium med millioner av innbyggere, en storslått hovedstad -- **Tenochtitlán** -- og avansert kultur. Likevel klarte Cortés å erobre riket innen 1521. Hvordan var det mulig?
+**Hernán Cortés** ankom Mexico i 1519 med noen hundre soldater. Han møtte **Aztekerriket**, et mektig imperium med millioner av innbyggere, en storslått hovedstad -- **Tenochtitlán** -- og avansert kultur. Aztekerriket var selv bygd gjennom erobring: aztekerne hadde lagt under seg en rekke nabofolk, krevde inn tributt og praktiserte menneskeofring i stor skala som del av sin religion. Mange av de underlagte folkene næret et sterkt hat mot aztekerne. Likevel klarte Cortés å erobre riket innen 1521. Hvordan var det mulig?
 
-Flere faktorer spilte sammen. Spanjolene hadde **teknologisk overlegenhet** med stålvåpen, rustninger og hester. Men like viktig var at Cortés allierte seg med **folkegrupper som var undertrykt av aztekerne** og som ville ha hevn. Og sykdommene -- særlig kopper -- herjet allerede i befolkningen.
+Flere faktorer spilte sammen. Spanjolene hadde **teknologisk overlegenhet** med stålvåpen, rustninger og hester. Men like viktig var at Cortés allierte seg med **folkegrupper som var undertrykt av aztekerne** -- som tlaxcalanerne -- og som så spanjolene som en mulighet til å frigjøre seg fra aztekisk herredømme. Og sykdommene -- særlig kopper -- herjet allerede i befolkningen.
 
 **Francisco Pizarro** brukte lignende metoder da han erobret **Inkariket** i Peru i 1532--1533. Han fanget Inkakongen Atahualpa og krevde en enorm løsepenge i gull. Da han fikk den, henrettet han kongen likevel.
 
-Etter erobringene ble urbefolkningen tvunget til arbeid i **gruver** og på **plantasjer**. Sølv og gull strømmet til Spania, som ble Europas mektigste stat. Men rikdommen kom med en forferdelig menneskelig kostnad.
+Etter erobringene ble urbefolkningen tvunget til arbeid i **gruver** og på **plantasjer**. Sølv og gull strømmet til Spania, som ble Europas mektigste stat. Men rikdommen kom med en stor menneskelig kostnad.
 
 Den spanske munken **Bartolomé de las Casas**, som selv hadde oppholdt seg i Amerika, ble en viktig kritiker av overgrepene. I sin *Kort beretning om ødeleggelsen av Vestindia* (1552) beskrev han grusomhetene i detalj og appellerte til den spanske kongen om å stanse dem. De las Casas var en av de første europeerne som talte urbefolkningens sak -- selv om han fortsatt så dem gjennom europeiske øyne og ville kristne dem "med mildhet".
 
-**Kolonialisme** -- systemet der en stat etablerer politisk og økonomisk kontroll over et område utenfor sine grenser og utnytter dets ressurser -- var i ferd med å bli et av verdenshistoriens mest gjennomgripende fenomener.`,
+**Kolonialisme** -- systemet der en stat etablerer politisk og økonomisk kontroll over et område utenfor sine grenser og kontrollerer dets ressurser -- var i ferd med å bli et av verdenshistoriens mest gjennomgripende fenomener.`,
     },
     {
       id: 'historie-5-3-n-quiz4',
@@ -587,6 +589,8 @@ Oppdagelsesreisene og den tidlige kolonialismen forandret verden på måter vi f
 **For urbefolkningen i Amerika** var det en katastrofe. Opptil 90 prosent døde av sykdommer. De som overlevde, mistet sitt politiske selvstyre, sine tradisjonelle samfunnsstrukturer og mye av sin kultur. De ble tvunget til arbeid i gruver og på plantasjer, og forsøkt omvendt til kristendommen.
 
 **For europeerne** var det en periode med enorm berikelse. Nye matvarer som poteter og mais bidro til befolkningsvekst. Rikdom fra koloniene styrket europeiske stater. Ny kunnskap om verden utfordret gamle forestillinger og bidro til vitenskapelig fremgang.
+
+**For Afrika** fikk europeisk ekspansjon også alvorlige konsekvenser. Allerede fra 1500-tallet begynte den **transatlantiske slavehandelen**, der millioner av afrikanere ble tvangssendt til Amerika for å arbeide på plantasjer og i gruver. Denne handelen fikk katastrofale følger for afrikanske samfunn og varte i over tre hundre år.
 
 **For verden som helhet** markerte oppdagelsesreisene begynnelsen på en global sammenheng som bare har økt siden. For første gang ble alle kontinenter knyttet sammen gjennom handel, migrasjon og kulturutveksling. Det var begynnelsen på **globaliseringen** -- med alt det innebar av muligheter og lidelse.
 
@@ -672,7 +676,7 @@ Ludvig samlet hele den franske adelen ved hoffet i Versailles. Der måtte de bo,
 
 Hva oppnådde Ludvig med dette? For det første fikk han **kontroll**: Han kunne overvåke adelen og hindre at de bygde opp makt i provinsene. For det andre skapte han **avhengighet**: Adelen konkurrerte om kongens gunst og stillinger ved hoffet, noe som ga kongen enormt mye makt. For det tredje tappet det dyre hofflivet adelen for **ressurser** som ellers kunne blitt brukt til å finansiere private hærer eller opprør. Og for det fjerde demonstrerte slottets enorme prakt kongens makt og Frankrikes storhet for **hele Europa**.
 
-Ludvig førte en aktiv utenrikspolitikk med mange kriger for å utvide Frankrikes grenser. Han fremmet fransk kultur og industri gjennom **merkantilisme** og trakk inn religiøse minoriteter som hugenottene.`,
+Ludvig førte en aktiv utenrikspolitikk med mange kriger for å utvide Frankrikes grenser. Han fremmet fransk kultur og industri gjennom **merkantilisme**. I 1685 opphevet han **Nantes-ediktet**, som hadde sikret hugenottenes religionsfrihet, og innledet en systematisk forfølgelse av de franske protestantene. Hundretusenvis av hugenotter flyktet fra Frankrike, noe som var et betydelig tap av kompetent arbeidskraft og kapital.`,
     },
     {
       id: 'historie-5-4-n-quiz1',
@@ -768,7 +772,7 @@ Merkantilistene mente at verdens rikdom var **begrenset** -- som en kake med fas
 
 For å oppnå dette brukte de eneveldige statene en rekke virkemidler. De la **toll** på importvarer for å beskytte egen industri. De ga **støtte** til etablering av **manufakturer** -- tidlige fabrikker. De brukte **koloniene** som leverandører av billige råvarer og kjøpere av dyre ferdigvarer fra moderlandet. De opprettet **handelsmonopoler** og privilegerte handelskompanler som Dansk Ostindisk Kompani. Og de forbød utførsel av gull og sølv fra landet.
 
-Koloniene spilte en nøkkelrolle i dette systemet. De skulle levere råvarer -- sukker, tobakk, krydder, bomull -- til moderlandet, og de skulle kjøpe ferdigvarene som moderlandet produserte. Koloniene fikk ikke handle med andre land. Alt måtte gå gjennom moderlandet. Det var et system designet for å berike den europeiske staten -- på bekostning av koloniene og deres befolkning.
+Koloniene spilte en nøkkelrolle i dette systemet. De skulle levere råvarer -- sukker, tobakk, krydder, bomull -- til moderlandet, og de skulle kjøpe ferdigvarene som moderlandet produserte. Koloniene fikk ikke handle med andre land. Alt måtte gå gjennom moderlandet. Merkantilistiske tenkere mente at dette systemet tjente hele imperiet ved å skape orden, beskyttelse og økonomisk utvikling. I praksis var det likevel moderlandet som høstet de største fordelene, mens koloniene hadde begrenset handlingsfrihet.
 
 Merkantilismen var altså tett knyttet til både eneveldet og kolonialismen. Sterk kongemakt, kontroll over økonomien og utnyttelse av kolonier hang sammen i et system der alt var rettet mot å gjøre staten -- og kongen -- så rik og mektig som mulig.`,
     },
@@ -802,7 +806,9 @@ Grunnloven sier: Makten er delt mellom **Stortinget** (lovgivende), **regjeringe
 
 Kongeloven nevner ingen rettigheter for folket. Grunnloven bygger på dem. Kongeloven samler all makt. Grunnloven fordeler den. Kongeloven ser på folket som undersåtter. Grunnloven ser på dem som borgere med rettigheter.
 
-Hvorfor ble eneveldet til slutt erstattet? Fordi nye ideer om **folkesuverenitet**, **menneskerettigheter** og **maktfordeling** vokste fram i opplysningstiden. Tenkere som John Locke og Montesquieu argumenterte for at makten tilhørte folket, og at den burde deles for å hindre maktmisbruk. Revolusjoner -- den amerikanske i 1776, den franske i 1789 -- viste at folket kunne utfordre kongemakten. Og gradvis ble eneveldet erstattet av mer demokratiske styreformer i land etter land.`,
+Det betyr ikke at alle eneveldige stater nødvendigvis var dårlig styrt. Det dansk-norske eneveldet var for eksempel relativt velorganisert med et effektivt byråkrati, og eneveldet gjennomførte reformer som avskaffelsen av stavnsbåndet i 1788. Men systemet var sårbart fordi alt avhang av kongens personlige egenskaper, og undersåttene hadde ingen formell rett til å påvirke beslutningene.
+
+Hvorfor ble eneveldet til slutt erstattet? Blant annet fordi nye ideer om **folkesuverenitet**, **menneskerettigheter** og **maktfordeling** vokste fram i opplysningstiden. Tenkere som John Locke og Montesquieu argumenterte for at makten tilhørte folket, og at den burde deles for å hindre maktmisbruk. Revolusjoner -- den amerikanske i 1776, den franske i 1789 -- viste at folket kunne utfordre kongemakten. Og gradvis ble eneveldet erstattet av andre styreformer i land etter land.`,
     },
     {
       id: 'historie-5-4-n-quiz5',
@@ -838,7 +844,7 @@ Tidlig nytid var preget av en enorm maktkonsentrasjon. Konger samlet all makt i 
 - **Merkantilisme**: Økonomisk politikk som la vekt på eksportoverskudd, toll og kolonier
 
 **Det viktigste du tar med deg:**
-Eneveldet varte i bare noen generasjoner, men det forandret Europa. Det bygde opp moderne statsapparater med byråkratier og stående hærer, men det viste også hva som skjer når makt konsentreres uten kontroll. Reaksjonen mot eneveldet -- opplysningstiden og de demokratiske revolusjonene -- la grunnlaget for den moderne verden med demokrati, maktfordeling og menneskerettigheter.`,
+Eneveldet varte i bare noen generasjoner, men det forandret Europa. Det bygde opp moderne statsapparater med byråkratier og stående hærer. Reaksjonen mot eneveldet -- opplysningstiden og de demokratiske revolusjonene -- bidro til fremveksten av nye styringsformer. Mange historikere ser denne utviklingen som en viktig bakgrunn for ideer om demokrati, maktfordeling og menneskerettigheter, selv om veien dit var lang og kronglete.`,
     },
   ],
   exercises: [],
@@ -870,7 +876,7 @@ I 1397 ble det enda mer komplisert. **Kalmarunionen** ble dannet -- en union mel
 
 Sverige brøt ut av unionen i 1523 under Gustav Vasa og ble en selvstendig stormakt. Men Norge ble værende. Og gradvis ble Norge mer og mer underordnet. I **1536/37** tok den danske riksdagen det mest dramatiske steget: Norge skulle ikke lenger være et eget rike, men en del av Danmark *"ligesom et af de andre lande"*. Norge ble formelt et **lydrike** -- et rike som "lyder" et annet. Det norske riksrådet ble avskaffet. Norges siste politiske institusjon var borte.
 
-Historikere har lenge kalt denne perioden for **"400-årsnatten"** -- en mørk tid der Norge var fullstendig undertrykt. Men var det virkelig så enkelt? La oss se nærmere.`,
+På 1800-tallet, i nasjonalromantikkens tid, ble denne perioden kalt **"400-årsnatten"** -- et uttrykk som ofte tilskrives dikteren **Henrik Wergeland**. Det skulle gi inntrykk av en mørk tid der Norge var fullstendig undertrykt. Moderne historikere ser imidlertid mer nyansert på perioden. Men hva var det egentlig som skjedde? La oss se nærmere.`,
     },
     {
       id: 'historie-5-5-n-section1',
@@ -943,13 +949,15 @@ Norske **byer** vokste også. Bergen var Norges desidert største by og en av No
 
 Her kommer et av de mest interessante aspektene ved Norges historie i dansketiden -- noe som gjør Norge forskjellig fra nesten alle andre europeiske land.
 
-I Danmark var bøndene **livegne**. Det betyr at de var **stavnsbundet** -- bundet til godseierens jord uten frihet til å flytte. De måtte arbeide for godseierne og trengte tillatelse for det meste. Det var en form for ufrihet som grenset mot slaveri.
+I Danmark var bøndene underlagt **stavnsbåndet** -- de var bundet til godset der de var født og kunne ikke fritt flytte uten godseierens tillatelse. De måtte yte **hoveri** (pliktarbeid) for godseierne og var underlagt godseierens rettslige myndighet. Stavnsbåndet var en alvorlig begrensning av den personlige friheten, selv om det ikke var det samme som slaveri -- bøndene hadde for eksempel rett til å eie løsøre og hadde visse rettslige beskyttelser. Stavnsbåndet ble avskaffet i 1788.
 
-I Norge var situasjonen radikalt annerledes. Mange norske bønder var **odelsbønder** -- de eide sin egen gård med **odel**, en arverett til jorden som gikk i generasjoner. Den norske bonden var fri. Han eide sin jord, tok sine egne beslutninger og hadde en sterk tradisjon for å hevde sine rettigheter overfor myndighetene.
+I Norge var situasjonen annerledes. Mange norske bønder var **odelsbønder** -- de eide sin egen gård med **odel**, en arverett til jorden som gikk i generasjoner. Disse bøndene var personlig frie, eide sin jord og hadde en tradisjon for å hevde sine rettigheter overfor myndighetene.
 
-Hvorfor var det slik? Delvis fordi Norge aldri hadde utviklet en like mektig adel som Danmark. Svartedauden hadde rammet Norge ekstra hardt på 1300-tallet, og mye av den norske adelen døde ut. Det ble ikke bygd opp store godssystemer, og bøndene beholdt sin jord og sin frihet.
+Men bildet bør nyanseres. Langt fra alle norske bønder var odelsbønder. Mange var **leilendinger** -- de leide jord av kongen, kirken eller rike borgere, og betalte landskyld. Andelen leilendinger varierte sterkt fra region til region. Det var også stor forskjell mellom velstående storbønder og fattige småbrukere. "Den frie norske bonden" er delvis en idealisering som ble skapt på 1800-tallet av nasjonalromantikere.
 
-Denne forskjellen var enorm. Den skapte en **selvbevisst bondestand** med stolthet og uavhengighetsfølelse. Og den fikk stor betydning senere: Da Grunnloven ble skrevet i 1814, fikk odelsbønder **stemmerett**. Den frie norske bonden ble et symbol på norsk identitet -- en tradisjon for frihet, likhet og selvstendighet som preger norsk selvforståelse den dag i dag.`,
+Hvorfor var den norske bondestanden likevel friere enn den danske? Delvis fordi Norge aldri hadde utviklet en like mektig adel som Danmark. Svartedauden hadde rammet Norge ekstra hardt på 1300-tallet, og mye av den norske adelen døde ut. Det ble ikke bygd opp store godssystemer av dansk type.
+
+Denne relative forskjellen var likevel viktig. Den bidro til en **selvbevisst bondestand**. Da Grunnloven ble skrevet i 1814, fikk odelsbønder **stemmerett**. Den frie norske bonden ble et sentralt symbol på norsk identitet -- selv om dette symbolet også er en del av en nasjonalromantisk konstruksjon fra 1800-tallet som forenklet den faktiske virkeligheten.`,
     },
     {
       id: 'historie-5-5-n-quiz3',

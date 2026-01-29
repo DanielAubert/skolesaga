@@ -20,11 +20,11 @@ export const CHAPTER_HISTORIE_6_1_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## Da fornuften slo tilbake
 
-Tenk deg at du lever i Europa rundt 1700. Du er født inn i en verden der kongen hevder at han styrer fordi Gud har valgt ham. Kirken forteller deg hva som er sant og hva som er synd. Hvis du stiller for mange spørsmål, risikerer du å bli anklaget for kjetteri. Du eier ikke deg selv -- du er kongens undersått, kirkens lam, tradisjonens fange.
+Tenk deg at du lever i Europa rundt 1700. Du er født inn i en verden der kongen hevder at han styrer fordi Gud har valgt ham. Kirken forteller deg hva som er sant og hva som er synd. Hvis du stiller for mange spørsmål, risikerer du å bli anklaget for kjetteri. Som undersått var du underlagt kongens autoritet, kirkens lære og nedarvede tradisjoner som regulerte det meste av dagliglivet.
 
-Så begynner noe å forandre seg. Noen modige tenkere -- filosofer, forfattere, vitenskapsmenn -- begynner å stille de spørsmålene ingen har våget å stille før: Hva om kongen *ikke* styrer på Guds vegne? Hva om kirken tar feil? Hva om vi bruker **fornuften** i stedet for tradisjonen til å forstå verden?
+Så begynner noe å forandre seg. En rekke tenkere -- filosofer, forfattere, vitenskapsmenn -- begynner å stille grunnleggende spørsmål om samfunnsordenen. Slike spørsmål hadde blitt reist før, blant annet under reformasjonen og av middelalderens lærde, men nå fikk de en ny kraft og et bredere publikum: Hva om kongen *ikke* styrer på Guds vegne? Hva om kirken tar feil? Hva om vi bruker **fornuften** i stedet for tradisjonen til å forstå verden?
 
-Dette var starten på **opplysningstiden**, en intellektuell revolusjon som forandret Europa -- og til slutt hele verden. Perioden fra ca. 1700 til 1800 ble fornuftens tidsalder, en tid da tenkere våget å bruke sin egen forstand til å utfordre alt som tidligere hadde vært selvsagt. Og de bygde videre på noe viktig: den **vitenskapelige revolusjonen** på 1600-tallet, der Isaac Newton og andre hadde vist at naturen fulgte lovmessigheter som kunne oppdages gjennom observasjon og eksperimenter. Opplysningsfilosofene stilte et dristig spørsmål: Hvis vi kan forstå naturens lover, kan vi ikke også finne lovene for et godt samfunn?`,
+Dette var starten på **opplysningstiden**, en intellektuell revolusjon som forandret Europa -- og til slutt hele verden. Perioden fra ca. 1700 til 1800 ble fornuftens tidsalder, en tid da tenkere brukte sin egen forstand til å utfordre mye av det som tidligere hadde vært selvsagt. Og de bygde videre på noe viktig: den **vitenskapelige revolusjonen** på 1600-tallet, der Isaac Newton og andre hadde vist at naturen fulgte lovmessigheter som kunne oppdages gjennom observasjon og eksperimenter. Opplysningsfilosofene stilte spørsmålet: Hvis vi kan forstå naturens lover, kan vi ikke også finne lovene for et godt samfunn?`,
     },
     {
       id: 'historie-6-1-n-section1',
@@ -37,7 +37,9 @@ Locke kom med en idé som var revolusjonær i sin enkelhet: Alle mennesker er f�
 
 Men Locke gikk enda lenger. Han mente at en regjerings eneste oppgave er å beskytte disse rettighetene. Hvis en konge krenker folkets rettigheter i stedet for å beskytte dem, har folket rett til å gjøre opprør. Tenk på det: I en tid da konger ble ansett som Guds utvalgte på jorda, hevdet Locke at vanlige mennesker hadde rett til å avsette dem.
 
-Denne ideen -- at makten kommer nedenfra, fra folket, ikke ovenfra fra Gud -- skulle vise seg å være dynamitt. Den inspirerte både den amerikanske og den franske revolusjonen og ligger til grunn for alle moderne demokratier.`,
+Denne ideen -- at makten kommer nedenfra, fra folket, ikke ovenfra fra Gud -- skulle vise seg å få enorm innflytelse. Den inspirerte både den amerikanske og den franske revolusjonen og ligger til grunn for alle moderne demokratier.
+
+Det er likevel viktig å merke seg motsetningene i Lockes tenkning. Locke var aksjonær i Royal African Company, som drev slavehandel, og hans eiendomsteori -- at man får eiendomsrett ved å "blande sitt arbeid" med naturen -- ble brukt til å rettferdiggjøre kolonial beslaglegging av urfolks land, der jakt og sanking ikke ble regnet som "arbeid." Lockes universelle rettigheter var i praksis begrenset av hans samtids fordommer.`,
     },
     {
       id: 'historie-6-1-n-quiz1',
@@ -95,7 +97,9 @@ Tenk på det slik: Det er som et system med tre låser på samme dør. Ingen enk
 
 Men den kanskje mest radikale tenkeren var **Jean-Jacques Rousseau** (1712-1778), en sveitsisk-fransk filosof som snudde opp ned på sin tids tankesett. I sitt berømte verk "Samfunnskontrakten" (1762) utviklet han ideen om **folkesuverenitet**: all legitim makt utgår fra folket. Mennesker inngår en "kontrakt" med hverandre der de gir opp noe frihet til fellesskapet, og til gjengjeld får de beskyttelse og orden. Rousseau mente at mennesket fra naturens side er godt, men at samfunnet korrumperer det. Bare gjennom ekte demokrati -- der borgerne selv deltar i beslutningene -- kan mennesker være virkelig frie.
 
-Disse tenkerne utfylte hverandre: Locke ga oss rettighetene, Montesquieu ga oss systemet, Voltaire kjempet for friheten, og Rousseau insisterte på at makten tilhører folket. Sammen la de det intellektuelle grunnlaget for en ny verden.`,
+Rousseaus begrep om "allmenviljen" (*volonté générale*) har imidlertid også blitt sterkt kritisert. Tenkere som Benjamin Constant og senere Isaiah Berlin påpekte at ideen om en felles vilje som står over individet, kan brukes til å rettferdiggjøre undertrykkelse av mindretall. Under den franske revolusjonens skrekkperiode brukte jakobinerne nettopp Rousseaus ideer for å legitimere terroren -- i "folkets" navn.
+
+Disse tenkerne utfylte hverandre og preget den politiske utviklingen sterkt: Locke formulerte rettighetene, Montesquieu utformet maktfordelingssystemet, Voltaire talte for ytringsfrihet, og Rousseau insisterte på at makten tilhører folket. Men opplysningstiden møtte også motstand. Den konservative tenkeren Edmund Burke advarte mot å forkaste nedarvede institusjoner til fordel for abstrakte prinsipper, og den romantiske bevegelsen reagerte mot det de oppfattet som en ensidig tro på fornuften, på bekostning av tradisjon, følelser og fellesskap.`,
     },
     {
       id: 'historie-6-1-n-quiz3',
@@ -117,13 +121,13 @@ Disse tenkerne utfylte hverandre: Locke ga oss rettighetene, Montesquieu ga oss 
     {
       id: 'historie-6-1-n-section4',
       type: 'text',
-      content: `## Encyklopedien -- kunnskap som våpen
+      content: `## Encyklopedien -- et prosjekt for kunnskapsspredning
 
 Et av opplysningstidens mest ambisiøse prosjekter var **Encyklopedien** (1751-1772), redigert av Denis Diderot og Jean d'Alembert. I 28 enorme bind samlet de kunnskap om alt fra vitenskap og filosofi til håndverk og kunst. Over 4000 mennesker abonnerte på verket -- et enormt tall for sin tid.
 
-Men Encyklopedien var langt mer enn et oppslagsverk. Den var et intellektuelt våpen mot uvitenhet og overtro. Mellom linjene kritiserte artiklene kirken og tradisjonell autoritet. Ved å gjøre kunnskap tilgjengelig for alle, utfordret Diderot og hans medarbeidere selve ideen om at kunnskap skulle være forbeholdt en liten elite. De trodde oppriktig at kunnskap kunne frigjøre mennesket.
+Men Encyklopedien var langt mer enn et oppslagsverk. Encyklopedistene selv så prosjektet som et våpen mot det de kalte "uvitenhet og overtro" -- men det er verdt å merke seg at mye av det de betraktet som overtro, inkluderte dypt forankrede religiøse overbevisninger som var meningsfulle for store deler av befolkningen. Mellom linjene kritiserte artiklene kirken og tradisjonell autoritet. Ved å gjøre kunnskap tilgjengelig for et bredere publikum, utfordret Diderot og hans medarbeidere selve ideen om at kunnskap skulle være forbeholdt en liten elite.
 
-Myndighetene forsto trusselen. Encyklopedien ble forbudt flere ganger, trykkeriene ble ransaket, og Diderot risikerte fengselsstraff. Men verket ble fullført -- et monument over opplysningstidens tro på at fornuft og kunnskap kan forandre verden.`,
+Myndighetene oppfattet verket som en trussel mot den etablerte ordenen. Encyklopedien ble forbudt flere ganger, trykkeriene ble ransaket, og Diderot risikerte fengselsstraff. Men verket ble fullført, og det står som et sentralt uttrykk for opplysningstidens tro på at fornuft og kunnskap kan forandre samfunnet.`,
     },
     {
       id: 'historie-6-1-n-quiz4',
@@ -139,7 +143,7 @@ Myndighetene forsto trusselen. Encyklopedien ble forbudt flere ganger, trykkerie
           { id: 'c', text: 'Fordi den kritiserte kirken og tradisjonell autoritet og truet makthaverne', isCorrect: true },
           { id: 'd', text: 'Fordi den ble utgitt på feil språk', isCorrect: false },
         ],
-        solution: 'Encyklopedien ble forbudt fordi den utgjorde en trussel mot kirken og de tradisjonelle makthaverne. Ved å spre kunnskap til alle og kritisere autoritetene utfordret verket det eksisterende maktgrunnlaget. Myndighetene forsto at kunnskap var farlig for dem som regjerte gjennom uvitenhet.',
+        solution: 'Encyklopedien ble forbudt fordi den utgjorde en trussel mot kirken og de tradisjonelle makthaverne. Ved å spre kunnskap til alle og kritisere autoritetene utfordret verket det eksisterende maktgrunnlaget. Myndighetene så Encyklopedien som en trussel mot den etablerte ordenen.',
       },
     },
     {
@@ -151,9 +155,11 @@ Opplysningstidens ideer forble ikke i filosofenes studerkamre. De fikk enorm pra
 
 Den **amerikanske uavhengighetserklæringen** i 1776 bygde direkte på Lockes ideer om naturlige rettigheter. Den **franske revolusjonen** i 1789 tok Rousseaus folkesuverenitet fra teori til praksis -- med både fantastiske og skremmende resultater. Og i 1814 fikk Norge sin egen **Grunnlov**, full av opplysningstidens ideer om maktfordeling og borgerrettigheter.
 
-Ideene om **menneskerettigheter** har røtter i opplysningstidens naturrettstenkning -- ideen om at alle mennesker har rettigheter simpelthen fordi de er mennesker. Troen på **demokrati, ytringsfrihet, religiøs toleranse** og **utdanning for alle** -- alt dette stammer fra denne perioden.
+Ideene om **menneskerettigheter** har røtter i opplysningstidens naturrettstenkning -- ideen om at alle mennesker har rettigheter simpelthen fordi de er mennesker. Idealer om **demokrati, ytringsfrihet, religiøs toleranse** og **utdanning for alle** ble formulert i denne perioden, selv om de også hadde forløpere i eldre tradisjoner -- som engelsk common law, middelalderens parlamentariske institusjoner og religiøse tradisjoners tanker om menneskeverd.
 
-Vi lever fortsatt i opplysningstidens lange skygge. Hver gang du stemmer ved et valg, ytrer deg fritt, går på en skole der du lærer å tenke kritisk, eller stoler på at domstolene er uavhengige -- da nyter du fruktene av ideer som ble tenkt for over 300 år siden, av modige mennesker som våget å sette fornuften over tradisjonen.`,
+Det er også viktig å peke på opplysningstidens skyggeside: Flere opplysningsfilosofer bidro til å utvikle rasehierarkier og pseudovitenskapelige teorier som ble brukt til å rettferdiggjøre kolonialisme og slaveri. Den "universelle fornuften" ble i praksis ofte begrenset til europeiske menn.
+
+Opplysningstidens innflytelse er likevel tydelig i dag. Stemmeretten, ytringsfriheten, utdanningssystemet og rettsstatens prinsipper bygger alle på ideer som ble utviklet i denne perioden -- selv om de også ble formet av mange andre historiske krefter og tradisjoner.`,
     },
     {
       id: 'historie-6-1-n-quiz5',
@@ -215,9 +221,11 @@ export const CHAPTER_HISTORIE_6_2_NARRATIV: TextbookChapter = {
 
 Forestill deg at du er en bonde i Massachusetts i 1770. Du har ryddet jord, bygd et hus og skapt deg et liv i den nye verden. Du betaler skatt til en konge som sitter tusenvis av kilometer unna, i et land du kanskje aldri har sett. Du har ingen representant i det britiske parlamentet som kan tale din sak. Likevel bestemmer fjerne politikere i London over ditt liv, din økonomi og din fremtid.
 
-Så kommer nye skatter -- stempelskatt på dokumenter, avgifter på glass, papir og te. Kongen trenger penger etter den kostbare sjuårskrigen (1756-1763), og han mener kolonistene bør betale sin del. Men for deg føles det dypt urettferdig: Hvorfor skal du betale skatt til et parlament der du ikke har noen stemme?
+Så kommer nye skatter -- stempelskatt på dokumenter, avgifter på glass, papir og te. Kongen trenger penger etter den kostbare sjuårskrigen (1756-1763), og han mener kolonistene bør betale sin del. Fra britisk perspektiv var dette rimelig: krigen hadde blitt ført delvis for å beskytte koloniene mot franske og indianske angrep, og kolonistene betalte langt lavere skatter enn innbyggerne i Storbritannia. Men for mange kolonister føltes det urettferdig: Hvorfor skal du betale skatt til et parlament der du ikke har noen stemme?
 
 Et slagord begynner å bre seg fra munn til munn, fra by til by: **"No taxation without representation"** -- ingen skatt uten representasjon. Det høres kanskje ut som et enkelt økonomisk krav, men det rommet noe mye større. For bak slagordet lå opplysningstidens store ideer: at makten tilhører folket, at regjeringen trenger folkets samtykke, og at ingen har rett til å styre andre uten deres godkjenning.
+
+Det er verdt å merke seg at ikke alle kolonister delte denne oppfatningen. Omtrent 20 prosent av kolonistene var **lojalister** som forble trofaste mot den britiske kronen. De mente koloniene hadde det godt under britisk styre og fryktet konsekvensene av et brudd. Mange av dem flyktet til Canada eller Storbritannia etter krigen.
 
 Slik begynte en revolusjon som skulle forandre verden.`,
     },
@@ -260,7 +268,7 @@ Så, den 19. april 1775, smalt de første skuddene. Ved **Lexington og Concord**
 
 Den 4. juli 1776 vedtok Kontinentalkongressen et dokument som skulle bli et av de viktigste i verdenshistorien: **uavhengighetserklæringen**. Den unge Thomas Jefferson, bare 33 år gammel, hadde skrevet utkastet.
 
-Erklæringen åpner med ord som fortsatt gir gåsehud: *"Vi holder disse sannhetene for selvinnlysende, at alle mennesker er skapt like, at de av sin skaper er utstyrt med visse umistelige rettigheter, at blant disse er liv, frihet og streben etter lykke."*
+Erklæringen åpner med ord som har fått varig historisk betydning: *"Vi holder disse sannhetene for selvinnlysende, at alle mennesker er skapt like, at de av sin skaper er utstyrt med visse umistelige rettigheter, at blant disse er liv, frihet og streben etter lykke."*
 
 Hører du ekkoet fra opplysningsfilosofene? Lockes naturlige rettigheter er her -- om enn med en viktig endring: Jefferson byttet ut Lockes "eiendom" med "streben etter lykke." Rousseaus folkesuverenitet er her: Erklæringen slår fast at regjeringens makt kommer fra **folkets samtykke**, og at folket har rett til å avsette en tyrannisk regjering.
 
@@ -557,15 +565,19 @@ Napoleons endelige nederlag ved Waterloo i 1815 førte til at de gamle monarkien
     {
       id: 'historie-6-3-n-section5',
       type: 'text',
-      content: `## En revolusjon for evigheten
+      content: `## Revolusjonens arv og kritikk
 
 Den franske revolusjonen var et jordskjelv som rystet hele Europa. I løpet av ti år -- fra 1789 til 1799 -- ble et tusenårig system veltet. Stendersamfunnet ble avskaffet. En konge ble henrettet. Menneskerettighetene ble erklært. Og en hel verdensdel ble tvunget til å konfrontere spørsmålet: Hvem har rett til å styre?
 
-Revolusjonens arv er motsetningsfull. På den ene siden ga den oss ideen om universelle menneskerettigheter, folkesuverenitet og likhet for loven -- idealer som fortsatt er grunnlaget for moderne demokratier. Menneskerettighetserklæringen fra 1789 er en direkte forgjenger til FNs erklæring fra 1948.
+Allerede i 1790 -- altså før terroren -- kom en av historiens mest innflytelsesrike kritikker av revolusjonen. Den irsk-britiske politikeren og tenkeren **Edmund Burke** publiserte *Reflections on the Revolution in France*, der han advarte mot å rive ned et helt samfunnssystem basert på abstrakte prinsipper. Burke mente at et velfungerende samfunn bygger på institusjoner som har vokst frem over generasjoner, og at det er farlig å forkaste denne nedarvede visdommen til fordel for teoretiske idealer. Han forutså profetisk at revolusjonen ville ende i kaos og militærdiktatur. Burke mente at gradvis, organisk reform -- slik Storbritannia hadde utviklet seg -- var tryggere og mer varig enn voldelig omveltning. Hans tenkning ble grunnlaget for den moderne konservative tradisjonen, og hans advarsler om revolusjonær radikalisme viste seg å bli bekreftet av terroren og Napoleons maktovertagelse.
 
-På den andre siden viste terroren at selv de edleste idealer kan perverteres. At en revolusjon for frihet kan munne ut i diktatur. At "folkets vilje" kan brukes til å rettferdiggjøre de verste overgrepene. Det er en lærdom som er like relevant i dag som den var i 1793.
+Revolusjonen hadde også en brutal side som sjelden får nok oppmerksomhet: opprøret i **Vendée** (1793-1796), der bønder og katolikker i Vest-Frankrike reiste seg mot den revolusjonære regjeringen. Republikken slo ned opprøret med ekstrem brutalitet, og titusener ble drept. Hendelsene i Vendée minner om at revolusjonen ikke hadde støtte overalt, og at den ble påtvunget deler av befolkningen med vold.
 
-Men kanskje er det viktigste at den franske revolusjonen viste at forandring er mulig. At det bestående ikke er uunngåelig. At vanlige mennesker kan endre historiens gang. Og at ideene om frihet og likhet, når de først er tenkt, aldri fullt ut kan undertrykkes igjen.`,
+Revolusjonens arv er dermed motsetningsfull. På den ene siden ga den oss ideen om universelle menneskerettigheter, folkesuverenitet og likhet for loven -- idealer som fortsatt er grunnlaget for moderne demokratier. Menneskerettighetserklæringen fra 1789 er en direkte forgjenger til FNs erklæring fra 1948.
+
+På den andre siden viste terroren, Vendée og Napoleons diktatur at revolusjonære idealer kan få brutale konsekvenser. At en revolusjon for frihet kan munne ut i undertrykkelse. At "folkets vilje" kan brukes til å rettferdiggjøre overgrep. Burkes advarsel om at det er lettere å rive ned enn å bygge opp, ble en varig lærdom.
+
+Den franske revolusjonen viste at grunnleggende politisk forandring er mulig, men også at slik forandring kan ha en svært høy menneskelig pris. Både tilhengere og kritikere av revolusjonen har hatt viktige poenger, og debatten mellom dem preger politisk tenkning den dag i dag.`,
     },
     {
       id: 'historie-6-3-n-quiz5',
@@ -592,7 +604,7 @@ Men kanskje er det viktigste at den franske revolusjonen viste at forandring er 
 Den franske revolusjonen (1789-1799) var den mest dramatiske politiske omveltningen i europeisk historie, og dens arv preger verden den dag i dag.
 
 **Nøkkelbegreper du nå kjenner:**
-- **De tre stendene**: Geistligheten, adelen og den tredje stand -- et dypt urettferdig system
+- **De tre stendene**: Geistligheten, adelen og den tredje stand -- et system der skattebyrdene var svært ujevnt fordelt
 - **Stormingen av Bastillen** (14. juli 1789): Revolusjonens symbolske start
 - **Erklæringen om menneskets og borgerens rettigheter**: Universelle rettigheter bygd på opplysningstidens ideer
 - **Skrekkveldet**: Perioden da terroren ble brukt som politisk middel under Robespierre
@@ -627,11 +639,11 @@ export const CHAPTER_HISTORIE_6_4_NARRATIV: TextbookChapter = {
 
 Etter Napoleons endelige nederlag ved Waterloo i 1815 pustet Europas monarker lettet ut. Revolusjonstidens kaos og blodsbad var over. Nå kunne man gjenopprette den gamle ordenen -- kongene på sine troner, adelen i sine privilegier, kirken i sin makt.
 
-På **Wienerkongressen** i 1814-1815 samlet seirsmaktene seg for å tegne Europas kart på nytt. Den østerrikske diplomaten Metternich ledet arbeidet med å "skru klokken tilbake." Grenser ble flyttet, konger ble gjeninnsatt, og revolusjonære bevegelser ble undertrykt.
+På **Wienerkongressen** i 1814-1815 samlet seirsmaktene seg for å tegne Europas kart på nytt. Den østerrikske diplomaten **Metternich** ledet arbeidet med å gjenopprette stabilitet i Europa. Grenser ble flyttet, konger ble gjeninnsatt, og revolusjonære bevegelser ble undertrykt.
 
-Men her er det store spørsmålet: Kan man virkelig undertrykke en idé? Kan man fengsle en tanke? Wienerkongressens ledere prøvde, men opplysningstidens og revolusjonenes ideer hadde allerede slått rot for dypt. Millioner av mennesker hadde sett at forandring var mulig. De hadde lest om rettigheter, frihet og folkestyre. De hadde smakt på likhet for loven. Og de ville ha mer.
+Det er lett å avskrive Metternich og Wienerkongressen som reaksjonære, men det er en forenkling. Metternichs system opprettholdt fred mellom stormaktene i nesten fire tiår -- en bemerkelsesverdig prestasjon etter tiår med revolusjon og krig. Den konservative posisjonen hadde genuint intellektuelt innhold, inspirert av Edmund Burkes tenkning: at samfunnets institusjoner representerer opphopet visdom fra generasjoner, at organisk reform er tryggere enn revolusjon, og at stabilitet og orden er forutsetninger for frihet. Konservative tenkere advarte -- med en viss rett, som terroren hadde vist -- om at revolusjonær omveltning ofte skaper mer lidelse enn den avskaffet.
 
-Den kampen -- mellom de konservative kreftene som ville bevare det gamle, og de liberale og demokratiske bevegelsene som ville forandre -- skulle prege hele 1800-tallet og legge grunnlaget for den demokratiske verden vi lever i i dag.`,
+Samtidig vokste liberale og demokratiske bevegelser i styrke. Opplysningstidens og revolusjonenes ideer hadde slått rot, og kravet om grunnlover, representasjon og borgerrettigheter lot seg ikke permanent undertrykke. Konflikten mellom konservative krefter som prioriterte stabilitet og gradvis utvikling, og liberale og demokratiske bevegelser som krevde raskere forandring, kom til å prege hele 1800-tallet.`,
     },
     {
       id: 'historie-6-4-n-section1',
@@ -708,9 +720,9 @@ Kampen for **kvinners stemmerett** er en av historiens mest inspirerende fortell
 
 **Suffragettbevegelsen** vokste frem på 1800-tallet. Modige kvinner organiserte seg, holdt demonstrasjoner, skrev bøker og artikler, og noen brukte sivil ulydighet. De ble hånet, arrestert og tvangsmatet i fengsel. Men de ga seg ikke.
 
-Gjennombruddene kom gradvis: New Zealand i 1893, Finland i 1906, Norge i 1913 -- vi var blant de første i verden. Storbritannia fulgte i 1918 (for kvinner over 30) og 1928 (alle kvinner). USA i 1920. Ironisk nok var Frankrike -- revolusjonens hjemland -- sent ute: Franske kvinner fikk stemmerett først i 1944. Og Sveits, det "perfekte demokratiet", ventet helt til 1971.
+Gjennombruddene kom gradvis: New Zealand i 1893, Finland i 1906, Norge i 1913 -- vi var blant de første i verden. Storbritannia fulgte i 1918 (for kvinner over 30) og 1928 (alle kvinner). USA i 1920. Ironisk nok var Frankrike -- revolusjonens hjemland -- sent ute: Franske kvinner fikk stemmerett først i 1944. Og Sveits, som er kjent for sin lange demokratiske tradisjon med folkeavstemninger, innførte kvinnelig stemmerett på nasjonalt nivå først i 1971.
 
-Stemmerettens historie minner oss om at rettigheter sjelden gis frivillig. De vinnes gjennom kamp.`,
+Stemmerettens historie viser at utvidelse av rettigheter kan skje på ulike måter. I noen tilfeller ble stemmeretten vunnet gjennom organisert kamp og politisk press, som i suffragettbevegelsen. Men i flere land, inkludert Norge og Storbritannia, ble stemmeretten også utvidet gjennom parlamentariske reformer -- vedtatt av politikere som erkjente behovet for endring. Veien til universell stemmerett var lang, men den fulgte ikke bare ett spor.`,
     },
     {
       id: 'historie-6-4-n-quiz3',
@@ -736,11 +748,11 @@ Stemmerettens historie minner oss om at rettigheter sjelden gis frivillig. De vi
 
 Gjennom 1900-tallet spredte demokratiet seg over stadig større deler av verden, men veien var alt annet enn rett. Historien viste gang på gang at demokratiet er skjørt og aldri kan tas for gitt.
 
-Etter **første verdenskrig** kollapset de store imperiene -- Østerrike-Ungarn, Det osmanske riket, det russiske tsardømmet, det tyske keiserriket. Nye demokratier ble født i ruinene. Men mange av dem overlevde ikke lenge. På 1920- og 1930-tallet reiste **fascismen** seg i Italia og Tyskland. Hitler kom til makten gjennom demokratiske valg -- og avskaffet deretter demokratiet innenfra. Det var en skremmende lærepenge: Demokratiet kan ødelegge seg selv.
+Etter **første verdenskrig** kollapset de store imperiene -- Østerrike-Ungarn, Det osmanske riket, det russiske tsardømmet, det tyske keiserriket. Nye demokratier ble født i ruinene. Men mange av dem overlevde ikke lenge. På 1920- og 1930-tallet reiste **fascismen** seg i Italia og Tyskland. Hitler ble utnevnt til rikskansler i januar 1933 gjennom politisk manøvrering av konservative eliter som trodde de kunne kontrollere ham. NSDAP hadde aldri vunnet flertall i et fritt valg -- partiets beste resultat var 37,3 prosent i juli 1932, og i november samme år sank oppslutningen. Likevel brukte Hitler sin posisjon til å avvikle demokratiet innenfra. Det var en skremmende lærepenge om demokratiets sårbarhet.
 
 Etter **andre verdenskrig** ble fascismen beseiret, og demokratiet fikk en ny start i Vest-Europa og Japan. Men den kalde krigen delte verden i to: et demokratisk vest og et kommunistisk øst. Først etter **Berlinmurens fall i 1989** og Sovjetunionens oppløsning i 1991 ble store deler av Øst-Europa demokratiske.
 
-I dag står demokratiet overfor nye utfordringer. **Populisme** truer etablerte institusjoner. **Desinformasjon** spres raskere enn noen gang gjennom sosiale medier. **Polarisering** gjør det stadig vanskeligere å finne kompromisser. I noen land er demokratiet på tilbaketog, selv i land vi trodde var stabile.
+I dag diskuteres det om demokratiet står overfor nye utfordringer. Begrepet **populisme** brukes ofte i denne debatten, men det er omstridt -- noen ser populistiske bevegelser som en trussel mot demokratiske institusjoner, mens andre mener de representerer legitim folkelig misnøye med etablerte eliter. **Desinformasjon** spres raskere enn noen gang gjennom sosiale medier, noe som kan gjøre det vanskeligere for borgere å ta informerte valg. **Polarisering** gjør det i mange land mer krevende å finne politiske kompromisser. Forskere diskuterer om demokratiet er i tilbakegang globalt, og hva årsakene i så fall er.
 
 Opplysningstidens og revolusjonenes budskap er derfor like viktig i dag som for 250 år siden: Demokrati er ikke noe som bare oppstår og vedvarer av seg selv. Det må kjempes for, forsvares og fornyes -- i hver generasjon.`,
     },
@@ -758,7 +770,7 @@ Opplysningstidens og revolusjonenes budskap er derfor like viktig i dag som for 
           { id: 'c', text: 'At demokratiet kan ødelegge seg selv innenfra gjennom demokratiske valg', isCorrect: true },
           { id: 'd', text: 'At diktatur alltid er mer stabilt enn demokrati', isCorrect: false },
         ],
-        solution: 'Hitler kom til makten gjennom demokratiske valg i 1933 og brukte deretter sin posisjon til å avskaffe demokratiet innenfra. Dette viste at demokratiet er sårbart og kan ødelegges av krefter som bruker demokratiske verktøy for å avvikle selve systemet.',
+        solution: 'Hitler ble utnevnt til rikskansler i 1933 etter politisk manøvrering, selv om NSDAP aldri vant flertall i et fritt valg (maksimalt 37,3 % i juli 1932). Han brukte deretter sin posisjon til å avskaffe demokratiet innenfra. Dette viste at demokratiet er sårbart og kan undergraves av krefter som bruker demokratiske og politiske verktøy for å avvikle selve systemet.',
       },
     },
     {
@@ -768,13 +780,13 @@ Opplysningstidens og revolusjonenes budskap er derfor like viktig i dag som for 
 
 La oss ta et steg tilbake og se på den store linjen. Fra Lockes ideer om naturlige rettigheter på 1600-tallet, gjennom den amerikanske og franske revolusjonen, via 1800-tallets demokratikamp og 1900-tallets verdenskriger, til vårt eget demokrati i dag -- det er en lang, kronglete og blodig vei.
 
-Men det er også en bemerkelsesverdig vei. Ideene som noen få modige filosofer formulerte for over 300 år siden, har forandret hele verden. **Folkesuverenitet** -- ideen om at makten tilhører folket -- er i dag den eneste bredt aksepterte formen for politisk legitimitet. **Menneskerettighetene** er nedfelt i internasjonal lov. **Maktfordeling** er en selvfølge i demokratiske stater. **Ytringsfrihet** og **religiøs toleranse** er grunnverdier vi forsvarer.
+Men det er også en bemerkelsesverdig vei. Ideene som noen få modige filosofer formulerte for over 300 år siden, har forandret hele verden. **Folkesuverenitet** -- ideen om at makten tilhører folket -- er i dag den mest utbredte begrunnelsen for politisk legitimitet. **Menneskerettighetene** er nedfelt i internasjonal lov. **Maktfordeling** er en selvfølge i demokratiske stater. **Ytringsfrihet** og **religiøs toleranse** er grunnverdier vi forsvarer.
 
 Den norske Grunnloven fra 1814 er et direkte barn av denne tradisjonen. Når du stemmer ved valg, når du ytrer deg fritt, når du stoler på at domstolene er uavhengige av politikerne -- da lever du i opplysningstidens og revolusjonenes arv.
 
-Men historien lærer oss også noe annet: at fremskritt ikke er garantert. At rettigheter som er vunnet, kan gå tapt igjen. At demokratiet krever aktive borgere som forstår verdien av det de har -- og er villige til å forsvare det.
+Men historien lærer oss også noe annet: at politisk utvikling ikke følger en rett linje. At rettigheter som er etablert, kan svekkes igjen. At demokratiet krever aktive borgere og velfungerende institusjoner.
 
-Kanskje er det den viktigste lærdommen fra opplysningstiden og revolusjonene: Frihet er ikke gratis. Den må vinnes, forsvares og vedlikeholdes -- om og om igjen.`,
+Ulike politiske tradisjoner trekker ulike lærdommer fra denne perioden. Liberale vektlegger individets rettigheter og begrensninger på statsmakten. Konservative fremhever institusjonenes verdi og farene ved radikal omveltning. Sosialdemokrater peker på behovet for sosial rettferdighet som grunnlag for reelt demokrati. Til sammen minner disse perspektivene oss om at demokrati er et vedvarende prosjekt som krever refleksjon, debatt og deltakelse.`,
     },
     {
       id: 'historie-6-4-n-quiz5',
@@ -783,14 +795,14 @@ Kanskje er det den viktigste lærdommen fra opplysningstiden og revolusjonene: F
         id: 'historie-6-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvilken idé fra opplysningstiden er i dag den eneste bredt aksepterte formen for politisk legitimitet?',
+        task: 'Hvilken idé fra opplysningstiden er i dag den mest utbredte begrunnelsen for politisk legitimitet?',
         options: [
           { id: 'a', text: 'Kongens gudgitte rett til å styre', isCorrect: false },
           { id: 'b', text: 'Folkesuverenitet -- at makten tilhører folket', isCorrect: true },
           { id: 'c', text: 'At de rikeste bør styre', isCorrect: false },
           { id: 'd', text: 'At kirken bør ha overordnet makt', isCorrect: false },
         ],
-        solution: 'Folkesuverenitet -- ideen om at all legitim makt utgår fra folket -- er i dag den eneste bredt aksepterte formen for politisk legitimitet. Selv autoritære regimer føler seg tvunget til å hevde at de representerer folkets vilje. Denne ideen stammer fra Rousseau og ble omsatt i praksis gjennom den amerikanske og franske revolusjonen.',
+        solution: 'Folkesuverenitet -- ideen om at all legitim makt utgår fra folket -- er i dag den mest utbredte begrunnelsen for politisk legitimitet, selv om den tolkes og praktiseres svært ulikt i forskjellige styresett. Selv autoritære regimer føler seg ofte tvunget til å hevde at de representerer folkets vilje, noe som kan ses som et uttrykk for prinsippets innflytelse, men også som eksempel på dets misbruk. Denne ideen stammer fra Rousseau og ble omsatt i praksis gjennom den amerikanske og franske revolusjonen.',
       },
     },
     {

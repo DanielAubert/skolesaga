@@ -37,7 +37,7 @@ La oss reise gjennom noen av historiens viktigste kulturmøter og se hva vi kan 
     {
       id: 'historie-10-1-n-section1',
       type: 'text',
-      content: `## Språket vi trenger: begreper om kulturmøter
+      content: `## Viktige begreper om kulturmøter
 
 Når vi snakker om kulturmøter, bruker historikere flere viktige begreper. **Akkulturasjon** er prosessen der en kultur tar opp elementer fra en annen. Tenk på hvordan nordmenn har adoptert pizza, taco og sushi som hverdagsmat -- det er akkulturasjon i praksis. Vi beholder vår egen kultur, men tar inn nye elementer.
 
@@ -368,11 +368,11 @@ Verdenshandelen har skapt enorm rikdom. Men denne rikdommen har aldri vært jevn
 
 Under kolonialismen ble kolonier tvunget til å eksportere billige råvarer og kjøpe dyre europeiske industrivarer. Handelsreglene ble satt av de mektige til sin egen fordel. Slaveriet -- selve grunnlaget for triangelhandelen -- viser den mørkeste siden av global handel: mennesker redusert til handelsvarer.
 
-Merkantilismen handlet bokstavelig talt om at den enes gevinst var den andres tap. Frihandelen lovet noe bedre -- at alle ville tjene på å handle fritt. Men i praksis har de mektigste landene ofte kunnet sette reglene til sin fordel, mens fattigere land har blitt sittende fast som råvareeksportører med lav fortjeneste.
+Merkantilismen handlet bokstavelig talt om at den enes gevinst var den andres tap. Frihandelen lovet noe bedre -- at alle ville tjene på å handle fritt.
 
-Selv i dag ser vi at rike land ofte setter handelsregler, mens fattige land eksporterer råvarer med lav verdiskaping. Samtidig er bildet mer nyansert enn før -- land som Kina, India og Sør-Korea har brukt internasjonal handel til å løfte hundrevis av millioner ut av fattigdom. Handel kan skape velstand for mange, men bare dersom reglene er noenlunde rettferdige.
+Hvorfor noen land forble fattige mens andre ble rike, er et av de mest debatterte spørsmålene i samfunnsvitenskapen. **Avhengighetsteorien** hevder at fattige land forble fattige fordi de ble låst fast som råvareeksportører i et system kontrollert av rike land. **Moderniseringsteori** peker i stedet på interne faktorer som institusjoner, styresett og utdanning. **Institusjonell økonomi** understreker at velfungerende rettsstat, eiendomsrett og åpenhet er avgjørende for utvikling. Land som Sør-Korea, Singapore og Botswana har oppnådd betydelig utvikling til tross for kolonial fortid, noe som tyder på at forklaringene er sammensatte.
 
-Historien om verdenshandelen er altså en historie om forbindelser og spenninger, om muligheter og utbytting, om rikdom og fattigdom. Den minner oss om at økonomi aldri er nøytralt -- det handler alltid om makt, og om hvem som setter reglene.`,
+Historien om verdenshandelen er en historie om forbindelser og spenninger, om muligheter og utnyttelse, om rikdom og fattigdom. Ulike teoretiske perspektiver gir ulike svar på hvorfor velstanden har vært så ujevnt fordelt.`,
     },
     {
       id: 'historie-10-2-n-quiz5',
@@ -547,7 +547,7 @@ Det er ingen tvil om at den grønne revolusjonen reddet hundrevis av millioner f
 
 Men prisen var høy. Den grønne revolusjonen skapte **avhengighet av kjemikalier og energi**. Kunstgjødsel og plantevernmidler krevde fossil energi å produsere. Irrigasjon tørket ut grunnvann. **Biologisk mangfold** gikk tapt da tradisjonelle lokale sorter ble erstattet av noen få høytytende varianter. Og fordelene var ujevnt fordelt -- **små bønder** som ikke hadde råd til å kjøpe kunstgjødsel og nye frø, falt etter, mens store bønder ble rikere. Ulikheten på landsbygda økte.
 
-Den grønne revolusjonen illustrerer et klassisk dilemma: teknologiske løsninger kan løse akutte problemer, men de skaper ofte nye utfordringer. Vi trenger et jordbruk som er like produktivt, men mer bærekraftig -- og det er en av vår tids største utfordringer.`,
+Den grønne revolusjonen illustrerer et klassisk dilemma: teknologiske løsninger kan løse akutte problemer, men de skaper ofte nye utfordringer. I dag debatterer forskere, politikere og bønder hvordan jordbruket kan opprettholde høy produktivitet og samtidig redusere miljøbelastningen -- et spørsmål det finnes ulike svar på.`,
     },
     {
       id: 'historie-10-3-n-quiz4',
@@ -573,13 +573,13 @@ Den grønne revolusjonen illustrerer et klassisk dilemma: teknologiske løsninge
 
 Når vi ser på hele historien om matproduksjon, trer noen tydelige mønstre fram. For det første: **teknologiske gjennombrudd har gang på gang økt matproduksjonen** -- den neolittiske revolusjonen, den andre jordbruksrevolusjonen og den grønne revolusjonen. Hver gang trodde pessimistene at vi ville gå tom for mat, og hver gang fant mennesker nye løsninger.
 
-Men for det andre: **hver teknologisk løsning har skapt nye problemer**. Jordbruk førte til ulikhet og krigskonflikt. Innhegningsbevegelsen kastet folk ut fra jorda. Den grønne revolusjonen skapte avhengighet av fossil energi og kjemikalier. Historien viser at vi bør være skeptiske til «mirakkelløsninger» som lover alt uten kostnader.
+Men for det andre: **teknologiske løsninger har ofte skapt nye utfordringer**. Jordbruk førte til ulikhet og konflikt. Innhegningsbevegelsen drev folk bort fra jorda. Den grønne revolusjonen skapte avhengighet av fossil energi og kjemikalier. Et gjennomgående historisk mønster er at teknologiske gjennombrudd har hatt både tilsiktede og utilsiktede konsekvenser.
 
-For det tredje: **avhengighet av få ressurser er farlig**. Irlands potetkatastrofe, kollapsen av Mayasivilisasjonen på grunn av tørke og avskoging, forsaltingen av jorda i Mesopotamia -- historien er full av eksempler på samfunn som kollapset fordi de overutnyttet sine ressurser eller satset alt på ett kort.
+For det tredje: **avhengighet av få ressurser innebærer risiko**. Irlands potetkatastrofe, krisen i Mayasivilisasjonen der tørke og avskoging trolig spilte en rolle sammen med andre faktorer, forsaltingen av jorda i Mesopotamia -- historien har flere eksempler på samfunn som opplevde alvorlige kriser delvis knyttet til overutnyttelse av ressurser.
 
-I dag er spørsmålet om **bærekraft** mer presserende enn noensinne. Dagens matproduksjon er avhengig av fossil energi, kunstgjødsel, plantevernmidler og enormt vannforbruk. Klimaendringer truer avlinger. Biologisk mangfold svinner. Og verdens befolkning skal ifølge prognosene nå nesten 10 milliarder innen 2050.
+I dag diskuteres spørsmålet om **bærekraft** i matproduksjonen bredt. Dagens matproduksjon er avhengig av fossil energi, kunstgjødsel, plantevernmidler og store mengder vann. Forskere peker på at klimaendringer kan påvirke avlinger i mange regioner, samtidig som noen områder kan oppleve forbedrede vekstvilkår. Biologisk mangfold er under press. Og verdens befolkning skal ifølge prognosene nå nesten 10 milliarder innen 2050.
 
-Historien gir oss ikke ferdige svar, men den gir oss perspektiv. Vi har løst matkriser før, men vi har også ignorert advarsler og betalt dyrt for det. Spørsmålet er om vi denne gangen klarer å lære av fortiden i tide.`,
+Historien gir ikke ferdige svar, men den gir perspektiv. Mennesker har løst matkriser før, men har også opplevd alvorlige konsekvenser av å overutnytte ressurser. Historisk kunnskap kan bidra til å belyse de valgene som må tas fremover.`,
     },
     {
       id: 'historie-10-3-n-quiz5',
@@ -615,7 +615,7 @@ Matproduksjon har vært grunnlaget for alle sivilisasjoner. Fra den neolittiske 
 - **Malthus**: Økonomen som advarte om at befolkningsveksten ville overstige matproduksjonen
 
 **Det viktigste du tar med deg:**
-Teknologiske gjennombrudd har gang på gang økt matproduksjonen, men hver løsning har skapt nye problemer. Avhengighet av få ressurser er farlig, og bærekraft handler om å bruke ressurser uten å ødelegge for fremtidige generasjoner. Historien viser at vi kan løse kriser, men at det krever at vi lærer av fortidens feil.`,
+Teknologiske gjennombrudd har gang på gang økt matproduksjonen, men har også skapt nye utfordringer. Avhengighet av få ressurser har historisk vist seg å innebære risiko. Bærekraftbegrepet -- å forvalte ressurser slik at fremtidige generasjoner også har muligheter -- har blitt sentralt i dagens debatt om matproduksjon, selv om det finnes ulike syn på hvordan dette best kan oppnås.`,
     },
   ],
   exercises: [],
@@ -631,7 +631,7 @@ export const CHAPTER_HISTORIE_10_4_NARRATIV: TextbookChapter = {
   chapterNumber: '10.4',
   title: 'Mennesket og naturen',
   subtitle: 'Narrativ versjon',
-  description: 'En fortelling om menneskets skiftende forhold til naturen, fra ærefrykt til utnyttelse, og kampen for en bærekraftig fremtid.',
+  description: 'En fortelling om menneskets skiftende forhold til naturen, fra tidlige jeger-sankere til industrisamfunnets miljøutfordringer.',
   estimatedMinutes: 40,
   competenceGoals: ['mennesket og naturen, bærekraft'],
   linkedChapterId: 'historie-10-4',
@@ -641,24 +641,24 @@ export const CHAPTER_HISTORIE_10_4_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## Den stille våren
 
-I 1962 ga en amerikansk marinbiolog ut en bok som forandret verden. Boken het **Silent Spring** -- «Den stille våren» -- og den beskrev en fremtid uten fuglesang. Rachel Carson dokumenterte hvordan plantevernmiddelet DDT hopet seg opp i næringskjeden, gjorde eggeskallene til fugler for tynne, og truet med å utrydde arter etter art.
+I 1962 ga den amerikanske marinbiologen Rachel Carson ut boken **Silent Spring** -- «Den stille våren» -- som dokumenterte hvordan plantevernmiddelet DDT hopet seg opp i næringskjeden og skadet dyreliv. Kjemiindustrien reagerte kraftig og forsøkte å diskreditere forskningen. Carson holdt fast ved sine funn, og DDT ble etter hvert forbudt i mange land. Boken regnes i dag som et viktig startskudd for den moderne miljøbevegelsen.
 
-Kjemiindustrien angrep Carson brutalt. De kalte henne hysterisk og prøvde å diskreditere forskningen hennes. Men hun holdt stand, forskningen holdt vann, og DDT ble til slutt forbudt. Boken regnes i dag som startskuddet for den moderne miljøbevegelsen.
+Carsons arbeid har imidlertid også blitt debattert. Kritikere har påpekt at DDT-restriksjoner i utviklingsland kan ha gjort malariabekjempelse vanskeligere, noe som har hatt alvorlige helsemessige konsekvenser. Debatten rundt Carson illustrerer at miljøpolitikk ofte innebærer vanskelige avveininger mellom ulike hensyn.
 
-Carsons bok reiste et spørsmål som vi fortsatt sliter med: Hva er forholdet mellom mennesker og natur? Er naturen bare en ressurs vi kan utnytte, eller har vi et ansvar for å bevare den? La oss se på dette spørsmålet gjennom historiens briller.`,
+Uansett reiste Carsons bok et spørsmål som fortsatt diskuteres: Hva er forholdet mellom mennesker og natur? La oss se på dette spørsmålet gjennom historiens briller.`,
     },
     {
       id: 'historie-10-4-n-section1',
       type: 'text',
       content: `## Fra del av naturen til herre over naturen
 
-I begynnelsen var mennesket bare én art blant mange. **Jeger-sanker-samfunn** levde i det vi ofte romantiserer som «balanse med naturen». De jaktet, sanket og fisket, og de flyttet seg når ressursene ble knappe. Deres miljøpåvirkning var liten -- men ikke null. Selv jeger-sankerne bidro trolig til utryddelse av storvilt som mammuter og annen **megafauna** på flere kontinenter.
+I begynnelsen var mennesket bare én art blant mange. **Jeger-sanker-samfunn** levde med langt mindre miljøpåvirkning enn senere samfunn, selv om bildet av fullstendig «balanse med naturen» er forenklet. De jaktet, sanket og fisket, og de flyttet seg når ressursene ble knappe. Deres miljøpåvirkning var liten -- men ikke null. Selv jeger-sankerne bidro trolig til utryddelse av storvilt som mammuter og annen **megafauna** på flere kontinenter.
 
 Med **jordbrukssamfunnet** endret alt seg. Mennesker begynte å forme naturen etter sine behov. Skog ble ryddet for å gi plass til åkrer. Elver ble styrt inn i irrigasjonskanaler. Landskaper ble fundamentalt forandret. Noen steder fikk dette alvorlige konsekvenser -- i **Mesopotamia** førte irrigasjon til forsalting av jorda, og flere historikere mener dette bidro til at sivilisasjoner kollapset.
 
 I **førindustrielle byer** var forurensningen lokal men merkbar. Avfallsproblemer, dårlig luft fra ildsteder, og avskoging for brensel plaget byer i hundrevis av år. Men skalaen var begrenset -- naturen klarte stort sett å absorbere belastningen.
 
-Alt dette endret seg med **industrialiseringen**. Fra slutten av 1700-tallet begynte mennesker å brenne fossilt brensel -- kull, og senere olje og gass -- i stor skala. For første gang frigjorde vi karbon som hadde ligget lagret under jorden i millioner av år, og vi sendte det opp i atmosfæren. Forurensning av luft og vann nådde nye dimensjoner. Ressurser ble utvunnet fra hele kloden. Mennesket var blitt en geologisk kraft.`,
+Alt dette endret seg med **industrialiseringen**. Fra slutten av 1700-tallet begynte mennesker å brenne fossilt brensel -- kull, og senere olje og gass -- i stor skala. For første gang frigjorde vi karbon som hadde ligget lagret under jorden i millioner av år, og vi sendte det opp i atmosfæren. Forurensning av luft og vann nådde nye dimensjoner. Ressurser ble utvunnet fra hele kloden. Noen forskere mener at mennesket fra dette tidspunktet ble en geologisk kraft som påvirker jordsystemet i stor skala.`,
     },
     {
       id: 'historie-10-4-n-quiz1',
@@ -712,11 +712,11 @@ Fra 1960-tallet vokste den moderne **miljøbevegelsen** fram. Rachel Carsons bok
     {
       id: 'historie-10-4-n-section3',
       type: 'text',
-      content: `## Når sivilisasjoner kollapser: miljøets hevn
+      content: `## Når sivilisasjoner møter miljøgrenser
 
-Historien er full av advarsler. Flere sivilisasjoner har kollapset -- helt eller delvis -- fordi de ødela sitt eget naturgrunnlag.
+Historien inneholder flere eksempler på sivilisasjoner som har opplevd alvorlige kriser som delvis kan knyttes til overutnyttelse av naturressurser, selv om årsakene vanligvis er sammensatte.
 
-**Påskeøya** er kanskje det mest kjente eksempelet. Da polynesiske bosettere ankom rundt 1200-tallet, var øya dekket av skog. Befolkningen vokste, og de bygde de berømte steinstatuene -- **moai** -- som fremdeles står der i dag. Men for å transportere statuene og skaffe brensel hugget de ned all skogen. Uten trær ble det umulig å bygge kanoer for fiske. Erosjon ødela matjorda. Fuglearter forsvant. Ressursknapphet førte til krig og befolkningskollaps. Da europeere ankom på 1700-tallet, var øya nesten avfolket.
+**Påskeøya** (Rapa Nui) er kanskje det mest diskuterte eksempelet. Da polynesiske bosettere ankom rundt 1200-tallet, var øya dekket av skog. Den tradisjonelle forklaringen, popularisert av Jared Diamond, er at befolkningen hugget ned all skogen for å transportere de berømte steinstatuene -- **moai** -- og for å skaffe brensel, noe som førte til erosjon, ressursknapphet og samfunnskollaps. Nyere forskning av Hunt og Lipo har imidlertid utfordret denne «økologiske selvmords»-fortellingen. De argumenterer for at rotter som fulgte med polyneserne spiste palmefrøene og dermed var en viktig årsak til avskogingen, og at europeisk kontakt på 1700-tallet -- med sykdommer, vold og slaveraid -- var langt mer ødeleggende for befolkningen enn intern ressursknapphet. Debatten mellom disse tolkningene pågår fortsatt blant forskere.
 
 **Maya-sivilisasjonen** i Mellom-Amerika kollapset delvis på 800-900-tallet. Avskoging for å skaffe jordbruksland og brensel, kombinert med langvarig tørke, underminerte matproduksjonen. Byen etter byen ble forlatt, og junglene slukte de storslåtte tempelbyene.
 
@@ -731,14 +731,14 @@ Og så er det **den lille istid** (ca. 1300-1850), en periode med kaldere klima 
         id: 'historie-10-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva var hovedårsaken til at Påskeøyas sivilisasjon kollapset?',
+        task: 'Hvorfor er Påskeøyas (Rapa Nuis) historie omdiskutert blant forskere?',
         options: [
-          { id: 'a', text: 'Europeiske erobrere ødela samfunnet', isCorrect: false },
-          { id: 'b', text: 'Et vulkanutbrudd ødela øya', isCorrect: false },
-          { id: 'c', text: 'Befolkningen hugget ned all skog, noe som førte til erosjon, tap av ressurser og samfunnskollaps', isCorrect: true },
-          { id: 'd', text: 'En epidemi utryddet nesten hele befolkningen', isCorrect: false },
+          { id: 'a', text: 'Fordi ingen vet hvem som bygde moai-statuene', isCorrect: false },
+          { id: 'b', text: 'Fordi forskere er uenige om øya noen gang hadde skog', isCorrect: false },
+          { id: 'c', text: 'Fordi forskere debatterer om samfunnskollapsen skyldtes selvpåført avskoging, rotter som spiste frø, eller europeisk kontakt med sykdom og slaveraid', isCorrect: true },
+          { id: 'd', text: 'Fordi øya aldri ble kolonisert av polynesiere', isCorrect: false },
         ],
-        solution: 'Påskeøyas befolkning hugget ned all skog for å transportere moai-statuer og skaffe brensel. Uten trær ble det umulig å bygge kanoer for fiske, erosjon ødela matjorda, og ressursknapphet førte til konflikter og befolkningskollaps. Det er en advarsel om hva som kan skje når ressurser overutnyttes.',
+        solution: 'Den tradisjonelle forklaringen (Jared Diamond) er at befolkningen hugget ned skogen og forårsaket sin egen kollaps. Men nyere forskning (Hunt og Lipo) argumenterer for at rotter som spiste palmefrø var en viktig årsak til avskogingen, og at europeisk kontakt med sykdommer og slaveraid var langt mer ødeleggende for befolkningen. Debatten illustrerer at historiske forklaringer kan endres etterhvert som ny forskning kommer til.',
       },
     },
     {
@@ -748,13 +748,13 @@ Og så er det **den lille istid** (ca. 1300-1850), en periode med kaldere klima 
 
 Etter andre verdenskrig skjedde noe som historikere kaller **den store akselerasjonen**. Alle kurver -- befolkningsvekst, energibruk, CO2-utslipp, arealbruk, vannforbruk, artsutryddelse -- begynte å peke bratt oppover. Menneskets fotavtrykk på planeten vokste eksponentielt.
 
-Vi lever nå i det noen forskere kaller **antropocen** -- «menneskets tidsalder» -- der menneskelig aktivitet er den dominerende kraften som former jordens klima, landskap og biologiske mangfold. **Klimaendringene** drevet av våre utslipp av klimagasser er den største miljøutfordringen i vår tid. **Artsutryddelse** skjer i et tempo som mange forskere sammenligner med de fem store masseutryddelsene i jordas historie.
+Vi lever nå i det noen forskere kaller **antropocen** -- «menneskets tidsalder» -- der menneskelig aktivitet er den dominerende kraften som former jordens klima, landskap og biologiske mangfold. Mange forskere og politikere beskriver **klimaendringene**, drevet av utslipp av klimagasser, som den største miljøutfordringen i vår tid, selv om det finnes debatt om prioriteringer mellom ulike miljøutfordringer. **Artsutryddelse** skjer i et tempo som mange forskere sammenligner med de fem store masseutryddelsene i jordas historie.
 
-Men det finnes også lyspunkter. I 1987 la den norske statsministeren Gro Harlem Brundtland fram rapporten **Vår felles framtid**, som definerte **bærekraftig utvikling** som «utvikling som møter dagens behov uten å ødelegge for fremtidige generasjoners mulighet til å møte sine behov». Denne definisjonen har blitt selve grunnlaget for internasjonal miljøpolitikk.
+Men det finnes også lyspunkter. I 1987 la den norske statsministeren Gro Harlem Brundtland fram rapporten **Vår felles framtid**, som definerte **bærekraftig utvikling** som «utvikling som møter dagens behov uten å ødelegge for fremtidige generasjoners mulighet til å møte sine behov». Denne definisjonen har blitt et sentralt begrep i internasjonal miljøpolitikk.
 
 Og vi har vist at vi kan lære. **Ozonhullet** ble oppdaget på 1980-tallet, og verden klarte å bli enig om å forby de kjemikaliene som forårsaket det. I dag er ozonlaget i ferd med å reparere seg selv. Mange land har renset opp i sin lokale forurensning -- elvene i Europa er renere enn på lenge, og luftkvaliteten i mange byer har blitt bedre.
 
-Men klimaendringene er en langt større utfordring. Den krever global samhandling, enorme investeringer og fundamentale endringer i hvordan vi produserer og forbruker energi. Historien viser at vi kan løse miljøproblemer når vi har viljen -- men også at vi ofte venter til krisen er akutt.`,
+Klimaendringene representerer imidlertid en utfordring av et helt annet omfang. Det pågår en bred politisk debatt om hvilke tiltak som er mest effektive -- fra teknologisk innovasjon og markedsbaserte løsninger til internasjonal regulering og endringer i energiproduksjon. Historien viser at mennesker kan løse miljøproblemer gjennom ulike tilnærminger -- men også at handling ofte kommer først etter at konsekvensene blir tydelige.`,
     },
     {
       id: 'historie-10-4-n-quiz4',
@@ -780,13 +780,13 @@ Men klimaendringene er en langt større utfordring. Den krever global samhandlin
 
 Når vi ser tilbake på menneskets forhold til naturen gjennom historien, hva kan vi lære? Er vi dømt til å gjenta fortidens feil, eller kan historisk kunnskap hjelpe oss å gjøre klokere valg?
 
-Historien gir oss grunn til både optimisme og pessimisme. **Optimisme** fordi vi faktisk har klart å løse noen miljøproblemer. Vi reddet ozonlaget. Vi har renset opp i mye lokal forurensning. Vi har reddet truede arter fra utryddelse. Flere naturområder er vernet enn noensinne. Rachel Carson viste at en enkelt person med solid vitenskap og mot kan forandre verden.
+Historien gir grunnlag for ulike vurderinger. **Positive erfaringer** finnes fordi mennesker faktisk har klart å løse noen miljøproblemer. Ozonlaget ble beskyttet gjennom internasjonalt samarbeid. Mye lokal forurensning er ryddet opp. Truede arter har blitt reddet. Flere naturområder er vernet enn noensinne. Rachel Carsons arbeid viste at vitenskapelig debatt kan føre til politiske endringer, selv om hennes konklusjoner også har blitt diskutert.
 
-**Pessimisme** fordi vi ser at de samme feilene gjentas igjen og igjen. Overfiske fortsetter til tross for at vi vet konsekvensene. Avskoging fortsetter. Og klimautslippene øker selv om vi har visst om problemet i tiår. Det virker som vi er flinkere til å løse synlige, lokale problemer med klare løsninger enn langsomme, globale problemer der kostnadene er spredt og konsekvensene ligger i fremtiden.
+**Utfordringer** finnes også. Overfiske fortsetter i mange områder til tross for kunnskap om konsekvensene, selv om fiskeriforvaltning har lykkes i flere regioner. Avskoging fortsetter noen steder, mens skogsarealet øker i andre deler av verden. Klimautslippene har økt globalt, men synker i en rekke land. Et mønster mange historikere peker på, er at mennesker ofte er bedre til å løse synlige, lokale problemer med klare løsninger enn langsomme, globale utfordringer der kostnadene er spredt og konsekvensene ligger i fremtiden.
 
-Kanskje er det viktigste lærdommen om **skala**. Påskeøyas folk ødela en liten øy. Vi risikerer å ødelegge en hel planet. Men prinsippet er det samme: ressurser som brukes opp, kommer ikke tilbake av seg selv. Økosystemer som ødelegges, lar seg ikke alltid reparere.
+Kanskje er det viktigste lærdommen om **skala**. Påskeøyas folk overutnyttet ressursene på en liten øy. I dag står menneskeheten overfor miljøutfordringer i global skala. Prinsippet er det samme: ressurser som brukes opp, kommer ikke tilbake av seg selv. Økosystemer som skades alvorlig, lar seg ikke alltid reparere.
 
-Historien om mennesket og naturen er ikke ferdigskrevet. Spørsmålet er hva neste kapittel vil inneholde -- og det er vi som skriver det. Brundtland-rapportens budskap om bærekraft er enklere å si enn å gjennomføre, men det representerer kanskje den viktigste erkjennelsen i vår tid: at fremtiden avhenger av de valgene vi tar i dag.`,
+Historien om mennesket og naturen er ikke ferdigskrevet. Brundtland-rapportens begrep om bærekraftig utvikling har blitt et sentralt rammeverk i internasjonal politikk, selv om det er betydelig debatt om hvordan prinsippet best kan omsettes i praksis. Historien viser at forholdet mellom mennesker og natur alltid har krevd avveininger, og at de valgene som gjøres, har konsekvenser.`,
     },
     {
       id: 'historie-10-4-n-quiz5',
@@ -810,7 +810,7 @@ Historien om mennesket og naturen er ikke ferdigskrevet. Spørsmålet er hva nes
       type: 'text',
       content: `## Oppsummering
 
-Menneskets forhold til naturen har endret seg dramatisk gjennom historien. Fra jeger-sankere som levde som en del av naturen, via jordbrukere som begynte å forme den, til industrisamfunnet som truer med å ødelegge den -- historien om menneske og natur er en historie om voksende makt og voksende ansvar.
+Menneskets forhold til naturen har endret seg dramatisk gjennom historien. Fra jeger-sankere som levde som en del av naturen, via jordbrukere som begynte å forme den, til industrisamfunnet som påvirker den i global skala -- historien om menneske og natur er en historie om voksende makt og voksende ansvar.
 
 **Nøkkelbegreper du nå kjenner:**
 - **Miljøhistorie**: Studiet av forholdet mellom mennesker og natur gjennom historien
@@ -822,7 +822,7 @@ Menneskets forhold til naturen har endret seg dramatisk gjennom historien. Fra j
 - **Bærekraftig utvikling**: Utvikling som ikke ødelegger for fremtidige generasjoner
 
 **Det viktigste du tar med deg:**
-Historien viser at mennesker kan løse miljøproblemer, men også at vi ofte venter for lenge. Sivilisasjoner har kollapset fordi de ignorerte naturens grenser. Klimaendringer er vår tids største utfordring, og historisk kunnskap minner oss om at de valgene vi tar i dag, former fremtiden.`,
+Historien viser at mennesker kan løse miljøproblemer, men også at vi ofte venter for lenge. Sivilisasjoner har kommet i krise fordi de overutnyttet sine ressurser. Klimaendringer beskrives av mange som en av vår tids sentrale utfordringer, og historisk kunnskap minner oss om at de valgene vi tar i dag, påvirker fremtiden.`,
     },
   ],
   exercises: [],

@@ -77,7 +77,7 @@ Romantikerne var opptatt av det unike ved hvert folk. De samlet inn folkeeventyr
 
 **Språket** ble sett som nasjonens sjel. Å ha et eget nasjonalspråk var nesten like viktig som å ha et eget flagg. I Norge skapte Ivar Aasen et nytt skriftspråk - landsmål (seinere nynorsk) - basert på norske dialekter, nettopp for å gi nasjonen et språk som var "ekte norsk" og ikke bare dansk med norsk uttale.
 
-Romantikerne dyrket også naturen som uttrykk for nasjonal identitet. Norske fjell og fjorder, tyske skoger, skotske høylander - landskapet ble et symbol på nasjonen. Når vi i dag ser bilder av norsk natur og føler stolthet, er det romantikkens arv vi bærer på.
+Romantikerne dyrket også naturen som uttrykk for nasjonal identitet. Norske fjell og fjorder, tyske skoger, skotske høylander - landskapet ble et symbol på nasjonen. Den sterke forbindelsen mellom nasjonalt landskap og nasjonal identitet som mange fortsatt opplever i dag, har røtter tilbake til romantikken.
 
 Slik ga romantikken nasjonalismen et følelsesmessig og kulturelt grunnlag. Nasjonalismen var ikke lenger bare en politisk teori - den ble en følelse, en lengsel, en identitet.`,
     },
@@ -171,7 +171,7 @@ Nasjonalismens historie minner oss om at politiske ideer sjelden er enten helt g
 
 Vi lever fortsatt i nasjonalismens tidsalder. Verden er organisert i nasjonalstater, vi heier på "våre" lag i OL, vi feirer nasjonaldager, vi forsvarer nasjonale grenser. Nasjonalismen er ikke borte - den har bare tatt nye former.
 
-Det avgjørende spørsmålet er: Hva slags nasjonalisme velger vi? En som inkluderer alle som bor i landet, uansett bakgrunn? Eller en som ekskluderer de som er "annerledes"? Historien viser oss at begge veier er mulige - og at konsekvensene er vidt forskjellige.`,
+Historikere skiller ofte mellom inkluderende og ekskluderende nasjonalisme. Den inkluderende varianten definerer nasjonen bredt og kan romme mangfold, mens den ekskluderende varianten definerer nasjonen snevert og stenger ute de som ikke "passer inn". Historien viser at begge varianter har eksistert side om side - og at konsekvensene har vært vidt forskjellige.`,
     },
     {
       id: 'historie-8-1-n-quiz5',
@@ -220,7 +220,7 @@ export const CHAPTER_HISTORIE_8_2_NARRATIV: TextbookChapter = {
   chapterNumber: '8.2',
   title: 'Norge 1814 og veien til selvstendighet',
   subtitle: 'Narrativ versjon',
-  description: 'Fortellingen om hvordan Norge gikk fra dansk provins til selvstendig nasjon - en reise på nesten 500 år.',
+  description: 'Fortellingen om Norges vei fra union med Danmark, gjennom 1814 og unionen med Sverige, til full selvstendighet i 1905.',
   estimatedMinutes: 45,
   competenceGoals: ['nasjonal identitet i Norge'],
   linkedChapterId: 'historie-8-2',
@@ -228,7 +228,7 @@ export const CHAPTER_HISTORIE_8_2_NARRATIV: TextbookChapter = {
     {
       id: 'historie-8-2-n-intro',
       type: 'text',
-      content: `## 400 år i skyggen av Danmark
+      content: `## 400 år i union med Danmark
 
 Forestill deg at du er norsk på 1700-tallet. Kongen din bor i København. Lovene bestemmes i København. Universitetet ligger i København. Vil du bli prest, jurist eller offiser, må du reise til København. Skal du klage på noe, sender du klagen til København. Norge er ikke et eget land - det er en provins i det danske riket.
 
@@ -241,15 +241,15 @@ Men Norge var ikke helt utvisket. Landet beholdt sine egne lover, sin egen kirke
       type: 'text',
       content: `## Napoleon, krig og et sjansens vindu
 
-Så skjedde det noe ingen hadde ventet. Napoleonskrigene - de enorme konfliktene som herjet Europa fra 1799 til 1815 - åpnet et vindu for norsk frihet.
+Så skjedde det noe ingen hadde ventet. Napoleonskrigene - de enorme konfliktene som herjet Europa fra 1799 til 1815 - skapte en ny situasjon for Norges stilling.
 
 Danmark-Norge hadde havnet på Napoleons side i krigen, og da Napoleon begynte å tape, ble Danmark-Norge straffet. Ved **Kielfreden** i januar 1814 ble Danmark tvunget til å avstå Norge til Sverige. Norge ble rett og slett overført fra en konge til en annen, som en eiendel i et krigsoppgjør.
 
 Men nordmennene godtok ikke dette. Prins **Christian Frederik**, den danske stattholderen i Norge, så sin sjanse. Han mobiliserte norsk motstand og kalte inn til en riksforsamling - et valgt møte der Norges fremtid skulle avgjøres.
 
-Tenk deg spenningen. I februar 1814 visste ingen hvordan dette ville ende. Sverige krevde Norge. Stormaktene i Europa - Storbritannia, Russland, Østerrike - hadde lovet Norge til Sverige som belønning for at Sverige hadde kjempet mot Napoleon. Og lille Norge, uten noen allierte, forsøkte å trekke seg ut av avtalen.
+Tenk deg spenningen. I februar 1814 visste ingen hvordan dette ville ende. Sverige krevde Norge. Stormaktene i Europa - Storbritannia, Russland, Østerrike - hadde lovet Norge til Sverige som belønning for at Sverige hadde kjempet mot Napoleon. Fra svensk side var kravet legitimt: Kronprins Karl Johan hadde bidratt avgjørende til seieren over Napoleon, og stormaktene hadde gjennom Kielfreden anerkjent Norges overføring til Sverige. For Sverige var dette en rettmessig kompensasjon for tapet av Finland til Russland i 1809.
 
-Det var et dristig spill. Og det kom til å forme Norges historie for alltid.`,
+Norge på sin side forsøkte å trekke seg ut av denne avtalen og hevde sin rett til selvstendighet. Det var en usikker situasjon, og den kom til å forme Norges historie i lang tid fremover.`,
     },
     {
       id: 'historie-8-2-n-quiz1',
@@ -271,7 +271,7 @@ Det var et dristig spill. Og det kom til å forme Norges historie for alltid.`,
     {
       id: 'historie-8-2-n-section2',
       type: 'text',
-      content: `## 17. mai 1814 - mirakelet på Eidsvoll
+      content: `## 17. mai 1814 - Grunnloven på Eidsvoll
 
 Den 10. april 1814 samlet 112 menn seg på Eidsvoll jernverk, nord for Oslo. De var valgt fra hele landet - embetsmenn, bønder og byborgere. Oppdraget deres var enormt: å skrive en grunnlov for Norge og bestemme landets fremtid.
 
@@ -281,9 +281,9 @@ Selvstendighetspartiet vant. Og så, på rekordtid - bare seks uker - skrev diss
 
 **Den 17. mai 1814** ble Norges Grunnlov vedtatt. Den bygget på revolusjonære prinsipper: **Maktfordeling** mellom Stortinget (lovgivende), kongen (utøvende) og domstolene (dømmende). **Folkesuverenitet** - makten utgikk fra folket, ikke fra Gud eller arv. **Individuelle rettigheter** som ytringsfrihet, trykkefrihet og næringsfrihet. Og en **stemmerett** som var uvanlig bred for sin tid - ca. 40 prosent av alle voksne menn fikk stemme.
 
-Grunnloven hadde også særnorske trekk. **Odelsretten** ble grunnlovsfestet - bøndenes rett til å arve jord ble beskyttet. Og i en radikalt demokratisk gest ble alle adelsprivilegier opphevet. I det nye Norge skulle ingen få fordeler bare fordi de var født inn i riktig familie.
+Grunnloven hadde også særnorske trekk. **Odelsretten** ble grunnlovsfestet - bøndenes rett til å arve jord ble beskyttet. Adelsprivilegier ble opphevet, slik at formelle standsforskjeller ble avskaffet. Det bør likevel nevnes at stemmeretten i praksis var begrenset til menn med eiendom, noe som utelukket store deler av befolkningen, inkludert alle kvinner, tjenestefolk og eiendomsløse.
 
-Christian Frederik ble valgt til Norges konge. Det var en dag full av håp og stolthet - men også av usikkerhet. For Sverige hadde ikke gitt opp kravet på Norge.`,
+Christian Frederik ble valgt til Norges konge. Men situasjonen var usikker, for Sverige hadde ikke gitt opp kravet på Norge, og stormaktene støttet det svenske kravet.`,
     },
     {
       id: 'historie-8-2-n-quiz2',
@@ -337,19 +337,19 @@ For hvert tiår som gikk, ble unionen løsere og Norges selvstendighet sterkere.
     {
       id: 'historie-8-2-n-section4',
       type: 'text',
-      content: `## 1905 - endelig fritt
+      content: `## 1905 - unionsoppløsningen
 
 Det endelige bruddet kom i 1905, og det handlet om noe som kan virke smått: **konsulatvesenet**. Norge ville ha egne konsulater i utlandet for å ivareta norske handelsinteresser. Sverige nektet. Det var dråpen som fikk begeret til å flyte over.
 
 Den **7. juni 1905** erklærte Stortinget at unionen med Sverige var oppløst. Begrunnelsen var at kongen ikke hadde klart å danne en norsk regjering - en formell spissfindighet, men den ga bruddet et juridisk grunnlag.
 
-Så kom folkeavstemningen. Den **13. august 1905** gikk det norske folket til urnene, og resultatet var overveldende: 368 208 stemte ja til oppløsning, bare 184 stemte nei. Det var en nesten enstemmig nasjonal vilje.
+Så kom folkeavstemningen. Den **13. august 1905** gikk stemmeberettigede menn til urnene, og resultatet var overveldende: 368 208 stemte ja til oppløsning, bare 184 stemte nei. Det er viktig å merke seg at kvinner ikke hadde stemmerett i denne folkeavstemningen. Kvinner organiserte likevel en uoffisiell underskriftskampanje der nesten 300 000 kvinner skrev under for oppløsning, men disse underskriftene ble ikke regnet som offisielle stemmer. Resultatet representerte altså bare den mannlige delen av befolkningen.
 
-Men det var fare for krig. Svenske nasjonalister raste, og den svenske hæren var langt sterkere enn den norske. Heldigvis valgte begge sider forhandlinger. I **Karlstad** ble det oppnådd en fredelig løsning: Sverige anerkjente norsk uavhengighet mot at Norge rev noen grensefestninger.
+Men det var fare for krig. Sterke krefter i Sverige ønsket en militær løsning, og den svenske hæren var langt sterkere enn den norske. Begge sider valgte til slutt forhandlinger. I **Karlstad** ble det oppnådd en fredelig løsning: Sverige anerkjente norsk uavhengighet mot at Norge rev noen grensefestninger.
 
 I en ny folkeavstemning valgte nordmennene monarki framfor republikk. Den danske prinsen Carl ble valgt til konge og tok navnet **Haakon VII**. Han kom til Norge 25. november 1905 med sin kone Maud og lille sønn Olav.
 
-Etter nesten 500 år - først under Danmark, så under Sverige - var Norge endelig en fullt uavhengig nasjon. Det er verdt å stoppe opp og tenke på hva det må ha betydd for folk. Å endelig være herre i eget hus.`,
+Etter nesten 500 år i union - først med Danmark, så med Sverige - ble Norge en fullt uavhengig stat. Unionsoppløsningen i 1905 skjedde fredelig, noe som var uvanlig i europeisk sammenheng. Både norske og svenske forhandlere bidro til den fredelige løsningen i Karlstad.`,
     },
     {
       id: 'historie-8-2-n-quiz4',
@@ -381,7 +381,7 @@ Grunnloven var også begrenset når det gjaldt hvem som fikk delta. Bare menn me
 
 Likevel er det viktig å se Grunnloven i sin samtid. I 1814 var den en av verdens mest demokratiske dokumenter. Og den var et levende dokument - den er blitt endret over 300 ganger for å tilpasse seg nye tider og verdier. Jødeparagrafen ble fjernet. Kvinner fikk stemmerett i 1913. Samiske rettigheter ble grunnlovsfestet i 1988.
 
-Slik forteller Grunnlovens historie oss noe viktig: Fremskritt er mulig, men det tar tid og krever at noen kjemper for det.`,
+Grunnlovens historie viser at den har vært et dokument i kontinuerlig utvikling, der ulike grupper gjennom tidene har kjempet for å utvide rettighetene den gir.`,
     },
     {
       id: 'historie-8-2-n-quiz5',
@@ -416,7 +416,7 @@ Norges vei til selvstendighet var en lang prosess som strakte seg over nesten 50
 - **Haakon VII**: Norges første konge etter uavhengigheten
 
 **Det viktigste du tar med deg:**
-1814 og 1905 er grunnsteinene i norsk nasjonal identitet. 1814 ga Grunnloven og demokratiet. 1905 ga full uavhengighet. Sammen forteller de historien om en fredelig, demokratisk frigjøring - en fortelling som er sentral i norsk selvforståelse den dag i dag.`,
+1814 og 1905 er sentrale hendelser i norsk historie. 1814 ga Grunnloven og folkesuverenit som prinsipp. 1905 ga full uavhengighet fra Sverige. Veien dit innebar både konflikt og kompromiss - en kort krig i 1814 og trusselen om krig i 1905 - men begge ganger ble det til slutt funnet forhandlingsløsninger. Disse hendelsene er sentrale i norsk selvforståelse, men historikere har også påpekt at fortellingen om dem har blitt forenklet og romantisert over tid.`,
     },
   ],
   exercises: [],
@@ -448,16 +448,16 @@ Sápmi strekker seg over det som i dag er fire land: Norge, Sverige, Finland og 
 
 Tradisjonelt har samene levd av det naturen ga: **reindrift**, fiske, fangst og jordbruk, tilpasset de harde forholdene i nord. De hadde sitt eget språk - egentlig en hel familie av samiske språk - sin egen religion med sjamanistiske tradisjoner, sine egne klesdrakter, sin egen musikk (**joik**), og sin egen måte å organisere samfunnet på.
 
-Men da nasjonalstaten Norge ble bygget på 1800-tallet, ble samene stående på utsiden av det nasjonale fellesskapet. For i nasjonalismens logikk var det ikke plass til et folk som snakket et annet språk, hadde en annen kultur og levde på tvers av landegrensene. Det som fulgte, er et av de mørkeste kapitlene i norsk historie.`,
+Men da nasjonalstaten Norge ble bygget på 1800-tallet, ble samene stående på utsiden av det nasjonale fellesskapet. I nasjonalismens logikk var det ikke plass til et folk som snakket et annet språk, hadde en annen kultur og levde på tvers av landegrensene. Konsekvensene for samene ble alvorlige og langvarige.`,
     },
     {
       id: 'historie-8-3-n-section1',
       type: 'text',
-      content: `## Da staten ville utslette en kultur
+      content: `## Fornorskingspolitikken - statlig assimilering
 
-Fra midten av 1800-tallet satte norske myndigheter i gang en systematisk politikk for å gjøre samene til "nordmenn". Denne **fornorskingspolitikken** varte i over hundre år og hadde ett overordnet mål: å utslette samisk språk og kultur.
+Fra midten av 1800-tallet satte norske myndigheter i gang en systematisk politikk for å gjøre samene til "nordmenn". Denne **fornorskingspolitikken** varte i over hundre år og hadde ett overordnet mål: å assimilere samene i den norske majoritetsbefolkningen. I praksis innebar dette at samisk språk og kultur ble aktivt motarbeidet av staten.
 
-Virkemidlene var mange og brutale. Det viktigste var **skolen**. Samisk ble forbudt som undervisningsspråk. Barn som snakket samisk på skolen, ble straffet. Mange samiske barn ble sendt til **internatskoler** langt fra hjemmene sine, der de bare fikk snakke norsk. Tenk deg å være sju år gammel, bli revet bort fra familien din og plassert på en skole der du ikke forstår språket, der alt som er kjent og trygt blir fortalt deg at det er "primitivt" og "mindreverdig".
+Virkemidlene var mange. Det viktigste var **skolen**. Samisk ble forbudt som undervisningsspråk. Barn som snakket samisk på skolen, ble straffet. Mange samiske barn ble sendt til **internatskoler** langt fra hjemmene sine, der de bare fikk snakke norsk. Barna ble adskilt fra familiene sine i lange perioder, og mange opplevde at språket og kulturen de hadde med seg hjemmefra, ble nedvurdert av skolen.
 
 Men det stoppet ikke med skolen. **Jordsalgsloven av 1902** krevde at man måtte kunne norsk for å kjøpe jord i Finnmark. Samiske stedsnavn ble systematisk erstattet med norske. Samisk kultur ble nedvurdert i lærebøker og offentlige dokumenter.
 
@@ -491,9 +491,9 @@ I nesten hundre år godtok det norske samfunnet fornorskingspolitikken uten stø
 
 Så kom **Altasaken** (1979-1981), og den forandret alt.
 
-Norske myndigheter ville demme opp Alta-Kautokeino-vassdraget i Finnmark for å produsere vannkraft. Problemet var at utbyggingen ville legge viktige samiske reindriftsområder under vann og ødelegge samisk livsgrunnlag.
+Norske myndigheter ville demme opp Alta-Kautokeino-vassdraget i Finnmark for å produsere vannkraft. Bakgrunnen var et reelt behov for energi i Nord-Norge, der kraftforsyningen var begrenset. Samtidig ville utbyggingen legge viktige samiske reindriftsområder under vann og berøre samisk livsgrunnlag. Saken stilte energibehov og industriutvikling opp mot miljøhensyn og urfolksrettigheter.
 
-Protestene ble massive. Samiske aktivister og miljøvernere slo leir ved Stilla, utbyggingsstedet, og nektet å flytte seg. Foran Stortinget i Oslo gikk samiske kvinner og menn i sultestreik. Sivil ulydighet ble brukt bevisst - folk lot seg arrestere for å sette søkelyset på uretten.
+Protestene ble massive. Samiske aktivister og miljøvernere slo leir ved Stilla, utbyggingsstedet, og nektet å flytte seg. Foran Stortinget i Oslo gikk samiske kvinner og menn i sultestreik. Sivil ulydighet ble brukt bevisst - folk lot seg arrestere for å sette søkelyset på saken.
 
 Politiet gjennomførte Norges største politiaksjon for å fjerne demonstrantene. Bilder av politi som bar bort fredelige demonstranter gikk over hele verden. Saken ble internasjonal nyhet.
 
@@ -593,7 +593,7 @@ Historien om samene og Norges minoriteter tvinger oss til å stille et ubehageli
 
 Svaret ligger i nasjonalismens logikk. Nasjonalismen definerer et "vi" - men i det øyeblikket du definerer et "vi", skaper du også et "dem". Det norske nasjonale prosjektet på 1800-tallet handlet om å bygge en felles norsk identitet: ett språk, én kultur, ett folk. De som ikke passet inn i dette bildet - samer, kvener, romani, jøder - ble sett som problemer som måtte "løses".
 
-I dag ser vi det annerledes. Vi forstår at et land kan romme mange kulturer og språk uten at det truer den nasjonale enheten. Vi forstår at mangfold er en styrke, ikke en trussel. Men denne innsikten kom sent, og den kom fordi modige mennesker kjempet for den.
+I dag ser det norske samfunnet annerledes på disse spørsmålene. Gjennom lovgivning og politiske prosesser har Norge anerkjent samiske rettigheter og nasjonale minoriteters stilling. Historisk har flerkulturelle samfunn håndtert mangfold på svært ulike måter - noen ganger gjennom vellykket sameksistens, andre ganger gjennom undertrykkelse og konflikt. Spørsmålet om hvordan et samfunn best håndterer kulturelt mangfold, er fortsatt gjenstand for debatt i Norge og internasjonalt.
 
 **Sannhets- og forsoningskommisjonen**, som leverte sin rapport i 2023, dokumenterte i detalj uretten som ble begått mot samer, kvener og norskfinner. Rapporten viste at konsekvensene av fornorskingspolitikken fortsatt merkes i dag - i tapte språk, i brutte familiebånd, i skam som er gått i arv gjennom generasjoner.
 
@@ -621,7 +621,7 @@ Historien om Norges minoriteter minner oss om at nasjonsbygging alltid har en pr
       type: 'text',
       content: `## Oppsummering
 
-Historien om samene og Norges minoriteter er et nødvendig korrektiv til den stolte fortellingen om norsk demokrati og frihet. Den viser oss at nasjonsbygging har en mørk side.
+Historien om samene og Norges minoriteter utgjør en viktig del av den samlede norske historien. Den viser at nasjonsbygging også har hatt alvorlige negative konsekvenser for grupper som falt utenfor det nasjonale fellesskapet.
 
 **Nøkkelbegreper du nå kjenner:**
 - **Sápmi**: Det samiske bosettingsområdet, som strekker seg over fire land
@@ -676,7 +676,9 @@ Historikere bruker begrepene **skyve-faktorer** (push) og **dra-faktorer** (pull
 
 **Skyve-faktorene** i Norge var mange og tunge. Befolkningen vokste raskt på 1800-tallet, men mengden dyrkbar jord vokste ikke. Resultatet var **jordhunger** - for mange mennesker og for lite jord. Mange familier delte gårdene sine til de ble så små at de knapt kunne brø en familie. **Husmenn** - landarbeidere som leide jord av gårdbrukere - hadde lite håp om noengang å eie noe selv. Sosialt var Norge et stivnet samfunn der din plass i hierarkiet var avgjort ved fødsel.
 
-Og så kom **dra-faktorene** fra den andre siden av Atlanterhavet. I 1862 vedtok USA **Homestead Act**, som ga 160 acres (ca. 650 mål) gratis jord til alle som ville dyrke den opp i fem år. Gratis jord! For en husmann i Valdres var dette en drøm som knapt lot seg fatte. I tillegg var lønningene høyere, religiøs frihet var reell, og det fantes ingen adel eller stive klasseskiller.
+Og så kom **dra-faktorene** fra den andre siden av Atlanterhavet. I 1862 vedtok USA **Homestead Act**, som ga 160 acres (ca. 650 mål) jord til alle som ville dyrke den opp i fem år. For en husmann i Valdres var dette en stor mulighet. I tillegg var lønningene høyere, religiøs frihet var reell, og det fantes ingen adel eller stive klasseskiller.
+
+Det er viktig å forstå at denne jorda ikke var "tom" eller "gratis" i noen absolutt forstand. Områdene som ble delt ut gjennom Homestead Act, var land som urfolk - blant dem lakota, ojibwe, dakota og mange andre folkeslag - hadde bebodd og brukt i tusenvis av år. Den amerikanske staten hadde tvunget urfolkene bort fra disse områdene gjennom en kombinasjon av traktater, tvangsforflyting og militærmakt. Norske nybyggere slo seg ned på jord som urfolk nylig var blitt fratatt. Utvandringen til Amerika var dermed uløselig knyttet til fordrivelsen av Amerikas urfolk.
 
 Men kanskje den sterkeste kraften av alle var **amerikabrevene**.`,
     },
@@ -690,11 +692,11 @@ Men kanskje den sterkeste kraften av alle var **amerikabrevene**.`,
         task: 'Hva var "Homestead Act" (1862)?',
         options: [
           { id: 'a', text: 'En lov som forbød innvandring til USA', isCorrect: false },
-          { id: 'b', text: 'En lov som ga gratis jord til de som dyrket den opp', isCorrect: true },
+          { id: 'b', text: 'En lov som ga jord til de som bosatte seg og dyrket den opp i fem år', isCorrect: true },
           { id: 'c', text: 'En lov som krevde at innvandrere lærte engelsk', isCorrect: false },
           { id: 'd', text: 'En lov som regulerte arbeidsforholdene i amerikanske fabrikker', isCorrect: false },
         ],
-        solution: 'Homestead Act (1862) ga 160 acres (ca. 650 mål) gratis jord til alle som ville bosette seg og dyrke jorda i fem år. Denne loven var en enorm dra-faktor for norske utvandrere, som drømte om å eie sin egen jord.',
+        solution: 'Homestead Act (1862) ga 160 acres (ca. 650 mål) jord til alle som ville bosette seg og dyrke jorda i fem år. Denne loven var en enorm dra-faktor for norske utvandrere. Det er viktig å merke seg at denne jorda var tatt fra urfolk som hadde bebodd områdene i tusenvis av år.',
       },
     },
     {
@@ -814,7 +816,7 @@ Men utvandringen hadde også en mørk side. Mange bygder mistet sine mest arbeid
 
 I dag bor det ca. **4,5 millioner** mennesker av norsk avstamning i USA - nesten like mange som i Norge. Mange av dem holder fortsatt kontakten med "gamlelandet", besøker slektninger og søker opp aner.
 
-Det er også verdt å reflektere over at Norges historie som utvandringsland gir oss et særlig perspektiv på dagens innvandring til Norge. Våre forfedre var også migranter. De forlot hjemlandet av akkurat de samme grunnene som driver mennesker til å migrere i dag: fattigdom, mangel på muligheter, og håpet om et bedre liv.`,
+Norges historie som utvandringsland viser at migrasjon er et gjennomgående trekk i menneskets historie. Migrasjon har til alle tider vært drevet av sammensatte årsaker - økonomiske, politiske og sosiale - og den har hatt ulike konsekvenser for både avsender- og mottakerland.`,
     },
     {
       id: 'historie-8-4-n-quiz5',
@@ -843,12 +845,12 @@ Den store utvandringen fra Norge til Amerika var en av de mest dramatiske folkev
 **Nøkkelbegreper du nå kjenner:**
 - **Emigrasjon**: Utvandring - å flytte fra et land
 - **Skyve-faktorer**: Fattigdom, jordhunger, klasseskiller - årsakene til å forlate Norge
-- **Dra-faktorer**: Gratis jord (Homestead Act), høyere lønninger, frihet - årsakene til å reise til Amerika
+- **Dra-faktorer**: Jord gjennom Homestead Act (tatt fra urfolk), høyere lønninger, frihet - årsakene til å reise til Amerika
 - **Amerikabrev**: Brev fra utvandrere som lokket flere til å reise - den viktigste enkeltfaktoren bak utvandringen
 - **Norskamerikanere**: Etterkommere av norske utvandrere som i dag teller ca. 4,5 millioner i USA
 
 **Det viktigste du tar med deg:**
-Utvandringen minner oss om at migrasjon er et evig menneskelig fenomen. Våre forfedre var også migranter som forlot hjemlandet for å søke lykken i et fremmed land. Denne historien gir oss et særlig perspektiv på dagens migrasjon - og påminner oss om at mennesker til alle tider har vært villige til å reise langt for håpet om et bedre liv.`,
+Den store utvandringen viser hvordan økonomiske, sosiale og personlige faktorer driver migrasjon. Utvandringen fikk store konsekvenser for både Norge og USA, og den må også ses i sammenheng med fordrivelsen av Amerikas urfolk fra deres tradisjonelle landområder.`,
     },
   ],
   exercises: [],

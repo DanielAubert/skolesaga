@@ -76,7 +76,7 @@ Denne teorien kalles **"Out of Africa"**-teorien, og den er den rådende vitensk
 
 Bevisene er overbevisende. DNA-studier viser at det største genetiske mangfoldet finnes i Afrika -- noe som gir mening hvis alle andre populasjoner stammer fra en liten utvandringsgruppe. Fossilfunn støtter tidslinjen. Og som vi nevnte: det faktum at ikke-afrikanere har neandertaler-DNA, viser at våre forfedre møtte og fikk barn med neandertalere da de kom til Europa og Vest-Asia.
 
-Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hudfarge eller kultur, har felles opprinnelse. Genetiske forskjeller mellom menneskegrupper er minimale -- ca. 0,1 prosent variasjon. Ytre forskjeller som hudfarge er overfladiske tilpasninger til ulike klimaer. Vi er alle ett folk, med én felles historie som starter i Afrika.`,
+Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hudfarge eller kultur, har felles opprinnelse. Genetiske forskjeller mellom menneskegrupper er minimale -- ca. 0,1 prosent variasjon. Ytre forskjeller som hudfarge er overfladiske tilpasninger til ulike klimaer. Forskningen viser at alle nålevende mennesker har felles opprinnelse i Afrika.`,
     },
     {
       id: 'historie-forhistorie-1-n-quiz2',
@@ -102,13 +102,13 @@ Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hu
 
 I hundretusener av år levde mennesker som **jegere og sankere**. De jaktet på dyr, fisket og samlet inn spiselige planter, nøtter, bær og røtter. De produserte ikke mat -- de hentet det naturen tilbød. Og dette livet var kanskje ikke så ille som vi gjerne forestiller oss.
 
-Jeger-sanker-samfunnene var organisert i små grupper, typisk 20 til 50 personer. De levde nomadisk, fulgte byttedyrene og sesongene, og slo seg ned der maten var. Arbeidsdeling fantes, men var fleksibel: menn jaktet gjerne storvilt, mens kvinner samlet planter, men dette var ikke absolutt. Det mest overraskende er kanskje at studier av moderne jeger-sankere viser at de bare "arbeidet" 3 til 5 timer daglig for å skaffe nok mat. Resten av tiden kunne de bruke på sosialt samvær, fortelling, kunst og hvile. Noen forskere har kalt dette "det opprinnelige velstandssamfunnet."
+Jeger-sanker-samfunnene var organisert i små grupper, typisk 20 til 50 personer. De levde nomadisk, fulgte byttedyrene og sesongene, og slo seg ned der maten var. Arbeidsdeling fantes, men var fleksibel: menn jaktet gjerne storvilt, mens kvinner samlet planter, men dette var ikke absolutt. Noen studier av moderne jeger-sankere antyder at de brukte relativt få timer daglig på matinnhenting -- antropologen Marshall Sahlins lanserte i 1966 begrepet "det opprinnelige velstandssamfunnet." Hans estimat på 3 til 5 timer daglig har imidlertid blitt omdiskutert blant forskere, og nyere studier viser stor variasjon avhengig av miljø, sesong og hva man regner som "arbeid."
 
-Samfunnene var preget av bemerkelsesverdig **likhet**. Det fantes lite sosial lagdeling og ingen formelle ledere med makt. Mat ble delt i gruppen, og gjensidig avhengighet var nødvendig for overlevelse. Eldre medlemmer hadde viktige roller som kunnskapsbærere -- i en verden uten skrift var de levende biblioteker.
+Mange forskere mener at disse samfunnene var preget av betydelig **likhet** sammenlignet med senere jordbrukssamfunn. Det fantes trolig lite sosial lagdeling og ingen formelle ledere med varig makt. Mat ble delt i gruppen, og gjensidig avhengighet var nødvendig for overlevelse. Eldre medlemmer hadde viktige roller som kunnskapsbærere -- i en verden uten skrift var de levende biblioteker. Samtidig er graden av vold i jeger-sanker-samfunn gjenstand for betydelig faglig debatt -- noen forskere finner lave voldsrater, mens andre peker på høyere forekomst av mellommenneskelig vold enn i moderne stater.
 
 Verktøyene ble stadig mer sofistikerte: **steinredskaper** som håndøkser, skrapere og pilspisser; **ild** til matlaging, varme og beskyttelse mot rovdyr; **klær av dyrehuder** mot kulda; og etter hvert **spyd, bue og pil** fra ca. 70 000 år siden. Kunnskapen ble overført gjennom muntlig tradisjon, fra generasjon til generasjon.
 
-Men livet hadde også en mørk side. Barnedødeligheten var høy. Forventet levealder lå på ca. 30-35 år. En brukket fot eller en infisert tann kunne være en dødsdom. Det var et godt liv på mange måter -- men med risikoer vi i dag ikke ville akseptert.`,
+Men livet hadde også en mørk side. Barnedødeligheten var høy. Forventet levealder lå på ca. 30-35 år. En brukket fot eller en infisert tann kunne være en dødsdom. Det var et liv med mange kvaliteter -- men også med risikoer vi i dag ikke ville akseptert.`,
     },
     {
       id: 'historie-forhistorie-1-n-quiz3',
@@ -278,17 +278,17 @@ Det aller første tamme dyret var for øvrig ikke en ku eller en sau, men **hund
       type: 'text',
       content: `## Historiens største svindel?
 
-Historikeren Yuval Noah Harari har kalt jordbruksrevolusjonen for "historiens største svindel." Det høres provoserende ut, men han har et poeng. For selv om jordbruket la grunnlaget for sivilisasjonen, var det ikke nødvendigvis et fremskritt for det enkelte mennesket.
+Populærforfatteren Yuval Noah Harari har kalt jordbruksrevolusjonen for "historiens største svindel." Det høres provoserende ut, og det er viktig å merke seg at Harari er populærvitenskapelig forfatter, ikke spesialist på forhistorien. Denne tolkningen er omdiskutert blant faghistorikere, men den reiser viktige spørsmål om hva "fremskritt" betyr.
 
-La oss sammenligne. En jeger-sanker jobbet 3-5 timer om dagen og hadde et variert kosthold. En bonde jobbet fra morgen til kveld med tungt, monotont arbeid -- pløying, såing, luking, høsting -- og spiste et ensidig kosthold dominert av korn. Jeger-sankere hadde lite sosial ulikhet. Jordbrukssamfunn utviklet hierarkier der noen eide jorda og andre arbeidet på den.
+La oss se på ulike perspektiver. Sammenlignet med mange bønder hadde jeger-sankere trolig et mer variert kosthold. En bonde jobbet fra morgen til kveld med tungt, monotont arbeid -- pløying, såing, luking, høsting -- og spiste et mer ensidig kosthold dominert av korn. På den andre siden muliggjorde jordbruket befolkningsvekst, kulturell utvikling, kunnskapsakkumulering og teknologiske fremskritt som ikke ville vært mulige i små, nomadiske grupper.
 
 **Bofasthet** var en direkte konsekvens av jordbruket. Bønder måtte bli på ett sted for å pleie avlingene sine, og faste bosettinger og landsbyer oppsto. Folk bygde permanente hus av leire, tre og stein. Og plutselig ble **eiendom** viktig -- jorda tilhørte noen.
 
 **Befolkningsveksten** var dramatisk. Jordbruk ga mer forutsigbar mattilgang, kvinner kunne få flere barn fordi de ikke lenger måtte bære dem på vandring, og befolkningen vokste fra noen få millioner til titalls millioner på bare noen tusen år.
 
-Men med veksten kom nye problemer. **Sykdommer** spredte seg lettere i tette bosettinger. Nærhet til dyr ga nye sykdommer -- såkalte zoonoser. Ensidig kost ga dårligere ernæring enn jeger-sanker-kosten. Konflikter om jord og ressurser økte. Og kvinner fikk ofte en mer underordnet rolle enn i jeger-sanker-samfunn.
+Men med veksten kom nye problemer. **Sykdommer** spredte seg lettere i tette bosettinger. Nærhet til dyr ga nye sykdommer -- såkalte zoonoser. Ensidig kost ga dårligere ernæring enn jeger-sanker-kosten. Konflikter om jord og ressurser økte. Noen forskere mener at kvinner fikk en mer underordnet rolle enn i jeger-sanker-samfunn, selv om dette er vanskelig å fastslå med sikkerhet for forhistoriske samfunn.
 
-Så var jordbruket et fremskritt eller et tilbakeskritt? Svaret avhenger av perspektivet. For *arten* var det et fremskritt -- flere mennesker kunne leve. For *individet* var livet på mange måter verre. Men uten jordbruk ville ingenting av det vi forbinder med sivilisasjon ha vært mulig.`,
+Så var jordbruket et fremskritt eller et tilbakeskritt? Svaret avhenger av perspektivet. For *arten* var det et fremskritt -- flere mennesker kunne leve, og jordbruket la grunnlaget for alle senere kulturelle og teknologiske nyvinninger. For *individet* var livet på mange måter hardere. Men uten jordbruk ville ingenting av det vi forbinder med sivilisasjon ha vært mulig.`,
     },
     {
       id: 'historie-forhistorie-2-n-quiz2',
@@ -352,7 +352,7 @@ Etter hvert som jordbruket ble mer effektivt, vokste bosettingene. De første "b
 
 Men det er en annen tidlig by som virkelig fascinerer forskerne: **Catalhoyuk** i dagens Tyrkia. Denne bosettingen, fra ca. 7500-5700 f.Kr., hadde opptil 8000 innbyggere -- en stor "by" etter datidens målestokk. Og den var bygget på en helt unik måte: husene var bygd tett i tett, vegg i vegg, uten gater mellom dem. Man gikk på *takene* og klatret ned i husene via stiger gjennom hull i taket. Inni fantes ildsteder, lagerplass og soveplasser, og de døde ble gravlagt under husgulvet.
 
-Det mest overraskende med Catalhoyuk er kanskje at det er lite tegn til sosial lagdeling. Husene er omtrent like store -- ingen "palass" eller spesielt rike hus. Veggmalerier med oksehorn, jaktscener og fruktbarhetssymboler finnes i mange hus, men det er ikke funnet noe sentralt tempel. Det ser ut til å ha vært et relativt **egalitært** samfunn. Catalhoyuk utfordrer antakelsen om at byer alltid innebærer hierarki og ulikhet.
+Det mest overraskende med Catalhoyuk er kanskje at det lenge har vært tolket som at det er lite tegn til sosial lagdeling. Husene er omtrent like store -- ingen "palass" eller spesielt rike hus. Veggmalerier med oksehorn, jaktscener og fruktbarhetssymboler finnes i mange hus, men det er ikke funnet noe sentralt tempel. Forskere har derfor foreslått at det kan ha vært et relativt **egalitært** samfunn. Nyere forskning har imidlertid funnet tegn til ulikheter i kosthold og tilgang til ressurser, noe som nyanserer bildet. Hypotesen om at Catalhoyuk var egalitært er altså omdiskutert, men funnene reiser uansett interessante spørsmål om forholdet mellom byer og hierarki.
 
 Overgangen fra landsby til by innebar mer enn bare større befolkning: det krevde spesialisering av yrker, handel med andre bosettinger, felles regler og ledelse, og offentlige bygninger. Det var begynnelsen på det vi kaller sivilisasjon.`,
     },
@@ -378,15 +378,15 @@ Overgangen fra landsby til by innebar mer enn bare større befolkning: det krevd
       type: 'text',
       content: `## Matproduksjon og bærekraft -- lærdommer fra fortiden
 
-Jordbruksrevolusjonen endret ikke bare menneskets forhold til hverandre -- den endret også forholdet til naturen. For første gang begynte mennesker å omforme naturlandskapet i stor skala. Skog ble ryddet for å gi plass til åkrer gjennom svedjebruk. Overbeiting førte til erosjon og ørkenspredning. Irrigasjonssystemer endret vannstrømninger. I noen områder, som Mesopotamia, førte intensivt jordbruk til forsalting av jorda.
+Jordbruksrevolusjonen endret ikke bare menneskets forhold til hverandre -- den endret også forholdet til naturen. Mennesker begynte å omforme naturlandskapet i større skala enn tidligere. Skog ble ryddet for å gi plass til åkrer gjennom svedjebruk. Overbeiting førte i noen områder til erosjon og ørkenspredning. Irrigasjonssystemer endret vannstrømninger. I noen områder, som Mesopotamia, førte intensivt jordbruk til forsalting av jorda.
 
-Det er tankevekkende at **Den fruktbare halvmåne** -- området der jordbruket først oppsto -- i dag er langt tørrere og mindre fruktbart enn for tusenvis av år siden. Årelang overutnyttelse av jorda har bidratt til dette.
+Det er tankevekkende at **Den fruktbare halvmåne** -- området der jordbruket først oppsto -- i dag er langt tørrere og mindre fruktbart enn for tusenvis av år siden. Klimaendringer og langvarig utnyttelse av jorda har bidratt til dette, selv om de nøyaktige årsaksforholdene er sammensatte.
 
-Historien gir oss eksempler på både bærekraft og kollaps. **Mesopotamias forsalting** er et eksempel på kollaps -- intensiv irrigasjon ødela jorda over tid. **Avskogingen rundt Middelhavet** under Romerriket førte til erosjon. **Påskeøyas sivilisasjon** kollapset delvis på grunn av overutnyttelse av ressurser. Men det finnes også eksempler på bærekraft: **vekselsbruk** i middelalderens Europa, tradisjonell norsk **seterdrift** som utnyttet ulike soner etter sesong, og urfolks forvaltning av naturressurser gjennom tusenvis av år.
+Historien gir oss eksempler på både bærekraft og kollaps. **Mesopotamias forsalting** er et eksempel på kollaps -- intensiv irrigasjon ødela jorda over tid. **Avskogingen rundt Middelhavet** under Romerriket førte til erosjon. **Påskeøyas sivilisasjon** kollapset delvis på grunn av overutnyttelse av ressurser. Men jordbruksinnovasjon førte også til nye former for forvaltning og miljøhåndtering: **vekselsbruk** i middelalderens Europa, tradisjonell norsk **seterdrift** som utnyttet ulike soner etter sesong, **terrasser** i Asia og Sør-Amerika som motvirket erosjon, og urfolks forvaltning av naturressurser gjennom tusenvis av år. Jordbruket skapte altså både miljøutfordringer og verktøy for å håndtere dem.
 
-Tallene setter ting i perspektiv: Rundt 10 000 f.Kr. var verdens befolkning ca. 5-10 millioner. Rundt år 1 e.Kr. var den ca. 200-300 millioner. I dag er vi over 8 milliarder. Denne veksten ble muliggjort av jordbruket, men den utfordrer planetens bæreevne. Overutnyttelse av naturressurser er ikke et moderne fenomen -- det er et problem like gammelt som jordbruket selv. Og i dag står vi overfor lignende utfordringer i mye større skala.
+Tallene setter ting i perspektiv: Rundt 10 000 f.Kr. var verdens befolkning ca. 5-10 millioner. Rundt år 1 e.Kr. var den ca. 200-300 millioner. I dag er vi over 8 milliarder. Denne veksten ble muliggjort av jordbruket, og den reiser spørsmål om langsiktig bærekraft.
 
-Kompetansemålet i LK20 om "matproduksjon og naturressurser -- bærekraft" handler nettopp om å forstå at historien til matproduksjon gir viktige lærdommer for fremtiden.`,
+Kompetansemålet i LK20 om "matproduksjon og naturressurser -- bærekraft" handler nettopp om å forstå at historien til matproduksjon -- med både suksesser og feilgrep -- gir viktige perspektiver for fremtiden.`,
     },
     {
       id: 'historie-forhistorie-2-n-quiz5',
@@ -461,7 +461,7 @@ For rundt 5000 år siden oppsto de første **sivilisasjonene** langs de store el
 
 Ordet "sivilisasjon" brukes ofte i hverdagsspråket, men i historiefaget har det en mer presis betydning. En sivilisasjon er et komplekst samfunn kjennetegnet av flere trekk: **byer** med større befolkningskonsentrasjoner enn landsbyer, et **skriftsystem** for å registrere informasjon, **spesialisering** der ikke alle er bønder, **sosial lagdeling** med et hierarki av herskere, prester, håndverkere og bønder, **organisert religion** med templer og presterskap, og **sentralisert styring** med lover og administrasjon.
 
-Men her er det viktig å stoppe opp og tenke kritisk. Begrepet "sivilisasjon" har historisk blitt misbrukt til å nedvurdere andre samfunn som "usiviliserte." Europeiske koloniherrer brukte dette begrepet for å rettferdiggjøre undertrykkelse av folkeslag som levde annerledes. Moderne historikere bruker begrepet nøytralt for å beskrive en bestemt *type* samfunn, ikke for å rangere kulturer som bedre eller dårligere.
+Men her er det viktig å stoppe opp og tenke kritisk. Begrepet "sivilisasjon" har historisk blitt misbrukt til å nedvurdere andre samfunn som "usiviliserte." Europeiske koloniherrer brukte dette begrepet for å rettferdiggjøre undertrykkelse av folkeslag som levde annerledes -- men lignende rangordninger har også blitt brukt av ikke-europeiske makter, som det kinesiske keiserriket i møte med nabofolk. Moderne historikere bruker begrepet i hovedsak nøytralt for å beskrive en bestemt *type* samfunn, ikke for å rangere kulturer som bedre eller dårligere. Noen forskere mener begrepet fortsatt har analytisk verdi for å beskrive komplekse, urbane samfunn, mens andre foretrekker alternative begreper.
 
 Og her er et spørsmål verdt å tenke på: Hvorfor oppsto de første sivilisasjonene langs store elver? Svaret er nesten elegant i sin enkelhet. Elvene ga **vann** til jordbruk i ellers tørre områder. De ga **fruktbar jord** gjennom årlige oversvømmelser, særlig i Egypt der Nilen la igjen næringsrikt slam. De ga **transport** -- det var mye lettere å frakte varer med båt enn på landeveien. Og de ga **fisk og mat**. Jordbruksoverskuddet som elvene muliggjorde, frigjorde folk til andre oppgaver: håndverk, handel, administrasjon og religion.`,
     },
@@ -698,9 +698,9 @@ Perikles, Athens fremste politiker på 400-tallet f.Kr., sa det slik i sin berø
       type: 'text',
       content: `## De som sto utenfor
 
-Nå kommer vi til den vanskelige delen av historien. For det athenske demokratiet var *ikke* et demokrati i moderne forstand. La oss se på hvem som faktisk hadde rett til å delta.
+Det athenske demokratiet var *ikke* et demokrati i moderne forstand. La oss se på hvem som faktisk hadde rett til å delta.
 
-**Kvinner** var fullstendig utelukket fra politikken. De hadde ingen stemmerett, kunne ikke eie eiendom, og levde under mannlig formynderskap -- først av faren, deretter av ektemannen. I en av antikkens mest "progressive" bystater var halvparten av befolkningen uten politiske rettigheter på grunn av kjønn.
+**Kvinner** var fullstendig utelukket fra politikken. De hadde ingen stemmerett, kunne ikke eie eiendom, og levde under mannlig formynderskap -- først av faren, deretter av ektemannen. I en av antikkens mest demokratiske bystater var halvparten av befolkningen uten politiske rettigheter på grunn av kjønn.
 
 **Slaver** utgjorde kanskje 30-40 prosent av Atens befolkning. De hadde ingen rettigheter overhodet. De arbeidet i hjemmene, på jordene, i gruvene. Og her kommer et av historiens store paradokser: det athenske demokratiet var delvis *mulig* fordi slavene frigjorde borgernes tid til politikk. Mens slavene arbeidet, kunne borgerne diskutere og stemme.
 
@@ -802,7 +802,7 @@ Kunne direkte demokrati som i Aten fungere i Norge i dag? Det er et interessant 
 
 Likevel bruker vi elementer av direkte demokrati: folkeavstemninger om store spørsmål, som EU-avstemningen i 1994 eller Brexit i Storbritannia i 2016. Disse viser både styrken og svakheten ved direkte demokrati: folket får bestemme, men komplekse spørsmål reduseres til et enkelt ja eller nei.
 
-Det athenske demokratiet var ufullkomment -- det utelukket flertallet av befolkningen. Men det plantet en idé som endret verden: at vanlige mennesker har rett til å bestemme over sine egne liv og samfunn. At makt ikke er noe gudgitt eller arvet, men noe som *tilhører folket*. Hver gang du stemmer ved et valg, bærer du videre en arv som ble skapt på Pnyx-høyden i Aten for nesten 2500 år siden.`,
+Det athenske demokratiet var ufullkomment -- det utelukket flertallet av befolkningen. Men det plantet en idé som ble enormt innflytelsesrik i senere historie: at vanlige mennesker kan og bør ha innflytelse over styringen av samfunnet. Denne ideen om folkelig suverenitet ble videreført, omformet og utvidet gjennom århundrene -- og den preger politisk tenkning over hele verden i dag. Hver gang du stemmer ved et valg, deltar du i en tradisjon som har røtter på Pnyx-høyden i Aten for nesten 2500 år siden.`,
     },
     {
       id: 'historie-3-2-n-quiz5',
@@ -836,7 +836,7 @@ Det athenske demokratiet var verdens første folkestyre -- en radikal idé som e
 - **Direkte vs. representativt demokrati**: Aten hadde direkte demokrati, Norge har representativt
 
 **Det viktigste du tar med deg:**
-Demokrati er ikke noe som alltid har eksistert -- det ble oppfunnet, av vanlige mennesker som krevde medbestemmelse. Men det er heller ikke perfekt, og det har aldri vært det. Kampen om hvem som skal inkluderes i "folket" pågår fortsatt.`,
+Demokrati er ikke noe som alltid har eksistert -- det ble oppfunnet, og det har utviklet seg over tid. Fra Athens begrensede borgerrettigheter til moderne demokratiers allmenne stemmerett har definisjonen av hvem som regnes som politiske deltakere endret seg dramatisk gjennom historien.`,
     },
   ],
   exercises: [],
@@ -1016,7 +1016,7 @@ La oss avslutte med å se på den samlede arven fra antikken -- fra både Hellas
 
 **Litteratur og teater** som kunstformer ble skapt i antikken. Drama, komedie og tragedie -- alle oppsto på greske scener. Episk diktning som Homers *Iliaden* og Vergils *Æneiden* har inspirert forfattere i to tusen år.
 
-Antikken er ikke fortid. Den er nåtid -- innvevd i alt fra språket vi snakker til bygningene vi bor i og verdiene vi lever etter.`,
+Det er verdt å merke seg at dette kapittelet fokuserer på den gresk-romerske arven fordi den har hatt størst direkte innflytelse på europeisk og norsk kultur. Andre sivilisasjonstradisjoner -- kinesisk, indisk, islamsk og andre -- har sine egne like betydningsfulle intellektuelle, arkitektoniske og politiske arver som har formet store deler av verden. Antikkens gresk-romerske arv er likevel ikke bare fortid for oss i Europa. Den er nåtid -- innvevd i alt fra språket vi snakker til bygningene vi ser og de politiske prinsippene samfunnet vårt bygger på.`,
     },
     {
       id: 'historie-3-3-n-quiz5',
@@ -1091,7 +1091,7 @@ Men i denne verden av mange guder oppsto noe nytt og revolusjonerende: ideen om 
 
 De fleste antikke kulturer praktiserte **polyteisme** -- troen på mange guder. Grekerne hadde Zevs, Athena, Apollon og et helt fjell fullt av guddommer. Romerne hadde Jupiter, Mars, Venus og mange andre (de "lånte" mange fra grekerne). Egypterne hadde Ra, Isis, Osiris. Nordboerne hadde Odin, Tor og Frøya.
 
-Polyteistiske religioner hadde noe viktig til felles: de var **tolerante**. Hvis du reiste fra Roma til Egypt, kunne du tilbe egyptiske guder uten å fornekte dine egne. Gudene var ikke sjalu -- jo flere, jo bedre. Det var rom for alle. Romerne var mestre i dette: når de erobret et nytt folk, tok de ofte deres guder inn i sitt eget panteon. Det var en smart strategi -- det var lettere å styre folk som følte at gudene deres ble respektert.
+Polyteistiske religioner hadde noe viktig til felles: de var ofte mer tolerante overfor andre religioner enn monoteistiske tradisjoner, selv om det fantes unntak. Hvis du reiste fra Roma til Egypt, kunne du tilbe egyptiske guder uten å fornekte dine egne. Det var ofte rom for flere guder. Romerne var mestre i dette: når de erobret et nytt folk, tok de ofte deres guder inn i sitt eget panteon. Det var en smart strategi -- det var lettere å styre folk som følte at gudene deres ble respektert. Likevel fantes det grenser: rettssaken mot Sokrates i Aten handlet delvis om anklager om gudløshet, og menneskeofring forekom i flere polyteistiske tradisjoner. Toleransen var altså reell, men ikke absolutt.
 
 Hver gud hadde sitt ansvarsområde. Du ba til krigsguder før et slag, til fruktbarhetsguder for en god avling, til sjøguder før en reise. Religionen var praktisk og konkret: du ga gudene offergaver, og i gjengjeld ga de deg beskyttelse og lykke. Hvis ting gikk galt, hadde du kanskje fornærmet en gud og måtte gjøre opp for deg.
 
@@ -1157,9 +1157,9 @@ Problemet var **keiserkulten**. Romerne forventet at alle undersåtter deltok i 
 
 Denne nektelsen ble sett som **statsfiendtlig**. De kristne møttes i hemmelighet, snakket om et annet rike enn Romerriket ("Guds rike"), og nektet militærtjeneste. For romerske myndigheter virket de som en farlig undergrunnsgruppe. Under flere keisere ble de kristne **forfulgt** -- kastet for løver i amfiteatrene, brent som fakler, torturert og henrettet.
 
-Men forfølgelsene slo feil. **Martyrenes** mot -- de som døde for troen i stedet for å fornekte den -- imponerte mange og tiltrakk nye tilhengere. Kristendommen fortsatte å vokse, særlig blant fattige og marginaliserte grupper som fant trøst i budskapet om at alle er like for Gud og at frelse venter etter døden.
+Men forfølgelsene slo feil. **Martyrenes** mot -- de som døde for troen i stedet for å fornekte den -- imponerte mange og tiltrakk nye tilhengere. Kristendommen fortsatte å vokse blant ulike samfunnslag -- både blant fattige og marginaliserte som fant trøst i budskapet om at alle er like for Gud, og blant utdannede eliter som ble tiltrukket av den teologiske og filosofiske dybden i den kristne læren.
 
-Flere faktorer forklarer veksten: Det **universelle budskapet** om frelse for alle appellerte bredt. Det kristne **fellesskapet** tok vare på fattige og syke på en måte som staten ikke gjorde. **Løftet om evig liv** ga håp i en usikker tid. Og ironisk nok hjalp den romerske **infrastrukturen** -- veiene og det felles språket (gresk og latin) -- kristne misjonærer å reise og spre budskapet effektivt.`,
+Flere faktorer forklarer veksten: Det **universelle budskapet** om frelse for alle appellerte bredt. **Teologiske argumenter** om Guds natur, skapelsen og frelsen overbeviste også intellektuelle og filosofisk skolerte romere. Det kristne **fellesskapet** tok vare på fattige og syke på en måte som staten ikke gjorde. **Løftet om evig liv** ga håp i en usikker tid. Og ironisk nok hjalp den romerske **infrastrukturen** -- veiene og det felles språket (gresk og latin) -- kristne misjonærer å reise og spre budskapet effektivt.`,
     },
     {
       id: 'historie-3-4-n-quiz3',
@@ -1258,7 +1258,7 @@ Religion var uatskillelig fra samfunnet i antikken, og kristendommens fremvekst 
 - **Theodosius (380)**: Gjorde kristendommen til statsreligion
 
 **Det viktigste du tar med deg:**
-Forholdet mellom religion og makt er en av historiens store temaer. Kristendommen begynte som en liten bevegelse blant fattige i en utkant av Romerriket, men ble mektigere enn noen keiser. Denne historien viser at ideer -- om fellesskap, rettferdighet og mening -- kan forandre verden mer enn hærer og imperier.`,
+Forholdet mellom religion og makt er en av historiens store temaer. Kristendommen begynte som en liten bevegelse i en utkant av Romerriket, bygget på troen på Gud, frelse gjennom Jesus Kristus, og håpet om evig liv -- men også på ideer om fellesskap, nestekjærlighet og rettferdighet. Denne kombinasjonen av teologisk overbevisning og sosial appell gjorde den mektigere enn noen keiser, og viser at trosretninger og ideer kan forandre verden mer enn hærer og imperier.`,
     },
   ],
   exercises: [],
