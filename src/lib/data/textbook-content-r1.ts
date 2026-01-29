@@ -4620,6 +4620,115 @@ $\\frac{(x-1)(x+1)}{x-1} = x + 1 \\to 2$`,
       },
     },
     {
+      id: 'r1-3-4-note-andre-former',
+      type: 'note',
+      title: 'Andre ubestemte former',
+      content: `I tillegg til $\\frac{0}{0}$ og $\\frac{\\infty}{\\infty}$ finnes det flere ubestemte former. Disse kan alltid omskrives slik at L'Hôpitals regel kan brukes.
+
+**Oversikt over andre ubestemte former:**
+
+| Form | Omskriving |
+|------|-----------|
+| $0 \\cdot \\infty$ | Skriv $f \\cdot g = \\frac{f}{1/g}$ eller $\\frac{g}{1/f}$ for å få $\\frac{0}{0}$ eller $\\frac{\\infty}{\\infty}$ |
+| $\\infty - \\infty$ | Kombiner til én brøk, f.eks. $\\frac{1}{a} - \\frac{1}{b} = \\frac{b - a}{ab}$ |
+| $0^0$ | Skriv $f^g = e^{g \\ln f}$ og finn grenseverdien til eksponenten |
+| $1^\\infty$ | Skriv $f^g = e^{g \\ln f}$ og finn grenseverdien til eksponenten |
+| $\\infty^0$ | Skriv $f^g = e^{g \\ln f}$ og finn grenseverdien til eksponenten |
+
+**Fellesoppskrift for eksponentielle former ($0^0$, $1^\\infty$, $\\infty^0$):**
+
+Hvis vi skal finne $\\lim f(x)^{g(x)}$, skriver vi:
+$$f(x)^{g(x)} = e^{g(x) \\ln f(x)}$$
+
+Deretter finner vi $\\lim g(x) \\ln f(x)$, som ofte er en $0 \\cdot \\infty$-form vi kan omskrive til en brøk.`,
+    },
+    {
+      id: 'r1-3-4-example-5',
+      type: 'example',
+      title: 'Eksempel 5: Formen $0 \\cdot \\infty$',
+      problem: `Beregn $\\lim_{x \\to 0^+} x^2 \\ln x$`,
+      solution: `**Sjekk form:**
+- $x^2 \\to 0$ når $x \\to 0^+$
+- $\\ln x \\to -\\infty$ når $x \\to 0^+$
+- Form: $0 \\cdot (-\\infty)$ – ubestemt!
+
+**Omskriv til brøk:**
+Vi skriver $x^2 \\ln x = \\frac{\\ln x}{1/x^2} = \\frac{\\ln x}{x^{-2}}$
+
+Nå har vi:
+- Teller: $\\ln x \\to -\\infty$
+- Nevner: $x^{-2} \\to \\infty$
+- Form: $\\frac{-\\infty}{\\infty}$ ✓
+
+**Bruk L'Hôpitals regel:**
+$$\\lim_{x \\to 0^+} \\frac{\\ln x}{x^{-2}} = \\lim_{x \\to 0^+} \\frac{(\\ln x)'}{(x^{-2})'} = \\lim_{x \\to 0^+} \\frac{1/x}{-2x^{-3}} = \\lim_{x \\to 0^+} \\frac{x^3}{-2x} = \\lim_{x \\to 0^+} \\frac{x^2}{-2} = 0$$
+
+**Svar:** $\\lim_{x \\to 0^+} x^2 \\ln x = 0$`,
+    },
+    {
+      id: 'r1-3-4-example-6',
+      type: 'example',
+      title: 'Eksempel 6: Formen $\\infty - \\infty$',
+      problem: `Beregn $\\lim_{x \\to 0} \\left(\\frac{1}{\\sin x} - \\frac{1}{x}\\right)$`,
+      solution: `**Sjekk form:**
+- $\\frac{1}{\\sin x} \\to \\pm\\infty$ når $x \\to 0$
+- $\\frac{1}{x} \\to \\pm\\infty$ når $x \\to 0$
+- Form: $\\infty - \\infty$ – ubestemt!
+
+**Omskriv til én brøk:**
+$$\\frac{1}{\\sin x} - \\frac{1}{x} = \\frac{x - \\sin x}{x \\sin x}$$
+
+Nå sjekker vi den nye formen:
+- Teller: $x - \\sin x \\to 0 - 0 = 0$
+- Nevner: $x \\sin x \\to 0 \\cdot 0 = 0$
+- Form: $\\frac{0}{0}$ ✓
+
+**Bruk L'Hôpitals regel:**
+$$\\lim_{x \\to 0} \\frac{x - \\sin x}{x \\sin x} = \\lim_{x \\to 0} \\frac{1 - \\cos x}{\\sin x + x \\cos x}$$
+
+Sjekk: Teller $1 - \\cos 0 = 0$, nevner $\\sin 0 + 0 \\cdot \\cos 0 = 0$. Fortsatt $\\frac{0}{0}$, bruk regelen igjen:
+
+$$\\lim_{x \\to 0} \\frac{\\sin x}{\\cos x + \\cos x - x \\sin x} = \\lim_{x \\to 0} \\frac{\\sin x}{2\\cos x - x \\sin x} = \\frac{0}{2 - 0} = 0$$
+
+**Svar:** $\\lim_{x \\to 0} \\left(\\frac{1}{\\sin x} - \\frac{1}{x}\\right) = 0$`,
+    },
+    {
+      id: 'r1-3-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Beregn grenseverdiene. Omskriv til en brøk der det er nødvendig.',
+        subTasks: [
+          { label: 'a', task: '$\\lim_{x \\to \\infty} x \\cdot e^{-x}$', solution: "Formen $\\infty \\cdot 0$. Skriv som $\\frac{x}{e^x}$, form $\\frac{\\infty}{\\infty}$. L'Hôpital: $\\frac{1}{e^x} = 0$" },
+          { label: 'b', task: '$\\lim_{x \\to 1} \\left(\\frac{1}{\\ln x} - \\frac{1}{x-1}\\right)$', solution: "Formen $\\infty - \\infty$. Kombiner: $\\frac{x - 1 - \\ln x}{(\\ln x)(x-1)}$. Teller og nevner $\\to 0$. L'Hôpital: $\\frac{1 - 1/x}{\\frac{x-1}{x} + \\ln x} = \\frac{\\frac{x-1}{x}}{\\frac{x-1}{x} + \\ln x}$. Fortsatt $\\frac{0}{0}$. L'Hôpital igjen: $\\frac{1/x^2}{1/x^2 + 1/x} = \\frac{1/x^2}{(1+x)/x^2} = \\frac{1}{1+x} \\to \\frac{1}{2}$" },
+          { label: 'c', task: '$\\lim_{x \\to 0^+} x^x$', solution: "Formen $0^0$. Skriv $x^x = e^{x \\ln x}$. Vi finner $\\lim_{x \\to 0^+} x \\ln x$. Formen $0 \\cdot (-\\infty)$. Skriv som $\\frac{\\ln x}{1/x}$. L'Hôpital: $\\frac{1/x}{-1/x^2} = -x \\to 0$. Altså $\\lim x \\ln x = 0$, og dermed $\\lim x^x = e^0 = 1$" },
+        ],
+        hints: ['For a), skriv produktet som en brøk med $e^x$ i nevneren', 'For b), kombiner de to brøkene til én brøk og bruk L\'Hôpitals regel', 'For c), bruk at $x^x = e^{x \\ln x}$ og finn grenseverdien til eksponenten'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-4-ex-4',
+      type: 'exercise',
+      difficulty: 'vanskelig',
+      exercise: {
+        id: 'r1-3-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Vanskeligere grenseverdier med L\'Hôpitals regel.',
+        subTasks: [
+          { label: 'a', task: '$\\lim_{x \\to 0} \\frac{e^x - e^{-x} - 2x}{x - \\sin x}$', solution: "Form $\\frac{0}{0}$. L'Hôpital: $\\frac{e^x + e^{-x} - 2}{1 - \\cos x}$. Fortsatt $\\frac{0}{0}$. Igjen: $\\frac{e^x - e^{-x}}{\\sin x}$. Fortsatt $\\frac{0}{0}$. Igjen: $\\frac{e^x + e^{-x}}{\\cos x} = \\frac{1 + 1}{1} = 2$" },
+          { label: 'b', task: 'Vis at $\\lim_{x \\to \\infty} \\frac{x^n}{e^x} = 0$ for alle positive heltall $n$ (bruk L\'Hôpitals regel $n$ ganger).', solution: "Form $\\frac{\\infty}{\\infty}$. Etter første L'Hôpital: $\\frac{nx^{n-1}}{e^x}$. Etter andre: $\\frac{n(n-1)x^{n-2}}{e^x}$. Vi fortsetter og bruker regelen $n$ ganger totalt. Etter $k$ anvendelser er telleren $\\frac{n!}{(n-k)!} x^{n-k}$ og nevneren $e^x$. Etter $n$ anvendelser får vi $\\frac{n!}{e^x} \\to 0$ når $x \\to \\infty$. Altså $\\lim_{x \\to \\infty} \\frac{x^n}{e^x} = 0$ for alle $n \\in \\mathbb{N}$." },
+        ],
+        hints: ['For a), bruk L\'Hôpitals regel gjentatte ganger til du ikke lenger har ubestemt form', 'For b), legg merke til mønsteret: hver gang du deriverer telleren synker graden med 1, mens nevneren forblir $e^x$'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'r1-3-4-oppsummering',
       type: 'text',
       content: `## Oppsummering
@@ -4796,6 +4905,126 @@ Når metoden fungerer, dobles vanligvis antall korrekte siffer for hver iterasjo
           { label: 'b', task: 'Bruk Newtons metode med $x_0 = 2$ til å finne løsningen med 4 desimalers nøyaktighet.', solution: '$f\'(x) = 3x^2 - 2$. $x_1 = 2{,}1$, $x_2 = 2{,}0946$, $x_3 = 2{,}0946$. Svar: $x \\approx 2{,}0946$' },
         ],
         hints: ['Bruk skjæringssetningen for å vise at det finnes en løsning'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-5-geogebra',
+      type: 'geogebra',
+      title: 'Utforsk Newtons metode grafisk',
+      description: 'Se hvordan tangentlinjene konvergerer mot nullpunktet.',
+      appType: 'graphing',
+      commands: [
+        'f(x) = x^3 - 2x - 5',
+        'x0 = 3',
+        'A = (x0, f(x0))',
+        'tang1 = Tangent(A, f)',
+        'B = Intersect(tang1, xAxis)',
+        'x1 = x(B)',
+        'C = (x1, f(x1))',
+        'tang2 = Tangent(C, f)',
+        'D = Intersect(tang2, xAxis)',
+        'SetColor(f, "Blue")',
+        'SetColor(tang1, "Red")',
+        'SetColor(tang2, "Orange")',
+        'SetPointSize(A, 5)',
+        'SetPointSize(B, 5)',
+        'SetPointSize(C, 5)',
+        'SetPointSize(D, 5)',
+        'SetCaption(A, "x₀ = 3")',
+        'SetCaption(B, "x₁")',
+        'SetCaption(C, "(x₁, f(x₁))")',
+        'SetCaption(D, "x₂")',
+        'ShowLabel(A, true)',
+        'ShowLabel(B, true)',
+        'ShowLabel(C, true)',
+        'ShowLabel(D, true)',
+      ],
+    },
+    {
+      id: 'r1-3-5-example-3',
+      type: 'example',
+      title: 'Eksempel 3: Når Newtons metode feiler',
+      problem: `Forsøk å løse $x^{1/3} = 0$ (kubikkrot) med Newtons metode. Bruk $x_0 = 1$.`,
+      solution: `**Sett opp:**
+- $f(x) = x^{1/3}$
+- $f'(x) = \\frac{1}{3}x^{-2/3}$
+
+**Iterasjonsformel:**
+$$x_{n+1} = x_n - \\frac{x_n^{1/3}}{\\frac{1}{3}x_n^{-2/3}} = x_n - \\frac{x_n^{1/3} \\cdot 3x_n^{2/3}}{1} = x_n - 3x_n = -2x_n$$
+
+**Iterasjoner:**
+| $n$ | $x_n$ |
+|-----|--------|
+| 0 | $1$ |
+| 1 | $-2$ |
+| 2 | $4$ |
+| 3 | $-8$ |
+| 4 | $16$ |
+
+Iteratene $1, -2, 4, -8, 16, \\ldots$ **divergerer** — verdiene vokser og spretter mellom positiv og negativ.
+
+**Hvorfor feiler metoden?**
+Nullpunktet er $x = 0$, men der er $f'(0) = \\frac{1}{3} \\cdot 0^{-2/3} \\to \\infty$. Den deriverte er ubegrenset nær nullpunktet, og tangentlinjene peker lenger og lenger bort. Newtons metode konvergerer ikke.`,
+    },
+    {
+      id: 'r1-3-5-note-stopp',
+      type: 'note',
+      content: `**Når skal vi stoppe iterasjonene?**
+
+I praksis bruker vi et **stoppkriterium** for å avgjøre når vi har god nok tilnærming:
+
+1. **Endring mellom iterasjoner:** $|x_{n+1} - x_n| < \\text{toleranse}$ (f.eks. $10^{-6}$)
+2. **Funksjonsverdi nær null:** $|f(x_n)| < \\text{toleranse}$
+
+Vanligvis er 5–10 iterasjoner nok til å oppnå mer enn 10 desimalers nøyaktighet, takket være den kvadratiske konvergensen.`,
+    },
+    {
+      id: 'r1-3-5-tip-halvering',
+      type: 'tip',
+      content: `**Sammenligning: Newtons metode vs. halveringsmetoden**
+
+| | Newtons metode | Halveringsmetoden |
+|---|---|---|
+| **Hastighet** | Kvadratisk konvergens (rask) | Lineær konvergens (langsom) |
+| **Krav** | $f'(x)$, god startverdi | Bare et fortegnskifte: $f(a) \\cdot f(b) < 0$ |
+| **Pålitelighet** | Kan divergere | Fungerer alltid når vi har fortegnskifte |
+
+**I praksis:** Bruk halveringsmetoden først for å finne et grovt estimat, og deretter Newtons metode for å finpusse svaret raskt.`,
+    },
+    {
+      id: 'r1-3-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Anvend Newtons metode på ulike problemer.',
+        subTasks: [
+          { label: 'a', task: 'Finn nullpunktet til $f(x) = x - \\cos x$ med $x_0 = 1$. Utfør 3 iterasjoner.', solution: '$f\'(x) = 1 + \\sin x$. $x_1 = 1 - \\frac{1 - \\cos 1}{1 + \\sin 1} = 1 - \\frac{0{,}4597}{1{,}8415} \\approx 0{,}7504$. $x_2 \\approx 0{,}7391$. $x_3 \\approx 0{,}7391$. Svar: $x \\approx 0{,}7391$' },
+          { label: 'b', task: 'Ligningen $\\ln x = 5 - x$ har en løsning nær $x = 4$. Bruk Newtons metode til å finne den.', solution: '$f(x) = \\ln x - 5 + x$, $f\'(x) = \\frac{1}{x} + 1$. Med $x_0 = 4$: $f(4) = \\ln 4 - 1 \\approx 0{,}386$, $f\'(4) = 1{,}25$. $x_1 = 4 - \\frac{0{,}386}{1{,}25} \\approx 3{,}691$. $x_2 \\approx 3{,}693$. Svar: $x \\approx 3{,}693$' },
+          { label: 'c', task: 'Forklar hvorfor $x_0 = 0$ er en dårlig startverdi for å løse $f(x) = x^2 - 1 = 0$ med Newtons metode.', solution: '$f\'(x) = 2x$, og $f\'(0) = 0$. Iterasjonsformelen gir $x_1 = 0 - \\frac{0-1}{0}$, som er divisjon med null. Metoden bryter sammen fordi tangenten i $x = 0$ er horisontal og aldri krysser $x$-aksen.' },
+        ],
+        hints: ['I oppgave a) og b): Sett opp $f(x)$ og $f\'(x)$ først. I oppgave c): Tenk på hva som skjer med tangenten.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-3-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-3-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en algoritme (pseudokode eller Python) for Newtons metode.',
+        subTasks: [
+          { label: 'a', task: 'Skriv en funksjon `newton(f, f_derivert, x0, toleranse, maks_iter)` som returnerer et tilnærmet nullpunkt. Funksjonen skal iterere til $|f(x_n)| < \\text{toleranse}$ eller maks antall iterasjoner er nådd.', solution: '```python\ndef newton(f, f_derivert, x0, toleranse=1e-10, maks_iter=100):\n    x = x0\n    for i in range(maks_iter):\n        fx = f(x)\n        if abs(fx) < toleranse:\n            return x\n        fpx = f_derivert(x)\n        if fpx == 0:\n            raise ValueError("Derivert lik null")\n        x = x - fx / fpx\n    return x\n```' },
+          { label: 'b', task: 'Test algoritmen på $f(x) = x^3 - 2$ for å finne $\\sqrt[3]{2}$. Hvor mange iterasjoner trengs for 10 desimalers nøyaktighet?', solution: 'Med $x_0 = 1$: $f(x) = x^3 - 2$, $f\'(x) = 3x^2$. Etter ca. 7–8 iterasjoner oppnår vi $x \\approx 1{,}2599210499$ med mer enn 10 korrekte desimaler. Kvadratisk konvergens betyr at antall korrekte siffer omtrent dobles per iterasjon.' },
+        ],
+        hints: ['Husk å håndtere tilfellet der den deriverte er null', 'Bruk en løkke som stopper enten ved nøyaktighet eller maks iterasjoner'],
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -8165,6 +8394,93 @@ $$\\frac{dh}{dt} = \\frac{2}{\\pi} \\approx 0{,}64 \\text{ m/min}$$
       },
     },
     {
+      id: 'r1-4-7-tip-implisitt',
+      type: 'tip',
+      content: `**Husk hva $\\frac{dV}{dt}$ betyr!**
+
+Notasjonen $\\frac{dV}{dt}$ betyr "den deriverte av $V$ med hensyn på $t$" – altså hvor fort $V$ endrer seg over tid.
+
+**Kjerneregelen er nøkkelen:** Når du deriverer $x^2$ med hensyn på $t$, må du bruke kjerneregelen:
+$$\\frac{d}{dt}(x^2) = 2x \\cdot \\frac{dx}{dt}$$
+
+**Vanlig feil:** Mange glemmer faktoren $\\frac{dx}{dt}$ og skriver bare $2x$. Husk at $x$ selv endrer seg med tiden, så kjerneregelen gir alltid en ekstra faktor!`,
+    },
+    {
+      id: 'r1-4-7-example-4',
+      type: 'example',
+      title: 'Eksempel 4: Skygge på vegg',
+      problem: `En lyskilde står på bakken og lyser oppover. En ball kastes rett opp, og skyggen av ballen vises på en vegg 10 meter fra lyskasteren. Ballens høyde er gitt ved $h(t) = 20t - 5t^2$ (i meter). Hvor fort beveger skyggen seg på veggen ved $t = 1$ s?`,
+      solution: `**Steg 1-2: Definer variabler**
+- $h(t)$ = ballens høyde over bakken
+- $d$ = ballens horisontale avstand fra lyskasteren
+- $S$ = skyggens høyde på veggen
+- Gitt: $h(t) = 20t - 5t^2$, veggen er 10 m fra lyskasteren
+- Finn: $\\frac{dS}{dt}$ når $t = 1$ s
+
+**Forenkling:** Vi antar at ballen kastes opp $d = 5$ m fra lyskasteren (altså midt mellom lyskaster og vegg).
+
+**Steg 3: Bruk likedannede trekanter**
+Fra likedannede trekanter:
+$$\\frac{S}{10} = \\frac{h}{d} \\quad \\Rightarrow \\quad S = \\frac{10h}{d} = \\frac{10h}{5} = 2h$$
+
+Altså $S = 2h = 2(20t - 5t^2) = 40t - 10t^2$
+
+**Steg 4: Deriver med hensyn på $t$**
+$$\\frac{dS}{dt} = 40 - 20t$$
+
+**Steg 5: Sett inn $t = 1$**
+$$\\frac{dS}{dt} = 40 - 20(1) = 20 \\text{ m/s}$$
+
+**Svar:** Skyggen beveger seg oppover veggen med $20$ m/s ved $t = 1$ s.`,
+    },
+    {
+      id: 'r1-4-7-note-enheter',
+      type: 'note',
+      content: `**Sjekk alltid enhetene!**
+
+Enheter i relaterte rater-problemer må være konsistente:
+- Hvis radius er i **cm** og volum i **cm³**, da er $\\frac{dV}{dt}$ i **cm³/s** og $\\frac{dr}{dt}$ i **cm/s**
+- Hvis avstand er i **km** og tid i **timer**, da er hastighet i **km/t**
+
+**Tips:** Skriv alltid enheter i svaret ditt. Dette hjelper deg å sjekke om svaret gir mening, og det forventes på eksamen!`,
+    },
+    {
+      id: 'r1-4-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Løs følgende relaterte rater-problemer.',
+        subTasks: [
+          { label: 'a', task: 'Et rektangel har areal $A = 100$ cm². Lengden $l$ øker med 3 cm/s. Hvor fort avtar bredden $b$ når $l = 20$ cm?', solution: '$A = l \\cdot b = 100$, så $b = \\frac{100}{l}$. Deriverer: $\\frac{dA}{dt} = l\\frac{db}{dt} + b\\frac{dl}{dt} = 0$ (arealet er konstant). Når $l = 20$: $b = 5$. Da: $20\\frac{db}{dt} + 5 \\cdot 3 = 0$, $\\frac{db}{dt} = -\\frac{15}{20} = -0{,}75$ cm/s. Bredden avtar med $0{,}75$ cm/s.' },
+          { label: 'b', task: 'To biler kjører fra samme kryss. Bil A kjører nordover med 60 km/t, bil B kjører østover med 80 km/t. Hvor fort øker avstanden mellom bilene etter 30 minutter?', solution: 'Etter $t$ timer: $a = 60t$ (nordover), $b = 80t$ (østover). Avstand: $s = \\sqrt{a^2 + b^2}$. $s^2 = a^2 + b^2$. Deriverer: $2s\\frac{ds}{dt} = 2a\\frac{da}{dt} + 2b\\frac{db}{dt}$. Etter $0{,}5$ t: $a = 30$, $b = 40$, $s = 50$. $2(50)\\frac{ds}{dt} = 2(30)(60) + 2(40)(80) = 3600 + 6400 = 10000$. $\\frac{ds}{dt} = 100$ km/t.' },
+          { label: 'c', task: 'Vann renner ut av en halvkuleformet bolle med radius 10 cm. Vannvolumet er $V = \\frac{\\pi h^2(30-h)}{3}$ der $h$ er vannhøyden. Vannet renner ut med $2$ cm³/s. Hvor fort synker vannstanden når $h = 5$ cm?', solution: '$\\frac{dV}{dt} = \\frac{\\pi}{3}\\left(2h(30-h)\\frac{dh}{dt} + h^2(-1)\\frac{dh}{dt}\\right) = \\frac{\\pi}{3}(60h - 2h^2 - h^2)\\frac{dh}{dt} = \\frac{\\pi}{3}(60h - 3h^2)\\frac{dh}{dt}$. Når $h = 5$: $\\frac{dV}{dt} = \\frac{\\pi}{3}(300 - 75)\\frac{dh}{dt} = 75\\pi\\frac{dh}{dt}$. Vannet renner UT, så $\\frac{dV}{dt} = -2$. $-2 = 75\\pi\\frac{dh}{dt}$. $\\frac{dh}{dt} = \\frac{-2}{75\\pi} \\approx -0{,}0085$ cm/s.' },
+        ],
+        hints: ['I oppgave a) er arealet konstant, så dA/dt = 0', 'I oppgave b) tegn et rettvinklet trekant', 'I oppgave c) bruk produktregelen når du deriverer'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'r1-4-7-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-7-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Et fly flyr horisontalt i 2000 meters høyde med hastighet 500 km/t. En observatør på bakken ser opp mot flyet.',
+        subTasks: [
+          { label: 'a', task: 'La $x$ være horisontal avstand mellom observatøren og punktet rett under flyet, og $\\theta$ vinkelen observatøren ser opp. Finn en sammenheng mellom $x$, $\\theta$ og høyden.', solution: 'Fra rettvinklet trekant: $\\tan \\theta = \\frac{2000}{x}$, altså $\\theta = \\arctan\\left(\\frac{2000}{x}\\right)$.' },
+          { label: 'b', task: 'Hvor fort endres vinkelen $\\theta$ når flyet er rett over observatøren? (Bruk $\\tan \\theta = \\frac{2000}{x}$)', solution: 'Deriverer $\\tan \\theta = \\frac{2000}{x}$ med hensyn på $t$: $\\frac{1}{\\cos^2 \\theta}\\frac{d\\theta}{dt} = -\\frac{2000}{x^2}\\frac{dx}{dt}$. Når flyet er rett over: $x \\to 0$. Vi skriver om: $\\frac{d\\theta}{dt} = -\\frac{2000 \\cos^2\\theta}{x^2} \\cdot \\frac{dx}{dt}$. Med $\\frac{dx}{dt} = -500$ km/t $= -\\frac{500000}{3600}$ m/s $\\approx -138{,}9$ m/s. Vi bruker $\\cos^2\\theta = \\frac{x^2}{x^2 + 2000^2}$, som gir $\\frac{d\\theta}{dt} = \\frac{2000}{x^2 + 2000^2} \\cdot |\\frac{dx}{dt}|$. For $x = 0$: $\\frac{d\\theta}{dt} = \\frac{2000}{2000^2} \\cdot 138{,}9 = \\frac{138{,}9}{2000} \\approx 0{,}069$ rad/s.' },
+        ],
+        hints: ['Bruk at $\\tan \\theta = \\frac{\\text{motstående}}{\\text{hosliggende}}$', 'Deriver implisitt og husk at $\\frac{d}{dt}(\\tan \\theta) = \\frac{1}{\\cos^2 \\theta}\\frac{d\\theta}{dt}$'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'r1-4-7-oppsummering',
       type: 'text',
       content: `## Oppsummering
@@ -8367,6 +8683,144 @@ $f(x) = \\begin{cases} -(x-1) + 2x = x + 1 & \\text{hvis } x < 1 \\\\ (x-1) + 2x
         allowsCanvasDrawing: true,
       },
     },
+    // Note: Åpne intervaller
+    {
+      id: 'r1-4-8-note-aapne',
+      type: 'note',
+      content: `**Obs! Åpne intervaller:**
+
+På **åpne intervaller** $(a, b)$ trenger ikke globale ekstremalpunkter å eksistere!
+
+**Eksempel 1:** $f(x) = x$ på $(0, 1)$. Funksjonen kommer vilkårlig nær 0 og 1, men når aldri disse verdiene. Verken globalt maksimum eller minimum eksisterer.
+
+**Eksempel 2:** $f(x) = \\frac{1}{x}$ på $(0, \\infty)$. Funksjonen nærmer seg 0 når $x \\to \\infty$, men når aldri 0. Den har heller ikke noe globalt maksimum (den går mot $\\infty$ når $x \\to 0^+$).
+
+Ekstremalverdisetningen **krever** at intervallet er **lukket** $[a, b]$ **og** at funksjonen er **kontinuerlig** på hele intervallet. Hvis én av disse betingelsene mangler, kan vi ikke garantere at globale ekstremalpunkter finnes.`,
+    },
+
+    // Tip: Andrederiverte test
+    {
+      id: 'r1-4-8-tip-andrederiv',
+      type: 'tip',
+      content: `**Bruk andrederiverten for å klassifisere kritiske punkter:**
+
+Etter å ha funnet kritiske punkter $c$ der $f'(c) = 0$, kan du bruke **andrederiverttesten**:
+
+- $f''(c) > 0$ → Lokalt **minimum** i $x = c$
+- $f''(c) < 0$ → Lokalt **maksimum** i $x = c$
+- $f''(c) = 0$ → Testen er **inkonklusiv** — du må sjekke fortegnsskjema for $f'(x)$
+
+**Husk:** Selv om du klassifiserer lokale ekstremalpunkter med $f''$, må du fortsatt **sammenligne med endepunktsverdier** for å avgjøre om de er globale!`,
+    },
+
+    // Eksempel 4: Praktisk optimering – sylindrisk boks
+    {
+      id: 'r1-4-8-example-4',
+      type: 'example',
+      title: 'Eksempel 4: Praktisk optimering – sylindrisk boks',
+      problem: `En sylindrisk boks (uten lokk) skal ha volum $500 \\text{ cm}^3$. Finn dimensjonene som minimerer materialforbruket (overflatearealet).`,
+      solution: `**Sett opp variablene:**
+La $r$ = radius og $h$ = høyde.
+
+**Overflateareal** (bunn + sideflate, uten lokk):
+$$A = \\pi r^2 + 2\\pi r h$$
+
+**Volumbetingelse:**
+$$\\pi r^2 h = 500 \\quad \\Rightarrow \\quad h = \\frac{500}{\\pi r^2}$$
+
+**Sett inn for $h$:**
+$$A(r) = \\pi r^2 + 2\\pi r \\cdot \\frac{500}{\\pi r^2} = \\pi r^2 + \\frac{1000}{r}$$
+
+Definisjonsområde: $r > 0$
+
+**Deriver og sett lik null:**
+$$A'(r) = 2\\pi r - \\frac{1000}{r^2} = 0$$
+$$2\\pi r = \\frac{1000}{r^2}$$
+$$r^3 = \\frac{1000}{2\\pi} = \\frac{500}{\\pi}$$
+$$r = \\sqrt[3]{\\frac{500}{\\pi}} \\approx 5{,}42 \\text{ cm}$$
+
+**Kontroller med andrederiverten:**
+$$A''(r) = 2\\pi + \\frac{2000}{r^3}$$
+$A''(r) > 0$ for alle $r > 0$, så dette er et minimum.
+
+**Finn høyden:**
+$$h = \\frac{500}{\\pi r^2} = \\frac{500}{\\pi \\cdot \\left(\\frac{500}{\\pi}\\right)^{2/3}} \\approx 5{,}42 \\text{ cm}$$
+
+**Svar:** Minst materialforbruk når $r \\approx 5{,}42$ cm og $h \\approx 5{,}42$ cm. Boksen er like bred som den er høy!`,
+    },
+
+    // GeoGebra: Visualisering av globale og lokale ekstremalpunkter
+    {
+      id: 'r1-4-8-geogebra',
+      type: 'geogebra',
+      title: 'Utforsk globale og lokale ekstremalpunkter',
+      description: 'Dra i endepunktene for å se hvordan globale ekstremalpunkter endres.',
+      appType: 'graphing',
+      commands: [
+        'f(x) = x^3 - 3x',
+        'a = Slider(-5, 0, 0.1)',
+        'b = Slider(0, 5, 0.1)',
+        'SetValue(a, -2)',
+        'SetValue(b, 3)',
+        'A = (a, f(a))',
+        'B = (b, f(b))',
+        'SetCaption(A, "Venstre endepunkt")',
+        'SetCaption(B, "Høyre endepunkt")',
+        'SetColor(A, "Red")',
+        'SetColor(B, "Red")',
+        'SetPointSize(A, 5)',
+        'SetPointSize(B, 5)',
+        'K1 = (-1, f(-1))',
+        'K2 = (1, f(1))',
+        'SetCaption(K1, "Lokalt maks")',
+        'SetCaption(K2, "Lokalt min")',
+        'SetColor(K1, "Blue")',
+        'SetColor(K2, "Blue")',
+        'SetPointSize(K1, 5)',
+        'SetPointSize(K2, 5)',
+      ],
+    },
+
+    // Oppgave 3
+    {
+      id: 'r1-4-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-8-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Finn globalt maksimum og minimum.',
+        subTasks: [
+          { label: 'a', task: '$f(x) = e^{-x} \\cdot x$ på $[0, 5]$', solution: "$f'(x) = e^{-x} - x e^{-x} = e^{-x}(1 - x) = 0$ gir $x = 1$. $f(0) = 0$, $f(1) = e^{-1} \\approx 0{,}368$, $f(5) = 5e^{-5} \\approx 0{,}034$. Globalt maks: $e^{-1} \\approx 0{,}368$ i $x = 1$. Globalt min: $0$ i $x = 0$." },
+          { label: 'b', task: '$f(x) = x - 2\\sin x$ på $[0, 2\\pi]$', solution: "$f'(x) = 1 - 2\\cos x = 0$ gir $\\cos x = \\frac{1}{2}$, altså $x = \\frac{\\pi}{3}$ og $x = \\frac{5\\pi}{3}$. $f(0) = 0$, $f\\left(\\frac{\\pi}{3}\\right) = \\frac{\\pi}{3} - \\sqrt{3} \\approx -0{,}685$, $f\\left(\\frac{5\\pi}{3}\\right) = \\frac{5\\pi}{3} + \\sqrt{3} \\approx 6{,}97$, $f(2\\pi) = 2\\pi \\approx 6{,}28$. Globalt min: $\\frac{\\pi}{3} - \\sqrt{3}$ i $x = \\frac{\\pi}{3}$. Globalt maks: $\\frac{5\\pi}{3} + \\sqrt{3}$ i $x = \\frac{5\\pi}{3}$." },
+          { label: 'c', task: '$f(x) = \\ln x - x$ på $[0{,}1, \\, 10]$', solution: "$f'(x) = \\frac{1}{x} - 1 = 0$ gir $x = 1$. $f(0{,}1) = \\ln(0{,}1) - 0{,}1 \\approx -2{,}403$, $f(1) = 0 - 1 = -1$, $f(10) = \\ln(10) - 10 \\approx -7{,}697$. Globalt maks: $-1$ i $x = 1$. Globalt min: $\\ln(10) - 10 \\approx -7{,}70$ i $x = 10$." },
+        ],
+        hints: ['Husk produktregelen for a), og at $e^{-x} > 0$ for alle $x$.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+
+    // Oppgave 4: Praktisk optimering (vanskelig)
+    {
+      id: 'r1-4-8-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-4-8-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Praktiske optimeringsproblemer.',
+        subTasks: [
+          { label: 'a', task: 'En bedrift selger $x$ enheter til pris $p = 200 - 2x$ kr. Kostnaden er $K(x) = 500 + 40x$. Finn antall enheter som gir størst fortjeneste.', solution: "Inntekt: $I(x) = x \\cdot p = x(200 - 2x) = 200x - 2x^2$. Fortjeneste: $F(x) = I(x) - K(x) = 200x - 2x^2 - 500 - 40x = -2x^2 + 160x - 500$. $F'(x) = -4x + 160 = 0$ gir $x = 40$. $F''(x) = -4 < 0$, så dette er et maksimum. $F(40) = -2(1600) + 160(40) - 500 = -3200 + 6400 - 500 = 2700$ kr. Svar: 40 enheter gir størst fortjeneste på 2700 kr." },
+          { label: 'b', task: 'Et rektangulært akvarium (med åpen topp) skal ha volum 32 liter. Bunnen er kvadratisk. Finn dimensjonene som minimerer glassforbruket (overflatearealet).', solution: "La $x$ = sidelengde i bunnen (dm) og $h$ = høyde (dm). Volum: $x^2 h = 32$, så $h = \\frac{32}{x^2}$. Overflate (uten topp): $A = x^2 + 4xh = x^2 + \\frac{128}{x}$. $A'(x) = 2x - \\frac{128}{x^2} = 0$ gir $x^3 = 64$, altså $x = 4$ dm. $h = \\frac{32}{16} = 2$ dm. $A''(x) = 2 + \\frac{256}{x^3} > 0$, så dette er et minimum. Svar: Bunnen er $4 \\times 4$ dm og høyden er 2 dm." },
+        ],
+        hints: ['Sett opp funksjonen som skal optimeres og uttrykk alle variable ved hjelp av én variabel.'],
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+
     {
       id: 'r1-4-8-oppsummering',
       type: 'text',
