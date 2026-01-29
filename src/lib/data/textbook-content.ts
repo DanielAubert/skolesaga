@@ -90,6 +90,16 @@ import { CHAPTERS_5KLASSE } from './textbook-content-5klasse';
 import { CHAPTERS_6KLASSE } from './textbook-content-6klasse';
 import { CHAPTERS_7KLASSE } from './textbook-content-7klasse';
 
+// Matematikk 1P
+import { CHAPTERS_1P } from './textbook-content-1p';
+import { CHAPTERS_1P_TALLREGNING } from './textbook-content-1p-tallregning';
+import { CHAPTERS_1P_POTENSER } from './textbook-content-1p-potenser';
+import { CHAPTERS_1P_FUNKSJONER } from './textbook-content-1p-funksjoner';
+import { CHAPTERS_1P_GEOMETRI } from './textbook-content-1p-geometri';
+import { CHAPTERS_1P_MODELLERING } from './textbook-content-1p-modellering';
+import { CHAPTERS_1P_OKONOMI } from './textbook-content-1p-okonomi';
+import { CHAPTERS_1P_PROGRAMMERING } from './textbook-content-1p-programmering';
+
 // Yrkesfag VG1
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
 import { CHAPTERS_BYGG_ANLEGG_VG1_PART1 } from './textbook-content-bygg-anlegg-vg1';
@@ -239,6 +249,16 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Kroppsøving 7. klasse
   ...Object.fromEntries(KROPPSOVING_7_CHAPTERS.map(c => [c.id, c])),
+
+  // Matematikk 1P
+  ...CHAPTERS_1P,
+  ...Object.fromEntries(CHAPTERS_1P_TALLREGNING.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_POTENSER.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_FUNKSJONER.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_GEOMETRI.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_MODELLERING.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_OKONOMI.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_1P_PROGRAMMERING.map(c => [c.id, c])),
 
   // Matematikk 1T
   ...CHAPTERS_1T,
