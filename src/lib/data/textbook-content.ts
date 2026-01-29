@@ -99,6 +99,7 @@ import { CHAPTERS_1P_GEOMETRI } from './textbook-content-1p-geometri';
 import { CHAPTERS_1P_MODELLERING } from './textbook-content-1p-modellering';
 import { CHAPTERS_1P_OKONOMI } from './textbook-content-1p-okonomi';
 import { CHAPTERS_1P_PROGRAMMERING } from './textbook-content-1p-programmering';
+import { CHAPTERS_1T_MODELLERING } from './textbook-content-1t-modellering';
 
 // Yrkesfag VG1
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
@@ -262,6 +263,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Matematikk 1T
   ...CHAPTERS_1T,
+  ...Object.fromEntries(CHAPTERS_1T_MODELLERING.map(c => [c.id, c])),
 
   // Matematikk R1
   ...CHAPTERS_R1,
