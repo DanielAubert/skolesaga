@@ -15647,6 +15647,46 @@ export const SECTION_NAMES_ENGELSK_VG1: Record<string, string> = {
   '12': 'Exam Preparation',
 };
 
+// Seksjonsnavn for Kjemi 1
+export const SECTION_NAMES_KJEMI1: Record<string, string> = {
+  '1': 'Atomets oppbygging',
+  '2': 'Atommodeller og spektroskopi',
+  '3': 'Kjemiske bindinger',
+  '4': 'Kjemiske reaksjoner',
+  '5': 'Støkiometri',
+  '6': 'Termokjemi',
+  '7': 'Kjemisk likevekt',
+  '8': 'Løsninger',
+  '9': 'Syrer og baser',
+  '10': 'Organisk kjemi',
+  '11': 'Miljøkjemi og anvendt kjemi',
+  '12': 'Laboratoriearbeid',
+};
+
+// Seksjonsnavn for Kjemi 2
+export const SECTION_NAMES_KJEMI2: Record<string, string> = {
+  '1': 'Grunnleggende kjemiske prinsipper',
+  '2': 'Kjemisk termodynamikk',
+  '3': 'Kjemisk likevekt',
+  '4': 'Syrer og baser',
+  '5': 'Løselighet og fellingsreaksjoner',
+  '6': 'Elektrokjemi',
+  '7': 'Kjemisk kinetikk',
+  '8': 'Organisk kjemi',
+  '9': 'Analytisk kjemi',
+  '10': 'Biokjemi og bærekraftig kjemi',
+};
+
+// Seksjonsnavn for Fysikk 1
+export const SECTION_NAMES_FYSIKK1: Record<string, string> = {
+  '1': 'Fysikkens metoder',
+  '2': 'Bevegelse',
+  '3': 'Krefter',
+  '4': 'Energi',
+  '5': 'Varme og termofysikk',
+  '6': 'Elektrisitet',
+};
+
 // Hjelpefunksjon for å hente seksjonsnavn basert på kurs
 export function getSectionNames(courseId: string): Record<string, string> {
   switch (courseId) {
@@ -15690,6 +15730,12 @@ export function getSectionNames(courseId: string): Record<string, string> {
       return SECTION_NAMES_NORSK_VG1;
     case 'engelsk-vg1':
       return SECTION_NAMES_ENGELSK_VG1;
+    case 'kjemi1':
+      return SECTION_NAMES_KJEMI1;
+    case 'kjemi2':
+      return SECTION_NAMES_KJEMI2;
+    case 'fys1':
+      return SECTION_NAMES_FYSIKK1;
     default:
       return {};
   }
