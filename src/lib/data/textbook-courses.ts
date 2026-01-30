@@ -7752,6 +7752,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering', 'Måling', 'Usikkerhet', 'Signifikante siffer'],
       competenceGoals: ['planlegge og gjennomføre forsøk', 'analysere data og trekke konklusjoner'],
+      coverImage: '/images/subjects/fysikk-1-1-metoder.png',
     },
     {
       id: 'fys1-1-2',
@@ -7762,6 +7763,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fysiske modeller', 'Forenklinger', 'Idealisering', 'Modellbegrensninger'],
       competenceGoals: ['vurdere, bruke og lage modeller til å beskrive og forutsi fysiske fenomener'],
+      coverImage: '/images/subjects/fysikk-1-2-modeller.png',
     },
     {
       id: 'fys1-1-3',
@@ -7772,6 +7774,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eulers metode', 'Python', 'Numerisk integrasjon', 'Simulering', 'Iterasjon'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere og utforske bevegelse'],
+      coverImage: '/images/subjects/fysikk-1-3-numeriske-metoder.png',
     },
     // Seksjon 2: Klassisk mekanikk - Kinematikk
     {
@@ -7783,6 +7786,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Posisjon', 'Forflytning', 'Hastighet', 'Fart', 'Akselerasjon', 'Vektorer'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
+      coverImage: '/images/subjects/fysikk-2-1-posisjon-fart.png',
     },
     {
       id: 'fys1-2-2',
@@ -7793,6 +7797,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Konstant fart', 's-t diagram', 'v-t diagram', 'Strekning', 'Tid'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
+      coverImage: '/images/subjects/fysikk-2-2-rettlinjet-bevegelse.png',
     },
     {
       id: 'fys1-2-3',
@@ -7803,6 +7808,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelseslikninger', 'Fritt fall', 'Tyngdeakselerasjon', 'a-t diagram'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
+      coverImage: '/images/subjects/fysikk-2-3-konstant-akselerasjon.png',
     },
     {
       id: 'fys1-2-4',
@@ -7813,6 +7819,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Skrå kast', 'Vektoroppløsning', 'Horisontal bevegelse', 'Vertikal bevegelse', 'Baneform'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
+      coverImage: '/images/subjects/fysikk-2-4-todimensjonal-bevegelse.png',
     },
     // Seksjon 3: Klassisk mekanikk - Dynamikk
     {
@@ -7824,6 +7831,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons 1. lov', 'Newtons 2. lov', 'Newtons 3. lov', 'Kraft', 'Masse', 'Treghet'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
+      coverImage: '/images/subjects/fysikk-3-1-newtons-lover.png',
     },
     {
       id: 'fys1-3-2',
@@ -7834,6 +7842,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Tyngdekraft', 'Normalkraft', 'Friksjonskraft', 'Snorkraft', 'Kraftdiagram', 'Frilegemediagram'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
+      coverImage: '/images/subjects/fysikk-3-2-krefter-kraftanalyse.png',
     },
     {
       id: 'fys1-3-3',
@@ -7844,6 +7853,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Statisk friksjon', 'Kinetisk friksjon', 'Friksjonskoeffisient', 'Luftmotstand', 'Terminalfart'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere bevegelse'],
+      coverImage: '/images/subjects/fysikk-3-3-friksjon-luftmotstand.png',
     },
     {
       id: 'fys1-3-4',
@@ -7854,6 +7864,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Sirkelbevegelse', 'Sentripetalkraft', 'Sentripetalakselerasjon', 'Vinkelfrekvens', 'Periode'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
+      coverImage: '/images/subjects/fysikk-3-4-sirkelbevegelse.png',
     },
     // Seksjon 4: Energi og bevaring
     {
@@ -7865,6 +7876,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Arbeid', 'Kinetisk energi', 'Arbeid-energi-teoremet', 'Joule'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
+      coverImage: '/images/subjects/fysikk-4-1-arbeid-kinetisk-energi.png',
     },
     {
       id: 'fys1-4-2',
@@ -7875,6 +7887,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Potensiell energi', 'Gravitasjonell energi', 'Elastisk energi', 'Energibevaring', 'Konservative krefter'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
+      coverImage: '/images/subjects/fysikk-4-2-potensiell-energi.png',
     },
     {
       id: 'fys1-4-3',
@@ -7885,6 +7898,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelsesmengde', 'Impuls', 'Impuls-bevegelsesmengde-teoremet', 'Elastisk støt', 'Uelastisk støt'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
+      coverImage: '/images/subjects/fysikk-4-3-bevegelsesmengde.png',
     },
     {
       id: 'fys1-4-4',
@@ -7895,6 +7909,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Energikvalitet', 'Virkningsgrad', 'Energitap', 'Irreversibilitet', 'Entropi'],
       competenceGoals: ['utforske hvordan energi kan gå fra en form til en annen, og vurdere energikvalitet og virkningsgrad'],
+      coverImage: '/images/subjects/fysikk-4-4-energikvalitet.png',
     },
     // Seksjon 5: Varme og energi
     {
@@ -7906,6 +7921,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Temperatur', 'Kelvin', 'Celsius', 'Varme', 'Spesifikk varmekapasitet', 'Termisk likevekt'],
       competenceGoals: ['forstå begrepet temperatur og forklare hvordan tilført varme til et system fører til temperaturendring'],
+      coverImage: '/images/subjects/fysikk-5-1-temperatur-varme.png',
     },
     {
       id: 'fys1-5-2',
@@ -7916,6 +7932,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Varmeledning', 'Konveksjon', 'Varmestråling', 'Varmeledningsevne', 'Isolasjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer'],
+      coverImage: '/images/subjects/fysikk-5-2-varmeoverfoeringer.png',
     },
     {
       id: 'fys1-5-3',
@@ -7926,6 +7943,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Sortlegeme', 'Stefan-Boltzmanns lov', 'Wiens lov', 'Emisjon', 'Absorpsjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer med ulik temperatur og overflate'],
+      coverImage: '/images/subjects/fysikk-5-3-varmestråling.png',
     },
     {
       id: 'fys1-5-4',
@@ -7936,6 +7954,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Strålingsbalanse', 'Drivhuseffekt', 'Albedo', 'Klimamodeller', 'Global oppvarming'],
       competenceGoals: ['bruke modeller av strålingsbalansen til jorda til å gjøre beregninger', 'vurdere ulike påstander og argumenter om energi og klima'],
+      coverImage: '/images/subjects/fysikk-5-4-straalingsbalanse.png',
     },
     // Seksjon 6: Elektrisitet og moderne fysikk
     {
@@ -7947,6 +7966,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk ladning', 'Coulombs lov', 'Elektrisk felt', 'Elektrisk potensial', 'Spenning'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
+      coverImage: '/images/subjects/fysikk-6-1-elektrisk-ladning.png',
     },
     {
       id: 'fys1-6-2',
@@ -7957,6 +7977,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Ohms lov', 'Spenning', 'Strøm', 'Resistans', 'Seriekobling', 'Parallellkobling'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
+      coverImage: '/images/subjects/fysikk-6-2-elektriske-kretser.png',
     },
     {
       id: 'fys1-6-3',
@@ -7967,6 +7988,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk effekt', 'Energiforbruk', 'Joules lov', 'Watt', 'Kilowattime'],
       competenceGoals: ['utforske effektomsetning i elektriske kretser'],
+      coverImage: '/images/subjects/fysikk-6-3-effekt-energi.png',
     },
     {
       id: 'fys1-6-4',
@@ -7977,6 +7999,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Bohrs atommodell', 'Energinivåer', 'Spektrallinjer', 'Fotoner', 'Fotoelektrisk effekt', 'Plancks konstant'],
       competenceGoals: ['beskrive ulike atommodeller og drøfte hvordan observerbare effekter støtter eller utfordrer dem'],
+      coverImage: '/images/subjects/fysikk-6-4-atommodeller.png',
     },
     {
       id: 'fys1-6-5',
@@ -7987,6 +8010,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Atomkjerne', 'Fusjon', 'Fisjon', 'Bindingsenergi', 'Stjerneutvikling', 'Nukleosyntes'],
       competenceGoals: ['forstå begrepet fusjon og vurdere hvordan ulike grunnstoff dannes når stjerner lever, kolliderer og dør'],
+      coverImage: '/images/subjects/fysikk-6-5-kjernefysikk.png',
     },
   ],
 };
@@ -12131,40 +12155,48 @@ export const COURSE_NORSK_VG1: TextbookCourse = {
   icon: '📚',
   coverImage: '/images/courses/norsk-vg1.png',
   chapters: [
+    // Kapittel 1: Retorikk og sakprosa
     { id: 'norsk-vg1-1-1', number: '1.1', title: 'Retorikk og argumentasjon', description: 'Lær om retoriske virkemidler og argumentasjonsteknikk.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Etos', 'Patos', 'Logos', 'Argumentasjon'], competenceGoals: ['bruke retoriske virkemidler i egne tekster'] },
     { id: 'norsk-vg1-1-2', number: '1.2', title: 'Sakprosa og kildebruk', description: 'Lær å analysere sakprosa og bruke kilder kritisk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sakprosa', 'Kildekritikk', 'Referanser'], competenceGoals: ['vurdere teksters troverdighet'] },
+    { id: 'norsk-vg1-8-1', number: '1.3', title: 'Debattinnlegg og meningsytring', description: 'Lær å skrive effektive debattinnlegg og delta i offentlig debatt.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Argumentasjon', 'Debatt', 'Meningsytring', 'Feilslutninger'], competenceGoals: ['skrive debattinnlegg og andre argumenterende tekster'] },
+    { id: 'norsk-vg1-8-2', number: '1.4', title: 'Essay og kåseri', description: 'Lær å skrive essay og kåseri med personlig stemme.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Essay', 'Kåseri', 'Personlig skriving', 'Refleksjon'], competenceGoals: ['skrive kreative og reflekterende tekster'] },
+    // Kapittel 2: Skjønnlitteratur
     { id: 'norsk-vg1-2-1', number: '2.1', title: 'Skjønnlitteratur - noveller', description: 'Lær å analysere noveller og kortprosa.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Novelleanalyse', 'Fortelleteknikk', 'Spenningskurve'], competenceGoals: ['analysere skjønnlitterære tekster'] },
     { id: 'norsk-vg1-2-2', number: '2.2', title: 'Lyrikk og diktanalyse', description: 'Lær å analysere dikt og poetiske virkemidler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Rim', 'Rytme', 'Billedspråk', 'Symbolikk'], competenceGoals: ['analysere lyriske tekster'] },
-    { id: 'norsk-vg1-3-1', number: '3.1', title: 'Muntlig kommunikasjon', description: 'Lær presentasjonsteknikk og muntlige ferdigheter.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Presentasjon', 'Diskusjon', 'Kroppsspråk'], competenceGoals: ['kommunisere muntlig'] },
-    { id: 'norsk-vg1-3-2', number: '3.2', title: 'Kreativ skriving', description: 'Lær kreative skriveteknikker og virkemidler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Fortellerstemme', 'Beskrivelser', 'Dialog'], competenceGoals: ['skrive kreative tekster'] },
+    { id: 'norsk-vg1-9-1', number: '2.3', title: 'Drama og teater', description: 'Forstå dramaet som sjanger og dramatiske virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drama', 'Teater', 'Dramaturgi', 'Sceneanvisninger'], competenceGoals: ['analysere dramatiske tekster'] },
+    { id: 'norsk-vg1-9-2', number: '2.4', title: 'Henrik Ibsen', description: 'Utforsk Ibsens liv, verk og betydning for verdenslitteraturen.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Ibsen', 'Et dukkehjem', 'Samfunnskritikk', 'Realisme'], competenceGoals: ['analysere skjønnlitterære tekster i historisk kontekst'] },
+    // Kapittel 3: Litteraturhistorie
+    { id: 'norsk-vg1-5-1', number: '3.1', title: 'Litteraturhistorie', description: 'Fra norrøn tid til romantikken.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Norrøn litteratur', 'Barokk', 'Opplysningstid', 'Romantikk'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
+    { id: 'norsk-vg1-10-1', number: '3.2', title: 'Romantikken i Norge', description: 'Utforsk romantikkens litteratur i nasjonsbyggingens tid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Romantikk', 'Wergeland', 'Welhaven', 'Folkeeventyr'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
+    { id: 'norsk-vg1-10-2', number: '3.3', title: 'Realisme og naturalisme', description: 'Forstå realismen og naturalismens litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Realisme', 'Naturalisme', 'Kielland', 'Skram'], competenceGoals: ['analysere tekster i historisk kontekst'] },
+    { id: 'norsk-vg1-11-1', number: '3.4', title: 'Nyrealisme og modernisme', description: 'Overgangen til det 20. århundrets litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nyrealisme', 'Modernisme', 'Undset', 'Duun'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
+    { id: 'norsk-vg1-11-2', number: '3.5', title: 'Lyrikk - fra romantikk til modernisme', description: 'Norsk lyrikk gjennom 150 år.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Lyrikk', 'Wergeland', 'Obstfelder', 'Symbolisme'], competenceGoals: ['analysere lyriske tekster'] },
+    { id: 'norsk-vg1-17-1', number: '3.6', title: 'Flerkulturell litteratur', description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Flerkulturell', 'Identitet', 'Kulturmøter', 'Migrasjonslitteratur'], competenceGoals: ['lese og tolke tekster som utforsker kulturmøter og identitet'] },
+    { id: 'norsk-vg1-17-2', number: '3.7', title: 'Postkolonial lesning', description: 'Lær å lese tekster med et kulturkritisk blikk.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Postkolonialisme', 'Kulturkritikk', 'Maktperspektiv', 'Representasjon'], competenceGoals: ['lese tekster med et kritisk og kulturelt perspektiv'] },
+    // Kapittel 4: Språk og identitet
     { id: 'norsk-vg1-4-1', number: '4.1', title: 'Språk og identitet', description: 'Utforsk sammenhengen mellom språk og identitet.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dialekt', 'Sosiolekt', 'Språkholdninger'], competenceGoals: ['reflektere over språk og identitet'] },
-    { id: 'norsk-vg1-4-2', number: '4.2', title: 'Digitale tekster og medier', description: 'Analyser digitale tekster og sosiale medier.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Multimodalitet', 'Sosiale medier', 'Kildekritikk'], competenceGoals: ['analysere sammensatte tekster'] },
-    { id: 'norsk-vg1-5-1', number: '5.1', title: 'Litteraturhistorie', description: 'Fra norrøn tid til romantikken.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Norrøn litteratur', 'Barokk', 'Opplysningstid', 'Romantikk'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
-    { id: 'norsk-vg1-5-2', number: '5.2', title: 'Skriving av fagartikkel', description: 'Lær å skrive fagartikler med kilder og struktur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fagartikkel', 'Struktur', 'Kildebruk', 'Referanser'], competenceGoals: ['skrive fagtekster med kilder'] },
-    { id: 'norsk-vg1-6-1', number: '6.1', title: 'Norsk språkhistorie', description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk', 'Moderne norsk'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
-    { id: 'norsk-vg1-6-2', number: '6.2', title: 'Nynorsk og bokmål', description: 'Forstå forskjellene mellom målformene og mestre grunnleggende nynorsk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Bokmål', 'Nynorsk', 'Grammatikk', 'Oversettelse'], competenceGoals: ['skrive tekster på hovedmål og sidemål'] },
-    { id: 'norsk-vg1-7-1', number: '7.1', title: 'Språkmangfold i Norge', description: 'Utforsk dialekter, sosiolekter og minoritetsspråk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dialekter', 'Samiske språk', 'Sosiolekter', 'Minoritetsspråk'], competenceGoals: ['reflektere over språklig mangfold i Norge'] },
-    { id: 'norsk-vg1-7-2', number: '7.2', title: 'Språk i endring', description: 'Forstå hvordan og hvorfor språk endrer seg over tid.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Lånord', 'Språkendring', 'Nyord', 'Engelsk påvirkning'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
-    { id: 'norsk-vg1-8-1', number: '8.1', title: 'Debattinnlegg og meningsytring', description: 'Lær å skrive effektive debattinnlegg og delta i offentlig debatt.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Argumentasjon', 'Debatt', 'Meningsytring', 'Feilslutninger'], competenceGoals: ['skrive debattinnlegg og andre argumenterende tekster'] },
-    { id: 'norsk-vg1-8-2', number: '8.2', title: 'Essay og kåseri', description: 'Lær å skrive essay og kåseri med personlig stemme.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Essay', 'Kåseri', 'Personlig skriving', 'Refleksjon'], competenceGoals: ['skrive kreative og reflekterende tekster'] },
-    { id: 'norsk-vg1-9-1', number: '9.1', title: 'Drama og teater', description: 'Forstå dramaet som sjanger og dramatiske virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drama', 'Teater', 'Dramaturgi', 'Sceneanvisninger'], competenceGoals: ['analysere dramatiske tekster'] },
-    { id: 'norsk-vg1-9-2', number: '9.2', title: 'Henrik Ibsen', description: 'Utforsk Ibsens liv, verk og betydning for verdenslitteraturen.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Ibsen', 'Et dukkehjem', 'Samfunnskritikk', 'Realisme'], competenceGoals: ['analysere skjønnlitterære tekster i historisk kontekst'] },
-    { id: 'norsk-vg1-10-1', number: '10.1', title: 'Romantikken i Norge', description: 'Utforsk romantikkens litteratur i nasjonsbyggingens tid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Romantikk', 'Wergeland', 'Welhaven', 'Folkeeventyr'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
-    { id: 'norsk-vg1-10-2', number: '10.2', title: 'Realisme og naturalisme', description: 'Forstå realismen og naturalismens litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Realisme', 'Naturalisme', 'Kielland', 'Skram'], competenceGoals: ['analysere tekster i historisk kontekst'] },
-    { id: 'norsk-vg1-11-1', number: '11.1', title: 'Nyrealisme og modernisme', description: 'Overgangen til det 20. århundrets litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nyrealisme', 'Modernisme', 'Undset', 'Duun'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
-    { id: 'norsk-vg1-11-2', number: '11.2', title: 'Lyrikk - fra romantikk til modernisme', description: 'Norsk lyrikk gjennom 150 år.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Lyrikk', 'Wergeland', 'Obstfelder', 'Symbolisme'], competenceGoals: ['analysere lyriske tekster'] },
-    { id: 'norsk-vg1-12-1', number: '12.1', title: 'Sammensatte tekster', description: 'Analyser multimodale tekster med bilde, lyd og tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Multimodalitet', 'Reklame', 'Nettaviser', 'Visuell analyse'], competenceGoals: ['analysere sammensatte tekster'] },
-    { id: 'norsk-vg1-12-2', number: '12.2', title: 'Film som tekst', description: 'Lær å analysere film med filmspråk og virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Filmanalyse', 'Kameravinkel', 'Klipping', 'Adaptasjon'], competenceGoals: ['analysere sammensatte tekster'] },
-    { id: 'norsk-vg1-13-1', number: '13.1', title: 'Skriving - prosess og teknikker', description: 'Mestre hele skriveprosessen fra idé til ferdig tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Skriveprosess', 'Revisjon', 'Tilbakemelding', 'Egenvurdering'], competenceGoals: ['bearbeide og revidere egne tekster'] },
-    { id: 'norsk-vg1-14-1', number: '14.1', title: 'De samiske språkene i Norge', description: 'Lær om de samiske språkene, deres utbredelse og status i Norge.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Samisk', 'Minoritetsspråk', 'Språkmangfold', 'Urfolk'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
-    { id: 'norsk-vg1-14-2', number: '14.2', title: 'Fornorskingspolitikken', description: 'Lær om den norske statens assimileringspolitikk overfor samer og kvener.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Fornorsking', 'Assimilering', 'Samepolitikk', 'Kvenfolket'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
-    { id: 'norsk-vg1-14-3', number: '14.3', title: 'Samiske språklige rettigheter', description: 'Lær om lover og rettigheter som beskytter samisk språk i dag.', estimatedMinutes: 45, exerciseCount: 0, topics: ['Språkrettigheter', 'Samelov', 'Forvaltningsområde', 'Språkpolitikk'], competenceGoals: ['gjøre rede for språkpolitikk og språklige rettigheter i Norge'] },
-    { id: 'norsk-vg1-15-1', number: '15.1', title: 'Setningsanalyse', description: 'Lær å analysere setninger og identifisere setningsledd.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Grammatikk', 'Setningsledd', 'Syntaks', 'Analyse'], competenceGoals: ['bruke grammatisk kunnskap til å analysere og vurdere egen og andres tekst'] },
-    { id: 'norsk-vg1-15-2', number: '15.2', title: 'Tekstbinding', description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Tekstbinding', 'Koherens', 'Kohesjon', 'Referansebinding'], competenceGoals: ['bruke grammatisk kunnskap til å skape sammenheng i tekst'] },
-    { id: 'norsk-vg1-16-1', number: '16.1', title: 'Rettskriving bokmål', description: 'Lær regler for rettskriving på bokmål med fokus på vanlige feil.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Rettskriving', 'Bokmål', 'Ortografi', 'Kommaregler'], competenceGoals: ['mestre rettskriving og formverk på bokmål'] },
-    { id: 'norsk-vg1-16-2', number: '16.2', title: 'Rettskriving nynorsk', description: 'Lær nynorskens særtrekk og unngå vanlige bokmålsfeil på nynorsk.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Rettskriving', 'Nynorsk', 'Formverk', 'Bøyning'], competenceGoals: ['mestre rettskriving og formverk på nynorsk'] },
-    { id: 'norsk-vg1-17-1', number: '17.1', title: 'Flerkulturell litteratur', description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Flerkulturell', 'Identitet', 'Kulturmøter', 'Migrasjonslitteratur'], competenceGoals: ['lese og tolke tekster som utforsker kulturmøter og identitet'] },
-    { id: 'norsk-vg1-17-2', number: '17.2', title: 'Postkolonial lesning', description: 'Lær å lese tekster med et kulturkritisk blikk.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Postkolonialisme', 'Kulturkritikk', 'Maktperspektiv', 'Representasjon'], competenceGoals: ['lese tekster med et kritisk og kulturelt perspektiv'] },
+    { id: 'norsk-vg1-6-1', number: '4.2', title: 'Norsk språkhistorie', description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk', 'Moderne norsk'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
+    { id: 'norsk-vg1-6-2', number: '4.3', title: 'Nynorsk og bokmål', description: 'Forstå forskjellene mellom målformene og mestre grunnleggende nynorsk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Bokmål', 'Nynorsk', 'Grammatikk', 'Oversettelse'], competenceGoals: ['skrive tekster på hovedmål og sidemål'] },
+    { id: 'norsk-vg1-7-1', number: '4.4', title: 'Språkmangfold i Norge', description: 'Utforsk dialekter, sosiolekter og minoritetsspråk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dialekter', 'Samiske språk', 'Sosiolekter', 'Minoritetsspråk'], competenceGoals: ['reflektere over språklig mangfold i Norge'] },
+    { id: 'norsk-vg1-7-2', number: '4.5', title: 'Språk i endring', description: 'Forstå hvordan og hvorfor språk endrer seg over tid.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Lånord', 'Språkendring', 'Nyord', 'Engelsk påvirkning'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
+    // Kapittel 5: Skriving og kommunikasjon
+    { id: 'norsk-vg1-3-1', number: '5.1', title: 'Muntlig kommunikasjon', description: 'Lær presentasjonsteknikk og muntlige ferdigheter.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Presentasjon', 'Diskusjon', 'Kroppsspråk'], competenceGoals: ['kommunisere muntlig'] },
+    { id: 'norsk-vg1-3-2', number: '5.2', title: 'Kreativ skriving', description: 'Lær kreative skriveteknikker og virkemidler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Fortellerstemme', 'Beskrivelser', 'Dialog'], competenceGoals: ['skrive kreative tekster'] },
+    { id: 'norsk-vg1-5-2', number: '5.3', title: 'Skriving av fagartikkel', description: 'Lær å skrive fagartikler med kilder og struktur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fagartikkel', 'Struktur', 'Kildebruk', 'Referanser'], competenceGoals: ['skrive fagtekster med kilder'] },
+    { id: 'norsk-vg1-13-1', number: '5.4', title: 'Skriving - prosess og teknikker', description: 'Mestre hele skriveprosessen fra idé til ferdig tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Skriveprosess', 'Revisjon', 'Tilbakemelding', 'Egenvurdering'], competenceGoals: ['bearbeide og revidere egne tekster'] },
+    // Kapittel 6: Sammensatte tekster og medier
+    { id: 'norsk-vg1-4-2', number: '6.1', title: 'Digitale tekster og medier', description: 'Analyser digitale tekster og sosiale medier.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Multimodalitet', 'Sosiale medier', 'Kildekritikk'], competenceGoals: ['analysere sammensatte tekster'] },
+    { id: 'norsk-vg1-12-1', number: '6.2', title: 'Sammensatte tekster', description: 'Analyser multimodale tekster med bilde, lyd og tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Multimodalitet', 'Reklame', 'Nettaviser', 'Visuell analyse'], competenceGoals: ['analysere sammensatte tekster'] },
+    { id: 'norsk-vg1-12-2', number: '6.3', title: 'Film som tekst', description: 'Lær å analysere film med filmspråk og virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Filmanalyse', 'Kameravinkel', 'Klipping', 'Adaptasjon'], competenceGoals: ['analysere sammensatte tekster'] },
+    // Kapittel 7: Samisk språk og kultur
+    { id: 'norsk-vg1-14-1', number: '7.1', title: 'De samiske språkene i Norge', description: 'Lær om de samiske språkene, deres utbredelse og status i Norge.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Samisk', 'Minoritetsspråk', 'Språkmangfold', 'Urfolk'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
+    { id: 'norsk-vg1-14-2', number: '7.2', title: 'Fornorskingspolitikken', description: 'Lær om den norske statens assimileringspolitikk overfor samer og kvener.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Fornorsking', 'Assimilering', 'Samepolitikk', 'Kvenfolket'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
+    { id: 'norsk-vg1-14-3', number: '7.3', title: 'Samiske språklige rettigheter', description: 'Lær om lover og rettigheter som beskytter samisk språk i dag.', estimatedMinutes: 45, exerciseCount: 0, topics: ['Språkrettigheter', 'Samelov', 'Forvaltningsområde', 'Språkpolitikk'], competenceGoals: ['gjøre rede for språkpolitikk og språklige rettigheter i Norge'] },
+    // Kapittel 8: Grammatikk og rettskriving
+    { id: 'norsk-vg1-15-1', number: '8.1', title: 'Setningsanalyse', description: 'Lær å analysere setninger og identifisere setningsledd.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Grammatikk', 'Setningsledd', 'Syntaks', 'Analyse'], competenceGoals: ['bruke grammatisk kunnskap til å analysere og vurdere egen og andres tekst'] },
+    { id: 'norsk-vg1-15-2', number: '8.2', title: 'Tekstbinding', description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Tekstbinding', 'Koherens', 'Kohesjon', 'Referansebinding'], competenceGoals: ['bruke grammatisk kunnskap til å skape sammenheng i tekst'] },
+    { id: 'norsk-vg1-16-1', number: '8.3', title: 'Rettskriving bokmål', description: 'Lær regler for rettskriving på bokmål med fokus på vanlige feil.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Rettskriving', 'Bokmål', 'Ortografi', 'Kommaregler'], competenceGoals: ['mestre rettskriving og formverk på bokmål'] },
+    { id: 'norsk-vg1-16-2', number: '8.4', title: 'Rettskriving nynorsk', description: 'Lær nynorskens særtrekk og unngå vanlige bokmålsfeil på nynorsk.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Rettskriving', 'Nynorsk', 'Formverk', 'Bøyning'], competenceGoals: ['mestre rettskriving og formverk på nynorsk'] },
   ],
 };
 
@@ -15587,6 +15619,18 @@ export const SECTION_NAMES_HISTORIE_VG3: Record<string, string> = {
   '17': 'Globalisering og samtidshistorie',
 };
 
+// Seksjonsnavn for Norsk VG1
+export const SECTION_NAMES_NORSK_VG1: Record<string, string> = {
+  '1': 'Retorikk og sakprosa',
+  '2': 'Skjønnlitteratur',
+  '3': 'Litteraturhistorie',
+  '4': 'Språk og identitet',
+  '5': 'Skriving og kommunikasjon',
+  '6': 'Sammensatte tekster og medier',
+  '7': 'Samisk språk og kultur',
+  '8': 'Grammatikk og rettskriving',
+};
+
 // Seksjonsnavn for Engelsk VG1
 export const SECTION_NAMES_ENGELSK_VG1: Record<string, string> = {
   '1': 'Language Learning and Communication',
@@ -15642,6 +15686,8 @@ export function getSectionNames(courseId: string): Record<string, string> {
       return SECTION_NAMES_HISTORIE_VG2;
     case 'historie-vg3':
       return SECTION_NAMES_HISTORIE_VG3;
+    case 'norsk-vg1':
+      return SECTION_NAMES_NORSK_VG1;
     case 'engelsk-vg1':
       return SECTION_NAMES_ENGELSK_VG1;
     default:
