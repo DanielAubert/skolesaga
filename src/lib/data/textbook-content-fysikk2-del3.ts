@@ -16,7 +16,7 @@ import type { TextbookChapter } from '@/lib/types/textbook';
 
 export const CHAPTER_FYSIKK2_6_1: TextbookChapter = {
   id: 'fysikk2-6-1',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '6.1',
   title: 'Spesiell relativitetsteori – postulater',
   description:
@@ -642,7 +642,7 @@ Uansett beregning gir formelen $u = c$ når $u' = c$ (som vi viste i forrige opp
 
 export const CHAPTER_FYSIKK2_6_2: TextbookChapter = {
   id: 'fysikk2-6-2',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '6.2',
   title: 'Tidsdilatasjon',
   description:
@@ -1342,7 +1342,7 @@ Alle bevegelige observatører måler en tid $\\Delta t = \\gamma \\Delta\\tau$, 
 
 export const CHAPTER_FYSIKK2_6_3: TextbookChapter = {
   id: 'fysikk2-6-3',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '6.3',
   title: 'Lengdekontraksjon',
   description:
@@ -1913,7 +1913,7 @@ Denne sammenhengen sikrer at fysikken er konsistent uansett referansesystem.`,
 
 export const CHAPTER_FYSIKK2_6_4: TextbookChapter = {
   id: 'fysikk2-6-4',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '6.4',
   title: 'Relativistisk energi og masse',
   description:
@@ -2634,7 +2634,7 @@ Bare 3 mg D-T-blanding trengs for å produsere 1 GJ energi (tilsvarer ca. 280 kW
 
 export const CHAPTER_FYSIKK2_6_5: TextbookChapter = {
   id: 'fysikk2-6-5',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '6.5',
   title: 'Generell relativitetsteori – introduksjon',
   description:

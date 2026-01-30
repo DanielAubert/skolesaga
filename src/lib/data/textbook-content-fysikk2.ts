@@ -21,7 +21,7 @@ import { FYSIKK2_CHAPTERS_DEL5 } from './textbook-content-fysikk2-del5';
 
 export const CHAPTER_FYSIKK2_1_1: TextbookChapter = {
   id: 'fysikk2-1-1',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '1.1',
   title: 'Vektorer og komponenter',
   description: 'Grunnleggende vektorregning og dekomponering i komponenter.',
@@ -60,7 +60,7 @@ I fysikk 2 utvider vi kunnskapen om bevegelse til to dimensjoner.
 
 export const CHAPTER_FYSIKK2_1_2: TextbookChapter = {
   id: 'fysikk2-1-2',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '1.2',
   title: 'Bevegelse i to dimensjoner',
   description:

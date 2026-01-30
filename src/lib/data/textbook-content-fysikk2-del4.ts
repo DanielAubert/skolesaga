@@ -16,7 +16,7 @@ import type { TextbookChapter } from '@/lib/types/textbook';
 
 export const CHAPTER_FYSIKK2_7_1: TextbookChapter = {
   id: 'fysikk2-7-1',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.1',
   title: 'Fotoelektrisk effekt og fotoner',
   description:
@@ -467,7 +467,7 @@ d) $\\lambda_0 = hc/W_0 = 6{,}626 \\times 10^{-34} \\times 3{,}00 \\times 10^8/3
 
 export const CHAPTER_FYSIKK2_7_2: TextbookChapter = {
   id: 'fysikk2-7-2',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.2',
   title: 'Bølge-partikkel-dualitet',
   description:
@@ -816,7 +816,7 @@ c) Selv om det er mange fotoner, er laserlys **koherent** — alle fotoner har s
 
 export const CHAPTER_FYSIKK2_7_3: TextbookChapter = {
   id: 'fysikk2-7-3',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.3',
   title: 'de Broglies hypotese',
   description:
@@ -1188,7 +1188,7 @@ c) Termiske nøytroner har de Broglie-bølgelengde ($\\sim 0{,}15$ nm) som er sa
 
 export const CHAPTER_FYSIKK2_7_4: TextbookChapter = {
   id: 'fysikk2-7-4',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.4',
   title: 'Heisenbergs usikkerhetsrelasjon',
   description:
@@ -1501,7 +1501,7 @@ c) Den eksperimentelle bredden er $\\Gamma \\approx \\hbar/\\tau = 1{,}055 \\tim
 
 export const CHAPTER_FYSIKK2_7_5: TextbookChapter = {
   id: 'fysikk2-7-5',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.5',
   title: 'Bohrs atommodell',
   description:
@@ -1958,7 +1958,7 @@ Dette er akkurat Bohrs kvantiseringsbetingelse! de Broglies bølgehypotese ga al
 
 export const CHAPTER_FYSIKK2_7_6: TextbookChapter = {
   id: 'fysikk2-7-6',
-  courseId: 'fys2',
+  courseId: 'fysikk2',
   chapterNumber: '7.6',
   title: 'Kvantefenomener i hverdagen',
   description:
