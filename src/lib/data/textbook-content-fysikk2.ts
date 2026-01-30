@@ -9,6 +9,12 @@
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
+// Import remaining chapters from split files
+import { FYSIKK2_CHAPTERS_DEL2 } from './textbook-content-fysikk2-del2';
+import { FYSIKK2_CHAPTERS_DEL3 } from './textbook-content-fysikk2-del3';
+import { FYSIKK2_CHAPTERS_DEL4 } from './textbook-content-fysikk2-del4';
+import { FYSIKK2_CHAPTERS_DEL5 } from './textbook-content-fysikk2-del5';
+
 // ============================================================================
 // Kapittel 1.1: Vektorer og komponenter  
 // ============================================================================
@@ -23069,6 +23075,10 @@ export const FYSIKK2_CHAPTERS: Record<string, TextbookChapter> = {
   'fysikk2-4-5': CHAPTER_FYSIKK2_4_5,
   'fysikk2-5-1': CHAPTER_FYSIKK2_5_1,
   'fysikk2-5-2': CHAPTER_FYSIKK2_5_2,
+  ...FYSIKK2_CHAPTERS_DEL2,
+  ...FYSIKK2_CHAPTERS_DEL3,
+  ...FYSIKK2_CHAPTERS_DEL4,
+  ...FYSIKK2_CHAPTERS_DEL5,
 };
 
 export function getFysikk2Chapter(chapterId: string): TextbookChapter | undefined {
