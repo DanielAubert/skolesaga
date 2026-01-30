@@ -8040,7 +8040,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vektorrepresentasjon', 'Komponentform', 'Vektoraddisjon', 'Vektorsubtraksjon', 'Skalarmultiplikasjon', 'Enhetsvektorer'],
       competenceGoals: ['bruke vektorer til å beskrive fysiske størrelser', 'utføre vektoroperasjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-1-1-vektorer.png',
     },
     {
       id: 'fysikk2-1-2',
@@ -8052,7 +8052,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Posisjonsvektorer', 'Hastighetsvektor', 'Akselerasjonsvektor', 'Bevegelseslikninger', 'Uavhengige komponenter'],
       prerequisites: ['fysikk2-1-1'],
       competenceGoals: ['analysere bevegelse i to dimensjoner', 'bruke vektornotasjon for kinematiske størrelser'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-1-2-bevegelse-2d.png',
     },
     {
       id: 'fysikk2-1-3',
@@ -8064,7 +8064,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Horisontal kastering', 'Skrå kastering', 'Baneform (parabelbane)', 'Rekkevidde', 'Maksimal høyde', 'Luftmotstand'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere og beregne størrelser ved kastering', 'bruke kinematiske likninger i to dimensjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1519810755548-39cd217da494?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-1-3-kastering.png',
     },
     {
       id: 'fysikk2-1-4',
@@ -8076,7 +8076,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Uniform sirkelbevegelse', 'Vinkelstørrelse', 'Perioden', 'Sentripetalakselerasjon', 'Sentripetalkraft', 'Kurvebevegelse'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere sirkelbevegelse', 'beregne sentripetalkraft og akselerasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-1-4-sirkelbevegelse2.png',
     },
     {
       id: 'fysikk2-1-5',
@@ -8088,7 +8088,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Eulers metode', 'Tidssteg', 'Numerisk integrering', 'Programmering av bevegelse', 'Feilanalyse'],
       prerequisites: ['fysikk2-1-3', 'fysikk2-1-4'],
       competenceGoals: ['bruke digitale verktøy til å modellere bevegelse numerisk', 'vurdere nøyaktighet i numeriske metoder'],
-      coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-1-5-numerisk-modellering.png',
     },
 
     // ============================================================================
@@ -8103,7 +8103,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons gravitasjonslov', 'Gravitasjonskonstanten G', 'Gravitasjonskraft', 'Masse vs. vekt'],
       competenceGoals: ['bruke Newtons gravitasjonslov til å beregne gravitasjonskrefter'],
-      coverImage: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-2-1-gravitasjonslov.png',
     },
     {
       id: 'fysikk2-2-2',
@@ -8115,7 +8115,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonsfelt', 'Feltstyrke g', 'Superposisjonsprinsippet', 'Jordas gravitasjonsfelt'],
       prerequisites: ['fysikk2-2-1'],
       competenceGoals: ['beskrive og beregne gravitasjonsfelt', 'bruke superposisjon for flere masser'],
-      coverImage: 'https://images.unsplash.com/photo-1419242902214-272b3f66ee7a?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-2-2-gravitasjonsfelt.png',
     },
     {
       id: 'fysikk2-2-3',
@@ -8127,7 +8127,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonell potensiell energi', 'Nullnivå i uendelighet', 'Energibevarelse', 'Bindingsenergi'],
       prerequisites: ['fysikk2-2-2'],
       competenceGoals: ['beregne gravitasjonell potensiell energi', 'bruke energibevarelse i gravitasjonsfelt'],
-      coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-2-3-gravitasjonell-energi.png',
     },
     {
       id: 'fysikk2-2-4',
@@ -8139,7 +8139,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Unnslippningsfart', 'Satellittbaner', 'Sirkulære baner', 'Geostasjonære satellitter', 'Banefart'],
       prerequisites: ['fysikk2-2-3', 'fysikk2-1-4'],
       competenceGoals: ['beregne unnslippningsfart og satellittbaner', 'analysere betingelser for ulike banetyper'],
-      coverImage: 'https://images.unsplash.com/photo-1446776653964-20c1d3a81b06?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-2-4-satellittbaner.png',
     },
     {
       id: 'fysikk2-2-5',
@@ -8151,7 +8151,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Keplers første lov', 'Keplers andre lov', 'Keplers tredje lov', 'Planetbaner', 'Perioder og baneradier'],
       prerequisites: ['fysikk2-2-4'],
       competenceGoals: ['bruke Keplers lover til å analysere planetbevegelse', 'utlede sammenhenger fra Keplers tredje lov'],
-      coverImage: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-2-5-keplers-lover.png',
     },
 
     // ============================================================================
@@ -8166,7 +8166,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Elektrisk ladning', 'Elementærladning', 'Coulombs lov', 'Elektrostatisk kraft', 'Ladningsfordeling'],
       competenceGoals: ['bruke Coulombs lov til å beregne elektrostatiske krefter'],
-      coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-3-1-coulombs-lov.png',
     },
     {
       id: 'fysikk2-3-2',
@@ -8178,7 +8178,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk felt', 'Feltstyrke E', 'Feltlinjer', 'Superposisjon', 'Homogene felt', 'Ledere i felt'],
       prerequisites: ['fysikk2-3-1'],
       competenceGoals: ['beskrive og beregne elektriske felt', 'tegne feltlinjer', 'bruke superposisjonsprinsippet'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-3-2-elektrisk-felt.png',
     },
     {
       id: 'fysikk2-3-3',
@@ -8190,7 +8190,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk potensial', 'Spenning', 'Elektrisk potensiell energi', 'Ekvipotensialflater', 'Sammenhengen E og V'],
       prerequisites: ['fysikk2-3-2'],
       competenceGoals: ['beregne elektrisk potensial og spenning', 'relatere felt og potensial'],
-      coverImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-3-3-potensial-spenning.png',
     },
     {
       id: 'fysikk2-3-4',
@@ -8202,7 +8202,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kondensatorer', 'Kapasitans', 'Parallellplatekondesator', 'Dielektrikum', 'Lagret energi', 'Serie- og parallellkobling'],
       prerequisites: ['fysikk2-3-3'],
       competenceGoals: ['beregne kapasitans og lagret energi', 'analysere kondensatorkoblinger'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-3-4-kondensatorer.png',
     },
     {
       id: 'fysikk2-3-5',
@@ -8214,7 +8214,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på ladede partikler', 'Akselerasjon i homogene felt', 'Avbøyning', 'Katodestrålerør', 'Elektronkanoner'],
       prerequisites: ['fysikk2-3-2', 'fysikk2-1-2'],
       competenceGoals: ['analysere bevegelse av ladede partikler i elektriske felt', 'beregne baner og hastigheter'],
-      coverImage: 'https://images.unsplash.com/photo-1614728423169-3f65fd722b7e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-3-5-partikler-i-felt.png',
     },
 
     // ============================================================================
@@ -8229,7 +8229,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Magnetfelt', 'Magnetiske feltlinjer', 'Magnetiske poler', 'Permanente magneter', 'Jordas magnetfelt'],
       competenceGoals: ['beskrive magnetfelt og magnetiske krefter'],
-      coverImage: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-4-1-magnetfelt.png',
     },
     {
       id: 'fysikk2-4-2',
@@ -8241,7 +8241,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lorentzkraft på partikler', 'Høyrehåndsregelen', 'Syklotronbevegelse', 'Helikalbaner', 'Massespektrometer'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk kraft på ladede partikler', 'analysere partikkelbaner i magnetfelt'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-4-2-lorentzkraft-partikler.png',
     },
     {
       id: 'fysikk2-4-3',
@@ -8253,7 +8253,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetfelt fra rett leder', 'Magnetfelt fra strømløkke', 'Solenoider', 'Biot-Savarts lov', 'Ampères lov'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetfelt fra strømførende ledere', 'bruke Ampères lov'],
-      coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-4-3-magnetfelt-strom.png',
     },
     {
       id: 'fysikk2-4-4',
@@ -8265,7 +8265,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på rett leder', 'Motorkraft', 'Kraftretning', 'Høyrehåndsregelen for ledere', 'Elektromotorer'],
       prerequisites: ['fysikk2-4-3'],
       competenceGoals: ['beregne magnetisk kraft på strømførende ledere', 'forklare virkemåten til elektromotorer'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-4-4-kraft-stromforer.png',
     },
     {
       id: 'fysikk2-4-5',
@@ -8277,7 +8277,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Total Lorentzkraft', 'Kombinerte felt', 'Hastighetsselektor', 'Halleffekten', 'Partikkelakseleratorer'],
       prerequisites: ['fysikk2-4-2', 'fysikk2-3-5'],
       competenceGoals: ['analysere bevegelse i kombinerte elektriske og magnetiske felt', 'beregne total Lorentzkraft'],
-      coverImage: 'https://images.unsplash.com/photo-1614728423169-3f65fd722b7e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-4-5-lorentzkraften.png',
     },
 
     // ============================================================================
@@ -8293,7 +8293,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetisk fluks', 'Fluks gjennom flate', 'Enhetsnormalen', 'Flukstetthet'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk fluks gjennom flater'],
-      coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-1-magnetisk-fluks.png',
     },
     {
       id: 'fysikk2-5-2',
@@ -8305,7 +8305,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektromagnetisk induksjon', 'Faradays lov', 'Indusert spenning', 'Fluksforandring', 'Bevegelsesinduksjon'],
       prerequisites: ['fysikk2-5-1'],
       competenceGoals: ['bruke Faradays lov til å beregne indusert spenning', 'forklare elektromagnetisk induksjon'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-2-faradays-lov.png',
     },
     {
       id: 'fysikk2-5-3',
@@ -8317,7 +8317,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lenz lov', 'Retning av indusert strøm', 'Høyrehåndsregelen for induksjon', 'Motstand mot fluksforandring', 'Energibevarelse'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['bruke Lenz lov til å bestemme retning av indusert strøm', 'forklare energibevarelse ved induksjon'],
-      coverImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-3-lenz-lov.png',
     },
     {
       id: 'fysikk2-5-4',
@@ -8329,7 +8329,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Generatorer', 'AC-generatorer', 'Rotasjon i magnetfelt', 'Vekselstrøm', 'Motorer', 'Transformatorer'],
       prerequisites: ['fysikk2-5-3', 'fysikk2-4-4'],
       competenceGoals: ['forklare virkemåten til generatorer og motorer', 'beregne indusert spenning i roterande spole'],
-      coverImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-4-generatorer-motorer.png',
     },
     {
       id: 'fysikk2-5-5',
@@ -8341,7 +8341,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Transformatorer', 'Primærspole', 'Sekundærspole', 'Omsettingsforhold', 'Ideelle transformatorer', 'Effekttap'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['beregne spenning og strøm i transformatorer', 'forklare energioverføring'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-5-transformatorer.png',
     },
     {
       id: 'fysikk2-5-6',
@@ -8353,7 +8353,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Vindkraft', 'Vannkraft', 'Bølgekraft', 'Kraftoverføring', 'Bærekraftige energiløsninger'],
       prerequisites: ['fysikk2-5-4', 'fysikk2-5-5'],
       competenceGoals: ['forklare hvordan induksjon brukes i bærekraftig energiproduksjon', 'vurdere energieffektivitet'],
-      coverImage: 'https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-5-6-barekraftig-energi.png',
     },
 
     // ============================================================================
@@ -8368,7 +8368,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Einsteins postulater', 'Lysets konstante fart', 'Inertielle referansesystemer', 'Samtidighet', 'Michelson-Morley'],
       competenceGoals: ['forstå grunnlaget for spesiell relativitetsteori', 'diskutere samtidighet'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-6-1-relativitetsteori.png',
     },
     {
       id: 'fysikk2-6-2',
@@ -8380,7 +8380,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Tidsdilatasjon', 'Egentid', 'Observert tid', 'Lorentzfaktoren γ', 'Tvillingparadokset', 'Myoneksperiment'],
       prerequisites: ['fysikk2-6-1'],
       competenceGoals: ['beregne tidsforlengelse ved høye farter', 'forklare tidsdilatasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1509773896068-7fd415d91e2e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-6-2-tidsdilatasjon.png',
     },
     {
       id: 'fysikk2-6-3',
@@ -8392,7 +8392,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lengdekontraksjon', 'Egenlengde', 'Observert lengde', 'Lorentzkontraksjon', 'Rom-tid-diagrammer'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne lengdekontraksjon', 'relatere lengdekontraksjon og tidsdilatasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-6-3-lengdekontraksjon.png',
     },
     {
       id: 'fysikk2-6-4',
@@ -8404,7 +8404,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Relativistisk energi', 'E=mc²', 'Hvilemasse', 'Relativistisk kinetisk energi', 'Total energi', 'Masse-energi-ekvivalens'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne relativistisk energi og kinetisk energi', 'bruke E=mc² i praktiske problemstillinger'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-6-4-relativistisk-energi.png',
     },
     {
       id: 'fysikk2-6-5',
@@ -8416,7 +8416,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Ekvivalensprinsippet', 'Krumning av rom-tid', 'Gravitasjonell tidsforlengelse', 'Gravitasjonsbøyning av lys', 'Svarte hull'],
       prerequisites: ['fysikk2-6-4', 'fysikk2-2-3'],
       competenceGoals: ['forstå grunnideen i generell relativitetsteori', 'diskutere gravitasjonens natur'],
-      coverImage: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-6-5-generell-relativitet.png',
     },
 
     // ============================================================================
@@ -8431,7 +8431,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Fotoelektrisk effekt', 'Fotoner', 'Fotonenergi E=hf', 'Plancks konstant', 'Arbeidsfunksjon', 'Kinetisk energi til elektroner'],
       competenceGoals: ['forklare den fotoelektriske effekten', 'beregne fotonenergi og elektronhastigheter'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-1-fotoelektrisk.png',
     },
     {
       id: 'fysikk2-7-2',
@@ -8443,7 +8443,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bølge-partikkel-dualitet', 'Dobbeltspaltforsøk', 'Interferens', 'Partikkelegenskaper', 'Komplementaritet'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare bølge-partikkel-dualitet', 'diskutere eksperimenter som viser dualitet'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-2-bolge-partikkel.png',
     },
     {
       id: 'fysikk2-7-3',
@@ -8455,7 +8455,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['de Broglies bølgelengde', 'Materiens bølgenatur', 'Elektronbøyning', 'Davisson-Germer-eksperimentet'],
       prerequisites: ['fysikk2-7-2'],
       competenceGoals: ['beregne de Broglies bølgelengde', 'forklare materiens bølgeegenskaper'],
-      coverImage: 'https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-3-de-broglie.png',
     },
     {
       id: 'fysikk2-7-4',
@@ -8467,7 +8467,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Heisenbergs usikkerhetsrelasjon', 'Posisjon og impuls', 'Energi og tid', 'Måleprosessen', 'Kvantemekaniske implikasjoner'],
       prerequisites: ['fysikk2-7-3'],
       competenceGoals: ['bruke Heisenbergs usikkerhetsrelasjon', 'diskutere implikasjoner for målinger'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-4-heisenberg.png',
     },
     {
       id: 'fysikk2-7-5',
@@ -8479,7 +8479,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bohrs postulater', 'Energinivåer', 'Kvantisering', 'Spektrallinjer', 'Hydrogenspekteret', 'Rydbergs formel'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare Bohrs atommodell', 'beregne energinivåer og spektrallinjer'],
-      coverImage: 'https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-5-bohrs-atommodell.png',
     },
     {
       id: 'fysikk2-7-6',
@@ -8491,7 +8491,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lasere', 'Solceller', 'LED', 'Kvantedatamaskiner', 'Kvanteoptikk', 'Moderne teknologi'],
       prerequisites: ['fysikk2-7-5'],
       competenceGoals: ['forklare hvordan kvantefysikk brukes i teknologi', 'diskutere kvantemekanikkens betydning'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-7-6-kvantefenomener.png',
     },
 
     // ============================================================================
@@ -8506,7 +8506,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Vitenskapelig metode', 'Hypoteser', 'Eksperimentdesign', 'Måleusikkerhet', 'Absolutt og relativ usikkerhet', 'Feilkilder'],
       competenceGoals: ['planlegge og gjennomføre fysikkforsøk', 'vurdere måleusikkerhet'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-8-1-eksperimentell-metode.png',
     },
     {
       id: 'fysikk2-8-2',
@@ -8518,7 +8518,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Databehandling', 'Statistiske metoder', 'Grafisk framstilling', 'Systematiske feil', 'Tilfeldige feil', 'Presisjon og nøyaktighet'],
       prerequisites: ['fysikk2-8-1'],
       competenceGoals: ['analysere eksperimentelle data', 'identifisere og diskutere feilkilder'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-8-2-dataanalyse.png',
     },
     {
       id: 'fysikk2-8-3',
@@ -8529,7 +8529,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Partikkelfysikk', 'Standardmodellen', 'CERN', 'Astrofysikk', 'Kosmologi', 'Fremtidens fysikk'],
       competenceGoals: ['beskrive sentrale områder i moderne fysikkforskning', 'diskutere fysikkens samfunnsrolle'],
-      coverImage: 'https://images.unsplash.com/photo-1614728894747-a83421e2b9c9?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-8-3-moderne-forskning.png',
     },
     {
       id: 'fysikk2-8-4',
@@ -8541,7 +8541,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Prosjektplanlegging', 'Litteratursøk', 'Rapportskriving', 'Presentasjonsteknikk', 'Kildekritikk', 'Vitenskapelig kommunikasjon'],
       prerequisites: ['fysikk2-8-1', 'fysikk2-8-2'],
       competenceGoals: ['gjennomføre selvstendig prosjektarbeid i fysikk', 'kommunisere fysikk faglig'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/fysikk2-8-4-prosjektarbeid.png',
     },
   ],
 };
