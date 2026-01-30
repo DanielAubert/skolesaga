@@ -6627,7 +6627,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['IUPAC-nomenklatur', 'Kjemiske formler', 'Strukturformler', 'Kjemiske likninger', 'Støkiometri', 'Lewis-strukturer', 'Molekylgeometri'],
       competenceGoals: ['forstå og bruke kjemisk terminologi og fagspråk'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-1-1-kjemisk-terminologi.png',
     },
     {
       id: 'kjemi2-1-2',
@@ -6637,7 +6637,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Elektronkonfigurasjon', 'Periodesystemet', 'Periodevise trender', 'Kovalente bindinger', 'Ioniske bindinger', 'Metalliske bindinger', 'Intermolekylære krefter'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-1-2-atom-molekylstruktur.png',
     },
     {
       id: 'kjemi2-1-3',
@@ -6648,7 +6648,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Molbegrepet', 'Avogadros tall', 'Molar masse', 'Molart volum', 'Støkiometriske beregninger', 'Begrensende reaktant'],
       prerequisites: ['kjemi2-1-1'],
-      coverImage: 'https://images.unsplash.com/photo-1628863353691-0071c8c1874c?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-1-3-mol-stokiometri.png',
     },
 
     // ============================================================================
@@ -6664,7 +6664,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Termokjemi', 'Entalpi (H)', 'Eksoterme reaksjoner', 'Endoterme reaksjoner', 'Standard dannelsesentalpi', 'Hess\' lov', 'Bindingsentalpier', 'Kalorimetri'],
       prerequisites: ['kjemi2-1-3'],
       competenceGoals: ['bruke entalpi til å vurdere energiforandringer i reaksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-2-1-entalpi-reaksjonsvarme.png',
     },
     {
       id: 'kjemi2-2-2',
@@ -6676,7 +6676,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Entropi (S)', 'Andre termodynamiske lov', 'Standard molar entropi', 'Entropiforandring (ΔS)', 'Faktorer som påvirker entropi'],
       prerequisites: ['kjemi2-2-1'],
       competenceGoals: ['bruke entropi og entalpi til å vurdere spontanitet'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-2-2-entropi-uorden.png',
     },
     {
       id: 'kjemi2-2-3',
@@ -6688,7 +6688,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Gibbs fri energi (G)', 'Spontanitet og ΔG', 'Standard fri energi (ΔG°)', 'G = H - TS', 'Temperaturavhengighet av spontanitet'],
       prerequisites: ['kjemi2-2-2'],
       competenceGoals: ['bruke Gibbs fri energi til å vurdere om reaksjoner er spontane'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-2-3-gibbs-fri-energi.png',
     },
     {
       id: 'kjemi2-2-4',
@@ -6699,7 +6699,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Koplede reaksjoner', 'ATP og biologisk energi', 'Drivkraft i kjemiske prosesser', 'Industrielle anvendelser'],
       prerequisites: ['kjemi2-2-3'],
-      coverImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-2-4-termodynamikk-praksis.png',
     },
 
     // ============================================================================
@@ -6715,7 +6715,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Reversible reaksjoner', 'Dynamisk likevekt', 'Kjennetegn på likevekt', 'Likevektspiler og notasjon'],
       prerequisites: ['kjemi2-2-4'],
       competenceGoals: ['utforske likevekt og bruke massevirkningsloven'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-3-1-likevektsbegrepet.png',
     },
     {
       id: 'kjemi2-3-2',
@@ -6727,7 +6727,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Likevektsuttrykket K', 'Kc og Kp', 'Beregning av likevektskonstant', 'Tolkning av K-verdier', 'Heterogen likevekt', 'ICE-tabeller'],
       prerequisites: ['kjemi2-3-1'],
       competenceGoals: ['bruke massevirkningsloven til å beregne likevektskonstanter'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-3-2-massevirkningsloven.png',
     },
     {
       id: 'kjemi2-3-3',
@@ -6738,7 +6738,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendring', 'Trykkendring', 'Temperaturendring', 'Katalysatorers effekt'],
       prerequisites: ['kjemi2-3-2'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-3-3-le-chateliers-prinsipp.png',
     },
     {
       id: 'kjemi2-3-4',
@@ -6749,7 +6749,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 22,
       topics: ['Likevektskonsentrasjoner', 'ICE-tabeller', 'Kvadratiske likninger', 'Tilnærmingsmetoder', 'Reaksjonskvotient Q'],
       prerequisites: ['kjemi2-3-3'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-3-4-likevektsberegninger.png',
     },
     {
       id: 'kjemi2-3-5',
@@ -6760,7 +6760,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['ΔG° = -RT ln K', 'Beregne K fra termodynamiske data', 'Temperaturavhengighet av K'],
       prerequisites: ['kjemi2-3-4', 'kjemi2-2-3'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-3-5-sammenheng-k-dg.png',
     },
 
     // ============================================================================
@@ -6776,7 +6776,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Brønsted-Lowrys teori', 'Konjugerte syre-basepar', 'Amfotere stoffer', 'Styrke vs. konsentrasjon', 'Ka og pKa'],
       prerequisites: ['kjemi2-3-5'],
       competenceGoals: ['utforske og beregne pH'],
-      coverImage: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-4-1-syre-base-teori.png',
     },
     {
       id: 'kjemi2-4-2',
@@ -6788,7 +6788,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Vannets egenionisering (Kw)', 'pH-skalaen', 'pH, pOH og pKw', 'pH for sterke syrer/baser', 'pH for svake syrer/baser'],
       prerequisites: ['kjemi2-4-1'],
       competenceGoals: ['beregne pH i ulike syre-base-systemer'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-4-2-ph-poh.png',
     },
     {
       id: 'kjemi2-4-3',
@@ -6799,7 +6799,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Syrebasetitrering', 'Titreringskurver', 'Ekvivalenspunkt', 'Halvtitreringspunkt', 'Indikatorer'],
       prerequisites: ['kjemi2-4-2'],
-      coverImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-4-3-titrering-ekvivalenspunkt.png',
     },
     {
       id: 'kjemi2-4-4',
@@ -6811,7 +6811,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Bufferløsninger', 'Henderson-Hasselbalch-likningen', 'Bufferkapasitet', 'Fremstilling av buffere', 'Biologiske buffersystemer'],
       prerequisites: ['kjemi2-4-3'],
       competenceGoals: ['drøfte buffers betydning for pH-regulering'],
-      coverImage: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-4-4-bufferlosninger.png',
     },
     {
       id: 'kjemi2-4-5',
@@ -6822,7 +6822,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Diprotiske syrer', 'Triprotiske syrer', 'Ka1, Ka2, Ka3', 'pH-beregninger for flerprotiske syrer', 'H2SO4, H3PO4, H2CO3'],
       prerequisites: ['kjemi2-4-4'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-4-5-flerprotiske-syrer.png',
     },
 
     // ============================================================================
@@ -6838,7 +6838,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsbegrepet', 'Mettet løsning', 'Faktorer som påvirker løselighet', 'Temperatureffekter'],
       prerequisites: ['kjemi2-4-5'],
       competenceGoals: ['utforske og beregne løselighet'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-5-1-loselighet-maling.png',
     },
     {
       id: 'kjemi2-5-2',
@@ -6850,7 +6850,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsproduktet Ksp', 'Beregning av Ksp fra løselighet', 'Beregning av løselighet fra Ksp', 'Sammenligning av løselighet'],
       prerequisites: ['kjemi2-5-1'],
       competenceGoals: ['beregne løselighet ved hjelp av løselighetsproduktet'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-5-2-loselighetsproduktet.png',
     },
     {
       id: 'kjemi2-5-3',
@@ -6861,7 +6861,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Ioneprodukt Q', 'Q vs. Ksp', 'Forutsi felling', 'Selektiv felling', 'Kvalitativ analyse'],
       prerequisites: ['kjemi2-5-2'],
-      coverImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-5-3-fellingsreaksjoner.png',
     },
     {
       id: 'kjemi2-5-4',
@@ -6873,7 +6873,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nyrestein og tannemalje', 'Vannrensing', 'Metallutvinning', 'Bærekraftige løsninger'],
       prerequisites: ['kjemi2-5-3'],
       competenceGoals: ['vurdere løselighet i biologisk og industriell kontekst'],
-      coverImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-5-4-loselighet-bio-industri.png',
     },
 
     // ============================================================================
@@ -6889,7 +6889,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Oksidasjon og reduksjon', 'Oksidasjonstall', 'Balansering av redoksreaksjoner', 'Halvreaksjoner', 'Sur og basisk løsning'],
       prerequisites: ['kjemi2-5-4'],
       competenceGoals: ['utforske redoksreaksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-1-oksidasjon-reduksjon.png',
     },
     {
       id: 'kjemi2-6-2',
@@ -6901,7 +6901,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Galvaniske celler', 'Anode og katode', 'Saltbro', 'Cellenotasjon', 'Standard elektrodepotensial (E°)', 'Spenningsrekken'],
       prerequisites: ['kjemi2-6-1'],
       competenceGoals: ['utforske elektrokjemi og bygge galvaniske celler'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-2-galvaniske-celler.png',
     },
     {
       id: 'kjemi2-6-3',
@@ -6913,7 +6913,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nernst-likningen', 'Beregning av cellepotensial', 'Konsentrasjonseffekter', 'E og ΔG'],
       prerequisites: ['kjemi2-6-2'],
       competenceGoals: ['beregne sammenhenger mellom masse, ladning, spenning og energi'],
-      coverImage: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-3-spenningsrekken.png',
     },
     {
       id: 'kjemi2-6-4',
@@ -6924,7 +6924,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Primærbatterier', 'Sekundærbatterier', 'Litium-ion-batterier', 'Brenselceller', 'Hydrogen', 'Bærekraft og resirkulering'],
       prerequisites: ['kjemi2-6-3'],
-      coverImage: 'https://images.unsplash.com/photo-1609519730392-9c4855863c6c?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-4-elektrolyse.png',
     },
     {
       id: 'kjemi2-6-5',
@@ -6935,7 +6935,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Elektrolyse', 'Elektrolyse av smelte', 'Elektrolyse av løsning', 'Faradays lover', 'Industrielle anvendelser', 'Aluminium', 'Klor'],
       prerequisites: ['kjemi2-6-4'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-5-batterier-brenselceller.png',
     },
     {
       id: 'kjemi2-6-6',
@@ -6946,7 +6946,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Korrosjonsmekanismen', 'Faktorer som påvirker korrosjon', 'Maling', 'Galvanisering', 'Offeranode', 'Katodisk beskyttelse'],
       prerequisites: ['kjemi2-6-5'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-6-6-korrosjon.png',
     },
 
     // ============================================================================
@@ -6961,7 +6961,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Hastighetsuttrykk', 'Gjennomsnittlig hastighet', 'Momentan hastighet', 'Hastighetskonstanten k', 'Reaksjonsorden'],
       prerequisites: ['kjemi2-6-6'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-7-1-reaksjonshastighet.png',
     },
     {
       id: 'kjemi2-7-2',
@@ -6972,7 +6972,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Konsentrasjon', 'Temperatur', 'Arrhenius-likningen', 'Overflatearel', 'Kollisjonsteori', 'Aktiveringsenergi'],
       prerequisites: ['kjemi2-7-1'],
-      coverImage: 'https://images.unsplash.com/photo-1530587191325-3db32d826c18?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-7-2-hastighetslover.png',
     },
     {
       id: 'kjemi2-7-3',
@@ -6984,7 +6984,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Homogen katalyse', 'Heterogen katalyse', 'Katalysatorens rolle', 'Aktiveringsenergi', 'Enzymer', 'Katalytiske konvertere', 'Haber-Bosch'],
       prerequisites: ['kjemi2-7-2'],
       competenceGoals: ['forklare katalysatorens betydning i biologiske og industrielle prosesser'],
-      coverImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-7-3-faktorer-reaksjonshastighet.png',
     },
     {
       id: 'kjemi2-7-4',
@@ -6995,7 +6995,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Elementærtrinn', 'Mellomprodukter', 'Hastighetbestemmende trinn', 'Kinetikk og mekanisme'],
       prerequisites: ['kjemi2-7-3'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-7-4-reaksjonsmekanismer.png',
     },
 
     // ============================================================================
@@ -7010,7 +7010,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Alkaner', 'Alkener', 'Alkyner', 'Aromater', 'Funksjonelle grupper', 'IUPAC-nomenklatur', 'Strukturisomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi2-7-4'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-1-funksjonelle-grupper-klassifisering.png',
     },
     {
       id: 'kjemi2-8-2',
@@ -7021,7 +7021,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Primære alkoholer', 'Sekundære alkoholer', 'Tertiære alkoholer', 'Aldehyder', 'Ketoner', 'Karbonylgruppen', 'Oksidasjon av alkoholer'],
       prerequisites: ['kjemi2-8-1'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-2-alkener-addisjon.png',
     },
     {
       id: 'kjemi2-8-3',
@@ -7032,7 +7032,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Karboksylsyrer', 'Estere', 'Esterdannelse', 'Fettsynres', 'Lipider', 'Forsåpning'],
       prerequisites: ['kjemi2-8-2'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-3-alkoholer-oksidasjon.png',
     },
     {
       id: 'kjemi2-8-4',
@@ -7043,7 +7043,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Aminer som baser', 'Amider', 'Peptidbindinger', 'Nomenklatur', 'Biologisk betydning'],
       prerequisites: ['kjemi2-8-3'],
-      coverImage: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-4-aldehyder-ketoner.png',
     },
     {
       id: 'kjemi2-8-5',
@@ -7055,7 +7055,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Addisjonsreaksjoner', 'Eliminasjonsreaksjoner', 'Substitusjonsreaksjoner', 'SN1 og SN2', 'Hydrolysereaksjoner', 'Kondensasjonsreaksjoner', 'Elektrofile angrep', 'Nukleofile angrep'],
       prerequisites: ['kjemi2-8-4'],
       competenceGoals: ['beskrive addisjons-, eliminasjons-, substitusjons-, hydrolyse- og kondensasjonsreaksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-5-karboksylsyrer-derivater.png',
     },
     {
       id: 'kjemi2-8-6',
@@ -7067,7 +7067,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Planlegging av syntese', 'Flertrinnssyntese', 'Teoretisk utbytte', 'Faktisk utbytte', 'Renhet og oprensning', 'Atomøkonomi', 'Grønn kjemi'],
       prerequisites: ['kjemi2-8-5'],
       competenceGoals: ['gjennomføre synteser og vurdere utbytte og renhet'],
-      coverImage: 'https://images.unsplash.com/photo-1582719471384-894fbb16e074?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-8-6-estere-kondensasjon.png',
     },
 
     // ============================================================================
@@ -7083,7 +7083,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Separasjonsprinsipper', 'Stasjonær fase', 'Mobil fase', 'Retensjonsfaktor (Rf)', 'Tynnsjiktkromatografi (TLC)'],
       prerequisites: ['kjemi2-8-6'],
       competenceGoals: ['forklare prinsipper for kromatografi'],
-      coverImage: 'https://images.unsplash.com/photo-1603126857599-f6e157fa2fe6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-9-1-kvalitativ-analyse.png',
     },
     {
       id: 'kjemi2-9-2',
@@ -7095,7 +7095,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Søylekromatografi', 'Gasskromatografi (GC)', 'Væskekromatografi (HPLC)', 'Anvendelser i analyse'],
       prerequisites: ['kjemi2-9-1'],
       competenceGoals: ['bruke kromatografi til å separere og analysere organiske blandinger'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-9-2-kvantitativ-gravimetri.png',
     },
     {
       id: 'kjemi2-9-3',
@@ -7106,7 +7106,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Elektromagnetisk stråling', 'Absorpsjon og emisjon', 'UV-vis-spektroskopi', 'Beer-Lamberts lov'],
       prerequisites: ['kjemi2-9-2'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-9-3-spektroskopiske-metoder.png',
     },
     {
       id: 'kjemi2-9-4',
@@ -7117,7 +7117,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['IR-spektroskopi', 'Funksjonelle grupper', 'NMR-spektroskopi', 'Strukturbestemmelse', 'Kombinasjon av metoder'],
       prerequisites: ['kjemi2-9-3'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-9-4-kromatografi.png',
     },
 
     // ============================================================================
@@ -7133,7 +7133,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Aminosyrer', 'Peptidbindinger', 'Primær struktur', 'Sekundær struktur', 'Tertiær struktur', 'Kvartær struktur', 'Denaturering', 'Enzymer'],
       prerequisites: ['kjemi2-9-4'],
       competenceGoals: ['beskrive struktur i biologiske makromolekyler'],
-      coverImage: 'https://images.unsplash.com/photo-1532187643603-ba119ca4109e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-1-karbohydrater.png',
     },
     {
       id: 'kjemi2-10-2',
@@ -7145,7 +7145,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Monosakkarider', 'Glukose', 'Fruktose', 'Disakkarider', 'Sukrose', 'Laktose', 'Polysakkarider', 'Stivelse', 'Cellulose', 'Glykogen'],
       prerequisites: ['kjemi2-10-1'],
       competenceGoals: ['beskrive struktur og funksjon av karbohydrater'],
-      coverImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-2-lipider.png',
     },
     {
       id: 'kjemi2-10-3',
@@ -7157,7 +7157,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Fettsyrer', 'Triglycerider', 'Fosfolipider', 'Cellemembraner', 'DNA', 'RNA', 'Nukleotider', 'Baseparring'],
       prerequisites: ['kjemi2-10-2'],
       competenceGoals: ['beskrive struktur og funksjon av lipider og nukleinsyrer'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-3-proteiner-aminosyrer.png',
     },
     {
       id: 'kjemi2-10-4',
@@ -7169,7 +7169,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['pH-effekter', 'Temperatureffekter', 'Løsemidler og denaturering', 'Metallioner'],
       prerequisites: ['kjemi2-10-3'],
       competenceGoals: ['vurdere hvordan ytre faktorer påvirker egenskaper til molekyler'],
-      coverImage: 'https://images.unsplash.com/photo-1554475901-4538ddfbccc2?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-4-dna-nukleinsyrer.png',
     },
     {
       id: 'kjemi2-10-5',
@@ -7181,7 +7181,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Metallutvinning fra malm', 'Aluminiumproduksjon', 'Stålproduksjon', 'Resirkulering av metaller', 'Miljøkonsekvenser'],
       prerequisites: ['kjemi2-10-4'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av metaller'],
-      coverImage: 'https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-5-enzymer-biokatalyse.png',
     },
     {
       id: 'kjemi2-10-6',
@@ -7193,7 +7193,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Polymerisering', 'Addisjonspolymerisering', 'Kondensasjonspolymerisering', 'Vanlige plasttyper', 'Termoplast', 'Herdeplast', 'Nedbrytning', 'Mikroplast', 'Bioplast'],
       prerequisites: ['kjemi2-10-5'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av plast'],
-      coverImage: 'https://images.unsplash.com/photo-1609519730392-9c4855863c6c?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-6-plast-polymerer.png',
     },
     {
       id: 'kjemi2-10-7',
@@ -7205,7 +7205,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['De 12 prinsippene for grønn kjemi', 'Atomøkonomi', 'Fornybare råstoffer', 'Miljøvennlige løsemidler', 'Livssyklusanalyse'],
       prerequisites: ['kjemi2-10-6'],
       competenceGoals: ['drøfte prinsipper for bærekraftig kjemi'],
-      coverImage: 'https://images.unsplash.com/photo-1559757148-5c350d0d3c56?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi2-10-7-gronn-kjemi-baerekraft.png',
     },
   ],
 };
@@ -7314,7 +7314,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Protoner', 'Nøytroner', 'Elektroner', 'Atomnummer', 'Massetall', 'Isotoper'],
       competenceGoals: ['forklare korleis atom er bygde opp', 'beskrive samanhengen mellom atomnummer og massetall'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-1-1-atomets-oppbygging.png',
     },
     {
       id: 'kjemi1-1-2',
@@ -7326,7 +7326,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektronskal', 'Energinivåer', 'Valenselektroner', 'Oktettregel', 'Elektronkonfigurasjon'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['beskrive elektronkonfigurasjonen til atom', 'forklare valenselektronar si rolle i kjemiske reaksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-1-2-elektronkonfigurasjon.png',
     },
     {
       id: 'kjemi1-1-3',
@@ -7338,7 +7338,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Periodesystemet', 'Atomradius', 'Elektronegativitet', 'Ioniseringsenergi', 'Periodevise trender'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare periodevise trendar i periodesystemet', 'knytte periodevise trendar til atomstruktur'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-1-3-periodevise-trender.png',
     },
     {
       id: 'kjemi1-1-4',
@@ -7350,7 +7350,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['IUPAC-navnsetting', 'Ioniske forbindelser', 'Molekylforbindelser', 'Syrer', 'Baser', 'Salter'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['namngje uorganiske sambindingar systematisk', 'skilje mellom ulike typar kjemiske sambindingar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-1-4-navnsetting-uorganisk.png',
     },
 
     // Del 2 - Modeller
@@ -7364,7 +7364,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Daltons modell', 'Thomsons modell', 'Rutherfords modell', 'Bohrs modell', 'Kvantemekanisk modell'],
       prerequisites: ['kjemi1-1-1', 'kjemi1-1-2'],
       competenceGoals: ['beskrive utviklinga av atommodellar', 'forklare korleis atommodellar har bidrege til vår forståing av atom'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-2-1-utvikling-atommodeller.png',
     },
     {
       id: 'kjemi1-2-2',
@@ -7376,7 +7376,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektromagnetisk spektrum', 'Emisjonsspektre', 'Absorpsjonsspektre', 'Bølgelengde', 'Frekvens', 'Energinivåer'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis spektroskopi kan brukast til å analysere stoff', 'knytte spektrallinjer til elektronovergangar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-2-2-spektroskopi.png',
     },
 
     // Del 3 - Kjemiske bindinger
@@ -7390,7 +7390,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ioner', 'Ionedannelse', 'Ionebinding', 'Ioniske krystaller', 'Egenskaper til ioniske forbindelser'],
       prerequisites: ['kjemi1-1-2', 'kjemi1-1-3'],
       competenceGoals: ['forklare korleis ionebinding dannar seg', 'beskrive eigenskapane til ioniske sambindingar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-3-1-ionebinding.png',
     },
     {
       id: 'kjemi1-3-2',
@@ -7402,7 +7402,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kovalent binding', 'Elektronpardeling', 'Enkelt-, dobbelt- og trippelbindinger', 'Lewis-strukturer', 'Molekylgeometri', 'Polaritet'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis kovalente bindingar dannar seg', 'teikne Lewis-strukturar for molekyl', 'forklare molekylgeometri og polaritet'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-3-2-kovalent-binding.png',
     },
     {
       id: 'kjemi1-3-3',
@@ -7414,7 +7414,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Van der Waals-krefter', 'Dipol-dipol-krefter', 'Hydrogenbinding', 'London-krefter', 'Kokepunkt', 'Smeltepunkt'],
       prerequisites: ['kjemi1-3-2'],
       competenceGoals: ['forklare ulike typar mellommolekylære krefter', 'knytte mellommolekylære krefter til stoffeigenskapar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-3-3-mellommolekylaere-krefter.png',
     },
 
     // Del 4 - Kjemiske reaksjoner
@@ -7427,7 +7427,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Syntesereaksjoner', 'Nedbrytningsreaksjoner', 'Substitusjon', 'Dobbeltomsetning', 'Forbrenning'],
       competenceGoals: ['klassifisere kjemiske reaksjonar', 'beskrive ulike typar reaksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-4-1-reaksjonstyper.png',
     },
     {
       id: 'kjemi1-4-2',
@@ -7439,7 +7439,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonslikninger', 'Balansering', 'Loven om massebevarelse', 'Støkiometriske koeffisienter'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['balansere kjemiske reaksjonslikningar', 'forklare lova om massebevarelse'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-4-2-balansering.png',
     },
     {
       id: 'kjemi1-4-3',
@@ -7451,7 +7451,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Oksidasjonstall', 'Redoksreaksjoner', 'Oksidasjon', 'Reduksjon', 'Elektronoverføring'],
       prerequisites: ['kjemi1-4-2'],
       competenceGoals: ['berekne oksidasjonstall', 'identifisere oksiderande og reduserende stoff', 'balansere redoksreaksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-4-3-oksidasjonstall-redoks.png',
     },
 
     // Del 5 - Støkiometri
@@ -7464,7 +7464,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Stoffmengde', 'Mol', 'Molmasse', 'Avogadros tall', 'Beregninger med mol'],
       competenceGoals: ['forklare kva mol er', 'berekne molmasse', 'gjere omrekningar mellom masse og stoffmengd'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-5-1-mol-molmasse.png',
     },
     {
       id: 'kjemi1-5-2',
@@ -7476,7 +7476,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Molaritet', 'Massekonsentrasjon', 'Volumkonsentrasjon', 'ppm', 'Fortynning'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['berekne konsentrasjon i løysningar', 'gjere om mellom ulike konsentrasjonsmål', 'berekne fortynningar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-5-2-konsentrasjon.png',
     },
     {
       id: 'kjemi1-5-3',
@@ -7488,7 +7488,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Støkiometri', 'Reaktantforhold', 'Teoretisk utbytte', 'Reelt utbytte', 'Prosentutbytte', 'Begrensende reaktant'],
       prerequisites: ['kjemi1-4-2', 'kjemi1-5-1'],
       competenceGoals: ['gjere støkiometriske berekningar', 'identifisere begrensande reaktant', 'berekne teoretisk og reelt utbytte'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-5-3-stokiometriske-beregninger.png',
     },
     {
       id: 'kjemi1-5-4',
@@ -7500,7 +7500,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ideell gasslov', 'Trykk', 'Volum', 'Temperatur', 'Molart volum', 'Gassberegninger'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['bruke ideell gasslov til berekningar', 'forklare samanhengen mellom trykk, volum og temperatur'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-5-4-gassberegninger.png',
     },
 
     // Del 6 - Termokjemi
@@ -7513,7 +7513,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Entalpi', 'Endoterme reaksjoner', 'Eksoterme reaksjoner', 'Energidiagrammer', 'Standard dannelsesentalpi'],
       competenceGoals: ['forklare kva entalpi er', 'skilje mellom eksoterme og endoterme reaksjonar', 'tolke energidiagram'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-6-1-energi-entalpi.png',
     },
     {
       id: 'kjemi1-6-2',
@@ -7525,7 +7525,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsentalpi', 'Hess lov', 'Standard dannelsesentalpi', 'Bindingsenergier', 'Kalorimetri'],
       prerequisites: ['kjemi1-6-1'],
       competenceGoals: ['berekne reaksjonsentalpi', 'bruke Hess sin lov', 'relatere reaksjonsentalpi til bindingsenergiar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-6-2-reaksjonsentalpi.png',
     },
     {
       id: 'kjemi1-6-3',
@@ -7537,7 +7537,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsfart', 'Konsentrasjon', 'Temperatur', 'Katalysatorer', 'Overflate', 'Kollisjonsteorien'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['forklare kva som påverkar reaksjonsfart', 'bruke kollisjonsteori til å forklare reaksjonsfart'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-6-3-reaksjonsfart.png',
     },
 
     // Del 7 - Kjemisk likevekt
@@ -7551,7 +7551,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kjemisk likevekt', 'Likevektskonstanten K', 'Dynamisk likevekt', 'Likevektsuttrykk'],
       prerequisites: ['kjemi1-5-2', 'kjemi1-6-3'],
       competenceGoals: ['forklare kva kjemisk likevekt er', 'berekne likevektskonstanten', 'tolke verdien til likevektskonstanten'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-7-1-likevekt-likevektskonstanten.png',
     },
     {
       id: 'kjemi1-7-2',
@@ -7563,7 +7563,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendringer', 'Trykkendringer', 'Temperaturendringer', 'Likevektsforskyvning'],
       prerequisites: ['kjemi1-7-1'],
       competenceGoals: ['bruke Le Chateliers prinsipp til å føreseie likevektsforskyving', 'forklare korleis endringar i konsentrasjon, trykk og temperatur påverkar likevekt'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-7-2-le-chateliers-prinsipp.png',
     },
 
     // Del 8 - Løsninger
@@ -7577,7 +7577,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løsemiddel', 'Løst stoff', 'Hydratisering', 'Polaritet', 'Løsningsprosessen'],
       prerequisites: ['kjemi1-3-3'],
       competenceGoals: ['forklare løysingsprosessen', 'beskrive korleis polaritet påverkar løyseevne'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-8-1-losningsprosessen.png',
     },
     {
       id: 'kjemi1-8-2',
@@ -7589,7 +7589,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løselighet', 'Temperaturavhengighet', 'Mettet løsning', 'Umettet løsning', 'Overmettet løsning'],
       prerequisites: ['kjemi1-8-1'],
       competenceGoals: ['forklare korleis temperatur påverkar løyseevne', 'tolke løyselegheitskurver'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-8-2-loselighet-temperatur.png',
     },
 
     // Del 9 - Syrer og baser
@@ -7602,7 +7602,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Arrhenius', 'Brønsted-Lowry', 'Lewis', 'Protoner', 'Hydroksidioner', 'Konjugerte syrer og baser'],
       competenceGoals: ['forklare ulike definisjonar av syrer og baser', 'identifisere syrer og baser i reaksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-9-1-syrer-baser-definisjoner.png',
     },
     {
       id: 'kjemi1-9-2',
@@ -7614,7 +7614,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['pH', 'pOH', 'Hydroniumioner', 'Sterke syrer', 'Sterke baser', 'pH-beregninger'],
       prerequisites: ['kjemi1-9-1'],
       competenceGoals: ['berekne pH og pOH', 'forklare pH-skalaen', 'gjere pH-berekningar for sterke syrer og baser'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-9-2-ph-sterke-syrer-baser.png',
     },
     {
       id: 'kjemi1-9-3',
@@ -7626,7 +7626,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Svake syrer', 'Svake baser', 'Syrekonstanten Ka', 'Basekonstanten Kb', 'Bufferløsninger'],
       prerequisites: ['kjemi1-7-1', 'kjemi1-9-2'],
       competenceGoals: ['forklare skilnaden mellom sterke og svake syrer/baser', 'berekne pH for svake syrer og baser', 'beskrive korleis bufferløysningar verkar'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-9-3-svake-syrer-baser.png',
     },
     {
       id: 'kjemi1-9-4',
@@ -7638,7 +7638,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Titrering', 'Ekvivalenspunkt', 'Indikator', 'Titreringskurver', 'Syre-base-titrering'],
       prerequisites: ['kjemi1-9-2'],
       competenceGoals: ['forklare prinsippet for titrering', 'berekne konsentrasjon ved hjelp av titrering', 'tolke titreringskurver'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-9-4-titrering.png',
     },
 
     // Del 10 - Organisk kjemi
@@ -7651,7 +7651,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Organiske forbindelser', 'Karbonkjeder', 'Hydrokarboner', 'Alkaner', 'Strukturformler'],
       competenceGoals: ['forklare kva organiske sambindingar er', 'teikne strukturformlar for enkle organiske molekyl'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-10-1-intro-organisk-kjemi.png',
     },
     {
       id: 'kjemi1-10-2',
@@ -7663,7 +7663,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Funksjonelle grupper', 'Alkoholer', 'Aldehyder', 'Ketoner', 'Karboksylsyrer', 'Estere', 'Aminer'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['identifisere funksjonelle grupper', 'namngje organiske sambindingar med funksjonelle grupper', 'forklare eigenskapar til ulike funksjonelle grupper'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-10-2-funksjonelle-grupper.png',
     },
     {
       id: 'kjemi1-10-3',
@@ -7675,7 +7675,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Strukturisomeri', 'Kjedeisomeri', 'Posisjonsisomeri', 'Funksjonell isomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['forklare ulike typar isomeri', 'teikne isomerar for enkle organiske molekyl'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-10-3-isomeri.png',
     },
 
     // Del 11 - Miljøkjemi
@@ -7688,7 +7688,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Vannkvalitet', 'Luftkvalitet', 'Forurensning', 'Drivhuseffekten', 'Ozonlaget', 'Sur nedbør'],
       competenceGoals: ['beskrive kjemiske prosessar som påverkar vatn- og luftkvalitet', 'forklare årsaker til og konsekvensar av forureining'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-11-1-vann-luftkvalitet.png',
     },
     {
       id: 'kjemi1-11-2',
@@ -7699,7 +7699,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Grønn kjemi', 'Bærekraftig kjemi', 'Atomøkonomi', 'Fornybare råvarer', 'Energieffektivitet', 'Avfallsreduksjon'],
       competenceGoals: ['forklare prinsippa for grøn kjemi', 'vurdere kjemiske prosessar ut frå berekraftigheit'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-11-2-gronn-kjemi.png',
     },
 
     // Del 12 - Laboratoriearbeid
@@ -7712,7 +7712,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Laboratoriesikkerhet', 'Verneutstyr', 'Laboratorieutstyr', 'Måleteknikker', 'Sikkerhetsprosedyrer'],
       competenceGoals: ['arbeide trygt i laboratoriet', 'bruke laboratorieutstyr på riktig måte'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-12-1-laboratoriesikkerhet.png',
     },
     {
       id: 'kjemi1-12-2',
@@ -7724,7 +7724,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Måleusikkerhet', 'Systematiske feil', 'Tilfeldige feil', 'Nøyaktighet', 'Presisjon', 'Feilkilder'],
       prerequisites: ['kjemi1-12-1'],
       competenceGoals: ['vurdere måleusikkerheit i forsøk', 'identifisere feilkjelder', 'forklare skilnaden mellom nøyaktigheit og presisjon'],
-      coverImage: 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/kjemi1-12-2-usikkerhet-feilkilder.png',
     },
   ],
 };
