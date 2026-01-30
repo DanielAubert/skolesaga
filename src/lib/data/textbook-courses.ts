@@ -5212,7 +5212,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Tallfølger', 'Eksplisitt formel', 'Rekursiv formel', 'Fibonacci'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-1-folger-og-tallmonstre.png',
     },
     {
       id: 'r2-1-2',
@@ -5224,7 +5224,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Aritmetisk følge', 'Differanse', 'Eksplisitt formel'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-2-aritmetiske-folger.png',
     },
     {
       id: 'r2-1-3',
@@ -5236,7 +5236,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Geometrisk følge', 'Kvotient', 'Eksponentiell vekst'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-3-geometriske-folger.png',
     },
     {
       id: 'r2-1-4',
@@ -5248,7 +5248,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Rekke', 'Sigmanotasjon', 'Delsum', 'Summeformel'],
       prerequisites: ['r2-1-3'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-4-rekker-og-summasjon.png',
     },
     {
       id: 'r2-1-5',
@@ -5260,7 +5260,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Konvergens', 'Divergens', 'Grenseverdi', 'Konvergenskriterier'],
       prerequisites: ['r2-1-4'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-5-uendelige-rekker-og-konvergens.png',
     },
     {
       id: 'r2-1-6',
@@ -5272,7 +5272,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Matematisk induksjon', 'Basisteg', 'Induksjonssteg', 'Bevis'],
       prerequisites: ['r2-1-2', 'r2-1-4'],
       competenceGoals: ['analysere og forstå matematiske bevis og forklare sentrale idear i bevis'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-6-induksjonsbevis.png',
     },
     {
       id: 'r2-1-7',
@@ -5284,7 +5284,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Rekursjon', 'Programmering', 'Python', 'Simulering'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske rekursive samanhengar ved å bruke programmering'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-1-7-rekursive-sammenhenger-og-programmering.png',
     },
 
     // =========================================================================
@@ -5302,7 +5302,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Derivasjon', 'Derivasjonsregler', 'Kjerneregel', 'Produktregel'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-1-repetisjon-av-derivasjon.png',
     },
     {
       id: 'r2-2-2',
@@ -5313,7 +5313,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Antiderivasjon', 'Integrasjonsregler', 'Konstant', 'Potensregel'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-2-ubestemt-integral.png',
     },
     {
       id: 'r2-2-3',
@@ -5325,7 +5325,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Logaritme', 'Eksponentialfunksjon', 'ln x', 'e^x'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-3-integrasjon-av-1x-og-eksponentialfunksjoner.png',
     },
     {
       id: 'r2-2-4',
@@ -5337,7 +5337,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Riemannsum', 'Grenseverdi', 'Øvre sum', 'Nedre sum'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['forklare integralet som grenseverdi av ein sum'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-4-bestemt-integral-som-grenseverdi.png',
     },
     {
       id: 'r2-2-5',
@@ -5349,7 +5349,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Fundamentalsetningen', 'Newton-Leibniz', 'Derivasjon av integral'],
       prerequisites: ['r2-2-4'],
       competenceGoals: ['gjere greie for analysens fundamentalsetning og følgjene av denne'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-5-analysens-fundamentalsetning.png',
     },
     {
       id: 'r2-2-6',
@@ -5361,7 +5361,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Bestemt integral', 'Areal', 'Fortegn', 'Geometrisk tolkning'],
       prerequisites: ['r2-2-5'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-6-areal-under-grafer.png',
     },
     {
       id: 'r2-2-7',
@@ -5373,7 +5373,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Areal mellom kurver', 'Skjæringspunkter', 'Oppdeling'],
       prerequisites: ['r2-2-6'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-2-7-areal-mellom-kurver.png',
     },
 
     // =========================================================================
@@ -5392,7 +5392,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Substitusjon', 'Variabelskifte', 'Kjerneregel baklengs'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-1-variabelskifte-substitusjon.png',
     },
     {
       id: 'r2-3-2',
@@ -5404,7 +5404,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Delvis integrasjon', 'Produktregel baklengs', 'LIATE'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-2-delvis-integrasjon.png',
     },
     {
       id: 'r2-3-3',
@@ -5416,7 +5416,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Delbrøker', 'Rasjonale funksjoner', 'Koeffisientbestemmelse'],
       prerequisites: ['r2-2-3'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-3-delbrokoppspalting.png',
     },
     {
       id: 'r2-3-4',
@@ -5428,7 +5428,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Trapesmetoden', 'Numerisk integrasjon', 'Feilestimater'],
       prerequisites: ['r2-2-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-4-numerisk-integrasjon.png',
     },
     {
       id: 'r2-3-5',
@@ -5440,7 +5440,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Python', 'Programmering', 'Algoritmer', 'Numerisk metode'],
       prerequisites: ['r2-3-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon ved å bruke programmering'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-5-programmering-av-integrasjon.png',
     },
     {
       id: 'r2-3-6',
@@ -5452,7 +5452,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Omdreiningslegeme', 'Volum', 'Skivemetoden', 'Skallmetoden'],
       prerequisites: ['r2-2-6'],
       competenceGoals: ['bruke integrasjon til å rekne ut volum av omdreiningslegeme'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-6-volum-av-omdreiningslegemer.png',
     },
     {
       id: 'r2-3-7',
@@ -5464,7 +5464,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Funksjonsdrøfting', 'Areal', 'Volum', 'Anvendelser'],
       prerequisites: ['r2-2-7', 'r2-3-6'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-3-7-funksjonsdrøfting-med-integrasjon.png',
     },
 
     // =========================================================================
@@ -5481,7 +5481,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Radianer', 'Grader', 'Buelengde', 'Enhetssirkelen'],
       competenceGoals: ['utforske eigenskapar ved radianar'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-1-radianer-og-vinkelmal.png',
 
     },
     {
@@ -5494,7 +5494,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Enhetssirkel', 'Sinus', 'Cosinus', 'Tangens', 'Eksakte verdier'],
       prerequisites: ['r2-4-1'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-2-enhetssirkelen-og-trigonometriske-definisjoner.png',
 
     },
     {
@@ -5507,7 +5507,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Sinuslikning', 'Generell løsning', 'Periodisitet'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-3-sinuslikninger.png',
 
     },
     {
@@ -5520,7 +5520,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Cosinuslikning', 'Generell løsning', 'Symmetri'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-4-cosinuslikninger.png',
 
     },
     {
@@ -5533,7 +5533,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Tangenslikning', 'Generell løsning', 'Periode π'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-5-tangenslikninger.png',
 
     },
     {
@@ -5546,7 +5546,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Addisjonsformler', 'Dobbeltvinkelformler', 'Identiteter'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-6-trigonometriske-formler.png',
 
     },
     {
@@ -5559,7 +5559,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Graf', 'Amplitude', 'Periode', 'Faseforskyvning'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-7-trigonometriske-funksjoner-og-grafer.png',
 
     },
     {
@@ -5572,7 +5572,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Derivasjon', 'sin\'x', 'cos\'x', 'tan\'x', 'Kjerneregel'],
       prerequisites: ['r2-4-7', 'r2-2-1'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-4-8-derivasjon-av-trigonometriske-funksjoner.png',
 
     },
 
@@ -5590,7 +5590,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Romkoordinater', 'Vektor', 'Komponenter', 'Lengde'],
       competenceGoals: ['utforske reknereglar for vektorar i tre dimensjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-1-vektorer-i-tre-dimensjoner.png',
     },
     {
       id: 'r2-5-2',
@@ -5602,7 +5602,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Vektoraddisjon', 'Subtraksjon', 'Skalarmultiplikasjon', 'Avstand'],
       prerequisites: ['r2-5-1'],
       competenceGoals: ['forstå reknereglar for vektorar i tre dimensjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-2-vektorkoordinater-og-regning.png',
     },
     {
       id: 'r2-5-3',
@@ -5614,7 +5614,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Skalarprodukt', 'Prikkprodukt', 'Vinkel', 'Ortogonalitet'],
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-3-skalarproduktet.png',
     },
     {
       id: 'r2-5-4',
@@ -5626,7 +5626,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Kryssprodukt', 'Vektorprodukt', 'Normalvektor', 'Retning'],
       prerequisites: ['r2-5-3'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-4-kryssproduktet.png',
     },
     {
       id: 'r2-5-5',
@@ -5638,7 +5638,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Areal', 'Volum', 'Parallellogram', 'Parallellpipedum'],
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-5-areal-og-volum-med-vektorer.png',
     },
     {
       id: 'r2-5-6',
@@ -5650,7 +5650,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Planlikning', 'Normalvektor', 'Parameterframstilling'],
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-6-ligninger-for-plan.png',
     },
     {
       id: 'r2-5-7',
@@ -5662,7 +5662,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Linje', 'Parameterframstilling', 'Retningsvektor', 'Skjæring'],
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-7-linjer-i-rommet.png',
       wip: true,
     },
     {
@@ -5675,7 +5675,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Avstand', 'Projeksjon', 'Punkt til linje', 'Punkt til plan'],
       prerequisites: ['r2-5-6', 'r2-5-7'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-5-8-avstand-punkt-linje-og-punkt-plan.png',
       wip: true,
     },
 
@@ -5694,7 +5694,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Parameterframstilling', 'Kurve', 'Sirkel', 'Ellipse'],
       competenceGoals: ['bruke parameterframstilling til kurver'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-1-parameterframstilling-av-kurver.png',
 
     },
     {
@@ -5707,7 +5707,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Vektorfunksjon', 'Derivasjon', 'Tangentvektor'],
       prerequisites: ['r2-6-1', 'r2-2-1'],
       competenceGoals: ['bruke parameterframstilling til kurver'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-2-derivasjon-av-vektorfunksjoner.png',
 
     },
     {
@@ -5720,7 +5720,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Hastighet', 'Akselerasjon', 'Fart', 'Bevegelse'],
       prerequisites: ['r2-6-2'],
       competenceGoals: ['løyse realfaglege problem som involverer fart og akselerasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-3-hastighet-og-akselerasjon.png',
 
     },
     {
@@ -5732,7 +5732,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Modellering', 'Funksjonsvalg', 'Validering', 'Tolkning'],
       competenceGoals: ['gi døme på ulike situasjonar som kan modellerast med ulike matematiske funksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-4-matematisk-modellering.png',
 
     },
     {
@@ -5745,7 +5745,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Reelle data', 'Regresjon', 'Analyse', 'Presentasjon'],
       prerequisites: ['r2-6-4'],
       competenceGoals: ['bruke derivasjon og integrasjon til å analysere og tolke eigne matematiske modellar av reelle data'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-5-modellering-med-reelle-data.png',
 
     },
     {
@@ -5757,7 +5757,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Bevis', 'Argumentasjon', 'Logikk', 'Matematisk resonnement'],
       competenceGoals: ['analysere og forstå matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r2-6-6-bevis-og-matematisk-argumentasjon.png',
 
     },
   ],
