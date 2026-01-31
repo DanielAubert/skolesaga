@@ -3428,7 +3428,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Prosent', 'Prosentvis endring', 'Vekstfaktor', 'Rabatt', 'Påslag'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-1-1-prosentregning.png',
       wip: true,
     },
     {
@@ -3440,7 +3440,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vekstfaktor', 'Eksponentiell vekst', 'Forrentning', 'Inflasjon'],
       prerequisites: ['1p-1-1'],
-      coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-1-2-gjentatt-prosentvis-endring.png',
       wip: true,
     },
     {
@@ -3452,7 +3452,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Budsjett', 'Inntekt', 'Utgift', 'Overskudd', 'Underskudd'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-1-3-budsjett-og-regnskap.png',
       wip: true,
     },
     {
@@ -3464,7 +3464,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Brøk', 'Forkorting', 'Utviding', 'Regnearter med brøk', 'Desimaltall'],
       competenceGoals: ['rekne med brøk og sjå samanhengen mellom brøk, prosent og desimaltal'],
-      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-1-4-brokregning.png',
     },
     {
       id: '1p-1-5',
@@ -3475,7 +3475,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Regnerekkefølge', 'Parenteser', 'Overslagsregning', 'Hoderegning'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og digital rekning'],
-      coverImage: 'https://images.unsplash.com/photo-1554224154-26032ffc0d07?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-1-5-regnerekkefolge-og-overslagsregning.png',
     },
 
     // Kapittel 2: Algebra og likninger
@@ -3487,7 +3487,7 @@ export const COURSE_1P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 14,
       topics: ['Rasjonale tall', 'Brøk', 'Desimaltall', 'Prosent', 'Overslag'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-1-tall-og-tallforstaelse.png',
       wip: true,
     },
     {
@@ -3499,7 +3499,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Forholdstall', 'Skala', 'Kart', 'Modeller', 'Blandingsforhold'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-2-forholdstall-og-skala.png',
       wip: true,
     },
     {
@@ -3511,7 +3511,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Førstegradslikning', 'Praktiske problemer', 'Modellering'],
       competenceGoals: ['modellere og løyse praktiske problem ved å setje opp enkle likningar'],
-      coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-3-likninger-i-praksis.png',
       wip: true,
     },
     {
@@ -3523,7 +3523,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Potenser', 'Potensregler', 'Multiplikasjon av potenser', 'Divisjon av potenser'],
       competenceGoals: ['bruke potensrekneregler'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-4-potenser-og-potensregler.png',
     },
     {
       id: '1p-2-5',
@@ -3534,7 +3534,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Kvadratrot', 'Tredjerot', 'Standardform', 'Store tall', 'Små tall'],
       competenceGoals: ['bruke standardform til å uttrykkje store og små tal'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-5-rotter-og-standardform.png',
     },
     {
       id: '1p-2-6',
@@ -3545,7 +3545,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Forholdstall', 'Proporsjonalitet', 'Omvendt proporsjonalitet', 'Kryssregning'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: 'https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-2-6-proporsjonalitet.png',
     },
 
     // Kapittel 3: Funksjoner
@@ -3558,7 +3558,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineær funksjon', 'Stigningstall', 'Konstantledd', 'Grafisk fremstilling'],
       competenceGoals: ['utforske og beskrive lineære funksjonar i praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-1-lineaere-funksjoner.png',
       wip: true,
     },
     {
@@ -3570,7 +3570,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Modellering', 'Tilpasning', 'Tolkning', 'Praktiske problemer'],
       prerequisites: ['1p-3-1'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-2-lineaer-modellering.png',
       wip: true,
     },
     {
@@ -3582,7 +3582,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentialfunksjon', 'Vekst', 'Nedgang', 'Halveringstid', 'Doblingtid'],
       prerequisites: ['1p-1-2'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-3-eksponentialfunksjoner.png',
       wip: true,
     },
     {
@@ -3594,7 +3594,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Andregradsfunksjon', 'Parabel', 'Toppunkt', 'Bunnpunkt', 'Nullpunkter'],
       competenceGoals: ['utforske eigenskapane til andregradsfunksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-4-andregradsfunksjoner.png',
     },
     {
       id: '1p-3-5',
@@ -3605,7 +3605,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Doblingstid', 'Halveringstid'],
       competenceGoals: ['utforske eigenskapane til eksponentialfunksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-5-eksponentialfunksjoner.png',
     },
     {
       id: '1p-3-6',
@@ -3616,7 +3616,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Digital graftegning', 'GeoGebra', 'Nullpunkter', 'Skjæringspunkter', 'Grafisk løsning'],
       competenceGoals: ['bruke digitale verktøy i utforsking og problemløysing'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-3-6-digital-graftegning-og-likningslosning.png',
     },
 
     // Kapittel 4: Geometri og måling
@@ -3628,7 +3628,7 @@ export const COURSE_1P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 14,
       topics: ['Målestokk', 'Enheter', 'Omregning', 'Praktisk måling'],
-      coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-4-1-malestokk-og-enheter.png',
       wip: true,
     },
     {
@@ -3640,7 +3640,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Areal', 'Omkrets', 'Sammensatte figurer', 'Praktiske beregninger'],
       competenceGoals: ['bruke geometriske omgrep i praktiske samanhengar'],
-      coverImage: 'https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-4-2-areal-og-omkrets.png',
       wip: true,
     },
     {
@@ -3652,7 +3652,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Volum', 'Overflate', 'Sylinder', 'Prisme', 'Kjegle', 'Kule'],
       prerequisites: ['1p-4-2'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-4-3-volum-og-overflate.png',
       wip: true,
     },
     {
@@ -3664,7 +3664,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['SI-systemet', 'Prefikser', 'Enhetsomregning', 'Lengde', 'Areal', 'Volum', 'Fart'],
       competenceGoals: ['velje høvelege einingar og rekne om mellom einingar'],
-      coverImage: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-4-4-maleenheter-og-enhetsomregning.png',
     },
     {
       id: '1p-4-5',
@@ -3675,7 +3675,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Formlikhet', 'Formlikhetsfaktor', 'Målestokk', 'Areal og formlikhet', 'Volum og formlikhet'],
       competenceGoals: ['bruke formlikskap og målestokk til berekningar'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-4-5-formlikhet.png',
     },
 
     // Kapittel 5: Statistikk
@@ -3688,7 +3688,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Datainnsamling', 'Utvalg', 'Populasjon', 'Feilkilder', 'Spørreskjema'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-5-1-datainnsamling.png',
       wip: true,
     },
     {
@@ -3700,7 +3700,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Variasjonsbredde', 'Standardavvik'],
       prerequisites: ['1p-5-1'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-5-2-sentralmal-og-spredning.png',
       wip: true,
     },
     {
@@ -3713,7 +3713,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Søylediagram', 'Sektordiagram', 'Linjediagram', 'Histogram', 'Boksplot'],
       prerequisites: ['1p-5-2'],
       competenceGoals: ['presentere og tolke statistiske data'],
-      coverImage: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-5-3-diagrammer-og-presentasjon.png',
       wip: true,
     },
     {
@@ -3725,7 +3725,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Kritisk vurdering', 'Feilkilder', 'Manipulering', 'Representativitet'],
       prerequisites: ['1p-5-3'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-5-4-kritisk-analyse.png',
       wip: true,
     },
 
@@ -3739,7 +3739,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sannsynlighet', 'Gunstige utfall', 'Mulige utfall', 'Relativ frekvens'],
       competenceGoals: ['bruke sannsynligheit i praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-6-1-grunnleggende-sannsynlighet.png',
       wip: true,
     },
     {
@@ -3751,7 +3751,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sammensatte hendelser', 'Og-sannsynlighet', 'Eller-sannsynlighet', 'Tredjagram'],
       prerequisites: ['1p-6-1'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.png',
       wip: true,
     },
     {
@@ -3764,7 +3764,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Simulering', 'Tilfeldighet', 'Store talls lov', 'Digitale verktøy'],
       prerequisites: ['1p-6-2'],
       competenceGoals: ['bruke digitale verktøy til å simulere og berekne sannsyn'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-6-3-simulering.png',
       wip: true,
     },
 
@@ -3778,7 +3778,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Lineær regresjon', 'Korrelasjonskoeffisient', 'Prediksjon', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne lineære modellar som passar til datamateriale'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-7-3-lineaer-regresjon.png',
     },
     {
       id: '1p-7-4',
@@ -3789,7 +3789,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Eksponentialregresjon', 'Eksponentiell vekst', 'Modellvalg', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne eksponentielle modellar som passar til datamateriale'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-7-4-eksponentialregresjon.png',
     },
     {
       id: '1p-7-5',
@@ -3800,7 +3800,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Definisjonsmengde', 'Verdimengde', 'Nullpunkter', 'Topp- og bunnpunkt', 'Vekstfart', 'Symmetri'],
       competenceGoals: ['tolke og bruke funksjonar og drøfte eigenskapane deira'],
-      coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-7-5-kjennetegn-ved-funksjoner.png',
     },
 
     // Kapittel 8: Personlig økonomi
@@ -3813,7 +3813,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Bruttolønn', 'Nettolønn', 'Skattetrekk', 'Trinnskatt', 'Trygdeavgift', 'Feriepenger'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-8-3-lonn-og-skatt.png',
     },
     {
       id: '1p-8-4',
@@ -3824,7 +3824,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Merverdiavgift', 'MVA-satser', 'Valutakurs', 'Veksling', 'Utenlandshandel'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-8-4-mva-og-valuta.png',
     },
     {
       id: '1p-8-5',
@@ -3835,7 +3835,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Konsumprisindeks', 'KPI', 'Reallønn', 'Kroneverdi', 'Prissammenligning'],
       competenceGoals: ['bruke indeks til å samanlikne tal over tid'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-8-5-indeks-og-kroneverdi.png',
     },
 
     // Kapittel 9: Algoritmisk tenkning og programmering
@@ -3848,7 +3848,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Algoritme', 'Flytskjema', 'Pseudokode', 'Steg-for-steg'],
       competenceGoals: ['formulere og løyse problem ved hjelp av algoritmisk tenking'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-9-1-hva-er-en-algoritme.png',
     },
     {
       id: '1p-9-2',
@@ -3860,7 +3860,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Python', 'Variabler', 'Datatyper', 'Betingelser', 'Løkker', 'Funksjoner'],
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar'],
       prerequisites: ['1p-9-1'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-9-2-programmering-med-python.png',
     },
     {
       id: '1p-9-3',
@@ -3872,7 +3872,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Renter og sparing', 'Simulering', 'Likningsløsning', 'Statistikk', 'Python'],
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar', 'bruke digitale verktøy i utforsking og problemløysing'],
       prerequisites: ['1p-9-2'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1p-9-3-matematikk-med-programmering.png',
     },
   ],
 };
@@ -4423,7 +4423,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Inntekt', 'Utgifter', 'Budsjett', 'Regnskap', 'Likviditet'],
       competenceGoals: ['planleggje og gjere greie for eigen økonomi'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-1-1-personlig-okonomi.png',
       wip: true,
     },
     {
@@ -4436,7 +4436,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Annuitetslån', 'Serielån', 'Effektiv rente', 'Sparing', 'Rentes rente'],
       prerequisites: ['2p-1-1'],
       competenceGoals: ['rekne med og samanlikne ulike typar lån og spareformer'],
-      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-1-2-lan-og-sparing.png',
       wip: true,
     },
     {
@@ -4448,7 +4448,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Inntektsskatt', 'Trinnskatt', 'Merverdiavgift', 'Særavgifter', 'Skatteberegning'],
       competenceGoals: ['rekne med skattar og avgifter'],
-      coverImage: 'https://images.unsplash.com/photo-1554224154-22dec7ec8818?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-1-3-skatt-og-avgifter.png',
       wip: true,
     },
     {
@@ -4461,7 +4461,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Faste kostnader', 'Variable kostnader', 'Inntekter', 'Resultat', 'Nullpunkt'],
       prerequisites: ['2p-1-1'],
       competenceGoals: ['bruke matematikk til å analysere økonomiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-1-4-bedriftsokonomi.png',
       wip: true,
     },
     // Seksjon 2: Funksjoner i praksis
@@ -4474,7 +4474,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineære funksjoner', 'Stigningstall', 'Konstantledd', 'Modellering'],
       competenceGoals: ['bruke lineære funksjonar til å beskrive praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-2-1-lineaere-modeller.png',
       wip: true,
     },
     {
@@ -4486,7 +4486,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor', 'Halveringstid'],
       competenceGoals: ['bruke eksponentielle funksjonar til å beskrive praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-2-2-eksponentielle-modeller.png',
       wip: true,
     },
     {
@@ -4499,7 +4499,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Lineær regresjon', 'Eksponentiell regresjon', 'Korrelasjon', 'Modellvalg'],
       prerequisites: ['2p-2-1', '2p-2-2'],
       competenceGoals: ['bruke digitale verktøy til å tilpasse funksjonar til data'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-2-3-regresjon.png',
       wip: true,
     },
     // Seksjon 3: Statistikk
@@ -4512,7 +4512,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Standardavvik', 'Variasjonsbredde'],
       competenceGoals: ['samle inn, analysere og presentere data'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-3-1-beskrivende-statistikk.png',
       wip: true,
     },
     {
@@ -4525,7 +4525,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Normalfordeling', 'Standardavvik', 'Empirisk regel', 'Z-skår'],
       prerequisites: ['2p-3-1'],
       competenceGoals: ['bruke normalfordelinga i statistiske analysar'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-3-2-normalfordeling.png',
       wip: true,
     },
     {
@@ -4537,7 +4537,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Kritisk analyse', 'Feilkilder', 'Manipulering', 'Statistisk signifikans'],
       competenceGoals: ['vurdere statistiske framstillingar kritisk'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-3-3-statistisk-analyse.png',
       wip: true,
     },
     // Seksjon 4: Sannsynlighet
@@ -4550,7 +4550,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Utfallsrom', 'Hendelser', 'Addisjonssetningen', 'Multiplikasjonssetningen'],
       competenceGoals: ['rekne med sannsyn i praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-4-1-sannsynlighetsregning.png',
       wip: true,
     },
     {
@@ -4563,7 +4563,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Bayes setning', 'Treediagram'],
       prerequisites: ['2p-4-1'],
       competenceGoals: ['bruke omgrepet betinga sannsyn'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-4-2-betinget-sannsynlighet.png',
       wip: true,
     },
     {
@@ -4576,7 +4576,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Binomiske forsøk', 'Binomisk formel', 'Forventningsverdi', 'Standardavvik'],
       prerequisites: ['2p-4-1'],
       competenceGoals: ['bruke binomisk sannsynsmodell'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-4-3-binomisk-sannsynlighet.png',
       wip: true,
     },
     // Seksjon 5: Geometri i praksis
@@ -4589,7 +4589,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Areal', 'Volum', 'Overflate', 'Sammensatte figurer'],
       competenceGoals: ['rekne med areal, volum og overflate i praktiske situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-5-1-praktisk-geometri.png',
       wip: true,
     },
     {
@@ -4601,7 +4601,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sinus', 'Cosinus', 'Tangens', 'Praktiske oppgaver', 'Landmåling'],
       competenceGoals: ['bruke trigonometri til å løyse praktiske problem'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-5-2-trigonometri-i-praksis.png',
       wip: true,
     },
     // Seksjon 6: Modellering
@@ -4614,7 +4614,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Modellbygging', 'Forutsetninger', 'Validering', 'Tolkning'],
       competenceGoals: ['lage og bruke matematiske modellar'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-6-1-matematisk-modellering.png',
       wip: true,
     },
     {
@@ -4626,7 +4626,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Regneark', 'GeoGebra', 'Dataanalyse', 'Visualisering'],
       competenceGoals: ['bruke digitale verktøy til å løyse problem'],
-      coverImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/2p-6-2-digitale-verktoy.png',
       wip: true,
     },
   ],
