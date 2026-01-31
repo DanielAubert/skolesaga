@@ -1532,7 +1532,7 @@ Diktet kritiserer passivitet overfor urettferdighet. Øverland utfordrer leseren
 export const CHAPTER_NORSK_VG1_3_1: TextbookChapter = {
   id: 'norsk-vg1-3-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '3.1',
+  chapterNumber: '5.1',
   title: 'Muntlig kommunikasjon',
   description: 'Utvikle ferdigheter i muntlig presentasjon og diskusjon.',
   estimatedMinutes: 45,
@@ -1866,7 +1866,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
 export const CHAPTER_NORSK_VG1_3_2: TextbookChapter = {
   id: 'norsk-vg1-3-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '3.2',
+  chapterNumber: '5.2',
   title: 'Kreativ skriving',
   description: 'Utvikle ferdigheter i kreativ og skjønnlitterær skriving.',
   estimatedMinutes: 55,

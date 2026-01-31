@@ -387,7 +387,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
 export const CHAPTER_NORSK_VG1_4_2: TextbookChapter = {
   id: 'norsk-vg1-4-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '4.2',
+  chapterNumber: '6.1',
   title: 'Digitale tekster og medier',
   description: 'Analyser og produser tekster i digitale medier.',
   estimatedMinutes: 50,
@@ -712,7 +712,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
 export const CHAPTER_NORSK_VG1_5_1: TextbookChapter = {
   id: 'norsk-vg1-5-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '5.1',
+  chapterNumber: '3.1',
   title: 'Litteraturhistorie - fra norrøn tid til romantikken',
   description: 'Få oversikt over norsk og europeisk litteraturhistorie frem til romantikken.',
   estimatedMinutes: 60,
@@ -1182,7 +1182,7 @@ Litteraturhistorien er historien om hvordan mennesker gjennom alle tider har utt
 export const CHAPTER_NORSK_VG1_5_2: TextbookChapter = {
   id: 'norsk-vg1-5-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '5.2',
+  chapterNumber: '5.3',
   title: 'Skriving av fagartikkel',
   description: 'Lær å skrive fagartikler med god struktur og kildebruk.',
   estimatedMinutes: 55,
@@ -1544,7 +1544,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 export const CHAPTER_NORSK_VG1_6_1: TextbookChapter = {
   id: 'norsk-vg1-6-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '6.1',
+  chapterNumber: '4.2',
   title: 'Norsk språkhistorie',
   description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.',
   estimatedMinutes: 55,
@@ -1904,7 +1904,7 @@ Etter 1814 ble spørsmålet om et eget norsk skriftspråk sentralt.
 export const CHAPTER_NORSK_VG1_6_2: TextbookChapter = {
   id: 'norsk-vg1-6-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '6.2',
+  chapterNumber: '4.3',
   title: 'Nynorsk og bokmål',
   description: 'Forstå forskjellene mellom målformene og mestre grunnleggende nynorsk.',
   estimatedMinutes: 50,
@@ -2293,7 +2293,7 @@ Samsvarsbøying i nynorsk:
 export const CHAPTER_NORSK_VG1_7_1: TextbookChapter = {
   id: 'norsk-vg1-7-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '7.1',
+  chapterNumber: '4.4',
   title: 'Språkmangfold i Norge',
   description: 'Utforsk dialekter, sosiolekter og minoritetsspråk i det norske samfunnet.',
   estimatedMinutes: 50,
@@ -2618,7 +2618,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
 export const CHAPTER_NORSK_VG1_7_2: TextbookChapter = {
   id: 'norsk-vg1-7-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '7.2',
+  chapterNumber: '4.5',
   title: 'Språk i endring',
   description: 'Forstå hvordan og hvorfor språk endrer seg over tid.',
   estimatedMinutes: 45,

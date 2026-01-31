@@ -39,7 +39,7 @@ import {
 export const CHAPTER_NORSK_VG1_8_1: TextbookChapter = {
   id: 'norsk-vg1-8-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '8.1',
+  chapterNumber: '1.3',
   title: 'Debattinnlegg og meningsytring',
   description: 'Lær å skrive effektive debattinnlegg og delta i offentlig debatt.',
   estimatedMinutes: 50,
@@ -362,7 +362,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
 export const CHAPTER_NORSK_VG1_8_2: TextbookChapter = {
   id: 'norsk-vg1-8-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '8.2',
+  chapterNumber: '1.4',
   title: 'Essay og kaseri',
   description: 'Lær om essay og kaseri som sjangre, og skriv egne tekster i disse formene.',
   estimatedMinutes: 55,
@@ -745,7 +745,7 @@ Et kaseri er en humoristisk, lettsindig tekst med muntlig preg. Kaseriet underho
 export const CHAPTER_NORSK_VG1_9_1: TextbookChapter = {
   id: 'norsk-vg1-9-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '9.1',
+  chapterNumber: '2.3',
   title: 'Drama og teater',
   description: 'Lær om dramaet som litterær sjanger og teatrets virkemidler.',
   estimatedMinutes: 55,
@@ -1121,7 +1121,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
 export const CHAPTER_NORSK_VG1_9_2: TextbookChapter = {
   id: 'norsk-vg1-9-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '9.2',
+  chapterNumber: '2.4',
   title: 'Henrik Ibsen',
   description: 'Lær om Norges mest kjente dramatiker og hans betydning for verdenslitteraturen.',
   estimatedMinutes: 60,
@@ -1365,7 +1365,7 @@ Scenen har blitt tolket som feministisk manifest, som kritikk av borgerlig hykle
 export const CHAPTER_NORSK_VG1_10_1: TextbookChapter = {
   id: 'norsk-vg1-10-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '10.1',
+  chapterNumber: '3.2',
   title: 'Romantikken i Norge',
   description: 'Lær om romantikken som litterær epoke og dens betydning for norsk nasjonalidentitet.',
   estimatedMinutes: 55,
@@ -1610,7 +1610,7 @@ Diktet viser typisk romantisk selvforståelse der dikteren ser seg selv som bær
 export const CHAPTER_NORSK_VG1_10_2: TextbookChapter = {
   id: 'norsk-vg1-10-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '10.2',
+  chapterNumber: '3.3',
   title: 'Realisme og naturalisme',
   description: 'Lær om realismen og naturalismen som litterære retninger med fokus på virkelighetsskildring og samfunnskritikk.',
   estimatedMinutes: 55,
@@ -1862,7 +1862,7 @@ I "Constance Ring" skildrer Skram en kvinne fanget i et ulykkelig ekteskap. Cons
 export const CHAPTER_NORSK_VG1_11_1: TextbookChapter = {
   id: 'norsk-vg1-11-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '11.1',
+  chapterNumber: '3.4',
   title: 'Nyrealisme og modernisme',
   description: 'Lær om overgangen fra realisme til nyrealisme og tidlig modernisme i norsk litteratur (ca. 1890-1940).',
   estimatedMinutes: 55,
@@ -2123,7 +2123,7 @@ Sigrid Undset mottok Nobelprisen i litteratur i 1928.
 export const CHAPTER_NORSK_VG1_11_2: TextbookChapter = {
   id: 'norsk-vg1-11-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '11.2',
+  chapterNumber: '3.5',
   title: 'Lyrikk - fra romantikk til modernisme',
   description: 'Lær om utviklingen i norsk lyrikk fra romantikken til modernismen, med fokus på sentrale lyrikere og diktanalyse.',
   estimatedMinutes: 55,

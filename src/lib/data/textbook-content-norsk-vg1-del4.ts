@@ -15,7 +15,7 @@ import {
 export const CHAPTER_NORSK_VG1_12_1: TextbookChapter = {
   id: 'norsk-vg1-12-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '12.1',
+  chapterNumber: '6.2',
   title: 'Sammensatte tekster',
   description: 'Lær å analysere multimodale tekster som kombinerer ulike uttrykksformer som tekst, bilde og lyd.',
   estimatedMinutes: 50,
@@ -466,7 +466,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
 export const CHAPTER_NORSK_VG1_12_2: TextbookChapter = {
   id: 'norsk-vg1-12-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '12.2',
+  chapterNumber: '6.3',
   title: 'Film som tekst',
   description: 'Lær å analysere film med fokus på filmspråk, virkemidler og adaptasjon av litteratur.',
   estimatedMinutes: 55,
@@ -979,7 +979,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
 export const CHAPTER_NORSK_VG1_13_1: TextbookChapter = {
   id: 'norsk-vg1-13-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '13.1',
+  chapterNumber: '5.4',
   title: 'Skriving - prosess og teknikker',
   description: 'Lær om skriveprosessen og teknikker for å bli en bedre skribent.',
   estimatedMinutes: 50,
@@ -1493,7 +1493,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 export const CHAPTER_NORSK_VG1_14_1: TextbookChapter = {
   id: 'norsk-vg1-14-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '14.1',
+  chapterNumber: '7.1',
   title: 'De samiske språkene i Norge',
   description: 'Lær om de samiske språkene, deres utbredelse og status i Norge.',
   estimatedMinutes: 50,
@@ -1957,7 +1957,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
 export const CHAPTER_NORSK_VG1_14_2: TextbookChapter = {
   id: 'norsk-vg1-14-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '14.2',
+  chapterNumber: '7.2',
   title: 'Fornorskingspolitikken',
   description: 'Lær om den norske statens assimileringspolitikk overfor samer og kvener.',
   estimatedMinutes: 55,
@@ -2435,7 +2435,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
 export const CHAPTER_NORSK_VG1_14_3: TextbookChapter = {
   id: 'norsk-vg1-14-3',
   courseId: 'norsk-vg1',
-  chapterNumber: '14.3',
+  chapterNumber: '7.3',
   title: 'Samiske språklige rettigheter',
   description: 'Lær om lover og rettigheter som beskytter samisk språk i dag.',
   estimatedMinutes: 45,

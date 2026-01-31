@@ -18,7 +18,7 @@ import {
 export const CHAPTER_NORSK_VG1_15_1: TextbookChapter = {
   id: 'norsk-vg1-15-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '15.1',
+  chapterNumber: '8.1',
   title: 'Setningsanalyse',
   description: 'Lær å analysere setninger og identifisere setningsledd.',
   estimatedMinutes: 55,
@@ -564,7 +564,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
 export const CHAPTER_NORSK_VG1_15_2: TextbookChapter = {
   id: 'norsk-vg1-15-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '15.2',
+  chapterNumber: '8.2',
   title: 'Tekstbinding',
   description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.',
   estimatedMinutes: 50,
@@ -1057,7 +1057,7 @@ Avsnittet har god tekstbinding:
 export const CHAPTER_NORSK_VG1_16_1: TextbookChapter = {
   id: 'norsk-vg1-16-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '16.1',
+  chapterNumber: '8.3',
   title: 'Rettskriving bokmål',
   description: 'Lær regler for rettskriving på bokmål med fokus på vanlige feil.',
   estimatedMinutes: 50,
@@ -1560,7 +1560,7 @@ Komma brukes IKKE:
 export const CHAPTER_NORSK_VG1_16_2: TextbookChapter = {
   id: 'norsk-vg1-16-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '16.2',
+  chapterNumber: '8.4',
   title: 'Rettskriving nynorsk',
   description: 'Lær nynorskens særtrekk og unngå vanlige bokmålsfeil på nynorsk.',
   estimatedMinutes: 55,
@@ -2077,7 +2077,7 @@ Velg former og hold deg til dem gjennom hele teksten.`,
 export const CHAPTER_NORSK_VG1_17_1: TextbookChapter = {
   id: 'norsk-vg1-17-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '17.1',
+  chapterNumber: '3.6',
   title: 'Flerkulturell litteratur',
   description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.',
   estimatedMinutes: 55,
@@ -2528,7 +2528,7 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
 export const CHAPTER_NORSK_VG1_17_2: TextbookChapter = {
   id: 'norsk-vg1-17-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '17.2',
+  chapterNumber: '3.7',
   title: 'Postkolonial lesning',
   description: 'Lær å lese tekster med et kulturkritisk blikk.',
   estimatedMinutes: 50,

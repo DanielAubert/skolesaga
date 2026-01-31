@@ -4643,6 +4643,7 @@ export const COURSE_2PY: TextbookCourse = {
   description: 'Praktisk matematikk for yrkesfaglige utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔧',
+  coverImage: '/images/subjects/matematikk-2py-hero.png',
   chapters: [
     // Seksjon 1: Økonomi i hverdagen
     {
@@ -12759,6 +12760,7 @@ export const COURSE_RELIGION_ETIKK: TextbookCourse = {
   description: 'Religion og etikk - verdensreligioner, etiske teorier, livssyn og menneskerettigheter',
   curriculum: 'LK20',
   icon: '🕊️',
+  coverImage: '/images/subjects/religion-etikk-hero.png',
   chapters: [
     { id: 'religion-etikk-1', number: '1', title: 'Religionsvitenskap - metode og begreper', description: 'Lær om religionsvitenskapelig metode.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Metode', 'Begreper', 'Definisjoner'], competenceGoals: ['bruke fagbegreper til å analysere religioner'] },
     { id: 'religion-etikk-2', number: '2', title: 'Kristendommens historie og mangfold', description: 'Utforsk kristendommens utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Urkirken', 'Reformasjonen', 'Katolsk', 'Protestant', 'Ortodoks'], competenceGoals: ['gjøre rede for kristendommens mangfold'] },
@@ -12810,6 +12812,7 @@ export const COURSE_IT_1: TextbookCourse = {
   description: 'Informasjonsteknologi 1 - grunnleggende programmering, webutvikling og datasikkerhet',
   curriculum: 'LK20',
   icon: '💻',
+  coverImage: '/images/subjects/it-1-hero.png',
   chapters: [
     { id: 'it-1-1', number: '1', title: 'Introduksjon til IT', description: 'Digital kompetanse og IT i samfunnet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Digitalisering', 'IT-historie'], competenceGoals: ['beskrive IT i samfunnet'] },
     { id: 'it-1-2', number: '2', title: 'Grunnleggende programmering', description: 'Variabler, datatyper og kontrollstrukturer.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Variabler', 'If-setninger', 'Løkker'], competenceGoals: ['programmere med variabler og kontrollstrukturer'] },
@@ -12835,6 +12838,7 @@ export const COURSE_IT_2: TextbookCourse = {
   description: 'Informasjonsteknologi 2 - avansert programmering, algoritmer og systemutvikling',
   curriculum: 'LK20',
   icon: '🖥️',
+  coverImage: '/images/subjects/it-2-hero.png',
   chapters: [
     { id: 'it-2-1', number: '1', title: 'Objektorientert programmering', description: 'Klasser, objekter og arv.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Klasser', 'Objekter', 'Arv'], competenceGoals: ['programmere objektorientert'] },
     { id: 'it-2-2', number: '2', title: 'Algoritmer', description: 'Algoritmisk tenkning og effektivitet.', estimatedMinutes: 80, exerciseCount: 6, topics: ['Algoritmer', 'Kompleksitet', 'Søking', 'Sortering'], competenceGoals: ['analysere og implementere algoritmer'] },
@@ -12912,6 +12916,7 @@ export const COURSE_PSYKOLOGI_1: TextbookCourse = {
   description: 'Psykologi 1 - grunnleggende psykologi, læring, utvikling og sosialpsykologi',
   curriculum: 'LK20',
   icon: '🧠',
+  coverImage: '/images/subjects/psykologi-1-hero.png',
   chapters: [
     { id: 'psykologi-1-1', number: '1', title: 'Hva er psykologi?', description: 'Psykologiens historie og perspektiver.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Psykologihistorie', 'Perspektiver'], competenceGoals: ['gjøre rede for psykologi som fag'] },
     { id: 'psykologi-1-2', number: '2', title: 'Biologisk psykologi', description: 'Hjernen og nervesystemet.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Hjerne', 'Nevroner', 'Transmittere'], competenceGoals: ['forklare biologisk grunnlag'] },
@@ -12937,6 +12942,7 @@ export const COURSE_PSYKOLOGI_2: TextbookCourse = {
   description: 'Psykologi 2 - avansert psykologi, kommunikasjon og helsepsykologi',
   curriculum: 'LK20',
   icon: '💭',
+  coverImage: '/images/subjects/psykologi-2-hero.png',
   chapters: [
     { id: 'psykologi-2-1', number: '1', title: 'Kommunikasjon og språk', description: 'Verbal og nonverbal kommunikasjon.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Kommunikasjon', 'Språk', 'Nonverbal'], competenceGoals: ['analysere kommunikasjon'] },
     { id: 'psykologi-2-2', number: '2', title: 'Helsepsykologi', description: 'Psykologi og fysisk helse.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Stress', 'Helse', 'Livsstil'], competenceGoals: ['drøfte helseatferd'] },
@@ -13014,6 +13020,7 @@ export const COURSE_TOF_1: TextbookCourse = {
   description: 'ToF 1 - vitenskapelig metode, elektronikk, programmering og innovasjon',
   curriculum: 'LK20',
   icon: '⚙️',
+  coverImage: '/images/subjects/tof-1-hero.png',
   chapters: [
     { id: 'tof-1-1', number: '1', title: 'Vitenskapelig metode', description: 'Forskningsprosessen.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Metode', 'Hypotese', 'Validitet'], competenceGoals: ['gjøre rede for vitenskapelig metode'] },
     { id: 'tof-1-2', number: '2', title: 'Datainnsamling og analyse', description: 'Statistikk og databehandling.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Data', 'Statistikk', 'Analyse'], competenceGoals: ['samle inn og analysere data'] },
@@ -13039,6 +13046,7 @@ export const COURSE_TOF_2: TextbookCourse = {
   description: 'ToF 2 - avansert forskning, nanoteknologi, AI og robotikk',
   curriculum: 'LK20',
   icon: '🔧',
+  coverImage: '/images/subjects/tof-2-hero.png',
   chapters: [
     { id: 'tof-2-1', number: '1', title: 'Avansert forskningsdesign', description: 'Komplekse undersøkelser.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Forskningsdesign', 'Validitet'], competenceGoals: ['designe forskningsprosjekter'] },
     { id: 'tof-2-2', number: '2', title: 'Statistisk analyse', description: 'Hypotesetesting.', estimatedMinutes: 85, exerciseCount: 6, topics: ['Statistikk', 'Hypotesetesting', 'P-verdi'], competenceGoals: ['analysere data statistisk'] },
@@ -13064,6 +13072,7 @@ export const COURSE_SOSIOLOGI: TextbookCourse = {
   description: 'Sosiologi - kultur, samfunn, sosial ulikhet og metode',
   curriculum: 'LK20',
   icon: '👥',
+  coverImage: '/images/subjects/sosiologi-hero.png',
   chapters: [
     { id: 'sosiologi-1', number: '1', title: 'Hva er sosiologi og sosialantropologi?', description: 'Fagenes grunnlag.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Sosiologi', 'Antropologi', 'Perspektiver'], competenceGoals: ['gjøre rede for fagene'] },
     { id: 'sosiologi-2', number: '2', title: 'Sosialisering og identitet', description: 'Sosialiseringsprosessen.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Sosialisering', 'Identitet', 'Aktører'], competenceGoals: ['forklare sosialisering'] },
@@ -13089,6 +13098,7 @@ export const COURSE_RETTSLAERE_1: TextbookCourse = {
   description: 'Rettslære 1 - rettssystemet, avtalerett, forbrukerrett og strafferett',
   curriculum: 'LK20',
   icon: '⚖️',
+  coverImage: '/images/subjects/rettslaere-1-hero.png',
   chapters: [
     { id: 'rettslaere-1-1', number: '1', title: 'Rettssystemets oppbygging', description: 'Domstolene og rettsprosessen.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Rettssystem', 'Domstoler', 'Prosess'], competenceGoals: ['gjøre rede for rettssystemet'] },
     { id: 'rettslaere-1-2', number: '2', title: 'Rettskilder og lovtolkning', description: 'Juridisk metode.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Rettskilder', 'Lovtolkning', 'Forarbeider'], competenceGoals: ['anvende lovtolkning'] },
@@ -13114,6 +13124,7 @@ export const COURSE_RETTSLAERE_2: TextbookCourse = {
   description: 'Rettslære 2 - fordypning i strafferett, internasjonal rett og selskapsrett',
   curriculum: 'LK20',
   icon: '🔨',
+  coverImage: '/images/subjects/rettslaere-2-hero.png',
   chapters: [
     { id: 'rettslaere-2-1', number: '1', title: 'Fordypning i strafferett', description: 'Avansert strafferett.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Strafferett', 'Straffutmåling', 'Straffereaksjoner'], competenceGoals: ['analysere straffesaker'] },
     { id: 'rettslaere-2-2', number: '2', title: 'Økonomisk kriminalitet', description: 'Hvitvasking og skatt.', estimatedMinutes: 80, exerciseCount: 6, topics: ['Hvitvasking', 'Skatteunndragelse', 'Bedrageri'], competenceGoals: ['identifisere økonomisk kriminalitet'] },
@@ -13139,6 +13150,7 @@ export const COURSE_OKONOMISTYRING: TextbookCourse = {
   description: 'Økonomistyring - regnskap, budsjettering, kalkyler og personlig økonomi',
   curriculum: 'LK20',
   icon: '📊',
+  coverImage: '/images/subjects/okonomistyring-hero.png',
   chapters: [
     { id: 'okonomistyring-1', number: '1', title: 'Innføring i økonomi', description: 'Grunnleggende regnskapsbegreper.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regnskap', 'Begreper', 'Bilag'], competenceGoals: ['forstå regnskapsprinsipper'] },
     { id: 'okonomistyring-2', number: '2', title: 'Balanse og resultatregnskap', description: 'Årsregnskapet.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Balanse', 'Resultat', 'Eiendeler'], competenceGoals: ['sette opp regnskap'] },
@@ -13164,6 +13176,7 @@ export const COURSE_MARKEDSFORING: TextbookCourse = {
   description: 'Markedsføring - markedsanalyse, merkevarebygging, digital markedsføring og ledelse',
   curriculum: 'LK20',
   icon: '📈',
+  coverImage: '/images/subjects/markedsforing-hero.png',
   chapters: [
     { id: 'markedsforing-1', number: '1', title: 'Innføring i markedsføring', description: 'Markedsføringens grunnlag.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Markedsføring', '4P', 'Målgruppe'], competenceGoals: ['forklare markedsføringens rolle'] },
     { id: 'markedsforing-2', number: '2', title: 'Forbrukeratferd', description: 'Kjøpsprosessen.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Forbruker', 'Atferd', 'Beslutning'], competenceGoals: ['analysere forbrukeratferd'] },
@@ -13189,6 +13202,7 @@ export const COURSE_SPANSK_2: TextbookCourse = {
   description: 'Spansk 2 - utvidet grammatikk, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇪🇸',
+  coverImage: '/images/subjects/spansk-2-hero.png',
   chapters: [
     // Kapittel 1: Perfecto y imperfecto (Fortidsformer)
     { id: 'spansk-2-1-1', number: '1.1', title: 'El pretérito perfecto - Sammensatt fortid', description: 'Haber + partisipp for nylige hendelser.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Perfecto', 'Haber', 'Partisipp'], competenceGoals: ['bruke sammensatt fortid', 'fortelle om nylige hendelser'] },
@@ -13254,6 +13268,7 @@ export const COURSE_SPANSK_3: TextbookCourse = {
   description: 'Spansk 3 - avansert grammatikk, litteratur og samfunn',
   curriculum: 'LK20',
   icon: '🇲🇽',
+  coverImage: '/images/subjects/spansk-3-hero.png',
   chapters: [
     // Kapittel 1: Subjuntivo avanzado (Avansert konjunktiv)
     { id: 'spansk-3-1-1', number: '1.1', title: 'Subjuntivo con expresiones impersonales - Upersonlige uttrykk', description: 'Avansert bruk med upersonlige uttrykk.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Subjuntivo', 'Upersonlige uttrykk'], competenceGoals: ['mestre subjuntivo med upersonlige uttrykk', 'skille mellom modus etter sikkerhetsnivå'] },
@@ -13319,6 +13334,7 @@ export const COURSE_TYSK_2: TextbookCourse = {
   description: 'Tysk 2 - utvidet grammatikk, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇩🇪',
+  coverImage: '/images/subjects/tysk-2-hero.png',
   chapters: [
     // Kapittel 1: Perfekt und Präteritum (Fortidsformer)
     { id: 'tysk-2-1-1', number: '1.1', title: 'Das Perfekt - dannelse og bruk', description: 'Perfektum med haben og sein.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Perfekt', 'haben', 'sein'], competenceGoals: ['bruke tyske fortidsformer', 'kommunisere om personlige opplevelser'] },
@@ -13384,6 +13400,7 @@ export const COURSE_TYSK_3: TextbookCourse = {
   description: 'Tysk 3 - avansert grammatikk, litteratur og samfunn',
   curriculum: 'LK20',
   icon: '🇦🇹',
+  coverImage: '/images/subjects/tysk-3-hero.png',
   chapters: [
     // Kapittel 1: Konjunktiv I (Indirekte tale)
     { id: 'tysk-3-1-1', number: '1.1', title: 'Konjunktiv I Grundlagen', description: 'Grunnleggende om Konjunktiv I.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Konjunktiv I', 'Dannelse'], competenceGoals: ['forstå Konjunktiv I'] },
@@ -13449,6 +13466,7 @@ export const COURSE_FRANSK_2: TextbookCourse = {
   description: 'Fransk for viderekomne - fortidsformer, subjonctif, pronomen, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇫🇷',
+  coverImage: '/images/subjects/fransk-2-hero.png',
   chapters: [
     // Kapittel 1: Fortidsformer I
     { id: 'fransk-2-1-1', number: '1.1', title: 'Le passé composé avec avoir - Passé composé med avoir', description: 'Dannelse og bruk med avoir.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Passé composé', 'Avoir'], competenceGoals: ['bruke passé composé med avoir'] },
@@ -13514,6 +13532,7 @@ export const COURSE_FRANSK_3: TextbookCourse = {
   description: 'Avansert fransk - avansert grammatikk, litteratur, kultur og samfunn',
   curriculum: 'LK20',
   icon: '🇫🇷',
+  coverImage: '/images/subjects/fransk-3-hero.png',
   chapters: [
     // Kapittel 1: Avanserte fortidsformer
     { id: 'fransk-3-1-1', number: '1.1', title: 'Le plus-que-parfait - Pluskvamperfektum', description: 'Dannelse og bruk.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Plus-que-parfait', 'Fortidig fortid'], competenceGoals: ['bruke pluskvamperfektum'] },
@@ -13579,6 +13598,7 @@ export const COURSE_KOMKULT_1: TextbookCourse = {
   description: 'Kommunikasjon og kultur 1 - grunnleggende kommunikasjonsteori, verbal og nonverbal kommunikasjon, kultur og identitet',
   curriculum: 'LK20',
   icon: '🗣️',
+  coverImage: '/images/subjects/komkult-1-hero.png',
   chapters: [
     { id: 'komkult-1-1', number: '1', title: 'Hva er kommunikasjon?', description: 'En introduksjon til kommunikasjonsbegrepet, kommunikasjonsmodeller og grunnleggende kommunikasjonsteori.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Kommunikasjonsprosessen', 'Kommunikasjonsmodeller', 'Sender-mottaker'], competenceGoals: ['gjøre rede for ulike kommunikasjonsmodeller og teorier'] },
     { id: 'komkult-1-2', number: '2', title: 'Verbal og nonverbal kommunikasjon', description: 'Utforsk språkets kraft og kroppsspråkets betydning i kommunikasjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Språk', 'Kroppsspråk', 'Nonverbal kommunikasjon'], competenceGoals: ['analysere samspillet mellom verbal og nonverbal kommunikasjon'] },
@@ -13602,6 +13622,7 @@ export const COURSE_KOMKULT_2: TextbookCourse = {
   description: 'Kommunikasjon og kultur 2 - avansert kommunikasjonsteori, kulturteori, globalisering og medieanalyse',
   curriculum: 'LK20',
   icon: '🗣️',
+  coverImage: '/images/subjects/komkult-2-hero.png',
   chapters: [
     { id: 'komkult-2-1', number: '1', title: 'Avansert kommunikasjonsteori', description: 'Utforsk avanserte teorier om kommunikasjon, fra klassiske modeller til moderne perspektiver.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Sapir-Whorf', 'Diskursanalyse', 'Habermas'], competenceGoals: ['analysere komplekse kommunikasjonsprosesser'] },
     { id: 'komkult-2-2', number: '2', title: 'Kulturteori og kulturanalyse', description: 'Lær avanserte teorier om kultur og metoder for kulturanalyse.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Stuart Hall', 'Bourdieu', 'Populærkultur'], competenceGoals: ['gjøre rede for ulike kulturteoretiske perspektiver'] },
@@ -13627,6 +13648,7 @@ export const COURSE_KOMKULT_3: TextbookCourse = {
   description: 'Kommunikasjon og kultur 3 - fordypning i kulturteori, profesjonell kommunikasjon og flerkulturelle samfunn',
   curriculum: 'LK20',
   icon: '🗣️',
+  coverImage: '/images/subjects/komkult-3-hero.png',
   chapters: [
     { id: 'komkult3-1', number: '1', title: 'Fordypning i kulturteori', description: 'Avanserte kulturteoretiske perspektiver og analytiske verktøy.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Strukturalisme', 'Poststrukturalisme', 'Cultural Studies'], competenceGoals: ['analysere kulturelle uttrykk ved hjelp av ulike teoretiske perspektiver'] },
     { id: 'komkult3-2', number: '2', title: 'Kommunikasjon i arbeidslivet', description: 'Profesjonell kommunikasjon, organisasjonskultur og strategisk kommunikasjon.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Profesjonell kommunikasjon', 'Organisasjonskultur', 'Møtekultur'], competenceGoals: ['analysere ulike kommunikasjonsformer i arbeidslivet'] },
@@ -13650,6 +13672,7 @@ export const COURSE_MEDIEINFO_1: TextbookCourse = {
   description: 'Medie- og informasjonskunnskap 1 - innføring i medier, mediehistorie, journalistikk og medieanalyse',
   curriculum: 'LK20',
   icon: '📺',
+  coverImage: '/images/subjects/medieinfo-1-hero.png',
   chapters: [
     { id: 'medieinfo-1-1', number: '1', title: 'Introduksjon til medier', description: 'En innføring i mediebegrepet, medietyper og medienes rolle i samfunnet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Medietyper', 'Mediefunksjoner', 'Massemedier'], competenceGoals: ['gjøre rede for hva medier er og hvilke funksjoner de har'] },
     { id: 'medieinfo-1-2', number: '2', title: 'Mediehistorie', description: 'En reise gjennom medienes utvikling fra trykkekunsten til dagens digitale medier.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Trykkekunsten', 'Radio', 'TV', 'Internett'], competenceGoals: ['gjøre rede for viktige milepæler i mediehistorien'] },
@@ -13675,6 +13698,7 @@ export const COURSE_MEDIEINFO_2: TextbookCourse = {
   description: 'Medie- og informasjonskunnskap 2 - avansert medieanalyse, medieøkonomi, medieetikk og fordypning',
   curriculum: 'LK20',
   icon: '📺',
+  coverImage: '/images/subjects/medieinfo-2-hero.png',
   chapters: [
     { id: 'medieinfo-2-1', number: '1', title: 'Avansert medieanalyse', description: 'Fordypning i metoder og teorier for å analysere medietekster på et avansert nivå.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Semiotikk', 'Multimodal analyse', 'Diskursanalyse'], competenceGoals: ['anvende ulike analysemetoder på komplekse medietekster'] },
     { id: 'medieinfo-2-2', number: '2', title: 'Medieøkonomi og mediemarked', description: 'Forstå medienes økonomiske grunnlag, eierskap og markedsstrukturer.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Finansiering', 'Eierskap', 'Marked'], competenceGoals: ['analysere medienes økonomiske vilkår'] },
@@ -13700,6 +13724,7 @@ export const COURSE_POLITIKK_MENNESKERETT: TextbookCourse = {
   description: 'Politikk og menneskerettigheter - politiske systemer, demokrati, menneskerettigheter og internasjonal politikk',
   curriculum: 'LK20',
   icon: '⚖️',
+  coverImage: '/images/subjects/politikk-menneskerett-hero.png',
   chapters: [
     { id: 'politikk-menneskerett-1-1', number: '1', title: 'Hva er politikk?', description: 'Forstå hva politikk er og hvordan politiske beslutninger påvirker samfunnet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Makt', 'Politiske aktører', 'Beslutningsprosesser'], competenceGoals: ['gjøre rede for hva politikk er og hvordan politiske prosesser fungerer'] },
     { id: 'politikk-menneskerett-1-2', number: '2', title: 'Demokrati og styreformer', description: 'Utforsk ulike styreformer med særlig vekt på demokratiet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Demokrati', 'Autoritære regimer', 'Styreformer'], competenceGoals: ['sammenligne ulike styreformer'] },
@@ -13725,6 +13750,7 @@ export const COURSE_ENTREBED_1: TextbookCourse = {
   description: 'Entreprenørskap og bedriftsutvikling 1 - grunnleggende entreprenørskap, idéutvikling, forretningsplanlegging og økonomi',
   curriculum: 'LK20',
   icon: '💼',
+  coverImage: '/images/subjects/entrebed-1-hero.png',
   chapters: [
     { id: 'entrebed-1-1', number: '1', title: 'Hva er entreprenørskap?', description: 'Forstå hva entreprenørskap er, historisk utvikling og betydningen for samfunnet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Entreprenørskap', 'Innovasjon', 'Typer entreprenører'], competenceGoals: ['gjøre rede for hva entreprenørskap innebærer'] },
     { id: 'entrebed-1-2', number: '2', title: 'Idéutvikling og muligheter', description: 'Lær å identifisere muligheter og utvikle forretningsideer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kreativitet', 'Idégenerering', 'Markedsanalyse'], competenceGoals: ['utvikle forretningsideer'] },
@@ -13748,6 +13774,7 @@ export const COURSE_ENTREBED_2: TextbookCourse = {
   description: 'Entreprenørskap og bedriftsutvikling 2 - avansert forretningsutvikling, skalering, finansiering og bærekraft',
   curriculum: 'LK20',
   icon: '💼',
+  coverImage: '/images/subjects/entrebed-2-hero.png',
   chapters: [
     { id: 'entrebed2-1', number: '1', title: 'Avansert forretningsutvikling', description: 'Strategisk forretningsplanlegging og forretningsmodellinnovasjon.', estimatedMinutes: 90, exerciseCount: 5, topics: ['SWOT', 'PESTEL', 'Porters fem krefter'], competenceGoals: ['utvikle avanserte forretningsstrategier'] },
     { id: 'entrebed2-2', number: '2', title: 'Skalering og vekst', description: 'Strategier for å skalere og vokse en bedrift.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Skalering', 'Vekstfaser', 'Vekstmålinger'], competenceGoals: ['planlegge vekst og skalering'] },
@@ -13771,6 +13798,7 @@ export const COURSE_TRENING_1: TextbookCourse = {
   description: 'Treningslære 1 - grunnleggende treningsprinsipper, anatomi, fysiologi og treningsplanlegging',
   curriculum: 'LK20',
   icon: '🏋️',
+  coverImage: '/images/subjects/trening-1-hero.png',
   chapters: [
     { id: 'trening-1-1', number: '1', title: 'Grunnleggende treningslære', description: 'Lær de grunnleggende prinsippene for effektiv trening og fysisk utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Treningsprinsipper', 'Superkompensasjon', 'Treningsvariabler'], competenceGoals: ['forstå grunnleggende treningsprinsipper'] },
     { id: 'trening-1-2', number: '2', title: 'Kroppens anatomi', description: 'Oversikt over muskel- og skjelettsystemet.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Muskler', 'Skjelett', 'Ledd'], competenceGoals: ['kjenne kroppens anatomi'] },
@@ -13794,6 +13822,7 @@ export const COURSE_TRENING_2: TextbookCourse = {
   description: 'Treningslære 2 - avansert treningsteori, individuelle tilpasninger og treningsmetoder',
   curriculum: 'LK20',
   icon: '🏋️',
+  coverImage: '/images/subjects/trening-2-hero.png',
   chapters: [
     { id: 'trening2-1', number: '1', title: 'Avansert treningsteori', description: 'Treningsprinsipper på høyt nivå og individuelle tilpasninger.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Superkompensasjon', 'Spesifisitet', 'Progressiv overbelastning'], competenceGoals: ['anvende avanserte treningsprinsipper'] },
     { id: 'trening2-2', number: '2', title: 'Avansert styrketrening', description: 'Metoder for maksimal styrke, eksplosivitet og hypertrofi.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Maksimal styrke', 'Power', 'Avanserte metoder'], competenceGoals: ['planlegge avansert styrketrening'] },
@@ -13817,6 +13846,7 @@ export const COURSE_TRENING_3: TextbookCourse = {
   description: 'Treningslære 3 - spesialisert treningslære, alderstilpasset trening, periodisering og fordypning',
   curriculum: 'LK20',
   icon: '🏋️',
+  coverImage: '/images/subjects/trening-3-hero.png',
   chapters: [
     { id: 'trening-3-1', number: '1', title: 'Spesialisert treningslære', description: 'Fordypning i treningsprinsipper, periodisering og avanserte treningsmetoder.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Blokkperiodisering', 'Autoregulering', 'Avanserte metoder'], competenceGoals: ['anvende avanserte treningsprinsipper i praksis'] },
     { id: 'trening-3-2', number: '2', title: 'Alderstilpasset trening', description: 'Forstå hvordan trening bør tilpasses ulike aldersgrupper.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Barn', 'Ungdom', 'Voksne', 'Eldre'], competenceGoals: ['tilpasse trening til ulike aldersgrupper'] },
@@ -13840,6 +13870,7 @@ export const COURSE_INT_ENGELSK: TextbookCourse = {
   description: 'Internasjonal engelsk - global English, språkvariasjon, internasjonal kommunikasjon og litteratur',
   curriculum: 'LK20',
   icon: '🌍',
+  coverImage: '/images/subjects/int-engelsk-hero.png',
   chapters: [
     { id: 'int-engelsk-1', number: '1', title: 'English as a Global Language', description: 'Explore the history, spread, and current status of English as the world\'s lingua franca.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Global English', 'Kachrus model', 'ELF'], competenceGoals: ['analyze the position of English in the world'] },
     { id: 'int-engelsk-2', number: '2', title: 'World Englishes', description: 'Explore the diversity of English varieties around the world.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Varieties', 'British', 'American', 'Indian English'], competenceGoals: ['compare different English varieties'] },
@@ -13863,6 +13894,7 @@ export const COURSE_SAMF_ENGELSK: TextbookCourse = {
   description: 'Samfunnsfaglig engelsk - democracy, human rights, global issues and social studies in English',
   curriculum: 'LK20',
   icon: '🏛️',
+  coverImage: '/images/subjects/samf-engelsk-hero.png',
   chapters: [
     { id: 'samf-engelsk-1', number: '1', title: 'Democracy and Political Systems', description: 'Explore different forms of government, democratic principles, and political participation.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Democracy', 'Political systems', 'Elections'], competenceGoals: ['discuss political systems and democracy'] },
     { id: 'samf-engelsk-2', number: '2', title: 'Human Rights and Justice', description: 'Examine the foundations of human rights and contemporary issues of justice.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Human rights', 'Justice', 'Equality'], competenceGoals: ['discuss human rights and justice'] },
@@ -13886,6 +13918,7 @@ export const COURSE_FILOSOFI_ETIKK: TextbookCourse = {
   description: 'Filosofi og etikk - grunnleggende filosofi, kunnskapsteori, etikk og politisk filosofi',
   curriculum: 'LK20',
   icon: '🤔',
+  coverImage: '/images/subjects/filosofi-etikk-hero.png',
   chapters: [
     { id: 'filosofi-etikk-1', number: '1', title: 'Hva er filosofi?', description: 'Filosofiens grunnlag, historie og sentrale spørsmål.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Filosofiens opprinnelse', 'Sokrates', 'Platon', 'Aristoteles'], competenceGoals: ['gjøre rede for hva filosofi er'] },
     { id: 'filosofi-etikk-2', number: '2', title: 'Kunnskapsteori', description: 'Hva er kunnskap, sannhet og begrunnelse?', estimatedMinutes: 100, exerciseCount: 5, topics: ['Epistemologi', 'Empirisme', 'Rasjonalisme', 'Skeptisisme'], competenceGoals: ['drøfte kunnskapsteoretiske spørsmål'] },
@@ -13909,6 +13942,7 @@ export const COURSE_SAMFOKONOMI_1: TextbookCourse = {
   description: 'Grunnleggende samfunnsøkonomi - marked, pris, BNP og økonomisk politikk',
   curriculum: 'LK20',
   icon: '📊',
+  coverImage: '/images/subjects/samfokonomi-1-hero.png',
   chapters: [
     { id: 'samfokonomi-1-1', number: '1', title: 'Hva er samfunnsøkonomi?', description: 'Introduksjon til økonomiske grunnbegreper.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Knapphet', 'Alternativkostnad', 'Økonomiske aktører'], competenceGoals: ['forklare grunnleggende økonomiske begreper'] },
     { id: 'samfokonomi-1-2', number: '2', title: 'Markedet og prisdannelse', description: 'Hvordan priser dannes i markedet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Markedslikevekt', 'Prissystemet'], competenceGoals: ['forklare markedsmekanismen'] },
@@ -13928,6 +13962,7 @@ export const COURSE_SAMFOKONOMI_2: TextbookCourse = {
   description: 'Avansert samfunnsøkonomi - makroøkonomi og økonomisk politikk',
   curriculum: 'LK20',
   icon: '📈',
+  coverImage: '/images/subjects/samfokonomi-2-hero.png',
   chapters: [
     { id: 'samfokonomi-2-1', number: '1', title: 'Makroøkonomiske modeller', description: 'Keynesiansk modell og AD-AS.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Keynesiansk modell', 'AD-AS'], competenceGoals: ['anvende makroøkonomiske modeller'] },
     { id: 'samfokonomi-2-2', number: '2', title: 'Penge- og finanspolitikk', description: 'Virkemidler i økonomisk politikk.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Pengepolitikk', 'Finanspolitikk'], competenceGoals: ['analysere økonomisk politikk'] },
@@ -13951,6 +13986,7 @@ export const COURSE_OKONOMI_LEDELSE: TextbookCourse = {
   description: 'Grunnleggende økonomi, organisasjon og ledelse',
   curriculum: 'LK20',
   icon: '💼',
+  coverImage: '/images/subjects/okonomi-ledelse-hero.png',
   chapters: [
     { id: 'okonomi-ledelse-1', number: '1', title: 'Introduksjon', description: 'Økonomi og ledelse i sammenheng.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Bedriftstyper', 'Interessenter'], competenceGoals: ['forstå økonomi og ledelse'] },
     { id: 'okonomi-ledelse-2', number: '2', title: 'Organisasjon', description: 'Organisasjonsstrukturer og kultur.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Organisasjonsstruktur', 'Kultur'], competenceGoals: ['analysere organisasjoner'] },
@@ -13970,6 +14006,7 @@ export const COURSE_REGNSKAP_REVISJON: TextbookCourse = {
   description: 'Regnskapsprinsipper, bokføring og revisjon',
   curriculum: 'LK20',
   icon: '📒',
+  coverImage: '/images/subjects/regnskap-revisjon-hero.png',
   chapters: [
     { id: 'regnskap-revisjon-1', number: '1', title: 'Regnskapsprinsipper', description: 'Grunnleggende regnskapsprinsipper.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Transaksjonsprinsippet', 'Sammenstilling'], competenceGoals: ['forstå regnskapsprinsipper'] },
     { id: 'regnskap-revisjon-2', number: '2', title: 'Bokføring', description: 'Bilag og kontoplan.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Bokføringsloven', 'Kontoplan'], competenceGoals: ['utføre bokføring'] },
@@ -13989,6 +14026,7 @@ export const COURSE_OKONOMI_DRIFT: TextbookCourse = {
   description: 'Driftsøkonomi, kalkulasjon og produksjonsstyring',
   curriculum: 'LK20',
   icon: '🏭',
+  coverImage: '/images/subjects/okonomi-drift-hero.png',
   chapters: [
     { id: 'okonomi-drift-1', number: '1', title: 'Driftsøkonomi', description: 'Kostnader og lønnsomhet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Faste kostnader', 'Variable kostnader'], competenceGoals: ['analysere driftsøkonomi'] },
     { id: 'okonomi-drift-2', number: '2', title: 'Kalkulasjon', description: 'Prissetting og kalkulasjon.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Selvkost', 'Bidragskalkulasjon'], competenceGoals: ['utføre kalkulasjoner'] },
@@ -14012,6 +14050,7 @@ export const COURSE_SIKKERHETSFAG: TextbookCourse = {
   description: 'Sikkerhet, risikovurdering og beredskap',
   curriculum: 'LK20',
   icon: '🛡️',
+  coverImage: '/images/subjects/sikkerhetsfag-hero.png',
   chapters: [
     { id: 'sikkerhetsfag-1', number: '1', title: 'Introduksjon', description: 'Sikkerhetsfaget og yrkesroller.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sikkerhetsarbeid', 'Yrkesroller'], competenceGoals: ['beskrive sikkerhetsfaget'] },
     { id: 'sikkerhetsfag-2', number: '2', title: 'Risikovurdering', description: 'Risikoanalyse og tiltak.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Risiko', 'Sårbarhet', 'Konsekvens'], competenceGoals: ['gjennomføre risikovurdering'] },
@@ -14035,6 +14074,7 @@ export const COURSE_HELSEOPPVEKST_VG1: TextbookCourse = {
   description: 'Introduksjon til helse- og oppvekstsektoren',
   curriculum: 'LK20',
   icon: '🏥',
+  coverImage: '/images/subjects/helseoppvekst-vg1-hero.png',
   chapters: [
     { id: 'helseoppvekst-vg1-1-1', number: '1', title: 'Introduksjon', description: 'Hva er helse- og oppvekstfag?', estimatedMinutes: 60, exerciseCount: 5, topics: ['Sektoren', 'Yrkesmuligheter'], competenceGoals: ['beskrive sektoren'] },
     { id: 'helseoppvekst-vg1-1-2', number: '2', title: 'Helsefremmende arbeid', description: 'Forebygging og helsefremming.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Helsedeterminanter', 'Forebygging'], competenceGoals: ['forstå helsefremmende arbeid'] },
@@ -14048,6 +14088,7 @@ export const COURSE_HELSEOPPVEKST_VG2: TextbookCourse = {
   description: 'Helsetjenester og omsorg',
   curriculum: 'LK20',
   icon: '💊',
+  coverImage: '/images/subjects/helseoppvekst-vg2-hero.png',
   chapters: [
     { id: 'helseoppvekst-vg2-1', number: '1', title: 'Helsetjenesten', description: 'Organisering av helsetjenesten.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Primærhelsetjeneste', 'Spesialisthelsetjeneste'], competenceGoals: ['forstå helsetjenesten'] },
     { id: 'helseoppvekst-vg2-2', number: '2', title: 'Brukermedvirkning', description: 'Pasient- og brukerrettigheter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Medvirkning', 'Rettigheter'], competenceGoals: ['ivareta brukermedvirkning'] },
@@ -14065,6 +14106,7 @@ export const COURSE_HELSEOPPVEKST_VG3: TextbookCourse = {
   description: 'Avansert yrkesutøvelse i helse og omsorg',
   curriculum: 'LK20',
   icon: '🩺',
+  coverImage: '/images/subjects/helseoppvekst-vg3-hero.png',
   chapters: [
     { id: 'helseoppvekst-vg3-1', number: '1', title: 'Profesjonalitet', description: 'Profesjonell yrkesutøvelse.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Etikk', 'Faglig utvikling'], competenceGoals: ['utøve yrket profesjonelt'] },
     { id: 'helseoppvekst-vg3-2', number: '2', title: 'Dokumentasjon', description: 'Journalføring og dokumentasjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Journal', 'Lovverk'], competenceGoals: ['dokumentere forsvarlig'] },
@@ -14090,6 +14132,7 @@ export const COURSE_ELEKTRO_DATA_VG1: TextbookCourse = {
   description: 'Introduksjon til elektronikk, programmering og digital teknologi',
   curriculum: 'LK20',
   icon: '⚡',
+  coverImage: '/images/subjects/elektro-data-vg1-hero.png',
   chapters: [
     { id: 'elektro-data-vg1-1', number: '1', title: 'Elektronikk grunnleggende', description: 'Grunnleggende elektroniske prinsipper og komponenter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Elektrisitet', 'Elektronikk', 'Komponenter'], competenceGoals: [] },
     { id: 'elektro-data-vg1-2', number: '2', title: 'Kretser og komponenter', description: 'Bygging og analyse av elektriske kretser.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Kretsanalyse', 'Seriekobling', 'Parallellkobling'], competenceGoals: [] },
@@ -14134,6 +14177,7 @@ export const COURSE_TIF_VG1: TextbookCourse = {
   description: 'Grunnleggende teknologi, materiallære og produksjonsteknikker',
   curriculum: 'LK20',
   icon: '🔧',
+  coverImage: '/images/subjects/tif-vg1-hero.png',
   chapters: [
     { id: 'tif-vg1-1', number: '1', title: 'Materiallære', description: 'Egenskaper og bruk av ulike materialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Metaller', 'Plast', 'Kompositter'], competenceGoals: [] },
     { id: 'tif-vg1-2', number: '2', title: 'Sveising og sammenføyning', description: 'Teknikker for å sammenføye materialer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Sveising', 'Lodding', 'Liming'], competenceGoals: [] },
@@ -14177,6 +14221,7 @@ export const COURSE_BYGG_ANLEGG_VG1: TextbookCourse = {
   description: 'Grunnleggende byggteknikk, materialer og konstruksjonsmetoder',
   curriculum: 'LK20',
   icon: '🏗️',
+  coverImage: '/images/subjects/bygg-anlegg-vg1-hero.png',
   chapters: [
     { id: 'bygg-anlegg-vg1-1', number: '1', title: 'Byggematerialer', description: 'Egenskaper og bruk av byggematerialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Betong', 'Tre', 'Tegl'], competenceGoals: [] },
     { id: 'bygg-anlegg-vg1-2', number: '2', title: 'Tegning og BIM', description: 'Byggetegninger og digitale verktøy.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Byggetegninger', 'BIM', 'Målestokk'], competenceGoals: [] },
@@ -14221,6 +14266,7 @@ export const COURSE_RESTAURANT_MAT_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskaper om matlagingsteknikker, hygiene, ernæring og servering',
   curriculum: 'LK20',
   icon: '🍳',
+  coverImage: '/images/subjects/restaurant-mat-vg1-hero.png',
   chapters: [
     { id: 'restaurant-mat-vg1-1', number: '1', title: 'Råvarer og matvarekunnskap', description: 'Kjøtt, fisk, grønnsaker og andre råvarer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Råvarer', 'Kvalitetsvurdering', 'Lagring'], competenceGoals: [] },
     { id: 'restaurant-mat-vg1-2', number: '2', title: 'Hygiene og mattrygghet', description: 'Personlig hygiene og trygg håndtering av mat.', estimatedMinutes: 55, exerciseCount: 5, topics: ['HACCP', 'Renhold', 'Bakterier'], competenceGoals: [] },
@@ -14264,6 +14310,7 @@ export const COURSE_NATURBRUK_VG1: TextbookCourse = {
   description: 'Introduksjon til naturbruksfag med fokus på bærekraftig ressursforvaltning',
   curriculum: 'LK20',
   icon: '🌿',
+  coverImage: '/images/subjects/naturbruk-vg1-hero.png',
   chapters: [
     { id: 'naturbruk-vg1-1', number: '1', title: 'Økosystemer og naturmangfold', description: 'Naturens sammenhenger og artsmangfold.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Økologi', 'Biodiversitet', 'Naturtyper'], competenceGoals: [] },
     { id: 'naturbruk-vg1-2', number: '2', title: 'Jord og plantelære', description: 'Jordtyper, jordkvalitet og plantevekst.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Jordbunn', 'Plantevekst', 'Næring'], competenceGoals: [] },
@@ -14306,6 +14353,7 @@ export const COURSE_IM_VG1: TextbookCourse = {
   description: 'Grunnleggende digital kompetanse, programmering og medieproduksjon',
   curriculum: 'LK20',
   icon: '💻',
+  coverImage: '/images/subjects/im-vg1-hero.png',
   chapters: [
     { id: 'im-vg1-1', number: '1', title: 'Grunnleggende IT', description: 'Datamaskiner, nettverk og digitale verktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Maskinvare', 'Programvare', 'Nettverksteknologi'], competenceGoals: [] },
     { id: 'im-vg1-2', number: '2', title: 'Programmering intro', description: 'Grunnleggende programmeringskonsepter.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Algoritmer', 'Variabler', 'Løkker'], competenceGoals: [] },
@@ -14348,6 +14396,7 @@ export const COURSE_SALG_SERVICE_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om salg, kundebehandling, markedsføring og reiseliv. Kurset gir en innføring i varehandel, service, kommunikasjon og bærekraftig forretningsdrift.',
   curriculum: 'LK20',
   icon: '🛍️',
+  coverImage: '/images/subjects/salg-service-vg1-hero.png',
   chapters: [
     {
       id: 'salg-service-vg1-1',
@@ -14643,6 +14692,7 @@ export const COURSE_HANDVERK_DESIGN_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om design, materialer, håndverksteknikker og produktutvikling. Kurset kombinerer tradisjonelt håndverk med digital design og bærekraftig produksjon.',
   curriculum: 'LK20',
   icon: '🎨',
+  coverImage: '/images/subjects/handverk-design-vg1-hero.png',
   chapters: [
     {
       id: 'handverk-design-vg1-1',
@@ -14938,6 +14988,7 @@ export const COURSE_FRISOR_BLOMSTER_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om frisørfaget, blomsterdesign, interiørdesign og visuell eksponering. Kurset kombinerer kreativitet, håndverk, kundebehandling og estetisk forståelse.',
   curriculum: 'LK20',
   icon: '💐',
+  coverImage: '/images/subjects/frisor-blomster-vg1-hero.png',
   chapters: [
     {
       id: 'frisor-blomster-vg1-1',

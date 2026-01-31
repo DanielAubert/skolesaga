@@ -2,25 +2,16 @@
  * Tekstbok innhold for Norsk VG1
  *
  * Følger LK20 læreplan for norsk på videregående skole.
- * Dekker 34 kapitler organisert i 17 seksjoner:
+ * Dekker 34 delkapitler organisert i 8 hovedkapitler:
  *
- * - Seksjon 1: Retorikk og argumentasjon (1.1-1.2)
- * - Seksjon 2: Skjønnlitteratur (2.1-2.2)
- * - Seksjon 3: Muntlig kommunikasjon og kreativ skriving (3.1-3.2)
- * - Seksjon 4: Språk og identitet (4.1-4.2)
- * - Seksjon 5: Litteraturhistorie (5.1-5.2)
- * - Seksjon 6: Språkhistorie (6.1-6.2)
- * - Seksjon 7: Språklig mangfold (7.1-7.2)
- * - Seksjon 8: Debatt og argumentasjon (8.1-8.2)
- * - Seksjon 9: Drama (9.1-9.2)
- * - Seksjon 10: Romantikken og realismen (10.1-10.2)
- * - Seksjon 11: Nyrealisme og modernisme (11.1-11.2)
- * - Seksjon 12: Sammensatte tekster (12.1-12.2)
- * - Seksjon 13: Film og medier (13.1)
- * - Seksjon 14: Samisk språk og kultur (14.1-14.3)
- * - Seksjon 15: Grammatikk og setningsanalyse (15.1-15.2)
- * - Seksjon 16: Rettskriving og språknorm (16.1-16.2)
- * - Seksjon 17: Kulturmøter i litteratur (17.1-17.2)
+ * - Kapittel 1: Retorikk og sakprosa (1.1-1.4)
+ * - Kapittel 2: Skjønnlitteratur (2.1-2.4)
+ * - Kapittel 3: Litteraturhistorie (3.1-3.7)
+ * - Kapittel 4: Språk og identitet (4.1-4.5)
+ * - Kapittel 5: Skriving og kommunikasjon (5.1-5.4)
+ * - Kapittel 6: Sammensatte tekster og medier (6.1-6.3)
+ * - Kapittel 7: Samisk språk og kultur (7.1-7.3)
+ * - Kapittel 8: Grammatikk og rettskriving (8.1-8.4)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
