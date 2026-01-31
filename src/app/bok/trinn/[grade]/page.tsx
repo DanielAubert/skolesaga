@@ -283,6 +283,14 @@ function SubjectCard({ courseId, name, icon, color, image }: SubjectCardProps) {
   const stats = getCourseStats(courseId);
   const isAvailable = stats.chapters > 0;
 
+  // Fall back to coverImage from course data if no image in config
+  if (!image) {
+    const course = TEXTBOOK_COURSES.find(c => c.id === courseId);
+    if (course?.coverImage) {
+      image = course.coverImage;
+    }
+  }
+
   if (!isAvailable) {
     return (
       <div className="group relative">
