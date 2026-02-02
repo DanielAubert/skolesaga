@@ -166,14 +166,14 @@ export default async function CourseOverviewPage({ params }: PageProps) {
 
         {/* Hero Image */}
         {course.coverImage && (
-          <div className="relative w-full h-48 md:h-64 lg:h-80 rounded-xl overflow-hidden mb-8 bg-muted">
+          <div className="relative w-full h-72 md:h-96 lg:h-[28rem] rounded-xl overflow-hidden mb-8 bg-muted">
             <Image
               src={course.coverImage}
               alt={course.title}
               fill
               priority
               sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-contain"
+              className="object-cover object-top"
             />
             {/* Add to dashboard button */}
             <AddCourseButton courseId={courseId} className="top-4 right-4" />
