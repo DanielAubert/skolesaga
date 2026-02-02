@@ -173,7 +173,7 @@ export default async function CourseOverviewPage({ params }: PageProps) {
               fill
               priority
               sizes="(max-width: 1200px) 100vw, 1200px"
-              className="object-cover object-top"
+              className="object-cover object-center"
             />
             {/* Add to dashboard button */}
             <AddCourseButton courseId={courseId} className="top-4 right-4" />
