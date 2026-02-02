@@ -28,7 +28,7 @@ export const COURSE_1T: TextbookCourse = {
   description: 'Teoretisk matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📐',
-  coverImage: '/images/textbook/1t/course-hero.jpg',
+  coverImage: '/images/textbook/1t/course-hero.webp',
   chapters: [
     // Kapittel 1: Tall og algebra
     {
@@ -40,7 +40,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Addisjon og subtraksjon', 'Multiplikasjon og divisjon', 'Potenser', 'Kvadratrøtter', 'Regnerekkefølge'],
       competenceGoals: ['utføre beregninger med negative tall'],
-      coverImage: '/images/subjects/1t-1-1-fortegn-og-regnerekkefolgje.png',
+      coverImage: '/images/subjects/1t-1-1-fortegn-og-regnerekkefolgje.webp',
       auraColor: 'rgba(180, 120, 60, 0.9)',
     },
     {
@@ -52,7 +52,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Potenser', 'Heltallseksponenter', 'Potensregler'],
       competenceGoals: ['utforske og beskrive egenskaper ved potenser'],
-      coverImage: '/images/subjects/1t-1-2-potenser-med-heltallseksponenter.png',
+      coverImage: '/images/subjects/1t-1-2-potenser-med-heltallseksponenter.webp',
       auraColor: 'rgba(80, 60, 140, 0.9)',
     },
     {
@@ -65,7 +65,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Bokstavregning', 'Parentesregning', 'Distributiv lov', 'Multiplikasjon av parenteser'],
       prerequisites: ['1t-1-2'],
       competenceGoals: ['utforske og bruke algebraiske strukturer'],
-      coverImage: '/images/subjects/1t-1-3-algebra.png',
+      coverImage: '/images/subjects/1t-1-3-algebra.webp',
       auraColor: 'rgba(40, 100, 80, 0.9)',
     },
     {
@@ -78,7 +78,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Multiplikasjon av brøker', 'Divisjon av brøker', 'Forkorting', 'Utviding', 'Fellesnevner'],
       prerequisites: ['1t-1-2', '1t-1-3'],
       competenceGoals: ['utforske og beskrive egenskaper ved brøker og operasjoner med brøker'],
-      coverImage: '/images/subjects/1t-1-4-brokregning.png',
+      coverImage: '/images/subjects/1t-1-4-brokregning.webp',
       auraColor: 'rgba(160, 90, 50, 0.9)',
     },
     {
@@ -89,7 +89,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 60,
       exerciseCount: 13,
       topics: ['Primtallsfaktorisering', 'Faktorisering av uttrykk', 'Første kvadratsetning', 'Andre kvadratsetning', 'Konjugatsetningen'],
-      coverImage: '/images/subjects/1t-1-5-faktorisering-og-kvadratsetningene.png',
+      coverImage: '/images/subjects/1t-1-5-faktorisering-og-kvadratsetningene.webp',
       auraColor: 'rgba(100, 60, 130, 0.9)',
     },
     {
@@ -102,7 +102,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Forkorting av algebraiske brøker', 'Multiplikasjon og divisjon', 'Fellesnevner'],
       prerequisites: ['1t-1-4', '1t-1-5'],
       competenceGoals: ['forenkle algebraiske brøkuttrykk'],
-      coverImage: '/images/subjects/1t-1-6-rasjonale-uttrykk.png',
+      coverImage: '/images/subjects/1t-1-6-rasjonale-uttrykk.webp',
       auraColor: 'rgba(50, 100, 110, 0.9)',
     },
     {
@@ -114,7 +114,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Tallmengder', 'Intervaller', 'Union', 'Snitt', 'Differanse', 'Absoluttverdi'],
       competenceGoals: ['bruke matematisk notasjon til å beskrive mengder'],
-      coverImage: '/images/subjects/1t-1-7-mengdelaere.png',
+      coverImage: '/images/subjects/1t-1-7-mengdelaere.webp',
       auraColor: 'rgba(50, 80, 140, 0.9)',
     },
     {
@@ -127,7 +127,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomdivisjon', 'Kvotient', 'Rest'],
       prerequisites: ['1t-1-5'],
       competenceGoals: ['forklare polynomdivisjon'],
-      coverImage: '/images/subjects/1t-1-8-polynomdivisjon-introduksjon.png',
+      coverImage: '/images/subjects/1t-1-8-polynomdivisjon-introduksjon.webp',
       auraColor: 'rgba(40, 60, 100, 0.9)',
     },
     {
@@ -140,7 +140,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Lineær divisor', 'Faktorteoremet', 'Nullpunkter'],
       prerequisites: ['1t-1-8'],
       competenceGoals: ['bruke polynomdivisjon til å omskrive algebraiske uttrykk'],
-      coverImage: '/images/subjects/1t-1-9-polynomdivisjon-med-lineaer-divisor.png',
+      coverImage: '/images/subjects/1t-1-9-polynomdivisjon-med-lineaer-divisor.webp',
       auraColor: 'rgba(60, 80, 120, 0.9)',
     },
 
@@ -154,7 +154,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Lineære likninger', 'Likningsløsning', 'Brøklikninger', 'Parenteslikninger'],
       competenceGoals: ['løse lineære likninger', 'bruke regneregler for likninger'],
-      coverImage: '/images/subjects/1t-2-1-grunnleggende-likninger.png',
+      coverImage: '/images/subjects/1t-2-1-grunnleggende-likninger.webp',
       auraColor: 'rgba(170, 100, 50, 0.9)',
     },
     {
@@ -166,7 +166,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Andregradslikninger', 'Faktorisering', 'Nullpunktmetoden'],
       prerequisites: ['1t-1-5'],
-      coverImage: '/images/subjects/1t-2-2-andregradslikninger-faktorisering.png',
+      coverImage: '/images/subjects/1t-2-2-andregradslikninger-faktorisering.webp',
       auraColor: 'rgba(90, 50, 120, 0.9)',
     },
     {
@@ -179,7 +179,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['ABC-formelen', 'Diskriminanten', 'Antall løsninger', 'Nullpunktsfaktorisering', 'Produktregelen'],
       prerequisites: ['1t-2-2'],
       competenceGoals: ['løse andregradslikninger med abc-formelen', 'faktorisere andregradsuttrykk ved nullpunktsfaktorisering'],
-      coverImage: '/images/subjects/1t-2-3-abc-formelen.png',
+      coverImage: '/images/subjects/1t-2-3-abc-formelen.webp',
       auraColor: 'rgba(140, 50, 60, 0.9)',
     },
     {
@@ -191,7 +191,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Fullstendig kvadrat', 'Andregradslikninger'],
       prerequisites: ['1t-1-4'],
-      coverImage: '/images/subjects/1t-2-4-fullstendig-kvadrat.png',
+      coverImage: '/images/subjects/1t-2-4-fullstendig-kvadrat.webp',
       auraColor: 'rgba(40, 120, 160, 0.9)',
     },
     {
@@ -204,7 +204,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Brøklikninger', 'Produktregelen', 'Likninger med brøk'],
       prerequisites: ['1t-1-3', '1t-1-5'],
       competenceGoals: ['løse likninger med brøker', 'bruke produktregelen for brøklikninger'],
-      coverImage: '/images/subjects/1t-2-5-rasjonale-likninger.png',
+      coverImage: '/images/subjects/1t-2-5-rasjonale-likninger.webp',
     },
     {
       id: '1t-2-6',
@@ -215,7 +215,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Rotlikninger', 'Kvadrering', 'Kontroll av løsninger'],
       prerequisites: ['1t-1-2'],
-      coverImage: '/images/subjects/1t-2-6-likninger-med-rotter.png',
+      coverImage: '/images/subjects/1t-2-6-likninger-med-rotter.webp',
     },
     {
       id: '1t-2-8',
@@ -227,7 +227,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Tekstoppgaver', 'Problemløsning', 'Modellering', 'Praktiske situasjoner'],
       prerequisites: ['1t-2-1'],
       competenceGoals: ['omsetje problemstillingar til likningar', 'tolke og bruke likningsløysingar i kontekst'],
-      coverImage: '/images/subjects/1t-2-8-praktisk-bruk-av-likninger.png',
+      coverImage: '/images/subjects/1t-2-8-praktisk-bruk-av-likninger.webp',
     },
     {
       id: '1t-2-9',
@@ -239,7 +239,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Arealproblemer', 'Kastebevegelse', 'Optimering', 'Økonomiske modeller'],
       prerequisites: ['1t-2-3', '1t-2-8'],
       competenceGoals: ['bruke andregradslikningar i praktiske situasjonar', 'tolke løysingar i kontekst'],
-      coverImage: '/images/subjects/1t-2-9-praktisk-bruk-av-andregradslikninger.png',
+      coverImage: '/images/subjects/1t-2-9-praktisk-bruk-av-andregradslikninger.webp',
     },
     {
       id: '1t-2-10',
@@ -251,7 +251,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomlikninger', 'Faktorisering', 'Tredjegradslikninger'],
       prerequisites: ['1t-1-8'],
       competenceGoals: ['bruke polynomdivisjon til å løyse likningar'],
-      coverImage: '/images/subjects/1t-2-10-polynomdivisjon-og-likningslosning.png',
+      coverImage: '/images/subjects/1t-2-10-polynomdivisjon-og-likningslosning.webp',
     },
     {
       id: '1t-2-11',
@@ -262,7 +262,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['GeoGebra CAS', 'Div()', 'Mod()'],
       prerequisites: ['1t-1-7'],
-      coverImage: '/images/subjects/1t-2-11-polynomdivisjon-i-geogebra.png',
+      coverImage: '/images/subjects/1t-2-11-polynomdivisjon-i-geogebra.webp',
       wip: true,
     },
 
@@ -275,7 +275,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 30,
       exerciseCount: 4,
       topics: ['x-akse', 'y-akse', 'Punkter', 'Tolke grafer'],
-      coverImage: '/images/subjects/1t-3-1-koordinatsystemet.png',
+      coverImage: '/images/subjects/1t-3-1-koordinatsystemet.webp',
     },
     {
       id: '1t-3-2',
@@ -286,7 +286,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['y = ax + b', 'Stigningstall', 'Konstantledd', 'Tegne linjer'],
       prerequisites: ['1t-3-1'],
-      coverImage: '/images/subjects/1t-3-2-lineaere-funksjoner.png',
+      coverImage: '/images/subjects/1t-3-2-lineaere-funksjoner.webp',
       wip: true,
     },
     {
@@ -298,7 +298,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Matematiske modeller', 'f(x)-notasjon', 'Verditabeller', 'Graftegning', 'Nullpunkter', 'Skjæringspunkter'],
       prerequisites: ['1t-3-1', '1t-3-2'],
-      coverImage: '/images/subjects/1t-3-3-hva-er-en-funksjon.png',
+      coverImage: '/images/subjects/1t-3-3-hva-er-en-funksjon.webp',
     },
     {
       id: '1t-3-4',
@@ -309,7 +309,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Parabel', 'Toppunkt', 'Bunnpunkt', 'Symmetrilinje'],
       prerequisites: ['1t-3-3'],
-      coverImage: '/images/subjects/1t-3-4-andregradsfunksjoner.png',
+      coverImage: '/images/subjects/1t-3-4-andregradsfunksjoner.webp',
     },
     {
       id: '1t-3-5',
@@ -320,7 +320,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Nullpunkter', 'Fortegnslinje', 'Faktorisert form'],
       prerequisites: ['1t-3-4', '1t-2-3'],
-      coverImage: '/images/subjects/1t-3-5-nullpunkter-og-fortegn.png',
+      coverImage: '/images/subjects/1t-3-5-nullpunkter-og-fortegn.webp',
     },
     {
       id: '1t-3-6',
@@ -331,7 +331,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Polynomgrad', 'Nullpunkter', 'Faktorisering'],
       prerequisites: ['1t-3-5'],
-      coverImage: '/images/subjects/1t-3-6-polynomfunksjoner.png',
+      coverImage: '/images/subjects/1t-3-6-polynomfunksjoner.webp',
     },
     {
       id: '1t-3-7',
@@ -342,7 +342,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Rasjonale funksjoner', 'Asymptoter', 'Definisjonsmengde'],
       prerequisites: ['1t-3-6'],
-      coverImage: '/images/subjects/1t-3-7-rasjonale-funksjoner.png',
+      coverImage: '/images/subjects/1t-3-7-rasjonale-funksjoner.webp',
     },
     {
       id: '1t-3-8',
@@ -353,7 +353,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor'],
       prerequisites: ['1t-3-3'],
-      coverImage: '/images/subjects/1t-3-8-eksponentialfunksjoner.png',
+      coverImage: '/images/subjects/1t-3-8-eksponentialfunksjoner.webp',
     },
     {
       id: '1t-3-9',
@@ -363,7 +363,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['GeoGebra', 'Grafisk analyse', 'Nullpunkter', 'Ekstremalpunkter'],
-      coverImage: '/images/subjects/1t-3-9-funksjonsdroftning-i-geogebra.png',
+      coverImage: '/images/subjects/1t-3-9-funksjonsdroftning-i-geogebra.webp',
       wip: true,
     },
 
@@ -378,7 +378,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Grafisk løsning', 'Innsettingsmetoden', 'Addisjonsmetoden', 'Tre ukjente', 'Praktiske oppgaver'],
       prerequisites: ['1t-2-1', '1t-3-1'],
       competenceGoals: ['løse likningssett med to ukjente grafisk og algebraisk', 'sette opp og løse likningssett fra praktiske situasjoner'],
-      coverImage: '/images/subjects/1t-4-1-likningssett.png',
+      coverImage: '/images/subjects/1t-4-1-likningssett.webp',
     },
     {
       id: '1t-4-2',
@@ -390,7 +390,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Førstegradsulikheter', 'Ulikhetstegn', 'Løsningsmengde', 'Intervallnotasjon'],
       prerequisites: ['1t-2-1'],
       competenceGoals: ['løyse ulikskapar av første grad'],
-      coverImage: '/images/subjects/1t-4-2-lineaere-ulikheter.png',
+      coverImage: '/images/subjects/1t-4-2-lineaere-ulikheter.webp',
     },
     {
       id: '1t-4-3',
@@ -402,7 +402,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Fortegnslinjer', 'Fortegnsskjema', 'Faktorisering', 'Produkter av faktorer'],
       prerequisites: ['1t-4-2', '1t-1-4'],
       competenceGoals: ['bruke fortegnsskjema til å løyse ulikskapar'],
-      coverImage: '/images/subjects/1t-4-3-fortegnslinjer.png',
+      coverImage: '/images/subjects/1t-4-3-fortegnslinjer.webp',
     },
     {
       id: '1t-4-4',
@@ -414,7 +414,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Andregradsulikheter', 'Nullpunktsfaktorisering', 'Fortegnsskjema', 'Løsningsmengde'],
       prerequisites: ['1t-4-3', '1t-2-3'],
       competenceGoals: ['løyse ulikskapar av andre grad'],
-      coverImage: '/images/subjects/1t-4-4-andregradsulikheter.png',
+      coverImage: '/images/subjects/1t-4-4-andregradsulikheter.webp',
     },
     {
       id: '1t-4-5',
@@ -426,7 +426,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Rasjonale ulikheter', 'Brøkutrykk', 'Definisjonsmengde', 'Fortegnsskjema'],
       prerequisites: ['1t-4-4'],
       competenceGoals: ['løyse rasjonale ulikskapar'],
-      coverImage: '/images/subjects/1t-4-5-rasjonale-ulikheter.png',
+      coverImage: '/images/subjects/1t-4-5-rasjonale-ulikheter.webp',
     },
 
     // Kapittel 5: Geometri og trigonometri (var kapittel 4)
@@ -438,7 +438,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['Vinkler', 'Vinkelsum', 'Trekanttyper'],
-      coverImage: '/images/subjects/1t-5-1-vinkler-og-trekanter.png',
+      coverImage: '/images/subjects/1t-5-1-vinkler-og-trekanter.webp',
     },
     {
       id: '1t-5-2',
@@ -448,7 +448,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 30,
       exerciseCount: 10,
       topics: ['Kongruens', 'Formlikhet', 'Målestokk'],
-      coverImage: '/images/subjects/1t-5-2-kongruens-og-formlikhet.png',
+      coverImage: '/images/subjects/1t-5-2-kongruens-og-formlikhet.webp',
     },
     {
       id: '1t-5-3',
@@ -459,7 +459,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Pytagoras', 'Hypotenus', 'Kateter'],
       prerequisites: ['1t-5-1'],
-      coverImage: '/images/subjects/1t-5-3-pytagoras-setning.png',
+      coverImage: '/images/subjects/1t-5-3-pytagoras-setning.webp',
     },
     {
       id: '1t-5-4',
@@ -471,7 +471,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['sin', 'cos', 'tan', 'Rettvinklede trekanter'],
       prerequisites: ['1t-5-1'],
       competenceGoals: ['gjøre rede for definisjonene av sinus, cosinus og tangens'],
-      coverImage: '/images/subjects/1t-5-4-trigonometri-i-rettvinklede-trekanter.png',
+      coverImage: '/images/subjects/1t-5-4-trigonometri-i-rettvinklede-trekanter.webp',
     },
     {
       id: '1t-5-5',
@@ -482,7 +482,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Grunnlinje', 'Høyde', 'Arealsetningen'],
       prerequisites: ['1t-5-4'],
-      coverImage: '/images/subjects/1t-5-5-areal-av-trekanter.png',
+      coverImage: '/images/subjects/1t-5-5-areal-av-trekanter.webp',
     },
     {
       id: '1t-5-6',
@@ -494,7 +494,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Sinussetningen', 'Tvetydige tilfeller'],
       prerequisites: ['1t-5-4'],
       competenceGoals: ['begrunne sinussetningen'],
-      coverImage: '/images/subjects/1t-5-6-sinussetningen.png',
+      coverImage: '/images/subjects/1t-5-6-sinussetningen.webp',
     },
     {
       id: '1t-5-7',
@@ -506,7 +506,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Cosinussetningen', 'Ukjente sider', 'Ukjente vinkler'],
       prerequisites: ['1t-5-6'],
       competenceGoals: ['begrunne cosinussetningen'],
-      coverImage: '/images/subjects/1t-5-7-cosinussetningen.png',
+      coverImage: '/images/subjects/1t-5-7-cosinussetningen.webp',
     },
     {
       id: '1t-5-8',
@@ -516,7 +516,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['GeoGebra Geometri', 'Konstruksjoner', 'Trigonometri'],
-      coverImage: '/images/subjects/1t-5-8-geometri-og-trigonometri-i-geogebra.png',
+      coverImage: '/images/subjects/1t-5-8-geometri-og-trigonometri-i-geogebra.webp',
       wip: true,
     },
 
@@ -530,7 +530,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Argumentasjon', 'Begrunnelse', 'Logisk resonnement'],
       competenceGoals: ['argumentere for tenkemåtene sine'],
-      coverImage: '/images/subjects/1t-6-1-matematisk-argumentasjon.png',
+      coverImage: '/images/subjects/1t-6-1-matematisk-argumentasjon.webp',
     },
     {
       id: '1t-6-2',
@@ -542,7 +542,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Bevis', 'Algebraiske bevis', 'Geometriske bevis'],
       prerequisites: ['1t-6-1'],
       competenceGoals: ['lese og forstå matematiske bevis', 'utforske og utvikle bevis'],
-      coverImage: '/images/subjects/1t-6-2-lese-og-forsta-bevis.png',
+      coverImage: '/images/subjects/1t-6-2-lese-og-forsta-bevis.webp',
     },
 
     // Kapittel 7: Vekstfart og derivasjon (var kapittel 6)
@@ -555,7 +555,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Stigningstall', 'Ettpunktsformelen', 'Gjennomsnittlig vekstfart', 'Sekant'],
       competenceGoals: ['beregne gjennomsnittlig vekstfart for en funksjon i et intervall'],
-      coverImage: '/images/subjects/1t-7-1-gjennomsnittlig-vekstfart.png',
+      coverImage: '/images/subjects/1t-7-1-gjennomsnittlig-vekstfart.webp',
     },
     {
       id: '1t-7-2',
@@ -567,7 +567,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Momentan vekstfart', 'Tangent', 'Grenseverdi'],
       prerequisites: ['1t-7-1'],
       competenceGoals: ['bruke momentan vekstfart i konkrete døme'],
-      coverImage: '/images/subjects/1t-7-2-momentan-vekstfart.png',
+      coverImage: '/images/subjects/1t-7-2-momentan-vekstfart.webp',
     },
     {
       id: '1t-7-3',
@@ -579,7 +579,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Derivert', 'f\'(x)', 'Konstantregel', 'Potensregel', 'Sumregel'],
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for den deriverte', 'derivere polynomfunksjonar'],
-      coverImage: '/images/subjects/1t-7-3-den-deriverte.png',
+      coverImage: '/images/subjects/1t-7-3-den-deriverte.webp',
     },
     {
       id: '1t-7-4',
@@ -590,7 +590,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['GeoGebra CAS', 'Derivert()', 'Tangent'],
       prerequisites: ['1t-7-3'],
-      coverImage: '/images/subjects/1t-7-4-derivasjon-i-geogebra.png',
+      coverImage: '/images/subjects/1t-7-4-derivasjon-i-geogebra.webp',
       wip: true,
     },
     {
@@ -603,7 +603,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Grenseverdi', 'Derivasjonsdefinisjonen', 'Numerisk derivasjon', 'Differenskvotient'],
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for definisjonen av den deriverte', 'bruke numerisk derivasjon'],
-      coverImage: '/images/subjects/1t-7-5-definisjonen-av-derivasjon-og-numerisk-derivasjon.png',
+      coverImage: '/images/subjects/1t-7-5-definisjonen-av-derivasjon-og-numerisk-derivasjon.webp',
       wip: true,
     },
     {
@@ -616,7 +616,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Potensregelen', 'Konstantregelen', 'Sumregelen', 'Polynomderivering'],
       prerequisites: ['1t-7-3'],
       competenceGoals: ['derivere polynomfunksjonar', 'bruke derivasjonsreglar'],
-      coverImage: '/images/subjects/1t-7-6-derivasjon-av-polynomfunksjoner.png',
+      coverImage: '/images/subjects/1t-7-6-derivasjon-av-polynomfunksjoner.webp',
       wip: true,
     },
     {
@@ -629,7 +629,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Optimering', 'Fart og akselerasjon', 'Maksimum og minimum', 'Praktiske problemer'],
       prerequisites: ['1t-7-6'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske problem', 'finne ekstremalpunkt'],
-      coverImage: '/images/subjects/1t-7-7-praktisk-bruk-av-derivasjon.png',
+      coverImage: '/images/subjects/1t-7-7-praktisk-bruk-av-derivasjon.webp',
       wip: true,
     },
     // Kapittel 8: Modellering og regresjon
@@ -713,7 +713,7 @@ export const COURSE_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Tusener', 'Titusen', 'Hundretusen', 'Millioner', 'Plassverdisystem'],
       competenceGoals: ['utforske og beskrive strukturar og mønster i tal og bruke plassverdisystemet'],
-      coverImage: '/images/subjects/1t-8-5-modellvurdering-og-praktisk-bruk.png',
+      coverImage: '/images/subjects/1t-8-5-modellvurdering-og-praktisk-bruk.webp',
     },
     {
       id: '5-1-2',
@@ -3416,6 +3416,7 @@ export const COURSE_1P: TextbookCourse = {
   level: 'VG1',
   description: 'Praktisk matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
+  coverImage: '/images/subjects/matematikk-1p-hero.webp',
   icon: '📊',
   chapters: [
     // Kapittel 1: Tall og økonomi
@@ -3428,7 +3429,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Prosent', 'Prosentvis endring', 'Vekstfaktor', 'Rabatt', 'Påslag'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: '/images/subjects/1p-1-1-prosentregning.png',
+      coverImage: '/images/subjects/1p-1-1-prosentregning.webp',
       wip: true,
     },
     {
@@ -3440,7 +3441,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vekstfaktor', 'Eksponentiell vekst', 'Forrentning', 'Inflasjon'],
       prerequisites: ['1p-1-1'],
-      coverImage: '/images/subjects/1p-1-2-gjentatt-prosentvis-endring.png',
+      coverImage: '/images/subjects/1p-1-2-gjentatt-prosentvis-endring.webp',
       wip: true,
     },
     {
@@ -3452,7 +3453,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Budsjett', 'Inntekt', 'Utgift', 'Overskudd', 'Underskudd'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: '/images/subjects/1p-1-3-budsjett-og-regnskap.png',
+      coverImage: '/images/subjects/1p-1-3-budsjett-og-regnskap.webp',
       wip: true,
     },
     {
@@ -3464,7 +3465,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Brøk', 'Forkorting', 'Utviding', 'Regnearter med brøk', 'Desimaltall'],
       competenceGoals: ['rekne med brøk og sjå samanhengen mellom brøk, prosent og desimaltal'],
-      coverImage: '/images/subjects/1p-1-4-brokregning.png',
+      coverImage: '/images/subjects/1p-1-4-brokregning.webp',
     },
     {
       id: '1p-1-5',
@@ -3475,7 +3476,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Regnerekkefølge', 'Parenteser', 'Overslagsregning', 'Hoderegning'],
       competenceGoals: ['utvikle og bruke metodar for hovudrekning, overslagsrekning og digital rekning'],
-      coverImage: '/images/subjects/1p-1-5-regnerekkefolge-og-overslagsregning.png',
+      coverImage: '/images/subjects/1p-1-5-regnerekkefolge-og-overslagsregning.webp',
     },
 
     // Kapittel 2: Algebra og likninger
@@ -3487,7 +3488,7 @@ export const COURSE_1P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 14,
       topics: ['Rasjonale tall', 'Brøk', 'Desimaltall', 'Prosent', 'Overslag'],
-      coverImage: '/images/subjects/1p-2-1-tall-og-tallforstaelse.png',
+      coverImage: '/images/subjects/1p-2-1-tall-og-tallforstaelse.webp',
       wip: true,
     },
     {
@@ -3499,7 +3500,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Forholdstall', 'Skala', 'Kart', 'Modeller', 'Blandingsforhold'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: '/images/subjects/1p-2-2-forholdstall-og-skala.png',
+      coverImage: '/images/subjects/1p-2-2-forholdstall-og-skala.webp',
       wip: true,
     },
     {
@@ -3511,7 +3512,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Førstegradslikning', 'Praktiske problemer', 'Modellering'],
       competenceGoals: ['modellere og løyse praktiske problem ved å setje opp enkle likningar'],
-      coverImage: '/images/subjects/1p-2-3-likninger-i-praksis.png',
+      coverImage: '/images/subjects/1p-2-3-likninger-i-praksis.webp',
       wip: true,
     },
     {
@@ -3523,7 +3524,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Potenser', 'Potensregler', 'Multiplikasjon av potenser', 'Divisjon av potenser'],
       competenceGoals: ['bruke potensrekneregler'],
-      coverImage: '/images/subjects/1p-2-4-potenser-og-potensregler.png',
+      coverImage: '/images/subjects/1p-2-4-potenser-og-potensregler.webp',
     },
     {
       id: '1p-2-5',
@@ -3534,7 +3535,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Kvadratrot', 'Tredjerot', 'Standardform', 'Store tall', 'Små tall'],
       competenceGoals: ['bruke standardform til å uttrykkje store og små tal'],
-      coverImage: '/images/subjects/1p-2-5-rotter-og-standardform.png',
+      coverImage: '/images/subjects/1p-2-5-rotter-og-standardform.webp',
     },
     {
       id: '1p-2-6',
@@ -3545,7 +3546,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Forholdstall', 'Proporsjonalitet', 'Omvendt proporsjonalitet', 'Kryssregning'],
       competenceGoals: ['utforske og argumentere for korleis rekne med forhold, prosent og vekstfaktor'],
-      coverImage: '/images/subjects/1p-2-6-proporsjonalitet.png',
+      coverImage: '/images/subjects/1p-2-6-proporsjonalitet.webp',
     },
 
     // Kapittel 3: Funksjoner
@@ -3558,7 +3559,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineær funksjon', 'Stigningstall', 'Konstantledd', 'Grafisk fremstilling'],
       competenceGoals: ['utforske og beskrive lineære funksjonar i praktiske situasjonar'],
-      coverImage: '/images/subjects/1p-3-1-lineaere-funksjoner.png',
+      coverImage: '/images/subjects/1p-3-1-lineaere-funksjoner.webp',
       wip: true,
     },
     {
@@ -3570,7 +3571,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Modellering', 'Tilpasning', 'Tolkning', 'Praktiske problemer'],
       prerequisites: ['1p-3-1'],
-      coverImage: '/images/subjects/1p-3-2-lineaer-modellering.png',
+      coverImage: '/images/subjects/1p-3-2-lineaer-modellering.webp',
       wip: true,
     },
     {
@@ -3582,7 +3583,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentialfunksjon', 'Vekst', 'Nedgang', 'Halveringstid', 'Doblingtid'],
       prerequisites: ['1p-1-2'],
-      coverImage: '/images/subjects/1p-3-3-eksponentialfunksjoner.png',
+      coverImage: '/images/subjects/1p-3-3-eksponentialfunksjoner.webp',
       wip: true,
     },
     {
@@ -3594,7 +3595,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Andregradsfunksjon', 'Parabel', 'Toppunkt', 'Bunnpunkt', 'Nullpunkter'],
       competenceGoals: ['utforske eigenskapane til andregradsfunksjonar'],
-      coverImage: '/images/subjects/1p-3-4-andregradsfunksjoner.png',
+      coverImage: '/images/subjects/1p-3-4-andregradsfunksjoner.webp',
     },
     {
       id: '1p-3-5',
@@ -3605,7 +3606,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Doblingstid', 'Halveringstid'],
       competenceGoals: ['utforske eigenskapane til eksponentialfunksjonar'],
-      coverImage: '/images/subjects/1p-3-5-eksponentialfunksjoner.png',
+      coverImage: '/images/subjects/1p-3-5-eksponentialfunksjoner.webp',
     },
     {
       id: '1p-3-6',
@@ -3616,7 +3617,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Digital graftegning', 'GeoGebra', 'Nullpunkter', 'Skjæringspunkter', 'Grafisk løsning'],
       competenceGoals: ['bruke digitale verktøy i utforsking og problemløysing'],
-      coverImage: '/images/subjects/1p-3-6-digital-graftegning-og-likningslosning.png',
+      coverImage: '/images/subjects/1p-3-6-digital-graftegning-og-likningslosning.webp',
     },
 
     // Kapittel 4: Geometri og måling
@@ -3628,7 +3629,7 @@ export const COURSE_1P: TextbookCourse = {
       estimatedMinutes: 45,
       exerciseCount: 14,
       topics: ['Målestokk', 'Enheter', 'Omregning', 'Praktisk måling'],
-      coverImage: '/images/subjects/1p-4-1-malestokk-og-enheter.png',
+      coverImage: '/images/subjects/1p-4-1-malestokk-og-enheter.webp',
       wip: true,
     },
     {
@@ -3640,7 +3641,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Areal', 'Omkrets', 'Sammensatte figurer', 'Praktiske beregninger'],
       competenceGoals: ['bruke geometriske omgrep i praktiske samanhengar'],
-      coverImage: '/images/subjects/1p-4-2-areal-og-omkrets.png',
+      coverImage: '/images/subjects/1p-4-2-areal-og-omkrets.webp',
       wip: true,
     },
     {
@@ -3652,7 +3653,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Volum', 'Overflate', 'Sylinder', 'Prisme', 'Kjegle', 'Kule'],
       prerequisites: ['1p-4-2'],
-      coverImage: '/images/subjects/1p-4-3-volum-og-overflate.png',
+      coverImage: '/images/subjects/1p-4-3-volum-og-overflate.webp',
       wip: true,
     },
     {
@@ -3664,7 +3665,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['SI-systemet', 'Prefikser', 'Enhetsomregning', 'Lengde', 'Areal', 'Volum', 'Fart'],
       competenceGoals: ['velje høvelege einingar og rekne om mellom einingar'],
-      coverImage: '/images/subjects/1p-4-4-maleenheter-og-enhetsomregning.png',
+      coverImage: '/images/subjects/1p-4-4-maleenheter-og-enhetsomregning.webp',
     },
     {
       id: '1p-4-5',
@@ -3675,7 +3676,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Formlikhet', 'Formlikhetsfaktor', 'Målestokk', 'Areal og formlikhet', 'Volum og formlikhet'],
       competenceGoals: ['bruke formlikskap og målestokk til berekningar'],
-      coverImage: '/images/subjects/1p-4-5-formlikhet.png',
+      coverImage: '/images/subjects/1p-4-5-formlikhet.webp',
     },
 
     // Kapittel 5: Statistikk
@@ -3688,7 +3689,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Datainnsamling', 'Utvalg', 'Populasjon', 'Feilkilder', 'Spørreskjema'],
       competenceGoals: ['planleggje og gjennomføre statistiske undersøkingar'],
-      coverImage: '/images/subjects/1p-5-1-datainnsamling.png',
+      coverImage: '/images/subjects/1p-5-1-datainnsamling.webp',
       wip: true,
     },
     {
@@ -3700,7 +3701,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Variasjonsbredde', 'Standardavvik'],
       prerequisites: ['1p-5-1'],
-      coverImage: '/images/subjects/1p-5-2-sentralmal-og-spredning.png',
+      coverImage: '/images/subjects/1p-5-2-sentralmal-og-spredning.webp',
       wip: true,
     },
     {
@@ -3713,7 +3714,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Søylediagram', 'Sektordiagram', 'Linjediagram', 'Histogram', 'Boksplot'],
       prerequisites: ['1p-5-2'],
       competenceGoals: ['presentere og tolke statistiske data'],
-      coverImage: '/images/subjects/1p-5-3-diagrammer-og-presentasjon.png',
+      coverImage: '/images/subjects/1p-5-3-diagrammer-og-presentasjon.webp',
       wip: true,
     },
     {
@@ -3725,7 +3726,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Kritisk vurdering', 'Feilkilder', 'Manipulering', 'Representativitet'],
       prerequisites: ['1p-5-3'],
-      coverImage: '/images/subjects/1p-5-4-kritisk-analyse.png',
+      coverImage: '/images/subjects/1p-5-4-kritisk-analyse.webp',
       wip: true,
     },
 
@@ -3739,7 +3740,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sannsynlighet', 'Gunstige utfall', 'Mulige utfall', 'Relativ frekvens'],
       competenceGoals: ['bruke sannsynligheit i praktiske situasjonar'],
-      coverImage: '/images/subjects/1p-6-1-grunnleggende-sannsynlighet.png',
+      coverImage: '/images/subjects/1p-6-1-grunnleggende-sannsynlighet.webp',
       wip: true,
     },
     {
@@ -3751,7 +3752,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sammensatte hendelser', 'Og-sannsynlighet', 'Eller-sannsynlighet', 'Tredjagram'],
       prerequisites: ['1p-6-1'],
-      coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.png',
+      coverImage: '/images/subjects/1p-6-2-sammensatte-hendelser.webp',
       wip: true,
     },
     {
@@ -3764,7 +3765,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Simulering', 'Tilfeldighet', 'Store talls lov', 'Digitale verktøy'],
       prerequisites: ['1p-6-2'],
       competenceGoals: ['bruke digitale verktøy til å simulere og berekne sannsyn'],
-      coverImage: '/images/subjects/1p-6-3-simulering.png',
+      coverImage: '/images/subjects/1p-6-3-simulering.webp',
       wip: true,
     },
 
@@ -3778,7 +3779,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Lineær regresjon', 'Korrelasjonskoeffisient', 'Prediksjon', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne lineære modellar som passar til datamateriale'],
-      coverImage: '/images/subjects/1p-7-3-lineaer-regresjon.png',
+      coverImage: '/images/subjects/1p-7-3-lineaer-regresjon.webp',
     },
     {
       id: '1p-7-4',
@@ -3789,7 +3790,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Eksponentialregresjon', 'Eksponentiell vekst', 'Modellvalg', 'Digitale verktøy'],
       competenceGoals: ['bruke digitale verktøy til å finne eksponentielle modellar som passar til datamateriale'],
-      coverImage: '/images/subjects/1p-7-4-eksponentialregresjon.png',
+      coverImage: '/images/subjects/1p-7-4-eksponentialregresjon.webp',
     },
     {
       id: '1p-7-5',
@@ -3800,7 +3801,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Definisjonsmengde', 'Verdimengde', 'Nullpunkter', 'Topp- og bunnpunkt', 'Vekstfart', 'Symmetri'],
       competenceGoals: ['tolke og bruke funksjonar og drøfte eigenskapane deira'],
-      coverImage: '/images/subjects/1p-7-5-kjennetegn-ved-funksjoner.png',
+      coverImage: '/images/subjects/1p-7-5-kjennetegn-ved-funksjoner.webp',
     },
 
     // Kapittel 8: Personlig økonomi
@@ -3813,7 +3814,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Bruttolønn', 'Nettolønn', 'Skattetrekk', 'Trinnskatt', 'Trygdeavgift', 'Feriepenger'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: '/images/subjects/1p-8-3-lonn-og-skatt.png',
+      coverImage: '/images/subjects/1p-8-3-lonn-og-skatt.webp',
     },
     {
       id: '1p-8-4',
@@ -3824,7 +3825,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Merverdiavgift', 'MVA-satser', 'Valutakurs', 'Veksling', 'Utenlandshandel'],
       competenceGoals: ['utforske og diskutere korleis ulike pengespørsmål påverkar privatøkonomi'],
-      coverImage: '/images/subjects/1p-8-4-mva-og-valuta.png',
+      coverImage: '/images/subjects/1p-8-4-mva-og-valuta.webp',
     },
     {
       id: '1p-8-5',
@@ -3835,7 +3836,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Konsumprisindeks', 'KPI', 'Reallønn', 'Kroneverdi', 'Prissammenligning'],
       competenceGoals: ['bruke indeks til å samanlikne tal over tid'],
-      coverImage: '/images/subjects/1p-8-5-indeks-og-kroneverdi.png',
+      coverImage: '/images/subjects/1p-8-5-indeks-og-kroneverdi.webp',
     },
 
     // Kapittel 9: Algoritmisk tenkning og programmering
@@ -3848,7 +3849,7 @@ export const COURSE_1P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Algoritme', 'Flytskjema', 'Pseudokode', 'Steg-for-steg'],
       competenceGoals: ['formulere og løyse problem ved hjelp av algoritmisk tenking'],
-      coverImage: '/images/subjects/1p-9-1-hva-er-en-algoritme.png',
+      coverImage: '/images/subjects/1p-9-1-hva-er-en-algoritme.webp',
     },
     {
       id: '1p-9-2',
@@ -3860,7 +3861,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Python', 'Variabler', 'Datatyper', 'Betingelser', 'Løkker', 'Funksjoner'],
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar'],
       prerequisites: ['1p-9-1'],
-      coverImage: '/images/subjects/1p-9-2-programmering-med-python.png',
+      coverImage: '/images/subjects/1p-9-2-programmering-med-python.webp',
     },
     {
       id: '1p-9-3',
@@ -3872,7 +3873,7 @@ export const COURSE_1P: TextbookCourse = {
       topics: ['Renter og sparing', 'Simulering', 'Likningsløsning', 'Statistikk', 'Python'],
       competenceGoals: ['bruke programmering til å utforske matematiske samanhengar', 'bruke digitale verktøy i utforsking og problemløysing'],
       prerequisites: ['1p-9-2'],
-      coverImage: '/images/subjects/1p-9-3-matematikk-med-programmering.png',
+      coverImage: '/images/subjects/1p-9-3-matematikk-med-programmering.webp',
     },
   ],
 };
@@ -3887,6 +3888,7 @@ export const COURSE_S1: TextbookCourse = {
   level: 'VG2',
   description: 'Samfunnsfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
+  coverImage: '/images/subjects/matematikk-s1-hero.webp',
   icon: '📈',
   chapters: [
     // Kapittel 1: Algebra
@@ -3899,7 +3901,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorisering', 'Nullpunkter'],
       competenceGoals: ['faktorisere polynom ved hjelp av polynomdivisjon'],
-      coverImage: '/images/subjects/s1-1-1-polynomer.png',
+      coverImage: '/images/subjects/s1-1-1-polynomer.webp',
     },
     {
       id: 's1-1-2',
@@ -3910,7 +3912,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Rasjonale uttrykk', 'Forkorting', 'Fellesnevner', 'Algebraiske brøker'],
       prerequisites: ['s1-1-1'],
-      coverImage: '/images/subjects/s1-1-2-rasjonale-uttrykk.png',
+      coverImage: '/images/subjects/s1-1-2-rasjonale-uttrykk.webp',
     },
     {
       id: 's1-1-3',
@@ -3922,7 +3924,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Polynomlikninger', 'Rasjonale likninger', 'Ulikheter', 'Fortegnslinje'],
       prerequisites: ['s1-1-2'],
       competenceGoals: ['løyse likningar og ulikskapar med polynomuttrykk'],
-      coverImage: '/images/subjects/s1-1-3-likninger-og-ulikheter.png',
+      coverImage: '/images/subjects/s1-1-3-likninger-og-ulikheter.webp',
     },
 
     // Kapittel 2: Funksjoner
@@ -3935,7 +3937,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Polynomfunksjon', 'Graf', 'Nullpunkter', 'Ekstremalpunkter', 'Vendepunkt'],
       competenceGoals: ['analysere eigenskapar ved polynomfunksjonar'],
-      coverImage: '/images/subjects/s1-2-1-polynomfunksjoner.png',
+      coverImage: '/images/subjects/s1-2-1-polynomfunksjoner.webp',
     },
     {
       id: 's1-2-2',
@@ -3946,7 +3948,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Rasjonale funksjoner', 'Vertikal asymptote', 'Horisontal asymptote', 'Definisjonsmengde'],
       prerequisites: ['s1-2-1'],
-      coverImage: '/images/subjects/s1-2-2-rasjonale-funksjoner.png',
+      coverImage: '/images/subjects/s1-2-2-rasjonale-funksjoner.webp',
     },
     {
       id: 's1-2-3',
@@ -3957,7 +3959,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Halvering', 'Dobling', 'e-funksjonen'],
       competenceGoals: ['utforske og beskrive eksponentiell vekst og nedbryting'],
-      coverImage: '/images/subjects/s1-2-3-eksponentialfunksjoner.png',
+      coverImage: '/images/subjects/s1-2-3-eksponentialfunksjoner.webp',
     },
     {
       id: 's1-2-4',
@@ -3968,7 +3970,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Logaritme', 'Logaritmefunksjon', 'Logaritmeregler', 'Naturlig logaritme'],
       prerequisites: ['s1-2-3'],
-      coverImage: '/images/subjects/s1-2-4-logaritmefunksjoner.png',
+      coverImage: '/images/subjects/s1-2-4-logaritmefunksjoner.webp',
     },
     {
       id: 's1-2-5',
@@ -3979,7 +3981,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Omvendt funksjon', 'Invers', 'Symmetri', 'Eksistens'],
       prerequisites: ['s1-2-4'],
-      coverImage: '/images/subjects/s1-2-5-omvendte-funksjoner.png',
+      coverImage: '/images/subjects/s1-2-5-omvendte-funksjoner.webp',
     },
 
     // Kapittel 3: Derivasjon
@@ -3992,7 +3994,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Grenseverdi', 'Kontinuitet', 'Ensidig grense', 'Uendelig'],
       competenceGoals: ['utforske og drøfte omgrepet grenseverdi'],
-      coverImage: '/images/subjects/s1-3-1-grenser-og-kontinuitet.png',
+      coverImage: '/images/subjects/s1-3-1-grenser-og-kontinuitet.webp',
     },
     {
       id: 's1-3-2',
@@ -4003,7 +4005,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Derivasjon', 'Sekant', 'Tangent', 'Momentan vekstfart', 'Grenseverdi'],
       prerequisites: ['s1-3-1'],
-      coverImage: '/images/subjects/s1-3-2-definisjon-av-derivasjon.png',
+      coverImage: '/images/subjects/s1-3-2-definisjon-av-derivasjon.webp',
     },
     {
       id: 's1-3-3',
@@ -4015,7 +4017,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Sumregel', 'Produktregel', 'Kvotientregel', 'Kjerneregel'],
       prerequisites: ['s1-3-2'],
       competenceGoals: ['derivere polynomfunksjonar, potensfunksjonar og eksponentialfunksjonar'],
-      coverImage: '/images/subjects/s1-3-3-derivasjonsregler.png',
+      coverImage: '/images/subjects/s1-3-3-derivasjonsregler.webp',
     },
     {
       id: 's1-3-4',
@@ -4026,7 +4028,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Derivasjon av e^x', 'Derivasjon av ln x', 'Derivasjon av a^x', 'Derivasjon av log_a x'],
       prerequisites: ['s1-3-3'],
-      coverImage: '/images/subjects/s1-3-4-derivasjon-av-spesielle-funksjoner.png',
+      coverImage: '/images/subjects/s1-3-4-derivasjon-av-spesielle-funksjoner.webp',
     },
     {
       id: 's1-3-5',
@@ -4038,7 +4040,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Ekstremalpunkt', 'Monotoni', 'Optimering', 'Vendepunkt'],
       prerequisites: ['s1-3-3'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar og løyse praktiske problem'],
-      coverImage: '/images/subjects/s1-3-5-anvendelser-av-derivasjon.png',
+      coverImage: '/images/subjects/s1-3-5-anvendelser-av-derivasjon.webp',
     },
 
     // Kapittel 4: Økonomi
@@ -4051,7 +4053,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Kostnadsfunksjon', 'Inntektsfunksjon', 'Overskuddsfunksjon', 'Enhetskostnad'],
       competenceGoals: ['bruke funksjonar til å modellere økonomiske samanhengar'],
-      coverImage: '/images/subjects/s1-4-1-kostnad-inntekt-og-overskudd.png',
+      coverImage: '/images/subjects/s1-4-1-kostnad-inntekt-og-overskudd.webp',
     },
     {
       id: 's1-4-2',
@@ -4062,7 +4064,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Grensekostnad', 'Grenseinntekt', 'Marginalanalyse', 'Optimalt produksjonsvolum'],
       prerequisites: ['s1-4-1', 's1-3-5'],
-      coverImage: '/images/subjects/s1-4-2-grensekostnader-og-grenseinntekter.png',
+      coverImage: '/images/subjects/s1-4-2-grensekostnader-og-grenseinntekter.webp',
     },
     {
       id: 's1-4-3',
@@ -4073,7 +4075,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Etterspørsel', 'Elastisitet', 'Priselastisitet', 'Markedslikevekt'],
       prerequisites: ['s1-4-2'],
-      coverImage: '/images/subjects/s1-4-3-etterspørsel-og-elastisitet.png',
+      coverImage: '/images/subjects/s1-4-3-etterspørsel-og-elastisitet.webp',
     },
 
     // Kapittel 5: Sannsynlighet
@@ -4086,7 +4088,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Multiplikasjonsprinsippet', 'Permutasjon', 'Kombinasjon', 'Fakultet'],
       competenceGoals: ['bruke kombinatorikk til å berekne sannsyn'],
-      coverImage: '/images/subjects/s1-5-1-kombinatorikk.png',
+      coverImage: '/images/subjects/s1-5-1-kombinatorikk.webp',
     },
     {
       id: 's1-5-2',
@@ -4097,7 +4099,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Multiplikasjonsregelen', 'Tredjagram'],
       prerequisites: ['s1-5-1'],
-      coverImage: '/images/subjects/s1-5-2-betinget-sannsynlighet.png',
+      coverImage: '/images/subjects/s1-5-2-betinget-sannsynlighet.webp',
     },
     {
       id: 's1-5-3',
@@ -4109,7 +4111,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Bayes setning', 'Total sannsynlighet', 'Oppdatering', 'Diagnostiske tester'],
       prerequisites: ['s1-5-2'],
       competenceGoals: ['bruke Bayes setning til å berekne sannsyn'],
-      coverImage: '/images/subjects/s1-5-3-bayes-setning.png',
+      coverImage: '/images/subjects/s1-5-3-bayes-setning.webp',
     },
 
     // Kapittel 6: Statistikk
@@ -4122,7 +4124,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sannsynlighetsfordeling', 'Forventningsverdi', 'Varians', 'Standardavvik'],
       competenceGoals: ['berekne og tolke forventningsverdi og standardavvik'],
-      coverImage: '/images/subjects/s1-6-1-diskrete-sannsynlighetsfordelinger.png',
+      coverImage: '/images/subjects/s1-6-1-diskrete-sannsynlighetsfordelinger.webp',
     },
     {
       id: 's1-6-2',
@@ -4133,7 +4135,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Binomisk forsøk', 'Binomisk fordeling', 'Forventning', 'Standardavvik'],
       prerequisites: ['s1-6-1', 's1-5-1'],
-      coverImage: '/images/subjects/s1-6-2-binomisk-fordeling.png',
+      coverImage: '/images/subjects/s1-6-2-binomisk-fordeling.webp',
     },
     {
       id: 's1-6-3',
@@ -4145,7 +4147,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Normalfordeling', 'Standardnormalfordeling', 'z-verdi', 'Normalfordelingsapproksimasjon'],
       prerequisites: ['s1-6-2'],
       competenceGoals: ['bruke normalfordelinga til å berekne sannsyn'],
-      coverImage: '/images/subjects/s1-6-3-normalfordelingen.png',
+      coverImage: '/images/subjects/s1-6-3-normalfordelingen.webp',
     },
   ],
 };
@@ -4161,7 +4163,7 @@ export const COURSE_S2: TextbookCourse = {
   description: 'Samfunnsfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '📉',
-  coverImage: '/images/subjects/matematikk-s2-hero.png',
+  coverImage: '/images/subjects/matematikk-s2-hero.webp',
   chapters: [
     // Kapittel 1: Integrasjon
     {
@@ -4173,7 +4175,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Antiderivasjon', 'Ubestemt integral', 'Integrasjonskonstant', 'Integrasjonsregler'],
       competenceGoals: ['finne ubestemte integralar ved å bruke integrasjonsreglar'],
-      coverImage: '/images/subjects/s2-1-1-ubestemte-integraler.png',
+      coverImage: '/images/subjects/s2-1-1-ubestemte-integraler.webp',
     },
     {
       id: 's2-1-2',
@@ -4184,7 +4186,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Bestemt integral', 'Areal under graf', 'Analysens fundamentalteorem'],
       prerequisites: ['s2-1-1'],
-      coverImage: '/images/subjects/s2-1-2-bestemte-integraler.png',
+      coverImage: '/images/subjects/s2-1-2-bestemte-integraler.webp',
     },
     {
       id: 's2-1-3',
@@ -4195,7 +4197,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Areal mellom kurver', 'Integrasjon', 'Skjæringspunkter'],
       prerequisites: ['s2-1-2'],
-      coverImage: '/images/subjects/s2-1-3-areal-mellom-kurver.png',
+      coverImage: '/images/subjects/s2-1-3-areal-mellom-kurver.webp',
     },
     {
       id: 's2-1-4',
@@ -4206,7 +4208,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Delvis integrasjon', 'Substitusjon', 'Variabelskifte'],
       prerequisites: ['s2-1-2'],
-      coverImage: '/images/subjects/s2-1-4-integrasjonsmetoder.png',
+      coverImage: '/images/subjects/s2-1-4-integrasjonsmetoder.webp',
     },
 
     // Kapittel 2: Differensiallikninger
@@ -4219,7 +4221,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Differensiallikning', 'Løsning', 'Generell løsning', 'Partikulær løsning'],
       competenceGoals: ['løyse enkle differensiallikningar'],
-      coverImage: '/images/subjects/s2-2-1-introduksjon-til-differensiallikninger.png',
+      coverImage: '/images/subjects/s2-2-1-introduksjon-til-differensiallikninger.webp',
     },
     {
       id: 's2-2-2',
@@ -4230,7 +4232,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Separabel likning', 'Separasjon av variable', 'Initialbetingelse'],
       prerequisites: ['s2-2-1', 's2-1-1'],
-      coverImage: '/images/subjects/s2-2-2-separable-differensiallikninger.png',
+      coverImage: '/images/subjects/s2-2-2-separable-differensiallikninger.webp',
     },
     {
       id: 's2-2-3',
@@ -4241,7 +4243,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Lineær differensiallikning', 'Homogen', 'Inhomogen', 'Integrerende faktor'],
       prerequisites: ['s2-2-2'],
-      coverImage: '/images/subjects/s2-2-3-lineaere-differensiallikninger.png',
+      coverImage: '/images/subjects/s2-2-3-lineaere-differensiallikninger.webp',
     },
     {
       id: 's2-2-4',
@@ -4253,7 +4255,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Logistisk vekst', 'Populasjonsmodeller', 'Nedbrytning'],
       prerequisites: ['s2-2-3'],
       competenceGoals: ['modellere praktiske situasjonar med differensiallikningar'],
-      coverImage: '/images/subjects/s2-2-4-modellering-med-differensiallikninger.png',
+      coverImage: '/images/subjects/s2-2-4-modellering-med-differensiallikninger.webp',
     },
 
     // Kapittel 3: Funksjonsdrøfting
@@ -4266,7 +4268,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Funksjonsdrøfting', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter', 'Skisse'],
       competenceGoals: ['drøfte funksjonar systematisk med derivasjon'],
-      coverImage: '/images/subjects/s2-3-1-fullstendig-funksjonsdr0fting.png',
+      coverImage: '/images/subjects/s2-3-1-fullstendig-funksjonsdr0fting.webp',
     },
     {
       id: 's2-3-2',
@@ -4277,7 +4279,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Andrederivert', 'Vendepunkt', 'Krumning', 'Konkavitet'],
       prerequisites: ['s2-3-1'],
-      coverImage: '/images/subjects/s2-3-2-andrederiverte-og-vendepunkter.png',
+      coverImage: '/images/subjects/s2-3-2-andrederiverte-og-vendepunkter.webp',
     },
     {
       id: 's2-3-3',
@@ -4289,7 +4291,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Optimering', 'Maksimum', 'Minimum', 'Praktiske problemer', 'Randverdier'],
       prerequisites: ['s2-3-1'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske optimeringsproblem'],
-      coverImage: '/images/subjects/s2-3-3-optimering.png',
+      coverImage: '/images/subjects/s2-3-3-optimering.webp',
     },
 
     // Kapittel 4: Statistikk og sannsynlighet
@@ -4302,7 +4304,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Sannsynlighetsfordeling', 'Diskret', 'Kontinuerlig', 'Tetthetsfunksjon'],
       competenceGoals: ['bruke ulike sannsynlighetsfordelingar til å modellere situasjonar'],
-      coverImage: '/images/subjects/s2-4-1-sannsynlighetsfordelinger.png',
+      coverImage: '/images/subjects/s2-4-1-sannsynlighetsfordelinger.webp',
     },
     {
       id: 's2-4-2',
@@ -4313,7 +4315,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Hypergeometrisk fordeling', 'Binomisk fordeling', 'Utvalg', 'Tilnærming'],
       prerequisites: ['s2-4-1'],
-      coverImage: '/images/subjects/s2-4-2-hypergeometrisk-og-binomisk-fordeling.png',
+      coverImage: '/images/subjects/s2-4-2-hypergeometrisk-og-binomisk-fordeling.webp',
     },
     {
       id: 's2-4-3',
@@ -4324,7 +4326,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Normalfordeling', 'Sentralgrensesetningen', 'Summen av stokastiske variable'],
       prerequisites: ['s2-4-2'],
-      coverImage: '/images/subjects/s2-4-3-normalfordeling-og-sentralgrensesetningen.png',
+      coverImage: '/images/subjects/s2-4-3-normalfordeling-og-sentralgrensesetningen.webp',
     },
 
     // Kapittel 5: Statistisk inferens
@@ -4337,7 +4339,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Punktestimat', 'Konfidensintervall', 'Feilmargin', 'Utvalgsstørrelse'],
       competenceGoals: ['konstruere konfidensintervall og tolke resultata'],
-      coverImage: '/images/subjects/s2-5-1-estimering.png',
+      coverImage: '/images/subjects/s2-5-1-estimering.webp',
     },
     {
       id: 's2-5-2',
@@ -4349,7 +4351,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Hypotesetest', 'Nullhypotese', 'Alternativ hypotese', 'p-verdi', 'Signifikansnivå'],
       prerequisites: ['s2-5-1'],
       competenceGoals: ['gjennomføre hypotesetestar og tolke resultata'],
-      coverImage: '/images/subjects/s2-5-2-hypotesetesting.png',
+      coverImage: '/images/subjects/s2-5-2-hypotesetesting.webp',
     },
     {
       id: 's2-5-3',
@@ -4360,7 +4362,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Type I feil', 'Type II feil', 'Teststyrke', 'Utvalgsstørrelse'],
       prerequisites: ['s2-5-2'],
-      coverImage: '/images/subjects/s2-5-3-feiltyper-og-teststyrke.png',
+      coverImage: '/images/subjects/s2-5-3-feiltyper-og-teststyrke.webp',
     },
 
     // Kapittel 6: Regresjon og korrelasjon
@@ -4373,7 +4375,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineær regresjon', 'Minste kvadrat', 'Regresjonslinje', 'Prediksjon'],
       competenceGoals: ['utføre regresjonsanalyse og tolke resultata'],
-      coverImage: '/images/subjects/s2-6-1-lineaer-regresjon.png',
+      coverImage: '/images/subjects/s2-6-1-lineaer-regresjon.webp',
     },
     {
       id: 's2-6-2',
@@ -4384,7 +4386,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Korrelasjon', 'Korrelasjonskoeffisient', 'R²', 'Kausalitet'],
       prerequisites: ['s2-6-1'],
-      coverImage: '/images/subjects/s2-6-2-korrelasjon.png',
+      coverImage: '/images/subjects/s2-6-2-korrelasjon.webp',
     },
     {
       id: 's2-6-3',
@@ -4396,7 +4398,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Eksponentiell regresjon', 'Potensregresjon', 'Logaritmisk regresjon', 'Modellvalg'],
       prerequisites: ['s2-6-2'],
       competenceGoals: ['bruke digitale verktøy til å tilpasse modellar til data'],
-      coverImage: '/images/subjects/s2-6-3-ikke-lineaer-regresjon.png',
+      coverImage: '/images/subjects/s2-6-3-ikke-lineaer-regresjon.webp',
     },
   ],
 };
@@ -4411,6 +4413,7 @@ export const COURSE_2P: TextbookCourse = {
   level: 'VG2',
   description: 'Praktisk matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
+  coverImage: '/images/subjects/matematikk-2p-hero.webp',
   icon: '📊',
   chapters: [
     // Seksjon 1: Økonomi
@@ -4423,7 +4426,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Inntekt', 'Utgifter', 'Budsjett', 'Regnskap', 'Likviditet'],
       competenceGoals: ['planleggje og gjere greie for eigen økonomi'],
-      coverImage: '/images/subjects/2p-1-1-personlig-okonomi.png',
+      coverImage: '/images/subjects/2p-1-1-personlig-okonomi.webp',
       wip: true,
     },
     {
@@ -4436,7 +4439,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Annuitetslån', 'Serielån', 'Effektiv rente', 'Sparing', 'Rentes rente'],
       prerequisites: ['2p-1-1'],
       competenceGoals: ['rekne med og samanlikne ulike typar lån og spareformer'],
-      coverImage: '/images/subjects/2p-1-2-lan-og-sparing.png',
+      coverImage: '/images/subjects/2p-1-2-lan-og-sparing.webp',
       wip: true,
     },
     {
@@ -4448,7 +4451,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Inntektsskatt', 'Trinnskatt', 'Merverdiavgift', 'Særavgifter', 'Skatteberegning'],
       competenceGoals: ['rekne med skattar og avgifter'],
-      coverImage: '/images/subjects/2p-1-3-skatt-og-avgifter.png',
+      coverImage: '/images/subjects/2p-1-3-skatt-og-avgifter.webp',
       wip: true,
     },
     {
@@ -4461,7 +4464,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Faste kostnader', 'Variable kostnader', 'Inntekter', 'Resultat', 'Nullpunkt'],
       prerequisites: ['2p-1-1'],
       competenceGoals: ['bruke matematikk til å analysere økonomiske situasjonar'],
-      coverImage: '/images/subjects/2p-1-4-bedriftsokonomi.png',
+      coverImage: '/images/subjects/2p-1-4-bedriftsokonomi.webp',
       wip: true,
     },
     // Seksjon 2: Funksjoner i praksis
@@ -4474,7 +4477,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineære funksjoner', 'Stigningstall', 'Konstantledd', 'Modellering'],
       competenceGoals: ['bruke lineære funksjonar til å beskrive praktiske situasjonar'],
-      coverImage: '/images/subjects/2p-2-1-lineaere-modeller.png',
+      coverImage: '/images/subjects/2p-2-1-lineaere-modeller.webp',
       wip: true,
     },
     {
@@ -4486,7 +4489,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor', 'Halveringstid'],
       competenceGoals: ['bruke eksponentielle funksjonar til å beskrive praktiske situasjonar'],
-      coverImage: '/images/subjects/2p-2-2-eksponentielle-modeller.png',
+      coverImage: '/images/subjects/2p-2-2-eksponentielle-modeller.webp',
       wip: true,
     },
     {
@@ -4499,7 +4502,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Lineær regresjon', 'Eksponentiell regresjon', 'Korrelasjon', 'Modellvalg'],
       prerequisites: ['2p-2-1', '2p-2-2'],
       competenceGoals: ['bruke digitale verktøy til å tilpasse funksjonar til data'],
-      coverImage: '/images/subjects/2p-2-3-regresjon.png',
+      coverImage: '/images/subjects/2p-2-3-regresjon.webp',
       wip: true,
     },
     // Seksjon 3: Statistikk
@@ -4512,7 +4515,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Gjennomsnitt', 'Median', 'Typetall', 'Standardavvik', 'Variasjonsbredde'],
       competenceGoals: ['samle inn, analysere og presentere data'],
-      coverImage: '/images/subjects/2p-3-1-beskrivende-statistikk.png',
+      coverImage: '/images/subjects/2p-3-1-beskrivende-statistikk.webp',
       wip: true,
     },
     {
@@ -4525,7 +4528,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Normalfordeling', 'Standardavvik', 'Empirisk regel', 'Z-skår'],
       prerequisites: ['2p-3-1'],
       competenceGoals: ['bruke normalfordelinga i statistiske analysar'],
-      coverImage: '/images/subjects/2p-3-2-normalfordeling.png',
+      coverImage: '/images/subjects/2p-3-2-normalfordeling.webp',
       wip: true,
     },
     {
@@ -4537,7 +4540,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Kritisk analyse', 'Feilkilder', 'Manipulering', 'Statistisk signifikans'],
       competenceGoals: ['vurdere statistiske framstillingar kritisk'],
-      coverImage: '/images/subjects/2p-3-3-statistisk-analyse.png',
+      coverImage: '/images/subjects/2p-3-3-statistisk-analyse.webp',
       wip: true,
     },
     // Seksjon 4: Sannsynlighet
@@ -4550,7 +4553,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Utfallsrom', 'Hendelser', 'Addisjonssetningen', 'Multiplikasjonssetningen'],
       competenceGoals: ['rekne med sannsyn i praktiske situasjonar'],
-      coverImage: '/images/subjects/2p-4-1-sannsynlighetsregning.png',
+      coverImage: '/images/subjects/2p-4-1-sannsynlighetsregning.webp',
       wip: true,
     },
     {
@@ -4563,7 +4566,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Bayes setning', 'Treediagram'],
       prerequisites: ['2p-4-1'],
       competenceGoals: ['bruke omgrepet betinga sannsyn'],
-      coverImage: '/images/subjects/2p-4-2-betinget-sannsynlighet.png',
+      coverImage: '/images/subjects/2p-4-2-betinget-sannsynlighet.webp',
       wip: true,
     },
     {
@@ -4576,7 +4579,7 @@ export const COURSE_2P: TextbookCourse = {
       topics: ['Binomiske forsøk', 'Binomisk formel', 'Forventningsverdi', 'Standardavvik'],
       prerequisites: ['2p-4-1'],
       competenceGoals: ['bruke binomisk sannsynsmodell'],
-      coverImage: '/images/subjects/2p-4-3-binomisk-sannsynlighet.png',
+      coverImage: '/images/subjects/2p-4-3-binomisk-sannsynlighet.webp',
       wip: true,
     },
     // Seksjon 5: Geometri i praksis
@@ -4589,7 +4592,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Areal', 'Volum', 'Overflate', 'Sammensatte figurer'],
       competenceGoals: ['rekne med areal, volum og overflate i praktiske situasjonar'],
-      coverImage: '/images/subjects/2p-5-1-praktisk-geometri.png',
+      coverImage: '/images/subjects/2p-5-1-praktisk-geometri.webp',
       wip: true,
     },
     {
@@ -4601,7 +4604,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sinus', 'Cosinus', 'Tangens', 'Praktiske oppgaver', 'Landmåling'],
       competenceGoals: ['bruke trigonometri til å løyse praktiske problem'],
-      coverImage: '/images/subjects/2p-5-2-trigonometri-i-praksis.png',
+      coverImage: '/images/subjects/2p-5-2-trigonometri-i-praksis.webp',
       wip: true,
     },
     // Seksjon 6: Modellering
@@ -4614,7 +4617,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Modellbygging', 'Forutsetninger', 'Validering', 'Tolkning'],
       competenceGoals: ['lage og bruke matematiske modellar'],
-      coverImage: '/images/subjects/2p-6-1-matematisk-modellering.png',
+      coverImage: '/images/subjects/2p-6-1-matematisk-modellering.webp',
       wip: true,
     },
     {
@@ -4626,7 +4629,7 @@ export const COURSE_2P: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Regneark', 'GeoGebra', 'Dataanalyse', 'Visualisering'],
       competenceGoals: ['bruke digitale verktøy til å løyse problem'],
-      coverImage: '/images/subjects/2p-6-2-digitale-verktoy.png',
+      coverImage: '/images/subjects/2p-6-2-digitale-verktoy.webp',
       wip: true,
     },
   ],
@@ -4643,7 +4646,7 @@ export const COURSE_2PY: TextbookCourse = {
   description: 'Praktisk matematikk for yrkesfaglige utdanningsprogram',
   curriculum: 'LK20',
   icon: '🔧',
-  coverImage: '/images/subjects/matematikk-2py-hero.png',
+  coverImage: '/images/subjects/matematikk-2py-hero.webp',
   chapters: [
     // Seksjon 1: Økonomi i hverdagen
     {
@@ -4880,6 +4883,7 @@ export const COURSE_R1: TextbookCourse = {
   level: 'VG2',
   description: 'Realfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
+  coverImage: '/images/subjects/matematikk-r1-hero.webp',
   icon: '🔬',
   chapters: [
     // Seksjon 1: Algebra
@@ -4892,7 +4896,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorteoremet', 'Nullpunkter'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-1-1-polynomer-og-polynomdivisjon.png',
+      coverImage: '/images/subjects/r1-1-1-polynomer-og-polynomdivisjon.webp',
     },
     {
       id: 'r1-1-2',
@@ -4903,7 +4907,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Potensregler', 'Logaritmeregler', 'Naturlig logaritme', 'Briggske logaritmer'],
       competenceGoals: ['utforske og forstå regneregler for potenser og logaritmer'],
-      coverImage: '/images/subjects/r1-1-2-potenser-og-logaritmer.png',
+      coverImage: '/images/subjects/r1-1-2-potenser-og-logaritmer.webp',
     },
     {
       id: 'r1-1-3',
@@ -4915,7 +4919,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Eksponentialligninger', 'Logaritmeligninger', 'Løsningsstrategier'],
       prerequisites: ['r1-1-2'],
       competenceGoals: ['bruke ulike strategier for å løse eksponentialligninger og logaritmeligninger'],
-      coverImage: '/images/subjects/r1-1-3-eksponential-og-logaritmeligninger.png',
+      coverImage: '/images/subjects/r1-1-3-eksponential-og-logaritmeligninger.webp',
     },
     // Seksjon 2: Funksjoner
     {
@@ -4927,7 +4931,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Polynomfunksjoner', 'Rasjonale funksjoner', 'Eksponentialfunksjoner', 'Definisjonsmengde'],
       competenceGoals: ['analysere og tolke ulike funksjoner'],
-      coverImage: '/images/subjects/r1-2-1-funksjonstyper-og-egenskaper.png',
+      coverImage: '/images/subjects/r1-2-1-funksjonstyper-og-egenskaper.webp',
     },
     {
       id: 'r1-2-2',
@@ -4939,7 +4943,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Omvendt funksjon', 'Entydig funksjon', 'Speiling om y=x', 'Definisjonsmengde'],
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
-      coverImage: '/images/subjects/r1-2-2-omvendte-funksjoner.png',
+      coverImage: '/images/subjects/r1-2-2-omvendte-funksjoner.webp',
     },
     {
       id: 'r1-2-3',
@@ -4951,7 +4955,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Komposisjon', 'f∘g', 'Indre og ytre funksjon'],
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner'],
-      coverImage: '/images/subjects/r1-2-3-sammensatte-funksjoner.png',
+      coverImage: '/images/subjects/r1-2-3-sammensatte-funksjoner.webp',
     },
     // Seksjon 3: Grenseverdi og kontinuitet
     {
@@ -4963,7 +4967,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Grenseverdi', 'Ensidig grenseverdi', 'Grenseverdi i uendelig'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner, og utforske og argumentere for anvendelser av grenseverdier'],
-      coverImage: '/images/subjects/r1-3-1-grenseverdi.png',
+      coverImage: '/images/subjects/r1-3-1-grenseverdi.webp',
     },
     {
       id: 'r1-3-2',
@@ -4975,7 +4979,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Kontinuitet', 'Diskontinuitet', 'Hoppunkter', 'Asymptotisk oppførsel'],
       prerequisites: ['r1-3-1'],
       competenceGoals: ['gjøre rede for og argumentere for om en funksjon er kontinuerlig eller diskontinuerlig i et punkt i et definisjonsområde, og gi eksempler på anvendelser av diskontinuerlige funksjoner'],
-      coverImage: '/images/subjects/r1-3-2-kontinuitet.png',
+      coverImage: '/images/subjects/r1-3-2-kontinuitet.webp',
     },
     {
       id: 'r1-3-3',
@@ -4987,7 +4991,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Momentan vekstfart', 'Sekant og tangent', 'Derivasjonens definisjon', 'Numerisk derivasjon'],
       prerequisites: ['r1-3-1'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer', 'bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder, og gi eksempler på funksjoner som ikke er deriverbare i gitte punkter'],
-      coverImage: '/images/subjects/r1-3-3-derivasjonens-definisjon.png',
+      coverImage: '/images/subjects/r1-3-3-derivasjonens-definisjon.webp',
     },
     {
       id: 'r1-3-4',
@@ -4999,7 +5003,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ["L'Hôpitals regel", 'Ubestemte former', '0/0', '∞/∞', 'Gjentatt anvendelse'],
       prerequisites: ['r1-3-1', 'r1-3-3'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner'],
-      coverImage: '/images/subjects/r1-3-4-lhopitals-regel.png',
+      coverImage: '/images/subjects/r1-3-4-lhopitals-regel.webp',
     },
     {
       id: 'r1-3-5',
@@ -5011,7 +5015,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Newtons metode', 'Iterasjon', 'Numerisk rotfunn', 'Konvergens', 'Startverdier'],
       prerequisites: ['r1-3-3'],
       competenceGoals: ['bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder'],
-      coverImage: '/images/subjects/r1-3-5-newtons-metode.png',
+      coverImage: '/images/subjects/r1-3-5-newtons-metode.webp',
     },
     // Seksjon 4: Derivasjon
     {
@@ -5024,7 +5028,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Potensregelen', 'Sumregelen', 'Konstantregelen', 'Konstant faktor'],
       prerequisites: ['r1-3-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-1-derivasjonsregler.png',
+      coverImage: '/images/subjects/r1-4-1-derivasjonsregler.webp',
     },
     {
       id: 'r1-4-2',
@@ -5036,7 +5040,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Derivasjon av e^x', 'Derivasjon av ln(x)', 'Derivasjon av a^x', 'Derivasjon av log_a(x)'],
       prerequisites: ['r1-4-1', 'r1-1-2'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-2-derivasjon-av-eksponential-og-logaritmefunksjoner.png',
+      coverImage: '/images/subjects/r1-4-2-derivasjon-av-eksponential-og-logaritmefunksjoner.webp',
     },
     {
       id: 'r1-4-3',
@@ -5048,7 +5052,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Kjerneregelen', 'Indre derivert', 'Ytre derivert', 'Sammensatte funksjoner'],
       prerequisites: ['r1-4-2', 'r1-2-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-3-kjerneregelen.png',
+      coverImage: '/images/subjects/r1-4-3-kjerneregelen.webp',
     },
     {
       id: 'r1-4-4',
@@ -5060,7 +5064,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Produktregelen', 'Kvotientregelen', 'Kombinasjon med kjerneregelen'],
       prerequisites: ['r1-4-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-4-produktregelen-og-kvotientregelen.png',
+      coverImage: '/images/subjects/r1-4-4-produktregelen-og-kvotientregelen.webp',
     },
     {
       id: 'r1-4-5',
@@ -5072,7 +5076,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Derivasjon av f^{-1}', 'Implisitt derivasjon', 'Sammenheng mellom f og f^{-1}'],
       prerequisites: ['r1-4-4', 'r1-2-2'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
-      coverImage: '/images/subjects/r1-4-5-derivasjon-av-omvendte-funksjoner.png',
+      coverImage: '/images/subjects/r1-4-5-derivasjon-av-omvendte-funksjoner.webp',
     },
     {
       id: 'r1-4-6',
@@ -5084,7 +5088,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Stigning og monotoni', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter'],
       prerequisites: ['r1-4-4'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r1-4-6-funksjonsdrøfting.png',
+      coverImage: '/images/subjects/r1-4-6-funksjonsdrøfting.webp',
     },
     {
       id: 'r1-4-7',
@@ -5096,7 +5100,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Relaterte rater', 'Implisitt derivasjon', 'Kjerneregelen i praksis', 'Geometriske problemer'],
       prerequisites: ['r1-4-3', 'r1-4-5'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
-      coverImage: '/images/subjects/r1-4-7-relaterte-rater.png',
+      coverImage: '/images/subjects/r1-4-7-relaterte-rater.webp',
     },
     {
       id: 'r1-4-8',
@@ -5108,7 +5112,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Globale ekstremalpunkter', 'Lukkede intervaller', 'Ekstremalverdisetningen', 'Optimeringsproblemer'],
       prerequisites: ['r1-4-6'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon', 'forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
-      coverImage: '/images/subjects/r1-4-8-globale-ekstremalpunkter.png',
+      coverImage: '/images/subjects/r1-4-8-globale-ekstremalpunkter.webp',
     },
     // Seksjon 5: Vekstmodeller og modellering
     {
@@ -5121,7 +5125,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Vekstfaktor', 'Halvveringstid', 'Doblingstid'],
       prerequisites: ['r1-1-3', 'r1-4-3'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
-      coverImage: '/images/subjects/r1-5-1-eksponentiell-vekst.png',
+      coverImage: '/images/subjects/r1-5-1-eksponentiell-vekst.webp',
     },
     {
       id: 'r1-5-2',
@@ -5133,7 +5137,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Logistisk modell', 'Bærekapasitet', 'Vendepunkt', 'S-kurve'],
       prerequisites: ['r1-5-1'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
-      coverImage: '/images/subjects/r1-5-2-logistisk-vekst.png',
+      coverImage: '/images/subjects/r1-5-2-logistisk-vekst.webp',
     },
     {
       id: 'r1-5-3',
@@ -5145,7 +5149,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Dataanalyse', 'Regresjonsmodeller', 'Presentasjon av funn'],
       prerequisites: ['r1-5-1', 'r1-5-2'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til naturvitenskapelige temaer og forhold, og analysere og presentere funn', 'anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
-      coverImage: '/images/subjects/r1-5-3-modellering-med-reelle-datasett.png',
+      coverImage: '/images/subjects/r1-5-3-modellering-med-reelle-datasett.webp',
     },
     // Seksjon 6: Vektorer og parameterframstilling
     {
@@ -5157,7 +5161,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Vektorbegrep', 'Vektoraddisjon', 'Skalar multiplikasjon', 'Koordinater'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
-      coverImage: '/images/subjects/r1-6-1-vektorer-i-planet.png',
+      coverImage: '/images/subjects/r1-6-1-vektorer-i-planet.webp',
     },
     {
       id: 'r1-6-2',
@@ -5169,7 +5173,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Skalarprodukt', 'Vektorlengde', 'Vinkel mellom vektorer', 'Ortogonalitet'],
       prerequisites: ['r1-6-1'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
-      coverImage: '/images/subjects/r1-6-2-vektorregning.png',
+      coverImage: '/images/subjects/r1-6-2-vektorregning.webp',
     },
     {
       id: 'r1-6-3',
@@ -5181,7 +5185,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Parameterframstilling', 'Linjer i planet', 'Skjæringspunkter', 'Naturvitenskapelige problemer'],
       prerequisites: ['r1-6-1'],
       competenceGoals: ['anvende parameterframstillinger til linjer og bruke parameterframstillinger til å løse naturvitenskapelige problemer'],
-      coverImage: '/images/subjects/r1-6-3-parameterframstilling.png',
+      coverImage: '/images/subjects/r1-6-3-parameterframstilling.webp',
     },
   ],
 };
@@ -5196,6 +5200,7 @@ export const COURSE_R2: TextbookCourse = {
   level: 'VG3',
   description: 'Realfaglig matematikk for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
+  coverImage: '/images/subjects/matematikk-r2-hero.webp',
   icon: '🧬',
   chapters: [
     // =========================================================================
@@ -5213,7 +5218,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Tallfølger', 'Eksplisitt formel', 'Rekursiv formel', 'Fibonacci'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: '/images/subjects/r2-1-1-folger-og-tallmonstre.png',
+      coverImage: '/images/subjects/r2-1-1-folger-og-tallmonstre.webp',
     },
     {
       id: 'r2-1-2',
@@ -5225,7 +5230,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Aritmetisk følge', 'Differanse', 'Eksplisitt formel'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: '/images/subjects/r2-1-2-aritmetiske-folger.png',
+      coverImage: '/images/subjects/r2-1-2-aritmetiske-folger.webp',
     },
     {
       id: 'r2-1-3',
@@ -5237,7 +5242,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Geometrisk følge', 'Kvotient', 'Eksponentiell vekst'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
-      coverImage: '/images/subjects/r2-1-3-geometriske-folger.png',
+      coverImage: '/images/subjects/r2-1-3-geometriske-folger.webp',
     },
     {
       id: 'r2-1-4',
@@ -5249,7 +5254,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Rekke', 'Sigmanotasjon', 'Delsum', 'Summeformel'],
       prerequisites: ['r2-1-3'],
       competenceGoals: ['forklare praktiske bruksområde av eigenskapar ved følgjer'],
-      coverImage: '/images/subjects/r2-1-4-rekker-og-summasjon.png',
+      coverImage: '/images/subjects/r2-1-4-rekker-og-summasjon.webp',
     },
     {
       id: 'r2-1-5',
@@ -5261,7 +5266,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Konvergens', 'Divergens', 'Grenseverdi', 'Konvergenskriterier'],
       prerequisites: ['r2-1-4'],
       competenceGoals: ['utforske eigenskapar ved ulike følgjer'],
-      coverImage: '/images/subjects/r2-1-5-uendelige-rekker-og-konvergens.png',
+      coverImage: '/images/subjects/r2-1-5-uendelige-rekker-og-konvergens.webp',
     },
     {
       id: 'r2-1-6',
@@ -5273,7 +5278,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Matematisk induksjon', 'Basisteg', 'Induksjonssteg', 'Bevis'],
       prerequisites: ['r2-1-2', 'r2-1-4'],
       competenceGoals: ['analysere og forstå matematiske bevis og forklare sentrale idear i bevis'],
-      coverImage: '/images/subjects/r2-1-6-induksjonsbevis.png',
+      coverImage: '/images/subjects/r2-1-6-induksjonsbevis.webp',
     },
     {
       id: 'r2-1-7',
@@ -5285,7 +5290,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Rekursjon', 'Programmering', 'Python', 'Simulering'],
       prerequisites: ['r2-1-1'],
       competenceGoals: ['utforske rekursive samanhengar ved å bruke programmering'],
-      coverImage: '/images/subjects/r2-1-7-rekursive-sammenhenger-og-programmering.png',
+      coverImage: '/images/subjects/r2-1-7-rekursive-sammenhenger-og-programmering.webp',
     },
 
     // =========================================================================
@@ -5303,7 +5308,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Derivasjon', 'Derivasjonsregler', 'Kjerneregel', 'Produktregel'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar'],
-      coverImage: '/images/subjects/r2-2-1-repetisjon-av-derivasjon.png',
+      coverImage: '/images/subjects/r2-2-1-repetisjon-av-derivasjon.webp',
     },
     {
       id: 'r2-2-2',
@@ -5314,7 +5319,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Antiderivasjon', 'Integrasjonsregler', 'Konstant', 'Potensregel'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: '/images/subjects/r2-2-2-ubestemt-integral.png',
+      coverImage: '/images/subjects/r2-2-2-ubestemt-integral.webp',
     },
     {
       id: 'r2-2-3',
@@ -5326,7 +5331,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Logaritme', 'Eksponentialfunksjon', 'ln x', 'e^x'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: '/images/subjects/r2-2-3-integrasjon-av-1x-og-eksponentialfunksjoner.png',
+      coverImage: '/images/subjects/r2-2-3-integrasjon-av-1x-og-eksponentialfunksjoner.webp',
     },
     {
       id: 'r2-2-4',
@@ -5338,7 +5343,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Riemannsum', 'Grenseverdi', 'Øvre sum', 'Nedre sum'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['forklare integralet som grenseverdi av ein sum'],
-      coverImage: '/images/subjects/r2-2-4-bestemt-integral-som-grenseverdi.png',
+      coverImage: '/images/subjects/r2-2-4-bestemt-integral-som-grenseverdi.webp',
     },
     {
       id: 'r2-2-5',
@@ -5350,7 +5355,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Fundamentalsetningen', 'Newton-Leibniz', 'Derivasjon av integral'],
       prerequisites: ['r2-2-4'],
       competenceGoals: ['gjere greie for analysens fundamentalsetning og følgjene av denne'],
-      coverImage: '/images/subjects/r2-2-5-analysens-fundamentalsetning.png',
+      coverImage: '/images/subjects/r2-2-5-analysens-fundamentalsetning.webp',
     },
     {
       id: 'r2-2-6',
@@ -5362,7 +5367,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Bestemt integral', 'Areal', 'Fortegn', 'Geometrisk tolkning'],
       prerequisites: ['r2-2-5'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
-      coverImage: '/images/subjects/r2-2-6-areal-under-grafer.png',
+      coverImage: '/images/subjects/r2-2-6-areal-under-grafer.webp',
     },
     {
       id: 'r2-2-7',
@@ -5374,7 +5379,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Areal mellom kurver', 'Skjæringspunkter', 'Oppdeling'],
       prerequisites: ['r2-2-6'],
       competenceGoals: ['tolke kva grenseverdien betyr i ulike situasjonar'],
-      coverImage: '/images/subjects/r2-2-7-areal-mellom-kurver.png',
+      coverImage: '/images/subjects/r2-2-7-areal-mellom-kurver.webp',
     },
 
     // =========================================================================
@@ -5393,7 +5398,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Substitusjon', 'Variabelskifte', 'Kjerneregel baklengs'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: '/images/subjects/r2-3-1-variabelskifte-substitusjon.png',
+      coverImage: '/images/subjects/r2-3-1-variabelskifte-substitusjon.webp',
     },
     {
       id: 'r2-3-2',
@@ -5405,7 +5410,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Delvis integrasjon', 'Produktregel baklengs', 'LIATE'],
       prerequisites: ['r2-2-2'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: '/images/subjects/r2-3-2-delvis-integrasjon.png',
+      coverImage: '/images/subjects/r2-3-2-delvis-integrasjon.webp',
     },
     {
       id: 'r2-3-3',
@@ -5417,7 +5422,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Delbrøker', 'Rasjonale funksjoner', 'Koeffisientbestemmelse'],
       prerequisites: ['r2-2-3'],
       competenceGoals: ['finne antiderivert til funksjonar'],
-      coverImage: '/images/subjects/r2-3-3-delbrokoppspalting.png',
+      coverImage: '/images/subjects/r2-3-3-delbrokoppspalting.webp',
     },
     {
       id: 'r2-3-4',
@@ -5429,7 +5434,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Trapesmetoden', 'Numerisk integrasjon', 'Feilestimater'],
       prerequisites: ['r2-2-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon'],
-      coverImage: '/images/subjects/r2-3-4-numerisk-integrasjon.png',
+      coverImage: '/images/subjects/r2-3-4-numerisk-integrasjon.webp',
     },
     {
       id: 'r2-3-5',
@@ -5441,7 +5446,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Python', 'Programmering', 'Algoritmer', 'Numerisk metode'],
       prerequisites: ['r2-3-4'],
       competenceGoals: ['utvikle algoritmar for numerisk integrasjon ved å bruke programmering'],
-      coverImage: '/images/subjects/r2-3-5-programmering-av-integrasjon.png',
+      coverImage: '/images/subjects/r2-3-5-programmering-av-integrasjon.webp',
     },
     {
       id: 'r2-3-6',
@@ -5453,7 +5458,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Omdreiningslegeme', 'Volum', 'Skivemetoden', 'Skallmetoden'],
       prerequisites: ['r2-2-6'],
       competenceGoals: ['bruke integrasjon til å rekne ut volum av omdreiningslegeme'],
-      coverImage: '/images/subjects/r2-3-6-volum-av-omdreiningslegemer.png',
+      coverImage: '/images/subjects/r2-3-6-volum-av-omdreiningslegemer.webp',
     },
     {
       id: 'r2-3-7',
@@ -5465,7 +5470,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Funksjonsdrøfting', 'Areal', 'Volum', 'Anvendelser'],
       prerequisites: ['r2-2-7', 'r2-3-6'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon og integrasjon'],
-      coverImage: '/images/subjects/r2-3-7-funksjonsdrøfting-med-integrasjon.png',
+      coverImage: '/images/subjects/r2-3-7-funksjonsdrøfting-med-integrasjon.webp',
     },
 
     // =========================================================================
@@ -5482,7 +5487,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Radianer', 'Grader', 'Buelengde', 'Enhetssirkelen'],
       competenceGoals: ['utforske eigenskapar ved radianar'],
-      coverImage: '/images/subjects/r2-4-1-radianer-og-vinkelmal.png',
+      coverImage: '/images/subjects/r2-4-1-radianer-og-vinkelmal.webp',
 
     },
     {
@@ -5495,7 +5500,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Enhetssirkel', 'Sinus', 'Cosinus', 'Tangens', 'Eksakte verdier'],
       prerequisites: ['r2-4-1'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: '/images/subjects/r2-4-2-enhetssirkelen-og-trigonometriske-definisjoner.png',
+      coverImage: '/images/subjects/r2-4-2-enhetssirkelen-og-trigonometriske-definisjoner.webp',
 
     },
     {
@@ -5508,7 +5513,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Sinuslikning', 'Generell løsning', 'Periodisitet'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: '/images/subjects/r2-4-3-sinuslikninger.png',
+      coverImage: '/images/subjects/r2-4-3-sinuslikninger.webp',
 
     },
     {
@@ -5521,7 +5526,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Cosinuslikning', 'Generell løsning', 'Symmetri'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: '/images/subjects/r2-4-4-cosinuslikninger.png',
+      coverImage: '/images/subjects/r2-4-4-cosinuslikninger.webp',
 
     },
     {
@@ -5534,7 +5539,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Tangenslikning', 'Generell løsning', 'Periode π'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['bruke trigonometriske funksjonar til å løyse praktiske problem'],
-      coverImage: '/images/subjects/r2-4-5-tangenslikninger.png',
+      coverImage: '/images/subjects/r2-4-5-tangenslikninger.webp',
 
     },
     {
@@ -5547,7 +5552,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Addisjonsformler', 'Dobbeltvinkelformler', 'Identiteter'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: '/images/subjects/r2-4-6-trigonometriske-formler.png',
+      coverImage: '/images/subjects/r2-4-6-trigonometriske-formler.webp',
 
     },
     {
@@ -5560,7 +5565,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Graf', 'Amplitude', 'Periode', 'Faseforskyvning'],
       prerequisites: ['r2-4-2'],
       competenceGoals: ['utforske eigenskapar ved trigonometriske funksjonar'],
-      coverImage: '/images/subjects/r2-4-7-trigonometriske-funksjoner-og-grafer.png',
+      coverImage: '/images/subjects/r2-4-7-trigonometriske-funksjoner-og-grafer.webp',
 
     },
     {
@@ -5573,7 +5578,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Derivasjon', 'sin\'x', 'cos\'x', 'tan\'x', 'Kjerneregel'],
       prerequisites: ['r2-4-7', 'r2-2-1'],
       competenceGoals: ['analysere og tolke ulike funksjonar ved å bruke derivasjon'],
-      coverImage: '/images/subjects/r2-4-8-derivasjon-av-trigonometriske-funksjoner.png',
+      coverImage: '/images/subjects/r2-4-8-derivasjon-av-trigonometriske-funksjoner.webp',
 
     },
 
@@ -5591,7 +5596,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Romkoordinater', 'Vektor', 'Komponenter', 'Lengde'],
       competenceGoals: ['utforske reknereglar for vektorar i tre dimensjonar'],
-      coverImage: '/images/subjects/r2-5-1-vektorer-i-tre-dimensjoner.png',
+      coverImage: '/images/subjects/r2-5-1-vektorer-i-tre-dimensjoner.webp',
     },
     {
       id: 'r2-5-2',
@@ -5603,7 +5608,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Vektoraddisjon', 'Subtraksjon', 'Skalarmultiplikasjon', 'Avstand'],
       prerequisites: ['r2-5-1'],
       competenceGoals: ['forstå reknereglar for vektorar i tre dimensjonar'],
-      coverImage: '/images/subjects/r2-5-2-vektorkoordinater-og-regning.png',
+      coverImage: '/images/subjects/r2-5-2-vektorkoordinater-og-regning.webp',
     },
     {
       id: 'r2-5-3',
@@ -5615,7 +5620,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Skalarprodukt', 'Prikkprodukt', 'Vinkel', 'Ortogonalitet'],
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-3-skalarproduktet.png',
+      coverImage: '/images/subjects/r2-5-3-skalarproduktet.webp',
     },
     {
       id: 'r2-5-4',
@@ -5627,7 +5632,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Kryssprodukt', 'Vektorprodukt', 'Normalvektor', 'Retning'],
       prerequisites: ['r2-5-3'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-4-kryssproduktet.png',
+      coverImage: '/images/subjects/r2-5-4-kryssproduktet.webp',
     },
     {
       id: 'r2-5-5',
@@ -5639,7 +5644,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Areal', 'Volum', 'Parallellogram', 'Parallellpipedum'],
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-5-areal-og-volum-med-vektorer.png',
+      coverImage: '/images/subjects/r2-5-5-areal-og-volum-med-vektorer.webp',
     },
     {
       id: 'r2-5-6',
@@ -5651,7 +5656,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Planlikning', 'Normalvektor', 'Parameterframstilling'],
       prerequisites: ['r2-5-4'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-6-ligninger-for-plan.png',
+      coverImage: '/images/subjects/r2-5-6-ligninger-for-plan.webp',
     },
     {
       id: 'r2-5-7',
@@ -5663,7 +5668,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Linje', 'Parameterframstilling', 'Retningsvektor', 'Skjæring'],
       prerequisites: ['r2-5-2'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-7-linjer-i-rommet.png',
+      coverImage: '/images/subjects/r2-5-7-linjer-i-rommet.webp',
       wip: true,
     },
     {
@@ -5676,7 +5681,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Avstand', 'Projeksjon', 'Punkt til linje', 'Punkt til plan'],
       prerequisites: ['r2-5-6', 'r2-5-7'],
       competenceGoals: ['bruke vektorar til å rekne ut ulike storleikar'],
-      coverImage: '/images/subjects/r2-5-8-avstand-punkt-linje-og-punkt-plan.png',
+      coverImage: '/images/subjects/r2-5-8-avstand-punkt-linje-og-punkt-plan.webp',
       wip: true,
     },
 
@@ -5695,7 +5700,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Parameterframstilling', 'Kurve', 'Sirkel', 'Ellipse'],
       competenceGoals: ['bruke parameterframstilling til kurver'],
-      coverImage: '/images/subjects/r2-6-1-parameterframstilling-av-kurver.png',
+      coverImage: '/images/subjects/r2-6-1-parameterframstilling-av-kurver.webp',
 
     },
     {
@@ -5708,7 +5713,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Vektorfunksjon', 'Derivasjon', 'Tangentvektor'],
       prerequisites: ['r2-6-1', 'r2-2-1'],
       competenceGoals: ['bruke parameterframstilling til kurver'],
-      coverImage: '/images/subjects/r2-6-2-derivasjon-av-vektorfunksjoner.png',
+      coverImage: '/images/subjects/r2-6-2-derivasjon-av-vektorfunksjoner.webp',
 
     },
     {
@@ -5721,7 +5726,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Hastighet', 'Akselerasjon', 'Fart', 'Bevegelse'],
       prerequisites: ['r2-6-2'],
       competenceGoals: ['løyse realfaglege problem som involverer fart og akselerasjon'],
-      coverImage: '/images/subjects/r2-6-3-hastighet-og-akselerasjon.png',
+      coverImage: '/images/subjects/r2-6-3-hastighet-og-akselerasjon.webp',
 
     },
     {
@@ -5733,7 +5738,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Modellering', 'Funksjonsvalg', 'Validering', 'Tolkning'],
       competenceGoals: ['gi døme på ulike situasjonar som kan modellerast med ulike matematiske funksjonar'],
-      coverImage: '/images/subjects/r2-6-4-matematisk-modellering.png',
+      coverImage: '/images/subjects/r2-6-4-matematisk-modellering.webp',
 
     },
     {
@@ -5746,7 +5751,7 @@ export const COURSE_R2: TextbookCourse = {
       topics: ['Reelle data', 'Regresjon', 'Analyse', 'Presentasjon'],
       prerequisites: ['r2-6-4'],
       competenceGoals: ['bruke derivasjon og integrasjon til å analysere og tolke eigne matematiske modellar av reelle data'],
-      coverImage: '/images/subjects/r2-6-5-modellering-med-reelle-data.png',
+      coverImage: '/images/subjects/r2-6-5-modellering-med-reelle-data.webp',
 
     },
     {
@@ -5758,7 +5763,7 @@ export const COURSE_R2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Bevis', 'Argumentasjon', 'Logikk', 'Matematisk resonnement'],
       competenceGoals: ['analysere og forstå matematiske bevis, forklare sentrale idear i bevis og utvikle eigne bevis'],
-      coverImage: '/images/subjects/r2-6-6-bevis-og-matematisk-argumentasjon.png',
+      coverImage: '/images/subjects/r2-6-6-bevis-og-matematisk-argumentasjon.webp',
 
     },
   ],
@@ -6203,7 +6208,7 @@ export const COURSE_NATURFAG_10: TextbookCourse = {
   description: 'Naturfag for ungdomsskolens avsluttende år - utforsk naturvitenskap, kjemi, fysikk, biologi og teknologi etter LK20',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/textbook/naturfag-10/course-hero.jpg',
+  coverImage: '/images/textbook/naturfag-10/course-hero.webp',
   chapters: [
     // Kapittel 1: Naturvitenskapelige praksiser
     {
@@ -6614,7 +6619,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
   description: 'Programfag i kjemi for VG3 etter LK20',
   curriculum: 'LK20',
   icon: '🧪',
-  coverImage: '/images/subjects/kjemi2-hero.png',
+  coverImage: '/images/subjects/kjemi2-hero.webp',
   chapters: [
     // ============================================================================
     // Del 1: Grunnleggende kjemiske prinsipper (Repetisjon)
@@ -6628,7 +6633,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['IUPAC-nomenklatur', 'Kjemiske formler', 'Strukturformler', 'Kjemiske likninger', 'Støkiometri', 'Lewis-strukturer', 'Molekylgeometri'],
       competenceGoals: ['forstå og bruke kjemisk terminologi og fagspråk'],
-      coverImage: '/images/subjects/kjemi2-1-1-kjemisk-terminologi.png',
+      coverImage: '/images/subjects/kjemi2-1-1-kjemisk-terminologi.webp',
     },
     {
       id: 'kjemi2-1-2',
@@ -6638,7 +6643,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       estimatedMinutes: 55,
       exerciseCount: 14,
       topics: ['Elektronkonfigurasjon', 'Periodesystemet', 'Periodevise trender', 'Kovalente bindinger', 'Ioniske bindinger', 'Metalliske bindinger', 'Intermolekylære krefter'],
-      coverImage: '/images/subjects/kjemi2-1-2-atom-molekylstruktur.png',
+      coverImage: '/images/subjects/kjemi2-1-2-atom-molekylstruktur.webp',
     },
     {
       id: 'kjemi2-1-3',
@@ -6649,7 +6654,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Molbegrepet', 'Avogadros tall', 'Molar masse', 'Molart volum', 'Støkiometriske beregninger', 'Begrensende reaktant'],
       prerequisites: ['kjemi2-1-1'],
-      coverImage: '/images/subjects/kjemi2-1-3-mol-stokiometri.png',
+      coverImage: '/images/subjects/kjemi2-1-3-mol-stokiometri.webp',
     },
 
     // ============================================================================
@@ -6665,7 +6670,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Termokjemi', 'Entalpi (H)', 'Eksoterme reaksjoner', 'Endoterme reaksjoner', 'Standard dannelsesentalpi', 'Hess\' lov', 'Bindingsentalpier', 'Kalorimetri'],
       prerequisites: ['kjemi2-1-3'],
       competenceGoals: ['bruke entalpi til å vurdere energiforandringer i reaksjoner'],
-      coverImage: '/images/subjects/kjemi2-2-1-entalpi-reaksjonsvarme.png',
+      coverImage: '/images/subjects/kjemi2-2-1-entalpi-reaksjonsvarme.webp',
     },
     {
       id: 'kjemi2-2-2',
@@ -6677,7 +6682,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Entropi (S)', 'Andre termodynamiske lov', 'Standard molar entropi', 'Entropiforandring (ΔS)', 'Faktorer som påvirker entropi'],
       prerequisites: ['kjemi2-2-1'],
       competenceGoals: ['bruke entropi og entalpi til å vurdere spontanitet'],
-      coverImage: '/images/subjects/kjemi2-2-2-entropi-uorden.png',
+      coverImage: '/images/subjects/kjemi2-2-2-entropi-uorden.webp',
     },
     {
       id: 'kjemi2-2-3',
@@ -6689,7 +6694,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Gibbs fri energi (G)', 'Spontanitet og ΔG', 'Standard fri energi (ΔG°)', 'G = H - TS', 'Temperaturavhengighet av spontanitet'],
       prerequisites: ['kjemi2-2-2'],
       competenceGoals: ['bruke Gibbs fri energi til å vurdere om reaksjoner er spontane'],
-      coverImage: '/images/subjects/kjemi2-2-3-gibbs-fri-energi.png',
+      coverImage: '/images/subjects/kjemi2-2-3-gibbs-fri-energi.webp',
     },
     {
       id: 'kjemi2-2-4',
@@ -6700,7 +6705,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Koplede reaksjoner', 'ATP og biologisk energi', 'Drivkraft i kjemiske prosesser', 'Industrielle anvendelser'],
       prerequisites: ['kjemi2-2-3'],
-      coverImage: '/images/subjects/kjemi2-2-4-termodynamikk-praksis.png',
+      coverImage: '/images/subjects/kjemi2-2-4-termodynamikk-praksis.webp',
     },
 
     // ============================================================================
@@ -6716,7 +6721,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Reversible reaksjoner', 'Dynamisk likevekt', 'Kjennetegn på likevekt', 'Likevektspiler og notasjon'],
       prerequisites: ['kjemi2-2-4'],
       competenceGoals: ['utforske likevekt og bruke massevirkningsloven'],
-      coverImage: '/images/subjects/kjemi2-3-1-likevektsbegrepet.png',
+      coverImage: '/images/subjects/kjemi2-3-1-likevektsbegrepet.webp',
     },
     {
       id: 'kjemi2-3-2',
@@ -6728,7 +6733,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Likevektsuttrykket K', 'Kc og Kp', 'Beregning av likevektskonstant', 'Tolkning av K-verdier', 'Heterogen likevekt', 'ICE-tabeller'],
       prerequisites: ['kjemi2-3-1'],
       competenceGoals: ['bruke massevirkningsloven til å beregne likevektskonstanter'],
-      coverImage: '/images/subjects/kjemi2-3-2-massevirkningsloven.png',
+      coverImage: '/images/subjects/kjemi2-3-2-massevirkningsloven.webp',
     },
     {
       id: 'kjemi2-3-3',
@@ -6739,7 +6744,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendring', 'Trykkendring', 'Temperaturendring', 'Katalysatorers effekt'],
       prerequisites: ['kjemi2-3-2'],
-      coverImage: '/images/subjects/kjemi2-3-3-le-chateliers-prinsipp.png',
+      coverImage: '/images/subjects/kjemi2-3-3-le-chateliers-prinsipp.webp',
     },
     {
       id: 'kjemi2-3-4',
@@ -6750,7 +6755,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 22,
       topics: ['Likevektskonsentrasjoner', 'ICE-tabeller', 'Kvadratiske likninger', 'Tilnærmingsmetoder', 'Reaksjonskvotient Q'],
       prerequisites: ['kjemi2-3-3'],
-      coverImage: '/images/subjects/kjemi2-3-4-likevektsberegninger.png',
+      coverImage: '/images/subjects/kjemi2-3-4-likevektsberegninger.webp',
     },
     {
       id: 'kjemi2-3-5',
@@ -6761,7 +6766,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['ΔG° = -RT ln K', 'Beregne K fra termodynamiske data', 'Temperaturavhengighet av K'],
       prerequisites: ['kjemi2-3-4', 'kjemi2-2-3'],
-      coverImage: '/images/subjects/kjemi2-3-5-sammenheng-k-dg.png',
+      coverImage: '/images/subjects/kjemi2-3-5-sammenheng-k-dg.webp',
     },
 
     // ============================================================================
@@ -6777,7 +6782,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Brønsted-Lowrys teori', 'Konjugerte syre-basepar', 'Amfotere stoffer', 'Styrke vs. konsentrasjon', 'Ka og pKa'],
       prerequisites: ['kjemi2-3-5'],
       competenceGoals: ['utforske og beregne pH'],
-      coverImage: '/images/subjects/kjemi2-4-1-syre-base-teori.png',
+      coverImage: '/images/subjects/kjemi2-4-1-syre-base-teori.webp',
     },
     {
       id: 'kjemi2-4-2',
@@ -6789,7 +6794,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Vannets egenionisering (Kw)', 'pH-skalaen', 'pH, pOH og pKw', 'pH for sterke syrer/baser', 'pH for svake syrer/baser'],
       prerequisites: ['kjemi2-4-1'],
       competenceGoals: ['beregne pH i ulike syre-base-systemer'],
-      coverImage: '/images/subjects/kjemi2-4-2-ph-poh.png',
+      coverImage: '/images/subjects/kjemi2-4-2-ph-poh.webp',
     },
     {
       id: 'kjemi2-4-3',
@@ -6800,7 +6805,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Syrebasetitrering', 'Titreringskurver', 'Ekvivalenspunkt', 'Halvtitreringspunkt', 'Indikatorer'],
       prerequisites: ['kjemi2-4-2'],
-      coverImage: '/images/subjects/kjemi2-4-3-titrering-ekvivalenspunkt.png',
+      coverImage: '/images/subjects/kjemi2-4-3-titrering-ekvivalenspunkt.webp',
     },
     {
       id: 'kjemi2-4-4',
@@ -6812,7 +6817,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Bufferløsninger', 'Henderson-Hasselbalch-likningen', 'Bufferkapasitet', 'Fremstilling av buffere', 'Biologiske buffersystemer'],
       prerequisites: ['kjemi2-4-3'],
       competenceGoals: ['drøfte buffers betydning for pH-regulering'],
-      coverImage: '/images/subjects/kjemi2-4-4-bufferlosninger.png',
+      coverImage: '/images/subjects/kjemi2-4-4-bufferlosninger.webp',
     },
     {
       id: 'kjemi2-4-5',
@@ -6823,7 +6828,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Diprotiske syrer', 'Triprotiske syrer', 'Ka1, Ka2, Ka3', 'pH-beregninger for flerprotiske syrer', 'H2SO4, H3PO4, H2CO3'],
       prerequisites: ['kjemi2-4-4'],
-      coverImage: '/images/subjects/kjemi2-4-5-flerprotiske-syrer.png',
+      coverImage: '/images/subjects/kjemi2-4-5-flerprotiske-syrer.webp',
     },
 
     // ============================================================================
@@ -6839,7 +6844,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsbegrepet', 'Mettet løsning', 'Faktorer som påvirker løselighet', 'Temperatureffekter'],
       prerequisites: ['kjemi2-4-5'],
       competenceGoals: ['utforske og beregne løselighet'],
-      coverImage: '/images/subjects/kjemi2-5-1-loselighet-maling.png',
+      coverImage: '/images/subjects/kjemi2-5-1-loselighet-maling.webp',
     },
     {
       id: 'kjemi2-5-2',
@@ -6851,7 +6856,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Løselighetsproduktet Ksp', 'Beregning av Ksp fra løselighet', 'Beregning av løselighet fra Ksp', 'Sammenligning av løselighet'],
       prerequisites: ['kjemi2-5-1'],
       competenceGoals: ['beregne løselighet ved hjelp av løselighetsproduktet'],
-      coverImage: '/images/subjects/kjemi2-5-2-loselighetsproduktet.png',
+      coverImage: '/images/subjects/kjemi2-5-2-loselighetsproduktet.webp',
     },
     {
       id: 'kjemi2-5-3',
@@ -6862,7 +6867,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Ioneprodukt Q', 'Q vs. Ksp', 'Forutsi felling', 'Selektiv felling', 'Kvalitativ analyse'],
       prerequisites: ['kjemi2-5-2'],
-      coverImage: '/images/subjects/kjemi2-5-3-fellingsreaksjoner.png',
+      coverImage: '/images/subjects/kjemi2-5-3-fellingsreaksjoner.webp',
     },
     {
       id: 'kjemi2-5-4',
@@ -6874,7 +6879,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nyrestein og tannemalje', 'Vannrensing', 'Metallutvinning', 'Bærekraftige løsninger'],
       prerequisites: ['kjemi2-5-3'],
       competenceGoals: ['vurdere løselighet i biologisk og industriell kontekst'],
-      coverImage: '/images/subjects/kjemi2-5-4-loselighet-bio-industri.png',
+      coverImage: '/images/subjects/kjemi2-5-4-loselighet-bio-industri.webp',
     },
 
     // ============================================================================
@@ -6890,7 +6895,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Oksidasjon og reduksjon', 'Oksidasjonstall', 'Balansering av redoksreaksjoner', 'Halvreaksjoner', 'Sur og basisk løsning'],
       prerequisites: ['kjemi2-5-4'],
       competenceGoals: ['utforske redoksreaksjoner'],
-      coverImage: '/images/subjects/kjemi2-6-1-oksidasjon-reduksjon.png',
+      coverImage: '/images/subjects/kjemi2-6-1-oksidasjon-reduksjon.webp',
     },
     {
       id: 'kjemi2-6-2',
@@ -6902,7 +6907,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Galvaniske celler', 'Anode og katode', 'Saltbro', 'Cellenotasjon', 'Standard elektrodepotensial (E°)', 'Spenningsrekken'],
       prerequisites: ['kjemi2-6-1'],
       competenceGoals: ['utforske elektrokjemi og bygge galvaniske celler'],
-      coverImage: '/images/subjects/kjemi2-6-2-galvaniske-celler.png',
+      coverImage: '/images/subjects/kjemi2-6-2-galvaniske-celler.webp',
     },
     {
       id: 'kjemi2-6-3',
@@ -6914,7 +6919,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Nernst-likningen', 'Beregning av cellepotensial', 'Konsentrasjonseffekter', 'E og ΔG'],
       prerequisites: ['kjemi2-6-2'],
       competenceGoals: ['beregne sammenhenger mellom masse, ladning, spenning og energi'],
-      coverImage: '/images/subjects/kjemi2-6-3-spenningsrekken.png',
+      coverImage: '/images/subjects/kjemi2-6-3-spenningsrekken.webp',
     },
     {
       id: 'kjemi2-6-4',
@@ -6925,7 +6930,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Primærbatterier', 'Sekundærbatterier', 'Litium-ion-batterier', 'Brenselceller', 'Hydrogen', 'Bærekraft og resirkulering'],
       prerequisites: ['kjemi2-6-3'],
-      coverImage: '/images/subjects/kjemi2-6-4-elektrolyse.png',
+      coverImage: '/images/subjects/kjemi2-6-4-elektrolyse.webp',
     },
     {
       id: 'kjemi2-6-5',
@@ -6936,7 +6941,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Elektrolyse', 'Elektrolyse av smelte', 'Elektrolyse av løsning', 'Faradays lover', 'Industrielle anvendelser', 'Aluminium', 'Klor'],
       prerequisites: ['kjemi2-6-4'],
-      coverImage: '/images/subjects/kjemi2-6-5-batterier-brenselceller.png',
+      coverImage: '/images/subjects/kjemi2-6-5-batterier-brenselceller.webp',
     },
     {
       id: 'kjemi2-6-6',
@@ -6947,7 +6952,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Korrosjonsmekanismen', 'Faktorer som påvirker korrosjon', 'Maling', 'Galvanisering', 'Offeranode', 'Katodisk beskyttelse'],
       prerequisites: ['kjemi2-6-5'],
-      coverImage: '/images/subjects/kjemi2-6-6-korrosjon.png',
+      coverImage: '/images/subjects/kjemi2-6-6-korrosjon.webp',
     },
 
     // ============================================================================
@@ -6962,7 +6967,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Hastighetsuttrykk', 'Gjennomsnittlig hastighet', 'Momentan hastighet', 'Hastighetskonstanten k', 'Reaksjonsorden'],
       prerequisites: ['kjemi2-6-6'],
-      coverImage: '/images/subjects/kjemi2-7-1-reaksjonshastighet.png',
+      coverImage: '/images/subjects/kjemi2-7-1-reaksjonshastighet.webp',
     },
     {
       id: 'kjemi2-7-2',
@@ -6973,7 +6978,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Konsentrasjon', 'Temperatur', 'Arrhenius-likningen', 'Overflatearel', 'Kollisjonsteori', 'Aktiveringsenergi'],
       prerequisites: ['kjemi2-7-1'],
-      coverImage: '/images/subjects/kjemi2-7-2-hastighetslover.png',
+      coverImage: '/images/subjects/kjemi2-7-2-hastighetslover.webp',
     },
     {
       id: 'kjemi2-7-3',
@@ -6985,7 +6990,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Homogen katalyse', 'Heterogen katalyse', 'Katalysatorens rolle', 'Aktiveringsenergi', 'Enzymer', 'Katalytiske konvertere', 'Haber-Bosch'],
       prerequisites: ['kjemi2-7-2'],
       competenceGoals: ['forklare katalysatorens betydning i biologiske og industrielle prosesser'],
-      coverImage: '/images/subjects/kjemi2-7-3-faktorer-reaksjonshastighet.png',
+      coverImage: '/images/subjects/kjemi2-7-3-faktorer-reaksjonshastighet.webp',
     },
     {
       id: 'kjemi2-7-4',
@@ -6996,7 +7001,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Elementærtrinn', 'Mellomprodukter', 'Hastighetbestemmende trinn', 'Kinetikk og mekanisme'],
       prerequisites: ['kjemi2-7-3'],
-      coverImage: '/images/subjects/kjemi2-7-4-reaksjonsmekanismer.png',
+      coverImage: '/images/subjects/kjemi2-7-4-reaksjonsmekanismer.webp',
     },
 
     // ============================================================================
@@ -7011,7 +7016,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Alkaner', 'Alkener', 'Alkyner', 'Aromater', 'Funksjonelle grupper', 'IUPAC-nomenklatur', 'Strukturisomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi2-7-4'],
-      coverImage: '/images/subjects/kjemi2-8-1-funksjonelle-grupper-klassifisering.png',
+      coverImage: '/images/subjects/kjemi2-8-1-funksjonelle-grupper-klassifisering.webp',
     },
     {
       id: 'kjemi2-8-2',
@@ -7022,7 +7027,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Primære alkoholer', 'Sekundære alkoholer', 'Tertiære alkoholer', 'Aldehyder', 'Ketoner', 'Karbonylgruppen', 'Oksidasjon av alkoholer'],
       prerequisites: ['kjemi2-8-1'],
-      coverImage: '/images/subjects/kjemi2-8-2-alkener-addisjon.png',
+      coverImage: '/images/subjects/kjemi2-8-2-alkener-addisjon.webp',
     },
     {
       id: 'kjemi2-8-3',
@@ -7033,7 +7038,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Karboksylsyrer', 'Estere', 'Esterdannelse', 'Fettsynres', 'Lipider', 'Forsåpning'],
       prerequisites: ['kjemi2-8-2'],
-      coverImage: '/images/subjects/kjemi2-8-3-alkoholer-oksidasjon.png',
+      coverImage: '/images/subjects/kjemi2-8-3-alkoholer-oksidasjon.webp',
     },
     {
       id: 'kjemi2-8-4',
@@ -7044,7 +7049,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Aminer som baser', 'Amider', 'Peptidbindinger', 'Nomenklatur', 'Biologisk betydning'],
       prerequisites: ['kjemi2-8-3'],
-      coverImage: '/images/subjects/kjemi2-8-4-aldehyder-ketoner.png',
+      coverImage: '/images/subjects/kjemi2-8-4-aldehyder-ketoner.webp',
     },
     {
       id: 'kjemi2-8-5',
@@ -7056,7 +7061,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Addisjonsreaksjoner', 'Eliminasjonsreaksjoner', 'Substitusjonsreaksjoner', 'SN1 og SN2', 'Hydrolysereaksjoner', 'Kondensasjonsreaksjoner', 'Elektrofile angrep', 'Nukleofile angrep'],
       prerequisites: ['kjemi2-8-4'],
       competenceGoals: ['beskrive addisjons-, eliminasjons-, substitusjons-, hydrolyse- og kondensasjonsreaksjoner'],
-      coverImage: '/images/subjects/kjemi2-8-5-karboksylsyrer-derivater.png',
+      coverImage: '/images/subjects/kjemi2-8-5-karboksylsyrer-derivater.webp',
     },
     {
       id: 'kjemi2-8-6',
@@ -7068,7 +7073,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Planlegging av syntese', 'Flertrinnssyntese', 'Teoretisk utbytte', 'Faktisk utbytte', 'Renhet og oprensning', 'Atomøkonomi', 'Grønn kjemi'],
       prerequisites: ['kjemi2-8-5'],
       competenceGoals: ['gjennomføre synteser og vurdere utbytte og renhet'],
-      coverImage: '/images/subjects/kjemi2-8-6-estere-kondensasjon.png',
+      coverImage: '/images/subjects/kjemi2-8-6-estere-kondensasjon.webp',
     },
 
     // ============================================================================
@@ -7084,7 +7089,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Separasjonsprinsipper', 'Stasjonær fase', 'Mobil fase', 'Retensjonsfaktor (Rf)', 'Tynnsjiktkromatografi (TLC)'],
       prerequisites: ['kjemi2-8-6'],
       competenceGoals: ['forklare prinsipper for kromatografi'],
-      coverImage: '/images/subjects/kjemi2-9-1-kvalitativ-analyse.png',
+      coverImage: '/images/subjects/kjemi2-9-1-kvalitativ-analyse.webp',
     },
     {
       id: 'kjemi2-9-2',
@@ -7096,7 +7101,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Søylekromatografi', 'Gasskromatografi (GC)', 'Væskekromatografi (HPLC)', 'Anvendelser i analyse'],
       prerequisites: ['kjemi2-9-1'],
       competenceGoals: ['bruke kromatografi til å separere og analysere organiske blandinger'],
-      coverImage: '/images/subjects/kjemi2-9-2-kvantitativ-gravimetri.png',
+      coverImage: '/images/subjects/kjemi2-9-2-kvantitativ-gravimetri.webp',
     },
     {
       id: 'kjemi2-9-3',
@@ -7107,7 +7112,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Elektromagnetisk stråling', 'Absorpsjon og emisjon', 'UV-vis-spektroskopi', 'Beer-Lamberts lov'],
       prerequisites: ['kjemi2-9-2'],
-      coverImage: '/images/subjects/kjemi2-9-3-spektroskopiske-metoder.png',
+      coverImage: '/images/subjects/kjemi2-9-3-spektroskopiske-metoder.webp',
     },
     {
       id: 'kjemi2-9-4',
@@ -7118,7 +7123,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['IR-spektroskopi', 'Funksjonelle grupper', 'NMR-spektroskopi', 'Strukturbestemmelse', 'Kombinasjon av metoder'],
       prerequisites: ['kjemi2-9-3'],
-      coverImage: '/images/subjects/kjemi2-9-4-kromatografi.png',
+      coverImage: '/images/subjects/kjemi2-9-4-kromatografi.webp',
     },
 
     // ============================================================================
@@ -7134,7 +7139,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Aminosyrer', 'Peptidbindinger', 'Primær struktur', 'Sekundær struktur', 'Tertiær struktur', 'Kvartær struktur', 'Denaturering', 'Enzymer'],
       prerequisites: ['kjemi2-9-4'],
       competenceGoals: ['beskrive struktur i biologiske makromolekyler'],
-      coverImage: '/images/subjects/kjemi2-10-1-karbohydrater.png',
+      coverImage: '/images/subjects/kjemi2-10-1-karbohydrater.webp',
     },
     {
       id: 'kjemi2-10-2',
@@ -7146,7 +7151,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Monosakkarider', 'Glukose', 'Fruktose', 'Disakkarider', 'Sukrose', 'Laktose', 'Polysakkarider', 'Stivelse', 'Cellulose', 'Glykogen'],
       prerequisites: ['kjemi2-10-1'],
       competenceGoals: ['beskrive struktur og funksjon av karbohydrater'],
-      coverImage: '/images/subjects/kjemi2-10-2-lipider.png',
+      coverImage: '/images/subjects/kjemi2-10-2-lipider.webp',
     },
     {
       id: 'kjemi2-10-3',
@@ -7158,7 +7163,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Fettsyrer', 'Triglycerider', 'Fosfolipider', 'Cellemembraner', 'DNA', 'RNA', 'Nukleotider', 'Baseparring'],
       prerequisites: ['kjemi2-10-2'],
       competenceGoals: ['beskrive struktur og funksjon av lipider og nukleinsyrer'],
-      coverImage: '/images/subjects/kjemi2-10-3-proteiner-aminosyrer.png',
+      coverImage: '/images/subjects/kjemi2-10-3-proteiner-aminosyrer.webp',
     },
     {
       id: 'kjemi2-10-4',
@@ -7170,7 +7175,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['pH-effekter', 'Temperatureffekter', 'Løsemidler og denaturering', 'Metallioner'],
       prerequisites: ['kjemi2-10-3'],
       competenceGoals: ['vurdere hvordan ytre faktorer påvirker egenskaper til molekyler'],
-      coverImage: '/images/subjects/kjemi2-10-4-dna-nukleinsyrer.png',
+      coverImage: '/images/subjects/kjemi2-10-4-dna-nukleinsyrer.webp',
     },
     {
       id: 'kjemi2-10-5',
@@ -7182,7 +7187,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Metallutvinning fra malm', 'Aluminiumproduksjon', 'Stålproduksjon', 'Resirkulering av metaller', 'Miljøkonsekvenser'],
       prerequisites: ['kjemi2-10-4'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av metaller'],
-      coverImage: '/images/subjects/kjemi2-10-5-enzymer-biokatalyse.png',
+      coverImage: '/images/subjects/kjemi2-10-5-enzymer-biokatalyse.webp',
     },
     {
       id: 'kjemi2-10-6',
@@ -7194,7 +7199,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['Polymerisering', 'Addisjonspolymerisering', 'Kondensasjonspolymerisering', 'Vanlige plasttyper', 'Termoplast', 'Herdeplast', 'Nedbrytning', 'Mikroplast', 'Bioplast'],
       prerequisites: ['kjemi2-10-5'],
       competenceGoals: ['gi eksempler på produksjon, resirkulering og avhending av plast'],
-      coverImage: '/images/subjects/kjemi2-10-6-plast-polymerer.png',
+      coverImage: '/images/subjects/kjemi2-10-6-plast-polymerer.webp',
     },
     {
       id: 'kjemi2-10-7',
@@ -7206,7 +7211,7 @@ export const COURSE_KJEMI2: TextbookCourse = {
       topics: ['De 12 prinsippene for grønn kjemi', 'Atomøkonomi', 'Fornybare råstoffer', 'Miljøvennlige løsemidler', 'Livssyklusanalyse'],
       prerequisites: ['kjemi2-10-6'],
       competenceGoals: ['drøfte prinsipper for bærekraftig kjemi'],
-      coverImage: '/images/subjects/kjemi2-10-7-gronn-kjemi-baerekraft.png',
+      coverImage: '/images/subjects/kjemi2-10-7-gronn-kjemi-baerekraft.webp',
     },
   ],
 };
@@ -7222,7 +7227,7 @@ export const COURSE_NAT_VG1: TextbookCourse = {
   description: 'Naturfag for studieforberedende utdanningsprogram - naturvitenskapelig metode, bølger og stråling, universet, kjemi, karbonkjemi, miljø, ernæring, arv og bioteknologi',
   curriculum: 'LK20',
   icon: '🔬',
-  coverImage: '/images/subjects/naturfag-vg1-hero.png',
+  coverImage: '/images/subjects/naturfag-vg1-hero.webp',
   chapters: [
     // Seksjon 1: Naturvitenskapens tenkemåte (mål 1–4)
     { id: 'nat-vg1-1-1', number: '1.1', title: 'Den naturvitenskapelige metoden', description: 'Lær om hvordan naturvitenskapen bygger kunnskap gjennom observasjoner, hypoteser, eksperimenter og konklusjoner.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering'], competenceGoals: ['utforske en selvvalgt naturfaglig problemstilling, presentere funn og argumentere for valg av metoder'] },
@@ -7303,7 +7308,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
   description: 'Grunnleggende kjemi for studieforberedende utdanningsprogram',
   curriculum: 'LK20',
   icon: '⚗️',
-  coverImage: '/images/subjects/kjemi1-hero.png',
+  coverImage: '/images/subjects/kjemi1-hero.webp',
   chapters: [
     // Del 1 - Grunnleggende kjemi
     {
@@ -7315,7 +7320,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Protoner', 'Nøytroner', 'Elektroner', 'Atomnummer', 'Massetall', 'Isotoper'],
       competenceGoals: ['forklare korleis atom er bygde opp', 'beskrive samanhengen mellom atomnummer og massetall'],
-      coverImage: '/images/subjects/kjemi1-1-1-atomets-oppbygging.png',
+      coverImage: '/images/subjects/kjemi1-1-1-atomets-oppbygging.webp',
     },
     {
       id: 'kjemi1-1-2',
@@ -7327,7 +7332,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektronskal', 'Energinivåer', 'Valenselektroner', 'Oktettregel', 'Elektronkonfigurasjon'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['beskrive elektronkonfigurasjonen til atom', 'forklare valenselektronar si rolle i kjemiske reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-1-2-elektronkonfigurasjon.png',
+      coverImage: '/images/subjects/kjemi1-1-2-elektronkonfigurasjon.webp',
     },
     {
       id: 'kjemi1-1-3',
@@ -7339,7 +7344,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Periodesystemet', 'Atomradius', 'Elektronegativitet', 'Ioniseringsenergi', 'Periodevise trender'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare periodevise trendar i periodesystemet', 'knytte periodevise trendar til atomstruktur'],
-      coverImage: '/images/subjects/kjemi1-1-3-periodevise-trender.png',
+      coverImage: '/images/subjects/kjemi1-1-3-periodevise-trender.webp',
     },
     {
       id: 'kjemi1-1-4',
@@ -7351,7 +7356,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['IUPAC-navnsetting', 'Ioniske forbindelser', 'Molekylforbindelser', 'Syrer', 'Baser', 'Salter'],
       prerequisites: ['kjemi1-1-1'],
       competenceGoals: ['namngje uorganiske sambindingar systematisk', 'skilje mellom ulike typar kjemiske sambindingar'],
-      coverImage: '/images/subjects/kjemi1-1-4-navnsetting-uorganisk.png',
+      coverImage: '/images/subjects/kjemi1-1-4-navnsetting-uorganisk.webp',
     },
 
     // Del 2 - Modeller
@@ -7365,7 +7370,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Daltons modell', 'Thomsons modell', 'Rutherfords modell', 'Bohrs modell', 'Kvantemekanisk modell'],
       prerequisites: ['kjemi1-1-1', 'kjemi1-1-2'],
       competenceGoals: ['beskrive utviklinga av atommodellar', 'forklare korleis atommodellar har bidrege til vår forståing av atom'],
-      coverImage: '/images/subjects/kjemi1-2-1-utvikling-atommodeller.png',
+      coverImage: '/images/subjects/kjemi1-2-1-utvikling-atommodeller.webp',
     },
     {
       id: 'kjemi1-2-2',
@@ -7377,7 +7382,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Elektromagnetisk spektrum', 'Emisjonsspektre', 'Absorpsjonsspektre', 'Bølgelengde', 'Frekvens', 'Energinivåer'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis spektroskopi kan brukast til å analysere stoff', 'knytte spektrallinjer til elektronovergangar'],
-      coverImage: '/images/subjects/kjemi1-2-2-spektroskopi.png',
+      coverImage: '/images/subjects/kjemi1-2-2-spektroskopi.webp',
     },
 
     // Del 3 - Kjemiske bindinger
@@ -7391,7 +7396,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ioner', 'Ionedannelse', 'Ionebinding', 'Ioniske krystaller', 'Egenskaper til ioniske forbindelser'],
       prerequisites: ['kjemi1-1-2', 'kjemi1-1-3'],
       competenceGoals: ['forklare korleis ionebinding dannar seg', 'beskrive eigenskapane til ioniske sambindingar'],
-      coverImage: '/images/subjects/kjemi1-3-1-ionebinding.png',
+      coverImage: '/images/subjects/kjemi1-3-1-ionebinding.webp',
     },
     {
       id: 'kjemi1-3-2',
@@ -7403,7 +7408,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kovalent binding', 'Elektronpardeling', 'Enkelt-, dobbelt- og trippelbindinger', 'Lewis-strukturer', 'Molekylgeometri', 'Polaritet'],
       prerequisites: ['kjemi1-1-2'],
       competenceGoals: ['forklare korleis kovalente bindingar dannar seg', 'teikne Lewis-strukturar for molekyl', 'forklare molekylgeometri og polaritet'],
-      coverImage: '/images/subjects/kjemi1-3-2-kovalent-binding.png',
+      coverImage: '/images/subjects/kjemi1-3-2-kovalent-binding.webp',
     },
     {
       id: 'kjemi1-3-3',
@@ -7415,7 +7420,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Van der Waals-krefter', 'Dipol-dipol-krefter', 'Hydrogenbinding', 'London-krefter', 'Kokepunkt', 'Smeltepunkt'],
       prerequisites: ['kjemi1-3-2'],
       competenceGoals: ['forklare ulike typar mellommolekylære krefter', 'knytte mellommolekylære krefter til stoffeigenskapar'],
-      coverImage: '/images/subjects/kjemi1-3-3-mellommolekylaere-krefter.png',
+      coverImage: '/images/subjects/kjemi1-3-3-mellommolekylaere-krefter.webp',
     },
 
     // Del 4 - Kjemiske reaksjoner
@@ -7428,7 +7433,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Syntesereaksjoner', 'Nedbrytningsreaksjoner', 'Substitusjon', 'Dobbeltomsetning', 'Forbrenning'],
       competenceGoals: ['klassifisere kjemiske reaksjonar', 'beskrive ulike typar reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-4-1-reaksjonstyper.png',
+      coverImage: '/images/subjects/kjemi1-4-1-reaksjonstyper.webp',
     },
     {
       id: 'kjemi1-4-2',
@@ -7440,7 +7445,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonslikninger', 'Balansering', 'Loven om massebevarelse', 'Støkiometriske koeffisienter'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['balansere kjemiske reaksjonslikningar', 'forklare lova om massebevarelse'],
-      coverImage: '/images/subjects/kjemi1-4-2-balansering.png',
+      coverImage: '/images/subjects/kjemi1-4-2-balansering.webp',
     },
     {
       id: 'kjemi1-4-3',
@@ -7452,7 +7457,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Oksidasjonstall', 'Redoksreaksjoner', 'Oksidasjon', 'Reduksjon', 'Elektronoverføring'],
       prerequisites: ['kjemi1-4-2'],
       competenceGoals: ['berekne oksidasjonstall', 'identifisere oksiderande og reduserende stoff', 'balansere redoksreaksjonar'],
-      coverImage: '/images/subjects/kjemi1-4-3-oksidasjonstall-redoks.png',
+      coverImage: '/images/subjects/kjemi1-4-3-oksidasjonstall-redoks.webp',
     },
 
     // Del 5 - Støkiometri
@@ -7465,7 +7470,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 17,
       topics: ['Stoffmengde', 'Mol', 'Molmasse', 'Avogadros tall', 'Beregninger med mol'],
       competenceGoals: ['forklare kva mol er', 'berekne molmasse', 'gjere omrekningar mellom masse og stoffmengd'],
-      coverImage: '/images/subjects/kjemi1-5-1-mol-molmasse.png',
+      coverImage: '/images/subjects/kjemi1-5-1-mol-molmasse.webp',
     },
     {
       id: 'kjemi1-5-2',
@@ -7477,7 +7482,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Molaritet', 'Massekonsentrasjon', 'Volumkonsentrasjon', 'ppm', 'Fortynning'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['berekne konsentrasjon i løysningar', 'gjere om mellom ulike konsentrasjonsmål', 'berekne fortynningar'],
-      coverImage: '/images/subjects/kjemi1-5-2-konsentrasjon.png',
+      coverImage: '/images/subjects/kjemi1-5-2-konsentrasjon.webp',
     },
     {
       id: 'kjemi1-5-3',
@@ -7489,7 +7494,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Støkiometri', 'Reaktantforhold', 'Teoretisk utbytte', 'Reelt utbytte', 'Prosentutbytte', 'Begrensende reaktant'],
       prerequisites: ['kjemi1-4-2', 'kjemi1-5-1'],
       competenceGoals: ['gjere støkiometriske berekningar', 'identifisere begrensande reaktant', 'berekne teoretisk og reelt utbytte'],
-      coverImage: '/images/subjects/kjemi1-5-3-stokiometriske-beregninger.png',
+      coverImage: '/images/subjects/kjemi1-5-3-stokiometriske-beregninger.webp',
     },
     {
       id: 'kjemi1-5-4',
@@ -7501,7 +7506,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Ideell gasslov', 'Trykk', 'Volum', 'Temperatur', 'Molart volum', 'Gassberegninger'],
       prerequisites: ['kjemi1-5-1'],
       competenceGoals: ['bruke ideell gasslov til berekningar', 'forklare samanhengen mellom trykk, volum og temperatur'],
-      coverImage: '/images/subjects/kjemi1-5-4-gassberegninger.png',
+      coverImage: '/images/subjects/kjemi1-5-4-gassberegninger.webp',
     },
 
     // Del 6 - Termokjemi
@@ -7514,7 +7519,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Entalpi', 'Endoterme reaksjoner', 'Eksoterme reaksjoner', 'Energidiagrammer', 'Standard dannelsesentalpi'],
       competenceGoals: ['forklare kva entalpi er', 'skilje mellom eksoterme og endoterme reaksjonar', 'tolke energidiagram'],
-      coverImage: '/images/subjects/kjemi1-6-1-energi-entalpi.png',
+      coverImage: '/images/subjects/kjemi1-6-1-energi-entalpi.webp',
     },
     {
       id: 'kjemi1-6-2',
@@ -7526,7 +7531,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsentalpi', 'Hess lov', 'Standard dannelsesentalpi', 'Bindingsenergier', 'Kalorimetri'],
       prerequisites: ['kjemi1-6-1'],
       competenceGoals: ['berekne reaksjonsentalpi', 'bruke Hess sin lov', 'relatere reaksjonsentalpi til bindingsenergiar'],
-      coverImage: '/images/subjects/kjemi1-6-2-reaksjonsentalpi.png',
+      coverImage: '/images/subjects/kjemi1-6-2-reaksjonsentalpi.webp',
     },
     {
       id: 'kjemi1-6-3',
@@ -7538,7 +7543,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Reaksjonsfart', 'Konsentrasjon', 'Temperatur', 'Katalysatorer', 'Overflate', 'Kollisjonsteorien'],
       prerequisites: ['kjemi1-4-1'],
       competenceGoals: ['forklare kva som påverkar reaksjonsfart', 'bruke kollisjonsteori til å forklare reaksjonsfart'],
-      coverImage: '/images/subjects/kjemi1-6-3-reaksjonsfart.png',
+      coverImage: '/images/subjects/kjemi1-6-3-reaksjonsfart.webp',
     },
 
     // Del 7 - Kjemisk likevekt
@@ -7552,7 +7557,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Kjemisk likevekt', 'Likevektskonstanten K', 'Dynamisk likevekt', 'Likevektsuttrykk'],
       prerequisites: ['kjemi1-5-2', 'kjemi1-6-3'],
       competenceGoals: ['forklare kva kjemisk likevekt er', 'berekne likevektskonstanten', 'tolke verdien til likevektskonstanten'],
-      coverImage: '/images/subjects/kjemi1-7-1-likevekt-likevektskonstanten.png',
+      coverImage: '/images/subjects/kjemi1-7-1-likevekt-likevektskonstanten.webp',
     },
     {
       id: 'kjemi1-7-2',
@@ -7564,7 +7569,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Le Chateliers prinsipp', 'Konsentrasjonsendringer', 'Trykkendringer', 'Temperaturendringer', 'Likevektsforskyvning'],
       prerequisites: ['kjemi1-7-1'],
       competenceGoals: ['bruke Le Chateliers prinsipp til å føreseie likevektsforskyving', 'forklare korleis endringar i konsentrasjon, trykk og temperatur påverkar likevekt'],
-      coverImage: '/images/subjects/kjemi1-7-2-le-chateliers-prinsipp.png',
+      coverImage: '/images/subjects/kjemi1-7-2-le-chateliers-prinsipp.webp',
     },
 
     // Del 8 - Løsninger
@@ -7578,7 +7583,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løsemiddel', 'Løst stoff', 'Hydratisering', 'Polaritet', 'Løsningsprosessen'],
       prerequisites: ['kjemi1-3-3'],
       competenceGoals: ['forklare løysingsprosessen', 'beskrive korleis polaritet påverkar løyseevne'],
-      coverImage: '/images/subjects/kjemi1-8-1-losningsprosessen.png',
+      coverImage: '/images/subjects/kjemi1-8-1-losningsprosessen.webp',
     },
     {
       id: 'kjemi1-8-2',
@@ -7590,7 +7595,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Løselighet', 'Temperaturavhengighet', 'Mettet løsning', 'Umettet løsning', 'Overmettet løsning'],
       prerequisites: ['kjemi1-8-1'],
       competenceGoals: ['forklare korleis temperatur påverkar løyseevne', 'tolke løyselegheitskurver'],
-      coverImage: '/images/subjects/kjemi1-8-2-loselighet-temperatur.png',
+      coverImage: '/images/subjects/kjemi1-8-2-loselighet-temperatur.webp',
     },
 
     // Del 9 - Syrer og baser
@@ -7603,7 +7608,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 15,
       topics: ['Arrhenius', 'Brønsted-Lowry', 'Lewis', 'Protoner', 'Hydroksidioner', 'Konjugerte syrer og baser'],
       competenceGoals: ['forklare ulike definisjonar av syrer og baser', 'identifisere syrer og baser i reaksjonar'],
-      coverImage: '/images/subjects/kjemi1-9-1-syrer-baser-definisjoner.png',
+      coverImage: '/images/subjects/kjemi1-9-1-syrer-baser-definisjoner.webp',
     },
     {
       id: 'kjemi1-9-2',
@@ -7615,7 +7620,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['pH', 'pOH', 'Hydroniumioner', 'Sterke syrer', 'Sterke baser', 'pH-beregninger'],
       prerequisites: ['kjemi1-9-1'],
       competenceGoals: ['berekne pH og pOH', 'forklare pH-skalaen', 'gjere pH-berekningar for sterke syrer og baser'],
-      coverImage: '/images/subjects/kjemi1-9-2-ph-sterke-syrer-baser.png',
+      coverImage: '/images/subjects/kjemi1-9-2-ph-sterke-syrer-baser.webp',
     },
     {
       id: 'kjemi1-9-3',
@@ -7627,7 +7632,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Svake syrer', 'Svake baser', 'Syrekonstanten Ka', 'Basekonstanten Kb', 'Bufferløsninger'],
       prerequisites: ['kjemi1-7-1', 'kjemi1-9-2'],
       competenceGoals: ['forklare skilnaden mellom sterke og svake syrer/baser', 'berekne pH for svake syrer og baser', 'beskrive korleis bufferløysningar verkar'],
-      coverImage: '/images/subjects/kjemi1-9-3-svake-syrer-baser.png',
+      coverImage: '/images/subjects/kjemi1-9-3-svake-syrer-baser.webp',
     },
     {
       id: 'kjemi1-9-4',
@@ -7639,7 +7644,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Titrering', 'Ekvivalenspunkt', 'Indikator', 'Titreringskurver', 'Syre-base-titrering'],
       prerequisites: ['kjemi1-9-2'],
       competenceGoals: ['forklare prinsippet for titrering', 'berekne konsentrasjon ved hjelp av titrering', 'tolke titreringskurver'],
-      coverImage: '/images/subjects/kjemi1-9-4-titrering.png',
+      coverImage: '/images/subjects/kjemi1-9-4-titrering.webp',
     },
 
     // Del 10 - Organisk kjemi
@@ -7652,7 +7657,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Organiske forbindelser', 'Karbonkjeder', 'Hydrokarboner', 'Alkaner', 'Strukturformler'],
       competenceGoals: ['forklare kva organiske sambindingar er', 'teikne strukturformlar for enkle organiske molekyl'],
-      coverImage: '/images/subjects/kjemi1-10-1-intro-organisk-kjemi.png',
+      coverImage: '/images/subjects/kjemi1-10-1-intro-organisk-kjemi.webp',
     },
     {
       id: 'kjemi1-10-2',
@@ -7664,7 +7669,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Funksjonelle grupper', 'Alkoholer', 'Aldehyder', 'Ketoner', 'Karboksylsyrer', 'Estere', 'Aminer'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['identifisere funksjonelle grupper', 'namngje organiske sambindingar med funksjonelle grupper', 'forklare eigenskapar til ulike funksjonelle grupper'],
-      coverImage: '/images/subjects/kjemi1-10-2-funksjonelle-grupper.png',
+      coverImage: '/images/subjects/kjemi1-10-2-funksjonelle-grupper.webp',
     },
     {
       id: 'kjemi1-10-3',
@@ -7676,7 +7681,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Strukturisomeri', 'Kjedeisomeri', 'Posisjonsisomeri', 'Funksjonell isomeri', 'Geometrisk isomeri', 'Optisk isomeri'],
       prerequisites: ['kjemi1-10-1'],
       competenceGoals: ['forklare ulike typar isomeri', 'teikne isomerar for enkle organiske molekyl'],
-      coverImage: '/images/subjects/kjemi1-10-3-isomeri.png',
+      coverImage: '/images/subjects/kjemi1-10-3-isomeri.webp',
     },
 
     // Del 11 - Miljøkjemi
@@ -7689,7 +7694,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Vannkvalitet', 'Luftkvalitet', 'Forurensning', 'Drivhuseffekten', 'Ozonlaget', 'Sur nedbør'],
       competenceGoals: ['beskrive kjemiske prosessar som påverkar vatn- og luftkvalitet', 'forklare årsaker til og konsekvensar av forureining'],
-      coverImage: '/images/subjects/kjemi1-11-1-vann-luftkvalitet.png',
+      coverImage: '/images/subjects/kjemi1-11-1-vann-luftkvalitet.webp',
     },
     {
       id: 'kjemi1-11-2',
@@ -7700,7 +7705,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Grønn kjemi', 'Bærekraftig kjemi', 'Atomøkonomi', 'Fornybare råvarer', 'Energieffektivitet', 'Avfallsreduksjon'],
       competenceGoals: ['forklare prinsippa for grøn kjemi', 'vurdere kjemiske prosessar ut frå berekraftigheit'],
-      coverImage: '/images/subjects/kjemi1-11-2-gronn-kjemi.png',
+      coverImage: '/images/subjects/kjemi1-11-2-gronn-kjemi.webp',
     },
 
     // Del 12 - Laboratoriearbeid
@@ -7713,7 +7718,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       exerciseCount: 11,
       topics: ['Laboratoriesikkerhet', 'Verneutstyr', 'Laboratorieutstyr', 'Måleteknikker', 'Sikkerhetsprosedyrer'],
       competenceGoals: ['arbeide trygt i laboratoriet', 'bruke laboratorieutstyr på riktig måte'],
-      coverImage: '/images/subjects/kjemi1-12-1-laboratoriesikkerhet.png',
+      coverImage: '/images/subjects/kjemi1-12-1-laboratoriesikkerhet.webp',
     },
     {
       id: 'kjemi1-12-2',
@@ -7725,7 +7730,7 @@ export const COURSE_KJEMI1: TextbookCourse = {
       topics: ['Måleusikkerhet', 'Systematiske feil', 'Tilfeldige feil', 'Nøyaktighet', 'Presisjon', 'Feilkilder'],
       prerequisites: ['kjemi1-12-1'],
       competenceGoals: ['vurdere måleusikkerheit i forsøk', 'identifisere feilkjelder', 'forklare skilnaden mellom nøyaktigheit og presisjon'],
-      coverImage: '/images/subjects/kjemi1-12-2-usikkerhet-feilkilder.png',
+      coverImage: '/images/subjects/kjemi1-12-2-usikkerhet-feilkilder.webp',
     },
   ],
 };
@@ -7741,7 +7746,7 @@ export const COURSE_FYS1: TextbookCourse = {
   description: 'Fysikk 1 for studieforberedende utdanningsprogram - utforsk bevegelse, krefter, energi, elektrisitet, varme og moderne fysikk etter LK20',
   curriculum: 'LK20',
   icon: '⚛️',
-  coverImage: '/images/subjects/fysikk1-hero.png',
+  coverImage: '/images/subjects/fysikk1-hero.webp',
   chapters: [
     // Seksjon 1: Fysikkens metoder og verktøyfag
     {
@@ -7753,7 +7758,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Naturvitenskapelig metode', 'Hypoteser', 'Eksperimentering', 'Måling', 'Usikkerhet', 'Signifikante siffer'],
       competenceGoals: ['planlegge og gjennomføre forsøk', 'analysere data og trekke konklusjoner'],
-      coverImage: '/images/subjects/fysikk-1-1-metoder.png',
+      coverImage: '/images/subjects/fysikk-1-1-metoder.webp',
     },
     {
       id: 'fys1-1-2',
@@ -7764,7 +7769,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 6,
       topics: ['Fysiske modeller', 'Forenklinger', 'Idealisering', 'Modellbegrensninger'],
       competenceGoals: ['vurdere, bruke og lage modeller til å beskrive og forutsi fysiske fenomener'],
-      coverImage: '/images/subjects/fysikk-1-2-modeller.png',
+      coverImage: '/images/subjects/fysikk-1-2-modeller.webp',
     },
     {
       id: 'fys1-1-3',
@@ -7775,7 +7780,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eulers metode', 'Python', 'Numerisk integrasjon', 'Simulering', 'Iterasjon'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere og utforske bevegelse'],
-      coverImage: '/images/subjects/fysikk-1-3-numeriske-metoder.png',
+      coverImage: '/images/subjects/fysikk-1-3-numeriske-metoder.webp',
     },
     // Seksjon 2: Klassisk mekanikk - Kinematikk
     {
@@ -7787,7 +7792,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Posisjon', 'Forflytning', 'Hastighet', 'Fart', 'Akselerasjon', 'Vektorer'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-1-posisjon-fart.png',
+      coverImage: '/images/subjects/fysikk-2-1-posisjon-fart.webp',
     },
     {
       id: 'fys1-2-2',
@@ -7798,7 +7803,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Konstant fart', 's-t diagram', 'v-t diagram', 'Strekning', 'Tid'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-2-rettlinjet-bevegelse.png',
+      coverImage: '/images/subjects/fysikk-2-2-rettlinjet-bevegelse.webp',
     },
     {
       id: 'fys1-2-3',
@@ -7809,7 +7814,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelseslikninger', 'Fritt fall', 'Tyngdeakselerasjon', 'a-t diagram'],
       competenceGoals: ['utforske, analysere og beskrive rettlinjet bevegelse'],
-      coverImage: '/images/subjects/fysikk-2-3-konstant-akselerasjon.png',
+      coverImage: '/images/subjects/fysikk-2-3-konstant-akselerasjon.webp',
     },
     {
       id: 'fys1-2-4',
@@ -7820,7 +7825,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Skrå kast', 'Vektoroppløsning', 'Horisontal bevegelse', 'Vertikal bevegelse', 'Baneform'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-2-4-todimensjonal-bevegelse.png',
+      coverImage: '/images/subjects/fysikk-2-4-todimensjonal-bevegelse.webp',
     },
     // Seksjon 3: Klassisk mekanikk - Dynamikk
     {
@@ -7832,7 +7837,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons 1. lov', 'Newtons 2. lov', 'Newtons 3. lov', 'Kraft', 'Masse', 'Treghet'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-1-newtons-lover.png',
+      coverImage: '/images/subjects/fysikk-3-1-newtons-lover.webp',
     },
     {
       id: 'fys1-3-2',
@@ -7843,7 +7848,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Tyngdekraft', 'Normalkraft', 'Friksjonskraft', 'Snorkraft', 'Kraftdiagram', 'Frilegemediagram'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-2-krefter-kraftanalyse.png',
+      coverImage: '/images/subjects/fysikk-3-2-krefter-kraftanalyse.webp',
     },
     {
       id: 'fys1-3-3',
@@ -7854,7 +7859,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Statisk friksjon', 'Kinetisk friksjon', 'Friksjonskoeffisient', 'Luftmotstand', 'Terminalfart'],
       competenceGoals: ['bruke numeriske metoder og programmering til å modellere bevegelse'],
-      coverImage: '/images/subjects/fysikk-3-3-friksjon-luftmotstand.png',
+      coverImage: '/images/subjects/fysikk-3-3-friksjon-luftmotstand.webp',
     },
     {
       id: 'fys1-3-4',
@@ -7865,7 +7870,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Sirkelbevegelse', 'Sentripetalkraft', 'Sentripetalakselerasjon', 'Vinkelfrekvens', 'Periode'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-3-4-sirkelbevegelse.png',
+      coverImage: '/images/subjects/fysikk-3-4-sirkelbevegelse.webp',
     },
     // Seksjon 4: Energi og bevaring
     {
@@ -7877,7 +7882,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Arbeid', 'Kinetisk energi', 'Arbeid-energi-teoremet', 'Joule'],
       competenceGoals: ['forstå sammenhenger mellom krefter, bevegelse og energi'],
-      coverImage: '/images/subjects/fysikk-4-1-arbeid-kinetisk-energi.png',
+      coverImage: '/images/subjects/fysikk-4-1-arbeid-kinetisk-energi.webp',
     },
     {
       id: 'fys1-4-2',
@@ -7888,7 +7893,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Potensiell energi', 'Gravitasjonell energi', 'Elastisk energi', 'Energibevaring', 'Konservative krefter'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
-      coverImage: '/images/subjects/fysikk-4-2-potensiell-energi.png',
+      coverImage: '/images/subjects/fysikk-4-2-potensiell-energi.webp',
     },
     {
       id: 'fys1-4-3',
@@ -7899,7 +7904,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Bevegelsesmengde', 'Impuls', 'Impuls-bevegelsesmengde-teoremet', 'Elastisk støt', 'Uelastisk støt'],
       competenceGoals: ['forstå og gjøre rede for konsekvenser av at bevegelsesmengde og energi er bevart'],
-      coverImage: '/images/subjects/fysikk-4-3-bevegelsesmengde.png',
+      coverImage: '/images/subjects/fysikk-4-3-bevegelsesmengde.webp',
     },
     {
       id: 'fys1-4-4',
@@ -7910,7 +7915,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Energikvalitet', 'Virkningsgrad', 'Energitap', 'Irreversibilitet', 'Entropi'],
       competenceGoals: ['utforske hvordan energi kan gå fra en form til en annen, og vurdere energikvalitet og virkningsgrad'],
-      coverImage: '/images/subjects/fysikk-4-4-energikvalitet.png',
+      coverImage: '/images/subjects/fysikk-4-4-energikvalitet.webp',
     },
     // Seksjon 5: Varme og energi
     {
@@ -7922,7 +7927,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Temperatur', 'Kelvin', 'Celsius', 'Varme', 'Spesifikk varmekapasitet', 'Termisk likevekt'],
       competenceGoals: ['forstå begrepet temperatur og forklare hvordan tilført varme til et system fører til temperaturendring'],
-      coverImage: '/images/subjects/fysikk-5-1-temperatur-varme.png',
+      coverImage: '/images/subjects/fysikk-5-1-temperatur-varme.webp',
     },
     {
       id: 'fys1-5-2',
@@ -7933,7 +7938,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Varmeledning', 'Konveksjon', 'Varmestråling', 'Varmeledningsevne', 'Isolasjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer'],
-      coverImage: '/images/subjects/fysikk-5-2-varmeoverfoeringer.png',
+      coverImage: '/images/subjects/fysikk-5-2-varmeoverfoeringer.webp',
     },
     {
       id: 'fys1-5-3',
@@ -7944,7 +7949,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Sortlegeme', 'Stefan-Boltzmanns lov', 'Wiens lov', 'Emisjon', 'Absorpsjon'],
       competenceGoals: ['utforske, sammenligne og beskrive stråling fra legemer med ulik temperatur og overflate'],
-      coverImage: '/images/subjects/fysikk-5-3-varmestråling.png',
+      coverImage: '/images/subjects/fysikk-5-3-varmestråling.webp',
     },
     {
       id: 'fys1-5-4',
@@ -7955,7 +7960,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Strålingsbalanse', 'Drivhuseffekt', 'Albedo', 'Klimamodeller', 'Global oppvarming'],
       competenceGoals: ['bruke modeller av strålingsbalansen til jorda til å gjøre beregninger', 'vurdere ulike påstander og argumenter om energi og klima'],
-      coverImage: '/images/subjects/fysikk-5-4-straalingsbalanse.png',
+      coverImage: '/images/subjects/fysikk-5-4-straalingsbalanse.webp',
     },
     // Seksjon 6: Elektrisitet og moderne fysikk
     {
@@ -7967,7 +7972,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk ladning', 'Coulombs lov', 'Elektrisk felt', 'Elektrisk potensial', 'Spenning'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
-      coverImage: '/images/subjects/fysikk-6-1-elektrisk-ladning.png',
+      coverImage: '/images/subjects/fysikk-6-1-elektrisk-ladning.webp',
     },
     {
       id: 'fys1-6-2',
@@ -7978,7 +7983,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Ohms lov', 'Spenning', 'Strøm', 'Resistans', 'Seriekobling', 'Parallellkobling'],
       competenceGoals: ['gjøre rede for sammenhengene mellom ladning, spenning og elektrisk energi'],
-      coverImage: '/images/subjects/fysikk-6-2-elektriske-kretser.png',
+      coverImage: '/images/subjects/fysikk-6-2-elektriske-kretser.webp',
     },
     {
       id: 'fys1-6-3',
@@ -7989,7 +7994,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Elektrisk effekt', 'Energiforbruk', 'Joules lov', 'Watt', 'Kilowattime'],
       competenceGoals: ['utforske effektomsetning i elektriske kretser'],
-      coverImage: '/images/subjects/fysikk-6-3-effekt-energi.png',
+      coverImage: '/images/subjects/fysikk-6-3-effekt-energi.webp',
     },
     {
       id: 'fys1-6-4',
@@ -8000,7 +8005,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Bohrs atommodell', 'Energinivåer', 'Spektrallinjer', 'Fotoner', 'Fotoelektrisk effekt', 'Plancks konstant'],
       competenceGoals: ['beskrive ulike atommodeller og drøfte hvordan observerbare effekter støtter eller utfordrer dem'],
-      coverImage: '/images/subjects/fysikk-6-4-atommodeller.png',
+      coverImage: '/images/subjects/fysikk-6-4-atommodeller.webp',
     },
     {
       id: 'fys1-6-5',
@@ -8011,7 +8016,7 @@ export const COURSE_FYS1: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Atomkjerne', 'Fusjon', 'Fisjon', 'Bindingsenergi', 'Stjerneutvikling', 'Nukleosyntes'],
       competenceGoals: ['forstå begrepet fusjon og vurdere hvordan ulike grunnstoff dannes når stjerner lever, kolliderer og dør'],
-      coverImage: '/images/subjects/fysikk-6-5-kjernefysikk.png',
+      coverImage: '/images/subjects/fysikk-6-5-kjernefysikk.webp',
     },
   ],
 };
@@ -8027,7 +8032,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
   description: 'Fysikk for studieforberedende utdanningsprogram - programfag VG3',
   curriculum: 'LK20',
   icon: '⚛️',
-  coverImage: '/images/subjects/fysikk2-hero.png',
+  coverImage: '/images/subjects/fysikk2-hero.webp',
   chapters: [
     // ============================================================================
     // Seksjon 1: Mekanikk i to dimensjoner
@@ -8041,7 +8046,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Vektorrepresentasjon', 'Komponentform', 'Vektoraddisjon', 'Vektorsubtraksjon', 'Skalarmultiplikasjon', 'Enhetsvektorer'],
       competenceGoals: ['bruke vektorer til å beskrive fysiske størrelser', 'utføre vektoroperasjoner'],
-      coverImage: '/images/subjects/fysikk2-1-1-vektorer.png',
+      coverImage: '/images/subjects/fysikk2-1-1-vektorer.webp',
     },
     {
       id: 'fysikk2-1-2',
@@ -8053,7 +8058,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Posisjonsvektorer', 'Hastighetsvektor', 'Akselerasjonsvektor', 'Bevegelseslikninger', 'Uavhengige komponenter'],
       prerequisites: ['fysikk2-1-1'],
       competenceGoals: ['analysere bevegelse i to dimensjoner', 'bruke vektornotasjon for kinematiske størrelser'],
-      coverImage: '/images/subjects/fysikk2-1-2-bevegelse-2d.png',
+      coverImage: '/images/subjects/fysikk2-1-2-bevegelse-2d.webp',
     },
     {
       id: 'fysikk2-1-3',
@@ -8065,7 +8070,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Horisontal kastering', 'Skrå kastering', 'Baneform (parabelbane)', 'Rekkevidde', 'Maksimal høyde', 'Luftmotstand'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere og beregne størrelser ved kastering', 'bruke kinematiske likninger i to dimensjoner'],
-      coverImage: '/images/subjects/fysikk2-1-3-kastering.png',
+      coverImage: '/images/subjects/fysikk2-1-3-kastering.webp',
     },
     {
       id: 'fysikk2-1-4',
@@ -8077,7 +8082,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Uniform sirkelbevegelse', 'Vinkelstørrelse', 'Perioden', 'Sentripetalakselerasjon', 'Sentripetalkraft', 'Kurvebevegelse'],
       prerequisites: ['fysikk2-1-2'],
       competenceGoals: ['analysere sirkelbevegelse', 'beregne sentripetalkraft og akselerasjon'],
-      coverImage: '/images/subjects/fysikk2-1-4-sirkelbevegelse2.png',
+      coverImage: '/images/subjects/fysikk2-1-4-sirkelbevegelse2.webp',
     },
     {
       id: 'fysikk2-1-5',
@@ -8089,7 +8094,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Eulers metode', 'Tidssteg', 'Numerisk integrering', 'Programmering av bevegelse', 'Feilanalyse'],
       prerequisites: ['fysikk2-1-3', 'fysikk2-1-4'],
       competenceGoals: ['bruke digitale verktøy til å modellere bevegelse numerisk', 'vurdere nøyaktighet i numeriske metoder'],
-      coverImage: '/images/subjects/fysikk2-1-5-numerisk-modellering.png',
+      coverImage: '/images/subjects/fysikk2-1-5-numerisk-modellering.webp',
     },
 
     // ============================================================================
@@ -8104,7 +8109,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Newtons gravitasjonslov', 'Gravitasjonskonstanten G', 'Gravitasjonskraft', 'Masse vs. vekt'],
       competenceGoals: ['bruke Newtons gravitasjonslov til å beregne gravitasjonskrefter'],
-      coverImage: '/images/subjects/fysikk2-2-1-gravitasjonslov.png',
+      coverImage: '/images/subjects/fysikk2-2-1-gravitasjonslov.webp',
     },
     {
       id: 'fysikk2-2-2',
@@ -8116,7 +8121,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonsfelt', 'Feltstyrke g', 'Superposisjonsprinsippet', 'Jordas gravitasjonsfelt'],
       prerequisites: ['fysikk2-2-1'],
       competenceGoals: ['beskrive og beregne gravitasjonsfelt', 'bruke superposisjon for flere masser'],
-      coverImage: '/images/subjects/fysikk2-2-2-gravitasjonsfelt.png',
+      coverImage: '/images/subjects/fysikk2-2-2-gravitasjonsfelt.webp',
     },
     {
       id: 'fysikk2-2-3',
@@ -8128,7 +8133,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Gravitasjonell potensiell energi', 'Nullnivå i uendelighet', 'Energibevarelse', 'Bindingsenergi'],
       prerequisites: ['fysikk2-2-2'],
       competenceGoals: ['beregne gravitasjonell potensiell energi', 'bruke energibevarelse i gravitasjonsfelt'],
-      coverImage: '/images/subjects/fysikk2-2-3-gravitasjonell-energi.png',
+      coverImage: '/images/subjects/fysikk2-2-3-gravitasjonell-energi.webp',
     },
     {
       id: 'fysikk2-2-4',
@@ -8140,7 +8145,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Unnslippningsfart', 'Satellittbaner', 'Sirkulære baner', 'Geostasjonære satellitter', 'Banefart'],
       prerequisites: ['fysikk2-2-3', 'fysikk2-1-4'],
       competenceGoals: ['beregne unnslippningsfart og satellittbaner', 'analysere betingelser for ulike banetyper'],
-      coverImage: '/images/subjects/fysikk2-2-4-satellittbaner.png',
+      coverImage: '/images/subjects/fysikk2-2-4-satellittbaner.webp',
     },
     {
       id: 'fysikk2-2-5',
@@ -8152,7 +8157,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Keplers første lov', 'Keplers andre lov', 'Keplers tredje lov', 'Planetbaner', 'Perioder og baneradier'],
       prerequisites: ['fysikk2-2-4'],
       competenceGoals: ['bruke Keplers lover til å analysere planetbevegelse', 'utlede sammenhenger fra Keplers tredje lov'],
-      coverImage: '/images/subjects/fysikk2-2-5-keplers-lover.png',
+      coverImage: '/images/subjects/fysikk2-2-5-keplers-lover.webp',
     },
 
     // ============================================================================
@@ -8167,7 +8172,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Elektrisk ladning', 'Elementærladning', 'Coulombs lov', 'Elektrostatisk kraft', 'Ladningsfordeling'],
       competenceGoals: ['bruke Coulombs lov til å beregne elektrostatiske krefter'],
-      coverImage: '/images/subjects/fysikk2-3-1-coulombs-lov.png',
+      coverImage: '/images/subjects/fysikk2-3-1-coulombs-lov.webp',
     },
     {
       id: 'fysikk2-3-2',
@@ -8179,7 +8184,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk felt', 'Feltstyrke E', 'Feltlinjer', 'Superposisjon', 'Homogene felt', 'Ledere i felt'],
       prerequisites: ['fysikk2-3-1'],
       competenceGoals: ['beskrive og beregne elektriske felt', 'tegne feltlinjer', 'bruke superposisjonsprinsippet'],
-      coverImage: '/images/subjects/fysikk2-3-2-elektrisk-felt.png',
+      coverImage: '/images/subjects/fysikk2-3-2-elektrisk-felt.webp',
     },
     {
       id: 'fysikk2-3-3',
@@ -8191,7 +8196,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektrisk potensial', 'Spenning', 'Elektrisk potensiell energi', 'Ekvipotensialflater', 'Sammenhengen E og V'],
       prerequisites: ['fysikk2-3-2'],
       competenceGoals: ['beregne elektrisk potensial og spenning', 'relatere felt og potensial'],
-      coverImage: '/images/subjects/fysikk2-3-3-potensial-spenning.png',
+      coverImage: '/images/subjects/fysikk2-3-3-potensial-spenning.webp',
     },
     {
       id: 'fysikk2-3-4',
@@ -8203,7 +8208,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kondensatorer', 'Kapasitans', 'Parallellplatekondesator', 'Dielektrikum', 'Lagret energi', 'Serie- og parallellkobling'],
       prerequisites: ['fysikk2-3-3'],
       competenceGoals: ['beregne kapasitans og lagret energi', 'analysere kondensatorkoblinger'],
-      coverImage: '/images/subjects/fysikk2-3-4-kondensatorer.png',
+      coverImage: '/images/subjects/fysikk2-3-4-kondensatorer.webp',
     },
     {
       id: 'fysikk2-3-5',
@@ -8215,7 +8220,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på ladede partikler', 'Akselerasjon i homogene felt', 'Avbøyning', 'Katodestrålerør', 'Elektronkanoner'],
       prerequisites: ['fysikk2-3-2', 'fysikk2-1-2'],
       competenceGoals: ['analysere bevegelse av ladede partikler i elektriske felt', 'beregne baner og hastigheter'],
-      coverImage: '/images/subjects/fysikk2-3-5-partikler-i-felt.png',
+      coverImage: '/images/subjects/fysikk2-3-5-partikler-i-felt.webp',
     },
 
     // ============================================================================
@@ -8230,7 +8235,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Magnetfelt', 'Magnetiske feltlinjer', 'Magnetiske poler', 'Permanente magneter', 'Jordas magnetfelt'],
       competenceGoals: ['beskrive magnetfelt og magnetiske krefter'],
-      coverImage: '/images/subjects/fysikk2-4-1-magnetfelt.png',
+      coverImage: '/images/subjects/fysikk2-4-1-magnetfelt.webp',
     },
     {
       id: 'fysikk2-4-2',
@@ -8242,7 +8247,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lorentzkraft på partikler', 'Høyrehåndsregelen', 'Syklotronbevegelse', 'Helikalbaner', 'Massespektrometer'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk kraft på ladede partikler', 'analysere partikkelbaner i magnetfelt'],
-      coverImage: '/images/subjects/fysikk2-4-2-lorentzkraft-partikler.png',
+      coverImage: '/images/subjects/fysikk2-4-2-lorentzkraft-partikler.webp',
     },
     {
       id: 'fysikk2-4-3',
@@ -8254,7 +8259,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetfelt fra rett leder', 'Magnetfelt fra strømløkke', 'Solenoider', 'Biot-Savarts lov', 'Ampères lov'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetfelt fra strømførende ledere', 'bruke Ampères lov'],
-      coverImage: '/images/subjects/fysikk2-4-3-magnetfelt-strom.png',
+      coverImage: '/images/subjects/fysikk2-4-3-magnetfelt-strom.webp',
     },
     {
       id: 'fysikk2-4-4',
@@ -8266,7 +8271,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Kraft på rett leder', 'Motorkraft', 'Kraftretning', 'Høyrehåndsregelen for ledere', 'Elektromotorer'],
       prerequisites: ['fysikk2-4-3'],
       competenceGoals: ['beregne magnetisk kraft på strømførende ledere', 'forklare virkemåten til elektromotorer'],
-      coverImage: '/images/subjects/fysikk2-4-4-kraft-stromforer.png',
+      coverImage: '/images/subjects/fysikk2-4-4-kraft-stromforer.webp',
     },
     {
       id: 'fysikk2-4-5',
@@ -8278,7 +8283,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Total Lorentzkraft', 'Kombinerte felt', 'Hastighetsselektor', 'Halleffekten', 'Partikkelakseleratorer'],
       prerequisites: ['fysikk2-4-2', 'fysikk2-3-5'],
       competenceGoals: ['analysere bevegelse i kombinerte elektriske og magnetiske felt', 'beregne total Lorentzkraft'],
-      coverImage: '/images/subjects/fysikk2-4-5-lorentzkraften.png',
+      coverImage: '/images/subjects/fysikk2-4-5-lorentzkraften.webp',
     },
 
     // ============================================================================
@@ -8294,7 +8299,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Magnetisk fluks', 'Fluks gjennom flate', 'Enhetsnormalen', 'Flukstetthet'],
       prerequisites: ['fysikk2-4-1'],
       competenceGoals: ['beregne magnetisk fluks gjennom flater'],
-      coverImage: '/images/subjects/fysikk2-5-1-magnetisk-fluks.png',
+      coverImage: '/images/subjects/fysikk2-5-1-magnetisk-fluks.webp',
     },
     {
       id: 'fysikk2-5-2',
@@ -8306,7 +8311,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Elektromagnetisk induksjon', 'Faradays lov', 'Indusert spenning', 'Fluksforandring', 'Bevegelsesinduksjon'],
       prerequisites: ['fysikk2-5-1'],
       competenceGoals: ['bruke Faradays lov til å beregne indusert spenning', 'forklare elektromagnetisk induksjon'],
-      coverImage: '/images/subjects/fysikk2-5-2-faradays-lov.png',
+      coverImage: '/images/subjects/fysikk2-5-2-faradays-lov.webp',
     },
     {
       id: 'fysikk2-5-3',
@@ -8318,7 +8323,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lenz lov', 'Retning av indusert strøm', 'Høyrehåndsregelen for induksjon', 'Motstand mot fluksforandring', 'Energibevarelse'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['bruke Lenz lov til å bestemme retning av indusert strøm', 'forklare energibevarelse ved induksjon'],
-      coverImage: '/images/subjects/fysikk2-5-3-lenz-lov.png',
+      coverImage: '/images/subjects/fysikk2-5-3-lenz-lov.webp',
     },
     {
       id: 'fysikk2-5-4',
@@ -8330,7 +8335,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Generatorer', 'AC-generatorer', 'Rotasjon i magnetfelt', 'Vekselstrøm', 'Motorer', 'Transformatorer'],
       prerequisites: ['fysikk2-5-3', 'fysikk2-4-4'],
       competenceGoals: ['forklare virkemåten til generatorer og motorer', 'beregne indusert spenning i roterande spole'],
-      coverImage: '/images/subjects/fysikk2-5-4-generatorer-motorer.png',
+      coverImage: '/images/subjects/fysikk2-5-4-generatorer-motorer.webp',
     },
     {
       id: 'fysikk2-5-5',
@@ -8342,7 +8347,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Transformatorer', 'Primærspole', 'Sekundærspole', 'Omsettingsforhold', 'Ideelle transformatorer', 'Effekttap'],
       prerequisites: ['fysikk2-5-2'],
       competenceGoals: ['beregne spenning og strøm i transformatorer', 'forklare energioverføring'],
-      coverImage: '/images/subjects/fysikk2-5-5-transformatorer.png',
+      coverImage: '/images/subjects/fysikk2-5-5-transformatorer.webp',
     },
     {
       id: 'fysikk2-5-6',
@@ -8354,7 +8359,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Vindkraft', 'Vannkraft', 'Bølgekraft', 'Kraftoverføring', 'Bærekraftige energiløsninger'],
       prerequisites: ['fysikk2-5-4', 'fysikk2-5-5'],
       competenceGoals: ['forklare hvordan induksjon brukes i bærekraftig energiproduksjon', 'vurdere energieffektivitet'],
-      coverImage: '/images/subjects/fysikk2-5-6-barekraftig-energi.png',
+      coverImage: '/images/subjects/fysikk2-5-6-barekraftig-energi.webp',
     },
 
     // ============================================================================
@@ -8369,7 +8374,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Einsteins postulater', 'Lysets konstante fart', 'Inertielle referansesystemer', 'Samtidighet', 'Michelson-Morley'],
       competenceGoals: ['forstå grunnlaget for spesiell relativitetsteori', 'diskutere samtidighet'],
-      coverImage: '/images/subjects/fysikk2-6-1-relativitetsteori.png',
+      coverImage: '/images/subjects/fysikk2-6-1-relativitetsteori.webp',
     },
     {
       id: 'fysikk2-6-2',
@@ -8381,7 +8386,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Tidsdilatasjon', 'Egentid', 'Observert tid', 'Lorentzfaktoren γ', 'Tvillingparadokset', 'Myoneksperiment'],
       prerequisites: ['fysikk2-6-1'],
       competenceGoals: ['beregne tidsforlengelse ved høye farter', 'forklare tidsdilatasjon'],
-      coverImage: '/images/subjects/fysikk2-6-2-tidsdilatasjon.png',
+      coverImage: '/images/subjects/fysikk2-6-2-tidsdilatasjon.webp',
     },
     {
       id: 'fysikk2-6-3',
@@ -8393,7 +8398,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lengdekontraksjon', 'Egenlengde', 'Observert lengde', 'Lorentzkontraksjon', 'Rom-tid-diagrammer'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne lengdekontraksjon', 'relatere lengdekontraksjon og tidsdilatasjon'],
-      coverImage: '/images/subjects/fysikk2-6-3-lengdekontraksjon.png',
+      coverImage: '/images/subjects/fysikk2-6-3-lengdekontraksjon.webp',
     },
     {
       id: 'fysikk2-6-4',
@@ -8405,7 +8410,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Relativistisk energi', 'E=mc²', 'Hvilemasse', 'Relativistisk kinetisk energi', 'Total energi', 'Masse-energi-ekvivalens'],
       prerequisites: ['fysikk2-6-2'],
       competenceGoals: ['beregne relativistisk energi og kinetisk energi', 'bruke E=mc² i praktiske problemstillinger'],
-      coverImage: '/images/subjects/fysikk2-6-4-relativistisk-energi.png',
+      coverImage: '/images/subjects/fysikk2-6-4-relativistisk-energi.webp',
     },
     {
       id: 'fysikk2-6-5',
@@ -8417,7 +8422,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Ekvivalensprinsippet', 'Krumning av rom-tid', 'Gravitasjonell tidsforlengelse', 'Gravitasjonsbøyning av lys', 'Svarte hull'],
       prerequisites: ['fysikk2-6-4', 'fysikk2-2-3'],
       competenceGoals: ['forstå grunnideen i generell relativitetsteori', 'diskutere gravitasjonens natur'],
-      coverImage: '/images/subjects/fysikk2-6-5-generell-relativitet.png',
+      coverImage: '/images/subjects/fysikk2-6-5-generell-relativitet.webp',
     },
 
     // ============================================================================
@@ -8432,7 +8437,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Fotoelektrisk effekt', 'Fotoner', 'Fotonenergi E=hf', 'Plancks konstant', 'Arbeidsfunksjon', 'Kinetisk energi til elektroner'],
       competenceGoals: ['forklare den fotoelektriske effekten', 'beregne fotonenergi og elektronhastigheter'],
-      coverImage: '/images/subjects/fysikk2-7-1-fotoelektrisk.png',
+      coverImage: '/images/subjects/fysikk2-7-1-fotoelektrisk.webp',
     },
     {
       id: 'fysikk2-7-2',
@@ -8444,7 +8449,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bølge-partikkel-dualitet', 'Dobbeltspaltforsøk', 'Interferens', 'Partikkelegenskaper', 'Komplementaritet'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare bølge-partikkel-dualitet', 'diskutere eksperimenter som viser dualitet'],
-      coverImage: '/images/subjects/fysikk2-7-2-bolge-partikkel.png',
+      coverImage: '/images/subjects/fysikk2-7-2-bolge-partikkel.webp',
     },
     {
       id: 'fysikk2-7-3',
@@ -8456,7 +8461,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['de Broglies bølgelengde', 'Materiens bølgenatur', 'Elektronbøyning', 'Davisson-Germer-eksperimentet'],
       prerequisites: ['fysikk2-7-2'],
       competenceGoals: ['beregne de Broglies bølgelengde', 'forklare materiens bølgeegenskaper'],
-      coverImage: '/images/subjects/fysikk2-7-3-de-broglie.png',
+      coverImage: '/images/subjects/fysikk2-7-3-de-broglie.webp',
     },
     {
       id: 'fysikk2-7-4',
@@ -8468,7 +8473,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Heisenbergs usikkerhetsrelasjon', 'Posisjon og impuls', 'Energi og tid', 'Måleprosessen', 'Kvantemekaniske implikasjoner'],
       prerequisites: ['fysikk2-7-3'],
       competenceGoals: ['bruke Heisenbergs usikkerhetsrelasjon', 'diskutere implikasjoner for målinger'],
-      coverImage: '/images/subjects/fysikk2-7-4-heisenberg.png',
+      coverImage: '/images/subjects/fysikk2-7-4-heisenberg.webp',
     },
     {
       id: 'fysikk2-7-5',
@@ -8480,7 +8485,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Bohrs postulater', 'Energinivåer', 'Kvantisering', 'Spektrallinjer', 'Hydrogenspekteret', 'Rydbergs formel'],
       prerequisites: ['fysikk2-7-1'],
       competenceGoals: ['forklare Bohrs atommodell', 'beregne energinivåer og spektrallinjer'],
-      coverImage: '/images/subjects/fysikk2-7-5-bohrs-atommodell.png',
+      coverImage: '/images/subjects/fysikk2-7-5-bohrs-atommodell.webp',
     },
     {
       id: 'fysikk2-7-6',
@@ -8492,7 +8497,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Lasere', 'Solceller', 'LED', 'Kvantedatamaskiner', 'Kvanteoptikk', 'Moderne teknologi'],
       prerequisites: ['fysikk2-7-5'],
       competenceGoals: ['forklare hvordan kvantefysikk brukes i teknologi', 'diskutere kvantemekanikkens betydning'],
-      coverImage: '/images/subjects/fysikk2-7-6-kvantefenomener.png',
+      coverImage: '/images/subjects/fysikk2-7-6-kvantefenomener.webp',
     },
 
     // ============================================================================
@@ -8507,7 +8512,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Vitenskapelig metode', 'Hypoteser', 'Eksperimentdesign', 'Måleusikkerhet', 'Absolutt og relativ usikkerhet', 'Feilkilder'],
       competenceGoals: ['planlegge og gjennomføre fysikkforsøk', 'vurdere måleusikkerhet'],
-      coverImage: '/images/subjects/fysikk2-8-1-eksperimentell-metode.png',
+      coverImage: '/images/subjects/fysikk2-8-1-eksperimentell-metode.webp',
     },
     {
       id: 'fysikk2-8-2',
@@ -8519,7 +8524,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Databehandling', 'Statistiske metoder', 'Grafisk framstilling', 'Systematiske feil', 'Tilfeldige feil', 'Presisjon og nøyaktighet'],
       prerequisites: ['fysikk2-8-1'],
       competenceGoals: ['analysere eksperimentelle data', 'identifisere og diskutere feilkilder'],
-      coverImage: '/images/subjects/fysikk2-8-2-dataanalyse.png',
+      coverImage: '/images/subjects/fysikk2-8-2-dataanalyse.webp',
     },
     {
       id: 'fysikk2-8-3',
@@ -8530,7 +8535,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Partikkelfysikk', 'Standardmodellen', 'CERN', 'Astrofysikk', 'Kosmologi', 'Fremtidens fysikk'],
       competenceGoals: ['beskrive sentrale områder i moderne fysikkforskning', 'diskutere fysikkens samfunnsrolle'],
-      coverImage: '/images/subjects/fysikk2-8-3-moderne-forskning.png',
+      coverImage: '/images/subjects/fysikk2-8-3-moderne-forskning.webp',
     },
     {
       id: 'fysikk2-8-4',
@@ -8542,7 +8547,7 @@ export const COURSE_FYSIKK2: TextbookCourse = {
       topics: ['Prosjektplanlegging', 'Litteratursøk', 'Rapportskriving', 'Presentasjonsteknikk', 'Kildekritikk', 'Vitenskapelig kommunikasjon'],
       prerequisites: ['fysikk2-8-1', 'fysikk2-8-2'],
       competenceGoals: ['gjennomføre selvstendig prosjektarbeid i fysikk', 'kommunisere fysikk faglig'],
-      coverImage: '/images/subjects/fysikk2-8-4-prosjektarbeid.png',
+      coverImage: '/images/subjects/fysikk2-8-4-prosjektarbeid.webp',
     },
   ],
 };
@@ -11596,7 +11601,7 @@ export const COURSE_SPANSK_1: TextbookCourse = {
   description: 'Spansk for nybegynnere - hilsener, tall, familie, tid, mat, hjem, klær, skole, reise og grammatikk',
   curriculum: 'LK20',
   icon: '🇪🇸',
-  coverImage: '/images/subjects/spansk-1-hero.png',
+  coverImage: '/images/subjects/spansk-1-hero.webp',
   chapters: [
     // Kapittel 1: Saludos y presentación
     {
@@ -12022,7 +12027,7 @@ export const COURSE_TYSK_1: TextbookCourse = {
   description: 'Tysk for nybegynnere - hilsener, tall, farger, familie og hverdagsfraser',
   curriculum: 'LK20',
   icon: '🇩🇪',
-  coverImage: '/images/subjects/tysk-1-hero.png',
+  coverImage: '/images/subjects/tysk-1-hero.webp',
   chapters: [
     // Kapittel 1: Hilsener og presentasjon
     { id: 'tysk-1-1-1', number: '1.1', title: 'Hallo! - Hilsener', description: 'Grunnleggende hilsener og uttrykk.', estimatedMinutes: 40, exerciseCount: 8, topics: ['Hilsener', 'Avskjed', 'Høflighetsfraser'], competenceGoals: ['bruke enkle hilsener'] },
@@ -12088,7 +12093,7 @@ export const COURSE_FRANSK_1: TextbookCourse = {
   description: 'Fransk for nybegynnere - hilsener, tall, farger, familie og hverdagsfraser',
   curriculum: 'LK20',
   icon: '🇫🇷',
-  coverImage: '/images/subjects/fransk-1-hero.png',
+  coverImage: '/images/subjects/fransk-1-hero.webp',
   chapters: [
     // Kapittel 1: Hilsener og presentasjon
     { id: 'fransk-1-1-1', number: '1.1', title: 'Bonjour! - Hilsener', description: 'Grunnleggende hilsener og uttrykk.', estimatedMinutes: 40, exerciseCount: 4, topics: ['Hilsener', 'Avskjed', 'Høflighetsfraser'], competenceGoals: ['bruke enkle hilsener'] },
@@ -12161,43 +12166,65 @@ export const COURSE_NORSK_VG1: TextbookCourse = {
     { id: 'norsk-vg1-1-2', number: '1.2', title: 'Sakprosa og kildebruk', description: 'Lær å analysere sakprosa og bruke kilder kritisk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sakprosa', 'Kildekritikk', 'Referanser'], competenceGoals: ['vurdere teksters troverdighet'] },
     { id: 'norsk-vg1-8-1', number: '1.3', title: 'Debattinnlegg og meningsytring', description: 'Lær å skrive effektive debattinnlegg og delta i offentlig debatt.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Argumentasjon', 'Debatt', 'Meningsytring', 'Feilslutninger'], competenceGoals: ['skrive debattinnlegg og andre argumenterende tekster'] },
     { id: 'norsk-vg1-8-2', number: '1.4', title: 'Essay og kåseri', description: 'Lær å skrive essay og kåseri med personlig stemme.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Essay', 'Kåseri', 'Personlig skriving', 'Refleksjon'], competenceGoals: ['skrive kreative og reflekterende tekster'] },
+    { id: 'norsk-vg1-18-1', number: '1.5', title: 'Kronikk og leserinnlegg', description: 'Lær å skrive kronikker og leserinnlegg med tydelig argumentasjon og struktur.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kronikk', 'Leserinnlegg', 'Avissjangre', 'Argumenterende tekst'], competenceGoals: ['skrive argumenterende tekster tilpasset formål og mottaker'] },
+    { id: 'norsk-vg1-18-2', number: '1.6', title: 'Retorisk analyse av taler', description: 'Analyser kjente taler med retoriske begreper og vurder virkningen av ulike virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Taleanalyse', 'Retorisk situasjon', 'Kairos', 'Appellformer'], competenceGoals: ['analysere retoriske virkemidler i tekster og taler'] },
+    { id: 'norsk-vg1-18-3', number: '1.7', title: 'Propaganda og påvirkning', description: 'Forstå hvordan språk og retorikk brukes til å påvirke meninger i medier og politikk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Propaganda', 'Påvirkning', 'Språklig manipulasjon', 'Kritisk lesing'], competenceGoals: ['vurdere hvordan språk brukes til å påvirke'] },
     // Kapittel 2: Skjønnlitteratur
     { id: 'norsk-vg1-2-1', number: '2.1', title: 'Skjønnlitteratur - noveller', description: 'Lær å analysere noveller og kortprosa.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Novelleanalyse', 'Fortelleteknikk', 'Spenningskurve'], competenceGoals: ['analysere skjønnlitterære tekster'] },
     { id: 'norsk-vg1-2-2', number: '2.2', title: 'Lyrikk og diktanalyse', description: 'Lær å analysere dikt og poetiske virkemidler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Rim', 'Rytme', 'Billedspråk', 'Symbolikk'], competenceGoals: ['analysere lyriske tekster'] },
     { id: 'norsk-vg1-9-1', number: '2.3', title: 'Drama og teater', description: 'Forstå dramaet som sjanger og dramatiske virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drama', 'Teater', 'Dramaturgi', 'Sceneanvisninger'], competenceGoals: ['analysere dramatiske tekster'] },
     { id: 'norsk-vg1-9-2', number: '2.4', title: 'Henrik Ibsen', description: 'Utforsk Ibsens liv, verk og betydning for verdenslitteraturen.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Ibsen', 'Et dukkehjem', 'Samfunnskritikk', 'Realisme'], competenceGoals: ['analysere skjønnlitterære tekster i historisk kontekst'] },
+    { id: 'norsk-vg1-19-1', number: '2.5', title: 'Romananalyse', description: 'Lær å analysere romaner med fokus på fortellerteknikk, tematikk og komposisjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Romananalyse', 'Forteller', 'Komposisjon', 'Tematikk'], competenceGoals: ['analysere romaner og lengre skjønnlitterære tekster'] },
+    { id: 'norsk-vg1-19-2', number: '2.6', title: 'Litterære virkemidler', description: 'Utforsk sentrale litterære virkemidler og hvordan de skaper mening i tekster.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Metafor', 'Symbol', 'Ironi', 'Allegori', 'Intertekstualitet'], competenceGoals: ['identifisere og vurdere litterære virkemidler i tekster'] },
+    { id: 'norsk-vg1-19-3', number: '2.7', title: 'Grafiske romaner og bildebøker', description: 'Analyser fortelling gjennom samspill mellom tekst og bilde i grafiske romaner og bildebøker.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Grafisk roman', 'Bildebøker', 'Visuell fortelling', 'Tekst-bilde-samspill'], competenceGoals: ['analysere sammensatte litterære tekster'] },
     // Kapittel 3: Litteraturhistorie
     { id: 'norsk-vg1-5-1', number: '3.1', title: 'Litteraturhistorie', description: 'Fra norrøn tid til romantikken.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Norrøn litteratur', 'Barokk', 'Opplysningstid', 'Romantikk'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
     { id: 'norsk-vg1-10-1', number: '3.2', title: 'Romantikken i Norge', description: 'Utforsk romantikkens litteratur i nasjonsbyggingens tid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Romantikk', 'Wergeland', 'Welhaven', 'Folkeeventyr'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
     { id: 'norsk-vg1-10-2', number: '3.3', title: 'Realisme og naturalisme', description: 'Forstå realismen og naturalismens litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Realisme', 'Naturalisme', 'Kielland', 'Skram'], competenceGoals: ['analysere tekster i historisk kontekst'] },
     { id: 'norsk-vg1-11-1', number: '3.4', title: 'Nyrealisme og modernisme', description: 'Overgangen til det 20. århundrets litteratur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nyrealisme', 'Modernisme', 'Undset', 'Duun'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
     { id: 'norsk-vg1-11-2', number: '3.5', title: 'Lyrikk - fra romantikk til modernisme', description: 'Norsk lyrikk gjennom 150 år.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Lyrikk', 'Wergeland', 'Obstfelder', 'Symbolisme'], competenceGoals: ['analysere lyriske tekster'] },
-    { id: 'norsk-vg1-17-1', number: '3.6', title: 'Flerkulturell litteratur', description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Flerkulturell', 'Identitet', 'Kulturmøter', 'Migrasjonslitteratur'], competenceGoals: ['lese og tolke tekster som utforsker kulturmøter og identitet'] },
-    { id: 'norsk-vg1-17-2', number: '3.7', title: 'Postkolonial lesning', description: 'Lær å lese tekster med et kulturkritisk blikk.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Postkolonialisme', 'Kulturkritikk', 'Maktperspektiv', 'Representasjon'], competenceGoals: ['lese tekster med et kritisk og kulturelt perspektiv'] },
+    { id: 'norsk-vg1-20-1', number: '3.6', title: 'Etterkrigslitteraturen', description: 'Utforsk norsk litteratur fra 1945 til 1980 med fokus på eksistensialisme og sosialrealisme.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Etterkrigslitteratur', 'Sosialrealisme', 'Profillitteratur', 'Vesaas'], competenceGoals: ['utforske litterære tekster fra ulike tider'] },
+    { id: 'norsk-vg1-20-2', number: '3.7', title: 'Samtidslitteratur', description: 'Utforsk norsk litteratur fra 1990-tallet til i dag og aktuelle tendenser.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Samtidslitteratur', 'Autofiksjon', 'Knausgård', 'Fosse'], competenceGoals: ['lese og reflektere over et bredt utvalg av samtidstekster'] },
+    { id: 'norsk-vg1-17-1', number: '3.8', title: 'Flerkulturell litteratur', description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Flerkulturell', 'Identitet', 'Kulturmøter', 'Migrasjonslitteratur'], competenceGoals: ['lese og tolke tekster som utforsker kulturmøter og identitet'] },
+    { id: 'norsk-vg1-17-2', number: '3.9', title: 'Postkolonial lesning', description: 'Lær å lese tekster med et kulturkritisk blikk.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Postkolonialisme', 'Kulturkritikk', 'Maktperspektiv', 'Representasjon'], competenceGoals: ['lese tekster med et kritisk og kulturelt perspektiv'] },
     // Kapittel 4: Språk og identitet
     { id: 'norsk-vg1-4-1', number: '4.1', title: 'Språk og identitet', description: 'Utforsk sammenhengen mellom språk og identitet.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dialekt', 'Sosiolekt', 'Språkholdninger'], competenceGoals: ['reflektere over språk og identitet'] },
     { id: 'norsk-vg1-6-1', number: '4.2', title: 'Norsk språkhistorie', description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk', 'Moderne norsk'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
     { id: 'norsk-vg1-6-2', number: '4.3', title: 'Nynorsk og bokmål', description: 'Forstå forskjellene mellom målformene og mestre grunnleggende nynorsk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Bokmål', 'Nynorsk', 'Grammatikk', 'Oversettelse'], competenceGoals: ['skrive tekster på hovedmål og sidemål'] },
     { id: 'norsk-vg1-7-1', number: '4.4', title: 'Språkmangfold i Norge', description: 'Utforsk dialekter, sosiolekter og minoritetsspråk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dialekter', 'Samiske språk', 'Sosiolekter', 'Minoritetsspråk'], competenceGoals: ['reflektere over språklig mangfold i Norge'] },
     { id: 'norsk-vg1-7-2', number: '4.5', title: 'Språk i endring', description: 'Forstå hvordan og hvorfor språk endrer seg over tid.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Lånord', 'Språkendring', 'Nyord', 'Engelsk påvirkning'], competenceGoals: ['gjøre rede for utvikling og variasjon i norsk språk'] },
+    { id: 'norsk-vg1-21-1', number: '4.6', title: 'Språkpolitikk i Norge', description: 'Forstå norsk språkpolitikk, språkloven og debatten om målformene.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Språkpolitikk', 'Språkloven', 'Språkrådet', 'Målstrid'], competenceGoals: ['gjøre rede for språkpolitikk og språklige rettigheter i Norge'] },
+    { id: 'norsk-vg1-21-2', number: '4.7', title: 'Ungdomsspråk og digital kommunikasjon', description: 'Utforsk språklige trekk i ungdomsspråk, slang og digital kommunikasjon.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Ungdomsspråk', 'Slang', 'Digital kommunikasjon', 'Språknormer'], competenceGoals: ['reflektere over språklig variasjon og språkholdninger'] },
     // Kapittel 5: Skriving og kommunikasjon
     { id: 'norsk-vg1-3-1', number: '5.1', title: 'Muntlig kommunikasjon', description: 'Lær presentasjonsteknikk og muntlige ferdigheter.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Presentasjon', 'Diskusjon', 'Kroppsspråk'], competenceGoals: ['kommunisere muntlig'] },
     { id: 'norsk-vg1-3-2', number: '5.2', title: 'Kreativ skriving', description: 'Lær kreative skriveteknikker og virkemidler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Fortellerstemme', 'Beskrivelser', 'Dialog'], competenceGoals: ['skrive kreative tekster'] },
     { id: 'norsk-vg1-5-2', number: '5.3', title: 'Skriving av fagartikkel', description: 'Lær å skrive fagartikler med kilder og struktur.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fagartikkel', 'Struktur', 'Kildebruk', 'Referanser'], competenceGoals: ['skrive fagtekster med kilder'] },
     { id: 'norsk-vg1-13-1', number: '5.4', title: 'Skriving - prosess og teknikker', description: 'Mestre hele skriveprosessen fra idé til ferdig tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Skriveprosess', 'Revisjon', 'Tilbakemelding', 'Egenvurdering'], competenceGoals: ['bearbeide og revidere egne tekster'] },
+    { id: 'norsk-vg1-22-1', number: '5.5', title: 'Tolkende tekst', description: 'Lær å skrive tolkende og analyserende tekster om litteratur og sakprosa.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Tolkende tekst', 'Litterær analyse', 'Teksttolkning', 'Drøfting'], competenceGoals: ['skrive tolkende tekster om litteratur'] },
+    { id: 'norsk-vg1-22-2', number: '5.6', title: 'Sammenlignende tekstanalyse', description: 'Lær å sammenligne tekster og skrive komparative analyser.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Komparativ analyse', 'Sammenligning', 'Intertekstualitet', 'Tekstpar'], competenceGoals: ['sammenligne tekster og vurdere dem kritisk'] },
+    { id: 'norsk-vg1-22-3', number: '5.7', title: 'Respons og revisjon', description: 'Lær å gi og motta konstruktiv tilbakemelding og bruke det til å forbedre egne tekster.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Respons', 'Medelevvurdering', 'Revisjon', 'Kvalitetskriterier'], competenceGoals: ['gi og motta tilbakemelding og bruke den i tekstarbeid'] },
+    { id: 'norsk-vg1-22-4', number: '5.8', title: 'Skriving for nett og sosiale medier', description: 'Lær å tilpasse skriving til digitale plattformer og ulike formål på nett.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Nettskriving', 'Blogg', 'Sosiale medier', 'Mottakerbevissthet'], competenceGoals: ['tilpasse tekster til ulike digitale sjangre og formål'] },
     // Kapittel 6: Sammensatte tekster og medier
     { id: 'norsk-vg1-4-2', number: '6.1', title: 'Digitale tekster og medier', description: 'Analyser digitale tekster og sosiale medier.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Multimodalitet', 'Sosiale medier', 'Kildekritikk'], competenceGoals: ['analysere sammensatte tekster'] },
     { id: 'norsk-vg1-12-1', number: '6.2', title: 'Sammensatte tekster', description: 'Analyser multimodale tekster med bilde, lyd og tekst.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Multimodalitet', 'Reklame', 'Nettaviser', 'Visuell analyse'], competenceGoals: ['analysere sammensatte tekster'] },
     { id: 'norsk-vg1-12-2', number: '6.3', title: 'Film som tekst', description: 'Lær å analysere film med filmspråk og virkemidler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Filmanalyse', 'Kameravinkel', 'Klipping', 'Adaptasjon'], competenceGoals: ['analysere sammensatte tekster'] },
+    { id: 'norsk-vg1-23-1', number: '6.4', title: 'Reklameanalyse', description: 'Lær å analysere reklame og forstå hvordan kommersielle tekster påvirker oss.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Reklameanalyse', 'Påvirkning', 'Målgruppe', 'Visuelle virkemidler'], competenceGoals: ['analysere sammensatte tekster og vurdere påvirkningskraft'] },
+    { id: 'norsk-vg1-23-2', number: '6.5', title: 'Podkast, radio og lyd', description: 'Utforsk lyd som medium og lær å analysere og produsere podkaster og lydtekster.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Podkast', 'Radio', 'Lydproduksjon', 'Auditivt medium'], competenceGoals: ['skape og analysere sammensatte tekster med lyd'] },
+    { id: 'norsk-vg1-23-3', number: '6.6', title: 'Falske nyheter og digital kildekritikk', description: 'Lær å avsløre falske nyheter, desinformasjon og vurdere troverdigheten til digitale kilder.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Falske nyheter', 'Desinformasjon', 'Kildekritikk', 'Algoritmebobler'], competenceGoals: ['vurdere teksters troverdighet og pålitelighet'] },
     // Kapittel 7: Samisk språk og kultur
     { id: 'norsk-vg1-14-1', number: '7.1', title: 'De samiske språkene i Norge', description: 'Lær om de samiske språkene, deres utbredelse og status i Norge.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Samisk', 'Minoritetsspråk', 'Språkmangfold', 'Urfolk'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
     { id: 'norsk-vg1-14-2', number: '7.2', title: 'Fornorskingspolitikken', description: 'Lær om den norske statens assimileringspolitikk overfor samer og kvener.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Fornorsking', 'Assimilering', 'Samepolitikk', 'Kvenfolket'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for samisk og nasjonale minoritetsspråk i Norge'] },
     { id: 'norsk-vg1-14-3', number: '7.3', title: 'Samiske språklige rettigheter', description: 'Lær om lover og rettigheter som beskytter samisk språk i dag.', estimatedMinutes: 45, exerciseCount: 0, topics: ['Språkrettigheter', 'Samelov', 'Forvaltningsområde', 'Språkpolitikk'], competenceGoals: ['gjøre rede for språkpolitikk og språklige rettigheter i Norge'] },
+    { id: 'norsk-vg1-24-1', number: '7.4', title: 'Samisk litteratur og joik', description: 'Utforsk samisk litteratur, muntlige fortellinger og joikens rolle som kulturuttrykk.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Samisk litteratur', 'Joik', 'Muntlig tradisjon', 'Nils-Aslak Valkeapää'], competenceGoals: ['lese og tolke tekster fra samisk litteratur og kultur'] },
+    { id: 'norsk-vg1-24-2', number: '7.5', title: 'Kvensk kultur og nasjonale minoriteter', description: 'Lær om kvensk språk og kultur, og andre nasjonale minoriteter i Norge.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Kvensk', 'Nasjonale minoriteter', 'Romani', 'Skogfinner'], competenceGoals: ['gjøre rede for den historiske bakgrunnen for nasjonale minoritetsspråk i Norge'] },
     // Kapittel 8: Grammatikk og rettskriving
-    { id: 'norsk-vg1-15-1', number: '8.1', title: 'Setningsanalyse', description: 'Lær å analysere setninger og identifisere setningsledd.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Grammatikk', 'Setningsledd', 'Syntaks', 'Analyse'], competenceGoals: ['bruke grammatisk kunnskap til å analysere og vurdere egen og andres tekst'] },
+    { id: 'norsk-vg1-15-1', number: '8.1', title: 'Setningsanalyse', description: 'Lær å analysere setninger og identifisere setningsledd.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Grammatikk', 'Setningsledd', 'Syntaks', 'Analyse'], competenceGoals: ['bruke grammatisk kunnskap til å analysere og vurdere eigen og andres tekst'] },
     { id: 'norsk-vg1-15-2', number: '8.2', title: 'Tekstbinding', description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Tekstbinding', 'Koherens', 'Kohesjon', 'Referansebinding'], competenceGoals: ['bruke grammatisk kunnskap til å skape sammenheng i tekst'] },
     { id: 'norsk-vg1-16-1', number: '8.3', title: 'Rettskriving bokmål', description: 'Lær regler for rettskriving på bokmål med fokus på vanlige feil.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Rettskriving', 'Bokmål', 'Ortografi', 'Kommaregler'], competenceGoals: ['mestre rettskriving og formverk på bokmål'] },
     { id: 'norsk-vg1-16-2', number: '8.4', title: 'Rettskriving nynorsk', description: 'Lær nynorskens særtrekk og unngå vanlige bokmålsfeil på nynorsk.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Rettskriving', 'Nynorsk', 'Formverk', 'Bøyning'], competenceGoals: ['mestre rettskriving og formverk på nynorsk'] },
+    { id: 'norsk-vg1-25-1', number: '8.5', title: 'Ordklasser og bøyning', description: 'Lær de ti ordklassene og hvordan ord bøyes i norsk.', estimatedMinutes: 55, exerciseCount: 0, topics: ['Ordklasser', 'Substantiv', 'Verb', 'Adjektiv', 'Bøyning'], competenceGoals: ['bruke grammatisk kunnskap til å analysere og vurdere tekst'] },
+    { id: 'norsk-vg1-25-2', number: '8.6', title: 'Tegnsetting og skilletegn', description: 'Mestre regler for komma, punktum, kolon og andre skilletegn.', estimatedMinutes: 45, exerciseCount: 0, topics: ['Tegnsetting', 'Komma', 'Kolon', 'Semikolon', 'Skilletegn'], competenceGoals: ['mestre norsk tegnsetting og bruke den bevisst i egne tekster'] },
+    { id: 'norsk-vg1-25-3', number: '8.7', title: 'Stilistikk og språklig variasjon i skriving', description: 'Lær å variere språket og tilpasse stilen til ulike sjangre og formål.', estimatedMinutes: 50, exerciseCount: 0, topics: ['Stilistikk', 'Språklig variasjon', 'Sjangertilpasning', 'Formelt og uformelt språk'], competenceGoals: ['tilpasse språk og stil til ulike sjangre og skrivesituasjoner'] },
   ],
 };
 
@@ -12212,7 +12239,7 @@ export const COURSE_ENGELSK_VG1: TextbookCourse = {
   description: 'English for VG1 studieforberedende - communication, literature, culture and academic skills according to LK20',
   curriculum: 'LK20',
   icon: '🇬🇧',
-  coverImage: '/images/subjects/engelsk-vg1-hero.png',
+  coverImage: '/images/subjects/engelsk-vg1-hero.webp',
   chapters: [
     // Section 1: Language Learning and Communication Strategies
     { id: 'engelsk-vg1-1-1', number: '1.1', title: 'Language Learning Strategies', description: 'Develop effective strategies for learning English and improving your language skills.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Learning strategies', 'Self-assessment', 'Goal setting'], competenceGoals: ['bruke egnede strategier i språklæring, tekstskaping og kommunikasjon'] },
@@ -12302,7 +12329,7 @@ export const COURSE_SAMFUNNSKUNNSKAP: TextbookCourse = {
   description: 'Samfunnskunnskap - demokrati, politikk, økonomi og internasjonale forhold',
   curriculum: 'LK20',
   icon: '🏛️',
-  coverImage: '/images/subjects/samfunnskunnskap-hero.png',
+  coverImage: '/images/subjects/samfunnskunnskap-hero.webp',
   chapters: [
     // Kapittel 1: Individ og samfunn
     { id: 'samfunnskunnskap-1-1', number: '1.1', title: 'Sosialisering - hvordan vi formes', description: 'Forstå hvordan vi blir formet som mennesker gjennom primær, sekundær og tertiær sosialisering.', estimatedMinutes: 30, exerciseCount: 4, topics: ['Sosialisering'], competenceGoals: [''] },
@@ -12405,7 +12432,7 @@ export const COURSE_GEOGRAFI: TextbookCourse = {
   description: 'Geografi - naturgrunnlag, ressurser, befolkning og bærekraft',
   curriculum: 'LK20',
   icon: '🌍',
-  coverImage: '/images/subjects/geografi-hero.png',
+  coverImage: '/images/subjects/geografi-hero.webp',
   chapters: [
     { id: 'geografi-1-1', number: '1', title: 'Kart, GIS og geografiske metoder', description: 'Lær om kartlesing, skala og geografiske informasjonssystemer.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Kart', 'GIS', 'Skala', 'Koordinater', 'Kartprojeksjoner', 'Fjernanalyse'], competenceGoals: ['bruke geografiske verktøy'] },
     { id: 'geografi-1-2', number: '2', title: 'Jordens oppbygging og landformer', description: 'Forstå jordens indre struktur og platetektonikk.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Platetektonikk', 'Landformer', 'Vulkaner', 'Bergarter', 'Forvitring'], competenceGoals: ['forklare geologiske prosesser'] },
@@ -12446,7 +12473,7 @@ export const COURSE_KROPPSOVING_VG1: TextbookCourse = {
   description: 'Kroppsøving - trening, helse, idrett og friluftsliv',
   curriculum: 'LK20',
   icon: '🏃',
-  coverImage: '/images/subjects/kroppsoving-vg1-hero.png',
+  coverImage: '/images/subjects/kroppsoving-vg1-hero.webp',
   chapters: [
     { id: 'kroppsoving-vg1-1', number: '1', title: 'Trening og treningsprinsipper', description: 'Lær om grunnleggende treningsprinsipper og hvordan du kan planlegge effektiv trening.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Treningsprinsipper', 'Overload', 'Progresjon'], competenceGoals: ['planlegge, gjennomføre og vurdere egentrening', 'bruke treningsprinsipper for å utvikle fysiske egenskaper'] },
     { id: 'kroppsoving-vg1-2', number: '2', title: 'Anatomi og fysiologi', description: 'Forstå kroppens oppbygning og funksjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Muskler', 'Skjelett', 'Hjerte-kar'], competenceGoals: ['forklare kroppens funksjon'] },
@@ -12498,14 +12525,14 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
   description: 'Historie VG2 - fra antikken til imperialismen. Dekker 11 kompetansemål i LK20.',
   curriculum: 'LK20',
   icon: '🏛️',
-  coverImage: '/images/subjects/historie-vg2-hero.png',
+  coverImage: '/images/subjects/historie-vg2-hero.webp',
   chapters: [
     // DEL 1: HISTORISK METODE OG TENKNING (Kap 1-2)
     // Kapittel 1: Historisk metode - Originalversjon
-    { id: 'historie-1-1', number: '1.1', title: 'Hva er historie?', description: 'Historiefagets egenart og hvordan fortiden former oss.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiefaget', 'Fortid og nåtid', 'Historiebevissthet'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-1-1-narrativ', coverImage: '/images/textbook/historie-vg2/hva-er-historie-hero.png' },
-    { id: 'historie-1-2', number: '1.2', title: 'Kilder og kildekritikk', description: 'Lær å arbeide med og vurdere historiske kilder.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Primærkilder', 'Sekundærkilder', 'Kildekritikk', 'Tolkning'], competenceGoals: ['utforske fortiden - stille spørsmål, bruke historisk materiale'], linkedChapterId: 'historie-1-2-narrativ', coverImage: '/images/textbook/historie-vg2/kilder-og-kildekritikk-hero.png' },
-    { id: 'historie-1-3', number: '1.3', title: 'Periodisering av fortiden', description: 'Hvordan vi deler inn historien i perioder og epoker.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Periodisering', 'Epoker', 'Tidslinje', 'Historisk tid'], competenceGoals: ['periodisering av fortiden'], linkedChapterId: 'historie-1-3-narrativ', coverImage: '/images/textbook/historie-vg2/periodisering-hero.png' },
-    { id: 'historie-1-4', number: '1.4', title: 'Historiebruk og historiebevissthet', description: 'Hvordan historie brukes og tolkes i ulike sammenhenger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiebruk', 'Historiebevissthet', 'Minne', 'Identitet'], competenceGoals: ['fortolkninger av fortiden preget av nåtid', 'historiebruk av ulike aktører'], linkedChapterId: 'historie-1-4-narrativ', coverImage: '/images/textbook/historie-vg2/historiebruk-hero.png' },
+    { id: 'historie-1-1', number: '1.1', title: 'Hva er historie?', description: 'Historiefagets egenart og hvordan fortiden former oss.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiefaget', 'Fortid og nåtid', 'Historiebevissthet'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-1-1-narrativ', coverImage: '/images/textbook/historie-vg2/hva-er-historie-hero.webp' },
+    { id: 'historie-1-2', number: '1.2', title: 'Kilder og kildekritikk', description: 'Lær å arbeide med og vurdere historiske kilder.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Primærkilder', 'Sekundærkilder', 'Kildekritikk', 'Tolkning'], competenceGoals: ['utforske fortiden - stille spørsmål, bruke historisk materiale'], linkedChapterId: 'historie-1-2-narrativ', coverImage: '/images/textbook/historie-vg2/kilder-og-kildekritikk-hero.webp' },
+    { id: 'historie-1-3', number: '1.3', title: 'Periodisering av fortiden', description: 'Hvordan vi deler inn historien i perioder og epoker.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Periodisering', 'Epoker', 'Tidslinje', 'Historisk tid'], competenceGoals: ['periodisering av fortiden'], linkedChapterId: 'historie-1-3-narrativ', coverImage: '/images/textbook/historie-vg2/periodisering-hero.webp' },
+    { id: 'historie-1-4', number: '1.4', title: 'Historiebruk og historiebevissthet', description: 'Hvordan historie brukes og tolkes i ulike sammenhenger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Historiebruk', 'Historiebevissthet', 'Minne', 'Identitet'], competenceGoals: ['fortolkninger av fortiden preget av nåtid', 'historiebruk av ulike aktører'], linkedChapterId: 'historie-1-4-narrativ', coverImage: '/images/textbook/historie-vg2/historiebruk-hero.webp' },
 
     // Kapittel 1: Historisk metode - Narrativ versjon (lesevennlig med quiz)
     { id: 'historie-1-1-narrativ', number: '1.1', title: 'Hva er historie?', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan vi forstår fortiden og dens betydning for oss i dag.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Historiefaget', 'Fortid og nåtid', 'Historiebevissthet'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-1-1', isNarrativeVersion: true },
@@ -12522,10 +12549,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     { id: 'historie-2-6-narrativ', number: '2.6', title: 'Muntlige ferdigheter og debatt', subtitle: 'Lesevennlig versjon', description: 'En fortelling om kraften i det talte ord – fra presentasjonsteknikk til historisk debatt og empati.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Presentasjon', 'Debatt', 'Retorikk', 'Historisk empati'], competenceGoals: ['sammenligne ulike framstillinger', 'historiebruk av ulike aktører'], linkedChapterId: 'historie-2-6', isNarrativeVersion: true },
 
     // Kapittel 2: Å arbeide med historie
-    { id: 'historie-2-1', number: '2.1', title: 'Problemstillinger og undersøkelser', description: 'Formulere spørsmål og gjennomføre historiske undersøkelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Problemstilling', 'Metode', 'Undersøkelse', 'Analyse'], competenceGoals: ['formulere problemstillinger, finne og vurdere materiale'], linkedChapterId: 'historie-2-1-narrativ', coverImage: '/images/textbook/historie-vg2/problemstillinger-hero.png' },
-    { id: 'historie-2-2', number: '2.2', title: 'Ulike framstillinger og perspektiver', description: 'Sammenligne og vurdere ulike historiske framstillinger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Perspektiv', 'Framstilling', 'Tolkning', 'Sammenligning'], competenceGoals: ['sammenligne ulike framstillinger'], linkedChapterId: 'historie-2-2-narrativ', coverImage: '/images/textbook/historie-vg2/ulike-framstillinger-hero.png' },
-    { id: 'historie-2-3', number: '2.3', title: 'Brudd og kontinuitet', description: 'Forstå historiske endringer og det som vedvarer.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Brudd', 'Kontinuitet', 'Endring', 'Stabilitet'], competenceGoals: ['brudd eller kontinuitet i historien'], linkedChapterId: 'historie-2-3-narrativ', coverImage: '/images/textbook/historie-vg2/brudd-og-kontinuitet-hero.png' },
-    { id: 'historie-2-4', number: '2.4', title: 'Lokalt og nasjonalt minne', description: 'Utforske minnekultur og historiske steder.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Minnekultur', 'Minnesmerker', 'Lokalhistorie', 'Nasjonalt minne'], competenceGoals: ['lokalt og nasjonalt minne'], linkedChapterId: 'historie-2-4-narrativ', coverImage: '/images/textbook/historie-vg2/lokalt-og-nasjonalt-minne-hero.png' },
+    { id: 'historie-2-1', number: '2.1', title: 'Problemstillinger og undersøkelser', description: 'Formulere spørsmål og gjennomføre historiske undersøkelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Problemstilling', 'Metode', 'Undersøkelse', 'Analyse'], competenceGoals: ['formulere problemstillinger, finne og vurdere materiale'], linkedChapterId: 'historie-2-1-narrativ', coverImage: '/images/textbook/historie-vg2/problemstillinger-hero.webp' },
+    { id: 'historie-2-2', number: '2.2', title: 'Ulike framstillinger og perspektiver', description: 'Sammenligne og vurdere ulike historiske framstillinger.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Perspektiv', 'Framstilling', 'Tolkning', 'Sammenligning'], competenceGoals: ['sammenligne ulike framstillinger'], linkedChapterId: 'historie-2-2-narrativ', coverImage: '/images/textbook/historie-vg2/ulike-framstillinger-hero.webp' },
+    { id: 'historie-2-3', number: '2.3', title: 'Brudd og kontinuitet', description: 'Forstå historiske endringer og det som vedvarer.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Brudd', 'Kontinuitet', 'Endring', 'Stabilitet'], competenceGoals: ['brudd eller kontinuitet i historien'], linkedChapterId: 'historie-2-3-narrativ', coverImage: '/images/textbook/historie-vg2/brudd-og-kontinuitet-hero.webp' },
+    { id: 'historie-2-4', number: '2.4', title: 'Lokalt og nasjonalt minne', description: 'Utforske minnekultur og historiske steder.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Minnekultur', 'Minnesmerker', 'Lokalhistorie', 'Nasjonalt minne'], competenceGoals: ['lokalt og nasjonalt minne'], linkedChapterId: 'historie-2-4-narrativ', coverImage: '/images/textbook/historie-vg2/lokalt-og-nasjonalt-minne-hero.webp' },
     { id: 'historie-2-5', number: '2.5', title: 'Å skrive i historiefaget', description: 'Lære å skrive gode fagtekster, drøftinger og kildeanalyser i historie.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Fagskriving', 'Drøfting', 'Kildeanalyse', 'Argumentasjon'], competenceGoals: ['formulere problemstillinger, finne og vurdere materiale', 'sammenligne ulike framstillinger'], linkedChapterId: 'historie-2-5-narrativ' },
     { id: 'historie-2-6', number: '2.6', title: 'Muntlige ferdigheter og debatt', description: 'Presentasjonsteknikk, debatt og historisk empati.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Presentasjon', 'Debatt', 'Retorikk', 'Historisk empati'], competenceGoals: ['sammenligne ulike framstillinger', 'historiebruk av ulike aktører'], linkedChapterId: 'historie-2-6-narrativ' },
 
@@ -12533,9 +12560,9 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     // Kapittel 3: Forhistorie og antikken
     { id: 'historie-forhistorie-1', number: '3.1', title: 'Menneskets utvikling og steinalderen', description: 'Fra de første hominidene til jeger-sanker-samfunn og steinalderen i Norden.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Evolusjon', 'Steinalder', 'Jeger-sankere', 'Out of Africa'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-forhistorie-1-narrativ' },
     { id: 'historie-forhistorie-2', number: '3.2', title: 'Jordbruksrevolusjonen og de første byene', description: 'Den neolittiske revolusjonen, domestisering og overgangen til bofaste samfunn.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Jordbruksrevolusjon', 'Domestisering', 'Bofasthet', 'Bærekraft'], competenceGoals: ['reflektere over hvordan fortiden former oss', 'matproduksjon og naturressurser - bærekraft'], linkedChapterId: 'historie-forhistorie-2-narrativ' },
-    { id: 'historie-3-1', number: '3.3', title: 'De første sivilisasjonene', description: 'Mesopotamia, Egypt og de tidlige høykulturene.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mesopotamia', 'Egypt', 'Sivilisasjon', 'Skriftspråk'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-3-1-narrativ', coverImage: '/images/textbook/historie-vg2/de-forste-sivilisasjonene-hero.png' },
-    { id: 'historie-3-2', number: '3.4', title: 'Det greske demokratiet', description: 'Demokratiets fødsel i Aten og sammenligning med i dag.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Aten', 'Demokrati', 'Polis', 'Borgerskap'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-3-2-narrativ', coverImage: '/images/textbook/historie-vg2/det-greske-demokratiet-hero.png' },
-    { id: 'historie-3-3', number: '3.5', title: 'Romerriket og arven fra antikken', description: 'Romas vekst og fall, og antikkens varige betydning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Roma', 'Republikk', 'Keisertid', 'Rettsvesen'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-3-3-narrativ', coverImage: '/images/textbook/historie-vg2/romerriket-hero.png' },
+    { id: 'historie-3-1', number: '3.3', title: 'De første sivilisasjonene', description: 'Mesopotamia, Egypt og de tidlige høykulturene.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mesopotamia', 'Egypt', 'Sivilisasjon', 'Skriftspråk'], competenceGoals: ['reflektere over hvordan fortiden former oss'], linkedChapterId: 'historie-3-1-narrativ', coverImage: '/images/textbook/historie-vg2/de-forste-sivilisasjonene-hero.webp' },
+    { id: 'historie-3-2', number: '3.4', title: 'Det greske demokratiet', description: 'Demokratiets fødsel i Aten og sammenligning med i dag.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Aten', 'Demokrati', 'Polis', 'Borgerskap'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-3-2-narrativ', coverImage: '/images/textbook/historie-vg2/det-greske-demokratiet-hero.webp' },
+    { id: 'historie-3-3', number: '3.5', title: 'Romerriket og arven fra antikken', description: 'Romas vekst og fall, og antikkens varige betydning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Roma', 'Republikk', 'Keisertid', 'Rettsvesen'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-3-3-narrativ', coverImage: '/images/textbook/historie-vg2/romerriket-hero.webp' },
     { id: 'historie-3-4', number: '3.6', title: 'Religionenes fremvekst', description: 'Tidlige religioner og kristendommens spredning.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Religion', 'Kristendom', 'Jødedom', 'Tro'], competenceGoals: ['religionens betydning for samfunn og makt'], linkedChapterId: 'historie-3-4-narrativ' },
 
     // Kapittel 3: Forhistorie og antikken - Narrativ versjon
@@ -12547,10 +12574,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     { id: 'historie-3-4-narrativ', number: '3.6', title: 'Religionenes fremvekst', subtitle: 'Lesevennlig versjon', description: 'Fortellingen om gudene, templene og den nye troen som forandret Romerriket innenfra -- fra polyteisme til kristendom.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Religion', 'Kristendom', 'Jødedom', 'Tro'], competenceGoals: ['religionens betydning for samfunn og makt'], linkedChapterId: 'historie-3-4', isNarrativeVersion: true },
 
     // Kapittel 4: Middelalderen
-    { id: 'historie-4-1', number: '4.1', title: 'Europa i middelalderen', description: 'Føydalsamfunnet og maktstrukturer i middelalderen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Føydalisme', 'Adel', 'Bønder', 'Makt'], competenceGoals: ['makt fra middelalderen til tidlig nytid'], linkedChapterId: 'historie-4-1-narrativ', coverImage: '/images/textbook/historie-vg2/europa-i-middelalderen-hero.png' },
-    { id: 'historie-4-2', number: '4.2', title: 'Norge i middelalderen', description: 'Rikssamling, kristning og høymiddelalder i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Rikssamling', 'Kristning', 'Svartedauden', 'Hansa'], competenceGoals: ['makt fra middelalderen til tidlig nytid'], linkedChapterId: 'historie-4-2-narrativ', coverImage: '/images/textbook/historie-vg2/norge-i-middelalderen-hero.png' },
-    { id: 'historie-4-3', number: '4.3', title: 'Kirken og religionens makt', description: 'Kirkens rolle som maktfaktor i middelalderen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pavekirken', 'Kloster', 'Investiturstrid', 'Korstog'], competenceGoals: ['religionens betydning for samfunn og makt'], linkedChapterId: 'historie-4-3-narrativ', coverImage: '/images/textbook/historie-vg2/kirken-og-religionens-makt-hero.png' },
-    { id: 'historie-4-4', number: '4.4', title: 'Handel og økonomiske systemer', description: 'Handelsveger, markeder og økonomisk utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Handel', 'Hansaforbundet', 'Marked', 'Byutvikling'], competenceGoals: ['handel og økonomiske systemer'], linkedChapterId: 'historie-4-4-narrativ', coverImage: '/images/textbook/historie-vg2/handel-og-okonomiske-systemer-hero.png' },
+    { id: 'historie-4-1', number: '4.1', title: 'Europa i middelalderen', description: 'Føydalsamfunnet og maktstrukturer i middelalderen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Føydalisme', 'Adel', 'Bønder', 'Makt'], competenceGoals: ['makt fra middelalderen til tidlig nytid'], linkedChapterId: 'historie-4-1-narrativ', coverImage: '/images/textbook/historie-vg2/europa-i-middelalderen-hero.webp' },
+    { id: 'historie-4-2', number: '4.2', title: 'Norge i middelalderen', description: 'Rikssamling, kristning og høymiddelalder i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Rikssamling', 'Kristning', 'Svartedauden', 'Hansa'], competenceGoals: ['makt fra middelalderen til tidlig nytid'], linkedChapterId: 'historie-4-2-narrativ', coverImage: '/images/textbook/historie-vg2/norge-i-middelalderen-hero.webp' },
+    { id: 'historie-4-3', number: '4.3', title: 'Kirken og religionens makt', description: 'Kirkens rolle som maktfaktor i middelalderen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Pavekirken', 'Kloster', 'Investiturstrid', 'Korstog'], competenceGoals: ['religionens betydning for samfunn og makt'], linkedChapterId: 'historie-4-3-narrativ', coverImage: '/images/textbook/historie-vg2/kirken-og-religionens-makt-hero.webp' },
+    { id: 'historie-4-4', number: '4.4', title: 'Handel og økonomiske systemer', description: 'Handelsveger, markeder og økonomisk utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Handel', 'Hansaforbundet', 'Marked', 'Byutvikling'], competenceGoals: ['handel og økonomiske systemer'], linkedChapterId: 'historie-4-4-narrativ', coverImage: '/images/textbook/historie-vg2/handel-og-okonomiske-systemer-hero.webp' },
 
     // Kapittel 4: Middelalderen - Narrativ versjon
     { id: 'historie-4-1-narrativ', number: '4.1', title: 'Europa i middelalderen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan Europa ble styrt gjennom føydalisme og standssamfunn etter Romerrikets fall.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Føydalisme', 'Adel', 'Bønder', 'Makt'], competenceGoals: ['makt fra middelalderen til tidlig nytid'], linkedChapterId: 'historie-4-1', isNarrativeVersion: true },
@@ -12574,10 +12601,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
 
     // DEL 3: REVOLUSJONER OG NASJONSBYGGING (Kap 6-8)
     // Kapittel 6: Opplysningstid og revolusjoner
-    { id: 'historie-6-1', number: '6.1', title: 'Opplysningstiden og nye ideer', description: 'Fornuftens tidsalder og de nye politiske ideene.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Opplysningstid', 'Fornuft', 'Montesquieu', 'Rousseau'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-1-narrativ', coverImage: '/images/textbook/historie-vg2/opplysningstiden-hero.png' },
-    { id: 'historie-6-2', number: '6.2', title: 'Den amerikanske revolusjonen', description: 'Uavhengighetserklæringen og den nye republikken.', estimatedMinutes: 50, exerciseCount: 6, topics: ['USA', 'Uavhengighet', 'Grunnlov', 'Demokrati'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-2-narrativ', coverImage: '/images/textbook/historie-vg2/den-amerikanske-revolusjonen-hero.png' },
-    { id: 'historie-6-3', number: '6.3', title: 'Den franske revolusjonen', description: 'Revolusjonen som endret Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Frankrike', 'Revolusjon', 'Terror', 'Napoleon'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-3-narrativ', coverImage: '/images/textbook/historie-vg2/den-franske-revolusjonen-hero.png' },
-    { id: 'historie-6-4', number: '6.4', title: 'Revolusjonenes betydning for demokrati', description: 'Arven fra revolusjonene og demokratiets utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Demokrati', 'Rettigheter', 'Borgerskap', 'Stemmerett'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-6-4-narrativ', coverImage: '/images/textbook/historie-vg2/revolusjonenes-betydning-hero.png' },
+    { id: 'historie-6-1', number: '6.1', title: 'Opplysningstiden og nye ideer', description: 'Fornuftens tidsalder og de nye politiske ideene.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Opplysningstid', 'Fornuft', 'Montesquieu', 'Rousseau'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-1-narrativ', coverImage: '/images/textbook/historie-vg2/opplysningstiden-hero.webp' },
+    { id: 'historie-6-2', number: '6.2', title: 'Den amerikanske revolusjonen', description: 'Uavhengighetserklæringen og den nye republikken.', estimatedMinutes: 50, exerciseCount: 6, topics: ['USA', 'Uavhengighet', 'Grunnlov', 'Demokrati'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-2-narrativ', coverImage: '/images/textbook/historie-vg2/den-amerikanske-revolusjonen-hero.webp' },
+    { id: 'historie-6-3', number: '6.3', title: 'Den franske revolusjonen', description: 'Revolusjonen som endret Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Frankrike', 'Revolusjon', 'Terror', 'Napoleon'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-3-narrativ', coverImage: '/images/textbook/historie-vg2/den-franske-revolusjonen-hero.webp' },
+    { id: 'historie-6-4', number: '6.4', title: 'Revolusjonenes betydning for demokrati', description: 'Arven fra revolusjonene og demokratiets utvikling.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Demokrati', 'Rettigheter', 'Borgerskap', 'Stemmerett'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-6-4-narrativ', coverImage: '/images/textbook/historie-vg2/revolusjonenes-betydning-hero.webp' },
 
     // Kapittel 6: Opplysningstid og revolusjoner - Narrativ versjon
     { id: 'historie-6-1-narrativ', number: '6.1', title: 'Opplysningstiden og nye ideer', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan fornuften utfordret gamle sannheter og la grunnlaget for den moderne verden.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Opplysningstid', 'Fornuft', 'Montesquieu', 'Rousseau'], competenceGoals: ['ideologier bak politiske omveltninger'], linkedChapterId: 'historie-6-1', isNarrativeVersion: true },
@@ -12586,10 +12613,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     { id: 'historie-6-4-narrativ', number: '6.4', title: 'Revolusjonenes betydning for demokrati', subtitle: 'Lesevennlig versjon', description: 'En fortelling om den lange veien fra revolusjon til det demokratiet vi kjenner i dag.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Demokrati', 'Rettigheter', 'Borgerskap', 'Stemmerett'], competenceGoals: ['demokrati i antikken vs i dag'], linkedChapterId: 'historie-6-4', isNarrativeVersion: true },
 
     // Kapittel 7: Industrialisering og samfunnsendring
-    { id: 'historie-7-1', number: '7.1', title: 'Den industrielle revolusjonen', description: 'Fra jordbruk til industri - en ny tid begynner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Industri', 'Fabrikk', 'Urbanisering', 'Teknologi'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-1-narrativ', coverImage: '/images/textbook/historie-vg2/den-industrielle-revolusjonen-hero.png' },
-    { id: 'historie-7-2', number: '7.2', title: 'Teknologiske gjennombrudd', description: 'Dampmaskinen, jernbanen og nye oppfinnelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Dampmaskin', 'Jernbane', 'Telegraf', 'Elektrisitet'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-2-narrativ', coverImage: '/images/textbook/historie-vg2/teknologiske-gjennombrudd-hero.png' },
-    { id: 'historie-7-3', number: '7.3', title: 'Sosiale endringer og arbeiderbevegelsen', description: 'Arbeiderklassens framvekst og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Arbeiderklasse', 'Fagforeninger', 'Sosialisme', 'Arbeiderkamp'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-3-narrativ', coverImage: '/images/textbook/historie-vg2/sosiale-endringer-hero.png' },
-    { id: 'historie-7-4', number: '7.4', title: 'Demografiske endringer', description: 'Befolkningsvekst, migrasjon og urbanisering.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Befolkning', 'Migrasjon', 'By', 'Helse'], competenceGoals: ['demografiske endringer'], linkedChapterId: 'historie-7-4-narrativ', coverImage: '/images/textbook/historie-vg2/demografiske-endringer-hero.png' },
+    { id: 'historie-7-1', number: '7.1', title: 'Den industrielle revolusjonen', description: 'Fra jordbruk til industri - en ny tid begynner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Industri', 'Fabrikk', 'Urbanisering', 'Teknologi'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-1-narrativ', coverImage: '/images/textbook/historie-vg2/den-industrielle-revolusjonen-hero.webp' },
+    { id: 'historie-7-2', number: '7.2', title: 'Teknologiske gjennombrudd', description: 'Dampmaskinen, jernbanen og nye oppfinnelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Dampmaskin', 'Jernbane', 'Telegraf', 'Elektrisitet'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-2-narrativ', coverImage: '/images/textbook/historie-vg2/teknologiske-gjennombrudd-hero.webp' },
+    { id: 'historie-7-3', number: '7.3', title: 'Sosiale endringer og arbeiderbevegelsen', description: 'Arbeiderklassens framvekst og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Arbeiderklasse', 'Fagforeninger', 'Sosialisme', 'Arbeiderkamp'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-3-narrativ', coverImage: '/images/textbook/historie-vg2/sosiale-endringer-hero.webp' },
+    { id: 'historie-7-4', number: '7.4', title: 'Demografiske endringer', description: 'Befolkningsvekst, migrasjon og urbanisering.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Befolkning', 'Migrasjon', 'By', 'Helse'], competenceGoals: ['demografiske endringer'], linkedChapterId: 'historie-7-4-narrativ', coverImage: '/images/textbook/historie-vg2/demografiske-endringer-hero.webp' },
 
     // Kapittel 7: Industrialisering og samfunnsendring - Narrativ versjon
     { id: 'historie-7-1-narrativ', number: '7.1', title: 'Den industrielle revolusjonen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan verden gikk fra jordbruk til fabrikker, og hvorfor det startet nettopp i Storbritannia.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Industri', 'Fabrikk', 'Urbanisering', 'Teknologi'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'], linkedChapterId: 'historie-7-1', isNarrativeVersion: true },
@@ -12598,10 +12625,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     { id: 'historie-7-4-narrativ', number: '7.4', title: 'Demografiske endringer', subtitle: 'Lesevennlig versjon', description: 'En fortelling om befolkningseksplosjonen, urbaniseringen og hvordan familielivet ble forandret for alltid.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Befolkning', 'Migrasjon', 'By', 'Helse'], competenceGoals: ['demografiske endringer'], linkedChapterId: 'historie-7-4', isNarrativeVersion: true },
 
     // Kapittel 8: Nasjonalisme og nasjonsbygging
-    { id: 'historie-8-1', number: '8.1', title: 'Nasjonalismens fremvekst', description: 'Nasjonalismen som politisk kraft i Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Nasjonalisme', 'Nasjonsbygging', 'Identitet', 'Romantikk'], competenceGoals: ['nasjonal identitet i Norge'], linkedChapterId: 'historie-8-1-narrativ', coverImage: '/images/textbook/historie-vg2/nasjonalismens-fremvekst-hero.png' },
-    { id: 'historie-8-2', number: '8.2', title: 'Norge 1814 og veien til selvstendighet', description: '1814, union med Sverige og frigjøringen 1905.', estimatedMinutes: 55, exerciseCount: 6, topics: ['1814', 'Grunnlov', 'Union', '1905'], competenceGoals: ['nasjonal identitet i Norge'], linkedChapterId: 'historie-8-2-narrativ', coverImage: '/images/textbook/historie-vg2/norge-1814-hero.png' },
-    { id: 'historie-8-3', number: '8.3', title: 'Samisk historie og minoriteter', description: 'Samenes historie og minoriteters stilling i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Samer', 'Minoriteter', 'Kultur', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], linkedChapterId: 'historie-8-3-narrativ', coverImage: '/images/textbook/historie-vg2/samisk-historie-hero.png' },
-    { id: 'historie-8-4', number: '8.4', title: 'Migrasjon på 1800-tallet', description: 'Utvandring fra Norge og innvandring til Amerika.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Utvandring', 'Amerika', 'Push-pull', 'Diaspora'], competenceGoals: ['migrasjon og kulturmøter fra ulike perspektiver'], linkedChapterId: 'historie-8-4-narrativ', coverImage: '/images/textbook/historie-vg2/migrasjon-1800-hero.png' },
+    { id: 'historie-8-1', number: '8.1', title: 'Nasjonalismens fremvekst', description: 'Nasjonalismen som politisk kraft i Europa.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Nasjonalisme', 'Nasjonsbygging', 'Identitet', 'Romantikk'], competenceGoals: ['nasjonal identitet i Norge'], linkedChapterId: 'historie-8-1-narrativ', coverImage: '/images/textbook/historie-vg2/nasjonalismens-fremvekst-hero.webp' },
+    { id: 'historie-8-2', number: '8.2', title: 'Norge 1814 og veien til selvstendighet', description: '1814, union med Sverige og frigjøringen 1905.', estimatedMinutes: 55, exerciseCount: 6, topics: ['1814', 'Grunnlov', 'Union', '1905'], competenceGoals: ['nasjonal identitet i Norge'], linkedChapterId: 'historie-8-2-narrativ', coverImage: '/images/textbook/historie-vg2/norge-1814-hero.webp' },
+    { id: 'historie-8-3', number: '8.3', title: 'Samisk historie og minoriteter', description: 'Samenes historie og minoriteters stilling i Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Samer', 'Minoriteter', 'Kultur', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], linkedChapterId: 'historie-8-3-narrativ', coverImage: '/images/textbook/historie-vg2/samisk-historie-hero.webp' },
+    { id: 'historie-8-4', number: '8.4', title: 'Migrasjon på 1800-tallet', description: 'Utvandring fra Norge og innvandring til Amerika.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Utvandring', 'Amerika', 'Push-pull', 'Diaspora'], competenceGoals: ['migrasjon og kulturmøter fra ulike perspektiver'], linkedChapterId: 'historie-8-4-narrativ', coverImage: '/images/textbook/historie-vg2/migrasjon-1800-hero.webp' },
 
     // Kapittel 8: Nasjonalisme og nasjonsbygging - Narrativ versjon
     { id: 'historie-8-1-narrativ', number: '8.1', title: 'Nasjonalismens fremvekst', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan nasjonalismen vokste frem som en av historiens mektigste politiske krefter, og hvordan den forandret Europa for alltid.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Nasjonalisme', 'Nasjonsbygging', 'Identitet', 'Romantikk'], competenceGoals: ['nasjonal identitet i Norge'], linkedChapterId: 'historie-8-1', isNarrativeVersion: true },
@@ -12611,10 +12638,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
 
     // DEL 4: IMPERIALISME OG GLOBAL HISTORIE (Kap 9-10)
     // Kapittel 9: Imperialisme og kolonialisme
-    { id: 'historie-9-1', number: '9.1', title: 'Imperialismens drivkrefter', description: 'Økonomiske, politiske og ideologiske årsaker til imperialismen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Imperialisme', 'Råvarer', 'Rivalisering', 'Ideologi'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-1-narrativ', coverImage: '/images/textbook/historie-vg2/imperialismens-drivkrefter-hero.png' },
+    { id: 'historie-9-1', number: '9.1', title: 'Imperialismens drivkrefter', description: 'Økonomiske, politiske og ideologiske årsaker til imperialismen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Imperialisme', 'Råvarer', 'Rivalisering', 'Ideologi'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-1-narrativ', coverImage: '/images/textbook/historie-vg2/imperialismens-drivkrefter-hero.webp' },
     { id: 'historie-9-2', number: '9.2', title: 'Afrika under kolonitiden', description: 'Kapløpet om Afrika og koloniseringens konsekvenser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Afrika', 'Berlin-konferansen', 'Kolonisering', 'Motstand'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-2-narrativ' },
-    { id: 'historie-9-3', number: '9.3', title: 'Asia og kolonialisme', description: 'Britisk India, Kina og imperialismen i Asia.', estimatedMinutes: 50, exerciseCount: 6, topics: ['India', 'Kina', 'Opiumskrig', 'Japan'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-3-narrativ', coverImage: '/images/textbook/historie-vg2/asia-og-kolonialisme-hero.png' },
-    { id: 'historie-9-4', number: '9.4', title: 'Konsekvenser av kolonialismen', description: 'Langvarige virkninger av kolonitiden.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Konsekvenser', 'Avkolonisering', 'Arv', 'Rasisme'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-4-narrativ', coverImage: '/images/textbook/historie-vg2/konsekvenser-av-kolonialismen-hero.png' },
+    { id: 'historie-9-3', number: '9.3', title: 'Asia og kolonialisme', description: 'Britisk India, Kina og imperialismen i Asia.', estimatedMinutes: 50, exerciseCount: 6, topics: ['India', 'Kina', 'Opiumskrig', 'Japan'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-3-narrativ', coverImage: '/images/textbook/historie-vg2/asia-og-kolonialisme-hero.webp' },
+    { id: 'historie-9-4', number: '9.4', title: 'Konsekvenser av kolonialismen', description: 'Langvarige virkninger av kolonitiden.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Konsekvenser', 'Avkolonisering', 'Arv', 'Rasisme'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-4-narrativ', coverImage: '/images/textbook/historie-vg2/konsekvenser-av-kolonialismen-hero.webp' },
 
     // Kapittel 9: Imperialisme og kolonialisme - Narrativ versjon
     { id: 'historie-9-1-narrativ', number: '9.1', title: 'Imperialismens drivkrefter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvorfor europeiske stormakter la under seg store deler av verden, og hvilke krefter som drev dem.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Imperialisme', 'Råvarer', 'Rivalisering', 'Ideologi'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-1', isNarrativeVersion: true },
@@ -12623,10 +12650,10 @@ export const COURSE_HISTORIE_VG2: TextbookCourse = {
     { id: 'historie-9-4-narrativ', number: '9.4', title: 'Konsekvenser av kolonialismen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan kolonialismens arv fortsetter å forme verden vi lever i, fra økonomiske strukturer til kulturell identitet.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Konsekvenser', 'Avkolonisering', 'Arv', 'Rasisme'], competenceGoals: ['kolonimakter og konsekvenser'], linkedChapterId: 'historie-9-4', isNarrativeVersion: true },
 
     // Kapittel 10: Kulturmøter og kommunikasjon
-    { id: 'historie-10-1', number: '10.1', title: 'Kulturmøter gjennom historien', description: 'Møter mellom kulturer og deres konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kulturmøte', 'Utveksling', 'Konflikt', 'Påvirkning'], competenceGoals: ['kommunikasjon og kulturmøter'], linkedChapterId: 'historie-10-1-narrativ', coverImage: '/images/textbook/historie-vg2/kulturmoter-hero.png' },
-    { id: 'historie-10-2', number: '10.2', title: 'Handel og økonomisk globalisering', description: 'Verdenshandelens utvikling og økonomiske forbindelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Handel', 'Globalisering', 'Kapitalisme', 'Marked'], competenceGoals: ['handel og økonomiske systemer'], linkedChapterId: 'historie-10-2-narrativ', coverImage: '/images/textbook/historie-vg2/handel-og-globalisering-hero.png' },
-    { id: 'historie-10-3', number: '10.3', title: 'Matproduksjon og ressurser', description: 'Jordbruk, ressursforvaltning og bærekraft i historisk perspektiv.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Jordbruk', 'Ressurser', 'Mat', 'Bærekraft'], competenceGoals: ['matproduksjon og naturressurser - bærekraft'], linkedChapterId: 'historie-10-3-narrativ', coverImage: '/images/textbook/historie-vg2/matproduksjon-og-ressurser-hero.png' },
-    { id: 'historie-10-4', number: '10.4', title: 'Mennesket og naturen', description: 'Historiske perspektiver på miljø og naturbruk.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Natur', 'Miljø', 'Ressursbruk', 'Bærekraft'], competenceGoals: ['mennesket og naturen, bærekraft'], linkedChapterId: 'historie-10-4-narrativ', coverImage: '/images/textbook/historie-vg2/mennesket-og-naturen-hero.png' },
+    { id: 'historie-10-1', number: '10.1', title: 'Kulturmøter gjennom historien', description: 'Møter mellom kulturer og deres konsekvenser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kulturmøte', 'Utveksling', 'Konflikt', 'Påvirkning'], competenceGoals: ['kommunikasjon og kulturmøter'], linkedChapterId: 'historie-10-1-narrativ', coverImage: '/images/textbook/historie-vg2/kulturmoter-hero.webp' },
+    { id: 'historie-10-2', number: '10.2', title: 'Handel og økonomisk globalisering', description: 'Verdenshandelens utvikling og økonomiske forbindelser.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Handel', 'Globalisering', 'Kapitalisme', 'Marked'], competenceGoals: ['handel og økonomiske systemer'], linkedChapterId: 'historie-10-2-narrativ', coverImage: '/images/textbook/historie-vg2/handel-og-globalisering-hero.webp' },
+    { id: 'historie-10-3', number: '10.3', title: 'Matproduksjon og ressurser', description: 'Jordbruk, ressursforvaltning og bærekraft i historisk perspektiv.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Jordbruk', 'Ressurser', 'Mat', 'Bærekraft'], competenceGoals: ['matproduksjon og naturressurser - bærekraft'], linkedChapterId: 'historie-10-3-narrativ', coverImage: '/images/textbook/historie-vg2/matproduksjon-og-ressurser-hero.webp' },
+    { id: 'historie-10-4', number: '10.4', title: 'Mennesket og naturen', description: 'Historiske perspektiver på miljø og naturbruk.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Natur', 'Miljø', 'Ressursbruk', 'Bærekraft'], competenceGoals: ['mennesket og naturen, bærekraft'], linkedChapterId: 'historie-10-4-narrativ', coverImage: '/images/textbook/historie-vg2/mennesket-og-naturen-hero.webp' },
 
     // Kapittel 10: Kulturmøter og kommunikasjon - Narrativ versjon
     { id: 'historie-10-1-narrativ', number: '10.1', title: 'Kulturmøter gjennom historien', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hva som skjer når mennesker fra ulike kulturer møtes, fra Silkeveien til kolonialismen.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Kulturmøte', 'Utveksling', 'Konflikt', 'Påvirkning'], competenceGoals: ['kommunikasjon og kulturmøter'], linkedChapterId: 'historie-10-1', isNarrativeVersion: true },
@@ -12647,46 +12674,46 @@ export const COURSE_HISTORIE_VG3: TextbookCourse = {
   description: 'Historie VG3 - fra første verdenskrig til samtiden. Dekker 17 kompetansemål i LK20.',
   curriculum: 'LK20',
   icon: '🏛️',
-  coverImage: '/images/subjects/historie-vg3-hero.png',
+  coverImage: '/images/subjects/historie-vg3-hero.webp',
   chapters: [
     // DEL 5: VERDENSKRIGENE (Kap 11-13)
     // Kapittel 11: Første verdenskrig
     { id: 'historie-11-1', number: '11.1', title: 'Årsaker til første verdenskrig', description: 'Nasjonalisme, imperialisme og veien til krig.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Årsaker', 'Allianser', 'Balkan', 'Attentat'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
     { id: 'historie-11-2', number: '11.2', title: 'Krigens gang og karakter', description: 'Skyttergravskrig, ny teknologi og total krig.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Skyttergrav', 'Teknologi', 'Vestfronten', 'Total krig'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
-    { id: 'historie-11-3', number: '11.3', title: 'Norge og Norden under krigen', description: 'Nøytralitetspolitikk og krigens påvirkning på Norge.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Nøytralitet', 'Norge', 'Handel', 'Påvirkning'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/norge-og-norden-under-krigen-hero.png' },
-    { id: 'historie-11-4', number: '11.4', title: 'Fredsslutninger og konsekvenser', description: 'Versailles og den nye verdensordenen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Versailles', 'Folkeforbundet', 'Grenser', 'Konsekvenser'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/fredsslutninger-og-konsekvenser-hero.png' },
+    { id: 'historie-11-3', number: '11.3', title: 'Norge og Norden under krigen', description: 'Nøytralitetspolitikk og krigens påvirkning på Norge.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Nøytralitet', 'Norge', 'Handel', 'Påvirkning'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/norge-og-norden-under-krigen-hero.webp' },
+    { id: 'historie-11-4', number: '11.4', title: 'Fredsslutninger og konsekvenser', description: 'Versailles og den nye verdensordenen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Versailles', 'Folkeforbundet', 'Grenser', 'Konsekvenser'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/fredsslutninger-og-konsekvenser-hero.webp' },
 
     // Kapittel 12: Mellomkrigstiden
-    { id: 'historie-12-1', number: '12.1', title: 'Etterkrigstid og økonomisk krise', description: 'De brølende 20-årene og den store depresjonen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['1920-tallet', 'Depresjon', 'Arbeidsledighet', 'Krise'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/etterkrigstid-hero.png' },
+    { id: 'historie-12-1', number: '12.1', title: 'Etterkrigstid og økonomisk krise', description: 'De brølende 20-årene og den store depresjonen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['1920-tallet', 'Depresjon', 'Arbeidsledighet', 'Krise'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/etterkrigstid-hero.webp' },
     { id: 'historie-12-2', number: '12.2', title: 'Totalitære ideologier', description: 'Fascisme, nazisme og kommunisme.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fascisme', 'Nazisme', 'Kommunisme', 'Diktatur'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'] },
-    { id: 'historie-12-3', number: '12.3', title: 'Norge i mellomkrigstiden', description: 'Politikk, økonomi og samfunn i mellomkrigstidens Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Arbeiderparti', 'Krise', 'Hovedavtalen', 'NS'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/norge-i-mellomkrigstiden-hero.png' },
-    { id: 'historie-12-4', number: '12.4', title: 'Veien mot ny verdenskrig', description: 'Appeasement, ekspansjon og krigsutbruddet.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Hitler', 'Ekspansjon', 'Appeasement', 'Krigsutbrudd'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/veien-mot-ny-verdenskrig-hero.png' },
+    { id: 'historie-12-3', number: '12.3', title: 'Norge i mellomkrigstiden', description: 'Politikk, økonomi og samfunn i mellomkrigstidens Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Arbeiderparti', 'Krise', 'Hovedavtalen', 'NS'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/norge-i-mellomkrigstiden-hero.webp' },
+    { id: 'historie-12-4', number: '12.4', title: 'Veien mot ny verdenskrig', description: 'Appeasement, ekspansjon og krigsutbruddet.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Hitler', 'Ekspansjon', 'Appeasement', 'Krigsutbrudd'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/veien-mot-ny-verdenskrig-hero.webp' },
 
     // Kapittel 13: Andre verdenskrig og Holocaust
-    { id: 'historie-13-1', number: '13.1', title: 'Årsaker og krigens gang', description: 'Krigens faser fra 1939 til 1945.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Krigsgang', 'Fronter', 'Vendepunkter', 'Allierte'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/arsaker-og-krigens-gang-hero.png' },
-    { id: 'historie-13-2', number: '13.2', title: 'Holocaust og folkemord', description: 'Det systematiske folkemordet på jødene.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Holocaust', 'Folkemord', 'Konsentrasjonsleirer', 'Minne'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/holocaust-og-folkemord-hero.png' },
-    { id: 'historie-13-3', number: '13.3', title: 'Norge under okkupasjonen', description: 'Okkupasjon, samarbeid og motstand.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Okkupasjon', 'NS', 'Kollaborasjon', 'Hverdagsliv'], competenceGoals: ['handlingsrom i konfliktsituasjoner'], coverImage: '/images/textbook/historie-vg2/norge-under-okkupasjonen-hero.png' },
-    { id: 'historie-13-4', number: '13.4', title: 'Motstand og handlingsrom', description: 'Motstandskamp og moralske valg under krigen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Motstand', 'Hjemmefront', 'Utefronten', 'Handlingsrom'], competenceGoals: ['handlingsrom i konfliktsituasjoner'], coverImage: '/images/textbook/historie-vg2/motstand-og-handlingsrom-hero.png' },
-    { id: 'historie-13-5', number: '13.5', title: 'Fredsslutninger og oppgjør', description: 'Krigens slutt og rettsoppgjøret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Frigjøring', 'Rettsoppgjør', 'FN', 'Nürnberg'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/fredsslutninger-og-oppgjor-hero.png' },
+    { id: 'historie-13-1', number: '13.1', title: 'Årsaker og krigens gang', description: 'Krigens faser fra 1939 til 1945.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Krigsgang', 'Fronter', 'Vendepunkter', 'Allierte'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/arsaker-og-krigens-gang-hero.webp' },
+    { id: 'historie-13-2', number: '13.2', title: 'Holocaust og folkemord', description: 'Det systematiske folkemordet på jødene.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Holocaust', 'Folkemord', 'Konsentrasjonsleirer', 'Minne'], competenceGoals: ['ideologier, undertrykkelse, terror og Holocaust'], coverImage: '/images/textbook/historie-vg2/holocaust-og-folkemord-hero.webp' },
+    { id: 'historie-13-3', number: '13.3', title: 'Norge under okkupasjonen', description: 'Okkupasjon, samarbeid og motstand.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Okkupasjon', 'NS', 'Kollaborasjon', 'Hverdagsliv'], competenceGoals: ['handlingsrom i konfliktsituasjoner'], coverImage: '/images/textbook/historie-vg2/norge-under-okkupasjonen-hero.webp' },
+    { id: 'historie-13-4', number: '13.4', title: 'Motstand og handlingsrom', description: 'Motstandskamp og moralske valg under krigen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Motstand', 'Hjemmefront', 'Utefronten', 'Handlingsrom'], competenceGoals: ['handlingsrom i konfliktsituasjoner'], coverImage: '/images/textbook/historie-vg2/motstand-og-handlingsrom-hero.webp' },
+    { id: 'historie-13-5', number: '13.5', title: 'Fredsslutninger og oppgjør', description: 'Krigens slutt og rettsoppgjøret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Frigjøring', 'Rettsoppgjør', 'FN', 'Nürnberg'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/fredsslutninger-og-oppgjor-hero.webp' },
 
     // DEL 6: ETTERKRIGSTID OG MODERNE TID (Kap 14-17)
     // Kapittel 14: Den kalde krigen
-    { id: 'historie-14-1', number: '14.1', title: 'Supermaktene og blokksystemet', description: 'Øst mot vest og den todelte verden.', estimatedMinutes: 55, exerciseCount: 6, topics: ['USA', 'Sovjet', 'Blokker', 'Ideologi'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/supermaktene-og-blokksystemet-hero.png' },
-    { id: 'historie-14-2', number: '14.2', title: 'Konflikter og kriger', description: 'Korea, Vietnam, Cuba og andre konflikter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Korea', 'Vietnam', 'Cuba', 'Proxy-krig'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/konflikter-og-kriger-hero.png' },
-    { id: 'historie-14-3', number: '14.3', title: 'Norge i den kalde krigen', description: 'NATO-medlemskap og norsk utenrikspolitikk.', estimatedMinutes: 50, exerciseCount: 6, topics: ['NATO', 'Basepolitikk', 'Nordområdene', 'Sikkerhet'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/norge-i-den-kalde-krigen-hero.png' },
+    { id: 'historie-14-1', number: '14.1', title: 'Supermaktene og blokksystemet', description: 'Øst mot vest og den todelte verden.', estimatedMinutes: 55, exerciseCount: 6, topics: ['USA', 'Sovjet', 'Blokker', 'Ideologi'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/supermaktene-og-blokksystemet-hero.webp' },
+    { id: 'historie-14-2', number: '14.2', title: 'Konflikter og kriger', description: 'Korea, Vietnam, Cuba og andre konflikter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Korea', 'Vietnam', 'Cuba', 'Proxy-krig'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/konflikter-og-kriger-hero.webp' },
+    { id: 'historie-14-3', number: '14.3', title: 'Norge i den kalde krigen', description: 'NATO-medlemskap og norsk utenrikspolitikk.', estimatedMinutes: 50, exerciseCount: 6, topics: ['NATO', 'Basepolitikk', 'Nordområdene', 'Sikkerhet'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'], coverImage: '/images/textbook/historie-vg2/norge-i-den-kalde-krigen-hero.webp' },
     { id: 'historie-14-4', number: '14.4', title: 'Murens fall og Sovjetunionens oppløsning', description: 'Slutten på den kalde krigen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Berlinmuren', 'Oppløsning', 'Glasnost', 'Perestrojka'], competenceGoals: ['verdenskrigene og andre konflikter, fredsslutninger'] },
 
     // Kapittel 15: Velferdsstaten Norge
-    { id: 'historie-15-1', number: '15.1', title: 'Gjenreisning etter krigen', description: 'Norge bygges opp igjen etter 1945.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Gjenreisning', 'Marshall', 'Planøkonomi', 'Vekst'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/gjenreisning-etter-krigen-hero.png' },
-    { id: 'historie-15-2', number: '15.2', title: 'Velferdsstatens utbygging', description: 'Fra fattigforsorg til velferdsstat.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Trygd', 'Helse', 'Utdanning', 'Velferd'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/velferdsstatens-utbygging-hero.png' },
-    { id: 'historie-15-3', number: '15.3', title: 'Oljen og det moderne Norge', description: 'Oljealderen og det norske oljeeventyret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Olje', 'Ekofisk', 'Oljefondet', 'Velstand'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/oljen-og-det-moderne-norge-hero.png' },
-    { id: 'historie-15-4', number: '15.4', title: 'Likestilling og sosiale reformer', description: 'Kampen for likestilling og sosiale rettigheter.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Likestilling', 'Kvinnekamp', 'Reformer', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/likestilling-og-sosiale-reformer-hero.png' },
+    { id: 'historie-15-1', number: '15.1', title: 'Gjenreisning etter krigen', description: 'Norge bygges opp igjen etter 1945.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Gjenreisning', 'Marshall', 'Planøkonomi', 'Vekst'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/gjenreisning-etter-krigen-hero.webp' },
+    { id: 'historie-15-2', number: '15.2', title: 'Velferdsstatens utbygging', description: 'Fra fattigforsorg til velferdsstat.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Trygd', 'Helse', 'Utdanning', 'Velferd'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/velferdsstatens-utbygging-hero.webp' },
+    { id: 'historie-15-3', number: '15.3', title: 'Oljen og det moderne Norge', description: 'Oljealderen og det norske oljeeventyret.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Olje', 'Ekofisk', 'Oljefondet', 'Velstand'], competenceGoals: ['velferdsutviklingen i Norge på 1900-tallet'], coverImage: '/images/textbook/historie-vg2/oljen-og-det-moderne-norge-hero.webp' },
+    { id: 'historie-15-4', number: '15.4', title: 'Likestilling og sosiale reformer', description: 'Kampen for likestilling og sosiale rettigheter.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Likestilling', 'Kvinnekamp', 'Reformer', 'Rettigheter'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/likestilling-og-sosiale-reformer-hero.webp' },
 
     // Kapittel 16: Norsk og samisk identitet
-    { id: 'historie-16-1', number: '16.1', title: 'Nasjonsbygging og identitet', description: 'Norsk nasjonal identitet i historisk perspektiv.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Identitet', 'Nasjonalisme', 'Kultur', 'Tradisjon'], competenceGoals: ['nasjonal identitet i Norge'], coverImage: '/images/textbook/historie-vg2/nasjonsbygging-og-identitet-hero.png' },
-    { id: 'historie-16-2', number: '16.2', title: 'Fornorskingspolitikk og oppgjør', description: 'Assimileringspolitikken overfor samer og minoriteter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fornorsking', 'Assimilering', 'Overgrep', 'Oppgjør'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/fornorskingspolitikk-hero.png' },
-    { id: 'historie-16-3', number: '16.3', title: 'Samisk myndiggjøring', description: 'Samebevegelsen og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Alta-saken', 'Sametinget', 'Rettigheter', 'Selvbestemmelse'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/samisk-myndiggjoring-hero.png' },
-    { id: 'historie-16-4', number: '16.4', title: 'Minoriteter og mangfold i Norge', description: 'Nasjonale minoriteter og det flerkulturelle Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Minoriteter', 'Kvener', 'Romani', 'Mangfold'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/minoriteter-og-mangfold-hero.png' },
+    { id: 'historie-16-1', number: '16.1', title: 'Nasjonsbygging og identitet', description: 'Norsk nasjonal identitet i historisk perspektiv.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Identitet', 'Nasjonalisme', 'Kultur', 'Tradisjon'], competenceGoals: ['nasjonal identitet i Norge'], coverImage: '/images/textbook/historie-vg2/nasjonsbygging-og-identitet-hero.webp' },
+    { id: 'historie-16-2', number: '16.2', title: 'Fornorskingspolitikk og oppgjør', description: 'Assimileringspolitikken overfor samer og minoriteter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fornorsking', 'Assimilering', 'Overgrep', 'Oppgjør'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/fornorskingspolitikk-hero.webp' },
+    { id: 'historie-16-3', number: '16.3', title: 'Samisk myndiggjøring', description: 'Samebevegelsen og kampen for rettigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Alta-saken', 'Sametinget', 'Rettigheter', 'Selvbestemmelse'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/samisk-myndiggjoring-hero.webp' },
+    { id: 'historie-16-4', number: '16.4', title: 'Minoriteter og mangfold i Norge', description: 'Nasjonale minoriteter og det flerkulturelle Norge.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Minoriteter', 'Kvener', 'Romani', 'Mangfold'], competenceGoals: ['myndiggjøring og frigjøring - norsk og samisk historie'], coverImage: '/images/textbook/historie-vg2/minoriteter-og-mangfold-hero.webp' },
 
     // Kapittel 17: Globalisering og samtidshistorie
     { id: 'historie-17-1', number: '17.1', title: 'Globalisering og teknologi', description: 'Den digitale revolusjonen og globaliseringen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Globalisering', 'Internett', 'Digitalisering', 'Kommunikasjon'], competenceGoals: ['teknologiske omveltninger fra industriell revolusjon'] },
@@ -12760,7 +12787,7 @@ export const COURSE_RELIGION_ETIKK: TextbookCourse = {
   description: 'Religion og etikk - verdensreligioner, etiske teorier, livssyn og menneskerettigheter',
   curriculum: 'LK20',
   icon: '🕊️',
-  coverImage: '/images/subjects/religion-etikk-hero.png',
+  coverImage: '/images/subjects/religion-etikk-hero.webp',
   chapters: [
     { id: 'religion-etikk-1', number: '1', title: 'Religionsvitenskap - metode og begreper', description: 'Lær om religionsvitenskapelig metode.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Metode', 'Begreper', 'Definisjoner'], competenceGoals: ['bruke fagbegreper til å analysere religioner'] },
     { id: 'religion-etikk-2', number: '2', title: 'Kristendommens historie og mangfold', description: 'Utforsk kristendommens utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Urkirken', 'Reformasjonen', 'Katolsk', 'Protestant', 'Ortodoks'], competenceGoals: ['gjøre rede for kristendommens mangfold'] },
@@ -12812,7 +12839,7 @@ export const COURSE_IT_1: TextbookCourse = {
   description: 'Informasjonsteknologi 1 - grunnleggende programmering, webutvikling og datasikkerhet',
   curriculum: 'LK20',
   icon: '💻',
-  coverImage: '/images/subjects/it-1-hero.png',
+  coverImage: '/images/subjects/it-1-hero.webp',
   chapters: [
     { id: 'it-1-1', number: '1', title: 'Introduksjon til IT', description: 'Digital kompetanse og IT i samfunnet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Digitalisering', 'IT-historie'], competenceGoals: ['beskrive IT i samfunnet'] },
     { id: 'it-1-2', number: '2', title: 'Grunnleggende programmering', description: 'Variabler, datatyper og kontrollstrukturer.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Variabler', 'If-setninger', 'Løkker'], competenceGoals: ['programmere med variabler og kontrollstrukturer'] },
@@ -12838,7 +12865,7 @@ export const COURSE_IT_2: TextbookCourse = {
   description: 'Informasjonsteknologi 2 - avansert programmering, algoritmer og systemutvikling',
   curriculum: 'LK20',
   icon: '🖥️',
-  coverImage: '/images/subjects/it-2-hero.png',
+  coverImage: '/images/subjects/it-2-hero.webp',
   chapters: [
     { id: 'it-2-1', number: '1', title: 'Objektorientert programmering', description: 'Klasser, objekter og arv.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Klasser', 'Objekter', 'Arv'], competenceGoals: ['programmere objektorientert'] },
     { id: 'it-2-2', number: '2', title: 'Algoritmer', description: 'Algoritmisk tenkning og effektivitet.', estimatedMinutes: 80, exerciseCount: 6, topics: ['Algoritmer', 'Kompleksitet', 'Søking', 'Sortering'], competenceGoals: ['analysere og implementere algoritmer'] },
@@ -12916,7 +12943,7 @@ export const COURSE_PSYKOLOGI_1: TextbookCourse = {
   description: 'Psykologi 1 - grunnleggende psykologi, læring, utvikling og sosialpsykologi',
   curriculum: 'LK20',
   icon: '🧠',
-  coverImage: '/images/subjects/psykologi-1-hero.png',
+  coverImage: '/images/subjects/psykologi-1-hero.webp',
   chapters: [
     { id: 'psykologi-1-1', number: '1', title: 'Hva er psykologi?', description: 'Psykologiens historie og perspektiver.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Psykologihistorie', 'Perspektiver'], competenceGoals: ['gjøre rede for psykologi som fag'] },
     { id: 'psykologi-1-2', number: '2', title: 'Biologisk psykologi', description: 'Hjernen og nervesystemet.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Hjerne', 'Nevroner', 'Transmittere'], competenceGoals: ['forklare biologisk grunnlag'] },
@@ -12942,7 +12969,7 @@ export const COURSE_PSYKOLOGI_2: TextbookCourse = {
   description: 'Psykologi 2 - avansert psykologi, kommunikasjon og helsepsykologi',
   curriculum: 'LK20',
   icon: '💭',
-  coverImage: '/images/subjects/psykologi-2-hero.png',
+  coverImage: '/images/subjects/psykologi-2-hero.webp',
   chapters: [
     { id: 'psykologi-2-1', number: '1', title: 'Kommunikasjon og språk', description: 'Verbal og nonverbal kommunikasjon.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Kommunikasjon', 'Språk', 'Nonverbal'], competenceGoals: ['analysere kommunikasjon'] },
     { id: 'psykologi-2-2', number: '2', title: 'Helsepsykologi', description: 'Psykologi og fysisk helse.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Stress', 'Helse', 'Livsstil'], competenceGoals: ['drøfte helseatferd'] },
@@ -13020,7 +13047,7 @@ export const COURSE_TOF_1: TextbookCourse = {
   description: 'ToF 1 - vitenskapelig metode, elektronikk, programmering og innovasjon',
   curriculum: 'LK20',
   icon: '⚙️',
-  coverImage: '/images/subjects/tof-1-hero.png',
+  coverImage: '/images/subjects/tof-1-hero.webp',
   chapters: [
     { id: 'tof-1-1', number: '1', title: 'Vitenskapelig metode', description: 'Forskningsprosessen.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Metode', 'Hypotese', 'Validitet'], competenceGoals: ['gjøre rede for vitenskapelig metode'] },
     { id: 'tof-1-2', number: '2', title: 'Datainnsamling og analyse', description: 'Statistikk og databehandling.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Data', 'Statistikk', 'Analyse'], competenceGoals: ['samle inn og analysere data'] },
@@ -13046,7 +13073,7 @@ export const COURSE_TOF_2: TextbookCourse = {
   description: 'ToF 2 - avansert forskning, nanoteknologi, AI og robotikk',
   curriculum: 'LK20',
   icon: '🔧',
-  coverImage: '/images/subjects/tof-2-hero.png',
+  coverImage: '/images/subjects/tof-2-hero.webp',
   chapters: [
     { id: 'tof-2-1', number: '1', title: 'Avansert forskningsdesign', description: 'Komplekse undersøkelser.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Forskningsdesign', 'Validitet'], competenceGoals: ['designe forskningsprosjekter'] },
     { id: 'tof-2-2', number: '2', title: 'Statistisk analyse', description: 'Hypotesetesting.', estimatedMinutes: 85, exerciseCount: 6, topics: ['Statistikk', 'Hypotesetesting', 'P-verdi'], competenceGoals: ['analysere data statistisk'] },
@@ -13072,7 +13099,7 @@ export const COURSE_SOSIOLOGI: TextbookCourse = {
   description: 'Sosiologi - kultur, samfunn, sosial ulikhet og metode',
   curriculum: 'LK20',
   icon: '👥',
-  coverImage: '/images/subjects/sosiologi-hero.png',
+  coverImage: '/images/subjects/sosiologi-hero.webp',
   chapters: [
     { id: 'sosiologi-1', number: '1', title: 'Hva er sosiologi og sosialantropologi?', description: 'Fagenes grunnlag.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Sosiologi', 'Antropologi', 'Perspektiver'], competenceGoals: ['gjøre rede for fagene'] },
     { id: 'sosiologi-2', number: '2', title: 'Sosialisering og identitet', description: 'Sosialiseringsprosessen.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Sosialisering', 'Identitet', 'Aktører'], competenceGoals: ['forklare sosialisering'] },
@@ -13098,7 +13125,7 @@ export const COURSE_RETTSLAERE_1: TextbookCourse = {
   description: 'Rettslære 1 - rettssystemet, avtalerett, forbrukerrett og strafferett',
   curriculum: 'LK20',
   icon: '⚖️',
-  coverImage: '/images/subjects/rettslaere-1-hero.png',
+  coverImage: '/images/subjects/rettslaere-1-hero.webp',
   chapters: [
     { id: 'rettslaere-1-1', number: '1', title: 'Rettssystemets oppbygging', description: 'Domstolene og rettsprosessen.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Rettssystem', 'Domstoler', 'Prosess'], competenceGoals: ['gjøre rede for rettssystemet'] },
     { id: 'rettslaere-1-2', number: '2', title: 'Rettskilder og lovtolkning', description: 'Juridisk metode.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Rettskilder', 'Lovtolkning', 'Forarbeider'], competenceGoals: ['anvende lovtolkning'] },
@@ -13124,7 +13151,7 @@ export const COURSE_RETTSLAERE_2: TextbookCourse = {
   description: 'Rettslære 2 - fordypning i strafferett, internasjonal rett og selskapsrett',
   curriculum: 'LK20',
   icon: '🔨',
-  coverImage: '/images/subjects/rettslaere-2-hero.png',
+  coverImage: '/images/subjects/rettslaere-2-hero.webp',
   chapters: [
     { id: 'rettslaere-2-1', number: '1', title: 'Fordypning i strafferett', description: 'Avansert strafferett.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Strafferett', 'Straffutmåling', 'Straffereaksjoner'], competenceGoals: ['analysere straffesaker'] },
     { id: 'rettslaere-2-2', number: '2', title: 'Økonomisk kriminalitet', description: 'Hvitvasking og skatt.', estimatedMinutes: 80, exerciseCount: 6, topics: ['Hvitvasking', 'Skatteunndragelse', 'Bedrageri'], competenceGoals: ['identifisere økonomisk kriminalitet'] },
@@ -13150,7 +13177,7 @@ export const COURSE_OKONOMISTYRING: TextbookCourse = {
   description: 'Økonomistyring - regnskap, budsjettering, kalkyler og personlig økonomi',
   curriculum: 'LK20',
   icon: '📊',
-  coverImage: '/images/subjects/okonomistyring-hero.png',
+  coverImage: '/images/subjects/okonomistyring-hero.webp',
   chapters: [
     { id: 'okonomistyring-1', number: '1', title: 'Innføring i økonomi', description: 'Grunnleggende regnskapsbegreper.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regnskap', 'Begreper', 'Bilag'], competenceGoals: ['forstå regnskapsprinsipper'] },
     { id: 'okonomistyring-2', number: '2', title: 'Balanse og resultatregnskap', description: 'Årsregnskapet.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Balanse', 'Resultat', 'Eiendeler'], competenceGoals: ['sette opp regnskap'] },
@@ -13176,7 +13203,7 @@ export const COURSE_MARKEDSFORING: TextbookCourse = {
   description: 'Markedsføring - markedsanalyse, merkevarebygging, digital markedsføring og ledelse',
   curriculum: 'LK20',
   icon: '📈',
-  coverImage: '/images/subjects/markedsforing-hero.png',
+  coverImage: '/images/subjects/markedsforing-hero.webp',
   chapters: [
     { id: 'markedsforing-1', number: '1', title: 'Innføring i markedsføring', description: 'Markedsføringens grunnlag.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Markedsføring', '4P', 'Målgruppe'], competenceGoals: ['forklare markedsføringens rolle'] },
     { id: 'markedsforing-2', number: '2', title: 'Forbrukeratferd', description: 'Kjøpsprosessen.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Forbruker', 'Atferd', 'Beslutning'], competenceGoals: ['analysere forbrukeratferd'] },
@@ -13202,7 +13229,7 @@ export const COURSE_SPANSK_2: TextbookCourse = {
   description: 'Spansk 2 - utvidet grammatikk, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇪🇸',
-  coverImage: '/images/subjects/spansk-2-hero.png',
+  coverImage: '/images/subjects/spansk-2-hero.webp',
   chapters: [
     // Kapittel 1: Perfecto y imperfecto (Fortidsformer)
     { id: 'spansk-2-1-1', number: '1.1', title: 'El pretérito perfecto - Sammensatt fortid', description: 'Haber + partisipp for nylige hendelser.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Perfecto', 'Haber', 'Partisipp'], competenceGoals: ['bruke sammensatt fortid', 'fortelle om nylige hendelser'] },
@@ -13268,7 +13295,7 @@ export const COURSE_SPANSK_3: TextbookCourse = {
   description: 'Spansk 3 - avansert grammatikk, litteratur og samfunn',
   curriculum: 'LK20',
   icon: '🇲🇽',
-  coverImage: '/images/subjects/spansk-3-hero.png',
+  coverImage: '/images/subjects/spansk-3-hero.webp',
   chapters: [
     // Kapittel 1: Subjuntivo avanzado (Avansert konjunktiv)
     { id: 'spansk-3-1-1', number: '1.1', title: 'Subjuntivo con expresiones impersonales - Upersonlige uttrykk', description: 'Avansert bruk med upersonlige uttrykk.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Subjuntivo', 'Upersonlige uttrykk'], competenceGoals: ['mestre subjuntivo med upersonlige uttrykk', 'skille mellom modus etter sikkerhetsnivå'] },
@@ -13334,7 +13361,7 @@ export const COURSE_TYSK_2: TextbookCourse = {
   description: 'Tysk 2 - utvidet grammatikk, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇩🇪',
-  coverImage: '/images/subjects/tysk-2-hero.png',
+  coverImage: '/images/subjects/tysk-2-hero.webp',
   chapters: [
     // Kapittel 1: Perfekt und Präteritum (Fortidsformer)
     { id: 'tysk-2-1-1', number: '1.1', title: 'Das Perfekt - dannelse og bruk', description: 'Perfektum med haben og sein.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Perfekt', 'haben', 'sein'], competenceGoals: ['bruke tyske fortidsformer', 'kommunisere om personlige opplevelser'] },
@@ -13400,7 +13427,7 @@ export const COURSE_TYSK_3: TextbookCourse = {
   description: 'Tysk 3 - avansert grammatikk, litteratur og samfunn',
   curriculum: 'LK20',
   icon: '🇦🇹',
-  coverImage: '/images/subjects/tysk-3-hero.png',
+  coverImage: '/images/subjects/tysk-3-hero.webp',
   chapters: [
     // Kapittel 1: Konjunktiv I (Indirekte tale)
     { id: 'tysk-3-1-1', number: '1.1', title: 'Konjunktiv I Grundlagen', description: 'Grunnleggende om Konjunktiv I.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Konjunktiv I', 'Dannelse'], competenceGoals: ['forstå Konjunktiv I'] },
@@ -13466,7 +13493,7 @@ export const COURSE_FRANSK_2: TextbookCourse = {
   description: 'Fransk for viderekomne - fortidsformer, subjonctif, pronomen, litteratur og kultur',
   curriculum: 'LK20',
   icon: '🇫🇷',
-  coverImage: '/images/subjects/fransk-2-hero.png',
+  coverImage: '/images/subjects/fransk-2-hero.webp',
   chapters: [
     // Kapittel 1: Fortidsformer I
     { id: 'fransk-2-1-1', number: '1.1', title: 'Le passé composé avec avoir - Passé composé med avoir', description: 'Dannelse og bruk med avoir.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Passé composé', 'Avoir'], competenceGoals: ['bruke passé composé med avoir'] },
@@ -13532,7 +13559,7 @@ export const COURSE_FRANSK_3: TextbookCourse = {
   description: 'Avansert fransk - avansert grammatikk, litteratur, kultur og samfunn',
   curriculum: 'LK20',
   icon: '🇫🇷',
-  coverImage: '/images/subjects/fransk-3-hero.png',
+  coverImage: '/images/subjects/fransk-3-hero.webp',
   chapters: [
     // Kapittel 1: Avanserte fortidsformer
     { id: 'fransk-3-1-1', number: '1.1', title: 'Le plus-que-parfait - Pluskvamperfektum', description: 'Dannelse og bruk.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Plus-que-parfait', 'Fortidig fortid'], competenceGoals: ['bruke pluskvamperfektum'] },
@@ -13598,7 +13625,7 @@ export const COURSE_KOMKULT_1: TextbookCourse = {
   description: 'Kommunikasjon og kultur 1 - grunnleggende kommunikasjonsteori, verbal og nonverbal kommunikasjon, kultur og identitet',
   curriculum: 'LK20',
   icon: '🗣️',
-  coverImage: '/images/subjects/komkult-1-hero.png',
+  coverImage: '/images/subjects/komkult-1-hero.webp',
   chapters: [
     { id: 'komkult-1-1', number: '1', title: 'Hva er kommunikasjon?', description: 'En introduksjon til kommunikasjonsbegrepet, kommunikasjonsmodeller og grunnleggende kommunikasjonsteori.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Kommunikasjonsprosessen', 'Kommunikasjonsmodeller', 'Sender-mottaker'], competenceGoals: ['gjøre rede for ulike kommunikasjonsmodeller og teorier'] },
     { id: 'komkult-1-2', number: '2', title: 'Verbal og nonverbal kommunikasjon', description: 'Utforsk språkets kraft og kroppsspråkets betydning i kommunikasjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Språk', 'Kroppsspråk', 'Nonverbal kommunikasjon'], competenceGoals: ['analysere samspillet mellom verbal og nonverbal kommunikasjon'] },
@@ -13622,7 +13649,7 @@ export const COURSE_KOMKULT_2: TextbookCourse = {
   description: 'Kommunikasjon og kultur 2 - avansert kommunikasjonsteori, kulturteori, globalisering og medieanalyse',
   curriculum: 'LK20',
   icon: '🗣️',
-  coverImage: '/images/subjects/komkult-2-hero.png',
+  coverImage: '/images/subjects/komkult-2-hero.webp',
   chapters: [
     { id: 'komkult-2-1', number: '1', title: 'Avansert kommunikasjonsteori', description: 'Utforsk avanserte teorier om kommunikasjon, fra klassiske modeller til moderne perspektiver.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Sapir-Whorf', 'Diskursanalyse', 'Habermas'], competenceGoals: ['analysere komplekse kommunikasjonsprosesser'] },
     { id: 'komkult-2-2', number: '2', title: 'Kulturteori og kulturanalyse', description: 'Lær avanserte teorier om kultur og metoder for kulturanalyse.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Stuart Hall', 'Bourdieu', 'Populærkultur'], competenceGoals: ['gjøre rede for ulike kulturteoretiske perspektiver'] },
@@ -13648,7 +13675,7 @@ export const COURSE_KOMKULT_3: TextbookCourse = {
   description: 'Kommunikasjon og kultur 3 - fordypning i kulturteori, profesjonell kommunikasjon og flerkulturelle samfunn',
   curriculum: 'LK20',
   icon: '🗣️',
-  coverImage: '/images/subjects/komkult-3-hero.png',
+  coverImage: '/images/subjects/komkult-3-hero.webp',
   chapters: [
     { id: 'komkult3-1', number: '1', title: 'Fordypning i kulturteori', description: 'Avanserte kulturteoretiske perspektiver og analytiske verktøy.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Strukturalisme', 'Poststrukturalisme', 'Cultural Studies'], competenceGoals: ['analysere kulturelle uttrykk ved hjelp av ulike teoretiske perspektiver'] },
     { id: 'komkult3-2', number: '2', title: 'Kommunikasjon i arbeidslivet', description: 'Profesjonell kommunikasjon, organisasjonskultur og strategisk kommunikasjon.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Profesjonell kommunikasjon', 'Organisasjonskultur', 'Møtekultur'], competenceGoals: ['analysere ulike kommunikasjonsformer i arbeidslivet'] },
@@ -13672,7 +13699,7 @@ export const COURSE_MEDIEINFO_1: TextbookCourse = {
   description: 'Medie- og informasjonskunnskap 1 - innføring i medier, mediehistorie, journalistikk og medieanalyse',
   curriculum: 'LK20',
   icon: '📺',
-  coverImage: '/images/subjects/medieinfo-1-hero.png',
+  coverImage: '/images/subjects/medieinfo-1-hero.webp',
   chapters: [
     { id: 'medieinfo-1-1', number: '1', title: 'Introduksjon til medier', description: 'En innføring i mediebegrepet, medietyper og medienes rolle i samfunnet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Medietyper', 'Mediefunksjoner', 'Massemedier'], competenceGoals: ['gjøre rede for hva medier er og hvilke funksjoner de har'] },
     { id: 'medieinfo-1-2', number: '2', title: 'Mediehistorie', description: 'En reise gjennom medienes utvikling fra trykkekunsten til dagens digitale medier.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Trykkekunsten', 'Radio', 'TV', 'Internett'], competenceGoals: ['gjøre rede for viktige milepæler i mediehistorien'] },
@@ -13698,7 +13725,7 @@ export const COURSE_MEDIEINFO_2: TextbookCourse = {
   description: 'Medie- og informasjonskunnskap 2 - avansert medieanalyse, medieøkonomi, medieetikk og fordypning',
   curriculum: 'LK20',
   icon: '📺',
-  coverImage: '/images/subjects/medieinfo-2-hero.png',
+  coverImage: '/images/subjects/medieinfo-2-hero.webp',
   chapters: [
     { id: 'medieinfo-2-1', number: '1', title: 'Avansert medieanalyse', description: 'Fordypning i metoder og teorier for å analysere medietekster på et avansert nivå.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Semiotikk', 'Multimodal analyse', 'Diskursanalyse'], competenceGoals: ['anvende ulike analysemetoder på komplekse medietekster'] },
     { id: 'medieinfo-2-2', number: '2', title: 'Medieøkonomi og mediemarked', description: 'Forstå medienes økonomiske grunnlag, eierskap og markedsstrukturer.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Finansiering', 'Eierskap', 'Marked'], competenceGoals: ['analysere medienes økonomiske vilkår'] },
@@ -13724,7 +13751,7 @@ export const COURSE_POLITIKK_MENNESKERETT: TextbookCourse = {
   description: 'Politikk og menneskerettigheter - politiske systemer, demokrati, menneskerettigheter og internasjonal politikk',
   curriculum: 'LK20',
   icon: '⚖️',
-  coverImage: '/images/subjects/politikk-menneskerett-hero.png',
+  coverImage: '/images/subjects/politikk-menneskerett-hero.webp',
   chapters: [
     { id: 'politikk-menneskerett-1-1', number: '1', title: 'Hva er politikk?', description: 'Forstå hva politikk er og hvordan politiske beslutninger påvirker samfunnet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Makt', 'Politiske aktører', 'Beslutningsprosesser'], competenceGoals: ['gjøre rede for hva politikk er og hvordan politiske prosesser fungerer'] },
     { id: 'politikk-menneskerett-1-2', number: '2', title: 'Demokrati og styreformer', description: 'Utforsk ulike styreformer med særlig vekt på demokratiet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Demokrati', 'Autoritære regimer', 'Styreformer'], competenceGoals: ['sammenligne ulike styreformer'] },
@@ -13750,7 +13777,7 @@ export const COURSE_ENTREBED_1: TextbookCourse = {
   description: 'Entreprenørskap og bedriftsutvikling 1 - grunnleggende entreprenørskap, idéutvikling, forretningsplanlegging og økonomi',
   curriculum: 'LK20',
   icon: '💼',
-  coverImage: '/images/subjects/entrebed-1-hero.png',
+  coverImage: '/images/subjects/entrebed-1-hero.webp',
   chapters: [
     { id: 'entrebed-1-1', number: '1', title: 'Hva er entreprenørskap?', description: 'Forstå hva entreprenørskap er, historisk utvikling og betydningen for samfunnet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Entreprenørskap', 'Innovasjon', 'Typer entreprenører'], competenceGoals: ['gjøre rede for hva entreprenørskap innebærer'] },
     { id: 'entrebed-1-2', number: '2', title: 'Idéutvikling og muligheter', description: 'Lær å identifisere muligheter og utvikle forretningsideer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kreativitet', 'Idégenerering', 'Markedsanalyse'], competenceGoals: ['utvikle forretningsideer'] },
@@ -13774,7 +13801,7 @@ export const COURSE_ENTREBED_2: TextbookCourse = {
   description: 'Entreprenørskap og bedriftsutvikling 2 - avansert forretningsutvikling, skalering, finansiering og bærekraft',
   curriculum: 'LK20',
   icon: '💼',
-  coverImage: '/images/subjects/entrebed-2-hero.png',
+  coverImage: '/images/subjects/entrebed-2-hero.webp',
   chapters: [
     { id: 'entrebed2-1', number: '1', title: 'Avansert forretningsutvikling', description: 'Strategisk forretningsplanlegging og forretningsmodellinnovasjon.', estimatedMinutes: 90, exerciseCount: 5, topics: ['SWOT', 'PESTEL', 'Porters fem krefter'], competenceGoals: ['utvikle avanserte forretningsstrategier'] },
     { id: 'entrebed2-2', number: '2', title: 'Skalering og vekst', description: 'Strategier for å skalere og vokse en bedrift.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Skalering', 'Vekstfaser', 'Vekstmålinger'], competenceGoals: ['planlegge vekst og skalering'] },
@@ -13798,7 +13825,7 @@ export const COURSE_TRENING_1: TextbookCourse = {
   description: 'Treningslære 1 - grunnleggende treningsprinsipper, anatomi, fysiologi og treningsplanlegging',
   curriculum: 'LK20',
   icon: '🏋️',
-  coverImage: '/images/subjects/trening-1-hero.png',
+  coverImage: '/images/subjects/trening-1-hero.webp',
   chapters: [
     { id: 'trening-1-1', number: '1', title: 'Grunnleggende treningslære', description: 'Lær de grunnleggende prinsippene for effektiv trening og fysisk utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Treningsprinsipper', 'Superkompensasjon', 'Treningsvariabler'], competenceGoals: ['forstå grunnleggende treningsprinsipper'] },
     { id: 'trening-1-2', number: '2', title: 'Kroppens anatomi', description: 'Oversikt over muskel- og skjelettsystemet.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Muskler', 'Skjelett', 'Ledd'], competenceGoals: ['kjenne kroppens anatomi'] },
@@ -13822,7 +13849,7 @@ export const COURSE_TRENING_2: TextbookCourse = {
   description: 'Treningslære 2 - avansert treningsteori, individuelle tilpasninger og treningsmetoder',
   curriculum: 'LK20',
   icon: '🏋️',
-  coverImage: '/images/subjects/trening-2-hero.png',
+  coverImage: '/images/subjects/trening-2-hero.webp',
   chapters: [
     { id: 'trening2-1', number: '1', title: 'Avansert treningsteori', description: 'Treningsprinsipper på høyt nivå og individuelle tilpasninger.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Superkompensasjon', 'Spesifisitet', 'Progressiv overbelastning'], competenceGoals: ['anvende avanserte treningsprinsipper'] },
     { id: 'trening2-2', number: '2', title: 'Avansert styrketrening', description: 'Metoder for maksimal styrke, eksplosivitet og hypertrofi.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Maksimal styrke', 'Power', 'Avanserte metoder'], competenceGoals: ['planlegge avansert styrketrening'] },
@@ -13846,7 +13873,7 @@ export const COURSE_TRENING_3: TextbookCourse = {
   description: 'Treningslære 3 - spesialisert treningslære, alderstilpasset trening, periodisering og fordypning',
   curriculum: 'LK20',
   icon: '🏋️',
-  coverImage: '/images/subjects/trening-3-hero.png',
+  coverImage: '/images/subjects/trening-3-hero.webp',
   chapters: [
     { id: 'trening-3-1', number: '1', title: 'Spesialisert treningslære', description: 'Fordypning i treningsprinsipper, periodisering og avanserte treningsmetoder.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Blokkperiodisering', 'Autoregulering', 'Avanserte metoder'], competenceGoals: ['anvende avanserte treningsprinsipper i praksis'] },
     { id: 'trening-3-2', number: '2', title: 'Alderstilpasset trening', description: 'Forstå hvordan trening bør tilpasses ulike aldersgrupper.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Barn', 'Ungdom', 'Voksne', 'Eldre'], competenceGoals: ['tilpasse trening til ulike aldersgrupper'] },
@@ -13870,7 +13897,7 @@ export const COURSE_INT_ENGELSK: TextbookCourse = {
   description: 'Internasjonal engelsk - global English, språkvariasjon, internasjonal kommunikasjon og litteratur',
   curriculum: 'LK20',
   icon: '🌍',
-  coverImage: '/images/subjects/int-engelsk-hero.png',
+  coverImage: '/images/subjects/int-engelsk-hero.webp',
   chapters: [
     { id: 'int-engelsk-1', number: '1', title: 'English as a Global Language', description: 'Explore the history, spread, and current status of English as the world\'s lingua franca.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Global English', 'Kachrus model', 'ELF'], competenceGoals: ['analyze the position of English in the world'] },
     { id: 'int-engelsk-2', number: '2', title: 'World Englishes', description: 'Explore the diversity of English varieties around the world.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Varieties', 'British', 'American', 'Indian English'], competenceGoals: ['compare different English varieties'] },
@@ -13894,7 +13921,7 @@ export const COURSE_SAMF_ENGELSK: TextbookCourse = {
   description: 'Samfunnsfaglig engelsk - democracy, human rights, global issues and social studies in English',
   curriculum: 'LK20',
   icon: '🏛️',
-  coverImage: '/images/subjects/samf-engelsk-hero.png',
+  coverImage: '/images/subjects/samf-engelsk-hero.webp',
   chapters: [
     { id: 'samf-engelsk-1', number: '1', title: 'Democracy and Political Systems', description: 'Explore different forms of government, democratic principles, and political participation.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Democracy', 'Political systems', 'Elections'], competenceGoals: ['discuss political systems and democracy'] },
     { id: 'samf-engelsk-2', number: '2', title: 'Human Rights and Justice', description: 'Examine the foundations of human rights and contemporary issues of justice.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Human rights', 'Justice', 'Equality'], competenceGoals: ['discuss human rights and justice'] },
@@ -13918,7 +13945,7 @@ export const COURSE_FILOSOFI_ETIKK: TextbookCourse = {
   description: 'Filosofi og etikk - grunnleggende filosofi, kunnskapsteori, etikk og politisk filosofi',
   curriculum: 'LK20',
   icon: '🤔',
-  coverImage: '/images/subjects/filosofi-etikk-hero.png',
+  coverImage: '/images/subjects/filosofi-etikk-hero.webp',
   chapters: [
     { id: 'filosofi-etikk-1', number: '1', title: 'Hva er filosofi?', description: 'Filosofiens grunnlag, historie og sentrale spørsmål.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Filosofiens opprinnelse', 'Sokrates', 'Platon', 'Aristoteles'], competenceGoals: ['gjøre rede for hva filosofi er'] },
     { id: 'filosofi-etikk-2', number: '2', title: 'Kunnskapsteori', description: 'Hva er kunnskap, sannhet og begrunnelse?', estimatedMinutes: 100, exerciseCount: 5, topics: ['Epistemologi', 'Empirisme', 'Rasjonalisme', 'Skeptisisme'], competenceGoals: ['drøfte kunnskapsteoretiske spørsmål'] },
@@ -13942,7 +13969,7 @@ export const COURSE_SAMFOKONOMI_1: TextbookCourse = {
   description: 'Grunnleggende samfunnsøkonomi - marked, pris, BNP og økonomisk politikk',
   curriculum: 'LK20',
   icon: '📊',
-  coverImage: '/images/subjects/samfokonomi-1-hero.png',
+  coverImage: '/images/subjects/samfokonomi-1-hero.webp',
   chapters: [
     { id: 'samfokonomi-1-1', number: '1', title: 'Hva er samfunnsøkonomi?', description: 'Introduksjon til økonomiske grunnbegreper.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Knapphet', 'Alternativkostnad', 'Økonomiske aktører'], competenceGoals: ['forklare grunnleggende økonomiske begreper'] },
     { id: 'samfokonomi-1-2', number: '2', title: 'Markedet og prisdannelse', description: 'Hvordan priser dannes i markedet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Markedslikevekt', 'Prissystemet'], competenceGoals: ['forklare markedsmekanismen'] },
@@ -13962,7 +13989,7 @@ export const COURSE_SAMFOKONOMI_2: TextbookCourse = {
   description: 'Avansert samfunnsøkonomi - makroøkonomi og økonomisk politikk',
   curriculum: 'LK20',
   icon: '📈',
-  coverImage: '/images/subjects/samfokonomi-2-hero.png',
+  coverImage: '/images/subjects/samfokonomi-2-hero.webp',
   chapters: [
     { id: 'samfokonomi-2-1', number: '1', title: 'Makroøkonomiske modeller', description: 'Keynesiansk modell og AD-AS.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Keynesiansk modell', 'AD-AS'], competenceGoals: ['anvende makroøkonomiske modeller'] },
     { id: 'samfokonomi-2-2', number: '2', title: 'Penge- og finanspolitikk', description: 'Virkemidler i økonomisk politikk.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Pengepolitikk', 'Finanspolitikk'], competenceGoals: ['analysere økonomisk politikk'] },
@@ -13986,7 +14013,7 @@ export const COURSE_OKONOMI_LEDELSE: TextbookCourse = {
   description: 'Grunnleggende økonomi, organisasjon og ledelse',
   curriculum: 'LK20',
   icon: '💼',
-  coverImage: '/images/subjects/okonomi-ledelse-hero.png',
+  coverImage: '/images/subjects/okonomi-ledelse-hero.webp',
   chapters: [
     { id: 'okonomi-ledelse-1', number: '1', title: 'Introduksjon', description: 'Økonomi og ledelse i sammenheng.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Bedriftstyper', 'Interessenter'], competenceGoals: ['forstå økonomi og ledelse'] },
     { id: 'okonomi-ledelse-2', number: '2', title: 'Organisasjon', description: 'Organisasjonsstrukturer og kultur.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Organisasjonsstruktur', 'Kultur'], competenceGoals: ['analysere organisasjoner'] },
@@ -14006,7 +14033,7 @@ export const COURSE_REGNSKAP_REVISJON: TextbookCourse = {
   description: 'Regnskapsprinsipper, bokføring og revisjon',
   curriculum: 'LK20',
   icon: '📒',
-  coverImage: '/images/subjects/regnskap-revisjon-hero.png',
+  coverImage: '/images/subjects/regnskap-revisjon-hero.webp',
   chapters: [
     { id: 'regnskap-revisjon-1', number: '1', title: 'Regnskapsprinsipper', description: 'Grunnleggende regnskapsprinsipper.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Transaksjonsprinsippet', 'Sammenstilling'], competenceGoals: ['forstå regnskapsprinsipper'] },
     { id: 'regnskap-revisjon-2', number: '2', title: 'Bokføring', description: 'Bilag og kontoplan.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Bokføringsloven', 'Kontoplan'], competenceGoals: ['utføre bokføring'] },
@@ -14026,7 +14053,7 @@ export const COURSE_OKONOMI_DRIFT: TextbookCourse = {
   description: 'Driftsøkonomi, kalkulasjon og produksjonsstyring',
   curriculum: 'LK20',
   icon: '🏭',
-  coverImage: '/images/subjects/okonomi-drift-hero.png',
+  coverImage: '/images/subjects/okonomi-drift-hero.webp',
   chapters: [
     { id: 'okonomi-drift-1', number: '1', title: 'Driftsøkonomi', description: 'Kostnader og lønnsomhet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Faste kostnader', 'Variable kostnader'], competenceGoals: ['analysere driftsøkonomi'] },
     { id: 'okonomi-drift-2', number: '2', title: 'Kalkulasjon', description: 'Prissetting og kalkulasjon.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Selvkost', 'Bidragskalkulasjon'], competenceGoals: ['utføre kalkulasjoner'] },
@@ -14050,7 +14077,7 @@ export const COURSE_SIKKERHETSFAG: TextbookCourse = {
   description: 'Sikkerhet, risikovurdering og beredskap',
   curriculum: 'LK20',
   icon: '🛡️',
-  coverImage: '/images/subjects/sikkerhetsfag-hero.png',
+  coverImage: '/images/subjects/sikkerhetsfag-hero.webp',
   chapters: [
     { id: 'sikkerhetsfag-1', number: '1', title: 'Introduksjon', description: 'Sikkerhetsfaget og yrkesroller.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sikkerhetsarbeid', 'Yrkesroller'], competenceGoals: ['beskrive sikkerhetsfaget'] },
     { id: 'sikkerhetsfag-2', number: '2', title: 'Risikovurdering', description: 'Risikoanalyse og tiltak.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Risiko', 'Sårbarhet', 'Konsekvens'], competenceGoals: ['gjennomføre risikovurdering'] },
@@ -14074,7 +14101,7 @@ export const COURSE_HELSEOPPVEKST_VG1: TextbookCourse = {
   description: 'Introduksjon til helse- og oppvekstsektoren',
   curriculum: 'LK20',
   icon: '🏥',
-  coverImage: '/images/subjects/helseoppvekst-vg1-hero.png',
+  coverImage: '/images/subjects/helseoppvekst-vg1-hero.webp',
   chapters: [
     { id: 'helseoppvekst-vg1-1-1', number: '1', title: 'Hva er helse- og oppvekstfag?', description: 'Introduksjon til sektoren og yrkesmuligheter.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Sektoren', 'Yrkesmuligheter', 'Verdier'], competenceGoals: ['beskrive helse- og oppvekstsektoren'] },
     { id: 'helseoppvekst-vg1-1-2', number: '2', title: 'Helsefremmende arbeid', description: 'Forebygging og helsefremming.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Helsedeterminanter', 'Forebygging', 'Folkehelse'], competenceGoals: ['forstå helsefremmende arbeid'] },
@@ -14114,7 +14141,7 @@ export const COURSE_HELSEOPPVEKST_VG2: TextbookCourse = {
   description: 'Helsetjenester og omsorg',
   curriculum: 'LK20',
   icon: '💊',
-  coverImage: '/images/subjects/helseoppvekst-vg2-hero.png',
+  coverImage: '/images/subjects/helseoppvekst-vg2-hero.webp',
   chapters: [
     { id: 'helseoppvekst-vg2-1', number: '1', title: 'Helsetjenesten', description: 'Organisering av helsetjenesten.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Primærhelsetjeneste', 'Spesialisthelsetjeneste'], competenceGoals: ['forstå helsetjenesten'] },
     { id: 'helseoppvekst-vg2-2', number: '2', title: 'Brukermedvirkning', description: 'Pasient- og brukerrettigheter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Medvirkning', 'Rettigheter'], competenceGoals: ['ivareta brukermedvirkning'] },
@@ -14132,7 +14159,7 @@ export const COURSE_HELSEOPPVEKST_VG3: TextbookCourse = {
   description: 'Avansert yrkesutøvelse i helse og omsorg',
   curriculum: 'LK20',
   icon: '🩺',
-  coverImage: '/images/subjects/helseoppvekst-vg3-hero.png',
+  coverImage: '/images/subjects/helseoppvekst-vg3-hero.webp',
   chapters: [
     { id: 'helseoppvekst-vg3-1', number: '1', title: 'Profesjonalitet', description: 'Profesjonell yrkesutøvelse.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Etikk', 'Faglig utvikling'], competenceGoals: ['utøve yrket profesjonelt'] },
     { id: 'helseoppvekst-vg3-2', number: '2', title: 'Dokumentasjon', description: 'Journalføring og dokumentasjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Journal', 'Lovverk'], competenceGoals: ['dokumentere forsvarlig'] },
@@ -14158,37 +14185,78 @@ export const COURSE_ELEKTRO_DATA_VG1: TextbookCourse = {
   description: 'Introduksjon til elektronikk, programmering og digital teknologi',
   curriculum: 'LK20',
   icon: '⚡',
-  coverImage: '/images/subjects/elektro-data-vg1-hero.png',
+  coverImage: '/images/subjects/elektro-data-vg1-hero.webp',
   chapters: [
-    { id: 'elektro-data-vg1-1', number: '1', title: 'Elektronikk grunnleggende', description: 'Grunnleggende elektroniske prinsipper og komponenter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Elektrisitet', 'Elektronikk', 'Komponenter'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-2', number: '2', title: 'Kretser og komponenter', description: 'Bygging og analyse av elektriske kretser.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Kretsanalyse', 'Seriekobling', 'Parallellkobling'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-3', number: '3', title: 'Digital elektronikk', description: 'Digitale signaler og logiske porter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Digitale systemer', 'Logiske porter', 'Tallsystemer'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-4', number: '4', title: 'Programmering grunnleggende', description: 'Introduksjon til programmering og algoritmer.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Programmeringsspråk', 'Algoritmer', 'Variabler'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-5', number: '5', title: 'Nettverk og kommunikasjon', description: 'Nettverksteknologi og datakommunikasjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Nettverk', 'Protokoller', 'Dataoverføring'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-6', number: '6', title: 'Elektrisk energi', description: 'Energiproduksjon, overføring og forbruk.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Energi', 'Effekt', 'Energiforsyning'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-7', number: '7', title: 'Sikkerhet og HMS', description: 'Sikker arbeidsmetode og HMS-rutiner.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Arbeidssikkerhet', 'HMS', 'Førstehjelp'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-8', number: '8', title: 'Måleteknikk', description: 'Bruk av måleinstrumenter og måling av elektriske størrelser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Måleinstrumenter', 'Måleteknikk', 'Feilsøking'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-9', number: '9', title: 'Automasjon', description: 'Automatiserte systemer og styring.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Automatisering', 'Sensorer', 'Aktuatorer'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-10', number: '10', title: 'Styringssystemer', description: 'Programmering og drift av styringssystemer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['PLS', 'Styringssystemer', 'Programmering'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-11', number: '11', title: 'Energiforsyning', description: 'Fornybar energi og energiforvaltning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fornybar energi', 'Energisparing', 'Bærekraft'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-12', number: '12', title: 'Dokumentasjon og tegning', description: 'Teknisk dokumentasjon og elektroniske kretsskjemaer.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dokumentasjon', 'Kretsskjemaer', 'Standarder'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-13', number: '13', title: 'Bærekraft og teknologi', description: 'Bærekraftig bruk av elektronikk og energi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Gjenbruk'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier innen elektro og data.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Spesialisering'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-15', number: '15', title: 'Digitalteknikk - logiske porter og sannhetstabeller', description: 'Grunnleggende logiske porter og sannhetstabeller.', estimatedMinutes: 60, exerciseCount: 6, topics: ['AND/OR/NOT-porter', 'Sannhetstabeller', 'Boolsk algebra'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-16', number: '16', title: 'Digitalteknikk - flip-flops og tellere', description: 'Sekvensiell logikk og tellerkretsers virkemåte.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Flip-flops', 'Tellere', 'Sekvensiell logikk'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-17', number: '17', title: 'Mikrokontrollere og Arduino', description: 'Programmering av mikrokontrollere med Arduino-plattformen.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Arduino', 'Mikrokontrollere', 'Innebygde systemer'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-18', number: '18', title: 'Signalbehandling og filtre', description: 'Analoge og digitale filtre for signalbehandling.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Signalfiltrering', 'Lavpass-filter', 'Høypass-filter'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-19', number: '19', title: 'Elektriske installasjoner i bygg', description: 'Bygningsinstallasjoner og installasjonsmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Installasjoner', 'Kabelføring', 'NEK 400'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-20', number: '20', title: 'Fornybar energi - solceller', description: 'Solcelleteknologi og fotovoltaiske systemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Solenergi', 'Fotovoltaisk effekt', 'Solcellepaneler'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-21', number: '21', title: 'Fornybar energi - vindkraft', description: 'Vindkraftteknologi og generatorer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vindkraft', 'Generatorer', 'Vindindusering'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-22', number: '22', title: 'Feilsøking og måleteknikk', description: 'Systematisk feilsøking med måleinstrumenter.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Feilsøking', 'Multimeter', 'Oscilloskop'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-23', number: '23', title: 'Kommunikasjonsprotokoller (I2C, SPI, UART)', description: 'Serielle kommunikasjonsprotokoller i digitale systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['I2C', 'SPI', 'UART'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-24', number: '24', title: 'Sensorer og transdusere', description: 'Sensorer som omdanner fysiske størrelser til elektriske signaler.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sensorer', 'Transdusere', 'Signalomforming'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-25', number: '25', title: 'Aktuatorer og motorer', description: 'Motorer og aktuatorer i automatiserte systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Motorer', 'Aktuatorer', 'Servoer'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-26', number: '26', title: 'Reguleringsteknikk grunnleggende', description: 'Grunnleggende reguleringsteknikk og PID-regulering.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regulering', 'PID', 'Tilbakekobling'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-27', number: '27', title: 'PLS-programmering intro', description: 'Introduksjon til programmering av PLS-systemer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['PLS', 'Ladder-logikk', 'Industriell styring'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-28', number: '28', title: 'Elektromagnetisme og induksjon', description: 'Elektromagnetiske felt og elektromagnetisk induksjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Elektromagnetisme', 'Induksjon', 'Transformatorer'], competenceGoals: [] },
-    { id: 'elektro-data-vg1-29', number: '29', title: 'Prosjektarbeid og dokumentasjon', description: 'Gjennomføring av prosjekt med teknisk dokumentasjon.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Prosjektarbeid', 'Dokumentasjon', 'Rapportskriving'], competenceGoals: [] },
+    // Kapittel 1: Elektronikk og kretser
+    { id: 'elektro-data-vg1-1-1', number: '1.1', title: 'Spenning, strøm og motstand', description: 'Grunnleggende elektriske størrelser, Ohms lov og sammenhengen mellom spenning, strøm og motstand.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Spenning', 'Strøm', 'Motstand', 'Ohms lov', 'Elektrisk ladning'], competenceGoals: ['forklare grunnleggende elektriske størrelser og sammenhenger'] },
+    { id: 'elektro-data-vg1-1-2', number: '1.2', title: 'Elektrisk effekt og energi', description: 'Beregning av elektrisk effekt og energiforbruk i kretser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Effekt', 'Energi', 'Watt', 'Kilowattimer', 'Joule'], competenceGoals: ['beregne effekt og energi i elektriske kretser'] },
+    { id: 'elektro-data-vg1-1-3', number: '1.3', title: 'Seriekoblinger', description: 'Analyse av seriekoblede kretser med motstander, spenningsdeling og Kirchhoffs spenningslov.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Seriekobling', 'Spenningsdeling', 'Kirchhoffs spenningslov', 'Totalresistans'], competenceGoals: ['analysere og beregne elektriske kretser'] },
+    { id: 'elektro-data-vg1-1-4', number: '1.4', title: 'Parallellkoblinger', description: 'Analyse av parallellkoblede kretser med motstander, strømdeling og Kirchhoffs strømlov.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Parallellkobling', 'Strømdeling', 'Kirchhoffs strømlov', 'Ekvivalent motstand'], competenceGoals: ['analysere og beregne elektriske kretser'] },
+    { id: 'elektro-data-vg1-1-5', number: '1.5', title: 'Blandede kretser', description: 'Analyse av kretser med kombinasjoner av serie- og parallellkoblinger.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Blandede kretser', 'Kretsforenkling', 'Spenning og strøm i blandede kretser'], competenceGoals: ['analysere sammensatte elektriske kretser'] },
+    { id: 'elektro-data-vg1-1-6', number: '1.6', title: 'Passive komponenter', description: 'Resistorer, kondensatorer og spoler - oppbygning, egenskaper og bruksområder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Resistorer', 'Kondensatorer', 'Spoler', 'Fargekoder', 'Kapasitans', 'Induktans'], competenceGoals: ['forklare oppbygning og virkemåte til passive komponenter'] },
+    { id: 'elektro-data-vg1-1-7', number: '1.7', title: 'Halvlederkomponenter', description: 'Dioder, lysdioder og transistorer - oppbygning og bruk i kretser.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Dioder', 'LED', 'Transistorer', 'Halvledere', 'PN-overgang'], competenceGoals: ['forklare oppbygning og virkemåte til halvlederkomponenter'] },
+    { id: 'elektro-data-vg1-1-8', number: '1.8', title: 'Elektromagnetisme og induksjon', description: 'Magnetfelt rundt strømførende ledere, elektromagnetisk induksjon og transformatorer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Elektromagnetisme', 'Induksjon', 'Transformatorer', 'Magnetfelt', 'Faradays lov'], competenceGoals: ['forklare elektromagnetiske fenomener og deres anvendelser'] },
+    { id: 'elektro-data-vg1-1-9', number: '1.9', title: 'Signalbehandling og filtre', description: 'Analoge og digitale signaler, frekvens og grunnleggende filtertyper.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Signaltyper', 'Frekvens', 'Lavpassfilter', 'Høypassfilter', 'Amplitude'], competenceGoals: ['forklare grunnleggende signalbehandling'] },
+
+    // Kapittel 2: Digital elektronikk og logikk
+    { id: 'elektro-data-vg1-2-1', number: '2.1', title: 'Tallsystemer', description: 'Binære, oktale, desimale og heksadesimale tallsystemer og konvertering mellom dem.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Binærtall', 'Desimaltall', 'Heksadesimaltall', 'Oktaltall', 'Konvertering'], competenceGoals: ['bruke ulike tallsystemer i digitalteknikk'] },
+    { id: 'elektro-data-vg1-2-2', number: '2.2', title: 'Logiske porter', description: 'AND, OR, NOT, NAND, NOR og XOR - symboler, funksjoner og sannhetstabeller.', estimatedMinutes: 60, exerciseCount: 8, topics: ['AND-port', 'OR-port', 'NOT-port', 'NAND-port', 'NOR-port', 'XOR-port', 'Sannhetstabeller'], competenceGoals: ['forklare virkemåten til logiske porter'] },
+    { id: 'elektro-data-vg1-2-3', number: '2.3', title: 'Boolsk algebra', description: 'Boolske uttrykk, forenkling og De Morgans lover.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Boolsk algebra', 'De Morgans lover', 'Forenkling', 'Logiske uttrykk'], competenceGoals: ['bruke boolsk algebra til å forenkle logiske uttrykk'] },
+    { id: 'elektro-data-vg1-2-4', number: '2.4', title: 'Kombinatorisk logikk', description: 'Design av kombinatoriske kretser med multipleksere, dekodere og addere.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Multiplekser', 'Dekoder', 'Halvadderer', 'Heladderer', 'Kombinatoriske kretser'], competenceGoals: ['designe enkle kombinatoriske kretser'] },
+    { id: 'elektro-data-vg1-2-5', number: '2.5', title: 'Flip-flops og vipper', description: 'SR, D, JK og T flip-flops - oppbygning, sannhetstabeller og bruksområder.', estimatedMinutes: 60, exerciseCount: 6, topics: ['SR flip-flop', 'D flip-flop', 'JK flip-flop', 'T flip-flop', 'Klokke-signal'], competenceGoals: ['forklare virkemåten til ulike typer flip-flops'] },
+    { id: 'elektro-data-vg1-2-6', number: '2.6', title: 'Tellere og registre', description: 'Binære tellere, skiftregistre og deres anvendelser i digitale systemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Binære tellere', 'Skiftregistre', 'Synkrone tellere', 'Asynkrone tellere'], competenceGoals: ['forklare oppbygning og bruk av tellere og registre'] },
+    { id: 'elektro-data-vg1-2-7', number: '2.7', title: 'AD- og DA-omforming', description: 'Konvertering mellom analoge og digitale signaler med AD- og DA-omformere.', estimatedMinutes: 50, exerciseCount: 5, topics: ['AD-omformer', 'DA-omformer', 'Oppløsning', 'Samplingsfrekvens', 'Kvantisering'], competenceGoals: ['forklare prinsippene for analog-digital og digital-analog omforming'] },
+
+    // Kapittel 3: Programmering og mikrokontrollere
+    { id: 'elektro-data-vg1-3-1', number: '3.1', title: 'Introduksjon til programmering', description: 'Grunnleggende programmeringskonsepter, algoritmer og pseudokode.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Algoritmer', 'Pseudokode', 'Flytdiagram', 'Programmeringsmiljø'], competenceGoals: ['planlegge og beskrive algoritmer med pseudokode og flytdiagram'] },
+    { id: 'elektro-data-vg1-3-2', number: '3.2', title: 'Variabler, datatyper og operatorer', description: 'Variabler, datatyper, aritmetiske og logiske operatorer i Python.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Variabler', 'Datatyper', 'Operatorer', 'Tilordning', 'Python'], competenceGoals: ['bruke variabler og operatorer i programmering'] },
+    { id: 'elektro-data-vg1-3-3', number: '3.3', title: 'Kontrollstrukturer og løkker', description: 'If-setninger, for-løkker og while-løkker for styring av programflyt.', estimatedMinutes: 60, exerciseCount: 8, topics: ['If-setninger', 'For-løkker', 'While-løkker', 'Betingelser', 'Nøstede løkker'], competenceGoals: ['bruke kontrollstrukturer for å styre programflyt'] },
+    { id: 'elektro-data-vg1-3-4', number: '3.4', title: 'Funksjoner og modularitet', description: 'Definere og bruke funksjoner, parametre og returverdier for gjenbrukbar kode.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Funksjoner', 'Parametre', 'Returverdier', 'Modularisering', 'Scope'], competenceGoals: ['strukturere programmer med funksjoner'] },
+    { id: 'elektro-data-vg1-3-5', number: '3.5', title: 'Lister og datastrukturer', description: 'Bruk av lister, tupler og ordbøker for lagring og behandling av data.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Lister', 'Tupler', 'Ordbøker', 'Indeksering', 'Iterering'], competenceGoals: ['bruke datastrukturer for å organisere data'] },
+    { id: 'elektro-data-vg1-3-6', number: '3.6', title: 'Mikrokontrollere og Arduino', description: 'Introduksjon til Arduino-plattformen, maskinvare og utviklingsmiljø.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Arduino', 'Mikrokontrollere', 'Arduino IDE', 'Digitale pinner', 'Analoge pinner'], competenceGoals: ['sette opp og programmere en mikrokontroller'] },
+    { id: 'elektro-data-vg1-3-7', number: '3.7', title: 'Arduino-programmering og prosjekter', description: 'Programmering av Arduino med sensorer, aktuatorer og praktiske prosjekter.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Sensoravlesning', 'Motorstyring', 'LED-styring', 'Seriell kommunikasjon', 'Biblioteker'], competenceGoals: ['programmere mikrokontrollere for å styre fysiske komponenter'] },
+    { id: 'elektro-data-vg1-3-8', number: '3.8', title: 'IoT og nettverkstilkobling', description: 'Koble mikrokontrollere til internett og bygge enkle IoT-løsninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['IoT', 'WiFi-modul', 'MQTT', 'Skytjenester', 'Datainnsamling'], competenceGoals: ['utvikle enkle IoT-løsninger med mikrokontrollere'] },
+    { id: 'elektro-data-vg1-3-9', number: '3.9', title: 'Feilsøking og testing av programmer', description: 'Systematisk feilsøking, debugging-teknikker og testing av programkode.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Debugging', 'Syntaksfeil', 'Logiske feil', 'Testmetoder', 'Feilmeldinger'], competenceGoals: ['feilsøke og teste programmer systematisk'] },
+
+    // Kapittel 4: Nettverk og kommunikasjon
+    { id: 'elektro-data-vg1-4-1', number: '4.1', title: 'Nettverksgrunnlag og topologier', description: 'Grunnleggende nettverkskonsepter, nettverkstyper og topologier.', estimatedMinutes: 50, exerciseCount: 5, topics: ['LAN', 'WAN', 'Topologier', 'Klient-tjener', 'Peer-to-peer'], competenceGoals: ['forklare grunnleggende nettverksbegreper og topologier'] },
+    { id: 'elektro-data-vg1-4-2', number: '4.2', title: 'OSI-modellen og TCP/IP', description: 'Referansemodeller for datakommunikasjon og protokollstakken.', estimatedMinutes: 60, exerciseCount: 6, topics: ['OSI-modellen', 'TCP/IP', 'Protokollstakk', 'Lagdeling', 'Innkapsling'], competenceGoals: ['forklare prinsippene i OSI-modellen og TCP/IP'] },
+    { id: 'elektro-data-vg1-4-3', number: '4.3', title: 'IP-adressering og subnetting', description: 'IPv4-adresser, subnettmasker og grunnleggende nettverksoppsett.', estimatedMinutes: 55, exerciseCount: 7, topics: ['IPv4', 'Subnettmaske', 'Gateway', 'DNS', 'DHCP'], competenceGoals: ['konfigurere grunnleggende nettverksinnstillinger'] },
+    { id: 'elektro-data-vg1-4-4', number: '4.4', title: 'Trådløs kommunikasjon', description: 'WiFi, Bluetooth og andre trådløse teknologier for datakommunikasjon.', estimatedMinutes: 50, exerciseCount: 5, topics: ['WiFi', 'Bluetooth', 'Zigbee', 'Trådløs sikkerhet', 'Frekvenser'], competenceGoals: ['forklare prinsippene bak trådløs kommunikasjon'] },
+    { id: 'elektro-data-vg1-4-5', number: '4.5', title: 'Serielle kommunikasjonsprotokoller', description: 'I2C, SPI og UART - protokoller for kommunikasjon mellom elektroniske enheter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['I2C', 'SPI', 'UART', 'Seriell kommunikasjon', 'Bussystemer'], competenceGoals: ['forklare og bruke serielle kommunikasjonsprotokoller'] },
+    { id: 'elektro-data-vg1-4-6', number: '4.6', title: 'Nettverksutstyr og kabelsystemer', description: 'Svitsjer, rutere, kabler og fiberoptikk i moderne nettverk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Svitsj', 'Ruter', 'Ethernet-kabel', 'Fiberoptikk', 'Patchepanel'], competenceGoals: ['identifisere og forklare nettverkskomponenter og kabelsystemer'] },
+
+    // Kapittel 5: Energi og installasjoner
+    { id: 'elektro-data-vg1-5-1', number: '5.1', title: 'Energiproduksjon og -distribusjon', description: 'Kraftproduksjon i Norge, overføringsnett og distribusjon av elektrisk energi.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vannkraft', 'Kraftnett', 'Distribusjon', 'Energiforsyning', 'Spenningsnivåer'], competenceGoals: ['forklare hvordan elektrisk energi produseres og distribueres'] },
+    { id: 'elektro-data-vg1-5-2', number: '5.2', title: 'Solceller og solenergi', description: 'Fotovoltaisk effekt, solcellepaneler, virkningsgrad og dimensjonering.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fotovoltaisk effekt', 'Solcellepaneler', 'Virkningsgrad', 'Dimensjonering', 'Invertere'], competenceGoals: ['forklare og dimensjonere solcelleanlegg'] },
+    { id: 'elektro-data-vg1-5-3', number: '5.3', title: 'Vindkraft og andre fornybare energikilder', description: 'Vindturbiner, generatorer og andre fornybare energiteknologier.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Vindturbiner', 'Generatorer', 'Bølgekraft', 'Varmepumper', 'Energilagring'], competenceGoals: ['forklare prinsippene bak fornybare energikilder'] },
+    { id: 'elektro-data-vg1-5-4', number: '5.4', title: 'Elektriske installasjoner i bygg', description: 'Bygningsinstallasjoner, kursopplegg og installasjonsmetoder etter forskrifter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kursopplegg', 'Installasjonsmetoder', 'Kabeltyper', 'Forlegning', 'Koblingsskjema'], competenceGoals: ['forklare grunnleggende elektriske installasjoner i bygg'] },
+    { id: 'elektro-data-vg1-5-5', number: '5.5', title: 'Forskrifter og NEK 400', description: 'Norske forskrifter for elektriske installasjoner og krav til utførelse.', estimatedMinutes: 50, exerciseCount: 4, topics: ['NEK 400', 'FEL', 'FSE', 'Forskrifter', 'Krav til installasjoner'], competenceGoals: ['gjøre rede for gjeldende forskrifter for elektriske installasjoner'] },
+    { id: 'elektro-data-vg1-5-6', number: '5.6', title: 'Vern og jordfeil', description: 'Sikringer, jordfeilbrytere, overspenningsvern og beskyttelse mot elektrisk støt.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sikringer', 'Jordfeilbryter', 'Overspenningsvern', 'Jording', 'Beskyttelsesklasser'], competenceGoals: ['forklare prinsippene for vern og beskyttelse i elektriske anlegg'] },
+    { id: 'elektro-data-vg1-5-7', number: '5.7', title: 'Motorer og transformatorer', description: 'Virkemåte og bruksområder for elektriske motorer og transformatorer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['DC-motorer', 'AC-motorer', 'Transformatorer', 'Virkningsgrad', 'Trefasesystem'], competenceGoals: ['forklare virkemåten til elektriske motorer og transformatorer'] },
+
+    // Kapittel 6: Automasjon og styring
+    { id: 'elektro-data-vg1-6-1', number: '6.1', title: 'Sensorer og måleteknikk', description: 'Ulike sensortyper, måleprinsipper og bruk av måleinstrumenter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Temperatursensorer', 'Trykksensorer', 'Lyssensorer', 'Multimeter', 'Oscilloskop'], competenceGoals: ['velge og bruke sensorer og måleinstrumenter'] },
+    { id: 'elektro-data-vg1-6-2', number: '6.2', title: 'Aktuatorer og pådragsorganer', description: 'Motorer, ventiler, servoer og andre aktuatorer i automatiserte systemer.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Servomotorer', 'Steppermotorer', 'Magnetventiler', 'Pneumatiske aktuatorer', 'Motorstyring'], competenceGoals: ['forklare virkemåten til ulike aktuatorer'] },
+    { id: 'elektro-data-vg1-6-3', number: '6.3', title: 'Reguleringsteknikk', description: 'Grunnleggende reguleringsteknikk med PID-regulering og tilbakekoblingssystemer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regulering', 'PID-regulering', 'Tilbakekobling', 'Settpunkt', 'Prosessvariabel'], competenceGoals: ['forklare grunnleggende prinsipper for reguleringsteknikk'] },
+    { id: 'elektro-data-vg1-6-4', number: '6.4', title: 'PLS-systemer og programmering', description: 'Introduksjon til PLS-systemer, ladder-logikk og grunnleggende programmering.', estimatedMinutes: 65, exerciseCount: 6, topics: ['PLS', 'Ladder-logikk', 'Funksjonsblokk', 'Innganger og utganger', 'Tidsfunksjoner'], competenceGoals: ['programmere enkle PLS-programmer'] },
+    { id: 'elektro-data-vg1-6-5', number: '6.5', title: 'Industriell automasjon', description: 'Automatiserte produksjonssystemer, roboter og industrielle prosesser.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Produksjonsautomasjon', 'Industriroboter', 'Prosessindustri', 'SCADA', 'HMI'], competenceGoals: ['forklare oppbygning og funksjon av automatiserte systemer i industrien'] },
+    { id: 'elektro-data-vg1-6-6', number: '6.6', title: 'Feilsøking og systematisk vedlikehold', description: 'Systematiske metoder for feilsøking i elektriske og automatiserte systemer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Feilsøkingsmetodikk', 'Systematisk feilsøking', 'Multimeter-bruk', 'Signalsporing', 'Vedlikeholdsrutiner'], competenceGoals: ['utføre systematisk feilsøking i elektriske anlegg og automatiserte systemer'] },
+    { id: 'elektro-data-vg1-6-7', number: '6.7', title: 'Smarthus og bygningsautomasjon', description: 'Automatisering av boliger og bygg med smarthus-teknologi og KNX-systemer.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Smarthus', 'KNX', 'Lysstyring', 'Varmestyring', 'Bygningsautomasjon'], competenceGoals: ['forklare prinsipper og teknologier for smarthus og bygningsautomasjon'] },
+
+    // Kapittel 7: Sikkerhet, HMS og bærekraft
+    { id: 'elektro-data-vg1-7-1', number: '7.1', title: 'Elsikkerhet og fareforhold', description: 'Fare ved elektrisk strøm, sikker arbeidspraksis og risikovurdering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Strømpåvirkning', 'Risikovurdering', 'Sikker arbeidspraksis', 'Spenningsgrenser', 'Berøringsspenning'], competenceGoals: ['vurdere risiko og arbeide sikkert med elektriske anlegg'] },
+    { id: 'elektro-data-vg1-7-2', number: '7.2', title: 'HMS-rutiner og arbeidsmiljø', description: 'HMS-lovgivning, vernearbeid og personlig verneutstyr i elektrofaget.', estimatedMinutes: 45, exerciseCount: 4, topics: ['HMS-lovgivning', 'Arbeidsmiljøloven', 'Verneutstyr', 'Risikoanalyse', 'Verneombud'], competenceGoals: ['følge gjeldende HMS-regelverk og bruke verneutstyr'] },
+    { id: 'elektro-data-vg1-7-3', number: '7.3', title: 'Førstehjelp ved strømulykker', description: 'Livreddende førstehjelp og tiltak ved elektriske ulykker.', estimatedMinutes: 40, exerciseCount: 4, topics: ['Førstehjelp', 'HLR', 'Strømulykker', 'Branntiltak', 'Alarmrutiner'], competenceGoals: ['utføre livreddende førstehjelp ved strømulykker'] },
+    { id: 'elektro-data-vg1-7-4', number: '7.4', title: 'Bærekraftig teknologi og miljø', description: 'Bærekraftig utvikling, miljøpåvirkning av elektronikk og energieffektivisering.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Energieffektivisering', 'Miljøpåvirkning', 'Klimamål', 'FNs bærekraftsmål'], competenceGoals: ['drøfte teknologiske løsninger i et bærekraftperspektiv'] },
+    { id: 'elektro-data-vg1-7-5', number: '7.5', title: 'Gjenbruk, avfallshåndtering og sirkulær økonomi', description: 'Ansvarlig håndtering av elektronisk avfall, resirkulering og sirkulær økonomi.', estimatedMinutes: 45, exerciseCount: 4, topics: ['EE-avfall', 'Resirkulering', 'Sirkulær økonomi', 'Miljøfarlige stoffer', 'Gjenbruk'], competenceGoals: ['gjøre rede for ansvarlig avfallshåndtering og gjenbruk av elektronikk'] },
+
+    // Kapittel 8: Prosjektarbeid og yrke
+    { id: 'elektro-data-vg1-8-1', number: '8.1', title: 'Prosjektplanlegging og -styring', description: 'Metoder for planlegging, gjennomføring og evaluering av tekniske prosjekter.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Prosjektplanlegging', 'Gantt-diagram', 'Milepæler', 'Ressursstyring', 'Prosjektfaser'], competenceGoals: ['planlegge og gjennomføre tekniske prosjekter'] },
+    { id: 'elektro-data-vg1-8-2', number: '8.2', title: 'Teknisk dokumentasjon og tegning', description: 'Kretsskjemaer, koblingsskjemaer og teknisk dokumentasjon etter standarder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kretsskjemaer', 'Koblingsskjemaer', 'Symboler', 'Standarder', 'Dokumentasjonskrav'], competenceGoals: ['lage teknisk dokumentasjon etter gjeldende standarder'] },
+    { id: 'elektro-data-vg1-8-3', number: '8.3', title: 'Rapportskriving og presentasjon', description: 'Skrive tekniske rapporter og presentere prosjektarbeid faglig.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Rapportstruktur', 'Faglig skriving', 'Presentasjonsteknikk', 'Kildehenvisning'], competenceGoals: ['dokumentere og presentere eget arbeid faglig'] },
+    { id: 'elektro-data-vg1-8-4', number: '8.4', title: 'Karriereveier i elektro og data', description: 'Yrkesmuligheter, spesialisering og videre utdanning innen elektro- og databransjen.', estimatedMinutes: 45, exerciseCount: 3, topics: ['Elektriker', 'Automatiker', 'Dataelektroniker', 'Energimontør', 'Ingeniørstudier'], competenceGoals: ['gjøre rede for yrkesmuligheter innen elektro- og datafagene'] },
+    { id: 'elektro-data-vg1-8-5', number: '8.5', title: 'Lærlingordning og fagbrev', description: 'Lærlingordningen, opplæring i bedrift og veien til fagbrev.', estimatedMinutes: 40, exerciseCount: 3, topics: ['Lærlingordning', 'Fagbrev', 'Opplæring i bedrift', 'Svenneprøve', 'Rettigheter og plikter'], competenceGoals: ['forklare lærlingordningen og veien til fagbrev'] },
   ],
 };
 
@@ -14203,7 +14271,7 @@ export const COURSE_TIF_VG1: TextbookCourse = {
   description: 'Grunnleggende teknologi, materiallære og produksjonsteknikker',
   curriculum: 'LK20',
   icon: '🔧',
-  coverImage: '/images/subjects/tif-vg1-hero.png',
+  coverImage: '/images/subjects/tif-vg1-hero.webp',
   chapters: [
     { id: 'tif-vg1-1', number: '1', title: 'Materiallære', description: 'Egenskaper og bruk av ulike materialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Metaller', 'Plast', 'Kompositter'], competenceGoals: [] },
     { id: 'tif-vg1-2', number: '2', title: 'Sveising og sammenføyning', description: 'Teknikker for å sammenføye materialer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Sveising', 'Lodding', 'Liming'], competenceGoals: [] },
@@ -14247,37 +14315,78 @@ export const COURSE_BYGG_ANLEGG_VG1: TextbookCourse = {
   description: 'Grunnleggende byggteknikk, materialer og konstruksjonsmetoder',
   curriculum: 'LK20',
   icon: '🏗️',
-  coverImage: '/images/subjects/bygg-anlegg-vg1-hero.png',
+  coverImage: '/images/subjects/bygg-anlegg-vg1-hero.webp',
   chapters: [
-    { id: 'bygg-anlegg-vg1-1', number: '1', title: 'Byggematerialer', description: 'Egenskaper og bruk av byggematerialer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Betong', 'Tre', 'Tegl'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-2', number: '2', title: 'Tegning og BIM', description: 'Byggetegninger og digitale verktøy.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Byggetegninger', 'BIM', 'Målestokk'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-3', number: '3', title: 'Grunnarbeid og betong', description: 'Fundamentering og betongarbeider.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Grunnarbeid', 'Betongstøping', 'Forskaling'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-4', number: '4', title: 'Trekonstruksjoner', description: 'Bygging med tre og trekonstruksjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Bindingsverk', 'Takstol', 'Trebearbeiding'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-5', number: '5', title: 'Muring og pussing', description: 'Murverksteknikk og overflatebehandling.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Muring', 'Puss', 'Murblokker'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-6', number: '6', title: 'Verktøy og maskiner', description: 'Bruk og vedlikehold av byggverktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Håndverktøy', 'Maskiner', 'Vedlikehold'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-7', number: '7', title: 'HMS og sikkerhet', description: 'Sikker arbeidsmetode på byggeplass.', estimatedMinutes: 50, exerciseCount: 4, topics: ['HMS', 'Verneutstyr', 'Sikkerhet'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-8', number: '8', title: 'Isolasjon og tetting', description: 'Energi og fuktsperre i bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Isolasjon', 'Dampsperre', 'Tetting'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-9', number: '9', title: 'Bygningsfysikk', description: 'Varme, fukt og lyd i bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Varmeisolering', 'Fuktsperre', 'Lyddemping'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-10', number: '10', title: 'Prosjektplanlegging', description: 'Planlegging av byggeprosjekter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Prosjektplanlegging', 'Kostnadsberegning', 'Fremdrift'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-11', number: '11', title: 'Miljø og bærekraft', description: 'Miljøvennlig bygging og gjenbruk.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Miljø', 'Sirkulær økonomi'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-12', number: '12', title: 'Yrkesmuligheter', description: 'Karriereveier innen bygg og anlegg.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Fagbrev', 'Spesialisering'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-13', number: '13', title: 'Drenering og fuktsikring', description: 'Drenering av bygninger og håndtering av fukt.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drenering', 'Fuktsikring', 'Drensledning'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-14', number: '14', title: 'Stillas og fallsikring', description: 'Oppbygging av stillaser og sikring mot fall.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Stillas', 'Fallsikring', 'Arbeidsplattform'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-15', number: '15', title: 'Takarbeid og taktekking', description: 'Takkonstruksjoner og ulike typer taktekking.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Takarbeid', 'Takstein', 'Taktekking'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-16', number: '16', title: 'Rørleggerarbeid grunnleggende', description: 'Grunnleggende teknikker i rørleggerarbeid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rørlegging', 'Sanitæranlegg', 'Vannledning'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-17', number: '17', title: 'Ventilasjon grunnleggende', description: 'Ventilasjonsanlegg og luftbehandling i bygg.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Ventilasjon', 'Luftbehandling', 'Ventilasjonskanaler'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-18', number: '18', title: 'Våtrom og membran', description: 'Bygging av våtrom og bruk av membran.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Våtrom', 'Membran', 'Fliser'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-19', number: '19', title: 'Innvendig arbeid og overflater', description: 'Innvendig overflatebehandling og innredning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Overflater', 'Gipsplater', 'Sparkkel'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-20', number: '20', title: 'Anleggsmaskiner og sikkerhet', description: 'Bruk av anleggsmaskiner og sikkerhet på anleggsplasser.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Anleggsmaskiner', 'Gravemaskin', 'Sikkerhet'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-21', number: '21', title: 'Veibygging grunnleggende', description: 'Grunnleggende teknikker for bygging av veier.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Veibygging', 'Asfalt', 'Bærelag'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-22', number: '22', title: 'Betongforskaling', description: 'Forskaling for støping av betongkonstruksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Forskaling', 'Betongstøping', 'Armering'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-23', number: '23', title: 'Rehabilitering og renovering', description: 'Oppgradering og restaurering av eksisterende bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rehabilitering', 'Renovering', 'Restaurering'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-24', number: '24', title: 'Brannsikring og rømningsveier', description: 'Brannsikring av bygninger og utforming av rømningsveier.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Brannsikring', 'Rømningsveier', 'Brannpåvirkning'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-25', number: '25', title: 'Energieffektivisering og BREEAM', description: 'Energieffektive løsninger og miljøsertifisering.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Energieffektivisering', 'BREEAM', 'Passivhus'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-26', number: '26', title: 'Digitale verktøy i bygg (BIM)', description: 'BIM og digitale verktøy i byggeprosessen.', estimatedMinutes: 60, exerciseCount: 5, topics: ['BIM', 'Digitalisering', '3D-modellering'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-27', number: '27', title: 'Byggelogistikk og rigging', description: 'Planlegging av logistikk og rigging på byggeplass.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Byggelogistikk', 'Rigging', 'Materialflyt'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-28', number: '28', title: 'Kvalitetssikring og kontroll', description: 'Kvalitetssikringssystemer i byggeprosessen.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kvalitetssikring', 'Kontrollplan', 'SHA-plan'], competenceGoals: [] },
-    { id: 'bygg-anlegg-vg1-29', number: '29', title: 'Sluttprosjekt og dokumentasjon', description: 'Gjennomføring av sluttprosjekt med fullstendig dokumentasjon.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Prosjekt', 'Dokumentasjon', 'Presentasjon'], competenceGoals: [] },
+    // Kapittel 1: Byggematerialer og materialegenskaper
+    { id: 'bygg-anlegg-vg1-1-1', number: '1.1', title: 'Introduksjon til byggematerialer', description: 'Oversikt over de viktigste byggematerialene i Norge, deres historiske utvikling og betydning i moderne bygging.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Byggematerialer', 'Materialhistorikk', 'Norsk byggetradisjon'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-1-2', number: '1.2', title: 'Tre som byggemateriale', description: 'Treslag, trevirkeegenskaper, fuktinnhold, styrke og bruksområder for trevirke i konstruksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Gran', 'Furu', 'Limtre', 'CLT', 'Trevirkeegenskaper', 'Fuktinnhold'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner', 'oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-1-3', number: '1.3', title: 'Betong og sement', description: 'Betongtyper, sementsammensetning, tilslag, vann-sement-forhold og betongegenskaper.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Betong', 'Sement', 'Tilslag', 'v/c-tall', 'Herding', 'Fasthetsklasser'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-1-4', number: '1.4', title: 'Stål og metaller', description: 'Stålkvaliteter, armeringsstål, korrosjon, aluminium og andre metaller i byggenæringen.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Konstruksjonsstål', 'Armeringsstål', 'Korrosjonsbeskyttelse', 'Aluminium', 'Metallbearbeiding'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-1-5', number: '1.5', title: 'Tegl, mur og naturstein', description: 'Ulike murstein- og blokktyper, naturstein, lettklinkerblokker og deres egenskaper.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Teglstein', 'Lettklinkerblokker', 'Naturstein', 'Mørtel', 'Puss'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner', 'utforske og presentere kjennetegn ved kulturarv og byggeskikk'] },
+    { id: 'bygg-anlegg-vg1-1-6', number: '1.6', title: 'Isolasjonsmaterialer', description: 'Mineralull, EPS, XPS, trefiber og andre isolasjonsmaterialer med fokus på varmeledningsevne og bruksområder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Mineralull', 'EPS', 'XPS', 'Trefiber', 'Lambda-verdi', 'U-verdi'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner', 'oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-1-7', number: '1.7', title: 'Platematerialer og overflatematerialer', description: 'Gipsplater, sponplater, OSB, finer, membran og andre platematerialer brukt i bygg.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Gipsplater', 'Sponplater', 'OSB', 'Finerplater', 'Overflatebehandling'], competenceGoals: ['oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-1-8', number: '1.8', title: 'Materialberegning og bærekraftig materialvalg', description: 'Beregning av materialmengder, svinn, miljødeklarasjoner (EPD) og bærekraftige alternativer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Mengdeberegning', 'Svinn', 'EPD', 'Miljødeklarasjoner', 'Klimafotavtrykk', 'Sirkulær økonomi'], competenceGoals: ['oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+
+    // Kapittel 2: Trekonstruksjoner og trearbeid
+    { id: 'bygg-anlegg-vg1-2-1', number: '2.1', title: 'Bindingsverk og bæresystemer i tre', description: 'Stenderverkkonstruksjoner, bjelkelag, dimensjonering og oppbygging av bærende trekonstruksjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Bindingsverk', 'Stenderverk', 'Bjelkelag', 'Svill', 'Losholter', 'Dimensjonering'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-2-2', number: '2.2', title: 'Takstolkonstruksjoner', description: 'Prefabrikkerte og plassbyggede takstoltyper, dimensjonering, montering og avstiving.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Takstoltyper', 'W-takstol', 'Saksestol', 'Montering', 'Avstiving'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-2-3', number: '2.3', title: 'Trebearbeiding og sammenføyninger', description: 'Kapping, høvling, saging, boring og ulike sammenføyningsteknikker for trevirke.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Trebearbeiding', 'Saging', 'Skjøting', 'Spikring', 'Skruing', 'Bolteforbindelser'], competenceGoals: ['velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering', 'planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-2-4', number: '2.4', title: 'Utvendig kledning og vindsperre', description: 'Montering av vindsperre, lekting, utlekting og ulike kledningstyper i tre.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Vindsperre', 'Utlekting', 'Trekledning', 'Paneltyper', 'Overflatebehandling'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-2-5', number: '2.5', title: 'Norsk trebyggetradisjon og kulturarv', description: 'Historiske trebyggeteknikker, lafting, stavbygg, verneverdi og tradisjonshåndverk i norsk kontekst.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Lafting', 'Stavbygg', 'Grindverk', 'Kulturminner', 'Trebebyggelse', 'Verneverdi'], competenceGoals: ['utforske og presentere kjennetegn ved kulturarv og byggeskikk'] },
+
+    // Kapittel 3: Betong, muring og grunnarbeid
+    { id: 'bygg-anlegg-vg1-3-1', number: '3.1', title: 'Grunnforhold og grunnundersøkelser', description: 'Jordarter, bæreevne, grunnundersøkelser og vurdering av byggegrunn.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Jordarter', 'Bæreevne', 'Grunnundersøkelser', 'Grunnvann', 'Setninger'], competenceGoals: ['planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-3-2', number: '3.2', title: 'Graving og fundamentering', description: 'Utgravingsmetoder, fundamenttyper, frostsikring og bunnforsterkning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Graving', 'Stripefundament', 'Punktfundament', 'Plategrunn', 'Frostfritt', 'Kapillarbrytende lag'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-3-3', number: '3.3', title: 'Forskaling for betong', description: 'Forskalingstyper, forskalingssystemer, dimensjonering og praktisk oppbygging av forskalingsformer.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Plassforskaling', 'Systemforskaling', 'Forskalingstrykk', 'Forskalingsolje', 'Avformingstid'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-3-4', number: '3.4', title: 'Armering', description: 'Armeringstyper, armeringstegninger, bøying, binding og plassering av armering i betongkonstruksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Armeringsstål', 'Armeringstegninger', 'Overdekning', 'Bøying', 'Binding', 'Distanseholder'], competenceGoals: ['forstå og arbeide etter tegninger og beskrivelser', 'planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-3-5', number: '3.5', title: 'Betongstøping og herding', description: 'Blanding, transport, utstøping, komprimering og herdeforhold for betong.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Betongblanding', 'Utstøping', 'Vibrering', 'Herdetiltak', 'Vinterstøping', 'Kvalitetskontroll'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-3-6', number: '3.6', title: 'Muring med tegl og blokk', description: 'Muringsteknikk, forbandt, blokkmuring, mørteltyper og kvalitetskrav.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Muringsteknikk', 'Forbandttyper', 'Blokkmuring', 'Fugefylling', 'Mørtel', 'Loddesnor'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-3-7', number: '3.7', title: 'Pussing og overflatebehandling av mur', description: 'Pussteknikker, pusstyper, sparkling og overflatebehandling av mur- og betongflater.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Sementpuss', 'Kalkpuss', 'Sparkelteknikk', 'Overflatebehandling', 'Grunnarbeid'], competenceGoals: ['velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-3-8', number: '3.8', title: 'Drenering og fuktsikring av grunnmur', description: 'Dreneringsprinsipper, drensrør, fuktisolering av grunnmur og radonsperre.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Drenering', 'Drensrør', 'Grunnmursisolering', 'Fuktsperre', 'Radonsperre', 'Filterlag'], competenceGoals: ['planlegge og bygge en konstruksjon', 'oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-3-9', number: '3.9', title: 'Rehabilitering av betong- og murkonstruksjoner', description: 'Skader på betong og mur, tilstandsvurdering, reparasjonsmetoder og vedlikehold.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Betongskader', 'Armeringskorrosjon', 'Frostsprengning', 'Reparasjon', 'Vedlikehold', 'Tilstandsvurdering'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+
+    // Kapittel 4: Tak, fasade og utvendige arbeider
+    { id: 'bygg-anlegg-vg1-4-1', number: '4.1', title: 'Takkonstruksjoner og takformer', description: 'Ulike taktyper, bæresystemer for tak, takvinkel og dimensjonering.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Saltak', 'Pulttak', 'Flatt tak', 'Valmtak', 'Takvinkel', 'Bæresystem'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-4-2', number: '4.2', title: 'Taktekking og takrenner', description: 'Ulike taktekkingsmaterialer, montering av takstein, takplater og takrenneanlegg.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Takstein', 'Takplater', 'Takpapp', 'Undertak', 'Takrenner', 'Beslag'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-4-3', number: '4.3', title: 'Isolasjon og dampsperre i tak og vegger', description: 'Isolasjonsprinsipper, dampsperre, vindsperre, lufting og kondensproblematikk i klimaskallet.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Varmeisolasjon', 'Dampsperre', 'Lufttetting', 'Kondens', 'Kuldebroer', 'Lufting'], competenceGoals: ['planlegge og bygge en konstruksjon', 'oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-4-4', number: '4.4', title: 'Fasadesystemer og vinduer', description: 'Fasadematerialer, vindusmontering, dør- og vindusinnsetting og tetteløsninger.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Fasadekledning', 'Vindusmontering', 'Dørinnsetting', 'Tettelister', 'Beslag'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-4-5', number: '4.5', title: 'Bygningsfysikk - varme, fukt og lyd', description: 'Grunnleggende bygningsfysikk med fokus på varmetransport, fuktmekanismer og lyddemping i bygninger.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Varmetransport', 'U-verdi', 'Duggpunkt', 'Fuktmekanismer', 'Lydklasser', 'Lyddemping'], competenceGoals: ['planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-4-6', number: '4.6', title: 'Rehabilitering og oppgradering av fasader og tak', description: 'Etterisolering, fasaderehabilitering, takutbedring og energioppgradering av eksisterende bygg.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Etterisolering', 'Fasaderehabilitering', 'Takutbedring', 'Energioppgradering', 'TEK17'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner', 'planlegge og bygge en konstruksjon'] },
+
+    // Kapittel 5: Innvendige arbeider og tekniske installasjoner
+    { id: 'bygg-anlegg-vg1-5-1', number: '5.1', title: 'Innvendig kledning og gipsarbeid', description: 'Montering av gipsplater, bindingsverk for innervegger, sparkelteknikk og overflatebehandling.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Gipsplater', 'Stålstendere', 'Sparkelteknikk', 'Maling', 'Innervegger'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-5-2', number: '5.2', title: 'Gulvlegging og gulvkonstruksjoner', description: 'Undergulv, avrettingsmasse, gulvbelegg, parkett, fliser og gulvvarme.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Undergulv', 'Avrettingsmasse', 'Parkett', 'Vinyl', 'Fliser', 'Gulvvarme'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+    { id: 'bygg-anlegg-vg1-5-3', number: '5.3', title: 'Våtrom og membranarbeid', description: 'Krav til våtrom, membranlegging, fall til sluk, flislegging og bransjens våtromsnorm.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Våtromsnorm', 'Membran', 'Fallberegning', 'Sluk', 'Flislegging', 'Tettesjikt'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-5-4', number: '5.4', title: 'Grunnleggende rørleggerarbeid', description: 'Rørtyper, rørsystemer, sanitæranlegg, koblings- og loddeteknikk for VVS-installasjoner.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rørtyper', 'Sanitæranlegg', 'Avløp', 'Vannledning', 'Koblingsprinsipper'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-5-5', number: '5.5', title: 'Grunnleggende ventilasjon', description: 'Ventilasjonsprinsipper, mekanisk og naturlig ventilasjon, kanalsystemer og luftkvalitet.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Ventilasjonsprinsipper', 'Balansert ventilasjon', 'Kanalsystemer', 'Luftkvalitet', 'Varmegjenvinning'], competenceGoals: ['planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-5-6', number: '5.6', title: 'Brannsikring og rømningsveier', description: 'Brannklasser, branncellebegrensende konstruksjoner, branntetting, rømningskrav og sprinkling.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Brannklasser', 'Brannceller', 'Rømningsveier', 'Branntetting', 'Sprinkler', 'TEK17-krav'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-5-7', number: '5.7', title: 'Rehabilitering og renovering av innvendige rom', description: 'Oppgradering av eldre bygninger, rivningsarbeid, asbestsanering og restaurering av interiør.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Rivningsarbeid', 'Asbest', 'Restaurering', 'Oppgradering', 'Bygningsvern'], competenceGoals: ['utforske og presentere kjennetegn ved kulturarv og byggeskikk', 'velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner'] },
+
+    // Kapittel 6: Anleggsteknikk
+    { id: 'bygg-anlegg-vg1-6-1', number: '6.1', title: 'Anleggsmaskiner og maskinføring', description: 'Gravemaskin, hjullaster, dumper og andre anleggsmaskiner, sikkerhet og grunnleggende maskinføring.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Gravemaskin', 'Hjullaster', 'Dumper', 'Maskinførerbevis', 'Maskinsikkerhet'], competenceGoals: ['velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering', 'velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk'] },
+    { id: 'bygg-anlegg-vg1-6-2', number: '6.2', title: 'Veibygging og veioppbygging', description: 'Vegkroppen, bærelag, forsterkningslag, asfalt og grøfteteknikk for veianlegg.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vegkropp', 'Bærelag', 'Forsterkningslag', 'Asfalt', 'Grøfter', 'Komprimering'], competenceGoals: ['planlegge og bygge en konstruksjon', 'velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-6-3', number: '6.3', title: 'Vann- og avløpsanlegg i grunnen', description: 'VA-ledninger, kummer, rørlegging i grøft, tetthetsprøving og krav til vann- og avløpssystemer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['VA-ledninger', 'Kummer', 'Rørlegging', 'Tetthetsprøving', 'Selvfall', 'Pumpestasjoner'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-6-4', number: '6.4', title: 'Landmåling og utsetting', description: 'Grunnleggende landmåling, nivelleringsinstrumenter, totalstasjon, GPS og utsetting av bygninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Landmåling', 'Nivellering', 'Totalstasjon', 'GPS', 'Utsetting', 'Høydesystem'], competenceGoals: ['bruke digitale ressurser til å beregne, måle opp og merke etter beskrivelse og tegning', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-6-5', number: '6.5', title: 'Sprengning og masseforflytning', description: 'Grunnleggende sprengningsteori, massetransport, masseberegning og sikkerhet ved sprengning.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Sprengning', 'Masseforflytning', 'Masseberegning', 'Sikkerhetssoner', 'Nabovarsling'], competenceGoals: ['velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk', 'planlegge og bygge en konstruksjon'] },
+
+    // Kapittel 7: HMS, sikkerhet og bærekraft
+    { id: 'bygg-anlegg-vg1-7-1', number: '7.1', title: 'HMS-lovgivning og internkontroll', description: 'Arbeidsmiljøloven, forskrifter, internkontrollforskriften og byggherrens ansvar for HMS.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Arbeidsmiljøloven', 'Internkontroll', 'HMS-forskrifter', 'Byggherreforskriften', 'SHA-plan'], competenceGoals: ['beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis'] },
+    { id: 'bygg-anlegg-vg1-7-2', number: '7.2', title: 'Personlig verneutstyr og sikker atferd', description: 'Typer verneutstyr, riktig bruk, risikovurdering og konsekvenser av feilbruk på byggeplass.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Hjelm', 'Vernesko', 'Hørselsvern', 'Vernebriller', 'Fallsikring', 'Risikovurdering'], competenceGoals: ['velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk'] },
+    { id: 'bygg-anlegg-vg1-7-3', number: '7.3', title: 'Stillas og arbeid i høyden', description: 'Oppbygging av stillas opp til 5 meter, arbeidsplattformer, fallsikring og risikovurdering ved høydearbeid.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Rullestillas', 'Systemstillas', 'Stige', 'Fallsikring', 'Arbeidshøyde', 'Kontroll'], competenceGoals: ['montere og bruke arbeidsplattformer opp til 5 meter og gjennomføre risikotiltak ved arbeid i høyden'] },
+    { id: 'bygg-anlegg-vg1-7-4', number: '7.4', title: 'Verktøy og maskiner - bruk og sikkerhet', description: 'Håndverktøy, elektrisk verktøy, trykkluftverktøy, vedlikehold og sikkerhetsrutiner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Håndverktøy', 'El-verktøy', 'Trykkluftverktøy', 'Sirkelsag', 'Bormaskin', 'Vedlikehold'], competenceGoals: ['velge og bruke maskiner og verktøy til ulike arbeidsoppdrag og følge anvisning for bruk og håndtering'] },
+    { id: 'bygg-anlegg-vg1-7-5', number: '7.5', title: 'Ergonomi og helse i byggebransjen', description: 'Fysisk arbeidsmiljø, løfteteknikk, belastningsskader, støv, støy og vibrasjoner på arbeidsplassen.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Ergonomi', 'Løfteteknikk', 'Belastningsskader', 'Støv', 'Støy', 'Vibrasjoner'], competenceGoals: ['velge ut og bruke personlig verneutstyr og vurdere konsekvenser av feilbruk', 'beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis'] },
+    { id: 'bygg-anlegg-vg1-7-6', number: '7.6', title: 'Miljø og avfallshåndtering på byggeplass', description: 'Kildesortering, avfallsplaner, farlig avfall, gjenbruk og sirkulær økonomi i byggenæringen.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kildesortering', 'Avfallsplan', 'Farlig avfall', 'Gjenbruk', 'Sirkulær økonomi'], competenceGoals: ['oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-7-7', number: '7.7', title: 'Energieffektivisering og passivhus', description: 'Energikrav i TEK17, passivhusstandard, BREEAM-sertifisering og energieffektive løsninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['TEK17', 'Passivhus', 'BREEAM', 'Energimerking', 'Varmepumper', 'Solenergi'], competenceGoals: ['velge og bruke materialer med hensyn til bærekraft og ulike byggetradisjoner', 'oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte'] },
+    { id: 'bygg-anlegg-vg1-7-8', number: '7.8', title: 'Plan- og bygningsloven og TEK17', description: 'Lovgivning for bygging, byggesøknader, ansvarsrett, sentral godkjenning og tekniske krav.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Plan- og bygningsloven', 'TEK17', 'Byggesøknad', 'Ansvarsrett', 'Sentral godkjenning'], competenceGoals: ['beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-7-9', number: '7.9', title: 'Kvalitetssikring og kontrollplaner', description: 'Kvalitetssystemer, kontrollplaner, sjekklister, avviksbehandling og dokumentasjon i byggeprosjekter.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kvalitetssikring', 'Kontrollplan', 'Sjekklister', 'Avvikshåndtering', 'Dokumentasjon'], competenceGoals: ['beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis'] },
+
+    // Kapittel 8: Prosjektarbeid og yrke
+    { id: 'bygg-anlegg-vg1-8-1', number: '8.1', title: 'Byggetegninger og teknisk tegning', description: 'Plantegninger, snittegninger, fasadetegninger, målestokk, tegningssymboler og tegnforklaring.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Plantegning', 'Snittegning', 'Fasadetegning', 'Målestokk', 'Tegningssymboler', 'Tegnforklaring'], competenceGoals: ['forstå og arbeide etter tegninger og beskrivelser', 'tegne skisser og konstruksjoner i målestokk'] },
+    { id: 'bygg-anlegg-vg1-8-2', number: '8.2', title: 'BIM og digitale verktøy', description: 'Bygningsinformasjonsmodellering (BIM), 3D-modellering, digitale samhandlingsplattformer og digitale oppmålingsverktøy.', estimatedMinutes: 55, exerciseCount: 5, topics: ['BIM', '3D-modellering', 'Revit', 'Solibri', 'Digitalt samarbeid', 'Laseravstandsmåler'], competenceGoals: ['bruke enkel tredimensjonal modellering i arbeidsoppdrag', 'bruke digitale ressurser til å beregne, måle opp og merke etter beskrivelse og tegning'] },
+    { id: 'bygg-anlegg-vg1-8-3', number: '8.3', title: 'Prosjektplanlegging og fremdrift', description: 'Prosjektfaser, fremdriftsplanlegging, Gantt-diagram, ressursplanlegging og byggemøter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Prosjektfaser', 'Fremdriftsplan', 'Gantt-diagram', 'Ressursplanlegging', 'Byggemøter', 'Anbudsrunde'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser'] },
+    { id: 'bygg-anlegg-vg1-8-4', number: '8.4', title: 'Byggelogistikk og rigging av byggeplass', description: 'Riggplan, materialhåndtering, kranplassering, lagring, logistikk og orden på byggeplassen.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Riggplan', 'Materialhåndtering', 'Kranplassering', 'Lagring', 'Byggelogistikk', 'Orden'], competenceGoals: ['oppbevare, beregne og behandle materialer på en miljøvennlig, faglig og økonomisk måte', 'planlegge og bygge en konstruksjon'] },
+    { id: 'bygg-anlegg-vg1-8-5', number: '8.5', title: 'Yrkesfag, fagbrev og karriereveier', description: 'Lærlingordningen, fagbrev, svennebrev, videreutdanning og karrieremuligheter innen bygg og anlegg.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Lærling', 'Fagbrev', 'Svennebrev', 'Tømrer', 'Betongfagarbeider', 'Anleggsmaskinfører', 'Murer', 'Karriereveier'], competenceGoals: ['beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis'] },
+    { id: 'bygg-anlegg-vg1-8-6', number: '8.6', title: 'Sluttprosjekt med dokumentasjon', description: 'Gjennomføring av et praktisk byggeprosjekt med planlegging, tegning, bygging, kvalitetssikring og fullstendig dokumentasjon.', estimatedMinutes: 90, exerciseCount: 4, topics: ['Prosjektgjennomføring', 'Planlegging', 'Dokumentasjon', 'Presentasjon', 'Egenvurdering', 'FDV-dokumentasjon'], competenceGoals: ['planlegge og bygge en konstruksjon', 'forstå og arbeide etter tegninger og beskrivelser', 'tegne skisser og konstruksjoner i målestokk', 'beskrive hvilke krav og forventninger samfunnet stiller til en profesjonell yrkesutøver, og reflektere over egen praksis'] },
   ],
 };
 
@@ -14292,36 +14401,78 @@ export const COURSE_RESTAURANT_MAT_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskaper om matlagingsteknikker, hygiene, ernæring og servering',
   curriculum: 'LK20',
   icon: '🍳',
-  coverImage: '/images/subjects/restaurant-mat-vg1-hero.png',
+  coverImage: '/images/subjects/restaurant-mat-vg1-hero.webp',
   chapters: [
-    { id: 'restaurant-mat-vg1-1', number: '1', title: 'Råvarer og matvarekunnskap', description: 'Kjøtt, fisk, grønnsaker og andre råvarer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Råvarer', 'Kvalitetsvurdering', 'Lagring'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-2', number: '2', title: 'Hygiene og mattrygghet', description: 'Personlig hygiene og trygg håndtering av mat.', estimatedMinutes: 55, exerciseCount: 5, topics: ['HACCP', 'Renhold', 'Bakterier'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-3', number: '3', title: 'Grunnleggende matlagingsteknikker', description: 'Koking, steking, baking og andre teknikker.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Koketeknikker', 'Varmebehandling', 'Smakssetting'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-4', number: '4', title: 'Bakst og desserter', description: 'Brød, kaker og søte retter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Deigtyper', 'Bakeprosessen', 'Desserter'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-5', number: '5', title: 'Ernæring og kosthold', description: 'Sunne matvaner og næringsinnhold.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Næringsstoffer', 'Kostråd', 'Helse'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-6', number: '6', title: 'Menyplanlegging', description: 'Planlegge og komponere menyer.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Menyutvikling', 'Sesong', 'Kostnadskontroll'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-7', number: '7', title: 'Servering og vertskap', description: 'Kundeservice og bordservering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Service', 'Kommunikasjon', 'Borddekning'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-8', number: '8', title: 'Norsk matkultur og tradisjoner', description: 'Tradisjonelle norske retter og mattradisjoner.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Mattradisjoner', 'Lokale råvarer', 'Kulturarv'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-9', number: '9', title: 'Internasjonal mat', description: 'Retter fra ulike kulturer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Verdenskjøkken', 'Kulturforståelse', 'Smaksnyanser'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-10', number: '10', title: 'Allergener og spesialkost', description: 'Matvareallergier og spesielle kostbehov.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Allergener', 'Intoleranser', 'Merking'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-11', number: '11', title: 'Bærekraftig matproduksjon', description: 'Miljøvennlig matproduksjon og matsvinn.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Matsvinn', 'Miljø'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-12', number: '12', title: 'Økonomi og drift', description: 'Kalkyle, prising og lønnsomhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kalkulasjon', 'Prising', 'Drift'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-13', number: '13', title: 'HMS i kjøkken', description: 'Arbeidsmiljø og sikkerhet i kjøkkenet.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Sikkerhet', 'Ergonomi', 'Vernetiltak'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-14', number: '14', title: 'Yrkesmuligheter', description: 'Karriereveier i restaurant- og matfag.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrker', 'Utdanning', 'Arbeidsliv'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-15', number: '15', title: 'Kjøtt - kvalitet, stykking og tilberedning', description: 'Ulike kjøtttyper, kjøttkvalitet, stykkingsprinsipper og tilberedningsteknikker.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kjøtt', 'Stykking', 'Tilberedning', 'Kvalitetsvurdering'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-16', number: '16', title: 'Fisk og sjømat - håndtering og tilberedning', description: 'Ferskhetsgrader, filetering, sjømattyper og tilberedningsmåter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fisk', 'Sjømat', 'Ferskvurdering', 'Filetering'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-17', number: '17', title: 'Grønnsaker og frukt - sesong og bruk', description: 'Sesongvariasjon, lagring, forbehandling og bruk i kjøkkenet.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Grønnsaker', 'Frukt', 'Sesong', 'Forbehandling'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-18', number: '18', title: 'Melk og meieriprodukter', description: 'Meieriproduksjon, ost, smør, fløte og bruk i matlaging.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Melkeprodukter', 'Ost', 'Fermentering', 'Meierivare'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-19', number: '19', title: 'Korn, mel og bakevarer', description: 'Korntyper, melsorter, glutenstruktur og baketeori.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Korn', 'Mel', 'Gluten', 'Baketeori'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-20', number: '20', title: 'Konservering og foredling', description: 'Sylting, fermentering, røyking, tørking og andre konserveringsmetoder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Konservering', 'Fermentering', 'Sylting', 'Røyking'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-21', number: '21', title: 'Smak og sensorikk', description: 'Smaksopplevelser, smakskombinasjon og sensorisk vurdering.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Smak', 'Sensorikk', 'Smakskombinasjon', 'Degustasjon'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-22', number: '22', title: 'Profesjonell kjøkkendrift og organisering', description: 'Kjøkkenorganisering, mise en place, arbeidsflyt og effektivitet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kjøkkenorganisering', 'Mise en place', 'Arbeidsflyt', 'Effektivitet'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-23', number: '23', title: 'Matsvinn og bærekraftig kjøkkendrift', description: 'Redusere matsvinn, ressursutnyttelse og miljøvennlig drift.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Matsvinn', 'Ressursbruk', 'Bærekraft', 'Miljø'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-24', number: '24', title: 'Matmerking og lovverk', description: 'Merkekrav, lovverk, allergenhåndtering og matinformasjon.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Matmerking', 'Lovverk', 'Allergener', 'Informasjonskrav'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-25', number: '25', title: 'Drikke og drikkekultur', description: 'Vin, øl, kaffe, te og drikkeservering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Vin', 'Øl', 'Kaffe', 'Drikkeparing'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-26', number: '26', title: 'Catering og selskapsmeny', description: 'Planlegging, produksjon og servering av større arrangement.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Catering', 'Selskapsmeny', 'Storproduksjon', 'Arrangement'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-27', number: '27', title: 'Vegetarisk og vegansk mat', description: 'Plantebasert kosthold, proteinalternativer og vegetarisk matlaging.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vegetarmat', 'Veganmat', 'Planteproteiner', 'Alternativ'], competenceGoals: [] },
-    { id: 'restaurant-mat-vg1-28', number: '28', title: 'Lokal og kortreist mat', description: 'Lokale råvarer, kortreist mat og regional matkultur.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Lokale råvarer', 'Kortreist', 'Regional mat', 'Produsenter'], competenceGoals: [] },
+    // Kapittel 1: Råvarer og matvarekunnskap
+    { id: 'restaurant-mat-vg1-1-1', number: '1.1', title: 'Kjøtt - kvalitet, stykking og tilberedning', description: 'Ulike kjøtttyper, kvalitetsvurdering, stykkingsprinsipper og riktig tilberedning av storfe, svin, lam og fjærfe.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Kjøttkvalitet', 'Stykkingsdiagram', 'Storfe', 'Svin', 'Lam', 'Fjærfe', 'Marmorering'], competenceGoals: ['vurdere kvalitet på råvarer og velge riktig tilberedningsmetode'] },
+    { id: 'restaurant-mat-vg1-1-2', number: '1.2', title: 'Fisk og sjømat - ferskhet og håndtering', description: 'Ferskhetsgrader, filetering, ulike fisketyper og sjømat, riktig lagring og håndtering.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Ferskvurdering', 'Filetering', 'Hvit fisk', 'Fet fisk', 'Skalldyr', 'Bløtdyr', 'Lagring'], competenceGoals: ['vurdere ferskhet på fisk og sjømat og håndtere råvarene hygienisk'] },
+    { id: 'restaurant-mat-vg1-1-3', number: '1.3', title: 'Grønnsaker, frukt og bær', description: 'Sesongvariasjon, kvalitetsvurdering, lagring og forbehandling av grønnsaker, frukt og bær.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sesongkalender', 'Rotfrukter', 'Bladgrønnsaker', 'Frukt', 'Bær', 'Lagring', 'Forbehandling'], competenceGoals: ['bruke sesongvarer og vurdere kvalitet på grønnsaker og frukt'] },
+    { id: 'restaurant-mat-vg1-1-4', number: '1.4', title: 'Melk, meieriprodukter og egg', description: 'Meieriproduksjon, ulike ostetyper, fløte, smør, rømme og eggets egenskaper i matlaging.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Melkeprodukter', 'Ost', 'Fløte', 'Smør', 'Egg', 'Fermentering', 'Koagulering'], competenceGoals: ['gjøre rede for meieriprodukter og bruke dem i matlaging'] },
+    { id: 'restaurant-mat-vg1-1-5', number: '1.5', title: 'Korn, mel og bakevarer', description: 'Korntyper, melsorter, glutenets rolle og grunnleggende baketeori.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Korntyper', 'Melsorter', 'Gluten', 'Fullkorn', 'Stivelse', 'Baketeori'], competenceGoals: ['kjenne til ulike kornslag og deres egenskaper i baking og matlaging'] },
+    { id: 'restaurant-mat-vg1-1-6', number: '1.6', title: 'Urter, krydder og smakstilsetninger', description: 'Vanlige urter og krydder, oljer, eddik, soyasaus og andre smakstilsetninger i profesjonelt kjøkken.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Urter', 'Krydder', 'Oljer', 'Eddik', 'Smakstilsetninger', 'Krydderblanding'], competenceGoals: ['bruke urter, krydder og smakstilsetninger for å utvikle smak'] },
+    { id: 'restaurant-mat-vg1-1-7', number: '1.7', title: 'Lokal, kortreist og økologisk mat', description: 'Lokale råvarer, kortreiste produkter, økologisk produksjon og samarbeid med lokale produsenter.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Lokale råvarer', 'Kortreist mat', 'Økologisk', 'Produsenter', 'Terroir', 'Matregioner'], competenceGoals: ['gjøre rede for lokale og kortreiste råvarer og reflektere over bærekraftig råvarevalg'] },
+    { id: 'restaurant-mat-vg1-1-8', number: '1.8', title: 'Vegetariske og veganske råvarer', description: 'Plantebaserte proteiner, bønner, linser, tofu, tempeh og erstatningsprodukter i moderne kjøkken.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Planteproteiner', 'Bønner', 'Linser', 'Tofu', 'Tempeh', 'Nøtter', 'Erstatningsprodukter'], competenceGoals: ['bruke plantebaserte råvarer som proteinkilde og lage fullverdige vegetariske retter'] },
+    { id: 'restaurant-mat-vg1-1-9', number: '1.9', title: 'Smak og sensorikk', description: 'De fem grunnsmakene, smakskombinasjon, sensorisk analyse og degustasjon som faglig verktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Grunnsmakene', 'Umami', 'Smakskombinasjon', 'Sensorisk analyse', 'Degustasjon', 'Tekstur', 'Aroma'], competenceGoals: ['bruke sensorisk analyse for å vurdere og utvikle smak i retter'] },
+
+    // Kapittel 2: Matlagingsteknikker
+    { id: 'restaurant-mat-vg1-2-1', number: '2.1', title: 'Mise en place og kjøkkenorganisering', description: 'Forberedelse, planlegging, arbeidsstasjoner og effektiv organisering av kjøkkenarbeid.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Mise en place', 'Arbeidsstasjoner', 'Planlegging', 'Effektivitet', 'Klargjøring'], competenceGoals: ['planlegge og organisere arbeidet på kjøkkenet effektivt'] },
+    { id: 'restaurant-mat-vg1-2-2', number: '2.2', title: 'Knivsikkerhet og kutteteknikker', description: 'Sikker bruk av kniv, vedlikehold og grunnleggende kutteteknikker som brunoise, julienne og chiffonade.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Knivsikkerhet', 'Kutteteknikker', 'Brunoise', 'Julienne', 'Chiffonade', 'Knivvedlikehold'], competenceGoals: ['bruke kniv på en sikker og effektiv måte med korrekte kutteteknikker'] },
+    { id: 'restaurant-mat-vg1-2-3', number: '2.3', title: 'Koking, blansjering og pochering', description: 'Våte tilberedningsteknikker med vann og væske, temperaturkontroll og bruksområder.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Koking', 'Blansjering', 'Pochering', 'Temperaturkontroll', 'Dampkoking', 'Sous vide'], competenceGoals: ['velge og bruke riktig koketeknikk for ulike råvarer'] },
+    { id: 'restaurant-mat-vg1-2-4', number: '2.4', title: 'Steking, grilling og wok', description: 'Tørre tilberedningsteknikker med fett og varme, Maillard-reaksjonen og karamellisering.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Steking', 'Grilling', 'Wok', 'Maillard-reaksjonen', 'Karamellisering', 'Sautering', 'Frityrsteking'], competenceGoals: ['beherske ulike steketeknikker og forstå kjemiske reaksjoner ved varmebehandling'] },
+    { id: 'restaurant-mat-vg1-2-5', number: '2.5', title: 'Baking og ovnsteknikker', description: 'Bruk av ovn til steking, gratinering, langtidssteking og komfyrvarme.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Ovnssteking', 'Gratinering', 'Langtidssteking', 'Varmluft', 'Braisering'], competenceGoals: ['bruke ovn til ulike tilberedningsteknikker'] },
+    { id: 'restaurant-mat-vg1-2-6', number: '2.6', title: 'Sauser - fond, sjy og grunnleggende sauser', description: 'Fremstilling av fond, sjy, kraft og de grunnleggende sausene i klassisk og moderne kjøkken.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Fond', 'Sjy', 'Kraft', 'Grunnsauser', 'Béchamel', 'Velouté', 'Emulsjonssauser', 'Reduksjon'], competenceGoals: ['lage fond, sjy og grunnleggende sauser og tilpasse smak'] },
+    { id: 'restaurant-mat-vg1-2-7', number: '2.7', title: 'Supper og gryteretter', description: 'Klare supper, kremsupper, veloutéer og tradisjonelle gryteretter.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Klare supper', 'Kremsupper', 'Veloutéer', 'Gryteretter', 'Stuinger', 'Bouillon'], competenceGoals: ['tilberede ulike suppetyper og gryteretter med riktig teknikk'] },
+    { id: 'restaurant-mat-vg1-2-8', number: '2.8', title: 'Tilbehør, garnityr og tillegg', description: 'Ris, pasta, poteter, salater, grønnsakstilbehør og garnityr som løfter hovedretten.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Tilbehør', 'Ris', 'Pasta', 'Poteter', 'Salater', 'Garnityr', 'Grønnsaker'], competenceGoals: ['tilberede varierte tilbehør som komplementerer hovedretter i smak og tekstur'] },
+
+    // Kapittel 3: Bakst og desserter
+    { id: 'restaurant-mat-vg1-3-1', number: '3.1', title: 'Gjærdeig og heving', description: 'Gjærens funksjon, elting, hevetid og temperaturer for brød, boller og gjærbakst.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Gjærdeig', 'Heving', 'Elting', 'Brød', 'Boller', 'Gjær', 'Temperatur'], competenceGoals: ['lage ulike gjærdeiger og forstå gjærens funksjon i bakeprosessen'] },
+    { id: 'restaurant-mat-vg1-3-2', number: '3.2', title: 'Mørdeigstyper og terter', description: 'Sukkerdeig, paibunn, terte og shortcrust - teknikker for sprø og mør bakst.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Mørdeig', 'Sukkerdeig', 'Paibunn', 'Terter', 'Shortcrust', 'Smuldredeig'], competenceGoals: ['lage mørdeig og bruke den i søte og salte retter'] },
+    { id: 'restaurant-mat-vg1-3-3', number: '3.3', title: 'Butterdeig, wienerdeig og smørdeig', description: 'Laminerte deiger med smør, foldeteknikk og bruksområder.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Butterdeig', 'Wienerdeig', 'Smørdeig', 'Laminering', 'Foldeteknikk', 'Croissant'], competenceGoals: ['lage laminerte deiger og forstå prinsippene bak lagdeling'] },
+    { id: 'restaurant-mat-vg1-3-4', number: '3.4', title: 'Kaker, kremer og glasurer', description: 'Sukkerbrødbunn, formkaker, kremer, ganache og dekorasjonsteknikker.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Sukkerbrød', 'Formkaker', 'Smørkrem', 'Vaniljekrem', 'Ganache', 'Glasur', 'Dekorasjon'], competenceGoals: ['lage kaker med ulike bunner, fyll og dekor'] },
+    { id: 'restaurant-mat-vg1-3-5', number: '3.5', title: 'Dessertteknikker og anretning', description: 'Panna cotta, mousse, sorbeter, fruktkompott og profesjonell dessertanretning.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Panna cotta', 'Mousse', 'Sorbet', 'Kompott', 'Karamell', 'Sjokoladearbeid', 'Anretning'], competenceGoals: ['tilberede ulike desserter og anrette dem profesjonelt'] },
+    { id: 'restaurant-mat-vg1-3-6', number: '3.6', title: 'Sjokolade, konfekt og petit four', description: 'Temperering av sjokolade, konfektproduksjon, trøfler, petit four og dekorasjon med sjokolade.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sjokolade', 'Temperering', 'Konfekt', 'Trøfler', 'Petit four', 'Praliner', 'Dekorasjon'], competenceGoals: ['arbeide med sjokolade og fremstille konfekt og petit four'] },
+
+    // Kapittel 4: Ernæring og kosthold
+    { id: 'restaurant-mat-vg1-4-1', number: '4.1', title: 'Næringsstoffer og deres funksjoner', description: 'Karbohydrater, proteiner, fett, vitaminer, mineraler og vann - kroppens behov og matkilder.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Karbohydrater', 'Proteiner', 'Fett', 'Vitaminer', 'Mineraler', 'Vann', 'Energi'], competenceGoals: ['gjøre rede for næringsstoffene og deres funksjoner i kroppen'] },
+    { id: 'restaurant-mat-vg1-4-2', number: '4.2', title: 'Kostholdsråd og helsedirektoratets anbefalinger', description: 'Norske kostråd, Nøkkelhullet, kostholdsplanlegging og næringsberegning.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kostråd', 'Nøkkelhullet', 'Helsedirektoratet', 'Næringsberegning', 'Kostholdsplanlegging'], competenceGoals: ['planlegge kosthold i tråd med gjeldende anbefalinger'] },
+    { id: 'restaurant-mat-vg1-4-3', number: '4.3', title: 'Allergener og matintoleranser', description: 'De 14 hovedallergenene, allergenhåndtering, kryssforurensning og tilpasning av menyer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Allergener', 'Intoleranse', 'Gluten', 'Laktose', 'Nøtter', 'Kryssforurensning', 'Allergenmerking'], competenceGoals: ['identifisere de viktigste allergenene og tilpasse matlaging for gjester med allergier'] },
+    { id: 'restaurant-mat-vg1-4-4', number: '4.4', title: 'Spesialkost og tilpasset ernæring', description: 'Vegetarisk, vegansk, religiøst betinget kost, diabeteskost og andre spesialtilpasninger.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Vegetarisk', 'Vegansk', 'Halal', 'Kosher', 'Diabeteskost', 'Lavkarbo', 'Tilpasset ernæring'], competenceGoals: ['tilberede måltider tilpasset ulike kostbehov og livssyn'] },
+    { id: 'restaurant-mat-vg1-4-5', number: '4.5', title: 'Mat og helse - næringstap og tilberedning', description: 'Hvordan tilberedning påvirker næringsinnhold, vitamintap ved varmebehandling og helsebevisst matlaging.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Næringstap', 'Varmebehandling', 'Vitaminer', 'Helsebevisst matlaging', 'Tilberedningsmetoder'], competenceGoals: ['forstå sammenhengen mellom tilberedning og næringsinnhold og lage helsebevisste retter'] },
+
+    // Kapittel 5: Servering og vertskap
+    { id: 'restaurant-mat-vg1-5-1', number: '5.1', title: 'Serveringsteknikk og borddekning', description: 'Tallerkenteknikk, fat- og tallerkenservering, borddekning for ulike anledninger og dekketøysregler.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Tallerkenteknikk', 'Fatservering', 'Borddekning', 'Dekketøy', 'Glass', 'Bestikk'], competenceGoals: ['utføre ulike serveringsteknikker og dekke bord for forskjellige anledninger'] },
+    { id: 'restaurant-mat-vg1-5-2', number: '5.2', title: 'Kommunikasjon og gjestehåndtering', description: 'Vertskapsrollen, kundeservice, håndtering av klager og profesjonell kommunikasjon med gjester.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Vertskapsrolle', 'Kundeservice', 'Klagehåndtering', 'Kommunikasjon', 'Førsteinntrykk'], competenceGoals: ['kommunisere profesjonelt med gjester og håndtere ulike servicesituasjoner'] },
+    { id: 'restaurant-mat-vg1-5-3', number: '5.3', title: 'Drikke og drikkekunnskap', description: 'Kaffe, te, juice, mineralvann, alkoholfrie drikker og grunnleggende kunnskap om vin, øl og brennevin.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kaffe', 'Te', 'Alkoholfrie drikker', 'Vin', 'Øl', 'Drikkeparing', 'Drikkeservering'], competenceGoals: ['velge og servere drikke som passer til ulike retter og anledninger'] },
+    { id: 'restaurant-mat-vg1-5-4', number: '5.4', title: 'Menyplanlegging og menydesign', description: 'Menykomposisjon, sesongmenyer, prisberegning, menystruktur og presentasjon.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Menykomposisjon', 'Sesongmeny', 'Menystruktur', 'Prisberegning', 'Kostnadskontroll', 'Balanse'], competenceGoals: ['planlegge og komponere menyer ut fra sesong, kostnader og ernæring'] },
+    { id: 'restaurant-mat-vg1-5-5', number: '5.5', title: 'Catering og selskapsmeny', description: 'Planlegging og gjennomføring av catering, buffet, selskapsmeny og store arrangement.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Catering', 'Buffet', 'Selskapsmeny', 'Storproduksjon', 'Logistikk', 'Arrangement'], competenceGoals: ['planlegge, produsere og servere mat for større arrangement og selskap'] },
+    { id: 'restaurant-mat-vg1-5-6', number: '5.6', title: 'Anretning og tallerkenpresentasjon', description: 'Estetikk, fargekomposisjon, høyde, tekstur og moderne anretningsteknikker.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Anretning', 'Tallerkenpresentasjon', 'Fargekomposisjon', 'Garnering', 'Estetikk', 'Porsjonering'], competenceGoals: ['anrette retter med fokus på estetikk, variasjon og profesjonalitet'] },
+
+    // Kapittel 6: Matkultur og tradisjoner
+    { id: 'restaurant-mat-vg1-6-1', number: '6.1', title: 'Norsk matkultur og tradisjonsmat', description: 'Tradisjonelle norske retter, høytidsmat, matarv og regionale mattradisjoner.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Norsk matkultur', 'Tradisjonelle retter', 'Høytidsmat', 'Lutefisk', 'Pinnekjøtt', 'Matarv'], competenceGoals: ['gjøre rede for norsk matkultur og tilberede tradisjonelle norske retter'] },
+    { id: 'restaurant-mat-vg1-6-2', number: '6.2', title: 'Regionale mattradisjoner i Norge', description: 'Lokale spesialiteter, matregioner, geografisk opprinnelse og regionale råvarer.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Matregioner', 'Lokale spesialiteter', 'Geografisk opprinnelse', 'Nordnorsk', 'Vestlandsk', 'Østlandsk'], competenceGoals: ['beskrive regionale mattradisjoner og bruke lokale råvarer i matlaging'] },
+    { id: 'restaurant-mat-vg1-6-3', number: '6.3', title: 'Europeisk matkultur', description: 'Det franske, italienske, spanske og nordiske kjøkken - teknikker, råvarer og mattradisjoner.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Fransk kjøkken', 'Italiensk kjøkken', 'Spansk kjøkken', 'Nordisk kjøkken', 'Mattradisjoner', 'Kokkeskoler'], competenceGoals: ['kjenne til sentrale europeiske mattradisjoner og tilberede retter fra ulike land'] },
+    { id: 'restaurant-mat-vg1-6-4', number: '6.4', title: 'Internasjonal mat og verdenskjøkkenet', description: 'Asiatisk, latinamerikansk, afrikansk og mellomøstlig matkultur, fusjonkjøkken og globale trender.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Asiatisk mat', 'Latinamerikansk mat', 'Mellomøstlig mat', 'Afrikansk mat', 'Fusjonkjøkken', 'Mattrender'], competenceGoals: ['tilberede retter fra ulike verdensdeler og reflektere over kulturell matforståelse'] },
+    { id: 'restaurant-mat-vg1-6-5', number: '6.5', title: 'Konservering og foredling', description: 'Tradisjonelle og moderne konserveringsmetoder: sylting, fermentering, røyking, tørking og vakuumpakking.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Sylting', 'Fermentering', 'Røyking', 'Tørking', 'Salting', 'Vakuumpakking', 'Hermetisering'], competenceGoals: ['bruke ulike konserveringsmetoder og forklare prinsippene bak dem'] },
+    { id: 'restaurant-mat-vg1-6-6', number: '6.6', title: 'Mattrender, gastronomi og matfilosofi', description: 'Nynordisk kjøkken, molekylær gastronomi, slow food, matfilosofi og moderne trender i kokkeverdenen.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Nynordisk kjøkken', 'Molekylær gastronomi', 'Slow food', 'Matfilosofi', 'Trender', 'Gastronomi'], competenceGoals: ['reflektere over moderne mattrender og gastronomisk utvikling'] },
+
+    // Kapittel 7: Hygiene, HMS og bærekraft
+    { id: 'restaurant-mat-vg1-7-1', number: '7.1', title: 'Personlig hygiene og håndhygiene', description: 'Personlig hygiene, håndvask, arbeidsantrekk og smitteforebygging i kjøkkenet.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Håndhygiene', 'Arbeidsantrekk', 'Smitteforebygging', 'Personlig hygiene', 'Bakterier'], competenceGoals: ['følge hygieniske rutiner og forebygge smitte i kjøkkenmiljø'] },
+    { id: 'restaurant-mat-vg1-7-2', number: '7.2', title: 'HACCP og internkontroll', description: 'HACCP-prinsippene, fareanalyse, kritiske kontrollpunkter og internkontrollsystemer for mattrygghet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['HACCP', 'Fareanalyse', 'Kritiske kontrollpunkter', 'Internkontroll', 'IK-mat', 'Temperaturlogg'], competenceGoals: ['gjøre rede for HACCP-prinsippene og gjennomføre internkontroll for mattrygghet'] },
+    { id: 'restaurant-mat-vg1-7-3', number: '7.3', title: 'Mattrygghet og bakteriologi', description: 'Bakterier, virus og parasitter i mat, farlige temperaturer, kryssforurensning og forebygging av matbårne sykdommer.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Bakterier', 'Virus', 'Parasitter', 'Temperatursone', 'Kryssforurensning', 'Matbårne sykdommer'], competenceGoals: ['identifisere risikofaktorer for matbårne sykdommer og iverksette forebyggende tiltak'] },
+    { id: 'restaurant-mat-vg1-7-4', number: '7.4', title: 'Matmerking og lovverk', description: 'Matinformasjonsforskriften, merkekrav, holdbarhetsdatoer, næringsdeklarasjon og innholdsmerking.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Matmerking', 'Lovverk', 'Matinformasjonsforskriften', 'Holdbarhetsdato', 'Næringsdeklarasjon', 'Allergenliste'], competenceGoals: ['lese og tolke matmerking og kjenne til gjeldende lovverk for mat'] },
+    { id: 'restaurant-mat-vg1-7-5', number: '7.5', title: 'HMS i kjøkken og restaurant', description: 'Arbeidsmiljøloven, risikovurdering, ergonomi, vernearbeid og forebygging av yrkesskader på kjøkkenet.', estimatedMinutes: 50, exerciseCount: 4, topics: ['HMS', 'Arbeidsmiljøloven', 'Ergonomi', 'Risikovurdering', 'Vernetiltak', 'Brannvern'], competenceGoals: ['gjøre rede for HMS-krav og arbeide sikkert i kjøkken- og restaurantmiljø'] },
+    { id: 'restaurant-mat-vg1-7-6', number: '7.6', title: 'Matsvinn og ressursutnyttelse', description: 'Kartlegging og reduksjon av matsvinn, restemat, nose-to-tail, root-to-stem og økonomisk ressursbruk.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Matsvinn', 'Restemat', 'Nose-to-tail', 'Root-to-stem', 'Ressursutnyttelse', 'Svinnmåling'], competenceGoals: ['kartlegge matsvinn og iverksette tiltak for bærekraftig ressursutnyttelse'] },
+    { id: 'restaurant-mat-vg1-7-7', number: '7.7', title: 'Bærekraftig matproduksjon og miljøansvar', description: 'Bærekraftsmål, klimaavtrykk fra matproduksjon, miljømerker, økologisk drift og grønt kjøkken.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Bærekraft', 'Klimaavtrykk', 'Miljømerker', 'Svanemerket', 'Økologisk', 'FNs bærekraftsmål'], competenceGoals: ['reflektere over bærekraft i matproduksjon og ta miljøbevisste valg i kjøkkenet'] },
+    { id: 'restaurant-mat-vg1-7-8', number: '7.8', title: 'Rengjøring, renhold og avfallshåndtering', description: 'Rengjøringsrutiner, rengjøringsmidler, avfallssortering og renholdsplaner for kjøkken og restaurant.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Rengjøring', 'Rengjøringsmidler', 'Avfallssortering', 'Renholdsplaner', 'Desinfisering', 'Avfallshåndtering'], competenceGoals: ['utføre renhold og avfallshåndtering i tråd med gjeldende krav og rutiner'] },
+
+    // Kapittel 8: Drift, økonomi og yrke
+    { id: 'restaurant-mat-vg1-8-1', number: '8.1', title: 'Profesjonell kjøkkendrift og organisering', description: 'Brigadeorganisering, arbeidsdeling, arbeidsflyt, rengjøring og daglig drift av et profesjonelt kjøkken.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Kjøkkenbrigade', 'Arbeidsdeling', 'Arbeidsflyt', 'Rengjøring', 'Daglig drift', 'Sjefkokk'], competenceGoals: ['gjøre rede for organisering og arbeidsflyt i et profesjonelt kjøkken'] },
+    { id: 'restaurant-mat-vg1-8-2', number: '8.2', title: 'Kalkyle, varekost og prissetting', description: 'Varekostkalkyle, matkostandel, salgspris, svinnberegning og lønnsomhet i restaurantdrift.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Varekostkalkyle', 'Matkostandel', 'Salgspris', 'Bruttofortjeneste', 'Svinnberegning', 'Lønnsomhet'], competenceGoals: ['beregne varekost, sette priser og forstå lønnsomhet i matbransjen'] },
+    { id: 'restaurant-mat-vg1-8-3', number: '8.3', title: 'Bestilling, mottak og lagerstyring', description: 'Varebestilling, varemottak, FIFO-prinsippet, lagerhold og leverandørkontakt.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Varebestilling', 'Varemottak', 'FIFO', 'Lagerhold', 'Leverandører', 'Temperaturkontroll'], competenceGoals: ['utføre bestilling, varemottak og lagerstyring etter gjeldende rutiner'] },
+    { id: 'restaurant-mat-vg1-8-4', number: '8.4', title: 'Yrkesveier i restaurant- og matfag', description: 'Kokk, servitør, baker, konditor, slakter og andre yrker - utdanningsveier, spesialisering og fagbrev.', estimatedMinutes: 50, exerciseCount: 4, topics: ['Kokk', 'Servitør', 'Baker', 'Konditor', 'Fagbrev', 'Spesialisering', 'Utdanningsveier'], competenceGoals: ['gjøre rede for yrkesmuligheter og utdanningsveier innen restaurant- og matfag'] },
+    { id: 'restaurant-mat-vg1-8-5', number: '8.5', title: 'Lærlingordning, fagbrev og arbeidsliv', description: 'Lærlingtiden, opplæring i bedrift, fagprøven, arbeidstakerrettigheter og profesjonell yrkesutøvelse.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Lærlingordning', 'Fagprøve', 'Opplæring i bedrift', 'Arbeidstakerrettigheter', 'Profesjonalitet', 'Samarbeid'], competenceGoals: ['forklare lærlingordningen og kravene til fagbrev i restaurant- og matfag'] },
+    { id: 'restaurant-mat-vg1-8-6', number: '8.6', title: 'Digitale verktøy i kjøkken og restaurant', description: 'Kassesystemer, bestillingssystemer, digitale oppskriftsbanker, lagerstyring og sosiale medier i bransjen.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Kassesystem', 'Bestillingssystem', 'Digitale oppskrifter', 'Lagerstyring', 'Sosiale medier', 'Teknologi'], competenceGoals: ['bruke digitale verktøy i planlegging, drift og markedsføring av restaurant'] },
+    { id: 'restaurant-mat-vg1-8-7', number: '8.7', title: 'Etikk, samarbeid og profesjonalitet', description: 'Yrkesetikk, teamarbeid, kommunikasjon på arbeidsplassen, mangfold og profesjonell opptreden i matbransjen.', estimatedMinutes: 45, exerciseCount: 4, topics: ['Yrkesetikk', 'Teamarbeid', 'Mangfold', 'Profesjonalitet', 'Kommunikasjon', 'Arbeidskultur'], competenceGoals: ['reflektere over etikk og samarbeid og opptre profesjonelt i yrkesutøvelsen'] },
   ],
 };
 
@@ -14336,7 +14487,7 @@ export const COURSE_NATURBRUK_VG1: TextbookCourse = {
   description: 'Introduksjon til naturbruksfag med fokus på bærekraftig ressursforvaltning',
   curriculum: 'LK20',
   icon: '🌿',
-  coverImage: '/images/subjects/naturbruk-vg1-hero.png',
+  coverImage: '/images/subjects/naturbruk-vg1-hero.webp',
   chapters: [
     { id: 'naturbruk-vg1-1', number: '1', title: 'Økosystemer og naturmangfold', description: 'Naturens sammenhenger og artsmangfold.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Økologi', 'Biodiversitet', 'Naturtyper'], competenceGoals: [] },
     { id: 'naturbruk-vg1-2', number: '2', title: 'Jord og plantelære', description: 'Jordtyper, jordkvalitet og plantevekst.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Jordbunn', 'Plantevekst', 'Næring'], competenceGoals: [] },
@@ -14379,7 +14530,7 @@ export const COURSE_IM_VG1: TextbookCourse = {
   description: 'Grunnleggende digital kompetanse, programmering og medieproduksjon',
   curriculum: 'LK20',
   icon: '💻',
-  coverImage: '/images/subjects/im-vg1-hero.png',
+  coverImage: '/images/subjects/im-vg1-hero.webp',
   chapters: [
     { id: 'im-vg1-1', number: '1', title: 'Grunnleggende IT', description: 'Datamaskiner, nettverk og digitale verktøy.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Maskinvare', 'Programvare', 'Nettverksteknologi'], competenceGoals: [] },
     { id: 'im-vg1-2', number: '2', title: 'Programmering intro', description: 'Grunnleggende programmeringskonsepter.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Algoritmer', 'Variabler', 'Løkker'], competenceGoals: [] },
@@ -14422,7 +14573,7 @@ export const COURSE_SALG_SERVICE_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om salg, kundebehandling, markedsføring og reiseliv. Kurset gir en innføring i varehandel, service, kommunikasjon og bærekraftig forretningsdrift.',
   curriculum: 'LK20',
   icon: '🛍️',
-  coverImage: '/images/subjects/salg-service-vg1-hero.png',
+  coverImage: '/images/subjects/salg-service-vg1-hero.webp',
   chapters: [
     {
       id: 'salg-service-vg1-1',
@@ -14718,7 +14869,7 @@ export const COURSE_HANDVERK_DESIGN_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om design, materialer, håndverksteknikker og produktutvikling. Kurset kombinerer tradisjonelt håndverk med digital design og bærekraftig produksjon.',
   curriculum: 'LK20',
   icon: '🎨',
-  coverImage: '/images/subjects/handverk-design-vg1-hero.png',
+  coverImage: '/images/subjects/handverk-design-vg1-hero.webp',
   chapters: [
     {
       id: 'handverk-design-vg1-1',
@@ -15014,7 +15165,7 @@ export const COURSE_FRISOR_BLOMSTER_VG1: TextbookCourse = {
   description: 'Grunnleggende kunnskap om frisørfaget, blomsterdesign, interiørdesign og visuell eksponering. Kurset kombinerer kreativitet, håndverk, kundebehandling og estetisk forståelse.',
   curriculum: 'LK20',
   icon: '💐',
-  coverImage: '/images/subjects/frisor-blomster-vg1-hero.png',
+  coverImage: '/images/subjects/frisor-blomster-vg1-hero.webp',
   chapters: [
     {
       id: 'frisor-blomster-vg1-1',
