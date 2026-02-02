@@ -40,7 +40,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Addisjon og subtraksjon', 'Multiplikasjon og divisjon', 'Potenser', 'Kvadratrøtter', 'Regnerekkefølge'],
       competenceGoals: ['utføre beregninger med negative tall'],
-      coverImage: '/images/textbook/1t/fortegn-regnerekkefølge-hero.jpg',
+      coverImage: '/images/subjects/1t-1-1-fortegn-og-regnerekkefolgje.png',
       auraColor: 'rgba(180, 120, 60, 0.9)',
     },
     {
@@ -52,7 +52,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Potenser', 'Heltallseksponenter', 'Potensregler'],
       competenceGoals: ['utforske og beskrive egenskaper ved potenser'],
-      coverImage: '/images/textbook/1t/potenser-hero.jpg',
+      coverImage: '/images/subjects/1t-1-2-potenser-med-heltallseksponenter.png',
       auraColor: 'rgba(80, 60, 140, 0.9)',
     },
     {
@@ -65,7 +65,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Bokstavregning', 'Parentesregning', 'Distributiv lov', 'Multiplikasjon av parenteser'],
       prerequisites: ['1t-1-2'],
       competenceGoals: ['utforske og bruke algebraiske strukturer'],
-      coverImage: '/images/textbook/1t/algebra-hero.jpg',
+      coverImage: '/images/subjects/1t-1-3-algebra.png',
       auraColor: 'rgba(40, 100, 80, 0.9)',
     },
     {
@@ -78,7 +78,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Multiplikasjon av brøker', 'Divisjon av brøker', 'Forkorting', 'Utviding', 'Fellesnevner'],
       prerequisites: ['1t-1-2', '1t-1-3'],
       competenceGoals: ['utforske og beskrive egenskaper ved brøker og operasjoner med brøker'],
-      coverImage: '/images/textbook/1t/brokregning-hero.jpg',
+      coverImage: '/images/subjects/1t-1-4-brokregning.png',
       auraColor: 'rgba(160, 90, 50, 0.9)',
     },
     {
@@ -89,7 +89,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 60,
       exerciseCount: 13,
       topics: ['Primtallsfaktorisering', 'Faktorisering av uttrykk', 'Første kvadratsetning', 'Andre kvadratsetning', 'Konjugatsetningen'],
-      coverImage: '/images/textbook/1t/faktorisering-hero.jpg',
+      coverImage: '/images/subjects/1t-1-5-faktorisering-og-kvadratsetningene.png',
       auraColor: 'rgba(100, 60, 130, 0.9)',
     },
     {
@@ -102,7 +102,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Forkorting av algebraiske brøker', 'Multiplikasjon og divisjon', 'Fellesnevner'],
       prerequisites: ['1t-1-4', '1t-1-5'],
       competenceGoals: ['forenkle algebraiske brøkuttrykk'],
-      coverImage: '/images/textbook/1t/rasjonale-uttrykk-hero.jpg',
+      coverImage: '/images/subjects/1t-1-6-rasjonale-uttrykk.png',
       auraColor: 'rgba(50, 100, 110, 0.9)',
     },
     {
@@ -114,7 +114,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 13,
       topics: ['Tallmengder', 'Intervaller', 'Union', 'Snitt', 'Differanse', 'Absoluttverdi'],
       competenceGoals: ['bruke matematisk notasjon til å beskrive mengder'],
-      coverImage: '/images/textbook/1t/mengdelaere-hero.jpg',
+      coverImage: '/images/subjects/1t-1-7-mengdelaere.png',
       auraColor: 'rgba(50, 80, 140, 0.9)',
     },
     {
@@ -127,7 +127,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomdivisjon', 'Kvotient', 'Rest'],
       prerequisites: ['1t-1-5'],
       competenceGoals: ['forklare polynomdivisjon'],
-      coverImage: '/images/textbook/1t/polynomdivisjon-hero.jpg',
+      coverImage: '/images/subjects/1t-1-8-polynomdivisjon-introduksjon.png',
       auraColor: 'rgba(40, 60, 100, 0.9)',
     },
     {
@@ -140,7 +140,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Lineær divisor', 'Faktorteoremet', 'Nullpunkter'],
       prerequisites: ['1t-1-8'],
       competenceGoals: ['bruke polynomdivisjon til å omskrive algebraiske uttrykk'],
-      coverImage: '/images/textbook/1t/polynomdivisjon-lineaer-divisor-hero.jpg',
+      coverImage: '/images/subjects/1t-1-9-polynomdivisjon-med-lineaer-divisor.png',
       auraColor: 'rgba(60, 80, 120, 0.9)',
     },
 
@@ -154,7 +154,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Lineære likninger', 'Likningsløsning', 'Brøklikninger', 'Parenteslikninger'],
       competenceGoals: ['løse lineære likninger', 'bruke regneregler for likninger'],
-      coverImage: '/images/textbook/1t/likninger-hero.jpg',
+      coverImage: '/images/subjects/1t-2-1-grunnleggende-likninger.png',
       auraColor: 'rgba(170, 100, 50, 0.9)',
     },
     {
@@ -166,7 +166,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Andregradslikninger', 'Faktorisering', 'Nullpunktmetoden'],
       prerequisites: ['1t-1-5'],
-      coverImage: '/images/textbook/1t/andregradslikninger-faktorisering-hero.jpg',
+      coverImage: '/images/subjects/1t-2-2-andregradslikninger-faktorisering.png',
       auraColor: 'rgba(90, 50, 120, 0.9)',
     },
     {
@@ -179,7 +179,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['ABC-formelen', 'Diskriminanten', 'Antall løsninger', 'Nullpunktsfaktorisering', 'Produktregelen'],
       prerequisites: ['1t-2-2'],
       competenceGoals: ['løse andregradslikninger med abc-formelen', 'faktorisere andregradsuttrykk ved nullpunktsfaktorisering'],
-      coverImage: '/images/textbook/1t/abc-formelen-hero.jpg',
+      coverImage: '/images/subjects/1t-2-3-abc-formelen.png',
       auraColor: 'rgba(140, 50, 60, 0.9)',
     },
     {
@@ -191,7 +191,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Fullstendig kvadrat', 'Andregradslikninger'],
       prerequisites: ['1t-1-4'],
-      coverImage: '/images/textbook/1t/fullstendig-kvadrat-hero.jpg',
+      coverImage: '/images/subjects/1t-2-4-fullstendig-kvadrat.png',
       auraColor: 'rgba(40, 120, 160, 0.9)',
     },
     {
@@ -204,7 +204,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Brøklikninger', 'Produktregelen', 'Likninger med brøk'],
       prerequisites: ['1t-1-3', '1t-1-5'],
       competenceGoals: ['løse likninger med brøker', 'bruke produktregelen for brøklikninger'],
-      coverImage: 'https://images.unsplash.com/photo-1580894908361-967195033215?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-2-5-rasjonale-likninger.png',
     },
     {
       id: '1t-2-6',
@@ -215,7 +215,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Rotlikninger', 'Kvadrering', 'Kontroll av løsninger'],
       prerequisites: ['1t-1-2'],
-      coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-2-6-likninger-med-rotter.png',
     },
     {
       id: '1t-2-8',
@@ -227,7 +227,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Tekstoppgaver', 'Problemløsning', 'Modellering', 'Praktiske situasjoner'],
       prerequisites: ['1t-2-1'],
       competenceGoals: ['omsetje problemstillingar til likningar', 'tolke og bruke likningsløysingar i kontekst'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-2-8-praktisk-bruk-av-likninger.png',
     },
     {
       id: '1t-2-9',
@@ -239,7 +239,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Arealproblemer', 'Kastebevegelse', 'Optimering', 'Økonomiske modeller'],
       prerequisites: ['1t-2-3', '1t-2-8'],
       competenceGoals: ['bruke andregradslikningar i praktiske situasjonar', 'tolke løysingar i kontekst'],
-      coverImage: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-2-9-praktisk-bruk-av-andregradslikninger.png',
     },
     {
       id: '1t-2-10',
@@ -251,7 +251,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomlikninger', 'Faktorisering', 'Tredjegradslikninger'],
       prerequisites: ['1t-1-8'],
       competenceGoals: ['bruke polynomdivisjon til å løyse likningar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop&crop=left',
+      coverImage: '/images/subjects/1t-2-10-polynomdivisjon-og-likningslosning.png',
     },
     {
       id: '1t-2-11',
@@ -262,7 +262,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['GeoGebra CAS', 'Div()', 'Mod()'],
       prerequisites: ['1t-1-7'],
-      coverImage: 'https://images.unsplash.com/photo-1516116216624-53e697fedbea?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-2-11-polynomdivisjon-i-geogebra.png',
       wip: true,
     },
 
@@ -275,7 +275,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 30,
       exerciseCount: 4,
       topics: ['x-akse', 'y-akse', 'Punkter', 'Tolke grafer'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-1-koordinatsystemet.png',
     },
     {
       id: '1t-3-2',
@@ -286,7 +286,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['y = ax + b', 'Stigningstall', 'Konstantledd', 'Tegne linjer'],
       prerequisites: ['1t-3-1'],
-      coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-2-lineaere-funksjoner.png',
       wip: true,
     },
     {
@@ -298,7 +298,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Matematiske modeller', 'f(x)-notasjon', 'Verditabeller', 'Graftegning', 'Nullpunkter', 'Skjæringspunkter'],
       prerequisites: ['1t-3-1', '1t-3-2'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-3-hva-er-en-funksjon.png',
     },
     {
       id: '1t-3-4',
@@ -309,7 +309,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Parabel', 'Toppunkt', 'Bunnpunkt', 'Symmetrilinje'],
       prerequisites: ['1t-3-3'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-4-andregradsfunksjoner.png',
     },
     {
       id: '1t-3-5',
@@ -320,7 +320,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Nullpunkter', 'Fortegnslinje', 'Faktorisert form'],
       prerequisites: ['1t-3-4', '1t-2-3'],
-      coverImage: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-5-nullpunkter-og-fortegn.png',
     },
     {
       id: '1t-3-6',
@@ -331,7 +331,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Polynomgrad', 'Nullpunkter', 'Faktorisering'],
       prerequisites: ['1t-3-5'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop&crop=center',
+      coverImage: '/images/subjects/1t-3-6-polynomfunksjoner.png',
     },
     {
       id: '1t-3-7',
@@ -342,7 +342,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Rasjonale funksjoner', 'Asymptoter', 'Definisjonsmengde'],
       prerequisites: ['1t-3-6'],
-      coverImage: 'https://images.unsplash.com/photo-1557672172-298e090bd0f1?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-7-rasjonale-funksjoner.png',
     },
     {
       id: '1t-3-8',
@@ -353,7 +353,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor'],
       prerequisites: ['1t-3-3'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-8-eksponentialfunksjoner.png',
     },
     {
       id: '1t-3-9',
@@ -363,7 +363,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['GeoGebra', 'Grafisk analyse', 'Nullpunkter', 'Ekstremalpunkter'],
-      coverImage: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-3-9-funksjonsdroftning-i-geogebra.png',
       wip: true,
     },
 
@@ -378,7 +378,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Grafisk løsning', 'Innsettingsmetoden', 'Addisjonsmetoden', 'Tre ukjente', 'Praktiske oppgaver'],
       prerequisites: ['1t-2-1', '1t-3-1'],
       competenceGoals: ['løse likningssett med to ukjente grafisk og algebraisk', 'sette opp og løse likningssett fra praktiske situasjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1545670723-196ed0954986?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-4-1-likningssett.png',
     },
     {
       id: '1t-4-2',
@@ -390,7 +390,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Førstegradsulikheter', 'Ulikhetstegn', 'Løsningsmengde', 'Intervallnotasjon'],
       prerequisites: ['1t-2-1'],
       competenceGoals: ['løyse ulikskapar av første grad'],
-      coverImage: 'https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-4-2-lineaere-ulikheter.png',
     },
     {
       id: '1t-4-3',
@@ -402,7 +402,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Fortegnslinjer', 'Fortegnsskjema', 'Faktorisering', 'Produkter av faktorer'],
       prerequisites: ['1t-4-2', '1t-1-4'],
       competenceGoals: ['bruke fortegnsskjema til å løyse ulikskapar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-4-3-fortegnslinjer.png',
     },
     {
       id: '1t-4-4',
@@ -414,7 +414,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Andregradsulikheter', 'Nullpunktsfaktorisering', 'Fortegnsskjema', 'Løsningsmengde'],
       prerequisites: ['1t-4-3', '1t-2-3'],
       competenceGoals: ['løyse ulikskapar av andre grad'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-4-4-andregradsulikheter.png',
     },
     {
       id: '1t-4-5',
@@ -426,7 +426,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Rasjonale ulikheter', 'Brøkutrykk', 'Definisjonsmengde', 'Fortegnsskjema'],
       prerequisites: ['1t-4-4'],
       competenceGoals: ['løyse rasjonale ulikskapar'],
-      coverImage: 'https://images.unsplash.com/photo-1516382799247-87df95d790b7?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-4-5-rasjonale-ulikheter.png',
     },
 
     // Kapittel 5: Geometri og trigonometri (var kapittel 4)
@@ -438,7 +438,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['Vinkler', 'Vinkelsum', 'Trekanttyper'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-1-vinkler-og-trekanter.png',
     },
     {
       id: '1t-5-2',
@@ -448,7 +448,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 30,
       exerciseCount: 10,
       topics: ['Kongruens', 'Formlikhet', 'Målestokk'],
-      coverImage: 'https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-2-kongruens-og-formlikhet.png',
     },
     {
       id: '1t-5-3',
@@ -459,7 +459,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Pytagoras', 'Hypotenus', 'Kateter'],
       prerequisites: ['1t-5-1'],
-      coverImage: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-3-pytagoras-setning.png',
     },
     {
       id: '1t-5-4',
@@ -471,7 +471,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['sin', 'cos', 'tan', 'Rettvinklede trekanter'],
       prerequisites: ['1t-5-1'],
       competenceGoals: ['gjøre rede for definisjonene av sinus, cosinus og tangens'],
-      coverImage: 'https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-4-trigonometri-i-rettvinklede-trekanter.png',
     },
     {
       id: '1t-5-5',
@@ -482,7 +482,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Grunnlinje', 'Høyde', 'Arealsetningen'],
       prerequisites: ['1t-5-4'],
-      coverImage: 'https://images.unsplash.com/photo-1494859802809-d069c3b71a8a?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-5-areal-av-trekanter.png',
     },
     {
       id: '1t-5-6',
@@ -494,7 +494,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Sinussetningen', 'Tvetydige tilfeller'],
       prerequisites: ['1t-5-4'],
       competenceGoals: ['begrunne sinussetningen'],
-      coverImage: 'https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-6-sinussetningen.png',
     },
     {
       id: '1t-5-7',
@@ -506,7 +506,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Cosinussetningen', 'Ukjente sider', 'Ukjente vinkler'],
       prerequisites: ['1t-5-6'],
       competenceGoals: ['begrunne cosinussetningen'],
-      coverImage: 'https://images.unsplash.com/photo-1454789548928-9efd52dc4031?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-7-cosinussetningen.png',
     },
     {
       id: '1t-5-8',
@@ -516,7 +516,7 @@ export const COURSE_1T: TextbookCourse = {
       estimatedMinutes: 25,
       exerciseCount: 8,
       topics: ['GeoGebra Geometri', 'Konstruksjoner', 'Trigonometri'],
-      coverImage: 'https://images.unsplash.com/photo-1558865869-c93f6f8482af?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-5-8-geometri-og-trigonometri-i-geogebra.png',
       wip: true,
     },
 
@@ -530,7 +530,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Argumentasjon', 'Begrunnelse', 'Logisk resonnement'],
       competenceGoals: ['argumentere for tenkemåtene sine'],
-      coverImage: 'https://images.unsplash.com/photo-1528819622765-d6bcf132f793?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-6-1-matematisk-argumentasjon.png',
     },
     {
       id: '1t-6-2',
@@ -542,7 +542,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Bevis', 'Algebraiske bevis', 'Geometriske bevis'],
       prerequisites: ['1t-6-1'],
       competenceGoals: ['lese og forstå matematiske bevis', 'utforske og utvikle bevis'],
-      coverImage: 'https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-6-2-lese-og-forsta-bevis.png',
     },
 
     // Kapittel 7: Vekstfart og derivasjon (var kapittel 6)
@@ -555,7 +555,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 5,
       topics: ['Stigningstall', 'Ettpunktsformelen', 'Gjennomsnittlig vekstfart', 'Sekant'],
       competenceGoals: ['beregne gjennomsnittlig vekstfart for en funksjon i et intervall'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-7-1-gjennomsnittlig-vekstfart.png',
     },
     {
       id: '1t-7-2',
@@ -567,7 +567,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Momentan vekstfart', 'Tangent', 'Grenseverdi'],
       prerequisites: ['1t-7-1'],
       competenceGoals: ['bruke momentan vekstfart i konkrete døme'],
-      coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-7-2-momentan-vekstfart.png',
     },
     {
       id: '1t-7-3',
@@ -579,7 +579,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Derivert', 'f\'(x)', 'Konstantregel', 'Potensregel', 'Sumregel'],
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for den deriverte', 'derivere polynomfunksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-7-3-den-deriverte.png',
     },
     {
       id: '1t-7-4',
@@ -590,7 +590,7 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['GeoGebra CAS', 'Derivert()', 'Tangent'],
       prerequisites: ['1t-7-3'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop&crop=top',
+      coverImage: '/images/subjects/1t-7-4-derivasjon-i-geogebra.png',
       wip: true,
     },
     {
@@ -603,7 +603,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Grenseverdi', 'Derivasjonsdefinisjonen', 'Numerisk derivasjon', 'Differenskvotient'],
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for definisjonen av den deriverte', 'bruke numerisk derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop&crop=top',
+      coverImage: '/images/subjects/1t-7-5-definisjonen-av-derivasjon-og-numerisk-derivasjon.png',
       wip: true,
     },
     {
@@ -616,7 +616,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Potensregelen', 'Konstantregelen', 'Sumregelen', 'Polynomderivering'],
       prerequisites: ['1t-7-3'],
       competenceGoals: ['derivere polynomfunksjonar', 'bruke derivasjonsreglar'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop&crop=center',
+      coverImage: '/images/subjects/1t-7-6-derivasjon-av-polynomfunksjoner.png',
       wip: true,
     },
     {
@@ -629,7 +629,7 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Optimering', 'Fart og akselerasjon', 'Maksimum og minimum', 'Praktiske problemer'],
       prerequisites: ['1t-7-6'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske problem', 'finne ekstremalpunkt'],
-      coverImage: 'https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-7-7-praktisk-bruk-av-derivasjon.png',
       wip: true,
     },
     // Kapittel 8: Modellering og regresjon
@@ -713,7 +713,7 @@ export const COURSE_5: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Tusener', 'Titusen', 'Hundretusen', 'Millioner', 'Plassverdisystem'],
       competenceGoals: ['utforske og beskrive strukturar og mønster i tal og bruke plassverdisystemet'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/1t-8-5-modellvurdering-og-praktisk-bruk.png',
     },
     {
       id: '5-1-2',
@@ -3899,7 +3899,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorisering', 'Nullpunkter'],
       competenceGoals: ['faktorisere polynom ved hjelp av polynomdivisjon'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-1-1-polynomer.png',
     },
     {
       id: 's1-1-2',
@@ -3910,7 +3910,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Rasjonale uttrykk', 'Forkorting', 'Fellesnevner', 'Algebraiske brøker'],
       prerequisites: ['s1-1-1'],
-      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-1-2-rasjonale-uttrykk.png',
     },
     {
       id: 's1-1-3',
@@ -3922,7 +3922,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Polynomlikninger', 'Rasjonale likninger', 'Ulikheter', 'Fortegnslinje'],
       prerequisites: ['s1-1-2'],
       competenceGoals: ['løyse likningar og ulikskapar med polynomuttrykk'],
-      coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-1-3-likninger-og-ulikheter.png',
     },
 
     // Kapittel 2: Funksjoner
@@ -3935,7 +3935,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Polynomfunksjon', 'Graf', 'Nullpunkter', 'Ekstremalpunkter', 'Vendepunkt'],
       competenceGoals: ['analysere eigenskapar ved polynomfunksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-2-1-polynomfunksjoner.png',
     },
     {
       id: 's1-2-2',
@@ -3946,7 +3946,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Rasjonale funksjoner', 'Vertikal asymptote', 'Horisontal asymptote', 'Definisjonsmengde'],
       prerequisites: ['s1-2-1'],
-      coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-2-2-rasjonale-funksjoner.png',
     },
     {
       id: 's1-2-3',
@@ -3957,7 +3957,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Eksponentialfunksjon', 'Vekstfaktor', 'Halvering', 'Dobling', 'e-funksjonen'],
       competenceGoals: ['utforske og beskrive eksponentiell vekst og nedbryting'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-2-3-eksponentialfunksjoner.png',
     },
     {
       id: 's1-2-4',
@@ -3968,7 +3968,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Logaritme', 'Logaritmefunksjon', 'Logaritmeregler', 'Naturlig logaritme'],
       prerequisites: ['s1-2-3'],
-      coverImage: 'https://images.unsplash.com/photo-1628126235206-5260b9ea6441?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-2-4-logaritmefunksjoner.png',
     },
     {
       id: 's1-2-5',
@@ -3979,7 +3979,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Omvendt funksjon', 'Invers', 'Symmetri', 'Eksistens'],
       prerequisites: ['s1-2-4'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-2-5-omvendte-funksjoner.png',
     },
 
     // Kapittel 3: Derivasjon
@@ -3992,7 +3992,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Grenseverdi', 'Kontinuitet', 'Ensidig grense', 'Uendelig'],
       competenceGoals: ['utforske og drøfte omgrepet grenseverdi'],
-      coverImage: 'https://images.unsplash.com/photo-1580894908361-967195033215?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-3-1-grenser-og-kontinuitet.png',
     },
     {
       id: 's1-3-2',
@@ -4003,7 +4003,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Derivasjon', 'Sekant', 'Tangent', 'Momentan vekstfart', 'Grenseverdi'],
       prerequisites: ['s1-3-1'],
-      coverImage: 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-3-2-definisjon-av-derivasjon.png',
     },
     {
       id: 's1-3-3',
@@ -4015,7 +4015,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Sumregel', 'Produktregel', 'Kvotientregel', 'Kjerneregel'],
       prerequisites: ['s1-3-2'],
       competenceGoals: ['derivere polynomfunksjonar, potensfunksjonar og eksponentialfunksjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-3-3-derivasjonsregler.png',
     },
     {
       id: 's1-3-4',
@@ -4026,7 +4026,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Derivasjon av e^x', 'Derivasjon av ln x', 'Derivasjon av a^x', 'Derivasjon av log_a x'],
       prerequisites: ['s1-3-3'],
-      coverImage: 'https://images.unsplash.com/photo-1618034150876-3b1f77dbfb09?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-3-4-derivasjon-av-spesielle-funksjoner.png',
     },
     {
       id: 's1-3-5',
@@ -4038,7 +4038,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Ekstremalpunkt', 'Monotoni', 'Optimering', 'Vendepunkt'],
       prerequisites: ['s1-3-3'],
       competenceGoals: ['bruke derivasjon til å analysere funksjonar og løyse praktiske problem'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-3-5-anvendelser-av-derivasjon.png',
     },
 
     // Kapittel 4: Økonomi
@@ -4051,7 +4051,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Kostnadsfunksjon', 'Inntektsfunksjon', 'Overskuddsfunksjon', 'Enhetskostnad'],
       competenceGoals: ['bruke funksjonar til å modellere økonomiske samanhengar'],
-      coverImage: 'https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-4-1-kostnad-inntekt-og-overskudd.png',
     },
     {
       id: 's1-4-2',
@@ -4062,7 +4062,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Grensekostnad', 'Grenseinntekt', 'Marginalanalyse', 'Optimalt produksjonsvolum'],
       prerequisites: ['s1-4-1', 's1-3-5'],
-      coverImage: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-4-2-grensekostnader-og-grenseinntekter.png',
     },
     {
       id: 's1-4-3',
@@ -4073,7 +4073,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Etterspørsel', 'Elastisitet', 'Priselastisitet', 'Markedslikevekt'],
       prerequisites: ['s1-4-2'],
-      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-4-3-etterspørsel-og-elastisitet.png',
     },
 
     // Kapittel 5: Sannsynlighet
@@ -4086,7 +4086,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Multiplikasjonsprinsippet', 'Permutasjon', 'Kombinasjon', 'Fakultet'],
       competenceGoals: ['bruke kombinatorikk til å berekne sannsyn'],
-      coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-5-1-kombinatorikk.png',
     },
     {
       id: 's1-5-2',
@@ -4097,7 +4097,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Betinget sannsynlighet', 'Uavhengighet', 'Multiplikasjonsregelen', 'Tredjagram'],
       prerequisites: ['s1-5-1'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-5-2-betinget-sannsynlighet.png',
     },
     {
       id: 's1-5-3',
@@ -4109,7 +4109,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Bayes setning', 'Total sannsynlighet', 'Oppdatering', 'Diagnostiske tester'],
       prerequisites: ['s1-5-2'],
       competenceGoals: ['bruke Bayes setning til å berekne sannsyn'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-5-3-bayes-setning.png',
     },
 
     // Kapittel 6: Statistikk
@@ -4122,7 +4122,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Sannsynlighetsfordeling', 'Forventningsverdi', 'Varians', 'Standardavvik'],
       competenceGoals: ['berekne og tolke forventningsverdi og standardavvik'],
-      coverImage: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-6-1-diskrete-sannsynlighetsfordelinger.png',
     },
     {
       id: 's1-6-2',
@@ -4133,7 +4133,7 @@ export const COURSE_S1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Binomisk forsøk', 'Binomisk fordeling', 'Forventning', 'Standardavvik'],
       prerequisites: ['s1-6-1', 's1-5-1'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-6-2-binomisk-fordeling.png',
     },
     {
       id: 's1-6-3',
@@ -4145,7 +4145,7 @@ export const COURSE_S1: TextbookCourse = {
       topics: ['Normalfordeling', 'Standardnormalfordeling', 'z-verdi', 'Normalfordelingsapproksimasjon'],
       prerequisites: ['s1-6-2'],
       competenceGoals: ['bruke normalfordelinga til å berekne sannsyn'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s1-6-3-normalfordelingen.png',
     },
   ],
 };
@@ -4173,7 +4173,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Antiderivasjon', 'Ubestemt integral', 'Integrasjonskonstant', 'Integrasjonsregler'],
       competenceGoals: ['finne ubestemte integralar ved å bruke integrasjonsreglar'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-1-1-ubestemte-integraler.png',
     },
     {
       id: 's2-1-2',
@@ -4184,7 +4184,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Bestemt integral', 'Areal under graf', 'Analysens fundamentalteorem'],
       prerequisites: ['s2-1-1'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-1-2-bestemte-integraler.png',
     },
     {
       id: 's2-1-3',
@@ -4195,7 +4195,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Areal mellom kurver', 'Integrasjon', 'Skjæringspunkter'],
       prerequisites: ['s2-1-2'],
-      coverImage: 'https://images.unsplash.com/photo-1580894908361-967195033215?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-1-3-areal-mellom-kurver.png',
     },
     {
       id: 's2-1-4',
@@ -4206,7 +4206,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 20,
       topics: ['Delvis integrasjon', 'Substitusjon', 'Variabelskifte'],
       prerequisites: ['s2-1-2'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-1-4-integrasjonsmetoder.png',
     },
 
     // Kapittel 2: Differensiallikninger
@@ -4219,7 +4219,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Differensiallikning', 'Løsning', 'Generell løsning', 'Partikulær løsning'],
       competenceGoals: ['løyse enkle differensiallikningar'],
-      coverImage: 'https://images.unsplash.com/photo-1534551767192-78b8dd45b51b?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-2-1-introduksjon-til-differensiallikninger.png',
     },
     {
       id: 's2-2-2',
@@ -4230,7 +4230,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Separabel likning', 'Separasjon av variable', 'Initialbetingelse'],
       prerequisites: ['s2-2-1', 's2-1-1'],
-      coverImage: 'https://images.unsplash.com/photo-1587145820266-a5951ee6f620?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-2-2-separable-differensiallikninger.png',
     },
     {
       id: 's2-2-3',
@@ -4241,7 +4241,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Lineær differensiallikning', 'Homogen', 'Inhomogen', 'Integrerende faktor'],
       prerequisites: ['s2-2-2'],
-      coverImage: 'https://images.unsplash.com/photo-1453733190371-0a9bedd82893?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-2-3-lineaere-differensiallikninger.png',
     },
     {
       id: 's2-2-4',
@@ -4253,7 +4253,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Logistisk vekst', 'Populasjonsmodeller', 'Nedbrytning'],
       prerequisites: ['s2-2-3'],
       competenceGoals: ['modellere praktiske situasjonar med differensiallikningar'],
-      coverImage: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-2-4-modellering-med-differensiallikninger.png',
     },
 
     // Kapittel 3: Funksjonsdrøfting
@@ -4266,7 +4266,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Funksjonsdrøfting', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter', 'Skisse'],
       competenceGoals: ['drøfte funksjonar systematisk med derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-3-1-fullstendig-funksjonsdr0fting.png',
     },
     {
       id: 's2-3-2',
@@ -4277,7 +4277,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Andrederivert', 'Vendepunkt', 'Krumning', 'Konkavitet'],
       prerequisites: ['s2-3-1'],
-      coverImage: 'https://images.unsplash.com/photo-1604357209793-fca5dca89f97?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-3-2-andrederiverte-og-vendepunkter.png',
     },
     {
       id: 's2-3-3',
@@ -4289,7 +4289,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Optimering', 'Maksimum', 'Minimum', 'Praktiske problemer', 'Randverdier'],
       prerequisites: ['s2-3-1'],
       competenceGoals: ['bruke derivasjon til å løyse praktiske optimeringsproblem'],
-      coverImage: 'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-3-3-optimering.png',
     },
 
     // Kapittel 4: Statistikk og sannsynlighet
@@ -4302,7 +4302,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Sannsynlighetsfordeling', 'Diskret', 'Kontinuerlig', 'Tetthetsfunksjon'],
       competenceGoals: ['bruke ulike sannsynlighetsfordelingar til å modellere situasjonar'],
-      coverImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-4-1-sannsynlighetsfordelinger.png',
     },
     {
       id: 's2-4-2',
@@ -4313,7 +4313,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Hypergeometrisk fordeling', 'Binomisk fordeling', 'Utvalg', 'Tilnærming'],
       prerequisites: ['s2-4-1'],
-      coverImage: 'https://images.unsplash.com/photo-1517842645767-c639042777db?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-4-2-hypergeometrisk-og-binomisk-fordeling.png',
     },
     {
       id: 's2-4-3',
@@ -4324,7 +4324,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Normalfordeling', 'Sentralgrensesetningen', 'Summen av stokastiske variable'],
       prerequisites: ['s2-4-2'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-4-3-normalfordeling-og-sentralgrensesetningen.png',
     },
 
     // Kapittel 5: Statistisk inferens
@@ -4337,7 +4337,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Punktestimat', 'Konfidensintervall', 'Feilmargin', 'Utvalgsstørrelse'],
       competenceGoals: ['konstruere konfidensintervall og tolke resultata'],
-      coverImage: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-5-1-estimering.png',
     },
     {
       id: 's2-5-2',
@@ -4349,7 +4349,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Hypotesetest', 'Nullhypotese', 'Alternativ hypotese', 'p-verdi', 'Signifikansnivå'],
       prerequisites: ['s2-5-1'],
       competenceGoals: ['gjennomføre hypotesetestar og tolke resultata'],
-      coverImage: 'https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-5-2-hypotesetesting.png',
     },
     {
       id: 's2-5-3',
@@ -4360,7 +4360,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 12,
       topics: ['Type I feil', 'Type II feil', 'Teststyrke', 'Utvalgsstørrelse'],
       prerequisites: ['s2-5-2'],
-      coverImage: 'https://images.unsplash.com/photo-1518186285589-2f7649de83e0?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-5-3-feiltyper-og-teststyrke.png',
     },
 
     // Kapittel 6: Regresjon og korrelasjon
@@ -4373,7 +4373,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Lineær regresjon', 'Minste kvadrat', 'Regresjonslinje', 'Prediksjon'],
       competenceGoals: ['utføre regresjonsanalyse og tolke resultata'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-6-1-lineaer-regresjon.png',
     },
     {
       id: 's2-6-2',
@@ -4384,7 +4384,7 @@ export const COURSE_S2: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Korrelasjon', 'Korrelasjonskoeffisient', 'R²', 'Kausalitet'],
       prerequisites: ['s2-6-1'],
-      coverImage: 'https://images.unsplash.com/photo-1542621334-a254cf47733d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-6-2-korrelasjon.png',
     },
     {
       id: 's2-6-3',
@@ -4396,7 +4396,7 @@ export const COURSE_S2: TextbookCourse = {
       topics: ['Eksponentiell regresjon', 'Potensregresjon', 'Logaritmisk regresjon', 'Modellvalg'],
       prerequisites: ['s2-6-2'],
       competenceGoals: ['bruke digitale verktøy til å tilpasse modellar til data'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/s2-6-3-ikke-lineaer-regresjon.png',
     },
   ],
 };
@@ -4892,7 +4892,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 18,
       topics: ['Polynomer', 'Polynomdivisjon', 'Faktorteoremet', 'Nullpunkter'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-1-1-polynomer-og-polynomdivisjon.png',
     },
     {
       id: 'r1-1-2',
@@ -4903,7 +4903,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Potensregler', 'Logaritmeregler', 'Naturlig logaritme', 'Briggske logaritmer'],
       competenceGoals: ['utforske og forstå regneregler for potenser og logaritmer'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-1-2-potenser-og-logaritmer.png',
     },
     {
       id: 'r1-1-3',
@@ -4915,7 +4915,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Eksponentialligninger', 'Logaritmeligninger', 'Løsningsstrategier'],
       prerequisites: ['r1-1-2'],
       competenceGoals: ['bruke ulike strategier for å løse eksponentialligninger og logaritmeligninger'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-1-3-eksponential-og-logaritmeligninger.png',
     },
     // Seksjon 2: Funksjoner
     {
@@ -4927,7 +4927,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 14,
       topics: ['Polynomfunksjoner', 'Rasjonale funksjoner', 'Eksponentialfunksjoner', 'Definisjonsmengde'],
       competenceGoals: ['analysere og tolke ulike funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-2-1-funksjonstyper-og-egenskaper.png',
     },
     {
       id: 'r1-2-2',
@@ -4939,7 +4939,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Omvendt funksjon', 'Entydig funksjon', 'Speiling om y=x', 'Definisjonsmengde'],
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-2-2-omvendte-funksjoner.png',
     },
     {
       id: 'r1-2-3',
@@ -4951,7 +4951,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Komposisjon', 'f∘g', 'Indre og ytre funksjon'],
       prerequisites: ['r1-2-1'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-2-3-sammensatte-funksjoner.png',
     },
     // Seksjon 3: Grenseverdi og kontinuitet
     {
@@ -4963,7 +4963,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Grenseverdi', 'Ensidig grenseverdi', 'Grenseverdi i uendelig'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner, og utforske og argumentere for anvendelser av grenseverdier'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-3-1-grenseverdi.png',
     },
     {
       id: 'r1-3-2',
@@ -4975,7 +4975,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Kontinuitet', 'Diskontinuitet', 'Hoppunkter', 'Asymptotisk oppførsel'],
       prerequisites: ['r1-3-1'],
       competenceGoals: ['gjøre rede for og argumentere for om en funksjon er kontinuerlig eller diskontinuerlig i et punkt i et definisjonsområde, og gi eksempler på anvendelser av diskontinuerlige funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-3-2-kontinuitet.png',
     },
     {
       id: 'r1-3-3',
@@ -4987,7 +4987,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Momentan vekstfart', 'Sekant og tangent', 'Derivasjonens definisjon', 'Numerisk derivasjon'],
       prerequisites: ['r1-3-1'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer', 'bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder, og gi eksempler på funksjoner som ikke er deriverbare i gitte punkter'],
-      coverImage: 'https://images.unsplash.com/photo-1596495577886-d920f1fb7238?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-3-3-derivasjonens-definisjon.png',
     },
     {
       id: 'r1-3-4',
@@ -4999,7 +4999,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ["L'Hôpitals regel", 'Ubestemte former', '0/0', '∞/∞', 'Gjentatt anvendelse'],
       prerequisites: ['r1-3-1', 'r1-3-3'],
       competenceGoals: ['bruke ulike strategier for å utforske og bestemme grenseverdier til funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-3-4-lhopitals-regel.png',
     },
     {
       id: 'r1-3-5',
@@ -5011,7 +5011,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Newtons metode', 'Iterasjon', 'Numerisk rotfunn', 'Konvergens', 'Startverdier'],
       prerequisites: ['r1-3-3'],
       competenceGoals: ['bestemme den deriverte i et punkt geometrisk, algebraisk og ved numeriske metoder'],
-      coverImage: 'https://images.unsplash.com/photo-1509228468518-180dd4864904?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-3-5-newtons-metode.png',
     },
     // Seksjon 4: Derivasjon
     {
@@ -5024,7 +5024,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Potensregelen', 'Sumregelen', 'Konstantregelen', 'Konstant faktor'],
       prerequisites: ['r1-3-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-1-derivasjonsregler.png',
     },
     {
       id: 'r1-4-2',
@@ -5036,7 +5036,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Derivasjon av e^x', 'Derivasjon av ln(x)', 'Derivasjon av a^x', 'Derivasjon av log_a(x)'],
       prerequisites: ['r1-4-1', 'r1-1-2'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-2-derivasjon-av-eksponential-og-logaritmefunksjoner.png',
     },
     {
       id: 'r1-4-3',
@@ -5048,7 +5048,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Kjerneregelen', 'Indre derivert', 'Ytre derivert', 'Sammensatte funksjoner'],
       prerequisites: ['r1-4-2', 'r1-2-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-3-kjerneregelen.png',
     },
     {
       id: 'r1-4-4',
@@ -5060,7 +5060,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Produktregelen', 'Kvotientregelen', 'Kombinasjon med kjerneregelen'],
       prerequisites: ['r1-4-3'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-4-produktregelen-og-kvotientregelen.png',
     },
     {
       id: 'r1-4-5',
@@ -5072,7 +5072,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Derivasjon av f^{-1}', 'Implisitt derivasjon', 'Sammenheng mellom f og f^{-1}'],
       prerequisites: ['r1-4-4', 'r1-2-2'],
       competenceGoals: ['utforske, analysere og derivere ulike funksjoner og deres omvendte funksjoner, og gjøre rede for egenskaper til og sammenhenger mellom slike funksjoner'],
-      coverImage: 'https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-5-derivasjon-av-omvendte-funksjoner.png',
     },
     {
       id: 'r1-4-6',
@@ -5084,7 +5084,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Stigning og monotoni', 'Ekstremalpunkter', 'Vendepunkter', 'Asymptoter'],
       prerequisites: ['r1-4-4'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon'],
-      coverImage: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-6-funksjonsdrøfting.png',
     },
     {
       id: 'r1-4-7',
@@ -5096,7 +5096,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Relaterte rater', 'Implisitt derivasjon', 'Kjerneregelen i praksis', 'Geometriske problemer'],
       prerequisites: ['r1-4-3', 'r1-4-5'],
       competenceGoals: ['forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-7-relaterte-rater.png',
     },
     {
       id: 'r1-4-8',
@@ -5108,7 +5108,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Globale ekstremalpunkter', 'Lukkede intervaller', 'Ekstremalverdisetningen', 'Optimeringsproblemer'],
       prerequisites: ['r1-4-6'],
       competenceGoals: ['analysere og tolke ulike funksjoner ved å bruke derivasjon', 'forstå begrepene vekstfart, grenseverdi, derivasjon og kontinuitet, og bruke disse for å løse praktiske problemer'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-4-8-globale-ekstremalpunkter.png',
     },
     // Seksjon 5: Vekstmodeller og modellering
     {
@@ -5121,7 +5121,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Vekstfaktor', 'Halvveringstid', 'Doblingstid'],
       prerequisites: ['r1-1-3', 'r1-4-3'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-5-1-eksponentiell-vekst.png',
     },
     {
       id: 'r1-5-2',
@@ -5133,7 +5133,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Logistisk modell', 'Bærekapasitet', 'Vendepunkt', 'S-kurve'],
       prerequisites: ['r1-5-1'],
       competenceGoals: ['modellere og analysere eksponentiell og logistisk vekst i reelle datasett'],
-      coverImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-5-2-logistisk-vekst.png',
     },
     {
       id: 'r1-5-3',
@@ -5145,7 +5145,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Dataanalyse', 'Regresjonsmodeller', 'Presentasjon av funn'],
       prerequisites: ['r1-5-1', 'r1-5-2'],
       competenceGoals: ['planlegge og gjennomføre et selvstendig arbeid med reelle datasett knyttet til naturvitenskapelige temaer og forhold, og analysere og presentere funn', 'anvende derivasjon til å analysere og tolke egne matematiske modeller av reelle datasett'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-5-3-modellering-med-reelle-datasett.png',
     },
     // Seksjon 6: Vektorer og parameterframstilling
     {
@@ -5157,7 +5157,7 @@ export const COURSE_R1: TextbookCourse = {
       exerciseCount: 16,
       topics: ['Vektorbegrep', 'Vektoraddisjon', 'Skalar multiplikasjon', 'Koordinater'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
-      coverImage: 'https://images.unsplash.com/photo-1518133910546-b6c2fb7d79e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-6-1-vektorer-i-planet.png',
     },
     {
       id: 'r1-6-2',
@@ -5169,7 +5169,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Skalarprodukt', 'Vektorlengde', 'Vinkel mellom vektorer', 'Ortogonalitet'],
       prerequisites: ['r1-6-1'],
       competenceGoals: ['forstå begrepet vektor og regneregler for vektorer i planet, og bruke vektorer til å beregne ulike størrelser i planet'],
-      coverImage: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-6-2-vektorregning.png',
     },
     {
       id: 'r1-6-3',
@@ -5181,7 +5181,7 @@ export const COURSE_R1: TextbookCourse = {
       topics: ['Parameterframstilling', 'Linjer i planet', 'Skjæringspunkter', 'Naturvitenskapelige problemer'],
       prerequisites: ['r1-6-1'],
       competenceGoals: ['anvende parameterframstillinger til linjer og bruke parameterframstillinger til å løse naturvitenskapelige problemer'],
-      coverImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&h=400&fit=crop',
+      coverImage: '/images/subjects/r1-6-3-parameterframstilling.png',
     },
   ],
 };
@@ -14076,8 +14076,34 @@ export const COURSE_HELSEOPPVEKST_VG1: TextbookCourse = {
   icon: '🏥',
   coverImage: '/images/subjects/helseoppvekst-vg1-hero.png',
   chapters: [
-    { id: 'helseoppvekst-vg1-1-1', number: '1', title: 'Introduksjon', description: 'Hva er helse- og oppvekstfag?', estimatedMinutes: 60, exerciseCount: 5, topics: ['Sektoren', 'Yrkesmuligheter'], competenceGoals: ['beskrive sektoren'] },
-    { id: 'helseoppvekst-vg1-1-2', number: '2', title: 'Helsefremmende arbeid', description: 'Forebygging og helsefremming.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Helsedeterminanter', 'Forebygging'], competenceGoals: ['forstå helsefremmende arbeid'] },
+    { id: 'helseoppvekst-vg1-1-1', number: '1', title: 'Hva er helse- og oppvekstfag?', description: 'Introduksjon til sektoren og yrkesmuligheter.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Sektoren', 'Yrkesmuligheter', 'Verdier'], competenceGoals: ['beskrive helse- og oppvekstsektoren'] },
+    { id: 'helseoppvekst-vg1-1-2', number: '2', title: 'Helsefremmende arbeid', description: 'Forebygging og helsefremming.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Helsedeterminanter', 'Forebygging', 'Folkehelse'], competenceGoals: ['forstå helsefremmende arbeid'] },
+    { id: 'helseoppvekst-vg1-1-3', number: '3', title: 'Kommunikasjon og samhandling', description: 'Kommunikasjon, aktiv lytting og samhandling.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kommunikasjon', 'Aktiv lytting', 'Brukergrupper'], competenceGoals: ['kommunisere med ulike brukergrupper'] },
+    { id: 'helseoppvekst-vg1-1-4', number: '4', title: 'Etikk og verdier i yrkesutøvelsen', description: 'Etiske dilemmaer og profesjonell etikk.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Etikk', 'Verdier', 'Etiske dilemmaer'], competenceGoals: ['reflektere over etiske problemstillinger'] },
+    { id: 'helseoppvekst-vg1-2-1', number: '5', title: 'Kroppen og grunnleggende behov', description: 'Kroppens oppbygning og Maslows behovspyramide.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Organsystemer', 'Grunnleggende behov', 'Homeostase'], competenceGoals: ['beskrive kroppens oppbygning og funksjon'] },
+    { id: 'helseoppvekst-vg1-2-2', number: '6', title: 'Hygiene og smittevern', description: 'Hygiene, smittekjeden og håndhygiene.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Hygiene', 'Smittevern', 'Håndhygiene'], competenceGoals: ['gjøre rede for smittevern'] },
+    { id: 'helseoppvekst-vg1-2-3', number: '7', title: 'Kosthold og ernæring', description: 'Næringsstoffer, kostholdsråd og mattrygghet.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Næringsstoffer', 'Kosthold', 'Ernæring'], competenceGoals: ['gjøre rede for sammenhengen mellom kosthold og helse'] },
+    { id: 'helseoppvekst-vg1-2-4', number: '8', title: 'Fysisk aktivitet og helse', description: 'Anbefalinger, helseeffekter og tilpasset aktivitet.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Fysisk aktivitet', 'Helseeffekter', 'Tilpasset aktivitet'], competenceGoals: ['gjøre rede for sammenhengen mellom fysisk aktivitet og helse'] },
+    { id: 'helseoppvekst-vg1-2-5', number: '9', title: 'Psykisk helse og livsmestring', description: 'Psykisk helse, stress og mestringsstrategier.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Psykisk helse', 'Stress', 'Mestring'], competenceGoals: ['gjøre rede for psykisk helse og påvirkningsfaktorer'] },
+    { id: 'helseoppvekst-vg1-3-1', number: '10', title: 'Lover og rettigheter', description: 'Sentrale lover og brukerrettigheter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Lovverk', 'Pasientrettigheter', 'Barnekonvensjonen'], competenceGoals: ['gjøre rede for sentrale lover'] },
+    { id: 'helseoppvekst-vg1-3-2', number: '11', title: 'Taushetsplikt og personvern', description: 'Juridisk grunnlag og unntak fra taushetsplikt.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Taushetsplikt', 'Personvern', 'GDPR'], competenceGoals: ['forklare taushetsplikten og personvern'] },
+    { id: 'helseoppvekst-vg1-3-3', number: '12', title: 'HMS – Helse, miljø og sikkerhet', description: 'Arbeidsmiljøloven, risikovurdering og ergonomi.', estimatedMinutes: 55, exerciseCount: 7, topics: ['HMS', 'Arbeidsmiljø', 'Ergonomi'], competenceGoals: ['gjøre rede for HMS-arbeid'] },
+    { id: 'helseoppvekst-vg1-3-4', number: '13', title: 'Dokumentasjon og journalføring', description: 'Journalføring, dokumentasjonskrav og EPJ.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Dokumentasjon', 'Journal', 'EPJ'], competenceGoals: ['dokumentere helsehjelp forsvarlig'] },
+    { id: 'helseoppvekst-vg1-4-1', number: '14', title: 'Barns utvikling 0–6 år', description: 'Motorisk, språklig og sosial utvikling.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Barns utvikling', 'Tilknytning', 'Språkutvikling'], competenceGoals: ['gjøre rede for barns utvikling'] },
+    { id: 'helseoppvekst-vg1-4-2', number: '15', title: 'Barns utvikling 6–12 år', description: 'Skolealder, læring og vennskap.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Skolealder', 'Kognitiv utvikling', 'Vennskap'], competenceGoals: ['gjøre rede for barns utvikling i skolealder'] },
+    { id: 'helseoppvekst-vg1-4-3', number: '16', title: 'Ungdomsutvikling og identitet', description: 'Pubertet, identitet og sosiale medier.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Ungdom', 'Identitet', 'Sosiale medier'], competenceGoals: ['gjøre rede for ungdomsutvikling'] },
+    { id: 'helseoppvekst-vg1-4-4', number: '17', title: 'Voksenliv og aldring', description: 'Voksne livsfaser og livsomstillinger.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Voksenliv', 'Aldring', 'Livsomstillinger'], competenceGoals: ['gjøre rede for utvikling i voksenlivet'] },
+    { id: 'helseoppvekst-vg1-4-5', number: '18', title: 'Eldre og aldringsprosessen', description: 'Normal aldring, demens og livskvalitet.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Aldring', 'Demens', 'Livskvalitet'], competenceGoals: ['gjøre rede for aldringsprosessen'] },
+    { id: 'helseoppvekst-vg1-5-1', number: '19', title: 'Omsorg for barn og unge', description: 'Omsorg, barns rettigheter og omsorgssvikt.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Barns rettigheter', 'Omsorgssvikt', 'Meldeplikt'], competenceGoals: ['gjøre rede for barns rettigheter og behov'] },
+    { id: 'helseoppvekst-vg1-5-2', number: '20', title: 'Omsorg for eldre', description: 'Personsentrert omsorg og fallforebygging.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Personsentrert omsorg', 'ADL', 'Fallforebygging'], competenceGoals: ['beskrive personsentrert omsorg'] },
+    { id: 'helseoppvekst-vg1-5-3', number: '21', title: 'Omsorg for mennesker med funksjonsnedsettelser', description: 'Inkludering, selvbestemmelse og universell utforming.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Funksjonsnedsettelse', 'Inkludering', 'CRPD'], competenceGoals: ['gjøre rede for rettigheter for mennesker med funksjonsnedsettelser'] },
+    { id: 'helseoppvekst-vg1-5-4', number: '22', title: 'Aktiviteter og dagliglivets gjøremål (ADL)', description: 'ADL-kartlegging og mestringsfremmende arbeid.', estimatedMinutes: 55, exerciseCount: 7, topics: ['ADL', 'IADL', 'Mestring'], competenceGoals: ['gjøre rede for ADL og tilrettelegging'] },
+    { id: 'helseoppvekst-vg1-5-5', number: '23', title: 'Førstehjelp og akutte situasjoner', description: 'ABCDE, HLR og akutt førstehjelp.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Førstehjelp', 'HLR', 'ABCDE'], competenceGoals: ['yte førstehjelp ved akutte situasjoner'] },
+    { id: 'helseoppvekst-vg1-6-1', number: '24', title: 'Tverrfaglig samarbeid', description: 'Samarbeid mellom yrkesgrupper og tjenester.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Tverrfaglig samarbeid', 'Teamarbeid', 'Koordinering'], competenceGoals: ['gjøre rede for tverrfaglig samarbeid'] },
+    { id: 'helseoppvekst-vg1-6-2', number: '25', title: 'Kulturforståelse og mangfold', description: 'Kulturell kompetanse og inkludering.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Kultur', 'Mangfold', 'Kommunikasjon'], competenceGoals: ['vise kulturell kompetanse'] },
+    { id: 'helseoppvekst-vg1-6-3', number: '26', title: 'Velferdsteknologi og digitale verktøy', description: 'Velferdsteknologi og etiske problemstillinger.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Velferdsteknologi', 'GPS', 'Digitale verktøy'], competenceGoals: ['gjøre rede for velferdsteknologi'] },
+    { id: 'helseoppvekst-vg1-7-1', number: '27', title: 'Praksis i arbeidslivet', description: 'Forventninger, profesjonalitet og refleksjon.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Praksis', 'Profesjonalitet', 'Refleksjon'], competenceGoals: ['planlegge og gjennomføre praksis'] },
+    { id: 'helseoppvekst-vg1-7-2', number: '28', title: 'Videre utdanning og karrieremuligheter', description: 'Utdanningsveier, fagbrev og karriere.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Utdanning', 'Fagbrev', 'Karriere'], competenceGoals: ['utforske utdannings- og yrkesmuligheter'] },
   ],
 };
 
