@@ -636,6 +636,89 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
   'kroppsoving-vg1-8-4': 'kroppsoving-vg1-8',   // Fair play og idrettsetikk
   'kroppsoving-vg1-8-1': 'kroppsoving-vg1-9',   // Helse og livsstil
   'kroppsoving-vg1-1-5': 'kroppsoving-vg1-10',  // Egentrening og treningsplanlegging
+
+  // Kroppsøving VG2 (10 kapitler med innhold)
+  'kroppsoving-vg2-1-1': 'kroppsoving-vg2-1',   // Avansert treningslære
+  'kroppsoving-vg2-1-2': 'kroppsoving-vg2-2',   // Periodisering og treningsplanlegging
+  'kroppsoving-vg2-2-1': 'kroppsoving-vg2-3',   // Idrettspsykologi og mental trening
+  'kroppsoving-vg2-2-3': 'kroppsoving-vg2-4',   // Prestasjon og mestring
+  'kroppsoving-vg2-3-1': 'kroppsoving-vg2-5',   // Skadeforebygging og rehabilitering
+  'kroppsoving-vg2-4-1': 'kroppsoving-vg2-6',   // Alternative treningsformer
+  'kroppsoving-vg2-5-1': 'kroppsoving-vg2-7',   // Friluftsliv og ekspedisjon
+  'kroppsoving-vg2-7-1': 'kroppsoving-vg2-8',   // Idrett, samfunn og etikk
+  'kroppsoving-vg2-8-1': 'kroppsoving-vg2-9',   // Helse, livsstil og motivasjon
+  'kroppsoving-vg2-8-4': 'kroppsoving-vg2-10',  // Egenvurdering og dokumentasjon
+
+  // IT 1 (10 kapitler med innhold)
+  'it-1-1-1': 'it-1-1',   // Digital kompetanse og samfunn
+  'it-1-3-1': 'it-1-2',   // Grunnleggende programmering
+  'it-1-4-5': 'it-1-3',   // Algoritmer og problemløsning
+  'it-1-5-1': 'it-1-4',   // Webteknologi - HTML og CSS
+  'it-1-6-1': 'it-1-5',   // JavaScript og dynamiske nettsider
+  'it-1-7-1': 'it-1-6',   // Databaser og datamodellering
+  'it-1-5-5': 'it-1-7',   // Brukergrensesnitt og design
+  'it-1-8-1': 'it-1-8',   // Nettverk og sikkerhet
+  'it-1-8-2': 'it-1-9',   // Personvern og etikk
+  'it-1-3-8': 'it-1-10',  // Prosjektarbeid og dokumentasjon
+
+  // Biologi 1 (10 kapitler med innhold)
+  'biologi-1-1-1': 'biologi-1-1',   // Cellebiologi og cellens oppbygging
+  'biologi-1-2-1': 'biologi-1-2',   // Celleånding og fotosyntese
+  'biologi-1-3-1': 'biologi-1-3',   // DNA og gener
+  'biologi-1-3-4': 'biologi-1-4',   // Celledeling (mitose og meiose)
+  'biologi-1-3-7': 'biologi-1-5',   // Arv og genetikk
+  'biologi-1-6-1': 'biologi-1-6',   // Evolusjon og naturlig utvalg
+  'biologi-1-7-1': 'biologi-1-7',   // Økologi og økosystemer
+  'biologi-1-8-1': 'biologi-1-8',   // Biologisk mangfold
+  'biologi-1-3-8': 'biologi-1-9',   // Bioteknologi grunnlag
+  'biologi-1-5-1': 'biologi-1-10',  // Kropp og helse
+
+  // Psykologi 1 (10 kapitler med innhold)
+  'psykologi-1-1-1': 'psykologi-1-1',   // Hva er psykologi?
+  'psykologi-1-2-1': 'psykologi-1-2',   // Biologisk psykologi
+  'psykologi-1-3-1': 'psykologi-1-3',   // Kognitiv psykologi
+  'psykologi-1-4-1': 'psykologi-1-4',   // Læring og atferd
+  'psykologi-1-6-1': 'psykologi-1-5',   // Motivasjon og emosjoner
+  'psykologi-1-5-1': 'psykologi-1-6',   // Utviklingspsykologi
+  'psykologi-1-5-5': 'psykologi-1-7',   // Personlighetspsykologi
+  'psykologi-1-6-2': 'psykologi-1-8',   // Sosialpsykologi
+  'psykologi-1-7-1': 'psykologi-1-9',   // Psykisk helse og lidelser
+  'psykologi-1-8-1': 'psykologi-1-10',  // Anvendt psykologi og metode
+
+  // Geofag 1 (10 kapitler med innhold)
+  'geofag-1-1-1': 'geofag-1-1',   // Jordens system og sfærer
+  'geofag-1-2-1': 'geofag-1-2',   // Bergarter og mineraler
+  'geofag-1-3-1': 'geofag-1-3',   // Platetektonikk
+  'geofag-1-3-3': 'geofag-1-4',   // Vulkaner og jordskjelv
+  'geofag-1-4-1': 'geofag-1-5',   // Forvitring og erosjon
+  'geofag-1-4-3': 'geofag-1-6',   // Landformer og landskapsutvikling
+  'geofag-1-7-1': 'geofag-1-7',   // Klima og klimasoner (mapped to naturfarer chapter which covers weather)
+  'geofag-1-5-1': 'geofag-1-9',   // Hydrologi og vannkretsløpet
+  'geofag-1-8-1': 'geofag-1-10',  // Geofaglige undersøkelser
+
+  // Teknologi og forskningslære 1 (10 kapitler med innhold)
+  'tof-1-1-1': 'tof-1-1',   // Vitenskapelig metode
+  'tof-1-2-1': 'tof-1-2',   // Datainnsamling og analyse
+  'tof-1-6-1': 'tof-1-3',   // Teknologihistorie
+  'tof-1-5-1': 'tof-1-4',   // Innovasjon og design
+  'tof-1-3-1': 'tof-1-5',   // Elektronikk og mikrokontrollere
+  'tof-1-4-1': 'tof-1-6',   // Programmering og styresystemer
+  'tof-1-7-1': 'tof-1-7',   // Energi og bærekraft
+  'tof-1-5-5': 'tof-1-8',   // Materialer og konstruksjon
+  'tof-1-8-1': 'tof-1-9',   // Prosjektarbeid
+  'tof-1-8-4': 'tof-1-10',  // Presentasjon og formidling
+
+  // Rettslære 1 (10 kapitler med innhold)
+  'rettslaere-1-1-1': 'rettslaere-1-1',   // Rettssystemets oppbygging
+  'rettslaere-1-2-1': 'rettslaere-1-2',   // Rettskilder og lovtolkning
+  'rettslaere-1-8-1': 'rettslaere-1-3',   // Menneskerettigheter
+  'rettslaere-1-6-1': 'rettslaere-1-4',   // Avtalerett
+  'rettslaere-1-6-4': 'rettslaere-1-5',   // Kjøpsrett og forbrukerrett
+  'rettslaere-1-7-6': 'rettslaere-1-6',   // Erstatningsrett
+  'rettslaere-1-7-1': 'rettslaere-1-7',   // Strafferett grunnleggende
+  'rettslaere-1-5-1': 'rettslaere-1-8',   // Arbeidsrett
+  'rettslaere-1-3-1': 'rettslaere-1-9',   // Familie- og arverett
+  'rettslaere-1-8-5': 'rettslaere-1-10',  // Rettsprosess og konfliktløsning
 };
 
 // ============================================================================
