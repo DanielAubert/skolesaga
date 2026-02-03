@@ -57,21 +57,18 @@ interface ContentBlockRendererProps {
   viewingAsStudentId?: string | null;
 }
 
-// Wrapper komponent for å filtrere bilder - kun godkjente vises
+// Wrapper komponent for å filtrere bilder - skjul kun avviste
 function FilteredImageBlock({ block }: { block: ImageBlock }) {
-  const { approvals, isLoading } = useIllustrationApproval();
+  const { isApproved, isLoading } = useIllustrationApproval();
 
-  // Sjekk om bildet er godkjent
-  const approval = approvals[block.id];
-  const isApproved = approval?.status === 'approved';
-
-  // Mens vi laster, vis ingenting (for å unngå flash av ikke-godkjente bilder)
+  // Mens vi laster, vis ingenting (for å unngå flash)
   if (isLoading) {
     return null;
   }
 
-  // Kun vis godkjente bilder
-  if (!isApproved) {
+  // Skjul kun bilder som er eksplisitt avvist
+  // Bilder uten godkjenningsstatus vises (pending)
+  if (!isApproved(block.id)) {
     return null;
   }
 
