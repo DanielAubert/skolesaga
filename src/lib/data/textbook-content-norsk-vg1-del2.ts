@@ -1,22 +1,14 @@
 /**
- * Norsk VG1 - Del 2: Kapittel 4.1–7.2
- * Språk og identitet, digitale tekster, litteraturhistorie, fagartikkel,
- * norsk språkhistorie, nynorsk/bokmål, språkmangfold, språk i endring
+ * Norsk VG1 - Del 2: Kapittel 4.1–6.3
+ * Språk og identitet (4.1), nynorsk/bokmål (4.3), språkmangfold (4.4),
+ * språk i endring (4.5), fagartikkel (5.3), digitale tekster og sosiale medier (6.3)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 import {
   TEKST_AASEN_NORSK_GRAMMATIK_FORORD,
   TEKST_WERGELAND_ESSAY,
-  TEKST_HAVAMAL_UTDRAG,
-  TEKST_VOLUSPA_UTDRAG,
-  TEKST_PETTER_DASS_NORDLANDS_TROMPET,
-  TEKST_HOLBERG_ERASMUS_MONTANUS_SCENE,
-  TEKST_DRAUMKVEDET_UTDRAG,
-  TEKST_KONGESPEILET_UTDRAG,
-  TEKST_AASEN_PROVER_AV_LANDSMAALET,
   TEKST_AASEN_NORDMANNEN,
-  TEKST_AASEN_OM_VORT_SKRIFTSPROG,
   TEKST_VINJE_FERDAMINNI_UTDRAG,
   TEKST_GARBORG_BONDESTUDENTAR_UTDRAG,
 } from './textbook-content-norsk-vg1-tekster';
@@ -381,14 +373,519 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
 };
 
 // ============================================================================
-// KAPITTEL 4.2: Digitale tekster og medier
+// KAPITTEL 4.2: Norsk sammenlignet med andre språk
 // ============================================================================
 
 export const CHAPTER_NORSK_VG1_4_2: TextbookChapter = {
   id: 'norsk-vg1-4-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '6.1',
-  title: 'Digitale tekster og medier',
+  chapterNumber: '4.2',
+  title: 'Norsk sammenlignet med andre språk',
+  description: 'Sammenlign norsk med andre språk og utforsk hvordan språklige møter skaper endringer.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'gjøre rede for utvikling og variasjon i norsk språk',
+    'reflektere over sammenhengen mellom språk, kultur og identitet',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-4-2-intro',
+      type: 'text',
+      content: `## Norsk i et språklig perspektiv
+
+Norsk er ikke et isolert språk - det er en del av en stor språkfamilie og har gjennom historien blitt påvirket av mange andre språk. Ved å sammenligne norsk med andre språk kan vi bedre forstå både vårt eget språk og hvordan språk generelt fungerer og utvikler seg.
+
+**I dette kapittelet skal vi se på:**
+- Norsk i den germanske språkfamilien
+- Skandinavisk nabospråkforståelse
+- Lånord og språkpåvirkning
+- Språkmangfold og flerspråklighet
+
+**Språk er i stadig endring:**
+Norsk er et levende språk som stadig påvirkes av andre språk og kulturer. Dette er ikke noe nytt - det har skjedd gjennom hele språkhistorien.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-def-1',
+      type: 'definition',
+      title: 'Norsk i den germanske språkfamilien',
+      content: `**De germanske språkene deles inn i:**
+
+**Nordgermanske (skandinaviske) språk:**
+- Norsk, svensk, dansk (fastlandsskandinavisk)
+- Islandsk, færøysk (øyskandinavisk)
+
+**Vestgermanske språk:**
+- Engelsk, tysk, nederlandsk, frisisk
+
+**Østgermanske språk:**
+- Gotisk (utdødd)
+
+**Felles opphav:**
+Alle germanske språk stammer fra et felles urgermansk språk som ble snakket for ca. 2500 år siden. Derfor finner vi mange likheter mellom språkene.
+
+**Eksempler på felles ord (kognat):**
+| Norsk | Engelsk | Tysk | Svensk |
+|-------|---------|------|--------|
+| hus | house | Haus | hus |
+| vann | water | Wasser | vatten |
+| mor | mother | Mutter | mor |
+| fot | foot | Fuß | fot |
+| grønn | green | grün | grön |
+
+**Språktreet:**
+Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslektede - som søsken. Engelsk og tysk er som fettere.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-def-2',
+      type: 'definition',
+      title: 'Skandinavisk nabospråkforståelse',
+      content: `**Nabospråkforståelse:**
+Nordmenn, svensker og dansker kan i stor grad forstå hverandres språk. Dette kalles nabospråkforståelse eller semikommunikasjon.
+
+**Likheter mellom de skandinaviske språkene:**
+
+| Norsk | Svensk | Dansk |
+|-------|--------|-------|
+| jeg | jag | jeg |
+| hva | vad | hvad |
+| hus | hus | hus |
+| ikke | inte | ikke |
+| takk | tack | tak |
+| god morgen | god morgon | godmorgen |
+
+**Forskjeller som kan skape misforståelse:**
+
+**"Falske venner" (ord som ligner, men betyr noe annet):**
+- "rolig" - norsk: rolig, svensk: morsom
+- "grina" - norsk: grine (gråte), svensk: flire
+- "rar" - norsk: merkelig, svensk: snill
+- "frokost" - norsk: morgenmåltid, dansk: lunsj
+
+**Uttaleforskjeller:**
+- Dansk har ofte "bløtt" d og g
+- Svensk har tonal aksent (ordmelodi)
+- Norsk har tydeligere uttale av konsonanter
+
+**Nordmenn forstår best:**
+Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker og dansker forstår hverandre. Dette kan skyldes at norsk ligger "midt imellom" de to andre.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-def-3',
+      type: 'definition',
+      title: 'Lånord og språkpåvirkning',
+      content: `**Språkpåvirkning gjennom historien:**
+
+**Fra norrønt til andre språk (vikingtiden):**
+Norsk/norrønt ga mange ord til engelsk:
+- "egg" (egg), "sky" (sky), "window" (vindu - vindauga)
+- "they", "their", "them" (pronomen)
+- Stedsnavn i England: -by (Whitby), -thorpe (Cleethorpes)
+
+**Fra lavtysk/nedertysk (hansatiden 1200-1500):**
+- arbeid, flink, prøve, snekkere, bekjent
+- billig, betale, handle, pris
+- Svært mange hverdagsord vi bruker i dag
+
+**Fra dansk (unionstiden):**
+- Dansk skriftspråk påvirket norsk sterkt
+- Mange ordformer og uttrykksmåter
+
+**Fra fransk (1700-1800-tallet):**
+- elegant, parfyme, restaurant, garderobe
+- Særlig ord knyttet til kultur, mote, mat
+
+**Fra engelsk (1900-tallet til i dag):**
+- Teknologi: datamaskin, software, app
+- Kultur: film, show, band, hit
+- Sport: fotball, tennis, fair play
+- Sosiale medier: like, selfie, hashtag
+
+**Norvagisering:**
+Mange engelske lånord tilpasses norsk:
+- "guide" → gaid
+- "design" → designe (verb)
+- "team" → lag (erstatning)`,
+    },
+    {
+      id: 'norsk-vg1-4-2-def-4',
+      type: 'definition',
+      title: 'Norsk og engelsk - likheter og forskjeller',
+      content: `**Likheter mellom norsk og engelsk:**
+
+**Felles ordforråd (kognater):**
+| Norsk | Engelsk |
+|-------|---------|
+| mann | man |
+| land | land |
+| hand | hand |
+| bok | book |
+| god | good |
+| lang | long |
+| ung | young |
+
+**Lignende setningsstruktur:**
+- Begge språk: Subjekt - Verb - Objekt (SVO)
+- "Jeg leser en bok" / "I read a book"
+
+**Forskjeller mellom norsk og engelsk:**
+
+**Verbsystem:**
+- Norsk: Enkel bøyning (leser, leste, har lest)
+- Engelsk: Mer komplekst tempussystem (am reading, have been reading)
+
+**Ordstilling:**
+- Norsk: V2-regel (verbet alltid på andre plass)
+  - "I går gikk jeg på kino"
+- Engelsk: Subjektet før verbet
+  - "Yesterday I went to the cinema"
+
+**Substantiv:**
+- Norsk: Tre kjønn (hankjønn, hunkjønn, intetkjønn)
+- Engelsk: Ingen grammatisk kjønn
+
+**Uttale:**
+- Norsk: Skrift og uttale stemmer relativt godt
+- Engelsk: Stor forskjell mellom skrift og uttale`,
+    },
+    {
+      id: 'norsk-vg1-4-2-def-5',
+      type: 'definition',
+      title: 'Språkmangfold og flerspråklighet',
+      content: `**Flerspråklighet i Norge:**
+Norge har alltid vært flerspråklig. I tillegg til norsk finnes:
+
+**Urfolksspråk:**
+- Samisk (flere varianter: nordsamisk, sørsamisk, lulesamisk)
+- Samisk har offisiell status i Norge
+
+**Nasjonale minoritetsspråk:**
+- Kvensk (finsk-beslektet)
+- Romani (språket til romanifolket)
+- Romanes (språket til romfolk)
+
+**Tegnspråk:**
+- Norsk tegnspråk er et fullverdig språk med egen grammatikk
+
+**Innvandrerspråk:**
+- Polsk, arabisk, urdu, somalisk, tyrkisk m.fl.
+- Mange nordmenn har et annet morsmål enn norsk
+
+**Fordeler med flerspråklighet:**
+- Kognitiv fleksibilitet
+- Kulturell forståelse
+- Kommunikasjonsmuligheter
+- Økonomiske fordeler
+
+**Språkmøter skaper endring:**
+Når språk møtes, påvirker de hverandre. Dette kan gi:
+- Lånord og nye uttrykk
+- Kodeveksling (veksle mellom språk)
+- Nye språkvarianter (multietnolekter)`,
+    },
+    {
+      id: 'norsk-vg1-4-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Spore etymologi',
+      problem: 'Undersøk opphavet til ordet "vindu". Hvilken språkhistorie forteller dette ordet?',
+      solution: `**Etymologisk analyse av "vindu":**
+
+**Norsk:** vindu
+**Opprinnelse:** Norrønt "vindauga" (vind + auge = vindøye)
+
+**Sammenligning:**
+| Språk | Ord | Betydning |
+|-------|-----|-----------|
+| Norrønt | vindauga | vindøye |
+| Engelsk | window | fra norrønt |
+| Tysk | Fenster | fra latin fenestra |
+| Svensk | fönster | fra latin fenestra |
+| Dansk | vindue | fra norrønt |
+
+**Hva dette forteller oss:**
+1. Norsk og dansk har beholdt det norrøne ordet
+2. Engelsk lånte ordet fra vikingene
+3. Tysk og svensk lånte fra latin
+4. Ordet viser kontakten mellom språk
+
+**Refleksjon:**
+Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "window" kommer fra norrønt. Dette viser hvordan folkevandringer og erobringer påvirker språk.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Sammenligning av setninger',
+      problem: 'Oversett setningen "Mannen som bor i det store huset, leser en bok" til svensk, dansk og engelsk. Hva legger du merke til?',
+      solution: `**Oversettelse:**
+
+**Norsk:** Mannen som bor i det store huset, leser en bok.
+
+**Svensk:** Mannen som bor i det stora huset, läser en bok.
+
+**Dansk:** Manden som bor i det store hus, læser en bog.
+
+**Engelsk:** The man who lives in the big house is reading a book.
+
+**Observasjoner:**
+
+**Skandinaviske språk:**
+- Svært lik ordstilling og struktur
+- Små forskjeller i ordformer:
+  - store/stora/store (adjektiv)
+  - huset/huset/hus (bestemt form)
+  - bok/bok/bog (substantiv)
+
+**Norsk vs. engelsk:**
+- Engelsk bruker bestemt artikkel (the)
+- Norsk har etterstilt artikkel (mannen, huset)
+- Engelsk: "is reading" (pågående handling)
+- Norsk: "leser" (enklere verbform)
+- Engelsk: "big" (ett ord for stor/stort/store)
+- Norsk: Adjektivet bøyes (store)
+
+**Konklusjon:**
+De skandinaviske språkene er svært like i struktur. Engelsk har en del forskjeller, men er fremdeles gjenkjennelig som et beslektet språk.`,
+    },
+
+    // ========== OPPGAVER ==========
+    {
+      id: 'norsk-vg1-4-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Finn kognater (beslektede ord) mellom norsk og engelsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Lag en liste med minst 10 ord som er like på norsk og engelsk.',
+            solution: 'Eksempler: arm/arm, finger/finger, kne/knee, hus/house, land/land, mann/man, sommer/summer, vinter/winter, blå/blue, grønn/green.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvorfor disse ordene ligner på hverandre.',
+            solution: 'Ordene ligner fordi norsk og engelsk begge er germanske språk som stammer fra et felles urgermansk språk. De grunnleggende ordene har bevart likheten gjennom århundrene.',
+          },
+        ],
+        hints: ['Se på kroppsdeler, farger, tall og familiemedlemmer', 'Tenk på ord som er grunnleggende og gamle'],
+        solution: 'Kognater viser den felles opprinnelsen til germanske språk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Lag en liste med 10 engelske lånord som brukes i norsk i dag. For hvert ord: Skriv en norsk erstatning der det finnes.',
+        hints: ['Tenk på teknologi, sport, musikk og sosiale medier', 'Sjekk Språkrådets ordliste for norske alternativer'],
+        solution: 'Eksempler: software/programvare, design/utforming, deadline/tidsfrist, feedback/tilbakemelding, workshop/verksted, mail/e-post, cool/kul, team/lag, highlights/høydepunkter, content/innhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Nabospråkforståelse - les og svar:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les denne svenske teksten og oversett til norsk: "Jag tycker om att läsa böcker. Min favorit är en bok om en ung flicka som bor i ett stort hus vid havet."',
+            solution: 'Jeg liker å lese bøker. Min favoritt er en bok om en ung jente som bor i et stort hus ved havet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke ord var lettest å forstå? Hvilke var vanskeligst?',
+            solution: 'Lette ord: jag (jeg), bok, hus, havet. Vanskeligere: tycker om (liker), läsa (lese), flicka (jente). Ordene som ligner mest er substantiv og grunnleggende ord.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor kan nordmenn ofte forstå svensk bedre enn omvendt?',
+            solution: 'Norsk ligger språklig mellom svensk og dansk. Nordmenn hører også mer svensk (musikk, TV) enn svensker hører norsk. Norge har også mer dialektvariasjon, som gjør nordmenn vant til å "tolke" ulike språkvarianter.',
+          },
+        ],
+        solution: 'Nabospråkforståelse krever litt øvelse, men er mulig fordi språkene er nært beslektet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken språkgruppe tilhører norsk?',
+        options: [
+          { id: 'a', text: 'Nordgermanske (skandinaviske) språk', isCorrect: true },
+          { id: 'b', text: 'Vestgermanske språk', isCorrect: false },
+          { id: 'c', text: 'Romanske språk', isCorrect: false },
+          { id: 'd', text: 'Slaviske språk', isCorrect: false },
+        ],
+        solution: 'Norsk tilhører de nordgermanske (skandinaviske) språkene, sammen med svensk, dansk, islandsk og færøysk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilket språk har gitt flest lånord til norsk i perioden 1200-1500 (hansatiden)?',
+        options: [
+          { id: 'a', text: 'Lavtysk (nedertysk)', isCorrect: true },
+          { id: 'b', text: 'Engelsk', isCorrect: false },
+          { id: 'c', text: 'Fransk', isCorrect: false },
+          { id: 'd', text: 'Latin', isCorrect: false },
+        ],
+        solution: 'Lavtysk (nedertysk) ga svært mange lånord til norsk i hansatiden. Ord som arbeid, billig, prøve, flink og handle kommer fra lavtysk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Undersøk "falske venner" mellom skandinaviske språk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn tre eksempler på ord som ser like ut på norsk og svensk/dansk, men betyr noe forskjellig.',
+            solution: 'Eksempler: rolig (no: calm, sv: morsom), grina (no: gråte, sv: flire), rar (no: merkelig, sv: snill), frokost (no: morgenmåltid, da: lunsj), glass (no: glass, sv: iskrem).',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor kan slike ord skape misforståelser?',
+            solution: 'Fordi vi antar at like ord betyr det samme. Når et ord ser kjent ut, bruker vi ikke ekstra energi på å sjekke betydningen - og da kan vi misforstå fullstendig.',
+          },
+        ],
+        hints: ['Søk på "falske venner skandinavisk" eller spør noen som kan svensk/dansk'],
+        solution: 'Falske venner viser at selv nært beslektede språk kan ha viktige forskjeller.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Etymologi-oppgave: Undersøk opphavet til disse ordene og hvilket språk de kommer fra: "ski", "ombudsman", "fjord", "ransake", "slalom".',
+        hints: ['Bruk etymologiske ordbøker eller Store norske leksikon', 'Disse ordene har gått fra norsk/skandinavisk til andre språk'],
+        solution: 'Alle disse ordene har skandinavisk/norrønt opphav og er lånt inn i andre språk: ski (norrønt skíð), ombudsman (svensk/norsk), fjord (norrønt fjǫrðr), ransake (norrønt rannsaka), slalom (norsk sla + lom = skrånende spor). Dette viser at språkpåvirkning går begge veier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en refleksjonstekst (300-400 ord) der du drøfter: Bør vi beskytte norsk mot engelske lånord, eller er språkblanding en naturlig del av språkutviklingen?',
+        hints: [
+          'Tenk på historiske eksempler (lavtysk, fransk)',
+          'Vurder argumenter for og mot',
+          'Ta et standpunkt og begrunn det',
+          'Bruk eksempler fra din egen språkbruk',
+        ],
+        solution: 'En god drøfting bør inneholde: 1) Historisk perspektiv - norsk har alltid tatt opp lånord 2) Argumenter for: språklig rikdom, kommunikasjon, naturlig utvikling 3) Argumenter mot: tap av norske ord, forståelsesproblemer, kulturell identitet 4) Et nyansert standpunkt som viser refleksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Intervju en person som snakker et annet språk enn norsk som morsmål. Still følgende spørsmål og skriv en kort rapport (200-300 ord):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva var vanskeligst å lære da de lærte norsk?',
+            solution: 'Rapporten bør gjengi informantens erfaringer og reflektere over hva dette forteller om norsk språk.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke likheter og forskjeller ser de mellom norsk og morsmålet sitt?',
+            solution: 'Rapporten bør inneholde konkrete eksempler på likheter og forskjeller.',
+          },
+          {
+            label: 'c',
+            task: 'Bruker de noen ganger ord fra morsmålet når de snakker norsk?',
+            solution: 'Rapporten bør knytte dette til kodeveksling og flerspråklighet.',
+          },
+        ],
+        hints: ['Vær respektfull og nysgjerrig', 'Ta notater eller spør om du kan ta opp samtalen', 'Reflekter over hva svarene forteller om språk generelt'],
+        solution: 'Intervjuet gir innsikt i hvordan norsk oppleves utenfra og belyser flerspråklighet i praksis.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Gjennomfør et mini-forskningsprosjekt: Sammenlign en kort tekst (5-10 setninger) på norsk, svensk og dansk. Analyser likheter og forskjeller i ordforråd, grammatikk og ortografi. Presenter funnene dine i en tabell med forklaring.',
+        hints: [
+          'Du kan bruke en nyhetsartikkel, Wikipedia-artikkel eller lignende',
+          'Se på ordstilling, ordformer og skrivemåte',
+          'Bruk Google Translate eller en som kan språket til å sjekke',
+        ],
+        solution: 'Prosjektet bør vise systematisk sammenligning med konkrete eksempler. Tabellen bør inneholde minst 5-10 ord/uttrykk med analyse av likheter og forskjeller. Konklusjonen bør reflektere over hva sammenligningen viser om skandinavisk språkfellesskap.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 6.3: Digitale tekster og sosiale medier
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_6_3: TextbookChapter = {
+  id: 'norsk-vg1-6-3',
+  courseId: 'norsk-vg1',
+  chapterNumber: '6.3',
+  title: 'Digitale tekster og sosiale medier',
   description: 'Analyser og produser tekster i digitale medier.',
   estimatedMinutes: 50,
   competenceGoals: [
@@ -396,7 +893,7 @@ export const CHAPTER_NORSK_VG1_4_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-4-2-intro',
+      id: 'norsk-vg1-6-3-intro',
       type: 'text',
       content: `## Digitale tekster
 
@@ -416,7 +913,7 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Målbare (likes, visninger, rekkevidde)`,
     },
     {
-      id: 'norsk-vg1-4-2-def-1',
+      id: 'norsk-vg1-6-3-def-1',
       type: 'definition',
       title: 'Sammensatte tekster',
       content: `**Modaliteter:**
@@ -437,7 +934,7 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Hashtags og metadata`,
     },
     {
-      id: 'norsk-vg1-4-2-def-2',
+      id: 'norsk-vg1-6-3-def-2',
       type: 'definition',
       title: 'Sosiale medier og påvirkning',
       content: `**Kjennetegn ved sosiale medier:**
@@ -459,7 +956,7 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Vær aktiv produsent, ikke bare konsument`,
     },
     {
-      id: 'norsk-vg1-4-2-example-1',
+      id: 'norsk-vg1-6-3-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av Instagram-post',
       problem: `Analyser en influencers sponsede Instagram-post om et hudpleieprodukt.`,
@@ -485,10 +982,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
 
     // ========== OPPGAVER ==========
     {
-      id: 'norsk-vg1-4-2-ex-1',
+      id: 'norsk-vg1-6-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-1',
+        id: 'norsk-vg1-6-3-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -517,10 +1014,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-2',
+      id: 'norsk-vg1-6-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-2',
+        id: 'norsk-vg1-6-3-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -549,10 +1046,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-3',
+      id: 'norsk-vg1-6-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-3',
+        id: 'norsk-vg1-6-3-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -564,10 +1061,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-4',
+      id: 'norsk-vg1-6-3-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-4',
+        id: 'norsk-vg1-6-3-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -579,10 +1076,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-5',
+      id: 'norsk-vg1-6-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-5',
+        id: 'norsk-vg1-6-3-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -594,10 +1091,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-6',
+      id: 'norsk-vg1-6-3-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-6',
+        id: 'norsk-vg1-6-3-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -614,10 +1111,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-7',
+      id: 'norsk-vg1-6-3-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-7',
+        id: 'norsk-vg1-6-3-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -634,10 +1131,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-8',
+      id: 'norsk-vg1-6-3-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-8',
+        id: 'norsk-vg1-6-3-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -649,10 +1146,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-9',
+      id: 'norsk-vg1-6-3-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-9',
+        id: 'norsk-vg1-6-3-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -664,10 +1161,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-10',
+      id: 'norsk-vg1-6-3-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-10',
+        id: 'norsk-vg1-6-3-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -683,10 +1180,10 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
       },
     },
     {
-      id: 'norsk-vg1-4-2-ex-11',
+      id: 'norsk-vg1-6-3-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-4-2-ex-11',
+        id: 'norsk-vg1-6-3-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -704,486 +1201,15 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
   ],
   exercises: [],
 };
-
 // ============================================================================
-// KAPITTEL 5.1: Litteraturhistorie - fra norrøn tid til romantikken
-// ============================================================================
-
-export const CHAPTER_NORSK_VG1_5_1: TextbookChapter = {
-  id: 'norsk-vg1-5-1',
-  courseId: 'norsk-vg1',
-  chapterNumber: '3.1',
-  title: 'Litteraturhistorie - fra norrøn tid til romantikken',
-  description: 'Få oversikt over norsk og europeisk litteraturhistorie frem til romantikken.',
-  estimatedMinutes: 60,
-  competenceGoals: [
-    'lese og analysere tekster fra ulike litterære epoker med vekt på historisk kontekst',
-  ],
-  content: [
-    {
-      id: 'norsk-vg1-5-1-intro',
-      type: 'text',
-      content: `## Litteraturhistorie
-
-Litteraturhistorien er historien om hvordan mennesker gjennom alle tider har uttrykt seg gjennom tekst. Ved å forstå litterære epoker kan vi bedre forstå tekstenes kontekst og mening.
-
-**Hvorfor studere litteraturhistorie?**
-- Forstå tekster i sin samtid
-- Se utviklingslinjer og sammenhenger
-- Kjenne kulturarven vår
-- Lese med historisk bevissthet
-
-**Perioder vi skal dekke:**
-1. Norrøn litteratur (ca. 800-1350)
-2. Middelalderen (ca. 500-1500)
-3. Renessansen (ca. 1350-1600)
-4. Barokken (ca. 1600-1700)
-5. Opplysningstiden (ca. 1700-1800)
-6. Romantikken (ca. 1800-1850)`,
-    },
-    {
-      id: 'norsk-vg1-5-1-def-1',
-      type: 'definition',
-      title: 'Norrøn litteratur (ca. 800-1350)',
-      content: `**Kjennetegn:**
-- Skrevet på norrønt språk
-- Muntlig tradisjon nedskrevet
-- Kollektiv forfatterskap
-- Religiøse og heroiske tema
-
-**Sentrale sjangre:**
-- **Eddadikt:** Gudedikt og heltedikt
-- **Sagaer:** Fortellinger om konger, islendinger, helter
-- **Skaldekvad:** Kompleks hyllestdiktning
-
-**Viktige verk:**
-- *Den eldre Edda* - gudedikt og heltedikt
-- *Den yngre Edda* - Snorres lærebok i diktning
-- *Heimskringla* - Norges kongesagaer
-- Islendingesagaene
-
-**Verdensanskuelse:**
-- Skjebnetro (nornene spinner livets tråd)
-- Ære og hevn som sentrale verdier
-- Gudeverden med åser og vaner`,
-    },
-    {
-      id: 'norsk-vg1-5-1-def-2',
-      type: 'definition',
-      title: 'Middelalderen til renessansen',
-      content: `**Middelalderen i Europa (ca. 500-1500):**
-- Kirken dominerer kultur og utdanning
-- Latin er det litterære språket
-- Religiøse tekster: bønner, legender, krøniker
-- Folkeviser og eventyr i muntlig tradisjon
-
-**Renessansen (ca. 1350-1600):**
-- "Gjenfødelse" av antikkens kultur
-- Fokus på mennesket (humanisme)
-- Kunst og vitenskap blomstrer
-- Boktrykkerkunsten spres
-
-**Sentrale forfattere:**
-- Dante Alighieri: *Den guddommelige komedie*
-- Francesco Petrarca: Sonettdiktning
-- William Shakespeare: Dramatikk
-- Miguel de Cervantes: *Don Quijote*`,
-    },
-    {
-      id: 'norsk-vg1-5-1-def-3',
-      type: 'definition',
-      title: 'Barokken og opplysningstiden',
-      content: `**Barokken (ca. 1600-1700):**
-- Overdådighet og kontraster
-- Religiøse og verdslige tema
-- Memento mori (husk at du skal dø)
-- Formell diktning med faste regler
-
-**Norsk barokk:**
-- Petter Dass: *Nordlands Trompet*
-- Dorothe Engelbretsdatter: Salmediktning
-- Religiøs og naturlyrikk
-
-**Opplysningstiden (ca. 1700-1800):**
-- Fornuft og vitenskap i sentrum
-- Kritikk av autoritet og tradisjon
-- Tro på fremskritt
-- Satire og samfunnskritikk
-
-**Ludvig Holberg:**
-- "Den nordiske Platon"
-- Komedier som *Erasmus Montanus* og *Jeppe på Bjerget*
-- Satirisk samfunnskritikk`,
-    },
-    {
-      id: 'norsk-vg1-5-1-def-4',
-      type: 'definition',
-      title: 'Romantikken (ca. 1800-1850)',
-      content: `**Kjennetegn:**
-- Reaksjon mot opplysningstidens fornuft
-- Følelser, fantasi og natur
-- Det nasjonale og folkelige
-- Det geniale og individuelle
-
-**Europeisk romantikk:**
-- Goethe og Schiller (Tyskland)
-- Byron, Keats, Shelley (England)
-- Victor Hugo (Frankrike)
-
-**Norsk romantikk:**
-- Henrik Wergeland: Nasjonalromantisk dikter
-- Johan Sebastian Welhaven: Klassisistisk romantiker
-- Asbjørnsen og Moe: Eventyrsamlere
-- Ivar Aasen: Språkforsker og dikter
-
-**Nasjonalromantikken:**
-- Søken etter nasjonal identitet
-- Interesse for folkediktning
-- Bonden og naturen idealiseres
-- Nasjonsbygging gjennom kultur`,
-    },
-    {
-      id: 'norsk-vg1-5-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Fra norrønt til romantikk',
-      problem: `Sammenlign hvordan naturen fremstilles i norrøn litteratur og i romantikken.`,
-      solution: `**Norrøn litteratur:**
-- Naturen er farlig og uforutsigbar
-- Havet, fjellene og skogen er hindringer
-- Naturen er befolket av vetter og troll
-- Mennesket kjemper mot naturkreftene
-
-**Eksempel fra Håvamål:**
-"Vær varsom når du vandrer over broer, / på ukjent farvann og i fjellets rike"
-
-**Romantikken:**
-- Naturen er vakker og inspirerende
-- Fjell og fosser symboliserer frihet
-- Naturen speiler menneskets følelser
-- Mennesket søker til naturen for ro
-
-**Eksempel fra Wergeland:**
-"Norges fjelde, dypt i barm / gjemmer sølv og guld så varm"
-
-**Forskjellen forklart:**
-- Norrøn tid: Mennesket lever i naturen, kjemper for overlevelse
-- Romantikken: Mennesket lever i byer, lengter til naturen
-- Teknologisk utvikling gjør naturen mindre truende
-- Nasjonalisme gjør naturen til identitetsmarkør`,
-    },
-
-    // ========== PRIMÆRTEKSTER ==========
-    {
-      id: 'norsk-vg1-5-1-primaertekst-1',
-      type: 'collapsible',
-      title: 'Primærtekst: Håvamål (utdrag)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-5-1-primaertekst-1-text',
-          type: 'text',
-          content: TEKST_HAVAMAL_UTDRAG,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-5-1-primaertekst-2',
-      type: 'collapsible',
-      title: 'Primærtekst: Voluspå (utdrag)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-5-1-primaertekst-2-text',
-          type: 'text',
-          content: TEKST_VOLUSPA_UTDRAG,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-5-1-primaertekst-3',
-      type: 'collapsible',
-      title: 'Primærtekst: Petter Dass – «Nordlands Trompet» (utdrag)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-5-1-primaertekst-3-text',
-          type: 'text',
-          content: TEKST_PETTER_DASS_NORDLANDS_TROMPET,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-5-1-primaertekst-4',
-      type: 'collapsible',
-      title: 'Primærtekst: Holberg – «Erasmus Montanus» (scene)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-5-1-primaertekst-4-text',
-          type: 'text',
-          content: TEKST_HOLBERG_ERASMUS_MONTANUS_SCENE,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-5-1-primaertekst-5',
-      type: 'collapsible',
-      title: 'Primærtekst: Draumkvedet (utdrag)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-5-1-primaertekst-5-text',
-          type: 'text',
-          content: TEKST_DRAUMKVEDET_UTDRAG,
-        },
-      ],
-    },
-
-    // ========== OPPGAVER ==========
-    {
-      id: 'norsk-vg1-5-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Koble epoke til kjennetegn:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Fornuft, vitenskap, satire',
-            solution: 'Opplysningstiden',
-            multipleChoiceOptions: ['Norrøn tid', 'Barokken', 'Opplysningstiden', 'Romantikken'],
-          },
-          {
-            label: 'b',
-            task: 'Følelser, natur, det nasjonale',
-            solution: 'Romantikken',
-            multipleChoiceOptions: ['Norrøn tid', 'Renessansen', 'Barokken', 'Romantikken'],
-          },
-          {
-            label: 'c',
-            task: 'Ære, skjebne, heltedåd',
-            solution: 'Norrøn tid',
-            multipleChoiceOptions: ['Norrøn tid', 'Middelalderen', 'Opplysningstiden', 'Romantikken'],
-          },
-        ],
-        solution: 'a) Opplysningstiden, b) Romantikken, c) Norrøn tid',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les et utdrag fra et norrønt verk (f.eks. Håvamål eller en saga) og beskriv kjennetegn ved teksten.',
-        hints: ['Se på tema, verdier og språk', 'Plasser teksten i sin samtid'],
-        solution: 'Analysen bør identifisere norrøne kjennetegn som skjebnetro, ære, og konkret språk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les et dikt fra romantikken og analyser hvordan epokens idealer kommer til uttrykk.',
-        hints: ['Se etter natur, følelser, nasjonalisme', 'Bruk kunnskap om konteksten'],
-        solution: 'Analysen bør koble tekstens innhold og form til romantikkens idealer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Lag en tidslinje over de litterære epokene fra norrøn tid til romantikken med viktige kjennetegn og forfattere.',
-        hints: ['Inkluder årstall, kjennetegn og eksempler', 'Bruk gjerne farger og bilder'],
-        solution: 'Tidslinjen gir oversikt og viser utviklingslinjer i litteraturhistorien.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Drøft: Hvorfor er det viktig å kjenne litteraturhistorien for å forstå tekster fra fortiden?',
-        hints: ['Tenk på kontekst, verdier, språk', 'Gi konkrete eksempler'],
-        solution: 'Drøftingen bør argumentere for verdien av historisk kunnskap i teksttolkning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Koble forfatter til riktig epoke:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Ludvig Holberg',
-            solution: 'Opplysningstiden',
-            multipleChoiceOptions: ['Norrøn tid', 'Barokken', 'Opplysningstiden', 'Romantikken'],
-          },
-          {
-            label: 'b',
-            task: 'Petter Dass',
-            solution: 'Barokken',
-            multipleChoiceOptions: ['Norrøn tid', 'Barokken', 'Opplysningstiden', 'Romantikken'],
-          },
-          {
-            label: 'c',
-            task: 'Henrik Wergeland',
-            solution: 'Romantikken',
-            multipleChoiceOptions: ['Norrøn tid', 'Barokken', 'Opplysningstiden', 'Romantikken'],
-          },
-        ],
-        solution: 'a) Opplysningstiden, b) Barokken, c) Romantikken',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er typisk for norrøn litteratur?',
-        options: [
-          { id: 'a', text: 'Muntlig tradisjon, kollektivt forfatterskap, heltedåd og skjebnetro', isCorrect: true },
-          { id: 'b', text: 'Fokus på individets følelser og den vakre naturen', isCorrect: false },
-          { id: 'c', text: 'Satire, fornuft og kritikk av autoriteter', isCorrect: false },
-          { id: 'd', text: 'Overdådig språk, religiøse kontraster og memento mori', isCorrect: false },
-        ],
-        solution: 'Norrøn litteratur kjennetegnes av muntlig tradisjon som ble skrevet ned, kollektivt forfatterskap, og temaer knyttet til ære, skjebne og heltedåd.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten fra Håvamål. Analyser 2-3 strofer: Hvilke verdier og hvilken visdom uttrykkes? Hvordan gjenspeiler teksten den norrøne verdensanskuelsen?',
-        hints: ['Se etter råd om hvordan man bør leve', 'Tenk på verdier som klokskap, gjestfrihet og forsiktighet', 'Sammenlign med verdier vi har i dag'],
-        solution: 'Håvamål uttrykker praktisk livsvisdom fra vikingtiden. Strofene handler om klokskap, gjestfrihet, forsiktighet og ærlighet. De gjenspeiler et samfunn der overlevelse krevde kloke valg, og der ære og rykte var avgjørende.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-9',
-        number: '9',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten fra Holbergs «Erasmus Montanus». Analyser scenen: Hva er satirisk? Hvem og hva kritiserer Holberg? Hvordan bruker han humor for å fremme et poeng?',
-        hints: ['Se på kontrasten mellom boklig lærdom og sunn fornuft', 'Tenk på hva Holberg mener om akademisk hovmod', 'Koble til opplysningstidens idealer'],
-        solution: 'Holberg satiriserer akademisk hovmod og misbruk av lærdom. Erasmus Montanus bruker sin universitetsutdanning til å overkjøre folk med sofistiske argumenter, uten virkelig forståelse. Holberg kritiserer både den overflatiske lærdommen og bondesamfunnets uvitenhet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-10',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-10',
-        number: '10',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten fra Petter Dass\' «Nordlands Trompet». Analyser naturbeskrivelsen: Hvordan skildrer Dass den nordnorske naturen? Hvilke virkemidler bruker han? Hva er forholdet mellom natur og Gud i teksten?',
-        hints: ['Se på billedbruk og detaljrikdom', 'Tenk på barokkens stil: overdådighet og kontraster', 'Legg merke til det religiøse perspektivet'],
-        solution: 'Petter Dass skildrer den nordnorske naturen med detaljert billedbruk og barokk overdådighet. Naturen fremstilles som Guds skaperverk, og det er en tett forbindelse mellom det jordiske og det himmelske. Dass bruker kontraster og konkrete beskrivelser som er typiske for barokken.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-11',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-11',
-        number: '11',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Sammenlign natursynet i norrøn litteratur og i romantikken ved å bruke konkrete primærtekster. Bruk Håvamål eller Voluspå fra norrøn tid, og sammenlign med Wergelands eller andre romantikers naturbeskrivelser. Skriv en sammenligningsanalyse (300-400 ord).',
-        hints: [
-          'Bruk konkrete sitater fra tekstene',
-          'Analyser forskjellen i hvordan naturen beskrives og oppleves',
-          'Sett i sammenheng med epokenes verdensanskuelse',
-        ],
-        solution: 'Analysen bør vise at norrøn litteratur ser naturen som farlig og uforutsigbar, der mennesket kjemper for å overleve, mens romantikken idealiserer naturen som vakker, frigjørende og knyttet til nasjonal identitet. Konkrete teksteksempler skal underbygge argumentasjonen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-5-1-ex-12',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-5-1-ex-12',
-        number: '12',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv et essay (400-500 ord): Hvordan gjenspeiler Voluspå det norrøne verdensbildet? Analyser utdraget fra Voluspå og drøft hva diktet forteller oss om norrøn kosmologi, skjebnetro og menneskets plass i verden.',
-        hints: [
-          'Se på skapelsesberetningen og ragnarok-motivet',
-          'Drøft forholdet mellom guder og mennesker',
-          'Sammenlign eventuelt med andre skapelsesfortellinger',
-        ],
-        solution: 'Essayet bør analysere Voluspå som uttrykk for den norrøne kosmologien: verdens skapelse, gudenes kamp, ragnarok og gjenfødelsen. Det bør drøfte skjebnetro, syklisk tidsfølelse og naturkrefter som sentrale elementer i det norrøne verdensbildet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-  ],
-  exercises: [],
-};
-
-// ============================================================================
-// KAPITTEL 5.2: Skriving av fagartikkel
+// KAPITTEL 5.3: Fagartikkel
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_5_2: TextbookChapter = {
-  id: 'norsk-vg1-5-2',
+export const CHAPTER_NORSK_VG1_5_3: TextbookChapter = {
+  id: 'norsk-vg1-5-3',
   courseId: 'norsk-vg1',
   chapterNumber: '5.3',
-  title: 'Skriving av fagartikkel',
+  title: 'Fagartikkel',
   description: 'Lær å skrive fagartikler med god struktur og kildebruk.',
   estimatedMinutes: 55,
   competenceGoals: [
@@ -1191,7 +1217,7 @@ export const CHAPTER_NORSK_VG1_5_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-5-2-intro',
+      id: 'norsk-vg1-5-3-intro',
       type: 'text',
       content: `## Fagartikkelen
 
@@ -1210,7 +1236,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 - Rapporter og utredninger`,
     },
     {
-      id: 'norsk-vg1-5-2-def-1',
+      id: 'norsk-vg1-5-3-def-1',
       type: 'definition',
       title: 'Struktur i fagartikkelen',
       content: `**Innledning:**
@@ -1237,7 +1263,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 - Korrekt formatert`,
     },
     {
-      id: 'norsk-vg1-5-2-def-2',
+      id: 'norsk-vg1-5-3-def-2',
       type: 'definition',
       title: 'Språk og stil',
       content: `**Kjennetegn på faglig språk:**
@@ -1265,7 +1291,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 - "Oppsummert...", "Avslutningsvis..."`,
     },
     {
-      id: 'norsk-vg1-5-2-example-1',
+      id: 'norsk-vg1-5-3-example-1',
       type: 'example',
       title: 'Eksempel: Fra problemstilling til struktur',
       problem: `Planlegg en fagartikkel om temaet "Ungdom og søvn".`,
@@ -1309,10 +1335,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 
     // ========== OPPGAVER ==========
     {
-      id: 'norsk-vg1-5-2-ex-1',
+      id: 'norsk-vg1-5-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-1',
+        id: 'norsk-vg1-5-3-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -1340,10 +1366,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-2',
+      id: 'norsk-vg1-5-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-2',
+        id: 'norsk-vg1-5-3-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -1372,10 +1398,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-3',
+      id: 'norsk-vg1-5-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-3',
+        id: 'norsk-vg1-5-3-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -1387,10 +1413,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-4',
+      id: 'norsk-vg1-5-3-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-4',
+        id: 'norsk-vg1-5-3-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -1402,10 +1428,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-5',
+      id: 'norsk-vg1-5-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-5',
+        id: 'norsk-vg1-5-3-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1417,10 +1443,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-6',
+      id: 'norsk-vg1-5-3-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-6',
+        id: 'norsk-vg1-5-3-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1437,10 +1463,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-7',
+      id: 'norsk-vg1-5-3-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-7',
+        id: 'norsk-vg1-5-3-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1457,10 +1483,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-8',
+      id: 'norsk-vg1-5-3-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-8',
+        id: 'norsk-vg1-5-3-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -1476,10 +1502,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-9',
+      id: 'norsk-vg1-5-3-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-9',
+        id: 'norsk-vg1-5-3-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -1495,10 +1521,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-10',
+      id: 'norsk-vg1-5-3-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-10',
+        id: 'norsk-vg1-5-3-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1515,10 +1541,10 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
       },
     },
     {
-      id: 'norsk-vg1-5-2-ex-11',
+      id: 'norsk-vg1-5-3-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-5-2-ex-11',
+        id: 'norsk-vg1-5-3-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1538,371 +1564,11 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 };
 
 // ============================================================================
-// KAPITTEL 6.1: Norsk språkhistorie
+// KAPITTEL 4.3: Nynorsk og bokmål
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_6_1: TextbookChapter = {
-  id: 'norsk-vg1-6-1',
-  courseId: 'norsk-vg1',
-  chapterNumber: '4.2',
-  title: 'Norsk språkhistorie',
-  description: 'Utforsk utviklingen av det norske språket fra urnordisk til i dag.',
-  estimatedMinutes: 55,
-  competenceGoals: [
-    'gjøre rede for utvikling og variasjon i norsk språk',
-  ],
-  content: [
-    {
-      id: 'norsk-vg1-6-1-intro',
-      type: 'text',
-      content: `## Det norske språkets historie
-
-Norsk språk har utviklet seg over mer enn tusen år. Fra de eldste runeinnskriftene til dagens digitale kommunikasjon har språket gjennomgått store forandringer.
-
-**Hovedperioder i norsk språkhistorie:**
-- **Urnordisk** (ca. 200-700): Felles nordisk språk
-- **Norrønt** (ca. 700-1350): Vikingtid og middelalder
-- **Mellomnorsk** (ca. 1350-1525): Hansatid og språkblanding
-- **Dansk-norsk** (ca. 1525-1814): Unionen med Danmark
-- **Moderne norsk** (1814-): Nasjonsbygging og språkstrid`,
-    },
-    {
-      id: 'norsk-vg1-6-1-def-1',
-      type: 'definition',
-      title: 'Fra urnordisk til norrønt',
-      content: `**Urnordisk (ca. 200-700)**
-De eldste skriftlige kildene er runeinnskrifter. Språket var relativt likt over hele Skandinavia.
-
-**Viktige kjennetegn:**
-- 24 runer (den eldre futharken)
-- Komplekst bøyningssystem
-- Mange kasusformer
-
-**Norrønt (ca. 700-1350)**
-I vikingtiden utviklet det seg regionale forskjeller. Norrønt er språket i sagaene og eddadiktningen.
-
-**Viktige trekk:**
-- Forenklet runesystem (16 runer)
-- Latinsk alfabet innføres med kristendommen
-- Rik litterær tradisjon
-- Fire kasus (nominativ, akkusativ, dativ, genitiv)`,
-    },
-    {
-      id: 'norsk-vg1-6-1-def-2',
-      type: 'definition',
-      title: 'Mellomnorsk og dansk-norsk',
-      content: `**Mellomnorsk (ca. 1350-1525)**
-Svartedauden (1349) førte til stor befolkningsnedgang. Mange skrivekyndige døde, og språket ble mindre standardisert.
-
-**Hanseatisk påvirkning:**
-- Tyske kjøpmenn dominerte handelen
-- Mange tyske lånord kom inn i norsk
-- Eksempler: handel, krig, frue, herskap
-
-**Dansk-norsk periode (ca. 1525-1814)**
-Under unionen med Danmark ble dansk skriftspråk. Talespråket forble norsk, men fikk dansk påvirkning.
-
-**Konsekvenser:**
-- Dansk ble administrasjonsspråk
-- Bibeloversettelser på dansk
-- Norske dialekter levde videre i talespråket
-- Grunnlag for dagens målformsdebatt`,
-    },
-    {
-      id: 'norsk-vg1-6-1-def-3',
-      type: 'definition',
-      title: 'Moderne norsk (1814-)',
-      content: `**Nasjonsbygging og språkstrid**
-Etter 1814 ble spørsmålet om et eget norsk skriftspråk sentralt.
-
-**To hovedretninger:**
-1. **Fornorsking av dansk** (Knud Knudsen)
-   - Gradvis tilpasning til norsk uttale
-   - Førte til riksmål/bokmål
-
-2. **Nytt språk basert på dialekter** (Ivar Aasen)
-   - Samlet dialektord fra hele landet
-   - Skapte landsmål/nynorsk
-
-**Språkpolitiske vedtak:**
-- 1885: Jamstillingsvedtaket - landsmål og riksmål likestilt
-- 1929: Navnene nynorsk og bokmål innføres
-- 1938-2012: Ulike reformer for tilnærming/normering
-
-**I dag:**
-- To offisielle målformer: bokmål og nynorsk
-- Kommuner og institusjoner velger målform
-- Elever har rett til lærebøker på sin målform`,
-    },
-    {
-      id: 'norsk-vg1-6-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Språkendring gjennom tid',
-      problem: 'Sammenlign disse setningene fra ulike perioder:',
-      solution: `**Norrønt (ca. 1200):**
-"Hann réð fyrir landi sínu."
-(Han rådde for landet sitt.)
-
-**Mellomnorsk (ca. 1450):**
-"Han raadde for lande sit."
-
-**Dansk-norsk (ca. 1750):**
-"Han raadede for sit Land."
-
-**Moderne bokmål:**
-"Han styrte landet sitt."
-
-**Moderne nynorsk:**
-"Han styrte landet sitt."
-
-**Observasjoner:**
-- Bøyningsendelser forsvinner gradvis
-- Ordstilling endres
-- Skrivemåten forenkles
-- Dansk påvirkning synlig i mellomperioden`,
-    },
-
-    // ========== PRIMÆRTEKSTER ==========
-    {
-      id: 'norsk-vg1-6-1-primaertekst-1',
-      type: 'collapsible',
-      title: 'Primærtekst: Kongespeilet (utdrag, ca. 1250)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-6-1-primaertekst-1-text',
-          type: 'text',
-          content: TEKST_KONGESPEILET_UTDRAG,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-6-1-primaertekst-2',
-      type: 'collapsible',
-      title: 'Primærtekst: Ivar Aasen – «Prøver af Landsmaalet» (1853)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-6-1-primaertekst-2-text',
-          type: 'text',
-          content: TEKST_AASEN_PROVER_AV_LANDSMAALET,
-        },
-      ],
-    },
-
-    // ========== OPPGAVER ==========
-    {
-      id: 'norsk-vg1-6-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Sett riktig periode til disse språktrekkene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Runeinnskrifter med 24 tegn.',
-            solution: 'Urnordisk periode (ca. 200-700)',
-            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
-          },
-          {
-            label: 'b',
-            task: 'Mange tyske lånord kommer inn i språket.',
-            solution: 'Mellomnorsk periode - hansatiden (ca. 1350-1525)',
-            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
-          },
-          {
-            label: 'c',
-            task: 'Sagaer og eddadikt skrives ned.',
-            solution: 'Norrøn periode (ca. 700-1350)',
-            multipleChoiceOptions: ['Urnordisk', 'Norrønt', 'Mellomnorsk', 'Dansk-norsk'],
-          },
-        ],
-        solution: 'a) Urnordisk, b) Mellomnorsk, c) Norrønt',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Forklar hvorfor vi i dag har to skriftspråk i Norge (bokmål og nynorsk).',
-        hints: ['Tenk på unionen med Danmark', 'Hvilke to strategier fantes for å skape et norsk skriftspråk?'],
-        solution: 'Under unionen med Danmark ble dansk skriftspråk i Norge. Etter 1814 oppsto to strategier: Knud Knudsen ville fornorske dansk gradvis (bokmål), mens Ivar Aasen ville bygge et nytt språk på norske dialekter (nynorsk). Begge ble offisielle i 1885.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn fem ord i moderne norsk som er lånt fra tysk i hansatiden.',
-        hints: ['Tenk på ord knyttet til handel, håndverk eller samfunn', 'Mange vanlige ord har tysk opprinnelse'],
-        solution: 'Eksempler: arbeid, betale, handel, frue, herskap, snekker, skomaker, straff, språk, penger. Disse ordene kom inn i norsk gjennom handelskontakt med hanseatene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Diskuter: Burde Norge ha ett felles skriftspråk, eller er det en fordel med to målformer?',
-        hints: ['Vurder argumenter for og mot', 'Tenk på identitet, praktiske hensyn og kulturarv'],
-        solution: 'Dette er et debattspørsmål uten fasitsvar. Argumenter FOR to målformer: bevarer språkmangfold, styrker dialektene, kulturarv. Argumenter FOR ett språk: praktisk forenkling, mindre kostbart, enklere å lære. Det viktige er å forstå argumentene på begge sider.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Les en kort tekst på norrønt (f.eks. fra en saga) og prøv å identifisere ord du gjenkjenner.',
-        hints: ['Mange ord ligner på moderne norsk', 'Se etter navn og vanlige ord'],
-        solution: 'Mange norrøne ord er gjenkjennelige: maðr (mann), kona (kone), skip (skip), land (land). Øvelsen viser kontinuiteten i språket.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Sett periodene i riktig kronologisk rekkefølge:',
-        options: [
-          { id: 'a', text: 'Urnordisk, norrønt, mellomnorsk, dansk-norsk, moderne norsk', isCorrect: true },
-          { id: 'b', text: 'Norrønt, urnordisk, dansk-norsk, mellomnorsk, moderne norsk', isCorrect: false },
-          { id: 'c', text: 'Mellomnorsk, urnordisk, norrønt, moderne norsk, dansk-norsk', isCorrect: false },
-          { id: 'd', text: 'Dansk-norsk, norrønt, urnordisk, mellomnorsk, moderne norsk', isCorrect: false },
-        ],
-        solution: 'Riktig rekkefølge: Urnordisk (ca. 200-700), norrønt (ca. 700-1350), mellomnorsk (ca. 1350-1525), dansk-norsk (ca. 1525-1814), moderne norsk (1814-).',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvorfor har Norge to offisielle skriftspråk?',
-        options: [
-          { id: 'a', text: 'Fordi det etter 1814 oppsto to ulike strategier for å skape et norsk skriftspråk: fornorsking av dansk (bokmål) og nybygging fra dialekter (nynorsk)', isCorrect: true },
-          { id: 'b', text: 'Fordi Nord-Norge og Sør-Norge snakket helt ulike språk', isCorrect: false },
-          { id: 'c', text: 'Fordi Sverige og Danmark tvang Norge til å ha to språk', isCorrect: false },
-          { id: 'd', text: 'Fordi nynorsk er det opprinnelige norske språket og bokmål ble oppfunnet senere', isCorrect: false },
-        ],
-        solution: 'Etter unionsoppløsningen med Danmark i 1814 ønsket Norge et eget skriftspråk. Knud Knudsen ville fornorske dansk gradvis (ble bokmål), mens Ivar Aasen ville bygge et nytt språk basert på norske dialekter (ble nynorsk). Begge ble likestilt i 1885.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten fra Kongespeilet. Analyser utdraget: Hva handler teksten om? Hva kan vi lære om språket og samfunnet på 1200-tallet ut fra denne teksten?',
-        hints: ['Se på ordvalg og setningsstruktur', 'Tenk på hvem teksten er skrevet for', 'Sammenlign med moderne norsk'],
-        solution: 'Kongespeilet er en opplæringsbok fra ca. 1250, skrevet som dialog mellom far og sønn. Teksten viser norrønt språk med komplekse setninger, og gir innsikt i datidens idealer om dannelse, kunnskap og riktig oppførsel for kongens menn.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-9',
-        number: '9',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Velg et norsk ord (f.eks. "arbeid", "skole" eller "bok") og spor det gjennom språkhistorien. Hvor kommer det fra? Hvordan har det endret seg? Bruk etymologisk ordbok eller nettressurser.',
-        hints: ['Bruk Bokmålsordboka eller Nynorskordboka', 'Se på opprinnelsesspråk og betydningsendring', 'Sammenlign med beslektede ord i andre språk'],
-        solution: 'Eksempel: "arbeid" kommer fra tysk "Arbeit" via hanseatisk kontakt. "Skole" kommer fra gresk "schole" via latin. Ordenes historie viser hvordan språkkontakt har formet norsk ordforråd gjennom ulike perioder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-10',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-10',
-        number: '10',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv et essay (400-500 ord) om årsaker til språkendring. Bruk eksempler fra norsk språkhistorie og drøft: Hva driver språkendringer? Er det ytre faktorer (kontakt, politikk) eller indre faktorer (forenkling, analogi)?',
-        hints: [
-          'Gi eksempler fra flere perioder',
-          'Drøft forholdet mellom ytre og indre årsaker',
-          'Tenk på svartedauden, hansatiden og den danske unionen',
-        ],
-        solution: 'Essayet bør drøfte både ytre årsaker (språkkontakt med tysk og dansk, politiske endringer, teknologisk utvikling) og indre årsaker (grammatisk forenkling, lydendringer). Gode eksempler er svartedaudens innvirkning, hanseatisk låneordpåvirkning og den danske unionens konsekvenser for skriftspråket.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-6-1-ex-11',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-1-ex-11',
-        number: '11',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Undersøk og sammenlign norsk språkutvikling med dansk og svensk. Hvorfor ble de skandinaviske språkene så forskjellige, når de hadde samme opphav? Skriv en kort forskningsrapport (300-400 ord) med kildehenvisninger.',
-        hints: [
-          'Se på politiske, geografiske og sosiale faktorer',
-          'Tenk på unionenes rolle',
-          'Sammenlign språkpolitikk i de tre landene',
-        ],
-        solution: 'De skandinaviske språkene deler opphav i urnordisk, men utviklet seg forskjellig på grunn av politiske grenser, ulik språkkontakt og ulik språkpolitikk. Danmark-Norge-unionen gjorde dansk til skriftspråk i Norge, mens Sverige utviklet sitt eget. Geografisk isolasjon og ulik grad av tysk påvirkning spilte også en rolle.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-  ],
-  exercises: [],
-};
-
-// ============================================================================
-// KAPITTEL 6.2: Nynorsk og bokmål
-// ============================================================================
-
-export const CHAPTER_NORSK_VG1_6_2: TextbookChapter = {
-  id: 'norsk-vg1-6-2',
+export const CHAPTER_NORSK_VG1_4_3: TextbookChapter = {
+  id: 'norsk-vg1-4-3',
   courseId: 'norsk-vg1',
   chapterNumber: '4.3',
   title: 'Nynorsk og bokmål',
@@ -1914,7 +1580,7 @@ export const CHAPTER_NORSK_VG1_6_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-6-2-intro',
+      id: 'norsk-vg1-4-3-intro',
       type: 'text',
       content: `## To målformer - én norsk kultur
 
@@ -1930,7 +1596,7 @@ Norge har to offisielle skriftspråk: bokmål og nynorsk. Begge er fullverdige s
 De to målformene representerer ulike tradisjoner og verdier i norsk språkhistorie, og begge har sin plass i det norske samfunnet.`,
     },
     {
-      id: 'norsk-vg1-6-2-def-1',
+      id: 'norsk-vg1-4-3-def-1',
       type: 'definition',
       title: 'Hovedforskjeller mellom bokmål og nynorsk',
       content: `**Ordformer:**
@@ -1961,7 +1627,7 @@ De to målformene representerer ulike tradisjoner og verdier i norsk språkhisto
 **Merk:** Begge målformer har valgfrihet i mange former. Det finnes konservative og radikale varianter av begge.`,
     },
     {
-      id: 'norsk-vg1-6-2-def-2',
+      id: 'norsk-vg1-4-3-def-2',
       type: 'definition',
       title: 'Nynorsk grammatikk',
       content: `**Infinitiv:**
@@ -1989,7 +1655,7 @@ Samsvarsbøying i nynorsk:
 - eit fint hus (intetkjønn)`,
     },
     {
-      id: 'norsk-vg1-6-2-example-1',
+      id: 'norsk-vg1-4-3-example-1',
       type: 'example',
       title: 'Eksempel: Oversettelse mellom målformer',
       problem: 'Oversett denne teksten til nynorsk:\n\n"Jeg vet ikke hva som skjedde. Det var mye støy, og jeg hørte noen rope. Etterpå fant vi bilen ved veien."',
@@ -2011,39 +1677,39 @@ Samsvarsbøying i nynorsk:
 
     // ========== PRIMÆRTEKSTER ==========
     {
-      id: 'norsk-vg1-6-2-primaertekst-1',
+      id: 'norsk-vg1-4-3-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Ivar Aasen – «Nordmannen» (1863)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-6-2-primaertekst-1-text',
+          id: 'norsk-vg1-4-3-primaertekst-1-text',
           type: 'text',
           content: TEKST_AASEN_NORDMANNEN,
         },
       ],
     },
     {
-      id: 'norsk-vg1-6-2-primaertekst-2',
+      id: 'norsk-vg1-4-3-primaertekst-2',
       type: 'collapsible',
       title: 'Primærtekst: Aasmund Olavsson Vinje – «Ferdaminni» (utdrag, 1861)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-6-2-primaertekst-2-text',
+          id: 'norsk-vg1-4-3-primaertekst-2-text',
           type: 'text',
           content: TEKST_VINJE_FERDAMINNI_UTDRAG,
         },
       ],
     },
     {
-      id: 'norsk-vg1-6-2-primaertekst-3',
+      id: 'norsk-vg1-4-3-primaertekst-3',
       type: 'collapsible',
       title: 'Primærtekst: Arne Garborg – «Bondestudentar» (utdrag, 1883)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-6-2-primaertekst-3-text',
+          id: 'norsk-vg1-4-3-primaertekst-3-text',
           type: 'text',
           content: TEKST_GARBORG_BONDESTUDENTAR_UTDRAG,
         },
@@ -2052,10 +1718,10 @@ Samsvarsbøying i nynorsk:
 
     // ========== OPPGAVER ==========
     {
-      id: 'norsk-vg1-6-2-ex-1',
+      id: 'norsk-vg1-4-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-1',
+        id: 'norsk-vg1-4-3-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2084,10 +1750,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-2',
+      id: 'norsk-vg1-4-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-2',
+        id: 'norsk-vg1-4-3-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2115,10 +1781,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-3',
+      id: 'norsk-vg1-4-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-3',
+        id: 'norsk-vg1-4-3-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2130,10 +1796,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-4',
+      id: 'norsk-vg1-4-3-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-4',
+        id: 'norsk-vg1-4-3-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2145,10 +1811,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-5',
+      id: 'norsk-vg1-4-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-5',
+        id: 'norsk-vg1-4-3-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2160,10 +1826,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-6',
+      id: 'norsk-vg1-4-3-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-6',
+        id: 'norsk-vg1-4-3-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2180,10 +1846,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-7',
+      id: 'norsk-vg1-4-3-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-7',
+        id: 'norsk-vg1-4-3-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2200,10 +1866,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-8',
+      id: 'norsk-vg1-4-3-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-8',
+        id: 'norsk-vg1-4-3-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2215,10 +1881,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-9',
+      id: 'norsk-vg1-4-3-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-9',
+        id: 'norsk-vg1-4-3-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2230,10 +1896,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-10',
+      id: 'norsk-vg1-4-3-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-10',
+        id: 'norsk-vg1-4-3-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'medium',
@@ -2245,10 +1911,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-11',
+      id: 'norsk-vg1-4-3-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-11',
+        id: 'norsk-vg1-4-3-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2264,10 +1930,10 @@ Samsvarsbøying i nynorsk:
       },
     },
     {
-      id: 'norsk-vg1-6-2-ex-12',
+      id: 'norsk-vg1-4-3-ex-12',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-2-ex-12',
+        id: 'norsk-vg1-4-3-ex-12',
         number: '12',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2287,11 +1953,11 @@ Samsvarsbøying i nynorsk:
 };
 
 // ============================================================================
-// KAPITTEL 7.1: Språkmangfold i Norge
+// KAPITTEL 4.4: Språkmangfold i Norge
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_7_1: TextbookChapter = {
-  id: 'norsk-vg1-7-1',
+export const CHAPTER_NORSK_VG1_4_4: TextbookChapter = {
+  id: 'norsk-vg1-4-4',
   courseId: 'norsk-vg1',
   chapterNumber: '4.4',
   title: 'Språkmangfold i Norge',
@@ -2303,7 +1969,7 @@ export const CHAPTER_NORSK_VG1_7_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-7-1-intro',
+      id: 'norsk-vg1-4-4-intro',
       type: 'text',
       content: `## Språklig mangfold
 
@@ -2320,7 +1986,7 @@ Norge har et rikt språkmangfold. I tillegg til bokmål og nynorsk har vi dialek
 Språk er knyttet til identitet, kultur og tilhørighet. Et samfunn som respekterer språkmangfold, respekterer også menneskene som snakker disse språkene.`,
     },
     {
-      id: 'norsk-vg1-7-1-def-1',
+      id: 'norsk-vg1-4-4-def-1',
       type: 'definition',
       title: 'Dialekter i Norge',
       content: `**Hva er en dialekt?**
@@ -2348,7 +2014,7 @@ En dialekt er en geografisk språkvarietet. Norge har et rikt dialektmangfold sa
 Norge har sterk tradisjon for dialektbruk. I motsetning til mange land bruker nordmenn dialekt i de fleste sammenhenger, også i media og offentligheten.`,
     },
     {
-      id: 'norsk-vg1-7-1-def-2',
+      id: 'norsk-vg1-4-4-def-2',
       type: 'definition',
       title: 'Samiske språk',
       content: `**Urfolksspråk i Norge**
@@ -2372,7 +2038,7 @@ Samiske språk ble lenge undertrykt gjennom fornorskingspolitikk. Barn ble straf
 Mange arbeider for å styrke samiske språk. Dette inkluderer språkkurs, barnehager og skoler med samisk som undervisningsspråk.`,
     },
     {
-      id: 'norsk-vg1-7-1-def-3',
+      id: 'norsk-vg1-4-4-def-3',
       type: 'definition',
       title: 'Sosiolekter og språklige varianter',
       content: `**Hva er en sosiolekt?**
@@ -2398,10 +2064,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
 
     // ========== OPPGAVER ==========
     {
-      id: 'norsk-vg1-7-1-ex-1',
+      id: 'norsk-vg1-4-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-1',
+        id: 'norsk-vg1-4-4-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2432,10 +2098,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-2',
+      id: 'norsk-vg1-4-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-2',
+        id: 'norsk-vg1-4-4-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2447,10 +2113,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-3',
+      id: 'norsk-vg1-4-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-3',
+        id: 'norsk-vg1-4-4-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2462,10 +2128,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-4',
+      id: 'norsk-vg1-4-4-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-4',
+        id: 'norsk-vg1-4-4-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2477,10 +2143,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-5',
+      id: 'norsk-vg1-4-4-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-5',
+        id: 'norsk-vg1-4-4-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2492,10 +2158,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-6',
+      id: 'norsk-vg1-4-4-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-6',
+        id: 'norsk-vg1-4-4-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2512,10 +2178,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-7',
+      id: 'norsk-vg1-4-4-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-7',
+        id: 'norsk-vg1-4-4-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2532,10 +2198,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-8',
+      id: 'norsk-vg1-4-4-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-8',
+        id: 'norsk-vg1-4-4-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2551,10 +2217,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-9',
+      id: 'norsk-vg1-4-4-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-9',
+        id: 'norsk-vg1-4-4-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2570,10 +2236,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-10',
+      id: 'norsk-vg1-4-4-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-10',
+        id: 'norsk-vg1-4-4-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2589,10 +2255,10 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
       },
     },
     {
-      id: 'norsk-vg1-7-1-ex-11',
+      id: 'norsk-vg1-4-4-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-1-ex-11',
+        id: 'norsk-vg1-4-4-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2612,11 +2278,11 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
 };
 
 // ============================================================================
-// KAPITTEL 7.2: Språk i endring
+// KAPITTEL 4.5: Språk i endring
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_7_2: TextbookChapter = {
-  id: 'norsk-vg1-7-2',
+export const CHAPTER_NORSK_VG1_4_5: TextbookChapter = {
+  id: 'norsk-vg1-4-5',
   courseId: 'norsk-vg1',
   chapterNumber: '4.5',
   title: 'Språk i endring',
@@ -2627,7 +2293,7 @@ export const CHAPTER_NORSK_VG1_7_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-7-2-intro',
+      id: 'norsk-vg1-4-5-intro',
       type: 'text',
       content: `## Språkendring
 
@@ -2647,7 +2313,7 @@ Alle levende språk endrer seg. Norsk i dag er annerledes enn norsk for 100 år 
 - **Betydningsendring:** Ord får ny betydning`,
     },
     {
-      id: 'norsk-vg1-7-2-def-1',
+      id: 'norsk-vg1-4-5-def-1',
       type: 'definition',
       title: 'Nye ord og lånord',
       content: `**Hvor kommer nye ord fra?**
@@ -2677,7 +2343,7 @@ Gamle ord får ny betydning:
 Språkrådet arbeider med å finne gode norske ord for nye begreper, men mange engelske ord blir værende.`,
     },
     {
-      id: 'norsk-vg1-7-2-def-2',
+      id: 'norsk-vg1-4-5-def-2',
       type: 'definition',
       title: 'Grammatiske endringer',
       content: `**Forenkling av bøyning**
@@ -2699,7 +2365,7 @@ Norsk har over tid fått enklere bøyning:
 Noen mener språkendringer er naturlige og positive, mens andre er bekymret for at norsk mister egenart. Begge perspektiver er legitime i språkdebatten.`,
     },
     {
-      id: 'norsk-vg1-7-2-example-1',
+      id: 'norsk-vg1-4-5-example-1',
       type: 'example',
       title: 'Eksempel: Ord som har endret betydning',
       problem: 'Hvilken betydning hadde disse ordene før, og hva betyr de nå?',
@@ -2724,13 +2390,13 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
 
     // ========== PRIMÆRTEKSTER (språkprøver) ==========
     {
-      id: 'norsk-vg1-7-2-primaertekst-1',
+      id: 'norsk-vg1-4-5-primaertekst-1',
       type: 'collapsible',
       title: 'Språkprøve: Holberg (ca. 1720)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-7-2-primaertekst-1-text',
+          id: 'norsk-vg1-4-5-primaertekst-1-text',
           type: 'text',
           content: `## Ludvig Holberg – Språkprøve (ca. 1720)
 
@@ -2748,13 +2414,13 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       ],
     },
     {
-      id: 'norsk-vg1-7-2-primaertekst-2',
+      id: 'norsk-vg1-4-5-primaertekst-2',
       type: 'collapsible',
       title: 'Språkprøve: Wergeland (ca. 1835)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-7-2-primaertekst-2-text',
+          id: 'norsk-vg1-4-5-primaertekst-2-text',
           type: 'text',
           content: `## Henrik Wergeland – Språkprøve (ca. 1835)
 
@@ -2772,13 +2438,13 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       ],
     },
     {
-      id: 'norsk-vg1-7-2-primaertekst-3',
+      id: 'norsk-vg1-4-5-primaertekst-3',
       type: 'collapsible',
       title: 'Språkprøve: Bjørnson (ca. 1860)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-7-2-primaertekst-3-text',
+          id: 'norsk-vg1-4-5-primaertekst-3-text',
           type: 'text',
           content: `## Bjørnstjerne Bjørnson – Språkprøve (ca. 1860)
 
@@ -2799,10 +2465,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
 
     // ========== OPPGAVER ==========
     {
-      id: 'norsk-vg1-7-2-ex-1',
+      id: 'norsk-vg1-4-5-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-1',
+        id: 'norsk-vg1-4-5-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2814,10 +2480,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-2',
+      id: 'norsk-vg1-4-5-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-2',
+        id: 'norsk-vg1-4-5-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2829,10 +2495,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-3',
+      id: 'norsk-vg1-4-5-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-3',
+        id: 'norsk-vg1-4-5-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2844,10 +2510,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-4',
+      id: 'norsk-vg1-4-5-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-4',
+        id: 'norsk-vg1-4-5-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2859,10 +2525,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-5',
+      id: 'norsk-vg1-4-5-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-5',
+        id: 'norsk-vg1-4-5-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2874,10 +2540,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-6',
+      id: 'norsk-vg1-4-5-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-6',
+        id: 'norsk-vg1-4-5-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2894,10 +2560,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-7',
+      id: 'norsk-vg1-4-5-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-7',
+        id: 'norsk-vg1-4-5-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2914,10 +2580,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-8',
+      id: 'norsk-vg1-4-5-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-8',
+        id: 'norsk-vg1-4-5-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2933,10 +2599,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-9',
+      id: 'norsk-vg1-4-5-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-9',
+        id: 'norsk-vg1-4-5-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2952,10 +2618,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-10',
+      id: 'norsk-vg1-4-5-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-10',
+        id: 'norsk-vg1-4-5-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2972,10 +2638,10 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
       },
     },
     {
-      id: 'norsk-vg1-7-2-ex-11',
+      id: 'norsk-vg1-4-5-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-7-2-ex-11',
+        id: 'norsk-vg1-4-5-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -3002,10 +2668,9 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
 export const NORSK_VG1_CHAPTERS_DEL2: TextbookChapter[] = [
   CHAPTER_NORSK_VG1_4_1,
   CHAPTER_NORSK_VG1_4_2,
-  CHAPTER_NORSK_VG1_5_1,
-  CHAPTER_NORSK_VG1_5_2,
-  CHAPTER_NORSK_VG1_6_1,
-  CHAPTER_NORSK_VG1_6_2,
-  CHAPTER_NORSK_VG1_7_1,
-  CHAPTER_NORSK_VG1_7_2,
+  CHAPTER_NORSK_VG1_4_3,
+  CHAPTER_NORSK_VG1_4_4,
+  CHAPTER_NORSK_VG1_4_5,
+  CHAPTER_NORSK_VG1_5_3,
+  CHAPTER_NORSK_VG1_6_3,
 ];

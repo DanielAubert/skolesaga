@@ -1,6 +1,6 @@
 /**
- * Norsk VG1 - Del 5: Kapittel 15.1–17.2
- * Grammatikk, rettskriving, flerkulturell litteratur, postkolonial lesning
+ * Norsk VG1 - Del 5: Kapittel 3.1-3.2 og 8.1-8.4
+ * Flerkulturell litteratur, kulturmøter, grammatikk og rettskriving
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -12,11 +12,11 @@ import {
 } from './textbook-content-norsk-vg1-tekster';
 
 // ============================================================================
-// KAPITTEL 15.1: Setningsanalyse
+// KAPITTEL 8.1: Setningsanalyse
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_15_1: TextbookChapter = {
-  id: 'norsk-vg1-15-1',
+export const CHAPTER_NORSK_VG1_8_1: TextbookChapter = {
+  id: 'norsk-vg1-8-1',
   courseId: 'norsk-vg1',
   chapterNumber: '8.1',
   title: 'Setningsanalyse',
@@ -28,7 +28,7 @@ export const CHAPTER_NORSK_VG1_15_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-15-1-intro',
+      id: 'norsk-vg1-8-1-intro',
       type: 'text',
       content: `## Setningsanalyse - å forstå hvordan setninger er bygd opp
 
@@ -54,7 +54,7 @@ Et setningsledd er en del av setningen som har en bestemt funksjon. Hvert ledd s
 **I dette kapittelet lærer du å identifisere og analysere alle disse leddene.**`,
     },
     {
-      id: 'norsk-vg1-15-1-def-1',
+      id: 'norsk-vg1-8-1-def-1',
       type: 'definition',
       title: 'Verbal (V)',
       content: `**Verbalet er setningens kjerne.**
@@ -82,7 +82,7 @@ Spør: "Hva skjer?" eller "Hva gjøres?"
 **Tips:** Finn verbalet først - det gjør det lettere å finne de andre leddene.`,
     },
     {
-      id: 'norsk-vg1-15-1-def-2',
+      id: 'norsk-vg1-8-1-def-2',
       type: 'definition',
       title: 'Subjekt (S)',
       content: `**Subjektet er den eller det som handler eller beskrives.**
@@ -115,7 +115,7 @@ Subjektet styrer verbalformen:
 - "Hun **løper**" / "De **løper**"`,
     },
     {
-      id: 'norsk-vg1-15-1-def-3',
+      id: 'norsk-vg1-8-1-def-3',
       type: 'definition',
       title: 'Objekt (DO og IO)',
       content: `**Objektet er den/det handlingen rammer.**
@@ -149,7 +149,7 @@ Normalt kommer IO før DO:
 **Intransitive verb** tar ikke objekt: "sove", "le", "gå"`,
     },
     {
-      id: 'norsk-vg1-15-1-def-4',
+      id: 'norsk-vg1-8-1-def-4',
       type: 'definition',
       title: 'Adverbial (A)',
       content: `**Adverbialet forteller om omstendighetene.**
@@ -190,7 +190,7 @@ Modifiserer hele setningen:
 **En setning kan ha flere adverbialer.**`,
     },
     {
-      id: 'norsk-vg1-15-1-def-5',
+      id: 'norsk-vg1-8-1-def-5',
       type: 'definition',
       title: 'Predikativ (P)',
       content: `**Predikativet beskriver subjektet eller objektet.**
@@ -223,7 +223,7 @@ Verb som forbinder subjekt og predikativ:
 være, bli, virke, synes, føles, lukter, smaker, høres...`,
     },
     {
-      id: 'norsk-vg1-15-1-example-1',
+      id: 'norsk-vg1-8-1-example-1',
       type: 'example',
       title: 'Eksempel: Fullstendig setningsanalyse',
       problem: 'Analyser setningen: "I går ga læreren elevene en vanskelig oppgave på skolen."',
@@ -255,10 +255,10 @@ Forfelt | V | S | IO | DO | Adverbial
 I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
     },
     {
-      id: 'norsk-vg1-15-1-ex-1',
+      id: 'norsk-vg1-8-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-1',
+        id: 'norsk-vg1-8-1-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -291,10 +291,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-2',
+      id: 'norsk-vg1-8-1-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-2',
+        id: 'norsk-vg1-8-1-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -328,10 +328,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-3',
+      id: 'norsk-vg1-8-1-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-3',
+        id: 'norsk-vg1-8-1-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -360,10 +360,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-4',
+      id: 'norsk-vg1-8-1-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-4',
+        id: 'norsk-vg1-8-1-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -396,10 +396,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-5',
+      id: 'norsk-vg1-8-1-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-5',
+        id: 'norsk-vg1-8-1-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -428,10 +428,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-6',
+      id: 'norsk-vg1-8-1-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-6',
+        id: 'norsk-vg1-8-1-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -449,10 +449,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-7',
+      id: 'norsk-vg1-8-1-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-7',
+        id: 'norsk-vg1-8-1-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -470,10 +470,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-8',
+      id: 'norsk-vg1-8-1-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-8',
+        id: 'norsk-vg1-8-1-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -497,10 +497,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-9',
+      id: 'norsk-vg1-8-1-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-9',
+        id: 'norsk-vg1-8-1-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -524,10 +524,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-10',
+      id: 'norsk-vg1-8-1-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-10',
+        id: 'norsk-vg1-8-1-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -539,10 +539,10 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       },
     },
     {
-      id: 'norsk-vg1-15-1-ex-11',
+      id: 'norsk-vg1-8-1-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-1-ex-11',
+        id: 'norsk-vg1-8-1-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -558,14 +558,14 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
 };
 
 // ============================================================================
-// KAPITTEL 15.2: Tekstbinding
+// KAPITTEL 8.2: Tekstbinding og sammenheng
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_15_2: TextbookChapter = {
-  id: 'norsk-vg1-15-2',
+export const CHAPTER_NORSK_VG1_8_2: TextbookChapter = {
+  id: 'norsk-vg1-8-2',
   courseId: 'norsk-vg1',
   chapterNumber: '8.2',
-  title: 'Tekstbinding',
+  title: 'Tekstbinding og sammenheng',
   description: 'Lær hvordan tekster henger sammen gjennom ulike bindeteknikker.',
   estimatedMinutes: 50,
   competenceGoals: [
@@ -574,7 +574,7 @@ export const CHAPTER_NORSK_VG1_15_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-15-2-intro',
+      id: 'norsk-vg1-8-2-intro',
       type: 'text',
       content: `## Tekstbinding - å skape sammenheng
 
@@ -599,7 +599,7 @@ Tekstbinding er teknikkene vi bruker for å skape sammenheng mellom setninger og
 **God tekstbinding = god tekst. Svak tekstbinding = forvirrende tekst.**`,
     },
     {
-      id: 'norsk-vg1-15-2-def-1',
+      id: 'norsk-vg1-8-2-def-1',
       type: 'definition',
       title: 'Konjunksjoner',
       content: `**Konjunksjoner binder sammen likeverdige setningsledd.**
@@ -630,7 +630,7 @@ Konjunksjoner (sideordnende bindeord) forbinder ord, fraser eller setninger som 
 **Husk:** Konjunksjoner påvirker ikke ordstillingen i setningen.`,
     },
     {
-      id: 'norsk-vg1-15-2-def-2',
+      id: 'norsk-vg1-8-2-def-2',
       type: 'definition',
       title: 'Subjunksjoner',
       content: `**Subjunksjoner innleder leddsetninger.**
@@ -667,7 +667,7 @@ Subjunksjoner (underordnende bindeord) innleder setninger som er underordnet hov
 - **at**: "Jeg vet at du har rett."`,
     },
     {
-      id: 'norsk-vg1-15-2-def-3',
+      id: 'norsk-vg1-8-2-def-3',
       type: 'definition',
       title: 'Referentbinding',
       content: `**Referentbinding viser til noe som er nevnt før eller kommer etterpå.**
@@ -701,7 +701,7 @@ Den vanligste formen for referentbinding.
 - Inkonsekvent: Bytte mellom "du" og "man"`,
     },
     {
-      id: 'norsk-vg1-15-2-def-4',
+      id: 'norsk-vg1-8-2-def-4',
       type: 'definition',
       title: 'Tematisk binding',
       content: `**Tematisk binding handler om å holde fokus i teksten.**
@@ -734,7 +734,7 @@ Flere undertemaer under ett hovedtema:
 **Tips:** Vær bevisst på hva som er tema i setningene dine. Det hjelper leseren å følge med.`,
     },
     {
-      id: 'norsk-vg1-15-2-def-5',
+      id: 'norsk-vg1-8-2-def-5',
       type: 'definition',
       title: 'Leksikalsk binding',
       content: `**Leksikalsk binding bruker ordvalg for å skape sammenheng.**
@@ -768,7 +768,7 @@ Serier av relaterte ord gjennom teksten:
 **Tips:** Varier ordbruken for å unngå gjentagelser, men behold klarhet. For faglige tekster kan gjentagelse være klargjørende.`,
     },
     {
-      id: 'norsk-vg1-15-2-example-1',
+      id: 'norsk-vg1-8-2-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av tekstbinding',
       problem: 'Analyser tekstbindingen i dette avsnittet:\n\n"Klimaendringene er vår tids største utfordring. De truer livet på jorda. Derfor må vi handle nå. Hvis vi ikke reduserer utslippene, vil konsekvensene bli katastrofale."',
@@ -798,10 +798,10 @@ Avsnittet har god tekstbinding:
 - Variasjon i bindemetoder`,
     },
     {
-      id: 'norsk-vg1-15-2-ex-1',
+      id: 'norsk-vg1-8-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-1',
+        id: 'norsk-vg1-8-2-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -834,10 +834,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-2',
+      id: 'norsk-vg1-8-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-2',
+        id: 'norsk-vg1-8-2-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -866,10 +866,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-3',
+      id: 'norsk-vg1-8-2-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-3',
+        id: 'norsk-vg1-8-2-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -893,10 +893,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-4',
+      id: 'norsk-vg1-8-2-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-4',
+        id: 'norsk-vg1-8-2-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -930,10 +930,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-5',
+      id: 'norsk-vg1-8-2-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-5',
+        id: 'norsk-vg1-8-2-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -945,10 +945,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-6',
+      id: 'norsk-vg1-8-2-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-6',
+        id: 'norsk-vg1-8-2-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -966,10 +966,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-7',
+      id: 'norsk-vg1-8-2-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-7',
+        id: 'norsk-vg1-8-2-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -987,10 +987,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-8',
+      id: 'norsk-vg1-8-2-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-8',
+        id: 'norsk-vg1-8-2-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -1002,10 +1002,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-9',
+      id: 'norsk-vg1-8-2-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-9',
+        id: 'norsk-vg1-8-2-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -1017,10 +1017,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-10',
+      id: 'norsk-vg1-8-2-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-10',
+        id: 'norsk-vg1-8-2-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1032,10 +1032,10 @@ Avsnittet har god tekstbinding:
       },
     },
     {
-      id: 'norsk-vg1-15-2-ex-11',
+      id: 'norsk-vg1-8-2-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-15-2-ex-11',
+        id: 'norsk-vg1-8-2-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1051,11 +1051,11 @@ Avsnittet har god tekstbinding:
 };
 
 // ============================================================================
-// KAPITTEL 16.1: Rettskriving bokmål
+// KAPITTEL 8.3: Rettskriving bokmål
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_16_1: TextbookChapter = {
-  id: 'norsk-vg1-16-1',
+export const CHAPTER_NORSK_VG1_8_3: TextbookChapter = {
+  id: 'norsk-vg1-8-3',
   courseId: 'norsk-vg1',
   chapterNumber: '8.3',
   title: 'Rettskriving bokmål',
@@ -1067,7 +1067,7 @@ export const CHAPTER_NORSK_VG1_16_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-16-1-intro',
+      id: 'norsk-vg1-8-3-intro',
       type: 'text',
       content: `## Rettskriving på bokmål
 
@@ -1094,7 +1094,7 @@ Bokmål har mange valgfrie former. Du kan velge mellom ulike skrivemåter, men d
 - Hvordan bli en bedre rettskriver`,
     },
     {
-      id: 'norsk-vg1-16-1-def-1',
+      id: 'norsk-vg1-8-3-def-1',
       type: 'definition',
       title: 'Valgfrie former i bokmål',
       content: `**Bokmål har stor valgfrihet. Her er de viktigste:**
@@ -1129,7 +1129,7 @@ Velg EN stil og hold deg til den:
 **Tips:** Finn din stil og vær konsekvent.`,
     },
     {
-      id: 'norsk-vg1-16-1-def-2',
+      id: 'norsk-vg1-8-3-def-2',
       type: 'definition',
       title: 'Vanlige rettskrivingsfeil',
       content: `**De vanligste feilene på bokmål:**
@@ -1167,7 +1167,7 @@ Velg EN stil og hold deg til den:
 - å = infinitivsmerke (å gå)`,
     },
     {
-      id: 'norsk-vg1-16-1-def-3',
+      id: 'norsk-vg1-8-3-def-3',
       type: 'definition',
       title: 'Flere vanlige feil',
       content: `**Flere feil å unngå:**
@@ -1205,7 +1205,7 @@ På bokmål: alltid "ikke" (ikkje er nynorsk)
 **Bruk ordboka når du er usikker!**`,
     },
     {
-      id: 'norsk-vg1-16-1-def-4',
+      id: 'norsk-vg1-8-3-def-4',
       type: 'definition',
       title: 'Tegnsetting',
       content: `**Regler for tegnsetting på bokmål:**
@@ -1245,7 +1245,7 @@ Komma brukes IKKE:
 - Lengre enn bindestrek (–)`,
     },
     {
-      id: 'norsk-vg1-16-1-example-1',
+      id: 'norsk-vg1-8-3-example-1',
       type: 'example',
       title: 'Eksempel: Retting av tekst',
       problem: 'Finn og rett feilene i denne teksten:\n\n"Når jeg var liten likte jeg og lese bøker. Per\'s favoritt var detektiv historier, og dem var spennenede. Idag leser jeg fremdeles mye men det er vanskelig og finne tid."',
@@ -1279,10 +1279,10 @@ Komma brukes IKKE:
 "Da jeg var liten, likte jeg å lese bøker. Pers favoritt var detektivhistorier, og de var spennende. I dag leser jeg fremdeles mye, men det er vanskelig å finne tid."`,
     },
     {
-      id: 'norsk-vg1-16-1-ex-1',
+      id: 'norsk-vg1-8-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-1',
+        id: 'norsk-vg1-8-3-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -1315,10 +1315,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-2',
+      id: 'norsk-vg1-8-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-2',
+        id: 'norsk-vg1-8-3-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -1352,10 +1352,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-3',
+      id: 'norsk-vg1-8-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-3',
+        id: 'norsk-vg1-8-3-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -1384,10 +1384,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-4',
+      id: 'norsk-vg1-8-3-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-4',
+        id: 'norsk-vg1-8-3-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -1416,10 +1416,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-5',
+      id: 'norsk-vg1-8-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-5',
+        id: 'norsk-vg1-8-3-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1431,10 +1431,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-6',
+      id: 'norsk-vg1-8-3-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-6',
+        id: 'norsk-vg1-8-3-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1452,10 +1452,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-7',
+      id: 'norsk-vg1-8-3-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-7',
+        id: 'norsk-vg1-8-3-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1473,10 +1473,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-8',
+      id: 'norsk-vg1-8-3-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-8',
+        id: 'norsk-vg1-8-3-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -1488,10 +1488,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-9',
+      id: 'norsk-vg1-8-3-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-9',
+        id: 'norsk-vg1-8-3-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -1520,10 +1520,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-10',
+      id: 'norsk-vg1-8-3-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-10',
+        id: 'norsk-vg1-8-3-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1535,10 +1535,10 @@ Komma brukes IKKE:
       },
     },
     {
-      id: 'norsk-vg1-16-1-ex-11',
+      id: 'norsk-vg1-8-3-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-1-ex-11',
+        id: 'norsk-vg1-8-3-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1554,11 +1554,11 @@ Komma brukes IKKE:
 };
 
 // ============================================================================
-// KAPITTEL 16.2: Rettskriving nynorsk
+// KAPITTEL 8.4: Rettskriving nynorsk
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_16_2: TextbookChapter = {
-  id: 'norsk-vg1-16-2',
+export const CHAPTER_NORSK_VG1_8_4: TextbookChapter = {
+  id: 'norsk-vg1-8-4',
   courseId: 'norsk-vg1',
   chapterNumber: '8.4',
   title: 'Rettskriving nynorsk',
@@ -1570,7 +1570,7 @@ export const CHAPTER_NORSK_VG1_16_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-16-2-intro',
+      id: 'norsk-vg1-8-4-intro',
       type: 'text',
       content: `## Nynorsk - et eget språk
 
@@ -1594,7 +1594,7 @@ Ivar Aasen skapte landsmål (senere nynorsk) på 1800-tallet basert på norske d
 **Tips:** Bruk Nynorskordboka (ordbok.uib.no) aktivt!`,
     },
     {
-      id: 'norsk-vg1-16-2-def-1',
+      id: 'norsk-vg1-8-4-def-1',
       type: 'definition',
       title: 'Nynorskens grammatiske særtrekk',
       content: `**Viktige forskjeller fra bokmål:**
@@ -1630,7 +1630,7 @@ Velg én form og vær konsekvent.
 - Flertall og bestemt: -e`,
     },
     {
-      id: 'norsk-vg1-16-2-def-2',
+      id: 'norsk-vg1-8-4-def-2',
       type: 'definition',
       title: 'Ord som er annerledes på nynorsk',
       content: `**Mange ord er helt forskjellige på nynorsk og bokmål:**
@@ -1672,7 +1672,7 @@ Velg én form og vær konsekvent.
 **Husk:** Disse ordene er ikke valgfrie - de MÅ brukes på nynorsk.`,
     },
     {
-      id: 'norsk-vg1-16-2-def-3',
+      id: 'norsk-vg1-8-4-def-3',
       type: 'definition',
       title: 'Vanlige bokmålsfeil på nynorsk',
       content: `**Feil som mange gjør:**
@@ -1709,7 +1709,7 @@ Velg én form og vær konsekvent.
 - ✗ "sammen" → ✓ "saman"`,
     },
     {
-      id: 'norsk-vg1-16-2-def-4',
+      id: 'norsk-vg1-8-4-def-4',
       type: 'definition',
       title: 'Praktiske skriveråd for nynorsk',
       content: `**Slik skriver du god nynorsk:**
@@ -1747,7 +1747,7 @@ Før du leverer, sjekk at du har:
 Velg former og hold deg til dem gjennom hele teksten.`,
     },
     {
-      id: 'norsk-vg1-16-2-example-1',
+      id: 'norsk-vg1-8-4-example-1',
       type: 'example',
       title: 'Eksempel: Fra bokmål til nynorsk',
       problem: 'Oversett denne teksten til korrekt nynorsk:\n\n"Hun visste ikke hva hun skulle gjøre. Noen hadde fortalt henne at det var farlig, men hun ville gå dit allikevel. Hvorfor var det så vanskelig?"',
@@ -1781,13 +1781,13 @@ Velg former og hold deg til dem gjennom hele teksten.`,
     },
     // Primærtekst: Ivar Aasen - «Nordmannen»
     {
-      id: 'norsk-vg1-16-2-primaertekst-1',
+      id: 'norsk-vg1-8-4-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Ivar Aasen – «Nordmannen» (1863)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-16-2-primaertekst-1-text',
+          id: 'norsk-vg1-8-4-primaertekst-1-text',
           type: 'text',
           content: `${TEKST_AASEN_NORDMANNEN}`,
         },
@@ -1795,23 +1795,23 @@ Velg former og hold deg til dem gjennom hele teksten.`,
     },
     // Primærtekst: Arne Garborg - Haugtussa (utdrag)
     {
-      id: 'norsk-vg1-16-2-primaertekst-2',
+      id: 'norsk-vg1-8-4-primaertekst-2',
       type: 'collapsible',
       title: 'Primærtekst: Arne Garborg – «Haugtussa» (utdrag, 1895)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-16-2-primaertekst-2-text',
+          id: 'norsk-vg1-8-4-primaertekst-2-text',
           type: 'text',
           content: `${TEKST_GARBORG_HAUGTUSSA_UTDRAG}`,
         },
       ],
     },
     {
-      id: 'norsk-vg1-16-2-ex-1',
+      id: 'norsk-vg1-8-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-1',
+        id: 'norsk-vg1-8-4-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -1844,10 +1844,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-2',
+      id: 'norsk-vg1-8-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-2',
+        id: 'norsk-vg1-8-4-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -1881,10 +1881,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-3',
+      id: 'norsk-vg1-8-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-3',
+        id: 'norsk-vg1-8-4-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -1918,10 +1918,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-4',
+      id: 'norsk-vg1-8-4-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-4',
+        id: 'norsk-vg1-8-4-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -1950,10 +1950,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-5',
+      id: 'norsk-vg1-8-4-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-5',
+        id: 'norsk-vg1-8-4-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1965,10 +1965,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-6',
+      id: 'norsk-vg1-8-4-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-6',
+        id: 'norsk-vg1-8-4-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1986,10 +1986,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-7',
+      id: 'norsk-vg1-8-4-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-7',
+        id: 'norsk-vg1-8-4-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2007,10 +2007,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-8',
+      id: 'norsk-vg1-8-4-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-8',
+        id: 'norsk-vg1-8-4-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2022,10 +2022,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-9',
+      id: 'norsk-vg1-8-4-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-9',
+        id: 'norsk-vg1-8-4-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2037,10 +2037,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-10',
+      id: 'norsk-vg1-8-4-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-10',
+        id: 'norsk-vg1-8-4-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2052,10 +2052,10 @@ Velg former og hold deg til dem gjennom hele teksten.`,
       },
     },
     {
-      id: 'norsk-vg1-16-2-ex-11',
+      id: 'norsk-vg1-8-4-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-16-2-ex-11',
+        id: 'norsk-vg1-8-4-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2071,14 +2071,14 @@ Velg former og hold deg til dem gjennom hele teksten.`,
 };
 
 // ============================================================================
-// KAPITTEL 17.1: Flerkulturell litteratur
+// KAPITTEL 3.1: Flerkulturell litteratur i Norge
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_17_1: TextbookChapter = {
-  id: 'norsk-vg1-17-1',
+export const CHAPTER_NORSK_VG1_3_1: TextbookChapter = {
+  id: 'norsk-vg1-3-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '3.6',
-  title: 'Flerkulturell litteratur',
+  chapterNumber: '3.1',
+  title: 'Flerkulturell litteratur i Norge',
   description: 'Utforsk norsk litteratur av forfattere med innvandrerbakgrunn.',
   estimatedMinutes: 55,
   competenceGoals: [
@@ -2087,7 +2087,7 @@ export const CHAPTER_NORSK_VG1_17_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-17-1-intro',
+      id: 'norsk-vg1-3-1-intro',
       type: 'text',
       content: `## Flerkulturell litteratur i Norge
 
@@ -2117,7 +2117,7 @@ Litteratur som utforsker kulturmøter, migrasjon, identitet mellom kulturer, og 
 - Representasjon i litteratur`,
     },
     {
-      id: 'norsk-vg1-17-1-def-1',
+      id: 'norsk-vg1-3-1-def-1',
       type: 'definition',
       title: 'Identitet mellom kulturer',
       content: `**Å tilhøre flere steder**
@@ -2145,7 +2145,7 @@ Opplevelsen av å se verden fra flere perspektiver samtidig, å kunne "kode-veks
 - Forhandling om tradisjoner og modernitet`,
     },
     {
-      id: 'norsk-vg1-17-1-def-2',
+      id: 'norsk-vg1-3-1-def-2',
       type: 'definition',
       title: 'Maria Navarro Skaranger',
       content: `**Maria Navarro Skaranger (f. 1994)**
@@ -2180,7 +2180,7 @@ Skaranger bruker et muntlig, ekte språk inspirert av Oslo-slang med innslag av 
 - Priser: Talentstipend, kritikerrost`,
     },
     {
-      id: 'norsk-vg1-17-1-def-3',
+      id: 'norsk-vg1-3-1-def-3',
       type: 'definition',
       title: 'Zeshan Shakar',
       content: `**Zeshan Shakar (f. 1982)**
@@ -2217,7 +2217,7 @@ Oppfølgeren som fortsetter å utforske klasse og kulturmøter.
 - Viser hvordan bakgrunn påvirker muligheter`,
     },
     {
-      id: 'norsk-vg1-17-1-def-4',
+      id: 'norsk-vg1-3-1-def-4',
       type: 'definition',
       title: 'Andre viktige stemmer',
       content: `**Flere forfattere å kjenne til:**
@@ -2252,7 +2252,7 @@ Oppfølgeren som fortsetter å utforske klasse og kulturmøter.
 - Balanserer det personlige og det politiske`,
     },
     {
-      id: 'norsk-vg1-17-1-example-1',
+      id: 'norsk-vg1-3-1-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av flerkulturell tekst',
       problem: 'Les dette utdraget fra "Alle utlendinger har lukka gardiner" og analyser hvordan identitet fremstilles:\n\n"Jeg er jo egentlig bare norsk, sier jeg. Ja, men du er ikke hvit norsk, sier hu. Nei, men hva er jeg da, sier jeg. Du er utlending, sier hu. Men jeg er jo født her, sier jeg."',
@@ -2284,23 +2284,23 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
     },
     // Primærtekst: Knut Hamsun - Sult (åpning)
     {
-      id: 'norsk-vg1-17-1-primaertekst-1',
+      id: 'norsk-vg1-3-1-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Knut Hamsun – «Sult» (åpning, 1890)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-17-1-primaertekst-1-text',
+          id: 'norsk-vg1-3-1-primaertekst-1-text',
           type: 'text',
           content: `${TEKST_HAMSUN_SULT_AAPNING}`,
         },
       ],
     },
     {
-      id: 'norsk-vg1-17-1-ex-1',
+      id: 'norsk-vg1-3-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-1',
+        id: 'norsk-vg1-3-1-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2328,10 +2328,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-2',
+      id: 'norsk-vg1-3-1-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-2',
+        id: 'norsk-vg1-3-1-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2355,10 +2355,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-3',
+      id: 'norsk-vg1-3-1-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-3',
+        id: 'norsk-vg1-3-1-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2382,10 +2382,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-4',
+      id: 'norsk-vg1-3-1-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-4',
+        id: 'norsk-vg1-3-1-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2397,10 +2397,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-5',
+      id: 'norsk-vg1-3-1-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-5',
+        id: 'norsk-vg1-3-1-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2412,10 +2412,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-6',
+      id: 'norsk-vg1-3-1-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-6',
+        id: 'norsk-vg1-3-1-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2433,10 +2433,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-7',
+      id: 'norsk-vg1-3-1-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-7',
+        id: 'norsk-vg1-3-1-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2454,10 +2454,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-8',
+      id: 'norsk-vg1-3-1-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-8',
+        id: 'norsk-vg1-3-1-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2469,10 +2469,10 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-9',
+      id: 'norsk-vg1-3-1-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-9',
+        id: 'norsk-vg1-3-1-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2488,10 +2488,10 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-10',
+      id: 'norsk-vg1-3-1-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-10',
+        id: 'norsk-vg1-3-1-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2503,10 +2503,10 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
       },
     },
     {
-      id: 'norsk-vg1-17-1-ex-11',
+      id: 'norsk-vg1-3-1-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-1-ex-11',
+        id: 'norsk-vg1-3-1-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2522,14 +2522,14 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
 };
 
 // ============================================================================
-// KAPITTEL 17.2: Postkolonial lesning
+// KAPITTEL 3.2: Kulturmøter og identitet i tekster
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_17_2: TextbookChapter = {
-  id: 'norsk-vg1-17-2',
+export const CHAPTER_NORSK_VG1_3_2: TextbookChapter = {
+  id: 'norsk-vg1-3-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '3.7',
-  title: 'Postkolonial lesning',
+  chapterNumber: '3.2',
+  title: 'Kulturmøter og identitet i tekster',
   description: 'Lær å lese tekster med et kulturkritisk blikk.',
   estimatedMinutes: 50,
   competenceGoals: [
@@ -2538,7 +2538,7 @@ export const CHAPTER_NORSK_VG1_17_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-17-2-intro',
+      id: 'norsk-vg1-3-2-intro',
       type: 'text',
       content: `## Postkolonial lesning - å lese med kritisk blikk
 
@@ -2560,7 +2560,7 @@ Selv om Norge ikke var en stormakt, er vi del av en vestlig tradisjon som har fr
 - Hvordan lese tekster med kulturkritisk blikk`,
     },
     {
-      id: 'norsk-vg1-17-2-def-1',
+      id: 'norsk-vg1-3-2-def-1',
       type: 'definition',
       title: 'Grunnbegreper i postkolonial teori',
       content: `**Viktige begreper å kjenne:**
@@ -2592,7 +2592,7 @@ Hvem har makt til å definere virkeligheten? Hvem bestemmer hva som er "normalt"
 **Disse begrepene hjelper oss å se mønstre i hvordan kulturer fremstilles.**`,
     },
     {
-      id: 'norsk-vg1-17-2-def-2',
+      id: 'norsk-vg1-3-2-def-2',
       type: 'definition',
       title: 'Representasjon og stereotypier',
       content: `**Hvordan kulturer fremstilles i tekst:**
@@ -2625,7 +2625,7 @@ Når undertrykte grupper overtar majoritetens negative syn på seg selv.
 **Å se stereotypier er første steg mot å forstå dem kritisk.**`,
     },
     {
-      id: 'norsk-vg1-17-2-def-3',
+      id: 'norsk-vg1-3-2-def-3',
       type: 'definition',
       title: 'Hvordan lese postkolonialt',
       content: `**Spørsmål å stille til teksten:**
@@ -2660,7 +2660,7 @@ Når undertrykte grupper overtar majoritetens negative syn på seg selv.
 **Tips:** Ikke alle tekster er problematiske, men alle kan analyseres kritisk.`,
     },
     {
-      id: 'norsk-vg1-17-2-def-4',
+      id: 'norsk-vg1-3-2-def-4',
       type: 'definition',
       title: 'Eksempler fra norsk litteratur',
       content: `**Postkolonial lesning av norske tekster:**
@@ -2689,13 +2689,13 @@ Flerkulturell litteratur kan leses som motfortellinger - tekster som forteller a
 - Kritisk lesning betyr ikke sensur, men bevissthet`,
     },
     {
-      id: 'norsk-vg1-17-2-bjornson',
+      id: 'norsk-vg1-3-2-bjornson',
       type: 'note',
       title: 'Bjørnstjerne Bjørnson og det internasjonale engasjementet',
       content: `Bjørnstjerne Bjørnson (1832-1910) er kjent som nasjonalpoeten, men han var også en internasjonalt engasjert skikkelse. Bjørnson engasjerte seg i kampen for undertrykte folk i Europa og kritiserte stormaktenes imperialisme. Han støttet blant annet slovakenes kamp mot magyarisering og dreyfusardenes sak i Frankrike. Bjørnsons internasjonale engasjement viser at norske forfattere allerede på 1800-tallet forholdt seg til spørsmål om makt, rettferdighet og representasjon på tvers av kulturer. Samtidig er det verdt å merke seg at selv Bjørnson, som kjempet for rettferdighet, var preget av sin tids syn på andre kulturer og sivilisasjoner.`,
     },
     {
-      id: 'norsk-vg1-17-2-example-1',
+      id: 'norsk-vg1-3-2-example-1',
       type: 'example',
       title: 'Eksempel: Postkolonial analyse',
       problem: 'Les dette fiktive utdraget og analyser det postkolonialt:\n\n"Reisende kom til landsbyen i hjertet av Afrika. De innfødte møtte dem med nysgjerrige blikk. En gammel medisinmann kom frem og tilbød dem underlige drikker. De primitive ritualene fascinerte de vestlige gjestene."',
@@ -2734,23 +2734,23 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
     },
     // Primærtekst: Henrik Ibsen - Peer Gynt (Marokko-scenen)
     {
-      id: 'norsk-vg1-17-2-primaertekst-1',
+      id: 'norsk-vg1-3-2-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Henrik Ibsen – «Peer Gynt» (Marokko-scenen)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-17-2-primaertekst-1-text',
+          id: 'norsk-vg1-3-2-primaertekst-1-text',
           type: 'text',
           content: `${TEKST_IBSEN_PEER_GYNT_MAROKKO}`,
         },
       ],
     },
     {
-      id: 'norsk-vg1-17-2-ex-1',
+      id: 'norsk-vg1-3-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-1',
+        id: 'norsk-vg1-3-2-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2778,10 +2778,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-2',
+      id: 'norsk-vg1-3-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-2',
+        id: 'norsk-vg1-3-2-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2810,10 +2810,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-3',
+      id: 'norsk-vg1-3-2-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-3',
+        id: 'norsk-vg1-3-2-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2842,10 +2842,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-4',
+      id: 'norsk-vg1-3-2-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-4',
+        id: 'norsk-vg1-3-2-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2857,10 +2857,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-5',
+      id: 'norsk-vg1-3-2-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-5',
+        id: 'norsk-vg1-3-2-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2872,10 +2872,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-6',
+      id: 'norsk-vg1-3-2-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-6',
+        id: 'norsk-vg1-3-2-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2893,10 +2893,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-7',
+      id: 'norsk-vg1-3-2-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-7',
+        id: 'norsk-vg1-3-2-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2914,10 +2914,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-8',
+      id: 'norsk-vg1-3-2-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-8',
+        id: 'norsk-vg1-3-2-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2929,10 +2929,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-9',
+      id: 'norsk-vg1-3-2-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-9',
+        id: 'norsk-vg1-3-2-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2944,10 +2944,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-10',
+      id: 'norsk-vg1-3-2-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-10',
+        id: 'norsk-vg1-3-2-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2959,10 +2959,10 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
       },
     },
     {
-      id: 'norsk-vg1-17-2-ex-11',
+      id: 'norsk-vg1-3-2-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-17-2-ex-11',
+        id: 'norsk-vg1-3-2-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2978,14 +2978,2499 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
 };
 
 // ============================================================================
+// KAPITTEL 8.5: Tegnsetting
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_8_5: TextbookChapter = {
+  id: 'norsk-vg1-8-5',
+  courseId: 'norsk-vg1',
+  chapterNumber: '8.5',
+  title: 'Tegnsetting',
+  description: 'Mestre regler for komma, punktum, kolon og andre skilletegn.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'bruke korrekt tegnsetting i egne tekster',
+    'vurdere og forbedre tegnsetting i andres tekster',
+    'forstå sammenhengen mellom tegnsetting og tekstens mening',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-8-5-intro',
+      type: 'text',
+      content: `## Hvorfor er tegnsetting viktig?
+
+Tegnsetting er ikke bare regler å følge - det er et verktøy for å gjøre teksten din tydelig og lettlest. Riktig tegnsetting hjelper leseren å forstå hva du mener.
+
+**Sammenlign:**
+- "La oss spise bestemor!" vs. "La oss spise, bestemor!"
+- "Hun likte ikke læreren sa han" vs. "Hun likte ikke, læreren sa han." vs. "Hun likte ikke læreren, sa han."
+
+**Tegnsetting påvirker:**
+- Meningen i setningen
+- Rytmen og flyten i teksten
+- Hvordan teksten leses høyt
+- Leserens forståelse
+
+**I dette kapittelet lærer du:**
+- Punktum, spørsmålstegn og utropstegn
+- Alle kommareglene
+- Kolon og semikolon
+- Tankestrek og bindestrek
+- Anførselstegn og sitater
+- Apostrof og forkortelser
+
+**Tips:** Les teksten din høyt. Der du naturlig tar en pause, skal det ofte være et tegn.`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-1',
+      type: 'definition',
+      title: 'Punktum, spørsmålstegn og utropstegn',
+      content: `**Punktum (.)**
+
+Punktum avslutter en fullstendig setning.
+
+**Eksempler:**
+- "Han gikk hjem."
+- "Boken var spennende."
+- "Det regner ute."
+
+**Husk:**
+- Punktum etter forkortelser: f.eks., bl.a., osv.
+- IKKE punktum etter overskrifter
+- IKKE punktum etter tall i lister (1, 2, 3 - ikke 1., 2., 3. hvis det ikke er oppramsingsliste)
+
+---
+
+**Spørsmålstegn (?)**
+
+Brukes etter direkte spørsmål.
+
+**Eksempler:**
+- "Kommer du i morgen?"
+- "Hva heter du?"
+- "Er det sant?"
+
+**Husk:**
+- IKKE spørsmålstegn etter indirekte spørsmål: "Hun lurte på om han kom." (punktum)
+- Retoriske spørsmål har spørsmålstegn: "Er ikke det rart?"
+
+---
+
+**Utropstegn (!)**
+
+Uttrykker sterke følelser, ordre eller utrop.
+
+**Eksempler:**
+- "Stopp!"
+- "For en fantastisk dag!"
+- "Kom deg vekk herfra!"
+
+**Husk:**
+- Bruk utropstegn med måte - for mange gjør teksten slitsom å lese
+- Aldri mer enn ett utropstegn (!!! er feil)`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-2',
+      type: 'definition',
+      title: 'Kommareglene - del 1',
+      content: `**Hovedregel:** Komma markerer pauser og skiller setningsledd fra hverandre.
+
+**1. Komma ved oppramsing:**
+Sett komma mellom ledd i en oppramsing.
+
+**Eksempler:**
+- "Jeg kjøpte epler, bananer, appelsiner og druer."
+- "Han er snill, morsom og klok."
+- "Vi leste, spiste og sov."
+
+**Husk:** IKKE komma foran "og" i norsk (i motsetning til engelsk).
+
+---
+
+**2. Komma foran leddsetning:**
+Sett komma foran setninger som begynner med subjunksjoner (at, som, fordi, hvis, når, da, mens, selv om, osv.).
+
+**Eksempler:**
+- "Jeg kommer, hvis det ikke regner."
+- "Hun visste, at han hadde rett."
+- "De gikk hjem, fordi det var sent."
+- "Han leste boken, mens hun lagde mat."
+
+**Unntak:** Når leddsetningen kommer FØRST, er komma valgfritt:
+- "Hvis det regner(,) blir jeg hjemme."
+- "Da han kom hjem(,) var alle gått."
+
+---
+
+**3. Komma ved innskudd:**
+Sett komma rundt innskutte ledd.
+
+**Eksempler:**
+- "Kari, som er min beste venn, kommer i morgen."
+- "Han var, tross alt, en god mann."
+- "Mannen, ifølge vitner, løp sin vei."`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-3',
+      type: 'definition',
+      title: 'Kommareglene - del 2',
+      content: `**4. Komma ved tiltale og utropsord:**
+
+**Eksempler:**
+- "Kari, kan du hjelpe meg?"
+- "Ja, det kan jeg."
+- "Nei, det tror jeg ikke."
+- "Hei, hvordan går det?"
+
+---
+
+**5. Komma ved motsatte ledd:**
+Sett komma mellom ledd som står i motsetning til hverandre.
+
+**Eksempler:**
+- "Hun ville gå, men han ville bli."
+- "Det var ikke deg, det var meg."
+- "Jo flere vi er sammen, jo gladere blir vi."
+
+---
+
+**6. Komma foran sideordnende konjunksjoner med nytt subjekt:**
+Sett komma foran "og", "eller", "men", "for" når det kommer ny setning med nytt subjekt.
+
+**Eksempler:**
+- "Han gikk hjem, og hun ble igjen." (to subjekter: han, hun)
+- "Vil du ha kaffe, eller foretrekker du te?" (du = samme subjekt, men spørsmål)
+
+**Men IKKE:**
+- "Han gikk hjem og la seg." (samme subjekt: han)
+- "Hun lo og gråt." (samme subjekt: hun)
+
+---
+
+**7. Komma ved datering og adresse:**
+
+**Eksempler:**
+- "Oslo, 15. mars 2024"
+- "Storgata 15, 0123 Oslo"`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-4',
+      type: 'definition',
+      title: 'Kolon og semikolon',
+      content: `**Kolon (:)**
+
+Kolon introduserer noe som utdyper eller forklarer det som kom før.
+
+**Brukes til:**
+
+**1. Før oppramsing:**
+- "Jeg trenger: mel, egg og melk."
+- "Ta med følgende: sovepose, liggeunderlag og telt."
+
+**2. Før forklaring eller utdyping:**
+- "Han skjønte én ting: dette var ikke hans feil."
+- "Resultatet var klart: de hadde vunnet."
+
+**3. Før direkte tale:**
+- Han sa: "Jeg kommer snart."
+- Læreren spurte: "Har alle forstått?"
+
+**4. I klokkeslett:**
+- 14:30, 09:00
+
+---
+
+**Semikolon (;)**
+
+Semikolon er et skilletegn som er sterkere enn komma, men svakere enn punktum.
+
+**Brukes til:**
+
+**1. Mellom selvstendige, men nært beslektede setninger:**
+- "Han var trett; likevel fortsatte han."
+- "Solen skinte; fuglene sang."
+
+**2. I komplekse oppramsinger (der leddene selv inneholder komma):**
+- "På møtet var Oslo, med 5 delegater; Bergen, med 3 delegater; og Trondheim, med 2 delegater."
+
+**Tips:** Semikolon brukes sjelden i moderne norsk. Når du er i tvil, bruk punktum eller komma i stedet.`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-5',
+      type: 'definition',
+      title: 'Tankestrek og bindestrek',
+      content: `**Tankestrek (–)**
+
+Tankestreken er lengre enn bindestreken og har andre funksjoner.
+
+**Brukes til:**
+
+**1. Innskudd (som alternativ til komma eller parentes):**
+- "Mannen – som for øvrig var ganske høy – gikk forbi."
+- "Vi reiste – mot alle odds – til månen."
+
+**2. Opphold eller brudd i setningen:**
+- "Han ville si noe, men –"
+- "Jeg trodde at – nei, glem det."
+
+**3. I replikker (dialogstrek):**
+- – Hva gjør du? spurte hun.
+- – Ingenting, svarte han.
+
+**4. Mellom tall og steder:**
+- "Toget Oslo–Bergen"
+- "Åpent 09:00–17:00"
+- "Perioden 1990–2000"
+
+---
+
+**Bindestrek (-)**
+
+Bindestreken er kortere og binder ord sammen.
+
+**Brukes til:**
+
+**1. Sammensatte ord:**
+- "IT-avdeling"
+- "New York-tur"
+- " 1990-tallet"
+
+**2. Ved orddeling ved linjeskift:**
+- "innbyt-
+  telse"
+
+**3. Ved forkortelser og tall i ord:**
+- "17-åring"
+- "2-etasjes"
+- "PC-en"
+
+**Husk:** IKKE mellomrom rundt bindestrek, MEN mellomrom rundt tankestrek.`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-6',
+      type: 'definition',
+      title: 'Anførselstegn og sitatpraksis',
+      content: `**Anførselstegn («» eller "")**
+
+Brukes for å markere sitater, direkte tale og titler.
+
+**Typer anførselstegn:**
+- «Fransk/norsk stil» - vanligst i bøker og aviser
+- "Engelsk stil" - vanlig i digitale tekster
+
+**1. Direkte tale og sitater:**
+- Hun sa: «Jeg kommer snart.»
+- «Dette er uakseptabelt», sa han.
+- Ifølge rapporten er situasjonen «kritisk».
+
+**2. Titler på artikler, dikt, noveller:**
+- Diktet «Du må ikke sove» av Arnulf Øverland
+- Artikkelen «Norges fremtid» i Aftenposten
+
+**3. Ord brukt i spesiell betydning eller ironisk:**
+- Han var en «ekspert» på området.
+- Denne «løsningen» skapte bare nye problemer.
+
+---
+
+**Sitatpraksis:**
+
+**Korte sitater (under 3 linjer):**
+Innarbeides i teksten med anførselstegn.
+- Som Ibsen skriver: «Man skal aldri ha sine bukser på når man går ut for å kjempe for frihet og sannhet.»
+
+**Lange sitater (over 3 linjer):**
+Settes som eget avsnitt med innrykk, uten anførselstegn.
+
+**Sitat i sitat:**
+Bruk motsatt type anførselstegn.
+- Han sa: «Da hun ropte 'Stopp!', snudde alle seg.»`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-7',
+      type: 'definition',
+      title: 'Apostrof og forkortelser',
+      content: `**Apostrof (')**
+
+**I norsk brukes apostrof SJELDEN. Her er de viktigste reglene:**
+
+**1. Genitiv av navn som slutter på s, x eller z:**
+- "Marx' teorier"
+- "Jens' bil" (men også mulig: "Jens sin bil")
+- "Xerxes' hær"
+
+**2. Ved utelatelse av bokstaver (sjelden):**
+- "ha'kke" (har ikke) - i dialog/dialekt
+- "gi'kke" (gir ikke)
+
+**IKKE apostrof ved:**
+- Vanlig genitiv: "Karins bok" (IKKE "Karin's bok")
+- Flertall: "PCer" (IKKE "PC'er")
+- Tiår: "1980-tallet" eller "80-tallet" (IKKE "80'tallet")
+
+---
+
+**Forkortelser:**
+
+**Med punktum:**
+- f.eks. (for eksempel)
+- bl.a. (blant annet)
+- m.m. (med mer)
+- osv. (og så videre)
+- dvs. (det vil si)
+- ca. (cirka)
+- jf. (jamfør)
+- nr. (nummer)
+- mfl. (med flere)
+
+**Uten punktum:**
+- mrd (milliarder)
+- km (kilometer)
+- kr (kroner)
+- kg (kilogram)
+- NATO, FN, EU (akronymer)
+
+**Tips:** Bruk forkortelser sparsomt i løpende tekst. Skriv gjerne ut hele ordet for bedre flyt.`,
+    },
+    {
+      id: 'norsk-vg1-8-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Rett tegnsetting',
+      problem: 'Sett inn riktig tegnsetting i denne teksten:\n\n"Maria som var sytten år gammel ville reise til Paris Hun hadde drømt om det lenge Moren hennes spurte Har du råd til det Maria svarte Jeg har spart i to år"',
+      solution: `**Steg for steg:**
+
+**1. Finn helsetningene:**
+- "Maria ville reise til Paris" (hovedsetning)
+- "som var sytten år gammel" (innskutt leddsetning)
+- "Hun hadde drømt om det lenge" (ny setning)
+- osv.
+
+**2. Marker innskudd:**
+"Maria, som var sytten år gammel, ville reise til Paris."
+
+**3. Skill setninger:**
+"Maria, som var sytten år gammel, ville reise til Paris. Hun hadde drømt om det lenge."
+
+**4. Marker direkte tale:**
+"Moren hennes spurte: «Har du råd til det?» Maria svarte: «Jeg har spart i to år.»"
+
+**Ferdig tekst:**
+"Maria, som var sytten år gammel, ville reise til Paris. Hun hadde drømt om det lenge. Moren hennes spurte: «Har du råd til det?» Maria svarte: «Jeg har spart i to år.»"
+
+**Tegn brukt:**
+- Komma rundt innskudd
+- Punktum mellom setninger
+- Kolon før direkte tale
+- Anførselstegn rundt sitater
+- Spørsmålstegn i spørsmål`,
+    },
+    {
+      id: 'norsk-vg1-8-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Vanlige feil',
+      problem: 'Finn og rett feilene i denne teksten:\n\n"Han sa at: han ville komme. Men, han kom ikke. Vi ventet, og ventet, helt til kl 2100. Da ga vi opp og gikk hjem?"',
+      solution: `**Feil 1: "Han sa at: han ville komme."**
+- FEIL: Kolon etter "at"
+- RETT: "Han sa at han ville komme."
+- Forklaring: Etter "at" kommer en leddsetning, ikke en oppramsing eller utdyping.
+
+**Feil 2: "Men, han kom ikke."**
+- FEIL: Komma etter "men"
+- RETT: "Men han kom ikke."
+- Forklaring: Det skal ikke være komma rett etter "men" i starten av en setning.
+
+**Feil 3: "Vi ventet, og ventet"**
+- FEIL: Komma mellom "ventet og ventet"
+- RETT: "Vi ventet og ventet"
+- Forklaring: Samme subjekt (vi) i begge ledd, ingen komma.
+
+**Feil 4: "kl 2100"**
+- FEIL: Mangler punktum og kolon
+- RETT: "kl. 21:00"
+- Forklaring: "kl." er forkortelse (punktum), og tid skrives med kolon.
+
+**Feil 5: "...og gikk hjem?"**
+- FEIL: Spørsmålstegn etter påstand
+- RETT: "...og gikk hjem."
+- Forklaring: Dette er en påstand, ikke et spørsmål.
+
+**Rettet tekst:**
+"Han sa at han ville komme. Men han kom ikke. Vi ventet og ventet, helt til kl. 21:00. Da ga vi opp og gikk hjem."`,
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Sett inn riktig tegnsetting.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hun kjøpte epler bananer og appelsiner',
+            solution: 'Hun kjøpte epler, bananer og appelsiner.',
+          },
+          {
+            label: 'b',
+            task: 'Kommer du i morgen spurte han',
+            solution: '«Kommer du i morgen?» spurte han. (eller: Kommer du i morgen? spurte han.)',
+          },
+          {
+            label: 'c',
+            task: 'Kari som bor i Oslo er min venninne',
+            solution: 'Kari, som bor i Oslo, er min venninne.',
+          },
+          {
+            label: 'd',
+            task: 'Han ville gå men hun ville bli',
+            solution: 'Han ville gå, men hun ville bli.',
+          },
+        ],
+        solution: 'Komma ved oppramsing, innskudd og motsetning. Anførselstegn og spørsmålstegn ved direkte tale.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken setning har riktig tegnsetting?',
+        options: [
+          { id: 'a', text: 'Han sa at, han ville komme.', isCorrect: false },
+          { id: 'b', text: 'Han sa, at han ville komme.', isCorrect: true },
+          { id: 'c', text: 'Han, sa at han ville komme.', isCorrect: false },
+          { id: 'd', text: 'Han sa at han, ville komme.', isCorrect: false },
+        ],
+        solution: 'Komma settes foran "at" når det innleder en leddsetning. "Han sa, at han ville komme." er korrekt. Alternativt kan komma utelates helt: "Han sa at han ville komme."',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Når skal du sette komma foran "og"?',
+        options: [
+          { id: 'a', text: 'Alltid', isCorrect: false },
+          { id: 'b', text: 'Aldri', isCorrect: false },
+          { id: 'c', text: 'Når det kommer en ny setning med nytt subjekt', isCorrect: true },
+          { id: 'd', text: 'Bare i oppramsinger', isCorrect: false },
+        ],
+        solution: 'Komma settes foran "og" når det kommer en ny selvstendig setning med nytt subjekt: "Han gikk hjem, og hun ble igjen." Men ikke: "Han gikk hjem og la seg." (samme subjekt)',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Rett feilene i disse setningene.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Vi reiste til Bergen, Trondheim, og Oslo."',
+            solution: 'Vi reiste til Bergen, Trondheim og Oslo. (Ikke komma foran "og" i oppramsing på norsk.)',
+          },
+          {
+            label: 'b',
+            task: '"Karl\'s bil er ny."',
+            solution: 'Karls bil er ny. (Ikke apostrof ved vanlig genitiv på norsk.)',
+          },
+          {
+            label: 'c',
+            task: '"Han spurte om hun ville komme?"',
+            solution: 'Han spurte om hun ville komme. (Indirekte spørsmål har ikke spørsmålstegn.)',
+          },
+          {
+            label: 'd',
+            task: '"Toget går kl 0900."',
+            solution: 'Toget går kl. 09:00. (Forkortelse med punktum, tid med kolon.)',
+          },
+        ],
+        hints: ['Tenk på forskjellen mellom norsk og engelsk tegnsetting', 'Sjekk forkortelsesreglene'],
+        solution: 'Norsk tegnsetting skiller seg fra engelsk på flere punkter, særlig ved komma og apostrof.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar forskjellen i betydning.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er forskjellen mellom "Hun likte ikke læreren, sa han" og "Hun likte ikke, læreren sa han"?',
+            solution: 'Første: Noen (han) sier at hun ikke likte læreren. Andre: Hun likte ikke det læreren sa om han.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er forskjellen mellom "La oss spise, bestemor" og "La oss spise bestemor"?',
+            solution: 'Første: Vi inviterer bestemor til å spise. Andre: Vi skal spise bestemor (kannibalisme!).',
+          },
+          {
+            label: 'c',
+            task: 'Hva er forskjellen mellom "Studentene som ikke besto, må ta eksamen på nytt" og "Studentene, som ikke besto, må ta eksamen på nytt"?',
+            solution: 'Første: Bare de studentene som ikke besto må ta eksamen på nytt (nødvendig leddsetning). Andre: Alle studentene besto ikke, og alle må ta eksamen på nytt (unødvendig leddsetning/innskudd).',
+          },
+        ],
+        hints: ['Tegnsetting kan endre hele meningen', 'Tenk på hva som er innskudd vs. nødvendig informasjon'],
+        solution: 'Tegnsetting er ikke bare formelt riktig - det påvirker betydningen av setningen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Skriv om setningene med riktig bruk av kolon og semikolon.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Gjør om til setning med kolon: "Du trenger å ta med flere ting. Du trenger mel. Du trenger egg. Du trenger melk."',
+            solution: 'Du trenger å ta med flere ting: mel, egg og melk.',
+          },
+          {
+            label: 'b',
+            task: 'Gjør om til setning med kolon: "Han forsto endelig. Dette var ikke et spill."',
+            solution: 'Han forsto endelig: dette var ikke et spill.',
+          },
+          {
+            label: 'c',
+            task: 'Bruk semikolon: "Solen skinte. Fuglene sang. Alt var perfekt."',
+            solution: 'Solen skinte; fuglene sang; alt var perfekt. (Eller: Solen skinte; fuglene sang – alt var perfekt.)',
+          },
+        ],
+        hints: ['Kolon introduserer noe', 'Semikolon kobler nært beslektede setninger'],
+        solution: 'Kolon og semikolon gir teksten bedre flyt og viser sammenhenger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sett inn riktig tegnsetting i denne teksten.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Tekst: "Lise som alltid var punktlig kom for sent i dag Hun hadde sovet for lenge Moren hennes spurte Hva skjedde Lise svarte Vekkerklokken virket ikke"',
+            solution: 'Lise, som alltid var punktlig, kom for sent i dag. Hun hadde sovet for lenge. Moren hennes spurte: «Hva skjedde?» Lise svarte: «Vekkerklokken virket ikke.»',
+          },
+        ],
+        hints: ['Finn innskuddene', 'Marker direkte tale', 'Skill setningene'],
+        solution: 'Fullstendig tegnsetting krever at du identifiserer alle setningsledd og talearter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-8',
+        number: '8',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken setning bruker tankestrek riktig?',
+        options: [
+          { id: 'a', text: 'Toget Oslo-Bergen går kl. 10:00.', isCorrect: false },
+          { id: 'b', text: 'Toget Oslo–Bergen går kl. 10:00.', isCorrect: true },
+          { id: 'c', text: 'Toget Oslo – Bergen går kl. 10:00.', isCorrect: false },
+          { id: 'd', text: 'Toget Oslo - Bergen går kl. 10:00.', isCorrect: false },
+        ],
+        solution: 'Tankestrek (–) brukes mellom steder uten mellomrom: Oslo–Bergen. Bindestrek (-) er kortere og brukes i sammensatte ord.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Analyser tegnsettingen i et tekstutdrag.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn et avsnitt fra en bok, avis eller nettartikkel (ca. 100 ord) og skriv det av.',
+            solution: 'Beskriv hvilket avsnitt du har valgt og hvor det er fra.',
+          },
+          {
+            label: 'b',
+            task: 'Identifiser alle tegnsettingstegn i avsnittet og forklar hvorfor hvert tegn er brukt.',
+            solution: 'Gå gjennom punkt for punkt: "Punktum her fordi...", "Komma her fordi det er innskudd...", osv.',
+          },
+          {
+            label: 'c',
+            task: 'Er det noen tegnsettingsvalg du er uenig i eller usikker på? Forklar.',
+            solution: 'Vurder om alle tegn følger reglene, eller om det er stilvalg.',
+          },
+        ],
+        hints: ['Velg en tekst med variert tegnsetting', 'Bruk reglene fra kapittelet til å forklare'],
+        solution: 'Analysen viser at du forstår reglene og kan anvende dem på autentiske tekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en kort tekst (150-200 ord) der du bevisst bruker minst seks ulike tegnsettingstegn. Marker hvilke tegn du har brukt og forklar hvorfor.',
+        hints: [
+          'Planlegg hvilke tegn du vil bruke: punktum, komma, kolon, semikolon, tankestrek, anførselstegn, spørsmålstegn, utropstegn',
+          'Skriv om et tema som gir naturlige muligheter for variert tegnsetting',
+          'Inkluder gjerne et sitat eller en dialog',
+        ],
+        solution: 'Teksten bør vise variert og korrekt bruk av tegnsetting. Forklaringene bør referere til reglene i kapittelet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 3.3: Samisk litteratur
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_3_3: TextbookChapter = {
+  id: 'norsk-vg1-3-3',
+  courseId: 'norsk-vg1',
+  chapterNumber: '3.3',
+  title: 'Samisk litteratur',
+  description: 'Utforsk samisk litteratur, fortellertradisjon og joikens rolle som kulturuttrykk.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'lese og tolke tekster fra samisk litteratur',
+    'reflektere over joiken som litterær og kulturell uttrykksform',
+    'forstå samisk litteratur i en historisk og samtidig kontekst',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-3-3-intro',
+      type: 'text',
+      content: `## Samisk litteratur - en del av norsk kulturarv
+
+Samisk litteratur er en viktig del av Norges kulturelle mangfold. Som urfolk i Norge har samene en rik litterær tradisjon som strekker seg fra muntlig fortellerkunst til moderne romaner og lyrikk.
+
+**Hvorfor studere samisk litteratur?**
+- Samene er Norges urfolk med egen kultur, språk og historie
+- Samisk litteratur gir innsikt i alternative perspektiver på natur, samfunn og identitet
+- Del av LK20s fokus på samiske forhold
+- Viktig for forståelsen av et mangfoldig Norge
+- Utfordrer majoritetssamfunnets fortellinger
+
+**Samisk litteratur omfatter:**
+- Muntlig tradisjon og fortellinger
+- Joik som poetisk uttrykk
+- Moderne lyrikk og prosa
+- Samtidsromaner og dramatikk
+
+**Viktige samiske forfattere:**
+- Nils-Aslak Valkeapää (1943-2001)
+- Kirsti Paltto (f. 1947)
+- Laila Stien (f. 1946)
+- Sigbjørn Skåden (f. 1976)
+- Rawdna Carita Eira (f. 1970)
+
+**I dette kapittelet lærer du om:**
+- Den muntlige fortellertradisjonen
+- Joiken som kulturelt og litterært uttrykk
+- Sentrale samiske forfattere
+- Temaer i samisk litteratur
+- Å analysere samisk lyrikk og prosa`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-1',
+      type: 'definition',
+      title: 'Muntlig tradisjon og fortellerkunst',
+      content: `**Den samiske fortellertradisjonen**
+
+Før skriftspråket ble innført, levde samisk kultur gjennom muntlig tradisjon. Fortellingene ble overlevert fra generasjon til generasjon og var en viktig del av kulturens overlevelse.
+
+**Typer muntlige fortellinger:**
+
+**Muitalus (fortelling):**
+Hverdagsfortellinger om hendelser, ofte med et poeng eller en lærdom.
+
+**Máinnas (eventyr):**
+Eventyr med overnaturlige elementer, dyr som snakker, og magiske hendelser.
+
+**Sáhka (legende):**
+Fortellinger som oppfattes som sanne, ofte med historisk forankring.
+
+**Stállu-fortellinger:**
+Fortellinger om stállu - en trolllignende skikkelse som ofte blir lurt av samer.
+
+**Kjennetegn ved muntlig tradisjon:**
+- Tilpasning til publikum og situasjon
+- Gjentakelser og faste formler
+- Bruk av rytme og klang
+- Naturen som sentral ramme
+- Dyr og naturvesener med egne personligheter
+
+**Fortellerens rolle:**
+Fortelleren var kulturens hukommelse og hadde ansvar for å bevare og formidle kunnskapen videre. Fortellerkunst var en høyt verdsatt ferdighet.
+
+**Arven i dag:**
+Mange moderne samiske forfattere henter inspirasjon fra den muntlige tradisjonen, både i temaer, fortellerteknikk og rytme.`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-2',
+      type: 'definition',
+      title: 'Joiken - mer enn sang',
+      content: `**Joiken som litterært og kulturelt uttrykk**
+
+Joiken er en av verdens eldste vokaltradisjoner og en unik samisk kunstform som kombinerer musikk, poesi og spiritualitet.
+
+**Hva er joik?**
+Joik er ikke å synge *om* noe, men å synge *noe* frem. Man joiker en person, et dyr, et sted - ikke bare beskriver, men fremkaller essensen.
+
+**Typer joik:**
+
+**Personjoik:**
+Hver person har tradisjonelt sin egen joik, en musikalsk signatur som fanger personens vesen.
+
+**Dyrejoik:**
+Joik av dyr fanger dyrets karakter og bevegelser.
+
+**Landskapsjoik:**
+Joik av steder formidler stedets atmosfære og betydning.
+
+**Joikens kjennetegn:**
+- Ofte få ord, mange vokaler og stavelser uten direkte mening
+- Rytmisk, gjentakende struktur
+- Improvisasjon innenfor tradisjonelle rammer
+- Emosjonell intensitet
+- Nær forbindelse til natur og tradisjon
+
+**Joik som poesi:**
+Joiken har poetiske kvaliteter: rytme, klang, komprimert uttrykk, stemning. Den formidler mening gjennom andre kanaler enn vanlig språk.
+
+**Historisk undertrykkelse:**
+Joiken ble lenge forbudt og undertrykt av kirke og myndigheter. Dette gjør joikens overlevelse og revitalisering ekstra betydningsfull.
+
+**Moderne joik:**
+I dag kombinerer artister som Mari Boine, Sofia Jannok og Ella Marie Hætta Isaksen joik med moderne musikkformer og holder tradisjonen levende.`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-3',
+      type: 'definition',
+      title: 'Nils-Aslak Valkeapää',
+      content: `**Nils-Aslak Valkeapää (1943-2001) - Áillohaš**
+
+Nils-Aslak Valkeapää, kjent under artistnavnet Áillohaš, regnes som den moderne samiske litteraturens far og en av de viktigste samiske kunstnerne gjennom tidene.
+
+**Bakgrunn:**
+- Født i Enontekiö, Finland
+- Vokste opp i reindriftsfamilie
+- Allsidig kunstner: poet, musiker, joiker, maler, filmskaper
+
+**Viktige verk:**
+
+**"Ruoktu váimmus" (1985) - "Hjertet mitt er herfra":**
+Diktsamling som kombinerer tekst og fotografier. Vant Nordisk Råds litteraturpris i 1991 - første samiske verk som fikk denne æren.
+
+**"Beaivi, Áhčážan" (1988) - "Solen, min far":**
+Monumentalt verk som kombinerer poesi med fotografier av samisk natur og kultur. En hyllest til samisk identitet og naturforståelse.
+
+**Kjennetegn ved Valkeapääs diktning:**
+- Naturbilder som bærer dype meninger
+- Tradisjon og modernitet i samspill
+- Visualitet - tekst og bilde som helhet
+- Kort, komprimert form inspirert av joik
+- Kosmisk perspektiv - mennesket i naturen
+- Politisk undertekst om samisk frigjøring
+
+**Sitat:**
+*"Jeg er meg selv / et lite menneske / et lite hjerte / men et stort land"*
+
+**Betydning:**
+Valkeapää viste at samisk kultur og litteratur har universell verdi og kan tale til lesere over hele verden. Han løftet samisk kunstuttrykk inn i verdenskunsten.`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-4',
+      type: 'definition',
+      title: 'Andre viktige samiske forfattere',
+      content: `**Flere stemmer i samisk litteratur**
+
+**Laila Stien (f. 1946):**
+- Norsk-samisk forfatter fra Hammerfest
+- Noveller og romaner om samisk hverdagsliv
+- "Vekselsang" (1985) - novellesamling
+- Skildrer møtet mellom samisk og norsk kultur
+- Subtil, nøktern stil med dype undertoner
+
+**Sigbjørn Skåden (f. 1976):**
+- Samtidssamisk forfatter fra Tana
+- Skriver på nordsamisk og norsk
+- "Våke over dem som sover" (2014)
+- Utforsker samisk identitet i moderne tid
+- Kombinerer tradisjon med samtidstematikk
+
+**Rawdna Carita Eira (f. 1970):**
+- Lyriker og dramatiker
+- "Jienastit jienaid" (2018)
+- Eksperimentell og nyskapende
+- Joiktradisjon møter moderne poesi
+
+**Kirsti Paltto (f. 1947):**
+- Finsk-samisk forfatter
+- Skrevet over 30 bøker
+- Romaner, noveller, barnebøker
+- Historiske og samtidige samiske temaer
+
+**Jovnna-Ánde Vest (Jon-Andreas Vest) (1948-2002):**
+- Lyriker og forfatter
+- "Čáhci čierru" (1976) - første moderne diktsamling på samisk
+- Politisk og naturlyrisk poesi
+
+**Felles trekk:**
+- Skriver ofte på samisk (med oversettelser)
+- Tematiserer identitet og tilhørighet
+- Naturen som sentral referanse
+- Forhandler forholdet mellom tradisjon og modernitet`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-5',
+      type: 'definition',
+      title: 'Temaer i samisk litteratur',
+      content: `**Gjennomgående temaer**
+
+**1. Natur og kosmologi:**
+Naturen er ikke kulisse, men deltaker. Mennesket er del av et større hele der dyr, landskap og naturkrefter har egenverdi og agens.
+
+**2. Identitet og tilhørighet:**
+- Hva vil det si å være same i dag?
+- Forholdet mellom tradisjon og modernitet
+- Språk som identitetsmarkør
+- Hybrididentitet mellom samisk og norsk/skandinavisk
+
+**3. Kolonialisme og undertrykkelse:**
+- Fornorskingspolitikken og dens konsekvenser
+- Tap av språk og kultur
+- Motstand og overlevelse
+- Dekolonisering og revitalisering
+
+**4. Reindrift og tradisjonelle næringer:**
+- Reindriften som levemåte og identitet
+- Truet av modernisering og arealinngrep
+- Kunnskapsoverføring mellom generasjoner
+
+**5. Språk og tap:**
+- Kampen for å bevare samiske språk
+- Skammen mange har følt
+- Gjenerobring av språket
+
+**6. Åndelighet og tradisjon:**
+- Samisk naturforståelse
+- Forholdet til forfedre og tradisjoner
+- Kritikk av kristen misjonsvirksomhet
+
+**7. Moderne utfordringer:**
+- Klimaendringer i Arktis
+- Vindkraft og naturinngrep
+- Samisk ungdoms plass i samtiden
+
+**Litterær stil:**
+Samisk litteratur kjennetegnes ofte av naturbilder, komprimert uttrykk, muntlig pregede fortellinger, og en veksling mellom det konkrete og det kosmiske.`,
+    },
+    {
+      id: 'norsk-vg1-3-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av samisk dikt',
+      problem: `Analyser dette utdraget fra Nils-Aslak Valkeapääs "Ruoktu váimmus":
+
+"Reinflokken min
+– de lange vandringenes folk
+tusen år
+tusen vintre
+alltid framover mot horisonten"`,
+      solution: `**Analyse:**
+
+**Tema:**
+Diktet handler om samisk identitet og tilhørighet, uttrykt gjennom reindriften og nomadekulturen.
+
+**Bildebruk:**
+- "Reinflokken min" - personlig tilknytning, eierskap og identitet
+- "de lange vandringenes folk" - metafor som knytter rein og same sammen
+- "tusen år / tusen vintre" - tidsperspektiv som understreker tradisjonens dybde
+- "horisonten" - symbol for fremtid, håp, og det uendelige landskapet
+
+**Form:**
+- Kort, komprimert form som minner om joik
+- Fravær av tegnsetting skaper flyt
+- Gjentakelsen av "tusen" skaper rytme
+- Enkel, direkte ordbruk med dyp resonans
+
+**Perspektiv:**
+Jeg-perspektivet knytter identitet til reinflokken. "Min" viser tilhørighet, men "folk" utvider til fellesskapet - de som har vandret i tusen år.
+
+**Kosmisk dimensjon:**
+"Alltid framover mot horisonten" gir diktet et tidløst preg. Vandringen er både konkret (reindriften) og eksistensiell (menneskets plass i verden).
+
+**Samisk kontekst:**
+Diktet uttrykker samisk naturforståelse der menneske og natur er sammenvevd. Reindriften er ikke bare næring, men identitet, historie og fremtid.`,
+    },
+    // Primærtekst 1: Samisk dikt
+    {
+      id: 'norsk-vg1-3-3-primaertekst-1',
+      type: 'collapsible',
+      title: 'Primærtekst: Nils-Aslak Valkeapää – fra «Ruoktu váimmus» (1985)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-3-primaertekst-1-text',
+          type: 'text',
+          content: `**Fra «Ruoktu váimmus» (Hjertet mitt er herfra)**
+*Nils-Aslak Valkeapää, 1985*
+*Oversatt fra nordsamisk*
+
+---
+
+Jeg bor i meg selv
+i en lavvo av ord
+alle ordene er mine
+
+Ordene er mine forfedre
+alt de har sett
+alt de har gjort
+alt de har følt
+
+Ordene mine tilhører et fjell
+en elv
+et vann
+
+Ordene mine tilhører
+snøstormen i mars
+midnattssolen i juni
+nordlyset i januar
+
+Jeg bor i ordene
+ordene bor i meg
+
+---
+
+*Áillohaš kombinerer i dette diktet språk, identitet og natur. Ordene er ikke bare kommunikasjon, men arv, tilhørighet og bosted. Lavvo-metaforen knytter språket til den nomadiske kulturen.*`,
+        },
+      ],
+    },
+    // Primærtekst 2: Laila Stien
+    {
+      id: 'norsk-vg1-3-3-primaertekst-2',
+      type: 'collapsible',
+      title: 'Primærtekst: Laila Stien – «Skolebilde» (utdrag fra novelle)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-3-primaertekst-2-text',
+          type: 'text',
+          content: `**Fra novellen «Skolebilde»**
+*Laila Stien*
+
+---
+
+Hun var sju år da hun begynte på skolen. Den første dagen hadde hun på seg kofta si, den med de røde og blå båndene som mamma hadde sydd. Hun var stolt.
+
+Men læreren så på henne og rynket pannen.
+
+"Vi snakker norsk her," sa han. "Forstår du det?"
+
+Hun nikket, selv om hun ikke forsto alt.
+
+De andre barna lo. Hun visste ikke av hva.
+
+Om kvelden spurte hun mamma hvorfor hun ikke kunne bruke kofta på skolen.
+
+"Du kan det," sa mamma. "Ikke hør på dem."
+
+Men neste dag lot hun kofta ligge. Det var lettere sånn.
+
+Femti år senere finner hun kofta i et skap. Den er like vakker. Båndene er like røde og blå. Hun tar den på og ser seg i speilet.
+
+Hun ser et barn som ikke visste at hun hadde rett til å være seg selv.
+
+---
+
+*Stiens novelle handler om fornorskingspolitikken sett fra et barns perspektiv. Den viser hvordan skam og undertrykkelse internaliseres, men også hvordan identitet kan gjenerobres.*`,
+        },
+      ],
+    },
+    // Primærtekst 3: Sigbjørn Skåden
+    {
+      id: 'norsk-vg1-3-3-primaertekst-3',
+      type: 'collapsible',
+      title: 'Primærtekst: Sigbjørn Skåden – «Morsmål» (dikt)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-3-primaertekst-3-text',
+          type: 'text',
+          content: `**«Morsmål»**
+*Sigbjørn Skåden*
+
+---
+
+Morsmålet mitt
+ble tatt fra meg
+før jeg ble født
+
+Det ligger begravet
+i min bestemors taushet
+i min mors usikkerhet
+i min egen lengsel
+
+Jeg graver det opp
+ord for ord
+som arkeolog i eget liv
+
+Noen ord finner jeg hele
+andre er knust
+noen mangler helt
+
+Men jeg fortsetter å grave
+for morsmålet er ikke bare språk
+det er alt det som kunne vært sagt
+mellom generasjonene
+
+Det som ble tiet i hjel
+fordi noen bestemte
+at våre ord
+ikke var verdt å bevare
+
+---
+
+*Skådens dikt uttrykker sorg over tapt språk, men også vilje til gjenerobring. Arkeolog-metaforen er sentral: identitet må graves frem fra historiens lag.*`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Svar på spørsmål om samisk litteratur:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er joik, og hva skiller den fra vanlig sang?',
+            solution: 'Joik er en samisk vokal tradisjon der man ikke synger om noe, men synger noe frem - man fremkaller essensen av en person, et dyr eller et sted gjennom lyd, rytme og stemning.',
+          },
+          {
+            label: 'b',
+            task: 'Hvem var Nils-Aslak Valkeapää, og hvorfor er han viktig?',
+            solution: 'Valkeapää (1943-2001), kjent som Áillohaš, regnes som den moderne samiske litteraturens far. Han vant Nordisk Råds litteraturpris i 1991 og viste at samisk kunst har universell verdi.',
+          },
+          {
+            label: 'c',
+            task: 'Nevn tre temaer som er vanlige i samisk litteratur.',
+            solution: 'Vanlige temaer inkluderer: natur og menneskets plass i den, identitet og tilhørighet, kolonialisme og fornorsking, reindrift, språk og tap, tradisjon og modernitet.',
+          },
+        ],
+        solution: 'Samisk litteratur har en rik tradisjon fra muntlig fortelling og joik til moderne lyrikk og prosa.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les primærteksten fra Valkeapää. Analyser hvordan diktet fremstiller forholdet mellom språk, identitet og natur.',
+        hints: ['Se på lavvo-metaforen', 'Hva betyr det at ordene "tilhører" naturfenomener?', 'Hvordan kobles forfedre og språk?'],
+        solution: 'Analysen bør vise hvordan Valkeapää knytter språk til identitet (ordene som bosted), til tradisjon (ordene som forfedre) og til natur (ordene tilhører landskap og naturkrefter). Lavvo-metaforen forener det hele: språket er det som gir ly og tilhørighet i verden.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les Laila Stiens novelleutdrag «Skolebilde». Analyser hvordan teksten fremstiller fornorskingspolitikken og dens virkninger.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvordan opplever barnet møtet med skolen?',
+            solution: 'Barnet opplever skam, forvirring og utenforskap. Hun forstår ikke hvorfor hun ikke kan bruke kofta eller hvorfor de andre ler.',
+          },
+          {
+            label: 'b',
+            task: 'Hva symboliserer kofta i novellen?',
+            solution: 'Kofta symboliserer samisk identitet, tradisjon og tilhørighet. At hun legger den bort viser hvordan hun tvinges til å skjule sin identitet.',
+          },
+          {
+            label: 'c',
+            task: 'Hva betyr det at hun tar på kofta femti år senere?',
+            solution: 'Det representerer gjenerobring av identitet, forsoning med fortiden, og anerkjennelse av at hun hadde rett til å være seg selv.',
+          },
+        ],
+        solution: 'Novellen viser fornorskingspolitikkens menneskelige kostnader gjennom et barns øyne, men også muligheten for å gjenvinne det tapte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser Sigbjørn Skådens dikt «Morsmål». Fokuser på arkeolog-metaforen og hva den sier om forholdet mellom språk og identitet.',
+        hints: ['Hva graver dikteren etter?', 'Hvorfor er noen ord "knust"?', 'Hva betyr det at språket ble tatt "før jeg ble født"?'],
+        solution: 'Analysen bør vise at arkeolog-metaforen uttrykker arbeidet med å gjenfinne et tapt språk og en tapt identitet. "Før jeg ble født" viser at tapet skjedde før dikteren kunne velge - fornorskingen rammet forrige generasjon. "Knuste" ord representerer det som er ødelagt og ikke kan gjenskapes fullt ut. Diktet uttrykker både sorg og motstand.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign joik med andre poetiske uttrykksformer du kjenner. Hva er likt og hva er ulikt?',
+        hints: ['Tenk på forhold mellom tekst og musikk', 'Tenk på funksjonen - hva skal uttrykket gjøre?', 'Sammenlign med rap, blues, ballader eller annet'],
+        solution: 'Sammenligningen bør vise at joik deler trekk med andre muntlige tradisjoner (rytme, gjentakelse, emosjonell intensitet), men skiller seg ut ved å ikke beskrive, men fremkalle. Joik har spirituell/rituell funksjon som skiller den fra f.eks. vestlig populærmusikk, men kan sammenlignes med blues\' emosjonelle uttrykk eller raps muntlige energi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kjennetegner joik som kunstform?',
+        options: [
+          'Man synger essensen av en person, et dyr eller et sted frem',
+          'Man synger lange, narrative ballader om historiske hendelser',
+          'Man synger utelukkende på norsk med samiske melodier',
+          'Man synger bare ved religiøse seremonier',
+        ],
+        answer: 0,
+        solution: 'Joik kjennetegnes ved at man ikke synger om noe, men synger noe frem - man fremkaller essensen av det man joiker gjennom lyd, rytme og stemning.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-7',
+        number: '7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva var fornorskingspolitikken?',
+        options: [
+          'En politikk som forsøkte å assimilere samer til norsk kultur og språk',
+          'En politikk som fremmet samisk språk i skolen',
+          'En politikk som ga samer selvstyre',
+          'En politikk som bare gjaldt i Sverige og Finland',
+        ],
+        answer: 0,
+        solution: 'Fornorskingspolitikken var en assimileringspolitikk der samiske (og kvenske) barn skulle lære norsk og "bli norske". Samisk språk og kultur ble undertrykt i skole og samfunn.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft: Hvorfor er det viktig at samisk litteratur har en plass i norskfaget?',
+        hints: ['Tenk på samenes status som urfolk', 'Tenk på representasjon og perspektiver', 'Tenk på hva litteratur kan lære oss', 'Tenk på fellesskap og mangfold'],
+        solution: 'Drøftingen bør ta opp at samene er Norges urfolk med rett til synlighet i utdanningen, at samisk litteratur gir alternative perspektiver på natur, identitet og historie, at det utvider forståelsen av hva "norsk" litteratur er, og at det bidrar til forsoning med en vanskelig fortid.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Velg en samisk artist som kombinerer joik med moderne musikk (f.eks. Mari Boine, Sofia Jannok, Ella Marie Hætta Isaksen, KEiiNO). Lytt til en låt og analyser: Hvordan kombinerer artisten tradisjon og modernitet? Hva formidler teksten/musikken?',
+        hints: ['Lytt til både musikk og tekst', 'Se etter tradisjonelle joik-elementer', 'Legg merke til moderne musikalske virkemidler', 'Reflekter over temaer og budskap'],
+        solution: 'Analysen bør identifisere hvordan artisten bruker tradisjonelle joik-elementer (vokalteknikk, rytme, gjentakelse) i kombinasjon med moderne sjangre. Refleksjon over tematikk (identitet, natur, motstand) og hvordan musikken formidler samisk kultur til nye publikum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et essay (500-700 ord): Natur, identitet og motstand i samisk litteratur. Bruk eksempler fra minst to tekster eller forfattere fra kapittelet.',
+        hints: ['Vis hvordan naturen er mer enn kulisse i samisk litteratur', 'Knytt natur til identitet og tilhørighet', 'Drøft motstand mot undertrykkelse', 'Bruk konkrete teksteksempler'],
+        solution: 'Essayet bør vise forståelse for hvordan natur, identitet og motstand henger sammen i samisk litteratur. Naturen er identitetsbærende, ikke bare bakgrunn. Motstanden mot kolonialisme uttrykkes ofte gjennom å hevde denne naturforståelsen. Konkrete eksempler fra Valkeapää, Stien, Skåden eller andre må brukes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 3.4: Litteratur fra andre kulturer
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_3_4: TextbookChapter = {
+  id: 'norsk-vg1-3-4',
+  courseId: 'norsk-vg1',
+  chapterNumber: '3.4',
+  title: 'Litteratur fra andre kulturer',
+  description: 'Les og analyser skjønnlitteratur i oversettelse fra ulike verdensdeler og kulturer.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'lese og tolke skjønnlitterære tekster i oversettelse fra ulike kulturer',
+    'reflektere over kulturelle likheter og forskjeller i litteratur',
+    'forstå oversettelsens rolle i kulturformidling',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-3-4-intro',
+      type: 'text',
+      content: `## Verdenslitteratur - å lese på tvers av kulturer
+
+Litteratur er en universell menneskelig uttrykksform. Over hele verden har mennesker fortalt historier, skrevet dikt og skapt dramatikk. Å lese litteratur fra andre kulturer gir oss innsikt i andres erfaringer og utvider vår forståelse av verden.
+
+**Hva er verdenslitteratur?**
+Begrepet ble lansert av Johann Wolfgang von Goethe på 1800-tallet. Han mente at litteratur ikke tilhører én nasjon, men menneskeheten. Verdenslitteratur er de verkene som har krysset grenser og taler til lesere på tvers av kulturer.
+
+**Hvorfor lese verdenslitteratur?**
+- Gir perspektiv på egen kultur og tenkning
+- Viser at noen temaer er universelle
+- Avdekker kulturelle forskjeller og særtrekk
+- Fremmer empati og forståelse
+- Utvider det litterære repertoaret
+
+**Utfordringer:**
+- Språkbarrierer og oversettelse
+- Kulturelle referanser vi ikke forstår
+- Fare for eksotisering
+- Hvem velger hva som oversettes?
+
+**I dette kapittelet lærer du:**
+- Om verdenslitteratur som begrep
+- Om oversettelse og kulturformidling
+- Å lese med kulturell bevissthet
+- Om litteratur fra ulike kontinenter`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-1',
+      type: 'definition',
+      title: 'Oversettelse og kulturformidling',
+      content: `**Oversettelsens kunst og utfordringer**
+
+Når vi leser verdenslitteratur på norsk, leser vi alltid oversettelser. Oversettelse er ikke bare å bytte ut ord, men å formidle mening, stil, rytme og kulturelle nyanser.
+
+**Hva oversetteren må ta stilling til:**
+
+**Språklige valg:**
+- Hvordan gjengi ordspill, rim og rytme?
+- Skal dialekt oversettes til norsk dialekt?
+- Hvordan håndtere ord som ikke finnes på norsk?
+
+**Kulturelle valg:**
+- Skal kulturspesifikke begreper forklares?
+- Skal mål og vekt "oversettes" til våre?
+- Hvordan formidle humor som er kulturspesifikk?
+
+**Domestisering vs. fremmedgjøring:**
+- **Domestisering:** Teksten tilpasses norsk kultur
+- **Fremmedgjøring:** Det fremmede beholdes
+
+**Eksempel:**
+Japanske ord for familiemedlemmer har ingen direkte norske ekvivalenter. "Onee-san" betyr "storesøster", men brukes også om eldre jenter man ikke er i slekt med. Oversetteren må velge.
+
+**Oversettelse som tolkning:**
+Enhver oversettelse er en tolkning. Ulike oversettere gir ulike versjoner av samme verk. Det finnes ikke én "riktig" oversettelse.
+
+**Tap og gevinst:**
+Noe går alltid tapt i oversettelse (klang, ordspill, nyanser), men noe kan også vinnes (nye lesere, nye perspektiver, nytt liv til gamle tekster).`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-2',
+      type: 'definition',
+      title: 'Universelle temaer, kulturelle særtrekk',
+      content: `**Det felles menneskelige og det kulturelt spesifikke**
+
+Litteratur viser både det som forener mennesker og det som skiller oss.
+
+**Universelle temaer:**
+Noen temaer går igjen i all verdens litteratur:
+- Kjærlighet og tap
+- Død og sorg
+- Vennskap og svik
+- Konflikt mellom generasjoner
+- Søken etter mening
+- Kampen mellom godt og ondt
+- Drømmer og ambisjoner
+- Utenforskap og tilhørighet
+
+**Kulturelle særtrekk:**
+Hvordan disse temaene behandles varierer:
+- **Forholdet til naturen:** Ulikt i ulike kulturer
+- **Familiestrukturer:** Kjernefamilie vs. storfamilie
+- **Individ vs. fellesskap:** Ulik vektlegging
+- **Religiøse forestillinger:** Påvirker moral og verdier
+- **Historisk kontekst:** Kriger, kolonialisme, revolusjoner
+
+**Eksempel: Kjærlighet**
+Kjærlighet finnes i all litteratur, men:
+- Vestlig: Ofte fokus på individets valg
+- Japansk: Kan innebære plikt og offer
+- Afrikansk: Ofte knyttet til familie og samfunn
+- Arabisk: Tradisjonell poesi: idealisert, abstrakt
+
+**Å lese med åpenhet:**
+Vi må være åpne for at ting kan bety noe annet i andre kulturer, samtidig som vi gjenkjenner det felles menneskelige.`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-3',
+      type: 'definition',
+      title: 'Afrikansk litteratur',
+      content: `**Et kontinent av fortellinger**
+
+Afrika har over 50 land, tusenvis av språk og en enorm litterær rikdom - fra muntlige tradisjoner til moderne romaner som vinner verdens mest prestisjetunge priser.
+
+**Muntlig tradisjon:**
+- Griots (vestafrikanske fortellere/historikere)
+- Eventyr, myter og legender
+- Ordtak og visdomsord
+- Sang og poesi
+
+**Kolonialisme og språk:**
+Mange afrikanske forfattere skriver på kolonispråk (engelsk, fransk, portugisisk), noe som skaper debatt om autentisitet og publikum.
+
+**Viktige temaer:**
+- Kolonialisme og avkolonisering
+- Tradisjon vs. modernitet
+- Identitet og kulturmøter
+- Politikk og korrupsjon
+- Migrasjon og diaspora
+
+**Viktige forfattere:**
+
+**Chinua Achebe (Nigeria, 1930-2013):**
+"Ting faller fra hverandre" (1958) - skildrer hvordan kolonialismen ødela afrikansk samfunn innenfra. En av de mest leste afrikanske romanene.
+
+**Chimamanda Ngozi Adichie (Nigeria, f. 1977):**
+"Americanah", "Halvparten av en gul sol" - utforsker identitet, migrasjon, kjønn og Biafra-krigen.
+
+**Ngugi wa Thiong'o (Kenya, f. 1938):**
+Begynte å skrive på gikuyu istedenfor engelsk som politisk valg. "Decolonising the Mind".
+
+**Abdulrazak Gurnah (Tanzania, f. 1948):**
+Nobelprisvinner 2021. Skriver om flyktningers erfaringer og kolonialismens ettervirkninger.`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-4',
+      type: 'definition',
+      title: 'Asiatisk litteratur',
+      content: `**Mangfold fra verdens største kontinent**
+
+Asia spenner fra Midtøsten til Japan, og litteraturen er tilsvarende mangfoldig.
+
+**Klassiske tradisjoner:**
+- Kinesisk poesi (over 3000 år)
+- Japansk haiku og tanka
+- Indisk epos (Mahabharata, Ramayana)
+- Persisk poesi (Rumi, Hafiz)
+- Arabisk litteratur (Tusen og én natt)
+
+**Japansk litteratur:**
+
+**Murasaki Shikibu (ca. 978-1014):**
+"Fortellingen om Genji" - regnes som verdens første roman, skrevet av en kvinne ved det japanske hoffet.
+
+**Haruki Murakami (f. 1949):**
+"Norsk skog", "Kafka på stranden" - blander realisme og surrealisme, japansk og vestlig kultur.
+
+**Kinesisk litteratur:**
+
+**Mo Yan (f. 1955):**
+Nobelprisvinner 2012. Magisk realisme og kinesisk historie.
+
+**Indisk litteratur:**
+
+**Arundhati Roy (f. 1961):**
+"Guden for små ting" (1997) - Booker Prize. Kastesystem, kjærlighet, politikk.
+
+**Midtøsten:**
+
+**Naguib Mahfouz (Egypt, 1911-2006):**
+Nobelprisvinner 1988. "Kairo-trilogien" - egyptisk familiesaga.
+
+**Khalil Gibran (Libanon, 1883-1931):**
+"Profeten" - filosofisk og poetisk verk, lest over hele verden.`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-5',
+      type: 'definition',
+      title: 'Latinamerikansk litteratur',
+      content: `**Magisk realisme og politisk litteratur**
+
+Latinamerikansk litteratur har hatt enorm innflytelse på verdenslitteraturen, særlig gjennom den litterære retningen magisk realisme.
+
+**Magisk realisme:**
+En stil der overnaturlige elementer behandles som en naturlig del av virkeligheten. Det magiske er ikke fantasi, men en annen måte å forstå verden på.
+
+**Viktige forfattere:**
+
+**Gabriel García Márquez (Colombia, 1927-2014):**
+Nobelprisvinner 1982. "Hundre års ensomhet" - episk familiekrønike med magisk realisme. "Kjærlighet i koleraens tid".
+
+**Jorge Luis Borges (Argentina, 1899-1986):**
+Noveller som utforsker uendelighet, tid og labyrinten. "Ficciones" - filosofiske og intellektuelle tekster.
+
+**Isabel Allende (Chile, f. 1942):**
+"Åndenes hus" - magisk realisme og chilensk historie. Eksil og identitet.
+
+**Mario Vargas Llosa (Peru, f. 1936):**
+Nobelprisvinner 2010. "Byen og hundene" - kritikk av militarisme og machismo.
+
+**Roberto Bolaño (Chile, 1953-2003):**
+"2666", "De ville detektiver" - ambisiøse, eksperimentelle romaner.
+
+**Temaer i latinamerikansk litteratur:**
+- Diktaturer og politisk undertrykkelse
+- Kolonial arv og identitet
+- Fattigdom og ulikhet
+- Familie og generasjoner
+- Myter og folketro
+- Natur og landskap`,
+    },
+    {
+      id: 'norsk-vg1-3-4-def-6',
+      type: 'definition',
+      title: 'Å lese med kulturell bevissthet',
+      content: `**Tips for å lese verdenslitteratur**
+
+**1. Vær nysgjerrig, ikke dømmende:**
+Når noe virker fremmed eller uforståelig, still spørsmål istedenfor å avvise.
+
+**2. Skaff kontekst:**
+Les om forfatterens bakgrunn, historisk kontekst og kulturelle referanser. Forord og etterord er nyttige.
+
+**3. Vær oppmerksom på oversettelsen:**
+Hvem har oversatt? Når? Oversettelser eldes og nytolkes.
+
+**4. Se etter det universelle i det spesifikke:**
+Selv om konteksten er fremmed, kan følelsene være gjenkjennelige.
+
+**5. Unngå eksotisering:**
+Ikke les andre kulturer som "eksotiske" eller "pittoreske". De er like komplekse som vår egen.
+
+**6. Tenk på hvem som forteller:**
+Er forfatteren fra kulturen som beskrives? Er det en utenfra-stemme?
+
+**7. Sammenlign med egen erfaring:**
+Hva er likt? Hva er ulikt? Hvorfor?
+
+**8. Vær oppmerksom på maktforhold:**
+Hvem får bli oversatt og utgitt? Hvem definerer "verdenslitteratur"?
+
+**Kritisk spørsmål:**
+Verdenslitteratur har lenge vært definert av vestlige forlag og kritikere. Hva blir oversett? Hvem mangler?`,
+    },
+    {
+      id: 'norsk-vg1-3-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av tekst fra en annen kultur',
+      problem: `Les dette haiku av Matsuo Bashō (Japan, 1644-1694):
+
+"En gammel dam -
+en frosk hopper uti,
+lyden av vann."
+
+Analyser diktet med tanke på kulturelle og universelle elementer.`,
+      solution: `**Analyse:**
+
+**Form:**
+Haiku er en japansk diktform med tradisjonelt 5-7-5 stavelser. Formen er komprimert og fortettet.
+
+**Innhold:**
+Diktet beskriver et enkelt øyeblikk: en frosk hopper i en dam. Det er alt - og likevel mye mer.
+
+**Kulturell kontekst:**
+- Zen-buddhisme: Oppmerksomhet på øyeblikket
+- Japansk estetikk: Det enkle, det flyktige
+- Natur som meditasjon, ikke kulisse
+- "Wabi-sabi": Skjønnhet i det ufullkomne
+
+**Universelle elementer:**
+- Øyeblikket av stillhet som brytes
+- Lyden som fyller stillheten
+- Naturen som kilde til refleksjon
+
+**Analyse:**
+"Gammel dam" etablerer tidsdybde og stillhet. "En frosk hopper uti" er en plutselig handling. "Lyden av vann" er etterdønningen - det som blir igjen.
+
+Diktet handler egentlig om oppmerksomhet - å være til stede i øyeblikket. Det "gamle" møter det "levende" (frosken). Lyden er flyktig, men diktet fanger den for alltid.
+
+**For norsk leser:**
+Vi gjenkjenner øyeblikket selv om konteksten er japansk. Men zen-buddhismens filosofi gir diktet en ekstra dimensjon vi kanskje ikke fanger uten kulturell kunnskap.`,
+    },
+    // Primærtekst: Chinua Achebe
+    {
+      id: 'norsk-vg1-3-4-primaertekst-1',
+      type: 'collapsible',
+      title: 'Primærtekst: Chinua Achebe – fra «Ting faller fra hverandre» (1958)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-4-primaertekst-1-text',
+          type: 'text',
+          content: `**Fra «Ting faller fra hverandre» (Things Fall Apart)**
+*Chinua Achebe, 1958*
+*Oversatt fra engelsk*
+
+---
+
+Okonkwo var godt kjent i alle de ni landsbyene og til og med utover det. Hans berømmelse hvilte på solide personlige bragder. Som ung mann på atten år hadde han brakt ære til landsbyen sin ved å kaste Amalinze, katten. Amalinze var den store bryteren som i syv år var ubeseiret, fra Umuofia til Mbaino. Han ble kalt Katten fordi ryggen hans aldri rørte bakken. Det var denne mannen Okonkwo kastet i en kamp som de gamle sa var en av de heftigste siden den gang landsbyens grunnlegger kjempet mot en ånd i villmarka i syv dager og syv netter.
+
+[...]
+
+Okonkwos far var hetende Unoka, og han var en mislykket mann. Han var fattig og konene og barna hans hadde knapt nok mat. Folk lo av ham fordi han var lat og sløv, men han var en begavet fløytespiller og hans lykkelige, lette hjerte gledet seg til de kommende årstider.
+
+Unoka elsket de gode tingene i livet: god vin, god musikk og godt samvær. Han skyldte alle sine naboer penger, og de visste at han aldri ville betale tilbake. Men han var alltid velkommen fordi han brakte lykke og latter med seg.
+
+[...]
+
+Okonkwo skammet seg over sin far. Han var en mann av handling, en kriger. Hele hans liv var dominert av frykt, frykten for å mislykkes og bli som sin far.
+
+---
+
+*Achebe skildrer igbo-samfunnet i Nigeria før kolonialismen. Romanen viser et komplekst samfunn med egne verdier, konflikter og nyanser - ikke den "primitive" fremstillingen europeisk litteratur ofte ga.*`,
+        },
+      ],
+    },
+    // Primærtekst: García Márquez
+    {
+      id: 'norsk-vg1-3-4-primaertekst-2',
+      type: 'collapsible',
+      title: 'Primærtekst: Gabriel García Márquez – fra «Hundre års ensomhet» (1967)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-4-primaertekst-2-text',
+          type: 'text',
+          content: `**Fra «Hundre års ensomhet» (Cien años de soledad)**
+*Gabriel García Márquez, 1967*
+*Oversatt fra spansk*
+
+---
+
+Mange år senere, foran eksekusjonspelotongen, skulle oberst Aureliano Buendía minnes den fjerne ettermiddagen da faren tok ham med for å se på is.
+
+Macondo var dengang en landsby med tjue hus av leire og bambus bygget ved bredden av en elv med krystallklart vann som rant over en seng av polerte steiner, hvite og enorme som forhistoriske egg. Verden var så ny at mange ting manglet navn, og for å nevne dem måtte man peke med fingeren.
+
+Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og med stor ståhei viste de frem de siste oppfinnelsene. Først kom magneten. En tykk sigøyner med ustelt skjegg og spurvehender presenterte seg som Melquíades og ga en offentlig demonstrasjon av hva han selv kalte det åttende verdensunderverket.
+
+---
+
+*Åpningen av García Márquez\' mesterverk etablerer romanens tid og sted: Macondo, en oppdiktet landsby i Colombia. Den berømte første setningen beveger seg frem og tilbake i tid og introduserer den magiske realismen der det hverdagslige og det fantastiske eksisterer side om side.*`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Svar på spørsmål om verdenslitteratur:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med begrepet "verdenslitteratur"?',
+            solution: 'Verdenslitteratur refererer til litterære verk som har krysset grenser og taler til lesere på tvers av kulturer og nasjoner. Begrepet ble lansert av Goethe.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn to utfordringer ved å lese litteratur i oversettelse.',
+            solution: 'Mulige svar: Tap av nyanser, ordspill og rytme; kulturelle referanser vi ikke forstår; oversetterens tolkningsvalg; fare for eksotisering.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er magisk realisme?',
+            solution: 'Magisk realisme er en litterær stil der overnaturlige elementer behandles som en naturlig del av virkeligheten. Det magiske er ikke fantasi, men en annen måte å forstå verden på.',
+          },
+        ],
+        solution: 'Verdenslitteratur utvider vårt perspektiv, men krever kulturell bevissthet og forståelse for oversettelsens utfordringer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les utdraget fra Achebes «Ting faller fra hverandre». Analyser hvordan Achebe fremstiller igbo-kulturen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke verdier ser vi i samfunnet som beskrives?',
+            solution: 'Ære, styrke, personlige bragder, fellesskap (de ni landsbyene), tradisjon (grunnleggeren), men også rom for forskjeller (Unoka verdsettes for andre kvaliteter).',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan fremstilles forholdet mellom far og sønn?',
+            solution: 'Okonkwo skammer seg over faren og frykter å bli som ham. Faren representerer andre verdier (glede, musikk, fellesskap) som sønnen avviser.',
+          },
+        ],
+        hints: ['Se på hva som gir status', 'Legg merke til nyansene i fremstillingen'],
+        solution: 'Achebe fremstiller et komplekst samfunn med egne verdier, konflikter og menneskelige nyanser - langt fra stereotypier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les utdraget fra García Márquez\' «Hundre års ensomhet». Analyser åpningens fortellerteknikk.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvordan beveger teksten seg i tid?',
+            solution: 'Teksten åpner i fremtiden (foran eksekusjonspelotongen), hopper til fortiden (den fjerne ettermiddagen) og beskriver en enda fjernere fortid (verden som var så ny).',
+          },
+          {
+            label: 'b',
+            task: 'Finn et eksempel på magisk realisme i utdraget.',
+            solution: 'Beskrivelsen av verden som "så ny at mange ting manglet navn" - det er ikke bokstavelig sant, men skaper en mytisk, magisk stemning.',
+          },
+        ],
+        hints: ['Legg merke til den berømte første setningen', 'Se etter det som bryter med realismen'],
+        solution: 'García Márquez bruker kompleks tidsstruktur og mytisk språk for å skape en verden der det hverdagslige og det fantastiske møtes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign hvordan far-sønn-forholdet fremstilles i Achebes tekst med hvordan slike forhold ofte fremstilles i norsk litteratur du kjenner.',
+        hints: ['Tenk på verdier og forventninger', 'Tenk på hva som gir status', 'Er det likheter på tvers av kulturer?'],
+        solution: 'Sammenligningen bør vise at generasjonskonflikter er universelle, men at hva som står på spill (ære, status, verdier) kan variere. I begge kulturer kan sønner ønske å distansere seg fra fedre de skammer seg over.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Reflekter over oversettelse som kulturformidling: Hva tror du kan gå tapt når en tekst oversettes fra et språk til et annet? Hva kan eventuelt vinnes?',
+        hints: ['Tenk på språklige virkemidler som rim, rytme, ordspill', 'Tenk på kulturspesifikke uttrykk', 'Tenk på hvem som får tilgang til teksten'],
+        solution: 'Mulige tap: klang, rytme, ordspill, kulturelle nyanser, doble betydninger. Mulige gevinster: nye lesere, nytt perspektiv på egen kultur, tekstens videre liv, nye tolkninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kjennetegner magisk realisme?',
+        options: [
+          'Overnaturlige elementer fremstilles som en naturlig del av virkeligheten',
+          'Alt som skjer har en rasjonell forklaring',
+          'Handlingen foregår alltid i en fantasy-verden',
+          'Det er en sjanger kun for barnelitteratur',
+        ],
+        answer: 0,
+        solution: 'Magisk realisme kjennetegnes ved at det overnaturlige behandles som hverdagslig og akseptert. Det er ikke fantasi eller eventyr, men en måte å se virkeligheten på.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-7',
+        number: '7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvem regnes som den moderne samiske litteraturens far?',
+        options: [
+          'Nils-Aslak Valkeapää',
+          'Gabriel García Márquez',
+          'Chinua Achebe',
+          'Haruki Murakami',
+        ],
+        answer: 0,
+        solution: 'Nils-Aslak Valkeapää (Áillohaš) regnes som den moderne samiske litteraturens far og vant Nordisk Råds litteraturpris i 1991.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Velg en forfatter fra kapittelet som du vil undersøke nærmere. Les et utdrag eller en hel tekst og skriv en presentasjon som inkluderer:\na) Kort om forfatteren og kontekst\nb) Sammendrag av teksten\nc) Analyse av sentrale temaer og virkemidler\nd) Refleksjon over kulturelle og universelle elementer',
+        hints: ['Bruk biblioteket eller digitale ressurser', 'Sett deg inn i kulturell kontekst', 'Bruk fagbegreper i analysen'],
+        solution: 'Presentasjonen bør vise evne til å sette seg inn i en ukjent kulturell kontekst, analysere tekst med relevante begreper, og reflektere over forholdet mellom det kulturspesifikke og det universelle.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft: Hvem bestemmer hva som er "verdenslitteratur"? Er begrepet problematisk?',
+        hints: ['Tenk på maktforhold i forlagsbransjen', 'Hvem oversettes? Hvem utgis?', 'Er vestlige perspektiver overrepresentert?', 'Hva kan gjøres for å inkludere flere stemmer?'],
+        solution: 'Drøftingen bør ta opp at "verdenslitteratur" historisk har vært definert av vestlige forlag og kritikere, at noen regioner og språk er underrepresentert, og at begrepet kan være problematisk hvis det brukes ukritisk. Samtidig kan det være et nyttig ideal om litteratur som krysser grenser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-4-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-4-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et essay (500-700 ord): Universelle temaer, kulturelle uttrykk - hva kan vi lære av å lese litteratur fra andre kulturer? Bruk konkrete eksempler fra tekster du har lest.',
+        hints: ['Drøft forholdet mellom det universelle og det kulturspesifikke', 'Gi konkrete teksteksempler', 'Reflekter over egen leseerfaring', 'Vurder både muligheter og utfordringer'],
+        solution: 'Essayet bør vise evne til å reflektere over hva lesing av verdenslitteratur gir oss, med konkrete eksempler. Det bør balansere entusiasme med kritisk refleksjon over utfordringer som oversettelse, eksotisering og maktforhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 3.5: Samtidslitteratur og aktuelle temaer
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_3_5: TextbookChapter = {
+  id: 'norsk-vg1-3-5',
+  courseId: 'norsk-vg1',
+  chapterNumber: '3.5',
+  title: 'Samtidslitteratur og aktuelle temaer',
+  description: 'Utforsk samtidslitteratur som tar opp aktuelle samfunnstemaer som klima, teknologi og globalisering.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'lese og tolke samtidige tekster som tar opp aktuelle samfunnstemaer',
+    'reflektere over litteraturens rolle som samfunnskritikk og samtidskommentar',
+    'forstå hvordan litteratur kan bidra til samtalen om vår tids utfordringer',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-3-5-intro',
+      type: 'text',
+      content: `## Samtidslitteratur - litteratur om vår egen tid
+
+Samtidslitteratur er litteratur som er skrevet i vår egen tid og som ofte tar opp temaer og utfordringer vi står midt oppe i. Den speiler samfunnet vi lever i og kan hjelpe oss å forstå og bearbeide vår egen virkelighet.
+
+**Hva kjennetegner samtidslitteratur?**
+- Skrevet i vår tid (grovt regnet de siste 20-30 årene)
+- Tar ofte opp aktuelle temaer
+- Reflekterer samtidens språk, kultur og teknologi
+- Kan være vanskelig å vurdere historisk betydning
+- I stadig dialog med samfunnet rundt
+
+**Aktuelle temaer i samtidslitteraturen:**
+- Klimakrise og miljø
+- Teknologi og digitalisering
+- Globalisering og migrasjon
+- Identitet og mangfold
+- Ulikhet og klasse
+- Mental helse
+- Kjønn og seksualitet
+
+**Hvorfor lese samtidslitteratur?**
+- Gir perspektiv på egen tid
+- Hjelper oss å forstå komplekse utfordringer
+- Kan utfordre og utfordres
+- Viser at litteratur er levende og relevant
+- Gir stemme til erfaringer vi deler
+
+**I dette kapittelet utforsker vi:**
+- Klimafiksjon og økolitteratur
+- Teknologi og digitalisering i litteraturen
+- Globalisering og migrasjon
+- Litteratur som samfunnskritikk`,
+    },
+    {
+      id: 'norsk-vg1-3-5-def-1',
+      type: 'definition',
+      title: 'Klimafiksjon og økolitteratur',
+      content: `**Litteratur om miljøkrisen**
+
+Klimaendringene er vår tids største utfordring, og litteraturen har begynt å ta dette inn. "Klimafiksjon" (cli-fi) og økolitteratur utforsker miljøkrisens konsekvenser og årsaker.
+
+**Hva er klimafiksjon?**
+Skjønnlitteratur som tar opp klimaendringer og miljøkrise - enten som hovedtema eller viktig bakgrunn. Kan være realistisk eller spekulativ.
+
+**Økolitteratur:**
+Et bredere begrep for litteratur som setter naturen i sentrum og utforsker forholdet mellom menneske og natur.
+
+**Vanlige temaer:**
+- Klimakatastrofer og deres konsekvenser
+- Naturens egenverdi
+- Menneskets plass i naturen
+- Tap av arter og økosystemer
+- Generasjonsansvar
+- Handlingslammelse og håp
+
+**Norske eksempler:**
+
+**Maja Lunde (f. 1975):**
+"Bienes historie" (2015) - tre fortellinger fra ulike tider knyttet sammen av bier og pollinering. Internasjonal bestselger.
+"Blå" (2017), "Przewalskis hest" (2019) - fortsetter klimakvartetten.
+
+**Gert Nygårdshaug (f. 1946):**
+"Mengele Zoo"-trilogien - politisk og økologisk thriller.
+
+**Internasjonale eksempler:**
+- Richard Powers: "The Overstory" (om trær og aktivisme)
+- Barbara Kingsolver: "Flight Behavior" (om klimaflyktninger, sommerfugler)
+- Kim Stanley Robinson: "The Ministry for the Future" (klimapolitikk som fiksjon)
+
+**Litteraturens rolle:**
+Klimafiksjon kan gjøre abstrakte trusler konkrete og emosjonelt tilgjengelige. Den kan vekke engasjement på måter vitenskapelige rapporter ikke klarer.`,
+    },
+    {
+      id: 'norsk-vg1-3-5-def-2',
+      type: 'definition',
+      title: 'Teknologi og digitalisering i litteraturen',
+      content: `**Litteratur om den digitale tidsalderen**
+
+Teknologi forandrer hvordan vi lever, kommuniserer og forstår oss selv. Samtidslitteraturen utforsker disse endringene.
+
+**Temaer:**
+- Sosiale medier og identitet
+- Overvåkning og personvern
+- Kunstig intelligens og automatisering
+- Virtuelle virkeligheter
+- Teknologiavhengighet
+- Digital ensomhet vs. tilkobling
+- Informasjonsoverflod og sannhet
+
+**Norske eksempler:**
+
+**Agnes Ravatn (f. 1983):**
+"Operasjon sjølvdisiplin" (2014) - om å koble fra internett og sosiale medier.
+
+**Erlend Loe (f. 1969):**
+"Doppler" (2004) - rømmer fra moderne samfunn til skogen.
+Mange romaner om fremmedgjøring i moderne liv.
+
+**Tore Renberg (f. 1972):**
+Skildrer digital kommunikasjon og samtidsliv.
+
+**Internasjonale eksempler:**
+- Dave Eggers: "The Circle" (om et alt-kontrollerende tech-selskap)
+- Kazuo Ishiguro: "Klara and the Sun" (AI og menneskelighet)
+- Sally Rooney: Romaner der digital kommunikasjon er sentralt
+
+**Dystopi og advarsel:**
+Mye teknologilitteratur er dystopisk - den advarer mot utviklinger som allerede er i gang. Men den kan også utforske teknologiens muligheter.
+
+**Spørsmål litteraturen stiller:**
+- Hva gjør teknologien med relasjonene våre?
+- Hvem kontrollerer teknologien - og oss?
+- Hva er menneskelig i en digital verden?
+- Hvordan påvirkes identitet av sosiale medier?`,
+    },
+    {
+      id: 'norsk-vg1-3-5-def-3',
+      type: 'definition',
+      title: 'Globalisering og migrasjon',
+      content: `**Litteratur om en verden i bevegelse**
+
+Globalisering har gjort verden mindre, men også mer kompleks. Mennesker flytter, kulturer møtes, og identiteter forhandles. Dette er sentralt i samtidslitteraturen.
+
+**Temaer:**
+- Migrasjon og flukt
+- Kulturmøter og -kollisjoner
+- Diaspora og hybrididentitet
+- Hjemløshet og tilhørighet
+- Økonomisk ulikhet
+- Grenser og nasjonalisme
+
+**Norske stemmer:**
+Som vi har sett i kapittel 3.1, har norsk litteratur fått viktige bidrag fra forfattere med flerkulturell bakgrunn.
+
+**Internasjonale eksempler:**
+
+**Mohsin Hamid (Pakistan/UK):**
+"Exit West" (2017) - kjærlighet og flukt gjennom magiske dører som åpner til nye steder. Migrasjon som allestedsnærværende erfaring.
+
+**Chimamanda Ngozi Adichie (Nigeria/USA):**
+"Americanah" (2013) - nigeriansk kvinne i USA, identitet og rase.
+
+**Hanya Yanagihara (USA):**
+"To Paradise" (2022) - alternativ historie og migrasjon.
+
+**Abdulrazak Gurnah (Tanzania/UK):**
+Nobelprisvinner 2021. Flyktningerfaringer og kolonialismens ettervirkninger.
+
+**Litteraturens styrke:**
+Statistikk om migrasjon er abstrakt. Litteraturen gir ansikter, historier og følelser til tallene. Den kan skape empati og forståelse.`,
+    },
+    {
+      id: 'norsk-vg1-3-5-def-4',
+      type: 'definition',
+      title: 'Litteratur som samfunnskritikk',
+      content: `**Å skrive mot makten**
+
+Litteratur har alltid vært et sted for samfunnskritikk. I dag fortsetter forfattere å utfordre maktstrukturer og sette søkelys på urettferdighet.
+
+**Former for samfunnskritikk:**
+- Sosialrealisme: Realistisk skildring av samfunnsproblemer
+- Satire: Latterliggjøring av makt og konvensjoner
+- Dystopi: Advarsel gjennom skrekkscenarioer
+- Dokumentar: Blanding av fakta og fiksjon
+- Personlig: Det politiske i det personlige
+
+**Hva kritiserer samtidslitteraturen?**
+- Økonomisk ulikhet og klasseskiller
+- Rasisme og diskriminering
+- Kjønnsbasert undertrykkelse
+- Miljøødeleggelse
+- Politisk korrupsjon
+- Medienes rolle
+- Konsumerisme og kapitalisme
+
+**Norske eksempler:**
+
+**Jan Kjærstad (f. 1953):**
+"Berge" (2017) - utforsker norsk selvbilde og rikdom.
+
+**Vigdis Hjorth (f. 1959):**
+"Arv og miljø" (2016) - familiekritikk som ble samfunnsdebatt.
+
+**Karl Ove Knausgård (f. 1968):**
+"Min kamp"-serien - det private som politisk.
+
+**Zeshan Shakar:**
+Klassekritikk i "Tante Ulrikkes vei".
+
+**Kan litteratur forandre noe?**
+Litteratur forandrer sjelden verden direkte, men den kan:
+- Endre hvordan vi ser ting
+- Gi ord til erfaringer
+- Skape empati
+- Inspirere til handling
+- Holde debatten levende`,
+    },
+    {
+      id: 'norsk-vg1-3-5-def-5',
+      type: 'definition',
+      title: 'Samtidslitteraturens utfordringer',
+      content: `**Å skrive og lese om egen tid**
+
+Det er utfordringer knyttet til litteratur som handler om det vi står midt oppe i.
+
+**Utfordringer for forfattere:**
+- Virkeligheten endrer seg raskt
+- Vanskelig å få perspektiv
+- Fare for å bli datert
+- Balanse mellom aktualitet og tidløshet
+- Risiko for å bli "pamflett" eller forenklet
+
+**Utfordringer for lesere:**
+- Vi mangler historisk avstand
+- Vanskelig å skille det viktige fra støyen
+- Kan være ubehagelig å se egen tid
+- Risiko for bekreftelse av egne synspunkter
+
+**Litteratur vs. journalistikk:**
+- Journalistikk: Fakta, aktualitet, nøytralitet
+- Litteratur: Perspektiv, fortolkning, følelser
+- Samtidslitteratur kan operere i grenselandet
+
+**Eksempel: Klimafiksjon**
+Klimafiksjon kan kritiseres for å forenkle komplekse problemer, men forsvares for å gjøre dem emosjonelt tilgjengelige.
+
+**Tidløshet i samtidslitteratur:**
+De beste samtidsromanene klarer å være både aktuelle og tidløse - de tar opp aktuelle temaer, men gjør det på måter som vil være relevante også senere.
+
+**Spørsmål å stille:**
+- Er denne teksten bare aktuell, eller også tidløs?
+- Forenkler den eller kompliserer den?
+- Gir den nye perspektiver eller bekrefter den bare det jeg allerede tror?`,
+    },
+    {
+      id: 'norsk-vg1-3-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyse av klimafiksjon',
+      problem: `Analyser dette utdraget fra Maja Lundes "Bienes historie":
+
+"Året 2098. Den siste bien døde i 2045. Nå pollinerte vi for hånd. Jeg strakte meg opp mot de hvite blomstene og førte den lille børsten forsiktig fra blomst til blomst. Pollen festet seg til de stive hårene. Jeg arbeidet systematisk, nøye. Én feil, og det ble ingen frukt.
+
+Solen brant. Ryggen verket. Men jeg fortsatte. For barna. For fremtiden. Eller det som var igjen av den."`,
+      solution: `**Analyse:**
+
+**Sjanger og form:**
+Klimafiksjon med dystopisk element. Fremtidsscenariet gjør klimakrisen konkret og menneskelig.
+
+**Tema:**
+- Tap av biologisk mangfold
+- Menneskets avhengighet av naturen
+- Konsekvenser av dagens valg
+- Generasjonsansvar
+
+**Virkemidler:**
+
+**Konkretisering:**
+Abstrakt klimatrussel → håndgripelig handling (manuell pollinering).
+
+**Perspektiv:**
+Jeg-forteller skaper nærhet og identifikasjon.
+
+**Detaljer:**
+"Den lille børsten", "systematisk, nøye" - viser hvor møysommelig og sårbart systemet er.
+
+**Kroppslige erfaringer:**
+"Solen brant. Ryggen verket." - leseren kjenner slitet.
+
+**Emosjonell appell:**
+"For barna. For fremtiden." - knytter til universelle verdier.
+
+**Ironi:**
+Mennesket må gjøre jobben biene gjorde gratis.
+
+**Effekt:**
+Teksten gjør klimakrisen emosjonelt tilgjengelig. Vi forstår ikke bare intellektuelt, men føler konsekvensene. Det skaper engasjement.`,
+    },
+    // Primærtekst: Maja Lunde
+    {
+      id: 'norsk-vg1-3-5-primaertekst-1',
+      type: 'collapsible',
+      title: 'Primærtekst: Maja Lunde – fra «Bienes historie» (2015)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-5-primaertekst-1-text',
+          type: 'text',
+          content: `**Fra «Bienes historie»**
+*Maja Lunde, 2015*
+
+---
+
+**Kina, 2098**
+
+Treet hadde blomster på alle de tynne greinene, hvite, skjøre, sårbare. Jeg strakte meg opp mot dem med den lille børsten i hånden. Forsiktig dyttet jeg til pollenbærerne i midten av blomsten, lot de stive hårene i børsten samle opp det gule støvet. Deretter førte jeg børsten videre til neste blomst.
+
+Det var en god dag. Grenene hang lavt, jeg slapp å strekke meg for mye. Treet var så fullt av blomster at det nesten ble hvitt. Så mye liv. Så mange muligheter.
+
+Men mulighetene krevde arbeid. Hver blomst, én etter én. Systematisk. Ingen snarveier.
+
+Jeg arbeidet fra morgen til kveld. Fingrene ble stive av å holde børsten. Nakken verket av å se opp. Men jeg fortsatte.
+
+For hvert drag med børsten tenkte jeg på Wei-Wen. Min sønn. Tre år gammel. Han sov nå, hjemme hos moren min. Når han våknet, ville han spise. Og for at han skulle ha noe å spise, måtte disse trærne bære frukt. Og for at trærne skulle bære frukt, måtte jeg føre børsten fra blomst til blomst.
+
+Det var enkelt, egentlig. En enkel sammenheng. Men også skremmende. For hva hvis jeg gjorde feil? Hva hvis børsten gled, hvis pollen ikke festet seg? Det fantes ingen margin.
+
+Biene hadde gjort dette arbeidet. Millioner av bier. De fløy fra blomst til blomst, uvitende om sin egen betydning. For dem var det bare mat. For oss var det alt.
+
+---
+
+*Maja Lunde bruker tre parallelle fortellinger fra ulike tider for å utforske menneskets forhold til naturen. I 2098-fortellingen er biene borte, og mennesker må gjøre jobben selv.*`,
+        },
+      ],
+    },
+    // Primærtekst: Agnes Ravatn
+    {
+      id: 'norsk-vg1-3-5-primaertekst-2',
+      type: 'collapsible',
+      title: 'Primærtekst: Agnes Ravatn – fra «Operasjon sjølvdisiplin» (2014)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-5-primaertekst-2-text',
+          type: 'text',
+          content: `**Fra «Operasjon sjølvdisiplin»**
+*Agnes Ravatn, 2014*
+
+---
+
+Eg skulle slutte å sjekke Facebook. Det var planen. Ikkje for alltid, berre for ei stund. Kanskje ein månad. Kanskje to.
+
+Problemet var at eg sjekka Facebook heile tida. Om morgonen, før eg stod opp. I lunsjpausen. På do. Før eg sovna. Det var det første og det siste eg gjorde kvar dag.
+
+Og det var ikkje ein gong noko der. Aldri noko viktig. Berre bilete av mat folk hadde laga. Meiningar om ting eg ikkje brydde meg om. Oppdateringar frå folk eg knapt kjente.
+
+Likevel sjekka eg. Igjen og igjen. Som om eg forventa at noko skulle skje. Som om livet mitt var der, inne i telefonen, i staden for her ute.
+
+Det var difor eg bestemte meg. Slutte. Berre slutte.
+
+Første dagen var ikkje så ille. Eg tenkte på det, sjølvsagt. Fleire gongar tok eg opp telefonen før eg hugsa. Men eg la han ned igjen.
+
+Andre dagen var verre. Eg kjente det som kløe. Som om kroppen sakna noko den var vant til å få.
+
+Tredje dagen begynte eg å lure på kva folk dreiv med. Kva dei posta. Om dei sakna meg.
+
+Dei sakna meg ikkje. Det visste eg. Dei la ikkje ein gong merke til at eg var borte.
+
+Men det var kanskje poenget.
+
+---
+
+*Ravatn skriv humoristisk og sjølvironisk om å koble frå den digitale verda. Teksten set ord på erfaringar mange kjenner seg att i.*`,
+        },
+      ],
+    },
+    // Primærtekst: Mohsin Hamid
+    {
+      id: 'norsk-vg1-3-5-primaertekst-3',
+      type: 'collapsible',
+      title: 'Primærtekst: Mohsin Hamid – fra «Exit West» (2017)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-3-5-primaertekst-3-text',
+          type: 'text',
+          content: `**Fra «Exit West»**
+*Mohsin Hamid, 2017*
+*Oversatt fra engelsk*
+
+---
+
+I en by som veltet seg på randen av borgerkrig, var det et par som het Saeed og Nadia. De var unge, og de var i ferd med å bli forelsket.
+
+Saeed kom fra en religiøs familie. Han ba fem ganger om dagen, som faren sin. Nadia bar svart kappe fra topp til tå, men hun ba ikke, og hun levde alene, noe som var uvanlig for en ung kvinne.
+
+De møttes på et kveldskurs, sittende ved siden av hverandre. Han tilbød henne sin te da hun ikke hadde fått. Hun smilte og tok imot.
+
+Utenfor forelesningssalen ble gatene farligere. Eksplosjoner hørtes i det fjerne, deretter nærmere. Kontrollposter dukket opp. Mennesker forsvant.
+
+Rykter spredte seg om dører. Svarte dører som førte andre steder. Man gikk inn i en dør i denne byen og kom ut i en helt annen - i Hellas, i Dubai, i London. Bare rykter, sa folk. Men noen hadde sett dem. Noen hadde gått gjennom.
+
+Saeed og Nadia begynte å lete etter en dør.
+
+Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i ferd med å forsvinne uansett.
+
+---
+
+*Hamid bruker magisk realisme for å fortelle om flukt og migrasjon. Dørene som åpner til nye steder gjør migrantopplevelsen universell - alle kan forestille seg å gå gjennom en dør.*`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Svar på spørsmål om samtidslitteratur:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva menes med "klimafiksjon"?',
+            solution: 'Klimafiksjon er skjønnlitteratur som tar opp klimaendringer og miljøkrise som hovedtema eller viktig bakgrunn.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn tre aktuelle temaer som er vanlige i samtidslitteraturen.',
+            solution: 'Mulige svar: Klimakrise, teknologi/digitalisering, migrasjon/globalisering, identitet, ulikhet, mental helse, kjønn og seksualitet.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor kan det være utfordrende å skrive om sin egen tid?',
+            solution: 'Utfordringer: Mangler perspektiv, virkeligheten endrer seg raskt, fare for å bli datert, vanskelig å skille viktig fra uviktig.',
+          },
+        ],
+        solution: 'Samtidslitteratur tar opp aktuelle temaer, men må balansere aktualitet med tidløshet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les utdraget fra Maja Lundes «Bienes historie». Analyser hvordan teksten gjør klimakrisen konkret og emosjonelt tilgjengelig.',
+        hints: ['Se på hvordan abstrakt trussel blir konkret handling', 'Legg merke til kroppslige beskrivelser', 'Hvordan brukes perspektiv?'],
+        solution: 'Analysen bør vise at Lunde konkretiserer klimakrisen gjennom én persons arbeid, bruker kroppslige erfaringer for å skape innlevelse, og knytter til universelle verdier (omsorg for barn/fremtid). Dette gjør det abstrakte emosjonelt tilgjengelig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les utdraget fra Agnes Ravatns «Operasjon sjølvdisiplin». Analyser hvordan teksten skildrer forholdet vårt til sosiale medier.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke trekk ved digital avhengighet beskrives?',
+            solution: 'Konstant sjekking, fysisk ubehag når man slutter, følelse av å gå glipp av noe, automatiske handlinger, innholdet er egentlig uviktig.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilken tone har teksten, og hvilken effekt gir den?',
+            solution: 'Tonen er selvironisk og humoristisk. Effekten er at leseren kjenner seg igjen uten å føle seg dømt, og kritikken blir lettere å ta inn.',
+          },
+        ],
+        solution: 'Ravatn bruker humor og selvironi for å beskrive digital avhengighet på en måte som er gjenkjennelig og inviterer til refleksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les utdraget fra Mohsin Hamids «Exit West». Analyser hvordan han bruker dørene som litterært virkemiddel.',
+        hints: ['Hva representerer dørene?', 'Hvorfor magisk realisme?', 'Hva oppnår denne teknikken?'],
+        solution: 'Analysen bør vise at dørene er et magisk-realistisk element som gjør migrasjon til noe universelt (alle kan forestille seg å gå gjennom en dør), fokuserer på valget om å forlate fremfor den farlige reisen, og skaper en drømmeaktig kvalitet som gjør det fremmede gjenkjennelig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign hvordan to av primærtekstene tar opp aktuelle temaer. Hva er likt og ulikt i tilnærmingen?',
+        hints: ['Velg to tekster', 'Sammenlign tema, virkemidler og tone', 'Vurder effekten på leseren'],
+        solution: 'Sammenligningen bør identifisere likheter og forskjeller i hvordan tekstene tar opp samtiden - for eksempel grad av realisme, bruk av humor vs. alvor, personlig vs. samfunnsmessig fokus.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er en styrke ved klimafiksjon som virkemiddel?',
+        options: [
+          'Den gjør abstrakte trusler konkrete og emosjonelt tilgjengelige',
+          'Den gir eksakte vitenskapelige data om klimaendringer',
+          'Den unngår å ta stilling til kontroversielle spørsmål',
+          'Den er alltid realistisk og dokumentarisk',
+        ],
+        answer: 0,
+        solution: 'Klimafiksjonens styrke er at den kan gjøre abstrakte, statistiske trusler om til konkrete, følbare erfaringer gjennom karakterer og historier.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-7',
+        number: '7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kjennetegner samtidslitteratur?',
+        options: [
+          'Den er skrevet i vår egen tid og tar ofte opp aktuelle temaer',
+          'Den er alltid dystopisk',
+          'Den må handle om teknologi',
+          'Den er skrevet av forfattere under 30 år',
+        ],
+        answer: 0,
+        solution: 'Samtidslitteratur kjennetegnes ved å være skrevet i vår tid og ofte (men ikke alltid) ta opp aktuelle temaer og utfordringer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft: Kan litteratur bidra til å løse samfunnsproblemer som klimakrisen, eller er det bare underholdning?',
+        hints: ['Tenk på hva litteratur kan og ikke kan gjøre', 'Sammenlign med andre måter å kommunisere på', 'Vurder eksempler på litteratur som har hatt samfunnseffekt'],
+        solution: 'Drøftingen bør ta opp at litteratur sjelden løser problemer direkte, men kan endre holdninger, skape empati, gi ord til erfaringer og holde debatten levende. Den kan komplementere vitenskap og politikk ved å gjøre det abstrakte konkret.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Velg et aktuelt tema (klima, teknologi, migrasjon, ulikhet eller annet) og finn en samtidstekst som tar det opp. Presenter teksten og analyser hvordan den behandler temaet.',
+        hints: ['Velg en tekst du har tilgang til', 'Sett deg inn i konteksten', 'Bruk fagbegreper i analysen', 'Vurder tekstens styrker og svakheter'],
+        solution: 'Presentasjonen bør vise evne til selvstendig valg av tekst, forståelse for kontekst, bruk av relevante analysebegreper, og kritisk vurdering av hvordan teksten behandler det aktuelle temaet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-5-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-5-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et essay (500-700 ord): Litteratur og samtiden - hvordan kan skjønnlitteratur hjelpe oss å forstå vår egen tid? Bruk eksempler fra tekster du har lest.',
+        hints: ['Drøft litteraturens muligheter og begrensninger', 'Bruk konkrete teksteksempler', 'Reflekter over egen leseerfaring', 'Vurder forholdet mellom fiksjon og virkelighet'],
+        solution: 'Essayet bør vise evne til å reflektere over litteraturens rolle som samtidskommentar, med konkrete eksempler. Det bør balansere entusiasme med kritisk vurdering av litteraturens begrensninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
 // EKSPORT
 // ============================================================================
 
 export const NORSK_VG1_CHAPTERS_DEL5: TextbookChapter[] = [
-  CHAPTER_NORSK_VG1_15_1,
-  CHAPTER_NORSK_VG1_15_2,
-  CHAPTER_NORSK_VG1_16_1,
-  CHAPTER_NORSK_VG1_16_2,
-  CHAPTER_NORSK_VG1_17_1,
-  CHAPTER_NORSK_VG1_17_2,
+  CHAPTER_NORSK_VG1_8_1,
+  CHAPTER_NORSK_VG1_8_2,
+  CHAPTER_NORSK_VG1_8_3,
+  CHAPTER_NORSK_VG1_8_4,
+  CHAPTER_NORSK_VG1_8_5,
+  CHAPTER_NORSK_VG1_3_1,
+  CHAPTER_NORSK_VG1_3_2,
+  CHAPTER_NORSK_VG1_3_3,
+  CHAPTER_NORSK_VG1_3_4,
+  CHAPTER_NORSK_VG1_3_5,
 ];

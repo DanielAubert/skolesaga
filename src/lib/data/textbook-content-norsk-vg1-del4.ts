@@ -1,6 +1,6 @@
 /**
- * Norsk VG1 - Del 4: Kapittel 12.1–14.3
- * Sammensatte tekster, film, skriveprosess, samisk språk og kultur
+ * Norsk VG1 - Del 4: Kapittel 5.4, 6.1–6.2, 7.1–7.3
+ * Skriveprosess, sammensatte tekster, film, samisk språk og kultur
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -9,13 +9,13 @@ import {
 } from './textbook-content-norsk-vg1-tekster';
 
 // ============================================================================
-// KAPITTEL 12.1: Sammensatte tekster
+// KAPITTEL 6.1: Sammensatte tekster
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_12_1: TextbookChapter = {
-  id: 'norsk-vg1-12-1',
+export const CHAPTER_NORSK_VG1_6_1: TextbookChapter = {
+  id: 'norsk-vg1-6-1',
   courseId: 'norsk-vg1',
-  chapterNumber: '6.2',
+  chapterNumber: '6.1',
   title: 'Sammensatte tekster',
   description: 'Lær å analysere multimodale tekster som kombinerer ulike uttrykksformer som tekst, bilde og lyd.',
   estimatedMinutes: 50,
@@ -25,7 +25,7 @@ export const CHAPTER_NORSK_VG1_12_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-12-1-intro',
+      id: 'norsk-vg1-6-1-intro',
       type: 'text',
       content: `## Hva er sammensatte tekster?
 
@@ -52,7 +52,7 @@ I dag møter vi sjelden tekster som bare består av skrift. De fleste tekstene v
 **Sammensatte tekster krever at vi leser på flere plan samtidig - vi må se hvordan de ulike delene virker sammen for å skape mening.**`,
     },
     {
-      id: 'norsk-vg1-12-1-def-1',
+      id: 'norsk-vg1-6-1-def-1',
       type: 'definition',
       title: 'Modaliteter og samspill',
       content: `**De viktigste modalitetene:**
@@ -87,7 +87,7 @@ I dag møter vi sjelden tekster som bare består av skrift. De fleste tekstene v
 **Forsterkning:** Modalitetene gjentar samme budskap for større effekt`,
     },
     {
-      id: 'norsk-vg1-12-1-def-2',
+      id: 'norsk-vg1-6-1-def-2',
       type: 'definition',
       title: 'Analyse av reklame',
       content: `**Reklame som sammensatt tekst**
@@ -126,7 +126,7 @@ Reklame er et godt eksempel på sammensatte tekster fordi de bevisst bruker fler
 - Hvem kan føle seg inkludert/ekskludert?`,
     },
     {
-      id: 'norsk-vg1-12-1-def-3',
+      id: 'norsk-vg1-6-1-def-3',
       type: 'definition',
       title: 'Analyse av nettaviser og sosiale medier',
       content: `**Nettaviser som sammensatte tekster**
@@ -167,7 +167,7 @@ Nettaviser er komplekse sammensatte tekster med mange elementer:
 **Kritisk lesing av digitale tekster krever bevissthet om algoritmer, viralitet og hvordan plattformenes design påvirker innholdet.**`,
     },
     {
-      id: 'norsk-vg1-12-1-example-1',
+      id: 'norsk-vg1-6-1-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av reklame',
       problem: 'Analyser denne tenkte reklamen for en sykkel.',
@@ -212,10 +212,10 @@ Bildet viser en person som sykler gjennom en grønn skog på en solskinnsdag. Te
 Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivitet.`,
     },
     {
-      id: 'norsk-vg1-12-1-ex-1',
+      id: 'norsk-vg1-6-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-1',
+        id: 'norsk-vg1-6-1-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -243,10 +243,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-2',
+      id: 'norsk-vg1-6-1-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-2',
+        id: 'norsk-vg1-6-1-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -258,10 +258,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-3',
+      id: 'norsk-vg1-6-1-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-3',
+        id: 'norsk-vg1-6-1-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -289,10 +289,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-4',
+      id: 'norsk-vg1-6-1-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-4',
+        id: 'norsk-vg1-6-1-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -304,10 +304,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-5',
+      id: 'norsk-vg1-6-1-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-5',
+        id: 'norsk-vg1-6-1-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -319,10 +319,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-6',
+      id: 'norsk-vg1-6-1-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-6',
+        id: 'norsk-vg1-6-1-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -339,10 +339,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-7',
+      id: 'norsk-vg1-6-1-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-7',
+        id: 'norsk-vg1-6-1-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -359,10 +359,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-8',
+      id: 'norsk-vg1-6-1-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-8',
+        id: 'norsk-vg1-6-1-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -390,10 +390,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-9',
+      id: 'norsk-vg1-6-1-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-9',
+        id: 'norsk-vg1-6-1-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -405,10 +405,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-10',
+      id: 'norsk-vg1-6-1-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-10',
+        id: 'norsk-vg1-6-1-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -436,10 +436,10 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
       },
     },
     {
-      id: 'norsk-vg1-12-1-ex-11',
+      id: 'norsk-vg1-6-1-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-1-ex-11',
+        id: 'norsk-vg1-6-1-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -460,13 +460,13 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
 };
 
 // ============================================================================
-// KAPITTEL 12.2: Film som tekst
+// KAPITTEL 6.2: Film som tekst
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_12_2: TextbookChapter = {
-  id: 'norsk-vg1-12-2',
+export const CHAPTER_NORSK_VG1_6_2: TextbookChapter = {
+  id: 'norsk-vg1-6-2',
   courseId: 'norsk-vg1',
-  chapterNumber: '6.3',
+  chapterNumber: '6.2',
   title: 'Film som tekst',
   description: 'Lær å analysere film med fokus på filmspråk, virkemidler og adaptasjon av litteratur.',
   estimatedMinutes: 55,
@@ -476,7 +476,7 @@ export const CHAPTER_NORSK_VG1_12_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-12-2-intro',
+      id: 'norsk-vg1-6-2-intro',
       type: 'text',
       content: `## Film som fortelling
 
@@ -502,7 +502,7 @@ Som med skriftlige tekster kan vi analysere film med faglige begreper. Vi ser p�
 **Film er mer enn underholdning - det er en kunstform og et medium for fortelling som fortjener kritisk analyse.**`,
     },
     {
-      id: 'norsk-vg1-12-2-def-1',
+      id: 'norsk-vg1-6-2-def-1',
       type: 'definition',
       title: 'Kameravinkel og bildeutsnitt',
       content: `**Bildeutsnitt (shot sizes):**
@@ -541,7 +541,7 @@ Som med skriftlige tekster kan vi analysere film med faglige begreper. Vi ser p�
 **Disse teknikkene brukes bevisst for å styre hvordan vi oppfatter personer og situasjoner.**`,
     },
     {
-      id: 'norsk-vg1-12-2-def-2',
+      id: 'norsk-vg1-6-2-def-2',
       type: 'definition',
       title: 'Klipping og montasje',
       content: `**Klipping (editing):**
@@ -582,7 +582,7 @@ Raske klipp = spenning, action
 Langsomme klipp = ettertanke, drama`,
     },
     {
-      id: 'norsk-vg1-12-2-def-3',
+      id: 'norsk-vg1-6-2-def-3',
       type: 'definition',
       title: 'Lyd i film',
       content: `**Filmens lydbilde:**
@@ -627,7 +627,7 @@ Lyd er like viktig som bilde i film. Vi deler lyden i:
 **Lyden kan fortelle oss like mye som bildet - eller manipulere hvordan vi oppfatter det vi ser.**`,
     },
     {
-      id: 'norsk-vg1-12-2-def-4',
+      id: 'norsk-vg1-6-2-def-4',
       type: 'definition',
       title: 'Adaptasjon: fra bok til film',
       content: `**Når litteratur blir film**
@@ -668,7 +668,7 @@ Adaptasjon er når et verk overføres fra ett medium til et annet, for eksempel 
 **En god adaptasjon er ikke nødvendigvis en som følger boken slavisk, men en som finner filmens egen måte å fortelle historien på.**`,
     },
     {
-      id: 'norsk-vg1-12-2-example-1',
+      id: 'norsk-vg1-6-2-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av filmscene',
       problem: 'Analyser en tenkt filmscene der to personer møtes for første gang.',
@@ -707,10 +707,10 @@ To unge mennesker møtes ved en kafé. Øyekontakt, usikkerhet, så et smil.
 Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endres, kameraet fokuserer - alt forteller seeren at disse to kommer til å bli viktige for hverandre.`,
     },
     {
-      id: 'norsk-vg1-12-2-ex-1',
+      id: 'norsk-vg1-6-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-1',
+        id: 'norsk-vg1-6-2-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -738,10 +738,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-2',
+      id: 'norsk-vg1-6-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-2',
+        id: 'norsk-vg1-6-2-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -753,10 +753,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-3',
+      id: 'norsk-vg1-6-2-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-3',
+        id: 'norsk-vg1-6-2-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -768,10 +768,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-4',
+      id: 'norsk-vg1-6-2-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-4',
+        id: 'norsk-vg1-6-2-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -799,10 +799,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-5',
+      id: 'norsk-vg1-6-2-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-5',
+        id: 'norsk-vg1-6-2-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -814,10 +814,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-6',
+      id: 'norsk-vg1-6-2-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-6',
+        id: 'norsk-vg1-6-2-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -834,10 +834,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-7',
+      id: 'norsk-vg1-6-2-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-7',
+        id: 'norsk-vg1-6-2-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -854,10 +854,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-8',
+      id: 'norsk-vg1-6-2-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-8',
+        id: 'norsk-vg1-6-2-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -885,10 +885,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-9',
+      id: 'norsk-vg1-6-2-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-9',
+        id: 'norsk-vg1-6-2-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -912,10 +912,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-10',
+      id: 'norsk-vg1-6-2-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-10',
+        id: 'norsk-vg1-6-2-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -933,10 +933,10 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
       },
     },
     {
-      id: 'norsk-vg1-12-2-ex-11',
+      id: 'norsk-vg1-6-2-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-12-2-ex-11',
+        id: 'norsk-vg1-6-2-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -973,14 +973,14 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
 };
 
 // ============================================================================
-// KAPITTEL 13.1: Skriving - prosess og teknikker
+// KAPITTEL 5.4: Skriveprosess og revisjon
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_13_1: TextbookChapter = {
-  id: 'norsk-vg1-13-1',
+export const CHAPTER_NORSK_VG1_5_4: TextbookChapter = {
+  id: 'norsk-vg1-5-4',
   courseId: 'norsk-vg1',
   chapterNumber: '5.4',
-  title: 'Skriving - prosess og teknikker',
+  title: 'Skriveprosess og revisjon',
   description: 'Lær om skriveprosessen og teknikker for å bli en bedre skribent.',
   estimatedMinutes: 50,
   competenceGoals: [
@@ -989,7 +989,7 @@ export const CHAPTER_NORSK_VG1_13_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-13-1-intro',
+      id: 'norsk-vg1-5-4-intro',
       type: 'text',
       content: `## Skriving som prosess
 
@@ -1016,7 +1016,7 @@ Førstetkastet trenger ikke være perfekt. Det er i revisjonen teksten blir god.
 **I dette kapittelet lærer du konkrete teknikker for hver fase av skriveprosessen.**`,
     },
     {
-      id: 'norsk-vg1-13-1-def-1',
+      id: 'norsk-vg1-5-4-def-1',
       type: 'definition',
       title: 'Førskriving og idéutvikling',
       content: `**Før du begynner å skrive:**
@@ -1061,7 +1061,7 @@ Førskrivingsfasen handler om å finne ideer, samle materiale og planlegge tekst
 - Vurder lengde`,
     },
     {
-      id: 'norsk-vg1-13-1-def-2',
+      id: 'norsk-vg1-5-4-def-2',
       type: 'definition',
       title: 'Skrivestrategier og utkast',
       content: `**Å skrive førsteutkastet:**
@@ -1099,7 +1099,7 @@ Når du har planlagt, er det tid for å skrive. Her er strategier for utkastfase
 **Husk: Utkastet er råmateriale. Det er i neste fase du former det til noe bra.**`,
     },
     {
-      id: 'norsk-vg1-13-1-def-3',
+      id: 'norsk-vg1-5-4-def-3',
       type: 'definition',
       title: 'Revisjon og tilbakemelding',
       content: `**Revisjon - å se med nye øyne:**
@@ -1141,7 +1141,7 @@ Revisjon betyr å "se igjen". Her forbedrer du teksten på innholds- og struktur
 - Ta tid til å vurdere før du endrer`,
     },
     {
-      id: 'norsk-vg1-13-1-def-4',
+      id: 'norsk-vg1-5-4-def-4',
       type: 'definition',
       title: 'Egenvurdering',
       content: `**Å vurdere egen tekst:**
@@ -1182,7 +1182,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 **Egenvurdering gjør deg til en mer selvstendig skribent som kan forbedre egne tekster uten å vente på andres tilbakemelding.**`,
     },
     {
-      id: 'norsk-vg1-13-1-example-1',
+      id: 'norsk-vg1-5-4-example-1',
       type: 'example',
       title: 'Eksempel: Fra utkast til ferdig tekst',
       problem: 'Se hvordan en tekst forbedres gjennom revisjon.',
@@ -1212,10 +1212,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 - Sjekke språk og komma`,
     },
     {
-      id: 'norsk-vg1-13-1-ex-1',
+      id: 'norsk-vg1-5-4-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-1',
+        id: 'norsk-vg1-5-4-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -1243,10 +1243,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-2',
+      id: 'norsk-vg1-5-4-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-2',
+        id: 'norsk-vg1-5-4-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -1258,10 +1258,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-3',
+      id: 'norsk-vg1-5-4-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-3',
+        id: 'norsk-vg1-5-4-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -1273,10 +1273,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-4',
+      id: 'norsk-vg1-5-4-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-4',
+        id: 'norsk-vg1-5-4-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -1288,10 +1288,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-5',
+      id: 'norsk-vg1-5-4-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-5',
+        id: 'norsk-vg1-5-4-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1319,10 +1319,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-6',
+      id: 'norsk-vg1-5-4-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-6',
+        id: 'norsk-vg1-5-4-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1339,10 +1339,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-7',
+      id: 'norsk-vg1-5-4-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-7',
+        id: 'norsk-vg1-5-4-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1359,10 +1359,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-8',
+      id: 'norsk-vg1-5-4-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-8',
+        id: 'norsk-vg1-5-4-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -1390,10 +1390,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-9',
+      id: 'norsk-vg1-5-4-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-9',
+        id: 'norsk-vg1-5-4-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -1426,10 +1426,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-10',
+      id: 'norsk-vg1-5-4-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-10',
+        id: 'norsk-vg1-5-4-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1462,10 +1462,10 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
       },
     },
     {
-      id: 'norsk-vg1-13-1-ex-11',
+      id: 'norsk-vg1-5-4-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-13-1-ex-11',
+        id: 'norsk-vg1-5-4-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1487,11 +1487,11 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 };
 
 // ============================================================================
-// KAPITTEL 14.1: De samiske språkene i Norge
+// KAPITTEL 7.1: De samiske språkene i Norge
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_14_1: TextbookChapter = {
-  id: 'norsk-vg1-14-1',
+export const CHAPTER_NORSK_VG1_7_1: TextbookChapter = {
+  id: 'norsk-vg1-7-1',
   courseId: 'norsk-vg1',
   chapterNumber: '7.1',
   title: 'De samiske språkene i Norge',
@@ -1503,7 +1503,7 @@ export const CHAPTER_NORSK_VG1_14_1: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-14-1-intro',
+      id: 'norsk-vg1-7-1-intro',
       type: 'text',
       content: `## Samisk - Norges urfolksspråk
 
@@ -1522,7 +1522,7 @@ Siden 1988 har samisk og norsk vært likestilte språk i Norge gjennom Grunnlove
 - Det bidrar til forsoning etter fornorskingspolitikken`,
     },
     {
-      id: 'norsk-vg1-14-1-def-1',
+      id: 'norsk-vg1-7-1-def-1',
       type: 'definition',
       title: 'De tre samiske språkene i Norge',
       content: `Norge har tre samiske språk, som alle er selvstendige språk - ikke dialekter:
@@ -1550,7 +1550,7 @@ Siden 1988 har samisk og norsk vært likestilte språk i Norge gjennom Grunnlove
 **Viktig:** Disse språkene er ikke gjensidig forståelige. En nordsamisktalende forstår ikke sørsamisk uten å lære det.`,
     },
     {
-      id: 'norsk-vg1-14-1-def-2',
+      id: 'norsk-vg1-7-1-def-2',
       type: 'definition',
       title: 'Språkfamilie og særtrekk',
       content: `**Samisk tilhører den finsk-ugriske språkfamilien:**
@@ -1583,7 +1583,7 @@ Samisk er slekt med finsk, estisk og ungarsk - men IKKE med norsk. Dette gjør s
 Moderne samisk brukes i alle sammenhenger - fra tradisjonell joik til hip-hop, fra reindrift til programmering.`,
     },
     {
-      id: 'norsk-vg1-14-1-def-3',
+      id: 'norsk-vg1-7-1-def-3',
       type: 'definition',
       title: 'Status og truethet',
       content: `**Samiske språks status i dag:**
@@ -1621,7 +1621,7 @@ UNESCO klassifiserer språkenes truethetsnivå:
 - Stolthet over samisk identitet`,
     },
     {
-      id: 'norsk-vg1-14-1-example-1',
+      id: 'norsk-vg1-7-1-example-1',
       type: 'example',
       title: 'Eksempel: Samiske stedsnavn i Norge',
       problem: 'Mange steder i Norge har samiske navn. Hva forteller stedsnavnene oss?',
@@ -1647,23 +1647,23 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
     },
     // Primærtekst: Isak Saba - Sámi soga lávlla
     {
-      id: 'norsk-vg1-14-1-primaertekst-1',
+      id: 'norsk-vg1-7-1-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Isak Saba - "Sámi soga lávlla" (Samefolkets sang)',
       buttonText: 'Vis primærtekst',
       content: [
         {
-          id: 'norsk-vg1-14-1-primaertekst-1-text',
+          id: 'norsk-vg1-7-1-primaertekst-1-text',
           type: 'text',
           content: TEKST_ISAK_SABA_SAMI_SOGA_LAVLLA,
         },
       ],
     },
     {
-      id: 'norsk-vg1-14-1-ex-1',
+      id: 'norsk-vg1-7-1-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-1',
+        id: 'norsk-vg1-7-1-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -1696,10 +1696,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-2',
+      id: 'norsk-vg1-7-1-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-2',
+        id: 'norsk-vg1-7-1-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -1723,10 +1723,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-3',
+      id: 'norsk-vg1-7-1-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-3',
+        id: 'norsk-vg1-7-1-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -1750,10 +1750,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-4',
+      id: 'norsk-vg1-7-1-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-4',
+        id: 'norsk-vg1-7-1-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -1777,10 +1777,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-5',
+      id: 'norsk-vg1-7-1-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-5',
+        id: 'norsk-vg1-7-1-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1792,10 +1792,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-6',
+      id: 'norsk-vg1-7-1-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-6',
+        id: 'norsk-vg1-7-1-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1812,10 +1812,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-7',
+      id: 'norsk-vg1-7-1-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-7',
+        id: 'norsk-vg1-7-1-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -1832,10 +1832,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-8',
+      id: 'norsk-vg1-7-1-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-8',
+        id: 'norsk-vg1-7-1-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -1863,10 +1863,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-9',
+      id: 'norsk-vg1-7-1-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-9',
+        id: 'norsk-vg1-7-1-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -1895,10 +1895,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-10',
+      id: 'norsk-vg1-7-1-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-10',
+        id: 'norsk-vg1-7-1-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1915,10 +1915,10 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
       },
     },
     {
-      id: 'norsk-vg1-14-1-ex-11',
+      id: 'norsk-vg1-7-1-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-1-ex-11',
+        id: 'norsk-vg1-7-1-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -1951,11 +1951,11 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
 };
 
 // ============================================================================
-// KAPITTEL 14.2: Fornorskingspolitikken
+// KAPITTEL 7.2: Fornorskingspolitikken
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_14_2: TextbookChapter = {
-  id: 'norsk-vg1-14-2',
+export const CHAPTER_NORSK_VG1_7_2: TextbookChapter = {
+  id: 'norsk-vg1-7-2',
   courseId: 'norsk-vg1',
   chapterNumber: '7.2',
   title: 'Fornorskingspolitikken',
@@ -1967,7 +1967,7 @@ export const CHAPTER_NORSK_VG1_14_2: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-14-2-intro',
+      id: 'norsk-vg1-7-2-intro',
       type: 'text',
       content: `## Fornorskingspolitikken - et mørkt kapittel
 
@@ -1992,7 +1992,7 @@ Fornorskingspolitikken var på sitt sterkeste fra ca. 1850 til 1980, men enkelte
 - Fordi det er del av norsk historie alle bør kjenne`,
     },
     {
-      id: 'norsk-vg1-14-2-def-1',
+      id: 'norsk-vg1-7-2-def-1',
       type: 'definition',
       title: 'Fornorskingspolitikkens metoder',
       content: `**Hvordan foregikk fornorskingen?**
@@ -2023,7 +2023,7 @@ Fornorskingspolitikken var på sitt sterkeste fra ca. 1850 til 1980, men enkelte
 Mange samiske barn ble sendt på internat langt fra hjemmet. De fikk ikke snakke samisk, måtte lære norsk tvang, og mistet kontakt med familie og kultur.`,
     },
     {
-      id: 'norsk-vg1-14-2-def-2',
+      id: 'norsk-vg1-7-2-def-2',
       type: 'definition',
       title: 'Bakgrunn og ideologi',
       content: `**Hvorfor fornorsking?**
@@ -2054,7 +2054,7 @@ Fornorskingspolitikken hadde flere årsaker:
 **Viktig:** Dette var statlig politikk støttet av lover, bevilgninger og institusjoner - ikke bare holdninger blant enkeltpersoner.`,
     },
     {
-      id: 'norsk-vg1-14-2-def-3',
+      id: 'norsk-vg1-7-2-def-3',
       type: 'definition',
       title: 'Konsekvenser av fornorskingen',
       content: `**Virkninger som fortsatt merkes:**
@@ -2086,7 +2086,7 @@ Fornorskingspolitikken hadde flere årsaker:
 **Mange samer i dag har foreldre eller besteforeldre som ikke fikk snakke samisk som barn, og som aldri lærte barna sine språket.**`,
     },
     {
-      id: 'norsk-vg1-14-2-def-4',
+      id: 'norsk-vg1-7-2-def-4',
       type: 'definition',
       title: 'Sannings- og forsoningskommisjonen',
       content: `**Oppgjør med fortiden:**
@@ -2120,7 +2120,7 @@ Kommisjonen la frem sin rapport til Stortinget med:
 **Forsoning er en pågående prosess som krever kunnskap, anerkjennelse og handling.**`,
     },
     {
-      id: 'norsk-vg1-14-2-example-1',
+      id: 'norsk-vg1-7-2-example-1',
       type: 'example',
       title: 'Eksempel: Personlige historier fra fornorskingen',
       problem: 'Hvordan opplevde enkeltpersoner fornorskingspolitikken?',
@@ -2142,10 +2142,10 @@ Kommisjonen la frem sin rapport til Stortinget med:
 Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan virkningene går i arv. Mange lever fortsatt med konsekvensene av fornorskingen.`,
     },
     {
-      id: 'norsk-vg1-14-2-ex-1',
+      id: 'norsk-vg1-7-2-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-1',
+        id: 'norsk-vg1-7-2-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2173,10 +2173,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-2',
+      id: 'norsk-vg1-7-2-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-2',
+        id: 'norsk-vg1-7-2-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2200,10 +2200,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-3',
+      id: 'norsk-vg1-7-2-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-3',
+        id: 'norsk-vg1-7-2-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2227,10 +2227,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-4',
+      id: 'norsk-vg1-7-2-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-4',
+        id: 'norsk-vg1-7-2-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2259,10 +2259,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-5',
+      id: 'norsk-vg1-7-2-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-5',
+        id: 'norsk-vg1-7-2-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2274,10 +2274,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-6',
+      id: 'norsk-vg1-7-2-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-6',
+        id: 'norsk-vg1-7-2-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2294,10 +2294,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-7',
+      id: 'norsk-vg1-7-2-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-7',
+        id: 'norsk-vg1-7-2-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2314,10 +2314,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-8',
+      id: 'norsk-vg1-7-2-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-8',
+        id: 'norsk-vg1-7-2-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2346,10 +2346,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-9',
+      id: 'norsk-vg1-7-2-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-9',
+        id: 'norsk-vg1-7-2-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2373,10 +2373,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-10',
+      id: 'norsk-vg1-7-2-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-10',
+        id: 'norsk-vg1-7-2-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2393,10 +2393,10 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
       },
     },
     {
-      id: 'norsk-vg1-14-2-ex-11',
+      id: 'norsk-vg1-7-2-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-2-ex-11',
+        id: 'norsk-vg1-7-2-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2429,11 +2429,11 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
 };
 
 // ============================================================================
-// KAPITTEL 14.3: Samiske språklige rettigheter
+// KAPITTEL 7.3: Samiske språklige rettigheter
 // ============================================================================
 
-export const CHAPTER_NORSK_VG1_14_3: TextbookChapter = {
-  id: 'norsk-vg1-14-3',
+export const CHAPTER_NORSK_VG1_7_3: TextbookChapter = {
+  id: 'norsk-vg1-7-3',
   courseId: 'norsk-vg1',
   chapterNumber: '7.3',
   title: 'Samiske språklige rettigheter',
@@ -2445,7 +2445,7 @@ export const CHAPTER_NORSK_VG1_14_3: TextbookChapter = {
   ],
   content: [
     {
-      id: 'norsk-vg1-14-3-intro',
+      id: 'norsk-vg1-7-3-intro',
       type: 'text',
       content: `## Fra undertrykkelse til rettigheter
 
@@ -2467,7 +2467,7 @@ Utviklingen viser hvordan politikk kan endre seg. Det som var forbudt for noen t
 - Om utfordringer og muligheter fremover`,
     },
     {
-      id: 'norsk-vg1-14-3-def-1',
+      id: 'norsk-vg1-7-3-def-1',
       type: 'definition',
       title: 'Grunnloven og sameloven',
       content: `**Grunnlovens sameparagraf (§ 108):**
@@ -2496,7 +2496,7 @@ Kommuner der samisk og norsk er likestilte:
 **I disse kommunene har du rett til å bruke samisk i alle offentlige sammenhenger.**`,
     },
     {
-      id: 'norsk-vg1-14-3-def-2',
+      id: 'norsk-vg1-7-3-def-2',
       type: 'definition',
       title: 'Samisk i skolen',
       content: `**Opplæringsloven gir rettigheter:**
@@ -2531,7 +2531,7 @@ Kommuner der samisk og norsk er likestilte:
 Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig bruk, ikke bare som fag.`,
     },
     {
-      id: 'norsk-vg1-14-3-def-3',
+      id: 'norsk-vg1-7-3-def-3',
       type: 'definition',
       title: 'Samisk i medier og samfunn',
       content: `**Samisk i medier:**
@@ -2566,7 +2566,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
 - Samisk i offentlige bygg og institusjoner`,
     },
     {
-      id: 'norsk-vg1-14-3-def-4',
+      id: 'norsk-vg1-7-3-def-4',
       type: 'definition',
       title: 'Utfordringer og muligheter',
       content: `**Utfordringer for samisk språk i dag:**
@@ -2607,7 +2607,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
 **Det tar tid å rette opp 100 års fornorsking, men utviklingen går i riktig retning.**`,
     },
     {
-      id: 'norsk-vg1-14-3-example-1',
+      id: 'norsk-vg1-7-3-example-1',
       type: 'example',
       title: 'Eksempel: Dine rettigheter',
       problem: 'Hvilke rettigheter har du hvis du vil lære eller bruke samisk?',
@@ -2642,10 +2642,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
 4. Bruk språksenteret i din region`,
     },
     {
-      id: 'norsk-vg1-14-3-ex-1',
+      id: 'norsk-vg1-7-3-ex-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-1',
+        id: 'norsk-vg1-7-3-ex-1',
         number: '1',
         type: 'classic',
         difficulty: 'lett',
@@ -2673,10 +2673,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-2',
+      id: 'norsk-vg1-7-3-ex-2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-2',
+        id: 'norsk-vg1-7-3-ex-2',
         number: '2',
         type: 'classic',
         difficulty: 'medium',
@@ -2700,10 +2700,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-3',
+      id: 'norsk-vg1-7-3-ex-3',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-3',
+        id: 'norsk-vg1-7-3-ex-3',
         number: '3',
         type: 'classic',
         difficulty: 'medium',
@@ -2727,10 +2727,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-4',
+      id: 'norsk-vg1-7-3-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-4',
+        id: 'norsk-vg1-7-3-ex-4',
         number: '4',
         type: 'classic',
         difficulty: 'medium',
@@ -2754,10 +2754,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-5',
+      id: 'norsk-vg1-7-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-5',
+        id: 'norsk-vg1-7-3-ex-5',
         number: '5',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2769,10 +2769,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-6',
+      id: 'norsk-vg1-7-3-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-6',
+        id: 'norsk-vg1-7-3-ex-6',
         number: '6',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2789,10 +2789,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-7',
+      id: 'norsk-vg1-7-3-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-7',
+        id: 'norsk-vg1-7-3-ex-7',
         number: '7',
         type: 'multiple-choice',
         difficulty: 'lett',
@@ -2809,10 +2809,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-8',
+      id: 'norsk-vg1-7-3-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-8',
+        id: 'norsk-vg1-7-3-ex-8',
         number: '8',
         type: 'classic',
         difficulty: 'medium',
@@ -2840,10 +2840,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-9',
+      id: 'norsk-vg1-7-3-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-9',
+        id: 'norsk-vg1-7-3-ex-9',
         number: '9',
         type: 'classic',
         difficulty: 'medium',
@@ -2872,10 +2872,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-10',
+      id: 'norsk-vg1-7-3-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-10',
+        id: 'norsk-vg1-7-3-ex-10',
         number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2893,10 +2893,10 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
       },
     },
     {
-      id: 'norsk-vg1-14-3-ex-11',
+      id: 'norsk-vg1-7-3-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-14-3-ex-11',
+        id: 'norsk-vg1-7-3-ex-11',
         number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
@@ -2939,14 +2939,2339 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
 };
 
 // ============================================================================
+// KAPITTEL 7.4: Nasjonale minoriteter
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_7_4: TextbookChapter = {
+  id: 'norsk-vg1-7-4',
+  courseId: 'norsk-vg1',
+  chapterNumber: '7.4',
+  title: 'Nasjonale minoriteter',
+  description: 'Lær om kvensk, romani og andre nasjonale minoritetsspråk i Norge.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'gjøre rede for språklig mangfold i Norge',
+    'reflektere over forholdet mellom språk, identitet og kulturarv',
+    'analysere hvordan språkpolitikk påvirker minoriteter',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-7-4-intro',
+      type: 'text',
+      content: `## Hva er nasjonale minoriteter?
+
+Norge har fem offisielt anerkjente nasjonale minoriteter. Disse gruppene har en lang historie i Norge og har ofte vært utsatt for diskriminering og assimileringspolitikk.
+
+**De fem nasjonale minoritetene:**
+- Kvener/norskfinner
+- Rom (sigøynere)
+- Romanifolket/tatere
+- Skogfinner
+- Jøder
+
+**Hva skiller nasjonale minoriteter fra andre minoriteter?**
+- Lang historisk tilknytning til Norge (minst 100 år)
+- Egen kultur, språk og/eller religion
+- Anerkjent av staten som nasjonal minoritet
+- Beskyttet av Europarådets rammekonvensjon for nasjonale minoriteter
+
+**Viktig:** Nasjonale minoriteter er ikke det samme som urfolk. Samene er Norges eneste urfolk og har en annen juridisk status.
+
+**I dette kapittelet lærer du om:**
+- Hver av de fem nasjonale minoritetene
+- Deres språk og kultur
+- Fornorskingspolitikk og diskriminering
+- Språklige rettigheter og revitalisering`,
+    },
+    {
+      id: 'norsk-vg1-7-4-def-1',
+      type: 'definition',
+      title: 'Kvener og kvensk språk',
+      content: `**Hvem er kvenene?**
+
+Kvenene er etterkommere av finner som innvandret til Nord-Norge fra 1500-tallet og fremover. De bosatte seg særlig i Troms og Finnmark.
+
+**Kvensk språk:**
+- Nært beslektet med finsk, men et eget språk
+- Anerkjent som eget minoritetsspråk i Norge i 2005
+- Ca. 2000-8000 snakker kvensk i dag
+- Truet språk - de fleste talere er eldre
+
+**Historisk bakgrunn:**
+- Kvenene kom som arbeidsfolk og nybyggere
+- Bidro til jordbruk, fiske og gruvedrift
+- Ble utsatt for hard fornorskingspolitikk fra 1850-tallet
+- Mange mistet språket gjennom skolen
+
+**Kvensk kultur:**
+- Tradisjonell musikk og sang
+- Båtbygging og fiske
+- Byggeskikker
+- Tradisjonelt håndverk
+
+**Revitalisering i dag:**
+- Kvensk språksenter (Kvensk institutt) i Børselv
+- Kvenskundervisning i noen skoler
+- Kvensk radio og aviser
+- Språkkurs for voksne
+
+**Kvenene har bidratt sterkt til utviklingen av Nord-Norge og har en rik kulturarv som nå arbeides for å bevare.**`,
+    },
+    {
+      id: 'norsk-vg1-7-4-def-2',
+      type: 'definition',
+      title: 'Rom og romani',
+      content: `**Hvem er rom?**
+
+Rom (flertall: roma) er en folkegruppe med opprinnelse i India som kom til Europa på 1300-tallet. De har vært i Norge siden 1800-tallet.
+
+**Romanés (romani chib):**
+- Språket til romfolket
+- Indo-europeisk språk med røtter i Sanskrit
+- Ulike dialekter i ulike land
+- Muntlig tradisjon, lite skriftlig materiale
+
+**Historisk bakgrunn:**
+- Rom ble nektet innreise til Norge 1927-1956
+- De som var i Norge ble internert under krigen
+- Mange norske rom ble drept i Holocaust
+- Diskriminering fortsatte etter krigen
+
+**Kultur og tradisjoner:**
+- Sterke familiebånd
+- Muntlig overlevering av kultur
+- Musikk og dans
+- Håndverk og handel
+
+**Situasjonen i dag:**
+- Ca. 500-700 rom i Norge
+- Mange lever fortsatt med diskriminering
+- Arbeid for anerkjennelse og rettigheter
+- Økt fokus på romsk historie i skolen
+
+**Rom i Norge har en smertefull historie preget av ekskludering og forfølgelse, men arbeider i dag for synlighet og anerkjennelse.**`,
+    },
+    {
+      id: 'norsk-vg1-7-4-def-3',
+      type: 'definition',
+      title: 'Romanifolket/tatere og romanés',
+      content: `**Hvem er romanifolket?**
+
+Romanifolket, også kalt tatere, er en egen folkegruppe som har vært i Norge siden 1500-tallet. De er ikke det samme som rom, selv om navnene kan forveksles.
+
+**Romanés (skandoromani):**
+- Eget språk med norsk grammatikk og romanivokabular
+- Tradisjonelt hemmelig språk
+- Få talere igjen
+- Kritisk truet språk
+
+**Tradisjonelle næringer:**
+- Hesthandel
+- Blikkenslagerarbeid og kjeleflikkeri
+- Kurvmaking
+- Handel og byttehandel
+- Musikktradisjoner
+
+**Fornorskingspolitikken:**
+Romanifolket ble utsatt for ekstrem undertrykkelse:
+- Tvangssterilisering fram til 1977
+- Barn ble tatt fra foreldre
+- Tvungen bofasthet
+- Forbud mot reising og tradisjonelle yrker
+- Norsk misjon blant hjemløse drev leirer
+
+**I dag:**
+- Anerkjent som nasjonal minoritet i 1999
+- Taternes landsforening arbeider for rettigheter
+- Økt oppmerksomhet om historisk urett
+- Revitalisering av kultur og språk
+
+**Romanifolkets historie er blant de mørkeste kapitlene i norsk minoritetspolitikk.**`,
+    },
+    {
+      id: 'norsk-vg1-7-4-def-4',
+      type: 'definition',
+      title: 'Skogfinner og jøder',
+      content: `**Skogfinnene:**
+
+**Hvem er de?**
+- Etterkommere av finske innvandrere på 1600-tallet
+- Bosatte seg i skogområder i Hedmark, Akershus og Värmland
+- Spesialister på svedjebruk (bråtebrenning)
+
+**Språk og kultur:**
+- Opprinnelig finsktalende
+- Finsk språk er tapt - ingen talere igjen
+- Bevart kulturarv: bygninger, stedsnavn, tradisjoner
+- Finnskogdagene feirer kulturen årlig
+
+**Skogfinsk kulturminneområde:**
+- Utpekt som nasjonalt kulturminneområde
+- Bevaring av bygninger og kulturlandskap
+- Dokumentasjon av historie og tradisjoner
+
+---
+
+**Jødene i Norge:**
+
+**Historisk bakgrunn:**
+- Jøder var forbudt adgang til Norge 1687-1851
+- Jødeparagrafen i Grunnloven av 1814
+- Jødisk innvandring fra 1850-tallet
+- Holocaust: 773 norske jøder ble deportert og drept
+
+**Språk:**
+- Jiddisk var tradisjonelt språk
+- Hebraisk i religiøs sammenheng
+- Norsk er hovedspråk i dag
+
+**I dag:**
+- Ca. 1500 jøder i Norge
+- Synagoger i Oslo og Trondheim
+- Det mosaiske trossamfund
+- Jødisk museum i Oslo og Trondheim
+
+**Begge grupper representerer viktige deler av norsk kulturhistorie og mangfold.**`,
+    },
+    {
+      id: 'norsk-vg1-7-4-def-5',
+      type: 'definition',
+      title: 'Språklige rettigheter og revitalisering',
+      content: `**Rettslig rammeverk:**
+
+**Europarådets rammekonvensjon (1998):**
+- Norge forpliktet seg til å beskytte nasjonale minoriteter
+- Rett til å bevare kultur, språk og identitet
+- Vern mot diskriminering
+- Krav om deltakelse i beslutninger
+
+**Europeisk charter for regions- eller minoritetsspråk:**
+- Kvensk har høyeste beskyttelsesnivå (del III)
+- Romani og romanes har lavere beskyttelse (del II)
+
+**Språkloven (2021):**
+- Anerkjenner de nasjonale minoritetsspråkene
+- Staten har ansvar for å verne og fremme dem
+- Kvensk nevnes eksplisitt
+
+**Utfordringer for språkbevaring:**
+- Få talere, mange eldre
+- Manglende opplæringstilbud
+- Lite skriftlig materiale
+- Stigma og skam fra fornorskingstiden
+
+**Revitaliseringstiltak:**
+- Språksentre (særlig for kvensk)
+- Dokumentasjonsarbeid
+- Språkkurs for voksne
+- Kulturarrangementer
+- Digitale ressurser
+
+**Språkrevitalisering krever både ressurser fra staten og engasjement fra minoritetssamfunnene selv.**`,
+    },
+    {
+      id: 'norsk-vg1-7-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Sammenligning av minoritetsspråkenes status',
+      problem: 'Sammenlign situasjonen for kvensk og romanés i dag.',
+      solution: `**Kvensk:**
+
+**Antall talere:** Ca. 2000-8000
+**Anerkjennelse:** Eget språk fra 2005
+**Opplæring:** Finnes i noen skoler i Nord-Norge
+**Ressurser:** Kvensk institutt, ordbøker, læremidler
+**Medier:** Noe radio, aviser
+
+**Styrker:** Relativt mange talere, institusjonell støtte, synlig revitalisering
+**Utfordringer:** De fleste talere er eldre, lite bruk blant unge
+
+---
+
+**Romanés (taterspråk):**
+
+**Antall talere:** Svært få, kanskje under 100
+**Anerkjennelse:** Anerkjent som minoritetsspråk
+**Opplæring:** Ingen formell opplæring
+**Ressurser:** Lite dokumentasjon, få ordbøker
+**Medier:** Ingen
+
+**Styrker:** Økende interesse for dokumentasjon
+**Utfordringer:** Kritisk truet, tradisjonelt hemmelig språk, lite skriftlig tradisjon
+
+---
+
+**Konklusjon:**
+Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og mer institusjonell støtte. Romanés er i en mer kritisk situasjon og trenger umiddelbare dokumentasjonstiltak.`,
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Svar på spørsmål om nasjonale minoriteter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke fem grupper er anerkjent som nasjonale minoriteter i Norge?',
+            solution: 'Kvener/norskfinner, rom, romanifolket/tatere, skogfinner og jøder.',
+          },
+          {
+            label: 'b',
+            task: 'Hva skiller en nasjonal minoritet fra andre minoriteter?',
+            solution: 'Lang historisk tilknytning til landet (minst 100 år), egen kultur/språk/religion, og offisiell anerkjennelse.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er forskjellen mellom nasjonale minoriteter og urfolk?',
+            solution: 'Urfolk (samer) har en særlig tilknytning til landområder fra før staten ble etablert, mens nasjonale minoriteter innvandret senere men har lang historie.',
+          },
+        ],
+        solution: 'De fem nasjonale minoritetene har ulik bakgrunn men felles status og rettigheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilket språk snakker kvenene tradisjonelt?',
+        options: [
+          { id: 'a', text: 'Samisk', isCorrect: false },
+          { id: 'b', text: 'Kvensk, et språk beslektet med finsk', isCorrect: true },
+          { id: 'c', text: 'Russisk', isCorrect: false },
+          { id: 'd', text: 'Svensk', isCorrect: false },
+        ],
+        solution: 'Kvensk er nært beslektet med finsk, men ble anerkjent som et eget språk i Norge i 2005. Det har utviklet seg selvstendig i Norge gjennom flere hundre år.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er forskjellen mellom rom og romanifolket/tatere?',
+        options: [
+          { id: 'a', text: 'Det er ingen forskjell - det er det samme folket', isCorrect: false },
+          { id: 'b', text: 'Rom kom til Norge på 1800-tallet, romanifolket har vært her siden 1500-tallet. De har ulike språk og kulturer.', isCorrect: true },
+          { id: 'c', text: 'Rom bor i byer, romanifolket bor på landet', isCorrect: false },
+          { id: 'd', text: 'Romanifolket er fra Romania, rom er fra India', isCorrect: false },
+        ],
+        solution: 'Rom og romanifolket er to forskjellige folkegrupper med ulik historie og ulike språk (romanés for rom, skandoromani for romanifolket). Begge har opprinnelse i India, men kom til Skandinavia på ulike tidspunkter.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Undersøk fornorskingspolitikken overfor nasjonale minoriteter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beskriv hvordan fornorskingspolitikken rammet kvenene.',
+            solution: 'Forbud mot kvensk i skolen, press om å ta norske navn, undertrykkelse av kvensk kultur og identitet.',
+          },
+          {
+            label: 'b',
+            task: 'Hva var de verste overgrepene mot romanifolket/taterne?',
+            solution: 'Tvangssterilisering, barn tatt fra foreldre, tvangsplassering på leirer, forbud mot tradisjonelle levemåter.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan påvirket Holocaust den jødiske minoriteten i Norge?',
+            solution: '773 norske jøder ble deportert og drept. Det jødiske samfunnet ble nesten utslettet.',
+          },
+        ],
+        hints: ['Se på perioden 1850-1980', 'Tenk på konsekvenser for språk, kultur og familier'],
+        solution: 'Alle de nasjonale minoritetene ble rammet av diskriminering og assimileringspolitikk, men på ulike måter og i ulik grad.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser truslene mot minoritetsspråkene.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke språk blant de nasjonale minoritetene er mest truet?',
+            solution: 'Romanés (taterspråk) er kritisk truet med svært få talere. Skogfinsk er allerede utdødd. Kvensk er truet men har flere talere.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er årsakene til språkdøden?',
+            solution: 'Fornorskingspolitikk, stigma, manglende overføring mellom generasjoner, få talere, lite institusjonell støtte.',
+          },
+          {
+            label: 'c',
+            task: 'Hva kan gjøres for å bevare truede språk?',
+            solution: 'Dokumentasjon, opplæringstilbud, språkkurs, digitale ressurser, synliggjøring, økonomisk støtte.',
+          },
+        ],
+        hints: ['Tenk på hva som får et språk til å overleve', 'Se på eksempler på vellykket revitalisering'],
+        solution: 'Språkbevaring krever aktive tiltak fra både staten og minoritetssamfunnene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Drøft betydningen av språk for identitet.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvorfor er språk viktig for en minoritetsgruppes identitet?',
+            solution: 'Språk bærer kultur, historie og verdenssyn. Det knytter generasjoner sammen og skaper tilhørighet.',
+          },
+          {
+            label: 'b',
+            task: 'Hva skjer med en kultur når språket dør ut?',
+            solution: 'Mye kunnskap og kulturelle uttrykk går tapt. Identitetsfølelsen kan svekkes. Men kultur kan leve videre på andre måter.',
+          },
+        ],
+        hints: ['Tenk på hva som overføres gjennom språk', 'Tenk på din egen dialekt/språk og hva det betyr for deg'],
+        solution: 'Språk og identitet er nært knyttet sammen, men identitet kan også uttrykkes på andre måter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-7',
+        number: '7',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva skjedde med skogfinnenes språk?',
+        options: [
+          { id: 'a', text: 'Det er et levende språk med mange talere', isCorrect: false },
+          { id: 'b', text: 'Finsk språk blant skogfinnene døde ut, men kulturarven bevares', isCorrect: true },
+          { id: 'c', text: 'Det utviklet seg til et eget språk som kalles skogfinsk', isCorrect: false },
+          { id: 'd', text: 'Det ble forbudt og er nå hemmelig', isCorrect: false },
+        ],
+        solution: 'Skogfinnene mistet finsk språk gjennom assimilering over tid. I dag er det ingen morsmålstalere igjen, men kulturarven bevares gjennom bygninger, stedsnavn og tradisjoner.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en refleksjonstekst (300-400 ord) om nasjonale minoriteters plass i norsk historie og samfunn.',
+        hints: [
+          'Hva visste du om nasjonale minoriteter fra før?',
+          'Hvorfor har du lært lite om dette i skolen tidligere?',
+          'Hva betyr anerkjennelse for en minoritetsgruppe?',
+          'Hvordan kan kunnskap om minoriteter bidra til et mer inkluderende samfunn?',
+        ],
+        solution: 'Teksten bør vise refleksjon over egen læring, forståelse for minoritetsperspektiver og tanker om hvordan samfunnet kan bli mer inkluderende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign behandlingen av ulike minoriteter i Norge.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er likheter i hvordan samer og kvener ble behandlet under fornorskingstiden?',
+            solution: 'Begge ble utsatt for språkforbud i skolen, press om å ta norske navn, og undertrykkelse av kultur. Begge ble sett som "mindre utviklede" kulturer.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor har samene oppnådd sterkere rettigheter enn de nasjonale minoritetene?',
+            solution: 'Samene har status som urfolk med særlige rettigheter. De har Sametinget og grunnlovsbeskyttelse. Nasjonale minoriteter har ikke samme institusjonelle rammeverk.',
+          },
+          {
+            label: 'c',
+            task: 'Er det rettferdig at ulike minoriteter har ulike rettigheter? Drøft.',
+            solution: 'Drøftingen bør vurdere både urfolksperspektivet og minoritetsperspektivet, og diskutere hva likeverd betyr i praksis.',
+          },
+        ],
+        hints: ['Tenk på historisk tilknytning', 'Se på internasjonale konvensjoner', 'Vurder ulike perspektiver'],
+        solution: 'Sammenligningen bør vise forståelse for ulike minoriteters situasjon og evne til nyansert drøfting.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-7-4-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-7-4-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Gjennomfør et prosjekt om en nasjonal minoritet.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en av de fem nasjonale minoritetene og undersøk deres historie i Norge.',
+            solution: 'Beskriv når de kom til Norge, hvor de bosatte seg, og hvordan de levde.',
+          },
+          {
+            label: 'b',
+            task: 'Undersøk hvordan minoriteten ble behandlet av myndighetene gjennom historien.',
+            solution: 'Beskriv diskriminering, assimileringspolitikk og eventuelle overgrep.',
+          },
+          {
+            label: 'c',
+            task: 'Beskriv minoritetens situasjon i dag: språk, kultur, organisasjoner, utfordringer.',
+            solution: 'Beskriv dagens situasjon med fokus på revitalisering og fremtidsutsikter.',
+          },
+          {
+            label: 'd',
+            task: 'Presenter prosjektet skriftlig (400-500 ord) eller muntlig for klassen.',
+            solution: 'Presentasjonen bør vise kunnskap, kildebruk og evne til formidling.',
+          },
+        ],
+        hints: [
+          'Bruk kilden Nasjonale minoriteter (regjeringen.no)',
+          'Se etter minoritetenes egne organisasjoner',
+          'Bruk biblioteket og digitale arkiver',
+        ],
+        solution: 'Prosjektet viser evne til selvstendig research og formidling om minoritetshistorie.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 6.4: Kildekritikk og falske nyheter
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_6_4: TextbookChapter = {
+  id: 'norsk-vg1-6-4',
+  courseId: 'norsk-vg1',
+  chapterNumber: '6.4',
+  title: 'Kildekritikk og falske nyheter',
+  description: 'Lær å avsløre falske nyheter og vurdere troverdigheten til digitale kilder.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'bruke kilder kritisk og selvstendig i egne tekster',
+    'vurdere troverdigheten til ulike typer kilder og informasjon',
+    'reflektere over hvordan tekster påvirker og påvirkes av samfunnet',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-6-4-intro',
+      type: 'text',
+      content: `## Hvorfor trenger vi kildekritikk?
+
+I dag har alle tilgang til å publisere informasjon på internett. Det betyr at vi møter enorme mengder tekst, bilder og videoer hver dag - men ikke alt er sant eller til å stole på.
+
+**Utfordringer i den digitale hverdagen:**
+- Hvem som helst kan publisere hva som helst
+- Informasjon spres raskt uten kvalitetskontroll
+- Det kan være vanskelig å skille fakta fra fiksjon
+- Algoritmer viser oss det vi allerede tror på
+
+**Hva er kildekritikk?**
+Kildekritikk handler om å vurdere informasjon kritisk:
+- Hvem står bak informasjonen?
+- Hva er formålet?
+- Er innholdet sant og pålitelig?
+- Kan jeg stole på denne kilden?
+
+**Hvorfor er dette viktig?**
+- For å ta gode beslutninger
+- For å ikke spre usannheter
+- For demokratiet og samfunnsdebatten
+- For å beskytte oss mot manipulasjon
+
+**Kildekritikk er en av de viktigste ferdighetene du kan lære i vår digitale tid. Det handler ikke om å være mistenksom mot alt, men om å tenke før du tror og deler.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-1',
+      type: 'definition',
+      title: 'Hva er falske nyheter?',
+      content: `**Falske nyheter og desinformasjon**
+
+"Falske nyheter" er et samlebegrep for ulike typer villedende innhold. Det er viktig å skille mellom ulike kategorier:
+
+**Typer feilinformasjon:**
+
+**1. Satire og parodi:**
+- Humor som etterligner nyhetsformat
+- Ikke ment å lure, men kan misforstås
+- Eksempel: Humorsider som "The Onion" eller norske "Nansen"
+
+**2. Villedende innhold:**
+- Ekte informasjon brukt i feil kontekst
+- Manipulerte overskrifter
+- Selektiv sitering
+
+**3. Feilinformasjon (misinformasjon):**
+- Usann informasjon spredt av folk som tror det er sant
+- Ofte delt i god tro
+- Feil som spres videre
+
+**4. Desinformasjon:**
+- Bevisst falsk informasjon laget for å villede
+- Ofte politisk motivert
+- Kan være statlig propagandavirksomhet
+
+**5. Propaganda:**
+- Systematisk spredning av informasjon for å påvirke holdninger
+- Kan inneholde sannheter, halvsannheter og løgner
+- Ofte emosjonelt ladet
+
+**6. Fabrikerte nyheter:**
+- Helt oppdiktede historier presentert som nyheter
+- Laget for å tjene penger (klikk) eller påvirke meninger
+- Ofte sensasjonelle overskrifter
+
+**Viktig:** Ikke all feil informasjon er bevisst løgn. Mange sprer feilinformasjon fordi de selv tror det er sant.`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-2',
+      type: 'definition',
+      title: 'TONE-modellen for kildekritikk',
+      content: `**TONE-modellen**
+
+TONE er en enkel huskeregel for kildekritiske spørsmål:
+
+**T - Troverdighet**
+- Hvem er avsenderen?
+- Er dette en anerkjent kilde?
+- Har avsenderen kompetanse på området?
+- Oppgir kilden sine kilder?
+- Har nettstedet kontaktinformasjon og redaksjon?
+
+**O - Objektivitet**
+- Hva er formålet med teksten?
+- Er fremstillingen balansert?
+- Presenteres flere sider av saken?
+- Er det skjulte interesser? (reklame, politikk)
+- Brukes følelsesladet språk?
+
+**N - Nøyaktighet**
+- Er fakta korrekte og etterprøvbare?
+- Brukes presise tall og kilder?
+- Stemmer informasjonen med andre kilder?
+- Er det skrivefeil eller tegn på slurv?
+
+**E - Egnethet**
+- Er kilden relevant for mitt formål?
+- Er informasjonen oppdatert?
+- Er kilden på riktig nivå?
+- Passer den til oppgaven min?
+
+**Andre viktige spørsmål:**
+- Når ble dette publisert?
+- Kan jeg finne originalkilden?
+- Hvem tjener på at jeg tror dette?
+- Hva sier andre kilder?
+
+**Bruk TONE hver gang du vurderer en kilde - enten det er til skolearbeid eller når du leser nyheter.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-3',
+      type: 'definition',
+      title: 'Faktasjekk - slik gjør du det',
+      content: `**Hvordan faktasjekke informasjon**
+
+Når du møter påstander du er usikker på, kan du faktasjekke:
+
+**Steg 1: Stopp opp**
+- Ikke del videre før du har sjekket
+- Sterke følelsesreaksjoner kan være et varsel
+- "For godt til å være sant" er ofte nettopp det
+
+**Steg 2: Søk etter originalkilden**
+- Hvem sa dette først?
+- Finnes det en primærkilde?
+- Sjekk om sitater er korrekte
+
+**Steg 3: Kryssjekk med flere kilder**
+- Rapporterer andre medier det samme?
+- Bruk anerkjente nyhetskilder
+- Vær obs på at mange kan sitere samme (feil) kilde
+
+**Steg 4: Bruk faktasjekkere**
+
+**Norske faktasjekkere:**
+- Faktisk.no - Norges største faktasjekktjeneste
+- NRKs faktasjekk
+- Avisenes egne faktasjekker
+
+**Internasjonale:**
+- Snopes.com
+- FullFact.org
+- PolitiFact
+
+**Steg 5: Sjekk bilder og video**
+- Omvendt bildesøk (Google Bilder, TinEye)
+- Sjekk om bildet er gammelt eller fra annen kontekst
+- Vær kritisk til videoer - de kan være manipulert
+
+**Steg 6: Vurder ekspertkilder**
+- Hva sier fagfolk på området?
+- Sjekk fagfellevurdert forskning
+- Vær kritisk til "eksperter" uten relevant kompetanse
+
+**Husk: Det er bedre å bruke litt tid på å sjekke enn å spre feilinformasjon videre.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-4',
+      type: 'definition',
+      title: 'Algoritmer og ekkokammer',
+      content: `**Hvordan algoritmer påvirker hva vi ser**
+
+Når du bruker sosiale medier og søkemotorer, møter du ikke et tilfeldig utvalg av informasjon. Algoritmer bestemmer hva du ser.
+
+**Hva er en algoritme?**
+- En oppskrift som datamaskiner følger
+- På sosiale medier: bestemmer hva som vises i feeden din
+- Målet: holde deg på plattformen lengst mulig
+
+**Filterbobler:**
+- Algoritmer viser deg innhold du sannsynligvis liker
+- Basert på hva du har klikket på før
+- Resultat: du ser mer av det du allerede er enig i
+
+**Ekkokammer:**
+- Når du bare hører meninger som ligner dine egne
+- Forsterkes av hvem du følger og er venner med
+- Kan gi et skjevt bilde av virkeligheten
+
+**Konsekvenser:**
+- Vi kan tro at "alle" mener det samme som oss
+- Ekstreme synspunkter kan forsterkes
+- Vanskeligere å forstå andres perspektiver
+- Polarisering i samfunnet
+
+**Hvordan bryte ut av ekkokammeret:**
+- Følg kilder med ulike perspektiver
+- Les aviser og medier du vanligvis ikke leser
+- Vær bevisst på at feeden din er kuratert
+- Snakk med folk som mener andre ting enn deg
+- Søk aktivt etter motargumenter
+
+**Viralitet:**
+Innhold som skaper sterke følelser (sinne, frykt, glede) spres lettere. Algoritmer fremmer ofte slikt innhold fordi det skaper engasjement - men det betyr ikke at det er sant eller viktig.
+
+**Algoritmene er ikke onde, men de er heller ikke nøytrale. Vær bevisst på at det du ser er et utvalg - ikke hele bildet.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-5',
+      type: 'definition',
+      title: 'Bilder og manipulasjon',
+      content: `**Kan du stole på det du ser?**
+
+Bilder har tradisjonelt vært ansett som bevis - "kamera lyver ikke". Men i dag kan bilder enkelt manipuleres og tas ut av kontekst.
+
+**Typer bildemanipulasjon:**
+
+**1. Retusjering:**
+- Små endringer (fjerne kviser, endre farger)
+- Vanlig i reklame og motebransjen
+- Kan gi urealistiske skjønnhetsidealer
+
+**2. Fotomontasje:**
+- Sette sammen elementer fra ulike bilder
+- Kan plassere personer steder de aldri har vært
+- Brukes i politisk manipulasjon
+
+**3. Kontekstmanipulasjon:**
+- Ekte bilde, men feil kontekst
+- Gamle bilder presentert som nye
+- Bilder fra ett sted presentert som et annet
+
+**4. Deepfakes:**
+- AI-genererte bilder og videoer
+- Kan vise personer som sier/gjør ting de aldri har gjort
+- Stadig vanskeligere å avsløre
+
+**5. AI-genererte bilder:**
+- Helt oppdiktede bilder laget av kunstig intelligens
+- Kan se helt realistiske ut
+- Finnes ikke i virkeligheten
+
+**Hvordan avsløre manipulerte bilder:**
+
+- **Omvendt bildesøk:** Finn originalen
+- **Se etter detaljer:** Skygger, proporsjoner, kanter
+- **Sjekk metadata:** Når og hvor ble bildet tatt?
+- **Vær kritisk:** Virker det for dramatisk/perfekt?
+- **Bruk verktøy:** FotoForensics, InVID
+
+**Regel:** Et bilde er ikke bevis før du vet konteksten. Hvem tok det? Når? Hvor? Hvorfor deles det nå?`,
+    },
+    {
+      id: 'norsk-vg1-6-4-def-6',
+      type: 'definition',
+      title: 'Konsekvenser for demokratiet',
+      content: `**Desinformasjon truer demokratiet**
+
+Demokratiet er avhengig av at borgerne kan ta informerte valg. Når falsk informasjon spres, undergraves dette.
+
+**Trusler mot demokratiet:**
+
+**1. Undergraving av tillit:**
+- Når folk ikke vet hva de kan stole på
+- Mistro til medier, eksperter og institusjoner
+- "Alt kan være fake" - apati og resignasjon
+
+**2. Polarisering:**
+- Desinformasjon forsterker motsetninger
+- Vanskeligere å finne felles grunn
+- "Vi mot dem"-tenkning
+
+**3. Valgpåvirkning:**
+- Falske nyheter om kandidater
+- Utenlandsk innblanding i valg
+- Manipulasjon av velgere
+
+**4. Folkehelse:**
+- Farlig feilinformasjon om helse (vaksiner, behandlinger)
+- Hindrer effektiv krisehåndtering
+- Koster liv
+
+**5. Hat og ekstremisme:**
+- Konspirasjonsteorier radikaliserer
+- Hatefulle ytringer spres
+- Kan føre til vold
+
+**Hvem står bak?**
+- Profittjegere (annonseinntekter fra klikk)
+- Politiske aktører (innenlands og utenlands)
+- Trollfabrikker og botnettverk
+- Vanlige folk som deler uten å tenke
+
+**Hva kan du gjøre?**
+- Vær kritisk til det du leser og deler
+- Støtt kvalitetsjournalistikk
+- Korriger feilinformasjon (høflig og saklig)
+- Snakk med folk om kildekritikk
+- Rapporter falsk innhold
+
+**Kildekritikk er ikke bare en skoleferdighet - det er en demokratisk plikt. Hver gang du stopper og tenker før du deler, bidrar du til et sunnere offentlig ordskifte.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Avsløre en falsk nyhet',
+      problem: 'Hvordan kan vi avsløre at en nyhetssak er falsk? La oss se på et tenkt eksempel.',
+      solution: `**Saken:**
+En artikkel med overskriften "SJOKKERENDE: Forskere avslører at kaffe er like farlig som røyking!" spres i sosiale medier.
+
+**Røde flagg:**
+
+**1. Overskriften:**
+- Store bokstaver og sjokkerende språk
+- Ingen konkret kilde nevnt
+- "Forskere" - hvilke forskere?
+
+**2. Nettstedet:**
+- Ukjent nettsted: "helsesannheter24.info"
+- Ingen redaksjonell informasjon
+- Mange popup-reklamer
+
+**3. Innholdet:**
+- Vage påstander uten kilder
+- Ingen lenker til forskning
+- Sitater uten navn på forskere
+- Følelsesladet språk
+
+**Faktasjekk-prosessen:**
+
+**Steg 1: Søk etter kilden**
+Søk "kaffe farlig som røyking studie" - finner ingen seriøse kilder som rapporterer dette.
+
+**Steg 2: Sjekk faktasjekkere**
+Faktisk.no har ingen sak om dette. Internasjonale faktasjekkere har avslørt lignende påstander som falske.
+
+**Steg 3: Sjekk ekspertkilder**
+Folkehelseinstituttet og WHO sier at moderat kaffeforbruk ikke er helsefarlig. Forskning viser faktisk noen helsefordeler.
+
+**Steg 4: Omvendt bildesøk**
+Bildet i artikkelen er et arkivfoto brukt på mange nettsteder, ikke fra en reell studie.
+
+**Konklusjon:**
+Dette er en falsk nyhet, trolig laget for å generere klikk og annonseinntekter. Ingen seriøs forskning støtter påstanden.
+
+**Lærdom:** Sensasjonelle helsepåstander uten kilder bør alltid sjekkes før de deles.`,
+    },
+    {
+      id: 'norsk-vg1-6-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Bilde tatt ut av kontekst',
+      problem: 'Hvordan kan vi avsløre at et bilde brukes i feil kontekst?',
+      solution: `**Situasjonen:**
+Et bilde av store folkemengder deles med teksten "Protestene mot regjeringen vokser - tusenvis i gatene i dag!"
+
+**Undersøkelsen:**
+
+**Steg 1: Omvendt bildesøk**
+Last opp bildet til Google Bilder eller TinEye. Søkeresultatene viser at bildet dukker opp i artikler fra 2019.
+
+**Steg 2: Finn originalen**
+Bildet er fra en musikkfestival i et annet land for flere år siden - ikke fra noen protest.
+
+**Steg 3: Se etter detaljer**
+- Plakatene i bildet er på et annet språk
+- Været stemmer ikke med årstiden
+- Klærne ser ut som sommertøy, men det er vinter nå
+
+**Steg 4: Kryssjekk**
+Ingen nyhetsmedier rapporterer om store protester i dag. Politiet bekrefter at det ikke har vært store demonstrasjoner.
+
+**Konklusjon:**
+Bildet er ekte, men brukes i helt feil kontekst. Dette er et klassisk eksempel på kontekstmanipulasjon - et av de vanligste triksene i desinformasjon.
+
+**Slik kan du sjekke bilder:**
+1. Høyreklikk på bildet og velg "Søk på Google etter bilde" (eller bruk TinEye)
+2. Se når bildet først ble publisert
+3. Les hva originalkilden sier om bildet
+4. Sammenlign detaljer med påstanden
+
+**Husk: Et bilde beviser bare at bildet eksisterer - ikke at påstanden rundt bildet er sann.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Forklar sentrale begreper innen kildekritikk.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er forskjellen på feilinformasjon (misinformasjon) og desinformasjon?',
+            solution: 'Feilinformasjon er usann informasjon som spres av folk som tror det er sant (uten ond hensikt). Desinformasjon er bevisst falsk informasjon laget for å villede.',
+          },
+          {
+            label: 'b',
+            task: 'Hva mener vi med et ekkokammer?',
+            solution: 'Et ekkokammer er når vi bare eksponeres for meninger og informasjon som bekrefter det vi allerede tror, ofte forsterket av algoritmer og hvem vi følger i sosiale medier.',
+          },
+          {
+            label: 'c',
+            task: 'Hva betyr det å faktasjekke?',
+            solution: 'Å faktasjekke betyr å undersøke om en påstand er sann ved å finne og vurdere pålitelige kilder, ofte ved å kryssjekke med flere uavhengige kilder.',
+          },
+        ],
+        solution: 'Å kjenne fagbegrepene gjør deg bedre rustet til kritisk lesing.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva står T for i TONE-modellen?',
+        options: [
+          { id: 'a', text: 'Tekst', isCorrect: false },
+          { id: 'b', text: 'Troverdighet', isCorrect: true },
+          { id: 'c', text: 'Tendens', isCorrect: false },
+          { id: 'd', text: 'Tidsriktig', isCorrect: false },
+        ],
+        solution: 'T i TONE står for Troverdighet - vi vurderer om avsenderen er til å stole på og har kompetanse på området.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bruk TONE-modellen til å vurdere en kilde.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en artikkel fra en nettavis eller et blogginnlegg om et tema du er interessert i.',
+            solution: 'Velg en konkret tekst du kan analysere.',
+          },
+          {
+            label: 'b',
+            task: 'Vurder Troverdighet: Hvem er avsenderen? Har de kompetanse? Er det en anerkjent kilde?',
+            solution: 'Undersøk forfatteren, nettstedet og eventuelle redaksjonelle retningslinjer.',
+          },
+          {
+            label: 'c',
+            task: 'Vurder Objektivitet: Hva er formålet? Er fremstillingen balansert? Er det skjulte interesser?',
+            solution: 'Se etter tegn på forutinntatthet, reklame, politisk vinkling eller ensidige fremstillinger.',
+          },
+          {
+            label: 'd',
+            task: 'Vurder Nøyaktighet: Er fakta korrekte? Oppgis kilder? Stemmer det med andre kilder?',
+            solution: 'Sjekk påstander mot andre kilder og se om kilder er oppgitt.',
+          },
+          {
+            label: 'e',
+            task: 'Gi en samlet vurdering: Er dette en kilde du kan stole på?',
+            solution: 'Oppsummer styrker og svakheter og konkluder.',
+          },
+        ],
+        solution: 'TONE-analysen bør vise systematisk kildevurdering med konkrete observasjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser en overskrift fra sosiale medier eller en tabloidavis.',
+        hints: ['Hva lover overskriften?', 'Hvilke følelser appellerer den til?', 'Er det clickbait?', 'Hva må være sant for at overskriften skal stemme?'],
+        solution: 'Analysen bør vise bevissthet om hvordan overskrifter brukes for å fange oppmerksomhet og noen ganger villede.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Gjennomfør en faktasjekk av en påstand.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn en påstand fra sosiale medier, en artikkel eller noe noen har sagt som du er usikker på.',
+            solution: 'Velg en konkret påstand som kan sjekkes.',
+          },
+          {
+            label: 'b',
+            task: 'Beskriv hvilke steg du tar for å faktasjekke påstanden.',
+            solution: 'F.eks.: søk etter originalkilden, bruk faktasjekk-nettsteder, sjekk med ekspertkilder, kryssjekk med flere kilder.',
+          },
+          {
+            label: 'c',
+            task: 'Hva fant du ut? Var påstanden sann, delvis sann eller usann?',
+            solution: 'Presenter funnene med henvisning til kildene du brukte.',
+          },
+        ],
+        solution: 'Faktasjekken bør vise metodisk tilnærming og bruk av pålitelige kilder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Undersøk algoritmenes påvirkning på din egen informasjonsstrøm.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en plattform du bruker (YouTube, TikTok, Instagram, etc.) og beskriv hva slags innhold du vanligvis ser.',
+            solution: 'Beskriv typisk innhold i feeden/anbefalingene dine.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor tror du algoritmen viser deg akkurat dette innholdet?',
+            solution: 'Reflekter over hva du har klikket på, søkt etter, og hvem du følger.',
+          },
+          {
+            label: 'c',
+            task: 'Hva ser du sjelden eller aldri? Hvilke perspektiver mangler?',
+            solution: 'Tenk over hva som filtreres bort og hva du kanskje går glipp av.',
+          },
+          {
+            label: 'd',
+            task: 'Hva kan du gjøre for å få et bredere perspektiv?',
+            solution: 'F.eks.: følge nye kontoer, søke bevisst etter andre synspunkter, bruke ulike kilder.',
+          },
+        ],
+        solution: 'Refleksjonen bør vise bevissthet om algoritmers påvirkning og egne strategier for å motvirke filterbobler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Gjør et omvendt bildesøk og rapporter hva du finner.',
+        hints: ['Bruk Google Bilder eller TinEye', 'Velg et bilde fra en nyhetssak eller sosiale medier', 'Undersøk hvor bildet opprinnelig kommer fra'],
+        solution: 'Rapporten bør vise praktisk erfaring med omvendt bildesøk og evne til å vurdere bildets kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-8',
+        number: '8',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken av disse er det BESTE eksempelet på desinformasjon?',
+        options: [
+          { id: 'a', text: 'En satireavis som skriver en humoristisk artikkel om en politiker', isCorrect: false },
+          { id: 'b', text: 'En bestemor som deler en artikkel hun tror er sann, men som er falsk', isCorrect: false },
+          { id: 'c', text: 'En organisasjon som lager falske artikler for å påvirke et valg', isCorrect: true },
+          { id: 'd', text: 'En journalist som gjør en faktafeil i en artikkel', isCorrect: false },
+        ],
+        solution: 'Desinformasjon kjennetegnes ved at det er bevisst falsk informasjon laget for å villede. Alternativ c er det eneste der noen med vilje skaper falskt innhold for å manipulere.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Lag en presentasjon eller infografikk om hvordan man avslører falske nyheter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg 5-7 konkrete tips for å gjenkjenne falske nyheter.',
+            solution: 'F.eks.: sjekk kilden, vær kritisk til sensasjonelle overskrifter, sjekk datoen, bruk faktasjekkere, osv.',
+          },
+          {
+            label: 'b',
+            task: 'Lag en visuell fremstilling som er lett å forstå.',
+            solution: 'Bruk korte punkter, ikoner eller illustrasjoner.',
+          },
+          {
+            label: 'c',
+            task: 'Inkluder minst ett eksempel på en falsk nyhet og hvordan den kunne vært avslørt.',
+            solution: 'Vis praktisk anvendelse av tipsene.',
+          },
+        ],
+        hints: ['Tenk på hvem målgruppen er', 'Hold det enkelt og konkret', 'Bruk eksempler som er relevante for jevnaldrende'],
+        solution: 'Presentasjonen bør være informativ, visuelt tiltalende og praktisk nyttig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-6-4-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-4-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et essay (400-500 ord): Hvorfor er kildekritikk viktig for demokratiet?',
+        hints: [
+          'Drøft sammenhengen mellom informert borgerskap og demokrati',
+          'Gi eksempler på hvordan desinformasjon kan true demokratiet',
+          'Diskuter hvem som har ansvar: individet, mediene, plattformene, staten?',
+          'Avslutt med en refleksjon om hva du selv kan gjøre',
+        ],
+        solution: 'Essayet bør vise forståelse for sammenhengen mellom informasjonskvalitet og demokratisk deltakelse, med konkrete eksempler og egne refleksjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 5.5: Tolkende og analyserende tekst
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_5_5: TextbookChapter = {
+  id: 'norsk-vg1-5-5',
+  courseId: 'norsk-vg1',
+  chapterNumber: '5.5',
+  title: 'Tolkende og analyserende tekst',
+  description: 'Lær å skrive tolkende og analyserende tekster om litteratur og sakprosa.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'analysere og tolke tekster og bruke fagbegreper',
+    'skrive tekster med klart uttrykt tema og god struktur',
+    'begrunne egne tolkninger med utgangspunkt i teksten',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-5-5-intro',
+      type: 'text',
+      content: `## Hva er en tolkende og analyserende tekst?
+
+En tolkende og analyserende tekst er en saktekst der du undersøker og forklarer en annen tekst (litterær eller sakprosa). Du bryter teksten ned i deler, forklarer hvordan den virker, og tolker hva den betyr.
+
+**Hovedkjennetegn:**
+- Du undersøker HVA teksten handler om
+- Du forklarer HVORDAN teksten er bygget opp
+- Du tolker HVORFOR forfatteren har gjort sine valg
+- Du argumenterer for din tolkning med belegg fra teksten
+
+**Viktige begreper:**
+- **Analyse:** Å bryte ned teksten i deler og forklare hvordan de virker
+- **Tolkning:** Å forklare hva teksten betyr, finne mening utover det bokstavelige
+- **Belegg:** Sitater og eksempler fra teksten som støtter påstandene dine
+
+**Når skriver du analyserende tekster?**
+- På eksamen i norsk
+- I litterære oppgaver på skolen
+- I akademisk sammenheng
+- Når du vurderer og anmelder tekster
+
+**En god analyse kombinerer nøktern undersøkelse med begrunnet tolkning.**`,
+    },
+    {
+      id: 'norsk-vg1-5-5-def-1',
+      type: 'definition',
+      title: 'Struktur: Innledning, analyse, tolkning, avslutning',
+      content: `**Oppbygning av en analyserende tekst:**
+
+**1. INNLEDNING**
+- Presenter teksten: tittel, forfatter, sjanger, utgivelsesår
+- Kort om hva teksten handler om (ikke referat!)
+- Si hva du skal undersøke (problemstilling/fokus)
+- Vekk leserens interesse
+
+**Eksempel på innledning:**
+*"I novellen 'Karen' (1882) skildrer Alexander Kielland en ung kvinnes tragiske skjebne i et klassesamfunn. I denne analysen vil jeg undersøke hvordan Kielland bruker kontraster og ironi for å kritisere samfunnet."*
+
+**2. HOVEDDEL: ANALYSE**
+- Undersøk tekstens oppbygning og struktur
+- Analyser virkemidler (språklige og litterære)
+- Forklar hvordan virkemidlene skaper mening
+- Bruk sitater som belegg
+
+**3. HOVEDDEL: TOLKNING**
+- Hva betyr teksten? Hva er temaene?
+- Hvordan henger delene sammen?
+- Hva vil forfatteren si oss?
+- Sett teksten i kontekst (historisk, samfunnsmessig)
+
+**4. AVSLUTNING**
+- Oppsummer hovedfunnene
+- Svar på problemstillingen
+- Eventuell vurdering eller refleksjon
+- Avrund teksten på en god måte
+
+**Husk: Analyse og tolkning glir ofte over i hverandre - det viktige er at du begrunner påstandene dine.**`,
+    },
+    {
+      id: 'norsk-vg1-5-5-def-2',
+      type: 'definition',
+      title: 'Fagbegreper og sitatbruk',
+      content: `**Bruk av fagbegreper:**
+
+Fagbegreper viser at du kan analysere faglig og gjør teksten din mer presis.
+
+**Viktige begreper for litterær analyse:**
+- Tema, motiv, symbol
+- Synsvinkel, forteller
+- Komposisjon, spenningskurve
+- Miljøskildring, personskildring
+- Kontrast, parallell
+- Ironi, metafor, sammenligning
+- Språklige virkemidler
+
+**Viktige begreper for sakprosaanalyse:**
+- Avsender, mottaker, formål
+- Etos, patos, logos
+- Argumentasjon, påstand, belegg
+- Språkhandlinger
+- Tone og stil
+
+**Riktig sitatbruk:**
+
+**Korte sitater (under 3 linjer):**
+Integrer i setningen din med anførselstegn:
+*Fortelleren beskriver Karen som "blek og mager" (s. 12), noe som understreker fattigdommen.*
+
+**Lengre sitater (over 3 linjer):**
+Sett som eget avsnitt med innrykk, uten anførselstegn.
+
+**Regler for sitering:**
+- Siter ordrett
+- Bruk anførselstegn
+- Oppgi sidetall
+- Kommenter alltid sitatet - forklar hvorfor det er relevant
+- Ikke la sitater stå alene
+
+**Husk: Sitater er belegg for påstandene dine, ikke erstatning for egen analyse.**`,
+    },
+    {
+      id: 'norsk-vg1-5-5-def-3',
+      type: 'definition',
+      title: 'Å argumentere for en tolkning',
+      content: `**Hvordan begrunner du en tolkning?**
+
+En tolkning er ikke en mening du bare har - den må begrunnes med belegg fra teksten.
+
+**Argumentasjonsstruktur:**
+1. **Påstand:** Hva du mener teksten betyr
+2. **Belegg:** Sitater og eksempler fra teksten
+3. **Forklaring:** Hvordan belegget støtter påstanden
+
+**Eksempel:**
+*Påstand:* Novellen kritiserer klassesamfunnet.
+*Belegg:* Kontrasten mellom Karens fattigslige rom og familiens overdådige hjem.
+*Forklaring:* Denne kontrasten understreker urettferdigheten og får leseren til å sympatisere med Karen.
+
+**Gode formuleringer:**
+- "Dette kan tolkes som..."
+- "Symbolikken antyder at..."
+- "Kontrasten mellom X og Y understreker..."
+- "Forfatteren bruker X for å vise..."
+- "Dette støttes av at..."
+
+**Flere gyldige tolkninger:**
+- En tekst kan tolkes på flere måter
+- Det finnes ikke én "riktig" tolkning
+- MEN: tolkningen må kunne begrunnes i teksten
+- Unngå: "Jeg tror forfatteren mente..." uten belegg
+
+**Tips:**
+- Vær presis og konkret
+- Vis at du kjenner teksten godt
+- Forklar hvorfor virkemidlene har den effekten
+- Knytt analyse og tolkning sammen`,
+    },
+    {
+      id: 'norsk-vg1-5-5-def-4',
+      type: 'definition',
+      title: 'Forskjellen på analyse og tolkning',
+      content: `**Analyse vs. tolkning - hva er forskjellen?**
+
+Analyse og tolkning henger sammen, men er ikke det samme:
+
+**ANALYSE:**
+- Undersøker HVORDAN teksten er laget
+- Identifiserer virkemidler og strukturer
+- Beskriver det som faktisk står i teksten
+- Er mer objektiv og tekstnær
+- Spør: Hva gjør forfatteren?
+
+**Eksempel på analyse:**
+*"Novellen har en kronologisk oppbygning med et vendepunkt i midten. Fortelleren er allvitende og bruker indre monolog for å vise Karens tanker."*
+
+**TOLKNING:**
+- Undersøker HVA teksten betyr
+- Finner mening utover det bokstavelige
+- Setter teksten i sammenheng
+- Er mer subjektiv (men begrunnet!)
+- Spør: Hva betyr dette?
+
+**Eksempel på tolkning:**
+*"Karens skjebne kan ses som en kritikk av et samfunn der kvinner fra underklassen har få muligheter. Hennes tragedie representerer mange lignende skjebner."*
+
+**Samspillet:**
+- God tolkning bygger på grundig analyse
+- Analysen gir belegg for tolkningen
+- I en tekst fletter du dem gjerne sammen
+- Først beskriv (analyse), så forklar betydningen (tolkning)
+
+**Fallgruve:**
+Å tolke uten analyse = synsing
+Å analysere uten tolkning = overfladisk`,
+    },
+    {
+      id: 'norsk-vg1-5-5-def-5',
+      type: 'definition',
+      title: 'Analysere ulike sjangre',
+      content: `**Tilpasse analysen til sjangeren:**
+
+**Novelle og roman:**
+- Handling og komposisjon
+- Personskildring og utvikling
+- Miljø og tid
+- Synsvinkel og forteller
+- Tema og budskap
+- Språk og stil
+
+**Dikt:**
+- Form: vers, rim, rytme
+- Språklige bilder: metafor, symbol
+- Lyrisk jeg
+- Stemning og tone
+- Tematikk
+- Sammenheng form og innhold
+
+**Drama:**
+- Handling og konflikter
+- Personene og relasjonene
+- Sceneanvisninger
+- Dialog og replikker
+- Dramatisk oppbygning
+
+**Sakprosa (artikkel, kronikk, essay):**
+- Avsender og mottaker
+- Formål og kontekst
+- Argumentasjon og retorikk
+- Språk og stil
+- Struktur og oppbygning
+
+**Fellestrekk for all analyse:**
+- Start med helheten, gå til detaljene
+- Se etter mønstre og kontraster
+- Forklar sammenhenger
+- Begrunne påstandene dine`,
+    },
+    {
+      id: 'norsk-vg1-5-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Analyserende tekst om novelle',
+      problem: 'Se hvordan en analyserende tekst kan se ut.',
+      solution: `**Oppgave:** Analyser novellen "Karens jul" av Amalie Skram (1885).
+
+**Eksempel på analyserende tekst:**
+
+**INNLEDNING:**
+"Karens jul" er en novelle av Amalie Skram fra 1885. Novellen handler om den fattige tjenestejenta Karen som opplever julen alene i et kaldt og mørkt kjøkken mens familien hun arbeider for feirer i stuen. I denne analysen vil jeg undersøke hvordan Skram bruker kontraster og miljøskildring for å skildre sosial urettferdighet.
+
+**ANALYSE OG TOLKNING:**
+Novellen er bygget opp rundt en sterk kontrast mellom to verdener: det varme, lyse juleselskapet i stuen og det kalde, mørke kjøkkenet der Karen befinner seg. Skram skildrer detaljert lukten av mat, lyden av latter og musikk som siver inn til Karen. Denne kontrasten mellom overflod og savn forsterker leserens sympati med Karen.
+
+Fortelleren er allvitende og lar oss se Karens tanker: "Hun tenkte på mor og småsøsknene hjemme" (s. 5). Denne indre monologen gjør Karen til et individ, ikke bare en type. Vi forstår hennes lengsel og sorg.
+
+Miljøskildringen er sentral. Kjøkkenet beskrives med ord som "koldt", "mørkt" og "fuktig", mens stuen er "varm" og "strålende". Denne kontrasten symboliserer klasseskillet i samfunnet.
+
+**AVSLUTNING:**
+Gjennom virkemidler som kontrast, miljøskildring og indre monolog skaper Skram en tekst som både beveger og provoserer. Novellen kan leses som en kritikk av et samfunn der noen feirer i overflod mens andre fryser i samme hus. Karen representerer de usynlige - tjenerne og arbeiderne som holdt samfunnet i gang uten å få del i godene.
+
+---
+*Denne analysen viser hvordan du kombinerer tekstnær analyse med tolkning og setter teksten i en større sammenheng.*`,
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Forklar forskjellen mellom analyse og tolkning.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva gjør du når du analyserer en tekst?',
+            solution: 'Du undersøker hvordan teksten er laget: virkemidler, struktur, språk, komposisjon. Du beskriver det som faktisk står i teksten.',
+          },
+          {
+            label: 'b',
+            task: 'Hva gjør du når du tolker en tekst?',
+            solution: 'Du forklarer hva teksten betyr, finner mening utover det bokstavelige, og setter teksten i en større sammenheng.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan henger analyse og tolkning sammen?',
+            solution: 'Analyse gir grunnlag og belegg for tolkning. God tolkning bygger på grundig analyse. I en analyserende tekst fletter man dem ofte sammen.',
+          },
+        ],
+        solution: 'Analyse handler om hvordan teksten er laget, tolkning handler om hva den betyr. De henger tett sammen i en god analyserende tekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Skriv en innledning til en analyse av en selvvalgt tekst.',
+        hints: [
+          'Presenter teksten: tittel, forfatter, sjanger, år',
+          'Si kort hva teksten handler om',
+          'Formuler hva du skal undersøke (fokus/problemstilling)',
+          'Gjør innledningen interessant',
+        ],
+        solution: 'Innledningen bør inneholde presentasjon av teksten, kort om innholdet, og et tydelig fokus for analysen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Øv på sitatbruk.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn en setning fra en tekst du har lest, og skriv et avsnitt der du bruker sitatet som belegg for en påstand.',
+            solution: 'Avsnittet bør ha en påstand, et sitat med korrekt anførsel, og en forklaring på hvordan sitatet støtter påstanden.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvorfor man alltid skal kommentere sitater i en analyse.',
+            solution: 'Sitater skal ikke stå alene - leseren må forstå hvorfor sitatet er relevant og hva det viser. Uten kommentar vet ikke leseren hva du vil med sitatet.',
+          },
+        ],
+        solution: 'God sitatbruk betyr at du velger relevante sitater, integrerer dem i teksten, og forklarer hva de viser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser bruken av kontraster i en tekst.',
+        hints: [
+          'Velg en tekst du kjenner',
+          'Finn minst to kontraster (f.eks. lys/mørke, rik/fattig, inne/ute)',
+          'Forklar hva kontrastene betyr for teksten',
+        ],
+        solution: 'Kontraster brukes ofte for å understreke temaer, skape spenning, eller tydeliggjøre konflikter. Analysen bør vise konkrete eksempler og forklare effekten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva bør en innledning i en analyserende tekst inneholde?',
+        options: [
+          { id: 'a', text: 'Et detaljert referat av hele handlingen', isCorrect: false },
+          { id: 'b', text: 'Presentasjon av teksten, kort om innholdet, og fokus for analysen', isCorrect: true },
+          { id: 'c', text: 'Bare tittelen på teksten du skal analysere', isCorrect: false },
+          { id: 'd', text: 'Din personlige mening om teksten', isCorrect: false },
+        ],
+        solution: 'Innledningen skal presentere teksten (tittel, forfatter, sjanger, år), si kort hva den handler om, og formulere hva du skal undersøke.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er belegg i en analyserende tekst?',
+        options: [
+          { id: 'a', text: 'Din personlige mening', isCorrect: false },
+          { id: 'b', text: 'Sitater og eksempler fra teksten som støtter påstandene dine', isCorrect: true },
+          { id: 'c', text: 'Informasjon om forfatterens liv', isCorrect: false },
+          { id: 'd', text: 'Andre elevers tolkninger', isCorrect: false },
+        ],
+        solution: 'Belegg er sitater og eksempler fra teksten du analyserer. De brukes til å støtte og begrunne påstandene og tolkningene dine.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en kort analyserende tekst (300-400 ord) om et dikt eller en novelle du har lest.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Skriv en innledning som presenterer teksten og formulerer fokus.',
+            solution: 'Innledningen bør inneholde tittel, forfatter, sjanger, år, kort om innhold, og hva du skal undersøke.',
+          },
+          {
+            label: 'b',
+            task: 'Analyser minst to virkemidler og forklar hvordan de skaper mening.',
+            solution: 'Bruk fagbegreper, vis til konkrete eksempler fra teksten, og forklar effekten av virkemidlene.',
+          },
+          {
+            label: 'c',
+            task: 'Avslutt med å tolke hva teksten betyr og hva den sier om sitt tema.',
+            solution: 'Tolkningen bør bygge på analysen og sette teksten i en større sammenheng.',
+          },
+        ],
+        hints: ['Følg strukturen: innledning, analyse, tolkning, avslutning', 'Bruk sitater som belegg', 'Kommenter sitatene'],
+        solution: 'En god analyserende tekst kombinerer tekstnær analyse med begrunnet tolkning og har en klar struktur.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign analyse av skjønnlitteratur og sakprosa.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke virkemidler ser du etter i skjønnlitteratur?',
+            solution: 'Forteller, synsvinkel, personskildring, miljøskildring, komposisjon, språklige bilder, symbolikk, tema.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke virkemidler ser du etter i sakprosa?',
+            solution: 'Argumentasjon, retoriske appellformer (etos, patos, logos), struktur, språk og tone, avsender og mottaker, formål.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er felles for analyse av begge?',
+            solution: 'I begge undersøker du språk og struktur, begrunner påstandene med belegg, og tolker tekstens mening og formål.',
+          },
+        ],
+        solution: 'Analyse av skjønnlitteratur og sakprosa krever ulike fagbegreper, men begge handler om å undersøke hvordan teksten virker og hva den betyr.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv tre tolkninger av et symbol i en tekst du kjenner.',
+        hints: [
+          'Velg et tydelig symbol (f.eks. en gjenstand, et sted, et vær-fenomen)',
+          'Forklar hva symbolet kan bety',
+          'Begrunn hver tolkning med belegg fra teksten',
+        ],
+        solution: 'Øvelsen viser at tekster kan tolkes på flere måter, og at gode tolkninger alltid begrunnes i teksten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-5-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-5-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Les og vurder en medelevs analyserende tekst.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Har teksten en god innledning med presentasjon og fokus?',
+            solution: 'Vurder om innledningen inneholder nødvendig informasjon og et tydelig fokus.',
+          },
+          {
+            label: 'b',
+            task: 'Bruker teksten fagbegreper og sitater riktig?',
+            solution: 'Se om fagbegreper brukes presist og om sitater er korrekt integrert og kommentert.',
+          },
+          {
+            label: 'c',
+            task: 'Er tolkningene begrunnet med belegg fra teksten?',
+            solution: 'Vurder om påstander støttes av konkrete eksempler og sitater.',
+          },
+          {
+            label: 'd',
+            task: 'Gi konkrete forslag til forbedring.',
+            solution: 'Pek på spesifikke steder der teksten kan styrkes, med konkrete forslag.',
+          },
+        ],
+        solution: 'Å vurdere andres tekster utvikler din egen evne til å skrive gode analyserende tekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 5.6: Respons og tilbakemelding
+// ============================================================================
+
+export const CHAPTER_NORSK_VG1_5_6: TextbookChapter = {
+  id: 'norsk-vg1-5-6',
+  courseId: 'norsk-vg1',
+  chapterNumber: '5.6',
+  title: 'Respons og tilbakemelding',
+  description: 'Lær å gi og motta konstruktiv tilbakemelding og bruke den til å forbedre tekster.',
+  estimatedMinutes: 45,
+  competenceGoals: [
+    'gi og motta tilbakemelding på tekster og bruke dette i egen skriving',
+    'bruke ulike skrivestrategier og tilpasse skriving til formål og mottaker',
+    'vurdere og revidere egne tekster ut fra faglige kriterier',
+  ],
+  content: [
+    {
+      id: 'norsk-vg1-5-6-intro',
+      type: 'text',
+      content: `## Respons og tilbakemelding
+
+Å få og gi tilbakemelding på tekster er en viktig del av skriveprosessen. God respons hjelper deg å se teksten din med andres øyne og gjør deg til en bedre skribent.
+
+**Hva er respons?**
+- Tilbakemelding på tekst underveis i skriveprosessen
+- Hjelp til å se hva som fungerer og hva som kan forbedres
+- Grunnlag for revisjon
+
+**Hvorfor er respons viktig?**
+- Du ser ikke alltid svakhetene i egen tekst
+- Andre lesere kan peke på uklarheter
+- Du lærer av å vurdere andres tekster
+- Responsarbeid utvikler kritisk sans
+- Det forbereder deg på vurdering
+
+**Responsens plass i skriveprosessen:**
+1. Du skriver et utkast
+2. Du får respons fra lærer eller medelever
+3. Du vurderer tilbakemeldingene
+4. Du reviderer teksten
+5. (Eventuelt ny runde med respons)
+
+**God respons er spesifikk, konstruktiv og respektfull. Den peker på både styrker og forbedringsområder.**`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-1',
+      type: 'definition',
+      title: 'Hva er god respons?',
+      content: `**Kjennetegn på god respons:**
+
+**1. KONKRET OG SPESIFIKK**
+- Pek på konkrete steder i teksten
+- Unngå vage kommentarer som "bra" eller "dårlig"
+- Si nøyaktig hva som fungerer/ikke fungerer
+
+**Dårlig:** "Fin innledning."
+**God:** "Innledningen fanger oppmerksomheten min fordi du starter med et overraskende spørsmål."
+
+**2. BEGRUNNET**
+- Forklar hvorfor noe fungerer eller ikke
+- Vis til konkrete teksteksempler
+- Hjelp forfatteren å forstå
+
+**3. KONSTRUKTIV**
+- Gi forslag til forbedring, ikke bare kritikk
+- Fokuser på teksten, ikke personen
+- Vær løsningsorientert
+
+**Dårlig:** "Dette gir ikke mening."
+**God:** "Jeg forstår ikke sammenhengen her. Kan du legge til en overgangssetning?"
+
+**4. BALANSERT**
+- Pek på både styrker og svakheter
+- Start gjerne med noe positivt
+- Vær ærlig, men respektfull
+
+**5. PRIORITERT**
+- Fokuser på det viktigste først
+- Ikke overveld med for mange kommentarer
+- Tenk: Hva vil hjelpe forfatteren mest?
+
+**Responsens mål:**
+Hjelpe forfatteren å skrive en bedre tekst, ikke vise hvor flink du er til å finne feil.`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-2',
+      type: 'definition',
+      title: 'Responsgrupper og medelevvurdering',
+      content: `**Arbeid i responsgrupper:**
+
+Responsgrupper er små grupper (2-4 elever) som gir tilbakemelding på hverandres tekster.
+
+**Fordeler:**
+- Flere perspektiver på teksten din
+- Trening i å vurdere tekst
+- Lærer av å lese andres tekster
+- Utvikler samarbeidsevner
+
+**Hvordan organisere responsgrupper:**
+
+**Forberedelse:**
+- Alle leser tekstene på forhånd
+- Noter kommentarer og spørsmål
+- Tenk på både styrker og forbedringsområder
+
+**Gjennomføring:**
+1. Forfatteren leser (eventuelt) teksten høyt
+2. Responsgiver oppsummerer: "Jeg oppfatter at teksten handler om..."
+3. Pek på styrker: "Det som fungerer godt er..."
+4. Still spørsmål: "Jeg lurte på..."
+5. Gi forslag: "Du kunne kanskje..."
+6. Forfatteren får svare og stille spørsmål
+
+**Regler for responsgrupper:**
+- Lytt til hverandre
+- Vær respektfull
+- Fokuser på teksten, ikke personen
+- Alle bidrar
+- Forfatteren bestemmer hva som brukes
+
+**Medelevvurdering:**
+Noen ganger vurderer medelever hverandres tekster med karakterer. Da er det viktig med klare vurderingskriterier og opplæring i vurdering.`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-3',
+      type: 'definition',
+      title: 'Å gi konstruktiv kritikk',
+      content: `**Teknikker for å gi konstruktiv tilbakemelding:**
+
+**"Sandwich-metoden":**
+1. Start med noe positivt
+2. Gi konstruktiv kritikk
+3. Avslutt positivt
+
+**Eksempel:**
+"Innledningen din er engasjerende og får meg til å ville lese videre. Jeg synes imidlertid at argumentene i hoveddelen kunne vært tydeligere strukturert - kanskje med klarere avsnittsinndeling? Avslutningen er sterk og oppsummerer godt."
+
+**Gode formuleringer:**
+
+**Når noe fungerer:**
+- "Det fungerer godt når du..."
+- "Jeg liker hvordan du..."
+- "Effektiv bruk av..."
+- "Her holder du leserens interesse fordi..."
+
+**Når noe kan forbedres:**
+- "Jeg blir usikker på hva du mener med..."
+- "Kan du utdype/konkretisere..."
+- "Her kunne det vært nyttig med..."
+- "Hva om du prøvde å..."
+
+**Unngå:**
+- "Dette er feil/dårlig/dumt"
+- "Du må/skal..."
+- Sarkasme eller ironi
+- For mange kommentarer på en gang
+
+**Fokuser på:**
+- Det viktigste først
+- Noe forfatteren faktisk kan gjøre noe med
+- Tekstens styrker, ikke bare svakheter`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-4',
+      type: 'definition',
+      title: 'Å motta og bruke tilbakemelding',
+      content: `**Hvordan ta imot respons:**
+
+Det kan være vanskelig å få kritikk på noe du har jobbet med. Her er noen strategier:
+
+**Under responsøkten:**
+- Lytt aktivt og ikke avbryt
+- Ta notater
+- Still oppklarende spørsmål
+- Ikke gå i forsvarsposisjon
+- Husk: det er teksten, ikke deg, som får tilbakemelding
+
+**Gode spørsmål å stille:**
+- "Kan du gi et eksempel?"
+- "Hva mener du med...?"
+- "Hva tror du hadde fungert bedre?"
+- "Hvor i teksten tenker du?"
+
+**Etter responsøkten:**
+- Ta tid til å tenke
+- Ikke reager i affekt
+- Les gjennom kommentarene på nytt
+- Vurder hva som er nyttig
+
+**Å vurdere tilbakemeldingene:**
+
+Ikke all respons er like nyttig. Tenk over:
+- Er dette en gjennomgående svakhet eller en smakssak?
+- Får jeg samme tilbakemelding fra flere?
+- Passer forslaget med det jeg vil med teksten?
+- Hva er viktigst å jobbe med først?
+
+**Husk:**
+- Du bestemmer hva du vil bruke
+- Noen kommentarer treffer, andre ikke
+- Du trenger ikke endre alt
+- Målet er en bedre tekst, ikke å gjøre alle til lags`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-5',
+      type: 'definition',
+      title: 'Kvalitetskriterier for tekster',
+      content: `**Hva kjennetegner en god tekst?**
+
+For å gi og motta god respons trenger vi kriterier å vurdere etter:
+
+**INNHOLD:**
+- Svarer teksten på oppgaven?
+- Er innholdet relevant og interessant?
+- Har teksten et klart tema/budskap?
+- Er påstandene begrunnet?
+
+**STRUKTUR:**
+- Har teksten en god innledning?
+- Er hoveddelen logisk organisert?
+- Henger avsnittene sammen?
+- Er det en avslutning som runder av?
+
+**SPRÅK:**
+- Er språket tilpasset mottaker og formål?
+- Er setningene klare og varierte?
+- Er ordvalget presist?
+- Er det god flyt i teksten?
+
+**FORMELLE KRAV:**
+- Er rettskrivingen korrekt?
+- Er tegnsettingen riktig?
+- Følger teksten sjangerkonvensjoner?
+- Er kilder oppgitt?
+
+**Sjangerspesifikke kriterier:**
+Ulike sjangre har ulike krav. En novelle vurderes etter andre kriterier enn en artikkel. Sjekk alltid oppgaven og vurderingskriteriene.
+
+**Tips:**
+Bruk vurderingskriteriene som sjekkliste både når du skriver, når du gir respons, og når du reviderer.`,
+    },
+    {
+      id: 'norsk-vg1-5-6-def-6',
+      type: 'definition',
+      title: 'Fra respons til revisjon',
+      content: `**Å bruke respons til å forbedre teksten:**
+
+Respons er bare nyttig hvis du bruker den. Slik går du fra tilbakemelding til revisjon:
+
+**Steg 1: Sorter tilbakemeldingene**
+- Hva handler om innhold/struktur? (store endringer)
+- Hva handler om språk/tegnsetting? (små endringer)
+- Hva er viktigst å ta tak i?
+
+**Steg 2: Prioriter**
+- Jobb med det viktigste først
+- Store endringer før små
+- Ikke prøv å fikse alt på en gang
+
+**Steg 3: Revider systematisk**
+- Én ting om gangen
+- Les gjennom etter hver endring
+- Sjekk at endringene fungerer
+
+**Steg 4: Les gjennom helheten**
+- Fungerer teksten bedre nå?
+- Har endringene skapt nye problemer?
+- Er du fornøyd?
+
+**Vanlige revisjoner:**
+- Skrive om uklar innledning
+- Flytte avsnitt for bedre struktur
+- Legge til eksempler og belegg
+- Kutte unødvendig tekst
+- Forbedre overganger
+- Variere setningslengde
+- Rette språkfeil
+
+**Husk:**
+Revisjon handler om å gjøre teksten bedre, ikke perfekt. En tekst kan alltid forbedres, men på et tidspunkt må du være fornøyd og levere.
+
+**Ny respons?**
+Etter store revisjoner kan det være lurt å få ny respons før du ferdigstiller teksten.`,
+    },
+    {
+      id: 'norsk-vg1-5-6-example-1',
+      type: 'example',
+      title: 'Eksempel: God og dårlig respons',
+      problem: 'Se forskjellen på god og dårlig tilbakemelding.',
+      solution: `**Tekst (utdrag):**
+"Klimaendringer er et stort problem. Det er veldig varmt. Vi må gjøre noe. Mange dyr dør. Det er trist."
+
+---
+
+**DÅRLIG RESPONS:**
+"Dette er for kort og dårlig. Du må skrive mer og bedre."
+
+**Problemer:**
+- Vag og uspesifikk
+- Ikke konstruktiv
+- Ingen forslag til forbedring
+- Fokuserer på personen ("du må")
+
+---
+
+**GOD RESPONS:**
+"Jeg forstår at du er opptatt av klimaendringer - det er et viktig tema! Jeg savner imidlertid mer utdyping: Hvilke klimaendringer tenker du på? Hva mener du med 'gjøre noe'?
+
+Konkrete forslag:
+- Kan du gi et eksempel på klimaendringer?
+- Kan du forklare sammenhengen mellom varme og dyr som dør?
+- Hva slags tiltak tenker du på?
+
+Setningene er veldig korte og like. Prøv å variere ved å binde noen sammen med 'fordi' eller 'som' - da får du også forklart sammenhengene."
+
+**Styrker:**
+- Konkret og spesifikk
+- Stiller spørsmål som hjelper forfatteren
+- Gir konkrete forslag
+- Respektfull tone
+- Begynner med noe positivt`,
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Forklar hva som kjennetegner god respons.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Nevn tre kjennetegn på god respons.',
+            solution: 'God respons er konkret/spesifikk, begrunnet, konstruktiv, balansert og prioritert.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor bør respons være konkret og ikke vag?',
+            solution: 'Konkret respons hjelper forfatteren å forstå nøyaktig hva som fungerer og ikke fungerer, og gjør det mulig å gjøre forbedringer.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er forskjellen på kritikk og konstruktiv kritikk?',
+            solution: 'Konstruktiv kritikk peker på problemer OG gir forslag til løsninger. Ren kritikk sier bare at noe er feil uten å hjelpe.',
+          },
+        ],
+        solution: 'God respons er konkret, begrunnet, konstruktiv og hjelpsom. Den fokuserer på teksten og gir forfatteren verktøy til å forbedre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Skriv om dårlig respons til god respons.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Dårlig respons: "Kjedelig innledning." Skriv dette om til god respons.',
+            solution: 'Eksempel: "Innledningen presenterer temaet, men den fanger ikke oppmerksomheten min. Hva om du startet med et spørsmål, en påstand eller et eksempel som vekker nysgjerrighet?"',
+          },
+          {
+            label: 'b',
+            task: 'Dårlig respons: "Du har mange skrivefeil." Skriv dette om til god respons.',
+            solution: 'Eksempel: "Jeg legger merke til noen gjentakende skrivefeil, spesielt med dobbel konsonant (f.eks. kommer/komer). Det kan være lurt å kjøre stavekontroll og se spesielt etter dette mønsteret."',
+          },
+        ],
+        solution: 'God respons peker på konkrete problemer og gir forslag til forbedring, uten å være nedlatende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Gi respons på et avsnitt fra en medelevs tekst.',
+        hints: [
+          'Bruk sandwich-metoden: positiv - konstruktiv kritikk - positiv',
+          'Vær konkret og spesifikk',
+          'Gi forslag til forbedring',
+          'Vær respektfull',
+        ],
+        solution: 'Responsen bør være konkret, konstruktiv og respektfull, med både ros og forslag til forbedring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er det viktigste målet med respons på tekst?',
+        options: [
+          { id: 'a', text: 'Å vise at du er flink til å finne feil', isCorrect: false },
+          { id: 'b', text: 'Å hjelpe forfatteren å skrive en bedre tekst', isCorrect: true },
+          { id: 'c', text: 'Å kritisere så mye som mulig', isCorrect: false },
+          { id: 'd', text: 'Å rose forfatteren uansett hva som står', isCorrect: false },
+        ],
+        solution: 'Responsen skal hjelpe forfatteren å se hva som fungerer og hva som kan forbedres, slik at teksten blir bedre.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva bør du gjøre når du mottar respons på en tekst?',
+        options: [
+          { id: 'a', text: 'Forsvare teksten din og forklare hvorfor responsgiveren tar feil', isCorrect: false },
+          { id: 'b', text: 'Lytte, ta notater, stille spørsmål, og vurdere hva som er nyttig', isCorrect: true },
+          { id: 'c', text: 'Endre alt som blir kritisert umiddelbart', isCorrect: false },
+          { id: 'd', text: 'Ignorere responsen og beholde teksten som den er', isCorrect: false },
+        ],
+        solution: 'Du bør lytte åpent, stille spørsmål for å forstå, og deretter vurdere hva av tilbakemeldingene som er nyttig for teksten din.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Lag en sjekkliste for respons på argumenterende tekst.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva bør du se etter i innledningen?',
+            solution: 'Fanger den oppmerksomheten? Presenterer den temaet? Er problemstillingen/tesen tydelig?',
+          },
+          {
+            label: 'b',
+            task: 'Hva bør du se etter i argumentasjonen?',
+            solution: 'Er påstandene tydelige? Har argumentene belegg? Er motargumenter drøftet? Er strukturen logisk?',
+          },
+          {
+            label: 'c',
+            task: 'Hva bør du se etter i avslutningen?',
+            solution: 'Oppsummerer den hovedpunktene? Svarer den på problemstillingen? Runder den av på en god måte?',
+          },
+        ],
+        solution: 'En sjekkliste hjelper deg å gi systematisk respons på de viktigste aspektene ved en tekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Delta i en responsgruppe.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forbered respons på medelevenes tekster på forhånd.',
+            solution: 'Les tekstene nøye, noter styrker og forbedringsområder, formuler konkrete spørsmål og forslag.',
+          },
+          {
+            label: 'b',
+            task: 'Gi respons i gruppen etter metodene du har lært.',
+            solution: 'Start positivt, vær konkret, gi forslag, lytt til andre, vær respektfull.',
+          },
+          {
+            label: 'c',
+            task: 'Reflekter over hvordan det var å gi og motta respons.',
+            solution: 'Refleksjon kan handle om hva som var vanskelig, hva du lærte, og hvordan responsen hjalp teksten din.',
+          },
+        ],
+        hints: ['Les tekstene grundig på forhånd', 'Bruk sandwich-metoden', 'Vær konkret og respektfull'],
+        solution: 'Responsgrupper gir verdifull trening i å vurdere tekst og motta tilbakemelding.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Revider en tekst basert på respons.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en tekst du har fått respons på. Sorter tilbakemeldingene: hva er viktigst å forbedre?',
+            solution: 'Prioriter store endringer (innhold, struktur) før små (språk, tegnsetting).',
+          },
+          {
+            label: 'b',
+            task: 'Revider teksten. Gjør minst tre konkrete forbedringer basert på responsen.',
+            solution: 'Vis at du har brukt tilbakemeldingene aktivt til å forbedre teksten.',
+          },
+          {
+            label: 'c',
+            task: 'Skriv en kort refleksjon: Hva endret du og hvorfor? Hva valgte du å ikke endre?',
+            solution: 'Refleksjonen viser at du har vurdert responsen kritisk og tatt bevisste valg.',
+          },
+        ],
+        solution: 'Øvelsen viser at du kan bruke respons aktivt til å forbedre tekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-9',
+        number: '9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Vurder en tekst etter kvalitetskriterier.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en tekst (egen eller annens) og vurder innholdet: Er det relevant? Er påstandene begrunnet?',
+            solution: 'Vurderingen bør peke på konkrete eksempler på hva som fungerer og ikke fungerer innholdsmessig.',
+          },
+          {
+            label: 'b',
+            task: 'Vurder strukturen: Har teksten god innledning, hoveddel og avslutning? Henger avsnittene sammen?',
+            solution: 'Vurderingen bør se på oppbygning, avsnittsinndeling og sammenheng.',
+          },
+          {
+            label: 'c',
+            task: 'Vurder språket: Er det klart og presist? Er det tilpasset mottaker?',
+            solution: 'Vurderingen bør se på ordvalg, setningsbygning og språklig stil.',
+          },
+        ],
+        solution: 'Å vurdere tekster etter kriterier utvikler din evne til å se hva som fungerer og ikke fungerer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-5-6-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-5-6-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Reflekter over din egen utvikling som skribent.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilken type tilbakemelding hjelper deg mest?',
+            solution: 'Refleksjon kan handle om konkrete forslag vs. spørsmål, fokus på innhold vs. språk, osv.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er det vanskeligste med å motta kritikk på tekster?',
+            solution: 'Vanlige utfordringer: å ikke ta det personlig, å vite hva man skal bruke, å akseptere at teksten kan bli bedre.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan kan du bruke respons mer aktivt i fremtidige skriveoppgaver?',
+            solution: 'Forslag kan være: søke respons tidligere, stille spesifikke spørsmål, bruke sjekklister, sette av tid til revisjon.',
+          },
+        ],
+        solution: 'Metarefleksjon over egen skriveprosess gjør deg til en mer bevisst og selvstendig skribent.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
 // EKSPORT: Samlet array for Del 4
 // ============================================================================
 
 export const NORSK_VG1_CHAPTERS_DEL4: TextbookChapter[] = [
-  CHAPTER_NORSK_VG1_12_1,
-  CHAPTER_NORSK_VG1_12_2,
-  CHAPTER_NORSK_VG1_13_1,
-  CHAPTER_NORSK_VG1_14_1,
-  CHAPTER_NORSK_VG1_14_2,
-  CHAPTER_NORSK_VG1_14_3,
+  CHAPTER_NORSK_VG1_6_1,
+  CHAPTER_NORSK_VG1_6_2,
+  CHAPTER_NORSK_VG1_6_4,
+  CHAPTER_NORSK_VG1_5_4,
+  CHAPTER_NORSK_VG1_5_5,
+  CHAPTER_NORSK_VG1_5_6,
+  CHAPTER_NORSK_VG1_7_1,
+  CHAPTER_NORSK_VG1_7_2,
+  CHAPTER_NORSK_VG1_7_3,
+  CHAPTER_NORSK_VG1_7_4,
 ];
