@@ -58,6 +58,31 @@ export default function AdminUsersPage() {
   const [total, setTotal] = useState(0);
   const [deleteUser, setDeleteUser] = useState<User | null>(null);
   const [isDeleting, setIsDeleting] = useState(false);
+  const [updatingRoleId, setUpdatingRoleId] = useState<string | null>(null);
+
+  const handleRoleChange = async (userId: string, newRole: string) => {
+    setUpdatingRoleId(userId);
+    try {
+      const response = await fetch(`/api/admin/users/${userId}`, {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role: newRole }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setUsers(users.map((u) => (u.id === userId ? { ...u, role: newRole } : u)));
+      } else {
+        alert(`Feil: ${data.message}`);
+      }
+    } catch (error) {
+      console.error("Feil ved oppdatering av rolle:", error);
+      alert("Kunne ikke oppdatere rolle");
+    } finally {
+      setUpdatingRoleId(null);
+    }
+  };
 
   const fetchUsers = useCallback(async () => {
     setIsLoading(true);
@@ -224,13 +249,28 @@ export default function AdminUsersPage() {
                         </div>
                       </TableCell>
                       <TableCell>
-                        <Badge variant={getRoleBadgeVariant(user.role)}>
-                          {user.role === "admin"
-                            ? "Admin"
-                            : user.role === "teacher"
-                            ? "Lærer"
-                            : "Elev"}
-                        </Badge>
+                        <Select
+                          value={user.role}
+                          onValueChange={(value) => handleRoleChange(user.id, value)}
+                          disabled={user.id === session?.user?.id || updatingRoleId === user.id}
+                        >
+                          <SelectTrigger className="w-28">
+                            <SelectValue>
+                              <Badge variant={getRoleBadgeVariant(user.role)}>
+                                {user.role === "admin"
+                                  ? "Admin"
+                                  : user.role === "teacher"
+                                  ? "Lærer"
+                                  : "Elev"}
+                              </Badge>
+                            </SelectValue>
+                          </SelectTrigger>
+                          <SelectContent>
+                            <SelectItem value="student">Elev</SelectItem>
+                            <SelectItem value="teacher">Lærer</SelectItem>
+                            <SelectItem value="admin">Admin</SelectItem>
+                          </SelectContent>
+                        </Select>
                       </TableCell>
                       <TableCell>
                         <span className="text-sm text-muted-foreground">

@@ -43,7 +43,9 @@ import {
   Dumbbell,
   CheckCircle,
   XCircle,
+  Shield,
 } from "lucide-react";
+import { useSession } from "next-auth/react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -101,6 +103,8 @@ interface RecentActivity {
 export default function TeacherDashboard() {
   const { isLoading: authLoading } = useRequireAuth("teacher");
   const { logout } = useAuth();
+  const { data: session } = useSession();
+  const isAdmin = session?.user?.role === "admin";
   const [classes, setClasses] = useState<ClassData[]>([]);
   const [stats, setStats] = useState<TeacherStats>({
     totalStudents: 0,
@@ -726,7 +730,28 @@ export default function TeacherDashboard() {
           </div>
 
           {/* Quick links */}
-          <div className="grid gap-4 md:grid-cols-3">
+          <div className={`grid gap-4 ${isAdmin ? 'md:grid-cols-4' : 'md:grid-cols-3'}`}>
+            {isAdmin && (
+              <Card className="hover:border-destructive/50 transition-colors cursor-pointer border-destructive/30">
+                <Link href="/dashboard/admin/users">
+                  <CardHeader>
+                    <div className="flex items-center gap-3">
+                      <div className="p-2 rounded-lg bg-red-100 dark:bg-red-950/50">
+                        <Shield className="h-6 w-6 text-red-600" />
+                      </div>
+                      <div>
+                        <CardTitle className="text-lg">Admin-panel</CardTitle>
+                        <CardDescription>Brukeradministrasjon</CardDescription>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="flex justify-between items-center">
+                    <span className="text-sm text-muted-foreground">Administrer brukere</span>
+                    <ChevronRight className="h-5 w-5 text-muted-foreground" />
+                  </CardContent>
+                </Link>
+              </Card>
+            )}
             <Card className="hover:border-primary/50 transition-colors cursor-pointer">
               <Link href="/dashboard/teacher/classes">
                 <CardHeader>

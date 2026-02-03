@@ -1200,8 +1200,8 @@ b) $\\frac{16 \\cdot 36^2}{12^4} = \\frac{\\color{blue}{2^4 \\cdot (6^2)^2}}{\\c
         difficulty: 'vanskelig',
         task: 'Regn ut',
         subTasks: [
-          { label: 'a', task: '$\\frac{2^5}{8^2}$', solution: '$\\frac{2^5}{8^2} = \\frac{2^5}{(2^3)^2} = \\frac{2^5}{2^6} = 2^{-1} = \\frac{1}{2}$', answer: 0.5 },
-          { label: 'b', task: '$\\frac{5^5}{25^3}$', solution: '$\\frac{5^5}{25^3} = \\frac{5^5}{(5^2)^3} = \\frac{5^5}{5^6} = \\frac{1}{5}$', answer: 0.2 },
+          { label: 'a', task: '$\\frac{2^5}{8^2}$', solution: '$\\frac{2^5}{8^2} = \\frac{2^5}{(2^3)^2} = \\frac{2^5}{2^6} = 2^{-1} = \\frac{1}{2}$', expressionAnswer: ['1/2', '0.5'] },
+          { label: 'b', task: '$\\frac{5^5}{25^3}$', solution: '$\\frac{5^5}{25^3} = \\frac{5^5}{(5^2)^3} = \\frac{5^5}{5^6} = \\frac{1}{5}$', expressionAnswer: ['1/5', '0.2'] },
           { label: 'c', task: '$\\frac{(3x)^2}{3 \\cdot 27x}$', solution: '$\\frac{(3x)^2}{3 \\cdot 27x} = \\frac{9x^2}{81x} = \\frac{x}{9}$', expressionAnswer: 'x/9' },
           { label: 'd', task: '$\\frac{49 \\cdot 16}{14^2}$', solution: '$\\frac{49 \\cdot 16}{14^2} = \\frac{7^2 \\cdot 4^2}{(7 \\cdot 2)^2} = \\frac{7^2 \\cdot 4^2}{7^2 \\cdot 4} = 4$', answer: 4 },
           { label: 'e', task: '$\\frac{14^2 \\cdot 6^2}{2^3 \\cdot 42}$', solution: '$\\frac{14^2 \\cdot 6^2}{2^3 \\cdot 42} = 21$', answer: 21 },

@@ -114,6 +114,57 @@ export async function DELETE(
   }
 }
 
+// PATCH - Oppdater brukerrolle
+export async function PATCH(
+  request: Request,
+  { params }: { params: Promise<{ userId: string }> }
+) {
+  try {
+    const session = await getServerSession(authOptions);
+
+    if (!session?.user?.id) {
+      return NextResponse.json({ message: "Ikke innlogget" }, { status: 401 });
+    }
+
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ message: "Kun admin kan endre roller" }, { status: 403 });
+    }
+
+    const { userId } = await params;
+    const body = await request.json();
+    const { role } = body;
+
+    if (!role || !["student", "teacher", "admin"].includes(role)) {
+      return NextResponse.json({ message: "Ugyldig rolle" }, { status: 400 });
+    }
+
+    const supabase = getSupabaseAdmin();
+
+    const { data: user, error } = await supabase
+      .from("users")
+      .update({ role })
+      .eq("id", userId)
+      .select("id, email, name, role")
+      .single();
+
+    if (error) {
+      console.error("[Admin] Feil ved oppdatering av rolle:", error);
+      return NextResponse.json({ message: "Kunne ikke oppdatere rolle" }, { status: 500 });
+    }
+
+    console.log(`[Admin] Rolle oppdatert: ${user.name} (${user.email}) -> ${role}`);
+
+    return NextResponse.json({
+      success: true,
+      message: `Rolle oppdatert til ${role}`,
+      user,
+    });
+  } catch (error) {
+    console.error("[Admin] Feil:", error);
+    return NextResponse.json({ message: "En feil oppstod" }, { status: 500 });
+  }
+}
+
 // GET - Hent brukerinfo (for admin)
 export async function GET(
   request: Request,
