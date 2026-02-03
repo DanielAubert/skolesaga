@@ -131,6 +131,33 @@ I dag bruker vi retorikk i mange sammenhenger:
 - **Avslutning:** Oppsummere, oppfordre til handling`,
     },
     {
+      id: 'norsk-vg1-1-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Identifisere retoriske virkemidler',
+      problem: `Identifiser de retoriske virkemidlene i denne teksten:
+
+"Er det virkelig slik vi vil ha det? Våre barn, våre barnebarn, vår fremtid - alle står på spill. Vi kan ikke lenger sitte stille og se på. Vi må handle. Nå."`,
+      solution: `**Retoriske virkemidler i teksten:**
+
+**1. Retorisk spørsmål:**
+"Er det virkelig slik vi vil ha det?" - Spørsmålet krever ikke et direkte svar, men får leseren til å reflektere og implisitt svare "nei".
+
+**2. Treleddet oppbygging (trikolon):**
+"Våre barn, våre barnebarn, vår fremtid" - Tre elementer i rekke skaper rytme og forsterker budskapet. Merk at rekkefølgen også viser utvidelse fra nært til fjernt.
+
+**3. Gjentakelse (anafor):**
+"Våre... våre... vår" - Gjentagelsen av "vår/våre" skaper fellesskapsfølelse og inkluderer leseren.
+
+**4. Kontrast:**
+"sitte stille" vs. "handle" - Motsetningen mellom passivitet og handling understreker at noe må gjøres.
+
+**5. Kort, rytmisk avslutning:**
+"Vi må handle. Nå." - Korte setninger til slutt skaper kraft og hastverk.
+
+**Samlet effekt:**
+Teksten kombinerer flere virkemidler for å skape engasjement og oppfordre til handling. Den appellerer til fellesskap (patos) gjennom "våre"-formuleringene og skaper hastverk gjennom de korte setningene til slutt.`,
+    },
+    {
       id: 'norsk-vg1-1-1-primaertekst-1',
       type: 'text',
       title: 'Primærtekst: Bjørnstjerne Bjørnson - tale',
@@ -535,6 +562,31 @@ Sakprosa er tekster som formidler informasjon, kunnskap eller meninger - ikke fi
 **Eksempel på kildelisteinnegg:**
 Forfatter, F. (År). *Tittel på bok*. Forlag.
 Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
+    },
+    {
+      id: 'norsk-vg1-1-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Omskrive fra plagiat til korrekt kildebruk',
+      problem: `En elev har skrevet følgende avsnitt i en oppgave om sosiale medier:
+
+"Sosiale medier har endret hvordan vi kommuniserer fundamentalt. Unge mennesker bruker i snitt over fire timer daglig på ulike plattformer, og forskning viser at dette kan påvirke både søvnkvalitet og mental helse."
+
+Problemet: Eleven har hentet informasjonen fra en rapport, men oppgir ikke kilden. Hvordan kan dette skrives om til korrekt kildebruk?`,
+      solution: `**Versjon med direkte sitat:**
+Medietilsynet fastslår i sin rapport at "unge i alderen 9-18 år bruker i snitt 4 timer og 7 minutter daglig på sosiale medier" (Medietilsynet, 2023, s. 12). Forskning fra Folkehelseinstituttet viser at høy skjermbruk kan være forbundet med "redusert søvnkvalitet og økt risiko for depressive symptomer" (FHI, 2022, s. 45).
+
+**Versjon med parafrasering:**
+Ifølge Medietilsynet (2023) bruker norske ungdommer i gjennomsnitt over fire timer daglig på sosiale medier. En rapport fra Folkehelseinstituttet (2022) peker på mulige sammenhenger mellom høy skjermbruk og negative helseeffekter som søvnproblemer og psykiske plager.
+
+**Kildeliste:**
+Folkehelseinstituttet. (2022). *Barn og unges psykiske helse*. FHI.
+Medietilsynet. (2023). *Barn og medier 2023*. Medietilsynet.
+
+**Viktige forskjeller:**
+1. Påstandene er nå knyttet til konkrete kilder
+2. Leseren kan sjekke informasjonen selv
+3. Forfatterens troverdighet styrkes
+4. Plagiat unngås`,
     },
     {
       id: 'norsk-vg1-1-2-primaertekst-1',
@@ -976,6 +1028,32 @@ En klassisk oppbygging av et argument:
 - Tittelen skal fange oppmerksomhet og formidle hovedbudskapet
 - Ingressen oppsummerer innholdet (hvem, hva, hvorfor)
 - Avisen kan endre tittel og ingress - fokuser på innholdet`,
+    },
+    {
+      id: 'norsk-vg1-1-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Fra svakt til sterkt argument',
+      problem: `Eleven har skrevet følgende argument i et leserinnlegg om lekser:
+
+"Lekser er dumt og bør avskaffes fordi elevene blir slitne."
+
+Hvordan kan dette argumentet forbedres med påstand-begrunnelse-eksempel-strukturen?`,
+      solution: `**Forbedret versjon:**
+
+**Påstand:** Leksepraksisen i norsk skole bør revurderes.
+
+**Begrunnelse:** Forskning viser at lekser i grunnskolen har begrenset læringseffekt, samtidig som de forsterker sosiale forskjeller mellom elever med ulik grad av støtte hjemme.
+
+**Eksempel/belegg:** En studie fra NTNU (2019) fant at lekser først har tydelig positiv effekt fra ungdomsskolenivå og oppover. Samtidig rapporterer Utdanningsdirektoratet at elever med foreldre uten høyere utdanning får mindre hjelp med lekser, noe som skaper ulikhet.
+
+**Ferdig avsnitt:**
+"Leksepraksisen i norsk skole bør revurderes. Forskning fra NTNU viser at lekser i grunnskolen har begrenset læringseffekt, mens de samtidig forsterker sosiale forskjeller. Elever med ressurssterke foreldre får mer støtte, mens andre blir hengende etter. Er det rettferdig at skoleresultater skal avhenge av foreldrenes tid og kompetanse?"
+
+**Hva ble bedre:**
+1. Spesifikk påstand i stedet for vag ("revurderes" i stedet for "er dumt")
+2. Faglig begrunnelse med henvisning til forskning
+3. Konkret eksempel som støtter argumentet
+4. Avsluttende retorisk spørsmål som engasjerer leseren`,
     },
     {
       id: 'norsk-vg1-1-4-example-1',
@@ -1503,6 +1581,43 @@ Spør deg selv:
 2. Budskap-mottaker: Er budskapet tilpasset mottakeren?
 3. Situasjon-uttrykk: Er formen passende for situasjonen?
 4. Innhold-form: Passer stilen til det som sies?`,
+    },
+    {
+      id: 'norsk-vg1-1-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Vurdere aptum i ulike situasjoner',
+      problem: `Vurder aptum i disse tre situasjonene:
+
+1. En statsminister som holder pressekonferanse om en naturkatastrofe, men åpner med en vits.
+2. En ungdomspolitiker som bruker slang og memes i en tale på et ungdomsarrangement.
+3. En elev som bruker svært formelt og akademisk språk i en klasseromsdiskusjon.`,
+      solution: `**Situasjon 1: Statsministeren med vits under krisen**
+
+**Vurdering:** Manglende ytre aptum. Situasjonen (naturkatastrofe) krever alvor og empati. En vits signaliserer at statsministeren ikke tar situasjonen alvorlig nok.
+
+**Konsekvens:** Statsministerens etos svekkes. Folk vil oppfatte vedkommende som ufølsom.
+
+**Bedre alternativ:** Åpne med beklagelse overfor de rammede og uttrykke medfølelse.
+
+---
+
+**Situasjon 2: Ungdomspolitikeren med slang og memes**
+
+**Vurdering:** God ytre aptum. Språket er tilpasset mottakeren (ungdom) og situasjonen (ungdomsarrangement). Dette kan styrke etosen ved å vise at politikeren "forstår" målgruppen.
+
+**Men pass på:** Må ikke virke påtatt eller overdrevet. Da kan det slå tilbake og svekke troverdigheten.
+
+---
+
+**Situasjon 3: Eleven med svært formelt språk**
+
+**Vurdering:** Mulig manglende ytre aptum. Klasseromsdiskusjoner er ofte mer uformelle. Svært formelt språk kan skape avstand og virke unaturlig.
+
+**Nyanse:** Kommer an på konteksten. I en muntlig eksamen kan formelt språk være mer passende enn i en hverdagslig klassediskusjon.
+
+---
+
+**Hovedpoeng:** Aptum handler om å tilpasse uttrykket til situasjonen. Det som fungerer i én kontekst, kan være helt feil i en annen. God retoriker leser situasjonen og tilpasser seg.`,
     },
     {
       id: 'norsk-vg1-1-5-ex-2',
@@ -2084,6 +2199,37 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
 6. Løsning/avslutning`,
     },
     {
+      id: 'norsk-vg1-2-1-example-0',
+      type: 'example',
+      title: 'Eksempel: Identifisere synsvinkel og fortelleteknikk',
+      problem: `Les disse tre åpningene og identifiser synsvinkel og fortelleteknikk:
+
+**Tekst A:** "Jeg våknet av lyden av glass som knuste. Hjertet hamret. Noen var i huset."
+
+**Tekst B:** "Maren lå våken og stirret i taket. Hun visste at hun burde sove, men tankene ville ikke gi seg. Utenfor vinduet hørte hun en bil kjøre forbi."
+
+**Tekst C:** "Klokken var halv tre om natten. I det lille huset på hjørnet lå Maren våken og tenkte på morgendagen. I nabohuset sov Erik tungt, uvitende om at dette var siste gang."`,
+      solution: `**Tekst A: Jeg-forteller**
+- Synsvinkel: Første person ("Jeg")
+- Begrenset innsikt: Vi vet bare det fortelleren vet/opplever
+- Effekt: Skaper umiddelbar spenning og identifikasjon
+- Vi er "inni" karakteren og opplever frykten med ham/henne
+
+**Tekst B: Tredjeperson begrenset**
+- Synsvinkel: Tredje person, men følger Marens perspektiv
+- Vi har tilgang til Marens tanker ("hun visste"), men ikke andres
+- Effekt: Nærhet til karakteren, men med litt mer distanse enn jeg-forteller
+- Objektivt ytre kombinert med subjektivt indre
+
+**Tekst C: Allvitende forteller**
+- Synsvinkel: Tredje person, men kjenner flere karakterers situasjon
+- Kan hoppe mellom Maren og Erik, og vet fremtiden ("siste gang")
+- Effekt: Skaper dramatisk ironi - vi vet mer enn karakterene
+- Frampeket ("siste gang") antyder at noe dramatisk skal skje
+
+**Lærdom:** Valg av synsvinkel påvirker hva leseren får vite og hvordan vi opplever historien. Jeg-forteller gir nærhet, allvitende gir oversikt og mulighet for dramatisk ironi.`,
+    },
+    {
       id: 'norsk-vg1-2-1-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av "Karen" av Alexander Kielland',
@@ -2646,6 +2792,49 @@ Lyrikk er en av de eldste litterære sjangrene. Mens prosa forteller, uttrykker 
 - **Kontraster:** Skaper spenning
 - **Enjambement:** Setningen fortsetter over linjeskiftet
 - **Apostrofe:** Tiltale til noe fraværende`,
+    },
+    {
+      id: 'norsk-vg1-2-2-example-0',
+      type: 'example',
+      title: 'Eksempel: Analysere form og lydlige virkemidler',
+      problem: `Analyser form og lydlige virkemidler i denne strofen:
+
+"Ser du solen synke saklig
+bak de blå og brede åser,
+svale sommervinder suser
+gjennom siv og seine gras."`,
+      solution: `**Formanalyse:**
+
+**Rimstruktur:**
+- Linjer 1 og 2: "saklig" og "åser" - intet fullrim, men assonans (a-lyd)
+- Linjer 3 og 4: "suser" og "gras" - intet fullrim
+- Strofen bruker altså ikke tradisjonelt enderim, men andre lydlige effekter
+
+**Rytme:**
+- Fire verselinjer med relativt jevn lengde
+- Naturlig, flytende rytme som speiler innholdet (solvinden)
+
+---
+
+**Lydlige virkemidler:**
+
+**Allitterasjon (bokstavrim):**
+- "**S**er du **s**olen **s**ynke **s**aklig" - gjentatt s-lyd
+- "**b**ak de **b**lå og **b**rede" - gjentatt b-lyd
+- "**s**vale **s**ommervinder **s**user" - s-lyd igjen
+- "**s**iv og **s**eine" - fortsatt s-dominans
+
+**Effekt av s-lyden:**
+S-lyden er en "frikatatlyd" som minner om sus og vind. Den lydmaler innholdet - vi "hører" vinden i selve språket.
+
+**Assonans (vokalrim):**
+- "blå" og "åser" - å-lyd
+- "seine" og "gres" (kan variere) - e-lyd
+
+---
+
+**Samlet analyse:**
+Dikteren bruker lydlige virkemidler for å skape en stemning av ro og natur. S-allitterasjonen løper gjennom hele strofen og binder den sammen lydlig, samtidig som den mimer lyden av vind. Dette er et eksempel på hvordan form og innhold forsterker hverandre i lyrikk.`,
     },
     {
       id: 'norsk-vg1-2-2-example-1',
@@ -3218,6 +3407,48 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
 - **Prolepse (frampek):** Antyder fremtidige hendelser
 - **In medias res:** Starter midt i handlingen
 - **Parallellhandling:** Flere handlinger samtidig`,
+    },
+    {
+      id: 'norsk-vg1-2-4-example-0',
+      type: 'example',
+      title: 'Eksempel: Analysere tidshåndtering i roman',
+      problem: `En roman har følgende struktur:
+
+Kapittel 1: Hovedpersonen som voksen står ved en grav
+Kapittel 2-5: Tilbakeblikk til barndommen
+Kapittel 6: Tilbake til nåtid, kort
+Kapittel 7-10: Ungdomstiden
+Kapittel 11: Nåtid - åpenbaring av hvem som ligger i graven
+
+Analyser tidshåndteringen og dens effekt.`,
+      solution: `**Tidshåndtering i romanen:**
+
+**Rammefortelling med tilbakeblikk (analepser):**
+Romanen bruker en rammestruktur der nåtiden (graven) rammer inn fortellingen, mens hoveddelen er tilbakeblikk.
+
+**Strukturanalyse:**
+- **Kapittel 1 (nåtid):** Etablerer et mysterium - hvem er død?
+- **Kapittel 2-5 (fortid):** Analepse til barndommen
+- **Kapittel 6 (nåtid):** Kort retur - minner leseren på mysteriet
+- **Kapittel 7-10 (fortid):** Analepse til ungdommen
+- **Kapittel 11 (nåtid):** Oppløsning - mysteriet avsløres
+
+**Effekter av denne strukturen:**
+
+**1. Skaper spenning:**
+Ved å begynne med graven (in medias res) stiller forfatteren et spørsmål som driver leseren videre: Hvem er død? Hvorfor?
+
+**2. Dramatisk ironi:**
+Leseren vet at noen skal dø, men ikke hvem. Dette farger lesningen av barndommen og ungdommen - vi leter etter tegn.
+
+**3. Tematisk forsterkning:**
+Strukturen understreker temaer som tap, minner og hvordan fortiden former nåtiden.
+
+**4. Emosjonell virkning:**
+Når vi endelig får vite hvem som er død, kjenner vi personen gjennom tilbakeblikkene. Det gjør tapet sterkere.
+
+**Sammenligning:**
+En kronologisk fortelling ville gitt en annen opplevelse - mer lineær, men uten det samme mysteriet og den gradvise avsløringen.`,
     },
     {
       id: 'norsk-vg1-2-4-ex-1',
@@ -4056,6 +4287,62 @@ Hentydninger til kjente tekster, myter, historie eller kultur.
 - Tekster kan leses på flere nivåer`,
     },
     {
+      id: 'norsk-vg1-2-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Analysere symbolikk i tekst',
+      problem: `I en novelle finner vi følgende motiver som går igjen: et gammelt ur som har stoppet, et vindu som aldri åpnes, og en hage som har grodd igjen.
+
+Analyser disse som potensielle symboler.`,
+      solution: `**Symbolanalyse:**
+
+**1. Det stoppede uret:**
+
+**Bokstavelig:** Et ur som ikke fungerer, viser feil tid.
+
+**Symbolsk betydning:**
+- Tid som har stoppet eller "frosset"
+- En hendelse i fortiden som ikke er bearbeidet
+- Karakterens manglende evne til å gå videre
+- Død eller stagnasjon
+
+**I kontekst:** Hvis hovedpersonen har mistet noen, kan uret symbolisere at tiden stoppet for ham/henne i det øyeblikket.
+
+---
+
+**2. Vinduet som aldri åpnes:**
+
+**Bokstavelig:** Et vindu som forblir lukket.
+
+**Symbolsk betydning:**
+- Manglende forbindelse med omverdenen
+- Isolasjon og innelukkethet
+- Uvilje mot å slippe inn frisk luft / nye perspektiver
+- Frykt for forandring
+
+**I kontekst:** Vinduet representerer kanskje karakterens motvilje mot å åpne seg for andre eller for livet utenfor.
+
+---
+
+**3. Den gjengrodde hagen:**
+
+**Bokstavelig:** En hage som ikke er stelt, overgrodd av ugress.
+
+**Symbolsk betydning:**
+- Noe som en gang var vakkert og pleiet, nå forfalt
+- Forsømmelse og mangel på omsorg
+- Fortiden som tar over nåtiden
+- Naturens gjenerobing når mennesket gir opp
+
+**I kontekst:** Hagen kan speile karakterens indre tilstand - noe som har visnet fordi det ikke ble tatt vare på.
+
+---
+
+**Samlet tolkning:**
+De tre symbolene forsterker hverandre og peker mot samme tematikk: **stagnasjon, sorg og isolasjon**. En karakter som er fanget i fortiden, som ikke klarer å gå videre eller åpne seg for livet.
+
+**Tips:** Symboler får sin fulle betydning i kontekst. Se alltid på hvordan de forholder seg til handling, karakterer og tema.`,
+    },
+    {
       id: 'norsk-vg1-2-5-ex-7',
       type: 'exercise',
       exercise: {
@@ -4451,6 +4738,60 @@ Forholdet mellom visuell og verbal informasjon.
 - **Lydeffekter:** Onomatopoetikon som visuelt element`,
     },
     {
+      id: 'norsk-vg1-2-6-example-0',
+      type: 'example',
+      title: 'Eksempel: Analysere panelstruktur og tempo',
+      problem: `En side i en grafisk roman har følgende layout:
+- Øverst: Ett stort panel som dekker halve siden (splash-lignende)
+- Midten: Seks små, like store paneler (2x3)
+- Nederst: Ett bredt, lavt panel
+
+Analyser hvordan denne layouten kan påvirke lesningen.`,
+      solution: `**Analyse av panelstruktur:**
+
+**Det store panelet øverst:**
+- **Funksjon:** Etablerer scene, setting eller et viktig øyeblikk
+- **Effekt:** Stopper leserens øye, signaliserer "dette er viktig"
+- **Mulig innhold:** Oversiktsbilde, dramatisk øyeblikk, emosjonelt høydepunkt
+- **Tempo:** Langsomt - leseren dveler ved bildet
+
+---
+
+**De seks små panelene (2x3):**
+- **Funksjon:** Rask handling, detaljer, sekvens
+- **Effekt:** Øyet beveger seg raskt gjennom rutenett
+- **Mulig innhold:** Dialog-utveksling, handlingssekvens, detaljer som bygger opp
+- **Tempo:** Hurtig - mange små øyeblikk etter hverandre
+
+**Eksempel på innhold:**
+Panel 1-2: Karakterene snakker
+Panel 3-4: Noe skjer
+Panel 5-6: Reaksjoner
+
+---
+
+**Det brede panelet nederst:**
+- **Funksjon:** Avslutter siden, ofte med et vendepunkt eller cliffhanger
+- **Effekt:** Bredden gir pusterom etter de raske panelene
+- **Mulig innhold:** Reaksjonsbilde, ny informasjon, overgang til neste side
+- **Tempo:** Pause før sidevending
+
+---
+
+**Samlet tempoanalyse:**
+
+Siden har en **bølgestruktur**:
+1. **Langsom start** (stort panel) - etablering
+2. **Rask midtdel** (små paneler) - handling/dialog
+3. **Pause til slutt** (bredt panel) - landing
+
+**Dramaturgisk funksjon:**
+Denne strukturen mimer klassisk spenningsoppbygging: Etablering → Handling → Vendepunkt. Leseren tvinges til å variere lesetempo, noe som skaper dynamikk.
+
+**Kontrast:**
+Hvis alle paneler var like store, ville siden føles monoton. Variasjonen guider leserens opplevelse.`,
+    },
+    {
       id: 'norsk-vg1-2-6-ex-2',
       type: 'exercise',
       exercise: {
@@ -4756,6 +5097,66 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
 - Hold deg til saken
 - Bidra til samtalen
 - Vær inkluderende`,
+    },
+    {
+      id: 'norsk-vg1-5-1-example-0',
+      type: 'example',
+      title: 'Eksempel: Fra nervøs til selvsikker presentasjon',
+      problem: `Maria skal holde en 5-minutters presentasjon om klimaendringer for klassen. Hun er nervøs og har følgende utfordringer:
+- Vet ikke hvordan hun skal begynne
+- Redd for å miste tråden
+- Vet ikke hvor hun skal se
+- Snakker ofte for fort når hun er nervøs
+
+Hvordan kan Maria forberede seg for å lykkes?`,
+      solution: `**Forberedelse til presentasjonen:**
+
+**1. Strukturer innholdet tydelig:**
+
+**Innledning (30 sek):**
+Maria åpner med en konkret, overraskende fakta:
+"Visste dere at 2023 var det varmeste året som noensinne er målt? I dag skal jeg snakke om hva dette betyr for oss."
+
+**Hoveddel (3,5 min) - tre hovedpunkter:**
+1. Hva skjer med klimaet? (1 min)
+2. Hvorfor skjer det? (1 min)
+3. Hva kan vi gjøre? (1,5 min)
+
+**Avslutning (1 min):**
+"Klimaendringene er vår tids største utfordring. Men vi kan alle bidra - og det begynner med de små valgene vi tar hver dag."
+
+---
+
+**2. Lag stikkordskort:**
+Maria skriver ett kort per hovedpunkt med bare nøkkelord - ikke hele setninger. Dette hindrer at hun leser opp.
+
+---
+
+**3. Øv på teknikk:**
+
+**Øyekontakt:**
+- Del rommet i tre: venstre, midten, høyre
+- Se på ulike personer i hver del gjennom presentasjonen
+- Ikke fest blikket på én person hele tiden
+
+**Tempo:**
+- Merk av på stikkordskortene: "PUST" og "PAUSE"
+- Ta bevisste pauser etter viktige poenger
+- Spør en venn om å gi tegn hvis hun snakker for fort
+
+**Mot nervøsiteten:**
+- Forbered de første setningene ekstra godt
+- Pust dypt tre ganger før hun begynner
+- Husk: Nervøsitet er energi - bruk den!
+
+---
+
+**4. Øv presentasjonen:**
+- Først alene, gjerne foran speil
+- Så for en venn eller familiemedlem
+- Ta opp på mobilen og se gjennom
+
+**Resultat:** Med god forberedelse kan Maria gå fra nervøs til selvsikker. Strukturen gir henne trygghet, stikkordene hindrer at hun mister tråden, og øvelsen gjør fremføringen naturlig.`,
     },
     {
       id: 'norsk-vg1-5-1-example-1',
@@ -5130,6 +5531,57 @@ Kreativ skriving handler om å uttrykke deg selv gjennom fortelling og fiksjon. 
 - Korte setninger: Spenning, tempo
 - Lange setninger: Refleksjon, skildring
 - Billedspråk: Skaper stemning`,
+    },
+    {
+      id: 'norsk-vg1-5-2-example-0',
+      type: 'example',
+      title: 'Eksempel: Show, don\'t tell - å vise i stedet for å fortelle',
+      problem: `En elev har skrevet: "Per var sint."
+
+Denne setningen forteller leseren at Per er sint, men viser det ikke. Hvordan kan vi skrive om dette så leseren opplever sinnet?`,
+      solution: `**Fra "tell" til "show":**
+
+**Versjon 1 - Telling (svakt):**
+"Per var sint."
+
+**Versjon 2 - Showing (sterkt):**
+"Per smalt døren igjen så vinduene ristet. Han rev av seg jakken og kastet den på gulvet. Hendene skalv da han presset dem mot bordplaten."
+
+---
+
+**Hva er forskjellen?**
+
+**Telling:**
+- Forteller leseren hva han skal føle/tenke
+- Leseren er passiv mottaker
+- Abstrakt og flatt
+
+**Showing:**
+- Viser gjennom handling, kropp, dialog
+- Leseren tolker selv og blir aktiv
+- Konkret og levende
+
+---
+
+**Flere eksempler:**
+
+| Tell (svakt) | Show (sterkt) |
+|--------------|---------------|
+| "Hun var redd." | "Hjertet hamret. Hun presset ryggen mot veggen og holdt pusten." |
+| "Det var kaldt." | "Pusten sto som hvit røyk foran munnen. Han gjemte hendene i armhulene." |
+| "Han elsket henne." | "Han fant seg selv i å smile hver gang hun lo. Telefonen var alltid i hånden, i tilfelle hun skulle sende melding." |
+| "Rommet var rotete." | "Klær lå strødd over stolen, tomme kaffekrus dekket skrivebordet, og en haug med aviser sperret veien til sengen." |
+
+---
+
+**Tips for å "show":**
+
+1. **Bruk sansene:** Hva ser, hører, lukter, kjenner karakteren?
+2. **Beskriv kroppen:** Hendene skalv. Magen knøt seg. Skuldrene sank.
+3. **Vis gjennom handling:** Hva gjør karakteren? Handlinger avslører følelser.
+4. **Bruk dialog:** Hva sier karakteren, og hvordan sier de det?
+
+**Merk:** Ikke alt trenger å "showes". Noen ganger er "telling" effektivt for å komme videre i historien. Kunsten er å vite når du skal vise og når du skal fortelle.`,
     },
     {
       id: 'norsk-vg1-5-2-example-1',

@@ -270,6 +270,39 @@ Forfelt | V | S | IO | DO | Adverbial
 I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
     },
     {
+      id: 'norsk-vg1-8-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Skille mellom predikativ og adverbial',
+      problem: 'Analyser disse setningene og avgjør om det uthevede leddet er predikativ eller adverbial:\n\n1. "Hun er **flink**." \n2. "Hun arbeider **flittig**."\n3. "Maten smaker **godt**."\n4. "Han løper **fort**."',
+      solution: `**Analyse:**
+
+**1. "Hun er flink."**
+- **flink** = subjektspredikativ (SP)
+- Forklaring: "flink" beskriver subjektet "hun" via kopulaverbet "er"
+- Test: "Hun = flink" gir mening
+
+**2. "Hun arbeider flittig."**
+- **flittig** = måtesadverbial (A)
+- Forklaring: "flittig" beskriver HVORDAN hun arbeider, ikke hvordan hun ER
+- Test: "Hun = flittig" gir ikke samme mening som setningen
+
+**3. "Maten smaker godt."**
+- **godt** = subjektspredikativ (SP)
+- Forklaring: "godt" beskriver maten via kopulaverbet "smaker"
+- Test: "Maten = godt" (maten er god)
+
+**4. "Han løper fort."**
+- **fort** = måtesadverbial (A)
+- Forklaring: "fort" beskriver HVORDAN han løper
+- Test: "Han = fort" gir ikke mening
+
+**Huskeregel:**
+- Predikativ beskriver HVEM/HVA subjektet/objektet ER
+- Adverbial beskriver HVORDAN handlingen utføres
+- Kopulaverb (være, bli, virke, smaker, føles) + predikativ
+- Handlingsverb (løpe, arbeide, gå) + adverbial`,
+    },
+    {
       id: 'norsk-vg1-8-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -874,6 +907,33 @@ Avsnittet har god tekstbinding:
 - Tydelige referanser
 - Konsekvent tema
 - Variasjon i bindemetoder`,
+    },
+    {
+      id: 'norsk-vg1-8-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Forbedre tekstbinding',
+      problem: 'Denne teksten har dårlig tekstbinding. Skriv den om med bedre sammenheng:\n\n"Bilen var gammel. Bilen trengte reparasjon. Bilen kostet mye. Verkstedet var langt unna. Verkstedet hadde dårlige åpningstider."',
+      solution: `**Analyse av problemet:**
+- Monoton gjentagelse av "Bilen" og "Verkstedet"
+- Mangler bindeord som viser sammenheng
+- Ingen progresjon i teksten
+
+**Forbedret versjon:**
+"Bilen var gammel og trengte reparasjon, noe som kom til å koste mye. Dessverre var verkstedet langt unna, og det hadde i tillegg dårlige åpningstider."
+
+**Hva ble gjort:**
+1. **Referentbinding:** "noe" viser tilbake til hele situasjonen
+2. **Konjunksjoner:** "og" binder sammen relaterte opplysninger
+3. **Setningsadverbialer:** "Dessverre" og "i tillegg" viser holdning og kobler
+4. **Sammenslåing:** Korte setninger er slått sammen til lengre med bedre flyt
+
+**Alternativ versjon:**
+"Den gamle bilen trengte reparasjon. Dette ville bli dyrt. Til overmål lå det nærmeste verkstedet langt unna, med ugunstige åpningstider."
+
+Her brukes:
+- **Synonym:** "Den gamle bilen" for variasjon
+- **Demonstrativ:** "Dette" viser tilbake
+- **Setningsadverbial:** "Til overmål" signaliserer ytterligere problem`,
     },
     {
       id: 'norsk-vg1-8-2-ex-1',
@@ -1537,6 +1597,90 @@ Adverbiale uttrykk skrives ofte i to ord:
 
 **Rettet tekst:**
 "Da jeg var liten, likte jeg å lese bøker. Pers favoritt var detektivhistorier, og de var spennende. I dag leser jeg fremdeles mye, men det er vanskelig å finne tid."`,
+    },
+    {
+      id: 'norsk-vg1-8-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Dobbeltkonsonant og sammensatte ord',
+      problem: 'Avgjør om disse ordene er riktig skrevet, og forklar reglene:\n\n1. "Han sat og vente på bussen."\n2. "fotball kamp"\n3. "Han tok takkene fra bordet."\n4. "i dag" vs. "idag"',
+      solution: `**1. "Han sat og vente på bussen."**
+FEIL: "sat" og "vente"
+RIKTIG: "Han **satt** og **ventet** på bussen."
+
+**Forklaring:**
+- "satt" (preteritum av "å sitte") har kort vokal, derfor dobbelt t
+- "ventet" (preteritum av "å vente") har -et endelse i preteritum
+
+**Huskeregel:** Kort vokal = dobbeltkonsonant
+
+---
+
+**2. "fotball kamp"**
+FEIL: Særskriving
+RIKTIG: "**fotballkamp**"
+
+**Forklaring:**
+- Sammensatte substantiv skrives i ETT ord på norsk
+- Test: "en fotballkamp" fungerer → ett ord
+
+---
+
+**3. "Han tok takkene fra bordet."**
+RIKTIG eller FEIL? Avhenger av betydning!
+- "takkene" (flere takk) = riktig hvis han tok mange takkebrev
+- "takene" (flere tak på hus) = riktig hvis han tok takmateriale
+- "takkene" (pigger på sko) = riktig i denne betydningen
+
+**Forklaring:** "takk" (kort a) og "tak" (lang a) er forskjellige ord
+
+---
+
+**4. "i dag" vs. "idag"**
+RIKTIG: "**i dag**" (to ord)
+
+**Forklaring:**
+- Adverbiale uttrykk med preposisjon skrives ofte i to ord
+- Test: "en i dag" gir ikke mening → to ord
+- Andre eksempler: i morgen, til slutt, i forveien`,
+    },
+    {
+      id: 'norsk-vg1-8-3-example-3',
+      type: 'example',
+      title: 'Eksempel: De/dem og og/å',
+      problem: 'Sett inn riktig form (de/dem, og/å):\n\n1. "___ kom sent til festen, men ___ hadde det gøy likevel."\n2. "Hun likte ___ spise is ___ drikke brus."\n3. "Vi så ___ på torget. ___ vinket til oss."',
+      solution: `**1. "De kom sent til festen, men de hadde det gøy likevel."**
+
+**Forklaring:**
+- Første "de": SUBJEKT i setningen "De kom sent" → **de**
+- Andre "de": SUBJEKT i setningen "de hadde det gøy" → **de**
+
+**Test:** Bytt ut med "vi/oss":
+- "Vi kom sent" ✓ → de (subjekt)
+- "Vi hadde det gøy" ✓ → de (subjekt)
+
+---
+
+**2. "Hun likte å spise is og drikke brus."**
+
+**Forklaring:**
+- Første "å": Infinitivsmerke før verbet "spise" → **å**
+- "og": Binder sammen to likeverdige ledd (spise og drikke) → **og**
+
+**Test for og/å:**
+- Kan du bytte ut med "og deretter"? "spise og deretter drikke" ✓ → **og**
+- Kan du bytte ut med "for å"? "Hun likte for å spise" ✓ → **å**
+
+---
+
+**3. "Vi så dem på torget. De vinket til oss."**
+
+**Forklaring:**
+- "dem": OBJEKT for verbet "så" → **dem**
+- "De": SUBJEKT i ny setning → **De**
+
+**Test:** Bytt ut med "vi/oss":
+- "Vi så oss" (objekt) → dem
+- "Vi vinket" (subjekt) → De`,
     },
     {
       id: 'norsk-vg1-8-3-ex-1',
@@ -2334,6 +2478,109 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
 - "farlig/vanskelig" → "farleg/vanskeleg" (typisk nynorsk)
 - Alle pronomen og spørjeord er endra`,
     },
+    {
+      id: 'norsk-vg1-8-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Nynorsk verbbøying',
+      problem: 'Bøy desse verba på nynorsk og vis forskjellen frå bokmål:\n\n1. å komme\n2. å ta\n3. å gjøre\n4. å se',
+      solution: `**1. å komme → å kome/koma**
+
+| Form | Bokmål | Nynorsk |
+|------|--------|---------|
+| Infinitiv | å komme | å kome/koma |
+| Presens | kommer | **kjem** |
+| Preteritum | kom | kom |
+| Perfektum | har kommet | har kome |
+
+**VIKTIG:** "kjem" i presens - dette er ein obligatorisk nynorskform!
+
+---
+
+**2. å ta**
+
+| Form | Bokmål | Nynorsk |
+|------|--------|---------|
+| Infinitiv | å ta | å ta |
+| Presens | tar | **tek** |
+| Preteritum | tok | tok |
+| Perfektum | har tatt | har **teke** |
+
+**VIKTIG:** "tek" i presens og "teke" i perfektum - obligatoriske former!
+
+---
+
+**3. å gjøre → å gjere**
+
+| Form | Bokmål | Nynorsk |
+|------|--------|---------|
+| Infinitiv | å gjøre | å gjere |
+| Presens | gjør | **gjer** |
+| Preteritum | gjorde | gjorde |
+| Perfektum | har gjort | har gjort |
+
+**VIKTIG:** "gjere" og "gjer" - ikkje "gjøre/gjør"!
+
+---
+
+**4. å se → å sjå**
+
+| Form | Bokmål | Nynorsk |
+|------|--------|---------|
+| Infinitiv | å se | å **sjå** |
+| Presens | ser | ser |
+| Preteritum | så | **såg** |
+| Perfektum | har sett | har sett |
+
+**VIKTIG:** Infinitiv er "sjå", og preteritum er "såg" (ikkje "så")!`,
+    },
+    {
+      id: 'norsk-vg1-8-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Finne bokmålsfeil på nynorsk',
+      problem: 'Finn alle bokmålsfeila i denne teksten og rett dei:\n\n"Når hun kom hjem, visste hun ikke hva hun skulle gjøre. Noe hadde skjedd, men hun forsto ikke hvorfor. De som var der, sa ikke noe."',
+      solution: `**Systematisk gjennomgang:**
+
+**Setning 1: "Når hun kom hjem, visste hun ikke hva hun skulle gjøre."**
+- "hun" → **"ho"** (3 gonger)
+- "ikke" → **"ikkje"**
+- "hva" → **"kva"**
+- "gjøre" → **"gjere"**
+
+Retta: "Når ho kom heim, visste ho ikkje kva ho skulle gjere."
+
+---
+
+**Setning 2: "Noe hadde skjedd, men hun forsto ikke hvorfor."**
+- "Noe" → **"Noko"**
+- "hun" → **"ho"**
+- "forsto" → **"forstod"** (eller "skjøna")
+- "ikke" → **"ikkje"**
+- "hvorfor" → **"kvifor"**
+
+Retta: "Noko hadde hendt, men ho forstod ikkje kvifor."
+
+---
+
+**Setning 3: "De som var der, sa ikke noe."**
+- "De" → **"Dei"**
+- "ikke" → **"ikkje"**
+- "noe" → **"noko"**
+
+Retta: "Dei som var der, sa ikkje noko."
+
+---
+
+**Fullstendig retta tekst:**
+"Når ho kom heim, visste ho ikkje kva ho skulle gjere. Noko hadde hendt, men ho forstod ikkje kvifor. Dei som var der, sa ikkje noko."
+
+**Sjekkliste for nynorsk:**
+- [ ] ikkje (ikkje "ikke")
+- [ ] kva, kven, kvar, korleis, kvifor
+- [ ] ho (ikkje "hun")
+- [ ] noko, nokon, mykje
+- [ ] dei (ikkje "de")
+- [ ] kjem, tek, gjer, ser`,
+    },
     // Primærtekst: Ivar Aasen - «Nordmannen»
     {
       id: 'norsk-vg1-8-4-primaertekst-1',
@@ -3036,6 +3283,51 @@ Teksten tar opp:
 **Litterær betydning:**
 Skaranger gir stemme til en erfaring mange har, men som sjelden har vært representert i norsk litteratur. Den enkle dialogen avslører kompliserte maktstrukturer.`,
     },
+    {
+      id: 'norsk-vg1-3-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Språk som identitetsmarkør',
+      problem: 'Analyser hvordan språket brukes som identitetsmarkør i denne passasjen:\n\n"Wallah, jeg sverger, det var ikke meg. Du veit jeg hadde aldri gjort noe sånt, bro. Mamma ville drept meg, liksom."',
+      solution: `**Analyse av språket som identitetsmarkør:**
+
+**Språklige elementer:**
+1. **"Wallah"** - Arabisk uttrykk som betyr "ved Gud"
+   - Låneord fra arabisk brukt i flerspråklige miljøer
+   - Signaliserer ekthet og sannhet
+
+2. **"bro"** - Forkorting av "brother"
+   - Engelsk låneord, brukt som tiltaleform
+   - Signaliserer nærhet og solidaritet
+
+3. **"liksom"** - Typisk ungdomsord
+   - Demper eller modifiserer utsagnet
+   - Vanlig i muntlig språk
+
+**Kodeveksling:**
+Taleren veksler mellom:
+- Arabisk (wallah)
+- Engelsk (bro)
+- Norsk (resten)
+
+Dette kalles **kodeveksling** og er typisk for flerspråklige miljøer.
+
+**Identitetsfunksjon:**
+- Språket markerer tilhørighet til et bestemt miljø
+- Viser flerkulturell kompetanse
+- Skaper avstand til "standard" norsk
+- Signaliserer solidaritet med jevnaldrende
+
+**Litterær effekt:**
+- Gjør karakteren autentisk og gjenkjennelig
+- Representerer virkelig talemål
+- Utfordrer forestillinger om "riktig" norsk
+- Viser at norsk er et levende språk i utvikling
+
+**Kontrast med "standardspråk":**
+Sammenlign med: "Jeg lover deg, det var ikke jeg. Du vet at jeg aldri ville gjort noe slikt. Moren min ville blitt rasende."
+- Samme innhold, helt annen effekt
+- Mister autentisitet og tilhørighetsmarkering`,
+    },
     // Primærtekst: Knut Hamsun - Sult (åpning)
     {
       id: 'norsk-vg1-3-1-primaertekst-1',
@@ -3548,6 +3840,55 @@ Flerkulturell litteratur kan leses som motfortellinger - tekster som forteller a
 
 **Konklusjon:**
 Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere som "de andre" sett utenfra.`,
+    },
+    {
+      id: 'norsk-vg1-3-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Motfortelling vs. stereotypi',
+      problem: 'Sammenlign disse to tekstutdragene og analyser forskjellene i perspektiv:\n\nTekst A (fra en reiseskildring fra 1920-tallet):\n"De innfødte betraktet oss med nysgjerrige blikk. Deres enkle liv og primitive skikker fascinerte oss."\n\nTekst B (fra en moderne roman):\n"Da de hvite mennene kom til landsbyen, så vi på dem med undring. Hva ville de her? Forsto de ikke at vi hadde våre egne liv, våre egne historier?"',
+      solution: `**Analyse av Tekst A:**
+
+**Perspektiv:**
+- Fortalt fra de reisendes (vestlige) synsvinkel
+- "De innfødte" er objekter som blir betraktet
+- Fortelleren har definisjonsmakten
+
+**Språklige valg:**
+- "innfødte" - generaliserende, objektiverende
+- "enkle liv" - nedvurderende
+- "primitive skikker" - eurosentrisk verdivurdering
+- "fascinerte oss" - eksotifisering
+
+**"Den andre":**
+Lokalbefolkningen fremstilles som:
+- Annerledes og eksotiske
+- Enklere og mindre utviklet
+- Interessante å observere, men ikke likeverdige
+
+---
+
+**Analyse av Tekst B:**
+
+**Perspektiv:**
+- Fortalt fra lokalbefolkningens synsvinkel
+- "Vi" er subjekter med egen stemme
+- De besøkende blir "de andre"
+
+**Språklige valg:**
+- "vi" som aktive subjekter
+- Stiller spørsmål - viser refleksjon
+- "våre egne liv, våre egne historier" - insisterer på egenverdi
+
+**Motfortelling:**
+Teksten snur perspektivet og:
+- Gir stemme til de tidligere tause
+- Utfordrer hvem som er "normal"
+- Viser at alle har komplekse liv og perspektiver
+
+---
+
+**Konklusjon:**
+Tekst B er en **motfortelling** - den forteller historien fra et annet perspektiv enn det dominerende. Dette er et viktig grep i postkolonial litteratur.`,
     },
     // Primærtekst: Henrik Ibsen - Peer Gynt (Marokko-scenen)
     {
@@ -4554,6 +4895,57 @@ Bruk motsatt type anførselstegn.
 "Han sa at han ville komme. Men han kom ikke. Vi ventet og ventet, helt til kl. 21:00. Da ga vi opp og gikk hjem."`,
     },
     {
+      id: 'norsk-vg1-8-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Komma ved leddsetninger og innskudd',
+      problem: 'Sett inn komma der det trengs, og forklar reglene:\n\n1. "Boken som jeg leste var spennende."\n2. "Forfatteren J.K. Rowling som skrev Harry Potter er britisk."\n3. "Jeg kommer hvis det ikke regner."\n4. "Da vi kom hjem var det mørkt."',
+      solution: `**1. "Boken som jeg leste var spennende."**
+
+To mulige tolkninger:
+
+a) "Boken som jeg leste, var spennende."
+- NØDVENDIG leddsetning (spesifiserer hvilken bok)
+- Komma KAN settes foran "var", men er valgfritt
+- Mening: Det var EN BESTEMT bok jeg leste, og den var spennende
+
+b) "Boken, som jeg leste, var spennende."
+- INNSKUDD (tilleggsinformasjon)
+- Komma på begge sider av innskuddet
+- Mening: Boken (som vi allerede vet hvilken er), og som jeg forresten leste, var spennende
+
+---
+
+**2. "Forfatteren J.K. Rowling som skrev Harry Potter er britisk."**
+
+RIKTIG: "Forfatteren J.K. Rowling, som skrev Harry Potter, er britisk."
+
+**Forklaring:**
+- "som skrev Harry Potter" er INNSKUDD (tilleggsinformasjon)
+- Vi vet allerede hvem J.K. Rowling er
+- Komma på begge sider av innskuddet
+
+---
+
+**3. "Jeg kommer hvis det ikke regner."**
+
+RIKTIG: "Jeg kommer, hvis det ikke regner."
+
+**Forklaring:**
+- Komma foran subjunksjon ("hvis") som innleder leddsetning
+- Leddsetningen kommer ETTER hovedsetningen
+
+---
+
+**4. "Da vi kom hjem var det mørkt."**
+
+RIKTIG: "Da vi kom hjem, var det mørkt." (komma anbefalt)
+
+**Forklaring:**
+- Leddsetningen ("Da vi kom hjem") kommer FØRST
+- Komma etter leddsetning som står først er valgfritt, men anbefales
+- Hjelper leseren å se strukturen i setningen`,
+    },
+    {
       id: 'norsk-vg1-8-5-ex-8',
       type: 'exercise',
       exercise: {
@@ -5320,6 +5712,51 @@ Jeg-perspektivet knytter identitet til reinflokken. "Min" viser tilhørighet, me
 **Samisk kontekst:**
 Diktet uttrykker samisk naturforståelse der menneske og natur er sammenvevd. Reindriften er ikke bare næring, men identitet, historie og fremtid.`,
     },
+    {
+      id: 'norsk-vg1-3-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Joik som litterær form',
+      problem: 'Analyser hvordan joiken fungerer som litterær uttrykksform ved å sammenligne med konvensjonell poesi:\n\nJoik: "Vuoi-vuoi-nana-nana... (melodisk, gjentakende, fremkaller et fjell)\nDikt: "Fjellet reiser seg mot himmelen / stolte, urgammel, stille"',
+      solution: `**Analyse av joik som litteratur:**
+
+**Joikens særtrekk:**
+
+**1. Fremkalling vs. beskrivelse:**
+- Diktet BESKRIVER fjellet ("reiser seg", "stolte", "urgammel")
+- Joiken FREMKALLER fjellet gjennom lyd og stemning
+- Joik er ikke "om" fjellet - den ER fjellet i lyd
+
+**2. Språklige virkemidler:**
+- Diktet bruker adjektiver og metaforer
+- Joiken bruker vokaler, rytme og melodi
+- Stavelser som "vuoi-vuoi" har ikke direkte mening, men skaper nærvær
+
+**3. Mottakerrolle:**
+- Leseren av diktet tolker bilder mentalt
+- Tilhøreren av joiken opplever direkte, nærmest fysisk
+- Joik inviterer til deltakelse, ikke bare lytting
+
+---
+
+**Joik som litteratur - hvorfor er det relevant?**
+
+**Muntlig litteratur:**
+Joik tilhører en muntlig tradisjon der tekst og fremføring ikke kan skilles. Det er litteratur som oppleves, ikke bare leses.
+
+**Poetiske kvaliteter:**
+- Rytme og gjentakelse
+- Komprimert uttrykk
+- Emosjonell intensitet
+- Evne til å formidle mening utover ordene
+
+**Utfordring for litteraturanalyse:**
+Joik passer ikke inn i vestlige litterære kategorier. Det utfordrer oss til å utvide hva vi mener med "litteratur" og "tekst".
+
+---
+
+**Konklusjon:**
+Joik viser at litteratur kan være mer enn trykte ord. Det er en påminnelse om at ulike kulturer har ulike måter å uttrykke mening på - alle like gyldige.`,
+    },
     // Primærtekst 1: Samisk dikt
     {
       id: 'norsk-vg1-3-3-primaertekst-1',
@@ -6080,6 +6517,49 @@ Diktet handler egentlig om oppmerksomhet - å være til stede i øyeblikket. Det
 **For norsk leser:**
 Vi gjenkjenner øyeblikket selv om konteksten er japansk. Men zen-buddhismens filosofi gir diktet en ekstra dimensjon vi kanskje ikke fanger uten kulturell kunnskap.`,
     },
+    {
+      id: 'norsk-vg1-3-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Magisk realisme',
+      problem: 'Les dette fiktive utdraget i magisk realistisk stil og analyser hva som gjør det til magisk realisme:\n\n"Bestemor døde på en tirsdag, men hun fortsatte å komme til middag hver søndag. Hun satt i sin vanlige stol, spiste suppen sin, og klaget over at saltet var for sterkt. Ingen i familien kommenterte dette. Det var bare sånn det var."',
+      solution: `**Hva er magisk realisme?**
+
+Magisk realisme er en litterær stil der overnaturlige elementer behandles som hverdagslige og aksepterte. Det skiller seg fra fantasy ved at det magiske ikke forklares eller problematiseres - det bare er.
+
+---
+
+**Analyse av utdraget:**
+
+**Det overnaturlige elementet:**
+En død bestemor kommer til middag. I vår virkelighet: umulig. I teksten: helt normalt.
+
+**Realistisk ramme:**
+- Konkret tid: "en tirsdag", "hver søndag"
+- Hverdagslige detaljer: middag, suppe, salt
+- Vanlige familiedynamikker: klaging over maten
+
+**Magisk realisme-grep:**
+1. **Ingen overraskelse:** Familien reagerer ikke
+2. **Hverdagslig tone:** "Det var bare sånn det var"
+3. **Konkrete detaljer:** "sin vanlige stol"
+4. **Ingen forklaring:** Vi får ikke vite hvorfor eller hvordan
+
+---
+
+**Hvorfor virker det?**
+
+Magisk realisme fungerer fordi:
+- Den speiler hvordan vi faktisk opplever tap og sorg
+- De døde lever videre i minnet, i rutinene, i de tomme stolene
+- Metaforisk sannhet kan være sterkere enn bokstavelig sannhet
+- Den utfordrer vestlig rasjonalisme
+
+---
+
+**Litterær kontekst:**
+
+Gabriel García Márquez brukte magisk realisme i "Hundre års ensomhet" for å skildre latinamerikansk virkelighet der det magiske, religiøse og overtroiske er vevd inn i hverdagen. Det er ikke "flukt" fra virkeligheten, men en annen måte å forstå den på.`,
+    },
     // Primærtekst: Chinua Achebe
     {
       id: 'norsk-vg1-3-4-primaertekst-1',
@@ -6714,6 +7194,52 @@ Mennesket må gjøre jobben biene gjorde gratis.
 
 **Effekt:**
 Teksten gjør klimakrisen emosjonelt tilgjengelig. Vi forstår ikke bare intellektuelt, men føler konsekvensene. Det skaper engasjement.`,
+    },
+    {
+      id: 'norsk-vg1-3-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Teknologi og identitet i samtidslitteraturen',
+      problem: 'Analyser dette fiktive utdraget som tar opp sosiale medier og identitet:\n\n"Jeg la ut bildet kl. 19:43. Kl. 19:44 sjekket jeg om noen hadde likt det. Kl. 19:45 sjekket jeg igjen. Ingen likes ennå. Kanskje filteret var feil. Kanskje vinkelen. Kanskje jeg. Kl. 19:47 slettet jeg det. Kl. 19:48 angret jeg."',
+      solution: `**Analyse:**
+
+**Tema:**
+Teksten handler om selvbilde og validering i sosiale mediers tid. Den utforsker hvordan vi konstruerer og vurderer oss selv gjennom andres blikk.
+
+**Virkemidler:**
+
+**Tid som strukturerende element:**
+- Minutt-for-minutt kronologi viser besettelsen
+- Kort tidsrom (5 minutter) = intens emosjonell berg-og-dal-bane
+- Klokketidene gir dokumentarisk nøkternhet
+
+**Setningsstruktur:**
+- Korte, stakkato setninger speiler rastløsheten
+- Gjentakelsen av "sjekket jeg" viser tvangen
+- "Kanskje"-rekken viser selvkritikk som eskalerer
+
+**Progresjon:**
+1. Handling (la ut)
+2. Venting (sjekket)
+3. Selvtvil (filteret, vinkelen, jeg)
+4. Handling (slettet)
+5. Emosjon (angret)
+
+Hele prosessen på 5 minutter - fra håp til selvkritikk til anger.
+
+**Analyse:**
+"Kanskje jeg" er klimakset - fra tekniske forklaringer til eksistensiell tvil. Bildet er ikke problemet; det er selvet.
+
+---
+
+**Samfunnsrelevans:**
+Teksten tar opp:
+- Digital avhengighet
+- Bekreftelsessøking
+- Konstruert vs. autentisk identitet
+- Sosiale mediers påvirkning på mental helse
+
+**Litterær effekt:**
+Den korte formen og hverdagslige tonen gjør at leseren kjenner seg igjen. Det er ubehagelig fordi det er gjenkjennelig. Litteraturen holder opp et speil.`,
     },
     // Primærtekst: Maja Lunde
     {

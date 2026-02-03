@@ -248,6 +248,41 @@ Bildet viser en person som sykler gjennom en grønn skog på en solskinnsdag. Te
 Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivitet.`,
     },
     {
+      id: 'norsk-vg1-6-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av nettavis-forside',
+      content: `**Oppgave/Situasjon:**
+Analyser hvordan modalitetene virker sammen pa forsiden til en nettavis.
+
+**Analyse av en tenkt nettavis-forside:**
+
+**Hovedoppslag:**
+- Stort bilde av flom i en norsk by
+- Overskrift: "EKSTREMVAER: Vann stiger - folk evakueres"
+- Ingress: "Meteorologene varsler mer nedbor i natt"
+
+**Visuell modalitet:**
+- Dramatisk bilde med hoy fargemetning
+- Blinkende "DIREKTE"-ikon oppe til hoeyre
+- Rodt som signalfarger pa viktige elementer
+
+**Verbal modalitet:**
+- Store bokstaver i overskriften skaper hastefolelse
+- Verb i presens ("stiger", "evakueres") gir folelse av na
+- Fremtidsreferanse i ingressen ("i natt") skaper spenning
+
+**Samspill mellom modalitetene:**
+- **Forankring:** Overskriften forklarer hva bildet viser (flom)
+- **Forsterkning:** Bade bilde og tekst kommuniserer dramatikk
+- **Design:** Rodt og stort = viktig, farlig, klikk na!
+
+**Vurdering:**
+Forsiden bruker modalitetene bevisst for a skape engasjement og klikk. Fargene, bildeutvalget og ordvalgene forsterker hverandre og skaper en folelse av at dette er noe du ma lese med en gang.
+
+**Kritisk refleksjon:**
+Er dette journalistikk eller "clickbait"? Spor deg: Er dramatikken proporsjonal med hendelsen? Hvem tjener pa at du klikker?`,
+    },
+    {
       id: 'norsk-vg1-6-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -815,6 +850,46 @@ To unge mennesker møtes ved en kafé. Øyekontakt, usikkerhet, så et smil.
 Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endres, kameraet fokuserer - alt forteller seeren at disse to kommer til å bli viktige for hverandre.`,
     },
     {
+      id: 'norsk-vg1-6-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Sammenligning av bok og filmatisering',
+      content: `**Oppgave/Situasjon:**
+Sammenlign hvordan en scene fremstilles i bok og film - her bruker vi et tenkt eksempel.
+
+**Bokens versjon:**
+"Maria sto ved vinduet og sa ut pa regnet. Tankene fløy til barndommen, til de varme somrene hos bestemor. Hun kjente et stikk i hjertet. Hvorfor hadde hun ikke besøkt henne oftere?"
+
+**Filmens versjon:**
+Maria star ved vinduet. Regnet renner nedover glasset. Kameraet zoomer sakte inn pa ansiktet hennes. En tar ruller nedover kinnet. Ikke-diegetisk pianomusikk spiller melankolsk.
+
+**Analyse av forskjellene:**
+
+**Boken kan:**
+- Ga direkte inn i tankene ("Tankene fløy til barndommen")
+- Forklare følelser eksplisitt ("et stikk i hjertet")
+- Stille retoriske spørsmål som viser indre konflikt
+- La leseren forestille seg ansiktsuttrykket selv
+
+**Filmen kan:**
+- Vise følelser visuelt gjennom skuespill (taren)
+- Bruke musikk til a skape stemning
+- La kamerabevegelsen forsterke det emosjonelle
+- Vise regnet som visuelt symbol pa tristhet
+
+**Hva mister filmen?**
+- Den direkte tilgangen til Marias tanker
+- Referansen til bestemor (ma vises pa annen mate)
+- Det retoriske spørsmalet (ma eventuelt bli voice-over)
+
+**Hva tilfører filmen?**
+- Det visuelle uttrykket (ansikt, tar, regn)
+- Musikken som forsterker stemningen
+- Umiddelbarheten i skuespillet
+
+**Konklusjon:**
+Verken bok eller film er "bedre" - de har ulike styrker. Filmen ma finne visuelle og auditive løsninger pa det boken forteller med ord.`,
+    },
+    {
       id: 'norsk-vg1-6-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -1378,6 +1453,87 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 - Sjekke språk og komma`,
     },
     {
+      id: 'norsk-vg1-5-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Bruk av tankekart i forskriving',
+      content: `**Oppgave/Situasjon:**
+Du skal skrive en tekst om klimaendringer. Hvordan kan du bruke tankekart til a organisere ideene dine?
+
+**Steg 1: Sett temaet i midten**
+Skriv "KLIMAENDRINGER" i midten av et ark.
+
+**Steg 2: Lag hovedgrener**
+Tegn linjer ut fra midten med hovedkategorier:
+- Arsaker
+- Konsekvenser
+- Løsninger
+- Min mening
+
+**Steg 3: Legg til undergrener**
+
+**Arsaker:**
+- Fossilt brensel (kull, olje, gass)
+- Avskoging
+- Industri
+- Transport
+
+**Konsekvenser:**
+- Stigende temperaturer
+- Smelting av is
+- Ekstremvar
+- Tap av arter
+
+**Løsninger:**
+- Fornybar energi
+- Offentlig transport
+- Mindre forbruk
+- Politiske tiltak
+
+**Min mening:**
+- Hva kan jeg gjøre?
+- Hvem har ansvar?
+
+**Steg 4: Finn sammenhenger**
+Tegn piler mellom punkter som henger sammen:
+- "Fossilt brensel" → "Stigende temperaturer" → "Smelting av is"
+- "Fornybar energi" som løsning pa "Fossilt brensel"
+
+**Resultat:**
+Na har du et visuelt oversikt over temaet. Du kan bruke tankekartet til a:
+- Velge fokus (du kan ikke skrive om alt)
+- Lage disposisjon (arsaker → konsekvenser → løsninger)
+- Finne argumenter og eksempler`,
+    },
+    {
+      id: 'norsk-vg1-5-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Tilbakemelding og revisjon',
+      content: `**Oppgave/Situasjon:**
+Se hvordan en elev bruker tilbakemelding til a forbedre teksten sin.
+
+**Opprinnelig avsnitt:**
+"Ungdom bruker mye tid pa sosiale medier. Det er ikke bra. De burde gjøre andre ting i stedet."
+
+**Tilbakemelding fra medelev:**
+- "Hvor mye er 'mye'? Kan du være mer konkret?"
+- "Hvorfor er det ikke bra? Du mangler begrunnelse."
+- "Hva slags 'andre ting'? Kan du gi eksempler?"
+- "Hvem er 'de'? Inkluderer du deg selv?"
+
+**Elevens refleksjon:**
+Medeleven har rett - teksten min er for vag. Jeg pastar ting uten a begrunne dem, og jeg høres dømmende ut uten a inkludere meg selv.
+
+**Revidert avsnitt:**
+"Ifølge Medietilsynet bruker norske 15-aringer i gjennomsnitt tre timer daglig pa sosiale medier. Selv om dette kan gi sosial tilhørighet og underholdning, advarer forskere om at overdreven bruk kan ga utover søvn, skolearbeid og fysisk aktivitet. Som ungdom selv kjenner jeg pa dette dilemmaet: det er lett a bli hengende pa mobilen nar jeg egentlig skulle trent eller lest."
+
+**Hva ble bedre?**
+- Konkrete tall fra troverdig kilde
+- Balansert fremstilling (bade fordeler og ulemper)
+- Begrunnelse fra forskning
+- Personlig perspektiv som inkluderer skribenten
+- Mer nyansert og ærlig tone`,
+    },
+    {
       id: 'norsk-vg1-5-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -1869,6 +2025,41 @@ UNESCO klassifiserer språkenes truethetsnivå:
 Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting på samisk er blitt vanligere, særlig i samiske forvaltningsområder.
 
 **Refleksjon:** Stedsnavn er kulturminner. De viser hvem som har bodd der og hvordan de har brukt området.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Samisk ordforrad - mer enn "mange ord for snø"',
+      content: `**Oppgave/Situasjon:**
+Det sies ofte at samisk har "mange ord for snø". Hva betyr dette egentlig, og hva forteller det oss om sprak og kultur?
+
+**Samiske ord for snø og is (nordsamisk):**
+- **muohta** - snø (generelt)
+- **vahca** - løs nysnø
+- **skárta** - tynt lag med hard snø
+- **seaŋáš** - kornete, gammel snø
+- **čuoŋu** - hard skorpe pa snøen som barer
+- **moarri** - sprø isskorpe som ikke barer
+
+**Hvorfor sa mange ord?**
+Samisk levemåte - spesielt reindrift - krever presis kommunikasjon om snøforhold:
+- Er snøen trygg a ga pa?
+- Kan reinsdyrene grave gjennom den for a finne mat?
+- Er det fare for ras?
+
+**Hva dette viser om sprak:**
+1. **Sprak gjenspeiler kultur:** Ordforradet utvikles etter behov
+2. **Detaljert kunnskap:** Ordene viser dyp forstaelse av naturen
+3. **Praktisk nytte:** Presis kommunikasjon kan være livsviktig
+
+**Tilsvarende pa norsk:**
+Norsk har ogsa mange ord for spesifikke fenomener:
+- Fisketerminologi langs kysten
+- Fjellterminologi i innlandet
+- Værord i ulike dialekter
+
+**Refleksjon:**
+Spraket vart former hvordan vi oppfatter verden. Nar et sprak dør ut, mister vi ogsa en unik mate a forstå og beskrive virkeligheten pa.`,
     },
     // Primærtekst: Isak Saba - Sámi soga lávlla
     {
@@ -2423,6 +2614,43 @@ Kommisjonen la frem sin rapport til Stortinget med:
 
 **Refleksjon:**
 Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan virkningene går i arv. Mange lever fortsatt med konsekvensene av fornorskingen.`,
+    },
+    {
+      id: 'norsk-vg1-7-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Joik som kulturuttrykk og motstand',
+      content: `**Oppgave/Situasjon:**
+Hva er joik, og hvorfor var den forbudt under fornorskingen?
+
+**Hva er joik?**
+Joik er en tradisjonell samisk sangform som har eksistert i tusenvis av ar. I motsetning til vanlige sanger, joiker man ikke OM noe - man joiker noe eller noen. En joik forsøker a fange essensen av en person, et dyr, eller et sted.
+
+**Saertrekk ved joik:**
+- Ofte uten faste ord - bruker stavelser og lyder
+- Repetitive melodier som kan vare lenge
+- Improvisatorisk - kan tilpasses øyeblikket
+- Personlig - en joik "tilhører" den som joikes
+
+**Hvorfor ble joik forbudt?**
+Under fornorskingen ble joik:
+- Sett som "hedensk" og uforenlig med kristendommen
+- Forbudt i skolen og kirken
+- Forbundet med skam
+- Sett pa som "primitiv" av norske myndigheter
+
+**Konsekvenser:**
+- Mange sluttet a joike
+- Kunnskap gikk tapt mellom generasjoner
+- Joik ble noe man gjorde i det skjulte
+
+**Joik i dag:**
+- Revitalisert og feiret
+- Artister som Mari Boine og Sofia Jannok kombinerer joik med moderne musikk
+- Brukt i offisielle sammenhenger (EM-finale, nasjonaldagsfeiringer)
+- Symbol pa samisk identitet og stolthet
+
+**Refleksjon:**
+Joikens historie viser hvordan kulturuttrykk kan undertykkes, men ogsa overleve og blomstre. A forsta joik er a forsta noe grunnleggende om samisk kultur.`,
     },
     {
       id: 'norsk-vg1-7-2-ex-1',
@@ -2981,6 +3209,51 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
 2. Kontakt kommunen om tjenester på samisk
 3. Besøk Sametingets nettsider for informasjon
 4. Bruk språksenteret i din region`,
+    },
+    {
+      id: 'norsk-vg1-7-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Sprakrevitalisering i praksis - sprakreir',
+      content: `**Oppgave/Situasjon:**
+Hvordan fungerer sprakreir (sprakbad) som metode for a redde truede sprak?
+
+**Hva er et sprakreir?**
+Et sprakreir er en barnehage eller barnegruppe der all kommunikasjon foregar pa det truede spraket - i dette tilfellet samisk. Barna "bades" i spraket gjennom lek, sang og daglige aktiviteter.
+
+**Hvordan fungerer det?**
+
+**Maorimodellen fra New Zealand:**
+- Utviklet pa 1980-tallet for a redde maorisprak
+- Eldre som kunne spraket ble koblet med barn
+- Spraket ble brukt i alle situasjoner
+- Stor suksess - inspirerte mange land
+
+**Samiske sprakreir i Norge:**
+- Finnes i flere kommuner
+- Voksne snakker KUN samisk med barna
+- Barna plukker opp spraket naturlig
+- Ogsa for barn uten samisk hjemme
+
+**Eksempel pa en dag i sprakreir:**
+- Morgensamling med samisk sang
+- Frokost med samtale pa samisk
+- Utelek med samiske navn pa alt
+- Eventyr og fortellinger pa samisk
+- Lunsj, hvile - alt pa samisk
+
+**Resultater:**
+- Barn blir flytende i samisk
+- De overforer spraket til søsken og foreldre
+- Skaper nye generasjoner med spraktalere
+- Øker stolthet og identitetsfølelse
+
+**Utfordringer:**
+- Krever voksne som behersker spraket godt
+- Dyrt a drifte
+- Geografisk begrenset
+
+**Refleksjon:**
+Sprakreir viser at det er mulig a snu sprakdød. Nar barn lærer spraket naturlig, far spraket en fremtid.`,
     },
     {
       id: 'norsk-vg1-7-3-ex-1',
@@ -3757,6 +4030,56 @@ Romanifolket ble utsatt for ekstrem undertrykkelse:
 
 **Konklusjon:**
 Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og mer institusjonell støtte. Romanés er i en mer kritisk situasjon og trenger umiddelbare dokumentasjonstiltak.`,
+    },
+    {
+      id: 'norsk-vg1-7-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Kvensk kultur og identitet i dag',
+      content: `**Oppgave/Situasjon:**
+Hvordan arbeider kvener i dag for a bevare og synliggjøre sin kultur?
+
+**Kven - hvem er de?**
+Kvenene er etterkommere av finske innvandrere som kom til Nord-Norge fra 1500-tallet. De har egen kultur, tradisjoner og sprak (kvensk), og ble anerkjent som nasjonal minoritet i 1998.
+
+**Revitalisering av kvensk sprak:**
+
+**Kvensk institutt (Kvænangen):**
+- Utvikler kvensk skriftsprak
+- Lager ordbøker og læremidler
+- Tilbyr sprakkurs for voksne
+- Dokumenterer kvensk kultur
+
+**Sprakopplæring:**
+- Kvensk tilbys i noen skoler i Troms og Finnmark
+- Utfordring: fa kvalifiserte lærere
+- Nettbaserte læremidler utvikles
+
+**Kulturelle arrangementer:**
+
+**Paaskifestivalen i Vadsø:**
+- Feirer kvensk kultur
+- Musikk, mat, kunst
+- Samler kvener fra hele regionen
+
+**Kvensk musikk:**
+- Tradisjonelle sanger bevares
+- Moderne artister inkorporerer kvenske elementer
+- Ruijan Kaiku (kvensk kor)
+
+**Kvensk i medier:**
+- Eira - kvensk nettavis
+- NRK Kvensk (radiosendinger)
+- Podkaster pa kvensk
+
+**Identitet og stolthet:**
+Mange som vokste opp med fornorsking skjulte sin kvenske bakgrunn. I dag ser vi:
+- Økt interesse for kvensk historie blant yngre
+- Stolthet over a være kven
+- Slektsforskning og dokumentasjon
+- Kvenske stedsnavn tas tilbake
+
+**Refleksjon:**
+Kvensk revitalisering viser at det er mulig a gjenopplive en kultur som var pa vei til a forsvinne. Det krever institusjonell støtte, engasjerte ildsjeler og vilje fra samfunnet.`,
     },
     {
       id: 'norsk-vg1-7-4-ex-7',
@@ -4555,6 +4878,53 @@ Bildet er ekte, men brukes i helt feil kontekst. Dette er et klassisk eksempel p
 
 **Husk: Et bilde beviser bare at bildet eksisterer - ikke at påstanden rundt bildet er sann.**`,
     },
+    {
+      id: 'norsk-vg1-6-4-example-3',
+      type: 'example',
+      title: 'Eksempel: Faktasjekk av en statistikk-pastand',
+      content: `**Oppgave/Situasjon:**
+En post pa sosiale medier pastar: "90% av alle nordmenn er imot innvandring, viser ny undersøkelse!" Hvordan faktasjekker vi dette?
+
+**Steg 1: Reager pa røde flagg**
+- Veldig høyt tall (90% er uvanlig enighet)
+- Vag kilde ("ny undersøkelse")
+- Følelsesladet tema
+- Ingen lenke til undersøkelsen
+
+**Steg 2: Søk etter kilden**
+Søk pa "90% nordmenn innvandring undersøkelse":
+- Ingen seriøse nyhetsmedier rapporterer dette
+- Ingen forskningsinstitusjoner har publisert slikt
+
+**Steg 3: Finn faktiske tall**
+Sjekk pålitelige kilder:
+- SSBs holdningsundersøkelser
+- Forskningsinstitutter (FAFO, ISF)
+- Medietilsynets rapporter
+
+**Hva viser faktiske undersøkelser?**
+SSBs holdningsundersøkelser viser at nordmenns holdninger til innvandring er nyanserte og varierer mellom:
+- Type innvandring (arbeid, flukt, familie)
+- Spørsmålsformulering
+- Tidspunkt
+Ingen seriøs undersøkelse viser 90% enighet i noen retning.
+
+**Steg 4: Vurder hvem som sprer dette**
+- Hvem la ut posten opprinnelig?
+- Har de en agenda?
+- Spres det av botter eller ekte kontoer?
+
+**Konklusjon:**
+Pastanden er sannsynligvis:
+1. Fullstendig oppdiktet
+2. Basert pa en utseriøs "undersøkelse"
+3. En forvrenging av faktiske tall
+
+**Lærdom:**
+- Vær spesielt kritisk til statistikk uten kilde
+- Ekstreme tall (90%, 99%) bør alltid dobbeltsjekkes
+- Finn originalkilden - hvem utførte undersøkelsen og hvordan?`,
+    },
     // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-6-4-ex-9',
@@ -5095,6 +5465,41 @@ Gjennom virkemidler som kontrast, miljøskildring og indre monolog skaper Skram 
 
 ---
 *Denne analysen viser hvordan du kombinerer tekstnær analyse med tolkning og setter teksten i en større sammenheng.*`,
+    },
+    {
+      id: 'norsk-vg1-5-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Slik bruker du sitater som belegg',
+      content: `**Oppgave/Situasjon:**
+Se hvordan du integrerer sitater i en analyserende tekst.
+
+**Feil mate a bruke sitat:**
+"Novellen handler om fattigdom. 'Hun frøs og var sulten.' (s. 3)"
+
+**Problemer:**
+- Sitatet star alene uten forklaring
+- Ingen analyse av hva sitatet viser
+- Leseren ma gjette hvorfor sitatet er relevant
+
+**Riktig mate a bruke sitat:**
+
+**Eksempel 1: Integrert sitat**
+"Skram skildrer Karens fysiske lidelser gjennom korte, konkrete setninger: 'Hun frøs og var sulten' (s. 3). Den nøkterne stilen forsterker inntrykket av at dette er hverdagslig for Karen - hun er vant til a fryse og sulte."
+
+**Eksempel 2: Analyse av spraket**
+"Fortelleren beskriver Karen som 'blek og mager, med hender røde av kulde' (s. 2). Adjektivene 'blek', 'mager' og 'røde' maler et bilde av fysisk lidelse, mens detaljfokuset pa hendene viser at Karen er en som arbeider hardt."
+
+**Eksempel 3: Sammenligning**
+"Kontrasten mellom Karen og familien forsterkes gjennom parallelle beskrivelser. Mens familiens stue er 'varm og lysende' (s. 5), er kjøkkenet 'kaldt og mørkt' (s. 3). Denne motsetningen symboliserer klasseskillet."
+
+**Sjekkliste for sitatbruk:**
+1. Innled sitatet - forklar hva det skal vise
+2. Siter nøyaktig med anførselstegn
+3. Oppgi sidetall
+4. Analyser sitatet - forklar hvorfor det er relevant
+5. Knytt det til din overordnede tolkning
+
+**Husk:** Et sitat beviser ingenting alene. Det er analysen din som gir sitatet mening.`,
     },
     // --- Samleoppgaver ---
     {
@@ -5779,6 +6184,45 @@ Setningene er veldig korte og like. Prøv å variere ved å binde noen sammen me
 - Gir konkrete forslag
 - Respektfull tone
 - Begynner med noe positivt`,
+    },
+    {
+      id: 'norsk-vg1-5-6-example-2',
+      type: 'example',
+      title: 'Eksempel: Fra respons til revisjon',
+      content: `**Oppgave/Situasjon:**
+Se hvordan en elev bruker tilbakemelding systematisk til a forbedre teksten sin.
+
+**Opprinnelig innledning:**
+"Jeg skal skrive om sosiale medier. Det er et tema mange er opptatt av. I denne teksten skal jeg skrive litt om dette."
+
+**Tilbakemelding mottatt:**
+1. "Innledningen er litt vag - hva spesifikt med sosiale medier?"
+2. "Hva er tesen din? Hva mener du?"
+3. "'Skrive litt om' høres uforpliktende ut"
+
+**Elevens tankeprosess:**
+Medelevene har rett - innledningen min sier egentlig ingenting. Jeg ma:
+- Velge et spesifikt fokus
+- Formulere en tydelig tese
+- Høres mer sikker ut
+
+**Revidert innledning:**
+"Hver dag bruker norske ungdommer i gjennomsnitt tre timer pa sosiale medier. Dette pavirker bade hvordan vi kommuniserer og hvordan vi ser pa oss selv. I denne teksten vil jeg argumentere for at sosiale medier har flere negative enn positive effekter pa ungdoms selvbilde."
+
+**Hva ble bedre?**
+- Konkret apning med fakta
+- Tydelig fokus (ungdoms selvbilde)
+- Klar tese (mer negativt enn positivt)
+- Sikker tone ("vil jeg argumentere for")
+
+**Neste steg:**
+Forfatteren kan na:
+- Utvikle argumenter som støtter tesen
+- Inkludere motargumenter
+- Finne belegg og eksempler
+
+**Lærdom:**
+Respons er bare nyttig hvis du bruker den aktivt. Les kritikken nøye, tenk over hva som er rimelig, og gjør konkrete endringer.`,
     },
     // --- Samleoppgaver ---
     {

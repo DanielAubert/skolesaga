@@ -137,6 +137,30 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 **Refleksjon:**
 Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning til kommunikasjonssituasjonen. Vi gjør det alle, mer eller mindre bevisst.`,
     },
+    {
+      id: 'norsk-vg1-4-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av spraakholdninger',
+      content: `**Oppgave/Situasjon:**
+En elev fra Nordland opplever at medelever i Oslo kommenterer dialekten hennes. Noen sier den er "koselig", andre spor om hun kan "snakke normalt".
+
+**Analyse:**
+Dette eksemplet viser flere typer spraakholdninger:
+
+1. **Stereotypisering:** Nordnorsk forbindes ofte med "koselig" - en positiv, men overfladisk holdning som kan fole reduserende.
+
+2. **Normativitet:** Sparsmalet om aa "snakke normalt" avslorer en holdning om at ostlandsk er "normalspraak", mens andre dialekter er avvik.
+
+3. **Maktforhold:** Standardostlandsk har hoyere status i mange sammenhenger, noe som kan skape usikkerhet hos dialektbrukere.
+
+**Forklaring:**
+Spraakholdninger er ofte ubevisste. De formes av:
+- Media (hvem snakker i nyheter og TV-serier?)
+- Skole og arbeidsliv
+- Sosiale hierarkier
+
+Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig mangfold.`,
+    },
 
     // ========== PRIMÆRTEKSTER ==========
     {
@@ -875,6 +899,32 @@ Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "windo
 **Konklusjon:**
 De skandinaviske språkene er svært like i struktur. Engelsk har en del forskjeller, men er fremdeles gjenkjennelig som et beslektet språk.`,
     },
+    {
+      id: 'norsk-vg1-4-2-example-3',
+      type: 'example',
+      title: 'Eksempel: Laanord fra ulike epoker',
+      content: `**Oppgave/Situasjon:**
+Identifiser opphavet til disse vanlige norske ordene og forklar hva de forteller om norsk historie.
+
+**Analyse:**
+
+| Ord | Opphav | Historisk kontekst |
+|-----|--------|-------------------|
+| arbeid | Lavtysk | Hansatiden (1200-1500) - handel og haandverk |
+| straff | Lavtysk | Hansatiden - lov og orden |
+| restaurant | Fransk | 1700-1800-tallet - europeisk finkultur |
+| sjaafor | Fransk | Bilen kommer til Norge, franske ord for ny teknologi |
+| streame | Engelsk | 2000-tallet - digital mediebruk |
+| podcast | Engelsk | 2000-tallet - ny medieteknologi |
+
+**Forklaring:**
+Laanordene viser hvilke kulturer og nasjoner som har pavirket Norge gjennom historien:
+- **Tysk pavirkning:** Hanseatene dominerte handel i Bergen og andre byer
+- **Fransk pavirkning:** Fransk var kulturens og diplomatens spraak
+- **Engelsk pavirkning:** USA og Storbritannia dominerer teknologi og populaerkultur
+
+Spraakhistorie er ogsaa kulturhistorie. Ordene vi bruker forteller hvem vi har vaert i kontakt med.`,
+    },
 
     // --- Samleoppgaver ---
     {
@@ -1109,6 +1159,40 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 
 **Konklusjon:**
 Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet mellom modalitetene skaper en følelse av autentisitet som tilslører det kommersielle formålet.`,
+    },
+    {
+      id: 'norsk-vg1-6-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av TikTok-video',
+      content: `**Oppgave/Situasjon:**
+Analyser en typisk TikTok-video der en ungdom snakker om "studietips".
+
+**Analyse:**
+
+**Modaliteter i bruk:**
+| Modalitet | Eksempel | Funksjon |
+|-----------|----------|----------|
+| Visuell | Ansikt i focus, estetisk rom | Skaper naerhet og troverdighet |
+| Verbal | Muntlig, uformelt spraak | Foler seg som en venn |
+| Auditiv | Trendy bakgrunnsmusikk | Holder oppmerksomheten |
+| Tekstlig | Teksting paa skjermen | Forsterker budskapet |
+
+**Retorisk analyse:**
+- **Etos:** "Jeg fikk 6 paa alle prover" - bygger troverdighet
+- **Patos:** "Jeg skjonner at det er slitsomt" - viser empaati
+- **Logos:** "Forskning viser at..." - gir faglig tyngde
+
+**Kritiske sporsmal:**
+1. Hvem er avsenderen? (Vanlig elev eller betalt innhold?)
+2. Hva er formalet? (Hjelpe, underholde, selge?)
+3. Er raadene faktisk forskningsbaserte?
+4. Hvem er maalgruppen? (Alder, interesser)
+
+**Forklaring:**
+Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange og holde oppmerksomheten. Som kritiske mediebrukere maa vi vaere bevisste paa:
+- Skjult reklame (affiliate-lenker, sponsede produkter)
+- Filterbobler (algoritmen viser mer av det vi liker)
+- Forenklet informasjon (komplekse temaer presenteres enkelt)`,
     },
 
     // ========== OPPGAVER ==========
@@ -1520,6 +1604,35 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 **Kilder:**
 - Folkehelseinstituttet, Helsedirektoratet, relevante studier`,
     },
+    {
+      id: 'norsk-vg1-5-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Kildebruk i fagartikkel',
+      content: `**Oppgave/Situasjon:**
+Hvordan bruker vi kilder korrekt i en fagartikkel?
+
+**Losning:**
+
+**1. Sitat (direkte gjengivelse):**
+Ifølge Helsedirektoratet (2024) bør ungdom "sove mellom 8 og 10 timer hver natt for optimal helse og læring" (s. 12).
+
+**2. Parafrase (gjengivelse med egne ord):**
+Forskning fra Folkehelseinstituttet viser at ungdom som sover mindre enn anbefalt, har hoyere risiko for konsentrasjonsvansker og nedstemthet (FHI, 2023).
+
+**3. Henvisning i teksten:**
+Flere studier bekrefter sammenhengen mellom sovnmangel og svakere skoleprestasjoner (Hansen, 2022; Olsen, 2023).
+
+**Kildeliste (alfabetisk):**
+- Folkehelseinstituttet. (2023). *Søvn og helse hos ungdom*. https://www.fhi.no/sovn
+- Hansen, E. (2022). Søvnens betydning for læring. *Tidsskrift for norsk psykologforening*, 59(4), 234-241.
+- Helsedirektoratet. (2024). *Anbefalinger for søvn*. Oslo: Helsedirektoratet.
+- Olsen, K. (2023). Ungdom og skjermtid. *Utdanning*, 12, 18-22.
+
+**Forklaring:**
+- **Sitat:** Bruk naar ordlyden er viktig. Maa ha anforselsesmerker og sidetall.
+- **Parafrase:** Bruk naar du vil gjengi innholdet, men ikke ordlyden. Husk kilde!
+- **Kildeliste:** Alle kilder du har brukt, alfabetisk ordnet.`,
+    },
 
     // ========== OPPGAVER ==========
     {
@@ -1918,6 +2031,36 @@ Samsvarsbøying i nynorsk:
 - noen → nokon
 - fant → fann
 - veien → vegen`,
+    },
+    {
+      id: 'norsk-vg1-4-3-example-2',
+      type: 'example',
+      title: 'Eksempel: Verbboying paa nynorsk',
+      content: `**Oppgave/Situasjon:**
+Boy disse verbene paa nynorsk og sammenlign med bokmal.
+
+**Losning:**
+
+**Svake verb (a-verb):**
+| Infinitiv | Presens | Preteritum | Perfektum |
+|-----------|---------|------------|-----------|
+| aa kaste | kastar | kasta | har kasta |
+| aa snakke | snakkar | snakka | har snakka |
+| aa hoyre | hoyrer | hoyrde | har hoyrt |
+
+**Sterke verb:**
+| Infinitiv | Presens | Preteritum | Perfektum |
+|-----------|---------|------------|-----------|
+| aa skrive | skriv | skreiv | har skrive |
+| aa finne | finn | fann | har funne |
+| aa drikke | drikk | drakk | har drukke |
+
+**Forklaring:**
+- Svake verb paa nynorsk har **-ar** i presens og **-a** i preteritum
+- Sterke verb har **vokalskifte** (skrive-skreiv-skrive)
+- Bokmal har ofte **-er** i presens og **-et/-a** i preteritum for svake verb
+
+**Tips:** Oev paa aa gjenkjenne monsteret. Naar du ser "-ar" i presens, vet du at det er nynorsk.`,
     },
 
     // ========== PRIMÆRTEKSTER ==========
@@ -2364,6 +2507,65 @@ I flerkulturelle bydeler har det utviklet seg nye språkvarieteter. Disse kombin
 **Språkholdninger:**
 Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiolekter som rikdom, andre som avvik fra "korrekt" språk. Det er viktig å være bevisst på egne språkholdninger.`,
     },
+    {
+      id: 'norsk-vg1-4-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Dialekttrekk i praksis',
+      content: `**Oppgave/Situasjon:**
+Identifiser hvilket dialektomrade disse setningene kommer fra.
+
+**Analyse:**
+
+**Setning 1:** "Æ veit ikkje ka han sa, men det va nåkka om båtan."
+- **Dialektomrade:** Nordnorsk (Troms/Nordland)
+- **Kjennetegn:** Æ (jeg), veit (vet), ka (hva), nåkka (noe), båtan (batene)
+
+**Setning 2:** "Eg skjona ikkje kva ho meinte med det der."
+- **Dialektomrade:** Vestnorsk (Hordaland/Sogn)
+- **Kjennetegn:** Eg (jeg), skjona (skjonte), ikkje, kva, ho (hun)
+
+**Setning 3:** "Ja, vi va' i byn i gaar, vi. Det va' morromt."
+- **Dialektomrade:** Trondelag
+- **Kjennetegn:** Apokope (va' i stedet for var), palatalisering hoeres i uttale, byn (byen)
+
+**Setning 4:** "Jæ har vaert der mange ganger. Det er veldig fint der borte."
+- **Dialektomrade:** Ostlandsk (Oslo-omradet)
+- **Kjennetegn:** Jæ (jeg), tjukk l i uttale, retroflekser
+
+**Forklaring:**
+Dialekter kjennetegnes av systematiske forskjeller i uttale, ordformer og grammatikk. Ved aa lytte etter bestemte trekk kan vi ofte plassere en dialekt geografisk.`,
+    },
+    {
+      id: 'norsk-vg1-4-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Samisk spraak og kultur',
+      content: `**Oppgave/Situasjon:**
+Hva kan vi laere av samisk spraak og den samiske kulturen?
+
+**Analyse:**
+
+**Ord som viser kulturell kunnskap:**
+Nordsamisk har over 300 ord for sno og is, noe som gjenspeiler samenes naere forhold til naturen:
+
+| Nordsamisk | Betydning |
+|------------|-----------|
+| muohta | sno (generelt) |
+| vahca | losnso |
+| skarta | tynt islag paa sno |
+| cuoŋu | skorpesno som baerer |
+| seaŋas | kornete sno |
+
+**Spraaklig struktur:**
+- Samisk har **ikke** grammatisk kjonn (han/hun/den)
+- Samisk har **mange kasus** (grammatiske former for substantiv)
+- Verbene boyes etter person og tall paa en annen mate enn norsk
+
+**Forklaring:**
+Spraak gjenspeiler kultur og levematte. Samenes detaljerte ordforraad for sno viser at de har levd taett paa naturen i tusener av aar. Naar et spraak doer, mister vi ogsaa denne kunnskapen.
+
+**Historisk perspektiv:**
+Fornorskingspolitikken (ca. 1850-1960) forbod samisk i skolen. Mange mistet morosmaalet sitt. I dag arbeides det aktivt med aa revitalisere samiske spraak gjennom barnehager, skoler og media.`,
+    },
 
     // ========== OPPGAVER ==========
     {
@@ -2746,6 +2948,36 @@ Noen mener språkendringer er naturlige og positive, mens andre er bekymret for 
 - Nå: Å ha en pris
 
 Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer positiv, mer negativ, snevrere eller videre betydning over tid.`,
+    },
+    {
+      id: 'norsk-vg1-4-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Spraakendring i sosiale medier',
+      content: `**Oppgave/Situasjon:**
+Analyser hvordan spraak brukes og endres i sosiale medier.
+
+**Analyse av en typisk melding:**
+"Omg haha skal vi henge i morra? Dm meg hvis du er keen <3"
+
+**Spraaklige trekk:**
+
+| Trekk | Eksempel | Forklaring |
+|-------|----------|------------|
+| Forkortelser | omg, dm | "Oh my god", "direct message" |
+| Engelske laanord | keen, henge | "keen" = interessert, "henge" = vaere sammen |
+| Emojier/symboler | <3 | Hjerte som uttrykker varme |
+| Uformell tone | haha | Markerer vennlig, avslappet kommunikasjon |
+| Muntlig spraak | morra | Forkortet "i morgen" |
+
+**Forklaring:**
+Spraak i sosiale medier er:
+1. **Okonomisk:** Vi skriver raskt og kort
+2. **Kreativt:** Nye ord og uttrykk oppstaar
+3. **Kodevekslende:** Vi blander norsk og engelsk
+4. **Muntlig skriftspraak:** Skriver som vi snakker
+
+**Refleksjon:**
+Dette er ikke "daarlig" spraak - det er **tilpasset spraak**. De samme personene skriver annerledes i skoleoppgaver. Evnen til aa veksle mellom ulike spraakstiler kalles **spraaklig kompetanse**.`,
     },
 
     // ========== PRIMÆRTEKSTER (språkprøver) ==========
