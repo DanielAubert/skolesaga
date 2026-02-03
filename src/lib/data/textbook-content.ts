@@ -534,11 +534,116 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 };
 
 // ============================================================================
+// Alias-mapping: nye hierarkiske kapittel-ID-er → gamle innholds-ID-er
+// Brukes for fag som ble utvidet fra flat nummerering (1,2,3...)
+// til hierarkisk nummerering (1.1, 1.2, ...) etter at innholdet ble skrevet.
+// ============================================================================
+
+const CHAPTER_ID_ALIASES: Record<string, string> = {
+  // Restaurant og matfag VG1 (28 kapitler med innhold)
+  'restaurant-mat-vg1-1-1': 'restaurant-mat-vg1-15',  // Kjøtt - kvalitet, stykking og tilberedning
+  'restaurant-mat-vg1-1-2': 'restaurant-mat-vg1-16',  // Fisk og sjømat
+  'restaurant-mat-vg1-1-3': 'restaurant-mat-vg1-17',  // Grønnsaker og frukt
+  'restaurant-mat-vg1-1-4': 'restaurant-mat-vg1-18',  // Melk og meieriprodukter
+  'restaurant-mat-vg1-1-5': 'restaurant-mat-vg1-19',  // Korn, mel og bakevarer
+  'restaurant-mat-vg1-1-7': 'restaurant-mat-vg1-28',  // Lokal og kortreist mat
+  'restaurant-mat-vg1-1-8': 'restaurant-mat-vg1-27',  // Vegetarisk og vegansk mat
+  'restaurant-mat-vg1-1-9': 'restaurant-mat-vg1-21',  // Smak og sensorikk
+  'restaurant-mat-vg1-2-4': 'restaurant-mat-vg1-3',   // Grunnleggende matlagingsteknikker
+  'restaurant-mat-vg1-3-1': 'restaurant-mat-vg1-4',   // Bakst og desserter
+  'restaurant-mat-vg1-4-1': 'restaurant-mat-vg1-5',   // Ernæring og kosthold
+  'restaurant-mat-vg1-4-3': 'restaurant-mat-vg1-10',  // Allergener og spesialkost
+  'restaurant-mat-vg1-5-1': 'restaurant-mat-vg1-7',   // Servering og vertskap
+  'restaurant-mat-vg1-5-3': 'restaurant-mat-vg1-25',  // Drikke og drikkekultur
+  'restaurant-mat-vg1-5-4': 'restaurant-mat-vg1-6',   // Menyplanlegging
+  'restaurant-mat-vg1-5-5': 'restaurant-mat-vg1-26',  // Catering og selskapsmeny
+  'restaurant-mat-vg1-6-1': 'restaurant-mat-vg1-8',   // Norsk matkultur og tradisjoner
+  'restaurant-mat-vg1-6-4': 'restaurant-mat-vg1-9',   // Internasjonal mat
+  'restaurant-mat-vg1-6-5': 'restaurant-mat-vg1-20',  // Konservering og foredling
+  'restaurant-mat-vg1-7-2': 'restaurant-mat-vg1-2',   // Hygiene og mattrygghet
+  'restaurant-mat-vg1-7-4': 'restaurant-mat-vg1-24',  // Matmerking og lovverk
+  'restaurant-mat-vg1-7-5': 'restaurant-mat-vg1-13',  // HMS i kjøkken
+  'restaurant-mat-vg1-7-6': 'restaurant-mat-vg1-23',  // Matsvinn og bærekraftig kjøkkendrift
+  'restaurant-mat-vg1-7-7': 'restaurant-mat-vg1-11',  // Bærekraftig matproduksjon
+  'restaurant-mat-vg1-8-1': 'restaurant-mat-vg1-22',  // Profesjonell kjøkkendrift
+  'restaurant-mat-vg1-8-2': 'restaurant-mat-vg1-12',  // Økonomi og drift
+  'restaurant-mat-vg1-8-4': 'restaurant-mat-vg1-14',  // Yrkesmuligheter
+
+  // Elektro og datateknologi VG1 (18 kapitler med innhold)
+  'elektro-data-vg1-1-1': 'elektro-data-vg1-1',   // Elektronikk grunnleggende
+  'elektro-data-vg1-1-3': 'elektro-data-vg1-2',   // Kretser og komponenter
+  'elektro-data-vg1-1-9': 'elektro-data-vg1-18',  // Signalbehandling og filtre
+  'elektro-data-vg1-2-1': 'elektro-data-vg1-3',   // Digital elektronikk
+  'elektro-data-vg1-2-2': 'elektro-data-vg1-15',  // Digitalteknikk - logiske porter
+  'elektro-data-vg1-2-5': 'elektro-data-vg1-16',  // Digitalteknikk - flip-flops
+  'elektro-data-vg1-3-1': 'elektro-data-vg1-4',   // Programmering grunnleggende
+  'elektro-data-vg1-3-6': 'elektro-data-vg1-17',  // Mikrokontrollere og Arduino
+  'elektro-data-vg1-4-1': 'elektro-data-vg1-5',   // Nettverk og kommunikasjon
+  'elektro-data-vg1-5-1': 'elektro-data-vg1-6',   // Elektrisk energi
+  'elektro-data-vg1-5-2': 'elektro-data-vg1-11',  // Energiforsyning
+  'elektro-data-vg1-6-1': 'elektro-data-vg1-8',   // Måleteknikk
+  'elektro-data-vg1-6-4': 'elektro-data-vg1-10',  // Styringssystemer
+  'elektro-data-vg1-6-5': 'elektro-data-vg1-9',   // Automasjon
+  'elektro-data-vg1-7-1': 'elektro-data-vg1-7',   // Sikkerhet og HMS
+  'elektro-data-vg1-7-4': 'elektro-data-vg1-13',  // Bærekraft og teknologi
+  'elektro-data-vg1-8-2': 'elektro-data-vg1-12',  // Dokumentasjon og tegning
+  'elektro-data-vg1-8-4': 'elektro-data-vg1-14',  // Yrkesmuligheter
+
+  // Bygg og anleggsteknikk VG1 (15 kapitler med innhold)
+  'bygg-anlegg-vg1-1-1': 'bygg-anlegg-vg1-1',   // Byggematerialer
+  'bygg-anlegg-vg1-2-1': 'bygg-anlegg-vg1-4',   // Trekonstruksjoner
+  'bygg-anlegg-vg1-3-1': 'bygg-anlegg-vg1-3',   // Grunnarbeid og betong
+  'bygg-anlegg-vg1-3-6': 'bygg-anlegg-vg1-5',   // Muring og pussing
+  'bygg-anlegg-vg1-3-8': 'bygg-anlegg-vg1-13',  // Drenering og fuktsikring
+  'bygg-anlegg-vg1-4-1': 'bygg-anlegg-vg1-15',  // Takarbeid og taktekking
+  'bygg-anlegg-vg1-4-3': 'bygg-anlegg-vg1-8',   // Isolasjon og tetting
+  'bygg-anlegg-vg1-4-5': 'bygg-anlegg-vg1-9',   // Bygningsfysikk
+  'bygg-anlegg-vg1-7-1': 'bygg-anlegg-vg1-7',   // HMS og sikkerhet
+  'bygg-anlegg-vg1-7-3': 'bygg-anlegg-vg1-14',  // Stillas og fallsikring
+  'bygg-anlegg-vg1-7-4': 'bygg-anlegg-vg1-6',   // Verktøy og maskiner
+  'bygg-anlegg-vg1-7-6': 'bygg-anlegg-vg1-11',  // Miljø og bærekraft
+  'bygg-anlegg-vg1-8-1': 'bygg-anlegg-vg1-2',   // Tegning og BIM
+  'bygg-anlegg-vg1-8-3': 'bygg-anlegg-vg1-10',  // Prosjektplanlegging
+  'bygg-anlegg-vg1-8-5': 'bygg-anlegg-vg1-12',  // Yrkesmuligheter
+
+  // Naturbruk VG1 (10 kapitler med innhold)
+  'naturbruk-vg1-1-1': 'naturbruk-vg1-1',   // Økosystemer og naturmangfold
+  'naturbruk-vg1-2-2': 'naturbruk-vg1-3',   // Skogbruk
+  'naturbruk-vg1-3-2': 'naturbruk-vg1-2',   // Jord og plantelære
+  'naturbruk-vg1-3-4': 'naturbruk-vg1-5',   // Landbruk og matproduksjon
+  'naturbruk-vg1-4-1': 'naturbruk-vg1-4',   // Dyrehold og dyrevelferd
+  'naturbruk-vg1-5-1': 'naturbruk-vg1-6',   // Akvakultur og fiskeri
+  'naturbruk-vg1-6-1': 'naturbruk-vg1-7',   // Utmarksforvaltning
+  'naturbruk-vg1-6-6': 'naturbruk-vg1-8',   // Friluftsliv og naturveiledning
+  'naturbruk-vg1-7-1': 'naturbruk-vg1-9',   // Maskinlære og verktøy
+  'naturbruk-vg1-7-5': 'naturbruk-vg1-10',  // HMS og sikkerhet
+
+  // Teknologi- og industrifag VG1 (5 kapitler med innhold)
+  'tif-vg1-1-1': 'tif-vg1-1',   // Materiallære (Metaller og legeringer)
+  'tif-vg1-2-1': 'tif-vg1-2',   // Sveising og sammenføyning
+  'tif-vg1-3-1': 'tif-vg1-3',   // Maskinering
+  'tif-vg1-4-1': 'tif-vg1-4',   // Tegning og dokumentasjon
+  'tif-vg1-6-1': 'tif-vg1-5',   // HMS og sikkerhet
+
+  // Kroppsøving VG1 (10 kapitler med innhold)
+  'kroppsoving-vg1-1-1': 'kroppsoving-vg1-1',   // Trening og treningsprinsipper
+  'kroppsoving-vg1-2-1': 'kroppsoving-vg1-2',   // Anatomi og fysiologi
+  'kroppsoving-vg1-3-1': 'kroppsoving-vg1-3',   // Kosthold og restitusjon
+  'kroppsoving-vg1-4-1': 'kroppsoving-vg1-4',   // Individuelle idretter
+  'kroppsoving-vg1-5-1': 'kroppsoving-vg1-5',   // Lagidretter og samspill
+  'kroppsoving-vg1-6-1': 'kroppsoving-vg1-6',   // Dans og bevegelsesaktiviteter
+  'kroppsoving-vg1-7-1': 'kroppsoving-vg1-7',   // Friluftsliv og naturopplevelser
+  'kroppsoving-vg1-8-4': 'kroppsoving-vg1-8',   // Fair play og idrettsetikk
+  'kroppsoving-vg1-8-1': 'kroppsoving-vg1-9',   // Helse og livsstil
+  'kroppsoving-vg1-1-5': 'kroppsoving-vg1-10',  // Egentrening og treningsplanlegging
+};
+
+// ============================================================================
 // Hjelpefunksjoner
 // ============================================================================
 
 export function getChapterContent(chapterId: string): TextbookChapter | undefined {
-  return ALL_CHAPTERS[chapterId];
+  return ALL_CHAPTERS[chapterId] || ALL_CHAPTERS[CHAPTER_ID_ALIASES[chapterId]];
 }
 
 export function getAllChapterIds(): string[] {
@@ -546,5 +651,5 @@ export function getAllChapterIds(): string[] {
 }
 
 export function isChapterImplemented(chapterId: string): boolean {
-  return chapterId in ALL_CHAPTERS;
+  return chapterId in ALL_CHAPTERS || chapterId in CHAPTER_ID_ALIASES;
 }
