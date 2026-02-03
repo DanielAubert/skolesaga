@@ -1959,11 +1959,136 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       ],
     },
     {
+      id: 'norsk-vg1-2-1-def-samtid',
+      type: 'definition',
+      title: 'Samtidsnoveller',
+      content: `**Hva kjennetegner samtidsnoveller?**
+Samtidsnoveller er noveller skrevet fra rundt 1980 og frem til i dag. De skiller seg ofte fra de klassiske realistiske novellene ved å bruke et mer minimalistisk språk, åpne slutninger og fokus på hverdagslige situasjoner.
+
+**Viktige samtidsforfattere:**
+- **Kjell Askildsen** (1929–2021): Mester i minimalistisk prosa, ofte kalt "Nordens Hemingway"
+- **Hanne Ørstavik** (f. 1969): Utforsker ensomhet og relasjoner med poetisk presisjon
+- **Roy Jacobsen** (f. 1954): Kombinerer realisme med lyriske skildringer
+- **Frode Grytten** (f. 1960): Skriver om arbeiderklassen og hverdagsliv med poetisk blikk
+- **Ingvild H. Rishøi** (f. 1978): Skildrer marginaliserte skjebner med varme og presisjon
+
+**Sentrale temaer:**
+- **Fremmedgjøring:** Personer som ikke føler tilhørighet eller forbindelse med andre
+- **Identitet:** Hvem er vi egentlig? Hvordan former omgivelsene oss?
+- **Hverdagsliv:** Fokus på tilsynelatende små hendelser som avslører noe stort
+- **Klasse og sosiale forskjeller:** Fortsatt aktuelt, men skildret på nye måter
+
+**Stilistiske kjennetegn:**
+- **Minimalisme:** Kort, konsentrert språk. Det som ikke sies, er like viktig som det som sies.
+- **Åpne avslutninger:** Leseren må selv tolke hva som skjer videre
+- **Upålitelig forteller:** Fortelleren vet ikke alt, eller skjuler noe for leseren
+- **Undertekst:** Mye av meningen ligger "mellom linjene"
+- **Hverdagsspråk:** Enklere, mer muntlig språk enn i klassiske noveller`,
+    },
+    {
+      id: 'norsk-vg1-2-1-example-samtid',
+      type: 'example',
+      title: 'Eksempel: Analyse av samtidsnovelle',
+      problem: `Hvordan analyserer vi en minimalistisk samtidsnovelle med SVIRP-modellen? La oss se på kjennetegnene ved Kjell Askildsens stil som eksempel.`,
+      solution: `**Askildsens stil - et eksempel på minimalistisk novellekunst:**
+
+Kjell Askildsen regnes som en mester i den minimalistiske novellen. Hans tekster kjennetegnes av:
+- Korte, enkle setninger
+- Mye dialog, lite beskrivelse
+- Karakterer som ikke sier det de egentlig mener
+- Et fravær av forklaring - leseren må tolke selv
+
+**SVIRP-analyse av en typisk Askildsen-novelle:**
+
+**S - Sjanger og struktur:**
+Minimalistisk novelle. Ofte mangler tradisjonell spenningskurve. Handlingen kan virke "flat", men under overflaten bygges det opp en spenning gjennom det usagte.
+
+**V - Virkemidler:**
+- **Understatement:** Følelser og konflikter nedtones i språket
+- **Repetisjon:** Gjentakelser av ord og setninger skaper ubehag
+- **Tomrom i dialogen:** Pauser og det som ikke sies
+- **Symbolske gjenstander:** Hverdagslige ting (kaffekopper, aviser) får betydning
+
+**I - Innhold og handling:**
+Ofte tilsynelatende hverdagslige situasjoner - en samtale mellom ektefeller, et besøk hos en nabo. Men under overflaten avdekkes fremmedgjøring, ensomhet eller undertrykte konflikter.
+
+**R - Relasjon og kontekst:**
+Askildsen skrev fra 1950-tallet til 2000-tallet. Hans noveller reflekterer et moderne Norge der tradisjonelle fellesskap har forvitret. Inspirert av Hemingway og den amerikanske kortprosatradisjonen.
+
+**P - Personlig tolkning:**
+Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom linjene og tåle usikkerhet. Dette speiler kanskje hvordan kommunikasjon i det moderne samfunnet ofte svikter.
+
+**Tips til analyse av samtidsnoveller:**
+- Let etter det som IKKE sies
+- Vær oppmerksom på gjentakelser og mønstre
+- Spør deg selv: Hva skjuler karakterene?
+- Godta at slutten kan være åpen - det er meningen!`,
+    },
+    {
       id: 'norsk-vg1-2-1-ex-1',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-2-1-ex-1',
         number: '1',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn og les en samtidsnovelle av en av forfatterne nevnt ovenfor (Askildsen, Ørstavik, Jacobsen, Grytten eller Rishøi). Skriv en analyse (300-400 ord) med SVIRP-modellen.',
+        hints: [
+          'Mange biblioteker har novellesamlinger av disse forfatterne',
+          'Vær spesielt oppmerksom på det som ikke sies direkte i teksten',
+          'Noter deg hvordan avslutningen fungerer - er den åpen eller lukket?',
+        ],
+        solution: 'Analysen skal vise forståelse for minimalistisk stil og demonstrere evne til å tolke undertekst og åpne avslutninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-1-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign en realistisk novelle fra 1800-tallet (f.eks. Kielland eller Skram) med en minimalistisk samtidsnovelle. Drøft følgende:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvordan skiller språket og stilen seg?',
+            solution: 'Realistene bruker ofte mer utfyllende beskrivelser og forklaringer, mens samtidsforfattere bruker kortere setninger og lar mer være usagt.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan presenteres personene ulikt?',
+            solution: 'Realistene gir ofte mer direkte karakterbeskrivelser, mens samtidsforfattere lar leseren tolke gjennom handling og dialog.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan er avslutningene forskjellige?',
+            solution: 'Realistiske noveller har ofte tydeligere avslutninger med klar moral, mens samtidsnoveller ofte har åpne slutninger.',
+          },
+          {
+            label: 'd',
+            task: 'Hva forteller forskjellene om sin tid?',
+            solution: 'Realistene ville avdekke og kritisere samfunnsproblemer direkte. Samtidsforfattere speiler kanskje en tid der sannheten er mer usikker og fragmentert.',
+          },
+        ],
+        hints: [
+          'Bruk konkrete teksteksempler fra begge novellene',
+          'Tenk på hva forfatterne ville oppnå med sin stil',
+        ],
+        solution: 'Sammenligningen skal vise forståelse for hvordan novellesjangeren har utviklet seg, og reflektere over sammenhengen mellom form og historisk kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-1-ex-3',
+        number: '3',
         type: 'classic',
         difficulty: 'lett',
         task: 'Identifiser synsvinkel i disse åpningene:',
@@ -1993,11 +2118,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-2',
+      id: 'norsk-vg1-2-1-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-2',
-        number: '2',
+        id: 'norsk-vg1-2-1-ex-4',
+        number: '4',
         type: 'classic',
         difficulty: 'medium',
         task: 'Tegn spenningskurven for en novelle du har lest.',
@@ -2030,11 +2155,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-3',
+      id: 'norsk-vg1-2-1-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-3',
-        number: '3',
+        id: 'norsk-vg1-2-1-ex-5',
+        number: '5',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les en novelle og skriv en analyse (300-400 ord) med SVIRP-modellen.',
@@ -2045,11 +2170,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-4',
+      id: 'norsk-vg1-2-1-ex-6',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-4',
-        number: '4',
+        id: 'norsk-vg1-2-1-ex-6',
+        number: '6',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign to noveller med samme tema (f.eks. kjærlighet eller død). Hvordan behandler de temaet ulikt?',
@@ -2060,11 +2185,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-5',
+      id: 'norsk-vg1-2-1-ex-7',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-5',
-        number: '5',
+        id: 'norsk-vg1-2-1-ex-7',
+        number: '7',
         type: 'classic',
         difficulty: 'medium',
         task: 'Skriv åpningen til en egen novelle (150 ord) som starter in medias res.',
@@ -2075,11 +2200,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-6',
+      id: 'norsk-vg1-2-1-ex-8',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-6',
-        number: '6',
+        id: 'norsk-vg1-2-1-ex-8',
+        number: '8',
         type: 'multiple-choice',
         difficulty: 'lett',
         task: 'Hva kalles det når fortelleren kjenner alle personers tanker og følelser?',
@@ -2096,11 +2221,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-7',
+      id: 'norsk-vg1-2-1-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-7',
-        number: '7',
+        id: 'norsk-vg1-2-1-ex-9',
+        number: '9',
         type: 'multiple-choice',
         difficulty: 'lett',
         task: 'Hvilket av disse er IKKE et typisk kjennetegn på novellen?',
@@ -2117,11 +2242,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-8',
+      id: 'norsk-vg1-2-1-ex-10',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-8',
-        number: '8',
+        id: 'norsk-vg1-2-1-ex-10',
+        number: '10',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les «Karen» av Kielland ovenfor. Analyser novellen med SVIRP-modellen.',
@@ -2138,11 +2263,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-9',
+      id: 'norsk-vg1-2-1-ex-11',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-9',
-        number: '9',
+        id: 'norsk-vg1-2-1-ex-11',
+        number: '11',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les «Faderen» av Bjørnson ovenfor. Analyser tema og virkemidler.',
@@ -2158,11 +2283,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-10',
+      id: 'norsk-vg1-2-1-ex-12',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-10',
-        number: '10',
+        id: 'norsk-vg1-2-1-ex-12',
+        number: '12',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign «Karen» av Kielland og «Karens jul» av Skram. To noveller om kvinner ved navn Karen - men fra ulike forfattere.',
@@ -2177,11 +2302,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-11',
+      id: 'norsk-vg1-2-1-ex-13',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-11',
-        number: '11',
+        id: 'norsk-vg1-2-1-ex-13',
+        number: '13',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv et essay (500-700 ord) der du sammenligner en realistisk novelle fra 1800-tallet (f.eks. Kielland, Skram eller Lie) med en moderne novelle. Drøft hvordan novellesjangeren har endret seg.',
@@ -2192,11 +2317,11 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
       },
     },
     {
-      id: 'norsk-vg1-2-1-ex-12',
+      id: 'norsk-vg1-2-1-ex-14',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-1-ex-12',
-        number: '12',
+        id: 'norsk-vg1-2-1-ex-14',
+        number: '14',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en egen novelle (500-700 ord) inspirert av Kielland eller Bjørnsons stil. Novellen skal ha et tydelig samfunnskritisk tema.',
@@ -2387,6 +2512,93 @@ Diktet kritiserer passivitet overfor urettferdighet. Øverland utfordrer leseren
           content: TEKST_GARBORG_HAUGTUSSA_UTDRAG,
         },
       ],
+    },
+    {
+      id: 'norsk-vg1-2-2-def-samtid',
+      type: 'definition',
+      title: 'Samtidslyrikk',
+      content: `**Hva kjennetegner samtidslyrikken?**
+
+Norsk samtidslyrikk (fra ca. 1990 til i dag) er preget av mangfold og eksperimentering. Mens tidligere epoker ofte hadde felles stilidealer, er dagens poesi kjennetegnet av at mange ulike uttrykksformer eksisterer side om side.
+
+**Viktige samtidspoeter:**
+- **Ruth Lillegraven** (f. 1978): Kjent for dikt om hverdagsliv, morskap og natur. Debuterte med *Stort kvitt dyr* (2011). Utforsker det nære og hverdagslige med presist, konsentrert språk.
+- **Steinar Opstad** (f. 1971): Filosofisk og reflekterende lyrikk. Vant Brageprisen for *Utenom deg* (2014). Utforsker eksistensielle spørsmål gjennom nøkternt språk.
+- **Tor Ulven** (1953-1995): Sentral modernist med varig innflytelse. Kjent for konsentrert, billedrik poesi som utforsker tid, minne og forgjengelighet.
+- **Øyvind Rimbereid** (f. 1966): Eksperimenterer med språk og form, inkludert dialektbruk og fremtidsscenarioer. Diktsamlingen *Solaris korrigert* (2004) er et nyskapende verk.
+- **Maja Lee Langvall** (f. 1986): Ung stemme som utforsker identitet og tilhørighet, ofte med flerkulturelt perspektiv.
+
+**Vanlige temaer i samtidslyrikken:**
+- **Natur og miljø:** Klimakrise, menneskets forhold til naturen, økokritikk
+- **Identitet:** Hvem er jeg? Flerkulturelle erfaringer, kjønn, seksualitet
+- **Språk og kommunikasjon:** Refleksjon over språkets muligheter og begrensninger
+- **Det hverdagslige:** Oppvurdering av det små og tilsynelatende ubetydelige
+- **Kropp og sanselighet:** Fysisk erfaring og tilstedeværelse
+
+**Stilmessige kjennetegn:**
+- **Frie vers:** De fleste samtidspoeter skriver uten fast rim og rytme
+- **Prosalyrikk:** Dikt som ligner prosa, uten verselinjer
+- **Minimalisme:** Korte, konsentrerte tekster der hvert ord veier tungt
+- **Dialektbruk:** Noen poeter bruker dialekt eller blander språkformer
+- **Intertekstualitet:** Referanser til andre tekster, kunst og kultur
+
+**Rap og sangtekster som lyrikk**
+
+I samtiden har rap og sangtekster fått økt anerkjennelse som lyrikk:
+
+- **Karpe** (Chirag Rashmikant Patel og Magdi Omar Ytreeide Abdelmaguid): Norsk-indisk og norsk-egyptisk duo. Tekstene deres tar opp identitet, rasisme og oppvekst i Norge.
+- **Lars Vaular** (f. 1984): Bergensrapper kjent for poetiske tekster og språklig kreativitet.
+- **Silvana Imam** (f. 1986): Svensk-litauisk rapper og feminist som utforsker identitet og motstand.
+
+Disse artistene viser at lyrikk lever i mange former, og at grensene mellom «høy» og «lav» kultur er i stadig bevegelse.
+
+*Les mer:* Utforsk diktsamlinger fra disse poetene på biblioteket eller i digitale ressurser som Nasjonalbibliotekets nb.no.`,
+    },
+    {
+      id: 'norsk-vg1-2-2-example-samtid',
+      type: 'example',
+      title: 'Eksempel: Analyse av samtidsdikt',
+      problem: `Hvordan analyserer vi et moderne dikt i frie vers, uten fast rim og rytme?
+
+La oss ta utgangspunkt i følgende analyseoppsett for et tenkt samtidsdikt om natur og forgjengelighet:`,
+      solution: `**Fremgangsmåte for analyse av samtidsdikt:**
+
+**1. Førsteinntrykk og tema**
+- Hva handler diktet om på overflaten?
+- Hvilke følelser eller stemninger vekker det?
+- Hvilket tema ser ut til å ligge under?
+
+**2. Form og oppbygning**
+Selv om diktet er i frie vers, har det fortsatt form:
+- Hvordan er diktet delt inn? (Strofer, avsnitt, enkeltlinjer)
+- Er linjene lange eller korte? Hva gjør dette med leserytmen?
+- Finnes det enjambementer (linjeskift midt i setninger)?
+- Er det gjentakelser eller mønstre?
+
+**3. Språk og virkemidler**
+- **Billedspråk:** Metaforer, sammenligninger, besjeling
+- **Konkreter:** Hvilke konkrete bilder og gjenstander nevnes?
+- **Kontraster:** Settes noe opp mot hverandre?
+- **Ordvalg:** Er språket hverdagslig, poetisk, teknisk?
+- **Lydlige virkemidler:** Selv uten rim kan diktet ha allitterasjon, assonans
+
+**4. Det lyriske jeget**
+- Hvem snakker i diktet?
+- Hvilket perspektiv har jeget?
+- Hvilken tone har diktet? (Distansert, nært, ironisk, alvorlig)
+
+**5. Tolkning og kontekst**
+- Hva kan være diktets budskap eller underbetydning?
+- Hvordan forholder diktet seg til samtiden?
+- Kan det leses i lys av økokritikk, identitetspolitikk eller andre samtidsstrømninger?
+
+**Diktsamlinger å utforske:**
+- Ruth Lillegraven: *Stort kvitt dyr* (2011), *Urd* (2013)
+- Steinar Opstad: *Utenom deg* (2014)
+- Øyvind Rimbereid: *Solaris korrigert* (2004)
+- Tor Ulven: *Søppelsolen* (1989), *Stein og speil* (1995)
+
+*Tips:* Les dikt høyt! Selv uten fast rytme har samtidslyrikk en egen musikalitet som kommer frem når du leser dem med stemmen.`,
     },
     {
       id: 'norsk-vg1-2-2-ex-1',
@@ -2614,6 +2826,48 @@ Diktet kritiserer passivitet overfor urettferdighet. Øverland utfordrer leseren
         task: 'Skriv et essay (500-700 ord) om hvordan norsk lyrikk utviklet seg fra romantikken til modernismen. Bruk konkrete teksteksempler fra primærtekstene i kapittelet.',
         hints: ['Bruk minst tre av tekstene fra kapittelet', 'Vis utviklingen kronologisk: Wergeland/Bjørnson (romantikken) -> Vinje/Garborg (overgang) -> Obstfelder (modernisme)', 'Drøft endringer i form, tema og språk', 'Knytt til historisk kontekst'],
         solution: 'Essayet skal vise overblikk over norsk litteraturhistorie og evne til å bruke konkrete teksteksempler for å belyse utviklingstrekk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-2-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-2-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn et samtidsdikt av en norsk poet (for eksempel Ruth Lillegraven, Steinar Opstad, Øyvind Rimbereid eller Maja Lee Langvall). Analyser diktet med fokus på form, virkemidler og tema.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv diktets form: Hvordan er det delt inn? Er det frie vers eller har det struktur?', solution: 'Svar avhenger av diktet. De fleste samtidspoeter bruker frie vers, men diktet kan likevel ha tydelig struktur gjennom strofeinndeling, linjeskift og gjentakelser.' },
+          { label: 'b', task: 'Identifiser minst to virkemidler og forklar hvordan de fungerer i diktet.', solution: 'Vanlige virkemidler i samtidslyrikk: konkreter, hverdagslig språk, metaforer, kontraster, enjambement, gjentakelse.' },
+          { label: 'c', task: 'Hva er diktets tema? Knytt gjerne til samtidsrelevante temaer som identitet, natur/miljø eller språk.', solution: 'Svar avhenger av diktet. Typiske temaer i samtidslyrikk: natur og miljø, identitet, det hverdagslige, språk og kommunikasjon, kropp og sanselighet.' },
+          { label: 'd', task: 'Skriv en kort tolkning (100-150 ord) av diktets budskap eller underbetydning.', solution: 'Tolkningen skal vise evne til å se utover det diktet sier direkte, og koble teksten til større temaer.' },
+        ],
+        hints: ['Bruk biblioteket eller nb.no for å finne dikt', 'Les diktet høyt flere ganger', 'Legg merke til ordvalg og bildespråk', 'Tenk på hva diktet sier om vår tid'],
+        solution: 'Analysen skal vise forståelse for samtidslyrikkens kjennetegn og evne til å bruke analysebegreper på moderne dikt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-2-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-2-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign et romantisk eller nasjonalromantisk dikt (for eksempel Wergeland, Bjørnson eller Vinje) med et samtidsdikt som tar opp et lignende tema (for eksempel natur, kjærlighet eller identitet). Skriv en drøftende tekst (400-500 ord).',
+        subTasks: [
+          { label: 'a', task: 'Presenter de to diktene kort: Hvem har skrevet dem, når, og hva handler de om?', solution: 'Kort presentasjon av begge diktene med forfatter, tid og tema.' },
+          { label: 'b', task: 'Sammenlign form: Hvordan er diktene bygget opp? Rim, rytme, strofer?', solution: 'Romantiske dikt har ofte fast rim og rytme, mens samtidslyrikk gjerne bruker frie vers. Vis konkrete eksempler.' },
+          { label: 'c', task: 'Sammenlign virkemidler: Hvilke virkemidler bruker poetene? Er det likheter eller forskjeller?', solution: 'Begge kan bruke billedspråk, men på ulike måter. Romantikken bruker ofte store bilder og følelsesladde ord, mens samtidslyrikk ofte er mer nøktern og konkret.' },
+          { label: 'd', task: 'Drøft: Hva forteller forskjellene og likhetene om hvordan synet på lyrikk har endret seg?', solution: 'Drøftingen bør knytte formelle og tematiske forskjeller til endringer i litterære konvensjoner, samfunn og verdier.' },
+        ],
+        hints: ['Velg dikt med sammenlignbart tema', 'Bruk konkrete eksempler fra begge diktene', 'Vis at du forstår historisk kontekst', 'Drøft hva endringene betyr'],
+        solution: 'Teksten skal vise evne til sammenligning på tvers av epoker, bruk av fagbegreper og refleksjon over lyrikkens utvikling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3006,13 +3260,155 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
         allowsCanvasDrawing: true,
       },
     },
-    // --- Samleoppgaver ---
+    // --- Samtidsromanen og flerkulturelle stemmer ---
     {
-      id: 'norsk-vg1-2-4-ex-9',
+      id: 'norsk-vg1-2-4-def-samtid',
+      type: 'definition',
+      title: 'Samtidsromanen',
+      content: `**Viktige samtidsforfattere:**
+Norsk samtidslitteratur har fått internasjonal oppmerksomhet, særlig gjennom forfattere som Karl Ove Knausgård, Vigdis Hjorth, Erlend Loe, Tomas Espedal og Hanne Ørstavik.
+
+**Autofiksjon og "Knausgård-effekten":**
+Autofiksjon er en sjanger som blander selvbiografi og fiksjon. Forfatteren bruker sitt eget liv som materiale, men former det litterært. Karl Ove Knausgårds seksbinds verk "Min kamp" (2009-2011) utløste en internasjonal trend og debatt om grensene mellom litteratur og virkelighet.
+
+**Kjennetegn på autofiksjon:**
+- Forfatteren og jeg-fortelleren deler navn og biografi
+- Detaljerte, nærgående skildringer av hverdagsliv
+- Utforsking av minner, familie og identitet
+- Grenseoverskridende ærlighet
+
+**Sentrale temaer i samtidsromanen:**
+- **Familie:** Generasjonskonflikter, arv, hemmeligheter (Vigdis Hjorths "Arv og miljø")
+- **Identitet:** Selvforståelse, autentisitet, roller
+- **Klasse:** Sosial mobilitet, skam, tilhørighet
+- **Kjønn:** Maskulinitet, feminisme, seksualitet
+- **Hverdagsliv:** Det tilsynelatende banale som utgangspunkt for dypere refleksjon
+
+**Stiltrekk:**
+- Førstepersonsfortelling
+- Bekjennende, intim tone
+- Detaljerte beskrivelser av sanseinntrykk og hverdagssituasjoner
+- Lange, utforskende setninger
+
+**Familieromanen:**
+Vigdis Hjorths "Arv og miljø" (2016) fornyet familieromanen ved å skildre en arvestrid som avdekker gamle familiehemmeligheter. Romanen utløste debatt om litterær frihet og personvern.
+
+*Tips: Les romanene selv for å få fullt utbytte av analysene. Korte sitater kan ikke erstatte leseopplevelsen.*`,
+    },
+    {
+      id: 'norsk-vg1-2-4-example-samtid',
+      type: 'example',
+      title: 'Eksempel: Analyse av samtidsroman',
+      problem: `Hvordan analyserer vi autofiksjon? Hvilke spørsmål bør vi stille til teksten?`,
+      solution: `**Analysespørsmål for autofiksjon:**
+
+**1. Forholdet mellom forfatter og forteller:**
+- Deler fortelleren navn med forfatteren?
+- Hvordan fremstilles "jeget" - selvkritisk, idealisert, sammensatt?
+- Hvilke valg har forfatteren gjort i utvelgelsen av materiale?
+
+**2. Fortellerperspektiv og pålitelighet:**
+- Er fortelleren pålitelig? Minner er selektive og formbare.
+- Hvordan påvirker tidens avstand fremstillingen?
+- Finnes det spor av selvbedrag eller rasjonalisering?
+
+**3. Etiske spørsmål:**
+- Hvordan fremstilles andre (virkelige) personer?
+- Har de samtykket? Er de gjenkjennelige?
+- Skiller forfatteren mellom sin egen og andres historie?
+
+**4. Form og innhold:**
+- Hvordan brukes litterære virkemidler på selvbiografisk materiale?
+- Hva tilfører den litterære formen til stoffet?
+- Hvilke scener er fortettet eller dramatisert?
+
+**Eksempel på analyse:**
+Når Knausgård i "Min kamp" skriver detaljert om sin fars død og bestemorens hjem, bruker han litterære teknikker som slow motion-beskrivelser og symbolsk ladet setting. Dette gjør det selvbiografiske stoffet til litteratur - men reiser også spørsmål om de portretterte personenes rett til eget narrativ.
+
+**Den etiske debatten:**
+Autofiksjonen har utløst debatt: Har forfattere rett til å bruke andres liv som materiale? "Arv og miljø" førte til offentlig konflikt da familiemedlemmer kjente seg igjen. Dette viser at autofiksjon opererer i et spenningsfelt mellom kunstnerisk frihet og etisk ansvar.`,
+    },
+    {
+      id: 'norsk-vg1-2-4-def-flerkulturell',
+      type: 'definition',
+      title: 'Flerkulturelle stemmer i norsk litteratur',
+      content: `**Nye perspektiver:**
+Forfattere med flerkulturell bakgrunn har beriket norsk litteratur med nye perspektiver på identitet, tilhørighet og språk.
+
+**Viktige forfattere:**
+- **Zeshan Shakar:** "Tante Ulrikkes vei" (2017) - Oppvekstroman fra Stovner med to kontrasterende fortellerstemmer
+- **Maria Navarro Skaranger:** "Alle utlendinger har lukka gardiner" (2015) - Om å vokse opp mellom kulturer på Romsås
+- **Jonas Hassen Khemiri** (svensk-tunisisk): "Alt jeg ikke husker" (2015) - Eksperimentell roman om en ung manns død, fortalt gjennom mange stemmer
+
+**Sentrale temaer:**
+- **Identitet:** Å være "bindestrek-norsk", tilhøre flere kulturer
+- **Tilhørighet:** Hvor hører man hjemme? Kan man tilhøre flere steder?
+- **Språk:** Kodeskifting, flerspråklighet, språk som identitetsmarkør
+- **Fordommer:** Møter med rasisme og stereotypier
+- **Generasjon:** Forskjeller mellom foreldregenerasjon og barn oppvokst i Norge
+
+**Språklige særtrekk:**
+- **Kodeskifting:** Veksling mellom norsk og andre språk
+- **Kebabnorsk/multietnolekt:** Ungdomsspråk fra flerkulturelle miljøer
+- **Språklek:** Bevisst bruk av "feil" norsk som litterært virkemiddel
+
+**"Tante Ulrikkes vei":**
+Romanen følger to unge menn fra Stovner - Mo som strever etter å lykkes i det norske samfunnet, og Jamal som finner sin plass i en annen verden. De to fortellerstemmene bruker ulikt språk og representerer ulike veier gjennom det norske samfunnet.
+
+**"Alle utlendinger har lukka gardiner":**
+Tittelen spiller på fordommer og viser hvordan det er å vokse opp med blikket utenfra. Romanen bruker humor og gjenkjennelse til å skildre flerkulturell hverdag.
+
+*Anbefaling: Les disse romanene for å få et innenfra-perspektiv på flerkulturell norsk virkelighet.*`,
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-samtid-1',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-4-ex-9',
+        id: 'norsk-vg1-2-4-ex-samtid-1',
         number: '9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Velg en norsk samtidsroman (f.eks. av Knausgård, Hjorth, Loe, Shakar eller Skaranger). Analyser romanen med fokus på samtidens temaer og fortellerteknikk.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv romanens fortellerstemme og synsvinkel.', solution: 'Identifiser om det er jeg-forteller, hvem fortelleren er, og hvordan dette påvirker fremstillingen.' },
+          { label: 'b', task: 'Hvilke temaer tar romanen opp? Hvordan er disse relevante for vår tid?', solution: 'Analyser temaer som identitet, familie, klasse, tilhørighet eller andre samtidsaktuelle spørsmål.' },
+          { label: 'c', task: 'Hvordan bruker forfatteren språk og stil for å skape nærhet til stoffet?', solution: 'Se på ordvalg, setningsstruktur, bruk av detaljer, og eventuelt kodeskifting eller dialekt.' },
+          { label: 'd', task: 'Hva gjør romanen relevant for deg som leser i dag?', solution: 'Personlig refleksjon over romanens aktualitet og gjenkjennelse.' },
+        ],
+        hints: ['Bruk fagbegreper fra kapittelet', 'Gi konkrete eksempler fra teksten (korte sitater)', 'Reflekter over hva som gjør romanen til samtidslitteratur'],
+        solution: 'Analysen skal vise evne til å plassere en roman i sin samtidskontekst og analysere samspillet mellom form og innhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-samtid-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-samtid-2',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft autofiksjon og etikk: Hvilke etiske utfordringer reiser det når forfattere skriver om virkelige mennesker?',
+        subTasks: [
+          { label: 'a', task: 'Hva kjennetegner autofiksjon som sjanger?', solution: 'Blanding av selvbiografi og fiksjon, forfatteren bruker eget liv som materiale, litterær forming av virkelige hendelser.' },
+          { label: 'b', task: 'Hvilke etiske spørsmål oppstår når forfattere skriver om familie og venner?', solution: 'Personvern, samtykke, retten til eget narrativ, maktforholdet mellom forfatter og de som portretteres.' },
+          { label: 'c', task: 'Argumenter for kunstnerisk frihet: Hvorfor bør forfattere få skrive om sitt eget liv?', solution: 'Litterær verdi, bearbeiding av erfaringer, universelle temaer gjennom det personlige, ytringsfrihet.' },
+          { label: 'd', task: 'Argumenter for begrensninger: Når kan autofiksjon være problematisk?', solution: 'Når andre ikke kan forsvare seg, når private forhold eksponeres, når det skader relasjoner eller mennesker.' },
+        ],
+        hints: ['Tenk på konkrete eksempler fra norsk litteraturdebatt', 'Vurder både forfatterens og de portretterte personenes perspektiv', 'Det finnes ikke ett riktig svar - drøft nyansert'],
+        solution: 'Drøftingen skal vise evne til å reflektere over komplekse etiske spørsmål i litteraturen, med argumenter fra flere sider.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'norsk-vg1-2-4-ex-11',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-11',
+        number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en fullstendig romananalyse (600-800 ord) av en roman du har lest. Analysen skal dekke fortellerteknikk, komposisjon, karakterer og tematikk.',
@@ -3023,11 +3419,11 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
       },
     },
     {
-      id: 'norsk-vg1-2-4-ex-10',
+      id: 'norsk-vg1-2-4-ex-12',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-2-4-ex-10',
-        number: '10',
+        id: 'norsk-vg1-2-4-ex-12',
+        number: '12',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Sammenlign to romaner med ulikt perspektiv på samme tema (f.eks. identitet, tilhørighet eller familie). Drøft hvordan fortellerteknikk og komposisjon påvirker fremstillingen av temaet.',

@@ -456,6 +456,71 @@ Fra 1800-tallet brøt dramatikere med de klassiske reglene:
 - Politisk teater`,
     },
     {
+      id: 'norsk-vg1-2-3-def-fosse',
+      type: 'definition',
+      title: 'Jon Fosse og samtidsdramatikk',
+      content: `**Jon Fosse (f. 1959) – Nobelprisvinner 2023**
+Jon Fosse er en av verdens mest spilte nålevende dramatikere. I 2023 mottok han Nobelprisen i litteratur for sitt «nyskapende skuespill og prosa som gir stemme til det usigelige». Hans dramatikk representerer et radikalt brudd med den realistiske tradisjonen.
+
+**Sentrale skuespill:**
+- **«Nokon kjem til å komme»** (1996): Et par venter på noen som kanskje kommer
+- **«Eg er vinden»** (2007): To stemmer i en båt, mellom liv og død
+- **«Namnet»** (1995): En ung mor venter på barnets far
+
+**Fosses dramatiske stil:**
+- **Minimalisme:** Enkle, nedstrippede scener med få karakterer
+- **Pauser og stillhet:** Det usagte er like viktig som ordene
+- **Repetisjon:** Setninger gjentas med små variasjoner, skaper rytme
+- **Nynorsk:** Skriver på nynorsk, noe som gir et eget toneleie
+- **Poetisk språk:** Grensen mellom drama og lyrikk viskes ut
+
+**Sentrale temaer:**
+- **Venting:** Karakterer venter på noen eller noe
+- **Ensomhet og lengsel:** Mennesker som ikke når hverandre
+- **Det usagte:** Det som ligger mellom ordene
+- **Naturen:** Havet, vinden, lyset som meningsbærende elementer
+- **Eksistens:** Grensen mellom liv og død, væren og intet
+
+**Andre samtidige norske dramatikere:**
+- **Cecilie Løveid** (f. 1951): Eksperimentell, feministisk, lyrisk
+- **Arne Lygre** (f. 1968): Minimalistisk, utforsker relasjoner og identitet
+
+*For å virkelig forstå Fosses dramatikk, bør du se eller lese et helt stykke. Stykkene hans spilles regelmessig på norske teater.*`,
+    },
+    {
+      id: 'norsk-vg1-2-3-example-fosse',
+      type: 'example',
+      title: 'Eksempel: Fosses dramatiske stil',
+      problem: 'Hva kjennetegner Jon Fosses dramatiske språk, og hvordan skiller det seg fra Ibsens realisme?',
+      solution: `**Fosses minimalistiske dialog:**
+Fosses karakterer snakker ofte i korte, ufullstendige setninger. Pausene er like viktige som ordene. En typisk replikkveksling kan se slik ut:
+
+> HO: Du kjem ikkje
+> HAN: Nei
+> HO: Du seier du kjem
+> HAN: Ja
+> (pause)
+> HO: Men du kjem ikkje
+> *(Fra «Nokon kjem til å komme», forkortet)*
+
+**Analyse av stilen:**
+- **Repetisjon:** «Du kjem» / «du kjem ikkje» gjentas, skaper en hypnotisk rytme
+- **Pauser:** Scenenanvisningen «pause» tvinger frem stillhet, det usagte
+- **Minimalisme:** Ingen forklaringer, ingen utbroderinger
+- **Undertekst:** Alt det som ikke sies – frykt, håp, tvil – ligger under overflaten
+
+**Sammenligning med Ibsens realisme:**
+| Ibsen | Fosse |
+|-------|-------|
+| Fyldige dialoger med informasjon | Korte, repetitive replikker |
+| Realistiske situasjoner | Abstrakte, drømmeaktige situasjoner |
+| Psykologisk analyse gjennom tale | Psykologi gjennom stillhet og pauser |
+| Handlingsdrevet | Stemningsdrevet |
+| Samfunnskritikk | Eksistensiell utforskning |
+
+Der Ibsen avslører hemmeligheter gjennom dialog, lar Fosse hemmelighetene forbli usagte. Begge utforsker menneskelig psykologi, men med helt ulike virkemidler.`,
+    },
+    {
       id: 'norsk-vg1-2-3-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av dramatisk tekst',
@@ -683,10 +748,15 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         id: 'norsk-vg1-2-3-ex-11',
         number: '11',
         type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv en dramatisk scene (ca. 2 sider) inspirert av enten Holberg eller Ibsen. Velg et samtidsemne og behandle det med dramatiske virkemidler.',
-        hints: ['Velg et tema som engasjerer deg', 'Tenk på konflikten mellom karakterene', 'Bruk sceneanvisninger til å skape stemning', 'Prøv å ha undertekst i dialogen'],
-        solution: 'Scenen vurderes etter bruk av dramatiske virkemidler, kvalitet på dialog, sceneanvisninger, karaktertegning, og evne til å bruke dramaet til å utforske et tema.',
+        difficulty: 'medium',
+        task: 'Velg ett av Jon Fosses skuespill («Nokon kjem til å komme», «Eg er vinden» eller «Namnet») og forbered en kort presentasjon for klassen.',
+        subTasks: [
+          { label: 'a', task: 'Hva handler stykket om? Gi et kort handlingsreferat.', solution: 'Referatet skal vise forståelse for stykkets handling og tema.' },
+          { label: 'b', task: 'Beskriv Fosses bruk av pauser, repetisjon og minimalisme i stykket.', solution: 'Analysen skal vise konkrete eksempler på Fosses dramatiske virkemidler.' },
+          { label: 'c', task: 'Hvilke temaer tar stykket opp? Hvordan kommer de til uttrykk?', solution: 'Temaanalysen skal koble virkemidler til innhold.' },
+        ],
+        hints: ['Les hele stykket eller se en oppsetning hvis mulig', 'Fosses stykker er korte og kan leses på en økt', 'Bruk biblioteket eller Nasjonalbibliotekets digitale ressurser'],
+        solution: 'Presentasjonen vurderes etter forståelse av stykket, evne til å identifisere Fosses dramatiske virkemidler, og formidlingsevne.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -697,6 +767,41 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
       exercise: {
         id: 'norsk-vg1-2-3-ex-12',
         number: '12',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign Ibsens og Fosses dialogstil. Bruk eksempler fra primærtekstene og det du har lært om Fosse.',
+        subTasks: [
+          { label: 'a', task: 'Hvordan bruker Ibsen dialog til å avsløre informasjon og karakter? Gi eksempler.', solution: 'Ibsen bruker dialog til å gradvis avsløre hemmeligheter og bakgrunn. Karakterene snakker i fullstendige setninger med mye informasjon.' },
+          { label: 'b', task: 'Hvordan bruker Fosse dialog til å skape stemning og utforske det usagte? Gi eksempler.', solution: 'Fosse bruker korte, repetitive replikker og pauser. Det som ikke sies er like viktig som ordene.' },
+          { label: 'c', task: 'Hvilken stil foretrekker du som leser/publikummer? Begrunn svaret.', solution: 'Svaret skal vise refleksjon over egne preferanser og forståelse for begge stilene.' },
+        ],
+        hints: ['Tenk på hva som skjer mellom linjene hos Fosse', 'Hos Ibsen ligger ofte hemmeligheter begravd i fortiden', 'Begge er mestere, men med helt ulike tilnærminger'],
+        solution: 'Sammenligningen viser forståelse for to ulike dramatiske tradisjoner og evne til å analysere dramatisk dialog.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en dramatisk scene (ca. 2 sider) inspirert av enten Holberg eller Ibsen. Velg et samtidsemne og behandle det med dramatiske virkemidler.',
+        hints: ['Velg et tema som engasjerer deg', 'Tenk på konflikten mellom karakterene', 'Bruk sceneanvisninger til å skape stemning', 'Prøv å ha undertekst i dialogen'],
+        solution: 'Scenen vurderes etter bruk av dramatiske virkemidler, kvalitet på dialog, sceneanvisninger, karaktertegning, og evne til å bruke dramaet til å utforske et tema.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-14',
+        number: '14',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv et essay (400-600 ord): Hvordan skiller drama seg fra novellen som form for samfunnskritikk? Bruk eksempler fra Holberg, Ibsen eller andre dramatikere, og sammenlign med noveller du kjenner.',
