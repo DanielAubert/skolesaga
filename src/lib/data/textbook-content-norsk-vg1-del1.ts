@@ -888,78 +888,6 @@ Innlegget bruker påstand-begrunnelse-struktur:
 Et effektivt leserinnlegg som kombinerer personlig erfaring med fakta. Nyansert avslutning styrker troverdigheten.`,
     },
     {
-      id: 'norsk-vg1-1-4-primaertekst-1',
-      type: 'text',
-      title: 'Primærtekst: Eksempel på kronikk',
-      content: `## Primærtekst: Kronikk om ungdom og skjermtid
-
-**«Vi må snakke om telefonene»**
-
-*Av Maria Hansen, psykolog og forfatter*
-
-Hver dag ser jeg det på venteværelset mitt: Ungdommer som ikke kan løsrive blikket fra skjermen, selv ikke i de få minuttene før timen. Foreldre som sender bekymrede blikk over hodene på barna sine. Vi har fått et problem, og det haster å snakke om det.
-
-La meg være tydelig: Dette handler ikke om å demonisere teknologi. Smarttelefoner er fantastiske verktøy. De kobler oss sammen, gir oss tilgang til informasjon, og har gjort hverdagen enklere på utallige måter. Men når stadig flere unge rapporterer om angst, søvnproblemer og konsentrasjonsvansker, må vi spørre oss selv: Har vi mistet kontrollen?
-
-Forskningen er urovekkende. En studie fra Folkehelseinstituttet viser at ungdom som bruker mer enn fire timer daglig på sosiale medier, har dobbelt så høy risiko for depressive symptomer. Samtidig vet vi at hjernen til en tenåring fortsatt er under utvikling - spesielt de delene som styrer impulskontroll.
-
-Men her kommer paradokset: Vi som voksne er minst like avhengige. Vi sjekker e-post i middagsselskap, scroller Instagram på trening, og svarer på meldinger midt i samtaler med barna våre. Hvordan kan vi forvente at de unge skal ha en sunn relasjon til teknologi når vi selv ikke klarer det?
-
-Jeg har tre forslag:
-
-For det første trenger vi skjermfrie soner i hverdagen. Måltider, soverom, og de første og siste timene av dagen bør være telefonfrie. Ikke som straff, men som en gave til oss selv og relasjonene våre.
-
-For det andre må skolene ta ansvar. Flere land har nå innført mobilforbud i skoletiden med gode resultater. Elevene presterer bedre, og det sosiale miljøet forbedres.
-
-For det tredje: Vi må snakke med de unge, ikke bare til dem. Hva er det de finner på skjermen som de ikke finner andre steder? Ofte handler det om tilhørighet, anerkjennelse og underholdning - behov vi alle har.
-
-Det er lett å føle seg maktesløs i møte med teknologigigantene og algoritmene deres. Men vi har fortsatt et valg. Hver dag, hver gang vi legger fra oss telefonen og ser barnet vårt i øynene, tar vi det valget.
-
-Det begynner med oss.`,
-    },
-    {
-      id: 'norsk-vg1-1-4-primaertekst-2',
-      type: 'text',
-      title: 'Primærtekst: Eksempel på leserinnlegg',
-      content: `## Primærtekst: Leserinnlegg om kollektivtransport
-
-**«Bussen kommer aldri»**
-
-Jeg bor på Lillestrøm og jobber i Oslo. I teorien er dette en enkel pendlerrute. I praksis er det et mareritt.
-
-Forrige uke var bussen forsinket fire av fem dager. Tirsdag kom den aldri. Onsdag var den så full at jeg måtte vente på neste. Ruters app lyver konsekvent om avgangstider, og når jeg ringer kundeservice, får jeg beskjed om å «sjekke app-en».
-
-Jeg har regnet på det: Hittil i år har jeg mistet over 30 timer på grunn av forsinkelser. Det tilsvarer nesten en hel arbeidsuke. Tid jeg kunne brukt med familien min.
-
-Politikerne snakker om å kutte utslipp og få flere til å velge kollektivt. Men hvordan skal vi velge buss når bussen ikke velger oss? Hvorfor skal jeg betale stadig mer for en tjeneste som blir stadig dårligere?
-
-Jeg er ikke alene om dette. Snakk med hvem som helst på holdeplassen, og du får høre de samme historiene. Men ingen lytter.
-
-Nå har jeg kjøpt bil. Jeg ville helst sluppet.`,
-    },
-    {
-      id: 'norsk-vg1-1-4-primaertekst-3',
-      type: 'text',
-      title: 'Primærtekst: Klassisk kronikk fra litteraturhistorien',
-      content: `## Primærtekst: Arnulf Øverland - utdrag fra «Kristendommen - den tiende landeplage» (1933)
-
-Arnulf Øverlands kontroversielle kronikk vakte enorm debatt da den ble publisert. Den illustrerer hvordan kronikken kan brukes til samfunnskritikk med sterke retoriske virkemidler.
-
-*[Utdrag for analyseformål:]*
-
-«Jeg vet at mange vil ta anstøt av det jeg her skal si. La dem gjøre det. Det er nettopp min hensikt å vekke anstøt. Jeg har nemlig ikke noe til overs for den feige og hensiktsløse toleranse som lar alt passere, fordi alt i grunnen er like gyldig.
-
-Jeg vil her kreve rett til å tale fritt om ting som hittil har vært beskyttet av pietet og konvensjon. Jeg gjør det ikke av ondskap, men fordi jeg mener at sannheten må fram, selv om den skulle være ubehagelig.»
-
-**Analyseoppgave:** Legg merke til:
-- Øverlands bruk av etos (posisjonerer seg som en som tør å si det andre ikke sier)
-- Patos (sterke ord som «feige», «ondskap»)
-- Direkte henvendelse til leseren
-- Kontraster mellom «toleranse» og «sannhet»
-
-Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
-    },
-    {
       id: 'norsk-vg1-1-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -1002,73 +930,11 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       },
     },
     {
-      id: 'norsk-vg1-1-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-4-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Identifiser strukturen i kronikken «Vi må snakke om telefonene» ovenfor:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvor slutter innledningen, og hva er kroken?',
-            solution: 'Innledningen er de to første avsnittene. Kroken er den personlige observasjonen fra venteværelset som illustrerer problemet.',
-          },
-          {
-            label: 'b',
-            task: 'Hva er hovedpåstanden (tesen) i kronikken?',
-            solution: 'Vi har mistet kontrollen over teknologibruken, og det påvirker unge menneskers helse negativt.',
-          },
-          {
-            label: 'c',
-            task: 'Identifiser de tre hovedargumentene i hoveddelen.',
-            solution: 'De tre hovedargumentene er de tre forslagene: 1) Skjermfrie soner, 2) Mobilforbud på skoler, 3) Dialog med de unge.',
-          },
-        ],
-        solution: 'Kronikken følger en klassisk struktur med personlig krok, problemstilling, argumentasjon med fakta, og konkrete forslag.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-4-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser leserinnlegget «Bussen kommer aldri» ovenfor:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilke appellformer bruker forfatteren? Gi eksempler.',
-            solution: 'Etos: Personlig erfaring som pendler. Patos: «Tid jeg kunne brukt med familien min», frustrasjon. Logos: Konkrete tall (30 timer tapt), systematisk dokumentasjon av problemer.',
-          },
-          {
-            label: 'b',
-            task: 'Hvordan bygges argumentasjonen opp?',
-            solution: 'Påstand (bussen fungerer ikke) - belegg (konkrete eksempler fra uken) - konsekvens (tapt tid, kjøpt bil). Avsluttes med politisk poeng.',
-          },
-          {
-            label: 'c',
-            task: 'Vurder effektiviteten av innlegget. Hva fungerer godt, og hva kunne vært bedre?',
-            solution: 'Styrker: Konkret, personlig, med dokumentasjon. Svakheter: Kunne hatt forslag til løsninger, kunne referert til rapporter eller andre kilder for å styrke logos.',
-          },
-        ],
-        solution: 'Innlegget er et godt eksempel på hvordan personlig erfaring kan brukes som utgangspunkt for samfunnskritikk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'norsk-vg1-1-4-ex-5',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-1-4-ex-5',
-        number: '5',
+        number: '3',
         type: 'classic',
         difficulty: 'medium',
         task: 'Skriv tre ulike kroker (innledninger) til et leserinnlegg om karakterpress i skolen:',
@@ -1100,7 +966,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-1-4-ex-6',
-        number: '6',
+        number: '4',
         type: 'classic',
         difficulty: 'medium',
         task: 'Bygg opp et argument med Toulmins modell om følgende påstand: «Skoler bør innføre mobilforbud i undervisningen».',
@@ -1133,11 +999,161 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       },
     },
     {
+      id: 'norsk-vg1-1-4-primaertekst-1',
+      type: 'text',
+      title: 'Primærtekst: Eksempel på kronikk',
+      content: `## Primærtekst: Kronikk om ungdom og skjermtid
+
+**«Vi må snakke om telefonene»**
+
+*Av Maria Hansen, psykolog og forfatter*
+
+Hver dag ser jeg det på venteværelset mitt: Ungdommer som ikke kan løsrive blikket fra skjermen, selv ikke i de få minuttene før timen. Foreldre som sender bekymrede blikk over hodene på barna sine. Vi har fått et problem, og det haster å snakke om det.
+
+La meg være tydelig: Dette handler ikke om å demonisere teknologi. Smarttelefoner er fantastiske verktøy. De kobler oss sammen, gir oss tilgang til informasjon, og har gjort hverdagen enklere på utallige måter. Men når stadig flere unge rapporterer om angst, søvnproblemer og konsentrasjonsvansker, må vi spørre oss selv: Har vi mistet kontrollen?
+
+Forskningen er urovekkende. En studie fra Folkehelseinstituttet viser at ungdom som bruker mer enn fire timer daglig på sosiale medier, har dobbelt så høy risiko for depressive symptomer. Samtidig vet vi at hjernen til en tenåring fortsatt er under utvikling - spesielt de delene som styrer impulskontroll.
+
+Men her kommer paradokset: Vi som voksne er minst like avhengige. Vi sjekker e-post i middagsselskap, scroller Instagram på trening, og svarer på meldinger midt i samtaler med barna våre. Hvordan kan vi forvente at de unge skal ha en sunn relasjon til teknologi når vi selv ikke klarer det?
+
+Jeg har tre forslag:
+
+For det første trenger vi skjermfrie soner i hverdagen. Måltider, soverom, og de første og siste timene av dagen bør være telefonfrie. Ikke som straff, men som en gave til oss selv og relasjonene våre.
+
+For det andre må skolene ta ansvar. Flere land har nå innført mobilforbud i skoletiden med gode resultater. Elevene presterer bedre, og det sosiale miljøet forbedres.
+
+For det tredje: Vi må snakke med de unge, ikke bare til dem. Hva er det de finner på skjermen som de ikke finner andre steder? Ofte handler det om tilhørighet, anerkjennelse og underholdning - behov vi alle har.
+
+Det er lett å føle seg maktesløs i møte med teknologigigantene og algoritmene deres. Men vi har fortsatt et valg. Hver dag, hver gang vi legger fra oss telefonen og ser barnet vårt i øynene, tar vi det valget.
+
+Det begynner med oss.`,
+    },
+    {
+      id: 'norsk-vg1-1-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-4-ex-3',
+        number: '5',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Identifiser strukturen i kronikken «Vi må snakke om telefonene» ovenfor:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvor slutter innledningen, og hva er kroken?',
+            solution: 'Innledningen er de to første avsnittene. Kroken er den personlige observasjonen fra venteværelset som illustrerer problemet.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er hovedpåstanden (tesen) i kronikken?',
+            solution: 'Vi har mistet kontrollen over teknologibruken, og det påvirker unge menneskers helse negativt.',
+          },
+          {
+            label: 'c',
+            task: 'Identifiser de tre hovedargumentene i hoveddelen.',
+            solution: 'De tre hovedargumentene er de tre forslagene: 1) Skjermfrie soner, 2) Mobilforbud på skoler, 3) Dialog med de unge.',
+          },
+        ],
+        solution: 'Kronikken følger en klassisk struktur med personlig krok, problemstilling, argumentasjon med fakta, og konkrete forslag.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-1-4-primaertekst-2',
+      type: 'text',
+      title: 'Primærtekst: Eksempel på leserinnlegg',
+      content: `## Primærtekst: Leserinnlegg om kollektivtransport
+
+**«Bussen kommer aldri»**
+
+Jeg bor på Lillestrøm og jobber i Oslo. I teorien er dette en enkel pendlerrute. I praksis er det et mareritt.
+
+Forrige uke var bussen forsinket fire av fem dager. Tirsdag kom den aldri. Onsdag var den så full at jeg måtte vente på neste. Ruters app lyver konsekvent om avgangstider, og når jeg ringer kundeservice, får jeg beskjed om å «sjekke app-en».
+
+Jeg har regnet på det: Hittil i år har jeg mistet over 30 timer på grunn av forsinkelser. Det tilsvarer nesten en hel arbeidsuke. Tid jeg kunne brukt med familien min.
+
+Politikerne snakker om å kutte utslipp og få flere til å velge kollektivt. Men hvordan skal vi velge buss når bussen ikke velger oss? Hvorfor skal jeg betale stadig mer for en tjeneste som blir stadig dårligere?
+
+Jeg er ikke alene om dette. Snakk med hvem som helst på holdeplassen, og du får høre de samme historiene. Men ingen lytter.
+
+Nå har jeg kjøpt bil. Jeg ville helst sluppet.`,
+    },
+    {
+      id: 'norsk-vg1-1-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-4-ex-4',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser leserinnlegget «Bussen kommer aldri» ovenfor:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke appellformer bruker forfatteren? Gi eksempler.',
+            solution: 'Etos: Personlig erfaring som pendler. Patos: «Tid jeg kunne brukt med familien min», frustrasjon. Logos: Konkrete tall (30 timer tapt), systematisk dokumentasjon av problemer.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan bygges argumentasjonen opp?',
+            solution: 'Påstand (bussen fungerer ikke) - belegg (konkrete eksempler fra uken) - konsekvens (tapt tid, kjøpt bil). Avsluttes med politisk poeng.',
+          },
+          {
+            label: 'c',
+            task: 'Vurder effektiviteten av innlegget. Hva fungerer godt, og hva kunne vært bedre?',
+            solution: 'Styrker: Konkret, personlig, med dokumentasjon. Svakheter: Kunne hatt forslag til løsninger, kunne referert til rapporter eller andre kilder for å styrke logos.',
+          },
+        ],
+        solution: 'Innlegget er et godt eksempel på hvordan personlig erfaring kan brukes som utgangspunkt for samfunnskritikk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-1-4-primaertekst-3',
+      type: 'text',
+      title: 'Primærtekst: Klassisk kronikk fra litteraturhistorien',
+      content: `## Primærtekst: Arnulf Øverland - utdrag fra «Kristendommen - den tiende landeplage» (1933)
+
+Arnulf Øverlands kontroversielle kronikk vakte enorm debatt da den ble publisert. Den illustrerer hvordan kronikken kan brukes til samfunnskritikk med sterke retoriske virkemidler.
+
+*[Utdrag for analyseformål:]*
+
+«Jeg vet at mange vil ta anstøt av det jeg her skal si. La dem gjøre det. Det er nettopp min hensikt å vekke anstøt. Jeg har nemlig ikke noe til overs for den feige og hensiktsløse toleranse som lar alt passere, fordi alt i grunnen er like gyldig.
+
+Jeg vil her kreve rett til å tale fritt om ting som hittil har vært beskyttet av pietet og konvensjon. Jeg gjør det ikke av ondskap, men fordi jeg mener at sannheten må fram, selv om den skulle være ubehagelig.»
+
+**Analyseoppgave:** Legg merke til:
+- Øverlands bruk av etos (posisjonerer seg som en som tør å si det andre ikke sier)
+- Patos (sterke ord som «feige», «ondskap»)
+- Direkte henvendelse til leseren
+- Kontraster mellom «toleranse» og «sannhet»
+
+Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
+    },
+    {
+      id: 'norsk-vg1-1-4-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-4-ex-10',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Analyser Øverland-utdraget med fokus på retorikk og stil. Diskuter deretter: Er det greit å bruke så provoserende stil i offentlig debatt? Skriv en reflekterende tekst (300-400 ord).',
+        hints: ['Se på ordvalg, kontraster og direkte henvendelse', 'Vurder hvem som er mottaker', 'Diskuter grensene for ytringsfrihet og debattkultur'],
+        solution: 'Teksten skal vise evne til retorisk analyse og refleksjon over debattkulturens grenser og virkemidler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
       id: 'norsk-vg1-1-4-ex-7',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-1-4-ex-7',
-        number: '7',
+        number: '8',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign språk og stil i de to primærtekstene (kronikken og leserinnlegget). Hva er likt og hva er forskjellig?',
@@ -1152,7 +1168,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-1-4-ex-8',
-        number: '8',
+        number: '9',
         type: 'classic',
         difficulty: 'medium',
         task: 'Skriv et leserinnlegg (200-300 ord) om et tema du engasjerer deg i. Bruk påstand-begrunnelse-eksempel-strukturen.',
@@ -1167,7 +1183,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-1-4-ex-9',
-        number: '9',
+        number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en kronikk (500-700 ord) om et samfunnsaktuelt tema. Bruk minst tre ulike argumenttyper (fakta, verdi, konsekvens, ekspert eller eksempel).',
@@ -1190,21 +1206,6 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
         ],
         hints: ['Finn minst to gode kilder', 'Vurder motargumenter', 'Les kronikken høyt for å sjekke flyt'],
         solution: 'Kronikken skal vise evne til grundig argumentasjon, kildebruk og bevisst bruk av retoriske virkemidler.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-4-ex-10',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-4-ex-10',
-        number: '10',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Analyser Øverland-utdraget med fokus på retorikk og stil. Diskuter deretter: Er det greit å bruke så provoserende stil i offentlig debatt? Skriv en reflekterende tekst (300-400 ord).',
-        hints: ['Se på ordvalg, kontraster og direkte henvendelse', 'Vurder hvem som er mottaker', 'Diskuter grensene for ytringsfrihet og debattkultur'],
-        solution: 'Teksten skal vise evne til retorisk analyse og refleksjon over debattkulturens grenser og virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1294,6 +1295,27 @@ Spør deg selv:
 **Merk:** Kairos kan også misbrukes - opportunisme og utnyttelse av tragedier til politisk gevinst er etisk problematisk.`,
     },
     {
+      id: 'norsk-vg1-1-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-5-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva betyr kairos?',
+        options: [
+          'Det rette øyeblikket - å si rett ting til rett tid',
+          'Å være troverdig som avsender',
+          'Å appellere til logikk og fornuft',
+          'Å bruke følelser for å overbevise',
+        ],
+        answer: 0,
+        solution: 'Kairos er gresk og betyr «det rette øyeblikket» - å time budskapet riktig i forhold til kontekst og situasjon.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'norsk-vg1-1-5-def-3',
       type: 'definition',
       title: 'Aptum - det passende',
@@ -1319,6 +1341,27 @@ Spør deg selv:
 2. Budskap-mottaker: Er budskapet tilpasset mottakeren?
 3. Situasjon-uttrykk: Er formen passende for situasjonen?
 4. Innhold-form: Passer stilen til det som sies?`,
+    },
+    {
+      id: 'norsk-vg1-1-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-5-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er forskjellen mellom indre og ytre aptum?',
+        options: [
+          'Indre aptum er samsvar innad i teksten, ytre er samsvar med situasjonen',
+          'Indre aptum handler om følelser, ytre om logikk',
+          'Indre aptum er for skriftlige tekster, ytre for muntlige',
+          'Indre aptum er formelt språk, ytre er uformelt',
+        ],
+        answer: 0,
+        solution: 'Indre aptum handler om harmoni mellom tekstens ulike deler, mens ytre aptum handler om at teksten passer til situasjonen, mottakeren og anledningen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'norsk-vg1-1-5-def-4',
@@ -1352,6 +1395,46 @@ Spør deg selv:
 - Tilpasning til publikum
 
 **I analyse:** Vurder hvordan avsenderen har arbeidet med disse fasene. God retorikk viser bevisste valg i alle fem.`,
+    },
+    {
+      id: 'norsk-vg1-1-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-5-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Koble retorikkens fem arbeidsfaser til riktig beskrivelse:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Inventio',
+            solution: 'Finne stoff - samle argumenter og ideer',
+            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
+          },
+          {
+            label: 'b',
+            task: 'Dispositio',
+            solution: 'Ordne stoffet - bestemme rekkefølge og struktur',
+            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
+          },
+          {
+            label: 'c',
+            task: 'Elocutio',
+            solution: 'Formulere - velge ord, stil og virkemidler',
+            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
+          },
+          {
+            label: 'd',
+            task: 'Actio',
+            solution: 'Fremføre - presentere med stemme og kroppsspråk',
+            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
+          },
+        ],
+        solution: 'a) Finne stoff, b) Ordne stoffet, c) Formulere, d) Fremføre',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-1-5-def-5',
@@ -1457,6 +1540,37 @@ Jeg har en drøm om at mine fire små barn en dag vil leve i en nasjon hvor de i
 Jeg har en drøm i dag!»`,
     },
     {
+      id: 'norsk-vg1-1-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser kairos i Martin Luther Kings "I Have a Dream"-tale:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva var den retoriske situasjonen? (Påtrengende problem, publikum, vilkår)',
+            solution: 'Påtrengende problem: Rasediskriminering og borgerrettighetskamp. Publikum: 250 000 demonstranter og hele den amerikanske nasjonen gjennom TV. Vilkår: Stor nasjonal oppmerksomhet, symbolsk sted (Lincoln Memorial), historisk øyeblikk.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor var dette det rette øyeblikket (kairos) for denne talen?',
+            solution: 'Borgerrettighetsbevegelsen var på sitt sterkeste, nasjonal og internasjonal oppmerksomhet var rettet mot marsjen, og King grep muligheten til å definere bevegelsens visjon for fremtiden.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan utnytter King kairos i selve talen?',
+            solution: 'Han refererer til «hundre år» siden Emansipasjonsdeklarasjonen, kobler drømmen til grunnleggende amerikanske verdier, og bruker øyeblikket til å male et bilde av fremtiden.',
+          },
+        ],
+        solution: 'King utnyttet det historiske øyeblikket maksimalt ved å forene borgerrettighetskampen med amerikanske kjerneverdier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-1-5-primaertekst-2',
       type: 'text',
       title: 'Primærtekst: Greta Thunberg - tale til FN (utdrag)',
@@ -1491,6 +1605,38 @@ I mer enn 30 år har vitenskapen vært krystallklar. Hvordan våger dere å fort
 Dere sier at dere hører oss og at dere forstår alvoret. Men uansett hvor trist og sint jeg er, vil jeg ikke tro det. For hvis dere virkelig forsto situasjonen og fortsatt ikke handlet, da ville dere vært onde. Og det nekter jeg å tro.»`,
     },
     {
+      id: 'norsk-vg1-1-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-5-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser det retoriske virkemiddelet «How dare you!» i Thunbergs tale:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva slags virkemiddel er dette, og hvilken effekt har det?',
+            solution: 'Gjentakelse (anafor) kombinert med retorisk spørsmål/anklage. Effekten er å uttrykke sinne, stille til ansvar, og skape en rytme som forsterker budskapet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan bryter dette med forventningene til en FN-tale?',
+            solution: 'FN-taler er vanligvis diplomatiske og høflige. Thunberg bryter radikalt med denne normen ved å anklage tilhørerne direkte. Dette skaper oppmerksomhet og understreker alvoret.',
+          },
+          {
+            label: 'c',
+            task: 'Diskuter: Er dette god eller dårlig retorikk? Begrunn svaret.',
+            solution: 'Avhenger av perspektiv. God: Autentisk, ærlig, skapte massiv oppmerksomhet, mobiliserte unge. Dårlig: Kan fremmedgjøre beslutningstakere, risikerer å bli avfeid som emosjonell. Effektiv for noen mottakere, ikke for andre.',
+          },
+        ],
+        hints: ['Tenk på hvem talen var rettet mot', 'Vurder både umiddelbar og langsiktig effekt'],
+        solution: 'Thunbergs stil er et bevisst brudd med konvensjoner som skaper oppmerksomhet, men som også kan være polariserende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-1-5-primaertekst-3',
       type: 'text',
       title: 'Primærtekst: Jens Stoltenberg - tale etter 22. juli (utdrag)',
@@ -1513,150 +1659,6 @@ I kveld er gatene fylt med kjærlighet.
 Det var et angrep på våre verdier, på vårt åpne samfunn, på vårt demokrati. Vårt svar er mer demokrati, mer åpenhet og mer humanitet. Men aldri naivitet.
 
 Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann kan vise så mye hat, tenk hvor mye kjærlighet vi alle kan vise sammen.'»`,
-    },
-    {
-      id: 'norsk-vg1-1-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-5-ex-1',
-        number: '1',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva betyr kairos?',
-        options: [
-          'Det rette øyeblikket - å si rett ting til rett tid',
-          'Å være troverdig som avsender',
-          'Å appellere til logikk og fornuft',
-          'Å bruke følelser for å overbevise',
-        ],
-        answer: 0,
-        solution: 'Kairos er gresk og betyr «det rette øyeblikket» - å time budskapet riktig i forhold til kontekst og situasjon.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-5-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er forskjellen mellom indre og ytre aptum?',
-        options: [
-          'Indre aptum er samsvar innad i teksten, ytre er samsvar med situasjonen',
-          'Indre aptum handler om følelser, ytre om logikk',
-          'Indre aptum er for skriftlige tekster, ytre for muntlige',
-          'Indre aptum er formelt språk, ytre er uformelt',
-        ],
-        answer: 0,
-        solution: 'Indre aptum handler om harmoni mellom tekstens ulike deler, mens ytre aptum handler om at teksten passer til situasjonen, mottakeren og anledningen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-5-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Koble retorikkens fem arbeidsfaser til riktig beskrivelse:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Inventio',
-            solution: 'Finne stoff - samle argumenter og ideer',
-            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
-          },
-          {
-            label: 'b',
-            task: 'Dispositio',
-            solution: 'Ordne stoffet - bestemme rekkefølge og struktur',
-            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
-          },
-          {
-            label: 'c',
-            task: 'Elocutio',
-            solution: 'Formulere - velge ord, stil og virkemidler',
-            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
-          },
-          {
-            label: 'd',
-            task: 'Actio',
-            solution: 'Fremføre - presentere med stemme og kroppsspråk',
-            multipleChoiceOptions: ['Finne stoff', 'Ordne stoffet', 'Formulere', 'Huske', 'Fremføre'],
-          },
-        ],
-        solution: 'a) Finne stoff, b) Ordne stoffet, c) Formulere, d) Fremføre',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-5-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser kairos i Martin Luther Kings "I Have a Dream"-tale:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva var den retoriske situasjonen? (Påtrengende problem, publikum, vilkår)',
-            solution: 'Påtrengende problem: Rasediskriminering og borgerrettighetskamp. Publikum: 250 000 demonstranter og hele den amerikanske nasjonen gjennom TV. Vilkår: Stor nasjonal oppmerksomhet, symbolsk sted (Lincoln Memorial), historisk øyeblikk.',
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor var dette det rette øyeblikket (kairos) for denne talen?',
-            solution: 'Borgerrettighetsbevegelsen var på sitt sterkeste, nasjonal og internasjonal oppmerksomhet var rettet mot marsjen, og King grep muligheten til å definere bevegelsens visjon for fremtiden.',
-          },
-          {
-            label: 'c',
-            task: 'Hvordan utnytter King kairos i selve talen?',
-            solution: 'Han refererer til «hundre år» siden Emansipasjonsdeklarasjonen, kobler drømmen til grunnleggende amerikanske verdier, og bruker øyeblikket til å male et bilde av fremtiden.',
-          },
-        ],
-        solution: 'King utnyttet det historiske øyeblikket maksimalt ved å forene borgerrettighetskampen med amerikanske kjerneverdier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-1-5-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-1-5-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Sammenlign Greta Thunbergs og Martin Luther Kings taler med fokus på retoriske strategier:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvordan bygger hver av dem etos? Sammenlign.',
-            solution: 'King: Erfaren predikant, sivil leder, moralsk autoritet. Thunberg: Ung, autentisk, representerer fremtidige generasjoner. Begge bruker sin posisjon strategisk - King som etablert, Thunberg som utenfor systemet.',
-          },
-          {
-            label: 'b',
-            task: 'Hvilke patos-strategier bruker de? Hva er likt og forskjellig?',
-            solution: 'King: Håp, drøm, inspirasjon, fellesskap. Thunberg: Sinne, frykt, skyld, desperat alvor. King trekker mot lyset, Thunberg konfronterer.',
-          },
-          {
-            label: 'c',
-            task: 'Hvordan bruker de gjentakelse som virkemiddel?',
-            solution: 'King: «I have a dream» - skaper rytme og visjon. Thunberg: «How dare you!» - uttrykker sinne og anklage. Begge bruker anafor for å forsterke budskapet.',
-          },
-        ],
-        solution: 'Begge er mestere i retorikk, men med helt ulike strategier tilpasset deres situasjon, persona og mål.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
     },
     {
       id: 'norsk-vg1-1-5-ex-6',
@@ -1689,6 +1691,7 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-1-5-ex-7',
       type: 'exercise',
@@ -1697,26 +1700,25 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         number: '7',
         type: 'classic',
         difficulty: 'medium',
-        task: 'Analyser det retoriske virkemiddelet «How dare you!» i Thunbergs tale:',
+        task: 'Sammenlign Greta Thunbergs og Martin Luther Kings taler med fokus på retoriske strategier:',
         subTasks: [
           {
             label: 'a',
-            task: 'Hva slags virkemiddel er dette, og hvilken effekt har det?',
-            solution: 'Gjentakelse (anafor) kombinert med retorisk spørsmål/anklage. Effekten er å uttrykke sinne, stille til ansvar, og skape en rytme som forsterker budskapet.',
+            task: 'Hvordan bygger hver av dem etos? Sammenlign.',
+            solution: 'King: Erfaren predikant, sivil leder, moralsk autoritet. Thunberg: Ung, autentisk, representerer fremtidige generasjoner. Begge bruker sin posisjon strategisk - King som etablert, Thunberg som utenfor systemet.',
           },
           {
             label: 'b',
-            task: 'Hvordan bryter dette med forventningene til en FN-tale?',
-            solution: 'FN-taler er vanligvis diplomatiske og høflige. Thunberg bryter radikalt med denne normen ved å anklage tilhørerne direkte. Dette skaper oppmerksomhet og understreker alvoret.',
+            task: 'Hvilke patos-strategier bruker de? Hva er likt og forskjellig?',
+            solution: 'King: Håp, drøm, inspirasjon, fellesskap. Thunberg: Sinne, frykt, skyld, desperat alvor. King trekker mot lyset, Thunberg konfronterer.',
           },
           {
             label: 'c',
-            task: 'Diskuter: Er dette god eller dårlig retorikk? Begrunn svaret.',
-            solution: 'Avhenger av perspektiv. God: Autentisk, ærlig, skapte massiv oppmerksomhet, mobiliserte unge. Dårlig: Kan fremmedgjøre beslutningstakere, risikerer å bli avfeid som emosjonell. Effektiv for noen mottakere, ikke for andre.',
+            task: 'Hvordan bruker de gjentakelse som virkemiddel?',
+            solution: 'King: «I have a dream» - skaper rytme og visjon. Thunberg: «How dare you!» - uttrykker sinne og anklage. Begge bruker anafor for å forsterke budskapet.',
           },
         ],
-        hints: ['Tenk på hvem talen var rettet mot', 'Vurder både umiddelbar og langsiktig effekt'],
-        solution: 'Thunbergs stil er et bevisst brudd med konvensjoner som skaper oppmerksomhet, men som også kan være polariserende.',
+        solution: 'Begge er mestere i retorikk, men med helt ulike strategier tilpasset deres situasjon, persona og mål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2692,6 +2694,61 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
 - **Parallellhandling:** Flere handlinger samtidig`,
     },
     {
+      id: 'norsk-vg1-2-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Identifiser fortellerstemmen i disse romanåpningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Jeg husker den dagen som om det var i går. Solen skinte og fuglene sang."',
+            solution: 'Jeg-forteller med tilbakeblikk',
+            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
+          },
+          {
+            label: 'b',
+            task: '"Maria visste ikke at Lars hadde sett henne. Hun tenkte på samtalen med moren. Lars, på sin side, lurte på om han skulle si noe."',
+            solution: 'Allvitende forteller - har innsikt i begge karakterenes tanker',
+            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
+          },
+          {
+            label: 'c',
+            task: '"Hun så ut av vinduet. Hva skulle hun gjøre nå? Bilen i gaten startet, men hvem som kjørte den visste hun ikke."',
+            solution: 'Tredjeperson begrenset - vi følger henne, men vet ikke mer enn hun',
+            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
+          },
+        ],
+        solution: 'a) Jeg-forteller, b) Allvitende, c) Tredjeperson begrenset',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kalles det når en fortelling starter midt i handlingen?',
+        options: [
+          'In medias res',
+          'Analepse',
+          'Prolepse',
+          'Eksposisjon',
+        ],
+        answer: 0,
+        solution: 'In medias res (latin for "midt i tingene") betyr at fortellingen starter midt i handlingen, ofte på et dramatisk punkt.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'norsk-vg1-2-4-def-2',
       type: 'definition',
       title: 'Komposisjon og struktur',
@@ -2717,6 +2774,26 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
 - Sosial og kulturell kontekst
 - Atmosfære og stemning
 - Symbolsk funksjon (f.eks. hus, natur, by)`,
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-5',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Velg en roman du har lest. Analyser komposisjonen.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv romanens struktur (eksposisjon, komplikasjon, klimaks osv.).', solution: 'Identifiser de ulike delene av handlingsforløpet.' },
+          { label: 'b', task: 'Er strukturen tradisjonell eller eksperimentell? Forklar.', solution: 'Sammenlign med tradisjonell oppbygning - er det brudd, parallelle handlinger, fragmentering?' },
+          { label: 'c', task: 'Hvordan bidrar strukturen til romanens tematikk?', solution: 'Vis sammenhengen mellom form og innhold.' },
+        ],
+        hints: ['Tegn gjerne en visuell oversikt over strukturen', 'Bruk fagbegreper fra kapittelet'],
+        solution: 'Analysen skal vise forståelse for samspillet mellom romanens form og innhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-4-def-3',
@@ -2748,6 +2825,26 @@ Tema er de underliggende ideene eller spørsmålene en roman utforsker. En roman
 - Romaner er ofte flertydige - unngå enkle svar`,
     },
     {
+      id: 'norsk-vg1-2-4-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-8',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Identifiser og analyser minst to sentrale temaer i en roman du har lest.',
+        subTasks: [
+          { label: 'a', task: 'Hvilke temaer behandler romanen?', solution: 'Identifiser hovedtemaer og undertemaer.' },
+          { label: 'b', task: 'Hvordan kommer temaene til uttrykk?', solution: 'Gjennom karakterer, konflikter, motiver, symboler?' },
+          { label: 'c', task: 'Hva kan være romanens budskap?', solution: 'Formuler en mulig tolkning - men anerkjenn flertydighet.' },
+        ],
+        hints: ['Unngå for enkle svar - romaner er ofte flertydige', 'Bruk teksteksempler'],
+        solution: 'Tematisk analyse krever at man ser sammenhenger mellom ulike elementer i romanen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-2-4-def-4',
       type: 'definition',
       title: 'Karakteranalyse',
@@ -2774,6 +2871,48 @@ Tema er de underliggende ideene eller spørsmålene en roman utforsker. En roman
 3. Relasjoner til andre karakterer
 4. Konflikter (indre og ytre)
 5. Utvikling gjennom romanen`,
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-3',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kjennetegner en "rund" karakter?',
+        options: [
+          'Kompleks og utvikler seg gjennom romanen',
+          'Endimensjonal og forutsigbar',
+          'En bifigur som støtter handlingen',
+          'En antagonist som motarbeider helten',
+        ],
+        answer: 0,
+        solution: 'Runde karakterer er komplekse, har flere sider og utvikler seg gjennom fortellingen. Begrepet stammer fra E.M. Forster.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-4-ex-7',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser en hovedperson fra en roman du har lest.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv karakterens ytre kjennetegn.', solution: 'Alder, utseende, sosial bakgrunn, yrke osv.' },
+          { label: 'b', task: 'Analyser karakterens indre kjennetegn.', solution: 'Personlighet, verdier, drømmer, frykt, konflikter.' },
+          { label: 'c', task: 'Hvordan utvikler karakteren seg gjennom romanen?', solution: 'Beskriv endringer og hva som utløser dem.' },
+          { label: 'd', task: 'Er karakteren rund eller flat? Begrunn.', solution: 'Vurder kompleksitet og utvikling.' },
+        ],
+        hints: ['Bruk analysekategoriene fra kapittelet', 'Gi konkrete eksempler fra teksten'],
+        solution: 'Karakteranalysen skal vise forståelse for hvordan forfatteren skaper troverdige og interessante karakterer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-4-example-1',
@@ -2830,87 +2969,11 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
       ],
     },
     {
-      id: 'norsk-vg1-2-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Identifiser fortellerstemmen i disse romanåpningene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Jeg husker den dagen som om det var i går. Solen skinte og fuglene sang."',
-            solution: 'Jeg-forteller med tilbakeblikk',
-            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
-          },
-          {
-            label: 'b',
-            task: '"Maria visste ikke at Lars hadde sett henne. Hun tenkte på samtalen med moren. Lars, på sin side, lurte på om han skulle si noe."',
-            solution: 'Allvitende forteller - har innsikt i begge karakterenes tanker',
-            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
-          },
-          {
-            label: 'c',
-            task: '"Hun så ut av vinduet. Hva skulle hun gjøre nå? Bilen i gaten startet, men hvem som kjørte den visste hun ikke."',
-            solution: 'Tredjeperson begrenset - vi følger henne, men vet ikke mer enn hun',
-            multipleChoiceOptions: ['Jeg-forteller', 'Tredjeperson begrenset', 'Allvitende forteller'],
-          },
-        ],
-        solution: 'a) Jeg-forteller, b) Allvitende, c) Tredjeperson begrenset',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva kalles det når en fortelling starter midt i handlingen?',
-        options: [
-          'In medias res',
-          'Analepse',
-          'Prolepse',
-          'Eksposisjon',
-        ],
-        answer: 0,
-        solution: 'In medias res (latin for "midt i tingene") betyr at fortellingen starter midt i handlingen, ofte på et dramatisk punkt.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-3',
-        number: '3',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva kjennetegner en "rund" karakter?',
-        options: [
-          'Kompleks og utvikler seg gjennom romanen',
-          'Endimensjonal og forutsigbar',
-          'En bifigur som støtter handlingen',
-          'En antagonist som motarbeider helten',
-        ],
-        answer: 0,
-        solution: 'Runde karakterer er komplekse, har flere sider og utvikler seg gjennom fortellingen. Begrepet stammer fra E.M. Forster.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'norsk-vg1-2-4-ex-4',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-2-4-ex-4',
-        number: '4',
+        number: '7',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les utdraget fra "Sult" av Hamsun ovenfor. Analyser fortellerteknikken.',
@@ -2925,31 +2988,11 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
       },
     },
     {
-      id: 'norsk-vg1-2-4-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Velg en roman du har lest. Analyser komposisjonen.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv romanens struktur (eksposisjon, komplikasjon, klimaks osv.).', solution: 'Identifiser de ulike delene av handlingsforløpet.' },
-          { label: 'b', task: 'Er strukturen tradisjonell eller eksperimentell? Forklar.', solution: 'Sammenlign med tradisjonell oppbygning - er det brudd, parallelle handlinger, fragmentering?' },
-          { label: 'c', task: 'Hvordan bidrar strukturen til romanens tematikk?', solution: 'Vis sammenhengen mellom form og innhold.' },
-        ],
-        hints: ['Tegn gjerne en visuell oversikt over strukturen', 'Bruk fagbegreper fra kapittelet'],
-        solution: 'Analysen skal vise forståelse for samspillet mellom romanens form og innhold.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'norsk-vg1-2-4-ex-6',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-2-4-ex-6',
-        number: '6',
+        number: '8',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign utdraget fra "Sult" med utdraget fra "Familien paa Gilje". Hvordan er fortellerteknikken ulik?',
@@ -2963,47 +3006,7 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'norsk-vg1-2-4-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-7',
-        number: '7',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser en hovedperson fra en roman du har lest.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv karakterens ytre kjennetegn.', solution: 'Alder, utseende, sosial bakgrunn, yrke osv.' },
-          { label: 'b', task: 'Analyser karakterens indre kjennetegn.', solution: 'Personlighet, verdier, drømmer, frykt, konflikter.' },
-          { label: 'c', task: 'Hvordan utvikler karakteren seg gjennom romanen?', solution: 'Beskriv endringer og hva som utløser dem.' },
-          { label: 'd', task: 'Er karakteren rund eller flat? Begrunn.', solution: 'Vurder kompleksitet og utvikling.' },
-        ],
-        hints: ['Bruk analysekategoriene fra kapittelet', 'Gi konkrete eksempler fra teksten'],
-        solution: 'Karakteranalysen skal vise forståelse for hvordan forfatteren skaper troverdige og interessante karakterer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-4-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-4-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Identifiser og analyser minst to sentrale temaer i en roman du har lest.',
-        subTasks: [
-          { label: 'a', task: 'Hvilke temaer behandler romanen?', solution: 'Identifiser hovedtemaer og undertemaer.' },
-          { label: 'b', task: 'Hvordan kommer temaene til uttrykk?', solution: 'Gjennom karakterer, konflikter, motiver, symboler?' },
-          { label: 'c', task: 'Hva kan være romanens budskap?', solution: 'Formuler en mulig tolkning - men anerkjenn flertydighet.' },
-        ],
-        hints: ['Unngå for enkle svar - romaner er ofte flertydige', 'Bruk teksteksempler'],
-        solution: 'Tematisk analyse krever at man ser sammenhenger mellom ulike elementer i romanen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-2-4-ex-9',
       type: 'exercise',
@@ -3118,6 +3121,67 @@ Del står for helhet, eller omvendt.
 - "Norge vant kampen" (landslaget)`,
     },
     {
+      id: 'norsk-vg1-2-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Identifiser hvilken type virkemiddel som brukes i hvert eksempel:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Tiden er penger."',
+            solution: 'Metafor',
+            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
+          },
+          {
+            label: 'b',
+            task: '"Trærne bukket seg i stormen."',
+            solution: 'Personifikasjon',
+            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
+          },
+          {
+            label: 'c',
+            task: '"Han løp som vinden."',
+            solution: 'Sammenligning',
+            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
+          },
+          {
+            label: 'd',
+            task: '"Hele byen feirer i dag."',
+            solution: 'Metonymi (byen = byens innbyggere)',
+            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
+          },
+        ],
+        solution: 'a) Metafor, b) Personifikasjon, c) Sammenligning, d) Metonymi',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er forskjellen mellom metafor og sammenligning?',
+        options: [
+          'Metafor er en skjult sammenligning uten "som" eller "lik"',
+          'Metafor handler alltid om mennesker',
+          'Sammenligning er sterkere enn metafor',
+          'Det er ingen forskjell',
+        ],
+        answer: 0,
+        solution: 'Metafor er en skjult sammenligning ("Livet er en reise"), mens sammenligning bruker "som" eller "lik" ("Livet er som en reise").',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'norsk-vg1-2-5-def-2',
       type: 'definition',
       title: 'Symbol og allegori',
@@ -3150,6 +3214,26 @@ En utvidet metafor der hele fortellingen representerer noe annet.
 - Motiv: Gjentakende element (f.eks. vann, reise)
 - Symbol: Element med overført betydning
 - Et motiv kan bli et symbol gjennom gjentagelse og vektlegging`,
+    },
+    {
+      id: 'norsk-vg1-2-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-5',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn eksempler på symboler i en tekst du har lest. Analyser hva symbolene representerer.',
+        subTasks: [
+          { label: 'a', task: 'Identifiser minst to symboler i teksten.', solution: 'Beskriv de konkrete elementene som fungerer som symboler.' },
+          { label: 'b', task: 'Forklar hva hvert symbol representerer.', solution: 'Analyser den abstrakte betydningen.' },
+          { label: 'c', task: 'Hvordan bidrar symbolene til tekstens tema?', solution: 'Vis sammenhengen mellom symbol og tematikk.' },
+        ],
+        hints: ['Se etter gjentakende elementer', 'Vurder hva som får mye oppmerksomhet i teksten'],
+        solution: 'Symbolanalyse krever at man ser sammenheng mellom konkrete elementer og abstrakte betydninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-5-def-3',
@@ -3189,6 +3273,47 @@ I "Romeo og Julie" vet publikum at Julie ikke er død, men Romeo tror det.
 - Ironi kan være mild og leken`,
     },
     {
+      id: 'norsk-vg1-2-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-3',
+        number: '4',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er dramatisk ironi?',
+        options: [
+          'Når leseren/publikum vet mer enn karakterene',
+          'Når man sier det motsatte av det man mener',
+          'Når det motsatte av det forventede skjer',
+          'Når man later som man er uvitende',
+        ],
+        answer: 0,
+        solution: 'Dramatisk ironi oppstår når publikum har informasjon karakterene ikke har, noe som skaper spenning og engasjement.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-6',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn eksempler på ironi i en tekst av Kielland, Ibsen eller en annen samfunnskritisk forfatter. Analyser ironiens funksjon.',
+        subTasks: [
+          { label: 'a', task: 'Finn et eksempel på ironi i teksten.', solution: 'Sitér teksten og identifiser ironitypen.' },
+          { label: 'b', task: 'Hva er ironiens mål/offer?', solution: 'Hvem eller hva blir kritisert?' },
+          { label: 'c', task: 'Hvordan bidrar ironien til samfunnskritikken?', solution: 'Analyser ironiens retoriske funksjon.' },
+        ],
+        hints: ['Realister som Kielland brukte ofte ironi for å avsløre hykleri', 'Se etter kontraster mellom det som sies og det som menes'],
+        solution: 'Ironi er et kraftfullt verktøy for samfunnskritikk fordi det avslører uten å moralisere direkte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-2-5-def-4',
       type: 'definition',
       title: 'Intertekstualitet og allusjoner',
@@ -3221,6 +3346,26 @@ Hentydninger til kjente tekster, myter, historie eller kultur.
 - Leseren må kjenne referansene for full forståelse
 - Ulik bakgrunn gir ulik lesning
 - Tekster kan leses på flere nivåer`,
+    },
+    {
+      id: 'norsk-vg1-2-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-5-ex-7',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn et eksempel på intertekstualitet i en tekst, film eller sang du kjenner. Forklar referansen og dens effekt.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv teksten og den intertekstuelle referansen.', solution: 'Identifiser hva det refereres til og hvordan.' },
+          { label: 'b', task: 'Hva tilfører referansen teksten?', solution: 'Analyser effekten - dybde, humor, kritikk?' },
+          { label: 'c', task: 'Hva må leseren/seeren vite for å forstå referansen?', solution: 'Reflekter over leserens rolle.' },
+        ],
+        hints: ['Tenk på filmer som refererer til andre filmer, sanger med sitater osv.', 'Populærkultur er full av intertekstualitet'],
+        solution: 'Intertekstualitet skaper mening gjennom dialog med andre tekster og kulturell kunnskap.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-5-example-1',
@@ -3283,93 +3428,11 @@ Villanden i stykket har flere lag av symbolsk betydning:
 Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være moraliserende.`,
     },
     {
-      id: 'norsk-vg1-2-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Identifiser hvilken type virkemiddel som brukes i hvert eksempel:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Tiden er penger."',
-            solution: 'Metafor',
-            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
-          },
-          {
-            label: 'b',
-            task: '"Trærne bukket seg i stormen."',
-            solution: 'Personifikasjon',
-            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
-          },
-          {
-            label: 'c',
-            task: '"Han løp som vinden."',
-            solution: 'Sammenligning',
-            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
-          },
-          {
-            label: 'd',
-            task: '"Hele byen feirer i dag."',
-            solution: 'Metonymi (byen = byens innbyggere)',
-            multipleChoiceOptions: ['Metafor', 'Sammenligning', 'Metonymi', 'Personifikasjon'],
-          },
-        ],
-        solution: 'a) Metafor, b) Personifikasjon, c) Sammenligning, d) Metonymi',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er forskjellen mellom metafor og sammenligning?',
-        options: [
-          'Metafor er en skjult sammenligning uten "som" eller "lik"',
-          'Metafor handler alltid om mennesker',
-          'Sammenligning er sterkere enn metafor',
-          'Det er ingen forskjell',
-        ],
-        answer: 0,
-        solution: 'Metafor er en skjult sammenligning ("Livet er en reise"), mens sammenligning bruker "som" eller "lik" ("Livet er som en reise").',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-3',
-        number: '3',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er dramatisk ironi?',
-        options: [
-          'Når leseren/publikum vet mer enn karakterene',
-          'Når man sier det motsatte av det man mener',
-          'Når det motsatte av det forventede skjer',
-          'Når man later som man er uvitende',
-        ],
-        answer: 0,
-        solution: 'Dramatisk ironi oppstår når publikum har informasjon karakterene ikke har, noe som skaper spenning og engasjement.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'norsk-vg1-2-5-ex-4',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-2-5-ex-4',
-        number: '4',
+        number: '7',
         type: 'classic',
         difficulty: 'medium',
         task: 'Skriv tre setninger som bruker henholdsvis metafor, personifikasjon og ironi. Forklar effekten av hvert virkemiddel.',
@@ -3379,66 +3442,7 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'norsk-vg1-2-5-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn eksempler på symboler i en tekst du har lest. Analyser hva symbolene representerer.',
-        subTasks: [
-          { label: 'a', task: 'Identifiser minst to symboler i teksten.', solution: 'Beskriv de konkrete elementene som fungerer som symboler.' },
-          { label: 'b', task: 'Forklar hva hvert symbol representerer.', solution: 'Analyser den abstrakte betydningen.' },
-          { label: 'c', task: 'Hvordan bidrar symbolene til tekstens tema?', solution: 'Vis sammenhengen mellom symbol og tematikk.' },
-        ],
-        hints: ['Se etter gjentakende elementer', 'Vurder hva som får mye oppmerksomhet i teksten'],
-        solution: 'Symbolanalyse krever at man ser sammenheng mellom konkrete elementer og abstrakte betydninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-5-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-6',
-        number: '6',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn eksempler på ironi i en tekst av Kielland, Ibsen eller en annen samfunnskritisk forfatter. Analyser ironiens funksjon.',
-        subTasks: [
-          { label: 'a', task: 'Finn et eksempel på ironi i teksten.', solution: 'Sitér teksten og identifiser ironitypen.' },
-          { label: 'b', task: 'Hva er ironiens mål/offer?', solution: 'Hvem eller hva blir kritisert?' },
-          { label: 'c', task: 'Hvordan bidrar ironien til samfunnskritikken?', solution: 'Analyser ironiens retoriske funksjon.' },
-        ],
-        hints: ['Realister som Kielland brukte ofte ironi for å avsløre hykleri', 'Se etter kontraster mellom det som sies og det som menes'],
-        solution: 'Ironi er et kraftfullt verktøy for samfunnskritikk fordi det avslører uten å moralisere direkte.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-5-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-5-ex-7',
-        number: '7',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn et eksempel på intertekstualitet i en tekst, film eller sang du kjenner. Forklar referansen og dens effekt.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv teksten og den intertekstuelle referansen.', solution: 'Identifiser hva det refereres til og hvordan.' },
-          { label: 'b', task: 'Hva tilfører referansen teksten?', solution: 'Analyser effekten - dybde, humor, kritikk?' },
-          { label: 'c', task: 'Hva må leseren/seeren vite for å forstå referansen?', solution: 'Reflekter over leserens rolle.' },
-        ],
-        hints: ['Tenk på filmer som refererer til andre filmer, sanger med sitater osv.', 'Populærkultur er full av intertekstualitet'],
-        solution: 'Intertekstualitet skaper mening gjennom dialog med andre tekster og kulturell kunnskap.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-2-5-ex-8',
       type: 'exercise',
@@ -3581,6 +3585,21 @@ Bildeboka er en bok der tekst og bilde er gjensidig avhengige for å skape menin
 - Stian Hole, Gro Dahle/Svein Nyhus, Lisa Aisato`,
     },
     {
+      id: 'norsk-vg1-2-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-3',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Beskriv forskjellen mellom en illustrert bok og en bildebok.',
+        hints: ['Tenk på forholdet mellom tekst og bilde', 'Kan teksten stå alene?'],
+        solution: 'I en illustrert bok kan teksten stå alene, bildene illustrerer. I en bildebok er tekst og bilde gjensidig avhengige - ingen av delene fungerer alene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-2-6-def-3',
       type: 'definition',
       title: 'Visuell fortelling: Paneler og layout',
@@ -3611,6 +3630,47 @@ Rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det s
 - **Aspekt til aspekt:** Ulike deler av samme øyeblikk
 - **Øyeblikk til øyeblikk:** Minimal tid
 - **Subjekt til subjekt:** Skifte av fokus`,
+    },
+    {
+      id: 'norsk-vg1-2-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-1',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva kalles rommet mellom panelene i en tegneserie?',
+        options: [
+          'Gutter',
+          'Panel',
+          'Splash',
+          'Layout',
+        ],
+        answer: 0,
+        solution: 'Gutter er rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det som "mangler" mellom bildene.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-5',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser panelstruktur og layout i en side fra en grafisk roman.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv panelstrukturen (størrelse, form, plassering).', solution: 'Analyser hvordan panelene er organisert.' },
+          { label: 'b', task: 'Hva signaliserer layouten om tempo og viktighet?', solution: 'Store paneler = viktig, mange små = raskt tempo.' },
+          { label: 'c', task: 'Hvordan fungerer overgangene mellom panelene?', solution: 'Hva skjer i "gutteret"? Hvor mye fyller leseren inn?' },
+        ],
+        hints: ['Velg en side med variert panelstruktur', 'Tenk på leserens øye-bevegelse'],
+        solution: 'Analysen skal vise forståelse for hvordan layout bidrar til fortellingen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-6-def-4',
@@ -3648,6 +3708,47 @@ Forholdet mellom visuell og verbal informasjon.
 - **Tankeboble:** Indre monolog
 - **Tekstboks:** Fortellerstemme, tid/sted
 - **Lydeffekter:** Onomatopoetikon som visuelt element`,
+    },
+    {
+      id: 'norsk-vg1-2-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-2',
+        number: '4',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er "avløsning" i tekst-bilde-relasjoner?',
+        options: [
+          'Tekst og bilde gir ulik informasjon som utfyller hverandre',
+          'Teksten forklarer bildet',
+          'Tekst og bilde motsier hverandre',
+          'Tekst og bilde sier det samme',
+        ],
+        answer: 0,
+        solution: 'Avløsning betyr at tekst og bilde gir ulik informasjon som utfyller hverandre - de "avløser" hverandre i å fortelle historien.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-2-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-4',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser tekst-bilde-relasjonen i en bildebok eller grafisk roman du kjenner.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv et oppslag eller en side.', solution: 'Beskriv hva tekst og bilde hver for seg viser.' },
+          { label: 'b', task: 'Er relasjonen ankring, avløsning eller motstrid?', solution: 'Identifiser og begrunn.' },
+          { label: 'c', task: 'Hvordan bidrar relasjonen til fortellingen?', solution: 'Analyser effekten av samspillet.' },
+        ],
+        hints: ['Velg et interessant oppslag med tydelig samspill', 'Se på hva tekst og bilde hver for seg bidrar med'],
+        solution: 'Analysen skal vise forståelse for hvordan tekst og bilde sammen skaper mening.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-2-6-def-5',
@@ -3688,6 +3789,26 @@ Forholdet mellom visuell og verbal informasjon.
 - Sammenlign med andre tekster i sjangeren`,
     },
     {
+      id: 'norsk-vg1-2-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-6-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser den visuelle stilen i en grafisk roman eller bildebok.',
+        subTasks: [
+          { label: 'a', task: 'Beskriv fargebruken.', solution: 'Er den naturalistisk, symbolsk, begrenset? Hva signaliserer fargene?' },
+          { label: 'b', task: 'Beskriv strek og form.', solution: 'Realistisk, stilisert, karikert? Hva uttrykker stilen?' },
+          { label: 'c', task: 'Hvordan bidrar stilen til stemning og tema?', solution: 'Knytt visuell stil til innhold.' },
+        ],
+        hints: ['Velg et verk med tydelig visuell stil', 'Sammenlign gjerne med andre verk'],
+        solution: 'Analysen skal vise forståelse for visuell stil som meningsbærer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-2-6-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av bildebok-oppslag',
@@ -3721,123 +3842,6 @@ Dette er et klassisk eksempel på **motstrid** mellom tekst og bilde.
 Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når vi er redde. Tekst-bilde-motstriden skaper dybde og inviterer leseren til å forstå mer enn karakteren selv uttrykker.`,
     },
     {
-      id: 'norsk-vg1-2-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-1',
-        number: '1',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva kalles rommet mellom panelene i en tegneserie?',
-        options: [
-          'Gutter',
-          'Panel',
-          'Splash',
-          'Layout',
-        ],
-        answer: 0,
-        solution: 'Gutter er rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det som "mangler" mellom bildene.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er "avløsning" i tekst-bilde-relasjoner?',
-        options: [
-          'Tekst og bilde gir ulik informasjon som utfyller hverandre',
-          'Teksten forklarer bildet',
-          'Tekst og bilde motsier hverandre',
-          'Tekst og bilde sier det samme',
-        ],
-        answer: 0,
-        solution: 'Avløsning betyr at tekst og bilde gir ulik informasjon som utfyller hverandre - de "avløser" hverandre i å fortelle historien.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Beskriv forskjellen mellom en illustrert bok og en bildebok.',
-        hints: ['Tenk på forholdet mellom tekst og bilde', 'Kan teksten stå alene?'],
-        solution: 'I en illustrert bok kan teksten stå alene, bildene illustrerer. I en bildebok er tekst og bilde gjensidig avhengige - ingen av delene fungerer alene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-6-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser tekst-bilde-relasjonen i en bildebok eller grafisk roman du kjenner.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv et oppslag eller en side.', solution: 'Beskriv hva tekst og bilde hver for seg viser.' },
-          { label: 'b', task: 'Er relasjonen ankring, avløsning eller motstrid?', solution: 'Identifiser og begrunn.' },
-          { label: 'c', task: 'Hvordan bidrar relasjonen til fortellingen?', solution: 'Analyser effekten av samspillet.' },
-        ],
-        hints: ['Velg et interessant oppslag med tydelig samspill', 'Se på hva tekst og bilde hver for seg bidrar med'],
-        solution: 'Analysen skal vise forståelse for hvordan tekst og bilde sammen skaper mening.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-6-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser panelstruktur og layout i en side fra en grafisk roman.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv panelstrukturen (størrelse, form, plassering).', solution: 'Analyser hvordan panelene er organisert.' },
-          { label: 'b', task: 'Hva signaliserer layouten om tempo og viktighet?', solution: 'Store paneler = viktig, mange små = raskt tempo.' },
-          { label: 'c', task: 'Hvordan fungerer overgangene mellom panelene?', solution: 'Hva skjer i "gutteret"? Hvor mye fyller leseren inn?' },
-        ],
-        hints: ['Velg en side med variert panelstruktur', 'Tenk på leserens øye-bevegelse'],
-        solution: 'Analysen skal vise forståelse for hvordan layout bidrar til fortellingen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-2-6-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-2-6-ex-6',
-        number: '6',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser den visuelle stilen i en grafisk roman eller bildebok.',
-        subTasks: [
-          { label: 'a', task: 'Beskriv fargebruken.', solution: 'Er den naturalistisk, symbolsk, begrenset? Hva signaliserer fargene?' },
-          { label: 'b', task: 'Beskriv strek og form.', solution: 'Realistisk, stilisert, karikert? Hva uttrykker stilen?' },
-          { label: 'c', task: 'Hvordan bidrar stilen til stemning og tema?', solution: 'Knytt visuell stil til innhold.' },
-        ],
-        hints: ['Velg et verk med tydelig visuell stil', 'Sammenlign gjerne med andre verk'],
-        solution: 'Analysen skal vise forståelse for visuell stil som meningsbærer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'norsk-vg1-2-6-ex-7',
       type: 'exercise',
       exercise: {
@@ -3852,6 +3856,7 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-2-6-ex-8',
       type: 'exercise',

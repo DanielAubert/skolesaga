@@ -436,6 +436,53 @@ Alle germanske språk stammer fra et felles urgermansk språk som ble snakket fo
 Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslektede - som søsken. Engelsk og tysk er som fettere.`,
     },
     {
+      id: 'norsk-vg1-4-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Finn kognater (beslektede ord) mellom norsk og engelsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Lag en liste med minst 10 ord som er like på norsk og engelsk.',
+            solution: 'Eksempler: arm/arm, finger/finger, kne/knee, hus/house, land/land, mann/man, sommer/summer, vinter/winter, blå/blue, grønn/green.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvorfor disse ordene ligner på hverandre.',
+            solution: 'Ordene ligner fordi norsk og engelsk begge er germanske språk som stammer fra et felles urgermansk språk. De grunnleggende ordene har bevart likheten gjennom århundrene.',
+          },
+        ],
+        hints: ['Se på kroppsdeler, farger, tall og familiemedlemmer', 'Tenk på ord som er grunnleggende og gamle'],
+        solution: 'Kognater viser den felles opprinnelsen til germanske språk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken språkgruppe tilhører norsk?',
+        options: [
+          { id: 'a', text: 'Nordgermanske (skandinaviske) språk', isCorrect: true },
+          { id: 'b', text: 'Vestgermanske språk', isCorrect: false },
+          { id: 'c', text: 'Romanske språk', isCorrect: false },
+          { id: 'd', text: 'Slaviske språk', isCorrect: false },
+        ],
+        solution: 'Norsk tilhører de nordgermanske (skandinaviske) språkene, sammen med svensk, dansk, islandsk og færøysk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'norsk-vg1-4-2-def-2',
       type: 'definition',
       title: 'Skandinavisk nabospråkforståelse',
@@ -468,6 +515,64 @@ Nordmenn, svensker og dansker kan i stor grad forstå hverandres språk. Dette k
 
 **Nordmenn forstår best:**
 Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker og dansker forstår hverandre. Dette kan skyldes at norsk ligger "midt imellom" de to andre.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Nabospråkforståelse - les og svar:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les denne svenske teksten og oversett til norsk: "Jag tycker om att läsa böcker. Min favorit är en bok om en ung flicka som bor i ett stort hus vid havet."',
+            solution: 'Jeg liker å lese bøker. Min favoritt er en bok om en ung jente som bor i et stort hus ved havet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke ord var lettest å forstå? Hvilke var vanskeligst?',
+            solution: 'Lette ord: jag (jeg), bok, hus, havet. Vanskeligere: tycker om (liker), läsa (lese), flicka (jente). Ordene som ligner mest er substantiv og grunnleggende ord.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor kan nordmenn ofte forstå svensk bedre enn omvendt?',
+            solution: 'Norsk ligger språklig mellom svensk og dansk. Nordmenn hører også mer svensk (musikk, TV) enn svensker hører norsk. Norge har også mer dialektvariasjon, som gjør nordmenn vant til å "tolke" ulike språkvarianter.',
+          },
+        ],
+        solution: 'Nabospråkforståelse krever litt øvelse, men er mulig fordi språkene er nært beslektet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Undersøk "falske venner" mellom skandinaviske språk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn tre eksempler på ord som ser like ut på norsk og svensk/dansk, men betyr noe forskjellig.',
+            solution: 'Eksempler: rolig (no: calm, sv: morsom), grina (no: gråte, sv: flire), rar (no: merkelig, sv: snill), frokost (no: morgenmåltid, da: lunsj), glass (no: glass, sv: iskrem).',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor kan slike ord skape misforståelser?',
+            solution: 'Fordi vi antar at like ord betyr det samme. Når et ord ser kjent ut, bruker vi ikke ekstra energi på å sjekke betydningen - og da kan vi misforstå fullstendig.',
+          },
+        ],
+        hints: ['Søk på "falske venner skandinavisk" eller spør noen som kan svensk/dansk'],
+        solution: 'Falske venner viser at selv nært beslektede språk kan ha viktige forskjeller.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'norsk-vg1-4-2-def-3',
@@ -505,6 +610,41 @@ Mange engelske lånord tilpasses norsk:
 - "guide" → gaid
 - "design" → designe (verb)
 - "team" → lag (erstatning)`,
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Lag en liste med 10 engelske lånord som brukes i norsk i dag. For hvert ord: Skriv en norsk erstatning der det finnes.',
+        hints: ['Tenk på teknologi, sport, musikk og sosiale medier', 'Sjekk Språkrådets ordliste for norske alternativer'],
+        solution: 'Eksempler: software/programvare, design/utforming, deadline/tidsfrist, feedback/tilbakemelding, workshop/verksted, mail/e-post, cool/kul, team/lag, highlights/høydepunkter, content/innhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-4-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilket språk har gitt flest lånord til norsk i perioden 1200-1500 (hansatiden)?',
+        options: [
+          { id: 'a', text: 'Lavtysk (nedertysk)', isCorrect: true },
+          { id: 'b', text: 'Engelsk', isCorrect: false },
+          { id: 'c', text: 'Fransk', isCorrect: false },
+          { id: 'd', text: 'Latin', isCorrect: false },
+        ],
+        solution: 'Lavtysk (nedertysk) ga svært mange lånord til norsk i hansatiden. Ord som arbeid, billig, prøve, flink og handle kommer fra lavtysk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'norsk-vg1-4-2-def-4',
@@ -611,6 +751,21 @@ Når språk møtes, påvirker de hverandre. Dette kan gi:
 Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "window" kommer fra norrønt. Dette viser hvordan folkevandringer og erobringer påvirker språk.`,
     },
     {
+      id: 'norsk-vg1-4-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-2-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Etymologi-oppgave: Undersøk opphavet til disse ordene og hvilket språk de kommer fra: "ski", "ombudsman", "fjord", "ransake", "slalom".',
+        hints: ['Bruk etymologiske ordbøker eller Store norske leksikon', 'Disse ordene har gått fra norsk/skandinavisk til andre språk'],
+        solution: 'Alle disse ordene har skandinavisk/norrønt opphav og er lånt inn i andre språk: ski (norrønt skíð), ombudsman (svensk/norsk), fjord (norrønt fjǫrðr), ransake (norrønt rannsaka), slalom (norsk sla + lom = skrånende spor). Dette viser at språkpåvirkning går begge veier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'norsk-vg1-4-2-example-2',
       type: 'example',
       title: 'Eksempel: Sammenligning av setninger',
@@ -646,162 +801,7 @@ Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "windo
 De skandinaviske språkene er svært like i struktur. Engelsk har en del forskjeller, men er fremdeles gjenkjennelig som et beslektet språk.`,
     },
 
-    // ========== OPPGAVER ==========
-    {
-      id: 'norsk-vg1-4-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Finn kognater (beslektede ord) mellom norsk og engelsk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Lag en liste med minst 10 ord som er like på norsk og engelsk.',
-            solution: 'Eksempler: arm/arm, finger/finger, kne/knee, hus/house, land/land, mann/man, sommer/summer, vinter/winter, blå/blue, grønn/green.',
-          },
-          {
-            label: 'b',
-            task: 'Forklar hvorfor disse ordene ligner på hverandre.',
-            solution: 'Ordene ligner fordi norsk og engelsk begge er germanske språk som stammer fra et felles urgermansk språk. De grunnleggende ordene har bevart likheten gjennom århundrene.',
-          },
-        ],
-        hints: ['Se på kroppsdeler, farger, tall og familiemedlemmer', 'Tenk på ord som er grunnleggende og gamle'],
-        solution: 'Kognater viser den felles opprinnelsen til germanske språk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Lag en liste med 10 engelske lånord som brukes i norsk i dag. For hvert ord: Skriv en norsk erstatning der det finnes.',
-        hints: ['Tenk på teknologi, sport, musikk og sosiale medier', 'Sjekk Språkrådets ordliste for norske alternativer'],
-        solution: 'Eksempler: software/programvare, design/utforming, deadline/tidsfrist, feedback/tilbakemelding, workshop/verksted, mail/e-post, cool/kul, team/lag, highlights/høydepunkter, content/innhold.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Nabospråkforståelse - les og svar:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Les denne svenske teksten og oversett til norsk: "Jag tycker om att läsa böcker. Min favorit är en bok om en ung flicka som bor i ett stort hus vid havet."',
-            solution: 'Jeg liker å lese bøker. Min favoritt er en bok om en ung jente som bor i et stort hus ved havet.',
-          },
-          {
-            label: 'b',
-            task: 'Hvilke ord var lettest å forstå? Hvilke var vanskeligst?',
-            solution: 'Lette ord: jag (jeg), bok, hus, havet. Vanskeligere: tycker om (liker), läsa (lese), flicka (jente). Ordene som ligner mest er substantiv og grunnleggende ord.',
-          },
-          {
-            label: 'c',
-            task: 'Hvorfor kan nordmenn ofte forstå svensk bedre enn omvendt?',
-            solution: 'Norsk ligger språklig mellom svensk og dansk. Nordmenn hører også mer svensk (musikk, TV) enn svensker hører norsk. Norge har også mer dialektvariasjon, som gjør nordmenn vant til å "tolke" ulike språkvarianter.',
-          },
-        ],
-        solution: 'Nabospråkforståelse krever litt øvelse, men er mulig fordi språkene er nært beslektet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-4',
-        number: '4',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken språkgruppe tilhører norsk?',
-        options: [
-          { id: 'a', text: 'Nordgermanske (skandinaviske) språk', isCorrect: true },
-          { id: 'b', text: 'Vestgermanske språk', isCorrect: false },
-          { id: 'c', text: 'Romanske språk', isCorrect: false },
-          { id: 'd', text: 'Slaviske språk', isCorrect: false },
-        ],
-        solution: 'Norsk tilhører de nordgermanske (skandinaviske) språkene, sammen med svensk, dansk, islandsk og færøysk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-5',
-        number: '5',
-        type: 'multiple-choice',
-        difficulty: 'medium',
-        task: 'Hvilket språk har gitt flest lånord til norsk i perioden 1200-1500 (hansatiden)?',
-        options: [
-          { id: 'a', text: 'Lavtysk (nedertysk)', isCorrect: true },
-          { id: 'b', text: 'Engelsk', isCorrect: false },
-          { id: 'c', text: 'Fransk', isCorrect: false },
-          { id: 'd', text: 'Latin', isCorrect: false },
-        ],
-        solution: 'Lavtysk (nedertysk) ga svært mange lånord til norsk i hansatiden. Ord som arbeid, billig, prøve, flink og handle kommer fra lavtysk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-6',
-        number: '6',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Undersøk "falske venner" mellom skandinaviske språk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Finn tre eksempler på ord som ser like ut på norsk og svensk/dansk, men betyr noe forskjellig.',
-            solution: 'Eksempler: rolig (no: calm, sv: morsom), grina (no: gråte, sv: flire), rar (no: merkelig, sv: snill), frokost (no: morgenmåltid, da: lunsj), glass (no: glass, sv: iskrem).',
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor kan slike ord skape misforståelser?',
-            solution: 'Fordi vi antar at like ord betyr det samme. Når et ord ser kjent ut, bruker vi ikke ekstra energi på å sjekke betydningen - og da kan vi misforstå fullstendig.',
-          },
-        ],
-        hints: ['Søk på "falske venner skandinavisk" eller spør noen som kan svensk/dansk'],
-        solution: 'Falske venner viser at selv nært beslektede språk kan ha viktige forskjeller.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'norsk-vg1-4-2-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-2-ex-7',
-        number: '7',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Etymologi-oppgave: Undersøk opphavet til disse ordene og hvilket språk de kommer fra: "ski", "ombudsman", "fjord", "ransake", "slalom".',
-        hints: ['Bruk etymologiske ordbøker eller Store norske leksikon', 'Disse ordene har gått fra norsk/skandinavisk til andre språk'],
-        solution: 'Alle disse ordene har skandinavisk/norrønt opphav og er lånt inn i andre språk: ski (norrønt skíð), ombudsman (svensk/norsk), fjord (norrønt fjǫrðr), ransake (norrønt rannsaka), slalom (norsk sla + lom = skrånende spor). Dette viser at språkpåvirkning går begge veier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-4-2-ex-8',
       type: 'exercise',
