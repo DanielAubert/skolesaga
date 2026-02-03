@@ -87,6 +87,20 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 - En naturlig del av språklig kompetanse`,
     },
     {
+      id: 'norsk-vg1-4-1-image-dialektkart',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-1-dialektkart.png',
+      alt: 'Kart over Norge som viser de fire hoveddialektomradene: ostnorsk, vestnorsk, trondersk og nordnorsk',
+      caption: 'Dialektkart over Norge med de fire hoveddialektomradene markert i ulike farger.',
+    },
+    {
+      id: 'norsk-vg1-4-1-image-dialekttrekk',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-1-dialekttrekk.png',
+      alt: 'Oversikt over typiske dialekttrekk for hvert av de fire hoveddialektomradene i Norge',
+      caption: 'Karakteristiske dialekttrekk for ostnorsk, vestnorsk, trondersk og nordnorsk.',
+    },
+    {
       id: 'norsk-vg1-4-1-def-2',
       type: 'definition',
       title: 'Språk, makt og holdninger',
@@ -526,6 +540,20 @@ Alle germanske språk stammer fra et felles urgermansk språk som ble snakket fo
 
 **Språktreet:**
 Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslektede - som søsken. Engelsk og tysk er som fettere.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-image-indoeuropeisk-tre',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-2-indoeuropeisk-tre.png',
+      alt: 'Spraaktre som viser den indoeuropeiske spraakfamilien med forgreninger til germanske, romanske, slaviske og andre spraakgrupper',
+      caption: 'Det indoeuropeiske spraaktreet viser hvordan norsk er beslektet med andre europeiske spraak gjennom felles opphav.',
+    },
+    {
+      id: 'norsk-vg1-4-2-image-germansk',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-2-germansk.png',
+      alt: 'Oversikt over de germanske spraakene delt inn i nordgermansk, vestgermansk og ostgermansk',
+      caption: 'De germanske spraakene med norsk plassert i den nordgermanske grenen sammen med svensk, dansk, islandsk og faroysk.',
     },
     {
       id: 'norsk-vg1-4-2-ex-1',
@@ -1535,6 +1563,20 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 - Korrekt formatert`,
     },
     {
+      id: 'norsk-vg1-5-3-image-akademisk-struktur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-3-akademisk-struktur.png',
+      alt: 'Diagram som viser strukturen i en fagartikkel: innledning, hoveddel, avslutning og kildeliste',
+      caption: 'Oppbyggingen av en fagartikkel med innledning, hoveddel, avslutning og kildeliste.',
+    },
+    {
+      id: 'norsk-vg1-5-3-image-kildehenvisning',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-3-kildehenvisning.png',
+      alt: 'Eksempler pa korrekt kildehenvisning i lopende tekst og i kildeliste',
+      caption: 'Slik skriver du kildehenvisninger i teksten og i kildelisten.',
+    },
+    {
       id: 'norsk-vg1-5-3-def-2',
       type: 'definition',
       title: 'Språk og stil',
@@ -1983,6 +2025,20 @@ De to målformene representerer ulike tradisjoner og verdier i norsk språkhisto
 | jentene | jentene |
 
 **Merk:** Begge målformer har valgfrihet i mange former. Det finnes konservative og radikale varianter av begge.`,
+    },
+    {
+      id: 'norsk-vg1-4-3-image-bokmal-nynorsk',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-3-bokmal-nynorsk.png',
+      alt: 'Sammenligning av bokmal og nynorsk med eksempler pa ordformer, verbboying og substantivboying',
+      caption: 'Oversikt over hovedforskjellene mellom bokmal og nynorsk i ordformer og grammatikk.',
+    },
+    {
+      id: 'norsk-vg1-4-3-image-sprakhistorie-tidslinje',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-3-sprakhistorie-tidslinje.png',
+      alt: 'Tidslinje over norsk sprakhistorie fra norront via dansk-norsk til dagens bokmal og nynorsk',
+      caption: 'Tidslinje som viser utviklingen av norsk skriftsprak fra norront tid til i dag.',
     },
     {
       id: 'norsk-vg1-4-3-def-2',
@@ -2460,6 +2516,13 @@ En dialekt er en geografisk språkvarietet. Norge har et rikt dialektmangfold sa
 Norge har sterk tradisjon for dialektbruk. I motsetning til mange land bruker nordmenn dialekt i de fleste sammenhenger, også i media og offentligheten.`,
     },
     {
+      id: 'norsk-vg1-4-4-image-samiske-sprak-kart',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-4-samiske-sprak-kart.png',
+      alt: 'Kart over Sapmi som viser utbredelsen av nordsamisk, lulesamisk og sorsamisk i Norge, Sverige og Finland',
+      caption: 'Kart over de samiske sprakene i Sapmi med omrader der nordsamisk, lulesamisk og sorsamisk tradisjonelt snakkes.',
+    },
+    {
       id: 'norsk-vg1-4-4-def-2',
       type: 'definition',
       title: 'Samiske språk',
@@ -2482,6 +2545,13 @@ Samiske språk ble lenge undertrykt gjennom fornorskingspolitikk. Barn ble straf
 
 **Revitalisering:**
 Mange arbeider for å styrke samiske språk. Dette inkluderer språkkurs, barnehager og skoler med samisk som undervisningsspråk.`,
+    },
+    {
+      id: 'norsk-vg1-4-4-image-samisk-offisiell',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-4-samisk-offisiell.png',
+      alt: 'Oversikt over samiske spraks offisielle status i Norge, inkludert forvaltningsomrader og rettigheter',
+      caption: 'Samisk har offisiell status i Norge. Kartet viser de samiske forvaltningsomradene der samisk er likestilt med norsk.',
     },
     {
       id: 'norsk-vg1-4-4-def-3',
@@ -2903,6 +2973,20 @@ Gamle ord får ny betydning:
 
 **Språkrøkt:**
 Språkrådet arbeider med å finne gode norske ord for nye begreper, men mange engelske ord blir værende.`,
+    },
+    {
+      id: 'norsk-vg1-4-5-image-laneord',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-5-laneord.png',
+      alt: 'Tidslinje som viser laneord i norsk fra ulike spraak gjennom historien: norront, tysk, fransk og engelsk',
+      caption: 'Tidslinje over laneord i norsk fra middelalderen til i dag, med eksempler fra tysk, fransk og engelsk.',
+    },
+    {
+      id: 'norsk-vg1-4-5-image-sprakendring',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-4-5-sprakendring.png',
+      alt: 'Illustrasjon av ulike typer sprakendring: lydendring, grammatisk endring, ordforraadsendring og betydningsendring',
+      caption: 'De fire hovedtypene av sprakendring som pavirker norsk over tid.',
     },
     {
       id: 'norsk-vg1-4-5-def-2',

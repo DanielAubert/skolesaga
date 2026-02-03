@@ -1423,6 +1423,20 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
 **Egenvurdering gjør deg til en mer selvstendig skribent som kan forbedre egne tekster uten å vente på andres tilbakemelding.**`,
     },
     {
+      id: 'norsk-vg1-5-4-image-revisjon-sjekkliste',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-4-revisjon-sjekkliste.png',
+      alt: 'Sjekkliste for revisjon av tekst med punkter for struktur, innhold og språk',
+      caption: 'En sjekkliste hjelper deg å revidere teksten systematisk',
+    },
+    {
+      id: 'norsk-vg1-5-4-image-korrektur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-4-korrektur.png',
+      alt: 'Illustrasjon av korrekturlesing med markeringer og rettelser i en tekst',
+      caption: 'Korrekturlesing er siste steg før teksten ferdigstilles',
+    },
+    {
       id: 'norsk-vg1-5-4-example-1',
       type: 'example',
       title: 'Eksempel: Fra utkast til ferdig tekst',
@@ -1929,6 +1943,20 @@ Siden 1988 har samisk og norsk vært likestilte språk i Norge gjennom Grunnlove
 - Svært forskjellig fra nordsamisk
 
 **Viktig:** Disse språkene er ikke gjensidig forståelige. En nordsamisktalende forstår ikke sørsamisk uten å lære det.`,
+    },
+    {
+      id: 'norsk-vg1-7-1-image-samiske-omrader-detaljert',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-1-samiske-omrader-detaljert.png',
+      alt: 'Detaljert kart over samiske språkområder i Norge, Sverige, Finland og Russland',
+      caption: 'De samiske språkområdene i Sápmi',
+    },
+    {
+      id: 'norsk-vg1-7-1-image-samisk-identitet',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-1-samisk-identitet.png',
+      alt: 'Illustrasjon som viser samisk kultur og identitet med kofte, joik og natur',
+      caption: 'Samisk identitet omfatter språk, kultur og tilhørighet',
     },
     {
       id: 'norsk-vg1-7-1-def-2',
@@ -2528,6 +2556,20 @@ Fornorskingspolitikken hadde flere årsaker:
 **Viktig:** Dette var statlig politikk støttet av lover, bevilgninger og institusjoner - ikke bare holdninger blant enkeltpersoner.`,
     },
     {
+      id: 'norsk-vg1-7-2-image-fornorsking-tidslinje',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-2-fornorsking-tidslinje.png',
+      alt: 'Tidslinje som viser fornorskingspolitikkens faser fra 1850 til 1980',
+      caption: 'Tidslinje over fornorskingspolitikken',
+    },
+    {
+      id: 'norsk-vg1-7-2-image-konsekvenser',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-2-konsekvenser.png',
+      alt: 'Diagram som viser konsekvensene av fornorskingspolitikken for språk, kultur og identitet',
+      caption: 'Konsekvensene av fornorskingspolitikken merkes fortsatt',
+    },
+    {
       id: 'norsk-vg1-7-2-def-3',
       type: 'definition',
       title: 'Konsekvenser av fornorskingen',
@@ -3098,6 +3140,20 @@ Kommuner der samisk og norsk er likestilte:
 
 **Revitalisering i skolen:**
 Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig bruk, ikke bare som fag.`,
+    },
+    {
+      id: 'norsk-vg1-7-3-image-revitalisering',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-3-revitalisering.png',
+      alt: 'Illustrasjon av språkrevitalisering med språkbad, språkreir og generasjonsoverføring',
+      caption: 'Språkrevitalisering gir samisk språk en fremtid',
+    },
+    {
+      id: 'norsk-vg1-7-3-image-samisk-opplaering',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-3-samisk-opplaering.png',
+      alt: 'Oversikt over rettigheter til samisk opplæring i norsk skole',
+      caption: 'Alle elever i Norge har rett til opplæring i samisk',
     },
     {
       id: 'norsk-vg1-7-3-def-3',
@@ -3686,6 +3742,20 @@ Norge har fem offisielt anerkjente nasjonale minoriteter. Disse gruppene har en 
         allowsCanvasDrawing: true,
       competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-7-4-image-nasjonale-minoriteter',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-4-nasjonale-minoriteter.png',
+      alt: 'Oversikt over de fem nasjonale minoritetene i Norge: kvener, rom, romanifolket, skogfinner og jøder',
+      caption: 'Norges fem nasjonale minoriteter',
+    },
+    {
+      id: 'norsk-vg1-7-4-image-minoritetsrettigheter',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-7-4-minoritetsrettigheter.png',
+      alt: 'Diagram som viser rettigheter for nasjonale minoriteter i Norge',
+      caption: 'Nasjonale minoriteter har lovfestede rettigheter',
     },
     {
       id: 'norsk-vg1-7-4-def-1',
@@ -5278,6 +5348,20 @@ En tolkning er ikke en mening du bare har - den må begrunnes med belegg fra tek
 - Knytt analyse og tolkning sammen`,
     },
     {
+      id: 'norsk-vg1-5-5-image-argumenterende-oppbygging',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-5-argumenterende-oppbygging.png',
+      alt: 'Diagram som viser oppbyggingen av en argumenterende tekst med innledning, hoveddel og avslutning',
+      caption: 'Strukturen i en argumenterende og tolkende tekst',
+    },
+    {
+      id: 'norsk-vg1-5-5-image-argumenttyper',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-5-argumenttyper.png',
+      alt: 'Oversikt over ulike argumenttyper: påstand, belegg og forklaring',
+      caption: 'De ulike delene av et argument',
+    },
+    {
       id: 'norsk-vg1-5-5-ex-4',
       type: 'exercise',
       exercise: {
@@ -5820,6 +5904,20 @@ Responsgrupper er små grupper (2-4 elever) som gir tilbakemelding på hverandre
 
 **Medelevvurdering:**
 Noen ganger vurderer medelever hverandres tekster med karakterer. Da er det viktig med klare vurderingskriterier og opplæring i vurdering.`,
+    },
+    {
+      id: 'norsk-vg1-5-6-image-respons-modell',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-6-respons-modell.png',
+      alt: 'Modell for hvordan gi god tilbakemelding på tekster',
+      caption: 'En modell for konstruktiv respons',
+    },
+    {
+      id: 'norsk-vg1-5-6-image-kameratvurdering',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-6-kameratvurdering.png',
+      alt: 'Illustrasjon av kameratvurdering der elever gir tilbakemelding til hverandre',
+      caption: 'Kameratvurdering styrker skriveferdighetene',
     },
     {
       id: 'norsk-vg1-5-6-ex-3',

@@ -98,6 +98,20 @@ I dag bruker vi retorikk i mange sammenhenger:
 - Eksempel: Å ta opp klimasaken etter en naturkatastrofe`,
     },
     {
+      id: 'norsk-vg1-1-1-image-retorisk-trekant',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-1-retorisk-trekant.png',
+      alt: 'Den retoriske trekanten som viser forholdet mellom etos, patos og logos',
+      caption: 'Den retoriske trekanten viser hvordan avsender, mottaker og sak påvirker hvilke appellformer som er mest effektive.',
+    },
+    {
+      id: 'norsk-vg1-1-1-image-appelformer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-1-appelformer.png',
+      alt: 'Oversikt over de tre retoriske appellformene etos, patos og logos med eksempler',
+      caption: 'De tre retoriske appellformene: etos (troverdighet), patos (følelser) og logos (fornuft).',
+    },
+    {
       id: 'norsk-vg1-1-1-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av appellformer',
@@ -519,6 +533,20 @@ Sakprosa er tekster som formidler informasjon, kunnskap eller meninger - ikke fi
 **O - Objektivitet**
 - Er fremstillingen balansert?
 - Presenteres flere sider av saken?`,
+    },
+    {
+      id: 'norsk-vg1-1-2-image-kildekritikk-flytskjema',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-2-kildekritikk-flytskjema.png',
+      alt: 'Flytskjema for kildekritikk med TRAFO-modellen',
+      caption: 'Flytskjema for kildekritikk: Bruk TRAFO-modellen (Troverdighet, Relevans, Aktualitet, Formål, Objektivitet) for å vurdere kilder systematisk.',
+    },
+    {
+      id: 'norsk-vg1-1-2-image-kildetyper',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-2-kildetyper.png',
+      alt: 'Oversikt over primærkilder og sekundærkilder med eksempler',
+      caption: 'Primærkilder (originale dokumenter) og sekundærkilder (bearbeidet informasjon) - kjenn forskjellen for god kildebruk.',
     },
     {
       id: 'norsk-vg1-1-2-example-1',
@@ -1006,6 +1034,20 @@ En klassisk oppbygging av et argument:
 - **Konsekvens-argumenter:** Viser til positive eller negative følger
 - **Ekspert-argumenter:** Viser til autoriteters syn
 - **Eksempel-argumenter:** Bruker konkrete tilfeller`,
+    },
+    {
+      id: 'norsk-vg1-1-4-image-kronikk-oppbygging',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-4-kronikk-oppbygging.png',
+      alt: 'Illustrasjon av oppbyggingen av en kronikk med innledning, hoveddel og avslutning',
+      caption: 'Oppbyggingen av en kronikk: innledning (10-15%), hoveddel (70-80%) og avslutning (10-15%).',
+    },
+    {
+      id: 'norsk-vg1-1-4-image-leserinnlegg',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-4-leserinnlegg.png',
+      alt: 'Sammenligning av kronikk og leserinnlegg som viser forskjeller i lengde, avsender og formål',
+      caption: 'Sammenligning av kronikk og leserinnlegg - to viktige sjangre i offentlig debatt.',
     },
     {
       id: 'norsk-vg1-1-4-def-5',
@@ -1509,6 +1551,13 @@ Retorisk analyse handler ikke bare om å finne virkemidler, men om å forstå hv
 Hvem (avsender) - sier hva (budskap) - til hvem (mottaker) - gjennom hvilken kanal (medium) - med hvilken effekt (virkning)`,
     },
     {
+      id: 'norsk-vg1-1-5-image-retorisk-analyse',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-5-retorisk-analyse.png',
+      alt: 'Rammeverk for retorisk analyse med den retoriske situasjonen og kommunikasjonsmodellen',
+      caption: 'Rammeverk for retorisk analyse: Den retoriske situasjonen omfatter det påtrengende problemet, publikum og de retoriske vilkårene.',
+    },
+    {
       id: 'norsk-vg1-1-5-def-2',
       type: 'definition',
       title: 'Kairos - det rette øyeblikket',
@@ -1532,6 +1581,13 @@ Spør deg selv:
 - Hadde budskapet hatt samme effekt på et annet tidspunkt?
 
 **Merk:** Kairos kan også misbrukes - opportunisme og utnyttelse av tragedier til politisk gevinst er etisk problematisk.`,
+    },
+    {
+      id: 'norsk-vg1-1-5-image-kairos',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-5-kairos.png',
+      alt: 'Illustrasjon av kairos-begrepet med eksempler på timing i kommunikasjon',
+      caption: 'Kairos - det rette øyeblikket: Timing er avgjørende for hvor effektiv kommunikasjonen blir.',
     },
     {
       id: 'norsk-vg1-1-5-ex-1',
@@ -2199,6 +2255,20 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
 6. Løsning/avslutning`,
     },
     {
+      id: 'norsk-vg1-2-1-image-novelle-struktur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-1-novelle-struktur.png',
+      alt: 'Spenningskurven i en novelle med eksposisjon, komplikasjon, spenningsstigning, klimaks, avtrapning og løsning',
+      caption: 'Spenningskurven viser den dramatiske buen i en novelle fra eksposisjon til løsning.',
+    },
+    {
+      id: 'norsk-vg1-2-1-image-novelle-elementer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-1-novelle-elementer.png',
+      alt: 'Oversikt over novellens elementer: synsvinkel, forteller, vendepunkt, symbol, motiv og tema',
+      caption: 'Novellens grunnleggende elementer - bruk disse begrepene når du analyserer kortprosa.',
+    },
+    {
       id: 'norsk-vg1-2-1-example-0',
       type: 'example',
       title: 'Eksempel: Identifisere synsvinkel og fortelleteknikk',
@@ -2773,6 +2843,20 @@ Lyrikk er en av de eldste litterære sjangrene. Mens prosa forteller, uttrykker 
 - **Frie vers:** Ingen fast form`,
     },
     {
+      id: 'norsk-vg1-2-2-image-diktanalyse',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-2-diktanalyse.png',
+      alt: 'Oversikt over elementer i diktanalyse: form, innhold, virkemidler og tolkning',
+      caption: 'Rammeverk for diktanalyse - analyser form og innhold for å forstå diktets betydning.',
+    },
+    {
+      id: 'norsk-vg1-2-2-image-rimskjema',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-2-rimskjema.png',
+      alt: 'Illustrasjon av ulike rimskjemaer: parrim, kryssrim, klammerrim og fri vers',
+      caption: 'De vanligste rimskjemaene i lyrikk: parrim (aa bb), kryssrim (abab) og klammerrim (abba).',
+    },
+    {
       id: 'norsk-vg1-2-2-def-2',
       type: 'definition',
       title: 'Lyriske virkemidler',
@@ -2792,6 +2876,13 @@ Lyrikk er en av de eldste litterære sjangrene. Mens prosa forteller, uttrykker 
 - **Kontraster:** Skaper spenning
 - **Enjambement:** Setningen fortsetter over linjeskiftet
 - **Apostrofe:** Tiltale til noe fraværende`,
+    },
+    {
+      id: 'norsk-vg1-2-2-image-bildesprak',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-2-bildesprak.png',
+      alt: 'Oversikt over billedsprak i lyrikk: metafor, sammenligning, besjeling og symbol',
+      caption: 'Billedsprak i lyrikk - metaforer, sammenligninger og besjeling skaper levende bilder.',
     },
     {
       id: 'norsk-vg1-2-2-example-0',
@@ -3409,6 +3500,20 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
 - **Parallellhandling:** Flere handlinger samtidig`,
     },
     {
+      id: 'norsk-vg1-2-4-image-roman-elementer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-4-roman-elementer.png',
+      alt: 'Oversikt over romanens elementer: handling, personer, setting, tema og fortellerteknikk',
+      caption: 'Romanens grunnleggende elementer - bruk disse begrepene i romananalyse.',
+    },
+    {
+      id: 'norsk-vg1-2-4-image-fortellerstemme',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-4-fortellerstemme.png',
+      alt: 'Illustrasjon av ulike fortellerstemmer: jeg-forteller, tredjeperson begrenset, allvitende og upålitelig forteller',
+      caption: 'De ulike fortellerstemmene i romanen - valget påvirker leserens opplevelse av historien.',
+    },
+    {
       id: 'norsk-vg1-2-4-example-0',
       type: 'example',
       title: 'Eksempel: Analysere tidshåndtering i roman',
@@ -4013,6 +4118,13 @@ Litterære virkemidler er de teknikkene forfattere bruker for å skape effekt, m
 | **Allusjon** | Hentydning til noe kjent (tekst, hendelse, person) |`,
     },
     {
+      id: 'norsk-vg1-2-5-image-virkemidler-oversikt',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-5-virkemidler-oversikt.png',
+      alt: 'Oversikt over litterære virkemidler: troper, symboler, ironi og intertekstualitet',
+      caption: 'De viktigste litterære virkemidlene - bruk dem i analyse og egen skriving.',
+    },
+    {
       id: 'norsk-vg1-2-5-def-1',
       type: 'definition',
       title: 'Troper - billedspråk',
@@ -4208,6 +4320,13 @@ I "Romeo og Julie" vet publikum at Julie ikke er død, men Romeo tror det.
 **Sarkasme vs. ironi:**
 - Sarkasme: Skarp, ofte sårende ironi
 - Ironi kan være mild og leken`,
+    },
+    {
+      id: 'norsk-vg1-2-5-image-ironi-typer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-5-ironi-typer.png',
+      alt: 'Oversikt over ulike typer ironi: verbal ironi, situasjonsironi, dramatisk ironi og sokratisk ironi',
+      caption: 'De ulike typene ironi - et viktig virkemiddel i litteratur og retorikk.',
     },
     {
       id: 'norsk-vg1-2-5-ex-3',
@@ -4582,6 +4701,13 @@ En grafisk roman er en lengre, sammenhengende fortelling i tegneserieformat. Den
 - Lars Fiske: "Herr Merz" (kunstnerbiografi)`,
     },
     {
+      id: 'norsk-vg1-2-6-image-tegneserie-elementer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-6-tegneserie-elementer.png',
+      alt: 'Oversikt over tegneseriens elementer: panel, renne, snakkeboble, tankeboble og lydeffekter',
+      caption: 'Grunnleggende elementer i tegneserier og grafiske romaner.',
+    },
+    {
       id: 'norsk-vg1-2-6-def-2',
       type: 'definition',
       title: 'Bildeboka som sjanger',
@@ -4736,6 +4862,13 @@ Forholdet mellom visuell og verbal informasjon.
 - **Tankeboble:** Indre monolog
 - **Tekstboks:** Fortellerstemme, tid/sted
 - **Lydeffekter:** Onomatopoetikon som visuelt element`,
+    },
+    {
+      id: 'norsk-vg1-2-6-image-grafisk-roman-analyse',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-6-grafisk-roman-analyse.png',
+      alt: 'Rammeverk for analyse av grafiske romaner med fokus på panelstruktur, tekst-bilde-relasjoner og visuell fortelling',
+      caption: 'Analyseverktoy for grafiske romaner - se på samspillet mellom tekst og bilde.',
     },
     {
       id: 'norsk-vg1-2-6-example-0',
@@ -5075,6 +5208,20 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
 - Naturlige pauser
 - Kroppsspråk som støtter budskapet
 - Bruk av hjelpemidler (stikkord, presentasjon)`,
+    },
+    {
+      id: 'norsk-vg1-5-1-image-presentasjon-struktur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-1-presentasjon-struktur.png',
+      alt: 'Struktur for en god presentasjon med innledning, hoveddel og avslutning',
+      caption: 'En god presentasjon har tydelig struktur: innledning som fanger oppmerksomhet, hoveddel med hovedpunkter, og avslutning som oppsummerer.',
+    },
+    {
+      id: 'norsk-vg1-5-1-image-presentasjon-tips',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-1-presentasjon-tips.png',
+      alt: 'Tips for god presentasjonsteknikk: oyekontakt, stemmebruk, kroppssprak og bruk av hjelpemidler',
+      caption: 'Fremforingsteknikk - husk oyekontakt, tydelig stemme og naturlige pauser.',
     },
     {
       id: 'norsk-vg1-5-1-def-2',
@@ -5482,6 +5629,20 @@ Kreativ skriving handler om å uttrykke deg selv gjennom fortelling og fiksjon. 
 | **Dialog** | Samtale mellom karakterer i teksten |
 | **Show, don't tell** | Å vise gjennom handling i stedet for å fortelle |
 | **Spenningskurve** | Handlingens forløp fra start til slutt |`,
+    },
+    {
+      id: 'norsk-vg1-5-2-image-skriveprosess',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-2-skriveprosess.png',
+      alt: 'Skriveprosessens fem faser: idefase, planlegging, utkast, revisjon og korrektur',
+      caption: 'Skriveprosessen - fra ide til ferdig tekst gjennom fem faser.',
+    },
+    {
+      id: 'norsk-vg1-5-2-image-idemyldring',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-5-2-idemyldring.png',
+      alt: 'Teknikker for idemyldring og kreativ inspirasjon',
+      caption: 'Idemyldring - ulike teknikker for a finne inspirasjon til kreativ skriving.',
     },
     {
       id: 'norsk-vg1-5-2-def-1',

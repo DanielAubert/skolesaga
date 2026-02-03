@@ -69,6 +69,13 @@ Et setningsledd er en del av setningen som har en bestemt funksjon. Hvert ledd s
 | **Setningsanalyse** | Å identifisere alle leddene i en setning |`,
     },
     {
+      id: 'norsk-vg1-8-1-image-setningsanalyse',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-1-setningsanalyse.png',
+      alt: 'Diagram som viser hvordan en setning analyseres med markering av verbal, subjekt, objekt og adverbial',
+      caption: 'Oversikt over setningsanalyse - hvordan identifisere de ulike setningsleddene',
+    },
+    {
       id: 'norsk-vg1-8-1-def-1',
       type: 'definition',
       title: 'Verbal (V)',
@@ -236,6 +243,20 @@ Beskriver objektet.
 **Kopulaverb:**
 Verb som forbinder subjekt og predikativ:
 være, bli, virke, synes, føles, lukter, smaker, høres...`,
+    },
+    {
+      id: 'norsk-vg1-8-1-image-setningsledd',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-1-setningsledd.png',
+      alt: 'Visuell fremstilling av setningsleddene verbal, subjekt, objekt, adverbial og predikativ',
+      caption: 'De ulike setningsleddene og deres funksjoner i setningen',
+    },
+    {
+      id: 'norsk-vg1-8-1-image-ordklasser',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-1-ordklasser.png',
+      alt: 'Oversikt over ordklassene i norsk og hvordan de forholder seg til setningsledd',
+      caption: 'Ordklasser og setningsledd - sammenhengen mellom dem',
     },
     {
       id: 'norsk-vg1-8-1-example-1',
@@ -710,6 +731,13 @@ Tekstbinding er teknikkene vi bruker for å skape sammenheng mellom setninger og
 | **Avsnitt** | Del av teksten som handler om ett poeng |`,
     },
     {
+      id: 'norsk-vg1-8-2-image-tekstbinding',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-2-tekstbinding.png',
+      alt: 'Illustrasjon som viser hvordan setninger bindes sammen gjennom ulike teknikker',
+      caption: 'Tekstbinding - ulike teknikker for sammenheng mellom setninger',
+    },
+    {
       id: 'norsk-vg1-8-2-def-1',
       type: 'definition',
       title: 'Konjunksjoner',
@@ -739,6 +767,13 @@ Konjunksjoner (sideordnende bindeord) forbinder ord, fraser eller setninger som 
 - **for**: "Vi ble hjemme, for det regnet."
 
 **Husk:** Konjunksjoner påvirker ikke ordstillingen i setningen.`,
+    },
+    {
+      id: 'norsk-vg1-8-2-image-konnektiver',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-2-konnektiver.png',
+      alt: 'Oversikt over konnektiver - konjunksjoner og subjunksjoner med eksempler',
+      caption: 'Konnektiver - bindeord som skaper sammenheng i tekst',
     },
     {
       id: 'norsk-vg1-8-2-def-2',
@@ -1294,6 +1329,13 @@ Bokmål har mange valgfrie former. Du kan velge mellom ulike skrivemåter, men d
 | **Bokmålsordboka** | Offisiell ordbok for bokmål |`,
     },
     {
+      id: 'norsk-vg1-8-3-image-bokmal-rettskriving',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-3-bokmal-rettskriving.png',
+      alt: 'Oversikt over de viktigste rettskrivingsreglene for bokmal',
+      caption: 'Rettskrivingsregler for bokmal - de viktigste reglene og vanlige feil',
+    },
+    {
       id: 'norsk-vg1-8-3-def-1',
       type: 'definition',
       title: 'Valgfrie former i bokmål',
@@ -1327,6 +1369,13 @@ Velg EN stil og hold deg til den:
 - Eller: boken, jenten, kastet, hoppet (konservativt)
 
 **Tips:** Finn din stil og vær konsekvent.`,
+    },
+    {
+      id: 'norsk-vg1-8-3-image-bokmal-valgfrihet',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-3-bokmal-valgfrihet.png',
+      alt: 'Tabell som viser valgfrie former i bokmal med eksempler pa a-endelser og konservative former',
+      caption: 'Valgfrie former i bokmal - oversikt over ulike skrivemater',
     },
     {
       id: 'norsk-vg1-8-3-def-2',
@@ -2219,6 +2268,13 @@ Ivar Aasen skapte landsmål (senere nynorsk) på 1800-tallet basert på norske d
 | **Sidemål** | Den andre målformen i norskopplæringen |`,
     },
     {
+      id: 'norsk-vg1-8-4-image-nynorsk-tabell',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-4-nynorsk-tabell.png',
+      alt: 'Grammatikktabell for nynorsk med oversikt over substantiv- og adjektivboyning',
+      caption: 'Nynorsk grammatikk - oversikt over boyningsmonster',
+    },
+    {
       id: 'norsk-vg1-8-4-def-1',
       type: 'definition',
       title: 'Nynorskens grammatiske særtrekk',
@@ -2253,6 +2309,13 @@ Velg én form og vær konsekvent.
 - ein fin bil - eit fint hus - fine bilar
 - Intetkjønn entall: -t
 - Flertall og bestemt: -e`,
+    },
+    {
+      id: 'norsk-vg1-8-4-image-nynorsk-verb',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-4-nynorsk-verb.png',
+      alt: 'Oversikt over verbboyning pa nynorsk med sterke og svake verb',
+      caption: 'Verbboyning pa nynorsk - svake og sterke verb',
     },
     {
       id: 'norsk-vg1-8-4-def-2',
@@ -3118,6 +3181,13 @@ Litteratur som utforsker kulturmøter, migrasjon, identitet mellom kulturer, og 
 | **Kodeveksling** | Å veksle mellom ulike språk eller dialekter |`,
     },
     {
+      id: 'norsk-vg1-3-1-image-identitetskart',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-1-identitetskart.png',
+      alt: 'Identitetskart som viser hvordan kulturell identitet formes av ulike faktorer',
+      caption: 'Identitetskart - elementer som former flerkulturell identitet',
+    },
+    {
       id: 'norsk-vg1-3-1-def-1',
       type: 'definition',
       title: 'Identitet mellom kulturer',
@@ -3251,6 +3321,13 @@ Oppfølgeren som fortsetter å utforske klasse og kulturmøter.
 - Setter søkelys på klasseperspektiver
 - Representerer erfaringer som har manglet i litteraturen
 - Balanserer det personlige og det politiske`,
+    },
+    {
+      id: 'norsk-vg1-3-1-image-flerkulturell-temaer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-1-flerkulturell-temaer.png',
+      alt: 'Oversikt over sentrale temaer i flerkulturell litteratur som identitet, tilhorighet og sprak',
+      caption: 'Temaer i flerkulturell litteratur - hva tekstene utforsker',
     },
     {
       id: 'norsk-vg1-3-1-example-1',
@@ -3701,6 +3778,13 @@ Hvem har makt til å definere virkeligheten? Hvem bestemmer hva som er "normalt"
 **Disse begrepene hjelper oss å se mønstre i hvordan kulturer fremstilles.**`,
     },
     {
+      id: 'norsk-vg1-3-2-image-postkolonial',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-2-postkolonial.png',
+      alt: 'Diagram som viser sentrale begreper i postkolonial teori og sammenhengene mellom dem',
+      caption: 'Postkolonial lesning - sentrale begreper for kulturkritisk analyse',
+    },
+    {
       id: 'norsk-vg1-3-2-def-2',
       type: 'definition',
       title: 'Representasjon og stereotypier',
@@ -3732,6 +3816,13 @@ Når tekster fremstiller andre kulturer primært sett fra et hvitt, vestlig pers
 Når undertrykte grupper overtar majoritetens negative syn på seg selv.
 
 **Å se stereotypier er første steg mot å forstå dem kritisk.**`,
+    },
+    {
+      id: 'norsk-vg1-3-2-image-stemmer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-2-stemmer.png',
+      alt: 'Illustrasjon som viser hvem som far stemme i litteraturen og hvordan perspektiv pavirker fremstilling',
+      caption: 'Stemmer i litteraturen - hvem forteller og hvem blir fortalt om',
     },
     {
       id: 'norsk-vg1-3-2-def-3',
@@ -4244,6 +4335,13 @@ Tegnsetting er ikke bare regler å følge - det er et verktøy for å gjøre tek
 | **Apostrof** | Tegn som viser utelatt bokstav |`,
     },
     {
+      id: 'norsk-vg1-8-5-image-tegnsetting',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-5-tegnsetting.png',
+      alt: 'Oversikt over alle skilletegn med forklaring av bruksomrade',
+      caption: 'Tegnsetting - oversikt over skilletegn og deres bruk',
+    },
+    {
       id: 'norsk-vg1-8-5-def-1',
       type: 'definition',
       title: 'Punktum, spørsmålstegn og utropstegn',
@@ -4290,6 +4388,13 @@ Uttrykker sterke følelser, ordre eller utrop.
 **Husk:**
 - Bruk utropstegn med måte - for mange gjør teksten slitsom å lese
 - Aldri mer enn ett utropstegn (!!! er feil)`,
+    },
+    {
+      id: 'norsk-vg1-8-5-image-komma-regler',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-8-5-komma-regler.png',
+      alt: 'Visuell fremstilling av kommareglene med eksempler',
+      caption: 'Kommareglene - nar og hvordan komma skal brukes',
     },
     {
       id: 'norsk-vg1-8-5-def-2',
@@ -5262,6 +5367,13 @@ Samisk litteratur er en viktig del av Norges kulturelle mangfold. Som urfolk i N
 | **Revitalisering** | Gjenoppliving av undertrykt språk og kultur |`,
     },
     {
+      id: 'norsk-vg1-3-3-image-samisk-litteratur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-3-samisk-litteratur.png',
+      alt: 'Oversikt over samisk litteratur fra muntlig tradisjon til moderne forfattere',
+      caption: 'Samisk litteratur - fra muntlig tradisjon til samtidsforfattere',
+    },
+    {
       id: 'norsk-vg1-3-3-def-1',
       type: 'definition',
       title: 'Muntlig tradisjon og fortellerkunst',
@@ -5333,6 +5445,13 @@ Joiken ble lenge forbudt og undertrykt av kirke og myndigheter. Dette gjør joik
 
 **Moderne joik:**
 I dag kombinerer artister som Mari Boine, Sofia Jannok og Ella Marie Hætta Isaksen joik med moderne musikkformer og holder tradisjonen levende.`,
+    },
+    {
+      id: 'norsk-vg1-3-3-image-urfolksperspektiv',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-3-urfolksperspektiv.png',
+      alt: 'Illustrasjon som viser urfolksperspektiver i litteraturen - natur, tradisjon og identitet',
+      caption: 'Urfolksperspektiv i litteraturen - natursyn, tradisjon og identitet',
     },
     {
       id: 'norsk-vg1-3-3-def-2b',
@@ -6192,6 +6311,13 @@ Begrepet ble lansert av Johann Wolfgang von Goethe på 1800-tallet. Han mente at
 | **Flerspråklighet** | Å bruke flere språk, også i litterære tekster |`,
     },
     {
+      id: 'norsk-vg1-3-4-image-verdenslitteratur-kart',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-4-verdenslitteratur-kart.png',
+      alt: 'Verdenskart med litteratur fra ulike kontinenter og kulturer',
+      caption: 'Verdenslitteratur - et kart over litteratur fra ulike deler av verden',
+    },
+    {
       id: 'norsk-vg1-3-4-def-1',
       type: 'definition',
       title: 'Oversettelse og kulturformidling',
@@ -6223,6 +6349,13 @@ Enhver oversettelse er en tolkning. Ulike oversettere gir ulike versjoner av sam
 
 **Tap og gevinst:**
 Noe går alltid tapt i oversettelse (klang, ordspill, nyanser), men noe kan også vinnes (nye lesere, nye perspektiver, nytt liv til gamle tekster).`,
+    },
+    {
+      id: 'norsk-vg1-3-4-image-litteratur-dialog',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-4-litteratur-dialog.png',
+      alt: 'Illustrasjon av litteratur som dialog mellom kulturer - oversettelse og kulturformidling',
+      caption: 'Litteratur som dialog - hvordan tekster reiser mellom kulturer',
     },
     {
       id: 'norsk-vg1-3-4-ex-1',
@@ -6876,6 +7009,13 @@ Samtidslitteratur er litteratur som er skrevet i vår egen tid og som ofte tar o
 | **Samfunnskritikk** | Kritisk kommentar til samfunnsforhold |`,
     },
     {
+      id: 'norsk-vg1-3-5-image-samtidslitteratur-temaer',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-5-samtidslitteratur-temaer.png',
+      alt: 'Oversikt over sentrale temaer i samtidslitteraturen som klima, teknologi og migrasjon',
+      caption: 'Samtidslitteraturens temaer - hva dagens forfattere skriver om',
+    },
+    {
       id: 'norsk-vg1-3-5-ex-1',
       type: 'exercise',
       exercise: {
@@ -6935,6 +7075,13 @@ Et bredere begrep for litteratur som setter naturen i sentrum og utforsker forho
 
 **Litteraturens rolle:**
 Klimafiksjon kan gjøre abstrakte trusler konkrete og emosjonelt tilgjengelige. Den kan vekke engasjement på måter vitenskapelige rapporter ikke klarer.`,
+    },
+    {
+      id: 'norsk-vg1-3-5-image-sjangermiks',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-3-5-sjangermiks.png',
+      alt: 'Illustrasjon av sjangermiks i samtidslitteraturen - hvordan sjangre kombineres',
+      caption: 'Sjangermiks - hvordan samtidslitteraturen bryter med tradisjonelle sjangre',
     },
     {
       id: 'norsk-vg1-3-5-ex-2',

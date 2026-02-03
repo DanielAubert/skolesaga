@@ -88,6 +88,13 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
 - Respekter meningsmotstandere`,
     },
     {
+      id: 'norsk-vg1-1-3-image-debattstruktur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-3-debattstruktur.png',
+      alt: 'Illustrasjon av debattinnleggets tredelte struktur med innledning, hoveddel og avslutning',
+      caption: 'Debattinnleggets struktur: innledning med tese, hoveddel med argumenter, og avslutning med oppfordring',
+    },
+    {
       id: 'norsk-vg1-1-3-def-2',
       type: 'definition',
       title: 'Argumentasjonsteknikker',
@@ -107,6 +114,13 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
 - Anerkjenn gyldige poenger fra motstanderen
 - Forklar hvorfor ditt syn likevel er bedre
 - Vis at du har forstått saken fra flere sider`,
+    },
+    {
+      id: 'norsk-vg1-1-3-image-argumentasjon-modell',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-1-3-argumentasjon-modell.png',
+      alt: 'Toulmins argumentasjonsmodell med påstand, begrunnelse, hjemmel, ryggdekning, styrkemarkør og gjendrivelse',
+      caption: 'Toulmins argumentasjonsmodell viser hvordan et argument bygges opp fra påstand til begrunnelse og hjemmel',
     },
     {
       id: 'norsk-vg1-1-3-example-1',
@@ -724,6 +738,13 @@ Dramaet bør ha én hovedhandling uten sidehistorier.
 Aristoteles mente tragedien skulle rense publikum for følelser som frykt og medlidenhet gjennom innlevelse i handlingen.`,
     },
     {
+      id: 'norsk-vg1-2-3-image-dramatisk-struktur',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-3-dramatisk-struktur.png',
+      alt: 'Freytags pyramide som viser dramatisk struktur med eksposisjon, stigende handling, klimaks, fallende handling og katastrofe',
+      caption: 'Freytags pyramide illustrerer den klassiske dramatiske strukturen fra eksposisjon til katastrofe',
+    },
+    {
       id: 'norsk-vg1-2-3-def-3',
       type: 'definition',
       title: 'Moderne drama',
@@ -755,6 +776,20 @@ Fra 1800-tallet brøt dramatikere med de klassiske reglene:
 - Publikum skal tenke, ikke bare føle
 - Brudd med innlevelsen
 - Politisk teater`,
+    },
+    {
+      id: 'norsk-vg1-2-3-image-sceneoppsett',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-3-sceneoppsett.png',
+      alt: 'Illustrasjon av tradisjonelt sceneoppsett med prosceniumscene, bakscene, sidekulisser og publikumsområde',
+      caption: 'Tradisjonelt sceneoppsett med prosceniumscene, kulisser og publikumsplassering',
+    },
+    {
+      id: 'norsk-vg1-2-3-image-dramasjangre',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-2-3-dramasjangre.png',
+      alt: 'Oversikt over dramatiske sjangre: tragedie, komedie, tragikomeddie og moderne drama',
+      caption: 'De dramatiske hovedsjangrene med sine kjennetegn',
     },
     {
       id: 'norsk-vg1-2-3-def-fosse',
