@@ -87,6 +87,13 @@ I dag møter vi sjelden tekster som bare består av skrift. De fleste tekstene v
 **Forsterkning:** Modalitetene gjentar samme budskap for større effekt`,
     },
     {
+      id: 'norsk-vg1-6-1-image-multimodal',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-1-multimodal.png',
+      alt: 'Diagram som viser de tre typene samspill mellom bilde og tekst: forankring, avløsning og motstrid',
+      caption: 'De tre hovedtypene samspill mellom modaliteter: forankring (tekst forklarer bildet), avløsning (bilde og tekst utfyller hverandre) og motstrid/kontrast (modalitetene står i motsetning).',
+    },
+    {
       id: 'norsk-vg1-6-1-def-2',
       type: 'definition',
       title: 'Analyse av reklame',
@@ -124,6 +131,20 @@ Reklame er et godt eksempel på sammensatte tekster fordi de bevisst bruker fler
 **6. Vurdering:**
 - Er reklamen effektiv? Hvorfor/hvorfor ikke?
 - Hvem kan føle seg inkludert/ekskludert?`,
+    },
+    {
+      id: 'norsk-vg1-6-1-image-reklame-1',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-1-reklame-1.png',
+      alt: 'Fiktiv norsk reklame for bærekraftig klesmerk med teksten "Kle deg grønt"',
+      caption: 'Eksempel på reklame som bruker miljøbevissthet som appellform. Analyser hvilke virkemidler som brukes.',
+    },
+    {
+      id: 'norsk-vg1-6-1-image-reklame-2',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-1-reklame-2.png',
+      alt: 'Fiktiv norsk reklame for lokal mat med teksten "Smak av Norge"',
+      caption: 'Eksempel på reklame som appellerer til nasjonale verdier og lokalprodusert mat. Hvilke følelser forsøker reklamen å vekke?',
     },
     {
       id: 'norsk-vg1-6-1-def-3',
@@ -541,6 +562,13 @@ Som med skriftlige tekster kan vi analysere film med faglige begreper. Vi ser p�
 **Disse teknikkene brukes bevisst for å styre hvordan vi oppfatter personer og situasjoner.**`,
     },
     {
+      id: 'norsk-vg1-6-2-image-filmsprak',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-2-filmsprak.png',
+      alt: 'Oversikt over filmspråk-begreper som bildeutsnitt og kameravinkler med visuelle eksempler',
+      caption: 'Oversikt over sentrale filmspråkbegreper: bildeutsnitt (totalbilde, halvtotalt, halvnært, nært, ekstrem nært) og kameravinkler (fugle-, normal- og froskeperspektiv).',
+    },
+    {
       id: 'norsk-vg1-6-2-def-2',
       type: 'definition',
       title: 'Klipping og montasje',
@@ -580,6 +608,13 @@ Klipping er kunsten å sette sammen enkeltbilder til en sammenhengende film. Kli
 **Tempo:**
 Raske klipp = spenning, action
 Langsomme klipp = ettertanke, drama`,
+    },
+    {
+      id: 'norsk-vg1-6-2-image-klipping',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-2-klipping.png',
+      alt: 'Illustrasjon av klippeteknikker i film: kontinuitetsklipping, kryssklipping, jump cut og match cut',
+      caption: 'Ulike klippeteknikker og deres effekt: kontinuitetsklipping skaper flyt, kryssklipping bygger spenning, jump cut skaper uro, og match cut kobler scener sammen.',
     },
     {
       id: 'norsk-vg1-6-2-def-3',
@@ -3770,6 +3805,13 @@ Når du møter påstander du er usikker på, kan du faktasjekke:
 - Vær kritisk til "eksperter" uten relevant kompetanse
 
 **Husk: Det er bedre å bruke litt tid på å sjekke enn å spre feilinformasjon videre.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-image-faktasjekk',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-4-faktasjekk.png',
+      alt: 'Infografikk som viser stegene i faktasjekking: stopp opp, finn originalkilden, kryssjekk, bruk faktasjekkere, sjekk bilder',
+      caption: 'Slik faktasjekker du informasjon: 1) Stopp opp og tenk, 2) Finn originalkilden, 3) Kryssjekk med flere kilder, 4) Bruk faktasjekkere som Faktisk.no, 5) Sjekk bilder med omvendt bildesøk.',
     },
     {
       id: 'norsk-vg1-6-4-ex-5',

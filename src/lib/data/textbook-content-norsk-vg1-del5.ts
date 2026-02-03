@@ -1207,42 +1207,162 @@ På bokmål: alltid "ikke" (ikkje er nynorsk)
     {
       id: 'norsk-vg1-8-3-def-4',
       type: 'definition',
-      title: 'Tegnsetting',
-      content: `**Regler for tegnsetting på bokmål:**
+      title: 'Verbbøyning på bokmål',
+      content: `**Verbbøyning - de fire hovedformene:**
 
-**Komma:**
-Komma brukes:
-- Mellom helsetninger med konjunksjon: "Han kom, og hun gikk."
-- Etter leddsetning først: "Da han kom, gikk hun."
-- Ved innskudd: "Boken, som var rød, lå der."
-- Ved tiltale: "Per, kom hit!"
-- I oppramsinger: "epler, pærer og bananer"
+Norske verb bøyes i fire former:
+1. **Infinitiv** (å-form): å kaste, å lese, å gå
+2. **Presens** (nåtid): kaster, leser, går
+3. **Preteritum** (fortid): kastet, leste, gikk
+4. **Perfektum partisipp** (har-form): har kastet, har lest, har gått
 
-Komma brukes IKKE:
-- Mellom subjekt og verbal: ✗ "Per, kom."
-- Før "at" (vanligvis): "Jeg vet at du kommer."
+**Svake verb (regelmessige):**
 
-**Punktum:**
-- Etter fullstendige setninger
-- I forkortelser: f.eks., bl.a., osv.
+| Gruppe | Infinitiv | Presens | Preteritum | Perf. part. |
+|--------|-----------|---------|------------|-------------|
+| 1 | å kaste | kaster | kastet/kasta | kastet/kasta |
+| 2 | å lese | leser | leste | lest |
+| 3 | å leve | lever | levde | levd |
+| 4 | å bo | bor | bodde | bodd |
 
-**Kolon:**
-- Før oppramsingsledd: "Han kjøpte: epler, pærer og melk."
-- Før forklaring: "Resultatet var klart: vi tapte."
-- Ved klokken: kl. 14:30
+**Sterke verb (uregelmessige):**
+Sterke verb endrer vokal (vokalveksling):
+- å skrive → skriver → skrev → har skrevet
+- å finne → finner → fant → har funnet
+- å ta → tar → tok → har tatt
+- å gå → går → gikk → har gått
+- å få → får → fikk → har fått
+- å gi → gir → ga/gav → har gitt
 
-**Semikolon:**
-- Mellom nært beslektede setninger
-- "Hun er student; han er lærer."
-- Sjeldent brukt
+**Vanlige feil:**
+- ✗ "Jeg skrivde" → ✓ "Jeg skrev"
+- ✗ "har gåt" → ✓ "har gått"
+- ✗ "Han sat" → ✓ "Han satt"
+- ✗ "Jeg har begynte" → ✓ "Jeg har begynt"
 
-**Anførselstegn:**
-- Ved sitater: Hun sa: "Jeg kommer."
-- «Gåseøyne» eller "engelske"
+**Tips:** Lær de sterke verbene utenat!`,
+    },
+    {
+      id: 'norsk-vg1-8-3-def-5',
+      type: 'definition',
+      title: 'Substantivbøyning og kjønn',
+      content: `**Substantivenes tre kjønn:**
 
-**Tankestrek:**
-- Ved innskudd: Boken – den røde – var fin.
-- Lengre enn bindestrek (–)`,
+Bokmål har tre kjønn: hankjønn, hunkjønn og intetkjønn.
+
+**Hankjønn (en):**
+| Ubestemt entall | Bestemt entall | Ubestemt flertall | Bestemt flertall |
+|-----------------|----------------|-------------------|------------------|
+| en stol | stolen | stoler | stolene |
+| en gutt | gutten | gutter | guttene |
+
+**Hunkjønn (ei/en):**
+| Ubestemt entall | Bestemt entall | Ubestemt flertall | Bestemt flertall |
+|-----------------|----------------|-------------------|------------------|
+| ei/en bok | boka/boken | bøker | bøkene |
+| ei/en jente | jenta/jenten | jenter | jentene |
+
+**Intetkjønn (et):**
+| Ubestemt entall | Bestemt entall | Ubestemt flertall | Bestemt flertall |
+|-----------------|----------------|-------------------|------------------|
+| et hus | huset | hus | husene/husa |
+| et barn | barnet | barn | barna |
+
+**Hvordan vite kjønnet?**
+Det finnes ingen sikker regel, men noen tendenser:
+- Levende vesener: ofte hankjønn (gutt, hund)
+- Abstrakte begreper: ofte hunkjønn (tid, sol)
+- Konkrete ting: ofte intetkjønn (bord, hus)
+
+**Huskeregler:**
+- Ord som slutter på -het, -else, -ning, -dom er hunkjønn
+- Ord som slutter på -skap, -verk er intetkjønn
+- Låneord fra engelsk er ofte hankjønn (en PC, en film)
+
+**Tips:** Sjekk ordboka når du er usikker!`,
+    },
+    {
+      id: 'norsk-vg1-8-3-def-6',
+      type: 'definition',
+      title: 'Dobbeltkonsonant',
+      content: `**Regelen for dobbeltkonsonant:**
+
+**Hovedregel:** Etter kort, trykksterk vokal kommer dobbeltkonsonant.
+
+**Eksempler:**
+- **Kort vokal + dobbelt:** takk, fett, vinn, buss, hall
+- **Lang vokal + enkel:** tak (taket), fet (feit), vin, hal
+
+**Slik hører du forskjell:**
+- "takk" (kort a) vs. "tak" (lang a)
+- "sett" (kort e) vs. "set" (lang e)
+- "full" (kort u) vs. "ful" (lang u)
+
+**Vanlige feil:**
+
+**1. Verb i preteritum:**
+- ✗ "han sat" → ✓ "han satt" (å sitte)
+- "de viste" (fortid av vise) - riktig
+- "de visste" (fortid av vite) - riktig med -ss-
+
+**2. Adjektiv:**
+- "det var fint" (riktig)
+- "han er dum" (riktig - lang u)
+- "det var vått" (riktig - kort å)
+
+**3. Verb vs. substantiv:**
+- "å ta" (verb) vs. "takk" (substantiv)
+- "å si" (verb) vs. "sinn" (substantiv)
+
+**Praktisk test:**
+Les ordet høyt. Er vokalen kort? → Dobbeltkonsonant
+Er vokalen lang? → Enkel konsonant`,
+    },
+    {
+      id: 'norsk-vg1-8-3-def-7',
+      type: 'definition',
+      title: 'Sammensetninger (sammensatte ord)',
+      content: `**Regler for sammensatte ord:**
+
+**Hovedregel:** Sammensatte substantiv skrives i ETT ord på norsk.
+
+**Eksempler:**
+- fotball + kamp = **fotballkamp**
+- skole + sekk = **skolesekk**
+- is + krem = **iskrem**
+- sykkel + sti = **sykkelsti**
+
+**Særskrivingsfeil (vanlig feil!):**
+- ✗ "fotball kamp" → ✓ "fotballkamp"
+- ✗ "is krem" → ✓ "iskrem"
+- ✗ "skole sekk" → ✓ "skolesekk"
+- ✗ "dør klokke" → ✓ "dørklokke"
+
+**Binde-s og binde-e:**
+
+Noen sammensatte ord har en s eller e mellom leddene:
+
+**Med -s-:**
+- arbeids + dag = **arbeidsdag**
+- livs + glede = **livsglede**
+- kvalitets + sikring = **kvalitetssikring**
+
+**Med -e-:**
+- gutte + rom = **gutterom**
+- jente + navn = **jentenavn**
+- barne + hage = **barnehage**
+
+**Ord som SKAL være to ord:**
+Adverbiale uttrykk skrives ofte i to ord:
+- **i dag** (ikke "idag")
+- **i morgen** (ikke "imorgen")
+- **til slutt** (ikke "tilslutt")
+- **i stedet** (ikke "istedet")
+- **i forveien** (ikke "iforveien")
+
+**Test:** Kan du sette "en/ei/et" foran?
+- "en fotballkamp" → ett ord ✓
+- "en i dag" → gir ikke mening → to ord ✓`,
     },
     {
       id: 'norsk-vg1-8-3-example-1',
@@ -1549,6 +1669,159 @@ Komma brukes IKKE:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'norsk-vg1-8-3-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-12',
+        number: '12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse verbene i alle fire former (infinitiv, presens, preteritum, perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å skrive',
+            solution: 'å skrive - skriver - skrev - har skrevet (sterkt verb)',
+          },
+          {
+            label: 'b',
+            task: 'å sitte',
+            solution: 'å sitte - sitter - satt - har sittet (sterkt verb)',
+          },
+          {
+            label: 'c',
+            task: 'å kaste',
+            solution: 'å kaste - kaster - kastet/kasta - har kastet/kasta (svakt verb)',
+          },
+          {
+            label: 'd',
+            task: 'å finne',
+            solution: 'å finne - finner - fant - har funnet (sterkt verb)',
+          },
+          {
+            label: 'e',
+            task: 'å leve',
+            solution: 'å leve - lever - levde - har levd (svakt verb)',
+          },
+        ],
+        hints: ['Sterke verb har vokalveksling', 'Svake verb følger faste mønstre'],
+        solution: 'Verbbøyning er grunnleggende for korrekt norsk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse substantivene i alle fire former (ubestemt entall, bestemt entall, ubestemt flertall, bestemt flertall):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'en bil (hankjønn)',
+            solution: 'en bil - bilen - biler - bilene',
+          },
+          {
+            label: 'b',
+            task: 'ei/en bok (hunkjønn)',
+            solution: 'ei/en bok - boka/boken - bøker - bøkene',
+          },
+          {
+            label: 'c',
+            task: 'et bord (intetkjønn)',
+            solution: 'et bord - bordet - bord - bordene/borda',
+          },
+          {
+            label: 'd',
+            task: 'en lærer (hankjønn)',
+            solution: 'en lærer - læreren - lærere - lærerne',
+          },
+        ],
+        hints: ['Husk de ulike mønstrene for hvert kjønn'],
+        solution: 'Substantivbøyning følger mønster basert på kjønn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Rett dobbeltkonsonant-feilene i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Han sat på stolen og vente på bussen."',
+            solution: '"Han satt på stolen og ventet på bussen." (satt med dobbelt t, ventet med t)',
+          },
+          {
+            label: 'b',
+            task: '"Hun har alldri vært i Frankrike før."',
+            solution: '"Hun har aldri vært i Frankrike før." (aldri med enkel l)',
+          },
+          {
+            label: 'c',
+            task: '"De svømte i det kalde vanet hele sommeren."',
+            solution: '"De svømte i det kalde vannet hele sommeren." (vannet med dobbelt n)',
+          },
+        ],
+        hints: ['Les høyt og lytt etter vokallengden'],
+        solution: 'Dobbeltkonsonant etter kort vokal er en viktig regel.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-15',
+        number: '15',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse sammensetningene er FEIL skrevet?',
+        options: [
+          'fotballkamp',
+          'sykkel sti',
+          'arbeidsdag',
+          'barnehage',
+        ],
+        answer: 1,
+        solution: '"sykkel sti" er feil - det skal skrives som ett ord: "sykkelsti". Sammensatte substantiv skrives i ett ord på norsk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-16',
+        number: '16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken setning har korrekt verbbøyning?',
+        options: [
+          'Jeg skrivde et brev i går.',
+          'Han har gåt til skolen.',
+          'De fant pengene under sofaen.',
+          'Hun har begynte på leksene.',
+        ],
+        answer: 2,
+        solution: '"De fant pengene under sofaen" er korrekt. Feil i de andre: "skrivde" → "skrev", "gåt" → "gått", "har begynte" → "har begynt".',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
   ],
   exercises: [],
 };
@@ -1745,6 +2018,80 @@ Før du leverer, sjekk at du har:
 
 **8. Vær konsekvent:**
 Velg former og hold deg til dem gjennom hele teksten.`,
+    },
+    {
+      id: 'norsk-vg1-8-4-def-5',
+      type: 'definition',
+      title: 'A-endingar vs. e-endingar i nynorsk',
+      content: `**Valgfrihet i nynorsk - velg konsekvent!**
+
+Nynorsk har valgfrihet mellom a-endingar og e-endingar i flere tilfelle. Du kan velje, men må vere konsekvent.
+
+**1. Infinitiv:**
+Du kan velje mellom -a og -e:
+- å kaste / å kasta
+- å lese / å lesa
+- å skrive / å skriva
+
+**Tips:** Velg EIN form og hald deg til den gjennom heile teksten.
+
+**2. Svake verb i preteritum:**
+- kasta / kaste (fortid av å kaste)
+- hoppa / hoppe (fortid av å hoppe)
+
+**3. Hunkjønnsord i bestemt form:**
+- boka / boki (eldre form)
+- jenta / jenti (eldre form)
+**Anbefaling:** Bruk a-endingar, dei er vanlegast.
+
+**4. Sterke verb - perfektum partisipp:**
+- har skrive / har skrevet
+- har funne / har funnet
+- har teke / har tatt
+**Anbefaling:** Bruk dei tradisjonelle formene (skrive, funne, teke).
+
+**Kva er vanlegast?**
+A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte sett på som meir "ekte" nynorsk. E-infinitiv (å kaste) ligg nærare bokmål.
+
+**Strategiar:**
+- Kjennslebasert: Velg det som føles naturleg
+- Dialektbasert: Bruk former frå eigen dialekt
+- Tradisjonelt: Velg a-former for "sterkare" nynorsk`,
+    },
+    {
+      id: 'norsk-vg1-8-4-def-6',
+      type: 'definition',
+      title: 'Verb på nynorsk - former du må kunne',
+      content: `**Viktige verbformer på nynorsk:**
+
+**Hjelpeverb:**
+| Bokmål | Nynorsk infinitiv | Presens | Preteritum | Perfektum |
+|--------|-------------------|---------|------------|-----------|
+| å være | å vere/vera | er | var | har vore |
+| å ha | å ha | har | hadde | har hatt |
+| å bli | å bli/verte | blir/vert | vart/blei | har vorte/blitt |
+| å kunne | å kunne/kunna | kan | kunne | har kunna |
+| å ville | å vilje/ville | vil | ville | har vilja |
+| å skulle | å skulle/skulla | skal | skulle | har skulla |
+
+**Vanlege sterke verb:**
+| Bokmål | Nynorsk infinitiv | Presens | Preteritum | Perfektum |
+|--------|-------------------|---------|------------|-----------|
+| å komme | å kome/koma | kjem | kom | har kome |
+| å ta | å ta | tek | tok | har teke |
+| å gå | å gå | går | gjekk | har gått |
+| å se | å sjå | ser | såg | har sett |
+| å gi | å gje/gi | gjev/gir | gav | har gjeve/gitt |
+| å stå | å stå | står | stod | har stått |
+| å få | å få | får | fekk | har fått |
+
+**Særleg viktige forskjellar:**
+- "kommer" → "kjem" (ikkje "kommer"!)
+- "ser" → "ser" (same på begge målformer)
+- "gjør" → "gjer" (ikkje "gjør"!)
+- "tar" → "tek" (ikkje "tar"!)
+
+**Tips:** Desse verba er obligatoriske å kunne - dei kan ikkje oversettast direkte frå bokmål!`,
     },
     {
       id: 'norsk-vg1-8-4-example-1',
@@ -2064,6 +2411,137 @@ Velg former og hold deg til dem gjennom hele teksten.`,
         solution: 'Drøftingen bør vise forståelse for nynorskens rolle i norsk språkhistorie og kultur, og presentere balanserte argumenter med et begrunnet standpunkt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-12',
+        number: '12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy desse verba på nynorsk (infinitiv - presens - preteritum - perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å vere',
+            solution: 'å vere/vera - er - var - har vore',
+          },
+          {
+            label: 'b',
+            task: 'å ta',
+            solution: 'å ta - tek - tok - har teke',
+          },
+          {
+            label: 'c',
+            task: 'å sjå',
+            solution: 'å sjå - ser - såg - har sett',
+          },
+          {
+            label: 'd',
+            task: 'å gje/gi',
+            solution: 'å gje/gi - gjev/gir - gav - har gjeve/gitt',
+          },
+        ],
+        hints: ['Bruk nynorskordboka om du er usikker', 'Sterke verb har vokalveksling'],
+        solution: 'Verbbøyning på nynorsk skil seg ofte frå bokmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-13',
+        number: '13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Kva er riktig nynorsk for "Hvordan har du det?"',
+        options: [
+          'Korleis har du det?',
+          'Hvordan har du det?',
+          'Kordan har du det?',
+          'Koss har du det?',
+        ],
+        answer: 0,
+        solution: '"Korleis har du det?" er riktig nynorsk. "Hvordan" er bokmål og skal ikkje brukast på nynorsk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Omset desse setningane til nynorsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"De tar bussen til skolen hver dag."',
+            solution: '"Dei tek bussen til skulen kvar dag."',
+          },
+          {
+            label: 'b',
+            task: '"Hun gjør leksene sine før hun går ut."',
+            solution: '"Ho gjer leksene sine før ho går ut."',
+          },
+          {
+            label: 'c',
+            task: '"Hva synes du om filmen vi så i går?"',
+            solution: '"Kva synest du om filmen vi såg i går?"',
+          },
+          {
+            label: 'd',
+            task: '"De visste ikke hvorfor han ikke kom."',
+            solution: '"Dei visste ikkje kvifor han ikkje kom."',
+          },
+        ],
+        hints: ['Pass på pronomen, spørjeord og verb', 'Bruk nynorskordboka'],
+        solution: 'Omsetjing til nynorsk krev at du kjenner dei viktigaste forskjellane.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-15',
+        number: '15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv ein kort tekst (150-200 ord) på nynorsk om temaet "Min favorittaktivitet". Pass på å bruke riktige nynorskformer og unngå bokmålsord.',
+        hints: ['Planlegg teksten før du byrjar', 'Bruk nynorskordboka aktivt', 'Sjekk spørjeord, pronomen og verb', 'Les gjennom og sjekk for bokmålsord'],
+        solution: 'Teksten bør vise god nynorsk språkføring utan bokmålsfeil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-16',
+        number: '16',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Kva betyr det å velje mellom a-infinitiv og e-infinitiv i nynorsk?',
+        options: [
+          'Du kan velje mellom "å kaste" og "å kasta", men må vere konsekvent',
+          'A-infinitiv er alltid feil på nynorsk',
+          'E-infinitiv er den einaste godkjende forma',
+          'Det er ingen forskjell mellom formene',
+        ],
+        answer: 0,
+        solution: 'Nynorsk har valfridom mellom a-infinitiv (å kasta) og e-infinitiv (å kaste). Begge er riktige, men du må vere konsekvent gjennom heile teksten.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
       },
     },
   ],
@@ -3493,6 +3971,77 @@ Bruk motsatt type anførselstegn.
 **Tips:** Bruk forkortelser sparsomt i løpende tekst. Skriv gjerne ut hele ordet for bedre flyt.`,
     },
     {
+      id: 'norsk-vg1-8-5-def-8',
+      type: 'definition',
+      title: 'Vanlige kommafeil',
+      content: `**De vanligste kommafeilene - unngå disse!**
+
+**1. Komma mellom subjekt og verbal:**
+- ✗ "Per, gikk hjem." (aldri komma mellom subjekt og verbal)
+- ✓ "Per gikk hjem."
+
+**2. Komma foran "og" i oppramsing (engelsk påvirkning):**
+- ✗ "epler, pærer, og bananer"
+- ✓ "epler, pærer og bananer"
+
+**3. Manglende komma foran "og" med nytt subjekt:**
+- ✗ "Han gikk hjem og hun ble igjen."
+- ✓ "Han gikk hjem, og hun ble igjen."
+
+**4. Komma etter "men" i stedet for foran:**
+- ✗ "Han kom men, han gikk snart."
+- ✓ "Han kom, men han gikk snart."
+
+**5. Manglende komma rundt innskudd:**
+- ✗ "Bilen som var rød sto parkert."
+- ✓ "Bilen, som var rød, sto parkert." (hvis det er innskudd)
+
+**6. Feil ved tiltale:**
+- ✗ "Per kom hit!"
+- ✓ "Per, kom hit!" (komma ved tiltale)
+
+**Huskeregel:** Komma = naturlig pause. Men ikke alle pauser er komma!`,
+    },
+    {
+      id: 'norsk-vg1-8-5-def-9',
+      type: 'definition',
+      title: 'Kolon vs. semikolon',
+      content: `**Kolon eller semikolon? Slik velger du riktig:**
+
+**KOLON (:) brukes når:**
+
+**1. Det som kommer etter forklarer eller utdyper:**
+- "Han forsto én ting: dette var alvor."
+
+**2. Før oppramsing:**
+- "Ta med: sovepose, liggeunderlag og telt."
+
+**3. Før direkte tale/sitat:**
+- Hun sa: "Jeg kommer snart."
+
+**4. I klokkeslett:**
+- kl. 14:30
+
+---
+
+**SEMIKOLON (;) brukes når:**
+
+**1. To nært beslektede setninger som kunne stått alene:**
+- "Solen skinte; fuglene sang."
+- "Han var trett; likevel fortsatte han."
+
+**2. I komplekse oppramsinger (der leddene har komma):**
+- "Oslo, 5 delegater; Bergen, 3 delegater."
+
+---
+
+**Hovedforskjellen:**
+- **Kolon** = "nemlig" / forklaring følger
+- **Semikolon** = pause mellom likeverdige deler
+
+**Tips:** Er du usikker? Bruk punktum i stedet for semikolon!`,
+    },
+    {
       id: 'norsk-vg1-8-5-ex-7',
       type: 'exercise',
       exercise: {
@@ -3668,6 +4217,132 @@ Bruk motsatt type anførselstegn.
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'norsk-vg1-8-5-ex-11',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-11',
+        number: '11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn og rett kommafeilene i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Per, gikk til skolen."',
+            solution: '"Per gikk til skolen." (Ikke komma mellom subjekt og verbal.)',
+          },
+          {
+            label: 'b',
+            task: '"Han kom hjem og hun gikk ut."',
+            solution: '"Han kom hjem, og hun gikk ut." (Komma foran og med nytt subjekt.)',
+          },
+          {
+            label: 'c',
+            task: '"Vi kjøpte epler, bananer, og appelsiner."',
+            solution: '"Vi kjøpte epler, bananer og appelsiner." (Ikke komma foran og i oppramsing.)',
+          },
+          {
+            label: 'd',
+            task: '"Kari kom hit!"',
+            solution: '"Kari, kom hit!" (Komma ved tiltale.)',
+          },
+        ],
+        hints: ['Se etter de vanligste kommafeilene'],
+        solution: 'Korrekt kommabruk er viktig for at teksten skal bli lett å forstå.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-12',
+        number: '12',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken setning bruker kolon korrekt?',
+        options: [
+          'Han sa: at han ville komme.',
+          'Vi trenger: mel, egg og melk.',
+          'Resultatet var: klart.',
+          'Hun spurte: om jeg ville bli med.',
+        ],
+        answer: 1,
+        solution: '"Vi trenger: mel, egg og melk." bruker kolon korrekt - kolon foran oppramsing. De andre har feil plassering av kolon.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Velg riktig tegn (kolon eller semikolon) og forklar hvorfor:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun forsto endelig _ dette var ikke en lek."',
+            solution: 'Kolon (:) - det som kommer etter forklarer/utdyper det første.',
+          },
+          {
+            label: 'b',
+            task: '"Solen skinte _ fuglene sang."',
+            solution: 'Semikolon (;) - to nært beslektede, selvstendige setninger.',
+          },
+          {
+            label: 'c',
+            task: '"Ta med følgende _ mat, drikke og klær."',
+            solution: 'Kolon (:) - innleder en oppramsing.',
+          },
+        ],
+        hints: ['Kolon = forklaring følger', 'Semikolon = to likeverdige setninger'],
+        solution: 'Kolon og semikolon har ulike funksjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sett inn all manglende tegnsetting i denne teksten:\n\n"Maria som var sytten år hadde en drøm Hun ville bli forfatter Moren hennes spurte Hvorfor vil du det Maria svarte Fordi jeg elsker å fortelle historier Hver dag skrev hun litt og til slutt hadde hun en hel bok"',
+        hints: ['Se etter innskudd, direkte tale, og naturlige pauser', 'Bruk punktum, komma, kolon og anførselstegn'],
+        solution: '"Maria, som var sytten år, hadde en drøm. Hun ville bli forfatter. Moren hennes spurte: «Hvorfor vil du det?» Maria svarte: «Fordi jeg elsker å fortelle historier.» Hver dag skrev hun litt, og til slutt hadde hun en hel bok."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-8-5-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-5-ex-15',
+        number: '15',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvorfor har disse to setningene ulik betydning?\n\n1. "Studentene som ikke besto, må ta eksamen på nytt."\n2. "Studentene, som ikke besto, må ta eksamen på nytt."',
+        options: [
+          '1: Bare de som ikke besto må ta eksamen. 2: Alle studentene besto ikke, og alle må ta eksamen.',
+          'De betyr det samme, bare med ulik tegnsetting.',
+          '1: Alle må ta eksamen. 2: Bare noen må ta eksamen.',
+          'Det er ingen forskjell.',
+        ],
+        answer: 0,
+        solution: 'I setning 1 er "som ikke besto" en nødvendig presisering (bare de som ikke besto). I setning 2 er det et innskudd som gjelder alle studentene (alle besto ikke).',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
   ],
   exercises: [],
 };
@@ -3797,6 +4472,83 @@ Joiken ble lenge forbudt og undertrykt av kirke og myndigheter. Dette gjør joik
 I dag kombinerer artister som Mari Boine, Sofia Jannok og Ella Marie Hætta Isaksen joik med moderne musikkformer og holder tradisjonen levende.`,
     },
     {
+      id: 'norsk-vg1-3-3-def-2b',
+      type: 'definition',
+      title: 'Joik som litteratur - å lese og analysere joik',
+      content: `**Joik i et litterært perspektiv**
+
+Joik kan betraktes som en form for muntlig litteratur - en poetisk uttrykksform som formidler mening gjennom andre virkemidler enn vanlig tekst. Å "lese" joik krever en annen tilnærming enn å lese en bok.
+
+**Typer joik og deres funksjoner:**
+
+**Personjoik (olmmošluohti):**
+- Hver person har tradisjonelt sin egen joik
+- Joiken fanger personens vesen, ikke utseende
+- Fungerer som et lydportrett eller en musikalsk signatur
+- Å joike noen er en form for æresbevisning
+
+**Dyrejoik (eallitluohti):**
+- Fanger dyrets karakter, bevegelser og vesen
+- Reinjoik er særlig viktig i reindriftskulturen
+- Ulvejoik, jervejoik, ørnejoik - hvert dyr har sin essens
+- Viser respekt for dyret og dets plass i verden
+
+**Landskapsjoik (eatnamalatluohti):**
+- Joik av fjell, elver, vidder, spesielle steder
+- Formidler stedets atmosfære og betydning
+- Kan være knyttet til familiehistorie og bruksrettigheter
+- Landskapet som levende vesen, ikke bare kulisse
+
+**Hvordan joik skiller seg fra vestlig sang:**
+
+| Vestlig sang | Joik |
+|-------------|------|
+| Synger *om* noe | Synger noe *frem* |
+| Tekst forteller en historie | Lyd skaper nærvær |
+| Artisten fremfører | Joikeren fremkaller |
+| Publikum lytter | Deltakerne opplever |
+| Lineær tid | Syklisk tid |
+
+**Å analysere joik - spørsmål å stille:**
+- Hva er objektet for joiken (person, dyr, sted)?
+- Hvilke musikalske elementer brukes (rytme, tonehøyde, intensitet)?
+- Hvilken stemning skapes?
+- Hva formidler de eventuelle ordene/stavelsene?
+- Hvordan forholder joiken seg til tradisjon?
+- Hva er konteksten (rituell, sosial, kunstnerisk)?
+
+**Joik i moderne musikk:**
+
+**Mari Boine (f. 1956):**
+- Pioner i å kombinere joik med jazz, rock og verdensmusikk
+- Politisk engasjert - bruker musikken til å fremme samiske rettigheter
+- Albumet "Gula Gula" (1989) var gjennombruddet internasjonalt
+- Viser at joik kan tale til et globalt publikum
+
+**Sofia Jannok (f. 1982):**
+- Svensk-samisk artist fra Gällivare
+- Blander joik med pop, elektronika og visesang
+- Synger om klimaendringer og naturvern
+- Ny generasjons stemme for samiske saker
+
+**Ella Marie Hætta Isaksen (f. 1998):**
+- Vokalist i bandet KEiiNO
+- Representerte Norge i Eurovision 2019
+- Bringer joik til mainstream popmusikk
+- Viser at tradisjon og modernitet kan møtes
+
+**Å "lese" joik - praktiske tips:**
+1. Lytt først uten å analysere - la musikken virke
+2. Legg merke til gjentakelser og variasjoner
+3. Kjenn etter: Hvilken stemning skapes i deg?
+4. Les om konteksten: Hva handler joiken om?
+5. Lytt igjen med ny forståelse
+6. Sammenlign med andre joiker eller med moderne versjoner
+
+**Respekt og forståelse:**
+Joik er hellig for mange samer. Noen joiker er personlige og skal ikke deles offentlig. Når vi studerer joik i skolen, gjør vi det med respekt for tradisjonen og forståelse for at vi møter en levende kultur.`,
+    },
+    {
       id: 'norsk-vg1-3-3-ex-1',
       type: 'exercise',
       exercise: {
@@ -3835,23 +4587,40 @@ I dag kombinerer artister som Mari Boine, Sofia Jannok og Ella Marie Hætta Isak
     {
       id: 'norsk-vg1-3-3-def-3',
       type: 'definition',
-      title: 'Nils-Aslak Valkeapää',
+      title: 'Nils-Aslak Valkeapää - den moderne samiske litteraturens far',
       content: `**Nils-Aslak Valkeapää (1943-2001) - Áillohaš**
 
-Nils-Aslak Valkeapää, kjent under artistnavnet Áillohaš, regnes som den moderne samiske litteraturens far og en av de viktigste samiske kunstnerne gjennom tidene.
+Nils-Aslak Valkeapää, kjent under artistnavnet Áillohaš (som betyr "liten ørn"), regnes som **den moderne samiske litteraturens far** og en av de viktigste samiske kunstnerne gjennom tidene. Hans betydning for samisk kultur kan sammenlignes med Henrik Wergelands betydning for norsk nasjonalromantikk - han definerte en hel kunsttradisjon.
 
 **Bakgrunn:**
-- Født i Enontekiö, Finland
-- Vokste opp i reindriftsfamilie
-- Allsidig kunstner: poet, musiker, joiker, maler, filmskaper
+- Født i Enontekiö, Finland, i en reindriftsfamilie
+- Vokste opp med joik, reinflytting og samisk naturforståelse
+- Utdannet seg som lærer, men valgte kunsten
+- Sentral figur i den samiske politiske oppvåkningen på 1970- og 80-tallet
+
+**Multimediekunstner - en helhetlig visjon:**
+Det som gjør Valkeapää unik, er hvordan han kombinerte ulike kunstformer til ett helhetlig uttrykk:
+
+- **Joik**: Han var en mester i tradisjonell joik og fornyet den
+- **Poesi**: Komprimerte, billedsterke dikt inspirert av joikens rytme
+- **Visuell kunst**: Egne fotografier og tegninger i bøkene
+- **Musikk**: Samarbeidet med musikere og komponister
+- **Performance**: Fremførelser der alle kunstformer smeltet sammen
+
+Hans bøker er ikke bare tekstsamlinger - de er kunstverk der tekst, bilde og hvite flater skaper en helhet. Man "leser" en Valkeapää-bok like mye med øynene som med intellektet.
 
 **Viktige verk:**
 
 **"Ruoktu váimmus" (1985) - "Hjertet mitt er herfra":**
-Diktsamling som kombinerer tekst og fotografier. Vant Nordisk Råds litteraturpris i 1991 - første samiske verk som fikk denne æren.
+Diktsamling som kombinerer tekst og fotografier. Vant Nordisk Råds litteraturpris i 1991 - første samiske verk som fikk denne æren. Boken handler om tilhørighet, røtter og samisk identitet.
 
 **"Beaivi, Áhčážan" (1988) - "Solen, min far":**
-Monumentalt verk som kombinerer poesi med fotografier av samisk natur og kultur. En hyllest til samisk identitet og naturforståelse.
+Monumentalt verk på over 500 sider som kombinerer poesi med fotografier av samisk natur og kultur. En kosmisk hyllest til samisk identitet, der mennesket, reinen, solen og landskapet veves sammen.
+
+**Diktsamlinger:**
+- "Terveisiä Lapista" (1971) - "Hilsener fra Lappland"
+- "Giđa ijat čuovgadat" (1974) - "Vårnatta er lys"
+- "Ádjaga silbasuonat" (1981) - "Bestefars sølvårer"
 
 **Kjennetegn ved Valkeapääs diktning:**
 - Naturbilder som bærer dype meninger
@@ -3859,19 +4628,29 @@ Monumentalt verk som kombinerer poesi med fotografier av samisk natur og kultur.
 - Visualitet - tekst og bilde som helhet
 - Kort, komprimert form inspirert av joik
 - Kosmisk perspektiv - mennesket i naturen
-- Politisk undertekst om samisk frigjøring
+- Politisk undertekst om samisk frigjøring og rettigheter
 
-**Sitat:**
-*"Jeg er meg selv / et lite menneske / et lite hjerte / men et stort land"*
+**Sitat fra "Ruoktu váimmus":**
+*"Jeg tilhører vinden og vidda"*
 
-**Betydning:**
-Valkeapää viste at samisk kultur og litteratur har universell verdi og kan tale til lesere over hele verden. Han løftet samisk kunstuttrykk inn i verdenskunsten.`,
+Denne korte linjen sammenfatter mye av Valkeapääs kunstneriske prosjekt: mennesket som del av naturen, ikke herre over den. Tilhørighet, ikke eierskap.
+
+**Politisk betydning:**
+Valkeapää var aktiv i samebevegelsen og brukte kunsten som politisk våpen. Han viste at samisk kultur ikke var "primitiv" eller "utdøende", men levende, moderne og verdifull. Han nektet å la majoritetssamfunnet definere hva samisk kultur kunne være.
+
+**Arv og betydning:**
+Valkeapää viste at samisk kultur og litteratur har universell verdi og kan tale til lesere over hele verden. Han løftet samisk kunstuttrykk inn i verdenskunsten og inspirerte generasjoner av samiske kunstnere. Når vi i dag har en blomstrende samisk litteratur- og musikkscene, bygger den på det fundamentet Áillohaš la.
+
+**Tips for lesing:**
+Når du leser Valkeapää, les sakte. La øynene hvile på bildene. Kjenn rytmen i ordene. Hans bøker er ment å oppleves, ikke bare forstås.`,
     },
     {
       id: 'norsk-vg1-3-3-def-4',
       type: 'definition',
-      title: 'Andre viktige samiske forfattere',
-      content: `**Flere stemmer i samisk litteratur**
+      title: 'Eldre samiske forfattere',
+      content: `**Pionerene i samisk litteratur**
+
+I tillegg til Valkeapää var det flere forfattere som la grunnlaget for moderne samisk litteratur.
 
 **Laila Stien (f. 1946):**
 - Norsk-samisk forfatter fra Hammerfest
@@ -3879,19 +4658,6 @@ Valkeapää viste at samisk kultur og litteratur har universell verdi og kan tal
 - "Vekselsang" (1985) - novellesamling
 - Skildrer møtet mellom samisk og norsk kultur
 - Subtil, nøktern stil med dype undertoner
-
-**Sigbjørn Skåden (f. 1976):**
-- Samtidssamisk forfatter fra Tana
-- Skriver på nordsamisk og norsk
-- "Våke over dem som sover" (2014)
-- Utforsker samisk identitet i moderne tid
-- Kombinerer tradisjon med samtidstematikk
-
-**Rawdna Carita Eira (f. 1970):**
-- Lyriker og dramatiker
-- "Jienastit jienaid" (2018)
-- Eksperimentell og nyskapende
-- Joiktradisjon møter moderne poesi
 
 **Kirsti Paltto (f. 1947):**
 - Finsk-samisk forfatter
@@ -3909,6 +4675,64 @@ Valkeapää viste at samisk kultur og litteratur har universell verdi og kan tal
 - Tematiserer identitet og tilhørighet
 - Naturen som sentral referanse
 - Forhandler forholdet mellom tradisjon og modernitet`,
+    },
+    {
+      id: 'norsk-vg1-3-3-def-4b',
+      type: 'definition',
+      title: 'Samtidsforfattere i samisk litteratur',
+      content: `**Den nye generasjonen samiske forfattere**
+
+Etter Valkeapääs banebrytende arbeid har en ny generasjon samiske forfattere vokst frem. De skriver om identitet, språk og tilhørighet i en moderne virkelighet, ofte med ett ben i tradisjonen og ett i samtiden.
+
+**Sigbjørn Skåden (f. 1976):**
+- Samtidssamisk forfatter fra Tana
+- Skriver på både nordsamisk og norsk
+- Poet, romanforfatter og essayist
+- **Viktige verk:**
+  - "Våke over dem som sover" (2014) - roman
+  - "Skuovvadivggažat" (2004) - diktsamling
+  - Dikt om språk, identitet og tilhørighet
+- **Temaer:** Identitet mellom to kulturer, språktap og gjenerobring, moderne samisk liv, klimaendringer i nord
+- Skådens poesi er ofte personlig og politisk samtidig - han skriver om å være same i dag, om å gjenvinne et språk som nesten ble tatt fra ham, om å finne seg selv mellom kulturer
+
+**Rawdna Carita Eira (f. 1970):**
+- Lyriker, dramatiker og joiker fra Kautokeino
+- Eksperimentell og nyskapende kunstner
+- **Viktige verk:**
+  - "Jienastit jienaid" (2018) - diktsamling
+  - Teaterforestillinger og performance
+- **Temaer:** Joiktradisjon møter moderne poesi, kropp og landskap, kvinnelige erfaringer, samisk spiritualitet
+- Hennes kunst utforsker grensene mellom joik, poesi og performance. Hun spør: Hva kan samisk kunst være i dag?
+
+**Synnøve Persen (f. 1950):**
+- Lyriker og billedkunstner fra Tana
+- En av de første kvinnelige samiske dikterne
+- Skriver på nordsamisk
+- **Viktige verk:**
+  - "Badjel geasseortnega" (2009) - diktsamling
+  - "Cuolmmas" (2006)
+- **Temaer:** Natur og menneske, kjønnsidentitet, samisk kvinneliv, spiritualitet og tradisjon
+- Persen skaper bilder der naturen og mennesket speiler hverandre, ofte med et feministisk blikk på samisk kultur
+
+**Felles temaer hos samtidsforfatterne:**
+
+**1. Språkrevitalisering:**
+Mange skriver om å gjenvinne et tapt eller truet språk. Fornorskingen tok språket fra mange familier, og dagens forfattere skriver om kampen for å få det tilbake.
+
+**2. Identitet mellom kulturer:**
+Hva vil det si å være same i dag? Må man velge mellom samisk og norsk identitet? Samtidsforfatterne utforsker hybride identiteter og nekter forenklinger.
+
+**3. Natur under press:**
+Klimaendringer, vindkraftutbygging og naturinngrep truer samiske områder. Litteraturen blir et rom for å bearbeide og protestere.
+
+**4. Kolonialismens arv:**
+Fornorskingspolitikken er ikke bare historie - den lever videre i skam, tap og sår. Litteraturen gir ord til det som lenge var tiet i hjel.
+
+**5. Tradisjon i ny drakt:**
+Hvordan kan joik, fortellinger og samisk naturforståelse leve videre i en digital tid? Samtidsforfatterne eksperimenterer med form og innhold.
+
+**Tips for videre lesing:**
+Utforsk gjerne disse forfatterne selv. Mange av verkene finnes i norsk oversettelse.`,
     },
     {
       id: 'norsk-vg1-3-3-def-5',
@@ -4278,6 +5102,67 @@ ikke var verdt å bevare
         task: 'Skriv et essay (500-700 ord): Natur, identitet og motstand i samisk litteratur. Bruk eksempler fra minst to tekster eller forfattere fra kapittelet.',
         hints: ['Vis hvordan naturen er mer enn kulisse i samisk litteratur', 'Knytt natur til identitet og tilhørighet', 'Drøft motstand mot undertrykkelse', 'Bruk konkrete teksteksempler'],
         solution: 'Essayet bør vise forståelse for hvordan natur, identitet og motstand henger sammen i samisk litteratur. Naturen er identitetsbærende, ikke bare bakgrunn. Motstanden mot kolonialisme uttrykkes ofte gjennom å hevde denne naturforståelsen. Konkrete eksempler fra Valkeapää, Stien, Skåden eller andre må brukes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-11',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-11',
+        number: '11',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn et dikt av en samisk forfatter (f.eks. Sigbjørn Skåden, Synnøve Persen eller Rawdna Carita Eira). Les diktet og skriv en kort analyse (200-300 ord) der du fokuserer på tema, bildebruk og hva diktet formidler om samisk identitet eller kultur.',
+        hints: ['Søk på forfatternavnet pluss "dikt" eller "poesi"', 'Les diktet flere ganger før du analyserer', 'Se etter naturbilder og hva de kan symbolisere', 'Tenk på hvordan diktet forholder seg til tradisjon og samtid'],
+        solution: 'Analysen bør identifisere diktets tema (f.eks. identitet, språk, natur, tilhørighet), beskrive sentrale bilder og virkemidler, og reflektere over hva diktet sier om samisk erfaring. God analyse viser forståelse for at samisk lyrikk ofte har andre perspektiver enn majoritetskulturens.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-12',
+        number: '12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign tradisjonell joik med moderne samisk musikk. Velg en tradisjonell joik (finn eksempler på YouTube eller Spotify) og sammenlign med en låt av Mari Boine, Sofia Jannok eller KEiiNO. Hva er bevart fra tradisjonen? Hva er nytt?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beskriv den tradisjonelle joiken: Hvilken type joik er det? Hvilke musikalske elementer hører du?',
+            solution: 'Beskrivelsen bør identifisere joiktype (person, dyr, sted), notere vokalteknikk (bruk av stavelser, pustepauser), rytme og eventuell tekst.',
+          },
+          {
+            label: 'b',
+            task: 'Beskriv den moderne låten: Hvilke joik-elementer finner du? Hvilke moderne elementer er lagt til?',
+            solution: 'Bør identifisere tradisjonelle elementer (joikmelodi, vokalteknikk, tematikk) og moderne elementer (instrumentering, produksjon, arrangering, tekstspråk).',
+          },
+          {
+            label: 'c',
+            task: 'Drøft: Er det mulig å fornye joik uten å miste det tradisjonelle? Begrunn svaret ditt.',
+            solution: 'Drøftingen bør vise forståelse for at tradisjon alltid utvikler seg, at moderne artister ofte har dype røtter i tradisjonen, og at fornyelse kan være nødvendig for at joik skal overleve og nå nye generasjoner.',
+          },
+        ],
+        solution: 'Sammenligningen bør vise evne til å identifisere både kontinuitet og fornyelse i samisk musikkuttrykk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg1-3-3-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-3-3-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Velg en samtids samisk forfatter (Sigbjørn Skåden, Rawdna Carita Eira eller Synnøve Persen) og gjør research. Skriv en presentasjon (400-500 ord) som inkluderer: bakgrunn, viktige verk, sentrale temaer i forfatterskapet, og hvorfor denne forfatteren er viktig for samisk litteratur i dag.',
+        hints: ['Bruk pålitelige kilder (forlag, litteraturleksikon, aviser)', 'Se etter intervjuer med forfatteren', 'Les om et eller flere verk og beskriv dem kort', 'Knytt forfatterskapet til temaer fra kapittelet'],
+        solution: 'Presentasjonen bør vise selvstendig research og evne til å plassere forfatteren i en større sammenheng. God besvarelse viser forståelse for forfatterens betydning for samisk litteratur og for hvordan forfatterskapet behandler sentrale samiske temaer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

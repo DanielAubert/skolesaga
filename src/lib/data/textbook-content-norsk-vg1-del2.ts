@@ -956,6 +956,13 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Vær aktiv produsent, ikke bare konsument`,
     },
     {
+      id: 'norsk-vg1-6-3-image-sosiale-medier',
+      type: 'image',
+      src: '/images/textbook/norsk-vg1/norsk-vg1-6-3-sosiale-medier.png',
+      alt: 'Skjermbildemockup av en sosial medie-grensesnitt med typiske elementer som likes, kommentarer og delinger',
+      caption: 'Sosiale medier er sammensatte tekster med mange elementer: profil, bilde, tekst, hashtags, likes, kommentarer og delinger. Hvert element bidrar til å skape mening.',
+    },
+    {
       id: 'norsk-vg1-6-3-example-1',
       type: 'example',
       title: 'Eksempel: Analyse av Instagram-post',
