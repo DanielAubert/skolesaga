@@ -87,6 +87,7 @@ export async function POST(request: Request) {
     const session = await getServerSession(authOptions);
 
     if (!session?.user?.id) {
+      console.log("[SubtaskProgress] POST: Ingen session/bruker-ID");
       return NextResponse.json({ message: "Ikke innlogget" }, { status: 401 });
     }
 
@@ -100,7 +101,18 @@ export async function POST(request: Request) {
       totalSubtasks,
     } = body;
 
+    console.log("[SubtaskProgress] POST:", {
+      userId: session.user.id,
+      userEmail: session.user.email,
+      courseId,
+      chapterId,
+      exerciseId,
+      subtaskLabel,
+      status
+    });
+
     if (!courseId || !chapterId || !exerciseId || !subtaskLabel || !status) {
+      console.log("[SubtaskProgress] Mangler felt:", { courseId, chapterId, exerciseId, subtaskLabel, status });
       return NextResponse.json(
         { message: "Mangler påkrevde felt" },
         { status: 400 }
@@ -108,6 +120,45 @@ export async function POST(request: Request) {
     }
 
     const supabase = getSupabaseAdmin();
+
+    // Verifiser at bruker-ID finnes i users-tabellen
+    const { data: userExists, error: userCheckError } = await supabase
+      .from("users")
+      .select("id, email, name")
+      .eq("id", session.user.id)
+      .maybeSingle();
+
+    if (userCheckError) {
+      console.error("[SubtaskProgress] Feil ved brukersjekk:", userCheckError);
+    }
+
+    if (!userExists) {
+      console.error("[SubtaskProgress] KRITISK: Bruker-ID finnes ikke i users-tabellen!", {
+        sessionUserId: session.user.id,
+        sessionEmail: session.user.email
+      });
+
+      // Prøv å finne bruker via e-post
+      const { data: userByEmail } = await supabase
+        .from("users")
+        .select("id, email, name")
+        .eq("email", session.user.email)
+        .maybeSingle();
+
+      if (userByEmail) {
+        console.log("[SubtaskProgress] Fant bruker via e-post:", userByEmail);
+        console.log("[SubtaskProgress] ID-mismatch! Session:", session.user.id, "Database:", userByEmail.id);
+      } else {
+        console.log("[SubtaskProgress] Bruker finnes ikke i det hele tatt!");
+      }
+
+      return NextResponse.json(
+        { message: "Bruker ikke funnet i database" },
+        { status: 404 }
+      );
+    }
+
+    console.log("[SubtaskProgress] Bruker verifisert:", userExists.name);
 
     // Hent eksisterende fremgang
     const { data: existing } = await supabase
@@ -154,12 +205,14 @@ export async function POST(request: Request) {
     );
 
     if (error) {
-      console.error("Error saving subtask progress:", error);
+      console.error("[SubtaskProgress] Database-feil ved upsert:", error);
       return NextResponse.json(
-        { message: "Kunne ikke lagre fremgang" },
+        { message: "Kunne ikke lagre fremgang", error: error.message },
         { status: 500 }
       );
     }
+
+    console.log("[SubtaskProgress] Lagret OK for bruker:", session.user.id);
 
     return NextResponse.json({
       success: true,

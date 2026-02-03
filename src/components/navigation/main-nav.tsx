@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useSession } from "next-auth/react";
 import {
   NavigationMenu,
   NavigationMenuItem,
@@ -10,12 +11,14 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator } from "lucide-react";
+import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator, Shield } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/ui/logo";
 
 export function MainNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { data: session } = useSession();
+  const isAdmin = session?.user?.role === "admin";
 
   return (
     <header className="sticky top-0 z-50 w-full border-b glass shadow-sm" role="banner">
@@ -58,6 +61,17 @@ export function MainNav() {
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
+
+            {isAdmin && (
+              <NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/dashboard/admin/users" className={navigationMenuTriggerStyle()}>
+                    <Shield className="mr-1 h-4 w-4" />
+                    Admin
+                  </Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
+            )}
           </NavigationMenuList>
         </NavigationMenu>
 
@@ -135,6 +149,16 @@ export function MainNav() {
               Excel Formelhefte
               <ExternalLink className="ml-auto h-3 w-3" />
             </a>
+            {isAdmin && (
+              <Link
+                href="/dashboard/admin/users"
+                className="flex items-center text-sm font-medium text-destructive"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <Shield className="mr-2 h-4 w-4" />
+                Admin
+              </Link>
+            )}
           </nav>
         </div>
       )}

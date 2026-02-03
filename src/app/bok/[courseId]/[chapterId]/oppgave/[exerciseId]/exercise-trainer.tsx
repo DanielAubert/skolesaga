@@ -180,10 +180,15 @@ export function ExerciseTrainer({
 
   // Sync subtask progress to database (non-blocking)
   const syncSubtaskToDatabase = async (label: string, status: SubTaskStatus, totalSubtasks: number) => {
-    if (!session?.user?.id) return;
+    if (!session?.user?.id) {
+      console.warn('[SyncDB] Ingen bruker-ID i session, lagrer ikke til database');
+      return;
+    }
 
     try {
-      await fetch('/api/textbook/subtask-progress', {
+      console.log('[SyncDB] Lagrer fremgang:', { userId: session.user.id, courseId, chapterId, exerciseId, label, status });
+
+      const response = await fetch('/api/textbook/subtask-progress', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -195,8 +200,15 @@ export function ExerciseTrainer({
           totalSubtasks,
         }),
       });
+
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        console.error('[SyncDB] API-feil:', response.status, errorData);
+      } else {
+        console.log('[SyncDB] Lagret OK');
+      }
     } catch (error) {
-      console.error('Failed to sync subtask to database:', error);
+      console.error('[SyncDB] Nettverksfeil:', error);
     }
   };
 
