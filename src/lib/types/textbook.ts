@@ -342,6 +342,7 @@ export interface TextbookExercise {
   // Metadata
   topic?: string;
   points?: number;
+  competenceGoals?: string[];      // LK20-kompetansemål for denne oppgaven
 
   // Korrekt svar for automatisk sjekk (for oppgaver uten deloppgaver)
   answer?: number | number[] | string;

@@ -47,6 +47,21 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 - Hva sier språkvalgene mine om meg?`,
     },
     {
+      id: 'norsk-vg1-4-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Dialekt** | Geografisk variasjon av et språk |
+| **Sosiolekt** | Språkvariasjon knyttet til sosiale grupper |
+| **Idiolekt** | En persons personlige måte å snakke på |
+| **Kodeveksling** | Å veksle mellom ulike språkstiler etter situasjon |
+| **Standardspråk** | Den offisielle skriftnormen |
+| **Språklig identitet** | Hvordan språket vårt uttrykker hvem vi er |
+| **Språkholdninger** | Holdninger til ulike måter å snakke på |
+| **Flerspråklighet** | Å beherske flere språk |`,
+    },
+    {
       id: 'norsk-vg1-4-1-def-1',
       type: 'definition',
       title: 'Språklig variasjon',
@@ -182,6 +197,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Språklig selvrefleksjon øker bevisstheten om egen kommunikasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -213,6 +229,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Språkholdninger er ofte ubevisste og kan motvirkes gjennom refleksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -228,6 +245,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Norge har stor språklig variasjon, med samisk, kvensk og romani som offisielle minoritetsspråk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -243,6 +261,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Teksten skal vise personlig refleksjon og kobling til fagstoff.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -258,6 +277,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'En god drøfting presenterer argumenter for og mot, og viser evne til nyansering.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -278,6 +298,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'En idiolekt er din personlige måte å snakke på - en unik kombinasjon av dialekt, sosiolekt og individuelle trekk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -298,6 +319,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Kodeveksling er å tilpasse språket sitt til ulike situasjoner og samtalepartnere. Det er en naturlig del av språklig kompetanse.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -313,6 +335,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Aasen argumenterer for at det norske talespråket har egenverdi og fortjener et eget skriftspråk. Han begrunner dette med at dialektene representerer en levende norsk språktradisjon som er forskjellig fra dansk, og at et folk trenger et skriftspråk som gjenspeiler deres eget talemål for å bevare sin kulturelle identitet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -328,6 +351,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Wergeland så språk som uløselig knyttet til frihet og nasjonal identitet. I moderne debatt ser vi lignende argumenter brukt både i målstriden og i debatten om engelsk påvirkning. Forskjellen er at Wergelands kamp handlet om nasjonsbygging etter 1814, mens dagens debatt handler mer om globalisering og identitet i en flerkulturell tid.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -347,6 +371,7 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'Essayet bør drøfte hvordan språknormer, språkvalg og språkpolitikk kan være uttrykk for maktforhold. Gode eksempler inkluderer fornorskingspolitikken overfor samer, debatten om sidemål, og holdninger til ulike dialekter og sosiolekter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -366,7 +391,38 @@ Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning ti
         solution: 'En god debattekst tar et tydelig standpunkt, men viser også forståelse for motargumenter. Argumenter for dialektbruk: demokrati, identitet, norsk tradisjon. Argumenter mot: forståelighet, profesjonalitet, tradisjon for standardspråk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
+    },
+    {
+      id: 'norsk-vg1-4-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Dialekt:** Geografisk variasjon av språket med særtrekk i uttale, ord og bøyning
+- **Sosiolekt:** Språkvariasjon knyttet til sosiale grupper (utdanning, yrke, alder)
+- **Idiolekt:** Din personlige måte å snakke på - en unik kombinasjon av påvirkninger
+- **Kodeveksling:** Å tilpasse språket til ulike situasjoner og samtalepartnere
+- **Språkholdninger:** Fordommer og vurderinger knyttet til ulike talemål
+
+**Det viktigste å huske:**
+1. Språk er tett knyttet til identitet - vi uttrykker tilhørighet gjennom måten vi snakker på
+2. Kodeveksling er en naturlig og viktig språklig kompetanse, ikke noe falskt
+3. Norge har stor dialektaksept sammenlignet med mange andre land
+
+**Kompetansemål dette kapittelet dekker:**
+- Reflektere over sammenhengen mellom språk, kultur og identitet`,
+    },
+    {
+      id: 'norsk-vg1-4-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **4.2 Norsk sammenlignet med andre språk** – Utforsk norskens plass i språkfamilien
+- **4.3 Nynorsk og bokmål** – Se hvordan de norske målformene former identitet
+- **4.4 Språkmangfold i Norge** – Forstå dialekters og minoritetsspråks rolle for identitet
+- **3.1 Flerkulturell litteratur** – Les tekster om språk og identitet i praksis`,
     },
   ],
   exercises: [],
@@ -403,6 +459,18 @@ Norsk er ikke et isolert språk - det er en del av en stor språkfamilie og har 
 
 **Språk er i stadig endring:**
 Norsk er et levende språk som stadig påvirkes av andre språk og kulturer. Dette er ikke noe nytt - det har skjedd gjennom hele språkhistorien.`,
+    },
+    {
+      id: 'norsk-vg1-4-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Språkfamilie** | Gruppe av beslektede språk med felles opphav |
+| **Germanske språk** | Språkgruppe som inkluderer norsk, engelsk, tysk |
+| **Kognat** | Ord i ulike språk med felles historisk opphav |
+| **Lånord** | Ord som er lånt inn fra et annet språk |
+| **Nabospråkforståelse** | Evne til å forstå nærslektede språk |`,
     },
     {
       id: 'norsk-vg1-4-2-def-1',
@@ -460,6 +528,7 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
         solution: 'Kognater viser den felles opprinnelsen til germanske språk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -480,6 +549,7 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
         solution: 'Norsk tilhører de nordgermanske (skandinaviske) språkene, sammen med svensk, dansk, islandsk og færøysk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -545,6 +615,7 @@ Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker 
         solution: 'Nabospråkforståelse krever litt øvelse, men er mulig fordi språkene er nært beslektet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -572,6 +643,7 @@ Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker 
         solution: 'Falske venner viser at selv nært beslektede språk kan ha viktige forskjeller.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -624,6 +696,7 @@ Mange engelske lånord tilpasses norsk:
         solution: 'Eksempler: software/programvare, design/utforming, deadline/tidsfrist, feedback/tilbakemelding, workshop/verksted, mail/e-post, cool/kul, team/lag, highlights/høydepunkter, content/innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -644,6 +717,7 @@ Mange engelske lånord tilpasses norsk:
         solution: 'Lavtysk (nedertysk) ga svært mange lånord til norsk i hansatiden. Ord som arbeid, billig, prøve, flink og handle kommer fra lavtysk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -763,6 +837,7 @@ Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "windo
         solution: 'Alle disse ordene har skandinavisk/norrønt opphav og er lånt inn i andre språk: ski (norrønt skíð), ombudsman (svensk/norsk), fjord (norrønt fjǫrðr), ransake (norrønt rannsaka), slalom (norsk sla + lom = skrånende spor). Dette viser at språkpåvirkning går begge veier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -820,6 +895,7 @@ De skandinaviske språkene er svært like i struktur. Engelsk har en del forskje
         solution: 'En god drøfting bør inneholde: 1) Historisk perspektiv - norsk har alltid tatt opp lånord 2) Argumenter for: språklig rikdom, kommunikasjon, naturlig utvikling 3) Argumenter mot: tap av norske ord, forståelsesproblemer, kulturell identitet 4) Et nyansert standpunkt som viser refleksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -852,6 +928,7 @@ De skandinaviske språkene er svært like i struktur. Engelsk har en del forskje
         solution: 'Intervjuet gir innsikt i hvordan norsk oppleves utenfra og belyser flerspråklighet i praksis.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -871,7 +948,39 @@ De skandinaviske språkene er svært like i struktur. Engelsk har en del forskje
         solution: 'Prosjektet bør vise systematisk sammenligning med konkrete eksempler. Tabellen bør inneholde minst 5-10 ord/uttrykk med analyse av likheter og forskjeller. Konklusjonen bør reflektere over hva sammenligningen viser om skandinavisk språkfellesskap.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
+    },
+    {
+      id: 'norsk-vg1-4-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Germanske språk:** Språkfamilien norsk tilhører, sammen med svensk, dansk, engelsk og tysk
+- **Nordgermansk:** Undergruppen med de skandinaviske språkene (norsk, svensk, dansk, islandsk, færøysk)
+- **Kognater:** Beslektede ord i ulike språk med felles opphav (hus/house/Haus)
+- **Nabospråkforståelse:** At skandinaver kan forstå hverandres språk uten oversettelse
+- **Lånord:** Ord som er tatt inn fra andre språk (f.eks. fra lavtysk, fransk, engelsk)
+
+**Det viktigste å huske:**
+1. Norsk tilhører de nordgermanske (skandinaviske) språkene og er nærmest beslektet med svensk og dansk
+2. Skandinavisk nabospråkforståelse er unik i verden - vi forstår hverandre uten å ha lært språkene formelt
+3. Norsk har gjennom historien blitt påvirket av mange språk: norrønt, lavtysk, dansk, engelsk
+
+**Kompetansemål dette kapittelet dekker:**
+- Gjøre rede for utvikling og variasjon i norsk språk
+- Reflektere over sammenhengen mellom språk, kultur og identitet`,
+    },
+    {
+      id: 'norsk-vg1-4-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **4.1 Språk og identitet** – Forstå hvordan språk former identitet
+- **4.3 Nynorsk og bokmål** – Utforsk de norske målformene i dybden
+- **4.4 Språkmangfold i Norge** – Se på dialekter og minoritetsspråk
+- **4.5 Språk i endring** – Følg språkutviklingen fra norrønt til i dag`,
     },
   ],
   exercises: [],
@@ -911,6 +1020,21 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Interaktive (kommentarer, delinger)
 - Flytende (kan endres, slettes, deles)
 - Målbare (likes, visninger, rekkevidde)`,
+    },
+    {
+      id: 'norsk-vg1-6-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Digitale tekster** | Tekster som lages og leses på digitale plattformer |
+| **Sosiale medier** | Plattformer for deling og kommunikasjon |
+| **Interaktivitet** | Mulighet for brukere å delta og respondere |
+| **Viralitet** | Når innhold spres raskt og bredt på nett |
+| **Algoritme** | Program som bestemmer hva du ser |
+| **Personvern** | Retten til å kontrollere egen informasjon |
+| **Digital kompetanse** | Evne til å bruke digitale verktøy kritisk |
+| **Nettvett** | Bevissthet om sikkerhet og etikk på nett |`,
     },
     {
       id: 'norsk-vg1-6-3-def-1',
@@ -1018,6 +1142,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Analyse av digitale tekster krever oppmerksomhet på flere lag av mening.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1050,6 +1175,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Bevissthet om egen mediebruk er første steg mot kritisk forbruk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1065,6 +1191,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Den sammensatte teksten skal vise bevisst bruk av modaliteter og retoriske virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1080,6 +1207,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Sammenligningen bør vise forståelse for ulike sjangerkrav og medieplattformers egenart.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1095,6 +1223,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Kronikken skal kombinere personlig engasjement med saklig argumentasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1115,6 +1244,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Algoritme er ikke en modalitet, men en teknisk mekanisme som styrer hvilke tekster vi ser. Modaliteter er uttrykksmåter som verbalspråk, visuell, auditiv og kinestetisk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1135,6 +1265,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'En filterboble oppstår når algoritmer viser deg innhold som ligner det du allerede har vist interesse for, noe som kan gi et ensidig bilde av virkeligheten.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1150,6 +1281,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Oppgaven tester evnen til både å produsere og analysere multimodale tekster. Analysen bør bruke fagbegreper som forsterkning, utfylling og kontrast.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1165,6 +1297,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Sammenligningen bør vise hvordan ulike plattformer har ulike sjangerkrav, ulik bruk av modaliteter og ulikt forhold til tid og rom. Nettaviser kan gå mer i dybden, TV bruker levende bilder, sosiale medier er korte og deler ofte bare overskrifter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1184,6 +1317,7 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Essayet bør drøfte hvordan AI utfordrer tradisjonell kildekritikk, hva det betyr at tekster kan genereres automatisk, og hvorfor digital kompetanse blir enda viktigere i en tid med AI.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1203,11 +1337,43 @@ Innlegget fremstår personlig, men er i realiteten markedsføring. Samspillet me
         solution: 'Analysen bør vise evne til å gjennomskue kommersielle budskap i tilsynelatende personlig innhold. Den bør drøfte etos-bygging, følelsesappell og forholdet mellom autentisitet og markedsføring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
+    },
+    {
+      id: 'norsk-vg1-6-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Digitale tekster:** Tekster som produseres og distribueres digitalt, ofte med interaktive elementer
+- **Sosiale medier:** Plattformer for deling av innhold og kommunikasjon (Instagram, TikTok, Snapchat)
+- **Algoritmer:** Systemer som styrer hva vi ser i sosiale medier basert på våre handlinger
+- **Digital identitet:** Hvordan vi presenterer oss selv på nett
+- **Clickbait:** Overskrifter designet for å lokke til klikk, ofte villedende
+- **Influencer:** Person som påvirker følgere gjennom innhold i sosiale medier
+
+**Det viktigste å huske:**
+1. Sosiale medier er sammensatte tekster som kombinerer tekst, bilde, video og interaksjon
+2. Algoritmer påvirker hva vi ser - vi må være kritiske til hvordan informasjon filtreres
+3. Grensen mellom personlig innhold og reklame er ofte uklar i sosiale medier
+
+**Kompetansemål dette kapittelet dekker:**
+- Analysere og produsere sammensatte tekster i digitale medier`,
+    },
+    {
+      id: 'norsk-vg1-6-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **6.1 Sammensatte tekster** – Grunnleggende om multimodale tekster
+- **6.2 Film som tekst** – Analyser visuell fortelling i bevegelige bilder
+- **6.4 Kildekritikk og falske nyheter** – Vær kritisk til innhold i sosiale medier`,
     },
   ],
   exercises: [],
 };
+
 // ============================================================================
 // KAPITTEL 5.3: Fagartikkel
 // ============================================================================
@@ -1241,6 +1407,21 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
 - Akademisk skriving
 - Populærvitenskapelig formidling
 - Rapporter og utredninger`,
+    },
+    {
+      id: 'norsk-vg1-5-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Fagartikkel** | Saklig, informerende tekst om et avgrenset tema |
+| **Problemstilling** | Spørsmålet eller temaet artikkelen undersøker |
+| **Avsnitt** | Del av teksten som handler om ett poeng |
+| **Kildebruk** | Å referere til andre tekster som støtte |
+| **Sitat** | Direkte gjengivelse av andres ord |
+| **Parafrase** | Å gjengi innhold med egne ord |
+| **Kildeliste** | Oversikt over kilder brukt i teksten |
+| **Populærvitenskapelig** | Fagstoff tilpasset allmennheten |`,
     },
     {
       id: 'norsk-vg1-5-3-def-1',
@@ -1370,6 +1551,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'En god problemstilling er avgrenset, undersøkbar og nøytral.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1402,6 +1584,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'God planlegging er halve jobben med en fagartikkel.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1417,6 +1600,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Innledningen skal gi leseren en klar forventning om hva som kommer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1432,6 +1616,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Fagartikkelen vurderes etter struktur, innhold, kildebruk og språk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1447,6 +1632,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Responsarbeid er en viktig del av skriveprosessen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1467,6 +1653,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Fagartikkelen følger en klar struktur: innledning (presenterer tema og problemstilling), hoveddel (systematisk gjennomgang), avslutning (oppsummering og svar), og kildeliste.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1487,6 +1674,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Godt fagspråk er saklig, presist og tilpasset målgruppen. Fagtermer skal forklares første gang de brukes, og tonen skal være nøytral.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1506,6 +1694,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Innledningen skal fange interesse, presentere tema og problemstilling, og avgrense hva artikkelen skal handle om. Den bør gi leseren en tydelig forventning om innholdet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1525,6 +1714,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Et forbedret avsnitt kan være: "Romantikken (ca. 1800-1850) var en litterær epoke preget av naturdyrking, nasjonalisme og fokus på følelser. Henrik Wergeland var en sentral skikkelse i norsk romantikk, kjent for sin nasjonalromantiske lyrikk. I diktene sine uttrykker Wergeland kjærlighet til fedrelandet og naturen, noe som var typisk for epokens idealer."',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1545,6 +1735,7 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Fagartikkelen vurderes etter: tydelig problemstilling, logisk struktur, saklig og presist språk, korrekt kildebruk og kildeliste, samt faglig innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1564,7 +1755,39 @@ En fagartikkel er en saklig, informerende tekst som formidler kunnskap om et avg
         solution: 'Kameratvurdering er en viktig del av skriveprosessen. En god tilbakemelding er konkret, konstruktiv og basert på tydelige kriterier. Å revidere teksten basert på tilbakemelding viser evne til å forbedre eget arbeid.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Fagartikkel:** Saklig tekst som utforsker et emne grundig med kildebruk
+- **Problemstilling:** Spørsmålet eller temaet fagartikkelen undersøker
+- **IMRaD-struktur:** Innledning, Metode, Resultat og Diskusjon - vanlig i akademiske tekster
+- **Kildehenvisning:** Å referere til kilder både i teksten og i kildeliste
+- **Drøfting:** Å belyse en sak fra flere sider, veie argumenter mot hverandre
+
+**Det viktigste å huske:**
+1. En fagartikkel har tydelig struktur: innledning, hoveddel og avslutning med kildeliste
+2. Bruk fagspråk og objektiv tone - unngå personlige meninger uten belegg
+3. Kildebruk styrker troverdigheten og viser at du bygger på eksisterende kunnskap
+
+**Kompetansemål dette kapittelet dekker:**
+- Skrive fagartikler som greier ut og drøfter
+- Bruke kilder kritisk og etterrettelig`,
+    },
+    {
+      id: 'norsk-vg1-5-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.2 Sakprosa og kildebruk** – Grunnleggende om kildebruk og kildehenvisning
+- **5.4 Skriveprosess og revisjon** – Utvikle fagartikkelen gjennom revisjon
+- **5.5 Tolkende og analyserende tekst** – Skriv analyser i fagartikkelformat
+- **8.2 Tekstbinding og sammenheng** – Skriv tekster med god flyt`,
     },
   ],
   exercises: [],
@@ -1601,6 +1824,21 @@ Norge har to offisielle skriftspråk: bokmål og nynorsk. Begge er fullverdige s
 
 **Hvorfor to målformer?**
 De to målformene representerer ulike tradisjoner og verdier i norsk språkhistorie, og begge har sin plass i det norske samfunnet.`,
+    },
+    {
+      id: 'norsk-vg1-4-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Bokmål** | Norsk skriftspråk basert på dansk-norsk tradisjon |
+| **Nynorsk** | Norsk skriftspråk bygget på norske dialekter |
+| **Hovedmål** | Elevens primære skriftspråk |
+| **Sidemål** | Den andre målformen eleven lærer |
+| **Språkrådet** | Offentlig organ for norsk språkpolitikk |
+| **Mållov** | Lov som regulerer bruk av bokmål og nynorsk |
+| **Språknøytral** | Kommune uten vedtatt målform |
+| **Skriftnormal** | Offisiell rettskrivning for en målform |`,
     },
     {
       id: 'norsk-vg1-4-3-def-1',
@@ -1754,6 +1992,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Nynorsk har andre ordformer og verbendelser enn bokmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1785,6 +2024,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Sterke verb har vokalendring, svake verb får -a i preteritum.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1800,6 +2040,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Teksten skal vise at du behersker grunnleggende nynorsk grammatikk og ordforråd.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1815,6 +2056,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Nynorsk litteratur har en rik tradisjon. Språket kan virke annerledes, men formidler de samme følelsene og ideene som bokmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1830,6 +2072,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Sammenligningen skal vise forståelse for de systematiske forskjellene mellom målformene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1850,6 +2093,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Riktig nynorsk: "Eg veit ikkje kva som hende." Nynorsk bruker eg (ikke jeg), veit (ikke vet), ikkje (ikke ikke), kva (ikke hva) og hende (ikke hendte).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1870,6 +2114,7 @@ Samsvarsbøying i nynorsk:
         solution: 'I nynorsk ender svake verb konsekvent på -a i preteritum (kasta, hoppa, snakka), mens bokmål har valgfrihet mellom -et og -a (kastet/kasta).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1885,6 +2130,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Diktet skildrer nordmannen i den norske naturen og uttrykker stolthet over det norske. Aasen bruker sitt nynorske språk til å vise at folkespråket har litterær verdi. Diktet er nasjonalromantisk i sitt fokus på natur, folk og nasjonal identitet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1900,6 +2146,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Oversettelsen vil vise systematiske forskjeller mellom målformene. Teksten kan miste noe av sin opprinnelige tone og klang i oversettelsen, noe som illustrerer at språkvalg påvirker leseopplevelsen. Vinjes nynorsk gir teksten en nærhet til talespråket som kan gå tapt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1915,6 +2162,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Garborgs tekst viser nynorsk i bruk i en realistisk roman. Nynorske trekk inkluderer a-infinitiv, spesifikke ordformer og uttrykksmåter. Tematisk handler utdraget om spenningen mellom by og bygd, mellom bondekulturen og bykulturen - et tema som er tett knyttet til selve målstriden.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1934,6 +2182,7 @@ Samsvarsbøying i nynorsk:
         solution: 'Essayet vurderes etter nynorsk språkføring, innhold og evne til refleksjon. Det bør vise forståelse for sammenhengen mellom språk og identitet, med eksempler fra eget liv og fra norsk språkhistorie.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1953,7 +2202,39 @@ Samsvarsbøying i nynorsk:
         solution: 'Sammenligningen bør vise at moderne nynorsk har gjennomgått mange reformer siden Aasens tid. Skrivemåten er modernisert, noen arkaiske former er fjernet, og språket har tatt opp flere lånord. Kjernetrekkene - a-infinitiv, spesifikke ordformer og nærheten til dialektene - er imidlertid bevart.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-4-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Bokmål:** Skriftspråk med røtter i dansk, brukt av ca. 85% av befolkningen
+- **Nynorsk:** Skriftspråk basert på norske dialekter, skapt av Ivar Aasen
+- **Samnorsk:** Mislykkede forsøk på å slå sammen bokmål og nynorsk
+- **Målstrid:** Den pågående debatten om de to norske skriftspråkene
+- **Sidemål:** Det skriftspråket som ikke er ditt hovedmål
+
+**Det viktigste å huske:**
+1. Ivar Aasen skapte landsmål (nynorsk) ved å samle inn dialekter fra hele landet
+2. Bokmål utviklet seg fra dansk-norsk skriftspråk gjennom gradvise fornorskinger
+3. Begge målformer er likestilte og har offisiell status i Norge
+
+**Kompetansemål dette kapittelet dekker:**
+- Skrive tekster på hovedmål og sidemål
+- Gjøre rede for utvikling og variasjon i norsk språk`,
+    },
+    {
+      id: 'norsk-vg1-4-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **4.1 Språk og identitet** – Forstå målformenes rolle for identitet
+- **4.4 Språkmangfold i Norge** – Se nynorsk i sammenheng med dialekter
+- **4.5 Språk i endring** – Følg målformenes utvikling over tid
+- **8.4 Rettskriving nynorsk** – Praktiske skriveregler for nynorsk`,
     },
   ],
   exercises: [],
@@ -1991,6 +2272,21 @@ Norge har et rikt språkmangfold. I tillegg til bokmål og nynorsk har vi dialek
 
 **Hvorfor er språkmangfold viktig?**
 Språk er knyttet til identitet, kultur og tilhørighet. Et samfunn som respekterer språkmangfold, respekterer også menneskene som snakker disse språkene.`,
+    },
+    {
+      id: 'norsk-vg1-4-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Språkmangfold** | Variasjonen av språk i et samfunn |
+| **Dialekt** | Geografisk variasjon av et språk |
+| **Minoritetsspråk** | Språk som snakkes av en minoritet |
+| **Tegnspråk** | Visuelt språk brukt av døve |
+| **Flerspråklighet** | Å beherske flere språk |
+| **Morsmål** | Språket man lærer først |
+| **Språkdød** | Når et språk ikke lenger brukes |
+| **Språkbevaring** | Arbeid for å bevare truede språk |`,
     },
     {
       id: 'norsk-vg1-4-4-def-1',
@@ -2102,6 +2398,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'a) Østnorsk, b) Trøndersk, c) Vestnorsk',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2117,6 +2414,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Beskrivelsen bør inkludere konkrete eksempler på særtrekk ved talemålet ditt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2132,6 +2430,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Fornorskingspolitikken førte til at mange mistet morsmålet sitt. I dag arbeides det med revitalisering av samiske språk og kvensk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2147,6 +2446,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Dette er en debatt med gode argumenter på begge sider. Noen mener dialekter er viktig kulturarv, andre mener språkendring er naturlig og uunngåelig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2162,6 +2462,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Intervjuet skal vise forståelse for dialektforskjeller og respekt for språklig variasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2182,6 +2483,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'De fire hoveddialektområdene i Norge er østnorsk, vestnorsk, trøndersk og nordnorsk. Hver av disse har egne kjennetegn i uttale, ordvalg og grammatikk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2202,6 +2504,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Det finnes tre samiske språk i Norge: nordsamisk (flest talere), lulesamisk og sørsamisk. De er egne språk, ikke dialekter av hverandre eller av finsk. Samiske språk ble undertrykt gjennom fornorskingspolitikken fra ca. 1850 til 1960-tallet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2221,6 +2524,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Oppgaven trener evnen til å observere og beskrive eget talemål med faglige begreper. Beskrivelsen bør inkludere konkrete eksempler og bruke termer som dialekt, uttale, ordvalg og grammatiske trekk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2240,6 +2544,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Rapporten bør gi faktainformasjon om det valgte språket, dets historie i Norge, nåværende status og tiltak for bevaring. Gode kilder inkluderer Språkrådet, SNL og organisasjonenes egne nettsider.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2259,6 +2564,7 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Essayet bør drøfte språklige rettigheter som en del av demokratiet, med eksempler fra norsk kontekst. Det bør vise forståelse for spenningen mellom praktiske hensyn og individuelle rettigheter, og reflektere over statens ansvar for språkmangfold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2278,7 +2584,39 @@ Folk har ulike holdninger til språkvarianter. Noen ser på dialekter og sosiole
         solution: 'Rapporten bør vise at Norge har større dialektaksept enn Danmark og Sverige, der standardspråk er mer dominerende. Alle tre land har minoritetsspråk, men politikken varierer. Norge er unikt med to offisielle skriftspråk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
+    },
+    {
+      id: 'norsk-vg1-4-4-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Minoritetsspråk:** Språk som snakkes av en minoritet (samisk, kvensk, romani)
+- **Urfolksspråk:** Språk som tilhører et lands urfolk (samisk i Norge)
+- **Nasjonale minoriteter:** Grupper med lang tilknytning til landet (kvener, romanifolk, skogfinner)
+- **Flerspråklighet:** Å kunne bruke flere språk aktivt
+- **Språklige rettigheter:** Retten til å bruke og lære sitt eget språk
+
+**Det viktigste å huske:**
+1. Norge har stor språklig variasjon med dialekter, to skriftspråk og flere minoritetsspråk
+2. Samisk, kvensk og romani har offisiell status som minoritetsspråk
+3. Fornorskingspolitikken påførte stor skade på minoritetsspråkene, men arbeidet med revitalisering pågår
+
+**Kompetansemål dette kapittelet dekker:**
+- Reflektere over språklig mangfold i Norge
+- Gjøre rede for utvikling og variasjon i norsk språk`,
+    },
+    {
+      id: 'norsk-vg1-4-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **4.1 Språk og identitet** – Forstå dialekters betydning for identitet
+- **4.3 Nynorsk og bokmål** – Se målformene i sammenheng med dialektene
+- **7.1 De samiske språkene** – Lær om Norges urfolksspråk
+- **7.4 Nasjonale minoriteter** – Utforsk andre minoritetsspråk i Norge`,
     },
   ],
   exercises: [],
@@ -2318,6 +2656,21 @@ Alle levende språk endrer seg. Norsk i dag er annerledes enn norsk for 100 år 
 - **Grammatisk endring:** Bøyninger og setningsbygning endres
 - **Ordforrådsendring:** Nye ord kommer til, gamle forsvinner
 - **Betydningsendring:** Ord får ny betydning`,
+    },
+    {
+      id: 'norsk-vg1-4-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Språkendring** | At et språk forandres over tid |
+| **Lånord** | Ord som er tatt opp fra et annet språk |
+| **Nyord** | Helt nytt ord som oppstår i språket |
+| **Språknormering** | Fastsetting av offisielle skriveregler |
+| **Fornorsking** | Å tilpasse lånord til norsk skrivemåte |
+| **Purisme** | Ønske om å bevare språket "rent" |
+| **Anglisisme** | Engelsk påvirkning på norsk |
+| **Språkpolitikk** | Offentlige beslutninger om språk |`,
     },
     {
       id: 'norsk-vg1-4-5-def-1',
@@ -2484,6 +2837,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Eksempler: poste, streame, influenser, liken, ghoste. Norske alternativer kan være: legge ut, strømme, påvirker, like/gille, forsvinne fra.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2499,6 +2853,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Du vil sannsynligvis finne forskjeller i formelt vs. uformelt språk, ordvalg, og engelske lånord.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2514,6 +2869,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Dette er et debattspørsmål. Noen mener at for mye engelsk truer norsk språk, andre mener at lånord er en naturlig del av språkutvikling og ikke problematisk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2529,6 +2885,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Kreativ oppgave. Eksempler: "livestrømming" for livestream, "nettprater" for influencer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2544,6 +2901,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Intervjuet viser hvordan ordforrådet endres mellom generasjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2564,6 +2922,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Når et ord beholder sin form men endrer betydning, kalles det en betydningsendring eller semantisk endring. "Dust" er et klassisk eksempel - fra positiv til negativ betydning.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2584,6 +2943,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Norsk har fått lånord fra mange språk, men de viktigste er tysk (gjennom hanseatene i middelalderen), fransk (gjennom kulturell påvirkning på 1700-1800-tallet) og engelsk (gjennom media, teknologi og populærkultur fra 1900-tallet).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2603,6 +2963,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Sammenligningen bør vise en gradvis fornorsking fra Holbergs rene dansk-norsk via Wergelands mer personlige og delvis fornorskede stil til Bjørnsons tydeligere norske preg. Konkrete endringer inkluderer overgang fra store til små forbokstaver, enklere verbformer, og mer norske ordvalg.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2622,6 +2983,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Oppgaven viser at engelske lånord tilpasses norsk grammatikk i ulik grad. Noen ord får norsk bøyning (å google - googler - googlet), andre brukes uendret (cool, nice), og noen har norske alternativer som sjelden brukes (streame/strømme). Mønsteret viser at norsk er et levende språk som aktivt integrerer nye ord.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2642,6 +3004,7 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Essayet bør drøfte begge sider: Bekymringer om domenetap (at norsk mister terreng i akademia, næringsliv og ungdomskultur) og motargumenter (norsk har overlevd tidligere påvirkning, språkpolitikk beskytter, de fleste bruker norsk i hverdagen). Gode essays viser historisk perspektiv og nyansert drøfting.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -2662,7 +3025,38 @@ Betydningsendring er en naturlig del av språkutviklingen. Ord kan få mer posit
         solution: 'Prosjektet bør vise systematisk innsamling og kategorisering. Drøftingen bør vurdere om sosiale medier-språk er en ny sjanger snarere enn en trussel, og at ungdom veksler mellom dette og formelt språk (kodeveksling). Historisk perspektiv: ungdomsspråk har alltid vært annerledes enn standardspråk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
+    },
+    {
+      id: 'norsk-vg1-4-5-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Språkendring:** Naturlig utvikling av språk over tid i ordforråd, grammatikk og uttale
+- **Lånord:** Ord som er tatt inn fra andre språk (f.eks. engelske lånord i norsk)
+- **Språknormering:** Bevisst styring av språkutvikling gjennom regler og ordlister
+- **Språklig konservatisme:** Motstand mot språkendringer
+- **Språkrådet:** Norges offisielle organ for språknormering og språkrådgivning
+
+**Det viktigste å huske:**
+1. Språk er i konstant endring - det er en naturlig del av språkets liv
+2. Endringene skjer i ordforråd (lettest å se), grammatikk og uttale
+3. Påvirkning fra andre språk (nå særlig engelsk) har alltid vært del av norsk språkhistorie
+
+**Kompetansemål dette kapittelet dekker:**
+- Gjøre rede for utvikling og variasjon i norsk språk`,
+    },
+    {
+      id: 'norsk-vg1-4-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **4.1 Språk og identitet** – Forstå hvordan språkendring påvirker identitet
+- **4.2 Norsk sammenlignet med andre språk** – Se norskens historiske utvikling
+- **4.3 Nynorsk og bokmål** – Følg målformenes reformhistorie
+- **4.4 Språkmangfold i Norge** – Se endring i sammenheng med variasjon`,
     },
   ],
   exercises: [],

@@ -57,6 +57,21 @@ I dag bruker vi retorikk i mange sammenhenger:
 - For å delta aktivt i demokratiske prosesser`,
     },
     {
+      id: 'norsk-vg1-1-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Retorikk** | Læren om talekunst og overtalelse |
+| **Etos** | Appell til avsenderens troverdighet |
+| **Patos** | Appell til mottakerens følelser |
+| **Logos** | Appell til logikk og fornuft |
+| **Kairos** | Å si rett ting til rett tid |
+| **Retorisk spørsmål** | Spørsmål man ikke forventer svar på |
+| **Argumentasjon** | Å begrunne et synspunkt med argumenter |
+| **Metafor** | Billedlig språk, sammenligning uten "som" |`,
+    },
+    {
       id: 'norsk-vg1-1-1-def-1',
       type: 'definition',
       title: 'De retoriske appellformene',
@@ -153,6 +168,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'a) Logos, b) Etos, c) Patos',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -185,6 +201,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'King bruker gjentakelse, metaforer og kontraster for å skape et kraftfullt budskap.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -200,6 +217,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'En god retorisk analyse identifiserer appellformene, gir eksempler fra teksten, og vurderer hvor effektiv argumentasjonen er.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -232,6 +250,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Et godt debattinnlegg kombinerer alle tre appellformer på en naturlig måte.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -247,6 +266,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Sammenligningen bør vise forståelse for hvordan ulike retoriske valg påvirker effekten av argumentasjonen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -268,6 +288,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Retorikk handler primært om å overbevise og påvirke - det er kunsten å overbevise.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -284,6 +305,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Etos handler om avsenderens troverdighet - å vise til egen erfaring er en typisk etos-strategi.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -299,6 +321,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Bjørnson bruker typiske retoriske virkemidler som gjentakelse for å forsterke budskapet, kontraster for å understreke poenger, og appellerer til nasjonalfølelse (patos).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -318,6 +341,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Reklame bruker ofte en kombinasjon av appellformer, med hovedvekt på patos for å skape et ønske.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -333,6 +357,7 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Analysen skal demonstrere evne til systematisk bruk av retoriske fagbegreper i en sammenhengende tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -348,7 +373,38 @@ I dag bruker vi retorikk i mange sammenhenger:
         solution: 'Sammenligningen bør vise forståelse for hvordan retorikk tilpasses tid, kontekst og medium.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
+    },
+    {
+      id: 'norsk-vg1-1-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Retorikk:** Kunsten å overbevise gjennom språket, med opprinnelse i antikkens Hellas
+- **Etos:** Appellform som handler om avsenderens troverdighet og karakter
+- **Patos:** Appellform som appellerer til mottakerens følelser
+- **Logos:** Appellform som bruker logikk, fakta og fornuft
+- **Kairos:** Å si rett ting til rett tid - betydningen av timing og kontekst
+- **Retoriske virkemidler:** Språklige grep som retoriske spørsmål, gjentakelse, kontraster og metaforer
+
+**Det viktigste å huske:**
+1. En god argumenterende tekst kombinerer etos, patos og logos på en balansert måte
+2. Retoriske virkemidler forsterker budskapet og gjør teksten mer overbevisende
+3. Retorisk analyse handler om å identifisere hvordan en tekst forsøker å påvirke mottakeren
+
+**Kompetansemål dette kapittelet dekker:**
+- Bruke retoriske appellformer og virkemidler i egen skriving og analyse`,
+    },
+    {
+      id: 'norsk-vg1-1-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.3 Debattinnlegg og meningsytring** – Bruk retoriske virkemidler i egen argumentasjon
+- **1.5 Retorisk analyse** – Fordyp deg i systematisk analyse av taler og tekster
+- **5.3 Fagartikkel** – Bruk logos og faglig argumentasjon i akademisk skriving`,
     },
   ],
   exercises: [],
@@ -387,6 +443,21 @@ Sakprosa er tekster som formidler informasjon, kunnskap eller meninger - ikke fi
 - Viser at du bygger på etablert kunnskap
 - Gjør det mulig for leseren å sjekke påstandene
 - Unngår plagiat`,
+    },
+    {
+      id: 'norsk-vg1-1-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Sakprosa** | Tekster som formidler informasjon, kunnskap eller meninger |
+| **Primærkilde** | Originale dokumenter, førstehåndsberetninger |
+| **Sekundærkilde** | Tekster som tolker eller bearbeider primærkilder |
+| **Kildekritikk** | Å vurdere om en kilde er pålitelig og relevant |
+| **TRAFO-modellen** | Modell for kildekritikk: Troverdighet, Relevans, Aktualitet, Formål, Objektivitet |
+| **Plagiat** | Å utgi andres arbeid som sitt eget uten kildehenvisning |
+| **Parafrasering** | Å gjengi innhold med egne ord |
+| **Kildehenvisning** | Henvisning til hvor informasjonen kommer fra |`,
     },
     {
       id: 'norsk-vg1-1-2-def-1',
@@ -518,6 +589,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Kildevurdering krever at du ser på hvem som står bak, hva formålet er, og hvor oppdatert informasjonen er.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -540,6 +612,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Parafrasering innebærer å gjengi innholdet med egne ord, men likevel oppgi kilden.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -572,6 +645,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Kildesammenligning viser kritisk tenkning og evne til å vurdere informasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -587,6 +661,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Teksten skal demonstrere korrekt bruk av kilder og kildehenvisninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -602,6 +677,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Plagiat er å fremstille andres arbeid som sitt eget. Korrekt kildebruk innebærer å oppgi hvor informasjonen kommer fra.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -623,6 +699,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Et debattinnlegg er subjektiv sakprosa fordi det uttrykker forfatterens personlige mening og argumentasjon.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -644,6 +721,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'T i TRAFO står for Troverdighet - hvem står bak kilden, og har de kompetanse på området?',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -659,6 +737,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Collett bruker forordet som en sakprosa-sjanger for å argumentere for kvinners rett til å uttrykke seg og velge fritt. Hun henvender seg til et dannet borgerlig publikum og bruker både patos og logos.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -678,6 +757,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Sammenligningen bør vise forståelse for hvordan språkdebatten har utviklet seg fra Aasens tid til i dag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -693,6 +773,7 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Teksten skal demonstrere evne til å finne, vurdere og bruke kilder i en sammenhengende faglig tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -708,7 +789,38 @@ Forfatter, F. (År). Tittel på artikkel. *Tidsskrift*, volum(nummer), sider.`,
         solution: 'Evalueringen skal vise avansert kildekritisk kompetanse og evne til å vurdere og rangere kilder systematisk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
+    },
+    {
+      id: 'norsk-vg1-1-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Sakprosa:** Tekster som formidler informasjon, kunnskap eller meninger - ikke fiksjon
+- **Primærkilde:** Originale dokumenter, forskning eller øyenvitneskildringer
+- **Sekundærkilde:** Tekster som bearbeider og tolker primærkilder
+- **TRAFO-modellen:** Verktøy for kildekritikk - Troverdighet, Relevans, Aktualitet, Formål, Objektivitet
+- **Kildehenvisning:** Å oppgi hvor informasjonen kommer fra, både i teksten og i kildeliste
+- **Parafrasering:** Å gjengi innholdet fra en kilde med egne ord
+
+**Det viktigste å huske:**
+1. Alle påstander i en tekst bør kunne dokumenteres med kilder
+2. TRAFO-modellen hjelper deg å vurdere om en kilde er pålitelig
+3. Korrekt kildebruk styrker troverdigheten din og unngår plagiat
+
+**Kompetansemål dette kapittelet dekker:**
+- Vurdere og bruke kilder kritisk og etterrettelig`,
+    },
+    {
+      id: 'norsk-vg1-1-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **5.3 Fagartikkel** – Bruk kildehenvisning i akademisk skriving
+- **6.4 Kildekritikk og falske nyheter** – Fordyp deg i kritisk vurdering av kilder
+- **1.4 Kronikk og leserinnlegg** – Bruk kilder i argumenterende tekster`,
     },
   ],
   exercises: [],
@@ -744,6 +856,21 @@ I en demokratisk offentlighet er det viktig at alle kan delta i samfunnsdebatten
 - Trene skriftlig argumentasjon
 
 Selv om begge er meningsytringer, skiller de seg på flere måter.`,
+    },
+    {
+      id: 'norsk-vg1-1-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Kronikk** | Lengre, argumenterende artikkel med faglig tyngde |
+| **Leserinnlegg** | Kortere meningsytring fra lesere i avisen |
+| **Tese** | Hovedpåstanden eller synspunktet du argumenterer for |
+| **Argument** | Begrunnelse som støtter tesen |
+| **Premiss** | Forutsetning som et argument bygger på |
+| **Offentlig ordskifte** | Samfunnsdebatt i mediene |
+| **Opinion** | Den allmenne mening i samfunnet |
+| **Ingress** | Innledende avsnitt som oppsummerer hovedpoenget |`,
     },
     {
       id: 'norsk-vg1-1-4-def-1',
@@ -906,6 +1033,7 @@ Et effektivt leserinnlegg som kombinerer personlig erfaring med fakta. Nyansert 
         solution: 'Kronikken er lengre (4000-8000 tegn mot 1500-3000) og forventes å ha grundigere argumentasjon, gjerne med faglig tyngde.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -927,6 +1055,7 @@ Et effektivt leserinnlegg som kombinerer personlig erfaring med fakta. Nyansert 
         solution: 'En krok er en fengende innledning som fanger leserens oppmerksomhet, for eksempel en provoserende påstand, et retorisk spørsmål eller en personlig historie.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -959,6 +1088,7 @@ Et effektivt leserinnlegg som kombinerer personlig erfaring med fakta. Nyansert 
         solution: 'Ulike kroker appellerer til ulike lesere. Varier mellom personlige, provoserende og spørrende innledninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -996,6 +1126,7 @@ Et effektivt leserinnlegg som kombinerer personlig erfaring med fakta. Nyansert 
         solution: 'Toulmins modell hjelper deg å bygge opp et fullstendig og nyansert argument.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -1057,6 +1188,7 @@ Det begynner med oss.`,
         solution: 'Kronikken følger en klassisk struktur med personlig krok, problemstilling, argumentasjon med fakta, og konkrete forslag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -1108,6 +1240,7 @@ Nå har jeg kjøpt bil. Jeg ville helst sluppet.`,
         solution: 'Innlegget er et godt eksempel på hvordan personlig erfaring kan brukes som utgangspunkt for samfunnskritikk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -1145,6 +1278,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
         solution: 'Teksten skal vise evne til retorisk analyse og refleksjon over debattkulturens grenser og virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     // --- Samleoppgaver ---
@@ -1161,6 +1295,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
         solution: 'Kronikken har lengre setninger, mer faglig språk, flere kilder og et bredere perspektiv. Leserinnlegget er mer personlig, direkte og følelsesladet med kortere setninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -1176,6 +1311,7 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
         solution: 'Innlegget skal ha tydelig struktur, minst ett godt argument med begrunnelse og eksempel, og vise bevisst bruk av appellformer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -1208,7 +1344,17 @@ Dette er et eksempel på provokativ kronikk-stil som fortsatt brukes i dag.`,
         solution: 'Kronikken skal vise evne til grundig argumentasjon, kildebruk og bevisst bruk av retoriske virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
+    },
+    {
+      id: 'norsk-vg1-1-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.1 Retorikk og argumentasjon** – Grunnleggende retoriske begreper og appellformer
+- **1.3 Debattinnlegg og meningsytring** – Kortere og mer spisset argumenterende tekst
+- **1.2 Sakprosa og kildebruk** – Kildebruk og kildehenvisning i sakprosa`,
     },
   ],
   exercises: [],
@@ -1244,6 +1390,21 @@ I kapittel 1.1 lærte du om de grunnleggende appellformene etos, patos og logos.
 - Kritisk lesing av medier og politikk
 
 Retorisk analyse handler ikke bare om å finne virkemidler, men om å forstå hvordan hele kommunikasjonssituasjonen påvirker budskapet.`,
+    },
+    {
+      id: 'norsk-vg1-1-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Retorisk situasjon** | Konteksten som all kommunikasjon skjer i |
+| **Kairos** | Det rette øyeblikket - å si rett ting til rett tid |
+| **Aptum** | At teksten passer til situasjonen og publikum |
+| **Exigence** | Det påtrengende problemet som krever respons |
+| **Publikum** | De som kan påvirkes og handle |
+| **Retoriske vilkår** | Muligheter og begrensninger i situasjonen |
+| **Den retoriske pentagon** | Modell med avsender, mottaker, budskap, kontekst, medium |
+| **Kommunikasjonsmodell** | Modell som viser hvem som sier hva til hvem |`,
     },
     {
       id: 'norsk-vg1-1-5-def-1',
@@ -1313,6 +1474,7 @@ Spør deg selv:
         solution: 'Kairos er gresk og betyr «det rette øyeblikket» - å time budskapet riktig i forhold til kontekst og situasjon.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1361,6 +1523,7 @@ Spør deg selv:
         solution: 'Indre aptum handler om harmoni mellom tekstens ulike deler, mens ytre aptum handler om at teksten passer til situasjonen, mottakeren og anledningen.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1434,6 +1597,7 @@ Spør deg selv:
         solution: 'a) Finne stoff, b) Ordne stoffet, c) Formulere, d) Fremføre',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1568,6 +1732,7 @@ Jeg har en drøm i dag!»`,
         solution: 'King utnyttet det historiske øyeblikket maksimalt ved å forene borgerrettighetskampen med amerikanske kjerneverdier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1634,6 +1799,7 @@ Dere sier at dere hører oss og at dere forstår alvoret. Men uansett hvor trist
         solution: 'Thunbergs stil er et bevisst brudd med konvensjoner som skaper oppmerksomhet, men som også kan være polariserende.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1689,6 +1855,7 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         solution: 'Talen er et eksempel på høy grad av aptum - perfekt tilpasset en ekstremt vanskelig retorisk situasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     // --- Samleoppgaver ---
@@ -1721,6 +1888,7 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         solution: 'Begge er mestere i retorikk, men med helt ulike strategier tilpasset deres situasjon, persona og mål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1753,6 +1921,7 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         solution: 'Øvelsen trener evnen til å anvende retoriske begreper på faktiske tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1773,6 +1942,7 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         solution: 'Analysen skal vise systematisk bruk av retoriske fagbegreper i en sammenhengende, velstrukturert tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -1805,7 +1975,17 @@ Ingen har sagt det bedre enn AUF-jenta som ble intervjuet av CNN: 'Hvis én mann
         solution: 'En god sammenligning viser forståelse for at ulike situasjoner krever ulike retoriske strategier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
+    },
+    {
+      id: 'norsk-vg1-1-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.1 Retorikk og argumentasjon** – Grunnleggende begreper: etos, patos, logos
+- **1.3 Debattinnlegg og meningsytring** – Bruk retoriske virkemidler i egen skriving
+- **5.5 Tolkende og analyserende tekst** – Skriv analyser av retoriske tekster`,
     },
   ],
   exercises: [],
@@ -1840,6 +2020,21 @@ Novellen er en kort, fortellende tekst som skiller seg fra romanen ved sin konse
 - Ofte ett sentralt vendepunkt
 - Konsentrert handling
 - Åpen eller overraskende slutt`,
+    },
+    {
+      id: 'norsk-vg1-2-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Novelle** | Kort, fortellende tekst med konsentrert handling |
+| **Synsvinkel** | Hvem som ser og opplever handlingen i teksten |
+| **Forteller** | Den stemmen som forteller historien |
+| **Vendepunkt** | Det avgjørende øyeblikket der handlingen snur |
+| **Symbol** | Noe konkret som representerer noe abstrakt |
+| **Motiv** | Et gjentakende element som skaper mening |
+| **Tema** | Hovedideen eller det teksten handler om på et dypere plan |
+| **In medias res** | Å begynne midt i handlingen |`,
     },
     {
       id: 'norsk-vg1-2-1-def-1',
@@ -2041,6 +2236,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Analysen skal vise forståelse for minimalistisk stil og demonstrere evne til å tolke undertekst og åpne avslutninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2081,6 +2277,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Sammenligningen skal vise forståelse for hvordan novellesjangeren har utviklet seg, og reflektere over sammenhengen mellom form og historisk kontekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2115,6 +2312,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'a) Jeg-forteller, b) Allvitende, c) Tredjeperson begrenset',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2152,6 +2350,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Spenningskurven viser hvordan novellen bygger opp mot et høydepunkt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2167,6 +2366,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Analysen skal vise forståelse for sjanger, virkemidler, innhold, kontekst og gi en egen tolkning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2182,6 +2382,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Sammenligningen bør vise likheter og forskjeller i form og innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2197,6 +2398,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Åpningen skal fange leserens interesse og starte midt i handlingen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2218,6 +2420,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'En allvitende forteller har innsikt i alle personers tanker og følelser, og kan skifte mellom perspektiver.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2239,6 +2442,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Novellen kjennetegnes av få personer og konsentrert handling. Mange personer og parallelle handlinger er typisk for romanen.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2260,6 +2464,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Analysen skal dekke alle fem punkter i SVIRP-modellen med konkrete teksteksempler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2280,6 +2485,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Analysen bør vise forståelse for Bjørnsons bruk av natur som speil for menneskelige følelser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2299,6 +2505,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Sammenligningen bør vise likheter og forskjeller i to realistiske noveller med beslektet tematikk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2314,6 +2521,7 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Essayet skal vise evne til å sammenligne tekster fra ulike perioder og reflektere over sjangermessig utvikling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2329,7 +2537,18 @@ Den minimalistiske stilen tvinger leseren til å være aktiv. Vi må lese mellom
         solution: 'Novellen skal vise bevisst bruk av virkemidler inspirert av realistiske forfattere, med et tydelig samfunnskritisk budskap.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.4 Romananalyse** – Utvid novellekompetansen til lengre fortellinger
+- **2.5 Litterære virkemidler** – Fordyp deg i fortelleteknikk og virkemidler
+- **5.2 Kreativ skriving** – Skriv egne noveller og kortprosa
+- **3.1 Flerkulturell litteratur** – Utforsk samtidslitteratur med nye perspektiver`,
     },
   ],
   exercises: [],
@@ -2369,6 +2588,21 @@ Lyrikk er en av de eldste litterære sjangrene. Mens prosa forteller, uttrykker 
 - Gir tilgang til andres opplevelser
 - Skaper rom for tolkning og refleksjon
 - Viser språkets musikalitet`,
+    },
+    {
+      id: 'norsk-vg1-2-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Lyrikk** | Sjanger som uttrykker følelser gjennom rytmisk språk |
+| **Strofe** | En gruppe verselinjer i et dikt |
+| **Rim** | Lydlikhet mellom ord, ofte på slutten av linjer |
+| **Metafor** | Skjult sammenligning uten "som" eller "lik" |
+| **Besjeling** | Å gi døde ting menneskelige egenskaper |
+| **Allitterasjon** | Gjentakelse av konsonanter i begynnelsen av ord |
+| **Lyrisk jeg** | Stemmen som taler i diktet |
+| **Versefot** | Grunnenheten i diktets rytme |`,
     },
     {
       id: 'norsk-vg1-2-2-def-1',
@@ -2626,6 +2860,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Begge eksemplene bruker kryssrim (abab).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2657,6 +2892,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'a) Metafor, b) Sammenligning, c) Besjeling',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2672,6 +2908,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Analysen skal dekke både form (rim, rytme, strofer) og innhold (tema, budskap, virkemidler).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2687,6 +2924,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Diktet skal vise bevisst bruk av lyriske virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2702,6 +2940,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Sammenligningen bør vise hvordan litterære konvensjoner og samfunn påvirker diktet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2723,6 +2962,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Kryssrim (abab) betyr at linje 1 rimer på linje 3, og linje 2 rimer på linje 4.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2744,6 +2984,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'En metafor er en skjult sammenligning der noe beskrives som noe annet uten å bruke sammenligningsord som «som» eller «lik». Eksempel: «Livet er en reise».',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2764,6 +3005,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Obstfelders dikt er et nøkkelverk i norsk nyromantikk/tidlig modernisme og uttrykker en følelse av fremmedgjøring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2783,6 +3025,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Sammenligningen viser utviklingen fra romantisk naturbegeistrelse til en mer nyansert og reflekterende naturfremstilling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2798,6 +3041,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Garborgs «Haugtussa» forener nynorsk språk med naturmystikk og folkloristiske elementer. Analysen bør vise forståelse for sammenheng mellom språk, form og innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2813,6 +3057,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Teksten skal vise forståelse for utviklingen fra romantikkens faste former og optimisme til modernismens frie vers og fremmedgjøring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2828,6 +3073,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Essayet skal vise overblikk over norsk litteraturhistorie og evne til å bruke konkrete teksteksempler for å belyse utviklingstrekk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2849,6 +3095,7 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Analysen skal vise forståelse for samtidslyrikkens kjennetegn og evne til å bruke analysebegreper på moderne dikt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2870,7 +3117,17 @@ Selv om diktet er i frie vers, har det fortsatt form:
         solution: 'Teksten skal vise evne til sammenligning på tvers av epoker, bruk av fagbegreper og refleksjon over lyrikkens utvikling.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.5 Litterære virkemidler** – Utforsk billedspråk, symboler og andre virkemidler i dybden
+- **3.3 Samisk litteratur** – Les samisk lyrikk, inkludert joik som poetisk uttrykk
+- **5.2 Kreativ skriving** – Skriv egne dikt og lyriske tekster`,
     },
   ],
   exercises: [],
@@ -2911,6 +3168,21 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
 - **1890-1920:** Psykologisk dybde og strøm av bevissthet (Hamsun)
 - **1900-tallet:** Modernistisk eksperimentering, fragmentering
 - **Samtidsromanen:** Mangfold av stemmer, autofiktive former, globale perspektiver`,
+    },
+    {
+      id: 'norsk-vg1-2-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Roman** | Lang, prosafiktiv fortelling med kompleks handling |
+| **Allvitende forteller** | Forteller som kjenner alle karakterers tanker |
+| **Jeg-forteller** | Forteller som er en karakter i historien |
+| **Upålitelig forteller** | Forteller som gir et skjevt eller ufullstendig bilde |
+| **Tidshopp** | Brudd i kronologien, hopper frem eller tilbake i tid |
+| **Komposisjon** | Hvordan teksten er bygd opp og organisert |
+| **Spenningskurve** | Oppbyggingen av spenning i handlingen |
+| **Episk tekst** | Fortellende tekst (roman, novelle) |`,
     },
     {
       id: 'norsk-vg1-2-4-def-1',
@@ -2979,6 +3251,7 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
         solution: 'a) Jeg-forteller, b) Allvitende, c) Tredjeperson begrenset',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3000,6 +3273,7 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
         solution: 'In medias res (latin for "midt i tingene") betyr at fortellingen starter midt i handlingen, ofte på et dramatisk punkt.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3047,6 +3321,7 @@ Romanen er den dominerende litterære sjangeren i moderne tid. Fra 1800-tallet o
         solution: 'Analysen skal vise forståelse for samspillet mellom romanens form og innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3096,6 +3371,7 @@ Tema er de underliggende ideene eller spørsmålene en roman utforsker. En roman
         solution: 'Tematisk analyse krever at man ser sammenhenger mellom ulike elementer i romanen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3145,6 +3421,7 @@ Tema er de underliggende ideene eller spørsmålene en roman utforsker. En roman
         solution: 'Runde karakterer er komplekse, har flere sider og utvikler seg gjennom fortellingen. Begrepet stammer fra E.M. Forster.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3166,6 +3443,7 @@ Tema er de underliggende ideene eller spørsmålene en roman utforsker. En roman
         solution: 'Karakteranalysen skal vise forståelse for hvordan forfatteren skaper troverdige og interessante karakterer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3239,6 +3517,7 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
         solution: 'Hamsuns jeg-forteller er et tidlig eksempel på modernistisk fortellerteknikk med fokus på det subjektive og irrasjonelle.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3258,6 +3537,7 @@ Romanen regnes som et gjennombrudd for modernismen i Norden - fokus på det irra
         solution: 'Sammenligningen viser utviklingen fra realistisk til modernistisk fortellerteknikk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // --- Samtidsromanen og flerkulturelle stemmer ---
@@ -3416,6 +3696,7 @@ Tittelen spiller på fordommer og viser hvordan det er å vokse opp med blikket 
         solution: 'En fullstendig romananalyse viser evne til å anvende fagbegreper systematisk og gi en sammenhengende tolkning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3431,7 +3712,18 @@ Tittelen spiller på fordommer og viser hvordan det er å vokse opp med blikket 
         solution: 'Sammenligningen skal vise evne til å analysere flere tekster i sammenheng og reflektere over forholdet mellom form og innhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.1 Novelleanalyse** – Grunnleggende fortelleteknikk i kortere format
+- **2.5 Litterære virkemidler** – Fordyp deg i virkemidler brukt i romaner
+- **3.1 Flerkulturell litteratur** – Les romaner med flerkulturelle perspektiver
+- **5.5 Tolkende og analyserende tekst** – Skriv romananalyser`,
     },
   ],
   exercises: [],
@@ -3473,6 +3765,21 @@ Litterære virkemidler er de teknikkene forfattere bruker for å skape effekt, m
 - Ironi i ulike former
 - Intertekstualitet og allusjoner
 - Lydlige og strukturelle virkemidler`,
+    },
+    {
+      id: 'norsk-vg1-2-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Trope** | Samlebetegnelse for billedspråk (metafor, metonymi osv.) |
+| **Metafor** | Skjult sammenligning der noe beskrives som noe annet |
+| **Metonymi** | Erstatte ett ord med et nærstående ord |
+| **Personifikasjon** | Gi livløse ting menneskelige egenskaper |
+| **Symbol** | Noe konkret som representerer noe abstrakt |
+| **Ironi** | Å si det motsatte av det man mener |
+| **Intertekstualitet** | Referanser til andre tekster |
+| **Allusjon** | Hentydning til noe kjent (tekst, hendelse, person) |`,
     },
     {
       id: 'norsk-vg1-2-5-def-1',
@@ -3554,6 +3861,7 @@ Del står for helhet, eller omvendt.
         solution: 'a) Metafor, b) Personifikasjon, c) Sammenligning, d) Metonymi',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3575,6 +3883,7 @@ Del står for helhet, eller omvendt.
         solution: 'Metafor er en skjult sammenligning ("Livet er en reise"), mens sammenligning bruker "som" eller "lik" ("Livet er som en reise").',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3629,6 +3938,7 @@ En utvidet metafor der hele fortellingen representerer noe annet.
         solution: 'Symbolanalyse krever at man ser sammenheng mellom konkrete elementer og abstrakte betydninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3687,6 +3997,7 @@ I "Romeo og Julie" vet publikum at Julie ikke er død, men Romeo tror det.
         solution: 'Dramatisk ironi oppstår når publikum har informasjon karakterene ikke har, noe som skaper spenning og engasjement.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3707,6 +4018,7 @@ I "Romeo og Julie" vet publikum at Julie ikke er død, men Romeo tror det.
         solution: 'Ironi er et kraftfullt verktøy for samfunnskritikk fordi det avslører uten å moralisere direkte.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3761,6 +4073,7 @@ Hentydninger til kjente tekster, myter, historie eller kultur.
         solution: 'Intertekstualitet skaper mening gjennom dialog med andre tekster og kulturell kunnskap.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3836,6 +4149,7 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
         solution: 'Setningene skal vise bevisst bruk av virkemidler med forklaring av hvordan de skaper effekt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     // --- Samleoppgaver ---
@@ -3852,6 +4166,7 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
         solution: 'Teksten skal vise kreativ og bevisst bruk av virkemidler, og analysen skal demonstrere faglig forståelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3867,6 +4182,7 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
         solution: 'Analysen skal vise evne til å identifisere virkemidler og forklare deres funksjon i en sammenhengende tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3882,7 +4198,18 @@ Symbolet binder sammen temaer og karakterer, og gir stykket dybde uten å være 
         solution: 'Sammenligningen skal vise forståelse for ironi som litterært virkemiddel og evne til å analysere forfatterstemmer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.1 Novelleanalyse** – Bruk virkemidler i novelleanalyse
+- **2.2 Lyrikk og diktanalyse** – Bruk virkemidler i diktanalyse
+- **2.3 Drama og teater** – Se virkemidler i dramatisk sammenheng
+- **2.4 Romananalyse** – Bruk virkemidler i romananalyse`,
     },
   ],
   exercises: [],
@@ -3923,6 +4250,21 @@ Grafiske romaner og bildebøker er narrative sjangre der tekst og bilde sammen s
 - Moderne grafisk roman fra 1980-tallet (Art Spiegelman: "Maus")
 - Bildeboka har utviklet seg fra ren barnelitteratur til kunstnerisk uttrykk
 - Norske bidrag: Steffen Kverneland, Jason, Lars Fiske`,
+    },
+    {
+      id: 'norsk-vg1-2-6-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Grafisk roman** | Lengre fortelling i tegneserieformat |
+| **Bildebok** | Bok der tekst og bilde sammen skaper fortellingen |
+| **Panel** | En enkelt rute i en tegneserie |
+| **Renne** | Mellomrommet mellom panelene |
+| **Snakkeboble** | Ramme rundt dialog i tegneserier |
+| **Onomatopoetikon** | Lydmalende ord (bang, splash) |
+| **Ikonotext** | Samspillet mellom tekst og bilde |
+| **Visuell literacy** | Evne til å lese og tolke visuelle uttrykk |`,
     },
     {
       id: 'norsk-vg1-2-6-def-1',
@@ -3993,6 +4335,7 @@ Bildeboka er en bok der tekst og bilde er gjensidig avhengige for å skape menin
         solution: 'I en illustrert bok kan teksten stå alene, bildene illustrerer. I en bildebok er tekst og bilde gjensidig avhengige - ingen av delene fungerer alene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4046,6 +4389,7 @@ Rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det s
         solution: 'Gutter er rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det som "mangler" mellom bildene.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4066,6 +4410,7 @@ Rommet mellom panelene. Her skjer mye av fortellingen - leseren fyller inn det s
         solution: 'Analysen skal vise forståelse for hvordan layout bidrar til fortellingen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4124,6 +4469,7 @@ Forholdet mellom visuell og verbal informasjon.
         solution: 'Avløsning betyr at tekst og bilde gir ulik informasjon som utfyller hverandre - de "avløser" hverandre i å fortelle historien.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4144,6 +4490,7 @@ Forholdet mellom visuell og verbal informasjon.
         solution: 'Analysen skal vise forståelse for hvordan tekst og bilde sammen skaper mening.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4202,6 +4549,7 @@ Forholdet mellom visuell og verbal informasjon.
         solution: 'Analysen skal vise forståelse for visuell stil som meningsbærer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4250,6 +4598,7 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
         solution: 'Oppslaget skal vise bevisst bruk av tekst-bilde-relasjon, og forklaringen skal demonstrere faglig forståelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // --- Samleoppgaver ---
@@ -4266,6 +4615,7 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
         solution: 'Analysen skal vise evne til å anvende fagbegreper på multimodale tekster og gi en sammenhengende tolkning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4281,6 +4631,7 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
         solution: 'Sammenligningen skal vise forståelse for mediets betydning for fortelling og opplevelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -4296,14 +4647,24 @@ Oppslaget handler om barns frykt og hvordan vi prøver å være modige selv når
         solution: 'Drøftingen skal vise evne til å reflektere kritisk over sjangervurdering og begrunne egne synspunkter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-6-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **6.1 Sammensatte tekster** – Analyser multimodale tekster generelt
+- **6.2 Film som tekst** – Utforsk visuell fortelling i film
+- **2.4 Romananalyse** – Sammenlign tradisjonell romanfortelling`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// KAPITTEL 3.1: Muntlig kommunikasjon
+// KAPITTEL 5.1: Muntlig kommunikasjon
 // ============================================================================
 
 export const CHAPTER_NORSK_VG1_5_1: TextbookChapter = {
@@ -4336,6 +4697,21 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
 - Bygger relasjoner
 - Fremmer demokratisk deltakelse
 - Øker selvtillit`,
+    },
+    {
+      id: 'norsk-vg1-5-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Presentasjon** | Muntlig fremleggelse av et emne for publikum |
+| **Retorikk** | Kunsten å overbevise gjennom tale |
+| **Kroppsspråk** | Ikke-verbal kommunikasjon (gester, holdning) |
+| **Stemmebruk** | Bevisst bruk av tempo, volum og toneleie |
+| **Aktiv lytting** | Å lytte oppmerksomt og vise forståelse |
+| **Diskusjon** | Samtale der ulike synspunkter utveksles |
+| **Debatt** | Ordnet meningsutveksling mellom parter |
+| **Tilbakemelding** | Respons på andres presentasjon eller innlegg |`,
     },
     {
       id: 'norsk-vg1-5-1-def-1',
@@ -4432,6 +4808,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'God presentasjon krever forberedelse, struktur og bevisst fremføring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4464,6 +4841,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'En godt planlagt presentasjon gjør fremføringen enklere.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4479,6 +4857,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'God diskusjon krever både å uttrykke egne synspunkter og å lytte til andres.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4494,6 +4873,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Øvelse gjør mester - jo mer du presenterer, jo bedre blir du.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4509,6 +4889,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Selvinnsikt er første steg mot forbedring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4530,6 +4911,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'En god presentasjon følger den klassiske strukturen: innledning (fang oppmerksomheten), hoveddel (hovedpoenger), avslutning (oppsummering og konklusjon).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4551,6 +4933,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Aktiv lytting innebærer å vise at du lytter gjennom blikk, nikk og oppfølgingsspørsmål. Det handler om å forstå den andre, ikke bare vente på tur.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4572,6 +4955,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Analysen skal vise at du kan bruke presentasjonskriterier fra kapittelet til å vurdere andres muntlige fremføring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4593,6 +4977,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Øvelsen trener evnen til å se en sak fra flere sider og å argumentere overbevisende.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4615,6 +5000,7 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Paneldebatten trener muntlige ferdigheter i en strukturert og demokratisk ramme.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
     },
     {
@@ -4630,14 +5016,24 @@ Muntlige ferdigheter er avgjørende i utdanning, arbeidsliv og samfunnsdeltakels
         solution: 'Essayet skal vise refleksjon over sammenhengen mellom muntlige ferdigheter og demokratisk deltakelse, med personlige og samfunnsmessige perspektiver.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.1 Retorikk og argumentasjon** – Bruk retoriske virkemidler i presentasjoner
+- **1.3 Debattinnlegg og meningsytring** – Uttrykk meninger skriftlig og muntlig
+- **5.6 Respons og tilbakemelding** – Gi og motta tilbakemelding i muntlige situasjoner`,
     },
   ],
   exercises: [],
 };
 
 // ============================================================================
-// KAPITTEL 3.2: Kreativ skriving
+// KAPITTEL 5.2: Kreativ skriving
 // ============================================================================
 
 export const CHAPTER_NORSK_VG1_5_2: TextbookChapter = {
@@ -4670,6 +5066,21 @@ Kreativ skriving handler om å uttrykke deg selv gjennom fortelling og fiksjon. 
 3. Utkast - skriv uten å sensurere
 4. Revisjon - forbedre og omarbeid
 5. Korrektur - rett feil`,
+    },
+    {
+      id: 'norsk-vg1-5-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Synsvinkel** | Perspektivet historien fortelles fra |
+| **Jeg-forteller** | Fortelleren er en karakter i historien |
+| **Allvitende forteller** | Fortelleren vet alt om alle karakterer |
+| **Miljøskildring** | Beskrivelse av hvor og når handlingen foregår |
+| **Personskildring** | Beskrivelse av karakterers utseende og oppførsel |
+| **Dialog** | Samtale mellom karakterer i teksten |
+| **Show, don't tell** | Å vise gjennom handling i stedet for å fortelle |
+| **Spenningskurve** | Handlingens forløp fra start til slutt |`,
     },
     {
       id: 'norsk-vg1-5-2-def-1',
@@ -4795,6 +5206,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Ulike synsvinkler gir ulike effekter og påvirker hva leseren får vite.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4810,6 +5222,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'En god miljøskildring bruker konkrete detaljer for å skape stemning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4825,6 +5238,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'God dialog avslører mer enn den sier direkte.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4840,6 +5254,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Novellen skal vise bevisst bruk av virkemidler og god struktur.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4855,6 +5270,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Revisjon og respons er viktige deler av skriveprosessen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4876,6 +5292,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'In medias res (latin: «midt i tingene») betyr at fortellingen starter midt i handlingen, uten tradisjonell innledning.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4897,6 +5314,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Besjeling (personifikasjon) er et virkemiddel der døde ting, naturen eller abstrakte begreper får menneskelige egenskaper. Eksempel: «Vinden sang.»',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4916,6 +5334,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Øvelsen viser hvordan synsvinkel påvirker leseropplevelsen og nærhet til karakteren.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4931,6 +5350,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Scenen skal vise bevisst bruk av dialog som virkemiddel, inspirert av Lies realistiske stil.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4946,6 +5366,7 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Novellen og refleksjonsteksten skal vise bevisst og gjennomtenkt bruk av litterære virkemidler i en sammenhengende tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4966,7 +5387,18 @@ Alle tre vekker leserens interesse på ulike måter.`,
         solution: 'Øvelsen trener evnen til å tilpasse skrivestil og viser forståelse for ulike litterære tradisjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.1 Novelleanalyse** – Lær virkemidler gjennom å lese noveller
+- **2.2 Lyrikk og diktanalyse** – Inspirasjonskilder til egne dikt
+- **2.5 Litterære virkemidler** – Fordyp deg i virkemidler du kan bruke
+- **5.4 Skriveprosess og revisjon** – Utvikle tekstene dine gjennom revisjon`,
     },
   ],
   exercises: [],

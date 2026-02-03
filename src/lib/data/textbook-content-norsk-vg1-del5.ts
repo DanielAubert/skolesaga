@@ -54,6 +54,21 @@ Et setningsledd er en del av setningen som har en bestemt funksjon. Hvert ledd s
 **I dette kapittelet lærer du å identifisere og analysere alle disse leddene.**`,
     },
     {
+      id: 'norsk-vg1-8-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Setningsledd** | En del av setningen med bestemt funksjon |
+| **Verbal** | Setningens kjerne - forteller hva som skjer |
+| **Subjekt** | Den eller det som handler eller beskrives |
+| **Objekt** | Den eller det handlingen rammer |
+| **Adverbial** | Ledd som forteller om tid, sted, måte osv. |
+| **Predikativ** | Ledd som beskriver subjektet eller objektet |
+| **Finitt verb** | Verb bøyd i tid (presens/preteritum) |
+| **Setningsanalyse** | Å identifisere alle leddene i en setning |`,
+    },
+    {
       id: 'norsk-vg1-8-1-def-1',
       type: 'definition',
       title: 'Verbal (V)',
@@ -288,6 +303,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Verbalet kan bestå av ett eller flere ord (hjelpeverb + hovedverb).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -325,6 +341,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Alle setninger har subjekt, men ikke alle har objekt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -357,6 +374,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Adverbialer gir tilleggsinformasjon om tid, sted, måte og annet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -393,6 +411,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Predikativet beskriver enten subjektet (SP) eller objektet (OP).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -425,6 +444,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Fullstendig setningsanalyse identifiserer alle leddene og deres funksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -446,6 +466,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Verbalet er "har likt" - hjelpeverbet "har" pluss hovedverbet "likt". "å lese bøker" er objekt (infinitivsfrase).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -467,6 +488,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Subjektet finner vi ved å spørre "Hvem/hva + verbalet?", for eksempel "Hvem leser?" → "Lise" (S).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -494,6 +516,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Norsk følger V2-regelen: det finitte verbalet står alltid på andreplass i fortellende hovedsetninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -521,6 +544,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Hovedsetninger kan stå alene, mens leddsetninger er underordnet og fungerer som ledd i hovedsetningen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -536,6 +560,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Analysen skal vise evne til å koble grammatiske observasjoner med stilistiske effekter, og bruke fagterminologien presist.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -551,7 +576,45 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
         solution: 'Besvarelsen bør vise progresjon fra enkel (S-V) til kompleks (med leddsetninger og flere adverbialer), med korrekt analyse av alle ledd.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-8-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 8.1
+
+**Hovedpunkter:**
+- Setningsanalyse handler om å identifisere setningsledd og forstå deres funksjon
+- Verbalet er setningens kjerne og forteller hva som skjer
+- Subjektet er den/det som handler, objektet er den/det handlingen rammer
+- Adverbialer gir tilleggsinformasjon om tid, sted, måte og årsak
+- Predikativer beskriver subjektet eller objektet
+
+**Sentrale begreper:**
+- **Verbal (V):** Setningens kjerne - handlingen eller tilstanden
+- **Subjekt (S):** Den/det som handler eller beskrives
+- **Direkte objekt (DO):** Den/det handlingen rammer direkte
+- **Indirekte objekt (IO):** Den som mottar noe
+- **Adverbial (A):** Tilleggsinfo om tid, sted, måte, årsak
+- **Predikativ (P):** Beskrivelse av subjekt eller objekt
+
+**Tips for eksamen:**
+- Finn alltid verbalet først - det gjør det lettere å finne de andre leddene
+- Bruk spørreteknikken: "Hvem/hva + verbal?" for subjekt, "Hvem/hva + verbal + subjekt?" for objekt
+- Husk at verbalet kan bestå av flere ord (hjelpeverb + hovedverb)
+- Øv på å skille mellom predikativ (beskriver) og adverbial (omstendighetene)`,
+    },
+    {
+      id: 'norsk-vg1-8-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **8.2 Tekstbinding og sammenheng** – Bruk setningskunnskap for bedre tekstbinding
+- **8.3 Rettskriving bokmål** – Kombiner setningsanalyse med rettskriving
+- **5.3 Fagartikkel** – Skriv fagartikler med variert setningsstruktur
+- **5.4 Skriveprosess og revisjon** – Forbedre setninger i revisjon`,
     },
   ],
   exercises: [],
@@ -597,6 +660,21 @@ Tekstbinding er teknikkene vi bruker for å skape sammenheng mellom setninger og
 4. **Leksikalsk binding** - ord som henger sammen
 
 **God tekstbinding = god tekst. Svak tekstbinding = forvirrende tekst.**`,
+    },
+    {
+      id: 'norsk-vg1-8-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Tekstbinding** | Teknikker som skaper sammenheng mellom setninger |
+| **Kohesjon** | Grammatisk og leksikalsk sammenheng i tekst |
+| **Konjunksjon** | Bindeord som og, men, eller |
+| **Subjunksjon** | Ord som innleder leddsetninger (fordi, hvis) |
+| **Referentbinding** | Bruk av pronomen som viser tilbake (han, det) |
+| **Tematisk binding** | Å holde fokus på samme tema |
+| **Setningsadverbial** | Ord som derfor, dessuten, likevel |
+| **Avsnitt** | Del av teksten som handler om ett poeng |`,
     },
     {
       id: 'norsk-vg1-8-2-def-1',
@@ -831,6 +909,7 @@ Avsnittet har god tekstbinding:
         solution: 'Konjunksjoner binder likeverdige ledd, subjunksjoner innleder leddsetninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -863,6 +942,7 @@ Avsnittet har god tekstbinding:
         solution: 'Referentbinding bruker pronomen og demonstrativer for å vise tilbake.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -890,6 +970,7 @@ Avsnittet har god tekstbinding:
         solution: 'God tekstbinding krever variasjon og tydelige logiske forbindelser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -927,6 +1008,7 @@ Avsnittet har god tekstbinding:
         solution: 'Riktig bindeord viser den logiske sammenhengen mellom setningene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -942,6 +1024,7 @@ Avsnittet har god tekstbinding:
         solution: 'Avsnittet bør vise bevisst bruk av ulike bindemetoder som skaper god sammenheng.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -963,6 +1046,7 @@ Avsnittet har god tekstbinding:
         solution: '"Fordi" er en subjunksjon som innleder en årsakssetning (leddsetning). Den viser hvorfor noe skjer.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -984,6 +1068,7 @@ Avsnittet har god tekstbinding:
         solution: 'Referentbinding bruker pronomen, synonymer eller overbegreper for å vise tilbake til noe som allerede er nevnt i teksten.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -999,6 +1084,7 @@ Avsnittet har god tekstbinding:
         solution: 'Konstant tema: Norge/landet er tema gjennom hele avsnittet. Referentbinding via "Landet", "Det" og "Fjordene" (del av Norge).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1014,6 +1100,7 @@ Avsnittet har god tekstbinding:
         solution: 'Hvert avsnitt bør tydelig vise den aktuelle typen tematisk progresjon med bevisst bruk av referentbinding.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1029,6 +1116,7 @@ Avsnittet har god tekstbinding:
         solution: 'Analysen skal demonstrere evne til å identifisere og vurdere alle typer tekstbinding i en autentisk tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1044,7 +1132,44 @@ Avsnittet har god tekstbinding:
         solution: 'Besvarelsen viser forståelse for tekstbinding ved å kontrastere god og dårlig praksis, og forklare hva som gjør forskjellen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-8-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 8.2
+
+**Hovedpunkter:**
+- Tekstbinding (kohesjon) handler om å skape sammenheng mellom setninger og avsnitt
+- Konjunksjoner binder likeverdige ledd (og, men, eller, for)
+- Subjunksjoner innleder leddsetninger (fordi, hvis, når, da, at)
+- Referentbinding bruker pronomen og demonstrativer for å vise tilbake/fremover
+- Tematisk binding holder fokus på tema gjennom teksten
+
+**Sentrale begreper:**
+- **Konjunksjon:** Sideordnende bindeord som forbinder likeverdige ledd
+- **Subjunksjon:** Underordnende bindeord som innleder leddsetninger
+- **Referentbinding:** Bruk av pronomen (han, hun, det) som viser tilbake
+- **Tematisk binding:** Å holde fokus på samme tema gjennom teksten
+- **Leksikalsk binding:** Ordvalg som skaper sammenheng (synonymer, antonymer)
+- **Tema og rema:** Kjent informasjon vs. ny informasjon
+
+**Tips for eksamen:**
+- Varier bindemetodene i teksten din - ikke bare bruk "og" og "men"
+- Bruk pronomen for å unngå monoton gjentagelse av samme substantiv
+- Pass på at pronomener har tydelig referanse - leseren må vite hva "den" viser til
+- Les teksten høyt - da hører du om den flyter eller hakker`,
+    },
+    {
+      id: 'norsk-vg1-8-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **8.1 Setningsanalyse** – Forstå setningsstruktur for bedre tekstbinding
+- **5.3 Fagartikkel** – Bruk tekstbinding i akademisk skriving
+- **5.4 Skriveprosess og revisjon** – Forbedre tekstbinding i revisjon`,
     },
   ],
   exercises: [],
@@ -1092,6 +1217,21 @@ Bokmål har mange valgfrie former. Du kan velge mellom ulike skrivemåter, men d
 - De vanligste rettskrivingsfeilene
 - Tegnsettingsregler
 - Hvordan bli en bedre rettskriver`,
+    },
+    {
+      id: 'norsk-vg1-8-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Rettskriving** | Regler for hvordan ord skal skrives |
+| **Valgfri form** | Skrivemåte som er valgfri innenfor normen |
+| **Konsekvent** | Å holde seg til samme form gjennom teksten |
+| **Særskriving** | Feil der sammensatte ord skrives i to ord |
+| **Tegnsetting** | Regler for komma, punktum, osv. |
+| **Homofon** | Ord som uttales likt, men skrives ulikt |
+| **Korrektur** | Gjennomgang av tekst for å rette feil |
+| **Bokmålsordboka** | Offisiell ordbok for bokmål |`,
     },
     {
       id: 'norsk-vg1-8-3-def-1',
@@ -1432,6 +1572,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Riktig ordvalg avhenger av grammatisk funksjon og kontekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1469,6 +1610,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Særskriving av sammensatte ord er en vanlig feil.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1501,6 +1643,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Tegnsetting følger grammatiske regler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1533,6 +1676,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Å finne egne feil krever øvelse og oppmerksomhet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1548,6 +1692,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Avsnittet bør vise god beherskelse av rettskriving og tegnsetting.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1569,6 +1714,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Alternativ 1 er riktig: "Da" brukes om fortid (engangshendelse), "å" er infinitivsmerke, og komma settes etter leddsetningen som står først.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1590,6 +1736,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: '"fotball kamp" er en særskrivingsfeil - det skal skrives som ett ord: "fotballkamp". De andre er korrekt skrevet som to ord.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1605,6 +1752,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Rettet: "Da Per var liten, bodde han i et lite hus. Pers mor jobbet på et sykehus. De hadde det bra selv om de ikke hadde mye penger. I dag er Per blitt stor, og han liker å tenke tilbake på barndommen sin." Feil: når→da, manglende komma, Per\'s→Pers, syke hus→sykehus, Dem→De (2x), Idag→I dag, og→å.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1637,6 +1785,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Å forstå forskjellen mellom disse ordparene er grunnleggende for god rettskriving på bokmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1652,6 +1801,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Guiden bør dekke da/når, og/å, de/dem, særskriving og tegnsetting med tydelige forklaringer og praktiske tips.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1667,6 +1817,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Refleksjonen bør vise selvinnsikt om egne utfordringer med rettskriving og konkrete strategier for forbedring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1709,6 +1860,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Verbbøyning er grunnleggende for korrekt norsk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1746,6 +1898,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Substantivbøyning følger mønster basert på kjønn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1778,6 +1931,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: 'Dobbeltkonsonant etter kort vokal er en viktig regel.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1799,6 +1953,7 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: '"sykkel sti" er feil - det skal skrives som ett ord: "sykkelsti". Sammensatte substantiv skrives i ett ord på norsk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -1820,7 +1975,45 @@ Adverbiale uttrykk skrives ofte i to ord:
         solution: '"De fant pengene under sofaen" er korrekt. Feil i de andre: "skrivde" → "skrev", "gåt" → "gått", "har begynte" → "har begynt".',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-8-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 8.3
+
+**Hovedpunkter:**
+- Bokmål har stor valgfrihet mellom former, men du må være konsekvent
+- Dobbeltkonsonant kommer etter kort, trykksterk vokal
+- Sammensatte substantiv skrives i ETT ord (fotballkamp, ikke fotball kamp)
+- Da brukes om fortid/engangshendelser, når om nåtid/gjentakelse
+- De er subjekt, dem er objekt (test med vi/oss)
+
+**Sentrale begreper:**
+- **Valgfri form:** Skrivemåter som begge er riktige (boka/boken, kastet/kasta)
+- **Særskriving:** Feil der sammensatte ord skrives i to ord
+- **Dobbeltkonsonant:** Kort vokal = dobbelt konsonant (takk vs. tak)
+- **Homofon:** Ord som uttales likt men skrives ulikt (og/å)
+- **Konsekvent:** Å holde seg til samme valg gjennom hele teksten
+
+**Tips for eksamen:**
+- Bruk Bokmålsordboka (ordbok.uib.no) når du er usikker
+- Les korrektur baklengs for å oppdage skrivefeil
+- Særskriving er en vanlig feil - sammensatte substantiv er ETT ord
+- Lær de sterke verbene utenat (skrive-skrev-skrevet, finne-fant-funnet)
+- Husk: og er konjunksjon, å er infinitivsmerke`,
+    },
+    {
+      id: 'norsk-vg1-8-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **8.4 Rettskriving nynorsk** – Lær rettskriving på sidemålet
+- **8.5 Tegnsetting** – Kombiner med riktig tegnsetting
+- **8.1 Setningsanalyse** – Forstå grammatikken bak reglene
+- **5.4 Skriveprosess og revisjon** – Sjekk rettskriving i revisjon`,
     },
   ],
   exercises: [],
@@ -1865,6 +2058,21 @@ Ivar Aasen skapte landsmål (senere nynorsk) på 1800-tallet basert på norske d
 - Hvordan bygge nynorskkompetanse
 
 **Tips:** Bruk Nynorskordboka (ordbok.uib.no) aktivt!`,
+    },
+    {
+      id: 'norsk-vg1-8-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Nynorsk** | Norsk skriftspråk basert på norske dialekter |
+| **Landsmål** | Nynorskens opprinnelige navn |
+| **Hunkjønn** | Grammatisk kjønn (ei, -a) - obligatorisk i nynorsk |
+| **Kløyvd infinitiv** | Å bruke både -e og -a i infinitiv |
+| **Nynorskordboka** | Offisiell ordbok for nynorsk |
+| **Bokmålsord** | Ord som ikke finnes i nynorsk |
+| **Dativ** | Gammel kasusform som fortsatt finnes i dialekter |
+| **Sidemål** | Den andre målformen i norskopplæringen |`,
     },
     {
       id: 'norsk-vg1-8-4-def-1',
@@ -2188,6 +2396,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Nynorsk har egne ord for mange vanlige bokmålsord.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2225,6 +2434,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Nynorsk har klare mønstre for substantivbøyning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2262,6 +2472,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Verbbøyning på nynorsk følger bestemte mønstre.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2294,6 +2505,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Å finne bokmålsfeil krever at du kjenner nynorskens ordforråd.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2309,6 +2521,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Avsnittet bør vise korrekt nynorsk med riktige ordformer og bøyninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2330,6 +2543,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: '"Ho veit ikkje" er korrekt nynorsk. "Hun" skal være "ho", "vet" skal være "veit", og "ikke" skal være "ikkje" på nynorsk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2351,6 +2565,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: '"Gutar" er korrekt ubestemt flertall av "gut" på nynorsk. Hankjønnsord får typisk -ar i flertall.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2366,6 +2581,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Analysen bør vise forståelse for at nynorsk har utviklet seg siden Aasens tid, med konkrete eksempler på endringer i ordformer og bøyning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2381,6 +2597,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Analysen bør kommentere Garborgs poetiske nynorsk, bruk av billedspråk, rytme, og hvordan språket skiller seg fra moderne nynorsk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2396,6 +2613,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Teksten skal vise god nynorsk språkføring med korrekt grammatikk, riktige ordformer og sammenhengende argumentasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2411,6 +2629,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Drøftingen bør vise forståelse for nynorskens rolle i norsk språkhistorie og kultur, og presentere balanserte argumenter med et begrunnet standpunkt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2448,6 +2667,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Verbbøyning på nynorsk skil seg ofte frå bokmål.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2469,6 +2689,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: '"Korleis har du det?" er riktig nynorsk. "Hvordan" er bokmål og skal ikkje brukast på nynorsk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2506,6 +2727,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Omsetjing til nynorsk krev at du kjenner dei viktigaste forskjellane.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2521,6 +2743,7 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Teksten bør vise god nynorsk språkføring utan bokmålsfeil.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -2542,7 +2765,45 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
         solution: 'Nynorsk har valfridom mellom a-infinitiv (å kasta) og e-infinitiv (å kaste). Begge er riktige, men du må vere konsekvent gjennom heile teksten.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-8-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 8.4
+
+**Hovedpunkter:**
+- Nynorsk er et eget språk med egen grammatikk, ikke "bokmål med a-endelser"
+- Hunkjønn er obligatorisk i nynorsk (ei bok - boka)
+- Mange ord er helt forskjellige: ikkje, kva, kven, kvar, korleis, kvifor, ho, noko, mykje
+- A-infinitiv og e-infinitiv er begge tillatt, men vær konsekvent
+- Les nynorsk aktivt for å bli bedre - Nynorskordboka er din beste venn
+
+**Sentrale begreper:**
+- **Obligatorisk hunkjønn:** Nynorsk skiller alltid mellom de tre kjønnene
+- **A-infinitiv/e-infinitiv:** Valgfrihet mellom å kasta/å kaste
+- **Bokmålsord:** Ord som ikke finnes i nynorsk (f.eks. "ikke", "hva", "hun")
+- **Kløyvd infinitiv:** Å bruke både -e og -a i infinitiv etter bestemte regler
+- **Sidemål:** Den andre målformen i norskopplæringen
+
+**Tips for eksamen:**
+- Sjekk alltid disse ordene: ikkje, kva, kven, kvar, korleis, kvifor, ho, noko, mykje, berre
+- Bruk Nynorskordboka aktivt (ordbok.uib.no)
+- Tenk nynorsk fra starten - ikke skriv på bokmål og "oversett"
+- Velg former (a- eller e-infinitiv) og hold deg til dem gjennom hele teksten
+- Les nynorske tekster jevnlig for å bli tryggere på språket`,
+    },
+    {
+      id: 'norsk-vg1-8-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **8.3 Rettskriving bokmål** – Sammenlign med bokmålsregler
+- **4.3 Nynorsk og bokmål** – Forstå forskjellene mellom målformene
+- **8.5 Tegnsetting** – Tegnsetting er lik på begge målformer
+- **5.4 Skriveprosess og revisjon** – Sjekk nynorsk i revisjon`,
     },
   ],
   exercises: [],
@@ -2593,6 +2854,21 @@ Litteratur som utforsker kulturmøter, migrasjon, identitet mellom kulturer, og 
 - Tilhørighet og utenforskap
 - Språk og identitet
 - Representasjon i litteratur`,
+    },
+    {
+      id: 'norsk-vg1-3-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Flerkulturell** | Som omfatter flere kulturer |
+| **Hybrididentitet** | Identitet som kombinerer elementer fra flere kulturer |
+| **Kulturmøte** | Møte mellom ulike kulturer og tradisjoner |
+| **Migrasjonslitteratur** | Litteratur som handler om flytting mellom land |
+| **Diaspora** | Folk som lever utenfor sitt opprinnelige hjemland |
+| **Representasjon** | Hvordan grupper fremstilles i litteratur og medier |
+| **Andregenerasjon** | Barn av innvandrere født i det nye landet |
+| **Kodeveksling** | Å veksle mellom ulike språk eller dialekter |`,
     },
     {
       id: 'norsk-vg1-3-1-def-1',
@@ -2803,6 +3079,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Flerkulturell litteratur utforsker identitet, tilhørighet og kulturmøter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2830,6 +3107,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Begge representerer viktige stemmer i norsk flerkulturell litteratur med noen fellestrekk og noen forskjeller.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2857,6 +3135,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Identitetsbetegnelser er komplekse og kan oppleves ulikt av ulike mennesker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2872,6 +3151,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Analysen bør identifisere temaer, analysere språk og virkemidler, og reflektere over tekstens betydning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2887,6 +3167,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Drøftingen bør ta opp representasjon, at lesere kan kjenne seg igjen, at litteratur kan utvide forståelse, og at litteraturen bør speile et mangfoldig samfunn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2908,6 +3189,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Flerkulturell litteratur kjennetegnes ved at den utforsker kulturmøter, migrasjon, hybrididentitet og erfaringen av å tilhøre flere steder. Den kan være skrevet av forfattere med ulik bakgrunn.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2929,6 +3211,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Utenforskap og tilhørighet er gjennomgående temaer i flerkulturell litteratur. Mange tekster utforsker opplevelsen av å stå mellom kulturer og kjempe for tilhørighet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2944,6 +3227,7 @@ Skaranger gir stemme til en erfaring mange har, men som sjelden har vært repres
         solution: 'Analysen bør peke på at hovedpersonen i «Sult» er en outsider på grunn av fattigdom og sult. Hamsun bruker jeg-forteller, stream of consciousness-aktig stil, og intense sanseinntrykk for å formidle utenforskapet innenfra. Hovedpersonen er isolert fra samfunnet rundt seg, og sulten blir en metafor for eksistensiell fremmedgjøring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2963,6 +3247,7 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
         solution: 'Sammenligningen bør vise at utenforskap kan ha ulike årsaker (økonomi/klasse hos Hamsun vs. kultur/etnisitet/klasse i nyere litteratur), men at den subjektive opplevelsen kan ha fellestrekk. Hamsuns perspektiv er individuelt/eksistensielt, mens Shakar og Skaranger utforsker strukturelle og sosiale årsaker. Alle bruker jeg-perspektiv og autentisk språk for å formidle opplevelsen innenfra.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2978,6 +3263,7 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
         solution: 'Essayet bør demonstrere evne til å drøfte litteraturens rolle i kulturmøter, med konkrete eksempler som viser hvordan språk, perspektiv og form bidrar til forståelse. Drøftingen bør også reflektere over litteraturens begrensninger (hvem forteller, hvem leser, representasjon vs. virkelighet).',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -2993,7 +3279,45 @@ Drøft: Hva er likt og ulikt i fremstillingen av utenforskap hos Hamsun sammenli
         solution: 'Presentasjonen bør vise selvstendig research, evne til litterær analyse med fagbegreper, og refleksjon over forfatterens plass i norsk litteraturhistorie.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-3-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 3.1
+
+**Hovedpunkter:**
+- Flerkulturell litteratur utforsker kulturmøter, migrasjon og identitet mellom kulturer
+- Viktige forfattere: Maria Navarro Skaranger, Zeshan Shakar, Gulraiz Sharif, Sumaya Jirde Ali
+- Hybrididentitet kombinerer elementer fra flere kulturer til noe nytt
+- Språklig nyskapning er et kjennetegn - f.eks. Oslo-slang med innslag av flere språk
+- Litteraturen gir stemme til erfaringer som tidligere har manglet i norsk litteratur
+
+**Sentrale begreper:**
+- **Hybrididentitet:** Identitet som kombinerer elementer fra flere kulturer
+- **Kulturmøte:** Møte mellom ulike kulturer og tradisjoner
+- **Kodeveksling:** Å veksle mellom ulike språk eller dialekter
+- **Andregenerasjon:** Barn av innvandrere født i det nye landet
+- **Diaspora:** Folk som lever utenfor sitt opprinnelige hjemland
+- **Representasjon:** Hvordan grupper fremstilles i litteratur og medier
+
+**Tips for eksamen:**
+- Bruk begrepene hybrididentitet, kulturmøte og kodeveksling når du analyserer tekster
+- Vær oppmerksom på hvordan språket brukes som identitetsmarkør
+- Se etter temaer som tilhørighet, utenforskap, generasjonskonflikter
+- Reflekter over hvem som forteller og fra hvilket perspektiv`,
+    },
+    {
+      id: 'norsk-vg1-3-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **3.2 Kulturmøter og identitet** – Analyser tekster med postkolonial teori
+- **4.1 Språk og identitet** – Forstå språkets rolle for kulturell identitet
+- **2.1 Novelleanalyse** – Analyser flerkulturelle noveller
+- **2.4 Romananalyse** – Analyser flerkulturelle romaner`,
     },
   ],
   exercises: [],
@@ -3036,6 +3360,21 @@ Selv om Norge ikke var en stormakt, er vi del av en vestlig tradisjon som har fr
 - Hvordan analysere representasjon i tekster
 - Hvordan identifisere stereotypier
 - Hvordan lese tekster med kulturkritisk blikk`,
+    },
+    {
+      id: 'norsk-vg1-3-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Postkolonialisme** | Teori som analyserer ettervirkninger av kolonialisme |
+| **Orientalisme** | Vestlige fremstillinger av "Østen" som eksotisk/annerledes |
+| **Den andre** | Fremstilling av folk som fundamentalt annerledes |
+| **Stereotypi** | Forenklet, generalisert bilde av en gruppe |
+| **Representasjon** | Hvordan grupper fremstilles i tekster |
+| **Definisjonsmakt** | Makt til å bestemme hva som er "normalt" |
+| **Eurosentrisme** | Å se verden fra et europeisk ståsted |
+| **Kolonialisme** | System der ett land dominerer et annet |`,
     },
     {
       id: 'norsk-vg1-3-2-def-1',
@@ -3253,6 +3592,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Postkoloniale begreper hjelper oss å analysere makt og representasjon i tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3285,6 +3625,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Stereotypier forenkler og generaliserer komplekse grupper.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3317,6 +3658,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Postkolonial lesning avdekker mønstre i representasjon og makt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3332,6 +3674,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Drøftingen bør ta opp kontekstualisering, kritisk lesning, verdien av å forstå historien, og forskjellen på kritikk og sensur.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3347,6 +3690,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Analysen bør vise bruk av postkoloniale begreper og evne til å identifisere mønstre i representasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3368,6 +3712,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Postkolonial lesning innebærer å analysere tekster med blikk for maktforhold, representasjon og hvordan kulturer fremstilles. Det handler om å lese kritisk, ikke om å sensurere.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3389,6 +3734,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: '"Den andre" fremstilles ofte stereotypt i vestlig litteratur: som eksotisk, primitiv, farlig eller mystisk. Denne fremstillingen bidrar til å definere "oss" som det normale og "dem" som det avvikende.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3404,6 +3750,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Analysen bør identifisere orientalistiske trekk i Ibsens fremstilling (eksotifisering, Peer som overlegent subjekt), diskutere perspektiv og maktforhold, og reflektere over om Ibsen ironiserer over eller reproduserer disse holdningene. Ibsens intensjon kan leses som satirisk - Peer er en anti-helt som parodierer vestlig selvovervurdering.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3419,6 +3766,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Besvarelsen bør inneholde konkrete eksempler der norsk kultur har fremstilt andre kulturer stereotypt, med analyse av orientalistiske trekk og refleksjon over historisk kontekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3434,6 +3782,7 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Essayet skal demonstrere evne til systematisk postkolonial tekstanalyse, bruk av relevante fagbegreper, og vise at eleven kan balansere kritisk lesning med historisk kontekstualisering. Det bør inneholde konkrete teksteksempler og en selvstendig drøfting.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -3449,7 +3798,46 @@ Teksten reproduserer koloniale blikk og stereotypier, og fremstiller afrikanere 
         solution: 'Besvarelsen bør vise evne til å analysere både en klassisk og en moderne tekst med postkoloniale begreper, og demonstrere forståelse for hvordan representasjon av andre kulturer har endret seg over tid. Sammenligningen bør være konkret og nyansert.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-3-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 3.2
+
+**Hovedpunkter:**
+- Postkolonial teori gir verktøy for å analysere hvordan kulturer fremstilles i tekster
+- "Den andre" fremstilles ofte som eksotisk, primitiv, farlig eller underlegen
+- Orientalisme er Vestens stereotype fremstilling av "Østen"
+- Hvem som forteller (perspektiv) og hvem som har definisjonsmakt er sentrale spørsmål
+- Kritisk lesning betyr bevissthet, ikke sensur - gamle tekster kan ha verdi selv med problematiske elementer
+
+**Sentrale begreper:**
+- **Postkolonialisme:** Teori som analyserer ettervirkninger av kolonialisme
+- **Den andre (The Other):** Fremstilling av folk som fundamentalt annerledes
+- **Orientalisme:** Vestlige, ofte stereotype fremstillinger av Østen
+- **Stereotypi:** Forenklet, generalisert bilde av en gruppe
+- **Definisjonsmakt:** Makt til å bestemme hva som er "normalt"
+- **Eurosentrisme:** Å se verden fra et europeisk ståsted
+
+**Tips for eksamen:**
+- Still kritiske spørsmål: Hvem forteller? Fra hvilket perspektiv? Hvem har stemme?
+- Se etter stereotypier og generaliseringer i teksten
+- Vurder kontekst - når ble teksten skrevet og hvilke holdninger var vanlige?
+- Bruk begrepene fra postkolonial teori systematisk i analysen
+- Balanser kritikk med anerkjennelse av tekstens andre kvaliteter`,
+    },
+    {
+      id: 'norsk-vg1-3-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **3.1 Flerkulturell litteratur** – Les samtidsforfattere med flerkulturell bakgrunn
+- **4.1 Språk og identitet** – Forstå språkets rolle i kulturmøter
+- **3.3 Samisk litteratur** – Utforsk urfolksperspektiver i norsk kontekst
+- **2.4 Romananalyse** – Analyser romaner med fokus på kulturmøter`,
     },
   ],
   exercises: [],
@@ -3498,6 +3886,21 @@ Tegnsetting er ikke bare regler å følge - det er et verktøy for å gjøre tek
 - Apostrof og forkortelser
 
 **Tips:** Les teksten din høyt. Der du naturlig tar en pause, skal det ofte være et tegn.`,
+    },
+    {
+      id: 'norsk-vg1-8-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Punktum** | Skilletegn som avslutter en fullstendig setning |
+| **Komma** | Skilletegn som skiller ledd i setningen |
+| **Kolon** | Tegn som innleder forklaring, sitat eller liste |
+| **Semikolon** | Tegn mellom selvstendige setninger som henger sammen |
+| **Tankestrek** | Lang strek som markerer innklipp eller pause |
+| **Bindestrek** | Kort strek som binder ord sammen |
+| **Anførselstegn** | Tegn rundt sitater og direkte tale |
+| **Apostrof** | Tegn som viser utelatt bokstav |`,
     },
     {
       id: 'norsk-vg1-8-5-def-1',
@@ -3606,6 +4009,7 @@ Sett komma rundt innskutte ledd.
         solution: 'Komma settes foran "at" når det innleder en leddsetning. "Han sa, at han ville komme." er korrekt. Alternativt kan komma utelates helt: "Han sa at han ville komme."',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3669,6 +4073,7 @@ Sett komma foran "og", "eller", "men", "for" når det kommer ny setning med nytt
         solution: 'Komma settes foran "og" når det kommer en ny selvstendig setning med nytt subjekt: "Han gikk hjem, og hun ble igjen." Men ikke: "Han gikk hjem og la seg." (samme subjekt)',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3705,6 +4110,7 @@ Sett komma foran "og", "eller", "men", "for" når det kommer ny setning med nytt
         solution: 'Komma ved oppramsing, innskudd og motsetning. Anførselstegn og spørsmålstegn ved direkte tale.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3737,6 +4143,7 @@ Sett komma foran "og", "eller", "men", "for" når det kommer ny setning med nytt
         solution: 'Tegnsetting er ikke bare formelt riktig - det påvirker betydningen av setningen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3811,6 +4218,7 @@ Semikolon er et skilletegn som er sterkere enn komma, men svakere enn punktum.
         solution: 'Kolon og semikolon gir teksten bedre flyt og viser sammenhenger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -3882,6 +4290,7 @@ Bindestreken er kortere og binder ord sammen.
         solution: 'Tankestrek (–) brukes mellom steder uten mellomrom: Oslo–Bergen. Bindestrek (-) er kortere og brukes i sammensatte ord.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4076,6 +4485,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Norsk tegnsetting skiller seg fra engelsk på flere punkter, særlig ved komma og apostrof.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4163,6 +4573,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Fullstendig tegnsetting krever at du identifiserer alle setningsledd og talearter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     // --- Samleoppgaver ---
@@ -4196,6 +4607,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Analysen viser at du forstår reglene og kan anvende dem på autentiske tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4215,6 +4627,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Teksten bør vise variert og korrekt bruk av tegnsetting. Forklaringene bør referere til reglene i kapittelet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4252,6 +4665,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Korrekt kommabruk er viktig for at teksten skal bli lett å forstå.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4273,6 +4687,7 @@ Bruk motsatt type anførselstegn.
         solution: '"Vi trenger: mel, egg og melk." bruker kolon korrekt - kolon foran oppramsing. De andre har feil plassering av kolon.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4305,6 +4720,7 @@ Bruk motsatt type anførselstegn.
         solution: 'Kolon og semikolon har ulike funksjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4320,6 +4736,7 @@ Bruk motsatt type anførselstegn.
         solution: '"Maria, som var sytten år, hadde en drøm. Hun ville bli forfatter. Moren hennes spurte: «Hvorfor vil du det?» Maria svarte: «Fordi jeg elsker å fortelle historier.» Hver dag skrev hun litt, og til slutt hadde hun en hel bok."',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
     {
@@ -4341,7 +4758,46 @@ Bruk motsatt type anførselstegn.
         solution: 'I setning 1 er "som ikke besto" en nødvendig presisering (bare de som ikke besto). I setning 2 er det et innskudd som gjelder alle studentene (alle besto ikke).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
+    },
+    {
+      id: 'norsk-vg1-8-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 8.5
+
+**Hovedpunkter:**
+- Tegnsetting påvirker mening, rytme og leserforståelse
+- Komma markerer pauser og skiller setningsledd - det finnes mange regler
+- Komma settes foran leddsetninger (fordi, hvis, at, som) og ved oppramsing
+- Kolon innleder forklaring, sitat eller liste; semikolon forbinder nært beslektede setninger
+- Tankestrek og bindestrek har ulike funksjoner og lengder
+
+**Sentrale begreper:**
+- **Komma:** Skilletegn som skiller ledd i setningen
+- **Kolon:** Innleder forklaring, sitat eller liste
+- **Semikolon:** Forbinder selvstendige setninger som henger nært sammen
+- **Tankestrek:** Lang strek som markerer innklipp, pause eller omslag
+- **Bindestrek:** Kort strek som binder ord sammen
+- **Anførselstegn:** Tegn rundt sitater og direkte tale
+
+**Tips for eksamen:**
+- Komma foran "og" bare når det kommer ny setning med nytt subjekt
+- Les setningen høyt - der du tar naturlig pause, kan det være tegn
+- Komma rundt innskutte ledd (på begge sider!)
+- Husk: Kolon etter fullstendig setning, liten bokstav etterpå med mindre det er et egennavn
+- Aldri apostrof i norsk genitiv: "Pers bil", ikke "Per's bil"`,
+    },
+    {
+      id: 'norsk-vg1-8-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **8.1 Setningsanalyse** – Forstå setningsstruktur for riktig kommabruk
+- **8.3 Rettskriving bokmål** – Kombiner med rettskriving
+- **8.4 Rettskriving nynorsk** – Tegnsetting er lik på begge målformer
+- **5.4 Skriveprosess og revisjon** – Sjekk tegnsetting i revisjon`,
     },
   ],
   exercises: [],
@@ -4397,6 +4853,21 @@ Samisk litteratur er en viktig del av Norges kulturelle mangfold. Som urfolk i N
 - Sentrale samiske forfattere
 - Temaer i samisk litteratur
 - Å analysere samisk lyrikk og prosa`,
+    },
+    {
+      id: 'norsk-vg1-3-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Joik** | Samisk sang uten fast tekst, ofte viet en person, et dyr eller et sted |
+| **Muitalus** | Samisk fortelling om hverdagshendelser |
+| **Máinnas** | Samisk eventyr med overnaturlige elementer |
+| **Stallo** | Trollaktig skikkelse i samisk tradisjon |
+| **Ulda** | Underjordisk vesen i samisk folketro |
+| **Noaide** | Tradisjonell samisk sjaman |
+| **Fornorskning** | Politikken som undertrykte samisk språk og kultur |
+| **Revitalisering** | Gjenoppliving av undertrykt språk og kultur |`,
     },
     {
       id: 'norsk-vg1-3-3-def-1',
@@ -4561,6 +5032,7 @@ Joik er hellig for mange samer. Noen joiker er personlige og skal ikke deles off
         solution: 'Sammenligningen bør vise at joik deler trekk med andre muntlige tradisjoner (rytme, gjentakelse, emosjonell intensitet), men skiller seg ut ved å ikke beskrive, men fremkalle. Joik har spirituell/rituell funksjon som skiller den fra f.eks. vestlig populærmusikk, men kan sammenlignes med blues\' emosjonelle uttrykk eller raps muntlige energi.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -4582,6 +5054,7 @@ Joik er hellig for mange samer. Noen joiker er personlige og skal ikke deles off
         solution: 'Joik kjennetegnes ved at man ikke synger om noe, men synger noe frem - man fremkaller essensen av det man joiker gjennom lyd, rytme og stemning.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -4807,6 +5280,7 @@ Samisk litteratur kjennetegnes ofte av naturbilder, komprimert uttrykk, muntlig 
         solution: 'Samisk litteratur har en rik tradisjon fra muntlig fortelling og joik til moderne lyrikk og prosa.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -4902,6 +5376,7 @@ ordene bor i meg
         solution: 'Analysen bør vise hvordan Valkeapää knytter språk til identitet (ordene som bosted), til tradisjon (ordene som forfedre) og til natur (ordene tilhører landskap og naturkrefter). Lavvo-metaforen forener det hele: språket er det som gir ly og tilhørighet i verden.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     // Primærtekst 2: Laila Stien
@@ -4974,6 +5449,7 @@ Hun ser et barn som ikke visste at hun hadde rett til å være seg selv.
         solution: 'Novellen viser fornorskingspolitikkens menneskelige kostnader gjennom et barns øyne, men også muligheten for å gjenvinne det tapte.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -4995,6 +5471,7 @@ Hun ser et barn som ikke visste at hun hadde rett til å være seg selv.
         solution: 'Fornorskingspolitikken var en assimileringspolitikk der samiske (og kvenske) barn skulle lære norsk og "bli norske". Samisk språk og kultur ble undertrykt i skole og samfunn.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     // Primærtekst 3: Sigbjørn Skåden
@@ -5058,6 +5535,7 @@ ikke var verdt å bevare
         solution: 'Analysen bør vise at arkeolog-metaforen uttrykker arbeidet med å gjenfinne et tapt språk og en tapt identitet. "Før jeg ble født" viser at tapet skjedde før dikteren kunne velge - fornorskingen rammet forrige generasjon. "Knuste" ord representerer det som er ødelagt og ikke kan gjenskapes fullt ut. Diktet uttrykker både sorg og motstand.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     // --- Samleoppgaver ---
@@ -5074,6 +5552,7 @@ ikke var verdt å bevare
         solution: 'Drøftingen bør ta opp at samene er Norges urfolk med rett til synlighet i utdanningen, at samisk litteratur gir alternative perspektiver på natur, identitet og historie, at det utvider forståelsen av hva "norsk" litteratur er, og at det bidrar til forsoning med en vanskelig fortid.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -5089,6 +5568,7 @@ ikke var verdt å bevare
         solution: 'Analysen bør identifisere hvordan artisten bruker tradisjonelle joik-elementer (vokalteknikk, rytme, gjentakelse) i kombinasjon med moderne sjangre. Refleksjon over tematikk (identitet, natur, motstand) og hvordan musikken formidler samisk kultur til nye publikum.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -5104,6 +5584,7 @@ ikke var verdt å bevare
         solution: 'Essayet bør vise forståelse for hvordan natur, identitet og motstand henger sammen i samisk litteratur. Naturen er identitetsbærende, ikke bare bakgrunn. Motstanden mot kolonialisme uttrykkes ofte gjennom å hevde denne naturforståelsen. Konkrete eksempler fra Valkeapää, Stien, Skåden eller andre må brukes.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -5119,6 +5600,7 @@ ikke var verdt å bevare
         solution: 'Analysen bør identifisere diktets tema (f.eks. identitet, språk, natur, tilhørighet), beskrive sentrale bilder og virkemidler, og reflektere over hva diktet sier om samisk erfaring. God analyse viser forståelse for at samisk lyrikk ofte har andre perspektiver enn majoritetskulturens.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -5150,6 +5632,7 @@ ikke var verdt å bevare
         solution: 'Sammenligningen bør vise evne til å identifisere både kontinuitet og fornyelse i samisk musikkuttrykk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -5165,7 +5648,46 @@ ikke var verdt å bevare
         solution: 'Presentasjonen bør vise selvstendig research og evne til å plassere forfatteren i en større sammenheng. God besvarelse viser forståelse for forfatterens betydning for samisk litteratur og for hvordan forfatterskapet behandler sentrale samiske temaer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur', 'gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-3-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 3.3
+
+**Hovedpunkter:**
+- Samisk litteratur er en viktig del av norsk kulturarv med lang muntlig tradisjon
+- Joiken er en unik kunstform - man joiker noe frem, ikke synger om det
+- Fornorskingspolitikken undertrykte samisk kultur, noe som preger litteraturens temaer
+- Moderne samiske forfattere kombinerer tradisjon med samtidsuttrykk
+- Viktige forfattere: Nils-Aslak Valkeapää, Sigbjørn Skåden, Rawdna Carita Eira
+
+**Sentrale begreper:**
+- **Joik:** Samisk sang som fremkaller essensen av en person, et dyr eller et sted
+- **Muitalus:** Samisk fortelling om hverdagshendelser
+- **Máinnas:** Samisk eventyr med overnaturlige elementer
+- **Stallo:** Trollaktig skikkelse i samisk tradisjon
+- **Fornorskning:** Politikken som undertrykte samisk språk og kultur
+- **Revitalisering:** Gjenoppliving av undertrykt språk og kultur
+
+**Tips for eksamen:**
+- Forstå forskjellen mellom joik og vanlig sang - joik fremkaller, synger ikke om
+- Kjenn til sammenhengen mellom fornorskingspolitikken og litteraturens temaer
+- Bruk postkoloniale begreper også på samisk litteratur
+- Vær oppmerksom på temaer som identitet, natur, tradisjon og modernitet
+- Moderne artister som Mari Boine viser joikens levedyktighet i samtiden`,
+    },
+    {
+      id: 'norsk-vg1-3-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **7.1 De samiske språkene** – Forstå språkene samisk litteratur er skrevet på
+- **7.2 Fornorskingspolitikken** – Historisk bakgrunn for samisk litteraturs temaer
+- **2.2 Lyrikk og diktanalyse** – Analyser samiske dikt og joiketekster
+- **3.2 Kulturmøter og identitet** – Bruk postkoloniale begreper på samisk litteratur`,
     },
   ],
   exercises: [],
@@ -5218,6 +5740,21 @@ Begrepet ble lansert av Johann Wolfgang von Goethe på 1800-tallet. Han mente at
 - Om litteratur fra ulike kontinenter`,
     },
     {
+      id: 'norsk-vg1-3-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Verdenslitteratur** | Litteratur som leses og verdsettes på tvers av kulturer |
+| **Oversettelse** | Å gjengi en tekst på et annet språk |
+| **Kulturformidling** | Å formidle kultur og verdier gjennom kunst og litteratur |
+| **Hjemliggjøring** | Oversettelsesteknikk der teksten tilpasses norsk kultur |
+| **Fremmedgjøring** | Oversettelsesteknikk der det fremmede beholdes |
+| **Kanon** | Samling av verker som regnes som viktige og verdifulle |
+| **Eksotisering** | Å fremstille andre kulturer som eksotiske og annerledes |
+| **Flerspråklighet** | Å bruke flere språk, også i litterære tekster |`,
+    },
+    {
       id: 'norsk-vg1-3-4-def-1',
       type: 'definition',
       title: 'Oversettelse og kulturformidling',
@@ -5263,6 +5800,7 @@ Noe går alltid tapt i oversettelse (klang, ordspill, nyanser), men noe kan ogs�
         solution: 'Mulige tap: klang, rytme, ordspill, kulturelle nyanser, doble betydninger. Mulige gevinster: nye lesere, nytt perspektiv på egen kultur, tekstens videre liv, nye tolkninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5436,6 +5974,7 @@ Nobelprisvinner 2010. "Byen og hundene" - kritikk av militarisme og machismo.
         solution: 'Magisk realisme kjennetegnes ved at det overnaturlige behandles som hverdagslig og akseptert. Det er ikke fantasi eller eventyr, men en måte å se virkeligheten på.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5500,6 +6039,7 @@ Verdenslitteratur har lenge vært definert av vestlige forlag og kritikere. Hva 
         solution: 'Verdenslitteratur utvider vårt perspektiv, men krever kulturell bevissthet og forståelse for oversettelsens utfordringer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5599,6 +6139,7 @@ Okonkwo skammet seg over sin far. Han var en mann av handling, en kriger. Hele h
         solution: 'Achebe fremstiller et komplekst samfunn med egne verdier, konflikter og menneskelige nyanser - langt fra stereotypier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5614,6 +6155,7 @@ Okonkwo skammet seg over sin far. Han var en mann av handling, en kriger. Hele h
         solution: 'Sammenligningen bør vise at generasjonskonflikter er universelle, men at hva som står på spill (ære, status, verdier) kan variere. I begge kulturer kan sønner ønske å distansere seg fra fedre de skammer seg over.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // Primærtekst: García Márquez
@@ -5669,6 +6211,7 @@ Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og
         solution: 'García Márquez bruker kompleks tidsstruktur og mytisk språk for å skape en verden der det hverdagslige og det fantastiske møtes.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5690,6 +6233,7 @@ Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og
         solution: 'Nils-Aslak Valkeapää (Áillohaš) regnes som den moderne samiske litteraturens far og vant Nordisk Råds litteraturpris i 1991.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // --- Samleoppgaver ---
@@ -5706,6 +6250,7 @@ Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og
         solution: 'Presentasjonen bør vise evne til å sette seg inn i en ukjent kulturell kontekst, analysere tekst med relevante begreper, og reflektere over forholdet mellom det kulturspesifikke og det universelle.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5721,6 +6266,7 @@ Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og
         solution: 'Drøftingen bør ta opp at "verdenslitteratur" historisk har vært definert av vestlige forlag og kritikere, at noen regioner og språk er underrepresentert, og at begrepet kan være problematisk hvis det brukes ukritisk. Samtidig kan det være et nyttig ideal om litteratur som krysser grenser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5736,7 +6282,46 @@ Hvert år i mars måned slo en familie av filler leir i utkanten av landsbyen og
         solution: 'Essayet bør vise evne til å reflektere over hva lesing av verdenslitteratur gir oss, med konkrete eksempler. Det bør balansere entusiasme med kritisk refleksjon over utfordringer som oversettelse, eksotisering og maktforhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-3-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 3.4
+
+**Hovedpunkter:**
+- Verdenslitteratur er verk som krysser grenser og taler til lesere på tvers av kulturer
+- Oversettelse er tolkning - noe går tapt, men noe kan også vinnes
+- Noen temaer er universelle (kjærlighet, død, tilhørighet), men behandles ulikt i ulike kulturer
+- Afrikas, Asias og Sør-Americas litteratur gir alternative perspektiver
+- Viktige forfattere: Chinua Achebe, Haruki Murakami, Gabriel García Márquez
+
+**Sentrale begreper:**
+- **Verdenslitteratur:** Litteratur som leses på tvers av kulturer
+- **Hjemliggjøring:** Oversettelse der teksten tilpasses norsk kultur
+- **Fremmedgjøring:** Oversettelse der det fremmede beholdes
+- **Kulturformidling:** Å formidle kultur gjennom kunst og litteratur
+- **Kanon:** Samling av verker som regnes som viktige
+- **Eksotisering:** Å fremstille andre kulturer som eksotiske og annerledes
+
+**Tips for eksamen:**
+- Reflekter over hva som kan gå tapt og vinnes i oversettelse
+- Se etter både universelle temaer og kulturelle særtrekk i teksten
+- Vær oppmerksom på fare for eksotisering - les med kritisk blikk
+- Kjenn til noen viktige forfattere fra ulike verdensdeler
+- Vurder hvem som velger hva som oversettes og leses`,
+    },
+    {
+      id: 'norsk-vg1-3-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **3.1 Flerkulturell litteratur** – Norske forfattere med flerkulturell bakgrunn
+- **3.2 Kulturmøter og identitet** – Postkoloniale perspektiver på litteratur
+- **2.4 Romananalyse** – Analyser romaner fra andre kulturer
+- **3.5 Samtidslitteratur og aktuelle temaer** – Se verdenslitteratur i samtidskontekst`,
     },
   ],
   exercises: [],
@@ -5796,6 +6381,21 @@ Samtidslitteratur er litteratur som er skrevet i vår egen tid og som ofte tar o
 - Litteratur som samfunnskritikk`,
     },
     {
+      id: 'norsk-vg1-3-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Samtidslitteratur** | Litteratur skrevet i vår egen tid |
+| **Klimafiksjon** | Litteratur som tematiserer klimaendringer (cli-fi) |
+| **Økolitteratur** | Litteratur som utforsker forholdet mellom menneske og natur |
+| **Dystopi** | Framtidsskildring av et skremmende samfunn |
+| **Autofaksjon** | Litteratur basert på forfatterens eget liv |
+| **Migrasjonslitteratur** | Litteratur om migrasjon og flerkulturelle erfaringer |
+| **Digital litteratur** | Litteratur skapt for eller om digitale medier |
+| **Samfunnskritikk** | Kritisk kommentar til samfunnsforhold |`,
+    },
+    {
       id: 'norsk-vg1-3-5-ex-1',
       type: 'exercise',
       exercise: {
@@ -5814,6 +6414,7 @@ Samtidslitteratur er litteratur som er skrevet i vår egen tid og som ofte tar o
         solution: 'Samtidslitteratur kjennetegnes ved å være skrevet i vår tid og ofte (men ikke alltid) ta opp aktuelle temaer og utfordringer.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -5874,6 +6475,7 @@ Klimafiksjon kan gjøre abstrakte trusler konkrete og emosjonelt tilgjengelige. 
         solution: 'Klimafiksjonens styrke er at den kan gjøre abstrakte, statistiske trusler om til konkrete, følbare erfaringer gjennom karakterer og historier.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -6067,6 +6669,7 @@ De beste samtidsromanene klarer å være både aktuelle og tidløse - de tar opp
         solution: 'Samtidslitteratur tar opp aktuelle temaer, men må balansere aktualitet med tidløshet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -6162,6 +6765,7 @@ Biene hadde gjort dette arbeidet. Millioner av bier. De fløy fra blomst til blo
         solution: 'Analysen bør vise at Lunde konkretiserer klimakrisen gjennom én persons arbeid, bruker kroppslige erfaringer for å skape innlevelse, og knytter til universelle verdier (omsorg for barn/fremtid). Dette gjør det abstrakte emosjonelt tilgjengelig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // Primærtekst: Agnes Ravatn
@@ -6229,6 +6833,7 @@ Men det var kanskje poenget.
         solution: 'Ravatn bruker humor og selvironi for å beskrive digital avhengighet på en måte som er gjenkjennelig og inviterer til refleksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // Primærtekst: Mohsin Hamid
@@ -6280,6 +6885,7 @@ Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i fe
         solution: 'Analysen bør vise at dørene er et magisk-realistisk element som gjør migrasjon til noe universelt (alle kan forestille seg å gå gjennom en dør), fokuserer på valget om å forlate fremfor den farlige reisen, og skaper en drømmeaktig kvalitet som gjør det fremmede gjenkjennelig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // --- Samleoppgaver ---
@@ -6296,6 +6902,7 @@ Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i fe
         solution: 'Sammenligningen bør identifisere likheter og forskjeller i hvordan tekstene tar opp samtiden - for eksempel grad av realisme, bruk av humor vs. alvor, personlig vs. samfunnsmessig fokus.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -6311,6 +6918,7 @@ Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i fe
         solution: 'Drøftingen bør ta opp at litteratur sjelden løser problemer direkte, men kan endre holdninger, skape empati, gi ord til erfaringer og holde debatten levende. Den kan komplementere vitenskap og politikk ved å gjøre det abstrakte konkret.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -6326,6 +6934,7 @@ Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i fe
         solution: 'Presentasjonen bør vise evne til selvstendig valg av tekst, forståelse for kontekst, bruk av relevante analysebegreper, og kritisk vurdering av hvordan teksten behandler det aktuelle temaet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -6341,7 +6950,46 @@ Ikke fordi de ønsket å forlate alt de kjente. Men fordi det de kjente var i fe
         solution: 'Essayet bør vise evne til å reflektere over litteraturens rolle som samtidskommentar, med konkrete eksempler. Det bør balansere entusiasme med kritisk vurdering av litteraturens begrensninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-3-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 3.5
+
+**Hovedpunkter:**
+- Samtidslitteratur er litteratur skrevet i vår tid om aktuelle temaer og utfordringer
+- Klimafiksjon (cli-fi) gjør abstrakte miljøtrusler konkrete og emosjonelt tilgjengelige
+- Teknologi og digitalisering er sentrale temaer - ofte med dystopiske undertoner
+- Autofaksjon blander fiksjon og selvbiografi
+- Viktige norske forfattere: Maja Lunde, Karl Ove Knausgård, Agnes Ravatn
+
+**Sentrale begreper:**
+- **Samtidslitteratur:** Litteratur skrevet i vår egen tid
+- **Klimafiksjon (cli-fi):** Litteratur som tematiserer klimaendringer
+- **Økolitteratur:** Litteratur om forholdet mellom menneske og natur
+- **Dystopi:** Fremtidsskildring av et skremmende samfunn
+- **Autofaksjon:** Litteratur basert på forfatterens eget liv
+- **Samfunnskritikk:** Kritisk kommentar til samfunnsforhold
+
+**Tips for eksamen:**
+- Reflekter over hvordan litteratur kan bearbeide samtidsutfordringer
+- Se etter temaer som klima, teknologi, identitet, ulikhet, mental helse
+- Vurder litteraturens muligheter og begrensninger som samfunnskritikk
+- Kjenn til forskjellen mellom dystopi og utopi
+- Bruk samtidslitteratur som utgangspunkt for diskusjon om aktuelle spørsmål`,
+    },
+    {
+      id: 'norsk-vg1-3-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **3.1 Flerkulturell litteratur** – Les norske samtidsforfattere
+- **3.4 Litteratur fra andre kulturer** – Utforsk verdenslitteratur om samtidige temaer
+- **2.4 Romananalyse** – Analyser samtidsromaner
+- **6.4 Kildekritikk og falske nyheter** – Forstå litteraturens rolle i informasjonssamfunnet`,
     },
   ],
   exercises: [],

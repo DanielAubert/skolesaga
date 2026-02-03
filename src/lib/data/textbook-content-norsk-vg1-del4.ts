@@ -52,6 +52,21 @@ I dag møter vi sjelden tekster som bare består av skrift. De fleste tekstene v
 **Sammensatte tekster krever at vi leser på flere plan samtidig - vi må se hvordan de ulike delene virker sammen for å skape mening.**`,
     },
     {
+      id: 'norsk-vg1-6-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Sammensatt tekst** | Tekst som kombinerer flere uttrykksformer |
+| **Modalitet** | En uttrykksform (tekst, bilde, lyd, video) |
+| **Multimodal** | Som bruker flere modaliteter |
+| **Forankring** | Tekst som forklarer/begrenser bildets mening |
+| **Avløsning** | Tekst og bilde utfyller hverandre |
+| **Layout** | Visuell organisering av elementer |
+| **Typografi** | Utforming av skrift (font, størrelse) |
+| **Blikkfang** | Element som trekker blikket |`,
+    },
+    {
       id: 'norsk-vg1-6-1-def-1',
       type: 'definition',
       title: 'Modaliteter og samspill',
@@ -261,6 +276,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Forståelse av sammensatte tekster er viktig for kritisk lesing i dagens mediesamfunn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -276,6 +292,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Analysen bør vise evne til å bruke fagbegreper og identifisere virkemidler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -307,6 +324,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Analysen viser forståelse for hvordan nettaviser er designet for å fange og holde oppmerksomhet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -322,6 +340,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Analysen bør vise forståelse for hvordan sosiale medier fungerer som sammensatte tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -337,6 +356,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Plakaten bør vise bevisst bruk av flere modaliteter som virker sammen for å kommunisere et tydelig budskap.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -357,6 +377,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'En sammensatt tekst kan kombinere mange ulike modaliteter: skrift, bilde, lyd, levende bilder og design.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -377,6 +398,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Multimodal betyr at teksten bruker flere modaliteter (uttrykksformer) som virker sammen for å skape mening.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -408,6 +430,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Analysen bør vise evne til å identifisere modaliteter og forklare deres samspill.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -423,6 +446,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Teksten bør vise bevisst bruk av flere modaliteter som forsterker hverandre og formidler budskapet effektivt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -454,6 +478,7 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Sammenligningen bør vise forståelse for at ulike medier har ulike affordanser og at valg av medium påvirker budskapet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -474,7 +499,40 @@ Bilde og tekst forsterker hverandre - begge kommuniserer frihet, natur og aktivi
         solution: 'Essayet bør drøfte hvordan sammensatte tekster former oppfatninger, holdninger og handlinger, og argumentere for viktigheten av kritisk mediekompetanse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-6-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 6.1
+
+**Hovedpunkter:**
+- Sammensatte/multimodale tekster kombinerer flere uttrykksformer (modaliteter) som skrift, bilde, lyd og video
+- Modalitetene virker sammen gjennom forankring (tekst forklarer bildet), avløsning (tekst og bilde utfyller hverandre) eller kontrast
+- Reklame, nettaviser og sosiale medier er viktige eksempler på sammensatte tekster i hverdagen
+
+**Sentrale begreper:**
+- **Modalitet**: En uttrykksform som skrift, bilde, lyd eller video
+- **Forankring**: Tekst som forklarer og begrenser bildets mening
+- **Avløsning**: Bilde og tekst utfyller hverandre med ulik informasjon
+- **Layout**: Visuell organisering av elementer på en side/skjerm
+
+**Tips for eksamen:**
+- Bruk fagbegreper som modalitet, forankring og avløsning når du analyserer
+- Beskriv først hva du ser, deretter analyser samspillet mellom modalitetene
+- Drøft alltid formål og målgruppe i analysen`,
+    },
+    {
+      id: 'norsk-vg1-6-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **6.2 Film som tekst** – Analyser bevegelige bilder
+- **6.3 Digitale tekster og sosiale medier** – Utforsk multimodalitet i digitale medier
+- **6.4 Kildekritikk og falske nyheter** – Vær kritisk til sammensatte tekster
+- **2.6 Grafiske romaner og bildebøker** – Analyser tekst-bilde-samspill i litteratur`,
     },
   ],
   exercises: [],
@@ -521,6 +579,21 @@ Film har sitt eget "språk" - et sett av konvensjoner og teknikker som brukes ti
 Som med skriftlige tekster kan vi analysere film med faglige begreper. Vi ser på hvordan filmspråket brukes til å fortelle historier, skape stemninger og formidle budskap.
 
 **Film er mer enn underholdning - det er en kunstform og et medium for fortelling som fortjener kritisk analyse.**`,
+    },
+    {
+      id: 'norsk-vg1-6-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Filmspråk** | Konvensjoner og teknikker for å fortelle i film |
+| **Kameravinkel** | Hvor kameraet er plassert i forhold til motivet |
+| **Bildeutsnitt** | Hvor mye av motivet som vises (nær, halvnær, total) |
+| **Mise-en-scène** | Alt som er synlig i bildet (kulisser, lys, kostyme) |
+| **Klipping** | Hvordan scener og bilder settes sammen |
+| **Diegetisk lyd** | Lyd som kommer fra filmens verden |
+| **Ikke-diegetisk lyd** | Lyd som er lagt til (filmmusikk) |
+| **Montasje** | Sammensetning av bilder for å skape mening |`,
     },
     {
       id: 'norsk-vg1-6-2-def-1',
@@ -770,6 +843,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Å kjenne fagbegrepene gjør deg i stand til å analysere film presist.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -785,6 +859,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Analysen bør vise evne til å bruke fagbegreper og forklare hvordan filmspråket skaper mening.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -800,6 +875,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Analysen bør vise forståelse for norsk filmtradisjon og evne til filmanalyse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -831,6 +907,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Sammenligningen viser forståelse for forskjeller mellom bok og film som medier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -846,6 +923,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Drøftingen bør vise forståelse for at bok og film er ulike medier med ulike styrker, og at begge kan være gode på hver sin måte.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -866,6 +944,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Froskeperspektiv (nedenfra) får personer til å virke mektige eller truende, mens fugleperspektiv (ovenfra) gjør dem små og sårbare.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -886,6 +965,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Action- og thrillerfilmer bruker raske klipp, spenningsmusikk og dramatiske kameravinkler for å skape intensitet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -917,6 +997,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Analysen bør vise evne til å bruke fagbegreper og tolke filmspråkets effekt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -944,6 +1025,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Sammenligningen bør vise forståelse for at bok og film er ulike medier med ulike styrker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -965,6 +1047,7 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Anmeldelsen bør vise evne til å bruke fagbegreper, analysere filmspråk og gi en begrunnet vurdering.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -1001,7 +1084,40 @@ Filmspråket viser at dette øyeblikket er spesielt. Tempoet sakker, lyden endre
         solution: 'Storyboardet bør vise bevisst bruk av filmspråk og evne til å planlegge en filmscene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-6-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 6.2
+
+**Hovedpunkter:**
+- Film er en sammensatt tekst som kombinerer levende bilder, lyd, dialog og mise-en-scène
+- Filmspråket omfatter kameravinkel, bildeutsnitt, klipping og lyddesign
+- Adaptasjon handler om å overføre et verk fra ett medium til et annet, med nødvendige tilpasninger
+
+**Sentrale begreper:**
+- **Bildeutsnitt**: Hvor mye av motivet som vises (totalbilde, halvnært, nært)
+- **Kameravinkel**: Fugleperspektiv (ovenfra), normalperspektiv, froskeperspektiv (nedenfra)
+- **Diegetisk lyd**: Lyd fra filmens verden som karakterene kan høre
+- **Ikke-diegetisk lyd**: Lyd lagt til for seeren (filmmusikk, fortellerstemme)
+
+**Tips for eksamen:**
+- Beskriv konkrete filmtekniske valg og forklar deres effekt
+- Sammenlign bok og film ved å se på hva som er beholdt, endret og hvorfor
+- Husk at film og bok er ulike medier med ulike styrker`,
+    },
+    {
+      id: 'norsk-vg1-6-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **6.1 Sammensatte tekster** – Grunnleggende om multimodale tekster
+- **6.3 Digitale tekster og sosiale medier** – Analyser video i digitale medier
+- **2.3 Drama og teater** – Sammenlign dramatikk på scene og i film
+- **2.4 Romananalyse** – Analyser litterære forelegg for filmatiseringer`,
     },
   ],
   exercises: [],
@@ -1049,6 +1165,21 @@ Førstetkastet trenger ikke være perfekt. Det er i revisjonen teksten blir god.
 **"Skriving er omskriving."** - Klassisk skriveråd
 
 **I dette kapittelet lærer du konkrete teknikker for hver fase av skriveprosessen.**`,
+    },
+    {
+      id: 'norsk-vg1-5-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Skriveprosess** | De ulike fasene fra idé til ferdig tekst |
+| **Førskriving** | Planlegging og idéutvikling før skriving |
+| **Utkast** | Første versjon av en tekst |
+| **Revisjon** | Å omarbeide og forbedre innholdet |
+| **Redigering** | Språklig finpuss og korrektur |
+| **Tankekart** | Visuell organisering av ideer |
+| **Friskriving** | Skriving uten å stoppe eller sensurere |
+| **Tilbakemelding** | Respons på tekst fra andre lesere |`,
     },
     {
       id: 'norsk-vg1-5-4-def-1',
@@ -1275,6 +1406,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Å forstå skriveprosessen hjelper deg å jobbe mer systematisk med skriving.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1290,6 +1422,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Friskriving skal gi deg råmateriale og overvinne skrivesperre. Resultatet trenger ikke være polert.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1305,6 +1438,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Tankekartet skal vise strukturer og sammenhenger i emnet ditt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1320,6 +1454,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Tilbakemeldingen bør være konstruktiv, konkret og respektfull.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1351,6 +1486,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Øvelsen viser at du kan vurdere og forbedre egen tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1371,6 +1507,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Skriveprosessen følger fasene: førskriving (planlegging), utkast (skriving), revisjon (omskriving), redigering (språkvask) og ferdigstilling.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1391,6 +1528,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Revisjon handler om å forbedre innhold, struktur og argumentasjon (store endringer), mens redigering/korrektur handler om å rette språk, rettskriving og tegnsetting (små endringer).',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1422,6 +1560,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Øvelsen viser at tilbakemelding og revisjon forbedrer teksten.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1458,6 +1597,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Ulike teknikker passer for ulike situasjoner og personer. Det er nyttig å kjenne flere.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1494,6 +1634,7 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Porteføljen viser at du forstår og kan gjennomføre hele skriveprosessen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -1515,7 +1656,41 @@ Se på vurderingskriteriene før du starter og mens du reviderer:
         solution: 'Teksten bør vise selvrefleksjon, metakognitiv bevissthet og evne til å sette ord på egen skrivepraksis.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 5.4
+
+**Hovedpunkter:**
+- Skriveprosessen har fem faser: førskriving, utkast, revisjon, redigering og ferdigstilling
+- Førskriving omfatter idéutvikling gjennom friskriving, tankekart, brainstorming og research
+- Revisjon handler om innhold og struktur, redigering handler om språk og rettskriving
+
+**Sentrale begreper:**
+- **Førskriving**: Planlegging og idéutvikling før selve skrivingen
+- **Revisjon**: Å omarbeide innhold og struktur (store endringer)
+- **Redigering**: Språklig finpuss og korrekturlesing (små endringer)
+- **Egenvurdering**: Å vurdere egen tekst systematisk med friske øyne
+
+**Tips for eksamen:**
+- La teksten hvile før du reviderer - du ser den med nye øyne
+- Skriver du deg fast, prøv friskriving eller start et annet sted i teksten
+- Bruk vurderingskriteriene som sjekkliste under revisjon`,
+    },
+    {
+      id: 'norsk-vg1-5-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **5.2 Kreativ skriving** – Bruk skriveprosessen i kreativ skriving
+- **5.3 Fagartikkel** – Bruk revisjon for å forbedre fagartikler
+- **5.6 Respons og tilbakemelding** – Gi og motta tilbakemelding effektivt
+- **8.3 Rettskriving bokmål** – Sjekk rettskriving i revisjon
+- **8.5 Tegnsetting** – Sjekk tegnsetting i revisjon`,
     },
   ],
   exercises: [],
@@ -1555,6 +1730,21 @@ Siden 1988 har samisk og norsk vært likestilte språk i Norge gjennom Grunnlove
 - Det er del av læreplanen (LK20)
 - Det gir forståelse for språklig mangfold
 - Det bidrar til forsoning etter fornorskingspolitikken`,
+    },
+    {
+      id: 'norsk-vg1-7-1-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Sápmi** | Det samiske hjemområdet som strekker seg over fire land |
+| **Urfolk** | Opprinnelig befolkning i et område |
+| **Nordsamisk** | Det største samiske språket i Norge |
+| **Lulesamisk** | Samisk språk i Nordland og Nord-Sverige |
+| **Sørsamisk** | Samisk språk i Trøndelag og Hedmark |
+| **Fornorskingspolitikken** | Norges assimileringspolitikk overfor samer |
+| **Joik** | Tradisjonell samisk sangform |
+| **Sametinget** | Samenes folkevalgte organ i Norge |`,
     },
     {
       id: 'norsk-vg1-7-1-def-1',
@@ -1728,6 +1918,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'De samiske språkene er selvstendige språk med lang historie i Norge.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1755,6 +1946,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Samiske stedsnavn er kulturminner som viser samisk tilstedeværelse gjennom historien.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1782,6 +1974,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Språk bærer med seg kultur, historie og verdensforståelse som går tapt hvis språket dør.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1809,6 +2002,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Samisk kultur er levende og utvikler seg i moderne former.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1824,6 +2018,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Teksten bør argumentere for at kunnskap om samisk er viktig for å forstå norsk historie, kultur og språklig mangfold, og for forsoning etter fornorskingspolitikken.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1844,6 +2039,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'I Norge snakkes tre samiske språk: nordsamisk, lulesamisk og sørsamisk. Disse er selvstendige språk, ikke dialekter.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1864,6 +2060,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Fornorskingspolitikken var statens offisielle politikk for å assimilere samer, kvener og andre minoriteter til norsk språk og kultur. Den varte fra ca. 1850 til 1980.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1895,6 +2092,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Analysen bør vise forståelse for sangens temaer og dens betydning for samisk identitet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1927,6 +2125,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Undersøkelsen viser kjennskap til samisk litteratur og evne til å formidle.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1947,6 +2146,7 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Essayet bør vise kunnskap om fornorskingspolitikken, drøfte språklige konsekvenser med eksempler, og reflektere over revitalisering og forsoning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -1979,7 +2179,40 @@ Stedsnavnloven (1990) sikrer at samiske stedsnavn skal tas vare på. Skilting p�
         solution: 'Sammenligningen bør vise forståelse for at språkrevitalisering er en global utfordring med mange felles trekk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-7-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 7.1
+
+**Hovedpunkter:**
+- Norge har tre samiske språk: nordsamisk, lulesamisk og sørsamisk - alle er selvstendige språk
+- Samisk tilhører den finsk-ugriske språkfamilien og er ikke i slekt med norsk
+- Alle de samiske språkene er truet, med sørsamisk og lulesamisk i mest kritisk tilstand
+
+**Sentrale begreper:**
+- **Sápmi**: Det samiske hjemområdet som strekker seg over Norge, Sverige, Finland og Russland
+- **Nordsamisk**: Det største samiske språket med ca. 20 000-25 000 talere
+- **Fornorskingspolitikken**: Statens assimileringspolitikk som førte til stort språktap
+- **Revitalisering**: Arbeid for å gjenopplive og styrke truede språk
+
+**Tips for eksamen:**
+- Skill mellom de tre samiske språkene og deres geografiske utbredelse
+- Forstå sammenhengen mellom fornorskingspolitikken og dagens språksituasjon
+- Vis kunnskap om både historisk undertrykkelse og nåtidens revitaliseringsarbeid`,
+    },
+    {
+      id: 'norsk-vg1-7-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **7.2 Fornorskingspolitikken** – Forstå historisk undertrykkelse av samiske språk
+- **7.3 Samiske språklige rettigheter** – Lær om nåtidens rettigheter
+- **7.4 Nasjonale minoriteter** – Se samisk i sammenheng med andre minoritetsspråk
+- **3.3 Samisk litteratur** – Les litteratur på og om samisk`,
     },
   ],
   exercises: [],
@@ -2025,6 +2258,21 @@ Fornorskingspolitikken var på sitt sterkeste fra ca. 1850 til 1980, men enkelte
 - For å bidra til forsoning
 - For å unngå å gjenta historiens feil
 - Fordi det er del av norsk historie alle bør kjenne`,
+    },
+    {
+      id: 'norsk-vg1-7-2-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Fornorsking** | Politikk for å assimilere minoriteter til norsk kultur |
+| **Assimilering** | Å innlemme en gruppe i majoritetssamfunnet |
+| **Internatskole** | Skole der elever bor borte fra hjemmet |
+| **Jordsalgsloven** | Lov som krevde norskkunnskaper for å kjøpe jord |
+| **Språkbad** | Å bli nedsenket i et nytt språk uten morsmålstøtte |
+| **Revitalisering** | Arbeid for å gjenopplive et truet språk |
+| **Sannhets- og forsoningskommisjonen** | Offentlig gransking av fornorskingspolitikken |
+| **Kulturelt folkemord** | Systematisk ødeleggelse av en kulturs språk og tradisjoner |`,
     },
     {
       id: 'norsk-vg1-7-2-def-1',
@@ -2205,6 +2453,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Fornorskingspolitikken var systematisk statlig politikk med alvorlige konsekvenser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2232,6 +2481,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Fornorskingen hadde ideologiske, politiske og økonomiske årsaker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2259,6 +2509,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Fornorskingen har hatt varige konsekvenser for enkeltpersoner, familier og samfunn.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2291,6 +2542,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Sannhetskommisjoner er viktige for å bearbeide historisk urett og muliggjøre forsoning.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2306,6 +2558,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Teksten bør vise refleksjon over historien, forståelse for konsekvensene og tanker om forsoning og veien videre.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2326,6 +2579,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Joik er en tradisjonell samisk vokal uttrykksform der man joiker om personer, dyr, steder eller hendelser. Det er en av de eldste musikktradisjonene i Europa.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2346,6 +2600,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Samisk fortellerkultur har en sterk muntlig tradisjon med fortellinger (muitalus), sagn, myter og joik som bærer kunnskap, historie og identitet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2378,6 +2633,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Analysen bør vise evne til å lytte aktivt og beskrive musikalsk uttrykk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2405,6 +2661,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Sammenligningen viser at kulturer har både felles og unike fortellertrekk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2425,6 +2682,7 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Essayet bør vise evne til å se majoritetskulturen utenfra og drøfte hva urfolksperspektiver kan tilføre.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2457,7 +2715,40 @@ Disse historiene viser hvordan politikk påvirker enkeltmennesker og hvordan vir
         solution: 'Prosjektet viser evne til selvstendig research og formidling av samisk kultur.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-7-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 7.2
+
+**Hovedpunkter:**
+- Fornorskingspolitikken var statlig assimileringspolitikk fra ca. 1850 til 1980
+- Metodene inkluderte språkforbud i skolen, internatskoler og fornorsking av stedsnavn
+- Konsekvensene merkes fortsatt: språktap, kulturelt brudd og traumer som går i arv
+
+**Sentrale begreper:**
+- **Assimilering**: Å innlemme en minoritetsgruppe i majoritetssamfunnet
+- **Internatskoler**: Skoler der samiske barn ble sendt bort fra familie og kultur
+- **Sannhets- og forsoningskommisjonen**: Offentlig gransking av fornorskingspolitikken (2018-2023)
+- **Joik**: Tradisjonell samisk vokal uttrykksform som ble forbudt under fornorskingen
+
+**Tips for eksamen:**
+- Forklar årsaker (nasjonsbygging, sosialdarwinisme, sikkerhetspolitikk) og konsekvenser
+- Vis forståelse for at virkningene fortsatt merkes i dag
+- Knytt historien til forsoning og revitalisering i samtiden`,
+    },
+    {
+      id: 'norsk-vg1-7-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **7.1 De samiske språkene** – Grunnleggende om samiske språk
+- **7.3 Samiske språklige rettigheter** – Fra undertrykkelse til rettigheter
+- **7.4 Nasjonale minoriteter** – Sammenlign med andre minoriteters erfaringer
+- **3.3 Samisk litteratur** – Les litteratur som behandler fornorskingens konsekvenser`,
     },
   ],
   exercises: [],
@@ -2500,6 +2791,21 @@ Utviklingen viser hvordan politikk kan endre seg. Det som var forbudt for noen t
 - Om samiske rettigheter i skole og offentlighet
 - Om samisk i medier og på internett
 - Om utfordringer og muligheter fremover`,
+    },
+    {
+      id: 'norsk-vg1-7-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Sameloven** | Lov som regulerer samiske rettigheter |
+| **Språkforvaltningsområdet** | Kommuner der samisk og norsk er likestilt |
+| **Sameparagrafen** | Grunnlovsbestemmelsen om samisk språk og kultur |
+| **Språklige rettigheter** | Retten til å bruke eget språk i offentlige sammenhenger |
+| **Språkrev** | Område der et språk er i aktiv bruk |
+| **Språknøytral** | Uten preferanse for et bestemt språk |
+| **Minoritetsspråkpakten** | Europaråds-avtale om minoritetsspråk |
+| **ILO-konvensjon 169** | Internasjonal avtale om urfolks rettigheter |`,
     },
     {
       id: 'norsk-vg1-7-3-def-1',
@@ -2705,6 +3011,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Samisk har sterkt lovvern i Norge etter Grunnloven og sameloven.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2732,6 +3039,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Medier på samisk er avgjørende for å holde språket levende og relevant.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2759,6 +3067,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Rettigheter på papiret må følges opp med ressurser for å fungere i praksis.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2786,6 +3095,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Samisk har særstilling som urfolksspråk, men andre minoritetsspråk har også vern.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2801,6 +3111,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Teksten bør vise forståelse for utfordringer og muligheter, og komme med konkrete forslag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2821,6 +3132,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Urfolk er folkegrupper som levde i et område før det ble kolonisert eller innlemmet i en stat, og som har bevart egne kulturelle, sosiale og politiske institusjoner.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2841,6 +3153,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Samisk har omfattende lovfestede rettigheter gjennom Grunnloven, sameloven og opplæringsloven, inkludert rett til opplæring over hele landet og rett til bruk i offentlige tjenester.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2872,6 +3185,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Sammenligningen bør vise forståelse for urfolksperspektiver og kulturell motstandskraft.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2904,6 +3218,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Analysen bør vise kritisk medieforståelse og bevissthet om representasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2925,6 +3240,7 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Essayet bør vise kunnskap om koloniale strukturer i Skandinavia, drøfte avkoloniseringsbegrepet nyansert og reflektere over hva dette betyr for Norge i dag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -2967,7 +3283,40 @@ Språkbad og språkreir er metoder der barn lærer samisk gjennom lek og daglig 
         solution: 'Presentasjonen viser kunnskap om urfolkslitteratur og evne til å formidle kulturelle perspektiver.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-7-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 7.3
+
+**Hovedpunkter:**
+- Samisk har grunnlovsvern gjennom Grunnlovens § 108 og omfattende rettigheter gjennom sameloven
+- I språkforvaltningsområdet er samisk og norsk likestilte i offentlige tjenester
+- Alle elever i Norge har rett til opplæring i samisk, uansett hvor de bor
+
+**Sentrale begreper:**
+- **Sameparagrafen**: Grunnlovens § 108 som gir staten plikt til å verne samisk språk og kultur
+- **Språkforvaltningsområdet**: Kommuner der samisk og norsk er likestilte (bl.a. Kautokeino, Karasjok)
+- **Språkbad/språkreir**: Metoder der barn lærer samisk gjennom lek og daglig bruk
+- **NRK Sápmi**: NRKs samiske redaksjon med nyheter og programmer på samisk
+
+**Tips for eksamen:**
+- Kjenn til de viktigste lovene og rettighetene (Grunnloven, sameloven, opplæringsloven)
+- Drøft gapet mellom rettigheter på papiret og praktiske utfordringer
+- Vis kunnskap om positive utviklinger og revitaliseringsarbeid`,
+    },
+    {
+      id: 'norsk-vg1-7-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **7.1 De samiske språkene** – Grunnleggende om samiske språk
+- **7.2 Fornorskingspolitikken** – Historisk bakgrunn for dagens rettigheter
+- **7.4 Nasjonale minoriteter** – Se samiske rettigheter i sammenheng med andre minoriteter
+- **4.1 Språk og identitet** – Forstå sammenhengen mellom språkrettigheter og identitet`,
     },
   ],
   exercises: [],
@@ -3019,6 +3368,21 @@ Norge har fem offisielt anerkjente nasjonale minoriteter. Disse gruppene har en 
 - Språklige rettigheter og revitalisering`,
     },
     {
+      id: 'norsk-vg1-7-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Nasjonal minoritet** | Gruppe med lang historie i et land og egen kultur |
+| **Kvener** | Finsk-talende minoritet i Nord-Norge |
+| **Rom** | Folkegruppe med opprinnelse i India (sigøynere) |
+| **Romani** | Språket til romanifolket/tatere |
+| **Skogfinner** | Etterkommere av finske innvandrere på Østlandet |
+| **Rammekonvensjonen** | Europarådets avtale om nasjonale minoriteters rettigheter |
+| **Tatertid** | Perioden da tatere ble tvangssterilisert og diskriminert |
+| **Minoritetsspråk** | Språk som snakkes av en minoritet i et land |`,
+    },
+    {
       id: 'norsk-vg1-7-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -3047,6 +3411,7 @@ Norge har fem offisielt anerkjente nasjonale minoriteter. Disse gruppene har en 
         solution: 'De fem nasjonale minoritetene har ulik bakgrunn men felles status og rettigheter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3101,6 +3466,7 @@ Kvenene er etterkommere av finner som innvandret til Nord-Norge fra 1500-tallet 
         solution: 'Kvensk er nært beslektet med finsk, men ble anerkjent som et eget språk i Norge i 2005. Det har utviklet seg selvstendig i Norge gjennom flere hundre år.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3192,6 +3558,7 @@ Romanifolket ble utsatt for ekstrem undertrykkelse:
         solution: 'Rom og romanifolket er to forskjellige folkegrupper med ulik historie og ulike språk (romanés for rom, skandoromani for romanifolket). Begge har opprinnelse i India, men kom til Skandinavia på ulike tidspunkter.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3257,6 +3624,7 @@ Romanifolket ble utsatt for ekstrem undertrykkelse:
         solution: 'Skogfinnene mistet finsk språk gjennom assimilering over tid. I dag er det ingen morsmålstalere igjen, men kulturarven bevares gjennom bygninger, stedsnavn og tradisjoner.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3325,6 +3693,7 @@ Romanifolket ble utsatt for ekstrem undertrykkelse:
         solution: 'Språkbevaring krever aktive tiltak fra både staten og minoritetssamfunnene.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3352,6 +3721,7 @@ Romanifolket ble utsatt for ekstrem undertrykkelse:
         solution: 'Språk og identitet er nært knyttet sammen, men identitet kan også uttrykkes på andre måter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3418,6 +3788,7 @@ Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og 
         solution: 'Alle de nasjonale minoritetene ble rammet av diskriminering og assimileringspolitikk, men på ulike måter og i ulik grad.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     // --- Samleoppgaver ---
@@ -3439,6 +3810,7 @@ Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og 
         solution: 'Teksten bør vise refleksjon over egen læring, forståelse for minoritetsperspektiver og tanker om hvordan samfunnet kan bli mer inkluderende.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3471,6 +3843,7 @@ Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og 
         solution: 'Sammenligningen bør vise forståelse for ulike minoriteters situasjon og evne til nyansert drøfting.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
     },
     {
@@ -3512,7 +3885,40 @@ Kvensk har bedre forutsetninger for revitalisering på grunn av flere talere og 
         solution: 'Prosjektet viser evne til selvstendig research og formidling om minoritetshistorie.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for samiske språk og rettigheter'],
       },
+    },
+    {
+      id: 'norsk-vg1-7-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 7.4
+
+**Hovedpunkter:**
+- Norge har fem nasjonale minoriteter: kvener, rom, romanifolk/tatere, skogfinner og jøder
+- Nasjonale minoriteter har lang historisk tilknytning til Norge (minst 100 år) og egen kultur/språk
+- Alle gruppene ble rammet av diskriminering, men på ulike måter og i ulik grad
+
+**Sentrale begreper:**
+- **Nasjonal minoritet**: Gruppe med lang historie i landet, egen kultur, og offisiell anerkjennelse
+- **Kvensk**: Språk beslektet med finsk, snakkes i Nord-Norge
+- **Romanés/romani**: Språkene til rom og romanifolket
+- **Rammekonvensjonen**: Europarådets avtale om nasjonale minoriteters rettigheter
+
+**Tips for eksamen:**
+- Skill mellom nasjonale minoriteter og urfolk (samer)
+- Kjenn til de fem minoritetene og deres særtrekk
+- Vis forståelse for felles og ulike erfaringer med diskriminering og fornorsking`,
+    },
+    {
+      id: 'norsk-vg1-7-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **7.1 De samiske språkene** – Sammenlign med urfolksspråkene
+- **7.2 Fornorskingspolitikken** – Se felles historisk erfaring med samene
+- **7.3 Samiske språklige rettigheter** – Sammenlign rettigheter mellom grupper
+- **4.4 Språkmangfold i Norge** – Se minoritetsspråk i sammenheng med dialekter`,
     },
   ],
   exercises: [],
@@ -3562,6 +3968,21 @@ Kildekritikk handler om å vurdere informasjon kritisk:
 - For å beskytte oss mot manipulasjon
 
 **Kildekritikk er en av de viktigste ferdighetene du kan lære i vår digitale tid. Det handler ikke om å være mistenksom mot alt, men om å tenke før du tror og deler.**`,
+    },
+    {
+      id: 'norsk-vg1-6-4-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Falske nyheter** | Bevisst villedende informasjon presentert som nyheter |
+| **Desinformasjon** | Falsk informasjon spredt med vilje for å villede |
+| **Misinformasjon** | Feilaktig informasjon spredt uten ond hensikt |
+| **Clickbait** | Sensasjonelle overskrifter som lokker til klikk |
+| **Ekkokammer** | Miljø der man bare hører meninger man er enig i |
+| **Algoritme** | Dataprogram som bestemmer hva du ser på nettet |
+| **Faktasjekk** | Å verifisere påstander mot pålitelige kilder |
+| **Kildevurdering** | Systematisk vurdering av kilders troverdighet |`,
     },
     {
       id: 'norsk-vg1-6-4-def-1',
@@ -3634,6 +4055,7 @@ Kildekritikk handler om å vurdere informasjon kritisk:
         solution: 'Å kjenne fagbegrepene gjør deg bedre rustet til kritisk lesing.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3654,6 +4076,7 @@ Kildekritikk handler om å vurdere informasjon kritisk:
         solution: 'Desinformasjon kjennetegnes ved at det er bevisst falsk informasjon laget for å villede. Alternativ c er det eneste der noen med vilje skaper falskt innhold for å manipulere.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3716,6 +4139,7 @@ TONE er en enkel huskeregel for kildekritiske spørsmål:
         solution: 'T i TONE står for Troverdighet - vi vurderer om avsenderen er til å stole på og har kompetanse på området.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3757,6 +4181,7 @@ TONE er en enkel huskeregel for kildekritiske spørsmål:
         solution: 'TONE-analysen bør vise systematisk kildevurdering med konkrete observasjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3842,6 +4267,7 @@ Når du møter påstander du er usikker på, kan du faktasjekke:
         solution: 'Faktasjekken bør vise metodisk tilnærming og bruk av pålitelige kilder.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3857,6 +4283,7 @@ Når du møter påstander du er usikker på, kan du faktasjekke:
         solution: 'Analysen bør vise bevissthet om hvordan overskrifter brukes for å fange oppmerksomhet og noen ganger villede.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3934,6 +4361,7 @@ Innhold som skaper sterke følelser (sinne, frykt, glede) spres lettere. Algorit
         solution: 'Refleksjonen bør vise bevissthet om algoritmers påvirkning og egne strategier for å motvirke filterbobler.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -3994,6 +4422,7 @@ Bilder har tradisjonelt vært ansett som bevis - "kamera lyver ikke". Men i dag 
         solution: 'Rapporten bør vise praktisk erfaring med omvendt bildesøk og evne til å vurdere bildets kontekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -4157,6 +4586,7 @@ Bildet er ekte, men brukes i helt feil kontekst. Dette er et klassisk eksempel p
         solution: 'Presentasjonen bør være informativ, visuelt tiltalende og praktisk nyttig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -4177,7 +4607,39 @@ Bildet er ekte, men brukes i helt feil kontekst. Dette er et klassisk eksempel p
         solution: 'Essayet bør vise forståelse for sammenhengen mellom informasjonskvalitet og demokratisk deltakelse, med konkrete eksempler og egne refleksjoner.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
+    },
+    {
+      id: 'norsk-vg1-6-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 6.4
+
+**Hovedpunkter:**
+- Kildekritikk handler om å vurdere hvem som står bak informasjonen, hva formålet er, og om den er pålitelig
+- TONE-modellen (Troverdighet, Objektivitet, Nøyaktighet, Egnethet) er et verktøy for systematisk kildevurdering
+- Algoritmer og filterbobler påvirker hvilken informasjon vi ser og kan forsterke ekkokamre
+
+**Sentrale begreper:**
+- **Desinformasjon**: Bevisst falsk informasjon laget for å villede
+- **Misinformasjon**: Feilaktig informasjon spredt uten ond hensikt
+- **Ekkokammer**: Miljø der man bare eksponeres for meninger man er enig i
+- **Faktasjekk**: Å verifisere påstander mot pålitelige kilder
+
+**Tips for eksamen:**
+- Bruk TONE-modellen systematisk når du vurderer kilder
+- Husk at bilder kan manipuleres eller tas ut av kontekst - gjør omvendt bildesøk
+- Kildekritikk er viktig både for skolearbeid og som demokratisk borger`,
+    },
+    {
+      id: 'norsk-vg1-6-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.2 Sakprosa og kildebruk** – Grunnleggende kildekritikk
+- **6.1 Sammensatte tekster** – Forstå hvordan multimodale tekster kan villede
+- **6.3 Digitale tekster og sosiale medier** – Analyser påvirkning i sosiale medier`,
     },
   ],
   exercises: [],
@@ -4225,6 +4687,21 @@ En tolkende og analyserende tekst er en saktekst der du undersøker og forklarer
 - Når du vurderer og anmelder tekster
 
 **En god analyse kombinerer nøktern undersøkelse med begrunnet tolkning.**`,
+    },
+    {
+      id: 'norsk-vg1-5-5-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Analyse** | Å bryte ned en tekst og undersøke delene |
+| **Tolkning** | Å forklare tekstens dypere mening |
+| **Belegg** | Sitater eller eksempler som støtter påstander |
+| **Problemstilling** | Spørsmålet analysen skal besvare |
+| **Virkemiddel** | Teknikker forfatteren bruker for å skape effekt |
+| **Sitat** | Direkte gjengivelse av tekstens ord |
+| **Referat** | Kortfattet gjenfortelling av handlingen |
+| **Tekstkompetanse** | Evne til å lese, forstå og vurdere tekster |`,
     },
     {
       id: 'norsk-vg1-5-5-def-1',
@@ -4279,6 +4756,7 @@ En tolkende og analyserende tekst er en saktekst der du undersøker og forklarer
         solution: 'Innledningen skal presentere teksten (tittel, forfatter, sjanger, år), si kort hva den handler om, og formulere hva du skal undersøke.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4299,6 +4777,7 @@ En tolkende og analyserende tekst er en saktekst der du undersøker og forklarer
         solution: 'Innledningen bør inneholde presentasjon av teksten, kort om innholdet, og et tydelig fokus for analysen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4361,6 +4840,7 @@ Sett som eget avsnitt med innrykk, uten anførselstegn.
         solution: 'Belegg er sitater og eksempler fra teksten du analyserer. De brukes til å støtte og begrunne påstandene og tolkningene dine.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4387,6 +4867,7 @@ Sett som eget avsnitt med innrykk, uten anførselstegn.
         solution: 'God sitatbruk betyr at du velger relevante sitater, integrerer dem i teksten, og forklarer hva de viser.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4443,6 +4924,7 @@ En tolkning er ikke en mening du bare har - den må begrunnes med belegg fra tek
         solution: 'Kontraster brukes ofte for å understreke temaer, skape spenning, eller tydeliggjøre konflikter. Analysen bør vise konkrete eksempler og forklare effekten.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4512,6 +4994,7 @@ Analyse og tolkning henger sammen, men er ikke det samme:
         solution: 'Analyse handler om hvordan teksten er laget, tolkning handler om hva den betyr. De henger tett sammen i en god analyserende tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4585,6 +5068,7 @@ Analyse og tolkning henger sammen, men er ikke det samme:
         solution: 'Analyse av skjønnlitteratur og sakprosa krever ulike fagbegreper, men begge handler om å undersøke hvordan teksten virker og hva den betyr.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4643,6 +5127,7 @@ Gjennom virkemidler som kontrast, miljøskildring og indre monolog skaper Skram 
         solution: 'En god analyserende tekst kombinerer tekstnær analyse med begrunnet tolkning og har en klar struktur.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4662,6 +5147,7 @@ Gjennom virkemidler som kontrast, miljøskildring og indre monolog skaper Skram 
         solution: 'Øvelsen viser at tekster kan tolkes på flere måter, og at gode tolkninger alltid begrunnes i teksten.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -4698,7 +5184,41 @@ Gjennom virkemidler som kontrast, miljøskildring og indre monolog skaper Skram 
         solution: 'Å vurdere andres tekster utvikler din egen evne til å skrive gode analyserende tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['skrive fagartikler som greier ut og drøfter'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 5.5
+
+**Hovedpunkter:**
+- En analyserende tekst undersøker hva teksten handler om, hvordan den er bygget opp, og hva den betyr
+- Analyse handler om hvordan teksten er laget, tolkning handler om hva den betyr - begge må begrunnes
+- Strukturen er: innledning (presenter tekst og fokus), analyse/tolkning (med belegg), avslutning
+
+**Sentrale begreper:**
+- **Analyse**: Å bryte ned teksten og undersøke virkemidler, struktur og språk
+- **Tolkning**: Å forklare tekstens dypere mening utover det bokstavelige
+- **Belegg**: Sitater og eksempler fra teksten som støtter påstandene dine
+- **Problemstilling**: Spørsmålet eller fokuset analysen skal besvare
+
+**Tips for eksamen:**
+- Presenter alltid teksten i innledningen (tittel, forfatter, sjanger, år)
+- Bruk sitater som belegg og kommenter dem alltid
+- God tolkning bygger på grundig analyse - ikke synse uten belegg`,
+    },
+    {
+      id: 'norsk-vg1-5-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.1 Novelleanalyse** – Analyser noveller med de riktige begrepene
+- **2.2 Lyrikk og diktanalyse** – Analyser dikt systematisk
+- **2.4 Romananalyse** – Skriv romananalyser
+- **1.5 Retorisk analyse** – Analyser sakprosa retorisk
+- **5.3 Fagartikkel** – Skriv analyser i fagartikkelformat`,
     },
   ],
   exercises: [],
@@ -4748,6 +5268,21 @@ export const CHAPTER_NORSK_VG1_5_6: TextbookChapter = {
 5. (Eventuelt ny runde med respons)
 
 **God respons er spesifikk, konstruktiv og respektfull. Den peker på både styrker og forbedringsområder.**`,
+    },
+    {
+      id: 'norsk-vg1-5-6-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Respons** | Tilbakemelding på en tekst |
+| **Mottakerrespons** | Tilbakemelding fra medelevers perspektiv |
+| **Formativ vurdering** | Vurdering underveis som hjelper læring |
+| **Summativ vurdering** | Sluttvurdering med karakter |
+| **Revisjon** | Å omarbeide og forbedre en tekst |
+| **Vurderingskriterier** | Hva teksten bedømmes etter |
+| **Konstruktiv kritikk** | Kritikk som peker på forbedringsmuligheter |
+| **Egenvurdering** | Å vurdere egen tekst systematisk |`,
     },
     {
       id: 'norsk-vg1-5-6-def-1',
@@ -4818,6 +5353,7 @@ Hjelpe forfatteren å skrive en bedre tekst, ikke vise hvor flink du er til å f
         solution: 'God respons er konkret, begrunnet, konstruktiv og hjelpsom. Den fokuserer på teksten og gir forfatteren verktøy til å forbedre.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4838,6 +5374,7 @@ Hjelpe forfatteren å skrive en bedre tekst, ikke vise hvor flink du er til å f
         solution: 'Responsen skal hjelpe forfatteren å se hva som fungerer og hva som kan forbedres, slik at teksten blir bedre.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4897,6 +5434,7 @@ Noen ganger vurderer medelever hverandres tekster med karakterer. Da er det vikt
         solution: 'Responsen bør være konkret, konstruktiv og respektfull, med både ros og forslag til forbedring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -4962,6 +5500,7 @@ Noen ganger vurderer medelever hverandres tekster med karakterer. Da er det vikt
         solution: 'God respons peker på konkrete problemer og gir forslag til forbedring, uten å være nedlatende.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5023,6 +5562,7 @@ Ikke all respons er like nyttig. Tenk over:
         solution: 'Du bør lytte åpent, stille spørsmål for å forstå, og deretter vurdere hva av tilbakemeldingene som er nyttig for teksten din.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5092,6 +5632,7 @@ Bruk vurderingskriteriene som sjekkliste både når du skriver, når du gir resp
         solution: 'En sjekkliste hjelper deg å gi systematisk respons på de viktigste aspektene ved en tekst.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5123,6 +5664,7 @@ Bruk vurderingskriteriene som sjekkliste både når du skriver, når du gir resp
         solution: 'Å vurdere tekster etter kriterier utvikler din evne til å se hva som fungerer og ikke fungerer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5197,6 +5739,7 @@ Etter store revisjoner kan det være lurt å få ny respons før du ferdigstille
         solution: 'Øvelsen viser at du kan bruke respons aktivt til å forbedre tekster.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5268,6 +5811,7 @@ Setningene er veldig korte og like. Prøv å variere ved å binde noen sammen me
         solution: 'Responsgrupper gir verdifull trening i å vurdere tekst og motta tilbakemelding.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
     },
     {
@@ -5299,7 +5843,40 @@ Setningene er veldig korte og like. Prøv å variere ved å binde noen sammen me
         solution: 'Metarefleksjon over egen skriveprosess gjør deg til en mer bevisst og selvstendig skribent.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['kombinere virkemidler kreativt i egen tekstskaping'],
       },
+    },
+    {
+      id: 'norsk-vg1-5-6-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering av kapittel 5.6
+
+**Hovedpunkter:**
+- God respons er konkret, begrunnet, konstruktiv og balansert - den fokuserer på teksten, ikke personen
+- Sandwich-metoden: start positivt, gi konstruktiv kritikk, avslutt positivt
+- Du bestemmer selv hva av responsen du vil bruke - vurder kritisk hva som er nyttig
+
+**Sentrale begreper:**
+- **Respons**: Tilbakemelding på tekst underveis i skriveprosessen
+- **Konstruktiv kritikk**: Kritikk som peker på problemer OG gir forslag til løsninger
+- **Responsgruppe**: Små grupper som gir tilbakemelding på hverandres tekster
+- **Vurderingskriterier**: Hva teksten bedømmes etter (innhold, struktur, språk, formelle krav)
+
+**Tips for eksamen:**
+- Gi konkret respons med eksempler, ikke vage kommentarer som "bra" eller "dårlig"
+- Når du mottar kritikk: lytt, ta notater, still spørsmål - og ta deg tid til å vurdere
+- Bruk vurderingskriteriene som sjekkliste både når du skriver og gir respons`,
+    },
+    {
+      id: 'norsk-vg1-5-6-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **5.4 Skriveprosess og revisjon** – Bruk respons i revisjonsfasen
+- **5.1 Muntlig kommunikasjon** – Gi muntlig tilbakemelding
+- **5.3 Fagartikkel** – Gi respons på fagartikler
+- **5.5 Tolkende og analyserende tekst** – Gi respons på analyser`,
     },
   ],
   exercises: [],

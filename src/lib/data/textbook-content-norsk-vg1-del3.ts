@@ -47,6 +47,21 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
 - Øve på argumentasjon`,
     },
     {
+      id: 'norsk-vg1-1-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Debattinnlegg** | Tekst der man argumenterer for et synspunkt |
+| **Tese** | Hovedpåstanden du argumenterer for |
+| **Argument** | Begrunnelse som støtter tesen |
+| **Motargument** | Argument mot ditt standpunkt |
+| **Feilslutning** | Ugyldig eller villedende argumentasjon |
+| **Stråmann** | Å forvrenge motstanderens argument |
+| **Offentlig debatt** | Meningsutveksling i mediene |
+| **Innlegg** | Kortere meningsytring i avisen |`,
+    },
+    {
       id: 'norsk-vg1-1-3-def-1',
       type: 'definition',
       title: 'Debattinnleggets struktur',
@@ -151,6 +166,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Innlegget vurderes etter struktur, argumentasjon og språk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -166,6 +182,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Analysen skal identifisere argumenter, virkemidler og vurdere effektiviteten.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -181,6 +198,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Motinnlegget skal vise evne til å argumentere fra ulike perspektiver.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -212,6 +230,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Å gjenkjenne feilslutninger hjelper deg å skrive sterkere argumentasjon selv.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -227,6 +246,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Muntlig debatt øver argumentasjon, lytting og saklig uenighet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     // New exercises 6-11
@@ -248,6 +268,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Et debattinnlegg har en tydelig tredelt struktur: innledning der du presenterer tesen din, hoveddel der du bygger opp argumentasjonen, og avslutning der du oppsummerer og gjerne kommer med en oppfordring.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -268,6 +289,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'En påstand er en mening eller en ytring som ikke nødvendigvis er begrunnet. Et argument er en påstand som er underbygget med fakta, eksempler, logikk eller annen begrunnelse. I et debattinnlegg må du bygge opp argumenter, ikke bare fremsette påstander.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -283,6 +305,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Analysen bør identifisere Colletts hovedargumenter, hennes bruk av etos (som kvinne med erfaring), patos (følelsesappell for kvinners situasjon) og logos (logiske argumenter for endring). Collett bruker ofte personlige erfaringer og observasjoner som utgangspunkt for sine argumenter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -298,6 +321,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Sammenligningen bør vise at Collett ofte argumenterer fra personlig erfaring og med fokus på kvinners situasjon, mens Bjørnson bruker en mer direkte og kampklar tone. Begge bruker retoriske virkemidler effektivt, men med ulik stil og ulike appellformer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -313,6 +337,7 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Debattinnlegget vurderes etter evne til å respondere på en historisk tekst, bygge opp egen argumentasjon, bruke retoriske virkemidler bevisst, og skrive med god struktur og språk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
     },
     {
@@ -328,7 +353,268 @@ I et demokrati er det viktig at borgere kan ytre meninger og delta i debatt. Deb
         solution: 'Oppgaven tester evnen til å se en sak fra flere sider og argumentere overbevisende uansett standpunkt. Refleksjonen bør vise innsikt i at gode argumenter finnes på begge sider av de fleste debatter.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
       },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-12',
+        number: '12',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er en "stråmann-feilslutning"?',
+        options: [
+          { id: 'a', text: 'Å bruke en berømt person som autoritet', isCorrect: false },
+          { id: 'b', text: 'Å forvrenge motstanderens argument for å gjøre det lettere å angripe', isCorrect: true },
+          { id: 'c', text: 'Å appellere til folks følelser i stedet for fornuft', isCorrect: false },
+          { id: 'd', text: 'Å bruke statistikk på en misvisende måte', isCorrect: false },
+        ],
+        solution: 'En stråmann-feilslutning innebærer at man presenterer en forenklet eller forvrengt versjon av motstanderens argument, for deretter å angripe denne "stråmannen" i stedet for det faktiske argumentet. Dette er en uærlig debatteknikk som bør unngås.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-13',
+        number: '13',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken feilslutning brukes her: "Du bør ikke lytte til legen din om kosthold - han er jo overvektig selv!"',
+        options: [
+          { id: 'a', text: 'Falsk dilemma', isCorrect: false },
+          { id: 'b', text: 'Appell til mengden', isCorrect: false },
+          { id: 'c', text: 'Ad hominem (personangrep)', isCorrect: true },
+          { id: 'd', text: 'Sirkelargumentasjon', isCorrect: false },
+        ],
+        solution: 'Dette er et ad hominem-argument (personangrep). I stedet for å vurdere legens faglige råd, angriper man personen. En leges kunnskap om kosthold er uavhengig av legens egen vekt. Argumentet er derfor ugyldig.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Vurder kildetroverdighet. Du skal skrive et debattinnlegg om klimaendringer. Ranger disse kildene fra mest til minst troverdig, og begrunn rangeringen:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'FNs klimapanel (IPCC)',
+            solution: 'Svart troverdig - internasjonal ekspertorganisasjon med fagfellevurdert forskning.',
+          },
+          {
+            label: 'b',
+            task: 'En oljeindustri-finansiert "forskningsstiftelse"',
+            solution: 'Lav troverdighet - interessekonflikt kan påvirke konklusjonene.',
+          },
+          {
+            label: 'c',
+            task: 'En klimaforsker ved et anerkjent universitet',
+            solution: 'Høy troverdighet - fagperson, men sjekk om forskningen er fagfellevurdert.',
+          },
+          {
+            label: 'd',
+            task: 'Et innlegg på sosiale medier fra en privatperson',
+            solution: 'Lav troverdighet - ikke nødvendigvis faglig bakgrunn eller kvalitetssikring.',
+          },
+        ],
+        hints: ['Tenk på hvem som har finansiert forskningen', 'Vurder faglig bakgrunn og ekspertise', 'Er kilden fagfellevurdert?'],
+        solution: 'Riktig rangering (mest til minst): IPCC, klimaforsker ved universitet, oljefinansiert stiftelse, privatperson på sosiale medier. Kildekritikk er sentralt i god argumentasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-15',
+        number: '15',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser argumentstrukturen i dette debattinnlegget:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les innlegget: "Skolen bør starte klokka 9 fordi forskning viser at ungdom har en forskjøvet døgnrytme. Studier fra NTNU dokumenterer at elever presterer bedre med senere skolestart. Dessuten får mange elever for lite søvn, noe som går ut over både læring og helse. Noen vil kanskje si at arbeidslivet krever tidlig oppmøte, men skolen bør prioritere læring, og dessuten er fleksibel arbeidstid vanlig i mange yrker. Derfor bør skolen starte klokka 9." Identifiser tesen i innlegget.',
+            solution: 'Tesen er: "Skolen bør starte klokka 9."',
+          },
+          {
+            label: 'b',
+            task: 'Identifiser hovedargumentene (det bør være minst to).',
+            solution: 'Argument 1: Ungdom har forskjøvet døgnrytme (støttet av forskning). Argument 2: Elever får for lite søvn, noe som påvirker læring og helse.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan behandler innlegget motargumenter?',
+            solution: 'Motargumentet om at arbeidslivet krever tidlig oppmøte blir imøtegått med to poenger: at skolen bør prioritere læring, og at fleksibel arbeidstid er vanlig.',
+          },
+        ],
+        solution: 'Et godt debattinnlegg har en tydelig tese, flere argumenter med begrunnelse, og behandler relevante motargumenter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-16',
+        number: '16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et motinnlegg (300-400 ord) til debattinnlegget om skolestart i oppgave 15. Argumenter for at skolen IKKE bør starte klokka 9.',
+        hints: [
+          'Finn egne argumenter - ikke bare kritiser motstanderens',
+          'Tenk på praktiske konsekvenser for familier og samfunn',
+          'Bruk fakta og logikk, ikke bare påstander',
+          'Behandle motstanderens beste argument seriøst',
+        ],
+        solution: 'Motinnlegget vurderes etter evnen til å argumentere overbevisende for det motsatte standpunkt, bruk av egne argumenter (ikke bare kritikk), og behandling av motpartens argumenter på en saklig måte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-17',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-17',
+        number: '17',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken retorisk appellform appellerer til følelser?',
+        options: [
+          { id: 'a', text: 'Etos', isCorrect: false },
+          { id: 'b', text: 'Patos', isCorrect: true },
+          { id: 'c', text: 'Logos', isCorrect: false },
+          { id: 'd', text: 'Kairos', isCorrect: false },
+        ],
+        solution: 'Patos er den retoriske appellformen som appellerer til mottakerens følelser. Etos handler om avsenderens troverdighet, logos om logikk og fornuft, og kairos om timing og det rette øyeblikket.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-18',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-18',
+        number: '18',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Identifiser feilslutninger i disse argumentene og forklar hva som er galt:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hvis vi tillater 18-åringer å stemme, kommer snart 10-åringer til å få stemmerett også."',
+            solution: 'Skråplansargument (slippery slope) - påstår at én endring automatisk fører til ekstreme konsekvenser uten å begrunne sammenhengen.',
+          },
+          {
+            label: 'b',
+            task: '"Vi har alltid gjort det slik, så det må være den beste måten."',
+            solution: 'Appell til tradisjon - at noe er gammelt betyr ikke at det er best. Tradisjoner kan være gode eller dårlige.',
+          },
+          {
+            label: 'c',
+            task: '"Professor Hansen mener vi bør spise mer fisk, så da må det være riktig."',
+            solution: 'Appell til autoritet uten begrunnelse - selv eksperter kan ta feil. Argumentet mangler selve begrunnelsen for hvorfor fisk er bra.',
+          },
+          {
+            label: 'd',
+            task: '"80% av befolkningen støtter denne politikken, så den må være riktig."',
+            solution: 'Appell til mengden (ad populum) - at noe er populært betyr ikke at det er riktig eller sant.',
+          },
+        ],
+        solution: 'Å gjenkjenne feilslutninger gjør deg til en bedre debattant og en mer kritisk leser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-ex-19',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-1-3-ex-19',
+        number: '19',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Finn et debattinnlegg fra en norsk avis (f.eks. Aftenposten Si;D, VG Meninger, eller en lokalavis). Analyser innlegget med vekt på:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er tesen, og hvordan presenteres den?',
+            solution: 'Analysen skal identifisere hovedstandpunktet og vurdere hvor tydelig det kommer frem.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke typer argumenter brukes (fakta, eksempler, autoritet, logikk)?',
+            solution: 'Identifiser minst 2-3 argumenter og kategoriser dem.',
+          },
+          {
+            label: 'c',
+            task: 'Finnes det feilslutninger eller svake argumenter? Hvilke?',
+            solution: 'Vurder om argumentene er holdbare eller om de inneholder feilslutninger.',
+          },
+          {
+            label: 'd',
+            task: 'Hvordan kunne innlegget vært styrket?',
+            solution: 'Gi konkrete forslag til forbedringer.',
+          },
+        ],
+        hints: ['Velg et innlegg om et tema du er engasjert i', 'Bruk begreper fra kapittelet', 'Vær saklig i kritikken'],
+        solution: 'Oppgaven tester evnen til å analysere reelle debattinnlegg med faglig terminologi og kritisk blikk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['gjøre rede for retoriske appellformer og språklige virkemidler', 'skrive fagartikler som greier ut og drøfter'],
+      },
+    },
+    {
+      id: 'norsk-vg1-1-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Debattinnlegg:** Kortere meningsytring i aviser/medier som tar stilling til et aktuelt tema
+- **Tese:** Den sentrale påstanden eller hovedsynspunktet du argumenterer for
+- **Argument vs. påstand:** Et argument har begrunnelse, en påstand mangler underbygging
+- **Feilslutninger:** Logiske feil som stråmann, personangrep og falsk dilemma
+- **Motargument:** Å vise at du forstår og kan imøtegå andres synspunkt
+
+**Det viktigste å huske:**
+1. Et godt debattinnlegg har tydelig struktur: innledning med tese, hoveddel med argumenter, avslutning med oppfordring
+2. Bruk fakta, eksempler og logikk for å underbygge argumentene dine
+3. Møt motargumenter saklig - det styrker din egen troverdighet
+
+**Kompetansemål dette kapittelet dekker:**
+- Skrive debattinnlegg og andre argumenterende tekster
+- Bruke retoriske appellformer og virkemidler`,
+    },
+    {
+      id: 'norsk-vg1-1-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **1.1 Retorikk og argumentasjon** – Grunnleggende retoriske begreper for argumentasjon
+- **1.4 Kronikk og leserinnlegg** – Andre argumenterende sjangre i mediene
+- **1.5 Retorisk analyse** – Analyser argumenterende tekster i dybden
+- **5.1 Muntlig kommunikasjon** – Presenter argumenter muntlig`,
     },
   ],
   exercises: [],
@@ -368,6 +654,21 @@ Drama er litteratur skrevet for scenen. I motsetning til romaner og noveller, er
 - **Komedie:** Humoristisk handling med lykkelig utgang
 - **Tragikomeddie:** Blanding av alvor og humor
 - **Moderne drama:** Bryter med klassiske sjangerregler`,
+    },
+    {
+      id: 'norsk-vg1-2-3-ordliste',
+      type: 'definition',
+      title: 'Ordliste',
+      content: `| Begrep | Forklaring |
+|--------|------------|
+| **Drama** | Litteratur skrevet for scenen |
+| **Dialog** | Samtale mellom karakterer |
+| **Monolog** | Lengre tale av én karakter |
+| **Sceneanvisning** | Forfatterens instruksjoner om handling og scene |
+| **Tragedie** | Alvorlig drama med ulykkelig utgang |
+| **Komedie** | Humoristisk drama med lykkelig utgang |
+| **Klimaks** | Handlingens høydepunkt |
+| **Katarsis** | Følelsesmessig renselse hos publikum |`,
     },
     {
       id: 'norsk-vg1-2-3-def-1',
@@ -585,6 +886,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Forståelse av dramatiske begreper er grunnleggende for dramaanalyse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -600,6 +902,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'De tre enheter (tid, sted, handling) skapte konsentrasjon i klassisk drama. Moderne drama bryter med dem for å utforske nye muligheter, vise kompleksitet, og utfordre publikums forventninger.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -619,6 +922,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Analysen viser evne til å lese dramatisk tekst med forståelse for sjangeren.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -634,6 +938,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Scenen vurderes etter bruk av dramatiske virkemidler, karaktertegning og konfliktet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -653,6 +958,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Sammenligningen viser forståelse for dramatisk utvikling over tid.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     // New exercises 6-12
@@ -674,6 +980,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Sceneanvisninger (didaskalier) er forfatterens instruksjoner som står i parentes eller kursiv i dramateksten. De beskriver scene, bevegelser, mimikk, lys, lyd og stemning. Sceneanvisningene er ikke ment å sies høyt, men veileder regissør og skuespillere.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -694,6 +1001,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'En tragikomeddie er en dramatisk sjanger som blander elementer fra både tragedie og komedie. Den kan ha alvorlige temaer behandlet med humor, eller humoristiske situasjoner med en underliggende alvorlighet.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -709,6 +1017,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Analysen bør identifisere komiske virkemidler som overdrivelse, situasjonskomikk, og verbal humor. Holberg bruker humor til å kritisere samfunnsforhold.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -724,6 +1033,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Analysen bør vise at Peer Gynt er en fantasifull, men selvbedragende karakter. Ibsen bruker Peers fantasi som dramatisk virkemiddel for å utforske identitet og selvbedrag.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -739,6 +1049,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Holberg bruker komedie og satire for å kritisere samfunnsforhold direkte, mens Ibsen bruker ironi og fantasi for å utforske dypere psykologiske temaer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -759,6 +1070,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Presentasjonen vurderes etter forståelse av stykket, evne til å identifisere Fosses dramatiske virkemidler, og formidlingsevne.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -779,6 +1091,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Sammenligningen viser forståelse for to ulike dramatiske tradisjoner og evne til å analysere dramatisk dialog.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -794,6 +1107,7 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Scenen vurderes etter bruk av dramatiske virkemidler, kvalitet på dialog, sceneanvisninger, karaktertegning, og evne til å bruke dramaet til å utforske et tema.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
     },
     {
@@ -809,7 +1123,329 @@ Dette er typisk for moderne realistisk drama der konflikter uttrykkes indirekte.
         solution: 'Essayet bør drøfte hvordan dramaets form gir andre muligheter for samfunnskritikk enn novellens form.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
       },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-15',
+        number: '15',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er dramatisk ironi?',
+        options: [
+          { id: 'a', text: 'Når en karakter sier det motsatte av det han mener', isCorrect: false },
+          { id: 'b', text: 'Når publikum vet noe som karakterene på scenen ikke vet', isCorrect: true },
+          { id: 'c', text: 'Når slutten på dramaet er overraskende', isCorrect: false },
+          { id: 'd', text: 'Når to karakterer snakker forbi hverandre', isCorrect: false },
+        ],
+        solution: 'Dramatisk ironi oppstår når publikum har informasjon som karakterene mangler. Dette skaper spenning og engasjement fordi publikum forstår konsekvensene av handlingene før karakterene selv gjør det. Et klassisk eksempel er i "Romeo og Julie" der publikum vet at Julie ikke er virkelig død.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-16',
+        number: '16',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva beskriver begrepet "katarsis" i Aristoteles dramateori?',
+        options: [
+          { id: 'a', text: 'Høydepunktet i dramaets handling', isCorrect: false },
+          { id: 'b', text: 'Den følelsesmessige renselsen publikum opplever gjennom tragedien', isCorrect: true },
+          { id: 'c', text: 'Vendepunktet der helten innser sin feil', isCorrect: false },
+          { id: 'd', text: 'Avslutningen av dramaet', isCorrect: false },
+        ],
+        solution: 'Katarsis er Aristoteles begrep for den følelsesmessige renselsen publikum opplever gjennom tragedien. Ved å leve seg inn i karakterenes lidelser, renses publikum for følelser som frykt og medlidenhet. Dette var ifølge Aristoteles en av tragediens viktigste funksjoner.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-17',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-17',
+        number: '17',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva kjennetegner Bertolt Brechts "episke teater"?',
+        options: [
+          { id: 'a', text: 'Publikum skal leve seg inn i karakterene og glemme at de ser på teater', isCorrect: false },
+          { id: 'b', text: 'Publikum skal tenke kritisk og ikke bare føle - teatret skal vekke til politisk refleksjon', isCorrect: true },
+          { id: 'c', text: 'Dramaet skal følge de tre enheter strengt', isCorrect: false },
+          { id: 'd', text: 'Skuespillerne skal improvisere alle replikkene', isCorrect: false },
+        ],
+        solution: 'Brechts episke teater bryter bevisst med innlevelsen (illusjonen). Gjennom teknikker som direkte henvendelse til publikum, skilte og sanger, minner Brecht publikum på at de ser teater. Målet er at publikum skal tenke kritisk om det de ser, ikke bare føle. Brecht ønsket at teatret skulle inspirere til politisk handling og samfunnsendring.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-18',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-18',
+        number: '18',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser bruken av dramatisk ironi. Les følgende scene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Scene: En mann (Erik) planlegger en overraskelsesfest for kona si (Mia). Mia kommer hjem tidlig og finner en tekstmelding på Eriks telefon fra en venninne som skriver "Husker du på kake og ballonger i morgen? Gleder meg til festen!" Mia tror Erik er utro. Hvordan skaper dette dramatisk ironi?',
+            solution: 'Publikum vet (eller forstår snart) at meldingen handler om overraskelsesfesten, mens Mia tror Erik er utro. Denne informasjonsgapet mellom publikum og karakter skaper spenning.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke følelser vekker denne dramatiske ironien hos publikum?',
+            solution: 'Publikum kan føle frustrasjon (de vil fortelle Mia sannheten), spenning (hva skjer nå?), og kanskje også humor (de ser misforståelsen utenfra).',
+          },
+          {
+            label: 'c',
+            task: 'Skriv en kort fortsettelse (5-10 replikker) der du bruker den dramatiske ironien til å skape spenning.',
+            solution: 'Fortsettelsen bør vise hvordan misforståelsen utvikler seg, med replikker som har dobbel betydning for publikum og karakterene.',
+          },
+        ],
+        solution: 'Dramatisk ironi er et kraftig virkemiddel for å engasjere publikum. Når publikum vet mer enn karakterene, skapes spenning og følelsesmessig engasjement.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-19',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-19',
+        number: '19',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser sceneanvisningene i denne scenen og forklar hva de bidrar med:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les scenen: "KARI: (står ved vinduet, ryggen til LARS) Du kommer sent hjem. (Pause. Hun snur seg ikke.) LARS: (legger fra seg vesken, ser på henne) Ja. Det ble... sent. (Han tar et skritt mot henne, stopper.) KARI: (stille, fortsatt uten å snu seg) Jeg vet det. (Lang pause. Lyset dimmes sakte.)" Hva forteller sceneanvisningene om forholdet mellom karakterene?',
+            solution: 'Sceneanvisningene viser avstand mellom karakterene: Kari snur seg ikke, Lars stopper halvveis. Den lange pausen og det dimmede lyset forsterker stemningen av fremmedgjøring og mulig konflikt.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er effekten av pausene i scenen?',
+            solution: 'Pausene skaper spenning og viser at det er mye som ikke sies - underteksten er viktigere enn ordene. Pausene gir publikum tid til å føle ubehaget mellom karakterene.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan ville scenen endret seg hvis Kari hadde snudd seg og sett på Lars?',
+            solution: 'Scenen ville fått en helt annen dynamikk - det ville antydet ønske om kontakt eller konfrontasjon. Nå viser hun avvisning gjennom kroppen.',
+          },
+        ],
+        hints: ['Sceneanvisninger viser det som ikke sies i replikkene', 'Tenk på hva regissøren får av informasjon', 'Kroppsspråk kommuniserer ofte mer enn ord'],
+        solution: 'Sceneanvisninger er forfatterens måte å kommunisere stemning, undertekst og karakterenes indre liv på. De er like viktige som replikkene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-20',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-20',
+        number: '20',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign tre teatertradisjoner. Fyll ut en tabell med kjennetegn for hver tradisjon:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Klassisk gresk teater (tragedie): Beskriv typiske trekk ved handling, karakterer og scene.',
+            solution: 'Følger de tre enheter, kor som kommenterer handlingen, masker og stilisert spill, mytologiske tema, katarsis gjennom frykt og medlidenhet.',
+          },
+          {
+            label: 'b',
+            task: 'Realistisk teater (Ibsen-tradisjonen): Beskriv typiske trekk ved handling, karakterer og scene.',
+            solution: 'Hverdagslige settinger, naturlig dialog, psykologisk dype karakterer, samfunnskritikk, "den fjerde veggen" mellom scene og sal.',
+          },
+          {
+            label: 'c',
+            task: 'Absurd teater (Beckett-tradisjonen): Beskriv typiske trekk ved handling, karakterer og scene.',
+            solution: 'Mangel på tradisjonell handling, meningsløshet som tema, brudd med logikk og realisme, eksistensielle spørsmål, ofte sirkulær struktur.',
+          },
+        ],
+        hints: ['Tenk på hva hver tradisjon vil oppnå', 'Hvordan forholder de seg til "virkeligheten"?', 'Hva er publikums rolle i hver tradisjon?'],
+        solution: 'Ulike teatertradisjoner har ulike mål og virkemidler. Å forstå disse forskjellene hjelper deg å analysere drama fra ulike epoker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-21',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-21',
+        number: '21',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Analyser Hamlets berømte monolog "Å være eller ikke være". Les monologen og svar på spørsmålene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Å være eller ikke være, det er spørsmålet. / Om det er edlere i sinnet å tåle / slyngens og pilenes pisk fra en grusom skjebne, / eller å ta til våpen mot en sjø av plager / og ved å stå imot dem, få slutt på dem." Hva er hovedspørsmålet Hamlet stiller seg?',
+            solution: 'Hamlet spør seg om det er bedre å leve (med all lidelsen det innebærer) eller å dø. Det er et eksistensielt spørsmål om liv og død, handling og passivitet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er dette en monolog og ikke en dialog? Hva oppnår Shakespeare med dette grepet?',
+            solution: 'Monologen lar publikum høre Hamlets innerste tanker. Han kan ikke si dette til andre karakterer - det ville være for avslørende. Monologen skaper intimitet mellom Hamlet og publikum.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan bidrar monologen til å utvikle Hamlets karakter?',
+            solution: 'Monologen viser Hamlet som tvilende, filosofisk, og handlingslammet. Han overveier selvmord, men frykter det ukjente etter døden. Dette forklarer mye av hans nøling gjennom stykket.',
+          },
+        ],
+        hints: ['En monolog avslører karakterens indre liv', 'Tenk på hvorfor Shakespeare velger dette formatet', 'Hva lærer vi om Hamlet som vi ikke kunne lært av dialog?'],
+        solution: 'Monologen er et av dramaets viktigste virkemidler for å vise karakterers indre liv. "Å være eller ikke være" er kanskje verdenshistoriens mest berømte monolog.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-22',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-22',
+        number: '22',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en kort monolog (15-20 linjer) der en karakter avslører en hemmelighet for publikum. Karakteren skal være alene på scenen.',
+        hints: [
+          'Velg en interessant hemmelighet - noe karakteren ikke kan fortelle noen andre',
+          'La karakteren ha motstridende følelser om hemmeligheten',
+          'Bruk sceneanvisninger for å vise karakterens følelser fysisk',
+          'Husk at monologen snakkes høyt - den skal være naturlig å framføre',
+        ],
+        solution: 'Monologen vurderes etter: troverdighet i karakterens stemme, bruk av sceneanvisninger, dramatisk interesse (engasjerer den publikum?), og teknisk kvalitet (er den skrevet for scenen?).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-23',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-23',
+        number: '23',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en kort dramatisk scene (1-2 sider) der du bruker minst tre av disse virkemidlene: dramatisk ironi, undertekst, meningsfylte sceneanvisninger, symbolsk rekvisitt, pause/stillhet.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Skriv selve scenen med to eller tre karakterer.',
+            solution: 'Scenen skal være en fullstendig scene med begynnelse, konflikt og slutt (eller cliffhanger).',
+          },
+          {
+            label: 'b',
+            task: 'Skriv en kort analyse (100 ord) der du forklarer hvilke virkemidler du har brukt og hvorfor.',
+            solution: 'Analysen skal vise bevissthet om egne valg og hvordan virkemidlene bidrar til scenens effekt.',
+          },
+        ],
+        hints: [
+          'Velg en situasjon med naturlig spenning eller konflikt',
+          'Det som ikke sies er ofte viktigere enn det som sies',
+          'Sceneanvisninger kan vise følelser karakterene skjuler i replikkene',
+          'Et symbol (f.eks. en gjenstand) kan bære mye mening',
+        ],
+        solution: 'Oppgaven tester evnen til å anvende dramatiske virkemidler kreativt og reflektere over egne valg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-24',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-24',
+        number: '24',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er "undertekst" i dramatisk sammenheng?',
+        options: [
+          { id: 'a', text: 'Teksten som står under sceneanvisningene', isCorrect: false },
+          { id: 'b', text: 'Det som ligger mellom linjene - det som kommuniseres uten å sies direkte', isCorrect: true },
+          { id: 'c', text: 'Replikkene som skuespillerne improviserer', isCorrect: false },
+          { id: 'd', text: 'Teksten som vises på en skjerm under forestillingen', isCorrect: false },
+        ],
+        solution: 'Undertekst er det utalte - følelser, intensjoner og meninger som ligger under det som faktisk sies. God dramatikk har ofte rik undertekst. Karakterer sier sjelden direkte hva de mener eller føler; i stedet kommuniseres det gjennom antydninger, pauser og det som ikke sies.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-ex-25',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-2-3-ex-25',
+        number: '25',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er forskjellen mellom en soliloquy (enesamtale) og en monolog?',
+        options: [
+          { id: 'a', text: 'Det er ingen forskjell - begrepene betyr det samme', isCorrect: false },
+          { id: 'b', text: 'En monolog er alltid humoristisk, en soliloquy er alltid alvorlig', isCorrect: false },
+          { id: 'c', text: 'I en soliloquy snakker karakteren "til seg selv" og avslører tanker for publikum, mens en monolog kan være rettet mot andre karakterer', isCorrect: true },
+          { id: 'd', text: 'En soliloquy er lengre enn en monolog', isCorrect: false },
+        ],
+        solution: 'En soliloquy (enesamtale) er en type monolog der karakteren snakker "til seg selv" mens de er alene på scenen - tankene deres blir hørbare for publikum. En vanlig monolog kan være en lengre tale rettet mot andre karakterer på scenen. Hamlets "Å være eller ikke være" er en soliloquy.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      competenceGoals: ['lese, analysere og tolke nyere skjønnlitteratur'],
+      },
+    },
+    {
+      id: 'norsk-vg1-2-3-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Nøkkelbegreper:**
+- **Drama:** Litteratur skrevet for scenen, med dialog og sceneanvisninger
+- **Dialog:** Samtale mellom karakterer som driver handlingen fremover
+- **Monolog/soliloquy:** Lengre tale av en karakter, soliloquy er "enesamtale" som avslorer tanker
+- **Sceneanvisninger (didaskalier):** Forfatterens instruksjoner om scene, bevegelser og stemning
+- **Dramatisk ironi:** Nar publikum vet noe karakterene ikke vet
+- **Aristoteles dramaturgi:** De tre enheter (tid, sted, handling) og dramatisk struktur
+
+**Det viktigste a huske:**
+1. Drama skiller seg fra andre sjangre ved at det er ment for fremforing - dialog og handling erstatter fortellerstemme
+2. Aristoteles strukturmodell (eksposisjon, komplikasjon, klimaks, peripeti, katastrofe) brukes fortsatt
+3. Moderne dramatikere som Jon Fosse bryter med klassiske regler og utforsker nye uttrykksformer
+
+**Kompetansemal dette kapittelet dekker:**
+- Analysere og tolke dramatiske tekster med vekt pa form og innhold
+- Forsta samspillet mellom tekst og scenisk fremforing`,
+    },
+    {
+      id: 'norsk-vg1-2-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- **2.5 Litterære virkemidler** – Utforsk virkemidler brukt i drama
+- **2.1 Novelleanalyse** – Sammenlign dramaets og novellens fortellerteknikk
+- **6.2 Film som tekst** – Se hvordan drama oversettes til film`,
     },
   ],
   exercises: [],
