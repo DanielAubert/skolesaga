@@ -6,6 +6,13 @@
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
+import {
+  CHAPTER_HELSEOPPVEKST_VG1_8_1,
+  CHAPTER_HELSEOPPVEKST_VG1_8_2,
+  CHAPTER_HELSEOPPVEKST_VG1_8_3,
+  CHAPTER_HELSEOPPVEKST_VG1_8_4,
+  CHAPTER_HELSEOPPVEKST_VG1_8_5,
+} from './textbook-content-helseoppvekst-vg1-modul8';
 
 export const CHAPTER_HELSEOPPVEKST_VG1_1_1: TextbookChapter = {
   id: 'helseoppvekst-vg1-1-1',
@@ -591,17 +598,494 @@ export const CHAPTER_HELSEOPPVEKST_VG1_1_3: TextbookChapter = {
     'kommunisere med ulike brukergrupper',
     'bruke aktiv lytting og empatisk kommunikasjon',
   ],
-  content: [
-    { id: 'hov1-1-3-1', type: 'text', content: '# Kommunikasjon i helse- og oppvekstfag\n\nGod kommunikasjon er grunnlaget for alt arbeid med mennesker. Som yrkesutover ma du kunne kommunisere med mange ulike mennesker i forskjellige situasjoner.\n\n## Hva er kommunikasjon?\nKommunikasjon kommer fra det latinske \"communicare\" som betyr a gjore felles. Kommunikasjon handler om a dele tanker, folelser og informasjon.\n\n## Kommunikasjonsprosessen\n- **Avsender** - den som sender budskapet\n- **Budskap** - det som formidles\n- **Kanal** - maten budskapet sendes pa\n- **Mottaker** - den som mottar budskapet\n- **Tilbakemelding** - respons fra mottaker' },
-    { id: 'hov1-1-3-2', type: 'definition', title: 'Kommunikasjon', content: 'Utveksling av informasjon, tanker og folelser mellom mennesker. Inkluderer bade verbal (ord) og nonverbal (kroppssprak) kommunikasjon.' },
-    { id: 'hov1-1-3-3', type: 'text', content: '# Verbal og nonverbal kommunikasjon\n\n## Verbal kommunikasjon\nBruk av ord, bade muntlig og skriftlig.\n- Ordvalg og sprakniva\n- Tonefall og stemmebruk\n- Tempo og pauser\n\n## Nonverbal kommunikasjon\nAlt vi uttrykker uten ord:\n- Ansiktsuttrykk\n- Oyekontakt\n- Kroppsholdning\n- Gester og bevegelser\n- Fysisk avstand\n- Beroring\n\nForskning viser at over 70% av kommunikasjonen er nonverbal. Det er derfor viktig a vaere bevisst pa kroppspraket ditt.' },
-    { id: 'hov1-1-3-4', type: 'text', content: '# Aktiv lytting\n\nAktiv lytting er en ferdighet som viser at du virkelig horer og forstar det den andre sier.\n\n## Teknikker for aktiv lytting\n- **Vis oppmerksomhet** - oyekontakt, nikk, vend deg mot personen\n- **Ikke avbryt** - la personen snakke ferdig\n- **Still apne sporsmål** - sporsmål som krever mer enn ja/nei\n- **Speiling** - gjenta det viktigste med egne ord\n- **Oppsummering** - oppsummer det du har hort\n- **Bekreftelse** - vis at du forstar folelsene' },
-    { id: 'hov1-1-3-5', type: 'tip', title: 'Apne sporsmål', content: 'Apne sporsmål begynner ofte med: Hva, Hvordan, Hvorfor, Fortell om...\n\nEksempel: I stedet for \"Har du det bra?\" (lukket), spor \"Hvordan har du det i dag?\" (apent)' },
-    { id: 'hov1-1-3-6', type: 'text', content: '# Kommunikasjon med ulike brukergrupper\n\n## Barn\n- Tilpass spraket til alder\n- Vær konkret og tydelig\n- Bruk lek og aktiviteter\n- Ga ned pa barnets niva fysisk\n\n## Eldre\n- Ta deg tid\n- Snakk tydelig, ikke for fort\n- Vær tålmodig ved horelsproblemer\n- Vis respekt for livserfaring\n\n## Personer med kognitiv svikt\n- Bruk enkle setninger\n- En beskjed om gangen\n- Vær tålmodig\n- Bruk visuell stotte\n\n## Personer i krise\n- Vær rolig og trygg\n- Lytt uten a domme\n- Anerkjenn folelser\n- Ikke bagatelliser' },
-    { id: 'hov1-1-3-ex1', type: 'exercise', exercise: { id: 'hov1-1-3-ex1', type: 'multiple-choice', task: 'Hva er aktiv lytting?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['A vise med ord og kroppssprak at du horer og forstar', 'A hore pa mens du gjor andre ting', 'A avbryte med egne kommentarer', 'A gi rad sa raskt som mulig'], solution: 'Aktiv lytting handler om a vise med bade ord og kroppssprak at du horer, forstar og er interessert i det den andre sier.' }] } },
-    { id: 'hov1-1-3-ex2', type: 'exercise', exercise: { id: 'hov1-1-3-ex2', type: 'multiple-choice', task: 'Hva er nonverbal kommunikasjon?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['Kommunikasjon uten ord, som kroppssprak og ansiktsuttrykk', 'Skriftlig kommunikasjon', 'Muntlig kommunikasjon', 'Kommunikasjon pa telefon'], solution: 'Nonverbal kommunikasjon er alt vi uttrykker uten ord, som ansiktsuttrykk, kroppsholdning og gester.' }] } }
+  keyTerms: [
+    { term: 'Kommunikasjon', definition: 'Utveksling av informasjon, tanker og folelser mellom mennesker' },
+    { term: 'Verbal kommunikasjon', definition: 'Kommunikasjon ved bruk av ord, bade muntlig og skriftlig' },
+    { term: 'Nonverbal kommunikasjon', definition: 'Kommunikasjon uten ord, som kroppssprak og ansiktsuttrykk' },
+    { term: 'Aktiv lytting', definition: 'A lytte oppmerksomt og vise at man forstar det som blir sagt' },
+    { term: 'Empati', definition: 'Evnen til a sette seg inn i andres folelser og situasjon' },
+    { term: 'Samhandling', definition: 'A arbeide sammen med andre mot felles mal' },
   ],
-  exercises: [],
+  content: [
+    {
+      id: 'hov1-1-3-intro',
+      type: 'text',
+      content: `# Kommunikasjon i helse- og oppvekstfag
+
+God kommunikasjon er grunnlaget for alt arbeid med mennesker. Som yrkesutover i helse- og oppvekstsektoren ma du kunne kommunisere med mange ulike mennesker i forskjellige situasjoner - barn, unge, voksne, eldre, parorende og kolleger.
+
+Kommunikasjon handler om mer enn bare ord. Det handler om a skape kontakt, bygge tillit og forstå hverandre. I dette kapittelet skal du lare om:
+
+- Hva kommunikasjon er og hvordan den fungerer
+- Forskjellen pa verbal og nonverbal kommunikasjon
+- Hvordan du kan bruke aktiv lytting
+- Tilpassing av kommunikasjon til ulike brukergrupper
+- Profesjonell samhandling pa arbeidsplassen
+
+**Hvorfor er kommunikasjon viktig?**
+I helse- og oppvekstarbeid er god kommunikasjon helt avgjorende. Darlig kommunikasjon kan fore til misforstaelser, utrygghet og feil. God kommunikasjon skaper trygghet, tillit og bedre tjenester.`,
+    },
+    {
+      id: 'hov1-1-3-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-1-3-ordliste-innhold',
+          type: 'text',
+          content: `**Kommunikasjon** - Utveksling av informasjon, tanker og folelser mellom mennesker
+
+**Verbal kommunikasjon** - Kommunikasjon ved bruk av ord (muntlig eller skriftlig)
+
+**Nonverbal kommunikasjon** - Kommunikasjon uten ord (kroppssprak, ansiktsuttrykk, tonefall)
+
+**Aktiv lytting** - A lytte oppmerksomt og vise at man forstar
+
+**Empati** - Evnen til a sette seg inn i andres folelser
+
+**Speiling** - A gjenta det den andre har sagt med egne ord
+
+**Apne sporsmål** - Sporsmål som krever mer enn ja/nei-svar
+
+**Samhandling** - A arbeide sammen med andre
+
+**Brukermedvirkning** - At brukeren deltar i beslutninger om egen situasjon`,
+        },
+      ],
+    },
+    {
+      id: 'hov1-1-3-def-kommunikasjon',
+      type: 'definition',
+      title: 'Kommunikasjon',
+      content: 'Kommunikasjon kommer fra det latinske ordet "communicare" som betyr a gjore felles. Kommunikasjon er utveksling av informasjon, tanker og folelser mellom mennesker. Det inkluderer bade verbal (ord) og nonverbal (kroppssprak) kommunikasjon.',
+    },
+    {
+      id: 'hov1-1-3-prosessen',
+      type: 'text',
+      content: `# Kommunikasjonsprosessen
+
+All kommunikasjon folger en grunnleggende prosess med flere elementer:
+
+**1. Avsender**
+Den som sender budskapet. Avsender har ansvar for a formidle budskapet tydelig.
+
+**2. Budskap**
+Det som formidles - informasjon, tanker, folelser eller onsker.
+
+**3. Kanal**
+Maten budskapet sendes pa - muntlig, skriftlig, gjennom kroppssprak, telefon, SMS osv.
+
+**4. Mottaker**
+Den som mottar budskapet. Mottaker tolker budskapet ut fra sine forutsetninger.
+
+**5. Tilbakemelding**
+Respons fra mottaker som viser om budskapet er forstatt.
+
+## Stoy i kommunikasjonen
+
+**Stoy** er alt som forstyrrer kommunikasjonen og kan fore til misforstaelser:
+- Fysisk stoy (brak, forstyrrelser)
+- Sprakvansker
+- Folelsesmessige barrierer
+- Kulturelle forskjeller
+- Fordommer og antakelser`,
+    },
+    {
+      id: 'hov1-1-3-def-aktiv-lytting',
+      type: 'definition',
+      title: 'Aktiv lytting',
+      content: 'Aktiv lytting er en kommunikasjonsferdighet der du viser med ord og kroppssprak at du horer, forstar og er interessert i det den andre sier. Det innebarer a gi full oppmerksomhet, ikke avbryte, stille oppfolgende sporsmål og bekrefte det du har hort.',
+    },
+    {
+      id: 'hov1-1-3-verbal',
+      type: 'text',
+      content: `# Verbal og nonverbal kommunikasjon
+
+## Verbal kommunikasjon
+Verbal kommunikasjon er bruk av ord, bade muntlig og skriftlig.
+
+**Muntlig kommunikasjon:**
+- Samtaler ansikt til ansikt
+- Telefonsamtaler
+- Motevirksomhet
+- Presentasjoner
+
+**Skriftlig kommunikasjon:**
+- Rapporter og dokumentasjon
+- E-post og meldinger
+- Brosjyrer og informasjonsmateriell
+
+**Viktige elementer i verbal kommunikasjon:**
+- Ordvalg og sprakniva
+- Tonefall og stemmebruk
+- Tempo og pauser
+- Tydelighet og struktur
+
+## Nonverbal kommunikasjon
+Nonverbal kommunikasjon er alt vi uttrykker uten ord:
+
+- **Ansiktsuttrykk** - smil, rynket panne, oyenbryn
+- **Oyekontakt** - viser interesse og oppmerksomhet
+- **Kroppsholdning** - apen eller lukket, avslappet eller anspent
+- **Gester og bevegelser** - nikk, håndbevegelser
+- **Fysisk avstand** - narhet eller avstand
+- **Beroring** - kan vise omsorg, men ma brukes forsiktig
+- **Klesdrakt og utseende** - signaliserer profesjonalitet
+
+**Viktig:** Forskning viser at over 70% av kommunikasjonen er nonverbal. Det betyr at kroppspraket ditt ofte sier mer enn ordene!`,
+    },
+    {
+      id: 'hov1-1-3-def-empati',
+      type: 'definition',
+      title: 'Empati',
+      content: 'Empati er evnen til a sette seg inn i et annet menneskes situasjon og folelser. Det handler om a forsoke a forstå hvordan den andre har det, uten a overta folelsene. Empatisk kommunikasjon viser at du bryr deg og forstar.',
+    },
+    {
+      id: 'hov1-1-3-aktiv-lytting',
+      type: 'text',
+      content: `# Aktiv lytting
+
+Aktiv lytting er en av de viktigste ferdighetene i helse- og oppvekstarbeid. Det handler om a lytte med full oppmerksomhet og vise at du virkelig horer og forstar det den andre sier.
+
+## Teknikker for aktiv lytting
+
+**1. Vis oppmerksomhet**
+- Hold oyekontakt (men ikke stirr)
+- Nikk og bruk bekreftende lyder ("mm", "ja")
+- Vend deg mot personen
+- Legg bort mobil og andre forstyrrelser
+
+**2. Ikke avbryt**
+- La personen snakke ferdig
+- Tål pauser og stillhet
+- Ikke tenk pa hva du skal svare mens den andre snakker
+
+**3. Still apne sporsmål**
+- Sporsmål som krever mer enn ja/nei
+- Begynner ofte med: Hva, Hvordan, Fortell om...
+- Eksempel: "Hvordan opplevde du det?"
+
+**4. Speiling**
+- Gjenta det viktigste med egne ord
+- "Sa du mener at..." eller "Forstar jeg deg rett nar..."
+- Viser at du har forstatt og gir mulighet til a korrigere
+
+**5. Oppsummering**
+- Oppsummer det du har hort
+- Hjelper a sjekke forstaelse
+- Skaper struktur i samtalen
+
+**6. Bekreftelse**
+- Vis at du forstar folelsene
+- "Det hores ut som du er frustrert over..."
+- Ikke bagatelliser eller avvis folelser`,
+    },
+    {
+      id: 'hov1-1-3-tip-sporsmaal',
+      type: 'tip',
+      title: 'Apne vs. lukkede sporsmål',
+      content: `**Lukkede sporsmål** gir korte svar (ja/nei):
+- "Har du det bra?"
+- "Er du sulten?"
+- "Vil du ha hjelp?"
+
+**Apne sporsmål** inviterer til utdyping:
+- "Hvordan har du det i dag?"
+- "Hva har du lyst pa til frokost?"
+- "Hva kan jeg hjelpe deg med?"
+
+I profesjonelt arbeid bor du bruke en blanding, men apne sporsmål gir ofte mer informasjon og storre medvirkning.`,
+    },
+    {
+      id: 'hov1-1-3-def-samhandling',
+      type: 'definition',
+      title: 'Samhandling',
+      content: 'Samhandling betyr a arbeide sammen med andre mot felles mal. I helse- og oppvekstsektoren handler samhandling om a koordinere innsatsen mellom ulike fagpersoner, tjenester og nivaer for a gi best mulig hjelp til brukeren.',
+    },
+    {
+      id: 'hov1-1-3-brukergrupper',
+      type: 'text',
+      content: `# Kommunikasjon med ulike brukergrupper
+
+Som yrkesutover ma du tilpasse kommunikasjonen til den du snakker med. Her er noen retningslinjer:
+
+## Barn
+- Tilpass spraket til barnets alder og utvikling
+- Vær konkret og tydelig - unnga abstrakte begreper
+- Bruk lek, bilder og aktiviteter
+- Ga fysisk ned pa barnets niva (sett deg pa huk)
+- Gi tid til a svare
+- Vær positiv og oppmuntrende
+
+## Unge
+- Vis respekt - ikke snakk nedlatende
+- Vær ekte og autentisk
+- Lytt til deres perspektiv
+- Gi rom for selvstendighet
+- Vær tydelig pa grenser nar nodvendig
+
+## Eldre
+- Ta deg tid - ikke stress
+- Snakk tydelig, men ikke for hoyt
+- Vær talmodig ved horelsproblemer
+- Vis respekt for livserfaring og kunnskap
+- Unnga a snakke over hodet pa dem
+
+## Personer med kognitiv svikt (demens, utviklingshemming)
+- Bruk enkle, korte setninger
+- Gi en beskjed om gangen
+- Vær talmodig - gi tid til a forstå og svare
+- Bruk visuell stotte (bilder, gjenstander)
+- Hold oyekontakt og vær rolig
+
+## Personer i krise
+- Vær rolig og trygg
+- Lytt uten a domme eller gi rad
+- Anerkjenn folelser - ikke bagatelliser
+- Vær til stede - tål stillhet
+- Sporr om hva de trenger`,
+    },
+    {
+      id: 'hov1-1-3-eksempel-barn',
+      type: 'example',
+      title: 'Kommunikasjon med barn - eksempel',
+      problem: 'Du jobber i barnehage og skal forklare et barn pa 4 ar at mamma kommer og henter litt senere enn vanlig i dag. Hvordan kommuniserer du dette?',
+      solution: `**God kommunikasjon:**
+
+1. **Ga ned pa barnets niva** - sett deg pa huk sa du far oyekontakt
+
+2. **Bruk enkelt sprak:** "Mamma ringer og sa at hun kommer litt etter de andre mammaene og pappaene i dag."
+
+3. **Vær konkret om tid** (barn forstar ikke klokka): "Hun kommer etter at vi har spist mellommal."
+
+4. **Anerkjenn folelser:** "Jeg skjonner at du kanskje synes det er kjedelig a vente."
+
+5. **Gi trygghet:** "Men jeg skal vaere her sammen med deg, og sa kan vi leke mens vi venter."
+
+6. **Sjekk forstaelse:** "Forstar du hva jeg sa?"
+
+**Hva du IKKE bor gjore:**
+- Rope beskjeden pa avstand
+- Si "mamma kommer klokka 16:30" (abstrakt)
+- Bagatellisere: "Det er jo ikke lenge!"
+- Ga videre uten a sjekke at barnet har forstatt`,
+    },
+    {
+      id: 'hov1-1-3-eksempel-profesjonell',
+      type: 'example',
+      title: 'Profesjonell samhandling - eksempel',
+      problem: 'Du jobber pa sykehjem og skal gi rapport til kollega som overtar vakten. Hvordan sikrer du god kommunikasjon?',
+      solution: `**Strukturert rapportering:**
+
+1. **Forbered deg** - ha oversikt over det viktigste for dokumentasjon
+
+2. **Bruk ISBAR-metoden:**
+- **I**dentifisering: "Fru Hansen pa rom 3"
+- **S**ituasjon: "Hun har hatt en darlig dag med mye smerter i hofta"
+- **B**akgrunn: "Hun falt i gar og er utredet for brudd"
+- **A**ktuell vurdering: "Smertestillende gitt kl 14, virker noe bedre na"
+- **R**ad/anbefaling: "Viktig a observere smerteniva og gi ny dose hvis nodvendig"
+
+3. **Gi mulighet for sporsmål:** "Er det noe du lurer pa?"
+
+4. **Bekreft forstaelse:** "Kan du gjenta det viktigste?"
+
+**Profesjonell kommunikasjon kjennetegnes av:**
+- Tydelig og saklig informasjon
+- Respekt for kolleger
+- Fokus pa brukerens beste
+- Apning for sporsmål og dialog`,
+    },
+    {
+      id: 'hov1-1-3-warning-profesjonell',
+      type: 'warning',
+      title: 'Profesjonell vs. privat kommunikasjon',
+      content: `I profesjonelt arbeid ma du skille mellom privat og profesjonell kommunikasjon:
+
+**Pa jobb:**
+- Hold fokus pa brukerens behov, ikke dine egne
+- Del ikke private problemer med brukere
+- Unnga a bli for personlig eller intim
+- Vær bevisst pa maktforholdet mellom deg og brukeren
+
+**Husk:** Du er pa jobb for a hjelpe brukeren - ikke for a fa dekket egne sosiale behov.`,
+    },
+    {
+      id: 'hov1-1-3-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+I dette kapittelet har du laert om:
+
+**Kommunikasjon**
+- Kommunikasjon er utveksling av informasjon, tanker og folelser
+- Kommunikasjonsprosessen bestar av avsender, budskap, kanal, mottaker og tilbakemelding
+- Stoy kan forstyrre kommunikasjonen
+
+**Verbal og nonverbal kommunikasjon**
+- Verbal kommunikasjon bruker ord (muntlig og skriftlig)
+- Nonverbal kommunikasjon er kroppssprak, ansiktsuttrykk, tonefall osv.
+- Over 70% av kommunikasjonen er nonverbal
+
+**Aktiv lytting**
+- Vis oppmerksomhet og ikke avbryt
+- Still apne sporsmål
+- Bruk speiling og oppsummering
+- Bekreft folelser
+
+**Tilpassing til brukergrupper**
+- Kommunikasjonen ma tilpasses alder, funksjonsniva og situasjon
+- Barn, unge, eldre og personer i krise har ulike behov
+
+**Se ogsa:**
+- Kapittel 1.1: Hva er helse- og oppvekstfag?
+- Kapittel 1.4: Etikk og verdier i yrkesutovelsen
+- Kapittel 3.1: Lover og rettigheter (brukermedvirkning)`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'hov1-1-3-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er aktiv lytting?',
+      competenceGoals: ['bruke aktiv lytting og empatisk kommunikasjon'],
+      solution: 'Aktiv lytting handler om a vise med bade ord og kroppssprak at du horer, forstar og er interessert i det den andre sier.',
+      multipleChoiceOptions: [
+        'A vise med ord og kroppssprak at du horer og forstar',
+        'A hore pa mens du gjor andre ting',
+        'A avbryte med egne kommentarer',
+        'A gi rad sa raskt som mulig',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er nonverbal kommunikasjon?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Nonverbal kommunikasjon er alt vi uttrykker uten ord, som ansiktsuttrykk, kroppsholdning og gester.',
+      multipleChoiceOptions: [
+        'Kommunikasjon uten ord, som kroppssprak og ansiktsuttrykk',
+        'Skriftlig kommunikasjon',
+        'Muntlig kommunikasjon',
+        'Kommunikasjon pa telefon',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er et apent sporsmål?',
+      competenceGoals: ['bruke aktiv lytting og empatisk kommunikasjon'],
+      solution: 'Apne sporsmål krever mer enn ja/nei-svar og inviterer til utdyping.',
+      multipleChoiceOptions: [
+        'Et sporsmål som krever mer enn ja/nei-svar',
+        'Et sporsmål som alle kan svare pa',
+        'Et sporsmål uten fasitsvar',
+        'Et sporsmål som stilles hoyt',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvor stor andel av kommunikasjonen er vanligvis nonverbal?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Forskning viser at over 70% av kommunikasjonen er nonverbal.',
+      multipleChoiceOptions: [
+        'Over 70%',
+        'Omtrent 50%',
+        'Under 30%',
+        'Omtrent 10%',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva innebarer speiling i kommunikasjon?',
+      competenceGoals: ['bruke aktiv lytting og empatisk kommunikasjon'],
+      solution: 'Speiling betyr a gjenta det den andre har sagt med egne ord for a vise at du har forstatt.',
+      multipleChoiceOptions: [
+        'A gjenta det viktigste den andre sa med egne ord',
+        'A etterlikne den andres kroppssprak',
+        'A vise et speil til den andre',
+        'A si det samme som den andre',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvordan bor du kommunisere med et barn pa 4 ar?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Med sma barn bor du ga ned pa deres niva, bruke enkelt sprak og vaere konkret.',
+      multipleChoiceOptions: [
+        'Ga ned pa barnets niva og bruk enkelt, konkret sprak',
+        'Snakke som du gjor med voksne',
+        'Bruke mye faguttrykk sa barnet laerer',
+        'Snakke raskt sa du rekker a si alt',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex7',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva kjennetegner god kommunikasjon med eldre?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Med eldre bor du ta deg tid, snakke tydelig og vise respekt for deres livserfaring.',
+      multipleChoiceOptions: [
+        'Ta deg tid og vis respekt for livserfaring',
+        'Snakke hoyt fordi alle eldre horer darlig',
+        'Bruke barnesprak sa de forstar',
+        'Alltid sporre parorende i stedet',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva er viktigst nar du kommuniserer med en person i krise?',
+      competenceGoals: ['bruke aktiv lytting og empatisk kommunikasjon'],
+      solution: 'Nar noen er i krise, er det viktigst a lytte, vaere til stede og anerkjenne folelsene deres.',
+      multipleChoiceOptions: [
+        'Lytte, vaere til stede og anerkjenne folelsene',
+        'Gi gode rad om hvordan de kan lose problemet',
+        'Fortelle om egne lignende opplevelser',
+        'Avlede med andre temaer for a muntre opp',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex9',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva menes med stoy i kommunikasjon?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Stoy er alt som forstyrrer kommunikasjonen, bade fysisk stoy og andre barrierer som sprakvansker eller fordommer.',
+      multipleChoiceOptions: [
+        'Alt som forstyrrer og kan fore til misforstaelser',
+        'Hoy lyd i rommet',
+        'At noen snakker for mye',
+        'At budskapet er kjedelig',
+      ],
+    },
+    {
+      id: 'hov1-1-3-ex10',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvorfor er det viktig a skille mellom privat og profesjonell kommunikasjon?',
+      competenceGoals: ['kommunisere med ulike brukergrupper'],
+      solution: 'Pa jobb skal fokus vaere pa brukerens behov, og man ma vaere bevisst pa maktforholdet mellom ansatt og bruker.',
+      multipleChoiceOptions: [
+        'For a holde fokus pa brukerens behov og vaere bevisst maktforholdet',
+        'Fordi det er forbudt a snakke privat pa jobb',
+        'For a virke mer profesjonell',
+        'Fordi brukere ikke er interessert i privatlivet ditt',
+      ],
+    },
+  ],
 };
 
 export const CHAPTER_HELSEOPPVEKST_VG1_2_1: TextbookChapter = {
@@ -615,15 +1099,473 @@ export const CHAPTER_HELSEOPPVEKST_VG1_2_1: TextbookChapter = {
     'beskrive kroppens oppbygning og funksjon',
     'gjore rede for menneskers grunnleggende behov',
   ],
-  content: [
-    { id: 'hov1-2-1-1', type: 'text', content: '# Kroppens oppbygning\n\nKroppen er et fantastisk system der mange deler samarbeider. For a jobbe i helse- og oppvekstfag, trenger du grunnleggende kunnskap om kroppen.\n\n## Organisasjonsniva\n1. **Celler** - kroppens minste byggeklosser\n2. **Vev** - grupper av like celler som jobber sammen\n3. **Organer** - strukturer sammensatt av ulike vev\n4. **Organsystemer** - grupper av organer med felles funksjon\n5. **Organismen** - hele kroppen som fungerer som helhet' },
-    { id: 'hov1-2-1-2', type: 'text', content: '# Viktige organsystemer\n\n## Bevegelsesapparatet\n- Skjelett (206 bein)\n- Muskler\n- Ledd og sener\n\n## Sirkulasjonssystemet\n- Hjertet\n- Blodkar (arterier, vener, kapillarer)\n- Blodet\n\n## Respirasjonssystemet\n- Nese og munn\n- Luftror og bronkier\n- Lunger\n\n## Fordoyelsessystemet\n- Munn, spiserør, mage\n- Tynntarm og tykktarm\n- Lever og bukspyttkjertel\n\n## Nervesystemet\n- Hjernen og ryggmargen\n- Nerver ut i kroppen\n- Sanseorganer' },
-    { id: 'hov1-2-1-3', type: 'definition', title: 'Homeostase', content: 'Kroppens evne til a opprettholde et stabilt indre miljo, som temperatur, blodtrykk og blodsukker, til tross for endringer i ytre forhold.' },
-    { id: 'hov1-2-1-4', type: 'text', content: '# Grunnleggende behov\n\nAlle mennesker har behov som ma dekkes for a overleve og ha god livskvalitet.\n\n## Maslows behovspyramide\n\n**1. Fysiologiske behov** (nederst)\n- Mat og drikke\n- Luft og pust\n- Sovn og hvile\n- Varme og ly\n- Utskillelse\n\n**2. Sikkerhetsbehov**\n- Trygghet\n- Forutsigbarhet\n- Beskyttelse\n\n**3. Sosiale behov**\n- Tilhorighet\n- Kjaerlighet\n- Vennskap\n\n**4. Behov for anerkjennelse**\n- Respekt\n- Status\n- Selvfolelse\n\n**5. Selvrealisering** (overst)\n- Utvikling av potensial\n- Kreativitet\n- Mening' },
-    { id: 'hov1-2-1-5', type: 'example', title: 'Behovspyramiden i praksis', content: 'En eldre kvinne pa sykehjem ma forst fa dekket fysiologiske behov (mat, drikke, hygiene). Nar dette er pa plass, er det viktig a ivareta sosiale behov (kontakt med andre) og behov for anerkjennelse (bli behandlet med respekt).' },
-    { id: 'hov1-2-1-ex1', type: 'exercise', exercise: { id: 'hov1-2-1-ex1', type: 'multiple-choice', task: 'Hva er de fysiologiske behovene i Maslows pyramide?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['Mat, drikke, luft, sovn og varme', 'Vennskap og tilhorighet', 'Respekt og status', 'Utvikling av potensial'], solution: 'Fysiologiske behov er de mest grunnleggende: mat, drikke, luft, sovn, varme og utskillelse.' }] } }
+  keyTerms: [
+    { term: 'Celle', definition: 'Kroppens minste levende enhet' },
+    { term: 'Vev', definition: 'Gruppe av celler med samme funksjon' },
+    { term: 'Organ', definition: 'Kroppsdel sammensatt av flere vevstyper' },
+    { term: 'Organsystem', definition: 'Gruppe av organer som samarbeider' },
+    { term: 'Homeostase', definition: 'Kroppens evne til a opprettholde stabilt indre miljo' },
+    { term: 'Fysiologiske behov', definition: 'Grunnleggende behov for overlevelse' },
+    { term: 'Behovspyramide', definition: 'Maslows modell for menneskelige behov' },
   ],
-  exercises: [],
+  content: [
+    {
+      id: 'hov1-2-1-intro',
+      type: 'text',
+      content: `# Kroppen og grunnleggende behov
+
+For a jobbe i helse- og oppvekstfag trenger du grunnleggende kunnskap om menneskekroppen og menneskers behov. Denne kunnskapen hjelper deg a forstå hvorfor brukere har ulike behov, og hvordan du kan bidra til a dekke disse behovene.
+
+I dette kapittelet skal du laere om:
+- Hvordan kroppen er bygd opp - fra celler til organsystemer
+- Viktige organsystemer og deres funksjoner
+- Hva homeostase er og hvorfor det er viktig
+- Maslows behovspyramide og grunnleggende menneskelige behov
+- Hvordan behovene henger sammen og pavirker hverandre
+
+**Hvorfor er dette viktig?**
+Nar du forstar hvordan kroppen fungerer og hvilke behov mennesker har, kan du gi bedre omsorg. Du kan observere endringer, forstå symptomer og tilrettelegge for god livskvalitet.`,
+    },
+    {
+      id: 'hov1-2-1-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-2-1-ordliste-innhold',
+          type: 'text',
+          content: `**Celle** - Kroppens minste levende enhet, byggekloss for alt liv
+
+**Vev** - Gruppe av like celler som har samme funksjon
+
+**Organ** - Kroppsdel sammensatt av flere vevstyper (f.eks. hjerte, lunge)
+
+**Organsystem** - Gruppe av organer som samarbeider om en funksjon
+
+**Homeostase** - Kroppens evne til a holde det indre miljoet stabilt
+
+**Metabolisme** - Stoffskiftet, alle kjemiske prosesser i kroppen
+
+**Fysiologiske behov** - Grunnleggende behov for overlevelse (mat, vann, luft)
+
+**Behovspyramide** - Maslows modell som viser menneskelige behov i hierarki
+
+**Selvrealisering** - A utvikle og bruke sitt fulle potensial`,
+        },
+      ],
+    },
+    {
+      id: 'hov1-2-1-def-celle',
+      type: 'definition',
+      title: 'Celle',
+      content: 'Cellen er kroppens minste levende enhet. Alle levende organismer er bygd opp av celler. Mennesket har omtrent 37 billioner celler som alle har spesifikke oppgaver. Celler deler seg for a erstatte gamle celler og reparere skader.',
+    },
+    {
+      id: 'hov1-2-1-oppbygning',
+      type: 'text',
+      content: `# Kroppens oppbygning
+
+Kroppen er organisert i flere nivaer, fra det minste til det storste:
+
+## Organisasjonsnivaer
+
+**1. Celler**
+Kroppens minste byggeklosser. Det finnes mange ulike celletyper:
+- Muskelceller - kan trekke seg sammen
+- Nerveceller - sender signaler
+- Blodceller - frakter oksygen og naeringsstoffer
+- Hudceller - beskytter kroppen
+
+**2. Vev**
+Grupper av like celler som jobber sammen:
+- **Epitelvev** - dekker overflater (hud, slimhinner)
+- **Bindevev** - stotter og binder sammen (ben, brusk, fett)
+- **Muskelvev** - kan trekke seg sammen
+- **Nervevev** - sender og mottar signaler
+
+**3. Organer**
+Strukturer sammensatt av ulike vev som har en bestemt funksjon. Eksempler: hjerte, lunger, lever, nyrer.
+
+**4. Organsystemer**
+Grupper av organer som samarbeider om felles funksjon. Eksempel: fordoyelsessystemet bestar av munn, spiseror, magesekk, tarm osv.
+
+**5. Organismen**
+Hele kroppen som fungerer som en helhet. Alle organsystemene samarbeider for a holde oss i live.`,
+    },
+    {
+      id: 'hov1-2-1-def-homeostase',
+      type: 'definition',
+      title: 'Homeostase',
+      content: 'Homeostase er kroppens evne til a opprettholde et stabilt indre miljo til tross for endringer i omgivelsene. Kroppen regulerer blant annet temperatur (rundt 37 grader), blodtrykk, blodsukker, pH og vaeske­balanse. Nar homeostase forstyrres, oppstar sykdom.',
+    },
+    {
+      id: 'hov1-2-1-organsystemer',
+      type: 'text',
+      content: `# Viktige organsystemer
+
+## Bevegelsesapparatet
+- **Skjelettet** (206 bein) - gir stotte og beskyttelse
+- **Muskler** - gir bevegelse
+- **Ledd og sener** - forbinder bein og muskler
+
+## Sirkulasjonssystemet (blodomlopet)
+- **Hjertet** - pumper blod gjennom kroppen
+- **Blodkar** - arterier (fra hjertet), vener (til hjertet), kapillaerer (de minste)
+- **Blodet** - frakter oksygen, naeringsstoffer og avfallsstoffer
+
+## Respirasjonssystemet (andedrettet)
+- **Nese og munn** - luft kommer inn
+- **Luftror og bronkier** - luftveier
+- **Lunger** - gassutveksling (oksygen inn, karbondioksid ut)
+
+## Fordoyelsessystemet
+- **Munn** - tygger og starter fordoyelsen
+- **Spiseror** - frakter mat til magen
+- **Magesekk** - bryter ned mat
+- **Tynntarm** - tar opp naeringsstoffer
+- **Tykktarm** - tar opp vann, danner avforing
+
+## Nervesystemet
+- **Hjernen** - kontrollsentral
+- **Ryggmargen** - forbindelse mellom hjerne og kropp
+- **Nerver** - sender signaler til og fra hele kroppen
+
+## Urinveiene
+- **Nyrene** - filtrerer blodet og lager urin
+- **Urinledere** - frakter urin til blaeren
+- **Urinblaeren** - lagrer urin
+- **Urinroret** - forer urin ut av kroppen`,
+    },
+    {
+      id: 'hov1-2-1-def-fysiologiske',
+      type: 'definition',
+      title: 'Fysiologiske behov',
+      content: 'Fysiologiske behov er de mest grunnleggende behovene som ma dekkes for at vi skal overleve. Dette inkluderer behov for mat, drikke, luft, sovn, varme og utskillelse. Disse behovene har forste prioritet - de ma dekkes for at vi kan fokusere pa andre behov.',
+    },
+    {
+      id: 'hov1-2-1-behov',
+      type: 'text',
+      content: `# Grunnleggende behov
+
+Alle mennesker har behov som ma dekkes for a overleve og ha god livskvalitet. Den amerikanske psykologen Abraham Maslow utviklet en teori om menneskelige behov som ofte fremstilles som en pyramide.
+
+## Maslows behovspyramide
+
+**1. Fysiologiske behov** (nederst i pyramiden)
+De mest grunnleggende behovene for overlevelse:
+- Mat og drikke
+- Luft og pust
+- Sovn og hvile
+- Varme og ly
+- Utskillelse (toalettbesok)
+- Smertefrihet
+
+**2. Trygghetsbehov**
+Behov for sikkerhet og forutsigbarhet:
+- Fysisk trygghet
+- Okonomisk sikkerhet
+- Helse og velvare
+- Beskyttelse mot fare
+- Forutsigbare rutiner
+
+**3. Sosiale behov**
+Behov for tilhorighet og kjaerlighet:
+- Familie og venner
+- Tilhorighet til grupper
+- Kjaerlighet og narhet
+- Aksept fra andre
+
+**4. Behov for anerkjennelse**
+Behov for respekt og selvfolelse:
+- Respekt fra andre
+- Selvrespekt
+- Status og prestisje
+- Mestring og kompetanse
+- Uavhengighet
+
+**5. Selvrealisering** (overst i pyramiden)
+Behov for a utvikle sitt potensial:
+- Personlig vekst
+- Kreativitet
+- Mening med livet
+- A na sine mal`,
+    },
+    {
+      id: 'hov1-2-1-tip-pyramide',
+      type: 'tip',
+      title: 'Forstå behovspyramiden',
+      content: `Maslows behovspyramide viser at grunnleggende behov (nederst) ma vaere noenlunde dekket for at vi skal kunne fokusere pa hoyere behov.
+
+**Eksempel:** En person som er veldig sulten (fysiologisk behov) vil ha vanskeligheter med a konsentrere seg om a lare nye ting (selvrealisering).
+
+**Viktig:** Behovene er ikke absolutte - vi beveger oss opp og ned i pyramiden avhengig av situasjonen. Og noen behov kan vaere viktigere for noen mennesker enn andre.`,
+    },
+    {
+      id: 'hov1-2-1-eksempel-praksis',
+      type: 'example',
+      title: 'Behovspyramiden i praksis',
+      problem: 'Fru Berg (82 ar) har nettopp flyttet inn pa sykehjem. Hvordan kan du som ansatt bidra til a dekke hennes behov pa ulike nivaer i behovspyramiden?',
+      solution: `**1. Fysiologiske behov:**
+- Sikre at hun far nok mat og drikke tilpasset hennes preferanser
+- Hjelpe med personlig hygiene og toalettbesok
+- Sorge for at rommet har behagelig temperatur
+- Tilrettelegge for god sovn (rutiner, rolig miljo)
+
+**2. Trygghetsbehov:**
+- Presentere deg og forklare hva som skal skje
+- Etablere forutsigbare rutiner
+- Vaere tilgjengelig nar hun trenger hjelp
+- Gi informasjon om hverdagen pa sykehjemmet
+
+**3. Sosiale behov:**
+- Legge til rette for kontakt med familie
+- Invitere til fellesaktiviteter med andre beboere
+- Ta deg tid til samtaler
+- Respektere hennes onsker om sosial kontakt
+
+**4. Behov for anerkjennelse:**
+- Behandle henne med respekt og verdighet
+- Lytte til hennes meninger og onsker
+- Anerkjenne hennes livserfaring
+- La henne ta egne valg der det er mulig
+
+**5. Selvrealisering:**
+- Undersoke hva hun er interessert i
+- Tilrettelegge for hobbyer og aktiviteter
+- Stotte hennes onsker og mal
+
+**Laering:** God omsorg handler om a se hele mennesket og dekke behov pa alle nivaer - ikke bare de fysiologiske.`,
+    },
+    {
+      id: 'hov1-2-1-eksempel-barn',
+      type: 'example',
+      title: 'Grunnleggende behov hos barn',
+      problem: 'Du jobber i barnehage med barn fra 1-5 ar. Hvordan sikrer du at barnas grunnleggende behov blir dekket?',
+      solution: `**Fysiologiske behov:**
+- Regelmessige maltider med sunn mat
+- Tilgang pa vann
+- Faste hvilestunder/soving for de yngste
+- Tilpasset pakledning etter vaer og aktivitet
+- Hjelp med bleieskift/toalettbesok
+
+**Trygghetsbehov:**
+- Forutsigbare dagsrutiner
+- Trygge voksne som er til stede
+- Tydelige grenser og regler
+- Trygge fysiske omgivelser
+
+**Sosiale behov:**
+- Nare relasjoner til personalet
+- Mulighet for lek med andre barn
+- Folelse av tilhorighet i barnegruppa
+- Kontakt med foreldre ved henting/bringing
+
+**Anerkjennelse:**
+- Ros og oppmuntring
+- Se hvert enkelt barn
+- Feire mestring og fremgang
+- Lytte til barnets stemme
+
+**Selvrealisering:**
+- Mulighet for fri lek og kreativitet
+- Utfordringer tilpasset barnets niva
+- Stotte barnets nysgjerrighet og utforsking`,
+    },
+    {
+      id: 'hov1-2-1-warning',
+      type: 'warning',
+      title: 'Nar behov ikke dekkes',
+      content: `Nar grunnleggende behov ikke dekkes over tid, far det konsekvenser:
+
+**Fysisk:** Underernaring, dehydrering, sovnmangel, sykdom
+
+**Psykisk:** Angst, depresjon, utrygghet, darlig selvbilde
+
+**Sosialt:** Isolasjon, ensomhet, tilknytningsvansker
+
+**Hos barn:** Kan fore til utviklingsforsinkelser, atferdsproblemer og traumer
+
+Som yrkesutover ma du vaere oppmerksom pa tegn pa at behov ikke dekkes, og handle for a sikre at brukere far den hjelpen de trenger.`,
+    },
+    {
+      id: 'hov1-2-1-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+I dette kapittelet har du laert om:
+
+**Kroppens oppbygning**
+- Kroppen er organisert i celler, vev, organer, organsystemer og organismen
+- Cellen er den minste levende enheten
+- Organsystemer samarbeider for a holde kroppen i funksjon
+
+**Viktige organsystemer**
+- Bevegelsesapparatet (skjelett, muskler, ledd)
+- Sirkulasjonssystemet (hjerte, blodkar, blod)
+- Respirasjonssystemet (lunger, luftveier)
+- Fordoyelsessystemet (mage, tarm)
+- Nervesystemet (hjerne, nerver)
+
+**Homeostase**
+- Kroppens evne til a opprettholde stabilt indre miljo
+- Regulerer temperatur, blodtrykk, blodsukker osv.
+
+**Maslows behovspyramide**
+1. Fysiologiske behov (mat, vann, sovn)
+2. Trygghetsbehov (sikkerhet, forutsigbarhet)
+3. Sosiale behov (tilhorighet, kjaerlighet)
+4. Anerkjennelse (respekt, selvfolelse)
+5. Selvrealisering (personlig vekst)
+
+**Se ogsa:**
+- Kapittel 2.2: Hygiene og smittevern
+- Kapittel 2.3: Kosthold og ernaering
+- Kapittel 1.2: Helsefremmende arbeid`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'hov1-2-1-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er kroppens minste levende enhet?',
+      competenceGoals: ['beskrive kroppens oppbygning og funksjon'],
+      solution: 'Cellen er kroppens minste levende enhet. Alle levende organismer er bygd opp av celler.',
+      multipleChoiceOptions: [
+        'Cellen',
+        'Vevet',
+        'Organet',
+        'Molekylet',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er de fysiologiske behovene i Maslows pyramide?',
+      competenceGoals: ['gjore rede for menneskers grunnleggende behov'],
+      solution: 'Fysiologiske behov er de mest grunnleggende: mat, drikke, luft, sovn, varme og utskillelse.',
+      multipleChoiceOptions: [
+        'Mat, drikke, luft, sovn og varme',
+        'Vennskap og tilhorighet',
+        'Respekt og status',
+        'Utvikling av potensial',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er homeostase?',
+      competenceGoals: ['beskrive kroppens oppbygning og funksjon'],
+      solution: 'Homeostase er kroppens evne til a opprettholde et stabilt indre miljo.',
+      multipleChoiceOptions: [
+        'Kroppens evne til a holde indre miljo stabilt',
+        'En type muskelcelle',
+        'Navnet pa et organsystem',
+        'En sykdom i nervesystemet',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex4',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilket organsystem pumper blod gjennom kroppen?',
+      competenceGoals: ['beskrive kroppens oppbygning og funksjon'],
+      solution: 'Sirkulasjonssystemet (blodomlopet) med hjertet pumper blod gjennom kroppen.',
+      multipleChoiceOptions: [
+        'Sirkulasjonssystemet',
+        'Respirasjonssystemet',
+        'Nervesystemet',
+        'Fordoyelsessystemet',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er riktig rekkefolge fra minste til storste organisasjonsniva i kroppen?',
+      competenceGoals: ['beskrive kroppens oppbygning og funksjon'],
+      solution: 'Riktig rekkefolge er: celle - vev - organ - organsystem - organisme.',
+      multipleChoiceOptions: [
+        'Celle - vev - organ - organsystem - organisme',
+        'Vev - celle - organ - organsystem - organisme',
+        'Organ - vev - celle - organsystem - organisme',
+        'Celle - organ - vev - organsystem - organisme',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilket niva er overst i Maslows behovspyramide?',
+      competenceGoals: ['gjore rede for menneskers grunnleggende behov'],
+      solution: 'Selvrealisering er overst i pyramiden - behovet for a utvikle sitt fulle potensial.',
+      multipleChoiceOptions: [
+        'Selvrealisering',
+        'Sosiale behov',
+        'Fysiologiske behov',
+        'Trygghetsbehov',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex7',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva regulerer kroppen gjennom homeostase?',
+      competenceGoals: ['beskrive kroppens oppbygning og funksjon'],
+      solution: 'Gjennom homeostase regulerer kroppen blant annet temperatur, blodtrykk og blodsukker.',
+      multipleChoiceOptions: [
+        'Temperatur, blodtrykk og blodsukker',
+        'Kun kroppstemperaturen',
+        'Bare blodtrykket',
+        'Muskelstyrke og utholdenhet',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex8',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er et eksempel pa sosiale behov i behovspyramiden?',
+      competenceGoals: ['gjore rede for menneskers grunnleggende behov'],
+      solution: 'Sosiale behov inkluderer tilhorighet, vennskap og kjaerlighet.',
+      multipleChoiceOptions: [
+        'Tilhorighet og vennskap',
+        'Mat og drikke',
+        'Respekt og status',
+        'Fysisk trygghet',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex9',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvorfor er det viktig a dekke fysiologiske behov for i omsorgssituasjoner?',
+      competenceGoals: ['gjore rede for menneskers grunnleggende behov'],
+      solution: 'Fysiologiske behov ma dekkes forst fordi de er grunnlaget for overlevelse og pavirker evnen til a fokusere pa andre behov.',
+      multipleChoiceOptions: [
+        'Fordi de er grunnlaget for overlevelse og pavirker alle andre behov',
+        'Fordi de er enklest a dekke',
+        'Fordi loven krever det',
+        'Fordi det er det brukerne selv prioriterer',
+      ],
+    },
+    {
+      id: 'hov1-2-1-ex10',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva kan skje nar grunnleggende behov ikke dekkes over tid?',
+      competenceGoals: ['gjore rede for menneskers grunnleggende behov'],
+      solution: 'Nar behov ikke dekkes kan det fore til fysiske, psykiske og sosiale konsekvenser som sykdom, angst og isolasjon.',
+      multipleChoiceOptions: [
+        'Fysisk sykdom, psykiske problemer og sosial isolasjon',
+        'Bare fysiske problemer',
+        'Ingenting alvorlig hvis det er kortvarig',
+        'Personen tilpasser seg etter hvert',
+      ],
+    },
+  ],
 };
 
 export const CHAPTER_HELSEOPPVEKST_VG1_2_2: TextbookChapter = {
@@ -638,17 +1580,561 @@ export const CHAPTER_HELSEOPPVEKST_VG1_2_2: TextbookChapter = {
     'forklare smittemater og smittekjeden',
     'utfore handhygiene korrekt',
   ],
-  content: [
-    { id: 'hov1-2-2-1', type: 'text', content: '# Hva er hygiene?\n\nHygiene handler om tiltak for a forebygge sykdom og fremme helse. God hygiene er grunnleggende i alt helse- og oppvekstarbeid.\n\n## Typer hygiene\n- **Personlig hygiene** - stell av egen kropp\n- **Naeringsmiddelhygiene** - trygg handtering av mat\n- **Milj hygiene** - renhold av omgivelser\n- **Arbeidshygiene** - forebygging av smitte pa jobb' },
-    { id: 'hov1-2-2-2', type: 'definition', title: 'Smitte', content: 'Overføring av sykdomsfremkallende mikroorganismer (bakterier, virus, sopp, parasitter) fra en smittekilde til et mottakelig individ.' },
-    { id: 'hov1-2-2-3', type: 'text', content: '# Smittekjeden\n\nFor at smitte skal skje, ma alle ledd i smittekjeden vaere til stede:\n\n1. **Smittestoff** - mikroorganismen som forårsaker sykdom\n2. **Smittekilde** - der smittestoffet finnes (menneske, dyr, gjenstander)\n3. **Smittevei** - maten smittestoffet spres pa\n4. **Smittemottaker** - personen som blir smittet\n\n## Smitteveier\n- **Kontaktsmitte** - direkte berøring eller via gjenstander\n- **Drapesmitte** - hosting, nysing, snakking\n- **Luftsmitte** - smapartikler som svever i lufta\n- **Fekal-oral smitte** - fra avføring til munn\n- **Blodsmitte** - via blod og kroppsvæsker' },
-    { id: 'hov1-2-2-4', type: 'warning', title: 'Handhygiene', content: 'Handhygiene er det viktigste enkelttiltaket for a forebygge smitte! Vask hender før og etter pasientkontakt, før rene prosedyrer, etter kontakt med kroppsvæsker, og etter kontakt med pasientens omgivelser.' },
-    { id: 'hov1-2-2-5', type: 'text', content: '# Hvordan vaske hender riktig\n\n1. Fukt hendene med vann\n2. Pafør sape\n3. Gni handflater mot hverandre\n4. Gni handbaken pa begge hender\n5. Gni mellom fingrene\n6. Gni rundt tomlene\n7. Gni fingertuppene i handflatene\n8. Skyll grundig\n9. Tørk med papir\n10. Bruk papiret til a lukke kranen\n\n**Varighet**: Minimum 40-60 sekunder for handvask, 20-30 sekunder for handdesinfeksjon.' },
-    { id: 'hov1-2-2-6', type: 'text', content: '# Bryte smittekjeden\n\nSmitte kan forebygges ved a bryte et eller flere ledd i smittekjeden:\n\n**Fjerne smittekilden**\n- Isolere smittefarlige pasienter\n- Behandle infeksjoner\n\n**Blokkere smitteveien**\n- Handhygiene\n- Beskyttelsesutstyr (hansker, munnbind, frakk)\n- Renhold og desinfeksjon\n\n**Styrke smittemottaker**\n- Vaksinering\n- God ernæring og helse\n- Intakt hud' },
-    { id: 'hov1-2-2-ex1', type: 'exercise', exercise: { id: 'hov1-2-2-ex1', type: 'multiple-choice', task: 'Hva er det viktigste tiltaket for a forebygge smitte?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['God handhygiene', 'A bruke munnbind alltid', 'A holde seg innendørs', 'A ta antibiotika'], solution: 'God handhygiene er det viktigste enkelttiltaket for a forebygge smittespredning.' }] } },
-    { id: 'hov1-2-2-ex2', type: 'exercise', exercise: { id: 'hov1-2-2-ex2', type: 'multiple-choice', task: 'Hva er kontaktsmitte?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['Smitte via direkte beroring eller gjenstander', 'Smitte via luft', 'Smitte via mat', 'Smitte via insekter'], solution: 'Kontaktsmitte er smitte som overføres ved direkte berøring mellom mennesker eller via forurenset gjenstander.' }] } }
+  keyTerms: [
+    { term: 'Hygiene', definition: 'Tiltak for a forebygge sykdom og fremme helse' },
+    { term: 'Smitte', definition: 'Overforing av sykdomsfremkallende mikroorganismer' },
+    { term: 'Smittekjeden', definition: 'Alle leddene som ma vaere til stede for at smitte skal skje' },
+    { term: 'Mikroorganismer', definition: 'Sma levende organismer som bakterier, virus og sopp' },
+    { term: 'Desinfeksjon', definition: 'A drepe eller fjerne de fleste sykdomsfremkallende mikroorganismer' },
+    { term: 'Sterilisering', definition: 'A drepe alle mikroorganismer, inkludert sporer' },
   ],
-  exercises: [],
+  content: [
+    {
+      id: 'hov1-2-2-intro',
+      type: 'text',
+      content: `# Hygiene og smittevern
+
+God hygiene er en av de viktigste ferdighetene i helse- og oppvekstarbeid. Som yrkesutover har du ansvar for a beskytte bade deg selv, dine kolleger og brukerne mot smitte og sykdom.
+
+I dette kapittelet skal du laere om:
+- Hva hygiene er og ulike typer hygiene
+- Mikroorganismer og hvordan smitte spres
+- Smittekjeden og hvordan den kan brytes
+- Riktig handhygiene og bruk av beskyttelsesutstyr
+- Renhold og desinfeksjon
+
+**Hvorfor er hygiene viktig?**
+Darlig hygiene kan fore til at sykdommer spres, noe som kan gi alvorlige konsekvenser - saerlig for sårbare grupper som barn, eldre og syke. God hygiene forebygger infeksjoner og bidrar til et trygt arbeidsmiljo.`,
+    },
+    {
+      id: 'hov1-2-2-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-2-2-ordliste-innhold',
+          type: 'text',
+          content: `**Hygiene** - Tiltak for a forebygge sykdom og fremme helse
+
+**Mikroorganismer** - Sma levende organismer (bakterier, virus, sopp, parasitter)
+
+**Patogene mikroorganismer** - Sykdomsfremkallende mikroorganismer
+
+**Smitte** - Overforing av sykdomsfremkallende mikroorganismer
+
+**Smittekjeden** - Alle leddene som ma vaere til stede for smitte
+
+**Inkubasjonstid** - Tiden fra smitte til symptomer viser seg
+
+**Desinfeksjon** - Dreper de fleste sykdomsfremkallende mikroorganismer
+
+**Sterilisering** - Dreper alle mikroorganismer inkludert sporer
+
+**Aseptisk teknikk** - Arbeidsmate som hindrer smitte
+
+**Isolat** - Enerom for smittefarlig pasient`,
+        },
+      ],
+    },
+    {
+      id: 'hov1-2-2-def-hygiene',
+      type: 'definition',
+      title: 'Hygiene',
+      content: 'Hygiene kommer fra det greske ordet "hygieinos" som betyr sunn. Hygiene er laeren om og tiltak for a forebygge sykdom og fremme helse. God hygiene hindrer spredning av smittsomme sykdommer og er grunnleggende i alt helse- og oppvekstarbeid.',
+    },
+    {
+      id: 'hov1-2-2-typer',
+      type: 'text',
+      content: `# Typer hygiene
+
+## Personlig hygiene
+Stell av egen kropp for a holde seg ren og frisk:
+- Daglig kroppsvask
+- Handvask
+- Tannpuss
+- Rene klaer
+- Stell av har og negler
+
+## Naeringsmiddelhygiene
+Trygg handtering av mat for a unnga matforgiftning:
+- Riktig oppbevaring av matvarer
+- Riktig temperatur ved tilberedning
+- Unnga kryssforurensning
+- Handvask for mathandtering
+- Rengjoring av kjokkenutstyr
+
+## Miljohygiene
+Renhold av omgivelser:
+- Rengjoring av overflater
+- Lufting og ventilasjon
+- Avfallshandtering
+- Vask av tekstiler
+- Renhold av sanitaeranlegg
+
+## Arbeidshygiene (smittevern)
+Forebygging av smitte pa arbeidsplassen:
+- Handhygiene
+- Bruk av beskyttelsesutstyr
+- Riktig handtering av medisinsk utstyr
+- Isoleringsrutiner
+- Vaksinering av ansatte`,
+    },
+    {
+      id: 'hov1-2-2-def-smitte',
+      type: 'definition',
+      title: 'Smitte',
+      content: 'Smitte er overforing av sykdomsfremkallende mikroorganismer (patogener) fra en smittekilde til et mottakelig individ. Mikroorganismer som kan forårsake sykdom inkluderer bakterier, virus, sopp og parasitter.',
+    },
+    {
+      id: 'hov1-2-2-mikroorg',
+      type: 'text',
+      content: `# Mikroorganismer
+
+Mikroorganismer er sma levende organismer som ikke kan ses med det blotte oyet. De fleste er ufarlige eller til og med nyttige, men noen kan forårsake sykdom.
+
+## Typer mikroorganismer
+
+**Bakterier**
+- Encellede organismer
+- Noen er nyttige (tarmbakterier)
+- Noen forårsaker sykdom (stafylokokker, streptokokker)
+- Kan behandles med antibiotika
+
+**Virus**
+- Enda mindre enn bakterier
+- Trenger en vertscelle for a formere seg
+- Eksempler: influensa, forkjolelse, COVID-19
+- Kan IKKE behandles med antibiotika
+
+**Sopp**
+- Kan forårsake hudinfeksjoner
+- Eksempler: fotsopp, ringorm, soppinfeksjoner i munn/underliv
+- Behandles med soppdrepende midler
+
+**Parasitter**
+- Lever pa eller i en vert
+- Eksempler: hodelus, skabb, innvollsorm
+- Behandles med spesifikke midler
+
+## Normalflora
+Vi har milliarder av mikroorganismer pa huden og i kroppen som er nyttige og beskytter oss. Disse kalles normalflora.`,
+    },
+    {
+      id: 'hov1-2-2-def-smittekjede',
+      type: 'definition',
+      title: 'Smittekjeden',
+      content: 'Smittekjeden beskriver alle leddene som ma vaere til stede for at smitte skal kunne skje: smittestoff, smittekilde, utgangsport, smittevei, inngangsport og mottakelig vert. Hvis vi bryter ett ledd i kjeden, kan vi hindre smitte.',
+    },
+    {
+      id: 'hov1-2-2-kjeden',
+      type: 'text',
+      content: `# Smittekjeden
+
+For at smitte skal skje, ma alle leddene i smittekjeden vaere til stede:
+
+**1. Smittestoff (agens)**
+Mikroorganismen som forårsaker sykdom - bakterie, virus, sopp eller parasitt.
+
+**2. Smittekilde (reservoar)**
+Der smittestoffet lever og formerer seg:
+- Mennesker (syke eller friske bærere)
+- Dyr
+- Mat og vann
+- Jord og miljo
+- Gjenstander (dorhåndtak, telefoner)
+
+**3. Utgangsport**
+Hvordan smittestoffet forlater smittekilden:
+- Luftveier (hosting, nysing)
+- Fordoyelsessystemet (avforing, oppkast)
+- Hud og sår
+- Blod og kroppsvæsker
+
+**4. Smittevei**
+Hvordan smittestoffet transporteres:
+- **Kontaktsmitte** (direkte eller indirekte)
+- **Dråpesmitte** (fra hosting/nysing)
+- **Luftsmitte** (svevepatikler i lufta)
+- **Fekal-oral smitte** (fra avforing til munn)
+- **Blodsmitte** (via blod/kroppsvæsker)
+- **Vektorsmitte** (via insekter/dyr)
+
+**5. Inngangsport**
+Hvor smittestoffet kommer inn i kroppen:
+- Luftveier
+- Fordoyelsessystemet
+- Sår og slimhinner
+- Blod
+
+**6. Mottakelig vert**
+Personen som kan bli smittet. Mottakeligheten avhenger av:
+- Immunforsvar
+- Alder og helsetilstand
+- Vaksinasjonsstatus`,
+    },
+    {
+      id: 'hov1-2-2-warning-hand',
+      type: 'warning',
+      title: 'Handhygiene er viktigst!',
+      content: `Handhygiene er det viktigste enkelttiltaket for a forebygge smitte. Hendene er den vanligste smitteveien!
+
+**Nar skal du vaske/desinfisere hender?**
+- For og etter kontakt med bruker/pasient
+- For rene prosedyrer
+- Etter kontakt med kroppsvæsker
+- Etter kontakt med brukerens omgivelser
+- Etter toalettbesok
+- For og etter matlaging/spising
+- Nar hendene er synlig skitne
+
+**Husk:** Bruk handvask med sape nar hendene er synlig skitne. Bruk handdesinfeksjon nar de ikke er synlig skitne.`,
+    },
+    {
+      id: 'hov1-2-2-handvask',
+      type: 'text',
+      content: `# Riktig handhygiene
+
+## Handvask med sape og vann
+
+**Nar:** Nar hendene er synlig skitne, etter toalettbesok, for mat.
+
+**Slik gjor du (40-60 sekunder):**
+1. Fukt hendene med vann
+2. Påfor sape
+3. Gni handflatene mot hverandre
+4. Gni handbaken pa begge hender
+5. Gni mellom fingrene med fingrene flettet sammen
+6. Gni rundt tomlene med roterende bevegelse
+7. Gni fingertuppene i handflatene
+8. Skyll grundig med vann
+9. Tork med engangshåndkle
+10. Bruk håndkleet til a lukke kranen
+
+## Handdesinfeksjon med alkoholbasert middel
+
+**Nar:** Nar hendene ikke er synlig skitne.
+
+**Slik gjor du (20-30 sekunder):**
+1. Påfor tilstrekkelig mengde desinfeksjonsmiddel
+2. Gni i hele hånda - handflater, handbak, mellom fingre, rundt tomler, fingertupper
+3. Gni til hendene er torre
+
+## Viktig a huske
+- Fjern ringer, klokker og armbånd
+- Hold neglene korte og rene
+- Ikke bruk neglelakk eller kunstige negler pa jobb
+- Smor hendene med fuktighetskrem etter arbeidsdag`,
+    },
+    {
+      id: 'hov1-2-2-eksempel-bryte',
+      type: 'example',
+      title: 'Bryte smittekjeden - praktisk eksempel',
+      problem: 'Du jobber pa sykehjem og en beboer har omgangssyke (norovirus). Hvordan kan du bryte smittekjeden for a hindre at smitten sprer seg?',
+      solution: `**Bryte smittekjeden ved omgangssyke:**
+
+**1. Fjerne/isolere smittekilde:**
+- Beboeren holder seg pa rommet sitt (isolat)
+- Eget toalett
+- Begrenset kontakt med andre beboere
+
+**2. Blokkere utgangsport:**
+- Rask handtering av oppkast og diare
+- Bruk av oppkastposer
+- Tildekking ved hosting
+
+**3. Blokkere smittevei:**
+- Hyppig handvask/-desinfeksjon
+- Bruk av hansker og forkle ved kontakt
+- Grundig renhold og desinfeksjon av overflater
+- Vasking av sengetoy og klaer pa hoy temperatur
+
+**4. Beskytte inngangsport:**
+- Unnga a ta deg i ansiktet
+- Ikke spis/drikk pa pasientrom
+- Munnbind ved aerosolgenererende prosedyrer
+
+**5. Styrke mottakeren:**
+- God handhygiene for alle
+- Holde seg hjemme ved symptomer
+- God allmenntilstand og hygiene
+
+**Viktig:** Norovirus smitter lett! Bruk handvask (ikke bare desinfeksjon) da norovirus er vanskelig a drepe med alkohol.`,
+    },
+    {
+      id: 'hov1-2-2-eksempel-barn',
+      type: 'example',
+      title: 'Hygiene i barnehage',
+      problem: 'Du jobber i barnehage. Hvordan sikrer du god hygiene for a forebygge smitte blant barna?',
+      solution: `**Daglige hygienerutiner i barnehage:**
+
+**Handhygiene:**
+- Lær barna riktig handvaskteknikk
+- Handvask ved ankomst
+- Handvask for og etter mat
+- Handvask etter toalettbesok
+- Handvask etter utelek
+- Ha sang eller timer som gjor det morsomt
+
+**Naeringsmiddelhygiene:**
+- Rene overflater der mat serveres
+- Riktig oppbevaring av mat
+- Sjekk datomerking
+- Ansatte vasker hender for matservering
+
+**Bleieskift:**
+- Bruk hansker
+- Rens stellebordet mellom hvert barn
+- Handvask etter hvert skift
+- Ha rent toy tilgjengelig
+
+**Renhold:**
+- Daglig rengjoring av leker som puttes i munnen
+- Renhold av fellesoverflater
+- God lufting
+- Vask av sengetoy og tekstiler
+
+**Ved sykdom:**
+- Syke barn ma vaere hjemme
+- Informer foreldre ved smitteutbrudd
+- Ekstra renhold ved utbrudd
+- Folg kommunens retningslinjer`,
+    },
+    {
+      id: 'hov1-2-2-beskyttelse',
+      type: 'text',
+      content: `# Beskyttelsesutstyr
+
+I noen situasjoner er det nodvendig a bruke ekstra beskyttelsesutstyr:
+
+## Hansker
+- Brukes ved kontakt med blod, kroppsvæsker, sar, slimhinner
+- Bytt hansker mellom ulike oppgaver/pasienter
+- Vask hender for og etter hanskebruk
+- Hansker erstatter IKKE handvask
+
+## Munnbind
+- Beskytter mot drapesmitte
+- Brukes ved hosting/nysing nær pasienter
+- Ved kontakt med smittefarlige pasienter
+- Ma dekke bade nese og munn
+
+## Beskyttelsesfrakk/forkle
+- Ved fare for sprut av kroppsvæsker
+- Ved isolasjonsprosedyrer
+- Tas pa for hansker, tas av for hansker
+
+## Oyebeskyttelse
+- Ved fare for sprut mot ansiktet
+- Ved aerosolgenererende prosedyrer
+
+## Riktig rekkefolge
+**Pa:** Frakk - munnbind - briller - hansker
+**Av:** Hansker - briller - frakk - munnbind - handvask`,
+    },
+    {
+      id: 'hov1-2-2-tip',
+      type: 'tip',
+      title: 'Huske smitteveiene',
+      content: `En enkel måte a huske smitteveiene pa:
+
+**K**ontakt (beroring)
+**D**råper (hosting, nysing)
+**L**uft (svevepatikler)
+**F**ekal-oral (avforing til munn)
+**B**lod (blod og kroppsvæsker)
+**V**ektor (insekter, dyr)
+
+De vanligste i helse- og oppvekstarbeid er kontaktsmitte og dråpesmitte. Derfor er handhygiene og hosting/nysing i armkrok sa viktig!`,
+    },
+    {
+      id: 'hov1-2-2-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+I dette kapittelet har du laert om:
+
+**Hygiene**
+- Tiltak for a forebygge sykdom og fremme helse
+- Typer: personlig, naeringsmiddel, miljo, arbeid
+
+**Mikroorganismer**
+- Bakterier, virus, sopp og parasitter
+- De fleste er ufarlige, noen gir sykdom
+- Normalflora beskytter oss
+
+**Smittekjeden**
+1. Smittestoff
+2. Smittekilde
+3. Utgangsport
+4. Smittevei
+5. Inngangsport
+6. Mottakelig vert
+
+**Smitteveier**
+- Kontaktsmitte (vanligst)
+- Drapesmitte
+- Luftsmitte
+- Fekal-oral smitte
+- Blodsmitte
+
+**Handhygiene**
+- Viktigste enkelttiltak!
+- Handvask: 40-60 sekunder
+- Handdesinfeksjon: 20-30 sekunder
+
+**Beskyttelsesutstyr**
+- Hansker, munnbind, frakk, oyebeskyttelse
+- Brukes i tillegg til handhygiene
+
+**Se ogsa:**
+- Kapittel 2.1: Kroppen og grunnleggende behov
+- Kapittel 2.3: Kosthold og ernaering
+- Kapittel 3.1: Lover og rettigheter`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'hov1-2-2-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er det viktigste tiltaket for a forebygge smitte?',
+      competenceGoals: ['gjore rede for betydningen av god hygiene'],
+      solution: 'God handhygiene er det viktigste enkelttiltaket for a forebygge smittespredning.',
+      multipleChoiceOptions: [
+        'God handhygiene',
+        'A bruke munnbind alltid',
+        'A holde seg innendors',
+        'A ta antibiotika',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er kontaktsmitte?',
+      competenceGoals: ['forklare smittemater og smittekjeden'],
+      solution: 'Kontaktsmitte er smitte som overfores ved direkte beroring mellom mennesker eller via forurensede gjenstander.',
+      multipleChoiceOptions: [
+        'Smitte via direkte beroring eller gjenstander',
+        'Smitte via luft',
+        'Smitte via mat',
+        'Smitte via insekter',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor lenge bor en handvask med sape vare?',
+      competenceGoals: ['utfore handhygiene korrekt'],
+      solution: 'En grundig handvask med sape bor vare 40-60 sekunder.',
+      multipleChoiceOptions: [
+        '40-60 sekunder',
+        '5-10 sekunder',
+        '10-20 sekunder',
+        '2-3 minutter',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex4',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er drapesmitte?',
+      competenceGoals: ['forklare smittemater og smittekjeden'],
+      solution: 'Drapesmitte er smitte via draper som spres ved hosting, nysing eller snakking.',
+      multipleChoiceOptions: [
+        'Smitte via draper fra hosting og nysing',
+        'Smitte gjennom drikkevann',
+        'Smitte via insektbitt',
+        'Smitte gjennom huden',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er riktig rekkefolge av leddene i smittekjeden?',
+      competenceGoals: ['forklare smittemater og smittekjeden'],
+      solution: 'Smittekjeden: smittestoff - smittekilde - utgangsport - smittevei - inngangsport - mottaker.',
+      multipleChoiceOptions: [
+        'Smittestoff - smittekilde - utgangsport - smittevei - inngangsport - mottaker',
+        'Smittekilde - smittestoff - smittevei - mottaker',
+        'Mottaker - smittevei - smittekilde - smittestoff',
+        'Smittevei - smittestoff - smittekilde - mottaker',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Nar skal du bruke handvask med sape i stedet for handdesinfeksjon?',
+      competenceGoals: ['utfore handhygiene korrekt'],
+      solution: 'Handvask med sape brukes nar hendene er synlig skitne, etter toalettbesok og for matlaging.',
+      multipleChoiceOptions: [
+        'Nar hendene er synlig skitne',
+        'Alltid - handdesinfeksjon virker ikke',
+        'Bare om morgenen',
+        'Aldri - handdesinfeksjon er nok',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex7',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva kan virus IKKE behandles med?',
+      competenceGoals: ['gjore rede for betydningen av god hygiene'],
+      solution: 'Virus kan ikke behandles med antibiotika. Antibiotika virker bare mot bakterier.',
+      multipleChoiceOptions: [
+        'Antibiotika',
+        'Antivirale midler',
+        'Vaksiner kan forebygge',
+        'Immunforsvar kan bekjempe',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex8',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er riktig rekkefolge nar du tar pa beskyttelsesutstyr?',
+      competenceGoals: ['utfore handhygiene korrekt'],
+      solution: 'Riktig rekkefolge er: frakk - munnbind - briller - hansker.',
+      multipleChoiceOptions: [
+        'Frakk - munnbind - briller - hansker',
+        'Hansker - frakk - munnbind - briller',
+        'Munnbind - hansker - frakk - briller',
+        'Briller - munnbind - frakk - hansker',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex9',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvordan kan du bryte smittekjeden ved kontaktsmitte?',
+      competenceGoals: ['forklare smittemater og smittekjeden'],
+      solution: 'Kontaktsmitte kan brytes ved god handhygiene, bruk av hansker, og renhold av overflater.',
+      multipleChoiceOptions: [
+        'God handhygiene og renhold av overflater',
+        'Bare ved a bruke munnbind',
+        'Ved a isolere alle pasienter',
+        'Ved a vaksinere alle',
+      ],
+    },
+    {
+      id: 'hov1-2-2-ex10',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva pavirker om en person blir smittet eller ikke (mottakelighet)?',
+      competenceGoals: ['forklare smittemater og smittekjeden'],
+      solution: 'Mottakeligheten avhenger av immunforsvar, alder, helsetilstand og vaksinasjonsstatus.',
+      multipleChoiceOptions: [
+        'Immunforsvar, alder, helsetilstand og vaksinasjonsstatus',
+        'Bare alder',
+        'Kun om personen har vaert syk for',
+        'Bare genetikk',
+      ],
+    },
+  ],
 };
 
 export const CHAPTER_HELSEOPPVEKST_VG1_3_1: TextbookChapter = {
@@ -662,15 +2148,536 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_1: TextbookChapter = {
     'gjore rede for sentrale lover i helse- og oppvekstsektoren',
     'forklare brukerrettigheter og taushetsplikt',
   ],
-  content: [
-    { id: 'hov1-3-1-1', type: 'text', content: '# Lover i helse- og oppvekstsektoren\n\nHelse- og omsorgstjenesten er regulert av mange lover som sikrer kvalitet og rettigheter.\n\n## Viktige lover\n\n**Pasient- og brukerrettighetsloven**\n- Rett til helsehjelp\n- Rett til informasjon\n- Rett til medvirkning\n- Rett til journalinnsyn\n- Klagerett\n\n**Helsepersonelloven**\n- Krav til forsvarlig yrkesutøvelse\n- Taushetsplikt\n- Dokumentasjonsplikt\n- Meldeplikt\n\n**Helse- og omsorgstjenesteloven**\n- Kommunens ansvar for tjenester\n- Krav til kvalitet\n- Samhandling mellom tjenester' },
-    { id: 'hov1-3-1-2', type: 'definition', title: 'Taushetsplikt', content: 'Plikt til a hindre at uvedkommende far tilgang til opplysninger om folks personlige forhold. For helsepersonell er taushetsplikten lovfestet i helsepersonelloven § 21.' },
-    { id: 'hov1-3-1-3', type: 'warning', title: 'Taushetsplikten gjelder alle', content: 'Som elev og lærling har du ogsa taushetsplikt. Du ma aldri dele informasjon om brukere med familie, venner eller pa sosiale medier. Brudd pa taushetsplikt kan fa alvorlige konsekvenser.' },
-    { id: 'hov1-3-1-4', type: 'text', content: '# Brukerrettigheter\n\n## Rett til informasjon\nBrukere har rett til informasjon om:\n- Egen helsetilstand\n- Behandlingsmuligheter\n- Mulige bivirkninger og risiko\n\n## Rett til medvirkning\nBrukere har rett til a:\n- Delta i beslutninger om egen behandling\n- Uttrykke sine onsker og behov\n- Velge mellom tilgjengelige alternativer\n\n## Samtykke\nHelsehjelp krever vanligvis samtykke:\n- Samtykke skal vaere informert og frivillig\n- Barn over 16 ar samtykker som hovedregel selv\n- Ved manglende samtykkekompetanse ma andre samtykke pa vegne av brukeren' },
-    { id: 'hov1-3-1-5', type: 'text', content: '# Barnekonvensjonen\n\nFNs barnekonvensjon gir barn saerlige rettigheter:\n\n**Artikkel 3**: Barnets beste skal vaere et grunnleggende hensyn\n\n**Artikkel 12**: Barn har rett til a si sin mening og bli hort\n\n**Artikkel 19**: Barn har rett til beskyttelse mot vold og omsorgssvikt\n\n**Artikkel 31**: Barn har rett til lek, fritid og hvile' },
-    { id: 'hov1-3-1-ex1', type: 'exercise', exercise: { id: 'hov1-3-1-ex1', type: 'multiple-choice', task: 'Hva innebærer taushetsplikten?', subTasks: [{ label: 'a', task: 'Velg riktig svar:', multipleChoiceOptions: ['Plikt til a hindre at uvedkommende far opplysninger om brukere', 'At man aldri skal snakke med brukere', 'At man ikke skal dokumentere noe', 'At man ikke skal samarbeide med kolleger'], solution: 'Taushetsplikt betyr at du ikke skal dele opplysninger om brukere med uvedkommende. Du kan dele informasjon med kolleger som trenger det for a gi forsvarlig hjelp.' }] } }
+  keyTerms: [
+    { term: 'Taushetsplikt', definition: 'Plikt til a hindre at uvedkommende far personopplysninger' },
+    { term: 'Samtykke', definition: 'Tillatelse fra bruker til a motta helsehjelp' },
+    { term: 'Medvirkning', definition: 'Brukerens rett til a delta i beslutninger' },
+    { term: 'Forsvarlig', definition: 'At tjenester holder akseptabel faglig standard' },
+    { term: 'Brukerrettigheter', definition: 'Lovfestede rettigheter for mottakere av tjenester' },
+    { term: 'Barnekonvensjonen', definition: 'FNs konvensjon om barns rettigheter' },
   ],
-  exercises: [],
+  content: [
+    {
+      id: 'hov1-3-1-intro',
+      type: 'text',
+      content: `# Lover og rettigheter i helse- og oppvekstsektoren
+
+Helse- og oppvekstsektoren er regulert av mange lover som sikrer kvalitet pa tjenestene og ivaretar rettighetene til de som mottar hjelp. Som yrkesutover ma du kjenne til de viktigste lovene og hva de betyr i praksis.
+
+I dette kapittelet skal du laere om:
+- Viktige lover som regulerer sektoren
+- Taushetsplikt og personvern
+- Brukerrettigheter - informasjon, medvirkning og samtykke
+- Barns saerlige rettigheter
+- Hva som skjer ved brudd pa lovene
+
+**Hvorfor er dette viktig?**
+A kjenne lovverket beskytter bade brukerne og deg som ansatt. Lovene sikrer at mennesker far den hjelpen de har krav pa, og at de blir behandlet med verdighet og respekt.`,
+    },
+    {
+      id: 'hov1-3-1-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-3-1-ordliste-innhold',
+          type: 'text',
+          content: `**Taushetsplikt** - Plikt til a hindre at uvedkommende far opplysninger om personer
+
+**Samtykke** - Tillatelse fra bruker/pasient til a motta hjelp eller behandling
+
+**Informert samtykke** - Samtykke gitt etter a ha fatt nodvendig informasjon
+
+**Medvirkning** - Retten til a delta i beslutninger om eget liv og helse
+
+**Forsvarlig** - At tjenester holder en akseptabel faglig standard
+
+**Brukerrettigheter** - Lovfestede rettigheter for de som mottar tjenester
+
+**Klagerett** - Retten til a klage pa vedtak eller tjenester
+
+**Dokumentasjonsplikt** - Plikt til a fore journal og dokumentere
+
+**Meldeplikt** - Plikt til a melde fra om visse forhold
+
+**Barnets beste** - Prinsippet om at barns interesser skal prioriteres`,
+        },
+      ],
+    },
+    {
+      id: 'hov1-3-1-def-taushetsplikt',
+      type: 'definition',
+      title: 'Taushetsplikt',
+      content: 'Taushetsplikt er plikten til a hindre at uvedkommende far tilgang til opplysninger om folks personlige forhold. For helsepersonell er taushetsplikten lovfestet i helsepersonelloven § 21. Taushetsplikten gjelder ogsa for elever og laerlinger i helse- og oppvekstfag.',
+    },
+    {
+      id: 'hov1-3-1-lover',
+      type: 'text',
+      content: `# Viktige lover i helse- og oppvekstsektoren
+
+## Pasient- og brukerrettighetsloven
+Denne loven gir rettigheter til alle som mottar helse- og omsorgstjenester:
+
+**Rett til helsehjelp**
+- Nodvendig helsehjelp fra kommunen
+- Spesialisthelsetjeneste ved behov
+- Fritt sykehusvalg
+
+**Rett til informasjon**
+- Informasjon om egen helsetilstand
+- Informasjon om behandlingsmuligheter
+- Informasjon pa et sprak man forstar
+
+**Rett til medvirkning**
+- Delta i valg mellom behandlingsalternativer
+- Fa sin mening hort
+- Medvirke i utforming av tjenestene
+
+**Rett til innsyn**
+- Se sin egen journal
+- Fa kopi av journalen
+- Kreve retting av feil
+
+**Klagerett**
+- Klage pa vedtak om tjenester
+- Klage pa tjenestenes innhold
+
+## Helsepersonelloven
+Stiller krav til alle som jobber i helsetjenesten:
+
+- **Forsvarlighetskrav** - gi omsorg av god kvalitet
+- **Taushetsplikt** - beskytte personopplysninger
+- **Dokumentasjonsplikt** - fore journal
+- **Meldeplikt** - melde fra om alvorlige hendelser
+- **Plikt til a gi oyeblikkelig hjelp** nar nodvendig
+
+## Helse- og omsorgstjenesteloven
+Regulerer kommunens ansvar:
+
+- Sikre nodvendige helse- og omsorgstjenester
+- Krav til kvalitet og pasientsikkerhet
+- Samhandling mellom ulike tjenester
+- Forebyggende arbeid`,
+    },
+    {
+      id: 'hov1-3-1-def-samtykke',
+      type: 'definition',
+      title: 'Samtykke',
+      content: 'Samtykke er en frivillig godkjenning fra bruker/pasient til a motta helsehjelp. Samtykke skal vaere informert (personen ma forstå hva de samtykker til) og frivillig (ikke under press). Hovedregelen er at man ikke kan gi helsehjelp uten samtykke.',
+    },
+    {
+      id: 'hov1-3-1-taushetsplikt',
+      type: 'text',
+      content: `# Taushetsplikt i praksis
+
+Taushetsplikten er grunnleggende i helse- og oppvekstarbeid. Den beskytter brukernes privatliv og bygger tillit.
+
+## Hva omfatter taushetsplikten?
+- Helseopplysninger
+- Personlige forhold
+- Okonomiske forhold
+- Familieforhold
+- Alt du far vite i kraft av jobben din
+
+## Hvem har taushetsplikt?
+- Alt helsepersonell
+- Ansatte i barnehager og skoler
+- Sosialarbeidere
+- Elever og laerlinger i praksis
+- Frivillige og vikarer
+
+## Unntak fra taushetsplikten
+I noen situasjoner ma eller kan du dele informasjon:
+
+**Med samtykke**
+Brukeren kan samtykke til at informasjon deles.
+
+**Med kolleger som trenger informasjonen**
+Du kan dele nodvendig informasjon med kolleger for a gi forsvarlig hjelp.
+
+**Ved fare for liv og helse**
+Plikt til a avverge alvorlig skade.
+
+**Meldeplikt til barnevernet**
+Ved bekymring for barns omsorgssituasjon.
+
+**Pa anmodning fra tilsynsmyndigheter**
+Statsforvalteren kan kreve opplysninger.
+
+## Konsekvenser av brudd
+- Advarsler og sanksjoner
+- Oppsigelse/avskjed
+- Bot eller fengsel (alvorlige tilfeller)
+- Tap av autorisasjon`,
+    },
+    {
+      id: 'hov1-3-1-warning-taush',
+      type: 'warning',
+      title: 'Taushetsplikten gjelder ogsa deg!',
+      content: `Som elev og laerling har du ogsa taushetsplikt. Dette betyr at du:
+
+**Aldri ma:**
+- Fortelle familie eller venner om brukere
+- Dele informasjon pa sosiale medier
+- Ta bilder av brukere eller arbeidsplassen
+- Diskutere brukere pa offentlige steder
+- Sladre med kolleger utover det som er nodvendig
+
+**Husk:** Taushetsplikten gjelder ogsa ETTER at du slutter i jobb eller praksis - den varer livet ut!`,
+    },
+    {
+      id: 'hov1-3-1-def-medvirkning',
+      type: 'definition',
+      title: 'Brukermedvirkning',
+      content: 'Brukermedvirkning betyr at den som mottar tjenester har rett til a delta i beslutninger om sitt eget liv og sin egen helse. Dette inkluderer a fa informasjon, uttrykke sine onsker, velge mellom alternativer og fa sin mening tillagt vekt.',
+    },
+    {
+      id: 'hov1-3-1-rettigheter',
+      type: 'text',
+      content: `# Brukerrettigheter
+
+## Rett til informasjon
+Brukere har rett til a fa informasjon om:
+- Sin helsetilstand og diagnose
+- Behandlingsmuligheter og alternativer
+- Mulige fordeler, ulemper og risiko
+- Forventet forløp og prognose
+
+Informasjonen skal gis pa en mate brukeren kan forstå - tilpasset sprak, alder og funksjonsniva.
+
+## Rett til medvirkning
+Brukere har rett til a:
+- Delta i planlegging av egne tjenester
+- Uttrykke sine behov og onsker
+- Velge mellom tilgjengelige alternativer
+- Ha med seg parorende eller andre i møter
+- Fa individuelt tilpassede tjenester
+
+## Samtykke til helsehjelp
+Hovedregel: Helsehjelp kan bare gis med samtykke.
+
+**Hvem kan samtykke?**
+- Voksne med samtykkekompetanse samtykker selv
+- Barn over 16 ar samtykker som hovedregel selv
+- Foreldre samtykker for barn under 16 ar
+- Verge kan samtykke for de uten samtykkekompetanse
+
+**Nar kan hjelp gis uten samtykke?**
+- Oyeblikkelig hjelp ved fare for liv
+- Tvungent psykisk helsevern (strenge vilkar)
+- Tvang i noen tilfeller ved demens/utviklingshemming
+
+## Klagerett
+Brukere kan klage dersom de:
+- Ikke far tjenestene de har krav pa
+- Mener tjenestene ikke er forsvarlige
+- Er uenige i vedtak
+Klagen sendes til den som har fattet vedtaket, og kan ankes til Statsforvalteren.`,
+    },
+    {
+      id: 'hov1-3-1-barn',
+      type: 'text',
+      content: `# Barns rettigheter
+
+Barn har saerlige rettigheter som er nedfelt i FNs barnekonvensjon, som er norsk lov.
+
+## FNs barnekonvensjon - viktige artikler
+
+**Artikkel 2: Ikke-diskriminering**
+Alle barn har like rettigheter, uansett hvem de er eller hvem foreldrene er.
+
+**Artikkel 3: Barnets beste**
+Ved alle beslutninger som gjelder barn, skal barnets beste vaere et grunnleggende hensyn.
+
+**Artikkel 6: Liv og utvikling**
+Barn har rett til liv og best mulig utvikling.
+
+**Artikkel 12: Barnets mening**
+Barn har rett til a si sin mening i saker som angår dem, og meningen skal tillegges vekt i samsvar med alder og modenhet.
+
+**Artikkel 19: Beskyttelse mot vold**
+Barn har rett til beskyttelse mot alle former for vold, mishandling og omsorgssvikt.
+
+**Artikkel 24: Helse**
+Barn har rett til best mulig helse og tilgang til helsetjenester.
+
+**Artikkel 28: Utdanning**
+Barn har rett til utdanning.
+
+**Artikkel 31: Lek og fritid**
+Barn har rett til hvile, fritid og lek.
+
+## Barnevernloven
+Regulerer tiltak for barn som ikke far god nok omsorg:
+- Hjelpetiltak i hjemmet
+- Omsorgsovertakelse ved alvorlig omsorgssvikt
+- Meldeplikt for ansatte i helse- og oppvekstsektoren`,
+    },
+    {
+      id: 'hov1-3-1-eksempel-taush',
+      type: 'example',
+      title: 'Taushetsplikt - nar kan du dele informasjon?',
+      problem: 'Du jobber i hjemmetjenesten og besøker fru Hansen (78). Hennes nabo, som ogsa er din venn, sporr deg "hvordan star det til med fru Hansen?" Hva gjor du?',
+      solution: `**Du kan IKKE svare pa dette sporsmaalet!**
+
+**Hvorfor?**
+- Naboen er uvedkommende - hun har ingen rolle i fru Hansens omsorg
+- Selv det a bekrefte at du besøker fru Hansen bryter taushetsplikten
+- At naboen er din venn gjor ingen forskjell
+
+**Slik kan du svare:**
+"Beklager, men jeg kan ikke snakke om hvem jeg besoker eller hvordan de har det. Det er taushetsbelagt."
+
+**Hva hvis naboen sier hun er bekymret?**
+"Hvis du er bekymret for en nabo, kan du kontakte hjemmetjenesten direkte."
+
+**Nar KAN du dele informasjon?**
+- Hvis fru Hansen har gitt samtykke til at naboen far vite
+- Med kolleger som trenger informasjonen for a gi omsorg
+- Ved akutt fare for fru Hansens liv
+
+**Laering:** Taushetsplikten gjelder ogsa overfor venner og kjente. Vær forberedt pa a si nei pa en hoeflig mate.`,
+    },
+    {
+      id: 'hov1-3-1-eksempel-barn',
+      type: 'example',
+      title: 'Barnets beste - eksempel fra barnehage',
+      problem: 'Du jobber i barnehage. Foreldrene til Emma (4) er i konflikt etter samlivsbrudd. Mor ringer og sier at far ikke far hente Emma i dag. Hva gjor du?',
+      solution: `**Slik handler du:**
+
+**1. Sjekk dokumentasjonen**
+- Hvem har foreldreansvar?
+- Hva star i samvaersavtalen?
+- Er det noen avtaler/vedtak barnehagen er kjent med?
+
+**2. Vær noytral**
+- Barnehagen skal ikke ta parti i foreldrekonflikter
+- Begge foreldre med foreldreansvar har som hovedregel rett til a hente
+
+**3. Folg gjeldende avtaler**
+- Hvis far skal hente ifølge avtalen, kan mor ikke endre dette pa telefon
+- Hvis det er uklart, folg barnehagens rutiner
+
+**4. Dokumenter**
+- Skriv ned hva mor sa
+- Informer styrer/leder
+
+**5. Hva med Emma?**
+- Emmas beste ma vaere i fokus
+- Skjerme Emma fra konflikten
+- Sorge for trygg overlevering
+
+**Unntaket:**
+Hvis det foreligger vedtak (f.eks. besoksrestriksjoner fra barnevernet eller retten), ma dette folges.
+
+**Laering:** Barnets beste (artikkel 3) skal alltid vaere et grunnleggende hensyn. Folg gjeldende avtaler og dokumentasjon, og sorg for at barnet skjermes fra voksenkonflikter.`,
+    },
+    {
+      id: 'hov1-3-1-tip',
+      type: 'tip',
+      title: 'Huskeregel for taushetsplikt',
+      content: `Tenk gjennom disse sporsmalene for du deler informasjon:
+
+1. **Har personen rett til a vite dette?**
+   - Er det en kollega som trenger det for a gi omsorg? OK
+   - Er det en uvedkommende? IKKE OK
+
+2. **Har brukeren samtykket?**
+   - Eksplisitt samtykke? OK
+   - Ingen samtykke? Vær forsiktig
+
+3. **Er det nodvendig a dele?**
+   - Del bare det som er nodvendig, ikke mer
+
+4. **Ville brukeren vaert komfortabel med dette?**
+   - Nar du er usikker - la vaere a dele
+
+**Tommelfingerregel:** Nar du er i tvil - del IKKE.`,
+    },
+    {
+      id: 'hov1-3-1-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+I dette kapittelet har du laert om:
+
+**Viktige lover**
+- Pasient- og brukerrettighetsloven (brukerens rettigheter)
+- Helsepersonelloven (krav til ansatte)
+- Helse- og omsorgstjenesteloven (kommunens ansvar)
+
+**Taushetsplikt**
+- Gjelder alle som jobber i sektoren, ogsa elever
+- Beskytter personlige opplysninger
+- Noen unntak: samtykke, kolleger som trenger info, fare for liv
+- Brudd far konsekvenser
+
+**Brukerrettigheter**
+- Rett til informasjon
+- Rett til medvirkning
+- Samtykke til helsehjelp
+- Klagerett
+
+**Samtykke**
+- Skal vaere informert og frivillig
+- Voksne samtykker selv
+- Foreldre samtykker for barn under 16
+
+**Barns rettigheter**
+- FNs barnekonvensjon er norsk lov
+- Barnets beste skal vaere grunnleggende hensyn
+- Barn har rett til a bli hort
+- Barn har rett til beskyttelse mot vold
+
+**Se ogsa:**
+- Kapittel 1.4: Etikk og verdier i yrkesutovelsen
+- Kapittel 1.3: Kommunikasjon og samhandling
+- Kapittel 3.2: Tverrfaglig samarbeid`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'hov1-3-1-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva innebærer taushetsplikten?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Taushetsplikt betyr at du ikke skal dele opplysninger om brukere med uvedkommende. Du kan dele informasjon med kolleger som trenger det for a gi forsvarlig hjelp.',
+      multipleChoiceOptions: [
+        'Plikt til a hindre at uvedkommende far opplysninger om brukere',
+        'At man aldri skal snakke med brukere',
+        'At man ikke skal dokumentere noe',
+        'At man ikke skal samarbeide med kolleger',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvem har taushetsplikt i helse- og oppvekstsektoren?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Alle som jobber i sektoren har taushetsplikt - ogsa elever og laerlinger i praksis.',
+      multipleChoiceOptions: [
+        'Alle ansatte, inkludert elever og laerlinger',
+        'Bare leger og sykepleiere',
+        'Bare de med fagbrev',
+        'Bare ledere og mellomledere',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva betyr samtykke i helsetjenesten?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Samtykke er en frivillig godkjenning fra bruker til a motta helsehjelp.',
+      multipleChoiceOptions: [
+        'At brukeren godkjenner a motta helsehjelp',
+        'At familien bestemmer behandlingen',
+        'At legen bestemmer hva som skal gjores',
+        'At kommunen godkjenner tjenester',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex4',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er "barnets beste" ifølge barnekonvensjonen?',
+      competenceGoals: ['gjore rede for sentrale lover i helse- og oppvekstsektoren'],
+      solution: 'Barnets beste skal vaere et grunnleggende hensyn ved alle beslutninger som gjelder barn.',
+      multipleChoiceOptions: [
+        'Barnets interesser skal prioriteres i beslutninger om barnet',
+        'At barnet alltid far bestemme selv',
+        'At foreldre vet best',
+        'At barn ikke trenger a vaere med pa møter',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilken lov gir brukere rett til informasjon om egen helsetilstand?',
+      competenceGoals: ['gjore rede for sentrale lover i helse- og oppvekstsektoren'],
+      solution: 'Pasient- og brukerrettighetsloven gir rett til informasjon om egen helsetilstand.',
+      multipleChoiceOptions: [
+        'Pasient- og brukerrettighetsloven',
+        'Helsepersonelloven',
+        'Kommuneloven',
+        'Arbeidsmiljoloven',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Nar kan du dele taushetsbelagt informasjon med en kollega?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Du kan dele nodvendig informasjon med kolleger som trenger det for a gi forsvarlig hjelp.',
+      multipleChoiceOptions: [
+        'Nar kollega trenger informasjonen for a gi forsvarlig hjelp',
+        'Nar kollega sporr fordi de er nysgjerrige',
+        'Nar dere tar lunsj sammen',
+        'Aldri - taushetsplikt gjelder ogsa overfor kolleger',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex7',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Fra hvilken alder samtykker barn som hovedregel selv til helsehjelp?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Barn over 16 ar samtykker som hovedregel selv til helsehjelp.',
+      multipleChoiceOptions: [
+        '16 ar',
+        '12 ar',
+        '18 ar',
+        '15 ar',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex8',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva innebarer brukermedvirkning?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Brukermedvirkning betyr at brukeren har rett til a delta i beslutninger om sitt eget liv.',
+      multipleChoiceOptions: [
+        'At brukeren deltar i beslutninger om eget liv og helse',
+        'At brukeren gjor alt selv',
+        'At brukeren bestemmer alt',
+        'At brukeren ikke trenger a folge rad',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex9',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva er IKKE et lovlig unntak fra taushetsplikten?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'A fortelle til venner fordi du trenger a "lufte deg" er ikke et lovlig unntak fra taushetsplikten.',
+      multipleChoiceOptions: [
+        'A fortelle til venner fordi du trenger a lufte deg',
+        'A dele informasjon med kolleger som trenger det',
+        'A melde bekymring til barnevernet',
+        'A avverge fare for noens liv',
+      ],
+    },
+    {
+      id: 'hov1-3-1-ex10',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva kan konsekvensene vaere ved alvorlig brudd pa taushetsplikten?',
+      competenceGoals: ['forklare brukerrettigheter og taushetsplikt'],
+      solution: 'Alvorlige brudd pa taushetsplikt kan fore til oppsigelse, bot eller fengsel, og tap av autorisasjon.',
+      multipleChoiceOptions: [
+        'Oppsigelse, bot/fengsel og tap av autorisasjon',
+        'Bare en muntlig advarsel',
+        'Ingenting hvis det var forste gang',
+        'Bare lavere lonn',
+      ],
+    },
+  ],
 };
 
 export const CHAPTER_HELSEOPPVEKST_VG1_1_4: TextbookChapter = {
@@ -3786,6 +5793,133 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_3: TextbookChapter = {
   ],
 };
 
+export const CHAPTER_HELSEOPPVEKST_VG1_6_4: TextbookChapter = {
+  id: 'helseoppvekst-vg1-6-4',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '6.4',
+  title: 'Digitale ressurser og kommunikasjon',
+  description: 'Laer om digitale verktoy for kommunikasjon og samarbeid i helse- og oppvekstsektoren.',
+  estimatedMinutes: 55,
+  competenceGoals: ['gjore rede for bruk av digitale ressurser og kommunikasjonsverktoy', 'bruke digitale verktoy paa en sikker maate'],
+  content: [
+    { id: 'hov1-6-4-intro', type: 'text', content: '# Digitale ressurser og kommunikasjon\n\nDigitalisering har endret maaten vi jobber paa. Helsepersonell bruker digitale verktoy for aa dokumentere, kommunisere og samarbeide.\n\n## Hvorfor er digital kompetanse viktig?\n\n- **Bedre samarbeid**: Dele informasjon mellom yrkesgrupper\n- **Effektiv dokumentasjon**: Elektroniske journaler sikrer tilgjengelighet\n- **Brukermedvirkning**: Brukere faar tilgang til egen helseinformasjon\n- **Kvalitetssikring**: Digitale systemer reduserer feil' },
+    { id: 'hov1-6-4-ordliste', type: 'text', content: '## Ordliste\n\n**EPJ**: Elektronisk pasientjournal.\n**Helsenorge.no**: Nasjonal helseportal.\n**E-melding**: Sikker digital melding mellom helsetjenester.\n**Kjernejournal**: Nasjonal database med viktige helseopplysninger.\n**Personvern**: Beskyttelse av personlige opplysninger.' },
+    { id: 'hov1-6-4-def-epj', type: 'definition', title: 'Elektronisk pasientjournal (EPJ)', content: 'System for aa dokumentere og dele helseopplysninger. Logger hvem som har vaert inne i journalen.' },
+    { id: 'hov1-6-4-def-helsenorge', type: 'definition', title: 'Helsenorge.no', content: 'Nasjonal helseportal der innbyggere kan se journal, resepter og vaksiner med BankID.' },
+    { id: 'hov1-6-4-def-emelding', type: 'definition', title: 'E-melding og PLO-melding', content: 'Sikre digitale meldinger mellom helsetjenester, f.eks. mellom sykehus og kommune.' },
+    { id: 'hov1-6-4-example', type: 'example', title: 'Digital kommunikasjon i praksis', content: 'Kari i hjemmesykepleien bruker nettbrett for arbeidsoppgaver, dokumenterer i EPJ, kontakter fastlegen via e-melding, og deltar paa Teams-moter.' },
+    { id: 'hov1-6-4-sikkerhet', type: 'text', content: '# Informasjonssikkerhet\n\n**Konfidensialitet**: Opplysninger bare for de med tjenstlig behov\n**Integritet**: Opplysninger maa vaere korrekte\n**Tilgjengelighet**: Opplysninger tilgjengelige naar de trengs\n\nDel aldri passord, logg alltid ut, ikke send sensitiv info usikkert.' },
+    { id: 'hov1-6-4-tip', type: 'tip', title: 'God digital praksis', content: 'Logg alltid ut, skriv notater underveis, spor om hjelp hvis du er usikker.' },
+    { id: 'hov1-6-4-oppsummering', type: 'text', content: '# Oppsummering\n\n- EPJ brukes til aa dokumentere helseopplysninger\n- Helsenorge.no gir innbyggere tilgang\n- E-meldinger sikrer trygg kommunikasjon\n\n## Se ogsaa\n- Kapittel 6.3: Velferdsteknologi\n- Kapittel 6.5: Digital dommekraft' }
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-6-4-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er EPJ?', solution: 'Elektronisk pasientjournal', multipleChoiceOptions: ['Elektronisk pasientjournal', 'Medisinsk utstyr', 'Skjema for medisiner', 'Fysisk mappe'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hva kan man gjore paa Helsenorge.no?', solution: 'Se egen journal og fornye resepter', multipleChoiceOptions: ['Se egen journal og fornye resepter', 'Bestille medisiner', 'Faa gratis raadgivning', 'Laste ned andres opplysninger'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-3', type: 'multiple-choice', difficulty: 'medium', task: 'Hvorfor er det viktig aa logge ut av EPJ?', solution: 'For aa hindre uautorisert tilgang', multipleChoiceOptions: ['For aa hindre uautorisert tilgang', 'For aa spare strom', 'Fordi systemet stopper', 'Fordi ledelsen overvaker'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hva menes med konfidensialitet?', solution: 'At opplysninger bare er tilgjengelige for de med tjenstlig behov', multipleChoiceOptions: ['At opplysninger bare er tilgjengelige for de med tjenstlig behov', 'At alt er offentlig', 'At alt lagres i skyen', 'At bare ledelsen har tilgang'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-5', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er kjernejournal?', solution: 'Nasjonal database med viktige helseopplysninger', multipleChoiceOptions: ['Nasjonal database med viktige helseopplysninger', 'Hovedjournalen ved sykehus', 'Oversikt over ansatte', 'System for timebestilling'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-6', type: 'multiple-choice', difficulty: 'medium', task: 'Hvilken er IKKE sikker for helseopplysninger?', solution: 'Vanlig SMS eller e-post', multipleChoiceOptions: ['Vanlig SMS eller e-post', 'E-melding via helsenettet', 'Sikker melding via Helsenorge', 'Dokumentasjon i EPJ'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-7', type: 'multiple-choice', difficulty: 'vanskelig', task: 'En kollega vil laane din innlogging. Hva gjor du?', solution: 'Avslaar og forklarer at alle maa bruke egen innlogging', multipleChoiceOptions: ['Avslaar og forklarer at alle maa bruke egen innlogging', 'Laaner ut hvis daarlig tid', 'Gir innloggingen', 'Rapporterer umiddelbart'] },
+    { id: 'helseoppvekst-vg1-6-4-ex-8', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Du oppdager uautorisert journaltilgang. Hva gjor du?', solution: 'Melder fra til leder eller personvernombud', multipleChoiceOptions: ['Melder fra til leder eller personvernombud', 'Konfronterer personen', 'Ignorerer det', 'Skriver om det paa sosiale medier'] }
+  ],
+};
+
+
+export const CHAPTER_HELSEOPPVEKST_VG1_6_5: TextbookChapter = {
+  id: 'helseoppvekst-vg1-6-5',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '6.5',
+  title: 'Digital dommekraft og kildekritikk',
+  description: 'Laer om kritisk vurdering av digitale kilder og hvordan veilede brukere.',
+  estimatedMinutes: 50,
+  competenceGoals: ['utove digital dommekraft og kildekritikk', 'veilede brukere i aa finne paalitelig helseinformasjon'],
+  content: [
+    { id: 'hov1-6-5-intro', type: 'text', content: '# Digital dommekraft og kildekritikk\n\nEvnen til aa vurdere kilder kritisk er viktigere enn noensinne.\n\n## Hva er digital dommekraft?\n- Vurdere om informasjon er paalitelig\n- Forstaa hvem som star bak\n- Skille mellom fakta, meninger og reklame' },
+    { id: 'hov1-6-5-ordliste', type: 'text', content: '## Ordliste\n\n**Kildekritikk**: Metode for aa vurdere paalitelighet.\n**Primaerkilde**: Original kilde.\n**Sekundaerkilde**: Kilde som refererer til primaerkilder.\n**Falske nyheter**: Bevisst feilinformasjon.\n**Algoritme**: Regler som bestemmer innhold du ser.\n**Ekkokammer**: Bare eksponeres for bekreftende informasjon.' },
+    { id: 'hov1-6-5-def-kildekritikk', type: 'definition', title: 'Kildekritikk', content: 'Systematisk metode for aa vurdere troverdigheten til informasjonskilder.' },
+    { id: 'hov1-6-5-def-algoritme', type: 'definition', title: 'Algoritmer og filterbobler', content: 'Algoritmer styrer hva du ser paa sosiale medier. Dette kan skape filterbobler der du bare ser bekreftende informasjon.' },
+    { id: 'hov1-6-5-vurdering', type: 'text', content: '# TONE-modellen\n\n**T - Troverdighet**: Hvem har skrevet? Kompetanse?\n**O - Objektivitet**: Balansert eller ensidig?\n**N - Nooyaktighet**: Kildehenvisninger?\n**E - Egnethet**: Relevant? Oppdatert?' },
+    { id: 'hov1-6-5-example', type: 'example', title: 'Kildekritikk i praksis', problem: 'Paarorende sier de leste paa Facebook at naturmedisin kurerer demens.', solution: 'Vis forstaelse, still kritiske sporsmaal sammen, vis til Helsenorge og FHI, tilby dialog med legen.' },
+    { id: 'hov1-6-5-tip', type: 'tip', title: 'Unngaa feilinformasjon', content: 'Sjekk flere kilder. Bruk Helsenorge.no og FHI. Vaer kritisk til sensasjonelle paastander.' },
+    { id: 'hov1-6-5-oppsummering', type: 'text', content: '# Oppsummering\n\n- Digital dommekraft: vurdere informasjon kritisk\n- TONE-modellen: Troverdighet, Objektivitet, Nooyaktighet, Egnethet\n- Paalitelige kilder: Helsenorge, FHI, Helsedirektoratet\n\n## Se ogsaa\n- Kapittel 6.4: Digitale ressurser\n- Kapittel 6.6: Hjelpemidler' }
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-6-5-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er digital dommekraft?', solution: 'Evnen til aa vurdere digital informasjon kritisk', multipleChoiceOptions: ['Evnen til aa vurdere digital informasjon kritisk', 'Aa bruke mange apper', 'Aa ha mange folgere', 'Aa programmere'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hva star T for i TONE-modellen?', solution: 'Troverdighet', multipleChoiceOptions: ['Troverdighet', 'Teknologi', 'Tema', 'Tid'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-3', type: 'multiple-choice', difficulty: 'lett', task: 'Hvilken er paalitelig helsekilde?', solution: 'Helsenorge.no', multipleChoiceOptions: ['Helsenorge.no', 'Anonymt forum', 'Kosttilskudd-reklame', 'Ukjent Facebook-innlegg'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er en algoritme paa sosiale medier?', solution: 'Automatiserte regler som bestemmer innhold', multipleChoiceOptions: ['Automatiserte regler som bestemmer innhold', 'Verktoy for aa sjekke sannhet', 'Type passord', 'Metode for bildedeling'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-5', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er et ekkokammer?', solution: 'Naar man bare eksponeres for bekreftende informasjon', multipleChoiceOptions: ['Naar man bare eksponeres for bekreftende informasjon', 'Rom med god akustikk', 'Sikker kommunikasjon', 'Teknologi mot falske nyheter'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-6', type: 'multiple-choice', difficulty: 'medium', task: 'Hva bor gjore deg kritisk til en helsekilde?', solution: 'At siden selger produkter de anbefaler', multipleChoiceOptions: ['At siden selger produkter de anbefaler', 'At leger har skrevet', 'At det er vitenskapelige lenker', 'At det er offentlig'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-7', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Bruker insisterer paa alternativ behandling. Beste tilnaerming?', solution: 'Anerkjenne interessen og veilede til kildekritikk', multipleChoiceOptions: ['Anerkjenne interessen og veilede til kildekritikk', 'Si at alt paa internett er usant', 'Stotte valget uten sporsmaal', 'Nekte aa diskutere'] },
+    { id: 'helseoppvekst-vg1-6-5-ex-8', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvorfor kan algoritmer forsterke helseangst?', solution: 'Fordi de viser mer av det du har sokt paa', multipleChoiceOptions: ['Fordi de viser mer av det du har sokt paa', 'Fordi de bare viser legeinformasjon', 'Fordi de filtrerer bort negativt', 'Fordi de kontakter helsevesenet'] }
+  ],
+};
+
+
+export const CHAPTER_HELSEOPPVEKST_VG1_6_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-6-6',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '6.6',
+  title: 'Hjelpemidler og tilrettelegging',
+  description: 'Laer om ulike hjelpemidler og tilrettelegging for funksjonshemming.',
+  estimatedMinutes: 55,
+  competenceGoals: ['gjore rede for ulike hjelpemidler og tilretteleggingstiltak', 'beskrive hvordan hjelpemidler fremmer selvstendighet'],
+  content: [
+    { id: 'hov1-6-6-intro', type: 'text', content: '# Hjelpemidler og tilrettelegging\n\nHjelpemidler hjelper mennesker med nedsatt funksjonsevne aa mestre hverdagen.\n\n## Hva er et hjelpemiddel?\n- **Kompensere** for nedsatt funksjonsevne\n- **Fremme selvstendighet**\n- **Muliggjore deltakelse**\n- **Oke livskvalitet**' },
+    { id: 'hov1-6-6-ordliste', type: 'text', content: '## Ordliste\n\n**Hjelpemiddel**: Utstyr som kompenserer for nedsatt funksjon.\n**NAV Hjelpemiddelsentral**: Laaner ut hjelpemidler.\n**Universell utforming**: Design for alle.\n**Tilrettelegging**: Tilpasning for individuelle behov.\n**ADL**: Dagliglivets aktiviteter.' },
+    { id: 'hov1-6-6-def-hjelpemiddel', type: 'definition', title: 'Hjelpemiddel', content: 'Gjenstand som oker funksjonsevnen. NAV laaner ut gratis til personer med varig funksjonsnedsettelse.' },
+    { id: 'hov1-6-6-def-universell', type: 'definition', title: 'Universell utforming', content: 'Design av produkter og bygninger for alle mennesker. Eksempler: automatiske dorer, heis, taktile ledelinjer. Lovkrav i Norge.' },
+    { id: 'hov1-6-6-kategorier', type: 'text', content: '# Kategorier av hjelpemidler\n\n## Forflytning\nRullestoler, rullatorer, trappeheiser\n\n## Personlig stell\nDusjstol, handtak, strompepaatreklere\n\n## Kommunikasjon\nHoreapparater, talemaskin, tekst-til-tale\n\n## Kognitive\nKalendersystemer, GPS-sporing, bildestotte' },
+    { id: 'hov1-6-6-example', type: 'example', title: 'Hjelpemidler i praksis', content: 'Ola (78) har hatt hjerneslag. Ergoterapeut anbefaler: rullator, handtak i bad, dusjstol, tilpasset bestikk, knappehjlper, medisindispenser. Med disse kan Ola bo hjemme.' },
+    { id: 'hov1-6-6-rolle', type: 'text', content: '# Helsefagarbeiderens rolle\n\n- **Observere og rapportere**: Legge merke til endringer, rapportere behov\n- **Bistaa i bruk**: Hjelpe med riktig bruk, motivere\n- **Vedlikehold**: Sjekke tilstand, melde fra om feil\n- **Samarbeid**: Samarbeide med ergoterapeut og fysioterapeut' },
+    { id: 'hov1-6-6-tip', type: 'tip', title: 'Verdighet', content: 'Hjelpemidler handler om aa mestre ting selv. Involver brukeren alltid i valg.' },
+    { id: 'hov1-6-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Hjelpemidler kompenserer for nedsatt funksjonsevne\n- NAV laaner ut hjelpemidler\n- Kategorier: forflytning, stell, kommunikasjon, kognisjon\n- Universell utforming gjor omgivelser tilgjengelige\n\n## Se ogsaa\n- Kapittel 6.3: Velferdsteknologi\n- Kapittel 6.7: Samfunnsendringer' }
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-6-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er hovedformaalet med et hjelpemiddel?', solution: 'Kompensere for nedsatt funksjonsevne og fremme selvstendighet', multipleChoiceOptions: ['Kompensere for nedsatt funksjonsevne og fremme selvstendighet', 'Erstatte helsepersonell', 'Spare tid for ansatte', 'Gjore avhengig av hjelp'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hvem laaner ut hjelpemidler?', solution: 'NAV Hjelpemiddelsentral', multipleChoiceOptions: ['NAV Hjelpemiddelsentral', 'Fastlegen', 'Kommunens servicekontor', 'Apoteket'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-3', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er universell utforming?', solution: 'Design slik at produkter kan brukes av alle', multipleChoiceOptions: ['Design slik at produkter kan brukes av alle', 'Standardiserte hjelpemidler', 'Forsikring for hjelpemidler', 'Rom for oppbevaring'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hvilken yrkesgruppe vurderer hjelpemiddelbehov?', solution: 'Ergoterapeut', multipleChoiceOptions: ['Ergoterapeut', 'Sykepleier', 'Helsefagarbeider', 'Fastlege'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-5', type: 'multiple-choice', difficulty: 'medium', task: 'Hva menes med ADL?', solution: 'Dagliglivets aktiviteter som hygiene, paakleding, forflytning', multipleChoiceOptions: ['Dagliglivets aktiviteter som hygiene, paakleding, forflytning', 'Avansert digital laering', 'Automatisk doserings-logistikk', 'Aktivitet og livskvalitet'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-6', type: 'multiple-choice', difficulty: 'medium', task: 'Hvilken type er en talemaskin?', solution: 'Kommunikasjonshjelpemiddel', multipleChoiceOptions: ['Kommunikasjonshjelpemiddel', 'Forflytningshjelpemiddel', 'Kognitivt hjelpemiddel', 'Hjelpemiddel for stell'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-7', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Bruker nekter aa bruke rullator. Beste tilnaerming?', solution: 'Snakke med brukeren for aa forstaa hvorfor og samarbeide om losning', multipleChoiceOptions: ['Snakke med brukeren for aa forstaa hvorfor', 'Insistere av sikkerhetsgrunner', 'Fjerne rullatoren', 'Rapportere manglende samarbeid'] },
+    { id: 'helseoppvekst-vg1-6-6-ex-8', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvorfor er hjelpemidler viktige for verdighet?', solution: 'De gir mulighet til aa mestre ting selv', multipleChoiceOptions: ['De gir mulighet til aa mestre ting selv', 'De er gratis fra NAV', 'De er paabudt i loven', 'De reduserer behovet for personell'] }
+  ],
+};
+
+
+export const CHAPTER_HELSEOPPVEKST_VG1_6_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-6-7',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '6.7',
+  title: 'Samfunnsendringer og yrkesutovelsen',
+  description: 'Laer om hvordan demografiske endringer og teknologi paavirker helse- og oppvekstsektoren.',
+  estimatedMinutes: 55,
+  competenceGoals: ['gjore rede for hvordan samfunnsendringer paavirker helse- og oppvekstsektoren', 'reflektere over hvordan endringer paavirker yrkesutovelsen'],
+  content: [
+    { id: 'hov1-6-7-intro', type: 'text', content: '# Samfunnsendringer og yrkesutovelsen\n\nHelse- og oppvekstsektoren er i stadig endring.\n\n## Hvorfor er det viktig?\n- Tilpasse seg nye arbeidsmaater og teknologi\n- Forstaa politiske beslutninger\n- Bidra til utvikling av tjenestene\n- Planlegge egen karriere' },
+    { id: 'hov1-6-7-ordliste', type: 'text', content: '## Ordliste\n\n**Demografi**: Befolkningens sammensetning og utvikling.\n**Eldrebolgen**: Stor okning i antall eldre.\n**Kronisk sykdom**: Langvarig sykdom man lever med.\n**Samhandlingsreformen**: Reform som ga kommunene mer ansvar (2012).\n**Baerekraft**: At tjenestene kan opprettholdes over tid.' },
+    { id: 'hov1-6-7-def-demografi', type: 'definition', title: 'Demografiske endringer', content: 'Befolkningen eldes, vi lever lenger, flere innvandrere oker mangfoldet, folk flytter til byene. Dette paavirker helse- og oppvekstsektoren.' },
+    { id: 'hov1-6-7-def-samhandling', type: 'definition', title: 'Samhandlingsreformen', content: 'Reform fra 2012 som ga kommunene ansvar for aa ta imot pasienter tidligere og forebygge sykdom.' },
+    { id: 'hov1-6-7-eldrebolgen', type: 'text', content: '# Eldrebolgen\n\n- 2020: ca. 18% over 65 aar\n- 2040: forventes ca. 25%\n\n## Konsekvenser\n- Okt behov for tjenester\n- Mangel paa arbeidskraft\n- Okonomiske utfordringer' },
+    { id: 'hov1-6-7-teknologi', type: 'text', content: '# Teknologisk utvikling\n\n**Velferdsteknologi**: Trygghetsalarmer, GPS-sporing, digitalt tilsyn\n\n**Digitalisering**: Elektroniske journaler, videokonsultasjoner, kunstig intelligens\n\n**Konsekvenser**: Maa laere nye verktoy, livslang laering nodvendig, menneskelig kontakt enda viktigere' },
+    { id: 'hov1-6-7-example', type: 'example', title: 'Samfunnsendringer i praksis', content: 'Marie i hjemmetjenesten ser endringene: Flere brukere hjemme med avansert behandling, velferdsteknologi krever nye systemer, mer mangfoldige brukere, okt tempo. Hun tar videreutdanning for aa holde seg oppdatert.' },
+    { id: 'hov1-6-7-tip', type: 'tip', title: 'Livslang laering', content: 'Vis interesse for ny kunnskap og teknologi. Delta paa kurs. Del kunnskap med kolleger. Still sporsmaal.' },
+    { id: 'hov1-6-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Eldrebolgen oker behovet for tjenester\n- Samhandlingsreformen flyttet ansvar til kommuner\n- Teknologi endrer arbeidsmaater\n- Baerekraft krever smart ressursbruk\n- Menneskelig kontakt forblir kjernen\n\n## Se ogsaa\n- Kapittel 6.3: Velferdsteknologi\n- Kapittel 6.6: Hjelpemidler' }
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-6-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva menes med eldrebolgen?', solution: 'Den store okningen i antall eldre de kommende tiaarene', multipleChoiceOptions: ['Den store okningen i antall eldre de kommende tiaarene', 'Behandling for eldre', 'Okt sykdom blant eldre', 'Eldre som soker jobb'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hva var maalet med samhandlingsreformen?', solution: 'Mer forebygging med storre ansvar til kommunene', multipleChoiceOptions: ['Mer forebygging med storre ansvar til kommunene', 'Sentralisere til sykehus', 'Redusere ansatte', 'Privatisere'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-3', type: 'multiple-choice', difficulty: 'lett', task: 'Hva menes med demografi?', solution: 'Studiet av befolkningens sammensetning og utvikling', multipleChoiceOptions: ['Studiet av befolkningens sammensetning og utvikling', 'Medisinsk behandling', 'Organisering av helsetjenester', 'Utdanning av personell'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hvorfor er livslang laering viktig?', solution: 'Fordi faget stadig utvikles med ny kunnskap og teknologi', multipleChoiceOptions: ['Fordi faget stadig utvikles med ny kunnskap og teknologi', 'Fordi arbeidsgivere krever det', 'Fordi fagbrevet maa fornyes', 'Fordi det gir lonnsoekning'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-5', type: 'multiple-choice', difficulty: 'medium', task: 'Hva menes med baerekraftige helsetjenester?', solution: 'Tjenester som kan opprettholdes over tid', multipleChoiceOptions: ['Tjenester som kan opprettholdes over tid', 'Gratis helsetjenester', 'Bare miljovennlige produkter', 'Private tjenester med overskudd'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-6', type: 'multiple-choice', difficulty: 'medium', task: 'Hvordan endrer velferdsteknologi arbeidet?', solution: 'Gjor det mulig for flere aa bo hjemme og frigjor tid', multipleChoiceOptions: ['Gjor det mulig for flere aa bo hjemme og frigjor tid', 'Erstatter helsepersonell helt', 'Trenger mindre utdanning', 'Brukes bare paa sykehus'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-7', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvorfor blir tverrfaglig samarbeid viktigere?', solution: 'Fordi brukernes behov blir mer sammensatte', multipleChoiceOptions: ['Fordi brukernes behov blir mer sammensatte', 'Fordi det blir faerre yrkesgrupper', 'Fordi lovverket krever moter', 'Fordi det sparer penger'] },
+    { id: 'helseoppvekst-vg1-6-7-ex-8', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva forblir viktigst uansett teknologisk utvikling?', solution: 'Menneskelig kontakt og omsorg', multipleChoiceOptions: ['Menneskelig kontakt og omsorg', 'Bruke de nyeste verktoyene', 'Jobbe effektivt', 'Folge regler nooyaktig'] }
+  ],
+};
+
+
 export const CHAPTER_HELSEOPPVEKST_VG1_7_1: TextbookChapter = {
   id: 'helseoppvekst-vg1-7-1',
   courseId: 'helseoppvekst-vg1',
@@ -4070,6 +6204,1586 @@ export const CHAPTER_HELSEOPPVEKST_VG1_7_2: TextbookChapter = {
   ],
 };
 
+export const CHAPTER_HELSEOPPVEKST_VG1_7_3: TextbookChapter = {
+  id: 'helseoppvekst-vg1-7-3',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '7.3',
+  title: 'Refleksjon og egenvurdering',
+  description: 'Laer om betydningen av refleksjon over egen praksis, hvordan du kan vurdere egen kompetanse, og hvordan selvrefleksjon bidrar til faglig og personlig utvikling.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'reflektere over egen laering og utvikling i faget',
+    'vurdere egen kompetanse og identifisere omraader for forbedring',
+  ],
+  content: [
+    {
+      id: 'hov1-7-3-intro',
+      type: 'text',
+      content: `# Refleksjon og egenvurdering i helse- og oppvekstfag
+
+Refleksjon er en grunnleggende ferdighet for alle som arbeider med mennesker. Det handler om aa tenke grundig gjennom erfaringer, handlinger og valg for aa laere av dem. I helse- og oppvekstsektoren moeter du stadig nye situasjoner som krever at du tilpasser deg og utvikler deg. Gjennom bevisst refleksjon kan du omdanne erfaringer til varig laering.
+
+## Hvorfor er refleksjon viktig?
+
+- Du blir mer bevisst paa egne styrker og svakheter
+- Du laerer av baade suksesser og feil
+- Du utvikler bedre doemmekraft i komplekse situasjoner
+- Du blir en bedre samarbeidspartner for kolleger og brukere
+- Du kan gi bedre begrunnelser for faglige valg`,
+    },
+    {
+      id: 'hov1-7-3-ordliste',
+      type: 'text',
+      content: `# Ordliste
+
+**Refleksjon** - Aa tenke grundig gjennom erfaringer og handlinger for aa forstaa og laere av dem.
+
+**Egenvurdering** - Systematisk vurdering av egen kompetanse, prestasjoner og utvikling.
+
+**Metakognisjon** - Evnen til aa tenke over egen tenkning og laering.
+
+**Handlingskompetanse** - Evnen til aa omsette kunnskap og ferdigheter til praktisk handling.
+
+**Taus kunnskap** - Kunnskap som er vanskelig aa sette ord paa, ofte tilegnet gjennom erfaring.`,
+    },
+    {
+      id: 'hov1-7-3-def-refleksjon',
+      type: 'definition',
+      title: 'Refleksjon',
+      content: 'Refleksjon er en bevisst tankeprosess der du analyserer egne erfaringer, handlinger og reaksjoner for aa forstaa hva som skjedde, hvorfor det skjedde, og hva du kan laere av det. Refleksjon kobler teori og praksis sammen og er grunnlaget for erfaringsbasert laering.',
+    },
+    {
+      id: 'hov1-7-3-def-egenvurdering',
+      type: 'definition',
+      title: 'Egenvurdering',
+      content: 'Egenvurdering innebaeerer aa systematisk vurdere egen kompetanse, prestasjoner og utvikling opp mot definerte maal eller standarder. Det handler om aa identifisere hva du mestrer godt, hva du trenger aa forbedre, og hvordan du kan jobbe videre med utviklingen din.',
+    },
+    {
+      id: 'hov1-7-3-def-kompetanse',
+      type: 'definition',
+      title: 'Kompetanse',
+      content: 'Kompetanse er evnen til aa bruke kunnskaper, ferdigheter og holdninger til aa loese oppgaver og mestre situasjoner. I helse- og oppvekstfag inkluderer dette faglig kompetanse, relasjonell kompetanse og etisk kompetanse.',
+    },
+    {
+      id: 'hov1-7-3-refleksjonsmodell',
+      type: 'text',
+      content: `# Refleksjonsmodeller
+
+Det finnes flere modeller som kan hjelpe deg aa strukturere refleksjon:
+
+## Gibbs refleksjonssirkel
+1. **Beskrivelse** - Hva skjedde?
+2. **Foelelser** - Hva tenkte og foelte du?
+3. **Vurdering** - Hva var bra og daarlig ved opplevelsen?
+4. **Analyse** - Hva kan forklare det som skjedde?
+5. **Konklusjon** - Hva kunne du gjort annerledes?
+6. **Handlingsplan** - Hva vil du gjoere neste gang?`,
+    },
+    {
+      id: 'hov1-7-3-example-1',
+      type: 'example',
+      title: 'Refleksjon etter en utfordrende situasjon',
+      problem: 'Jonas er i praksis paa et sykehjem. En beboer ble sint og avvisende da Jonas skulle hjelpe med morgenstell. Hvordan kan han reflektere over dette?',
+      solution: `Jonas bruker Gibbs refleksjonssirkel:
+
+**Beskrivelse:** Beboeren sa nei til morgenstell og dyttet haanden min bort.
+
+**Foelelser:** Jeg foelte meg usikker og visste ikke hva jeg skulle gjoere.
+
+**Vurdering:** Jeg proevde aa vaere vennlig, men tok kanskje ikke nok hensyn til at beboeren trengte mer tid.
+
+**Analyse:** Beboeren har demens og kan vaere forvirret om morgenen. Jeg kom kanskje for braat paa.
+
+**Konklusjon:** Jeg burde ha gitt mer tid og hentet veileder tidligere.
+
+**Handlingsplan:** Neste gang vil jeg ta meg bedre tid og be om veiledning naar jeg er usikker.`,
+    },
+    {
+      id: 'hov1-7-3-example-2',
+      type: 'example',
+      title: 'Egenvurdering i praksis',
+      content: `Maria har vaert i praksis i fire uker og gjennomfoerer egenvurdering:
+
+**Styrker:**
+- Flink til aa kommunisere med beboerne
+- Punktlig og palitelig
+- Tar imot tilbakemeldinger paa en god maate
+
+**Forbedringsomraader:**
+- Usikker paa forflytning og bruk av hjelpemidler
+- Trenger aa oeve paa dokumentasjon
+
+**Tiltak:**
+- Be veileder om ekstra opplaering i forflytning
+- Faa oeve mer paa dokumentasjon i pasientjournal`,
+    },
+    {
+      id: 'hov1-7-3-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+- **Refleksjon** er aa tenke grundig gjennom erfaringer for aa laere av dem
+- **Gibbs refleksjonssirkel** er et nyttig verktoy for strukturert refleksjon
+- **Egenvurdering** handler om aa vurdere egen kompetanse og utvikling
+- Baade refleksjon og egenvurdering krever aerlighet med seg selv
+- Regelmessig refleksjon er viktig for livslang laering`,
+    },
+    {
+      id: 'hov1-7-3-se-ogsaa',
+      type: 'tip',
+      title: 'Se ogsaa',
+      content: `Relaterte kapitler:
+- 7.1 Praksis i arbeidslivet
+- 7.2 Videre utdanning og karrieremuligheter
+- 7.4 Planlegging og gjennomfoering av arbeidsoppgaver`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er refleksjon?',
+      solution: 'Aa tenke grundig gjennom erfaringer for aa laere av dem',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Aa tenke grundig gjennom erfaringer for aa laere av dem',
+        'Aa gjenta arbeidsoppgaver til de sitter automatisk',
+        'Aa sammenligne seg med andre elever',
+        'Aa lese fagstoff om og om igjen',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er foerste steg i Gibbs refleksjonssirkel?',
+      solution: 'Beskrivelse - aa beskrive hva som skjedde',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Beskrivelse - aa beskrive hva som skjedde',
+        'Analyse - aa analysere aarsaker',
+        'Handling - aa lage en plan for neste gang',
+        'Vurdering - aa vurdere hva som var bra og daarlig',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er egenvurdering?',
+      solution: 'Aa systematisk vurdere egen kompetanse og utvikling',
+      competenceGoals: ['vurdere egen kompetanse og identifisere omraader for forbedring'],
+      multipleChoiceOptions: [
+        'Aa systematisk vurdere egen kompetanse og utvikling',
+        'Aa faa karakter av laereren',
+        'Aa sammenligne seg med de beste i klassen',
+        'Aa skryte av egne prestasjoner',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvorfor er refleksjon viktig i helse- og oppvekstarbeid?',
+      solution: 'Fordi det hjelper deg aa laere av erfaringer og utvikle bedre doemmekraft',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Fordi det hjelper deg aa laere av erfaringer og utvikle bedre doemmekraft',
+        'Fordi det er et krav for aa bestaa eksamen',
+        'Fordi det gir hoeyere loenn',
+        'Fordi det erstatter behovet for veiledning',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er taus kunnskap?',
+      solution: 'Kunnskap som er vanskelig aa sette ord paa, ofte tilegnet gjennom erfaring',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Kunnskap som er vanskelig aa sette ord paa, ofte tilegnet gjennom erfaring',
+        'Kunnskap som holdes hemmelig paa arbeidsplassen',
+        'Kunnskap man har glemt',
+        'Kunnskap som bare finnes i fagboeker',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva boer vaere med i en god egenvurdering?',
+      solution: 'Baade styrker og omraader som trenger forbedring, samt konkrete tiltak',
+      competenceGoals: ['vurdere egen kompetanse og identifisere omraader for forbedring'],
+      multipleChoiceOptions: [
+        'Baade styrker og omraader som trenger forbedring, samt konkrete tiltak',
+        'Bare det du er god paa',
+        'Bare det du maa forbedre',
+        'En sammenligning med andre elevers prestasjoner',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-7',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Du opplever en vanskelig situasjon i praksis. Hva er den beste maaten aa laere av dette paa?',
+      solution: 'Reflektere over situasjonen, analysere hva som skjedde, og diskutere med veileder',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Reflektere over situasjonen, analysere hva som skjedde, og diskutere med veileder',
+        'Glemme hendelsen saa raskt som mulig og gaa videre',
+        'Unngaa lignende situasjoner i fremtiden',
+        'Skylde paa brukeren for aa vaere vanskelig',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-ex-8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva er sammenhengen mellom refleksjon og kompetanseutvikling?',
+      solution: 'Refleksjon gjoer at praktiske erfaringer omdannes til varig laering og oekt kompetanse',
+      competenceGoals: ['reflektere over egen laering og utvikling i faget'],
+      multipleChoiceOptions: [
+        'Refleksjon gjoer at praktiske erfaringer omdannes til varig laering og oekt kompetanse',
+        'Refleksjon er det samme som kompetanse',
+        'Man kan utvikle kompetanse uten refleksjon hvis man bare jobber nok',
+        'Kompetanse kommer automatisk med erfaring uten behov for refleksjon',
+      ],
+    },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_7_4: TextbookChapter = {
+  id: 'helseoppvekst-vg1-7-4',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '7.4',
+  title: 'Planlegging og gjennomfoering av arbeidsoppgaver',
+  description: 'Laer om hvordan du planlegger, prioriterer og gjennomfoerer arbeidsoppgaver paa en effektiv og forsvarlig maate i helse- og oppvekstsektoren.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren',
+    'prioritere oppgaver og bruke tid effektivt',
+  ],
+  content: [
+    {
+      id: 'hov1-7-4-intro',
+      type: 'text',
+      content: `# Planlegging og gjennomfoering av arbeidsoppgaver
+
+I helse- og oppvekstsektoren maa du ofte haandtere mange oppgaver samtidig. God planlegging hjelper deg aa holde oversikt, prioritere riktig og sikre at alle faar den hjelpen de trenger. Evnen til aa planlegge og gjennomfoere arbeidsoppgaver er en viktig del av yrkeskompetansen din.
+
+## Hvorfor er planlegging viktig?
+
+- Sikrer at viktige oppgaver ikke blir glemt
+- Gir bedre oversikt over arbeidsdagen
+- Reduserer stress og gir mestringsfølelse
+- Frigjør tid til det som er viktigst - brukerne
+- Bidrar til kvalitet og sikkerhet i arbeidet`,
+    },
+    {
+      id: 'hov1-7-4-ordliste',
+      type: 'text',
+      content: `# Ordliste
+
+**Prioritering** - Aa rangere oppgaver etter viktighet og hast.
+
+**Arbeidsplan** - En oversikt over oppgaver som skal utfoeres i loepet av en periode.
+
+**Delegering** - Aa overfoere ansvar for oppgaver til andre med riktig kompetanse.
+
+**Rutiner** - Faste prosedyrer for hvordan oppgaver skal utfoeres.
+
+**Kvalitetssikring** - Tiltak for aa sikre at arbeidet holder god standard.`,
+    },
+    {
+      id: 'hov1-7-4-def-prioritering',
+      type: 'definition',
+      title: 'Prioritering',
+      content: 'Prioritering handler om aa vurdere hvilke oppgaver som er viktigst og maa gjoeres foerst. I helse- og oppvekstarbeid maa man ofte prioritere mellom mange oppgaver. Faktorer som pavirker prioritering er: hvor haster oppgaven, hvor viktig er den, hva er konsekvensene av aa vente, og hvilke ressurser er tilgjengelige.',
+    },
+    {
+      id: 'hov1-7-4-def-delegering',
+      type: 'definition',
+      title: 'Delegering',
+      content: 'Delegering betyr aa overfoere ansvar for en oppgave til en annen person. For aa delegere forsvarlig maa man sikre at personen har riktig kompetanse, gi tydelige instruksjoner, og foelge opp at oppgaven blir utfoert. Man kan aldri delegere oppgaver som krever kompetanse den andre ikke har.',
+    },
+    {
+      id: 'hov1-7-4-def-rutiner',
+      type: 'definition',
+      title: 'Rutiner og prosedyrer',
+      content: 'Rutiner er faste maater aa utfoere oppgaver paa. I helse- og oppvekstsektoren finnes det rutiner for mange oppgaver, som medikamenthaandtering, hygiene, dokumentasjon og rapportering. Rutiner sikrer kvalitet, forutsigbarhet og at alle gjoer oppgavene likt.',
+    },
+    {
+      id: 'hov1-7-4-planlegging',
+      type: 'text',
+      content: `# Slik planlegger du arbeidsdagen
+
+## 1. Faa oversikt
+- Les gjennom rapporten fra forrige vakt
+- Sjekk arbeidsplanen og eventuelle avtaler
+- Noter deg saerlige hendelser eller behov
+
+## 2. Prioriter oppgavene
+- Hva maa gjoeres foerst? (akutt, tidskritisk)
+- Hva er viktig men ikke like haster?
+- Hva kan vente eller delegeres?
+
+## 3. Lag en plan
+- Fordel oppgavene utover dagen
+- Sett av tid til uforutsette hendelser
+- Tenk paa pauser og overganger
+
+## 4. Gjennomfoer og tilpass
+- Foelg planen, men vaer fleksibel
+- Juster hvis noe uforutsett skjer
+- Be om hjelp hvis noedvendig`,
+    },
+    {
+      id: 'hov1-7-4-example-1',
+      type: 'example',
+      title: 'Prioritering i praksis',
+      problem: 'Sara jobber paa sykehjem og har foelgende oppgaver: A) Hjelpe Kari med frokost (planlagt kl. 08:30), B) Skifte paa et saar hos Per (skal gjoeres foer lunsj), C) En beboer har falt og trenger hjelp naa. Hvordan boer Sara prioritere?',
+      solution: `Sara maa prioritere slik:
+
+**1. Foerst:** Beboeren som har falt
+- Dette er akutt og kan ikke vente
+- Sikre at beboeren er trygg og faa hjelp om noedvendig
+
+**2. Deretter:** Hjelpe Kari med frokost
+- Tidspunktet naermer seg og Kari venter
+- Maten boer serveres til riktig tid
+
+**3. Til slutt:** Skifte paa saaret hos Per
+- Viktig oppgave, men har lengre tidsfrist
+- Kan gjoeres naar de akutte oppgavene er haandtert
+
+**Laeringen:** Ved prioritering maa akutte og tidskritiske oppgaver komme foerst. Det er viktig aa vaere fleksibel og tilpasse seg situasjonen.`,
+    },
+    {
+      id: 'hov1-7-4-example-2',
+      type: 'example',
+      title: 'Bruk av arbeidsplan',
+      content: `Anders starter dagvakt i barnehagen og sjekker arbeidsplanen:
+
+**Morgen (07:30-09:00):**
+- Mottak av barn og foreldre
+- Frilek inne
+
+**Formiddag (09:00-11:00):**
+- Samlingsstund kl. 09:15
+- Utelek fra kl. 09:45
+
+**Lunsj (11:00-12:00):**
+- Forberedelse og lunsj
+- Anders har ansvar for aa dekke bord
+
+**Ettermiddag (12:00-15:00):**
+- Hvilestund for de yngste
+- Aktiviteter for de eldste
+- Henting fra kl. 14:00
+
+Anders noterer seg ekstra: Emma har bursdag i dag - huske aa synge!`,
+    },
+    {
+      id: 'hov1-7-4-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+- God planlegging gir oversikt og reduserer stress
+- Prioritering handler om aa vurdere hva som haster og er viktigst
+- Akutte oppgaver maa alltid komme foerst
+- Rutiner sikrer kvalitet og forutsigbarhet
+- Vaer fleksibel og tilpass planen naar noedvendig
+- Be om hjelp naar du trenger det`,
+    },
+    {
+      id: 'hov1-7-4-se-ogsaa',
+      type: 'tip',
+      title: 'Se ogsaa',
+      content: `Relaterte kapitler:
+- 7.1 Praksis i arbeidslivet
+- 7.3 Refleksjon og egenvurdering
+- 7.5 Yrkesetikk i praksis`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva betyr prioritering?',
+      solution: 'Aa rangere oppgaver etter viktighet og hast',
+      competenceGoals: ['prioritere oppgaver og bruke tid effektivt'],
+      multipleChoiceOptions: [
+        'Aa rangere oppgaver etter viktighet og hast',
+        'Aa gjoere alle oppgaver samtidig',
+        'Aa utsette vanskelige oppgaver',
+        'Aa kun gjoere det man liker best',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er en arbeidsplan?',
+      solution: 'En oversikt over oppgaver som skal utfoeres',
+      competenceGoals: ['planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'En oversikt over oppgaver som skal utfoeres',
+        'En liste over alle ansatte',
+        'En plan for ferie og fritid',
+        'Et skjema for loenn',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er rutiner i helse- og oppvekstarbeid?',
+      solution: 'Faste maater aa utfoere oppgaver paa',
+      competenceGoals: ['planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Faste maater aa utfoere oppgaver paa',
+        'Oppgaver som bare gjoeres av ledelsen',
+        'Ting man kan droppe hvis man har daarlig tid',
+        'Frivillige aktiviteter paa arbeidsplassen',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvorfor er planlegging viktig i helse- og oppvekstarbeid?',
+      solution: 'Det sikrer at viktige oppgaver blir gjort og gir bedre oversikt',
+      competenceGoals: ['planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Det sikrer at viktige oppgaver blir gjort og gir bedre oversikt',
+        'Det gjør at man slipper aa tenke selv',
+        'Det er bare viktig for ledere',
+        'Det er et krav fra myndighetene',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'En beboer trenger akutt hjelp samtidig som du har en planlagt oppgave. Hva gjoer du?',
+      solution: 'Prioriterer den akutte situasjonen og tar den planlagte oppgaven etterpaa',
+      competenceGoals: ['prioritere oppgaver og bruke tid effektivt'],
+      multipleChoiceOptions: [
+        'Prioriterer den akutte situasjonen og tar den planlagte oppgaven etterpaa',
+        'Fullfører den planlagte oppgaven foerst',
+        'Ber beboeren vente til du er ferdig',
+        'Ignorerer begge og tar pause',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva maa du sikre foer du delegerer en oppgave til en kollega?',
+      solution: 'At kollegaen har riktig kompetanse til aa utfoere oppgaven',
+      competenceGoals: ['planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'At kollegaen har riktig kompetanse til aa utfoere oppgaven',
+        'At kollegaen har tid til aa ta en ekstra pause',
+        'At ingen ser at du delegerer',
+        'At oppgaven er enkel nok til at hvem som helst kan gjoere den',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-7',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Du har mange oppgaver og foeler deg stresset. Hva er beste fremgangsmaate?',
+      solution: 'Stoppe opp, prioritere oppgavene og be om hjelp hvis noedvendig',
+      competenceGoals: ['prioritere oppgaver og bruke tid effektivt'],
+      multipleChoiceOptions: [
+        'Stoppe opp, prioritere oppgavene og be om hjelp hvis noedvendig',
+        'Jobbe raskere for aa rekke alt',
+        'Droppe de minst viktige oppgavene uten aa si fra',
+        'Gaa hjem for dagen fordi det er for mye',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-4-ex-8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvorfor boer man sette av tid til uforutsette hendelser i planen?',
+      solution: 'Fordi akutte situasjoner kan oppstaa og kreve umiddelbar oppmerksomhet',
+      competenceGoals: ['planlegge og gjennomfoere arbeidsoppgaver i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Fordi akutte situasjoner kan oppstaa og kreve umiddelbar oppmerksomhet',
+        'For aa ha tid til aa sjekke telefonen',
+        'Fordi planer aldri fungerer uansett',
+        'For aa kunne ta lengre pauser',
+      ],
+    },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_7_5: TextbookChapter = {
+  id: 'helseoppvekst-vg1-7-5',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '7.5',
+  title: 'Yrkesetikk i praksis',
+  description: 'Laer om yrkesetiske prinsipper, hvordan du haandterer etiske dilemmaer, og hvordan du opptrer profesjonelt i moete med brukere, pasienter og kolleger.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'gjoere rede for yrkesetiske retningslinjer og prinsipper',
+    'reflektere over etiske dilemmaer i praksis og handle i traad med yrkesetikken',
+  ],
+  content: [
+    {
+      id: 'hov1-7-5-intro',
+      type: 'text',
+      content: `# Yrkesetikk i praksis
+
+Yrkesetikk handler om de moralske prinsippene og verdiene som styrer hvordan du opptrer i yrkesrollen. I helse- og oppvekstfag arbeider du med saerbare mennesker som er avhengige av at du handler paa en god og forsvarlig maate. Yrkesetikken gir deg en rettesnor for hvordan du boer handle i vanskelige situasjoner.
+
+## Hvorfor er yrkesetikk viktig?
+
+- Du har makt og ansvar overfor mennesker i saerbare situasjoner
+- Brukere og pasienter maa kunne stole paa at du handler til deres beste
+- Etisk bevissthet beskytter baade brukere og deg selv
+- Det skaper tillit til yrkesgruppen og tjenestene`,
+    },
+    {
+      id: 'hov1-7-5-ordliste',
+      type: 'text',
+      content: `# Ordliste
+
+**Yrkesetikk** - Moralske prinsipper og verdier som gjelder for et bestemt yrke.
+
+**Etisk dilemma** - En situasjon der ulike verdier eller hensyn staar mot hverandre.
+
+**Taushetsplikt** - Plikten til aa bevare taushet om personlige forhold man faar kjennskap til i arbeidet.
+
+**Samtykke** - At en person gir sin tillatelse til noe, for eksempel behandling.
+
+**Integritet** - Aa handle i samsvar med egne verdier og etiske prinsipper.`,
+    },
+    {
+      id: 'hov1-7-5-def-yrkesetikk',
+      type: 'definition',
+      title: 'Yrkesetikk',
+      content: 'Yrkesetikk er de moralske prinsippene, verdiene og normene som gjelder for utøvelsen av et bestemt yrke. I helse- og oppvekstfag bygger yrkesetikken paa grunnleggende verdier som menneskeverd, respekt, autonomi og omsorg. Yrkesetikken kommer til uttrykk gjennom yrkesetiske retningslinjer som er utarbeidet av fagorganisasjonene.',
+    },
+    {
+      id: 'hov1-7-5-def-dilemma',
+      type: 'definition',
+      title: 'Etisk dilemma',
+      content: 'Et etisk dilemma oppstaar naar to eller flere verdier eller hensyn staar mot hverandre, og du maa velge mellom alternativer som alle har baade positive og negative sider. I helse- og oppvekstarbeid kan det for eksempel vaere konflikt mellom respekt for brukerens selvbestemmelse og plikten til aa beskytte vedkommende mot skade.',
+    },
+    {
+      id: 'hov1-7-5-def-taushetsplikt',
+      type: 'definition',
+      title: 'Taushetsplikt',
+      content: 'Taushetsplikten er en lovfestet plikt til aa bevare taushet om personlige forhold man faar kjennskap til gjennom arbeidet. Den gjelder baade for fast ansatte, vikarer og praksiselever. Taushetsplikten skal beskytte brukerens privatliv og rett til aa bestemme hvem som faar vite hva om dem. Brudd paa taushetsplikten er straffbart.',
+    },
+    {
+      id: 'hov1-7-5-prinsipper',
+      type: 'text',
+      content: `# Grunnleggende etiske prinsipper
+
+## Velgjorenhetsprinsippet
+Handle til beste for brukeren - gjore godt og forebygge skade.
+
+## Ikke-skade-prinsippet
+Unngaa aa paafore brukeren skade eller lidelse.
+
+## Autonomiprinsippet
+Respektere brukerens rett til aa bestemme over eget liv og ta egne valg.
+
+## Rettferdighetsprinsippet
+Behandle alle likt og fordele ressurser rettferdig.
+
+## Disse prinsippene kan komme i konflikt
+For eksempel: En bruker vil gjore noe som kan skade ham selv. Da staar autonomiprinsippet (respekt for selvbestemmelse) mot ikke-skade-prinsippet (plikt til aa beskytte).`,
+    },
+    {
+      id: 'hov1-7-5-example-1',
+      type: 'example',
+      title: 'Etisk dilemma i praksis',
+      problem: 'Kari jobber paa sykehjem. Beboeren Olav vil gaa ut alene for aa handle, men han har demens og har gaatt seg bort flere ganger. Hans datter har bedt om at han ikke faar gaa ut alene. Hva boer Kari gjoere?',
+      solution: `Dette er et etisk dilemma mellom:
+- **Autonomi:** Olav har rett til aa bestemme selv
+- **Sikkerhet:** Risiko for at han gaar seg bort og kommer til skade
+
+**Mulige handlinger:**
+1. Forklare Olav situasjonen rolig og respektfullt
+2. Tilby aa gaa tur sammen med ham
+3. Foreslaa aa handle sammen med en ansatt
+4. Avlede oppmerksomheten om noedvendig
+
+**Viktig:** Kari maa balansere Olavs ønske om frihet med ansvaret for hans sikkerhet. Hun boer ikke bruke tvang, men proeve aa finne loesninger som ivaretar begge hensyn. Dokumentere hendelsen og diskutere med kolleger.`,
+    },
+    {
+      id: 'hov1-7-5-example-2',
+      type: 'example',
+      title: 'Taushetsplikt i praksis',
+      content: `Jonas er i praksis i barnehagen. En forelder spoer ham: "Hvordan oppfoerer Emmas venninne Sara seg egentlig? Jeg har hoert rykter om at familien har problemer."
+
+**Riktig respons fra Jonas:**
+"Jeg kan dessverre ikke uttale meg om andre barn eller familier. Jeg har taushetsplikt. Hvis du har spoersmaal om Emma, kan du snakke med pedagogisk leder."
+
+**Hvorfor er dette riktig?**
+- Taushetsplikten beskytter Saras og familiens privatliv
+- Jonas skal aldri dele informasjon om andre barn eller familier
+- Han henviser hoeflig til rette person aa snakke med`,
+    },
+    {
+      id: 'hov1-7-5-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+- Yrkesetikk gir rettesnor for handling i yrkesrollen
+- Grunnleggende prinsipper: velgjoerenhet, ikke-skade, autonomi og rettferdighet
+- Etiske dilemmaer oppstaar naar verdier staar mot hverandre
+- Taushetsplikten er sentral og gjelder ogsaa praksiselever
+- Ved tvil: diskuter med veileder eller kolleger
+- Refleksjon over etiske spoersmaal gjør deg til en bedre yrkesutoever`,
+    },
+    {
+      id: 'hov1-7-5-se-ogsaa',
+      type: 'tip',
+      title: 'Se ogsaa',
+      content: `Relaterte kapitler:
+- 1.1 Hva er helse- og oppvekstfag? - Om verdier og holdninger
+- 7.1 Praksis i arbeidslivet - Om taushetsplikt i praksis
+- 7.3 Refleksjon og egenvurdering - Om aa reflektere over handling`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er yrkesetikk?',
+      solution: 'Moralske prinsipper og verdier som gjelder for et bestemt yrke',
+      competenceGoals: ['gjoere rede for yrkesetiske retningslinjer og prinsipper'],
+      multipleChoiceOptions: [
+        'Moralske prinsipper og verdier som gjelder for et bestemt yrke',
+        'Regler for arbeidstid og loenn',
+        'Krav til utdanning for aa faa jobb',
+        'Lover om helse og sikkerhet paa arbeidsplassen',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva betyr taushetsplikt?',
+      solution: 'Plikten til aa bevare taushet om personlige forhold man faar kjennskap til i arbeidet',
+      competenceGoals: ['gjoere rede for yrkesetiske retningslinjer og prinsipper'],
+      multipleChoiceOptions: [
+        'Plikten til aa bevare taushet om personlige forhold man faar kjennskap til i arbeidet',
+        'At man ikke faar snakke med kolleger',
+        'At man maa vaere stille paa arbeidsplassen',
+        'At brukere ikke faar snakke om seg selv',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er et etisk dilemma?',
+      solution: 'En situasjon der ulike verdier eller hensyn staar mot hverandre',
+      competenceGoals: ['reflektere over etiske dilemmaer i praksis og handle i traad med yrkesetikken'],
+      multipleChoiceOptions: [
+        'En situasjon der ulike verdier eller hensyn staar mot hverandre',
+        'En konflikt mellom kolleger',
+        'En oppgave som er for vanskelig',
+        'Et problem med arbeidstiden',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva innebaeerer autonomiprinsippet?',
+      solution: 'Respekt for brukerens rett til aa bestemme over eget liv',
+      competenceGoals: ['gjoere rede for yrkesetiske retningslinjer og prinsipper'],
+      multipleChoiceOptions: [
+        'Respekt for brukerens rett til aa bestemme over eget liv',
+        'At helsepersonell bestemmer hva som er best',
+        'At alle skal behandles likt',
+        'At man maa jobbe selvstendig',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'En forelder spoer deg om informasjon om et annet barn i barnehagen. Hva boer du gjoere?',
+      solution: 'Forklare at du har taushetsplikt og ikke kan uttale deg om andre barn',
+      competenceGoals: ['reflektere over etiske dilemmaer i praksis og handle i traad med yrkesetikken'],
+      multipleChoiceOptions: [
+        'Forklare at du har taushetsplikt og ikke kan uttale deg om andre barn',
+        'Svare paa spoersmaalet for aa vaere hyggelig',
+        'Si at du ikke vet noe selv om du gjor det',
+        'Henvise til andre foreldre som kanskje kan svare',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Gjelder taushetsplikten for praksiselever?',
+      solution: 'Ja, taushetsplikten gjelder fullt ut for praksiselever',
+      competenceGoals: ['gjoere rede for yrkesetiske retningslinjer og prinsipper'],
+      multipleChoiceOptions: [
+        'Ja, taushetsplikten gjelder fullt ut for praksiselever',
+        'Nei, den gjelder bare for ansatte',
+        'Bare delvis - praksiselever kan dele med laereren',
+        'Bare hvis man har underskrevet en egen avtale',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-7',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'En beboer med demens vil gjore noe som kan vaere farlig. Hvilke prinsipper staar mot hverandre?',
+      solution: 'Autonomi (selvbestemmelse) og ikke-skade (beskytte mot skade)',
+      competenceGoals: ['reflektere over etiske dilemmaer i praksis og handle i traad med yrkesetikken'],
+      multipleChoiceOptions: [
+        'Autonomi (selvbestemmelse) og ikke-skade (beskytte mot skade)',
+        'Rettferdighet og okonomi',
+        'Taushetsplikt og ytringsfrihet',
+        'Effektivitet og kvalitet',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-5-ex-8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvorfor er etisk refleksjon viktig i helse- og oppvekstarbeid?',
+      solution: 'Fordi man ofte moeter komplekse situasjoner der det ikke finnes ett enkelt svar',
+      competenceGoals: ['reflektere over etiske dilemmaer i praksis og handle i traad med yrkesetikken'],
+      multipleChoiceOptions: [
+        'Fordi man ofte moeter komplekse situasjoner der det ikke finnes ett enkelt svar',
+        'Fordi det er et krav for aa faa godkjent praksis',
+        'Fordi det gir hoeyere loenn',
+        'Fordi ledelsen krever det',
+      ],
+    },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_7_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-7-6',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '7.6',
+  title: 'Jobbsoeking og arbeidslivskunnskap',
+  description: 'Laer om hvordan du soeker jobb, skriver CV og soeknad, forbereder deg til intervju, og forstaar dine rettigheter og plikter som arbeidstaker.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'beskrive prosessen med aa soeke jobb og presentere seg for arbeidsgivere',
+    'gjoere rede for sentrale lover og rettigheter i arbeidslivet',
+  ],
+  content: [
+    {
+      id: 'hov1-7-6-intro',
+      type: 'text',
+      content: `# Jobbsoeking og arbeidslivskunnskap
+
+Etter fullfoert utdanning skal du ut i arbeidslivet. Aa soeke jobb er en ferdighet du kan laere og bli bedre paa. I dette kapittelet faar du kunnskap om hvordan du finner ledige stillinger, skriver gode soeknadsdokumenter og forbereder deg til jobbintervju. Du laerer ogsaa om viktige rettigheter og plikter i arbeidslivet.
+
+## Arbeidsmarkedet i helse- og oppvekstsektoren
+
+Helse- og oppvekstsektoren er Norges stoerste arbeidssektor. Det er stort behov for:
+- Helsefagarbeidere
+- Barne- og ungdomsarbeidere
+- Sykepleiere og vernepleiere
+- Assistenter i barnehage og skole`,
+    },
+    {
+      id: 'hov1-7-6-ordliste',
+      type: 'text',
+      content: `# Ordliste
+
+**CV (Curriculum Vitae)** - En oversikt over utdanning, arbeidserfaring og kompetanse.
+
+**Soeknad** - Et brev der du beskriver hvorfor du soeker jobben og passer til stillingen.
+
+**Jobbintervju** - Et moete der arbeidsgiver vurderer om du passer til stillingen.
+
+**Arbeidsmiljoeloven** - Loven som regulerer arbeidsforhold og beskytter arbeidstakere.
+
+**Tariffavtale** - En avtale mellom arbeidsgiver- og arbeidstakerorganisasjoner om loenn og arbeidsvilkaar.`,
+    },
+    {
+      id: 'hov1-7-6-def-cv',
+      type: 'definition',
+      title: 'CV (Curriculum Vitae)',
+      content: 'CV er en strukturert oversikt over din utdanning, arbeidserfaring, kurs, ferdigheter og andre kvalifikasjoner. CVen skal vaere oversiktlig og tilpasset stillingen du soeker. Den boer inneholde personopplysninger, utdanning, arbeidserfaring, relevante kurs og sertifiseringer, spraakkunnskaper og eventuelt referanser.',
+    },
+    {
+      id: 'hov1-7-6-def-soeknad',
+      type: 'definition',
+      title: 'Soeknad',
+      content: 'En jobbsoeknad er et brev der du presenterer deg selv, forklarer hvorfor du soeker stillingen og hvorfor du er en god kandidat. Soeknaden boer vaere personlig og tilpasset den konkrete stillingen. Den kompletterer CVen ved aa gi et bilde av hvem du er og hva du kan bidra med.',
+    },
+    {
+      id: 'hov1-7-6-def-arbeidsmiljoloven',
+      type: 'definition',
+      title: 'Arbeidsmiljoeloven',
+      content: 'Arbeidsmiljoeloven er hovedloven som regulerer arbeidsforhold i Norge. Den fastsetter regler for arbeidstid, overtid, ferie, permisjoner, oppsigelse, arbeidsmiljoe og HMS. Loven gir arbeidstakere viktige rettigheter og palegger arbeidsgivere plikter for aa sikre et trygt og godt arbeidsmiljoe.',
+    },
+    {
+      id: 'hov1-7-6-jobbsoking',
+      type: 'text',
+      content: `# Hvordan soeke jobb
+
+## 1. Finn ledige stillinger
+- Finn.no og andre jobbportaler
+- NAVs jobbdatabase
+- Kommunenes og helseforetakenes nettsider
+- Sosiale medier som LinkedIn
+- Nettverk og bekjente
+
+## 2. Skriv CV
+- Hold det kort og oversiktlig (1-2 sider)
+- Start med det nyeste
+- Tilpass til stillingen du soeker
+- Sjekk for skrivefeil
+
+## 3. Skriv soeknad
+- Tilpass til hver stilling
+- Forklar hvorfor du soeker akkurat denne jobben
+- Vis hva du kan bidra med
+- Vaer konkret og bruk eksempler`,
+    },
+    {
+      id: 'hov1-7-6-example-1',
+      type: 'example',
+      title: 'Forberedelse til jobbintervju',
+      problem: 'Emma har faat innkalling til jobbintervju for stilling som helsefagarbeider paa et sykehjem. Hvordan boer hun forberede seg?',
+      solution: `**Foer intervjuet:**
+- Les stillingsannonsen grundig paa nytt
+- Finn informasjon om arbeidsplassen (nettside, verdier, tjenestetilbud)
+- Tenk gjennom egne styrker og eksempler fra praksis
+- Forbered svar paa vanlige spoersmaal
+- Legg frem klaer og dokumenter dagen foer
+
+**Vanlige intervjuspoersmaal:**
+- Fortell om deg selv
+- Hvorfor soeker du denne stillingen?
+- Hva er dine styrker og svakheter?
+- Fortell om en utfordrende situasjon i praksis
+- Hvor ser du deg selv om fem aar?
+
+**Under intervjuet:**
+- Kom i god tid
+- Hils hoeflig og ha blikkontakt
+- Lytt til spoersmaalene og svar konkret
+- Vis interesse og still egne spoersmaal
+- Takk for samtalen`,
+    },
+    {
+      id: 'hov1-7-6-rettigheter',
+      type: 'text',
+      content: `# Rettigheter i arbeidslivet
+
+## Arbeidstid
+- Normal arbeidstid er 40 timer per uke (37,5 med tariffavtale)
+- Overtid skal kompenseres med tillegg
+- Rett til pauser i loepet av arbeidsdagen
+
+## Ferie
+- Alle har rett til 25 virkedager ferie per aar
+- Ferieloenn skal utbetales
+
+## Sykdom
+- Rett til sykepenger ved sykdom
+- Arbeidsgiver maa tilrettelegge for syke ansatte
+
+## Oppsigelse
+- Arbeidsgiver maa ha saklig grunn for oppsigelse
+- Oppsigelsestid gir deg tid til aa finne ny jobb
+
+## Arbeidsmiljoe
+- Rett til et trygt og forsvarlig arbeidsmiljoe
+- Verneombud ivaretar arbeidstakernes interesser`,
+    },
+    {
+      id: 'hov1-7-6-example-2',
+      type: 'example',
+      title: 'Arbeidskontrakt',
+      content: `Naar du faar jobb, skal du alltid faa skriftlig arbeidskontrakt. Kontrakten skal inneholde:
+
+- Hvem som er arbeidsgiver og arbeidstaker
+- Arbeidssted og arbeidsoppgaver
+- Stillingsprosent og arbeidstid
+- Loenn og loennsutbetaling
+- Ferie og ferieloenn
+- Oppsigelsesfrister
+- Eventuelle proevetidsbestemmelser
+
+**Tips:** Les kontrakten noye foer du signerer. Spoer hvis noe er uklart. Ta vare paa en kopi av kontrakten.`,
+    },
+    {
+      id: 'hov1-7-6-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+- Det er stort behov for arbeidskraft i helse- og oppvekstsektoren
+- CV og soeknad maa tilpasses hver stilling
+- God forberedelse er viktig foer jobbintervju
+- Arbeidsmiljoeloven gir deg viktige rettigheter
+- Du har alltid krav paa skriftlig arbeidskontrakt
+- Fagforeninger kan hjelpe deg med arbeidslivsspoersmaal`,
+    },
+    {
+      id: 'hov1-7-6-se-ogsaa',
+      type: 'tip',
+      title: 'Se ogsaa',
+      content: `Relaterte kapitler:
+- 7.1 Praksis i arbeidslivet
+- 7.2 Videre utdanning og karrieremuligheter
+- 7.7 Laering gjennom hele livet`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er en CV?',
+      solution: 'En oversikt over utdanning, arbeidserfaring og kompetanse',
+      competenceGoals: ['beskrive prosessen med aa soeke jobb og presentere seg for arbeidsgivere'],
+      multipleChoiceOptions: [
+        'En oversikt over utdanning, arbeidserfaring og kompetanse',
+        'Et brev der du forklarer hvorfor du vil ha jobben',
+        'En arbeidskontrakt',
+        'En attest fra tidligere arbeidsgiver',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva regulerer arbeidsmiljoeloven?',
+      solution: 'Arbeidsforhold som arbeidstid, ferie, oppsigelse og arbeidsmiljoe',
+      competenceGoals: ['gjoere rede for sentrale lover og rettigheter i arbeidslivet'],
+      multipleChoiceOptions: [
+        'Arbeidsforhold som arbeidstid, ferie, oppsigelse og arbeidsmiljoe',
+        'Bare loennsforhold',
+        'Kun regler for helsepersonell',
+        'Hvordan man soeker jobb',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor mange feriedager har arbeidstakere krav paa i Norge?',
+      solution: '25 virkedager per aar',
+      competenceGoals: ['gjoere rede for sentrale lover og rettigheter i arbeidslivet'],
+      multipleChoiceOptions: [
+        '25 virkedager per aar',
+        '14 dager per aar',
+        '30 kalenderdager per aar',
+        'Det varierer fra arbeidsplass til arbeidsplass',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvorfor boer du tilpasse CV og soeknad til hver stilling du soeker?',
+      solution: 'For aa vise at du forstaar stillingen og at din kompetanse er relevant',
+      competenceGoals: ['beskrive prosessen med aa soeke jobb og presentere seg for arbeidsgivere'],
+      multipleChoiceOptions: [
+        'For aa vise at du forstaar stillingen og at din kompetanse er relevant',
+        'Fordi det er et lovkrav',
+        'Fordi arbeidsgivere ikke leser generelle soeknader',
+        'For aa faa hoeyere loenn',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er en tariffavtale?',
+      solution: 'En avtale mellom arbeidsgiver- og arbeidstakerorganisasjoner om loenn og arbeidsvilkaar',
+      competenceGoals: ['gjoere rede for sentrale lover og rettigheter i arbeidslivet'],
+      multipleChoiceOptions: [
+        'En avtale mellom arbeidsgiver- og arbeidstakerorganisasjoner om loenn og arbeidsvilkaar',
+        'En personlig avtale mellom deg og sjefen',
+        'Det samme som arbeidskontrakt',
+        'En avtale om arbeidstid',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva boer du gjoere foer et jobbintervju?',
+      solution: 'Lese om arbeidsplassen, tenke gjennom egne styrker og forberede svar paa vanlige spoersmaal',
+      competenceGoals: ['beskrive prosessen med aa soeke jobb og presentere seg for arbeidsgivere'],
+      multipleChoiceOptions: [
+        'Lese om arbeidsplassen, tenke gjennom egne styrker og forberede svar paa vanlige spoersmaal',
+        'Bare moete opp og svare spontant',
+        'Laere utenat alt som staar i CVen',
+        'Ikke forberede seg for aa virke naturlig',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-7',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva har du krav paa naar du faar jobb?',
+      solution: 'Skriftlig arbeidskontrakt som beskriver stillingen, loenn, arbeidstid og andre vilkaar',
+      competenceGoals: ['gjoere rede for sentrale lover og rettigheter i arbeidslivet'],
+      multipleChoiceOptions: [
+        'Skriftlig arbeidskontrakt som beskriver stillingen, loenn, arbeidstid og andre vilkaar',
+        'Bare muntlig avtale er nok',
+        'Kontrakt er valgfritt for smaajobber',
+        'Kontrakt kreves bare i offentlig sektor',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-6-ex-8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva maa arbeidsgiver ha for aa si opp en ansatt?',
+      solution: 'Saklig grunn, for eksempel nedbemanning eller alvorlige brudd paa arbeidsavtalen',
+      competenceGoals: ['gjoere rede for sentrale lover og rettigheter i arbeidslivet'],
+      multipleChoiceOptions: [
+        'Saklig grunn, for eksempel nedbemanning eller alvorlige brudd paa arbeidsavtalen',
+        'Ingen spesiell grunn - arbeidsgiver bestemmer',
+        'Bare okonomiske grunner',
+        'Godkjenning fra NAV',
+      ],
+    },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_7_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-7-7',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '7.7',
+  title: 'Laering gjennom hele livet',
+  description: 'Laer om betydningen av livslang laering, hvordan du kan utvikle deg faglig gjennom karrieren, og hvilke muligheter som finnes for videreutdanning og kompetanseheving.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'reflektere over betydningen av livslang laering i helse- og oppvekstsektoren',
+    'beskrive muligheter for faglig utvikling og videreutdanning',
+  ],
+  content: [
+    {
+      id: 'hov1-7-7-intro',
+      type: 'text',
+      content: `# Laering gjennom hele livet
+
+I helse- og oppvekstsektoren er laering noe som aldri tar slutt. Faget er i stadig utvikling, med ny forskning, nye behandlingsmetoder, ny teknologi og endrede behov i samfunnet. For aa vaere en god yrkesutoever maa du fortsette aa laere og utvikle deg gjennom hele karrieren.
+
+## Hvorfor er livslang laering viktig?
+
+- Ny kunnskap og forskning endrer fagfeltet
+- Teknologi forandrer arbeidsmaater
+- Brukernes behov og forventninger endres
+- Lover og retningslinjer oppdateres
+- Du kan ta paa deg nye oppgaver og roller`,
+    },
+    {
+      id: 'hov1-7-7-ordliste',
+      type: 'text',
+      content: `# Ordliste
+
+**Livslang laering** - Aa fortsette aa laere og utvikle seg gjennom hele livet.
+
+**Kompetanseheving** - Tiltak for aa oeke kunnskap og ferdigheter i jobben.
+
+**Videreutdanning** - Formell utdanning som bygger paa grunnutdanningen.
+
+**Faglig oppdatering** - Aa holde seg orientert om nye metoder, forskning og retningslinjer.
+
+**Realkompetanse** - Kompetanse tilegnet gjennom arbeid og livserfaring, ikke bare formell utdanning.`,
+    },
+    {
+      id: 'hov1-7-7-def-livslang',
+      type: 'definition',
+      title: 'Livslang laering',
+      content: 'Livslang laering er et begrep som beskriver at laering er en kontinuerlig prosess som foregaar gjennom hele livet, ikke bare i skolealder. Det inkluderer baade formell utdanning, kurs og opplaering, og uformell laering gjennom arbeid og erfaringer. I en sektor i rask endring er livslang laering avgjorende for aa opprettholde og utvikle kompetansen.',
+    },
+    {
+      id: 'hov1-7-7-def-kompetanseheving',
+      type: 'definition',
+      title: 'Kompetanseheving',
+      content: 'Kompetanseheving er tiltak som gjoer at ansatte far oekt kunnskap, ferdigheter eller holdninger. Det kan vaere kurs, opplaering, hospitering, fagdager, veiledning, e-laering eller selvstudium. Arbeidsgivere i helse- og oppvekstsektoren har plikt til aa legge til rette for kompetanseheving.',
+    },
+    {
+      id: 'hov1-7-7-def-realkompetanse',
+      type: 'definition',
+      title: 'Realkompetanse',
+      content: 'Realkompetanse er summen av all kompetanse en person har tilegnet seg gjennom formell utdanning, arbeid, organisasjonsarbeid og livserfaring. Realkompetanse kan vurderes og gi grunnlag for opptak til utdanning eller godkjenning av fag, selv uten formelle vitnemaal.',
+    },
+    {
+      id: 'hov1-7-7-muligheter',
+      type: 'text',
+      content: `# Muligheter for faglig utvikling
+
+## Paa arbeidsplassen
+- Internopplaering og kurs
+- Veiledning og faglige diskusjoner
+- Hospitering paa andre avdelinger
+- Fagdager og temamøter
+- Deltakelse i prosjekter og utviklingsarbeid
+
+## Formell videreutdanning
+- Videreutdanning ved hoyskoler og universiteter
+- Fagskoleutdanning
+- Paabygning til studiekompetanse
+- Mastergrad for de som vil spesialisere seg
+
+## Uformell laering
+- Lese faglitteratur og tidsskrifter
+- Delta i faglige nettverk
+- Foelge med paa forskning og utvikling
+- Diskutere fag med kolleger
+- Reflektere over egen praksis`,
+    },
+    {
+      id: 'hov1-7-7-example-1',
+      type: 'example',
+      title: 'Livslang laering i praksis',
+      problem: 'Kari har jobbet som helsefagarbeider i ti aar. Hvordan kan hun fortsette aa utvikle seg faglig?',
+      solution: `Kari har mange muligheter:
+
+**Paa arbeidsplassen:**
+- Delta paa internopplaering om nye prosedyrer
+- Be om aa faa veiledning paa omraader hun er usikker paa
+- Hospitere paa demensavdelingen for aa laere mer om dette feltet
+
+**Formell utdanning:**
+- Ta videreutdanning i for eksempel demensomsorg eller psykisk helse
+- Vurdere paabygning og sykepleierutdanning
+
+**Paa egen haand:**
+- Lese fagartikler og boeker
+- Delta i fagforening og faglige arrangementer
+- Holde seg oppdatert paa retningslinjer
+
+**Resultat:** Kari blir en dyktigere fagperson, faar flere karrieremuligheter og opplever storre mestring i jobben.`,
+    },
+    {
+      id: 'hov1-7-7-example-2',
+      type: 'example',
+      title: 'Ta ansvar for egen laering',
+      content: `Ahmed er ny som barne- og ungdomsarbeider i SFO. Han oensker aa bli bedre paa aa haandtere konflikter mellom barn.
+
+**Hans plan:**
+1. Snakke med erfarne kolleger om deres erfaringer
+2. Be om veiledning fra avdelingsleder
+3. Delta paa kurs i konflikthåndtering hvis det tilbys
+4. Lese faglitteratur om emnet
+5. Reflektere over situasjoner og hva han laerer
+
+**Etter seks maaneder:**
+Ahmed foeler seg tryggere i konfliktsituasjoner. Han har laert flere konkrete teknikker og forstaar bedre hva som utloeser konflikter. Han fortsetter aa laere av erfaringene sine.`,
+    },
+    {
+      id: 'hov1-7-7-oppsummering',
+      type: 'text',
+      content: `# Oppsummering
+
+- Livslang laering er avgjorende i en sektor i stadig endring
+- Du kan laere baade gjennom formell utdanning og uformelt
+- Arbeidsgiver har plikt til aa legge til rette for kompetanseheving
+- Ta selv ansvar for egen faglig utvikling
+- Refleksjon gjør erfaringer til laering
+- Det finnes mange muligheter for videreutdanning og spesialisering`,
+    },
+    {
+      id: 'hov1-7-7-se-ogsaa',
+      type: 'tip',
+      title: 'Se ogsaa',
+      content: `Relaterte kapitler:
+- 7.2 Videre utdanning og karrieremuligheter
+- 7.3 Refleksjon og egenvurdering
+- 7.6 Jobbsoeking og arbeidslivskunnskap`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva betyr livslang laering?',
+      solution: 'Aa fortsette aa laere og utvikle seg gjennom hele livet',
+      competenceGoals: ['reflektere over betydningen av livslang laering i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Aa fortsette aa laere og utvikle seg gjennom hele livet',
+        'Aa gaa paa skole hele livet',
+        'Aa laere alt man trenger foer man begynner aa jobbe',
+        'Aa ta eksamen hvert femte aar',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-2',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er kompetanseheving?',
+      solution: 'Tiltak for aa oeke kunnskap og ferdigheter i jobben',
+      competenceGoals: ['beskrive muligheter for faglig utvikling og videreutdanning'],
+      multipleChoiceOptions: [
+        'Tiltak for aa oeke kunnskap og ferdigheter i jobben',
+        'Aa faa hoeyere loenn',
+        'Aa bli forfremmet til leder',
+        'Aa jobbe flere timer per uke',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-3',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er realkompetanse?',
+      solution: 'Kompetanse tilegnet gjennom arbeid og livserfaring, ikke bare formell utdanning',
+      competenceGoals: ['beskrive muligheter for faglig utvikling og videreutdanning'],
+      multipleChoiceOptions: [
+        'Kompetanse tilegnet gjennom arbeid og livserfaring, ikke bare formell utdanning',
+        'Kompetanse man faar gjennom universitetsutdanning',
+        'Kompetanse som dokumenteres med vitnemaal',
+        'Kompetanse i realfag',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-4',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvorfor er livslang laering spesielt viktig i helse- og oppvekstsektoren?',
+      solution: 'Fordi faget er i stadig utvikling med ny forskning, teknologi og metoder',
+      competenceGoals: ['reflektere over betydningen av livslang laering i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Fordi faget er i stadig utvikling med ny forskning, teknologi og metoder',
+        'Fordi man maa fornye fagbrevet hvert tiende aar',
+        'Fordi arbeidsgivere krever det',
+        'Fordi det gir automatisk loennsoekning',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-5',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilken av foelgende er en form for uformell laering?',
+      solution: 'Aa diskutere faglige spoersmaal med kolleger og reflektere over praksis',
+      competenceGoals: ['beskrive muligheter for faglig utvikling og videreutdanning'],
+      multipleChoiceOptions: [
+        'Aa diskutere faglige spoersmaal med kolleger og reflektere over praksis',
+        'Aa ta eksamen ved en hoeyskole',
+        'Aa faa vitnemaal fra fagskole',
+        'Aa bestaa fagproven',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-6',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva har arbeidsgiver plikt til naar det gjelder kompetanse?',
+      solution: 'Aa legge til rette for kompetanseheving og opplaering av ansatte',
+      competenceGoals: ['beskrive muligheter for faglig utvikling og videreutdanning'],
+      multipleChoiceOptions: [
+        'Aa legge til rette for kompetanseheving og opplaering av ansatte',
+        'Aa betale for all videreutdanning ansatte oensker',
+        'Aa gi fri til studier naar som helst',
+        'Aa ansette bare folk med mastergrad',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-7',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hvordan kan du selv ta ansvar for egen faglig utvikling?',
+      solution: 'Ved aa soeke kunnskap aktivt, reflektere over praksis og benytte laeringsmuligheter',
+      competenceGoals: ['reflektere over betydningen av livslang laering i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Ved aa soeke kunnskap aktivt, reflektere over praksis og benytte laeringsmuligheter',
+        'Ved aa vente paa at arbeidsgiver sender deg paa kurs',
+        'Ved aa gjore bare det du maa i jobben',
+        'Ved aa bytte jobb saa ofte som mulig',
+      ],
+    },
+    {
+      id: 'helseoppvekst-vg1-7-7-ex-8',
+      type: 'multiple-choice',
+      difficulty: 'vanskelig',
+      task: 'Hva er sammenhengen mellom refleksjon og livslang laering?',
+      solution: 'Refleksjon gjør at erfaringer blir til laering og bidrar til kontinuerlig utvikling',
+      competenceGoals: ['reflektere over betydningen av livslang laering i helse- og oppvekstsektoren'],
+      multipleChoiceOptions: [
+        'Refleksjon gjør at erfaringer blir til laering og bidrar til kontinuerlig utvikling',
+        'Det er ingen sammenheng mellom refleksjon og laering',
+        'Refleksjon erstatter behovet for kurs og utdanning',
+        'Refleksjon er bare viktig for ledere',
+      ],
+    },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_1_5: TextbookChapter = {
+  id: 'helseoppvekst-vg1-1-5',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '1.5',
+  title: 'Menneskesyn og holdninger',
+  description: 'Laer om ulike menneskesyn, hvordan holdninger paavirker yrkesutovelsen, og betydningen av aa reflektere over egne verdier.',
+  estimatedMinutes: 60,
+  competenceGoals: ['reflektere over eget menneskesyn og hvordan det paavirker yrkesutovelsen', 'drofte betydningen av holdninger og verdier i arbeid med mennesker'],
+  content: [
+    { id: 'hov1-1-5-intro', type: 'text', content: '# Menneskesyn og holdninger\n\nMenneskesyn handler om hvordan vi grunnleggende ser paa mennesker - hva et menneske er, hva som gir menneskelivet verdi, og hvilke muligheter mennesker har til aa utvikle seg.' },
+    { id: 'hov1-1-5-ordliste', type: 'text', content: '# Ordliste\n\n**Menneskesyn** - Grunnleggende oppfatninger om hva et menneske er.\n\n**Humanistisk menneskesyn** - Syn som betoner menneskets iboende verdi og evne til vekst.\n\n**Holdninger** - Varige innstillinger til mennesker eller fenomener.\n\n**Fordommer** - Negative holdninger basert paa generaliseringer.\n\n**Stereotypier** - Forenklede forestillinger om grupper.' },
+    { id: 'hov1-1-5-def-menneskesyn', type: 'definition', title: 'Menneskesyn', content: 'Menneskesyn er de grunnleggende oppfatningene vi har om hva et menneske er, hva som gir menneskelivet verdi og mening, og hvilke muligheter og begrensninger mennesker har.' },
+    { id: 'hov1-1-5-def-humanistisk', type: 'definition', title: 'Humanistisk menneskesyn', content: 'Et humanistisk menneskesyn betoner menneskets iboende verdi og verdighet, dets evne til aa ta ansvar for eget liv, og muligheten for personlig vekst og utvikling.' },
+    { id: 'hov1-1-5-example', type: 'example', title: 'Holdninger i praksis', content: 'Marte jobber paa et bofellesskap. Naar en ny beboer, Per, flytter inn, tenker Marte at han sikkert ikke kan delta i matlagingen fordi han har en diagnose. Gjennom aa bli kjent med Per oppdager Marte at han elsker aa lage mat. Hun endrer sin holdning og legger til rette for at Per kan delta.' },
+    { id: 'hov1-1-5-warning', type: 'warning', title: 'Fordommer og stereotypier', content: 'Fordommer er negative holdninger til grupper basert paa generaliseringer. Stereotypier er forenklede forestillinger. Begge kan fore til diskriminering. Som yrkesutover maa du vaere bevisst egne fordommer.' },
+    { id: 'hov1-1-5-oppsummering', type: 'text', content: '# Oppsummering\n\n- Menneskesyn er grunnleggende oppfatninger om menneskers verdi\n- Et humanistisk menneskesyn ligger til grunn for helse- og oppvekstarbeid\n- Holdninger bestaar av tanker, foelelser og handlingstendenser\n- Bevisst refleksjon over egne holdninger er viktig' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-1-5-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er menneskesyn?', solution: 'Grunnleggende oppfatninger om hva et menneske er og hva som gir livet verdi', multipleChoiceOptions: ['Grunnleggende oppfatninger om hva et menneske er og hva som gir livet verdi', 'En medisinsk diagnose', 'Et juridisk begrep', 'En psykologisk test'] },
+    { id: 'helseoppvekst-vg1-1-5-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hva kjennetegner et humanistisk menneskesyn?', solution: 'Tro paa menneskers iboende verdi og evne til vekst', multipleChoiceOptions: ['Tro paa menneskers iboende verdi og evne til vekst', 'At verdien avhenger av prestasjoner', 'At fagpersoner alltid vet best', 'At mennesker ikke kan endre seg'] },
+    { id: 'helseoppvekst-vg1-1-5-ex-3', type: 'multiple-choice', difficulty: 'medium', task: 'Hvilke tre komponenter bestaar en holdning av?', solution: 'Tanker, foelelser og handlingstendenser', multipleChoiceOptions: ['Tanker, foelelser og handlingstendenser', 'Kunnskap, erfaring og utdanning', 'Arv, miljo og kultur', 'Fortid, naatid og fremtid'] },
+    { id: 'helseoppvekst-vg1-1-5-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er stereotypier?', solution: 'Forenklede forestillinger om hvordan medlemmer av en gruppe er', multipleChoiceOptions: ['Forenklede forestillinger om hvordan medlemmer av en gruppe er', 'Vitenskapelig kunnskap om kulturer', 'Personlige erfaringer', 'Faglige vurderinger'] },
+    { id: 'helseoppvekst-vg1-1-5-ex-5', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvordan kan holdninger endres?', solution: 'Gjennom ny kunnskap, erfaringer og bevisst refleksjon', multipleChoiceOptions: ['Gjennom ny kunnskap, erfaringer og bevisst refleksjon', 'Holdninger kan aldri endres', 'Kun gjennom terapi', 'Ved aa unngaa mennesker man har fordommer mot'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_1_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-1-6',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '1.6',
+  title: 'Brukermedvirkning og selvbestemmelse',
+  description: 'Laer om brukermedvirkning, selvbestemmelsesrett, samvalg og hvordan du kan stotte brukeres rett til aa bestemme over eget liv.',
+  estimatedMinutes: 60,
+  competenceGoals: ['gjore rede for brukermedvirkning og selvbestemmelse i helse- og oppvekstsektoren', 'reflektere over hvordan man kan stotte brukeres rett til aa paavirke egen situasjon'],
+  content: [
+    { id: 'hov1-1-6-intro', type: 'text', content: '# Brukermedvirkning og selvbestemmelse\n\nBrukermedvirkning er et sentralt prinsipp i norsk helse- og omsorgstjeneste. Det innebærer at brukere skal ha mulighet til aa paavirke tjenestene de mottar.' },
+    { id: 'hov1-1-6-ordliste', type: 'text', content: '# Ordliste\n\n**Brukermedvirkning** - At brukere faar innflytelse paa beslutninger og tjenester.\n\n**Selvbestemmelse** - Retten til aa ta egne valg og bestemme over eget liv.\n\n**Samvalg** - Prosess der helsepersonell og bruker sammen tar beslutninger.\n\n**Samtykkekompetanse** - Evnen til aa forstaa informasjon og ta gyldige beslutninger.' },
+    { id: 'hov1-1-6-def-brukermedvirkning', type: 'definition', title: 'Brukermedvirkning', content: 'Brukermedvirkning betyr at de som berores av en beslutning eller er brukere av tjenester, faar innflytelse paa beslutningsprosesser og utforming av tjenestetilbudet.' },
+    { id: 'hov1-1-6-def-selvbestemmelse', type: 'definition', title: 'Selvbestemmelse', content: 'Selvbestemmelse er retten til aa ta egne valg og bestemme over eget liv. Det innebærer aa faa tilstrekkelig informasjon, bli hort og respektert.' },
+    { id: 'hov1-1-6-def-samvalg', type: 'definition', title: 'Samvalg', content: 'Samvalg er en prosess der helsepersonell og bruker sammen tar beslutninger. Fagpersonen deler kunnskap om alternativer, brukeren deler sine verdier og preferanser.' },
+    { id: 'hov1-1-6-example', type: 'example', title: 'Brukermedvirkning i praksis', content: 'Kari er 78 aar og bor hjemme med hjelp fra hjemmesykepleien. De mener hun bor flytte til omsorgsbolig. Kari onsker aa bli boende hjemme. I et mote diskuteres losninger. Kari velger aa bli boende med okt tilsyn og trygghetsalarm. Valget respekteres.' },
+    { id: 'hov1-1-6-warning', type: 'warning', title: 'Naar selvbestemmelsen kan begrenses', content: 'Selvbestemmelsesretten kan begrenses ved alvorlig fare eller naar personen mangler samtykkekompetanse. Bruk av tvang krever hjemmel i lov, skal vaere siste utvei, og maa dokumenteres.' },
+    { id: 'hov1-1-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Brukermedvirkning innebærer at brukere faar paavirke tjenester og beslutninger\n- Selvbestemmelse er retten til aa ta egne valg\n- Samvalg er en metode for felles beslutningstaking\n- Tvang krever hjemmel i lov og skal vaere siste utvei' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-1-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva betyr brukermedvirkning?', solution: 'At brukere faar innflytelse paa beslutninger og tjenester som angaar dem', multipleChoiceOptions: ['At brukere faar innflytelse paa beslutninger og tjenester som angaar dem', 'At brukere gjor jobben til helsepersonell', 'At brukere betaler for tjenestene selv', 'At brukere alltid faar det som de vil'] },
+    { id: 'helseoppvekst-vg1-1-6-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er selvbestemmelse?', solution: 'Retten til aa ta egne valg og bestemme over eget liv', multipleChoiceOptions: ['Retten til aa ta egne valg og bestemme over eget liv', 'At man maa klare alt selv uten hjelp', 'At fagpersoner bestemmer hva som er best', 'At familien tar alle avgjorelser'] },
+    { id: 'helseoppvekst-vg1-1-6-ex-3', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er samvalg?', solution: 'En prosess der helsepersonell og bruker sammen tar beslutninger', multipleChoiceOptions: ['En prosess der helsepersonell og bruker sammen tar beslutninger', 'At brukeren velger uten raad fra fagpersoner', 'At legen bestemmer alene', 'At familien velger paa vegne av brukeren'] },
+    { id: 'helseoppvekst-vg1-1-6-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hvilken lov sikrer pasienters rett til medvirkning?', solution: 'Pasient- og brukerrettighetsloven', multipleChoiceOptions: ['Pasient- og brukerrettighetsloven', 'Arbeidsmiljoloven', 'Straffeloven', 'Kommuneloven'] },
+    { id: 'helseoppvekst-vg1-1-6-ex-5', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva kreves for aa bruke tvang overfor en bruker?', solution: 'Hjemmel i lov, tvang som siste utvei, og dokumentasjon', multipleChoiceOptions: ['Hjemmel i lov, tvang som siste utvei, og dokumentasjon', 'Godkjenning fra brukerens familie', 'At to ansatte er enige', 'At brukeren er vanskelig'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_1_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-1-7',
+  courseId: 'helseoppvekst-vg1',
+  chapterNumber: '1.7',
+  title: 'Organisering av helse- og oppvekstsektoren',
+  description: 'Laer om hvordan helse- og oppvekstsektoren er organisert i Norge, med fokus paa kommunale tjenester, spesialisthelsetjenesten og samhandling.',
+  estimatedMinutes: 65,
+  competenceGoals: ['beskrive organiseringen av helse- og oppvekstsektoren i Norge', 'gjore rede for samhandling mellom ulike nivaer og tjenester'],
+  content: [
+    { id: 'hov1-1-7-intro', type: 'text', content: '# Organisering av helse- og oppvekstsektoren\n\nHelse- og oppvekstsektoren i Norge er organisert paa flere nivaer. Staten har det overordnede ansvaret. Kommunene har ansvar for primaerhelsetjenesten, mens spesialisthelsetjenesten drives av de regionale helseforetakene.' },
+    { id: 'hov1-1-7-ordliste', type: 'text', content: '# Ordliste\n\n**Primaerhelsetjenesten** - Kommunale helsetjenester som er forste kontaktpunkt.\n\n**Spesialisthelsetjenesten** - Sykehus og spesialiserte helsetjenester.\n\n**Helseforetak** - Statlig eid organisasjon som driver sykehus.\n\n**Samhandlingsreformen** - Helsereform fra 2012 for bedre samarbeid.\n\n**Naerhetsprinsippet** - At tjenester skal gis saa naert brukeren som mulig.' },
+    { id: 'hov1-1-7-def-primaer', type: 'definition', title: 'Primaerhelsetjenesten', content: 'Primaerhelsetjenesten er de kommunale helse- og omsorgstjenestene som er forste kontaktpunkt. Dette inkluderer fastlege, legevakt, hjemmesykepleie, sykehjem, helsestasjon og skolehelsetjeneste.' },
+    { id: 'hov1-1-7-def-spesialist', type: 'definition', title: 'Spesialisthelsetjenesten', content: 'Spesialisthelsetjenesten omfatter sykehus og andre spesialiserte helsetjenester. Dette inkluderer somatiske og psykiatriske sykehus, poliklinikker, ambulansetjeneste og rehabiliteringsinstitusjoner.' },
+    { id: 'hov1-1-7-def-samhandling', type: 'definition', title: 'Samhandlingsreformen', content: 'Samhandlingsreformen (2012) er en helsereform som skulle bedre samarbeidet mellom kommuner og sykehus. Maalet var aa forebygge mer, behandle tidligere og samhandle bedre.' },
+    { id: 'hov1-1-7-example', type: 'example', title: 'Samhandling i praksis', content: 'Olav (82) blir innlagt paa sykehus etter et fall. Han har brukket hoften. Etter operasjonen varsler sykehuset kommunen om at Olav snart er utskrivningsklar. Kommunen tilbyr plass paa korttidsavdeling for rehabilitering. Etter to uker kan Olav flytte hjem med hjelp fra hjemmesykepleien.' },
+    { id: 'hov1-1-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Helse- og oppvekstsektoren er organisert paa flere nivaer\n- Kommunene har ansvar for primaerhelsetjenesten og oppveksttjenester\n- Spesialisthelsetjenesten drives av fire regionale helseforetak\n- Samhandlingsreformen har styrket samarbeidet mellom kommuner og sykehus' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-1-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er primaerhelsetjenesten?', solution: 'Kommunale helsetjenester som er forste kontaktpunkt for innbyggerne', multipleChoiceOptions: ['Kommunale helsetjenester som er forste kontaktpunkt for innbyggerne', 'Sykehus og spesialiserte klinikker', 'Private helsetjenester', 'Internasjonale helseorganisasjoner'] },
+    { id: 'helseoppvekst-vg1-1-7-ex-2', type: 'multiple-choice', difficulty: 'lett', task: 'Hvem har ansvar for sykehusene i Norge?', solution: 'De regionale helseforetakene', multipleChoiceOptions: ['De regionale helseforetakene', 'Kommunene', 'Fylkeskommunene', 'Private selskaper'] },
+    { id: 'helseoppvekst-vg1-1-7-ex-3', type: 'multiple-choice', difficulty: 'medium', task: 'Hvor mange regionale helseforetak finnes det i Norge?', solution: 'Fire', multipleChoiceOptions: ['Fire', 'To', 'Fem', 'Elleve'] },
+    { id: 'helseoppvekst-vg1-1-7-ex-4', type: 'multiple-choice', difficulty: 'medium', task: 'Hva var hovedmaalet med samhandlingsreformen?', solution: 'Bedre samarbeid mellom kommuner og sykehus', multipleChoiceOptions: ['Bedre samarbeid mellom kommuner og sykehus', 'Aa privatisere alle helsetjenester', 'Aa legge ned alle lokalsykehus', 'Aa redusere antall ansatte'] },
+    { id: 'helseoppvekst-vg1-1-7-ex-5', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva innebærer naerhetsprinsippet?', solution: 'At tjenester skal gis saa naert brukeren som mulig', multipleChoiceOptions: ['At tjenester skal gis saa naert brukeren som mulig', 'At alle maa bo naer et sykehus', 'At helsepersonell skal bo naer arbeidsplassen', 'At man bare faar hjelp av familie'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_2_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-2-6', courseId: 'helseoppvekst-vg1', chapterNumber: '2.6', title: 'Livsstilssykdommer og forebygging',
+  description: 'Laer om vanlige livsstilssykdommer, risikofaktorer og hvordan man kan forebygge gjennom livsstilsendringer.',
+  estimatedMinutes: 60, competenceGoals: ['gjore rede for vanlige livsstilssykdommer og risikofaktorer', 'forklare hvordan livsstilsendringer kan forebygge sykdom'],
+  content: [
+    { id: 'hov1-2-6-intro', type: 'text', content: '# Livsstilssykdommer og forebygging\n\nLivsstilssykdommer er sykdommer som i stor grad skyldes hvordan vi lever. Kosthold, fysisk aktivitet, roykevaner og alkoholbruk paavirker risikoen.' },
+    { id: 'hov1-2-6-ordliste', type: 'text', content: '# Ordliste\n\n**Livsstilssykdommer** - Sykdommer der livsstil er en viktig risikofaktor.\n\n**Risikofaktorer** - Forhold som oker sannsynligheten for sykdom.\n\n**Forebygging** - Tiltak for aa hindre at sykdom oppstaar.' },
+    { id: 'hov1-2-6-def', type: 'definition', title: 'Livsstilssykdommer', content: 'Livsstilssykdommer er sykdommer der livsstilsfaktorer som kosthold, fysisk aktivitet, royking og alkohol spiller en vesentlig rolle. Eksempler er hjerte- og karsykdommer, diabetes type 2 og visse kreftformer.' },
+    { id: 'hov1-2-6-example', type: 'example', title: 'Forebygging i praksis', content: 'Per er 55 aar og har faatt pavist forhoyede blodverdier og overvekt. Legen forklarer risikoen. Sammen lager de en plan: Per skal begynne aa gaa tur daglig, redusere sukkerinntak og spise mer groentsaker. Etter tre maaneder har blodverdiene bedret seg.' },
+    { id: 'hov1-2-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Livsstilssykdommer skyldes i stor grad hvordan vi lever\n- Viktige risikofaktorer er usunt kosthold, inaktivitet og royking\n- Mange livsstilssykdommer kan forebygges gjennom livsstilsendringer' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-2-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er livsstilssykdommer?', solution: 'Sykdommer der livsstil er en viktig risikofaktor', multipleChoiceOptions: ['Sykdommer der livsstil er en viktig risikofaktor', 'Sykdommer man foedes med', 'Smittsomme sykdommer', 'Sykdommer som bare rammer eldre'] },
+    { id: 'helseoppvekst-vg1-2-6-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hvor mye fysisk aktivitet anbefales per uke?', solution: 'Minst 150 minutter moderat aktivitet', multipleChoiceOptions: ['Minst 150 minutter moderat aktivitet', '30 minutter per uke', '10 timer per uke', 'Det er ikke viktig'] },
+    { id: 'helseoppvekst-vg1-2-6-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva er KOLS?', solution: 'Kronisk obstruktiv lungesykdom, ofte knyttet til royking', multipleChoiceOptions: ['Kronisk obstruktiv lungesykdom, ofte knyttet til royking', 'En type diabetes', 'En hjertesykdom', 'En smittsom infeksjon'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_2_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-2-7', courseId: 'helseoppvekst-vg1', chapterNumber: '2.7', title: 'Ergonomi og arbeidsteknikker',
+  description: 'Laer om ergonomi, riktige arbeidsteknikker og forebygging av belastningsskader.',
+  estimatedMinutes: 60, competenceGoals: ['bruke ergonomisk riktige arbeidsteknikker', 'forebygge belastningsskader i yrkesutovelsen'],
+  content: [
+    { id: 'hov1-2-7-intro', type: 'text', content: '# Ergonomi og arbeidsteknikker\n\nErgonomi handler om aa tilpasse arbeidet til mennesket for aa forebygge skader og fremme helse.' },
+    { id: 'hov1-2-7-ordliste', type: 'text', content: '# Ordliste\n\n**Ergonomi** - Laeren om aa tilpasse arbeidet til mennesket.\n\n**Belastningsskader** - Skader som oppstaar ved gjentatt eller langvarig belastning.\n\n**Forflytning** - Aa flytte personer eller gjenstander.' },
+    { id: 'hov1-2-7-def', type: 'definition', title: 'Ergonomi', content: 'Ergonomi er laeren om aa tilpasse arbeidsmiljo, utstyr og arbeidsoppgaver til menneskets fysiske og psykiske forutsetninger.' },
+    { id: 'hov1-2-7-example', type: 'example', title: 'Forflytning i praksis', content: 'Emma skal hjelpe en beboer fra seng til rullestol. Hun senker sengen til riktig hoyde, bruker et glidebrett for overflytting og stoetter beboeren med kroppen naer. Emma bruker beinstyrke og holder ryggen rett.' },
+    { id: 'hov1-2-7-warning', type: 'warning', title: 'Forebygg belastningsskader', content: 'Belastningsskader i rygg, skuldre og armer er vanlige i helse- og omsorgsyrker. Planlegg forflytninger, bruk hjelpemidler, be om hjelp ved tunge loft.' },
+    { id: 'hov1-2-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Ergonomi handler om aa tilpasse arbeidet til mennesket\n- Riktige arbeidsteknikker forebygger belastningsskader\n- Bruk hjelpemidler og be om hjelp ved tunge loft' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-2-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er ergonomi?', solution: 'Laeren om aa tilpasse arbeidet til mennesket', multipleChoiceOptions: ['Laeren om aa tilpasse arbeidet til mennesket', 'En type treningsprogram', 'En medisinsk behandling', 'En type arbeidstoy'] },
+    { id: 'helseoppvekst-vg1-2-7-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er belastningsskader?', solution: 'Skader som oppstaar ved gjentatt eller langvarig belastning', multipleChoiceOptions: ['Skader som oppstaar ved gjentatt eller langvarig belastning', 'Skader fra ulykker', 'Medfodte skader', 'Smittsomme sykdommer'] },
+    { id: 'helseoppvekst-vg1-2-7-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Ved forflytning av en pasient, hva bor du gjore forst?', solution: 'Planlegge forflytningen og vurdere behov for hjelpemidler', multipleChoiceOptions: ['Planlegge forflytningen og vurdere behov for hjelpemidler', 'Lofte pasienten umiddelbart', 'Vente til pasienten klarer det selv', 'Ringe etter lege'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_2_8: TextbookChapter = {
+  id: 'helseoppvekst-vg1-2-8', courseId: 'helseoppvekst-vg1', chapterNumber: '2.8', title: 'Miljo og baerekraft i yrkesutovelsen',
+  description: 'Laer om miljohensyn og baerekraft i helse- og oppvekstsektoren.',
+  estimatedMinutes: 55, competenceGoals: ['gjore rede for miljohensyn og baerekraft i helse- og oppvekstsektoren', 'vurdere hvordan egne valg paavirker miljo og ressursbruk'],
+  content: [
+    { id: 'hov1-2-8-intro', type: 'text', content: '# Miljo og baerekraft i yrkesutovelsen\n\nHelse- og oppvekstsektoren bruker store mengder ressurser. Som ansatt kan du bidra til en mer baerekraftig drift gjennom bevisste valg.' },
+    { id: 'hov1-2-8-ordliste', type: 'text', content: '# Ordliste\n\n**Baerekraft** - Aa dekke dagens behov uten aa odelegge for fremtidige generasjoner.\n\n**Kildesortering** - Aa sortere avfall i ulike kategorier.\n\n**Smitteavfall** - Avfall som kan inneholde smittefarlig materiale.' },
+    { id: 'hov1-2-8-def', type: 'definition', title: 'Baerekraft', content: 'Baerekraft betyr aa dekke naavaerende generasjoners behov uten aa odelegge mulighetene for fremtidige generasjoner.' },
+    { id: 'hov1-2-8-example', type: 'example', title: 'Baerekraft i praksis', content: 'Paa et sykehjem innforer de tiltak for aa redusere matsvinnet: Beboerne velger selv porsjonssterrelse, restemat brukes, og matavfall komposteres. Paa ett aar reduserer de avfallsmengden med 20%.' },
+    { id: 'hov1-2-8-oppsummering', type: 'text', content: '# Oppsummering\n\n- Helse- og oppvekstsektoren har stort potensial for aa bli mer baerekraftig\n- Kildesortering og riktig avfallshaandtering er viktig\n- Smaa valg i hverdagen kan ha stor effekt samlet' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-2-8-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva betyr baerekraft?', solution: 'Aa dekke dagens behov uten aa odelegge for fremtidige generasjoner', multipleChoiceOptions: ['Aa dekke dagens behov uten aa odelegge for fremtidige generasjoner', 'Aa spare mest mulig penger', 'Aa jobbe saa effektivt som mulig', 'Aa bruke mest mulig ressurser'] },
+    { id: 'helseoppvekst-vg1-2-8-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er smitteavfall?', solution: 'Avfall som kan inneholde smittefarlig materiale', multipleChoiceOptions: ['Avfall som kan inneholde smittefarlig materiale', 'Alt avfall fra sykehus', 'Matavfall fra kjokken', 'Papir og papp'] },
+    { id: 'helseoppvekst-vg1-2-8-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvorfor er baerekraft viktig i helse- og oppvekstsektoren?', solution: 'Fordi sektoren bruker store ressurser og vi har ansvar for fremtidige generasjoner', multipleChoiceOptions: ['Fordi sektoren bruker store ressurser og vi har ansvar for fremtidige generasjoner', 'Fordi det gir hoyere lonn', 'Fordi det er lovpaalagt', 'Det er ikke viktig i denne sektoren'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_3_5: TextbookChapter = {
+  id: 'helseoppvekst-vg1-3-5', courseId: 'helseoppvekst-vg1', chapterNumber: '3.5', title: 'Kvalitetssikring og avvikshåndtering',
+  description: 'Laer om kvalitetssikring, avvik og hvordan man rapporterer og haandterer avvik i helse- og oppvekstarbeid.',
+  estimatedMinutes: 55, competenceGoals: ['gjore rede for kvalitetssikring i helse- og oppvekstsektoren', 'forklare betydningen av avviksrapportering og -håndtering'],
+  content: [
+    { id: 'hov1-3-5-intro', type: 'text', content: '# Kvalitetssikring og avvikshåndtering\n\nKvalitetssikring handler om aa sikre at tjenestene holder god kvalitet og at brukerne faar forsvarlig hjelp. Avvikshåndtering er en viktig del av dette arbeidet.' },
+    { id: 'hov1-3-5-ordliste', type: 'text', content: '# Ordliste\n\n**Kvalitetssikring** - Systematisk arbeid for aa sikre god kvalitet paa tjenester.\n\n**Avvik** - Hendelser som avviker fra rutiner, prosedyrer eller forventet standard.\n\n**Internkontroll** - Virksomhetens egen kontroll av at lover og regler folges.' },
+    { id: 'hov1-3-5-def', type: 'definition', title: 'Avvik', content: 'Et avvik er en uonsket hendelse eller tilstand som avviker fra gjeldende rutiner, prosedyrer eller forventet standard. Avvik skal rapporteres for aa forhindre gjentakelse og forbedre tjenestene.' },
+    { id: 'hov1-3-5-example', type: 'example', title: 'Avviksrapportering i praksis', content: 'En helsefagarbeider oppdager at en beboer har faatt feil medisin. Hun varsler umiddelbart sykepleier, dokumenterer hendelsen og fyller ut avviksskjema. I etterkant gjennomgaas rutinene for legemiddelhåndtering for aa forhindre lignende feil.' },
+    { id: 'hov1-3-5-oppsummering', type: 'text', content: '# Oppsummering\n\n- Kvalitetssikring er systematisk arbeid for god kvalitet\n- Avvik er hendelser som avviker fra forventet standard\n- Avviksrapportering bidrar til laering og forbedring\n- Alle ansatte har plikt til aa melde fra om avvik' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-3-5-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er et avvik?', solution: 'En hendelse som avviker fra rutiner eller forventet standard', multipleChoiceOptions: ['En hendelse som avviker fra rutiner eller forventet standard', 'En planlagt endring i rutiner', 'En ny arbeidsoppgave', 'Et mote med lederen'] },
+    { id: 'helseoppvekst-vg1-3-5-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hvorfor er avviksrapportering viktig?', solution: 'For aa laere av feil og forbedre tjenestene', multipleChoiceOptions: ['For aa laere av feil og forbedre tjenestene', 'For aa straffe den som gjorde feil', 'For aa spare penger', 'Fordi ledelsen vil ha statistikk'] },
+    { id: 'helseoppvekst-vg1-3-5-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva bor du gjore naar du oppdager et avvik?', solution: 'Haandtere situasjonen, dokumentere og fylle ut avviksskjema', multipleChoiceOptions: ['Haandtere situasjonen, dokumentere og fylle ut avviksskjema', 'Ignorere det hvis ingen ble skadet', 'Bare fortelle til kollegene', 'Vente til neste dag med aa rapportere'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_3_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-3-6', courseId: 'helseoppvekst-vg1', chapterNumber: '3.6', title: 'Arbeidsliv og partssamarbeid',
+  description: 'Laer om arbeidslivets organisering, partssamarbeid mellom arbeidsgiver og arbeidstaker, og arbeidstakerens rettigheter og plikter.',
+  estimatedMinutes: 55, competenceGoals: ['gjore rede for partssamarbeid i arbeidslivet', 'beskrive arbeidstakers rettigheter og plikter'],
+  content: [
+    { id: 'hov1-3-6-intro', type: 'text', content: '# Arbeidsliv og partssamarbeid\n\nDet norske arbeidslivet er preget av samarbeid mellom arbeidsgiver, arbeidstaker og myndighetene. Dette kalles trepartssamarbeidet og er viktig for aa sikre gode arbeidsforhold.' },
+    { id: 'hov1-3-6-ordliste', type: 'text', content: '# Ordliste\n\n**Partssamarbeid** - Samarbeid mellom arbeidsgiver og arbeidstaker.\n\n**Fagforening** - Organisasjon som ivaretar arbeidstakernes interesser.\n\n**Tariffavtale** - Avtale mellom arbeidsgiver og fagforening om lonn og arbeidsvilkaar.\n\n**Tillitsvalgt** - Representant for de ansatte paa arbeidsplassen.' },
+    { id: 'hov1-3-6-def', type: 'definition', title: 'Partssamarbeid', content: 'Partssamarbeid er samarbeidet mellom arbeidsgivere og arbeidstakere (og eventuelt myndigheter) for aa finne gode losninger for arbeidslivet. Det bygger paa gjensidig respekt og dialog.' },
+    { id: 'hov1-3-6-example', type: 'example', title: 'Partssamarbeid i praksis', content: 'Paa et sykehjem skal det innfores nytt turnus-system. Ledelsen involverer tillitsvalgte tidlig i prosessen. Sammen diskuterer de fordeler og ulemper, og finner en losning som ivaretar baade driften og de ansattes behov for forutsigbarhet.' },
+    { id: 'hov1-3-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Partssamarbeid er samarbeid mellom arbeidsgiver og arbeidstaker\n- Fagforeninger ivaretar arbeidstakernes interesser\n- Tillitsvalgte representerer de ansatte paa arbeidsplassen\n- Godt partssamarbeid gir bedre arbeidsforhold' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-3-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er en fagforening?', solution: 'En organisasjon som ivaretar arbeidstakernes interesser', multipleChoiceOptions: ['En organisasjon som ivaretar arbeidstakernes interesser', 'En avdeling i bedriften', 'Et offentlig tilsyn', 'En type arbeidsgiver'] },
+    { id: 'helseoppvekst-vg1-3-6-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er en tariffavtale?', solution: 'En avtale mellom arbeidsgiver og fagforening om lonn og arbeidsvilkaar', multipleChoiceOptions: ['En avtale mellom arbeidsgiver og fagforening om lonn og arbeidsvilkaar', 'En individuell arbeidskontrakt', 'En lov om arbeidsforhold', 'En pensjonsforsikring'] },
+    { id: 'helseoppvekst-vg1-3-6-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva er trepartssamarbeidet?', solution: 'Samarbeid mellom arbeidsgiver, arbeidstaker og myndigheter', multipleChoiceOptions: ['Samarbeid mellom arbeidsgiver, arbeidstaker og myndigheter', 'Samarbeid mellom tre kolleger', 'Et treaarig prosjekt', 'En treparts forsikring'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_3_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-3-7', courseId: 'helseoppvekst-vg1', chapterNumber: '3.7', title: 'Profesjonell yrkesutovelse',
+  description: 'Laer om hva profesjonalitet innebærer, profesjonelle grenser og betydningen av aa skille mellom privat og profesjonell rolle.',
+  estimatedMinutes: 55, competenceGoals: ['reflektere over hva profesjonell yrkesutovelse innebærer', 'vurdere betydningen av profesjonelle grenser'],
+  content: [
+    { id: 'hov1-3-7-intro', type: 'text', content: '# Profesjonell yrkesutovelse\n\nAa vaere profesjonell handler om mer enn fagkunnskap. Det innebærer ogsaa aa ha bevisste holdninger, folge etiske retningslinjer og holde profesjonelle grenser.' },
+    { id: 'hov1-3-7-ordliste', type: 'text', content: '# Ordliste\n\n**Profesjonalitet** - Aa utove yrket basert paa fagkunnskap, etikk og gode holdninger.\n\n**Profesjonelle grenser** - Klare skiller mellom privat og profesjonell rolle.\n\n**Dobbeltrolle** - Naar man har flere roller overfor samme person.' },
+    { id: 'hov1-3-7-def', type: 'definition', title: 'Profesjonalitet', content: 'Profesjonalitet i helse- og oppvekstarbeid innebærer aa kombinere fagkunnskap med etisk bevissthet, gode kommunikasjonsferdigheter og evne til aa holde profesjonelle grenser i relasjon til brukere.' },
+    { id: 'hov1-3-7-example', type: 'example', title: 'Profesjonelle grenser i praksis', content: 'Emma jobber paa sykehjem der bestemoren til en venninne er beboer. Emma er vennlig og imotekommende, men passer paa aa ikke dele informasjon om bestemoren med venninnen uten samtykke. Hun holder sin profesjonelle rolle adskilt fra vennskapet.' },
+    { id: 'hov1-3-7-warning', type: 'warning', title: 'Unngaa dobbeltreller', content: 'Dobbeltrroller kan vaere problematiske i helse- og oppvekstarbeid. Dersom du maa yte tjenester til noen du kjenner privat, bor du vurdere om en kollega bor overta. Snakk med leder om slike situasjoner.' },
+    { id: 'hov1-3-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Profesjonalitet kombinerer fagkunnskap med etikk og gode holdninger\n- Profesjonelle grenser skiller privat og profesjonell rolle\n- Dobbeltrroller bor unngaaes eller haandteres bevisst\n- Profesjonell avstand beskytter baade bruker og ansatt' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-3-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er profesjonelle grenser?', solution: 'Klare skiller mellom privat og profesjonell rolle', multipleChoiceOptions: ['Klare skiller mellom privat og profesjonell rolle', 'Fysiske gjerder rundt arbeidsplassen', 'Regler for hvor man kan gaa', 'Grenser for arbeidstid'] },
+    { id: 'helseoppvekst-vg1-3-7-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er en dobbeltrolle?', solution: 'Naar man har flere roller overfor samme person', multipleChoiceOptions: ['Naar man har flere roller overfor samme person', 'Naar man jobber dobbelt saa mye', 'Naar to ansatte deler samme stilling', 'Naar man har to arbeidsgivere'] },
+    { id: 'helseoppvekst-vg1-3-7-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva bor du gjore hvis du skal gi hjelp til en du kjenner privat?', solution: 'Vurdere om en kollega bor overta, og diskutere med leder', multipleChoiceOptions: ['Vurdere om en kollega bor overta, og diskutere med leder', 'Gi ekstra god hjelp fordi du kjenner personen', 'Nekte aa hjelpe uansett', 'Ikke fortelle noen at du kjenner personen'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_4_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-4-6', courseId: 'helseoppvekst-vg1', chapterNumber: '4.6', title: 'Lek, laering og kreativitet',
+  description: 'Laer om lekens betydning for barns utvikling, kreativitet som ressurs, og hvordan man kan legge til rette for lek og laering.',
+  estimatedMinutes: 60, competenceGoals: ['gjore rede for lekens betydning for barns utvikling', 'beskrive hvordan man kan legge til rette for lek og kreativitet'],
+  content: [
+    { id: 'hov1-4-6-intro', type: 'text', content: '# Lek, laering og kreativitet\n\nLek er barns viktigste laeringsarena. Gjennom lek utvikler barn sosiale ferdigheter, spraak, motorikk og kreativitet. Voksnes rolle er aa legge til rette for god lek.' },
+    { id: 'hov1-4-6-ordliste', type: 'text', content: '# Ordliste\n\n**Frilek** - Lek som barnet selv initierer og styrer.\n\n**Strukturert lek** - Lek med regler og voksenledelse.\n\n**Rollelek** - Lek der barn tar ulike roller og later som.\n\n**Kreativitet** - Evnen til aa skape noe nytt eller lose problemer paa nye maater.' },
+    { id: 'hov1-4-6-def', type: 'definition', title: 'Lek', content: 'Lek er en frivillig aktivitet som er lystbetont og har verdi i seg selv. Gjennom lek utforsker barn verden, bearbeider opplevelser og utvikler ferdigheter paa alle omraader.' },
+    { id: 'hov1-4-6-example', type: 'example', title: 'Lek i barnehagen', content: 'I uteomraadet leker barna butikk. De plukker blader og steiner som varer, lager penger av papir, og fordeler roller som kunde og ekspeditør. De oever spraak, matematiske begreper, samarbeid og kreativitet - uten aa tenke paa det som laering.' },
+    { id: 'hov1-4-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Lek er barns viktigste laeringsarena\n- Gjennom lek utvikles sosiale, motoriske og kognitive ferdigheter\n- Baade frilek og strukturert lek er viktig\n- Voksne maa legge til rette for variert lek' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-4-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er frilek?', solution: 'Lek som barnet selv initierer og styrer', multipleChoiceOptions: ['Lek som barnet selv initierer og styrer', 'Lek uten leker', 'Lek utendoors', 'Lek med voksne'] },
+    { id: 'helseoppvekst-vg1-4-6-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hvorfor er lek viktig for barn?', solution: 'Fordi barn laerer og utvikler seg gjennom lek', multipleChoiceOptions: ['Fordi barn laerer og utvikler seg gjennom lek', 'Fordi det holder dem stille', 'Fordi voksne faar pause', 'Fordi det er obligatorisk'] },
+    { id: 'helseoppvekst-vg1-4-6-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva er den voksnes rolle i barns lek?', solution: 'Aa legge til rette, stotte og delta naar det er naturlig', multipleChoiceOptions: ['Aa legge til rette, stotte og delta naar det er naturlig', 'Aa bestemme hva barna skal leke', 'Aa la barna vaere helt i fred', 'Aa rette paa feil i leken'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_4_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-4-7', courseId: 'helseoppvekst-vg1', chapterNumber: '4.7', title: 'Utviklingsforstyrrelser og spesialpedagogikk',
+  description: 'Laer om vanlige utviklingsforstyrrelser hos barn, spesialpedagogisk tilrettelegging og samarbeid med foreldre og faginstanser.',
+  estimatedMinutes: 65, competenceGoals: ['beskrive vanlige utviklingsforstyrrelser hos barn', 'gjore rede for spesialpedagogisk tilrettelegging'],
+  content: [
+    { id: 'hov1-4-7-intro', type: 'text', content: '# Utviklingsforstyrrelser og spesialpedagogikk\n\nNoen barn har utviklingsforstyrrelser som paavirker laering og utvikling. Med riktig tilrettelegging kan disse barna faa gode utviklingsmuligheter.' },
+    { id: 'hov1-4-7-ordliste', type: 'text', content: '# Ordliste\n\n**Utviklingsforstyrrelse** - Tilstand som paavirker barnets utvikling.\n\n**ADHD** - Oppmerksomhetsforstyrrelse med hyperaktivitet.\n\n**Autisme** - Forstyrrelse som paavirker sosial kommunikasjon og adferd.\n\n**Spesialpedagogikk** - Tilpasset opplaering for barn med saerskilte behov.' },
+    { id: 'hov1-4-7-def', type: 'definition', title: 'Spesialpedagogikk', content: 'Spesialpedagogikk handler om tilrettelagt opplaering og stotte for barn og unge med saerskilte behov. Maalet er aa gi alle mulighet til aa laere og utvikle seg ut fra sine forutsetninger.' },
+    { id: 'hov1-4-7-example', type: 'example', title: 'Tilrettelegging i praksis', content: 'Markus har ADHD og strever med aa konsentrere seg i storsgruppe. Barnehagen tilpasser ved aa gi ham en fast plass naer voksne under samlingsstund, bruke visuelle stotte, og gi ham korte pauser med bevegelse. Markus fungerer mye bedre med denne tilretteleggingen.' },
+    { id: 'hov1-4-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Utviklingsforstyrrelser paavirker barns laering og utvikling\n- Vanlige diagnoser er ADHD og autisme\n- Spesialpedagogisk tilrettelegging gir bedre utviklingsmuligheter\n- Godt samarbeid med foreldre og faginstanser er viktig' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-4-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er ADHD?', solution: 'Oppmerksomhetsforstyrrelse med hyperaktivitet', multipleChoiceOptions: ['Oppmerksomhetsforstyrrelse med hyperaktivitet', 'En allergisk reaksjon', 'En smittsom sykdom', 'En type laevevanske'] },
+    { id: 'helseoppvekst-vg1-4-7-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er spesialpedagogikk?', solution: 'Tilpasset opplaering for barn med saerskilte behov', multipleChoiceOptions: ['Tilpasset opplaering for barn med saerskilte behov', 'Undervisning for spesielt flinke barn', 'Privat undervisning', 'Ekstraundervisning i helgene'] },
+    { id: 'helseoppvekst-vg1-4-7-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva kjennetegner autisme?', solution: 'Utfordringer med sosial kommunikasjon og adferd', multipleChoiceOptions: ['Utfordringer med sosial kommunikasjon og adferd', 'Problemer med aa gaa', 'Nedsatt horsel', 'Problemer med syn'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_5_6: TextbookChapter = {
+  id: 'helseoppvekst-vg1-5-6', courseId: 'helseoppvekst-vg1', chapterNumber: '5.6', title: 'Observasjon og kartlegging',
+  description: 'Laer om systematisk observasjon og kartlegging av brukeres behov, funksjonsnivaa og utvikling.',
+  estimatedMinutes: 60, competenceGoals: ['gjore rede for metoder for observasjon og kartlegging', 'bruke observasjon som verktoy i yrkesutovelsen'],
+  content: [
+    { id: 'hov1-5-6-intro', type: 'text', content: '# Observasjon og kartlegging\n\nObservasjon er et viktig verktoy for aa forstaa brukeres behov og funksjonsnivaa. Systematisk observasjon gir grunnlag for tilpasset hjelp og oppfolging.' },
+    { id: 'hov1-5-6-ordliste', type: 'text', content: '# Ordliste\n\n**Observasjon** - Aa systematisk iaktta og registrere det man ser.\n\n**Kartlegging** - Aa samle informasjon for aa faa oversikt over en situasjon.\n\n**ADL** - Activities of Daily Living, dagliglivets aktiviteter.\n\n**Funksjonsnivaa** - En persons evne til aa utfore ulike aktiviteter.' },
+    { id: 'hov1-5-6-def', type: 'definition', title: 'Observasjon', content: 'Observasjon i helse- og oppvekstarbeid er systematisk iakttakelse og registrering av det man ser, horer og oppfatter. Observasjon gir grunnlag for aa vurdere behov og tilpasse hjelpen.' },
+    { id: 'hov1-5-6-example', type: 'example', title: 'Observasjon i praksis', content: 'Helsefagarbeideren observerer at en beboer har begynt aa spise mindre til maaltidene. Hun noterer hvor mye han spiser over flere dager, observerer om han har problemer med aa tygge eller svelge, og snakker med ham om hvorfor han spiser mindre. Observasjonen dokumenteres og tas opp med sykepleier.' },
+    { id: 'hov1-5-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Observasjon er systematisk iakttakelse og registrering\n- God observasjon gir grunnlag for tilpasset hjelp\n- Observasjoner maa dokumenteres\n- Endringer bor rapporteres til ansvarlig personell' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-5-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er observasjon?', solution: 'Aa systematisk iaktta og registrere det man ser', multipleChoiceOptions: ['Aa systematisk iaktta og registrere det man ser', 'Aa ta blodprover', 'Aa gi medisiner', 'Aa skrive journal'] },
+    { id: 'helseoppvekst-vg1-5-6-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva betyr ADL?', solution: 'Activities of Daily Living - dagliglivets aktiviteter', multipleChoiceOptions: ['Activities of Daily Living - dagliglivets aktiviteter', 'Akutt daglig legevakt', 'Avansert diagnostisk laboratorium', 'Allmenn daglig losning'] },
+    { id: 'helseoppvekst-vg1-5-6-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hva bor du gjore naar du observerer endringer hos en bruker?', solution: 'Dokumentere observasjonen og rapportere til ansvarlig personell', multipleChoiceOptions: ['Dokumentere observasjonen og rapportere til ansvarlig personell', 'Vente og se om det gaar over', 'Bare fortelle til kollegene', 'Ikke gjore noe for det ikke er ditt ansvar'] },
+  ],
+};
+
+export const CHAPTER_HELSEOPPVEKST_VG1_5_7: TextbookChapter = {
+  id: 'helseoppvekst-vg1-5-7', courseId: 'helseoppvekst-vg1', chapterNumber: '5.7', title: 'Folkehelse og samfunnets ansvar',
+  description: 'Laer om folkehelse, sosiale helseforskjeller og samfunnets ansvar for aa fremme helse i befolkningen.',
+  estimatedMinutes: 60, competenceGoals: ['gjore rede for begrepet folkehelse', 'beskrive samfunnets ansvar for aa fremme helse'],
+  content: [
+    { id: 'hov1-5-7-intro', type: 'text', content: '# Folkehelse og samfunnets ansvar\n\nFolkehelse handler om helsetilstanden i befolkningen og hva som paavirker den. Samfunnet har ansvar for aa legge til rette for at alle kan leve sunne liv.' },
+    { id: 'hov1-5-7-ordliste', type: 'text', content: '# Ordliste\n\n**Folkehelse** - Helsetilstanden i befolkningen som helhet.\n\n**Sosiale helseforskjeller** - Systematiske forskjeller i helse mellom grupper.\n\n**Folkehelsearbeid** - Samfunnets innsats for aa fremme helse.\n\n**Helsedeterminanter** - Faktorer som paavirker helse.' },
+    { id: 'hov1-5-7-def', type: 'definition', title: 'Folkehelse', content: 'Folkehelse er befolkningens helsetilstand og fordelingen av helse i befolkningen. Folkehelsearbeid er samfunnets samlede innsats for aa pavirke faktorer som fremmer helse, forebygger sykdom og beskytter mot helsetrusler.' },
+    { id: 'hov1-5-7-example', type: 'example', title: 'Folkehelsearbeid i praksis', content: 'En kommune oppdager at barn i noen omraader har daarligere helse enn andre. De innforer gratis frukt i skolene, bygger flere lekeplasser, og styrker helsestasjonen i omraadet. Dette er eksempler paa tiltak som kan bidra til aa utjevne sosiale helseforskjeller.' },
+    { id: 'hov1-5-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Folkehelse handler om helsetilstanden i befolkningen\n- Det finnes sosiale helseforskjeller mellom grupper\n- Samfunnet har ansvar for aa fremme folkehelsen\n- Folkehelsearbeid foregaar paa mange arenaer' },
+  ],
+  exercises: [
+    { id: 'helseoppvekst-vg1-5-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er folkehelse?', solution: 'Helsetilstanden i befolkningen som helhet', multipleChoiceOptions: ['Helsetilstanden i befolkningen som helhet', 'Helsen til eldre mennesker', 'Sykehusenes kapasitet', 'Antall leger i landet'] },
+    { id: 'helseoppvekst-vg1-5-7-ex-2', type: 'multiple-choice', difficulty: 'medium', task: 'Hva er sosiale helseforskjeller?', solution: 'Systematiske forskjeller i helse mellom sosiale grupper', multipleChoiceOptions: ['Systematiske forskjeller i helse mellom sosiale grupper', 'Forskjeller mellom syk og frisk', 'Forskjeller mellom menn og kvinner', 'Forskjeller mellom land'] },
+    { id: 'helseoppvekst-vg1-5-7-ex-3', type: 'multiple-choice', difficulty: 'vanskelig', task: 'Hvordan kan samfunnet utjevne sosiale helseforskjeller?', solution: 'Gjennom tiltak som gir alle like muligheter for god helse', multipleChoiceOptions: ['Gjennom tiltak som gir alle like muligheter for god helse', 'Ved aa gi alle samme medisin', 'Ved aa fjerne alle sykehus', 'Ved aa nekte hjelp til noen grupper'] },
+  ],
+};
+
 
 // Eksporter alle kapitler som et objekt
 export const HELSEOPPVEKST_VG1_CHAPTERS: Record<string, TextbookChapter> = {
@@ -4077,28 +7791,55 @@ export const HELSEOPPVEKST_VG1_CHAPTERS: Record<string, TextbookChapter> = {
   'helseoppvekst-vg1-1-2': CHAPTER_HELSEOPPVEKST_VG1_1_2,
   'helseoppvekst-vg1-1-3': CHAPTER_HELSEOPPVEKST_VG1_1_3,
   'helseoppvekst-vg1-1-4': CHAPTER_HELSEOPPVEKST_VG1_1_4,
+  'helseoppvekst-vg1-1-5': CHAPTER_HELSEOPPVEKST_VG1_1_5,
+  'helseoppvekst-vg1-1-6': CHAPTER_HELSEOPPVEKST_VG1_1_6,
+  'helseoppvekst-vg1-1-7': CHAPTER_HELSEOPPVEKST_VG1_1_7,
   'helseoppvekst-vg1-2-1': CHAPTER_HELSEOPPVEKST_VG1_2_1,
   'helseoppvekst-vg1-2-2': CHAPTER_HELSEOPPVEKST_VG1_2_2,
   'helseoppvekst-vg1-2-3': CHAPTER_HELSEOPPVEKST_VG1_2_3,
   'helseoppvekst-vg1-2-4': CHAPTER_HELSEOPPVEKST_VG1_2_4,
   'helseoppvekst-vg1-2-5': CHAPTER_HELSEOPPVEKST_VG1_2_5,
+  'helseoppvekst-vg1-2-6': CHAPTER_HELSEOPPVEKST_VG1_2_6,
+  'helseoppvekst-vg1-2-7': CHAPTER_HELSEOPPVEKST_VG1_2_7,
+  'helseoppvekst-vg1-2-8': CHAPTER_HELSEOPPVEKST_VG1_2_8,
   'helseoppvekst-vg1-3-1': CHAPTER_HELSEOPPVEKST_VG1_3_1,
   'helseoppvekst-vg1-3-2': CHAPTER_HELSEOPPVEKST_VG1_3_2,
   'helseoppvekst-vg1-3-3': CHAPTER_HELSEOPPVEKST_VG1_3_3,
   'helseoppvekst-vg1-3-4': CHAPTER_HELSEOPPVEKST_VG1_3_4,
+  'helseoppvekst-vg1-3-5': CHAPTER_HELSEOPPVEKST_VG1_3_5,
+  'helseoppvekst-vg1-3-6': CHAPTER_HELSEOPPVEKST_VG1_3_6,
+  'helseoppvekst-vg1-3-7': CHAPTER_HELSEOPPVEKST_VG1_3_7,
   'helseoppvekst-vg1-4-1': CHAPTER_HELSEOPPVEKST_VG1_4_1,
   'helseoppvekst-vg1-4-2': CHAPTER_HELSEOPPVEKST_VG1_4_2,
   'helseoppvekst-vg1-4-3': CHAPTER_HELSEOPPVEKST_VG1_4_3,
   'helseoppvekst-vg1-4-4': CHAPTER_HELSEOPPVEKST_VG1_4_4,
   'helseoppvekst-vg1-4-5': CHAPTER_HELSEOPPVEKST_VG1_4_5,
+  'helseoppvekst-vg1-4-6': CHAPTER_HELSEOPPVEKST_VG1_4_6,
+  'helseoppvekst-vg1-4-7': CHAPTER_HELSEOPPVEKST_VG1_4_7,
   'helseoppvekst-vg1-5-1': CHAPTER_HELSEOPPVEKST_VG1_5_1,
   'helseoppvekst-vg1-5-2': CHAPTER_HELSEOPPVEKST_VG1_5_2,
   'helseoppvekst-vg1-5-3': CHAPTER_HELSEOPPVEKST_VG1_5_3,
   'helseoppvekst-vg1-5-4': CHAPTER_HELSEOPPVEKST_VG1_5_4,
   'helseoppvekst-vg1-5-5': CHAPTER_HELSEOPPVEKST_VG1_5_5,
+  'helseoppvekst-vg1-5-6': CHAPTER_HELSEOPPVEKST_VG1_5_6,
+  'helseoppvekst-vg1-5-7': CHAPTER_HELSEOPPVEKST_VG1_5_7,
   'helseoppvekst-vg1-6-1': CHAPTER_HELSEOPPVEKST_VG1_6_1,
   'helseoppvekst-vg1-6-2': CHAPTER_HELSEOPPVEKST_VG1_6_2,
   'helseoppvekst-vg1-6-3': CHAPTER_HELSEOPPVEKST_VG1_6_3,
+  'helseoppvekst-vg1-6-4': CHAPTER_HELSEOPPVEKST_VG1_6_4,
+  'helseoppvekst-vg1-6-5': CHAPTER_HELSEOPPVEKST_VG1_6_5,
+  'helseoppvekst-vg1-6-6': CHAPTER_HELSEOPPVEKST_VG1_6_6,
+  'helseoppvekst-vg1-6-7': CHAPTER_HELSEOPPVEKST_VG1_6_7,
   'helseoppvekst-vg1-7-1': CHAPTER_HELSEOPPVEKST_VG1_7_1,
   'helseoppvekst-vg1-7-2': CHAPTER_HELSEOPPVEKST_VG1_7_2,
+  'helseoppvekst-vg1-7-3': CHAPTER_HELSEOPPVEKST_VG1_7_3,
+  'helseoppvekst-vg1-7-4': CHAPTER_HELSEOPPVEKST_VG1_7_4,
+  'helseoppvekst-vg1-7-5': CHAPTER_HELSEOPPVEKST_VG1_7_5,
+  'helseoppvekst-vg1-7-6': CHAPTER_HELSEOPPVEKST_VG1_7_6,
+  'helseoppvekst-vg1-7-7': CHAPTER_HELSEOPPVEKST_VG1_7_7,
+  'helseoppvekst-vg1-8-1': CHAPTER_HELSEOPPVEKST_VG1_8_1,
+  'helseoppvekst-vg1-8-2': CHAPTER_HELSEOPPVEKST_VG1_8_2,
+  'helseoppvekst-vg1-8-3': CHAPTER_HELSEOPPVEKST_VG1_8_3,
+  'helseoppvekst-vg1-8-4': CHAPTER_HELSEOPPVEKST_VG1_8_4,
+  'helseoppvekst-vg1-8-5': CHAPTER_HELSEOPPVEKST_VG1_8_5,
 };
