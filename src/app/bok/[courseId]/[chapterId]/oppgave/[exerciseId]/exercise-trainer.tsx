@@ -1093,12 +1093,20 @@ export function ExerciseTrainer({
                     <div />
                   </div>
 
-                  {/* Right column: −, komma, ⌫ */}
-                  <div className="grid grid-cols-1 gap-1.5">
+                  {/* Right column: +, −, komma, ⌫ in 2x2 grid */}
+                  <div className="grid grid-cols-2 gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => insertAtCursor('+')}
+                      className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      disabled={!isActive}
+                    >
+                      +
+                    </button>
                     <button
                       type="button"
                       onClick={() => insertAtCursor('-')}
-                      className="w-14 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
                       disabled={!isActive}
                     >
                       −
@@ -1106,7 +1114,7 @@ export function ExerciseTrainer({
                     <button
                       type="button"
                       onClick={() => insertAtCursor(',')}
-                      className="w-14 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                      className="w-12 h-12 text-2xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
                       disabled={!isActive}
                     >
                       ,
@@ -1114,7 +1122,7 @@ export function ExerciseTrainer({
                     <button
                       type="button"
                       onClick={deleteAtCursor}
-                      className="w-14 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
+                      className="w-12 h-12 text-xl rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation flex items-center justify-center"
                       disabled={!isActive}
                     >
                       ⌫
