@@ -80,6 +80,20 @@ Relasjonskompetanse handler om evnen til aa:
       content: 'Relasjonskompetanse er evnen til aa etablere, utvikle og opprettholde gode relasjoner. Det omfatter ferdigheter som aktiv lytting, empati, tydelighet, grensesetting og evne til aa haandtere konflikter. Relasjonskompetanse kan laeres og utvikles gjennom bevisst oeving og refleksjon.'
     },
     {
+      id: 'helseoppvekst-vg1-8-1-image-empati',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-8-empati.png',
+      alt: 'Illustrasjon av empati med de tre komponentene: kognitiv empati, affektiv empati og handlingsempati',
+      caption: 'Empati har tre komponenter: a forstaa, a foele med og a handle hensiktsmessig',
+    },
+    {
+      id: 'helseoppvekst-vg1-8-1-image-aktiv-lytting',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-8-aktiv-lytting.png',
+      alt: 'Illustrasjon av aktiv lytting med teknikker som oyekontakt, nikking, speiling og oppfolgende sporsmaal',
+      caption: 'Aktiv lytting handler om a vise at du horer og forstar det den andre sier',
+    },
+    {
       id: 'hov1-8-1-empati',
       type: 'text',
       content: `# Empati i praksis
@@ -417,6 +431,13 @@ Konflikter kan ogsaa vaere konstruktive:
       type: 'definition',
       title: 'Mediering',
       content: 'Mediering er en metode for konfliktloesning der en noytral tredjeperson hjelper de involverte partene med aa finne en loesning selv. Mediatoren tar ikke parti, men legger til rette for dialog og hjelper partene aa forstaa hverandres perspektiver.'
+    },
+    {
+      id: 'helseoppvekst-vg1-8-2-image-konflikttrappen',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-8-konflikttrappen.png',
+      alt: 'Konflikttrappen som viser hvordan konflikter kan eskalere fra uenighet til aapen fiendtlighet',
+      caption: 'Konflikttrappen viser hvordan konflikter kan eskalere - tidlig intervensjon er viktig',
     },
     {
       id: 'hov1-8-2-forebygging',
@@ -1427,6 +1448,13 @@ Nonverbal kommunikasjon er alt vi uttrykker uten ord:
       type: 'definition',
       title: 'Prosodi',
       content: 'Prosodi handler om hvordan stemmen brukes - melodi, tempo, styrke og pauser. Samme setning kan faa helt ulik betydning avhengig av hvordan den sies. Prosodi formidler foelelser og holdninger som ordene alene ikke fanger.'
+    },
+    {
+      id: 'helseoppvekst-vg1-8-5-image-nonverbal',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-8-nonverbal.png',
+      alt: 'Illustrasjon av nonverbal kommunikasjon: ansiktsuttrykk, oyekontakt, kroppsholdning, gester og fysisk avstand',
+      caption: 'Nonverbal kommunikasjon omfatter alt vi uttrykker uten ord',
     },
     {
       id: 'hov1-8-5-elementer',

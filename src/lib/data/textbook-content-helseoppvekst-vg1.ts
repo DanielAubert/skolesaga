@@ -763,6 +763,13 @@ Respons fra mottaker som viser om budskapet er forstatt.
       content: 'Aktiv lytting er en kommunikasjonsferdighet der du viser med ord og kroppssprak at du horer, forstar og er interessert i det den andre sier. Det innebarer a gi full oppmerksomhet, ikke avbryte, stille oppfolgende sporsmål og bekrefte det du har hort.',
     },
     {
+      id: 'helseoppvekst-vg1-1-3-image-kommunikasjonsmodell',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-1-kommunikasjonsmodell.png',
+      alt: 'Illustrasjon av kommunikasjonsprosessen med avsender, budskap, kanal, mottaker og tilbakemelding',
+      caption: 'Kommunikasjonsmodellen viser hvordan informasjon flyter mellom avsender og mottaker',
+    },
+    {
       id: 'hov1-1-3-verbal',
       type: 'text',
       content: `# Verbal og nonverbal kommunikasjon
@@ -1271,6 +1278,20 @@ Hele kroppen som fungerer som en helhet. Alle organsystemene samarbeider for a h
       type: 'definition',
       title: 'Homeostase',
       content: 'Homeostase er kroppens evne til a opprettholde et stabilt indre miljo til tross for endringer i omgivelsene. Kroppen regulerer blant annet temperatur (rundt 37 grader), blodtrykk, blodsukker, pH og vaeske­balanse. Nar homeostase forstyrres, oppstar sykdom.',
+    },
+    {
+      id: 'helseoppvekst-vg1-2-1-image-organsystemer',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-2-organsystemer.png',
+      alt: 'Oversikt over kroppens viktigste organsystemer og deres funksjoner',
+      caption: 'Kroppens organsystemer samarbeider for a holde oss i live og friske',
+    },
+    {
+      id: 'helseoppvekst-vg1-2-1-image-maslows-pyramide',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-2-maslows-pyramide.png',
+      alt: 'Maslows behovspyramide med fem nivaer fra fysiologiske behov til selvrealisering',
+      caption: 'Maslows behovspyramide viser hvordan menneskelige behov er organisert hierarkisk',
     },
     {
       id: 'hov1-2-1-organsystemer',
@@ -1810,6 +1831,13 @@ Vi har milliarder av mikroorganismer pa huden og i kroppen som er nyttige og bes
       content: 'Smittekjeden beskriver alle leddene som ma vaere til stede for at smitte skal kunne skje: smittestoff, smittekilde, utgangsport, smittevei, inngangsport og mottakelig vert. Hvis vi bryter ett ledd i kjeden, kan vi hindre smitte.',
     },
     {
+      id: 'helseoppvekst-vg1-2-2-image-smittekjeden',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-2-smittekjeden.png',
+      alt: 'Illustrasjon av smittekjeden med alle seks ledd: smittestoff, smittekilde, utgangsport, smittevei, inngangsport og mottakelig vert',
+      caption: 'Smittekjeden viser hvordan smitte spres - ved a bryte ett ledd kan vi hindre smitte',
+    },
+    {
       id: 'hov1-2-2-kjeden',
       type: 'text',
       content: `# Smittekjeden
@@ -2302,6 +2330,13 @@ A kjenne lovverket beskytter bade brukerne og deg som ansatt. Lovene sikrer at m
       type: 'definition',
       title: 'Taushetsplikt',
       content: 'Taushetsplikt er plikten til a hindre at uvedkommende far tilgang til opplysninger om folks personlige forhold. For helsepersonell er taushetsplikten lovfestet i helsepersonelloven § 21. Taushetsplikten gjelder ogsa for elever og laerlinger i helse- og oppvekstfag.',
+    },
+    {
+      id: 'helseoppvekst-vg1-3-1-image-taushetsplikt',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-3-taushetsplikt.png',
+      alt: 'Illustrasjon av taushetsplikt som viser hva som er omfattet og unntak',
+      caption: 'Taushetsplikten beskytter personopplysninger, men har viktige unntak ved fare eller meldeplikt',
     },
     {
       id: 'hov1-3-1-lover',
@@ -2817,6 +2852,13 @@ I yrkeslivet betyr dette at du ma:
       content: 'En situasjon der du ma velge mellom to eller flere handlingsalternativer som alle har bade positive og negative sider. Det finnes ikke ett opplagt riktig svar, og uansett hva du velger vil noe verdifullt kunne ga tapt.',
     },
     {
+      id: 'helseoppvekst-vg1-1-4-image-etiske-prinsipper',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-1-etiske-prinsipper.png',
+      alt: 'Illustrasjon av de fire etiske prinsippene: velgjorenhet, ikke-skade, autonomi og rettferdighet',
+      caption: 'De fire grunnleggende etiske prinsippene i helse- og oppvekstarbeid',
+    },
+    {
       id: 'hov1-1-4-3',
       type: 'text',
       content: `# Yrkesetiske retningslinjer
@@ -3064,6 +3106,13 @@ Helsedirektoratet gir kostrad som skal hjelpe befolkningen med a ta sunne valg:
       type: 'definition',
       title: 'Naeringsstoffer',
       content: 'Stoffer i maten som kroppen trenger for a fungere. Deles inn i makronaeringsstoffer (karbohydrater, proteiner og fett) som gir energi, og mikronaeringsstoffer (vitaminer og mineraler) som er nodvendige for kroppens prosesser.',
+    },
+    {
+      id: 'helseoppvekst-vg1-2-3-image-kostholdshjulet',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-2-kostholdshjulet.png',
+      alt: 'Kostholdshjulet som viser et balansert kosthold med ulike matgrupper',
+      caption: 'Kostholdshjulet viser anbefalte proporsjoner av ulike matgrupper for et sunt kosthold',
     },
     {
       id: 'hov1-2-3-3',
@@ -3991,6 +4040,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_3: TextbookChapter = {
       content: 'En risikovurdering er en systematisk gjennomgang av hva som kan gaa galt paa arbeidsplassen, hvor sannsynlig det er at det skjer, og hvilke konsekvenser det kan faa. Risikovurderingen skal vaere skriftlig og oppdateres jevnlig. Den skal resultere i konkrete tiltak for aa redusere risikoen til et akseptabelt nivaa.',
     },
     {
+      id: 'helseoppvekst-vg1-3-3-image-hms-sirkelen',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-3-hms-sirkelen.png',
+      alt: 'HMS-sirkelen som viser systematisk HMS-arbeid med planlegging, gjennomforing, kontroll og forbedring',
+      caption: 'HMS-sirkelen viser hvordan systematisk HMS-arbeid gjennomfores pa arbeidsplassen',
+    },
+    {
       id: 'hov1-3-3-3',
       type: 'text',
       content: 'Ergonomi handler om aa tilpasse arbeidsforholdene til mennesket for aa forebygge belastningsskader. I helse- og oppvekstsektoren er ergonomi spesielt viktig fordi mange arbeidsoppgaver innebaeror fysiske belastninger. Ansatte i eldreomsorgen maa ofte hjelpe pasienter med aa flytte seg, noe som kan fore til ryggskader dersom det gjores feil. Barnehageansatte arbeider mye i lav hoyde, noe som belaster kneer og rygg. Viktige ergonomiske prinsipper inkluderer: bruk av hjelpemidler som lofteutstyr, riktig lofteteknikk med boya kneer og rett rygg, variasjon i arbeidsstillinger, og tilpasning av arbeidsplassen til den enkelte.',
@@ -4327,6 +4383,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_1: TextbookChapter = {
       type: 'definition',
       title: 'Tilknytning',
       content: 'Tilknytning er det sterke folelsesmessige baandet som dannes mellom barnet og dets naermeste omsorgspersoner. Psykologen John Bowlby utviklet tilknytningsteorien, som sier at barn har et medfodt behov for naerhet og trygghet. Trygg tilknytning utvikles naar omsorgspersonen er sensitiv, tilgjengelig og responderer paa barnets behov. Barn med trygg tilknytning bruker omsorgspersonen som en "trygg base" for utforskning av verden, og soker troest hos dem naar de er redde eller lei seg.',
+    },
+    {
+      id: 'helseoppvekst-vg1-4-1-image-barns-utvikling',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-4-barns-utvikling.png',
+      alt: 'Oversikt over barns utvikling fra 0-6 ar med viktige milepaler innen motorikk, sprak og sosial utvikling',
+      caption: 'Barns utvikling fra fodsel til skolealder med viktige milepaler',
     },
     {
       id: 'hov1-4-1-3',
@@ -4670,6 +4733,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_3: TextbookChapter = {
       type: 'definition',
       title: 'Identitet',
       content: 'Identitet handler om hvem du er, hva du staar for og hvor du horer til. Psykologen Erik Erikson beskrev ungdomstiden som en periode preget av "identitet versus rolleforvirring". Ungdom utforsker ulike roller, verdier og muligheter for aa finne ut hvem de er. Identitetsutviklingen omfatter mange dimensjoner: personlig identitet (hvem er jeg?), sosial identitet (hvilke grupper tilhorer jeg?), kulturell identitet (hvilken kultur og tradisjon er min?), og seksuell identitet (hvem er jeg tiltrukket av?). En vellykket identitetsutvikling forer til en stabil folelse av hvem man er.',
+    },
+    {
+      id: 'helseoppvekst-vg1-4-3-image-eriksons-stadier',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-4-erikson.png',
+      alt: 'Eriksons psykososiale utviklingsstadier med fokus pa ungdomstidens identitetsutvikling',
+      caption: 'Eriksons teori beskriver ungdomstiden som en periode med identitetsutvikling',
     },
     {
       id: 'hov1-4-3-3',
@@ -5822,6 +5892,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_4: TextbookChapter = {
       content: 'Instrumentell ADL omfatter mer sammensatte aktiviteter som kreves for aa leve selvstendig i samfunnet. Eksempler er aa lage mat, handle, vaske klær, gjore rent, haandtere okonomi, bruke telefon og organisere medisiner. IADL krever mer kognitive ferdigheter enn PADL og er ofte de forste funksjonene som svekkes ved begynnende demens.'
     },
     {
+      id: 'helseoppvekst-vg1-5-4-image-adl',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-5-adl.png',
+      alt: 'Oversikt over aktiviteter i dagliglivet (ADL) med eksempler pa PADL og IADL',
+      caption: 'ADL-aktiviteter deles inn i personlig ADL (PADL) og instrumentell ADL (IADL)',
+    },
+    {
       id: 'hov1-5-4-4',
       type: 'example',
       title: 'ADL-kartlegging i praksis',
@@ -6016,6 +6093,20 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_5: TextbookChapter = {
       type: 'definition',
       title: 'ABCDE-prinsippet',
       content: 'ABCDE er en systematisk metode for aa vurdere og behandle akutt syke eller skadde pasienter. A = Airway (luftveier) - sjekk at luftveiene er aapne. B = Breathing (pust) - vurder om personen puster normalt. C = Circulation (sirkulasjon) - sjekk puls og se etter alvorlig blodning. D = Disability (bevissthet) - vurder bevissthetsnivaa. E = Exposure (undersokelse) - undersok hele kroppen for skader. Man starter alltid med A og gaar videre til neste bokstav forst naar det foregaaende er ivaretatt.'
+    },
+    {
+      id: 'helseoppvekst-vg1-5-5-image-abcde',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-5-abcde.png',
+      alt: 'ABCDE-prinsippet for systematisk vurdering av akutt syke: Airway, Breathing, Circulation, Disability, Exposure',
+      caption: 'ABCDE-prinsippet gir en systematisk tilnaerming til akutte situasjoner',
+    },
+    {
+      id: 'helseoppvekst-vg1-5-5-image-hlr',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-5-hlr.png',
+      alt: 'Illustrasjon av hjerte-lunge-redning (HLR) med brystkompresjoner og innblasinger',
+      caption: 'HLR bestar av 30 brystkompresjoner etterfulgt av 2 innblasinger',
     },
     {
       id: 'hov1-5-5-3',
@@ -6590,6 +6681,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_3: TextbookChapter = {
       content: 'Velferdsteknologi deles gjerne inn i fire hovedkategorier: 1) Trygghets- og sikkerhetsteknologi, som trygghetsalarmer, fallsensorer og GPS-sporing. 2) Kompensasjons- og velvaereteknologi, som elektroniske medisindispensere, robotstovsuger og smarthusteknologi. 3) Teknologi for sosial kontakt, som videokommunikasjon og sosiale medier tilpasset eldre. 4) Teknologi for behandling og pleie, som digitalt tilsyn og elektronisk pasientjournal.'
     },
     {
+      id: 'helseoppvekst-vg1-6-3-image-velferdsteknologi',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-6-velferdsteknologi.png',
+      alt: 'Oversikt over ulike typer velferdsteknologi: trygghetsalarmer, GPS-sporing, medisindispensere og kommunikasjonsteknologi',
+      caption: 'Velferdsteknologi kan bidra til okt trygghet og selvstendighet i hverdagen',
+    },
+    {
       id: 'hov1-6-3-3',
       type: 'example',
       title: 'Velferdsteknologi i bruk',
@@ -6786,6 +6884,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_5: TextbookChapter = {
     { id: 'hov1-6-5-ordliste', type: 'text', content: '## Ordliste\n\n**Kildekritikk**: Metode for aa vurdere paalitelighet.\n**Primaerkilde**: Original kilde.\n**Sekundaerkilde**: Kilde som refererer til primaerkilder.\n**Falske nyheter**: Bevisst feilinformasjon.\n**Algoritme**: Regler som bestemmer innhold du ser.\n**Ekkokammer**: Bare eksponeres for bekreftende informasjon.' },
     { id: 'hov1-6-5-def-kildekritikk', type: 'definition', title: 'Kildekritikk', content: 'Systematisk metode for aa vurdere troverdigheten til informasjonskilder.' },
     { id: 'hov1-6-5-def-algoritme', type: 'definition', title: 'Algoritmer og filterbobler', content: 'Algoritmer styrer hva du ser paa sosiale medier. Dette kan skape filterbobler der du bare ser bekreftende informasjon.' },
+    {
+      id: 'helseoppvekst-vg1-6-5-image-tone-modellen',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-6-tone-modellen.png',
+      alt: 'TONE-modellen for kildekritikk: Troverdighet, Objektivitet, Noeyaktighet, Egnethet',
+      caption: 'TONE-modellen hjelper deg a vurdere om en kilde er palitelig',
+    },
     { id: 'hov1-6-5-vurdering', type: 'text', content: '# TONE-modellen\n\n**T - Troverdighet**: Hvem har skrevet? Kompetanse?\n**O - Objektivitet**: Balansert eller ensidig?\n**N - Nooyaktighet**: Kildehenvisninger?\n**E - Egnethet**: Relevant? Oppdatert?' },
     { id: 'hov1-6-5-example', type: 'example', title: 'Kildekritikk i praksis', problem: 'Paarorende sier de leste paa Facebook at naturmedisin kurerer demens.', solution: 'Vis forstaelse, still kritiske sporsmaal sammen, vis til Helsenorge og FHI, tilby dialog med legen.' },
     { id: 'hov1-6-5-tip', type: 'tip', title: 'Unngaa feilinformasjon', content: 'Sjekk flere kilder. Bruk Helsenorge.no og FHI. Vaer kritisk til sensasjonelle paastander.' },
@@ -7073,6 +7178,13 @@ export const CHAPTER_HELSEOPPVEKST_VG1_7_2: TextbookChapter = {
       content: 'Hvis du onsker aa studere videre paa hooyskole eller universitet, kan du ta paabygning til generell studiekompetanse (VG3 paabygning) etter VG2. Dette gir deg muligheten til aa soeke paa hooyere utdanning som sykepleier, vernepleier, barnehagelærer, sosionom, ergoterapeut eller fysioterapeut. Du kan ogsaa ta paabygning etter fullfort fagbrev.'
     },
     {
+      id: 'helseoppvekst-vg1-7-2-image-utdanningsveier',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-7-utdanningsveier.png',
+      alt: 'Oversikt over utdanningsveier etter VG1 helse- og oppvekstfag, inkludert fagbrev og videre studier',
+      caption: 'Utdanningsveier i helse- og oppvekstsektoren - fra VG1 til fagbrev eller hoyskoleutdanning',
+    },
+    {
       id: 'hov1-7-2-4',
       type: 'example',
       title: 'Ulike karriereveier etter VG1',
@@ -7271,6 +7383,13 @@ Refleksjon er en grunnleggende ferdighet for alle som arbeider med mennesker. De
       type: 'definition',
       title: 'Egenvurdering',
       content: 'Egenvurdering innebaeerer aa systematisk vurdere egen kompetanse, prestasjoner og utvikling opp mot definerte maal eller standarder. Det handler om aa identifisere hva du mestrer godt, hva du trenger aa forbedre, og hvordan du kan jobbe videre med utviklingen din.',
+    },
+    {
+      id: 'helseoppvekst-vg1-7-3-image-gibbs-refleksjon',
+      type: 'image',
+      src: '/images/textbook/helseoppvekst-vg1/helseoppvekst-vg1-7-gibbs-refleksjon.png',
+      alt: 'Gibbs refleksjonssirkel med seks trinn: Beskrivelse, Folelser, Vurdering, Analyse, Konklusjon og Handlingsplan',
+      caption: 'Gibbs refleksjonssirkel er et verktoy for strukturert refleksjon over egne erfaringer',
     },
     {
       id: 'hov1-7-3-def-kompetanse',
