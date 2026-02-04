@@ -219,14 +219,17 @@ En profesjonell relasjon kan vaere varm og naer, men har tydelige rammer. Du bry
 - **Relasjonskompetanse** er evnen til aa bygge, utvikle og opprettholde gode relasjoner med brukere og kollegaer.
 - **Empati** har tre komponenter: kognitiv (forstaa), affektiv (foele med) og handlingsempati (respondere hensiktsmessig).
 - **Tillit** bygges gjennom paalitelighet, aerlighet, respekt, kompetanse og konsekvent oppfoersel.
-- **Profesjonelle grenser** handler om aa balansere naerhet og avstand, og skille mellom privat og profesjonell rolle.
-
-# Se ogsaa
-
-- Kapittel 1.3: Kommunikasjon og samhandling
-- Kapittel 8.2: Konflikthaandtering
-- Kapittel 8.4: Samhandling med paaroerende
-- Kapittel 8.5: Nonverbal kommunikasjon og kroppssprak`
+- **Profesjonelle grenser** handler om aa balansere naerhet og avstand, og skille mellom privat og profesjonell rolle.`
+    },
+    {
+      id: 'helseoppvekst-vg1-8-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Grunnleggende kommunikasjonsferdigheter
+- [Kapittel 8.2: Konflikthaandtering](/kurs/helseoppvekst-vg1/kapittel/8-2) - Haandtere konflikter konstruktivt
+- [Kapittel 8.4: Samhandling med paaroerende](/kurs/helseoppvekst-vg1/kapittel/8-4) - Samarbeid med familie og naerstaende
+- [Kapittel 8.5: Nonverbal kommunikasjon og kroppssprak](/kurs/helseoppvekst-vg1/kapittel/8-5) - Kroppssprak og signaler`,
     }
   ],
   exercises: [
@@ -538,13 +541,16 @@ Ikke bli defensiv. Pust rolig og vis at du tar henne paa alvor.
 - **Forebygging** gjennom god kommunikasjon, klare rutiner og tidlig intervensjon
 - **Konflikthaandtering** foelger trinnene: roe ned, lytte, identifisere behov, finne loesninger, avtale oppfoelging
 - **De-eskalering** handler om aa senke temperaturen og aapne for dialog
-- **Sikkerhet** kommer alltid foerst hvis situasjoner eskalerer
-
-# Se ogsaa
-
-- Kapittel 8.1: Relasjonsferdigheter og empati
-- Kapittel 8.3: Sosial og kulturell kompetanse
-- Kapittel 1.3: Kommunikasjon og samhandling`
+- **Sikkerhet** kommer alltid foerst hvis situasjoner eskalerer`
+    },
+    {
+      id: 'helseoppvekst-vg1-8-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Grunnleggende kommunikasjonsferdigheter
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Bygging av gode relasjoner
+- [Kapittel 8.3: Sosial og kulturell kompetanse](/kurs/helseoppvekst-vg1/kapittel/8-3) - Kulturell bevissthet i konflikter`,
     }
   ],
   exercises: [
@@ -871,13 +877,17 @@ Du kan ikke vite alt om alle kulturer. Det viktigste er:
 - **Start med deg selv** - vaer bevisst egen kulturell bagasje og forutinntatthet
 - **Unngaa stereotypier** - moete hvert menneske som et individ
 - **Kommunikasjon** krever tilpasning til spraak, kroppssprak og kulturelle normer
-- **Spoer og lytt** - kulturell ydmykhet er viktigere enn aa vite alt
-
-# Se ogsaa
-
-- Kapittel 8.1: Relasjonsferdigheter og empati
-- Kapittel 8.4: Samhandling med paaroerende
-- Kapittel 1.4: Etikk og verdier i yrkesutoevelsen`
+- **Spoer og lytt** - kulturell ydmykhet er viktigere enn aa vite alt`
+    },
+    {
+      id: 'helseoppvekst-vg1-8-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.4: Etikk og verdier i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske prinsipper og verdier
+- [Kapittel 6.2: Kulturforstaelse og mangfold](/kurs/helseoppvekst-vg1/kapittel/6-2) - Kulturelt mangfold i sektoren
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Empatisk kommunikasjon
+- [Kapittel 8.4: Samhandling med paaroerende](/kurs/helseoppvekst-vg1/kapittel/8-4) - Samarbeid med familier`,
     }
   ],
   exercises: [
@@ -1214,13 +1224,17 @@ Mange paaroerende baerer stor omsorgsbelastning og kan selv trenge stoette.
 - **Godt samarbeid** bygger paa aapen kommunikasjon, anerkjennelse og tydelige rammer
 - **Trepartsamarbeid** mellom bruker, paaroerende og tjeneste krever balanse
 - **Brukerens behov** staar i sentrum naar interesser maa veies mot hverandre
-- **Paarorendes egen helse** boer ogsaa ivaretas
-
-# Se ogsaa
-
-- Kapittel 8.1: Relasjonsferdigheter og empati
-- Kapittel 8.2: Konflikthaandtering
-- Kapittel 3.1: Lover og rettigheter`
+- **Paarorendes egen helse** boer ogsaa ivaretas`
+    },
+    {
+      id: 'helseoppvekst-vg1-8-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 3.1: Lover og rettigheter](/kurs/helseoppvekst-vg1/kapittel/3-1) - Pasientrettigheter og taushetsplikt
+- [Kapittel 3.2: Taushetsplikt og personvern](/kurs/helseoppvekst-vg1/kapittel/3-2) - Informasjonsdeling med paaroerende
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Bygge tillit i relasjoner
+- [Kapittel 8.2: Konflikthaandtering](/kurs/helseoppvekst-vg1/kapittel/8-2) - Haandtere uenigheter`,
     }
   ],
   exercises: [
@@ -1558,13 +1572,16 @@ Vaer naer nok til aa gi trygghet, men ikke for paatrengende.
 - **Elementer** inkluderer ansiktsuttrykk, oeyekontakt, kroppsholdning, gester, beroring og stemmebruk
 - **Kongruens** mellom ord og kroppssprak er viktig for troverdig kommunikasjon
 - **Bevisst bruk** av kroppssprak gjoer deg til en bedre kommunikator
-- **Kulturelle forskjeller** finnes og maa respekteres
-
-# Se ogsaa
-
-- Kapittel 1.3: Kommunikasjon og samhandling
-- Kapittel 8.1: Relasjonsferdigheter og empati
-- Kapittel 8.3: Sosial og kulturell kompetanse`
+- **Kulturelle forskjeller** finnes og maa respekteres`
+    },
+    {
+      id: 'helseoppvekst-vg1-8-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Verbal kommunikasjon og samhandling
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Bygge relasjoner gjennom kommunikasjon
+- [Kapittel 8.3: Sosial og kulturell kompetanse](/kurs/helseoppvekst-vg1/kapittel/8-3) - Kulturelle forskjeller i kommunikasjon`,
     }
   ],
   exercises: [

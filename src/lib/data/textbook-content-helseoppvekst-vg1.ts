@@ -187,6 +187,38 @@ Som yrkesutover ma du:
 
 **Laering:** Gode holdninger i praksis handler om a mote hvert menneske som et unikt individ med egne behov, onsker og rettigheter.`,
     },
+    {
+      id: 'helseoppvekst-vg1-1-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Helse- og oppvekstsektoren omfatter helsetjenester, omsorgstjenester og tjenester for barn og unge
+- Sektoren deles i primaerhelsetjenesten (kommunen) og spesialisthelsetjenesten (sykehus)
+- Med fagbrev kan du bli helsefagarbeider, barne- og ungdomsarbeider eller portorfagarbeider
+
+**Sentrale begreper:**
+- Helse- og oppvekstsektoren: Arbeidslivet som omfatter helse-, omsorgs- og oppveksttjenester
+- Primaerhelsetjenesten: Kommunale helsetjenester som fastlege og hjemmesykepleie
+- Spesialisthelsetjenesten: Sykehus og spesialiserte helsetjenester
+- Menneskeverd: Den iboende verdien alle mennesker har
+
+**Tips for praksis:**
+- Mot alle mennesker med respekt og verdighet
+- Vaer bevisst egne holdninger og fordommer
+- Reflekter over hvordan verdier pavirker handlingene dine`,
+    },
+    {
+      id: 'helseoppvekst-vg1-1-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.2: Helsefremmende arbeid](/kurs/helseoppvekst-vg1/kapittel/1-2) - Faktorer som pavirker helse
+- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Kommunikasjon i yrkesutovelsen
+- [Kapittel 1.4: Etikk og verdier i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske prinsipper
+- [Kapittel 1.7: Organisering av helse- og oppvekstsektoren](/kurs/helseoppvekst-vg1/kapittel/1-7) - Sektorens organisering`,
+    },
   ],
   exercises: [
     {
@@ -477,6 +509,39 @@ Tiltak for a begrense konsekvenser av etablert sykdom.
 - Turstien legger til rette for at flere kan vaere fysisk aktive
 
 Et godt folkehelsearbeid kombinerer bade forebyggende og helsefremmende tiltak.`,
+    },
+    {
+      id: 'helseoppvekst-vg1-1-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Helse er mer enn fravaer av sykdom - det inkluderer fysisk, psykisk og sosialt velvaere
+- Mange faktorer (helsedeterminanter) pavirker helse: arv, livsstil, sosiale forhold og miljo
+- Forebygging fokuserer pa a hindre sykdom, helsefremmende arbeid styrker ressurser for god helse
+
+**Sentrale begreper:**
+- Helse: Fullstendig fysisk, psykisk og sosialt velvaere (WHOs definisjon)
+- Helsedeterminanter: Faktorer som pavirker helsetilstanden
+- Sosial ulikhet i helse: Systematiske helseforskjeller mellom sosiale grupper
+- Primaerforebygging: Tiltak for a hindre sykdom hos friske
+- Helsefremmende arbeid: Tiltak som styrker folks ressurser og muligheter for god helse
+
+**Tips for praksis:**
+- Se hele mennesket - kropp, psyke og sosiale forhold henger sammen
+- Tenk helsefremmende - stott menneskers ressurser og muligheter
+- Bidra til a utjevne sosiale forskjeller i helse`,
+    },
+    {
+      id: 'helseoppvekst-vg1-1-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.1: Hva er helse- og oppvekstfag?](/kurs/helseoppvekst-vg1/kapittel/1-1) - Introduksjon til sektoren
+- [Kapittel 2.1: Kroppen og grunnleggende behov](/kurs/helseoppvekst-vg1/kapittel/2-1) - Kroppens funksjoner
+- [Kapittel 2.4: Fysisk aktivitet og helse](/kurs/helseoppvekst-vg1/kapittel/2-4) - Betydningen av aktivitet
+- [Kapittel 5.7: Folkehelse og samfunnets ansvar](/kurs/helseoppvekst-vg1/kapittel/5-7) - Folkehelse og forebygging`,
     },
   ],
   exercises: [
@@ -938,10 +1003,18 @@ I dette kapittelet har du laert om:
 - Kommunikasjonen ma tilpasses alder, funksjonsniva og situasjon
 - Barn, unge, eldre og personer i krise har ulike behov
 
-**Se ogsa:**
-- Kapittel 1.1: Hva er helse- og oppvekstfag?
-- Kapittel 1.4: Etikk og verdier i yrkesutovelsen
-- Kapittel 3.1: Lover og rettigheter (brukermedvirkning)`,
+`,
+    },
+    {
+      id: 'helseoppvekst-vg1-1-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.1: Hva er helse- og oppvekstfag?](/kurs/helseoppvekst-vg1/kapittel/1-1) - Introduksjon til sektoren
+- [Kapittel 1.4: Etikk og verdier i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etikk i kommunikasjon
+- [Kapittel 3.1: Lover og rettigheter](/kurs/helseoppvekst-vg1/kapittel/3-1) - Brukermedvirkning og rettigheter
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Relasjonsbygging
+- [Kapittel 8.5: Nonverbal kommunikasjon og kroppssprak](/kurs/helseoppvekst-vg1/kapittel/8-5) - Kroppssprak og signaler`,
     },
   ],
   exercises: [
@@ -1422,6 +1495,16 @@ I dette kapittelet har du laert om:
 - Kapittel 2.2: Hygiene og smittevern
 - Kapittel 2.3: Kosthold og ernaering
 - Kapittel 1.2: Helsefremmende arbeid`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.2: Helsefremmende arbeid](/kurs/helseoppvekst-vg1/kapittel/1-2) - Helsefaktorer
+- [Kapittel 2.2: Hygiene og smittevern](/kurs/helseoppvekst-vg1/kapittel/2-2) - Forebygging av sykdom
+- [Kapittel 2.3: Kosthold og ernaering](/kurs/helseoppvekst-vg1/kapittel/2-3) - Naering og behov
+- [Kapittel 5.4: Aktiviteter i dagliglivet (ADL)](/kurs/helseoppvekst-vg1/kapittel/5-4) - Grunnleggende behov i praksis`,
     },
   ],
   exercises: [
@@ -1992,6 +2075,15 @@ I dette kapittelet har du laert om:
 - Kapittel 2.3: Kosthold og ernaering
 - Kapittel 3.1: Lover og rettigheter`,
     },
+    {
+      id: 'helseoppvekst-vg1-2-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.1: Kroppen og grunnleggende behov](/kurs/helseoppvekst-vg1/kapittel/2-1) - Kroppens funksjoner
+- [Kapittel 3.3: HMS - Helse, miljo og sikkerhet](/kurs/helseoppvekst-vg1/kapittel/3-3) - Sikkerhet pa arbeidsplassen
+- [Kapittel 5.5: Forstehjelp og akutte situasjoner](/kurs/helseoppvekst-vg1/kapittel/5-5) - Haandtering av akutte situasjoner`,
+    },
   ],
   exercises: [
     {
@@ -2535,6 +2627,15 @@ I dette kapittelet har du laert om:
 - Kapittel 1.3: Kommunikasjon og samhandling
 - Kapittel 3.2: Tverrfaglig samarbeid`,
     },
+    {
+      id: 'helseoppvekst-vg1-3-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.4: Etikk og verdier i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etikk og juss
+- [Kapittel 1.6: Brukermedvirkning og selvbestemmelse](/kurs/helseoppvekst-vg1/kapittel/1-6) - Pasientrettigheter
+- [Kapittel 3.2: Taushetsplikt og personvern](/kurs/helseoppvekst-vg1/kapittel/3-2) - Taushetsplikt i loven`,
+    },
   ],
   exercises: [
     {
@@ -2795,6 +2896,40 @@ Nar du star overfor et etisk dilemma, kan du bruke en refleksjonsmodell for a te
       title: 'Etisk refleksjon i team',
       content: 'Etiske dilemmaer bor diskuteres med kolleger. Mange arbeidsplasser har etikkmøter der ansatte kan ta opp vanskelige situasjoner. Det er ikke et tegn pa svakhet a be om hjelp - det er et tegn pa profesjonalitet.',
     },
+    {
+      id: 'helseoppvekst-vg1-1-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Etikk handler om systematisk refleksjon over hva som er riktig og galt
+- De fire etiske prinsippene: velgjorenhet, ikke-skade, autonomi og rettferdighet
+- Etiske dilemmaer oppstar nar prinsipper kommer i konflikt med hverandre
+- Samtykkekompetente brukere har rett til a ta egne valg, selv om fagpersoner er uenige
+
+**Sentrale begreper:**
+- Etikk: Laeren om moral og systematisk refleksjon over riktig og galt
+- Etisk dilemma: Situasjon der man ma velge mellom handlinger som alle har gode og darlige sider
+- Autonomi: Brukerens rett til selvbestemmelse
+- Yrkesetikk: Etiske retningslinjer for en bestemt yrkesgruppe
+
+**Tips for praksis:**
+- Bruk de fire etiske prinsippene som verktoy for refleksjon
+- Diskuter vanskelige situasjoner med kolleger
+- Dokumenter etiske vurderinger du gjor
+- Husk at etisk refleksjon er et tegn pa profesjonalitet`,
+    },
+    {
+      id: 'helseoppvekst-vg1-1-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.1: Hva er helse- og oppvekstfag?](/kurs/helseoppvekst-vg1/kapittel/1-1) - Verdier i yrkesutovelsen
+- [Kapittel 1.5: Menneskesyn og holdninger](/kurs/helseoppvekst-vg1/kapittel/1-5) - Holdninger og verdier
+- [Kapittel 3.1: Lover og rettigheter](/kurs/helseoppvekst-vg1/kapittel/3-1) - Pasientrettigheter
+- [Kapittel 7.5: Yrkesetikk i praksis](/kurs/helseoppvekst-vg1/kapittel/7-5) - Etikk i praktisk arbeid`,
+    },
   ],
   exercises: [
     {
@@ -3010,6 +3145,39 @@ Trygg mathhandtering er viktig for a forebygge matbarne sykdommer.
 - Vanlige allergener: notter, egg, melk, fisk, skalldyr, gluten
 - Intoleranse gir ubehag men er ikke livstruende (for eksempel laktoseintoleranse)
 - All mat som serveres i institusjoner ma merkes tydelig`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Kostholdet er en av de viktigste faktorene for god helse
+- Makronaeringsstoffer (karbohydrater, proteiner, fett) gir energi
+- Mikronaeringsstoffer (vitaminer, mineraler) er nodvendige for kroppens funksjoner
+- Mattrygghet er viktig for a unnga sykdom fra mat
+
+**Sentrale begreper:**
+- Makronaeringsstoffer: Karbohydrater, proteiner og fett - gir energi
+- Mikronaeringsstoffer: Vitaminer og mineraler - nodvendige i sma mengder
+- Energibehov: Varierer med alder, aktivitetsniva og helsetilstand
+- Matbaren sykdom: Sykdom forsaket av bakterier, virus eller parasitter i mat
+
+**Tips for praksis:**
+- Folg Helsedirektoratets kostrad
+- Vaer oppmerksom pa mattrygghet og hygiene
+- Tilpass kosthold til den enkeltes behov og livsfase
+- Vit om vanlige allergener og intoleranser`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.1: Kroppen og grunnleggende behov](/kurs/helseoppvekst-vg1/kapittel/2-1) - Kroppens behov
+- [Kapittel 2.6: Livsstilssykdommer og forebygging](/kurs/helseoppvekst-vg1/kapittel/2-6) - Forebygging gjennom kosthold
+- [Kapittel 5.2: Omsorg for eldre](/kurs/helseoppvekst-vg1/kapittel/5-2) - Ernaering hos eldre`,
     },
   ],
   exercises: [
@@ -3229,6 +3397,39 @@ Som helse- og oppvekstarbeider ma du kunne tilrettelegge aktivitet for ulike bru
 - Spor brukerne om hva de liker
 
 **Laering:** Motivasjon oker nar aktiviteten er lystbetont, sosial og gir mestringsfølelse.`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Fysisk aktivitet er en av de viktigste faktorene for god helse
+- Anbefalingen er minst 150 min moderat eller 75 min hoy intensitet per uke
+- Aktivitet forebygger livsstilssykdommer og styrker psykisk helse
+- Tilpassing til brukerens funksjonsniva er viktig
+
+**Sentrale begreper:**
+- Fysisk aktivitet: All kroppslig bevegelse som oker energiforbruk
+- Moderat intensitet: Aktivitet der du blir varm og litt andpusten
+- Hoy intensitet: Aktivitet der du blir svett og tydelig andpusten
+- Hverdagsaktivitet: Aktivitet som er del av daglige gjoremal
+
+**Tips for praksis:**
+- Tilpass aktivitet til brukerens interesser og funksjonsniva
+- Start med korte okter og ok gradvis
+- Gjor aktiviteten sosial og hyggelig
+- Husk fallforebygging, spesielt for eldre`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.2: Helsefremmende arbeid](/kurs/helseoppvekst-vg1/kapittel/1-2) - Helsefremmende faktorer
+- [Kapittel 2.5: Psykisk helse og livsmestring](/kurs/helseoppvekst-vg1/kapittel/2-5) - Aktivitet og mental helse
+- [Kapittel 2.6: Livsstilssykdommer og forebygging](/kurs/helseoppvekst-vg1/kapittel/2-6) - Forebygging gjennom aktivitet`,
     },
   ],
   exercises: [
@@ -3460,6 +3661,39 @@ Egenomsorg handler om a ta vare pa seg selv for a opprettholde god helse og fore
 - Naeringsrik mat gir stabil energi
 - Begrens alkohol og koffein`,
     },
+    {
+      id: 'helseoppvekst-vg1-2-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Psykisk helse er mer enn fravar av sykdom - det handler om velvare, mestring og mening
+- Psykisk helse er et kontinuum der alle beveger seg gjennom livet
+- Stress kan vaere bade positivt og negativt - langvarig stress er skadelig
+- God livsmestring handler om a ha verktoy for a handtere utfordringer
+
+**Sentrale begreper:**
+- Psykisk helse: Tilstand av velvare der man kan mestre hverdagen og bidra i samfunnet
+- Stress: Kroppens reaksjon pa utfordringer og krav
+- Livsmestring: Evne til a handtere livets utfordringer pa en god mate
+- Resiliens: Evne til a komme seg etter motgang
+
+**Tips for praksis:**
+- Vaer oppmerksom pa tegn pa nedsatt psykisk helse hos brukere
+- Stott sosiale relasjoner og tilhorighet
+- Legg til rette for mestring og mening
+- Bidra til a redusere stigma rundt psykiske plager`,
+    },
+    {
+      id: 'helseoppvekst-vg1-2-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.4: Fysisk aktivitet og helse](/kurs/helseoppvekst-vg1/kapittel/2-4) - Aktivitet og mental helse
+- [Kapittel 4.3: Ungdomsutvikling og identitet](/kurs/helseoppvekst-vg1/kapittel/4-3) - Psykisk helse hos ungdom
+- [Kapittel 8.1: Relasjonsferdigheter og empati](/kurs/helseoppvekst-vg1/kapittel/8-1) - Stotte og relasjoner`,
+    },
   ],
   exercises: [
     {
@@ -3604,6 +3838,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_2: TextbookChapter = {
       title: 'GDPR og personopplysninger',
       content: 'GDPR definerer personopplysninger som enhver opplysning som kan knyttes til en identifiserbar person, direkte eller indirekte. Sensitive personopplysninger (saerlige kategorier) inkluderer helseopplysninger, etnisk opprinnelse, politisk oppfatning, religioes overbevisning og biometriske data. Behandling av sensitive personopplysninger krever et saerlig rettslig grunnlag.',
     },
+    {
+      id: 'helseoppvekst-vg1-3-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Taushetsplikt er en grunnleggende plikt i helse- og oppvekstsektoren
+- Personvern handler om retten til a bestemme over egne personopplysninger
+- GDPR stiller strenge krav til behandling av personopplysninger
+- Det finnes unntak fra taushetsplikten, blant annet opplysnings- og meldeplikt
+
+**Sentrale begreper:**
+- Taushetsplikt: Plikt til a tie om personlige opplysninger fra arbeidet
+- Personvern: Retten til a bestemme over egne personopplysninger
+- GDPR: EUs personvernforordning
+- Sensitive personopplysninger: Helseopplysninger, etnisitet og andre saerlig beskyttede data
+
+**Tips for praksis:**
+- Tenk deg om for du deler informasjon - har mottakeren tjenstlig behov?
+- Bruk sikre kanaler for kommunikasjon om sensitive opplysninger
+- Ved tvil, spor leder eller personvernombud
+- Husk at taushetsplikten gjelder ogsa etter at du har sluttet i jobben`,
+    },
+    {
+      id: 'helseoppvekst-vg1-3-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 3.1: Lover og rettigheter](/kurs/helseoppvekst-vg1/kapittel/3-1) - Lovgrunnlag
+- [Kapittel 6.4: Digitale ressurser og kommunikasjon](/kurs/helseoppvekst-vg1/kapittel/6-4) - Digital sikkerhet
+- [Kapittel 8.4: Samhandling med paaroerende](/kurs/helseoppvekst-vg1/kapittel/8-4) - Informasjonsdeling`,
+    },
   ],
   exercises: [
     {
@@ -3740,6 +4007,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_3: TextbookChapter = {
       title: 'Rapportering av avvik',
       content: 'Alle ansatte har plikt til aa melde fra om farlige forhold paa arbeidsplassen. Et avvik er en hendelse eller et forhold som avviker fra gjeldende krav og rutiner, og som kan fore til skade paa mennesker, miljo eller utstyr. Avvik skal rapporteres skriftlig i virksomhetens avvikssystem. Dette er ikke for aa "sladre", men for aa forbedre sikkerheten for alle. Leder har ansvar for aa folge opp avviksmeldinger og iverksette tiltak. Verneombudet er de ansattes representant i HMS-saker og kan kontaktes dersom du opplever at HMS-forholdene ikke er tilfredsstillende.',
     },
+    {
+      id: 'helseoppvekst-vg1-3-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- HMS-arbeid handler om a sikre et trygt og godt arbeidsmiljo
+- Arbeidsgiver har hovedansvar, men alle ansatte har medvirkningsplikt
+- HMS inkluderer fysisk, ergonomisk og psykososialt arbeidsmiljo
+- Avviksmelding er viktig for a forbedre sikkerheten
+
+**Sentrale begreper:**
+- HMS: Helse, miljo og sikkerhet
+- Risikovurdering: Systematisk vurdering av farer pa arbeidsplassen
+- Ergonomi: Tilpassing av arbeidet til menneskets forutsetninger
+- Psykososialt arbeidsmiljo: De mellommenneskelige forholdene pa jobb
+
+**Tips for praksis:**
+- Bruk riktige arbeidsteknikker og hjelpemidler
+- Meld fra om avvik og farlige forhold
+- Kontakt verneombud ved HMS-utfordringer
+- Sorg for pauser og variasjon i arbeidet`,
+    },
+    {
+      id: 'helseoppvekst-vg1-3-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.7: Ergonomi og arbeidsteknikker](/kurs/helseoppvekst-vg1/kapittel/2-7) - Fysisk arbeidsmiljo
+- [Kapittel 3.5: Kvalitetssikring og avvikshåndtering](/kurs/helseoppvekst-vg1/kapittel/3-5) - Avvik og sikkerhet
+- [Kapittel 7.1: Praksis i arbeidslivet](/kurs/helseoppvekst-vg1/kapittel/7-1) - HMS i praksis`,
+    },
   ],
   exercises: [
     {
@@ -3875,6 +4175,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_4: TextbookChapter = {
       type: 'warning',
       title: 'Juridiske konsekvenser',
       content: 'Manglende eller feilaktig dokumentasjon kan faa alvorlige konsekvenser. Helsepersonell som ikke dokumenterer kan bli meldt til Statsforvalteren og risikerer reaksjoner som advarsel eller tilbakekalling av autorisasjon. I erstatningssaker kan manglende dokumentasjon tale mot helsepersonellet, fordi det som ikke er dokumentert regnes som ikke utfort. Husk ogsa at pasienter har innsynsrett i sin egen journal, og at journalen kan utleveres til tilsynsmyndigheter. Dokumenter derfor alltid saklig og profesjonelt.',
+    },
+    {
+      id: 'helseoppvekst-vg1-3-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Dokumentasjon og journalforing er lovpalagt i helse- og oppvekstsektoren
+- God dokumentasjon er saklig, malbar, aktuell, relevant og tydelig (SMART)
+- Elektroniske journalsystemer har erstattet papirbaserte losninger
+- Manglende dokumentasjon kan fa juridiske konsekvenser
+
+**Sentrale begreper:**
+- Pasientjournal: Samling av opplysninger om en pasient i forbindelse med helsehjelp
+- EPJ: Elektronisk pasientjournalsystem
+- Dokumentasjonsplikt: Plikt til a dokumentere all helsehjelp som ytes
+- Innsynsrett: Pasientens rett til a se egen journal
+
+**Tips for praksis:**
+- Dokumenter sa raskt som mulig etter hendelsen
+- Vaer saklig og unnga personlige meninger
+- Bruk tydelig sprak og unnga forkortelser som kan misforstaaes
+- Husk at det som ikke er dokumentert, regnes som ikke utfort`,
+    },
+    {
+      id: 'helseoppvekst-vg1-3-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 3.2: Taushetsplikt og personvern](/kurs/helseoppvekst-vg1/kapittel/3-2) - Personvern i dokumentasjon
+- [Kapittel 6.4: Digitale ressurser og kommunikasjon](/kurs/helseoppvekst-vg1/kapittel/6-4) - Elektronisk journal
+- [Kapittel 5.6: Observasjon og kartlegging](/kurs/helseoppvekst-vg1/kapittel/5-6) - Hva dokumenteres`,
     },
   ],
   exercises: [
@@ -4017,6 +4350,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_1: TextbookChapter = {
       title: 'Stimulering av barns utvikling',
       content: 'Barn trenger stimulering for aa utvikle seg optimalt, men det betyr ikke at man trenger dyre leker eller organiserte aktiviteter. Det viktigste er at barnet har trygge, tilstedevaeende voksne som snakker med dem, leser for dem og leker med dem. Dagligdagse aktiviteter som aa handle i butikken, lage mat sammen eller vaere ute i naturen gir rike muligheter for laering. La barnet utforske i eget tempo og unngaa aa sammenligne med andre barn - alle utvikler seg i ulikt tempo innenfor normalomraadet.',
     },
+    {
+      id: 'helseoppvekst-vg1-4-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Barn utvikles pa flere omrader samtidig: fysisk, spraaklig, kognitiv og sosial-emosjonell
+- Trygg tilknytning til omsorgspersoner er grunnlaget for sunn utvikling
+- Motorisk utvikling folger et forutsigbart monster fra hodet nedover
+- Leken er avgjorende for sosial og kognitiv utvikling
+
+**Sentrale begreper:**
+- Tilknytning: Det sterke folelsesmessige bandet mellom barn og omsorgsperson
+- Grovmotorikk: Store bevegelser som a ga, lope og hoppe
+- Finmotorikk: Sma, presise bevegelser som a gripe og tegne
+- Spraakutvikling: Barnets utvikling av evnen til a forstaa og bruke sprak
+
+**Tips for praksis:**
+- La barn utforske i eget tempo
+- Vær en tilstedevaeerende voksen som snakker med og leser for barnet
+- Bruk dagligdagse aktiviteter til laering
+- Unnga a sammenligne barn med hverandre`,
+    },
+    {
+      id: 'helseoppvekst-vg1-4-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.2: Barns utvikling 6-12 aar](/kurs/helseoppvekst-vg1/kapittel/4-2) - Videre utvikling
+- [Kapittel 4.6: Lek, laering og kreativitet](/kurs/helseoppvekst-vg1/kapittel/4-6) - Lekens betydning
+- [Kapittel 5.1: Omsorg for barn og unge](/kurs/helseoppvekst-vg1/kapittel/5-1) - Omsorg i barnealderen`,
+    },
   ],
   exercises: [
     {
@@ -4152,6 +4518,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_2: TextbookChapter = {
       type: 'tip',
       title: 'Fysisk aktivitet og helse i skolealderen',
       content: 'Barn i alderen 6-12 aar bor vaere fysisk aktive minst 60 minutter hver dag, ifaolge Helsedirektoratet. Fysisk aktivitet er viktig for bade fysisk helse, psykisk velvaeore og konsentrasjonsevne. I denne alderen utvikles grunnleggende motoriske ferdigheter som er viktige for aa kunne delta i idrett og fysisk aktivitet senere i livet. Det er viktig at barn faar prove mange ulike aktiviteter og ikke spesialiserer seg for tidlig. Fysisk aktivitet bor vaere lystbetont og inkluderende, slik at alle barn kan delta uavhengig av ferdighetsnivaa.',
+    },
+    {
+      id: 'helseoppvekst-vg1-4-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Skolealderen (6-12 ar) preges av stabil vekst og utvikling av sosiale ferdigheter
+- Vennskap far ny betydning med stabile, gjensidige relasjoner
+- Barn sammenligner seg med andre og utvikler selvbilde basert pa mestring
+- Fysisk aktivitet minst 60 minutter daglig er viktig for helse og konsentrasjon
+
+**Sentrale begreper:**
+- Konkret-operasjonelt stadium: Piagets begrep for tenkning i alderen 7-11 ar
+- Arbeidssomhet vs mindreverd: Eriksons utviklingskrise i skolealderen
+- Konservasjon: Forstaelse av at mengder forblir like selv om formen endres
+- Desentrering: Evne til a se ting fra andres perspektiv
+
+**Tips for praksis:**
+- Legg til rette for mestring og gi positiv tilbakemelding
+- Stott barn som strever sosialt og fremme inkludering
+- La barn prove mange ulike aktiviteter
+- Vaer oppmerksom pa mobbing og utenforskap`,
+    },
+    {
+      id: 'helseoppvekst-vg1-4-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.1: Barns utvikling 0-6 aar](/kurs/helseoppvekst-vg1/kapittel/4-1) - Tidlig barndom
+- [Kapittel 4.3: Ungdomsutvikling og identitet](/kurs/helseoppvekst-vg1/kapittel/4-3) - Overgang til ungdom
+- [Kapittel 4.6: Lek, laering og kreativitet](/kurs/helseoppvekst-vg1/kapittel/4-6) - Laering og lek`,
     },
   ],
   exercises: [
@@ -4295,6 +4694,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_3: TextbookChapter = {
       title: 'Stoette ungdom i identitetsutviklingen',
       content: 'For aa stoette ungdom i identitetsutviklingen er det viktig aa gi dem rom til aa prove ut ulike roller og uttrykk uten aa domme. Vaer en tilgjengelig og lyttende voksen som viser genuin interesse. Respekter ungdommens behov for privatliv og selvstendighet, men vaer tydelig paa grenser og forventninger. Aksepter at det er normalt med konflikter og at ungdom kan veksle mellom aa ville vaere selvstendig og aa trenge stoette. Det viktigste er at ungdommen foler seg sett, hort og verdsatt for den de er.',
     },
+    {
+      id: 'helseoppvekst-vg1-4-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Ungdomstiden (12-18 ar) preges av pubertet og identitetsutvikling
+- Erikson beskriver ungdomstiden som en krise mellom identitet og rolleforvirring
+- Sosiale medier pavirker identitetsutvikling bade positivt og negativt
+- Ungdomstiden er en sarbar periode for psykisk helse
+
+**Sentrale begreper:**
+- Pubertet: Fysisk utvikling fra barn til voksen
+- Identitet: Hvem man er og hva man star for
+- Identitet vs rolleforvirring: Eriksons utviklingskrise i ungdomstiden
+- Prefrontal cortex: Hjernedelen for impulskontroll som modnes sent
+
+**Tips for praksis:**
+- Gi ungdom rom til a utforske identitet uten a domme
+- Vaer en tilgjengelig og lyttende voksen
+- Vaer oppmerksom pa faresignaler for psykiske utfordringer
+- Respekter behov for privatliv samtidig som du setter grenser`,
+    },
+    {
+      id: 'helseoppvekst-vg1-4-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.2: Barns utvikling 6-12 aar](/kurs/helseoppvekst-vg1/kapittel/4-2) - Forrige utviklingsfase
+- [Kapittel 4.4: Voksenliv og aldring](/kurs/helseoppvekst-vg1/kapittel/4-4) - Voksenlivet
+- [Kapittel 2.5: Psykisk helse og livsmestring](/kurs/helseoppvekst-vg1/kapittel/2-5) - Psykisk helse i ungdomstiden`,
+    },
   ],
   exercises: [
     {
@@ -4437,6 +4869,38 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_4: TextbookChapter = {
       title: 'Mestringsstrategier',
       content: 'For a haandtere overganger og utfordringer i voksenlivet er det viktig a ha et godt sosialt nettverk, vaere fysisk aktiv, sette realistiske mal, akseptere endring som en naturlig del av livet, og soeke hjelp nar man trenger det. Husk at det a be om hjelp er et tegn pa styrke, ikke svakhet.',
     },
+    {
+      id: 'helseoppvekst-vg1-4-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Voksenlivet deles ofte inn i tidlig voksen alder (20-40), midt i livet (40-65) og sen voksen alder (65+)
+- Erikson beskriver utviklingsoppgaver for hver fase: intimitet, generativitet og integritet
+- Fysiske endringer som menopause og redusert fysisk kapasitet er naturlige deler av aldring
+- Sosiale nettverk og meningsfulle aktiviteter er viktige for livskvalitet
+
+**Sentrale begreper:**
+- Intimitet vs isolasjon: Eriksons utviklingskrise i tidlig voksen alder
+- Generativitet: Onsket om a bidra til neste generasjon og samfunnet
+- Midtlivskrise: Periode med tvil og refleksjon rundt livsvalg
+- Menopause: Overgangsalderen hos kvinner
+
+**Tips for praksis:**
+- Respekter at voksne mennesker har ulike livserfaringer og behov
+- Stott mestring og selvstendighet
+- Vaer oppmerksom pa tegn pa isolasjon og ensomhet
+- Hjelp med a finne meningsfulle aktiviteter og sosiale arenaer`,
+    },
+    {
+      id: 'helseoppvekst-vg1-4-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.3: Ungdomsutvikling og identitet](/kurs/helseoppvekst-vg1/kapittel/4-3) - Ungdomstiden
+- [Kapittel 4.5: Eldre og aldringsprosessen](/kurs/helseoppvekst-vg1/kapittel/4-5) - Alderdommen`,
+    },
   ],
   exercises: [
     {
@@ -4574,6 +5038,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_5: TextbookChapter = {
       title: 'Verdighet i alderdommen',
       content: 'Alle mennesker har rett til a bli behandlet med verdighet og respekt, uansett alder og helsetilstand. I helse- og omsorgstjenesten er det viktig a se hele mennesket, ikke bare diagnosene. Eldre skal fa medvirke i beslutninger om egen hverdag og behandling. Tvang og umyndiggjoring er alvorlige overgrep. Helsepersonell ma vaere bevisst pa egne holdninger og unnga alderdiskriminering (ageisme).',
     },
+    {
+      id: 'helseoppvekst-vg1-4-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Aldring forer til naturlige endringer i kropp og kognisjon
+- Demens er en fellesbetegnelse for flere hjernesykdommer, Alzheimer er vanligst
+- Fall er den vanligste aarsaken til skader hos eldre
+- Livskvalitet handler om mer enn fravaer av sykdom - sosial kontakt og meningsfull aktivitet er viktig
+
+**Sentrale begreper:**
+- Demens: Fellesbetegnelse for hjernesykdommer som gir kognitiv svikt
+- Osteoporose: Bentetthet - gir okt risiko for brudd
+- Sarkopeni: Tap av muskelmasse og muskelstyrke
+- Ageisme: Diskriminering basert pa alder
+
+**Tips for praksis:**
+- Se hele mennesket, ikke bare diagnosene
+- Legg til rette for aktivitet og sosial kontakt
+- Forebygg fall gjennom tilrettelegging og trening
+- Respekter eldres rett til selvbestemmelse og medvirkning`,
+    },
+    {
+      id: 'helseoppvekst-vg1-4-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.4: Voksenliv og aldring](/kurs/helseoppvekst-vg1/kapittel/4-4) - Voksenlivet
+- [Kapittel 5.2: Omsorg for eldre](/kurs/helseoppvekst-vg1/kapittel/5-2) - Eldreomsorg
+- [Kapittel 6.3: Velferdsteknologi og digitale verktoy](/kurs/helseoppvekst-vg1/kapittel/6-3) - Teknologi for eldre`,
+    },
   ],
   exercises: [
     {
@@ -4688,6 +5185,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_1: TextbookChapter = {
       content: 'Barn og unge har behov for trygghet, kjaerlighet, forutsigbarhet og tilhoerighet for a utvikle seg godt. I barnehage og skole er de ansatte viktige omsorgspersoner som supplerer foreldrenes omsorg. God omsorg innebaeerer a se hvert enkelt barn, lytte til det, gi troest og stoette, og legge til rette for lek, laeering og sosialt samspill. Relasjonen mellom voksen og barn er grunnlaget for all god omsorg. Barn som opplever trygge relasjoner med voksne utvikler bedre selvfoelelse, sosiale ferdigheter og evne til a regulere egne foelelser.',
     },
     {
+      id: 'hov1-5-1-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-5-1-ordliste-innhold',
+          type: 'text',
+          content: `**Omsorgssvikt** - Situasjon der barn ikke far dekket sine grunnleggende behov for omsorg og beskyttelse.
+
+**Meldeplikt** - Lovpaalagt plikt for ansatte i offentlige tjenester til aa melde fra til barnevernet ved bekymring for omsorgssvikt.
+
+**Barnekonvensjonen** - FN-konvensjon som gir barn saerlige rettigheter, tatt inn i norsk lov gjennom menneskerettsloven.
+
+**Barnets beste** - Et grunnleggende prinsipp i barnekonvensjonen om at barnets interesser skal vaere et hovedhensyn i alle avgjorelser.
+
+**Tilknytning** - Det emosjonelle bandet mellom barn og omsorgsperson som er grunnlaget for trygg utvikling.
+
+**Bekymringsmelding** - Melding til barnevernet nar det er grunn til aa tro at et barn utsettes for omsorgssvikt eller mishandling.
+
+**Trygg relasjon** - Et forhold preget av tillit, forutsigbarhet og emosjonell tilgjengelighet.
+
+**Forutsigbarhet** - At barn vet hva som skal skje og kan stole paa de voksne rundt seg.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-5-1-2',
       type: 'definition',
       title: 'Omsorgssvikt',
@@ -4715,6 +5239,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_1: TextbookChapter = {
       type: 'tip',
       title: 'A skape trygge miljoeer',
       content: 'For a skape trygge oppvekstmiljoeer boer voksne vaere forutsigbare og tilgjengelige, lytte aktivt til barna, gi anerkjennelse og positiv oppmerksomhet, ha klare og trygge rammer, legge til rette for fri lek og kreativ aktivitet, og jobbe med a bygge gode relasjoner mellom barna. Lek er barns viktigste laeringsarena og bidrar til fysisk, sosial, emosjonell og kognitiv utvikling.',
+    },
+    {
+      id: 'helseoppvekst-vg1-5-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Alle barn har grunnleggende behov for trygghet, omsorg og tilhorighet
+- FNs barnekonvensjon gir barn saerlige rettigheter som er tatt inn i norsk lov
+- Omsorgssvikt kan ha alvorlige konsekvenser for barns utvikling
+- Ansatte i offentlige tjenester har lovpaalagt meldeplikt til barnevernet
+
+**Sentrale begreper:**
+- Omsorgssvikt: Nar barn ikke far dekket sine grunnleggende behov
+- Barnekonvensjonen: FNs konvensjon om barnets rettigheter
+- Barnets beste: Grunnleggende prinsipp i alle beslutninger som angaar barn
+- Meldeplikt: Plikt til a melde fra til barnevernet ved bekymring
+
+**Tips for praksis:**
+- Vaer forutsigbar og tilgjengelig for barna
+- Vaer oppmerksom pa tegn pa omsorgssvikt
+- Dokumenter observasjoner og del bekymringer med kolleger
+- Ved bekymring - meld til barnevernet heller enn a vente`,
+    },
+    {
+      id: 'helseoppvekst-vg1-5-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.1: Barns utvikling 0-6 aar](/kurs/helseoppvekst-vg1/kapittel/4-1) - Barns utviklingsbehov
+- [Kapittel 4.6: Lek, laering og kreativitet](/kurs/helseoppvekst-vg1/kapittel/4-6) - Aktiviteter med barn
+- [Kapittel 8.4: Samhandling med paaroerende](/kurs/helseoppvekst-vg1/kapittel/8-4) - Samarbeid med foreldre`,
     },
   ],
   exercises: [
@@ -4825,6 +5382,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_2: TextbookChapter = {
       content: 'Personsentrert omsorg er en tilnaerming der man setter den enkelte persons behov, oensker og livserfaringer i sentrum. Begrepet ble utviklet av Tom Kitwood, opprinnelig i sammenheng med demensomsorgen, men prinsippene gjelder all eldreomsorg. Personsentrert omsorg innebaeerer a kjenne personens livshistorie, respektere individuelle valg, opprettholde identitet og selvfoelelse, og legge til rette for meningsfull aktivitet. Det handler om a se mennesket bak diagnosen og fremme en relasjon bygget pa tillit og respekt.',
     },
     {
+      id: 'hov1-5-2-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-5-2-ordliste-innhold',
+          type: 'text',
+          content: `**Personsentrert omsorg** - Tilnaerming der man setter den enkelte persons behov, oensker og livserfaringer i sentrum.
+
+**ADL (Activities of Daily Living)** - Grunnleggende daglige aktiviteter som personlig hygiene, pakledning, spising og forflytning.
+
+**IADL (Instrumental ADL)** - Mer sammensatte aktiviteter som matlaging, handling og oekonomistyring.
+
+**Underernaeering** - Tilstand der kroppen ikke faar tilstrekkelig naeringsstoffer over tid.
+
+**Fallforebygging** - Systematiske tiltak for aa redusere risikoen for fall hos eldre.
+
+**Verdighet** - Respekt for den eldres autonomi, privatliv og rett til aa bestemme over eget liv.
+
+**Tom Kitwood** - Britisk psykolog som utviklet begrepet personsentrert omsorg.
+
+**Tvang** - Tiltak som gjoeres mot personens vilje, strengt regulert i lovverket.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-5-2-2',
       type: 'definition',
       title: 'ADL - Aktiviteter i dagliglivet',
@@ -4852,6 +5436,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_2: TextbookChapter = {
       type: 'warning',
       title: 'Verdighet og selvbestemmelse',
       content: 'Eldre mennesker har rett til a bestemme over eget liv, ogsaa nar de trenger hjelp. Helsepersonell ma aldri overkjoere den eldres oensker uten lovlig grunnlag. Det a banke pa doeren foer man gar inn, tiltale personen med det navnet de foretrekker, gi valgmuligheter i hverdagen og beskytte privatlivet er grunnleggende for a ivareta verdigheten. Ufrivillig bruk av tvang er strengt regulert i loven og krever vedtak etter pasient- og brukerrettighetsloven.',
+    },
+    {
+      id: 'helseoppvekst-vg1-5-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Omsorg for eldre handler om a stoette selvstendighet og livskvalitet
+- ADL (Activities of Daily Living) beskriver daglige aktiviteter som eldre kan trenge hjelp til
+- Personsentrert omsorg fokuserer pa hele mennesket, ikke bare diagnosene
+- Verdighet og selvbestemmelse er grunnleggende rettigheter ogsa for eldre med hjelpebehov
+
+**Sentrale begreper:**
+- ADL: Aktiviteter i dagliglivet som personlig hygiene, pakledning og mating
+- IADL: Instrumentelle ADL som matlaging, handling og okonomi
+- Personsentrert omsorg: Tilnaerming som ser hele mennesket og deres historie
+- Hjemmetjenester: Kommunale tjenester som hjelper eldre a bo hjemme lengre
+
+**Tips for praksis:**
+- La den eldre gjore sa mye som mulig selv - stott heller enn overtar
+- Bli kjent med personens livshistorie og interesser
+- Gi tid og valgmuligheter
+- Ivareta verdighet ved a banke pa, tiltale med onsket navn og beskytte privatliv`,
+    },
+    {
+      id: 'helseoppvekst-vg1-5-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 4.5: Eldre og aldringsprosessen](/kurs/helseoppvekst-vg1/kapittel/4-5) - Aldringsprosessen
+- [Kapittel 5.4: Aktiviteter i dagliglivet (ADL)](/kurs/helseoppvekst-vg1/kapittel/5-4) - ADL hos eldre
+- [Kapittel 6.3: Velferdsteknologi og digitale verktoy](/kurs/helseoppvekst-vg1/kapittel/6-3) - Teknologi i eldreomsorg`,
     },
   ],
   exercises: [
@@ -4967,6 +5584,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_3: TextbookChapter = {
       content: 'En funksjonsnedsettelse innebaeerer tap av eller skade pa en kroppsdel eller en av kroppens funksjoner. Det kan vaere fysiske, kognitive, sensoriske eller psykososiale funksjonsnedsettelser. Funksjonsnedsettelse er ikke det samme som funksjonshemming. Ifølge den sosiale modellen oppstar funksjonshemming i moetet mellom individet og samfunnets barrierer. Det betyr at det er gapet mellom personens forutsetninger og samfunnets krav som skaper funksjonshemmingen - ikke funksjonsnedsettelsen i seg selv. Et rullestolbrukende menneske er for eksempel ikke funksjonshemmet i et fullt tilgjengelig bygg.',
     },
     {
+      id: 'hov1-5-3-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-5-3-ordliste-innhold',
+          type: 'text',
+          content: `**Funksjonsnedsettelse** - Tap av eller skade paa en kroppsdel eller en av kroppens funksjoner.
+
+**Funksjonshemming** - Barrierene som oppstaar i moetet mellom individet og samfunnets krav.
+
+**CRPD** - FN-konvensjonen om rettigheter for mennesker med nedsatt funksjonsevne.
+
+**Universell utforming** - At produkter og omgivelser utformes slik at de kan brukes av alle uten spesiell tilpasning.
+
+**Selvbestemmelse** - Retten til aa ta egne valg og beslutninger om eget liv.
+
+**Inkludering** - At alle mennesker har mulighet til aa delta fullt ut i samfunnet.
+
+**Hjelpemiddelteknologi** - Teknologiske losninger som kompenserer for funksjonsnedsettelser.
+
+**Den sosiale modellen** - Perspektiv der funksjonshemming forstaas som et resultat av samfunnets barrierer.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-5-3-2',
       type: 'definition',
       title: 'CRPD - FN-konvensjonen om rettigheter for mennesker med nedsatt funksjonsevne',
@@ -4994,6 +5638,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_3: TextbookChapter = {
       type: 'tip',
       title: 'Viktige holdninger i arbeid med mennesker med funksjonsnedsettelser',
       content: 'Godt arbeid med mennesker med funksjonsnedsettelser krever riktige holdninger: se personen foerst og funksjonsnedsettelsen deretter, lytt til hva personen selv oensker, unnga a overbeskytte eller gjore mer enn nodvendig, bruk respektfullt sprak, anerkjenn personens ressurser og styrker, og husk at alle mennesker har behov for a foele seg verdsatt og inkludert. Man boer alltid spoerre personen selv hvordan de oensker a fa hjelp, fremfor a anta.',
+    },
+    {
+      id: 'helseoppvekst-vg1-5-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Funksjonsnedsettelse er en tilstand, funksjonshemming oppstar i motet med samfunnets barrierer
+- CRPD sikrer like rettigheter for mennesker med funksjonsnedsettelser
+- Universell utforming handler om a utforme omgivelser som alle kan bruke
+- Selvbestemmelse er en grunnleggende rettighet for alle
+
+**Sentrale begreper:**
+- Funksjonsnedsettelse: Tap eller skade av en kroppsfunksjon
+- Funksjonshemming: Gap mellom individets forutsetninger og samfunnets krav
+- CRPD: FN-konvensjonen om rettigheter for mennesker med nedsatt funksjonsevne
+- Universell utforming: At produkter og omgivelser kan brukes av alle
+
+**Tips for praksis:**
+- Se personen forst, funksjonsnedsettelsen deretter
+- Spor personen selv hvordan de onsker a fa hjelp
+- Stott selvbestemmelse og unnga overbeskytte
+- Anerkjenn personens ressurser og styrker`,
+    },
+    {
+      id: 'helseoppvekst-vg1-5-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.6: Brukermedvirkning og selvbestemmelse](/kurs/helseoppvekst-vg1/kapittel/1-6) - Selvbestemmelse
+- [Kapittel 5.4: Aktiviteter i dagliglivet (ADL)](/kurs/helseoppvekst-vg1/kapittel/5-4) - ADL-stotte
+- [Kapittel 6.6: Hjelpemidler og tilrettelegging](/kurs/helseoppvekst-vg1/kapittel/6-6) - Hjelpemidler`,
     },
   ],
   exercises: [
@@ -5106,6 +5783,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_4: TextbookChapter = {
       content: 'Aktiviteter i dagliglivet (ADL) er et sentralt begrep innen helse- og omsorgsfagene. ADL handler om de aktivitetene vi gjor hver dag for aa ta vare paa oss selv og leve et selvstendig liv. For mange er disse aktivitetene sa selvfolgelige at vi knapt tenker over dem, men for personer med sykdom, skade eller funksjonsnedsettelse kan selv enkle gjoremal vaere utfordrende. Som helsefagarbeider er det viktig aa forstaa hva ADL innebærer, slik at du kan stotte brukere paa en maate som fremmer selvstendighet og verdighet.'
     },
     {
+      id: 'hov1-5-4-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-5-4-ordliste-innhold',
+          type: 'text',
+          content: `**ADL (Activities of Daily Living)** - Aktiviteter i dagliglivet, de gjoremaolene vi utfoerer for aa ta vare paa oss selv.
+
+**PADL (Personlig ADL)** - Grunnleggende aktiviteter som spising, pakledning, personlig hygiene og forflytning.
+
+**IADL (Instrumentell ADL)** - Mer sammensatte aktiviteter som matlaging, handling, rengjoring og oekonomistyring.
+
+**Barthel ADL-indeks** - Et mye brukt kartleggingsverktoy for aa maale PADL-funksjon paa en skala fra 0 til 20.
+
+**Laert hjelpeloshet** - Naar en person slutter aa proeve fordi andre alltid gjor ting for dem.
+
+**Kartlegging** - Systematisk innsamling av informasjon om en persons funksjonsnivaa og behov.
+
+**Mestring** - Evnen til aa haandtere utfordringer og oppgaver i hverdagen.
+
+**Selvstendighet** - Aa kunne utfoere aktiviteter paa egen haand eller med minimal hjelp.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-5-4-2',
       type: 'definition',
       title: 'Personlig ADL (PADL)',
@@ -5133,7 +5837,40 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_4: TextbookChapter = {
       id: 'hov1-5-4-6',
       type: 'text',
       content: 'Flere kartleggingsverktoy brukes for aa vurdere ADL-funksjon. Barthel ADL-indeks er et mye brukt verktoy som maalerer PADL paa en skala fra 0 til 20. Lawton og Brodys skala brukes for IADL. Kartlegging gir et systematisk bilde av brukerens funksjonsnivaa og danner grunnlaget for individuell tiltaksplan. Det er viktig at kartleggingen gjennomfores i samarbeid med brukeren, slik at brukerens egne maal og onsker staar sentralt.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-5-4-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- ADL (Aktiviteter i dagliglivet) deles i PADL (personlig) og IADL (instrumentell)
+- Malet med ADL-stotte er a fremme selvstendighet, ikke gjore ting for brukeren
+- Kartleggingsverktoy som Barthel-indeks gir systematisk oversikt over funksjonsniva
+- Brukermedvirkning er sentralt i all ADL-kartlegging og -stotte
+
+**Sentrale begreper:**
+- ADL: Aktiviteter i dagliglivet
+- PADL: Personlige aktiviteter som hygiene, pakledning og mating
+- IADL: Instrumentelle aktiviteter som matlaging, handling og okonomi
+- Barthel-indeks: Standardisert verktoy for ADL-kartlegging
+
+**Tips for praksis:**
+- La brukeren gjore mest mulig selv, selv om det tar lengre tid
+- Gi ros og oppmuntring underveis
+- Bruk prinsippet \"hjelp til selvhjelp\"
+- Kartlegg sammen med brukeren og ta utgangspunkt i deres mal`,
+    },
+    {
+      id: 'helseoppvekst-vg1-5-4-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.1: Kroppen og grunnleggende behov](/kurs/helseoppvekst-vg1/kapittel/2-1) - Grunnleggende behov
+- [Kapittel 5.2: Omsorg for eldre](/kurs/helseoppvekst-vg1/kapittel/5-2) - ADL hos eldre
+- [Kapittel 5.6: Observasjon og kartlegging](/kurs/helseoppvekst-vg1/kapittel/5-6) - Kartlegging av ADL`,
+    },
   ],
   exercises: [
     {
@@ -5248,6 +5985,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_5: TextbookChapter = {
       content: 'Forstehjelp er den hjelpen som gis umiddelbart naar noen blir syke eller skadet, for profesjonell helsehjelp ankommer. God forstehjelp kan vaere forskjellen mellom liv og dod. Som helsefagarbeider vil du vaere blant de forste paa stedet i mange akutte situasjoner, og det er avgjorende at du kan handle raskt og riktig. Den viktigste regelen er aa holde seg rolig, skaffe oversikt og folge en systematisk tilnaerming.'
     },
     {
+      id: 'hov1-5-5-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-5-5-ordliste-innhold',
+          type: 'text',
+          content: `**Forstehjelp** - Hjelp som gis umiddelbart for profesjonell helsehjelp ankommer.
+
+**ABCDE-prinsippet** - Systematisk metode for vurdering: Airway, Breathing, Circulation, Disability, Exposure.
+
+**HLR (Hjerte-lunge-redning)** - Brystkompresjoner og innblaaasinger for aa opprettholde sirkulasjon ved hjertestans.
+
+**Stabilt sideleie** - Stilling for bevisstlose som puster, for aa holde luftveiene aapne.
+
+**Hjertestans** - Naar hjertet slutter aa slaa og blodsirkulasjonen stopper.
+
+**Anafylaksi** - Alvorlig allergisk reaksjon som kan vaere livstruende.
+
+**113** - Norges medisinske nodtelefon for akutte helsetilfeller.
+
+**Brystkompresjoner** - Trykk midt paa brystkassen for aa opprettholde blodsirkulasjon ved hjertestans.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-5-5-2',
       type: 'definition',
       title: 'ABCDE-prinsippet',
@@ -5275,7 +6039,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_5: TextbookChapter = {
       type: 'tip',
       title: 'Ovelse gjor mester',
       content: 'Forstehjelpsferdigheter maa oves jevnlig for aa sitte. Delta paa forstehjelps kurs og ov paa dukker. I en stresset situasjon er det de innlærte automatiske handlingene som redder liv. Husk: aa gjore noe er nesten alltid bedre enn aa gjore ingenting. Selv om du er usikker, kan dine handlinger redde et liv.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-5-5-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- ABCDE-prinsippet gir systematisk tilnaerming til akutte situasjoner
+- HLR bestar av 30 brystkompresjoner og 2 innblasinger
+- Stabilt sideleie brukes for bevisstlose som puster
+- Ring 113 ved akutte, livstruende situasjoner
+
+**Sentrale begreper:**
+- ABCDE: Airway, Breathing, Circulation, Disability, Exposure
+- HLR: Hjerte-lunge-redning
+- Stabilt sideleie: Sikringsstilling for bevisstlose som puster
+- Anafylaksi: Alvorlig allergisk reaksjon
+
+**Tips for praksis:**
+- Ov pa forstehjelp jevnlig - ferdighetene ma sitte automatisk
+- A gjore noe er nesten alltid bedre enn a gjore ingenting
+- Ha klar informasjon nar du ringer 113
+- Kjol forbrenninger med lunkent vann i minst 20 minutter`,
+    },
+    {
+      id: 'helseoppvekst-vg1-5-5-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 2.2: Hygiene og smittevern](/kurs/helseoppvekst-vg1/kapittel/2-2) - Smittevern ved forstehjelp
+- [Kapittel 3.4: Dokumentasjon og journalforing](/kurs/helseoppvekst-vg1/kapittel/3-4) - Dokumentasjon av hendelser`,
+    },
   ],
   exercises: [
     {
@@ -5390,6 +6186,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_1: TextbookChapter = {
       content: 'Tverrfaglig samarbeid betyr at fagpersoner med ulik utdanning og kompetanse jobber sammen for aa gi brukeren et helhetlig tilbud. I helse- og oppvekstsektoren er det mange ulike yrkesgrupper som bidrar med sin spesialkompetanse. Legen stiller diagnoser og forordner behandling, sykepleieren gir medisinsk oppfolging, helsefagarbeideren bistaar med daglig omsorg, ergoterapeuten vurderer funksjon og tilpasser hjelpemidler, fysioterapeuten jobber med trening og rehabilitering, og sosionomen hjelper med sosiale utfordringer. Godt tverrfaglig samarbeid krever at alle respekterer hverandres kompetanse og kommuniserer effektivt.'
     },
     {
+      id: 'hov1-6-1-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-6-1-ordliste-innhold',
+          type: 'text',
+          content: `**Tverrfaglig samarbeid** - Naar fagpersoner med ulik utdanning og kompetanse jobber sammen rundt en bruker.
+
+**Ansvarsgruppe** - Tverrfaglig gruppe som koordinerer tjenester rundt en bruker med sammensatte behov.
+
+**Individuell plan (IP)** - Verktoy for aa koordinere tjenester til brukere med behov for langvarige tjenester.
+
+**Koordinator** - Person som har ansvar for aa lede og samordne tverrfaglig samarbeid.
+
+**Helhetlig tilbud** - Tjenester som dekker alle brukerens behov paa tvers av fagomraader.
+
+**Rehabilitering** - Systematisk arbeid for aa gjenvinne eller bedre funksjon etter sykdom eller skade.
+
+**Tverrfaglig mote** - Mote der fagpersoner fra ulike yrkesgrupper deler informasjon og koordinerer tiltak.
+
+**Samhandling** - Hvordan ulike tjenester og nivaer kommuniserer og samarbeider.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-6-1-2',
       type: 'definition',
       title: 'Ansvarsgruppe',
@@ -5412,7 +6235,40 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_1: TextbookChapter = {
       type: 'tip',
       title: 'Kjennetegn paa godt tverrfaglig samarbeid',
       content: 'Godt tverrfaglig samarbeid kjennetegnes av: felles maal som er definert sammen med brukeren, gjensidig respekt for hverandres kompetanse, tydelig rolle- og ansvarsfordeling, god og regelmessig kommunikasjon, vilje til aa dele kunnskap, og evne til aa se utover eget fagfelt. Det er ogsaa viktig med en felles dokumentasjonsplattform slik at alle har tilgang til oppdatert informasjon.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-6-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Tverrfaglig samarbeid betyr at fagpersoner med ulik kompetanse jobber sammen
+- Ansvarsgrupper koordinerer tjenester rundt brukere med sammensatte behov
+- Individuell plan (IP) er et verktoy for koordinering av langvarige tjenester
+- Brukeren skal alltid vaere i sentrum for samarbeidet
+
+**Sentrale begreper:**
+- Tverrfaglig samarbeid: Samarbeid mellom fagpersoner med ulik utdanning
+- Ansvarsgruppe: Tverrfaglig gruppe rundt en bruker med sammensatte behov
+- Individuell plan (IP): Koordineringsverktoy for langvarige tjenester
+- Koordinator: Person med ansvar for a lede og samordne samarbeidet
+
+**Tips for praksis:**
+- Ha respekt for kollegers kompetanse
+- Del kunnskap og kommuniser regelmessig
+- Ha brukeren i sentrum og involver dem i beslutninger
+- Bruk felles dokumentasjon for a sikre god informasjonsflyt`,
+    },
+    {
+      id: 'helseoppvekst-vg1-6-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.7: Organisering av helse- og oppvekstsektoren](/kurs/helseoppvekst-vg1/kapittel/1-7) - Sektorens organisering
+- [Kapittel 8.2: Konflikthaandtering](/kurs/helseoppvekst-vg1/kapittel/8-2) - Samarbeidskonflikter
+- [Kapittel 8.4: Samhandling med paaroerende](/kurs/helseoppvekst-vg1/kapittel/8-4) - Samarbeid med familie`,
+    },
   ],
   exercises: [
     {
@@ -5527,6 +6383,33 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_2: TextbookChapter = {
       content: 'Norge er et flerkulturelt samfunn, og i helse- og oppvekstsektoren moter du mennesker med ulik kulturell bakgrunn. Kultur paavirker hvordan mennesker forstaar helse og sykdom, hvordan de uttrykker smerte, hvilke forventninger de har til helsetjenester, og hvordan de forholder seg til familieroller og autoritet. Som helsefagarbeider er det viktig aa ha kulturell kompetanse - det vil si kunnskap, holdninger og ferdigheter som gjor deg i stand til aa gi god omsorg til mennesker uavhengig av deres kulturelle bakgrunn.'
     },
     {
+      id: 'hov1-6-2-ordliste',
+      type: 'collapsible',
+      title: 'Ordliste',
+      buttonText: 'Vis ordliste',
+      content: [
+        {
+          id: 'hov1-6-2-ordliste-innhold',
+          type: 'text',
+          content: `**Kulturell kompetanse** - Evnen til aa forstaa og samhandle effektivt med mennesker fra ulike kulturer.
+
+**Etnosentrisme** - Aa vurdere andre kulturer med sin egen kultur som maalestokk.
+
+**Kulturrelativisme** - Aa forsoke aa forstaa en kultur paa dens egne premisser.
+
+**Fordommer** - Forhaandsdommer basert paa gruppemedlemskap, ikke individuelle egenskaper.
+
+**Diskriminering** - Handlinger som behandler personer ulikt paa grunn av kjennetegn som etnisitet, religion eller kjonn.
+
+**Tolk** - Person som oversetter muntlig mellom ulike sprak i profesjonelle sammenhenger.
+
+**Mangfold** - Variasjon i bakgrunn, kultur, livssyn og erfaringer i samfunnet.
+
+**Inkludering** - Aa sikre at alle mennesker opplever tilhorighet og deltakelse i samfunnet.`,
+        },
+      ],
+    },
+    {
       id: 'hov1-6-2-2',
       type: 'definition',
       title: 'Kulturell kompetanse',
@@ -5554,7 +6437,39 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_2: TextbookChapter = {
       type: 'tip',
       title: 'Tips for god tverrkulturell kommunikasjon',
       content: 'Vaer nysgjerrig og spor brukeren om sine preferanser og behov. Unngaa aa anta at alle fra samme kultur er like. Bruk profesjonell tolk ved sprakbarrierer - aldri barn som tolker. Vaer bevisst paa at kroppssprak kan ha ulik betydning i ulike kulturer. Vis respekt for ulike tradisjoner rundt mat, religion og familiestruktur. Husk at din egen kultur ogsaa paavirker hvordan du tenker og handler.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-6-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Kulturell kompetanse er evnen til a forstaa og samhandle effektivt med mennesker fra ulike kulturer
+- Etnosentrisme betyr a vurdere andre kulturer ut fra sin egen som malestokk
+- Fordommer er tanker, diskriminering er handlinger
+- Bruk alltid profesjonell tolk ved sprakbarrierer
+
+**Sentrale begreper:**
+- Kultur: Verdier, normer, tradisjoner og levesett i en gruppe
+- Kulturell kompetanse: Evne til tverrkulturell kommunikasjon
+- Etnosentrisme: A se sin egen kultur som overlegen
+- Kulturrelativisme: A forstaa en kultur pa dens egne premisser
+
+**Tips for praksis:**
+- Spor brukeren om deres preferanser - unnga a anta
+- Bruk profesjonell tolk, aldri barn eller familiemedlemmer
+- Vaer bevisst pa egne fordommer og kulturelle antakelser
+- Vis respekt for ulike tradisjoner innenfor rammene av forsvarlig helsehjelp`,
+    },
+    {
+      id: 'helseoppvekst-vg1-6-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.5: Menneskesyn og holdninger](/kurs/helseoppvekst-vg1/kapittel/1-5) - Holdninger og verdier
+- [Kapittel 8.3: Sosial og kulturell kompetanse](/kurs/helseoppvekst-vg1/kapittel/8-3) - Kulturell kommunikasjon`,
+    },
   ],
   exercises: [
     {
@@ -5696,7 +6611,40 @@ export const CHAPTER_HELSEOPPVEKST_VG1_6_3: TextbookChapter = {
       type: 'tip',
       title: 'Husk den menneskelige faktoren',
       content: 'Teknologi er et verktoy, ikke et maal i seg selv. Brukere som faar velferdsteknologi trenger fortsatt menneskelig kontakt, varme og omsorg. Noen brukere kan oppleve teknologien som fremmedgjorende eller skummel. Ta deg tid til aa forklare hvordan teknologien fungerer, og vaer taalmodig. Sjekk jevnlig at teknologien virker som den skal, og at brukeren er komfortabel med den.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-6-3-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Velferdsteknologi styrker brukerens evne til a klare seg selv i hverdagen
+- Hovedkategorier: trygghetsalarmer, varslings- og sporingsteknologi, medisinstotte, kommunikasjon
+- Teknologi kan ikke erstatte menneskelig kontakt og omsorg
+- Samtykke og brukeropplaering er viktig for vellykket bruk
+
+**Sentrale begreper:**
+- Velferdsteknologi: Teknologi som styrker selvstendighet og trygghet
+- Trygghetsalarm: Enhet som lar brukeren tilkalle hjelp
+- GPS-sporing: Lokaliseringsteknologi for personer med demens
+- Medisindispenser: Enhet som doserer medisiner til riktig tid
+
+**Tips for praksis:**
+- Ta deg tid til a forklare hvordan teknologien fungerer
+- Husk at teknologi er et verktoy, ikke en erstatning for omsorg
+- Sjekk jevnlig at teknologien virker og at brukeren er komfortabel
+- Vaer talmodig - noen brukere trenger ekstra tid til a laere`,
+    },
+    {
+      id: 'helseoppvekst-vg1-6-3-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 5.2: Omsorg for eldre](/kurs/helseoppvekst-vg1/kapittel/5-2) - Teknologi i eldreomsorg
+- [Kapittel 6.4: Digitale ressurser og kommunikasjon](/kurs/helseoppvekst-vg1/kapittel/6-4) - Digitale systemer
+- [Kapittel 6.6: Hjelpemidler og tilrettelegging](/kurs/helseoppvekst-vg1/kapittel/6-6) - Teknologiske hjelpemidler`,
+    },
   ],
   exercises: [
     {
@@ -5965,7 +6913,40 @@ export const CHAPTER_HELSEOPPVEKST_VG1_7_1: TextbookChapter = {
       type: 'warning',
       title: 'Taushetsplikt i praksis',
       content: 'Taushetsplikten gjelder ogsaa for praksiselever. Du maa aldri dele informasjon om brukere med venner, familie eller paa sosiale medier. Ikke ta bilder paa arbeidsplassen. Hvis du onsker aa bruke erfaringer i skoleoppgaver, maa du anonymisere all informasjon slik at enkeltpersoner ikke kan gjenkjennes. Brudd paa taushetsplikt kan faa alvorlige konsekvenser, inkludert at du ikke faar fortsette i praksis.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-7-1-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Praksis gir mulighet til a anvende teori i virkeligheten
+- Veileder er din viktigste ressurs - spor nar du er usikker
+- Praksislogg er et verktoy for refleksjon og laering
+- Taushetsplikten gjelder ogsa for praksiselever
+
+**Sentrale begreper:**
+- Praksisperiode: Periode der eleven laerer i en reell arbeidssituasjon
+- Veileder: Erfaren fagperson som stotter og gir tilbakemelding
+- Praksislogg: Skriftlig refleksjon over praksiserfaringer
+- Laeringsmal: Konkrete mal for hva du skal laere i praksis
+
+**Tips for praksis:**
+- Vaer punktlig, folg regler og vis respekt
+- Ta initiativ og vis interesse
+- Spor nar du er usikker - aldri gjor noe du ikke vet er riktig
+- Skriv praksislogg jevnlig for a reflektere over laeringen`,
+    },
+    {
+      id: 'helseoppvekst-vg1-7-1-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 3.3: HMS - Helse, miljo og sikkerhet](/kurs/helseoppvekst-vg1/kapittel/3-3) - Sikkerhet i praksis
+- [Kapittel 7.3: Refleksjon og egenvurdering](/kurs/helseoppvekst-vg1/kapittel/7-3) - Refleksjon over praksis
+- [Kapittel 7.5: Yrkesetikk i praksis](/kurs/helseoppvekst-vg1/kapittel/7-5) - Etikk i praksis`,
+    },
   ],
   exercises: [
     {
@@ -6107,7 +7088,40 @@ export const CHAPTER_HELSEOPPVEKST_VG1_7_2: TextbookChapter = {
       type: 'tip',
       title: 'Tips for aa velge riktig retning',
       content: 'Tenk gjennom hva du likte best i praksisperiodene - var det arbeid med eldre, barn, eller akutte situasjoner? Snakk med fagpersoner i ulike yrker og spor om hverdagen deres. Delta paa aapne dager paa hoyskoler og utdanningsinstitusjoner. Husk at du ikke trenger aa bestemme alt naa - mange bytter retning underveis, og erfaringen du faar er verdifull uansett. Det viktigste er at du velger noe du er motivert for.'
-    }
+    },
+    {
+      id: 'helseoppvekst-vg1-7-2-oppsummering',
+      type: 'note',
+      title: 'Oppsummering',
+      content: `## Oppsummering
+
+**Hovedpunkter:**
+- Etter VG1 kan du velge mellom flere VG2-retninger eller pabygg til studiekompetanse
+- Fagbrev oppnas etter VG2 og to ar som laerling
+- Med fagbrev kan du ta videreutdanning via Y-veien eller realkompetanse
+- Helse- og oppvekstsektoren har mange karrieremuligheter
+
+**Sentrale begreper:**
+- Fagbrev: Bevis pa yrkeskompetanse etter fullfort opplaering og fagprove
+- Laerling: Person som laerer et yrke gjennom arbeid i bedrift
+- Y-veien: Opptak til hoyskoleutdanning basert pa fagbrev
+- Studiekompetanse: Kvalifikasjon som gir adgang til hoyere utdanning
+
+**Tips for praksis:**
+- Bruk praksisperioder til a finne ut hva du liker best
+- Snakk med fagpersoner i ulike yrker
+- Du trenger ikke bestemme alt na - mange bytter retning underveis
+- Velg noe du er motivert for`,
+    },
+    {
+      id: 'helseoppvekst-vg1-7-2-se-ogsa',
+      type: 'note',
+      title: 'Se også',
+      content: `**Relaterte kapitler:**
+- [Kapittel 1.1: Hva er helse- og oppvekstfag?](/kurs/helseoppvekst-vg1/kapittel/1-1) - Yrkesmuligheter
+- [Kapittel 7.6: Jobbsoeking og arbeidslivskunnskap](/kurs/helseoppvekst-vg1/kapittel/7-6) - A finne jobb
+- [Kapittel 7.7: Laering gjennom hele livet](/kurs/helseoppvekst-vg1/kapittel/7-7) - Videreutdanning`,
+    },
   ],
   exercises: [
     {
@@ -7539,6 +8553,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_1_5: TextbookChapter = {
     { id: 'hov1-1-5-example', type: 'example', title: 'Holdninger i praksis', content: 'Marte jobber paa et bofellesskap. Naar en ny beboer, Per, flytter inn, tenker Marte at han sikkert ikke kan delta i matlagingen fordi han har en diagnose. Gjennom aa bli kjent med Per oppdager Marte at han elsker aa lage mat. Hun endrer sin holdning og legger til rette for at Per kan delta.' },
     { id: 'hov1-1-5-warning', type: 'warning', title: 'Fordommer og stereotypier', content: 'Fordommer er negative holdninger til grupper basert paa generaliseringer. Stereotypier er forenklede forestillinger. Begge kan fore til diskriminering. Som yrkesutover maa du vaere bevisst egne fordommer.' },
     { id: 'hov1-1-5-oppsummering', type: 'text', content: '# Oppsummering\n\n- Menneskesyn er grunnleggende oppfatninger om menneskers verdi\n- Et humanistisk menneskesyn ligger til grunn for helse- og oppvekstarbeid\n- Holdninger bestaar av tanker, foelelser og handlingstendenser\n- Bevisst refleksjon over egne holdninger er viktig' },
+    { id: 'hov1-1-5-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Grunnleggende kommunikasjonsferdigheter\n- [Kapittel 1.4: Etikk i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske retningslinjer og verdier\n- [Kapittel 3.1: Taushetsplikt](/kurs/helseoppvekst-vg1/kapittel/3-1) - Lovverk knyttet til respekt for mennesker' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-1-5-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er menneskesyn?', solution: 'Grunnleggende oppfatninger om hva et menneske er og hva som gir livet verdi', multipleChoiceOptions: ['Grunnleggende oppfatninger om hva et menneske er og hva som gir livet verdi', 'En medisinsk diagnose', 'Et juridisk begrep', 'En psykologisk test'] },
@@ -7566,6 +8581,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_1_6: TextbookChapter = {
     { id: 'hov1-1-6-example', type: 'example', title: 'Brukermedvirkning i praksis', content: 'Kari er 78 aar og bor hjemme med hjelp fra hjemmesykepleien. De mener hun bor flytte til omsorgsbolig. Kari onsker aa bli boende hjemme. I et mote diskuteres losninger. Kari velger aa bli boende med okt tilsyn og trygghetsalarm. Valget respekteres.' },
     { id: 'hov1-1-6-warning', type: 'warning', title: 'Naar selvbestemmelsen kan begrenses', content: 'Selvbestemmelsesretten kan begrenses ved alvorlig fare eller naar personen mangler samtykkekompetanse. Bruk av tvang krever hjemmel i lov, skal vaere siste utvei, og maa dokumenteres.' },
     { id: 'hov1-1-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Brukermedvirkning innebærer at brukere faar paavirke tjenester og beslutninger\n- Selvbestemmelse er retten til aa ta egne valg\n- Samvalg er en metode for felles beslutningstaking\n- Tvang krever hjemmel i lov og skal vaere siste utvei' },
+    { id: 'hov1-1-6-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 1.3: Kommunikasjon og samhandling](/kurs/helseoppvekst-vg1/kapittel/1-3) - Grunnleggende kommunikasjonsferdigheter\n- [Kapittel 1.5: Menneskesyn og holdninger](/kurs/helseoppvekst-vg1/kapittel/1-5) - Holdninger og menneskesyn\n- [Kapittel 8.1: Profesjonell kommunikasjon](/kurs/helseoppvekst-vg1/kapittel/8-1) - Profesjonell kommunikasjon i praksis' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-1-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva betyr brukermedvirkning?', solution: 'At brukere faar innflytelse paa beslutninger og tjenester som angaar dem', multipleChoiceOptions: ['At brukere faar innflytelse paa beslutninger og tjenester som angaar dem', 'At brukere gjor jobben til helsepersonell', 'At brukere betaler for tjenestene selv', 'At brukere alltid faar det som de vil'] },
@@ -7592,6 +8608,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_1_7: TextbookChapter = {
     { id: 'hov1-1-7-def-samhandling', type: 'definition', title: 'Samhandlingsreformen', content: 'Samhandlingsreformen (2012) er en helsereform som skulle bedre samarbeidet mellom kommuner og sykehus. Maalet var aa forebygge mer, behandle tidligere og samhandle bedre.' },
     { id: 'hov1-1-7-example', type: 'example', title: 'Samhandling i praksis', content: 'Olav (82) blir innlagt paa sykehus etter et fall. Han har brukket hoften. Etter operasjonen varsler sykehuset kommunen om at Olav snart er utskrivningsklar. Kommunen tilbyr plass paa korttidsavdeling for rehabilitering. Etter to uker kan Olav flytte hjem med hjelp fra hjemmesykepleien.' },
     { id: 'hov1-1-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Helse- og oppvekstsektoren er organisert paa flere nivaer\n- Kommunene har ansvar for primaerhelsetjenesten og oppveksttjenester\n- Spesialisthelsetjenesten drives av fire regionale helseforetak\n- Samhandlingsreformen har styrket samarbeidet mellom kommuner og sykehus' },
+    { id: 'hov1-1-7-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 1.2: Arbeid i helse- og oppvekstsektoren](/kurs/helseoppvekst-vg1/kapittel/1-2) - Oversikt over sektoren\n- [Kapittel 1.4: Etikk i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske retningslinjer\n- [Kapittel 3.1: Taushetsplikt](/kurs/helseoppvekst-vg1/kapittel/3-1) - Lovverk og personvern' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-1-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er primaerhelsetjenesten?', solution: 'Kommunale helsetjenester som er forste kontaktpunkt for innbyggerne', multipleChoiceOptions: ['Kommunale helsetjenester som er forste kontaktpunkt for innbyggerne', 'Sykehus og spesialiserte klinikker', 'Private helsetjenester', 'Internasjonale helseorganisasjoner'] },
@@ -7612,6 +8629,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_2_6: TextbookChapter = {
     { id: 'hov1-2-6-def', type: 'definition', title: 'Livsstilssykdommer', content: 'Livsstilssykdommer er sykdommer der livsstilsfaktorer som kosthold, fysisk aktivitet, royking og alkohol spiller en vesentlig rolle. Eksempler er hjerte- og karsykdommer, diabetes type 2 og visse kreftformer.' },
     { id: 'hov1-2-6-example', type: 'example', title: 'Forebygging i praksis', content: 'Per er 55 aar og har faatt pavist forhoyede blodverdier og overvekt. Legen forklarer risikoen. Sammen lager de en plan: Per skal begynne aa gaa tur daglig, redusere sukkerinntak og spise mer groentsaker. Etter tre maaneder har blodverdiene bedret seg.' },
     { id: 'hov1-2-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Livsstilssykdommer skyldes i stor grad hvordan vi lever\n- Viktige risikofaktorer er usunt kosthold, inaktivitet og royking\n- Mange livsstilssykdommer kan forebygges gjennom livsstilsendringer' },
+    { id: 'hov1-2-6-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 2.1: Kroppens oppbygning](/kurs/helseoppvekst-vg1/kapittel/2-1) - Grunnleggende om kroppen\n- [Kapittel 2.2: Nervesystemet](/kurs/helseoppvekst-vg1/kapittel/2-2) - Nervesystemets funksjon\n- [Kapittel 2.7: Helse og livsstil](/kurs/helseoppvekst-vg1/kapittel/2-7) - Livsstil og helse' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-2-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er livsstilssykdommer?', solution: 'Sykdommer der livsstil er en viktig risikofaktor', multipleChoiceOptions: ['Sykdommer der livsstil er en viktig risikofaktor', 'Sykdommer man foedes med', 'Smittsomme sykdommer', 'Sykdommer som bare rammer eldre'] },
@@ -7631,6 +8649,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_2_7: TextbookChapter = {
     { id: 'hov1-2-7-example', type: 'example', title: 'Forflytning i praksis', content: 'Emma skal hjelpe en beboer fra seng til rullestol. Hun senker sengen til riktig hoyde, bruker et glidebrett for overflytting og stoetter beboeren med kroppen naer. Emma bruker beinstyrke og holder ryggen rett.' },
     { id: 'hov1-2-7-warning', type: 'warning', title: 'Forebygg belastningsskader', content: 'Belastningsskader i rygg, skuldre og armer er vanlige i helse- og omsorgsyrker. Planlegg forflytninger, bruk hjelpemidler, be om hjelp ved tunge loft.' },
     { id: 'hov1-2-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Ergonomi handler om aa tilpasse arbeidet til mennesket\n- Riktige arbeidsteknikker forebygger belastningsskader\n- Bruk hjelpemidler og be om hjelp ved tunge loft' },
+    { id: 'hov1-2-7-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 2.1: Kroppens oppbygning](/kurs/helseoppvekst-vg1/kapittel/2-1) - Kroppens systemer\n- [Kapittel 2.5: Kosthold og ernaering](/kurs/helseoppvekst-vg1/kapittel/2-5) - Ernaering og helse\n- [Kapittel 2.8: Forebygging av sykdom](/kurs/helseoppvekst-vg1/kapittel/2-8) - Forebyggende arbeid' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-2-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er ergonomi?', solution: 'Laeren om aa tilpasse arbeidet til mennesket', multipleChoiceOptions: ['Laeren om aa tilpasse arbeidet til mennesket', 'En type treningsprogram', 'En medisinsk behandling', 'En type arbeidstoy'] },
@@ -7649,6 +8668,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_2_8: TextbookChapter = {
     { id: 'hov1-2-8-def', type: 'definition', title: 'Baerekraft', content: 'Baerekraft betyr aa dekke naavaerende generasjoners behov uten aa odelegge mulighetene for fremtidige generasjoner.' },
     { id: 'hov1-2-8-example', type: 'example', title: 'Baerekraft i praksis', content: 'Paa et sykehjem innforer de tiltak for aa redusere matsvinnet: Beboerne velger selv porsjonssterrelse, restemat brukes, og matavfall komposteres. Paa ett aar reduserer de avfallsmengden med 20%.' },
     { id: 'hov1-2-8-oppsummering', type: 'text', content: '# Oppsummering\n\n- Helse- og oppvekstsektoren har stort potensial for aa bli mer baerekraftig\n- Kildesortering og riktig avfallshaandtering er viktig\n- Smaa valg i hverdagen kan ha stor effekt samlet' },
+    { id: 'hov1-2-8-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 2.5: Kosthold og ernaering](/kurs/helseoppvekst-vg1/kapittel/2-5) - Ernaering og forebygging\n- [Kapittel 2.7: Helse og livsstil](/kurs/helseoppvekst-vg1/kapittel/2-7) - Livsstilsfaktorer\n- [Kapittel 5.1: Omsorg og pleie](/kurs/helseoppvekst-vg1/kapittel/5-1) - Grunnleggende omsorg' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-2-8-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva betyr baerekraft?', solution: 'Aa dekke dagens behov uten aa odelegge for fremtidige generasjoner', multipleChoiceOptions: ['Aa dekke dagens behov uten aa odelegge for fremtidige generasjoner', 'Aa spare mest mulig penger', 'Aa jobbe saa effektivt som mulig', 'Aa bruke mest mulig ressurser'] },
@@ -7667,6 +8687,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_5: TextbookChapter = {
     { id: 'hov1-3-5-def', type: 'definition', title: 'Avvik', content: 'Et avvik er en uonsket hendelse eller tilstand som avviker fra gjeldende rutiner, prosedyrer eller forventet standard. Avvik skal rapporteres for aa forhindre gjentakelse og forbedre tjenestene.' },
     { id: 'hov1-3-5-example', type: 'example', title: 'Avviksrapportering i praksis', content: 'En helsefagarbeider oppdager at en beboer har faatt feil medisin. Hun varsler umiddelbart sykepleier, dokumenterer hendelsen og fyller ut avviksskjema. I etterkant gjennomgaas rutinene for legemiddelhåndtering for aa forhindre lignende feil.' },
     { id: 'hov1-3-5-oppsummering', type: 'text', content: '# Oppsummering\n\n- Kvalitetssikring er systematisk arbeid for god kvalitet\n- Avvik er hendelser som avviker fra forventet standard\n- Avviksrapportering bidrar til laering og forbedring\n- Alle ansatte har plikt til aa melde fra om avvik' },
+    { id: 'hov1-3-5-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 3.1: Taushetsplikt](/kurs/helseoppvekst-vg1/kapittel/3-1) - Grunnleggende om taushetsplikt\n- [Kapittel 3.2: Pasientrettigheter](/kurs/helseoppvekst-vg1/kapittel/3-2) - Pasienters rettigheter\n- [Kapittel 3.6: Dokumentasjon](/kurs/helseoppvekst-vg1/kapittel/3-6) - Krav til dokumentasjon' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-3-5-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er et avvik?', solution: 'En hendelse som avviker fra rutiner eller forventet standard', multipleChoiceOptions: ['En hendelse som avviker fra rutiner eller forventet standard', 'En planlagt endring i rutiner', 'En ny arbeidsoppgave', 'Et mote med lederen'] },
@@ -7685,6 +8706,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_6: TextbookChapter = {
     { id: 'hov1-3-6-def', type: 'definition', title: 'Partssamarbeid', content: 'Partssamarbeid er samarbeidet mellom arbeidsgivere og arbeidstakere (og eventuelt myndigheter) for aa finne gode losninger for arbeidslivet. Det bygger paa gjensidig respekt og dialog.' },
     { id: 'hov1-3-6-example', type: 'example', title: 'Partssamarbeid i praksis', content: 'Paa et sykehjem skal det innfores nytt turnus-system. Ledelsen involverer tillitsvalgte tidlig i prosessen. Sammen diskuterer de fordeler og ulemper, og finner en losning som ivaretar baade driften og de ansattes behov for forutsigbarhet.' },
     { id: 'hov1-3-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Partssamarbeid er samarbeid mellom arbeidsgiver og arbeidstaker\n- Fagforeninger ivaretar arbeidstakernes interesser\n- Tillitsvalgte representerer de ansatte paa arbeidsplassen\n- Godt partssamarbeid gir bedre arbeidsforhold' },
+    { id: 'hov1-3-6-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 3.1: Taushetsplikt](/kurs/helseoppvekst-vg1/kapittel/3-1) - Personvern i dokumentasjon\n- [Kapittel 3.5: Varsling og avvik](/kurs/helseoppvekst-vg1/kapittel/3-5) - Rapportering\n- [Kapittel 6.1: Digital kompetanse](/kurs/helseoppvekst-vg1/kapittel/6-1) - Digital dokumentasjon' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-3-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er en fagforening?', solution: 'En organisasjon som ivaretar arbeidstakernes interesser', multipleChoiceOptions: ['En organisasjon som ivaretar arbeidstakernes interesser', 'En avdeling i bedriften', 'Et offentlig tilsyn', 'En type arbeidsgiver'] },
@@ -7704,6 +8726,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_3_7: TextbookChapter = {
     { id: 'hov1-3-7-example', type: 'example', title: 'Profesjonelle grenser i praksis', content: 'Emma jobber paa sykehjem der bestemoren til en venninne er beboer. Emma er vennlig og imotekommende, men passer paa aa ikke dele informasjon om bestemoren med venninnen uten samtykke. Hun holder sin profesjonelle rolle adskilt fra vennskapet.' },
     { id: 'hov1-3-7-warning', type: 'warning', title: 'Unngaa dobbeltreller', content: 'Dobbeltrroller kan vaere problematiske i helse- og oppvekstarbeid. Dersom du maa yte tjenester til noen du kjenner privat, bor du vurdere om en kollega bor overta. Snakk med leder om slike situasjoner.' },
     { id: 'hov1-3-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Profesjonalitet kombinerer fagkunnskap med etikk og gode holdninger\n- Profesjonelle grenser skiller privat og profesjonell rolle\n- Dobbeltrroller bor unngaaes eller haandteres bevisst\n- Profesjonell avstand beskytter baade bruker og ansatt' },
+    { id: 'hov1-3-7-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 1.4: Etikk i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske dilemmaer\n- [Kapittel 3.2: Pasientrettigheter](/kurs/helseoppvekst-vg1/kapittel/3-2) - Rettigheter og selvbestemmelse\n- [Kapittel 3.3: Samtykke og brukermedvirkning](/kurs/helseoppvekst-vg1/kapittel/3-3) - Brukermedvirkning' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-3-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er profesjonelle grenser?', solution: 'Klare skiller mellom privat og profesjonell rolle', multipleChoiceOptions: ['Klare skiller mellom privat og profesjonell rolle', 'Fysiske gjerder rundt arbeidsplassen', 'Regler for hvor man kan gaa', 'Grenser for arbeidstid'] },
@@ -7722,6 +8745,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_6: TextbookChapter = {
     { id: 'hov1-4-6-def', type: 'definition', title: 'Lek', content: 'Lek er en frivillig aktivitet som er lystbetont og har verdi i seg selv. Gjennom lek utforsker barn verden, bearbeider opplevelser og utvikler ferdigheter paa alle omraader.' },
     { id: 'hov1-4-6-example', type: 'example', title: 'Lek i barnehagen', content: 'I uteomraadet leker barna butikk. De plukker blader og steiner som varer, lager penger av papir, og fordeler roller som kunde og ekspeditør. De oever spraak, matematiske begreper, samarbeid og kreativitet - uten aa tenke paa det som laering.' },
     { id: 'hov1-4-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Lek er barns viktigste laeringsarena\n- Gjennom lek utvikles sosiale, motoriske og kognitive ferdigheter\n- Baade frilek og strukturert lek er viktig\n- Voksne maa legge til rette for variert lek' },
+    { id: 'hov1-4-6-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 4.1: Barnets utvikling](/kurs/helseoppvekst-vg1/kapittel/4-1) - Grunnleggende utvikling\n- [Kapittel 4.3: Sosial utvikling](/kurs/helseoppvekst-vg1/kapittel/4-3) - Sosialisering\n- [Kapittel 4.7: Tilknytning og relasjoner](/kurs/helseoppvekst-vg1/kapittel/4-7) - Relasjonenes betydning' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-4-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er frilek?', solution: 'Lek som barnet selv initierer og styrer', multipleChoiceOptions: ['Lek som barnet selv initierer og styrer', 'Lek uten leker', 'Lek utendoors', 'Lek med voksne'] },
@@ -7740,6 +8764,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_4_7: TextbookChapter = {
     { id: 'hov1-4-7-def', type: 'definition', title: 'Spesialpedagogikk', content: 'Spesialpedagogikk handler om tilrettelagt opplaering og stotte for barn og unge med saerskilte behov. Maalet er aa gi alle mulighet til aa laere og utvikle seg ut fra sine forutsetninger.' },
     { id: 'hov1-4-7-example', type: 'example', title: 'Tilrettelegging i praksis', content: 'Markus har ADHD og strever med aa konsentrere seg i storsgruppe. Barnehagen tilpasser ved aa gi ham en fast plass naer voksne under samlingsstund, bruke visuelle stotte, og gi ham korte pauser med bevegelse. Markus fungerer mye bedre med denne tilretteleggingen.' },
     { id: 'hov1-4-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Utviklingsforstyrrelser paavirker barns laering og utvikling\n- Vanlige diagnoser er ADHD og autisme\n- Spesialpedagogisk tilrettelegging gir bedre utviklingsmuligheter\n- Godt samarbeid med foreldre og faginstanser er viktig' },
+    { id: 'hov1-4-7-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 4.1: Barnets utvikling](/kurs/helseoppvekst-vg1/kapittel/4-1) - Barns behov\n- [Kapittel 4.4: Emosjonell utvikling](/kurs/helseoppvekst-vg1/kapittel/4-4) - Folelsesmessig utvikling\n- [Kapittel 5.1: Omsorg og pleie](/kurs/helseoppvekst-vg1/kapittel/5-1) - Omsorg for barn' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-4-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er ADHD?', solution: 'Oppmerksomhetsforstyrrelse med hyperaktivitet', multipleChoiceOptions: ['Oppmerksomhetsforstyrrelse med hyperaktivitet', 'En allergisk reaksjon', 'En smittsom sykdom', 'En type laevevanske'] },
@@ -7758,6 +8783,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_6: TextbookChapter = {
     { id: 'hov1-5-6-def', type: 'definition', title: 'Observasjon', content: 'Observasjon i helse- og oppvekstarbeid er systematisk iakttakelse og registrering av det man ser, horer og oppfatter. Observasjon gir grunnlag for aa vurdere behov og tilpasse hjelpen.' },
     { id: 'hov1-5-6-example', type: 'example', title: 'Observasjon i praksis', content: 'Helsefagarbeideren observerer at en beboer har begynt aa spise mindre til maaltidene. Hun noterer hvor mye han spiser over flere dager, observerer om han har problemer med aa tygge eller svelge, og snakker med ham om hvorfor han spiser mindre. Observasjonen dokumenteres og tas opp med sykepleier.' },
     { id: 'hov1-5-6-oppsummering', type: 'text', content: '# Oppsummering\n\n- Observasjon er systematisk iakttakelse og registrering\n- God observasjon gir grunnlag for tilpasset hjelp\n- Observasjoner maa dokumenteres\n- Endringer bor rapporteres til ansvarlig personell' },
+    { id: 'hov1-5-6-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 5.1: Omsorg og pleie](/kurs/helseoppvekst-vg1/kapittel/5-1) - Grunnleggende omsorg\n- [Kapittel 5.4: Aktivitet og mestring](/kurs/helseoppvekst-vg1/kapittel/5-4) - Mestring i hverdagen\n- [Kapittel 5.7: Palliativ omsorg](/kurs/helseoppvekst-vg1/kapittel/5-7) - Omsorg ved livets slutt' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-5-6-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er observasjon?', solution: 'Aa systematisk iaktta og registrere det man ser', multipleChoiceOptions: ['Aa systematisk iaktta og registrere det man ser', 'Aa ta blodprover', 'Aa gi medisiner', 'Aa skrive journal'] },
@@ -7776,6 +8802,7 @@ export const CHAPTER_HELSEOPPVEKST_VG1_5_7: TextbookChapter = {
     { id: 'hov1-5-7-def', type: 'definition', title: 'Folkehelse', content: 'Folkehelse er befolkningens helsetilstand og fordelingen av helse i befolkningen. Folkehelsearbeid er samfunnets samlede innsats for aa pavirke faktorer som fremmer helse, forebygger sykdom og beskytter mot helsetrusler.' },
     { id: 'hov1-5-7-example', type: 'example', title: 'Folkehelsearbeid i praksis', content: 'En kommune oppdager at barn i noen omraader har daarligere helse enn andre. De innforer gratis frukt i skolene, bygger flere lekeplasser, og styrker helsestasjonen i omraadet. Dette er eksempler paa tiltak som kan bidra til aa utjevne sosiale helseforskjeller.' },
     { id: 'hov1-5-7-oppsummering', type: 'text', content: '# Oppsummering\n\n- Folkehelse handler om helsetilstanden i befolkningen\n- Det finnes sosiale helseforskjeller mellom grupper\n- Samfunnet har ansvar for aa fremme folkehelsen\n- Folkehelsearbeid foregaar paa mange arenaer' },
+    { id: 'hov1-5-7-se-ogsa', type: 'note', title: 'Se ogsaa', content: '**Relaterte kapitler:**\n- [Kapittel 5.1: Omsorg og pleie](/kurs/helseoppvekst-vg1/kapittel/5-1) - Grunnleggende omsorg\n- [Kapittel 5.5: Sorg og krise](/kurs/helseoppvekst-vg1/kapittel/5-5) - Sorg og krisehaandtering\n- [Kapittel 1.4: Etikk i yrkesutovelsen](/kurs/helseoppvekst-vg1/kapittel/1-4) - Etiske aspekter' },
   ],
   exercises: [
     { id: 'helseoppvekst-vg1-5-7-ex-1', type: 'multiple-choice', difficulty: 'lett', task: 'Hva er folkehelse?', solution: 'Helsetilstanden i befolkningen som helhet', multipleChoiceOptions: ['Helsetilstanden i befolkningen som helhet', 'Helsen til eldre mennesker', 'Sykehusenes kapasitet', 'Antall leger i landet'] },
