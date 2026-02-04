@@ -14,6 +14,9 @@ import {
   TEKST_VG2_RAGNARSDRAAPA,
   TEKST_VG2_NJAALS_SAGA_GUNNAR,
   TEKST_VG2_EGILS_SAGA,
+  TEKST_VG2_EGILS_SAGA_HEVN,
+  TEKST_VG2_NJAALS_SAGA_LIDARENDE,
+  TEKST_VG2_HEIMSKRINGLA_HARALD,
   TEKST_VG2_RUNETEKST,
   TEKST_VG2_HOMILIEBOK,
 } from './textbook-content-norsk-vg2-tekster';
@@ -1733,11 +1736,12 @@ export const CHAPTER_NORSK_VG2_1_4: TextbookChapter = {
   courseId: 'norsk-vg2',
   chapterNumber: '1.4',
   title: 'Sagalitteraturen',
-  description: 'Utforsk den norrøne prosalitteraturen med islendingesagaer og kongesagaer.',
-  estimatedMinutes: 65,
+  description: 'Utforsk den norrøne prosalitteraturen med islendingesagaer, kongesagaer og sagastilens virkemidler.',
+  estimatedMinutes: 90,
   competenceGoals: [
     'lese norrøne tekster i oversettelse og sammenligne med nyere tekster',
     'analysere og tolke tekster med bruk av fagbegreper',
+    'sammenligne tekster fra ulike tider og vurdere tekstenes relevans i dag',
   ],
   content: [
     {
@@ -1976,6 +1980,112 @@ Sagakarakterer er ikke endimensjonale helter eller skurker. De handler ut fra fo
 Sagaene har mange personer. Det kan hjelpe å lage en oversikt.`,
     },
     {
+      id: 'norsk-vg2-1-4-analyse-stil',
+      type: 'text',
+      content: `## Fordypning: Sagastilens virkemidler
+
+Sagastilen er et av verdenslitteraturens mest særegne litterære uttrykk. Her ser vi nærmere på de viktigste virkemidlene.
+
+### Den objektive fortellerstilen
+
+Sagaforfatteren holder seg konsekvent i bakgrunnen. Vi får aldri vite hva forfatteren mener om karakterene eller hendelsene. Det er ingen moralske kommentarer, ingen fordømmelser, ingen ros.
+
+**Eksempel fra Njåls saga:**
+> "Han hogg mannen i hodet slik at øksa sto fast i hjernen. Mannen falt straks død ned."
+
+Forfatteren beskriver drapet helt nøytralt - som om det var en hvilken som helst dagligdags handling. Det er opp til leseren å reagere følelsesmessig.
+
+**Virkningen:** Denne tilbakeholdenheten gir leseren frihet til å tolke og dømme selv. Paradoksalt nok gjør fraværet av følelsesuttrykk at hendelsene føles sterkere. Vi fyller inn det som mangler.
+
+### Understatement og ironi
+
+Sagaene er berømte for sin lakoniske stil - å si lite, men mene mye. Sterke følelser uttrykkes gjennom tilbakeholdenhet.
+
+**Klassiske eksempler:**
+- "Han tok det tungt" - kan bety dypeste fortvilelse
+- "Det var noen som syntes dette var ille gjort" - kan bety dyp moralsk fordømmelse
+- "De skiltes, og hver syntes den andre hadde vist liten vennskap" - kan bety dødsfiendskap
+
+**Ironi i sagaene:**
+Sagaene bruker ofte dramatisk ironi - vi vet noe karakterene ikke vet. Drømmer og varsler forteller oss hva som kommer, mens karakterene går mot sin skjebne.
+
+**Eksempel:** Når Gunnar sier "Fager er lidi" og velger å bli, vet leseren at dette betyr hans død. Den vakre scenen er ladet med tragisk ironi.
+
+### Dialogens funksjon
+
+Dialogen i sagaene er aldri småprat. Hver replikk har en funksjon:
+
+**1. Karakteravsløring:**
+Karakterene viser hvem de er gjennom det de sier. Hallgerds svar "Daa skal eg minna deg paa det oyrfillet" avslører alt vi trenger å vite om hennes karakter.
+
+**2. Handlingsdriver:**
+Dialogen driver handlingen fremover. Viktige beslutninger tas og kunngjøres gjennom replikker.
+
+**3. Memorabilitet:**
+De beste replikkene huskes og siteres. De blir til ordtak og visdomsord.
+
+**4. Understatement:**
+Mye ligger under overflaten i dialogen. Det som ikke sies, er ofte like viktig som det som sies.
+
+### Skjebnetro og ære
+
+To grunnleggende verdier gjennomsyrer sagalitteraturen:
+
+**Skjebnetro (fatalisme):**
+- Skjebnen kan ikke unngås, bare møtes med verdighet
+- Drømmer og varsler forutsier det som kommer
+- Helter dør modig, vel vitende om sin skjebne
+- "Så skulle det være" - aksept av det uunngåelige
+
+**Ære (drengskapr):**
+- En manns rykte er alt han eier
+- Ærekrenkelser må hevnes
+- Løfter må holdes, uansett kostnad
+- Døden er å foretrekke fremfor skam
+
+Disse verdiene forklarer hvorfor sagakarakterer handler som de gjør - selv når handlingene fører til deres undergang.`,
+    },
+    {
+      id: 'norsk-vg2-1-4-sammenligning',
+      type: 'definition',
+      title: 'Sammenligning: Sagasjangre og moderne paralleller',
+      content: `**Islendingesagaer vs. kongesagaer**
+
+| Trekk | Islendingesagaer | Kongesagaer |
+|-------|------------------|-------------|
+| **Hovedpersoner** | Islandske bønder og høvdinger | Skandinaviske konger |
+| **Tid** | Sagatiden (ca. 930-1030) | Lengre tidsrom, frem til 1200-tallet |
+| **Sted** | Primært Island | Norge, Danmark, Sverige, utlandet |
+| **Fokus** | Ættekonflikter, personlige drama | Politikk, makt, rikssamling |
+| **Eksempler** | Njåls saga, Egils saga, Gisles saga | Heimskringla, Sverres saga |
+| **Stil** | Nøktern, indirekte | Noe mer forklarende, pedagogisk |
+
+**Sagaer vs. moderne krim/thriller**
+
+Sagaene har mye til felles med moderne spenningslitteratur:
+
+**Likheter:**
+- Komplekse karakterer med troverdige motiver
+- Konflikter som eskalerer gradvis
+- Spenningsoppbygging mot klimaks
+- "Show, don't tell" - handling fremfor forklaring
+- Helter med feil og svakheter
+
+**Forskjeller:**
+- Sagaene har ingen detektiv som løser gåten
+- Fokus på ære og skjebne, ikke rettferdighet
+- Ingen "happy endings" - tragedien er normen
+- Kollektiv (ætten) viktigere enn individet
+- Fatalisme: skjebnen styrer, ikke tilfeldighetene
+
+**Sagaer som inspirasjon:**
+Sagalitteraturen har påvirket mye moderne fiksjon:
+- **Tolkien**: Sterkt påvirket av norrøn litteratur
+- **Game of Thrones**: Komplekse karakterer, ærespolitikk, vold
+- **Nordisk noir**: Nøktern stil, mørke temaer
+- **Vikingserier**: Direkte adaptasjoner av sagastoff`,
+    },
+    {
       id: 'norsk-vg2-1-4-primaertekst-1',
       type: 'collapsible',
       title: 'Primærtekst: Njaals saga - Gunnars siste kamp',
@@ -1998,6 +2108,45 @@ Sagaene har mange personer. Det kan hjelpe å lage en oversikt.`,
           id: 'norsk-vg2-1-4-primaertekst-2-text',
           type: 'text',
           content: `${TEKST_VG2_EGILS_SAGA}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-1-4-primaertekst-3',
+      type: 'collapsible',
+      title: 'Primærtekst: Egils saga - Egils hevn som barn',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-1-4-primaertekst-3-text',
+          type: 'text',
+          content: `${TEKST_VG2_EGILS_SAGA_HEVN}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-1-4-primaertekst-4',
+      type: 'collapsible',
+      title: 'Primærtekst: Njåls saga - Gunnar ser heimover',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-1-4-primaertekst-4-text',
+          type: 'text',
+          content: `${TEKST_VG2_NJAALS_SAGA_LIDARENDE}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-1-4-primaertekst-5',
+      type: 'collapsible',
+      title: 'Primærtekst: Heimskringla - Harald Hårfagres saga',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-1-4-primaertekst-5-text',
+          type: 'text',
+          content: `${TEKST_VG2_HEIMSKRINGLA_HARALD}`,
         },
       ],
     },
@@ -2299,6 +2448,132 @@ Sagaene har mange personer. Det kan hjelpe å lage en oversikt.`,
           'Unngå å fortelle hva personene føler - vis det gjennom det de gjør og sier.',
         ],
         solution: 'Eleven skriver en sagapastisj med moderne innhold i sagastil. En god tekst bruker: (1) nøktern fortellerstil uten følelsesutbrudd, (2) dialog som avslører karakter, (3) understatement, (4) "show, don\'t tell", (5) sagaens typiske presentasjonsform. Eksempel-åpning: "Det var en mann som het Erlend. Han bodde på Østlandet og var kjent for sin dyktighet med data."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-1-4-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-1-4-ex-12',
+        number: '12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser sagastilen i utdraget fra Heimskringla om Harald Hårfagre (primærtekst 5).',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Identifiser minst tre kjennetegn ved sagastilen i utdraget. Gi eksempler fra teksten.',
+            solution: 'Mulige kjennetegn: (1) Objektiv fortellerstil - hendelsene beskrives uten moralske kommentarer. (2) Dialog som avslører karakter - Gydas svar viser hennes stolthet og ambisjon. (3) Understatement - "Det tok ti aar" sammenfatter en enorm krigsinnsats i fire ord. (4) "Show, don\'t tell" - Haralds karakter vises gjennom hans lovnad og handlinger, ikke gjennom forfatterens vurderinger.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan bruker Snorre dialog for å drive handlingen fremover?',
+            solution: 'Gydas replikk om at hun ikke vil "øyda møydommen" for en småkonge setter i gang hele handlingsrekken. Haralds svar med løftet om å samle Norge eller dø er det dramatiske vendepunktet. Dialogen er ikke bare informasjon - den er handling i seg selv.',
+          },
+          {
+            label: 'c',
+            task: 'Hvilke verdier fra det norrøne samfunnet kommer frem i utdraget?',
+            solution: 'Utdraget viser: (1) Ære og ambisjon - begge hovedpersoner er opptatt av status. (2) Løfters bindende kraft - Harald holder sitt løfte i ti år. (3) Mannlig stolthet - Harald aksepterer utfordringen umiddelbart. (4) Kvinnelig makt - Gyda påvirker historiens gang gjennom sine ord.',
+          },
+        ],
+        hints: ['Les teksten flere ganger og noter typiske trekk', 'Tenk på hva som ikke sies eksplisitt'],
+        solution: 'Analysen skal demonstrere forståelse av sagastilens særpreg og korleis Snorre formidlar verdiar og karakter indirekte.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-1-4-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-1-4-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign to sagautdrag: Egils hevn som barn (primærtekst 3) og Gunnars valg om å bli (primærtekst 4).',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Sammenlign de to hovedpersonene. Hva forteller utdragene om deres karakter?',
+            solution: 'Egil fremstår som voldsom, impulsiv og ærekjær allerede som barn. Han reagerer med dødelig vold på en fornærmelse. Gunnar fremstår som reflektert og poetisk - han velger døden av kjærlighet til hjemstedet, ikke av impulsivitet. Begge viser mot og aksept av konsekvenser.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan fremstilles vold og konsekvenser i de to utdragene?',
+            solution: 'I Egils saga beskrives drapet nøkternt og uten fordømmelse. Moras reaksjon er positiv - han har "vikingaemne". I Gunnar-utdraget er volden implicit - vi vet han vil dø, men fokuset er på det vakre øyeblikket og brødrenes avskjed. Begge viser sagaens nøytrale holdning til vold.',
+          },
+          {
+            label: 'c',
+            task: 'Hvilke likheter og forskjeller finner du i stilen mellom de to utdragene?',
+            solution: 'Likheter: Objektiv fortelling, dialog som avslører karakter, understatement, lakonisk språk. Forskjeller: Gunnar-utdraget har mer lyrisk stemning (beskrivelsen av landskapet), mens Egil-utdraget er mer handlingsdrevet. Gunnar-utdraget bruker mer dramatisk ironi (vi vet hva som kommer).',
+          },
+        ],
+        solution: 'Sammenligningen viser både sagastilens fellestrekk og hvordan ulike sagaer har sine særpreg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-1-4-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-1-4-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft sagaenes relevans i dag. Er de gamle fortellingene fremdeles betydningsfulle?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke temaer i sagalitteraturen er fortsatt aktuelle i dag?',
+            solution: 'Aktuelle temaer: (1) Lojalitet vs. individuelle valg (Gunnar). (2) Hvordan vold avler vold (blodfeider). (3) Rettferdighet og hevn vs. lov og forlik. (4) Kjønnets rolle og makt (sterke kvinneskikkelser som Hallgerd). (5) Identitet og tilhørighet (Gunnars binding til hjemstedet). (6) Moralske dilemmaer uten enkle svar.',
+          },
+          {
+            label: 'b',
+            task: 'På hvilke måter har sagalitteraturen påvirket moderne populærkultur? Gi eksempler.',
+            solution: 'Påvirkning: (1) Fantasy-litteratur - Tolkien hentet mye fra norrøn litteratur. (2) TV-serier som Vikings og Game of Thrones bruker sagamotiver. (3) Nordisk noir-sjangeren deler sagaens nøkterne stil. (4) Dataspill med vikingtematikk. (5) Moderne romaner som gjenskaper vikingtiden. Sagaene har blitt en global kulturell ressurs.',
+          },
+          {
+            label: 'c',
+            task: 'Kan sagaene lære oss noe om etikk og livsvisdom, eller er de bare historiske kuriositeter? Diskuter.',
+            solution: 'Argumenter for relevans: Sagaene viser konsekvenser av valg, verdien av integritet, farene ved ukontrollert hevnlyst, og styrken i å møte skjebnen med verdighet. Motargument: Verdensbildet er fremmed (blodhevn, skjebnetro). Konklusjon: Sagaene stiller tidløse spørsmål, selv om svarene var annerledes. De inviterer til refleksjon over egne verdier.',
+          },
+        ],
+        hints: ['Tenk på eksempler fra moderne kultur', 'Reflekter over hva som gjør en tekst tidløs'],
+        solution: 'Drøftingen skal vise evne til å se forbindelser mellom historisk litteratur og samtiden, og reflektere over hva litteratur kan bety for oss.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-1-4-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-1-4-ex-15',
+        number: '15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign islendingesagaer og kongesagaer som sjangre.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er de viktigste forskjellene mellom islendingesagaer (som Njåls saga) og kongesagaer (som Heimskringla)?',
+            solution: 'Forskjeller: (1) Hovedpersoner - bønder/høvdinger vs. konger. (2) Skala - lokale konflikter vs. rikspolitikk. (3) Geografi - Island vs. hele Skandinavia. (4) Formål - underholdning og ættehistorie vs. politisk legitimering og historieskrivning. (5) Forfatterrolle - anonym tradisjon vs. kjent forfatter (Snorre).',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke fellestrekk har de to sjangerne i stil og fortellerteknikk?',
+            solution: 'Fellestrekk: (1) Objektiv fortellerstil. (2) Dialog som karakterisering. (3) Understatement. (4) Bruk av innlagte kvad. (5) Forutanelser og drømmer. (6) Fokus på ære og mot. Begge sjangrer deler det vi kaller "sagastilen".',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor tror du begge sjangrer har blitt så viktige for vår forståelse av vikingtiden?',
+            solution: 'De utfyller hverandre: Islendingesagaene gir oss innblikk i hverdagsliv, familiekonflikter og individuelle skjebner. Kongesagaene gir oss det store bildet - politikk, rikssamling, internasjonal kontakt. Sammen skaper de et rikt bilde av vikingtiden, selv om vi må være kildekritiske.',
+          },
+        ],
+        solution: 'Oppgaven tester forståelse av sagasjangrer og evne til å sammenligne litterære kategorier.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

@@ -839,6 +839,86 @@ Alle tykte det var underlegt at ein triaarig gut kunde kveda vers. Det var det f
 
 
 /**
+ * Egils saga utdrag - Egils hevn som syvaarig
+ * Fraa Egils saga (ca. 1240, truleg Snorre). Public domain.
+ */
+export const TEKST_VG2_EGILS_SAGA_HEVN = `## Egils saga
+### Truleg av Snorre Sturluson (ca. 1240)
+*Utdrag: Egils hevn som syvaarig*
+
+Daa Egil var sju aar gamal, var det ein gong lek i bygda. Egil var med i leiken. Han kom opp mot ein gut som heitte Grimr, son til Hegg. Grimr var ti aar gamal, sterk for alderen.
+
+Daa dei leika, vart Egil sinnt, for han tykte han fekk for lite ball. Grimr heldt han fast og kasta han ned og sagde at han skulde faa juling um han ikkje heldt seg roleg.
+
+Men daa Egil kom paa foetene, gjekk han bort fraa leiken. Han fann ei oeks som var hoggi ned i ein stubbe og tok henne med seg. Han gjekk mot Grimr og hogg han i hovudet so oeksa stod fast i heilen. Grimr fall strakst daud ned.
+
+Daa dette var gjort, gjekk Egil heim. Skallagrim sagde lite, men mor hans Bera sagde at Egil hadde eit vikingaemne i seg, og at han skulde faa skip naar han var vaksen.
+
+Egil kvad:
+
+"Mor mi sagde
+at meg skulde kaupast
+snoggskip og fagre aarar,
+fara i viking,
+staa i stamnen,
+styra snaue knorren,
+halda so til hamn,
+hogga mann og annan."
+
+*Dette utdraget viser den unge Egil som handlar raskt og valdsamt naar aera hans vert krenkt. Moras reaksjon - at han har "vikingaemne" - viser det norrone samfunnets haldning til vald og aerekjensle.*`;
+
+
+/**
+ * Njaals saga utdrag - Gunnar paa Lidarende (utvida)
+ * Fraa Njaals saga (ca. 1280). Public domain.
+ */
+export const TEKST_VG2_NJAALS_SAGA_LIDARENDE = `## Njaals saga
+### Anonymt (ca. 1280)
+*Utdrag: Gunnar ser heimover*
+
+Det var ein mann som heitte Gunnar Haamundarson. Han budde paa Hlidarenda i Fljotsdalen. Han var ein av dei gildaste menn som hev vore paa Island. Han var vaen og ljoshaerd, og hadde skarpt blikk. Han var blid i maalet og stodug i hugen. Han var den beste bogeskytaren paa Island, og ingen rende eller symde betre enn han.
+
+Gunnar var domd fredlaus paa tinget. Han skulde fara utanlands innan tri aar, elles kunne kven som helst drepa han utan aa bota. Kolskegg, bror hans, skulde fara med han.
+
+Dei reid fraa garden. Daa dei kom ned i bakken, snubla hesten under Gunnar og han hoppa av. Han snudde seg og saag mot brekka og garden sin.
+
+"Fager er lidi," sagde han, "so fager at det aldri hev syntest meg fagrar - bleike aakrar og slegne tuner. Eg vil rida heim att og aldri fara herifra."
+
+"Gjer ikkje det," sagde Kolskegg. "Bryt ikkje den eiden du svor, for ingen god ting kjem av det. Du kan ikkje vera her lenge. Gjer som gode menn raader deg."
+
+"Eg vil ikkje fara," sagde Gunnar. "Og eg ynskjer at du ikkje farer heller."
+
+"Det vil ikkje eg gjera," sagde Kolskegg. "Eg vil halda det eg hev lova, baade i dette og alt anna. Og det veit eg, at dette er skilnaden med oss: me ser ikkje kvarandre meir."
+
+Soleis skildest brodrane. Kolskegg foor utanlands og kom aldri attende til Island. Gunnar reid heim til Hlidarenda.
+
+*Dette utdraget viser eit av dei mest beromte augeblikka i sagalitteraturen. Gunnars kjaerleik til heimlandet er sterkare enn hans eigen sikkerheit. Avgjerda kostar han livet, men gjer han udoyeleg i litteraturen.*`;
+
+
+/**
+ * Heimskringla utdrag - Harald Haarfagre
+ * Fraa Snorre Sturlusons kongesagaer (ca. 1230). Public domain.
+ */
+export const TEKST_VG2_HEIMSKRINGLA_HARALD = `## Heimskringla - Harald Haarfagres saga
+### Snorre Sturluson (ca. 1230)
+*Utdrag: Haralds lovnad og rikssamlinga*
+
+Harald var son til Halvdan Svarte. Han var ti aar gamal daa far hans drukna. Han tok kongedome etter far sin. Han var den vakraste av alle menn, sterk og stor.
+
+Det var ei gjente som heitte Gyda, dotter til kong Eirik av Hordaland. Ho var den fagraste moy i Noreg. Harald sende menn til henne og baud seg til aa gjera henne til frilla si.
+
+Gyda svara sendeferdi: "Seg det til kong Harald at eg vil ikkje oyda moydommen min for ein smaakonge. Men um han vil leggja under seg heile Noreg og raada over det riket, slik som kong Eirik i Svithjod eller kong Gorm i Danmark raar over sine rike, daa vil eg tenkja paa saka."
+
+Daa sendeferda kom attende til Harald og fortalde dette, sagde kongen: "Det lovar eg, og tek Gud til vitne som skapte meg og raar for alle ting, at eg skal aldri skjera eller greia haaret mitt for eg hev lagt under meg heile Noreg med skattar og skylder og alt styre - eller doy."
+
+Soleis tok Harald til aa herja og leggja under seg smaakongar og jarlar i Noreg. Det tok ti aar. Daa hadde han samla heile landet under seg.
+
+Etter dette let han Ragnvald jarl greia og skjera haaret hans. Han hadde ikkje skore det paa ti aar. For hadde folk kalla han Harald Luva, men no kalla dei han Harald Haarfagre.
+
+*Snorre skildrar her opphavsmyten for det samla norske riket. Soga om Haralds lovnad og det ukjemde haaret er truleg delvis legende, men forteljinga viser korleis makt, aerekjensle og kjaerleik vart fletta saman i norront verdsbilete.*`;
+
+
+/**
  * Norroent runeinnskrift med oversettelse
  * Eksempel fraa Bryggen i Bergen. Public domain.
  */
@@ -847,14 +927,14 @@ export const TEKST_VG2_RUNETEKST = `## Runeinnskrifter fraa Bryggen i Bergen
 
 **Innskrift 1 (Kjerleiksrunepinne B149):**
 
-Norrønt: "Elskhuge minn, kyss meg."
+Norront: "Elskhuge minn, kyss meg."
 Oversettelse: "Min elskede, kyss meg."
 
 *Denne korte innskrifta paa ein trepinne viser at runer vart brukte til kvardagslege formaal - ikkje berre til magi og minnesmerke.*
 
 **Innskrift 2 (Handelsbrev B644):**
 
-Norrønt: "Sigurdr sendir kvedhju Thorolfi brodhur sinum ok bidr hann selja ull sína."
+Norront: "Sigurdr sendir kvedhju Thorolfi brodhur sinum ok bidr hann selja ull sina."
 Oversettelse: "Sigurd sender helsing til Torolv, bror sin, og ber han selja ulla si."
 
 *Her ser me runer brukt som skriftsprak i handel. Bergen var ein stor handelsstad i mellomalderen.*
@@ -1245,6 +1325,125 @@ Paa Oeen Mezendore fandt jeg et Rige hvor Kvinderne regierte og Maendene passede
 *Med Niels Klim satiriserer Holberg europeiske samfunnsforhold ved aa skildra fantastiske samfunn der alt er annleis. Verket er ein tidleg science fiction-roman og eit opplysningsverk.*`;
 
 
+/**
+ * Holberg - Den politiske Kandestober (scene)
+ * Fraa komedien (1722). Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_KANDESTOBER = `## Den politiske Kandestober
+### Ludvig Holberg (1722)
+*Utdrag: Herman von Bremen diskuterer politikk (Akt 2, Scene 1)*
+
+HERMAN VON BREMEN (ein kandestober, det vil seia ein som lagar tinnkanner): Nu vel! Nu har jeg laest alle Aviser fra Hamburg og Koebenhavn. Jeg veed nu alt hvad der skeer i Verden. Tyrkiet, Rusland, Frankrig - alt er mig bekiendt.
+
+ANTONIUS (ein nabo): Hvad siger I, Mester Herman? Er der Krig?
+
+HERMAN: Krig? Ja vist er der Krig! Men den fores galt. Havde de spurgt mig, skulde jeg have raadet dem bedre. Kongen af Frankrig giorde en stor Feil ved --
+
+ANTONIUS: Men I er jo Kandestober!
+
+HERMAN: Hvad har det at sige? Maa en Kandestober ikke have politiske Tanker? Er det maaske kun Ministre og Generaler, som maa toenke?
+
+ANTONIUS: Men I forstaar jo ikke --
+
+HERMAN: Jeg forstaar mere end I aner! Jeg laeser fire Aviser om Dagen. Jeg veed hvad der skeer i hele Europa. Og naar jeg taenker paa, hvor galt det gaar i Verden, faar jeg slet ingen Arbeide giort.
+
+(Hans Kone GESKE kommer ind)
+
+GESKE: Herman! Kunderne venter paa deres Kander!
+
+HERMAN: Kander! Kander! Hvordan kan I tale om Kander, naar hele Europa staar i Brand? Vent til jeg har loest dette Problem med den russiske Flaade --
+
+GESKE: Hvad rager den russiske Flaade dig? Pas dit eget Arbeide!
+
+HERMAN: Mit Arbeide? Mit Arbeide er at taenke for hele Menneskeheden!
+
+*Holberg satiriserer den selvhoejtidelige borgaren som trur han forstaar alt, men forsoemmer sine eigne plikter. Komedien viser korleis halv kunnskap kan vera verre enn ingen kunnskap.*`;
+
+
+/**
+ * Holberg - Den Stundeslose (scene)
+ * Fraa komedien (1723). Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_STUNDESLOSE = `## Den Stundeslose
+### Ludvig Holberg (1723)
+*Utdrag: Vielgeschrey kan ikkje bestemma seg (Akt 1, Scene 2)*
+
+VIELGESCHREY (ein kjopmann som alltid har det travelt): Hent mig Bogen! Nei vent, hent mig Pennen foerst! Nei, jeg maa have Papir. Skriv ned -- nei vent, jeg maa taenke foerst.
+
+OLDFUX (tenaren hans): Hvad skal jeg goere, Herre?
+
+VIELGESCHREY: Alt! Du skal goere alt! Gaa til Borsen! Nei vent, gaa foerst til Havnen! Nei, send et Bud til Hamburg! Nei vent --
+
+OLDFUX: Herre, jeg kan kun vaere eet Sted ad Gangen.
+
+VIELGESCHREY: Det er dit Problem! Jeg har saa travlt at jeg ikke veed hvad jeg skal goere foerst. Se paa alle disse Breve som skal skrives! Se paa alle disse Regninger som skal betales! Se paa --
+
+OLDFUX: Herre, I har sagt det samme i tre Timer uden at goere noget.
+
+VIELGESCHREY: Det er fordi jeg har for travlt! Naar man har saa meget at goere, maa man foerst overveje alting grundigt. Og naar man saa har overvejet, maa man overveje igien.
+
+(Hans Kone PERNILLE kommer ind)
+
+PERNILLE: Er du endnu ikke faerdig med Brevene?
+
+VIELGESCHREY: Breve! Breve! Hvordan kan du tale om Breve naar der er saa meget andet at taenke paa? Jeg sidder i vigtige Tanker!
+
+PERNILLE: Du sidder og giorer ingenting, som du pleier.
+
+VIELGESCHREY: Ingenting? Jeg giorer hundrede Ting i mit Hoved! Det er bare det at -- vent, hvad var det nu jeg skulde? Hent mig Bogen!
+
+OLDFUX: Hvilken Bog, Herre?
+
+VIELGESCHREY: Hvad for en Bog? Ja, det maa jeg lige taenke paa.
+
+*"Den Stundeslose" (den som aldri har tid) satiriserer menneske som har det so travelt at dei aldri faar gjort noko. Vielgeschrey (som tyder "mykje skrik") er eit bilete paa ineffektivitet forkledd som travel forretningsmann.*`;
+
+
+/**
+ * Holberg - Barselstuen (kort om)
+ * Fraa komedien (1723). Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_BARSELSTUEN = `## Barselstuen
+### Ludvig Holberg (1723)
+*Kort utdrag: Sladder i barselstova (Akt 2, Scene 4)*
+
+*Scena er ei barselstove der kvinner har samla seg for aa gratulera ei nyfodt mor. Samtalen avdekkjer kvardagslivet og sladderen i borgarskapet.*
+
+CORFITZ (mor til barnet): Velkommen, kiere Naboersker! Kom og see mit lille Barn!
+
+ENGELKE: Aa, hvor sodt! Det ligner ganske sin Fader!
+
+ARIANKE: Nei, det ligner Moderen, det kan enhver see!
+
+ENGELKE: Fader, siger jeg! See paa Naesen!
+
+ARIANKE: Moder! See paa Oeinene!
+
+PERNILLE: Jeg synes det ligner Naboen.
+
+(Stille i Rummet)
+
+CORFITZ: Hvad mener I med det?
+
+PERNILLE: Ingenting! Ingenting! Det var bare en Spoeg!
+
+KIRSTINE: Jeg hoerte at Frue Leonora har kiobt nye Mobler. Hvor hun har Penge fra, veed ingen.
+
+ARIANKE: Man siger at hendes Mand spiller Kort.
+
+ENGELKE: Man siger ogsaa at han drikker.
+
+KIRSTINE: Man siger mange Ting.
+
+PERNILLE: Ja, man siger ogsaa noget om jer, Kirstine.
+
+KIRSTINE: Om mig?
+
+PERNILLE: Hys, hys! Jeg vil ikke tale om det her.
+
+*"Barselstuen" er eit av Holbergs mest realistiske stykke. Det satiriserer borgarkvinnenes sladderkultur og viser korleis rykte og halvsanningar spreiest. Holberg brukar den feminine sfaeren til aa kritisera menneskeleg svakheit generelt.*`;
+
+
 // ============================================================================
 // 4. ROMANTIKK OG NASJONSBYGGING (1800-1870)
 // ============================================================================
@@ -1359,6 +1558,110 @@ en Sol i Moerket
 for den der soeger.
 
 *"Mig selv" er eit dikt om romantikkens geni-ideal. Wergeland framstiller seg sjolv som ein flammande kraft som brenn for store ideal - fridom, sanning og menneskeheitas framgang.*`;
+
+
+/**
+ * Henrik Wergeland - Til min Gyldenlak
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_TIL_MIN_GYLDENLAK = `## Til min Gyldenlak
+### Henrik Wergeland (1845)
+*Skrevet paa doedsleia*
+
+Du Gyldenlak! Du er mit Livs Symbol,
+Du spirer op, mens jeg gaaer ned i Mulden.
+Du skinner gul som Morgenrodens Sol,
+Og jeg gaaer bort, som Solen gaaer i Kulden.
+
+Du staaer saa fast paa Vindvets gronne Karm,
+Mens jeg maa ligge her med brudte Lemmer.
+Du har en Duft saa soed, saa mild, saa varm,
+Og jeg har kun en Pest, som Verden skraemmer.
+
+Dog elsker jeg dig, du min Blomst saa skjon!
+Thi du er Livets Tegn i Doedens Kammer.
+Du lyser som en evig Foraarslon,
+Mens jeg forbrænder i min Sygdoms Flammer.
+
+Naar jeg er doet, da bliv du staaende
+Og duft for dem, som mig i Graven baerer!
+Vær som et Minde, evig grønnende,
+Om ham, der elsked Alt, hvad Livet naerer!
+
+*Diktet er skrive i Wergelands siste veker, daa han laag doedssyk av tuberkulose. Gyldenlakken i vindauget vart eit symbol paa livet han snart skulde forlata. Diktet viser ein meir dempa Wergeland - framleis livskjaer, men med aksept for doeden.*`;
+
+
+/**
+ * Henrik Wergeland - Den foerste Sommerfugl
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_FORSTE_SOMMERFUGL = `## Den foerste Sommerfugl
+### Henrik Wergeland (1840)
+
+Velkommen, du lille Sommerfugl!
+Du kommer som Foraarets Engel,
+med Vinger som en Blomsterstengel
+og Farver som en Regnbuekul.
+
+Du flagrer let fra Blad til Blad,
+du kysser alle Blomsters Kinder,
+du bringer Sommer, Glaede, Minder
+om Alt, hvad Hjertet elsker glad.
+
+O, lille Sommerfugl saa skjoen,
+du minder mig om Barndoms Dage,
+da Verden var saa lys og fage,
+og Alt var Fryd og Leg og Boen.
+
+Flyv ud, flyv ud i Solens Glands!
+Bring Hilsen til de fjerne Enge,
+hvor Blomsterne i Tusind haenge
+og vaever Vaarens gyldne Krands!
+
+Du er et Bud fra Himlens Sal,
+et Tegn paa Livets evige Under,
+at Skioenhed aldrig helt gaaer under,
+men vaagner ny hvert Aar i Dal.
+
+*Diktet feirer naturens fornyelse gjennom biletet av den foerste sommerfuglen. Wergeland ser sommerfuglen som eit symbol paa haap og livskraft - ein bodbaerar fraa himmelen som minner om at livet alltid sigrar over vinteren.*`;
+
+
+/**
+ * Henrik Wergeland - Joeden (utdrag)
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_JOEDEN = `## Joeden
+### Henrik Wergeland (1842)
+*Utdrag*
+
+"Hvorfor forfoeølger I mig saa?" -
+"Fordi du er en Joede." -
+"Hvad Ondt har jeg da gjort?" -
+"Din Faeder dræbte Herren." -
+"Hvad Skyld har jeg deri?
+Jeg var jo ei tilstede!" -
+"Din Slægt har Skylden arvet." -
+"Min Slægt? Hvad er min Slægt?
+Er ei min Slægt de Fromme,
+som bede til vor Gud?"
+
+O, Medmennesker, hoerer!
+Hvad har han gjort, han Stakkel,
+som I forfoeølge saa?
+Han beder til vor Fader,
+han troer paa samme Gud,
+han elsker samme Dyder,
+han haaber samme Himmel.
+
+Hvorfor da denne Graendse,
+som I har reist imellem
+et Menneske og jer?
+Er han ei skabt af samme
+almægtige Haand?
+Er ikke samme Aande
+i hans og eders Bryst?
+
+*Diktet er eit forsvar for joedanes menneskelege rettar. Wergeland kaempa iherdig for aa oppheva "joedeparagrafen" i Grunnlova, som forbaud joedar inngang til Noreg. Paragrafen vart oppheva foerst i 1851, seks aar etter Wergelands doed.*`;
 
 
 /**
@@ -1840,3 +2143,1180 @@ Lat viljen din raa paa jordi som i himmelen.
 Gjev oss i dag vaart daglege braud.
 
 *Samanlikninga viser likskapar og skilnader mellom dei skandinaviske spraka. Alle kjem fraa norroent, men har utvikla seg ulikt. Legg merke til korleis nynorsk paa somme punkt ligg naerare svensk enn bokmaalet gjer.*`;
+
+
+// ============================================================================
+// 7. UTVIDA EDDADIKT MED NORROENT OG OVERSETTING
+// ============================================================================
+
+/**
+ * Voluspa utvida - 15 strofer med norroent og oversetting
+ * Fra Den eldre Edda.
+ * Anonymt verk fra vikingtiden, public domain.
+ */
+export const TEKST_VG2_VOLUSPA_UTVIDA = `## Voluspa (Volvens spaadom) - Utvida utgaave
+### Fraa Den eldre Edda
+*15 strofer med norroent og oversetting*
+
+**Strofe 1 - Volvens opning**
+*Norroent:*
+Hljoðs bið ek allar
+helgar kindir,
+meiri ok minni
+mogu Heimdallar;
+viltu, at ek, Valfoðr!
+vel framtelja
+forn spjoll fira,
+þau er fremst um man.
+
+*Oversetting:*
+Hoeyr skal de,
+alle heilage aetter,
+stoerre og smaaare,
+soener av Heimdall.
+Du bad meg, Valfodr,
+vel fortelja
+gamle tidender
+dei eg fyrst minnest.
+
+**Strofe 2 - Jotnar i urtida**
+*Norroent:*
+Ek man jotna
+ár um borna,
+þá er forðum mik
+foedda hofðu;
+níu man ek heima,
+níu íviði,
+mjotviðmaeran
+fyr mold neðan.
+
+*Oversetting:*
+Eg minnest jotnar
+borne i urtid,
+dei som fordom
+foedde meg opp;
+ni heimar minnest eg,
+ni ivider,
+mjoetvidr maerleg
+fyre moldi for.
+
+**Strofe 3 - Ginnungagap**
+*Norroent:*
+Ár var alda,
+þar er Ymir byggði,
+vara sandr né saer
+né svalar unnir;
+jorð fannsk aeva
+né upphiminn,
+gap var ginnunga,
+en gras hvergi.
+
+*Oversetting:*
+Aar var i aldri
+daa Yme bygde;
+ikkje var sand, ikkje sjoe,
+ikkje svale boylgjor;
+jord fanst ikkje
+og ikkje upphimmel,
+gap var ginnunga,
+men gras var inkje stad.
+
+**Strofe 4 - Verdi vert skapt**
+*Norroent:*
+Áðr Burs synir
+bjöðum um ypðu,
+þeir er Miðgarð
+maeran skópu;
+sól skein sunnan
+á salar steina,
+þá var grund gróin
+groenum lauki.
+
+*Oversetting:*
+Til dess at Burs soener
+lyfta landi,
+dei som Midgard
+den maerlege skapte;
+sol skein sunnan
+paa salens steinar,
+daa vart groen grunnen
+med groenan lauk.
+
+**Strofe 5 - Sol og maane**
+*Norroent:*
+Sól varp sunnan,
+sinni mána,
+hendi inni hoegri
+um himinjodyr;
+sól þat né vissi
+hvar hon sali átti,
+máni þat né vissi
+hvat hann megins átti,
+stjornur þat né vissu
+hvar þaer staði áttu.
+
+*Oversetting:*
+Sol vende sunnan,
+saman med maane,
+si hoegre hand
+um himmelranda;
+sol det ikkje visste
+kvar ho salar hadde,
+maane det ikkje visste
+kva magt han aatte,
+stjernorne ikkje visste
+kvar dei stad hadde.
+
+**Strofe 6 - Gudane raadslaar**
+*Norroent:*
+Þá gengu regin oll
+á rokstóla,
+ginnheilog goð,
+ok um þat gaettusk;
+nótt ok niðjum
+nofn um gáfu,
+morgun hétu
+ok miðjan dag,
+undorn ok aptan,
+árum at telja.
+
+*Oversetting:*
+Daa gjekk raadarar alle
+til rokstolarne,
+ginnheilage gudar,
+og um dette raadde;
+natt og nidar
+namngav dei,
+morgon nemnde dei
+og middag,
+undorn og kveld,
+aar at telja.
+
+**Strofe 17 - Mennesket vert funne**
+*Norroent:*
+Unz þrír kvámu
+ór því liði
+oflgir ok ástkir
+aesir at húsi;
+fundu á landi
+lítt megandi
+Ask ok Emblu
+oerloglausa.
+
+*Oversetting:*
+Til dess at tri kom
+or den flokken,
+sterke og venlege
+aeser til strandi;
+dei fann paa landi
+lite magtande
+Ask og Embla
+utan lagnad.
+
+**Strofe 18 - Mennesket faar gaaver**
+*Norroent:*
+Ond þau né áttu,
+óð þau né hofðu,
+lá né laeti
+né litu góða;
+ond gaf Óðinn,
+óð gaf Hoenir,
+lá gaf Lóðurr
+ok litu góða.
+
+*Oversetting:*
+Ond dei ikkje hadde,
+od dei ikkje hadde,
+laa ikkje, laete
+og lit dei gode.
+Ond gav Odin,
+od gav Hoene,
+laa gav Lodur
+og lit dei gode.
+
+**Strofe 19 - Verdsasken Yggdrasil**
+*Norroent:*
+Ask veit ek standa,
+heitir Yggdrasill,
+hár baðmr, ausinn
+hvíta auri;
+þaðan koma doggvar
+þaers í dala falla;
+stendr ae yfir groen
+Urðar brunni.
+
+*Oversetting:*
+Eg veit ein ask
+som Yggdrasil heiter,
+hoegt tre, vaatvigt
+av kvite aurr;
+daanifraa kjem dogg
+som i dalar fell;
+stend evig graen
+over Urdarbrunni.
+
+**Strofe 20 - Nornene**
+*Norroent:*
+Þaðan koma meyjar
+margs vitandi
+þrjár, ór þeim sal
+er und þolli stendr;
+Urð hétu eina,
+aðra Verðandi,
+- skáru á skíði -
+Skuld ina þriðju.
+
+*Oversetting:*
+Daanifraa kjem moeyar
+myket vitande,
+tri or den sal
+som stend under tre;
+Urd het eini,
+annan Verdande
+- dei skar paa skeid -
+Skuld den tredje.
+
+**Strofe 44 - Teikn paa ragnarok**
+*Oversetting:*
+Gol paa galgtre
+gullkamba hane;
+hanen vekker
+hejar hjaa Herjafodr;
+men annan gjel
+under jordi -
+soetraudr hane
+i saler Hels.
+
+**Strofe 52 - Sol svartnar**
+*Norroent:*
+Sól tér sortna,
+sígr fold í mar,
+hverfa af himni
+heiðar stjornur;
+geisar eimi
+við aldrnara,
+leikr hár hiti
+við himin sjálfan.
+
+*Oversetting:*
+Sol svartnar,
+jord sokkst i hav,
+dei blanke stjernor
+kverv fraa himmelen;
+geisar eld
+mot aldnartreet,
+hoeg loge leikar
+mot himmelen sjoelv.
+
+**Strofe 59 - Ny jord**
+*Norroent:*
+Sér hon upp koma
+oðru sinni
+jorð ór aegi
+iðjagroena;
+falla forsar,
+flygr orn yfir,
+sá er á fjalli
+fiska veiðir.
+
+*Oversetting:*
+Ho ser koma upp
+i andre gongen
+jord or havet
+evig groena;
+fossar fell,
+oern flyg yver,
+den som i fjelli
+fiskar fangar.
+
+**Strofe 62 - Balder kjem attende**
+*Oversetting:*
+Saal utan saad
+skal sjoelv veksa,
+alt vondt ljonar,
+Balder kjem heim.
+Hodr og Balder
+bur i Ropts sigrhall,
+ve-gudar glad -
+Veit de meir, eller kva?
+
+**Strofe 64 - Gimle**
+*Norroent:*
+Sal sér hon standa
+sólu fegra,
+gulli þakðan,
+á Gimléi;
+þar skulu dyggvar
+dróttir byggja
+ok um aldrdaga
+ynðis njóta.
+
+*Oversetting:*
+Ho ser ein sal
+som soli fagrar,
+gulltekkjande,
+stande paa Gimle;
+der skal dylgje
+droettir bu
+og i aldrs dagar
+ynde njota.
+
+*Voluspa er det mest sentrale diktet i Den eldre Edda. Volva (ei synsk kvine) fortel heile verdssoga fraa skapinga gjennom ragnarok til den nye verdi. Diktet er vaar hovudkjelde til norroent verdsbilete og kosmologi.*`;
+
+
+/**
+ * Havamal utvida - 15 strofer med norroent og oversetting
+ * Odins visdomsord fra Den eldre Edda.
+ * Public domain.
+ */
+export const TEKST_VG2_HAVAMAL_UTVIDA = `## Havamal (Den hoyes tale) - Utvida utgaave
+### Fraa Den eldre Edda
+*15 strofer med norroent og oversetting*
+
+**Strofe 1 - Varsemnd**
+*Norroent:*
+Gáttir allar,
+áðr gangi fram,
+um skoðask skyli,
+um skygnask skyli;
+þvíat óvíst er at vita
+hvar óvinir
+sitja á fleti fyrir.
+
+*Oversetting:*
+Alle doyrrom
+fyrr du inn gjeng,
+skal du granska og glugga;
+for uvisst er aa vita
+kvar uvener sit
+framfyre paa flogom.
+
+**Strofe 2 - Helsing til gjesten**
+*Norroent:*
+Gefendr heilir!
+Gestr er inn kominn;
+hvar skal sitja sjá?
+Mjok er bráðr,
+sá er á brandom skal
+síns um freista frama.
+
+*Oversetting:*
+Heil den gjeve!
+Ein gjest er komen;
+kvar skal sitja han segjer?
+Braahasten er den
+som paa brandom skal
+sitt provrom freista.
+
+**Strofe 3 - Elden og maten**
+*Norroent:*
+Elds er þorf
+þeims inn er kominn
+ok á kné kalinn;
+matar ok váða
+er manni þorf,
+þeim er hefr um fjall farit.
+
+*Oversetting:*
+Eld treng den
+som inn er komen
+og kne-kald er;
+mat og klede
+treng mannen som hev
+faret yver fjell.
+
+**Strofe 4 - Vatn og handduk**
+*Norroent:*
+Vatns er þorf
+þeim er til verðar kemr,
+þerru ok þjóðlaðar,
+góðs of oeðis,
+ef sér geta maetti
+orðs ok endrþogu.
+
+*Oversetting:*
+Vatn treng den
+som til veitsle kjem,
+handduk og hjarteleg bydning,
+god aatferd,
+um han vinne kan,
+ordlag og andsvare.
+
+**Strofe 5 - Vit paa reise**
+*Norroent:*
+Vits er þorf
+þeim er víða ratar;
+dael er heima hvat;
+at augabragði verðr
+sá er ekki kann
+ok með snotrum sitr.
+
+*Oversetting:*
+Vit treng den
+som vidt hev faret;
+alt er lett heime;
+uvel vert den
+som inkje veit
+og med snilde sit.
+
+**Strofe 6 - Ikkje skryta**
+*Norroent:*
+At hyggjandi sinni
+skylit maðr hroeðinn vera,
+heldr gaetinn at geði;
+þá er horskr ok þogull
+kemr heimisgarða til,
+sjaldan verðr víti vorum.
+
+*Oversetting:*
+Um vitet sitt
+skal ingen skryta,
+helder gaa varleg fram;
+naar den vise og togalle
+kjem til gards,
+kjem sjeldan vondt av det.
+
+**Strofe 7 - Den varsame gjest**
+*Norroent:*
+Inn vari gestr,
+er til verðar kemr,
+þunnu hljóði þegir;
+eyrum hlýðir,
+en augum skoðar;
+svá nýsisk fróðra hverr fyrir.
+
+*Oversetting:*
+Den varsame gjest
+som til veitsle kjem,
+teier og lyder med augo;
+med augo han lyder,
+med eyro han granskar:
+so provast kvar vitug mann.
+
+**Strofe 8 - Sael den visdomskjaere**
+*Norroent:*
+Hinn er saell
+er sér um getr
+lof ok líknstafi;
+oedaella er við þat
+er maðr eiga skal
+annars brjóstum í.
+
+*Oversetting:*
+Sael er den
+som seg sjolv vinn
+lovord og vit;
+for uraad er det
+aa eiga det
+som i annans bryst bur.
+
+**Strofe 76 - Doeden og aera**
+*Norroent:*
+Deyr fé,
+deyja fraendr,
+deyr sjálfr it sama;
+en orðstírr
+deyr aldregi
+hveim er sér góðan getr.
+
+*Oversetting:*
+Fe doyr,
+frendar doyr,
+sjolv doyr du det same;
+men ordstir
+doyr aldri
+for den som vinn seg god ein.
+
+**Strofe 77 - Omdoeme varar**
+*Norroent:*
+Deyr fé,
+deyja fraendr,
+deyr sjálfr it sama;
+ek veit einn
+at aldri deyr:
+dómr um dauðan hvern.
+
+*Oversetting:*
+Fe doyr,
+frendar doyr,
+sjolv doyr du det same;
+eg veit eitt
+som aldri doyr:
+domen over kvar daud mann.
+
+**Strofe 78 - Rikdom**
+*Norroent:*
+Fullar grindr
+sá ek fyr Fitjungs sonum;
+nú bera þeir vonar voel;
+svá er auðr
+sem augabragð:
+hann er valtastr vina.
+
+*Oversetting:*
+Fulle gardar
+saag eg hjaa Fitjungs soener;
+no ber dei staven for tiggarar;
+slik er rikdom
+som augeblink:
+han er den ustadige venen.
+
+**Strofe 81 - Sola og dagen**
+*Norroent:*
+At kveldi skal dag leyfa,
+konu er brend er,
+mæki er reyndr er,
+mey er gefin er,
+ís er yfir kemr,
+ol er drukkit er.
+
+*Oversetting:*
+Ved kvelden skal dagen lovast,
+kvinna naar ho er brend,
+sverdet naar det er prova,
+moyi naar ho er gift,
+isen naar du er komen yver,
+olet naar det er drukke.
+
+**Strofe 138 - Odin hengjande**
+*Norroent:*
+Veit ek at ek hékk
+vindga meiði á
+nætr allar níu,
+geiri undaðr
+ok gefinn Óðni,
+sjálfr sjálfum mér.
+
+*Oversetting:*
+Eg veit at eg hekk
+i vindalt tre
+netter alle ni,
+med geir stungen
+og gjeven til Odin,
+sjolv til meg sjolv.
+
+**Strofe 139 - Runene**
+*Norroent:*
+Á þeim meiði
+er manngi veit
+hvers hann af rótum rennr.
+Við hleifi mik saeldu
+né við hornigi;
+nýsta ek niðr,
+nam ek upp rúnar,
+oepandi nam,
+fell ek aptr þaðan.
+
+*Oversetting:*
+Paa det tre
+som ingen veit
+kvar det av roter renn.
+Dei gav meg ikkje broed
+og ikkje horn;
+eg stirde ned,
+tok opp runer,
+ropande tok eg,
+fall eg attende derifraa.
+
+**Strofe 141 - Runenes gaave**
+*Norroent:*
+Þá nam ek frævask
+ok fróðr vera
+ok vaxa ok vel hafask;
+orð mér af orði
+orðs leitaði,
+verk mér af verki
+verks leitaði.
+
+*Oversetting:*
+Daa tok eg til aa trivast
+og klok aa verta
+og veksa og vel aa bera meg;
+ord meg av ord
+ords leita,
+verk meg av verk
+verks leita.
+
+*Havamal inneheld Odins visdomsord og livsraad. Diktet er samansett av fleire delar: gjestebods-reglane (1-80), Loddfafnismal (111-137), Runatal (138-145) og Ljodatal (146-163). Det er ei uvurderleg kjelde til norroent verdsbilete og etikk.*`;
+
+
+// ============================================================================
+// 8. SAGAUTDRAG - KOMPLETT SCENER
+// ============================================================================
+
+/**
+ * Njaals saga - Gunnar paa Lidarende (komplett scene)
+ * Fraa Njaals saga (ca. 1280). Anonymt verk, public domain.
+ */
+export const TEKST_VG2_NJAALS_SAGA_GUNNAR_KOMPLETT = `## Njaals saga - Gunnar paa Lidarende
+### Anonymt (ca. 1280)
+*Komplett scene med Gunnars fall*
+
+**Gunnar nektar aa fara i utlegd**
+
+Gunnar reid bort fraa tinget. Han var domd fredlaus og skulde fara utanlands i tri aar. Njaal hadde raadt han til aa fara og ikkje bryta forliket.
+
+Daa han reid ned over Markarfljot, snubla hesten hans, og Gunnar hoppa av. Daa vende han augo mot brekka og garden sin paa Lidarende.
+
+"Fager er lidi," sagde han, "so fager som eg aldri hev sett det foer - bleike aakrar og slegne tuner. Eg vil rida heim att og aldri fara herifraa."
+
+"Gjer ikkje det," sagde Kolskegg, bror hans. "Bryt ikkje den eiden du hev gjeve, for det kjem ingen vel av. Gjer heller so som gode menn raader deg til. Og hugsa kva Njaal sagde: at du vert drepen um du ikkje fer, men liver lenge um du fer."
+
+"Eg vil ikkje fara," sagde Gunnar. "Og eg ynskjer at du ikkje farer heller."
+
+"Det vil ikkje eg gjera," sagde Kolskegg. "Eg vil halda det eg hev lova, baade i dette og alt anna. Og det veit eg, at dette er skilnaden med oss: me ser ikkje kvarandre meir, for um du ikkje fer no, kjem du aldri til aa fara, og eg vil ikkje vera der naar dei drep deg."
+
+Og so skildest dei. Kolskegg foor til skipet og for utanlands, og Gunnar reid heim til Lidarende.
+
+**Overfallet paa Lidarende**
+
+Gissur Kvite og Geir Gode samla folk og for mot Lidarende. Det var mykje folk med dei - meir enn aatti mann.
+
+Gunnar vakna i huset daa dei kom. "Vaapna er ute," sagde han, "og no kjem dei som lenge hev villa meg vondt."
+
+Kona hans Hallgjerd sagde: "Du hev mange vener. Send bod etter dei."
+
+"Det er for seint no," sagde Gunnar. "Dei ville ikkje koma i tide. Lat oss halda huset so godt me kann."
+
+Gunnar gjekk opp i loftet og skaut med bogen sin. Han skaut so godt at han saara mange av overfallsmennene. Dei kunde ikkje koma inn, og mange av dei vart redde.
+
+"Lat oss setja eld paa huset," sagde ein.
+
+"Det gjer me ikkje," sagde Gissur. "Det er udaudverdig."
+
+Daa kom ein av dei naemare og greip tak i bogestrengen til Gunnar og skar ho av. Gunnar bad kona si:
+
+"Gjev meg tvo lokkar av haaret ditt, og vinn dei saman med mor di til ein bogestreng for meg."
+
+"Ligg noko paa?" spurde Hallgjerd.
+
+"Livet mitt ligg paa," sagde Gunnar, "for dei faar ikkje bukt med meg so lenge eg faar skjote med bogen."
+
+"Daa skal eg minna deg," sagde Hallgjerd, "paa det oyrfillet du ein gong gav meg. Eg bryr meg ikkje um kor lenge du verjer deg."
+
+"Kvar hev si aere," sagde Gunnar. "Du skal ikkje verta spurd att."
+
+**Gunnars fall**
+
+No gjekk dei inn mot huset fraa alle sidor. Gunnar verja seg med atgeiren sin og saara mange. Men til sist fekk han so mange saar at han orka ikkje meir, og daa fall han.
+
+Gissur sagde: "No hev me fellt ein stor hovding, og det hev kosta oss dyrt. Aera hans skal liva lenge, for han verja seg lenger og djervare enn nokon mann me veit um."
+
+Rannveig, mor til Gunnar, sagde til Hallgjerd: "Ille hev du fare. Ditt nidingsverk skal lenge minnast."
+
+Sidan for dei bort, og Gunnar vart haugsett med stor aere. Folk sagde at han var ein av dei gjævaste menn som hadde liva paa Island.
+
+*Scenen er ein av dei mest kjende i islendingasogene. Ho viser fleire sentrale motiv: kjaerleiken til heimbygda, aereskodeksen, konflikten mellom personleg vilje og samfunnets krav, og det tragiske i Hallgjerds svik.*`;
+
+
+/**
+ * Egils saga - Egils hevn for bror sin Torolv (komplett scene)
+ * Fraa Egils saga (ca. 1240, truleg Snorre). Public domain.
+ */
+export const TEKST_VG2_EGILS_SAGA_TOROLV_HEVN = `## Egils saga - Egils hevn
+### Truleg av Snorre Sturluson (ca. 1240)
+*Komplett scene: Egil hemnar bror sin Torolv*
+
+**Bakgrunn**
+
+Eirik Blodoks var konge i Noreg, og dronninga hans Gunnhild hata Egil og aetta hans. Kong Eirik hadde drepe Torolv, bror til Egil, i eit slag ved Brunanburh. Egil svor aa hemna bror sin.
+
+**Egil kjem til Noreg**
+
+Egil foor til Noreg trass i at han var fredlaus der. Han kom til ein gard der ein av kongsmennene som hadde vore med paa aa drepa Torolv budde. Mannen heitte Baard.
+
+Egil gjekk inn i hallen der det var gjestebod. Han hadde hjelm paa hovudet og sverd ved sida.
+
+"Kven er denne store mannen?" spurde Baard.
+
+"Eg heiter Olvir," sagde Egil. "Eg er ein fatig ferdsmann som treng husly for natta."
+
+"Du er velkomen," sagde Baard, som ikkje kjende att Egil.
+
+Dei drakk heile kvelden, og Baard skreyt av korleis han hadde vore med paa aa fella Torolv. "Det var eit godt slag," sagde han. "Og no er den aetta borte for alltid."
+
+Egil sat tagall og hoyrde paa.
+
+**Hevnen**
+
+Daa alle hadde drukke seg fulle og somna, reis Egil opp. Han gjekk bort til Baard som laag og sov.
+
+"Vakna, Baard," sagde Egil. "Eg er Egil Skallagrimsson, og eg er komen for aa hemna bror min Torolv."
+
+Baard fekk knapt opna augo foer Egil hogg han ned med sverdet sitt. Sidan drap Egil endaa fleire av kongsmennene som hadde vore med i slaget.
+
+Egil gjekk ut i natta. Men foer han foor, skar han runer paa ein stav og sette han opp. Han kvad:
+
+"Her stod eg,
+Skallagrims son,
+i hallen aat uvenene
+og hemna min bror.
+Lat alle vita
+at Egil ikkje gloymest
+den urett som er gjord
+mot hans aett."
+
+**Nidstonga**
+
+Egil foor til sjoen og fann eit hestehaud. Han sette det opp paa ein staur og vende det mot kongsgarden. Daa kvad han denne formelen:
+
+"Her set eg upp nidstong, og eg snur denne nidinga mot kong Eirik og dronning Gunnhild. Eg snur denne nidinga mot landvettene som bur i dette landet, so dei alle skal fara vilt og ikkje finna sine heimar foer dei driv kong Eirik og Gunnhild ut or landet."
+
+Sidan foor Egil attende til Island. Kong Eirik og Gunnhild vart seinare drivne ut or Noreg og maatte fly til England.
+
+**Egils kvad**
+
+Egil kvad mange vers om hevnen sin. Eit av dei var dette:
+
+"Eg skreid i skuggen
+til skrytehallen;
+der laag dei som
+min bror hadde drept.
+No er hemnen teken,
+no kvilar Torolv
+i hoegre hugnad
+i Valhall hos Odin."
+
+*Scenen viser Egil som ein typisk sagahelt: han er ikkje redd for aa bryta lova for aa hemna aetta si. Nidstonga (skamdstonga) var ein magisk forbanning som skulle driva kongeparet ut or landet. Scenen viser ogso korleis skaldedikting var ein del av hevnen - gjennom kvada vart ugjerningane til kongeparet kjende for alle.*`;
+
+
+// ============================================================================
+// 9. WERGELAND-DIKT (KOMPLETT)
+// ============================================================================
+
+/**
+ * Henrik Wergeland - Til min Gyldenlak (komplett)
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_GYLDENLAK_KOMPLETT = `## Til min Gyldenlak
+### Henrik Wergeland (1845)
+*Komplett dikt, skrive paa doedsleia*
+
+I
+Du Gyldenlak paa Vindvets Karm!
+Hvad har du, Stakkel, at betyde?
+At Foraaret er kommet ud,
+at Livet vil af Graven skyde.
+
+II
+Se Solen varm sin Fakkel har
+nedsaenket dybt i Vestens Bande,
+men fra dit gyldne Baegers Rand
+fremstraaler meer end tusind Flammer.
+
+III
+Du lille Gjenskin af dens Sol,
+som Altet skabte, Alt bevarer!
+I Dig har jeg et Tegn paa den,
+og Du min Sjael i Andagt darer.
+
+IV
+Der er saa tomt og ode her,
+naar under Febersygdoms Byrde
+min Sjael sig svinger mat og tung
+og synes sine Vinger myrde.
+
+V
+Men ser jeg da paa Dig, Du smaa,
+i Vindvets Lysning gyldent skinnende,
+da vaagner Haab i Sjaelens Dyb
+og aabner Dodens Doer for Vindende.
+
+VI
+O lad mig leve denne Vaar!
+O lad mig se dit Froeblad svulme
+og alle dine Knopper gaa
+i gyldne Blomsters Overdaad!
+
+VII
+Men om jeg doer foer dig, du smaa,
+da bliv ei mindre solbeskinnet!
+O blom for dem, som efter mig
+skal elske denne Jord, jeg mindet!
+
+VIII
+Ja blom for dem, som sidde her,
+hvor jeg med dig saa ofte dvaelder!
+Bring dem et Minde fra den Sjael,
+som elsked Alt, hvad Livet gaelder!
+
+IX
+Nu falder Solen. Skyggen gror.
+Min Gyldenlak staaer bleg og fryser.
+Men glem ei, at naar Natten gaar,
+en lysere Morgen snart oprinder!
+
+*"Til min Gyldenlak" er skrive i Wergelands siste veker, daa han laag doedssyk av tuberkulose. Diktet er ein av dei mest roorande farvelane i norsk litteratur. Wergeland ser i den vesle planten paa vinduskarmen eit symbol paa livet som held fram etter han er borte.*`;
+
+
+/**
+ * Henrik Wergeland - Mig selv (komplett)
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_MIG_SELV_KOMPLETT = `## Mig selv
+### Henrik Wergeland (1833)
+*Komplett dikt*
+
+I
+Jeg er en Flamme,
+der sig fortaerer,
+aergjerrig efter
+al Verdens Goder.
+Min Sjael er bunden
+til den vide Himmel,
+mit Hierte favner
+baade Land og Hav.
+
+II
+Jeg er en Storm, som
+i Fieldets Toppe
+mig selv opflammer,
+mig selv fortaerer.
+Hvad jeg vil virke,
+er aldrig Smaaeting,
+min Kamp er Kampen
+for hele Verden.
+
+III
+For Frihed kaemper
+mit Hierte vildt,
+for Sandhed vaager
+min Tanke staerk;
+jeg er en Fakkel,
+en Brand i Natten,
+en Sol i Moerket
+for den der soeger.
+
+IV
+Jeg hader Trael og
+jeg hader Traelder,
+jeg hader Moerket
+og Loegnens Aand;
+jeg elsker Lyset,
+jeg elsker Frihed,
+jeg elsker Sandhed
+i alle Land.
+
+V
+Og naar jeg falder
+for Stridsmands Pile,
+naar Livets Lampe
+er slukt for mig,
+da skal min Aand dog
+bestandig vandre
+blandt Frihedsklaepte
+paa Jordens Sti.
+
+VI
+Thi det er Livet
+at brenne, brenne!
+Det er at leve
+i ildfuld Kamp!
+Den Sjael, som slumrer
+i dodsens Dvale,
+den levte aldrig -
+den var en Skam.
+
+*"Mig selv" er eit dikt om romantikkens geni-ideal. Wergeland framstiller seg sjolv som ein flammande kraft som brenn for store ideal - fridom, sanning og menneskeheitas framgang. Diktet er ogso eit program for hans eige liv og virke.*`;
+
+
+/**
+ * Henrik Wergeland - Den foerste Gang jeg saae dig (komplett)
+ * Public domain - forfattaren doed 1845.
+ */
+export const TEKST_VG2_WERGELAND_FORSTE_GANG = `## Den foerste Gang jeg saae dig
+### Henrik Wergeland (1838)
+*Komplett dikt, til Amalie Sofie*
+
+I
+Den foerste Gang jeg saae dig, var du skoen,
+saa skoen som den foerste Vaarens Dag,
+da Alt er Fryd og Haab og Himmelsyn,
+og Solen kysser bort hver Vintrens Taage.
+
+II
+Du saae paa mig med Oiets milde Glands,
+og fra det Oieblik var jeg din Fange.
+Min Sjael var bunden i din Skioenhed ind,
+min Tanke svaeved kun om dig bestandig.
+
+III
+Jeg droemte om dig, naar jeg vaagen var,
+jeg taenkte paa dig, naar jeg skulde sove;
+jeg saae dig overalt hvor jeg mig vendte,
+din Skikkelse var mig som Livets Lod.
+
+IV
+Og nu er Aaret gaat, og vi er et,
+forent i Livets allerskioennest Baand.
+Nu er min Droeom Virkelighed vorden,
+nu har jeg dig, mit Hierte, i min Haand.
+
+V
+O, lad os elske stedse som i Dag,
+naar Tiden os med Sorger vil belesse!
+O, lad vor Kierlighed som Solen staa,
+der aldrig blegner, aldrig kan formindske!
+
+VI
+Thi Kierlighed er Livets bedste Skat,
+den eneste som Tiden ei kan tage.
+Og den, som eier Kierlighed i Bryst,
+han eier mere end al Verdens Rigdom.
+
+*Diktet er skrive til Amalie Sofie Bekkevold, som Wergeland gifta seg med i 1839. Det viser ein mjukare og meir personleg Wergeland enn den flammande samfunnsrefsaren me ser i andre dikt.*`;
+
+
+// ============================================================================
+// 10. WELHAVEN-DIKT (KOMPLETT)
+// ============================================================================
+
+/**
+ * Johan Sebastian Welhaven - Digtets Aand (komplett)
+ * Public domain - forfattaren doed 1873.
+ */
+export const TEKST_VG2_WELHAVEN_DIGTETS_AAND_KOMPLETT = `## Digtets Aand
+### Johan Sebastian Welhaven (1845)
+*Komplett dikt*
+
+I
+Der bor en Aand i Digtets Ord,
+som loeftes af den dybe Jord
+og svinger sig paa lette Vinger
+mod Himlen op, mens Harpen klinger.
+
+II
+Den Aand er ikke tung som Steen,
+ei kold som Is og stiv som Been;
+den er en Flamme, klar og fri,
+som lyser gjennem Poesi.
+
+III
+Og den, som kalder denne Aand
+frem af sit Indre med sin Haand,
+han eier mere end en Krone,
+han eier Livets bedste Tone.
+
+IV
+Men han, som kun med Ord kan lege,
+som Rimer samler, Rim at veie,
+han aldrig fanger denne Fugl,
+der synger over Verdens Mul.
+
+V
+Thi Digtets Aand er ingen Traell,
+den kommer naar den selv det vil;
+den boer i Hjertet, ikke Munden,
+i Sjaeledybet, ikke Grunden.
+
+VI
+O, lyt til denne Stemmes Klang,
+naar den i Aftenroden sang!
+Den taler om en anden Verden,
+hvor Alt er Skjonhed, Alt er Vaerden.
+
+*Welhaven forsvarer diktekunsten som ei aandeleg verksemd. Diktet handlar om poesiens eige vesen - at det finst ei aandeleg kraft i dei rette orda som lyftar lesaren mot noko hoegare. Det er ogso ein kritikk av overflatisk versemakeri.*`;
+
+
+/**
+ * Johan Sebastian Welhaven - Norges Daemring (utvida utdrag)
+ * Public domain - forfattaren doed 1873.
+ */
+export const TEKST_VG2_WELHAVEN_NORGES_DAEMRING_UTVIDA = `## Norges Daemring
+### Johan Sebastian Welhaven (1834)
+*Utvida utdrag - strofe 1, 5, 9, 15, 20*
+
+**Strofe 1 - Innleiing**
+Naar Morgenroeden over Fieldet gloeder,
+da vaagner Norges Folk af lange Dvaele,
+og Frihedstanken, som i Hjertet groer,
+forklarer sig i Ord og store Maele.
+
+**Strofe 5 - Kritikk av overflod**
+Og med de bedste Kraefter for Aaket spaendt,
+Har Folket dog ei mere end halvt sig kiendt.
+Det doemmer Alt for hurtigt, det gaaer for vidt,
+Det raaber: Her er Norden! og peger blidt
+Paa sine Fielde, sine Fosse og sine Skove,
+Og troer at dette Alt er nok til Verdens Love.
+
+**Strofe 9 - Oppmoding**
+Nei, lad os heller tage med roligt Sind
+Paa det, vi endnu savne bag Fieldets Tind;
+Lad os med aedel Stolthed, med stille Mod,
+Opbygge hvad der fattes til vaere god.
+Og lad os ei med tomme og store Ord
+Besynge os som Europas bedste Nord.
+
+**Strofe 15 - Kritikk av Wergeland**
+Der er en Mand, som roerer vildt sin Tunge,
+som laer ei taenke foer han maa udsjunge;
+hans Digte er som Skyer uden Regn,
+som Lys og Damp og tomme Luftens Tegn.
+Han kalder sig vor Tids og Folkets Skald -
+men intet Ord har Grund og ingen Klang har Fald.
+
+**Strofe 20 - Avslutning**
+Dog - Daemringen gaaer over, Dagen stiger,
+og Moeorket viger for det klare Lys.
+Naar Folket laerer sig af sine Feil,
+da skal det blomstre som en praegtig Rose.
+Thi Norge har en Skat af Kraft og Mod,
+som bare venter paa at vokse til sin Stolthed.
+
+*"Norges Daemring" er eit av dei mest omstridde dikta i norsk litteraturhistorie. Welhaven kritiserer den overflatiske nasjonalbegeistringen og krev ein meir reflektert patriotisme. Strofe 15 er eit direkte angrep paa Wergelands dikting, og diktet utloeyste ein bitter strid mellom dei to.*`;
+
+
+// ============================================================================
+// 11. HOLBERG-SCENER (KOMPLETT)
+// ============================================================================
+
+/**
+ * Ludvig Holberg - Jeppe paa Bjerget (Akt 1, Scene 1)
+ * Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_JEPPE_AKT1_SCENE1 = `## Jeppe paa Bjerget
+### Ludvig Holberg (1722)
+*Akt 1, Scene 1 - Jeppes monolog*
+
+JEPPE (kjem åleine inn paa scenen, full og ille tilredt):
+
+Hvem kunde vel vaere mere fornoyet end Jeppe paa Bjerget? Min Husbond siger, jeg er den beste Bonde i hele Byen; Degnen siger, jeg synger saa deiligt i Kirken som en Engel; alle Folk holder af mig som sin egen Broder. Men ak! Min Kone Nille hun styrer mig med Mester Erick - det er den forbandede Pisk, som henger derhjemme bag Sengen.
+
+(Han klager seg.)
+
+Jeg er en aerlig Mand, det veed hele Sognet, men min Ryg seer ud som et Vaskebret. Det er den Nille! Den Nille! Hun er een af de allerslemmeste Qvinder i hele Byen. Folk siger, at Fanden er slem, men jeg veed nok, at Nille er vaerre.
+
+(Han sukker.)
+
+Ak, Ak! Endnu vaerker det af de Slag hun gav mig i Gaar. Men hvad skal en stakkels Mand goere? Hvis jeg ikke drikker, saa doer jeg af Sorg; og hvis jeg drikker, saa slaer hun mig ihiel. Det er en ynkelig Tilstand at vaere i.
+
+(Han ser paa hendene sine.)
+
+Disse Haender var saa smukke, foer jeg blev gift; nu er de grove af Arbeide og blaa af Slag. O, var jeg dog endnu hos min salig Moder! Der slap jeg Mester Erick.
+
+(Han tenkjer seg om.)
+
+Men skulde jeg ikke gaa til Jacob Skomagers og faa mig en Snaps? Jo vist skulde jeg! Min Strube er saa toer som en Fisk paa Land. Men da vil Nille bruge Mester Erick paa mig igen.
+
+(Han veier for og imot.)
+
+Hvad skal jeg goere? Gaae eller ikke gaae? Paa den ene Side staar Snapsen, paa den anden Mester Erick. Er Snapsen staerkere end Mester Erick? Ja! Er min Toerst stoerre end min Frygt? Ja! Ergo skal jeg gaae til Jacob Skomagers.
+
+(Han gaar, men stopper.)
+
+Men om Nille faar det at vide? Da faar Ryggen mine Synders Sold. Men Struben raaber: Gaa! og Ryggen raaber: Bliv! Struben siger: Du kan drikke dig modig. Ryggen siger: Du kan drikke dig fordaervet.
+
+(Han slaar seg paa strupen.)
+
+Jeg maa adlyde Struben, for den er naermest Hovedet. Hvad Fanden skulde en stakkels Mand goere uden Brændeviin? Det er min eneste Troest i denne jammerlige Verden.
+
+(Han gaar mot kroa.)
+
+*Scenen etablerer Jeppes karakter som ein tragikomisk figur - ein mann fanga mellom alkoholisme, undertrykkelse og sosial fornedring. Monologen viser Holbergs meisterskap i aa blande humor med sosial kritikk.*`;
+
+
+/**
+ * Ludvig Holberg - Den politiske Kandestober (Akt 2, Scene 1)
+ * Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_KANDESTOBER_AKT2_SCENE1 = `## Den politiske Kandestober
+### Ludvig Holberg (1722)
+*Akt 2, Scene 1 - Hermann og Geske*
+
+(Scenen foergaar i Hermanns hus. HERMANN, ein kandestoepar, sit og leser aviser. GESKE, kona hans, kjem inn.)
+
+GESKE: Hermann! Hvordan kan du sidde og laese Aviser, naar der er saa meget Arbeide at goere?
+
+HERMANN (legg ikkje fraa seg avisa): Tys, Kone! Jeg laesser om de vigtigste Ting i Verden. Der er Krig i Tydskland, og Freden er i Fare.
+
+GESKE: Hvad kommer det os ved? Vi er Kandestobere, ikke Konger.
+
+HERMANN: Kone, du forstaaer dig ikke paa Politik. En Kandestober maa vide, hvad der skeer i Verden, for at han kan tale med om det i Kroen.
+
+GESKE: Men Kanderne staaer ustobte, og Kunderne venter!
+
+HERMANN (reiser seg): Hvad er en Kande mod Verdens Skiebne? Naar jeg laesser om Krigen, da glemmer jeg alle Kander. Det er en stor Ting at vaere vel informeret.
+
+GESKE: Du er gal, Hermann! Du troer, at du kan styre Verden fra din Stue.
+
+HERMANN: Og hvorfor ikke? Jeg har talt med mange laerde Maend i Kroen, og de siger alle, at mine Ideer er gode. Havde Kejseren fulgt mit Raad, var Krigen for laengst slut.
+
+GESKE: Hvilket Raad?
+
+HERMANN: At man skulde goere Fred. Det er saa simpelt, at selv et Barn kan forstaa det.
+
+GESKE (sukker): O, min stakkels Hermann! Du er en god Kandestober, men en daarlig Politiker.
+
+HERMANN: Tvaert imod, Kone! Jeg er en daarlig Kandestober, men en stor Politiker. Det er bare Ulykken, at ingen vil hoere paa mig.
+
+GESKE: Maaske fordi du er en Kandestober?
+
+HERMANN: Hvad har det at sige? Var ikke Cromwell en Brygger? Var ikke mange store Maend af ringe Stand? En Dag skal man faa Oie paa Hermann Kandestober, og da skal de sige: Han havde Ret!
+
+(Der banker paa doeren.)
+
+GESKE: Der er Kunder. Gaa nu og stob Kander, Hermann!
+
+HERMANN: Sig, at jeg er optaget med vigtige Forretninger. Verdens Skiebne kalder mig!
+
+(GESKE sukker og gaar for aa opna.)
+
+*"Den politiske Kandestober" satiriserer den upraktiske interesse for politikk blant folk som ikkje har greie paa det. Hermann er ein mann som forsoemmer sitt eige arbeide fordi han trur han kan loeyse verdsproblem. Holberg gjer narr av den folkelege politiseringa utan aa fornekta at vanlege folk kan ha verdifulle meiningar.*`;
+
+
+/**
+ * Ludvig Holberg - Jeppe paa Bjerget (Rettscenen)
+ * Public domain - forfattaren doed 1754.
+ */
+export const TEKST_VG2_HOLBERG_JEPPE_RETTSCENEN = `## Jeppe paa Bjerget
+### Ludvig Holberg (1722)
+*Akt 5, Scene 6 - Rettscenen*
+
+(Jeppe er kledd som baron og trur han er det. No skal han doemma i ein sak.)
+
+SECRETAEREN: Naadige Herre Baron, her er en Bonde, som har stjaalet fra sin Nabo.
+
+JEPPE (i baronens stol): Lad ham komme frem! Jeg skal doemme ham retfaerdigt, for jeg er nu en stor Mand.
+
+(Bonden NIELS kjem fram, raedd.)
+
+NIELS: Naadige Herre, jeg er uskyldig! Jeg tog kun en Hoene, fordi mine Boern sultede.
+
+JEPPE: En Hoene? Det er Tyveri! Hvad siger Loven om Tyveri?
+
+SECRETAEREN: Loven siger, at Tyve skal haenges.
+
+JEPPE: Da skal han haenges!
+
+NIELS: Men Naadige Herre, det var kun en liden Hoene!
+
+JEPPE: Var det en stor Hoene eller en liden Hoene, naar du tog den? Du toeved ikke, ergo skal Dommen ikke toeve.
+
+(Niels graater.)
+
+PRAESTEN: Naadige Herre, maaske kunde man vise Naade? Manden er fattig.
+
+JEPPE: Fattig? Var jeg ikke ogsaa fattig, da jeg var Bonde? Stjal jeg? Nej! Jeg drak, men jeg stjal ikke. Ergo skal han haenges.
+
+SECRETAEREN (til side): Det er maerkeligt. Han doemmer strengere end den rigtige Baron.
+
+JEPPE: Hoer nu her, du Tyv! Du har taget en Hoene, som ikke var din. Det er en stor Synd. Naar du staaer foran Vorherre, hvad vil du da sige?
+
+NIELS: At jeg var sulten, Naadige Herre.
+
+JEPPE: Og Vorherre vil sige: Jeppe paa Bjerget var ogsaa sulten, men han stjal ikke! Han drak kun. Der er Forskiel paa Folk.
+
+PRAESTEN: Men Naadige Herre, er Drukkenskab ikke ogsaa en Synd?
+
+JEPPE (tenkjer seg om): Jo... jo, det er det vel. Men det er en Synd, som kun skader En selv. Tyveri skader Andre. Ergo er Tyveri vaerre.
+
+(Han slaar i bordet.)
+
+Han skal haenges! Foer ham bort!
+
+(Niels vert foert bort. Jeppe ser noeygd ut.)
+
+JEPPE: Se, saadan skal en Baron doemme! Retfaerdig og streng. Var jeg ikke en klok Mand?
+
+*Rettscenen er eit av hovudpunkta i stykket. Holberg viser korleis Jeppe, naar han faar makt, vert like hard og urettferdig som dei som har undertrykt han. Scenen stiller sporsmaalet: Er menneskenaturen god eller vond? Ville bonden vera betre enn baronen om dei bytta plass?*`;

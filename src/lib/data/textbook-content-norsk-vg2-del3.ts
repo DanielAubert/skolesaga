@@ -8,6 +8,9 @@ import {
   TEKST_VG2_WERGELAND_FORSTE_SANG,
   TEKST_VG2_WERGELAND_TIL_FORAARET,
   TEKST_VG2_WERGELAND_MIG_SELV,
+  TEKST_VG2_WERGELAND_TIL_MIN_GYLDENLAK,
+  TEKST_VG2_WERGELAND_FORSTE_SOMMERFUGL,
+  TEKST_VG2_WERGELAND_JOEDEN,
   TEKST_VG2_WELHAVEN_NORGES_DAEMRING,
   TEKST_VG2_WELHAVEN_LOKKENDE_TONER,
   TEKST_VG2_WELHAVEN_DIGTETS_AAND,
@@ -352,11 +355,13 @@ export const CHAPTER_NORSK_VG2_3_2: TextbookChapter = {
   courseId: 'norsk-vg2',
   chapterNumber: '3.2',
   title: 'Henrik Wergeland - dikter og agitator',
-  description: 'Lær om Henrik Wergeland, den store norske romantiske dikteren og folkeopplyseren.',
-  estimatedMinutes: 55,
+  description: 'Lær om Henrik Wergeland, den store norske romantiske dikteren og folkeopplyseren, med dybdeanalyser av hans viktigste dikt.',
+  estimatedMinutes: 90,
   competenceGoals: [
     'utforske tekster fra romantikken og nasjonalromantikken',
     'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
+    'analysere og tolke tekster med bruk av fagbegreper',
+    'reflektere over hvordan tekster framstiller møter mellom ulike kulturer og perspektiver',
   ],
   content: [
     {
@@ -387,6 +392,63 @@ Wergelands forfatterskap er enormt og variert:
 Wergeland sto i en bitter strid med Johan Sebastian Welhaven om norsk kulturutvikling. Wergeland ("patriotene") ville bryte med dansk kultur og bygge noe genuint norsk. Welhaven ("intelligenspartiet") mente Norge trengte europeisk dannelse.`,
     },
     {
+      id: 'norsk-vg2-3-2-biografi-dybde',
+      type: 'text',
+      content: `## Dypere biografisk kontekst
+
+**Forholdet til faren Nicolai Wergeland**
+
+Henrik Wergelands far, Nicolai Wergeland (1780-1848), var en av Eidsvoll-mennene som utformet Grunnloven i 1814. Han var prest, politiker og intellektuell - en mann med sterke meninger og stor innflytelse på sønnen.
+
+Forholdet mellom far og sønn var preget av både beundring og spenning:
+
+*Inspirasjon og forbilde:*
+- Nicolai ga Henrik en sterk politisk og moralsk bevissthet
+- Faren oppmuntret sønnens litterære ambisjoner
+- Henriks engasjement for demokrati og folkestyre kom delvis fra farens 1814-idealer
+
+*Konflikt og frigjøring:*
+- Henrik brøt med farens mer moderate linje i kulturstriden
+- Sønnens eksplosive temperament og kontroversielle oppførsel skapte bekymring
+- Henrik måtte finne sin egen vei, ikke bare følge farens fotspor
+
+Nicolai Wergeland overlevde sønnen med tre år og opplevde å se Henrik dø ung av tuberkulose - en tragedie som rammet ham hardt.
+
+**Striden med Welhaven - kulturkampens kjerne**
+
+Konflikten mellom Henrik Wergeland og Johan Sebastian Welhaven (1807-1873) var den mest intense kulturstriden i norsk historie. Den startet for alvor i 1830 og varte hele tiåret.
+
+*Bakgrunnen:*
+I 1830 skrev Welhaven et kritisk dikt om Wergelands "Skabelsen, Mennesket og Messias", der han anklaget Wergeland for formløshet og overdrivelse. Wergeland svarte med personangrep, og striden eskalerte.
+
+*Welhavens "Norges Dæmring" (1834):*
+Welhaven skrev et langt dikt der han kritiserte det han kalte "Stumperne" - patrioter som skrøt av Norge uten substans. Diktet ble oppfattet som et angrep på alt Wergeland sto for, og utløste raseri.
+
+*Personlige konfrontasjoner:*
+- Offentlige debatter i aviser og tidsskrifter
+- Fysiske konfrontasjoner og trusler
+- Duellutfordringer (som aldri ble gjennomført)
+- Splittelse i hele det norske kulturlivet
+
+*Stridens betydning:*
+Selv om striden var bitter, tvang den begge parter til å tenke grundigere gjennom sine standpunkter. Norge trengte både Wergelands folkelighet og Welhavens kvalitetskrav. I ettertid ser vi at de utfylte hverandre mer enn de motsa hverandre.
+
+**De siste årene og "Jødesaken"**
+
+Fra slutten av 1830-tallet konsentrerte Wergeland seg mer om praktisk arbeid enn om kulturstrid:
+
+*Folkeopplysning:*
+Han startet bladet "For Arbeidsklassen" (1839-1845), der han skrev om praktiske emner - helse, økonomi, naturfag - for vanlige folk. Han mente at kunnskap var veien til frihet.
+
+*Kampen for jødenes rettigheter:*
+Grunnloven av 1814 inneholdt en paragraf som forbød jøder adgang til Norge. Wergeland så dette som en skam og kjempet iherdig for å få den opphevet.
+
+Han skrev diktene "Jøden" (1842) og "Jødinden" (1844) for å vekke sympati og forståelse. Han argumenterte i Stortinget og i aviser. Paragrafen ble først opphevet i 1851 - seks år etter hans død.
+
+*Dødsleiet:*
+Wergeland fikk tuberkulose og visste at han skulle dø. De siste månedene skrev han noen av sine fineste dikt, deriblant "Til min Gyldenlak" - til en blomst i vinduskarmen som ble et symbol på livet han snart måtte forlate. Han døde 12. juli 1845, bare 37 år gammel.`,
+    },
+    {
       id: 'norsk-vg2-3-2-def-1',
       type: 'definition',
       title: 'Wergeland - sentrale trekk',
@@ -395,6 +457,7 @@ Wergeland sto i en bitter strid med Johan Sebastian Welhaven om norsk kulturutvi
 - Født Kristiansand, oppvokst Eidsvoll
 - Dikter, folkeopplyser, aktivist
 - Kjempet for jødenes rettigheter
+- Sønn av Eidsvoll-mannen Nicolai Wergeland
 
 **Litterære kjennetegn:**
 - Eksplosiv, visjonær stil
@@ -412,6 +475,81 @@ Wergeland sto i en bitter strid med Johan Sebastian Welhaven om norsk kulturutvi
 - Wergeland vs. Welhaven
 - Patriotene vs. intelligenspartiet
 - Norsk egenart vs. europeisk dannelse`,
+    },
+    {
+      id: 'norsk-vg2-3-2-stil-analyse',
+      type: 'text',
+      content: `## Wergelands stil og virkemidler
+
+**Det romantiske naturbildet**
+
+Naturen spiller en helt sentral rolle i Wergelands diktning. For ham er naturen ikke bare vakker - den er besjelet, meningsfull og forbundet med det guddommelige.
+
+*Naturens liv:*
+I Wergelands dikt lever naturen. Solen "smiler", bekken "synger", blomstene "danser". Dette kalles besjeling (personifikasjon), og det er et sentralt romantisk virkemiddel. Naturen er ikke død materie, men levende ånd.
+
+*Naturen som speil:*
+Dikterens følelser speiles i naturen. Når dikteren er glad, blomstrer naturen. Når han sørger, gråter himmelen. Dette kalles "pathetic fallacy" - at naturen tillegges menneskelige følelser.
+
+*Naturen som frihet:*
+For Wergeland symboliserer naturen frihet fra samfunnets tvang. I naturen er mennesket fritt, ekte, i kontakt med noe større enn seg selv.
+
+**Politisk engasjement i diktningen**
+
+Wergeland skilte ikke skarpt mellom poesi og politikk. Han mente at dikteren hadde en plikt til å tale for de undertrykte og kjempe for rettferdighet.
+
+*Eksempler på politiske dikt:*
+- "Jøden" og "Jødinden" - forsvar for jødenes rettigheter
+- Dikt om folkeopplysning og demokrati
+- Kritikk av overklassens arroganse
+
+*Retorikk i diktningen:*
+Wergeland bruker ofte retoriske virkemidler: direkte henvendelser, retoriske spørsmål, sterke følelsesutbrudd. Diktene hans vil overbevise, ikke bare underholde.
+
+**Bruk av metaforer og symboler**
+
+Wergelands diktning er rik på metaforer og symboler:
+
+*Lyset:*
+Lys symboliserer sannhet, opplysning, frihet. Mørke symboliserer uvitenhet og undertrykkelse. Dikteren ser seg selv som en "fakkel" som lyser opp mørket.
+
+*Flammen:*
+Wergeland sammenligner seg ofte med en flamme - noe som brenner, som fortærer seg selv, som gir varme og lys men som også kan slukke.
+
+*Blomster og vår:*
+Våren symboliserer fornyelse, håp, livskraft. Blomster symboliserer skjønnhet og livets skjørhet. I "Til min Gyldenlak" blir blomsten et symbol på livet selv.
+
+*Fuglen:*
+Fuglen symboliserer frihet, sjelen, drømmen om å løfte seg over det jordiske.
+
+**Wergelands særpreg**
+
+Det som gjør Wergeland unik, er intensiteten. Han skriver med en energi og begeistring som kan virke overdrevet for moderne lesere. Men nettopp denne intensiteten gjør ham til romantikkens fremste representant i Norge.`,
+    },
+    {
+      id: 'norsk-vg2-3-2-def-2',
+      type: 'definition',
+      title: 'Wergelands viktigste virkemidler',
+      content: `**Besjeling (personifikasjon):**
+Naturen får menneskelige egenskaper - solen smiler, bekken synger, blomsten danser.
+
+**Metaforer:**
+Overført betydning - dikteren er en "flamme", en "fakkel", en "storm".
+
+**Symboler:**
+- Lys = sannhet, opplysning
+- Vår = fornyelse, håp
+- Blomster = livets skjønnhet og skjørhet
+- Fugl = frihet, sjelen
+
+**Gjentakelse:**
+Samme ord eller frase gjentas for å skape intensitet - "Vaaren, Vaaren, Vaaren kommer!"
+
+**Utrop:**
+Hyppig bruk av utropstegn og utrop som "O!" for å uttrykke sterk følelse.
+
+**Retoriske spørsmål:**
+Spørsmål som ikke krever svar, men som vekker ettertanke hos leseren.`,
     },
     {
       id: 'norsk-vg2-3-2-example-1',
@@ -443,9 +581,128 @@ Utropet "O, Natur!" viser dikterens følelsesmessige engasjement.
 Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og full av mening.`,
     },
     {
+      id: 'norsk-vg2-3-2-example-2',
+      type: 'example',
+      title: 'Diktanalyse: "Til min Gyldenlak"',
+      problem: `Analyser diktet "Til min Gyldenlak" (1845), et av Wergelands siste dikt skrevet på dødsleiet.
+
+Les primærteksten nedenfor og studer følgende aspekter:
+- Hva symboliserer gyldenlakken?
+- Hvordan forholder dikteren seg til døden?
+- Hvilke kontraster brukes i diktet?`,
+      solution: `**Analyse av "Til min Gyldenlak":**
+
+**Situasjonen:**
+Diktet er skrevet mens Wergeland lå dødssyk av tuberkulose. En gyldenlak (en gul blomst) sto i vinduskarmen hans, og denne blomsten ble et symbol på livet han snart måtte forlate.
+
+**Symbolikken:**
+Gyldenlakken symboliserer livet selv - den vokser, blomstrer og lyser opp mens dikteren visner hen. Blomsten blir et "Livets Tegn i Dødens Kammer" - et bevis på at livet fortsetter selv når individet dør.
+
+**Kontrastene:**
+Diktet er bygget på sterke kontraster:
+- Blomsten spirer opp / dikteren går ned i mulden
+- Blomsten skinner som solen / dikteren går i mørket
+- Blomsten dufter søtt / dikteren har "en Pest"
+- Blomsten står fast / dikteren ligger med "brudte Lemmer"
+
+Disse kontrastene understreker det tragiske i situasjonen, men uten bitterhet.
+
+**Holdningen til døden:**
+Diktet viser en overraskende aksept av døden. Wergeland klager ikke, men feirer livet gjennom blomsten. Han ber blomsten stå igjen som et minne - et "evig grønnende" symbol på ham som "elsked Alt, hvad Livet nærer".
+
+**Stil:**
+Diktet er enklere og mer dempet enn mange av Wergelands tidligere verker. Den eksplosive energien er erstattet av stille verdighet. Dette viser en modning - dikteren har funnet ro.
+
+**Tematikk:**
+- Livets skjørhet og skjønnhet
+- Døden som naturlig del av livet
+- Ønsket om å bli husket
+- Kjærlighet til livet selv i møte med døden`,
+    },
+    {
+      id: 'norsk-vg2-3-2-example-3',
+      type: 'example',
+      title: 'Diktanalyse: "Den første Sommerfugl"',
+      problem: `Analyser diktet "Den første Sommerfugl" (1840) med fokus på:
+- Hva symboliserer sommerfuglen?
+- Hvordan bruker Wergeland besjeling?
+- Hva er diktets stemning?`,
+      solution: `**Analyse av "Den første Sommerfugl":**
+
+**Sommerfuglen som symbol:**
+Sommerfuglen er et tradisjonelt symbol for:
+- Forvandling (fra larve til sommerfugl)
+- Sjelens frihet
+- Livets forgjengelighet (sommerfuglen lever kort)
+- Vårens og sommerens komme
+
+For Wergeland er sommerfuglen "Foraarets Engel" - en budbringer fra himmelen som bringer glede og minner om barndomsuskyld.
+
+**Besjeling:**
+Wergeland gir sommerfuglen menneskelige handlinger:
+- Den "kysser alle Blomsters Kinder"
+- Den "bringer Sommer, Glæde, Minder"
+- Den er et "Bud fra Himlens Sal"
+
+Sommerfuglen blir ikke bare et insekt, men en besjelet skapning med en åndelig misjon.
+
+**Stemningen:**
+Diktet har en lett, jublende stemning. Det er preget av:
+- Glede over vårens komme
+- Nostalgi for barndommen
+- Optimisme og livskraft
+- En følelse av under og forundring
+
+**Virkemidler:**
+- Direkte henvendelse: "Velkommen, du lille Sommerfugl!"
+- Utrop: "O, lille Sommerfugl saa skjøn"
+- Rim: "Blad/glad", "Sal/Dal"
+- Sanseinntrykk: farger, bevegelse, lys
+
+**Tematikk:**
+- Naturens evige fornyelse
+- Barndommens uskyld
+- Livets syklus
+- Det hellige i det hverdagslige`,
+    },
+    {
+      id: 'norsk-vg2-3-2-example-4',
+      type: 'example',
+      title: 'Diktanalyse: "Jøden" - det politiske diktet',
+      problem: `Analyser utdraget fra "Jøden" (1842) med fokus på:
+- Hva er diktets budskap?
+- Hvilke retoriske virkemidler brukes?
+- Hvordan argumenterer dikteren?`,
+      solution: `**Analyse av "Jøden":**
+
+**Kontekst:**
+Grunnloven av 1814 inneholdt en paragraf som forbød jøder adgang til Norge. Wergeland så dette som urettferdig og ukristelig, og kjempet i årevis for å få paragrafen opphevet.
+
+**Diktets budskap:**
+Diktet argumenterer for at jøder er mennesker med samme rettigheter som alle andre. Det avviser "arveskyld" - tanken om at nålevende jøder skal straffes for noe som skjedde for 2000 år siden.
+
+**Argumentasjonen:**
+Wergeland bruker dialogform - en jøde svarer på anklagene:
+- "Hvad Ondt har jeg da gjort?" - han har ikke gjort noe galt
+- "Jeg var jo ei tilstede!" - han kan ikke straffes for noe forfedre gjorde
+- Jøder tror på samme Gud, ber til samme Fader, håper på samme Himmel
+
+**Retoriske virkemidler:**
+- Retoriske spørsmål: "Hvorfor forfølger I mig saa?"
+- Direkte henvendelse: "O, Medmennesker, hører!"
+- Gjentakelse av "samme" for å understreke likhet
+- Kontrast mellom uskyldig offer og urettferdig forfølgelse
+
+**Stilnivå:**
+Diktet er enklere og mer direkte enn mange av Wergelands andre dikt. Det er beregnet på å overbevise, ikke imponere. Språket er retorisk, nesten som en tale.
+
+**Betydning:**
+"Jøden" er et av de viktigste politiske diktene i norsk litteratur. Det viser at Wergeland ikke bare var romantiker, men også humanist og menneskerettighetsforkjemper. Diktet bidro til å endre opinionen, selv om paragrafen først ble opphevet etter hans død.`,
+    },
+    {
       id: 'norsk-vg2-3-2-primaertekst-1',
       type: 'collapsible',
-      title: 'Primærtekst: Henrik Wergeland – «Den første Sang»',
+      title: 'Primærtekst: Henrik Wergeland - "Den første Sang"',
       buttonText: 'Vis primærtekst',
       content: [
         {
@@ -458,7 +715,7 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
     {
       id: 'norsk-vg2-3-2-primaertekst-2',
       type: 'collapsible',
-      title: 'Primærtekst: Henrik Wergeland – «Til Foraaret»',
+      title: 'Primærtekst: Henrik Wergeland - "Til Foraaret"',
       buttonText: 'Vis primærtekst',
       content: [
         {
@@ -471,13 +728,52 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
     {
       id: 'norsk-vg2-3-2-primaertekst-3',
       type: 'collapsible',
-      title: 'Primærtekst: Henrik Wergeland – «Mig Selv»',
+      title: 'Primærtekst: Henrik Wergeland - "Mig Selv"',
       buttonText: 'Vis primærtekst',
       content: [
         {
           id: 'norsk-vg2-3-2-primaertekst-3-text',
           type: 'text',
           content: `${TEKST_VG2_WERGELAND_MIG_SELV}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-3-2-primaertekst-4',
+      type: 'collapsible',
+      title: 'Primærtekst: Henrik Wergeland - "Til min Gyldenlak"',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-3-2-primaertekst-4-text',
+          type: 'text',
+          content: `${TEKST_VG2_WERGELAND_TIL_MIN_GYLDENLAK}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-3-2-primaertekst-5',
+      type: 'collapsible',
+      title: 'Primærtekst: Henrik Wergeland - "Den første Sommerfugl"',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-3-2-primaertekst-5-text',
+          type: 'text',
+          content: `${TEKST_VG2_WERGELAND_FORSTE_SOMMERFUGL}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-3-2-primaertekst-6',
+      type: 'collapsible',
+      title: 'Primærtekst: Henrik Wergeland - "Jøden" (utdrag)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg2-3-2-primaertekst-6-text',
+          type: 'text',
+          content: `${TEKST_VG2_WERGELAND_JOEDEN}`,
         },
       ],
     },
@@ -603,7 +899,7 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
           'Tenk på romantikkens begrep om geniet.',
           'Hva føler dikteren, og hva ønsker han å oppnå?',
         ],
-        solution: 'Diktet viser at Wergeland oppfattet seg som et romantisk geni - en dikter med en særlig kalling. Han føler en indre kraft som vil ut ("Noget der er, som vil ud"), en lengsel etter å "svæve over Gud". Dette viser dikteren som en person med uvanlig følsomhet og visjonær kraft. Selvbildet er typisk romantisk: dikteren er ikke en vanlig person, men et instrument for noe guddommelig.',
+        solution: 'Diktet viser at Wergeland oppfattet seg som et romantisk geni - en dikter med en særlig kalling. Han ser seg selv som en "Flamme" som fortærer seg selv, en "Storm" som kjemper for "hele Verden". Han er en "Fakkel" og en "Sol i Mørket" for de som søker sannhet. Selvbildet er typisk romantisk: dikteren er ikke en vanlig person, men et instrument for noe større - frihet og sannhet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -629,13 +925,21 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
         id: 'norsk-vg2-3-2-ex-8',
         number: '8',
         type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Sammenlign to av Wergelands primærtekster fra dette kapittelet. Hva er felles for dem, og hva skiller dem?',
-        hints: [
-          'Velg to av tekstene "Den første Sang", "Til Foraaret" og "Mig Selv".',
-          'Se på tema, stil, stemning og virkemidler.',
+        difficulty: 'medium',
+        task: 'Les "Til min Gyldenlak" og analyser diktets bruk av kontraster.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke kontraster finner du mellom blomsten og dikteren?',
+            solution: 'Blomsten spirer opp mens dikteren går ned. Blomsten skinner mens dikteren går mot mørket. Blomsten dufter søtt mens dikteren er syk. Blomsten står fast mens dikteren har "brudte Lemmer".',
+          },
+          {
+            label: 'b',
+            task: 'Hva er effekten av disse kontrastene?',
+            solution: 'Kontrastene understreker det tragiske i situasjonen, men uten bitterhet. De viser også at livet fortsetter selv når individet dør - blomsten blir et symbol på livets evige fornyelse.',
+          },
         ],
-        solution: 'Felles trekk: naturbegeistret, følelsesintens tone, bruk av besjeling, romantiske motiver, optimisme. Forskjeller vil avhenge av tekstvalg: "Den første Sang" og "Til Foraaret" er naturdikt med liknende tema, men ulik form. "Mig Selv" er mer selvreflekterende og filosofisk. Eleven bør vise evne til å sammenligne konkret med eksempler fra tekstene.',
+        solution: 'Diktet bruker kontraster mellom liv og død, vekst og forfall, for å uttrykke Wergelands aksept av døden og kjærlighet til livet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -646,6 +950,56 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
       exercise: {
         id: 'norsk-vg2-3-2-ex-9',
         number: '9',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign "Til Foraaret" og "Til min Gyldenlak". Begge handler om blomster og vår, men stemningen er svært ulik. Forklar forskjellene.',
+        hints: [
+          'Tenk på når diktene ble skrevet.',
+          'Sammenlign energinivå, ordvalg og holdning til livet.',
+          'Hva sier forskjellene om Wergelands utvikling som dikter?',
+        ],
+        solution: '"Til Foraaret" (1833) er skrevet av en ung, frisk Wergeland og er eksplosiv, jublende, nesten ekstatisk. Gjentakelsene "Vaaren, Vaaren, Vaaren" og alle utropstegnene viser ubegrenset livsglede. "Til min Gyldenlak" (1845) er skrevet på dødsleiet og er dempet, resignert, men ikke bitter. Her er ingen utbrudd, bare stille aksept. Forskjellen viser Wergelands modning: den unge dikteren feirer livet med ungdommelig rus; den døende dikteren har funnet ro og verdighet. Begge dikt viser kjærlighet til livet, men uttrykker den på helt ulike måter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-2-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-2-ex-10',
+        number: '10',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Les utdraget fra "Jøden" og analyser det som et politisk dikt.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke argumenter bruker Wergeland mot forfølgelse av jøder?',
+            solution: 'Wergeland argumenterer at (1) jøden ikke har gjort noe galt personlig, (2) man kan ikke straffes for forfedrenes handlinger, (3) jøder tror på samme Gud og har samme menneskelighet som alle andre.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke retoriske virkemidler bruker han?',
+            solution: 'Dialogform med spørsmål og svar, retoriske spørsmål ("Hvad Skyld har jeg deri?"), direkte henvendelse til leseren ("O, Medmennesker, hører!"), gjentakelse av "samme" for å understreke likhet.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor tror du Wergeland valgte diktformen for å fremme denne saken?',
+            solution: 'Dikt kan appellere til følelser på en måte sakprosa ikke kan. Ved å la jøden tale selv, skaper Wergeland empati. Diktformen gjør budskapet mer minneverdig og lettere å spre.',
+          },
+        ],
+        solution: '"Jøden" viser at Wergeland brukte diktningen som politisk våpen. Diktet kombinerer logiske argumenter med følelsesmessig appell for å overbevise leseren om at jødeparagrafen var urettferdig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-2-ex-11',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-2-ex-11',
+        number: '11',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Drøft om Wergeland fortjener tittelen "Norges nasjonaldikter". Bruk argumenter fra pensum.',
@@ -659,11 +1013,11 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
       },
     },
     {
-      id: 'norsk-vg2-3-2-ex-10',
+      id: 'norsk-vg2-3-2-ex-12',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-2-ex-10',
-        number: '10',
+        id: 'norsk-vg2-3-2-ex-12',
+        number: '12',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en kort kreativ tekst (150-200 ord) inspirert av Wergelands stil. Bruk naturbilder, besjeling og en entusiastisk tone for å skildre en naturopplevelse.',
@@ -677,18 +1031,70 @@ Utdraget viser Wergelands romantiske naturopplevelse, der naturen er besjelet og
       },
     },
     {
-      id: 'norsk-vg2-3-2-ex-11',
+      id: 'norsk-vg2-3-2-ex-13',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-3-2-ex-11',
-        number: '11',
+        id: 'norsk-vg2-3-2-ex-13',
+        number: '13',
         type: 'classic',
         difficulty: 'lett',
         task: 'Lag en tidslinje over Wergelands liv og viktigste verker fra 1808 til 1845.',
         hints: ['Bruk opplysningene fra teoridelen og definisjonsblokken.'],
-        solution: 'Tidslinjen bør inneholde: 1808 - Født i Kristiansand. 1829 - "Digte" utgis. 1830 - "Skabelsen, Mennesket og Messias". 1830-tallet - Kulturstriden med Welhaven. 1840-tallet - "For Arbeidsklassen" (folkeopplysning). 1844 - "Den engelske Lods" skrevet på dødsleiet. 1845 - Dør av tuberkulose, 37 år gammel.',
+        solution: 'Tidslinjen bør inneholde: 1808 - Født i Kristiansand. 1829 - "Digte" utgis. 1830 - "Skabelsen, Mennesket og Messias". 1830-tallet - Kulturstriden med Welhaven. 1839-1845 - "For Arbeidsklassen" (folkeopplysning). 1842 - "Jøden" utgis. 1844 - "Den engelske Lods" skrevet på dødsleiet. 1845 - "Til min Gyldenlak" og død av tuberkulose, 37 år gammel.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-2-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-2-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft Wergelands relevans i dag. Er hans ideer om frihet, folkeopplysning og rettferdighet fortsatt aktuelle?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke av Wergelands kampsaker er fortsatt relevante i dag?',
+            solution: 'Kampen mot diskriminering (jødesaken kan sammenlignes med moderne antirasisme), folkeopplysning (tilgang til kunnskap for alle), ytringsfrihet og demokratiske verdier.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan ville Wergeland sannsynligvis reagert på dagens samfunn?',
+            solution: 'Han ville trolig engasjert seg i flyktningdebatten, klimasaken, kamp mot diskriminering, og tilgang til utdanning. Han ville nok brukt sosiale medier aktivt og vært en kontroversiell debattant.',
+          },
+          {
+            label: 'c',
+            task: 'Er Wergelands diktning fortsatt relevant, eller er han mest et historisk symbol?',
+            solution: 'Både-og: Hans dikt kan være vanskelige å lese i dag på grunn av gammelt språk og overdådig stil. Men temaene - frihet, natur, livskjærlighet - er tidløse. Hans symbolverdi som nasjonal helt lever videre, selv om færre leser verkene hans.',
+          },
+        ],
+        solution: 'Wergeland er relevant både som historisk figur og som inspirasjon for dagens debatter om demokrati, toleranse og folkeopplysning. Hans mest aktuelle arv er kanskje ideen om at dikteren har et samfunnsansvar.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-2-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-2-ex-15',
+        number: '15',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva symboliserer gyldenlakken i Wergelands dikt "Til min Gyldenlak"?',
+        options: [
+          'Døden og forgjengelighet',
+          'Livet som fortsetter mens dikteren dør',
+          'Wergelands politiske kamp',
+          'Den norske naturen',
+        ],
+        answer: 1,
+        solution: 'Gyldenlakken symboliserer livet som fortsetter selv når dikteren dør. Blomsten spirer opp mens Wergeland visner hen. Den er et "Livets Tegn i Dødens Kammer" - et bevis på livets evige fornyelse. Diktet viser Wergelands aksept av døden og kjærlighet til livet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
       },
     },
   ],
@@ -4286,6 +4692,1215 @@ Hvem taler? Fra hvilket perspektiv? Hvem tjener på fremstillingen?`,
   exercises: [],
 };
 
+// ============================================================================
+// KAPITTEL 3.11: Litterær analyse - modeller og metoder
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_3_11: TextbookChapter = {
+  id: 'norsk-vg2-3-11',
+  courseId: 'norsk-vg2',
+  chapterNumber: '3.11',
+  title: 'Litterær analyse - modeller og metoder',
+  description: 'Lær systematiske metoder for litterær analyse, inkludert SVIRP-modellen, diktanalyse og prosaanalyse.',
+  estimatedMinutes: 75,
+  competenceGoals: [
+    'bruke fagspråk og kunnskap om litterære virkemidler i analyse av tekster',
+    'lese og tolke tekster fra romantikken i kulturhistorisk kontekst',
+    'utforske og reflektere over hvordan tekster fra romantikken framstiller menneske, natur og samfunn',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-3-11-intro',
+      type: 'text',
+      content: `## Systematisk litterær analyse
+
+Når du skal analysere en litterær tekst, er det viktig å ha en systematisk tilnærming. Dette kapittelet gir deg verktøy og modeller som hjelper deg å strukturere analysen din, enten det dreier seg om lyrikk, prosa eller drama.
+
+**Hvorfor systematikk?**
+
+En systematisk tilnærming sikrer at du:
+- Ikke overser viktige elementer i teksten
+- Bygger argumentasjonen din på tekstlige bevis
+- Får en rød tråd gjennom analysen
+- Kan sammenligne tekster på en meningsfull måte
+
+**Analyse vs. tolkning**
+
+*Analyse* handler om å undersøke hvordan teksten er bygd opp - form, struktur, virkemidler. *Tolkning* handler om å finne mening - hva betyr teksten? En god litterær analyse kombinerer begge deler: Du viser hvordan formen støtter innholdet.
+
+**Kontekstens betydning**
+
+Ingen tekst eksisterer i et vakuum. For å forstå tekster fra romantikken må vi kjenne til:
+- Historisk kontekst (nasjonsbygging, 1814)
+- Kulturell kontekst (romantikkens ideer)
+- Forfatterens bakgrunn og intensjoner
+- Sjangertradisjonene teksten forholder seg til`,
+    },
+    {
+      id: 'norsk-vg2-3-11-def-svirp',
+      type: 'definition',
+      title: 'SVIRP-modellen for litterær analyse',
+      content: `**SVIRP** er en analysemodell som gir deg en systematisk tilnærming til enhver tekst:
+
+**S - Sjanger**
+Hvilken type tekst er dette? (dikt, novelle, roman, drama, eventyr, essay)
+- Hvilke sjangerkonvensjoner følger teksten?
+- Bryter teksten med sjangerforventninger?
+
+**V - Virkemidler**
+Hvilke litterære grep bruker forfatteren?
+- Språklige virkemidler (metafor, simile, personifikasjon, besjeling)
+- Lydlige virkemidler (rim, rytme, allitterasjon, assonans)
+- Strukturelle virkemidler (komposisjon, kontrast, gjentakelse, rammefortelling)
+
+**I - Innhold**
+Hva handler teksten om?
+- Ytre handling (hva skjer konkret?)
+- Tema (hva handler teksten dypere sett om?)
+- Motiver (gjentakende elementer som symboliserer noe)
+
+**R - Relasjon/kontekst**
+Hvordan forholder teksten seg til sin samtid?
+- Når ble teksten skrevet?
+- Av hvem (forfatterens bakgrunn)?
+- Til hvem (tenkt publikum)?
+- Hvorfor (hva ville forfatteren oppnå)?
+- Litteraturhistorisk plassering
+
+**P - Personlig tolkning**
+Hva betyr teksten - for deg og generelt?
+- Hva er tekstens budskap?
+- Hvordan opplever du teksten?
+- Er teksten fortsatt relevant i dag?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-text-svirp-utdyping',
+      type: 'text',
+      content: `### Slik bruker du SVIRP-modellen
+
+**Steg 1: Les teksten flere ganger**
+Første gang: Les for helhetsinntrykk. Hva handler teksten om? Hvordan virker den på deg?
+Andre gang: Les med blyant. Marker ord, bilder og setninger som virker viktige.
+Tredje gang: Les med analysebrillene på. Se etter mønstre og strukturer.
+
+**Steg 2: Gå gjennom SVIRP punkt for punkt**
+Ikke hopp over noen bokstav, selv om du synes den er vanskelig. Noen ganger er de vanskeligste punktene de viktigste.
+
+**Steg 3: Se sammenhenger**
+SVIRP er ikke en sjekkliste - punktene henger sammen. Virkemidlene (V) støtter innholdet (I). Konteksten (R) påvirker tolkningen (P). Sjangeren (S) styrer forventningene.
+
+**Steg 4: Skriv analysen**
+Bruk ikke SVIRP som disposisjon. Analysen din skal ha en rød tråd - et hovedpoeng du argumenterer for. SVIRP gir deg materialet; du må selv forme det til en sammenhengende tekst.
+
+**Vanlige feil:**
+- Bare lister opp virkemidler uten å forklare effekten
+- Glemmer konteksten
+- Har ingen egen tolkning
+- Skriver "jeg synes" uten å begrunne`,
+    },
+    {
+      id: 'norsk-vg2-3-11-def-diktanalyse',
+      type: 'definition',
+      title: 'Strukturert diktanalyse',
+      content: `Når du analyserer dikt, er det nyttig å undersøke disse fire områdene systematisk:
+
+**1. Form**
+- *Strofer:* Hvor mange? Hvor lange? Er det et mønster?
+- *Rim:* Parrim (aa), kryssrim (abab), omsluttende rim (abba), eller frie vers?
+- *Rytme:* Fast metrum eller fri rytme? Jambe, trokè, daktyl?
+- *Grafisk utforming:* Hvordan ser diktet ut på siden?
+
+**2. Bilder**
+- *Metafor:* Sammenligning uten "som" (Livet er en reise)
+- *Simile:* Sammenligning med "som" (Hun var som en rose)
+- *Personifikasjon:* Menneskelige egenskaper til abstrakte begreper (Døden ventet)
+- *Besjeling:* Menneskelige egenskaper til dyr/ting (Treet sukket)
+- *Symbol:* Noe konkret som står for noe abstrakt (lys = håp)
+
+**3. Tema og motiv**
+- *Tema:* Det abstrakte hovedemnet (kjærlighet, død, natur, identitet)
+- *Motiv:* Konkrete, gjentakende elementer (havet, fuglen, hjemmet)
+- *Kontraster:* Motsetninger som skaper mening (lys/mørke, liv/død)
+
+**4. Stemning og tone**
+- *Stemning:* Den følelsen diktet skaper (melankolsk, begeistret, ironisk)
+- *Tone:* Forfatterens holdning til stoffet (alvorlig, humoristisk, kritisk)
+- *Lyrisk jeg:* Hvem snakker i diktet? Er det forfatteren?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-text-diktanalyse-tips',
+      type: 'text',
+      content: `### Tips til diktanalyse
+
+**Les høyt**
+Dikt er skrevet for å høres. Rytmen, klangen og pausene kommer frem når du leser høyt. Marker hvor du naturlig stopper - det er ofte meningsbærende.
+
+**Se på tittelen**
+Tittelen gir ofte en nøkkel til tolkningen. Hvorfor har dikteren valgt akkurat denne tittelen? Hva lover den leseren?
+
+**Første og siste linje**
+Disse er ofte de viktigste. Sammenlign dem - har noe forandret seg? Skaper de en ramme?
+
+**Gjentakelser**
+Hva gjentas? Ord, setninger, bilder? Gjentakelse er aldri tilfeldig i dikt - det skaper rytme, understreking eller utvikling.
+
+**Vendepunkter**
+Se etter brudd i diktet. Hvor skjer det en endring i tone, perspektiv eller tema? Ord som "men", "likevel", "da" signaliserer ofte vendepunkter.
+
+**Ordvalg**
+Hvorfor akkurat dette ordet? Kunne dikteren valgt et annet? Hva er konnotasjonene (assosiasjoner) til ordene som brukes?
+
+**Det som mangler**
+Noen ganger er det like interessant hva diktet IKKE sier. Hvilke forventninger skapes som ikke innfris?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-def-prosaanalyse',
+      type: 'definition',
+      title: 'Prosaanalyse: Fortellerteknikk, komposisjon og skildring',
+      content: `Når du analyserer prosa (noveller, romaner), fokuserer du på andre elementer enn i diktanalyse:
+
+**1. Fortellerteknikk og synsvinkel**
+- *Førstepersonsforteller:* "Jeg" forteller. Subjektiv, begrenset kunnskap.
+- *Tredjepersonsforteller:* "Han/hun" fortelles om.
+  - Allvitende: Fortelleren vet alt om alle.
+  - Begrenset: Fortelleren følger én karakter.
+  - Objektiv: Fortelleren bare observerer, uten innsyn i tanker.
+- *Pålitelighet:* Kan vi stole på fortelleren? (Upålitelig forteller)
+- *Fortellertempo:* Scene (detaljert) vs. referat (oppsummering)
+
+**2. Komposisjon og struktur**
+- *In medias res:* Begynner midt i handlingen
+- *Kronologisk:* Følger tidslinjen
+- *Rammefortelling:* Fortelling i fortellingen
+- *Frampek:* Hint om hva som skal skje
+- *Tilbakeblikk (analepse):* Hopp tilbake i tid
+- *Spenningskurve:* Innledning, konflikt, klimaks, løsning
+
+**3. Karakterskildring**
+- *Direkte:* Fortelleren beskriver karakteren
+- *Indirekte:* Vi forstår karakteren gjennom handling, dialog, tanker
+- *Runde karakterer:* Komplekse, utvikler seg
+- *Flate karakterer:* Enkle, forutsigbare, typer
+
+**4. Miljøskildring**
+- *Fysisk miljø:* Sted, natur, rom, gjenstander
+- *Sosialt miljø:* Klasse, kultur, normer
+- *Psykologisk atmosfære:* Stemning, symbolikk
+- *Miljøets funksjon:* Speiler karakterer? Skaper kontrast? Symbol?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-text-prosa-tips',
+      type: 'text',
+      content: `### Tips til prosaanalyse
+
+**Start med handlingen**
+Hva skjer i teksten? Hvem er involvert? Lag et kort sammendrag før du går i dybden. Slik sikrer du at du har forstått det grunnleggende.
+
+**Identifiser konflikten**
+All god prosa har en konflikt. Den kan være:
+- Ytre (person mot person, person mot samfunn, person mot natur)
+- Indre (person mot seg selv, moralske dilemmaer)
+
+**Følg hovedpersonen**
+Hvordan introduseres hovedpersonen? Hvordan endrer hen seg gjennom fortellingen? Hva driver hen fremover?
+
+**Vær oppmerksom på detaljer**
+Ingenting er tilfeldig i god litteratur. Hvis forfatteren bruker plass på å beskrive et objekt eller en scene, har det en grunn. Spør: Hvorfor akkurat dette?
+
+**Dialog**
+Hva avslører dialogen? Om karakterene? Om relasjoner? Om konflikter? Legg merke til hva som IKKE sies - underteksten.
+
+**Tematikk**
+Hva handler teksten om på et dypere plan? Kjærlighet, død, identitet, frihet, makt? Hvordan utforsker teksten temaet?
+
+**Åpning og avslutning**
+Hvordan begynner teksten? Hvordan slutter den? Åpen eller lukket slutt? Hva har endret seg?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-def-sjekkliste',
+      type: 'definition',
+      title: 'Sjekkliste for litterær analyse',
+      content: `**FØR DU STARTER**
+- Har du lest teksten minst to ganger?
+- Kjenner du til forfatterens bakgrunn?
+- Vet du når teksten ble skrevet (historisk kontekst)?
+- Forstår du hvilken sjanger teksten tilhører?
+- Har du slått opp ord du ikke forstår?
+
+**UNDER ANALYSEN**
+- Har du identifisert sjangeren og dens konvensjoner?
+- Har du funnet de viktigste virkemidlene?
+- Har du forklart EFFEKTEN av virkemidlene (ikke bare navngitt dem)?
+- Har du beskrevet innholdet (handling, tema, motiver)?
+- Har du plassert teksten i kontekst?
+- Har du brukt sitater fra teksten som belegg?
+- Har du en tydelig tolkning/hovedpåstand?
+
+**ETTER ANALYSEN**
+- Har analysen en rød tråd (ikke bare en punktliste)?
+- Henger form og innhold sammen i argumentasjonen?
+- Er tolkningen din begrunnet i teksten?
+- Har du unngått ren oppramsing av virkemidler?
+- Er språket ditt presist og faglig?
+- Har du svart på oppgaven?`,
+    },
+    {
+      id: 'norsk-vg2-3-11-text-vanlige-feil',
+      type: 'text',
+      content: `### Vanlige feil i litterær analyse - og hvordan unngå dem
+
+**Feil 1: Oppramsing uten effekt**
+*Dårlig:* "Diktet inneholder metaforer, personifikasjon og allitterasjon."
+*Bedre:* "Metaforen 'livet er en reise' understreker at vi alle beveger oss mot et mål, men også at veien er like viktig som destinasjonen."
+
+**Feil 2: Parafrasering i stedet for analyse**
+*Dårlig:* "Diktet handler om at våren kommer, og dikteren er glad."
+*Bedre:* "Vårens komme fungerer som et symbol på håp og fornyelse. Den nærmest ekstatiske tonen, forsterket av gjentakelsen 'Vaaren, Vaaren, Vaaren', viser hvordan det personlige og det naturlige smelter sammen."
+
+**Feil 3: Løse påstander uten belegg**
+*Dårlig:* "Wergeland var veldig glad i naturen."
+*Bedre:* "Wergelands naturglede kommer tydelig frem i linjen 'O, jeg foeler mig opvaagnet / Som en Jord', hvor dikter-jeget identifiserer seg fullstendig med den våknende naturen."
+
+**Feil 4: Ignorerer konteksten**
+*Dårlig:* Analyserer teksten som om den ble skrevet i dag.
+*Bedre:* Viser hvordan teksten forholder seg til sin samtid og litterære tradisjon.
+
+**Feil 5: "Jeg synes" uten begrunnelse**
+*Dårlig:* "Jeg synes dette er et fint dikt."
+*Bedre:* "Diktet virker sterkt fordi de enkle, gjentatte bildene skaper en nesten hypnotisk rytme som trekker leseren inn i dikterens begeistring."`,
+    },
+    {
+      id: 'norsk-vg2-3-11-example-svirp',
+      type: 'example',
+      title: 'Eksempel: SVIRP-analyse av "Til Foraaret"',
+      problem: `Analyser Henrik Wergelands dikt "Til Foraaret" (1833) ved hjelp av SVIRP-modellen:
+
+${TEKST_VG2_WERGELAND_TIL_FORAARET}`,
+      solution: `**S - Sjanger**
+"Til Foraaret" er et lyrisk dikt, nærmere bestemt et naturlyrisk dikt i romantisk tradisjon. Diktet tilhører den romantiske oden - en høystemt hyllest til et emne (her: våren). Tittelen følger konvensjonen "Til..." som signaliserer henvendelse og hyllest.
+
+**V - Virkemidler**
+*Gjentakelse:* "Vaaren, Vaaren, Vaaren kommer!" gjentas i hver strofe og skaper ekstatisk rytme.
+*Utrop:* Hyppige utropstegn og "O" understreker følelsesintensiteten.
+*Similer:* "Som en Bi-Stok", "Som en Jord, der har sig laagnet" - dikter-jeget sammenlignes med naturen.
+*Personifikasjon:* "Baekken synger" - naturen får menneskelige egenskaper.
+*Kontrast:* Stillhet/bevegelse, vinter/vår forsterker forvandlingen.
+*Rytme:* Hurtig, hoppende rytme som speiler vårkjensla.
+
+**I - Innhold**
+*Ytre handling:* Våren kommer, og dikter-jeget reagerer med voldsom glede.
+*Tema:* Fornyelse, livskraft, enhet mellom menneske og natur.
+*Motiver:* Våren, hjertet, blomster, fugler, sol, ungdom.
+*Utvikling:* Fra personlig opplevelse (strofe 1) via naturskildring (strofe 2) til universelt fellesskap (strofe 3).
+
+**R - Relasjon/kontekst**
+Diktet er skrevet i 1833, midt i Wergelands mest produktive periode. Han var en sentral skikkelse i norsk nasjonalromantikk, kjent for sin voldsomme begeistring og identifikasjon med naturen.
+
+Romantikken vektla følelse over fornuft, og naturen ble sett som besjelet og meningsfull. Wergelands dikt er et typisk uttrykk for denne romantiske naturopplevelsen.
+
+I nasjonsbyggingens tid ble den norske naturen et sentralt symbol for nasjonal identitet. Å feire naturen var også å feire nasjonen.
+
+**P - Personlig tolkning**
+Diktet handler på overflaten om våren, men dypere sett om den menneskelige evnen til fornyelse og glede. Våren blir et symbol på håp - uansett hvor lang og mørk vinteren er, kommer våren alltid tilbake.
+
+Wergelands identifikasjon med naturen ("Jeg er ung, og du er ung") uttrykker en romantisk drøm om enhet mellom menneske og verden - en motgift mot fremmedgjøring.
+
+Diktet er fortsatt relevant fordi det fanger en universell opplevelse: gleden ved årstidsskiftet og følelsen av å være del av noe større enn seg selv. Samtidig kan vi i dag lese det med nye øyne, i lys av klimaendringer som truer nettopp de årstidsvekslingene Wergeland feirer.`,
+    },
+    {
+      id: 'norsk-vg2-3-11-text-fra-analyse-til-tekst',
+      type: 'text',
+      content: `### Fra SVIRP-analyse til sammenhengende tekst
+
+SVIRP gir deg materialet, men analysen din må være mer enn en punktliste. Slik kan du omforme notatene til en sammenhengende tekst:
+
+**1. Finn et hovedpoeng**
+Hva er det viktigste du vil si om teksten? Dette blir din "tese" eller påstand som du argumenterer for gjennom hele analysen.
+
+*Eksempel:* "I 'Til Foraaret' smelter Wergeland sammen personlig følelse og naturopplevelse på en måte som er typisk for romantikken."
+
+**2. La tesen styre utvalget**
+Du trenger ikke ha med alt fra SVIRP-notatene. Velg de elementene som støtter hovedpoenget ditt.
+
+**3. Bind sammen med overganger**
+Ikke hopp mellom punkter. Vis sammenhengene: "Dette understrekes ytterligere av...", "Den samme tendensen ser vi i...", "Virkemidlet forsterker effekten fordi..."
+
+**4. Sitater som belegg**
+Bruk korte, presise sitater som bevis for påstandene dine. Forklar alltid hva sitatet viser.
+
+**5. Avslutt med tolkning**
+En god analyse ender ikke med å liste virkemidler, men med å si noe om hva teksten betyr - for sin samtid og for oss i dag.`,
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Forklar SVIRP-modellen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva står bokstavene i SVIRP for?',
+            solution: 'S = Sjanger, V = Virkemidler, I = Innhold, R = Relasjon/kontekst, P = Personlig tolkning.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er det viktig å analysere konteksten (R) når vi leser eldre tekster?',
+            solution: 'Konteksten hjelper oss å forstå hva forfatteren ville oppnå, hvilke konvensjoner hen forholdt seg til, og hvordan teksten ble forstått i sin samtid. Uten kontekst kan vi misforstå teksten eller overse viktige betydningslag.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er forskjellen mellom analyse og tolkning?',
+            solution: 'Analyse handler om å undersøke HVORDAN teksten er bygd opp (form, virkemidler, struktur). Tolkning handler om HVA teksten betyr (mening, budskap, betydning). En god litterær analyse kombinerer begge.',
+          },
+        ],
+        solution: 'SVIRP er en systematisk analysemodell som sikrer at du dekker alle viktige aspekter ved en tekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken påstand om litterær analyse er korrekt?',
+        options: [
+          'Det viktigste er å finne flest mulig virkemidler',
+          'Man bør alltid forklare effekten av virkemidlene man finner',
+          'Konteksten er ikke viktig for tekster fra vår egen tid',
+          'Personlig tolkning bør unngås i akademisk analyse',
+        ],
+        answer: 1,
+        solution: 'Det er ikke nok å navngi virkemidler - du må forklare hvilken EFFEKT de har og hvordan de støtter tekstens innhold og tema. En liste over virkemidler uten effektforklaring viser ikke forståelse.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser et kort dikt med fokus på form.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les første strofe av Wergelands "Til Foraaret": "Vaaren, Vaaren, Vaaren kommer! / Og mit Hierte slaaer og banker, / Og dets vilde glade Tanker / Vrimle alt som en Bi-Stok ud!" Beskriv rimskjemaet.',
+            solution: 'Strofen har rimskjemaet ABBA (kommer-ud har assonans, banker-Tanker rimer). Dette kalles omsluttende rim.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilken effekt har gjentakelsen "Vaaren, Vaaren, Vaaren"?',
+            solution: 'Gjentakelsen skaper en ekstatisk, nesten besvergende tone. Den mimer hjertets banking og vårens overveldende kraft. Trippelgjentakelsen forsterker følelsesintensiteten.',
+          },
+          {
+            label: 'c',
+            task: 'Forklar similen "som en Bi-Stok".',
+            solution: 'Tankene sammenlignes med en bikube full av bier som svermer ut. Dette bildet viser hvordan dikterens tanker er mange, livlige og ukontrollerbare - de vil ut, akkurat som bier om våren.',
+          },
+        ],
+        solution: 'Formen i diktet speiler innholdet: den hurtige rytmen og de intense gjentakelsene uttrykker vårens og hjertets uro.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Øv på prosaanalyse: fortellerteknikk.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er forskjellen på en allvitende og en begrenset tredjepersonsforteller?',
+            solution: 'En allvitende forteller vet alt om alle karakterer - tanker, følelser, fortid og fremtid. En begrenset forteller følger kun én karakter og vet bare det denne karakteren vet eller observerer.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er en upålitelig forteller? Gi et eksempel på hvordan dette kan brukes.',
+            solution: 'En upålitelig forteller er en forteller vi ikke fullt ut kan stole på - hen kan lyve, huske feil, eller ha begrenset forståelse. Eksempel: Et barn som forteller, men ikke forstår alt som skjer. Eller en karakter som skjuler sannheten.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor er valg av fortellerperspektiv viktig for en tekst?',
+            solution: 'Fortellerperspektivet styrer hva leseren får vite, når og hvordan. Det påvirker nærhet/distanse til karakterene, spenningsoppbygging, og hvem leseren sympatiserer med. Et annet perspektiv ville gitt en helt annen historie.',
+          },
+        ],
+        solution: 'Fortellerteknikk er et viktig analyseelement fordi det styrer hele leserens opplevelse av teksten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva er forskjellen mellom tema og motiv i litterær analyse?',
+        options: [
+          'Tema er konkret, motiv er abstrakt',
+          'Tema er det abstrakte hovedemnet, motiv er konkrete gjentakende elementer',
+          'Tema er det samme som handling, motiv er det samme som budskap',
+          'Det er ingen forskjell - ordene kan brukes om hverandre',
+        ],
+        answer: 1,
+        solution: 'Tema er det abstrakte hovedemnet teksten handler om (f.eks. kjærlighet, død, identitet). Motiv er konkrete, gjentakende elementer som symboliserer eller utforsker temaet (f.eks. havet, fuglen, reisen). Motivene bærer temaet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Gjennomfør en SVIRP-analyse av et selvvalgt romantisk dikt.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg et dikt av Wergeland, Welhaven, eller Aasen fra tidligere kapitler. Skriv tittelen og de første linjene.',
+            solution: 'Svar vil variere. Eksempler: "Nordmannen" av Aasen, "Norges Dæmring" av Welhaven, "Mig selv" av Wergeland.',
+          },
+          {
+            label: 'b',
+            task: 'Gjennomfør en kort SVIRP-analyse (ca. 150-200 ord) der du dekker alle fem punktene.',
+            solution: 'Analysen skal inneholde: Sjangerbestemmelse, 2-3 sentrale virkemidler med effektforklaring, beskrivelse av tema/innhold, plassering i romantisk kontekst, og en egen tolkning av tekstens betydning.',
+          },
+          {
+            label: 'c',
+            task: 'Hva var mest utfordrende med analysen? Hva lærte du?',
+            solution: 'Refleksjon over egen læringsprosess. Vanlige utfordringer: Å koble virkemidler til effekt, å plassere i kontekst, å formulere en egen tolkning som er begrunnet i teksten.',
+          },
+        ],
+        solution: 'En god SVIRP-analyse viser at du kan bruke modellen selvstendig og tilpasse den til ulike tekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign to analysetilnærminger.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er fordelene med en strukturert analysemodell som SVIRP?',
+            solution: 'Fordeler: Sikrer at du dekker alle viktige aspekter, gir systematikk og struktur, er lett å huske, egner seg for sammenligning av tekster, hjelper nybegynnere i gang.',
+          },
+          {
+            label: 'b',
+            task: 'Hva kan være ulempene med å følge en fast modell?',
+            solution: 'Ulemper: Kan bli mekanisk og overfladisk, kan tvinge teksten inn i en mal som ikke passer, kan føre til at man overser det unike ved teksten, kan hindre kreativ og original lesning.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan kan du kombinere systematikk med fleksibilitet i analysearbeidet?',
+            solution: 'Bruk modellen som utgangspunkt og sjekkliste, men la teksten styre hva du vektlegger. Vær åpen for at noen punkter er viktigere enn andre i akkurat denne teksten. La din egen lesning og hovedpoeng forme den endelige analysen.',
+          },
+        ],
+        solution: 'Den beste analysen kombinerer systematisk metode med åpenhet for tekstens egenart.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-11-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-11-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en sammenhengende litterær analyse (400-500 ord) av Wergelands "Til Foraaret" eller et annet romantisk dikt du har arbeidet med.',
+        hints: [
+          'Start med en innledning som presenterer diktet og din hovedpåstand/tese.',
+          'Analyser de viktigste virkemidlene og vis hvordan de støtter diktets tema.',
+          'Plasser diktet i romantisk kontekst - hvordan er det typisk for sin tid?',
+          'Avslutt med din tolkning av diktets betydning og eventuelle aktualitet.',
+          'Bruk korte sitater som belegg for påstandene dine.',
+        ],
+        solution: 'En god analyse har: (1) Tydelig innledning med tese. (2) Systematisk gjennomgang av virkemidler MED effektforklaring. (3) Kobling til romantisk kontekst. (4) Egen tolkning som er begrunnet i teksten. (5) God struktur med overganger mellom avsnitt. (6) Presist fagspråk. (7) Sitater som belegg. Teksten skal være en sammenhengende argumentasjon, ikke en punktliste.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 3.12: Litteraer debatt og rollespill
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_3_12: TextbookChapter = {
+  id: 'norsk-vg2-3-12',
+  courseId: 'norsk-vg2',
+  chapterNumber: '3.12',
+  title: 'Litteraer debatt og rollespill',
+  description: 'Utforsk litteraturhistoriske konflikter gjennom debatt, rollespill og sammenligning. Lev deg inn i dikterstriden, sprakstriden og andre sentrale motsetninger.',
+  estimatedMinutes: 90,
+  competenceGoals: [
+    'utforske tekster fra romantikken og nasjonalromantikken',
+    'sammenligne tekster fra ulike tider og vurdere hvordan de forholder seg til hverandre',
+    'bruke fagsprak og kunnskap om retorikk i samtaler og diskusjoner om norskfaglige emner',
+    'skrive kreative tekster med utgangspunkt i tekster fra ulike tider',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-3-12-intro',
+      type: 'text',
+      content: `## Litteraer debatt og rollespill - levende litteraturhistorie
+
+I dette kapittelet skal du utforske litteraturhistorien pa en annen mate enn vanlig lesing og analyse. Gjennom debatt, rollespill og sammenligning skal du leve deg inn i de store konfliktene og motsetningene som preget norsk litteratur og kultur pa 1800-tallet.
+
+**Hvorfor debatt og rollespill?**
+
+Litteraturhistorien er ikke bare fakta og arstall - den er full av sterke meninger, lidenskapelige konflikter og levende mennesker. Ved a ta andres perspektiv, argumentere for synspunkter du kanskje ikke deler, og sette deg inn i historiske situasjoner, far du en dypere forstaelse av:
+
+- Hvorfor disse konfliktene var viktige
+- Hva som sto pa spill for de involverte
+- Hvordan argumentasjon og retorikk fungerer
+- Relevansen av historiske debatter for var tid
+
+**I dette kapittelet finner du:**
+
+1. **Dikterstriden:** Wergeland mot Welhaven - to syn pa norsk kultur
+2. **Sprakstriden:** Aasen mot Knudsen - to veier til norsk skriftsprak
+3. **Sammenligningsoppgaver:** Stil og innhold pa tvers av tekster og epoker
+4. **Rollespill-scenarioer:** Bli Holberg, en kvinnelig forfatter pa 1700-tallet, eller Snorre
+5. **Debattoppgaver:** Overveiende sporsmal som krever begrunnede standpunkter`,
+    },
+    {
+      id: 'norsk-vg2-3-12-section-dikterstriden',
+      type: 'text',
+      content: `## Dikterstriden: Wergeland mot Welhaven
+
+**Bakgrunn for striden**
+
+Dikterstriden (1830-1840-arene) var den mest intense kulturelle konflikten i Norges unge historie som selvstendig nasjon. Pa den ene siden sto Henrik Wergeland (1808-1845) og hans tilhengere, pa den andre Johan Sebastian Welhaven (1807-1873) og hans krets.
+
+**Hva handlet striden om?**
+
+Striden handlet om langt mer enn litteratur - den handlet om hva Norge skulle vaere:
+
+*Wergeland og "Patriotene":*
+- Mente Norge matte bryte med dansk kulturarv og skape noe eget
+- Fremhevet det folkelige, bondekultur og norsk natur
+- Ville ha et nasjonalt sprak basert pa norske dialekter
+- Sa litteraturen som et middel for folkeopplysning
+- Stilistisk: Ville ha frihet, kraft og lidenskapelig uttrykk
+
+*Welhaven og "Intelligenspartiet":*
+- Mente Norge matte bygge pa den felleseuropeiske kulturarven
+- Fremhevet dannelse, smak og kunstnerisk kvalitet
+- Ville beholde dansk-norsk skriftsprak og forbedre det gradvis
+- Sa litteraturen som autonom kunst, ikke propaganda
+- Stilistisk: Ville ha form, harmoni og behersket uttrykk
+
+**Stridssporsmalene:**
+
+1. *Skal Norge skape en helt ny kultur, eller videreforekulturarven fra Danmark og Europa?*
+
+2. *Er litteraturens oppgave a oppdra folket, eller a vaere vakker kunst for kunstens skyld?*
+
+3. *Hva er viktigst i diktning - kraft og folelse, eller form og harmoni?*
+
+4. *Skal vi dyrke det saernorske, eller det allmennmenneskelige?*
+
+**Personlig fiendskap**
+
+Striden ble ogsa personlig. Welhaven angrep Wergeland i diktet "Til Henrik Wergeland" (1830) og i verket "Norges Daemring" (1834). Wergeland svarte med personangrep. Begge hadde tilhengere som bidro til a eskalere konflikten.
+
+**Hva skjedde?**
+
+Ingen "vant" striden. Wergeland dode ung i 1845 og ble straks hyllet som nasjonal helt. Welhaven levde lenger og ble respektert som dikter og kritiker. I ettertid har Norge tatt til seg elementer fra begge: Wergelands nasjonale engasjement OG Welhavens estetiske bevissthet.`,
+    },
+    {
+      id: 'norsk-vg2-3-12-def-dikterstriden',
+      type: 'definition',
+      title: 'Dikterstriden - sentrale begreper',
+      content: `**Dikterstriden:** Kulturkonflikten mellom Wergeland og Welhaven og deres tilhengere, ca. 1830-1845.
+
+**Patriotene:** Wergelands tilhengere, som onsket et selvstendig norsk kulturuttrykk.
+
+**Intelligenspartiet:** Welhavens tilhengere, som onsket a bygge pa europeisk kulturarv.
+
+**Folkeopplysning:** Ideen om at litteratur skal opplyse og utdanne folket.
+
+**L'art pour l'art:** "Kunst for kunstens skyld" - ideen om at kunst har verdi i seg selv.
+
+**Nasjonalromantikk:** Romantisk retning som fremhever det nasjonale saerpreget.
+
+**Europeisme/Kosmopolitisme:** Orientering mot felleseuropeisk kultur fremfor nasjonalt saerpreg.`,
+    },
+    {
+      id: 'norsk-vg2-3-12-example-dikterstriden',
+      type: 'example',
+      title: 'Eksempel: Argumenter i dikterstriden',
+      problem: `Her er to (fiktive, men historisk baserte) utdrag fra dikterstriden. Analyser argumentasjonen:
+
+**Wergeland-tilhenger (1835):**
+"Welhaven og hans krets forakter det norske folk. De vil at vi skal vaere som danskene, snakke som danskene, dikte som danskene. Men vi er norske! Var kultur ligger i dalene og pa fjellene, i folkevisene og eventyrene. Wergeland er var stemme - roff og ukjemmet kanskje, men EKTE norsk!"
+
+**Welhaven-tilhenger (1835):**
+"Wergelands tilhengere forveksler ror med kraft, kaos med genialitet. Skal Norge bli en kulturnasjon, ma vi laere av de beste - fra Danmark, fra Tyskland, fra hele Europa. Vi trenger ikke primitive bondeviser, men dannet kunst som taler til universelle verdier."`,
+      solution: `**Analyse av Wergeland-tilhengerens argumentasjon:**
+
+*Retoriske grep:*
+- Angriper motstanderen (Welhaven "forakter det norske folk")
+- Bygger pa motsetning: norsk vs. dansk, ekte vs. falsk
+- Appellerer til nasjonal stolthet (patos)
+- Bruker naturbilder som bevis ("dalene", "fjellene")
+- Innrommer en svakhet ("roff og ukjemmet") men snur den til noe positivt ("EKTE")
+
+*Underliggende verdier:*
+- Det nasjonale er viktigere enn det europeiske
+- Ekthet er viktigere enn finesse
+- Kulturen ligger i folket, ikke i eliten
+
+**Analyse av Welhaven-tilhengerens argumentasjon:**
+
+*Retoriske grep:*
+- Kritiserer motstanderen for a forveksle begreper
+- Bruker verdiladede ord ("primitive", "dannet")
+- Appellerer til ambisjon ("bli en kulturnasjon")
+- Trekker pa autoritet (Europa, Danmark, Tyskland)
+
+*Underliggende verdier:*
+- Kvalitet og dannelse er viktigere enn nasjonal saerart
+- Kunst skal vaere universell, ikke lokal
+- Kulturen ligger i tradisjonen, ikke i folkedypet
+
+**Felles svakheter:**
+- Begge bruker stereotypier og forenklinger
+- Begge angriper en karikatur av motstanderen
+- Begge unnlater a anerkjenne verdifulle sider ved motparten`,
+    },
+    {
+      id: 'norsk-vg2-3-12-section-sprakstriden',
+      type: 'text',
+      content: `## Sprakstriden: Aasen mot Knudsen
+
+**De to veiene til norsk skriftsprak**
+
+Etter 400 ar med dansk styre hadde Norge dansk som skriftsprak. Pa 1800-tallet oppsto sporsmalet: Hvordan skal Norge fa et eget skriftsprak? To hovedretninger vokste frem:
+
+**Ivar Aasens vei - Landsmal (nynorsk):**
+
+Ivar Aasen (1813-1896) reiste rundt i Norge og samlet dialekter. Han mente at det ekte norske spraket levde i dialektene, saerlig i de "minst fordervede" bygdedialektene pa Vestlandet og i dalene. Hans losning:
+
+- Konstruere et nytt skriftsprak basert pa dialektene
+- Ga tilbake til det gammelnorske, forbiga det danske skriftspraket
+- Skape et sprak som var felles for alle dialektbrukere
+- Resultatet: Landsmal (1853), som seinere ble til nynorsk
+
+*Aasens argumenter:*
+1. Det danske skriftspraket er fremmed for det norske folket
+2. Dialektene representerer det ekte norske spraket
+3. Et folk trenger et sprak som speiler dets egenart
+4. Landsmal gir verdighet til bygdefolks tale
+
+**Knud Knudsens vei - Riksmal (bokmal):**
+
+Knud Knudsen (1812-1895) var laerer og sprakmann. Han mente at losningen var a gradvis fornorske det danske skriftspraket. Hans strategi:
+
+- Endre skrivematen slik at den naermer seg norsk uttale
+- Innfore norske ord der de fantes
+- Bevare kontinuiteten med det eksisterende skriftspraket
+- Resultatet: Gradvis fornorsking som ble til riksmal/bokmal
+
+*Knudsens argumenter:*
+1. Det danske skriftspraket har vaert i bruk i 400 ar og er innarbeidet
+2. Gradvis forandring er tryggere enn revolusjon
+3. Byer og dannede folk snakker allerede et fornorsket dansk
+4. Kontinuitet med litteraturtradisjonen er viktig
+
+**Hva skjedde?**
+
+Norge fikk TO offisielle skriftsprak - landsmal/nynorsk og riksmal/bokmal. Sprakstriden fortsatte gjennom hele 1900-tallet med forsok pa "samnorsk" og heftige debatter. I dag har vi fortsatt to skriftsprak.
+
+**Relevans i dag**
+
+Sprakdebatten lever fortsatt:
+- Sidemalsundervisning: Bor alle laere begge malformer?
+- Nynorskens stilling: Er den truet eller livskraftig?
+- Dialekt vs. standard: Hvor mye dialekt er "lov" i det offentlige?`,
+    },
+    {
+      id: 'norsk-vg2-3-12-def-sprakstriden',
+      type: 'definition',
+      title: 'Sprakstriden - sentrale begreper',
+      content: `**Sprakstriden:** Den langvarige debatten om norsk skriftsprak, fra 1800-tallet til i dag.
+
+**Landsmal:** Ivar Aasens konstruerte skriftsprak, basert pa dialektene. Seinere kalt nynorsk.
+
+**Riksmal:** Den gradvise fornorskingen av dansk skriftsprak. Seinere kalt bokmal.
+
+**Samnorsk:** Mislykket forsok pa a smelte de to skriftsprakene.
+
+**Spraklig purisme:** Onsket om a rense spraket for fremmede (danske/tyske) ord.
+
+**Deskriptiv sprakforskning:** A beskrive spraket slik det faktisk brukes.
+
+**Preskriptiv sprakpolitikk:** A foreskrive hvordan spraket BOR brukes.`,
+    },
+    {
+      id: 'norsk-vg2-3-12-section-sammenligninger',
+      type: 'text',
+      content: `## Sammenligninger pa tvers
+
+**Hvorfor sammenligne?**
+
+Sammenligning er en av de viktigste metodene i litteraturstudiet. Nar vi sammenligner tekster, oppdager vi:
+- Hva som er unikt for hver tekst
+- Hva som er typisk for en epoke eller sjanger
+- Hvordan ideer og motiver utvikler seg over tid
+- Hvordan ulike forfattere behandler lignende temaer
+
+**Sammenligning 1: Wergeland vs. Welhaven**
+
+Begge var romantiske diktere, men med svart ulik stil:
+
+*Wergelands stil:*
+- Ekspressiv og lidenskapelig
+- Lange, komplekse setninger
+- Mange bilder og metaforer
+- Ofte uferdig eller "roff"
+- Fokus pa innhold fremfor form
+
+*Welhavens stil:*
+- Behersket og harmonisk
+- Klassisk form (sonetter, regelmessige vers)
+- Presise, utvalgte bilder
+- Polert og gjennomarbeidet
+- Fokus pa form og estetikk
+
+*Tematiske forskjeller:*
+- Wergeland: Nasjonal frihet, sosial rettferdighet, optimisme
+- Welhaven: Estetisk refleksjon, melankoli, ironi
+
+**Sammenligning 2: Islendingesaga vs. kongesaga**
+
+To sagasjangre med ulike fokus:
+
+*Islendingesagaer:*
+- Handler om private feider og familiekonflikter
+- Islandske hovedpersoner
+- Fokus pa aere, hevn og skjebne
+- Knapt stilideal, lite utsmykning
+- Eksempel: "Njals saga", "Egils saga"
+
+*Kongesagaer:*
+- Handler om kongelige og politiske hendelser
+- Norske konger som hovedpersoner
+- Fokus pa makt, krig og riksbygging
+- Mer utsmykket stil, skaldedikt
+- Eksempel: "Heimskringla" (Snorre)
+
+**Sammenligning 3: Barokk vs. opplysningstid**
+
+To kontrasterende litteraere epoker:
+
+*Barokken (ca. 1600-1700):*
+- Sterke kontraster (liv/dod, gud/verden)
+- Overdadig ornamentikk
+- Religiose temaer, forgjengelighetsmotiv
+- Formell stil, retoriske figurer
+- Petter Dass' salmer
+
+*Opplysningstiden (ca. 1700-1800):*
+- Fornuft og logikk
+- Klarhet og enkelhet i stilen
+- Samfunnskritikk, satire
+- Vitenskapelig holdning
+- Holbergs komedier`,
+    },
+    {
+      id: 'norsk-vg2-3-12-section-rollespill',
+      type: 'text',
+      content: `## Rollespill: Lev deg inn i fortiden
+
+**Hva er litteraert rollespill?**
+
+I litteraert rollespill tar du rollen som en historisk person eller en fiktiv karakter fra en bestemt tid. Du forsoker a tenke, argumentere og uttrykke deg slik denne personen ville gjort. Dette gir deg:
+
+- Innlevelse i historiske situasjoner
+- Forstaelse for andres perspektiver
+- Trening i a argumentere
+- Kreativ bruk av historisk kunnskap
+
+**Tips for godt rollespill:**
+
+1. *Forbered deg:* Les om personen/perioden for du starter rollespillet
+2. *Tenk kontekst:* Hva var vanlig a mene pa denne tiden?
+3. *Hold deg i karakter:* Ikke bruk moderne argumenter eller referanser
+4. *Vaer konkret:* Bruk detaljer fra perioden
+5. *Lev deg inn:* Prov a forsta hvorfor personen mente det hen mente
+
+**Rollespill-scenario 1: Du er Ludvig Holberg**
+
+*Situasjon:* Du er Ludvig Holberg i 1723. En kritiker har hevdet at komediene dine er usedelige og fordervelige. Du skal forsvare komedien som sjanger.
+
+*Tenk pa:*
+- Holbergs syn pa komediens moralske funksjon
+- Argumentet om at latter kan oppdra
+- Forholdet til klassisk tradisjon (Moliere, romerne)
+- Kritikk av "tulipaner" - overdreven mote og forfengelighet
+
+**Rollespill-scenario 2: Du er kvinnelig forfatter pa 1700-tallet**
+
+*Situasjon:* Du er en dannet kvinne i Kobenhavn eller Kristiania rundt 1750. Du har skrevet dikt og essays, men far ikke utgitt dem. Du skriver et brev til en (fiktiv) redaktor der du argumenterer for at kvinner ogsa bor fa publisere.
+
+*Tenk pa:*
+- Hvilke argumenter var tilgjengelige pa 1700-tallet?
+- Hvilke motargumenter matte du motga?
+- Hvordan kunne du bruke opplysningstidens idealer (fornuft, likhet) til a argumentere for kvinners rettigheter?
+- Hva matte du vaere forsiktig med a si?
+
+**Rollespill-scenario 3: Du er Snorre Sturluson**
+
+*Situasjon:* Du er Snorre Sturluson pa Island rundt 1230. En ung laerling spor deg hvordan du skriver sagaer. Forklar din metode.
+
+*Tenk pa:*
+- Snorres forhold til muntlige kilder
+- Viktigheten av a vaere "sannferdig"
+- Bruken av skaldedikt som kilder
+- Forholdet mellom fortelling og historisk "sannhet"`,
+    },
+    {
+      id: 'norsk-vg2-3-12-section-debattpaastander',
+      type: 'text',
+      content: `## Debattpaastander
+
+**Hvordan debattere godt?**
+
+En god debatt krever:
+- Klare argumenter med begrunnelser
+- Konkrete eksempler
+- Evne til a motga motargumenter
+- Respekt for motstanderens synspunkter
+- Saklig tone (angrip argumentet, ikke personen)
+
+**Pastand 1: "Wergeland var viktigere enn Welhaven for norsk litteratur"**
+
+*Argumenter FOR:*
+- Wergeland ble nasjonal helt og inspirerte generasjoner
+- Hans demokratiske og sosiale engasjement var banebrytende
+- Han skapte 17. mai-tradisjonen
+- Verkene hans leses fortsatt
+
+*Argumenter MOT:*
+- Welhaven hevet den litteraere kvaliteten
+- Hans kritikk tvang Wergeland til a bli bedre
+- Welhavens formbevissthet pavirket seinere lyrikk
+- "Viktig" kan bety forskjellige ting
+
+**Pastand 2: "Nynorsk burde vaert eneste skriftsprak"**
+
+*Argumenter FOR:*
+- Nynorsk er basert pa de norske dialektene
+- Ett skriftsprak ville vaert enklere
+- Aasen hadde et demokratisk prosjekt - bondens sprak skulle verdsettes
+- Nynorsk har storre spraklig variasjon
+
+*Argumenter MOT:*
+- Bokmal har lengst tradisjon og flest brukere
+- Tosprakssituasjonen gir valgfrihet
+- Mange folte seg ikke representert i Aasens dialektutvalg
+- Sprak kan ikke vedtas demokratisk
+
+**Pastand 3: "Sagaene er relevant litteratur i dag"**
+
+*Argumenter FOR:*
+- De utforsker tidlose temaer: aere, hevn, lojalitet, skjebne
+- De er god fortelling med sterke karakterer
+- De laerer oss om vare forfedre
+- De inspirerer moderne kultur (TV-serier, spill)
+
+*Argumenter MOT:*
+- Verdensbildet er fremmed (hevn, vold, aerestenkning)
+- Spraket er vanskelig tilgjengelig
+- Historisk interesse er ikke det samme som litteraer relevans
+- Det finnes nyere litteratur som tar opp lignende temaer`,
+    },
+    {
+      id: 'norsk-vg2-3-12-note-1',
+      type: 'note',
+      title: 'Tips til debatt og rollespill',
+      content: `**For debatt:**
+- Skriv ned argumenter PA BEGGE SIDER for du tar standpunkt
+- Tenk pa hva motstanderen vil si, og forbered svar
+- Bruk konkrete eksempler fra tekstene dere har lest
+- Det er lov a skifte mening underveis!
+
+**For rollespill:**
+- Les relevant bakgrunnsstoff for du begynner
+- Skriv noen stikkord om "din" persons synspunkter
+- Hold deg i karakter - ikke bryt ut for a forklare
+- Humor er lov, men respekter den historiske situasjonen
+
+**For sammenligning:**
+- Lag en tabell med likheter og forskjeller
+- Ikke bare list opp - analyser HVORFOR det er likt/ulikt
+- Tenk pa historisk kontekst: Hva forklarer forskjellene?`,
+    },
+    // OPPGAVER
+    {
+      id: 'norsk-vg2-3-12-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Debattinnlegg: Velg side i dikterstriden',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg enten Wergelands eller Welhavens side. Skriv et debattinnlegg (250-350 ord) der du argumenterer for at DIN side hadde rett i dikterstriden.',
+            solution: 'Et godt innlegg bor: (1) Presentere standpunktet klart. (2) Gi minst tre argumenter med begrunnelser. (3) Bruke eksempler fra tekstene eller historien. (4) Motga minst ett motargument. (5) Ha en klar konklusjon.',
+          },
+          {
+            label: 'b',
+            task: 'Skriv sa et kortere svar (100-150 ord) der du anerkjenner ETT godt argument fra motsatt side. Forklar hvorfor dette argumentet har noe for seg, selv om du er uenig.',
+            solution: 'Svaret bor vise at du kan se saken fra flere sider. F.eks. kan en Wergeland-tilhenger anerkjenne at Welhaven hadde rett i at form og kvalitet er viktig, eller en Welhaven-tilhenger kan innromme at nasjonal stolthet hadde verdi for den unge nasjonen.',
+          },
+        ],
+        solution: 'Et godt debattinnlegg tar et klart standpunkt, begrunner det med konkrete argumenter, og viser evne til a se motpartens perspektiv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Rollespill: Du er Ivar Aasen eller Knud Knudsen',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg enten Aasen eller Knudsen. Skriv en tale (300-400 ord) der du forklarer HVORFOR Norge trenger et nytt/fornorsket skriftsprak, og hvorfor DIN metode er best. Hold deg i karakter - bruk argumenter som var relevante pa 1850-tallet.',
+            solution: 'Aasen-tale bor fremheve: dialektenes verdi, folkets verdighet, sammenheng med gammelnorsk, skriftspraket som fremmed. Knudsen-tale bor fremheve: kontinuitet, praktiske hensyn, at mange allerede snakker fornorsket dansk, litteraturtradisjonen.',
+          },
+          {
+            label: 'b',
+            task: 'Skriv sa tre kritiske sporsmaler som en tilhorer fra "motsatt side" kunne stilt etter talen din. Skriv korte svar (2-3 setninger) pa hvert sporsmal, fortsatt i karakter.',
+            solution: 'Sporsmalene bor vaere reelle utfordringer, ikke "stramenn". F.eks. til Aasen: "Hvordan skal byborgere som aldri har snakket dialekt laere landsmalet?" Til Knudsen: "Hvorfor skal bondens sprak vaere underlegent det danske?"',
+          },
+        ],
+        hints: [
+          'Les om Aasens og Knudsens argumenter i kapittel 3.7 for du begynner.',
+          'Tenk pa hvem publikumet var - hvem matte overbevises?',
+          'Bruk historiske argumenter, ikke moderne.',
+        ],
+        solution: 'Et godt rollespill viser at du har forstatt personens argumenter og kan framfore dem overbevisende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenligningsessay: Wergeland vs. Welhaven',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les (eller gjenles) ett dikt av Wergeland og ett av Welhaven fra tidligere kapitler. Lag en tabell der du sammenligner temaer, stil, virkemidler og budskap.',
+            solution: 'Tabellen bor inneholde kategorier som: Tema, Stemning, Naturbilder, Stil (ordvalg, setningsstruktur), Rim/rytme, Budskap. Under hver kategori: konkrete eksempler fra begge dikt.',
+          },
+          {
+            label: 'b',
+            task: 'Skriv et sammenligningsessay (400-500 ord) der du drofter likheter og forskjeller. Avslutt med a vurdere: Hvilket dikt liker DU best, og hvorfor?',
+            solution: 'Et godt essay bor: (1) Presentere begge diktene kort. (2) Drofte minst to konkrete likheter og to forskjeller. (3) Bruke sitater som eksempler. (4) Ha en personlig, men begrunnet vurdering til slutt.',
+          },
+        ],
+        solution: 'En god sammenligning ser bade likheter og forskjeller, og forklarer dem ut fra forfatternes ulike prosjekter og stilidealer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Rollespill: Du er Ludvig Holberg og skal forsvare komedien',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Skriv en forsvarstale for komedien som sjanger (300-400 ord). Du er Holberg, og du har nettopp fatt kritikk for at komediene dine er useriose og kanskje skadelige. Forsvar komedien som kunst og oppdragelsesmiddel.',
+            solution: 'Holbergs argumenter inkluderer: Komedien korrigerer laster gjennom latter. Det er lettere a godta kritikk nar den er morsom. De store klassikerne (Moliere, Plautus) skrev komedier. A le av dumskap er forste skritt mot klokskap.',
+          },
+          {
+            label: 'b',
+            task: 'Gi ett konkret eksempel fra en av Holbergs komedier (f.eks. "Erasmus Montanus") som stotter argumentet ditt. Forklar hvordan komedien kritiserer en last eller dumhet.',
+            solution: 'F.eks. "Erasmus Montanus": Komedien kritiserer pedanteri og misbruk av laerdom. Erasmus har laert a disputere, men bruker kunnskapen til a bevise absurditeter. Ved a le av ham, laerer vi at laerdom uten sunn fornuft er farlig.',
+          },
+        ],
+        hints: [
+          'Les om Holberg og opplysningskomedien i tidligere kapitler.',
+          'Tenk pa Holbergs opplysningsidealer: Fornuft, dannelse, moderasjon.',
+          'Hvem matte Holberg overbevise? Hva slags innvendinger fikk han?',
+        ],
+        solution: 'Et godt forsvar viser at du forstar Holbergs syn pa komediens funksjon og kan argumentere for det med historisk troverdighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Rollespill: Du er en kvinnelig forfatter pa 1700-tallet',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Skriv et brev (250-350 ord) til en (fiktiv) tidsskriftredaktor der du argumenterer for at kvinner bor fa publisere sine tekster. Hold deg til argumenter som var tilgjengelige pa 1700-tallet.',
+            solution: 'Mulige argumenter: Opplysningstidens idealer om fornuft gjelder ogsa kvinner. Utdannede kvinner har noe a bidra med. Kvinnelige forfattere finnes i andre land. Fornuften har ikke kjonn. Men: Vaer forsiktig - ikke utfordre hele kjonnsordenen direkte.',
+          },
+          {
+            label: 'b',
+            task: 'Skriv sa redaktorens (fiktive) svar - et avslag pa 100-150 ord. Hvilke argumenter bruker han MOT kvinnelig publisering? Hold deg til tidens tankesett.',
+            solution: 'Typiske motargumenter fra 1700-tallet: Kvinner bor ta seg av hjemmet. Litteratur krever dannelse kvinner ikke har. Det sommer seg ikke for kvinner a opptre offentlig. Kanskje noe mer "vennlig": Det er for hennes egen beskyttelse.',
+          },
+          {
+            label: 'c',
+            task: 'Reflekter kort (100 ord): Hvordan ville denne debatten sett ut i dag? Hvilke argumenter ville vaert annerledes?',
+            solution: 'Refleksjonen bor vise at vi har kommet langt (likestilling, kvinnelige forfattere er selvfolgelighet), men ogsa at det fortsatt finnes utfordringer (representasjon, lonnsgap, sjangerhierarkier).',
+          },
+        ],
+        hints: [
+          'Tenk pa opplysningstidens idealer - hvordan kan de brukes for og mot kvinner?',
+          'Vaer historisk troverdig - ikke la 1700-tallskarakteren bruke moderne feminisme.',
+        ],
+        solution: 'Et godt rollespill viser historisk innlevelse og evne til a argumentere innenfor en annen tids rammer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Gruppearbeid: Debatt om sagaenes relevans',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Del klassen/gruppa i to lag. Ett lag skal argumentere FOR at sagaene er relevant litteratur i dag, ett lag skal argumentere MOT. Hvert lag forbereder minst fire argumenter.',
+            solution: 'FOR: Tidlose temaer, god fortelling, kulturarv, inspirasjon for moderne kultur. MOT: Fremmed verdensbilde, vanskelig sprak, bedre alternativer, historisk interesse er ikke litteraer relevans.',
+          },
+          {
+            label: 'b',
+            task: 'Gjennomfor en debatt pa 15-20 minutter. Veksle mellom lagene. Noter de beste argumentene fra begge sider.',
+            solution: 'En god debatt har: Klare argumenter, konkrete eksempler, respektfulle motlegg, evne til a svare pa innvendinger. Notater bor fange hovedpoengene fra begge sider.',
+          },
+          {
+            label: 'c',
+            task: 'Skriv en individuell oppsummering (150-200 ord): Hva mente du FOR debatten? Endret debatten meningen din? Hvilket argument var sterkest?',
+            solution: 'Oppsummeringen bor vise at eleven har engasjert seg i debatten og reflektert over argumentene. Det er lov a ha endret mening eller blitt mer usikker.',
+          },
+        ],
+        solution: 'Gruppearbeid trener samarbeid, muntlig argumentasjon og evne til a lytte til andres synspunkter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenligning: Islendingesaga vs. kongesaga',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les et kort utdrag fra en islendingesaga (f.eks. "Njals saga") og et utdrag fra "Heimskringla" (Snorre). Identifiser tre konkrete forskjeller i stil eller innhold.',
+            solution: 'Typiske forskjeller: Islendingesaga har private konflikter, knapt stil, fokus pa aere. Kongesaga har politiske hendelser, mer utsmykket stil, fokus pa makt og riksbygging.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar HVORFOR det er forskjeller. Hva var de ulike sagasjangrenes formal?',
+            solution: 'Islendingesagaene skulle bevare minnet om slektene og deres konflikter. Kongesagaene skulle dokumentere Norges historie og legitimere kongeveldet. Ulike formal gir ulik stil og innhold.',
+          },
+        ],
+        solution: 'En god sammenligning ser ikke bare forskjeller, men forklarer dem ut fra sjangrenes ulike formal og kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-12-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-12-ex-8',
+        number: '8',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva var hovedforskjellen mellom Ivar Aasens og Knud Knudsens tilnaerming til norsk skriftsprak?',
+        options: [
+          'Aasen ville beholde dansk, Knudsen ville lage nytt sprak',
+          'Aasen ville konstruere nytt sprak fra dialektene, Knudsen ville fornorske det eksisterende dansk-norske',
+          'Aasen fokuserte pa bysprak, Knudsen pa bygdesprak',
+          'De var enige, men hadde personlig konflikt',
+        ],
+        answer: 1,
+        solution: 'Ivar Aasen konstruerte et helt nytt skriftsprak (landsmal/nynorsk) basert pa de norske dialektene, mens Knud Knudsen ville gradvis fornorske det eksisterende dansk-norske skriftspraket (som ble til riksmal/bokmal). Dette er kjernen i sprakstriden.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 export const NORSK_VG2_CHAPTERS_DEL3: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_3_1,
   CHAPTER_NORSK_VG2_3_2,
@@ -4297,4 +5912,6 @@ export const NORSK_VG2_CHAPTERS_DEL3: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_3_8,
   CHAPTER_NORSK_VG2_3_9,
   CHAPTER_NORSK_VG2_3_10,
+  CHAPTER_NORSK_VG2_3_11,
+  CHAPTER_NORSK_VG2_3_12,
 ];

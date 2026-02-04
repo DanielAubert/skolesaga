@@ -15,6 +15,9 @@ import {
   TEKST_VG2_HOLBERG_ERASMUS_NILLE,
   TEKST_VG2_HOLBERG_EPISTEL_347,
   TEKST_VG2_HOLBERG_NIELS_KLIM,
+  TEKST_VG2_HOLBERG_KANDESTOBER,
+  TEKST_VG2_HOLBERG_STUNDESLOSE,
+  TEKST_VG2_HOLBERG_BARSELSTUEN,
 } from './textbook-content-norsk-vg2-tekster';
 
 // ============================================================================
@@ -1847,9 +1850,9 @@ export const CHAPTER_NORSK_VG2_2_9: TextbookChapter = {
   id: 'norsk-vg2-2-9',
   courseId: 'norsk-vg2',
   chapterNumber: '2.9',
-  title: 'Holbergs komedier - Jeppe på Bjerget og Erasmus Montanus',
-  description: 'Dykk dypt inn i Holbergs to mest kjente komedier med utfyllende tekstutdrag og analyser.',
-  estimatedMinutes: 75,
+  title: 'Holbergs komedier - fem mesterverk i dansk-norsk dramatikk',
+  description: 'Utforsk Holbergs komedier i dybden: Jeppe pa Bjerget, Erasmus Montanus, Den politiske Kandestober, Den Stundeslose og Barselstuen. Med tekstutdrag, analyser av satiriske teknikker og samfunnskritikk.',
+  estimatedMinutes: 120,
   competenceGoals: [
     'lese og tolke tekster fra 1500-1850 i kulturhistorisk kontekst',
     'analysere og tolke tekster med bruk av fagbegreper',
@@ -2201,6 +2204,286 @@ Holberg spilles fortsatt. En forestilling gir ny forståelse.`,
     { id: 'norsk-vg2-2-9-ex-9', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-9', number: '9', type: 'classic', difficulty: 'vanskelig', task: 'Drøft: Er slutten på Erasmus Montanus rettferdig? Skriv en argumenterende tekst (150-200 ord) der du vurderer om det er rett at Erasmus tvinges til å fornekte sannheten.', hints: ['Vurder konsekvensene for Erasmus, for bygdefolket, og for ideen om sannhet.', 'Kan man forsvare at flertallet bestemmer hva som er sant?'], solution: 'Et godt svar drøfter begge sider: Det er urettferdig at Erasmus tvinges til å lyve. Sannheten bør ikke ofres for sosial harmoni. Men Erasmus har selv bidratt til konflikten gjennom hovmod. Slutten er ikke rettferdig, men den er realistisk - den viser at sannhet og makt ikke alltid følges ad. I dag ser vi lignende mekanismer når folk som sier upopulære sannheter (forskere, varslere) utsettes for press.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'norsk-vg2-2-9-ex-10', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-10', number: '10', type: 'classic', difficulty: 'vanskelig', task: 'Skriv en scene i Holbergs stil (10-15 replikker) der to karakterer diskuterer et tema du velger selv. Bruk typekarakterer, overdrivelse og dobbel satire.', hints: ['La begge karakterene ha svakheter.', 'Velg et dagsaktuelt tema og gi det komisk behandling.'], solution: 'Et godt svar bruker Holbergs teknikker: typekarakterer (f.eks. en som vet alt om klima men ikke kildesorterer, og en som nekter all vitenskap), overdrivelse, dobbel satire der begge latterliggjøres, og en dialog som avslører begges svakheter gjennom egne replikker.', allowsUpload: true, allowsCanvasDrawing: true } },
     { id: 'norsk-vg2-2-9-ex-11', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-11', number: '11', type: 'classic', difficulty: 'vanskelig', task: 'Sammenlign Holbergs komedier med en moderne TV-serie eller film som bruker satire. Diskuter likheter og forskjeller i satirisk teknikk, og vurder om komedien fortsatt fungerer som samfunnskritikk.', hints: ['Tenk på serier som bruker humor til å kritisere (f.eks. satireshows, situasjonskomedier).', 'Hva er likt og ulikt i teknikk, medium og publikum?'], solution: 'Likheter: Typekarakterer, overdrivelse, ironi, dobbel satire. Begge former vil underholde og opplyse. Forskjeller: Holberg brukte teateret, moderne satire bruker TV/streaming. Holbergs karakterer er mer stiliserte "typer", moderne er mer psykologisk nyanserte. Holberg måtte omgå sensur, moderne satirikere har (ofte) ytringsfrihet. Begge former viser at komedie kan være effektiv samfunnskritikk - latter senker forsvaret og åpner for refleksjon.', allowsUpload: true, allowsCanvasDrawing: true } },
+    {
+      id: 'norsk-vg2-2-9-flere-komedier',
+      type: 'text',
+      content: `---
+
+## Flere komedier av Holberg
+
+Holberg skrev 33 komedier i alt. Vi har sett pa "Jeppe pa Bjerget" og "Erasmus Montanus", men flere av hans verk fortjener oppmerksomhet. Her presenterer vi tre til: "Den politiske Kandestober", "Den Stundeslose" og "Barselstuen".
+
+---
+
+## Den politiske Kandestober (1722)
+
+**Handling**
+
+Herman von Bremen er kandestober (en som lager tinnkanner) i Kobenhavn. I stedet for a passe sitt handverk, bruker han all sin tid pa a lese aviser og diskutere europeisk politikk. Han tror han forstar storpolitikk bedre enn konger og ministre, og forsommer arbeidet sitt fullstendig.
+
+Borgerne i byen velger Hermann til borgermester som en spok - de vil vise ham at det er forskjell pa a snakke om politikk og a utove den. Hermann tar vervet alvorlig og skaper kaos med sine urealistiske reformer. Til slutt blir han avskjediget og ma innse sine begrensninger.
+
+**Sentrale temaer**
+
+*Halvdannelse:*
+Hermann representerer den som vet litt om alt, men ikke nok til a handle klokt. Halv kunnskap er farligere enn ingen kunnskap.
+
+*Ansvar og kompetanse:*
+Holberg advarer mot at folk uttaler seg om ting de ikke forstar. Ikke alle meninger er like verdifulle.
+
+*Demokratiets utfordringer:*
+Stykket reiser sporsmalet: Bor alle ha innflytelse pa politikken? Holberg levde for demokratiets tid, men problemstillingen er aktuell i var egen tid med sosiale medier og "fake news".
+
+---
+
+## Den Stundeslose (1723)
+
+**Handling**
+
+Vielgeschrey (tysk for "mye skrik") er en kjopmann som alltid har det travelt. Han hopper fra oppgave til oppgave uten a fullforte noe. Han gir motstridende ordre til tjenerne, avbryter seg selv midt i setninger, og klager over all tiden han mangler - mens han kaster bort timer pa ineffektiv virksomhet.
+
+Hans kone Pernille og tjener Oldfux forsoker a fa ham til a fokusere, men Vielgeschrey er uforbederlig. Stykket ender uten egentlig losning - Vielgeschrey er fortsatt like stundeslos.
+
+**Sentrale temaer**
+
+*Travelheten som sykdom:*
+Holberg satirierer mennesker som forveksler aktivitet med produktivitet. A ha travelt kan bli en unnskyldning for a ikke utrette noe.
+
+*Selvbedrag:*
+Vielgeschrey tror han er viktig og effektiv. Komedie oppstar nar publikum ser gapet mellom hans selvbilde og realiteten.
+
+*Tidlost tema:*
+"Den Stundeslose" er kanskje Holbergs mest aktuelle komedie i dag. Multitasking, ADHD-kultur og "busy-ness" som statussymbol - alt dette forutsa Holberg.
+
+---
+
+## Barselstuen (1723)
+
+**Handling**
+
+Handlingen utspiller seg i en barselstue - et rom der kvinner samlet seg for a gratulere en nyfodt mor. I lopet av besokene avslores borgerskapets sladderkultur, misunnelse og hykleri.
+
+Kvinnene diskuterer naboene, sprer rykter og baksnakker hverandre sa snart noen gar. Komedien har lite ytre handling; kraften ligger i dialogen som avslorer karakterenes natur.
+
+**Sentrale temaer**
+
+*Sladder og ryktespredning:*
+Holberg viser hvordan halvsannheter og antydninger kan odelegge rykter og relasjoner.
+
+*Kjonnsroller:*
+Ved a sette handlingen i en feminin sfaere, viser Holberg at menneskelige svakheter (forfengelighet, misunnelse, ondskap) ikke er begrenset til menn. Kvinnene i stykket er like feilbarlige som mennene i andre komedier.
+
+*Realisme:*
+"Barselstuen" er uvanlig realistisk for Holberg. Det er lite forviklinger og overdrivelse - bare hverdagslig samtale som avslorer menneskers egentlige natur.`,
+    },
+    {
+      id: 'norsk-vg2-2-9-primaertekst-kandestober',
+      type: 'collapsible',
+      title: 'Primaertekst: Ludvig Holberg - "Den politiske Kandestober" (utdrag)',
+      buttonText: 'Vis primaertekst',
+      content: [
+        {
+          id: 'norsk-vg2-2-9-primaertekst-kandestober-text',
+          type: 'text',
+          content: `${TEKST_VG2_HOLBERG_KANDESTOBER}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-2-9-primaertekst-stundeslose',
+      type: 'collapsible',
+      title: 'Primaertekst: Ludvig Holberg - "Den Stundeslose" (utdrag)',
+      buttonText: 'Vis primaertekst',
+      content: [
+        {
+          id: 'norsk-vg2-2-9-primaertekst-stundeslose-text',
+          type: 'text',
+          content: `${TEKST_VG2_HOLBERG_STUNDESLOSE}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-2-9-primaertekst-barselstuen',
+      type: 'collapsible',
+      title: 'Primaertekst: Ludvig Holberg - "Barselstuen" (utdrag)',
+      buttonText: 'Vis primaertekst',
+      content: [
+        {
+          id: 'norsk-vg2-2-9-primaertekst-barselstuen-text',
+          type: 'text',
+          content: `${TEKST_VG2_HOLBERG_BARSELSTUEN}`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-2-9-dypere-analyse',
+      type: 'text',
+      content: `---
+
+## Dypere analyse: Holbergs satiriske teknikker
+
+Holberg var en mester i satire. Han brukte en rekke teknikker for a avslore menneskelige svakheter gjennom latter. Her skal vi se naermere pa de viktigste.
+
+### Typekarakterer
+
+Holbergs karakterer er ikke komplekse individer med rik psykologi. De er *typer* - forenklede utgaver av menneskelige trekk:
+
+| Karakter | Type | Svakhet |
+|----------|------|---------|
+| Jeppe | Den undertrykte bonden | Drikking, latskap |
+| Erasmus | Den pedantiske akademikeren | Hovmod, manglende folkeskikk |
+| Hermann | Den halvdannede besserwisser | Overvurdering av egen kunnskap |
+| Vielgeschrey | Den stresset travle | Ineffektivitet, selvbedrag |
+
+Typekarakterene gjor det lett for publikum a gjenkjenne og le av svakhetene - uten a fole seg personlig angrepet.
+
+### Overdrivelse (hyperbel)
+
+Holberg forsterker svakhetene til det ekstreme:
+- Jeppe er ikke bare fattig - han pryles daglig og har et alkoholproblem
+- Erasmus sier ikke bare "jorden er rund" - han vil bevise at mora hans er en stein
+- Hermann leser ikke bare aviser - han forsommer alt arbeid for a diskutere Europas skjebne
+
+Overdrivelsen gjor det komisk, men ogsa tydelig hva som kritiseres.
+
+### Dobbel satire
+
+Holbergs mest sofistikerte teknikk er a satire begge sider i en konflikt:
+
+*I Erasmus Montanus:*
+- Bonden Per Degn er ignorant og maktsyk
+- MEN Erasmus er arrogant og mangler folkevett
+
+*I Jeppe pa Bjerget:*
+- Jeppe er lat og drikker
+- MEN baronen leker grusomt med hans liv
+
+*I Den politiske Kandestober:*
+- Hermann er en bedreviter
+- MEN borgerne som velger ham, er ogsa dumme
+
+Denne balansen gir satiren dybde og troverdighet. Holberg moraliserer ikke enkelt.
+
+### Ironi og dramatisk ironi
+
+Holberg bruker ironi pa flere nivaer:
+
+*Verbal ironi:* Karakterer sier det motsatte av det de mener, ofte for a smigre eller kritisere indirekte.
+
+*Dramatisk ironi:* Publikum vet mer enn karakterene. Nar Jeppe kommanderer tjenere i baronens seng, vet vi at det snart er slutt pa moroa. Denne ironien skaper bade humor og spenning.
+
+### Situasjonskomikk
+
+Mange av Holbergs morsomsete scener bygger pa situasjoner:
+- Jeppe vakner som baron
+- Tor kler seg som brud (i Trymskvida - Holberg kjente nordisk mytologi)
+- Hermann blir valgt til borgermester for spok
+
+Situasjonene er absurde, men avslorer sannheter om menneskelig natur.
+
+---
+
+## Karaktertyper i Holbergs komedier
+
+Holberg hentet karaktertyper fra flere tradisjoner:
+
+### Fra antikken og commedia dell'arte
+- **Den gamle gnieren** (Pantalon)
+- **Den listige tjeneren** (Arlecchino/Henrik)
+- **Den naive unge elskeren**
+- **Den strenge faren**
+
+### Holbergs egne typer
+- **Den norske/danske bonden** (Jeppe, Per Degn)
+- **Den pedantiske akademikeren** (Erasmus, Rosiflengius)
+- **Den halvdannede borgeren** (Hermann)
+- **Den sladdrende borgerfrue** (kvinnene i Barselstuen)
+
+### Funksjon i komedien
+Typekarakterene gjor at handlingen kan drive raskt fremover. Vi trenger ikke lang eksposisjon - sa snart vi ser Hermann lese aviser i stedet for a arbeide, vet vi hvem han er.
+
+---
+
+## Samfunnskritikk i komediene
+
+Holbergs komedier var ikke bare underholdning. De var verktoy for samfunnskritikk. Her er noen av hans malsettinger:
+
+### Kritikk av standssamfunnet
+- Jeppe viser at bonder er mennesker med folelser og drommer
+- Baronens spok avslorer adelens vilkarlighet og grusomhet
+- Erasmus viser at utdanning ikke automatisk gjor deg bedre
+
+### Kritikk av uvitenhet og overtro
+- Per Degn representerer kirkens motstand mot vitenskap
+- Bondens tro pa at jorden er flat er komisk, men ogsa farlig
+- Holberg vil at publikum skal tenke kritisk
+
+### Kritikk av akademisk hovmod
+- Erasmus er laerd, men mangler sunn fornuft
+- Holberg advarer mot utdanning uten praktisk klokskap
+- Vitskap ma kommuniseres forstaelig
+
+### Kritikk av borgerskapets svakheter
+- Forfengelighet og sosial klatring (Barselstuen)
+- Halvdannelse og pretensjoner (Den politiske Kandestober)
+- Stress og ineffektivitet (Den Stundeslose)
+
+### Holbergs losning
+Holberg var ikke revolusjonaer. Han ville reformere, ikke omstyrte. Hans ideal var:
+- Fornuft kombinert med ydmykhet
+- Utdanning kombinert med praktisk sans
+- Kritisk tenkning uten arroganse
+- Hver stand bor kjenne sin plass, men alle fortjener respekt`,
+    },
+    {
+      id: 'norsk-vg2-2-9-def-3',
+      type: 'definition',
+      title: 'Holbergs karaktergalleri',
+      content: `**Typiske Holberg-karakterer:**
+
+**Pedanten:** Den laerde som mangler praktisk sans (Erasmus Montanus, Rosiflengius). Bruker latin og filosofi til a imponere, men fanger ingen.
+
+**Den undertrykte:** Figurer nederst i hierarkiet som viser menneskelighet (Jeppe). Nar de far makt, misbruker de den ofte.
+
+**Besserwisseren:** Den som tror han vet alt (Hermann von Bremen). Halvdannet og selvhoytidelig.
+
+**Den travle:** Alltid opptatt, aldri produktiv (Vielgeschrey). Forveksler aktivitet med effektivitet.
+
+**Den listige tjeneren:** Ofte smartere enn herren (Henrik, Oldfux). Representerer sunn fornuft.
+
+**Sladderkjerringene:** Borgerfruer som sprer rykter (kvinnene i Barselstuen). Viser at sladder er universelt.
+
+**Rasonoren:** Karakter som representerer Holbergs eget syn og kommenterer handlingen. Ofte en fornuftig nabo eller venn.`,
+    },
+    {
+      id: 'norsk-vg2-2-9-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av scene fra Den Stundeslose',
+      problem: `Analyser scenen med Vielgeschrey og hans tjener Oldfux. Hvilke satiriske teknikker bruker Holberg?`,
+      solution: `**Analyse av scenen:**
+
+**Typekarakter:**
+Vielgeschrey er typen "den travle som aldri far noe gjort". Navnet hans (tysk for "mye skrik") forteller oss alt vi trenger a vite.
+
+**Overdrivelse:**
+Holberg overdriver Vielgeschreys forvirring til det absurde: "Hent mig Bogen! Nei vent, hent mig Pennen forst! Nei, jeg maa have Papir." Han kan ikke fullfare en eneste setning.
+
+**Dramatisk ironi:**
+Publikum ser at Vielgeschrey kaster bort tiden pa a klage over tidsmangel. Oldfux paeker: "I har sagt det samme i tre Timer uden at goere noget." Dette er ironisk fordi Vielgeschrey selv ikke ser det.
+
+**Kontrasterende karakterer:**
+Oldfux representerer sunn fornuft. Hans noyktene kommentarer ("Jeg kan kun vaere eet Sted ad Gangen") setter Vielgeschreys galskap i relieff.
+
+**Verbal komikk:**
+Vielgeschreys avbrutte setninger og motstridende ordre skaper rytmisk komikk. Scenen kan spilles som en slags verbal dans der Oldfux aldri rekker a reagere.
+
+**Samtidsrelevans:**
+Holberg kritiserer en type menneske som fortsatt finnes: de som forveksler travel atferd med faktisk arbeid. I var tid med multitasking og konstant tilgjengelighet er "Den Stundeslose" kanskje mer aktuell enn noen gang.`,
+    },
+    { id: 'norsk-vg2-2-9-ex-12', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-12', number: '12', type: 'classic', difficulty: 'medium', task: 'Sammenlign "Den politiske Kandestober" og "Erasmus Montanus". Begge handler om folk som tror de vet mer enn de gjor. Hva er likt og ulikt?', subTasks: [ { label: 'a', task: 'Beskriv hovedpersonenes svakhet i hvert stykke.', solution: 'Hermann tror han forstar politikk bedre enn alle andre. Erasmus tror hans akademiske kunnskap gjor ham overlegent. Begge overvurderer sin egen innsikt.' }, { label: 'b', task: 'Hvordan behandler omgivelsene dem?', solution: 'Hermann velges til borgermester som en spok - folk vil se ham feile. Erasmus avvises av bygdefolket og ma fornekte sin kunnskap. Begge straffes for sin arroganse.' }, { label: 'c', task: 'Hva er Holbergs budskap i hvert stykke?', solution: 'I Kandestober: Halv kunnskap er farlig, og man bor holde seg til det man kan. I Erasmus: Kunnskap uten kommunikasjonsevne er verdilos. Begge handler om balansen mellom a vite og a vaere klok.' } ], solution: 'Begge komedier kritiserer uforsiktig omgang med kunnskap, men fra ulike vinkler.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'norsk-vg2-2-9-ex-13', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-13', number: '13', type: 'classic', difficulty: 'medium', task: 'Analyser scenen fra "Den Stundeslose" (primaerteksten). Hvordan viser Holberg Vielgeschreys karakter gjennom hans replikker?', subTasks: [ { label: 'a', task: 'Gi eksempler pa hvordan Vielgeschrey avbryter seg selv.', solution: 'Han sier "Hent mig Bogen! Nei vent, hent mig Pennen forst! Nei, jeg maa have Papir." Hver setning avbrytes av den neste. Han kan ikke holde en tanke ferdig.' }, { label: 'b', task: 'Hvordan reagerer Oldfux, og hva forteller det oss?', solution: 'Oldfux papeker noyktert at han bare kan vaere ett sted om gangen, og at Vielgeschrey har sagt det samme i tre timer. Oldfux representerer sunn fornuft og avslorer herrens galskap.' }, { label: 'c', task: 'Hva er komisk ved Vielgeschreys pastand om at han "har for travlt"?', solution: 'Ironien er at hans travle fremtoning hindrer ham i a gjore noe som helst. Han er ikke travel - han er ineffektiv. Publikum ser dette, men Vielgeschrey gjor det ikke.' } ], solution: 'Holberg bruker Vielgeschreys egne ord til a avsore hans selvbedrag.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'norsk-vg2-2-9-ex-14', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-14', number: '14', type: 'classic', difficulty: 'vanskelig', task: 'Drøft satire som virkemiddel i samfunnsdebatten. Bruk Holbergs komedier som eksempler, og diskuter om satire fortsatt er et effektivt verktoy for kritikk.', hints: ['Tenk pa hva satire kan oppna som direkte kritikk ikke kan.', 'Vurder ogsa farene ved satire - kan den misforstaas?', 'Sammenlign med moderne satirikere (stand-up, TV-show, sosiale medier).'], solution: 'Et godt svar diskuterer: 1) Satirens styrker: Latter senker forsvaret, gjor kritikk spiselig, nar bredt publikum, huskes bedre. 2) Satirens begrensninger: Kan avfeies som "bare humor", kan misforstaes, kan fornærme uten a overbevise. 3) Holbergs bruk: Dobbel satire gir balanse, typekarakterer gjor kritikken generell ikke personlig. 4) Moderne sammenligning: Satireshows, memes, stand-up bruker lignende teknikker. Forskjellen er hastighet og rekkevidde - sosiale medier sprer satire raskere, men ogsa mer overflatisk.', allowsUpload: true, allowsCanvasDrawing: true } },
+    { id: 'norsk-vg2-2-9-ex-15', type: 'exercise', exercise: { id: 'norsk-vg2-2-9-ex-15', number: '15', type: 'classic', difficulty: 'vanskelig', task: 'Les utdraget fra "Barselstuen" og analyser hvordan Holberg fremstiller sladder. Er hans kritikk av kvinnene rettferdig, eller er den preget av tidens kjonnssyn?', subTasks: [ { label: 'a', task: 'Hvordan avslorer dialogen kvinnenes karakter?', solution: 'Kvinnene later som de er vennlige, men kommentarene deres er fulle av stikk og antydninger. Pernilles "Det var bare en Spog!" etter a ha antydet utroskap viser hykleriet.' }, { label: 'b', task: 'Hvorfor valgte Holberg a sette handlingen i en "kvinnelig" arena?', solution: 'Holberg ville vise at sladder er universelt, ikke kjonnsspesifikt. Ved a bruke barselstuen tar han et miljø publikum gjenkjenner. Men valget kan ogsa leses som at han plasserer svakheten hos kvinner.' }, { label: 'c', task: 'Er kritikken kjonnsnøytral eller kjønnet? Begrunn svaret.', solution: 'Argumenter for kjonnsnøytral: Holberg kritiserer samme svakheter (sladder, forfengelighet) hos menn i andre stykker. Argumenter for kjonnet: Ved a velge barselstuen som arena, knytter han sladder til kvinner. Sannsynligvis: Holberg var et barn av sin tid, men hans intensjon var a kritisere menneskelig svakhet generelt.' } ], solution: 'Holbergs kritikk av sladder er treffende, men settingen avslorer ogsa tidens kjonnssyn.', allowsUpload: true, allowsCanvasDrawing: true } },
   ],
   exercises: [],
 };
