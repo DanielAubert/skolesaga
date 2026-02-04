@@ -2732,7 +2732,9 @@ Gode forretningsideer kommer ofte fra:
 };
 
 // ============================================================================
-// KAPITTEL 8.4: Økonomi og verdikjeder
+// KAPITTEL 8.4: Økonomi og verdikjeder (UTVIDET)
+// LK20 Kompetansemål #9: Foreta enkle beregninger av råvare- og materialforbruk,
+// innsatsfaktorer og utbytte
 // ============================================================================
 
 export const CHAPTER_NATURBRUK_VG1_8_4: TextbookChapter = {
@@ -2740,11 +2742,12 @@ export const CHAPTER_NATURBRUK_VG1_8_4: TextbookChapter = {
   courseId: 'naturbruk-vg1',
   chapterNumber: '8.4',
   title: 'Økonomi og verdikjeder',
-  description: 'Lær om økonomi i naturbruk og hvordan verdikjedene fungerer.',
-  estimatedMinutes: 50,
+  description: 'Lær om økonomi i naturbruk, hvordan verdikjedene fungerer, og gjør enkle driftskalkyler.',
+  estimatedMinutes: 90,
   competenceGoals: [
     'forstå grunnleggende økonomiske begreper',
     'forklare verdikjeder i naturbruksnæringene',
+    'foreta enkle beregninger av råvare- og materialforbruk, innsatsfaktorer og utbytte',
   ],
   content: [
     {
@@ -2752,13 +2755,14 @@ export const CHAPTER_NATURBRUK_VG1_8_4: TextbookChapter = {
       type: 'text',
       content: `## Økonomi - grunnlaget for drift
 
-For å drive naturbruk må du forstå økonomi. Å forstå hvordan verdiene skapes og fordeles i verdikjeden er viktig kunnskap for alle i næringen.
+For å drive naturbruk må du forstå økonomi. Å forstå hvordan verdiene skapes og fordeles i verdikjeden er viktig kunnskap for alle i næringen. Som bonde, gartner eller skogbruker må du kunne beregne om produksjonen din er lønnsom.
 
 **I dette kapittelet lærer du:**
 - Grunnleggende økonomiske begreper
-- Hvordan regne lønnsomhet
-- Hva verdikjeder er
-- Hvordan verdiene fordeles
+- Forskjellen på variable og faste kostnader
+- Hvordan beregne dekningsbidrag
+- Enkle driftskalkyler for ulike produksjoner
+- Hva verdikjeder er og hvordan verdiene fordeles
 - Tilskuddsordninger i landbruket`,
     },
     {
@@ -2770,28 +2774,231 @@ For å drive naturbruk må du forstå økonomi. Å forstå hvordan verdiene skap
 **Overskudd:** Inntekter minus utgifter
 **Omsetning:** Total verdi av salg
 **Margin:** Forskjellen mellom salgspris og kostpris
-**Likviditet:** Evne til å betale regninger`,
+**Likviditet:** Evne til å betale regninger når de forfaller`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-def-variable',
+      type: 'definition',
+      title: 'Variable kostnader',
+      content: `**Variable kostnader** er kostnader som endrer seg med produksjonsvolumet.
+
+**Jo mer du produserer, desto høyere blir de variable kostnadene.**
+
+**Typiske variable kostnader i naturbruk:**
+- Fôrkostnader (kraftfôr, grovfôr)
+- Såfrø og settepoteter
+- Gjødsel og kalk
+- Plantevernmidler
+- Drivstoff og strøm til produksjon
+- Emballasje
+- Veterinærkostnader
+- Innkjøp av livdyr
+
+**Eksempel:** Hvis du har 20 kyr i stedet for 10, dobles fôrkostnadene.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-def-faste',
+      type: 'definition',
+      title: 'Faste kostnader',
+      content: `**Faste kostnader** er kostnader som er like uansett hvor mye du produserer.
+
+**De påløper selv om produksjonen er null.**
+
+**Typiske faste kostnader i naturbruk:**
+- Forsikring av bygninger og maskiner
+- Renter på lån
+- Avskrivninger (verdiforringelse på maskiner og bygninger)
+- Vedlikehold av bygninger
+- Eiendomsskatt
+- Medlemsavgifter og kontingenter
+- Regnskapstjenester
+
+**Eksempel:** Forsikringen på fjøset koster det samme om du har 10 eller 20 kyr.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-def-dekningsbidrag',
+      type: 'definition',
+      title: 'Dekningsbidrag',
+      content: `**Dekningsbidrag (DB) = Inntekter - Variable kostnader**
+
+Dekningsbidraget viser hvor mye som er igjen til å dekke de faste kostnadene og gi fortjeneste.
+
+**Viktig:** Dekningsbidraget må være stort nok til å dekke alle faste kostnader. Hvis ikke, går driften med tap.
+
+**Eksempel:**
+- Inntekter per dekar hvete: 6 000 kr
+- Variable kostnader per dekar: 3 500 kr
+- **Dekningsbidrag per dekar: 2 500 kr**
+
+Disse 2 500 kr skal bidra til å betale traktor, bygninger, forsikring osv.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-def-lonnsomhet',
+      type: 'definition',
+      title: 'Lønnsomhet',
+      content: `**Lønnsomhet** viser om en produksjon gir økonomisk overskudd.
+
+**Beregning:**
+Lønnsomhet = Totale inntekter - Totale kostnader (variable + faste)
+
+**En produksjon er lønnsom når:**
+- Inntektene er større enn kostnadene
+- Du får betalt for arbeidsinnsatsen din
+- Du får avkastning på investert kapital
+
+**Nøkkeltall for lønnsomhet:**
+- Dekningsbidrag per enhet (per ku, per dekar, per m³)
+- Dekningsbidrag per time arbeidsinnsats
+- Avkastning på investert kapital`,
     },
     {
       id: 'naturbruk-vg1-8-4-text-1',
       type: 'text',
-      content: `## Inntekter og utgifter
+      content: `## Inntekter og utgifter i naturbruk
 
 **Salgsinntekter:**
-- Salg av produkter (melk, kjøtt, korn, tømmer)
-- Salg av tjenester
+- Salg av produkter (melk, kjøtt, korn, grønnsaker, tømmer)
+- Salg av tjenester (maskinarbeid, rideskole)
 
 **Tilskudd fra staten:**
-- Produksjonstilskudd
+- Produksjonstilskudd (per dyr, per dekar)
 - Arealtilskudd
 - Distriktstilskudd
+- Miljøtilskudd (økologisk drift, beite)
 - I norsk landbruk utgjør tilskudd 30-50% av inntektene
 
-**Variable kostnader:**
-- Fôr, såfrø, gjødsel, drivstoff
+**Variable kostnader i ulike produksjoner:**
+| Produksjon | Typiske variable kostnader |
+|------------|---------------------------|
+| Melk | Kraftfôr, grovfôr, veterinær, inseminering |
+| Korn | Såkorn, gjødsel, plantevern, tørking |
+| Grønnsaker | Frø/planter, gjødsel, emballasje, arbeidskraft |
+| Skog | Planting, hogst, drift |
 
 **Faste kostnader:**
 - Forsikring, renter, vedlikehold, avskrivninger`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-text-kalkyle',
+      type: 'text',
+      content: `## Enkle driftskalkyler
+
+En **driftskalkyle** er en oppstilling av inntekter og kostnader for en produksjon. Den hjelper deg å vurdere om produksjonen er lønnsom.
+
+**Oppbygging av en driftskalkyle:**
+
+1. **Produksjonsinntekter** (salg av produkter)
+2. **+ Tilskudd** (produksjonstilskudd, arealtilskudd)
+3. **= Sum inntekter**
+4. **- Variable kostnader** (fôr, såvarer, gjødsel osv.)
+5. **= Dekningsbidrag**
+6. **- Faste kostnader** (fordelt på produksjonen)
+7. **= Resultat (overskudd/underskudd)**
+
+**Hvorfor lage kalkyler?**
+- Planlegge produksjonen
+- Sammenligne ulike produksjoner
+- Vurdere investeringer
+- Finne forbedringsmuligheter`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-tip-kornkalkyle',
+      type: 'tip',
+      title: 'Eksempel: Driftskalkyle for hvete (per dekar)',
+      content: `**INNTEKTER:**
+- Avling: 500 kg/dekar × 4,00 kr/kg = 2 000 kr
+- Arealtilskudd: 400 kr
+- **Sum inntekter: 2 400 kr**
+
+**VARIABLE KOSTNADER:**
+- Såkorn: 20 kg × 8 kr = 160 kr
+- Gjødsel: 50 kg × 6 kr = 300 kr
+- Plantevern: 150 kr
+- Tørking: 500 kg × 0,50 kr = 250 kr
+- Drivstoff: 100 kr
+- **Sum variable kostnader: 960 kr**
+
+**DEKNINGSBIDRAG: 2 400 - 960 = 1 440 kr per dekar**
+
+Dette dekningsbidraget skal bidra til å betale maskiner, bygninger og arbeidsinnsats.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-tip-melkekalkyle',
+      type: 'tip',
+      title: 'Eksempel: Driftskalkyle for melkeku (per ku per år)',
+      content: `**INNTEKTER:**
+- Melk: 8 000 liter × 6,00 kr = 48 000 kr
+- Kjøttinntekt (utrangeringsverdi): 8 000 kr
+- Kalvesalg: 4 000 kr
+- Produksjonstilskudd: 10 000 kr
+- **Sum inntekter: 70 000 kr**
+
+**VARIABLE KOSTNADER:**
+- Kraftfôr: 2 500 kg × 4,50 kr = 11 250 kr
+- Grovfôr (egenprodusert): 8 000 kr
+- Veterinær og medisin: 2 000 kr
+- Inseminering: 1 500 kr
+- Strø og diverse: 1 500 kr
+- **Sum variable kostnader: 24 250 kr**
+
+**DEKNINGSBIDRAG: 70 000 - 24 250 = 45 750 kr per ku**
+
+Med 20 kyr blir totalt dekningsbidrag: 20 × 45 750 = 915 000 kr
+Dette skal dekke fjøs, melkerobot, traktor, arbeidsinnsats osv.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-text-kostnadstyper',
+      type: 'text',
+      content: `## Kostnadstyper i naturbruk
+
+**Fôrkostnader** er ofte den største kostnaden i husdyrproduksjon:
+- Kraftfôr kjøpes fra Felleskjøpet eller andre leverandører
+- Grovfôr (gras, høy, surfôr) produseres ofte selv
+- Fôrforbruket måles i FEm (fôrenheter melk) eller kg
+
+**Såvarer og plantemateriale:**
+- Såkorn (hvete, bygg, havre): 15-25 kg per dekar
+- Settepotet: 250-300 kg per dekar
+- Grønnsaksfrø og småplanter
+
+**Gjødsel:**
+- Mineralgjødsel (Fullgjødsel, Kalksalpeter)
+- Husdyrgjødsel (bløtgjødsel, talle)
+- Kalk for å regulere pH
+
+**Drivstoff og energi:**
+- Diesel til traktor og maskiner
+- Strøm til tørke, ventilasjon, melking
+- Ved/flis til oppvarming
+
+**Beregning av forbruk:**
+For å beregne kostnader må du vite:
+- Mengde innsatsfaktor (kg, liter, timer)
+- Pris per enhet
+- **Kostnad = Mengde × Pris**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-4-tip-utbytte',
+      type: 'tip',
+      title: 'Beregning av utbytte',
+      content: `**Utbytte** viser hvor mye produkt du får ut av innsatsfaktorene.
+
+**Eksempler på utbytteberegninger:**
+
+**Kornproduksjon:**
+- Avling: 500 kg hvete per dekar
+- Såkornforbruk: 20 kg per dekar
+- Utbytte: 500 / 20 = 25 kg høstet per kg sådd
+
+**Melkeproduksjon:**
+- Melkeytelse: 8 000 liter per ku per år
+- Kraftfôrforbruk: 2 500 kg per ku per år
+- Melk per kg kraftfôr: 8 000 / 2 500 = 3,2 liter melk per kg kraftfôr
+
+**Kjøttproduksjon (okse):**
+- Slaktevekt: 300 kg
+- Fôrforbruk: 3 000 FEm
+- Fôrutnyttelse: 3 000 / 300 = 10 FEm per kg tilvekst`,
     },
     {
       id: 'naturbruk-vg1-8-4-def-2',
@@ -2801,25 +3008,18 @@ For å drive naturbruk må du forstå økonomi. Å forstå hvordan verdiene skap
 
 **Typisk for mat:**
 1. Primærprodusent (bonde)
-2. Foredling (meieri, slakteri)
+2. Foredling (meieri, slakteri, mølle)
 3. Grossist/distribusjon
 4. Detaljist (butikk)
 5. Forbruker
 
-**I hvert ledd tilføres verdi - og kostnader.**`,
-    },
-    {
-      id: 'naturbruk-vg1-8-4-tip-1',
-      type: 'tip',
-      title: 'Dekningsbidrag',
-      content: `**Dekningsbidrag = Inntekter - Variable kostnader**
+**I hvert ledd tilføres verdi - og kostnader.**
 
-Eksempel per ku:
-- Inntekt: 80 000 kr
-- Variable kostnader: 35 000 kr
-- **Dekningsbidrag: 45 000 kr**
-
-Dette skal dekke faste kostnader og gi fortjeneste.`,
+**Verdifordeling for en melkeliter (ca. 20 kr i butikk):**
+- Bonde: ca. 6 kr (30%)
+- Meieri: ca. 6 kr (30%)
+- Grossist/transport: ca. 2 kr (10%)
+- Butikk: ca. 6 kr (30%)`,
     },
     {
       id: 'naturbruk-vg1-8-4-def-3',
@@ -2827,9 +3027,18 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
       title: 'Samvirke',
       content: `Et **samvirke** er en organisasjon eid og styrt av medlemmene.
 
-**Eksempler:** TINE, Nortura, Felleskjøpet
+**Eksempler:** TINE, Nortura, Felleskjøpet, Gartnerhallen
 
-**Prinsipper:** Medlemmene eier sammen, én stemme per medlem, overskudd tilbake til medlemmene.`,
+**Prinsipper:**
+- Medlemmene eier sammen
+- Én stemme per medlem (ikke etter kapital)
+- Overskudd tilbake til medlemmene (etterbetaling)
+- Mottaksplikt - alle medlemmer får levere
+
+**Fordeler for bonden:**
+- Sikker avsetning av produktene
+- Markedsmakt mot dagligvarekjedene
+- Felles merkevarebygging`,
     },
     {
       id: 'naturbruk-vg1-8-4-ex-1',
@@ -2838,8 +3047,12 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
         id: 'naturbruk-vg1-8-4-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Forklar forskjellen mellom variable og faste kostnader.',
-        solution: 'Variable kostnader endrer seg med produksjon (fôr, gjødsel). Faste kostnader er like uansett produksjon (forsikring, renter).',
+        task: 'Forklar forskjellen mellom variable og faste kostnader. Gi to eksempler på hver.',
+        solution: `**Variable kostnader** endrer seg med produksjonsvolumet - jo mer du produserer, desto høyere kostnader.
+Eksempler: Fôr (mer kyr = mer fôr), gjødsel (mer areal = mer gjødsel), drivstoff, såkorn.
+
+**Faste kostnader** er like uansett hvor mye du produserer.
+Eksempler: Forsikring på fjøset, renter på lån, avskrivninger på traktor, eiendomsskatt.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2851,8 +3064,18 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
         id: 'naturbruk-vg1-8-4-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Hva er en verdikjede? Beskriv verdikjeden for melk.',
-        solution: 'En verdikjede viser alle ledd fra råvare til produkt. Melk: Bonde - Meieri - Grossist - Butikk - Forbruker.',
+        task: 'Hva er en verdikjede? Beskriv verdikjeden for melk fra ku til forbruker.',
+        solution: `En **verdikjede** viser alle ledd en vare går gjennom fra råvare til ferdig produkt hos forbruker.
+
+**Verdikjede for melk:**
+1. **Bonde** - produserer melk, ku melkes
+2. **Tankbil** - henter melk på gården
+3. **Meieri (TINE)** - pasteuriserer, foredler til melk, ost, yoghurt
+4. **Grossist** - lagrer og distribuerer til butikker
+5. **Butikk (Rema, Kiwi osv.)** - selger til forbruker
+6. **Forbruker** - kjøper og bruker melken
+
+I hvert ledd tilføres verdi (bearbeiding, transport, service) og kostnader legges til prisen.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2865,7 +3088,15 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
         number: '3',
         type: 'classic',
         task: 'Hvorfor er tilskudd viktig i norsk landbruk?',
-        solution: 'Tilskudd utgjør 30-50% av inntektene og er nødvendig pga. høyere kostnader i Norge. De sikrer matsikkerhet og bosetting i distriktene.',
+        solution: `Tilskudd utgjør 30-50% av inntektene til norske bønder og er nødvendig fordi:
+
+1. **Høyere kostnader:** Norge har kort vekstsesong, kupert terreng og høye lønnskostnader
+2. **Matsikkerhet:** Norge vil produsere egen mat og ikke være avhengig av import
+3. **Bosetting:** Landbruk holder distriktene levende med arbeidsplasser
+4. **Kulturlandskap:** Beitedyr holder kulturlandskapet åpent
+5. **Konkurranse:** Uten tilskudd ville norsk mat bli utkonkurrert av billig import
+
+Tilskuddene sikrer at det er mulig å drive landbruk i hele Norge, ikke bare de beste områdene.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2877,8 +3108,28 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
         id: 'naturbruk-vg1-8-4-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Hva er dekningsbidrag?',
-        solution: 'Dekningsbidrag = Inntekter minus variable kostnader. Det viser hvor mye som er igjen til faste kostnader og fortjeneste.',
+        task: `Beregn dekningsbidraget for byggproduksjon per dekar:
+- Avling: 450 kg/dekar, pris 3,80 kr/kg
+- Arealtilskudd: 350 kr/dekar
+- Såkorn: 18 kg × 7 kr/kg
+- Gjødsel: 45 kg × 5,50 kr/kg
+- Plantevern: 120 kr
+- Tørking: 450 kg × 0,45 kr/kg
+- Drivstoff: 80 kr`,
+        solution: `**INNTEKTER:**
+- Salg av bygg: 450 kg × 3,80 kr = 1 710 kr
+- Arealtilskudd: 350 kr
+- **Sum inntekter: 2 060 kr**
+
+**VARIABLE KOSTNADER:**
+- Såkorn: 18 kg × 7 kr = 126 kr
+- Gjødsel: 45 kg × 5,50 kr = 247,50 kr
+- Plantevern: 120 kr
+- Tørking: 450 kg × 0,45 kr = 202,50 kr
+- Drivstoff: 80 kr
+- **Sum variable kostnader: 776 kr**
+
+**DEKNINGSBIDRAG = 2 060 - 776 = 1 284 kr per dekar**`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2890,8 +3141,165 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
         id: 'naturbruk-vg1-8-4-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Hvordan kan en bonde forkorte verdikjeden?',
-        solution: 'Gjennom direktesalg: gårdsbutikk, REKO-ringer, bondens marked. Dette gir høyere pris til produsenten.',
+        task: 'Hvordan kan en bonde forkorte verdikjeden og hva er fordelene?',
+        solution: `**Måter å forkorte verdikjeden:**
+- Gårdsbutikk - selger direkte til forbruker
+- REKO-ringer - bestilling via Facebook, utlevering på parkeringsplass
+- Bondens marked - ukentlig marked i byene
+- Abonnementsordninger - grønnsakskasser levert hjem
+- Nettbutikk - egen eller felles plattform
+
+**Fordeler:**
+1. **Høyere pris:** Bonden beholder mer av verdiskapingen
+2. **Kundekontakt:** Direkte tilbakemelding fra forbrukere
+3. **Merkevarebygging:** Bygge lojalitet til gården
+4. **Fleksibilitet:** Bestemme selv priser og produkter
+
+**Ulemper:**
+- Mer arbeid med salg og markedsføring
+- Må håndtere småsalg
+- Usikker avsetning`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: `En melkebonde har 25 kyr. Beregn totalt dekningsbidrag for melkeproduksjonen.
+Tall per ku per år:
+- Melkeytelse: 7 500 liter × 5,80 kr/liter
+- Kjøttinntekt: 7 000 kr
+- Kalvesalg: 3 500 kr
+- Produksjonstilskudd: 9 500 kr
+- Kraftfôr: 2 300 kg × 4,20 kr/kg
+- Grovfôr: 7 500 kr
+- Veterinær: 1 800 kr
+- Inseminering: 1 400 kr
+- Diverse: 1 200 kr`,
+        solution: `**INNTEKTER per ku:**
+- Melk: 7 500 liter × 5,80 kr = 43 500 kr
+- Kjøttinntekt: 7 000 kr
+- Kalvesalg: 3 500 kr
+- Produksjonstilskudd: 9 500 kr
+- **Sum inntekter: 63 500 kr**
+
+**VARIABLE KOSTNADER per ku:**
+- Kraftfôr: 2 300 kg × 4,20 kr = 9 660 kr
+- Grovfôr: 7 500 kr
+- Veterinær: 1 800 kr
+- Inseminering: 1 400 kr
+- Diverse: 1 200 kr
+- **Sum variable kostnader: 21 560 kr**
+
+**DEKNINGSBIDRAG per ku: 63 500 - 21 560 = 41 940 kr**
+
+**Totalt dekningsbidrag for 25 kyr: 25 × 41 940 = 1 048 500 kr**
+
+Dette beløpet skal dekke fjøs, maskiner, grovfôrareal og bondens arbeidsinnsats.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: `Beregn fôrutnyttelsen for følgende produksjoner:
+a) En melkeku produserer 8 200 liter melk og spiser 2 600 kg kraftfôr per år. Hvor mange liter melk per kg kraftfôr?
+b) En slaktegris veier 110 kg ved slakting og har spist 280 kg fôr. Hvor mange kg fôr per kg slaktevekt?
+c) En hveteavling gir 520 kg per dekar. Det er brukt 22 kg såkorn. Hvor mange kg høstet per kg sådd?`,
+        solution: `**a) Melkeku - melk per kg kraftfôr:**
+8 200 liter / 2 600 kg = **3,15 liter melk per kg kraftfôr**
+
+**b) Slaktegris - fôrforbruk:**
+280 kg fôr / 110 kg slaktevekt = **2,55 kg fôr per kg slaktevekt**
+(Dette kalles fôrfaktor - lavere er bedre)
+
+**c) Hvete - utbytte:**
+520 kg avling / 22 kg såkorn = **23,6 kg høstet per kg sådd**
+
+Disse nøkkeltallene brukes til å sammenligne effektivitet og finne forbedringspotensial.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-4-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-8',
+        number: '8',
+        type: 'classic',
+        task: `En grønnsaksprodusent dyrker gulrot på 15 dekar. Beregn dekningsbidraget.
+- Avling: 3 500 kg/dekar
+- Salgspris: 8 kr/kg (60% av avlingen er salgbar klasse 1)
+- Pris klasse 2: 3 kr/kg (30% av avlingen)
+- Svinn: 10% av avlingen
+- Frø og planter: 800 kr/dekar
+- Gjødsel: 600 kr/dekar
+- Plantevern: 400 kr/dekar
+- Pakking og emballasje: 1 200 kr/dekar
+- Arbeidskraft innleie: 2 500 kr/dekar
+- Drivstoff: 300 kr/dekar`,
+        solution: `**Først beregner vi avlingen per dekar:**
+- Total avling: 3 500 kg
+- Klasse 1 (60%): 3 500 × 0,60 = 2 100 kg
+- Klasse 2 (30%): 3 500 × 0,30 = 1 050 kg
+- Svinn (10%): 3 500 × 0,10 = 350 kg (ingen inntekt)
+
+**INNTEKTER per dekar:**
+- Klasse 1: 2 100 kg × 8 kr = 16 800 kr
+- Klasse 2: 1 050 kg × 3 kr = 3 150 kr
+- **Sum inntekter: 19 950 kr**
+
+**VARIABLE KOSTNADER per dekar:**
+- Frø og planter: 800 kr
+- Gjødsel: 600 kr
+- Plantevern: 400 kr
+- Pakking og emballasje: 1 200 kr
+- Arbeidskraft: 2 500 kr
+- Drivstoff: 300 kr
+- **Sum variable kostnader: 5 800 kr**
+
+**DEKNINGSBIDRAG per dekar: 19 950 - 5 800 = 14 150 kr**
+
+**Totalt for 15 dekar: 15 × 14 150 = 212 250 kr**`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-4-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-9',
+        number: '9',
+        type: 'classic',
+        task: `Hva er et samvirke? Forklar hvordan TINE fungerer som samvirke og hvilke fordeler dette gir melkebønder.`,
+        solution: `**Et samvirke** er en organisasjon som eies og styres av medlemmene, med mål om å fremme medlemmenes interesser.
+
+**TINE som samvirke:**
+- Eies av ca. 9 000 norske melkebønder
+- Hver bonde har én stemme uansett størrelse
+- Bøndene velger styre og bestemmer strategien
+- Overskudd går tilbake til bøndene som etterbetaling
+
+**Fordeler for melkebøndene:**
+
+1. **Mottaksplikt:** TINE må ta imot all melk fra medlemmene
+2. **Lik pris:** Alle får samme pris uansett hvor i landet de bor
+3. **Markedsmakt:** Sammen står bøndene sterkere mot dagligvarekjedene
+4. **Merkevarebygging:** TINE-merkevaren gir tillit hos forbrukerne
+5. **Etterbetaling:** Andel av overskuddet utbetales til bøndene
+6. **Rådgivning:** TINE tilbyr faglig støtte til bøndene`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2901,7 +3309,9 @@ Dette skal dekke faste kostnader og gi fortjeneste.`,
 };
 
 // ============================================================================
-// KAPITTEL 8.5: Lokal matproduksjon og kortreist mat
+// KAPITTEL 8.5: Lokal matproduksjon og kortreist mat (UTVIDET)
+// LK20 Kompetansemål #9: Foreta enkle beregninger av råvare- og materialforbruk,
+// innsatsfaktorer og utbytte
 // ============================================================================
 
 export const CHAPTER_NATURBRUK_VG1_8_5: TextbookChapter = {
@@ -2909,11 +3319,12 @@ export const CHAPTER_NATURBRUK_VG1_8_5: TextbookChapter = {
   courseId: 'naturbruk-vg1',
   chapterNumber: '8.5',
   title: 'Lokal matproduksjon og kortreist mat',
-  description: 'Lær om trenden mot lokal mat og mulighetene for lokalmatprodusenter.',
-  estimatedMinutes: 50,
+  description: 'Lær om trenden mot lokal mat, mulighetene for lokalmatprodusenter, og økonomien i direktesalg.',
+  estimatedMinutes: 70,
   competenceGoals: [
     'forklare betydningen av lokal matproduksjon',
     'vurdere muligheter innen lokalmat',
+    'foreta enkle beregninger av lønnsomhet i direktesalg',
   ],
   content: [
     {
@@ -2927,6 +3338,8 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 - Hva som kjennetegner lokalmat
 - Hvorfor lokalmat er populært
 - Salgskanaler for lokalmat
+- Prissetting av lokale produkter
+- Lønnsomhet i direktesalg vs. grossist
 - Regelverk og merkeordninger`,
     },
     {
@@ -2937,9 +3350,10 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 
 **Kjennetegn:**
 - Kort avstand produsent-forbruker
-- Ofte småskala
+- Ofte småskala produksjon
 - Sporbarhet og åpenhet
-- Tradisjonelle eller særegne produkter`,
+- Tradisjonelle eller særegne produkter
+- Produsenten er synlig for forbrukeren`,
     },
     {
       id: 'naturbruk-vg1-8-5-text-1',
@@ -2948,19 +3362,23 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 
 **Kvalitet og smak:**
 - Håndverksmessig produsert
-- Ferske råvarer
+- Ferske råvarer, kort tid fra høsting til salg
+- Tradisjonelle oppskrifter og metoder
 
 **Miljøhensyn:**
-- Kortere transport
+- Kortere transport gir lavere klimaavtrykk
 - Støtter bærekraftig drift
+- Mindre emballasje
 
-**Tillit:**
+**Tillit og trygghet:**
 - Vet hvem som har laget maten
-- Kan besøke gården
+- Kan besøke gården og se produksjonen
+- Direkte kommunikasjon med produsenten
 
-**Økonomi:**
+**Lokal økonomi:**
 - Støtter lokale arbeidsplasser
-- Pengene blir i lokalsamfunnet`,
+- Pengene blir i lokalsamfunnet
+- Bidrar til levende bygder`,
     },
     {
       id: 'naturbruk-vg1-8-5-def-2',
@@ -2968,39 +3386,180 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
       title: 'REKO-ringer',
       content: `**REKO-ringer** er Facebook-baserte grupper der produsenter legger ut tilbud og forbrukere bestiller. Handelen skjer på et avtalt møtested uten mellomledd.
 
-Over 100 REKO-ringer finnes i Norge.`,
+**Hvordan fungerer det:**
+1. Produsent legger ut tilbud med pris og mengde
+2. Forbrukere kommenterer for å bestille
+3. Alle møtes på avtalt tid og sted (ofte en parkeringsplass)
+4. Produktene overleveres direkte
+5. Betaling skjer kontant eller via Vipps
+
+Over 100 REKO-ringer finnes i Norge med tusenvis av medlemmer.`,
     },
     {
       id: 'naturbruk-vg1-8-5-text-2',
       type: 'text',
-      content: `## Salgskanaler
+      content: `## Salgskanaler for lokalmat
 
-**REKO-ringer:** Facebook-bestilling, direkte handel
-**Bondens marked:** Ukentlig marked i byer
-**Gårdsbutikk:** Salg direkte fra gården
-**Spesialbutikker:** Nisjebutikker for lokalmat
-**Abonnementsordninger:** Grønnsakskasser ukentlig
-**Nettbutikk:** Egen eller felles plattform`,
+**REKO-ringer:** Facebook-bestilling, direkte handel på parkeringsplass
+**Bondens marked:** Ukentlig marked i byer og tettsteder
+**Gårdsbutikk:** Salg direkte fra gården, ofte kombinert med gårdsbesøk
+**Spesialbutikker:** Nisjebutikker som fokuserer på lokalmat og delikatesser
+**Abonnementsordninger:** Grønnsakskasser eller kjøttpakker levert ukentlig/månedlig
+**Nettbutikk:** Egen nettbutikk eller felles plattform
+**Restauranter:** Salg til lokale restauranter som vil ha ferske råvarer
+**Hoteller og catering:** Større kunder som ønsker lokalt preg`,
+    },
+    {
+      id: 'naturbruk-vg1-8-5-text-prissetting',
+      type: 'text',
+      content: `## Prissetting av lokale produkter
+
+**Prinsipp:** Prisen må dekke alle kostnader og gi en rimelig fortjeneste.
+
+**Faktorer som påvirker prissetting:**
+
+**1. Produksjonskostnader:**
+- Råvarer og innsatsfaktorer
+- Arbeidstid (din egen tid har også verdi!)
+- Emballasje og merking
+- Transport til salgssted
+
+**2. Markedet:**
+- Hva tar konkurrentene?
+- Hva er kunder villige til å betale?
+- Er produktet unikt eller vanlig?
+
+**3. Salgskanal:**
+- Direktesalg: Du beholder hele prisen
+- Via butikk: Butikken tar 30-50% påslag
+- Via grossist: Grossist og butikk tar til sammen 50-70%
+
+**Tommelfingerregel for prissetting:**
+- Råvarekostnad × 3-4 for foredlede produkter
+- Sammenlign med tilsvarende produkter i butikk
+- Husk: Kvalitet og historie rettferdiggjør høyere pris`,
     },
     {
       id: 'naturbruk-vg1-8-5-tip-1',
       type: 'tip',
-      title: 'Suksessfaktorer',
-      content: `**Produktet:** Høy kvalitet, noe unikt
-**Fortellingen:** Hvem er du? Hvorfor gjør du dette?
-**Kundekontakt:** Vær tilgjengelig, lytt
-**Markedsføring:** Sosiale medier, arrangementer
-**Økonomi:** Start smått, voks gradvis`,
+      title: 'Eksempel: Prissetting av hjemmelaget syltetøy',
+      content: `**Kostnader per glass (400g):**
+- Bær (egenprodusert, beregnet verdi): 25 kr
+- Sukker og pektin: 8 kr
+- Glass og lokk: 6 kr
+- Etikett: 2 kr
+- Arbeidstid (15 min × 250 kr/time): 62,50 kr
+- **Sum kostnader: 103,50 kr**
+
+**Påslag for fortjeneste (30%):** 31 kr
+
+**Utsalgspris direktesalg: 135 kr**
+
+Tilsvarende i butikk koster 50-80 kr, men det er industriprodusert.
+Premium hjemmelaget syltetøy kan ta 100-150 kr fordi:
+- Håndlaget i små partier
+- Lokale bær
+- Unik oppskrift
+- Kunden kjenner produsenten`,
+    },
+    {
+      id: 'naturbruk-vg1-8-5-text-lonnsomhet',
+      type: 'text',
+      content: `## Lønnsomhet: Direktesalg vs. grossist
+
+Ved direktesalg beholder produsenten en større del av utsalgsprisen, men må gjøre mer arbeid selv.
+
+**Eksempel: Salg av 100 kg eplejuice**
+
+| | Direktesalg | Via grossist |
+|---|---|---|
+| Utsalgspris per liter | 80 kr | 60 kr (lavere pris i butikk) |
+| Din andel | 100% = 80 kr | 40% = 24 kr |
+| Inntekt for 100 liter | 8 000 kr | 2 400 kr |
+| Ekstra arbeidstid | 10 timer | 1 time |
+| Inntekt per time ekstra | 560 kr/time | - |
+
+**Konklusjon:** Direktesalg gir høyere inntekt, men krever mer tid til salg, markedsføring og kundekontakt.
+
+**Når lønner direktesalg seg?**
+- Du har tid til salgsarbeid
+- Du liker kundekontakt
+- Du har et unikt produkt
+- Du bor nær kundene
+
+**Når lønner grossist seg?**
+- Du har store volumer
+- Du vil fokusere på produksjon
+- Du har begrenset tid til salg`,
+    },
+    {
+      id: 'naturbruk-vg1-8-5-tip-kalkyle',
+      type: 'tip',
+      title: 'Sammenligning: Gulrot direktesalg vs. grossist',
+      content: `**Scenario: 500 kg gulrot**
+
+**DIREKTESALG (REKO-ring):**
+- Pris per kg: 25 kr
+- Inntekt: 500 kg × 25 kr = 12 500 kr
+- Emballasje (poser): 200 kr
+- Transport til REKO: 150 kr
+- Tid salg og pakking: 8 timer × 250 kr = 2 000 kr
+- **Netto inntekt: 10 150 kr**
+
+**SALG TIL GROSSIST:**
+- Pris per kg: 8 kr
+- Inntekt: 500 kg × 8 kr = 4 000 kr
+- Emballasje (storsekk): 50 kr
+- Tid: 1 time × 250 kr = 250 kr
+- **Netto inntekt: 3 700 kr**
+
+**Forskjell:** 6 450 kr mer ved direktesalg
+**Ekstra arbeidstid:** 7 timer
+**Merverdi per time:** 921 kr/time
+
+Direktesalg lønner seg godt i dette eksempelet!`,
+    },
+    {
+      id: 'naturbruk-vg1-8-5-tip-suksess',
+      type: 'tip',
+      title: 'Suksessfaktorer for lokalmatprodusent',
+      content: `**Produktet:**
+- Høy og jevn kvalitet
+- Noe unikt - skille seg ut
+- Tilpasset etterspørselen
+
+**Fortellingen:**
+- Hvem er du? Hvorfor gjør du dette?
+- Historien bak produktet
+- Åpenhet om produksjonen
+
+**Kundekontakt:**
+- Vær tilgjengelig og hyggelig
+- Lytt til tilbakemeldinger
+- Bygg relasjoner over tid
+
+**Markedsføring:**
+- Sosiale medier (Instagram, Facebook)
+- Delta på arrangementer
+- Samarbeid med andre produsenter
+
+**Økonomi:**
+- Start smått, voks gradvis
+- Hold oversikt over kostnader
+- Sett riktig pris fra starten`,
     },
     {
       id: 'naturbruk-vg1-8-5-def-3',
       type: 'definition',
       title: 'Beskyttede betegnelser',
-      content: `**Beskyttede betegnelser** beskytter produkter med spesiell tilknytning.
+      content: `**Beskyttede betegnelser** beskytter produkter med spesiell geografisk eller tradisjonell tilknytning.
 
-**Eksempler:** Hardangerepler, Lofotlam, Rakfisk fra Valdres
+**Tre kategorier:**
+- **Beskyttet opprinnelsesbetegnelse:** Hele produksjonen i området (f.eks. Hardangerepler)
+- **Beskyttet geografisk betegnelse:** Tilknytning til området (f.eks. Lofotlam)
+- **Beskyttet tradisjonelt særpreg:** Tradisjonell oppskrift (f.eks. Rakfisk fra Valdres)
 
-Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
+**Stiftelsen Norsk Mat** arbeider for å fremme norske matspesialiteter og forvalter merkeordningene.`,
     },
     {
       id: 'naturbruk-vg1-8-5-ex-1',
@@ -3009,8 +3568,16 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
         id: 'naturbruk-vg1-8-5-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Hva kjennetegner lokalmat?',
-        solution: 'Kort avstand produsent-forbruker, ofte småskala, sporbarhet og åpenhet, tradisjonelle eller særegne produkter.',
+        task: 'Hva kjennetegner lokalmat? Nevn minst fire kjennetegn.',
+        solution: `**Kjennetegn på lokalmat:**
+
+1. **Kort avstand** mellom produsent og forbruker - maten reiser kort vei
+2. **Småskala produksjon** - ofte håndverksmessig fremstilt
+3. **Sporbarhet og åpenhet** - forbrukeren vet hvem som har laget maten
+4. **Tradisjonelle eller særegne produkter** - gjerne med lokal tilknytning
+5. **Produsenten er synlig** - ofte direkte kontakt mellom produsent og kunde
+6. **Ferske råvarer** - kort tid fra produksjon til salg
+7. **Lokal identitet** - tilknyttet et bestemt sted eller region`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3023,7 +3590,15 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
         number: '2',
         type: 'classic',
         task: 'Nevn fem grunner til at forbrukere velger lokalmat.',
-        solution: 'Kvalitet og smak, miljøhensyn, tillit og sporbarhet, støtte lokale arbeidsplasser, opplevelse og mat med historie.',
+        solution: `**Grunner til at forbrukere velger lokalmat:**
+
+1. **Kvalitet og smak** - håndlaget med ferske råvarer smaker bedre
+2. **Miljøhensyn** - kortere transport gir lavere klimaavtrykk
+3. **Tillit og sporbarhet** - vet hvem som har laget maten, kan besøke gården
+4. **Støtte lokale arbeidsplasser** - pengene blir i lokalsamfunnet
+5. **Opplevelse og historie** - maten har en fortelling, ikke bare industrivare
+6. **Unik smak** - tradisjonelle oppskrifter og lokale råvarer
+7. **Trygghet** - direkte kommunikasjon med produsenten ved spørsmål`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3035,8 +3610,24 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
         id: 'naturbruk-vg1-8-5-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hva er REKO-ringer?',
-        solution: 'REKO-ringer er Facebook-baserte grupper der produsenter legger ut tilbud og forbrukere bestiller. Handelen skjer på avtalt møtested uten mellomledd.',
+        task: 'Hva er REKO-ringer og hvordan fungerer de?',
+        solution: `**REKO-ringer** er Facebook-baserte grupper for direktesalg av mat fra produsent til forbruker.
+
+**Slik fungerer det:**
+1. Produsenten legger ut et tilbud i Facebook-gruppen med bilde, beskrivelse og pris
+2. Forbrukere bestiller ved å kommentere på innlegget
+3. På et avtalt tidspunkt møtes alle på et fast sted (ofte en parkeringsplass)
+4. Produsenten har med de bestilte varene
+5. Kundene henter og betaler (kontant eller Vipps)
+6. Hele handelen tar 15-30 minutter
+
+**Fordeler:**
+- Ingen mellommann - produsenten beholder hele prisen
+- Direkte kundekontakt
+- Lav terskel for å starte
+- Sosialt og hyggelig
+
+Det finnes over 100 REKO-ringer i Norge.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3048,8 +3639,17 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
         id: 'naturbruk-vg1-8-5-ex-4',
         number: '4',
         type: 'classic',
-        task: 'Nevn fire salgskanaler for lokalmat.',
-        solution: 'REKO-ringer, bondens marked, gårdsbutikk, spesialbutikker, abonnementsordninger, nettbutikk.',
+        task: 'Nevn seks salgskanaler for lokalmat og beskriv kort hver av dem.',
+        solution: `**Salgskanaler for lokalmat:**
+
+1. **REKO-ringer** - Facebook-grupper der kunder bestiller og henter på fast sted
+2. **Bondens marked** - Ukentlige markeder i byer der flere produsenter selger sammen
+3. **Gårdsbutikk** - Fast butikk på gården, ofte kombinert med gårdsbesøk og opplevelser
+4. **Spesialbutikker** - Nisjebutikker som kjøper inn lokalmat for videresalg
+5. **Abonnementsordninger** - Kunder får levert grønnsakskasser eller kjøttpakker regelmessig
+6. **Nettbutikk** - Egen nettside eller felles plattform som lokalmat.no
+7. **Restauranter** - Lokale spisesteder som ønsker ferske, lokale råvarer
+8. **Hoteller og catering** - Større kunder som vil ha lokalt preg på maten`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3061,8 +3661,179 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
         id: 'naturbruk-vg1-8-5-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Hva er viktig for å lykkes som lokalmatprodusent?',
-        solution: 'Høy kvalitet, god fortelling om produktet, god kundekontakt, aktiv markedsføring, god økonomistyring.',
+        task: 'Hva er viktig for å lykkes som lokalmatprodusent? Nevn minst fem faktorer.',
+        solution: `**Suksessfaktorer for lokalmatprodusent:**
+
+1. **Høy kvalitet** - produktet må holde jevn, god kvalitet
+2. **Noe unikt** - skille seg ut fra det kundene får i butikken
+3. **God fortelling** - hvem er du, hvorfor gjør du dette, hva er historien?
+4. **Kundekontakt** - vær tilgjengelig, hyggelig, lytt til tilbakemeldinger
+5. **Aktiv markedsføring** - bruk sosiale medier, delta på arrangementer
+6. **God økonomistyring** - hold oversikt over kostnader, sett riktig pris
+7. **Start smått** - test markedet før du investerer stort
+8. **Nettverk** - samarbeid med andre produsenter
+9. **Tålmodighet** - det tar tid å bygge kundebase og merkevare`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-6',
+        number: '6',
+        type: 'classic',
+        task: `Du skal selge 200 kg poteter. Beregn lønnsomheten ved direktesalg vs. salg til grossist.
+
+**Direktesalg på bondens marked:**
+- Pris per kg: 18 kr
+- Leie av markedsplass: 300 kr
+- Poser og merking: 150 kr
+- Transport: 200 kr
+- Arbeidstid: 6 timer × 250 kr/time
+
+**Salg til grossist:**
+- Pris per kg: 5 kr
+- Storsekker: 40 kr
+- Transport (hentet av grossist): 0 kr
+- Arbeidstid: 0,5 timer × 250 kr/time`,
+        solution: `**DIREKTESALG PÅ BONDENS MARKED:**
+
+Inntekt: 200 kg × 18 kr = 3 600 kr
+
+Kostnader:
+- Markedsleie: 300 kr
+- Poser og merking: 150 kr
+- Transport: 200 kr
+- Arbeidstid: 6 timer × 250 kr = 1 500 kr
+- **Sum kostnader: 2 150 kr**
+
+**Netto inntekt: 3 600 - 2 150 = 1 450 kr**
+
+---
+
+**SALG TIL GROSSIST:**
+
+Inntekt: 200 kg × 5 kr = 1 000 kr
+
+Kostnader:
+- Storsekker: 40 kr
+- Arbeidstid: 0,5 timer × 250 kr = 125 kr
+- **Sum kostnader: 165 kr**
+
+**Netto inntekt: 1 000 - 165 = 835 kr**
+
+---
+
+**SAMMENLIGNING:**
+- Direktesalg gir 1 450 - 835 = **615 kr mer**
+- Men krever 5,5 timer mer arbeid
+- Merverdi per ekstra time: 615 / 5,5 = **112 kr/time**
+
+I dette tilfellet gir direktesalg litt bedre betaling, men forskjellen per time er moderat. Om det lønner seg avhenger av om du har annet arbeid du kan gjøre i stedet.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-7',
+        number: '7',
+        type: 'classic',
+        task: `Beregn hva du må ta for et glass hjemmelaget bringebærsyltetøy (350g) for å få en fortjeneste på 25%.
+
+Kostnader:
+- Bær (1 kg bær gir 3 glass): Markedspris 120 kr/kg
+- Sukker: 5 kr per glass
+- Pektin: 3 kr per glass
+- Glass med lokk: 7 kr
+- Etikett: 2 kr
+- Arbeidstid per glass: 12 minutter (timelønn 200 kr)`,
+        solution: `**Beregning av kostnader per glass:**
+
+**Råvarer:**
+- Bær: 120 kr/kg ÷ 3 glass = 40 kr
+- Sukker: 5 kr
+- Pektin: 3 kr
+- **Sum råvarer: 48 kr**
+
+**Emballasje:**
+- Glass med lokk: 7 kr
+- Etikett: 2 kr
+- **Sum emballasje: 9 kr**
+
+**Arbeid:**
+- 12 minutter = 0,2 timer
+- 0,2 timer × 200 kr = 40 kr
+- **Arbeidskostnad: 40 kr**
+
+**Total kostnad per glass: 48 + 9 + 40 = 97 kr**
+
+**Beregning av pris med 25% fortjeneste:**
+
+Fortjeneste = 97 kr × 0,25 = 24,25 kr
+
+**Utsalgspris = 97 + 24,25 = 121,25 kr**
+
+**Avrundet pris: 125 kr per glass**
+
+Dette er en høy pris sammenlignet med industrisyltetøy (40-60 kr), men hjemmelaget premium-syltetøy med lokale bær kan forsvare denne prisen i direktesalg.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-5-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-8',
+        number: '8',
+        type: 'classic',
+        task: `En gård vil starte med salg av egg direkte til forbruker via REKO-ring. De har 50 høner som legger gjennomsnittlig 280 egg per høne per år.
+
+Beregn:
+a) Årlig eggproduksjon i antall egg og brett (30 egg per brett)
+b) Pris per brett for å dekke kostnadene og gi 20% fortjeneste
+
+Årlige kostnader:
+- Fôr: 15 000 kr
+- Strø og diverse: 2 000 kr
+- Emballasje (eggbrett): 500 kr
+- Arbeid (beregnet): 8 000 kr
+- Andel faste kostnader (hus, utstyr): 4 000 kr`,
+        solution: `**a) Årlig eggproduksjon:**
+
+Antall egg: 50 høner × 280 egg = **14 000 egg per år**
+
+Antall brett: 14 000 ÷ 30 = **467 brett per år** (avrundet ned)
+
+---
+
+**b) Pris per brett:**
+
+**Totale årlige kostnader:**
+- Fôr: 15 000 kr
+- Strø og diverse: 2 000 kr
+- Emballasje: 500 kr
+- Arbeid: 8 000 kr
+- Faste kostnader: 4 000 kr
+- **Sum kostnader: 29 500 kr**
+
+**Kostnad per brett:**
+29 500 kr ÷ 467 brett = 63,17 kr per brett
+
+**Med 20% fortjeneste:**
+63,17 kr × 1,20 = 75,80 kr
+
+**Anbefalt pris: 75-80 kr per brett**
+
+**Kontroll:** 467 brett × 75 kr = 35 025 kr i inntekt
+Fortjeneste: 35 025 - 29 500 = 5 525 kr (18,7% margin)
+
+Til sammenligning koster et brett økologiske egg ca. 70-90 kr i butikken, så prisen er konkurransedyktig for gårdsferske egg.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3072,7 +3843,10 @@ Stiftelsen Norsk Mat arbeider for å fremme norske matspesialiteter.`,
 };
 
 // ============================================================================
-// KAPITTEL 8.6: Digitale verktøy i naturbruk
+// KAPITTEL 8.6: Digitale verktøy i naturbruk (UTVIDET)
+// ============================================================================
+// LK20-kompetansemål #4: "Velge og bruke analoge og digitale verktøy til
+// planlegging og gjennomføring av arbeidsoppgaver"
 // ============================================================================
 
 export const CHAPTER_NATURBRUK_VG1_8_6: TextbookChapter = {
@@ -3080,11 +3854,13 @@ export const CHAPTER_NATURBRUK_VG1_8_6: TextbookChapter = {
   courseId: 'naturbruk-vg1',
   chapterNumber: '8.6',
   title: 'Digitale verktøy i naturbruk',
-  description: 'Lær om hvordan digitale verktøy brukes i moderne naturbruk.',
-  estimatedMinutes: 45,
+  description: 'Lær om hvordan digitale verktøy brukes i moderne naturbruk for planlegging, gjennomføring og dokumentasjon av arbeidsoppgaver.',
+  estimatedMinutes: 90,
   competenceGoals: [
     'beskrive digitale verktøy som brukes i naturbruk',
     'vurdere fordeler og utfordringer med digitalisering',
+    'velge og bruke analoge og digitale verktøy til planlegging og gjennomføring av arbeidsoppgaver',
+    'dokumentere arbeid digitalt og forstå krav til sporbarhet',
   ],
   content: [
     {
@@ -3098,7 +3874,10 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 - Digitale verktøy i landbruk, skog og havbruk
 - Presisjonslandbruk
 - GPS og kartverktøy
-- Sensorer og overvåking`,
+- Sensorer og overvåking
+- Planleggingsverktøy og apps
+- Digital dokumentasjon og sporbarhet
+- Praktisk bruk av teknologi i felt`,
     },
     {
       id: 'naturbruk-vg1-8-6-def-1',
@@ -3107,6 +3886,49 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
       content: `**Presisjonslandbruk** er bruk av teknologi for å tilpasse innsatsfaktorene til det faktiske behovet i hver del av et jorde.
 
 **Mål:** Riktig mengde på riktig sted til riktig tid - bedre økonomi og miljø.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-def-gis',
+      type: 'definition',
+      title: 'GIS - Geografisk informasjonssystem',
+      content: `**GIS (Geografisk informasjonssystem)** er programvare for å samle inn, lagre, analysere og presentere geografiske data.
+
+**Bruk i naturbruk:**
+- Kartlegging av jordtyper, terreng og vegetasjon
+- Planlegging av hogst, beite og infrastruktur
+- Analyse av arealbruk over tid
+- Beregning av avlinger basert på jordkvalitet
+
+**Eksempler på GIS-verktøy:** QGIS (gratis), ArcGIS, Gårdskart, Kilden (fra NIBIO).`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-def-iot',
+      type: 'definition',
+      title: 'IoT - Internet of Things',
+      content: `**IoT (Internet of Things)** er et nettverk av sensorer og enheter som kommuniserer via internett.
+
+**Eksempler i naturbruk:**
+- Sensorer som måler jordfuktighet og sender data til mobilen
+- Værstasjoner som varsler om frost
+- Halsbånd på kyr som registrerer aktivitet og helse
+- Vannkvalitetsmålere i oppdrettsanlegg
+
+**Fordel:** Kontinuerlig overvåking uten å være fysisk til stede.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-def-dokumentasjon',
+      type: 'definition',
+      title: 'Digital dokumentasjon',
+      content: `**Digital dokumentasjon** er systematisk registrering av aktiviteter, observasjoner og resultater i digitale systemer.
+
+**Krav i norsk naturbruk:**
+- Plantevernjournal (lovpålagt)
+- Gjødselplan
+- Husdyrjournal
+- KSL-dokumentasjon (Kvalitetssystem i Landbruket)
+- Sporbarhet i matproduksjon
+
+**Fordeler:** Raskere rapportering, enklere tilsyn, bedre oversikt over egen drift.`,
     },
     {
       id: 'naturbruk-vg1-8-6-text-1',
@@ -3122,6 +3944,29 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 - Ingen overlapp
 - Kan kjøre i mørke
 - Mindre forbruk av innsatsmidler`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-text-gps-praktisk',
+      type: 'text',
+      content: `## Praktisk bruk av GPS og kartverktøy i felt
+
+**Grunnleggende GPS-bruk:**
+1. **Markering av punkter:** Registrer viktige steder (grensemerker, dreneringsbrønner, sykdomsutbrudd)
+2. **Navigering:** Finn tilbake til tidligere registrerte punkter
+3. **Arealberegning:** Mål størrelsen på skifter og arealer
+4. **Sporlogging:** Dokumenter hvor du har vært (f.eks. ved sprøyting)
+
+**Kartverktøy du bør kunne:**
+- **Gårdskart (NIBIO):** Offisielle kart over din eiendom, jordbruksareal og AR5-data
+- **Kilden (NIBIO):** Detaljerte kart med jordtype, bonitet, vernede områder
+- **Norgeskart/Kartverket:** Topografiske kart, historiske flyfoto
+- **Google Earth:** Enkel visualisering, måling av avstander
+
+**Tips for feltarbeid:**
+- Last ned kart offline før du drar ut (ikke alltid mobildekning)
+- Bruk solcellelader for GPS og mobil
+- Ta backup av viktige waypoints
+- Kombiner GPS med papirkart som reserve`,
     },
     {
       id: 'naturbruk-vg1-8-6-def-2',
@@ -3146,6 +3991,100 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 **I havbruk:** Undervannssensorer, fôringsautomatikk`,
     },
     {
+      id: 'naturbruk-vg1-8-6-text-sensorer-praktisk',
+      type: 'text',
+      content: `## Sensorer og datainnsamling i praksis
+
+**Værstasjon på gården:**
+En enkel værstasjon kan måle temperatur, nedbør, luftfuktighet, vindstyrke og jordtemperatur. Dataene lagres i skyen og kan brukes til:
+- Varsling om nattefrost (dekk til planter)
+- Optimalt sprøytetidspunkt (temperatur, vind, fuktighet)
+- Dokumentasjon av værforhold ved skader
+- Beregning av varmesum for såing og høsting
+
+**Jordfuktighetssensorer:**
+- Plasseres i ulike dybder (10, 30, 50 cm)
+- Viser når det er behov for vanning
+- Forhindrer overvanning (sparer vann og energi)
+- Viktig i veksthus og på arealer med vanning
+
+**Dyreovervåking:**
+- **Aktivitetsmålere (pedometer):** Registrerer bevegelse, oppdager brunst og sykdom
+- **Drøvtyggingssensor:** Måler drøvtygging, varsler ved fordøyelsesproblemer
+- **GPS-bjeller på beitedyr:** Sporer hvor dyra er, setter opp virtuelle gjerder
+- **Kamera i fjøset:** Overvåking av kalving, generell dyrevelferd
+
+**Dataflyt fra sensor til beslutning:**
+1. Sensor måler kontinuerlig
+2. Data sendes til sky via mobilnett eller WiFi
+3. Programvare analyserer og gir varsel
+4. Du får melding på mobilen
+5. Du tar beslutning og handler`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-text-apps',
+      type: 'text',
+      content: `## Planleggingsverktøy og apps for naturbruk
+
+**Landbruk:**
+- **Jordplan:** Gjødselplanlegging og dokumentasjon
+- **Skifteplan:** Oversikt over vekstskifte og tiltak
+- **CropSAT:** Variabel gjødsling basert på satellittbilder
+- **Yara CheckIT:** Identifiser næringsmangel med mobilkamera
+- **KSL-appen:** Kvalitetssikring og egenrevisjon
+
+**Skogbruk:**
+- **Skogbruksplan (digital):** Oversikt over bestand, bonitet, hogstklasser
+- **Allma:** Skogforvaltning, driftsplanlegging
+- **ArborPlan:** Driftsøkonomi i skogbruket
+- **SkogsGIS:** Kartbasert skogforvaltning
+
+**Havbruk:**
+- **AquaManager:** Drift og overvåking av oppdrettsanlegg
+- **OCEA:** Driftsoptimalisering
+- **Fishtalk:** Fiskehelse og dokumentasjon
+
+**Generelle verktøy:**
+- **Yr/Storm:** Værmelding og varsler
+- **Avenza Maps:** Bruk PDF-kart med GPS
+- **ArcGIS Field Maps:** Datainnsamling i felt
+- **Clockify/Toggl:** Timeregistrering`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-text-dokumentasjon',
+      type: 'text',
+      content: `## Digital dokumentasjon og sporbarhet
+
+**Hvorfor er dokumentasjon viktig?**
+Forbrukere og myndigheter krever sporbarhet - muligheten til å følge et produkt fra jord/fjøs til bord. Digital dokumentasjon gjør dette enklere og mer pålitelig.
+
+**Lovpålagte krav:**
+- **Plantevernjournal:** Dato, preparat, dose, skifte, værforhold
+- **Gjødselplan:** Mengder og tidspunkt for all gjødsling
+- **Husdyrjournal:** Individregistrering, behandlinger, hendelser
+- **Matloven:** Sporbarhet gjennom hele verdikjeden
+
+**KSL (Kvalitetssystem i Landbruket):**
+KSL er bondens eget kvalitetssystem. Digital KSL gir:
+- Oversikt over krav og sjekklister
+- Automatisk varsling om frister
+- Dokumentasjon ved kontroll
+- Tilleggsbetaling fra varemottaker
+
+**Sporbarhet i praksis:**
+1. Såvare registreres med parti-nummer
+2. Alle tiltak loggføres med dato og mengde
+3. Høsting registreres per skifte
+4. Varen følger med ID til varemottaker
+5. Forbruker kan spore produktet tilbake
+
+**Tips for god dokumentasjon:**
+- Registrer underveis, ikke etterpå
+- Bruk automatikk der mulig (GPS-logg, sensorer)
+- Ha backup av viktig data
+- Vær ærlig - dokumentasjon er ikke verdt noe hvis den ikke stemmer`,
+    },
+    {
       id: 'naturbruk-vg1-8-6-tip-1',
       type: 'tip',
       title: 'Hold deg oppdatert',
@@ -3157,12 +4096,33 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 **Teknologi er et verktøy - det erstatter ikke fagkunnskap.**`,
     },
     {
+      id: 'naturbruk-vg1-8-6-tip-valg',
+      type: 'tip',
+      title: 'Hvordan velge riktig verktøy?',
+      content: `**Still disse spørsmålene:**
+1. Hvilket problem skal løses?
+2. Hva koster det (innkjøp + drift + opplæring)?
+3. Er det kompatibelt med det jeg har fra før?
+4. Finnes det support og opplæring på norsk?
+5. Hva sier andre brukere?
+
+**Start enkelt:**
+- Velg ett område å digitalisere først
+- Lær det ordentlig før du går videre
+- Ikke kjøp teknologi for teknologiens skyld
+
+**Kombiner analogt og digitalt:**
+- Papirnotater som backup
+- Visuelle observasjoner supplerer sensordata
+- Erfaring + data = bedre beslutninger`,
+    },
+    {
       id: 'naturbruk-vg1-8-6-def-3',
       type: 'definition',
       title: 'Kunstig intelligens',
       content: `**Kunstig intelligens (AI)** er datasystemer som kan lære og ta beslutninger.
 
-**I naturbruk:** Bildegjenkjenning (ugress, sykdom), prediktiv vedlikehold, optimalisering av fôring.`,
+**I naturbruk:** Bildegjenkjenning (ugress, sykdom), prediktivt vedlikehold, optimalisering av fôring.`,
     },
     {
       id: 'naturbruk-vg1-8-6-ex-1',
@@ -3225,6 +4185,142 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
         type: 'classic',
         task: 'Hvordan kan kunstig intelligens brukes i naturbruk?',
         solution: 'Bildegjenkjenning av ugress og sykdom, prediktivt vedlikehold av maskiner, optimalisering av fôring, automatisk sortering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-6',
+        number: '6',
+        type: 'classic',
+        task: `Du skal planlegge sprøyting av et 20 dekar stort jorde. Hvilke digitale verktøy kan du bruke i planleggingen, og hvordan vil du dokumentere arbeidet?`,
+        solution: `**Planlegging:**
+- Gårdskart/Kilden: Finn nøyaktig areal og jordtype
+- Yr/VIPS: Sjekk værmelding og eventuelt sykdomsvarsling
+- Plantevernkatalogen: Finn godkjent preparat og dose
+
+**Gjennomføring:**
+- GPS i traktor: Sikre full dekning uten overlapp
+- Seksjonskontroll: Automatisk av/på ved kantene
+
+**Dokumentasjon (plantevernjournal):**
+- Dato og klokkeslett
+- Skifte og areal
+- Preparat, dose og vannmengde
+- Værforhold (temp, vind, fuktighet)
+- Behandlingsfrist
+- Signatur
+
+**Tips:** Bruk digital plantevernjournal (f.eks. i Skifteplan) for enkel rapportering og backup.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-6-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-7',
+        number: '7',
+        type: 'classic',
+        task: `Forklar hva GIS er og gi to konkrete eksempler på hvordan det kan brukes i skogbruk.`,
+        solution: `**GIS (Geografisk informasjonssystem)** er programvare for å samle inn, lagre, analysere og presentere geografiske data.
+
+**Eksempel 1 - Hogstplanlegging:**
+- Importer skogbruksplan til GIS
+- Analyser bonitet, hogstklasse og terreng
+- Beregn driftsveilengder og adkomst
+- Planlegg optimale driftsveier
+- Beregn forventet tømmervolum
+
+**Eksempel 2 - Miljøhensyn:**
+- Legg inn data om vernede områder, bekkedrag, kulturminner
+- Definer kantsoner og nøkkelbiotoper
+- Sjekk om planlagt hogst kommer i konflikt
+- Dokumenter miljøhensyn for sertifisering (PEFC)`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-6-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-8',
+        number: '8',
+        type: 'classic',
+        task: `En melkebonde vurderer å investere i aktivitetsmålere på kyrne. Beskriv hvilken informasjon slike sensorer kan gi, og hvordan dette kan forbedre driften.`,
+        solution: `**Informasjon fra aktivitetsmålere:**
+- Antall skritt per dag
+- Liggetid og hvileperioder
+- Drøvtygging (med drøvtyggingssensor)
+- Etetid ved fôrbrettet
+- Endringer i aktivitetsmønster
+
+**Hvordan det forbedrer driften:**
+
+**Brunstdeteksjon:**
+- Økt aktivitet indikerer brunst
+- Automatisk varsling på mobil
+- Bedre insemineringsresultater
+- Kortere kalvingsintervall
+
+**Sykdomsvarsling:**
+- Redusert aktivitet kan indikere sykdom
+- Tidlig oppdaging = raskere behandling
+- Mindre produksjonstap
+- Bedre dyrevelferd
+
+**Praktisk:**
+- Varsling om kyr som ikke har spist
+- Identifisere dyr som bør sjekkes
+- Dokumentasjon av dyrevelferd
+
+**Økonomisk:**
+- Investering: ca. 1 500-3 000 kr per ku
+- Gevinst: Bedre fruktbarhet, mindre sykdom, høyere ytelse`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-6-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-9',
+        number: '9',
+        type: 'classic',
+        task: `Hva er IoT (Internet of Things), og hvordan kan det brukes til å overvåke et veksthus? Beskriv minst tre sensorer og hva de måler.`,
+        solution: `**IoT (Internet of Things)** er et nettverk av sensorer og enheter som kommuniserer via internett, slik at du kan overvåke og styre uten å være fysisk til stede.
+
+**Sensorer i veksthus:**
+
+**1. Temperatursensor:**
+- Måler lufttemperatur inne og ute
+- Varsler ved for høy/lav temperatur
+- Styrer automatisk ventilasjon og varme
+
+**2. Jordfuktighetssensor:**
+- Måler vanninnhold i vekstmediet
+- Varsler når det er behov for vanning
+- Kan styre automatisk vanningsanlegg
+- Forhindrer over- og undervanning
+
+**3. Lyssensor (PAR-sensor):**
+- Måler lysmengden plantene får
+- Styrer vekstlys automatisk
+- Optimaliserer energiforbruk
+
+**4. CO2-sensor:**
+- Måler karbondioksid i luften
+- Styrer CO2-tilførsel for bedre vekst
+- Varsler ved farlig høye nivåer
+
+**Dataflyt:**
+Sensor -> Gateway -> Sky -> App -> Varsling/automatikk`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3392,11 +4488,12 @@ export const CHAPTER_NATURBRUK_VG1_8_8: TextbookChapter = {
   courseId: 'naturbruk-vg1',
   chapterNumber: '8.8',
   title: 'Fremtidens naturbruk',
-  description: 'Lær om trender, utfordringer og muligheter for naturbruk i fremtiden.',
-  estimatedMinutes: 50,
+  description: 'Lær om trender, utfordringer og muligheter for naturbruk i fremtiden, samt krav til profesjonell yrkesutøvelse og samarbeid i arbeidslivet.',
+  estimatedMinutes: 75,
   competenceGoals: [
     'reflektere over fremtidige utfordringer og muligheter',
     'vurdere naturbrukets rolle i det grønne skiftet',
+    'reflektere over hvilke krav og forventninger som blir stilt til en profesjonell yrkesutøver knyttet til samhandling og deltakelse i samfunnsdebatten om natur, ressursbruk og forvaltning',
   ],
   content: [
     {
@@ -3411,7 +4508,10 @@ Naturbruk står midt i store endringer. Klimaendringer, teknologisk utvikling og
 - Klimaendringer og tilpasning
 - Teknologiske muligheter
 - Nye næringer og produkter
-- Din rolle i fremtidens naturbruk`,
+- Din rolle i fremtidens naturbruk
+- Partene i arbeidslivet og dine rettigheter
+- Samarbeid og profesjonell yrkesutøvelse
+- Deltakelse i samfunnsdebatten`,
     },
     {
       id: 'naturbruk-vg1-8-8-def-1',
@@ -3490,6 +4590,316 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 
 **Fremtidens naturbruk formes av dem som velger å være med!**`,
     },
+
+    // ========================================================================
+    // NYE SEKSJONER: Arbeidsliv og samarbeid
+    // ========================================================================
+
+    {
+      id: 'naturbruk-vg1-8-8-text-arbeidsliv-intro',
+      type: 'text',
+      content: `## Arbeidslivet i naturbruksnæringene
+
+Som profesjonell yrkesutøver i naturbruk vil du være del av et organisert arbeidsliv med klare regler, rettigheter og plikter. Enten du jobber på en gård, i skogen, på et oppdrettsanlegg eller i et gartneri, gjelder de samme grunnleggende prinsippene for et godt arbeidsmiljø.
+
+**Det norske arbeidslivet kjennetegnes av:**
+- Sterke rettigheter for arbeidstakere
+- Samarbeid mellom partene
+- Fokus på helse, miljø og sikkerhet
+- Medbestemmelse og demokrati på arbeidsplassen
+
+Å forstå hvordan arbeidslivet fungerer er viktig for din fremtid som yrkesutøver.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-def-arbeidsmiljolov',
+      type: 'definition',
+      title: 'Arbeidsmiljøloven',
+      content: `**Arbeidsmiljøloven (AML)** er den viktigste loven som regulerer arbeidsforhold i Norge. Den gjelder for nesten alle virksomheter og arbeidstakere.
+
+**Loven sikrer:**
+- Trygge ansettelsesforhold
+- Et fullt forsvarlig arbeidsmiljø
+- Vern mot diskriminering
+- Rett til medvirkning
+- Arbeidstidsbestemmelser
+- Stillingsvern ved oppsigelse
+
+**Alle arbeidstakere i naturbruk er omfattet av arbeidsmiljøloven, også sesongarbeidere og deltidsansatte.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-def-tariffavtale',
+      type: 'definition',
+      title: 'Tariffavtale',
+      content: `En **tariffavtale** er en skriftlig avtale mellom en fagforening og en arbeidsgiver eller arbeidsgiverforening om lønns- og arbeidsvilkår.
+
+**Tariffavtalen regulerer typisk:**
+- Minstelønn og lønnstillegg
+- Arbeidstid og overtidsbetaling
+- Ferie og fridager
+- Pensjon og forsikringer
+- Permisjonsrettigheter
+
+**I naturbruk er det flere tariffavtaler:**
+- Landbruksoverenskomsten (gårdsarbeid)
+- Gartnerioverenskomsten
+- Fiskerioverenskomster
+
+**En tariffavtale gir ofte bedre vilkår enn lovens minstekrav.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-def-hms-representant',
+      type: 'definition',
+      title: 'HMS-representant (verneombud)',
+      content: `**HMS-representant** eller **verneombud** er en arbeidstaker som er valgt til å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet.
+
+**Oppgaver:**
+- Påse at arbeidet utføres på en sikker måte
+- Varsle om farlige forhold
+- Delta i planlegging av tiltak
+- Være kontaktperson mellom ansatte og ledelse i HMS-saker
+
+**Alle virksomheter med 10 eller flere ansatte skal ha verneombud. I naturbruk er dette spesielt viktig på grunn av mange fysiske risikofaktorer.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-def-tillitsvalgt',
+      type: 'definition',
+      title: 'Tillitsvalgt',
+      content: `En **tillitsvalgt** er en arbeidstaker som er valgt av de fagorganiserte på arbeidsplassen til å representere dem overfor arbeidsgiver.
+
+**Rollen innebærer:**
+- Forhandle på vegne av medlemmene
+- Bistå i konflikter og personalsaker
+- Informere om rettigheter og avtaler
+- Være bindeledd mellom fagforening og arbeidsplass
+
+**Tillitsvalgte har rett til opplæring og tid til å utføre vervet. De har også et spesielt oppsigelsesvern.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-text-parter',
+      type: 'text',
+      content: `## Partene i arbeidslivet
+
+Det norske arbeidslivet er bygget på et samarbeid mellom tre hovedparter:
+
+### Arbeidstaker
+Du som utfører arbeid for en arbeidsgiver. Som arbeidstaker har du rettigheter (lønn, ferie, trygge arbeidsforhold) og plikter (utføre arbeidet, følge instrukser, bidra til godt arbeidsmiljø).
+
+### Arbeidsgiver
+Den som ansetter og betaler deg. Arbeidsgiver har ansvar for å sikre et forsvarlig arbeidsmiljø, betale lønn til rett tid, og følge lover og avtaler.
+
+### Fagforeninger
+Organisasjoner som representerer arbeidstakerne. De forhandler lønn og arbeidsvilkår, gir juridisk bistand, og påvirker politikken.
+
+**I naturbruk finnes flere relevante fagforeninger:**
+- Fellesforbundet (landbruk, gartneri)
+- Norsk Nærings- og Nytelsesmiddelarbeiderforbund
+- Norsk Sjømannsforbund (fiskeri)
+
+**Arbeidsgiverforeninger i naturbruk:**
+- NHO Mat og Drikke
+- Norges Bondelag (som arbeidsgiver)
+- Sjømat Norge`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-text-rettigheter',
+      type: 'text',
+      content: `## Rettigheter og plikter som arbeidstaker
+
+### Dine viktigste rettigheter:
+
+**Lønn og godtgjørelse:**
+- Rett til avtalt lønn utbetalt til rett tid
+- Overtidsbetaling ved arbeid utover normalarbeidstid
+- Feriepenger (minst 10,2 % av fjorårets lønn)
+
+**Arbeidstid:**
+- Normalarbeidstid på 40 timer per uke (ofte 37,5 med tariffavtale)
+- Rett til pauser
+- Krav på hviletid mellom arbeidsøkter
+
+**Ferie:**
+- Minst 25 virkedager ferie per år
+- Rett til å ta ut tre uker sammenhengende om sommeren
+
+**Trygt arbeidsmiljø:**
+- Rett til opplæring i HMS
+- Rett til verneutstyr uten kostnad
+- Rett til å nekte farlig arbeid
+
+### Dine viktigste plikter:
+
+- Utføre arbeidet etter beste evne
+- Følge arbeidsgivers instrukser (innenfor loven)
+- Melde fra om farlige forhold
+- Bruke påbudt verneutstyr
+- Bidra til et godt arbeidsmiljø
+- Vise lojalitet til arbeidsplassen`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-text-samarbeid',
+      type: 'text',
+      content: `## Samarbeid og konflikthåndtering på arbeidsplassen
+
+Et godt arbeidsmiljø bygges gjennom samarbeid og god kommunikasjon. I naturbruksnæringene jobber man ofte tett sammen, og evnen til å samarbeide er avgjørende.
+
+### Nøkler til godt samarbeid:
+
+**Kommunikasjon:**
+- Vær tydelig i beskjeder
+- Lytt aktivt til andre
+- Gi og ta imot konstruktiv tilbakemelding
+- Still spørsmål når noe er uklart
+
+**Respekt:**
+- Anerkjenn andres kompetanse
+- Behandle alle likt uavhengig av bakgrunn
+- Godta at folk er forskjellige
+
+**Ansvar:**
+- Ta ansvar for egne oppgaver
+- Bidra til fellesskapet
+- Innrøm feil og lær av dem
+
+### Når konflikter oppstår:
+
+Konflikter er naturlig på enhver arbeidsplass. Det viktige er hvordan de håndteres:
+
+1. **Ta det tidlig:** Ikke la små irritasjoner vokse seg store
+2. **Snakk direkte:** Gå til den det gjelder, ikke baksnakk
+3. **Fokuser på sak, ikke person:** "Dette fungerer ikke" i stedet for "Du gjør alltid..."
+4. **Søk løsninger:** Hva kan vi gjøre for å løse dette?
+5. **Bruk tillitsvalgt eller verneombud:** Ved alvorlige konflikter
+
+**I naturbruk kan konflikter oppstå om arbeidsfordeling, sikkerhetsprosedyrer eller faglige uenigheter. God konflikthåndtering gjør arbeidsplassen tryggere og mer produktiv.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-text-profesjonell',
+      type: 'text',
+      content: `## Profesjonell yrkesutøvelse og samfunnsansvar
+
+Å være profesjonell handler om mer enn å kunne faget sitt. Det handler om holdninger, etikk og evne til å representere næringen på en god måte.
+
+### Kjennetegn på profesjonell yrkesutøvelse:
+
+**Faglig kompetanse:**
+- Holder seg oppdatert på ny kunnskap
+- Erkjenner egne begrensninger
+- Søker veiledning ved behov
+
+**Pålitelighet:**
+- Kommer til avtalt tid
+- Gjør det man har sagt man skal gjøre
+- Holder tidsfrister
+
+**Etisk bevissthet:**
+- Tar hensyn til dyrevelferd
+- Tenker på miljøkonsekvenser
+- Er ærlig i alle forhold
+
+**Kommunikasjonsevne:**
+- Kan forklare faglige valg
+- Håndterer kunder og publikum profesjonelt
+- Deltar konstruktivt i faglige diskusjoner
+
+### Deltakelse i samfunnsdebatten
+
+Som naturbruksarbeider har du en unik posisjon i samfunnsdebatten om natur, ressursbruk og forvaltning. Du har førstehåndskunnskap som er verdifull.
+
+**Hvorfor delta:**
+- Du vet hvordan det faktisk fungerer i praksis
+- Beslutninger påvirker din hverdag
+- Næringen trenger talspersoner
+- Demokratiet trenger fagkunnskap
+
+**Hvordan delta:**
+- Skriv leserinnlegg i lokalavisen
+- Delta på folkemøter
+- Engasjer deg i fagorganisasjoner
+- Bruk sosiale medier konstruktivt
+- Snakk med politikere og beslutningstakere
+
+**Viktig:** Vær saklig, bruk fakta, og respekter at andre kan ha andre syn.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-example-1',
+      type: 'example',
+      title: 'Eksempel: HMS-sak på gårdsbruket',
+      content: `**Situasjon:**
+Mari jobber på et melkebruk der gjødselkjelleren skal tømmes. Hun er bekymret fordi det ikke finnes gassmasker tilgjengelig, og hun vet at hydrogensulfid fra gjødselen kan være livsfarlig.
+
+**Maris handlinger:**
+1. Hun tar opp bekymringen med driftslederen
+2. Driftslederen avfeier det: "Vi har alltid gjort det sånn"
+3. Mari kontakter verneombudet på gården
+4. Verneombudet tar saken videre til arbeidsgiver
+5. Arbeidsgiver skaffer gassmasker og gassmåler
+6. Det blir laget rutiner for sikker tømming
+
+**Resultat:**
+Mari brukte sin rett til å varsle om farlige forhold. Hun gikk tjenestevei og fikk støtte fra verneombudet. Dette førte til bedre sikkerhet for alle ansatte.
+
+**Læringspunkt:**
+- Du har rett til å si fra om farlige forhold
+- Bruk verneombudet som ressurs
+- Dokumenter alltid sikkerhetsbekymringer
+- God HMS kommer alle til gode`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-example-2',
+      type: 'example',
+      title: 'Eksempel: Deltakelse i samfunnsdebatten',
+      content: `**Situasjon:**
+Jonas er lærling i skogbruk. Han leser i avisen at kommunen vurderer å frede et skogområde der bedriften hans driver hogst. I kommentarfeltet er det mange som mener at all hogst er miljøødeleggende.
+
+**Jonas' respons:**
+Jonas skriver et saklig leserinnlegg der han:
+1. Presenterer seg og sin bakgrunn
+2. Forklarer hvordan bærekraftig skogbruk fungerer
+3. Beskriver hvordan de planter nye trær etter hogst
+4. Forteller om sertifiseringssystemer (PEFC, FSC)
+5. Anerkjenner at vern også er viktig i noen områder
+6. Inviterer til dialog og skogvandring
+
+**Resultat:**
+Innlegget skaper debatt, men tonen blir mer nyansert. Kommunen inviterer skogbruket til et møte. Jonas blir bedt om å holde et innlegg på et folkemøte.
+
+**Læringspunkt:**
+- Fagkunnskap er verdifull i samfunnsdebatten
+- Vær saklig og respektfull
+- Anerkjenn andres perspektiver
+- Inviter til dialog fremfor konfrontasjon
+- Du kan påvirke mer enn du tror`,
+    },
+    {
+      id: 'naturbruk-vg1-8-8-tip-2',
+      type: 'tip',
+      title: 'Slik blir du en god kollega',
+      content: `**Praktiske tips for arbeidsplassen:**
+
+**Hver dag:**
+- Si god morgen og hei hade
+- Del informasjon som andre trenger
+- Rydd etter deg
+- Tilby hjelp når du ser behov
+
+**Ved konflikter:**
+- Tell til ti før du reagerer
+- Snakk med personen, ikke om personen
+- Fokuser på løsninger
+
+**For karrieren:**
+- Meld deg inn i fagforeningen
+- Delta på kurs og opplæring
+- Bygg nettverk i næringen
+- Hold deg oppdatert på nyheter i bransjen
+
+**Husk: Et godt rykte bygges over tid, men kan ødelegges raskt!**`,
+    },
+
+    // ========================================================================
+    // OPPGAVER - Eksisterende
+    // ========================================================================
+
     {
       id: 'naturbruk-vg1-8-8-ex-1',
       type: 'exercise',
@@ -3568,6 +4978,579 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
         allowsCanvasDrawing: true,
       },
     },
+
+    // ========================================================================
+    // NYE OPPGAVER - Arbeidsliv og samarbeid
+    // ========================================================================
+
+    {
+      id: 'naturbruk-vg1-8-8-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar hva arbeidsmiljøloven er og nevn tre rettigheter den gir arbeidstakere.',
+        solution: 'Arbeidsmiljøloven er den viktigste loven som regulerer arbeidsforhold i Norge. Den gir arbeidstakere rettigheter som: trygge ansettelsesforhold, fullt forsvarlig arbeidsmiljø, vern mot diskriminering, rett til medvirkning, regulert arbeidstid, og stillingsvern ved oppsigelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-8-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-8',
+        number: '8',
+        type: 'classic',
+        task: 'Hva er forskjellen på en tillitsvalgt og et verneombud (HMS-representant)?',
+        solution: 'En tillitsvalgt er valgt av de fagorganiserte for å representere dem i lønns- og arbeidsvilkår, forhandle med arbeidsgiver, og bistå i personalsaker. Et verneombud (HMS-representant) er valgt for å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet, påse sikker arbeidsutførelse, og varsle om farlige forhold. Tillitsvalgte jobber med avtaler og rettigheter, verneombudet jobber med sikkerhet og arbeidsmiljø.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-8-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-9',
+        number: '9',
+        type: 'classic',
+        task: 'Beskriv de tre hovedpartene i arbeidslivet og hvordan de samarbeider.',
+        solution: 'De tre hovedpartene er: 1) Arbeidstaker - utfører arbeidet og har rettigheter og plikter. 2) Arbeidsgiver - ansetter og har ansvar for arbeidsmiljø og lønn. 3) Fagforeninger - representerer arbeidstakerne og forhandler lønns- og arbeidsvilkår. Samarbeidet (trepartssamarbeidet) fungerer ved at partene forhandler tariffavtaler, løser konflikter gjennom dialog, og samarbeider om å utvikle arbeidslivet. Dette kalles den norske modellen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-8-ex-10',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-10',
+        number: '10',
+        type: 'classic',
+        task: 'Du oppdager at en kollega ikke bruker påbudt verneutstyr under sprøyting av plantevernmidler. Hvordan bør du håndtere denne situasjonen som en profesjonell yrkesutøver?',
+        solution: 'Som profesjonell yrkesutøver bør du: 1) Snakke direkte med kollegaen på en respektfull måte og forklare farene. 2) Hvis kollegaen ikke endrer atferd, melde fra til nærmeste leder eller verneombud. 3) Dokumentere observasjonen. 4) Ikke selv delta i arbeid uten påbudt verneutstyr. Dette handler om å ta ansvar for både kollegaens sikkerhet og et trygt arbeidsmiljø for alle, samtidig som man går tjenestevei og håndterer situasjonen profesjonelt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
+// KAPITTEL 8.9: Presentasjon og markedsføring
+// ============================================================================
+
+export const CHAPTER_NATURBRUK_VG1_8_9: TextbookChapter = {
+  id: 'naturbruk-vg1-8-9',
+  courseId: 'naturbruk-vg1',
+  chapterNumber: '8.9',
+  title: 'Presentasjon og markedsføring',
+  description: 'Lær å presentere næringsaktiviteter, produkter og tjenester for ulike målgrupper.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'presentere næringsaktiviteter, produkter eller tjenester for ulike målgrupper',
+    'velge hensiktsmessige kanaler og virkemidler for markedsføring',
+  ],
+  content: [
+    {
+      id: 'naturbruk-vg1-8-9-intro',
+      type: 'text',
+      content: `## Fra produksjon til kunde
+
+Du kan dyrke de beste grønnsakene, produsere den fineste honningen eller tilby de mest spennende naturopplevelsene - men uten god presentasjon og markedsføring når du ikke frem til kundene. I naturbruk handler det ikke bare om å produsere, men også om å formidle verdien av det du tilbyr.
+
+**I dette kapittelet lærer du:**
+- Hvordan identifisere og tilpasse budskap til ulike målgrupper
+- Effektive markedsføringskanaler for naturbruksprodukter
+- Merkevarebygging og historiefortelling
+- Muntlig presentasjon og formidlingskunst
+- Praktiske verktøy for salg og kundebehandling
+
+**God markedsføring handler om å bygge relasjoner og skape tillit - noe som er helt sentralt når du selger mat og naturopplevelser.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-def-1',
+      type: 'definition',
+      title: 'Målgruppe',
+      content: `En **målgruppe** er den gruppen mennesker du ønsker å nå med produktet eller tjenesten din.
+
+**Eksempler på målgrupper i naturbruk:**
+- Helsebevisste forbrukere (økologisk mat)
+- Barnefamilier (gårdsbesøk, opplevelser)
+- Restauranter og hoteller (lokale råvarer)
+- Miljøbevisste turister (bærekraftig reiseliv)
+
+**Hvorfor viktig?**
+Ulike målgrupper har ulike behov, verdier og kommunikasjonskanaler. Ved å kjenne målgruppen kan du tilpasse budskap og valg av kanal.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-def-2',
+      type: 'definition',
+      title: 'Merkevare',
+      content: `En **merkevare** (brand) er summen av alle assosiasjoner, følelser og forventninger folk har til et produkt, en bedrift eller en person.
+
+**Merkevare i naturbruk:**
+- Gårdens navn og logo
+- Visuell profil (farger, design)
+- Historie og verdier
+- Kvalitet og konsistens
+- Kundeopplevelsen
+
+**En sterk merkevare gjør at kundene velger deg - og er villige til å betale mer.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-def-3',
+      type: 'definition',
+      title: 'Markedsføring',
+      content: `**Markedsføring** er alle aktiviteter som gjør at kunder blir oppmerksomme på, interessert i og kjøper produktene eller tjenestene dine.
+
+**De fire P-ene:**
+- **Produkt:** Hva tilbyr du?
+- **Pris:** Hva koster det?
+- **Plass:** Hvor selger du?
+- **Promotering:** Hvordan kommuniserer du?
+
+**I naturbruk legger vi ofte til en femte P:**
+- **People (mennesker):** Hvem står bak? Historien og ansiktene.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-def-4',
+      type: 'definition',
+      title: 'Salgskanaler',
+      content: `**Salgskanaler** er de stedene og måtene du når ut til kundene på.
+
+**Direkte salgskanaler:**
+- Gårdsbutikk og gårdsutsalg
+- Bondens marked
+- REKO-ringer
+- Nettbutikk med hjemlevering
+
+**Indirekte salgskanaler:**
+- Matbutikker og delikatesseforretninger
+- Restauranter og cateringselskaper
+- Hoteller og reiselivsbedrifter
+- Grossister
+
+**Fordeler med direkte salg:** Høyere pris, direkte kundekontakt, kontroll over merkevare
+**Fordeler med indirekte salg:** Større volum, bredere distribusjon, mindre arbeid med salg`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-text-1',
+      type: 'text',
+      content: `## Profesjonell produktpresentasjon
+
+Hvordan du presenterer produktene dine påvirker direkte hvordan kundene oppfatter kvalitet og verdi.
+
+**Visuell presentasjon**
+
+**Emballasje og merking:**
+- Tydelig og lesbar informasjon
+- Attraktivt design som reflekterer kvalitet
+- Lovpålagt merking (ingredienser, allergener, holdbarhet)
+- Historien bak produktet på etiketten
+
+**Utstilling og eksponering:**
+- Ryddige og innbydende displays
+- Riktig temperatur og oppbevaring
+- Prøvesmaking når mulig
+- Informasjonsskilt med produktinformasjon
+
+**Fotografering:**
+- Gode produktbilder til nett og sosiale medier
+- Naturlig lys gir best resultat
+- Vis produktet i bruk (mat på tallerken, dyr i naturlige omgivelser)
+- Autentiske bilder fra gården bygger tillit
+
+**Skriftlig presentasjon**
+
+**Produktbeskrivelser:**
+- Fremhev det unike: lokal, økologisk, håndlaget
+- Bruk sanselige ord: smak, duft, tekstur
+- Fortell historien kort og engasjerende
+- Inkluder brukstips og oppskrifter`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-text-2',
+      type: 'text',
+      content: `## Markedsføringskanaler for naturbruk
+
+**Sosiale medier**
+
+**Facebook:**
+- Bygge fellesskap og lojalitet
+- Dele nyheter, arrangementer, produkter
+- God for å nå voksne målgrupper
+- Facebook-grupper for lokalmat
+
+**Instagram:**
+- Visuell plattform - perfekt for mat og natur
+- Stories for daglig oppdatering
+- Reels for korte videoer
+- Hashtags for å nå nye følgere (#lokalmat, #bondensprodukter)
+
+**TikTok:**
+- Unge målgrupper
+- Autentisk og uformelt innhold
+- Vis hverdagen på gården
+- Kan gå viralt raskt
+
+**REKO-ring**
+
+REKO (Rejäl Konsumtion) er et system for direktesalg fra produsent til forbruker via Facebook.
+
+**Slik fungerer det:**
+1. Produsenter legger ut varer i en lokal Facebook-gruppe
+2. Kunder bestiller i kommentarfeltet
+3. Utlevering skjer på et fast sted til fast tid
+4. Betaling ved henting
+
+**Fordeler:**
+- Ingen mellommann - hele prisen til produsenten
+- Direkte kundekontakt
+- Fleksibelt - selg det du har tilgjengelig
+- Bygger lokalsamfunn
+
+**Bondens marked**
+
+Fysisk markedsplass for direktesalg:
+- Fast plass og tidspunkt
+- Møte kundene ansikt til ansikt
+- Prøvesmaking og demonstrasjon
+- Nettverksbygging med andre produsenter`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-text-3',
+      type: 'text',
+      content: `## Merkevarebygging for naturbruksprodukter
+
+**Historiefortelling (storytelling)**
+
+Kundene kjøper ikke bare et produkt - de kjøper en historie. I naturbruk har du unike historier å fortelle.
+
+**Elementer i en god historie:**
+- **Mennesker:** Hvem står bak? Familie, tradisjon, lidenskap
+- **Sted:** Hvor kommer produktet fra? Landskap, klima, natur
+- **Prosess:** Hvordan lages det? Håndverk, omsorg, tid
+- **Verdier:** Hvorfor gjør du dette? Bærekraft, kvalitet, dyrevelferd
+
+**Eksempel på historiefortelling:**
+*«På Solbakken gård har vi dyrket jordbær i tre generasjoner. Her, i den solfylte lia over fjorden, modner bærene sakte i den lange sommerdagen. Vi plukker for hånd når smaken er på topp - aldri før.»*
+
+**Visuell identitet**
+
+**Logo og navn:**
+- Enkelt og minneverdig
+- Reflekterer verdier og produkt
+- Fungerer i alle størrelser og formater
+
+**Farger og fonter:**
+- Konsistent bruk bygger gjenkjennelse
+- Naturlige farger passer ofte naturbruk
+- Lesbare fonter for all informasjon
+
+**Kvalitetsstempler og sertifiseringer**
+
+- Debio-merket (økologisk)
+- Nyt Norge
+- Spesialitet-merket
+- Beskyttede betegnelser (f.eks. Hardangereple)
+
+**Disse merkene signaliserer kvalitet og gjør det enklere for kunden å velge.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-text-4',
+      type: 'text',
+      content: `## Muntlig presentasjon og formidling
+
+Enten du står på Bondens marked, holder foredrag for en skoleklasse eller presenterer for en potensiell storkunde - god muntlig formidling er avgjørende.
+
+**Forberedelse**
+
+**Kjenn publikum:**
+- Hvem skal du snakke til?
+- Hva vet de fra før?
+- Hva er de interessert i?
+- Hva ønsker du at de skal gjøre etterpå?
+
+**Strukturer innholdet:**
+- Innledning: Fang oppmerksomheten
+- Hoveddel: 2-3 hovedpunkter
+- Avslutning: Oppsummer og gi en tydelig call-to-action
+
+**Gjennomføring**
+
+**Kroppsspråk:**
+- Stå stødig og åpent
+- Ha øyekontakt
+- Bruk hendene naturlig
+- Smil og vær engasjert
+
+**Stemmebruk:**
+- Snakk tydelig og ikke for fort
+- Varier tempo og styrke
+- Bruk pauser for effekt
+
+**Hjelpemidler:**
+- Vis frem produkter
+- Bruk bilder og video
+- La folk smake, lukte, ta på
+- Enkle plakater eller presentasjoner
+
+**Håndtering av spørsmål**
+
+- Lytt ferdig før du svarer
+- Svar ærlig - innrøm hvis du ikke vet
+- Se spørsmål som mulighet, ikke trussel
+- Takk for gode spørsmål`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-tip-1',
+      type: 'tip',
+      title: 'Tips for vellykket markedsføring',
+      content: `**Vær konsistent:**
+Post regelmessig på sosiale medier. Ha alltid samme kvalitet og stil.
+
+**Vær autentisk:**
+Vis hverdagen - også det som ikke er perfekt. Kundene setter pris på ekthet.
+
+**Engasjer følgerne:**
+Still spørsmål, svar på kommentarer, del kundehistorier.
+
+**Mål resultatene:**
+Hold oversikt over hva som fungerer. Hvilke innlegg får mest respons?
+
+**Start enkelt:**
+Du trenger ikke være overalt. Velg én eller to kanaler og gjør dem godt.
+
+**Husk: Den beste markedsføringen er et godt produkt og en fornøyd kunde som anbefaler deg videre!**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-example-1',
+      type: 'example',
+      title: 'Eksempel: Markedsføring av lokalmat',
+      problem: 'Kari driver en liten gård med geiter og produserer geiteost. Hun selger i dag kun til venner og familie, men ønsker å nå flere kunder. Hvordan kan hun bygge opp markedsføringen?',
+      solution: `**Situasjonsanalyse:**
+- Liten produksjon (50-100 kg ost/måned)
+- Høykvalitetsprodukt med unik smak
+- Begrenset tid og budsjett til markedsføring
+- Beliggenhet: Bygd med turisttrafikk om sommeren
+
+**Anbefalt strategi:**
+
+**Steg 1: Definer målgruppen**
+- Primær: Matinteresserte i nærområdet
+- Sekundær: Turister som besøker regionen
+- Tertiær: Lokale restauranter
+
+**Steg 2: Velg salgskanaler**
+- REKO-ring i nærmeste by (ukentlig)
+- Gårdsutsalg med selvbetjening (hele året)
+- Bondens marked (sommeren)
+
+**Steg 3: Bygg merkevare**
+- Navn: «Geitosten fra Fjellbakken»
+- Enkel logo med geit og fjell
+- Håndskrevet etiketter med historie
+
+**Steg 4: Sosiale medier**
+- Instagram-konto med bilder av geitene og osteproduksjonen
+- 2-3 innlegg per uke
+- Vis prosessen fra melking til ferdig ost
+
+**Steg 5: Bygg relasjoner**
+- Inviter matbloggere til gårdsbesøk
+- Kontakt lokale restauranter med smaksprøver
+- Delta på lokale matfestivaler
+
+**Resultat:** Etter ett år har Kari fast kundegrunnlag gjennom REKO, avtale med to restauranter, og en voksende Instagram-følgerskare som skaper etterspørsel.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-example-2',
+      type: 'example',
+      title: 'Eksempel: Presentasjon på Bondens marked',
+      problem: 'Ole skal for første gang selge honning på Bondens marked. Han har 50 glass med ulike typer honning. Hvordan bør han forberede seg og presentere produktene?',
+      solution: `**Forberedelse før markedsdagen:**
+
+**Produkter:**
+- 50 glass honning (lyngong, blomsterhonning, kremet honning)
+- Tydelig merking med type, vekt, pris
+- Smaksprøver i små kopper med trepinner
+- Informasjonsark om biene og produksjonen
+
+**Utstyr:**
+- Bord med duk i naturfarger
+- Skilt med gårdens navn og logo
+- Prisliste som er lett å lese
+- Vekslepenger og Vipps-skilt
+- Poser til kundene
+
+**Visuelt:**
+- Vakre glass i ulike størrelser
+- Et par tomme bikuber eller rammer som blikkfang
+- Bilder av biene og bigården
+- Eventuelt en liten plante med blomster
+
+**Gjennomføring på markedsdagen:**
+
+**Oppstilling:**
+- Plasser smaksprøver fremst - tiltrekker folk
+- Varier høyde på produktene
+- Ha informasjon lett tilgjengelig
+
+**Kundebehandling:**
+- Smil og hils velkommen
+- Tilby smaksprøve aktivt
+- Fortell kort om honnningen: «Denne lynghonnningen er fra fjellet i august»
+- Svar på spørsmål tålmodig
+- Gi tips: «Denne passer perfekt til ost»
+
+**Salgssamtale:**
+- Ikke vær for pågående
+- La kunden smake først
+- Fremhev det unike: «Biene våre flyr i urørt natur»
+- Foreslå mengde: «To glass gir rabatt»
+
+**Etter markedet:**
+- Rydd og pakk forsiktig
+- Oppsummer: Hva solgte best? Hva spurte folk om?
+- Planlegg forbedringer til neste gang
+
+**Tips:** Ta med visittkort eller flyer slik at interesserte kan følge deg på sosiale medier eller bestille senere.`,
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med en målgruppe, og hvorfor er det viktig å definere målgruppen for markedsføring?',
+        solution: 'En målgruppe er den gruppen mennesker du ønsker å nå med produktet eller tjenesten din. Det er viktig å definere målgruppen fordi ulike grupper har ulike behov, verdier og kommunikasjonskanaler. Ved å kjenne målgruppen kan du tilpasse budskap, pris og valg av salgskanal.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Hva er REKO-ring?',
+        options: [
+          { id: 'a', text: 'En type sertifisering for økologisk mat', isCorrect: false },
+          { id: 'b', text: 'Et system for direktesalg fra produsent til forbruker via Facebook', isCorrect: true },
+          { id: 'c', text: 'En grossist for lokale matvarer', isCorrect: false },
+          { id: 'd', text: 'En app for å spore matvarers opprinnelse', isCorrect: false },
+        ],
+        solution: 'REKO-ring (Rejäl Konsumtion) er et system for direktesalg fra produsent til forbruker via Facebook-grupper. Kunder bestiller i kommentarfelt, og utlevering skjer på fast sted og tid.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hva som menes med merkevarebygging og historiefortelling (storytelling) i markedsføring.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er en merkevare?',
+            solution: 'En merkevare er summen av alle assosiasjoner, følelser og forventninger folk har til et produkt, en bedrift eller en person.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn fire elementer som bør være med i en god historie om et naturbruksprodukt.',
+            solution: 'Mennesker (hvem står bak), sted (hvor kommer produktet fra), prosess (hvordan lages det), og verdier (hvorfor gjør du dette).',
+          },
+        ],
+        solution: 'Merkevarebygging handler om å skape gjenkjennelse og positive assosiasjoner. Historiefortelling er et viktig verktøy der man forteller om mennesker, sted, prosess og verdier for å skape emosjonell tilknytning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken sosial medieplattform er mest visuell og passer derfor ofte godt for mat- og naturprodukter?',
+        options: [
+          { id: 'a', text: 'LinkedIn', isCorrect: false },
+          { id: 'b', text: 'Twitter/X', isCorrect: false },
+          { id: 'c', text: 'Instagram', isCorrect: true },
+          { id: 'd', text: 'Snapchat', isCorrect: false },
+        ],
+        solution: 'Instagram er en visuell plattform som passer godt for mat- og naturprodukter fordi den fokuserer på bilder og video. Stories og Reels gir mulighet for daglige oppdateringer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Du skal holde en kort presentasjon om et naturbruksprodukt for en gruppe ungdomsskoleelever.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva bør du tenke på når det gjelder å tilpasse presentasjonen til denne målgruppen?',
+            solution: 'Bruk enkelt språk, gjør det engasjerende og interaktivt, vis frem produkter, la dem smake/ta på, bruk humor, hold det kort og konkret.',
+          },
+          {
+            label: 'b',
+            task: 'Lag en enkel struktur for presentasjonen (innledning, hoveddel, avslutning).',
+            solution: 'Innledning: Start med noe overraskende eller en smaksprøve. Hoveddel: Fortell hvem du er, vis produktet, forklar hvordan det lages. Avslutning: Oppsummer og inviter til spørsmål.',
+          },
+        ],
+        solution: 'En god presentasjon tilpasses målgruppen gjennom språk, innhold og virkemidler, og har en tydelig struktur med innledning, hoveddel og avslutning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-9-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Velg et naturbruksprodukt (f.eks. egg, honning, grønnsaker, ved, eller en opplevelse som gårdsbesøk) og lag en markedsføringsplan.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beskriv produktet og definer målgruppen.',
+            solution: 'Eksempel: Økologiske egg fra frittgående høner. Målgruppe: Helsebevisste familier i nærområdet som ønsker mat av høy kvalitet.',
+          },
+          {
+            label: 'b',
+            task: 'Velg to salgskanaler og begrunn valget.',
+            solution: 'Eksempel: REKO-ring (når kundene direkte, fast bestilling) og gårdsutsalg (turisttrafikk om sommeren, bygger merkevare).',
+          },
+          {
+            label: 'c',
+            task: 'Skriv en kort produkttekst som kan brukes på sosiale medier eller etikett.',
+            solution: 'Eksempel: «Våre høner lever fritt på gården og spiser gress, insekter og økologisk korn. Det smaker du på de gylne plommene! Friske egg fra Solbakken - hver dag.»',
+          },
+        ],
+        solution: 'En markedsføringsplan inneholder produktbeskrivelse, definert målgruppe, valg av salgskanaler med begrunnelse, og kommunikasjonsmateriell tilpasset kanalen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
   exercises: [],
 };
@@ -3591,4 +5574,5 @@ export const NATURBRUK_VG1_DEL4_CHAPTERS: TextbookChapter[] = [
   CHAPTER_NATURBRUK_VG1_8_6,
   CHAPTER_NATURBRUK_VG1_8_7,
   CHAPTER_NATURBRUK_VG1_8_8,
+  CHAPTER_NATURBRUK_VG1_8_9,
 ];
