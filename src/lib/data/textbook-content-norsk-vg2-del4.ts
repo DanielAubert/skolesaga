@@ -1626,6 +1626,690 @@ Kjernen er konflikt mellom:
 };
 
 // ============================================================================
+// KAPITTEL 4.5: Språksammenligning: norsk, norrønt og nabospråk
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_4_5: TextbookChapter = {
+  id: 'norsk-vg2-4-5',
+  courseId: 'norsk-vg2',
+  chapterNumber: '4.5',
+  title: 'Språksammenligning: norsk, norrønt og nabospråk',
+  description: 'Lær å bruke fagspråk for å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt.',
+  estimatedMinutes: 70,
+  competenceGoals: [
+    'bruke fagspråk til å beskrive særtrekk ved norsk sammenlignet med svensk, dansk og norrønt',
+    'gjøre rede for historisk bakgrunn for språksituasjonen i Norge',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-4-5-intro',
+      type: 'text',
+      content: `## Språksammenligning med fagspråk
+
+For å forstå norsk språk fullt ut må vi kunne sammenligne det med norrønt (forgjengeren) og nabospråkene svensk og dansk (søskenbarna). I dette kapittelet lærer du å bruke **fagspråk** til å beskrive systematiske likheter og forskjeller mellom språkene.
+
+**Hvorfor sammenligne språk?**
+
+Språksammenligning gir oss innsikt i:
+- Hvordan norsk har utviklet seg fra norrønt
+- Hvorfor bokmål ligner dansk og nynorsk ligner mer på norrønt
+- Hva som gjør norsk til et eget språk, forskjellig fra svensk og dansk
+- Hvordan språk endrer seg over tid
+
+**Språkvitenskapelige nivåer**
+
+Når vi sammenligner språk, ser vi på tre hovedområder:
+
+1. **Morfologi** (formlære): Hvordan ord bøyes og bygges opp
+2. **Syntaks** (setningslære): Hvordan ord ordnes i setninger
+3. **Fonologi** (lydlære): Hvordan språklydene er organisert
+
+I tillegg ser vi på **semantikk** (betydningslære) og **leksikon** (ordforråd).`,
+    },
+    {
+      id: 'norsk-vg2-4-5-def-1',
+      type: 'definition',
+      title: 'Fagbegreper for språksammenligning',
+      content: `**Morfologi:** Læren om ordenes former og bøyning. Studerer hvordan ord bygges opp av morfemer (minste betydningsbærende enheter).
+
+**Syntaks:** Læren om setningsstruktur. Studerer hvordan ord kombineres til setninger.
+
+**Fonologi:** Læren om språklyder og deres funksjoner. Studerer hvilke lyder som finnes i et språk og hvordan de brukes.
+
+**Kasussynkretisme:** Når ulike kasus faller sammen og får samme form. Eksempel: Norrønt hadde fire kasus, moderne norsk har i praksis bare én.
+
+**Vokalreduksjon:** Når utrykke vokaler i trykklette stavelser svekkes eller forsvinner. Viktig endring fra norrønt til moderne skandinavisk.
+
+**Skandinavisk språkfamilie:** Norsk, svensk, dansk, islandsk og færøysk tilhører den nordgermanske (skandinaviske) grenen av den germanske språkfamilien.
+
+**Lånord:** Ord som er overtatt fra et annet språk.
+
+**Etymologi:** Studiet av ords opprinnelse og historie.`,
+    },
+    {
+      id: 'norsk-vg2-4-5-kasus',
+      type: 'text',
+      content: `## Kasussystemet - fra fire til én
+
+En av de mest dramatiske endringene fra norrønt til moderne norsk er **tapet av kasussystemet**.
+
+**Hva er kasus?**
+
+Kasus er grammatiske former som viser ordets funksjon i setningen. Norrønt hadde fire kasus:
+
+| Kasus | Funksjon | Norrønt eksempel |
+|-------|----------|------------------|
+| **Nominativ** | Subjekt | *maðr* (mannen) |
+| **Akkusativ** | Direkte objekt | *mann* |
+| **Dativ** | Indirekte objekt | *manni* |
+| **Genitiv** | Eiendom/tilhørighet | *manns* |
+
+**Eksempelsetning på norrønt:**
+*"Maðr gaf manni bók."* (Mannen ga mannen en bok)
+
+Her ser vi:
+- *maðr* (nominativ) - den som gir
+- *manni* (dativ) - den som mottar
+- *bók* (akkusativ) - det som gis
+
+**Moderne norsk:**
+*"Mannen ga mannen en bok."*
+
+I moderne norsk er alle kasusformene falt sammen (kasussynkretisme). Vi bruker ordrekkefølge og preposisjoner i stedet:
+- "Mannen ga boka **til** gutten" - preposisjon erstatter dativ
+
+**Sammenligning med nabospråkene:**
+
+| Språk | Kasus bevart? |
+|-------|---------------|
+| Norrønt | Fire kasus (nom, akk, dat, gen) |
+| Islandsk | Fire kasus (bevart) |
+| Norsk | Spor i pronomen (jeg/meg) |
+| Svensk | Spor i pronomen (jag/mig) |
+| Dansk | Spor i pronomen (jeg/mig) |
+
+**Islandsk har bevart kasussystemet** fordi Island var isolert fra kontinentet og hadde en ubrutt skrifttradisjon.`,
+    },
+    {
+      id: 'norsk-vg2-4-5-def-2',
+      type: 'definition',
+      title: 'Kasus og kasussynkretisme',
+      content: `**Kasus (latin *casus* = "fall"):**
+Grammatisk kategori som markerer et nomens (substantiv, pronomen, adjektiv) funksjon i setningen gjennom bøyningsendelser.
+
+**De fire norrøne kasusene:**
+- **Nominativ:** Subjektskasus (*hest-r*)
+- **Akkusativ:** Objektskasus (*hest-Ø*)
+- **Dativ:** Indirekte objekt/preposisjonskasus (*hest-i*)
+- **Genitiv:** Eiefallskasus (*hest-s*)
+
+**Kasussynkretisme:**
+Prosessen der kasusformer faller sammen over tid. I norsk falt først akkusativ og dativ sammen, deretter falt alle fire sammen. Resultatet er at moderne norsk substantiv bare har én grunnform uansett funksjon.
+
+**Spor av kasus i moderne norsk:**
+- Pronomen: *jeg/meg*, *du/deg*, *han/ham*, *hun/henne*
+- Uttrykk: "av *hjertes* lyst" (genitiv), "*manns* minne" (genitiv)`,
+    },
+    {
+      id: 'norsk-vg2-4-5-verb',
+      type: 'text',
+      content: `## Verbsystemet - sterke og svake verb
+
+Verbbøyningen har også gjennomgått store forenklinger fra norrønt til moderne norsk.
+
+**Sterke verb**
+
+Sterke verb bøyes ved **vokalskifte** (ablaut) i stammen:
+
+| Språk | Infinitiv | Preteritum | Perfektum partisipp |
+|-------|-----------|------------|---------------------|
+| Norrønt | *bíta* | *beit* | *bitinn* |
+| Bokmål | bite | bet/beit | bitt |
+| Nynorsk | bita | beit | bite |
+| Svensk | bita | bet | bitit |
+| Dansk | bide | bed | bidt |
+
+**Svake verb**
+
+Svake verb bøyes ved å legge til endelse (-te, -de, -et):
+
+| Språk | Infinitiv | Preteritum | Perfektum partisipp |
+|-------|-----------|------------|---------------------|
+| Norrønt | *kalla* | *kallaða* | *kallaðr* |
+| Bokmål | kalle | kalte | kalt |
+| Nynorsk | kalla | kalla | kalla |
+| Svensk | kalla | kallade | kallat |
+| Dansk | kalde | kaldte | kaldt |
+
+**Viktige endringer:**
+
+1. **Personbøyning forsvant:** Norrønt hadde ulike endelser for "eg fer", "þú ferr", "hann ferr". Moderne skandinavisk har bare én form: "jeg/du/han reiser".
+
+2. **Flertallsbøyning forsvant:** Norrønt skilte mellom entall og flertall i verb. Moderne skandinavisk gjør ikke det.
+
+3. **Konjunktiv ble borte:** Norrønt hadde egne verbformer for tvil, ønske og mulighet. Moderne norsk bruker hjelpeverb (skulle, ville, kunne) i stedet.
+
+**Sammenligning av personbøyning:**
+
+| Norrønt | Moderne norsk |
+|---------|---------------|
+| ek fer (jeg) | jeg reiser |
+| þú ferr (du) | du reiser |
+| hann ferr (han) | han reiser |
+| vér forum (vi) | vi reiser |
+| þér farið (dere) | dere reiser |
+| þeir fara (de) | de reiser |`,
+    },
+    {
+      id: 'norsk-vg2-4-5-lyd',
+      type: 'text',
+      content: `## Lydendringer - fra norrønt til moderne skandinavisk
+
+Lydendringene fra norrønt til moderne skandinavisk er systematiske og forutsigbare. De viktigste er:
+
+**1. Vokalreduksjon**
+
+Norrøne fullvokaler i trykklette stavelser ble redusert til schwa-lyd (e):
+
+| Norrønt | Moderne norsk | Forklaring |
+|---------|---------------|------------|
+| *kalla* | kalle | a → e |
+| *túnga* | tunge | a → e |
+| *konungr* | konge | u → e |
+
+**2. Bortfall av endelser**
+
+Mange norrøne endelser forsvant helt:
+
+| Norrønt | Moderne norsk |
+|---------|---------------|
+| *hestr* | hest |
+| *dagr* | dag |
+| *skip* | skip |
+
+**3. Monoftongering i dansk (og delvis bokmål)**
+
+Norrøne diftonger ble til monoftonger i dansk:
+
+| Norrønt | Dansk | Norsk | Svensk |
+|---------|-------|-------|--------|
+| *steinn* | sten | stein | sten |
+| *bein* | ben | bein | ben |
+| *auga* | øje | øye/auge | öga |
+
+**Bokmål har ofte begge varianter:** "stein" og "sten", "øye" og "øie".
+
+**4. Bløte konsonanter i dansk**
+
+Dansk utviklet bløte (stemte) konsonanter der norsk og svensk har harde (ustemte):
+
+| Norsk/Svensk | Dansk | Eksempel |
+|--------------|-------|----------|
+| p, t, k | b, d, g | bok/bog, gate/gade |
+
+**5. Stød i dansk**
+
+Dansk utviklet en spesiell lydeffekt kalt **stød** - en slags glottal lukkelyd midt i ord:
+
+- Dansk *hus* [huʔs] vs. norsk *hus* [hʉːs]
+
+**6. Tonelag i norsk og svensk**
+
+Norsk og svensk beholdt og utviklet **tonelag** (ordmelodi) som skiller ordpar:
+
+| Ord 1 | Ord 2 | Forskjell |
+|-------|-------|-----------|
+| bønder (flertall av bonde) | bønner (flertall av bønne) | Tonelag |
+| tanken (tanke) | tanken (tank) | Tonelag |
+
+Dansk mistet tonelag og har ingen ordmelodi.`,
+    },
+    {
+      id: 'norsk-vg2-4-5-def-3',
+      type: 'definition',
+      title: 'Fonologiske begreper',
+      content: `**Vokalreduksjon:**
+Lydendring der fullvokaler i trykklette stavelser svekkes til schwa (ə) eller faller bort. Eksempel: norrønt *kalla* → norsk *kalle*.
+
+**Monoftongering:**
+Lydendring der to vokaler (diftong) blir til én vokal (monoftong). Eksempel: norrønt *steinn* → dansk *sten*.
+
+**Diftong:**
+To vokallyder som glir over i hverandre i samme stavelse. Eksempler: *ei*, *au*, *øy*.
+
+**Tonelag (tonem):**
+Bruk av ordmelodi til å skille ordpar. Finnes i norsk og svensk, men ikke i dansk.
+
+**Stød:**
+Dansk lydeffekt (glottal lukkelyd) som skiller ordpar. Finnes ikke i norsk eller svensk.
+
+**Konsonantforskyvning:**
+Systematiske lydendringer der konsonanter endrer uttale. Dansk har bløte (b, d, g), norsk/svensk har harde (p, t, k).`,
+    },
+    {
+      id: 'norsk-vg2-4-5-ordrekkefølge',
+      type: 'text',
+      content: `## Ordrekkefølge (syntaks)
+
+Ordrekkefølgen har endret seg relativt lite fra norrønt til moderne skandinavisk, men noen viktige endringer har skjedd.
+
+**Grunnstrukturen SVO**
+
+Alle de skandinaviske språkene har **SVO-struktur** (Subjekt-Verb-Objekt) i hovedsetninger:
+
+| Språk | Setning |
+|-------|---------|
+| Norsk | *Mannen ser hunden* |
+| Svensk | *Mannen ser hunden* |
+| Dansk | *Manden ser hunden* |
+| Norrønt | *Maðrinn sér hundinn* |
+
+**V2-regelen**
+
+Alle skandinaviske språk følger **V2-regelen**: Det finitte verbet står på andre plass i hovedsetninger.
+
+| | Plass 1 | Plass 2 | Resten |
+|---|---------|---------|--------|
+| Normal | Mannen | ser | hunden |
+| Med adverbial | I dag | ser | mannen hunden |
+| Med objekt først | Hunden | ser | mannen |
+
+**Forskjeller i setningsledd**
+
+Plasseringen av nektelse og adverb varierer:
+
+| Språk | "Jeg leser ikke boka" |
+|-------|----------------------|
+| Norsk | Jeg leser *ikke* boka |
+| Svensk | Jag läser *inte* boken |
+| Dansk | Jeg læser *ikke* bogen |
+
+I **leddsetninger** står nektelsen før verbet:
+- "... fordi jeg *ikke* leser boka" (norsk)
+- "... eftersom jag *inte* läser boken" (svensk)
+
+**Artikkelplassering**
+
+Etterstilt artikkel er felles for skandinavisk, men norrønt hadde også foranstilt:
+
+| Språk | Ubestemt | Bestemt |
+|-------|----------|---------|
+| Norrønt | *hestr* | *hestrinn* / *inn hestr* |
+| Norsk | en hest | hesten |
+| Svensk | en häst | hästen |
+| Dansk | en hest | hesten |`,
+    },
+    {
+      id: 'norsk-vg2-4-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Parallelle tekster på fem språkvarianter',
+      problem: `Les disse parallelle tekstene og analyser likhetene og forskjellene:
+
+**Norrønt (ca. 1200):**
+*"Maðr var á Íslandi, er Njáll hét. Hann var vel at sér gorr."*
+
+**Islandsk (moderne):**
+*"Maður var á Íslandi, er Njáll hét. Hann var vel að sér gerður."*
+
+**Bokmål:**
+*"Det var en mann på Island som het Njål. Han var en dyktig mann."*
+
+**Nynorsk:**
+*"Det var ein mann på Island som heitte Njål. Han var ein dugande mann."*
+
+**Svensk:**
+*"Det var en man på Island som hette Njål. Han var en duktig man."*
+
+**Dansk:**
+*"Der var en mand på Island som hed Njål. Han var en dygtig mand."*
+
+Analyser forskjellene mellom språkvariantene.`,
+      solution: `**Analyse av parallelle tekster:**
+
+**1. Ordrekkefølge:**
+- Norrønt/islandsk: Begynner med subjektet (*Maðr/Maður var...*)
+- Moderne skandinavisk: Begynner med "Det/Der var..." (presenterings-konstruksjon)
+
+**2. Kasusrester:**
+- Norrønt: *Maðr* (nominativ) vs. *mann* i resten av setningen
+- Islandsk: Bevarer kasus (*að sér gerður*)
+- Norsk/svensk/dansk: Ingen kasusbøyning
+
+**3. Relativsetning:**
+- Norrønt/islandsk: *er* ("som")
+- Moderne skandinavisk: *som*
+
+**4. Verbformer:**
+- *hét* (norrønt preteritum) → *het/hette/hed* (moderne)
+- Nynorsk bevarer diftongen: *heitte*
+
+**5. Adjektiv:**
+- Norrønt: *at sér gorr* (partisipp)
+- Islandsk: *að sér gerður* (samme struktur, moderne stavemåte)
+- Skandinavisk: *dyktig/duktig/dygtig* (lånord fra lavtysk)
+
+**6. Artikkel:**
+- Norrønt: Ingen ubestemt artikkel (*Maðr* = "en mann")
+- Moderne skandinavisk: Ubestemt artikkel brukes (*en mann*)
+
+**7. Likheter mellom moderne skandinavisk:**
+- Alle bruker presenterings-konstruksjon ("Det var...")
+- Alle har *som* for relativsetning
+- Lignende ordforråd og struktur
+
+**Konklusjon:**
+Islandsk ligner mest på norrønt (bevart kasus, ordstilling, ordforråd). Nynorsk har noen eldre trekk (diftong i *heitte*). Bokmål ligger nær dansk, svensk står mellom.`,
+    },
+    {
+      id: 'norsk-vg2-4-5-laanord',
+      type: 'text',
+      content: `## Lånord - dansk og svensk påvirkning på norsk
+
+Ordforrådet i norsk er påvirket av ulike språk gjennom historien. Særlig viktig er skillet mellom dansk og svensk påvirkning.
+
+**Danske lånord i bokmål**
+
+Gjennom 400 års union med Danmark fikk norsk (særlig bokmål) mange danske ord:
+
+| Dansk form | Norsk form | Opprinnelig norsk |
+|------------|------------|-------------------|
+| sprog | språk | mål |
+| selv | sjølv | sjølv |
+| have | ha | hava |
+| blive | bli | verta |
+| hvad | hva | kva |
+
+**Svenske påvirkning på norsk**
+
+Svensk har påvirket norsk mindre direkte, men vi deler mange felles trekk som skiller oss fra dansk:
+
+| Norsk/Svensk | Dansk |
+|--------------|-------|
+| stein | sten |
+| røyk | røg |
+| øye | øje |
+| duktig/flink | dygtig |
+
+**Lavtyske lånord (felles for skandinavisk)**
+
+Gjennom hansatiden (1200-1500) fikk alle de skandinaviske språkene mange lavtyske lånord:
+
+| Lavtysk | Norsk | Svensk | Dansk |
+|---------|-------|--------|-------|
+| *betalen* | betale | betala | betale |
+| *plats* | plass | plats | plads |
+| *snicker* | snekker | snickare | snedker |
+| *flink* | flink | flink | flink |
+| *handel* | handel | handel | handel |
+
+**Etymologiske eksempler**
+
+Her er samme begrep på de ulike språkene med etymologisk kommentar:
+
+| Begrep | Norrønt | Bokmål | Nynorsk | Svensk | Dansk |
+|--------|---------|--------|---------|--------|-------|
+| "morsom" | *gaman-samr* | morsom | morosam | rolig | sjov |
+| "kvinne" | *kona* | kvinne/kone | kone/kvinne | kvinna | kvinde |
+| "vindu" | *vindauga* | vindu | vindauge | fönster | vindue |
+
+**Merk:** "Fönster" i svensk er et lånord fra latin/tysk, mens de andre bevarer det norrøne *vindauga* ("vindøye").`,
+    },
+    {
+      id: 'norsk-vg2-4-5-tip-1',
+      type: 'tip',
+      title: 'Tips for å bruke fagspråk i språkbeskrivelse',
+      content: `**Slik bruker du fagbegrepene:**
+
+**Når du beskriver ordformer:**
+- "Norrønt hadde fire kasus, men moderne norsk viser *kasussynkretisme* - kasusene har falt sammen."
+- "Bokmål *bein* viser bevart diftong, mens dansk *ben* viser *monoftongering*."
+
+**Når du beskriver setningsstruktur:**
+- "Alle skandinaviske språk har *SVO-ordrekkefølge* og følger *V2-regelen*."
+- "Den *syntaktiske* strukturen er lik, men *morfologien* varierer."
+
+**Når du beskriver lydlige trekk:**
+- "Norsk og svensk har *tonelag*, mens dansk har *stød*."
+- "Dansk har gjennomgått *vokalreduksjon* i større grad enn norsk."
+
+**Når du sammenligner ordforråd:**
+- "Dette er et *lavtysk lånord* som finnes i alle skandinaviske språk."
+- "*Etymologisk* kommer ordet fra norrønt..."
+
+**Generelle tips:**
+1. Bruk fagbegrepene presist og konsekvent
+2. Gi alltid konkrete eksempler
+3. Forklar hvilken språklig endring du beskriver
+4. Vis gjerne kontrasten mellom før og nå, eller mellom språk`,
+    },
+    {
+      id: 'norsk-vg2-4-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Sammenligning av ett ord gjennom språkene',
+      problem: `Sammenlign ordet for "stein" på de ulike språkene og bruk fagspråk til å beskrive forskjellene:
+
+| Språk | Ord | Uttale |
+|-------|-----|--------|
+| Norrønt | *steinn* | [stainː] |
+| Islandsk | *steinn* | [steinː] |
+| Bokmål | stein/sten | [stæin]/[steːn] |
+| Nynorsk | stein | [stæin] |
+| Svensk | sten | [steːn] |
+| Dansk | sten | [sdeːn] |
+
+Bruk fagbegreper til å beskrive utviklingen.`,
+      solution: `**Faglig analyse av "stein":**
+
+**1. Fonologisk analyse:**
+
+*Diftongen ei:*
+- Norrønt hadde diftongen *ei* i *steinn* [stainː]
+- Islandsk bevarer diftongen [steinː]
+- Norsk bevarer diftongen: [stæin]
+- Svensk og dansk viser **monoftongering**: *ei* → *e* [eː]
+
+**2. Konsonantisme:**
+
+*Dobbel -nn:*
+- Norrønt: *steinn* med lang nasal
+- Moderne skandinavisk: forenklet til enkel -n
+
+*Bløt/hard konsonant:*
+- Dansk har **bløt d** i framlyd: [sd-]
+- Norsk/svensk har hard t: [st-]
+
+**3. Morfologisk analyse:**
+
+- Norrønt *steinn* viser nominativ entall med -r-endelse (assimilert til -n)
+- Moderne former har mistet kasusmarkering
+
+**4. Etymologisk kommentar:**
+
+Ordet er urgermansk *stainaz og har koganter (slektninger) i:
+- Engelsk: *stone*
+- Tysk: *Stein*
+- Nederlandsk: *steen*
+
+**5. Variasjon i bokmål:**
+
+Bokmål tillater både *stein* og *sten*, som viser språkets posisjon mellom dansk skrifttradisjon og norsk talemål. "Stein" representerer fornorsket form med bevart diftong, "sten" representerer dansk-påvirket form med monoftong.
+
+**Konklusjon med fagspråk:**
+"Ordet *stein/sten* demonstrerer sentrale fonologiske forskjeller i skandinavisk: norsk bevarer den norrøne diftongen *ei*, mens dansk og svensk viser monoftongering til *e*. I tillegg viser dansk bløt framlyd [sd-] mot norsk/svensk hard framlyd [st-]. Morfologisk har alle språkene kasussynkretisme - den norrøne nominativendelsen er borte."`,
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva betyr begrepet "kasussynkretisme"?',
+        options: [
+          'At et språk får flere kasus over tid',
+          'At ulike kasusformer faller sammen til én form',
+          'At kasus brukes til å markere subjekt',
+          'At kasussystemet er stabilt gjennom historien',
+        ],
+        answer: 1,
+        solution: 'Kasussynkretisme betyr at kasusformer faller sammen. Norrønt hadde fire kasus (nominativ, akkusativ, dativ, genitiv) med ulike endelser, men i moderne norsk har disse falt sammen slik at substantiv bare har én grunnform. Vi ser spor av kasus i pronomen (jeg/meg), men ellers er kasussystemet borte.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilket av disse språkene har bevart det norrøne kasussystemet med fire kasus?',
+        options: [
+          'Dansk',
+          'Svensk',
+          'Bokmål',
+          'Islandsk',
+        ],
+        answer: 3,
+        solution: 'Islandsk har bevart det norrøne kasussystemet med fire kasus: nominativ, akkusativ, dativ og genitiv. Dette skyldes at Island var geografisk isolert og hadde en ubrutt skrifttradisjon. De andre skandinaviske språkene (norsk, svensk, dansk) har mistet kasussystemet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar forskjellen mellom sterke og svake verb, og gi eksempler fra norsk, norrønt og ett annet skandinavisk språk.',
+        hints: [
+          'Sterke verb endrer vokal i stammen (bite-bet-bitt)',
+          'Svake verb legger til endelse (kalle-kalte-kalt)',
+        ],
+        solution: 'Sterke verb bøyes ved vokalskifte (ablaut) i stammen: norsk "bite-bet-bitt", norrønt "bíta-beit-bitinn", svensk "bita-bet-bitit". Svake verb bøyes ved å legge til en endelse: norsk "kalle-kalte-kalt", norrønt "kalla-kallaða-kallaðr", svensk "kalla-kallade-kallat". Skillet kommer fra urgermansk og finnes i alle germanske språk. Over tid har mange sterke verb blitt svake.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bruk fagspråk til å beskrive minst tre fonologiske forskjeller mellom norsk og dansk.',
+        hints: [
+          'Tenk på diftonger vs. monoftonger',
+          'Tenk på harde vs. bløte konsonanter',
+          'Tenk på tonelag og stød',
+        ],
+        solution: 'Tre fonologiske forskjeller: (1) Monoftongering: Dansk har monoftonger der norsk har diftonger - dansk "sten" vs. norsk "stein", dansk "ben" vs. norsk "bein". (2) Konsonantisme: Dansk har bløte konsonanter (b, d, g) der norsk har harde (p, t, k) - dansk "bog" vs. norsk "bok", dansk "gade" vs. norsk "gate". (3) Prosodi: Norsk har tonelag (ordmelodi) som skiller ordpar (bønder/bønner), mens dansk har stød (glottal lukkelyd) i stedet. Disse forskjellene forklarer hvorfor dansk er vanskeligere å forstå muntlig enn skriftlig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser denne norrøne setningen og sammenlign med moderne norsk. Bruk fagbegreper.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Norrønt: "Konungr gaf manni sverð." Oversett og identifiser kasusene.',
+            solution: '"Kongen ga mannen et sverd." Konungr = nominativ (subjekt), manni = dativ (indirekte objekt), sverð = akkusativ (direkte objekt).',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan ville du uttrykt det samme på moderne norsk, og hva erstatter kasusmarkeringen?',
+            solution: 'Moderne norsk: "Kongen ga sverdet til mannen" eller "Kongen ga mannen sverdet". Ordrekkefølge og preposisjonen "til" erstatter kasusmarkeringen. Vi kan ikke lenger flytte ordene fritt fordi formen ikke viser funksjonen.',
+          },
+          {
+            label: 'c',
+            task: 'Hva kalles denne utviklingen med fagspråk?',
+            solution: 'Utviklingen kalles kasussynkretisme - kasusformene har falt sammen. Norsk har gått fra et syntetisk språk (med bøyningsendelser) til et mer analytisk språk (med ordrekkefølge og preposisjoner).',
+          },
+        ],
+        solution: 'Analysen viser hvordan norsk har utviklet seg fra et kasusspråk til et språk som bruker ordrekkefølge og preposisjoner for å markere grammatiske forhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign ordforrådet i bokmål, nynorsk, svensk og dansk. Lag en tabell med minst 8 ord og bruk fagspråk til å forklare mønstrene du finner.',
+        hints: [
+          'Velg ord der språkene har ulike former',
+          'Se etter lånord vs. arvord',
+          'Kommenter etymologi der relevant',
+        ],
+        solution: 'Tabellen bør inneholde ord som: morsom/morosam/rolig/sjov, vindu/vindauge/fönster/vindue, kvinne/kone/kvinna/kvinde, språk/mål/språk/sprog, selv/sjølv/själv/selv, ganske/ganske/ganska/ret, flink/flink/flink/dygtig, snakke/snakka/prata/tale. Mønsteret viser at bokmål ofte ligner dansk (dansk skrifttradisjon), nynorsk ofte bevarer eldre norske former, svensk har sine egne varianter (fönster er lånord), og dansk noen ganger avviker fra alle (sjov, ret). Fagbegreper: etymologi, lånord, arvord, monoftongering.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en kort tekst (200-300 ord) der du bruker fagspråk til å beskrive de viktigste forskjellene mellom norsk og ett av nabospråkene (svensk eller dansk). Bruk minst 6 fagbegreper fra kapittelet.',
+        hints: [
+          'Strukturer teksten etter nivåer: morfologi, fonologi, syntaks',
+          'Gi konkrete eksempler for hvert poeng',
+          'Uthev fagbegrepene',
+        ],
+        solution: 'Teksten bør dekke minst tre av områdene: morfologi (kasus, verbbøyning), fonologi (tonelag/stød, diftonger/monoftonger, harde/bløte konsonanter), syntaks (ordrekkefølge, artikkelplassering). Fagbegreper som bør brukes: kasussynkretisme, vokalreduksjon, monoftongering, tonelag/stød, morfologi, syntaks, fonologi, lånord, etymologi. Teksten må ha konkrete eksempler og være analytisk, ikke bare deskriptiv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-4-5-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-4-5-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft påstanden: "Nynorsk ligger nærmere norrønt enn bokmål gjør." Bruk fagspråk og konkrete eksempler i drøftingen.',
+        hints: [
+          'Vurder morfologi (bøyningsformer)',
+          'Vurder fonologi (diftonger, vokaler)',
+          'Vurder ordforråd (arvord vs. lånord)',
+          'Husk å nyansere - det finnes moteksempler',
+        ],
+        solution: 'Drøftingen bør vurdere: Morfologi - nynorsk har a-infinitiv (kasta) som norrønt (kasta), bokmål har e-infinitiv (kaste). Nynorsk har tre kjønn konsekvent, bokmål valgfritt. Fonologi - nynorsk bevarer flere diftonger (heitte vs. het, auge vs. øye). Ordforråd - nynorsk bruker flere arvord (mål vs. språk, ikkje vs. ikke). Men moteksempler finnes: Begge har kasussynkretisme, begge har mistet verbkongruens. Konklusjonen bør nyanseres: Nynorsk ligger nærmere på noen punkter (særlig ordforråd og noen bøyningsformer), men begge er moderne skandinaviske språk som har fjernet seg betydelig fra norrønt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
+// ============================================================================
 // SAMLET EKSPORT
 // ============================================================================
 
@@ -1634,4 +2318,5 @@ export const NORSK_VG2_CHAPTERS_DEL4: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_4_2,
   CHAPTER_NORSK_VG2_4_3,
   CHAPTER_NORSK_VG2_4_4,
+  CHAPTER_NORSK_VG2_4_5,
 ];

@@ -1586,10 +1586,11 @@ export const CHAPTER_NORSK_VG2_5_5: TextbookChapter = {
   chapterNumber: '5.5',
   title: 'Fagartikkelens oppbygging',
   description: 'Lær å skrive fagartikler med god struktur og argumentasjon.',
-  estimatedMinutes: 55,
+  estimatedMinutes: 90,
   competenceGoals: [
-    'skrive fagartikler som drøfter tekster i kontekst',
+    'skrive fagartikler som gjør rede for og drøfter tekster i kontekst',
     'reflektere over sakprosatekster og retorisk situasjon',
+    'vurdere og bruke kilder kritisk',
   ],
   content: [
     {
@@ -1826,12 +1827,428 @@ Fagartikkelen er en sentral sjanger i videregående skole og høyere utdanning. 
         allowsCanvasDrawing: true,
       },
     },
+    // ============================================================================
+    // UTVIDET INNHOLD: Kompetansemål 7 - Fagartikkel med drøfting av tekster i kontekst
+    // ============================================================================
     {
-      id: 'norsk-vg2-5-5-ex-11',
+      id: 'norsk-vg2-5-5-eksempelartikkel',
+      type: 'collapsible',
+      title: 'Komplett eksempelartikkel: Ibsens "Et dukkehjem" i lys av samtiden',
+      buttonText: 'Vis eksempelartikkel',
+      content: [
+        {
+          id: 'norsk-vg2-5-5-eksempelartikkel-text',
+          type: 'text',
+          content: `## Eksempelartikkel: Kvinnefrigjøring i "Et dukkehjem"
+
+**Innledning**
+
+Henrik Ibsens skuespill "Et dukkehjem" (1879) vakte skandale ved urpremieren. Sluttscenen, der Nora forlater mann og barn, brøt med alle konvensjoner for hvordan en kvinne skulle oppføre seg. Men hvorfor reagerte samtiden så sterkt? Denne fagartikkelen undersøker hvordan Ibsen bruker dramatiske virkemidler for å kritisere ekteskapet som institusjon i det borgerlige samfunnet.
+
+**Historisk kontekst**
+
+For å forstå reaksjonene må vi se på kvinnens stilling i 1870-årenes Norge. Gifte kvinner hadde ingen juridisk handleevne - de kunne ikke inngå kontrakter, ta opp lån eller disponere egen inntekt uten mannens samtykke (Hagemann, 2015, s. 78). Ekteskapet var en økonomisk og sosial nødvendighet for kvinner, ikke et personlig valg basert på følelser.
+
+Samtidig vokste det frem en kvinnebevegelse. Camilla Collett hadde med "Amtmandens Døtre" (1854-55) kritisert kjærlighetsløse fornuftsekteskap. Aasta Hansteen og andre kjempet for kvinners rett til utdanning og arbeid. Det var i dette spenningsfeltet Ibsen skrev sitt drama.
+
+**Analyse: Noras utvikling**
+
+Ibsen viser oss en tilsynelatende idyllisk borgerlig familie. Men gjennom tre akter avdekkes fasadens falskhet. Nora har i hemmelighet tatt opp et lån for å redde mannens liv - en handling som juridisk sett var forbudt for en kvinne. Når dette kommer frem, reagerer ikke Torvald med takknemlighet, men med raseri over skammen hun har påført ham.
+
+Det er denne reaksjonen som åpner Noras øyne: "Jeg har vært en dukke-hustru her, likesom jeg hjemme var pappa-dukke" (Ibsen, 1879, akt 3). Metaforen "dukke" er sentral - den viser at Nora aldri har fått være et selvstendig menneske, bare et objekt for andres behov.
+
+**Drøfting: Ibsens budskap**
+
+Man kan tolke "Et dukkehjem" på flere måter. Noen mener Ibsen primært kritiserer ekteskapet som institusjon. Torvald er ikke en ond mann, men et produkt av sin tid - han gjør det samfunnet forventer av ham (Templeton, 1997, s. 112). Andre legger vekt på det individuelle: Noras reise mot selvstendighet og autentisitet.
+
+Det finnes også kritikere som mener Ibsen er uklar. Er det riktig av Nora å forlate barna? Ibsen selv nektet å gi et enkelt svar. Da en tysk skuespillerinne nektet å spille den originale slutten, skrev Ibsen motvillig en alternativ versjon der Nora blir - men kalte den "en barbarisk voldshandling" mot verket.
+
+**Konklusjon**
+
+"Et dukkehjem" var så provoserende fordi det stilte spørsmål ved selve grunnlaget for det borgerlige samfunnet: familien som uangripelig institusjon. Ved å sette Noras behov for selvrealisering opp mot hennes rolle som hustru og mor, tvang Ibsen publikum til å ta stilling. Stykket er fortsatt aktuelt fordi spørsmålet om individ versus fellesskap, og om kvinners selvstendighet, aldri blir endelig besvart.
+
+**Litteraturliste**
+
+Hagemann, G. (2015). *Kjønn og industrialisering*. Oslo: Universitetsforlaget.
+
+Ibsen, H. (1879). *Et dukkehjem*. København: Gyldendal.
+
+Templeton, J. (1997). *Ibsen's Women*. Cambridge: Cambridge University Press.`,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg2-5-5-kildekritikk',
+      type: 'text',
+      content: `## Kildekritikk og akademisk etikk
+
+Å skrive fagartikler handler ikke bare om å finne kilder - det handler om å vurdere dem kritisk og bruke dem etisk forsvarlig.
+
+---
+
+### Hvordan vurdere kilders troverdighet
+
+Når du velger kilder til en fagartikkel, bør du stille disse spørsmålene:
+
+**1. Hvem står bak kilden?**
+- Er forfatteren en anerkjent forsker eller ekspert på feltet?
+- Har institusjonen et godt rykte (universitet, forskningsinstitutt)?
+- Er det en interesseorganisasjon som kan ha skjulte motiver?
+
+**2. Når ble kilden publisert?**
+- Er informasjonen oppdatert og relevant?
+- Har det skjedd ny forskning som endrer bildet?
+- For historiske emner: Er kilden samtids eller sekundær?
+
+**3. Hvor er kilden publisert?**
+- Fagfellevurderte tidsskrifter er mest pålitelige
+- Bøker fra anerkjente forlag er normalt gode
+- Nettsider varierer enormt - vær kritisk!
+
+**4. Hvorfor er kilden skrevet?**
+- Er formålet å informere, overbevise eller selge?
+- Er fremstillingen balansert eller ensidig?
+- Skjuler teksten viktig informasjon?
+
+**5. Hvordan er informasjonen dokumentert?**
+- Viser kilden til egne kilder?
+- Kan påstandene etterprøves?
+- Er metoden (for forskning) beskrevet?
+
+*Eksempel på vurdering:*
+
+En Wikipedia-artikkel kan gi god oversikt, men er ikke en primærkilde. Bruk heller kildene som Wikipedia selv refererer til. En kronikk i Aftenposten kan ha gode argumenter, men er en meningsytring - ikke en nøytral fremstilling.
+
+---
+
+### Plagiat og parafrasering - hva er forskjellen?
+
+**Plagiat** er å bruke andres arbeid uten å oppgi kilde. Det regnes som akademisk juks og kan få alvorlige konsekvenser.
+
+*Former for plagiat:*
+- Kopiere tekst direkte uten anførselstegn og kilde
+- Parafrasere (omskrive) uten å oppgi kilde
+- Oversette fra andre språk uten kilde
+- Bruke andres ideer eller struktur uten anerkjennelse
+- Levere andres arbeid som sitt eget
+- Gjenbruke egen tekst fra før uten å oppgi det (selvplagiat)
+
+**Parafrasering** er å gjengi andres innhold med helt egne ord - og det er helt greit så lenge du oppgir kilden!
+
+*Eksempel:*
+
+**Originaltekst (fra kilde):**
+"Romantikken representerte et oppgjør med opplysningstidens fornuftsdyrking og satte følelser, fantasi og individualitet i sentrum."
+
+**Plagiat (FEIL):**
+Romantikken var et oppgjør med opplysningstidens fornuftsdyrking og satte følelser, fantasi og individualitet i sentrum.
+*(Små endringer, ingen kilde - dette er plagiat!)*
+
+**Parafrase (RIKTIG):**
+I motsetning til opplysningstiden, som vektla fornuft, fremhevet romantikerne følelsenes og fantasiens betydning (Hansen, 2019, s. 45).
+*(Egne formuleringer + kilde = OK)*
+
+**Direkte sitat (RIKTIG):**
+Hansen (2019) skriver at "romantikken representerte et oppgjør med opplysningstidens fornuftsdyrking" (s. 45).
+*(Anførselstegn + kilde = OK)*
+
+---
+
+### Hvordan sitere korrekt
+
+**Direkte sitat** (under 40 ord):
+Sett teksten i anførselstegn i løpende tekst.
+
+*Eksempel:*
+Ibsen lar Nora si at hun har vært "en dukke-hustru" (Ibsen, 1879, akt 3).
+
+**Blokkitat** (over 40 ord):
+Sett sitatet i eget avsnitt med innrykk, uten anførselstegn.
+
+*Eksempel:*
+
+I sluttscenen konfronterer Nora Torvald:
+
+> Jeg har vært en dukke-hustru her, likesom jeg hjemme var pappa-dukke. Og barna, de har igjen vært mine dukker. Jeg syntes det var morsomt når du lekte med meg, likesom de syntes det var morsomt når jeg lekte med dem. Det har vært vårt ekteskap, Torvald. (Ibsen, 1879, akt 3)
+
+**Indirekte sitat / parafrase:**
+Gjengi med egne ord, men oppgi kilde.
+
+*Eksempel:*
+Ifølge Templeton (1997) er Torvalds reaksjon typisk for tidens menn - han handler etter samfunnets forventninger, ikke av ondskap.
+
+**Sekundærsitat:**
+Når du siterer noe som en annen forfatter har sitert.
+
+*Eksempel:*
+Ibsen skal ha kalt den alternative slutten "en barbarisk voldshandling" (sitert i Templeton, 1997, s. 115).`,
+    },
+    {
+      id: 'norsk-vg2-5-5-drofting',
+      type: 'text',
+      content: `## Drøfting av motstridende perspektiver
+
+God drøfting kjennetegnes ved at du presenterer flere synspunkter og veier dem mot hverandre. Dette krever at du:
+
+1. Forstår ulike posisjoner grundig
+2. Presenterer dem rettferdig (ikke stråmenn)
+3. Vurderer styrker og svakheter ved hver
+4. Trekker en begrunnet konklusjon
+
+---
+
+### Hvordan presentere ulike synspunkter
+
+Bruk signalord som tydeliggjør at du gjengir andres syn:
+
+*Nøytrale formuleringer:*
+- "Ifølge [forsker]..."
+- "[Forsker] hevder at..."
+- "Et synspunkt er at..."
+- "Det kan argumenteres for at..."
+
+*Når du er uenig:*
+- "[Forsker] påstår at..., men..."
+- "Selv om [forsker] mener..., kan man innvende..."
+- "Dette synet kan kritiseres fordi..."
+
+*Når du er enig:*
+- "Som [forsker] påpeker..."
+- "I tråd med [forsker]..."
+- "Dette støttes av..."
+
+**Eksempel på balansert fremstilling:**
+
+> Tolkningene av Noras valg om å forlate familien varierer. Templeton (1997) ser det som en nødvendig frigjøringshandling - Nora må bryte ut for å finne seg selv. Moi (2006) er mer kritisk og mener at Ibsen romantiserer individualismen på bekostning av ansvaret for andre. Begge synspunktene har noe for seg: Noras utvikling krever at hun bryter med det falske livet, men spørsmålet om barnas skjebne forblir ubesvart i teksten.
+
+---
+
+### Hvordan veie argumenter mot hverandre
+
+Når du drøfter, må du ikke bare liste opp synspunkter - du må vurdere dem:
+
+**Spør deg selv:**
+- Hvilke argumenter er best underbygget?
+- Hvilke har sterkest logisk sammenheng?
+- Hvilke tar hensyn til flest relevante faktorer?
+- Hvilke stemmer best med tekstens egen logikk?
+
+**Eksempel på veiing:**
+
+> Påstanden om at Ibsen var feminist støttes av temaene i hans verker, men han selv avviste merkelappen. I en tale i 1898 sa han at han "aldri har skrevet for kvinnesaken" (sitert i Templeton, 1997, s. 110). Dette kan tolkes på to måter: Enten var Ibsen ikke opptatt av kvinners rettigheter, eller så mente han at hans prosjekt var bredere - om menneskets frihet generelt. Det siste virker mer sannsynlig når vi ser på hans samlede forfatterskap, der både menn og kvinner kjemper mot samfunnets krav.
+
+---
+
+### Hvordan trekke egen konklusjon
+
+Konklusjonen skal:
+- Svare på problemstillingen
+- Bygge på drøftingen du har gjort
+- Være tydelig, men nyansert
+- Ikke introdusere nye argumenter
+
+**Svak konklusjon:**
+> Det finnes mange meninger om "Et dukkehjem", og alle har noe for seg.
+*(For vag - tar ikke stilling)*
+
+**Sterk konklusjon:**
+> "Et dukkehjem" kan leses både som en kritikk av ekteskapet som institusjon og som et drama om individuell frigjøring. Som drøftingen har vist, utelukker ikke disse tolkningene hverandre - tvert imot forsterker de hverandre. Ibsens styrke er nettopp at han viser hvordan institusjonelle strukturer hindrer individuell utvikling. Noras oppvåkning er både personlig og politisk.
+
+---
+
+### Vanlige feil i drøfting
+
+**1. Stråmannsargumentasjon:**
+Å fremstille motargumenter svakere enn de er.
+
+**2. Falsk balanse:**
+Å gi like mye plass til synspunkter som har ulik tyngde.
+
+**3. Unnvikende konklusjon:**
+Å unngå å ta stilling fordi "det finnes mange meninger".
+
+**4. Manglende kobling:**
+Å liste opp synspunkter uten å vise hvordan de forholder seg til hverandre.
+
+**5. Sirkelargumentasjon:**
+Å bruke konklusjonen som premiss for argumentasjonen.`,
+    },
+    {
+      id: 'norsk-vg2-5-5-tip-kildekritikk',
+      type: 'tip',
+      title: 'Sjekkliste for kildekritikk',
+      content: `**Før du bruker en kilde, sjekk:**
+
+- [ ] Hvem er forfatteren? Er vedkommende ekspert?
+- [ ] Når er kilden publisert? Er den oppdatert?
+- [ ] Hvor er den publisert? Er det en seriøs utgivelse?
+- [ ] Hvorfor er den skrevet? Har forfatteren en agenda?
+- [ ] Hvordan underbygges påstandene? Er det dokumentert?
+
+**Røde flagg:**
+- Ingen forfatter oppgitt
+- Ingen dato
+- Ingen referanser til andre kilder
+- Ekstreme påstander uten dokumentasjon
+- Tydelig propaganda eller reklame
+
+**Grønne flagg:**
+- Publisert i fagfellevurdert tidsskrift
+- Forfatteren er ansatt ved anerkjent institusjon
+- Tydelig metode og kildebruk
+- Balansert fremstilling
+- Nyere publikasjon (med mindre historisk kilde)`,
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-12',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-5-ex-11',
-        number: '11',
+        id: 'norsk-vg2-5-5-ex-12',
+        number: '12',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser eksempelartikkelen om "Et dukkehjem" og identifiser styrker og svakheter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Vurder innledningen: Hvordan vekker den interesse? Er problemstillingen tydelig formulert?',
+            solution: 'Innledningen vekker interesse ved å referere til skandalen ved urpremieren. Problemstillingen ("hvordan Ibsen bruker dramatiske virkemidler for å kritisere ekteskapet som institusjon") er tydelig og avgrenset.',
+          },
+          {
+            label: 'b',
+            task: 'Vurder drøftingen: Presenteres flere synspunkter? Veies de mot hverandre?',
+            solution: 'Artikkelen presenterer ulike tolkninger (institusjonskritikk vs. individualisme) og kritikere som mener Ibsen er uklar. Synspunktene veies mot hverandre, men drøftingen kunne vært dypere.',
+          },
+          {
+            label: 'c',
+            task: 'Vurder kildebruken: Er kildene relevante? Er de korrekt referert?',
+            solution: 'Kildene (Hagemann, Ibsen, Templeton) er relevante og seriøse. De er referert i APA-stil med sidetall. Litteraturlisten er korrekt oppstilt.',
+          },
+          {
+            label: 'd',
+            task: 'Foreslå to konkrete forbedringer av artikkelen.',
+            solution: 'Mulige forbedringer: (1) Dypere analyse av selve teksten med flere sitater. (2) Flere perspektiver i drøftingen, f.eks. fra feministisk eller historisk forskning. (3) Tydeligere kobling mellom kontekst og tekstanalyse.',
+          },
+        ],
+        solution: 'Å vurdere andres tekster kritisk er en viktig ferdighet som også gjør deg til en bedre skribent.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-5-ex-13',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Skriv en innledning til en fagartikkel med problemstillingen: "Hvordan bruker Bjørnson retoriske virkemidler i sin 17. mai-tale for å skape nasjonal identitet?"',
+        hints: [
+          'Start med noe som vekker interesse - en påstand, et sitat eller et spørsmål.',
+          'Presenter temaet (17. mai-talen, Bjørnson, nasjonsbygging).',
+          'Avgrens hva du vil fokusere på.',
+          'Avslutt med den presise problemstillingen.',
+        ],
+        solution: 'En god innledning kan starte med å påpeke 17. mai-talens betydning i norsk kultur, presentere Bjørnson som sentral figur i nasjonsbyggingen, og deretter snevre inn til spørsmålet om hvordan han bruker retorikk. Innledningen bør være 100-150 ord og gjøre leseren interessert i temaet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-5-ex-14',
+        number: '14',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Vurder følgende kilder for en fagartikkel om kvinners rettigheter i Norge på 1800-tallet. Ranger dem fra mest til minst pålitelig, og begrunn vurderingen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Wikipedia-artikkelen "Kvinnehistorie i Norge"',
+            solution: 'Wikipedia gir god oversikt og kan være nyttig som startpunkt, men er ikke en primærkilde. Artikkelen kan inneholde feil og endres av hvem som helst. Bruk heller kildene Wikipedia refererer til.',
+          },
+          {
+            label: 'b',
+            task: 'Gro Hagemanns bok "Kjønn og industrialisering" (Universitetsforlaget, 2015)',
+            solution: 'Høy troverdighet. Hagemann er professor i historie, boken er utgitt på et anerkjent akademisk forlag, og den er basert på omfattende forskning. Dette er en primærkilde for et akademisk arbeid.',
+          },
+          {
+            label: 'c',
+            task: 'En bloggpost om "Sterke kvinner i historien"',
+            solution: 'Lav troverdighet. Blogger har ingen kvalitetskontroll, forfatteren er ofte ukjent, og fremstillingen kan være ensidig eller upresist. Kan gi ideer, men bør ikke brukes som kilde.',
+          },
+          {
+            label: 'd',
+            task: 'Camilla Colletts roman "Amtmandens Døtre" (1854-55)',
+            solution: 'Verdifull primærkilde som viser samtidens holdninger og debatt, men er en skjønnlitterær tekst, ikke en historisk fremstilling. Må analyseres som litteratur, ikke brukes som faktagrunnlag.',
+          },
+        ],
+        solution: 'Rangering: 1) Hagemanns bok (akademisk sekundærkilde), 2) Colletts roman (samtidig primærkilde, men litteratur), 3) Wikipedia (oversikt, men ikke autoritativ), 4) Bloggpost (lav troverdighet). God kildebruk kombinerer ulike typer kilder og vurderer dem kritisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-5-ex-15',
+        number: '15',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Drøft spørsmålet: "Er Nora i Et dukkehjem en positiv eller negativ rollemodell?" Presenter minst to ulike synspunkter, vei dem mot hverandre, og trekk en begrunnet konklusjon.',
+        hints: [
+          'Hva taler for at Nora er en positiv rollemodell? (frigjøring, selvstendighet, ærlighet)',
+          'Hva taler imot? (forlater barna, mangler plan, naiv)',
+          'Unngå å bare liste opp argumenter - vei dem mot hverandre.',
+          'Konklusjonen må følge av drøftingen.',
+        ],
+        solution: 'En god drøfting presenterer: (1) Positive perspektiver: Nora våkner opp, nekter å leve i løgn, krever å bli behandlet som voksen. Dette er modige valg som inspirerte kvinnebevegelsen. (2) Kritiske perspektiver: Hun forlater tre små barn, har ingen plan, har selv levd i illusjoner. Er det ansvarlig? (3) Veiing: Man kan argumentere for at Ibsen ikke nødvendigvis fremstiller Nora som et forbilde, men viser en prosess. Konklusjonen bør være nyansert og ta hensyn til at spørsmålet er komplekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-5-ex-16',
+        number: '16',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Identifiser plagiat. Les de to tekstene under og vurder om tekst B er plagiat av tekst A.',
+        subTasks: [
+          {
+            label: 'a',
+            task: `TEKST A (original):
+"Romantikken representerte et oppgjør med opplysningstidens fornuftsdyrking. Følelser, fantasi og individualitet ble satt i sentrum. Naturen fikk en ny betydning som kilde til inspirasjon og åndelig opplevelse."
+
+TEKST B (elevtekst):
+"Romantikken var et oppgjør med opplysningstiden som hadde dyrket fornuften. Nå ble følelser, fantasi og det individuelle viktig. Naturen fikk ny betydning - den ble en kilde til inspirasjon og åndelige opplevelser."
+
+Er dette plagiat? Begrunn svaret.`,
+            solution: 'Ja, dette er plagiat. Selv om noen ord er byttet ut (representerte -> var, fornuftsdyrking -> dyrket fornuften), er strukturen, innholdet og formuleringene så like at det er tydelig kopiering. Det mangler anførselstegn, kilde og egentlig omformulering.',
+          },
+          {
+            label: 'b',
+            task: 'Skriv om tekst A til en akseptabel parafrase med korrekt kildehenvisning.',
+            solution: 'Akseptabel parafrase: "I motsetning til opplysningstiden, som hadde fremhevet fornuftens betydning, la romantikerne vekt på det følelsesmessige og fantasifulle. Den enkelte kunstners indre opplevelse ble viktigere enn universelle regler, og naturlandskapet ble en sentral inspirasjonskilde (Hansen, 2019, s. 23)." Her er innholdet gjengitt med helt egne formuleringer og kilde er oppgitt.',
+          },
+        ],
+        solution: 'Plagiat handler ikke bare om å kopiere ord for ord, men om å ta andres tanker og formuleringer uten anerkjennelse. En god parafrase reformulerer innholdet helt og oppgir kilde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-5-ex-17',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-5-ex-17',
+        number: '17',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Les en medelevs fagartikkel (eller din egen fra en tidligere oppgave) og gi en skriftlig tilbakemelding. Vurder: problemstilling, struktur, drøfting, kildebruk, språk og fagbegreper.',
@@ -2811,6 +3228,565 @@ Påstanden er sannsynligvis overdrevet eller sensasjonalisert. Den originale for
   exercises: [],
 };
 
+// ============================================================================
+// KAPITTEL 5.8: Praktisk tekstutvikling og revisjon
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_5_8: TextbookChapter = {
+  id: 'norsk-vg2-5-8',
+  courseId: 'norsk-vg2',
+  chapterNumber: '5.8',
+  title: 'Praktisk tekstutvikling og revisjon',
+  description: 'Lær praktiske verktøy for å utvikle og forbedre egne tekster gjennom tilbakemeldinger og språkbevissthet.',
+  estimatedMinutes: 60,
+  competenceGoals: [
+    'bruke tilbakemeldinger og kunnskap om språk til å utvikle egne tekster',
+    'vurdere og revidere egne tekster ut fra faglige kriterier',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-5-8-intro',
+      type: 'text',
+      content: `## Tekstutvikling - fra førsteutkast til ferdig tekst
+
+God skriving er god omskriving. De fleste tekster blir ikke gode på første forsøk. Profesjonelle forfattere, journalister og akademikere arbeider alle med flere utkast og bruker tilbakemeldinger aktivt for å forbedre tekstene sine.
+
+**Hvorfor revisjon er viktig**
+
+- Førsteutkastet fanger ideene - revisjonen former dem
+- Avstand til teksten gir nye perspektiver
+- Tilbakemeldinger avdekker blindsoner
+- Revisjon styrker både innhold og språk
+- Øvelse i revisjon gjør deg til en bedre skribent
+
+**Revisjonsprosessen**
+
+En systematisk revisjonsprosess har flere nivåer:
+
+**Nivå 1: Innhold og struktur**
+- Er hovedbudskapet tydelig?
+- Er argumentasjonen logisk?
+- Er det nok støtte for påstandene?
+- Er strukturen hensiktsmessig?
+
+**Nivå 2: Avsnitt og sammenheng**
+- Har hvert avsnitt ett hovedpoeng?
+- Er overgangene mellom avsnitt gode?
+- Er det god tekstbinding?
+
+**Nivå 3: Setninger og språk**
+- Er setningene klare og varierte?
+- Er ordvalget presist?
+- Er tonen passende?
+
+**Nivå 4: Korrektur**
+- Rettskriving
+- Tegnsetting
+- Formalia (referanser, format)
+
+---
+
+## Praktiske verktøy for selvvurdering
+
+**Sjekkliste for egen tekst**
+
+Bruk denne sjekklisten når du reviderer:
+
+**Innledning:**
+- [ ] Fanger oppmerksomheten
+- [ ] Presenterer tema tydelig
+- [ ] Gir en veiviser for teksten
+- [ ] Har en klar problemstilling/tese
+
+**Hoveddel:**
+- [ ] Hvert avsnitt har ett hovedpoeng
+- [ ] Påstandene er begrunnet
+- [ ] Kilder brukes korrekt
+- [ ] Argumentasjonen er logisk
+- [ ] Motargumenter behandles
+
+**Avslutning:**
+- [ ] Oppsummerer hovedpunktene
+- [ ] Knytter tilbake til innledningen
+- [ ] Gir et tydelig svar/konklusjon
+- [ ] Avslutter på en minneverdig måte
+
+**Språk og form:**
+- [ ] Klar og presis formulering
+- [ ] Variasjon i setningsstruktur
+- [ ] Passende fagspråk
+- [ ] Korrekt tegnsetting
+- [ ] Ingen skrivefeil
+
+---
+
+## Vurderingskriterier for fagartikkel
+
+Når du vurderer egen eller andres tekst, kan du bruke disse kriteriene:
+
+**Høy måloppnåelse:**
+- Tydelig og velformulert problemstilling
+- Selvstendig og reflektert drøfting
+- God bruk av kilder som støtter egne poenger
+- Klar struktur med god sammenheng
+- Presist og variert språk
+- Kritisk distanse til stoffet
+
+**Middels måloppnåelse:**
+- Problemstilling er til stede, men kan være uklar
+- Noe drøfting, men kan mangle dybde
+- Kilder brukes, men ikke alltid hensiktsmessig
+- Struktur er grei, men overganger kan være svake
+- Språket er forståelig, men kan være upresist
+- Noe refleksjon, men mangler kritisk blikk
+
+**Lav måloppnåelse:**
+- Uklar eller manglende problemstilling
+- Referat fremfor drøfting
+- Manglende eller feil kildebruk
+- Uklar struktur
+- Språklige feil som hindrer forståelse
+- Lite egen refleksjon
+
+---
+
+## Hvordan lese egen tekst kritisk
+
+Det er vanskelig å se egen tekst med friske øyne. Her er noen strategier:
+
+**1. La teksten ligge**
+Legg teksten bort minst et døgn før du reviderer. Avstand gir perspektiv.
+
+**2. Les høyt**
+Når du leser teksten høyt, hører du lettere:
+- Unødvendig lange setninger
+- Gjentakelser
+- Uklare formuleringer
+- Manglende flyt
+
+**3. Bytt perspektiv**
+Forestill deg at du er:
+- En kritisk sensor
+- En som ikke kan noe om temaet
+- En som er uenig med deg
+
+**4. Bruk sjekklisten systematisk**
+Gå gjennom teksten flere ganger - fokuser på ett element av gangen.
+
+**5. Print ut teksten**
+Vi leser annerledes på papir enn på skjerm. Feil vi overser på skjerm, blir synlige på papir.`,
+    },
+    {
+      id: 'norsk-vg2-5-8-example-1',
+      type: 'example',
+      title: 'Før/etter: Tekstforbedring i praksis',
+      problem: `Se hvordan et avsnitt kan forbedres gjennom revisjon.
+
+**FØRSTEUTKAST:**
+"Romantikken var viktig. Den kom etter opplysningstiden. Forfatterne skrev om følelser. De skrev også om natur. Norge ble selvstendig på den tiden. Wergeland og Welhaven var viktige forfattere. De var uenige om mye."
+
+Hva er problemene med dette avsnittet?`,
+      solution: `**PROBLEMER I FØRSTEUTKASTET:**
+1. Korte, hakkete setninger uten sammenheng
+2. Ingen tekstbinding mellom setningene
+3. Vag og lite presis ("viktig", "mye")
+4. Mangler utdyping og eksempler
+5. Ingen klar struktur eller hovedpoeng
+
+**REVIDERT VERSJON:**
+"Romantikken representerte et markant brudd med opplysningstidens fornuftstro. Mens opplysningstiden hadde satt rasjonalitet og vitenskap i sentrum, vendte romantikerne seg mot følelser, fantasi og natur som kilder til innsikt. I Norge falt denne omveltningen sammen med kampen for nasjonal selvstendighet etter 1814, noe som ga romantikken en særegen nasjonal karakter. To sentrale skikkelser var Henrik Wergeland og Johan Sebastian Welhaven, som til tross for felles romantiske idealer sto steilt mot hverandre i synet på hvordan norsk kultur og språk skulle utvikles."
+
+**HVA ER FORBEDRET:**
+1. *Tekstbinding:* "Mens", "noe som", "til tross for" skaper sammenheng
+2. *Presisjon:* "representerte et markant brudd" i stedet for "var viktig"
+3. *Utdyping:* Forklarer hva romantikken reagerte mot
+4. *Kontekst:* Knytter til norsk selvstendighet
+5. *Nyansering:* "felles romantiske idealer" og "steilt mot hverandre"
+6. *Ett hovedpoeng:* Romantikken som brudd og nasjonal begivelse`,
+    },
+    {
+      id: 'norsk-vg2-5-8-example-2',
+      type: 'example',
+      title: 'Kommentert revisjonsprosess',
+      problem: `Følg en reell revisjonsprosess med kommentarer.
+
+**FØRSTEUTKAST (med kommentarer):**
+"I dag bruker alle sosiale medier. [For generelt - hvem er "alle"?] Det er bra og dårlig. [Vagt - hva er bra/dårlig?] Mange unge sliter med mental helse. [Kobling til forrige setning mangler] Forskning viser at det er en sammenheng. [Hvilken forskning? Sammenheng mellom hva?] Vi burde gjøre noe med det. [Hva konkret?]"`,
+      solution: `**REVISJONSSTEG:**
+
+**Steg 1: Presiser påstandene**
+- "alle" -> "ni av ti nordmenn mellom 16 og 79 år"
+- "bra og dårlig" -> konkrete fordeler og ulemper
+
+**Steg 2: Legg til kilder**
+- Finn statistikk fra SSB eller Medietilsynet
+- Finn forskning om sosiale medier og mental helse
+
+**Steg 3: Skap sammenheng**
+- Legg til setninger som binder poengene sammen
+- Bruk tekstbindingsord
+
+**Steg 4: Vær konkret**
+- Spesifiser hva som kan gjøres
+
+**REVIDERT VERSJON:**
+"Ifølge Medietilsynets undersøkelse fra 2023 bruker ni av ti nordmenn sosiale medier daglig, og andelen er enda høyere blant ungdom. Denne utbredte bruken har åpenbare fordeler: sosiale medier gjør det lettere å holde kontakt, finne informasjon og delta i offentlig debatt. Samtidig peker stadig flere studier på bekymringsfulle sammenhenger. Forskning fra Folkehelseinstituttet (2022) viser at høyt forbruk av sosiale medier korrelerer med økt forekomst av angst og depresjon blant unge. Selv om sammenhengen ikke nødvendigvis er kausal, tyder funnene på at vi trenger bevissthet rundt egen mediebruk. Konkret kan det innebære å sette grenser for skjermtid, være kritisk til innhold som vekker negative følelser, og prioritere ansikt-til-ansikt-kontakt."`,
+    },
+    {
+      id: 'norsk-vg2-5-8-def-1',
+      type: 'definition',
+      title: 'Vanlige språkfeil hos VG2-elever',
+      content: `**GRAMMATISKE FEIL**
+
+**Subjekt-verbal-kongruens:**
+- FEIL: "Elevene liker at man får god tilbakemelding" (blanding av flertall og ubestemt)
+- RIKTIG: "Elevene liker å få god tilbakemelding" / "Man liker å få god tilbakemelding"
+
+**Preposisjonsbruk:**
+- FEIL: "interessert på", "fokusere på" (dansk innflytelse ved "interessert")
+- RIKTIG: "interessert i", "fokusere på" (fokusere på er faktisk riktig!)
+- FEIL: "på grunn at"
+- RIKTIG: "på grunn av at" / "fordi"
+
+**Sammensatte ord:**
+- FEIL: "selv om" (som adverb), "i følge" (preposisjon)
+- RIKTIG: "selv om" (konjunksjon - to ord), "ifølge" (preposisjon - ett ord)
+- FEIL: "idag", "imorgen"
+- RIKTIG: "i dag", "i morgen"
+
+---
+
+**STILISTISKE FEIL**
+
+**Gjentakelser:**
+- FEIL: "Teksten handler om. I teksten ser vi. Forfatteren av teksten..."
+- RIKTIG: Varier med synonymer og pronomen: "Den handler om... Her ser vi... Forfatteren..."
+
+**Uklare formuleringer:**
+- FEIL: "Det er på en måte sånn at..."
+- RIKTIG: Sterk eller svekk påstanden tydelig
+
+**Muntlig stil i skriftlig tekst:**
+- FEIL: "Liksom, det er jo ganske tydelig at..."
+- RIKTIG: "Det er tydelig at..."
+
+---
+
+**STRUKTURELLE FEIL**
+
+**Avsnittsinndeling:**
+- FEIL: Ett langt avsnitt med mange temaer
+- RIKTIG: Nytt avsnitt for hvert nytt hovedpoeng
+
+**Tekstbinding:**
+- FEIL: Setninger uten sammenheng ("Ibsen skrev Et dukkehjem. Nora er gift med Torvald.")
+- RIKTIG: Bruk tekstbindingsord ("Et dukkehjem handler om Nora, som er gift med Torvald...")
+
+**Temasetninger:**
+- FEIL: Avsnitt uten tydelig hovedpoeng
+- RIKTIG: Start avsnitt med setning som sier hva avsnittet handler om`,
+    },
+    {
+      id: 'norsk-vg2-5-8-tip-1',
+      type: 'tip',
+      title: 'Hvordan bruke tilbakemeldinger',
+      content: `**TOLKE LÆRERKOMMENTARER**
+
+Vanlige kommentarer og hva de betyr:
+
+**"Utdyp" / "Forklar nærmere":**
+Du har en god idé, men leseren trenger mer informasjon for å forstå. Legg til eksempler, forklaringer eller begrunnelser.
+
+**"Kilde?" / "Dokumenter":**
+Du fremsetter en påstand som trenger støtte. Finn en kilde som bekrefter det du skriver.
+
+**"Uklart" / "Hva mener du?":**
+Formuleringen er forvirrende. Skriv om setningen - ofte hjelper det å tenke: "Hva vil jeg egentlig si her?"
+
+**"Sammenheng?" / "Overgang":**
+Teksten hopper mellom temaer. Legg til setninger som binder avsnittene sammen.
+
+**"Struktur" / "Organiser bedre":**
+Innholdet er kanskje bra, men rekkefølgen er forvirrende. Lag en disposisjon og omorganiser.
+
+---
+
+**PRIORITERE HVA SOM SKAL RETTES**
+
+1. **Først:** Strukturelle problemer (rekkefølge, avsnitt)
+2. **Deretter:** Innholdsproblemer (argumentasjon, kildebruk)
+3. **Så:** Språklige problemer (formulering, ordvalg)
+4. **Til slutt:** Korrektur (skrivefeil, tegnsetting)
+
+---
+
+**IMPLEMENTERE ENDRINGER SYSTEMATISK**
+
+1. Les alle kommentarene først - få oversikt
+2. Grupper kommentarene etter type
+3. Begynn med de største problemene
+4. Gjør én ting av gangen
+5. Les teksten på nytt etter hver runde
+6. Sjekk at endringene ikke skaper nye problemer`,
+    },
+    {
+      id: 'norsk-vg2-5-8-example-3',
+      type: 'example',
+      title: 'Vanlige feil og hvordan rette dem',
+      problem: `Her er eksempler på vanlige feil med forklaring og løsning.`,
+      solution: `**FEIL 1: Manglende temasetning**
+
+*Problematisk avsnitt:*
+"Ibsen bruker mye symbolikk. Dukkehuset er et symbol. Nora danser tarantella. Brevkassen er viktig i stykket. Lampen er også et symbol."
+
+*Problem:* Ingen overordnet poeng - bare liste med observasjoner.
+
+*Forbedret:*
+"Ibsen bruker symbolikk gjennomgående i Et dukkehjem for å forsterke temaene i stykket. Det mest sentrale symbolet er selve dukkehuset, som representerer Noras innestengte tilværelse. Også brevkassen får symbolsk betydning som både trussel og mulig befrielse..."
+
+---
+
+**FEIL 2: Svak argumentasjon**
+
+*Problematisk:*
+"Romantikken var en bra periode for norsk litteratur."
+
+*Problem:* "Bra" er vagt, og påstanden er udokumentert.
+
+*Forbedret:*
+"Romantikken var en formativ periode for norsk litteratur. I denne perioden ble grunnlaget lagt for en distinkt norsk litterær tradisjon, med verk som Wergelands 'Skabelsen, Mennesket og Messias' (1830) og Asbjørnsen og Moes folkeeventyrsamlinger (1841-44)."
+
+---
+
+**FEIL 3: Feilaktig kildebruk**
+
+*Problematisk:*
+"Det er mange som mener at klimaendringene er menneskeskapte."
+
+*Problem:* Vagt ("mange"), ingen kilde, passiv formulering.
+
+*Forbedret:*
+"Ifølge FNs klimapanel (IPCC, 2021) er det 'utvetydig' at menneskers utslipp av klimagasser har forårsaket den observerte oppvarmingen."`,
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Bruk sjekklisten fra kapittelet til å vurdere følgende innledning til en fagartikkel om sosiale medier. Noter minst tre ting som fungerer og tre ting som kan forbedres.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Sosiale medier. I dag bruker nesten alle sosiale medier. Det er både bra og dårlig. I denne teksten skal jeg skrive om sosiale medier og unge. Først skal jeg skrive om fordeler og så om ulemper."',
+            solution: 'Fungerer: Presenterer tema, gir veiviser, nevner struktur. Kan forbedres: Kjedelig åpning, for vagt ("bra og dårlig"), mangler problemstilling/tese, for muntlig stil.',
+          },
+        ],
+        solution: 'Innledningen har grunnstrukturen på plass, men mangler engasjerende åpning, presis problemstilling og akademisk tone.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Rett feilene i følgende setninger. Forklar hva som var feil.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Forfatteren er interessert på å skrive om naturen."',
+            solution: 'Riktig: "Forfatteren er interessert i å skrive om naturen." Feil: Preposisjonen "på" skal være "i" ved "interessert".',
+          },
+          {
+            label: 'b',
+            task: '"På grunn at mange elever sliter, bør skolen gjøre mer."',
+            solution: 'Riktig: "På grunn av at mange elever sliter..." eller "Fordi mange elever sliter..." Feil: Mangler "av" i "på grunn av at".',
+          },
+          {
+            label: 'c',
+            task: '"Det er liksom ganske tydelig at teksten handler om kjærlighet."',
+            solution: 'Riktig: "Det er tydelig at teksten handler om kjærlighet." Feil: "Liksom" og "ganske" er unødvendige fyllord som svekker påstanden.',
+          },
+        ],
+        solution: 'Alle disse feilene er vanlige i elevtekster. Bevissthet om dem hjelper deg å unngå dem.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse setningene har best tekstbinding?',
+        options: [
+          '"Ibsen skrev Et dukkehjem. Nora er hovedpersonen. Hun er gift med Torvald."',
+          '"Ibsen skrev Et dukkehjem, der Nora er hovedpersonen. Hun er gift med Torvald, og ekteskapet er sentralt i handlingen."',
+          '"Ibsen skrev Et dukkehjem. Et dukkehjem handler om Nora. Nora er gift med Torvald. Torvald er bankdirektør."',
+          '"Forfatteren Ibsen, han skrev Et dukkehjem. Der har vi Nora som er gift med Torvald."',
+        ],
+        answer: 1,
+        solution: 'Alternativ B har best tekstbinding fordi det bruker relativsetning ("der Nora er hovedpersonen") og konjunksjon ("og ekteskapet er sentralt") til å skape sammenheng mellom opplysningene. De andre alternativene er enten hakkete (A, C) eller muntlige (D).',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Her er et avsnitt med flere problemer. Identifiser minst fire problemer og skriv en forbedret versjon.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Temaet i teksten er kjærlighet. Forfatteren skriver om kjærlighet. Vi kan se at kjærlighet er viktig fordi personene i teksten er forelsket. Det er en bra tekst. Kjærlighet er et tema som mange skriver om."',
+            solution: 'Problemer: (1) Gjentakelse av "kjærlighet" 5 ganger. (2) Ingen konkret analyse - hva i teksten viser kjærlighet? (3) Vag vurdering ("bra tekst"). (4) Siste setning er irrelevant. (5) Manglende tekstbinding.',
+          },
+        ],
+        hints: ['Se etter gjentakelser, vage formuleringer og manglende konkret analyse.'],
+        solution: 'Forbedret versjon: "Kjærlighet står sentralt i teksten, noe som kommer til uttrykk gjennom hovedpersonenes handlinger og dialoger. Når Nora ofrer sin egen sikkerhet for å redde Torvalds liv, viser det en selvoppofrende kjærlighet. Samtidig problematiserer teksten dette idealet ved å vise hvordan kjærligheten også kan være innestengende..."',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Tenk deg at du har fått følgende tilbakemeldinger på en tekst. Forklar hva hver kommentar betyr, og beskriv konkret hva du ville gjort for å forbedre teksten.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Kommentar: "Utdyp!" (ved påstanden "Ibsen var en viktig forfatter")',
+            solution: 'Betyr: Påstanden er for generell og trenger begrunnelse. Tiltak: Legg til konkrete eksempler på hvorfor Ibsen var viktig - hans innflytelse, hvilke verk, hva han bidro med.',
+          },
+          {
+            label: 'b',
+            task: 'Kommentar: "Overgang?" (mellom to avsnitt)',
+            solution: 'Betyr: Avsnittene henger ikke sammen - leseren forstår ikke forbindelsen. Tiltak: Legg til en setning som knytter det forrige avsnittet til det neste, f.eks. "Dette får konsekvenser også for..."',
+          },
+          {
+            label: 'c',
+            task: 'Kommentar: "Kilde?" (ved en faktapåstand)',
+            solution: 'Betyr: Påstanden trenger dokumentasjon. Tiltak: Finn en pålitelig kilde som støtter påstanden, og legg til referanse i teksten.',
+          },
+        ],
+        solution: 'Å forstå lærerkommentarer er nøkkelen til å forbedre tekstene dine. De fleste kommentarer peker på konkrete ting du kan gjøre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les følgende elevtekst og gi skriftlig tilbakemelding. Nevn to ting som fungerer godt og tre konkrete forbedringspunkter med forslag til hvordan de kan løses.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"I Et dukkehjem ser vi at Nora utvikler seg. Hun starter som en som bare tenker på seg selv og ender opp som en selvstendig kvinne. Ibsen viser dette gjennom hele stykket. Det er mange symboler i teksten, for eksempel dukkehuset og tarantellaen. Konklusjonen er at Nora går fordi hun må finne seg selv."',
+            solution: 'Fungerer: Har tydelig hovedpåstand om utvikling, nevner relevante symboler. Forbedringspunkter: (1) "bare tenker på seg selv" er en misforståelse - utdyp med teksteksempler. (2) "Ibsen viser dette" - hvordan konkret? (3) Symbolene nevnes men analyseres ikke - forklar hva de symboliserer.',
+          },
+        ],
+        hints: ['Vær konkret og konstruktiv. Forklar ikke bare hva som er feil, men hvordan det kan forbedres.'],
+        solution: 'God tilbakemelding er spesifikk, konstruktiv og peker på konkrete løsninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Velg en tekst du har skrevet tidligere (f.eks. en fagartikkel eller et analysestykke). Gå gjennom teksten systematisk med sjekklisten fra kapittelet og gjør følgende:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Identifiser minst fem konkrete forbedringspunkter i din egen tekst.',
+            solution: 'Svarene vil variere, men bør identifisere spesifikke problemer knyttet til innhold, struktur eller språk.',
+          },
+          {
+            label: 'b',
+            task: 'Velg de tre viktigste forbedringspunktene og forklar hvorfor du prioriterer akkurat disse.',
+            solution: 'God prioritering fokuserer på problemer som påvirker forståelsen mest, f.eks. strukturelle problemer før språklige detaljer.',
+          },
+          {
+            label: 'c',
+            task: 'Revider teksten basert på de tre prioriterte punktene.',
+            solution: 'Den reviderte teksten bør vise tydelig forbedring på de identifiserte områdene.',
+          },
+        ],
+        hints: [
+          'Les teksten høyt for å høre svakheter.',
+          'Fokuser først på de største problemene.',
+        ],
+        solution: 'Systematisk selvvurdering er en ferdighet som krever øvelse, men som gjør deg til en mye bedre skribent.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-8-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-8-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et kort notat (200-300 ord) der du reflekterer over din egen skriveprosess. Svar på følgende spørsmål:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er dine styrker som skribent?',
+            solution: 'Svar bør være konkret og realistisk, f.eks. "Jeg er flink til å finne gode argumenter" eller "Jeg har et variert ordforråd".',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke typer feil gjør du oftest?',
+            solution: 'Svar bør gjenkjenne konkrete svakheter, f.eks. "Jeg glemmer ofte å lage overganger mellom avsnitt" eller "Jeg har lett for å gjenta de samme ordene".',
+          },
+          {
+            label: 'c',
+            task: 'Hva kan du gjøre konkret for å forbedre deg på ett område?',
+            solution: 'Svar bør inneholde en konkret strategi, f.eks. "Jeg skal alltid lese teksten høyt for å finne gjentakelser før jeg leverer".',
+          },
+        ],
+        hints: ['Vær ærlig med deg selv. Alle har forbedringspotensial.'],
+        solution: 'Metakognisjon - å tenke over egen tenkning og læring - er nøkkelen til utvikling. Ved å bli bevisst dine egne mønstre kan du arbeide målrettet med forbedring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 export const NORSK_VG2_CHAPTERS_DEL5: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_5_1,
   CHAPTER_NORSK_VG2_5_2,
@@ -2819,4 +3795,5 @@ export const NORSK_VG2_CHAPTERS_DEL5: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_5_5,
   CHAPTER_NORSK_VG2_5_6,
   CHAPTER_NORSK_VG2_5_7,
+  CHAPTER_NORSK_VG2_5_8,
 ];
