@@ -7,6 +7,27 @@
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
+// Import kapitler fra delfiler
+import {
+  CHAPTER_NORSK_VG1_1_3_NARRATIV,
+  CHAPTER_NORSK_VG1_1_4_NARRATIV,
+  CHAPTER_NORSK_VG1_1_5_NARRATIV,
+  CHAPTER_NORSK_VG1_1_6_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del1';
+
+import {
+  CHAPTER_NORSK_VG1_2_2_NARRATIV,
+  CHAPTER_NORSK_VG1_2_3_NARRATIV,
+  CHAPTER_NORSK_VG1_2_4_NARRATIV,
+  CHAPTER_NORSK_VG1_2_5_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del2';
+
+import {
+  CHAPTER_NORSK_VG1_2_6_NARRATIV,
+  CHAPTER_NORSK_VG1_2_7_NARRATIV,
+  CHAPTER_NORSK_VG1_2_8_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del3';
+
 // ============================================================================
 // KAPITTEL 1.1 NARRATIV: Retorikk og argumentasjon
 // ============================================================================
@@ -690,11 +711,46 @@ Moderne noveller har ofte **åpne avslutninger**. De slutter med et spørsmål, 
 };
 
 // ============================================================================
+// RE-EKSPORTER IMPORTERTE KAPITLER
+// ============================================================================
+
+export {
+  CHAPTER_NORSK_VG1_1_3_NARRATIV,
+  CHAPTER_NORSK_VG1_1_4_NARRATIV,
+  CHAPTER_NORSK_VG1_1_5_NARRATIV,
+  CHAPTER_NORSK_VG1_1_6_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del1';
+
+export {
+  CHAPTER_NORSK_VG1_2_2_NARRATIV,
+  CHAPTER_NORSK_VG1_2_3_NARRATIV,
+  CHAPTER_NORSK_VG1_2_4_NARRATIV,
+  CHAPTER_NORSK_VG1_2_5_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del2';
+
+export {
+  CHAPTER_NORSK_VG1_2_6_NARRATIV,
+  CHAPTER_NORSK_VG1_2_7_NARRATIV,
+  CHAPTER_NORSK_VG1_2_8_NARRATIV,
+} from './textbook-content-norsk-vg1-narrativ-del3';
+
+// ============================================================================
 // EKSPORT
 // ============================================================================
 
 export const NORSK_VG1_NARRATIV_CHAPTERS: TextbookChapter[] = [
   CHAPTER_NORSK_VG1_1_1_NARRATIV,
   CHAPTER_NORSK_VG1_1_2_NARRATIV,
+  CHAPTER_NORSK_VG1_1_3_NARRATIV,
+  CHAPTER_NORSK_VG1_1_4_NARRATIV,
+  CHAPTER_NORSK_VG1_1_5_NARRATIV,
+  CHAPTER_NORSK_VG1_1_6_NARRATIV,
   CHAPTER_NORSK_VG1_2_1_NARRATIV,
+  CHAPTER_NORSK_VG1_2_2_NARRATIV,
+  CHAPTER_NORSK_VG1_2_3_NARRATIV,
+  CHAPTER_NORSK_VG1_2_4_NARRATIV,
+  CHAPTER_NORSK_VG1_2_5_NARRATIV,
+  CHAPTER_NORSK_VG1_2_6_NARRATIV,
+  CHAPTER_NORSK_VG1_2_7_NARRATIV,
+  CHAPTER_NORSK_VG1_2_8_NARRATIV,
 ];
