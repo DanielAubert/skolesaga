@@ -52,6 +52,7 @@ import { MUSIKK_10_CHAPTERS } from './textbook-content-musikk-10';
 import { MAT_10_CHAPTERS } from './textbook-content-mat-og-helse-10';
 import { KROPPSOVING_10_CHAPTERS } from './textbook-content-kroppsoving-10';
 import { NORSK_VG1_CHAPTERS } from './textbook-content-norsk-vg1';
+import { NORSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg1-narrativ';
 import { ENGELSK_VG1_CHAPTERS } from './textbook-content-engelsk-vg1';
 import { SAMFUNNSKUNNSKAP_CHAPTERS } from './textbook-content-samfunnskunnskap';
 import { GEOGRAFI_CHAPTERS } from './textbook-content-geografi';
@@ -408,6 +409,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Norsk VG1
   ...Object.fromEntries(NORSK_VG1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG1_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Engelsk VG1
   ...Object.fromEntries(ENGELSK_VG1_CHAPTERS.map(c => [c.id, c])),
@@ -606,17 +608,8 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
   'bygg-anlegg-vg1-8-3': 'bygg-anlegg-vg1-10',  // Prosjektplanlegging
   'bygg-anlegg-vg1-8-5': 'bygg-anlegg-vg1-12',  // Yrkesmuligheter
 
-  // Naturbruk VG1 (10 kapitler med innhold)
-  'naturbruk-vg1-1-1': 'naturbruk-vg1-1',   // Økosystemer og naturmangfold
-  'naturbruk-vg1-2-2': 'naturbruk-vg1-3',   // Skogbruk
-  'naturbruk-vg1-3-2': 'naturbruk-vg1-2',   // Jord og plantelære
-  'naturbruk-vg1-3-4': 'naturbruk-vg1-5',   // Landbruk og matproduksjon
-  'naturbruk-vg1-4-1': 'naturbruk-vg1-4',   // Dyrehold og dyrevelferd
-  'naturbruk-vg1-5-1': 'naturbruk-vg1-6',   // Akvakultur og fiskeri
-  'naturbruk-vg1-6-1': 'naturbruk-vg1-7',   // Utmarksforvaltning
-  'naturbruk-vg1-6-6': 'naturbruk-vg1-8',   // Friluftsliv og naturveiledning
-  'naturbruk-vg1-7-1': 'naturbruk-vg1-9',   // Maskinlære og verktøy
-  'naturbruk-vg1-7-5': 'naturbruk-vg1-10',  // HMS og sikkerhet
+  // Naturbruk VG1 - Fullstendig med 55 kapitler (1.1-8.8)
+  // ID-er matcher direkte - ingen mapping nødvendig
 
   // Teknologi- og industrifag VG1 (5 kapitler med innhold)
   'tif-vg1-1-1': 'tif-vg1-1',   // Materiallære (Metaller og legeringer)
