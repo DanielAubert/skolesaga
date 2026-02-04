@@ -1132,14 +1132,14 @@ export function ExerciseTrainer({
               ) : (
                 /* Algebraisk tastatur (kap 1.2+) */
                 <>
-              {/* Left columns: Variables (x, y, z, a, b, c, u, v) in 2x4 grid */}
-              <div className="grid grid-cols-2 gap-1.5">
-                {['x', 'y', 'z', 'a', 'b', 'c', 'u', 'v'].map((v) => (
+              {/* Left columns: Variables (x, y, z, a, b, c, u, v, A) in 3x3 grid */}
+              <div className="grid grid-cols-3 gap-1">
+                {['x', 'y', 'z', 'a', 'b', 'c', 'u', 'v', 'A'].map((v) => (
                   <button
                     key={v}
                     type="button"
                     onClick={() => insertAtCursor(v)}
-                    className="w-7 h-12 text-lg font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                    className="w-7 h-10 text-base font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
                     disabled={!isActive}
                   >
                     {v}
