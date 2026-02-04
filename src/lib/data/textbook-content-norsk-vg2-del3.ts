@@ -3724,6 +3724,568 @@ Sidemålsdebatten, nynorskprosenten og språkpolitikk generelt viser at spørsm�
   exercises: [],
 };
 
+// ============================================================================
+// KAPITTEL 3.10: Romantikkens etterliv - fra 1800-tallet til i dag
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_3_10: TextbookChapter = {
+  id: 'norsk-vg2-3-10',
+  courseId: 'norsk-vg2',
+  chapterNumber: '3.10',
+  title: 'Romantikkens etterliv - fra 1800-tallet til i dag',
+  description: 'Utforsk hvordan romantiske ideer og motiver lever videre i moderne kultur, fra nasjonalsymboler til populærkultur.',
+  estimatedMinutes: 65,
+  competenceGoals: [
+    'utforske tekster fra romantikken og nasjonalromantikken',
+    'sammenligne tekster fra ulike tider og vurdere hvordan de forholder seg til hverandre',
+    'reflektere over hvordan tekster framstiller møter mellom ulike kulturer eller kulturelle tradisjoner',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-3-10-intro',
+      type: 'text',
+      content: `## Romantikkens lange etterliv
+
+Romantikken som litterær epoke varte fra ca. 1800 til 1850, men de romantiske ideene lever videre den dag i dag. Hver gang vi feirer 17. mai, ser en naturfilm, leser fantasy eller kjenner lengsel etter fjell og fjorder, bader vi i romantikkens etterliv.
+
+**Hvorfor lever romantikken videre?**
+
+Romantikken skapte forestillinger og verdier som har blitt dypt forankret i norsk og vestlig kultur:
+
+*Naturen som kilde til mening:* Tanken om at naturen gir oss noe som det moderne livet ikke kan gi - ro, ekthet, åndelig fornyelse.
+
+*Det nasjonale som identitet:* Forestillingen om at vi tilhører et folk med felles kultur, historie og karaktertrekk.
+
+*Følelsenes verdi:* Ideen om at følelser er mer ekte og viktige enn ren fornuft.
+
+*Lengsel som livsholdning:* En romantisk lengsel etter noe mer, noe annet, noe tapt.
+
+Disse ideene har blitt så selvfølgelige at vi knapt legger merke til dem - men de former hvordan vi tenker om oss selv, naturen og nasjonen.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-section-1',
+      type: 'text',
+      content: `## Romantiske motiver i moderne kultur
+
+**Naturlengsel i musikk, film og litteratur**
+
+Fra romantikken arvet vi forestillingen om naturen som et tilfluktssted fra det moderne livets stress og fremmedgjoring. Denne lengselen gjennomsyrer moderne kultur:
+
+*Musikk:* Fra Griegs fjellmotiver til a-has "Hunting High and Low", fra Aurora til Wardruna - norsk musikk dyrker stadig naturbilder. Elektronisk musikk bruker naturl yder, og musikkvideore filmes i dramatiske naturlandskaper.
+
+*Film:* Naturfilmer som David Attenboroughs dokumentarer skildrer naturen med romantisk ærfrykt. Norske filmer som "Trolljegeren" og "Villmark" spiller på forholdet mellom menneske og natur. Hollywood-filmer som "Into the Wild" og "The Revenant" bygger på romantisk naturlengsel.
+
+*Litteratur:* Romanfigurer som søker ut i naturen for a finne seg selv - fra Karl Ove Knausgards skildringer til friluftslivslitteraturens boom. Naturessayet har opplevd en renessanse med forfattere som Robert Macfarlane og norske Erling Kagge.
+
+**Det sublime i moderne medier**
+
+Romantikkens begrep om det sublime - naturens overveldende storhet som vekker bade frykt og henrykkelse - lever videre i:
+
+*Ekstremfilming:* Dronebilder over fjorder, tidssunkebilder av nordlys, surfere i monsterbolgcr - moderne medier soker stadig det sublime.
+
+*Naturdokumentarer:* Planet Earth-serien viser naturens storhet i 4K-opplosning med dramatisk musikk - en direkte arv fra romantikkens naturbeundring.
+
+*Sosiale medier:* Instagram-bilder fra Trolltunga og Preikestolen er moderne versjoner av romantikkens landskapsmaleri.
+
+*Reklame:* Bilindustrien viser kjoretoyer i dramatiske landskap, friluftsmerker bruker fjell og vidder - det sublime selger.
+
+**Nasjonalromantikk og identitet i dag**
+
+Forestillingen om en saeregen norsk identitet knyttet til natur, frihet og folkekultur er direkte arv fra 1800-tallets nasjonalromantikk:
+
+*"Det typisk norske":* Skitur, hytteliv, brunost, tradisjonsmat - mange av tingene vi tenker pa som "typisk norske" ble konstruert eller fremhevet i nasjonalromantikken.
+
+*Dialektbevissthet:* Den norske stoltheten over dialekter og motstanden mot et standardisert talesprak har rotter i romantikkens interesse for folkesprak.
+
+*Bygderomantikk:* Forestillingen om bygda som mer "ekte" enn byen, bonden som barer av norsk tradisjon - dette er nasjonalromantiske ideer.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-def-1',
+      type: 'definition',
+      title: 'Romantikkens etterliv - sentrale begreper',
+      content: `**Kulturarv:** De ideer, tradisjoner og uttrykk vi har arvet fra fortiden og videreforer.
+
+**Nasjonale symboler:** Ting, handlinger eller forestillinger som representerer nasjonen (flagg, bunad, 17. mai).
+
+**Tradisjon:** Praksis eller forestillinger som overfores fra generasjon til generasjon.
+
+**Konstruert tradisjon:** Tradisjoner som fremstar som urgamle, men som er nyere enn vi tror (jf. Eric Hobsbawm).
+
+**Nostalgi:** Lengsel etter en (idealisert) fortid.
+
+**Autentisitet:** Forestillingen om noe ekte, uforfalskct og opprinnelig - et sentralt romantisk ideal.
+
+**Kulturell appropriasjon:** Nar elementer fra en kultur brukes av en annen, ofte med problematiske konsekvenser.
+
+**Mytologisering:** A gjore noe til myte, ofte ved a idealisere eller forenkle.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-section-2',
+      type: 'text',
+      content: `## Nasjonalsymboler fra romantikken
+
+**Bunaden og folkedrakten**
+
+Bunaden slik vi kjenner den i dag, er ikke en direkte videreføring av historiske folkedrakter. Den er i stor grad et produkt av nasjonalromantikken:
+
+*Historien:* Pa 1800-tallet begynte Hulda Garborg og andre a rekonstruere og standardisere lokale drakter. Mange bunader er basert pa fragmenter og bilder, ofte med betydelig kunstnerisk frihet.
+
+*Symbolikken:* Bunaden ble et symbol pa lokal og nasjonal identitet. A ga i bunad er a vise tilhørighet til et sted og en tradisjon.
+
+*I dag:* Bunaden er Norges mest brukte festplagg. Den har fatt fornyet popularitet, særlig blant unge. Samtidig diskuteres spørsmål om hvem som "har lov" til a ga i bunad.
+
+**17. mai-feiringen**
+
+Nasjonaldagsfeiringen er romantikkens arv i praksis:
+
+*Historien:* Feiringen utviklet seg pa 1800-tallet. Henrik Wergeland var sentral i a skape barnetogstradisjonen (fra 1820-tallet). Feiringen var lenge politisk omstridt.
+
+*Romantiske elementer:* Flagg, bunader, barnetog, nasjonalsanger, taler om frihet og fedreland - alt dette er gjennomfort romantisk nasjonalisme i praksis.
+
+*I dag:* 17. mai er kanskje Norges mest samlende tradisjon, men feiringen reiser ogsa sporsmål: Hvem inkluderes? Hvordan feire i et flerkulturelt Norge?
+
+**Friluftsliv som norsk identitet**
+
+Forestillingen om nordmenn som et friluftsfolk er nasjonalromantisk konstruksjon:
+
+*Historien:* Pa 1800-tallet ble fjellvandring, ski og friluftsliv koblet til norsk nasjonal identitet. Fridtjof Nansen ble et nasjonalikon.
+
+*"Ut pa tur, aldri sur":* Mottoet oppsummerer en nasjonal ideologi om at nordmenn elsker uteliv uansett vær.
+
+*I dag:* Friluftsliv er fortsatt sentralt i norsk selvforstaelse. Allemannsretten, hyttekultur og DNT er institusjonalisert nasjonalromantikk.
+
+**Hvorfor Grieg og "I Dovregubbens hall" er overalt**
+
+Edvard Griegs musikk er blitt et lydspor til "det norske":
+
+*Peer Gynt:* Suiten til Ibsens "Peer Gynt" (1875) bruker norsk folkemusikk og naturskildringer. "Morgenstemning" og "I Dovregubbens hall" er blant verdens mest kjente klassiske stykker.
+
+*Bruken i dag:* Griegs musikk brukes i alt fra flyplassannonsering til vikingrelatert underholdning, naturfilmer og reklame. Den signaliserer "Norge" internasjonalt.
+
+*Hvorfor:* Grieg komponerte bevisst "norsk" musikk med folkemusikkinspirerte melodier og harmonier. Han lyktes sa godt at musikken hans har blitt synonymt med Norge.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-example-1',
+      type: 'example',
+      title: 'Eksempel: Romantikk i turismemarkedsforing',
+      problem: `Analyser denne fiktive reklameteksten for Visit Norway:
+
+"Opplev det ekte Norge. Her, der fjordene skjærer seg inn mellom urgamle fjell, finner du deg selv. Bort fra storbyens stress, inn i stillheten. Vandre i forfedrenes fotspor. Pust inn friheten. Norge - slik det alltid har vært."
+
+Hvilke romantiske motiver og ideer finner du?`,
+      solution: `**Analyse av romantiske elementer:**
+
+**Autentisitet:**
+"Det ekte Norge" - forestillingen om at det finnes noe opprinnelig og uforfalsket Norge, i motsetning til det "uekte" moderne.
+
+**Naturlengsel:**
+Fjorder og fjell presenteres som motpol til "storbyens stress". Naturen tilbyr noe byen ikke kan gi.
+
+**Det sublime:**
+"Urgamle fjell" - naturens tidlose storhet som gjor mennesket lite, men ogsa frigjort.
+
+**Selvfinning gjennom natur:**
+"Finner du selv" - romantikkens ide om at naturen gir innsikt og selverkjennelse.
+
+**Nasjonalromantikk:**
+"Forfedrenes fotspor" - kobling til fortid og tradisjon. Det norske som tidløst.
+
+**Frihet:**
+"Pust inn friheten" - naturen som frihetens sted, borte fra sivilisasjonens begrensninger.
+
+**Essensialisme:**
+"Slik det alltid har vært" - forestillingen om et uforanderlig, essensielt Norge.
+
+**Kritisk refleksjon:**
+Reklamen idealiserer og forenkler. Den utelater moderne Norge, klimaendringer, turismens miljøbelastning. Den konstruerer et bilde av Norge som appellerer til turister, men er det sant?`,
+    },
+    {
+      id: 'norsk-vg2-3-10-section-3',
+      type: 'text',
+      content: `## Romantikk i populærkultur
+
+**Fantasy-sjangeren**
+
+Fantasy-litteratur og -film er kanskje den tydeligste arven fra romantikken i populærkulturen:
+
+*Tolkien og middelalderromantikk:* J.R.R. Tolkiens "Ringenes Herre" er gjennomfort romantisk: naturbesjeling, middelaldernostalgi, folkevise-inspirert språk, det gode mot det onde. Tolkien var selv inspirert av norrøn litteratur.
+
+*Game of Thrones:* George R.R. Martins univers kombinerer romantiske elementer (middelalder, drager, magi) med moderne realisme (vold, politikk, moralsk tvetydighet).
+
+*Norron mytologi i populærkultur:* Marvel's Thor, God of War-spillene, Vikings-serien - norrøn mytologi har fatt en global renessanse, ofte med romantisert fremstilling.
+
+*Hvorfor fantasy appellerer:* Sjangerens popularitet kan ses som moderne Sehnsucht - en lengsel etter en annen, mer meningsfull verden enn var egen.
+
+**Naturfilmer og dokumentarer**
+
+Naturfilmens suksess er romantikkens naturbeundring i ny drakt:
+
+*Planet Earth og Blue Planet:* David Attenboroughs serier viser naturen som sublim, vakker og truet. Musikken understreker folelsene. Mennesket er nesten fraværende.
+
+*Norske naturfilmer:* Fra Ivo Caprinos "Flaklypa Grand Prix" naturbilder til moderne dronefilmer - norsk film dyrker landskapet.
+
+*Miljobevegelsens estetikk:* Naturfilmen har ogsa et budskap: Dette vakre er truet. Romantisk naturbeundring brukes for a fremme miljøvern.
+
+**Miljobevegelsen og naturromantikk**
+
+Moderne miljøbevegelse har sterke romantiske røtter:
+
+*Naturen som verdi i seg selv:* Romantikkens ide om at naturen har egenverdi - ikke bare nytteverdi - er grunnleggende for miljøetikk.
+
+*Sivilisasjonskritikk:* Tanken om at det moderne samfunnet er pa feil kurs og ødelegger noe verdifullt, er romantisk i sin struktur.
+
+*"Tilbake til naturen":* Okolandsby-bevegelsen, permakultur, slow food - mange miljøinitiativer har nostalgisk lengsel etter et mer "naturlig" liv.
+
+*Kritikk:* Noen mener miljobevegelsens romantisering av "uberørt natur" ignorerer at mennesker alltid har påvirket naturen, og at det kan fore til a skyve urfolk vekk fra verneomrader.
+
+**"Det norske" i reklame og turisme**
+
+Nasjonalromantikk selger:
+
+*Turisme:* Visit Norway markeds forer Norge med fjorder, fjell, nordlys og tradisjoner. Vikingene er blitt merkevare.
+
+*Matkultur:* "Tradisjonell norsk mat", gårdsmat, kortreist - matbransjen bruker nostalgi og autentisitet.
+
+*Mote:* Bunadsdetaljer i moderne design. Norske tradisjonsmønstre på klær. Strikkegenseren som ikon.
+
+*Dilemma:* Hva skjer når romantisert norskhet blir vare? Er det problematisk at tradisjoner kommersialiseres?`,
+    },
+    {
+      id: 'norsk-vg2-3-10-section-4',
+      type: 'text',
+      content: `## Kritisk blikk på romantikken
+
+**Nasjonalromantikk og ekskludering**
+
+Nasjonalromantikkens ideer om folkeand og nasjonal egenart har en problematisk side:
+
+*Hvem er "folket"?* 1800-tallets nasjonalromantikk definerte det norske snevert: Bonden, fjellheimen, folketradisjonen. Byfolk, samer, romanifolk, innvandrere - mange falt utenfor.
+
+*"Det typisk norske":* Når vi definerer noe som "typisk norsk", definerer vi ogsa hva som ikke er det. Det kan virke ekskluderende.
+
+*Historisk eksempel:* Nasjonalromantiske ideer om folkerenhet ble misbrukt politisk - ogsa i Norge. Fornorskingspolitikken overfor samer var delvis begrunnet i nasjonalromantisk tankegods.
+
+*Dagsaktualitet:* Debatter om "norske verdier", hvem som er "ekte norsk", og hva som truer "norsk kultur" - har fortsatt nasjonalromantiske undertoner.
+
+**Idealisering vs. virkelighet**
+
+Romantikken idealiserte - og vi gjor det fortsatt:
+
+*Bondesamfunnet:* Romantikerne idealiserte bøndene som bærere av ekte norsk kultur. I virkeligheten var livet hardt, fattig og preget av ulikhet.
+
+*Naturen:* Vi romantiserer "uberørt natur", men naturen er ogsa farlig, kald og likegyldig. Og "uberørt" natur finnes knapt.
+
+*Fortiden:* Romantisk nostalgi fremstiller fortiden som bedre. Men ville vi egentlig bytte vår tid med 1800-tallets Norge?
+
+*Konsekvens:* Idealisering kan gjøre oss blinde for reelle problemer, bade i fortiden og nåtiden.
+
+**Hvem fikk definere "det norske"?**
+
+Nasjonalromantikken var et eliteprosjekt:
+
+*Forfattere og kunstnere:* Det var embetsmenn, akademikere og kunstnere som samlet folkeviser, skapte landsmålet og definerte hva som var verdifullt i norsk kultur.
+
+*Bøndene selv:* De bøndene som ble gjort til bærere av "det norske" var ofte ikke selv med pa a definere hva det skulle bety.
+
+*Regionale forskjeller:* Vestlandet og innlandsdalene ble fremhevet, mens Nord-Norge, bykultur og kystkultur kom i skyggen.
+
+*Makt:* Makt til a definere "det nasjonale" var ogsa makt til a bestemme hvem som tilhørte og hvem som falt utenfor.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-tip-1',
+      type: 'tip',
+      title: 'Tips: Gjenkjenne romantiske motiver',
+      content: `**Slik gjenkjenner du romantikkens etterliv:**
+
+**Spor etter naturromantikk:**
+- Naturen fremstilles som kilde til mening, fred eller selvfinning
+- Det moderne/urbane kontrasteres negativt med det naturlige
+- Naturopplevelser beskrives med ærfrykt eller begeistring
+
+**Spor etter nasjonalromantikk:**
+- Referanser til "det typisk norske" eller "ekte norsk"
+- Kobling mellom natur og nasjonal identitet
+- Vektlegging av tradisjoner, fortid, røtter
+
+**Romantisk lengsel:**
+- Nostalgi etter en (idealisert) fortid
+- Lensel etter noe annet, noe mer, noe tapt
+- Misnøye med det moderne, overfladiske, kommersielle
+
+**Kritiske spørsmål du kan stille:**
+- Hvem inkluderes og hvem ekskluderes?
+- Hva idealiseres, og hva utelates?
+- Hvem har makt til a definere "det ekte"?
+- Hvilke interesser tjenes av denne fremstillingen?`,
+    },
+    {
+      id: 'norsk-vg2-3-10-section-5',
+      type: 'text',
+      content: `## Tekstsammenligning: Romantikk da og na
+
+**Wergeland og Welhaven vs. moderne tekster om Norge**
+
+For a forsta romantikkens etterliv kan vi sammenligne 1800-tallets tekster med moderne tekster som handler om Norge, naturen eller det norske.
+
+*Henrik Wergeland (1838):*
+Fra "Norges Fjelde":
+"O, I Norges fjelde! / Eders stolte helde / skue ned pa fjorden blaa. / Der jeg forst saa dagens lys, / der er det, jeg hvile maa."
+
+*Moderne eksempel - turistreklame (2020):*
+"Fjordene. Fjellene. Stillheten. Her finner du det ekte Norge."
+
+*Sammenligning:*
+Begge kobler norsk identitet til fjord og fjell. Begge fremstiller naturen som kilde til tilhørighet. Wergeland bruker høystemt poetisk språk, reklamen bruker korte setninger. Begge utelater det moderne Norge.
+
+**Folkeeventyr vs. moderne adaptasjoner**
+
+*Askeladden (tradisjonell):*
+Den yngste, enfoldige gutten seirer over trollet gjennom list og flaks.
+
+*"Askeladden - I Dovregubbens hall" (film, 2017):*
+Modern actionfilm med spesialeffekter, men samme grunnhistorie og romantisert middelalder-Norge.
+
+*Sammenligning:*
+Begge fremstiller en idealisert fortid. Filmen legger til visuell romantikk (natur, drakter, slott). Begge formidler "norske" verdier (snarrådighet, mot). Filmen tilpasser til moderne smak, men beholder romantisk ramme.`,
+    },
+    {
+      id: 'norsk-vg2-3-10-def-2',
+      type: 'definition',
+      title: 'Sammenligning av tekster - analyseverktøy',
+      content: `**Når du sammenligner romantiske tekster fra ulike tider:**
+
+**Motiver:**
+Hvilke romantiske motiver finnes? (natur, lengsel, nasjon, det sublime)
+
+**Syn pa naturen:**
+Hvordan fremstilles naturen? Hva representerer den?
+
+**Syn på nasjonen:**
+Hvordan defineres det norske? Hvem inkluderes?
+
+**Språk og stil:**
+Høystemt/hverdagslig? Poetisk/prosaisk? Gammeldags/moderne?
+
+**Kontekst:**
+Når er teksten skrevet? Til hvem? Med hvilket formål?
+
+**Idealisering:**
+Hva fremheves? Hva utelates? Hva idealiseres?
+
+**Makt og perspektiv:**
+Hvem taler? Fra hvilket perspektiv? Hvem tjener på fremstillingen?`,
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Finn romantiske motiver i populærkulturen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg en film, serie, sang eller bok du kjenner godt. Beskriv kort hva den handler om.',
+            solution: 'Svar vil variere. Eksempler: Ringenes Herre (fantasy om kamp mot det onde), Frozen (eventyrfilm med norsk-inspirert setting), en favorittlåt med naturbilder.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke romantiske motiver finner du i verket du valgte? Begrunn med eksempler.',
+            solution: 'Se etter: Naturbeundring, lengsel, nasjonalromantikk, middelaldernostalgi, kamp mellom godt og ondt, det sublime, autentisitet vs. modernitet.',
+          },
+        ],
+        solution: 'Romantiske motiver finnes overalt i moderne populærkultur, ofte uten at vi tenker over det.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-2',
+        number: '2',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser nasjonalromantiske elementer i reklame.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn en norsk reklame (TV, nett, avis) som bruker nasjonalromantiske elementer. Beskriv hva reklamen viser.',
+            solution: 'Eksempler kan være: Turistreklame (Visit Norway), matreklame (Tine, Gilde), friluftsutstyr (Bergans, Helly Hansen), bil i norsk natur.',
+          },
+          {
+            label: 'b',
+            task: 'Hvilke nasjonalromantiske elementer brukes? Hvorfor tror du de brukes?',
+            solution: 'Vanlige elementer: Norsk natur, tradisjoner, bunad, "det ekte", friluftsliv. De brukes fordi de vekker positive folelser og skaper tillit til produktet som "ekte norsk".',
+          },
+          {
+            label: 'c',
+            task: 'Diskuter kort: Er det problematisk at nasjonalromantikk brukes for a selge produkter?',
+            solution: 'For: Det trivialiserer tradisjoner, skaper falsk nostalgi, kan være ekskluderende. Mot: Det holder tradisjoner levende, skaper fellesskapsfølelse. Reflekter over kommersialiseringens konsekvenser.',
+          },
+        ],
+        solution: 'Nasjonalromantikk er en effektiv reklamestrategi fordi den appellerer til identitet og fellesskap.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Drøft romantikkens relevans i dag.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Gi to eksempler pa at romantiske ideer er relevante i var tid.',
+            solution: 'Eksempler: Miljøbevegelsens naturvern (natur har egenverdi), friluftsliv som nasjonal identitet, fantasy-sjangerens popularitet, naturlengsel i en digital tid, nasjonalisme i politikken.',
+          },
+          {
+            label: 'b',
+            task: 'Gi to eksempler pa problematiske sider ved romantisk tenkning i dag.',
+            solution: 'Eksempler: Ekskluderende nasjonalisme ("ekte norsk"), idealisering som skjuler problemer, nostalgi som hindrer endring, romantisert natur som ignorerer klimakrise.',
+          },
+        ],
+        solution: 'Romantikken er bade relevant og problematisk - den gir oss verdifulle ideer, men ogsa blindsoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Sammenlign en romantisk tekst fra 1800-tallet med en moderne tekst.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Les Wergelands "Til Foraaret" eller Welhavens "Norges Dæmring" fra tidligere kapitler. Oppsummer hovedinnholdet.',
+            solution: 'Wergeland: Vårens komme som symbol pa liv, hap og fornyelse. Naturen personifiseres. Welhaven: Kritikk av norsk kultur, men ogsa lengsel etter en bedre fremtid for nasjonen.',
+          },
+          {
+            label: 'b',
+            task: 'Finn en moderne tekst (dikt, sangtekst, reklame) som handler om Norge eller norsk natur. Oppsummer innholdet.',
+            solution: 'Svar vil variere. Eksempler: Reklame fra Visit Norway, tekster av norske artister, avisartikler om norsk identitet.',
+          },
+          {
+            label: 'c',
+            task: 'Sammenlign de to tekstene. Hva har de felles, og hva er forskjellig?',
+            solution: 'Felles: Ofte samme motiver (natur, nasjon, lengsel). Forskjeller: Sprák, stil, kontekst, formal. Den moderne teksten kan være mer ironisk, kommersieli eller flerkulturell.',
+          },
+        ],
+        solution: 'Sammenligning viser at romantiske motiver lever videre, men i nye former og kontekster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-5',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er "det sublime" i romantisk forstand?',
+        options: [
+          'Noe vakkert og harmonisk',
+          'Naturens overveldende storhet som vekker bade frykt og beundring',
+          'En type klassisk arkitektur',
+          'En religiøs opplevelse i kirken',
+        ],
+        answer: 1,
+        solution: 'Det sublime er et sentralt begrep i romantikken som beskriver opplevelsen av naturens overveldende storhet - for eksempel a sta ved et mektig fossefall, se ut over et stormfullt hav, eller betrakte enorme fjell. Opplevelsen vekker bade frykt og henrykkelse, og får mennesket til a føle seg lite, men ogsa opploftet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-6',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken påstand om bunaden er riktig?',
+        options: [
+          'Bunaden har vært uforandret siden middelalderen',
+          'Bunaden ble i stor grad rekonstruert og standardisert pa 1800-tallet',
+          'Bunaden ble innført ved lov i 1905',
+          'Bunaden er en internasjonal tradisjon',
+        ],
+        answer: 1,
+        solution: 'Bunaden slik vi kjenner den i dag er i stor grad et produkt av nasjonalromantikken pa 1800-tallet. Hulda Garborg og andre arbeidet med a rekonstruere og standardisere lokale drakter. Mange bunader er basert pa fragmenter og bilder, ofte med kunstnerisk fortolkning. Det betyr ikke at bunaden er "falsk", men at den er en del av en bevisst nasjonsbyggingsprosess.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser bruken av "det norske" i en selvvalgt kontekst.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Finn et eksempel fra media, politikk eller hverdagsliv der noen snakker om "det norske", "norske verdier" eller "norsk kultur".',
+            solution: 'Eksempler kan være politiske debatter, medieoppslag, reklame, sosiale medier-innlegg, eller egne erfaringer fra samtaler.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan defineres "det norske" i dette eksempelet? Hva inkluderes?',
+            solution: 'Analyser: Hvilke trekk fremheves (natur, friluftsliv, verdier, tradisjoner)? Hvem nevnes som typiske representanter? Hva presenteres som positivt?',
+          },
+          {
+            label: 'c',
+            task: 'Hvem eller hva ekskluderes, bevisst eller ubevisst, fra denne definisjonen?',
+            solution: 'Tenk kritisk: Inkluderer definisjonen urbant liv, innvandrere, samer, funksjonshemmede, fattige? Hvem "passer ikke" i bildet som tegnes?',
+          },
+        ],
+        solution: 'Definisjoner av "det norske" bærer alltid med seg nasjonalromantisk arv og har konsekvenser for hvem som føler seg inkludert.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-3-10-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-3-10-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv en argumenterende tekst (400-500 ord) der du drøfter følgende påstand: "Romantikkens ideer om natur og nasjon er fortsatt relevante og verdifulle i dag."',
+        hints: [
+          'Presenter påstanden og gi din foreløpige vurdering.',
+          'Gi argumenter FOR at romantiske ideer er verdifulle (naturvern, fellesskap, tradisjon).',
+          'Gi argumenter MOT (idealisering, ekskludering, nostalgi som hindrer endring).',
+          'Konkluder med en balansert vurdering.',
+        ],
+        solution: 'En god drøfting bør: (1) Presentere påstanden klart. (2) Argumentere for at romantiske ideer er verdifulle - de gir oss naturrespekt, fellesskapsfølelse, kulturelle røtter. (3) Argumentere for at romantiske ideer kan være problematiske - de kan idealisere, ekskludere, og hindre oss i a se virkeligheten klart. (4) Konkludere balansert - romantiske ideer er verken bare gode eller bare dårlige, det kommer an på hvordan de brukes og av hvem. (5) Bruke konkrete eksempler. (6) Ha god struktur og flyt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 export const NORSK_VG2_CHAPTERS_DEL3: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_3_1,
   CHAPTER_NORSK_VG2_3_2,
@@ -3734,4 +4296,5 @@ export const NORSK_VG2_CHAPTERS_DEL3: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_3_7,
   CHAPTER_NORSK_VG2_3_8,
   CHAPTER_NORSK_VG2_3_9,
+  CHAPTER_NORSK_VG2_3_10,
 ];

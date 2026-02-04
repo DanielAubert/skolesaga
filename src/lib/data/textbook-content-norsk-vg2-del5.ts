@@ -3787,6 +3787,646 @@ Innholdet er kanskje bra, men rekkefølgen er forvirrende. Lag en disposisjon og
   exercises: [],
 };
 
+// ============================================================================
+// KAPITTEL 5.9: Argumentasjonsteori og feilslutninger
+// ============================================================================
+
+export const CHAPTER_NORSK_VG2_5_9: TextbookChapter = {
+  id: 'norsk-vg2-5-9',
+  courseId: 'norsk-vg2',
+  chapterNumber: '5.9',
+  title: 'Argumentasjonsteori og feilslutninger',
+  description: 'Lær å analysere argumenter og gjenkjenne logiske feilslutninger i debatter, reklame og sosiale medier.',
+  estimatedMinutes: 70,
+  competenceGoals: [
+    'reflektere over sakprosatekster og retorisk situasjon',
+    'analysere og tolke tekster med bruk av fagbegreper',
+    'bruke og variere språklige og retoriske virkemidler',
+    'vurdere argumentasjon og kilder kritisk',
+  ],
+  content: [
+    {
+      id: 'norsk-vg2-5-9-intro',
+      type: 'text',
+      content: `## Argumentasjonsteori - kunsten å bygge og vurdere argumenter
+
+Evnen til å vurdere argumenter kritisk er en av de viktigste ferdighetene i et demokratisk samfunn. Hver dag møter vi påstander som forsøker å overbevise oss - i nyheter, reklame, politisk debatt og sosiale medier. For å navigere i dette landskapet trenger vi verktøy til å skille gode argumenter fra dårlige.
+
+**Hva er et argument?**
+
+Et argument er en sammensetning av påstander der én påstand (konklusjonen) støttes av andre påstander (premissene). Formålet er å overbevise noen om at konklusjonen er sann eller sannsynlig.
+
+Eksempel på et enkelt argument:
+- *Premiss 1:* Alle mennesker er dødelige.
+- *Premiss 2:* Sokrates er et menneske.
+- *Konklusjon:* Sokrates er dødelig.
+
+**Argumentets grunnstruktur**
+
+Ethvert argument har tre hovedelementer:
+
+*Påstand (tese/konklusjon):* Det du vil ha akseptert - hovedbudskapet ditt.
+
+*Begrunnelse (premiss/warrant):* Hvorfor påstanden er sann - den logiske koblingen.
+
+*Belegg (støtte/backing):* Fakta, eksempler eller data som støtter begrunnelsen.
+
+Eksempel:
+- *Påstand:* Vi bør innføre gratis skolemåltid.
+- *Begrunnelse:* Fordi det vil gi bedre konsentrasjon og læringsutbytte.
+- *Belegg:* Forskning fra Sverige viser at elever presterer 15% bedre på prøver etter innføring av gratis lunsj.
+
+**Gyldige vs ugyldige argumenter**
+
+Et argument kan være *gyldig* eller *ugyldig*, og *sant* eller *usant*:
+
+*Gyldig argument:* Konklusjonen følger logisk av premissene. Hvis premissene er sanne, må konklusjonen være sann.
+
+*Ugyldig argument:* Konklusjonen følger ikke logisk av premissene, selv om premissene er sanne.
+
+*Sant argument:* Et gyldig argument der premissene faktisk er sanne.
+
+Et argument kan være logisk gyldig men likevel ha usanne premisser:
+- Alle fugler kan fly. (Usant - pingviner kan ikke fly)
+- En spurv er en fugl.
+- Derfor kan en spurv fly. (Logisk gyldig, men premissen er feil)
+
+**Styrken i et argument**
+
+Et godt argument kjennetegnes ved:
+1. Relevante premisser som faktisk støtter konklusjonen
+2. Tilstrekkelige premisser - nok støtte til å gjøre konklusjonen sannsynlig
+3. Akseptable premisser som mottakeren kan godta
+4. Tydelig og ærlig fremstilling uten manipulasjon`,
+    },
+    {
+      id: 'norsk-vg2-5-9-toulmin',
+      type: 'text',
+      content: `## Toulmins argumentasjonsmodell
+
+Den britiske filosofen Stephen Toulmin (1922-2009) utviklet en modell for å analysere argumenter som brukes mye i retorikk og kommunikasjon. Modellen er mer fleksibel enn klassisk logikk og passer godt til hverdagslige argumenter.
+
+**De seks elementene i Toulmins modell**
+
+*1. Påstand (Claim):*
+Det du hevder eller vil ha akseptert. Kan være en faktapåstand, verdipåstand eller handlingspåstand.
+- Eksempel: "Skolen bør tilby flere valgfag."
+
+*2. Belegg (Data/Grounds):*
+Fakta, bevis eller informasjon som støtter påstanden.
+- Eksempel: "Undersøkelser viser at elever er mer motiverte når de kan velge fag selv."
+
+*3. Hjemmel (Warrant):*
+Den underliggende regelen eller prinsippet som kobler belegg til påstand.
+- Eksempel: "Motiverte elever lærer bedre og får bedre resultater."
+
+*4. Ryggdekning (Backing):*
+Støtte for hjemmelen - hvorfor vi kan stole på prinsippet.
+- Eksempel: "Pedagogisk forskning de siste 30 årene bekrefter sammenhengen mellom motivasjon og læring."
+
+*5. Styrkemarkør (Qualifier):*
+Indikerer hvor sikker konklusjonen er: "sannsynligvis", "i de fleste tilfeller", "med stor sikkerhet".
+- Eksempel: "Skolen bør *sannsynligvis* tilby flere valgfag."
+
+*6. Unntak (Rebuttal):*
+Situasjoner der konklusjonen ikke gjelder.
+- Eksempel: "Med mindre det går på bekostning av grunnleggende ferdigheter i kjernefagene."
+
+**Hvorfor bruke Toulmins modell?**
+
+Modellen hjelper deg å:
+- Analysere egne argumenter og finne svakheter
+- Vurdere andres argumenter systematisk
+- Forstå hvor uenigheten ligger i en debatt
+- Bygge sterkere og mer nyanserte argumenter
+
+**Eksempel på fullstendig analyse**
+
+*Debattinnlegg:* "Mobiltelefoner bør forbys i klasserommet."
+
+| Element | Innhold |
+|---------|---------|
+| Påstand | Mobiltelefoner bør forbys i klasserommet |
+| Belegg | Forskning viser at elever som bruker mobil i timen, får dårligere karakterer |
+| Hjemmel | Det som forstyrrer læringen bør fjernes fra klasserommet |
+| Ryggdekning | Skolens oppgave er å legge til rette for best mulig læring |
+| Styrkemarkør | "I de fleste tilfeller" |
+| Unntak | Med mindre mobilen brukes som pedagogisk verktøy under lærerens kontroll |`,
+    },
+    {
+      id: 'norsk-vg2-5-9-def-1',
+      type: 'definition',
+      title: 'Sentrale begreper i argumentasjonsteori',
+      content: `**Argument:** En sammensetning av påstander der premissene støtter konklusjonen.
+
+**Påstand (claim/tese):** Det du hevder og vil ha akseptert.
+
+**Premiss:** En påstand som støtter konklusjonen.
+
+**Belegg (data/grounds):** Fakta, bevis eller eksempler som støtter argumentet.
+
+**Hjemmel (warrant):** Det underliggende prinsippet som kobler belegg til påstand.
+
+**Ryggdekning (backing):** Støtte for hjemmelen.
+
+**Styrkemarkør (qualifier):** Ord som viser hvor sikker konklusjonen er.
+
+**Unntak (rebuttal):** Situasjoner der argumentet ikke gjelder.
+
+**Gyldig argument:** Et argument der konklusjonen følger logisk av premissene.
+
+**Holdbart argument:** Et gyldig argument med sanne premisser.
+
+**Feilslutning (fallacy):** En feil i argumentasjonen som gjør argumentet ugyldig.`,
+    },
+    {
+      id: 'norsk-vg2-5-9-feilslutninger',
+      type: 'text',
+      content: `## Logiske feilslutninger
+
+En feilslutning er en feil i argumentasjonen som gjør at konklusjonen ikke følger av premissene. Feilslutninger kan være utilsiktede (man vet ikke bedre) eller tilsiktede (man vil manipulere). Å kjenne igjen feilslutninger er essensielt for kritisk tenkning.
+
+**1. Ad hominem (angripe personen)**
+
+I stedet for å imøtegå argumentet, angriper man personen som fremfører det.
+
+*Eksempel:* "Du kan ikke uttale deg om klimapolitikk - du har jo ikke engang studert miljøfag!"
+
+*Hvorfor feil:* En påstands sannhet avhenger ikke av hvem som fremfører den. Selv en person uten formell utdanning kan ha rett.
+
+*Merk:* Det er legitimt å vurdere en persons kompetanse, men det erstatter ikke saklig argumentasjon.
+
+**2. Stråmann (forvrenge motstanderens argument)**
+
+Man gjengir motstanderens argument i en svakere eller forvrengt versjon, og angriper denne versjonen i stedet.
+
+*Eksempel:*
+- A: "Vi bør ha strengere regler for våpenkontroll."
+- B: "Så du vil ta fra alle nordmenn retten til å forsvare seg selv?"
+
+*Hvorfor feil:* Man debatterer ikke det faktiske argumentet, men en karikatur av det.
+
+**3. Falsk dilemma (bare to alternativer)**
+
+Man presenterer en sak som om det bare finnes to alternativer, når det faktisk finnes flere.
+
+*Eksempel:* "Enten er du med oss, eller så er du mot oss."
+
+*Hvorfor feil:* Virkeligheten er sjelden svart-hvitt. Det finnes ofte nyanser, kompromisser eller tredje alternativer.
+
+**4. Appell til autoritet (uten gyldig ekspertise)**
+
+Man bruker en autoritetsfigur som støtte, selv om vedkommende ikke har relevant kompetanse.
+
+*Eksempel:* "Denne tannkremen må være best - en kjent skuespiller anbefaler den!"
+
+*Hvorfor feil:* At noen er kjent eller dyktig på ett felt, betyr ikke at de er eksperter på alt.
+
+*Merk:* Å sitere faktiske eksperter på sitt felt er legitimt og viktig.
+
+**5. Sirkelargumentasjon (petitio principii)**
+
+Konklusjonen brukes som premiss - man forutsetter det man skal bevise.
+
+*Eksempel:* "Bibelen er sann fordi den er Guds ord, og vi vet at det er Guds ord fordi det står i Bibelen."
+
+*Hvorfor feil:* Argumentet beviser ingenting fordi det bare gjentar seg selv.
+
+**6. Hastig generalisering**
+
+Man trekker en generell konklusjon basert på for få eksempler.
+
+*Eksempel:* "Jeg kjenner to svensker som er uhøflige, så svensker generelt er uhøflige."
+
+*Hvorfor feil:* To eksempler er ikke nok til å si noe om en hel befolkning.
+
+**7. Falsk årsakssammenheng (post hoc)**
+
+Man antar at fordi B skjedde etter A, må A ha forårsaket B.
+
+*Eksempel:* "Etter at jeg begynte å bruke dette amuletten, har jeg hatt flaks. Amuletten må virke!"
+
+*Hvorfor feil:* Tidsrekkefølge beviser ikke årsakssammenheng. Korrelasjon er ikke det samme som kausalitet.
+
+**8. Skråplansargument (slippery slope)**
+
+Man hevder at ett skritt uunngåelig vil føre til en serie negative konsekvenser, uten å begrunne denne kjeden.
+
+*Eksempel:* "Hvis vi tillater cannabis, vil snart heroin være lovlig, og hele samfunnet vil bryte sammen."
+
+*Hvorfor feil:* Hvert ledd i kjeden må begrunnes separat. At A skjer betyr ikke automatisk at Z vil skje.`,
+    },
+    {
+      id: 'norsk-vg2-5-9-def-2',
+      type: 'definition',
+      title: 'De åtte vanligste feilslutningene',
+      content: `**Ad hominem:** Angripe personen i stedet for argumentet.
+
+**Stråmann:** Forvrenge motstanderens argument og angripe den forvrengede versjonen.
+
+**Falsk dilemma:** Presentere bare to alternativer når flere finnes.
+
+**Appell til autoritet:** Bruke en kjent person uten relevant kompetanse som bevis.
+
+**Sirkelargumentasjon:** Bruke konklusjonen som premiss.
+
+**Hastig generalisering:** Trekke generelle slutninger fra for få eksempler.
+
+**Falsk årsakssammenheng (post hoc):** Anta at fordi B skjedde etter A, forårsaket A B.
+
+**Skråplansargument:** Hevde at ett skritt vil føre til katastrofe uten å begrunne kjeden.`,
+    },
+    {
+      id: 'norsk-vg2-5-9-praksis',
+      type: 'text',
+      content: `## Gjenkjenne feilslutninger i praksis
+
+Feilslutninger finnes overalt: i politikk, reklame, sosiale medier og hverdagssamtaler. La oss se på konkrete eksempler fra ulike arenaer.
+
+**Eksempler fra politisk debatt**
+
+*Ad hominem:*
+"Hvorfor skal vi lytte til forslag om skattepolitikk fra noen som selv tjener millioner?"
+- Angriper personens økonomi i stedet for argumentet.
+
+*Stråmann:*
+Politiker A: "Vi bør vurdere å senke bilavgiftene for elbiler."
+Politiker B: "Motstanderen min vil altså at vi skal subsidiere de rikes Teslaer med fellesskapets penger!"
+- Forvrenger forslaget til noe mer ekstremt.
+
+*Falsk dilemma:*
+"Enten støtter du økt forsvarsbudsjett, eller så bryr du deg ikke om landets sikkerhet."
+- Ignorerer at man kan bry seg om sikkerhet uten å støtte akkurat dette forslaget.
+
+**Eksempler fra reklame**
+
+*Appell til autoritet:*
+"9 av 10 tannleger anbefaler dette produktet!"
+- Hvem er disse tannlegene? Er undersøkelsen uavhengig?
+
+*Falsk årsakssammenheng:*
+"Etter at jeg begynte med denne dietten, gikk jeg ned 10 kilo!"
+- Kanskje vektnedgangen skyldtes andre faktorer.
+
+*Hastig generalisering:*
+"Vår undersøkelse viser at kundene er fornøyde!" (basert på 12 svar)
+- For lite utvalg til å trekke konklusjoner.
+
+**Eksempler fra sosiale medier**
+
+*Sirkelargumentasjon:*
+"Alle vet at vaksiner er farlige." - "Hvordan vet du det?" - "Fordi det er common knowledge!"
+- Ingen faktisk begrunnelse, bare gjentagelse.
+
+*Skråplansargument:*
+"Hvis vi lar staten regulere hatytringer på nett, blir det snart totalitær sensur av all kritikk!"
+- Ekstrem kjede uten begrunnelse for hvert ledd.
+
+*Ad hominem:*
+"Hvorfor kommenterer du dette? Du har bare 50 følgere!"
+- Følgertallet har ingenting med argumentets gyldighet å gjøre.
+
+**Kombinerte feilslutninger**
+
+I praksis kombineres ofte flere feilslutninger:
+
+"Min kollega som er lege (appell til autoritet) sier at dette kosttilskuddet kurerte hennes migrene (falsk årsakssammenheng), og alle som kritiserer det er bare bitre fordi de ikke tjener penger på det (ad hominem). Enten tar du kosttilskuddet, eller så aksepterer du å ha migrene resten av livet (falsk dilemma)."
+
+**Hvorfor brukes feilslutninger?**
+
+- Ofte er de enklere og mer emosjonelt effektive enn gode argumenter
+- De kan virke overbevisende for dem som ikke kjenner igjen dem
+- I hetsen av en debatt kan selv ærlige personer ty til feilslutninger
+- Noen ganger er de utilsiktede - man vet rett og slett ikke bedre`,
+    },
+    {
+      id: 'norsk-vg2-5-9-kritisk',
+      type: 'text',
+      content: `## Kritisk lesing av argumentasjon
+
+Å lese argumentasjon kritisk betyr å vurdere om argumentene holder mål. Her er en systematisk tilnærming.
+
+**Sjekkliste for å vurdere argumenter**
+
+*1. Identifiser påstanden:*
+- Hva er hovedbudskapet?
+- Er påstanden klar og presis?
+- Er den falsifiserbar (kan den motbevises)?
+
+*2. Finn belegget:*
+- Hvilke fakta, tall eller eksempler brukes?
+- Er kildene oppgitt og troverdige?
+- Er belegget relevant for påstanden?
+
+*3. Vurder hjemmelen:*
+- Hva er den underliggende regelen eller prinsippet?
+- Er hjemmelen rimelig og allment akseptert?
+- Er den uttalt eller skjult?
+
+*4. Se etter feilslutninger:*
+- Angripes personen i stedet for argumentet?
+- Er motstanderens posisjon gjengitt korrekt?
+- Presenteres falske dilemmaer?
+- Brukes autoriteter utenfor sitt felt?
+
+*5. Vurder helheten:*
+- Er argumentasjonen balansert?
+- Innrømmes motargumenter?
+- Er språket saklig eller manipulerende?
+
+**Hvordan svare på dårlige argumenter**
+
+*Ved ad hominem:*
+"La oss holde oss til saken. Uavhengig av hvem jeg er, hva er galt med argumentet mitt?"
+
+*Ved stråmann:*
+"Det er ikke det jeg sa. La meg presisere: Mitt argument er at..."
+
+*Ved falsk dilemma:*
+"Det finnes flere alternativer enn disse to. For eksempel kunne vi..."
+
+*Ved appell til autoritet:*
+"Har denne personen faktisk ekspertise på dette feltet? Hva sier fagfolkene?"
+
+*Ved sirkelargumentasjon:*
+"Dette forutsetter det du skal bevise. Kan du gi en uavhengig begrunnelse?"
+
+*Ved hastig generalisering:*
+"To eksempler er ikke nok til å trekke en slik konklusjon. Finnes det bredere data?"
+
+*Ved post hoc:*
+"At B skjedde etter A, betyr ikke at A forårsaket B. Kan det finnes andre forklaringer?"
+
+*Ved skråplansargument:*
+"Hvorfor vil A uunngåelig føre til Z? Hva er begrunnelsen for hvert ledd i kjeden?"
+
+**Prinsipper for saklig debatt**
+
+1. *Angrip argumentet, ikke personen*
+2. *Gjengi motstanderens posisjon rettferdig*
+3. *Innrøm når du tar feil*
+4. *Skill mellom fakta og meninger*
+5. *Vær villig til å endre mening*
+6. *Bruk presist språk*
+7. *Oppgi kilder*
+8. *Unngå absolutte påstander uten belegg*
+
+**Når er det OK å ikke svare?**
+
+Ikke alle feilslutninger fortjener et svar. Vurder:
+- Er personen interessert i ærlig diskusjon?
+- Har du kapasitet til en lang debatt?
+- Vil et svar gjøre noen forskjell?
+
+Noen ganger er det beste svaret å navngi feilslutningen og gå videre: "Det der er en stråmann. Når du vil diskutere det jeg faktisk sa, er jeg åpen for det."`,
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-1',
+        number: '1',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken feilslutning er dette? "Du kan ikke ha noe fornuftig å si om klimaendringer - du kjører jo dieselbil!"',
+        options: [
+          'Stråmann',
+          'Ad hominem',
+          'Falsk dilemma',
+          'Skråplansargument',
+        ],
+        answer: 1,
+        solution: 'Dette er et ad hominem-argument fordi det angriper personen (at vedkommende kjører dieselbil) i stedet for å ta stilling til argumentene om klimaendringer. Om påstanden er sann eller ikke, avhenger ikke av avsenderens transportvalg.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken feilslutning er dette? "Enten er du for full ytringsfrihet uten noen begrensninger, eller så er du for sensur."',
+        options: [
+          'Hastig generalisering',
+          'Sirkelargumentasjon',
+          'Falsk dilemma',
+          'Post hoc',
+        ],
+        answer: 2,
+        solution: 'Dette er et falsk dilemma fordi det presenterer bare to ekstreme alternativer (full ytringsfrihet eller sensur), når virkeligheten har mange nyanser. De fleste demokratier har ytringsfrihet med visse begrensninger (f.eks. mot hatytringer eller trusler).',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-3',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Identifiser feilslutningen i hver av følgende utsagn og forklar hvorfor det er en feilslutning.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Min bestemor røykte hele livet og ble 95 år gammel. Altså er ikke røyking farlig."',
+            solution: 'Hastig generalisering. Ett enkelt eksempel kan ikke motbevise omfattende forskning som viser at røyking øker risikoen for sykdom. Bestemoren var et unntak, ikke regelen.',
+          },
+          {
+            label: 'b',
+            task: '"Hvis vi tillater 16-åringer å stemme, vil snart 12-åringer kreve stemmerett, så 8-åringer, og til slutt vil babyer bestemme politikken."',
+            solution: 'Skråplansargument. Hvert ledd i kjeden begrunnes ikke. At man setter grensen ved 16 år betyr ikke at den automatisk vil senkes til absurde nivåer.',
+          },
+          {
+            label: 'c',
+            task: '"Denne kjente idrettsstjernen bruker dette proteinpulveret, så det må være det beste på markedet."',
+            solution: 'Appell til falsk autoritet. En idrettsstjerne er ikke nødvendigvis ekspert på ernæring. Vedkommende kan også være betalt for å reklamere for produktet.',
+          },
+          {
+            label: 'd',
+            task: '"Folk som er mot innvandring vil egentlig bare ha et hvitt, etnisk rent Norge."',
+            solution: 'Stråmann. Dette forvrenger mange innvandringskritikers faktiske argumenter (som kan handle om integrering, kapasitet eller økonomi) til en ekstrem posisjon som er lettere å angripe.',
+          },
+        ],
+        solution: 'Å gjenkjenne feilslutninger krever at man ser på argumentets struktur, ikke bare innholdet. Spør alltid: Følger konklusjonen logisk av premissene?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-4',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser følgende argument med Toulmins modell. Identifiser påstand, belegg, hjemmel og eventuelle styrkemarkører eller unntak.',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Skoler bør tilby gratis frokost til alle elever. Forskning viser at elever som spiser frokost, presterer bedre på skolen. Alle barn fortjener like muligheter til å lykkes."',
+            solution: 'Påstand: Skoler bør tilby gratis frokost. Belegg: Forskning viser sammenheng mellom frokost og skoleprestasjoner. Hjemmel: Alle barn fortjener like muligheter. Ryggdekning (implisitt): Skolen har ansvar for elevenes læring. Ingen tydelig styrkemarkør eller unntak er nevnt.',
+          },
+        ],
+        hints: ['Bruk tabellen fra kapittelet som mal.'],
+        solution: 'Toulmins modell hjelper deg å se strukturen i argumenter og finne eventuelle svakheter eller mangler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-5',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les følgende debattinnlegg og svar på spørsmålene.',
+        subTasks: [
+          {
+            label: 'tekst',
+            task: `"Veganere liker å fremstå som moralsk overlegne, men hvem er de egentlig til å fortelle oss hva vi skal spise? Min oldefar spiste kjøtt hver dag og ble 92 år. Dessuten: Hvis vi alle sluttet å spise kjøtt, ville tusenvis av bønder miste jobben, matvareprisene ville skyte i været, og til slutt ville økonomien kollapse. Kjendiskokk Martine Hartvig har sagt at kjøtt er en viktig del av et sunt kosthold - og hun vet vel hva hun snakker om?"`,
+            solution: 'Dette er teksten som skal analyseres.',
+          },
+          {
+            label: 'a',
+            task: 'Identifiser minst tre feilslutninger i teksten og forklar hver av dem.',
+            solution: '1) Ad hominem: Angriper veganere som "moralsk overlegne" i stedet for argumentene deres. 2) Hastig generalisering: Bruker oldefarens eksempel som bevis på at kjøtt er sunt. 3) Skråplansargument: Hevder at å slutte med kjøtt vil føre til økonomisk kollaps uten å begrunne hvert ledd. 4) Appell til falsk autoritet: Bruker en kjendiskokk som ekspert på ernæring.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan kunne forfatteren argumentert mer saklig for samme standpunkt?',
+            solution: 'Forfatteren kunne referert til faktisk ernæringsforskning, diskutert nyansene i debatten, anerkjent gyldige poenger fra veganer-siden, og brukt relevante eksperter (ernæringsfysiologer) i stedet for kjendiskokker.',
+          },
+        ],
+        solution: 'Kritisk analyse av debattinnlegg handler om å se forbi retoriske knep og vurdere selve argumentasjonen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-6',
+        number: '6',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Forbedre følgende svake argumenter ved å fjerne feilslutninger og styrke argumentasjonen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Svakt argument: "Vi må forby energidrikker for ungdom fordi en kjent blogger sa det er farlig, og alle som er uenige bryr seg tydeligvis ikke om barnas helse."',
+            solution: 'Forbedret: "Energidrikker bør reguleres for ungdom. Helsemyndighetene advarer mot høyt koffeininntak for unge, da det kan påvirke søvn, konsentrasjon og hjerterytme. Studier fra [kilde] viser at ungdom som drikker energidrikker regelmessig, rapporterer flere søvnproblemer. En aldersgrense på 16 år ville beskytte de yngste uten å totalforby produktet."',
+          },
+          {
+            label: 'b',
+            task: 'Svakt argument: "Lekser er bortkastet tid. Jeg gjorde aldri lekser og klarte meg helt fint!"',
+            solution: 'Forbedret: "Verdien av tradisjonelle lekser bør diskuteres. Forskning gir blandede resultater: Noen studier viser at lekser har begrenset effekt på læring, spesielt for yngre elever, mens andre peker på fordeler ved selvstendig arbeid. Alternative tilnærminger som lesing hjemme eller prosjektarbeid kan være mer effektive. Vi bør vurdere hva slags hjemmearbeid som faktisk fremmer læring."',
+          },
+        ],
+        hints: [
+          'Fjern personangrep og generaliseringer.',
+          'Legg til konkret belegg og kilder.',
+          'Anerkjenn nyanser og motargumenter.',
+        ],
+        solution: 'Et godt argument er balansert, veldokumentert og angriper saken - ikke personen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-7',
+        number: '7',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Finn et innlegg fra en nettdebatt eller kommentarfelt (f.eks. under en nyhetsartikkel) og analyser argumentasjonen.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Gjengi hovedpåstanden i innlegget.',
+            solution: 'Svar vil variere. Påstanden bør formuleres nøytralt og presist.',
+          },
+          {
+            label: 'b',
+            task: 'Identifiser eventuelle feilslutninger og navngi dem.',
+            solution: 'Svar vil variere. Vanlige funn inkluderer ad hominem, hastig generalisering og stråmann.',
+          },
+          {
+            label: 'c',
+            task: 'Vurder om det finnes gyldige poenger i innlegget, til tross for eventuelle feilslutninger.',
+            solution: 'God analyse skiller mellom dårlig argumentasjon og dårlige poenger. Et poeng kan være gyldig selv om det argumenteres dårlig for det.',
+          },
+          {
+            label: 'd',
+            task: 'Skriv et kort svar (maks 100 ord) som imøtegår feilslutningene på en saklig måte.',
+            solution: 'Svaret bør navngi feilslutningen, forklare hvorfor den er problematisk, og eventuelt tilby en mer konstruktiv tilnærming til diskusjonen.',
+          },
+        ],
+        hints: [
+          'Velg et innlegg med klar argumentasjon - ikke bare personangrep.',
+          'Vær saklig selv når du kritiserer.',
+        ],
+        solution: 'Analyse av virkelige debatter gir god trening i å gjenkjenne feilslutninger og respondere konstruktivt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'norsk-vg2-5-9-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg2-5-9-ex-8',
+        number: '8',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et kort debattinnlegg (200-300 ord) om et selvvalgt tema der du bevisst unngår feilslutninger.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg et tema du har en mening om (f.eks. karakterer i skolen, sosiale medier, dyrevelferd).',
+            solution: 'Svar vil variere. Temaet bør være debattbart og engasjerende.',
+          },
+          {
+            label: 'b',
+            task: 'Bygg opp argumentasjonen etter Toulmins modell med tydelig påstand, belegg og hjemmel.',
+            solution: 'Innlegget bør ha en klar struktur med identifiserbare elementer fra Toulmins modell.',
+          },
+          {
+            label: 'c',
+            task: 'Inkluder minst én styrkemarkør og ett unntak/forbehold.',
+            solution: 'Styrkemarkører som "sannsynligvis", "i mange tilfeller" og unntak som "med mindre" eller "dette gjelder ikke når" viser nyansert tenkning.',
+          },
+          {
+            label: 'd',
+            task: 'La en medelev lese innlegget og lete etter eventuelle feilslutninger. Revider om nødvendig.',
+            solution: 'Tilbakemelding fra andre avslører ofte blindsoner i egen argumentasjon.',
+          },
+        ],
+        hints: [
+          'Unngå absolutte påstander ("alle", "aldri", "alltid").',
+          'Oppgi kilder der det er relevant.',
+          'Anerkjenn motargumenter.',
+        ],
+        solution: 'Å skrive uten feilslutninger krever bevissthet om egen argumentasjon. Det er en ferdighet som tar tid å utvikle, men som gjør deg til en mer overbevisende skribent.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+  ],
+  exercises: [],
+};
+
 export const NORSK_VG2_CHAPTERS_DEL5: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_5_1,
   CHAPTER_NORSK_VG2_5_2,
@@ -3796,4 +4436,5 @@ export const NORSK_VG2_CHAPTERS_DEL5: TextbookChapter[] = [
   CHAPTER_NORSK_VG2_5_6,
   CHAPTER_NORSK_VG2_5_7,
   CHAPTER_NORSK_VG2_5_8,
+  CHAPTER_NORSK_VG2_5_9,
 ];
