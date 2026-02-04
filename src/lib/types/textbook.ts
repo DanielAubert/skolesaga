@@ -60,6 +60,7 @@ export interface TextbookChapter {
   nextChapter?: string;
   prevChapter?: string;
   linkedChapterId?: string;          // ID til alternativ versjon av samme kapittel
+  isNarrativeVersion?: boolean;      // Er dette en narrativ (lesevennlig) versjon?
 }
 
 // Union type for alle innholdsblokker

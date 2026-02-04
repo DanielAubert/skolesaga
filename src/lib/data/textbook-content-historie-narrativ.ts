@@ -15,6 +15,13 @@ import { HISTORIE_NARRATIV_DEL6_CHAPTERS } from './textbook-content-historie-nar
 import { HISTORIE_NARRATIV_DEL7_CHAPTERS } from './textbook-content-historie-narrativ-del7';
 import { HISTORIE_NARRATIV_DEL8_CHAPTERS } from './textbook-content-historie-narrativ-del8';
 import { HISTORIE_NARRATIV_DEL9_CHAPTERS } from './textbook-content-historie-narrativ-del9';
+import { HISTORIE_NARRATIV_DEL10_CHAPTERS } from './textbook-content-historie-narrativ-del10';
+import { HISTORIE_NARRATIV_DEL11_CHAPTERS } from './textbook-content-historie-narrativ-del11';
+import { HISTORIE_NARRATIV_DEL12_CHAPTERS } from './textbook-content-historie-narrativ-del12';
+import { HISTORIE_NARRATIV_DEL13_CHAPTERS } from './textbook-content-historie-narrativ-del13';
+import { HISTORIE_NARRATIV_DEL14_CHAPTERS } from './textbook-content-historie-narrativ-del14';
+import { HISTORIE_NARRATIV_DEL15_CHAPTERS } from './textbook-content-historie-narrativ-del15';
+import { HISTORIE_NARRATIV_DEL16_CHAPTERS } from './textbook-content-historie-narrativ-del16';
 
 // ============================================================================
 // KAPITTEL 1.1 NARRATIV: Hva er historie?
@@ -2640,4 +2647,11 @@ export const HISTORIE_NARRATIV_CHAPTERS = [
   ...HISTORIE_NARRATIV_DEL7_CHAPTERS,
   ...HISTORIE_NARRATIV_DEL8_CHAPTERS,
   ...HISTORIE_NARRATIV_DEL9_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL10_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL11_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL12_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL13_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL14_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL15_CHAPTERS,
+  ...HISTORIE_NARRATIV_DEL16_CHAPTERS,
 ];
