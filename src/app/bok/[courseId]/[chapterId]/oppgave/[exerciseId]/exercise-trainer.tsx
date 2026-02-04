@@ -1124,14 +1124,14 @@ export function ExerciseTrainer({
               ) : (
                 /* Algebraisk tastatur (kap 1.2+) */
                 <>
-              {/* Left column: Variables (x, y, a, b) */}
-              <div className="grid grid-cols-1 gap-1.5">
-                {['x', 'y', 'a', 'b'].map((v) => (
+              {/* Left columns: Variables (x, y, z, a, b, c, u, v) in 2x4 grid */}
+              <div className="grid grid-cols-2 gap-1.5">
+                {['x', 'y', 'z', 'a', 'b', 'c', 'u', 'v'].map((v) => (
                   <button
                     key={v}
                     type="button"
                     onClick={() => insertAtCursor(v)}
-                    className="w-14 h-12 text-xl font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
+                    className="w-7 h-12 text-lg font-medium rounded-lg bg-[#AEB3BD] dark:bg-zinc-600 text-zinc-900 dark:text-zinc-100 shadow-[0_1px_0_0_rgba(0,0,0,0.3)] active:bg-zinc-400 dark:active:bg-zinc-500 active:shadow-none transition-all duration-75 select-none touch-manipulation"
                     disabled={!isActive}
                   >
                     {v}
@@ -1181,7 +1181,7 @@ export function ExerciseTrainer({
               </div>
 
               {/* Right column(s): operators */}
-              {chapterId === '1t-1-2' ? (
+              {hasAlgebraicAnswers ? (
                 /* Algebra-tastatur: +, -, ×, ÷, ^, ⌫ i 2x3 grid */
                 <div className="grid grid-cols-2 gap-1.5">
                   <button
