@@ -291,7 +291,18 @@ npm run build
 
 Fiks eventuelle TypeScript-feil før du fortsetter.
 
-**Steg 5.2: Generer rapport**
+**Steg 5.2: Kjør politisk nøytralitetssjekk**
+
+Kjør `/politisk-nøytralitet [kurs-id]` for å sjekke at innholdet er balansert og nøytralt. Dette er spesielt viktig for fag som:
+- Historie
+- Samfunnskunnskap
+- KRLE
+- Biologi (evolusjon, GMO, klima)
+- Geografi (klima, ressurser)
+
+Fiks eventuelle funn som flagges som kritiske eller moderate.
+
+**Steg 5.3: Generer rapport**
 
 Skriv ut en kort rapport:
 
@@ -315,6 +326,11 @@ Skriv ut en kort rapport:
 - [x] [Kompetansemål 1]
 - [x] [Kompetansemål 2]
 - [ ] [Kompetansemål 3] (delvis)
+
+### Politisk nøytralitet
+- Nøytralitetsscore: X/10
+- Kritiske funn fikset: X
+- Moderate funn fikset: X
 
 ### Neste steg
 - [ ] Kjør `/narrativ` for lesevennlige versjoner
@@ -353,6 +369,7 @@ Skriv ut en kort rapport:
 - [ ] Importert i textbook-content.ts
 - [ ] Oppdatert textbook-courses.ts
 - [ ] Build-sjekk bestått
+- [ ] Politisk nøytralitetssjekk kjørt og eventuelle funn fikset
 - [ ] Rapport generert
 
 ## Eksempel: Typisk arbeidsflyt
@@ -375,5 +392,9 @@ Skriv ut en kort rapport:
 
 7. [Claude kjører npm run build]
 
-8. [Claude genererer rapport]
+8. [Claude kjører /politisk-nøytralitet biologi-1]
+   - Sjekker for politisk vinkling
+   - Fikser eventuelle kritiske/moderate funn
+
+9. [Claude genererer rapport]
 ```

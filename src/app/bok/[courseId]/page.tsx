@@ -12,9 +12,9 @@ import {
   Triangle, Circle, Ruler, Move,
   Waypoints, GitBranch, Zap,
   Laptop, Superscript, Plus,
-  Radical, FunctionSquare, Target as TargetIcon, Compass,
+  Radical, FunctionSquare, Target, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon, BookOpen, Target
+  Waves, Activity, Hexagon, BookOpen
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
