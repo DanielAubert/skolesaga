@@ -54,6 +54,7 @@ import { KROPPSOVING_10_CHAPTERS } from './textbook-content-kroppsoving-10';
 import { NORSK_VG1_CHAPTERS } from './textbook-content-norsk-vg1';
 import { NORSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg1-narrativ';
 import { ENGELSK_VG1_CHAPTERS } from './textbook-content-engelsk-vg1';
+import { ENGELSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-engelsk-vg1-narrativ';
 import { SAMFUNNSKUNNSKAP_CHAPTERS } from './textbook-content-samfunnskunnskap';
 import { GEOGRAFI_CHAPTERS } from './textbook-content-geografi';
 import { KROPPSOVING_VG1_CHAPTERS } from './textbook-content-kroppsoving-vg1';
@@ -63,6 +64,12 @@ import { HISTORIE_CHAPTERS } from './textbook-content-historie';
 import { HISTORIE_NARRATIV_CHAPTERS } from './textbook-content-historie-narrativ';
 import { KROPPSOVING_VG2_CHAPTERS } from './textbook-content-kroppsoving-vg2';
 import { NORSK_VG3_CHAPTERS } from './textbook-content-norsk-vg3';
+import { NORSK_VG3_DEL2_EXTENDED_CHAPTERS } from './textbook-content-norsk-vg3-del2';
+import { NORSK_VG3_SPRAAKHISTORIE_CHAPTERS } from './textbook-content-norsk-vg3-spraakhistorie';
+import { NORSK_VG3_SAMTID_CHAPTERS } from './textbook-content-norsk-vg3-samtid';
+import { NORSK_VG3_ANALYSE_CHAPTERS } from './textbook-content-norsk-vg3-analyse';
+import { NORSK_VG3_LYRIKK_DRAMA_CHAPTERS } from './textbook-content-norsk-vg3-lyrikk-drama';
+import { NORSK_VG3_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg3-narrativ';
 import { RELIGION_ETIKK_CHAPTERS } from './textbook-content-religion-etikk';
 import { KROPPSOVING_VG3_CHAPTERS } from './textbook-content-kroppsoving-vg3';
 
@@ -415,6 +422,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Engelsk VG1
   ...Object.fromEntries(ENGELSK_VG1_CHAPTERS.map(c => [c.id, c])),
 
+  // Engelsk VG1 - Narrativ versjon (lesevennlig)
+  ...Object.fromEntries(ENGELSK_VG1_NARRATIV_CHAPTERS.map(c => [c.id, c])),
+
   // Samfunnskunnskap
   ...Object.fromEntries(SAMFUNNSKUNNSKAP_CHAPTERS.map(c => [c.id, c])),
 
@@ -466,6 +476,12 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Norsk VG3
   ...Object.fromEntries(NORSK_VG3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_DEL2_EXTENDED_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_SPRAAKHISTORIE_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_SAMTID_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_ANALYSE_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_LYRIKK_DRAMA_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(NORSK_VG3_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Religion og etikk
   ...Object.fromEntries(RELIGION_ETIKK_CHAPTERS.map(c => [c.id, c])),

@@ -12,9 +12,9 @@ import {
   Triangle, Circle, Ruler, Move,
   Waypoints, GitBranch, Zap,
   Laptop, Superscript, Plus,
-  Radical, FunctionSquare, Target, Compass,
+  Radical, FunctionSquare, Target as TargetIcon, Compass,
   PenTool, Lightbulb, Brain, CheckCircle2,
-  Waves, Activity, Hexagon, BookOpen
+  Waves, Activity, Hexagon, BookOpen, Target
 } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import type { TextbookChapterMeta } from '@/lib/types/textbook';
@@ -202,6 +202,18 @@ export default async function CourseOverviewPage({ params }: PageProps) {
           <p className="text-lg text-muted-foreground">{course.description}</p>
         </div>
         )}
+
+        {/* Kompetansemål-lenke */}
+        <div className="mb-8">
+          <Link
+            href={`/bok/${courseId}/kompetansemal`}
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary transition-colors"
+          >
+            <Target className="h-5 w-5" />
+            <span className="font-medium">Se kompetansemål (LK20)</span>
+            <ChevronRight className="h-4 w-4" />
+          </Link>
+        </div>
 
         {/* Kapitler etter seksjon */}
         <div className="space-y-10">

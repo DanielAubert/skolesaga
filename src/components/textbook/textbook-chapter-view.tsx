@@ -17,6 +17,7 @@ import { StudentSelector } from './student-selector';
 import { UserMenu } from '@/components/auth/user-menu';
 import { useUser } from '@/lib/auth/hooks';
 import { SkillLevelIndicator } from './skill-level-indicator';
+import { CompetenceGoalsDropdown } from './competence-goals-dropdown';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
 
 function getLevelGradeSlug(level: string): string {
@@ -375,6 +376,13 @@ export function TextbookChapterView({
                   </Badge>
                 ))}
               </div>
+            )}
+
+            {/* Kompetansemål */}
+            {(chapterContent?.competenceGoals || chapterMeta.competenceGoals) && (
+              <CompetenceGoalsDropdown
+                goals={chapterContent?.competenceGoals || chapterMeta.competenceGoals || []}
+              />
             )}
 
             {/* Versjonsvelger */}
