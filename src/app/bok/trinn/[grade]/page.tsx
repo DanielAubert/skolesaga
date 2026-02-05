@@ -264,9 +264,11 @@ export async function generateStaticParams() {
 function getCourseStats(courseId: string) {
   const course = TEXTBOOK_COURSES.find(c => c.id === courseId);
   if (!course) return { chapters: 0, exercises: 0 };
-  const totalExercises = course.chapters.reduce((sum, ch) => sum + ch.exerciseCount, 0);
+  // Filter out narrative versions - they're alternative versions, not separate chapters
+  const mainChapters = course.chapters.filter(ch => !ch.isNarrativeVersion);
+  const totalExercises = mainChapters.reduce((sum, ch) => sum + ch.exerciseCount, 0);
   return {
-    chapters: course.chapters.length,
+    chapters: mainChapters.length,
     exercises: totalExercises,
   };
 }
