@@ -155,16 +155,16 @@ for seg in data['segments']:
 
 **NB:** Whisper kan transkribere "Slutt" som "Slut", "Schlutt" osv. Søk bredt.
 
-#### 5b: silencedetect – finn presist kuttpunkt
+#### 5b: silencedetect – finn presise kuttpunkter for BÅDE start og slutt
 
 Whisper-tidsstempler har ~0.5s marginfeil. Bruk `ffmpeg silencedetect` for å finne
-den eksakte stilhetsperioden mellom innhold og "Slutt"-markør:
+de eksakte stilhetsperiodene – både mellom innhold→markør og markør→overskrift:
 
 ```bash
 ffmpeg -i master.mp3 -af silencedetect=noise=-30dB:d=0.3 -f null - 2>&1 | grep silence_
 ```
 
-For hver markør: finn stillheten som slutter rett før Whisper-tidspunktet:
+Parse alle stillhetsperioder og finn presise kuttpunkter:
 ```python
 import re, subprocess
 
@@ -182,33 +182,42 @@ for line in result.stderr.split('\n'):
     if m_end:
         silences.append((current_start, float(m_end.group(1)), float(m_end.group(2))))
 
-# For hver markør (slutt_start fra Whisper):
-for marker_t in whisper_marker_times:
-    candidates = [(s, e, d) for s, e, d in silences if e > marker_t - 5 and e <= marker_t + 0.5]
-    best = min(candidates, key=lambda x: abs(x[1] - marker_t))
-    cut_point = best[0] + 0.3  # Slutt på tale + 0.3s naturlig stillhet
-    print(f"  Markør ved ~{marker_t:.2f}s → kutt ved {cut_point:.2f}s")
+# For hver markør, finn to stillhetsperioder:
+for slutt_start, heading_start in zip(whisper_slutt_starts, whisper_heading_starts):
+    # 1) SEGMENT-SLUTT: stillhet FØR "Slutt"-markøren (mellom innhold og markør)
+    before = [(s, e, d) for s, e, d in silences if e > slutt_start - 5 and e <= slutt_start + 0.5]
+    best_before = min(before, key=lambda x: abs(x[1] - slutt_start))
+    seg_end = best_before[0] + 0.3  # Slutt på tale + 0.3s naturlig stillhet
+
+    # 2) SEGMENT-START: stillhet ETTER "Slutt"-markøren (mellom markør og overskrift)
+    after = [(s, e, d) for s, e, d in silences if s > slutt_start and e > heading_start - 3 and e <= heading_start + 0.5]
+    best_after = min(after, key=lambda x: abs(x[1] - heading_start))
+    seg_start = best_after[1]  # silence_end = der overskriften faktisk starter
+
+    print(f"  Markør ~{slutt_start:.2f}s:")
+    print(f"    Forrige segment slutter: {seg_end:.2f}s")
+    print(f"    Neste segment starter:   {seg_start:.2f}s")
 ```
 
 ### Steg 6: Splitt lydfilen
 
-Bruk kuttpunktene fra steg 5b (silencedetect) for segment-slutt,
-og overskrift-start fra steg 5a (Whisper) for segment-start:
+Bruk kuttpunktene fra steg 5b (silencedetect) for **både** segment-start og segment-slutt:
 
 ```bash
 # Del 1: 0 → silence_start + 0.3 (naturlig pause etter siste ord)
 ffmpeg -y -i master.mp3 -ss 0 -to 167.86 -c copy del1.mp3
 
-# Del 2: heading_start → silence_start + 0.3
-ffmpeg -y -i master.mp3 -ss 170.74 -to 270.73 -c copy del2.mp3
+# Del 2: silence_end (overskrift starter) → silence_start + 0.3 (neste tale-slutt)
+ffmpeg -y -i master.mp3 -ss 170.52 -to 270.73 -c copy del2.mp3
 
 # osv...
 ```
 
 **Viktig:**
-- **Segment-slutt** = `silence_start + 0.3` fra silencedetect (beholder alt innhold + naturlig pause)
-- **Segment-start** = overskrift-start fra Whisper ord-tidsstempler (inkluderer seksjonstittelen)
+- **Segment-slutt** = `silence_start + 0.3` fra stillheten FØR markøren (beholder alt innhold + naturlig pause)
+- **Segment-start** = `silence_end` fra stillheten ETTER markøren (der overskriften faktisk begynner å høres)
 - IKKE bruk Whisper-tidsstempler direkte til kutt – de har for stor marginfeil
+- Whisper brukes kun til å identifisere *hvilke* stillhetsperioder som er relevante
 
 ### Steg 7: Lagre master og oppdater kapittel
 
