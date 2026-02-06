@@ -466,6 +466,13 @@ Men her er det viktig å stoppe opp og tenke kritisk. Begrepet "sivilisasjon" ha
 Og her er et spørsmål verdt å tenke på: Hvorfor oppsto de første sivilisasjonene langs store elver? Svaret er nesten elegant i sin enkelhet. Elvene ga **vann** til jordbruk i ellers tørre områder. De ga **fruktbar jord** gjennom årlige oversvømmelser, særlig i Egypt der Nilen la igjen næringsrikt slam. De ga **transport** -- det var mye lettere å frakte varer med båt enn på landeveien. Og de ga **fisk og mat**. Jordbruksoverskuddet som elvene muliggjorde, frigjorde folk til andre oppgaver: håndverk, handel, administrasjon og religion.`,
     },
     {
+      id: 'historie-3-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-1-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -496,6 +503,13 @@ Mesopotamia var ikke ett stabilt rike, men en serie skiftende maktsentre: **Sume
 Hammurabi lovsamling forteller oss mye om samfunnet i Babylon. Den avslører et **lagdelt samfunn** med frie borgere, halvfrie og slaver. Kvinner hadde noen rettigheter, som arv og skilsmisse, men var underordnet menn. Detaljerte regler for handel, kontrakter, familierett og yrker viser et komplekst samfunn med behov for skriftlige regler -- et enormt steg fra muntlig tradisjon.
 
 Mesopotamia ga oss også **60-tallssystemet** -- grunnen til at vi har 60 minutter i en time og 60 sekunder i et minutt. Hver gang du ser på klokken, bruker du en mesopotamisk oppfinnelse som er nesten 5000 år gammel.`,
+    },
+    {
+      id: 'historie-3-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz2',
@@ -530,6 +544,13 @@ Egypterne utviklet sitt eget skriftsystem: **hieroglyfer** -- vakre, intrikate t
 Egypt og Mesopotamia delte mye: begge var elvebaserte jordbrukssamfunn med skrift, monumentalarkitektur, kongemakt og presteskap. Men forskjellene er også slående. Egypt var mer stabilt, mer isolert og mer sentralisert. Mesopotamia var mer åpent, mer utsatt for invasjoner, og mer preget av skiftende makter.`,
     },
     {
+      id: 'historie-3-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -558,6 +579,13 @@ Kileskriften i Mesopotamia og hieroglyfene i Egypt ble begge oppfunnet rundt 320
 Skriften var likevel ikke for alle. Å lese og skrive var en ferdighet forbeholdt en liten elite: **skriverne**. De gjennomgikk år med opplæring og hadde høy status i samfunnet. For de aller fleste mennesker i de tidlige sivilisasjonene forble verden muntlig. Men skriverne la grunnlaget for noe helt nytt: et samfunn der makt ikke bare handlet om fysisk styrke eller karisma, men om informasjon og kunnskap.
 
 Og dette er en arv vi fortsatt lever med. Alfabetet vårt stammer fra en lang utvikling som startet med kileskrift og hieroglyfer. Ideen om nedskrevne lover som gjelder for alle -- det rettsstatsprinsippet vi setter så høyt -- begynner her. Kalenderen vår bygger på egyptiske beregninger. Hver gang du ser at klokken er kvart over, bruker du mesopotamisk matematikk. De tidlige sivilisasjonene er ikke fjern fortid -- de er innvevd i hverdagen din.`,
+    },
+    {
+      id: 'historie-3-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz4',
@@ -594,6 +622,13 @@ Når vi ser tilbake på de første sivilisasjonene, er det lett å føle en enor
 Men kanskje den viktigste arven er en idé: at mennesker kan organisere seg i store, komplekse samfunn med felles regler. At vi kan samarbeide i grupper på tusenvis og millioner, ikke bare i små flokker. Det er denne evnen -- til å skape abstrakte systemer som lover, religioner og stater -- som gjør oss unike. Og det begynte langs elvene i Midtøsten for 5000 år siden.`,
     },
     {
+      id: 'historie-3-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -609,6 +644,13 @@ Men kanskje den viktigste arven er en idé: at mennesker kan organisere seg i st
         ],
         solution: 'Demokrati oppsto i Aten i Hellas på 400-tallet f.Kr., ikke i Mesopotamia eller Egypt. De tidlige sivilisasjonene i Midtøsten ga oss blant annet skrift, 60-tallssystemet (60 minutter i en time), egypternes 365-dagers kalender og ideen om nedskrevne lover.',
       },
+    },
+    {
+      id: 'historie-3-1-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-3-1-n-summary',
@@ -677,6 +719,13 @@ Hvorfor loddtrekning og ikke valg? Athenerne mente at valg favoriserer de rike o
 Perikles, Athens fremste politiker på 400-tallet f.Kr., sa det slik i sin berømte gravtale: *"Vår statsforfatning er ikke en etterligning av andre folks lover. Vi er snarere selv et forbilde for andre."* Han mente at Athens demokrati var unikt -- og det hadde han rett i.`,
     },
     {
+      id: 'historie-3-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-2-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -711,6 +760,13 @@ Hvem hadde da rettigheter? Kun frie menn født av athenske foreldre. Det var ans
 Kan vi kalle dette et "demokrati"? Svaret avhenger av definisjonen. For de som var definert som borgere, var det et reelt folkestyre -- de bestemte direkte. Men for flertallet av befolkningen var det alt annet enn folkestyre.`,
     },
     {
+      id: 'historie-3-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-quiz2',
       type: 'exercise',
       exercise: {
@@ -741,6 +797,13 @@ Sokrates' elev **Platon** gikk lenger. Han mente at demokrati var farlig fordi f
 Aristoteles, Platons elev, hadde et mer nyansert syn. Han mente at demokrati var en av de mulige styreformene, men at den beste styreformen var en blanding -- det han kalte **politeia** -- som kombinerte elementer fra demokrati, aristokrati og monarki.
 
 Disse kritikkene er ikke bare historisk interessante -- de er fortsatt relevante. Spørsmål om populisme, "fake news" og ekspertenes rolle i demokratiet er like aktuelle i dag som de var i Aten for 2400 år siden. Er folket alltid klokt? Kan demokratiet ta katastrofalt feilaktige beslutninger? Og i så fall -- finnes det et bedre alternativ?`,
+    },
+    {
+      id: 'historie-3-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-2-n-quiz3',
@@ -775,6 +838,13 @@ Athenerne brukte loddtrekning. Vi bruker frie valg. Athenernes verv var ofte ett
 Men kjernen er den samme: ideen om at makten tilhører folket, ikke en konge, en adelsklasse eller en militærjunta. Denne ideen ble født i Aten for nesten 2500 år siden, og den lever videre i det norske Stortinget i dag.`,
     },
     {
+      id: 'historie-3-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-quiz4',
       type: 'exercise',
       exercise: {
@@ -805,6 +875,13 @@ Likevel bruker vi elementer av direkte demokrati: folkeavstemninger om store sp�
 Det athenske demokratiet var ufullkomment -- det utelukket flertallet av befolkningen. Men det plantet en idé som ble enormt innflytelsesrik i senere historie: at vanlige mennesker kan og bør ha innflytelse over styringen av samfunnet. Denne ideen om folkelig suverenitet ble videreført, omformet og utvidet gjennom århundrene -- og den preger politisk tenkning over hele verden i dag. Hver gang du stemmer ved et valg, deltar du i en tradisjon som har røtter på Pnyx-høyden i Aten for nesten 2500 år siden.`,
     },
     {
+      id: 'historie-3-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -820,6 +897,13 @@ Det athenske demokratiet var ufullkomment -- det utelukket flertallet av befolkn
         ],
         solution: 'Det athenske demokratiet tok slutt da Makedonia erobret Aten i 322 f.Kr. Men ideen om folkestyre overlevde gjennom romerske tenkere, ble gjenoppdaget under renessansen, og ble grunnlaget for moderne demokratier.',
       },
+    },
+    {
+      id: 'historie-3-2-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-3-2-n-summary',
@@ -885,6 +969,13 @@ Under konsulene fantes det **pretorer** (dommere), **kvestorer** (finansforvalte
 Makten var i praksis konsentrert hos **patrisiere** -- den gamle adelen. Men de vanlige borgerne, **plebeierne**, kjempet seg gradvis til flere rettigheter. De fikk sine egne embetsmenn (tribuner) med vetorett, og til slutt kunne plebeiere også bli konsuler. Denne kampen mellom adel og folk er en rød tråd gjennom hele republikkens historie.`,
     },
     {
+      id: 'historie-3-3-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-3-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -915,6 +1006,13 @@ Caesar krysset Rubicon-elven med sin hær i 49 f.Kr. -- en handling som symbolsk
 Mordet utløste nye borgerkriger. Til slutt sto Caesars adoptivsønn **Augustus** igjen som seierherre. I 27 f.Kr. ble han den første **keiseren** -- selv om han var klok nok til å beholde republikkens former. Han kalte seg "princeps" (den fremste), ikke "rex" (konge). Men i praksis var republikken død.
 
 Augustus innledet **Pax Romana** -- den romerske freden -- en periode på ca. 200 år med relativ stabilitet, handel og kulturell blomstring. Veier, akvedukter og byer ble bygget over hele riket. Denne freden var reell, men den hvilte på keiserens makt, ikke på folkelig deltakelse. Demokratiet, slik athenerne hadde praktisert det, var forlatt.`,
+    },
+    {
+      id: 'historie-3-3-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz2',
@@ -949,6 +1047,13 @@ I 395 e.Kr. ble riket delt i to: **Vestromerriket** med hovedstad i Roma, og **�
 Det er verdt å merke seg at "fallet" ikke var like dramatisk som det ofte fremstilles. For mange av menneskene som levde i det vestlige Romerriket, forandret ikke hverdagen seg over natten. Germanske konger overtok styringen, men mye av den romerske kulturen, lovgivningen og infrastrukturen levde videre.`,
     },
     {
+      id: 'historie-3-3-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -981,6 +1086,13 @@ Men det er også viktige forskjeller mellom Roma og Norge. Roma hadde ingen **gr
 Norge har **uavhengige domstoler** som kan overprøve Stortingets vedtak hvis de bryter med Grunnloven. Vi har **menneskerettigheter** som beskytter individet mot flertallsovergrep. Vi har **allmenn stemmerett** -- alle voksne borgere har lik stemme. Og vi har et **rettighetsbegrep** som beskytter minoriteter mot flertallets vilje.
 
 Likevel er den grunnleggende innsikten den samme: makt korrumperer, og absolutt makt korrumperer absolutt. Romerne visste det. Montesquieu artikulerte det. Og vi lever etter det -- i hvert fall prøver vi.`,
+    },
+    {
+      id: 'historie-3-3-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz4',
@@ -1019,6 +1131,13 @@ La oss avslutte med å se på den samlede arven fra antikken -- fra både Hellas
 Det er verdt å merke seg at dette kapittelet fokuserer på den gresk-romerske arven fordi den har hatt størst direkte innflytelse på europeisk og norsk kultur. Andre sivilisasjonstradisjoner -- kinesisk, indisk, islamsk og andre -- har sine egne like betydningsfulle intellektuelle, arkitektoniske og politiske arver som har formet store deler av verden. Antikkens gresk-romerske arv er likevel ikke bare fortid for oss i Europa. Den er nåtid -- innvevd i alt fra språket vi snakker til bygningene vi ser og de politiske prinsippene samfunnet vårt bygger på.`,
     },
     {
+      id: 'historie-3-3-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -1034,6 +1153,13 @@ Det er verdt å merke seg at dette kapittelet fokuserer på den gresk-romerske a
         ],
         solution: '"Demokrati" kommer fra gresk (demos + kratos = folkestyre), ikke fra latin. Veto, status quo og alibi er alle latinske ord som brukes på norsk i dag.',
       },
+    },
+    {
+      id: 'historie-3-3-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-3-3-n-summary',
@@ -1100,6 +1226,13 @@ Men så kom en radikal idé fra et lite folk i Midtøsten: **monoteisme** -- tro
 Jødedommen var et lite folks religion og ble aldri en verdensreligion i seg selv. Men ideene -- én Gud, en pakt mellom det guddommelige og det menneskelige, nedskrevne hellige tekster -- ble fundamentet for to av verdens største religioner: kristendom og islam.`,
     },
     {
+      id: 'historie-3-4-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-4-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -1128,6 +1261,13 @@ De romerske myndighetene, som styrte Palestina, så Jesus som en potensiell uros
 Men tilhengerne hans hevdet at Jesus var **Messias** -- den utvalgte frelserkongen jødene hadde ventet på -- og at han hadde **oppstått fra de døde**. Denne troen ga bevegelsen en ny kraft. Den lille gruppen tilhengere i Jerusalem -- **urkirken** -- begynte å spre budskapet.
 
 Det store vendepunktet kom med **Paulus**, en jødisk fariseer som først forfulgte de kristne, men som etter en dramatisk omvendelsesopplevelse ble kristendommens viktigste misjonær. Paulus tok en avgjørende beslutning: han spredte budskapet til **ikke-jøder** (hedninger). Kristendommen var ikke lenger bare en jødisk sekt -- den ble en universell religion med budskap om frelse for alle mennesker, uansett bakgrunn. Dette var revolusjonerende. Mens jødedommen var knyttet til ett folk, åpnet kristendommen dørene for hele verden.`,
+    },
+    {
+      id: 'historie-3-4-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz2',
@@ -1162,6 +1302,13 @@ Men forfølgelsene slo feil. **Martyrenes** mot -- de som døde for troen i sted
 Flere faktorer forklarer veksten: Det **universelle budskapet** om frelse for alle appellerte bredt. **Teologiske argumenter** om Guds natur, skapelsen og frelsen overbeviste også intellektuelle og filosofisk skolerte romere. Det kristne **fellesskapet** tok vare på fattige og syke på en måte som staten ikke gjorde. **Løftet om evig liv** ga håp i en usikker tid. Og ironisk nok hjalp den romerske **infrastrukturen** -- veiene og det felles språket (gresk og latin) -- kristne misjonærer å reise og spre budskapet effektivt.`,
     },
     {
+      id: 'historie-3-4-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -1192,6 +1339,13 @@ Den endelige triumfen kom i 380 e.Kr., da keiser **Theodosius** gjorde kristendo
 Denne alliansen mellom **kirke og stat** -- der keiseren beskyttet kirken og kirken støttet keiserens autoritet -- preget Europa i over tusen år. Biskoper fikk politisk makt. Keiseren grep inn i teologiske spørsmål. Grensen mellom det religiøse og det politiske ble utvisket.
 
 Og denne arven lever videre. Forholdet mellom religion og stat -- sekularisme, religionsfrihet, statskirkeordninger -- er spørsmål vi fortsatt debatterer. I Norge hadde vi en statskirke helt til 2012. I mange land er forholdet mellom religiøs og politisk makt fortsatt brennaktuelt. Røttene til denne debatten ligger i det fjerde århundret, da en romersk keiser bestemte seg for å gjøre et kors til sitt symbol.`,
+    },
+    {
+      id: 'historie-3-4-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz4',
@@ -1226,6 +1380,13 @@ Og noen av de gamle skikkene levde videre i ny drakt. Hedenske høytider ble kri
 Denne doble arven -- radikal etikk og konservativ institusjon, revolusjon og tilpasning -- preget kristendommen gjennom hele middelalderen og videre. Den er en av grunnene til at kristendommens historie er så kompleks: den bærer i seg både frigjøringens og maktens logikk.`,
     },
     {
+      id: 'historie-3-4-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -1241,6 +1402,13 @@ Denne doble arven -- radikal etikk og konservativ institusjon, revolusjon og til
         ],
         solution: 'Da kristendommen ble statsreligion, overtok kirken mye av Romerrikets administrative struktur. Bispedømmene fulgte de romerske provinsgrensene, kirkens hierarki lignet statens hierarki, og keiseren ble kirkens beskytter. Hedenske høytider ble kristnet, og kirkebygg ble reist der templene hadde stått.',
       },
+    },
+    {
+      id: 'historie-3-4-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-3-4-n-summary',
