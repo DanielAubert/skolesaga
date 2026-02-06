@@ -33,26 +33,42 @@ export const CHAPTER_ENGELSK_VG1_8_1_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## An Island That Changed the World
 
-Picture yourself standing on the white cliffs of Dover, looking out across the English Channel. For thousands of years, people have stood in this very spot - Roman soldiers, Norman invaders, and anxious watchers during World War II. This small island has shaped the modern world in ways few other places have.
+Picture yourself standing on the white cliffs of Dover, looking out across the English Channel. The wind whips at your coat as seagulls wheel overhead, and across twenty-one miles of grey water lies France - close enough that on clear days you can see its coastline. For thousands of years, people have stood in this very spot - Roman soldiers nervously awaiting orders to cross, Norman invaders planning their conquest, medieval traders counting ships, and anxious watchers scanning the horizon for Nazi bombers during World War II. This small, often rainy island has shaped the modern world in ways few other places have.
 
-British history is not just about kings and queens, though there are plenty of those. It is about how a rainy island off the coast of Europe became the center of the largest empire in human history. It is about revolutions in thought, industry, and government that still affect your life today. It is about how English became the global language you are learning right now.
+British history is not just about kings and queens, though there are plenty of those - from the legendary King Arthur to the scandalous Henry VIII with his six wives, from the warrior queen Elizabeth I who defeated the Spanish Armada to the current King Charles III. But British history is also about ordinary people: the peasants who revolted in 1381, the workers who built the first factories, the suffragettes who fought for women's right to vote, and the immigrants from across the former empire who transformed British cities into multicultural metropolises.
 
-Why does British history matter to you? Because when you watch Netflix, use the internet, or discuss democracy, you are engaging with ideas and technologies shaped by British history. When you speak English, you are using a language that carries the marks of every invasion and every era Britain has experienced. Understanding this history helps you understand the modern world.
+This is a story about how a rainy island off the coast of Europe became the center of the largest empire in human history, controlling a quarter of the world's land and people. It is about revolutions - not just political ones, but revolutions in thought, science, industry, and government that still affect your daily life. The scientific method, parliamentary democracy, the industrial economy, the English language itself - all were shaped by what happened on this island.
 
-Let us travel through time together, from ancient Britons painting themselves blue for battle, to the smartphone-wielding Londoners of today.`,
+Why does British history matter to you, sitting in Norway in the 21st century? Because when you watch Netflix, you are using streaming technology built on ideas about computing that emerged from British universities. When you discuss democracy, you are using concepts refined in the British Parliament over centuries. When you speak English - as you are learning to do - you are using a language that carries the marks of every invasion and every era Britain has experienced: Celtic words, Latin from the Romans, Germanic roots from the Anglo-Saxons, French vocabulary from the Normans, and borrowings from every corner of the former empire.
+
+Understanding British history helps you understand why the world is organized the way it is - why some countries are rich and others poor, why English is spoken on every continent, why parliamentary democracy spread across the globe, and why debates about colonialism and its legacy remain so heated today.
+
+Let us travel through time together, from ancient Britons painting themselves blue with woad for battle, through medieval castles and Tudor courts, past smoking factory chimneys and trenches filled with mud, to the smartphone-wielding Londoners of today walking past Roman walls and Norman towers on their way to work in glass skyscrapers.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-section1',
       type: 'text',
       content: `## From Romans to Normans: Foundations of a Nation
 
-In 43 AD, Roman legions landed on British shores. Imagine being a Celtic farmer watching these disciplined soldiers march past in formation. The Romans brought roads, cities, central heating, and Latin - but they never quite conquered the whole island. Scotland remained free, protected by what would become Hadrian's Wall.
+In 43 AD, Roman legions landed on British shores under Emperor Claudius. Imagine being a Celtic farmer, tending your small plot of land, when you first see these disciplined soldiers marching past in perfect formation - their armor glinting, their standards held high, their sandaled feet moving in perfect unison on roads they would soon build across your homeland. The Celts who inhabited Britain were not primitive - they had sophisticated metalwork, traded with the continent, and had their own religious practices led by the mysterious Druids. But they could not match Roman military organization.
 
-When Rome fell and the legions left around 410 AD, new invaders arrived: the Angles, Saxons, and Jutes from what is now Germany and Denmark. These Germanic tribes gave us the word "English" (from the Angles) and the foundations of our modern language. They also brought new gods - Tiw, Woden, Thor, and Freya - whose names survive in our days of the week: Tuesday, Wednesday, Thursday, Friday.
+The Romans brought transformative changes during their nearly 400-year occupation. They built roads so straight and well-engineered that some are still in use today. They constructed cities like Londinium (London), Aquae Sulis (Bath), and Eboracum (York), complete with forums, bathhouses, and central heating systems called hypocausts. They introduced written records, a monetary economy, and Latin - which would influence English vocabulary for centuries. Words like "street" (strata), "wall" (vallum), and "wine" (vinum) came from the Romans.
 
-But the Anglo-Saxons were not the last invaders. In 1066, William the Conqueror sailed from Normandy with perhaps 7,000 men and changed everything. The Battle of Hastings lasted just one day, but its effects lasted centuries. French became the language of the court, while English remained the language of the common people. This is why we have both "cow" (English, from the farmer) and "beef" (French, from the noble's table).
+But the Romans never quite conquered the whole island. The fierce Pictish tribes of Scotland resisted so effectively that Emperor Hadrian ordered a massive wall built across the narrowest part of Britain - Hadrian's Wall, 73 miles long, which still stands in ruins today as the most impressive Roman monument in Britain. Beyond that wall, the Romans never established permanent control.
 
-The Norman Conquest introduced feudalism, castles, and a new ruling class. It also gave us the Domesday Book - essentially the first national census, recording every farm, pig, and penny in England. The effects of 1066 are still visible today in English law, language, and even the surnames we carry.`,
+When Rome itself began to crumble under barbarian attacks in the early 400s, the legions were recalled to defend the homeland. By 410 AD, Britain was on its own. What followed was centuries of invasion, chaos, and transformation. New peoples arrived from across the North Sea: the Angles, Saxons, and Jutes from what is now Germany and Denmark. These Germanic tribes were not a unified force but separate groups who fought each other as much as they fought the remaining Romano-British population.
+
+These Anglo-Saxons gave us the very word "English" (from the Angles) and the foundations of our modern language. Listen to the most common words in English - "the," "is," "you," "house," "water," "mother" - and you are hearing Anglo-Saxon. They also brought new gods: Tiw (god of war), Woden (the all-father), Thor (god of thunder), and Freya (goddess of love) - whose names survive in our days of the week: Tuesday (Tiw's day), Wednesday (Woden's day), Thursday (Thor's day), and Friday (Freya's day).
+
+The Anglo-Saxons gradually converted to Christianity after 597 AD, when Pope Gregory sent missionaries led by Augustine. This brought Latin learning back to Britain, monasteries that preserved ancient knowledge, and a connection to the wider Christian world. Anglo-Saxon England produced remarkable art like the Lindisfarne Gospels and literature like the epic poem Beowulf.
+
+But the Anglo-Saxons were not the last invaders. In 1066, William, Duke of Normandy, sailed from France with perhaps 7,000 men and changed everything. The Battle of Hastings on October 14, 1066, lasted just one day, but its effects lasted centuries. King Harold II of England, who had already defeated a Norwegian invasion at Stamford Bridge just three weeks earlier, was killed - according to legend, by an arrow through his eye. William became king, and England would never be the same.
+
+The Norman Conquest created a new ruling class. French-speaking nobles replaced English ones. French became the language of the court, law, and culture, while English remained the language of the common people - the peasants and servants. This linguistic divide lasted for centuries and explains why modern English has so many synonym pairs: the animal in the field has an English name (cow, pig, sheep, deer), but the meat on the noble's table has a French name (beef, pork, mutton, venison). The farmer used one word; the lord who ate the results used another.
+
+The Normans built massive stone castles to control their new territory - the Tower of London, Windsor Castle, and hundreds of others that still dot the British landscape. They introduced feudalism, a rigid social hierarchy where everyone from the king down to the lowliest serf had defined obligations to those above and below them. And they created the Domesday Book in 1086 - essentially the first national census, recording every manor, farm, pig, and penny in England so that William knew exactly what he owned and what taxes he could collect.
+
+The effects of 1066 are still visible today in English law (influenced by Norman legal practices), in the English language (perhaps 30% of English words have French origins), in the castles and cathedrals that tourists visit, and even in surnames we carry - names like Warren, Percy, and Sinclair came with the Normans.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-quiz1',
@@ -77,13 +93,23 @@ The Norman Conquest introduced feudalism, castles, and a new ruling class. It al
       type: 'text',
       content: `## Magna Carta and the Birth of Rights
 
-In 1215, a group of rebellious barons forced King John to sign a document at Runnymede. This document, the Magna Carta, might not look like much - it is mostly about feudal rights and taxes. But buried within it was a revolutionary idea: even the king is subject to the law.
+Picture a meadow called Runnymede, by the River Thames, in June 1215. On one side stands King John - unpopular, defeated in wars against France, and desperate for money. On the other side stands a group of rebellious barons, armed and angry, demanding that the king recognize limits to his power. They force him to put his seal on a document that will echo through the centuries: Magna Carta, the "Great Charter."
 
-"No free man shall be seized or imprisoned... except by the lawful judgment of his equals or by the law of the land." This clause laid the foundation for habeas corpus - your right not to be imprisoned without trial. It influenced the American Constitution, the Universal Declaration of Human Rights, and legal systems around the world.
+Reading the original Magna Carta today might disappoint you. Much of it deals with specific medieval grievances: fishing rights in the Thames, how much widows can inherit, the regulation of wine merchants. But buried within these 63 clauses was a revolutionary idea that would change the world: even the king is subject to the law.
 
-The medieval period also saw Parliament emerge. Originally just a meeting of nobles to discuss taxes, it gradually became the voice of the people - or at least, the voice of property-owning men. The idea that rulers need consent from the governed was taking root.
+"No free man shall be seized or imprisoned, or stripped of his rights or possessions, or outlawed or exiled, or deprived of his standing in any way, nor will we proceed with force against him, or send others to do so, except by the lawful judgment of his equals or by the law of the land." This single clause laid the foundation for habeas corpus - your fundamental right not to be imprisoned without trial, to know what you are accused of, and to be judged fairly. When American colonists demanded their rights, when the framers of the US Constitution sought to protect liberty, when the United Nations drafted the Universal Declaration of Human Rights - all looked back to this document signed in an English meadow over 800 years ago.
 
-Then came the Reformation. In 1534, Henry VIII broke with the Catholic Church, not for theological reasons, but because the Pope would not grant him a divorce. The Church of England was born, monasteries were dissolved, and religious conflict would shape British politics for centuries. Catholic or Protestant? This question would determine who could be king, who could hold office, and whether you lived or died.`,
+King John himself had no intention of honoring Magna Carta, and within months, civil war had broken out. But the principle had been established. Future kings would reissue and confirm the charter dozens of times. The idea that power has limits, that even rulers must follow rules, had taken root in English political culture.
+
+The medieval period also saw Parliament emerge from these same principles. The word itself comes from the French "parler" - to speak. Originally, Parliament was simply a meeting where the king discussed matters with his most powerful subjects - nobles and high churchmen. But the king needed money, especially for wars, and the only way to get it was to ask. Gradually, representatives of towns and counties were summoned too - the House of Commons - because they controlled the wealth the king needed.
+
+By the 1300s, the principle of "no taxation without representation" was established. The king could not levy new taxes without Parliament's consent. Parliament began proposing laws as well as approving taxes. It was not democracy as we understand it - only property-owning men had any representation, and the king still held enormous power - but the idea that rulers need consent from the governed was taking root. This seed would eventually flower into modern parliamentary democracy.
+
+Then came the Reformation, which tore apart the religious unity of Western Europe. In England, it came not from theological conviction but from a king's desperation for an heir. Henry VIII needed a son to secure his dynasty, but his wife Catherine of Aragon had given him only a daughter, Mary. Henry wanted an annulment so he could marry Anne Boleyn, but Pope Clement VII refused - partly for religious reasons, partly because Catherine's nephew was the Holy Roman Emperor whose armies had recently sacked Rome.
+
+In 1534, Henry VIII did something unprecedented: he declared himself Supreme Head of the Church of England, breaking with Rome entirely. The monasteries were dissolved, their vast wealth seized by the crown. Religious art was destroyed, saints' shrines smashed, centuries of tradition overturned. England became Protestant - though exactly what kind of Protestant remained contested for centuries.
+
+The religious question would shape British politics for the next 200 years. Catholic or Protestant? This seemingly theological question would determine who could be king, who could hold office, who could attend university, and often whether you lived or died. Henry's daughter Mary I earned the nickname "Bloody Mary" by burning nearly 300 Protestants. Her sister Elizabeth I executed Catholics who denied her legitimacy. The Gunpowder Plot of 1605 - Guy Fawkes' attempt to blow up Parliament - was a Catholic conspiracy. The English Civil War had religious dimensions. Not until the 19th century would full Catholic emancipation come, and the monarch is still required to be Protestant today.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-quiz2',
@@ -108,13 +134,27 @@ Then came the Reformation. In 1534, Henry VIII broke with the Catholic Church, n
       type: 'text',
       content: `## Civil War, Revolution, and the Rise of Parliament
 
-The 1600s brought Britain's greatest internal conflict. King Charles I believed in the "divine right of kings" - the idea that God had appointed him and he answered to no one. Parliament disagreed. In 1642, civil war erupted.
+The 1600s brought Britain's greatest internal conflict - a civil war that would pit father against son, brother against brother, and ultimately result in something almost unthinkable: the public execution of a king.
 
-The English Civil War was brutal. Families were divided. Cities were besieged. When it ended, something unprecedented happened: in 1649, King Charles I was publicly executed for treason. A king, executed by his own people! Europe was shocked. For eleven years, Britain was a republic under Oliver Cromwell.
+King Charles I, who came to the throne in 1625, believed in the "divine right of kings" - the idea that God had appointed him to rule and he answered to no earthly power. He attempted to rule without Parliament for eleven years, raising money through creative (and legally dubious) means. When he finally had to summon Parliament in 1640 to fund a war against Scottish rebels, the long-simmering tensions exploded.
 
-The monarchy was restored in 1660, but kings would never have the same power again. The Glorious Revolution of 1688 sealed it: when Parliament invited William of Orange to take the throne, they made clear that royal power came from Parliament, not from God. The Bill of Rights (1689) established parliamentary supremacy and individual rights.
+Parliament, led by men like John Pym and later Oliver Cromwell, demanded that royal power be constrained. Charles saw this as rebellion against God's anointed ruler. In 1642, the king raised his standard at Nottingham, and England descended into civil war.
 
-Meanwhile, in 1707, the Act of Union merged Scotland and England into Great Britain. Scotland kept its own legal system and church, but joined a united Parliament. This union, sometimes uneasy, has lasted over 300 years - though Scottish independence remains debated today.`,
+The English Civil War was brutal in ways that shocked contemporaries. This was not a foreign invasion but a conflict that divided families. Parliamentarian "Roundheads" (named for their short haircuts) fought Royalist "Cavaliers" (a term originally used as an insult, meaning reckless horsemen). Great cities like Bristol, York, and Leicester were besieged. The countryside was ravaged by passing armies who seized food and livestock. Perhaps 200,000 people died - about 4% of the English population, a higher proportion than died in World War I.
+
+At first, the war went back and forth, but Parliament's alliance with Scotland and the creation of the New Model Army - a professional fighting force organized by Oliver Cromwell - eventually prevailed. King Charles was captured, tried for treason, and on January 30, 1649, something unprecedented in European history occurred: a king was publicly executed by his own people, beheaded on a scaffold outside the Banqueting House in London.
+
+The shock waves spread across Europe. Monarchs everywhere trembled. If the English could execute their anointed king, no ruler was safe. For eleven years, from 1649 to 1660, Britain was a republic - the "Commonwealth" under Oliver Cromwell, who became Lord Protector with powers that looked remarkably like those of the king he had helped kill.
+
+When Cromwell died in 1658, his son Richard proved incapable of ruling, and in 1660, Charles II was invited back from exile to restore the monarchy. The "Restoration" brought back the king, but kings would never have the same power again. Charles II was careful to work with Parliament, having no desire to share his father's fate.
+
+His brother James II, who became king in 1685, was not so careful. James was openly Catholic in a Protestant nation and seemed determined to restore Catholic power. When his wife gave birth to a son - raising the specter of a Catholic dynasty - Parliament had had enough. In the "Glorious Revolution" of 1688, they invited William of Orange (a Dutch Protestant married to James's Protestant daughter Mary) to invade. James fled to France, and William and Mary became joint rulers.
+
+The Glorious Revolution was "glorious" because it was largely bloodless in England (Ireland was another matter). But its real significance was constitutional. The Bill of Rights of 1689 established that Parliament was supreme: the king could not suspend laws, raise taxes, or maintain an army without parliamentary consent. Freedom of speech in Parliament was guaranteed. Cruel and unusual punishments were prohibited. The king ruled by consent of Parliament, not by divine right.
+
+In 1707, the Act of Union merged the Kingdoms of England and Scotland into the Kingdom of Great Britain. Scotland kept its own legal system (based on Roman law, unlike English common law), its own established church (the Presbyterian Church of Scotland), and its own educational system. But it joined a united Parliament at Westminster and a united crown. This union, sometimes uneasy, has lasted over 300 years. The Scottish independence referendum of 2014 voted 55% to 45% to remain in the United Kingdom - but the question has not gone away, especially after Brexit, which Scotland opposed.
+
+By 1707, Britain had established something remarkable: a constitutional monarchy where real power lay with an elected Parliament, protected individual rights were codified in law, and political change could happen peacefully through established procedures. It was not democracy - most people still could not vote - but it was a foundation on which democracy could be built. These ideas would spread worldwide, inspiring revolutions in America and France and shaping political systems across the globe.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-quiz3',
@@ -139,15 +179,29 @@ Meanwhile, in 1707, the Act of Union merged Scotland and England into Great Brit
       type: 'text',
       content: `## The Industrial Revolution: Britain Transforms the World
 
-Between 1760 and 1840, something happened in Britain that changed human history forever. For thousands of years, most people had farmed. Then, almost overnight in historical terms, machines began doing the work of human hands.
+Between 1760 and 1840, something happened in Britain that changed human history as profoundly as the invention of agriculture or the discovery of fire. For thousands of years, most humans had lived as farmers, their lives shaped by the seasons, their labor powered by muscle - human and animal. Then, almost overnight in historical terms, machines began doing the work of human hands, and the world was transformed forever.
 
-It started with textiles. Inventions like the spinning jenny and power loom could produce cloth faster than any human. But machines needed power. First came water wheels, then steam engines. James Watt's improved steam engine could power factories anywhere. Suddenly, you did not need a river - you just needed coal.
+It started with textiles - specifically, with cotton. Britain's growing empire provided raw cotton from the American South and India, and there was insatiable demand for cotton cloth. But spinning thread and weaving fabric by hand was slow. A series of inventions changed that: John Kay's flying shuttle (1733), James Hargreaves' spinning jenny (1764), Richard Arkwright's water frame (1769), and Edmund Cartwright's power loom (1785). Each machine could do the work of dozens of human hands.
 
-Britain had plenty of coal, and it had something else: a culture of innovation, investment, and risk-taking. Entrepreneurs built factories. Railways connected cities. Canals carried goods. Britain became the "workshop of the world."
+But machines needed power. The first factories clustered around rivers, using water wheels to drive their machinery. Then came steam. Thomas Newcomen's early steam engines pumped water out of coal mines. James Watt's improved engine, patented in 1769, was more efficient and could power machinery anywhere. Suddenly, you did not need a river - you just needed coal.
 
-But progress had a dark side. Children as young as five worked in mines and factories. Workers lived in crowded, polluted cities. Life expectancy dropped. The contrast between wealthy factory owners and starving workers was stark. This inequality sparked new political movements - trade unions, socialism, and eventually reforms that improved working conditions.
+And Britain had plenty of coal - more accessible coal than any other country in Europe. The country also had iron ore, navigable rivers, and a growing network of canals. But resources alone do not explain why the Industrial Revolution happened in Britain first. The country had something else: a culture of innovation, protected property rights, a banking system that could finance ventures, and entrepreneurs willing to take risks.
 
-The Industrial Revolution spread from Britain to the world. Today, when we debate automation, inequality, or climate change, we are still grappling with issues the Industrial Revolution created.`,
+Men like Josiah Wedgwood (pottery), Matthew Boulton (manufacturing), and Abraham Darby (iron smelting) became wealthy by applying new methods to production. They reinvested their profits, expanding operations and developing new techniques. A class of industrial capitalists emerged who would transform not just the economy but society itself.
+
+Railways became the symbol of the new age. The first public railway, the Stockton and Darlington, opened in 1825. The Liverpool and Manchester Railway followed in 1830, carrying both passengers and freight at speeds that seemed almost magical - thirty miles per hour! Within decades, a network of railways crisscrossed Britain, then spread across the world. The railway required iron and steel, coal and engineering - all the industries of the Industrial Revolution feeding each other.
+
+Britain became the "workshop of the world." By 1850, it produced more than half of the world's iron and cotton cloth. Its manufactured goods were exported to every continent. Free trade ideology meant that raw materials flowed in and finished products flowed out. The city of Manchester, which had been a small town of 25,000 in 1770, grew to over 300,000 by 1850 - and conditions there were terrible.
+
+Because progress had a very dark side. Children as young as five worked in coal mines, crawling through tunnels too small for adults, pulling carts of coal with chains attached to leather belts around their waists. In textile factories, children tended dangerous machinery for twelve or fourteen hours a day. Workers lived in crowded slums without clean water or sanitation. Industrial cities like Manchester were shrouded in coal smoke, the rivers running black with pollution. Life expectancy in industrial areas actually dropped below what it had been in rural villages.
+
+The contrast between wealthy factory owners building grand mansions and starving workers crammed into cellars was stark and visible to all. Writers like Charles Dickens documented these conditions. Political thinkers began to ask hard questions about capitalism and class. Karl Marx, who spent years researching in the British Museum, wrote Das Kapital as an analysis and critique of industrial capitalism based largely on British evidence.
+
+This inequality sparked new political movements. Trade unions organized workers to demand better conditions, though they were illegal until 1824 and faced fierce opposition from employers. The Chartist movement demanded political reform, including universal male suffrage. Socialists proposed alternatives to capitalism. Reformers pushed for factory acts limiting child labor and working hours.
+
+Change came slowly. The Factory Act of 1833 banned children under nine from textile factories and limited hours for older children. The Mines Act of 1842 banned women and children from underground work. The Ten Hours Act of 1847 limited the working day. Public health reforms improved sanitation. Education became compulsory. Piece by piece, the worst abuses were addressed, though working-class life remained hard.
+
+The Industrial Revolution spread from Britain to Belgium, Germany, France, and eventually the United States, Japan, and the world. Today, when we debate automation replacing jobs, inequality between owners and workers, or climate change caused by burning fossil fuels, we are still grappling with issues the Industrial Revolution created. That transformation, which began in the cotton mills and coal mines of 18th-century Britain, is still unfolding.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-quiz4',
@@ -172,15 +226,33 @@ The Industrial Revolution spread from Britain to the world. Today, when we debat
       type: 'text',
       content: `## World Wars and the End of Empire
 
-The twentieth century brought Britain's greatest challenges. In 1914, a network of alliances dragged Europe into World War I. Over 700,000 British soldiers died in the trenches of France. A generation was traumatized. The war ended aristocratic dominance and gave women the vote.
+The twentieth century brought Britain's greatest challenges - two world wars that would drain the nation's wealth, kill millions of its young men, and ultimately end its position as a global superpower. Yet these same catastrophes would also forge a new kind of British society.
 
-Then came World War II. In 1940, Britain stood alone against Nazi-controlled Europe. The Blitz rained bombs on London. Winston Churchill promised only "blood, toil, tears, and sweat." Against the odds, Britain survived until the United States and Soviet Union joined the fight.
+When World War I erupted in August 1914, young men across Britain volunteered enthusiastically, expecting a short, glorious adventure. "It'll be over by Christmas," people said. It was not. For four years, soldiers on the Western Front lived and died in muddy trenches that stretched from the Swiss border to the English Channel. New weapons - machine guns, poison gas, tanks, aircraft - created carnage on an unprecedented scale.
 
-But victory came at a cost. Britain was bankrupt. The Empire, already crumbling, could not be maintained. India gained independence in 1947. African colonies followed in the 1950s and 60s. The sun finally set on the British Empire.
+The Battle of the Somme in 1916 exemplifies the horror. On the first day alone, July 1, 1916, the British Army suffered nearly 60,000 casualties - 20,000 of them dead. Young men who had enlisted together from the same towns, the same factories, the same football clubs - the "Pals Battalions" - died together. Over 700,000 British soldiers died in the war, with millions more wounded, many carrying physical and psychological scars for the rest of their lives. An entire generation was traumatized.
 
-What replaced it? Immigration from former colonies made Britain multicultural. The welfare state - including the National Health Service - was built. Britain joined the European project, then left it (Brexit, 2020). Today, Britain struggles to define its role: no longer an empire, uncertain about Europe, but still a significant global power.
+The war transformed British society. Women had entered the workforce in huge numbers, doing jobs previously reserved for men - driving buses, working in munitions factories, serving as nurses near the front. In 1918, women over 30 gained the right to vote (full equal suffrage came in 1928). The old aristocratic order, which had dominated British society for centuries, never recovered from the slaughter of its sons in the trenches. Class barriers, while still present, began to weaken.
 
-Understanding this history helps us understand modern Britain - its pride, its conflicts, and its ongoing debates about identity, immigration, and its place in the world.`,
+The interwar years brought economic depression, political turmoil, and the rise of fascism in Europe. Britain tried appeasement - allowing Hitler to take Austria and part of Czechoslovakia in hopes of avoiding another war. It did not work. On September 3, 1939, Britain declared war on Germany following the invasion of Poland.
+
+The early years of World War II were desperate. France fell in six weeks. The British army was evacuated from Dunkirk beaches by a fleet of civilian boats. By summer 1940, Britain stood alone against Nazi-controlled Europe. The Luftwaffe bombed London and other cities in the "Blitz" - killing over 40,000 civilians, destroying homes, churches, and entire neighborhoods. In the rubble, Londoners sheltered in Underground stations, emerged to go to work, and carried on.
+
+Prime Minister Winston Churchill captured the nation's mood in his famous speeches: "We shall fight on the beaches, we shall fight on the landing grounds, we shall fight in the fields and in the streets, we shall fight in the hills; we shall never surrender." And: "I have nothing to offer but blood, toil, tears and sweat." Britain held out until Hitler's invasion of the Soviet Union in 1941 and Japan's attack on Pearl Harbor brought the Americans into the war.
+
+Victory in 1945 came at enormous cost. Over 450,000 Britons had died. The country was bankrupt, having spent its wealth and borrowed massively from the United States. Cities lay in ruins. And the Empire, already under pressure, could no longer be maintained by an exhausted, impoverished nation.
+
+India - the "jewel in the crown" - gained independence in 1947, though the partition into India and Pakistan killed over a million people and displaced millions more. African colonies followed through the 1950s and 1960s: Ghana (1957), Nigeria (1960), Kenya (1963), and others. Caribbean islands became independent. By the 1960s, the sun had finally set on the British Empire.
+
+What replaced it? Paradoxically, the end of empire changed Britain itself. Immigration from former colonies - the Caribbean "Windrush generation" from 1948, South Asians fleeing partition violence, Africans and others - transformed British cities into multicultural places. London today has more foreign-born residents than native-born ones.
+
+The war also created the welfare state. The 1942 Beveridge Report imagined a nation where government would fight the "five giants" of Want, Disease, Ignorance, Squalor, and Idleness. The Labour government of 1945-1951 created the National Health Service (NHS) - providing healthcare free at the point of use for all - along with expanded education, social housing, and social security. The NHS remains Britain's most beloved institution.
+
+Britain joined the European project, entering what became the European Union in 1973. This brought economic integration and freedom of movement with European neighbors. But on June 23, 2016, in a referendum that shocked the world, Britain voted 52% to 48% to leave the EU. "Brexit" was implemented in January 2020, ending 47 years of European membership and leaving Britain's future relationship with the continent uncertain.
+
+Today, Britain struggles to define its role in the world. No longer an empire, outside Europe, but still a significant economic and military power. A permanent member of the UN Security Council, a nuclear-armed state, a cultural force through the English language. The debates continue: about identity, about immigration, about the legacy of empire, about Scotland's place in the Union, about what it means to be British in the 21st century.
+
+Understanding this history - the glory and the shame, the victories and the defeats, the traditions and the transformations - helps us understand the Britain we encounter in news, culture, and the English language itself.`,
     },
     {
       id: 'engelsk-vg1-8-1-n-quiz5',
@@ -205,24 +277,27 @@ Understanding this history helps us understand modern Britain - its pride, its c
       type: 'text',
       content: `## Summary: British History Overview
 
-You have now journeyed through British history, from Roman legions to modern Britain. Here are the key points to remember:
+You have now journeyed through over two thousand years of British history, from Roman legions marching through Celtic lands to the smartphone-wielding Londoners of today. Let us review the key points and consider why this history matters for understanding our world.
 
-**Invasions and Foundations:**
-The Romans, Anglo-Saxons, and Normans each shaped Britain. The Norman Conquest (1066) left lasting marks on language, law, and society. English carries words from all these layers.
+**Invasions and Foundations (43 AD - 1066)**
+The Romans brought roads, cities, and Latin during their 400-year occupation, but never conquered Scotland. The Anglo-Saxons (from 410 AD) gave us the English language and converted to Christianity. The Norman Conquest of 1066 created a French-speaking ruling class and introduced feudalism. These layers of invasion are still visible in English vocabulary: we have Anglo-Saxon words for everyday things (house, water, mother) and French words for refined concepts (cuisine, justice, government).
 
-**Rights and Parliament:**
-Magna Carta (1215) established that even kings must follow the law. Parliament gradually gained power, especially after the Civil War (1642-1651) and Glorious Revolution (1688).
+**Rights and Parliament (1215 - 1707)**
+Magna Carta (1215) established the revolutionary principle that even kings must follow the law, laying the foundation for habeas corpus and constitutional government. Parliament emerged from the king's need for money, gradually gaining the power to make laws and control taxation. The English Civil War (1642-1651) resulted in the unprecedented execution of King Charles I, and the Glorious Revolution (1688) established parliamentary supremacy through the Bill of Rights. The Act of Union (1707) merged England and Scotland into Great Britain.
 
-**Industrial Revolution:**
-Britain was the first industrial nation (1760-1840). This transformed not just Britain but the entire world, creating both unprecedented wealth and inequality.
+**Industrial Revolution (1760 - 1840)**
+Britain became the first industrial nation, transforming human society more profoundly than any event since the invention of agriculture. Steam engines, factories, and railways created unprecedented wealth but also terrible working conditions, child labor, and urban squalor. The political movements born in this era - trade unions, socialism, reform campaigns - shaped modern democracy. We still live with the Industrial Revolution's consequences: urbanization, fossil fuel dependence, debates about automation and inequality.
 
-**Empire and Its End:**
-The British Empire was the largest in history but collapsed after World War II. Immigration from former colonies made Britain multicultural.
+**Empire and Its End (1815 - 1960s)**
+The British Empire grew to cover a quarter of the Earth's land surface, the largest empire in human history. It spread the English language, parliamentary systems, and common law worldwide, but also slavery, exploitation, and artificial borders that still cause conflict today. World War I killed over 700,000 British soldiers and shattered the old social order. World War II left Britain victorious but bankrupt. Decolonization followed rapidly: India (1947), African colonies (1950s-60s), Caribbean nations. The empire ended, but its legacy shapes our world.
 
-**Modern Britain:**
-Today, Britain grapples with questions of identity: post-imperial, post-Brexit, multicultural, and still influential globally.
+**Modern Britain (1945 - Present)**
+Post-war Britain built the welfare state, including the beloved NHS. Immigration from former colonies transformed Britain into a multicultural society. Britain joined and then left the European Union (Brexit, 2020). Today, the nation grapples with questions of identity, the legacy of empire, Scottish independence sentiment, and its place in a world it once dominated but no longer controls.
 
-Understanding British history helps you understand why English is a global language, why parliamentary democracy spread worldwide, and why Britain remains relevant in world affairs.`,
+**Why This Matters for You**
+Understanding British history helps you understand why English has become the global language of business, science, and the internet - it spread with the empire and American power. It explains why parliamentary democracy exists in countries from India to Jamaica. It illuminates current debates about colonialism, reparations, and whose history gets told. And it enriches your understanding of English itself, a language carrying the marks of every invasion and era - Roman, Anglo-Saxon, Norman, imperial, and global.
+
+When you speak English, you participate in this history. When you understand where the language came from, you understand it more deeply.`,
     },
   ],
   exercises: [],
@@ -250,26 +325,40 @@ export const CHAPTER_ENGELSK_VG1_8_2_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Sun Never Sets
 
-At its height around 1920, the British Empire covered about a quarter of the Earth's land surface and ruled over 400 million people. It was the largest empire in human history. The phrase "the empire on which the sun never sets" was literally true - at any moment, somewhere in the British Empire, it was daytime.
+Look at a map of the world from 1920, and you will see vast swaths of pink - the traditional color for British territories. From Canada to Australia, from India to South Africa, from Nigeria to Hong Kong, the British Empire covered about a quarter of the Earth's land surface and ruled over 400 million people. It was the largest empire in human history, surpassing even the Mongol Empire of Genghis Khan or the Roman Empire at its height.
 
-How did a small, rainy island achieve this? And what does it mean today, for you, for the world, and for the billions of people whose ancestors lived under British rule?
+The phrase "the empire on which the sun never sets" was not mere boasting - it was literally true. At any moment of any day, somewhere in the British Empire, the sun was shining. When it set in London, it rose in Singapore. When it was midnight in India, it was noon in Jamaica. This global reach gave Britain access to resources, markets, and labor across every continent.
 
-These are not comfortable questions. The British Empire brought railways and legal systems, but also slavery, exploitation, and cultural destruction. It spread the English language and parliamentary democracy, but also racism and economic inequality that persists today. Understanding this complexity - neither celebrating nor simply condemning - is essential for understanding our world.
+How did a small, rainy island off the northwest coast of Europe achieve this unprecedented dominance? And what does it mean today - for you, for the world, and for the billions of people whose ancestors lived, worked, fought, and died under British rule?
 
-When you drink tea (from India), eat sugar (from Caribbean plantations worked by enslaved Africans), or use English as a global language, you are living with the Empire's legacy. Let us explore how it began, how it worked, and what remains.`,
+These are not comfortable questions, and they have no easy answers. The British Empire built railways that still carry passengers across India, established legal systems based on the rule of law, and spread the English language that you are now learning. It also transported over 3 million enslaved Africans across the Atlantic, extracted wealth from colonies that remains in British museums and country houses today, drew arbitrary borders that still cause conflict, and pursued policies that led to famines killing millions.
+
+Understanding this complexity - neither celebrating imperial achievements nor simply condemning colonial crimes, but seeing both together - is essential for understanding our world. When you drink tea (brought from China and India), eat sugar (from Caribbean plantations worked by enslaved Africans), play cricket or soccer (spread by British colonial officers), or use English as a global language (learned under empire and reinforced by American power), you are living with the Empire's legacy. The very concepts of nationhood, borders, and international law that structure our world were shaped by the imperial era.
+
+Let us explore how the British Empire began, how it worked, how it ended, and what remains. This is not just history - it is the context for understanding why the world is organized the way it is today.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-section1',
       type: 'text',
       content: `## The First Empire: Americas and Caribbean
 
-The British Empire began with pirates, merchants, and adventurers seeking profit. In 1607, Jamestown became the first permanent English settlement in America. Soon, colonies spread along the Atlantic coast - Virginia, Massachusetts, Pennsylvania.
+The British Empire did not begin with grand plans for world domination. It began with pirates, merchants, adventurers, and religious refugees - people seeking profit, plunder, or a place to practice their faith without persecution. England was a latecomer to European colonization, watching enviously as Spain grew rich from gold and silver in the Americas.
 
-But the most profitable colonies were in the Caribbean. Sugar was the oil of the 17th century - incredibly valuable, incredibly labor-intensive. The British solution was horrific: the Atlantic slave trade. Between 1640 and 1807, British ships transported over 3 million Africans to the Americas in chains. Families were torn apart. People were branded like cattle. Millions died on the voyage or in brutal plantation conditions.
+The first attempts at colonization failed. The Roanoke Colony in present-day North Carolina vanished mysteriously in the 1580s - the "Lost Colony" whose fate remains unknown. But in 1607, Jamestown in Virginia became the first permanent English settlement in America. The early years were desperate; colonists starved, fought with Native Americans, and died of disease. Only the discovery that tobacco could be grown profitably saved the colony.
 
-The wealth generated was enormous. Liverpool, Bristol, and Glasgow grew rich on slave-produced sugar. Banks, insurance companies, and industries were built on this foundation. When Britain abolished the slave trade in 1807 and slavery in 1833, it paid compensation - not to the enslaved people, but to the slave owners. This debt was so large that British taxpayers were still paying it off until 2015.
+More colonies followed along the Atlantic coast. The Pilgrims landed at Plymouth in 1620, seeking religious freedom to practice their strict Protestantism. Massachusetts Bay Colony, Pennsylvania (founded by Quakers), Maryland (founded by Catholics) - each had different origins, but all followed a similar pattern: European settlers displacing indigenous peoples, establishing English law and customs, and developing economic ties with the mother country.
 
-The first British Empire ended in 1783 when the American colonies won independence. But a second, even larger empire was already emerging - in India, Africa, and the Pacific.`,
+But the most profitable colonies were in the Caribbean. Sugar was the oil of the 17th century - incredibly valuable because Europeans had developed an insatiable appetite for sweetness, and incredibly labor-intensive because sugar cane must be harvested and processed quickly. Barbados, Jamaica, and other Caribbean islands became sugar factories, and the source of their labor was one of history's greatest crimes.
+
+The Atlantic slave trade was the engine of Caribbean wealth. Between 1640 and 1807, British ships transported over 3 million Africans across the Atlantic in chains. Families were torn apart on the African coast - husbands from wives, parents from children - by African and European slave traders who raided villages or purchased captives from African kingdoms. People were branded like cattle, packed into ships so tightly they could barely move, and transported across an ocean voyage lasting two to three months, during which perhaps 15% died from disease, suicide, or violence.
+
+Those who survived faced brutal plantation conditions. They worked from dawn to dusk under the Caribbean sun, cutting cane with machetes, feeding it into crushing mills that could take off a limb in seconds, and boiling the juice in scalding vats. Average life expectancy for an enslaved person on a sugar plantation was about seven years after arrival. The plantations were death camps that required constant imports of new enslaved people to maintain production.
+
+The wealth generated was enormous and still visible today. The elegant Georgian townhouses of Bristol, Liverpool, and Glasgow were built by merchants who traded enslaved people and sugar. Lloyd's of London, the world's leading insurance market, began by insuring slave ships. Banks like Barclays have roots in the slave economy. Britain's industrial revolution was partly financed by profits from slavery. The grand country estates of the English aristocracy were often purchased or maintained with Caribbean sugar money.
+
+When Britain abolished the slave trade in 1807 and slavery itself in 1833, it was celebrated as a moral triumph. What is less celebrated is what happened next: the British government paid compensation - not to the formerly enslaved people, but to the slave owners, for their "property loss." The sum was £20 million (about £17 billion in today's money), representing 40% of the annual government budget. The descendants of enslaved people received nothing. The debt incurred to pay slave owners was so large that British taxpayers were still paying it off until 2015.
+
+The first British Empire effectively ended in 1783 when the American colonies won their independence. Britain had tried to tax the colonists without giving them representation in Parliament, and they had rebelled. With French help, they won. Britain lost its most populous and economically dynamic colonies. But a second empire was already emerging - even larger, even more global - in India, Africa, and the Pacific.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-quiz1',
@@ -294,15 +383,25 @@ The first British Empire ended in 1783 when the American colonies won independen
       type: 'text',
       content: `## The Jewel in the Crown: India
 
-India was the heart of the second British Empire - "the jewel in the crown." But British rule there began not with government but with a corporation: the East India Company.
+India was the heart of the second British Empire - "the jewel in the crown," as it was called. The subcontinent had a population larger than all of Britain's other colonies combined, incredible natural resources, an ancient civilization, and strategic importance linking the Middle East to East Asia. But British rule in India began not with government conquest but with a corporation seeking profit: the East India Company.
 
-Founded in 1600, the East India Company started as a trading venture. It wanted Indian textiles, spices, and tea. Gradually, through a combination of trade, diplomacy, and military force, the Company gained control of more and more territory. By 1857, it effectively ruled most of India.
+Founded in 1600, the East India Company was one of the world's first joint-stock corporations - an early form of the modern company where investors pooled capital and shared profits and risks. It started as a purely commercial venture, seeking Indian textiles (calico, muslin, and silk that were superior to anything Europe could produce), spices (pepper, cinnamon, and cloves that fetched high prices), and later tea (which became an English obsession). The Company established trading posts at Surat, Madras, Bombay, and Calcutta.
 
-After the Indian Rebellion of 1857, the British government took direct control. India was reorganized as the British Raj, with Queen Victoria crowned Empress of India in 1876. The Raj would last until 1947.
+Gradually, through a combination of trade, diplomacy, bribery, and military force, the Company gained control of more and more territory. It raised its own armies, made treaties with local rulers, and collected taxes. The Mughal Empire, which had ruled much of India, was weakening, and the Company exploited the resulting chaos. After the Battle of Plassey in 1757, the Company effectively controlled Bengal, one of the richest regions in the world. By 1857, the East India Company - a private corporation! - ruled most of the Indian subcontinent, collecting taxes from hundreds of millions of people.
 
-What did British rule mean for India? It meant railways - but the railways were designed to extract resources, not develop the country. It meant English education - but it also meant dismissing thousands of years of Indian learning as inferior. It meant courts and civil service - but Indians were excluded from top positions. It meant famines that killed millions while grain was exported to Britain.
+The Company's rule was often brutal and always extractive. The Bengal Famine of 1770 killed perhaps 10 million people - about a third of the population - while the Company continued to collect taxes and export grain. Indians who had been craftsmen and traders found themselves reduced to poverty as British policies deliberately destroyed Indian manufacturing to create markets for British goods. India, which had produced perhaps a quarter of the world's manufactured goods in 1750, was deindustrialized to benefit Manchester cotton mills.
 
-The legacy is contested. Some point to infrastructure, legal systems, and the English language. Others point to deliberate deindustrialization (Britain destroyed India's textile industry to benefit Manchester mills), extraction of wealth, and the trauma of partition when India gained independence in 1947.`,
+In 1857, Indian soldiers (sepoys) in the Company's army rebelled, and the uprising spread across northern India. The causes were complex - resentment of foreign rule, fear that the Company was trying to convert Indians to Christianity, specific grievances about pay and conditions. The rebellion was eventually crushed with terrible violence, including blowing prisoners from cannons. The British called it the "Indian Mutiny"; Indians call it the First War of Independence.
+
+After 1857, the British government took direct control, ending the Company's rule. India was reorganized as the British Raj (from a Hindi word meaning "rule"), with Queen Victoria crowned Empress of India in 1876. A civil service of (mostly British) administrators governed through a complex hierarchy of officials, with Indian princes retained as puppet rulers in some regions.
+
+What did British rule mean for ordinary Indians? It meant railways - over 40,000 miles of them, still the backbone of Indian transportation. But the railways were designed to extract resources (moving cotton, tea, and grain to ports) and to move troops quickly, not to develop the country for Indians' benefit. It meant English education - but only for a tiny elite, while dismissing thousands of years of Indian learning, literature, and philosophy as inferior. It meant courts and civil service based on the rule of law - but Indians were excluded from top positions and subjected to separate, inferior justice.
+
+It meant famines that killed millions. The Bengal Famine of 1943 killed an estimated 3 million people while grain was diverted to the war effort. Throughout the Raj, periodic famines killed tens of millions, while British policies prioritized exports and profits over Indian lives. British economist Utsa Patnaik has estimated that Britain extracted $45 trillion from India over its colonial period - wealth that helped finance British industrialization and global dominance.
+
+The legacy is contested to this day. Some point to infrastructure, legal systems, the English language that now gives Indians access to global opportunities, and the parliamentary democracy that (with modifications) India inherited. Others point to deliberate deindustrialization, extraction of wealth, famines caused or worsened by British policies, and the trauma of partition when India gained independence in 1947. That partition - the division into Hindu-majority India and Muslim-majority Pakistan - killed perhaps one to two million people and displaced perhaps 15 million, the largest forced migration in human history. The border was drawn in weeks by a British lawyer who had never been to India, and communities that had lived together for centuries were torn apart in an orgy of violence.
+
+Understanding what the British Empire meant for India requires holding all of these realities together - the railways and the famines, the legal systems and the exploitation, the English language and the cultural destruction.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-quiz2',
@@ -327,15 +426,25 @@ The legacy is contested. Some point to infrastructure, legal systems, and the En
       type: 'text',
       content: `## The Scramble for Africa
 
-In 1870, European powers controlled only about 10% of Africa. By 1914, they controlled almost 90%. This "Scramble for Africa" was driven by nationalism, economics, and racism.
+In 1870, European powers controlled only about 10% of Africa - mostly coastal trading posts and a few settler colonies like South Africa. The vast interior remained in African hands, ruled by kingdoms, empires, and confederations that Europeans barely knew existed. By 1914, they controlled almost 90%. This extraordinary transformation - the "Scramble for Africa" - reshaped a continent and created the borders that still define African nations today.
 
-The Berlin Conference of 1884-85 set the rules: European powers literally drew lines on maps, dividing Africa among themselves with no regard for existing kingdoms, ethnic groups, or geographic features. Borders were drawn through communities, separating peoples who had lived together for centuries.
+What drove this sudden rush to conquer? Several forces converged. Nationalism meant that European powers competed for prestige; having colonies was a mark of great power status. Industrial capitalism sought new markets for manufactured goods and new sources of raw materials - rubber, palm oil, copper, diamonds, gold. Technological advances - the steamship, the quinine pill that prevented malaria, the machine gun - made conquest possible where it had been impossible before. And racism, the ideology of white supremacy that had justified slavery, now justified colonialism as "civilizing" inferior peoples.
 
-British Africa included Nigeria, Ghana, Kenya, Uganda, Zimbabwe (then Rhodesia), and South Africa. Colonial methods varied. Sometimes Britain ruled directly. Sometimes it used "indirect rule" through local chiefs who became collaborators. Always, the goal was extraction - minerals, agricultural products, labor.
+The Berlin Conference of 1884-85 set the rules for the Scramble. Representatives of European powers gathered in the German capital - no Africans were invited - and literally drew lines on maps, dividing the continent among themselves with no regard for existing kingdoms, ethnic groups, linguistic boundaries, or geographic features. Borders were drawn through communities that had lived together for centuries, separating families, splitting ethnic groups between different colonial powers. The Somali people, for instance, were divided among British, French, Italian, and Ethiopian territories - a division whose consequences include the continuing chaos in Somalia today.
 
-The effects were devastating. Traditional economies were disrupted. People were forced to grow cash crops instead of food. Labor was coerced for mines and plantations. Ethnic identities were hardened as colonial administrators played groups against each other.
+British Africa grew to include Nigeria (Africa's most populous country), Ghana (then called Gold Coast), Kenya, Uganda, Tanzania (then Tanganyika), Sudan, Zimbabwe (then Rhodesia), Zambia (then Northern Rhodesia), Malawi (then Nyasaland), Botswana (then Bechuanaland), and of course South Africa. Britain controlled a vast swath of the continent from Cairo to the Cape, interrupted only by German East Africa.
 
-And yet, people resisted. Every colony saw resistance movements - some peaceful, some armed. African soldiers fought in both World Wars (often for colonial powers), and afterward demanded the freedom they had fought for. By the 1960s, most British African colonies had gained independence. But the borders, the ethnic tensions, and the economic structures colonial powers created remain.`,
+Colonial methods varied depending on local conditions and the number of British settlers. In some places, Britain ruled directly through appointed administrators who replaced traditional leaders. In others, particularly in Nigeria, Britain used "indirect rule" through existing chiefs and emirs who became collaborators with colonial power, collecting taxes and enforcing regulations in exchange for retaining their positions. This system was cheaper and required fewer British officials, but it distorted traditional institutions and created new forms of authority.
+
+Always, the goal was extraction. Mining companies dug copper in Northern Rhodesia and gold in South Africa. Agricultural schemes forced Africans to grow cash crops - cotton, coffee, tea, cocoa - instead of food for themselves. Land was seized for European settlers, particularly in Kenya and Southern Rhodesia, while Africans were confined to "reserves" with the poorest soil. Labor was coerced through various means: head taxes that forced Africans to work for wages to pay the tax, pass laws that controlled movement, and in some cases direct forced labor that amounted to slavery in all but name.
+
+The effects were devastating in ways that persist today. Traditional economies based on subsistence farming, cattle herding, and regional trade were disrupted. Communities that had been self-sufficient now depended on distant markets and colonial policies. Ethnic identities were hardened as colonial administrators categorized people into "tribes" (often quite arbitrarily) and played groups against each other - divide and rule was explicit colonial policy. Education was provided, but only enough to create clerks and minor officials, not to develop African potential. Infrastructure was built, but designed to move resources to ports for export, not to connect African communities.
+
+And yet, Africans resisted. Every colony saw resistance movements - from the Mau Mau uprising in Kenya to the Maji Maji rebellion in German East Africa, from the Herero genocide in German Southwest Africa (where German forces killed 80% of the Herero people) to the ongoing resistance in South Africa. Some resistance was armed; some was cultural, preserving languages and traditions in defiance of colonial attempts at erasure; some was political, organizing movements that would eventually demand independence.
+
+African soldiers fought in both World Wars - often conscripted to fight for the colonial powers that oppressed them. Over a million Africans served in World War II alone. They came home with new skills, new ideas about freedom and self-determination, and new unwillingness to accept colonial rule. The same European powers that had just fought a war against Nazi racism now seemed hypocritical ruling over Africans.
+
+Independence came in a rush. Ghana became the first sub-Saharan African colony to gain independence in 1957, under the leadership of Kwame Nkrumah. Nigeria followed in 1960, Kenya in 1963, and others throughout the decade. By the mid-1960s, most British African colonies were independent nations. But they inherited the borders, the ethnic tensions, the economic structures, and the underdevelopment that colonialism had created. These legacies continue to shape African nations today.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-quiz3',
@@ -360,15 +469,25 @@ And yet, people resisted. Every colony saw resistance movements - some peaceful,
       type: 'text',
       content: `## The Commonwealth: Empire's Afterlife
 
-When the Empire ended, something replaced it: the Commonwealth of Nations. Originally the British Commonwealth, it now includes 54 member states with a combined population of 2.4 billion people.
+When the British Empire ended, something unexpected emerged from its ashes: the Commonwealth of Nations. This voluntary association of mostly former British colonies now includes 56 member states with a combined population of 2.5 billion people - nearly a third of humanity. It is one of the strangest and most enduring legacies of empire.
 
-The Commonwealth is a voluntary association. Members share historical ties to Britain, but the relationship is now one of equals - at least in theory. The British monarch serves as Head of the Commonwealth, though this is a ceremonial role. Many Commonwealth members are republics with their own heads of state.
+The Commonwealth evolved gradually. The term "British Commonwealth of Nations" first appeared in 1926 to describe the relationship between Britain and its self-governing "Dominions" - Canada, Australia, New Zealand, South Africa, and the Irish Free State. These were settler colonies where Europeans had become the majority, and they were already largely independent in practice. The Statute of Westminster (1931) made them legally equal to Britain.
 
-What binds the Commonwealth together? Partly shared language - most members use English officially. Partly shared legal systems based on British common law. Partly shared institutions like parliamentary democracy. And partly simply the habit of cooperation developed over decades.
+As colonies gained independence after World War II, most chose to join this association despite having just fought to escape British rule. India's decision in 1949 was crucial - if the giant of the former empire joined, the Commonwealth could be genuinely global. A formula was found whereby India could be a republic with its own president while still recognizing the British monarch as "Head of the Commonwealth" - a purely symbolic role with no power.
 
-The Commonwealth holds games (like a mini-Olympics), runs educational exchanges, and promotes democracy and human rights. But critics question whether it is merely a nostalgia club for former imperial powers, or whether it has real purpose in the modern world.
+Today, the Commonwealth is a remarkably diverse organization. Its members include some of the world's largest countries (India, Nigeria, Pakistan) and some of the smallest (Tuvalu, Nauru). Some are among the wealthiest (Singapore, Australia) and some among the poorest (Malawi, Bangladesh). Some retain the British monarch as head of state (Canada, Australia, Jamaica - though Jamaica is moving toward a republic); most are republics. Some are vibrant democracies; some have struggled with authoritarianism.
 
-For countries like India, Nigeria, and Jamaica, the Commonwealth represents a complex relationship with their colonial past. They can work with Britain as equals now, but the historical power imbalance has not been forgotten. Calls for reparations, return of stolen artifacts, and honest reckoning with colonial history continue.`,
+What binds this diverse group together? Partly shared language - most members use English officially, which facilitates communication and exchange. Partly shared legal systems based on British common law, which creates some similarity in how courts and governments function. Partly shared institutions like parliamentary democracy (though adapted in various ways). Partly economic ties that persist from the colonial era. And partly simply the habit of cooperation developed over decades, reinforced by regular meetings, educational exchanges, and the Commonwealth Games (a kind of mini-Olympics held every four years).
+
+The Commonwealth does tangible things. The Commonwealth Scholarship program has educated thousands of students across member countries. Technical assistance programs share expertise. Election observation missions monitor democratic processes. The Harare Declaration (1991) committed members to democracy and human rights, though enforcement has been uneven - Zimbabwe was suspended for human rights violations, and The Gambia withdrew and then rejoined.
+
+But critics question whether the Commonwealth has real purpose in the modern world or whether it is merely a nostalgia club keeping alive the memory of empire while avoiding honest reckoning with its crimes. Member states face no obligations and receive no guaranteed benefits. Meetings produce declarations but rarely concrete action. Britain's post-Brexit attempts to revive Commonwealth trade have shown that historical ties do not easily translate into economic advantage when geography and modern trade patterns point elsewhere.
+
+For countries like India, Nigeria, and Jamaica, the Commonwealth represents a complex, ambivalent relationship with their colonial past. Leaders from these countries now sit as equals with Britain - a dramatic change from the colonial hierarchy. But equality at meetings does not erase historical inequality. The wealth extracted from colonies largely remains in British institutions, museums, and private collections. Artifacts looted during colonial conquest fill the British Museum. The economic patterns established by empire - former colonies exporting raw materials and importing manufactured goods - persist.
+
+Calls for reparations have grown louder, though British governments have rejected them. Demands for the return of stolen artifacts have had some success - Nigeria is receiving back some of the Benin Bronzes looted by British soldiers in 1897. Honest reckoning with colonial history is slowly happening, though it remains controversial and incomplete. The Commonwealth exists in this space of tension between the desire to build something positive from shared history and the need to acknowledge that history's horrors.
+
+King Charles III, who became Head of the Commonwealth in 2022, has spoken of the need to acknowledge "wrongs that have shaped our past" while looking forward to a shared future. Whether the Commonwealth can reinvent itself as something more than a colonial afterthought remains to be seen.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-quiz4',
@@ -393,21 +512,34 @@ For countries like India, Nigeria, and Jamaica, the Commonwealth represents a co
       type: 'text',
       content: `## The Legacy: What Remains?
 
-The British Empire ended, but its effects are everywhere. Let us consider what remains:
+The British Empire formally ended decades ago - the last significant colony, Hong Kong, was returned to China in 1997. But the Empire's effects are everywhere, woven into the fabric of our world in ways we often do not notice. Let us consider what remains.
 
-**Language:** English is a global language largely because of the Empire. Over 1.5 billion people speak English, and it is the dominant language of business, science, and the internet.
+**Language: The Tongue That Conquered the World**
+English is a global language largely because of the Empire, reinforced by American power in the 20th century. Over 1.5 billion people speak English, and it is the dominant language of international business, scientific publication, aviation, diplomacy, and the internet. You are learning English not because it is inherently superior to Norwegian or any other language, but because historical power made it useful. When Indians and Nigerians and Singaporeans speak English to each other, they are using the language of their former colonizer - but they have also made it their own, creating new varieties that express their own cultures.
 
-**Legal systems:** Common law, developed in England, now forms the basis of legal systems in the US, Canada, Australia, India, and many African nations. Concepts like habeas corpus and trial by jury spread through the Empire.
+**Legal Systems: Common Law Goes Global**
+Common law, developed in England over centuries, now forms the basis of legal systems in the United States, Canada, Australia, New Zealand, India, Pakistan, Bangladesh, Nigeria, Kenya, Singapore, Hong Kong, and dozens of other countries. Concepts that originated in English courts - habeas corpus (the right not to be imprisoned without charge), trial by jury, precedent (the idea that courts should follow previous decisions), the adversarial system (where prosecution and defense argue before an impartial judge) - spread through the Empire and now shape how billions of people experience justice. This is not necessarily better than alternative systems like civil law (used in most of Europe), but it creates a kind of legal family across former British territories.
 
-**Borders and conflicts:** Many of today's conflicts trace back to colonial borders. The partition of India killed over a million people. Middle Eastern borders drawn by Britain and France created lasting tensions. African borders still divide ethnic groups artificially.
+**Borders and Conflicts: Lines Drawn by Foreigners**
+Many of today's conflicts trace back directly to borders drawn by colonial powers with little knowledge of or concern for local realities. The partition of India in 1947 killed perhaps one to two million people and displaced 15 million, creating a border between India and Pakistan that remains one of the world's most dangerous flashpoints. Kashmir is still contested, and India and Pakistan - both nuclear powers - have fought multiple wars. Middle Eastern borders drawn by Britain and France (the Sykes-Picot Agreement of 1916) created Iraq by combining three Ottoman provinces with different ethnic and religious majorities, contributing to decades of conflict. African borders divided ethnic groups and combined historic enemies, creating tensions that erupted in the Rwandan genocide, the Nigerian civil war, and countless other conflicts.
 
-**Economic patterns:** Colonial economies were designed for extraction, not development. Many former colonies still export raw materials and import manufactured goods - a pattern established under colonial rule.
+**Economic Patterns: The Persistence of Extraction**
+Colonial economies were designed for extraction, not development. Railways moved resources to ports, not between African or Asian cities. Education created clerks, not engineers. Manufacturing was deliberately suppressed to create markets for British goods. These patterns persist. Many former colonies still export raw materials - cocoa from Ghana, copper from Zambia, oil from Nigeria - and import manufactured goods. The terms of trade often remain unfavorable. Development has occurred, but the economic structures of colonialism have proven remarkably durable.
 
-**Culture:** Cricket is popular from Mumbai to Jamaica because the British brought it. The English language carries cultural assumptions. Education systems often still follow British models.
+**Culture: Cricket, Tea, and English Manners**
+Cricket is popular from Mumbai to Barbados to Melbourne because British colonial officers and settlers brought it. The sport became a way for colonized peoples to compete with and sometimes beat their colonizers - India's cricket victories over England carry symbolic weight. Tea drinking spread from Britain to its colonies (ironically, tea itself came to Britain from China). Educational systems in many former colonies still follow British models, with examinations and curricula that sometimes retain colonial perspectives. English literature is taught as the default "literature" in many countries, while local traditions are labeled "folklore."
 
-**Racism:** The Empire was built on a belief in white superiority. These ideas did not disappear with independence. They persist in institutions, attitudes, and inequalities worldwide.
+**Racism: The Ideology of Empire**
+The British Empire was built on a belief in white supremacy - the idea that Europeans were naturally superior to Africans, Asians, and other peoples, and therefore had a right and duty to rule them. This ideology justified slavery, justified conquest, justified extraction, and justified the many cruelties of colonial rule. These ideas did not disappear when the flags changed. They persist in institutions that favor whiteness, in beauty standards that privilege European features, in educational curricula that center European history, in immigration policies that treat some nationalities better than others, and in everyday assumptions and prejudices that shape how people are treated based on their race. Racism is not just individual prejudice; it is a system of advantage that the Empire helped create and that we have not yet dismantled.
 
-How should we remember the Empire? Not with nostalgia, but not with simple condemnation either. We should understand it in its complexity - the good, the bad, and the complicated - because we still live with its consequences.`,
+**How Should We Remember?**
+The British Empire cannot be reduced to either a civilizing mission that brought railways and rule of law, or to a criminal enterprise of theft and murder. It was both, simultaneously, and understanding this complexity is essential for understanding our world.
+
+Nostalgia for empire - "Make Britain Great Again" sentiments that sometimes surface in British politics - ignores the reality of colonial violence and extraction. Simple condemnation, treating all aspects of the imperial legacy as tainted, ignores the genuine achievements and the ways former colonies have made imperial legacies their own.
+
+The honest approach is to acknowledge complexity: the railways and the famines, the legal systems and the exploitation, the English language and the cultural destruction. It means recognizing that the wealth of Britain today was built partly on colonial extraction, and that this creates ongoing moral obligations. It means supporting efforts to return looted artifacts, considering reparations, and ensuring that colonial history is taught honestly.
+
+We still live with the Empire's consequences. Understanding that history helps us understand why the world is organized the way it is - and what might be done to make it more just.`,
     },
     {
       id: 'engelsk-vg1-8-2-n-quiz5',
@@ -941,28 +1073,42 @@ export const CHAPTER_ENGELSK_VG1_9_1_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## A Nation Built on Ideas
 
-"We hold these truths to be self-evident, that all men are created equal." These words, written in 1776, launched a nation and an experiment in democracy that continues today. But here is the uncomfortable truth: the man who wrote them, Thomas Jefferson, owned over 600 enslaved people during his lifetime.
+"We hold these truths to be self-evident, that all men are created equal, that they are endowed by their Creator with certain unalienable Rights, that among these are Life, Liberty and the pursuit of Happiness."
 
-This contradiction - between America's highest ideals and its often brutal reality - runs through the entire American story. Understanding America means holding both truths at once: the genuine inspiration of its founding principles and the violence, exclusion, and exploitation that have also characterized its history.
+These words, written in Philadelphia in the summer of 1776, launched a nation and an experiment in democracy that continues today. They were revolutionary - no government had ever been founded on the principle that ordinary people had rights that governments must respect, that power came from the people rather than from God through kings. These words would inspire revolutions in France, Haiti, and Latin America. They would be quoted by abolitionists fighting slavery, suffragettes demanding women's votes, and civil rights marchers in Selma, Alabama.
 
-Why does American history matter to you, here in Norway? Because American culture, politics, and economics shape your world. American films dominate your screens. American tech companies hold your data. American military power shapes global politics. American social movements - from civil rights to #MeToo - spread worldwide.
+But here is the uncomfortable truth: the man who wrote them, Thomas Jefferson, owned over 600 enslaved people during his lifetime. He never freed most of them. He almost certainly fathered children with Sally Hemings, an enslaved woman who was the half-sister of his dead wife - children who remained enslaved until his death. The man who wrote "all men are created equal" bought, sold, and profited from the labor of people he kept in bondage.
 
-Let us explore how a collection of rebellious colonies became the world's dominant superpower, and what that journey reveals about both achievement and failure.`,
+This contradiction - between America's highest ideals and its often brutal reality - runs through the entire American story like a fault line. The Constitution that established "We the People" counted enslaved people as three-fifths of a person for representation purposes but gave them no rights. The nation that proclaimed liberty expanded by dispossessing indigenous peoples and taking their lands. The "land of opportunity" excluded women, immigrants, and minorities from full participation for most of its history.
+
+Understanding America means holding both truths at once: the genuine inspiration of its founding principles - principles that have been used by oppressed people everywhere to demand their rights - and the violence, exclusion, and exploitation that have also characterized American history. Neither the patriotic story of ever-expanding freedom nor the critical story of unrelenting oppression captures the full truth. America is both, always, simultaneously.
+
+Why does American history matter to you, here in Norway? Because American culture, politics, and economics shape your world in ways you may not even notice. American films dominate your screens, American music fills your earbuds, American social media platforms shape how you communicate. American tech companies hold your data and shape your online experience. American military power, with bases in over 70 countries, shapes global politics and security - including in Europe. American economic decisions affect global markets and Norwegian exports. American social movements - from civil rights to #MeToo to Black Lives Matter - spread worldwide and influence debates in Norway.
+
+Understanding America is not optional in the modern world. Let us explore how a collection of rebellious British colonies on the edge of a continent became the world's dominant superpower, and what that journey reveals about both the possibilities of democracy and its persistent failures.`,
     },
     {
       id: 'engelsk-vg1-9-1-n-section1',
       type: 'text',
       content: `## Before Columbus: Indigenous America
 
-Before we talk about "American history," we must acknowledge that America was not empty before Europeans arrived. For at least 15,000 years, diverse peoples had lived across the continent.
+Before we talk about "American history," we must acknowledge a fundamental truth that traditional American narratives often obscure: America was not empty before Europeans arrived. It was not a "wilderness" waiting to be "discovered" and "civilized." For at least 15,000 years - and possibly much longer - diverse peoples had lived across the continent, developing sophisticated civilizations, complex social structures, and sustainable relationships with the land.
 
-The Navajo in the Southwest, the Lakota on the Plains, the Iroquois Confederacy in the Northeast, the Maya and Aztec civilizations further south - these were not primitive peoples waiting to be "discovered." They had complex societies, sophisticated agriculture, vast trading networks, and rich spiritual traditions.
+The diversity of indigenous America is staggering. In the Southwest, the Navajo (Diné) and Pueblo peoples built adobe structures and developed irrigation systems that allowed farming in desert conditions. On the Great Plains, nations like the Lakota, Cheyenne, and Comanche developed horse cultures that made them among the most effective light cavalry in history. In the Pacific Northwest, peoples like the Haida and Tlingit built prosperous societies based on salmon fishing and cedar woodworking, producing remarkable totem poles and potlatch ceremonies. In the Northeast, the Haudenosaunee (Iroquois) Confederacy created a sophisticated democratic government that some historians believe influenced the framers of the US Constitution.
 
-When Christopher Columbus arrived in 1492, perhaps 10 million people lived in what is now the United States. Within 200 years, European diseases - smallpox, measles, influenza - had killed up to 90% of them. This was one of the greatest demographic catastrophes in human history.
+These were not "primitive" peoples waiting to be "discovered." The city of Cahokia, near present-day St. Louis, had perhaps 20,000 inhabitants at its peak around 1100 AD - larger than London at the same time. Indigenous peoples had developed corn (maize) from a wild grass through millennia of selective breeding - one of the most remarkable agricultural achievements in human history. They had created vast trading networks that connected peoples across the continent, exchanging goods like copper from Lake Superior, shells from the Gulf Coast, and obsidian from the Rocky Mountains.
 
-Those who survived faced conquest, forced relocation, and cultural destruction. The Trail of Tears in the 1830s forced Cherokee, Creek, and other nations from their ancestral lands, killing thousands on the march westward. By 1900, the indigenous population had fallen to about 250,000.
+When Christopher Columbus arrived in the Caribbean in 1492, perhaps 10 million people lived in what is now the United States, and perhaps 100 million across the Americas as a whole. They spoke hundreds of different languages, practiced diverse religions, and organized their societies in countless ways - from small hunting bands to vast empires like those of the Aztecs and Incas.
 
-This history is often minimized or forgotten. But you cannot understand America without understanding what was destroyed to create it. The land was not empty. The "wilderness" settlers conquered was often land managed and shaped by indigenous peoples for thousands of years.`,
+What followed Columbus was one of the greatest demographic catastrophes in human history. European diseases - smallpox, measles, influenza, typhus, bubonic plague - swept through indigenous populations that had no immunity. In some areas, 90% or more of the population died within a few decades of first contact. Whole villages were wiped out. Cultures that had developed over thousands of years vanished in a generation. This was not always intentional (though sometimes disease was deliberately spread, as when smallpox-infected blankets were given to tribes), but it made European conquest possible. Colonizers arriving in many areas found empty villages, abandoned fields, and traumatized survivors - and interpreted this as proof that the land was empty and available for taking.
+
+Those who survived faced conquest, forced relocation, and deliberate cultural destruction. The Trail of Tears in the 1830s - the forced march of Cherokee, Creek, Choctaw, Chickasaw, and Seminole peoples from their ancestral lands in the Southeast to "Indian Territory" (now Oklahoma) - killed perhaps 15,000 people along the way from cold, hunger, and disease. Children were taken from families and sent to boarding schools where they were forbidden to speak their languages, practice their religions, or maintain their cultural identities. "Kill the Indian, save the man" was the explicit goal.
+
+By 1900, the indigenous population of the United States had fallen to about 250,000 - a 97.5% decline from pre-contact numbers. Many assumed they would disappear entirely, that they were a "vanishing race." They did not vanish. Today, about 6 million Americans identify as Native American or Alaska Native, and indigenous peoples are reclaiming their languages, traditions, and rights.
+
+This history is often minimized, forgotten, or told entirely from the perspective of the colonizers. Terms like "frontier," "settlement," and "Westward expansion" obscure the violence they describe. What settlers called "wilderness" was often land carefully managed by indigenous peoples through controlled burning and sustainable harvesting for thousands of years. The buffalo herds that roamed the Plains existed partly because indigenous peoples had shaped the ecosystem to support them.
+
+You cannot understand America without understanding what was destroyed to create it. The land was not empty. The treaties were not fair. The "conquest" was not heroic. And indigenous peoples are not relics of the past but living communities still fighting for recognition, sovereignty, and justice.`,
     },
     {
       id: 'engelsk-vg1-9-1-n-quiz1',

@@ -27,26 +27,30 @@ export const CHAPTER_ENGELSK_VG1_3_1_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Architecture of Language
 
-Think of grammar as the architecture of language. Just as a building needs a solid foundation and a logical structure to stand tall, your sentences need grammatical frameworks to communicate clearly and effectively. At VG1 level, you have already learned the basics. Now it is time to refine your understanding and tackle the structures that separate good English from great English.
+Think of grammar as the architecture of language. Just as a building needs a solid foundation and a logical structure to stand tall, your sentences need grammatical frameworks to communicate clearly and effectively. At VG1 level, you have already learned the basics - you know how to form sentences, use common tenses, and express simple ideas. Now it is time to refine your understanding and tackle the structures that separate good English from great English. This is where your journey from competent to confident truly begins.
 
-Why does this matter? Because grammar affects how professional you sound. It determines whether your ideas come across clearly or get lost in confusion. When you write an email to a future employer, submit an assignment at university, or simply want to express a complex thought, advanced grammar gives you the tools to do it well.
+Why does this matter? Because grammar affects how professional you sound in every situation. It determines whether your ideas come across clearly or get lost in confusion. When you write an email to a future employer, submit an assignment at university, participate in an international meeting, or simply want to express a complex thought to a friend, advanced grammar gives you the tools to do it well. Consider the difference between someone who says "If I would have known, I would have come" and someone who correctly says "If I had known, I would have come." Both speakers communicate the same basic idea, but one sounds polished while the other reveals gaps in their language mastery.
 
-In this chapter, we will explore two crucial areas: the perfect tenses and conditional sentences. These are the structures that many learners find challenging, but once you understand how they work, they become powerful tools in your communication toolkit.`,
+Grammar is not just about following rules - it is about having choices. When you understand how different structures work, you can select the one that best expresses your meaning. You become a more precise communicator, able to convey subtle distinctions that simpler language cannot capture. The difference between "I lived in London" and "I have lived in London" might seem small, but each sentence creates a different picture in the listener's mind.
+
+In this chapter, we will explore two crucial areas: the perfect tenses and conditional sentences. These are the structures that many learners find challenging, but once you understand how they work, they become powerful tools in your communication toolkit. We will examine not just the rules but the underlying logic - why English uses these structures, what meanings they convey, and how you can use them to express exactly what you mean. By the end, you will have a deeper appreciation for the elegant system that underlies English grammar.`,
     },
     {
       id: 'engelsk-vg1-3-1-n-section1',
       type: 'text',
       content: `## Present Perfect vs Past Simple: A Tale of Two Tenses
 
-Here is a puzzle for you: What is the difference between "I visited Paris" and "I have visited Paris"? Both sentences describe the same action - going to Paris. Yet they communicate something subtly different. Understanding this difference is one of the keys to sounding natural in English.
+Here is a puzzle for you: What is the difference between "I visited Paris" and "I have visited Paris"? Both sentences describe the same action - going to Paris. Yet they communicate something subtly different, and understanding this difference is one of the keys to sounding natural in English. Native speakers make this distinction instinctively, but for learners, it requires conscious attention until it becomes automatic.
 
-The past simple tense describes completed actions at a specific time in the past. When you say "I visited Paris last summer," you are placing that experience firmly in a finished moment. The time is specified, the action is done, and there is no particular connection to the present moment.
+The past simple tense describes completed actions at a specific time in the past. When you say "I visited Paris last summer," you are placing that experience firmly in a finished moment. The time is specified, the action is done, and there is no particular connection to the present moment. You are simply reporting something that happened. The past simple is straightforward and concrete - it answers the question "What happened?" with a clear, time-stamped answer.
 
-The present perfect, on the other hand, creates a bridge between the past and now. When you say "I have visited Paris three times," you are talking about your life experience up to this moment. The exact times do not matter - what matters is that this experience is part of who you are today.
+The present perfect, on the other hand, creates a bridge between the past and now. When you say "I have visited Paris three times," you are talking about your life experience up to this moment. The exact times do not matter - what matters is that this experience is part of who you are today. The present perfect answers different questions: "What experience do you have?" or "What has happened that is relevant now?" It keeps the past alive in the present.
 
-Think of it this way: the past simple is like a photograph - it captures a moment that has passed. The present perfect is like a video that is still playing - the action started in the past but connects to now.
+Think of it this way: the past simple is like a photograph - it captures a moment that has passed and sits in an album. The present perfect is like a video that is still playing - the action started in the past but connects to now in some meaningful way. When a job interviewer asks "Have you worked with international clients?" they want to know about your accumulated experience, not when specifically it happened. But if they ask "When did you work at that company?" they want specific past information.
 
-Signal words help you choose. Words like "yesterday," "last week," "in 2019," and "ago" point to past simple. Words like "already," "yet," "ever," "never," "recently," and "so far" signal present perfect. "Since" and "for" also typically go with present perfect when describing duration up to now.`,
+The present perfect has three main uses that help clarify this distinction. First, it describes life experiences without specifying when: "I have been to Japan" tells us about your experience without pinning it to a date. Second, it describes situations that started in the past and continue now: "She has lived in Bergen since 2018" means she moved there in 2018 and still lives there. Third, it describes recent events with current relevance: "I have lost my keys" explains why you cannot open the door right now.
+
+Signal words help you choose the right tense. Words like "yesterday," "last week," "in 2019," "when I was young," and "ago" point firmly to past simple - they specify a finished time. Words like "already," "yet," "ever," "never," "recently," "just," and "so far" signal present perfect - they connect to the current moment. The words "since" and "for" typically go with present perfect when describing duration up to now: "I have known her since childhood" or "They have been married for twenty years."`,
     },
     {
       id: 'engelsk-vg1-3-1-n-quiz1',
@@ -71,15 +75,15 @@ Signal words help you choose. Words like "yesterday," "last week," "in 2019," an
       type: 'text',
       content: `## The World of Conditionals
 
-Imagine you could describe not just what is happening, but what might happen, what would happen, and what would have happened if things had been different. This is the power of conditional sentences, and English has an elegant system for expressing all these possibilities.
+Imagine you could describe not just what is happening, but what might happen, what would happen, and what would have happened if things had been different. This is the power of conditional sentences, and English has an elegant system for expressing all these possibilities. Conditionals allow you to explore alternative realities, make predictions, give advice, and reflect on the road not taken. They are essential for sophisticated communication in any context.
 
-Let us start with the zero conditional. This describes universal truths and scientific facts. If you heat water to 100 degrees Celsius, it boils. If you mix blue and yellow, you get green. The structure is simple: "if" plus present tense, then present tense. No uncertainty here - these things are simply true.
+Let us start with the zero conditional, the simplest form. This describes universal truths and scientific facts - things that are always true under certain conditions. If you heat water to 100 degrees Celsius, it boils. If you mix blue and yellow, you get green. If plants do not get sunlight, they die. The structure is simple: "if" plus present tense, then present tense. No uncertainty here - these things are simply true, every single time. The zero conditional is perfect for explaining how things work, stating rules, or describing cause-and-effect relationships that never vary.
 
-The first conditional moves us into the realm of real possibilities. If it rains tomorrow, we will cancel the picnic. If you study hard, you will pass the exam. You are talking about likely future events. The structure uses "if" plus present tense, then "will" plus infinitive.
+The first conditional moves us into the realm of real possibilities - things that are likely to happen in the future. If it rains tomorrow, we will cancel the picnic. If you study hard, you will pass the exam. If she applies for the job, she will probably get it. You are talking about situations that could genuinely occur. The structure uses "if" plus present tense, then "will" plus infinitive. Notice that even though we are talking about the future, we use present tense in the "if" clause - this is one of the quirks of English conditionals. The first conditional is your go-to structure for predictions, plans, warnings, and promises.
 
-Now things get interesting with the second conditional. This is for hypothetical situations - things that are unlikely or purely imaginary. If I won the lottery, I would travel the world. If I were you, I would apologize. Notice how we use past tense after "if," but we are not actually talking about the past. We are creating an imaginary present or future. And yes, "if I were" is correct even for "I" - this is the subjunctive mood, one of the last traces of this grammatical form in English.
+Now things get interesting with the second conditional. This is for hypothetical situations - things that are unlikely, purely imaginary, or contrary to current reality. If I won the lottery, I would travel the world. If I were you, I would apologize immediately. If humans could fly, we would not need airplanes. Notice how we use past tense after "if," but we are not actually talking about the past. We are creating an imaginary present or future, using the past tense to signal unreality. And yes, "if I were" is correct even for "I" - this is the subjunctive mood, one of the last living traces of this grammatical form in English. The second conditional is perfect for dreams, hypothetical questions, and polite suggestions.
 
-The third conditional takes us into alternative histories. If I had studied harder, I would have passed. If she had left earlier, she would have caught the train. These are impossible because we cannot change the past. The structure is "if" plus past perfect, then "would have" plus past participle. You are imagining how things could have been different.`,
+The third conditional takes us into alternative histories - the realm of what might have been but never was. If I had studied harder, I would have passed the exam. If she had left earlier, she would have caught the train. If they had invested in that company, they would be millionaires now. These situations are impossible because we cannot change the past. The structure is "if" plus past perfect, then "would have" plus past participle. You are imagining how things could have been different, often with a sense of regret or relief. The third conditional is essential for analyzing past decisions, expressing regrets, and understanding historical turning points.`,
     },
     {
       id: 'engelsk-vg1-3-1-n-quiz2',
@@ -104,15 +108,15 @@ The third conditional takes us into alternative histories. If I had studied hard
       type: 'text',
       content: `## Mixed Conditionals and Real-World Complexity
 
-Life rarely fits into neat categories, and neither does language. Sometimes you need to mix conditional forms to express complex ideas. The most common mixed conditional connects a past condition to a present result.
+Life rarely fits into neat categories, and neither does language. Sometimes you need to mix conditional forms to express complex ideas that span different time frames. The four basic conditionals are useful patterns, but real communication often requires more flexibility. This is where mixed conditionals come in - they allow you to connect causes and effects across different times.
 
-Consider this: "If I had learned English as a child, I would speak it fluently now." The condition is in the past (learning as a child - using past perfect), but the result is in the present (speaking fluently now - using would plus infinitive). This makes sense because what happened in the past shapes what is true today.
+The most common mixed conditional connects a past condition to a present result. Consider this: "If I had learned English as a child, I would speak it fluently now." The condition is in the past (learning as a child - using past perfect), but the result is in the present (speaking fluently now - using would plus infinitive). This makes perfect sense because what happened in the past shapes what is true today. Other examples: "If she had taken that job offer, she would be living in New York now." "If we had not met at university, we would not be friends today." You are linking a past decision or event to its current consequences.
 
-You can also flip this around, though it is less common: "If I were braver, I would have spoken up yesterday." Here the condition is a general personality trait (present), but the result was in the past.
+You can also flip this around, though it is less common: "If I were braver, I would have spoken up yesterday." Here the condition is a general personality trait (present hypothetical), but the result was in the past. You are saying that your current character affected a past action. Similarly: "If he were not so stubborn, he would have accepted the help when it was offered." These mixed conditionals require you to think carefully about time and causation.
 
-The key to using conditionals well is not memorizing rules but understanding what you want to express. Are you talking about general truths, likely possibilities, hypothetical situations, or impossible pasts? Once you know that, the structure follows naturally.
+The key to using conditionals well is not memorizing rules but understanding what you want to express. Ask yourself: What time frame is the condition in? What time frame is the result in? Are you talking about general truths, likely possibilities, hypothetical situations, impossible pasts, or some combination? Once you know that, the structure follows naturally. The grammar serves the meaning, not the other way around.
 
-Practice by thinking about your own life. What would you do if you had a million dollars? What would have happened if you had made different choices? What will you do if you get the opportunity? Each question naturally calls for a different conditional.`,
+Practice by thinking about your own life. What would you do if you had a million dollars? What would have happened if you had made different choices in school? What will you do if you get the opportunity to study abroad? If you had been born in a different country, how would your life be different today? Each question naturally calls for a different conditional structure. By reflecting on your own experiences and possibilities, you internalize these patterns in a way that rote memorization never achieves.`,
     },
     {
       id: 'engelsk-vg1-3-1-n-quiz3',
@@ -137,17 +141,17 @@ Practice by thinking about your own life. What would you do if you had a million
       type: 'text',
       content: `## Common Errors and How to Avoid Them
 
-Even advanced learners make predictable mistakes with tenses and conditionals. Let us look at the most common ones so you can avoid them.
+Even advanced learners make predictable mistakes with tenses and conditionals. The good news is that these errors follow patterns, which means you can learn to recognize and avoid them. Let us examine the most common problems so you can catch them in your own writing and speech.
 
-With present perfect, the biggest error is mixing it with specific past time markers. "I have visited Paris yesterday" sounds wrong to native ears because "yesterday" demands past simple. If you mention when something happened, use past simple. If the time is unspecified or you are emphasizing the connection to now, use present perfect.
+With present perfect, the biggest error is mixing it with specific past time markers. "I have visited Paris yesterday" sounds wrong to native ears because "yesterday" demands past simple. Similarly, "I have seen her last week" and "They have arrived in 2019" are incorrect. If you mention when something happened with a specific time reference, use past simple. If the time is unspecified or you are emphasizing the connection to now, use present perfect. A helpful test: can you answer "when?" with a specific time? If yes, use past simple. If the "when" does not matter or you mean "at some point in my life," use present perfect.
 
-Another common mistake is using present perfect continuous where simple would be better, or vice versa. "I have been knowing her for years" is incorrect - "know" is a state verb that does not take continuous form. "I have known her for years" is correct.
+Another common mistake is using present perfect continuous where simple would be better, or vice versa. "I have been knowing her for years" is incorrect - "know" is a state verb that does not take continuous form. State verbs describe conditions rather than actions: know, believe, understand, love, hate, want, need, belong. "I have known her for years" is correct. However, action verbs often work better in continuous when emphasizing duration: "I have been waiting for two hours" emphasizes the ongoing nature of the waiting.
 
-With conditionals, learners often mix up the tense sequences. "If I would have money, I would buy a car" is incorrect - the "if" clause should use past simple: "If I had money, I would buy a car."
+With conditionals, learners often mix up the tense sequences. "If I would have money, I would buy a car" is incorrect - the "if" clause should use past simple: "If I had money, I would buy a car." This error is extremely common, even among people who have studied English for years. The rule is simple: in second conditional, use past tense in the "if" clause, not "would."
 
-Some learners also use "would" in both clauses: "If I would study, I would pass." This is non-standard. The "if" clause typically does not take "would" in standard conditionals.
+Some learners also use "would" in both clauses: "If I would study, I would pass." This is non-standard in most varieties of English. The "if" clause typically does not take "would" in standard conditionals. The exception is in very polite requests: "If you would be so kind as to help me..." But for regular conditions, avoid "would" in the "if" clause.
 
-The subjunctive "were" trips people up too. While "If I was rich" is increasingly heard in casual speech, "If I were rich" remains the standard, especially in formal writing. When in doubt, use "were" for hypothetical conditions with all subjects.`,
+The subjunctive "were" trips people up too. While "If I was rich" is increasingly heard in casual speech, "If I were rich" remains the standard form, especially in formal writing and professional contexts. This applies to all subjects: "If he were here," "If she were president," "If it were possible." When in doubt, use "were" for hypothetical conditions - it always sounds educated and correct, whereas "was" might be judged as an error by some listeners or readers.`,
     },
     {
       id: 'engelsk-vg1-3-1-n-quiz4',
@@ -172,13 +176,15 @@ The subjunctive "were" trips people up too. While "If I was rich" is increasingl
       type: 'text',
       content: `## Putting It All Together
 
-Grammar is not about memorizing rules for a test and then forgetting them. It is about building a toolkit you can use for the rest of your life. Every time you write an email, have a conversation, or read a book in English, you are using these structures.
+Grammar is not about memorizing rules for a test and then forgetting them. It is about building a toolkit you can use for the rest of your life. Every time you write an email, have a conversation, read a book in English, or watch a film, you are using and encountering these structures. The goal is not perfect grammar but effective communication - and understanding these patterns makes you a more effective communicator.
 
-The key to mastery is practice and awareness. When you read English, notice how writers use tenses and conditionals. When you write, think about what you want to express and choose the appropriate form. When you speak, do not worry about perfection - focus on communication, and your accuracy will improve over time.
+The key to mastery is practice and awareness. When you read English - whether novels, news articles, or social media posts - notice how writers use tenses and conditionals. Why did this author choose present perfect here? What effect does this conditional create? When you write, think about what you want to express and choose the appropriate form. There is often more than one correct option, but different choices create different effects. When you speak, do not worry about perfection - focus on communication, and your accuracy will improve over time. Fluency and accuracy develop together through use.
 
-Here is a practical exercise: Take a piece of writing you have done recently and examine your use of tenses and conditionals. Did you use them correctly? Could you express certain ideas more precisely with different forms? This kind of self-editing is how good writers become great writers.
+Here is a practical exercise: Take a piece of writing you have done recently and examine your use of tenses and conditionals. Did you use them correctly? Could you express certain ideas more precisely with different forms? Would a different tense change the emphasis or meaning? This kind of self-editing is how good writers become great writers. It is also how language learners develop intuition - by paying attention to their own choices and considering alternatives.
 
-Remember that even native speakers make mistakes and disagree about certain usages. Language is alive and constantly evolving. What matters is that you understand the system well enough to make informed choices and communicate effectively.`,
+Another valuable practice is to keep a grammar journal. When you encounter a sentence that confuses you or uses tenses in an interesting way, write it down. When you make a mistake and someone corrects you, record both versions. Over time, you will build a personal reference of patterns and examples that are meaningful to you. This is far more effective than memorizing textbook rules in isolation.
+
+Remember that even native speakers make mistakes and disagree about certain usages. Language is alive and constantly evolving. What matters is that you understand the system well enough to make informed choices and communicate effectively. No one expects perfection - they expect clarity and confidence. With the foundations you have built in this chapter, you have the tools to express complex ideas about time, possibility, and reality with precision and sophistication.`,
     },
     {
       id: 'engelsk-vg1-3-1-n-quiz5',
@@ -203,19 +209,22 @@ Remember that even native speakers make mistakes and disagree about certain usag
       type: 'text',
       content: `## Summary: Your Grammar Toolkit
 
-You have now explored two essential areas of advanced English grammar. Here are the key takeaways:
+You have now explored two essential areas of advanced English grammar that will serve you throughout your academic and professional life. These structures allow you to express complex ideas about time, possibility, and hypothetical situations with precision and clarity. Here are the key takeaways from this chapter:
 
 **Present Perfect vs Past Simple:**
-Use present perfect for experiences without specific times, situations continuing to now, and recent events with present relevance. Use past simple for completed actions at specific times in the past.
+Use present perfect for experiences without specific times ("I have visited Paris"), situations continuing to now ("She has lived here since 2018"), and recent events with present relevance ("I have lost my keys"). Use past simple for completed actions at specific times in the past ("I visited Paris last summer"). Remember: specific time markers like "yesterday," "last week," and "ago" require past simple. Words like "already," "yet," "ever," "never," and "since" signal present perfect.
 
 **Conditional Sentences:**
-Zero conditional for facts, first conditional for likely futures, second conditional for hypotheticals, third conditional for unreal pasts. Mixed conditionals connect different time frames.
+Zero conditional describes universal truths and facts (If you heat water, it boils). First conditional expresses likely future possibilities (If it rains, we will cancel). Second conditional creates hypothetical present or future situations (If I won the lottery, I would travel). Third conditional imagines alternative pasts (If I had studied, I would have passed). Mixed conditionals connect different time frames, typically linking past causes to present effects.
 
 **Common Errors to Avoid:**
-Do not mix present perfect with specific time markers. Do not use "would" in the "if" clause. Use "were" for subjunctive in formal writing.
+Do not mix present perfect with specific time markers - "I have seen her yesterday" is always wrong. Do not use "would" in the "if" clause of standard conditionals - say "If I had money" not "If I would have money." Use "were" for subjunctive in formal writing - "If I were you" is standard. Watch out for state verbs that do not take continuous form - "I have known" not "I have been knowing."
+
+**Moving Forward:**
+Practice these structures by noticing them in your reading and using them consciously in your writing. Keep a grammar journal to track patterns and corrections. Remember that mastery comes from use, not just study.
 
 **Key Terms:**
-Present perfect, past simple, conditional, zero/first/second/third conditional, mixed conditional, subjunctive, signal words.`,
+Present perfect, past simple, conditional sentences, zero/first/second/third conditional, mixed conditional, subjunctive mood, signal words, state verbs, time markers.`,
     },
   ],
   exercises: [],
@@ -241,26 +250,28 @@ export const CHAPTER_ENGELSK_VG1_3_2_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Rhythm of Good Writing
 
-Have you ever read something so boring that your eyes glazed over, even though the topic was interesting? The problem often is not the content but the sentences. When every sentence follows the same pattern - subject, verb, object, subject, verb, object - the writing becomes monotonous. It is like listening to music with only one note.
+Have you ever read something so boring that your eyes glazed over, even though the topic was interesting? The problem often is not the content but the sentences. When every sentence follows the same pattern - subject, verb, object, subject, verb, object - the writing becomes monotonous. It is like listening to music with only one note, or eating the same meal every day. Our brains crave variety, and readers will disengage from writing that does not provide it, no matter how important the information might be.
 
-Great writers understand that sentence variety creates rhythm. Short sentences punch. Longer sentences flow and carry the reader along, building momentum before arriving at their destination. Questions engage the reader directly. And sometimes, breaking the rules deliberately creates emphasis.
+Great writers understand that sentence variety creates rhythm, and rhythm creates engagement. Short sentences punch. They create emphasis. They demand attention. Longer sentences, on the other hand, flow and carry the reader along, building momentum and complexity before arriving at their destination. Questions engage the reader directly - do you see how this sentence made you pause and think? And sometimes, breaking the rules deliberately creates emphasis that no grammatically perfect sentence could achieve.
 
-In this chapter, we will explore how to transform flat, repetitive writing into prose that sings. You will learn about different clause types, combining techniques, and how to vary your sentences for maximum impact. This is not just about following rules - it is about developing an ear for language.`,
+Think about your favorite writers, whether they write novels, journalism, or even song lyrics. Notice how they mix sentence lengths. Notice how they begin sentences in different ways. Notice how some sentences race forward while others pause and reflect. This is not accident - it is craft. And it is craft that you can learn.
+
+In this chapter, we will explore how to transform flat, repetitive writing into prose that sings. You will learn about different clause types - the building blocks of sentences. You will discover techniques for combining ideas in varied ways. You will practice varying your sentence openings to create movement. This is not just about following rules - it is about developing an ear for language, a sense of rhythm that will make everything you write more engaging and effective.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-section1',
       type: 'text',
       content: `## Understanding Clauses: The Building Blocks
 
-Before we can combine sentences effectively, we need to understand what we are working with. Every sentence is built from clauses, and there are two main types you need to know.
+Before we can combine sentences effectively, we need to understand what we are working with. Just as a chef needs to know their ingredients before creating a meal, a writer needs to understand clauses before constructing sentences. Every sentence is built from clauses, and there are two main types you need to know. Master these building blocks, and you will have the foundation for infinite variety in your writing.
 
-An independent clause can stand alone as a complete sentence. It has a subject and a verb, and it expresses a complete thought. "The sun was shining" is an independent clause. "She laughed" is an independent clause. These are the strong, self-sufficient units of language.
+An independent clause can stand alone as a complete sentence. It has a subject and a verb, and it expresses a complete thought. "The sun was shining" is an independent clause. "She laughed" is an independent clause. "The ancient oak tree in my grandmother's garden has survived three centuries of storms" is also an independent clause - longer and more detailed, but still one complete thought with one subject-verb core. These are the strong, self-sufficient units of language, the sentences that can stand on their own two feet.
 
-A dependent clause, also called a subordinate clause, cannot stand alone. It needs an independent clause to complete its meaning. "Although the sun was shining" leaves us hanging - although the sun was shining, what? "When she laughed" creates anticipation - when she laughed, what happened? These clauses depend on others to make sense.
+A dependent clause, also called a subordinate clause, cannot stand alone. It needs an independent clause to complete its meaning. "Although the sun was shining" leaves us hanging - although the sun was shining, what? "When she laughed" creates anticipation - when she laughed, what happened? "Because I was tired" demands a consequence. These clauses depend on others to make sense. They are like supporting actors - essential to the story, but not able to carry a scene alone.
 
-Dependent clauses come in three flavors. Adverbial clauses tell us about time, place, reason, or manner - they start with words like "although," "because," "when," "while," "if," and "unless." Relative clauses describe nouns - they use "who," "which," "that," "whose," and "where." Noun clauses act as nouns in a sentence - they begin with "that," "what," "whether," and "how."
+Dependent clauses come in three flavors, each with its own function. Adverbial clauses tell us about time, place, reason, condition, or manner - they start with subordinating conjunctions like "although," "because," "when," "while," "if," "unless," "before," "after," "as," and "since." Relative clauses describe nouns and add information about them - they use relative pronouns like "who," "whom," "which," "that," "whose," and "where." Noun clauses act as nouns in a sentence, serving as subjects, objects, or complements - they often begin with "that," "what," "whatever," "whether," "how," or "why."
 
-Understanding these building blocks gives you the raw materials for constructing varied sentences.`,
+Understanding these building blocks gives you the raw materials for constructing varied sentences. Think of independent clauses as the main dishes and dependent clauses as the accompaniments that enhance and complete the meal.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-quiz1',
@@ -285,17 +296,17 @@ Understanding these building blocks gives you the raw materials for constructing
       type: 'text',
       content: `## Four Sentence Types
 
-With clauses as our building blocks, we can construct four types of sentences, each with its own character and use.
+With clauses as our building blocks, we can construct four types of sentences, each with its own character, rhythm, and use. Think of these as tools in a toolkit - a good writer knows when to reach for each one. Using only one type would be like a carpenter using only a hammer, no matter what the task requires.
 
-Simple sentences contain just one independent clause. "She smiled." "The rain fell heavily." "My grandmother bakes the best cookies in the world." Do not be fooled by the name - simple sentences can be long and detailed, as long as they have only one independent clause. Use them for emphasis and clarity.
+Simple sentences contain just one independent clause. "She smiled." "The rain fell heavily." "My grandmother bakes the best cookies in the world." Do not be fooled by the name - simple sentences can be long and detailed, as long as they have only one independent clause. "The ancient cathedral on the hill overlooking our small Norwegian village has stood for nearly eight hundred years" is still a simple sentence. Use simple sentences for emphasis, clarity, and moments when you want the reader to pause and absorb a single important idea. They cut through complexity. They make points stick.
 
-Compound sentences join two or more independent clauses with a coordinating conjunction. Remember FANBOYS: For, And, Nor, But, Or, Yet, So. "The rain fell, but we went outside anyway." "She studied hard, so she passed the exam." These sentences show equal relationship between ideas.
+Compound sentences join two or more independent clauses with a coordinating conjunction. Remember FANBOYS: For, And, Nor, But, Or, Yet, So. "The rain fell, but we went outside anyway." "She studied hard, so she passed the exam." "I wanted to help, yet I did not know how." These sentences show equal relationship between ideas - neither clause is subordinate to the other. Both ideas stand on equal footing, connected but independent. Use compound sentences when you want to show balance, contrast, or consequence between ideas of similar importance.
 
-Complex sentences combine an independent clause with one or more dependent clauses. "Although the rain fell heavily, we went outside." "The woman who lives next door is a doctor." "I knew that something was wrong." These sentences show unequal relationships, where one idea depends on or explains another.
+Complex sentences combine an independent clause with one or more dependent clauses. "Although the rain fell heavily, we went outside." "The woman who lives next door is a doctor." "I knew that something was wrong." "When the bell rang, everyone rushed to the door." These sentences show unequal relationships, where one idea depends on, explains, or modifies another. The dependent clause adds context, condition, time, or description to the main idea. Complex sentences allow you to show how ideas relate hierarchically and to pack more information into a single grammatical unit.
 
-Compound-complex sentences combine both - multiple independent clauses plus dependent clauses. "Although it was raining, we decided to go out, but we took our umbrellas." These sentences handle complex relationships between multiple ideas.
+Compound-complex sentences combine both - multiple independent clauses plus one or more dependent clauses. "Although it was raining, we decided to go out, but we took our umbrellas." "When I arrived at the station, the train had already left, and I had to wait an hour for the next one." These sentences handle complex relationships between multiple ideas and are useful when you need to express layered thoughts. Use them sparingly - too many compound-complex sentences make writing feel dense and difficult to follow.
 
-The magic happens when you mix these types intentionally. A paragraph of only simple sentences feels choppy. A paragraph of only complex sentences feels dense. But a paragraph that varies between them creates flow.`,
+The magic happens when you mix these types intentionally. A paragraph of only simple sentences feels choppy and childish. A paragraph of only complex sentences feels dense and academic. But a paragraph that varies between them creates flow, rhythm, and engagement. The simple sentence after a complex one provides relief. The complex sentence after simple ones adds depth. This is the rhythm of good writing.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-quiz2',
@@ -320,19 +331,19 @@ The magic happens when you mix these types intentionally. A paragraph of only si
       type: 'text',
       content: `## Techniques for Combining Sentences
 
-Now let us look at specific techniques for transforming choppy writing into flowing prose.
+Now let us look at specific techniques for transforming choppy writing into flowing prose. Each technique serves a different purpose and creates a different effect. Learning when to use each one is as important as knowing how to use it. The more tools you have, the more precisely you can craft your meaning.
 
-Coordinating conjunctions (FANBOYS) join equal ideas. "I was tired, so I went to bed early." "The food was delicious, but the service was slow." The comma before the conjunction is standard when joining two independent clauses.
+Coordinating conjunctions (FANBOYS) join equal ideas. "I was tired, so I went to bed early." "The food was delicious, but the service was slow." "She wanted to study medicine, and her parents supported her decision." The comma before the conjunction is standard when joining two independent clauses - this small punctuation mark signals to readers that a new independent thought is coming. Each FANBOYS word creates a slightly different relationship: "and" adds, "but" and "yet" contrast, "or" and "nor" offer alternatives, "so" shows result, and "for" gives reason.
 
-Subordinating conjunctions create unequal relationships, showing which idea is more important. "Although I was tired, I finished my homework." "Because the food was delicious, we ordered more." The subordinate clause can come first or last, changing the emphasis.
+Subordinating conjunctions create unequal relationships, showing which idea is more important or how ideas relate causally. "Although I was tired, I finished my homework." "Because the food was delicious, we ordered more." "When the clock struck midnight, everything changed." The subordinate clause can come first or last, and this positioning changes the emphasis. When the dependent clause comes first, it sets up the main idea. When it comes last, the main idea takes center stage and the dependent clause adds clarification.
 
-Semicolons join closely related independent clauses without a conjunction. "The sunset was beautiful; I took a photograph." This suggests a close connection between the ideas - closer than a period would suggest, but not requiring a conjunction to explain the relationship.
+Semicolons join closely related independent clauses without a conjunction. "The sunset was beautiful; I took a photograph." "She had studied for months; the exam held no surprises." This technique suggests a close connection between the ideas - closer than a period would suggest, but not requiring a conjunction to explain the relationship. The semicolon says "these ideas are intimately connected" without spelling out exactly how. Use this technique sparingly - overuse diminishes its effect.
 
-Relative clauses embed one sentence inside another. Instead of "The teacher is retiring. The teacher taught me English," you write "The teacher who taught me English is retiring." The second idea becomes a description attached to the first.
+Relative clauses embed one sentence inside another, creating information density without choppiness. Instead of "The teacher is retiring. The teacher taught me English," you write "The teacher who taught me English is retiring." The second idea becomes a description attached to the first. This technique is essential for academic and professional writing, where you often need to provide identifying information efficiently.
 
-Participle phrases compress information. "Exhausted from the journey, she fell asleep immediately." This is more elegant than "She was exhausted from the journey, so she fell asleep immediately." The participle phrase adds variety to your sentence openings.
+Participle phrases compress information elegantly. "Exhausted from the journey, she fell asleep immediately." "Standing at the window, he watched the storm approach." This is more elegant than "She was exhausted from the journey, so she fell asleep immediately." The participle phrase adds variety to your sentence openings and shows actions happening simultaneously or in close sequence. Be careful that the participle phrase clearly modifies the right noun - "Walking down the street, the trees looked beautiful" is a dangling modifier error because trees cannot walk.
 
-Appositives rename or describe a noun. "My neighbor, a retired doctor, helped me." This technique packs extra information into a sentence without making it feel cluttered.`,
+Appositives rename or describe a noun compactly. "My neighbor, a retired doctor, helped me." "Oslo, the capital of Norway, has a population of about one million." This technique packs extra information into a sentence without making it feel cluttered. Appositives are set off by commas and can be removed without breaking the sentence grammatically.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-quiz3',
@@ -357,25 +368,25 @@ Appositives rename or describe a noun. "My neighbor, a retired doctor, helped me
       type: 'text',
       content: `## Varying Sentence Openings
 
-One of the quickest ways to improve your writing is to vary how you start sentences. Many writers unconsciously begin most sentences with the subject, creating monotony.
+One of the quickest ways to improve your writing is to vary how you start sentences. Many writers unconsciously begin most sentences with the subject, creating monotony even when their ideas are interesting. This pattern - subject, verb, object, period, subject, verb, object, period - becomes invisible to the writer but obvious to the reader. Breaking this pattern immediately makes your writing more dynamic.
 
-Consider this paragraph: "I woke up early. I made coffee. I checked my phone. I saw the news. I felt anxious."
+Consider this paragraph: "I woke up early. I made coffee. I checked my phone. I saw the news. I felt anxious." Five sentences, five times starting with "I," five times the same rhythm. The content might be dramatic, but the delivery is flat.
 
-Now compare: "Early that morning, I woke to the sound of rain. Coffee in hand, I reached for my phone. The news that greeted me sent a chill down my spine."
+Now compare: "Early that morning, I woke to the sound of rain. Coffee in hand, I reached for my phone. The news that greeted me sent a chill down my spine." Same basic information, but the varied openings create movement, interest, and even suspense. You feel the morning building toward something.
 
-Both describe the same events, but the second version creates movement and interest. Here are some ways to vary your openings:
+Here are specific ways to vary your openings, each with its own effect:
 
-Start with an adverb or adverb phrase: "Suddenly, the lights went out." "Without warning, everything changed."
+Start with an adverb or adverb phrase to establish manner or time: "Suddenly, the lights went out." "Without warning, everything changed." "Carefully, she removed the ancient book from its case." "Finally, after years of work, the project was complete." Adverb openings often create emphasis or set up an important moment.
 
-Start with a prepositional phrase: "In the distance, a wolf howled." "After the storm, we surveyed the damage."
+Start with a prepositional phrase to establish location, time, or circumstance: "In the distance, a wolf howled." "After the storm, we surveyed the damage." "Behind the old barn, they discovered a hidden cellar." "Throughout history, humans have asked the same questions." Prepositional openings ground readers in a specific context.
 
-Start with a participle phrase: "Hoping for the best, she opened the envelope." "Damaged by the flood, the old bridge had to be replaced."
+Start with a participle phrase to show action or state: "Hoping for the best, she opened the envelope." "Damaged by the flood, the old bridge had to be replaced." "Running late as usual, Marcus grabbed his keys and rushed out." "Exhausted but triumphant, the team celebrated their victory." Participle openings add energy and often show simultaneous actions.
 
-Start with a dependent clause: "Although he tried his best, he could not solve the puzzle." "When the music stopped, everyone looked up."
+Start with a dependent clause to establish condition or contrast: "Although he tried his best, he could not solve the puzzle." "When the music stopped, everyone looked up." "Because she had prepared thoroughly, the presentation went smoothly." "If this trend continues, we will need to change our approach." Dependent clause openings establish the context for what follows.
 
-Start with an infinitive phrase: "To understand the problem, we must first examine its history."
+Start with an infinitive phrase to establish purpose: "To understand the problem, we must first examine its history." "To succeed in this field, you need both talent and persistence." Infinitive openings work well for explanatory or instructional writing.
 
-The key is conscious variation. Read your work aloud. If it sounds monotonous, look for opportunities to restructure some sentences.`,
+The key is conscious variation. Read your work aloud. If it sounds monotonous, look for opportunities to restructure some sentences. You do not need to vary every single opening - subject-first sentences are perfectly fine - but mixing in other patterns creates rhythm and keeps readers engaged.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-quiz4',
@@ -400,23 +411,23 @@ The key is conscious variation. Read your work aloud. If it sounds monotonous, l
       type: 'text',
       content: `## Putting It Into Practice
 
-Let us apply these principles to a real transformation. Here is a paragraph written with no sentence variety:
+Let us apply these principles to a real transformation. Seeing before-and-after examples helps you understand how dramatic the improvement can be when you apply sentence variety techniques. Here is a paragraph written with no sentence variety:
 
 "The project was difficult. The deadline was tight. The team worked hard. They stayed late every night. They solved problem after problem. They finally finished on time. They felt proud of their achievement."
+
+Seven sentences, all simple, all roughly the same length, all beginning with the subject. The information is there, but the delivery is lifeless. It reads like a list, not a story.
 
 Now watch how combining techniques and varying structures transforms it:
 
 "Although the project was difficult and the deadline tight, the team rose to the challenge. Night after night, they stayed late, solving problem after problem with determination. When they finally finished on time, a wave of pride washed over them - they had achieved the impossible."
 
-Notice how the rewritten version:
-- Combines related ideas into complex and compound sentences
-- Varies sentence length (long, medium, long with a dash)
-- Uses different openings (subordinate clause, prepositional phrase, time clause)
-- Creates rhythm and builds toward a satisfying conclusion
+The rewritten version uses the same basic information but creates a completely different reading experience. Notice what changed:
 
-This is the power of sentence variety. Same information, completely different reading experience.
+First, it combines related ideas into complex and compound sentences. "The project was difficult" and "the deadline was tight" become one subordinate clause, emphasizing that these challenges are the background for the real story - the team's response. Second, it varies sentence length - long, medium, long with a dramatic dash - creating rhythm that builds toward a climax. Third, it uses different openings: a subordinate clause ("Although..."), a prepositional phrase ("Night after night"), and a time clause ("When they finally..."). Fourth, it adds energy through a participle phrase ("solving problem after problem") that shows ongoing action. Fifth, the dash before "they had achieved the impossible" creates a dramatic pause and emphasis on the final revelation.
 
-As you write, do not worry about variety in your first draft. Get your ideas down first. But when you revise, read aloud and listen for monotony. Where does it feel choppy? Where does it feel dense? Then apply these techniques to create flow.`,
+This is the power of sentence variety. Same information, completely different reading experience. One version puts readers to sleep; the other engages them in a story.
+
+As you write, do not worry about variety in your first draft. Get your ideas down first - capturing your thoughts is more important than perfecting them. But when you revise, read aloud and listen for monotony. Where does it feel choppy? Where does it feel dense? Where do you lose interest? Then apply these techniques to create flow. This two-step process - content first, craft second - is how professional writers work.`,
     },
     {
       id: 'engelsk-vg1-3-2-n-quiz5',
@@ -441,22 +452,25 @@ As you write, do not worry about variety in your first draft. Get your ideas dow
       type: 'text',
       content: `## Summary: Creating Flow in Your Writing
 
-You have now learned how to transform flat writing into engaging prose. Here are the key points:
+You have now learned how to transform flat writing into engaging prose. These techniques are not about following arbitrary rules - they are about giving your readers a better experience and communicating your ideas more effectively. Here are the key points to remember and practice:
 
 **Clause Types:**
-Independent clauses stand alone; dependent clauses need support. Dependent clauses include adverbial, relative, and noun clauses.
+Independent clauses stand alone as complete thoughts; dependent clauses need an independent clause to complete their meaning. Dependent clauses come in three types: adverbial clauses (showing time, cause, condition, etc.), relative clauses (describing nouns), and noun clauses (acting as subjects or objects). Understanding these building blocks is essential for constructing varied sentences.
 
 **Sentence Types:**
-Simple (one independent clause), compound (multiple independent clauses), complex (independent plus dependent), compound-complex (both).
+Simple sentences contain one independent clause - use them for emphasis and clarity. Compound sentences join independent clauses with FANBOYS - use them to show equal relationships. Complex sentences combine independent and dependent clauses - use them to show hierarchical relationships. Compound-complex sentences combine both - use them sparingly for layered ideas. Mix these types intentionally to create rhythm.
 
 **Combining Techniques:**
-FANBOYS conjunctions, subordinating conjunctions, semicolons, relative clauses, participle phrases, and appositives.
+FANBOYS conjunctions (For, And, Nor, But, Or, Yet, So) join equal ideas. Subordinating conjunctions (although, because, when, while, if) create unequal relationships. Semicolons suggest close connection without explaining how. Relative clauses embed descriptions within sentences. Participle phrases compress information elegantly. Appositives pack in extra detail compactly.
 
 **Varying Openings:**
-Start with adverbs, prepositional phrases, participle phrases, dependent clauses, or infinitive phrases - not just the subject.
+Break the habit of always starting with the subject. Use adverbs and adverb phrases for emphasis. Use prepositional phrases to establish context. Use participle phrases for action and energy. Use dependent clauses to set up main ideas. Use infinitive phrases to establish purpose. Conscious variation creates engagement.
+
+**Writing Process:**
+Focus on content in your first draft - get ideas down without worrying about style. Apply sentence variety techniques during revision. Read aloud to identify monotonous sections. Transform choppy passages by combining sentences and varying structures.
 
 **Key Terms:**
-Independent clause, dependent clause, simple sentence, compound sentence, complex sentence, compound-complex sentence, coordinating conjunction, subordinating conjunction, participle phrase, appositive.`,
+Independent clause, dependent clause, simple sentence, compound sentence, complex sentence, compound-complex sentence, coordinating conjunction (FANBOYS), subordinating conjunction, participle phrase, appositive, relative clause.`,
     },
   ],
   exercises: [],
@@ -482,32 +496,32 @@ export const CHAPTER_ENGELSK_VG1_3_3_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Invisible Thread
 
-You have probably read texts that feel effortless - where ideas flow naturally from one to the next, and you never feel lost or confused. You have probably also read texts that feel like a bumpy ride - where you keep having to re-read sentences and wonder how one paragraph connects to the next.
+You have probably read texts that feel effortless - where ideas flow naturally from one to the next, and you never feel lost or confused. The writer seems to anticipate your questions and answer them just when you need it. One paragraph leads inevitably to the next. You finish reading with a clear sense of what you have learned. You have probably also read texts that feel like a bumpy ride - where you keep having to re-read sentences, wonder how one paragraph connects to the next, and struggle to see how the pieces fit together. The information might be there, but it feels scattered and confusing.
 
-The difference is not just about the ideas themselves. It is about coherence and cohesion - the invisible threads that hold a text together.
+The difference is not just about the ideas themselves. Brilliant ideas can be presented badly, and modest ideas can shine through excellent presentation. The difference lies in coherence and cohesion - the invisible threads that hold a text together. These concepts are fundamental to effective writing, yet many writers never consciously learn them. Understanding them gives you power over your own texts.
 
-Think of coherence as the big picture. A coherent text makes sense as a whole. The ideas are organized logically, each paragraph has a clear purpose, and everything connects to the central point. If coherence is the architectural plan, cohesion is the mortar between the bricks.
+Think of coherence as the big picture. A coherent text makes sense as a whole. The ideas are organized logically, each paragraph has a clear purpose, and everything connects to the central point. A reader can follow your thinking from beginning to end without getting lost. If coherence is the architectural plan of a building - the blueprint that shows how everything fits together - then cohesion is the mortar between the bricks, the connections that hold the structure together at the detail level.
 
-Cohesion refers to the specific linguistic devices that link sentences and paragraphs. It is the "therefore" that signals a conclusion, the "however" that introduces a contrast, the "she" that refers back to a person mentioned earlier. These small words and phrases guide readers through your text.
+Cohesion refers to the specific linguistic devices that link sentences and paragraphs. It is the "therefore" that signals a conclusion is coming, the "however" that prepares readers for a contrast, the "she" that refers back to a person mentioned earlier, the repeated vocabulary that keeps readers focused on the main topic. These small words and phrases are the nuts and bolts of readable prose. They guide readers through your text like signposts on a highway, telling them where they are and where they are going.
 
-In this chapter, we will explore both concepts and give you practical tools for creating texts that flow.`,
+In this chapter, we will explore both concepts and give you practical tools for creating texts that flow. You will learn specific devices you can use and develop the awareness to improve your own writing. By the end, you will be able to diagnose why a passage feels choppy and know how to fix it.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-section1',
       type: 'text',
       content: `## The Art of Reference
 
-One of the most basic cohesive devices is reference - using pronouns and demonstratives to point back to something already mentioned. This seems simple, but doing it well requires care.
+One of the most basic cohesive devices is reference - using pronouns and demonstratives to point back to something already mentioned. This seems simple, and we do it constantly in everyday speech without thinking. But doing it well in writing requires care, because readers cannot ask for clarification when a reference is unclear.
 
-Consider this: "The scientist presented her findings. She had spent years on the research." The pronoun "she" clearly refers back to "the scientist," creating a smooth connection. But now consider: "The scientist and the journalist discussed the findings. She had spent years on the research." Here, "she" is ambiguous - it could refer to either person.
+Consider this: "The scientist presented her findings. She had spent years on the research." The pronoun "she" clearly refers back to "the scientist," creating a smooth connection between sentences. The flow is natural and effortless. But now consider: "The scientist and the journalist discussed the findings. She had spent years on the research." Here, "she" is ambiguous - it could refer to either the scientist or the journalist. The reader must guess, which breaks the flow and might lead to misunderstanding.
 
-Pronouns (he, she, it, they) are powerful when the reference is clear. When there are multiple possible referents, either repeat the noun or restructure the sentence.
+Pronouns (he, she, it, they) are powerful tools when the reference is clear. They prevent tedious repetition and keep prose flowing. But when there are multiple possible referents, you have choices: repeat the noun ("The scientist had spent years on the research"), restructure the sentence ("Having spent years on the research, the scientist then presented her findings"), or add clarifying information ("The scientist, who had spent years on the research, presented her findings to the journalist").
 
-Demonstratives (this, that, these, those) point to things nearby or further away in the text. "This" often refers to something just mentioned: "The company announced layoffs. This news shocked employees." "That" can refer to something mentioned earlier or create emotional distance.
+Demonstratives (this, that, these, those) point to things nearby or further away in the text. "This" usually refers to something just mentioned: "The company announced layoffs. This news shocked employees." "That" often refers to something mentioned earlier or creates emotional distance: "The war ended in 1945. That terrible conflict had claimed millions of lives."
 
-The demonstrative "this" followed by a summary noun is particularly useful: "Students are spending more time on screens. This trend concerns educators." By using "this trend," you summarize what came before and move the discussion forward.
+The demonstrative "this" followed by a summary noun is particularly useful and something you should actively practice: "Students are spending more time on screens. This trend concerns educators." By using "this trend," you summarize what came before, give it a label, and move the discussion forward. Other useful summary nouns include: this problem, this approach, this development, this phenomenon, this argument, this situation. Each one packages the previous information and carries it into the next sentence.
 
-Be careful with vague "this" - writing "This is problematic" without specifying what "this" refers to leaves readers guessing.`,
+Be careful with vague "this" - writing "This is problematic" without specifying what "this" refers to leaves readers guessing. Add a noun: "This situation is problematic" or "This lack of funding is problematic." The extra word adds clarity and professionalism to your writing.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-quiz1',
@@ -532,21 +546,21 @@ Be careful with vague "this" - writing "This is problematic" without specifying 
       type: 'text',
       content: `## Linking Words: Your Navigation System
 
-Linking words and phrases - also called discourse markers or transitions - are the signposts that guide readers through your text. They signal how ideas relate to each other.
+Linking words and phrases - also called discourse markers or transitions - are the signposts that guide readers through your text. They signal how ideas relate to each other, preparing readers for what comes next. Without them, readers must work hard to figure out connections. With them, the relationships become clear and the text flows naturally.
 
-For addition, you have: also, furthermore, moreover, in addition, besides. These tell readers "here is more of the same kind of information." "The study found health benefits. Furthermore, participants reported improved mood."
+For addition, you have: also, furthermore, moreover, in addition, besides, similarly, likewise. These tell readers "here is more of the same kind of information - I am building on what I just said." "The study found significant health benefits. Furthermore, participants reported improved mood and energy levels." Each addition word has a slightly different feel: "also" is neutral and common, "furthermore" is formal and emphatic, "moreover" suggests something even more important, "in addition" is clear and professional.
 
-For contrast, you have: however, nevertheless, on the other hand, although, yet, but. These signal "now for a different perspective." "The plan seemed perfect. However, several obstacles emerged."
+For contrast, you have: however, nevertheless, nonetheless, on the other hand, although, yet, but, conversely, in contrast. These signal "now for a different perspective - prepare for a change in direction." "The plan seemed perfect on paper. However, several unexpected obstacles emerged during implementation." Contrast words are essential for balanced arguments: they show you can see multiple sides of an issue. "However" and "nevertheless" are more formal than "but," which can feel abrupt in academic writing.
 
-For cause and effect, you have: therefore, consequently, as a result, because, since, thus. These show logical relationships. "The economy declined. Consequently, unemployment rose."
+For cause and effect, you have: therefore, consequently, as a result, because, since, thus, hence, accordingly. These show logical relationships - this happened because of that, or this led to that. "The economy declined sharply. Consequently, unemployment rose to historic levels." These words make your reasoning visible: readers can follow your logic step by step.
 
-For examples, you have: for example, for instance, such as, including, namely. These introduce specific cases. "Many factors contribute to success, such as hard work and timing."
+For examples, you have: for example, for instance, such as, including, namely, specifically, to illustrate. These introduce specific cases that support your general point. "Many factors contribute to success, such as hard work, timing, and strong relationships." Examples make abstract claims concrete and memorable.
 
-For sequence, you have: first, then, next, finally, subsequently, meanwhile. These organize information in time or logical order. "First, gather your materials. Then, prepare the workspace."
+For sequence, you have: first, second, third, then, next, finally, subsequently, meanwhile, previously, afterward. These organize information in time or logical order. "First, gather your materials. Next, prepare the workspace. Then, begin the experiment." Sequence words are essential for instructional writing and narrative.
 
-For summary, you have: in conclusion, to summarize, overall, in short. These signal you are wrapping up. "In conclusion, the evidence supports the original hypothesis."
+For summary, you have: in conclusion, to summarize, overall, in short, to sum up, ultimately, in brief. These signal you are wrapping up - prepare for the main takeaway. "In conclusion, the evidence strongly supports the original hypothesis."
 
-Choose linking words carefully - they carry meaning. "However" is stronger than "but." "Furthermore" is more formal than "also." Match the tone to your text.`,
+Choose linking words carefully - they carry meaning and tone. "However" is more formal than "but." "Furthermore" is more emphatic than "also." "Hence" sounds academic while "so" sounds casual. Match your linking words to the style and audience of your text. Also vary them - using "however" five times in one paragraph feels repetitive.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-quiz2',
@@ -571,17 +585,17 @@ Choose linking words carefully - they carry meaning. "However" is stronger than 
       type: 'text',
       content: `## Lexical Cohesion: Words That Connect
 
-Beyond pronouns and linking words, cohesion also comes from the words themselves. Lexical cohesion refers to connections created through vocabulary choices.
+Beyond pronouns and linking words, cohesion also comes from the words themselves. Lexical cohesion refers to connections created through vocabulary choices - the way words relate to each other semantically to create a sense of unity. This might be the most subtle form of cohesion, but it is also one of the most powerful.
 
-Repetition is the simplest form. Repeating a key term keeps readers focused on the main topic. But too much repetition becomes tiresome, so skilled writers use synonyms and related words to create variety while maintaining focus.
+Repetition is the simplest form. Repeating a key term keeps readers focused on the main topic. If you are writing about climate change, using "climate change" multiple times reinforces that focus. But too much repetition becomes tiresome and makes writing feel amateurish, so skilled writers use synonyms and related words to create variety while maintaining focus.
 
-Consider: "Climate change threatens ecosystems worldwide. Global warming has accelerated in recent decades. This environmental crisis requires urgent action." Three sentences, three ways of referring to the same concept: climate change, global warming, environmental crisis. This creates variety without losing focus.
+Consider: "Climate change threatens ecosystems worldwide. Global warming has accelerated in recent decades. This environmental crisis requires urgent action." Three sentences, three ways of referring to the same general concept: climate change, global warming, environmental crisis. Each term is slightly different, but readers understand they refer to the same phenomenon. This creates variety without losing focus. It also allows the writer to emphasize different aspects: "climate change" is the scientific term, "global warming" emphasizes temperature, "environmental crisis" emphasizes urgency.
 
-Collocation - words that naturally go together - also creates cohesion. If you mention "crime," words like "punishment," "law," "justice," and "court" feel naturally connected. If you write about "education," words like "learning," "students," "teachers," and "knowledge" belong to the same semantic field.
+Collocation - words that naturally go together in the language - also creates cohesion. If you mention "crime," words like "punishment," "law," "justice," "court," "police," "conviction," and "sentence" feel naturally connected. They belong to the same semantic field - the same area of meaning. If you write about "education," words like "learning," "students," "teachers," "knowledge," "curriculum," "classroom," and "assessment" create a web of related meaning. Readers feel this unity even without consciously noticing it.
 
-This web of related words creates a sense of unity. Your text feels like it is about one thing, even when you use different words.
+This web of related words creates a sense of unity and focus. Your text feels like it is about one thing, even when you use many different words. Texts that lack lexical cohesion feel scattered - they jump between unrelated vocabulary in ways that confuse readers.
 
-Superordinates (general terms) and hyponyms (specific terms) help vary your language too. After mentioning "roses, tulips, and daffodils," you can refer back to them as "these flowers." After discussing "cars, buses, and trains," you can write "these vehicles" or "public and private transport."`,
+Superordinates (general terms) and hyponyms (specific terms) help vary your language too. After mentioning specific items like "roses, tulips, and daffodils," you can refer back to them collectively as "these flowers" - using the superordinate. After discussing "cars, buses, and trains," you can write "these vehicles" or "public and private transport." This technique lets you move between specific examples and general categories smoothly, which is essential for clear argumentation.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-quiz3',
@@ -606,17 +620,15 @@ Superordinates (general terms) and hyponyms (specific terms) help vary your lang
       type: 'text',
       content: `## Building Coherent Paragraphs
 
-Cohesive devices work at the sentence level, but coherence operates at higher levels - the paragraph and the whole text. A coherent paragraph has a clear focus and logical organization.
+Cohesive devices work at the sentence level, connecting one sentence to the next. But coherence operates at higher levels - the paragraph and the whole text. A coherent paragraph has a clear focus and logical organization. Everything in it serves a purpose and contributes to a single main point. Understanding paragraph structure is essential for clear academic and professional writing.
 
-Most paragraphs in academic and professional writing follow a common pattern. They begin with a topic sentence that states the main idea. The body sentences develop this idea with evidence, examples, or explanation. A concluding sentence may summarize or transition to the next paragraph.
+Most paragraphs in academic and professional writing follow a common and effective pattern. They begin with a topic sentence that states the main idea - the one point this paragraph will develop. The body sentences then develop this idea with evidence, examples, explanation, or analysis. Each body sentence should clearly connect to the topic sentence. A concluding sentence may summarize the point, draw a conclusion, or transition smoothly to the next paragraph. This pattern is called the "hamburger" or "sandwich" structure: topic sentence (top bun), supporting details (filling), conclusion (bottom bun).
 
-Consider this paragraph: "Social media has transformed how people communicate. Platforms like Facebook and Instagram allow instant connection across distances. Users can share updates, photos, and videos with hundreds of friends simultaneously. This constant connectivity has fundamentally changed social relationships."
+Consider this paragraph: "Social media has transformed how people communicate. Platforms like Facebook and Instagram allow instant connection across distances. Users can share updates, photos, and videos with hundreds of friends simultaneously. This constant connectivity has fundamentally changed social relationships." The topic sentence establishes the focus: social media and communication transformation. Each body sentence develops this idea with specific examples of how social media enables communication. The final sentence draws a conclusion about the significance. The paragraph is coherent because every sentence relates to and supports the main point.
 
-The topic sentence establishes the focus: social media and communication. Each body sentence develops this idea with specifics. The final sentence draws a conclusion. The paragraph is coherent because everything relates to the main point.
+Incoherent paragraphs often suffer from predictable problems: no clear topic sentence (so readers do not know what the paragraph is about), ideas that do not relate to each other (the paragraph tries to do too much), random jumping between topics (no logical order), or missing logical connections (readers cannot see how ideas relate). When you revise, always ask yourself: What is this paragraph about? Can I state its main idea in one sentence? Does every sentence contribute to that point? If a sentence does not fit, either delete it or move it to a paragraph where it belongs.
 
-Incoherent paragraphs often suffer from these problems: no clear topic sentence, ideas that do not relate to each other, random jumping between topics, or missing logical connections. Always ask yourself: What is this paragraph about? Does every sentence contribute to that point?
-
-Between paragraphs, transitions maintain flow. The end of one paragraph can set up the next, or the beginning of a new paragraph can refer back. "Having examined the benefits, we must now consider the drawbacks." This sentence bridges two paragraphs smoothly.`,
+Between paragraphs, transitions maintain flow and help readers see the structure of your argument. The end of one paragraph can set up the next: "But these benefits come with significant costs." The beginning of a new paragraph can refer back: "Having examined the benefits, we must now consider the drawbacks." These bridges help readers navigate longer texts without getting lost. Think of them as the hallways connecting rooms in a building - they show how spaces relate.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-quiz4',
@@ -641,21 +653,21 @@ Between paragraphs, transitions maintain flow. The end of one paragraph can set 
       type: 'text',
       content: `## Practicing Cohesion and Coherence
 
-The best way to improve is through practice and awareness. Here are strategies you can use.
+The best way to improve is through practice and awareness. Knowing about these concepts is only the beginning - you need to actively look for them in your reading and consciously apply them in your writing until they become second nature. Here are strategies you can use to develop these skills.
 
-When you read, notice cohesive devices. How does the writer connect sentences? What linking words appear? How are pronouns used? How does vocabulary create unity? Analyzing good writing helps you internalize these patterns.
+When you read anything - articles, essays, textbooks, even emails - notice cohesive devices. How does the writer connect sentences? What linking words appear, and why those particular ones? How are pronouns used to avoid repetition while maintaining clarity? How does vocabulary create unity across paragraphs? Analyzing good writing helps you internalize these patterns. You might even keep a notebook of effective transitions and reference techniques you encounter.
 
-When you write, focus on ideas first. Get your content down without worrying too much about polish. Then, in revision, check for coherence and cohesion.
+When you write, focus on ideas first. Get your content down without worrying too much about polish. Trying to write perfectly connected prose from the start can paralyze you. Then, in revision, systematically check for coherence and cohesion. This two-stage approach - content first, connections second - is how experienced writers work.
 
-For coherence, ask: Does my text make sense as a whole? Does each paragraph have a clear purpose? Is the overall organization logical? Can a reader follow my argument?
+For coherence, ask these questions: Does my text make sense as a whole? Could someone who knows nothing about this topic follow my thinking? Does each paragraph have a clear purpose that I can state in one sentence? Is the overall organization logical - does it make sense that this paragraph comes after that one? Can a reader follow my argument from introduction to conclusion without getting confused?
 
-For cohesion, check: Are pronoun references clear? Have I used appropriate linking words? Is there variety in how I refer to key concepts? Do sentences connect smoothly to each other?
+For cohesion, check these specific elements: Are pronoun references clear - does every "she," "it," and "this" have an obvious referent? Have I used appropriate linking words to show how ideas relate? Is there variety in how I refer to key concepts, or am I repeating the same word too often? Do sentences connect smoothly to each other, or are there gaps readers must leap across?
 
-Read your work aloud. Your ear often catches problems your eye misses. Where do you stumble? Where does the flow break down? Those are spots to revise.
+Read your work aloud - this is one of the most powerful revision techniques. Your ear often catches problems your eye misses. Where do you stumble? Where does the flow break down? Where do you lose track of what you were saying? Those are exactly the spots that need revision.
 
-Finally, get feedback. Other readers can tell you where they got lost or confused. Their perspective reveals weaknesses you might not notice yourself.
+Finally, get feedback from others. Other readers can tell you where they got lost, where they had to reread, where they were confused. Their perspective reveals weaknesses you might not notice yourself because you know what you meant to say. Ask specific questions: "Could you follow my argument?" "Was anything confusing?" "Did the transitions make sense?"
 
-Remember: coherence and cohesion are not about following rigid rules. They are about helping your reader. Every device, every link, every transition should serve the goal of clear communication.`,
+Remember: coherence and cohesion are not about following rigid rules or using fancy words. They are about helping your reader understand your ideas. Every device, every link, every transition should serve that goal. If a technique does not help communication, do not use it just because it seems sophisticated.`,
     },
     {
       id: 'engelsk-vg1-3-3-n-quiz5',
@@ -680,22 +692,28 @@ Remember: coherence and cohesion are not about following rigid rules. They are a
       type: 'text',
       content: `## Summary: Weaving Your Text Together
 
-You have learned how to create texts that flow. Here are the key concepts:
+You have learned how to create texts that flow seamlessly from beginning to end. These skills will serve you in every type of writing - academic essays, professional reports, emails, and even creative work. Here are the key concepts to remember and practice:
 
-**Coherence:**
-The overall sense that a text is logically organized and makes sense as a whole. Each paragraph serves a purpose, and ideas connect to the central point.
+**Coherence - The Big Picture:**
+Coherence is the overall sense that a text is logically organized and makes sense as a whole. Each paragraph serves a clear purpose, ideas connect to the central point, and readers can follow your thinking from introduction to conclusion. Ask yourself: Can someone follow my argument? Does everything fit together?
 
-**Cohesive Devices:**
-Reference (pronouns, demonstratives), linking words (addition, contrast, cause/effect, example, sequence, summary), and lexical cohesion (synonyms, related words, repetition).
+**Reference - Pointing Back:**
+Use pronouns (he, she, it, they) and demonstratives (this, that, these, those) to refer back to previously mentioned things. Ensure references are always clear - when multiple referents are possible, repeat the noun or restructure. Use "this" with a summary noun ("this problem," "this approach") rather than vague "this."
+
+**Linking Words - Your Navigation System:**
+Choose appropriate discourse markers for different relationships: addition (furthermore, moreover, also), contrast (however, nevertheless, on the other hand), cause/effect (therefore, consequently, as a result), examples (for instance, such as), sequence (first, then, finally), summary (in conclusion, to summarize). Match formality to context and vary your choices.
+
+**Lexical Cohesion - Words That Connect:**
+Create unity through vocabulary choices: strategic repetition of key terms, synonyms and related words for variety, collocations and semantic fields that belong together, superordinates and hyponyms for moving between general and specific.
 
 **Paragraph Structure:**
-Topic sentence stating the main idea, body sentences developing it, concluding sentence summarizing or transitioning.
+Build coherent paragraphs with a clear topic sentence stating the main idea, body sentences developing and supporting that idea, and a concluding sentence that summarizes or transitions. Use transitions between paragraphs to show how sections connect.
 
 **Revision Strategy:**
-Write for content first, then check for coherence and cohesion in revision. Read aloud and get feedback.
+Write for content first without worrying about perfection, then check systematically for coherence and cohesion in revision. Read aloud to catch flow problems. Get feedback from other readers to identify where confusion occurs.
 
 **Key Terms:**
-Coherence, cohesion, reference, linking words, discourse markers, lexical cohesion, topic sentence, transition.`,
+Coherence, cohesion, reference, pronoun, demonstrative, linking words, discourse markers, transition, lexical cohesion, collocation, semantic field, superordinate, hyponym, topic sentence.`,
     },
   ],
   exercises: [],
@@ -721,28 +739,30 @@ export const CHAPTER_ENGELSK_VG1_3_4_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Writer's Secret
 
-Here is a secret that most beginning writers do not know: professional writers are not better at first drafts. They are better at revision. Ernest Hemingway reportedly rewrote the ending of "A Farewell to Arms" 39 times before he was satisfied. When asked what the problem was, he said, "Getting the words right."
+Here is a secret that most beginning writers do not know: professional writers are not better at first drafts. They are better at revision. Ernest Hemingway reportedly rewrote the ending of "A Farewell to Arms" 39 times before he was satisfied. When asked what the problem was, he said simply, "Getting the words right." Raymond Carver, the famous short story writer, often revised his stories dozens of times. Even Stephen King, who writes rapidly, describes extensive revision as essential to his process.
 
-This might seem discouraging at first - even great writers struggle! But it is actually liberating. It means you do not have to get everything perfect on the first try. Your first draft is just raw material. The real magic happens when you revise.
+This might seem discouraging at first - even great writers struggle! But it is actually liberating. It means you do not have to get everything perfect on the first try. Your first draft is just raw material, clay waiting to be shaped. Nobody expects it to be great. The real magic happens when you revise, when you take that rough material and craft it into something clear, compelling, and polished.
 
-Revision is not just about fixing typos. It is about seeing your work with fresh eyes, questioning your choices, and making your writing as clear and effective as possible. In this chapter, we will explore a systematic approach to revision that will transform how you write.`,
+Think about it this way: if even Hemingway needed 39 drafts to get his ending right, why would you expect perfection from yourself on the first try? The pressure to write perfectly is unrealistic and counterproductive. It leads to writer's block, anxiety, and abandoned projects. Embracing revision as a normal, essential part of writing frees you to get words on the page without paralyzing self-judgment.
+
+Revision is not just about fixing typos - that is proofreading, which is only one small part of the process. True revision is about seeing your work with fresh eyes, questioning every choice you made, asking whether each element serves its purpose, and making your writing as clear and effective as possible. It is about transformation, not just correction. In this chapter, we will explore a systematic approach to revision that will transform not just individual texts but how you think about writing itself.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-section1',
       type: 'text',
       content: `## The Four Levels of Revision
 
-Effective revision works from big picture to small details. Think of it as zooming in on a photograph - you start by looking at the whole composition, then examine individual elements, then check the fine details.
+Effective revision works from big picture to small details, not the other way around. Think of it as zooming in on a photograph - you start by looking at the whole composition to see if it works, then examine individual elements for their contribution, then check the fine details for technical quality. This order is crucial for efficiency and effectiveness.
 
-At the content level, you ask the big questions. Does my text achieve its purpose? Have I included all necessary information? Is my argument convincing? Is anything missing or unnecessary? This is not the time to fix commas - you might delete whole paragraphs or add new sections.
+At the content level, you ask the big questions. Does my text achieve its purpose? If you are trying to persuade, is your argument convincing? If you are explaining, is your explanation complete and clear? Have I included all necessary information, or are there gaps that will confuse readers? Is anything missing that should be there? Is anything there that does not need to be? This is not the time to fix commas - you might delete whole paragraphs or add entirely new sections. Content-level revision requires you to think like your reader, not like the writer who already knows what they meant.
 
-At the structure level, you examine organization. Does the text flow logically? Are paragraphs in the best order? Does each paragraph have a clear purpose? Are transitions smooth? Sometimes good content is undermined by poor organization, and restructuring can transform a confusing text into a compelling one.
+At the structure level, you examine organization. Does the text flow logically from beginning to end? Are paragraphs in the best possible order, or would rearranging them make the argument clearer? Does each paragraph have a single clear purpose? Are transitions between paragraphs smooth - can readers follow how one idea leads to the next? Sometimes excellent content is undermined by poor organization, making readers work too hard to follow your thinking. Restructuring can transform a confusing text into a compelling one without changing a single word.
 
-At the sentence level, you look at clarity and style. Are sentences clear and easy to understand? Is there variety in sentence structure? Can any sentences be combined or broken up? Are there any awkward phrases? This is where the sentence techniques we learned earlier come into play.
+At the sentence level, you look at clarity and style. Are sentences clear and easy to understand on the first reading? Is there variety in sentence structure, or does every sentence follow the same pattern? Can any short, choppy sentences be combined into flowing prose? Should any long, complicated sentences be broken up for clarity? Are there any awkward phrases that might trip readers up? This is where the sentence variety techniques we learned earlier come into play.
 
-At the word level, you finally zoom in on details. Is the vocabulary precise? Are there spelling or punctuation errors? Are grammar rules followed? Is the tone consistent? This is the polishing stage.
+At the word level, you finally zoom in on details. Is the vocabulary precise - does each word mean exactly what you intend? Are there spelling errors that a spell-checker missed? Are punctuation marks used correctly? Are grammar rules followed? Is the tone consistent throughout, or do some sections feel different from others? This is the polishing stage, making everything as smooth and professional as possible.
 
-The key is working through these levels in order. There is no point perfecting a sentence you might later delete.`,
+The key is working through these levels in order, from big to small. There is no point perfecting the grammar of a sentence you might later delete. There is no point polishing vocabulary in a paragraph whose purpose is unclear. Fix the big things first, then work down to the details.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-quiz1',
@@ -767,17 +787,17 @@ The key is working through these levels in order. There is no point perfecting a
       type: 'text',
       content: `## The ARMS Strategy
 
-When you sit down to revise, having a clear strategy helps. ARMS is a simple framework that reminds you of your four main options for any piece of text.
+When you sit down to revise, having a clear strategy helps - otherwise you might stare at your text without knowing what to do. ARMS is a simple but powerful framework that reminds you of your four main options for improving any piece of text. For every paragraph, every sentence, every idea, you can ask these four questions.
 
-A is for Add. What is missing? Have you provided enough evidence for your claims? Are there gaps in your explanation? Would an example make something clearer? Adding does not mean making text longer for its own sake - it means including what is necessary.
+A is for Add. What is missing? Have you provided enough evidence for your claims, or are you asking readers to take your word for things? Are there gaps in your explanation where readers might get lost? Would an example make an abstract point concrete and memorable? Would a transition help readers follow your logic? Adding does not mean making text longer for its own sake - padding is the enemy of good writing. It means including what is necessary for readers to understand and be convinced.
 
-R is for Remove. What is unnecessary? Are there redundant sentences? Do you repeat points? Is there information that does not serve your purpose? Many writers are reluctant to cut text they have written, but removing clutter often strengthens writing dramatically. When in doubt, cut it out.
+R is for Remove. What is unnecessary? Are there redundant sentences that say the same thing twice in different words? Do you repeat points you have already made sufficiently? Is there information that does not serve your purpose, however interesting it might be? Are there throat-clearing phrases like "It is important to note that" which can simply be deleted? Many writers are reluctant to cut text they have worked hard to produce, but removing clutter often strengthens writing dramatically. Think of revision as sculpture - you are removing everything that is not essential to reveal the strong form underneath. When in doubt, cut it out.
 
-M is for Move. Is everything in the right place? Would a paragraph work better earlier or later? Should the order of sentences change? Sometimes text is fine but just in the wrong location. Moving elements can transform a confusing argument into a clear one.
+M is for Move. Is everything in the right place? Would a paragraph work better earlier in the text to set something up, or later to build toward a climax? Should the order of sentences within a paragraph change so the logic flows better? Sometimes text is perfectly fine in itself but just in the wrong location - like a beautiful piece of furniture in the wrong room. Moving elements without changing them at all can transform a confusing argument into a clear one.
 
-S is for Substitute. What could be better? Is there a more precise word? A clearer phrasing? A stronger example? Substitution is about replacing something okay with something good, or something good with something excellent.
+S is for Substitute. What could be better? Is there a more precise word that says exactly what you mean? A clearer phrasing that readers will understand immediately? A stronger example that will stick in readers' minds? A more current statistic? Substitution is about replacing something okay with something good, or something good with something excellent. It is about never settling when better is achievable.
 
-Going through ARMS for each paragraph gives you a systematic way to improve your text.`,
+Going through ARMS for each paragraph gives you a systematic way to improve your text. Instead of vaguely feeling something needs work, you have four specific questions to ask. This transforms revision from a mysterious art into a practical craft.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-quiz2',
@@ -802,19 +822,19 @@ Going through ARMS for each paragraph gives you a systematic way to improve your
       type: 'text',
       content: `## Common Errors to Hunt
 
-While big-picture revision is crucial, you also need to catch errors at the sentence and word level. Certain mistakes are particularly common among English learners, and knowing what to look for helps you find them.
+While big-picture revision is crucial, you also need to catch errors at the sentence and word level. Certain mistakes are particularly common among English learners, and knowing what to look for helps you find them efficiently. Think of this as your error checklist - go through your text hunting specifically for each type.
 
-Subject-verb agreement trips many writers up, especially with complex subjects. "The group of students are" is wrong because "group" is the subject, not "students." "The students, along with their teacher, are" is correct because "students" is the subject. Always identify the true subject.
+Subject-verb agreement trips many writers up, especially with complex subjects where words come between the subject and verb. "The group of students are" is wrong because "group" is the subject, not "students" - and "group" is singular. "The students, along with their teacher, are ready" is correct because "students" is the subject and it is plural; the phrase "along with their teacher" does not change this. The trick is to find the true subject by asking "who or what is doing the action?" Ignore interrupting phrases.
 
-Pronoun reference becomes problematic when it is unclear what a pronoun refers to. "When John met Peter, he was happy" - who was happy? Rewrite for clarity: "When John met Peter, John was delighted to see his old friend."
+Pronoun reference becomes problematic when it is unclear what a pronoun refers to. "When John met Peter, he was happy" - who was happy? John? Peter? Both? Readers should not have to guess. Rewrite for clarity: "When John met Peter, John was delighted to see his old friend," or "Meeting Peter made John happy." Every pronoun should have one clear referent.
 
-Tense consistency means maintaining the same tense unless you have a reason to shift. "She walked into the room and says hello" jarringly jumps from past to present. Stay in past: "She walked into the room and said hello."
+Tense consistency means maintaining the same tense unless you have a specific reason to shift. "She walked into the room and says hello" jarringly jumps from past to present for no reason. Stay in past: "She walked into the room and said hello." Tense shifts are appropriate when you move to a different time frame deliberately, but accidental shifts confuse readers.
 
-Run-on sentences occur when two independent clauses are joined without proper punctuation or conjunction. "I went home I was tired" needs fixing: "I went home because I was tired" or "I went home; I was tired."
+Run-on sentences occur when two independent clauses are joined without proper punctuation or conjunction. "I went home I was tired" needs fixing - it runs two complete thoughts together. Solutions: "I went home because I was tired" (add conjunction), "I went home; I was tired" (add semicolon), or "I went home. I was tired" (make two sentences).
 
-Comma splices happen when only a comma joins two independent clauses. "It was late, we went home" should be "It was late, so we went home" or "It was late; we went home."
+Comma splices happen when only a comma joins two independent clauses - a comma alone is not strong enough for this job. "It was late, we went home" should be "It was late, so we went home" (add conjunction after comma), "It was late; we went home" (use semicolon), or "It was late. We went home" (use period). Comma splices are extremely common and easy to fix once you recognize them.
 
-Apostrophe errors are surprisingly common. "Its" is possessive, "it's" means "it is." "Your" is possessive, "you're" means "you are." Check each one.`,
+Apostrophe errors are surprisingly common even among native speakers. "Its" (no apostrophe) is possessive: "The dog wagged its tail." "It's" (with apostrophe) means "it is": "It's raining." Similarly, "your" is possessive: "your book." "You're" means "you are": "You're welcome." And "their/there/they're" - "their" is possessive, "there" is a place, "they're" means "they are." Check each occurrence to be sure you have the right one.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-quiz3',
@@ -839,21 +859,21 @@ Apostrophe errors are surprisingly common. "Its" is possessive, "it's" means "it
       type: 'text',
       content: `## Practical Revision Techniques
 
-Beyond knowing what to look for, you need techniques for actually finding problems. Here are strategies that work.
+Beyond knowing what to look for, you need techniques for actually finding problems in your own writing. This is harder than it sounds - you know what you meant to write, so your brain fills in what should be there rather than seeing what actually is. Here are proven strategies that help you see your own work more clearly.
 
-Take a break before revising. Fresh eyes see what tired eyes miss. If possible, let your text sit for a day before revising. Even a few hours helps. You will be amazed at what you notice when you return.
+Take a break before revising. This is perhaps the most important technique. Fresh eyes see what tired eyes miss. If possible, let your text sit for at least a day before revising - overnight is ideal. Even a few hours helps if that is all you have. You will be amazed at what you notice when you return: missing words, unclear sentences, structural problems that seemed invisible when you wrote them. This is why leaving assignments until the last minute makes good writing almost impossible.
 
-Read aloud. Your ear catches problems your eye skips over. Where do you stumble? Where do you run out of breath? Where does something sound wrong? Those are spots that need work.
+Read aloud. Your ear catches problems your eye skips over. When you read silently, your brain auto-corrects errors. When you read aloud, you hear what is actually there. Where do you stumble? That sentence is probably awkward. Where do you run out of breath? That sentence is probably too long. Where does something sound wrong even though you cannot say why? Trust that instinct - something needs work. Professional writers and editors swear by this technique.
 
-Read backwards for proofreading. Start at the last sentence and work toward the beginning. This breaks the flow and helps you see each sentence individually, making it easier to catch errors.
+Read backwards for proofreading. Start at the last sentence and work toward the beginning. This bizarre-sounding technique breaks the flow of meaning that lets errors hide. You see each sentence individually rather than skating over it as part of a larger argument. It is especially effective for catching typos, missing words, and punctuation errors.
 
-Use a checklist. Create your own list of errors you commonly make, and check for each one specifically. If you know you struggle with comma splices, do a pass looking only for those.
+Use a checklist. Everyone makes certain errors more often than others - you have personal weaknesses in your writing. Create your own list of errors you commonly make, and check for each one specifically. If you know you struggle with comma splices, do a dedicated pass looking only for those. If you tend to repeat words, check for that. Multiple focused passes catch more than one general pass.
 
-Get feedback. Another reader brings a fresh perspective. They can tell you where they got confused, where the argument was weak, where they stopped paying attention. This information is gold.
+Get feedback. Another reader brings a perspective you cannot have - they do not know what you meant, only what you wrote. They can tell you where they got confused, where your argument seemed weak, where they lost interest or had to reread. This information is gold. Ask specific questions: "Did the introduction grab you?" "Could you follow my reasoning?" "Was anything unclear?"
 
-Use tools wisely. Spell checkers and grammar checkers catch some errors, but they also miss many and sometimes suggest wrong corrections. Use them as a starting point, not a final authority.
+Use tools wisely. Spell checkers and grammar checkers catch some errors, which is valuable - use them. But they also miss many errors and sometimes suggest wrong corrections. A spell checker will not catch "from" instead of "form" because both are real words. Grammar checkers often flag correct sentences while missing actual errors. Use these tools as a starting point, not a final authority. Your judgment must be the final check.
 
-Track your patterns. Keep notes on what errors you often make. Over time, you will eliminate them from your writing naturally.`,
+Track your patterns. Keep notes on what errors you often make and what feedback you receive. Over time, you will become aware of your weaknesses, catch them earlier, and eventually eliminate them from your first drafts. This is how revision makes you a better writer overall, not just in the current text.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-quiz4',
@@ -878,17 +898,17 @@ Track your patterns. Keep notes on what errors you often make. Over time, you wi
       type: 'text',
       content: `## Building Your Revision Habit
 
-Revision is a skill that improves with practice. The more you revise, the better you become at seeing your own writing clearly - and the better your first drafts become too.
+Revision is a skill that improves with practice, like any other skill. The more you revise, the better you become at seeing your own writing clearly - you develop an editor's eye that catches problems early. And here is a wonderful bonus: the more you revise, the better your first drafts become too. You internalize the standards you apply, and you start writing better naturally.
 
-Start by accepting that revision is a normal part of writing, not a sign of failure. Even experienced writers revise extensively. The difference is they have learned to enjoy the process of making their writing better.
+Start by accepting that revision is a normal, essential part of writing, not a sign of failure or weakness. Even the most experienced, acclaimed writers revise extensively - often more extensively than beginners because they have higher standards. The difference is not that good writers need revision less; it is that they have learned to expect it, schedule time for it, and even enjoy the process of making their writing better. They see revision not as fixing problems but as discovering what they really want to say.
 
-Build revision into your timeline. Do not leave assignments until the last minute if you want to produce quality work. Writing the night before leaves no time for revision. Aim to finish drafts early enough that you can take a break and return with fresh eyes.
+Build revision into your timeline from the start. Do not leave assignments until the last minute if you want to produce quality work. Writing the night before leaves no time for the break that makes revision effective - you cannot return with fresh eyes if you never left. Aim to finish drafts early enough that you can take at least a day away from the text before revising. Plan for multiple drafts, not one perfect attempt. Professional writers often work on multiple projects simultaneously, partly so they can let each one rest between revisions.
 
-Develop your own revision process. Maybe you like to print out and mark up paper copies. Maybe you prefer on-screen editing. Maybe you revise in stages over several days. Experiment to find what works for you.
+Develop your own revision process through experimentation. Maybe you like to print out your text and mark it up with colored pens - the physical act of writing helps some people think. Maybe you prefer on-screen editing, using track changes to see your revisions accumulate. Maybe you revise in stages over several days, doing content one day, structure the next, sentences and words the last. Maybe you like to revise in one intense session. There is no single right way - find what works for you and your schedule.
 
-Reflect on your revision. After finishing a piece of writing, look back at the changes you made. What patterns do you notice? What kinds of errors did you catch? What did feedback reveal? This reflection helps you grow as a writer.
+Reflect on your revision. After finishing a piece of writing, take a few minutes to look back at the changes you made. What patterns do you notice? What kinds of errors did you catch repeatedly? What did feedback from others reveal about your blind spots? This reflection helps you grow as a writer. You might keep a revision journal where you note insights about your writing process.
 
-Finally, remember that revision is not endless. At some point, you need to consider a text done and move on. Perfectionism can be paralyzing. Set a reasonable standard - clear, correct, and effective - and aim for that.`,
+Finally, remember that revision is not endless. At some point, you need to consider a text done and move on. Perfectionism can be paralyzing - there is always something more you could change, some way the text could theoretically be better. Set a reasonable standard - clear, correct, and effective for its purpose - and aim for that. When you have achieved it, let the text go. Good enough, delivered on time, is better than perfect, never finished.`,
     },
     {
       id: 'engelsk-vg1-3-4-n-quiz5',
@@ -913,22 +933,25 @@ Finally, remember that revision is not endless. At some point, you need to consi
       type: 'text',
       content: `## Summary: The Art of Revision
 
-You have learned how to transform rough drafts into polished writing. Here are the key points:
+You have learned how to transform rough drafts into polished writing. Revision is where good writing happens - first drafts are raw material, revision shapes them into something worth reading. Here are the key points to remember and practice:
 
 **Four Levels of Revision:**
-Content (is everything necessary there?), structure (is organization logical?), sentences (are they clear and varied?), words (are they correct and precise?). Work from big picture to details.
+Work from big picture to small details, in this order: Content (Is everything necessary there? Is anything missing? Does it achieve its purpose?), Structure (Is the organization logical? Are paragraphs in the best order? Do transitions work?), Sentences (Are they clear and varied? Can any be combined or broken up?), Words (Are they correct, precise, and appropriate?). Do not polish sentences until you are sure they will survive.
 
 **The ARMS Strategy:**
-Add what is missing, Remove what is unnecessary, Move what is misplaced, Substitute what could be better.
+For every paragraph, ask four questions: Add - what is missing that readers need? Remove - what is unnecessary clutter? Move - is everything in the right place? Substitute - what could be better? This systematic approach ensures you consider all possibilities.
 
-**Common Errors:**
-Subject-verb agreement, unclear pronoun reference, tense inconsistency, run-on sentences, comma splices, apostrophe errors.
+**Common Errors to Hunt:**
+Subject-verb agreement (find the true subject), unclear pronoun reference (every pronoun needs one clear referent), tense consistency (do not shift without reason), run-on sentences (independent clauses need proper connection), comma splices (commas alone cannot join independent clauses), apostrophe errors (its/it's, your/you're, their/there/they're).
 
-**Revision Techniques:**
-Take a break, read aloud, read backwards, use a checklist, get feedback, use tools wisely, track patterns.
+**Practical Revision Techniques:**
+Take a break before revising - fresh eyes see what tired eyes miss. Read aloud - your ear catches what your eye skips. Read backwards for proofreading. Use a personal checklist for your common errors. Get feedback from other readers. Use spelling and grammar tools wisely but do not trust them completely. Track your patterns to improve over time.
+
+**Building the Habit:**
+Accept revision as normal and essential, not a sign of failure. Build revision time into your schedule. Develop your own process through experimentation. Reflect on your revisions to learn from them. Know when to stop - perfection is the enemy of done.
 
 **Key Terms:**
-Revision, editing, proofreading, subject-verb agreement, pronoun reference, tense consistency, run-on sentence, comma splice.`,
+Revision, editing, proofreading, subject-verb agreement, pronoun reference, tense consistency, run-on sentence, comma splice, apostrophe, ARMS strategy.`,
     },
   ],
   exercises: [],
@@ -954,30 +977,32 @@ export const CHAPTER_ENGELSK_VG1_4_1_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## The Magic Behind the Words
 
-When you read a powerful piece of writing - a poem that moves you, a novel that transports you, a speech that inspires you - something is happening beyond the literal meaning of the words. Writers are using tools, carefully chosen techniques that create effects on readers. These are literary devices.
+When you read a powerful piece of writing - a poem that moves you to tears, a novel that transports you to another world, a speech that inspires you to action - something is happening beyond the literal meaning of the words. The words themselves might be simple, yet their effect is profound. How does this happen? Writers are using tools, carefully chosen techniques that create effects on readers. These are literary devices, and understanding them opens up a new dimension in both your reading and your writing.
 
-Understanding literary devices does two things for you. First, it deepens your appreciation of literature. When you can see how a writer achieves an effect, you can appreciate the craft behind the art. Second, it improves your own writing. These tools are not just for famous authors - they are available to everyone who wants to write more effectively.
+Think about the difference between "She was sad" and "Her heart was a stone, cold and heavy in her chest." Both express sadness, but the second creates an experience. You feel the weight, the coldness. That is a literary device at work - in this case, a metaphor that transforms an abstract emotion into something physical and vivid.
 
-In this chapter, we will explore the most important literary devices, from figurative language that paints pictures with words to structural techniques that create suspense and meaning. You will learn to see these devices in the texts you read and to use them in the texts you write.`,
+Understanding literary devices does two important things for you. First, it deepens your appreciation of literature. When you can see how a writer achieves an effect, you appreciate not just the art but the craft - the deliberate choices, the skilled construction. You become a richer reader, noticing layers that less attentive readers miss. Second, it improves your own writing. These tools are not reserved for famous authors or literary geniuses - they are available to everyone who wants to write more effectively. Once you understand how devices work, you can use them in your own essays, stories, and everyday communication.
+
+In this chapter, we will explore the most important literary devices, from figurative language that paints pictures with words to structural techniques that create suspense and reveal meaning. You will learn to see these devices in the texts you read and to use them deliberately in the texts you write. Welcome to the writer's toolkit.`,
     },
     {
       id: 'engelsk-vg1-4-1-n-section1',
       type: 'text',
       content: `## Figurative Language: Painting Pictures with Words
 
-Figurative language uses words in non-literal ways to create vivid images and connections. When you say someone has "a heart of gold," you do not mean their heart is literally made of gold - you mean they are kind and generous. This is the power of figurative language.
+Figurative language uses words in non-literal ways to create vivid images and unexpected connections. When you say someone has "a heart of gold," you do not mean their heart is literally made of gold - you mean they are kind and generous. The image of gold suggests value, warmth, and precious qualities. This is the power of figurative language: it communicates through images and associations rather than direct statement.
 
-A simile makes a comparison using "like" or "as." "Her smile was like sunshine" connects two different things - a smile and sunshine - highlighting the warmth and brightness of the smile. Similes keep the comparison explicit: you know two things are being compared because the linking word is right there.
+A simile makes a comparison using "like" or "as." "Her smile was like sunshine" connects two different things - a smile and sunshine - highlighting the warmth, brightness, and life-giving quality of the smile. "He fought like a lion" suggests courage and ferocity. "The news spread like wildfire" conveys speed and uncontrollability. Similes keep the comparison explicit: you know two things are being compared because the linking word is right there. This makes them easier to understand than metaphors, but potentially less powerful.
 
-A metaphor makes a direct comparison without "like" or "as." "Life is a journey" states that life IS a journey, making the comparison more forceful. Metaphors can be brief or extended through an entire text. When you describe someone "navigating obstacles" and "reaching destinations," you are extending the journey metaphor.
+A metaphor makes a direct comparison without "like" or "as." "Life is a journey" states that life IS a journey, making the comparison more forceful and immediate. "All the world's a stage," Shakespeare wrote, and suddenly we see life as performance, people as actors, events as scenes. Metaphors can be brief ("drowning in debt") or extended through an entire text. When you describe someone "navigating obstacles," "taking wrong turns," and "finally reaching their destination," you are extending the journey metaphor, exploring all its implications.
 
-Personification gives human qualities to non-human things. "The wind whispered through the trees" makes the wind seem alive, creating atmosphere and sometimes suggesting emotional states. Nature often becomes a character through personification.
+Personification gives human qualities to non-human things. "The wind whispered through the trees" makes the wind seem alive, capable of speech, perhaps sharing secrets. "The flowers nodded their heads in the breeze" gives agency and personality to plants. Nature often becomes a character through personification, which can create atmosphere, suggest emotional states, or make the non-human feel connected to human experience.
 
-Hyperbole is deliberate exaggeration for effect. "I have told you a million times" does not literally mean a million - it emphasizes frustration. We use hyperbole constantly in everyday speech without thinking about it.
+Hyperbole is deliberate exaggeration for effect. "I have told you a million times" does not literally mean a million - it emphasizes frustration and repetition. "I am so hungry I could eat a horse" is not about actual horse-eating but about intensity of hunger. We use hyperbole constantly in everyday speech without thinking about it, and writers use it deliberately to create emphasis, humor, or emotional impact.
 
-Understatement is the opposite - deliberately downplaying something. If someone survives a plane crash with minor injuries and says "that was inconvenient," the understatement creates a particular effect, often humorous or ironic.
+Understatement is the opposite - deliberately downplaying something for effect. If someone survives a plane crash with minor injuries and says "that was inconvenient," the understatement creates a particular effect, often humorous or showing coolness under pressure. British English especially favors understatement, as in describing a terrible situation as "a bit of a problem."
 
-An oxymoron puts contradictory terms together: "deafening silence," "bitter sweet," "living dead." The contradiction creates tension and makes us think about how both qualities could coexist.`,
+An oxymoron puts contradictory terms together: "deafening silence," "bitter sweet," "living dead," "cruel kindness." The contradiction creates tension and makes us think about how both qualities could coexist - how silence can be so intense it feels loud, how something can be both pleasant and painful at once.`,
     },
     {
       id: 'engelsk-vg1-4-1-n-quiz1',
@@ -1002,17 +1027,15 @@ An oxymoron puts contradictory terms together: "deafening silence," "bitter swee
       type: 'text',
       content: `## Irony: When Things Are Not What They Seem
 
-Irony is one of the most powerful and complex literary devices. It involves a contrast between what is expected and what actually happens, or between what is said and what is meant.
+Irony is one of the most powerful and complex literary devices, and also one of the most misunderstood. It involves a contrast between what is expected and what actually happens, or between what is said and what is meant. True irony always involves this gap, this difference between surface and reality, expectation and outcome.
 
-Verbal irony is saying the opposite of what you mean. If you step outside into pouring rain and say "What lovely weather," you are using verbal irony. Sarcasm is a form of verbal irony, though irony does not always carry sarcasm's mocking tone.
+Verbal irony is saying the opposite of what you mean, expecting your audience to understand the real meaning. If you step outside into pouring rain and say "What lovely weather," you are using verbal irony - your words say one thing, but your meaning is clearly the opposite. Sarcasm is a form of verbal irony that carries a mocking or contemptuous tone, but not all verbal irony is sarcastic. A character might use verbal irony affectionately or gently, without the bite of sarcasm.
 
-Situational irony occurs when events turn out contrary to expectations. A fire station burning down, a police station being robbed, a professional swimmer drowning - these are situationally ironic because we expect the opposite. Stories often use situational irony for surprise and thematic effect.
+Situational irony occurs when events turn out contrary to expectations, often in a way that seems almost designed to mock our expectations. A fire station burning down is situationally ironic - of all places, we expect a fire station to be safe from fire. A police station being robbed, a professional swimmer drowning, a safety expert having an accident - these are situationally ironic because we expect the opposite. Stories often use situational irony for surprise, to make a point, or to suggest that life does not follow our expectations.
 
-Dramatic irony is when the audience knows something that characters do not. In horror films, we often know the killer is hiding in the house while the character wanders in obliviously. This creates suspense and sometimes tragic effects - we watch characters make decisions we know will lead to disaster.
+Dramatic irony is when the audience knows something that characters do not. This creates a special tension between what we know and what we watch characters do in ignorance. In horror films, we often know the killer is hiding in the house while the character wanders in obliviously - we want to shout a warning but cannot. In tragedies like Romeo and Juliet, we know Juliet is not really dead, but Romeo does not, and we watch helplessly as he makes his fatal mistake. Dramatic irony can create suspense, horror, or profound pathos depending on how it is used.
 
-Irony is powerful because it creates layers of meaning. The surface level says one thing; the deeper level says another. Readers who catch the irony experience the text more richly than those who take everything literally.
-
-Writers use irony to critique, to create humor, to add depth, and to make readers think. Once you start noticing irony, you will see it everywhere - in literature, in film, in everyday life.`,
+Irony is powerful because it creates layers of meaning. The surface level says one thing; the deeper level says another. Readers who catch the irony experience the text more richly and feel a kind of complicity with the author - they are in on the joke or the tragedy. Writers use irony to critique without preaching, to create humor, to add depth, and to make readers think. Once you start noticing irony, you will see it everywhere - in literature, in film, in news, in everyday conversations.`,
     },
     {
       id: 'engelsk-vg1-4-1-n-quiz2',
@@ -1037,19 +1060,19 @@ Writers use irony to critique, to create humor, to add depth, and to make reader
       type: 'text',
       content: `## Structural Devices: Building Tension and Meaning
 
-Beyond individual phrases, writers use structural devices that work across scenes and chapters.
+Beyond individual phrases and sentences, writers use structural devices that work across scenes, chapters, and entire texts. These devices organize information, create anticipation, and build meaning through patterns that unfold over time. They reward attentive readers who notice connections and remember details.
 
-Foreshadowing hints at future events. "Little did she know this would be her last peaceful morning" tells readers something bad is coming. More subtle foreshadowing might use symbols, weather, or seemingly innocent details that gain significance later. Good foreshadowing creates tension and rewards careful readers.
+Foreshadowing hints at future events, creating anticipation and tension. Explicit foreshadowing might say "Little did she know this would be her last peaceful morning" - telling readers directly that something bad is coming without revealing what. Subtle foreshadowing is more powerful: a character feeling inexplicably cold, a crow watching from a tree, a door that will not quite close - details that seem innocent on first reading but gain significance later. Good foreshadowing creates tension on first reading and rewards rereading when you see how the writer planted clues.
 
-Flashback interrupts chronological order to show earlier events. A character might remember their childhood, or a chapter might jump back in time. Flashbacks reveal backstory, explain motivation, and create contrasts between past and present.
+Flashback interrupts chronological order to show earlier events. A character might remember their childhood, triggered by a smell or a sound. A chapter might jump back in time to show how a relationship began. Flashbacks reveal backstory that helps us understand current events, explain character motivation, and create meaningful contrasts between past and present. They answer the question "how did we get here?" without slowing down the present action with long exposition.
 
-Symbolism uses objects, colors, or actions to represent abstract ideas. A dove often symbolizes peace, darkness suggests evil or ignorance, spring represents new beginnings. Symbols work because we share cultural associations, though writers can also create new symbolic meanings within a text.
+Symbolism uses objects, colors, or actions to represent abstract ideas. A dove often symbolizes peace, darkness suggests evil or ignorance, spring represents new beginnings, a crossroads represents choice. Symbols work because we share cultural associations - we collectively understand certain meanings. But writers can also create new symbolic meanings within a specific text: in one novel, a red scarf might come to symbolize a character's lost innocence without any universal meaning attached to red scarves.
 
-A motif is a recurring element with symbolic significance. If water imagery appears throughout a novel - rain, rivers, drowning, baptism - water is a motif that likely connects to themes of cleansing, change, or emotional states.
+A motif is a recurring element with symbolic significance - a symbol that appears repeatedly, building meaning through accumulation. If water imagery appears throughout a novel - rain, rivers, drowning, baptism, tears, ocean - water is a motif that likely connects to themes of cleansing, change, emotional states, or the boundary between life and death. When you notice a motif, you have found a key to the text's deeper meanings.
 
-Juxtaposition places contrasting elements side by side for effect. Describing a luxury mansion next to a homeless encampment makes a point about inequality without stating it directly. The contrast does the work.
+Juxtaposition places contrasting elements side by side for effect, letting the contrast speak for itself. Describing a luxury mansion right next to a homeless encampment makes a point about inequality without the writer having to state it directly - the contrast does the work. Juxtaposing a character's public face with their private despair reveals hypocrisy. Juxtaposing scenes of war violence with scenes of domestic peace heightens the horror of both.
 
-These structural devices work over longer stretches of text, creating patterns that reward attentive reading.`,
+These structural devices work over longer stretches of text, creating patterns that reward attentive reading. Train yourself to notice recurring images, to remember what was foreshadowed, to see how flashbacks connect to present action.`,
     },
     {
       id: 'engelsk-vg1-4-1-n-quiz3',
@@ -1074,19 +1097,19 @@ These structural devices work over longer stretches of text, creating patterns t
       type: 'text',
       content: `## Sound Devices: Music in Language
 
-Language has a musical quality, and writers exploit this through sound devices. These are especially important in poetry but appear in all forms of writing.
+Language has a musical quality that goes beyond meaning - the sounds themselves create effects. Writers exploit this through sound devices that work on readers at a level below conscious awareness. These devices are especially important in poetry, where sound often carries as much weight as meaning, but they appear in all forms of writing. Even business writing has rhythm that affects how it feels to read.
 
-Alliteration repeats consonant sounds at the beginning of nearby words. "Peter Piper picked a peck of pickled peppers" is an extreme example, but subtler alliteration appears everywhere. "The soft sound of summer" creates a gentle effect through the repeated s.
+Alliteration repeats consonant sounds at the beginning of nearby words. "Peter Piper picked a peck of pickled peppers" is an extreme example used for tongue-twisters, but subtler alliteration appears everywhere in literature. "The soft sound of summer" creates a gentle, whispering effect through the repeated s. "The darkness and danger drew nearer" creates a sense of threat through the hard d sounds. Alliteration ties words together, creates memorable phrases, and adds music to prose.
 
-Assonance repeats vowel sounds. "The rain in Spain falls mainly on the plain" uses the long a sound. Assonance creates internal rhyme and musical quality even in prose.
+Assonance repeats vowel sounds within words, creating internal echoes. "The rain in Spain falls mainly on the plain" uses the long a sound - you can hear how it creates a kind of rhyme without actual rhyming words. Assonance creates musical quality even in prose, and poets use it to create mood: long vowel sounds tend to feel slow and mournful, short vowels feel quick and light.
 
-Onomatopoeia uses words that sound like what they describe: buzz, crash, whisper, murmur, sizzle. These words make descriptions more vivid and immediate.
+Onomatopoeia uses words that sound like what they describe: buzz, crash, whisper, murmur, sizzle, pop, hiss, bang. These words bridge the gap between language and the physical world, making descriptions more vivid and immediate. When you read "the fire crackled and hissed," you almost hear it.
 
-Rhythm and meter create patterns of stressed and unstressed syllables. Poetry often uses regular meter, but prose has rhythm too. Short, punchy sentences create a staccato rhythm. Long, flowing sentences create a different effect.
+Rhythm and meter create patterns of stressed and unstressed syllables - the beat of language. Poetry often uses regular meter (like iambic pentameter: da-DUM da-DUM da-DUM da-DUM da-DUM), but prose has rhythm too. Short, punchy sentences create a staccato rhythm - quick, sharp, urgent. Long, flowing sentences carry readers along, building momentum, delaying resolution, creating anticipation. Varying sentence length creates rhythm the way varying note length creates music.
 
-Repetition of words, phrases, or structures creates emphasis and rhythm. "I have a dream" repeated throughout Martin Luther King Jr.'s famous speech builds power with each occurrence. In writing, deliberate repetition is a choice; accidental repetition is a flaw.
+Repetition of words, phrases, or structures creates emphasis and rhythm. "I have a dream" repeated throughout Martin Luther King Jr.'s famous speech builds power with each occurrence - by the end, those four words carry enormous emotional weight. Anaphora (starting successive sentences with the same words) creates a building, incantatory effect. In writing, deliberate repetition is a powerful choice; accidental repetition is a flaw to eliminate.
 
-These sound devices work on readers even when they do not consciously notice them. The music of language affects us below the surface.`,
+These sound devices work on readers even when they do not consciously notice them. Read good prose aloud and you hear its music. The sounds of language affect us below the surface of conscious meaning.`,
     },
     {
       id: 'engelsk-vg1-4-1-n-quiz4',

@@ -18,92 +18,123 @@ export const CHAPTER_ENGELSK_VG1_1_1: TextbookChapter = {
   chapterNumber: '1.1',
   title: 'Language Learning Strategies',
   description: 'Develop effective strategies for learning English and improving your language skills.',
-  estimatedMinutes: 45,
+  estimatedMinutes: 60,
   competenceGoals: ['bruke egnede strategier i språklæring, tekstskaping og kommunikasjon'],
   content: [
+    // --- INTRO ---
     {
       id: 'engelsk-vg1-1-1-intro',
       type: 'text',
-      content: `## Effective Language Learning
+      content: `## Becoming a Strategic Language Learner
 
-Learning a new language is a journey that requires both dedication and smart strategies. The most successful language learners don't just study harder - they study smarter.
+Have you ever wondered why some people seem to pick up languages effortlessly while others struggle for years? The secret isn't intelligence or natural talent—it's strategy. The most successful language learners have developed a toolkit of techniques that they apply consistently and consciously.
 
-**The Four Key Areas of Language Learning:**
-1. **Listening** - Understanding spoken language
-2. **Speaking** - Producing spoken language
-3. **Reading** - Understanding written language
-4. **Writing** - Producing written language
+Think about learning English as embarking on a journey. You wouldn't set off on a long trip without a map, supplies, and a plan. Similarly, approaching language learning strategically means equipping yourself with the right tools and knowing when to use them.
 
-**Why Strategies Matter:**
-Research shows that learners who actively use learning strategies make faster progress and retain more of what they learn. Good strategies help you:
-- Make the most of your study time
-- Stay motivated when learning gets challenging
-- Transfer skills between different language situations
-- Become an independent, lifelong learner`,
+**Learning Goals for This Chapter:**
+By the end of this chapter, you will be able to:
+- Identify and explain the four main types of language learning strategies
+- Analyze your own learning style and preferences
+- Select appropriate strategies for different learning situations
+- Create a personalized learning plan based on your goals and needs
+- Apply metacognitive strategies to monitor and improve your learning
+
+**The Four Pillars of Language Proficiency:**
+
+| Skill | Description | Example Activities |
+|-------|-------------|-------------------|
+| **Listening** | Understanding spoken English in various contexts | Podcasts, films, conversations |
+| **Speaking** | Producing clear, fluent spoken English | Discussions, presentations, daily conversation |
+| **Reading** | Comprehending written texts of varying complexity | Articles, novels, academic texts |
+| **Writing** | Creating coherent written texts for different purposes | Essays, emails, creative writing |
+
+These four skills are interconnected—improving one often helps the others. A strategic learner knows how to develop all four in a balanced way.`,
     },
+    // --- TEORI 1: Types of Learning Strategies ---
     {
-      id: 'engelsk-vg1-1-1-def-1',
+      id: 'engelsk-vg1-1-1-theory-1',
       type: 'definition',
-      title: 'Types of Learning Strategies',
-      content: `**Cognitive Strategies:**
-Directly manipulating the language material
-- Taking notes
-- Summarizing
-- Using context clues
-- Creating mental images
+      title: 'The Four Categories of Learning Strategies',
+      content: `Language learning researchers have identified four main categories of strategies that successful learners use. Understanding these categories helps you build a complete toolkit for your learning journey.
 
-**Metacognitive Strategies:**
-Planning, monitoring, and evaluating your learning
-- Setting goals
-- Self-assessment
-- Organizing study time
-- Reflecting on progress
+**1. Cognitive Strategies**
+These strategies involve directly working with the language material to understand, remember, and use it.
 
-**Social Strategies:**
-Learning through interaction with others
-- Asking questions
-- Collaborating with peers
-- Finding conversation partners
-- Seeking feedback
+*Key Cognitive Strategies:*
+- **Repetition and rehearsal**: Practicing words or phrases until they become automatic
+- **Note-taking**: Writing down important information in an organized way
+- **Summarizing**: Condensing information into key points
+- **Using context clues**: Guessing meaning from surrounding words
+- **Creating associations**: Linking new words to images, sounds, or personal experiences
+- **Categorizing**: Grouping words by theme, grammar, or other features
+- **Using resources**: Looking up words in dictionaries, grammar guides, etc.
 
-**Affective Strategies:**
-Managing emotions and motivation
-- Reducing anxiety
-- Rewarding yourself
-- Staying positive
-- Using music and media`,
+**2. Metacognitive Strategies**
+"Meta" means "about"—so metacognitive strategies are about thinking about your thinking. These help you plan, monitor, and evaluate your learning.
+
+*Key Metacognitive Strategies:*
+- **Goal-setting**: Defining clear, measurable objectives (e.g., "Learn 20 new words this week")
+- **Planning**: Organizing your study time and activities
+- **Self-monitoring**: Checking your understanding as you learn
+- **Self-evaluation**: Assessing your progress honestly
+- **Identifying problems**: Recognizing what you don't understand
+- **Seeking solutions**: Finding ways to address learning difficulties
+
+**3. Social Strategies**
+Language is fundamentally social, and these strategies involve learning through interaction with others.
+
+*Key Social Strategies:*
+- **Asking for clarification**: Requesting explanations when you don't understand
+- **Asking for correction**: Inviting others to correct your mistakes
+- **Collaborating**: Working with classmates on learning tasks
+- **Finding conversation partners**: Seeking opportunities to practice speaking
+- **Joining communities**: Participating in English-speaking groups or forums
+- **Learning from feedback**: Using others' responses to improve
+
+**4. Affective Strategies**
+These strategies help you manage the emotional aspects of learning, which are just as important as the intellectual ones.
+
+*Key Affective Strategies:*
+- **Managing anxiety**: Using techniques to reduce nervousness
+- **Self-encouragement**: Giving yourself positive messages
+- **Rewarding yourself**: Celebrating achievements, big and small
+- **Taking risks**: Being willing to make mistakes
+- **Maintaining motivation**: Finding personal reasons to keep learning
+- **Creating positive associations**: Making learning enjoyable through games, music, etc.`,
     },
+    // --- EKSEMPEL 1 ---
     {
       id: 'engelsk-vg1-1-1-example-1',
       type: 'example',
-      title: 'Example: Creating a Personal Learning Plan',
-      problem: 'How can you create an effective weekly study plan for English?',
-      solution: `**Sample Weekly English Study Plan:**
+      title: 'Example: Applying Different Strategies to Learn New Vocabulary',
+      problem: 'You encounter the word "resilient" in a text and want to learn it thoroughly. How can you apply different types of strategies?',
+      solution: `Let's see how each strategy type can help you truly master a new word like "resilient":
 
-**Monday (30 min):** Vocabulary building
-- Learn 10 new words with Quizlet or flashcards
-- Use each word in a sentence
+**Cognitive Strategies:**
+1. *Look it up*: Check a dictionary—"resilient" means able to recover quickly from difficulties; tough and adaptable.
+2. *Create associations*: Think of a rubber ball that bounces back when dropped—that's resilience!
+3. *Use it in sentences*: "After losing the match, the team showed they were resilient by winning the next five games."
+4. *Find word family members*: resilient (adj.), resilience (n.), resiliently (adv.)
 
-**Tuesday (30 min):** Listening practice
-- Watch a YouTube video or podcast in English
-- Take notes on new expressions
+**Metacognitive Strategies:**
+1. *Set a goal*: "I will use 'resilient' in conversation or writing at least three times this week."
+2. *Monitor*: Keep track of whether you've used it
+3. *Evaluate*: At the end of the week, check—can you use it naturally?
 
-**Wednesday (30 min):** Reading
-- Read an article on a topic you enjoy
-- Look up 5 unknown words
+**Social Strategies:**
+1. *Ask a classmate*: "Have you heard the word 'resilient' before? What does it mean to you?"
+2. *Use it in discussion*: In your next group work, try to use the word naturally
+3. *Get feedback*: Ask your teacher or a native speaker if you're using it correctly
 
-**Thursday (30 min):** Writing practice
-- Write a short paragraph about your day
-- Try to use new vocabulary
+**Affective Strategies:**
+1. *Connect emotionally*: Think of a time when YOU were resilient—overcoming a challenge
+2. *Celebrate*: When you successfully use the word, acknowledge your progress
+3. *Stay positive*: If you forget the word, don't worry—it's part of learning!
 
-**Friday (30 min):** Speaking practice
-- Talk to yourself in English (narrate activities)
-- Practice pronunciation with a language app
-
-**Weekend:** Fun immersion
-- Watch a movie/series in English
-- Listen to English music and read lyrics`,
+**The Result:**
+By applying multiple strategies, you move from simply recognizing the word to truly owning it—being able to use it naturally and confidently in your own English.`,
     },
+    // --- OPPGAVE 1 ---
     {
       id: 'engelsk-vg1-1-1-ex-1',
       type: 'exercise',
@@ -111,38 +142,51 @@ Managing emotions and motivation
         id: 'engelsk-vg1-1-1-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Identify which type of learning strategy each example represents:',
+        task: 'Identify which type of learning strategy each example represents. Choose from: Cognitive, Metacognitive, Social, or Affective.',
         subTasks: [
           {
             label: 'a',
             task: 'Setting a goal to learn 50 new words this month',
-            solution: 'Metacognitive strategy',
+            solution: 'Metacognitive strategy - This involves planning and setting specific learning objectives.',
             multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
           },
           {
             label: 'b',
-            task: 'Asking a classmate to explain a grammar rule',
-            solution: 'Social strategy',
+            task: 'Asking a classmate to explain a grammar rule you find confusing',
+            solution: 'Social strategy - This involves learning through interaction with others and asking for clarification.',
             multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
           },
           {
             label: 'c',
-            task: 'Creating a mind map to organize vocabulary by topic',
-            solution: 'Cognitive strategy',
+            task: 'Creating a mind map to organize vocabulary by topic (food, travel, emotions, etc.)',
+            solution: 'Cognitive strategy - This involves categorizing and organizing language material to understand and remember it better.',
             multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
           },
           {
             label: 'd',
-            task: 'Rewarding yourself with a treat after completing a difficult assignment',
-            solution: 'Affective strategy',
+            task: 'Rewarding yourself with your favorite snack after completing a challenging assignment',
+            solution: 'Affective strategy - This involves managing motivation through self-reward.',
+            multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
+          },
+          {
+            label: 'e',
+            task: 'Checking your understanding by summarizing a podcast episode in your own words',
+            solution: 'Cognitive strategy (summarizing) combined with Metacognitive strategy (self-monitoring). The primary action is cognitive—working directly with the language material.',
+            multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
+          },
+          {
+            label: 'f',
+            task: 'Taking a deep breath before speaking English to calm your nerves',
+            solution: 'Affective strategy - This involves managing anxiety and emotions to improve learning.',
             multipleChoiceOptions: ['Cognitive', 'Metacognitive', 'Social', 'Affective'],
           },
         ],
-        solution: 'a) Metacognitive, b) Social, c) Cognitive, d) Affective',
+        solution: 'a) Metacognitive, b) Social, c) Cognitive, d) Affective, e) Cognitive (with metacognitive element), f) Affective. Understanding these categories helps you build a balanced toolkit of learning strategies.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- OPPGAVE 2 ---
     {
       id: 'engelsk-vg1-1-1-ex-2',
       type: 'exercise',
@@ -150,30 +194,119 @@ Managing emotions and motivation
         id: 'engelsk-vg1-1-1-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Reflect on your own English learning. Answer these questions:',
+        task: 'For each learning situation below, suggest TWO different strategies that could help. Explain why each strategy would be effective.',
         subTasks: [
           {
             label: 'a',
-            task: 'What is your biggest strength when learning English?',
-            solution: 'Personal reflection - answers will vary',
+            task: 'You need to give a presentation in English next week and you feel very nervous about speaking in front of the class.',
+            solution: 'Strategy 1 (Affective): Practice positive self-talk, reminding yourself that mistakes are normal and that you are prepared. This reduces anxiety and builds confidence. Strategy 2 (Social): Practice your presentation with a friend or family member first and ask for feedback. This builds confidence through practice and helps you identify areas to improve.',
           },
           {
             label: 'b',
-            task: 'What area do you find most challenging (listening, speaking, reading, or writing)?',
-            solution: 'Personal reflection - answers will vary',
+            task: 'You keep forgetting new vocabulary words even after looking them up multiple times.',
+            solution: 'Strategy 1 (Cognitive): Use spaced repetition—review words at increasing intervals (after 1 day, 3 days, 1 week, etc.) to move them to long-term memory. Strategy 2 (Cognitive): Create personal associations or sentences using the words in context that connects to your own life, making them more memorable.',
           },
           {
             label: 'c',
-            task: 'What strategies have worked well for you in the past?',
-            solution: 'Personal reflection - answers will vary',
+            task: 'You understand English when you read it, but struggle to understand spoken English, especially in movies.',
+            solution: 'Strategy 1 (Cognitive): Watch with English subtitles first, then rewatch without subtitles. This helps you connect written and spoken forms. Strategy 2 (Metacognitive): Set specific listening goals—start with slower content (documentaries, news) and gradually move to faster speech (films, TV shows).',
           },
         ],
-        hints: ['Be honest with yourself', 'Think about specific examples'],
-        solution: 'Self-reflection is key to improving your learning approach.',
+        hints: ['Consider what type of challenge each situation presents', 'Think about which strategy category would best address the problem'],
+        solution: 'Effective learners match their strategies to the specific challenge they face. There is often more than one good approach!',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- TEORI 2: Deeper Dive into Metacognition ---
+    {
+      id: 'engelsk-vg1-1-1-theory-2',
+      type: 'definition',
+      title: 'Metacognition: Learning How to Learn',
+      content: `Metacognition is perhaps the most powerful category of learning strategies because it helps you manage all the others. It's the difference between just going through the motions and truly taking control of your learning.
+
+**The Three Phases of Metacognitive Learning:**
+
+**Phase 1: Planning (Before Learning)**
+Before you start studying, ask yourself:
+- What am I trying to learn today?
+- How long will I study and what will I focus on?
+- What strategies will work best for this task?
+- What resources do I need?
+- What do I already know about this topic?
+
+*Example*: Before watching an English documentary, you might decide: "I'll watch for 20 minutes, focus on noting new vocabulary, and pause to look up words I don't understand."
+
+**Phase 2: Monitoring (During Learning)**
+While learning, regularly check in with yourself:
+- Am I understanding this material?
+- Is my strategy working?
+- Do I need to slow down or try something different?
+- What parts are confusing me?
+- Am I staying focused?
+
+*Example*: Halfway through the documentary, you notice you're just passively watching without taking notes. You pause, rewind, and actively start writing down new expressions.
+
+**Phase 3: Evaluating (After Learning)**
+After your study session, reflect:
+- What did I learn today?
+- What strategies worked well?
+- What didn't work, and why?
+- What will I do differently next time?
+- What should I focus on in my next session?
+
+*Example*: After the documentary, you review your notes and realize you learned 8 new expressions. You decide that pausing more frequently would help you catch even more.
+
+**The Power of Self-Reflection**
+Research consistently shows that students who regularly reflect on their learning make faster progress. Keeping a learning journal—even just a few sentences after each study session—can dramatically improve your results.
+
+**Questions for Regular Self-Reflection:**
+1. What strategies did I use today?
+2. How effective were they on a scale of 1-10?
+3. What was the most challenging part?
+4. What am I proud of?
+5. What will I try differently tomorrow?`,
+    },
+    // --- EKSEMPEL 2 ---
+    {
+      id: 'engelsk-vg1-1-1-example-2',
+      type: 'example',
+      title: 'Example: Creating a Personal Learning Plan',
+      problem: 'Emma wants to improve her English for the upcoming school year. How can she create an effective, balanced weekly study plan?',
+      solution: `**Emma's Self-Assessment:**
+First, Emma honestly evaluates her current skills and goals:
+- Strengths: Good at reading, enjoys watching English-language YouTube
+- Weaknesses: Speaking makes her nervous, writing feels slow and awkward
+- Goal: Be more confident speaking in class discussions by December
+
+**Emma's Weekly English Learning Plan:**
+
+| Day | Time | Focus | Activity | Strategy Type |
+|-----|------|-------|----------|---------------|
+| Monday | 25 min | Vocabulary | Quizlet session: 15 new words + review of previous words | Cognitive |
+| Tuesday | 30 min | Listening | English podcast (with notes on new expressions) | Cognitive |
+| Wednesday | 20 min | Speaking | Read article aloud, then summarize it verbally | Cognitive + Metacognitive |
+| Thursday | 25 min | Writing | Write 150-word journal entry about the week | Cognitive |
+| Friday | 20 min | Speaking | Practice discussion phrases, record and listen back | Cognitive + Affective |
+| Weekend | 45 min | Immersion | Watch show/movie in English (no Norwegian subtitles!) | Multiple |
+
+**Emma's Metacognitive Check-ins:**
+- Every Sunday evening: 5-minute reflection on the week—what worked? What to adjust?
+- Monthly goal check: Am I getting closer to my December speaking goal?
+
+**Emma's Affective Strategies:**
+- Reward: After completing the weekly plan, she allows herself guilt-free gaming time on Sunday
+- Anxiety management: Before speaking practice, she does 3 deep breaths and reminds herself that mistakes help her learn
+- Motivation: She has a vision board with pictures of places she wants to visit where she'll need English
+
+**Key Features of Emma's Plan:**
+1. **Specific**: Each day has a clear activity, not just "study English"
+2. **Balanced**: All four skills are covered during the week
+3. **Realistic**: 20-30 minutes per day is manageable alongside schoolwork
+4. **Flexible**: Weekends have a larger block for enjoyment-focused learning
+5. **Reflective**: Built-in check-ins to evaluate and adjust`,
+    },
+    // --- OPPGAVE 3 ---
     {
       id: 'engelsk-vg1-1-1-ex-3',
       type: 'exercise',
@@ -181,9 +314,173 @@ Managing emotions and motivation
         id: 'engelsk-vg1-1-1-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Create your own weekly English learning plan. Include at least one activity for each of the four language skills (listening, speaking, reading, writing). Be specific about what you will do and for how long.',
-        hints: ['Be realistic about your available time', 'Include activities you enjoy', 'Vary the difficulty'],
-        solution: 'A good plan is specific, realistic, and balanced across all four skills.',
+        task: 'Complete a self-assessment of your English language skills. Be honest—this is for your own benefit!',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Rate each skill from 1 (need much improvement) to 5 (very confident): Listening, Speaking, Reading, Writing',
+            solution: 'Personal reflection - ratings will vary. What matters is honest self-assessment as the starting point for improvement.',
+          },
+          {
+            label: 'b',
+            task: 'Which skill is your strongest? Give an example of when you demonstrated this strength.',
+            solution: 'Personal reflection. A good answer includes a specific example, such as: "Reading is my strongest skill. Last month I read an entire short story in English and understood the plot without using a dictionary."',
+          },
+          {
+            label: 'c',
+            task: 'Which skill needs the most improvement? What makes this skill challenging for you?',
+            solution: 'Personal reflection. A good answer identifies specific challenges, such as: "Speaking is hardest for me. I know the words in my head, but I get nervous and forget them when I have to speak in front of others."',
+          },
+          {
+            label: 'd',
+            task: 'What is one specific, measurable goal you want to achieve in English this semester?',
+            solution: 'Personal reflection. Good goals are SMART: Specific, Measurable, Achievable, Relevant, Time-bound. Example: "I want to participate in class discussions at least twice per week by the end of October."',
+          },
+        ],
+        hints: ['Be honest with yourself—accurate self-assessment is the first step to improvement', 'Think about specific situations where you use English'],
+        solution: 'Self-assessment is a crucial metacognitive skill. By understanding your current abilities and setting clear goals, you can focus your efforts effectively.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPGAVE 4 ---
+    {
+      id: 'engelsk-vg1-1-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Create your own weekly English learning plan. Use the template below and fill in specific activities for each day.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Plan activities for Monday through Friday (at least 15-30 minutes each day). Include what skill you will focus on and what specific activity you will do.',
+            solution: 'Personal plan - will vary. A good plan is specific (not just "study English" but "watch one TED talk and note 5 new words"), realistic (matches available time), and balanced (covers different skills throughout the week).',
+          },
+          {
+            label: 'b',
+            task: 'Plan a longer "immersion" activity for the weekend (30-60 minutes).',
+            solution: 'Personal plan - will vary. Good weekend activities combine learning with enjoyment: watching a film, playing a video game in English, reading a book for pleasure, listening to a playlist of English music.',
+          },
+          {
+            label: 'c',
+            task: 'Describe one affective strategy you will use to stay motivated and manage any anxiety.',
+            solution: 'Personal plan - will vary. Examples include: setting up a reward system, practicing positive self-talk before challenging activities, using calming techniques before speaking tasks, or finding a study buddy for accountability.',
+          },
+        ],
+        hints: ['Be realistic about your available time', 'Include activities you genuinely enjoy', 'Balance all four skills over the week', 'Build in reflection time'],
+        solution: 'A good learning plan is personalized to your goals, realistic about your time, and includes both skill development and enjoyment. Remember to actually follow your plan—and adjust it based on what you learn about yourself!',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-1-1-summary',
+      type: 'text',
+      content: `## Chapter Summary: Language Learning Strategies
+
+**Key Takeaways:**
+
+1. **Strategic learning is more effective than passive studying.** The most successful language learners actively choose and apply appropriate strategies.
+
+2. **Four categories of strategies work together:**
+   - **Cognitive**: Working directly with language (notes, associations, practice)
+   - **Metacognitive**: Planning, monitoring, and evaluating your learning
+   - **Social**: Learning through interaction with others
+   - **Affective**: Managing emotions, motivation, and anxiety
+
+3. **Metacognition is especially powerful.** By planning before, monitoring during, and evaluating after learning, you take control of your progress.
+
+4. **Self-assessment is the starting point.** Understanding your strengths, weaknesses, and goals allows you to focus your efforts effectively.
+
+5. **A good learning plan is:**
+   - Specific (clear activities, not vague intentions)
+   - Balanced (all four skills throughout the week)
+   - Realistic (fits your available time)
+   - Flexible (adjustable based on what works)
+   - Reflective (includes regular self-evaluation)
+
+**Looking Ahead:**
+In the following chapters, we will explore specific tools and techniques for language learning, including digital resources, pronunciation strategies, and academic language. The strategies you've learned here will help you approach all of these areas more effectively.
+
+**Remember:** Every expert was once a beginner. With the right strategies and consistent effort, you can achieve your English language goals!`,
+    },
+    // --- SAMLEOPPGAVER ---
+    {
+      id: 'engelsk-vg1-1-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Comprehensive Exercise: Read the following scenario and answer the questions using what you have learned about learning strategies.',
+        subTasks: [
+          {
+            label: 'Scenario',
+            task: 'Marcus is a VG1 student who struggles with English. He spends hours reading his textbook and looking up words, but he forgets them quickly. He avoids speaking in class because he is afraid of making mistakes. When he writes essays, he uses Google Translate for whole sentences. He often feels frustrated and unmotivated.',
+            solution: '',
+          },
+          {
+            label: 'a',
+            task: 'Identify THREE problems with Marcus\'s current approach to learning English.',
+            solution: '1) He relies on passive reading without active strategies like spaced repetition or using words in context. 2) He avoids speaking practice due to anxiety, which prevents improvement in a key skill. 3) He uses Google Translate for whole sentences instead of developing his own writing skills—this is a shortcut that prevents real learning.',
+          },
+          {
+            label: 'b',
+            task: 'For each problem, suggest a specific strategy (identify the category) that could help Marcus.',
+            solution: '1) For vocabulary: Use spaced repetition with flashcards and create personal sentences using new words (Cognitive). 2) For speaking anxiety: Practice self-encouragement, start with low-pressure speaking (talking to himself), and gradually build up (Affective + Cognitive). 3) For writing: Only use translation for individual words, then construct sentences himself; ask for feedback from teacher (Cognitive + Social).',
+          },
+          {
+            label: 'c',
+            task: 'Design a simple weekly plan for Marcus that addresses his weaknesses while building on any potential strengths.',
+            solution: 'Sample plan: Monday: Vocabulary with Quizlet (15 min) + write one sentence for each word (10 min). Tuesday: Read a short article on a topic he likes (20 min). Wednesday: Speaking practice—read article aloud, then summarize verbally (15 min). Thursday: Writing—write a paragraph without translation, only look up individual words (25 min). Friday: Listening—watch YouTube video in English, note expressions (20 min). This plan is specific, balanced, and gradually builds the skills Marcus needs.',
+          },
+          {
+            label: 'd',
+            task: 'What metacognitive strategy should Marcus add to help him monitor and improve his progress?',
+            solution: 'Marcus should add regular self-reflection, such as a brief journal entry after each study session answering: What did I learn? What worked well? What was difficult? What will I try next time? He could also set specific weekly goals and check his progress each Sunday.',
+          },
+        ],
+        hints: ['Think about all four strategy categories', 'Consider both what Marcus is doing wrong and what he could do instead', 'A good plan addresses his specific challenges'],
+        solution: 'This scenario illustrates common pitfalls in language learning. By applying the strategies from this chapter—cognitive techniques for vocabulary, affective strategies for anxiety, social strategies for feedback, and metacognitive strategies for self-monitoring—Marcus can transform his approach and start making real progress.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Reflection and Application: Over the next week, implement your learning plan from Exercise 4. Then complete this reflection assignment.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Keep a brief learning journal. Each day, note: What did you do? How long? Which strategies did you use?',
+            solution: 'Personal journal - will vary. A good journal is honest and specific, tracking actual activities, time spent, and strategies employed.',
+          },
+          {
+            label: 'b',
+            task: 'At the end of the week, evaluate: Which activities did you complete? Which did you skip? Why?',
+            solution: 'Personal reflection - will vary. Honest evaluation helps identify what is realistic and what adjustments are needed.',
+          },
+          {
+            label: 'c',
+            task: 'Analyze: Which strategies worked best for you? Which felt less effective? Why do you think this is?',
+            solution: 'Personal reflection - will vary. This metacognitive analysis helps you understand your own learning style and preferences.',
+          },
+          {
+            label: 'd',
+            task: 'Revise: Based on your experience, create an improved version of your learning plan for the following week.',
+            solution: 'Personal plan - will vary. A good revised plan keeps what worked, adjusts or replaces what did not, and may add new strategies based on what you learned about yourself.',
+          },
+        ],
+        hints: ['Be completely honest in your journal—no one else needs to see it', 'There are no "wrong" answers—the goal is to learn about your own learning', 'The revised plan should be based on real experience, not just theory'],
+        solution: 'This exercise puts metacognition into practice. By planning, implementing, monitoring, and revising, you develop the self-awareness and self-regulation skills that characterize successful learners. Learning how to learn is a skill that will benefit you throughout your life!',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -198,90 +495,165 @@ export const CHAPTER_ENGELSK_VG1_1_2: TextbookChapter = {
   chapterNumber: '1.2',
   title: 'Digital Resources for Language Learning',
   description: 'Use digital tools and resources effectively for language learning and communication.',
-  estimatedMinutes: 40,
+  estimatedMinutes: 55,
   competenceGoals: ['bruke egnede digitale ressurser og andre hjelpemidler i språklæring, tekstskaping og samhandling'],
   content: [
+    // --- INTRO ---
     {
       id: 'engelsk-vg1-1-2-intro',
       type: 'text',
-      content: `## Digital Tools for Language Learning
+      content: `## The Digital Language Learning Revolution
 
-Technology has revolutionized how we learn languages. Today, you have access to resources that previous generations could only dream of.
+Never before in history have language learners had access to so many resources. Your smartphone alone contains more learning opportunities than an entire library from just 30 years ago. The challenge today is not finding resources—it's knowing how to use them effectively and responsibly.
 
-**Categories of Digital Language Learning Tools:**
+Think about it: you can watch authentic British TV shows, chat with English speakers on the other side of the world, get instant feedback on your pronunciation, and access thousands of lessons—all for free or at minimal cost. Previous generations had to travel abroad or pay for expensive private tutors to get similar experiences!
 
-1. **Language Learning Apps**
-   - Duolingo, Babbel, Memrise
-   - Good for vocabulary and basic grammar
-   - Gamification keeps you motivated
+**Learning Goals for This Chapter:**
+By the end of this chapter, you will be able to:
+- Identify and categorize different types of digital learning tools
+- Select appropriate digital resources for different learning goals
+- Use AI tools responsibly and effectively for language learning
+- Develop critical thinking about digital tool use
+- Create a personal digital learning toolkit
 
-2. **Online Dictionaries and Translators**
-   - Cambridge Dictionary, Merriam-Webster
-   - DeepL, Google Translate
-   - Use for understanding, not copying!
+**The Digital Learning Landscape:**
 
-3. **Media Platforms**
-   - YouTube, Netflix, Spotify
-   - Authentic content in English
-   - Subtitles help comprehension
+| Category | Examples | Best For |
+|----------|----------|----------|
+| Learning Apps | Duolingo, Babbel, Memrise | Vocabulary, grammar drills, motivation |
+| Dictionaries | Cambridge, Oxford, Merriam-Webster | Word lookup, pronunciation, examples |
+| Translation Tools | DeepL, Google Translate | Comprehension, individual words |
+| Media Platforms | Netflix, YouTube, Spotify | Listening, authentic language |
+| Communication | Tandem, HelloTalk, Discord | Speaking practice, real conversations |
+| AI Assistants | ChatGPT, Claude, language AI | Explanations, practice, feedback |
 
-4. **Communication Tools**
-   - Language exchange apps (Tandem, HelloTalk)
-   - Video conferencing (Zoom, Teams)
-   - Practice with real people worldwide`,
+**The Key Principle:**
+Digital tools are supplements to learning, not replacements for it. The most effective learners use technology strategically while still doing the hard work of practicing, making mistakes, and building genuine skills.`,
     },
+    // --- TEORI 1: Categories of Digital Tools ---
     {
-      id: 'engelsk-vg1-1-2-def-1',
+      id: 'engelsk-vg1-1-2-theory-1',
       type: 'definition',
-      title: 'Using AI Tools Responsibly',
-      content: `**AI Language Tools (ChatGPT, etc.):**
-Can be helpful for:
-- Explaining grammar rules
-- Providing example sentences
-- Checking your writing for errors
-- Practicing conversation
+      title: 'Categories of Digital Language Learning Tools',
+      content: `Understanding the different categories of digital tools helps you choose the right one for each learning goal.
 
-**Important Guidelines:**
-- Use AI as a tutor, not a replacement for learning
-- Don't copy AI-generated text as your own work
-- Verify information with other sources
-- Develop your own voice and style
-- Remember: AI makes mistakes too!
+**1. Language Learning Apps**
+*Examples: Duolingo, Babbel, Memrise, Anki*
 
-**The goal is to LEARN, not to let AI do the work for you.**`,
+**Strengths:**
+- Gamification makes learning addictive and fun
+- Spaced repetition helps vocabulary stick
+- Convenient—learn anywhere, anytime
+- Track progress and maintain streaks
+
+**Limitations:**
+- Often focus on isolated vocabulary and grammar
+- May not prepare you for real conversations
+- Can become repetitive
+- Limited feedback on pronunciation
+
+**Best Use:** Daily vocabulary building, grammar practice, maintaining motivation
+
+**2. Online Dictionaries and Thesauruses**
+*Examples: Cambridge Dictionary, Oxford Learner's, Merriam-Webster, Thesaurus.com*
+
+**Strengths:**
+- Definitions written for learners (not just native speakers)
+- Pronunciation guides with audio
+- Example sentences showing real usage
+- Word families and collocations
+
+**Limitations:**
+- Requires knowing approximately how to spell a word
+- Multiple definitions can be confusing
+- May not capture slang or very recent usage
+
+**Best Use:** Looking up unknown words, checking pronunciation, finding synonyms
+
+**3. Translation Tools**
+*Examples: DeepL, Google Translate, Microsoft Translator*
+
+**Strengths:**
+- Instant translations help comprehension
+- Increasingly accurate, especially for common languages
+- Can translate entire documents
+- Useful for getting the gist of content
+
+**Limitations:**
+- Translations may be awkward or unnatural
+- Nuance and cultural context often lost
+- Can become a crutch that prevents learning
+- May contain errors, especially with idioms
+
+**Best Use:** Understanding the main idea of texts, checking individual words (not whole sentences you need to write yourself)
+
+**4. Media Platforms**
+*Examples: Netflix, YouTube, Spotify, podcasts*
+
+**Strengths:**
+- Authentic language as native speakers actually use it
+- Engaging content on topics you enjoy
+- Variety of accents and speaking styles
+- Subtitles available in multiple languages
+
+**Limitations:**
+- Can be passive if not used strategically
+- Fast speech and slang can be overwhelming
+- No built-in feedback or correction
+- Easy to zone out without active engagement
+
+**Best Use:** Listening comprehension, learning natural expressions, exposure to different accents`,
     },
+    // --- EKSEMPEL 1 ---
     {
       id: 'engelsk-vg1-1-2-example-1',
       type: 'example',
-      title: 'Example: Using Netflix for Language Learning',
-      problem: 'How can you use streaming services effectively to improve your English?',
-      solution: `**The Netflix Method:**
+      title: 'Example: The Netflix Method for Language Learning',
+      problem: 'How can you transform passive TV watching into active language learning?',
+      solution: `**The Netflix Method: A Step-by-Step Guide**
 
-**Step 1: Choose the right content**
-- Start with shows you've already seen in Norwegian
-- Choose content with clear speech (avoid heavy accents initially)
-- Pick topics that interest you
+**Step 1: Choose the Right Content**
+- *Beginner tip*: Start with shows you've already seen in Norwegian—you'll understand the plot and can focus on language
+- *Genre matters*: Documentaries and interview shows tend to have clearer speech; action films have less dialogue
+- *Find your interest*: You'll learn more from content you genuinely enjoy
 
-**Step 2: Use subtitles strategically**
-- First viewing: English audio + Norwegian subtitles
-- Second viewing: English audio + English subtitles
-- Advanced: English audio, no subtitles
+**Recommended progression:**
+1. Animated films (clear speech, simpler vocabulary)
+2. Reality shows (everyday conversations)
+3. Sitcoms (natural dialogue, cultural references)
+4. Dramas (complex emotions and vocabulary)
+5. Fast-paced thrillers (challenging speech, slang)
 
-**Step 3: Active watching**
-- Pause to look up unfamiliar words
-- Repeat phrases out loud
-- Note useful expressions in a vocabulary journal
+**Step 2: Use Subtitles Strategically**
 
-**Step 4: Shadowing technique**
-- Play a short clip
-- Pause after each sentence
-- Repeat exactly what you heard, copying pronunciation
+| Level | Audio | Subtitles | Purpose |
+|-------|-------|-----------|---------|
+| 1 | English | Norwegian | Get the gist, connect sound to meaning |
+| 2 | English | English | Connect written and spoken forms |
+| 3 | English | None | Test your listening comprehension |
 
-**Recommended shows for learners:**
-- The Office (US) - everyday vocabulary
-- Stranger Things - adventure vocabulary
-- The Crown - formal British English`,
+*Pro tip*: Watch the same scene multiple times at different levels!
+
+**Step 3: Active Watching Techniques**
+- **Pause frequently**: Stop when you hear an interesting expression
+- **Keep a vocabulary journal**: Write down new words and phrases with context
+- **Note timestamps**: "23:15 - great way to express frustration"
+- **Repeat out loud**: Copy the pronunciation and intonation
+
+**Step 4: The Shadowing Technique**
+1. Play a short clip (10-30 seconds)
+2. Pause after each sentence
+3. Repeat exactly what you heard, copying the speaker's rhythm, intonation, and accent
+4. Rewind and compare your version to the original
+5. Repeat until you can match the original closely
+
+**Example Session (30 minutes):**
+- 0-5 min: Watch a scene normally, get the gist
+- 5-15 min: Rewatch with English subtitles, pause for new vocabulary
+- 15-25 min: Practice shadowing 2-3 sentences from the scene
+- 25-30 min: Review vocabulary, update your journal`,
     },
+    // --- OPPGAVE 1 ---
     {
       id: 'engelsk-vg1-1-2-ex-1',
       type: 'exercise',
@@ -289,38 +661,52 @@ Can be helpful for:
         id: 'engelsk-vg1-1-2-ex-1',
         number: '1',
         type: 'classic',
-        task: 'Evaluate these uses of digital translation tools. Which are appropriate and which are problematic?',
+        task: 'Evaluate these uses of digital tools. For each scenario, decide if the use is APPROPRIATE (helps learning), PROBLEMATIC (hinders learning or is dishonest), or DEPENDS (context matters).',
         subTasks: [
           {
             label: 'a',
-            task: 'Using Google Translate to understand the main idea of a news article',
-            solution: 'Appropriate - using it as a comprehension aid',
-            multipleChoiceOptions: ['Appropriate', 'Problematic'],
+            task: 'Using Google Translate to understand the main idea of a news article you want to discuss in class.',
+            solution: 'APPROPRIATE - Using translation as a comprehension aid to access authentic content you will then discuss in your own words is a valid learning strategy.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
           },
           {
             label: 'b',
-            task: 'Writing an essay in Norwegian and translating the whole thing to English',
-            solution: 'Problematic - you\'re not developing your own English writing skills',
-            multipleChoiceOptions: ['Appropriate', 'Problematic'],
+            task: 'Writing an essay in Norwegian first, then putting the whole thing through Google Translate to submit.',
+            solution: 'PROBLEMATIC - This bypasses the learning process entirely. You are not practicing English writing skills, and the result may contain translation errors. It may also be considered academic dishonesty.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
           },
           {
             label: 'c',
-            task: 'Looking up how to say a specific word when writing',
-            solution: 'Appropriate - expanding vocabulary while writing',
-            multipleChoiceOptions: ['Appropriate', 'Problematic'],
+            task: 'Looking up how to say a specific word (like "consequence") when writing an essay.',
+            solution: 'APPROPRIATE - Looking up individual words to expand your vocabulary is exactly what dictionaries are for. You are still constructing the sentence yourself.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
           },
           {
             label: 'd',
-            task: 'Having ChatGPT write your homework assignment',
-            solution: 'Problematic - academic dishonesty and no learning',
-            multipleChoiceOptions: ['Appropriate', 'Problematic'],
+            task: 'Asking ChatGPT to write your homework assignment for you.',
+            solution: 'PROBLEMATIC - This is academic dishonesty and prevents you from learning. You are submitting work that is not your own.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
+          },
+          {
+            label: 'e',
+            task: 'Using Duolingo for 30 minutes every day as your only English practice.',
+            solution: 'DEPENDS - Duolingo is a good tool, but if it is your ONLY practice, you are missing out on speaking, real listening, and extended writing. It should be part of a broader approach, not the whole thing.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
+          },
+          {
+            label: 'f',
+            task: 'Asking ChatGPT to explain a grammar rule you do not understand, with examples.',
+            solution: 'APPROPRIATE - Using AI as a tutor to explain concepts is a legitimate learning strategy. You are seeking understanding, not having your work done for you.',
+            multipleChoiceOptions: ['Appropriate', 'Problematic', 'Depends'],
           },
         ],
-        solution: 'a) Appropriate, b) Problematic, c) Appropriate, d) Problematic',
+        hints: ['Think about whether the use helps you LEARN or just helps you AVOID learning', 'Consider the difference between comprehension aids and dishonest shortcuts'],
+        solution: 'The key distinction is between using tools to SUPPORT learning (comprehension, explanation, vocabulary expansion) versus using them to REPLACE learning (having the tool do the work for you). Ethical use also matters—submitting AI-generated text as your own work is dishonest.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- OPPGAVE 2 ---
     {
       id: 'engelsk-vg1-1-2-ex-2',
       type: 'exercise',
@@ -328,13 +714,151 @@ Can be helpful for:
         id: 'engelsk-vg1-1-2-ex-2',
         number: '2',
         type: 'classic',
-        task: 'Create a list of 5 digital resources you currently use or plan to use for learning English. For each, explain how you use it and what skill it helps develop.',
-        hints: ['Think about apps, websites, and media', 'Consider all four language skills'],
-        solution: 'Answers will vary. Good responses include specific tools and clear explanations of their use.',
+        task: 'Match each learning goal with the BEST digital tool category.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'You want to build vocabulary with daily practice and track your streak.',
+            solution: 'Language Learning App (Duolingo, Memrise) - Gamification and spaced repetition make these ideal for vocabulary building and habit formation.',
+            multipleChoiceOptions: ['Learning App', 'Dictionary', 'Translation Tool', 'Media Platform', 'AI Assistant'],
+          },
+          {
+            label: 'b',
+            task: 'You want to understand a complex article in a British newspaper.',
+            solution: 'Translation Tool (for overall comprehension) + Dictionary (for specific words). Start with translation for the gist, then use dictionary for key vocabulary you want to learn.',
+            multipleChoiceOptions: ['Learning App', 'Dictionary', 'Translation Tool', 'Media Platform', 'AI Assistant'],
+          },
+          {
+            label: 'c',
+            task: 'You want to improve your ability to understand fast-spoken American English.',
+            solution: 'Media Platform (Netflix, YouTube) - Authentic content with American speakers, with subtitles available, allows you to train your ear to fast speech.',
+            multipleChoiceOptions: ['Learning App', 'Dictionary', 'Translation Tool', 'Media Platform', 'AI Assistant'],
+          },
+          {
+            label: 'd',
+            task: 'You need to understand the difference between "affect" and "effect."',
+            solution: 'Dictionary (for definitions and examples) or AI Assistant (for explanation and practice sentences). Both can clarify this common confusion.',
+            multipleChoiceOptions: ['Learning App', 'Dictionary', 'Translation Tool', 'Media Platform', 'AI Assistant'],
+          },
+        ],
+        hints: ['Think about what each type of tool does best', 'Sometimes more than one tool could work—consider which is BEST for the specific goal'],
+        solution: 'Different tools serve different purposes. Strategic learners match the tool to the task rather than relying on just one tool for everything.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- TEORI 2: AI Tools and Responsible Use ---
+    {
+      id: 'engelsk-vg1-1-2-theory-2',
+      type: 'definition',
+      title: 'AI Tools: Powerful Helpers, Not Replacements',
+      content: `Artificial Intelligence tools like ChatGPT, Claude, and specialized language AI have become increasingly sophisticated. Used well, they can accelerate your learning. Used poorly, they can prevent you from learning at all.
+
+**What AI Language Tools CAN Do Well:**
+
+1. **Explain Concepts**
+   - "Explain the present perfect tense with examples"
+   - "What's the difference between 'must' and 'have to'?"
+   - "Why do we use 'the' here but not there?"
+
+2. **Provide Practice**
+   - "Give me 5 sentences to translate about travel"
+   - "Create a dialogue between two friends planning a party"
+   - "Quiz me on irregular verb past tenses"
+
+3. **Give Feedback on Your Writing**
+   - "Check this paragraph for grammar errors"
+   - "Is this sentence natural-sounding?"
+   - "How could I make this essay more formal?"
+
+4. **Simulate Conversations**
+   - "Let's have a conversation where you're a hotel receptionist"
+   - "Practice a job interview with me"
+   - "Discuss climate change with me as a native speaker would"
+
+**What AI Tools Should NOT Be Used For:**
+
+1. **Writing Your Assignments**
+   - Submitting AI-generated text as your own is dishonest
+   - You learn by writing, not by having a machine write for you
+   - Teachers can often detect AI writing
+
+2. **Replacing Real Human Interaction**
+   - AI cannot fully replicate the unpredictability of real conversation
+   - Social and cultural nuances are learned through human contact
+   - AI cannot give you the confidence that comes from successful real-world communication
+
+3. **Replacing Your Own Thinking**
+   - If AI does your thinking, you don't develop critical skills
+   - Relying on AI for answers means you don't build knowledge
+   - Education is about developing YOUR capabilities
+
+**The Golden Rule:**
+Ask yourself: "Am I using this tool to learn more effectively, or am I using it to avoid learning?"
+
+**Responsible AI Use Checklist:**
+- I am learning from the AI's output, not just copying it
+- I would be comfortable if my teacher saw exactly how I used this tool
+- I am developing my own skills and voice, not replacing them
+- I verify important information from other sources
+- I use AI to understand, not to avoid understanding`,
+    },
+    // --- EKSEMPEL 2 ---
+    {
+      id: 'engelsk-vg1-1-2-example-2',
+      type: 'example',
+      title: 'Example: Ethical vs. Unethical AI Use',
+      problem: 'Compare these two students using AI for an essay assignment on climate change.',
+      solution: `**Student A: Unethical Use**
+
+1. Opens ChatGPT
+2. Types: "Write a 500-word essay on climate change for a high school student"
+3. Copies the entire output
+4. Submits it as their own work
+
+**Problems with this approach:**
+- Academic dishonesty—passing off AI work as their own
+- Zero learning—no research, thinking, or writing practice
+- No personal voice—sounds like a machine, not a student
+- Risk of detection—AI writing has patterns teachers recognize
+- Factual risk—AI may include incorrect or outdated information
+
+---
+
+**Student B: Ethical and Effective Use**
+
+1. **Brainstorms independently first**: What do I already know? What are my opinions?
+
+2. **Uses AI for research guidance**:
+   - "What are the main arguments in the climate change debate?"
+   - "What are some reliable sources to research climate policy?"
+
+3. **Writes their own first draft** with their own words and ideas
+
+4. **Uses AI for feedback**:
+   - "Check this paragraph for grammar errors"
+   - "Is my argument clear and logical?"
+   - "Suggest ways I could make this introduction stronger"
+
+5. **Revises based on feedback**, making their own choices about what to change
+
+6. **Uses AI to check vocabulary**:
+   - "Is 'huge' the best word here, or is there a more academic alternative?"
+
+7. **Final product is THEIR work**, improved with AI assistance
+
+**Why this approach works:**
+- The student did the thinking and writing
+- AI served as a tutor and editor, not a ghost-writer
+- The student learned and improved their skills
+- The essay reflects the student's voice and ideas
+- This use would pass any ethics test
+
+**The Result:**
+Student A has 500 words and no new skills.
+Student B has 500 words AND improved research, writing, and revision skills.`,
+    },
+    // --- OPPGAVE 3 ---
     {
       id: 'engelsk-vg1-1-2-ex-3',
       type: 'exercise',
@@ -342,9 +866,161 @@ Can be helpful for:
         id: 'engelsk-vg1-1-2-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Find an English podcast or YouTube channel on a topic that interests you. Listen to/watch one episode and write a short summary (100-150 words) of what you learned. Include 5 new words or expressions you encountered.',
-        hints: ['Choose a topic you genuinely enjoy', 'Pause and replay difficult parts', 'Write down timestamps for interesting parts'],
-        solution: 'A good response includes a clear summary and vocabulary items with definitions.',
+        task: 'For each scenario, describe how you could use AI ETHICALLY to help with the task. Be specific about what you would ask and how you would use the response.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'You need to give a presentation on a book you read, but you struggle to organize your ideas clearly.',
+            solution: 'Ethical approach: Write your own notes about the book first, then ask AI: "I want to present about [book]. My main points are [list]. Can you suggest a logical order and what I might be missing?" Use the suggestions to reorganize YOUR ideas, not to generate new content you haven\'t thought of.',
+          },
+          {
+            label: 'b',
+            task: 'You wrote an email to a potential employer but are not sure if it sounds professional enough.',
+            solution: 'Ethical approach: Write the email yourself first, then ask AI: "Is this email appropriately formal for a job application? Are there any phrases that sound too casual?" Review the feedback and make changes yourself, keeping your own message and voice.',
+          },
+          {
+            label: 'c',
+            task: 'You are confused about when to use "who" vs "whom" in sentences.',
+            solution: 'Ethical approach: Ask AI: "Explain the difference between who and whom with examples. Give me practice sentences to identify which is correct." This uses AI as a tutor to build understanding you can apply independently.',
+          },
+        ],
+        hints: ['Always write/think first before asking AI', 'Ask for explanations and feedback, not finished products', 'The goal is learning, not outsourcing'],
+        solution: 'Ethical AI use means using the technology to enhance YOUR learning and work, not to replace it. The distinction is between AI as a tutor/helper versus AI as a ghost-writer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPGAVE 4 ---
+    {
+      id: 'engelsk-vg1-1-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Create your personal "Digital Learning Toolkit." List 5-7 specific digital resources you will use for learning English, organized by purpose.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'List your tools in this format: Tool Name | Purpose | How I Will Use It | Skill(s) It Develops',
+            solution: 'Example format:\n- Cambridge Dictionary | Vocabulary lookup | Check pronunciation and find example sentences when I encounter new words | Reading, Vocabulary\n- Netflix | Listening practice | Watch 30 min 3x/week with English subtitles, noting new expressions | Listening, Vocabulary\n- ChatGPT | Grammar help | Ask for explanations when confused, get feedback on drafts | Grammar, Writing\n- Spotify playlists | Listening | Play English podcasts during commute | Listening\n- Duolingo | Daily practice | 10-minute daily session to maintain streak and review vocabulary | Vocabulary, Grammar',
+          },
+          {
+            label: 'b',
+            task: 'Explain why you chose these specific tools over alternatives.',
+            solution: 'Personal reflection explaining choices. Good answers show awareness of personal learning style, goals, and available time. Example: "I chose Netflix over YouTube because I find it easier to focus on longer content, and the subtitle options are better."',
+          },
+          {
+            label: 'c',
+            task: 'Identify one potential risk or limitation for each tool and how you will address it.',
+            solution: 'Example: "Risk with Duolingo: It can become repetitive and focus too much on translation rather than real communication. Solution: I will limit it to 15 minutes and supplement with speaking practice." Shows critical thinking about tool limitations.',
+          },
+        ],
+        hints: ['Choose tools that match YOUR learning style and goals', 'Include a variety of tools for different skills', 'Be realistic about what you will actually use'],
+        solution: 'A good digital toolkit is personalized, varied, and realistic. It should cover multiple skills and include awareness of each tool\'s limitations.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    // --- OPPSUMMERING ---
+    {
+      id: 'engelsk-vg1-1-2-summary',
+      type: 'text',
+      content: `## Chapter Summary: Digital Resources for Language Learning
+
+**Key Takeaways:**
+
+1. **Digital tools have transformed language learning.** You have unprecedented access to authentic content, practice opportunities, and learning resources—most of them free.
+
+2. **Different tools serve different purposes:**
+   - *Learning apps*: Vocabulary, grammar drills, habit formation
+   - *Dictionaries*: Word lookup, pronunciation, example sentences
+   - *Translation tools*: Comprehension support, individual words
+   - *Media platforms*: Authentic listening, natural expressions
+   - *AI assistants*: Explanations, feedback, practice conversations
+
+3. **AI tools are powerful but require responsibility:**
+   - Use AI to LEARN, not to avoid learning
+   - Get explanations, feedback, and practice—not finished products
+   - Writing your own work, with AI support, is ethical
+   - Having AI write your work and submitting it as your own is not
+
+4. **Active use beats passive consumption.** Watching Netflix with a vocabulary journal is more valuable than just watching. Using Duolingo as part of a broader plan is more effective than relying on it alone.
+
+5. **Critical thinking matters.** Not all tools are equally useful for all purposes. Strategic learners match tools to tasks and are aware of each tool's limitations.
+
+**The Bottom Line:**
+Technology gives you incredible opportunities—but the learning still happens in YOUR brain. No app can learn English for you. Use digital tools wisely to accelerate your learning, not to replace it.`,
+    },
+    // --- SAMLEOPPGAVER ---
+    {
+      id: 'engelsk-vg1-1-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Practical Application: Find and analyze an English podcast or YouTube channel on a topic you are genuinely interested in.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Find a channel/podcast you enjoy. List the name, topic, and why you chose it.',
+            solution: 'Personal choice. Good answers identify a specific channel with clear reasoning about why it is useful for learning (clear speech, interesting topic, appropriate level).',
+          },
+          {
+            label: 'b',
+            task: 'Watch/listen to one episode (15-30 minutes). Write a summary in your own words (100-150 words).',
+            solution: 'Personal summary demonstrating comprehension. Should be written in the student\'s own words, not copied from description.',
+          },
+          {
+            label: 'c',
+            task: 'Record 5 new words or expressions you learned. For each, include: the word/phrase, the context where it appeared, and your own example sentence using it.',
+            solution: 'Format:\n1. Word: "accountability"\n   Context: "Leaders must take accountability for their decisions"\n   My sentence: "Students need to take accountability for their own learning."\n(Repeat for 5 items)',
+          },
+          {
+            label: 'd',
+            task: 'Evaluate the resource: How useful was it for learning? What level of English is it suitable for? Would you recommend it to a classmate?',
+            solution: 'Personal evaluation showing critical thinking. Good answers consider: speech clarity, vocabulary level, subtitle availability, episode length, engagement level.',
+          },
+        ],
+        hints: ['Choose something you would actually want to watch again', 'Use subtitles if needed, but challenge yourself', 'Pause and replay difficult parts', 'Write notes as you watch/listen'],
+        solution: 'This exercise combines multiple skills: finding resources, active listening, vocabulary building, writing, and critical evaluation. These skills transfer to independent learning beyond the classroom.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'engelsk-vg1-1-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'engelsk-vg1-1-2-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Critical Thinking: Read the following debate and develop your own position.',
+        subTasks: [
+          {
+            label: 'Context',
+            task: 'Some teachers believe AI tools like ChatGPT should be completely banned in schools because students use them to cheat. Others believe they should be embraced as powerful learning tools. What do you think?',
+            solution: '',
+          },
+          {
+            label: 'a',
+            task: 'List 2-3 arguments FOR allowing AI tools in language learning.',
+            solution: 'Sample arguments: 1) AI can provide personalized explanations and tutoring that busy teachers cannot always offer individually. 2) Learning to use AI responsibly is itself a valuable skill for the future workplace. 3) Banning tools is impractical—students will use them anyway, so teaching ethical use is better.',
+          },
+          {
+            label: 'b',
+            task: 'List 2-3 arguments AGAINST allowing AI tools in language learning.',
+            solution: 'Sample arguments: 1) The temptation to cheat is too strong, and schools cannot adequately monitor use. 2) Students may become dependent on AI and never develop their own thinking skills. 3) Writing is a process that develops thinking—outsourcing it to AI prevents this cognitive development.',
+          },
+          {
+            label: 'c',
+            task: 'Write your own position (150-200 words). Include a clear thesis and address at least one counterargument.',
+            solution: 'Personal position with reasoning. A strong answer: states a clear position, provides supporting reasons, acknowledges the other side, and proposes practical implementation (e.g., "AI should be allowed for feedback but not for generating content").',
+          },
+        ],
+        hints: ['Consider both sides fairly before stating your position', 'Think about what actually happens in schools, not just ideals', 'Your position should be nuanced—pure "ban" or "allow everything" may be too simple'],
+        solution: 'This is a genuine contemporary debate with valid arguments on both sides. Strong positions acknowledge complexity rather than presenting one-sided arguments. The goal is to develop critical thinking, not to find the "right" answer.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

@@ -113,7 +113,11 @@ import { CHAPTERS_1T_MODELLERING } from './textbook-content-1t-modellering';
 
 // Yrkesfag VG1
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
-import { CHAPTERS_BYGG_ANLEGG_VG1_PART1 } from './textbook-content-bygg-anlegg-vg1';
+import { CHAPTERS_ELEKTRO_DATA_VG1_PART2 } from './textbook-content-elektro-data-vg1-del2';
+import { CHAPTERS_ELEKTRO_DATA_VG1_PART3 } from './textbook-content-elektro-data-vg1-del3';
+import { CHAPTERS_ELEKTRO_DATA_VG1_PART4 } from './textbook-content-elektro-data-vg1-del4';
+import { CHAPTERS_ELEKTRO_DATA_VG1_PART5 } from './textbook-content-elektro-data-vg1-del5';
+import { CHAPTERS_BYGG_ANLEGG_VG1 } from './textbook-content-bygg-anlegg-vg1';
 import { CHAPTERS_TIF_VG1_PART1 } from './textbook-content-tif-vg1';
 import { TEXTBOOK_CONTENT_HANDVERK_DESIGN_VG1_PART1 } from './textbook-content-handverk-design-vg1';
 import { CHAPTERS_NATURBRUK_VG1 } from './textbook-content-naturbruk-vg1';
@@ -446,9 +450,13 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Yrkesfag VG1
   // Elektro og datateknologi VG1
   ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART1.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART2.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART3.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART4.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART5.map(c => [c.id, c])),
 
   // Bygg- og anleggsteknikk VG1
-  ...Object.fromEntries(CHAPTERS_BYGG_ANLEGG_VG1_PART1.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_BYGG_ANLEGG_VG1.map(c => [c.id, c])),
 
   // Teknologi- og industrifag VG1
   ...Object.fromEntries(CHAPTERS_TIF_VG1_PART1.map(c => [c.id, c])),
