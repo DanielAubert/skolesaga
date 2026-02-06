@@ -31,6 +31,36 @@ I dette kapittelet skal vi se nærmere på de viktigste næringsstoffene, hvorda
       content: 'Makronæringsstoffer er næringsstoffer som kroppen trenger i store mengder. De tre hovedgruppene er karbohydrater, proteiner og fett. Disse gir kroppen energi (målt i kilokalorier eller kilojoule) og har hver sine viktige funksjoner.',
     },
     {
+      id: 'kroppsoving-vg1-3-1-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex2',
+        number: '1',
+        type: 'classic',
+        task: 'Hvilke tre makronæringsstoffer trenger kroppen i store mengder?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Nevn de tre makronæringsstoffene',
+            solution: 'Karbohydrater, proteiner og fett',
+            multipleChoiceOptions: ['Karbohydrater, proteiner og fett', 'Vitaminer, mineraler og vann', 'Sukker, salt og fiber', 'Jern, kalsium og vitamin D'],
+          },
+          {
+            label: 'b',
+            task: 'Hvilken funksjon har proteiner i kroppen?',
+            solution: 'Proteiner bygger og vedlikeholder kroppens celler, inkludert muskler, hud, hår og negler. De brukes også til å lage hormoner og enzymer.',
+          },
+          {
+            label: 'c',
+            task: 'Hvor mye energi gir fett per gram sammenlignet med karbohydrater?',
+            solution: 'Fett gir 9 kcal per gram, mens karbohydrater gir 4 kcal per gram. Fett gir altså mer enn dobbelt så mye energi.',
+          },
+        ],
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-1-text2',
       type: 'text',
       content: `## Karbohydrater - kroppens viktigste energikilde
@@ -56,6 +86,19 @@ Karbohydrater brytes ned til glukose (blodsukker) som cellene bruker som energi.
       content: 'Glykemisk indeks måler hvor raskt karbohydrater i en matvare brytes ned til glukose og kommer ut i blodet. Matvarer med høy GI gir rask blodsukkerstigning, mens matvarer med lav GI gir jevnere blodsukker over lengre tid. Matvarer med lav GI gir bedre metthetsfølelse og stabil energi.',
     },
     {
+      id: 'kroppsoving-vg1-3-1-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex1',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom enkle og sammensatte karbohydrater, og gi eksempler på matvarer i hver kategori.',
+        solution: 'Enkle karbohydrater består av ett eller to sukkerenheter og brytes raskt ned i kroppen. De gir rask energi, men holder ikke lenge. Eksempler er sukker, honning, brus og søtsaker. Sammensatte karbohydrater består av lange kjeder av sukkerenheter som tar lengre tid å bryte ned. De gir langvarig og stabil energi. Eksempler er fullkornsbrød, pasta, ris, poteter, havregryn og belgfrukter. Sammensatte karbohydrater inneholder også mer kostfiber, vitaminer og mineraler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-1-text3',
       type: 'text',
       content: `## Proteiner - kroppens byggesteiner
@@ -77,7 +120,7 @@ Kroppen trenger protein kontinuerlig gjennom dagen. Anbefalingen er ca. 1,2-2 gr
       type: 'example',
       title: 'Proteinbehov for en aktiv ungdom',
       problem: 'Maria er 16 år, veier 60 kg og trener fotball 4 ganger i uken. Hvor mye protein bør hun få i seg daglig?',
-      solution: `For en aktivt tренerende ungdom anbefales 1,5-1,8 g protein per kg kroppsvekt.
+      solution: `For en aktivt trenerende ungdom anbefales 1,5-1,8 g protein per kg kroppsvekt.
 
 Beregning:
 60 kg × 1,5 g = 90 gram protein per dag (minimum)
@@ -122,6 +165,19 @@ Det finnes ulike typer fett:
 Fett gir mer enn dobbelt så mye energi som karbohydrater og protein (9 kcal per gram vs. 4 kcal per gram).`,
     },
     {
+      id: 'kroppsoving-vg1-3-1-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex7',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom mettet og umettet fett? Gi eksempler på matvarer.',
+        solution: 'Mettet fett er hovedsakelig animalsk fett som er fast ved romtemperatur. Det finnes i kjøtt, meieriprodukter (smør, ost), kokos og palmeolje. Dette fettet bør spises med måte. Umettet fett er planteolje og fett fra fisk som er flytende ved romtemperatur. Det inkluderer omega-3 og omega-6 fettsyrer. Dette sunne fettet finnes i fet fisk (laks, makrell), nøtter, frø, avokado og olivenolje. Umettet fett er hjertevennlig og beskytter blodårene, mens for mye mettet fett kan øke risikoen for hjerte- og karsykdommer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-1-def3',
       type: 'definition',
       title: 'Mikronæringsstoffer',
@@ -149,6 +205,49 @@ Fett gir mer enn dobbelt så mye energi som karbohydrater og protein (9 kcal per
 - **Jod**: Skjoldbruskkjertelen (sjømat, jodert salt)
 
 Et variert kosthold med mye frukt, grønnsaker, fullkorn og proteinrike matvarer sikrer at du får i deg alle mikronæringsstoffer.`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-1-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvilket vitamin får vi hovedsakelig fra sollys?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig vitamin',
+            solution: 'Vitamin D',
+            multipleChoiceOptions: ['Vitamin A', 'Vitamin B12', 'Vitamin C', 'Vitamin D'],
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er dette vitaminet spesielt viktig for ungdom?',
+            solution: 'Vitamin D er viktig for oppbygging av sterke bein og tenner, noe som er spesielt viktig i vekstperioden. Det styrker også immunforsvaret.',
+          },
+          {
+            label: 'c',
+            task: 'Hvilke matvarer kan vi få vitamin D fra?',
+            solution: 'Fet fisk som laks, makrell og sild, egg, og berikede melkeprodukter. Mange i Norge tar også vitamin D-tilskudd, spesielt om vinteren.',
+          },
+        ],
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-3-1-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvorfor et variert kosthold er viktig for å få i seg alle nødvendige mikronæringsstoffer.',
+        solution: 'Et variert kosthold er viktig fordi ulike matvarer inneholder ulike mikronæringsstoffer (vitaminer og mineraler). Ingen enkeltmatvare inneholder alle næringsstoffene kroppen trenger. Ved å spise variert fra alle matgrupper - grønnsaker, frukt, fullkorn, proteinkilder og meieriprodukter - sikrer vi at vi får i oss alle de 13 vitaminene og 15 essensielle mineralene kroppen trenger. Hvis vi bare spiser noen få matvarer, risikerer vi mangel på viktige næringsstoffer som kan føre til helseproblemer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-3-1-def4',
@@ -209,6 +308,19 @@ Ved å følge tallerkenmodellen får du automatisk et balansert kosthold med rik
 - Tilbehør: Tomatsaus, vann`,
     },
     {
+      id: 'kroppsoving-vg1-3-1-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-1-ex3',
+        number: '6',
+        type: 'classic',
+        task: 'Du skal lage middag og vil bruke tallerkenmodellen. Beskriv hva du vil ha på tallerkenen, og forklar hvorfor dette følger tallerkenmodellen.',
+        solution: 'Eksempel på svar: Jeg vil ha grillet kylling med ovnsbakte søtpoteter og en stor porsjon salat med tomat, agurk og paprika. Dette følger tallerkenmodellen fordi halvparten av tallerkenen består av grønnsaker (salaten med tomat, agurk og paprika), en fjerdedel er protein (kyllingen), og en fjerdedel er karbohydrater (søtpotetene). Til dette kan jeg drikke et glass melk og ha frukt til dessert. Jeg får dermed inn alle de viktige næringsstoffene kroppen trenger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-1-tip1',
       type: 'tip',
       title: 'Tips for et sunnere kosthold',
@@ -227,127 +339,16 @@ Ved å følge tallerkenmodellen får du automatisk et balansert kosthold med rik
       title: 'Kostfiber',
       content: 'Kostfiber er ufordøyelige plantefibre som er viktige for god tarmhelse. Fiber gir økt metthetsfølelse, regulerer fordøyelsen, stabiliserer blodsukkeret og kan redusere risikoen for hjerte- og karsykdommer. Finnes i frukt, grønnsaker, fullkorn, belgfrukter og nøtter.',
     },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom enkle og sammensatte karbohydrater, og gi eksempler på matvarer i hver kategori.',
-        solution: 'Enkle karbohydrater består av ett eller to sukkerenheter og brytes raskt ned i kroppen. De gir rask energi, men holder ikke lenge. Eksempler er sukker, honning, brus og søtsaker. Sammensatte karbohydrater består av lange kjeder av sukkerenheter som tar lengre tid å bryte ned. De gir langvarig og stabil energi. Eksempler er fullkornsbrød, pasta, ris, poteter, havregryn og belgfrukter. Sammensatte karbohydrater inneholder også mer kostfiber, vitaminer og mineraler.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvilke tre makronæringsstoffer trenger kroppen i store mengder?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Nevn de tre makronæringsstoffene',
-            solution: 'Karbohydrater, proteiner og fett',
-            multipleChoiceOptions: ['Karbohydrater, proteiner og fett', 'Vitaminer, mineraler og vann', 'Sukker, salt og fiber', 'Jern, kalsium og vitamin D'],
-          },
-          {
-            label: 'b',
-            task: 'Hvilken funksjon har proteiner i kroppen?',
-            solution: 'Proteiner bygger og vedlikeholder kroppens celler, inkludert muskler, hud, hår og negler. De brukes også til å lage hormoner og enzymer.',
-          },
-          {
-            label: 'c',
-            task: 'Hvor mye energi gir fett per gram sammenlignet med karbohydrater?',
-            solution: 'Fett gir 9 kcal per gram, mens karbohydrater gir 4 kcal per gram. Fett gir altså mer enn dobbelt så mye energi.',
-          },
-        ],
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Du skal lage middag og vil bruke tallerkenmodellen. Beskriv hva du vil ha på tallerkenen, og forklar hvorfor dette følger tallerkenmodellen.',
-        solution: 'Eksempel på svar: Jeg vil ha grillet kylling med ovnsbakte søtpoteter og en stor porsjon salat med tomat, agurk og paprika. Dette følger tallerkenmodellen fordi halvparten av tallerkenen består av grønnsaker (salaten med tomat, agurk og paprika), en fjerdedel er protein (kyllingen), og en fjerdedel er karbohydrater (søtpotetene). Til dette kan jeg drikke et glass melk og ha frukt til dessert. Jeg får dermed inn alle de viktige næringsstoffene kroppen trenger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilket vitamin får vi hovedsakelig fra sollys?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig vitamin',
-            solution: 'Vitamin D',
-            multipleChoiceOptions: ['Vitamin A', 'Vitamin B12', 'Vitamin C', 'Vitamin D'],
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er dette vitaminet spesielt viktig for ungdom?',
-            solution: 'Vitamin D er viktig for oppbygging av sterke bein og tenner, noe som er spesielt viktig i vekstperioden. Det styrker også immunforsvaret.',
-          },
-          {
-            label: 'c',
-            task: 'Hvilke matvarer kan vi få vitamin D fra?',
-            solution: 'Fet fisk som laks, makrell og sild, egg, og berikede melkeprodukter. Mange i Norge tar også vitamin D-tilskudd, spesielt om vinteren.',
-          },
-        ],
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Forklar hvorfor et variert kosthold er viktig for å få i seg alle nødvendige mikronæringsstoffer.',
-        solution: 'Et variert kosthold er viktig fordi ulike matvarer inneholder ulike mikronæringsstoffer (vitaminer og mineraler). Ingen enkeltmatvare inneholder alle næringsstoffene kroppen trenger. Ved å spise variert fra alle matgrupper - grønnsaker, frukt, fullkorn, proteinkilder og meieriprodukter - sikrer vi at vi får i oss alle de 13 vitaminene og 15 essensielle mineralene kroppen trenger. Hvis vi bare spiser noen få matvarer, risikerer vi mangel på viktige næringsstoffer som kan føre til helseproblemer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-3-1-exercise6',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-3-1-ex6',
-        number: '6',
+        number: '7',
         type: 'classic',
         task: 'En person som trener mye spør deg om råd om kosthold. Hvilke makronæringsstoffer er spesielt viktige, og hvorfor?',
         solution: 'For en person som trener mye er alle tre makronæringsstoffer viktige: Karbohydrater er spesielt viktige fordi de er musklenes primære energikilde under trening og må fylles på regelmessig. Proteiner er nødvendige for å reparere og bygge muskelvev som brytes ned under trening - behovet øker til 1,5-2g per kg kroppsvekt. Sunt fett er viktig for langvarig energi, hormonproduksjon og opptak av fettløselige vitaminer. En aktiv person bør spise regelmessige måltider med god balanse mellom disse tre, følge tallerkenmodellen, og sørge for å få i seg protein etter trening.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-1-exercise7',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-1-ex7',
-        number: '7',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom mettet og umettet fett? Gi eksempler på matvarer.',
-        solution: 'Mettet fett er hovedsakelig animalsk fett som er fast ved romtemperatur. Det finnes i kjøtt, meieriprodukter (smør, ost), kokos og palmeolje. Dette fettet bør spises med måte. Umettet fett er planteolje og fett fra fisk som er flytende ved romtemperatur. Det inkluderer omega-3 og omega-6 fettsyrer. Dette sunne fettet finnes i fet fisk (laks, makrell), nøtter, frø, avokado og olivenolje. Umettet fett er hjertevennlig og beskytter blodårene, mens for mye mettet fett kan øke risikoen for hjerte- og karsykdommer.',
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -432,6 +433,19 @@ Vann er ikke bare en drikke - det er en aktiv deltaker i alle kroppsprosesser:
 - Hjelper til med å regulere pH-balansen`,
     },
     {
+      id: 'kroppsoving-vg1-3-2-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar tre viktige funksjoner vann har i kroppen.',
+        solution: 'Vann har mange viktige funksjoner i kroppen. For det første transporterer det næringsstoffer, oksygen og avfallsstoffer via blodet, som består av 90% vann. For det andre regulerer det kroppstemperaturen gjennom svetting og fordamping fra huden, som kjøler kroppen ned. For det tredje er vann nødvendig for alle kjemiske reaksjoner i kroppen, inkludert fordøyelsen av mat og energiomsetningen i cellene. Andre funksjoner inkluderer å gi celler struktur, smøre ledd, og oppløse vitaminer og mineraler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-2-def2',
       type: 'definition',
       title: 'Elektrolytter',
@@ -473,6 +487,19 @@ Mens vann er selve transportmiddelet i kroppen, er elektrolytter styringssysteme
 - Finnes i: salt, alger, selleri
 
 Under lett til moderat aktivitet i kjølige omgivelser dekkes elektrolyttbehovet vanligvis av et normalt kosthold. Ved langvarig eller intens aktivitet, spesielt i varme, kan det være nødvendig med tilskudd av elektrolytter.`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-2-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex3',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er elektrolytter, og hvorfor er de viktige ved fysisk aktivitet?',
+        solution: 'Elektrolytter er mineraler med elektrisk ladning som finnes oppløst i kroppsvæsker. De viktigste er natrium, kalium, kalsium, magnesium og klorid. De er spesielt viktige ved fysisk aktivitet fordi de regulerer væskebalansen mellom cellene, muliggjør nervesignaler til musklene, og er nødvendige for muskelsammentrekninger. Ved langvarig eller intens trening mister vi elektrolytter, spesielt natrium, gjennom svette. Hvis disse ikke erstattes, kan det føre til kramper, svakhet og redusert prestasjon. Ved aktivitet over 60-90 minutter eller i varme, bør man derfor tilføre elektrolytter gjennom sportsdrikk eller mat.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-3-2-example1',
@@ -552,6 +579,49 @@ Det er viktig å kjenne igjen tegnene på dehydrering tidlig, slik at du kan han
 - Du ikke har hodepine eller svimmelhet`,
     },
     {
+      id: 'kroppsoving-vg1-3-2-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex2',
+        number: '3',
+        type: 'classic',
+        task: 'Hvilke symptomer kan tyde på dehydrering?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg alle symptomer som kan være tegn på mild til moderat dehydrering',
+            solution: 'Tørste, hodepine, mørk urin, tretthet',
+            multipleChoiceOptions: ['Tørste, hodepine, mørk urin, tretthet', 'Økt energi og konsentrasjon', 'Lys urin og hyppig vannlating', 'Forbedret prestasjon'],
+          },
+          {
+            label: 'b',
+            task: 'Hvordan kan du enkelt sjekke din hydreringsstatus?',
+            solution: 'Den enkleste måten er å sjekke urinfargen. Lys gul eller nesten klar urin indikerer god hydrering. Mørk gul, oransje eller brun urin er tegn på dehydrering.',
+          },
+          {
+            label: 'c',
+            task: 'Hva bør du gjøre hvis du oppdager symptomer på moderat dehydrering?',
+            solution: 'Ved moderat dehydrering bør du umiddelbart drikke vann, finne en kjølig plass å hvile, og redusere fysisk aktivitet. Drikk små mengder jevnlig over tid i stedet for mye på en gang. Hvis symptomene ikke blir bedre innen kort tid, bør du søke medisinsk hjelp.',
+          },
+        ],
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-3-2-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex7',
+        number: '4',
+        type: 'classic',
+        task: 'En utøver veier 72 kg før en 90 minutters fotballkamp og 70 kg etter. Beregn prosent dehydrering og vurder om dette påvirker prestasjonen.',
+        solution: 'Væsketap = 72 kg - 70 kg = 2 kg = 2 liter. Prosent dehydrering = (2 / 72) × 100 = 2,78%, altså nesten 3%. Dette er moderat dehydrering som definitivt påvirker prestasjonen negativt. Allerede ved 2% væsketap begynner både fysisk og mental prestasjon å reduseres. Ved 3% vil utøveren oppleve tydelig redusert utholdenhet, tregere reaksjonstid, og økt risiko for hodepine og tretthet. Utøveren burde ha drukket væske før, under (i pausen) og etter kampen. Totalt burde vedkommende ha drukket minst 1 liter under kampen og 3 liter (150% av tapet) i timene etter for full restitusjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-2-text5',
       type: 'text',
       content: `## Hvor mye skal du drikke?
@@ -614,6 +684,32 @@ Den beste strategien er å lytte til kroppens tørstesignaler og sjekke urinfarg
 - Urinen er lys gul etter trening`,
     },
     {
+      id: 'kroppsoving-vg1-3-2-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex4',
+        number: '5',
+        type: 'classic',
+        task: 'Du skal løpe et 10 km løp. Lag en væskestrategi for før, under og etter løpet.',
+        solution: 'Før løpet (2-4 timer før): Drikk 400-600 ml vann for å sikre god hydrering. Sjekk at urinen er lys gul. 15-30 min før start: Drikk 200-250 ml vann, ikke mer for å unngå ubehag. Under løpet: Et 10 km løp tar vanligvis 50-70 minutter. Drikk litt vann (100-150 ml) ved evt. vannpost underveis. Vann er tilstrekkelig - ingen sportsdrikk nødvendig for denne varigheten. Etter løpet: Drikk 500 ml vann innen 30 minutter. Fortsett å drikke jevnlig de neste timene. Spis et måltid med karbohydrater og protein innen 1-2 timer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-3-2-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-2-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Forklar hva som menes med "30-40 ml væske per kg kroppsvekt per dag" og beregn behovet for en person på 65 kg.',
+        solution: 'Dette er en tommelfingerregel for daglig væskebehov. Det betyr at for hver kilo en person veier, trenger kroppen 30-40 ml væske per dag. For en person på 65 kg: 65 kg × 30 ml = 1950 ml (ca. 2 liter) minimum, 65 kg × 40 ml = 2600 ml (ca. 2,6 liter) optimalt. Denne personen bør altså sikte på 2-2,6 liter væske daglig fra drikke og mat. Ved fysisk aktivitet må man legge til 400-800 ml per time trening. Hvis personen trener 1 time, blir totalt behov 2,4-3,4 liter den dagen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-2-def4',
       type: 'definition',
       title: 'Hyperhydrering',
@@ -674,99 +770,11 @@ Anbefaling: Vann er tilstrekkelig
 Begrunnelse: Kort varighet og moderat svetting. Kroppen bruker anaerob energiomsetning som ikke tømmer glykogenlagrene merkbart. Drikk vann underveis for komfort. Spis måltid med protein og karbohydrater etter trening i stedet.`,
     },
     {
-      id: 'kroppsoving-vg1-3-2-tip2',
-      type: 'tip',
-      title: 'Praktiske tips for god hydrering',
-      content: `1. **Ha alltid med drikkeflaske**: Gjør det lett å drikke jevnlig
-2. **Drikk til måltider**: Enkelt å huske, gir jevn væsketilførsel
-3. **Sjekk urinfargen**: Enkel indikator på hydreringsstatus
-4. **Drikk før du blir tørst**: Tørste er tegn på at du allerede begynner å bli dehydrert
-5. **Planlegg væskeinntak før lang aktivitet**: Ikke la hydrering bli en etterpåklokskap
-6. **Spis vannrike matvarer**: Vannmelon, agurk, appelsin, salat bidrar
-7. **Vei deg før/etter lang aktivitet**: Sjekk væsketapet
-8. **Tilpass til temperaturen**: Drikk mer i varmen`,
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-def5',
-      type: 'definition',
-      title: 'Akklimatisering',
-      content: 'Akklimatisering er kroppens tilpasning til et nytt klima, spesielt varme. Etter 1-2 uker i varmt klima blir svettemekanismen mer effektiv, du svetter tidligere og mister mindre elektrolytter i svetten. Dette gjør deg bedre rustet til å trene i varme.',
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar tre viktige funksjoner vann har i kroppen.',
-        solution: 'Vann har mange viktige funksjoner i kroppen. For det første transporterer det næringsstoffer, oksygen og avfallsstoffer via blodet, som består av 90% vann. For det andre regulerer det kroppstemperaturen gjennom svetting og fordamping fra huden, som kjøler kroppen ned. For det tredje er vann nødvendig for alle kjemiske reaksjoner i kroppen, inkludert fordøyelsen av mat og energiomsetningen i cellene. Andre funksjoner inkluderer å gi celler struktur, smøre ledd, og oppløse vitaminer og mineraler.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvilke symptomer kan tyde på dehydrering?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg alle symptomer som kan være tegn på mild til moderat dehydrering',
-            solution: 'Tørste, hodepine, mørk urin, tretthet',
-            multipleChoiceOptions: ['Tørste, hodepine, mørk urin, tretthet', 'Økt energi og konsentrasjon', 'Lys urin og hyppig vannlating', 'Forbedret prestasjon'],
-          },
-          {
-            label: 'b',
-            task: 'Hvordan kan du enkelt sjekke din hydreringsstatus?',
-            solution: 'Den enkleste måten er å sjekke urinfargen. Lys gul eller nesten klar urin indikerer god hydrering. Mørk gul, oransje eller brun urin er tegn på dehydrering.',
-          },
-          {
-            label: 'c',
-            task: 'Hva bør du gjøre hvis du oppdager symptomer på moderat dehydrering?',
-            solution: 'Ved moderat dehydrering bør du umiddelbart drikke vann, finne en kjølig plass å hvile, og redusere fysisk aktivitet. Drikk små mengder jevnlig over tid i stedet for mye på en gang. Hvis symptomene ikke blir bedre innen kort tid, bør du søke medisinsk hjelp.',
-          },
-        ],
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er elektrolytter, og hvorfor er de viktige ved fysisk aktivitet?',
-        solution: 'Elektrolytter er mineraler med elektrisk ladning som finnes oppløst i kroppsvæsker. De viktigste er natrium, kalium, kalsium, magnesium og klorid. De er spesielt viktige ved fysisk aktivitet fordi de regulerer væskebalansen mellom cellene, muliggjør nervesignaler til musklene, og er nødvendige for muskelsammentrekninger. Ved langvarig eller intens trening mister vi elektrolytter, spesielt natrium, gjennom svette. Hvis disse ikke erstattes, kan det føre til kramper, svakhet og redusert prestasjon. Ved aktivitet over 60-90 minutter eller i varme, bør man derfor tilføre elektrolytter gjennom sportsdrikk eller mat.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-2-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Du skal løpe et 10 km løp. Lag en væskestrategi for før, under og etter løpet.',
-        solution: 'Før løpet (2-4 timer før): Drikk 400-600 ml vann for å sikre god hydrering. Sjekk at urinen er lys gul. 15-30 min før start: Drikk 200-250 ml vann, ikke mer for å unngå ubehag. Under løpet: Et 10 km løp tar vanligvis 50-70 minutter. Drikk litt vann (100-150 ml) ved evt. vannpost underveis. Vann er tilstrekkelig - ingen sportsdrikk nødvendig for denne varigheten. Etter løpet: Drikk 500 ml vann innen 30 minutter. Fortsett å drikke jevnlig de neste timene. Spis et måltid med karbohydrater og protein innen 1-2 timer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-3-2-exercise5',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-3-2-ex5',
-        number: '5',
+        number: '7',
         type: 'classic',
         task: 'Når er sportsdrikker mer nyttige enn vanlig vann?',
         subTasks: [
@@ -792,31 +800,25 @@ Begrunnelse: Kort varighet og moderat svetting. Kroppen bruker anaerob energioms
       },
     },
     {
-      id: 'kroppsoving-vg1-3-2-exercise6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex6',
-        number: '6',
-        type: 'classic',
-        task: 'Forklar hva som menes med "30-40 ml væske per kg kroppsvekt per dag" og beregn behovet for en person på 65 kg.',
-        solution: 'Dette er en tommelfingerregel for daglig væskebehov. Det betyr at for hver kilo en person veier, trenger kroppen 30-40 ml væske per dag. For en person på 65 kg: 65 kg × 30 ml = 1950 ml (ca. 2 liter) minimum, 65 kg × 40 ml = 2600 ml (ca. 2,6 liter) optimalt. Denne personen bør altså sikte på 2-2,6 liter væske daglig fra drikke og mat. Ved fysisk aktivitet må man legge til 400-800 ml per time trening. Hvis personen trener 1 time, blir totalt behov 2,4-3,4 liter den dagen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
+      id: 'kroppsoving-vg1-3-2-tip2',
+      type: 'tip',
+      title: 'Praktiske tips for god hydrering',
+      content: `1. **Ha alltid med drikkeflaske**: Gjør det lett å drikke jevnlig
+2. **Drikk til måltider**: Enkelt å huske, gir jevn væsketilførsel
+3. **Sjekk urinfargen**: Enkel indikator på hydreringsstatus
+4. **Drikk før du blir tørst**: Tørste er tegn på at du allerede begynner å bli dehydrert
+5. **Planlegg væskeinntak før lang aktivitet**: Ikke la hydrering bli en etterpåklokskap
+6. **Spis vannrike matvarer**: Vannmelon, agurk, appelsin, salat bidrar
+7. **Vei deg før/etter lang aktivitet**: Sjekk væsketapet
+8. **Tilpass til temperaturen**: Drikk mer i varmen`,
     },
     {
-      id: 'kroppsoving-vg1-3-2-exercise7',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-2-ex7',
-        number: '7',
-        type: 'classic',
-        task: 'En utøver veier 72 kg før en 90 minutters fotballkamp og 70 kg etter. Beregn prosent dehydrering og vurder om dette påvirker prestasjonen.',
-        solution: 'Væsketap = 72 kg - 70 kg = 2 kg = 2 liter. Prosent dehydrering = (2 / 72) × 100 = 2,78%, altså nesten 3%. Dette er moderat dehydrering som definitivt påvirker prestasjonen negativt. Allerede ved 2% væsketap begynner både fysisk og mental prestasjon å reduseres. Ved 3% vil utøveren oppleve tydelig redusert utholdenhet, tregere reaksjonstid, og økt risiko for hodepine og tretthet. Utøveren burde ha drukket væske før, under (i pausen) og etter kampen. Totalt burde vedkommende ha drukket minst 1 liter under kampen og 3 liter (150% av tapet) i timene etter for full restitusjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
+      id: 'kroppsoving-vg1-3-2-def5',
+      type: 'definition',
+      title: 'Akklimatisering',
+      content: 'Akklimatisering er kroppens tilpasning til et nytt klima, spesielt varme. Etter 1-2 uker i varmt klima blir svettemekanismen mer effektiv, du svetter tidligere og mister mindre elektrolytter i svetten. Dette gjør deg bedre rustet til å trene i varme.',
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-3-2-exercise8',
       type: 'exercise',
@@ -1160,21 +1162,6 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
       content: 'DOMS er muskelømhet som oppstår 24-72 timer etter uvanlig eller intensiv trening. Det skyldes mikroskopiske skader i muskelfibrene og betennelse. DOMS er normalt og et tegn på at musklene trenger restitusjon. Det går over av seg selv etter noen dager. Aktiv restitusjon kan redusere DOMS.',
     },
     {
-      id: 'kroppsoving-vg1-3-3-tip2',
-      type: 'tip',
-      title: 'Restitusjonsstrategier som fungerer',
-      content: `1. **Prioriter søvn**: 8-10 timer er ikke luksus, det er nødvendig
-2. **Spis riktig etter trening**: Protein + karbohydrater innen 1-2 timer
-3. **Væske**: Drikk nok vann hele dagen
-4. **Aktiv restitusjon**: Lett aktivitet fremmer blodsirkulasjon
-5. **Foam rolling og tøying**: Kan redusere muskelømhet
-6. **Kontrast bad**: Veksle mellom varmt og kaldt vann (omdiskutert, men mange liker det)
-7. **Massasje**: Fremmer avslapning og blodsirkulasjon
-8. **Stressmestring**: Mental hvile er også viktig
-9. **Planlegg**: Ha faste restitusjons-dager i planen
-10. **Lytt til kroppen**: Noen ganger trenger du mer hvile enn planlagt`,
-    },
-    {
       id: 'kroppsoving-vg1-3-3-exercise1',
       type: 'exercise',
       exercise: {
@@ -1186,6 +1173,83 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-def3',
+      type: 'definition',
+      title: 'Søvn',
+      content: 'Søvn er en aktiv og kompleks tilstand der kroppen og hjernen utfører kritiske vedlikeholds- og reparasjonsarbeid. Under søvn produseres veksthormon, musklene repareres, minnet konsolideres, og immunforsvaret styrkes. Ungdom trenger 8-10 timer søvn per natt, men mange får langt mindre.',
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-text4',
+      type: 'text',
+      content: `## Søvnens betydning for prestasjon
+
+Søvn er kanskje det mest undervurderte verktøyet for prestasjon. Forskning viser klart at tilstrekkelig søvn forbedrer alt fra fysisk ytelse til kognitiv funksjon:
+
+**Fysiske effekter av god søvn:**
+- **Muskelvekst og reparasjon**: 60-70% av veksthormonet utskilles i dyp søvn
+- **Energigjenvinning**: Glykogenlagrene fylles mer effektivt
+- **Redusert skaderisiko**: Utøvere som sover <8 timer har 70% høyere skaderisiko
+- **Bedre utholdenhet**: Reaksjonstid og utmattelse påvirkes sterkt av søvn
+- **Sterkere immunforsvar**: Søvnmangel øker sykelighet
+
+**Mentale effekter av god søvn:**
+- **Læring og hukommelse**: Søvn konsoliderer ny informasjon
+- **Reaksjonstid**: Søvnmangel reduserer reaksjonsevnen like mye som alkohol
+- **Beslutningstaking**: Dårlige valg under press
+- **Motivasjon**: Mindre lyst til å trene
+- **Stemningsleie**: Økt risiko for stress, angst og depresjon
+
+**Søvnsykluser:**
+Søvnen består av flere sykluser à ca. 90 minutter:
+1. **Lett søvn** (N1-N2): Overgang til søvn
+2. **Dyp søvn** (N3): Fysisk restitusjon, veksthormon
+3. **REM-søvn**: Drømmer, mental restitusjon, læring
+
+Du trenger 4-6 komplette sykluser per natt (6-9 timer) for optimal restitusjon.`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-example2',
+      type: 'example',
+      title: 'Effekten av søvnmangel på prestasjon',
+      problem: 'To basketballspillere har identisk treningsprogram i 4 uker. Spiller A sover 9 timer per natt, spiller B sover 6 timer. Hva viser forskningen om forskjellen?',
+      solution: `Studier på basketballspillere ved Stanford University viser dramatiske forskjeller:
+
+**Spiller A (9 timer søvn):**
+- Økt sprinttid med 5%
+- Forbedret skuddprosent med 9%
+- Bedre reaksjonstid
+- Økt energi og motivasjon
+- Færre skader
+
+**Spiller B (6 timer søvn):**
+- Ingen forbedring i sprinttid
+- Minimal forbedring i skuddprosent
+- Tregere reaksjonstid
+- Mer trett og mindre motivert
+- Høyere risiko for småskader
+
+**Konklusjon:**
+Selv om begge trener identisk, får Spiller A mye større utbytte fordi kroppen restituerer bedre med tilstrekkelig søvn. Etter noen måneder vil forskjellen være enda større. Søvn er like viktig som trening selv.
+
+**Praktisk relevans:**
+Hvis du velger mellom en ekstra treningsøkt eller en ekstra time søvn, velg søvn. Kroppen trenger restitusjonen mer enn enda en dose belastning.`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-tip1',
+      type: 'tip',
+      title: 'Tips for bedre søvn',
+      content: `1. **Fast rutine**: Gå til sengs og stå opp samtidig hver dag, også i helgen
+2. **Mørkt soverom**: Bruk mørke gardiner eller søvnmaske
+3. **Kjølig temperatur**: 16-19°C er optimalt for søvn
+4. **Ingen skjermer siste time**: Blått lys fra mobil/PC forstyrrer melatoninproduksjonen
+5. **Unngå store måltider sent**: Spis middag 2-3 timer før sengetid
+6. **Begrens koffein**: Ingen kaffe/energidrikk etter kl 15-16
+7. **Aktiv på dagen**: Fysisk aktivitet fremmer god søvn (men ikke rett før sengetid)
+8. **Avslapningsrutine**: Les, ta et bad, eller tøy ut for å slappe av
+9. **Skriv ned tanker**: Hvis du grubbler, skriv det ned og slett det fra hodet
+10. **Søvnvindu**: Legg deg når du er trøtt, ikke vent`,
     },
     {
       id: 'kroppsoving-vg1-3-3-exercise2',
@@ -1218,6 +1282,33 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
       },
     },
     {
+      id: 'kroppsoving-vg1-3-3-text5',
+      type: 'text',
+      content: `## Aktiv vs. passiv restitusjon
+
+Det finnes to hovedtyper restitusjon:
+
+**Passiv restitusjon:**
+- Total hvile uten fysisk aktivitet
+- Søvn, hvile på sofaen, lette aktiviteter
+- Nødvendig etter svært harde økter
+- Anbefales minst 1-2 dager per uke
+
+**Aktiv restitusjon:**
+- Lett fysisk aktivitet på restitusjons-dager
+- Rolig jogging, sykling, svømming, yoga, lett styrke
+- 30-60 minutter ved 50-60% av maks puls
+- Fremmer blodsirkulasjon og fjerning av avfallsstoffer
+- Mindre muskelømhet (DOMS) enn ved total hvile
+- Vedlikeholder bevegelsesmønster uten å belaste
+
+**Når bruke hvilken?**
+- **Aktiv**: Dagen etter moderat trening, eller to dager etter hard trening
+- **Passiv**: Dagen etter svært intens trening, ved sykdom, eller når kroppen virkelig trenger hvile
+
+Mange idrettsutøvere har nytte av mesteparten aktiv restitusjon, med innslag av passiv restitusjon. Dette holder kroppen "varm" uten overbelastning.`,
+    },
+    {
       id: 'kroppsoving-vg1-3-3-exercise3',
       type: 'exercise',
       exercise: {
@@ -1229,6 +1320,56 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-def4',
+      type: 'definition',
+      title: 'Overtrening',
+      content: 'Overtrening er en tilstand der kroppen ikke får tilstrekkelig restitusjon over lang tid. Symptomer inkluderer vedvarende tretthet, redusert prestasjon, økt skaderisiko, dårlig søvn, økt hvilepuls, hyppig sykdom, og redusert motivasjon. Overtrening utvikles gradvis og kan ta måneder å komme seg fra.',
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-text6',
+      type: 'text',
+      content: `## Overtrening - når kroppen gir opp
+
+Overtrening (overtraining syndrome) er en alvorlig tilstand som oppstår når du trener for mye og restituerer for lite over lang tid. Det er ikke det samme som å være sliten etter en hard uke - det er en kronisk tilstand.
+
+**Tegn på overtrening:**
+
+**Fysiske symptomer:**
+- Vedvarende tretthet som ikke bedres med hvile
+- Prestasjon går nedover til tross for trening
+- Økt hvilepuls (5-10 slag høyere enn normalt)
+- Lengre tid før pulsen kommer ned etter trening
+- Hyppige småskader og plager
+- Ofte syk (svekket immunforsvar)
+- Vedvarende muskelømhet
+
+**Mentale og emosjonelle symptomer:**
+- Tap av treningsglede og motivasjon
+- Irritabilitet og humørsvingninger
+- Søvnproblemer (urolig søvn til tross for tretthet)
+- Konsentrasjonsvansker
+- Angst eller depressive tanker
+
+**Fysiologiske årsaker:**
+- Kronisk forhøyet kortisol (stresshormon)
+- Redusert testosteron og veksthormon
+- Uttømte glykogenlagre som ikke fylles opp
+- Kronisk betennelse i kroppen
+- Forstyrret hormonsystem
+
+**Forebygging:**
+- Planlegg restitusjonsperioder i treningsopplegget
+- Ha minst 1-2 lett-/hviledager per uke
+- Variere intensitet - ikke gå hardt hver dag
+- Lytt til kroppen - hvis du er uvanlig sliten, ta ekstra hvile
+- Søvn, søvn, søvn - prioriter 8-10 timer
+- Balansert kosthold med nok energi
+- Stress utenom trening påvirker også - ta hensyn til skole, jobb, sosiale forhold
+
+**Behandling:**
+Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, kanskje månedsvis med drastisk redusert trening. Det er bedre å forebygge enn å måtte ta måneder ut.`,
     },
     {
       id: 'kroppsoving-vg1-3-3-exercise4',
@@ -1273,6 +1414,45 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
       },
     },
     {
+      id: 'kroppsoving-vg1-3-3-example3',
+      type: 'example',
+      title: 'Planlegging av treningsuke med restitusjon',
+      problem: 'Lars trener fotball og vil også forbedre sin utholdenhet og styrke. Lag en treningsuke som sikrer god restitusjon.',
+      solution: `**Mandag: Lagstrening fotball (90 min, moderat-høy intensitet)**
+- Tekniske øvelser og småspill
+- Moderat belastning
+
+**Tirsdag: Aktiv restitusjon (30 min rolig jogg eller sykling)**
+- Lav intensitet (60% av maks puls)
+- Mobilitet og tøying etterpå
+
+**Onsdag: Styrketrening (60 min, fokus på bein og core)**
+- Tung belastning, men mindre volum
+- God restitusjonstid siden det er 2 dager siden fotballtrening
+
+**Torsdag: Lagstrening fotball (90 min, høy intensitet)**
+- Kamp eller svært intensive drills
+- Hard belastning
+
+**Fredag: Passiv restitusjon**
+- Total hvile eller bare lette strekk
+- Prioriter god søvn før kamp
+
+**Lørdag: Kamp (90 min, høyeste intensitet)**
+- Full innsats
+
+**Søndag: Aktiv restitusjon (30-45 min lett aktivitet) + mobilitet**
+- Lett jogg, sykling, eller svømming
+- Yoga eller god tøyeøkt
+- Fokus på neste ukes økter
+
+**Nøkkelpunkter:**
+- 2 dager med passiv/aktiv restitusjon
+- Ikke to tunge økter på rad
+- Variert belastning gjennom uken
+- God søvn prioriteres hver dag (8-10 timer)`,
+    },
+    {
       id: 'kroppsoving-vg1-3-3-exercise6',
       type: 'exercise',
       exercise: {
@@ -1284,6 +1464,27 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-def5',
+      type: 'definition',
+      title: 'DOMS (Delayed Onset Muscle Soreness)',
+      content: 'DOMS er muskelømhet som oppstår 24-72 timer etter uvanlig eller intensiv trening. Det skyldes mikroskopiske skader i muskelfibrene og betennelse. DOMS er normalt og et tegn på at musklene trenger restitusjon. Det går over av seg selv etter noen dager. Aktiv restitusjon kan redusere DOMS.',
+    },
+    {
+      id: 'kroppsoving-vg1-3-3-tip2',
+      type: 'tip',
+      title: 'Restitusjonsstrategier som fungerer',
+      content: `1. **Prioriter søvn**: 8-10 timer er ikke luksus, det er nødvendig
+2. **Spis riktig etter trening**: Protein + karbohydrater innen 1-2 timer
+3. **Væske**: Drikk nok vann hele dagen
+4. **Aktiv restitusjon**: Lett aktivitet fremmer blodsirkulasjon
+5. **Foam rolling og tøying**: Kan redusere muskelømhet
+6. **Kontrast bad**: Veksle mellom varmt og kaldt vann (omdiskutert, men mange liker det)
+7. **Massasje**: Fremmer avslapning og blodsirkulasjon
+8. **Stressmestring**: Mental hvile er også viktig
+9. **Planlegg**: Ha faste restitusjons-dager i planen
+10. **Lytt til kroppen**: Noen ganger trenger du mer hvile enn planlagt`,
     },
     {
       id: 'kroppsoving-vg1-3-3-exercise7',
@@ -1298,6 +1499,7 @@ Hvis du er overtrent, hjelper det ikke med noen dager hvile. Du må ta ukesvis, 
         allowsCanvasDrawing: false,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-3-3-exercise8',
       type: 'exercise',
@@ -1575,19 +1777,6 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
 - Regelmessig trening (ikke konkurranse)`,
     },
     {
-      id: 'kroppsoving-vg1-3-4-tip1',
-      type: 'tip',
-      title: 'Praktiske tips for kosthold rundt trening',
-      content: `1. **Test i trening**: Aldri prøv nye matvarer/strategier på konkurransedag
-2. **Lytt til magen**: Hvis noe gir ubehag, prøv noe annet
-3. **Planlegg**: Ha mat klar for etter trening (når du er sliten glemmer du det)
-4. **Sjokolademelk fungerer**: Enkel, billig og dokumentert god restitusjons-drikk
-5. **Meal prep**: Forbered måltider for hektiske dager
-6. **Portabel mat**: Ha med nøtter, frukt, bar hvis du er mye på farten
-7. **Ikke hopp over måltider**: Spesielt ikke frokost
-8. **Fokus på kvalitet**: Velg helst naturlige matvarer fremfor kosttilskudd`,
-    },
-    {
       id: 'kroppsoving-vg1-3-4-exercise1',
       type: 'exercise',
       exercise: {
@@ -1599,6 +1788,66 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-text2',
+      type: 'text',
+      content: `## Før trening - fylle tanken
+
+Hva og når du spiser før trening påvirker hvordan økten går:
+
+**2-4 timer før trening:**
+Dette er hovedmåltidet før trening.
+- **Karbohydrater** (hovedfokus): Fyller glykogenlagrene
+- **Protein** (moderat mengde): Starter muskeloppbygging
+- **Fett** (lite): Tar lang tid å fordøye, kan gi ubehag
+- **Eksempler**: Havregrøt med frukt, pasta med kylling, brødskiver med pålegg
+
+**1-2 timer før trening:**
+Lettere måltid eller mellommåltid.
+- Fokus på lett fordøyelige karbohydrater
+- Lite fett og fiber (unngå mageproblemer)
+- **Eksempler**: Banan, yoghurt, smoothie, toast med honning
+
+**30-60 minutter før trening:**
+Kun nødvendig ved tidlig morgen-trening eller hvis sulten.
+- Enkle karbohydrater som gir rask energi
+- Svært lett mat
+- **Eksempler**: Energibar, juice, tørket frukt
+
+**Tommelfingerregler:**
+- Jo nærmere trening, desto mindre og enklere mat
+- Langt fra trening: fokus på sammensatte karbohydrater
+- Nært trening: fokus på enkle karbohydrater
+- Test ut hva som fungerer for DEG - alle er forskjellige`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-example1',
+      type: 'example',
+      title: 'Før-trenings-måltid for fotballkamp',
+      problem: 'Lars har fotballkamp kl. 14:00. Hva bør han spise gjennom dagen for optimal energi?',
+      solution: `**Frokost (kl. 08:00):**
+- Havregrøt med banan og bær
+- 1 glass melk
+- 1 egg
+- Fokus: Balansert måltid med karbohydrater og protein
+
+**Mellommåltid (kl. 10:30):**
+- 2 brødskiver med ost/pålegg
+- Appelsin
+- Fokus: Vedlikeholde energinivå
+
+**Lett lunsj (kl. 11:30, 2,5 timer før kamp):**
+- Pasta med litt kylling og tomatsaus
+- Lite fett og fiber
+- Fokus: Fylle opp glykogenlagrene uten å bli tung i magen
+
+**Siste påfyll (kl. 13:30, 30 min før oppvarming):**
+- Banan eller energibar
+- Fokus: Rask energi uten mageproblemer
+
+**Resultat:**
+Lars går inn i kampen med fulle energilagre, uten å føle seg tung eller oppblåst.`,
     },
     {
       id: 'kroppsoving-vg1-3-4-exercise2',
@@ -1635,24 +1884,45 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
       },
     },
     {
-      id: 'kroppsoving-vg1-3-4-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-4-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er det anabole vinduet, og hvorfor er det viktig?',
-        solution: 'Det anabole vinduet er perioden etter trening, spesielt de første 30-60 minuttene (men opptil 2-3 timer), der kroppen er ekstra mottakelig for næringsstoffer. I denne perioden tar musklene opp protein og karbohydrater mer effektivt enn til andre tider på døgnet. Dette er viktig fordi inntak av riktig næring i det anabole vinduet gir: 1) Bedre og raskere muskelvekst ved å starte reparasjon av muskelvev, 2) Mer effektiv påfylling av glykogenlagrene (energilagrene), og 3) Redusert muskelskade og raskere restitusjon. For å utnytte vinduet bør man spise 20-40 gram protein og 1-1,5 gram karbohydrater per kg kroppsvekt innen 30-60 minutter etter trening.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
+      id: 'kroppsoving-vg1-3-4-text3',
+      type: 'text',
+      content: `## Under trening - påfyll underveis
+
+For de fleste treningsøkter under 60-90 minutter trenger du ikke mat eller energi underveis - kun væske.
+
+**Ved aktivitet over 90 minutter:**
+Kroppen bruker ca. 30-60 gram karbohydrater per time under intens aktivitet. Etter 90 minutter begynner glykogenlagrene å tømmes.
+
+**Hva kan du spise/drikke underveis:**
+- **Sportsdrikk** med 6-8% karbohydrater
+- **Energigels** (ca. 20-25g karbohydrater per gel)
+- **Energibarer** (enkle å spise, 20-40g karbohydrater)
+- **Banan** (naturlig alternativ, ca. 25g karbohydrater)
+- **Rosiner eller dadler** (konsentrert energi)
+
+**Anbefalinger:**
+- Start inntak etter 45-60 minutter
+- Sikt på 30-60 gram karbohydrater per time
+- Test ut i trening - ALDRI prøv nytt i konkurranse
+- Kombiner gjerne med væske
+
+**Når er det nødvendig:**
+- Løp/sykling over 90 minutter
+- Fotball-/håndballkamper (bruk pausen)
+- Langvarig utholdenhetsaktivitet
+- Hele treningsdager
+
+**Når er det IKKE nødvendig:**
+- Styrketrening (60-90 min)
+- Fotballtrening (60-90 min)
+- Kortere løpe-/sykkel-turer`,
     },
     {
       id: 'kroppsoving-vg1-3-4-exercise4',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-3-4-ex4',
-        number: '4',
+        number: '3',
         type: 'classic',
         task: 'Når er det nødvendig å spise eller drikke energi UNDER trening?',
         subTasks: [
@@ -1683,14 +1953,94 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
       },
     },
     {
-      id: 'kroppsoving-vg1-3-4-exercise5',
+      id: 'kroppsoving-vg1-3-4-def2',
+      type: 'definition',
+      title: 'Det anabole vinduet',
+      content: 'Det anabole vinduet er perioden etter trening (spesielt de første 30-60 minuttene) der kroppen er ekstra mottakelig for næringsstoffer. Musklene tar opp protein og karbohydrater mer effektivt, noe som gir bedre restitusjon og muskelvekst. Nyere forskning viser at vinduet er litt lengre (2-3 timer) enn tidligere antatt, men det er fortsatt smart å spise relativt raskt etter trening.',
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-text4',
+      type: 'text',
+      content: `## Etter trening - restitusjons-måltid
+
+Hva du spiser etter trening er avgjørende for restitusjon:
+
+**Mål etter trening:**
+1. **Gjenoppbygge muskelvev** (protein)
+2. **Fylle opp glykogenlagrene** (karbohydrater)
+3. **Rehydrere** (væske og elektrolytter)
+4. **Redusere betennelse** (antioksidanter)
+
+**Ideelt restitusjons-måltid innen 30-60 minutter:**
+
+**Karbohydrater:**
+- 1-1,5 gram per kg kroppsvekt
+- Person på 70 kg: 70-105 gram karbohydrater
+- Høy GI karbohydrater er OK nå (rask opptak)
+- Eksempler: Ris, pasta, poteter, frukt, juice
+
+**Protein:**
+- 20-40 gram høykvalitets protein
+- Inneholder alle essensielle aminosyrer
+- Eksempler: Kylling, fisk, egg, melkeprodukter, proteinshake
+
+**Fett:**
+- Lite til moderat mengde (forsinker ikke opptak vesentlig)
+- Fokus på sunt fett
+
+**Væske:**
+- 150% av væsketapet
+- Vann eller melk (melk gir også næring)
+
+**Praktiske restitusjons-måltider:**
+- Proteinshake med banan
+- Sjokolademelk (dokumentert god restitusjons-drikk!)
+- Kylling/laks med ris/pasta og grønnsaker
+- Omelett med brød
+- Yoghurt med müsli og frukt
+- Tunfiskwrap med ris`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-example2',
+      type: 'example',
+      title: 'Restitusjons-måltid etter hard styrkeøkt',
+      problem: 'Emma (60 kg) har akkurat gjennomført en hard styrkeøkt. Lag et restitusjons-måltid.',
+      solution: `Emma veier 60 kg. Hun trenger:
+- Protein: 20-30 gram
+- Karbohydrater: 60-90 gram
+- Væske: minst 500 ml
+
+**Alternativ 1 - Raskt og enkelt:**
+- 500 ml sjokolademelk (16g protein, 50g karb)
+- 1 banan (25g karb)
+- Totalt: 16g protein, 75g karb, 500 ml væske
+- Kommentar: Dekker det akutte behovet, men bør følges av ordentlig måltid innen 1-2 timer
+
+**Alternativ 2 - Fullverdig måltid:**
+- 120g kyllingbryst (30g protein)
+- 200g kokte poteter (40g karb)
+- Grønnsaker (brokkoli, gulrot)
+- 1 eple (15g karb)
+- 1 glass melk (8g protein, 12g karb)
+- Totalt: 38g protein, 67g karb
+- Kommentar: Komplett måltid som dekker alle behov
+
+**Alternativ 3 - Vegetar:**
+- Omelett med 3 egg (18g protein)
+- 3 brødskiver med brunost (15g protein, 60g karb)
+- 1 glass juice (20g karb)
+- Totalt: 33g protein, 80g karb
+- Kommentar: God kombinasjon av protein fra egg og karbohydrater fra brød`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-exercise3',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-3-4-ex5',
-        number: '5',
+        id: 'kroppsoving-vg1-3-4-ex3',
+        number: '4',
         type: 'classic',
-        task: 'Forklar prinsippet bak karbohydratlading. Når er det nyttig, og når er det ikke nødvendig?',
-        solution: 'Karbohydratlading er en strategi for å maksimalt fylle kroppens glykogenlagre før langvarig utholdenhetsaktivitet. Den moderne metoden innebærer å redusere treningsbelastningen og øke karbohydratinntaket til 8-10 gram per kg kroppsvekt de siste 2-3 dagene før konkurranse. Dette gjør at glykogenlagrene fylles maksimalt, noe som utsetter utmattelse under langvarig aktivitet. Karbohydratlading er nyttig ved: maratonløp, langdistanse sykling (>2 timer), lange skirenn og triatlon. Det er IKKE nødvendig ved: sprint- og styrke-idretter, aktiviteter under 90 minutter, eller regelmessig trening som ikke er konkurranse. For de fleste treningsøkter holder det med normalt karbohydratinntak.',
+        task: 'Hva er det anabole vinduet, og hvorfor er det viktig?',
+        solution: 'Det anabole vinduet er perioden etter trening, spesielt de første 30-60 minuttene (men opptil 2-3 timer), der kroppen er ekstra mottakelig for næringsstoffer. I denne perioden tar musklene opp protein og karbohydrater mer effektivt enn til andre tider på døgnet. Dette er viktig fordi inntak av riktig næring i det anabole vinduet gir: 1) Bedre og raskere muskelvekst ved å starte reparasjon av muskelvev, 2) Mer effektiv påfylling av glykogenlagrene (energilagrene), og 3) Redusert muskelskade og raskere restitusjon. For å utnytte vinduet bør man spise 20-40 gram protein og 1-1,5 gram karbohydrater per kg kroppsvekt innen 30-60 minutter etter trening.',
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -1700,7 +2050,7 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-3-4-ex6',
-        number: '6',
+        number: '5',
         type: 'classic',
         task: 'En idrettsutøver på 65 kg har akkurat avsluttet en hard treningsøkt. Hvor mye protein og karbohydrater trenger vedkommende i restitusjons-måltidet?',
         solution: 'For optimal restitusjon trenger idrettsutøveren: Protein: 20-40 gram (20-30g er nok for de fleste). Karbohydrater: 1-1,5 gram per kg kroppsvekt = 65-98 gram (si 65-100g). Eksempel på restitusjons-måltid: Sjokolademelk 500 ml (16g protein, 50g karb) + 1 banan (25g karb) = 16g protein og 75g karb. Dette dekker det akutte behovet. Alternativt: Ordentlig måltid med 150g kylling (30g protein) + 200g ris (50g karb) + grønnsaker + 1 glass melk (8g protein, 12g karb) = 38g protein og 62g karb. Måltidet bør inntas innen 30-60 minutter etter trening for å utnytte det anabole vinduet optimalt.',
@@ -1713,7 +2063,7 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-3-4-ex7',
-        number: '7',
+        number: '6',
         type: 'classic',
         task: 'Lag tre ulike restitusjons-måltider som inneholder både protein og karbohydrater.',
         solution: 'Alternativ 1 - Raskt og enkelt: Proteinshake (25g protein) + 1 banan (25g karb) + 1 eple (15g karb). Totalt: 25g protein, 40g karb. Godt for når du er på farten.\n\nAlternativ 2 - Fullverdig måltid: Laks 150g (30g protein) + søtpoteter 200g (40g karb) + brokkoli + 1 glass melk (8g protein, 12g karb). Totalt: 38g protein, 52g karb. Næringsrikt og mettende.\n\nAlternativ 3 - Vegetar: Omelett med 3 egg (18g protein) + 3 brødskiver (45g karb) + cottage cheese 100g (12g protein) + 1 glass juice (20g karb). Totalt: 30g protein, 65g karb. Godt for vegetarianere.\n\nAlle tre alternativene gir god balanse mellom protein (20-40g) og karbohydrater (40-65g) for optimal restitusjon.',
@@ -1721,6 +2071,88 @@ Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-3-4-def3',
+      type: 'definition',
+      title: 'Karbohydratlading (carb loading)',
+      content: 'Karbohydratlading er en strategi for å maksimalt fylle opp kroppens glykogenlagre før langvarig utholdenhetskonstante (>90 minutter). Dette gjøres ved å redusere treningsbelastningen og øke karbohydratinntaket de siste 2-3 dagene før konkurranse. Kan forbedre prestasjonen ved å utsette utmattelse.',
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-text5',
+      type: 'text',
+      content: `## Karbohydratlading
+
+Karbohydratlading brukes av utholdenhetsutøvere før lange konkurranser:
+
+**Tradisjonell metode (7 dager):**
+**Dag 1-3:** Tøm lagrene
+- Hard utholdenhets-trening
+- Lavt karbohydratinntak (10-20% av energi)
+
+**Dag 4-6:** Last opp
+- Lett trening eller hvile
+- Høyt karbohydratinntak (70-80% av energi)
+- Lagrene "superkompenserer"
+
+**Dag 7:** Konkurranse
+- Fulle glykogenlagre
+- Kan prestere lenger før utmattelse
+
+**Moderne metode (2-3 dager):**
+Nyere forskning viser at tømming ikke er nødvendig:
+- **3 dager før**: Reduser treningsmengden til minimum
+- **2-3 dager før**: Øk karbohydratinntaket til 8-10 gram per kg kroppsvekt
+- **Konkurransedag**: Moderat karbohydratrikt frokost 2-4 timer før
+
+Person på 70 kg: 560-700 gram karbohydrater per dag i ladings-perioden!
+
+**Eksempel på lading-dag:**
+- Frokost: Havregrøt, juice, toast med syltetøy
+- Mellommåltid: Frukt, smoothie, muffins
+- Lunsj: Pasta, ris, brød
+- Mellommåltid: Energibar, banan
+- Middag: Pasta med tomatsaus (lite protein/fett)
+- Kvelds: Yoghurt, müsli, frukt
+
+**Når er karbohydratlading nyttig:**
+- Maratonløp
+- Langdistanse sykling (>2 timer)
+- Lange skirenn
+- Triatlon
+- Svært lange fotball-/håndballturnering (flere kamper på kort tid)
+
+**Når er det IKKE nødvendig:**
+- Sprint/styrke-idretter
+- Aktiviteter under 90 minutter
+- Regelmessig trening (ikke konkurranse)`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-tip1',
+      type: 'tip',
+      title: 'Praktiske tips for kosthold rundt trening',
+      content: `1. **Test i trening**: Aldri prøv nye matvarer/strategier på konkurransedag
+2. **Lytt til magen**: Hvis noe gir ubehag, prøv noe annet
+3. **Planlegg**: Ha mat klar for etter trening (når du er sliten glemmer du det)
+4. **Sjokolademelk fungerer**: Enkel, billig og dokumentert god restitusjons-drikk
+5. **Meal prep**: Forbered måltider for hektiske dager
+6. **Portabel mat**: Ha med nøtter, frukt, bar hvis du er mye på farten
+7. **Ikke hopp over måltider**: Spesielt ikke frokost
+8. **Fokus på kvalitet**: Velg helst naturlige matvarer fremfor kosttilskudd`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-4-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-4-ex5',
+        number: '7',
+        type: 'classic',
+        task: 'Forklar prinsippet bak karbohydratlading. Når er det nyttig, og når er det ikke nødvendig?',
+        solution: 'Karbohydratlading er en strategi for å maksimalt fylle kroppens glykogenlagre før langvarig utholdenhetsaktivitet. Den moderne metoden innebærer å redusere treningsbelastningen og øke karbohydratinntaket til 8-10 gram per kg kroppsvekt de siste 2-3 dagene før konkurranse. Dette gjør at glykogenlagrene fylles maksimalt, noe som utsetter utmattelse under langvarig aktivitet. Karbohydratlading er nyttig ved: maratonløp, langdistanse sykling (>2 timer), lange skirenn og triatlon. Det er IKKE nødvendig ved: sprint- og styrke-idretter, aktiviteter under 90 minutter, eller regelmessig trening som ikke er konkurranse. For de fleste treningsøkter holder det med normalt karbohydratinntak.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-3-4-exercise8',
       type: 'exercise',
@@ -1813,6 +2245,19 @@ Kroppsidealer har endret seg dramatisk gjennom historien:
 At kroppsidealer er **konstruerte**, ikke naturlige eller "riktige". De endrer seg med moten. Det som er "perfekt" i dag, var kanskje ikke ideelt for 20 år siden og vil kanskje ikke være det om 20 år. Derfor gir det liten mening å jakte på et ideal som uansett vil forandre seg.`,
     },
     {
+      id: 'kroppsoving-vg1-3-5-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-5-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hvordan kroppsidealer har endret seg gjennom tidene. Hva forteller dette oss?',
+        solution: 'Kroppsidealer har endret seg dramatisk gjennom historien. På 1900-tallet var kurver og runde former idealet for kvinner, mens på 1960-70-tallet var ekstremt tynne kropper idealet (som modellen Twiggy). I dag er idealet ofte kurver OG flat mage - en urealistisk kombinasjon. For menn har idealet gått fra slank og elegant, via svært muskuløs, til dagens fokus på lav fettprosent og definerte muskler. Dette forteller oss at kroppsidealer er konstruerte og kulturelt betinget - ikke naturlige eller "riktige". Det som er "perfekt" i dag, var kanskje ikke ideelt for 20 år siden og vil sannsynligvis ikke være det om 20 år. Dette viser at det gir liten mening å jakte på et ideal som uansett vil forandre seg med moten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-5-def2',
       type: 'definition',
       title: 'Mediekritikk',
@@ -1902,6 +2347,48 @@ Sosiale medier og reklame påvirker hvordan vi ser på oss selv:
 Dette bildet representerer et øyeblikk, under perfekte forhold, sannsynligvis redigert, av en person hvis jobb er å se slik ut. Det er IKKE realistisk eller relevant for mitt liv. Jeg kan være stolt av min kropp som den er, og trene fordi det er gøy og sunt - ikke for å se ut som dette bildet.`,
     },
     {
+      id: 'kroppsoving-vg1-3-5-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-5-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan påvirker sosiale medier selvbildet vårt? Nevn minst tre mekanismer.',
+        solution: 'Sosiale medier påvirker selvbildet på flere måter: 1) Sosial sammenligning - Vi sammenligner oss konstant med andres "perfekte" liv og kropper, og føler at vi kommer til kort. Vi ser andres høydepunkter og sammenligner med vår hverdag. 2) Filtrerte virkeligheter - 90% av bilder er redigert med filter, perfekt lys og vinkler. Vi sammenligner oss med urealistiske, konstruerte bilder og tror det er slik folk faktisk ser ut. 3) Algoritmer som forsterker - Jo mer vi ser på kropps- og fitnesinnhold, jo mer viser algoritmen oss slikt innhold, noe som skaper et ekkokammer av kroppspress. 4) Kommersielle interesser - Reklame vil at vi skal føle oss utilstrekkelige slik at vi kjøper produkter. Konsekvensene inkluderer lavere selvtillit, kroppsmissnøye, angst, depresjon og i verste fall spiseforstyrrelser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-3-5-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-5-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er mediekritikk, og hvordan kan det hjelpe oss å forholde oss til kroppsidealer?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Definer mediekritikk',
+            solution: 'Mediekritikk er evnen til å analysere og vurdere budskap i media kritisk. Det innebærer å stille spørsmål som: Hvem har laget dette? Hva er hensikten? Er bildene redigert? Hva blir utelatt?',
+          },
+          {
+            label: 'b',
+            task: 'Nevn tre spørsmål du kan stille når du ser et "perfekt" bilde på sosiale medier',
+            solution: '1) Er bildet redigert eller filtrert? 2) Hva er hensikten med bildet - selge noe eller få likes? 3) Hva ser jeg IKKE - hvor mange andre bilder ble tatt, og hvordan ser personen ut til vanlig?',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan kan mediekritikk beskytte selvbildet ditt?',
+            solution: 'Mediekritikk hjelper oss å forstå at bildene vi ser ofte er urealistiske, konstruerte og kommersielle. Når vi innser at bilder er redigert og at vi ser kun høydepunktene fra andres liv, slutter vi å sammenligne vår hverdag med en illusjon. Dette reduserer følelsen av utilstrekkelighet og beskytter selvbildet vårt.',
+          },
+        ],
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-5-def3',
       type: 'definition',
       title: 'Spiseforstyrrelser',
@@ -1962,6 +2449,35 @@ Spiseforstyrrelser er alvorlige tilstander som ofte starter med "uskyldige" diet
 Spiseforstyrrelser er IKKE om vilje eller vanitet. De er alvorlige psykiske lidelser som krever profesjonell behandling. Jo tidligere man får hjelp, desto bedre er prognosen.`,
     },
     {
+      id: 'kroppsoving-vg1-3-5-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-5-ex5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er spiseforstyrrelser? Beskriv kort to hovedtyper.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva kjennetegner anoreksi?',
+            solution: 'Anoreksi kjennetegnes av ekstrem redsel for vektøkning, betydelig undervekt (BMI <17,5), forvrengt kroppsbilde der man ser seg selv som tykk selv om man er veldig tynn, nekter å spise nok mat, og ekstrem trening. Konsekvenser kan være organsvikt, benskjørhet, hjerteproblemer og død.',
+          },
+          {
+            label: 'b',
+            task: 'Hva kjennetegner bulimi?',
+            solution: 'Bulimi kjennetegnes av overspising (binge) følgt av rensing gjennom oppkast, laksering eller ekstrem trening. Personer med bulimi har ofte normal vekt men store svingninger, og tilstanden preges av skam og hemmeligholdelse. Konsekvenser inkluderer tannødeleggelse, spiserørsskader, hjertearytmi og elektrolyttforstyrrelser.',
+          },
+          {
+            label: 'c',
+            task: 'Hvorfor er det viktig å få hjelp tidlig?',
+            solution: 'Spiseforstyrrelser er alvorlige psykiske lidelser som kan være livstruende. Jo tidligere man får profesjonell behandling, desto bedre er prognosen for full bedring. Spiseforstyrrelser handler ikke om vilje eller vanitet, men er komplekse tilstander som krever faglig hjelp.',
+          },
+        ],
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-3-5-tip1',
       type: 'tip',
       title: 'Hvordan få et sunnere forhold til kroppen',
@@ -2014,6 +2530,19 @@ Det er en stor forskjell på å ville være i god form og å ha et usunt forhold
 
 **Husk:**
 Kroppen din er ditt hjem livet ut. Behandle den med respekt og omsorg, ikke som en fiende som skal kontrolleres.`,
+    },
+    {
+      id: 'kroppsoving-vg1-3-5-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-3-5-ex4',
+        number: '5',
+        type: 'classic',
+        task: 'Beskriv forskjellen mellom et sunt og et usunt forhold til trening og mat.',
+        solution: 'Et SUNT forhold til trening og mat kjennetegnes ved at man trener fordi det føles godt og er sunt, ikke av plikt eller skyld. Man kan ta hviledager uten angst, spiser variert og balansert, og nyter godteri av og til uten skyldfølelse. Sosiallivet påvirkes ikke av trening eller matregler, og selvfølelsen er ikke avhengig av vekt eller utseende. Man aksepterer kroppen som den er og fokuserer på prestasjon og helse. Et USUNT forhold derimot er preget av at man trener av tvang og får angst ved hvile. Man har rigide matregler, føler massiv skyld ved "usunn" mat, prioriterer trening foran venner og familie, og selvfølelsen avhenger helt av vekt og utseende. Man er konstant misfornøyd med kroppen og fokuserer kun på utseende. Røde flagg inkluderer å veie seg flere ganger daglig, telle kalorier tvangsmessig, trene selv når syk, og at tanker om mat og kropp dominerer dagen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-3-5-def4',
@@ -2124,103 +2653,6 @@ Husk: Det er ALDRI for tidlig å søke hjelp, men det kan bli for sent.
 *Viktig: Informasjonen her er ment som generell veiledning og erstatter ikke profesjonell hjelp. Ved mistanke om spiseforstyrrelser eller andre psykiske helseplager, kontakt alltid kvalifisert helsepersonell.*`,
     },
     {
-      id: 'kroppsoving-vg1-3-5-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-5-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hvordan kroppsidealer har endret seg gjennom tidene. Hva forteller dette oss?',
-        solution: 'Kroppsidealer har endret seg dramatisk gjennom historien. På 1900-tallet var kurver og runde former idealet for kvinner, mens på 1960-70-tallet var ekstremt tynne kropper idealet (som modellen Twiggy). I dag er idealet ofte kurver OG flat mage - en urealistisk kombinasjon. For menn har idealet gått fra slank og elegant, via svært muskuløs, til dagens fokus på lav fettprosent og definerte muskler. Dette forteller oss at kroppsidealer er konstruerte og kulturelt betinget - ikke naturlige eller "riktige". Det som er "perfekt" i dag, var kanskje ikke ideelt for 20 år siden og vil sannsynligvis ikke være det om 20 år. Dette viser at det gir liten mening å jakte på et ideal som uansett vil forandre seg med moten.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-5-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-5-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvordan påvirker sosiale medier selvbildet vårt? Nevn minst tre mekanismer.',
-        solution: 'Sosiale medier påvirker selvbildet på flere måter: 1) Sosial sammenligning - Vi sammenligner oss konstant med andres "perfekte" liv og kropper, og føler at vi kommer til kort. Vi ser andres høydepunkter og sammenligner med vår hverdag. 2) Filtrerte virkeligheter - 90% av bilder er redigert med filter, perfekt lys og vinkler. Vi sammenligner oss med urealistiske, konstruerte bilder og tror det er slik folk faktisk ser ut. 3) Algoritmer som forsterker - Jo mer vi ser på kropps- og fitnesinnhold, jo mer viser algoritmen oss slikt innhold, noe som skaper et ekkokammer av kroppspress. 4) Kommersielle interesser - Reklame vil at vi skal føle oss utilstrekkelige slik at vi kjøper produkter. Konsekvensene inkluderer lavere selvtillit, kroppsmissnøye, angst, depresjon og i verste fall spiseforstyrrelser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-5-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-5-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er mediekritikk, og hvordan kan det hjelpe oss å forholde oss til kroppsidealer?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Definer mediekritikk',
-            solution: 'Mediekritikk er evnen til å analysere og vurdere budskap i media kritisk. Det innebærer å stille spørsmål som: Hvem har laget dette? Hva er hensikten? Er bildene redigert? Hva blir utelatt?',
-          },
-          {
-            label: 'b',
-            task: 'Nevn tre spørsmål du kan stille når du ser et "perfekt" bilde på sosiale medier',
-            solution: '1) Er bildet redigert eller filtrert? 2) Hva er hensikten med bildet - selge noe eller få likes? 3) Hva ser jeg IKKE - hvor mange andre bilder ble tatt, og hvordan ser personen ut til vanlig?',
-          },
-          {
-            label: 'c',
-            task: 'Hvordan kan mediekritikk beskytte selvbildet ditt?',
-            solution: 'Mediekritikk hjelper oss å forstå at bildene vi ser ofte er urealistiske, konstruerte og kommersielle. Når vi innser at bilder er redigert og at vi ser kun høydepunktene fra andres liv, slutter vi å sammenligne vår hverdag med en illusjon. Dette reduserer følelsen av utilstrekkelighet og beskytter selvbildet vårt.',
-          },
-        ],
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-5-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-5-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv forskjellen mellom et sunt og et usunt forhold til trening og mat.',
-        solution: 'Et SUNT forhold til trening og mat kjennetegnes ved at man trener fordi det føles godt og er sunt, ikke av plikt eller skyld. Man kan ta hviledager uten angst, spiser variert og balansert, og nyter godteri av og til uten skyldfølelse. Sosiallivet påvirkes ikke av trening eller matregler, og selvfølelsen er ikke avhengig av vekt eller utseende. Man aksepterer kroppen som den er og fokuserer på prestasjon og helse. Et USUNT forhold derimot er preget av at man trener av tvang og får angst ved hvile. Man har rigide matregler, føler massiv skyld ved "usunn" mat, prioriterer trening foran venner og familie, og selvfølelsen avhenger helt av vekt og utseende. Man er konstant misfornøyd med kroppen og fokuserer kun på utseende. Røde flagg inkluderer å veie seg flere ganger daglig, telle kalorier tvangsmessig, trene selv når syk, og at tanker om mat og kropp dominerer dagen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-3-5-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-3-5-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er spiseforstyrrelser? Beskriv kort to hovedtyper.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva kjennetegner anoreksi?',
-            solution: 'Anoreksi kjennetegnes av ekstrem redsel for vektøkning, betydelig undervekt (BMI <17,5), forvrengt kroppsbilde der man ser seg selv som tykk selv om man er veldig tynn, nekter å spise nok mat, og ekstrem trening. Konsekvenser kan være organsvikt, benskjørhet, hjerteproblemer og død.',
-          },
-          {
-            label: 'b',
-            task: 'Hva kjennetegner bulimi?',
-            solution: 'Bulimi kjennetegnes av overspising (binge) følgt av rensing gjennom oppkast, laksering eller ekstrem trening. Personer med bulimi har ofte normal vekt men store svingninger, og tilstanden preges av skam og hemmeligholdelse. Konsekvenser inkluderer tannødeleggelse, spiserørsskader, hjertearytmi og elektrolyttforstyrrelser.',
-          },
-          {
-            label: 'c',
-            task: 'Hvorfor er det viktig å få hjelp tidlig?',
-            solution: 'Spiseforstyrrelser er alvorlige psykiske lidelser som kan være livstruende. Jo tidligere man får profesjonell behandling, desto bedre er prognosen for full bedring. Spiseforstyrrelser handler ikke om vilje eller vanitet, men er komplekse tilstander som krever faglig hjelp.',
-          },
-        ],
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-3-5-exercise6',
       type: 'exercise',
       exercise: {
@@ -2233,6 +2665,7 @@ Husk: Det er ALDRI for tidlig å søke hjelp, men det kan bli for sent.
         allowsCanvasDrawing: false,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-3-5-exercise7',
       type: 'exercise',
@@ -3611,81 +4044,113 @@ Svømming kan og bør tilpasses slik at alle kan delta og utvikle seg i sitt ege
 
 **Viktig**: Vannsikkerhet går foran alt. Alle skal føle seg trygge. Svømming er en livsviktig ferdighet, og gradvis progresjon sikrer at alle kan lære i sitt eget tempo.`,
     },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv armtaksteknikken i crawl.',
+        solution: 'Armtak i crawl: Innslag (hånd inn foran hodet), Tak (høy albue, fange vann), Trekk (dra vannet bakover), Trykk (skyve forbi hofte), Gjenvinning (albue først opp, slapp arm). Timing: En arm fremme når andre er bak.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar redningshierarkiet og hvorfor egen sikkerhet er viktigst.',
+        solution: 'Redningshierarkiet: 1) Talk, 2) Throw, 3) Reach, 4) Wade, 5) Row, 6) Swim/Tow. Egen sikkerhet viktigst fordi en drukningsulykke ikke skal bli to. En person i fare kan ikke redde andre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv hvordan du kan hjelpe en medelev som er redd for vann. Gi minst fire konkrete tips.',
+        solution: 'Fire konkrete tips for å hjelpe noen som er redd for vann: 1) Vis empati og respekt - anerkjenn frykten som reell, aldri bagatelliser eller tvinge. 2) Gradvis eksponering - start ved bassengkanten med å dyppe føttene, gradvis gå dypere i vannets tempo, aldri skyv eller overrask. 3) Bygg tillit gjennom kontroll - la eleven bestemme tempoet, gi fysisk støtte (hold hånden), vær forutsigbar og trygg. 4) Fokuser på positive opplevelser - bruk leker og lek, feir små fremskritt, skaper gode minner i vannet. Andre viktige tiltak: Bruk flytevest for trygghet, gjør det morsomt (sprute vann, hoppe fra kant), aldri forlat eleven alene i vannet. Målet er vanntrivsel først - når frykten reduseres, kommer svømmekunstene naturlig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar detaljert hva du skal gjøre hvis du ser noen i fare for å drukne. Bruk redningshierarkiet.',
+        solution: 'Ved drukningsfare følg redningshierarkiet: 1) Talk - Rop instruksjoner fra land ("Svøm hit!", "Hold deg flytende!"). 2) Throw - Kast redningsbøye, tau eller annet flytende. 3) Reach - Strekk ut gren/padleåre fra land (ligg ned for balanse). 4) Wade - Vass ut hvis trygt, maks til livet, hold fast i noe. 5) Row - Bruk båt/fartøy, la personen holde i baugen. 6) Swim/Tow - Kun som siste utvei hvis du er sterk svømmer, tilnærm bakfra, ta med flytehjelp. VIKTIG: Ring 113 øyeblikkelig, sikre egen sikkerhet først, aldri tilnærm forfra, iverksett HLR ved bevisstløshet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Du skal lære en venn å svømme brystsvømming. Forklar armtak, beinpark og timing.',
+        solution: 'Brystsvømming teknikk: **Armtak**: "Ut, ned, inn, fram" - strekk armene fram, vend hender utover, skyv vann ut til sidene med høy albue, trekk hendene ned og inn mot brystet, skyv dem framover igjen. **Beinpark**: "Bøy, roter, spark, stram" - bøy knær (hæler mot rumpa), roter føttene utover som frosk, spark kraftig ut og sammen, stram bein rett bak. **Timing**: "Pull, breathe, kick, glide" - armtak først, løft hodet og pust når armene trekker, beinpark når armene skyves fram, gli med strake armer og ben. Vanlige feil å unngå: Beinpark for bred, hode over vann hele tiden, armtak og beinpark samtidig. Progresjon: Øv armtak og beinpark hver for seg først, deretter kombinér med fokus på timing.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Hva er de viktigste forskjellene på drukningsforebygging for barn vs. voksne?',
+        solution: 'Drukningsforebygging for barn vs. voksne: **For barn**: 1) Aktivt tilsyn er kritisk - voksent oppsyn ALLTID, barn drukner stille og raskt. 2) Fysiske barrierer - gjerder rundt basseng/dam, barnelås på dører. 3) Flytevest på båt og ved vann. 4) Tidlig svømmeopplæring (fra 4-5 år). 5) Lær "stopp ved vannkanten"-regel. 6) Tøm bøtter/basseng etter bruk. **For voksne**: 1) Alkohol er hovedårsak (50% av drukningsulykker) - aldri drikk og svøm. 2) Overvurdering av egne ferdigheter - kjenn grensene. 3) Aldri svøm alene. 4) Vær oppmerksom på strømninger. 5) Bruk flytevest på båt. Felles: Lære god svømmeteknikk, kjenne til livredning, respektere vannet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'kroppsoving-vg1-4-2-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex7',
+        number: '7',
+        type: 'classic',
+        task: 'Sammenlign svømming i basseng og åpent vann. Hvilke utfordringer møter du i åpent vann?',
+        solution: 'Utfordringer i åpent vann vs. basseng: **Temperatur**: Åpent vann kaldere (ofte under 20°C), kan gi kuldestivhet, kramper, hypotermi. Løsning: Gradvis tilvenn, bruk våddrakt. **Sikt**: Begrenset/ingen sikt, ser ikke bunnen. Løsning: Løft hodet regelmessig for navigering. **Bølger**: Skaper motstand, gjør pust vanskeligere, kan slå vann i ansiktet. Løsning: Pust til siden der det er roligere, tid pust mellom bølger. **Strøm**: Kan drive av kurs, gjøre det tungt å svømme. Løsning: Svøm parallelt med land hvis fanget i strøm. **Ingen vegg**: Kan ikke hvile eller vende. Løsning: Tren utholdenhet, lær å flyte på rygg for hvile. **Psykologi**: Mer skremmende, dypt, mørkt. Løsning: Start i gruntvannet, øk distanse gradvis, svøm aldri alene. Forberedelse: Tren i kaldt vann gradvis, øv navigering, bruk sikkerhetsbøye.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-2-exercise8',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-2-ex8',
+        number: '8',
+        type: 'classic',
+        task: 'Lag en 8-ukers treningsplan for å gå fra å svømme 400m til 1000m crawl kontinuerlig.',
+        solution: '8-ukers treningsplan fra 400m til 1000m crawl: **Uke 1-2**: 10x50m crawl, 30 sek pause (500m total). Fokus: Teknikk, jevnt tempo. 3 økter/uke. **Uke 3-4**: 5x100m crawl, 30 sek pause (500m total) + 5x50m teknikk. Øk til 2x250m mot slutten. **Uke 5-6**: 4x200m, 45 sek pause (800m total) + 200m teknikk. Introduser 1x400m i en økt. **Uke 7**: 2x400m, 60 sek pause + 200m teknikk. Øk til 1x600m + 1x300m. **Uke 8**: 1x800m + 200m i første økt. Test 1000m kontinuerlig i andre økt. Hver økt: 200m oppvarming (rolig), hovedøkt, 100-200m nedkoling. Tips: Fokuser på jevnt tempo, tren teknikk i rolige økter, øk distanse 10% per uke, hvil 1-2 dager mellom harde økter. Mål: Gjennomføre 1000m på under 25 min.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
-  exercises: [
-    {
-      id: 'kroppsoving-vg1-4-2-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Beskriv armtaksteknikken i crawl.',
-      solution: 'Armtak i crawl: Innslag (hånd inn foran hodet), Tak (høy albue, fange vann), Trekk (dra vannet bakover), Trykk (skyve forbi hofte), Gjenvinning (albue først opp, slapp arm). Timing: En arm fremme når andre er bak.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Forklar redningshierarkiet og hvorfor egen sikkerhet er viktigst.',
-      solution: 'Redningshierarkiet: 1) Talk, 2) Throw, 3) Reach, 4) Wade, 5) Row, 6) Swim/Tow. Egen sikkerhet viktigst fordi en drukningsulykke ikke skal bli to. En person i fare kan ikke redde andre.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Beskriv hvordan du kan hjelpe en medelev som er redd for vann. Gi minst fire konkrete tips.',
-      solution: 'Fire konkrete tips for å hjelpe noen som er redd for vann: 1) Vis empati og respekt - anerkjenn frykten som reell, aldri bagatelliser eller tvinge. 2) Gradvis eksponering - start ved bassengkanten med å dyppe føttene, gradvis gå dypere i vannets tempo, aldri skyv eller overrask. 3) Bygg tillit gjennom kontroll - la eleven bestemme tempoet, gi fysisk støtte (hold hånden), vær forutsigbar og trygg. 4) Fokuser på positive opplevelser - bruk leker og lek, feir små fremskritt, skaper gode minner i vannet. Andre viktige tiltak: Bruk flytevest for trygghet, gjør det morsomt (sprute vann, hoppe fra kant), aldri forlat eleven alene i vannet. Målet er vanntrivsel først - når frykten reduseres, kommer svømmekunstene naturlig.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Forklar detaljert hva du skal gjøre hvis du ser noen i fare for å drukne. Bruk redningshierarkiet.',
-      solution: 'Ved drukningsfare følg redningshierarkiet: 1) Talk - Rop instruksjoner fra land ("Svøm hit!", "Hold deg flytende!"). 2) Throw - Kast redningsbøye, tau eller annet flytende. 3) Reach - Strekk ut gren/padleåre fra land (ligg ned for balanse). 4) Wade - Vass ut hvis trygt, maks til livet, hold fast i noe. 5) Row - Bruk båt/fartøy, la personen holde i baugen. 6) Swim/Tow - Kun som siste utvei hvis du er sterk svømmer, tilnærm bakfra, ta med flytehjelp. VIKTIG: Ring 113 øyeblikkelig, sikre egen sikkerhet først, aldri tilnærm forfra, iverksett HLR ved bevisstløshet.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'Du skal lære en venn å svømme brystsvømming. Forklar armtak, beinpark og timing.',
-      solution: 'Brystsvømming teknikk: **Armtak**: "Ut, ned, inn, fram" - strekk armene fram, vend hender utover, skyv vann ut til sidene med høy albue, trekk hendene ned og inn mot brystet, skyv dem framover igjen. **Beinpark**: "Bøy, roter, spark, stram" - bøy knær (hæler mot rumpa), roter føttene utover som frosk, spark kraftig ut og sammen, stram bein rett bak. **Timing**: "Pull, breathe, kick, glide" - armtak først, løft hodet og pust når armene trekker, beinpark når armene skyves fram, gli med strake armer og ben. Vanlige feil å unngå: Beinpark for bred, hode over vann hele tiden, armtak og beinpark samtidig. Progresjon: Øv armtak og beinpark hver for seg først, deretter kombinér med fokus på timing.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Hva er de viktigste forskjellene på drukningsforebygging for barn vs. voksne?',
-      solution: 'Drukningsforebygging for barn vs. voksne: **For barn**: 1) Aktivt tilsyn er kritisk - voksent oppsyn ALLTID, barn drukner stille og raskt. 2) Fysiske barrierer - gjerder rundt basseng/dam, barnelås på dører. 3) Flytevest på båt og ved vann. 4) Tidlig svømmeopplæring (fra 4-5 år). 5) Lær "stopp ved vannkanten"-regel. 6) Tøm bøtter/basseng etter bruk. **For voksne**: 1) Alkohol er hovedårsak (50% av drukningsulykker) - aldri drikk og svøm. 2) Overvurdering av egne ferdigheter - kjenn grensene. 3) Aldri svøm alene. 4) Vær oppmerksom på strømninger. 5) Bruk flytevest på båt. Felles: Lære god svømmeteknikk, kjenne til livredning, respektere vannet.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex7',
-      number: '7',
-      type: 'classic',
-      task: 'Sammenlign svømming i basseng og åpent vann. Hvilke utfordringer møter du i åpent vann?',
-      solution: 'Utfordringer i åpent vann vs. basseng: **Temperatur**: Åpent vann kaldere (ofte under 20°C), kan gi kuldestivhet, kramper, hypotermi. Løsning: Gradvis tilvenn, bruk våddrakt. **Sikt**: Begrenset/ingen sikt, ser ikke bunnen. Løsning: Løft hodet regelmessig for navigering. **Bølger**: Skaper motstand, gjør pust vanskeligere, kan slå vann i ansiktet. Løsning: Pust til siden der det er roligere, tid pust mellom bølger. **Strøm**: Kan drive av kurs, gjøre det tungt å svømme. Løsning: Svøm parallelt med land hvis fanget i strøm. **Ingen vegg**: Kan ikke hvile eller vende. Løsning: Tren utholdenhet, lær å flyte på rygg for hvile. **Psykologi**: Mer skremmende, dypt, mørkt. Løsning: Start i gruntvannet, øk distanse gradvis, svøm aldri alene. Forberedelse: Tren i kaldt vann gradvis, øv navigering, bruk sikkerhetsbøye.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-2-ex8',
-      number: '8',
-      type: 'classic',
-      task: 'Lag en 8-ukers treningsplan for å gå fra å svømme 400m til 1000m crawl kontinuerlig.',
-      solution: '8-ukers treningsplan fra 400m til 1000m crawl: **Uke 1-2**: 10x50m crawl, 30 sek pause (500m total). Fokus: Teknikk, jevnt tempo. 3 økter/uke. **Uke 3-4**: 5x100m crawl, 30 sek pause (500m total) + 5x50m teknikk. Øk til 2x250m mot slutten. **Uke 5-6**: 4x200m, 45 sek pause (800m total) + 200m teknikk. Introduser 1x400m i en økt. **Uke 7**: 2x400m, 60 sek pause + 200m teknikk. Øk til 1x600m + 1x300m. **Uke 8**: 1x800m + 200m i første økt. Test 1000m kontinuerlig i andre økt. Hver økt: 200m oppvarming (rolig), hovedøkt, 100-200m nedkoling. Tips: Fokuser på jevnt tempo, tren teknikk i rolige økter, øk distanse 10% per uke, hvil 1-2 dager mellom harde økter. Mål: Gjennomføre 1000m på under 25 min.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-  ],
+  exercises: [],
 };
 
 export const CHAPTER_KROPPSOVING_VG1_4_3: TextbookChapter = {
@@ -3997,72 +4462,100 @@ Turn kan tilpasses for ulike nivåer og forutsetninger:
 - **Sikkerhetsvakt**: Passe på at matter er på plass
 - **Instruktør**: Veilede andre i grunnleggende elementer`,
     },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er kroppsspenning og hvorfor er det viktig for turn?',
+        solution: 'Kroppsspenning er evnen til å holde kroppen stabil ved å aktivere core. Det gir kontroll, beskytter ryggen, gjør bevegelser effektive, og er nødvendig for balanse i stillinger som håndstående.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke elementer skal ALDRI øves uten profesjonell veiledning?',
+        solution: 'Salto, flickflack og rundpult med salto skal ALDRI øves uten instruktør. Ekstremt høy risiko for nakke-/ryggskader. Krever perfekt teknikk og spesialutstyr.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv en trygg progresjon for å lære håndstående fra null til å holde det i 10 sekunder.',
+        solution: 'Progresjon for håndstående: **Steg 1-2 (uke 1-2)**: Veggstående - spark opp til vegg, hold 3x20 sek. Fokus: Rak kropp, stram core, armer helt strake. Bygg skulderstyrke med pike push-ups. **Steg 3 (uke 3)**: Øk til 3x30 sek veggstående. Introduser fri balanse 5 sek med spotter. Øv spark til håndstående. **Steg 4 (uke 4)**: 3x40 sek veggstående. Øv håndstående med spotter som holder lett, 10 sek. Fokuser på balansekorrigeringer med fingre/håndledd. **Steg 5 (uke 5)**: Reduser hjelp fra spotter gradvis. Mål: 5-10 sek fri håndstående. Øv ulike innspark (scissor kick, tuck press). **Steg 6 (uke 6+)**: Konsolider 10+ sek fri håndstående. Øv gange på hender, press til håndstående. Nøkkel: Tålmodighet, konsentrasjon, kroppsspenning, konsistent trening 3x per uke.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar detaljert hvordan en spotter skal sikre en elev som øver på hjul. Hva er spotter sin rolle?',
+        solution: 'Spotters rolle ved hjul: **Før øvelsen**: 1) Plassering - stå på siden der elevens første ben kommer ned. 2) Instruksjon - gi tydelige tips til eleven. 3) Klargjør - ha hendene klar ved elevens hofte/midje. **Under øvelsen**: 1) Grip rundt hoften/midjen når eleven roterer. 2) Støtt rotasjonen, led eleven over. 3) Sikre trygg landing på føttene. 4) IKKE grip armer (vridning) eller bein (forstyrrer rotasjon). 5) Hold blikket på eleven hele veien. **Etter øvelsen**: 1) Gi tilbakemelding på teknikk. 2) Juster for neste forsøk. **Spotterens ansvar**: Forhindre fall/skade, gi trygghet, hjelpe eleven lære riktig teknikk. **Viktig**: Spotter må selv ha lært spotting-teknikk. Vær alltid fokusert og klar. Kommunikasjon med eleven er nøkkelen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvorfor er kroppsspenning viktig i turn, og hvilke øvelser kan utvikle god kroppsspenning?',
+        solution: 'Kroppsspenning i turn - viktighet og øvelser: **Hvorfor viktig**: 1) Kontroll - gir stabilitet og kontroll over kroppen i stillinger og bevegelser. 2) Skadeforfører - beskytter ryggen mot overstrekning og skader. 3) Effektivitet - gjør bevegelser kraftfulle og estetiske. 4) Balanse - nødvendig i posisjoner som håndstående. 5) Teknikk - forhindrer "banankropp" og posisjonsfeil. **Øvelser for kroppsspenning**: 1) **Plank**: 3x30-60 sek, rak linje fra hode til hæl. 2) **Hollow body hold**: Ligg på rygg, løft skulderblad og bein, armer over hodet, 3x20-30 sek. 3) **Båt/V-sit**: Sitt i V-form, hold 3x20 sek. 4) **Superman**: På magen, løft armer og bein, 3x15-20 sek. 5) **Side plank**: 3x30 sek hver side. 6) **Veggstående**: Hold perfekt rak kropp, 3x30 sek. Progresjon: Øk tid, kombiner øvelser, integrer i all turntrening.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'kroppsoving-vg1-4-3-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Hvilke elementer skal ALDRI øves uten profesjonell instruktør, og hvorfor?',
+        solution: 'Elementer som krever profesjonell instruktør: **1. Salto (alle varianter)**: Full rotasjon i luften. Ekstremt høy risiko for nakke-/ryggskader ved feil landing. Krever perfekt teknikk, timing, og spesialutstyr (grube/airtrack). Feil kan være livstruende. **2. Flickflack (back handspring)**: Hopp bakover til håndstående og over. Risiko for å lande på hodet/nakke hvis rotasjon mislykkes. Krever styrke, teknikk, og erfaren spotter. **3. Rundpult med salto**: Kombinasjon av rundpult og salto. Svært høy fart og rotasjon, ekstremt risikabelt. **4. Twists og skruer**: Rotasjon rundt lengdeaksen i luften. Komplekse bevegelser, lett å miste orientering. **Hvorfor profesjonell veiledning**: 1) Riktig progresjon - bygge forutsetninger. 2) Spotting-teknikk - sikre trygt. 3) Utstyr - grube, airtrack, spesialmatter. 4) Teknikk - små feil kan gi alvorlige skader. 5) Mental forberedelse - håndtere frykt trygt. Disse elementene er ALDRI verdt risikoen uten ekspertveiledning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-3-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-3-ex7',
+        number: '7',
+        type: 'classic',
+        task: 'Lag en treningsøkt (45 min) for turn som inkluderer oppvarming, hoveddel og nedkoling. Målgruppe: Nybegynnere.',
+        solution: 'Turnøkt for nybegynnere (45 min): **Oppvarming (10 min)**: - 3 min lett løping/hopping i sirkel. - 3 min dynamisk tøying: armsvinger, beinsvinger, torsorotasjon, huking. - 2 min leddmobilisering: håndledd-sirkler, ankelrotasjon, skulderruller. - 2 min lette elementer: rulling fremover 5x, bro-posisjon 2x15 sek. **Hoveddel (30 min)**: - **Kroppsspenning** (8 min): Plank 3x30 sek, Hollow body 3x20 sek, Båt 3x15 sek. Pause 30 sek mellom. - **Håndstående-progresjon** (10 min): Veggstående 3x20 sek, Spark til vegg 10x, Pike push-ups 3x5. - **Rulling** (7 min): Rulling frem 10x, Rulling tilbake 10x, Kombinasjon 5x. - **Hjul-progresjon** (5 min): Hånd-hånd-fot-fot mønster 10x, Hjul med spotter 5x hver retning. **Nedkoling (5 min)**: - 2 min lett gange/bevegelse. - 3 min statisk tøying: hamstrings, quadriceps, skuldre, rygg. Fokus: Teknikk, sikkerhet, positiv atmosfære. Alle skal mestre noe!',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
-  exercises: [
-    {
-      id: 'kroppsoving-vg1-4-3-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Hva er kroppsspenning og hvorfor er det viktig for turn?',
-      solution: 'Kroppsspenning er evnen til å holde kroppen stabil ved å aktivere core. Det gir kontroll, beskytter ryggen, gjør bevegelser effektive, og er nødvendig for balanse i stillinger som håndstående.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Hvilke elementer skal ALDRI øves uten profesjonell veiledning?',
-      solution: 'Salto, flickflack og rundpult med salto skal ALDRI øves uten instruktør. Ekstremt høy risiko for nakke-/ryggskader. Krever perfekt teknikk og spesialutstyr.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Beskriv en trygg progresjon for å lære håndstående fra null til å holde det i 10 sekunder.',
-      solution: 'Progresjon for håndstående: **Steg 1-2 (uke 1-2)**: Veggstående - spark opp til vegg, hold 3x20 sek. Fokus: Rak kropp, stram core, armer helt strake. Bygg skulderstyrke med pike push-ups. **Steg 3 (uke 3)**: Øk til 3x30 sek veggstående. Introduser fri balanse 5 sek med spotter. Øv spark til håndstående. **Steg 4 (uke 4)**: 3x40 sek veggstående. Øv håndstående med spotter som holder lett, 10 sek. Fokuser på balansekorrigeringer med fingre/håndledd. **Steg 5 (uke 5)**: Reduser hjelp fra spotter gradvis. Mål: 5-10 sek fri håndstående. Øv ulike innspark (scissor kick, tuck press). **Steg 6 (uke 6+)**: Konsolider 10+ sek fri håndstående. Øv gange på hender, press til håndstående. Nøkkel: Tålmodighet, konsentrasjon, kroppsspenning, konsistent trening 3x per uke.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Forklar detaljert hvordan en spotter skal sikre en elev som øver på hjul. Hva er spotter sin rolle?',
-      solution: 'Spotters rolle ved hjul: **Før øvelsen**: 1) Plassering - stå på siden der elevens første ben kommer ned. 2) Instruksjon - gi tydelige tips til eleven. 3) Klargjør - ha hendene klar ved elevens hofte/midje. **Under øvelsen**: 1) Grip rundt hoften/midjen når eleven roterer. 2) Støtt rotasjonen, led eleven over. 3) Sikre trygg landing på føttene. 4) IKKE grip armer (vridning) eller bein (forstyrrer rotasjon). 5) Hold blikket på eleven hele veien. **Etter øvelsen**: 1) Gi tilbakemelding på teknikk. 2) Juster for neste forsøk. **Spotterens ansvar**: Forhindre fall/skade, gi trygghet, hjelpe eleven lære riktig teknikk. **Viktig**: Spotter må selv ha lært spotting-teknikk. Vær alltid fokusert og klar. Kommunikasjon med eleven er nøkkelen.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'Hvorfor er kroppsspenning viktig i turn, og hvilke øvelser kan utvikle god kroppsspenning?',
-      solution: 'Kroppsspenning i turn - viktighet og øvelser: **Hvorfor viktig**: 1) Kontroll - gir stabilitet og kontroll over kroppen i stillinger og bevegelser. 2) Skadeforfører - beskytter ryggen mot overstrekning og skader. 3) Effektivitet - gjør bevegelser kraftfulle og estetiske. 4) Balanse - nødvendig i posisjoner som håndstående. 5) Teknikk - forhindrer "banankropp" og posisjonsfeil. **Øvelser for kroppsspenning**: 1) **Plank**: 3x30-60 sek, rak linje fra hode til hæl. 2) **Hollow body hold**: Ligg på rygg, løft skulderblad og bein, armer over hodet, 3x20-30 sek. 3) **Båt/V-sit**: Sitt i V-form, hold 3x20 sek. 4) **Superman**: På magen, løft armer og bein, 3x15-20 sek. 5) **Side plank**: 3x30 sek hver side. 6) **Veggstående**: Hold perfekt rak kropp, 3x30 sek. Progresjon: Øk tid, kombiner øvelser, integrer i all turntrening.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Hvilke elementer skal ALDRI øves uten profesjonell instruktør, og hvorfor?',
-      solution: 'Elementer som krever profesjonell instruktør: **1. Salto (alle varianter)**: Full rotasjon i luften. Ekstremt høy risiko for nakke-/ryggskader ved feil landing. Krever perfekt teknikk, timing, og spesialutstyr (grube/airtrack). Feil kan være livstruende. **2. Flickflack (back handspring)**: Hopp bakover til håndstående og over. Risiko for å lande på hodet/nakke hvis rotasjon mislykkes. Krever styrke, teknikk, og erfaren spotter. **3. Rundpult med salto**: Kombinasjon av rundpult og salto. Svært høy fart og rotasjon, ekstremt risikabelt. **4. Twists og skruer**: Rotasjon rundt lengdeaksen i luften. Komplekse bevegelser, lett å miste orientering. **Hvorfor profesjonell veiledning**: 1) Riktig progresjon - bygge forutsetninger. 2) Spotting-teknikk - sikre trygt. 3) Utstyr - grube, airtrack, spesialmatter. 4) Teknikk - små feil kan gi alvorlige skader. 5) Mental forberedelse - håndtere frykt trygt. Disse elementene er ALDRI verdt risikoen uten ekspertveiledning.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-3-ex7',
-      number: '7',
-      type: 'classic',
-      task: 'Lag en treningsøkt (45 min) for turn som inkluderer oppvarming, hoveddel og nedkoling. Målgruppe: Nybegynnere.',
-      solution: 'Turnøkt for nybegynnere (45 min): **Oppvarming (10 min)**: - 3 min lett løping/hopping i sirkel. - 3 min dynamisk tøying: armsvinger, beinsvinger, torsorotasjon, huking. - 2 min leddmobilisering: håndledd-sirkler, ankelrotasjon, skulderruller. - 2 min lette elementer: rulling fremover 5x, bro-posisjon 2x15 sek. **Hoveddel (30 min)**: - **Kroppsspenning** (8 min): Plank 3x30 sek, Hollow body 3x20 sek, Båt 3x15 sek. Pause 30 sek mellom. - **Håndstående-progresjon** (10 min): Veggstående 3x20 sek, Spark til vegg 10x, Pike push-ups 3x5. - **Rulling** (7 min): Rulling frem 10x, Rulling tilbake 10x, Kombinasjon 5x. - **Hjul-progresjon** (5 min): Hånd-hånd-fot-fot mønster 10x, Hjul med spotter 5x hver retning. **Nedkoling (5 min)**: - 2 min lett gange/bevegelse. - 3 min statisk tøying: hamstrings, quadriceps, skuldre, rygg. Fokus: Teknikk, sikkerhet, positiv atmosfære. Alle skal mestre noe!',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-  ],
+  exercises: [],
 };
 
 export const CHAPTER_KROPPSOVING_VG1_4_4: TextbookChapter = {
@@ -4441,81 +4934,113 @@ Kampsport og selvforsvar kan tilpasses alle:
 - **Teoriansvarlig**: Forske på og presentere kampsportfilosofi
 - **Observatør**: Analysere teknikk og gi tilbakemeldinger`,
     },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er de fire trinnene i selvforsvarsprinsippet?',
+        solution: 'De fire trinnene: 1) Unngå farlige situasjoner, 2) Avvær trusler verbalt, 3) Flukt hvis mulig, 4) Forsvar fysisk kun som siste utvei. Målet er alltid å komme trygt unna.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er respekt viktig i kampsport?',
+        solution: 'Respekt forhindrer skader gjennom kontrollerte teknikker, bygger trygt treningsmiljø, lærer verdier utover teknikker, og sikrer at kampferdigheter brukes ansvarlig og ikke for vold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar detaljert selvforsvarsprinsippet med de fire trinnene. Gi eksempler på hver.',
+        solution: 'Selvforsvarsprinsippet - fire trinn: **1. Unngå (Prevention)**: Den beste selvforsvaret er å ikke komme i farlige situasjoner. Eksempler: Vær oppmerksom på omgivelsene (ikke mobil hele tiden), unngå dårlig opplyste områder alene om kvelden, stol på magefølelsen, hold avstand til mistenkelige, reis i gruppe. Hvis noe føles galt, det er det ofte. **2. Avvær (De-escalation)**: Bruk ord for å avverge. Eksempler: Snakk rolig og bestemt ("Jeg vil ikke ha problemer"), hold 2+ meters avstand, kroppsspråk bestemt men ikke aggressiv, gi rom for at person kan trekke seg tilbake, kjøp tid (politiet kan komme). **3. Flukt (Escape)**: Hvis situasjonen eskalerer, løp! Eksempler: Rop høyt "BRANN!" eller "HJELP!", løp mot mennesker/lys, kast noe for å forsinke (veske), ikke vær heltemot - livet viktigere enn stolthet. **4. Forsvar (Physical defense)**: KUN som siste utvei når alt annet feiler. Eksempler: Fokus på sårbare punkter (øyne, hals, skrittområde), bruk det du har (nøkler, paraply), mål er å skape åpning for flukt IKKE "vinne", løp første mulighet. Nøkkel: Hver trinn prøves før neste. Fysisk forsvar er siste utvei.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvordan kan kampsport bidra til personlig utvikling utover fysiske ferdigheter? Gi minst fem eksempler.',
+        solution: 'Kampsport for personlig utvikling: **1. Disiplin**: Møte opp regelmessig, følge instruksjoner, øve teknikker tusenvis ganger lærer disiplin som overføres til alle livsområder (skole, jobb). **2. Respekt**: Hilse instruktør/medutøvere, følge regler, vise ydmykhet bygger respekt for andre og seg selv. Lære å vinne og tape med verdighet. **3. Selvkontroll**: Lære å kontrollere aggresjon, bruke kraft ansvarlig, ikke misbruke ferdigheter. Sparring lærer selvkontroll under press. **4. Målsetting**: Graderte belter gir tydelige mål, lærer viktigheten av langsiktig innsats, tålmodighet og at mestring tar tid. **5. Selvtillit**: Mestre teknikker, stå opp etter nederlag, overvinne frykt bygger reell selvtillit (ikke arroganse). **6. Mentalt styrke**: Trene når sliten, presse grenser, håndtere nederlag. **7. Fellesskap**: Treningskameratskap, støtte hverandre, lære sammen. Eksempel: En utøver som trener 10 år lærer mer om tålmodighet, respekt og utholdenhet enn mange lærer på livstid. Kampsport er ikke bare fysisk, men en livsfilosofi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'En venn blir angrepet på gaten. Hen dytte angriper vekk, personen faller og slår hodet. Er det lovlig nødverge?',
+        solution: 'Juridisk vurdering av nødverge etter Straffeloven §18: **Situasjon**: Pågående angrep, forsvarer seg ved å dytte (ikke slag), angriper faller uheldig. **Vurdering**: 1) **Pågående angrep**: Ja - ble angrepet. 2) **Nødvendig forsvar**: Ja - dytt er rimelig respons for å stoppe angrep. 3) **Forholdsmessig**: Ja - dytt er proporsjonal respons (ikke overdreven kraft). **Konklusjon**: Dette vil sannsynligvis vurderes som lovlig nødverge. Minimal nødvendig kraft brukt. At angriper falt uheldig er ikke forsvarers ansvar når forsvaret var lovlig. **VIKTIG forskjell**: Hvis fortsetter å slå mens angriper ligger nede = IKKE nødverge (angrep er over, dette er gjengjeldelse). **Lærdom**: Bruk minimal nødvendig kraft, stopp når faren er over, løp, ring politiet (112), dokumenter (foto av skader, vitner), rapporter umiddelbart. Nødverge beskytter deg juridisk når du handler riktig. Rømmen er alltid best hvis mulig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Sammenlign to kampsportarter: karate (slagbasert) og judo (kastbasert). Hva er likheter og forskjeller?',
+        solution: 'Sammenligning karate vs. judo: **Likheter**: Begge er japanske kampsporter, har beltegradering (hvit til svart), sterkt filosofisk fundament (respekt, disiplin), lærer selvkontroll og disiplin, bygger selvtillit, olympiske grener (karate fra 2020, judo lenger). **Forskjeller - Teknikk**: Karate fokuserer på slag, spark, blokkeringer (stand-up fighting). Judo fokuserer på kast, grep, bakkearbeid (grappling). **Træningsform**: Karate bruker kata (former), pad-arbeid, sparring på avstand. Judo bruker randori (fri øving), mye fysisk kontakt, kasteteknikker. **Fysiske krav**: Karate krever god bevegelighet, rask reaksjon, koordinasjon. Judo krever styrke (spesielt grip og core), balanse, god kondisjon. **Selvforsvar**: Karate effektiv på avstand (slag/spark). Judo effektiv i nær kamp (kast, kontroll). **Skaderisiko**: Karate har risiko for slag-relaterte skader (blåmerker, forstuinger). Judo har risiko for fall-relaterte skader (skulder, kne). **Velge mellom de**: Karate hvis liker slag/spark, teknisk presisjon. Judo hvis liker fysisk kontakt, kast, bruker motstanders kraft. Begge er flotte valg!',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'kroppsoving-vg1-4-4-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex7',
+        number: '7',
+        type: 'classic',
+        task: 'Beskriv en typisk kampsportstreningsøkt (60 min) fra start til slutt. Inkluder alle faser.',
+        solution: 'Typisk kampsportstreningsøkt (60 min): **1. Hilsen og lineup (2 min)**: Alle står på linje etter grad. Hilse instruktør og medutøvere (bowing). Setter tonen: Respekt og fokus. **2. Oppvarming (10 min)**: Lett løping/skipping, dynamisk tøying (armsvinger, beinsvinger), leddmobilisering (håndledd, ankler), teknikk-oppvarming (lette slag/spark i luften). Mål: Puls opp, kropp klar, skadeforebygging. **3. Teknikk-trening (25 min)**: Instruktør demonstrerer teknikk (f.eks. mawashi-geri/roundhouse kick). Elever øver i luften (shadowboxing) 10x. Øv på pads med partner 20x hver. Instruktør gir korrigeringer. Repetisjon og perfeksjonering. Mål: Mestre bevegelse. **4. Anvendelse/Sparring (15 min)**: Kontrollert sparring med partner, avtalt intensitet. Fokus på timing, avstand, reaksjon. 3x3 min runder med 1 min pause. **5. Fysisk trening (5 min)**: 3x20 push-ups, 3x30 sit-ups, 3x20 squats. Kampsport er fysisk krevende. **6. Nedkoling og tøying (3 min)**: Rolig ned-tempo, statisk tøying (ben, skuldre, rygg), refleksjon. **7. Hilsen og lineup (2 min)**: Takk instruktør og medutøvere. Avslutter økten. Resultat: Utmatte men tilfredse utøvere!',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-4-4-exercise8',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-4-ex8',
+        number: '8',
+        type: 'classic',
+        task: 'Du går alene hjem sent kveld og noen følger etter deg og ber om penger. Beskriv hvordan du håndterer situasjonen steg-for-steg.',
+        solution: 'Håndtering av truende situasjon: **Steg 1 - Vurdering**: Situasjonen er potensielt farlig. Stol på magefølelsen. Vær våken og fokusert. **Steg 2 - Avstand**: Snu deg, hold 3-4 meters avstand. Kroppsspråk: Bestemt men ikke aggressiv. Øyenkontakt men ikke stirrende. **Steg 3 - Verbal avvergning**: Si høyt og tydelig: "Jeg har ikke penger. La meg være i fred." Rolig men bestemt stemme. Ikke vis frykt (selv om du er redd). **Steg 4 - Miljø-vurdering**: Identifiser fluktveier. Se etter butikker/mennesker/lys. Ha telefon i lommen, klar til bruk (ikke ta opp ennå). **Steg 5 - Eskalering**: Hvis person kommer nærmere eller blir aggressiv: Rop høyt "GÅ VEKK! HJELP! BRANN!" (brann får mer oppmerksomhet enn hjelp). **Steg 6 - Flukt**: Løp mot mennesker/lys/åpen butikk. Ikke se tilbake. Ring politiet (112) når trygg. **Steg 7 - Siste utvei**: Kun hvis grepet/blokkert og flukt umulig - forsvar deg (dytt ansiktet, spark skrittområde/knær) og løp første mulighet. **Viktig**: Ingen penger er verdt risiko. Gi fra deg lommebok om truet med våpen. Rapporter til politiet etterpå. Livet er viktigere enn stolthet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
   ],
-  exercises: [
-    {
-      id: 'kroppsoving-vg1-4-4-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Hva er de fire trinnene i selvforsvarsprinsippet?',
-      solution: 'De fire trinnene: 1) Unngå farlige situasjoner, 2) Avvær trusler verbalt, 3) Flukt hvis mulig, 4) Forsvar fysisk kun som siste utvei. Målet er alltid å komme trygt unna.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Hvorfor er respekt viktig i kampsport?',
-      solution: 'Respekt forhindrer skader gjennom kontrollerte teknikker, bygger trygt treningsmiljø, lærer verdier utover teknikker, og sikrer at kampferdigheter brukes ansvarlig og ikke for vold.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Forklar detaljert selvforsvarsprinsippet med de fire trinnene. Gi eksempler på hver.',
-      solution: 'Selvforsvarsprinsippet - fire trinn: **1. Unngå (Prevention)**: Den beste selvforsvaret er å ikke komme i farlige situasjoner. Eksempler: Vær oppmerksom på omgivelsene (ikke mobil hele tiden), unngå dårlig opplyste områder alene om kvelden, stol på magefølelsen, hold avstand til mistenkelige, reis i gruppe. Hvis noe føles galt, det er det ofte. **2. Avvær (De-escalation)**: Bruk ord for å avverge. Eksempler: Snakk rolig og bestemt ("Jeg vil ikke ha problemer"), hold 2+ meters avstand, kroppsspråk bestemt men ikke aggressiv, gi rom for at person kan trekke seg tilbake, kjøp tid (politiet kan komme). **3. Flukt (Escape)**: Hvis situasjonen eskalerer, løp! Eksempler: Rop høyt "BRANN!" eller "HJELP!", løp mot mennesker/lys, kast noe for å forsinke (veske), ikke vær heltemot - livet viktigere enn stolthet. **4. Forsvar (Physical defense)**: KUN som siste utvei når alt annet feiler. Eksempler: Fokus på sårbare punkter (øyne, hals, skrittområde), bruk det du har (nøkler, paraply), mål er å skape åpning for flukt IKKE "vinne", løp første mulighet. Nøkkel: Hver trinn prøves før neste. Fysisk forsvar er siste utvei.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Hvordan kan kampsport bidra til personlig utvikling utover fysiske ferdigheter? Gi minst fem eksempler.',
-      solution: 'Kampsport for personlig utvikling: **1. Disiplin**: Møte opp regelmessig, følge instruksjoner, øve teknikker tusenvis ganger lærer disiplin som overføres til alle livsområder (skole, jobb). **2. Respekt**: Hilse instruktør/medutøvere, følge regler, vise ydmykhet bygger respekt for andre og seg selv. Lære å vinne og tape med verdighet. **3. Selvkontroll**: Lære å kontrollere aggresjon, bruke kraft ansvarlig, ikke misbruke ferdigheter. Sparring lærer selvkontroll under press. **4. Målsetting**: Graderte belter gir tydelige mål, lærer viktigheten av langsiktig innsats, tålmodighet og at mestring tar tid. **5. Selvtillit**: Mestre teknikker, stå opp etter nederlag, overvinne frykt bygger reell selvtillit (ikke arroganse). **6. Mentalt styrke**: Trene når sliten, presse grenser, håndtere nederlag. **7. Fellesskap**: Treningskameratskap, støtte hverandre, lære sammen. Eksempel: En utøver som trener 10 år lærer mer om tålmodighet, respekt og utholdenhet enn mange lærer på livstid. Kampsport er ikke bare fysisk, men en livsfilosofi.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'En venn blir angrepet på gaten. Hen dytte angriper vekk, personen faller og slår hodet. Er det lovlig nødverge?',
-      solution: 'Juridisk vurdering av nødverge etter Straffeloven §18: **Situasjon**: Pågående angrep, forsvarer seg ved å dytte (ikke slag), angriper faller uheldig. **Vurdering**: 1) **Pågående angrep**: Ja - ble angrepet. 2) **Nødvendig forsvar**: Ja - dytt er rimelig respons for å stoppe angrep. 3) **Forholdsmessig**: Ja - dytt er proporsjonal respons (ikke overdreven kraft). **Konklusjon**: Dette vil sannsynligvis vurderes som lovlig nødverge. Minimal nødvendig kraft brukt. At angriper falt uheldig er ikke forsvarers ansvar når forsvaret var lovlig. **VIKTIG forskjell**: Hvis fortsetter å slå mens angriper ligger nede = IKKE nødverge (angrep er over, dette er gjengjeldelse). **Lærdom**: Bruk minimal nødvendig kraft, stopp når faren er over, løp, ring politiet (112), dokumenter (foto av skader, vitner), rapporter umiddelbart. Nødverge beskytter deg juridisk når du handler riktig. Rømmen er alltid best hvis mulig.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Sammenlign to kampsportarter: karate (slagbasert) og judo (kastbasert). Hva er likheter og forskjeller?',
-      solution: 'Sammenligning karate vs. judo: **Likheter**: Begge er japanske kampsporter, har beltegradering (hvit til svart), sterkt filosofisk fundament (respekt, disiplin), lærer selvkontroll og disiplin, bygger selvtillit, olympiske grener (karate fra 2020, judo lenger). **Forskjeller - Teknikk**: Karate fokuserer på slag, spark, blokkeringer (stand-up fighting). Judo fokuserer på kast, grep, bakkearbeid (grappling). **Træningsform**: Karate bruker kata (former), pad-arbeid, sparring på avstand. Judo bruker randori (fri øving), mye fysisk kontakt, kasteteknikker. **Fysiske krav**: Karate krever god bevegelighet, rask reaksjon, koordinasjon. Judo krever styrke (spesielt grip og core), balanse, god kondisjon. **Selvforsvar**: Karate effektiv på avstand (slag/spark). Judo effektiv i nær kamp (kast, kontroll). **Skaderisiko**: Karate har risiko for slag-relaterte skader (blåmerker, forstuinger). Judo har risiko for fall-relaterte skader (skulder, kne). **Velge mellom de**: Karate hvis liker slag/spark, teknisk presisjon. Judo hvis liker fysisk kontakt, kast, bruker motstanders kraft. Begge er flotte valg!',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex7',
-      number: '7',
-      type: 'classic',
-      task: 'Beskriv en typisk kampsportstreningsøkt (60 min) fra start til slutt. Inkluder alle faser.',
-      solution: 'Typisk kampsportstreningsøkt (60 min): **1. Hilsen og lineup (2 min)**: Alle står på linje etter grad. Hilse instruktør og medutøvere (bowing). Setter tonen: Respekt og fokus. **2. Oppvarming (10 min)**: Lett løping/skipping, dynamisk tøying (armsvinger, beinsvinger), leddmobilisering (håndledd, ankler), teknikk-oppvarming (lette slag/spark i luften). Mål: Puls opp, kropp klar, skadeforebygging. **3. Teknikk-trening (25 min)**: Instruktør demonstrerer teknikk (f.eks. mawashi-geri/roundhouse kick). Elever øver i luften (shadowboxing) 10x. Øv på pads med partner 20x hver. Instruktør gir korrigeringer. Repetisjon og perfeksjonering. Mål: Mestre bevegelse. **4. Anvendelse/Sparring (15 min)**: Kontrollert sparring med partner, avtalt intensitet. Fokus på timing, avstand, reaksjon. 3x3 min runder med 1 min pause. **5. Fysisk trening (5 min)**: 3x20 push-ups, 3x30 sit-ups, 3x20 squats. Kampsport er fysisk krevende. **6. Nedkoling og tøying (3 min)**: Rolig ned-tempo, statisk tøying (ben, skuldre, rygg), refleksjon. **7. Hilsen og lineup (2 min)**: Takk instruktør og medutøvere. Avslutter økten. Resultat: Utmatte men tilfredse utøvere!',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-    {
-      id: 'kroppsoving-vg1-4-4-ex8',
-      number: '8',
-      type: 'classic',
-      task: 'Du går alene hjem sent kveld og noen følger etter deg og ber om penger. Beskriv hvordan du håndterer situasjonen steg-for-steg.',
-      solution: 'Håndtering av truende situasjon: **Steg 1 - Vurdering**: Situasjonen er potensielt farlig. Stol på magefølelsen. Vær våken og fokusert. **Steg 2 - Avstand**: Snu deg, hold 3-4 meters avstand. Kroppsspråk: Bestemt men ikke aggressiv. Øyenkontakt men ikke stirrende. **Steg 3 - Verbal avvergning**: Si høyt og tydelig: "Jeg har ikke penger. La meg være i fred." Rolig men bestemt stemme. Ikke vis frykt (selv om du er redd). **Steg 4 - Miljø-vurdering**: Identifiser fluktveier. Se etter butikker/mennesker/lys. Ha telefon i lommen, klar til bruk (ikke ta opp ennå). **Steg 5 - Eskalering**: Hvis person kommer nærmere eller blir aggressiv: Rop høyt "GÅ VEKK! HJELP! BRANN!" (brann får mer oppmerksomhet enn hjelp). **Steg 6 - Flukt**: Løp mot mennesker/lys/åpen butikk. Ikke se tilbake. Ring politiet (112) når trygg. **Steg 7 - Siste utvei**: Kun hvis grepet/blokkert og flukt umulig - forsvar deg (dytt ansiktet, spark skrittområde/knær) og løp første mulighet. **Viktig**: Ingen penger er verdt risiko. Gi fra deg lommebok om truet med våpen. Rapporter til politiet etterpå. Livet er viktigere enn stolthet.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
-    },
-  ],
+  exercises: [],
 };
 
 export const CHAPTER_KROPPSOVING_VG1_4_5: TextbookChapter = {
@@ -4761,50 +5286,68 @@ Orientering kan gjøres tilgjengelig for alle:
 - **Kartansvarlig**: Dele ut kart og forklare symboler
 - **Analyserer**: Sammenligne ulike ruttevalg, diskutere strategi`,
     },
-  ],
-  exercises: [
     {
-      id: 'kroppsoving-vg1-4-5-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Hva viser de ulike fargene på orienteringskart?',
-      solution: 'Farger på orienteringskart: Sort (bergknauser, stier, bygninger), Brunt (terrengformer/høydekurver), Blått (vann), Grønt (vegetasjonstetthet - mørk=tett), Gult (åpent/lyst terreng), Hvitt (normal skog), Rosa/Lilla (forbudte områder).',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-5-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva viser de ulike fargene på orienteringskart?',
+        solution: 'Farger på orienteringskart: Sort (bergknauser, stier, bygninger), Brunt (terrengformer/høydekurver), Blått (vann), Grønt (vegetasjonstetthet - mørk=tett), Gult (åpent/lyst terreng), Hvitt (normal skog), Rosa/Lilla (forbudte områder).',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-5-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Beskriv hvordan du bruker kompass for å finne retning.',
-      solution: 'Bruk kompass: 1) Legg sidekant fra start til mål på kart, 2) Drei skive til nord-linjer parallelle med kartets nord, 3) Hold kompass flatt, drei deg til nål peker mot nord på skive, 4) Følg retningspil.',
-      allowsUpload: true,
-      allowsCanvasDrawing: true,
+      id: 'kroppsoving-vg1-4-5-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hvordan du bruker kompass for å finne retning.',
+        solution: 'Bruk kompass: 1) Legg sidekant fra start til mål på kart, 2) Drei skive til nord-linjer parallelle med kartets nord, 3) Hold kompass flatt, drei deg til nål peker mot nord på skive, 4) Følg retningspil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-5-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Du ser på et orienteringskart med målestokk 1:10 000. Distansen mellom to poster på kartet er 4 cm. Hvor langt er det i terrenget?',
-      solution: '1:10 000 betyr 1 cm = 100 meter. 4 cm × 100 m = 400 meter i terrenget.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-5-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Du ser på et orienteringskart med målestokk 1:10 000. Distansen mellom to poster på kartet er 4 cm. Hvor langt er det i terrenget?',
+        solution: '1:10 000 betyr 1 cm = 100 meter. 4 cm × 100 m = 400 meter i terrenget.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-5-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Forklar forskjellen mellom å bruke GPS og papiркart/kompass. Når er det viktig å kunne begge deler?',
-      solution: 'GPS: Viser nøyaktig posisjon, enkel å bruke, krever batteri og signal. Papiркart/kompass: Fungerer alltid, ingen batteri, krever øvelse, gir bedre terrengforståelse. Viktig å kunne begge: GPS kan feile (batteri, tap, væte). I nødsituasjoner (uvær, mørke, batteri tomt) kan kart/kompass redde liv. Best praksis: Bruk GPS som støtte, men lær kart/kompass som grunnferdighet.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-5-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom å bruke GPS og papiркart/kompass. Når er det viktig å kunne begge deler?',
+        solution: 'GPS: Viser nøyaktig posisjon, enkel å bruke, krever batteri og signal. Papiркart/kompass: Fungerer alltid, ingen batteri, krever øvelse, gir bedre terrengforståelse. Viktig å kunne begge: GPS kan feile (batteri, tap, væte). I nødsituasjoner (uvær, mørke, batteri tomt) kan kart/kompass redde liv. Best praksis: Bruk GPS som støtte, men lær kart/kompass som grunnferdighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-4-5-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'Planlegg en enkel orienteringsløype med 5 poster i området rundt skolen. Beskriv hvor postene skal ligge (f.eks. "ved flaggstangen", "ved sørvestre hjørne av gymsalen"). Tegn gjerne et enkelt skissekart.',
-      solution: `Eksempel orienteringsløype rundt skolen:
+      id: 'kroppsoving-vg1-4-5-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Planlegg en enkel orienteringsløype med 5 poster i området rundt skolen. Beskriv hvor postene skal ligge (f.eks. "ved flaggstangen", "ved sørvestre hjørne av gymsalen"). Tegn gjerne et enkelt skissekart.',
+        solution: `Eksempel orienteringsløype rundt skolen:
 
 **Start**: Hovedinngangen til skolen
 
@@ -4825,15 +5368,19 @@ Orientering kan gjøres tilgjengelig for alle:
 **Tilpasning for vanskeligere**: Legg poster mindre tydelige steder (f.eks. "ved tredje stolpe på gjerde mot øst")
 
 (Elevene kan tegne et enkelt skissekart som viser bygninger, poster og forbindelser)`,
-      allowsUpload: true,
-      allowsCanvasDrawing: true,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-5-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Gå inn på norgeskart.no og finn et turområde i nærheten av der du bor. Planlegg en 3 km rundtur og beskriv ruten. Bruk måleverktøyet og se på høydeprofil.',
-      solution: `(Eleven skal gjøre dette praktisk - eksempelsvar):
+      id: 'kroppsoving-vg1-4-5-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-5-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Gå inn på norgeskart.no og finn et turområde i nærheten av der du bor. Planlegg en 3 km rundtur og beskriv ruten. Bruk måleverktøyet og se på høydeprofil.',
+        solution: `(Eleven skal gjøre dette praktisk - eksempelsvar):
 
 **Område**: Sognsvann, Oslo
 **Rundtur**: 3,2 km rundt Sognsvann
@@ -4853,10 +5400,12 @@ Orientering kan gjøres tilgjengelig for alle:
 - Identifisere stier, vann og bygninger
 
 (Eleven skal skrive om sitt lokale område og laste opp skjermbilde fra Norgeskart)`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
   ],
+  exercises: [],
 };
 
 export const CHAPTER_KROPPSOVING_VG1_4_6: TextbookChapter = {
@@ -5144,32 +5693,41 @@ Skriv kort etter hver økt:
 
 Nøkkelen er regelmessighet: Litt refleksjon ofte gir mer læring enn mye refleksjon sjeldent.`,
     },
-  ],
-  exercises: [
     {
-      id: 'kroppsoving-vg1-4-6-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Lag et SMART-mål for en fysisk aktivitet du vil forbedre deg i.',
-      solution: 'Eksempel: "Jeg vil øke antall push-ups fra 15 til 25 på rad innen 6 uker ved å trene 3 ganger per uke." Spesifikk: 25 push-ups. Målbar: Antall kan telles. Aktuell: Vil bli sterkere. Realistisk: 10 flere på 6 uker. Tidsbestemt: 6 uker.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-6-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Lag et SMART-mål for en fysisk aktivitet du vil forbedre deg i.',
+        solution: 'Eksempel: "Jeg vil øke antall push-ups fra 15 til 25 på rad innen 6 uker ved å trene 3 ganger per uke." Spesifikk: 25 push-ups. Målbar: Antall kan telles. Aktuell: Vil bli sterkere. Realistisk: 10 flere på 6 uker. Tidsbestemt: 6 uker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-6-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Hvilke mestringsstrategier kan hjelpe når du står fast?',
-      solution: 'Mestringsstrategier: 1) Del målet i mindre delmål, 2) Fokuser på det du har forbedret (fremgang), 3) Lær av feil - hva kan justeres? 4) Ta pauser og restituere, 5) Søk råd fra andre, 6) Juster forventninger hvis nødvendig.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-6-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke mestringsstrategier kan hjelpe når du står fast?',
+        solution: 'Mestringsstrategier: 1) Del målet i mindre delmål, 2) Fokuser på det du har forbedret (fremgang), 3) Lær av feil - hva kan justeres? 4) Ta pauser og restituere, 5) Søk råd fra andre, 6) Juster forventninger hvis nødvendig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-6-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Lag en tilpasset treningsplan for noen med en skade (f.eks. ankelskade) som ikke kan delta fullt ut i kroppsøving. Planen skal dekke 2 uker med 3 økter per uke, og inkludere både alternativ fysisk trening og alternative roller.',
-      solution: `Eksempel: 2-ukers plan for elev med ankelskade (ikke kan løpe/hoppe):
+      id: 'kroppsoving-vg1-4-6-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Lag en tilpasset treningsplan for noen med en skade (f.eks. ankelskade) som ikke kan delta fullt ut i kroppsøving. Planen skal dekke 2 uker med 3 økter per uke, og inkludere både alternativ fysisk trening og alternative roller.',
+        solution: `Eksempel: 2-ukers plan for elev med ankelskade (ikke kan løpe/hoppe):
 
 **UKE 1:**
 Mandag - Svømmeøkt: 30 min svømming (belaster ikke ankelen). Fokus på crawl og rygg. Utvikler kondisjon uten belastning. Rolle: Delta normalt.
@@ -5188,15 +5746,19 @@ Fredag - Alternativ rolle som Analyserer: Klassen har lagidrett (håndball). Du 
 **Resultat:** Eleven holder seg aktiv og i form, utvikler alternative kompetanser (trening, planlegging, analyse), og er fortsatt en verdifull del av kroppsøving-fellesskapet. Når ankelen er frisk, har eleven både bedre forståelse av trening OG er fysisk i form.
 
 **Viktig**: Planen skal godkjennes av lærer og ev. fysioterapeut. Ankelen skal ikke belastes før den er frisk.`,
-      allowsUpload: true,
-      allowsCanvasDrawing: true,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-6-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Du har satt deg som mål å forbedre kondisjonen din. Lag både et langsiktig SMART-mål (6 måneder) og tre kortsiktige delmål (hver 2. måned) for å nå det langsiktige målet.',
-      solution: `**Langsiktig SMART-mål (6 måneder):**
+      id: 'kroppsoving-vg1-4-6-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Du har satt deg som mål å forbedre kondisjonen din. Lag både et langsiktig SMART-mål (6 måneder) og tre kortsiktige delmål (hver 2. måned) for å nå det langsiktige målet.',
+        solution: `**Langsiktig SMART-mål (6 måneder):**
 "Løpe 10 km på under 55 minutter innen 1. juni (fra 65 min nå)"
 - Spesifikk: 10 km, under 55 min
 - Målbar: Kan tidta med klokke/app
@@ -5224,15 +5786,20 @@ Fredag - Alternativ rolle som Analyserer: Klassen har lagidrett (håndball). Du 
 - Fremgang er gradvis og realistisk
 - Hver delmål gir mestringsfølelse og motivasjon til å fortsette
 - Prosessmålene sier HVA du skal gjøre for å komme dit`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-4-6-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'Forklar forskjellen mellom prosessmål og resultatmål. Gi eksempler på begge typer for en elev som vil bli bedre til volleyball.',
-      solution: `**Resultatmål:**
+      id: 'kroppsoving-vg1-4-6-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom prosessmål og resultatmål. Gi eksempler på begge typer for en elev som vil bli bedre til volleyball.',
+        solution: `**Resultatmål:**
 Fokuserer på sluttresultat - hva du vil oppnå.
 - "Score 15 poeng i neste kamp"
 - "Ha serve-treffsikkerhet på 90%"
@@ -5264,15 +5831,19 @@ Sett resultatmål, men fokuser på prosessmål. Hvis du gjør prosessen riktig (
 - Prosessmål: "Øve settinger 30 min hver dag", "Film og analyser min teknikk en gang per uke", "Be om tilbakemelding fra trener"
 
 Fokuser på prosessen → resultatet kommer.`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-6-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Skriv en kort refleksjon (150-300 ord) over din egen utvikling i kroppsøving så langt i år. Bruk disse spørsmålene: Hva er du blitt bedre til? Hva var vanskelig? Hva vil du jobbe videre med?',
-      solution: `(Dette er en personlig refleksjon - eleven må skrive om sin egen opplevelse. Her er et eksempel):
+      id: 'kroppsoving-vg1-4-6-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-6-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Skriv en kort refleksjon (150-300 ord) over din egen utvikling i kroppsøving så langt i år. Bruk disse spørsmålene: Hva er du blitt bedre til? Hva var vanskelig? Hva vil du jobbe videre med?',
+        solution: `(Dette er en personlig refleksjon - eleven må skrive om sin egen opplevelse. Her er et eksempel):
 
 **Min utvikling i kroppsøving høsten 2024**
 
@@ -5294,10 +5865,12 @@ Jeg vil fortsette å bygge kondisjon (mål: løpe 10 km). Vil også lære bedre 
 Konsistens gir resultater. Når jeg møtte opp og gjorde innsatsen, skjedde fremgang. Kroppsøving handler ikke om å være best, men om å utvikle seg.
 
 (Eleven skal skrive sin egen refleksjon basert på egne erfaringer)`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
   ],
+  exercises: [],
 };
 
 export const CHAPTER_KROPPSOVING_VG1_4_7: TextbookChapter = {
@@ -5612,41 +6185,54 @@ Ski og skøyter kan tilpasses for alle nivåer:
 - **Teknikk-analyserer**: Observer og gi tilbakemelding på teknikk
 - **Sikkerhetsansvarlig**: Holde oversikt over gruppen i skiløypa`,
     },
-  ],
-  exercises: [
     {
-      id: 'kroppsoving-vg1-4-7-ex1',
-      number: '1',
-      type: 'classic',
-      task: 'Beskriv diagonal-teknikken i klassisk langrenn.',
-      solution: 'Diagonal-teknikk: Vekselbevegelse der motsatt arm og ben går frem samtidig (høyre stav + venstre fot). Lang glidefase på ett ski. Vektoverføring fra ski til ski. Aktiv stavtak og kraftig benspark. Rytmisk bevegelse.',
-      allowsUpload: true,
-      allowsCanvasDrawing: true,
+      id: 'kroppsoving-vg1-4-7-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv diagonal-teknikken i klassisk langrenn.',
+        solution: 'Diagonal-teknikk: Vekselbevegelse der motsatt arm og ben går frem samtidig (høyre stav + venstre fot). Lang glidefase på ett ski. Vektoverføring fra ski til ski. Aktiv stavtak og kraftig benspark. Rytmisk bevegelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-7-ex2',
-      number: '2',
-      type: 'classic',
-      task: 'Hva er forskjellen mellom klassisk og skøyting?',
-      solution: 'Klassisk: Ski i parallelle spor, diagonal-teknikk, langsommere, lettere å lære, fungerer i kupert terreng. Skøyting: Ski i V-form, skøyte-bevegelse, raskere, krevende teknikk, krever preparerte brede løyper og mer kraft.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-7-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom klassisk og skøyting?',
+        solution: 'Klassisk: Ski i parallelle spor, diagonal-teknikk, langsommere, lettere å lære, fungerer i kupert terreng. Skøyting: Ski i V-form, skøyte-bevegelse, raskere, krevende teknikk, krever preparerte brede løyper og mer kraft.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-7-ex3',
-      number: '3',
-      type: 'classic',
-      task: 'Du skal på en 5 km skitur i -8°C med tørr snø. Hvilken skismøring/feste bør du bruke, og hvorfor?',
-      solution: 'Ved -8°C med tørr snø: Bruk **blå eller grønn festevoks**. Dette er for kaldt vær. Blå fungerer fra ca -2°C til -10°C, grønn for kaldere forhold. Ved kaldt og tørt er snøkrystallene harde og kantete, trenger hardere feste. Feil valg (f.eks. rød for varmt vær) vil gjøre at skiene klumper snø under (går tregt) eller ikke har feste (sklir bakover i bakker). Alternativ: Felleski fungerer i alle temperatur, men er litt tregere.',
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+      id: 'kroppsoving-vg1-4-7-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Du skal på en 5 km skitur i -8°C med tørr snø. Hvilken skismøring/feste bør du bruke, og hvorfor?',
+        solution: 'Ved -8°C med tørr snø: Bruk **blå eller grønn festevoks**. Dette er for kaldt vær. Blå fungerer fra ca -2°C til -10°C, grønn for kaldere forhold. Ved kaldt og tørt er snøkrystallene harde og kantete, trenger hardere feste. Feil valg (f.eks. rød for varmt vær) vil gjøre at skiene klumper snø under (går tregt) eller ikke har feste (sklir bakover i bakker). Alternativ: Felleski fungerer i alle temperatur, men er litt tregere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-7-ex4',
-      number: '4',
-      type: 'classic',
-      task: 'Forklar forskjellen mellom kunstløpskøyter og hurtigløpsskøyter. Hvilke er best for nybegynnere?',
-      solution: `**Kunstløpskøyter:**
+      id: 'kroppsoving-vg1-4-7-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom kunstløpskøyter og hurtigløpsskøyter. Hvilke er best for nybegynnere?',
+        solution: `**Kunstløpskøyter:**
 - Korte, buede blader
 - Lett å svinge og manøvrere
 - God balanse og stabilitet
@@ -5668,15 +6254,20 @@ Ski og skøyter kan tilpasses for alle nivåer:
 
 **Mellomalternativ:**
 Hockeyskøyter er gode allround-skøyter som kombinerer stabilitet og fart.`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-4-7-ex5',
-      number: '5',
-      type: 'classic',
-      task: 'Lag en treningsplan for en nybegynner som vil lære klassisk langrenn. Planen skal dekke de 4 første turene og fokusere på gradvis progresjon.',
-      solution: `**4-turs treningsplan for nybegynner i klassisk langrenn:**
+      id: 'kroppsoving-vg1-4-7-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Lag en treningsplan for en nybegynner som vil lære klassisk langrenn. Planen skal dekke de 4 første turene og fokusere på gradvis progresjon.',
+        solution: `**4-turs treningsplan for nybegynner i klassisk langrenn:**
 
 **Tur 1 - Grunnleggende balanse (30-40 min):**
 - **Sted**: Flat, preparert løype med spor
@@ -5722,15 +6313,19 @@ Hockeyskøyter er gode allround-skøyter som kombinerer stabilitet og fart.`,
 - Ha det gøy!
 
 Etter disse 4 turene er du klar for å ski på egen hånd!`,
-      allowsUpload: true,
-      allowsCanvasDrawing: true,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
-      id: 'kroppsoving-vg1-4-7-ex6',
-      number: '6',
-      type: 'classic',
-      task: 'Hvilke sikkerhetstiltak bør du ta før en lang skitur i fjellet? Nevn minst 6 punkter.',
-      solution: `**Sikkerhetstiltak før lang skitur i fjellet:**
+      id: 'kroppsoving-vg1-4-7-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-4-7-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Hvilke sikkerhetstiltak bør du ta før en lang skitur i fjellet? Nevn minst 6 punkter.',
+        solution: `**Sikkerhetstiltak før lang skitur i fjellet:**
 
 **1. Planlegging:**
 - Sjekk værmelding og snøforhold
@@ -5775,10 +6370,12 @@ Etter disse 4 turene er du klar for å ski på egen hånd!`,
 - Hvordan bruke nødutstyr
 
 **Husk**: Det er alltid bedre å være overforberedt enn underforberedt. Fjellet er vakkert, men krever respekt.`,
-      allowsUpload: true,
-      allowsCanvasDrawing: false,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
   ],
+  exercises: [],
 };
 
 export const KROPPSOVING_VG1_DEL2_CHAPTERS: TextbookChapter[] = [

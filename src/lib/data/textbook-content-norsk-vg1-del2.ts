@@ -28,6 +28,7 @@ export const CHAPTER_NORSK_VG1_4_1: TextbookChapter = {
     'reflektere over sammenhengen mellom språk, kultur og identitet',
   ],
   content: [
+    // ========== INTRO ==========
     {
       id: 'norsk-vg1-4-1-intro',
       type: 'text',
@@ -46,6 +47,8 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 - Tilpasser jeg språket mitt til ulike situasjoner?
 - Hva sier språkvalgene mine om meg?`,
     },
+
+    // ========== TEORI 1: Ordliste ==========
     {
       id: 'norsk-vg1-4-1-ordliste',
       type: 'definition',
@@ -61,6 +64,8 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 | **Språkholdninger** | Holdninger til ulike måter å snakke på |
 | **Flerspråklighet** | Å beherske flere språk |`,
     },
+
+    // ========== TEORI 2: Språklig variasjon ==========
     {
       id: 'norsk-vg1-4-1-def-1',
       type: 'definition',
@@ -100,30 +105,8 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
       alt: 'Oversikt over typiske dialekttrekk for hvert av de fire hoveddialektomradene i Norge',
       caption: 'Karakteristiske dialekttrekk for ostnorsk, vestnorsk, trondersk og nordnorsk.',
     },
-    {
-      id: 'norsk-vg1-4-1-def-2',
-      type: 'definition',
-      title: 'Språk, makt og holdninger',
-      content: `**Språk og makt:**
-- Standardspråk vs. dialekter
-- Hvem bestemmer hva som er "korrekt"?
-- Språklig diskriminering
 
-**Språkholdninger:**
-- Fordommer basert på talemål
-- "Finere" og "grovere" dialekter
-- Språklig mangfold som ressurs
-
-**Flerspråklighet:**
-- Mange nordmenn er flerspråklige
-- Ulike morsmål i Norge
-- Samisk, kvensk og andre minoritetsspråk
-
-**Språkpolitikk:**
-- Norges to offisielle skriftspråk
-- Språklig likestilling
-- Språklige rettigheter`,
-    },
+    // ========== EKSEMPEL: Kodeveksling ==========
     {
       id: 'norsk-vg1-4-1-example-1',
       type: 'example',
@@ -151,60 +134,8 @@ Språket er ikke bare et verktøy for kommunikasjon - det former hvem vi er og h
 **Refleksjon:**
 Kodeveksling er ikke "falskt" eller "uærlig" - det er en naturlig tilpasning til kommunikasjonssituasjonen. Vi gjør det alle, mer eller mindre bevisst.`,
     },
-    {
-      id: 'norsk-vg1-4-1-example-2',
-      type: 'example',
-      title: 'Eksempel: Analyse av spraakholdninger',
-      content: `**Oppgave/Situasjon:**
-En elev fra Nordland opplever at medelever i Oslo kommenterer dialekten hennes. Noen sier den er "koselig", andre spor om hun kan "snakke normalt".
 
-**Analyse:**
-Dette eksemplet viser flere typer spraakholdninger:
-
-1. **Stereotypisering:** Nordnorsk forbindes ofte med "koselig" - en positiv, men overfladisk holdning som kan fole reduserende.
-
-2. **Normativitet:** Sparsmalet om aa "snakke normalt" avslorer en holdning om at ostlandsk er "normalspraak", mens andre dialekter er avvik.
-
-3. **Maktforhold:** Standardostlandsk har hoyere status i mange sammenhenger, noe som kan skape usikkerhet hos dialektbrukere.
-
-**Forklaring:**
-Spraakholdninger er ofte ubevisste. De formes av:
-- Media (hvem snakker i nyheter og TV-serier?)
-- Skole og arbeidsliv
-- Sosiale hierarkier
-
-Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig mangfold.`,
-    },
-
-    // ========== PRIMÆRTEKSTER ==========
-    {
-      id: 'norsk-vg1-4-1-primaertekst-1',
-      type: 'collapsible',
-      title: 'Primærtekst: Ivar Aasen – Forord til «Norsk Grammatik» (1864)',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-4-1-primaertekst-1-text',
-          type: 'text',
-          content: TEKST_AASEN_NORSK_GRAMMATIK_FORORD,
-        },
-      ],
-    },
-    {
-      id: 'norsk-vg1-4-1-primaertekst-2',
-      type: 'collapsible',
-      title: 'Primærtekst: Henrik Wergeland – Om språk og frihet',
-      buttonText: 'Vis primærtekst',
-      content: [
-        {
-          id: 'norsk-vg1-4-1-primaertekst-2-text',
-          type: 'text',
-          content: TEKST_WERGELAND_ESSAY,
-        },
-      ],
-    },
-
-    // ========== OPPGAVER ==========
+    // ========== OPPGAVER til Språklig variasjon ==========
     {
       id: 'norsk-vg1-4-1-ex-1',
       type: 'exercise',
@@ -235,15 +166,111 @@ Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig ma
         solution: 'Språklig selvrefleksjon øker bevisstheten om egen kommunikasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+    {
+      id: 'norsk-vg1-4-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-1-ex-6',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er en idiolekt?',
+        options: [
+          { id: 'a', text: 'En persons helt personlige måte å snakke på', isCorrect: true },
+          { id: 'b', text: 'Et språk som bare snakkes i én region', isCorrect: false },
+          { id: 'c', text: 'Et skriftspråk som brukes i akademiske tekster', isCorrect: false },
+          { id: 'd', text: 'En dialekt som er i ferd med å dø ut', isCorrect: false },
+        ],
+        solution: 'En idiolekt er din personlige måte å snakke på - en unik kombinasjon av dialekt, sosiolekt og individuelle trekk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-4-1-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-1-ex-7',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva betyr kodeveksling?',
+        options: [
+          { id: 'a', text: 'At man veksler mellom ulike språkstiler avhengig av situasjonen', isCorrect: true },
+          { id: 'b', text: 'At man bytter mellom bokmål og nynorsk i samme tekst', isCorrect: false },
+          { id: 'c', text: 'At man endrer dialekten sin permanent når man flytter', isCorrect: false },
+          { id: 'd', text: 'At man oversetter fra et språk til et annet', isCorrect: false },
+        ],
+        solution: 'Kodeveksling er å tilpasse språket sitt til ulike situasjoner og samtalepartnere. Det er en naturlig del av språklig kompetanse.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+      },
+    },
+
+    // ========== TEORI 3: Språk, makt og holdninger ==========
+    {
+      id: 'norsk-vg1-4-1-def-2',
+      type: 'definition',
+      title: 'Språk, makt og holdninger',
+      content: `**Språk og makt:**
+- Standardspråk vs. dialekter
+- Hvem bestemmer hva som er "korrekt"?
+- Språklig diskriminering
+
+**Språkholdninger:**
+- Fordommer basert på talemål
+- "Finere" og "grovere" dialekter
+- Språklig mangfold som ressurs
+
+**Flerspråklighet:**
+- Mange nordmenn er flerspråklige
+- Ulike morsmål i Norge
+- Samisk, kvensk og andre minoritetsspråk
+
+**Språkpolitikk:**
+- Norges to offisielle skriftspråk
+- Språklig likestilling
+- Språklige rettigheter`,
+    },
+
+    // ========== EKSEMPEL: Språkholdninger ==========
+    {
+      id: 'norsk-vg1-4-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Analyse av spraakholdninger',
+      content: `**Oppgave/Situasjon:**
+En elev fra Nordland opplever at medelever i Oslo kommenterer dialekten hennes. Noen sier den er "koselig", andre spor om hun kan "snakke normalt".
+
+**Analyse:**
+Dette eksemplet viser flere typer spraakholdninger:
+
+1. **Stereotypisering:** Nordnorsk forbindes ofte med "koselig" - en positiv, men overfladisk holdning som kan fole reduserende.
+
+2. **Normativitet:** Sparsmalet om aa "snakke normalt" avslorer en holdning om at ostlandsk er "normalspraak", mens andre dialekter er avvik.
+
+3. **Maktforhold:** Standardostlandsk har hoyere status i mange sammenhenger, noe som kan skape usikkerhet hos dialektbrukere.
+
+**Forklaring:**
+Spraakholdninger er ofte ubevisste. De formes av:
+- Media (hvem snakker i nyheter og TV-serier?)
+- Skole og arbeidsliv
+- Sosiale hierarkier
+
+Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig mangfold.`,
+    },
+
+    // ========== OPPGAVER til Språk, makt og holdninger ==========
     {
       id: 'norsk-vg1-4-1-ex-2',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-4-1-ex-2',
-        number: '2',
+        number: '4',
         type: 'classic',
         difficulty: 'medium',
         task: 'Diskuter språkholdninger:',
@@ -267,7 +294,7 @@ Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig ma
         solution: 'Språkholdninger er ofte ubevisste og kan motvirkes gjennom refleksjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -275,7 +302,7 @@ Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig ma
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-4-1-ex-3',
-        number: '3',
+        number: '5',
         type: 'classic',
         difficulty: 'medium',
         task: 'Undersøk flerspråklighet i Norge: Hvor mange språk snakkes i Norge i dag? Hvilke minoritetsspråk har offisiell status?',
@@ -286,12 +313,74 @@ Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig ma
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // ========== PRIMÆRTEKSTER ==========
+    {
+      id: 'norsk-vg1-4-1-primaertekst-1',
+      type: 'collapsible',
+      title: 'Primærtekst: Ivar Aasen – Forord til «Norsk Grammatik» (1864)',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-4-1-primaertekst-1-text',
+          type: 'text',
+          content: TEKST_AASEN_NORSK_GRAMMATIK_FORORD,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg1-4-1-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-1-ex-8',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les primærteksten av Ivar Aasen (forordet til «Norsk Grammatik»). Hva er Aasens hovedargument for at Norge trenger et eget skriftspråk? Hvordan begrunner han dette?',
+        hints: ['Se på hva Aasen mener om forholdet mellom talespråk og skriftspråk', 'Tenk på den historiske konteksten: Norge under dansk påvirkning'],
+        solution: 'Aasen argumenterer for at det norske talespråket har egenverdi og fortjener et eget skriftspråk. Han begrunner dette med at dialektene representerer en levende norsk språktradisjon som er forskjellig fra dansk, og at et folk trenger et skriftspråk som gjenspeiler deres eget talemål for å bevare sin kulturelle identitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-4-1-primaertekst-2',
+      type: 'collapsible',
+      title: 'Primærtekst: Henrik Wergeland – Om språk og frihet',
+      buttonText: 'Vis primærtekst',
+      content: [
+        {
+          id: 'norsk-vg1-4-1-primaertekst-2-text',
+          type: 'text',
+          content: TEKST_WERGELAND_ESSAY,
+        },
+      ],
+    },
+    {
+      id: 'norsk-vg1-4-1-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-4-1-ex-9',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Les primærteksten av Henrik Wergeland om språk og frihet. Sammenlign Wergelands syn på språk med moderne språkdebatt i Norge. Hvilke paralleller og forskjeller finner du?',
+        hints: ['Tenk på hva Wergeland mente med språklig frihet', 'Se på debatten om nynorsk/bokmål i dag, eller debatten om engelske lånord'],
+        solution: 'Wergeland så språk som uløselig knyttet til frihet og nasjonal identitet. I moderne debatt ser vi lignende argumenter brukt både i målstriden og i debatten om engelsk påvirkning. Forskjellen er at Wergelands kamp handlet om nasjonsbygging etter 1814, mens dagens debatt handler mer om globalisering og identitet i en flerkulturell tid.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+      },
+    },
+
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-4-1-ex-4',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-4-1-ex-4',
-        number: '4',
+        number: '8',
         type: 'classic',
         difficulty: 'medium',
         task: 'Skriv en refleksjonstekst (250-300 ord) om forholdet mellom språk og identitet, med utgangspunkt i ditt eget liv.',
@@ -307,86 +396,12 @@ Bevissthet om egne spraakholdninger er forste steg mot aa verdsette spraaklig ma
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-4-1-ex-5',
-        number: '5',
+        number: '9',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Drøft: Bør alle i Norge snakke bokmål/standardøstlandsk, eller bør vi bevare dialektene?',
         hints: ['Se saken fra flere sider', 'Tenk på kommunikasjon, identitet og demokrati'],
         solution: 'En god drøfting presenterer argumenter for og mot, og viser evne til nyansering.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-4-1-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-1-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er en idiolekt?',
-        options: [
-          { id: 'a', text: 'En persons helt personlige måte å snakke på', isCorrect: true },
-          { id: 'b', text: 'Et språk som bare snakkes i én region', isCorrect: false },
-          { id: 'c', text: 'Et skriftspråk som brukes i akademiske tekster', isCorrect: false },
-          { id: 'd', text: 'En dialekt som er i ferd med å dø ut', isCorrect: false },
-        ],
-        solution: 'En idiolekt er din personlige måte å snakke på - en unik kombinasjon av dialekt, sosiolekt og individuelle trekk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-4-1-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-1-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva betyr kodeveksling?',
-        options: [
-          { id: 'a', text: 'At man veksler mellom ulike språkstiler avhengig av situasjonen', isCorrect: true },
-          { id: 'b', text: 'At man bytter mellom bokmål og nynorsk i samme tekst', isCorrect: false },
-          { id: 'c', text: 'At man endrer dialekten sin permanent når man flytter', isCorrect: false },
-          { id: 'd', text: 'At man oversetter fra et språk til et annet', isCorrect: false },
-        ],
-        solution: 'Kodeveksling er å tilpasse språket sitt til ulike situasjoner og samtalepartnere. Det er en naturlig del av språklig kompetanse.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-4-1-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-1-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten av Ivar Aasen (forordet til «Norsk Grammatik»). Hva er Aasens hovedargument for at Norge trenger et eget skriftspråk? Hvordan begrunner han dette?',
-        hints: ['Se på hva Aasen mener om forholdet mellom talespråk og skriftspråk', 'Tenk på den historiske konteksten: Norge under dansk påvirkning'],
-        solution: 'Aasen argumenterer for at det norske talespråket har egenverdi og fortjener et eget skriftspråk. Han begrunner dette med at dialektene representerer en levende norsk språktradisjon som er forskjellig fra dansk, og at et folk trenger et skriftspråk som gjenspeiler deres eget talemål for å bevare sin kulturelle identitet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-4-1-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-4-1-ex-9',
-        number: '9',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Les primærteksten av Henrik Wergeland om språk og frihet. Sammenlign Wergelands syn på språk med moderne språkdebatt i Norge. Hvilke paralleller og forskjeller finner du?',
-        hints: ['Tenk på hva Wergeland mente med språklig frihet', 'Se på debatten om nynorsk/bokmål i dag, eller debatten om engelske lånord'],
-        solution: 'Wergeland så språk som uløselig knyttet til frihet og nasjonal identitet. I moderne debatt ser vi lignende argumenter brukt både i målstriden og i debatten om engelsk påvirkning. Forskjellen er at Wergelands kamp handlet om nasjonsbygging etter 1814, mens dagens debatt handler mer om globalisering og identitet i en flerkulturell tid.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
@@ -482,6 +497,7 @@ export const CHAPTER_NORSK_VG1_4_2: TextbookChapter = {
     'reflektere over sammenhengen mellom språk, kultur og identitet',
   ],
   content: [
+    // ========== INTRO ==========
     {
       id: 'norsk-vg1-4-2-intro',
       type: 'text',
@@ -498,6 +514,8 @@ Norsk er ikke et isolert språk - det er en del av en stor språkfamilie og har 
 **Språk er i stadig endring:**
 Norsk er et levende språk som stadig påvirkes av andre språk og kulturer. Dette er ikke noe nytt - det har skjedd gjennom hele språkhistorien.`,
     },
+
+    // ========== TEORI 1: Ordliste ==========
     {
       id: 'norsk-vg1-4-2-ordliste',
       type: 'definition',
@@ -510,6 +528,8 @@ Norsk er et levende språk som stadig påvirkes av andre språk og kulturer. Det
 | **Lånord** | Ord som er lånt inn fra et annet språk |
 | **Nabospråkforståelse** | Evne til å forstå nærslektede språk |`,
     },
+
+    // ========== TEORI 2: Germanske språkfamilien ==========
     {
       id: 'norsk-vg1-4-2-def-1',
       type: 'definition',
@@ -555,6 +575,8 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
       alt: 'Oversikt over de germanske spraakene delt inn i nordgermansk, vestgermansk og ostgermansk',
       caption: 'De germanske spraakene med norsk plassert i den nordgermanske grenen sammen med svensk, dansk, islandsk og faroysk.',
     },
+
+    // ========== OPPGAVER til Germanske språk ==========
     {
       id: 'norsk-vg1-4-2-ex-1',
       type: 'exercise',
@@ -580,7 +602,7 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
         solution: 'Kognater viser den felles opprinnelsen til germanske språk.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -601,9 +623,11 @@ Når vi tegner et språktre, ser vi at norsk, svensk og dansk er nærmest beslek
         solution: 'Norsk tilhører de nordgermanske (skandinaviske) språkene, sammen med svensk, dansk, islandsk og færøysk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // ========== TEORI 3: Nabospråkforståelse ==========
     {
       id: 'norsk-vg1-4-2-def-2',
       type: 'definition',
@@ -638,6 +662,8 @@ Nordmenn, svensker og dansker kan i stor grad forstå hverandres språk. Dette k
 **Nordmenn forstår best:**
 Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker og dansker forstår hverandre. Dette kan skyldes at norsk ligger "midt imellom" de to andre.`,
     },
+
+    // ========== OPPGAVER til Nabospråkforståelse ==========
     {
       id: 'norsk-vg1-4-2-ex-3',
       type: 'exercise',
@@ -667,7 +693,7 @@ Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker 
         solution: 'Nabospråkforståelse krever litt øvelse, men er mulig fordi språkene er nært beslektet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
     {
@@ -695,9 +721,11 @@ Studier viser at nordmenn vanligvis forstår svensk og dansk bedre enn svensker 
         solution: 'Falske venner viser at selv nært beslektede språk kan ha viktige forskjeller.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // ========== TEORI 4: Lånord og språkpåvirkning ==========
     {
       id: 'norsk-vg1-4-2-def-3',
       type: 'definition',
@@ -735,6 +763,8 @@ Mange engelske lånord tilpasses norsk:
 - "design" → designe (verb)
 - "team" → lag (erstatning)`,
     },
+
+    // ========== OPPGAVER til Lånord ==========
     {
       id: 'norsk-vg1-4-2-ex-5',
       type: 'exercise',
@@ -769,9 +799,11 @@ Mange engelske lånord tilpasses norsk:
         solution: 'Lavtysk (nedertysk) ga svært mange lånord til norsk i hansatiden. Ord som arbeid, billig, prøve, flink og handle kommer fra lavtysk.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
-      competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
+        competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // ========== TEORI 5: Norsk og engelsk ==========
     {
       id: 'norsk-vg1-4-2-def-4',
       type: 'definition',
@@ -848,6 +880,8 @@ Når språk møtes, påvirker de hverandre. Dette kan gi:
 - Kodeveksling (veksle mellom språk)
 - Nye språkvarianter (multietnolekter)`,
     },
+
+    // ========== EKSEMPEL: Etymologi ==========
     {
       id: 'norsk-vg1-4-2-example-1',
       type: 'example',
@@ -876,6 +910,8 @@ Når språk møtes, påvirker de hverandre. Dette kan gi:
 **Refleksjon:**
 Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "window" kommer fra norrønt. Dette viser hvordan folkevandringer og erobringer påvirker språk.`,
     },
+
+    // ========== OPPGAVE til Etymologi ==========
     {
       id: 'norsk-vg1-4-2-ex-7',
       type: 'exercise',
@@ -892,6 +928,8 @@ Vikingenes påvirkning på engelsk var så sterk at grunnleggende ord som "windo
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // ========== EKSEMPLER: Sammenligning ==========
     {
       id: 'norsk-vg1-4-2-example-2',
       type: 'example',
@@ -1079,6 +1117,7 @@ export const CHAPTER_NORSK_VG1_6_3: TextbookChapter = {
     'analysere og produsere sammensatte tekster i digitale medier',
   ],
   content: [
+    // ========== INTRO ==========
     {
       id: 'norsk-vg1-6-3-intro',
       type: 'text',
@@ -1099,6 +1138,8 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Flytende (kan endres, slettes, deles)
 - Målbare (likes, visninger, rekkevidde)`,
     },
+
+    // ========== TEORI 1: Ordliste ==========
     {
       id: 'norsk-vg1-6-3-ordliste',
       type: 'definition',
@@ -1114,6 +1155,8 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 | **Digital kompetanse** | Evne til å bruke digitale verktøy kritisk |
 | **Nettvett** | Bevissthet om sikkerhet og etikk på nett |`,
     },
+
+    // ========== TEORI 2: Sammensatte tekster ==========
     {
       id: 'norsk-vg1-6-3-def-1',
       type: 'definition',
@@ -1135,6 +1178,31 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
 - Algoritmebasert innhold
 - Hashtags og metadata`,
     },
+
+    // ========== OPPGAVE til Sammensatte tekster ==========
+    {
+      id: 'norsk-vg1-6-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-3-ex-6',
+        number: '1',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er IKKE en modalitet i en sammensatt tekst?',
+        options: [
+          { id: 'a', text: 'Algoritme', isCorrect: true },
+          { id: 'b', text: 'Visuell (bilde, farge, layout)', isCorrect: false },
+          { id: 'c', text: 'Auditiv (lyd, musikk)', isCorrect: false },
+          { id: 'd', text: 'Verbalspråklig (tekst, tale)', isCorrect: false },
+        ],
+        solution: 'Algoritme er ikke en modalitet, men en teknisk mekanisme som styrer hvilke tekster vi ser. Modaliteter er uttrykksmåter som verbalspråk, visuell, auditiv og kinestetisk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
+      },
+    },
+
+    // ========== TEORI 3: Sosiale medier og påvirkning ==========
     {
       id: 'norsk-vg1-6-3-def-2',
       type: 'definition',
@@ -1164,6 +1232,64 @@ I dagens samfunn er digitale tekster en sentral del av hverdagen. Vi leser, skri
       alt: 'Skjermbildemockup av en sosial medie-grensesnitt med typiske elementer som likes, kommentarer og delinger',
       caption: 'Sosiale medier er sammensatte tekster med mange elementer: profil, bilde, tekst, hashtags, likes, kommentarer og delinger. Hvert element bidrar til å skape mening.',
     },
+
+    // ========== OPPGAVER til Sosiale medier ==========
+    {
+      id: 'norsk-vg1-6-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-3-ex-7',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er en filterboble?',
+        options: [
+          { id: 'a', text: 'Når algoritmer viser deg innhold basert på din tidligere aktivitet, slik at du får et begrenset syn på verden', isCorrect: true },
+          { id: 'b', text: 'Et verktøy for å blokkere uønsket innhold på sosiale medier', isCorrect: false },
+          { id: 'c', text: 'En type filter man bruker på bilder i Instagram', isCorrect: false },
+          { id: 'd', text: 'En metode for å sortere nyheter etter troverdighet', isCorrect: false },
+        ],
+        solution: 'En filterboble oppstår når algoritmer viser deg innhold som ligner det du allerede har vist interesse for, noe som kan gi et ensidig bilde av virkeligheten.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
+      },
+    },
+    {
+      id: 'norsk-vg1-6-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-3-ex-2',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Reflekter over din egen mediebruk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke sosiale medier bruker du mest?',
+            solution: 'Beskriv bruksmønsteret ditt.',
+          },
+          {
+            label: 'b',
+            task: 'Hvordan påvirker algoritmene hva du ser?',
+            solution: 'Reflekter over filterbobler og personalisert innhold.',
+          },
+          {
+            label: 'c',
+            task: 'Hvordan presenterer du deg selv digitalt?',
+            solution: 'Tenk over bevisste og ubevisste valg i selviscenesettelse.',
+          },
+        ],
+        hints: ['Vær ærlig med deg selv', 'Tenk på både positive og negative aspekter'],
+        solution: 'Bevissthet om egen mediebruk er første steg mot kritisk forbruk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
+      },
+    },
+
+    // ========== EKSEMPLER: Analyse ==========
     {
       id: 'norsk-vg1-6-3-example-1',
       type: 'example',
@@ -1223,13 +1349,13 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
 - Forenklet informasjon (komplekse temaer presenteres enkelt)`,
     },
 
-    // ========== OPPGAVER ==========
+    // ========== OPPGAVER til Analyse ==========
     {
       id: 'norsk-vg1-6-3-ex-1',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-6-3-ex-1',
-        number: '1',
+        number: '4',
         type: 'classic',
         difficulty: 'lett',
         task: 'Analyser en digital tekst fra sosiale medier:',
@@ -1254,40 +1380,7 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
         solution: 'Analyse av digitale tekster krever oppmerksomhet på flere lag av mening.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
-      },
-    },
-    {
-      id: 'norsk-vg1-6-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-3-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Reflekter over din egen mediebruk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilke sosiale medier bruker du mest?',
-            solution: 'Beskriv bruksmønsteret ditt.',
-          },
-          {
-            label: 'b',
-            task: 'Hvordan påvirker algoritmene hva du ser?',
-            solution: 'Reflekter over filterbobler og personalisert innhold.',
-          },
-          {
-            label: 'c',
-            task: 'Hvordan presenterer du deg selv digitalt?',
-            solution: 'Tenk over bevisste og ubevisste valg i selviscenesettelse.',
-          },
-        ],
-        hints: ['Vær ærlig med deg selv', 'Tenk på både positive og negative aspekter'],
-        solution: 'Bevissthet om egen mediebruk er første steg mot kritisk forbruk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
     {
@@ -1295,7 +1388,7 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-6-3-ex-3',
-        number: '3',
+        number: '5',
         type: 'classic',
         difficulty: 'medium',
         task: 'Lag en sammensatt tekst for sosiale medier om et tema du bryr deg om.',
@@ -1307,85 +1400,11 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
       },
     },
     {
-      id: 'norsk-vg1-6-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-3-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Sammenlign hvordan samme nyhetssak dekkes i en nettavis og på sosiale medier. Hva er forskjellene?',
-        hints: ['Se på vinkling, kilder, modaliteter', 'Vurder troverdighet'],
-        solution: 'Sammenligningen bør vise forståelse for ulike sjangerkrav og medieplattformers egenart.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
-      },
-    },
-    {
-      id: 'norsk-vg1-6-3-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-3-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv en kronikk (300-400 ord) om et aktuelt tema knyttet til digitale medier (f.eks. skjermtid, falske nyheter, influencer-kultur).',
-        hints: ['Bruk kildehenvisninger', 'Argumenter saklig', 'Ha en tydelig holdning'],
-        solution: 'Kronikken skal kombinere personlig engasjement med saklig argumentasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
-      },
-    },
-    {
-      id: 'norsk-vg1-6-3-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-3-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken av disse er IKKE en modalitet i en sammensatt tekst?',
-        options: [
-          { id: 'a', text: 'Algoritme', isCorrect: true },
-          { id: 'b', text: 'Visuell (bilde, farge, layout)', isCorrect: false },
-          { id: 'c', text: 'Auditiv (lyd, musikk)', isCorrect: false },
-          { id: 'd', text: 'Verbalspråklig (tekst, tale)', isCorrect: false },
-        ],
-        solution: 'Algoritme er ikke en modalitet, men en teknisk mekanisme som styrer hvilke tekster vi ser. Modaliteter er uttrykksmåter som verbalspråk, visuell, auditiv og kinestetisk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
-      },
-    },
-    {
-      id: 'norsk-vg1-6-3-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-6-3-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er en filterboble?',
-        options: [
-          { id: 'a', text: 'Når algoritmer viser deg innhold basert på din tidligere aktivitet, slik at du får et begrenset syn på verden', isCorrect: true },
-          { id: 'b', text: 'Et verktøy for å blokkere uønsket innhold på sosiale medier', isCorrect: false },
-          { id: 'c', text: 'En type filter man bruker på bilder i Instagram', isCorrect: false },
-          { id: 'd', text: 'En metode for å sortere nyheter etter troverdighet', isCorrect: false },
-        ],
-        solution: 'En filterboble oppstår når algoritmer viser deg innhold som ligner det du allerede har vist interesse for, noe som kan gi et ensidig bilde av virkeligheten.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      competenceGoals: ['bruke kilder kritisk og etterrettelig'],
-      },
-    },
-    {
       id: 'norsk-vg1-6-3-ex-8',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-6-3-ex-8',
-        number: '8',
+        number: '6',
         type: 'classic',
         difficulty: 'medium',
         task: 'Lag en multimodal tekst (plakat, infografikk eller kort video) om et selvvalgt tema. Analyser deretter din egen tekst: Hvilke modaliteter har du brukt? Hvordan samspiller de? Hva er formålet?',
@@ -1397,11 +1416,27 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
       },
     },
     {
+      id: 'norsk-vg1-6-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-6-3-ex-4',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sammenlign hvordan samme nyhetssak dekkes i en nettavis og på sosiale medier. Hva er forskjellene?',
+        hints: ['Se på vinkling, kilder, modaliteter', 'Vurder troverdighet'],
+        solution: 'Sammenligningen bør vise forståelse for ulike sjangerkrav og medieplattformers egenart.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke kilder kritisk og etterrettelig'],
+      },
+    },
+    {
       id: 'norsk-vg1-6-3-ex-9',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-6-3-ex-9',
-        number: '9',
+        number: '8',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sammenlign dekningen av en aktuell nyhetssak på tre ulike plattformer: en nettavis, en TV-nyhetssending og et innlegg på sosiale medier. Hvordan påvirker plattformen fremstillingen?',
@@ -1412,21 +1447,19 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
         competenceGoals: ['bruke kilder kritisk og etterrettelig'],
       },
     },
+
+    // --- Samleoppgaver ---
     {
-      id: 'norsk-vg1-6-3-ex-10',
+      id: 'norsk-vg1-6-3-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg1-6-3-ex-10',
-        number: '10',
+        id: 'norsk-vg1-6-3-ex-5',
+        number: '9',
         type: 'classic',
         difficulty: 'vanskelig',
-        task: 'Skriv et essay (400-500 ord) om kunstig intelligens og digital kompetanse. Drøft: Hvordan endrer AI-verktøy vår forståelse av hva det betyr å lese og skrive kritisk i digitale medier?',
-        hints: [
-          'Tenk på AI-generert tekst, bilder og video',
-          'Drøft hva det betyr for kildekritikk',
-          'Vurder både muligheter og utfordringer',
-        ],
-        solution: 'Essayet bør drøfte hvordan AI utfordrer tradisjonell kildekritikk, hva det betyr at tekster kan genereres automatisk, og hvorfor digital kompetanse blir enda viktigere i en tid med AI.',
+        task: 'Skriv en kronikk (300-400 ord) om et aktuelt tema knyttet til digitale medier (f.eks. skjermtid, falske nyheter, influencer-kultur).',
+        hints: ['Bruk kildehenvisninger', 'Argumenter saklig', 'Ha en tydelig holdning'],
+        solution: 'Kronikken skal kombinere personlig engasjement med saklig argumentasjon.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
         competenceGoals: ['bruke kilder kritisk og etterrettelig'],
@@ -1437,7 +1470,7 @@ Korte videoer paa sosiale medier bruker mange virkemidler samtidig for aa fange 
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-6-3-ex-11',
-        number: '11',
+        number: '10',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Gjør en kritisk analyse av influencer-kulturen. Velg en kjent norsk eller internasjonal influencer og analyser tre innlegg. Drøft: Hvilke retoriske virkemidler brukes? Hvordan er forholdet mellom det personlige og det kommersielle? Hva er konsekvensene for unge følgere?',
@@ -1501,6 +1534,7 @@ export const CHAPTER_NORSK_VG1_5_3: TextbookChapter = {
     'skrive fagartikler med klar struktur, korrekt kildebruk og tilpasset språk',
   ],
   content: [
+    // ========== INTRO ==========
     {
       id: 'norsk-vg1-5-3-intro',
       type: 'text',
@@ -1872,6 +1906,8 @@ Flere studier bekrefter sammenhengen mellom sovnmangel og svakere skoleprestasjo
         competenceGoals: ['skrive fagartikler som greier ut og drøfter', 'bruke kilder kritisk og etterrettelig'],
       },
     },
+
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-5-3-ex-10',
       type: 'exercise',
@@ -2364,6 +2400,8 @@ Boy disse verbene paa nynorsk og sammenlign med bokmal.
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk', 'bruke fagspråk til å beskrive grammatikk'],
       },
     },
+
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-4-3-ex-11',
       type: 'exercise',
@@ -2819,6 +2857,8 @@ Fornorskingspolitikken (ca. 1850-1960) forbod samisk i skolen. Mange mistet moro
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-4-4-ex-10',
       type: 'exercise',
@@ -3302,6 +3342,8 @@ Dette er ikke "daarlig" spraak - det er **tilpasset spraak**. De samme personene
         competenceGoals: ['sammenligne særtrekk ved norsk med andre språk'],
       },
     },
+
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-4-5-ex-10',
       type: 'exercise',

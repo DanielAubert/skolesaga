@@ -128,6 +128,36 @@ Hydraulikken er traktorens muskelkraft for løfting og styring av redskaper.
 - Trekkraftkontroll - justerer etter motstand`,
     },
     {
+      id: 'naturbruk-vg1-7-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv traktorens hovedkomponenter.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er hoveddelene i traktorens drivlinje?',
+            solution: 'Motor, clutch/kobling, girkasse, differensial, drivaksler og hjul/belter.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hva kraftuttaket (PTO) brukes til.',
+            solution: 'Kraftuttaket er en roterende aksel som overfører kraft fra motoren til tilkoblede redskaper, slik at disse kan drives av traktorens motor.',
+          },
+          {
+            label: 'c',
+            task: 'Hva er trepunktsopphenget, og hvorfor er det viktig?',
+            solution: 'Trepunktsopphenget er et standardisert festesystem med to løftearmer og én toppleftestang som gjør det mulig å montere og løfte redskaper bak på traktoren.',
+          },
+        ],
+        solution: 'Traktorens hovedkomponenter inkluderer motor, drivlinje, kraftuttak, hydraulikksystem og trepunktsoppheng.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-1-def-3',
       type: 'definition',
       title: 'Traktortyper',
@@ -145,6 +175,19 @@ Spesialkonstruert for å montere redskaper foran, under og bak.
 
 **Beltegående traktor:**
 Belter i stedet for hjul. Lavt marktrykk, god fremkommelighet.`,
+    },
+    {
+      id: 'naturbruk-vg1-7-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom de ulike traktortypene.',
+        solution: 'Jordbrukstraktor er allsidig for gårdsbruk. Skogstraktor er forsterket for tøffe forhold. Kompakttraktor er liten og smidig for mindre arealer. Redskapsbærer kan montere redskaper flere steder. Beltegående traktor har lavt marktrykk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-1-text-3',
@@ -174,6 +217,31 @@ Belter i stedet for hjul. Lavt marktrykk, god fremkommelighet.`,
 - Forsikring må være i orden`,
     },
     {
+      id: 'naturbruk-vg1-7-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er alderskravene for å kjøre traktor?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Fra hvilken alder kan du ta traktorførerkort (klasse T)?',
+            solution: 'Fra 16 år, med bestått trafikalt grunnkurs.',
+          },
+          {
+            label: 'b',
+            task: 'Når kan du kjøre traktor på privat eiendom uten førerkort?',
+            solution: 'Fra 15 år kan du kjøre traktor på egen eller foreldrenes eiendom, men ikke på offentlig vei.',
+          },
+        ],
+        solution: 'Traktorførerkort kan tas fra 16 år. Fra 15 år kan man kjøre på privat eiendom.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-1-tip-1',
       type: 'tip',
       title: 'Daglig sjekk før kjøring',
@@ -188,6 +256,19 @@ Belter i stedet for hjul. Lavt marktrykk, god fremkommelighet.`,
 - **S**ikkerhet - er verneinnretninger på plass?
 
 Denne rutinen tar få minutter og kan forebygge ulykker og dyre reparasjoner.`,
+    },
+    {
+      id: 'naturbruk-vg1-7-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva bør du sjekke før du starter traktoren?',
+        solution: 'Bruk BLOOMS: Bremser, Lys, Olje (motor og hydraulikk), Omgivelser (klart rundt traktoren), Motor (lytt etter unormale lyder), Sikkerhet (verneinnretninger på plass).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-1-text-4',
@@ -216,6 +297,19 @@ Denne rutinen tar få minutter og kan forebygge ulykker og dyre reparasjoner.`,
 - Transport av for, dyr, produkter
 - Førerkort klasse C for lastebil
 - Klasse CE for vogntog`,
+    },
+    {
+      id: 'naturbruk-vg1-7-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvilke andre kjøretøy brukes i naturbruk, og hva er alderskravene?',
+        solution: 'ATV krever førerkort klasse S fra 16 år. UTV er side-by-side kjøretøy. Snøscooter krever klasse S og løyve. Lastebil krever klasse C eller CE.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-1-example-1',
@@ -252,100 +346,7 @@ Denne rutinen tar få minutter og kan forebygge ulykker og dyre reparasjoner.`,
 **Konklusjon:**
 En mellomklasse traktor på 120-140 hk med frontlaster vil dekke de fleste behovene. For større skogsarbeider kan det lønne seg å leie inn entreprenør.`,
     },
-    {
-      id: 'naturbruk-vg1-7-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv traktorens hovedkomponenter.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er hoveddelene i traktorens drivlinje?',
-            solution: 'Motor, clutch/kobling, girkasse, differensial, drivaksler og hjul/belter.',
-          },
-          {
-            label: 'b',
-            task: 'Forklar hva kraftuttaket (PTO) brukes til.',
-            solution: 'Kraftuttaket er en roterende aksel som overfører kraft fra motoren til tilkoblede redskaper, slik at disse kan drives av traktorens motor.',
-          },
-          {
-            label: 'c',
-            task: 'Hva er trepunktsopphenget, og hvorfor er det viktig?',
-            solution: 'Trepunktsopphenget er et standardisert festesystem med to løftearmer og én toppleftestang som gjør det mulig å montere og løfte redskaper bak på traktoren.',
-          },
-        ],
-        solution: 'Traktorens hovedkomponenter inkluderer motor, drivlinje, kraftuttak, hydraulikksystem og trepunktsoppheng.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er alderskravene for å kjøre traktor?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Fra hvilken alder kan du ta traktorførerkort (klasse T)?',
-            solution: 'Fra 16 år, med bestått trafikalt grunnkurs.',
-          },
-          {
-            label: 'b',
-            task: 'Når kan du kjøre traktor på privat eiendom uten førerkort?',
-            solution: 'Fra 15 år kan du kjøre traktor på egen eller foreldrenes eiendom, men ikke på offentlig vei.',
-          },
-        ],
-        solution: 'Traktorførerkort kan tas fra 16 år. Fra 15 år kan man kjøre på privat eiendom.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom de ulike traktortypene.',
-        solution: 'Jordbrukstraktor er allsidig for gårdsbruk. Skogstraktor er forsterket for tøffe forhold. Kompakttraktor er liten og smidig for mindre arealer. Redskapsbærer kan montere redskaper flere steder. Beltegående traktor har lavt marktrykk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva bør du sjekke før du starter traktoren?',
-        solution: 'Bruk BLOOMS: Bremser, Lys, Olje (motor og hydraulikk), Omgivelser (klart rundt traktoren), Motor (lytt etter unormale lyder), Sikkerhet (verneinnretninger på plass).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-1-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-1-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvilke andre kjøretøy brukes i naturbruk, og hva er alderskravene?',
-        solution: 'ATV krever førerkort klasse S fra 16 år. UTV er side-by-side kjøretøy. Snøscooter krever klasse S og løyve. Lastebil krever klasse C eller CE.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-1-ex-6',
       type: 'exercise',
@@ -449,6 +450,31 @@ Plogen er det tradisjonelle redskapet for primær jordarbeiding.
 - Ofte kombinert med såmaskin`,
     },
     {
+      id: 'naturbruk-vg1-7-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv funksjonene til de viktigste jordarbeidingsredskapene.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva gjør plogen med jorda?',
+            solution: 'Plogen snur jordlaget opp-ned, begraver planterester og ugress, og løsner jorda i dybden (20-25 cm).',
+          },
+          {
+            label: 'b',
+            task: 'Hva er forskjellen på skålharv og tindharv?',
+            solution: 'Skålharv har konkave skåler som kutter og blander jorda, egnet for grovere arbeid. Tindharv har fjærende tinder som løsner jorda uten å snu den, brukes til finere såbedpreparering.',
+          },
+        ],
+        solution: 'Plog snur jorda, harver løsner og finfordeler, rotorharv finfordeler effektivt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-2-def-2',
       type: 'definition',
       title: 'Såmaskin',
@@ -499,6 +525,19 @@ Plogen er det tradisjonelle redskapet for primær jordarbeiding.
 - Reduserer overforbruk`,
     },
     {
+      id: 'naturbruk-vg1-7-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvordan en kombisåmaskin fungerer.',
+        solution: 'En kombisåmaskin sår frø og gjødsler samtidig i samme arbeidsoperasjon. Gjødsla plasseres ved siden av eller under frøet for optimal tilgang. Maskinen har separate beholdere for frø og gjødsel, og presisjonsutmatere som sikrer riktig mengde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-2-text-3',
       type: 'text',
       content: `## Høsteredskaper
@@ -547,6 +586,19 @@ Høster og tresker korn i én operasjon.
 **Arbeidsbredde:** 3-12 meter`,
     },
     {
+      id: 'naturbruk-vg1-7-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn tre typer høsteredskaper og forklar hva de brukes til.',
+        solution: 'Slåmaskin brukes til å slå gras. Rive samler graset i strenger. Rundballepresse presser graset til kompakte baller. Skurtresker høster og tresker korn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-2-tip-1',
       type: 'tip',
       title: 'Riktig innstilling er nøkkelen',
@@ -558,6 +610,19 @@ Høster og tresker korn i én operasjon.
 - **Hastighet:** Følg anbefalinger for arbeidshastighet
 
 Feil innstilling gir dårligere resultat, høyere dieselforbruk og unødvendig slitasje.`,
+    },
+    {
+      id: 'naturbruk-vg1-7-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvorfor er riktig innstilling av redskaper viktig?',
+        solution: 'Riktig innstilling gir bedre resultat, lavere dieselforbruk, mindre slitasje og sikrere arbeid. Feil innstilling kan gi dårlig såbed, ujevn såing, større motstand og økte kostnader.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-2-def-3',
@@ -633,70 +698,7 @@ Feil innstilling gir dårligere resultat, høyere dieselforbruk og unødvendig s
 
 **Tidsbruk:** Ca. 1-2 timer per dekar avhengig av utstyr og forhold.`,
     },
-    {
-      id: 'naturbruk-vg1-7-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv funksjonene til de viktigste jordarbeidingsredskapene.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva gjør plogen med jorda?',
-            solution: 'Plogen snur jordlaget opp-ned, begraver planterester og ugress, og løsner jorda i dybden (20-25 cm).',
-          },
-          {
-            label: 'b',
-            task: 'Hva er forskjellen på skålharv og tindharv?',
-            solution: 'Skålharv har konkave skåler som kutter og blander jorda, egnet for grovere arbeid. Tindharv har fjærende tinder som løsner jorda uten å snu den, brukes til finere såbedpreparering.',
-          },
-        ],
-        solution: 'Plog snur jorda, harver løsner og finfordeler, rotorharv finfordeler effektivt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hvordan en kombisåmaskin fungerer.',
-        solution: 'En kombisåmaskin sår frø og gjødsler samtidig i samme arbeidsoperasjon. Gjødsla plasseres ved siden av eller under frøet for optimal tilgang. Maskinen har separate beholdere for frø og gjødsel, og presisjonsutmatere som sikrer riktig mengde.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre typer høsteredskaper og forklar hva de brukes til.',
-        solution: 'Slåmaskin brukes til å slå gras. Rive samler graset i strenger. Rundballepresse presser graset til kompakte baller. Skurtresker høster og tresker korn.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-2-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvorfor er riktig innstilling av redskaper viktig?',
-        solution: 'Riktig innstilling gir bedre resultat, lavere dieselforbruk, mindre slitasje og sikrere arbeid. Feil innstilling kan gi dårlig såbed, ujevn såing, større motstand og økte kostnader.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-2-ex-5',
       type: 'exercise',
@@ -789,6 +791,31 @@ Motorsaga er skogsarbeiderens viktigste håndholdte verktøy, mens moderne skogs
 - **Håndvern:** Beskytter hendene`,
     },
     {
+      id: 'naturbruk-vg1-7-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv motorsagas hovedkomponenter og sikkerhetsfunksjoner.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Nevn de fire hovedkomponentene i en motorsag.',
+            solution: 'Motor, sverd, kjede og håndtak.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er kjedebremsens funksjon?',
+            solution: 'Kjedebremsen stopper kjedet momentant ved tilbakeslag eller annen farlig situasjon.',
+          },
+        ],
+        solution: 'Motorsaga har motor, sverd, kjede og håndtak. Sikkerhetsfunksjonene inkluderer kjedebremse, gasslås, fangbolt og håndvern.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-3-def-2',
       type: 'definition',
       title: 'Tilbakeslag (kickback)',
@@ -799,6 +826,19 @@ Motorsaga er skogsarbeiderens viktigste håndholdte verktøy, mens moderne skogs
 - Bruk saga med kjedebremse
 - Hold godt grep med begge hender
 - Stå støtt med god balanse`,
+    },
+    {
+      id: 'naturbruk-vg1-7-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er tilbakeslag (kickback), og hvordan forebygger du det?',
+        solution: 'Tilbakeslag skjer når den øvre delen av sverdet treffer noe, og saga kastes mot brukeren. Forebygging: Vær oppmerksom på sverdspissen, bruk kjedebremse, hold godt grep med begge hender, stå støtt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-3-text-2',
@@ -831,6 +871,19 @@ Ved motorsagarbeid er følgende verneutstyr **påbudt**:
 **Signalfargede klær**
 - Oransje eller gult
 - Gjør deg synlig i skogen`,
+    },
+    {
+      id: 'naturbruk-vg1-7-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'List opp alt påbudt verneutstyr ved motorsagarbeid.',
+        solution: 'Hjelm med visir og hørselsvern, vernebukse med sagbeskyttelse, vernesko med sagbeskyttelse og stålkappe, vernehansker med sagbeskyttelse, signalfargede klær.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-3-text-3',
@@ -868,6 +921,19 @@ Ved motorsagarbeid er følgende verneutstyr **påbudt**:
 - Arbeid alene med farlige trær
 - Bruk saga uten verneutstyr
 - Sag med slap kjede`,
+    },
+    {
+      id: 'naturbruk-vg1-7-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv trinnene ved sikker felling av et tre.',
+        solution: '1) Vurder treet og planlegg fallretning, 2) Planlegg retrettmulighet (45 grader bak), 3) Lag fallskår (åpningskutt) i fallretningen, 4) Lag fellekutt fra motsatt side litt over fallskåret, 5) Trekk deg tilbake i sikker vinkel når treet begynner å falle.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-3-tip-1',
@@ -938,6 +1004,19 @@ Ved motorsagarbeid er følgende verneutstyr **påbudt**:
 - Kan være traktor- eller lastebilmontert`,
     },
     {
+      id: 'naturbruk-vg1-7-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom hogstmaskin og lassbærer.',
+        solution: 'Hogstmaskin (harvester) feller, kvister og kapper trær. Lassbærer (forwarder) transporterer det kappede tømmeret fra hogstfeltet til velteplass ved vei.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-3-text-5',
       type: 'text',
       content: `## Krav til opplæring
@@ -958,83 +1037,7 @@ Ved motorsagarbeid er følgende verneutstyr **påbudt**:
 - Forsikring kan være ugyldig uten dokumentert opplæring
 - Arbeidsgiver har ansvar for at ansatte har opplæring`,
     },
-    {
-      id: 'naturbruk-vg1-7-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv motorsagas hovedkomponenter og sikkerhetsfunksjoner.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Nevn de fire hovedkomponentene i en motorsag.',
-            solution: 'Motor, sverd, kjede og håndtak.',
-          },
-          {
-            label: 'b',
-            task: 'Hva er kjedebremsens funksjon?',
-            solution: 'Kjedebremsen stopper kjedet momentant ved tilbakeslag eller annen farlig situasjon.',
-          },
-        ],
-        solution: 'Motorsaga har motor, sverd, kjede og håndtak. Sikkerhetsfunksjonene inkluderer kjedebremse, gasslås, fangbolt og håndvern.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er tilbakeslag (kickback), og hvordan forebygger du det?',
-        solution: 'Tilbakeslag skjer når den øvre delen av sverdet treffer noe, og saga kastes mot brukeren. Forebygging: Vær oppmerksom på sverdspissen, bruk kjedebremse, hold godt grep med begge hender, stå støtt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'List opp alt påbudt verneutstyr ved motorsagarbeid.',
-        solution: 'Hjelm med visir og hørselsvern, vernebukse med sagbeskyttelse, vernesko med sagbeskyttelse og stålkappe, vernehansker med sagbeskyttelse, signalfargede klær.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom hogstmaskin og lassbærer.',
-        solution: 'Hogstmaskin (harvester) feller, kvister og kapper trær. Lassbærer (forwarder) transporterer det kappede tømmeret fra hogstfeltet til velteplass ved vei.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-3-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-3-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Beskriv trinnene ved sikker felling av et tre.',
-        solution: '1) Vurder treet og planlegg fallretning, 2) Planlegg retrettmulighet (45 grader bak), 3) Lag fallskår (åpningskutt) i fallretningen, 4) Lag fellekutt fra motsatt side litt over fallskåret, 5) Trekk deg tilbake i sikker vinkel når treet begynner å falle.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-3-ex-6',
       type: 'exercise',
@@ -1137,6 +1140,31 @@ Selv i en tid med maskiner og teknologi er håndverktøy uunnværlige i naturbru
 - Ett eller to hjul`,
     },
     {
+      id: 'naturbruk-vg1-7-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv forskjellen mellom spade og greip.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Når bruker du spade?',
+            solution: 'Spade brukes til graving og flytting av jord, spesielt i tett eller tung jord.',
+          },
+          {
+            label: 'b',
+            task: 'Når bruker du greip?',
+            solution: 'Greip brukes til løs jord, kompost og gjødsel. Den er skånsom mot planterøtter og lettere enn spaden.',
+          },
+        ],
+        solution: 'Spade er best for graving i tung jord, greip for løs jord og materialer som kompost.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-4-def-2',
       type: 'definition',
       title: 'Sekkatør',
@@ -1145,6 +1173,19 @@ Selv i en tid med maskiner og teknologi er håndverktøy uunnværlige i naturbru
 **Typer:**
 - **Bypass-sekkatør:** Bladene glir forbi hverandre (renest kutt)
 - **Ambolt-sekkatør:** Ett blad mot fast underlag (for tørre greiner)`,
+    },
+    {
+      id: 'naturbruk-vg1-7-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen på bypass- og ambolt-sekkatør?',
+        solution: 'Bypass-sekkatør har blader som glir forbi hverandre og gir renest kutt, best for levende planter. Ambolt-sekkatør har ett blad som treffer fast underlag, egnet for tørre greiner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-4-text-2',
@@ -1215,6 +1256,19 @@ Selv i en tid med maskiner og teknologi er håndverktøy uunnværlige i naturbru
 - Mye brukt ved gjerdebygging`,
     },
     {
+      id: 'naturbruk-vg1-7-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn fem verktøy som brukes til gjerdebygging.',
+        solution: 'Hammer, tang/knipertang, spett, stolpespade, vater, skrutrekker, slegge.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-4-text-4',
       type: 'text',
       content: `## Verktøy for dyrestell
@@ -1266,69 +1320,6 @@ Selv i en tid med maskiner og teknologi er håndverktøy uunnværlige i naturbru
 - Jobber mer effektivt`,
     },
     {
-      id: 'naturbruk-vg1-7-4-def-3',
-      type: 'definition',
-      title: 'Ergonomi',
-      content: `**Ergonomi** handler om å tilpasse arbeidet til menneskets fysiske forutsetninger. Ved bruk av håndverktøy betyr dette:
-
-- Velg riktig størrelse og vekt
-- Bruk riktig arbeidsteknikk
-- Ta pauser
-- Varier arbeidsoppgaver
-- Bruk verneutstyr når nødvendig`,
-    },
-    {
-      id: 'naturbruk-vg1-7-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv forskjellen mellom spade og greip.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Når bruker du spade?',
-            solution: 'Spade brukes til graving og flytting av jord, spesielt i tett eller tung jord.',
-          },
-          {
-            label: 'b',
-            task: 'Når bruker du greip?',
-            solution: 'Greip brukes til løs jord, kompost og gjødsel. Den er skånsom mot planterøtter og lettere enn spaden.',
-          },
-        ],
-        solution: 'Spade er best for graving i tung jord, greip for løs jord og materialer som kompost.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er forskjellen på bypass- og ambolt-sekkatør?',
-        solution: 'Bypass-sekkatør har blader som glir forbi hverandre og gir renest kutt, best for levende planter. Ambolt-sekkatør har ett blad som treffer fast underlag, egnet for tørre greiner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn fem verktøy som brukes til gjerdebygging.',
-        solution: 'Hammer, tang/knipertang, spett, stolpespade, vater, skrutrekker, slegge.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'naturbruk-vg1-7-4-ex-4',
       type: 'exercise',
       exercise: {
@@ -1341,6 +1332,19 @@ Selv i en tid med maskiner og teknologi er håndverktøy uunnværlige i naturbru
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-7-4-def-3',
+      type: 'definition',
+      title: 'Ergonomi',
+      content: `**Ergonomi** handler om å tilpasse arbeidet til menneskets fysiske forutsetninger. Ved bruk av håndverktøy betyr dette:
+
+- Velg riktig størrelse og vekt
+- Bruk riktig arbeidsteknikk
+- Ta pauser
+- Varier arbeidsoppgaver
+- Bruk verneutstyr når nødvendig`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-4-ex-5',
       type: 'exercise',
@@ -1403,6 +1407,31 @@ Naturbruk er blant næringene med flest arbeidsulykker i Norge. Arbeid med maski
 **HMS-arbeid er lovpålagt for alle virksomheter i Norge.**`,
     },
     {
+      id: 'naturbruk-vg1-7-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva står HMS for, og hva innebærer det?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva HMS står for.',
+            solution: 'HMS står for Helse, Miljø og Sikkerhet.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er HMS-arbeid viktig i naturbruk?',
+            solution: 'Naturbruk er blant næringene med flest arbeidsulykker. God HMS forebygger skader, sykdom og dødsfall.',
+          },
+        ],
+        solution: 'HMS står for Helse, Miljø og Sikkerhet og handler om å sikre et trygt arbeidsmiljø.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-5-text-1',
       type: 'text',
       content: `## Risikoer i naturbruk
@@ -1442,6 +1471,19 @@ Naturbruk er blant næringene med flest arbeidsulykker i Norge. Arbeid med maski
 - Grense: 85 dB over tid`,
     },
     {
+      id: 'naturbruk-vg1-7-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fem vanlige risikoer i naturbruk.',
+        solution: 'Maskinulykker (velt, klemskader), dyreulykker (spark, stanging), fallulykker, kjemiske farer (sprøytemidler, silogass), ergonomiske belastninger (tunge løft), støy.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-5-def-2',
       type: 'definition',
       title: 'Risikovurdering',
@@ -1455,6 +1497,19 @@ Naturbruk er blant næringene med flest arbeidsulykker i Norge. Arbeid med maski
 **Risiko = Sannsynlighet × Konsekvens**
 
 Alle virksomheter plikter å gjennomføre risikovurdering.`,
+    },
+    {
+      id: 'naturbruk-vg1-7-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er en risikovurdering, og hvilke tre spørsmål skal besvares?',
+        solution: 'En risikovurdering er en systematisk gjennomgang av farer på arbeidsplassen. Spørsmålene er: 1) Hva kan gå galt? 2) Hvor sannsynlig er det? 3) Hva blir konsekvensene?',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-5-text-2',
@@ -1543,6 +1598,19 @@ Alle virksomheter plikter å gjennomføre risikovurdering.`,
 Denne rutinen tar ett minutt og kan redde liv.`,
     },
     {
+      id: 'naturbruk-vg1-7-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hva SJA (Sikker Jobb Analyse) er.',
+        solution: 'SJA er en rask vurdering før risikofylt arbeid: 1) Stopp og tenk - hva skal gjøres og hvilke farer finnes, 2) Vurder - har jeg rett utstyr og er forholdene trygge, 3) Beslutt - kan jeg gjøre jobben trygt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-5-def-3',
       type: 'definition',
       title: 'Arbeidsmiljøloven',
@@ -1590,70 +1658,6 @@ Denne rutinen tar ett minutt og kan redde liv.`,
 - Gi så nøyaktig posisjon som mulig`,
     },
     {
-      id: 'naturbruk-vg1-7-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva står HMS for, og hva innebærer det?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva HMS står for.',
-            solution: 'HMS står for Helse, Miljø og Sikkerhet.',
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er HMS-arbeid viktig i naturbruk?',
-            solution: 'Naturbruk er blant næringene med flest arbeidsulykker. God HMS forebygger skader, sykdom og dødsfall.',
-          },
-        ],
-        solution: 'HMS står for Helse, Miljø og Sikkerhet og handler om å sikre et trygt arbeidsmiljø.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fem vanlige risikoer i naturbruk.',
-        solution: 'Maskinulykker (velt, klemskader), dyreulykker (spark, stanging), fallulykker, kjemiske farer (sprøytemidler, silogass), ergonomiske belastninger (tunge løft), støy.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er en risikovurdering, og hvilke tre spørsmål skal besvares?',
-        solution: 'En risikovurdering er en systematisk gjennomgang av farer på arbeidsplassen. Spørsmålene er: 1) Hva kan gå galt? 2) Hvor sannsynlig er det? 3) Hva blir konsekvensene?',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar hva SJA (Sikker Jobb Analyse) er.',
-        solution: 'SJA er en rask vurdering før risikofylt arbeid: 1) Stopp og tenk - hva skal gjøres og hvilke farer finnes, 2) Vurder - har jeg rett utstyr og er forholdene trygge, 3) Beslutt - kan jeg gjøre jobben trygt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'naturbruk-vg1-7-5-ex-5',
       type: 'exercise',
       exercise: {
@@ -1666,6 +1670,7 @@ Denne rutinen tar ett minutt og kan redde liv.`,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-5-ex-6',
       type: 'exercise',
@@ -1729,6 +1734,19 @@ Maskiner og utstyr representerer store investeringer. Godt vedlikehold forlenger
 - Bedre videresalgsverdi`,
     },
     {
+      id: 'naturbruk-vg1-7-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på forebyggende og korrigerende vedlikehold?',
+        solution: 'Forebyggende vedlikehold er planlagte tiltak som utføres regelmessig for å holde utstyret i god stand. Korrigerende vedlikehold er reparasjon etter at noe har gått i stykker. Forebyggende er billigere og tryggere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-6-text-1',
       type: 'text',
       content: `## Vedlikeholdsintervaller
@@ -1765,6 +1783,19 @@ Maskiner og utstyr representerer store investeringer. Godt vedlikehold forlenger
 - Profesjonell service
 - Sikkerhetskontroll
 - Rust- og lakkeringsbehandling`,
+    },
+    {
+      id: 'naturbruk-vg1-7-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hva som bør sjekkes daglig på en traktor.',
+        solution: 'Daglig sjekk: Visuell kontroll for skader og lekkasjer, oljenivå (motor og hydraulikk), dekk/belter, bremser og lys, rengjøring for smuss.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-6-def-2',
@@ -1813,6 +1844,31 @@ Maskiner og utstyr representerer store investeringer. Godt vedlikehold forlenger
 - Aldri hell ut i naturen`,
     },
     {
+      id: 'naturbruk-vg1-7-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar trinnene ved et motoroljeskift.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'List opp trinnene i riktig rekkefølge.',
+            solution: 'Varm opp motor, slå av og sikre, plasser oppsamlingskar, fjern dreneringsplugg, la oljen renne ut, skift oljefilter, monter plugg, fyll på ny olje, sjekk nivå, start og sjekk for lekkasjer.',
+          },
+          {
+            label: 'b',
+            task: 'Hva gjør du med brukt motorolje?',
+            solution: 'Brukt motorolje er spesialavfall og skal leveres til godkjent mottak. Den skal aldri helles ut i naturen.',
+          },
+        ],
+        solution: 'Oljeskift gjøres ved å varme motoren, drenere gammel olje, skifte filter, fylle på ny olje av riktig type. Brukt olje leveres som spesialavfall.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-7-6-text-3',
       type: 'text',
       content: `## Vedlikehold av redskaper
@@ -1858,6 +1914,19 @@ Loggen hjelper deg å:
 - Oppdage trender (økt forbruk, gjentatte problemer)
 - Dokumentere for salg eller garanti
 - Planlegge fremtidig vedlikehold`,
+    },
+    {
+      id: 'naturbruk-vg1-7-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-7-6-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvorfor er det viktig å føre vedlikeholdslogg?',
+        solution: 'Vedlikeholdslogg hjelper med å holde oversikt over intervaller, oppdage trender, dokumentere for salg/garanti, og planlegge fremtidig vedlikehold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-7-6-text-4',
@@ -1913,70 +1982,7 @@ Loggen hjelper deg å:
 - Dekk til mot støv og fukt
 - Lagre tørt og frostfritt om mulig`,
     },
-    {
-      id: 'naturbruk-vg1-7-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på forebyggende og korrigerende vedlikehold?',
-        solution: 'Forebyggende vedlikehold er planlagte tiltak som utføres regelmessig for å holde utstyret i god stand. Korrigerende vedlikehold er reparasjon etter at noe har gått i stykker. Forebyggende er billigere og tryggere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv hva som bør sjekkes daglig på en traktor.',
-        solution: 'Daglig sjekk: Visuell kontroll for skader og lekkasjer, oljenivå (motor og hydraulikk), dekk/belter, bremser og lys, rengjøring for smuss.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar trinnene ved et motoroljeskift.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'List opp trinnene i riktig rekkefølge.',
-            solution: 'Varm opp motor, slå av og sikre, plasser oppsamlingskar, fjern dreneringsplugg, la oljen renne ut, skift oljefilter, monter plugg, fyll på ny olje, sjekk nivå, start og sjekk for lekkasjer.',
-          },
-          {
-            label: 'b',
-            task: 'Hva gjør du med brukt motorolje?',
-            solution: 'Brukt motorolje er spesialavfall og skal leveres til godkjent mottak. Den skal aldri helles ut i naturen.',
-          },
-        ],
-        solution: 'Oljeskift gjøres ved å varme motoren, drenere gammel olje, skifte filter, fylle på ny olje av riktig type. Brukt olje leveres som spesialavfall.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-7-6-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-7-6-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvorfor er det viktig å føre vedlikeholdslogg?',
-        solution: 'Vedlikeholdslogg hjelper med å holde oversikt over intervaller, oppdage trender, dokumentere for salg/garanti, og planlegge fremtidig vedlikehold.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-7-6-ex-5',
       type: 'exercise',
@@ -2037,6 +2043,31 @@ Definisjonen kommer fra Brundtland-kommisjonen (1987), ledet av tidligere statsm
 **Kjerneprinsipp:** Vi låner ikke jorden fra våre forfedre - vi låner den fra våre barn.`,
     },
     {
+      id: 'naturbruk-vg1-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva bærekraftig utvikling betyr.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Gi en kort definisjon av bærekraftig utvikling.',
+            solution: 'Bærekraftig utvikling er utvikling som dekker dagens behov uten å ødelegge fremtidige generasjoners muligheter til å dekke sine behov.',
+          },
+          {
+            label: 'b',
+            task: 'Hvor kommer definisjonen fra?',
+            solution: 'Definisjonen kommer fra Brundtland-kommisjonen i 1987, ledet av Gro Harlem Brundtland.',
+          },
+        ],
+        solution: 'Bærekraftig utvikling handler om å møte dagens behov uten å ødelegge for fremtiden.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-1-text-1',
       type: 'text',
       content: `## De tre dimensjonene av bærekraft
@@ -2067,6 +2098,19 @@ Bærekraft hviler på tre pilarer som må være i balanse:
 **Alle tre må ivaretas - det holder ikke å være miljøvennlig hvis bedriften går konkurs, eller lønnsom hvis naturgrunnlaget ødelegges.**`,
     },
     {
+      id: 'naturbruk-vg1-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv de tre dimensjonene av bærekraft.',
+        solution: 'De tre dimensjonene er: 1) Økologisk bærekraft - bevare miljø og biologisk mangfold, 2) Økonomisk bærekraft - lønnsomhet og verdiskaping over tid, 3) Sosial bærekraft - gode arbeidsforhold, levende lokalsamfunn, matsikkerhet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-1-def-2',
       type: 'definition',
       title: 'Økosystemtjenester',
@@ -2078,6 +2122,19 @@ Bærekraft hviler på tre pilarer som må være i balanse:
 **Støttetjenester:** Fotosyntese, jorddannelse, næringssirkulering
 
 **Naturbruk er avhengig av - og påvirker - alle disse tjenestene.**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er økosystemtjenester? Gi eksempler.',
+        solution: 'Økosystemtjenester er godene mennesker får fra naturen. Eksempler: Forsyningstjenester (mat, vann), reguleringstjenester (pollinering, vannrensing), kulturelle tjenester (rekreasjon), støttetjenester (fotosyntese).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-1-text-2',
@@ -2109,6 +2166,19 @@ Bærekraft hviler på tre pilarer som må være i balanse:
 - Respekter naturgitte begrensninger`,
     },
     {
+      id: 'naturbruk-vg1-8-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar føre-var-prinsippet og hvorfor det er viktig.',
+        solution: 'Føre-var-prinsippet sier at ved usikkerhet skal man velge det forsiktige alternativet. Det er viktig fordi miljøskader kan være irreversible, og det er bedre å forebygge enn å reparere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-1-tip-1',
       type: 'tip',
       title: 'Karbonavtrykk og naturbruk',
@@ -2127,6 +2197,19 @@ Bærekraft hviler på tre pilarer som må være i balanse:
 - Trevirke lagrer karbon i bygninger
 
 **Netto kan norsk naturbruk være klimapositivt!**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-1-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvordan kan skogbruk være klimapositivt?',
+        solution: 'Skog som vokser binder CO2 fra atmosfæren. Trevirke lagrer karbon i bygninger. Biomasse kan erstatte fossile brensler. Bærekraftig skogbruk sikrer at ny skog vokser opp og fortsetter å binde karbon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-1-def-3',
@@ -2172,83 +2255,7 @@ Bærekraft hviler på tre pilarer som må være i balanse:
 - Beitedyr i utmark
 - Naturbasert reiseliv`,
     },
-    {
-      id: 'naturbruk-vg1-8-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva bærekraftig utvikling betyr.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Gi en kort definisjon av bærekraftig utvikling.',
-            solution: 'Bærekraftig utvikling er utvikling som dekker dagens behov uten å ødelegge fremtidige generasjoners muligheter til å dekke sine behov.',
-          },
-          {
-            label: 'b',
-            task: 'Hvor kommer definisjonen fra?',
-            solution: 'Definisjonen kommer fra Brundtland-kommisjonen i 1987, ledet av Gro Harlem Brundtland.',
-          },
-        ],
-        solution: 'Bærekraftig utvikling handler om å møte dagens behov uten å ødelegge for fremtiden.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv de tre dimensjonene av bærekraft.',
-        solution: 'De tre dimensjonene er: 1) Økologisk bærekraft - bevare miljø og biologisk mangfold, 2) Økonomisk bærekraft - lønnsomhet og verdiskaping over tid, 3) Sosial bærekraft - gode arbeidsforhold, levende lokalsamfunn, matsikkerhet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er økosystemtjenester? Gi eksempler.',
-        solution: 'Økosystemtjenester er godene mennesker får fra naturen. Eksempler: Forsyningstjenester (mat, vann), reguleringstjenester (pollinering, vannrensing), kulturelle tjenester (rekreasjon), støttetjenester (fotosyntese).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar føre-var-prinsippet og hvorfor det er viktig.',
-        solution: 'Føre-var-prinsippet sier at ved usikkerhet skal man velge det forsiktige alternativet. Det er viktig fordi miljøskader kan være irreversible, og det er bedre å forebygge enn å reparere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-1-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-1-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvordan kan skogbruk være klimapositivt?',
-        solution: 'Skog som vokser binder CO2 fra atmosfæren. Trevirke lagrer karbon i bygninger. Biomasse kan erstatte fossile brensler. Bærekraftig skogbruk sikrer at ny skog vokser opp og fortsetter å binde karbon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-1-ex-6',
       type: 'exercise',
@@ -2312,6 +2319,19 @@ I 2015 vedtok FNs medlemsland 17 bærekraftsmål som skal nås innen 2030. Disse
 **Hovedbudskap:** Ingen skal utelates - Leave No One Behind`,
     },
     {
+      id: 'naturbruk-vg1-8-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er FNs bærekraftsmål, og når ble de vedtatt?',
+        solution: 'FNs bærekraftsmål (SDG) er 17 globale mål for bærekraftig utvikling vedtatt av FNs medlemsland i 2015. De skal nås innen 2030 og gjelder alle land.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-2-text-1',
       type: 'text',
       content: `## De 17 bærekraftsmålene
@@ -2335,6 +2355,19 @@ I 2015 vedtok FNs medlemsland 17 bærekraftsmål som skal nås innen 2030. Disse
 **17. Samarbeid for å nå målene**
 
 **Naturbruk har direkte betydning for minst halvparten av disse målene!**`,
+    },
+    {
+      id: 'naturbruk-vg1-8-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fem bærekraftsmål som er spesielt relevante for naturbruk.',
+        solution: 'Mål 2 (Utrydde sult), Mål 12 (Ansvarlig forbruk og produksjon), Mål 13 (Stoppe klimaendringene), Mål 14 (Livet i havet), Mål 15 (Livet på land).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-2-text-2',
@@ -2401,6 +2434,19 @@ I 2015 vedtok FNs medlemsland 17 bærekraftsmål som skal nås innen 2030. Disse
 - Redusere plastforurensning`,
     },
     {
+      id: 'naturbruk-vg1-8-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvordan kan naturbruk bidra til mål 13 (stoppe klimaendringene)?',
+        solution: 'Naturbruk kan bidra gjennom karbonbinding i skog og jord, bioenergi som erstatter fossilt, klimatilpasset jordbruk, redusere utslipp fra husdyr, og bevare myrer og våtmarker som karbonlagre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-2-text-4',
       type: 'text',
       content: `## Mål 15: Livet på land
@@ -2456,45 +2502,6 @@ For naturbruk innebærer dette:
 **Naturbruk er en del av løsningen, ikke problemet.**`,
     },
     {
-      id: 'naturbruk-vg1-8-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er FNs bærekraftsmål, og når ble de vedtatt?',
-        solution: 'FNs bærekraftsmål (SDG) er 17 globale mål for bærekraftig utvikling vedtatt av FNs medlemsland i 2015. De skal nås innen 2030 og gjelder alle land.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fem bærekraftsmål som er spesielt relevante for naturbruk.',
-        solution: 'Mål 2 (Utrydde sult), Mål 12 (Ansvarlig forbruk og produksjon), Mål 13 (Stoppe klimaendringene), Mål 14 (Livet i havet), Mål 15 (Livet på land).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvordan kan naturbruk bidra til mål 13 (stoppe klimaendringene)?',
-        solution: 'Naturbruk kan bidra gjennom karbonbinding i skog og jord, bioenergi som erstatter fossilt, klimatilpasset jordbruk, redusere utslipp fra husdyr, og bevare myrer og våtmarker som karbonlagre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'naturbruk-vg1-8-2-ex-4',
       type: 'exercise',
       exercise: {
@@ -2507,6 +2514,7 @@ For naturbruk innebærer dette:
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-2-ex-5',
       type: 'exercise',
@@ -2571,6 +2579,19 @@ Mange som utdanner seg innen naturbruk drømmer om å starte egen bedrift eller 
 **Intraprenørskap:** Å være entreprenør innenfor en eksisterende bedrift.`,
     },
     {
+      id: 'naturbruk-vg1-8-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er entreprenørskap, og hvilke egenskaper kjennetegner en entreprenør?',
+        solution: 'Entreprenørskap er evnen og viljen til å skape ny virksomhet. En entreprenør ser muligheter, tar initiativ og ansvar, tåler risiko, og skaper verdier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-3-text-1',
       type: 'text',
       content: `## Fra idé til forretning
@@ -2608,6 +2629,19 @@ Gode forretningsideer kommer ofte fra:
 **Forretningsplanen er både et planleggingsverktøy og et dokument for å søke finansiering.**`,
     },
     {
+      id: 'naturbruk-vg1-8-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er en forretningsplan, og hva bør den inneholde?',
+        solution: 'En forretningsplan beskriver bedriften og dens mål. Innhold: Forretningsidé, produkter/tjenester, marked, organisasjon, økonomi/budsjett, handlingsplan.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-8-3-text-2',
       type: 'text',
       content: `## Trinnene i å starte bedrift
@@ -2640,55 +2674,6 @@ Gode forretningsideer kommer ofte fra:
 - Innovasjon`,
     },
     {
-      id: 'naturbruk-vg1-8-3-def-3',
-      type: 'definition',
-      title: 'Organisasjonsformer',
-      content: `**Enkeltpersonforetak (ENK):** Enkleste form, personlig ansvar for gjeld.
-
-**Aksjeselskap (AS):** Eget rettssubjekt, begrenset ansvar, krav om 30 000 kr.
-
-**Samvirkeforetak (SA):** Eid av medlemmene, demokratisk styring, vanlig i landbruket.
-
-**Ansvarlig selskap (ANS/DA):** To eller flere eiere med solidarisk eller delt ansvar.`,
-    },
-    {
-      id: 'naturbruk-vg1-8-3-tip-1',
-      type: 'tip',
-      title: 'Støtteordninger',
-      content: `**Innovasjon Norge:** Etablerertilskudd, lån, rådgivning
-**Landbruksdirektoratet:** Investeringsstøtte, tilskudd til tilleggsnæringer
-**NAV:** Dagpenger under etablering
-**Kommunen:** Etablererkurs, næringsrådgiver
-
-**Søk råd tidlig - det koster ingenting og kan spare deg for feil!**`,
-    },
-    {
-      id: 'naturbruk-vg1-8-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er entreprenørskap, og hvilke egenskaper kjennetegner en entreprenør?',
-        solution: 'Entreprenørskap er evnen og viljen til å skape ny virksomhet. En entreprenør ser muligheter, tar initiativ og ansvar, tåler risiko, og skaper verdier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er en forretningsplan, og hva bør den inneholde?',
-        solution: 'En forretningsplan beskriver bedriften og dens mål. Innhold: Forretningsidé, produkter/tjenester, marked, organisasjon, økonomi/budsjett, handlingsplan.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'naturbruk-vg1-8-3-ex-3',
       type: 'exercise',
       exercise: {
@@ -2700,6 +2685,18 @@ Gode forretningsideer kommer ofte fra:
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'naturbruk-vg1-8-3-def-3',
+      type: 'definition',
+      title: 'Organisasjonsformer',
+      content: `**Enkeltpersonforetak (ENK):** Enkleste form, personlig ansvar for gjeld.
+
+**Aksjeselskap (AS):** Eget rettssubjekt, begrenset ansvar, krav om 30 000 kr.
+
+**Samvirkeforetak (SA):** Eid av medlemmene, demokratisk styring, vanlig i landbruket.
+
+**Ansvarlig selskap (ANS/DA):** To eller flere eiere med solidarisk eller delt ansvar.`,
     },
     {
       id: 'naturbruk-vg1-8-3-ex-4',
@@ -2714,6 +2711,18 @@ Gode forretningsideer kommer ofte fra:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-8-3-tip-1',
+      type: 'tip',
+      title: 'Støtteordninger',
+      content: `**Innovasjon Norge:** Etablerertilskudd, lån, rådgivning
+**Landbruksdirektoratet:** Investeringsstøtte, tilskudd til tilleggsnæringer
+**NAV:** Dagpenger under etablering
+**Kommunen:** Etablererkurs, næringsrådgiver
+
+**Søk råd tidlig - det koster ingenting og kan spare deg for feil!**`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-3-ex-5',
       type: 'exercise',
@@ -2815,6 +2824,24 @@ For å drive naturbruk må du forstå økonomi. Å forstå hvordan verdiene skap
 
 **Eksempel:** Forsikringen på fjøset koster det samme om du har 10 eller 20 kyr.`,
     },
+    // Oppgave etter def om variable/faste kostnader
+    {
+      id: 'naturbruk-vg1-8-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom variable og faste kostnader. Gi to eksempler på hver.',
+        solution: `**Variable kostnader** endrer seg med produksjonsvolumet - jo mer du produserer, desto høyere kostnader.
+Eksempler: Fôr (mer kyr = mer fôr), gjødsel (mer areal = mer gjødsel), drivstoff, såkorn.
+
+**Faste kostnader** er like uansett hvor mye du produserer.
+Eksempler: Forsikring på fjøset, renter på lån, avskrivninger på traktor, eiendomsskatt.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-4-def-dekningsbidrag',
       type: 'definition',
@@ -2878,6 +2905,28 @@ Lønnsomhet = Totale inntekter - Totale kostnader (variable + faste)
 **Faste kostnader:**
 - Forsikring, renter, vedlikehold, avskrivninger`,
     },
+    // Oppgave om tilskudd etter text-1
+    {
+      id: 'naturbruk-vg1-8-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er tilskudd viktig i norsk landbruk?',
+        solution: `Tilskudd utgjør 30-50% av inntektene til norske bønder og er nødvendig fordi:
+
+1. **Høyere kostnader:** Norge har kort vekstsesong, kupert terreng og høye lønnskostnader
+2. **Matsikkerhet:** Norge vil produsere egen mat og ikke være avhengig av import
+3. **Bosetting:** Landbruk holder distriktene levende med arbeidsplasser
+4. **Kulturlandskap:** Beitedyr holder kulturlandskapet åpent
+5. **Konkurranse:** Uten tilskudd ville norsk mat bli utkonkurrert av billig import
+
+Tilskuddene sikrer at det er mulig å drive landbruk i hele Norge, ikke bare de beste områdene.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-4-text-kalkyle',
       type: 'text',
@@ -2922,6 +2971,40 @@ En **driftskalkyle** er en oppstilling av inntekter og kostnader for en produksj
 
 Dette dekningsbidraget skal bidra til å betale maskiner, bygninger og arbeidsinnsats.`,
     },
+    // Oppgave etter kornkalkyle-eksempelet
+    {
+      id: 'naturbruk-vg1-8-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-4',
+        number: '3',
+        type: 'classic',
+        task: `Beregn dekningsbidraget for byggproduksjon per dekar:
+- Avling: 450 kg/dekar, pris 3,80 kr/kg
+- Arealtilskudd: 350 kr/dekar
+- Såkorn: 18 kg × 7 kr/kg
+- Gjødsel: 45 kg × 5,50 kr/kg
+- Plantevern: 120 kr
+- Tørking: 450 kg × 0,45 kr/kg
+- Drivstoff: 80 kr`,
+        solution: `**INNTEKTER:**
+- Salg av bygg: 450 kg × 3,80 kr = 1 710 kr
+- Arealtilskudd: 350 kr
+- **Sum inntekter: 2 060 kr**
+
+**VARIABLE KOSTNADER:**
+- Såkorn: 18 kg × 7 kr = 126 kr
+- Gjødsel: 45 kg × 5,50 kr = 247,50 kr
+- Plantevern: 120 kr
+- Tørking: 450 kg × 0,45 kr = 202,50 kr
+- Drivstoff: 80 kr
+- **Sum variable kostnader: 776 kr**
+
+**DEKNINGSBIDRAG = 2 060 - 776 = 1 284 kr per dekar**`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-4-tip-melkekalkyle',
       type: 'tip',
@@ -2945,6 +3028,49 @@ Dette dekningsbidraget skal bidra til å betale maskiner, bygninger og arbeidsin
 
 Med 20 kyr blir totalt dekningsbidrag: 20 × 45 750 = 915 000 kr
 Dette skal dekke fjøs, melkerobot, traktor, arbeidsinnsats osv.`,
+    },
+    // Oppgave etter melkekalkyle-eksempelet
+    {
+      id: 'naturbruk-vg1-8-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-6',
+        number: '4',
+        type: 'classic',
+        task: `En melkebonde har 25 kyr. Beregn totalt dekningsbidrag for melkeproduksjonen.
+Tall per ku per år:
+- Melkeytelse: 7 500 liter × 5,80 kr/liter
+- Kjøttinntekt: 7 000 kr
+- Kalvesalg: 3 500 kr
+- Produksjonstilskudd: 9 500 kr
+- Kraftfôr: 2 300 kg × 4,20 kr/kg
+- Grovfôr: 7 500 kr
+- Veterinær: 1 800 kr
+- Inseminering: 1 400 kr
+- Diverse: 1 200 kr`,
+        solution: `**INNTEKTER per ku:**
+- Melk: 7 500 liter × 5,80 kr = 43 500 kr
+- Kjøttinntekt: 7 000 kr
+- Kalvesalg: 3 500 kr
+- Produksjonstilskudd: 9 500 kr
+- **Sum inntekter: 63 500 kr**
+
+**VARIABLE KOSTNADER per ku:**
+- Kraftfôr: 2 300 kg × 4,20 kr = 9 660 kr
+- Grovfôr: 7 500 kr
+- Veterinær: 1 800 kr
+- Inseminering: 1 400 kr
+- Diverse: 1 200 kr
+- **Sum variable kostnader: 21 560 kr**
+
+**DEKNINGSBIDRAG per ku: 63 500 - 21 560 = 41 940 kr**
+
+**Totalt dekningsbidrag for 25 kyr: 25 × 41 940 = 1 048 500 kr**
+
+Dette beløpet skal dekke fjøs, maskiner, grovfôrareal og bondens arbeidsinnsats.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-4-text-kostnadstyper',
@@ -3000,6 +3126,33 @@ For å beregne kostnader må du vite:
 - Fôrforbruk: 3 000 FEm
 - Fôrutnyttelse: 3 000 / 300 = 10 FEm per kg tilvekst`,
     },
+    // Oppgave etter utbytte-eksempelet
+    {
+      id: 'naturbruk-vg1-8-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-7',
+        number: '5',
+        type: 'classic',
+        task: `Beregn fôrutnyttelsen for følgende produksjoner:
+a) En melkeku produserer 8 200 liter melk og spiser 2 600 kg kraftfôr per år. Hvor mange liter melk per kg kraftfôr?
+b) En slaktegris veier 110 kg ved slakting og har spist 280 kg fôr. Hvor mange kg fôr per kg slaktevekt?
+c) En hveteavling gir 520 kg per dekar. Det er brukt 22 kg såkorn. Hvor mange kg høstet per kg sådd?`,
+        solution: `**a) Melkeku - melk per kg kraftfôr:**
+8 200 liter / 2 600 kg = **3,15 liter melk per kg kraftfôr**
+
+**b) Slaktegris - fôrforbruk:**
+280 kg fôr / 110 kg slaktevekt = **2,55 kg fôr per kg slaktevekt**
+(Dette kalles fôrfaktor - lavere er bedre)
+
+**c) Hvete - utbytte:**
+520 kg avling / 22 kg såkorn = **23,6 kg høstet per kg sådd**
+
+Disse nøkkeltallene brukes til å sammenligne effektivitet og finne forbedringspotensial.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-4-def-2',
       type: 'definition',
@@ -3021,6 +3174,30 @@ For å beregne kostnader må du vite:
 - Grossist/transport: ca. 2 kr (10%)
 - Butikk: ca. 6 kr (30%)`,
     },
+    // Oppgave etter verdikjede-definisjon
+    {
+      id: 'naturbruk-vg1-8-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-4-ex-2',
+        number: '6',
+        type: 'classic',
+        task: 'Hva er en verdikjede? Beskriv verdikjeden for melk fra ku til forbruker.',
+        solution: `En **verdikjede** viser alle ledd en vare går gjennom fra råvare til ferdig produkt hos forbruker.
+
+**Verdikjede for melk:**
+1. **Bonde** - produserer melk, ku melkes
+2. **Tankbil** - henter melk på gården
+3. **Meieri (TINE)** - pasteuriserer, foredler til melk, ost, yoghurt
+4. **Grossist** - lagrer og distribuerer til butikker
+5. **Butikk (Rema, Kiwi osv.)** - selger til forbruker
+6. **Forbruker** - kjøper og bruker melken
+
+I hvert ledd tilføres verdi (bearbeiding, transport, service) og kostnader legges til prisen.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-4-def-3',
       type: 'definition',
@@ -3040,106 +3217,13 @@ For å beregne kostnader må du vite:
 - Markedsmakt mot dagligvarekjedene
 - Felles merkevarebygging`,
     },
-    {
-      id: 'naturbruk-vg1-8-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom variable og faste kostnader. Gi to eksempler på hver.',
-        solution: `**Variable kostnader** endrer seg med produksjonsvolumet - jo mer du produserer, desto høyere kostnader.
-Eksempler: Fôr (mer kyr = mer fôr), gjødsel (mer areal = mer gjødsel), drivstoff, såkorn.
-
-**Faste kostnader** er like uansett hvor mye du produserer.
-Eksempler: Forsikring på fjøset, renter på lån, avskrivninger på traktor, eiendomsskatt.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er en verdikjede? Beskriv verdikjeden for melk fra ku til forbruker.',
-        solution: `En **verdikjede** viser alle ledd en vare går gjennom fra råvare til ferdig produkt hos forbruker.
-
-**Verdikjede for melk:**
-1. **Bonde** - produserer melk, ku melkes
-2. **Tankbil** - henter melk på gården
-3. **Meieri (TINE)** - pasteuriserer, foredler til melk, ost, yoghurt
-4. **Grossist** - lagrer og distribuerer til butikker
-5. **Butikk (Rema, Kiwi osv.)** - selger til forbruker
-6. **Forbruker** - kjøper og bruker melken
-
-I hvert ledd tilføres verdi (bearbeiding, transport, service) og kostnader legges til prisen.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvorfor er tilskudd viktig i norsk landbruk?',
-        solution: `Tilskudd utgjør 30-50% av inntektene til norske bønder og er nødvendig fordi:
-
-1. **Høyere kostnader:** Norge har kort vekstsesong, kupert terreng og høye lønnskostnader
-2. **Matsikkerhet:** Norge vil produsere egen mat og ikke være avhengig av import
-3. **Bosetting:** Landbruk holder distriktene levende med arbeidsplasser
-4. **Kulturlandskap:** Beitedyr holder kulturlandskapet åpent
-5. **Konkurranse:** Uten tilskudd ville norsk mat bli utkonkurrert av billig import
-
-Tilskuddene sikrer at det er mulig å drive landbruk i hele Norge, ikke bare de beste områdene.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-4',
-        number: '4',
-        type: 'classic',
-        task: `Beregn dekningsbidraget for byggproduksjon per dekar:
-- Avling: 450 kg/dekar, pris 3,80 kr/kg
-- Arealtilskudd: 350 kr/dekar
-- Såkorn: 18 kg × 7 kr/kg
-- Gjødsel: 45 kg × 5,50 kr/kg
-- Plantevern: 120 kr
-- Tørking: 450 kg × 0,45 kr/kg
-- Drivstoff: 80 kr`,
-        solution: `**INNTEKTER:**
-- Salg av bygg: 450 kg × 3,80 kr = 1 710 kr
-- Arealtilskudd: 350 kr
-- **Sum inntekter: 2 060 kr**
-
-**VARIABLE KOSTNADER:**
-- Såkorn: 18 kg × 7 kr = 126 kr
-- Gjødsel: 45 kg × 5,50 kr = 247,50 kr
-- Plantevern: 120 kr
-- Tørking: 450 kg × 0,45 kr = 202,50 kr
-- Drivstoff: 80 kr
-- **Sum variable kostnader: 776 kr**
-
-**DEKNINGSBIDRAG = 2 060 - 776 = 1 284 kr per dekar**`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave etter samvirke-definisjon
     {
       id: 'naturbruk-vg1-8-4-ex-5',
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-4-ex-5',
-        number: '5',
+        number: '7',
         type: 'classic',
         task: 'Hvordan kan en bonde forkorte verdikjeden og hva er fordelene?',
         solution: `**Måter å forkorte verdikjeden:**
@@ -3163,74 +3247,8 @@ Tilskuddene sikrer at det er mulig å drive landbruk i hele Norge, ikke bare de 
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'naturbruk-vg1-8-4-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-6',
-        number: '6',
-        type: 'classic',
-        task: `En melkebonde har 25 kyr. Beregn totalt dekningsbidrag for melkeproduksjonen.
-Tall per ku per år:
-- Melkeytelse: 7 500 liter × 5,80 kr/liter
-- Kjøttinntekt: 7 000 kr
-- Kalvesalg: 3 500 kr
-- Produksjonstilskudd: 9 500 kr
-- Kraftfôr: 2 300 kg × 4,20 kr/kg
-- Grovfôr: 7 500 kr
-- Veterinær: 1 800 kr
-- Inseminering: 1 400 kr
-- Diverse: 1 200 kr`,
-        solution: `**INNTEKTER per ku:**
-- Melk: 7 500 liter × 5,80 kr = 43 500 kr
-- Kjøttinntekt: 7 000 kr
-- Kalvesalg: 3 500 kr
-- Produksjonstilskudd: 9 500 kr
-- **Sum inntekter: 63 500 kr**
 
-**VARIABLE KOSTNADER per ku:**
-- Kraftfôr: 2 300 kg × 4,20 kr = 9 660 kr
-- Grovfôr: 7 500 kr
-- Veterinær: 1 800 kr
-- Inseminering: 1 400 kr
-- Diverse: 1 200 kr
-- **Sum variable kostnader: 21 560 kr**
-
-**DEKNINGSBIDRAG per ku: 63 500 - 21 560 = 41 940 kr**
-
-**Totalt dekningsbidrag for 25 kyr: 25 × 41 940 = 1 048 500 kr**
-
-Dette beløpet skal dekke fjøs, maskiner, grovfôrareal og bondens arbeidsinnsats.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-4-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-4-ex-7',
-        number: '7',
-        type: 'classic',
-        task: `Beregn fôrutnyttelsen for følgende produksjoner:
-a) En melkeku produserer 8 200 liter melk og spiser 2 600 kg kraftfôr per år. Hvor mange liter melk per kg kraftfôr?
-b) En slaktegris veier 110 kg ved slakting og har spist 280 kg fôr. Hvor mange kg fôr per kg slaktevekt?
-c) En hveteavling gir 520 kg per dekar. Det er brukt 22 kg såkorn. Hvor mange kg høstet per kg sådd?`,
-        solution: `**a) Melkeku - melk per kg kraftfôr:**
-8 200 liter / 2 600 kg = **3,15 liter melk per kg kraftfôr**
-
-**b) Slaktegris - fôrforbruk:**
-280 kg fôr / 110 kg slaktevekt = **2,55 kg fôr per kg slaktevekt**
-(Dette kalles fôrfaktor - lavere er bedre)
-
-**c) Hvete - utbytte:**
-520 kg avling / 22 kg såkorn = **23,6 kg høstet per kg sådd**
-
-Disse nøkkeltallene brukes til å sammenligne effektivitet og finne forbedringspotensial.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-4-ex-8',
       type: 'exercise',
@@ -3355,6 +3373,28 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 - Tradisjonelle eller særegne produkter
 - Produsenten er synlig for forbrukeren`,
     },
+    // Oppgave etter lokalmat-definisjon
+    {
+      id: 'naturbruk-vg1-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva kjennetegner lokalmat? Nevn minst fire kjennetegn.',
+        solution: `**Kjennetegn på lokalmat:**
+
+1. **Kort avstand** mellom produsent og forbruker - maten reiser kort vei
+2. **Småskala produksjon** - ofte håndverksmessig fremstilt
+3. **Sporbarhet og åpenhet** - forbrukeren vet hvem som har laget maten
+4. **Tradisjonelle eller særegne produkter** - gjerne med lokal tilknytning
+5. **Produsenten er synlig** - ofte direkte kontakt mellom produsent og kunde
+6. **Ferske råvarer** - kort tid fra produksjon til salg
+7. **Lokal identitet** - tilknyttet et bestemt sted eller region`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-5-text-1',
       type: 'text',
@@ -3380,6 +3420,28 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 - Pengene blir i lokalsamfunnet
 - Bidrar til levende bygder`,
     },
+    // Oppgave etter tekst om hvorfor folk velger lokalmat
+    {
+      id: 'naturbruk-vg1-8-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fem grunner til at forbrukere velger lokalmat.',
+        solution: `**Grunner til at forbrukere velger lokalmat:**
+
+1. **Kvalitet og smak** - håndlaget med ferske råvarer smaker bedre
+2. **Miljøhensyn** - kortere transport gir lavere klimaavtrykk
+3. **Tillit og sporbarhet** - vet hvem som har laget maten, kan besøke gården
+4. **Støtte lokale arbeidsplasser** - pengene blir i lokalsamfunnet
+5. **Opplevelse og historie** - maten har en fortelling, ikke bare industrivare
+6. **Unik smak** - tradisjonelle oppskrifter og lokale råvarer
+7. **Trygghet** - direkte kommunikasjon med produsenten ved spørsmål`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-5-def-2',
       type: 'definition',
@@ -3395,6 +3457,36 @@ Stadig flere forbrukere ønsker å vite hvor maten kommer fra. De vil ha mat med
 
 Over 100 REKO-ringer finnes i Norge med tusenvis av medlemmer.`,
     },
+    // Oppgave etter REKO-ringer definisjon
+    {
+      id: 'naturbruk-vg1-8-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er REKO-ringer og hvordan fungerer de?',
+        solution: `**REKO-ringer** er Facebook-baserte grupper for direktesalg av mat fra produsent til forbruker.
+
+**Slik fungerer det:**
+1. Produsenten legger ut et tilbud i Facebook-gruppen med bilde, beskrivelse og pris
+2. Forbrukere bestiller ved å kommentere på innlegget
+3. På et avtalt tidspunkt møtes alle på et fast sted (ofte en parkeringsplass)
+4. Produsenten har med de bestilte varene
+5. Kundene henter og betaler (kontant eller Vipps)
+6. Hele handelen tar 15-30 minutter
+
+**Fordeler:**
+- Ingen mellommann - produsenten beholder hele prisen
+- Direkte kundekontakt
+- Lav terskel for å starte
+- Sosialt og hyggelig
+
+Det finnes over 100 REKO-ringer i Norge.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-5-text-2',
       type: 'text',
@@ -3408,6 +3500,29 @@ Over 100 REKO-ringer finnes i Norge med tusenvis av medlemmer.`,
 **Nettbutikk:** Egen nettbutikk eller felles plattform
 **Restauranter:** Salg til lokale restauranter som vil ha ferske råvarer
 **Hoteller og catering:** Større kunder som ønsker lokalt preg`,
+    },
+    // Oppgave etter salgskanaler
+    {
+      id: 'naturbruk-vg1-8-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nevn seks salgskanaler for lokalmat og beskriv kort hver av dem.',
+        solution: `**Salgskanaler for lokalmat:**
+
+1. **REKO-ringer** - Facebook-grupper der kunder bestiller og henter på fast sted
+2. **Bondens marked** - Ukentlige markeder i byer der flere produsenter selger sammen
+3. **Gårdsbutikk** - Fast butikk på gården, ofte kombinert med gårdsbesøk og opplevelser
+4. **Spesialbutikker** - Nisjebutikker som kjøper inn lokalmat for videresalg
+5. **Abonnementsordninger** - Kunder får levert grønnsakskasser eller kjøttpakker regelmessig
+6. **Nettbutikk** - Egen nettside eller felles plattform som lokalmat.no
+7. **Restauranter** - Lokale spisesteder som ønsker ferske, lokale råvarer
+8. **Hoteller og catering** - Større kunder som vil ha lokalt preg på maten`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-5-text-prissetting',
@@ -3461,6 +3576,56 @@ Premium hjemmelaget syltetøy kan ta 100-150 kr fordi:
 - Lokale bær
 - Unik oppskrift
 - Kunden kjenner produsenten`,
+    },
+    // Oppgave etter prissetting-eksempelet
+    {
+      id: 'naturbruk-vg1-8-5-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-5-ex-7',
+        number: '5',
+        type: 'classic',
+        task: `Beregn hva du må ta for et glass hjemmelaget bringebærsyltetøy (350g) for å få en fortjeneste på 25%.
+
+Kostnader:
+- Bær (1 kg bær gir 3 glass): Markedspris 120 kr/kg
+- Sukker: 5 kr per glass
+- Pektin: 3 kr per glass
+- Glass med lokk: 7 kr
+- Etikett: 2 kr
+- Arbeidstid per glass: 12 minutter (timelønn 200 kr)`,
+        solution: `**Beregning av kostnader per glass:**
+
+**Råvarer:**
+- Bær: 120 kr/kg ÷ 3 glass = 40 kr
+- Sukker: 5 kr
+- Pektin: 3 kr
+- **Sum råvarer: 48 kr**
+
+**Emballasje:**
+- Glass med lokk: 7 kr
+- Etikett: 2 kr
+- **Sum emballasje: 9 kr**
+
+**Arbeid:**
+- 12 minutter = 0,2 timer
+- 0,2 timer × 200 kr = 40 kr
+- **Arbeidskostnad: 40 kr**
+
+**Total kostnad per glass: 48 + 9 + 40 = 97 kr**
+
+**Beregning av pris med 25% fortjeneste:**
+
+Fortjeneste = 97 kr × 0,25 = 24,25 kr
+
+**Utsalgspris = 97 + 24,25 = 121,25 kr**
+
+**Avrundet pris: 125 kr per glass**
+
+Dette er en høy pris sammenlignet med industrisyltetøy (40-60 kr), men hjemmelaget premium-syltetøy med lokale bær kan forsvare denne prisen i direktesalg.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-5-text-lonnsomhet',
@@ -3519,164 +3684,7 @@ Ved direktesalg beholder produsenten en større del av utsalgsprisen, men må gj
 
 Direktesalg lønner seg godt i dette eksempelet!`,
     },
-    {
-      id: 'naturbruk-vg1-8-5-tip-suksess',
-      type: 'tip',
-      title: 'Suksessfaktorer for lokalmatprodusent',
-      content: `**Produktet:**
-- Høy og jevn kvalitet
-- Noe unikt - skille seg ut
-- Tilpasset etterspørselen
-
-**Fortellingen:**
-- Hvem er du? Hvorfor gjør du dette?
-- Historien bak produktet
-- Åpenhet om produksjonen
-
-**Kundekontakt:**
-- Vær tilgjengelig og hyggelig
-- Lytt til tilbakemeldinger
-- Bygg relasjoner over tid
-
-**Markedsføring:**
-- Sosiale medier (Instagram, Facebook)
-- Delta på arrangementer
-- Samarbeid med andre produsenter
-
-**Økonomi:**
-- Start smått, voks gradvis
-- Hold oversikt over kostnader
-- Sett riktig pris fra starten`,
-    },
-    {
-      id: 'naturbruk-vg1-8-5-def-3',
-      type: 'definition',
-      title: 'Beskyttede betegnelser',
-      content: `**Beskyttede betegnelser** beskytter produkter med spesiell geografisk eller tradisjonell tilknytning.
-
-**Tre kategorier:**
-- **Beskyttet opprinnelsesbetegnelse:** Hele produksjonen i området (f.eks. Hardangerepler)
-- **Beskyttet geografisk betegnelse:** Tilknytning til området (f.eks. Lofotlam)
-- **Beskyttet tradisjonelt særpreg:** Tradisjonell oppskrift (f.eks. Rakfisk fra Valdres)
-
-**Stiftelsen Norsk Mat** arbeider for å fremme norske matspesialiteter og forvalter merkeordningene.`,
-    },
-    {
-      id: 'naturbruk-vg1-8-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva kjennetegner lokalmat? Nevn minst fire kjennetegn.',
-        solution: `**Kjennetegn på lokalmat:**
-
-1. **Kort avstand** mellom produsent og forbruker - maten reiser kort vei
-2. **Småskala produksjon** - ofte håndverksmessig fremstilt
-3. **Sporbarhet og åpenhet** - forbrukeren vet hvem som har laget maten
-4. **Tradisjonelle eller særegne produkter** - gjerne med lokal tilknytning
-5. **Produsenten er synlig** - ofte direkte kontakt mellom produsent og kunde
-6. **Ferske råvarer** - kort tid fra produksjon til salg
-7. **Lokal identitet** - tilknyttet et bestemt sted eller region`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fem grunner til at forbrukere velger lokalmat.',
-        solution: `**Grunner til at forbrukere velger lokalmat:**
-
-1. **Kvalitet og smak** - håndlaget med ferske råvarer smaker bedre
-2. **Miljøhensyn** - kortere transport gir lavere klimaavtrykk
-3. **Tillit og sporbarhet** - vet hvem som har laget maten, kan besøke gården
-4. **Støtte lokale arbeidsplasser** - pengene blir i lokalsamfunnet
-5. **Opplevelse og historie** - maten har en fortelling, ikke bare industrivare
-6. **Unik smak** - tradisjonelle oppskrifter og lokale råvarer
-7. **Trygghet** - direkte kommunikasjon med produsenten ved spørsmål`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er REKO-ringer og hvordan fungerer de?',
-        solution: `**REKO-ringer** er Facebook-baserte grupper for direktesalg av mat fra produsent til forbruker.
-
-**Slik fungerer det:**
-1. Produsenten legger ut et tilbud i Facebook-gruppen med bilde, beskrivelse og pris
-2. Forbrukere bestiller ved å kommentere på innlegget
-3. På et avtalt tidspunkt møtes alle på et fast sted (ofte en parkeringsplass)
-4. Produsenten har med de bestilte varene
-5. Kundene henter og betaler (kontant eller Vipps)
-6. Hele handelen tar 15-30 minutter
-
-**Fordeler:**
-- Ingen mellommann - produsenten beholder hele prisen
-- Direkte kundekontakt
-- Lav terskel for å starte
-- Sosialt og hyggelig
-
-Det finnes over 100 REKO-ringer i Norge.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Nevn seks salgskanaler for lokalmat og beskriv kort hver av dem.',
-        solution: `**Salgskanaler for lokalmat:**
-
-1. **REKO-ringer** - Facebook-grupper der kunder bestiller og henter på fast sted
-2. **Bondens marked** - Ukentlige markeder i byer der flere produsenter selger sammen
-3. **Gårdsbutikk** - Fast butikk på gården, ofte kombinert med gårdsbesøk og opplevelser
-4. **Spesialbutikker** - Nisjebutikker som kjøper inn lokalmat for videresalg
-5. **Abonnementsordninger** - Kunder får levert grønnsakskasser eller kjøttpakker regelmessig
-6. **Nettbutikk** - Egen nettside eller felles plattform som lokalmat.no
-7. **Restauranter** - Lokale spisesteder som ønsker ferske, lokale råvarer
-8. **Hoteller og catering** - Større kunder som vil ha lokalt preg på maten`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-5-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-5-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er viktig for å lykkes som lokalmatprodusent? Nevn minst fem faktorer.',
-        solution: `**Suksessfaktorer for lokalmatprodusent:**
-
-1. **Høy kvalitet** - produktet må holde jevn, god kvalitet
-2. **Noe unikt** - skille seg ut fra det kundene får i butikken
-3. **God fortelling** - hvem er du, hvorfor gjør du dette, hva er historien?
-4. **Kundekontakt** - vær tilgjengelig, hyggelig, lytt til tilbakemeldinger
-5. **Aktiv markedsføring** - bruk sosiale medier, delta på arrangementer
-6. **God økonomistyring** - hold oversikt over kostnader, sett riktig pris
-7. **Start smått** - test markedet før du investerer stort
-8. **Nettverk** - samarbeid med andre produsenter
-9. **Tålmodighet** - det tar tid å bygge kundebase og merkevare`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave etter lønnsomhet-sammenligning
     {
       id: 'naturbruk-vg1-8-5-ex-6',
       type: 'exercise',
@@ -3737,50 +3745,68 @@ I dette tilfellet gir direktesalg litt bedre betaling, men forskjellen per time 
       },
     },
     {
-      id: 'naturbruk-vg1-8-5-ex-7',
+      id: 'naturbruk-vg1-8-5-tip-suksess',
+      type: 'tip',
+      title: 'Suksessfaktorer for lokalmatprodusent',
+      content: `**Produktet:**
+- Høy og jevn kvalitet
+- Noe unikt - skille seg ut
+- Tilpasset etterspørselen
+
+**Fortellingen:**
+- Hvem er du? Hvorfor gjør du dette?
+- Historien bak produktet
+- Åpenhet om produksjonen
+
+**Kundekontakt:**
+- Vær tilgjengelig og hyggelig
+- Lytt til tilbakemeldinger
+- Bygg relasjoner over tid
+
+**Markedsføring:**
+- Sosiale medier (Instagram, Facebook)
+- Delta på arrangementer
+- Samarbeid med andre produsenter
+
+**Økonomi:**
+- Start smått, voks gradvis
+- Hold oversikt over kostnader
+- Sett riktig pris fra starten`,
+    },
+    {
+      id: 'naturbruk-vg1-8-5-def-3',
+      type: 'definition',
+      title: 'Beskyttede betegnelser',
+      content: `**Beskyttede betegnelser** beskytter produkter med spesiell geografisk eller tradisjonell tilknytning.
+
+**Tre kategorier:**
+- **Beskyttet opprinnelsesbetegnelse:** Hele produksjonen i området (f.eks. Hardangerepler)
+- **Beskyttet geografisk betegnelse:** Tilknytning til området (f.eks. Lofotlam)
+- **Beskyttet tradisjonelt særpreg:** Tradisjonell oppskrift (f.eks. Rakfisk fra Valdres)
+
+**Stiftelsen Norsk Mat** arbeider for å fremme norske matspesialiteter og forvalter merkeordningene.`,
+    },
+
+    // --- Samleoppgaver ---
+    {
+      id: 'naturbruk-vg1-8-5-ex-5',
       type: 'exercise',
       exercise: {
-        id: 'naturbruk-vg1-8-5-ex-7',
+        id: 'naturbruk-vg1-8-5-ex-5',
         number: '7',
         type: 'classic',
-        task: `Beregn hva du må ta for et glass hjemmelaget bringebærsyltetøy (350g) for å få en fortjeneste på 25%.
+        task: 'Hva er viktig for å lykkes som lokalmatprodusent? Nevn minst fem faktorer.',
+        solution: `**Suksessfaktorer for lokalmatprodusent:**
 
-Kostnader:
-- Bær (1 kg bær gir 3 glass): Markedspris 120 kr/kg
-- Sukker: 5 kr per glass
-- Pektin: 3 kr per glass
-- Glass med lokk: 7 kr
-- Etikett: 2 kr
-- Arbeidstid per glass: 12 minutter (timelønn 200 kr)`,
-        solution: `**Beregning av kostnader per glass:**
-
-**Råvarer:**
-- Bær: 120 kr/kg ÷ 3 glass = 40 kr
-- Sukker: 5 kr
-- Pektin: 3 kr
-- **Sum råvarer: 48 kr**
-
-**Emballasje:**
-- Glass med lokk: 7 kr
-- Etikett: 2 kr
-- **Sum emballasje: 9 kr**
-
-**Arbeid:**
-- 12 minutter = 0,2 timer
-- 0,2 timer × 200 kr = 40 kr
-- **Arbeidskostnad: 40 kr**
-
-**Total kostnad per glass: 48 + 9 + 40 = 97 kr**
-
-**Beregning av pris med 25% fortjeneste:**
-
-Fortjeneste = 97 kr × 0,25 = 24,25 kr
-
-**Utsalgspris = 97 + 24,25 = 121,25 kr**
-
-**Avrundet pris: 125 kr per glass**
-
-Dette er en høy pris sammenlignet med industrisyltetøy (40-60 kr), men hjemmelaget premium-syltetøy med lokale bær kan forsvare denne prisen i direktesalg.`,
+1. **Høy kvalitet** - produktet må holde jevn, god kvalitet
+2. **Noe unikt** - skille seg ut fra det kundene får i butikken
+3. **God fortelling** - hvem er du, hvorfor gjør du dette, hva er historien?
+4. **Kundekontakt** - vær tilgjengelig, hyggelig, lytt til tilbakemeldinger
+5. **Aktiv markedsføring** - bruk sosiale medier, delta på arrangementer
+6. **God økonomistyring** - hold oversikt over kostnader, sett riktig pris
+7. **Start smått** - test markedet før du investerer stort
+8. **Nettverk** - samarbeid med andre produsenter
+9. **Tålmodighet** - det tar tid å bygge kundebase og merkevare`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -3887,6 +3913,20 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 
 **Mål:** Riktig mengde på riktig sted til riktig tid - bedre økonomi og miljø.`,
     },
+    // Oppgave etter presisjonslandbruk
+    {
+      id: 'naturbruk-vg1-8-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er presisjonslandbruk?',
+        solution: 'Presisjonslandbruk er bruk av teknologi for å tilpasse innsatsfaktorer til det faktiske behovet - riktig mengde på riktig sted til riktig tid.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-6-def-gis',
       type: 'definition',
@@ -3900,35 +3940,6 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 - Beregning av avlinger basert på jordkvalitet
 
 **Eksempler på GIS-verktøy:** QGIS (gratis), ArcGIS, Gårdskart, Kilden (fra NIBIO).`,
-    },
-    {
-      id: 'naturbruk-vg1-8-6-def-iot',
-      type: 'definition',
-      title: 'IoT - Internet of Things',
-      content: `**IoT (Internet of Things)** er et nettverk av sensorer og enheter som kommuniserer via internett.
-
-**Eksempler i naturbruk:**
-- Sensorer som måler jordfuktighet og sender data til mobilen
-- Værstasjoner som varsler om frost
-- Halsbånd på kyr som registrerer aktivitet og helse
-- Vannkvalitetsmålere i oppdrettsanlegg
-
-**Fordel:** Kontinuerlig overvåking uten å være fysisk til stede.`,
-    },
-    {
-      id: 'naturbruk-vg1-8-6-def-dokumentasjon',
-      type: 'definition',
-      title: 'Digital dokumentasjon',
-      content: `**Digital dokumentasjon** er systematisk registrering av aktiviteter, observasjoner og resultater i digitale systemer.
-
-**Krav i norsk naturbruk:**
-- Plantevernjournal (lovpålagt)
-- Gjødselplan
-- Husdyrjournal
-- KSL-dokumentasjon (Kvalitetssystem i Landbruket)
-- Sporbarhet i matproduksjon
-
-**Fordeler:** Raskere rapportering, enklere tilsyn, bedre oversikt over egen drift.`,
     },
     {
       id: 'naturbruk-vg1-8-6-text-1',
@@ -3968,6 +3979,20 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 - Ta backup av viktige waypoints
 - Kombiner GPS med papirkart som reserve`,
     },
+    // Oppgave etter GPS-seksjonen
+    {
+      id: 'naturbruk-vg1-8-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan brukes GPS i moderne landbruk?',
+        solution: 'GPS brukes til autostyring av traktor, seksjonskontroll på sprøyte/spreder, og til å lage kart. RTK-GPS gir centimeters nøyaktighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-6-def-2',
       type: 'definition',
@@ -3979,6 +4004,34 @@ Naturbruk er i rask endring. Droner, GPS, sensorer og dataanalyse gjør det muli
 - Sprøyting av bratt terreng
 - Overvåking av beite og dyr
 - Inspeksjon av anlegg`,
+    },
+    // Oppgave etter drone-definisjon
+    {
+      id: 'naturbruk-vg1-8-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn tre måter droner kan brukes i naturbruk.',
+        solution: 'Kartlegging og fotografering, sprøyting av bratt terreng, overvåking av beite og dyr, inspeksjon av anlegg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-8-6-def-iot',
+      type: 'definition',
+      title: 'IoT - Internet of Things',
+      content: `**IoT (Internet of Things)** er et nettverk av sensorer og enheter som kommuniserer via internett.
+
+**Eksempler i naturbruk:**
+- Sensorer som måler jordfuktighet og sender data til mobilen
+- Værstasjoner som varsler om frost
+- Halsbånd på kyr som registrerer aktivitet og helse
+- Vannkvalitetsmålere i oppdrettsanlegg
+
+**Fordel:** Kontinuerlig overvåking uten å være fysisk til stede.`,
     },
     {
       id: 'naturbruk-vg1-8-6-text-2',
@@ -4021,6 +4074,48 @@ En enkel værstasjon kan måle temperatur, nedbør, luftfuktighet, vindstyrke og
 4. Du får melding på mobilen
 5. Du tar beslutning og handler`,
     },
+    // Oppgave etter sensorer og IoT
+    {
+      id: 'naturbruk-vg1-8-6-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-8',
+        number: '4',
+        type: 'classic',
+        task: `En melkebonde vurderer å investere i aktivitetsmålere på kyrne. Beskriv hvilken informasjon slike sensorer kan gi, og hvordan dette kan forbedre driften.`,
+        solution: `**Informasjon fra aktivitetsmålere:**
+- Antall skritt per dag
+- Liggetid og hvileperioder
+- Drøvtygging (med drøvtyggingssensor)
+- Etetid ved fôrbrettet
+- Endringer i aktivitetsmønster
+
+**Hvordan det forbedrer driften:**
+
+**Brunstdeteksjon:**
+- Økt aktivitet indikerer brunst
+- Automatisk varsling på mobil
+- Bedre insemineringsresultater
+- Kortere kalvingsintervall
+
+**Sykdomsvarsling:**
+- Redusert aktivitet kan indikere sykdom
+- Tidlig oppdaging = raskere behandling
+- Mindre produksjonstap
+- Bedre dyrevelferd
+
+**Praktisk:**
+- Varsling om kyr som ikke har spist
+- Identifisere dyr som bør sjekkes
+- Dokumentasjon av dyrevelferd
+
+**Økonomisk:**
+- Investering: ca. 1 500-3 000 kr per ku
+- Gevinst: Bedre fruktbarhet, mindre sykdom, høyere ytelse`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-6-text-apps',
       type: 'text',
@@ -4049,6 +4144,21 @@ En enkel værstasjon kan måle temperatur, nedbør, luftfuktighet, vindstyrke og
 - **Avenza Maps:** Bruk PDF-kart med GPS
 - **ArcGIS Field Maps:** Datainnsamling i felt
 - **Clockify/Toggl:** Timeregistrering`,
+    },
+    {
+      id: 'naturbruk-vg1-8-6-def-dokumentasjon',
+      type: 'definition',
+      title: 'Digital dokumentasjon',
+      content: `**Digital dokumentasjon** er systematisk registrering av aktiviteter, observasjoner og resultater i digitale systemer.
+
+**Krav i norsk naturbruk:**
+- Plantevernjournal (lovpålagt)
+- Gjødselplan
+- Husdyrjournal
+- KSL-dokumentasjon (Kvalitetssystem i Landbruket)
+- Sporbarhet i matproduksjon
+
+**Fordeler:** Raskere rapportering, enklere tilsyn, bedre oversikt over egen drift.`,
     },
     {
       id: 'naturbruk-vg1-8-6-text-dokumentasjon',
@@ -4084,6 +4194,37 @@ KSL er bondens eget kvalitetssystem. Digital KSL gir:
 - Ha backup av viktig data
 - Vær ærlig - dokumentasjon er ikke verdt noe hvis den ikke stemmer`,
     },
+    // Oppgave etter dokumentasjon
+    {
+      id: 'naturbruk-vg1-8-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-6-ex-6',
+        number: '5',
+        type: 'classic',
+        task: `Du skal planlegge sprøyting av et 20 dekar stort jorde. Hvilke digitale verktøy kan du bruke i planleggingen, og hvordan vil du dokumentere arbeidet?`,
+        solution: `**Planlegging:**
+- Gårdskart/Kilden: Finn nøyaktig areal og jordtype
+- Yr/VIPS: Sjekk værmelding og eventuelt sykdomsvarsling
+- Plantevernkatalogen: Finn godkjent preparat og dose
+
+**Gjennomføring:**
+- GPS i traktor: Sikre full dekning uten overlapp
+- Seksjonskontroll: Automatisk av/på ved kantene
+
+**Dokumentasjon (plantevernjournal):**
+- Dato og klokkeslett
+- Skifte og areal
+- Preparat, dose og vannmengde
+- Værforhold (temp, vind, fuktighet)
+- Behandlingsfrist
+- Signatur
+
+**Tips:** Bruk digital plantevernjournal (f.eks. i Skifteplan) for enkel rapportering og backup.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-6-tip-1',
       type: 'tip',
@@ -4116,59 +4257,13 @@ KSL er bondens eget kvalitetssystem. Digital KSL gir:
 - Visuelle observasjoner supplerer sensordata
 - Erfaring + data = bedre beslutninger`,
     },
-    {
-      id: 'naturbruk-vg1-8-6-def-3',
-      type: 'definition',
-      title: 'Kunstig intelligens',
-      content: `**Kunstig intelligens (AI)** er datasystemer som kan lære og ta beslutninger.
-
-**I naturbruk:** Bildegjenkjenning (ugress, sykdom), prediktivt vedlikehold, optimalisering av fôring.`,
-    },
-    {
-      id: 'naturbruk-vg1-8-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er presisjonslandbruk?',
-        solution: 'Presisjonslandbruk er bruk av teknologi for å tilpasse innsatsfaktorer til det faktiske behovet - riktig mengde på riktig sted til riktig tid.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvordan brukes GPS i moderne landbruk?',
-        solution: 'GPS brukes til autostyring av traktor, seksjonskontroll på sprøyte/spreder, og til å lage kart. RTK-GPS gir centimeters nøyaktighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre måter droner kan brukes i naturbruk.',
-        solution: 'Kartlegging og fotografering, sprøyting av bratt terreng, overvåking av beite og dyr, inspeksjon av anlegg.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave etter tips om verktøyvalg
     {
       id: 'naturbruk-vg1-8-6-ex-4',
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-6-ex-4',
-        number: '4',
+        number: '6',
         type: 'classic',
         task: 'Hva er fordeler og utfordringer med digitalisering?',
         solution: 'Fordeler: Høyere presisjon, bedre miljø, enklere dokumentasjon. Utfordringer: Investeringskostnader, kompetansebehov, teknologiavhengighet.',
@@ -4177,11 +4272,20 @@ KSL er bondens eget kvalitetssystem. Digital KSL gir:
       },
     },
     {
+      id: 'naturbruk-vg1-8-6-def-3',
+      type: 'definition',
+      title: 'Kunstig intelligens',
+      content: `**Kunstig intelligens (AI)** er datasystemer som kan lære og ta beslutninger.
+
+**I naturbruk:** Bildegjenkjenning (ugress, sykdom), prediktivt vedlikehold, optimalisering av fôring.`,
+    },
+    // Oppgave etter AI-definisjon
+    {
       id: 'naturbruk-vg1-8-6-ex-5',
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-6-ex-5',
-        number: '5',
+        number: '7',
         type: 'classic',
         task: 'Hvordan kan kunstig intelligens brukes i naturbruk?',
         solution: 'Bildegjenkjenning av ugress og sykdom, prediktivt vedlikehold av maskiner, optimalisering av fôring, automatisk sortering.',
@@ -4189,42 +4293,14 @@ KSL er bondens eget kvalitetssystem. Digital KSL gir:
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'naturbruk-vg1-8-6-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-6-ex-6',
-        number: '6',
-        type: 'classic',
-        task: `Du skal planlegge sprøyting av et 20 dekar stort jorde. Hvilke digitale verktøy kan du bruke i planleggingen, og hvordan vil du dokumentere arbeidet?`,
-        solution: `**Planlegging:**
-- Gårdskart/Kilden: Finn nøyaktig areal og jordtype
-- Yr/VIPS: Sjekk værmelding og eventuelt sykdomsvarsling
-- Plantevernkatalogen: Finn godkjent preparat og dose
 
-**Gjennomføring:**
-- GPS i traktor: Sikre full dekning uten overlapp
-- Seksjonskontroll: Automatisk av/på ved kantene
-
-**Dokumentasjon (plantevernjournal):**
-- Dato og klokkeslett
-- Skifte og areal
-- Preparat, dose og vannmengde
-- Værforhold (temp, vind, fuktighet)
-- Behandlingsfrist
-- Signatur
-
-**Tips:** Bruk digital plantevernjournal (f.eks. i Skifteplan) for enkel rapportering og backup.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-6-ex-7',
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-6-ex-7',
-        number: '7',
+        number: '8',
         type: 'classic',
         task: `Forklar hva GIS er og gi to konkrete eksempler på hvordan det kan brukes i skogbruk.`,
         solution: `**GIS (Geografisk informasjonssystem)** er programvare for å samle inn, lagre, analysere og presentere geografiske data.
@@ -4241,47 +4317,6 @@ KSL er bondens eget kvalitetssystem. Digital KSL gir:
 - Definer kantsoner og nøkkelbiotoper
 - Sjekk om planlagt hogst kommer i konflikt
 - Dokumenter miljøhensyn for sertifisering (PEFC)`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-6-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-6-ex-8',
-        number: '8',
-        type: 'classic',
-        task: `En melkebonde vurderer å investere i aktivitetsmålere på kyrne. Beskriv hvilken informasjon slike sensorer kan gi, og hvordan dette kan forbedre driften.`,
-        solution: `**Informasjon fra aktivitetsmålere:**
-- Antall skritt per dag
-- Liggetid og hvileperioder
-- Drøvtygging (med drøvtyggingssensor)
-- Etetid ved fôrbrettet
-- Endringer i aktivitetsmønster
-
-**Hvordan det forbedrer driften:**
-
-**Brunstdeteksjon:**
-- Økt aktivitet indikerer brunst
-- Automatisk varsling på mobil
-- Bedre insemineringsresultater
-- Kortere kalvingsintervall
-
-**Sykdomsvarsling:**
-- Redusert aktivitet kan indikere sykdom
-- Tidlig oppdaging = raskere behandling
-- Mindre produksjonstap
-- Bedre dyrevelferd
-
-**Praktisk:**
-- Varsling om kyr som ikke har spist
-- Identifisere dyr som bør sjekkes
-- Dokumentasjon av dyrevelferd
-
-**Økonomisk:**
-- Investering: ca. 1 500-3 000 kr per ku
-- Gevinst: Bedre fruktbarhet, mindre sykdom, høyere ytelse`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -4368,6 +4403,20 @@ Naturbruk åpner dører til et mangfold av yrker - fra tradisjonell gårdsdrift 
 
 **Veien:** VG1 + VG2 + læretid (2 år) + fagprøve`,
     },
+    // Oppgave etter fagbrev-definisjon
+    {
+      id: 'naturbruk-vg1-8-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvilke fagbrev kan du ta innen naturbruk?',
+        solution: 'Landbruk, gartnernæring, hestefag, skogbruk, fiske og fangst, akvakultur, reindrift.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-7-text-1',
       type: 'text',
@@ -4379,6 +4428,20 @@ Naturbruk åpner dører til et mangfold av yrker - fra tradisjonell gårdsdrift 
 **Agronom:** Rådgiver, krever høyere utdanning
 **Maskinfører:** Kjører traktorer og maskiner`,
     },
+    // Oppgave etter landbruksyrker
+    {
+      id: 'naturbruk-vg1-8-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen på avløser og røkter?',
+        solution: 'Avløser er stedfortreder for bonden (vikar). Røkter har daglig stell av dyr som fast ansatt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-7-text-2',
       type: 'text',
@@ -4389,6 +4452,20 @@ Naturbruk åpner dører til et mangfold av yrker - fra tradisjonell gårdsdrift 
 **Fisker:** Fangst av fisk og skalldyr
 **Driftsoperatør i havbruk:** Daglig drift av oppdrettsanlegg
 **Fiskehelsebiolog:** Helse og sykdom hos fisk`,
+    },
+    // Oppgave etter skog/fiske/havbruksyrker
+    {
+      id: 'naturbruk-vg1-8-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn tre yrker innen havbruk.',
+        solution: 'Driftsoperatør, driftsleder, fiskehelsebiolog, brønnbåtoffiser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-7-tip-1',
@@ -4410,67 +4487,31 @@ Naturbruk åpner dører til et mangfold av yrker - fra tradisjonell gårdsdrift 
 
 **Utfordringer:** Sesongvariasjoner, geografisk begrenset til distrikt.`,
     },
-    {
-      id: 'naturbruk-vg1-8-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvilke fagbrev kan du ta innen naturbruk?',
-        solution: 'Landbruk, gartnernæring, hestefag, skogbruk, fiske og fangst, akvakultur, reindrift.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er forskjellen på avløser og røkter?',
-        solution: 'Avløser er stedfortreder for bonden (vikar). Røkter har daglig stell av dyr som fast ansatt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre yrker innen havbruk.',
-        solution: 'Driftsoperatør, driftsleder, fiskehelsebiolog, brønnbåtoffiser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-7-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-7-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilke spørsmål bør du stille deg når du velger yrke?',
-        solution: 'Ute eller inne? Dyr, planter eller maskiner? Selvstendig eller ansatt? Hvor vil jeg bo? Hva er viktig: lønn, frihet eller mening?',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // Oppgave etter arbeidsmarkedet
     {
       id: 'naturbruk-vg1-8-7-ex-5',
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-7-ex-5',
-        number: '5',
+        number: '4',
         type: 'classic',
         task: 'Hvor er det stor etterspørsel etter arbeidskraft?',
         solution: 'Havbruk, skogsmaskinførere, avløsere i landbruket, gartnere i byområder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+
+    // --- Samleoppgaver ---
+    {
+      id: 'naturbruk-vg1-8-7-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-7-ex-4',
+        number: '5',
+        type: 'classic',
+        task: 'Hvilke spørsmål bør du stille deg når du velger yrke?',
+        solution: 'Ute eller inne? Dyr, planter eller maskiner? Selvstendig eller ansatt? Hvor vil jeg bo? Hva er viktig: lønn, frihet eller mening?',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -4523,6 +4564,20 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 
 **Naturbruk er en nøkkelnæring i det grønne skiftet.**`,
     },
+    // Oppgave etter det grønne skiftet
+    {
+      id: 'naturbruk-vg1-8-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med det grønne skiftet?',
+        solution: 'Det grønne skiftet er omstillingen til lavere utslipp og bærekraftig ressursbruk. For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-8-text-1',
       type: 'text',
@@ -4539,6 +4594,20 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 - Plantevern mot nye skadegjørere
 - Dypere havbruksanlegg`,
     },
+    // Oppgave etter klimaendringer
+    {
+      id: 'naturbruk-vg1-8-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi tre eksempler på hvordan klimaendringer påvirker naturbruk.',
+        solution: 'Lengre vekstsesong, nye skadegjørere og sykdommer, mer ekstremvær.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-8-text-2',
       type: 'text',
@@ -4550,6 +4619,20 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 **Vertikal farming:** Dyrking innendørs
 **Cellekulturer:** Lab-produsert kjøtt`,
     },
+    // Oppgave etter teknologiske trender
+    {
+      id: 'naturbruk-vg1-8-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn tre teknologiske trender som vil påvirke naturbruk.',
+        solution: 'Automatisering (roboter, autonome traktorer), kunstig intelligens, genteknologi, vertikal farming, cellekulturer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-8-def-2',
       type: 'definition',
@@ -4559,6 +4642,20 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 **Inkluderer:** Matproduksjon, skogprodukter, marine ressurser, bioteknologi, bioenergi.
 
 **Norge har store muligheter i bioøkonomien.**`,
+    },
+    // Oppgave etter bioøkonomi
+    {
+      id: 'naturbruk-vg1-8-8-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er bioøkonomi?',
+        solution: 'Bioøkonomi er en økonomi basert på bærekraftig bruk av fornybare biologiske ressurser: matproduksjon, skogprodukter, marine ressurser, bioenergi.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-8-tip-1',
@@ -4572,6 +4669,20 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
 - Evne til livslang læring
 
 **Hold deg nysgjerrig!**`,
+    },
+    // Oppgave etter kompetanse-tips
+    {
+      id: 'naturbruk-vg1-8-8-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvilke kompetanser trenger fremtidens naturbruksarbeider?',
+        solution: 'Fagkunnskap, digital kompetanse, bærekraftskompetanse, sosiale ferdigheter, evne til livslang læring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-8-text-3',
@@ -4592,7 +4703,7 @@ For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs, fra volum til 
     },
 
     // ========================================================================
-    // NYE SEKSJONER: Arbeidsliv og samarbeid
+    // SEKSJONER: Arbeidsliv og samarbeid
     // ========================================================================
 
     {
@@ -4625,6 +4736,20 @@ Som profesjonell yrkesutøver i naturbruk vil du være del av et organisert arbe
 - Stillingsvern ved oppsigelse
 
 **Alle arbeidstakere i naturbruk er omfattet av arbeidsmiljøloven, også sesongarbeidere og deltidsansatte.**`,
+    },
+    // Oppgave etter arbeidsmiljøloven
+    {
+      id: 'naturbruk-vg1-8-8-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-7',
+        number: '6',
+        type: 'classic',
+        task: 'Forklar hva arbeidsmiljøloven er og nevn tre rettigheter den gir arbeidstakere.',
+        solution: 'Arbeidsmiljøloven er den viktigste loven som regulerer arbeidsforhold i Norge. Den gir arbeidstakere rettigheter som: trygge ansettelsesforhold, fullt forsvarlig arbeidsmiljø, vern mot diskriminering, rett til medvirkning, regulert arbeidstid, og stillingsvern ved oppsigelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-8-def-tariffavtale',
@@ -4673,6 +4798,20 @@ Som profesjonell yrkesutøver i naturbruk vil du være del av et organisert arbe
 - Være bindeledd mellom fagforening og arbeidsplass
 
 **Tillitsvalgte har rett til opplæring og tid til å utføre vervet. De har også et spesielt oppsigelsesvern.**`,
+    },
+    // Oppgave etter tillitsvalgt/verneombud
+    {
+      id: 'naturbruk-vg1-8-8-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-8-ex-8',
+        number: '7',
+        type: 'classic',
+        task: 'Hva er forskjellen på en tillitsvalgt og et verneombud (HMS-representant)?',
+        solution: 'En tillitsvalgt er valgt av de fagorganiserte for å representere dem i lønns- og arbeidsvilkår, forhandle med arbeidsgiver, og bistå i personalsaker. Et verneombud (HMS-representant) er valgt for å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet, påse sikker arbeidsutførelse, og varsle om farlige forhold. Tillitsvalgte jobber med avtaler og rettigheter, verneombudet jobber med sikkerhet og arbeidsmiljø.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-8-text-parter',
@@ -4896,71 +5035,16 @@ Innlegget skaper debatt, men tonen blir mer nyansert. Kommunen inviterer skogbru
 **Husk: Et godt rykte bygges over tid, men kan ødelegges raskt!**`,
     },
 
-    // ========================================================================
-    // OPPGAVER - Eksisterende
-    // ========================================================================
-
+    // --- Samleoppgaver ---
     {
-      id: 'naturbruk-vg1-8-8-ex-1',
+      id: 'naturbruk-vg1-8-8-ex-9',
       type: 'exercise',
       exercise: {
-        id: 'naturbruk-vg1-8-8-ex-1',
-        number: '1',
+        id: 'naturbruk-vg1-8-8-ex-9',
+        number: '8',
         type: 'classic',
-        task: 'Hva menes med det grønne skiftet?',
-        solution: 'Det grønne skiftet er omstillingen til lavere utslipp og bærekraftig ressursbruk. For naturbruk: Fra fossilt til fornybart, fra avfall til ressurs.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi tre eksempler på hvordan klimaendringer påvirker naturbruk.',
-        solution: 'Lengre vekstsesong, nye skadegjørere og sykdommer, mer ekstremvær.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre teknologiske trender som vil påvirke naturbruk.',
-        solution: 'Automatisering (roboter, autonome traktorer), kunstig intelligens, genteknologi, vertikal farming, cellekulturer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er bioøkonomi?',
-        solution: 'Bioøkonomi er en økonomi basert på bærekraftig bruk av fornybare biologiske ressurser: matproduksjon, skogprodukter, marine ressurser, bioenergi.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvilke kompetanser trenger fremtidens naturbruksarbeider?',
-        solution: 'Fagkunnskap, digital kompetanse, bærekraftskompetanse, sosiale ferdigheter, evne til livslang læring.',
+        task: 'Beskriv de tre hovedpartene i arbeidslivet og hvordan de samarbeider.',
+        solution: 'De tre hovedpartene er: 1) Arbeidstaker - utfører arbeidet og har rettigheter og plikter. 2) Arbeidsgiver - ansetter og har ansvar for arbeidsmiljø og lønn. 3) Fagforeninger - representerer arbeidstakerne og forhandler lønns- og arbeidsvilkår. Samarbeidet (trepartssamarbeidet) fungerer ved at partene forhandler tariffavtaler, løser konflikter gjennom dialog, og samarbeider om å utvikle arbeidslivet. Dette kalles den norske modellen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -4970,54 +5054,10 @@ Innlegget skaper debatt, men tonen blir mer nyansert. Kommunen inviterer skogbru
       type: 'exercise',
       exercise: {
         id: 'naturbruk-vg1-8-8-ex-6',
-        number: '6',
+        number: '9',
         type: 'classic',
         task: 'Hvordan kan du bidra til fremtidens naturbruk?',
         solution: 'Gjennom utdanning, delta i debatter, bidra til utvikling, dele kunnskap, være åpen for endringer og ny teknologi.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-
-    // ========================================================================
-    // NYE OPPGAVER - Arbeidsliv og samarbeid
-    // ========================================================================
-
-    {
-      id: 'naturbruk-vg1-8-8-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-7',
-        number: '7',
-        type: 'classic',
-        task: 'Forklar hva arbeidsmiljøloven er og nevn tre rettigheter den gir arbeidstakere.',
-        solution: 'Arbeidsmiljøloven er den viktigste loven som regulerer arbeidsforhold i Norge. Den gir arbeidstakere rettigheter som: trygge ansettelsesforhold, fullt forsvarlig arbeidsmiljø, vern mot diskriminering, rett til medvirkning, regulert arbeidstid, og stillingsvern ved oppsigelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-8',
-        number: '8',
-        type: 'classic',
-        task: 'Hva er forskjellen på en tillitsvalgt og et verneombud (HMS-representant)?',
-        solution: 'En tillitsvalgt er valgt av de fagorganiserte for å representere dem i lønns- og arbeidsvilkår, forhandle med arbeidsgiver, og bistå i personalsaker. Et verneombud (HMS-representant) er valgt for å ivareta arbeidstakernes interesser i saker som angår arbeidsmiljøet, påse sikker arbeidsutførelse, og varsle om farlige forhold. Tillitsvalgte jobber med avtaler og rettigheter, verneombudet jobber med sikkerhet og arbeidsmiljø.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-8-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-8-ex-9',
-        number: '9',
-        type: 'classic',
-        task: 'Beskriv de tre hovedpartene i arbeidslivet og hvordan de samarbeider.',
-        solution: 'De tre hovedpartene er: 1) Arbeidstaker - utfører arbeidet og har rettigheter og plikter. 2) Arbeidsgiver - ansetter og har ansvar for arbeidsmiljø og lønn. 3) Fagforeninger - representerer arbeidstakerne og forhandler lønns- og arbeidsvilkår. Samarbeidet (trepartssamarbeidet) fungerer ved at partene forhandler tariffavtaler, løser konflikter gjennom dialog, og samarbeider om å utvikle arbeidslivet. Dette kalles den norske modellen.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -5085,6 +5125,20 @@ Du kan dyrke de beste grønnsakene, produsere den fineste honningen eller tilby 
 
 **Hvorfor viktig?**
 Ulike målgrupper har ulike behov, verdier og kommunikasjonskanaler. Ved å kjenne målgruppen kan du tilpasse budskap og valg av kanal.`,
+    },
+    // Oppgave etter målgruppe-definisjon
+    {
+      id: 'naturbruk-vg1-8-9-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med en målgruppe, og hvorfor er det viktig å definere målgruppen for markedsføring?',
+        solution: 'En målgruppe er den gruppen mennesker du ønsker å nå med produktet eller tjenesten din. Det er viktig å definere målgruppen fordi ulike grupper har ulike behov, verdier og kommunikasjonskanaler. Ved å kjenne målgruppen kan du tilpasse budskap, pris og valg av salgskanal.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-9-def-2',
@@ -5221,6 +5275,26 @@ Fysisk markedsplass for direktesalg:
 - Prøvesmaking og demonstrasjon
 - Nettverksbygging med andre produsenter`,
     },
+    // Oppgave etter markedsføringskanaler (REKO-ring)
+    {
+      id: 'naturbruk-vg1-8-9-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Hva er REKO-ring?',
+        options: [
+          { id: 'a', text: 'En type sertifisering for økologisk mat', isCorrect: false },
+          { id: 'b', text: 'Et system for direktesalg fra produsent til forbruker via Facebook', isCorrect: true },
+          { id: 'c', text: 'En grossist for lokale matvarer', isCorrect: false },
+          { id: 'd', text: 'En app for å spore matvarers opprinnelse', isCorrect: false },
+        ],
+        solution: 'REKO-ring (Rejäl Konsumtion) er et system for direktesalg fra produsent til forbruker via Facebook-grupper. Kunder bestiller i kommentarfelt, og utlevering skjer på fast sted og tid.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
     {
       id: 'naturbruk-vg1-8-9-text-3',
       type: 'text',
@@ -5259,6 +5333,32 @@ Kundene kjøper ikke bare et produkt - de kjøper en historie. I naturbruk har d
 - Beskyttede betegnelser (f.eks. Hardangereple)
 
 **Disse merkene signaliserer kvalitet og gjør det enklere for kunden å velge.**`,
+    },
+    // Oppgave etter merkevarebygging og historiefortelling
+    {
+      id: 'naturbruk-vg1-8-9-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hva som menes med merkevarebygging og historiefortelling (storytelling) i markedsføring.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva er en merkevare?',
+            solution: 'En merkevare er summen av alle assosiasjoner, følelser og forventninger folk har til et produkt, en bedrift eller en person.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn fire elementer som bør være med i en god historie om et naturbruksprodukt.',
+            solution: 'Mennesker (hvem står bak), sted (hvor kommer produktet fra), prosess (hvordan lages det), og verdier (hvorfor gjør du dette).',
+          },
+        ],
+        solution: 'Merkevarebygging handler om å skape gjenkjennelse og positive assosiasjoner. Historiefortelling er et viktig verktøy der man forteller om mennesker, sted, prosess og verdier for å skape emosjonell tilknytning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-8-9-text-4',
@@ -5305,6 +5405,26 @@ Enten du står på Bondens marked, holder foredrag for en skoleklasse eller pres
 - Svar ærlig - innrøm hvis du ikke vet
 - Se spørsmål som mulighet, ikke trussel
 - Takk for gode spørsmål`,
+    },
+    // Oppgave etter muntlig presentasjon
+    {
+      id: 'naturbruk-vg1-8-9-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-8-9-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken sosial medieplattform er mest visuell og passer derfor ofte godt for mat- og naturprodukter?',
+        options: [
+          { id: 'a', text: 'LinkedIn', isCorrect: false },
+          { id: 'b', text: 'Twitter/X', isCorrect: false },
+          { id: 'c', text: 'Instagram', isCorrect: true },
+          { id: 'd', text: 'Snapchat', isCorrect: false },
+        ],
+        solution: 'Instagram er en visuell plattform som passer godt for mat- og naturprodukter fordi den fokuserer på bilder og video. Stories og Reels gir mulighet for daglige oppdateringer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'naturbruk-vg1-8-9-tip-1',
@@ -5420,82 +5540,8 @@ Du trenger ikke være overalt. Velg én eller to kanaler og gjør dem godt.
 
 **Tips:** Ta med visittkort eller flyer slik at interesserte kan følge deg på sosiale medier eller bestille senere.`,
     },
-    {
-      id: 'naturbruk-vg1-8-9-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-9-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva menes med en målgruppe, og hvorfor er det viktig å definere målgruppen for markedsføring?',
-        solution: 'En målgruppe er den gruppen mennesker du ønsker å nå med produktet eller tjenesten din. Det er viktig å definere målgruppen fordi ulike grupper har ulike behov, verdier og kommunikasjonskanaler. Ved å kjenne målgruppen kan du tilpasse budskap, pris og valg av salgskanal.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-9-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-9-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        task: 'Hva er REKO-ring?',
-        options: [
-          { id: 'a', text: 'En type sertifisering for økologisk mat', isCorrect: false },
-          { id: 'b', text: 'Et system for direktesalg fra produsent til forbruker via Facebook', isCorrect: true },
-          { id: 'c', text: 'En grossist for lokale matvarer', isCorrect: false },
-          { id: 'd', text: 'En app for å spore matvarers opprinnelse', isCorrect: false },
-        ],
-        solution: 'REKO-ring (Rejäl Konsumtion) er et system for direktesalg fra produsent til forbruker via Facebook-grupper. Kunder bestiller i kommentarfelt, og utlevering skjer på fast sted og tid.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-9-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-9-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar hva som menes med merkevarebygging og historiefortelling (storytelling) i markedsføring.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er en merkevare?',
-            solution: 'En merkevare er summen av alle assosiasjoner, følelser og forventninger folk har til et produkt, en bedrift eller en person.',
-          },
-          {
-            label: 'b',
-            task: 'Nevn fire elementer som bør være med i en god historie om et naturbruksprodukt.',
-            solution: 'Mennesker (hvem står bak), sted (hvor kommer produktet fra), prosess (hvordan lages det), og verdier (hvorfor gjør du dette).',
-          },
-        ],
-        solution: 'Merkevarebygging handler om å skape gjenkjennelse og positive assosiasjoner. Historiefortelling er et viktig verktøy der man forteller om mennesker, sted, prosess og verdier for å skape emosjonell tilknytning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-8-9-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-8-9-ex-4',
-        number: '4',
-        type: 'multiple-choice',
-        task: 'Hvilken sosial medieplattform er mest visuell og passer derfor ofte godt for mat- og naturprodukter?',
-        options: [
-          { id: 'a', text: 'LinkedIn', isCorrect: false },
-          { id: 'b', text: 'Twitter/X', isCorrect: false },
-          { id: 'c', text: 'Instagram', isCorrect: true },
-          { id: 'd', text: 'Snapchat', isCorrect: false },
-        ],
-        solution: 'Instagram er en visuell plattform som passer godt for mat- og naturprodukter fordi den fokuserer på bilder og video. Stories og Reels gir mulighet for daglige oppdateringer.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
+
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-8-9-ex-5',
       type: 'exercise',

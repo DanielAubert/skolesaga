@@ -45,63 +45,6 @@ Norge har en rik friluftstradisjon med allemannsretten som grunnlag. For å ferd
 - **Informer andre:** Gi beskjed om hvor du går og når du kommer tilbake`,
     },
     {
-      id: 'kroppsoving-vg1-7-1-def-2',
-      type: 'definition',
-      title: 'Lagprinsippet (bekledning)',
-      content: `Bekledning i lag gjør at du kan tilpasse deg temperatur og aktivitetsnivå:
-
-**Lag 1 - Innerlag:** Transporterer fukt bort fra kroppen (ull eller syntetisk)
-**Lag 2 - Mellomlag:** Isolerer og holder på varmen (fleece, ull, dun)
-**Lag 3 - Ytterlag:** Beskytter mot vind og nedbør (vindtett, vanntett)
-
-Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-1-def-3',
-      type: 'definition',
-      title: 'Fjellvettreglene',
-      content: `1. Planlegg turen og meld fra hvor du går
-2. Tilpass turen etter evne og forhold
-3. Ta hensyn til vær- og skredvarsel
-4. Vær forberedt på uvær og kulde, selv på korte turer
-5. Bring nødvendig utstyr for å kunne hjelpe deg selv og andre
-6. Ta trygge veivalg. Gjenkjenn skredfarlig terreng og usikker is
-7. Bruk kart og kompass. Vit alltid hvor du er
-8. Vend i tide - det er ingen skam å snu
-9. Spar på kreftene og søk ly om nødvendig`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-1-text-1',
-      type: 'text',
-      content: `## Utstyr for turer
-
-**Obligatorisk utstyr (dagstur):**
-- Sekk med regntrekk
-- Ekstra klær (varm og tørr)
-- Mat og drikke
-- Kart og kompass
-- Førstehjelputstyr
-- Lommelykt/hodelykt
-- Mobiltelefon (ladet)
-
-**I fjellet tillegg:**
-- Vindtett og vanntett ytterlag
-- Sitteunderlag
-- Solbriller og solkrem
-- Nødproviant`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-1-tip-1',
-      type: 'tip',
-      title: 'Nisting',
-      content: `God mat på tur gir energi og trivsel! Pakk mat som tåler å ligge i sekken:
-- Grovt brød med godt pålegg
-- Frukt og grønnsaker
-- Nøtter og tørket frukt
-- Sjokolade eller annen kvikklunsj
-- Varm drikke i termos (kaldt vær)`,
-    },
-    {
       id: 'kroppsoving-vg1-7-1-example-1',
       type: 'example',
       title: 'Eksempel: Turplanlegging til Gaustatoppen',
@@ -137,6 +80,18 @@ Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
 **Backup-plan:** Ved dårlig vær vend i tide (regel 8!). Ved skade ring 113 og gi koordinater.`,
     },
     {
+      id: 'kroppsoving-vg1-7-1-def-2',
+      type: 'definition',
+      title: 'Lagprinsippet (bekledning)',
+      content: `Bekledning i lag gjør at du kan tilpasse deg temperatur og aktivitetsnivå:
+
+**Lag 1 - Innerlag:** Transporterer fukt bort fra kroppen (ull eller syntetisk)
+**Lag 2 - Mellomlag:** Isolerer og holder på varmen (fleece, ull, dun)
+**Lag 3 - Ytterlag:** Beskytter mot vind og nedbør (vindtett, vanntett)
+
+Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
+    },
+    {
       id: 'kroppsoving-vg1-7-1-example-2',
       type: 'example',
       title: 'Eksempel: Valg av bekledning',
@@ -158,30 +113,6 @@ Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
 
 **Hvorfor?** Du vil bli varm når du går - start med lite klær. Ha alltid ekstra varm og tørr klær i sekken. Lagprinsippet lar deg justere underveis. Ved pause: Ta raskt på et ekstra lag før du blir kald.`,
     },
-    {
-      id: 'kroppsoving-vg1-7-1-def-4',
-      type: 'definition',
-      title: 'Turledelse og gruppedynamikk',
-      content: `Når dere er flere på tur er det smart å ha klare roller:
-
-**Turleder:**
-- Har ansvar for planlegging og sikkerheten
-- Tar beslutninger ved tvil
-- Sjekker at alle har nødvendig utstyr
-
-**Siste mann:**
-- Går bakerst og holder oversikt
-- Sørger for at ingen blir hengende etter
-
-**Viktig:** Svakeste person setter farten! Det er ingen kappgang.`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-1-tip-2',
-      type: 'tip',
-      title: 'Blærer på foten',
-      content: `Blærer er et vanlig problem på lange turer. Forebygg ved å bruke godt innarbeidede sko, skift til tørre sokker hvis føttene blir våte, og si fra TIDLIG hvis du merker at det gnisser! Ved blære: Dekk med kompeed. Stikk ALDRI hull under tur (infeksjonsfare).`,
-    },
-
     {
       id: 'kroppsoving-vg1-7-1-ex-1',
       type: 'exercise',
@@ -235,6 +166,51 @@ Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
       },
     },
     {
+      id: 'kroppsoving-vg1-7-1-def-3',
+      type: 'definition',
+      title: 'Fjellvettreglene',
+      content: `1. Planlegg turen og meld fra hvor du går
+2. Tilpass turen etter evne og forhold
+3. Ta hensyn til vær- og skredvarsel
+4. Vær forberedt på uvær og kulde, selv på korte turer
+5. Bring nødvendig utstyr for å kunne hjelpe deg selv og andre
+6. Ta trygge veivalg. Gjenkjenn skredfarlig terreng og usikker is
+7. Bruk kart og kompass. Vit alltid hvor du er
+8. Vend i tide - det er ingen skam å snu
+9. Spar på kreftene og søk ly om nødvendig`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-1-text-1',
+      type: 'text',
+      content: `## Utstyr for turer
+
+**Obligatorisk utstyr (dagstur):**
+- Sekk med regntrekk
+- Ekstra klær (varm og tørr)
+- Mat og drikke
+- Kart og kompass
+- Førstehjelputstyr
+- Lommelykt/hodelykt
+- Mobiltelefon (ladet)
+
+**I fjellet tillegg:**
+- Vindtett og vanntett ytterlag
+- Sitteunderlag
+- Solbriller og solkrem
+- Nødproviant`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-1-tip-1',
+      type: 'tip',
+      title: 'Nisting',
+      content: `God mat på tur gir energi og trivsel! Pakk mat som tåler å ligge i sekken:
+- Grovt brød med godt pålegg
+- Frukt og grønnsaker
+- Nøtter og tørket frukt
+- Sjokolade eller annen kvikklunsj
+- Varm drikke i termos (kaldt vær)`,
+    },
+    {
       id: 'kroppsoving-vg1-7-1-ex-3',
       type: 'exercise',
       exercise: {
@@ -247,6 +223,30 @@ Husk: Bomull holder på fuktighet og bør unngås som innerlag!`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'kroppsoving-vg1-7-1-def-4',
+      type: 'definition',
+      title: 'Turledelse og gruppedynamikk',
+      content: `Når dere er flere på tur er det smart å ha klare roller:
+
+**Turleder:**
+- Har ansvar for planlegging og sikkerheten
+- Tar beslutninger ved tvil
+- Sjekker at alle har nødvendig utstyr
+
+**Siste mann:**
+- Går bakerst og holder oversikt
+- Sørger for at ingen blir hengende etter
+
+**Viktig:** Svakeste person setter farten! Det er ingen kappgang.`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-1-tip-2',
+      type: 'tip',
+      title: 'Blærer på foten',
+      content: `Blærer er et vanlig problem på lange turer. Forebygg ved å bruke godt innarbeidede sko, skift til tørre sokker hvis føttene blir våte, og si fra TIDLIG hvis du merker at det gnisser! Ved blære: Dekk med kompeed. Stikk ALDRI hull under tur (infeksjonsfare).`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-1-ex-4',
       type: 'exercise',
@@ -311,6 +311,32 @@ Evnen til å navigere er grunnleggende for trygg ferdsel i naturen. Selv om GPS 
 - **Nordpil:** Viser kartets orientering`,
     },
     {
+      id: 'kroppsoving-vg1-7-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva betyr målestokk 1:50 000?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig forklaring.',
+            solution: '1 cm på kartet = 500 meter i virkeligheten',
+            multipleChoiceOptions: [
+              '1 cm på kartet = 500 meter i virkeligheten',
+              '1 cm på kartet = 50 meter i virkeligheten',
+              '1 cm på kartet = 5 km i virkeligheten',
+              '1 cm på kartet = 50 km i virkeligheten',
+            ],
+          },
+        ],
+        solution: '1:50 000 betyr at 1 cm på kartet tilsvarer 50 000 cm (500 m) i terrenget.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-2-def-2',
       type: 'definition',
       title: 'Kompassbruk',
@@ -326,48 +352,6 @@ Evnen til å navigere er grunnleggende for trygg ferdsel i naturen. Selv om GPS 
 3. Drei kompasshuset til nord-sør-linjene er parallelle med kartets rutenett
 4. Løft kompasset og drei deg selv til nålen peker på N
 5. Gå i siktets retning`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-def-3',
-      type: 'definition',
-      title: 'GPS og digitale verktøy',
-      content: `**Fordeler med GPS/mobil:**
-- Viser nøyaktig posisjon
-- Kan lagre ruter og waypoints
-- Gir avstand og høydemeter
-
-**Ulemper:**
-- Avhengig av batteri
-- Kan miste signal
-- Kan gi falsk trygghet
-
-**Nyttige apper:** Norgeskart, UT.no, Peakbook, Strava`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-text-1',
-      type: 'text',
-      content: `## Praktisk navigasjon
-
-**Orientering av kartet:**
-1. Finn et landemerke du kan se
-2. Finn det samme på kartet
-3. Drei kartet så det stemmer med terrenget
-
-**Stedfesting:**
-1. Finn to-tre synlige landemerker
-2. Ta peiling til hvert med kompasset
-3. Tegn linjene på kartet - du er der de krysser
-
-**Følge en retning:**
-1. Ta ut retning på kartet
-2. Sikt mot et landemerke i riktig retning
-3. Gå til landemerket, gjenta`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-tip-1',
-      type: 'tip',
-      title: 'Misvisning',
-      content: `Magnetisk nord og geografisk nord er ikke det samme. I Norge er forskjellen liten, men i noen områder må du korrigere for misvisning. Sjekk kartets tegnforklaring!`,
     },
     {
       id: 'kroppsoving-vg1-7-2-example-1',
@@ -401,6 +385,48 @@ Evnen til å navigere er grunnleggende for trygg ferdsel i naturen. Selv om GPS 
 - Gå til landemerket, gjenta prosessen
 
 **Viktig:** Husk å holde kompasset unna metallgjenstander (kniver, mobiltelefon) da dette kan påvirke magnetnålen.`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-text-1',
+      type: 'text',
+      content: `## Praktisk navigasjon
+
+**Orientering av kartet:**
+1. Finn et landemerke du kan se
+2. Finn det samme på kartet
+3. Drei kartet så det stemmer med terrenget
+
+**Stedfesting:**
+1. Finn to-tre synlige landemerker
+2. Ta peiling til hvert med kompasset
+3. Tegn linjene på kartet - du er der de krysser
+
+**Følge en retning:**
+1. Ta ut retning på kartet
+2. Sikt mot et landemerke i riktig retning
+3. Gå til landemerket, gjenta`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-tip-1',
+      type: 'tip',
+      title: 'Misvisning',
+      content: `Magnetisk nord og geografisk nord er ikke det samme. I Norge er forskjellen liten, men i noen områder må du korrigere for misvisning. Sjekk kartets tegnforklaring!`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-def-3',
+      type: 'definition',
+      title: 'GPS og digitale verktøy',
+      content: `**Fordeler med GPS/mobil:**
+- Viser nøyaktig posisjon
+- Kan lagre ruter og waypoints
+- Gir avstand og høydemeter
+
+**Ulemper:**
+- Avhengig av batteri
+- Kan miste signal
+- Kan gi falsk trygghet
+
+**Nyttige apper:** Norgeskart, UT.no, Peakbook, Strava`,
     },
     {
       id: 'kroppsoving-vg1-7-2-text-2',
@@ -437,6 +463,19 @@ Moderne teknologi har gjort navigasjon enklere, men det er viktig å forstå bå
 - Ta skjermbilde av viktige kartutsnitt
 - Bruk vann- og støttett mobilpose
 - Lær grunnleggende kart og kompass uansett!`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-2-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor bør du kunne bruke kart og kompass selv om du har GPS?',
+        solution: 'GPS kan gå tom for batteri, miste signal i daler eller tett skog, eller bli skadet. Kart og kompass fungerer alltid og gir også bedre forståelse av terrenget.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-2-example-2',
@@ -504,6 +543,32 @@ Moderne teknologi har gjort navigasjon enklere, men det er viktig å forstå bå
 **Tips:** Når du står i terrenget, drei kartet slik at høydekurvene på kartet matcher terrenget du ser. Dette gjør det enklere å forstå hvor du er.`,
     },
     {
+      id: 'kroppsoving-vg1-7-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-2-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva viser høydekurvene på et kart?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig svar.',
+            solution: 'Terrengformer og høyde over havet',
+            multipleChoiceOptions: [
+              'Terrengformer og høyde over havet',
+              'Stier og veier',
+              'Vannløp',
+              'Vegetasjon',
+            ],
+          },
+        ],
+        solution: 'Høydekurver viser terrengformer. Tette kurver = bratt terreng, spredte kurver = slakt terreng.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-2-tip-2',
       type: 'tip',
       title: 'Navigasjon i tåke',
@@ -550,71 +615,7 @@ Den beste måten å lære navigasjon er å øve! Her er noen gode øvelser:
 **Konkurranseorientering:**
 Vurder å bli med i en orienteringsklubb - en fantastisk måte å lære navigasjon på samtidig som du får mosjon!`,
     },
-    {
-      id: 'kroppsoving-vg1-7-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva betyr målestokk 1:50 000?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig forklaring.',
-            solution: '1 cm på kartet = 500 meter i virkeligheten',
-            multipleChoiceOptions: [
-              '1 cm på kartet = 500 meter i virkeligheten',
-              '1 cm på kartet = 50 meter i virkeligheten',
-              '1 cm på kartet = 5 km i virkeligheten',
-              '1 cm på kartet = 50 km i virkeligheten',
-            ],
-          },
-        ],
-        solution: '1:50 000 betyr at 1 cm på kartet tilsvarer 50 000 cm (500 m) i terrenget.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva viser høydekurvene på et kart?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig svar.',
-            solution: 'Terrengformer og høyde over havet',
-            multipleChoiceOptions: [
-              'Terrengformer og høyde over havet',
-              'Stier og veier',
-              'Vannløp',
-              'Vegetasjon',
-            ],
-          },
-        ],
-        solution: 'Høydekurver viser terrengformer. Tette kurver = bratt terreng, spredte kurver = slakt terreng.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvorfor bør du kunne bruke kart og kompass selv om du har GPS?',
-        solution: 'GPS kan gå tom for batteri, miste signal i daler eller tett skog, eller bli skadet. Kart og kompass fungerer alltid og gir også bedre forståelse av terrenget.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-2-ex-4',
       type: 'exercise',
@@ -693,65 +694,6 @@ Vinteren byr på fantastiske muligheter for friluftsliv i Norge. Med riktig utst
 - Hold deg i bevegelse`,
     },
     {
-      id: 'kroppsoving-vg1-7-3-def-2',
-      type: 'definition',
-      title: 'Frostskader',
-      content: `Frostskader oppstår når vev fryser, oftest i fingre, tær, nese og ører.
-
-**Grader:**
-- **Grad 1 (frostnip):** Hvit, nummen hud. Reversibel.
-- **Grad 2:** Blemmer, hevelse
-- **Grad 3-4:** Dyp vevsskade
-
-**Behandling:**
-- Oppvarm gradvis i lunkent vann (37-39°C)
-- IKKE gni eller massér
-- Oppsøk lege ved alvorlige frostskader`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-def-3',
-      type: 'definition',
-      title: 'Skredfare',
-      content: `Snøskred er en av de største farene i vinterfjellet.
-
-**Skredfarlige forhold:**
-- Bratt terreng (30-45 grader)
-- Nysnø eller vindtransportert snø
-- Temperaturendringer
-- Svake lag i snødekket
-
-**Sjekk alltid varsom.no før fjellturer!**`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-text-1',
-      type: 'text',
-      content: `## Skiutstyr og teknikk
-
-**Klassisk langrenn:**
-- Ski med feste under foten
-- Diagonalgang: Naturlig arm/bein-koordinasjon
-- Staking: Framdrift fra stavene
-- Fiskebein i motbakker
-
-**Skøyting (fristil):**
-- Ski uten feste
-- Sideveis fraspark
-- Krever bredere, preparerte løyper
-- Mer krevende teknikk`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-tip-1',
-      type: 'tip',
-      title: 'Smøring',
-      content: `Klassiske ski trenger festesmurning for grep og glidesmurning for gli. Bruk smøretips på ski.no eller spør i sportsbutikken. Felleski er et enkelt alternativ som ikke krever smøring.`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-warning-1',
-      type: 'warning',
-      title: 'Isvarsling',
-      content: `Gå aldri ut på usikker is! Sjekk istykkelse (minimum 10 cm for gange), unngå områder med strøm eller utløp, og ha med ispigger og kasteline.`,
-    },
-    {
       id: 'kroppsoving-vg1-7-3-example-1',
       type: 'example',
       title: 'Eksempel: Forebygging av hypotermi',
@@ -802,6 +744,130 @@ Vinteren byr på fantastiske muligheter for friluftsliv i Norge. Med riktig utst
 - Bytt våte klær før du blir kald
 - Si fra tidlig hvis du fryser
 - Ha alltid ekstra varmeklær i sekken`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er tidlige symptomer på hypotermi?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig svar.',
+            solution: 'Skjelving, nummenhet og forvirring',
+            multipleChoiceOptions: [
+              'Skjelving, nummenhet og forvirring',
+              'Svetting og rødhet',
+              'Hodepine',
+              'Kvalme',
+            ],
+          },
+        ],
+        solution: 'Tidlige tegn på hypotermi er skjelving, kald og blek hud, nummenhet og begynnende forvirring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-def-2',
+      type: 'definition',
+      title: 'Frostskader',
+      content: `Frostskader oppstår når vev fryser, oftest i fingre, tær, nese og ører.
+
+**Grader:**
+- **Grad 1 (frostnip):** Hvit, nummen hud. Reversibel.
+- **Grad 2:** Blemmer, hevelse
+- **Grad 3-4:** Dyp vevsskade
+
+**Behandling:**
+- Oppvarm gradvis i lunkent vann (37-39°C)
+- IKKE gni eller massér
+- Oppsøk lege ved alvorlige frostskader`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan behandler du frostskader?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig behandling.',
+            solution: 'Oppvarm gradvis i lunkent vann (37-39°C)',
+            multipleChoiceOptions: [
+              'Oppvarm gradvis i lunkent vann (37-39°C)',
+              'Gni og massér området',
+              'Legg på varmt vann',
+              'La det tine av seg selv',
+            ],
+          },
+        ],
+        solution: 'Frostskader skal oppvarmes gradvis i lunkent vann. ALDRI gni eller massér, da dette kan skade vevet mer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-def-3',
+      type: 'definition',
+      title: 'Skredfare',
+      content: `Snøskred er en av de største farene i vinterfjellet.
+
+**Skredfarlige forhold:**
+- Bratt terreng (30-45 grader)
+- Nysnø eller vindtransportert snø
+- Temperaturendringer
+- Svake lag i snødekket
+
+**Sjekk alltid varsom.no før fjellturer!**`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-text-1',
+      type: 'text',
+      content: `## Skiutstyr og teknikk
+
+**Klassisk langrenn:**
+- Ski med feste under foten
+- Diagonalgang: Naturlig arm/bein-koordinasjon
+- Staking: Framdrift fra stavene
+- Fiskebein i motbakker
+
+**Skøyting (fristil):**
+- Ski uten feste
+- Sideveis fraspark
+- Krever bredere, preparerte løyper
+- Mer krevende teknikk`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-tip-1',
+      type: 'tip',
+      title: 'Smøring',
+      content: `Klassiske ski trenger festesmurning for grep og glidesmurning for gli. Bruk smøretips på ski.no eller spør i sportsbutikken. Felleski er et enkelt alternativ som ikke krever smøring.`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-3-ex-4',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar forskjellen på klassisk og skøyting i langrenn.',
+        solution: 'Klassisk: Ski i spor, diagonalgang med feste under foten. Skøyting: Sideveis fraspark som på skøyter, ski uten feste, krever preparert bane.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-3-warning-1',
+      type: 'warning',
+      title: 'Isvarsling',
+      content: `Gå aldri ut på usikker is! Sjekk istykkelse (minimum 10 cm for gange), unngå områder med strøm eller utløp, og ha med ispigger og kasteline.`,
     },
     {
       id: 'kroppsoving-vg1-7-3-text-2',
@@ -973,80 +1039,16 @@ Vinteren byr på mange andre spennende aktiviteter utover langrenn:
 - Lærer deg om hundenes behov og velferd
 - Flott måte å oppleve vinternaturen på`,
     },
-    {
-      id: 'kroppsoving-vg1-7-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er tidlige symptomer på hypotermi?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig svar.',
-            solution: 'Skjelving, nummenhet og forvirring',
-            multipleChoiceOptions: [
-              'Skjelving, nummenhet og forvirring',
-              'Svetting og rødhet',
-              'Hodepine',
-              'Kvalme',
-            ],
-          },
-        ],
-        solution: 'Tidlige tegn på hypotermi er skjelving, kald og blek hud, nummenhet og begynnende forvirring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvordan behandler du frostskader?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig behandling.',
-            solution: 'Oppvarm gradvis i lunkent vann (37-39°C)',
-            multipleChoiceOptions: [
-              'Oppvarm gradvis i lunkent vann (37-39°C)',
-              'Gni og massér området',
-              'Legg på varmt vann',
-              'La det tine av seg selv',
-            ],
-          },
-        ],
-        solution: 'Frostskader skal oppvarmes gradvis i lunkent vann. ALDRI gni eller massér, da dette kan skade vevet mer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-3-ex-3',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-7-3-ex-3',
-        number: '3',
+        number: '4',
         type: 'classic',
         task: 'Hva bør du sjekke før en fjelltur om vinteren?',
         solution: 'Værmelding (yr.no), skredvarsel (varsom.no), føreforhold, dagslys, og informer noen om turen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar forskjellen på klassisk og skøyting i langrenn.',
-        solution: 'Klassisk: Ski i spor, diagonalgang med feste under foten. Skøyting: Sideveis fraspark som på skøyter, ski uten feste, krever preparert bane.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -1110,108 +1112,6 @@ Vår og sommer åpner for et mangfold av friluftsaktiviteter. Fra fjellturer til
 6. Bruk alltid flytevest i båt
 
 **Kuldsjokk:** Kaldt vann kan gi sjokkreaksjon med hyperventilering og panikk. Gå gradvis ut i vannet.`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-def-2',
-      type: 'definition',
-      title: 'Padling',
-      content: `**Grunnleggende padleteknikk (kajakk):**
-- Sitt oppreist med god støtte
-- Hold padleåren med riktig grep
-- Roter overkroppen, ikke bare armene
-- Bruk magmusklene for kraft
-
-**Sikkerhet:**
-- Alltid flytevest
-- Våtdrakt i kaldt vann
-- Kjenn egne grenser
-- Padlingsvettreglene`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-text-1',
-      type: 'text',
-      content: `## Sykling i naturen
-
-**Stisykling:**
-- Respekter naturen og andre brukere
-- Hold deg til merkede stier
-- Bruk hjelm
-- Tilpass farten til terrenget
-
-**Utstyr:**
-- God sykkel tilpasset terrenget
-- Hjelm (obligatorisk!)
-- Hansker, briller
-- Reparasjonsutstyr`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-tip-1',
-      type: 'tip',
-      title: 'Solbeskyttelse',
-      content: `Om sommeren er solbeskyttelse viktig:
-- Solkrem med høy faktor (minst 30)
-- Solbriller og hatt/caps
-- Unngå sterk sol midt på dagen
-- Drikk nok væske`,
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-example-1',
-      type: 'example',
-      title: 'Eksempel: Planlegging av padletur',
-      problem: `Du skal på en padletur i kajakk langs kysten en junidag. Turen er på ca 10 km og tar anslagsvis 3-4 timer. Værmeldingen lover 18°C og lett bris, men det kan komme regnbyger.
-
-**Oppgave:** Hva må du planlegge og pakke med?`,
-      solution: `**Planlegging av padletur:**
-
-**Før turen:**
-1. **Sjekk vær og vind:** Yr.no og nautisk værvarsel
-2. **Sjekk tidevann:** Viktig langs kysten!
-3. **Planlegg rute:** Studer sjøkart, marker mulige nødlandinger
-4. **Informer:** Si fra til noen om rute og forventet retur
-5. **Ferdigheter:** Vurder egne og gruppens ferdigheter ærlig
-
-**Obligatorisk sikkerhetsutstyr:**
-- **Flytevest:** MÅ brukes hele tiden!
-- **Våtdrakt eller tørdrakt:** Selv om lufta er 18°C, er sjøen kanskje bare 12°C
-- **Skjørt (spraydeck):** Holder vannet ute av kajakken
-- **Padleåre + reservepadleåre**
-- **Lenseutstyr:** Svamp og øsekar
-
-**Annet utstyr:**
-- Vanntette beholdere/sekk for mat, klær, mobil
-- Ekstra klær i vanntett pose
-- Mat og drikke (minst 1,5L vann)
-- Førstehjelpsutstyr i vanntett beholder
-- Mobiltelefon i vanntett pose
-- Fløyte (på flytevesten)
-- Sjøkart og kompass
-- Kaste ein (redningsleine)
-
-**Bekledning:**
-- Våtdrakt (om vanntemperaturen er lav)
-- Evt langermet tørrskjorte over
-- Padlehansker (for å unngå blemmer)
-- Solbriller med snor
-- Solkrem og hatt/caps
-
-**Under turen:**
-- Hold deg nær land
-- Vurder vind og bølger kontinuerlig
-- Ta pauser på land
-- Hold gruppa samlet
-- Snu hvis forholdene blir dårligere
-
-**Hvis du velter:**
-1. IKKE PANIKK - flytevesten holder deg flytende
-2. Hold deg til kajakken
-3. Forsøk eskimorulle hvis du kan
-4. Hvis ikke: Bruk nassistanse fra andre, eller svøm til land om det er nært
-5. Kom deg raskt på land og bytt til tørre klær
-
-**Viktig:**
-- Øv på grunnleggende redning FØR du drar på tur
-- Aldri gå alene på padletur
-- Kaldt vann = livstruende selv om været er fint!`,
     },
     {
       id: 'kroppsoving-vg1-7-4-text-2',
@@ -1312,6 +1212,146 @@ Siden vannet er ukjent, bør gruppen:
 - Bruk offisielle badeplasser når mulig`,
     },
     {
+      id: 'kroppsoving-vg1-7-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er kuldsjokk?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig forklaring.',
+            solution: 'Kroppens sjokkreaksjon på kaldt vann med hyperventilering',
+            multipleChoiceOptions: [
+              'Kroppens sjokkreaksjon på kaldt vann med hyperventilering',
+              'Å fryse om vinteren',
+              'Å bli solbrent',
+              'Å bli dehydrert',
+            ],
+          },
+        ],
+        solution: 'Kuldsjokk oppstår når kroppen eksponeres for kaldt vann brått, noe som kan føre til hyperventilering, panikk og i verste fall drukning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre viktige badevettregler.',
+        solution: 'Lær å svømme, aldri bad alene, avkjøl deg først, unngå alkohol, ikke hopp på ukjent sted, bruk flytevest i båt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-def-2',
+      type: 'definition',
+      title: 'Padling',
+      content: `**Grunnleggende padleteknikk (kajakk):**
+- Sitt oppreist med god støtte
+- Hold padleåren med riktig grep
+- Roter overkroppen, ikke bare armene
+- Bruk magmusklene for kraft
+
+**Sikkerhet:**
+- Alltid flytevest
+- Våtdrakt i kaldt vann
+- Kjenn egne grenser
+- Padlingsvettreglene`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Planlegging av padletur',
+      problem: `Du skal på en padletur i kajakk langs kysten en junidag. Turen er på ca 10 km og tar anslagsvis 3-4 timer. Værmeldingen lover 18°C og lett bris, men det kan komme regnbyger.
+
+**Oppgave:** Hva må du planlegge og pakke med?`,
+      solution: `**Planlegging av padletur:**
+
+**Før turen:**
+1. **Sjekk vær og vind:** Yr.no og nautisk værvarsel
+2. **Sjekk tidevann:** Viktig langs kysten!
+3. **Planlegg rute:** Studer sjøkart, marker mulige nødlandinger
+4. **Informer:** Si fra til noen om rute og forventet retur
+5. **Ferdigheter:** Vurder egne og gruppens ferdigheter ærlig
+
+**Obligatorisk sikkerhetsutstyr:**
+- **Flytevest:** MÅ brukes hele tiden!
+- **Våtdrakt eller tørdrakt:** Selv om lufta er 18°C, er sjøen kanskje bare 12°C
+- **Skjørt (spraydeck):** Holder vannet ute av kajakken
+- **Padleåre + reservepadleåre**
+- **Lenseutstyr:** Svamp og øsekar
+
+**Annet utstyr:**
+- Vanntette beholdere/sekk for mat, klær, mobil
+- Ekstra klær i vanntett pose
+- Mat og drikke (minst 1,5L vann)
+- Førstehjelpsutstyr i vanntett beholder
+- Mobiltelefon i vanntett pose
+- Fløyte (på flytevesten)
+- Sjøkart og kompass
+- Kaste ein (redningsleine)
+
+**Bekledning:**
+- Våtdrakt (om vanntemperaturen er lav)
+- Evt langermet tørrskjorte over
+- Padlehansker (for å unngå blemmer)
+- Solbriller med snor
+- Solkrem og hatt/caps
+
+**Under turen:**
+- Hold deg nær land
+- Vurder vind og bølger kontinuerlig
+- Ta pauser på land
+- Hold gruppa samlet
+- Snu hvis forholdene blir dårligere
+
+**Hvis du velter:**
+1. IKKE PANIKK - flytevesten holder deg flytende
+2. Hold deg til kajakken
+3. Forsøk eskimorulle hvis du kan
+4. Hvis ikke: Bruk nassistanse fra andre, eller svøm til land om det er nært
+5. Kom deg raskt på land og bytt til tørre klær
+
+**Viktig:**
+- Øv på grunnleggende redning FØR du drar på tur
+- Aldri gå alene på padletur
+- Kaldt vann = livstruende selv om været er fint!`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er viktig sikkerhetsutstyr ved padling?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg det viktigste.',
+            solution: 'Flytevest',
+            multipleChoiceOptions: [
+              'Flytevest',
+              'Solbriller',
+              'Mobiltelefon',
+              'Kart',
+            ],
+          },
+        ],
+        solution: 'Flytevest er det viktigste sikkerhetsutstyret ved all padling. Den skal alltid brukes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-4-def-3',
       type: 'definition',
       title: 'Stand Up Paddleboard (SUP)',
@@ -1407,71 +1447,7 @@ Selv om det er sommer kan været skifte raskt i fjellet:
 - Vind er din venn - myggen liker ikke vind!
 - Unngå stillestående vann ved leir`,
     },
-    {
-      id: 'kroppsoving-vg1-7-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er kuldsjokk?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig forklaring.',
-            solution: 'Kroppens sjokkreaksjon på kaldt vann med hyperventilering',
-            multipleChoiceOptions: [
-              'Kroppens sjokkreaksjon på kaldt vann med hyperventilering',
-              'Å fryse om vinteren',
-              'Å bli solbrent',
-              'Å bli dehydrert',
-            ],
-          },
-        ],
-        solution: 'Kuldsjokk oppstår når kroppen eksponeres for kaldt vann brått, noe som kan føre til hyperventilering, panikk og i verste fall drukning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre viktige badevettregler.',
-        solution: 'Lær å svømme, aldri bad alene, avkjøl deg først, unngå alkohol, ikke hopp på ukjent sted, bruk flytevest i båt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er viktig sikkerhetsutstyr ved padling?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg det viktigste.',
-            solution: 'Flytevest',
-            multipleChoiceOptions: [
-              'Flytevest',
-              'Solbriller',
-              'Mobiltelefon',
-              'Kart',
-            ],
-          },
-        ],
-        solution: 'Flytevest er det viktigste sikkerhetsutstyret ved all padling. Den skal alltid brukes.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-4-ex-4',
       type: 'exercise',
@@ -1534,6 +1510,19 @@ Høsten er en fantastisk tid for friluftsliv med vakre farger, sanking av nature
 - Noen giftige sopper er dødelige`,
     },
     {
+      id: 'kroppsoving-vg1-7-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn tre trygge matsopper for nybegynnere.',
+        solution: 'Kantarell, steinsopp og traktkantarell er gode valg for nybegynnere fordi de er lette å kjenne igjen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-5-def-2',
       type: 'definition',
       title: 'Bærplukking',
@@ -1563,6 +1552,19 @@ Allemannsretten gir deg rett til å plukke bær i utmark.`,
 - Garnfiske (krever tillatelse)`,
     },
     {
+      id: 'kroppsoving-vg1-7-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-5-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Når trenger du fiskekort?',
+        solution: 'I ferskvann (innsjøer og elver) kreves ofte fiskekort. I saltvann er det fritt fiske for alle.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-5-warning-1',
       type: 'warning',
       title: 'Giftige sopper',
@@ -1587,6 +1589,32 @@ Allemannsretten gir deg rett til å plukke bær i utmark.`,
 - Gul fluesopp har lameller og hvite rester på hatten
 
 **Konklusjon:** Hvis soppen har årer (ikke lameller), er egg-gul, lukter fruktig og har fast kjøtt, er det sannsynligvis kantarell. Men ved tvil - kast den!`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-5-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er den viktigste regelen ved soppsanking?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig svar.',
+            solution: 'Ved tvil, kast den - spis aldri sopp du er usikker på',
+            multipleChoiceOptions: [
+              'Ved tvil, kast den - spis aldri sopp du er usikker på',
+              'Plukk mest mulig',
+              'All sopp er spiselig hvis du koker den',
+              'Smak på soppen for å sjekke',
+            ],
+          },
+        ],
+        solution: 'Den viktigste regelen er å aldri spise sopp du ikke er 100% sikker på. Noen giftige sopper kan være dødelige.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-5-example-2',
@@ -1698,58 +1726,7 @@ Ved å høste ansvarlig sikrer vi at naturen kan brukes også i fremtiden!`,
       title: 'Beste tid for høstaktiviteter',
       content: `September er ofte den beste måneden for kombinert bær- og soppsanking. Tyttebær modnes i august-september, mens de fleste matsopper dukker opp fra slutten av august når det kommer mer regn. Fiske er bra gjennom hele høsten, men husk at noen arter (som ørret i elver) har gytefred fra september/oktober.`,
     },
-    {
-          id: 'kroppsoving-vg1-7-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Nevn tre trygge matsopper for nybegynnere.',
-        solution: 'Kantarell, steinsopp og traktkantarell er gode valg for nybegynnere fordi de er lette å kjenne igjen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er den viktigste regelen ved soppsanking?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig svar.',
-            solution: 'Ved tvil, kast den - spis aldri sopp du er usikker på',
-            multipleChoiceOptions: [
-              'Ved tvil, kast den - spis aldri sopp du er usikker på',
-              'Plukk mest mulig',
-              'All sopp er spiselig hvis du koker den',
-              'Smak på soppen for å sjekke',
-            ],
-          },
-        ],
-        solution: 'Den viktigste regelen er å aldri spise sopp du ikke er 100% sikker på. Noen giftige sopper kan være dødelige.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Når trenger du fiskekort?',
-        solution: 'I ferskvann (innsjøer og elver) kreves ofte fiskekort. I saltvann er det fritt fiske for alle.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-5-ex-4',
       type: 'exercise',
@@ -1807,6 +1784,32 @@ export const CHAPTER_KROPPSOVING_VG1_7_6: TextbookChapter = {
 - Rydd opp etter deg`,
     },
     {
+      id: 'kroppsoving-vg1-7-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Når gjelder det generelle bålforbudet?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig periode.',
+            solution: '15. april - 15. september',
+            multipleChoiceOptions: [
+              '15. april - 15. september',
+              'Hele året',
+              'Bare i juli',
+              '1. mai - 1. august',
+            ],
+          },
+        ],
+        solution: 'Det generelle bålforbudet gjelder fra 15. april til 15. september i eller nær skog og utmark.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-6-def-2',
       type: 'definition',
       title: 'Båltyper',
@@ -1815,6 +1818,32 @@ export const CHAPTER_KROPPSOVING_VG1_7_6: TextbookChapter = {
 **Stjernebål:** Økonomisk med ved, lett å regulere
 **Kokebål:** Lavt, stabilt, godt for matlaging
 **Varmebål:** Langved som reflekterer varme`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-6-ex-5',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilken båltype er best til matlaging?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig svar.',
+            solution: 'Kokebål - lavt og stabilt',
+            multipleChoiceOptions: [
+              'Kokebål - lavt og stabilt',
+              'Pyramidebål - høy flamme',
+              'Varmebål - reflekterer varme',
+              'Stjernebål - store flammer',
+            ],
+          },
+        ],
+        solution: 'Kokebålet er lavt og stabilt, perfekt for å sette kokekar på. Flammen er jevn og du har god kontroll.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-6-text-1',
@@ -1832,6 +1861,19 @@ export const CHAPTER_KROPPSOVING_VG1_7_6: TextbookChapter = {
 - Grøt, nudler, supper
 - Pølser, pinnbrød
 - Te, kakao, kaffe`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Planlegg en enkel meny for en overnattingstur.',
+        solution: 'Eksempel: Middag: Turgryte med kjøttdeig og pasta. Kveldsmat: Pinnbrød og kakao. Frokost: Grøt med rosiner. Niste: Brød, frukt, sjokolade.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-6-text-2',
@@ -1867,6 +1909,19 @@ export const CHAPTER_KROPPSOVING_VG1_7_6: TextbookChapter = {
 - Reservetennkilde (magnesium/flintstein)`,
     },
     {
+      id: 'kroppsoving-vg1-7-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-6-ex-2',
+        number: '4',
+        type: 'classic',
+        task: 'Hva trenger du for å tenne bål?',
+        solution: 'Opptenningsmateriell (never, kvae, tørr småkvist), fyrstikker/lighter, tørr ved i ulike størrelser.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-6-def-4',
       type: 'definition',
       title: 'Telttyper og overnatting',
@@ -1893,6 +1948,19 @@ export const CHAPTER_KROPPSOVING_VG1_7_6: TextbookChapter = {
 **Bivy/lakenpose:**
 - Ultralett nødovernatting
 - Kun for stabile forhold`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-6-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-6-ex-6',
+        number: '5',
+        type: 'classic',
+        task: 'Sammenlign fordeler og ulemper med telt, hammock og gapahuk som overnattingsalternativer.',
+        solution: 'Telt: Beskytter mot vær og insekter, krever plass å sette opp. Hammock: Lett, kommer unna bakken, trenger trær og tåler kulde dårligere. Gapahuk: Ferdig konstruksjon, åpen foran, ofte ved populære turområder, kan være fullt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-6-example-1',
@@ -1981,106 +2049,16 @@ Gruppen ankom gapahuken kl. 15. Emilie hjalp til med vedhugging mens andre hente
 
 **Tips:** Test utstyret hjemme først - sov i hagen eller på terrassen!`,
     },
-    {
-      id: 'kroppsoving-vg1-7-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Når gjelder det generelle bålforbudet?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig periode.',
-            solution: '15. april - 15. september',
-            multipleChoiceOptions: [
-              '15. april - 15. september',
-              'Hele året',
-              'Bare i juli',
-              '1. mai - 1. august',
-            ],
-          },
-        ],
-        solution: 'Det generelle bålforbudet gjelder fra 15. april til 15. september i eller nær skog og utmark.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva trenger du for å tenne bål?',
-        solution: 'Opptenningsmateriell (never, kvae, tørr småkvist), fyrstikker/lighter, tørr ved i ulike størrelser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Planlegg en enkel meny for en overnattingstur.',
-        solution: 'Eksempel: Middag: Turgryte med kjøttdeig og pasta. Kveldsmat: Pinnbrød og kakao. Frokost: Grøt med rosiner. Niste: Brød, frukt, sjokolade.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-6-ex-4',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-7-6-ex-4',
-        number: '4',
+        number: '6',
         type: 'classic',
         task: 'PRAKTISK OPPGAVE: Lag bål og kok mat ute (med tillatelse og utenfor bålforbud-perioden). Øv på å tenne bål, vedlikeholde det, og lage enkel mat. Slukk bålet helt før dere forlater stedet. Dokumenter med bilder.',
         solution: 'Rapporten bør inneholde: Hvor og når (sjekk bålforbud), hvordan bålet ble tent, hva som ble laget, utfordringer, og hvordan bålet ble slukket. Bilder av prosessen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-6-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-6-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvilken båltype er best til matlaging?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig svar.',
-            solution: 'Kokebål - lavt og stabilt',
-            multipleChoiceOptions: [
-              'Kokebål - lavt og stabilt',
-              'Pyramidebål - høy flamme',
-              'Varmebål - reflekterer varme',
-              'Stjernebål - store flammer',
-            ],
-          },
-        ],
-        solution: 'Kokebålet er lavt og stabilt, perfekt for å sette kokekar på. Flammen er jevn og du har god kontroll.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-6-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-6-ex-6',
-        number: '6',
-        type: 'classic',
-        task: 'Sammenlign fordeler og ulemper med telt, hammock og gapahuk som overnattingsalternativer.',
-        solution: 'Telt: Beskytter mot vær og insekter, krever plass å sette opp. Hammock: Lett, kommer unna bakken, trenger trær og tåler kulde dårligere. Gapahuk: Ferdig konstruksjon, åpen foran, ofte ved populære turområder, kan være fullt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2092,7 +2070,7 @@ Gruppen ankom gapahuken kl. 15. Emilie hjalp til med vedhugging mens andre hente
         id: 'kroppsoving-vg1-7-6-ex-7',
         number: '7',
         type: 'classic',
-        task: 'GRUPPEOPPGAVE: Planlegg menyen for en overnattingstur for 4 personer. Inkluder middag, kveldsmat, frokost og lunsj neste dag. Tenk på: vekt, holdbarhet, næringsverdi, og hvor enkelt det er å lage.',
+        task: 'GRUPPEOPPGAVE: Planlegg menyen for en overnattingstur for 4 personer. Inkluder middag, kveldsmat, frokost og lunsj neste dag. Tenk på vekt, holdbarhet, næringsverdi, og hvor enkelt det er å lage.',
         solution: 'Eksempel: Middag - Pasta med kjøttsaus (tørket). Kveldsmat - Pinnbrød og kakao. Frokost - Havregrøt med rosiner. Lunsj - Knekkebrød med leverpostei, frukt. Menyvalg bør begrunnes med vekt/holdbarhet/næring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -2138,6 +2116,19 @@ Med økt friluftslivsaktivitet blir det viktigere å ferdes sporløst og ta vare
 7. Vis hensyn til andre besøkende`,
     },
     {
+      id: 'kroppsoving-vg1-7-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva betyr sporløs ferdsel?',
+        solution: 'Å ferdes i naturen uten å etterlate synlige spor - ta med søppel, bruk etablerte stier, respekter naturen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-7-def-2',
       type: 'definition',
       title: 'Allemannsretten',
@@ -2153,6 +2144,58 @@ Med økt friluftslivsaktivitet blir det viktigere å ferdes sporløst og ta vare
 - Rydd opp etter deg
 - Respekter bålforbudet
 - Lukk grinder, unngå å skade`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva gir allemannsretten deg lov til?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig svar.',
+            solution: 'Ferdes i utmark, raste, plukke bær og sopp',
+            multipleChoiceOptions: [
+              'Ferdes i utmark, raste, plukke bær og sopp',
+              'Gjøre hva du vil i naturen',
+              'Telte rett ved hytter',
+              'Hugge trær',
+            ],
+          },
+        ],
+        solution: 'Allemannsretten gir rett til ferdsel, rasting og overnatting i utmark, samt plukking av bær, sopp og blomster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-7-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-7-ex-4',
+        number: '3',
+        type: 'classic',
+        task: 'Hvilke av disse er tillatt ifølge allemannsretten?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg alle som gjelder.',
+            solution: 'Telte mer enn 150m fra hus, plukke bær og sopp',
+            multipleChoiceOptions: [
+              'Telte mer enn 150m fra hus, plukke bær og sopp',
+              'Hogge ned trær til brensel',
+              'Telte i noens hage',
+              'Kjøre ATV i utmark',
+            ],
+          },
+        ],
+        solution: 'Allemannsretten gir rett til ferdsel til fots, overnatting (minst 150m fra bebodde hus, maks 2 netter på samme sted uten tillatelse), og plukking av ville bær, sopp og blomster.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-7-def-3',
@@ -2268,6 +2311,19 @@ Med økt friluftslivsaktivitet blir det viktigere å ferdes sporløst og ta vare
 **Læring:** Selv om allemannsretten gir oss fri ferdsel, har vi et felles ansvar for å ta vare på naturen slik at den tåler bruken.`,
     },
     {
+      id: 'kroppsoving-vg1-7-7-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-7-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hvorfor slitasje på populære turmål er et problem, og gi tre konkrete forslag til hvordan problemet kan reduseres.',
+        solution: 'Slitasje ødelegger vegetasjon, forstyrrer dyreliv, og reduserer naturopplevelsen. Tiltak: 1) Velge mindre populære alternativer, 2) Gå utenfor høysesong, 3) Holde seg på merkede stier, 4) Bygge robuste stier som tåler trafikken.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-7-tip-1',
       type: 'tip',
       title: 'De 7 prinsippene i praksis',
@@ -2293,93 +2349,16 @@ Med økt friluftslivsaktivitet blir det viktigere å ferdes sporløst og ta vare
 
 I verneområder og over tregrensen kan reglene være strengere - sjekk på forhånd!`,
     },
-    {
-      id: 'kroppsoving-vg1-7-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva betyr sporløs ferdsel?',
-        solution: 'Å ferdes i naturen uten å etterlate synlige spor - ta med søppel, bruk etablerte stier, respekter naturen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva gir allemannsretten deg lov til?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig svar.',
-            solution: 'Ferdes i utmark, raste, plukke bær og sopp',
-            multipleChoiceOptions: [
-              'Ferdes i utmark, raste, plukke bær og sopp',
-              'Gjøre hva du vil i naturen',
-              'Telte rett ved hytter',
-              'Hugge trær',
-            ],
-          },
-        ],
-        solution: 'Allemannsretten gir rett til ferdsel, rasting og overnatting i utmark, samt plukking av bær, sopp og blomster.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-7-ex-3',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-7-7-ex-3',
-        number: '3',
+        number: '5',
         type: 'classic',
         task: 'PRAKTISK OPPGAVE: Gjennomfør en tur hvor du aktivt praktiserer sporløs ferdsel. Planlegg på forhånd hvordan du skal unngå å etterlate spor. Dokumenter med bilder "før og etter" (rasteplass før dere kom, og etter dere har ryddet).',
         solution: 'Rapporten bør vise: Planlegging (hva tok dere med for å unngå søppel), dokumentasjon av sporløs praksis, refleksjon over hvor vanskelig/lett det var, og forslag til forbedring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-7-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-7-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilke av disse er tillatt ifølge allemannsretten?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg alle som gjelder.',
-            solution: 'Telte mer enn 150m fra hus, plukke bær og sopp',
-            multipleChoiceOptions: [
-              'Telte mer enn 150m fra hus, plukke bær og sopp',
-              'Hogge ned trær til brensel',
-              'Telte i noens hage',
-              'Kjøre ATV i utmark',
-            ],
-          },
-        ],
-        solution: 'Allemannsretten gir rett til ferdsel til fots, overnatting (minst 150m fra bebodde hus, maks 2 netter på samme sted uten tillatelse), og plukking av ville bær, sopp og blomster.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-7-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-7-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Forklar hvorfor slitasje på populære turmål er et problem, og gi tre konkrete forslag til hvordan problemet kan reduseres.',
-        solution: 'Slitasje ødelegger vegetasjon, forstyrrer dyreliv, og reduserer naturopplevelsen. Tiltak: 1) Velge mindre populære alternativer, 2) Gå utenfor høysesong, 3) Holde seg på merkede stier, 4) Bygge robuste stier som tåler trafikken.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -2404,7 +2383,7 @@ I verneområder og over tregrensen kan reglene være strengere - sjekk på forh�
         id: 'kroppsoving-vg1-7-7-ex-7',
         number: '7',
         type: 'classic',
-        task: 'PRAKTISK OPPGAVE: Organiser en "plogging"-tur (plukke søppel + jogging/gåing). Gå en rute i nærområdet og samle søppel dere finner. Dokumenter hva dere fant og hvor.',
+        task: 'PRAKTISK OPPGAVE: Organiser en plogging-tur (plukke søppel + jogging/gåing). Gå en rute i nærområdet og samle søppel dere finner. Dokumenter hva dere fant og hvor.',
         solution: 'Rapporten bør inneholde: Rute (kart/beskrivelse), hva slags søppel som ble funnet, mengde (antall poser/kg), refleksjon over hvor søppelet kom fra og hvordan problemet kan reduseres.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
@@ -2457,6 +2436,32 @@ Norge har rike og varierte friluftslivstradisjoner som varierer fra kyst til fje
 - **Ressursforvaltning:** Bærekraftig høsting, hviletider
 
 Denne kunnskapen er ofte stedsbasert og tilpasset lokale forhold.`,
+    },
+    {
+      id: 'kroppsoving-vg1-7-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-8-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er tradisjonell økologisk kunnskap (TEK)?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse.',
+            solution: 'Erfaringsbasert kunnskap om naturen overført gjennom generasjoner',
+            multipleChoiceOptions: [
+              'Erfaringsbasert kunnskap om naturen overført gjennom generasjoner',
+              'Teknologi for å måle natur',
+              'Moderne naturvitenskap',
+              'Kunnskap fra bøker',
+            ],
+          },
+        ],
+        solution: 'TEK er tradisjonell kunnskap om natur, vær, dyr og planter som er bygget opp over lange tidsrom.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-7-8-def-2',
@@ -2628,6 +2633,39 @@ Selv urbane områder har rike friluftslivstradisjoner:
   - Bynært skøyting`,
     },
     {
+      id: 'kroppsoving-vg1-7-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-8-ex-1',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke tradisjoner hører til i din del av landet?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Er du fra kystområdet, fjellbygd, innland eller by? Nevn en tradisjon derfra.',
+            solution: 'Svar varierer etter lokasjon. Eksempler: Kyst=fiske/roing, Fjell=seter/jakt, Innland=skog/fløting, By=nærtur til marka.',
+          },
+        ],
+        solution: 'Svaret vil variere med elevens hjemsted. Viktig å identifisere lokale tradisjoner og forstå deres opprinnelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-7-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-7-8-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvorfor er det viktig å ta vare på lokale friluftslivstradisjoner?',
+        solution: 'De representerer kulturarv og kunnskap, gir identitet og tilhørighet, inneholder verdifull kunnskap om bærekraftig bruk av naturen, og gir meningsfull kobling til tidligere generasjoner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-7-8-example-1',
       type: 'example',
       title: 'Eksempel: Seterbesøk i Valdres',
@@ -2723,65 +2761,7 @@ Guiden fortalte om samiske tradisjoner for laksefiske og hvordan dette har vært
 
 Mange steder har også digitale arkiver med bilder og dokumenter fra tidligere tider.`,
     },
-    {
-      id: 'kroppsoving-vg1-7-8-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-8-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvilke tradisjoner hører til i din del av landet?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Er du fra kystområdet, fjellbygd, innland eller by? Nevn en tradisjon derfra.',
-            solution: 'Svar varierer etter lokasjon. Eksempler: Kyst=fiske/roing, Fjell=seter/jakt, Innland=skog/fløting, By=nærtur til marka.',
-          },
-        ],
-        solution: 'Svaret vil variere med elevens hjemsted. Viktig å identifisere lokale tradisjoner og forstå deres opprinnelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-8-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er tradisjonell økologisk kunnskap (TEK)?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse.',
-            solution: 'Erfaringsbasert kunnskap om naturen overført gjennom generasjoner',
-            multipleChoiceOptions: [
-              'Erfaringsbasert kunnskap om naturen overført gjennom generasjoner',
-              'Teknologi for å måle natur',
-              'Moderne naturvitenskap',
-              'Kunnskap fra bøker',
-            ],
-          },
-        ],
-        solution: 'TEK er tradisjonell kunnskap om natur, vær, dyr og planter som er bygget opp over lange tidsrom.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-7-8-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-7-8-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvorfor er det viktig å ta vare på lokale friluftslivstradisjoner?',
-        solution: 'De representerer kulturarv og kunnskap, gir identitet og tilhørighet, inneholder verdifull kunnskap om bærekraftig bruk av naturen, og gir meningsfull kobling til tidligere generasjoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-7-8-ex-4',
       type: 'exercise',
@@ -2865,6 +2845,19 @@ Regelmessig fysisk aktivitet er en av de viktigste faktorene for god helse. Det 
 - Økt konsentrasjon`,
     },
     {
+      id: 'kroppsoving-vg1-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-1-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn tre helsegevinster av regelmessig fysisk aktivitet.',
+        solution: 'Sterkere hjerte, bedre humør, lavere sykdomsrisiko, bedre søvn, sterkere muskler, mindre stress.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-1-def-2',
       type: 'definition',
       title: 'Anbefalinger for fysisk aktivitet',
@@ -2876,6 +2869,32 @@ Regelmessig fysisk aktivitet er en av de viktigste faktorene for god helse. Det 
 **Voksne:**
 - Minst 150 min moderat ELLER 75 min høy intensitet per uke
 - Styrketrening 2+ ganger per uke`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-1-ex-1',
+        number: '2',
+        type: 'classic',
+        task: 'Hvor mye fysisk aktivitet anbefales for ungdom daglig?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig anbefaling.',
+            solution: 'Minst 60 minutter med moderat til høy intensitet',
+            multipleChoiceOptions: [
+              'Minst 60 minutter med moderat til høy intensitet',
+              '30 minutter',
+              '2 timer',
+              '15 minutter',
+            ],
+          },
+        ],
+        solution: 'Ungdom anbefales minst 60 minutter daglig fysisk aktivitet med moderat til høy intensitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-1-text-1',
@@ -2926,6 +2945,19 @@ Regelmessig fysisk aktivitet er en av de viktigste faktorene for god helse. Det 
 - Vanskelig å snakke i hele setninger
 - Svett og andpusten
 - Eksempel: Løping, intervalltrening, intens lagidrett`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-1-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom moderat og høy intensitet ved fysisk aktivitet.',
+        solution: 'Moderat intensitet: Kan snakke under aktiviteten, raskere puls. Eksempel: rask gange. Høy intensitet: Vanskelig å snakke, andpusten og svett. Eksempel: løping, intervalltrening.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-1-tip-1',
@@ -2982,6 +3014,31 @@ Leddenes bevegelseområde. God bevegelighet gir:
 **Hvordan forbedre:** Intervalltrening, langvarig trening med moderat til høy intensitet, variert trening.`,
     },
     {
+      id: 'kroppsoving-vg1-8-1-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-1-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er VO2max og hvorfor er det viktig for helsen?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Definer VO2max.',
+            solution: 'VO2max er maksimalt oksygenopptak - et mål på kroppens evne til å ta opp og bruke oksygen under trening.',
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er høy VO2max bra for helsen?',
+            solution: 'Høy VO2max indikerer god kondisjonsform, som gir bedre utholdenhet, lavere risiko for hjertesykdom og bedre generell helse.',
+          },
+        ],
+        solution: 'VO2max måler maksimalt oksygenopptak og er den beste indikatoren på kondisjonsform. Høy VO2max gir bedre helse og lavere sykdomsrisiko.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-1-warning-1',
       type: 'warning',
       title: 'Overtrening',
@@ -3032,6 +3089,19 @@ Du trenger ikke alltid organisert trening - hverdagsaktivitet bidrar også:
 **10 000 skritt om dagen** er et godt mål - bruk mobil eller klokke for å telle!`,
     },
     {
+      id: 'kroppsoving-vg1-8-1-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-1-ex-6',
+        number: '5',
+        type: 'classic',
+        task: 'Hvordan kan du redusere stillesitting i hverdagen? Gi minst fem konkrete eksempler.',
+        solution: 'Eksempler: Gå/sykle til skolen, ta trappene, stå i stedet for å sitte, gå i friminutt, pause fra skjerm hver time, lek og aktivitet, gå korte ærender til fots.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-1-tip-2',
       type: 'tip',
       title: 'Motivasjon og glede',
@@ -3044,105 +3114,16 @@ Du trenger ikke alltid organisert trening - hverdagsaktivitet bidrar også:
 - Prøv nye aktiviteter og idretter
 - Husk: Noe aktivitet er alltid bedre enn ingen!`,
     },
-    {
-      id: 'kroppsoving-vg1-8-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvor mye fysisk aktivitet anbefales for ungdom daglig?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig anbefaling.',
-            solution: 'Minst 60 minutter med moderat til høy intensitet',
-            multipleChoiceOptions: [
-              'Minst 60 minutter med moderat til høy intensitet',
-              '30 minutter',
-              '2 timer',
-              '15 minutter',
-            ],
-          },
-        ],
-        solution: 'Ungdom anbefales minst 60 minutter daglig fysisk aktivitet med moderat til høy intensitet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre helsegevinster av regelmessig fysisk aktivitet.',
-        solution: 'Sterkere hjerte, bedre humør, lavere sykdomsrisiko, bedre søvn, sterkere muskler, mindre stress.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-1-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom moderat og høy intensitet ved fysisk aktivitet.',
-        solution: 'Moderat intensitet: Kan snakke under aktiviteten, raskere puls. Eksempel: rask gange. Høy intensitet: Vanskelig å snakke, andpusten og svett. Eksempel: løping, intervalltrening.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-1-exercise4',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-8-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Lag en personlig treningsplan for én uke som oppfyller anbefalingene for ungdom.',
-        solution: 'Planen bør inkludere minst 60 minutter aktivitet daglig med variert intensitet, styrketrening 2-3 ganger, og variasjon i aktiviteter. Eksempel: mandag løping, tirsdag styrke, onsdag lagidrett osv.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-1-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-1-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er VO2max og hvorfor er det viktig for helsen?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Definer VO2max.',
-            solution: 'VO2max er maksimalt oksygenopptak - et mål på kroppens evne til å ta opp og bruke oksygen under trening.',
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er høy VO2max bra for helsen?',
-            solution: 'Høy VO2max indikerer god kondisjonsform, som gir bedre utholdenhet, lavere risiko for hjertesykdom og bedre generell helse.',
-          },
-        ],
-        solution: 'VO2max måler maksimalt oksygenopptak og er den beste indikatoren på kondisjonsform. Høy VO2max gir bedre helse og lavere sykdomsrisiko.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-1-exercise6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-1-ex-6',
         number: '6',
         type: 'classic',
-        task: 'Hvordan kan du redusere stillesitting i hverdagen? Gi minst fem konkrete eksempler.',
-        solution: 'Eksempler: Gå/sykle til skolen, ta trappene, stå i stedet for å sitte, gå i friminutt, pause fra skjerm hver time, lek og aktivitet, gå korte ærender til fots.',
+        task: 'Lag en personlig treningsplan for en uke som oppfyller anbefalingene for ungdom.',
+        solution: 'Planen bør inkludere minst 60 minutter aktivitet daglig med variert intensitet, styrketrening 2-3 ganger, og variasjon i aktiviteter. Eksempel: mandag løping, tirsdag styrke, onsdag lagidrett osv.',
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -3190,6 +3171,32 @@ Livsstilssykdommer er sykdommer som i stor grad skyldes livsstilsvalg som kostho
 - Øker risiko for andre sykdommer`,
     },
     {
+      id: 'kroppsoving-vg1-8-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er en livsstilssykdom?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig definisjon.',
+            solution: 'Sykdom som i stor grad skyldes livsstilsvalg som kosthold og aktivitet',
+            multipleChoiceOptions: [
+              'Sykdom som i stor grad skyldes livsstilsvalg som kosthold og aktivitet',
+              'En smittsom sykdom',
+              'En arvelig sykdom',
+              'En sykdom man får av trening',
+            ],
+          },
+        ],
+        solution: 'Livsstilssykdommer er sykdommer som i stor grad kan forebygges eller påvirkes av livsstilsvalg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-2-text-1',
       type: 'text',
       content: `## Forebygging gjennom livsstil
@@ -3201,6 +3208,19 @@ Livsstilssykdommer er sykdommer som i stor grad skyldes livsstilsvalg som kostho
 4. **Stressmestring:** Balanse i hverdagen
 
 Små endringer kan gi store helsegevinster over tid!`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvordan kan du forebygge hjerte- og karsykdommer?',
+        solution: 'Regelmessig fysisk aktivitet, sunt kosthold, unngå røyking, normalvekt, stressmestring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-2-def-2',
@@ -3245,6 +3265,19 @@ Små endringer kan gi store helsegevinster over tid!`,
 - Føler seg mye bedre både fysisk og psykisk`,
     },
     {
+      id: 'kroppsoving-vg1-8-2-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er metabolsk syndrom og hvorfor er det farlig?',
+        solution: 'Metabolsk syndrom er når flere risikofaktorer opptrer samtidig (høyt blodtrykk, høyt blodsukker, stor mageomkrets, ugunstige kolesterolverdier). Det gir betydelig økt risiko for hjertesykdom, hjerneslag og diabetes.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-2-def-3',
       type: 'definition',
       title: 'BMI - Body Mass Index',
@@ -3261,6 +3294,31 @@ Små endringer kan gi store helsegevinster over tid!`,
 - Idrettsutøvere med muskelmasse kan få høy BMI
 - Bedre å måle mageomkrets og kondisjonsform
 - For ungdom brukes vekstkurver tilpasset alder`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-2-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beregn din egen BMI og forklar hva tallet betyr.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beregn BMI: Vekt (kg) / Høyde (m)²',
+            solution: 'Eksempel: 70 kg / (1,75 m)² = 70 / 3,06 = 22,9',
+          },
+          {
+            label: 'b',
+            task: 'Hva betyr resultatet?',
+            solution: 'BMI 22,9 er normalvekt (18,5-24,9). Husk at BMI har begrensninger - kondisjonsform og mageomkrets er også viktige mål.',
+          },
+        ],
+        solution: 'BMI = Vekt/Høyde². For ungdom brukes vekstkurver. BMI alene forteller ikke hele historien - muskel veier mer enn fett.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-2-text-2',
@@ -3307,6 +3365,19 @@ Små endringer kan gi store helsegevinster over tid!`,
 - Hovne ben
 
 **Tidlig oppdagelse og behandling er viktig!**`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-2-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Nevn fire livsstilsfaktorer som øker risikoen for kreft, og forklar hvordan man kan redusere denne risikoen.',
+        solution: 'Røyking, alkohol, inaktivitet og overvekt øker kreftrisiko. Redusere risiko ved: Ikke røyke, begrense alkohol, være fysisk aktiv, holde normalvekt, spise sunt (mye frukt, grønt, fiber).',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-2-example-2',
@@ -3375,96 +3446,7 @@ Livsstilssykdommer koster det norske samfunnet milliarder årlig:
 - Byplanlegging: Gang- og sykkelveier, grøntområder
 - Avgifter på usunn mat, støtte til sunn mat`,
     },
-    {
-      id: 'kroppsoving-vg1-8-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er en livsstilssykdom?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig definisjon.',
-            solution: 'Sykdom som i stor grad skyldes livsstilsvalg som kosthold og aktivitet',
-            multipleChoiceOptions: [
-              'Sykdom som i stor grad skyldes livsstilsvalg som kosthold og aktivitet',
-              'En smittsom sykdom',
-              'En arvelig sykdom',
-              'En sykdom man får av trening',
-            ],
-          },
-        ],
-        solution: 'Livsstilssykdommer er sykdommer som i stor grad kan forebygges eller påvirkes av livsstilsvalg.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvordan kan du forebygge hjerte- og karsykdommer?',
-        solution: 'Regelmessig fysisk aktivitet, sunt kosthold, unngå røyking, normalvekt, stressmestring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-2-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er metabolsk syndrom og hvorfor er det farlig?',
-        solution: 'Metabolsk syndrom er når flere risikofaktorer opptrer samtidig (høyt blodtrykk, høyt blodsukker, stor mageomkrets, ugunstige kolesterolverdier). Det gir betydelig økt risiko for hjertesykdom, hjerneslag og diabetes.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-2-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Beregn din egen BMI og forklar hva tallet betyr.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Beregn BMI: Vekt (kg) / Høyde (m)²',
-            solution: 'Eksempel: 70 kg / (1,75 m)² = 70 / 3,06 = 22,9',
-          },
-          {
-            label: 'b',
-            task: 'Hva betyr resultatet?',
-            solution: 'BMI 22,9 er normalvekt (18,5-24,9). Husk at BMI har begrensninger - kondisjonsform og mageomkrets er også viktige mål.',
-          },
-        ],
-        solution: 'BMI = Vekt/Høyde². For ungdom brukes vekstkurver. BMI alene forteller ikke hele historien - muskel veier mer enn fett.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-2-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-2-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Nevn fire livsstilsfaktorer som øker risikoen for kreft, og forklar hvordan man kan redusere denne risikoen.',
-        solution: 'Røyking, alkohol, inaktivitet og overvekt øker kreftrisiko. Redusere risiko ved: Ikke røyke, begrense alkohol, være fysisk aktiv, holde normalvekt, spise sunt (mye frukt, grønt, fiber).',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-2-exercise6',
       type: 'exercise',
@@ -3474,6 +3456,19 @@ Livsstilssykdommer koster det norske samfunnet milliarder årlig:
         type: 'classic',
         task: 'Lag en plan for hvordan din familie kan redusere risikoen for livsstilssykdommer. Inkluder kosthold, aktivitet og andre faktorer.',
         solution: 'Eksempel: Felles familieaktiviteter (sykkelturer, turgåing), sunnere måltider (mer grønnsaker, grove kornprodukter), redusere brus/godteri, fast søvnrutine, mindre skjermtid, gå/sykle mer i hverdagen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-2-exercise7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-2-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Drøft hvorfor livsstilssykdommer er et samfunnsproblem, ikke bare et individuelt problem.',
+        solution: 'Livsstilssykdommer koster samfunnet milliarder i behandling, sykefravær og uførhet. Det påvirker arbeidsliv og produktivitet. Forebygging gjennom skoler, arbeidsplasser og byplanlegging er fellesskapets ansvar. Når mange er syke, belastes helsevesenet og økonomien.',
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -3517,6 +3512,32 @@ Fysisk aktivitet har dokumentert positiv effekt på psykisk helse. Bevegelse kan
 "Runner's high" skyldes delvis endorfinfrigjøring.`,
     },
     {
+      id: 'kroppsoving-vg1-8-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er endorfiner?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse.',
+            solution: 'Kroppens naturlige lykkehormoner som frigjøres ved aktivitet',
+            multipleChoiceOptions: [
+              'Kroppens naturlige lykkehormoner som frigjøres ved aktivitet',
+              'Et kosttilskudd',
+              'Stresshormoner',
+              'Muskelvev',
+            ],
+          },
+        ],
+        solution: 'Endorfiner er hormoner som frigjøres ved fysisk aktivitet og gir følelse av velvære.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-3-def-2',
       type: 'definition',
       title: 'Flyt (flow)',
@@ -3527,6 +3548,19 @@ Fysisk aktivitet har dokumentert positiv effekt på psykisk helse. Bevegelse kan
 - Balanse mellom utfordring og ferdighet
 
 Flyt oppstår ofte i sport, dans, lek og kreative aktiviteter.`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv flyt-tilstanden og når du har opplevd den.',
+        solution: 'Flyt er å være fullstendig oppslukt i en aktivitet, med full konsentrasjon og balanse mellom utfordring og ferdighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-3-text-1',
@@ -3547,6 +3581,19 @@ Flyt oppstår ofte i sport, dans, lek og kreative aktiviteter.`,
 - Ikke fokuser bare på prestasjon`,
     },
     {
+      id: 'kroppsoving-vg1-8-3-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hvordan fysisk aktivitet kan hjelpe mot stress og angst.',
+        solution: 'Fysisk aktivitet reduserer stresshormoner (kortisol), øker lykkehormoner (endorfiner, serotonin), gir pause fra bekymringer, forbedrer søvn og styrker selvfølelse.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-3-def-3',
       type: 'definition',
       title: 'Serotonin og dopamin',
@@ -3562,6 +3609,31 @@ Flyt oppstår ofte i sport, dans, lek og kreative aktiviteter.`,
 - Viktig for konsentrasjon og læring
 
 **Fysisk aktivitet øker produksjonen av begge!**`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-3-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom serotonin og dopamin, og hvordan påvirker fysisk aktivitet disse hormonene?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beskriv serotonin og dets funksjon.',
+            solution: 'Serotonin regulerer humør, søvn og appetitt. Lav serotonin kan gi depresjon. Økes ved aktivitet.',
+          },
+          {
+            label: 'b',
+            task: 'Beskriv dopamin og dets funksjon.',
+            solution: 'Dopamin er "belønningshormonet" som gir glede og motivasjon. Frigjøres når vi mestrer noe eller når mål.',
+          },
+        ],
+        solution: 'Begge er "lykkehormoner" som økes ved fysisk aktivitet. Serotonin regulerer humør og søvn, mens dopamin gir følelse av glede og motivasjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-3-example-1',
@@ -3701,83 +3773,7 @@ Flyt oppstår ofte i sport, dans, lek og kreative aktiviteter.`,
 
 **Gleden over bevegelse er den sterkeste motivatoren for et aktivt liv!**`,
     },
-    {
-      id: 'kroppsoving-vg1-8-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er endorfiner?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse.',
-            solution: 'Kroppens naturlige lykkehormoner som frigjøres ved aktivitet',
-            multipleChoiceOptions: [
-              'Kroppens naturlige lykkehormoner som frigjøres ved aktivitet',
-              'Et kosttilskudd',
-              'Stresshormoner',
-              'Muskelvev',
-            ],
-          },
-        ],
-        solution: 'Endorfiner er hormoner som frigjøres ved fysisk aktivitet og gir følelse av velvære.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv flyt-tilstanden og når du har opplevd den.',
-        solution: 'Flyt er å være fullstendig oppslukt i en aktivitet, med full konsentrasjon og balanse mellom utfordring og ferdighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-3-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar hvordan fysisk aktivitet kan hjelpe mot stress og angst.',
-        solution: 'Fysisk aktivitet reduserer stresshormoner (kortisol), øker lykkehormoner (endorfiner, serotonin), gir pause fra bekymringer, forbedrer søvn og styrker selvfølelse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-3-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom serotonin og dopamin, og hvordan påvirker fysisk aktivitet disse hormonene?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Beskriv serotonin og dets funksjon.',
-            solution: 'Serotonin regulerer humør, søvn og appetitt. Lav serotonin kan gi depresjon. Økes ved aktivitet.',
-          },
-          {
-            label: 'b',
-            task: 'Beskriv dopamin og dets funksjon.',
-            solution: 'Dopamin er "belønningshormonet" som gir glede og motivasjon. Frigjøres når vi mestrer noe eller når mål.',
-          },
-        ],
-        solution: 'Begge er "lykkehormoner" som økes ved fysisk aktivitet. Serotonin regulerer humør og søvn, mens dopamin gir følelse av glede og motivasjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-3-exercise5',
       type: 'exercise',
@@ -3876,6 +3872,19 @@ Fair play handler om mer enn å følge reglene - det handler om respekt, ærligh
 **Fair play er kjernen i olympisk ånd.**`,
     },
     {
+      id: 'kroppsoving-vg1-8-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er fair play?',
+        solution: 'Fair play er å vise respekt for regler, motstandere og dommere, spille ærlig og vise god sportsånd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-4-example-1',
       type: 'example',
       title: 'Eksempel: Fair play på fotballbanen',
@@ -3894,6 +3903,19 @@ Du blir felt i boksen, men det var ikke straffe - du snublet selv.
 - Reiser deg raskt og signaliserer at det ikke var straffe (Ja!)
 
 **Dette er fair play i praksis!**`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi et eksempel på god sportsånd fra idretten.',
+        solution: 'Eksempler: Hjelpe skadet motstander, innrømme at ballen var ute selv om dommer ikke så det, gratulere vinneren etter tap.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-4-text-2',
@@ -3935,6 +3957,19 @@ Du blir felt i boksen, men det var ikke straffe - du snublet selv.
 **Ærlighet:** Rent spill - ingen doping eller juks - respekt for regler
 
 **Frivillighet:** Bygget på frivillig innsats - medbestemmelse - demokrati`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-4-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar de olympiske verdiene: excellence, friendship og respect.',
+        solution: 'Excellence = gjøre ditt beste, Friendship = bygge broer mellom folk og kulturer, Respect = respekt for seg selv, andre, regler og miljø. Pierre de Coubertin sa at det viktigste er å delta, ikke å vinne.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-4-warning-1',
@@ -4015,45 +4050,7 @@ To løpere, Abbey D'Agostino (USA) og Nikki Hamblin (New Zealand), kolliderte og
 
 **En inkluderende idrett er en bedre idrett for alle!**`,
     },
-    {
-      id: 'kroppsoving-vg1-8-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er fair play?',
-        solution: 'Fair play er å vise respekt for regler, motstandere og dommere, spille ærlig og vise god sportsånd.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi et eksempel på god sportsånd fra idretten.',
-        solution: 'Eksempler: Hjelpe skadet motstander, innrømme at ballen var ute selv om dommer ikke så det, gratulere vinneren etter tap.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-4-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar de olympiske verdiene: excellence, friendship og respect.',
-        solution: 'Excellence = gjøre ditt beste, Friendship = bygge broer mellom folk og kulturer, Respect = respekt for seg selv, andre, regler og miljø. Pierre de Coubertin sa at det viktigste er å delta, ikke å vinne.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-4-exercise4',
       type: 'exercise',
@@ -4158,6 +4155,45 @@ WADA (World Anti-Doping Agency) publiserer årlig oppdatert dopingliste.`,
 Bivirkningene kan være varige eller dødelige.`,
     },
     {
+      id: 'kroppsoving-vg1-8-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvorfor er doping forbudt?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg de viktigste grunnene.',
+            solution: 'Det er helsefarlig, urettferdig og strider mot idrettens verdier',
+            multipleChoiceOptions: [
+              'Det er helsefarlig, urettferdig og strider mot idrettens verdier',
+              'Det er bare ulovlig',
+              'Det virker ikke',
+              'Det er for dyrt',
+            ],
+          },
+        ],
+        solution: 'Doping er forbudt fordi det er helsefarlig, gir urettferdig fordel og undergraver idrettens kjerneverdier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn tre helserisikoer ved bruk av anabole steroider.',
+        solution: 'Leverskader, hjerte- og karsykdommer, psykiske problemer, hormonforstyrrelser, sterilitet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-5-warning-1',
       type: 'warning',
       title: 'Kosttilskudd og doping',
@@ -4203,6 +4239,19 @@ Idrettsutøvere har et forbilledansvar, spesielt overfor barn og unge som ser op
 
 **Terapeutisk dispensasjon (TUE):**
 Utøvere med dokumentert medisinsk behov kan søke om å bruke ellers forbudte medisiner.`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hva WADA er og hvilken rolle organisasjonen har.',
+        solution: 'WADA (World Anti-Doping Agency) er en internasjonal organisasjon som koordinerer kampen mot doping, publiserer dopingliste og utvikler standarder for dopingkontroll.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-5-example-1',
@@ -4378,58 +4427,7 @@ Snakk alltid med lege før du bruker kosttilskudd eller medisiner ved trening.`,
 - Farlig helsepåvirkning på unge
 - Tap av idrettens pedagogiske verdi`,
     },
-    {
-      id: 'kroppsoving-vg1-8-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvorfor er doping forbudt?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg de viktigste grunnene.',
-            solution: 'Det er helsefarlig, urettferdig og strider mot idrettens verdier',
-            multipleChoiceOptions: [
-              'Det er helsefarlig, urettferdig og strider mot idrettens verdier',
-              'Det er bare ulovlig',
-              'Det virker ikke',
-              'Det er for dyrt',
-            ],
-          },
-        ],
-        solution: 'Doping er forbudt fordi det er helsefarlig, gir urettferdig fordel og undergraver idrettens kjerneverdier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn tre helserisikoer ved bruk av anabole steroider.',
-        solution: 'Leverskader, hjerte- og karsykdommer, psykiske problemer, hormonforstyrrelser, sterilitet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar hva WADA er og hvilken rolle organisasjonen har.',
-        solution: 'WADA (World Anti-Doping Agency) er en internasjonal organisasjon som koordinerer kampen mot doping, publiserer dopingliste og utvikler standarder for dopingkontroll.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-5-ex-4',
       type: 'exercise',
@@ -4497,6 +4495,19 @@ Alle skal ha mulighet til å delta og oppleve mestring i kroppsøving, uavhengig
 Det handler om tilpasning, ikke om at alle gjør det samme.`,
     },
     {
+      id: 'kroppsoving-vg1-8-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva betyr inkludering i kroppsøving?',
+        solution: 'At alle kan delta, føle seg velkomne og oppleve mestring, uavhengig av forutsetninger og ferdighetsnivå.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-6-text-1',
       type: 'text',
       content: `## Tilrettelegging
@@ -4541,6 +4552,19 @@ Målet er å fjerne barrierer, ikke å skape spesialløsninger.`,
 - Myke baller som er lettere å kontrollere
 
 **Resultat:** Alle deltar aktivt, og det sosiale aspektet styrkes. Fokus flyttes fra prestasjon til samarbeid og mestring.`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi et eksempel på hvordan du kan bidra til inkludering i kroppsøving.',
+        solution: 'Oppmuntre alle, tilpasse aktiviteter så alle kan delta, unngå å velge lag som ekskluderer noen, gi positive tilbakemeldinger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-6-text-2',
@@ -4630,6 +4654,19 @@ Hvis du opplever ekskludering, snakk med læreren, helsesykepleier eller en voks
 - Bare de beste får anerkjennelse`,
     },
     {
+      id: 'kroppsoving-vg1-8-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen på mestringsklima og prestasjonsklima?',
+        solution: 'Mestringsklima fokuserer på egen utvikling, innsats og samarbeid. Prestasjonsklima fokuserer på å være best, sammenligning med andre, og resultater.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-6-text-3',
       type: 'text',
       content: `## Tilrettelegging i praksis
@@ -4662,45 +4699,7 @@ Hvis du opplever ekskludering, snakk med læreren, helsesykepleier eller en voks
 - Fokus på teknikk, ikke vekt
 - Øvelser som alle kan gjøre`,
     },
-    {
-      id: 'kroppsoving-vg1-8-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva betyr inkludering i kroppsøving?',
-        solution: 'At alle kan delta, føle seg velkomne og oppleve mestring, uavhengig av forutsetninger og ferdighetsnivå.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi et eksempel på hvordan du kan bidra til inkludering i kroppsøving.',
-        solution: 'Oppmuntre alle, tilpasse aktiviteter så alle kan delta, unngå å velge lag som ekskluderer noen, gi positive tilbakemeldinger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forskjellen på mestringsklima og prestasjonsklima?',
-        solution: 'Mestringsklima fokuserer på egen utvikling, innsats og samarbeid. Prestasjonsklima fokuserer på å være best, sammenligning med andre, og resultater.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-6-ex-4',
       type: 'exercise',
@@ -4767,6 +4766,32 @@ Målet med kroppsøving er ikke bare å bli god i idrett, men å finne glede i b
 Indre motivasjon gir mer varig aktivitetsglede enn ytre belønning.`,
     },
     {
+      id: 'kroppsoving-vg1-8-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er indre motivasjon?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse.',
+            solution: 'Motivasjon som kommer fra gleden ved selve aktiviteten',
+            multipleChoiceOptions: [
+              'Motivasjon som kommer fra gleden ved selve aktiviteten',
+              'Motivasjon fra premier og belønninger',
+              'Motivasjon fra andre',
+              'Motivasjon fra press',
+            ],
+          },
+        ],
+        solution: 'Indre motivasjon er å gjøre noe fordi du liker det, ikke for ytre belønning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-8-7-text-1',
       type: 'text',
       content: `## Finne din aktivitet
@@ -4797,6 +4822,19 @@ Indre motivasjon gir mer varig aktivitetsglede enn ytre belønning.`,
 - Plikt og tvang
 
 Ytre motivasjon kan gi kortsiktig effekt, men gir sjelden varig glede og aktivitet.`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er forskjellen på indre og ytre motivasjon? Gi eksempler.',
+        solution: 'Indre motivasjon: Du gjør det fordi du liker det (eks: løpe fordi det er gøy). Ytre motivasjon: Du gjør det for ytre belønning (eks: løpe for å få medalje eller unngå kritikk).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-7-example-1',
@@ -4939,57 +4977,19 @@ Tenk på ulike aktiviteter som eiker i et hjul. Jo flere eiker, jo sterkere hjul
 **Viktig:** ENHVER aktivitet er bedre enn ingen aktivitet!`,
     },
     {
-      id: 'kroppsoving-vg1-8-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er indre motivasjon?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse.',
-            solution: 'Motivasjon som kommer fra gleden ved selve aktiviteten',
-            multipleChoiceOptions: [
-              'Motivasjon som kommer fra gleden ved selve aktiviteten',
-              'Motivasjon fra premier og belønninger',
-              'Motivasjon fra andre',
-              'Motivasjon fra press',
-            ],
-          },
-        ],
-        solution: 'Indre motivasjon er å gjøre noe fordi du liker det, ikke for ytre belønning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Lag en plan for hvordan du kan være mer fysisk aktiv i hverdagen.',
-        solution: 'Planen bør inneholde konkrete tiltak som å gå/sykle til skolen, ta trapper, ha aktive pauser, og finne aktiviteter du liker.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-8-7-ex-3',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-8-7-ex-3',
         number: '3',
         type: 'classic',
-        task: 'Hva er forskjellen på indre og ytre motivasjon? Gi eksempler.',
-        solution: 'Indre motivasjon: Du gjør det fordi du liker det (eks: løpe fordi det er gøy). Ytre motivasjon: Du gjør det for ytre belønning (eks: løpe for å få medalje eller unngå kritikk).',
+        task: 'Hva er Helsedirektoratets anbefalinger for fysisk aktivitet for ungdom?',
+        solution: 'Minst 60 minutter fysisk aktivitet daglig med variert intensitet, styrketrening 3 ganger per uke, og redusert stillesitting.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-7-ex-4',
       type: 'exercise',
@@ -5010,8 +5010,8 @@ Tenk på ulike aktiviteter som eiker i et hjul. Jo flere eiker, jo sterkere hjul
         id: 'kroppsoving-vg1-8-7-ex-5',
         number: '5',
         type: 'classic',
-        task: 'Hva er Helsedirektoratets anbefalinger for fysisk aktivitet for ungdom?',
-        solution: 'Minst 60 minutter fysisk aktivitet daglig med variert intensitet, styrketrening 3 ganger per uke, og redusert stillesitting.',
+        task: 'Lag en plan for hvordan du kan være mer fysisk aktiv i hverdagen.',
+        solution: 'Planen bør inneholde konkrete tiltak som å gå/sykle til skolen, ta trapper, ha aktive pauser, og finne aktiviteter du liker.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
@@ -5064,6 +5064,45 @@ Kroppspress kan føre til dårlig selvbilde, spiseforstyrrelser og uhelse.`,
 - Forstå at sosiale medier viser et utvalg
 - Ikke sammenligne seg med urealistiske idealer
 - Spørre: Hvem tjener på at jeg føler meg utilstrekkelig?`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er kroppspress?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse.',
+            solution: 'Press om å se ut på en bestemt måte basert på urealistiske idealer',
+            multipleChoiceOptions: [
+              'Press om å se ut på en bestemt måte basert på urealistiske idealer',
+              'Å trene hardt',
+              'Å spise sunt',
+              'Å være i form',
+            ],
+          },
+        ],
+        solution: 'Kroppspress er press om å oppfylle urealistiske kroppsidealer, ofte formidlet gjennom media og sosiale medier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-8-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-8-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er det viktig å være mediekritisk?',
+        solution: 'Fordi bilder ofte er redigert, sosiale medier viser et utvalg, og urealistiske idealer kan skade selvbildet og helsen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-8-text-1',
@@ -5126,6 +5165,19 @@ Kroppspress kan føre til dårlig selvbilde, spiseforstyrrelser og uhelse.`,
 - Photoshop endrer kroppsproportioner
 
 **Hugs:** Det perfekte bildet tok kanskje 100 forsøk og 2 timers redigering.`,
+    },
+    {
+      id: 'kroppsoving-vg1-8-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-8-8-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar hvordan sosiale medier kan påvirke kroppsbildet negativt.',
+        solution: 'Sosiale medier viser ofte redigerte og filtrerte bilder, skaper urealistiske idealer, fører til sammenligninger, og forsterker kroppspress. Man ser kun "highlight reel", ikke virkeligheten.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-8-8-text-2',
@@ -5251,50 +5303,11 @@ Når du tenker negativt om kroppen, spør deg:
 **Kritisk tenkning:** Spør deg alltid: Hvem tjener på at jeg føler meg utilstrekkelig?`,
     },
     {
-      id: 'kroppsoving-vg1-8-8-ex-1',
+      id: 'kroppsoving-vg1-8-8-ex-4',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-8-8-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er kroppspress?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse.',
-            solution: 'Press om å se ut på en bestemt måte basert på urealistiske idealer',
-            multipleChoiceOptions: [
-              'Press om å se ut på en bestemt måte basert på urealistiske idealer',
-              'Å trene hardt',
-              'Å spise sunt',
-              'Å være i form',
-            ],
-          },
-        ],
-        solution: 'Kroppspress er press om å oppfylle urealistiske kroppsidealer, ofte formidlet gjennom media og sosiale medier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-8-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvorfor er det viktig å være mediekritisk?',
-        solution: 'Fordi bilder ofte er redigert, sosiale medier viser et utvalg, og urealistiske idealer kan skade selvbildet og helsen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-8-8-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-8-ex-3',
-        number: '3',
+        id: 'kroppsoving-vg1-8-8-ex-4',
+        number: '4',
         type: 'classic',
         task: 'Diskuter: Hvordan kan vi skape et miljø med mindre kroppspress?',
         solution: 'Ved å fokusere på hva kroppen kan gjøre fremfor utseende, unngå kommentarer om andres kropp, være kritiske til mediebilder, og støtte hverandre.',
@@ -5302,19 +5315,7 @@ Når du tenker negativt om kroppen, spør deg:
         allowsCanvasDrawing: true,
       },
     },
-    {
-      id: 'kroppsoving-vg1-8-8-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-8-8-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar hvordan sosiale medier kan påvirke kroppsbildet negativt.',
-        solution: 'Sosiale medier viser ofte redigerte og filtrerte bilder, skaper urealistiske idealer, fører til sammenligninger, og forsterker kroppspress. Man ser kun "highlight reel", ikke virkeligheten.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-8-8-ex-5',
       type: 'exercise',

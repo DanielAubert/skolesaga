@@ -50,6 +50,20 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 **Eksempel:** Hvis du løper 3 km på 20 minutter uten problemer, må du øke belastningen (løpe lengre, raskere eller i tyngre terreng) for å utvikle utholdenhet.`,
     },
     {
+      id: 'kroppsoving-vg1-1-1-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar belastningsprinsippet med egne ord. Hvorfor er det viktig at treningen er krevende nok?',
+        subTasks: [],
+        solution: 'Belastningsprinsippet betyr at kroppen må utsettes for en belastning som er høyere enn den er vant til for å utvikle seg. Hvis treningen ikke er krevende nok, vil kroppen ikke ha noen grunn til å tilpasse seg og bli sterkere eller mer utholdende. Vi må altså «utfordre» kroppen over hvile- eller dagliglivsnivået for å oppnå treningseffekt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-1-def-2',
       type: 'definition',
       title: 'Spesifisitetsprinsippet',
@@ -62,6 +76,20 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 - Jo mer spesifikk trening, desto bedre resultat i den aktiviteten
 
 **Eksempel:** En fotballspiller trenger både utholdenhet, styrke, hurtighet og ballkontroll. Bare løpetrening vil ikke gjøre deg til en bedre fotballspiller - du må også trene med ball.`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-1-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Gi et konkret eksempel på hvordan spesifisitetsprinsippet gjelder i en idrett du driver med eller er interessert i.',
+        subTasks: [],
+        solution: 'Eksempel (fotball): Hvis jeg vil bli bedre til fotball, må jeg trene på fotballspesifikke ferdigheter som pasninger, dribbling, skudd og spillforståelse. Bare styrketrening på treningsstudio vil ikke gjøre meg til en bedre fotballspiller, selv om styrke kan være nyttig. Treningen må være spesifikk for fotball.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-1-def-3',
@@ -82,6 +110,25 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 - **Kompleksitet:** Vanskeligere øvelser
 
 **Eksempel:** Uke 1: Løp 5 km. Uke 2: Løp 5,5 km. Uke 3: Løp 6 km.`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-1-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-1-ex-4',
+        number: '3',
+        type: 'classic',
+        task: 'Per løper 5 km tre ganger i uken. Han vil forbedre seg, men vet ikke hvordan han skal øke belastningen. Gi ham tre konkrete råd basert på progresjonsprinsippet.',
+        subTasks: [],
+        solution: `Tre råd til Per:
+1. Øk distansen gradvis: Legg til 500 meter på én av løpeturene hver uke, for eksempel løp 5,5 km i stedet for 5 km på en av turene.
+2. Øk intensiteten: Gjør en av turene om til intervalltrening, for eksempel 4x1000m i raskere tempo med 3 minutters pause mellom.
+3. Øk frekvensen forsiktig: Etter 4-6 uker kan han vurdere å legge til en fjerde løpeøkt per uke.
+
+Viktig: Han bør bare øke én parameter om gangen og ikke øke ukentlig treningsvolum med mer enn 10%.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-1-def-4',
@@ -106,6 +153,26 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 **Eksempel:** En nybegynner kan trene 2-3 ganger per uke, mens en erfaren utøver kanskje trener 6-8 ganger per uke.`,
     },
     {
+      id: 'kroppsoving-vg1-1-1-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-1-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er en viktig grunn til at treningen må individualiseres?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Alle må trene likt for å få samme resultat',
+          'Folk har ulike forutsetninger, mål og livssituasjoner',
+          'Det er lettere å lage treningsplaner',
+          'Individualisering er ikke viktig',
+        ],
+        solution: 'Riktig svar er b) Folk har ulike forutsetninger, mål og livssituasjoner. Individualisering er viktig fordi mennesker har forskjellig treningsbakgrunn, alder, kjønn, genetikk, tid til rådighet og personlige mål. Det som fungerer for én person fungerer ikke nødvendigvis for en annen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-1-def-5',
       type: 'definition',
       title: 'Reversibilitetsprinsippet',
@@ -123,6 +190,26 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 - **Teknikk:** Vedlikeholdes lengre, men krever repetisjon
 
 **Eksempel:** Hvis du bygger opp god kondisjon over sommeren, men slutter å trene på høsten, vil formen være betydelig redusert innen jul.`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-1-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-1-ex-3',
+        number: '5',
+        type: 'classic',
+        task: 'Hvilket treningsprinsipp beskriver at kroppen mister form hvis man slutter å trene?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Belastningsprinsippet',
+          'Reversibilitetsprinsippet',
+          'Progresjonsprinsippet',
+          'Spesifisitetsprinsippet',
+        ],
+        solution: 'Riktig svar er b) Reversibilitetsprinsippet. Dette prinsippet, også kalt "use it or lose it", beskriver at treningseffekten forsvinner hvis man slutter å trene. Kroppen tilpasser seg både til trening og mangel på trening.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-1-example-1',
@@ -165,93 +252,7 @@ Gjennom historien har idrettsutøvere og forskere utviklet kunnskap om hva som g
 
 **Sammenligne seg med andre:** Det som fungerer for andre fungerer ikke nødvendigvis for deg. Følg individualiserings­prinsippet.`,
     },
-    {
-      id: 'kroppsoving-vg1-1-1-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar belastningsprinsippet med egne ord. Hvorfor er det viktig at treningen er krevende nok?',
-        subTasks: [],
-        solution: 'Belastningsprinsippet betyr at kroppen må utsettes for en belastning som er høyere enn den er vant til for å utvikle seg. Hvis treningen ikke er krevende nok, vil kroppen ikke ha noen grunn til å tilpasse seg og bli sterkere eller mer utholdende. Vi må altså «utfordre» kroppen over hvile- eller dagliglivsnivået for å oppnå treningseffekt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-1-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Gi et konkret eksempel på hvordan spesifisitetsprinsippet gjelder i en idrett du driver med eller er interessert i.',
-        subTasks: [],
-        solution: 'Eksempel (fotball): Hvis jeg vil bli bedre til fotball, må jeg trene på fotballspesifikke ferdigheter som pasninger, dribbling, skudd og spillforståelse. Bare styrketrening på treningsstudio vil ikke gjøre meg til en bedre fotballspiller, selv om styrke kan være nyttig. Treningen må være spesifikk for fotball.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-1-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvilket treningsprinsipp beskriver at kroppen mister form hvis man slutter å trene?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Belastningsprinsippet',
-          'Reversibilitetsprinsippet',
-          'Progresjonsprinsippet',
-          'Spesifisitetsprinsippet',
-        ],
-        solution: 'Riktig svar er b) Reversibilitetsprinsippet. Dette prinsippet, også kalt "use it or lose it", beskriver at treningseffekten forsvinner hvis man slutter å trene. Kroppen tilpasser seg både til trening og mangel på trening.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-1-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Per løper 5 km tre ganger i uken. Han vil forbedre seg, men vet ikke hvordan han skal øke belastningen. Gi ham tre konkrete råd basert på progresjonsprinsippet.',
-        subTasks: [],
-        solution: `Tre råd til Per:
-1. Øk distansen gradvis: Legg til 500 meter på én av løpeturene hver uke, for eksempel løp 5,5 km i stedet for 5 km på en av turene.
-2. Øk intensiteten: Gjør en av turene om til intervalltrening, for eksempel 4x1000m i raskere tempo med 3 minutters pause mellom.
-3. Øk frekvensen forsiktig: Etter 4-6 uker kan han vurdere å legge til en fjerde løpeøkt per uke.
-
-Viktig: Han bør bare øke én parameter om gangen og ikke øke ukentlig treningsvolum med mer enn 10%.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-1-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-1-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er en viktig grunn til at treningen må individualiseres?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Alle må trene likt for å få samme resultat',
-          'Folk har ulike forutsetninger, mål og livssituasjoner',
-          'Det er lettere å lage treningsplaner',
-          'Individualisering er ikke viktig',
-        ],
-        solution: 'Riktig svar er b) Folk har ulike forutsetninger, mål og livssituasjoner. Individualisering er viktig fordi mennesker har forskjellig treningsbakgrunn, alder, kjønn, genetikk, tid til rådighet og personlige mål. Det som fungerer for én person fungerer ikke nødvendigvis for en annen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-1-exercise-6',
       type: 'exercise',
@@ -364,6 +365,20 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
 - Kombinasjonen gir best treningseffekt`,
     },
     {
+      id: 'kroppsoving-vg1-1-2-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom aerob og anaerob trening. Gi eksempler på aktiviteter for hver type.',
+        subTasks: [],
+        solution: 'Aerob trening betyr trening med oksygen, hvor kroppen bruker oksygen til å produsere energi. Det er moderat intensitet over lengre tid. Eksempler: jogging, sykling, svømming i rolig tempo. Anaerob trening betyr trening uten tilstrekkelig oksygen, hvor kroppen produserer energi og melkesyre. Det er høy intensitet i kort tid. Eksempler: sprint, intervaller, høyintensitetstrening. Begge typer er viktige for god utholdenhet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-2-def-2',
       type: 'definition',
       title: 'Maksimal puls og hvilepuls',
@@ -426,6 +441,26 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
 - Sone 5: 184-204 slag/min`,
     },
     {
+      id: 'kroppsoving-vg1-1-2-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'En 18-åring har en maksimal puls på ca. 202 slag/min. I hvilken pulssone er hen når pulsen er 165 slag/min?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Sone 1 (rolig)',
+          'Sone 2 (grunntrening)',
+          'Sone 3 (tempo/terskel)',
+          'Sone 4 (intervall)',
+        ],
+        solution: 'Riktig svar er d) Sone 4 (intervall). 165 slag/min utgjør ca. 82% av maksimal puls (165/202 = 0,817 = 82%). Dette tilsvarer sone 4 som er 80-90% av maks puls. Dette er høyintensitetsintervaller som forbedrer VO₂maks.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-2-def-4',
       type: 'definition',
       title: 'VO₂maks - maksimalt oksygenopptak',
@@ -451,6 +486,20 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
 - Høyintensitetsintervaller (sone 4-5)
 - Terskeltrening (sone 3)
 - Kombinasjon av lange rolige økter og intervaller`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-2-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er VO₂maks, og hvorfor er det et godt mål på kondisjon? Hvordan kan man forbedre VO₂maks?',
+        subTasks: [],
+        solution: 'VO₂maks er den maksimale mengden oksygen kroppen kan ta opp og bruke per minutt under hard fysisk aktivitet. Det måles i ml/kg/min. Det er et godt mål på kondisjon fordi det viser hvor effektiv kroppen er til å transportere og bruke oksygen - jo høyere VO₂maks, desto bedre kondisjon. Man kan forbedre VO₂maks gjennom høyintensitetsintervaller (sone 4-5), terskeltrening (sone 3), og en kombinasjon av lange rolige økter og intervaller. Eksempel: 4x4 minutters intervaller.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-2-example-1',
@@ -546,54 +595,6 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
 **Ignorere signaler fra kroppen:** Vedvarende tretthet, økt hvilepuls, søvnproblemer eller sykdom er tegn på at du trenger mer hvile.`,
     },
     {
-      id: 'kroppsoving-vg1-1-2-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom aerob og anaerob trening. Gi eksempler på aktiviteter for hver type.',
-        subTasks: [],
-        solution: 'Aerob trening betyr trening med oksygen, hvor kroppen bruker oksygen til å produsere energi. Det er moderat intensitet over lengre tid. Eksempler: jogging, sykling, svømming i rolig tempo. Anaerob trening betyr trening uten tilstrekkelig oksygen, hvor kroppen produserer energi og melkesyre. Det er høy intensitet i kort tid. Eksempler: sprint, intervaller, høyintensitetstrening. Begge typer er viktige for god utholdenhet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-2-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'En 18-åring har en maksimal puls på ca. 202 slag/min. I hvilken pulssone er hen når pulsen er 165 slag/min?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Sone 1 (rolig)',
-          'Sone 2 (grunntrening)',
-          'Sone 3 (tempo/terskel)',
-          'Sone 4 (intervall)',
-        ],
-        solution: 'Riktig svar er d) Sone 4 (intervall). 165 slag/min utgjør ca. 82% av maksimal puls (165/202 = 0,817 = 82%). Dette tilsvarer sone 4 som er 80-90% av maks puls. Dette er høyintensitetsintervaller som forbedrer VO₂maks.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-2-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er VO₂maks, og hvorfor er det et godt mål på kondisjon? Hvordan kan man forbedre VO₂maks?',
-        subTasks: [],
-        solution: 'VO₂maks er den maksimale mengden oksygen kroppen kan ta opp og bruke per minutt under hard fysisk aktivitet. Det måles i ml/kg/min. Det er et godt mål på kondisjon fordi det viser hvor effektiv kroppen er til å transportere og bruke oksygen - jo høyere VO₂maks, desto bedre kondisjon. Man kan forbedre VO₂maks gjennom høyintensitetsintervaller (sone 4-5), terskeltrening (sone 3), og en kombinasjon av lange rolige økter og intervaller. Eksempel: 4x4 minutters intervaller.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-1-2-exercise-4',
       type: 'exercise',
       exercise: {
@@ -613,6 +614,7 @@ Utholdenhetstrening kan deles i to hovedtyper: **aerob** (med oksygen) og **anae
         allowsCanvasDrawing: false,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-2-exercise-5',
       type: 'exercise',
@@ -738,6 +740,20 @@ Styrketrening er for alle - ikke bare for kroppsbyggere eller styrkeløftere. Un
 En god styrkeøvelse inneholder både konsentrisk, eksentrisk og ofte også isometrisk muskelarbeid.`,
     },
     {
+      id: 'kroppsoving-vg1-1-3-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom konsentrisk, eksentrisk og isometrisk muskelarbeid. Gi eksempler fra en knebøy.',
+        subTasks: [],
+        solution: 'Konsentrisk muskelarbeid er når muskelen forkortes mens den jobber - i knebøy er dette når du presser deg opp fra bunnen. Eksentrisk muskelarbeid er når muskelen forlenges mens den jobber - i knebøy er dette når du senker deg ned (senk fasen). Isometrisk muskelarbeid er når muskelen jobber uten å endre lengde - i knebøy kan dette være hvis du holder deg stille i bunnposisjonen. Alle tre typer er viktige for styrketrening.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-3-def-2',
       type: 'definition',
       title: 'Repetisjoner, sett og pauser',
@@ -763,6 +779,26 @@ En god styrkeøvelse inneholder både konsentrisk, eksentrisk og ofte også isom
 - Knebøy: 3 sett à 8 repetisjoner, 2 min pause
 - Markløft: 3x8, 2 min pause
 - Benkpress: 3x10, 90 sek pause`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-3-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvor mange repetisjoner bør du gjøre hvis målet er muskelvekst (hypertrofi)?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          '1-5 repetisjoner',
+          '6-12 repetisjoner',
+          '20-30 repetisjoner',
+          'Så mange som mulig',
+        ],
+        solution: 'Riktig svar er b) 6-12 repetisjoner. Dette er den optimale sonen for muskelvekst (hypertrofi) med moderat vekt. 1-5 reps med tung vekt gir maksimal styrke, mens 12-20+ reps med lett vekt gir muskulær utholdenhet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-3-def-3',
@@ -834,6 +870,40 @@ En god treningsplan inkluderer øvelser for alle store muskelgrupper for å unng
 - Effektive - trener mange muskler samtidig
 - Funksjonelle - etterligner naturlige bevegelser
 - Tidsbesparende - få øvelser gir mye treningseffekt`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-3-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn de fem store grunnøvelsene i styrketrening og forklar hvorfor de kalles grunnøvelser.',
+        subTasks: [],
+        solution: 'De fem (eller seks) store grunnøvelsene er: 1) Knebøy, 2) Markløft, 3) Benkpress, 4) Skulderpress, 5) Roing, og ofte også 6) Chins/Pull-ups. De kalles grunnøvelser fordi de trener mange store muskelgrupper samtidig, er funksjonelle (etterligner naturlige bevegelser), og er svært effektive. Med kun disse øvelsene kan man trene hele kroppen. De er grunnlaget i de fleste styrketreningsprogram.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-3-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvilken øvelse trener primært quadriceps (lårets fremside)?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Markløft',
+          'Benkpress',
+          'Knebøy',
+          'Roing',
+        ],
+        solution: 'Riktig svar er c) Knebøy. Knebøy trener primært quadriceps (lårets fremside), men også gluteus (setemuskel) og hamstrings (lårets bakside). Markløft trener hovedsakelig baksiden, mens benkpress og roing trener overkroppen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-3-example-1',
@@ -958,74 +1028,6 @@ En god treningsplan inkluderer øvelser for alle store muskelgrupper for å unng
 **Lær av instruktør:** Få veiledning av kvalifisert trener i starten, spesielt på grunnøvelsene.`,
     },
     {
-      id: 'kroppsoving-vg1-1-3-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom konsentrisk, eksentrisk og isometrisk muskelarbeid. Gi eksempler fra en knebøy.',
-        subTasks: [],
-        solution: 'Konsentrisk muskelarbeid er når muskelen forkortes mens den jobber - i knebøy er dette når du presser deg opp fra bunnen. Eksentrisk muskelarbeid er når muskelen forlenges mens den jobber - i knebøy er dette når du senker deg ned (senk fasen). Isometrisk muskelarbeid er når muskelen jobber uten å endre lengde - i knebøy kan dette være hvis du holder deg stille i bunnposisjonen. Alle tre typer er viktige for styrketrening.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-3-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvor mange repetisjoner bør du gjøre hvis målet er muskelvekst (hypertrofi)?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          '1-5 repetisjoner',
-          '6-12 repetisjoner',
-          '20-30 repetisjoner',
-          'Så mange som mulig',
-        ],
-        solution: 'Riktig svar er b) 6-12 repetisjoner. Dette er den optimale sonen for muskelvekst (hypertrofi) med moderat vekt. 1-5 reps med tung vekt gir maksimal styrke, mens 12-20+ reps med lett vekt gir muskulær utholdenhet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-3-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn de fem store grunnøvelsene i styrketrening og forklar hvorfor de kalles grunnøvelser.',
-        subTasks: [],
-        solution: 'De fem (eller seks) store grunnøvelsene er: 1) Knebøy, 2) Markløft, 3) Benkpress, 4) Skulderpress, 5) Roing, og ofte også 6) Chins/Pull-ups. De kalles grunnøvelser fordi de trener mange store muskelgrupper samtidig, er funksjonelle (etterligner naturlige bevegelser), og er svært effektive. Med kun disse øvelsene kan man trene hele kroppen. De er grunnlaget i de fleste styrketreningsprogram.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-3-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilken øvelse trener primært quadriceps (lårets fremside)?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Markløft',
-          'Benkpress',
-          'Knebøy',
-          'Roing',
-        ],
-        solution: 'Riktig svar er c) Knebøy. Knebøy trener primært quadriceps (lårets fremside), men også gluteus (setemuskel) og hamstrings (lårets bakside). Markløft trener hovedsakelig baksiden, mens benkpress og roing trener overkroppen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-1-3-exercise-5',
       type: 'exercise',
       exercise: {
@@ -1045,6 +1047,7 @@ En god treningsplan inkluderer øvelser for alle store muskelgrupper for å unng
         allowsCanvasDrawing: false,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-3-exercise-6',
       type: 'exercise',
@@ -1145,6 +1148,40 @@ Bevegelighet er evnen til å bevege leddene gjennom sitt fulle bevegelsesutslag.
 **Viktig:** Statisk tøying før eksplosiv aktivitet kan redusere kraft og spenstevne midlertidig. Bruk dynamisk tøying før trening.`,
     },
     {
+      id: 'kroppsoving-vg1-1-4-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom dynamisk og statisk tøying. Når bør du bruke hver type?',
+        subTasks: [],
+        solution: 'Dynamisk tøying er tøying gjennom bevegelse uten å holde posisjonen, for eksempel svingninger og gående utfall. Det øker temperatur og blodgjennomstrømning. Dette brukes før trening og kamp som oppvarming. Statisk tøying er når man holder en tøyningsposisjon stille i 20-60 sekunder, med fokus på avslapning. Dette brukes etter trening som nedkjøling eller på egne bevegelighetsøkter. Viktig: Statisk tøying før eksplosiv aktivitet kan redusere kraft midlertidig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-4-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-4-ex-4',
+        number: '2',
+        type: 'classic',
+        task: 'Hvor lenge bør man vanligvis holde en statisk tøying for god effekt?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          '5-10 sekunder',
+          '20-60 sekunder',
+          '2-3 minutter',
+          '10 minutter',
+        ],
+        solution: 'Riktig svar er b) 20-60 sekunder. For å få god effekt av statisk tøying bør man holde posisjonen i minimum 20-30 sekunder, ofte opp til 60 sekunder. Kortere tid (under 20 sek) gir liten effekt. Mye lengre tid er unødvendig og kan føre til for mye slapphet i muskelen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-4-def-2',
       type: 'definition',
       title: 'PNF-tøying',
@@ -1206,6 +1243,40 @@ Bevegelighet er evnen til å bevege leddene gjennom sitt fulle bevegelsesutslag.
 - God teknikk er avgjørende for å unngå skader`,
     },
     {
+      id: 'kroppsoving-vg1-1-4-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-4-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er plyometrisk trening?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Langsom styrketrening med tunge vekter',
+          'Eksplosiv trening med hopp og kast',
+          'Statisk tøying i 30 sekunder',
+          'Utholdenhetstrening i lav intensitet',
+        ],
+        solution: 'Riktig svar er b) Eksplosiv trening med hopp og kast. Plyometrisk trening bruker strekk-forkortningssyklusen der muskelen strekkes raskt (som ved landing) og umiddelbart etterfølges av en eksplosiv kontraksjon (som ved avhopp). Dette øker spenst og eksplosiv kraft. Eksempler er boksehopp, dyp- og stupphopp, og kastet med medisinball.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-4-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-4-ex-6',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hva strekk-forkortningssyklusen er og hvordan den brukes i plyometrisk trening.',
+        subTasks: [],
+        solution: 'Strekk-forkortningssyklusen (stretch-shortening cycle) er et fysiologisk prinsipp der en muskel først strekkes raskt (eksentrisk fase), deretter umiddelbart forkortes eksplosivt (konsentrisk fase). Når muskelen og senen strekkes raskt, lagres det elastisk energi som i en fjær. Denne energien frigjøres når muskelen trekker seg sammen igjen, noe som gir ekstra kraft. I plyometrisk trening brukes dette ved for eksempel dyp- og stupphopp: Man hopper ned fra en boks (strekk), lander (eksentrisk, lagrer energi), og hopper umiddelbart opp igjen (konsentrisk, frigjør energi). Dette gir mer eksplosiv kraft enn om man hadde stått stille og hoppet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-4-example-1',
       type: 'example',
       title: 'Eksempel: Dynamisk oppvarmingsrutine',
@@ -1238,6 +1309,26 @@ Bevegelighet er evnen til å bevege leddene gjennom sitt fulle bevegelsesutslag.
 - Forbereder ledd og sener på eksplosive bevegelser
 - Aktiverer nervesystemet
 - Reduserer skaderisiko`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-4-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-4-ex-3',
+        number: '5',
+        type: 'classic',
+        task: 'Beskriv tre dynamiske tøyeøvelser som passer i en oppvarming før fotballtrening.',
+        subTasks: [],
+        solution: `Tre dynamiske tøyeøvelser før fotball:
+
+1. **Knehev i gange:** Gå fremover mens du løfter kneet opp mot brystet for hvert steg. Dette mobiliserer hoften og strekker gluteus og hamstrings dynamisk. Gjør 20 meter.
+
+2. **Gående utfall:** Ta lange steg fremover og senk deg ned i en dyp utfallsstilling, veksle ben for hvert steg. Dette mobiliserer hoften og tøyer hoflebøyere, quadriceps og gluteus. Gjør 20 meter.
+
+3. **Fotballspesifikke beinsvingninger:** Stå på ett ben og sving det andre benet fremover og bakover som i en sparkbevegelse, kontrollert. Dette mobiliserer hoften og forbereder på sparkbevegelser. Gjør 10-15 svingninger per ben.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-4-example-2',
@@ -1305,104 +1396,17 @@ Bevegelighet er evnen til å bevege leddene gjennom sitt fulle bevegelsesutslag.
 
 **Ignorerer styrke:** Bevegelighet uten styrke gir ustabile ledd. Kombiner alltid bevegelighet med styrketrening.`,
     },
-    {
-      id: 'kroppsoving-vg1-1-4-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom dynamisk og statisk tøying. Når bør du bruke hver type?',
-        subTasks: [],
-        solution: 'Dynamisk tøying er tøying gjennom bevegelse uten å holde posisjonen, for eksempel svingninger og gående utfall. Det øker temperatur og blodgjennomstrømning. Dette brukes før trening og kamp som oppvarming. Statisk tøying er når man holder en tøyningsposisjon stille i 20-60 sekunder, med fokus på avslapning. Dette brukes etter trening som nedkjøling eller på egne bevegelighetsøkter. Viktig: Statisk tøying før eksplosiv aktivitet kan redusere kraft midlertidig.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-4-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er plyometrisk trening?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Langsom styrketrening med tunge vekter',
-          'Eksplosiv trening med hopp og kast',
-          'Statisk tøying i 30 sekunder',
-          'Utholdenhetstrening i lav intensitet',
-        ],
-        solution: 'Riktig svar er b) Eksplosiv trening med hopp og kast. Plyometrisk trening bruker strekk-forkortningssyklusen der muskelen strekkes raskt (som ved landing) og umiddelbart etterfølges av en eksplosiv kontraksjon (som ved avhopp). Dette øker spenst og eksplosiv kraft. Eksempler er boksehopp, dyp- og stupphopp, og kastet med medisinball.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-4-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv tre dynamiske tøyeøvelser som passer i en oppvarming før fotballtrening.',
-        subTasks: [],
-        solution: `Tre dynamiske tøyeøvelser før fotball:
-
-1. **Knehev i gange:** Gå fremover mens du løfter kneet opp mot brystet for hvert steg. Dette mobiliserer hoften og strekker gluteus og hamstrings dynamisk. Gjør 20 meter.
-
-2. **Gående utfall:** Ta lange steg fremover og senk deg ned i en dyp utfallsstilling, veksle ben for hvert steg. Dette mobiliserer hoften og tøyer hoflebøyere, quadriceps og gluteus. Gjør 20 meter.
-
-3. **Fotballspesifikke beinsvingninger:** Stå på ett ben og sving det andre benet fremover og bakover som i en sparkbevegelse, kontrollert. Dette mobiliserer hoften og forbereder på sparkbevegelser. Gjør 10-15 svingninger per ben.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-4-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvor lenge bør man vanligvis holde en statisk tøying for god effekt?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          '5-10 sekunder',
-          '20-60 sekunder',
-          '2-3 minutter',
-          '10 minutter',
-        ],
-        solution: 'Riktig svar er b) 20-60 sekunder. For å få god effekt av statisk tøying bør man holde posisjonen i minimum 20-30 sekunder, ofte opp til 60 sekunder. Kortere tid (under 20 sek) gir liten effekt. Mye lengre tid er unødvendig og kan føre til for mye slapphet i muskelen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-4-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvorfor er det viktig å kombinere bevegelighet med styrketrening? Hva kan skje hvis man bare fokuserer på bevegelighet?',
-        subTasks: [],
-        solution: 'Det er viktig å kombinere bevegelighet med styrketrening fordi bevegelighet uten styrke kan gi ustabile ledd. Hvis man har stort bevegelsesutslag men svake muskler rundt leddet, øker risikoen for skader fordi leddet ikke har nok stabilitet og kontroll. Styrke gir kontroll gjennom hele bevegelsesutslaget. På samme måte kan mye styrketrening uten bevegelighet gjøre en stiv og redusere prestasjonsevnen. Balansen mellom styrke og bevegelighet er optimal for både prestasjon og skadeforebygging.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-4-exercise-6',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-1-4-ex-6',
+        id: 'kroppsoving-vg1-1-4-ex-5',
         number: '6',
         type: 'classic',
-        task: 'Forklar hva strekk-forkortningssyklusen er og hvordan den brukes i plyometrisk trening.',
+        task: 'Hvorfor er det viktig å kombinere bevegelighet med styrketrening? Hva kan skje hvis man bare fokuserer på bevegelighet?',
         subTasks: [],
-        solution: 'Strekk-forkortningssyklusen (stretch-shortening cycle) er et fysiologisk prinsipp der en muskel først strekkes raskt (eksentrisk fase), deretter umiddelbart forkortes eksplosivt (konsentrisk fase). Når muskelen og senen strekkes raskt, lagres det elastisk energi som i en fjær. Denne energien frigjøres når muskelen trekker seg sammen igjen, noe som gir ekstra kraft. I plyometrisk trening brukes dette ved for eksempel dyp- og stupphopp: Man hopper ned fra en boks (strekk), lander (eksentrisk, lagrer energi), og hopper umiddelbart opp igjen (konsentrisk, frigjør energi). Dette gir mer eksplosiv kraft enn om man hadde stått stille og hoppet.',
+        solution: 'Det er viktig å kombinere bevegelighet med styrketrening fordi bevegelighet uten styrke kan gi ustabile ledd. Hvis man har stort bevegelsesutslag men svake muskler rundt leddet, øker risikoen for skader fordi leddet ikke har nok stabilitet og kontroll. Styrke gir kontroll gjennom hele bevegelsesutslaget. På samme måte kan mye styrketrening uten bevegelighet gjøre en stiv og redusere prestasjonsevnen. Balansen mellom styrke og bevegelighet er optimal for både prestasjon og skadeforebygging.',
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -1505,6 +1509,30 @@ I dette kapittelet lærer du å sette gode mål og planlegge treningen systemati
 - "Jeg skal gjøre 10 pull-ups i strekk innen sommerferien (16 uker), ved å trene styrke 2 ganger per uke."`,
     },
     {
+      id: 'kroppsoving-vg1-1-5-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva SMART-mål betyr. Bruk et eget eksempel fra idrett eller trening.',
+        subTasks: [],
+        solution: `SMART-mål er en metode for å sette gode, oppnåelige mål:
+
+**S - Spesifikk:** Målet må være konkret og tydelig
+**M - Målbar:** Du må kunne måle om du når målet
+**A - Oppnåelig:** Målet må være realistisk
+**R - Relevant:** Målet må være viktig for deg
+**T - Tidsbestemt:** Sett en konkret tidsfrist
+
+Eksempel: "Jeg skal forbedre min Cooper-test fra 2100m til 2400m innen 1. juni (3 måneder), ved å løpe 3 ganger per uke og fokusere på intervalltrening."
+
+Dette er spesifikt (Cooper-test), målbart (2100m til 2400m), oppnåelig (300m forbedring på 3 mnd er realistisk), relevant (hvis du vil forbedre utholdenhet), og tidsbestemt (1. juni).`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-5-def-2',
       type: 'definition',
       title: 'Prosess- vs. resultatmål',
@@ -1532,6 +1560,20 @@ Kombiner begge typene. Sett et resultatmål (hva du vil oppnå), og flere proses
   - Gjøre 1 intervalltrening per uke
   - Sove minst 8 timer hver natt
   - Spise sunt 6 dager per uke`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-5-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-5-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom prosessmål og resultatmål. Hvorfor er det smart å ha begge typer?',
+        subTasks: [],
+        solution: 'Resultatmål fokuserer på sluttresultatet (f.eks. "løpe 5 km på under 25 minutter", "vinne kampen"). Disse er tydelige og motiverende, men ikke alltid fullt kontrollerbare. Prosessmål fokuserer på handlingene som leder til resultatet (f.eks. "trene 4 ganger per uke", "sove 8 timer hver natt"). Disse er fullt kontrollerbare og bygger gode vaner. Det er smart å ha begge fordi resultatmålet gir retning og motivasjon (hvor du skal), mens prosessmålene gir deg konkrete handlinger du kan gjøre hver dag for å komme dit (hvordan du kommer dit). Kombinasjonen sikrer både motivasjon og progresjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-5-def-3',
@@ -1566,6 +1608,26 @@ Kombiner begge typene. Sett et resultatmål (hva du vil oppnå), og flere proses
 - **Fase 2 (mars-apr):** Styrketrening (8 uker) - maksimal styrke og spenst
 - **Fase 3 (mai-okt):** Sesong (24 uker) - vedlikeholde form, teknisk/taktisk
 - **Fase 4 (nov-des):** Hvile/aktiv restitusjon (8 uker) - lett aktivitet`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-5-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-5-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er en mesosyklus i periodisering?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'En treningsuke',
+          'En treningsblokk på 3-6 uker',
+          'Hele treningsåret',
+          'En enkelt treningsøkt',
+        ],
+        solution: 'Riktig svar er b) En treningsblokk på 3-6 uker. Mesosyklus er mellomperioden i periodisering, typisk 3-6 uker med spesifikt fokus (f.eks. grunntrening, styrketrening). Mikrosyklus er én uke, mens makrosyklus er hele treningsåret/sesongen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-5-def-4',
@@ -1604,6 +1666,52 @@ En uke med redusert treningsvolum og/eller intensitet for å la kroppen restitue
 
 **Resultat:**
 Kommer tilbake sterkere etter restitusjonsuken - kroppen trenger tid til å tilpasse seg.`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-5-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nevn tre symptomer på overtrening. Hvordan kan man forebygge overtrening?',
+        subTasks: [],
+        solution: `Tre symptomer på overtrening:
+1. Vedvarende tretthet - føler seg sliten selv etter hvile
+2. Økt hvilepuls - 5-10 slag høyere enn normalt
+3. Svekket prestasjon - blir dårligere i stedet for bedre
+
+Forebygging av overtrening:
+- Følg treningsplanen, ikke tren mer enn planlagt
+- Sørg for nok søvn (8-9 timer for ungdom)
+- Spis nok og variert mat
+- Ha regelmessige restitusjonsuke (deload) hver 3-6. uke
+- Lytt til kroppens signaler og ta ekstra hvile hvis nødvendig
+- Balansere hard og lett trening
+- Unngå å trene hardt hver dag - kroppen trenger hvile for å utvikle seg`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-5-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hva er hensikten med en restitusjonsuke (deload)?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Å trene enda hardere for raskere fremgang',
+          'Å la kroppen restituere og komme tilbake sterkere',
+          'Å spare tid ved å hoppe over trening',
+          'Å straffe seg selv for dårlig prestasjon',
+        ],
+        solution: 'Riktig svar er b) Å la kroppen restituere og komme tilbake sterkere. En restitusjonsuke (deload) er en uke med redusert treningsvolum (40-50% mindre) for å la kroppen restituere og tilpasse seg den foregående treningsbelastningen. Man kommer typisk tilbake sterkere etter en slik uke. Dette gjøres hver 3-6. uke for å forebygge overtrening og optimalisere utvikling.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-5-example-1',
@@ -1724,110 +1832,7 @@ Etter samtale finner vi ut at Jonas spesifikt vil:
 
 **Kopierer andres planer:** Det som fungerer for en eliteutøver fungerer ikke for en nybegynner. Tilpass planen til DITT nivå.`,
     },
-    {
-      id: 'kroppsoving-vg1-1-5-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva SMART-mål betyr. Bruk et eget eksempel fra idrett eller trening.',
-        subTasks: [],
-        solution: `SMART-mål er en metode for å sette gode, oppnåelige mål:
-
-**S - Spesifikk:** Målet må være konkret og tydelig
-**M - Målbar:** Du må kunne måle om du når målet
-**A - Oppnåelig:** Målet må være realistisk
-**R - Relevant:** Målet må være viktig for deg
-**T - Tidsbestemt:** Sett en konkret tidsfrist
-
-Eksempel: "Jeg skal forbedre min Cooper-test fra 2100m til 2400m innen 1. juni (3 måneder), ved å løpe 3 ganger per uke og fokusere på intervalltrening."
-
-Dette er spesifikt (Cooper-test), målbart (2100m til 2400m), oppnåelig (300m forbedring på 3 mnd er realistisk), relevant (hvis du vil forbedre utholdenhet), og tidsbestemt (1. juni).`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-5-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er en mesosyklus i periodisering?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'En treningsuke',
-          'En treningsblokk på 3-6 uker',
-          'Hele treningsåret',
-          'En enkelt treningsøkt',
-        ],
-        solution: 'Riktig svar er b) En treningsblokk på 3-6 uker. Mesosyklus er mellomperioden i periodisering, typisk 3-6 uker med spesifikt fokus (f.eks. grunntrening, styrketrening). Mikrosyklus er én uke, mens makrosyklus er hele treningsåret/sesongen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-5-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom prosessmål og resultatmål. Hvorfor er det smart å ha begge typer?',
-        subTasks: [],
-        solution: 'Resultatmål fokuserer på sluttresultatet (f.eks. "løpe 5 km på under 25 minutter", "vinne kampen"). Disse er tydelige og motiverende, men ikke alltid fullt kontrollerbare. Prosessmål fokuserer på handlingene som leder til resultatet (f.eks. "trene 4 ganger per uke", "sove 8 timer hver natt"). Disse er fullt kontrollerbare og bygger gode vaner. Det er smart å ha begge fordi resultatmålet gir retning og motivasjon (hvor du skal), mens prosessmålene gir deg konkrete handlinger du kan gjøre hver dag for å komme dit (hvordan du kommer dit). Kombinasjonen sikrer både motivasjon og progresjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-5-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Nevn tre symptomer på overtrening. Hvordan kan man forebygge overtrening?',
-        subTasks: [],
-        solution: `Tre symptomer på overtrening:
-1. Vedvarende tretthet - føler seg sliten selv etter hvile
-2. Økt hvilepuls - 5-10 slag høyere enn normalt
-3. Svekket prestasjon - blir dårligere i stedet for bedre
-
-Forebygging av overtrening:
-- Følg treningsplanen, ikke tren mer enn planlagt
-- Sørg for nok søvn (8-9 timer for ungdom)
-- Spis nok og variert mat
-- Ha regelmessige restitusjonsuke (deload) hver 3-6. uke
-- Lytt til kroppens signaler og ta ekstra hvile hvis nødvendig
-- Balansere hard og lett trening
-- Unngå å trene hardt hver dag - kroppen trenger hvile for å utvikle seg`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-5-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-5-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er hensikten med en restitusjonsuke (deload)?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Å trene enda hardere for raskere fremgang',
-          'Å la kroppen restituere og komme tilbake sterkere',
-          'Å spare tid ved å hoppe over trening',
-          'Å straffe seg selv for dårlig prestasjon',
-        ],
-        solution: 'Riktig svar er b) Å la kroppen restituere og komme tilbake sterkere. En restitusjonsuke (deload) er en uke med redusert treningsvolum (40-50% mindre) for å la kroppen restituere og tilpasse seg den foregående treningsbelastningen. Man kommer typisk tilbake sterkere etter en slik uke. Dette gjøres hver 3-6. uke for å forebygge overtrening og optimalisere utvikling.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-5-exercise-6',
       type: 'exercise',
@@ -1944,6 +1949,44 @@ God testing krever standardiserte forhold - samme sted, samme tid på døgnet, s
 VO₂maks (ml/kg/min) ≈ (Distanse i meter - 504) / 45
 
 Eksempel: 2700 meter gir ca. (2700-504)/45 = 48,8 ml/kg/min`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-6-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva Cooper-testen er og hva den måler. Hvordan kan du bruke resultatene?',
+        subTasks: [],
+        solution: 'Cooper-testen er en utholdenhetstest der målet er å løpe så langt som mulig på 12 minutter. Den måler utholdenhet og gir et estimat på VO₂maks (maksimalt oksygenopptak). Testen gjennomføres på flat bane etter god oppvarming. Resultatene kan brukes til å: 1) Kartlegge nåværende kondisjon, 2) Sette realistiske treningsmål, 3) Evaluere om treningen fungerer ved å teste på nytt etter 8-12 uker, 4) Sammenligne med normtabeller for alderen. For eksempel kan du beregne VO₂maks med formelen (distanse - 504)/45.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-6-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-6-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'En 17 år gammel jente løper 2500 meter på Cooper-testen. Vurder resultatet og gi råd om videre trening.',
+        subTasks: [],
+        solution: `Vurdering: 2500 meter for en 17 år gammel jente er middels til god kondisjon (normalt er 2200-2600m middels, 2600-3000m god).
+
+Anslått VO₂maks: (2500-504)/45 = ca. 44 ml/kg/min, som er middels til godt.
+
+Råd for videre trening:
+- Hun har et godt grunnlag å bygge videre på
+- For å forbedre seg bør hun fokusere på variasjon: lange rolige turer (sone 2) kombinert med intervalltrening (sone 4)
+- 3-4 løpeøkter per uke vil gi god fremgang
+- Eksempel: 2 rolige lange turer, 1 intervalltrening (4x4 min), 1 terskeltrening
+- Retest om 8-12 uker for å se fremgang
+- Mål kan være å nå 2700-2800 meter om 12 uker`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-6-def-2',
@@ -2064,6 +2107,26 @@ Eksempel: 2700 meter gir ca. (2700-504)/45 = 48,8 ml/kg/min`,
 - Bør komme til 80-90 grader`,
     },
     {
+      id: 'kroppsoving-vg1-1-6-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-6-ex-2',
+        number: '3',
+        type: 'classic',
+        task: 'Hva måler sit-and-reach testen?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Styrke i magemusklene',
+          'Bevegelighet i hamstrings og nedre rygg',
+          'Balanse',
+          'Utholdenhet',
+        ],
+        solution: 'Riktig svar er b) Bevegelighet i hamstrings og nedre rygg. Sit-and-reach testen gjennomføres ved å sitte med rette ben og bøye seg frem så langt man kan. Den måler fleksibilitet i bakside lår (hamstrings) og nedre del av ryggen. God bevegelighet her er viktig for rygg helse og funksjon.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-6-example-1',
       type: 'example',
       title: 'Eksempel: Testbatteri for helhetlig vurdering',
@@ -2148,64 +2211,6 @@ Sammenlign resultatene med normtabeller og dine tidligere resultater. Gjenta tes
 **Ignorerer kontekst:** Hvis du har dårlig søvn, er stresset, nettopp har vært syk, vil testresultatene bli dårligere. Ta dette med i vurderingen.`,
     },
     {
-      id: 'kroppsoving-vg1-1-6-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva Cooper-testen er og hva den måler. Hvordan kan du bruke resultatene?',
-        subTasks: [],
-        solution: 'Cooper-testen er en utholdenhetstest der målet er å løpe så langt som mulig på 12 minutter. Den måler utholdenhet og gir et estimat på VO₂maks (maksimalt oksygenopptak). Testen gjennomføres på flat bane etter god oppvarming. Resultatene kan brukes til å: 1) Kartlegge nåværende kondisjon, 2) Sette realistiske treningsmål, 3) Evaluere om treningen fungerer ved å teste på nytt etter 8-12 uker, 4) Sammenligne med normtabeller for alderen. For eksempel kan du beregne VO₂maks med formelen (distanse - 504)/45.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-6-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva måler sit-and-reach testen?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Styrke i magemusklene',
-          'Bevegelighet i hamstrings og nedre rygg',
-          'Balanse',
-          'Utholdenhet',
-        ],
-        solution: 'Riktig svar er b) Bevegelighet i hamstrings og nedre rygg. Sit-and-reach testen gjennomføres ved å sitte med rette ben og bøye seg frem så langt man kan. Den måler fleksibilitet i bakside lår (hamstrings) og nedre del av ryggen. God bevegelighet her er viktig for rygg helse og funksjon.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-6-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'En 17 år gammel jente løper 2500 meter på Cooper-testen. Vurder resultatet og gi råd om videre trening.',
-        subTasks: [],
-        solution: `Vurdering: 2500 meter for en 17 år gammel jente er middels til god kondisjon (normalt er 2200-2600m middels, 2600-3000m god).
-
-Anslått VO₂maks: (2500-504)/45 = ca. 44 ml/kg/min, som er middels til godt.
-
-Råd for videre trening:
-- Hun har et godt grunnlag å bygge videre på
-- For å forbedre seg bør hun fokusere på variasjon: lange rolige turer (sone 2) kombinert med intervalltrening (sone 4)
-- 3-4 løpeøkter per uke vil gi god fremgang
-- Eksempel: 2 rolige lange turer, 1 intervalltrening (4x4 min), 1 terskeltrening
-- Retest om 8-12 uker for å se fremgang
-- Mål kan være å nå 2700-2800 meter om 12 uker`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-1-6-exercise-4',
       type: 'exercise',
       exercise: {
@@ -2225,6 +2230,7 @@ Råd for videre trening:
         allowsCanvasDrawing: false,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-6-exercise-5',
       type: 'exercise',
@@ -2336,6 +2342,20 @@ God tilpassing krever kunnskap om individuelle behov, kreativitet og vilje til �
 God trening kombinerer begge tilnærminger. Differensiering gir valgmuligheter, individualisering sikrer at hver person får riktig belastning.`,
     },
     {
+      id: 'kroppsoving-vg1-1-7-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom individualisering og differensiering i trening. Gi eksempler.',
+        subTasks: [],
+        solution: 'Individualisering betyr at treningen tilpasses den enkelte persons forutsetninger og mål. Eksempel: I styrketrening løfter person A 30 kg, person B 50 kg og person C 70 kg - alle får ulik vekt basert på sitt nivå. Differensiering betyr at man tilbyr flere alternativer eller nivåer innenfor samme aktivitet. Eksempel: I armhevinger tilbyr man tre nivåer - på knærne (lett), vanlig (medium) eller med føttene opp (vanskelig) - og hver person velger selv. Individualisering er mer personlig tilpasset, mens differensiering gir valgmuligheter som passer ulike nivåer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-7-def-2',
       type: 'definition',
       title: 'Tilpassing ved funksjonsvariasjon',
@@ -2373,6 +2393,26 @@ God trening kombinerer begge tilnærminger. Differensiering gir valgmuligheter, 
 - Krafttrening med maskiner i stedet for frie vekter`,
     },
     {
+      id: 'kroppsoving-vg1-1-7-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er det viktigste prinsippet når man tilpasser trening for personer med funksjonsnedsettelse?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Fokusere på begrensninger',
+          'Fokusere på muligheter og hva personen kan gjøre',
+          'Gi letteste oppgaver alltid',
+          'Unngå fysisk aktivitet',
+        ],
+        solution: 'Riktig svar er b) Fokusere på muligheter og hva personen kan gjøre. Det viktigste prinsippet er å se på hva personen KAN gjøre, ikke hva hen ikke kan. Bygg treningen rundt styrker og muligheter, og finn kreative løsninger for å inkludere alle. Fokus på begrensninger demotiverer, mens fokus på muligheter gir mestring og utvikling.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-1-7-def-3',
       type: 'definition',
       title: 'Kjønnsforskjeller i trening',
@@ -2407,6 +2447,33 @@ God trening kombinerer begge tilnærminger. Differensiering gir valgmuligheter, 
 - Treningsprinsippene er de samme for alle kjønn
 - Individuelle forskjeller er større enn kjønnsforskjeller
 - Jenter og gutter bør trene sammen der det er mulig`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-7-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn tre fysiologiske forskjeller mellom menn og kvinner som påvirker trening. Hvordan kan dette tas hensyn til?',
+        subTasks: [],
+        solution: `Tre fysiologiske forskjeller:
+
+1. **Muskelmasse:** Menn har gjennomsnittlig 30-40% mer muskelmasse i overkroppen. Dette betyr at menn generelt har høyere maksimal styrke.
+
+2. **VO₂maks:** Menn har ca. 10% høyere maksimalt oksygenopptak. Dette gir bedre utholdenhet i absolutte tall.
+
+3. **Hormoner:** Menn har mer testosteron (bygger muskler), kvinner mer østrogen (øker fleksibilitet). Dette påvirker treningsrespons.
+
+Hvordan ta hensyn:
+- Kvinner kan trene like hardt som menn, men med annen belastning (vekt, distanse)
+- Individuelle forskjeller er større enn kjønnsforskjeller - tilpass til individet
+- Være oppmerksom på at kvinner kan være mer utsatt for enkelte skader (korsband)
+- Hormonelle sykluser kan påvirke prestasjon og restitusjon
+- Treningsprinsippene er de samme for alle kjønn`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-7-def-4',
@@ -2448,6 +2515,26 @@ God trening kombinerer begge tilnærminger. Differensiering gir valgmuligheter, 
 - Allsidighet fremfor tidlig spesialisering
 - Fokus på teknikk før intensitet
 - Sørg for nok hvile og restitusjon`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-7-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er viktig å huske på når ungdom i puberteten driver styrketrening?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'De skal ikke drive styrketrening før de er 18 år',
+          'Fokus på teknikk først, deretter lett vekt',
+          'De kan trene med maksimal vekt med én gang',
+          'Styrketrening er farlig for ungdom',
+        ],
+        solution: 'Riktig svar er b) Fokus på teknikk først, deretter lett vekt. Ungdom i puberteten kan begynne med styrketrening, men det er viktig å starte med å lære riktig teknikk med kroppsvekt eller lett vekt. Etter 2-4 uker kan de gradvis øke vekten. Styrketrening er trygt og nyttig for ungdom når det gjøres riktig. Store individuelle forskjeller i modning må respekteres - noen 13-åringer er klare, andre må vente til 15-16 år.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-7-def-5',
@@ -2496,6 +2583,20 @@ God trening kombinerer begge tilnærminger. Differensiering gir valgmuligheter, 
 
 **Viktighet:**
 Alternativ deltakelse er ikke «mindre verdt» enn fysisk deltakelse. Disse rollene er viktige i idrett og gir verdifull læring om ledelse, organisering og sosiale ferdigheter.`,
+    },
+    {
+      id: 'kroppsoving-vg1-1-7-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-6',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hvorfor fokus på muligheter (i stedet for begrensninger) er viktig når man jobber med tilpasset trening.',
+        subTasks: [],
+        solution: 'Fokus på muligheter er viktig av flere grunner: 1) Det bygger selvtillit og mestring - når folk ser hva de KAN gjøre, blir de motiverte. 2) Det skaper et positivt læringsmiljø - folk føler seg inkludert og verdsatt. 3) Det åpner for kreative løsninger - i stedet for å gi opp fordi noe «ikke går an», finner man alternative måter. 4) Det fremmer utvikling - når man bygger på styrker, utvikler folk seg raskere enn om man bare jobber med svakheter. 5) Det er respektfullt - alle har styrker og verdier å bidra med. Fokus på begrensninger kan føre til stigmatisering, demotivasjon og frafall. Fokus på muligheter gir mestring, inkludering og utvikling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-1-7-example-1',
@@ -2581,110 +2682,11 @@ Alternativ deltakelse er ikke «mindre verdt» enn fysisk deltakelse. Disse roll
 Den største barrikaden er ofte holdninger, ikke fysiske begrensninger. Med vilje og kreativitet kan nesten alle aktiviteter tilpasses.`,
     },
     {
-      id: 'kroppsoving-vg1-1-7-tip-1',
-      type: 'tip',
-      title: 'Praktiske tips for tilpasset trening',
-      content: `1. **Kartlegg individuelle behov:** Ta deg tid til å snakke med hver person om mål, forutsetninger og eventuelle begrensninger.
-
-2. **Tilby valgmuligheter:** Gi alltid minst 2-3 nivåer eller alternativer på aktiviteter.
-
-3. **Fokuser på innsats, ikke absolutt prestasjon:** Ros utøvere for god innsats på sitt nivå, ikke for å være best.
-
-4. **Bruk «jeg-passer-for»-prinsippet:** I stedet for «lett/middels/vanskelig», kall det nivå A/B/C og la folk velge hva som passer for dem.
-
-5. **Teknologi:** Bruk apps og smartklokker for individuell oppfølging (hver person ser sin egen progresjon).
-
-6. **Samarbeid med andre:** Hvis en person har spesielle behov, samarbeid med helsepersonell, spesialpedagoger, fysioterapeuter.
-
-7. **Varierte arbeidsformer:** Bruk individuelt arbeid, par, små grupper, store grupper - det gir ulike muligheter.
-
-8. **Lær av andre:** Se på Paralympics, tilrettelagt idrett, adaptive sports for inspirasjon og ideer.`,
-    },
-    {
-      id: 'kroppsoving-vg1-1-7-warning-1',
-      type: 'warning',
-      title: 'Vanlige feil ved tilpassing',
-      content: `**«One size fits all»-mentalitet:** Å tro at samme trening passer for alle er den vanligste feilen. Folk har ulike forutsetninger og mål.
-
-**For mye fokus på svakheter:** Å bare fokusere på hva noen ikke kan gjøre demotiverer. Fokuser på styrker og muligheter.
-
-**Manglende kommunikasjon:** Å ikke spørre personen selv om hva som fungerer. Den beste eksperten på egne behov er personen selv.
-
-**Stigmatisering:** Å peke ut en person som «annerledes» eller gi oppgaver som virker nedverdigende (f.eks. en sterket person får alltid de letteste oppgavene).
-
-**For lett eller for vanskelig:** Dårlig tilpassing fører til at noen kjeder seg (for lett) eller gir opp (for vanskelig). Riktig balanse er vanskelig, men viktig.
-
-**Sikkerhet:** Å ikke ta hensyn til medisinske forhold eller skadehistorikk. Alltid vurder sikkerhet.
-
-**Mangel på kreativitet:** Å gi opp for tidlig fordi «det går ikke an». Med kreativitet finnes det nesten alltid en løsning.`,
-    },
-    {
-      id: 'kroppsoving-vg1-1-7-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom individualisering og differensiering i trening. Gi eksempler.',
-        subTasks: [],
-        solution: 'Individualisering betyr at treningen tilpasses den enkelte persons forutsetninger og mål. Eksempel: I styrketrening løfter person A 30 kg, person B 50 kg og person C 70 kg - alle får ulik vekt basert på sitt nivå. Differensiering betyr at man tilbyr flere alternativer eller nivåer innenfor samme aktivitet. Eksempel: I armhevinger tilbyr man tre nivåer - på knærne (lett), vanlig (medium) eller med føttene opp (vanskelig) - og hver person velger selv. Individualisering er mer personlig tilpasset, mens differensiering gir valgmuligheter som passer ulike nivåer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-7-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er det viktigste prinsippet når man tilpasser trening for personer med funksjonsnedsettelse?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Fokusere på begrensninger',
-          'Fokusere på muligheter og hva personen kan gjøre',
-          'Gi letteste oppgaver alltid',
-          'Unngå fysisk aktivitet',
-        ],
-        solution: 'Riktig svar er b) Fokusere på muligheter og hva personen kan gjøre. Det viktigste prinsippet er å se på hva personen KAN gjøre, ikke hva hen ikke kan. Bygg treningen rundt styrker og muligheter, og finn kreative løsninger for å inkludere alle. Fokus på begrensninger demotiverer, mens fokus på muligheter gir mestring og utvikling.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-7-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn tre fysiologiske forskjeller mellom menn og kvinner som påvirker trening. Hvordan kan dette tas hensyn til?',
-        subTasks: [],
-        solution: `Tre fysiologiske forskjeller:
-
-1. **Muskelmasse:** Menn har gjennomsnittlig 30-40% mer muskelmasse i overkroppen. Dette betyr at menn generelt har høyere maksimal styrke.
-
-2. **VO₂maks:** Menn har ca. 10% høyere maksimalt oksygenopptak. Dette gir bedre utholdenhet i absolutte tall.
-
-3. **Hormoner:** Menn har mer testosteron (bygger muskler), kvinner mer østrogen (øker fleksibilitet). Dette påvirker treningsrespons.
-
-Hvordan ta hensyn:
-- Kvinner kan trene like hardt som menn, men med annen belastning (vekt, distanse)
-- Individuelle forskjeller er større enn kjønnsforskjeller - tilpass til individet
-- Være oppmerksom på at kvinner kan være mer utsatt for enkelte skader (korsband)
-- Hormonelle sykluser kan påvirke prestasjon og restitusjon
-- Treningsprinsippene er de samme for alle kjønn`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-1-7-exercise-4',
+      id: 'kroppsoving-vg1-1-7-exercise-6',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-1-7-ex-4',
-        number: '4',
+        number: '6',
         type: 'classic',
         task: 'Du skal planlegge en intervalløkt for en gruppe på 15 personer med veldig ulikt nivå. Hvordan kan du differensiere økten slik at alle får utbytte?',
         subTasks: [],
@@ -2722,39 +2724,44 @@ Alle jobber hardt på sitt nivå, får god treningseffekt, og føler mestring. I
       },
     },
     {
-      id: 'kroppsoving-vg1-1-7-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-7-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er viktig å huske på når ungdom i puberteten driver styrketrening?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'De skal ikke drive styrketrening før de er 18 år',
-          'Fokus på teknikk først, deretter lett vekt',
-          'De kan trene med maksimal vekt med én gang',
-          'Styrketrening er farlig for ungdom',
-        ],
-        solution: 'Riktig svar er b) Fokus på teknikk først, deretter lett vekt. Ungdom i puberteten kan begynne med styrketrening, men det er viktig å starte med å lære riktig teknikk med kroppsvekt eller lett vekt. Etter 2-4 uker kan de gradvis øke vekten. Styrketrening er trygt og nyttig for ungdom når det gjøres riktig. Store individuelle forskjeller i modning må respekteres - noen 13-åringer er klare, andre må vente til 15-16 år.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
+      id: 'kroppsoving-vg1-1-7-tip-1',
+      type: 'tip',
+      title: 'Praktiske tips for tilpasset trening',
+      content: `1. **Kartlegg individuelle behov:** Ta deg tid til å snakke med hver person om mål, forutsetninger og eventuelle begrensninger.
+
+2. **Tilby valgmuligheter:** Gi alltid minst 2-3 nivåer eller alternativer på aktiviteter.
+
+3. **Fokuser på innsats, ikke absolutt prestasjon:** Ros utøvere for god innsats på sitt nivå, ikke for å være best.
+
+4. **Bruk «jeg-passer-for»-prinsippet:** I stedet for «lett/middels/vanskelig», kall det nivå A/B/C og la folk velge hva som passer for dem.
+
+5. **Teknologi:** Bruk apps og smartklokker for individuell oppfølging (hver person ser sin egen progresjon).
+
+6. **Samarbeid med andre:** Hvis en person har spesielle behov, samarbeid med helsepersonell, spesialpedagoger, fysioterapeuter.
+
+7. **Varierte arbeidsformer:** Bruk individuelt arbeid, par, små grupper, store grupper - det gir ulike muligheter.
+
+8. **Lær av andre:** Se på Paralympics, tilrettelagt idrett, adaptive sports for inspirasjon og ideer.`,
     },
     {
-      id: 'kroppsoving-vg1-1-7-exercise-6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-1-7-ex-6',
-        number: '6',
-        type: 'classic',
-        task: 'Forklar hvorfor fokus på muligheter (i stedet for begrensninger) er viktig når man jobber med tilpasset trening.',
-        subTasks: [],
-        solution: 'Fokus på muligheter er viktig av flere grunner: 1) Det bygger selvtillit og mestring - når folk ser hva de KAN gjøre, blir de motiverte. 2) Det skaper et positivt læringsmiljø - folk føler seg inkludert og verdsatt. 3) Det åpner for kreative løsninger - i stedet for å gi opp fordi noe «ikke går an», finner man alternative måter. 4) Det fremmer utvikling - når man bygger på styrker, utvikler folk seg raskere enn om man bare jobber med svakheter. 5) Det er respektfullt - alle har styrker og verdier å bidra med. Fokus på begrensninger kan føre til stigmatisering, demotivasjon og frafall. Fokus på muligheter gir mestring, inkludering og utvikling.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
+      id: 'kroppsoving-vg1-1-7-warning-1',
+      type: 'warning',
+      title: 'Vanlige feil ved tilpassing',
+      content: `**«One size fits all»-mentalitet:** Å tro at samme trening passer for alle er den vanligste feilen. Folk har ulike forutsetninger og mål.
+
+**For mye fokus på svakheter:** Å bare fokusere på hva noen ikke kan gjøre demotiverer. Fokuser på styrker og muligheter.
+
+**Manglende kommunikasjon:** Å ikke spørre personen selv om hva som fungerer. Den beste eksperten på egne behov er personen selv.
+
+**Stigmatisering:** Å peke ut en person som «annerledes» eller gi oppgaver som virker nedverdigende (f.eks. en sterket person får alltid de letteste oppgavene).
+
+**For lett eller for vanskelig:** Dårlig tilpassing fører til at noen kjeder seg (for lett) eller gir opp (for vanskelig). Riktig balanse er vanskelig, men viktig.
+
+**Sikkerhet:** Å ikke ta hensyn til medisinske forhold eller skadehistorikk. Alltid vurder sikkerhet.
+
+**Mangel på kreativitet:** Å gi opp for tidlig fordi «det går ikke an». Med kreativitet finnes det nesten alltid en løsning.`,
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-1-7-exercise-7',
       type: 'exercise',
@@ -2787,6 +2794,37 @@ Alle jobber hardt på sitt nivå, får god treningseffekt, og føler mestring. I
 - Dette gir verdifull læring uten fysisk belastning
 
 **Generelt prinsipp:** Fokus på at alle skal kunne delta og ha mestring på sitt nivå, ikke at alle skal gjøre det samme.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-1-7-exercise-8',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-1-7-ex-8',
+        number: '8',
+        type: 'classic',
+        task: 'Reflekter over en gang du selv opplevde å bli inkludert eller ekskludert i fysisk aktivitet. Hva gjorde at du følte deg inkludert/ekskludert? Hva kunne vært gjort annerledes?',
+        subTasks: [],
+        solution: `Eksempel på refleksjon:
+
+**Situasjon:** Jeg husker en basketballtime der jeg var en av de svakeste. Læreren delte oss inn i lag etter ferdighetsnivå.
+
+**Følelse:** Jeg følte meg ekskludert fordi alle visste at mitt lag var "de dårlige". De andre lo av oss.
+
+**Hva kunne vært gjort annerledes:**
+- Blande lagene med ulike ferdighetsnivåer
+- Gi meg en spesiell rolle der jeg kunne bidra (f.eks. forsvarer)
+- La alle få like mange sjanser til å score
+- Fokusere på innsats og samarbeid, ikke bare resultatet
+- Ikke lage synlige "nivågrupper"
+
+**Læring for fremtiden:**
+- Inkludering handler mye om hvordan aktiviteter organiseres
+- Språk og holdninger fra lærer/andre påvirker følelsen av inkludering
+- Alle har noe å bidra med - det handler om å finne det
+- Differensiering bør gjøres "diskret" uten å peke ut folk`,
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -2867,6 +2905,30 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
 - Beinmarg: Produserer blodceller`,
     },
     {
+      id: 'kroppsoving-vg1-2-1-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Nevn de fire hovedfunksjonene til skjelettet.',
+        subTasks: [],
+        solution: `De fire hovedfunksjonene til skjelettet er:
+
+1. **Støtte:** Skjelettet gir kroppen struktur og holder oss oppreist. Uten skjelett ville kroppen kollapse.
+
+2. **Beskyttelse:** Skjelettet beskytter indre organer. Eksempel: Hodeskallen beskytter hjernen, ribbene beskytter hjerte og lunger, ryggraden beskytter ryggmargen.
+
+3. **Bevegelse:** Skjelettet er festepunkt for muskler. Når muskler trekker seg sammen, flytter de på beina og skaper bevegelse.
+
+4. **Blodproduksjon:** Beinmargen inne i bein (særlig i ryggvirvler, ribben, lår- og armben) produserer røde og hvite blodceller.
+
+(Bonus: Skjelettet lagrer også mineraler som kalsium og fosfor.)`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-1-def-2',
       type: 'definition',
       title: 'Muskler',
@@ -2905,6 +2967,20 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
 - Energi (ATP)
 - Kalsium
 - Oksygen (for langvarig aktivitet)`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hvorfor muskler jobber i par (agonist/antagonist). Bruk biceps og triceps som eksempel.',
+        subTasks: [],
+        solution: 'Muskler kan bare TREKKE, de kan ikke dytte. Derfor må de jobbe i par for å skape bevegelse i begge retninger. I armen jobber biceps og triceps sammen: Når biceps trekker seg sammen (kontrahere), bøyer den armen (fleksjon). Biceps er da agonist (hovedmuskel). Triceps slapper av og strekkes passivt. For å strekke armen igjen (ekstensjon) må triceps trekke seg sammen. Nå er triceps agonist, og biceps slapper av. På denne måten skaper muskelpar kontrollert bevegelse i begge retninger. Dette prinsippet gjelder for alle ledd: quadriceps/hamstrings i kne, bryst/rygg i skulder, osv.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-1-def-3',
@@ -2947,6 +3023,40 @@ Forståelse av bevegelsesapparatet hjelper oss å trene smart, forebygge skader 
 - Fleksjon (bøying) og ekstensjon (strekning)
 - Abduksjon (bort fra midten) og adduksjon (mot midten)
 - Rotasjon (dreining)`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-4',
+        number: '3',
+        type: 'classic',
+        task: 'Hvilken leddtype er kneet?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Kulelledd',
+          'Hengselledd',
+          'Dreieledd',
+          'Glidelledd',
+        ],
+        solution: 'Riktig svar er b) Hengselledd. Kneet er primært et hengselledd som beveger seg i én retning: fleksjon (bøying) og ekstensjon (strekning). Kneet har også en liten rotasjonsmulighet, men hovedbevegelsen er som et hengsel. Eksempler på kulelledd (bevegelse i alle retninger) er skulder og hofte.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Forklar hvordan leddbrusk og leddvæske jobber sammen for å beskytte leddet.',
+        subTasks: [],
+        solution: 'Leddbrusk dekker endene av beinene i et ledd. Den er glatt og hard, og reduserer friksjon mellom beinene når leddet beveger seg. Leddvæske (synovialvæske) fyller leddhulrommet mellom brusken. Den har to funksjoner: 1) Smøring - reduserer friksjon ytterligere og gjør bevegelsen glatt. 2) Næring - brusken har ikke blodårer, så den får næring fra leddvæsken. Sammen skaper leddbrusk og leddvæske et system med minimal friksjon og god beskyttelse. Dette gjør at vi kan bevege leddene tusenvis av ganger daglig uten slitasje. Ved leddslitasje (artrose) blir brusken ødelagt og leddvæsken endres, noe som gir smerte og nedsatt funksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-1-def-4',
@@ -2994,6 +3104,40 @@ Leddbånd er sterkt, fibøst vev som forbinder bein til bein.
 
 **Skader:**
 Både sener og leddbånd er utsatt for skader (strekk, delvis eller total ruptur). De heler langsomt på grunn av dårlig blodforsyning.`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-2',
+        number: '5',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom sener og leddbånd?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Sener forbinder muskel til bein, leddbånd forbinder bein til bein',
+          'Sener forbinder bein til bein, leddbånd forbinder muskel til bein',
+          'Det er ingen forskjell, det er samme vev',
+          'Sener er i armer, leddbånd er i ben',
+        ],
+        solution: 'Riktig svar er a) Sener forbinder muskel til bein, leddbånd forbinder bein til bein. Sener overfører kraften fra muskelkontraksjon til bein og skaper bevegelse. Leddbånd stabiliserer ledd og begrenser bevegelse. Begge er sterkt, fibrøst vev med dårlig blodforsyning, men de har ulike funksjoner.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-1-exercise-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-1-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Hvorfor heler sener og leddbånd langsommere enn muskler når de skades?',
+        subTasks: [],
+        solution: 'Sener og leddbånd heler langsommere enn muskler fordi de har dårlig blodforsyning. Blod transporterer oksygen, næringsstoffer og celler som er nødvendige for tilheling. Muskler har rik blodforsyning og kan derfor reparere skader relativt raskt (dager til uker). Sener og leddbånd har få blodårer, særlig i midtpartiet. Derfor tar tilheling mye lengre tid (uker til måneder). En muskelrift kan være tilheilt på 2-4 uker, mens en seneskade kan ta 3-6 måneder eller mer. Dette er viktig å vite for rehabilitering - man må være tålmodig og ikke belaste for tidlig, ellers kan skaden bli kronisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-1-example-1',
@@ -3089,108 +3233,88 @@ Knebøy er en sammensatt bevegelse som involverer flere ledd, store muskelgruppe
 - Nummenhet eller prikking
 - Deformitet (ser feil ut)`,
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-2-1-exercise-1',
+      id: 'kroppsoving-vg1-2-1-exercise-7',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-1',
-        number: '1',
+        id: 'kroppsoving-vg1-2-1-ex-7',
+        number: '7',
         type: 'classic',
-        task: 'Nevn de fire hovedfunksjonene til skjelettet.',
+        task: 'Velg en sammensatt øvelse (f.eks. utfall, markløft, push-ups) og gjør en bevegelsesanalyse. Beskriv hvilke ledd, muskler og bevegelsestyper som er involvert.',
         subTasks: [],
-        solution: `De fire hovedfunksjonene til skjelettet er:
+        solution: `Eksempel: Utfall (lunge)
 
-1. **Støtte:** Skjelettet gir kroppen struktur og holder oss oppreist. Uten skjelett ville kroppen kollapse.
+**Ledd og bevegelser:**
+- **Hofte (fremre bein):** Fleksjon ved nedsenking, ekstensjon ved oppstigning
+- **Kne (fremre bein):** Fleksjon ved nedsenking, ekstensjon ved oppstigning
+- **Ankel (fremre bein):** Dorsalfleksjon ved nedsenking
+- **Hofte (bakre bein):** Ekstensjon/hyperekstensjon
+- **Kne (bakre bein):** Fleksjon
 
-2. **Beskyttelse:** Skjelettet beskytter indre organer. Eksempel: Hodeskallen beskytter hjernen, ribbene beskytter hjerte og lunger, ryggraden beskytter ryggmargen.
+**Muskler involvert:**
+- **Gluteus maximus:** Hoftestrekking (hovedmuskel)
+- **Quadriceps:** Knestrekking
+- **Hamstrings:** Hjelper hofte, stabiliserer kne
+- **Core-muskulatur:** Stabiliserer overkroppen
+- **Adduktorer:** Stabiliserer sidebevegelse
 
-3. **Bevegelse:** Skjelettet er festepunkt for muskler. Når muskler trekker seg sammen, flytter de på beina og skaper bevegelse.
+**Sener og leddbånd:**
+- Patellarsenen (overførerer kraft fra quadriceps til leggbeina)
+- Korsbånd og sidebånd i kne (stabiliserer)
 
-4. **Blodproduksjon:** Beinmargen inne i bein (særlig i ryggvirvler, ribben, lår- og armben) produserer røde og hvite blodceller.
-
-(Bonus: Skjelettet lagrer også mineraler som kalsium og fosfor.)`,
+**Praktisk anvendelse:**
+Utfall er en ensidig øvelse som trener styrke, balanse og koordinasjon. Den etterlikner naturlige bevegelser som å gå i trapper eller løpe.`,
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
     },
     {
-      id: 'kroppsoving-vg1-2-1-exercise-2',
+      id: 'kroppsoving-vg1-2-1-exercise-8',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-2',
-        number: '2',
+        id: 'kroppsoving-vg1-2-1-ex-8',
+        number: '8',
         type: 'classic',
-        task: 'Hva er forskjellen mellom sener og leddbånd?',
+        task: 'Lag en plan for hvordan du kan ta vare på bevegelsesapparatet ditt gjennom en typisk treningsuke. Inkluder oppvarming, styrketrening, bevegelighetsarbeid og restitusjon.',
         subTasks: [],
-        multipleChoiceOptions: [
-          'Sener forbinder muskel til bein, leddbånd forbinder bein til bein',
-          'Sener forbinder bein til bein, leddbånd forbinder muskel til bein',
-          'Det er ingen forskjell, det er samme vev',
-          'Sener er i armer, leddbånd er i ben',
-        ],
-        solution: 'Riktig svar er a) Sener forbinder muskel til bein, leddbånd forbinder bein til bein. Sener overfører kraften fra muskelkontraksjon til bein og skaper bevegelse. Leddbånd stabiliserer ledd og begrenser bevegelse. Begge er sterkt, fibøst vev med dårlig blodforsyning, men de har ulike funksjoner.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-1-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar hvorfor muskler jobber i par (agonist/antagonist). Bruk biceps og triceps som eksempel.',
-        subTasks: [],
-        solution: 'Muskler kan bare TREKKE, de kan ikke dytte. Derfor må de jobbe i par for å skape bevegelse i begge retninger. I armen jobber biceps og triceps sammen: Når biceps trekker seg sammen (kontrahere), bøyer den armen (fleksjon). Biceps er da agonist (hovedmuskel). Triceps slapper av og strekkes passivt. For å strekke armen igjen (ekstensjon) må triceps trekke seg sammen. Nå er triceps agonist, og biceps slapper av. På denne måten skaper muskelpar kontrollert bevegelse i begge retninger. Dette prinsippet gjelder for alle ledd: quadriceps/hamstrings i kne, bryst/rygg i skulder, osv.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-1-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilket ledd type er kneet?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Kulelledd',
-          'Hengselledd',
-          'Dreieledd',
-          'Glidelledd',
-        ],
-        solution: 'Riktig svar er b) Hengselledd. Kneet er primært et hengselledd som beveger seg i én retning: fleksjon (bøying) og ekstensjon (strekning). Kneet har også en liten rotasjonsmulighet, men hovedbevegelsen er som et hengsel. Eksempler på kulelledd (bevegelse i alle retninger) er skulder og hofte.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-1-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Forklar hvordan leddbrusk og leddvæske jobber sammen for å beskytte leddet.',
-        subTasks: [],
-        solution: 'Leddbrusk dekker endene av beinene i et ledd. Den er glatt og hard, og reduserer friksjon mellom beinene når leddet beveger seg. Leddvæske (synovialvæske) fyller leddhulrom met mellom brusken. Den har to funksjoner: 1) Smøring - reduserer friksjon ytterligere og gjør bevegelsen glatt. 2) Næring - brusken har ikke blodårer, så den får næring fra leddvæsken. Sammen skaper leddbrusk og leddvæske et system med minimal friksjon og god beskyttelse. Dette gjør at vi kan bevege leddene tusenvis av ganger daglig uten slitasje. Ved leddslitasje (artrose) blir brusken ødelagt og leddvæsken endres, noe som gir smerte og nedsatt funksjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-1-exercise-6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-1-ex-6',
-        number: '6',
-        type: 'classic',
-        task: 'Hvorfor heler sener og leddbånd langsommere enn muskler når de skades?',
-        subTasks: [],
-        solution: 'Sener og leddbånd heler langsommere enn muskler fordi de har dårlig blodforsyning. Blod transporterer oksygen, næringsstoffer og celler som er nødvendige for tilheling. Muskler har rik blodforsyning og kan derfor reparere skader relativt raskt (dager til uker). Sener og leddbånd har få blodårer, særlig i midtpartiet. Derfor tar tilheling mye lengre tid (uker til måneder). En muskelsk rift kan være tilheilt på 2-4 uker, mens en seneskade kan ta 3-6 måneder eller mer. Dette er viktig å vite for rehabilitering - man må være tålmodig og ikke belaste for tidlig, ellers kan skaden bli kronisk.',
+        solution: `Eksempel på ukeplan:
+
+**Mandag - Styrketrening overkropp:**
+- 10 min oppvarming (jogg + armsvingninger)
+- Styrkeøvelser: push-ups, roing, skulderpress
+- 5 min uttøyning av skuldre, bryst, rygg
+
+**Tirsdag - Utholdenhet:**
+- 10 min oppvarming
+- 30 min jogg i sone 2
+- 5 min nedkjøling og uttøyning av bein
+
+**Onsdag - Hvile/restitusjon:**
+- Lett gange eller sykling (aktiv restitusjon)
+- Foam rolling og uttøyning
+
+**Torsdag - Styrketrening underkropp:**
+- 10 min oppvarming (dynamisk tøying, hopp)
+- Styrkeøvelser: knebøy, utfall, markløft, leggløft
+- 5 min uttøyning av hofter, lår, legger
+
+**Fredag - Ballspill/idrett:**
+- 15 min grundig oppvarming
+- 45 min fotball/basketball/håndball
+- 10 min nedkjøling og uttøyning
+
+**Lørdag - Lang tur:**
+- 60-90 min vandring/sykling i rolig tempo
+
+**Søndag - Hvile:**
+- Full hviledag eller lett yoga/tøying
+
+**Nøkkelpunkter:**
+- Aldri hoppe over oppvarming
+- Variere belastning på ulike kroppsdeler
+- Minst 1-2 fullstendige hviledager per uke
+- Lytt til kroppen - ekstra hvile ved behov`,
         allowsUpload: true,
         allowsCanvasDrawing: false,
       },
@@ -3259,6 +3383,40 @@ Et sterkt kardiovaskulært system er grunnlaget for god helse og god kondisjon.`
 - Bedre oksygentransport`,
     },
     {
+      id: 'kroppsoving-vg1-2-2-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-2-ex-2',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er hjerteminuttvolum (HMV)?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Antall hjerteslag per minutt',
+          'Mengden blod hjertet pumper per minutt',
+          'Størrelsen på hjertet',
+          'Blodtrykket',
+        ],
+        solution: 'Riktig svar er b) Mengden blod hjertet pumper per minutt. Hjerteminuttvolum (HMV) beregnes som hjertefrekvens (antall slag/min) x slagvolum (blodvolum per slag). I hvile er HMV ca. 5 liter/min, mens det under hard trening kan øke til 20-30 liter/min hos trente personer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-2-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-2-ex-3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor har godt trente personer lavere hvilepuls enn utrente?',
+        subTasks: [],
+        solution: 'Godt trente personer har lavere hvilepuls fordi hjertet deres er sterkere og mer effektivt. Gjennom trening blir hjertemuskelen sterkere og hjertekamrene blir større. Dette gir høyere slagvolum - hjertet pumper mer blod per slag. For å pumpe samme mengde blod rundt i kroppen (ca. 5 liter/min i hvile) trenger derfor et sterkt hjerte færre slag. Eksempel: Utrent person: 75 slag/min x 67 ml = 5 liter/min. Trent person: 50 slag/min x 100 ml = 5 liter/min. Begge pumper 5 liter, men den trente gjør det med færre slag fordi hvert slag pumper mer. Dette er mer effektivt og belaster hjertet mindre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-2-def-2',
       type: 'definition',
       title: 'Blodsirkulasjonen',
@@ -3300,6 +3458,38 @@ Et sterkt kardiovaskulært system er grunnlaget for god helse og god kondisjon.`
 - Normalt: 120/80 mmHg`,
     },
     {
+      id: 'kroppsoving-vg1-2-2-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-2-ex-6',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv forskjellen mellom arterier og vener.',
+        subTasks: [],
+        solution: `Forskjeller mellom arterier og vener:
+
+**Arterier:**
+- Fører blod BORT fra hjertet
+- Tykkveggede og elastiske (må tåle høyt trykk)
+- Høyt blodtrykk (pulserer)
+- Inneholder oksygenrikt blod (unntatt lungearterie)
+- Ligger dypere i kroppen
+
+**Vener:**
+- Fører blod TIL hjertet
+- Tynnveggede
+- Lavt blodtrykk
+- Har klaffer som forhindrer tilbakestrømming
+- Inneholder oksygenfattig blod (unntatt lungevener)
+- Ligger ofte nærmere hudoverflaten (du kan se dem)
+
+**Fellestrekk:**
+Begge er blodårer som transporterer blod. De møtes i kapillærene hvor utveksling av oksygen og næring skjer.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-2-def-3',
       type: 'definition',
       title: 'Lungene og gassutveksling',
@@ -3332,6 +3522,26 @@ Et sterkt kardiovaskulært system er grunnlaget for god helse og god kondisjon.`
 - Kan ta dypere pust`,
     },
     {
+      id: 'kroppsoving-vg1-2-2-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvor skjer gassutvekslingen i lungene?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'I luftrøret',
+          'I bronkiene',
+          'I alveolene (lungeblærene)',
+          'I mellomgulvet',
+        ],
+        solution: 'Riktig svar er c) I alveolene (lungeblærene). Alveolene er små, tynne sekker omgitt av kapillærer. Her er veggen mellom luft og blod så tynn at gasser kan diffundere: Oksygen går fra luft til blod, karbondioksid går fra blod til luft. Lungene har ca. 300 millioner alveoler, noe som gir et enormt overflateareal for gassutveksling.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-2-def-4',
       type: 'definition',
       title: 'Oksygenopptak (VO₂)',
@@ -3361,6 +3571,33 @@ VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
 - 30-50% av VO₂maks er arvelig
 - Men du kan forbedre VO₂maks med 15-30% gjennom trening
 - Utrente kan få større forbedring enn trente`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-2-exercise-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar hva VO2maks er og hva som bestemmer hvor høy VO2maks du har.',
+        subTasks: [],
+        solution: `VO2maks er den maksimale mengden oksygen kroppen kan ta opp og bruke per minutt under hard fysisk aktivitet. Det måles i ml/kg/min og er det beste målet på kondisjonen din.
+
+**Hva bestemmer VO2maks:**
+
+1. **Lungenes kapasitet:** Hvor effektivt lungene tar opp oksygen fra luften
+2. **Hjertets pumpefunksjon:** Hvor mye blod hjertet kan pumpe per minutt (hjerteminuttvolum)
+3. **Blodets oksygentransport:** Antall røde blodceller og mengden hemoglobin (proteinet som frakter oksygen)
+4. **Musklenes effektivitet:** Hvor godt musklene kan bruke oksygenet til energiproduksjon
+
+**Påvirkning:**
+- 30-50% er genetisk bestemt
+- Trening kan forbedre VO2maks med 15-30%
+- Høyintensitetsintervaller er mest effektivt
+- Alder, kjønn og treningsbakgrunn påvirker også`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-2-example-1',
@@ -3454,12 +3691,13 @@ VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
 - Ha inhalator tilgjengelig
 - Astma er IKKE et hinder for toppidrett (mange eliteutøvere har astma)`,
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-2-2-exercise-1',
+      id: 'kroppsoving-vg1-2-2-exercise-6',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-2-2-ex-1',
-        number: '1',
+        number: '6',
         type: 'classic',
         task: 'Forklar hvordan oksygen kommer fra luften til musklene. Beskriv hele veien.',
         subTasks: [],
@@ -3481,116 +3719,41 @@ VO₂maks = Hjerteminuttvolum × (O₂ i arterieblod - O₂ i veneblod)
       },
     },
     {
-      id: 'kroppsoving-vg1-2-2-exercise-2',
+      id: 'kroppsoving-vg1-2-2-exercise-7',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-2-2-ex-2',
-        number: '2',
+        id: 'kroppsoving-vg1-2-2-ex-7',
+        number: '7',
         type: 'classic',
-        task: 'Hva er hjerteminuttvolum (HMV)?',
+        task: 'Lag en plan for hvordan du kan forbedre din VO2maks over de neste 8 ukene. Beskriv hvilke treningstyper du vil bruke og hvor ofte.',
         subTasks: [],
-        multipleChoiceOptions: [
-          'Antall hjerteslag per minutt',
-          'Mengden blod hjertet pumper per minutt',
-          'Størrelsen på hjertet',
-          'Blodtrykket',
-        ],
-        solution: 'Riktig svar er b) Mengden blod hjertet pumper per minutt. Hjerteminuttvolum (HMV) beregnes som hjertefrekvens (antall slag/min) × slagvolum (blodvolum per slag). I hvile er HMV ca. 5 liter/min, mens det under hard trening kan øke til 20-30 liter/min hos trente personer.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-2-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvorfor har godt trente personer lavere hvilepuls enn utrente?',
-        subTasks: [],
-        solution: 'Godt trente personer har lavere hvilepuls fordi hjertet deres er sterkere og mer effektivt. Gjennom trening blir hjertemuskelen sterkere og hjertekamrene blir større. Dette gir høyere slagvolum - hjertet pumper mer blod per slag. For å pumpe samme mengde blod rundt i kroppen (ca. 5 liter/min i hvile) trenger derfor et sterkt hjerte færre slag. Eksempel: Utrent person: 75 slag/min × 67 ml = 5 liter/min. Trent person: 50 slag/min × 100 ml = 5 liter/min. Begge pumper 5 liter, men den trente gjør det med færre slag fordi hvert slag pumper mer. Dette er mer effektivt og belaster hjertet mindre.',
+        solution: `Eksempel på 8-ukers plan for VO2maks-forbedring:
+
+**Uke 1-2 (Grunnlag):**
+- 3x rolig løping (30-40 min i sone 2)
+- Fokus på å bygge grunnlag og venne kroppen til trening
+
+**Uke 3-4 (Introduser intervaller):**
+- 2x rolig løping (40 min)
+- 1x intervaller: 4x3 min i sone 4, 2 min pause
+
+**Uke 5-6 (Øk intensiteten):**
+- 2x rolig løping (40-45 min)
+- 1x 4x4 min intervaller i sone 4-5, 3 min pause
+- 1x terskeltrening: 2x10 min i sone 3
+
+**Uke 7-8 (Toppfase):**
+- 2x rolig løping (30 min)
+- 2x intervaller: 5x4 min i sone 4-5
+- Test VO2maks eller 3000m på tid
+
+**Viktige prinsipper:**
+- 80% av treningen i lav intensitet, 20% høy intensitet
+- Minst 1 hviledag per uke
+- Gradvis progresjon (ikke øk for raskt)
+- Lytt til kroppen (reduser ved tegn på overtrening)`,
         allowsUpload: true,
         allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-2-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvor skjer gassutvekslingen i lungene?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'I luftrøret',
-          'I bronkiene',
-          'I alveolene (lungeblærene)',
-          'I mellomgulvet',
-        ],
-        solution: 'Riktig svar er c) I alveolene (lungeblærene). Alveolene er små, tynne sekker omgitt av kapillærer. Her er veg gen mellom luft og blod så tynn at gasser kan diffundere: Oksygen går fra luft til blod, karbondioksid går fra blod til luft. Lungene har ca. 300 millioner alveoler, noe som gir et enormt overflateareal for gassutveksling.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-2-exercise-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-2-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Forklar hva VO₂maks er og hva som bestemmer hvor høy VO₂maks du har.',
-        subTasks: [],
-        solution: `VO₂maks er den maksimale mengden oksygen kroppen kan ta opp og bruke per minutt under hard fysisk aktivitet. Det måles i ml/kg/min og er det beste målet på kondisjonen din.
-
-**Hva bestemmer VO₂maks:**
-
-1. **Lungenes kapasitet:** Hvor effektivt lungene tar opp oksygen fra luften
-2. **Hjertets pumpefunksjon:** Hvor mye blod hjertet kan pumpe per minutt (hjerteminuttvolum)
-3. **Blodets oksygentransport:** Antall røde blodceller og mengden hemoglobin (proteinet som frakter oksygen)
-4. **Musklenes effektivitet:** Hvor godt musklene kan bruke oksygenet til energiproduksjon
-
-**Påvirkning:**
-- 30-50% er genetisk bestemt
-- Trening kan forbedre VO₂maks med 15-30%
-- Høyintensitetsintervaller er mest effektivt
-- Alder, kjønn og treningsbakgrunn påvirker også`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-2-exercise-6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-2-ex-6',
-        number: '6',
-        type: 'classic',
-        task: 'Beskriv forskjellen mellom arterier og vener.',
-        subTasks: [],
-        solution: `Forskjeller mellom arterier og vener:
-
-**Arterier:**
-- Fører blod BORT fra hjertet
-- Tykkveggede og elastiske (må tåle høyt trykk)
-- Høyt blodtrykk (pulserer)
-- Inneholder oksygenrikt blod (unntatt lungearterie)
-- Ligger dypere i kroppen
-
-**Vener:**
-- Fører blod TIL hjertet
-- Tynnveggede
-- Lavt blodtrykk
-- Har klaffer som forhindrer tilbakestrømming
-- Inneholder oksygenfattig blod (unntatt lungevener)
-- Ligger ofte nærmere hudoverflaten (du kan se dem)
-
-**Fellestrekk:**
-Begge er blodårer som transporterer blod. De møtes i kapillærene hvor utveksling av oksygen og næring skjer.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
       },
     },
   ],
@@ -3652,6 +3815,20 @@ Alle tre energisystemene jobber hele tiden, men i ulik grad avhengig av aktivite
 Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
     },
     {
+      id: 'kroppsoving-vg1-2-3-exercise-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Forklar hva ATP er og hvorfor kroppen trenger å produsere det kontinuerlig.',
+        subTasks: [],
+        solution: 'ATP (adenosintrifosfat) er kroppens energivaluta - det molekylet som lagrer og frigjør energi som musklene kan bruke direkte. Når ATP spaltes til ADP (adenosindifosfat) + fosfat, frigjøres energi som brukes til muskelkontraksjon. Problemet er at kroppen bare lagrer litt ATP i musklene - nok til 2-3 sekunders maksimal innsats. Derfor må kroppen kontinuerlig produsere nytt ATP fra karbohydrater, fett og kreatinfosfat gjennom de tre energisystemene (anaerobt alaktisk, anaerobt laktisk, og aerobt). Uten kontinuerlig ATP-produksjon ville musklene slutte å fungere etter få sekunder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-3-def-2',
       type: 'definition',
       title: 'De tre energisystemene',
@@ -3697,6 +3874,26 @@ Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
 - 0-10 sek: 90% anaerobt alaktisk
 - 10 sek-2 min: Hovedsakelig anaerobt laktisk
 - 2+ min: Hovedsakelig aerobt (men alle tre bidrar)`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-3-exercise-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilket energisystem dominerer under en 400 meter sprint (ca. 50-60 sekunder)?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Anaerobt alaktisk system',
+          'Anaerobt laktisk system',
+          'Aerobt system',
+          'Alle tre like mye',
+        ],
+        solution: 'Riktig svar er b) Anaerobt laktisk system. Ved 50-60 sekunders høyintensitetsarbeid er det anaerobe laktiske systemet som dominerer. Dette systemet bryter ned glukose uten oksygen og produserer melkesyre. Det gir høy kraft, men laktatoppbygging gjør at man ikke kan holde intensiteten så lenge. Anaerobt alaktisk (ATP-CP) bidrar de første 5-10 sekundene, og det aerobe systemet begynner å bidra etter 30-45 sekunder, men anaerobt laktisk dominerer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-3-def-3',
@@ -3745,6 +3942,39 @@ Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
 - Begge energikilder viktige i kostholdet`,
     },
     {
+      id: 'kroppsoving-vg1-2-3-exercise-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom karbohydrat og fett som energikilde. Når bruker kroppen mest av hver?',
+        subTasks: [],
+        solution: `**Karbohydrat (glukose/glykogen):**
+- Gir rask energi
+- Kan brukes både aerobt og anaerobt
+- Begrenset lagring (400-500g = ca. 2000 kalorier)
+- Brukes mest ved høy intensitet (over 80% av maks)
+- Tømmes etter 60-90 min hard aktivitet
+
+**Fett (fettsyrer):**
+- Gir langsom energi
+- Kan kun brukes aerobt (trenger oksygen)
+- Enormt lager (selv slanke har 10 000+ kalorier)
+- Brukes mest ved lav-moderat intensitet (under 60% av maks)
+- Nesten uuttømmelig
+
+**Når brukes hva:**
+- Høy intensitet (sprint, intervaller): Nesten bare karbohydrat
+- Moderat intensitet (jogging): Blanding, ca. 50/50
+- Lav intensitet (rolig gange): Mest fett
+
+Ved langvarig aktivitet (maraton) starter kroppen med karbohydrat, men overgår gradvis til mer fett etter hvert som glykogen tømmes.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-3-def-4',
       type: 'definition',
       title: 'Melkesyre (laktat)',
@@ -3781,6 +4011,26 @@ Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
 - Terskeltrening hever anaerob terskel
 - Kroppen blir bedre til å tolerere og fjerne laktat
 - Kan jobbe hardere uten å "gå på smell"`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-3-exercise-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er anaerob terskel?',
+        subTasks: [],
+        multipleChoiceOptions: [
+          'Den maksimale pulsen',
+          'Intensiteten hvor laktatproduksjon overstiger laktatfjernelse',
+          'Den laveste pulsen',
+          'Når man ikke kan puste',
+        ],
+        solution: 'Riktig svar er b) Intensiteten hvor laktatproduksjon overstiger laktatfjernelse. Anaerob terskel er intensiteten (typisk 80-90% av maks puls) hvor kroppen begynner å produsere mer melkesyre (laktat) enn den klarer å fjerne. Over denne terskelen hoper melkesyre seg opp, og man kan ikke holde intensiteten så lenge. Under terskelen kan man holde intensiteten i lang tid. Med utholdenhets trening kan man heve den anaerobe terskelen og dermed jobbe hardere uten laktatoppbygging.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-3-example-1',
@@ -3848,93 +4098,7 @@ Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
 
 **Spiseforstyrrelser:** Restriksjoner rundt mat kan utvikle seg til spiseforstyrrelser. Søk hjelp hvis du er bekymret.`,
     },
-    {
-      id: 'kroppsoving-vg1-2-3-exercise-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva ATP er og hvorfor kroppen trenger å produsere det kontinuerlig.',
-        subTasks: [],
-        solution: 'ATP (adenosintrifosfat) er kroppens energivaluta - det molekylet som lagrer og frigjør energi som musklene kan bruke direkte. Når ATP spaltes til ADP (adenosindifosfat) + fosfat, frigjøres energi som brukes til muskelkontraksjon. Problemet er at kroppen bare lagrer litt ATP i musklene - nok til 2-3 sekunders maksimal innsats. Derfor må kroppen kontinuerlig produsere nytt ATP fra karbohydrater, fett og kreatinfosfat gjennom de tre energisystemene (anaerobt alaktisk, anaerobt laktisk, og aerobt). Uten kontinuerlig ATP-produksjon ville musklene slutte å fungere etter få sekunder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-3-exercise-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvilket energisystem dominerer under en 400 meter sprint (ca. 50-60 sekunder)?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Anaerobt alaktisk system',
-          'Anaerobt laktisk system',
-          'Aerobt system',
-          'Alle tre like mye',
-        ],
-        solution: 'Riktig svar er b) Anaerobt laktisk system. Ved 50-60 sekunders høyintensitetsarbeid er det anaerobe laktiske systemet som dominerer. Dette systemet bryter ned glukose uten oksygen og produserer melkesyre. Det gir høy kraft, men laktatoppbygging gjør at man ikke kan holde intensiteten så lenge. Anaerobt alaktisk (ATP-CP) bidrar de første 5-10 sekundene, og det aerobe systemet begynner å bidra etter 30-45 sekunder, men anaerobt laktisk dominerer.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-3-exercise-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom karbohydrat og fett som energikilde. Når bruker kroppen mest av hver?',
-        subTasks: [],
-        solution: `**Karbohydrat (glukose/glykogen):**
-- Gir rask energi
-- Kan brukes både aerobt og anaerobt
-- Begrenset lagring (400-500g = ca. 2000 kalorier)
-- Brukes mest ved høy intensitet (over 80% av maks)
-- Tømmes etter 60-90 min hard aktivitet
-
-**Fett (fettsyrer):**
-- Gir langsom energi
-- Kan kun brukes aerobt (trenger oksygen)
-- Enormt lager (selv slanke har 10 000+ kalorier)
-- Brukes mest ved lav-moderat intensitet (under 60% av maks)
-- Nesten uuttømmelig
-
-**Når brukes hva:**
-- Høy intensitet (sprint, intervaller): Nesten bare karbohydrat
-- Moderat intensitet (jogging): Blanding, ca. 50/50
-- Lav intensitet (rolig gange): Mest fett
-
-Ved langvarig aktivitet (maraton) starter kroppen med karbohydrat, men overgår gradvis til mer fett etter hvert som glykogen tømmes.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-3-exercise-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er anaerob terskel?',
-        subTasks: [],
-        multipleChoiceOptions: [
-          'Den maksimale pulsen',
-          'Intensiteten hvor laktatproduksjon overstiger laktatfjernelse',
-          'Den laveste pulsen',
-          'Når man ikke kan puste',
-        ],
-        solution: 'Riktig svar er b) Intensiteten hvor laktatproduksjon overstiger laktatfjernelse. Anaerob terskel er intensiteten (typisk 80-90% av maks puls) hvor kroppen begynner å produsere mer melkesyre (laktat) enn den klarer å fjerne. Over denne terskelen hoper melkesyre seg opp, og man kan ikke holde intensiteten så lenge. Under terskelen kan man holde intensiteten i lang tid. Med utholdenhets trening kan man heve den anaerobe terskelen og dermed jobbe hardere uten laktatoppbygging.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-2-3-exercise-5',
       type: 'exercise',
@@ -4068,6 +4232,58 @@ God kunnskap om skader gjør deg i stand til å:
 - Skulder (rotatorcuffen)`,
     },
     {
+      id: 'kroppsoving-vg1-2-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på akutte skader og belastningsskader?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse.',
+            solution: 'Akutte skader oppstår plutselig, belastningsskader utvikles gradvis over tid',
+            multipleChoiceOptions: [
+              'Akutte skader oppstår plutselig, belastningsskader utvikles gradvis over tid',
+              'Akutte skader er mindre alvorlige',
+              'Belastningsskader krever alltid operasjon',
+              'Det er ingen forskjell',
+            ],
+          },
+        ],
+        solution: 'Akutte skader oppstår ved en enkelt hendelse (fall, kollisjon), mens belastningsskader utvikles gradvis på grunn av gjentatt overbelastning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er en forstuing?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig definisjon.',
+            solution: 'En skade på leddbåndene rundt et ledd',
+            multipleChoiceOptions: [
+              'En skade på leddbåndene rundt et ledd',
+              'En skade på muskelen',
+              'Et brukket bein',
+              'En betennelse i senen',
+            ],
+          },
+        ],
+        solution: 'En forstuing (distorsjon) er en skade på leddbåndene som oppstår når leddet tvinges utenfor sitt normale bevegelsesområde.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-4-text-1',
       type: 'text',
       content: `## Akutte skader
@@ -4089,6 +4305,32 @@ God kunnskap om skader gjør deg i stand til å:
 - Symptomer: Hodepine, kvalme, forvirring, hukommelsestap
 - Viktig: Oppsøk lege! Ikke fortsett aktivitet!
 - Må hvile til symptomfri`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er symptomene på hjernerystelse?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg de vanligste symptomene.',
+            solution: 'Hodepine, kvalme, forvirring, hukommelsestap',
+            multipleChoiceOptions: [
+              'Hodepine, kvalme, forvirring, hukommelsestap',
+              'Bare hodepine',
+              'Smerter i nakken',
+              'Blåmerker på hodet',
+            ],
+          },
+        ],
+        solution: 'Hjernerystelse kan gi hodepine, kvalme, forvirring, hukommelsestap, lysømfintlighet og balanseproblemer. Ved mistanke om hjernerystelse skal man stoppe aktivitet og oppsøke lege.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-4-text-2',
@@ -4145,102 +4387,6 @@ God kunnskap om skader gjør deg i stand til å:
 - Bytt ut slitt utstyr`,
     },
     {
-      id: 'kroppsoving-vg1-2-4-tip-1',
-      type: 'tip',
-      title: 'FIFA 11+',
-      content: `FIFA 11+ er et oppvarmingsprogram utviklet for å forebygge skader i fotball. Programmet tar 20 minutter og har vist seg å redusere skader med opptil 50%. Det inneholder styrke-, balanse- og bevegelsesøvelser som også kan brukes i andre idretter.`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-4-warning-1',
-      type: 'warning',
-      title: 'Når skal du oppsøke lege?',
-      content: `Oppsøk lege umiddelbart ved:
-- Hodeskade med bevisstløshet eller forvirring
-- Deformitet (feilstilling) i ledd eller bein
-- Kraftig hevelse som utvikler seg raskt
-- Nummenhet eller kribling
-- Manglende evne til å belaste skadet kroppsdel
-- Smerte som ikke avtar med hvile`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på akutte skader og belastningsskader?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse.',
-            solution: 'Akutte skader oppstår plutselig, belastningsskader utvikles gradvis over tid',
-            multipleChoiceOptions: [
-              'Akutte skader oppstår plutselig, belastningsskader utvikles gradvis over tid',
-              'Akutte skader er mindre alvorlige',
-              'Belastningsskader krever alltid operasjon',
-              'Det er ingen forskjell',
-            ],
-          },
-        ],
-        solution: 'Akutte skader oppstår ved en enkelt hendelse (fall, kollisjon), mens belastningsskader utvikles gradvis på grunn av gjentatt overbelastning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er en forstuing?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig definisjon.',
-            solution: 'En skade på leddbåndene rundt et ledd',
-            multipleChoiceOptions: [
-              'En skade på leddbåndene rundt et ledd',
-              'En skade på muskelen',
-              'Et brukket bein',
-              'En betennelse i senen',
-            ],
-          },
-        ],
-        solution: 'En forstuing (distorsjon) er en skade på leddbåndene som oppstår når leddet tvinges utenfor sitt normale bevegelsesområde.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er symptomene på hjernerystelse?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg de vanligste symptomene.',
-            solution: 'Hodepine, kvalme, forvirring, hukommelsestap',
-            multipleChoiceOptions: [
-              'Hodepine, kvalme, forvirring, hukommelsestap',
-              'Bare hodepine',
-              'Smerter i nakken',
-              'Blåmerker på hodet',
-            ],
-          },
-        ],
-        solution: 'Hjernerystelse kan gi hodepine, kvalme, forvirring, hukommelsestap, lysømfintlighet og balanseproblemer. Ved mistanke om hjernerystelse skal man stoppe aktivitet og oppsøke lege.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'kroppsoving-vg1-2-4-ex-4',
       type: 'exercise',
       exercise: {
@@ -4283,6 +4429,89 @@ God kunnskap om skader gjør deg i stand til å:
         solution: '10%-regelen er en tommelfingerregel som sier at du ikke bør øke treningsbelastningen (distanse, tid, vekt) med mer enn 10% per uke for å unngå belastningsskader.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-tip-1',
+      type: 'tip',
+      title: 'FIFA 11+',
+      content: `FIFA 11+ er et oppvarmingsprogram utviklet for å forebygge skader i fotball. Programmet tar 20 minutter og har vist seg å redusere skader med opptil 50%. Det inneholder styrke-, balanse- og bevegelsesøvelser som også kan brukes i andre idretter.`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-warning-1',
+      type: 'warning',
+      title: 'Når skal du oppsøke lege?',
+      content: `Oppsøk lege umiddelbart ved:
+- Hodeskade med bevisstløshet eller forvirring
+- Deformitet (feilstilling) i ledd eller bein
+- Kraftig hevelse som utvikler seg raskt
+- Nummenhet eller kribling
+- Manglende evne til å belaste skadet kroppsdel
+- Smerte som ikke avtar med hvile`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'kroppsoving-vg1-2-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-4-ex-6',
+        number: '6',
+        type: 'classic',
+        task: 'Du ser en lagkamerat gå i bakken og holde seg til ankelen etter en takling i fotball. Beskriv hvordan du ville håndtert situasjonen de første 10 minuttene.',
+        subTasks: [],
+        solution: `Håndtering av akutt ankelskade:
+
+**Første 1-2 minutter:**
+- Stopp spillet og sikre området
+- Gå bort og spør hva som skjedde og hvor det gjør vondt
+- Vurder om personen kan bevege ankelen
+
+**De neste 3-5 minuttene:**
+- Hjelp personen ut av banen (ikke belaste foten hvis vondt)
+- Start PRICE: Beskytt ankelen, la personen hvile
+- Legg is på ankelen (med klut mellom)
+
+**5-10 minutter:**
+- Legg elastisk bandasje hvis tilgjengelig (kompresjon)
+- Løft foten opp på en bag eller benk (elevasjon)
+- Vurder om lege/legevakt trengs (stor hevelse, ustabilt ledd, kraftig smerte)
+
+Fortsett PRICE de neste timene. Oppsøk lege ved tvil eller manglende bedring.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-4-ex-7',
+        number: '7',
+        type: 'classic',
+        task: 'Reflekter over en idrettsskade du selv har hatt, eller beskriv en skade du kjenner til. Hva slags skade var det? Hvordan oppsto den? Hva ble gjort for å behandle den? Hva kunne vært gjort for å forebygge den?',
+        subTasks: [],
+        solution: `Eksempel på refleksjon:
+
+**Skade:** Ankelforstuing (grad 2) i fotball
+
+**Hvordan den oppsto:**
+Gikk over på ankelen ved landing etter en heading. Akutt skade ved ytre leddbånd.
+
+**Behandling:**
+- PRICE de første 48 timene (is, hvile, kompresjon, elevasjon)
+- Gradvis belastning etter 3 dager
+- Fysioterapi med balanse- og styrkeøvelser
+- Teip på trening de første 6 ukene
+
+**Forebygging (for fremtiden):**
+- Balanse- og propriosepsjonstrening
+- Styrke ankelen med øvelser
+- Bruke støtte/teip ved behov
+- Bedre oppvarming før aktivitet
+
+**Læring:** Skader skjer, men mange kan forebygges med riktig trening og forberedelse. Viktig å ta skader på alvor og ikke returnere for tidlig.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: false,
       },
     },
   ],
@@ -4339,6 +4568,32 @@ Elastisk bandasje gir støtte og begrenser hevelse. Ikke for stramt!
 Løft skadet område over hjertenivå for å redusere hevelse.`,
     },
     {
+      id: 'kroppsoving-vg1-2-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva står PRICE for?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig oversettelse.',
+            solution: 'Protection, Rest, Ice, Compression, Elevation',
+            multipleChoiceOptions: [
+              'Protection, Rest, Ice, Compression, Elevation',
+              'Pain, Rest, Ice, Cold, Exercise',
+              'Protect, Run, Ice, Cool, Elevate',
+              'Prevention, Recovery, Ice, Care, Evaluation',
+            ],
+          },
+        ],
+        solution: 'PRICE = Protection (Beskyttelse), Rest (Hvile), Ice (Is), Compression (Kompresjon), Elevation (Elevasjon).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-5-def-2',
       type: 'definition',
       title: 'HLR (Hjerte-Lunge-Redning)',
@@ -4354,6 +4609,58 @@ Løft skadet område over hjertenivå for å redusere hevelse.`,
    - 2 innblåsinger (hvis du kan/vil)
    - Fortsett 30:2 til hjelp ankommer
 6. **Bruk hjertestarter (AED)** hvis tilgjengelig - følg instruksjoner`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvor dypt skal man trykke ved brystkompresjoner på voksne?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig dybde.',
+            solution: '5-6 cm',
+            multipleChoiceOptions: [
+              '5-6 cm',
+              '2-3 cm',
+              '8-10 cm',
+              'Så dypt som mulig',
+            ],
+          },
+        ],
+        solution: 'Ved HLR på voksne skal man trykke 5-6 cm dypt, med en frekvens på 100-120 kompresjoner per minutt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forholdet mellom brystkompresjoner og innblåsinger ved HLR?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig forhold.',
+            solution: '30 kompresjoner, 2 innblåsinger',
+            multipleChoiceOptions: [
+              '30 kompresjoner, 2 innblåsinger',
+              '15 kompresjoner, 2 innblåsinger',
+              '30 kompresjoner, 5 innblåsinger',
+              '10 kompresjoner, 1 innblåsing',
+            ],
+          },
+        ],
+        solution: 'Standard HLR: 30 brystkompresjoner etterfulgt av 2 innblåsinger. Fortsett syklusen til hjelp ankommer eller personen våkner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-5-def-3',
@@ -4373,6 +4680,32 @@ Løft skadet område over hjertenivå for å redusere hevelse.`,
 4. Rull personen mot deg
 5. Juster hodet så luftveiene er åpne
 6. Overvåk pusten kontinuerlig`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-5-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Når brukes stabilt sideleie?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig situasjon.',
+            solution: 'Når personen er bevisstløs men puster normalt',
+            multipleChoiceOptions: [
+              'Når personen er bevisstløs men puster normalt',
+              'Når personen har hjertestans',
+              'Ved alle skader',
+              'Kun ved nakkeskader',
+            ],
+          },
+        ],
+        solution: 'Stabilt sideleie brukes når en person er bevisstløs men puster normalt, for å sikre åpne luftveier og hindre at de svelger oppkast.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-5-text-1',
@@ -4396,6 +4729,26 @@ Løft skadet område over hjertenivå for å redusere hevelse.`,
 2. Rens såret med rent vann
 3. Dekk med ren bandasje
 4. Tetanusvaksine? Oppdater ved behov`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-5-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-5-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Beskriv hvordan du ville behandlet en ankelforstuing de første timene etter skaden.',
+        solution: `Behandling av ankelforstuing med PRICE:
+1. **Protection:** Stopp aktiviteten umiddelbart, beskytt ankelen
+2. **Rest:** Avlast foten, ikke belast den
+3. **Ice:** Legg ispose (med klut mellom) på ankelen i 15-20 min hver time
+4. **Compression:** Legg elastisk bandasje rundt ankelen, ikke for stramt
+5. **Elevation:** Løft foten over hjertenivå (legg puter under)
+
+Fortsett PRICE de første 48-72 timene. Oppsøk lege ved kraftig hevelse, store smerter, eller manglende bedring etter noen dager.`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'kroppsoving-vg1-2-5-text-2',
@@ -4464,130 +4817,7 @@ Løft skadet område over hjertenivå for å redusere hevelse.`,
 - Ring 113 umiddelbart
 - Hold personen varm og rolig til hjelp ankommer`,
     },
-    {
-      id: 'kroppsoving-vg1-2-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva står PRICE for?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig oversettelse.',
-            solution: 'Protection, Rest, Ice, Compression, Elevation',
-            multipleChoiceOptions: [
-              'Protection, Rest, Ice, Compression, Elevation',
-              'Pain, Rest, Ice, Cold, Exercise',
-              'Protect, Run, Ice, Cool, Elevate',
-              'Prevention, Recovery, Ice, Care, Evaluation',
-            ],
-          },
-        ],
-        solution: 'PRICE = Protection (Beskyttelse), Rest (Hvile), Ice (Is), Compression (Kompresjon), Elevation (Elevasjon).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvor dypt skal man trykke ved brystkompresjoner på voksne?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig dybde.',
-            solution: '5-6 cm',
-            multipleChoiceOptions: [
-              '5-6 cm',
-              '2-3 cm',
-              '8-10 cm',
-              'Så dypt som mulig',
-            ],
-          },
-        ],
-        solution: 'Ved HLR på voksne skal man trykke 5-6 cm dypt, med en frekvens på 100-120 kompresjoner per minutt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er forholdet mellom brystkompresjoner og innblåsinger ved HLR?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig forhold.',
-            solution: '30 kompresjoner, 2 innblåsinger',
-            multipleChoiceOptions: [
-              '30 kompresjoner, 2 innblåsinger',
-              '15 kompresjoner, 2 innblåsinger',
-              '30 kompresjoner, 5 innblåsinger',
-              '10 kompresjoner, 1 innblåsing',
-            ],
-          },
-        ],
-        solution: 'Standard HLR: 30 brystkompresjoner etterfulgt av 2 innblåsinger. Fortsett syklusen til hjelp ankommer eller personen våkner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Når brukes stabilt sideleie?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig situasjon.',
-            solution: 'Når personen er bevisstløs men puster normalt',
-            multipleChoiceOptions: [
-              'Når personen er bevisstløs men puster normalt',
-              'Når personen har hjertestans',
-              'Ved alle skader',
-              'Kun ved nakkeskader',
-            ],
-          },
-        ],
-        solution: 'Stabilt sideleie brukes når en person er bevisstløs men puster normalt, for å sikre åpne luftveier og hindre at de svelger oppkast.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-5-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-5-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Beskriv hvordan du ville behandlet en ankelforstuing de første timene etter skaden.',
-        solution: `Behandling av ankelforstuing med PRICE:
-1. **Protection:** Stopp aktiviteten umiddelbart, beskytt ankelen
-2. **Rest:** Avlast foten, ikke belast den
-3. **Ice:** Legg ispose (med klut mellom) på ankelen i 15-20 min hver time
-4. **Compression:** Legg elastisk bandasje rundt ankelen, ikke for stramt
-5. **Elevation:** Løft foten over hjertenivå (legg puter under)
-
-Fortsett PRICE de første 48-72 timene. Oppsøk lege ved kraftig hevelse, store smerter, eller manglende bedring etter noen dager.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-2-5-ex-6',
       type: 'exercise',
@@ -4733,6 +4963,32 @@ Oppvarming og nedvarming er viktige deler av enhver treningsøkt. De forbereder 
 **Varighet:** Vanligvis 5-15 minutter`,
     },
     {
+      id: 'kroppsoving-vg1-2-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er de fysiologiske effektene av oppvarming?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg alle som gjelder.',
+            solution: 'Økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring',
+            multipleChoiceOptions: [
+              'Økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring',
+              'Bare økt puls',
+              'Bare mental forberedelse',
+              'Redusert muskelstyrke',
+            ],
+          },
+        ],
+        solution: 'Oppvarming gir økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring, aktivert nervesystem og bedre muskelkontraksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'kroppsoving-vg1-2-6-text-1',
       type: 'text',
       content: `## Oppvarmingens faser
@@ -4772,107 +5028,6 @@ Oppvarming og nedvarming er viktige deler av enhver treningsøkt. De forbereder 
 - Unngå før eksplosive aktiviteter (kan redusere kraft)
 
 **Viktig:** Forskning viser at statisk tøying FØR trening kan redusere kraft og hastighet. Bruk dynamisk tøying i oppvarmingen!`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-text-3',
-      type: 'text',
-      content: `## Nedvarmingsrutine
-
-**Steg 1: Gradvis intensitetsreduksjon (5-10 min)**
-- Senk tempoet gradvis
-- Fortsett å bevege deg for å holde blodstrømmen i gang
-- Eksempel: Rolig jogg som går over til gange
-
-**Steg 2: Statisk tøying (5-10 min)**
-- Tøy hovedmuskelgruppene som ble brukt
-- Hold hver tøying i 15-30 sekunder
-- Pust rolig og slapp av
-- Ikke press til smerte
-
-**Steg 3: Hydrering og næring**
-- Drikk vann eller sportsdrikk
-- Spis karbohydrat og protein innen 30-60 minutter
-
-**Eksempler på tøyingsøvelser:**
-- Quadriceps (lår foran)
-- Hamstrings (lår bak)
-- Leggmuskler
-- Hoftefleksorer
-- Rygg og skuldre`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-example-1',
-      type: 'example',
-      title: 'Eksempel: Oppvarming før fotballkamp',
-      problem: 'Lag en oppvarmingsrutine for en fotballkamp.',
-      solution: `**Generell oppvarming (8 min):**
-- Lett jogg rundt banen (3 min)
-- Sidesteg og baklengs løp (2 min)
-- Høye kneløft og hælspark (3 min)
-
-**Dynamisk tøying (5 min):**
-- Bensving forover og til siden (10 per bein)
-- Utfall med rotasjon (10 per side)
-- Hofteåpnere (10 per bein)
-- Armkretser (10 hver vei)
-
-**Spesifikk oppvarming (10 min):**
-- Pasningsøvelser i par (3 min)
-- Dribling og vendinger (3 min)
-- Skudd på mål (3 min)
-- Korte sprinter med retningsforandring (1 min)
-
-**Mental forberedelse:**
-- Fokus på kampens mål
-- Visualiser gode prestasjoner`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-tip-1',
-      type: 'tip',
-      title: 'Tilpass oppvarmingen',
-      content: `Oppvarmingen bør tilpasses:
-- **Aktiviteten:** Fotball krever annen oppvarming enn svømming
-- **Temperaturen:** Kaldere vær = lengre oppvarming
-- **Individuelle behov:** Stive ledd eller tidligere skader kan kreve ekstra oppmerksomhet
-- **Tidspunkt:** Om morgenen er kroppen stivere og trenger lengre oppvarming`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-warning-1',
-      type: 'warning',
-      title: 'Ikke hopp over oppvarmingen!',
-      content: `Å starte hard trening uten oppvarming øker risikoen for:
-- Muskelstrekk og -rupturer
-- Forstuinger
-- Dårligere prestasjon
-- Hjerte- og karsystembelastning
-
-Bruk alltid tid på ordentlig oppvarming, selv når du har dårlig tid!`,
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er de fysiologiske effektene av oppvarming?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg alle som gjelder.',
-            solution: 'Økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring',
-            multipleChoiceOptions: [
-              'Økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring',
-              'Bare økt puls',
-              'Bare mental forberedelse',
-              'Redusert muskelstyrke',
-            ],
-          },
-        ],
-        solution: 'Oppvarming gir økt kroppstemperatur, økt blodtilførsel til muskler, bedre leddsmøring, aktivert nervesystem og bedre muskelkontraksjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
     },
     {
       id: 'kroppsoving-vg1-2-6-ex-2',
@@ -4927,29 +5082,38 @@ Bruk alltid tid på ordentlig oppvarming, selv når du har dårlig tid!`,
       },
     },
     {
+      id: 'kroppsoving-vg1-2-6-text-3',
+      type: 'text',
+      content: `## Nedvarmingsrutine
+
+**Steg 1: Gradvis intensitetsreduksjon (5-10 min)**
+- Senk tempoet gradvis
+- Fortsett å bevege deg for å holde blodstrømmen i gang
+- Eksempel: Rolig jogg som går over til gange
+
+**Steg 2: Statisk tøying (5-10 min)**
+- Tøy hovedmuskelgruppene som ble brukt
+- Hold hver tøying i 15-30 sekunder
+- Pust rolig og slapp av
+- Ikke press til smerte
+
+**Steg 3: Hydrering og næring**
+- Drikk vann eller sportsdrikk
+- Spis karbohydrat og protein innen 30-60 minutter
+
+**Eksempler på tøyingsøvelser:**
+- Quadriceps (lår foran)
+- Hamstrings (lår bak)
+- Leggmuskler
+- Hoftefleksorer
+- Rygg og skuldre`,
+    },
+    {
       id: 'kroppsoving-vg1-2-6-ex-4',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-2-6-ex-4',
         number: '4',
-        type: 'classic',
-        task: 'Lag en oppvarmingsrutine for en aktivitet du driver med.',
-        solution: `En god oppvarmingsrutine inneholder:
-1. **Generell oppvarming (5-10 min):** Lett aerob aktivitet som øker pulsen gradvis
-2. **Dynamisk tøying (3-5 min):** Kontrollerte bevegelser som forbereder ledd og muskler
-3. **Spesifikk oppvarming (5-10 min):** Øvelser som ligner hovedaktiviteten, med gradvis økt intensitet
-
-Tilpass innholdet til din aktivitet og dine individuelle behov.`,
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'kroppsoving-vg1-2-6-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-2-6-ex-5',
-        number: '5',
         type: 'classic',
         task: 'Forklar hvorfor nedvarming er viktig etter trening.',
         solution: `Nedvarming er viktig fordi:
@@ -4958,6 +5122,73 @@ Tilpass innholdet til din aktivitet og dine individuelle behov.`,
 3. **Reduserer muskelspenninger:** Forebygger stølhet
 4. **Mental nedtrapping:** Avslutter treningsøkten på en god måte
 5. **Fremmer restitusjon:** Forbereder kroppen på neste økt`,
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'kroppsoving-vg1-2-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Oppvarming før fotballkamp',
+      problem: 'Lag en oppvarmingsrutine for en fotballkamp.',
+      solution: `**Generell oppvarming (8 min):**
+- Lett jogg rundt banen (3 min)
+- Sidesteg og baklengs løp (2 min)
+- Høye kneløft og hælspark (3 min)
+
+**Dynamisk tøying (5 min):**
+- Bensving forover og til siden (10 per bein)
+- Utfall med rotasjon (10 per side)
+- Hofteåpnere (10 per bein)
+- Armkretser (10 hver vei)
+
+**Spesifikk oppvarming (10 min):**
+- Pasningsøvelser i par (3 min)
+- Dribling og vendinger (3 min)
+- Skudd på mål (3 min)
+- Korte sprinter med retningsforandring (1 min)
+
+**Mental forberedelse:**
+- Fokus på kampens mål
+- Visualiser gode prestasjoner`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-6-tip-1',
+      type: 'tip',
+      title: 'Tilpass oppvarmingen',
+      content: `Oppvarmingen bør tilpasses:
+- **Aktiviteten:** Fotball krever annen oppvarming enn svømming
+- **Temperaturen:** Kaldere vær = lengre oppvarming
+- **Individuelle behov:** Stive ledd eller tidligere skader kan kreve ekstra oppmerksomhet
+- **Tidspunkt:** Om morgenen er kroppen stivere og trenger lengre oppvarming`,
+    },
+    {
+      id: 'kroppsoving-vg1-2-6-warning-1',
+      type: 'warning',
+      title: 'Ikke hopp over oppvarmingen!',
+      content: `Å starte hard trening uten oppvarming øker risikoen for:
+- Muskelstrekk og -rupturer
+- Forstuinger
+- Dårligere prestasjon
+- Hjerte- og karsystembelastning
+
+Bruk alltid tid på ordentlig oppvarming, selv når du har dårlig tid!`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'kroppsoving-vg1-2-6-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-2-6-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Lag en oppvarmingsrutine for en aktivitet du driver med.',
+        solution: `En god oppvarmingsrutine inneholder:
+1. **Generell oppvarming (5-10 min):** Lett aerob aktivitet som øker pulsen gradvis
+2. **Dynamisk tøying (3-5 min):** Kontrollerte bevegelser som forbereder ledd og muskler
+3. **Spesifikk oppvarming (5-10 min):** Øvelser som ligner hovedaktiviteten, med gradvis økt intensitet
+
+Tilpass innholdet til din aktivitet og dine individuelle behov.`,
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },

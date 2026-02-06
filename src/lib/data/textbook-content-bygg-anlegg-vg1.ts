@@ -3684,6 +3684,16 @@ Tettet nøye.`,
 };
 
 // ============================================================================
+// Importer del-filer
+// ============================================================================
+
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART2 } from './textbook-content-bygg-anlegg-vg1-del2';
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART3 } from './textbook-content-bygg-anlegg-vg1-del3';
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART4 } from './textbook-content-bygg-anlegg-vg1-del4';
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART5 } from './textbook-content-bygg-anlegg-vg1-del5';
+import { CHAPTERS_BYGG_ANLEGG_VG1_PART6 } from './textbook-content-bygg-anlegg-vg1-del6';
+
+// ============================================================================
 // Eksporter kapitler 1-15
 // ============================================================================
 
@@ -3704,3 +3714,23 @@ export const CHAPTERS_BYGG_ANLEGG_VG1_PART1 = [
   CHAPTER_BYGG_ANLEGG_VG1_14,
   CHAPTER_BYGG_ANLEGG_VG1_15,
 ];
+
+// ============================================================================
+// Samlet eksport av alle kapitler (1-30)
+// ============================================================================
+
+export const CHAPTERS_BYGG_ANLEGG_VG1 = [
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART1,
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART2,
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART3,
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART4,
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART5,
+  ...CHAPTERS_BYGG_ANLEGG_VG1_PART6,
+];
+
+// Re-eksporter del-arrays for bakoverkompatibilitet
+export { CHAPTERS_BYGG_ANLEGG_VG1_PART2 } from './textbook-content-bygg-anlegg-vg1-del2';
+export { CHAPTERS_BYGG_ANLEGG_VG1_PART3 } from './textbook-content-bygg-anlegg-vg1-del3';
+export { CHAPTERS_BYGG_ANLEGG_VG1_PART4 } from './textbook-content-bygg-anlegg-vg1-del4';
+export { CHAPTERS_BYGG_ANLEGG_VG1_PART5 } from './textbook-content-bygg-anlegg-vg1-del5';
+export { CHAPTERS_BYGG_ANLEGG_VG1_PART6 } from './textbook-content-bygg-anlegg-vg1-del6';

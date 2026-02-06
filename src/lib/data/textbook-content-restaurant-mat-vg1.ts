@@ -5936,8 +5936,12 @@ export const CHAPTER_RESTAURANT_MAT_VG1_28: TextbookChapter = {
   exercises: [],
 };
 
-// Eksporter alle kapitler som en array
-export const CHAPTERS_RESTAURANT_MAT_VG1 = [
+// Importer kapitler fra del 2 og del 3
+import { CHAPTERS_RESTAURANT_MAT_VG1_DEL2 } from './textbook-content-restaurant-mat-vg1-del2';
+import { CHAPTERS_RESTAURANT_MAT_VG1_DEL3 } from './textbook-content-restaurant-mat-vg1-del3';
+
+// Eksporter alle kapitler som en array (1-28 fra denne filen)
+const CHAPTERS_PART1 = [
   CHAPTER_RESTAURANT_MAT_VG1_1,
   CHAPTER_RESTAURANT_MAT_VG1_2,
   CHAPTER_RESTAURANT_MAT_VG1_3,
@@ -5966,4 +5970,11 @@ export const CHAPTERS_RESTAURANT_MAT_VG1 = [
   CHAPTER_RESTAURANT_MAT_VG1_26,
   CHAPTER_RESTAURANT_MAT_VG1_27,
   CHAPTER_RESTAURANT_MAT_VG1_28,
+];
+
+// Kombiner alle kapitler (1-48)
+export const CHAPTERS_RESTAURANT_MAT_VG1 = [
+  ...CHAPTERS_PART1,
+  ...CHAPTERS_RESTAURANT_MAT_VG1_DEL2,
+  ...CHAPTERS_RESTAURANT_MAT_VG1_DEL3,
 ];

@@ -75,6 +75,7 @@ Et setningsledd er en del av setningen som har en bestemt funksjon. Hvert ledd s
       alt: 'Diagram som viser hvordan en setning analyseres med markering av verbal, subjekt, objekt og adverbial',
       caption: 'Oversikt over setningsanalyse - hvordan identifisere de ulike setningsleddene',
     },
+    // --- Verbal ---
     {
       id: 'norsk-vg1-8-1-def-1',
       type: 'definition',
@@ -103,6 +104,66 @@ Spør: "Hva skjer?" eller "Hva gjøres?"
 
 **Tips:** Finn verbalet først - det gjør det lettere å finne de andre leddene.`,
     },
+    {
+      id: 'norsk-vg1-8-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Finn verbalet i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Katten sover på sofaen."',
+            solution: 'sover',
+          },
+          {
+            label: 'b',
+            task: '"Hun har alltid elsket musikk."',
+            solution: 'har elsket',
+          },
+          {
+            label: 'c',
+            task: '"Boken ble skrevet av en berømt forfatter."',
+            solution: 'ble skrevet',
+          },
+          {
+            label: 'd',
+            task: '"De skulle ha kommet tidligere."',
+            solution: 'skulle ha kommet',
+          },
+        ],
+        solution: 'Verbalet kan bestå av ett eller flere ord (hjelpeverb + hovedverb).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-6',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er verbalet i setningen "Hun har alltid likt å lese bøker"?',
+        options: [
+          'har likt',
+          'å lese',
+          'har alltid likt',
+          'likt å lese',
+        ],
+        answer: 0,
+        solution: 'Verbalet er "har likt" - hjelpeverbet "har" pluss hovedverbet "likt". "å lese bøker" er objekt (infinitivsfrase).',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    // --- Subjekt ---
     {
       id: 'norsk-vg1-8-1-def-2',
       type: 'definition',
@@ -137,6 +198,29 @@ Subjektet styrer verbalformen:
 - "Hun **løper**" / "De **løper**"`,
     },
     {
+      id: 'norsk-vg1-8-1-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-7',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken setningsledd-type svarer på spørsmålet "Hvem/hva + verbalet?"',
+        options: [
+          'Subjekt',
+          'Objekt',
+          'Adverbial',
+          'Predikativ',
+        ],
+        answer: 0,
+        solution: 'Subjektet finner vi ved å spørre "Hvem/hva + verbalet?", for eksempel "Hvem leser?" → "Lise" (S).',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    // --- Objekt ---
+    {
       id: 'norsk-vg1-8-1-def-3',
       type: 'definition',
       title: 'Objekt (DO og IO)',
@@ -170,6 +254,45 @@ Normalt kommer IO før DO:
 **Transitive verb** krever objekt: "spise", "se", "lese"
 **Intransitive verb** tar ikke objekt: "sove", "le", "gå"`,
     },
+    {
+      id: 'norsk-vg1-8-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-2',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn subjekt og eventuelt objekt i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Gutten spiste et eple."',
+            solution: 'Subjekt: Gutten. Direkte objekt: et eple.',
+          },
+          {
+            label: 'b',
+            task: '"Det regner."',
+            solution: 'Subjekt: Det (formelt subjekt). Ingen objekt.',
+          },
+          {
+            label: 'c',
+            task: '"Moren ga barnet en is."',
+            solution: 'Subjekt: Moren. Indirekte objekt: barnet. Direkte objekt: en is.',
+          },
+          {
+            label: 'd',
+            task: '"Solen skinner."',
+            solution: 'Subjekt: Solen. Ingen objekt.',
+          },
+        ],
+        hints: ['Spør "hvem/hva + verbalet" for å finne subjekt', 'Spør "hvem/hva + verbalet + subjektet" for objekt'],
+        solution: 'Alle setninger har subjekt, men ikke alle har objekt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    // --- Adverbial ---
     {
       id: 'norsk-vg1-8-1-def-4',
       type: 'definition',
@@ -211,6 +334,40 @@ Modifiserer hele setningen:
 
 **En setning kan ha flere adverbialer.**`,
     },
+    {
+      id: 'norsk-vg1-8-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-1-ex-3',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Identifiser adverbialer og bestem type (tid, sted, måte):',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"I morgen skal vi reise til Paris."',
+            solution: 'I morgen = tidsadverbial. Til Paris = stedsadverbial.',
+          },
+          {
+            label: 'b',
+            task: '"Hun løp fort gjennom skogen."',
+            solution: 'Fort = måtesadverbial. Gjennom skogen = stedsadverbial.',
+          },
+          {
+            label: 'c',
+            task: '"Dessverre kan jeg ikke komme i kveld."',
+            solution: 'Dessverre = setningsadverbial. I kveld = tidsadverbial.',
+          },
+        ],
+        hints: ['Spør når, hvor, hvordan', 'En setning kan ha flere adverbialer'],
+        solution: 'Adverbialer gir tilleggsinformasjon om tid, sted, måte og annet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    // --- Predikativ ---
     {
       id: 'norsk-vg1-8-1-def-5',
       type: 'definition',
@@ -259,38 +416,6 @@ være, bli, virke, synes, føles, lukter, smaker, høres...`,
       caption: 'Ordklasser og setningsledd - sammenhengen mellom dem',
     },
     {
-      id: 'norsk-vg1-8-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Fullstendig setningsanalyse',
-      problem: 'Analyser setningen: "I går ga læreren elevene en vanskelig oppgave på skolen."',
-      solution: `**Steg for steg:**
-
-**1. Finn verbalet (V):**
-"Hva skjer?" → **ga** (V)
-
-**2. Finn subjektet (S):**
-"Hvem ga?" → **læreren** (S)
-
-**3. Finn direkte objekt (DO):**
-"Hva ga læreren?" → **en vanskelig oppgave** (DO)
-
-**4. Finn indirekte objekt (IO):**
-"Til hvem ga læreren?" → **elevene** (IO)
-
-**5. Finn adverbialene (A):**
-"Når?" → **I går** (tidsadverbial)
-"Hvor?" → **på skolen** (stedsadverbial)
-
-**Fullstendig analyse:**
-| I går | ga | læreren | elevene | en vanskelig oppgave | på skolen |
-|-------|-----|---------|---------|---------------------|-----------|
-| A (tid) | V | S | IO | DO | A (sted) |
-
-**Setningsskjema:**
-Forfelt | V | S | IO | DO | Adverbial
-I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
-    },
-    {
       id: 'norsk-vg1-8-1-example-2',
       type: 'example',
       title: 'Eksempel: Skille mellom predikativ og adverbial',
@@ -324,119 +449,11 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
 - Handlingsverb (løpe, arbeide, gå) + adverbial`,
     },
     {
-      id: 'norsk-vg1-8-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-1-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Finn verbalet i disse setningene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Katten sover på sofaen."',
-            solution: 'sover',
-          },
-          {
-            label: 'b',
-            task: '"Hun har alltid elsket musikk."',
-            solution: 'har elsket',
-          },
-          {
-            label: 'c',
-            task: '"Boken ble skrevet av en berømt forfatter."',
-            solution: 'ble skrevet',
-          },
-          {
-            label: 'd',
-            task: '"De skulle ha kommet tidligere."',
-            solution: 'skulle ha kommet',
-          },
-        ],
-        solution: 'Verbalet kan bestå av ett eller flere ord (hjelpeverb + hovedverb).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-1-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn subjekt og eventuelt objekt i disse setningene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Gutten spiste et eple."',
-            solution: 'Subjekt: Gutten. Direkte objekt: et eple.',
-          },
-          {
-            label: 'b',
-            task: '"Det regner."',
-            solution: 'Subjekt: Det (formelt subjekt). Ingen objekt.',
-          },
-          {
-            label: 'c',
-            task: '"Moren ga barnet en is."',
-            solution: 'Subjekt: Moren. Indirekte objekt: barnet. Direkte objekt: en is.',
-          },
-          {
-            label: 'd',
-            task: '"Solen skinner."',
-            solution: 'Subjekt: Solen. Ingen objekt.',
-          },
-        ],
-        hints: ['Spør "hvem/hva + verbalet" for å finne subjekt', 'Spør "hvem/hva + verbalet + subjektet" for objekt'],
-        solution: 'Alle setninger har subjekt, men ikke alle har objekt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-1-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Identifiser adverbialer og bestem type (tid, sted, måte):',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"I morgen skal vi reise til Paris."',
-            solution: 'I morgen = tidsadverbial. Til Paris = stedsadverbial.',
-          },
-          {
-            label: 'b',
-            task: '"Hun løp fort gjennom skogen."',
-            solution: 'Fort = måtesadverbial. Gjennom skogen = stedsadverbial.',
-          },
-          {
-            label: 'c',
-            task: '"Dessverre kan jeg ikke komme i kveld."',
-            solution: 'Dessverre = setningsadverbial. I kveld = tidsadverbial.',
-          },
-        ],
-        hints: ['Spør når, hvor, hvordan', 'En setning kan ha flere adverbialer'],
-        solution: 'Adverbialer gir tilleggsinformasjon om tid, sted, måte og annet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
       id: 'norsk-vg1-8-1-ex-4',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-1-ex-4',
-        number: '4',
+        number: '6',
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn predikativet og avgjør om det er subjekts- eller objektspredikativ:',
@@ -468,12 +485,45 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
+    // --- Fullstendig setningsanalyse ---
+    {
+      id: 'norsk-vg1-8-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Fullstendig setningsanalyse',
+      problem: 'Analyser setningen: "I går ga læreren elevene en vanskelig oppgave på skolen."',
+      solution: `**Steg for steg:**
+
+**1. Finn verbalet (V):**
+"Hva skjer?" → **ga** (V)
+
+**2. Finn subjektet (S):**
+"Hvem ga?" → **læreren** (S)
+
+**3. Finn direkte objekt (DO):**
+"Hva ga læreren?" → **en vanskelig oppgave** (DO)
+
+**4. Finn indirekte objekt (IO):**
+"Til hvem ga læreren?" → **elevene** (IO)
+
+**5. Finn adverbialene (A):**
+"Når?" → **I går** (tidsadverbial)
+"Hvor?" → **på skolen** (stedsadverbial)
+
+**Fullstendig analyse:**
+| I går | ga | læreren | elevene | en vanskelig oppgave | på skolen |
+|-------|-----|---------|---------|---------------------|-----------|
+| A (tid) | V | S | IO | DO | A (sted) |
+
+**Setningsskjema:**
+Forfelt | V | S | IO | DO | Adverbial
+I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
+    },
     {
       id: 'norsk-vg1-8-1-ex-5',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-1-ex-5',
-        number: '5',
+        number: '7',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Gjør fullstendig setningsanalyse av disse setningene:',
@@ -501,50 +551,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
-    {
-      id: 'norsk-vg1-8-1-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-1-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er verbalet i setningen "Hun har alltid likt å lese bøker"?',
-        options: [
-          'har likt',
-          'å lese',
-          'har alltid likt',
-          'likt å lese',
-        ],
-        answer: 0,
-        solution: 'Verbalet er "har likt" - hjelpeverbet "har" pluss hovedverbet "likt". "å lese bøker" er objekt (infinitivsfrase).',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-1-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-1-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken setningsledd-type svarer på spørsmålet "Hvem/hva + verbalet?"',
-        options: [
-          'Subjekt',
-          'Objekt',
-          'Adverbial',
-          'Predikativ',
-        ],
-        answer: 0,
-        solution: 'Subjektet finner vi ved å spørre "Hvem/hva + verbalet?", for eksempel "Hvem leser?" → "Lise" (S).',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
+    // --- Setningsskjema og leddsetninger ---
     {
       id: 'norsk-vg1-8-1-ex-8',
       type: 'exercise',
@@ -601,6 +608,7 @@ I går | ga | læreren | elevene | en vanskelig oppgave | på skolen`,
       competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-8-1-ex-10',
       type: 'exercise',
@@ -813,6 +821,65 @@ Subjunksjoner (underordnende bindeord) innleder setninger som er underordnet hov
 - **at**: "Jeg vet at du har rett."`,
     },
     {
+      id: 'norsk-vg1-8-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Identifiser konjunksjoner og subjunksjoner og bestem typen:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun kom sent fordi bussen var forsinket."',
+            solution: 'fordi = subjunksjon (årsak)',
+          },
+          {
+            label: 'b',
+            task: '"Jeg liker kaffe, men foretrekker te."',
+            solution: 'men = konjunksjon (motsetning/adversativ)',
+          },
+          {
+            label: 'c',
+            task: '"Hvis du øver, blir du bedre."',
+            solution: 'Hvis = subjunksjon (betingelse)',
+          },
+          {
+            label: 'd',
+            task: '"Han leste både avisen og boken."',
+            solution: 'både...og = konjunksjon (additiv)',
+          },
+        ],
+        solution: 'Konjunksjoner binder likeverdige ledd, subjunksjoner innleder leddsetninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-6',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva slags bindeord er "fordi"?',
+        options: [
+          'Subjunksjon (årsak)',
+          'Konjunksjon (additiv)',
+          'Konjunksjon (adversativ)',
+          'Subjunksjon (betingelse)',
+        ],
+        answer: 0,
+        solution: '"Fordi" er en subjunksjon som innleder en årsakssetning (leddsetning). Den viser hvorfor noe skjer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-2-def-3',
       type: 'definition',
       title: 'Referentbinding',
@@ -847,6 +914,61 @@ Den vanligste formen for referentbinding.
 - Inkonsekvent: Bytte mellom "du" og "man"`,
     },
     {
+      id: 'norsk-vg1-8-2-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-7',
+        number: '3',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er referentbinding?',
+        options: [
+          'Å bruke pronomen eller synonymer for å vise tilbake til noe nevnt tidligere',
+          'Å gjenta samme ord i hver setning',
+          'Å bruke komma mellom setninger',
+          'Å skrive lange avsnitt uten punktum',
+        ],
+        answer: 0,
+        solution: 'Referentbinding bruker pronomen, synonymer eller overbegreper for å vise tilbake til noe som allerede er nevnt i teksten.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-2',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn referansene og avgjør hva de viser til:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Lise kjøpte en bok. Den var spennende."',
+            solution: '"Den" viser til "en bok".',
+          },
+          {
+            label: 'b',
+            task: '"Per og Ole spilte fotball. Etterpå var de slitne."',
+            solution: '"de" viser til "Per og Ole".',
+          },
+          {
+            label: 'c',
+            task: '"Regjeringen la fram budsjettet. Dette skapte debatt."',
+            solution: '"Dette" viser til at regjeringen la fram budsjettet (hele setningen).',
+          },
+        ],
+        hints: ['Se på pronomenene', 'Hva kommer rett før?'],
+        solution: 'Referentbinding bruker pronomen og demonstrativer for å vise tilbake.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-2-def-4',
       type: 'definition',
       title: 'Tematisk binding',
@@ -878,6 +1000,38 @@ Flere undertemaer under ett hovedtema:
 → Passer for beskrivelser og opplistinger
 
 **Tips:** Vær bevisst på hva som er tema i setningene dine. Det hjelper leseren å følge med.`,
+    },
+    {
+      id: 'norsk-vg1-8-2-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-8',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Analyser den tematiske progresjonen i dette avsnittet og bestem hvilken type det er (konstant tema, lineær progresjon eller overordnet tema):\n\n"Norge er et langstrakt land. Landet strekker seg fra Lindesnes i sør til Nordkapp i nord. Det har en kystlinje på over 25 000 kilometer. Fjordene er blant de mest kjente landskapstrekkene."',
+        hints: ['Hva er tema i hver setning?', 'Hvordan utvikler teksten seg?'],
+        solution: 'Konstant tema: Norge/landet er tema gjennom hele avsnittet. Referentbinding via "Landet", "Det" og "Fjordene" (del av Norge).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-2-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-2-ex-9',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Skriv tre korte avsnitt (2-3 setninger hver) som viser de tre typene tematisk progresjon: konstant tema, lineær progresjon og overordnet tema.',
+        hints: ['Konstant: samme subjekt i alle setninger', 'Lineær: ny info i én setning blir tema i neste', 'Overordnet: flere aspekter av ett hovedtema'],
+        solution: 'Hvert avsnitt bør tydelig vise den aktuelle typen tematisk progresjon med bevisst bruk av referentbinding.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-2-def-5',
@@ -971,81 +1125,11 @@ Her brukes:
 - **Setningsadverbial:** "Til overmål" signaliserer ytterligere problem`,
     },
     {
-      id: 'norsk-vg1-8-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Identifiser konjunksjoner og subjunksjoner og bestem typen:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Hun kom sent fordi bussen var forsinket."',
-            solution: 'fordi = subjunksjon (årsak)',
-          },
-          {
-            label: 'b',
-            task: '"Jeg liker kaffe, men foretrekker te."',
-            solution: 'men = konjunksjon (motsetning/adversativ)',
-          },
-          {
-            label: 'c',
-            task: '"Hvis du øver, blir du bedre."',
-            solution: 'Hvis = subjunksjon (betingelse)',
-          },
-          {
-            label: 'd',
-            task: '"Han leste både avisen og boken."',
-            solution: 'både...og = konjunksjon (additiv)',
-          },
-        ],
-        solution: 'Konjunksjoner binder likeverdige ledd, subjunksjoner innleder leddsetninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn referansene og avgjør hva de viser til:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Lise kjøpte en bok. Den var spennende."',
-            solution: '"Den" viser til "en bok".',
-          },
-          {
-            label: 'b',
-            task: '"Per og Ole spilte fotball. Etterpå var de slitne."',
-            solution: '"de" viser til "Per og Ole".',
-          },
-          {
-            label: 'c',
-            task: '"Regjeringen la fram budsjettet. Dette skapte debatt."',
-            solution: '"Dette" viser til at regjeringen la fram budsjettet (hele setningen).',
-          },
-        ],
-        hints: ['Se på pronomenene', 'Hva kommer rett før?'],
-        solution: 'Referentbinding bruker pronomen og demonstrativer for å vise tilbake.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
       id: 'norsk-vg1-8-2-ex-3',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-2-ex-3',
-        number: '3',
+        number: '7',
         type: 'classic',
         difficulty: 'medium',
         task: 'Forbedre tekstbindingen i dette avsnittet:',
@@ -1073,7 +1157,7 @@ Her brukes:
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-2-ex-4',
-        number: '4',
+        number: '8',
         type: 'classic',
         difficulty: 'medium',
         task: 'Sett inn passende bindeord:',
@@ -1106,93 +1190,18 @@ Her brukes:
       competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-8-2-ex-5',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-2-ex-5',
-        number: '5',
+        number: '9',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv et avsnitt (5-6 setninger) om et selvvalgt tema. Bruk minst tre ulike typer tekstbinding.',
         hints: ['Bruk konjunksjoner/subjunksjoner', 'Bruk pronomen for referanse', 'Hold tematisk fokus', 'Varier ordbruken'],
         solution: 'Avsnittet bør vise bevisst bruk av ulike bindemetoder som skaper god sammenheng.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-2-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva slags bindeord er "fordi"?',
-        options: [
-          'Subjunksjon (årsak)',
-          'Konjunksjon (additiv)',
-          'Konjunksjon (adversativ)',
-          'Subjunksjon (betingelse)',
-        ],
-        answer: 0,
-        solution: '"Fordi" er en subjunksjon som innleder en årsakssetning (leddsetning). Den viser hvorfor noe skjer.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-2-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er referentbinding?',
-        options: [
-          'Å bruke pronomen eller synonymer for å vise tilbake til noe nevnt tidligere',
-          'Å gjenta samme ord i hver setning',
-          'Å bruke komma mellom setninger',
-          'Å skrive lange avsnitt uten punktum',
-        ],
-        answer: 0,
-        solution: 'Referentbinding bruker pronomen, synonymer eller overbegreper for å vise tilbake til noe som allerede er nevnt i teksten.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-2-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Analyser den tematiske progresjonen i dette avsnittet og bestem hvilken type det er (konstant tema, lineær progresjon eller overordnet tema):\n\n"Norge er et langstrakt land. Landet strekker seg fra Lindesnes i sør til Nordkapp i nord. Det har en kystlinje på over 25 000 kilometer. Fjordene er blant de mest kjente landskapstrekkene."',
-        hints: ['Hva er tema i hver setning?', 'Hvordan utvikler teksten seg?'],
-        solution: 'Konstant tema: Norge/landet er tema gjennom hele avsnittet. Referentbinding via "Landet", "Det" og "Fjordene" (del av Norge).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-2-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-2-ex-9',
-        number: '9',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Skriv tre korte avsnitt (2-3 setninger hver) som viser de tre typene tematisk progresjon: konstant tema, lineær progresjon og overordnet tema.',
-        hints: ['Konstant: samme subjekt i alle setninger', 'Lineær: ny info i én setning blir tema i neste', 'Overordnet: flere aspekter av ett hovedtema'],
-        solution: 'Hvert avsnitt bør tydelig vise den aktuelle typen tematisk progresjon med bevisst bruk av referentbinding.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
         competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
@@ -1416,6 +1425,98 @@ Velg EN stil og hold deg til den:
 - å = infinitivsmerke (å gå)`,
     },
     {
+      id: 'norsk-vg1-8-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-1',
+        number: '1',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Velg riktig form:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"(Da/Når) jeg var ti år, flyttet vi til Bergen."',
+            solution: 'Da - fortid, engangshendelse',
+          },
+          {
+            label: 'b',
+            task: '"Jeg liker (og/å) svømme."',
+            solution: 'å - infinitivsmerke',
+          },
+          {
+            label: 'c',
+            task: '"(De/Dem) kom tidlig."',
+            solution: 'De - subjekt',
+          },
+          {
+            label: 'd',
+            task: '"Jeg så (de/dem) i går."',
+            solution: 'dem - objekt',
+          },
+        ],
+        solution: 'Riktig ordvalg avhenger av grammatisk funksjon og kontekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-6',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken setning er korrekt skrevet?',
+        options: [
+          '"Da jeg var liten, likte jeg å lese."',
+          '"Når jeg var liten, likte jeg og lese."',
+          '"Da jeg var liten likte jeg og lese."',
+          '"Når jeg var liten likte jeg å lese."',
+        ],
+        answer: 0,
+        solution: 'Alternativ 1 er riktig: "Da" brukes om fortid (engangshendelse), "å" er infinitivsmerke, og komma settes etter leddsetningen som står først.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-9',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-9',
+        number: '3',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Forklar forskjellen mellom disse ordparene og lag en setning med hvert:',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'og / å',
+            solution: '"og" er konjunksjon (binder sammen): "Per og Kari". "å" er infinitivsmerke: "å lese".',
+          },
+          {
+            label: 'b',
+            task: 'da / når',
+            solution: '"da" brukes om fortid/engangshendelse: "Da jeg kom hjem". "når" brukes om nåtid/fremtid/gjentakelse: "Når det regner".',
+          },
+          {
+            label: 'c',
+            task: 'de / dem',
+            solution: '"de" er subjektsform: "De kommer". "dem" er objektsform: "Jeg ser dem".',
+          },
+        ],
+        hints: ['Tenk på grammatisk funksjon'],
+        solution: 'Å forstå forskjellen mellom disse ordparene er grunnleggende for god rettskriving på bokmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-3-def-3',
       type: 'definition',
       title: 'Flere vanlige feil',
@@ -1454,6 +1555,39 @@ På bokmål: alltid "ikke" (ikkje er nynorsk)
 **Bruk ordboka når du er usikker!**`,
     },
     {
+      id: 'norsk-vg1-8-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-3',
+        number: '4',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Sett inn riktig tegn (komma, punktum, kolon):',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Han kom _ og hun gikk"',
+            solution: '"Han kom, og hun gikk." - komma før og når to helsetninger',
+          },
+          {
+            label: 'b',
+            task: '"Da han kom _ gikk hun"',
+            solution: '"Da han kom, gikk hun." - komma etter leddsetning først',
+          },
+          {
+            label: 'c',
+            task: '"Vi trenger _ melk brød og ost"',
+            solution: '"Vi trenger: melk, brød og ost." - kolon før oppramsing',
+          },
+        ],
+        hints: ['Komma mellom helsetninger med konjunksjon', 'Komma etter leddsetning først'],
+        solution: 'Tegnsetting følger grammatiske regler.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-3-def-4',
       type: 'definition',
       title: 'Verbbøyning på bokmål',
@@ -1490,6 +1624,71 @@ Sterke verb endrer vokal (vokalveksling):
 - ✗ "Jeg har begynte" → ✓ "Jeg har begynt"
 
 **Tips:** Lær de sterke verbene utenat!`,
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-12',
+        number: '5',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse verbene i alle fire former (infinitiv, presens, preteritum, perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å skrive',
+            solution: 'å skrive - skriver - skrev - har skrevet (sterkt verb)',
+          },
+          {
+            label: 'b',
+            task: 'å sitte',
+            solution: 'å sitte - sitter - satt - har sittet (sterkt verb)',
+          },
+          {
+            label: 'c',
+            task: 'å kaste',
+            solution: 'å kaste - kaster - kastet/kasta - har kastet/kasta (svakt verb)',
+          },
+          {
+            label: 'd',
+            task: 'å finne',
+            solution: 'å finne - finner - fant - har funnet (sterkt verb)',
+          },
+          {
+            label: 'e',
+            task: 'å leve',
+            solution: 'å leve - lever - levde - har levd (svakt verb)',
+          },
+        ],
+        hints: ['Sterke verb har vokalveksling', 'Svake verb følger faste mønstre'],
+        solution: 'Verbbøyning er grunnleggende for korrekt norsk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-16',
+        number: '6',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvilken setning har korrekt verbbøyning?',
+        options: [
+          'Jeg skrivde et brev i går.',
+          'Han har gåt til skolen.',
+          'De fant pengene under sofaen.',
+          'Hun har begynte på leksene.',
+        ],
+        answer: 2,
+        solution: '"De fant pengene under sofaen" er korrekt. Feil i de andre: "skrivde" → "skrev", "gåt" → "gått", "har begynte" → "har begynt".',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-3-def-5',
@@ -1531,6 +1730,44 @@ Det finnes ingen sikker regel, men noen tendenser:
 **Tips:** Sjekk ordboka når du er usikker!`,
     },
     {
+      id: 'norsk-vg1-8-3-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-13',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse substantivene i alle fire former (ubestemt entall, bestemt entall, ubestemt flertall, bestemt flertall):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'en bil (hankjønn)',
+            solution: 'en bil - bilen - biler - bilene',
+          },
+          {
+            label: 'b',
+            task: 'ei/en bok (hunkjønn)',
+            solution: 'ei/en bok - boka/boken - bøker - bøkene',
+          },
+          {
+            label: 'c',
+            task: 'et bord (intetkjønn)',
+            solution: 'et bord - bordet - bord - bordene/borda',
+          },
+          {
+            label: 'd',
+            task: 'en lærer (hankjønn)',
+            solution: 'en lærer - læreren - lærere - lærerne',
+          },
+        ],
+        hints: ['Husk de ulike mønstrene for hvert kjønn'],
+        solution: 'Substantivbøyning følger mønster basert på kjønn.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-3-def-6',
       type: 'definition',
       title: 'Dobbeltkonsonant',
@@ -1566,6 +1803,39 @@ Det finnes ingen sikker regel, men noen tendenser:
 **Praktisk test:**
 Les ordet høyt. Er vokalen kort? → Dobbeltkonsonant
 Er vokalen lang? → Enkel konsonant`,
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-14',
+        number: '8',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Rett dobbeltkonsonant-feilene i disse setningene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Han sat på stolen og vente på bussen."',
+            solution: '"Han satt på stolen og ventet på bussen." (satt med dobbelt t, ventet med t)',
+          },
+          {
+            label: 'b',
+            task: '"Hun har alldri vært i Frankrike før."',
+            solution: '"Hun har aldri vært i Frankrike før." (aldri med enkel l)',
+          },
+          {
+            label: 'c',
+            task: '"De svømte i det kalde vanet hele sommeren."',
+            solution: '"De svømte i det kalde vannet hele sommeren." (vannet med dobbelt n)',
+          },
+        ],
+        hints: ['Les høyt og lytt etter vokallengden'],
+        solution: 'Dobbeltkonsonant etter kort vokal er en viktig regel.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-3-def-7',
@@ -1612,6 +1882,88 @@ Adverbiale uttrykk skrives ofte i to ord:
 **Test:** Kan du sette "en/ei/et" foran?
 - "en fotballkamp" → ett ord ✓
 - "en i dag" → gir ikke mening → to ord ✓`,
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-2',
+        number: '9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Rett opp særskrivingsfeilene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Fotball kampen ble avlyst."',
+            solution: 'Fotballkampen - sammensatt ord',
+          },
+          {
+            label: 'b',
+            task: '"Jeg kjøpte en is krem."',
+            solution: 'iskrem - sammensatt ord',
+          },
+          {
+            label: 'c',
+            task: '"Skole sekken var tung."',
+            solution: 'Skolesekken - sammensatt ord',
+          },
+          {
+            label: 'd',
+            task: '"Vi møttes iforveien."',
+            solution: 'i forveien - to ord',
+          },
+        ],
+        hints: ['Sammensatte substantiv skrives i ett ord', 'Adverb og preposisjonsuttrykk kan være to ord'],
+        solution: 'Særskriving av sammensatte ord er en vanlig feil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-7',
+        number: '10',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse er en særskrivingsfeil?',
+        options: [
+          'fotball kamp',
+          'i dag',
+          'til slutt',
+          'i forveien',
+        ],
+        answer: 0,
+        solution: '"fotball kamp" er en særskrivingsfeil - det skal skrives som ett ord: "fotballkamp". De andre er korrekt skrevet som to ord.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-3-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-15',
+        number: '11',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hvilken av disse sammensetningene er FEIL skrevet?',
+        options: [
+          'fotballkamp',
+          'sykkel sti',
+          'arbeidsdag',
+          'barnehage',
+        ],
+        answer: 1,
+        solution: '"sykkel sti" er feil - det skal skrives som ett ord: "sykkelsti". Sammensatte substantiv skrives i ett ord på norsk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-3-example-1',
@@ -1732,119 +2084,11 @@ RIKTIG: "**i dag**" (to ord)
 - "Vi vinket" (subjekt) → De`,
     },
     {
-      id: 'norsk-vg1-8-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Velg riktig form:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"(Da/Når) jeg var ti år, flyttet vi til Bergen."',
-            solution: 'Da - fortid, engangshendelse',
-          },
-          {
-            label: 'b',
-            task: '"Jeg liker (og/å) svømme."',
-            solution: 'å - infinitivsmerke',
-          },
-          {
-            label: 'c',
-            task: '"(De/Dem) kom tidlig."',
-            solution: 'De - subjekt',
-          },
-          {
-            label: 'd',
-            task: '"Jeg så (de/dem) i går."',
-            solution: 'dem - objekt',
-          },
-        ],
-        solution: 'Riktig ordvalg avhenger av grammatisk funksjon og kontekst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Rett opp særskrivingsfeilene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Fotball kampen ble avlyst."',
-            solution: 'Fotballkampen - sammensatt ord',
-          },
-          {
-            label: 'b',
-            task: '"Jeg kjøpte en is krem."',
-            solution: 'iskrem - sammensatt ord',
-          },
-          {
-            label: 'c',
-            task: '"Skole sekken var tung."',
-            solution: 'Skolesekken - sammensatt ord',
-          },
-          {
-            label: 'd',
-            task: '"Vi møttes iforveien."',
-            solution: 'i forveien - to ord',
-          },
-        ],
-        hints: ['Sammensatte substantiv skrives i ett ord', 'Adverb og preposisjonsuttrykk kan være to ord'],
-        solution: 'Særskriving av sammensatte ord er en vanlig feil.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Sett inn riktig tegn (komma, punktum, kolon):',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Han kom _ og hun gikk"',
-            solution: '"Han kom, og hun gikk." - komma før og når to helsetninger',
-          },
-          {
-            label: 'b',
-            task: '"Da han kom _ gikk hun"',
-            solution: '"Da han kom, gikk hun." - komma etter leddsetning først',
-          },
-          {
-            label: 'c',
-            task: '"Vi trenger _ melk brød og ost"',
-            solution: '"Vi trenger: melk, brød og ost." - kolon før oppramsing',
-          },
-        ],
-        hints: ['Komma mellom helsetninger med konjunksjon', 'Komma etter leddsetning først'],
-        solution: 'Tegnsetting følger grammatiske regler.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
       id: 'norsk-vg1-8-3-ex-4',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-3-ex-4',
-        number: '4',
+        number: '12',
         type: 'classic',
         difficulty: 'medium',
         task: 'Finn og rett feilene i disse setningene:',
@@ -1869,15 +2113,32 @@ RIKTIG: "**i dag**" (to ord)
         solution: 'Å finne egne feil krever øvelse og oppmerksomhet.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
+    {
+      id: 'norsk-vg1-8-3-ex-8',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-3-ex-8',
+        number: '13',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Rett alle feilene i denne teksten og forklar hver feil:\n\n"Når Per var liten bodde han i et lite hus. Per\'s mor jobbet på et syke hus. Dem hadde det bra selv om dem ikke hadde mye penger. Idag er Per blitt stor og han liker og tenke tilbake på barndommen sin."',
+        hints: ['Se etter da/når, og/å, de/dem, særskriving og apostrof', 'Det er minst 7 feil'],
+        solution: 'Rettet: "Da Per var liten, bodde han i et lite hus. Pers mor jobbet på et sykehus. De hadde det bra selv om de ikke hadde mye penger. I dag er Per blitt stor, og han liker å tenke tilbake på barndommen sin." Feil: når→da, manglende komma, Per\'s→Pers, syke hus→sykehus, Dem→De (2x), Idag→I dag, og→å.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    // --- Samleoppgaver ---
     {
       id: 'norsk-vg1-8-3-ex-5',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-3-ex-5',
-        number: '5',
+        number: '14',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv et avsnitt (100-150 ord) om et selvvalgt tema. Fokuser på riktig rettskriving og tegnsetting.',
@@ -1889,104 +2150,11 @@ RIKTIG: "**i dag**" (to ord)
       },
     },
     {
-      id: 'norsk-vg1-8-3-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken setning er korrekt skrevet?',
-        options: [
-          '"Da jeg var liten, likte jeg å lese."',
-          '"Når jeg var liten, likte jeg og lese."',
-          '"Da jeg var liten likte jeg og lese."',
-          '"Når jeg var liten likte jeg å lese."',
-        ],
-        answer: 0,
-        solution: 'Alternativ 1 er riktig: "Da" brukes om fortid (engangshendelse), "å" er infinitivsmerke, og komma settes etter leddsetningen som står først.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken av disse er en særskrivingsfeil?',
-        options: [
-          'fotball kamp',
-          'i dag',
-          'til slutt',
-          'i forveien',
-        ],
-        answer: 0,
-        solution: '"fotball kamp" er en særskrivingsfeil - det skal skrives som ett ord: "fotballkamp". De andre er korrekt skrevet som to ord.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-8',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-8',
-        number: '8',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Rett alle feilene i denne teksten og forklar hver feil:\n\n"Når Per var liten bodde han i et lite hus. Per\'s mor jobbet på et syke hus. Dem hadde det bra selv om dem ikke hadde mye penger. Idag er Per blitt stor og han liker og tenke tilbake på barndommen sin."',
-        hints: ['Se etter da/når, og/å, de/dem, særskriving og apostrof', 'Det er minst 7 feil'],
-        solution: 'Rettet: "Da Per var liten, bodde han i et lite hus. Pers mor jobbet på et sykehus. De hadde det bra selv om de ikke hadde mye penger. I dag er Per blitt stor, og han liker å tenke tilbake på barndommen sin." Feil: når→da, manglende komma, Per\'s→Pers, syke hus→sykehus, Dem→De (2x), Idag→I dag, og→å.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-9',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-9',
-        number: '9',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Forklar forskjellen mellom disse ordparene og lag en setning med hvert:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'og / å',
-            solution: '"og" er konjunksjon (binder sammen): "Per og Kari". "å" er infinitivsmerke: "å lese".',
-          },
-          {
-            label: 'b',
-            task: 'da / når',
-            solution: '"da" brukes om fortid/engangshendelse: "Da jeg kom hjem". "når" brukes om nåtid/fremtid/gjentakelse: "Når det regner".',
-          },
-          {
-            label: 'c',
-            task: 'de / dem',
-            solution: '"de" er subjektsform: "De kommer". "dem" er objektsform: "Jeg ser dem".',
-          },
-        ],
-        hints: ['Tenk på grammatisk funksjon'],
-        solution: 'Å forstå forskjellen mellom disse ordparene er grunnleggende for god rettskriving på bokmål.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
       id: 'norsk-vg1-8-3-ex-10',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-3-ex-10',
-        number: '10',
+        number: '15',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Lag en «rettskrivingsguide» (300-400 ord) for medelever der du forklarer de fem vanligste rettskrivingsfeilene på bokmål. Inkluder eksempler og tips for å unngå feilene.',
@@ -2002,7 +2170,7 @@ RIKTIG: "**i dag**" (to ord)
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-3-ex-11',
-        number: '11',
+        number: '16',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Finn en tekst du har skrevet tidligere (f.eks. en innlevering). Gå gjennom den systematisk og rett alle rettskrivings- og tegnsettingsfeil. Skriv en kort refleksjon (100-150 ord) om hvilke feil du finner mest, og hva du kan gjøre for å forbedre deg.',
@@ -2010,164 +2178,6 @@ RIKTIG: "**i dag**" (to ord)
         solution: 'Refleksjonen bør vise selvinnsikt om egne utfordringer med rettskriving og konkrete strategier for forbedring.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-12',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-12',
-        number: '12',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Bøy disse verbene i alle fire former (infinitiv, presens, preteritum, perfektum):',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'å skrive',
-            solution: 'å skrive - skriver - skrev - har skrevet (sterkt verb)',
-          },
-          {
-            label: 'b',
-            task: 'å sitte',
-            solution: 'å sitte - sitter - satt - har sittet (sterkt verb)',
-          },
-          {
-            label: 'c',
-            task: 'å kaste',
-            solution: 'å kaste - kaster - kastet/kasta - har kastet/kasta (svakt verb)',
-          },
-          {
-            label: 'd',
-            task: 'å finne',
-            solution: 'å finne - finner - fant - har funnet (sterkt verb)',
-          },
-          {
-            label: 'e',
-            task: 'å leve',
-            solution: 'å leve - lever - levde - har levd (svakt verb)',
-          },
-        ],
-        hints: ['Sterke verb har vokalveksling', 'Svake verb følger faste mønstre'],
-        solution: 'Verbbøyning er grunnleggende for korrekt norsk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-13',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-13',
-        number: '13',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Bøy disse substantivene i alle fire former (ubestemt entall, bestemt entall, ubestemt flertall, bestemt flertall):',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'en bil (hankjønn)',
-            solution: 'en bil - bilen - biler - bilene',
-          },
-          {
-            label: 'b',
-            task: 'ei/en bok (hunkjønn)',
-            solution: 'ei/en bok - boka/boken - bøker - bøkene',
-          },
-          {
-            label: 'c',
-            task: 'et bord (intetkjønn)',
-            solution: 'et bord - bordet - bord - bordene/borda',
-          },
-          {
-            label: 'd',
-            task: 'en lærer (hankjønn)',
-            solution: 'en lærer - læreren - lærere - lærerne',
-          },
-        ],
-        hints: ['Husk de ulike mønstrene for hvert kjønn'],
-        solution: 'Substantivbøyning følger mønster basert på kjønn.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-14',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-14',
-        number: '14',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Rett dobbeltkonsonant-feilene i disse setningene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Han sat på stolen og vente på bussen."',
-            solution: '"Han satt på stolen og ventet på bussen." (satt med dobbelt t, ventet med t)',
-          },
-          {
-            label: 'b',
-            task: '"Hun har alldri vært i Frankrike før."',
-            solution: '"Hun har aldri vært i Frankrike før." (aldri med enkel l)',
-          },
-          {
-            label: 'c',
-            task: '"De svømte i det kalde vanet hele sommeren."',
-            solution: '"De svømte i det kalde vannet hele sommeren." (vannet med dobbelt n)',
-          },
-        ],
-        hints: ['Les høyt og lytt etter vokallengden'],
-        solution: 'Dobbeltkonsonant etter kort vokal er en viktig regel.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-15',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-15',
-        number: '15',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hvilken av disse sammensetningene er FEIL skrevet?',
-        options: [
-          'fotballkamp',
-          'sykkel sti',
-          'arbeidsdag',
-          'barnehage',
-        ],
-        answer: 1,
-        solution: '"sykkel sti" er feil - det skal skrives som ett ord: "sykkelsti". Sammensatte substantiv skrives i ett ord på norsk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-3-ex-16',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-3-ex-16',
-        number: '16',
-        type: 'multiple-choice',
-        difficulty: 'medium',
-        task: 'Hvilken setning har korrekt verbbøyning?',
-        options: [
-          'Jeg skrivde et brev i går.',
-          'Han har gåt til skolen.',
-          'De fant pengene under sofaen.',
-          'Hun har begynte på leksene.',
-        ],
-        answer: 2,
-        solution: '"De fant pengene under sofaen" er korrekt. Feil i de andre: "skrivde" → "skrev", "gåt" → "gått", "har begynte" → "har begynt".',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
         competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
@@ -2311,6 +2321,66 @@ Velg én form og vær konsekvent.
 - Flertall og bestemt: -e`,
     },
     {
+      id: 'norsk-vg1-8-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-2',
+        number: '1',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse substantivene på nynorsk (ubest. ent. - best. ent. - ubest. fl. - best. fl.):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'gut (hankjønn)',
+            solution: 'ein gut - guten - gutar - gutane',
+          },
+          {
+            label: 'b',
+            task: 'bok (hunkjønn)',
+            solution: 'ei bok - boka - bøker - bøkene',
+          },
+          {
+            label: 'c',
+            task: 'hus (intetkjønn)',
+            solution: 'eit hus - huset - hus - husa',
+          },
+          {
+            label: 'd',
+            task: 'jente (hunkjønn)',
+            solution: 'ei jente - jenta - jenter - jentene',
+          },
+        ],
+        hints: ['Hankjønn: -ar i flertall', 'Hunkjønn: -er i flertall', 'Intetkjønn: ofte uendra i flertall'],
+        solution: 'Nynorsk har klare mønstre for substantivbøyning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-7',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-7',
+        number: '2',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er korrekt flertallsform av "gut" på nynorsk?',
+        options: [
+          'gutar',
+          'gutter',
+          'gutene',
+          'guttar',
+        ],
+        answer: 0,
+        solution: '"Gutar" er korrekt ubestemt flertall av "gut" på nynorsk. Hankjønnsord får typisk -ar i flertall.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-4-image-nynorsk-verb',
       type: 'image',
       src: '/images/textbook/norsk-vg1/norsk-vg1-8-4-nynorsk-verb.png',
@@ -2360,6 +2430,87 @@ Velg én form og vær konsekvent.
 **Husk:** Disse ordene er ikke valgfrie - de MÅ brukes på nynorsk.`,
     },
     {
+      id: 'norsk-vg1-8-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-1',
+        number: '3',
+        type: 'classic',
+        difficulty: 'lett',
+        task: 'Skriv om til nynorsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Hun vet ikke hva han gjør."',
+            solution: '"Ho veit ikkje kva han gjer."',
+          },
+          {
+            label: 'b',
+            task: '"Hvorfor kommer de ikke?"',
+            solution: '"Kvifor kjem dei ikkje?"',
+          },
+          {
+            label: 'c',
+            task: '"Noen har sagt noe."',
+            solution: '"Nokon har sagt noko."',
+          },
+          {
+            label: 'd',
+            task: '"Hvor mye koster det?"',
+            solution: '"Kva/Kor mykje kostar det?"',
+          },
+        ],
+        solution: 'Nynorsk har egne ord for mange vanlige bokmålsord.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-6',
+        number: '4',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Hva er korrekt nynorsk for "Hun vet ikke"?',
+        options: [
+          'Ho veit ikkje',
+          'Hun veit ikke',
+          'Ho vet ikkje',
+          'Hun vet ikke',
+        ],
+        answer: 0,
+        solution: '"Ho veit ikkje" er korrekt nynorsk. "Hun" skal være "ho", "vet" skal være "veit", og "ikke" skal være "ikkje" på nynorsk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-13',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-13',
+        number: '5',
+        type: 'multiple-choice',
+        difficulty: 'lett',
+        task: 'Kva er riktig nynorsk for "Hvordan har du det?"',
+        options: [
+          'Korleis har du det?',
+          'Hvordan har du det?',
+          'Kordan har du det?',
+          'Koss har du det?',
+        ],
+        answer: 0,
+        solution: '"Korleis har du det?" er riktig nynorsk. "Hvordan" er bokmål og skal ikkje brukast på nynorsk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-4-def-3',
       type: 'definition',
       title: 'Vanlige bokmålsfeil på nynorsk',
@@ -2395,6 +2546,77 @@ Velg én form og vær konsekvent.
 - ✗ "bare" → ✓ "berre"
 - ✗ "aldri" → ✓ "aldri" (lik)
 - ✗ "sammen" → ✓ "saman"`,
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-4',
+        number: '6',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Finn og rett bokmålsfeilene:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"Jeg vet ikke hva hun gjør."',
+            solution: '"Eg veit ikkje kva ho gjer."',
+          },
+          {
+            label: 'b',
+            task: '"De kom ikke fordi det regnet mye."',
+            solution: '"Dei kom ikkje fordi det regna mykje."',
+          },
+          {
+            label: 'c',
+            task: '"Hvorfor sa han ikke noe?"',
+            solution: '"Kvifor sa han ikkje noko?"',
+          },
+        ],
+        hints: ['Sjekk pronomen, spørreord og vanlige bokmålsord'],
+        solution: 'Å finne bokmålsfeil krever at du kjenner nynorskens ordforråd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-14',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-14',
+        number: '7',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Omset desse setningane til nynorsk:',
+        subTasks: [
+          {
+            label: 'a',
+            task: '"De tar bussen til skolen hver dag."',
+            solution: '"Dei tek bussen til skulen kvar dag."',
+          },
+          {
+            label: 'b',
+            task: '"Hun gjør leksene sine før hun går ut."',
+            solution: '"Ho gjer leksene sine før ho går ut."',
+          },
+          {
+            label: 'c',
+            task: '"Hva synes du om filmen vi så i går?"',
+            solution: '"Kva synest du om filmen vi såg i går?"',
+          },
+          {
+            label: 'd',
+            task: '"De visste ikke hvorfor han ikke kom."',
+            solution: '"Dei visste ikkje kvifor han ikkje kom."',
+          },
+        ],
+        hints: ['Pass på pronomen, spørjeord og verb', 'Bruk nynorskordboka'],
+        solution: 'Omsetjing til nynorsk krev at du kjenner dei viktigaste forskjellane.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-4-def-4',
@@ -2474,6 +2696,28 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
 - Tradisjonelt: Velg a-former for "sterkare" nynorsk`,
     },
     {
+      id: 'norsk-vg1-8-4-ex-16',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-16',
+        number: '8',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Kva betyr det å velje mellom a-infinitiv og e-infinitiv i nynorsk?',
+        options: [
+          'Du kan velje mellom "å kaste" og "å kasta", men må vere konsekvent',
+          'A-infinitiv er alltid feil på nynorsk',
+          'E-infinitiv er den einaste godkjende forma',
+          'Det er ingen forskjell mellom formene',
+        ],
+        answer: 0,
+        solution: 'Nynorsk har valfridom mellom a-infinitiv (å kasta) og e-infinitiv (å kaste). Begge er riktige, men du må vere konsekvent gjennom heile teksten.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
       id: 'norsk-vg1-8-4-def-6',
       type: 'definition',
       title: 'Verb på nynorsk - former du må kunne',
@@ -2507,6 +2751,82 @@ A-infinitiv (å kasta) er den mest utbreidde forma i dialektane og blir ofte set
 - "tar" → "tek" (ikkje "tar"!)
 
 **Tips:** Desse verba er obligatoriske å kunne - dei kan ikkje oversettast direkte frå bokmål!`,
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-3',
+        number: '9',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy disse verbene på nynorsk (infinitiv - presens - preteritum - perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å kome (komme)',
+            solution: 'å kome - kjem - kom - har kome',
+          },
+          {
+            label: 'b',
+            task: 'å skrive',
+            solution: 'å skrive - skriv - skreiv - har skrive',
+          },
+          {
+            label: 'c',
+            task: 'å gjere (gjøre)',
+            solution: 'å gjere - gjer - gjorde - har gjort',
+          },
+          {
+            label: 'd',
+            task: 'å vite (vite)',
+            solution: 'å vite - veit - visste - har visst',
+          },
+        ],
+        hints: ['Bruk nynorskordboka', 'Mange sterke verb har annen vokalveksling enn på bokmål'],
+        solution: 'Verbbøyning på nynorsk følger bestemte mønstre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-12',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-12',
+        number: '10',
+        type: 'classic',
+        difficulty: 'medium',
+        task: 'Bøy desse verba på nynorsk (infinitiv - presens - preteritum - perfektum):',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'å vere',
+            solution: 'å vere/vera - er - var - har vore',
+          },
+          {
+            label: 'b',
+            task: 'å ta',
+            solution: 'å ta - tek - tok - har teke',
+          },
+          {
+            label: 'c',
+            task: 'å sjå',
+            solution: 'å sjå - ser - såg - har sett',
+          },
+          {
+            label: 'd',
+            task: 'å gje/gi',
+            solution: 'å gje/gi - gjev/gir - gav - har gjeve/gitt',
+          },
+        ],
+        hints: ['Bruk nynorskordboka om du er usikker', 'Sterke verb har vokalveksling'],
+        solution: 'Verbbøyning på nynorsk skil seg ofte frå bokmål.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
     },
     {
       id: 'norsk-vg1-8-4-example-1',
@@ -2673,217 +2993,11 @@ Retta: "Dei som var der, sa ikkje noko."
       ],
     },
     {
-      id: 'norsk-vg1-8-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-1',
-        number: '1',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Skriv om til nynorsk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Hun vet ikke hva han gjør."',
-            solution: '"Ho veit ikkje kva han gjer."',
-          },
-          {
-            label: 'b',
-            task: '"Hvorfor kommer de ikke?"',
-            solution: '"Kvifor kjem dei ikkje?"',
-          },
-          {
-            label: 'c',
-            task: '"Noen har sagt noe."',
-            solution: '"Nokon har sagt noko."',
-          },
-          {
-            label: 'd',
-            task: '"Hvor mye koster det?"',
-            solution: '"Kva/Kor mykje kostar det?"',
-          },
-        ],
-        solution: 'Nynorsk har egne ord for mange vanlige bokmålsord.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-2',
-        number: '2',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Bøy disse substantivene på nynorsk (ubest. ent. - best. ent. - ubest. fl. - best. fl.):',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'gut (hankjønn)',
-            solution: 'ein gut - guten - gutar - gutane',
-          },
-          {
-            label: 'b',
-            task: 'bok (hunkjønn)',
-            solution: 'ei bok - boka - bøker - bøkene',
-          },
-          {
-            label: 'c',
-            task: 'hus (intetkjønn)',
-            solution: 'eit hus - huset - hus - husa',
-          },
-          {
-            label: 'd',
-            task: 'jente (hunkjønn)',
-            solution: 'ei jente - jenta - jenter - jentene',
-          },
-        ],
-        hints: ['Hankjønn: -ar i flertall', 'Hunkjønn: -er i flertall', 'Intetkjønn: ofte uendra i flertall'],
-        solution: 'Nynorsk har klare mønstre for substantivbøyning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-3',
-        number: '3',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Bøy disse verbene på nynorsk (infinitiv - presens - preteritum - perfektum):',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'å kome (komme)',
-            solution: 'å kome - kjem - kom - har kome',
-          },
-          {
-            label: 'b',
-            task: 'å skrive',
-            solution: 'å skrive - skriv - skreiv - har skrive',
-          },
-          {
-            label: 'c',
-            task: 'å gjere (gjøre)',
-            solution: 'å gjere - gjer - gjorde - har gjort',
-          },
-          {
-            label: 'd',
-            task: 'å vite (vite)',
-            solution: 'å vite - veit - visste - har visst',
-          },
-        ],
-        hints: ['Bruk nynorskordboka', 'Mange sterke verb har annen vokalveksling enn på bokmål'],
-        solution: 'Verbbøyning på nynorsk følger bestemte mønstre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-4',
-        number: '4',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Finn og rett bokmålsfeilene:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"Jeg vet ikke hva hun gjør."',
-            solution: '"Eg veit ikkje kva ho gjer."',
-          },
-          {
-            label: 'b',
-            task: '"De kom ikke fordi det regnet mye."',
-            solution: '"Dei kom ikkje fordi det regna mykje."',
-          },
-          {
-            label: 'c',
-            task: '"Hvorfor sa han ikke noe?"',
-            solution: '"Kvifor sa han ikkje noko?"',
-          },
-        ],
-        hints: ['Sjekk pronomen, spørreord og vanlige bokmålsord'],
-        solution: 'Å finne bokmålsfeil krever at du kjenner nynorskens ordforråd.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-5',
-        number: '5',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv et kort avsnitt (100-150 ord) på nynorsk om en hobby eller interesse du har.',
-        hints: ['Bruk nynorskordboka aktivt', 'Sjekk pronomen og spørreord', 'Les gjennom og se etter bokmålsfeil', 'Vær konsekvent i formvalg'],
-        solution: 'Avsnittet bør vise korrekt nynorsk med riktige ordformer og bøyninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-6',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-6',
-        number: '6',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er korrekt nynorsk for "Hun vet ikke"?',
-        options: [
-          'Ho veit ikkje',
-          'Hun veit ikke',
-          'Ho vet ikkje',
-          'Hun vet ikke',
-        ],
-        answer: 0,
-        solution: '"Ho veit ikkje" er korrekt nynorsk. "Hun" skal være "ho", "vet" skal være "veit", og "ikke" skal være "ikkje" på nynorsk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-7',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-7',
-        number: '7',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Hva er korrekt flertallsform av "gut" på nynorsk?',
-        options: [
-          'gutar',
-          'gutter',
-          'gutene',
-          'guttar',
-        ],
-        answer: 0,
-        solution: '"Gutar" er korrekt ubestemt flertall av "gut" på nynorsk. Hankjønnsord får typisk -ar i flertall.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
       id: 'norsk-vg1-8-4-ex-8',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-4-ex-8',
-        number: '8',
+        number: '11',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les primærteksten «Nordmannen» av Ivar Aasen. Identifiser minst fem ord eller uttrykk som skiller seg fra moderne nynorsk, og forklar forskjellene.',
@@ -2899,7 +3013,7 @@ Retta: "Dei som var der, sa ikkje noko."
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-4-ex-9',
-        number: '9',
+        number: '12',
         type: 'classic',
         difficulty: 'medium',
         task: 'Les utdraget fra Garborgs «Haugtussa». Skriv en kort analyse (100-150 ord) av språket. Hva kjennetegner Garborgs nynorsk?',
@@ -2910,12 +3024,45 @@ Retta: "Dei som var der, sa ikkje noko."
         competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },
+    // --- Samleoppgaver ---
+    {
+      id: 'norsk-vg1-8-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-5',
+        number: '13',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv et kort avsnitt (100-150 ord) på nynorsk om en hobby eller interesse du har.',
+        hints: ['Bruk nynorskordboka aktivt', 'Sjekk pronomen og spørreord', 'Les gjennom og se etter bokmålsfeil', 'Vær konsekvent i formvalg'],
+        solution: 'Avsnittet bør vise korrekt nynorsk med riktige ordformer og bøyninger.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
+    {
+      id: 'norsk-vg1-8-4-ex-15',
+      type: 'exercise',
+      exercise: {
+        id: 'norsk-vg1-8-4-ex-15',
+        number: '14',
+        type: 'classic',
+        difficulty: 'vanskelig',
+        task: 'Skriv ein kort tekst (150-200 ord) på nynorsk om temaet "Min favorittaktivitet". Pass på å bruke riktige nynorskformer og unngå bokmålsord.',
+        hints: ['Planlegg teksten før du byrjar', 'Bruk nynorskordboka aktivt', 'Sjekk spørjeord, pronomen og verb', 'Les gjennom og sjekk for bokmålsord'],
+        solution: 'Teksten bør vise god nynorsk språkføring utan bokmålsfeil.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
+      },
+    },
     {
       id: 'norsk-vg1-8-4-ex-10',
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-4-ex-10',
-        number: '10',
+        number: '15',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Skriv en sammenhengende tekst (250-350 ord) på nynorsk om temaet «Kva betyr språk for identitet?». Bruk gjerne eksempler fra nynorskens historie eller din egen erfaring.',
@@ -2931,7 +3078,7 @@ Retta: "Dei som var der, sa ikkje noko."
       type: 'exercise',
       exercise: {
         id: 'norsk-vg1-8-4-ex-11',
-        number: '11',
+        number: '16',
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Drøft (på bokmål eller nynorsk, 400-500 ord): Bør alle norske elever lære å skrive både bokmål og nynorsk? Bruk argumenter fra språkhistorie, identitet og praktiske hensyn.',
@@ -2939,142 +3086,6 @@ Retta: "Dei som var der, sa ikkje noko."
         solution: 'Drøftingen bør vise forståelse for nynorskens rolle i norsk språkhistorie og kultur, og presentere balanserte argumenter med et begrunnet standpunkt.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-12',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-12',
-        number: '12',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Bøy desse verba på nynorsk (infinitiv - presens - preteritum - perfektum):',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'å vere',
-            solution: 'å vere/vera - er - var - har vore',
-          },
-          {
-            label: 'b',
-            task: 'å ta',
-            solution: 'å ta - tek - tok - har teke',
-          },
-          {
-            label: 'c',
-            task: 'å sjå',
-            solution: 'å sjå - ser - såg - har sett',
-          },
-          {
-            label: 'd',
-            task: 'å gje/gi',
-            solution: 'å gje/gi - gjev/gir - gav - har gjeve/gitt',
-          },
-        ],
-        hints: ['Bruk nynorskordboka om du er usikker', 'Sterke verb har vokalveksling'],
-        solution: 'Verbbøyning på nynorsk skil seg ofte frå bokmål.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-13',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-13',
-        number: '13',
-        type: 'multiple-choice',
-        difficulty: 'lett',
-        task: 'Kva er riktig nynorsk for "Hvordan har du det?"',
-        options: [
-          'Korleis har du det?',
-          'Hvordan har du det?',
-          'Kordan har du det?',
-          'Koss har du det?',
-        ],
-        answer: 0,
-        solution: '"Korleis har du det?" er riktig nynorsk. "Hvordan" er bokmål og skal ikkje brukast på nynorsk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-14',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-14',
-        number: '14',
-        type: 'classic',
-        difficulty: 'medium',
-        task: 'Omset desse setningane til nynorsk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: '"De tar bussen til skolen hver dag."',
-            solution: '"Dei tek bussen til skulen kvar dag."',
-          },
-          {
-            label: 'b',
-            task: '"Hun gjør leksene sine før hun går ut."',
-            solution: '"Ho gjer leksene sine før ho går ut."',
-          },
-          {
-            label: 'c',
-            task: '"Hva synes du om filmen vi så i går?"',
-            solution: '"Kva synest du om filmen vi såg i går?"',
-          },
-          {
-            label: 'd',
-            task: '"De visste ikke hvorfor han ikke kom."',
-            solution: '"Dei visste ikkje kvifor han ikkje kom."',
-          },
-        ],
-        hints: ['Pass på pronomen, spørjeord og verb', 'Bruk nynorskordboka'],
-        solution: 'Omsetjing til nynorsk krev at du kjenner dei viktigaste forskjellane.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-15',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-15',
-        number: '15',
-        type: 'classic',
-        difficulty: 'vanskelig',
-        task: 'Skriv ein kort tekst (150-200 ord) på nynorsk om temaet "Min favorittaktivitet". Pass på å bruke riktige nynorskformer og unngå bokmålsord.',
-        hints: ['Planlegg teksten før du byrjar', 'Bruk nynorskordboka aktivt', 'Sjekk spørjeord, pronomen og verb', 'Les gjennom og sjekk for bokmålsord'],
-        solution: 'Teksten bør vise god nynorsk språkføring utan bokmålsfeil.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-        competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
-      },
-    },
-    {
-      id: 'norsk-vg1-8-4-ex-16',
-      type: 'exercise',
-      exercise: {
-        id: 'norsk-vg1-8-4-ex-16',
-        number: '16',
-        type: 'multiple-choice',
-        difficulty: 'medium',
-        task: 'Kva betyr det å velje mellom a-infinitiv og e-infinitiv i nynorsk?',
-        options: [
-          'Du kan velje mellom "å kaste" og "å kasta", men må vere konsekvent',
-          'A-infinitiv er alltid feil på nynorsk',
-          'E-infinitiv er den einaste godkjende forma',
-          'Det er ingen forskjell mellom formene',
-        ],
-        answer: 0,
-        solution: 'Nynorsk har valfridom mellom a-infinitiv (å kasta) og e-infinitiv (å kaste). Begge er riktige, men du må vere konsekvent gjennom heile teksten.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
         competenceGoals: ['bruke fagspråk til å beskrive grammatikk'],
       },
     },

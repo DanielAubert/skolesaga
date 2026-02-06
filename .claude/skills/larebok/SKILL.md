@@ -14,9 +14,53 @@ Denne skillen utvikler en komplett lærebok eller utvider en eksisterende bok ti
 2. **Henter LK20-kompetansemål** fra UDIR for faget
 3. **Planlegger kapittelstruktur** basert på kompetansemålene
 4. **Fyller ut stub-kapitler** og lager nye kapitler der det mangler
-5. **Genererer komplett innhold** med teori, eksempler og oppgaver
+5. **Genererer komplett innhold** med teori-eksempel-oppgave-struktur (se nedenfor)
 6. **Kjører build-sjekk** ved høy risiko for feil
 7. **Oppretter rapport** over hva som ble generert
+
+## VIKTIG: Teori-Eksempel-Oppgave-struktur
+
+Alle kapitler MÅ følge denne pedagogiske strukturen der oppgaver kommer RETT ETTER relevant teori:
+
+```
+┌─────────────────────────────────────┐
+│  INTRO (type: 'text')               │
+├─────────────────────────────────────┤
+│  TEORI 1 (type: 'definition')       │
+│  EKSEMPEL 1 (type: 'example')       │  ← Blokk 1
+│  OPPGAVE 1-2 (type: 'exercise')     │
+├─────────────────────────────────────┤
+│  TEORI 2 (type: 'definition')       │
+│  EKSEMPEL 2 (type: 'example')       │  ← Blokk 2
+│  OPPGAVE 3-4 (type: 'exercise')     │
+├─────────────────────────────────────┤
+│  TEORI 3 (type: 'text/definition')  │
+│  EKSEMPEL 3 (type: 'example')       │  ← Blokk 3
+│  OPPGAVE 5 (type: 'exercise')       │
+├─────────────────────────────────────┤
+│  OPPSUMMERING (type: 'text')        │
+│  // --- Samleoppgaver ---           │
+│  OPPGAVE 6-8 (vanskelige/drøfting)  │  ← Avslutning
+└─────────────────────────────────────┘
+```
+
+### Oppgaveplassering
+
+| Oppgavetype | Plassering |
+|-------------|------------|
+| Forklaringsoppgaver | Rett etter relevant definisjon |
+| Analyseoppgaver | Rett etter eksempel/primærtekst |
+| Anvendelsesoppgaver | Rett etter relevant teori |
+| Drøftingsoppgaver | Samleoppgaver på slutten |
+| Kreative oppgaver | Samleoppgaver på slutten |
+
+### Samleoppgaver
+
+De siste 2-4 oppgavene i et kapittel er **samleoppgaver** som:
+- Krever kunnskap fra hele kapittelet
+- Er vanskeligere (medium/vanskelig)
+- Involverer drøfting, kreativ skriving, eller prosjektarbeid
+- Markeres med kommentaren `// --- Samleoppgaver ---`
 
 ## Bruk
 
@@ -113,9 +157,9 @@ textbook-content-biologi-1-del2.ts  // Kap 4-6
 textbook-content-biologi-1-del3.ts  // Kap 7-9
 ```
 
-**Steg 3.2: Generer kapittelinnhold**
+**Steg 3.2: Generer kapittelinnhold med teori-eksempel-oppgave-struktur**
 
-Hver kapittel skal inneholde:
+Hver kapittel skal følge teori-eksempel-oppgave-mønsteret:
 
 ```typescript
 export const CHAPTER_BIOLOGI_1_1_1: TextbookChapter = {
@@ -127,18 +171,37 @@ export const CHAPTER_BIOLOGI_1_1_1: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: ['forklare hovedtrekk ved cellebiologi'],
   content: [
-    // 1. Introduksjon (type: 'text')
-    // 2. Ordliste/nøkkelbegreper (type: 'definition')
-    // 3. Hovedteori med underoverskrifter (type: 'text')
-    // 4. Definisjonsbokser for viktige begreper (type: 'definition')
-    // 5. Eksempler med løsning (type: 'example')
-    // 6. Tips/noter der relevant (type: 'tip', 'note', 'warning')
-    // 7. Oppgaver spredt utover (type: 'exercise')
-    // 8. Oppsummering på slutten (type: 'text')
+    // INTRO
+    { id: '...-intro', type: 'text', content: '## Introduksjon...' },
+
+    // BLOKK 1: Første tema
+    { id: '...-def-1', type: 'definition', title: 'Celle', content: '...' },
+    { id: '...-example-1', type: 'example', title: 'Eksempel...', problem: '...', solution: '...' },
+    { id: '...-ex-1', type: 'exercise', exercise: { number: '1', task: '...' } },
+    { id: '...-ex-2', type: 'exercise', exercise: { number: '2', task: '...' } },
+
+    // BLOKK 2: Andre tema
+    { id: '...-def-2', type: 'definition', title: 'Organeller', content: '...' },
+    { id: '...-example-2', type: 'example', title: 'Eksempel...', problem: '...', solution: '...' },
+    { id: '...-ex-3', type: 'exercise', exercise: { number: '3', task: '...' } },
+
+    // BLOKK 3: Tredje tema
+    { id: '...-def-3', type: 'definition', title: 'Cellemembran', content: '...' },
+    { id: '...-ex-4', type: 'exercise', exercise: { number: '4', task: '...' } },
+
+    // OPPSUMMERING
+    { id: '...-oppsummering', type: 'text', content: '## Oppsummering...' },
+
+    // --- Samleoppgaver ---
+    { id: '...-ex-5', type: 'exercise', exercise: { number: '5', difficulty: 'medium', task: '...' } },
+    { id: '...-ex-6', type: 'exercise', exercise: { number: '6', difficulty: 'vanskelig', task: '...' } },
   ],
   exercises: [],
+  keyTerms: [...],
 };
 ```
+
+**KRITISK:** Oppgaver skal IKKE samles på slutten! Hver oppgave skal komme rett etter den teorien/eksempelet den tester.
 
 **Steg 3.3: Innholdsblokk-maler**
 
@@ -206,21 +269,25 @@ I dette kapittelet skal du lære:
 }
 ```
 
-**Fritekst-oppgave:**
+**Klassisk oppgave (fritekst):**
 ```typescript
 {
-  id: '[kap-id]-oppg-[nummer]',
+  id: '[kap-id]-ex-[nummer]',
   type: 'exercise',
   exercise: {
-    id: '[kap-id]-oppg-[nummer]',
+    id: '[kap-id]-ex-[nummer]',
     number: '[nummer]',
-    type: 'short-answer',
+    type: 'classic',
     task: '[Oppgavetekst]',
     hints: ['[Hint 1]', '[Hint 2]'],
     solution: '[Fasit med forklaring]',
+    allowsUpload: true,
+    allowsCanvasDrawing: true,
   },
 }
 ```
+
+**MERK:** Bruk `type: 'classic'` for fritekstoppgaver, IKKE `'short-answer'` (ugyldig type).
 
 **Oppsummering:**
 ```typescript
@@ -346,8 +413,10 @@ Skriv ut en kort rapport:
 - Eksempler skal være relevante og løsbare
 - Oppgaver skal ha varierende vanskelighetsgrad
 
-### Struktur
-- Hvert kapittel: intro → teori → definisjoner → eksempler → oppgaver → oppsummering
+### Struktur (Teori-Eksempel-Oppgave-mønster)
+- Hvert kapittel: intro → [teori → eksempel → oppgaver] × N → oppsummering → samleoppgaver
+- Oppgaver kommer RETT ETTER relevant teori, IKKE samlet på slutten
+- Samleoppgaver (drøfting, kreative) kommer etter oppsummeringen
 - Gradvis progresjon i vanskelighetsgrad
 - Kryss-referanser til tidligere kapitler der relevant
 
@@ -363,8 +432,11 @@ Skriv ut en kort rapport:
 - [ ] Hentet LK20-kompetansemål
 - [ ] Planlagt kapittelstruktur
 - [ ] Generert alle kapitler med komplett innhold
-- [ ] Hvert kapittel har: intro, teori, definisjoner, eksempler, oppgaver, oppsummering
-- [ ] Blanding av multiple-choice og fritekst-oppgaver
+- [ ] **Teori-eksempel-oppgave-struktur:** Oppgaver kommer RETT ETTER relevant teori
+- [ ] Hver definisjon har minst én oppgave etter seg
+- [ ] Hvert eksempel har en analyseoppgave etter seg
+- [ ] Samleoppgaver er markert med `// --- Samleoppgaver ---` kommentar
+- [ ] Blanding av multiple-choice og classic oppgaver (IKKE 'short-answer')
 - [ ] Oppdatert eksport-arrays
 - [ ] Importert i textbook-content.ts
 - [ ] Oppdatert textbook-courses.ts
@@ -383,10 +455,13 @@ Skriv ut en kort rapport:
 
 4. [Claude planlegger 45 kapitler fordelt på 8 hovedtemaer]
 
-5. [Claude genererer innhold fil for fil]
+5. [Claude genererer innhold fil for fil med teori-eksempel-oppgave-struktur]
    - textbook-content-biologi-1-del1.ts (kap 1-3)
    - textbook-content-biologi-1-del2.ts (kap 4-6)
    - ...
+
+   VIKTIG: Hvert kapittel følger mønsteret:
+   intro → [def → example → exercise] × N → oppsummering → samleoppgaver
 
 6. [Claude oppdaterer textbook-content.ts og textbook-courses.ts]
 
@@ -397,4 +472,31 @@ Skriv ut en kort rapport:
    - Fikser eventuelle kritiske/moderate funn
 
 9. [Claude genererer rapport]
+```
+
+## Eksempel: Riktig kapittelstruktur
+
+```typescript
+content: [
+  // INTRO
+  { id: 'bio-1-1-intro', type: 'text', content: '## Velkommen til cellebiologi...' },
+
+  // BLOKK 1: Celleteori
+  { id: 'bio-1-1-def-1', type: 'definition', title: 'Celleteori', content: '...' },
+  { id: 'bio-1-1-example-1', type: 'example', title: 'Hookes oppdagelse', problem: '...', solution: '...' },
+  { id: 'bio-1-1-ex-1', type: 'exercise', exercise: { number: '1', type: 'multiple-choice', task: 'Hva er celleteori?...' } },
+  { id: 'bio-1-1-ex-2', type: 'exercise', exercise: { number: '2', type: 'classic', task: 'Forklar celleteorien...' } },
+
+  // BLOKK 2: Celletyper
+  { id: 'bio-1-1-def-2', type: 'definition', title: 'Prokaryote og eukaryote celler', content: '...' },
+  { id: 'bio-1-1-example-2', type: 'example', title: 'Sammenligning av celler', problem: '...', solution: '...' },
+  { id: 'bio-1-1-ex-3', type: 'exercise', exercise: { number: '3', type: 'classic', task: 'Sammenlign prokaryote og eukaryote...' } },
+
+  // OPPSUMMERING
+  { id: 'bio-1-1-oppsummering', type: 'text', content: '## Oppsummering...' },
+
+  // --- Samleoppgaver ---
+  { id: 'bio-1-1-ex-4', type: 'exercise', exercise: { number: '4', difficulty: 'medium', task: 'Drøft hvorfor...' } },
+  { id: 'bio-1-1-ex-5', type: 'exercise', exercise: { number: '5', difficulty: 'vanskelig', task: 'Lag en presentasjon...' } },
+]
 ```

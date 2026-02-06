@@ -2,7 +2,7 @@
  * Tekstbok innhold for Naturfag VG1
  *
  * Følger LK20 læreplan for naturfag (NAT01-04) studieforberedende.
- * Dekker 48 kapitler organisert i 9 seksjoner:
+ * Dekker 55 kapitler organisert i 10 seksjoner:
  *
  * - Seksjon 1: Naturvitenskapens tenkemåte (1.1-1.5)
  * - Seksjon 2: Bølger, stråling og radioaktivitet (2.1-2.7)
@@ -13,16 +13,18 @@
  * - Seksjon 7: Ernæring, helse og livsstil (7.1-7.6)
  * - Seksjon 8: Arv og evolusjon (8.1-8.5)
  * - Seksjon 9: Bioteknologi (9.1-9.5)
+ * - Seksjon 10: Teknologi, energi og bærekraft (10.1-10.7)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
-// Import all chapter content from the five parts
+// Import all chapter content from the six parts
 import { NAT_VG1_CHAPTERS_DEL1 } from './textbook-content-nat-vg1-del1';
 import { NAT_VG1_CHAPTERS_DEL2 } from './textbook-content-nat-vg1-del2';
 import { NAT_VG1_CHAPTERS_DEL3 } from './textbook-content-nat-vg1-del3';
 import { NAT_VG1_CHAPTERS_DEL4 } from './textbook-content-nat-vg1-del4';
 import { NAT_VG1_CHAPTERS_DEL5 } from './textbook-content-nat-vg1-del5';
+import { NAT_VG1_CHAPTERS_DEL6 } from './textbook-content-nat-vg1-del6';
 
 // Re-export individual chapters for direct import
 export * from './textbook-content-nat-vg1-del1';
@@ -30,6 +32,7 @@ export * from './textbook-content-nat-vg1-del2';
 export * from './textbook-content-nat-vg1-del3';
 export * from './textbook-content-nat-vg1-del4';
 export * from './textbook-content-nat-vg1-del5';
+export * from './textbook-content-nat-vg1-del6';
 
 // Combined export of all chapters as array
 export const NAT_VG1_CHAPTERS: TextbookChapter[] = [
@@ -38,6 +41,7 @@ export const NAT_VG1_CHAPTERS: TextbookChapter[] = [
   ...NAT_VG1_CHAPTERS_DEL3,
   ...NAT_VG1_CHAPTERS_DEL4,
   ...NAT_VG1_CHAPTERS_DEL5,
+  ...NAT_VG1_CHAPTERS_DEL6,
 ];
 
 // Backward compatibility - as Record (used by textbook-content.ts)

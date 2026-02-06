@@ -56,6 +56,31 @@ Akvakultur er kontrollert oppdrett av vannlevende organismer. Dette omfatter fis
       content: `Akvakultur er kontrollert oppdrett av vannlevende organismer som fisk, skalldyr, bløtdyr og alger. Oppdrettet skjer i merder i sjøen, kar på land, eller i dammer og innsjøer. Formålet er å produsere mat, fôr eller andre produkter på en effektiv og bærekraftig måte.`,
     },
     {
+      id: 'naturbruk-vg1-5-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er akvakultur, og hvorfor er det viktig for Norge?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva akvakultur er med egne ord.',
+            solution: 'Akvakultur er kontrollert oppdrett av vannlevende organismer som fisk, skalldyr og alger. Det foregår i merder i sjøen, kar på land eller i dammer.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn tre grunner til at akvakultur er viktig for Norge.',
+            solution: 'Akvakultur er viktig fordi det: 1) Gir store eksportinntekter (over 150 milliarder kr), 2) Skaper arbeidsplasser langs kysten, 3) Bidrar til global matforsyning med sunn sjømat.',
+          },
+        ],
+        solution: 'Akvakultur er oppdrett av vannlevende organismer og er viktig for Norge på grunn av eksportinntekter, arbeidsplasser og bidrag til global matforsyning.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-1-text-1',
       type: 'text',
       content: `## De viktigste oppdrettsartene i Norge
@@ -86,10 +111,36 @@ Regnbueørreten er den nest største oppdrettsarten i Norge. Den ligner på laks
 | Tang/tare | Voksende | Ny næring, mange bruksområder |`,
     },
     {
+      id: 'naturbruk-vg1-5-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hvilke oppdrettsarter er viktigst i Norge?',
+        solution: 'Atlantisk laks er den viktigste arten og utgjør over 90% av produksjonen med ca. 1,5 millioner tonn årlig. Regnbueørret er nummer to med 80 000-100 000 tonn. Andre arter inkluderer torsk, kveite, røye, blåskjell, østers og tang/tare.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-1-def-2',
       type: 'definition',
       title: 'Merd',
       content: `En merd er en innhegning i sjøen som holder oppdrettsfisken på plass. Moderne merder består av et flytende rammeverk med en not (netting) som henger ned i vannet. En typisk laksemerd kan være 50-60 meter i diameter og 30-50 meter dyp, og romme flere hundre tusen fisk.`,
+    },
+    {
+      id: 'naturbruk-vg1-5-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er en merd, og hva er typiske dimensjoner?',
+        solution: 'En merd er en innhegning i sjøen som holder oppdrettsfisken på plass. Den består av et flytende rammeverk med en not som henger ned i vannet. Typiske dimensjoner er 50-60 meter i diameter og 30-50 meter dybde, og kan romme flere hundre tusen fisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-1-text-2',
@@ -171,6 +222,31 @@ Oppdrettsnæringen omfatter mange ledd fra avl til ferdig produkt:
       content: `Biomasse i akvakultur er den totale vekten av levende fisk i et anlegg på et gitt tidspunkt. Myndighetene regulerer produksjonen gjennom maksimalt tillatt biomasse (MTB), som angir hvor mye fisk (i tonn) et anlegg kan ha stående til enhver tid.`,
     },
     {
+      id: 'naturbruk-vg1-5-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv verdikjeden i oppdrettsnæringen fra avl til salg.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'List opp de seks hovedleddene i verdikjeden.',
+            solution: '1. Avl og genetikk, 2. Settefiskproduksjon, 3. Matfiskproduksjon, 4. Slakting og foredling, 5. Salg og distribusjon, 6. Leverandørindustri.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar kort hva som skjer i settefiskproduksjonen.',
+            solution: 'I settefiskproduksjonen klekkes rogn i ferskvann, yngelen fôres opp til smolt, og fisken gjennomgår smoltifisering der den tilpasses saltvann.',
+          },
+        ],
+        solution: 'Verdikjeden omfatter avl, settefisk, matfisk, slakting/foredling, salg/distribusjon og leverandørindustri.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-1-tip-1',
       type: 'tip',
       title: 'Norsk sjømat - et kvalitetsstempel',
@@ -205,82 +281,7 @@ Oppdrettsnæringen omfatter mange ledd fra avl til ferdig produkt:
 
 Moderne anlegg bruker avansert teknologi som undervannskameraer, sensorer og automatiserte fôringssystemer for å optimalisere driften.`,
     },
-    {
-      id: 'naturbruk-vg1-5-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er akvakultur, og hvorfor er det viktig for Norge?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva akvakultur er med egne ord.',
-            solution: 'Akvakultur er kontrollert oppdrett av vannlevende organismer som fisk, skalldyr og alger. Det foregår i merder i sjøen, kar på land eller i dammer.',
-          },
-          {
-            label: 'b',
-            task: 'Nevn tre grunner til at akvakultur er viktig for Norge.',
-            solution: 'Akvakultur er viktig fordi det: 1) Gir store eksportinntekter (over 150 milliarder kr), 2) Skaper arbeidsplasser langs kysten, 3) Bidrar til global matforsyning med sunn sjømat.',
-          },
-        ],
-        solution: 'Akvakultur er oppdrett av vannlevende organismer og er viktig for Norge på grunn av eksportinntekter, arbeidsplasser og bidrag til global matforsyning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvilke oppdrettsarter er viktigst i Norge?',
-        solution: 'Atlantisk laks er den viktigste arten og utgjør over 90% av produksjonen med ca. 1,5 millioner tonn årlig. Regnbueørret er nummer to med 80 000-100 000 tonn. Andre arter inkluderer torsk, kveite, røye, blåskjell, østers og tang/tare.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv verdikjeden i oppdrettsnæringen fra avl til salg.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'List opp de seks hovedleddene i verdikjeden.',
-            solution: '1. Avl og genetikk, 2. Settefiskproduksjon, 3. Matfiskproduksjon, 4. Slakting og foredling, 5. Salg og distribusjon, 6. Leverandørindustri.',
-          },
-          {
-            label: 'b',
-            task: 'Forklar kort hva som skjer i settefiskproduksjonen.',
-            solution: 'I settefiskproduksjonen klekkes rogn i ferskvann, yngelen fôres opp til smolt, og fisken gjennomgår smoltifisering der den tilpasses saltvann.',
-          },
-        ],
-        solution: 'Verdikjeden omfatter avl, settefisk, matfisk, slakting/foredling, salg/distribusjon og leverandørindustri.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er en merd, og hva er typiske dimensjoner?',
-        solution: 'En merd er en innhegning i sjøen som holder oppdrettsfisken på plass. Den består av et flytende rammeverk med en not som henger ned i vannet. Typiske dimensjoner er 50-60 meter i diameter og 30-50 meter dybde, og kan romme flere hundre tusen fisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-1-ex-5',
       type: 'exercise',
@@ -333,6 +334,19 @@ I naturen lever laksen som yngel i elver i 2-4 år før den vandrer ut i havet. 
 7. Slakting
 
 Hver fase har sine spesifikke krav til miljø, fôring og stell.`,
+    },
+    {
+      id: 'naturbruk-vg1-5-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv de syv hovedfasene i lakseoppdrett.',
+        solution: 'De syv fasene er: 1. Stamfisk og stryking, 2. Rogn og klekking, 3. Startfôring av yngel, 4. Parr-stadiet, 5. Smoltifisering, 6. Matfiskproduksjon i sjø, 7. Slakting.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-2-def-1',
@@ -417,6 +431,19 @@ Stryking skjer vanligvis om høsten (oktober-desember) når laksen naturlig vill
       content: `Døgngrader er et mål på akkumulert temperatur over tid, beregnet som summen av daglig gjennomsnittstemperatur. For eksempel: 10 dager ved 8°C = 80 døgngrader. Laksens utvikling styres av temperatur, og døgngrader brukes til å forutsi når rogn klekker eller når fisken er klar for smoltifisering.`,
     },
     {
+      id: 'naturbruk-vg1-5-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er døgngrader, og hvordan brukes det i oppdrett?',
+        solution: 'Døgngrader er summen av daglig gjennomsnittstemperatur over tid (f.eks. 10 dager ved 8°C = 80 døgngrader). Det brukes til å forutsi når rogn klekker (ca. 500 døgngrader) eller når fisken er klar for smoltifisering, fordi laksens utvikling styres av temperatur.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-2-text-3',
       type: 'text',
       content: `## Fase 5: Smoltifisering
@@ -450,6 +477,31 @@ Smolten transporteres fra settefiskanlegget til sjømerder i:
 - Brønnbåter (spesialbygde skip)
 - Tankbiler for kortere avstander
 - Transporten er stressende og krever god planlegging`,
+    },
+    {
+      id: 'naturbruk-vg1-5-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er smoltifisering, og hvorfor er den viktig?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva som skjer med fisken under smoltifisering.',
+            solution: 'Under smoltifisering tilpasses laksen fra ferskvann til saltvann. Gjellene utvikler evne til å skille ut salt, nyrene tilpasses til å spare vann, huden blir mer motstandsdyktig, kroppen blir strømlinjeformet og fargen endres til sølvblank.',
+          },
+          {
+            label: 'b',
+            task: 'Hva menes med «smoltvinduet»?',
+            solution: 'Smoltvinduet er den begrensede perioden der fisken er klar for sjøvann. Hvis den ikke settes ut i tide, kan den desmoltifisere og miste evnen til å tåle saltvann.',
+          },
+        ],
+        solution: 'Smoltifisering er tilpasningen fra ferskvann til saltvann, og smoltvinduet er den kritiske perioden for utsett.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-2-text-4',
@@ -499,6 +551,19 @@ Fôrfaktoren (kg fôr per kg tilvekst) er typisk 1,1-1,3.`,
       content: `Fôrfaktor (FCR - Feed Conversion Ratio) er et mål på hvor effektivt fisken utnytter fôret. Den beregnes som kg fôr brukt delt på kg tilvekst. En fôrfaktor på 1,2 betyr at det trengs 1,2 kg fôr for å produsere 1 kg fisk. Laks har svært god fôrutnyttelse sammenlignet med andre husdyr.`,
     },
     {
+      id: 'naturbruk-vg1-5-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv hvordan laksen fôres og hva fôret inneholder.',
+        solution: 'Laksen fôres med spesiallaget fiskefôr som inneholder protein (fiskemel, planteprotein), fett (fiskeolje, vegetabilsk olje), karbohydrater, vitaminer og mineraler, samt astaxanthin som gir rød farge. Fôringen skjer automatisk eller manuelt, og fôrfaktoren er typisk 1,1-1,3 kg fôr per kg tilvekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-2-text-5',
       type: 'text',
       content: `## Fase 7: Slakting
@@ -538,6 +603,19 @@ Hver fisk vurderes for:
 - Størrelse og vekt`,
     },
     {
+      id: 'naturbruk-vg1-5-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-2-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Beskriv slakteprosessen fra trenging til ferdig produkt.',
+        solution: 'Slakteprosessen: 1. Trenging - fisken samles i merden, 2. Pumping til brønnbåt, 3. Transport til slakteri, 4. Bedøving (elektrisk eller CO₂), 5. Avliving ved bløgging, 6. Utblødning i istank, 7. Sløying, 8. Rask nedkjøling til 0°C. Deretter kan fisken selges hel, fileteres, røykes eller fryses.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-2-tip-1',
       type: 'tip',
       title: 'Dyrevelferd i alle ledd',
@@ -563,83 +641,7 @@ Hver fisk vurderes for:
 
 I denne perioden vokser laksen fra et lite egg på noen millimeter til en fisk på 4-6 kg. Dette er betydelig raskere enn i naturen, der laksen bruker 4-6 år på samme vekst.`,
     },
-    {
-      id: 'naturbruk-vg1-5-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv de syv hovedfasene i lakseoppdrett.',
-        solution: 'De syv fasene er: 1. Stamfisk og stryking, 2. Rogn og klekking, 3. Startfôring av yngel, 4. Parr-stadiet, 5. Smoltifisering, 6. Matfiskproduksjon i sjø, 7. Slakting.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er smoltifisering, og hvorfor er den viktig?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva som skjer med fisken under smoltifisering.',
-            solution: 'Under smoltifisering tilpasses laksen fra ferskvann til saltvann. Gjellene utvikler evne til å skille ut salt, nyrene tilpasses til å spare vann, huden blir mer motstandsdyktig, kroppen blir strømlinjeformet og fargen endres til sølvblank.',
-          },
-          {
-            label: 'b',
-            task: 'Hva menes med «smoltvinduet»?',
-            solution: 'Smoltvinduet er den begrensede perioden der fisken er klar for sjøvann. Hvis den ikke settes ut i tide, kan den desmoltifisere og miste evnen til å tåle saltvann.',
-          },
-        ],
-        solution: 'Smoltifisering er tilpasningen fra ferskvann til saltvann, og smoltvinduet er den kritiske perioden for utsett.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er døgngrader, og hvordan brukes det i oppdrett?',
-        solution: 'Døgngrader er summen av daglig gjennomsnittstemperatur over tid (f.eks. 10 dager ved 8°C = 80 døgngrader). Det brukes til å forutsi når rogn klekker (ca. 500 døgngrader) eller når fisken er klar for smoltifisering, fordi laksens utvikling styres av temperatur.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-2-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv hvordan laksen fôres og hva fôret inneholder.',
-        solution: 'Laksen fôres med spesiallaget fiskefôr som inneholder protein (fiskemel, planteprotein), fett (fiskeolje, vegetabilsk olje), karbohydrater, vitaminer og mineraler, samt astaxanthin som gir rød farge. Fôringen skjer automatisk eller manuelt, og fôrfaktoren er typisk 1,1-1,3 kg fôr per kg tilvekst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-2-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-2-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Beskriv slakteprosessen fra trenging til ferdig produkt.',
-        solution: 'Slakteprosessen: 1. Trenging - fisken samles i merden, 2. Pumping til brønnbåt, 3. Transport til slakteri, 4. Bedøving (elektrisk eller CO₂), 5. Avliving ved bløgging, 6. Utblødning i istank, 7. Sløying, 8. Rask nedkjøling til 0°C. Deretter kan fisken selges hel, fileteres, røykes eller fryses.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-2-ex-6',
       type: 'exercise',
@@ -724,6 +726,31 @@ I oppdrettsmerder med mange fisk tett sammen, kan lakselus formere seg raskt. Lu
 - Lavere grenser i perioder med utvandrende smolt`,
     },
     {
+      id: 'naturbruk-vg1-5-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er lakselus, og hvorfor er det et problem i oppdrett?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Beskriv hva lakselus er og hvordan den skader fisken.',
+            solution: 'Lakselus er et lite krepsdyr som lever som parasitt på laks. Den fester seg på skinnet og spiser slim, hud og blod. Dette gir sår, svekker immunforsvaret og kan føre til dødelighet.',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvorfor lakselus også er et problem for villfisk.',
+            solution: 'Lakselus kan spre seg fra oppdrettsanlegg til vill laksefisk. Høye lusenivåer truer ville bestander av laks og sjøørret, spesielt utvandrende smolt som er sårbare.',
+          },
+        ],
+        solution: 'Lakselus er en parasitt som skader fisk og kan spre seg til villfisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-3-def-2',
       type: 'definition',
       title: 'Rensefisk',
@@ -772,6 +799,19 @@ Næringen satser nå på:
 | Forebygging | Reduserer behov | Kostbart |`,
     },
     {
+      id: 'naturbruk-vg1-5-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv ulike metoder for å bekjempe lakselus.',
+        solution: 'Metoder inkluderer: 1) Medikamentell behandling (bade- eller fôrbehandling), 2) Rensefisk som spiser lus (rognkjeks, leppefisk), 3) Mekanisk avlusning (spyling, laser, ferskvannsbad), 4) Forebygging (luseskjørt, snorkelmerd, lukkede anlegg), 5) Samordnet brakklegging.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-3-def-3',
       type: 'definition',
       title: 'ILA og PD',
@@ -812,6 +852,19 @@ Næringen satser nå på:
 Alle oppdrettsanlegg må ha avtale med fiskehelsetjeneste. Mattilsynet fører tilsyn og har myndighet til å pålegge tiltak ved sykdomsutbrudd.`,
     },
     {
+      id: 'naturbruk-vg1-5-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Nevn to virussykdommer og to bakteriesykdommer hos oppdrettslaks.',
+        solution: 'Virussykdommer: ILA (Infeksiøs lakseanemi) og PD (Pankreas Disease). Bakteriesykdommer: Furunkulose (Aeromonas salmonicida) og Vibriose (Vibrio-bakterier). Andre eksempler er CMS, HSMB og vintersår.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-3-text-4',
       type: 'text',
       content: `## Rømming og genetisk påvirkning
@@ -839,6 +892,19 @@ Når oppdrettslaks rømmer, kan det ha negative konsekvenser:
 
 **Mål:**
 Næringen har mål om null rømming. Antall rømte fisk har gått betydelig ned de siste årene takket være bedre teknologi og strengere krav.`,
+    },
+    {
+      id: 'naturbruk-vg1-5-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvorfor er rømming av oppdrettslaks et problem, og hvilke tiltak finnes?',
+        solution: 'Rømming er et problem fordi: 1) Genetisk innblanding med villaks, 2) Sykdomsspredning, 3) Konkurranse om mat og gyteplasser. Tiltak inkluderer: Tekniske krav til sterkere nøter, rømmingsforskriften, rømmingsfond for gjenfangst, overvåking og telling, og forskning på steril fisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-3-def-4',
@@ -893,70 +959,7 @@ Kysten er delt inn i 13 produksjonsområder med farger:
       title: 'Fremtidens løsninger',
       content: `Næringen investerer stort i nye teknologier for å løse utfordringene: Lukkede anlegg i sjøen eller på land fjerner problemene med lus og rømming. Havmerder plassert offshore gir bedre vannkvalitet. Steril laks kan ikke formere seg med villfisk. Gjennom forskning og innovasjon jobber næringen mot målet om bærekraftig vekst.`,
     },
-    {
-      id: 'naturbruk-vg1-5-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er lakselus, og hvorfor er det et problem i oppdrett?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Beskriv hva lakselus er og hvordan den skader fisken.',
-            solution: 'Lakselus er et lite krepsdyr som lever som parasitt på laks. Den fester seg på skinnet og spiser slim, hud og blod. Dette gir sår, svekker immunforsvaret og kan føre til dødelighet.',
-          },
-          {
-            label: 'b',
-            task: 'Forklar hvorfor lakselus også er et problem for villfisk.',
-            solution: 'Lakselus kan spre seg fra oppdrettsanlegg til vill laksefisk. Høye lusenivåer truer ville bestander av laks og sjøørret, spesielt utvandrende smolt som er sårbare.',
-          },
-        ],
-        solution: 'Lakselus er en parasitt som skader fisk og kan spre seg til villfisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv ulike metoder for å bekjempe lakselus.',
-        solution: 'Metoder inkluderer: 1) Medikamentell behandling (bade- eller fôrbehandling), 2) Rensefisk som spiser lus (rognkjeks, leppefisk), 3) Mekanisk avlusning (spyling, laser, ferskvannsbad), 4) Forebygging (luseskjørt, snorkelmerd, lukkede anlegg), 5) Samordnet brakklegging.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Nevn to virussykdommer og to bakteriesykdommer hos oppdrettslaks.',
-        solution: 'Virussykdommer: ILA (Infeksiøs lakseanemi) og PD (Pankreas Disease). Bakteriesykdommer: Furunkulose (Aeromonas salmonicida) og Vibriose (Vibrio-bakterier). Andre eksempler er CMS, HSMB og vintersår.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvorfor er rømming av oppdrettslaks et problem, og hvilke tiltak finnes?',
-        solution: 'Rømming er et problem fordi: 1) Genetisk innblanding med villaks, 2) Sykdomsspredning, 3) Konkurranse om mat og gyteplasser. Tiltak inkluderer: Tekniske krav til sterkere nøter, rømmingsforskriften, rømmingsfond for gjenfangst, overvåking og telling, og forskning på steril fisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-3-ex-5',
       type: 'exercise',
@@ -1101,6 +1104,32 @@ Moderne havgående fartøy kan:
 - Ligge på feltet i uker`,
     },
     {
+      id: 'naturbruk-vg1-5-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen på kystfiske og havfiske?',
+        solution: 'Kystfiske foregår nær land (innenfor 12 nautiske mil) med mindre fartøy (under 15 meter) og tradisjonelle redskaper som garn, line og juksa. Havfiske foregår i åpent hav med store fartøy (trålere, ringnotfartøy) som kan være på sjøen i uker og fange store volum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-5-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv tre ulike fiskeredskaper og hvilke fiskearter de brukes til.',
+        solution: '1. Garn - nett som settes fast, brukes til torsk, sei og kveite. 2. Trål - stort nett som slepes bak båten, brukes til torsk, sei og reke. 3. Ringnot - not som snurpes rundt fiskestimer, brukes til sild, makrell og brisling.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-4-def-3',
       type: 'definition',
       title: 'Kvote',
@@ -1143,6 +1172,31 @@ Kvotesystemet sikrer bærekraftig fiske:
 - **Bifangstregler** - Begrenser utilsiktet fangst`,
     },
     {
+      id: 'naturbruk-vg1-5-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er en kvote, og hvordan fastsettes den?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva en kvote er.',
+            solution: 'En kvote er den mengden fisk et fartøy eller en fisker har tillatelse til å fange i løpet av en periode, vanligvis ett år.',
+          },
+          {
+            label: 'b',
+            task: 'Beskriv prosessen for hvordan kvotene fastsettes.',
+            solution: 'Havforskningsinstituttet kartlegger bestandene, ICES gir vitenskapelige råd, det forhandles med andre land om delte bestander, og Fiskeridirektoratet fordeler kvotene på fartøygrupper.',
+          },
+        ],
+        solution: 'Kvote er tillatt fangstmengde basert på vitenskapelige råd.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-4-text-4',
       type: 'text',
       content: `## Viktige fiskeslag i Norge
@@ -1179,6 +1233,19 @@ Kvotesystemet sikrer bærekraftig fiske:
 - **Klippfisk** - Saltet og tørket torsk
 - **Tørrfisk** - Lufttørket torsk
 - **Rakfisk** - Fermentert ørret`,
+    },
+    {
+      id: 'naturbruk-vg1-5-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-4-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nevn fire viktige fiskeslag i norsk fiske og hvor de hovedsakelig fanges.',
+        solution: '1. Torsk - ca. 400 000 tonn, hovedsakelig Barentshavet. 2. Sild - ca. 300 000 tonn, Norskehavet. 3. Sei - ca. 150 000 tonn, norskekysten. 4. Makrell - ca. 200 000 tonn, Nordsjøen/Norskehavet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-4-def-4',
@@ -1220,70 +1287,7 @@ Kvotesystemet sikrer bærekraftig fiske:
 12. Kjøpes i fiskdisk eller restaurant
 13. Tilberedes og serveres - fersk skrei kan være hos forbruker 2-3 dager etter fangst`,
     },
-    {
-      id: 'naturbruk-vg1-5-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen på kystfiske og havfiske?',
-        solution: 'Kystfiske foregår nær land (innenfor 12 nautiske mil) med mindre fartøy (under 15 meter) og tradisjonelle redskaper som garn, line og juksa. Havfiske foregår i åpent hav med store fartøy (trålere, ringnotfartøy) som kan være på sjøen i uker og fange store volum.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv tre ulike fiskeredskaper og hvilke fiskearter de brukes til.',
-        solution: '1. Garn - nett som settes fast, brukes til torsk, sei og kveite. 2. Trål - stort nett som slepes bak båten, brukes til torsk, sei og reke. 3. Ringnot - not som snurpes rundt fiskestimer, brukes til sild, makrell og brisling.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er en kvote, og hvordan fastsettes den?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva en kvote er.',
-            solution: 'En kvote er den mengden fisk et fartøy eller en fisker har tillatelse til å fange i løpet av en periode, vanligvis ett år.',
-          },
-          {
-            label: 'b',
-            task: 'Beskriv prosessen for hvordan kvotene fastsettes.',
-            solution: 'Havforskningsinstituttet kartlegger bestandene, ICES gir vitenskapelige råd, det forhandles med andre land om delte bestander, og Fiskeridirektoratet fordeler kvotene på fartøygrupper.',
-          },
-        ],
-        solution: 'Kvote er tillatt fangstmengde basert på vitenskapelige råd.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-4-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Nevn fire viktige fiskeslag i norsk fiske og hvor de hovedsakelig fanges.',
-        solution: '1. Torsk - ca. 400 000 tonn, hovedsakelig Barentshavet. 2. Sild - ca. 300 000 tonn, Norskehavet. 3. Sei - ca. 150 000 tonn, norskekysten. 4. Makrell - ca. 200 000 tonn, Nordsjøen/Norskehavet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-4-ex-5',
       type: 'exercise',
@@ -1380,6 +1384,19 @@ Tareproduksjon er en voksende næring:
 | Butare | Mat, smakstilsetning |`,
     },
     {
+      id: 'naturbruk-vg1-5-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er tare, og hvilke bruksområder har den?',
+        solution: 'Tare er store brunalger som vokser i sjøen langs kysten. Bruksområder inkluderer: mat og matingredienser, fôr til dyr og fisk, alginat til industri, kosmetikk og helseprodukter, biodrivstoff (forskning), og miljøtjenester som CO₂-binding og vannrensing.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-5-def-2',
       type: 'definition',
       title: 'Alginat',
@@ -1433,6 +1450,31 @@ Tareproduksjon er en voksende næring:
       content: `IMTA (Integrert Multitrofisk Akvakultur) er et oppdrettssystem der flere arter dyrkes sammen på en måte som utnytter ressursene bedre. For eksempel kan tang og blåskjell dyrkes rundt lakseanlegg - tangen tar opp næringssalter fra laksen, og blåskjellene filtrerer partikler fra vannet.`,
     },
     {
+      id: 'naturbruk-vg1-5-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-5-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er IMTA, og hvilke fordeler har det?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva IMTA står for og hva det innebærer.',
+            solution: 'IMTA står for Integrert Multitrofisk Akvakultur. Det er et oppdrettssystem der flere arter dyrkes sammen slik at ressursene utnyttes bedre - avfall fra én art blir ressurs for en annen.',
+          },
+          {
+            label: 'b',
+            task: 'Gi et eksempel på hvordan IMTA kan fungere i praksis.',
+            solution: 'Ved et lakseanlegg kan blåskjell dyrkes i nærheten for å filtrere partikler, mens tare dyrkes lenger ut for å ta opp næringssalter. Slik utnytter man avfallet fra laksen produktivt.',
+          },
+        ],
+        solution: 'IMTA er integrert oppdrett av flere arter som utnytter ressursene bedre.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-5-text-3',
       type: 'text',
       content: `## Blåskjell og andre skalldyr
@@ -1467,6 +1509,19 @@ Blåskjell er den nest største oppdrettsarten i Norge etter laks:
 | Stillehavsøsters | Viltvoksende | Spredning fra utsetting |
 | Kamskjell | Forsøk | Høy verdi |
 | Hjerteskjell | Småskala | Tradisjonell høsting |`,
+    },
+    {
+      id: 'naturbruk-vg1-5-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hvordan blåskjell dyrkes fra yngel til ferdig produkt.',
+        solution: '1. Yngelsamlere (tau) henges ut om våren, 2. Blåskjellyngel fester seg naturlig fra vannet, 3. Tau med yngel flyttes til vekstanlegg, 4. Skjellene vokser i 1-2 år mens de filtrerer plankton, 5. Høsting, vasking og sortering før salg.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-5-text-4',
@@ -1517,57 +1572,7 @@ Nye arter under utforsking:
       title: 'Tang som klimahelt',
       content: `Tang og tare kan spille en viktig rolle i klimakampen. De vokser raskt og binder store mengder CO₂ fra atmosfæren. Når taren høstes og brukes til produkter, holdes karbonet borte fra atmosfæren. Tareskogen langs norskekysten binder allerede millioner av tonn CO₂ hvert år. Dyrket tare kan bidra enda mer.`,
     },
-    {
-      id: 'naturbruk-vg1-5-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er tare, og hvilke bruksområder har den?',
-        solution: 'Tare er store brunalger som vokser i sjøen langs kysten. Bruksområder inkluderer: mat og matingredienser, fôr til dyr og fisk, alginat til industri, kosmetikk og helseprodukter, biodrivstoff (forskning), og miljøtjenester som CO₂-binding og vannrensing.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv hvordan blåskjell dyrkes fra yngel til ferdig produkt.',
-        solution: '1. Yngelsamlere (tau) henges ut om våren, 2. Blåskjellyngel fester seg naturlig fra vannet, 3. Tau med yngel flyttes til vekstanlegg, 4. Skjellene vokser i 1-2 år mens de filtrerer plankton, 5. Høsting, vasking og sortering før salg.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er IMTA, og hvilke fordeler har det?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva IMTA står for og hva det innebærer.',
-            solution: 'IMTA står for Integrert Multitrofisk Akvakultur. Det er et oppdrettssystem der flere arter dyrkes sammen slik at ressursene utnyttes bedre - avfall fra én art blir ressurs for en annen.',
-          },
-          {
-            label: 'b',
-            task: 'Gi et eksempel på hvordan IMTA kan fungere i praksis.',
-            solution: 'Ved et lakseanlegg kan blåskjell dyrkes i nærheten for å filtrere partikler, mens tare dyrkes lenger ut for å ta opp næringssalter. Slik utnytter man avfallet fra laksen produktivt.',
-          },
-        ],
-        solution: 'IMTA er integrert oppdrett av flere arter som utnytter ressursene bedre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-5-ex-4',
       type: 'exercise',
@@ -1637,6 +1642,19 @@ En verdikjede beskriver alle aktivitetene som må til for å bringe et produkt f
 Hvert ledd må fungere godt for at sluttkunden skal få et produkt av høy kvalitet.`,
     },
     {
+      id: 'naturbruk-vg1-5-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv de seks hovedleddene i verdikjeden for sjømat.',
+        solution: '1. Primærproduksjon - fangst eller oppdrett. 2. Førstehåndsmottak - kjøp, veining og sortering. 3. Foredling - bearbeiding som filetering, røyking, frysing. 4. Distribusjon - transport og lagring. 5. Salg - engros og detaljhandel. 6. Forbruker - kjøp og konsum.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-6-def-1',
       type: 'definition',
       title: 'Foredling',
@@ -1680,10 +1698,36 @@ Den enkleste formen for foredling:
 | Marinering | Syrebad med eddik/sitron | Gravet fisk, sild |`,
     },
     {
+      id: 'naturbruk-vg1-5-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn og beskriv fire ulike foredlingsmetoder for fisk.',
+        solution: '1. Filetering - skjære ut filét fra fisken. 2. Frysing - fryse ned til -20°C, lang holdbarhet. 3. Salting/tørking - legge i salt og tørke til tørrfisk eller klippfisk. 4. Røyking - varm- eller kaldrøyke til røykelaks.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-5-6-def-2',
       type: 'definition',
       title: 'Kjølekjede',
       content: `Kjølekjeden er det kontinuerlige kravet om at fersk og frossen sjømat holdes ved riktig temperatur fra produksjon til forbruker. For fersk fisk er dette 0-4°C, for frossen fisk -18°C eller kaldere. Brudd i kjølekjeden fører til kvalitetstap og kortere holdbarhet.`,
+    },
+    {
+      id: 'naturbruk-vg1-5-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-5-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er kjølekjeden, og hvorfor er den viktig?',
+        solution: 'Kjølekjeden er kravet om at sjømat holdes ved riktig temperatur (0-4°C for fersk, -18°C for frossen) gjennom hele verdikjeden. Den er viktig fordi brudd fører til kvalitetstap, kortere holdbarhet og potensielle matsikkerhetsproblemer.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-5-6-text-2',
@@ -1809,45 +1853,7 @@ Utviklingstrekk i sjømatmarkedet:
       title: 'Verdiskaping i kystsamfunn',
       content: `Foredling av sjømat lokalt gir større verdiskaping i kystsamfunn enn å eksportere rå fisk. Når fisken fileteres, røykes eller pakkes lokalt, skapes det arbeidsplasser og skatteinntekter i kommunen. Mange kystsamfunn satser derfor på lokal foredling og nisjeprodukter med høy verdi.`,
     },
-    {
-      id: 'naturbruk-vg1-5-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv de seks hovedleddene i verdikjeden for sjømat.',
-        solution: '1. Primærproduksjon - fangst eller oppdrett. 2. Førstehåndsmottak - kjøp, veining og sortering. 3. Foredling - bearbeiding som filetering, røyking, frysing. 4. Distribusjon - transport og lagring. 5. Salg - engros og detaljhandel. 6. Forbruker - kjøp og konsum.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn og beskriv fire ulike foredlingsmetoder for fisk.',
-        solution: '1. Filetering - skjære ut filét fra fisken. 2. Frysing - fryse ned til -20°C, lang holdbarhet. 3. Salting/tørking - legge i salt og tørke til tørrfisk eller klippfisk. 4. Røyking - varm- eller kaldrøyke til røykelaks.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-5-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-5-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er kjølekjeden, og hvorfor er den viktig?',
-        solution: 'Kjølekjeden er kravet om at sjømat holdes ved riktig temperatur (0-4°C for fersk, -18°C for frossen) gjennom hele verdikjeden. Den er viktig fordi brudd fører til kvalitetstap, kortere holdbarhet og potensielle matsikkerhetsproblemer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-5-6-ex-4',
       type: 'exercise',
@@ -1920,6 +1926,19 @@ Allemannsretten er ikke bare en rettighet, men også et ansvar. Den som bruker n
       content: `Allemannsretten er den lovfestede retten alle har til å ferdes og oppholde seg i utmark, uavhengig av hvem som eier grunnen. Retten er nedfelt i friluftsloven av 1957 og omfatter ferdsel til fots, på ski, med sykkel på sti/vei, bading, rasting, telting og høsting av ville bær, sopp og blomster.`,
     },
     {
+      id: 'naturbruk-vg1-6-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er allemannsretten, og hvor er den lovfestet?',
+        solution: 'Allemannsretten er den lovfestede retten alle har til å ferdes og oppholde seg i utmark, uavhengig av hvem som eier grunnen. Den er nedfelt i friluftsloven av 1957.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-1-text-1',
       type: 'text',
       content: `## Innmark og utmark
@@ -1945,6 +1964,19 @@ Innmark omfatter:
 - På innmark kan du bare ferdes når det ikke er til skade (vinterstid, frossen mark)
 - Respekter private områder rundt hus
 - Gå rundt, ikke over, dyrket mark i vekstsesongen`,
+    },
+    {
+      id: 'naturbruk-vg1-6-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar forskjellen på innmark og utmark.',
+        solution: 'Utmark er skog, fjell, myr, strender og lignende der allemannsretten gjelder fullt ut. Innmark er dyrket mark, inngjerdet hage, gårdstun og områder nær boliger der ferdselsretten er begrenset.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-1-def-2',
@@ -1981,6 +2013,31 @@ Innmark omfatter:
 - Kan tenne bål på snødekt mark eller ved sjøen
 - Må ikke være brannfare
 - Alltid lov å bruke primus/kokeapparat`,
+    },
+    {
+      id: 'naturbruk-vg1-6-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-1-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er reglene for telting i utmark?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvor lenge kan du telte på samme sted?',
+            solution: 'Inntil 2 netter på samme sted uten å spørre grunneier om lov.',
+          },
+          {
+            label: 'b',
+            task: 'Hvor langt fra hus må du holde deg?',
+            solution: 'Minst 150 meter fra nærmeste bebodde hus eller hytte.',
+          },
+        ],
+        solution: 'Du kan telte inntil 2 netter, minst 150 meter fra bebodde hus.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-1-def-3',
@@ -2024,6 +2081,19 @@ Friluftsloven sier at alle som ferdes i naturen skal opptre hensynsfullt og vars
 - Respekter andre brukeres naturopplevelse`,
     },
     {
+      id: 'naturbruk-vg1-6-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-1-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva sier hensynsregelen i friluftsloven?',
+        solution: 'Hensynsregelen sier at alle som ferdes i naturen skal opptre hensynsfullt og varsomt for ikke å volde skade eller ulempe for grunneier, andre brukere eller miljøet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-1-text-4',
       type: 'text',
       content: `## Særlige bestemmelser
@@ -2057,70 +2127,7 @@ Friluftsloven sier at alle som ferdes i naturen skal opptre hensynsfullt og vars
       title: 'Sporløs ferdsel',
       content: `Prinsippet «Leave No Trace» betyr at du skal etterlate naturen slik du fant den. Ta med alt søppel, bruk etablerte stier, ikke lag nye bålplasser, og unngå å knekke greiner eller skade vegetasjon. Tanken er at de som kommer etter deg skal kunne oppleve naturen like uberørt som du gjorde.`,
     },
-    {
-      id: 'naturbruk-vg1-6-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er allemannsretten, og hvor er den lovfestet?',
-        solution: 'Allemannsretten er den lovfestede retten alle har til å ferdes og oppholde seg i utmark, uavhengig av hvem som eier grunnen. Den er nedfelt i friluftsloven av 1957.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-1-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen på innmark og utmark.',
-        solution: 'Utmark er skog, fjell, myr, strender og lignende der allemannsretten gjelder fullt ut. Innmark er dyrket mark, inngjerdet hage, gårdstun og områder nær boliger der ferdselsretten er begrenset.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er reglene for telting i utmark?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvor lenge kan du telte på samme sted?',
-            solution: 'Inntil 2 netter på samme sted uten å spørre grunneier om lov.',
-          },
-          {
-            label: 'b',
-            task: 'Hvor langt fra hus må du holde deg?',
-            solution: 'Minst 150 meter fra nærmeste bebodde hus eller hytte.',
-          },
-        ],
-        solution: 'Du kan telte inntil 2 netter, minst 150 meter fra bebodde hus.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-1-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva sier hensynsregelen i friluftsloven?',
-        solution: 'Hensynsregelen sier at alle som ferdes i naturen skal opptre hensynsfullt og varsomt for ikke å volde skade eller ulempe for grunneier, andre brukere eller miljøet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-1-ex-5',
       type: 'exercise',
@@ -2179,6 +2186,19 @@ Norge har rundt 500 000 registrerte jegere, og jakt utøves over hele landet. Ja
       content: `Viltforvaltning er den målrettede styringen av viltbestander og deres leveområder. Formålet er å sikre levedyktige bestander av alle arter, balansert mot hensynet til andre samfunnsinteresser. Viltforvaltningen omfatter regulering av jakt, biotopskjøtsel, bestandsovervåking og forebygging av skader.`,
     },
     {
+      id: 'naturbruk-vg1-6-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-2-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er viltforvaltning, og hva er formålet med den?',
+        solution: 'Viltforvaltning er den målrettede styringen av viltbestander og deres leveområder. Formålet er å sikre levedyktige bestander av alle arter, balansert mot hensynet til andre samfunnsinteresser som landbruk og skogbruk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-2-text-1',
       type: 'text',
       content: `## Viltarter i Norge
@@ -2218,6 +2238,19 @@ Norge har rundt 500 000 registrerte jegere, og jakt utøves over hele landet. Ja
       content: `Jakttid er den perioden av året når det er lov å jakte på en bestemt art. Jakttidene fastsettes av myndighetene og tar hensyn til artens yngletid, bestandssituasjon og andre faktorer. Utenom jakttiden er arten fredet. Jakttidene varierer for ulike arter og kan variere mellom regioner.`,
     },
     {
+      id: 'naturbruk-vg1-6-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-2-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fire storviltarter i Norge og omtrentlig bestand.',
+        solution: 'Elg (ca. 100 000), hjort (ca. 200 000), rådyr (ca. 200 000) og villrein (ca. 25 000).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-2-text-2',
       type: 'text',
       content: `## Jaktformer
@@ -2247,6 +2280,44 @@ Norge har rundt 500 000 registrerte jegere, og jakt utøves over hele landet. Ja
       type: 'definition',
       title: 'Jegerprøven',
       content: `Jegerprøven er en obligatorisk eksamen som alle må bestå før de kan løse jegeravgift og drive jakt i Norge. Prøven tester kunnskap om vilt, våpen, sikkerhet, lover og jaktetikk. For å jakte med rifle kreves i tillegg skyteprøve som viser at jegeren behersker våpenet.`,
+    },
+    {
+      id: 'naturbruk-vg1-6-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-2-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv tre ulike jaktformer.',
+        solution: '1. Drivjakt - mannskap driver viltet mot posterte skyttere. 2. Posteringsjakt - skytteren venter på strategiske steder der viltet passerer. 3. Smygjakt - jegeren oppsøker viltet til fots og jakter alene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-6-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-2-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva kreves for å kunne jakte i Norge?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilken prøve må man bestå?',
+            solution: 'Man må bestå jegerprøven, som tester kunnskap om vilt, våpen, sikkerhet, lover og jaktetikk.',
+          },
+          {
+            label: 'b',
+            task: 'Hva kreves i tillegg for å jakte med rifle?',
+            solution: 'For å jakte med rifle kreves i tillegg bestått skyteprøve som viser at jegeren behersker våpenet.',
+          },
+        ],
+        solution: 'Jegerprøve og skyteprøve (for rifle) kreves.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-2-text-3',
@@ -2320,76 +2391,6 @@ Våpensikkerhet er kritisk:
       content: `Ettersøk er den lovpålagte plikten til å spore opp og avlive skadet vilt. Hvis en jeger skadeskyter et dyr, skal det gjøres umiddelbart forsøk på ettersøk med godkjent ettersøkshund. Ettersøk kan vare i flere timer og skal fortsette til dyret er funnet eller sporet er tapt.`,
     },
     {
-      id: 'naturbruk-vg1-6-2-tip-1',
-      type: 'tip',
-      title: 'Verdien av viltkjøtt',
-      content: `Norske jegere høster årlig tusenvis av tonn viltkjøtt av høy kvalitet. Elgkjøtt, hjortekjøtt og rådyrkjøtt er magert, proteinrikt og har lave nivåer av miljøgifter. Viltkjøtt er en bærekraftig matressurs som høstes fra frittlevende dyr i norsk natur. Verdien av kjøttet fra storviltjakten alene er anslått til flere hundre millioner kroner årlig.`,
-    },
-    {
-      id: 'naturbruk-vg1-6-2-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-2-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er viltforvaltning, og hva er formålet med den?',
-        solution: 'Viltforvaltning er den målrettede styringen av viltbestander og deres leveområder. Formålet er å sikre levedyktige bestander av alle arter, balansert mot hensynet til andre samfunnsinteresser som landbruk og skogbruk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-2-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-2-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fire storviltarter i Norge og omtrentlig bestand.',
-        solution: 'Elg (ca. 100 000), hjort (ca. 200 000), rådyr (ca. 200 000) og villrein (ca. 25 000).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-2-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-2-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv tre ulike jaktformer.',
-        solution: '1. Drivjakt - mannskap driver viltet mot posterte skyttere. 2. Posteringsjakt - skytteren venter på strategiske steder der viltet passerer. 3. Smygjakt - jegeren oppsøker viltet til fots og jakter alene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-2-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-2-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva kreves for å kunne jakte i Norge?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilken prøve må man bestå?',
-            solution: 'Man må bestå jegerprøven, som tester kunnskap om vilt, våpen, sikkerhet, lover og jaktetikk.',
-          },
-          {
-            label: 'b',
-            task: 'Hva kreves i tillegg for å jakte med rifle?',
-            solution: 'For å jakte med rifle kreves i tillegg bestått skyteprøve som viser at jegeren behersker våpenet.',
-          },
-        ],
-        solution: 'Jegerprøve og skyteprøve (for rifle) kreves.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
       id: 'naturbruk-vg1-6-2-ex-5',
       type: 'exercise',
       exercise: {
@@ -2402,6 +2403,13 @@ Våpensikkerhet er kritisk:
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-6-2-tip-1',
+      type: 'tip',
+      title: 'Verdien av viltkjøtt',
+      content: `Norske jegere høster årlig tusenvis av tonn viltkjøtt av høy kvalitet. Elgkjøtt, hjortekjøtt og rådyrkjøtt er magert, proteinrikt og har lave nivåer av miljøgifter. Viltkjøtt er en bærekraftig matressurs som høstes fra frittlevende dyr i norsk natur. Verdien av kjøttet fra storviltjakten alene er anslått til flere hundre millioner kroner årlig.`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-2-ex-6',
       type: 'exercise',
@@ -2458,6 +2466,19 @@ Ferskvannsfisket er strengt regulert for å sikre bærekraftig bruk av fiskeress
       content: `Anadrom fisk er fisk som lever i saltvann men vandrer opp i ferskvann for å gyte. I Norge omfatter dette laks, sjøørret og sjørøye. Disse artene har strenge reguleringer fordi de er sårbare og verdifulle. Fisket etter anadrom fisk krever alltid fiskeravgift i tillegg til fiskekort.`,
     },
     {
+      id: 'naturbruk-vg1-6-3-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-3-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er anadrom fisk, og hvilke arter i Norge tilhører denne gruppen?',
+        solution: 'Anadrom fisk er fisk som lever i saltvann men vandrer opp i ferskvann for å gyte. I Norge omfatter dette laks, sjøørret og sjørøye.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-3-text-1',
       type: 'text',
       content: `## Fiskearter i ferskvann
@@ -2493,6 +2514,19 @@ Ferskvannsfisket er strengt regulert for å sikre bærekraftig bruk av fiskeress
       type: 'definition',
       title: 'Fiskekort',
       content: `Fiskekort er en tillatelse til å fiske i et bestemt område. Kortet kjøpes fra grunneier eller rettighetshaver og gir rett til fiske i en avgrenset periode og et avgrenset område. Prisen varierer fra noen titalls kroner for innlandsfiske til flere tusen for eksklusivt laksefiske.`,
+    },
+    {
+      id: 'naturbruk-vg1-6-3-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-3-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn fem vanlige innlandsfiskearter i Norge.',
+        solution: 'Brunørret, røye, harr, sik, abbor, gjedde eller lake.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-3-text-2',
@@ -2535,6 +2569,19 @@ Kun tillatt for grunneiere/rettighetshavere:
       content: `Gytefredning er forbud mot fiske i perioder når fisken gyter. For laks og sjøørret er det vanligvis fredning fra sensommer/høst, men tidspunktet varierer mellom vassdrag. Formålet er å la fisken gyte i fred slik at rekrutteringen til bestanden sikres.`,
     },
     {
+      id: 'naturbruk-vg1-6-3-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-3-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv tre ulike fiskemetoder for stangfiske.',
+        solution: '1. Fluefiske - kunstig flue kastes med fluesnøre. 2. Slukfiske - metallblink som imiterer byttefisk dras gjennom vannet. 3. Markfiske - naturlig agn som mark brukes på krok.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-3-text-3',
       type: 'text',
       content: `## Reguleringer og forvaltning
@@ -2573,6 +2620,31 @@ Hvert vassdrag har egne regler:
 - **Miljødirektoratet**: Overordnet myndighet`,
     },
     {
+      id: 'naturbruk-vg1-6-3-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-3-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er fiskekort, og hva er fiskeravgift?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar hva et fiskekort er.',
+            solution: 'Fiskekort er en tillatelse til å fiske i et bestemt område, kjøpt fra grunneier eller rettighetshaver.',
+          },
+          {
+            label: 'b',
+            task: 'Hva er fiskeravgift, og når må den betales?',
+            solution: 'Fiskeravgift er en statlig avgift som må betales for å fiske etter anadrom fisk (laks, sjøørret, sjørøye). Den kommer i tillegg til fiskekort.',
+          },
+        ],
+        solution: 'Fiskekort gir tillatelse i et område, fiskeravgift er statlig avgift for anadrom fisk.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-3-text-4',
       type: 'text',
       content: `## Kultivering og tiltak
@@ -2609,70 +2681,7 @@ For å hjelpe fisken forbi hindringer:
       title: 'Catch and release',
       content: `Gjenutsetting («catch and release») blir stadig vanligere, spesielt for laks. Prinsippet er å sette fisken skånsomt tilbake etter fangst. For at fisken skal overleve, må den håndteres riktig: Bruk krokløs krok eller mothakefri krok, hold fisken i vannet, unngå å berøre gjellene, og slipp fisken raskt tilbake.`,
     },
-    {
-      id: 'naturbruk-vg1-6-3-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-3-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er anadrom fisk, og hvilke arter i Norge tilhører denne gruppen?',
-        solution: 'Anadrom fisk er fisk som lever i saltvann men vandrer opp i ferskvann for å gyte. I Norge omfatter dette laks, sjøørret og sjørøye.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-3-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-3-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn fem vanlige innlandsfiskearter i Norge.',
-        solution: 'Brunørret, røye, harr, sik, abbor, gjedde eller lake.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-3-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-3-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv tre ulike fiskemetoder for stangfiske.',
-        solution: '1. Fluefiske - kunstig flue kastes med fluesnøre. 2. Slukfiske - metallblink som imiterer byttefisk dras gjennom vannet. 3. Markfiske - naturlig agn som mark brukes på krok.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-3-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-3-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er fiskekort, og hva er fiskeravgift?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar hva et fiskekort er.',
-            solution: 'Fiskekort er en tillatelse til å fiske i et bestemt område, kjøpt fra grunneier eller rettighetshaver.',
-          },
-          {
-            label: 'b',
-            task: 'Hva er fiskeravgift, og når må den betales?',
-            solution: 'Fiskeravgift er en statlig avgift som må betales for å fiske etter anadrom fisk (laks, sjøørret, sjørøye). Den kommer i tillegg til fiskekort.',
-          },
-        ],
-        solution: 'Fiskekort gir tillatelse i et område, fiskeravgift er statlig avgift for anadrom fisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-3-ex-5',
       type: 'exercise',
@@ -2727,6 +2736,32 @@ Moderne teknologi som GPS og mobiltelefoner har gjort navigasjon enklere, men de
       type: 'definition',
       title: 'Topografisk kart',
       content: `Et topografisk kart viser terrenget med høydekurver, vann, veger, bygninger og annen viktig informasjon. Høydekurvene er linjer som forbinder punkter med samme høyde over havet. Tette kurver betyr bratt terreng, spredte kurver betyr slakere terreng. Norge kartlegges av Kartverket.`,
+    },
+    {
+      id: 'naturbruk-vg1-6-4-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-4-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva forteller målestokken på et kart?',
+        solution: 'Målestokken forteller forholdet mellom avstand på kartet og i virkeligheten. For eksempel betyr 1:50 000 at 1 cm på kartet tilsvarer 500 meter (50 000 cm) i terrenget.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-6-4-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-4-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva viser høydekurvene på et kart, og hva betyr det når de ligger tett?',
+        solution: 'Høydekurvene viser punkter med samme høyde over havet og dermed terrengformen. Når kurvene ligger tett, betyr det bratt terreng. Når de ligger spredt, er terrenget slakere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-4-text-1',
@@ -2793,6 +2828,32 @@ Viktige symboler å kjenne:
 4. **Ta peiling**: Sikt mot et punkt, les av grader`,
     },
     {
+      id: 'naturbruk-vg1-6-4-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-4-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv de fire grunnleggende stegene for å bruke kompass med kart.',
+        solution: '1. Orientere kartet - drei kartet til det stemmer med terrenget. 2. Finne retning - legg kompasset på kartet, drei huset til linjene peker nord. 3. Følge retning - hold kompasset foran deg, gå i pilens retning. 4. Ta peiling - sikt mot et punkt, les av grader.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-6-4-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-4-ex-5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er misvisning, og hvorfor må man ta hensyn til det?',
+        solution: 'Misvisning er forskjellen mellom magnetisk nord (som kompasset peker mot) og geografisk nord (som kartet er orientert etter). I Norge er misvisningen ca. 1-4° østlig. Man må ta hensyn til det for nøyaktig navigasjon over lengre avstander.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-4-def-3',
       type: 'definition',
       title: 'GPS',
@@ -2831,6 +2892,31 @@ Populære navigasjonsapper:
 - Spar batteri (flymodus, spare strøm)
 - Ta med nødlader
 - Ha alltid backup med kart og kompass`,
+    },
+    {
+      id: 'naturbruk-vg1-6-4-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-4-ex-4',
+        number: '5',
+        type: 'classic',
+        task: 'Hva er GPS, og hva er begrensningene med å bruke GPS til navigasjon?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Forklar kort hva GPS er.',
+            solution: 'GPS (Global Positioning System) er et satellittbasert system som gir nøyaktig posisjon ved hjelp av signaler fra satellitter.',
+          },
+          {
+            label: 'b',
+            task: 'Nevn tre begrensninger med GPS.',
+            solution: 'Avhengig av batterier som kan gå tomme, kan svikte i kulde og fuktighet, tett skog kan gi dårlig signal.',
+          },
+        ],
+        solution: 'GPS er satellittnavigasjon med begrensninger i batteri, vær og signalforhold.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-4-text-4',
@@ -2877,83 +2963,7 @@ Tommelfingerregel for gangtid:
       title: 'Naturlige hjelpemidler',
       content: `Du kan også orientere deg ved hjelp av naturen: Solen står i sør midt på dagen (kl. 13 sommertid). Mose vokser ofte på nordsiden av trær. Maurtuer er ofte på sørsiden. Stjernene kan vise nord (Polstjernen). Disse metodene er unøyaktige men kan hjelpe i nødsfall.`,
     },
-    {
-      id: 'naturbruk-vg1-6-4-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-4-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva forteller målestokken på et kart?',
-        solution: 'Målestokken forteller forholdet mellom avstand på kartet og i virkeligheten. For eksempel betyr 1:50 000 at 1 cm på kartet tilsvarer 500 meter (50 000 cm) i terrenget.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-4-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-4-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva viser høydekurvene på et kart, og hva betyr det når de ligger tett?',
-        solution: 'Høydekurvene viser punkter med samme høyde over havet og dermed terrengformen. Når kurvene ligger tett, betyr det bratt terreng. Når de ligger spredt, er terrenget slakere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-4-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-4-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv de fire grunnleggende stegene for å bruke kompass med kart.',
-        solution: '1. Orientere kartet - drei kartet til det stemmer med terrenget. 2. Finne retning - legg kompasset på kartet, drei huset til linjene peker nord. 3. Følge retning - hold kompasset foran deg, gå i pilens retning. 4. Ta peiling - sikt mot et punkt, les av grader.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-4-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-4-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er GPS, og hva er begrensningene med å bruke GPS til navigasjon?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Forklar kort hva GPS er.',
-            solution: 'GPS (Global Positioning System) er et satellittbasert system som gir nøyaktig posisjon ved hjelp av signaler fra satellitter.',
-          },
-          {
-            label: 'b',
-            task: 'Nevn tre begrensninger med GPS.',
-            solution: 'Avhengig av batterier som kan gå tomme, kan svikte i kulde og fuktighet, tett skog kan gi dårlig signal.',
-          },
-        ],
-        solution: 'GPS er satellittnavigasjon med begrensninger i batteri, vær og signalforhold.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-4-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-4-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er misvisning, og hvorfor må man ta hensyn til det?',
-        solution: 'Misvisning er forskjellen mellom magnetisk nord (som kompasset peker mot) og geografisk nord (som kartet er orientert etter). I Norge er misvisningen ca. 1-4° østlig. Man må ta hensyn til det for nøyaktig navigasjon over lengre avstander.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-4-ex-6',
       type: 'exercise',
@@ -3054,6 +3064,19 @@ Friluftsliv er opphold og fysisk aktivitet i friluft i fritiden, med sikte på m
 - Bygg nødly ved behov`,
     },
     {
+      id: 'naturbruk-vg1-6-5-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-5-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'List opp minst fem av fjellvettreglene.',
+        solution: 'Eksempler: 1) Planlegg turen og meld fra hvor du går. 2) Tilpass turen etter evne og forhold. 3) Ta hensyn til vær- og skredvarsel. 4) Vær forberedt på uvær og kulde. 5) Ta med nødvendig utstyr. 6) Bruk kart og kompass. 7) Vend i tide. 8) Spar på kreftene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-5-def-2',
       type: 'definition',
       title: 'Lagprinsippet',
@@ -3091,6 +3114,32 @@ Friluftsliv er opphold og fysisk aktivitet i friluft i fritiden, med sikte på m
 Bomull holder på fukt og kjøler ned kroppen. Bruk ull eller syntetiske materialer som tørker raskt.`,
     },
     {
+      id: 'naturbruk-vg1-6-5-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-5-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar trelagsprinsippet for bekledning.',
+        solution: 'Trelagsprinsippet: Innerlag (baselayer) transporterer fukt vekk fra kroppen (ull/syntetisk). Mellomlag isolerer og holder på varmen (fleece/dun). Ytterlag beskytter mot vind og regn (Gore-Tex/softshell). Ved å justere lagene kan man regulere temperaturen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-6-5-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-5-ex-4',
+        number: '3',
+        type: 'classic',
+        task: 'Hvorfor bør man unngå bomullsklær på tur?',
+        solution: 'Bomull holder på fukt og tørker sakte. Når bomull blir våt av svette eller regn, kjøler den ned kroppen i stedet for å holde den varm. Dette kan føre til nedkjøling og i verste fall hypotermi. Ull og syntetiske materialer tørker raskere og varmer selv når de er fuktige.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-5-text-3',
       type: 'text',
       content: `## Utstyr for dagstur
@@ -3122,6 +3171,19 @@ I tillegg:
 - Kokeapparat og kokeutstyr
 - Mer mat og vann
 - Toalettartikler`,
+    },
+    {
+      id: 'naturbruk-vg1-6-5-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-5-ex-3',
+        number: '4',
+        type: 'classic',
+        task: 'Lag en pakkeliste for en dagstur i fjellet.',
+        solution: 'Pakkeliste: Sekk, kart og kompass, mat og drikke (litt ekstra), ekstra klær (varm jakke, regntøy), førstehjelpsutstyr, lommelykt/hodelykt, mobiltelefon (ladd), sitteunderlag, termos, solkrem og solbriller, fyrstikker.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-5-text-4',
@@ -3164,58 +3226,7 @@ I tillegg:
       title: 'Turens ti bud for nybegynnere',
       content: `Start med korte turer nær folk og veier. Gå med erfarne turfolk. Bygg opp erfaring gradvis. Lær å lese vær og terreng. Tren på navigasjon. Øv på førstehjelp. Sjekk utstyret før du går. Ha alltid reserveplan. Fortell noen hvor du går. Vend i tide - det er ingen skam å snu!`,
     },
-    {
-      id: 'naturbruk-vg1-6-5-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-5-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'List opp minst fem av fjellvettreglene.',
-        solution: 'Eksempler: 1) Planlegg turen og meld fra hvor du går. 2) Tilpass turen etter evne og forhold. 3) Ta hensyn til vær- og skredvarsel. 4) Vær forberedt på uvær og kulde. 5) Ta med nødvendig utstyr. 6) Bruk kart og kompass. 7) Vend i tide. 8) Spar på kreftene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-5-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-5-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar trelagsprinsippet for bekledning.',
-        solution: 'Trelagsprinsippet: Innerlag (baselayer) transporterer fukt vekk fra kroppen (ull/syntetisk). Mellomlag isolerer og holder på varmen (fleece/dun). Ytterlag beskytter mot vind og regn (Gore-Tex/softshell). Ved å justere lagene kan man regulere temperaturen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-5-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-5-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Lag en pakkeliste for en dagstur i fjellet.',
-        solution: 'Pakkeliste: Sekk, kart og kompass, mat og drikke (litt ekstra), ekstra klær (varm jakke, regntøy), førstehjelpsutstyr, lommelykt/hodelykt, mobiltelefon (ladd), sitteunderlag, termos, solkrem og solbriller, fyrstikker.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-5-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-5-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvorfor bør man unngå bomullsklær på tur?',
-        solution: 'Bomull holder på fukt og tørker sakte. Når bomull blir våt av svette eller regn, kjøler den ned kroppen i stedet for å holde den varm. Dette kan føre til nedkjøling og i verste fall hypotermi. Ull og syntetiske materialer tørker raskere og varmer selv når de er fuktige.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-5-ex-5',
       type: 'exercise',
@@ -3272,6 +3283,19 @@ I en tid der mange lever urbane liv med lite kontakt med naturen, er naturveiled
       content: `Naturveiledning er formidling av kunnskap om natur, økologi og miljø til ulike målgrupper. Formålet er å skape forståelse, respekt og engasjement for naturen. Naturveiledere bruker ofte opplevelsesbaserte metoder der deltakerne lærer gjennom å se, høre, lukte og ta på.`,
     },
     {
+      id: 'naturbruk-vg1-6-6-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-6-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er naturveiledning, og hva er formålet?',
+        solution: 'Naturveiledning er formidling av kunnskap om natur, økologi og miljø til ulike målgrupper. Formålet er å skape forståelse, respekt og engasjement for naturen gjennom opplevelsesbaserte metoder.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-6-text-1',
       type: 'text',
       content: `## Prinsipper for god formidling
@@ -3300,6 +3324,19 @@ Historier fester seg bedre enn fakta:
 - Bruk anekdoter og lokale fortellinger
 - Skap sammenhenger og forståelse
 - La deltakerne oppdage selv`,
+    },
+    {
+      id: 'naturbruk-vg1-6-6-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-6-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar AIDA-modellen for formidling.',
+        solution: 'AIDA-modellen: A - Attention (fang oppmerksomheten), I - Interest (bygg interesse og nysgjerrighet), D - Desire (skap motivasjon for å lære mer), A - Action (gi deltakerne noe å gjøre/handle på).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-6-def-2',
@@ -3344,6 +3381,19 @@ Historier fester seg bedre enn fakta:
 - Sikkerhetsinformasjon`,
     },
     {
+      id: 'naturbruk-vg1-6-6-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-6-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvordan bør du tilpasse naturveiledning til barn sammenlignet med voksne?',
+        solution: 'Barn: Korte økter med mye aktivitet, lek og oppdagelse, konkrete oppgaver, bruk av fantasi, forenklede forklaringer. Voksne: Dybdekunnskap og faglige diskusjoner, tid til refleksjon, kobling til egen erfaring, historiske og kulturelle perspektiver.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-6-text-3',
       type: 'text',
       content: `## Aktiviteter og metoder
@@ -3377,6 +3427,19 @@ Historier fester seg bedre enn fakta:
 - Eventyr og sagn knyttet til stedet
 - Samiske fortellinger
 - Lokale tradisjoner`,
+    },
+    {
+      id: 'naturbruk-vg1-6-6-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-6-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv tre aktiviteter som kan brukes i naturveiledning.',
+        solution: 'Eksempler: 1) Artsjakt - deltakerne får liste med arter å finne. 2) Sporjakt - lete etter spor og sportegn og tolke hva som har skjedd. 3) Sanseøvelser - bruke ulike sanser for å oppleve naturen. 4) Natursti med poster og oppgaver.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-6-text-4',
@@ -3420,58 +3483,7 @@ Historier fester seg bedre enn fakta:
       title: 'Still spørsmål',
       content: `De beste naturveilederne forteller ikke alt - de stiller spørsmål. «Hva tror dere dette sporet er fra?» «Hvorfor vokser denne planten akkurat her?» Ved å stille spørsmål får deltakerne tenke selv, og læringen sitter bedre. Ikke vær redd for å si «Det vet jeg ikke - la oss finne ut av det sammen!»`,
     },
-    {
-      id: 'naturbruk-vg1-6-6-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-6-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er naturveiledning, og hva er formålet?',
-        solution: 'Naturveiledning er formidling av kunnskap om natur, økologi og miljø til ulike målgrupper. Formålet er å skape forståelse, respekt og engasjement for naturen gjennom opplevelsesbaserte metoder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-6-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-6-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar AIDA-modellen for formidling.',
-        solution: 'AIDA-modellen: A - Attention (fang oppmerksomheten), I - Interest (bygg interesse og nysgjerrighet), D - Desire (skap motivasjon for å lære mer), A - Action (gi deltakerne noe å gjøre/handle på).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-6-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-6-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvordan bør du tilpasse naturveiledning til barn sammenlignet med voksne?',
-        solution: 'Barn: Korte økter med mye aktivitet, lek og oppdagelse, konkrete oppgaver, bruk av fantasi, forenklede forklaringer. Voksne: Dybdekunnskap og faglige diskusjoner, tid til refleksjon, kobling til egen erfaring, historiske og kulturelle perspektiver.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-6-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-6-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv tre aktiviteter som kan brukes i naturveiledning.',
-        solution: 'Eksempler: 1) Artsjakt - deltakerne får liste med arter å finne. 2) Sporjakt - lete etter spor og sportegn og tolke hva som har skjedd. 3) Sanseøvelser - bruke ulike sanser for å oppleve naturen. 4) Natursti med poster og oppgaver.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-6-ex-5',
       type: 'exercise',
@@ -3528,6 +3540,19 @@ I dag er mange kulturlandskap i fare for å gro igjen fordi den tradisjonelle br
       content: `Kulturlandskap er områder der naturen er påvirket av menneskers virksomhet over tid. Dette inkluderer jordbrukslandskap, seterområder, kystlynghei og andre områder formet av beite, slått, brenning eller annen bruk. Kulturlandskapet er ofte artrikere enn urørt natur fordi skjøtselen skaper varierte leveområder.`,
     },
     {
+      id: 'naturbruk-vg1-6-7-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-7-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er et kulturlandskap, og hvorfor er det viktig?',
+        solution: 'Kulturlandskap er områder der naturen er påvirket av menneskers virksomhet over tid (jordbrukslandskap, seterområder, kystlynghei). Det er viktig for kulturhistorisk verdi, biologisk mangfold, estetisk verdi, rekreasjon og matproduksjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-7-text-1',
       type: 'text',
       content: `## Typer kulturlandskap
@@ -3573,6 +3598,32 @@ I dag er mange kulturlandskap i fare for å gro igjen fordi den tradisjonelle br
       content: `Skjøtsel er aktive tiltak for å vedlikeholde og bevare kulturlandskap og naturtyper. For kulturmark kan dette være slått (høsting av gress), beiting med husdyr, rydding av kratt, eller kontrollert brenning. Uten skjøtsel vil de fleste kulturlandskap gro igjen med trær og busker.`,
     },
     {
+      id: 'naturbruk-vg1-6-7-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-7-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Nevn og beskriv tre typer kulturlandskap.',
+        solution: '1. Slåttemark - eng som slås årlig uten kunstgjødsel, svært artsrik. 2. Beitemark - områder holdt åpne av beitende dyr. 3. Kystlynghei - kystområder med lyng, holdt åpne ved brenning og beite.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-6-7-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-7-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er skjøtsel, og hvorfor er det nødvendig for kulturlandskapet?',
+        solution: 'Skjøtsel er aktive tiltak for å vedlikeholde kulturlandskap, som slått, beiting, rydding av kratt eller kontrollert brenning. Det er nødvendig fordi kulturlandskapet ellers vil gro igjen med trær og busker, og de spesielle artene som lever der vil forsvinne.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-6-7-text-2',
       type: 'text',
       content: `## Høsting fra utmarka
@@ -3603,6 +3654,19 @@ Rik tradisjon for soppsanking:
 | Piggsopp | Juli-oktober | Pigger under hatten |
 
 **Viktig**: Lær å kjenne sopp sikkert før du spiser! Mange giftige arter kan forveksles med spiselige.`,
+    },
+    {
+      id: 'naturbruk-vg1-6-7-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-6-7-ex-4',
+        number: '4',
+        type: 'classic',
+        task: 'Nevn fem ville bær du kan plukke i norsk natur.',
+        solution: 'Blåbær, tyttebær, molte, krekling, bringebær, markjordbær, bjørnebær, tranebær.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-6-7-text-3',
@@ -3682,58 +3746,7 @@ Utmarka gir muligheter for næringsutvikling:
       title: 'Sikker soppsanking',
       content: `Gyllen regel for soppsanking: Spis bare sopp du er 100% sikker på! Start med å lære noen få, lette arter som kantarell og steinsopp. Bruk soppbok med gode bilder. Gå på soppkurs. Vis funnet til en ekspert hvis du er usikker. Husk at noen giftige sopper kan forveksles med spiselige - feil kan være dødelig!`,
     },
-    {
-      id: 'naturbruk-vg1-6-7-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-7-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er et kulturlandskap, og hvorfor er det viktig?',
-        solution: 'Kulturlandskap er områder der naturen er påvirket av menneskers virksomhet over tid (jordbrukslandskap, seterområder, kystlynghei). Det er viktig for kulturhistorisk verdi, biologisk mangfold, estetisk verdi, rekreasjon og matproduksjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-7-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-7-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Nevn og beskriv tre typer kulturlandskap.',
-        solution: '1. Slåttemark - eng som slås årlig uten kunstgjødsel, svært artsrik. 2. Beitemark - områder holdt åpne av beitende dyr. 3. Kystlynghei - kystområder med lyng, holdt åpne ved brenning og beite.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-7-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-7-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er skjøtsel, og hvorfor er det nødvendig for kulturlandskapet?',
-        solution: 'Skjøtsel er aktive tiltak for å vedlikeholde kulturlandskap, som slått, beiting, rydding av kratt eller kontrollert brenning. Det er nødvendig fordi kulturlandskapet ellers vil gro igjen med trær og busker, og de spesielle artene som lever der vil forsvinne.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-6-7-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-6-7-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Nevn fem ville bær du kan plukke i norsk natur.',
-        solution: 'Blåbær, tyttebær, molte, krekling, bringebær, markjordbær, bjørnebær, tranebær.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-6-7-ex-5',
       type: 'exercise',

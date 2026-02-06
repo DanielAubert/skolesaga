@@ -100,6 +100,45 @@ Både fotball og håndball er dynamiske idretter hvor situasjonene endrer seg ra
 Nøkkelen er å holde ballen i bevegelse og skape numerisk overtak i ulike soner på banen.`
     },
     {
+      id: 'kroppsoving-vg1-5-1-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-1-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvilken teknikk bruker du når du skal gi en nøyaktig, kort pasning til en medspiller i fotball?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg det mest presise pasningsalternativet',
+            multipleChoiceOptions: [
+              'Vristpasning',
+              'Innsidepasning',
+              'Hælpasning',
+              'Spisspassning'
+            ],
+            solution: 'Innsidepasning'
+          }
+        ],
+        solution: 'Innsidepasning er den mest presise pasningsteknikken for korte og mellomstore avstander i fotball.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-5-1-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-1-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hva "gi-og-gå" prinsippet i fotball innebærer.',
+        solution: 'Gi-og-gå innebærer at spilleren som passer ballen umiddelbart løper videre for å motta en retur. Dette skaper bevegelse, forvirrer forsvaret og kan bryte ned motstanderens organisering. Spilleren som mottar pasningen må være årvåken og klar til å spille returen.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-1-haandball',
       type: 'text',
       content: `## Håndball - grunnleggende teknikk
@@ -131,6 +170,37 @@ Nøkkelen er å holde ballen i bevegelse og skape numerisk overtak i ulike soner
       type: 'definition',
       title: 'Trinnfeil',
       content: 'I håndball får du ta maks tre skritt med ballen uten å drible. Mer enn tre skritt er trinnfeil og gir frispark til motstanderlaget.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-1-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-1-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'I håndball har du mottatt ballen og vil løpe fremover.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvor mange skritt kan du maksimalt ta uten å drible?',
+            multipleChoiceOptions: [
+              'To skritt',
+              'Tre skritt',
+              'Fire skritt',
+              'Fem skritt'
+            ],
+            solution: 'Tre skritt'
+          },
+          {
+            label: 'b',
+            task: 'Hva heter det når du tar for mange skritt?',
+            solution: 'Det heter trinnfeil, og motstanderlaget får frispark.'
+          }
+        ],
+        solution: 'I håndball får du ta maksimalt tre skritt med ballen uten å drible. Tar du flere, er det trinnfeil.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-1-haandball-pos',
@@ -193,6 +263,37 @@ Nøkkelen er å holde ballen i bevegelse og skape numerisk overtak i ulike soner
 Valg av forsvar avhenger av motstanderens styrker og egne spilleres egenskaper.`
     },
     {
+      id: 'kroppsoving-vg1-5-1-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-1-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Du er bakspiller i håndball og skal organisere et angrep mot et 6-0 forsvar.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilken spillerposisjon er spesielt viktig for å bryte ned et 6-0 forsvar?',
+            multipleChoiceOptions: [
+              'Keeper',
+              'Kantspiller',
+              'Strekspiller',
+              'Målvakt'
+            ],
+            solution: 'Strekspiller'
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvordan strekspilleren kan hjelpe laget med å score',
+            solution: 'Strekspilleren står mellom forsvarsspillerne og skaper uro. Vedkommende kan blokkere keeperens sikt, binde forsvarsspillere, skape rom for bakspillere til å skyte, og selv score fra nære hold ved innspill.'
+          }
+        ],
+        solution: 'Strekspilleren er nøkkelen til å bryte ned et 6-0 forsvar ved å skape rom og muligheter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-1-taktikk',
       type: 'text',
       content: `## Taktikk i fotball og håndball
@@ -218,6 +319,19 @@ Valg av forsvar avhenger av motstanderens styrker og egne spilleres egenskaper.`
       type: 'definition',
       title: 'Avspillsmuligheter',
       content: 'Alternative pasningsvalg for spilleren med ballen. God spillforståelse innebærer å hele tiden se flere avspillsmuligheter.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-1-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-1-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Hva menes med "pressing" i fotball og håndball?',
+        solution: 'Pressing betyr at laget aktivt angriper motstanderen som har ballen, gjerne høyt i banen. Målet er å vinne ballen raskt tilbake, forstyrre motstanderens oppbygging, og skape scoring ved feil. God pressing krever samarbeid, timing og fysisk kapasitet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-1-tips',
@@ -252,120 +366,7 @@ Valg av forsvar avhenger av motstanderens styrker og egne spilleres egenskaper.`
 - Kommuniser tydelig og positivt ("Bra jobbet!" "Jeg er her!")
 - Feir også små fremskritt`
     },
-    {
-      id: 'kroppsoving-vg1-5-1-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-1-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvilken teknikk bruker du når du skal gi en nøyaktig, kort pasning til en medspiller i fotball?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg det mest presise pasningsalternativet',
-            multipleChoiceOptions: [
-              'Vristpasning',
-              'Innsidepasning',
-              'Hælpasning',
-              'Spisspassning'
-            ],
-            solution: 'Innsidepasning'
-          }
-        ],
-        solution: 'Innsidepasning er den mest presise pasningsteknikken for korte og mellomstore avstander i fotball.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-1-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-1-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'I håndball har du mottatt ballen og vil løpe fremover.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvor mange skritt kan du maksimalt ta uten å drible?',
-            multipleChoiceOptions: [
-              'To skritt',
-              'Tre skritt',
-              'Fire skritt',
-              'Fem skritt'
-            ],
-            solution: 'Tre skritt'
-          },
-          {
-            label: 'b',
-            task: 'Hva heter det når du tar for mange skritt?',
-            solution: 'Det heter trinnfeil, og motstanderlaget får frispark.'
-          }
-        ],
-        solution: 'I håndball får du ta maksimalt tre skritt med ballen uten å drible. Tar du flere, er det trinnfeil.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-1-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-1-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv hva "gi-og-gå" prinsippet i fotball innebærer.',
-        solution: 'Gi-og-gå innebærer at spilleren som passer ballen umiddelbart løper videre for å motta en retur. Dette skaper bevegelse, forvirrer forsvaret og kan bryte ned motstanderens organisering. Spilleren som mottar pasningen må være årvåken og klar til å spille returen.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-1-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-1-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Du er bakspiller i håndball og skal organisere et angrep mot et 6-0 forsvar.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilken spillerposisjon er spesielt viktig for å bryte ned et 6-0 forsvar?',
-            multipleChoiceOptions: [
-              'Keeper',
-              'Kantspiller',
-              'Strekspiller',
-              'Målvakt'
-            ],
-            solution: 'Strekspiller'
-          },
-          {
-            label: 'b',
-            task: 'Forklar hvordan strekspilleren kan hjelpe laget med å score',
-            solution: 'Strekspilleren står mellom forsvarsspillerne og skaper uro. Vedkommende kan blokkere keeperens sikt, binde forsvarsspillere, skape rom for bakspillere til å skyte, og selv score fra nære hold ved innspill.'
-          }
-        ],
-        solution: 'Strekspilleren er nøkkelen til å bryte ned et 6-0 forsvar ved å skape rom og muligheter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-1-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-1-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva menes med "pressing" i fotball og håndball?',
-        solution: 'Pressing betyr at laget aktivt angriper motstanderen som har ballen, gjerne høyt i banen. Målet er å vinne ballen raskt tilbake, forstyrre motstanderens oppbygging, og skape scoring ved feil. God pressing krever samarbeid, timing og fysisk kapasitet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-1-exercise6',
       type: 'exercise',
@@ -467,6 +468,37 @@ I dette kapittelet skal vi se på grunnleggende teknikker, posisjoner, spillsyst
       content: 'Når du holder ballen, må én fot stå stille (pivotfoten) mens den andre kan bevege seg. Dette lar deg snu kroppen for å se medspillere eller finne skuddposisjon.'
     },
     {
+      id: 'kroppsoving-vg1-5-2-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'I basketball har du akkurat mottatt en pasning og stoppet opp.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva kalles teknikken der du holder én fot stille mens du snur kroppen?',
+            multipleChoiceOptions: [
+              'Dribbling',
+              'Pivoting',
+              'Screening',
+              'Rebounding'
+            ],
+            solution: 'Pivoting'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er denne teknikken viktig?',
+            solution: 'Pivoting lar deg snu kroppen for å se medspillere, beskytte ballen mot forsvarere, og finne gode pasnings- eller skuddposisjoner uten å få walking (gåfeil).'
+          }
+        ],
+        solution: 'Pivoting er en grunnleggende teknikk i basketball som gir deg bevegelsesfrihet med ballen.',
+        allowsUpload: false,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-2-basketball-pos',
       type: 'text',
       content: `## Basketball - posisjoner
@@ -513,6 +545,19 @@ I dette kapittelet skal vi se på grunnleggende teknikker, posisjoner, spillsyst
    - Passe til en annen åpen medspiller
 
 Dette er en av basketballs mest effektive taktikker fordi den skaper tvil hos forsvaret.`
+    },
+    {
+      id: 'kroppsoving-vg1-5-2-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hvordan en "pick and roll" utføres i basketball.',
+        solution: 'Pick and roll starter med at en spiller (screener) stiller seg som en "vegg" foran en medspillers forsvar. Medspilleren (ball handler) dribler rundt sperringen. Screener snur så og ruller mot kurven. Ball handler kan nå velge å skyte selv, passe til screener som ruller, eller finne en annen åpen medspiller. Dette skaper tvil hos forsvaret og ofte en scoringsmulighet.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
     },
     {
       id: 'kroppsoving-vg1-5-2-volleyball',
@@ -589,6 +634,63 @@ Dette er en av basketballs mest effektive taktikker fordi den skaper tvil hos fo
       content: 'I volleyball har hvert lag maksimalt tre berøringer før ballen må over nettet. Typisk: bump - set - spike.'
     },
     {
+      id: 'kroppsoving-vg1-5-2-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Hvor mange berøringer har et volleyballag maksimalt før ballen må over nettet?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig antall',
+            multipleChoiceOptions: [
+              'To berøringer',
+              'Tre berøringer',
+              'Fire berøringer',
+              'Ubegrenset'
+            ],
+            solution: 'Tre berøringer'
+          }
+        ],
+        solution: 'I volleyball har hvert lag maksimalt tre berøringer (typisk bump-set-spike) før ballen må over nettet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-5-2-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Hvilken posisjon i volleyball har defensivt spesialistrolle og bærer annen drakt?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig posisjon',
+            multipleChoiceOptions: [
+              'Setter',
+              'Middle blocker',
+              'Libero',
+              'Outside hitter'
+            ],
+            solution: 'Libero'
+          },
+          {
+            label: 'b',
+            task: 'Hva er liberoen ikke lov til å gjøre?',
+            solution: 'Libero kan ikke angripe eller blokkere ved nettet, og kan ikke serve i enkelte regelsett. Rollen er rent defensiv.'
+          }
+        ],
+        solution: 'Libero er volleyballspilleren med spesialdrakt og rent defensivt ansvar.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-2-example2',
       type: 'example',
       title: 'Eksempel: Volleyball-angrep',
@@ -643,6 +745,32 @@ Motstanderlaget prøver å blokkere ved nettet og forsvare ballen.`
       content: 'En pasning som direkte leder til at en medspiller scorer. God assist-statistikk viser uselviskhett og lagspill.'
     },
     {
+      id: 'kroppsoving-vg1-5-2-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Forklar forskjellen mellom "zone defense" og "man-to-man defense" i basketball.',
+        solution: 'I man-to-man defense dekker hver forsvarsspiller en bestemt motstander over hele banen. Dette krever god fysikk og individuell forsvarsferdighet. I zone defense forsvarer hver spiller et bestemt område på banen, uavhengig av hvilke motstandere som kommer inn i sonen. Zone defense er bedre mot lag med svake skyttere, mens man-to-man er mer intensivt og personlig.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-5-2-exercise6',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-2-ex6',
+        number: '6',
+        type: 'classic',
+        task: 'Du skal serve i volleyball. Hvilke strategiske valg kan du ta?',
+        solution: 'Ved serve kan du: 1) Sikte på motstanderens svakeste mottaker, 2) Serve på sammenstøt mellom to spillere for å skape forvirring, 3) Variere mellom kraft og plassering, 4) Serve kort eller dypt avhengig av motstanderens posisjonering, 5) Serve på libero hvis hen er langt bak, eller 6) Serve på en spiller som akkurat har byttet inn. Målet er å vanskeliggjøre motstanderens mottak og angrep.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-2-coaching',
       type: 'text',
       content: `## Coaching-ferdigheter og veiledning av andre
@@ -686,133 +814,7 @@ En medspiller har problemer med å treffe med mancheten. Du sier: "Du har god po
 - Feir medspilleres suksess
 - Lær av feil uten å gi opp`
     },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'I basketball har du akkurat mottatt en pasning og stoppet opp.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva kalles teknikken der du holder én fot stille mens du snur kroppen?',
-            multipleChoiceOptions: [
-              'Dribbling',
-              'Pivoting',
-              'Screening',
-              'Rebounding'
-            ],
-            solution: 'Pivoting'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er denne teknikken viktig?',
-            solution: 'Pivoting lar deg snu kroppen for å se medspillere, beskytte ballen mot forsvarere, og finne gode pasnings- eller skuddposisjoner uten å få walking (gåfeil).'
-          }
-        ],
-        solution: 'Pivoting er en grunnleggende teknikk i basketball som gir deg bevegelsesfrihet med ballen.',
-        allowsUpload: false,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Hvor mange berøringer har et volleyballag maksimalt før ballen må over nettet?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig antall',
-            multipleChoiceOptions: [
-              'To berøringer',
-              'Tre berøringer',
-              'Fire berøringer',
-              'Ubegrenset'
-            ],
-            solution: 'Tre berøringer'
-          }
-        ],
-        solution: 'I volleyball har hvert lag maksimalt tre berøringer (typisk bump-set-spike) før ballen må over nettet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv hvordan en "pick and roll" utføres i basketball.',
-        solution: 'Pick and roll starter med at en spiller (screener) stiller seg som en "vegg" foran en medspillers forsvar. Medspilleren (ball handler) dribler rundt sperringen. Screener snur så og ruller mot kurven. Ball handler kan nå velge å skyte selv, passe til screener som ruller, eller finne en annen åpen medspiller. Dette skaper tvil hos forsvaret og ofte en scoringsmulighet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilken posisjon i volleyball har defensivt spesialistrolle og bærer annen drakt?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig posisjon',
-            multipleChoiceOptions: [
-              'Setter',
-              'Middle blocker',
-              'Libero',
-              'Outside hitter'
-            ],
-            solution: 'Libero'
-          },
-          {
-            label: 'b',
-            task: 'Hva er liberoen ikke lov til å gjøre?',
-            solution: 'Libero kan ikke angripe eller blokkere ved nettet, og kan ikke serve i enkelte regelsett. Rollen er rent defensiv.'
-          }
-        ],
-        solution: 'Libero er volleyballspilleren med spesialdrakt og rent defensivt ansvar.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom "zone defense" og "man-to-man defense" i basketball.',
-        solution: 'I man-to-man defense dekker hver forsvarsspiller en bestemt motstander over hele banen. Dette krever god fysikk og individuell forsvarsferdighet. I zone defense forsvarer hver spiller et bestemt område på banen, uavhengig av hvilke motstandere som kommer inn i sonen. Zone defense er bedre mot lag med svake skyttere, mens man-to-man er mer intensivt og personlig.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-2-exercise6',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-2-ex6',
-        number: '6',
-        type: 'classic',
-        task: 'Du skal serve i volleyball. Hvilke strategiske valg kan du ta?',
-        solution: 'Ved serve kan du: 1) Sikte på motstanderens svakeste mottaker, 2) Serve på sammenstøt mellom to spillere for å skape forvirring, 3) Variere mellom kraft og plassering, 4) Serve kort eller dypt avhengig av motstanderens posisjonering, 5) Serve på libero hvis hen er langt bak, eller 6) Serve på en spiller som akkurat har byttet inn. Målet er å vanskeliggjøre motstanderens mottak og angrep.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-2-exercise7',
       type: 'exercise',
@@ -947,6 +949,37 @@ Innebandy (floorball) er en rask hallsport med 5 utespillere og 1 keeper per lag
 Nøkkelen er høyt tempo og mange skudd på mål.`
     },
     {
+      id: 'kroppsoving-vg1-5-3-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-3-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'I innebandy er det ikke lov med fysisk kontakt.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva skjer hvis du bevisst bruker kroppen til å blokkere en motstander?',
+            multipleChoiceOptions: [
+              'Ingenting, det er lov',
+              'Frispark til motstanderlaget',
+              'Du får gult kort',
+              'Straff mot ditt lag'
+            ],
+            solution: 'Frispark til motstanderlaget'
+          },
+          {
+            label: 'b',
+            task: 'Hvor høyt kan du løfte kølla?',
+            solution: 'Kølla kan maksimalt løftes til hofthøyde. Høyere er farlig og gir frispark til motstanderen.'
+          }
+        ],
+        solution: 'Innebandy er en kontaktfri sport med strenge regler for sikkerhet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-3-futsal',
       type: 'text',
       content: `## Futsal
@@ -971,6 +1004,19 @@ Futsal er fotball i hall, 5 mot 5 (inkludert keeper), med en tyngre ball som spr
 - Roterende posisjoner
 - Press over hele banen
 - Utnytte brevinkel`
+    },
+    {
+      id: 'kroppsoving-vg1-5-3-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-3-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er hovedforskjellen mellom futsal og vanlig fotball?',
+        solution: 'Futsal spilles innendørs 5 mot 5 med en tyngre ball som spretter mindre. Det er mindre bane, noe som gir flere ballberøringer og krever raskere tekniske ferdigheter. Det er spesielle regler som 4-sekunders regel på dødballer og opptelling av lagfeil. Keeperen kan ikke motta tilbakepasning to ganger etter hverandre. Futsal utvikler fotballtekniske ferdigheter svært effektivt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-3-streetbasket',
@@ -1002,6 +1048,37 @@ Basketball med 3 spillere per lag på halv bane. Spilles til 21 poeng eller 10 m
       type: 'definition',
       title: 'Clearing (streetbasket)',
       content: 'Regelen om at laget må få ballen utenfor 2-poengerslinjen før de kan angripe på nytt etter å ha tatt en defensiv reboking eller stjålet ballen.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-3-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-3-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'I streetbasket (3x3) finnes en "clearingregel".',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hva innebærer clearingregelen?',
+            solution: 'Clearingregelen sier at etter å ha vunnet ballen defensivt (rebound eller steal), må laget få ballen utenfor 2-poengerslinjen før de kan angripe igjen. Dette sikrer tydelig overgang mellom forsvar og angrep.'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor finnes denne regelen?',
+            multipleChoiceOptions: [
+              'For å gjøre spillet langsommere',
+              'For å tydeliggjøre overgangen mellom forsvar og angrep',
+              'For å gi det andre laget en pause',
+              'For å hindre for mange skudd'
+            ],
+            solution: 'For å tydeliggjøre overgangen mellom forsvar og angrep'
+          }
+        ],
+        solution: 'Clearingregelen sikrer struktur og tydelige overganger i streetbasket.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-3-beachvolley',
@@ -1058,6 +1135,19 @@ Volleyball på sand med 2 spillere per lag. Krever stor allsidighet siden hver s
 - Konstant kommunikasjon om posisjonering
 
 **Tillit og kommunikasjon er alfa og omega når det bare er to spillere!**`
+    },
+    {
+      id: 'kroppsoving-vg1-5-3-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-3-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Beskriv utfordringene ved å spille beachvolleyball sammenlignet med vanlig volleyball.',
+        solution: 'Beachvolleyball spilles på sand som gjør det tungt å bevege seg og hoppe. Vind og sol påvirker ballen og spillernes syn. Med bare to spillere må begge mestre alle ferdigheter - serve, mottak, setting, angrep og forsvar. Det er større område per spiller å dekke. På den positive siden er landing mykere, og det sosiale miljøet ofte avslappet. Kommunikasjon blir ekstremt viktig når det bare er to spillere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-3-sammenlikning',
@@ -1142,94 +1232,7 @@ I par med ulike nivåer kan den beste spilleren fokusere på å sette opp perfek
 - Vær positiv også når det er vanskelig
 - Lær av feil raskt`
     },
-    {
-      id: 'kroppsoving-vg1-5-3-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-3-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'I innebandy er det ikke lov med fysisk kontakt.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva skjer hvis du bevisst bruker kroppen til å blokkere en motstander?',
-            multipleChoiceOptions: [
-              'Ingenting, det er lov',
-              'Frispark til motstanderlaget',
-              'Du får gult kort',
-              'Straff mot ditt lag'
-            ],
-            solution: 'Frispark til motstanderlaget'
-          },
-          {
-            label: 'b',
-            task: 'Hvor høyt kan du løfte kølla?',
-            solution: 'Kølla kan maksimalt løftes til hofthøyde. Høyere er farlig og gir frispark til motstanderen.'
-          }
-        ],
-        solution: 'Innebandy er en kontaktfri sport med strenge regler for sikkerhet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-3-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-3-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Hva er hovedforskjellen mellom futsal og vanlig fotball?',
-        solution: 'Futsal spilles innendørs 5 mot 5 med en tyngre ball som spretter mindre. Det er mindre bane, noe som gir flere ballberøringer og krever raskere tekniske ferdigheter. Det er spesielle regler som 4-sekunders regel på dødballer og opptelling av lagfeil. Keeperen kan ikke motta tilbakepasning to ganger etter hverandre. Futsal utvikler fotballtekniske ferdigheter svært effektivt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-3-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-3-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'I streetbasket (3x3) finnes en "clearingregel".',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva innebærer clearingregelen?',
-            solution: 'Clearingregelen sier at etter å ha vunnet ballen defensivt (rebound eller steal), må laget få ballen utenfor 2-poengerslinjen før de kan angripe igjen. Dette sikrer tydelig overgang mellom forsvar og angrep.'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor finnes denne regelen?',
-            multipleChoiceOptions: [
-              'For å gjøre spillet langsommere',
-              'For å tydeliggjøre overgangen mellom forsvar og angrep',
-              'For å gi det andre laget en pause',
-              'For å hindre for mange skudd'
-            ],
-            solution: 'For å tydeliggjøre overgangen mellom forsvar og angrep'
-          }
-        ],
-        solution: 'Clearingregelen sikrer struktur og tydelige overganger i streetbasket.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-3-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-3-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv utfordringene ved å spille beachvolleyball sammenlignet med vanlig volleyball.',
-        solution: 'Beachvolleyball spilles på sand som gjør det tungt å bevege seg og hoppe. Vind og sol påvirker ballen og spillernes syn. Med bare to spillere må begge mestre alle ferdigheter - serve, mottak, setting, angrep og forsvar. Det er større område per spiller å dekke. På den positive siden er landing mykere, og det sosiale miljøet ofte avslappet. Kommunikasjon blir ekstremt viktig når det bare er to spillere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-3-exercise5',
       type: 'exercise',
@@ -1344,6 +1347,37 @@ I dette kapittelet skal vi utforske grunnleggende taktiske prinsipper som gjelde
 - 2-mot-1 eller 3-mot-2 situasjoner`
     },
     {
+      id: 'kroppsoving-vg1-5-4-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-4-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med "bredde" i et angrep?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig forklaring',
+            multipleChoiceOptions: [
+              'At laget har mange spillere',
+              'At spillerne sprer seg over hele spilleflaten i bredden',
+              'At pasningene går bredt',
+              'At angrepet er langsomt og bredt'
+            ],
+            solution: 'At spillerne sprer seg over hele spilleflaten i bredden'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er bredde viktig i angrep?',
+            solution: 'Bredde tvinger forsvaret til å dekke et større område, noe som skaper rom og hull som kan utnyttes. Det gjør det vanskeligere for forsvaret å være kompakte og gjør det lettere å finne frie spillere eller udekkede områder.'
+          }
+        ],
+        solution: 'Bredde i angrep betyr å spre spillerne over hele bredden av banen for å skape rom.',
+        allowsUpload: false,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-4-def2',
       type: 'definition',
       title: 'Romforståelse',
@@ -1415,6 +1449,19 @@ Dette prinsippet fungerer i de fleste lagidretter!`
       content: 'Et forsvar hvor spillerne holder små avstander seg imellom, lukker rom og pasningslinjer, og flytter seg som en koordinert enhet. Vanskelig å spille igjennom.'
     },
     {
+      id: 'kroppsoving-vg1-5-4-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-4-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Forklar hva et "kompakt forsvar" innebærer.',
+        solution: 'Et kompakt forsvar innebærer at forsvarsspillerne holder små avstander mellom seg, flytter seg som en koordinert enhet, og lukker rom og pasningslinjer. Målet er å gjøre det vanskelig for motstanderen å spille igjennom forsvaret. Spillerne må kommunisere godt og justere posisjonene sine basert på hvor ballen er. Dette prinsippet brukes i fotball, håndball, basketball og mange andre lagidretter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-4-overganger',
       type: 'text',
       content: `## Overgangsfaser
@@ -1454,6 +1501,37 @@ Overgangene mellom forsvar og angrep (og omvendt) er ofte når mål scores eller
       type: 'definition',
       title: 'Kontring',
       content: 'Raskt angrep umiddelbart etter å ha vunnet ballen, ofte mot et uorganisert forsvar. En av de mest effektive måtene å score på.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-4-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-4-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Du har akkurat vunnet ballen i forsvar. Skal du kontre raskt eller bygge rolig?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilke faktorer bør du vurdere?',
+            solution: 'Du bør vurdere: 1) Har vi numerisk overtak fremover? 2) Er motstanderens forsvar uorganisert? 3) Har vi spillere i gode posisjoner? 4) Er vi trygge på ballen? 5) Hva er risikoen ved å miste ballen nå? 6) Hva er lagets taktikk og spillestil?'
+          },
+          {
+            label: 'b',
+            task: 'Når er rask kontring best?',
+            multipleChoiceOptions: [
+              'Når vi har numerisk overtall og motstanderen er uorganisert',
+              'Når vi er slitne og trenger pause',
+              'Når vi leder stort',
+              'Aldri, rolig spill er alltid best'
+            ],
+            solution: 'Når vi har numerisk overtall og motstanderen er uorganisert'
+          }
+        ],
+        solution: 'Valget mellom rask kontring og rolig oppbygging avhenger av situasjonen og overtallet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-4-example2',
@@ -1522,6 +1600,19 @@ Overgangene mellom forsvar og angrep (og omvendt) er ofte når mål scores eller
       content: 'En spiller som posisjonerer seg i rommet mellom motstanderens forsvars- og midtbanelinjer. Vanskelig å dekke fordi ansvaret er uklart.'
     },
     {
+      id: 'kroppsoving-vg1-5-4-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-4-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er en "mellomromsspiller" og hvorfor er denne posisjonen effektiv?',
+        solution: 'En mellomromsspiller posisjonerer seg i rommet mellom motstanderens forsvars- og midtbanelinjer. Dette er effektivt fordi det skaper tvil om hvem som skal dekke spilleren - forsvarsspillere vil ikke forlate sin linje, og midtbanespillere må velge mellom å forfølge eller holde posisjon. Spilleren får derfor ofte tid og rom til å motta ballen og skape farlige situasjoner. Denne taktikken brukes mye i fotball og håndball.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-4-tips',
       type: 'text',
       content: `## Tips for bedre spillforståelse
@@ -1551,94 +1642,7 @@ Overgangene mellom forsvar og angrep (og omvendt) er ofte når mål scores eller
 - Tren i høyt tempo
 - Analyser egne valg etterpå`
     },
-    {
-      id: 'kroppsoving-vg1-5-4-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-4-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva menes med "bredde" i et angrep?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig forklaring',
-            multipleChoiceOptions: [
-              'At laget har mange spillere',
-              'At spillerne sprer seg over hele spilleflaten i bredden',
-              'At pasningene går bredt',
-              'At angrepet er langsomt og bredt'
-            ],
-            solution: 'At spillerne sprer seg over hele spilleflaten i bredden'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er bredde viktig i angrep?',
-            solution: 'Bredde tvinger forsvaret til å dekke et større område, noe som skaper rom og hull som kan utnyttes. Det gjør det vanskeligere for forsvaret å være kompakte og gjør det lettere å finne frie spillere eller udekkede områder.'
-          }
-        ],
-        solution: 'Bredde i angrep betyr å spre spillerne over hele bredden av banen for å skape rom.',
-        allowsUpload: false,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-4-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-4-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar hva et "kompakt forsvar" innebærer.',
-        solution: 'Et kompakt forsvar innebærer at forsvarsspillerne holder små avstander mellom seg, flytter seg som en koordinert enhet, og lukker rom og pasningslinjer. Målet er å gjøre det vanskelig for motstanderen å spille igjennom forsvaret. Spillerne må kommunisere godt og justere posisjonene sine basert på hvor ballen er. Dette prinsippet brukes i fotball, håndball, basketball og mange andre lagidretter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-4-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-4-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Du har akkurat vunnet ballen i forsvar. Skal du kontre raskt eller bygge rolig?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilke faktorer bør du vurdere?',
-            solution: 'Du bør vurdere: 1) Har vi numerisk overtak fremover? 2) Er motstanderens forsvar uorganisert? 3) Har vi spillere i gode posisjoner? 4) Er vi trygge på ballen? 5) Hva er risikoen ved å miste ballen nå? 6) Hva er lagets taktikk og spillestil?'
-          },
-          {
-            label: 'b',
-            task: 'Når er rask kontring best?',
-            multipleChoiceOptions: [
-              'Når vi har numerisk overtall og motstanderen er uorganisert',
-              'Når vi er slitne og trenger pause',
-              'Når vi leder stort',
-              'Aldri, rolig spill er alltid best'
-            ],
-            solution: 'Når vi har numerisk overtall og motstanderen er uorganisert'
-          }
-        ],
-        solution: 'Valget mellom rask kontring og rolig oppbygging avhenger av situasjonen og overtallet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-4-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-4-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er en "mellomromsspiller" og hvorfor er denne posisjonen effektiv?',
-        solution: 'En mellomromsspiller posisjonerer seg i rommet mellom motstanderens forsvars- og midtbanelinjer. Dette er effektivt fordi det skaper tvil om hvem som skal dekke spilleren - forsvarsspillere vil ikke forlate sin linje, og midtbanespillere må velge mellom å forfølge eller holde posisjon. Spilleren får derfor ofte tid og rom til å motta ballen og skape farlige situasjoner. Denne taktikken brukes mye i fotball og håndball.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-4-exercise5',
       type: 'exercise',
@@ -1723,6 +1727,37 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
       content: 'Evnen til å ta på seg ulike roller etter hva situasjonen og laget trenger. Noen ganger må du lede, andre ganger følge.'
     },
     {
+      id: 'kroppsoving-vg1-5-5-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-5-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hvilke uformelle roller kan finnes i et lag?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Nevn minst tre uformelle roller',
+            solution: 'Motivatoren (heier og løfter lagånden), Humoristen (skaper god stemning), Analytikeren (leser spillet taktisk), Arbeidshesten (gjør det som trengs), Mentoren (hjelper nyere spillere). Andre eksempler kan også aksepteres.'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er uformelle roller viktige for laget?',
+            multipleChoiceOptions: [
+              'De er ikke viktige, bare formelle roller teller',
+              'De bidrar til lagkultur, trivsel og ulike former for støtte',
+              'De erstatter behovet for en trener',
+              'De skaper konkurranse om oppmerksomhet'
+            ],
+            solution: 'De bidrar til lagkultur, trivsel og ulike former for støtte'
+          }
+        ],
+        solution: 'Uformelle roller som motivator, humorist og mentor bidrar til et sterkt lag.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-5-kommunikasjon',
       type: 'text',
       content: `## Effektiv kommunikasjon
@@ -1781,6 +1816,32 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
       type: 'definition',
       title: 'Psykologisk trygghet',
       content: 'En lagkultur hvor spillere føler de kan ta sjanser, gjøre feil og være seg selv uten frykt for kritikk eller utstøtelse.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-5-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-5-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'En medspiller gjør en feil som fører til tap. Hvordan bør du reagere umiddelbart etter situasjonen?',
+        solution: 'Du bør reagere støttende og positivt: "Det er greit, glem det! Vi tar den neste!" Dette bygger psykologisk trygghet og holder motivasjonen oppe. Negativ kritikk i øyeblikket ("Hva gjør du?!") demotiverer og svekker selvtilliten. Hvis tekniske justeringer er nødvendige, ta det i en rolig samtale etter kampen, ikke i presset under spillets gang. Støtt under press, analyser i ro.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-5-5-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-5-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva menes med "psykologisk trygghet" i et lag?',
+        solution: 'Psykologisk trygghet betyr at spillere føler de kan ta sjanser, gjøre feil, være seg selv og uttrykke meninger uten frykt for kritikk, latterliggjøring eller utstøtelse. I et lag med høy psykologisk trygghet tør spillere å prøve nye ting, innrømme feil, be om hjelp og komme med ideer. Dette skaper et læringsmiljø hvor alle utvikler seg raskere og laget presterer bedre fordi alle bidrar fullt ut.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-5-ledelse',
@@ -1843,6 +1904,19 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
       content: 'Uenighet som håndteres respektfullt og fører til bedre løsninger, læring eller sterkere relasjoner. Ikke all konflikt er negativ.'
     },
     {
+      id: 'kroppsoving-vg1-5-5-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-5-ex5',
+        number: '4',
+        type: 'classic',
+        task: 'Et lag har en konflikt mellom to spillere om spilletid. Hvordan kan dette håndteres konstruktivt?',
+        solution: 'Konstruktiv håndtering: 1) Adresser konflikten tidlig før den eskalerer, 2) Ha en privat samtale (ikke foran laget), 3) La begge forklare sitt perspektiv uten avbrytelser, 4) Fokuser på løsninger, ikke på hvem som har rett, 5) Forklar trenervurderinger og kriterier for spilletid, 6) Sett klare mål for hva spillerne kan jobbe med for å få mer spilletid, 7) Følg opp senere. Involver trener eller kaptein som mediator hvis nødvendig. Målet er ikke at alle skal være enige, men at alle føler seg hørt og forstår beslutningene.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-5-tilbakemelding',
       type: 'text',
       content: `## Gi og motta tilbakemeldinger
@@ -1878,6 +1952,37 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
       type: 'definition',
       title: 'Feedforward',
       content: 'Tilbakemelding som fokuserer på fremtidige handlinger og forbedringer, ikke bare på hva som gikk galt. Mer utviklende enn tradisjonell feedback.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-5-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-5-ex4',
+        number: '5',
+        type: 'classic',
+        task: 'Beskriv hvordan du kan gi en god, konstruktiv tilbakemelding til en medspiller.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Hvilken modell kan du bruke?',
+            solution: 'Bruk Situasjon-Adferd-Effekt-Alternativ modellen: 1) Beskriv konkret situasjon, 2) Beskriv hva personen gjorde, 3) Forklar konsekvensen, 4) Foreslå alternativ løsning. Eksempel: "Da du fikk ballen på kanten (situasjon), valgte du å drible (adferd), og vi mistet scoringsmuligheten (effekt). Neste gang, se etter pasning først? (alternativ)"'
+          },
+          {
+            label: 'b',
+            task: 'Hva er ideell balanse mellom ros og kritikk?',
+            multipleChoiceOptions: [
+              '1:1 (like mye ros som kritikk)',
+              '5:1 (fem ganger mer ros enn kritikk)',
+              '1:5 (mer kritikk enn ros)',
+              'Kun ros, aldri kritikk'
+            ],
+            solution: '5:1 (fem ganger mer ros enn kritikk)'
+          }
+        ],
+        solution: 'God tilbakemelding følger en struktur og balanseres med mye mer ros enn kritikk.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-5-example2',
@@ -1936,107 +2041,7 @@ I dette kapittelet skal vi se på hvordan du kan bli en bedre lagspiller gjennom
 - Del ideer og forslag
 - Be om hjelp når du trenger det`
     },
-    {
-      id: 'kroppsoving-vg1-5-5-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-5-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hvilke uformelle roller kan finnes i et lag?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Nevn minst tre uformelle roller',
-            solution: 'Motivatoren (heier og løfter lagånden), Humoristen (skaper god stemning), Analytikeren (leser spillet taktisk), Arbeidshesten (gjør det som trengs), Mentoren (hjelper nyere spillere). Andre eksempler kan også aksepteres.'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er uformelle roller viktige for laget?',
-            multipleChoiceOptions: [
-              'De er ikke viktige, bare formelle roller teller',
-              'De bidrar til lagkultur, trivsel og ulike former for støtte',
-              'De erstatter behovet for en trener',
-              'De skaper konkurranse om oppmerksomhet'
-            ],
-            solution: 'De bidrar til lagkultur, trivsel og ulike former for støtte'
-          }
-        ],
-        solution: 'Uformelle roller som motivator, humorist og mentor bidrar til et sterkt lag.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-5-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-5-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'En medspiller gjør en feil som fører til tap. Hvordan bør du reagere umiddelbart etter situasjonen?',
-        solution: 'Du bør reagere støttende og positivt: "Det er greit, glem det! Vi tar den neste!" Dette bygger psykologisk trygghet og holder motivasjonen oppe. Negativ kritikk i øyeblikket ("Hva gjør du?!") demotiverer og svekker selvtilliten. Hvis tekniske justeringer er nødvendige, ta det i en rolig samtale etter kampen, ikke i presset under spillets gang. Støtt under press, analyser i ro.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-5-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-5-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva menes med "psykologisk trygghet" i et lag?',
-        solution: 'Psykologisk trygghet betyr at spillere føler de kan ta sjanser, gjøre feil, være seg selv og uttrykke meninger uten frykt for kritikk, latterliggjøring eller utstøtelse. I et lag med høy psykologisk trygghet tør spillere å prøve nye ting, innrømme feil, be om hjelp og komme med ideer. Dette skaper et læringsmiljø hvor alle utvikler seg raskere og laget presterer bedre fordi alle bidrar fullt ut.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-5-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-5-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv hvordan du kan gi en god, konstruktiv tilbakemelding til en medspiller.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hvilken modell kan du bruke?',
-            solution: 'Bruk Situasjon-Adferd-Effekt-Alternativ modellen: 1) Beskriv konkret situasjon, 2) Beskriv hva personen gjorde, 3) Forklar konsekvensen, 4) Foreslå alternativ løsning. Eksempel: "Da du fikk ballen på kanten (situasjon), valgte du å drible (adferd), og vi mistet scoringsmuligheten (effekt). Neste gang, se etter pasning først? (alternativ)"'
-          },
-          {
-            label: 'b',
-            task: 'Hva er ideell balanse mellom ros og kritikk?',
-            multipleChoiceOptions: [
-              '1:1 (like mye ros som kritikk)',
-              '5:1 (fem ganger mer ros enn kritikk)',
-              '1:5 (mer kritikk enn ros)',
-              'Kun ros, aldri kritikk'
-            ],
-            solution: '5:1 (fem ganger mer ros enn kritikk)'
-          }
-        ],
-        solution: 'God tilbakemelding følger en struktur og balanseres med mye mer ros enn kritikk.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-5-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-5-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Et lag har en konflikt mellom to spillere om spilletid. Hvordan kan dette håndteres konstruktivt?',
-        solution: 'Konstruktiv håndtering: 1) Adresser konflikten tidlig før den eskalerer, 2) Ha en privat samtale (ikke foran laget), 3) La begge forklare sitt perspektiv uten avbrytelser, 4) Fokuser på løsninger, ikke på hvem som har rett, 5) Forklar trenervurderinger og kriterier for spilletid, 6) Sett klare mål for hva spillerne kan jobbe med for å få mer spilletid, 7) Følg opp senere. Involver trener eller kaptein som mediator hvis nødvendig. Målet er ikke at alle skal være enige, men at alle føler seg hørt og forstår beslutningene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-5-exercise6',
       type: 'exercise',
@@ -2146,6 +2151,19 @@ En norsk klassiker som kombinerer løping, kasting og feltarbeid.
 - Inkludering: Alle får prøve ulike roller`
     },
     {
+      id: 'kroppsoving-vg1-5-6-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-6-ex4',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv kort hvordan stikkball (brennball) spilles.',
+        solution: 'Stikkball spilles med to lag: ett inne (slår) og ett ute (felter). Slåeren i innelaget kaster ballen opp, løper mot et vendepunkt og tilbake. Samtidig henter utelaget ballen og kaster den tilbake til base. Hvis slåeren når frem og tilbake før ballen når base, får laget poeng. Hvis ballen når base først, er slåeren ute. Etter alle i innelaget har slått (eller bestemte runder), byttes lagene. Laget med flest poeng vinner.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-6-example1',
       type: 'example',
       title: 'Eksempel: Tilpasse regler for inkludering',
@@ -2164,6 +2182,19 @@ En norsk klassiker som kombinerer løping, kasting og feltarbeid.
 - Fokus på taktikk, ikke bare kraft
 - Mer moro for flere
 - Bedre samarbeid i laget`
+    },
+    {
+      id: 'kroppsoving-vg1-5-6-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-6-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'I en kanonball-kamp dominerer noen få sterke spillere. Foreslå to regelendringer som kan gjøre spillet mer inkluderende.',
+        solution: 'To regelendringer for inkludering: 1) Gi hver spiller 2-3 liv i stedet for å være ute etter første treff - dette gjør at alle får delta lenger. 2) Innfør regel om at sterke spillere må kaste med ikke-dominant hånd, eller at man må passe ballen minst én gang før man kan kaste på motstandere - dette reduserer individuell dominans og fremmer lagspill. Andre gode forslag: sikre soner, tid-limit, poengballer i stedet for ut-system.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-6-ultimate',
@@ -2198,6 +2229,37 @@ En lagsport med frisbee som kombinerer elementer fra fotball, håndball og baske
       type: 'definition',
       title: 'Spirit of the Game',
       content: 'Et prinsipp i Ultimate Frisbee hvor spillerne er ansvarlige for egne og andres handlinger, med vekt på respekt, ærlighet og glede ved spillet.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-6-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-6-ex1',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er "Spirit of the Game" i Ultimate Frisbee?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig beskrivelse',
+            multipleChoiceOptions: [
+              'En spesiell type kast',
+              'Et prinsipp om selvdømming, respekt og ærlighet',
+              'Navnet på den offisielle frisbeen',
+              'En taktikk for å score'
+            ],
+            solution: 'Et prinsipp om selvdømming, respekt og ærlighet'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er dette prinsippet spesielt?',
+            solution: 'Spirit of the Game er spesielt fordi det gjør Ultimate Frisbee til en selvdømmende idrett uten dommere. Spillerne er selv ansvarlige for å følge reglene og kalle feil. Dette bygger respekt, ærlighet og tillit mellom spillerne, og skaper en positiv lagkultur.'
+          }
+        ],
+        solution: 'Spirit of the Game er et unikt prinsipp i Ultimate Frisbee om selvdømming og respekt.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-6-andre-spill',
@@ -2273,6 +2335,19 @@ En lagsport med frisbee som kombinerer elementer fra fotball, håndball og baske
       content: 'Hvordan ferdigheter, erfaringer og læring fra én aktivitet kan anvendes og har nytte i andre kontekster.'
     },
     {
+      id: 'kroppsoving-vg1-5-6-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-6-ex3',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er overføringsverdien av å spille varierte lekbaserte spillformer?',
+        solution: 'Overføringsverdien er at ferdigheter, taktisk forståelse og erfaringer fra lekbaserte spill kan brukes i andre idretter og situasjoner. For eksempel: Kastepresisjon fra kanonball hjelper i håndball, løpetiming fra stikkball overføres til fotball, samarbeid fra ultimate frisbee gjelder i alle lagidretter. Leker utvikler også grunnleggende bevegelsesmønstre, kreativ problemløsning og sosiale ferdigheter som er verdifulle i alle fysiske aktiviteter og i livet generelt.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-6-tips',
       type: 'text',
       content: `## Tips for å organisere lekbaserte aktiviteter
@@ -2301,76 +2376,7 @@ En lagsport med frisbee som kombinerer elementer fra fotball, håndball og baske
 - Vær bevisst på kontaktnivå
 - Stopp aktiviteten ved konflikt eller skade`
     },
-    {
-      id: 'kroppsoving-vg1-5-6-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-6-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er "Spirit of the Game" i Ultimate Frisbee?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig beskrivelse',
-            multipleChoiceOptions: [
-              'En spesiell type kast',
-              'Et prinsipp om selvdømming, respekt og ærlighet',
-              'Navnet på den offisielle frisbeen',
-              'En taktikk for å score'
-            ],
-            solution: 'Et prinsipp om selvdømming, respekt og ærlighet'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er dette prinsippet spesielt?',
-            solution: 'Spirit of the Game er spesielt fordi det gjør Ultimate Frisbee til en selvdømmende idrett uten dommere. Spillerne er selv ansvarlige for å følge reglene og kalle feil. Dette bygger respekt, ærlighet og tillit mellom spillerne, og skaper en positiv lagkultur.'
-          }
-        ],
-        solution: 'Spirit of the Game er et unikt prinsipp i Ultimate Frisbee om selvdømming og respekt.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-6-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-6-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'I en kanonball-kamp dominerer noen få sterke spillere. Foreslå to regelendringer som kan gjøre spillet mer inkluderende.',
-        solution: 'To regelendringer for inkludering: 1) Gi hver spiller 2-3 liv i stedet for å være ute etter første treff - dette gjør at alle får delta lenger. 2) Innfør regel om at sterke spillere må kaste med ikke-dominant hånd, eller at man må passe ballen minst én gang før man kan kaste på motstandere - dette reduserer individuell dominans og fremmer lagspill. Andre gode forslag: sikre soner, tid-limit, poengballer i stedet for ut-system.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-6-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-6-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er overføringsverdien av å spille varierte lekbaserte spillformer?',
-        solution: 'Overføringsverdien er at ferdigheter, taktisk forståelse og erfaringer fra lekbaserte spill kan brukes i andre idretter og situasjoner. For eksempel: Kastepresisjon fra kanonball hjelper i håndball, løpetiming fra stikkball overføres til fotball, samarbeid fra ultimate frisbee gjelder i alle lagidretter. Leker utvikler også grunnleggende bevegelsesmønstre, kreativ problemløsning og sosiale ferdigheter som er verdifulle i alle fysiske aktiviteter og i livet generelt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-6-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-6-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv kort hvordan stikkball (brennball) spilles.',
-        solution: 'Stikkball spilles med to lag: ett inne (slår) og ett ute (felter). Slåeren i innelaget kaster ballen opp, løper mot et vendepunkt og tilbake. Samtidig henter utelaget ballen og kaster den tilbake til base. Hvis slåeren når frem og tilbake før ballen når base, får laget poeng. Hvis ballen når base først, er slåeren ute. Etter alle i innelaget har slått (eller bestemte runder), byttes lagene. Laget med flest poeng vinner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-6-exercise5',
       type: 'exercise',
@@ -2512,6 +2518,37 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
 - Viser at mennesker er viktigere enn resultater`
     },
     {
+      id: 'kroppsoving-vg1-5-7-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-7-ex2',
+        number: '1',
+        type: 'classic',
+        task: 'En motstander faller og slår seg. Du får ballen. Hva viser god sportsånd?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig handling',
+            multipleChoiceOptions: [
+              'Utnytte situasjonen og angripe raskt',
+              'Spille ballen ut slik at spilleren kan få behandling',
+              'Fortsette som normalt, det er ikke ditt ansvar',
+              'Vente og se hva dommeren gjør'
+            ],
+            solution: 'Spille ballen ut slik at spilleren kan få behandling'
+          },
+          {
+            label: 'b',
+            task: 'Hva bør motstanderlaget gjøre etter behandling?',
+            solution: 'Etter innkast bør motstanderlaget gi ballen tilbake til laget som sparket den ut. Dette er en uskriven regel som viser gjensidig respekt og sportsånd.'
+          }
+        ],
+        solution: 'God sportsånd betyr å prioritere spillernes sikkerhet over konkurransefordeler.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-7-regler',
       type: 'text',
       content: `## Betydningen av regler
@@ -2545,6 +2582,32 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
       type: 'definition',
       title: 'Regelbrudd vs. usportslig oppførsel',
       content: 'Regelbrudd er handlinger mot spillets regler (offside, hands). Usportslig oppførsel er atferd som bryter med fair play-prinsipper (simulering, respektløshet), ofte strengere straffet.'
+    },
+    {
+      id: 'kroppsoving-vg1-5-7-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-7-ex3',
+        number: '2',
+        type: 'classic',
+        task: 'Hvorfor er regler viktige i lagidretter?',
+        solution: 'Regler er viktige fordi de: 1) Sikrer spillernes sikkerhet ved å forby farlig spill, 2) Skaper rettferdighet ved å gi alle samme betingelser, 3) Gir struktur som gjør spillet forståelig og organiserbart, 4) Muliggjør rettferdig konkurranse og sammenligning. Uten regler ville lagidretter være kaotiske, farlige og urettferdige. Regler gjør det mulig for alle å delta på like vilkår.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-5-7-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-7-ex1',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom et regelbrudd og usportslig oppførsel?',
+        solution: 'Et regelbrudd er en handling som bryter spillets regler (f.eks. offside, hands, fotfeil), og straffes med frispark, innkast eller lignende. Usportslig oppførsel er atferd som bryter med fair play-prinsipper og god sportsånd (f.eks. filming, respektløse kommentarer, bevisst farlig spill), og straffes ofte strengere med kort eller utvisning. Regelbrudd kan være utilsiktede feil, mens usportslig oppførsel handler om holdninger og intensjon.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-7-utfordringer',
@@ -2582,6 +2645,37 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
       content: 'Når en spiller bevisst overdriver eller simulerer en situasjon (f.eks. faller uten kontakt) for å lure dommeren. Ansees som usportslig.'
     },
     {
+      id: 'kroppsoving-vg1-5-7-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-7-ex5',
+        number: '4',
+        type: 'classic',
+        task: 'Hva er "filming" eller "diving", og hvorfor ansees det som usportslig?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Definer begrepet',
+            solution: 'Filming eller diving er når en spiller bevisst overdriver eller simulerer en situasjon, for eksempel faller uten at det er reell kontakt, for å lure dommeren til å gi straffe, frispark eller kort til motstander.'
+          },
+          {
+            label: 'b',
+            task: 'Hvorfor er dette usportslig?',
+            multipleChoiceOptions: [
+              'Fordi det er mot spillets regler',
+              'Fordi det er uærlig og bryter med fair play-prinsipper',
+              'Fordi det gjør kampen kjedelig',
+              'Fordi det tar for lang tid'
+            ],
+            solution: 'Fordi det er uærlig og bryter med fair play-prinsipper'
+          }
+        ],
+        solution: 'Filming er usportslig fordi det er bevisst juks som undergraver rettferdighet i spillet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-5-7-example2',
       type: 'example',
       title: 'Eksempel: Håndtere nederlag med verdighet',
@@ -2605,6 +2699,19 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
 - Bruk det som motivasjon til å bli bedre
 
 **Sportsånd i nederlag viser karakter!**`
+    },
+    {
+      id: 'kroppsoving-vg1-5-7-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-5-7-ex4',
+        number: '5',
+        type: 'classic',
+        task: 'Ditt lag taper en viktig kamp. Beskriv hvordan du kan vise god sportsånd i nederlag.',
+        solution: 'God sportsånd i nederlag: 1) Aksepter resultatet med verdighet uten å klandre dommer eller motstandere, 2) Håndhils og gratulerer motstanderlaget genuint, 3) Takk dommeren for innsatsen, 4) Støtt lagkamerater som er lei seg, 5) Senere: Analyser rolig hva dere kan lære, 6) Fokuser på hva dere kan kontrollere neste gang, 7) Bruk det som motivasjon til forbedring. Hvordan du takler nederlag viser karakter og sportsånd mer enn hvordan du feirer seier.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-5-7-rollemodeller',
@@ -2671,107 +2778,7 @@ I dette kapittelet skal vi utforske betydningen av fair play, hvordan regler fun
 - Gi konstruktiv tilbakemelding til lagkamerater
 - Feir det som gikk bra, jobber med det som kan bli bedre`
     },
-    {
-      id: 'kroppsoving-vg1-5-7-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-7-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom et regelbrudd og usportslig oppførsel?',
-        solution: 'Et regelbrudd er en handling som bryter spillets regler (f.eks. offside, hands, fotfeil), og straffes med frispark, innkast eller lignende. Usportslig oppførsel er atferd som bryter med fair play-prinsipper og god sportsånd (f.eks. filming, respektløse kommentarer, bevisst farlig spill), og straffes ofte strengere med kort eller utvisning. Regelbrudd kan være utilsiktede feil, mens usportslig oppførsel handler om holdninger og intensjon.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-7-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-7-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'En motstander faller og slår seg. Du får ballen. Hva viser god sportsånd?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig handling',
-            multipleChoiceOptions: [
-              'Utnytte situasjonen og angripe raskt',
-              'Spille ballen ut slik at spilleren kan få behandling',
-              'Fortsette som normalt, det er ikke ditt ansvar',
-              'Vente og se hva dommeren gjør'
-            ],
-            solution: 'Spille ballen ut slik at spilleren kan få behandling'
-          },
-          {
-            label: 'b',
-            task: 'Hva bør motstanderlaget gjøre etter behandling?',
-            solution: 'Etter innkast bør motstanderlaget gi ballen tilbake til laget som sparket den ut. Dette er en uskriven regel som viser gjensidig respekt og sportsånd.'
-          }
-        ],
-        solution: 'God sportsånd betyr å prioritere spillernes sikkerhet over konkurransefordeler.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-7-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-7-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hvorfor er regler viktige i lagidretter?',
-        solution: 'Regler er viktige fordi de: 1) Sikrer spillernes sikkerhet ved å forby farlig spill, 2) Skaper rettferdighet ved å gi alle samme betingelser, 3) Gir struktur som gjør spillet forståelig og organiserbart, 4) Muliggjør rettferdig konkurranse og sammenligning. Uten regler ville lagidretter være kaotiske, farlige og urettferdige. Regler gjør det mulig for alle å delta på like vilkår.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-7-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-7-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Ditt lag taper en viktig kamp. Beskriv hvordan du kan vise god sportsånd i nederlag.',
-        solution: 'God sportsånd i nederlag: 1) Aksepter resultatet med verdighet uten å klandre dommer eller motstandere, 2) Håndhils og gratulerer motstanderlaget genuint, 3) Takk dommeren for innsatsen, 4) Støtt lagkamerater som er lei seg, 5) Senere: Analyser rolig hva dere kan lære, 6) Fokuser på hva dere kan kontrollere neste gang, 7) Bruk det som motivasjon til forbedring. Hvordan du takler nederlag viser karakter og sportsånd mer enn hvordan du feirer seier.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-5-7-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-5-7-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er "filming" eller "diving", og hvorfor ansees det som usportslig?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Definer begrepet',
-            solution: 'Filming eller diving er når en spiller bevisst overdriver eller simulerer en situasjon, for eksempel faller uten at det er reell kontakt, for å lure dommeren til å gi straffe, frispark eller kort til motstander.'
-          },
-          {
-            label: 'b',
-            task: 'Hvorfor er dette usportslig?',
-            multipleChoiceOptions: [
-              'Fordi det er mot spillets regler',
-              'Fordi det er uærlig og bryter med fair play-prinsipper',
-              'Fordi det gjør kampen kjedelig',
-              'Fordi det tar for lang tid'
-            ],
-            solution: 'Fordi det er uærlig og bryter med fair play-prinsipper'
-          }
-        ],
-        solution: 'Filming er usportslig fordi det er bevisst juks som undergraver rettferdighet i spillet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-5-7-exercise6',
       type: 'exercise',
@@ -2851,6 +2858,50 @@ Dans handler ikke om å være perfekt, men om å uttrykke seg, ha det gøy og f�
       content: 'Downbeat er de sterke slagene (1, 3). Offbeat (eller upbeat) er de svake slagene (2, 4). Mange danser vektlegger offbeat.'
     },
     {
+      id: 'kroppsoving-vg1-6-1-exercise1',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-1-ex1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva er forskjellen mellom takt og tempo i musikk?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Definer takt',
+            solution: 'Takt er mønsteret av slag (beats) i musikken, organisert i grupper. Vanligst er 4/4-takt hvor du teller 1-2-3-4. Takten forteller deg hvordan musikkens rytme er strukturert.'
+          },
+          {
+            label: 'b',
+            task: 'Definer tempo',
+            multipleChoiceOptions: [
+              'Hvor mange dansetrinn du tar per minutt',
+              'Hvor raskt eller sakte musikken spilles',
+              'Hvilken type dans du gjør',
+              'Hvor mange personer som danser'
+            ],
+            solution: 'Hvor raskt eller sakte musikken spilles'
+          }
+        ],
+        solution: 'Takt er mønsteret av slag, tempo er hastigheten på musikken.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-1-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-1-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv hvordan du finner rytmen i en sang.',
+        solution: 'For å finne rytmen: 1) Lytt til bass-trommen (den dype dunken), 2) Tell 1-2-3-4 i takt med de sterke slagene, 3) Klappe hendene eller nikke hodet i takt, 4) Føl pulsen i kroppen, 5) Begynn å bevege føttene til rytmen. Start med å bare lytte og kjenne pulsen før du prøver å danse. Mesteparten av populærmusikk har 4/4-takt som er lettestt å følge.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-6-1-grunnsteg',
       type: 'text',
       content: `## Grunnleggende dansetrinn
@@ -2914,10 +2965,54 @@ Dans handler ikke om å være perfekt, men om å uttrykke seg, ha det gøy og f�
 - Dans er for alle!`
     },
     {
+      id: 'kroppsoving-vg1-6-1-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-1-ex3',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er "step-touch" og hvorfor er det et godt trinn for nybegynnere?',
+        solution: 'Step-touch er et enkelt dansetrinn hvor du stepper til siden (f.eks. høyre) på slag 1, og toucher (berører gulvet med) den andre foten på slag 2. Deretter bytter du retning. Dette er perfekt for nybegynnere fordi: 1) Det er veldig enkelt å lære, 2) Det følger tydelig rytmen, 3) Det gir trygghet å starte med, 4) Det kan brukes til mesteparten av musikk, 5) Det er lett å legge til armbevegelser og varianter når du blir tryggere.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
       id: 'kroppsoving-vg1-6-1-def3',
       type: 'definition',
       title: 'Musikalitet',
       content: 'Evnen til å tolke og uttrykke musikken gjennom bevegelse. Inkluderer rytme, dynamikk og følelsesmessig tilknytning til musikken.'
+    },
+    {
+      id: 'kroppsoving-vg1-6-1-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-1-ex4',
+        number: '4',
+        type: 'classic',
+        task: 'Hva menes med "musikalitet" i dans?',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Velg riktig definisjon',
+            multipleChoiceOptions: [
+              'Hvor mye musikk du lytter til',
+              'Evnen til å tolke og uttrykke musikken gjennom bevegelse',
+              'Type musikk du danser til',
+              'Hvor høyt musikken spilles'
+            ],
+            solution: 'Evnen til å tolke og uttrykke musikken gjennom bevegelse'
+          },
+          {
+            label: 'b',
+            task: 'Hvordan kan du vise god musikalitet?',
+            solution: 'God musikalitet vises ved å: Bevege seg i takt med rytmen, variere dynamikk (energi) i takt med musikkens intensitet, benytte pauser i musikken, tolke følelsene i låten med kroppen, tilpasse stil til musikkens sjanger, og la bevegelsene flyte naturlig med melodien.'
+          }
+        ],
+        solution: 'Musikalitet er evnen til å uttrykke musikken gjennom kroppslige bevegelser.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false
+      }
     },
     {
       id: 'kroppsoving-vg1-6-1-kroppsdeler',
@@ -2996,6 +3091,19 @@ Dans handler ikke om å være perfekt, men om å uttrykke seg, ha det gøy og f�
       content: 'Variasjon i energi, kraft og intensitet i bevegelsene. God dynamikk gjør dansen mer interessant og uttrykksfull.'
     },
     {
+      id: 'kroppsoving-vg1-6-1-exercise5',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-1-ex5',
+        number: '5',
+        type: 'classic',
+        task: 'Hvordan kan du bruke musikkens struktur (vers, refreng, bro) i dansen din?',
+        solution: 'Du kan bruke musikkens struktur ved å: I introen: Start rolig og etabler grunnbevegelser. I verset: Bygg energi gradvis, bruk enklere trinn. I refrenget: Slipp løs med mer energi og større bevegelser - dette er høydepunktet. I broen: Eksperimenter med nye bevegelser eller stil, gi kontrast. I outroen: Ro ned og avslutt elegant. Ved å variere dansen etter musikkens struktur blir dansen mer dynamisk, interessant og viser at du forstår musikken.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
       id: 'kroppsoving-vg1-6-1-tips',
       type: 'text',
       content: `## Tips for å bli tryggere på dans
@@ -3030,107 +3138,7 @@ Dans handler ikke om å være perfekt, men om å uttrykke seg, ha det gøy og f�
 - Sammenlign deg med din egen utvikling
 - Ha det gøy underveis!`
     },
-    {
-      id: 'kroppsoving-vg1-6-1-exercise1',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-1-ex1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva er forskjellen mellom takt og tempo i musikk?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Definer takt',
-            solution: 'Takt er mønsteret av slag (beats) i musikken, organisert i grupper. Vanligst er 4/4-takt hvor du teller 1-2-3-4. Takten forteller deg hvordan musikkens rytme er strukturert.'
-          },
-          {
-            label: 'b',
-            task: 'Definer tempo',
-            multipleChoiceOptions: [
-              'Hvor mange dansetrinn du tar per minutt',
-              'Hvor raskt eller sakte musikken spilles',
-              'Hvilken type dans du gjør',
-              'Hvor mange personer som danser'
-            ],
-            solution: 'Hvor raskt eller sakte musikken spilles'
-          }
-        ],
-        solution: 'Takt er mønsteret av slag, tempo er hastigheten på musikken.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-1-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-1-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv hvordan du finner rytmen i en sang.',
-        solution: 'For å finne rytmen: 1) Lytt til bass-trommen (den dype dunken), 2) Tell 1-2-3-4 i takt med de sterke slagene, 3) Klappe hendene eller nikke hodet i takt, 4) Føl pulsen i kroppen, 5) Begynn å bevege føttene til rytmen. Start med å bare lytte og kjenne pulsen før du prøver å danse. Mesteparten av populærmusikk har 4/4-takt som er lettestt å følge.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-1-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-1-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er "step-touch" og hvorfor er det et godt trinn for nybegynnere?',
-        solution: 'Step-touch er et enkelt dansetrinn hvor du stepper til siden (f.eks. høyre) på slag 1, og toucher (berører gulvet med) den andre foten på slag 2. Deretter bytter du retning. Dette er perfekt for nybegynnere fordi: 1) Det er veldig enkelt å lære, 2) Det følger tydelig rytmen, 3) Det gir trygghet å starte med, 4) Det kan brukes til mesteparten av musikk, 5) Det er lett å legge til armbevegelser og varianter når du blir tryggere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-1-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-1-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva menes med "musikalitet" i dans?',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Velg riktig definisjon',
-            multipleChoiceOptions: [
-              'Hvor mye musikk du lytter til',
-              'Evnen til å tolke og uttrykke musikken gjennom bevegelse',
-              'Type musikk du danser til',
-              'Hvor høyt musikken spilles'
-            ],
-            solution: 'Evnen til å tolke og uttrykke musikken gjennom bevegelse'
-          },
-          {
-            label: 'b',
-            task: 'Hvordan kan du vise god musikalitet?',
-            solution: 'God musikalitet vises ved å: Bevege seg i takt med rytmen, variere dynamikk (energi) i takt med musikkens intensitet, benytte pauser i musikken, tolke følelsene i låten med kroppen, tilpasse stil til musikkens sjanger, og la bevegelsene flyte naturlig med melodien.'
-          }
-        ],
-        solution: 'Musikalitet er evnen til å uttrykke musikken gjennom kroppslige bevegelser.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-1-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-1-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Hvordan kan du bruke musikkens struktur (vers, refreng, bro) i dansen din?',
-        solution: 'Du kan bruke musikkens struktur ved å: I introen: Start rolig og etabler grunnbevegelser. I verset: Bygg energi gradvis, bruk enklere trinn. I refrenget: Slipp løs med mer energi og større bevegelser - dette er høydepunktet. I broen: Eksperimenter med nye bevegelser eller stil, gi kontrast. I outroen: Ro ned og avslutt elegant. Ved å variere dansen etter musikkens struktur blir dansen mer dynamisk, interessant og viser at du forstår musikken.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-6-1-exercise6',
       type: 'exercise',
@@ -3373,8 +3381,47 @@ Springar (også kalt pols) er en livlig norsk folkedans i 3/4-takt. Den er mer e
       id: 'kroppsoving-vg1-6-2-exercise1',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-2-ex1',
+        id: 'kroppsoving-vg1-6-2-ex3',
         number: '1',
+        type: 'classic',
+        task: 'Hva menes med "fører" og "følger" i pardans?',
+        solution: 'I pardans har tradisjonelt én person (fører) ansvar for å lede dansen - bestemme retning, tempo og hvilke figurer som skal danses. Den andre personen (følger) responderer på førerens signaler og tilpasser sine bevegelser. Fører kommuniserer gjennom kroppskontakt, ikke verbalt. Moderne dans utforsker mer likeverdig kommunikasjon hvor begge partnere kan bytte på å lede. Begge rollene krever ferdigheter og er like viktige for en god dans.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-2-exercise2',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-2-ex2',
+        number: '2',
+        type: 'classic',
+        task: 'Beskriv grunnsteget i vals.',
+        solution: 'Grunnsteget i vals for fører: 1) Frem med høyre fot (1), 2) Side med venstre fot (2), 3) Sammen med høyre fot (3), deretter: 4) Tilbake med venstre fot (1), 5) Side med høyre fot (2), 6) Sammen med venstre fot (3). Dette danner en firkant på gulvet. Følger gjør motsatt: starter med venstre tilbake. Dansen har en myk, glidende kvalitet som føles som å sveve, med lett opp-og-ned bevegelse i takt med musikken (1-2-3, 1-2-3).',
+        allowsUpload: true,
+        allowsCanvasDrawing: true
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-2-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-2-ex6',
+        number: '3',
+        type: 'classic',
+        task: 'Hvilke råd vil du gi til noen som skal lære å danse swing?',
+        solution: 'Råd for å lære swing: 1) Start med grunnsteget (rock step + triple step x2), 2) Fokuser på "bounce" i knærne - swing har energi, 3) Øv rytmen til du kjenner den i kroppen, 4) Tør å ha personlighet og stil - swing handler om uttrykk, 5) Lytt til mye swing/jazz-musikk for å få følelsen, 6) Swing-miljøet er sosialt - dans med mange partnere, 7) Gå på swingkveld eller workshop, 8) Ikke vær redd for å se dum ut - alle begynner et sted, 9) Ha det gøy og nyt musikken!',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-2-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-2-ex1',
+        number: '4',
         type: 'classic',
         task: 'Hva er hovedforskjellen mellom vals og reinlender?',
         subTasks: [
@@ -3400,38 +3447,13 @@ Springar (også kalt pols) er en livlig norsk folkedans i 3/4-takt. Den er mer e
         allowsCanvasDrawing: false
       }
     },
+    // --- Samleoppgaver ---
     {
-      id: 'kroppsoving-vg1-6-2-exercise2',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-2-ex2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv grunnsteget i vals.',
-        solution: 'Grunnsteget i vals for fører: 1) Frem med høyre fot (1), 2) Side med venstre fot (2), 3) Sammen med høyre fot (3), deretter: 4) Tilbake med venstre fot (1), 5) Side med høyre fot (2), 6) Sammen med venstre fot (3). Dette danner en firkant på gulvet. Følger gjør motsatt: starter med venstre tilbake. Dansen har en myk, glidende kvalitet som føles som å sveve, med lett opp-og-ned bevegelse i takt med musikken (1-2-3, 1-2-3).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-2-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-2-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva menes med "fører" og "følger" i pardans?',
-        solution: 'I pardans har tradisjonelt én person (fører) ansvar for å lede dansen - bestemme retning, tempo og hvilke figurer som skal danses. Den andre personen (følger) responderer på førerens signaler og tilpasser sine bevegelser. Fører kommuniserer gjennom kroppskontakt, ikke verbalt. Moderne dans utforsker mer likeverdig kommunikasjon hvor begge partnere kan bytte på å lede. Begge rollene krever ferdigheter og er like viktige for en god dans.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-2-exercise4',
+      id: 'kroppsoving-vg1-6-2-exercise5',
       type: 'exercise',
       exercise: {
         id: 'kroppsoving-vg1-6-2-ex4',
-        number: '4',
+        number: '5',
         type: 'classic',
         task: 'Hva er springar og hvordan skiller den seg fra reinlender?',
         solution: 'Springar (også kalt pols) er en livlig norsk folkedans i 3/4-takt. Den skiller seg fra reinlender ved: 1) Mer energisk og kompleks, 2) Asymmetrisk rytme (dreia pols), 3) Kraftig rotering med tett partnerkontakt, 4) "Hopper" i dansen, 5) Krever bedre balanse og styrke, 6) Vanskeligere å lære. Reinlender er enklere, i 2/4-takt, mer lik internasjonal vals. Begge er viktige deler av norsk dansearv og danses til felemusikk på leikarringer.',
@@ -3440,27 +3462,14 @@ Springar (også kalt pols) er en livlig norsk folkedans i 3/4-takt. Den er mer e
       }
     },
     {
-      id: 'kroppsoving-vg1-6-2-exercise5',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-2-ex5',
-        number: '5',
-        type: 'classic',
-        task: 'Hva er viktige prinsipper for god dans-etikette?',
-        solution: 'God dans-etikette inkluderer: 1) Invitere høflig og akseptere avslag med verdighet, 2) God hygiene (frisk pust, ren kropp, passende klær), 3) Respektere personlig rom og grenser, 4) Takke partneren etter dansen, 5) Ikke gi ubedt kritikk på dansegulvet, 6) Være oppmerksom på andre par (floorcraft), 7) Vise tålmodighet med partnere på alle nivåer, 8) Være til stede og fokusere på dansen, 9) Smile og ha det gøy. Dans-etikette handler om respekt og å skape et trygt, hyggelig miljø for alle.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
       id: 'kroppsoving-vg1-6-2-exercise6',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-2-ex6',
+        id: 'kroppsoving-vg1-6-2-ex5',
         number: '6',
         type: 'classic',
-        task: 'Hvilke råd vil du gi til noen som skal lære å danse swing?',
-        solution: 'Råd for å lære swing: 1) Start med grunnsteget (rock step + triple step x2), 2) Fokuser på "bounce" i knærne - swing har energi, 3) Øv rytmen til du kjenner den i kroppen, 4) Tør å ha personlighet og stil - swing handler om uttrykk, 5) Lytt til mye swing/jazz-musikk for å få følelsen, 6) Swing-miljøet er sosialt - dans med mange partnere, 7) Gå på swingkveld eller workshop, 8) Ikke vær redd for å se dum ut - alle begynner et sted, 9) Ha det gøy og nyt musikken!',
+        task: 'Hva er viktige prinsipper for god dans-etikette?',
+        solution: 'God dans-etikette inkluderer: 1) Invitere høflig og akseptere avslag med verdighet, 2) God hygiene (frisk pust, ren kropp, passende klær), 3) Respektere personlig rom og grenser, 4) Takke partneren etter dansen, 5) Ikke gi ubedt kritikk på dansegulvet, 6) Være oppmerksom på andre par (floorcraft), 7) Vise tålmodighet med partnere på alle nivåer, 8) Være til stede og fokusere på dansen, 9) Smile og ha det gøy. Dans-etikette handler om respekt og å skape et trygt, hyggelig miljø for alle.',
         allowsUpload: true,
         allowsCanvasDrawing: false
       }
@@ -3758,11 +3767,11 @@ Moderne urban dans er en miks av ulike stiler, ofte sett i musikkvideoer og på 
       id: 'kroppsoving-vg1-6-3-exercise2',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-3-ex2',
+        id: 'kroppsoving-vg1-6-3-ex5',
         number: '2',
         type: 'classic',
-        task: 'Hva er forskjellen mellom locking og popping?',
-        solution: 'Locking (fra tidlig 70-tall) er preget av raske bevegelser som plutselig "låser" i frosne posisjoner, med store, energiske og glade bevegelser som pointing og pace. Danses til funk-musikk. Popping er preget av rask muskelkontraksjon som skaper en "poppende" effekt, mer kontrollert og presis, ofte med robotiske eller illusjonsbaserte bevegelser som waves og gliding. Begge er funk-styles, men har ulik følelse og teknikk.',
+        task: 'Hva menes med "bounce" og "groove" i hiphop-dans?',
+        solution: 'Bounce er den grunnleggende opp-og-ned bevegelsen i kroppen som følger beats i musikken. Det starter med å bøye lett i knærne og bounce på hvert slag, og gir energi til dansen. Groove er den underliggende følelsen og flyten i dansen - hvordan du naturlig beveger deg til musikken med din personlige stil og attitude. Bounce er mer teknisk (selve bevegelsen), mens groove er mer om følelse og musikalitet. Sammen skaper de hiphop-dansens karakteristiske energi.',
         allowsUpload: true,
         allowsCanvasDrawing: false
       }
@@ -3771,13 +3780,13 @@ Moderne urban dans er en miks av ulike stiler, ofte sett i musikkvideoer og på 
       id: 'kroppsoving-vg1-6-3-exercise3',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-3-ex3',
+        id: 'kroppsoving-vg1-6-3-ex2',
         number: '3',
         type: 'classic',
-        task: 'Hva er en "cypher" i hiphop-dans?',
-        solution: 'En cypher er en sirkel av dansere hvor folk går inn i midten (ofte én eller to av gangen) for å danse/freestyle mens de andre ser på, heier og gir energi. Det er en viktig sosial struktur i hiphop hvor dansere kan vise seg frem, lære av hverandre og bygge fellesskap. Cyphers er basert på respekt, der alle får sin tur og dansere responderer på hverandre. Det er mindre formelt og konkurransepreget enn en battle.',
+        task: 'Hva er forskjellen mellom locking og popping?',
+        solution: 'Locking (fra tidlig 70-tall) er preget av raske bevegelser som plutselig "låser" i frosne posisjoner, med store, energiske og glade bevegelser som pointing og pace. Danses til funk-musikk. Popping er preget av rask muskelkontraksjon som skaper en "poppende" effekt, mer kontrollert og presis, ofte med robotiske eller illusjonsbaserte bevegelser som waves og gliding. Begge er funk-styles, men har ulik følelse og teknikk.',
         allowsUpload: true,
-        allowsCanvasDrawing: true
+        allowsCanvasDrawing: false
       }
     },
     {
@@ -3793,17 +3802,18 @@ Moderne urban dans er en miks av ulike stiler, ofte sett i musikkvideoer og på 
         allowsCanvasDrawing: false
       }
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-6-3-exercise5',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-3-ex5',
+        id: 'kroppsoving-vg1-6-3-ex3',
         number: '5',
         type: 'classic',
-        task: 'Hva menes med "bounce" og "groove" i hiphop-dans?',
-        solution: 'Bounce er den grunnleggende opp-og-ned bevegelsen i kroppen som følger beats i musikken. Det starter med å bøye lett i knærne og bounce på hvert slag, og gir energi til dansen. Groove er den underliggende følelsen og flyten i dansen - hvordan du naturlig beveger deg til musikken med din personlige stil og attitude. Bounce er mer teknisk (selve bevegelsen), mens groove er mer om følelse og musikalitet. Sammen skaper de hiphop-dansens karakteristiske energi.',
+        task: 'Hva er en "cypher" i hiphop-dans?',
+        solution: 'En cypher er en sirkel av dansere hvor folk går inn i midten (ofte én eller to av gangen) for å danse/freestyle mens de andre ser på, heier og gir energi. Det er en viktig sosial struktur i hiphop hvor dansere kan vise seg frem, lære av hverandre og bygge fellesskap. Cyphers er basert på respekt, der alle får sin tur og dansere responderer på hverandre. Det er mindre formelt og konkurransepreget enn en battle.',
         allowsUpload: true,
-        allowsCanvasDrawing: false
+        allowsCanvasDrawing: true
       }
     },
     {
@@ -4132,6 +4142,7 @@ Gruppekoreografi har egne muligheter og utfordringer.
         allowsCanvasDrawing: true
       }
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-6-4-exercise5',
       type: 'exercise',
@@ -4415,8 +4426,34 @@ Zumba er en latinsk-inspirert dansetrening skapt av Alberto "Beto" Perez i Colom
       id: 'kroppsoving-vg1-6-5-exercise2',
       type: 'exercise',
       exercise: {
-        id: 'kroppsoving-vg1-6-5-ex2',
+        id: 'kroppsoving-vg1-6-5-ex3',
         number: '2',
+        type: 'classic',
+        task: 'Beskriv strukturen i en typisk aerobics-time.',
+        solution: 'En typisk aerobics-time har følgende struktur: 1) Oppvarming (5-10 min): Rolige bevegelser for gradvis å øke puls og varme opp muskler, 2) Kardiotrening (20-30 min): Høyere intensitet med vedvarende bevegelse for å trene kondisjonen, 3) Styrkedel (10-15 min): Øvelser rettet mot spesifikke muskelgrupper, 4) Nedtrapping (5-10 min): Senke pulsen gradvis og tøying av muskler som er brukt. Total varighet ofte 45-60 minutter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-5-exercise3',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-5-ex4',
+        number: '3',
+        type: 'classic',
+        task: 'Hva er Zumba og hvordan skiller det seg fra tradisjonell aerobics?',
+        solution: 'Zumba er latinsk-inspirert dansetrening skapt i Colombia på 1990-tallet. Forskjeller fra aerobics: 1) Musikk: Primært latinamerikansk (salsa, merengue, reggaeton) vs. pop/dance i aerobics, 2) Stil: Mer dans-fokusert med hoftearbeid og kultur-spesifikke bevegelser vs. fitness-bevegelser i aerobics, 3) Atmosfære: Party-følelse med improvisasjon velkommen vs. mer strukturert i aerobics, 4) Undervisning: Mindre verbale kuer, mer "følg meg" vs. tydelige instruksjoner i aerobics. Begge gir god kondisjonstrening!',
+        allowsUpload: true,
+        allowsCanvasDrawing: false
+      }
+    },
+    {
+      id: 'kroppsoving-vg1-6-5-exercise4',
+      type: 'exercise',
+      exercise: {
+        id: 'kroppsoving-vg1-6-5-ex2',
+        number: '4',
         type: 'classic',
         task: 'Hvorfor er musikk viktig i bevegelsesbasert trening?',
         subTasks: [
@@ -4431,32 +4468,7 @@ Zumba er en latinsk-inspirert dansetrening skapt av Alberto "Beto" Perez i Colom
         allowsCanvasDrawing: false
       }
     },
-    {
-      id: 'kroppsoving-vg1-6-5-exercise3',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-5-ex3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv strukturen i en typisk aerobics-time.',
-        solution: 'En typisk aerobics-time har følgende struktur: 1) Oppvarming (5-10 min): Rolige bevegelser for gradvis å øke puls og varme opp muskler, 2) Kardiotrening (20-30 min): Høyere intensitet med vedvarende bevegelse for å trene kondisjonen, 3) Styrkedel (10-15 min): Øvelser rettet mot spesifikke muskelgrupper, 4) Nedtrapping (5-10 min): Senke pulsen gradvis og tøying av muskler som er brukt. Total varighet ofte 45-60 minutter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
-    {
-      id: 'kroppsoving-vg1-6-5-exercise4',
-      type: 'exercise',
-      exercise: {
-        id: 'kroppsoving-vg1-6-5-ex4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er Zumba og hvordan skiller det seg fra tradisjonell aerobics?',
-        solution: 'Zumba er latinsk-inspirert dansetrening skapt i Colombia på 1990-tallet. Forskjeller fra aerobics: 1) Musikk: Primært latinamerikansk (salsa, merengue, reggaeton) vs. pop/dance i aerobics, 2) Stil: Mer dans-fokusert med hoftearbeid og kultur-spesifikke bevegelser vs. fitness-bevegelser i aerobics, 3) Atmosfære: Party-følelse med improvisasjon velkommen vs. mer strukturert i aerobics, 4) Undervisning: Mindre verbale kuer, mer "følg meg" vs. tydelige instruksjoner i aerobics. Begge gir god kondisjonstrening!',
-        allowsUpload: true,
-        allowsCanvasDrawing: false
-      }
-    },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-6-5-exercise5',
       type: 'exercise',
@@ -4784,6 +4796,7 @@ Dans gir stemme til de som er undertrykt.`
         allowsCanvasDrawing: false
       }
     },
+    // --- Samleoppgaver ---
     {
       id: 'kroppsoving-vg1-6-6-exercise5',
       type: 'exercise',

@@ -86,10 +86,48 @@ Jorda er bygd opp av flere lag (sjikt) med ulike egenskaper:
 - Grunnlaget jorda har utviklet seg fra`,
     },
     {
+      id: 'naturbruk-vg1-3-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-1-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Beskriv jordas oppbygning med de fire hovedsjiktene.',
+        subTasks: [
+          {
+            label: 'a',
+            task: 'Nevn de fire sjiktene i et jordprofil fra toppen og ned.',
+            solution: 'O-sjiktet (strøfallet), A-sjiktet (matjordlaget), B-sjiktet (utfellingssjiktet), C-sjiktet (opphavsmaterialet).',
+          },
+          {
+            label: 'b',
+            task: 'Forklar hvorfor A-sjiktet er det viktigste for plantevekst.',
+            solution: 'A-sjiktet (matjordlaget) er viktigst fordi det inneholder mest humus og næringsstoffer, har høyest biologisk aktivitet, og er der mesteparten av planterøttene vokser.',
+          },
+        ],
+        solution: 'Jordprofilet består av O (strøfall), A (matjord), B (utfelling) og C (opphavsmateriale). A-sjiktet er viktigst for plantevekst.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-3-1-def-2',
       type: 'definition',
       title: 'Humus',
       content: `Humus er vel omdannet organisk materiale i jorda. Det gir jorda mørk farge og forbedrer jordstrukturen. Humus holder på vann og næringsstoffer, øker jordas evne til å motstå pakking, og er mat for jordorganismene. Humusinnholdet i norsk matjord varierer vanligvis mellom 3-10%.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-1-ex-2',
+        number: '2',
+        type: 'classic',
+        task: 'Hva er humus, og hvorfor er det viktig for jordkvaliteten?',
+        solution: 'Humus er vel omdannet organisk materiale i jorda. Det er viktig fordi det: 1) Gir jorda mørk farge og god struktur, 2) Holder på vann og næringsstoffer, 3) Øker jordas motstand mot pakking, 4) Er mat for jordorganismene, 5) Bidrar til karbonlagring.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
     },
     {
       id: 'naturbruk-vg1-3-1-text-2',
@@ -128,10 +166,48 @@ En god dyrkingsjord inneholder en blanding av sand, silt og leire, samt 3-6% org
       content: `Jordstruktur beskriver hvordan jordpartiklene er ordnet i aggregater (klumper). God struktur gir porer for luft og vann, letter rotutvikling og gjør jorda lettere å arbeide. Jordstrukturen påvirkes av humusinnhold, jordliv, kalking, jordarbeiding og kjøring med tunge maskiner.`,
     },
     {
+      id: 'naturbruk-vg1-3-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-1-ex-3',
+        number: '3',
+        type: 'multiple-choice',
+        task: 'Hvilken jordtype holder best på vann og næringsstoffer?',
+        options: [
+          { id: 'a', text: 'Sand', isCorrect: false },
+          { id: 'b', text: 'Silt', isCorrect: false },
+          { id: 'c', text: 'Leire', isCorrect: true },
+          { id: 'd', text: 'Grus', isCorrect: false },
+        ],
+        solution: 'Leire har de minste partiklene og dermed størst overflate. Dette gir stor evne til å binde vann og næringsstoffer.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
       id: 'naturbruk-vg1-3-1-def-4',
       type: 'definition',
       title: 'pH-verdi',
       content: `pH er et mål på jordas surhetsgrad på en skala fra 0-14. Nøytral jord har pH 7. De fleste kulturplanter trives best ved pH 6-7. Sur jord (lav pH) kan kalkes for å heve pH. Jordas pH påvirker tilgjengeligheten av næringsstoffer og aktiviteten til jordorganismene.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-1-ex-4',
+        number: '4',
+        type: 'multiple-choice',
+        task: 'Hvilken pH-verdi er optimal for de fleste kulturplanter?',
+        options: [
+          { id: 'a', text: 'pH 4-5', isCorrect: false },
+          { id: 'b', text: 'pH 5-6', isCorrect: false },
+          { id: 'c', text: 'pH 6-7', isCorrect: true },
+          { id: 'd', text: 'pH 7-8', isCorrect: false },
+        ],
+        solution: 'De fleste kulturplanter trives best ved pH 6-7. Ved denne pH-verdien er næringsstoffene mest tilgjengelige og jordlivet fungerer optimalt.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
     },
     {
       id: 'naturbruk-vg1-3-1-text-3',
@@ -201,82 +277,7 @@ En god dyrkingsjord inneholder en blanding av sand, silt og leire, samt 3-6% org
 
 **Konklusjon:** Jorda trenger kalking og tilførsel av organisk materiale for å forbedre jordkvaliteten.`,
     },
-    {
-      id: 'naturbruk-vg1-3-1-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-1-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv jordas oppbygning med de fire hovedsjiktene.',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Nevn de fire sjiktene i et jordprofil fra toppen og ned.',
-            solution: 'O-sjiktet (strøfallet), A-sjiktet (matjordlaget), B-sjiktet (utfellingssjiktet), C-sjiktet (opphavsmaterialet).',
-          },
-          {
-            label: 'b',
-            task: 'Forklar hvorfor A-sjiktet er det viktigste for plantevekst.',
-            solution: 'A-sjiktet (matjordlaget) er viktigst fordi det inneholder mest humus og næringsstoffer, har høyest biologisk aktivitet, og er der mesteparten av planterøttene vokser.',
-          },
-        ],
-        solution: 'Jordprofilet består av O (strøfall), A (matjord), B (utfelling) og C (opphavsmateriale). A-sjiktet er viktigst for plantevekst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-1-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-1-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        task: 'Hvilken jordtype holder best på vann og næringsstoffer?',
-        options: [
-          { id: 'a', text: 'Sand', isCorrect: false },
-          { id: 'b', text: 'Silt', isCorrect: false },
-          { id: 'c', text: 'Leire', isCorrect: true },
-          { id: 'd', text: 'Grus', isCorrect: false },
-        ],
-        solution: 'Leire har de minste partiklene og dermed størst overflate. Dette gir stor evne til å binde vann og næringsstoffer.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-1-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-1-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er humus, og hvorfor er det viktig for jordkvaliteten?',
-        solution: 'Humus er vel omdannet organisk materiale i jorda. Det er viktig fordi det: 1) Gir jorda mørk farge og god struktur, 2) Holder på vann og næringsstoffer, 3) Øker jordas motstand mot pakking, 4) Er mat for jordorganismene, 5) Bidrar til karbonlagring.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-1-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-1-ex-4',
-        number: '4',
-        type: 'multiple-choice',
-        task: 'Hvilken pH-verdi er optimal for de fleste kulturplanter?',
-        options: [
-          { id: 'a', text: 'pH 4-5', isCorrect: false },
-          { id: 'b', text: 'pH 5-6', isCorrect: false },
-          { id: 'c', text: 'pH 6-7', isCorrect: true },
-          { id: 'd', text: 'pH 7-8', isCorrect: false },
-        ],
-        solution: 'De fleste kulturplanter trives best ved pH 6-7. Ved denne pH-verdien er næringsstoffene mest tilgjengelige og jordlivet fungerer optimalt.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-1-ex-5',
       type: 'exercise',
@@ -329,124 +330,6 @@ For å lykkes med planteproduksjon må vi forstå hvordan planter fungerer og hv
       type: 'definition',
       title: 'Fotosyntese',
       content: `Fotosyntese er prosessen der planter bruker sollys til å omdanne karbondioksid (CO2) og vann (H2O) til sukker (glukose) og oksygen (O2). Reaksjonen foregår i kloroplastene i bladcellene. Fotosyntesen er grunnlaget for nesten alt liv på jorda, da den produserer både mat og oksygen.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-text-1',
-      type: 'text',
-      content: `## Plantens oppbygning
-
-**Røtter:**
-- Forankrer planten i jorda
-- Tar opp vann og næringsstoffer
-- Lagrer næringsstoffer (f.eks. gulrot, potet)
-- Samarbeider med sopp (mykorrhiza) og bakterier
-
-**Stengel/stamme:**
-- Støtte for blader og blomster
-- Transportårer for vann og næring (xylem og floem)
-- Kan lagre næring og vann
-- Hos trær: Vedvev for styrke
-
-**Blader:**
-- Hovedsete for fotosyntese
-- Gassutveksling gjennom spalteåpninger
-- Fordamping av vann (transpirasjon)
-- Varierer i form etter art og miljø
-
-**Blomster og frø:**
-- Forplantningsorganer
-- Blomst: Pollinering og befruktning
-- Frukt: Beskytter og sprer frøene
-- Frø: Inneholder embryo og næringsreserver`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-def-2',
-      type: 'definition',
-      title: 'Transpirasjon',
-      content: `Transpirasjon er fordamping av vann fra plantens blader gjennom spalteåpninger. Denne prosessen driver vanntransporten fra røttene og opp gjennom planten. Transpirasjon bidrar også til å kjøle ned planten og er koblet til opptaket av CO2 for fotosyntese.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-text-2',
-      type: 'text',
-      content: `## Vekstfaktorer
-
-Plantevekst styres av flere faktorer som må være til stede i riktige mengder. Liebigs minimumslov sier at veksten begrenses av den faktoren som er i minimum.
-
-**Lys:**
-- Energikilde for fotosyntese
-- Lysintensitet, daglengde og lyskvalitet
-- Ulike planter har ulike lysbehov
-- Skyggetolerante vs. lyskrevende arter
-
-**Temperatur:**
-- Påvirker alle kjemiske prosesser
-- Optimal temperatur varierer mellom arter
-- Kuldetoleranse og frostfare
-- Jordtemperatur viktig for rotutvikling
-
-**Vann:**
-- Nødvendig for fotosyntese
-- Transportmedium for næringsstoffer
-- Holder celletrykket (turgor)
-- Både for lite og for mye er skadelig
-
-**Karbondioksid (CO2):**
-- Råstoff for fotosyntese
-- Normalt ca. 0,04% i lufta
-- I veksthus kan CO2 tilføres for økt vekst
-
-**Næringsstoffer:**
-- Makronæring: Nitrogen (N), fosfor (P), kalium (K)
-- Sekundærnæring: Kalsium, magnesium, svovel
-- Mikronæring: Jern, mangan, sink, kobber m.fl.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-def-3',
-      type: 'definition',
-      title: 'Liebigs minimumslov',
-      content: `Liebigs minimumslov sier at planteveksten begrenses av den vekstfaktoren som er minst tilgjengelig i forhold til plantens behov. Selv om alle andre faktorer er optimale, vil mangel på én faktor begrense veksten. Dette illustreres ofte med en tønne der den korteste staven bestemmer hvor mye vann den kan holde.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-def-4',
-      type: 'definition',
-      title: 'Klorofyll',
-      content: `Klorofyll er det grønne fargestoffet i planter som fanger opp lysenergi til fotosyntese. Det finnes i kloroplastene i bladcellene. Klorofyll absorberer rødt og blått lys, men reflekterer grønt lys - derfor ser planter grønne ut. Nitrogen er nødvendig for produksjon av klorofyll.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-text-3',
-      type: 'text',
-      content: `## Næringsstoffer i detalj
-
-**Nitrogen (N)**
-- Viktigste vekststoffet
-- Inngår i proteiner, klorofyll og DNA
-- Mangel: Gulning av eldre blader, svak vekst
-- For mye: Bløt, sykdomsutsatt vekst
-
-**Fosfor (P)**
-- Viktig for rotutvikling og energiomsetning
-- Inngår i DNA og cellemembran
-- Mangel: Mørke, rødlige blader, svake røtter
-- Spesielt viktig tidlig i vekstsesongen
-
-**Kalium (K)**
-- Regulerer vannbalansen i cellene
-- Viktig for sykdomsresistens
-- Mangel: Brune bladkanter, svak stengel
-- Viktig for lagringsevne i rotgrønnsaker
-
-**Andre viktige næringsstoffer:**
-- Kalsium: Cellevegger, rotutvikling
-- Magnesium: Sentralt i klorofyllmolekylet
-- Svovel: Proteinoppbygning
-- Jern: Klorofyllproduksjon
-- Bor: Blomstring og frøsetting`,
-    },
-    {
-      id: 'naturbruk-vg1-3-2-tip-1',
-      type: 'tip',
-      title: 'Les plantenes signaler',
-      content: `Plantene viser ofte tydelig når noe mangler. Gulning av eldre blader kan tyde på nitrogenmangel, mens gulning av unge blader kan være jernmangel. Rødlige blader kan skyldes fosformangel, og brune bladkanter kalimangel. Lær deg å lese disse signalene for å gjødsle riktig!`,
     },
     {
       id: 'naturbruk-vg1-3-2-example-1',
@@ -504,6 +387,41 @@ Plantevekst styres av flere faktorer som må være til stede i riktige mengder. 
       },
     },
     {
+      id: 'naturbruk-vg1-3-2-text-1',
+      type: 'text',
+      content: `## Plantens oppbygning
+
+**Røtter:**
+- Forankrer planten i jorda
+- Tar opp vann og næringsstoffer
+- Lagrer næringsstoffer (f.eks. gulrot, potet)
+- Samarbeider med sopp (mykorrhiza) og bakterier
+
+**Stengel/stamme:**
+- Støtte for blader og blomster
+- Transportårer for vann og næring (xylem og floem)
+- Kan lagre næring og vann
+- Hos trær: Vedvev for styrke
+
+**Blader:**
+- Hovedsete for fotosyntese
+- Gassutveksling gjennom spalteåpninger
+- Fordamping av vann (transpirasjon)
+- Varierer i form etter art og miljø
+
+**Blomster og frø:**
+- Forplantningsorganer
+- Blomst: Pollinering og befruktning
+- Frukt: Beskytter og sprer frøene
+- Frø: Inneholder embryo og næringsreserver`,
+    },
+    {
+      id: 'naturbruk-vg1-3-2-def-2',
+      type: 'definition',
+      title: 'Transpirasjon',
+      content: `Transpirasjon er fordamping av vann fra plantens blader gjennom spalteåpninger. Denne prosessen driver vanntransporten fra røttene og opp gjennom planten. Transpirasjon bidrar også til å kjøle ned planten og er koblet til opptaket av CO2 for fotosyntese.`,
+    },
+    {
       id: 'naturbruk-vg1-3-2-ex-3',
       type: 'exercise',
       exercise: {
@@ -515,6 +433,47 @@ Plantevekst styres av flere faktorer som må være til stede i riktige mengder. 
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'naturbruk-vg1-3-2-text-2',
+      type: 'text',
+      content: `## Vekstfaktorer
+
+Plantevekst styres av flere faktorer som må være til stede i riktige mengder. Liebigs minimumslov sier at veksten begrenses av den faktoren som er i minimum.
+
+**Lys:**
+- Energikilde for fotosyntese
+- Lysintensitet, daglengde og lyskvalitet
+- Ulike planter har ulike lysbehov
+- Skyggetolerante vs. lyskrevende arter
+
+**Temperatur:**
+- Påvirker alle kjemiske prosesser
+- Optimal temperatur varierer mellom arter
+- Kuldetoleranse og frostfare
+- Jordtemperatur viktig for rotutvikling
+
+**Vann:**
+- Nødvendig for fotosyntese
+- Transportmedium for næringsstoffer
+- Holder celletrykket (turgor)
+- Både for lite og for mye er skadelig
+
+**Karbondioksid (CO2):**
+- Råstoff for fotosyntese
+- Normalt ca. 0,04% i lufta
+- I veksthus kan CO2 tilføres for økt vekst
+
+**Næringsstoffer:**
+- Makronæring: Nitrogen (N), fosfor (P), kalium (K)
+- Sekundærnæring: Kalsium, magnesium, svovel
+- Mikronæring: Jern, mangan, sink, kobber m.fl.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-2-def-3',
+      type: 'definition',
+      title: 'Liebigs minimumslov',
+      content: `Liebigs minimumslov sier at planteveksten begrenses av den vekstfaktoren som er minst tilgjengelig i forhold til plantens behov. Selv om alle andre faktorer er optimale, vil mangel på én faktor begrense veksten. Dette illustreres ofte med en tønne der den korteste staven bestemmer hvor mye vann den kan holde.`,
     },
     {
       id: 'naturbruk-vg1-3-2-ex-4',
@@ -536,6 +495,48 @@ Plantevekst styres av flere faktorer som må være til stede i riktige mengder. 
       },
     },
     {
+      id: 'naturbruk-vg1-3-2-def-4',
+      type: 'definition',
+      title: 'Klorofyll',
+      content: `Klorofyll er det grønne fargestoffet i planter som fanger opp lysenergi til fotosyntese. Det finnes i kloroplastene i bladcellene. Klorofyll absorberer rødt og blått lys, men reflekterer grønt lys - derfor ser planter grønne ut. Nitrogen er nødvendig for produksjon av klorofyll.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-2-text-3',
+      type: 'text',
+      content: `## Næringsstoffer i detalj
+
+**Nitrogen (N)**
+- Viktigste vekststoffet
+- Inngår i proteiner, klorofyll og DNA
+- Mangel: Gulning av eldre blader, svak vekst
+- For mye: Bløt, sykdomsutsatt vekst
+
+**Fosfor (P)**
+- Viktig for rotutvikling og energiomsetning
+- Inngår i DNA og cellemembran
+- Mangel: Mørke, rødlige blader, svake røtter
+- Spesielt viktig tidlig i vekstsesongen
+
+**Kalium (K)**
+- Regulerer vannbalansen i cellene
+- Viktig for sykdomsresistens
+- Mangel: Brune bladkanter, svak stengel
+- Viktig for lagringsevne i rotgrønnsaker
+
+**Andre viktige næringsstoffer:**
+- Kalsium: Cellevegger, rotutvikling
+- Magnesium: Sentralt i klorofyllmolekylet
+- Svovel: Proteinoppbygning
+- Jern: Klorofyllproduksjon
+- Bor: Blomstring og frøsetting`,
+    },
+    {
+      id: 'naturbruk-vg1-3-2-tip-1',
+      type: 'tip',
+      title: 'Les plantenes signaler',
+      content: `Plantene viser ofte tydelig når noe mangler. Gulning av eldre blader kan tyde på nitrogenmangel, mens gulning av unge blader kan være jernmangel. Rødlige blader kan skyldes fosformangel, og brune bladkanter kalimangel. Lær deg å lese disse signalene for å gjødsle riktig!`,
+    },
+    {
       id: 'naturbruk-vg1-3-2-ex-5',
       type: 'exercise',
       exercise: {
@@ -548,6 +549,7 @@ Plantevekst styres av flere faktorer som må være til stede i riktige mengder. 
         allowsCanvasDrawing: true,
       },
     },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-2-ex-6',
       type: 'exercise',
@@ -711,33 +713,6 @@ Korn er verdens viktigste matvekster og grunnlaget for det meste av verdens matp
 - Gir nektar for pollinerende insekter`,
     },
     {
-      id: 'naturbruk-vg1-3-3-tip-1',
-      type: 'tip',
-      title: 'Vekstskifte er viktig',
-      content: `Å veksle mellom ulike vekster på samme jord (vekstskifte) er viktig for å unngå sykdommer og skadedyr, utnytte næringsstoffene bedre, og bygge opp jordlivet. Et typisk vekstskifte kan være: hvete - havre - oljevekster - bygg. Belgvekster som kløver og erter samler nitrogen fra lufta.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-3-example-1',
-      type: 'example',
-      title: 'Eksempel: Avlingsberegning',
-      problem: 'En bonde har 100 dekar med hvete som gir 500 kg per dekar. Prisen er 3,50 kr per kg. Hva blir brutto inntekt fra hveteåkeren?',
-      solution: `**Beregning:**
-
-Areal: 100 dekar
-Avling per dekar: 500 kg
-Pris per kg: 3,50 kr
-
-**Total avling:**
-100 dekar × 500 kg/dekar = 50 000 kg hvete
-
-**Brutto inntekt:**
-50 000 kg × 3,50 kr/kg = 175 000 kr
-
-**Svar:** Brutto inntekt fra hveteåkeren blir 175 000 kroner.
-
-**Merk:** Fra dette må bonden trekke kostnader til såkorn, gjødsel, plantevernmidler, drivstoff, maskinhold og arbeid for å finne netto fortjeneste.`,
-    },
-    {
       id: 'naturbruk-vg1-3-3-ex-1',
       type: 'exercise',
       exercise: {
@@ -788,19 +763,6 @@ Pris per kg: 3,50 kr
       exercise: {
         id: 'naturbruk-vg1-3-3-ex-4',
         number: '4',
-        type: 'classic',
-        task: 'Hva er oljevekster, og hvorfor er de viktige i norsk landbruk?',
-        solution: 'Oljevekster er planter som dyrkes for oljerikt frø, hovedsakelig raps og rybs i Norge. De er viktige fordi: 1) De gir norskprodusert matolje, 2) Presskaken blir proteinfôr som reduserer soyaimport, 3) De passer godt i vekstskifte med korn, 4) De gir nektar for pollinerende insekter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-3-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-3-ex-5',
-        number: '5',
         type: 'multiple-choice',
         task: 'Hva er tresking?',
         options: [
@@ -812,6 +774,47 @@ Pris per kg: 3,50 kr
         solution: 'Tresking er høsting av korn der skurtreskeren kutter plantene, slår løs kornkjernene fra akset, og skiller korn fra halm og agner.',
         allowsUpload: false,
         allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-3-3-tip-1',
+      type: 'tip',
+      title: 'Vekstskifte er viktig',
+      content: `Å veksle mellom ulike vekster på samme jord (vekstskifte) er viktig for å unngå sykdommer og skadedyr, utnytte næringsstoffene bedre, og bygge opp jordlivet. Et typisk vekstskifte kan være: hvete - havre - oljevekster - bygg. Belgvekster som kløver og erter samler nitrogen fra lufta.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Avlingsberegning',
+      problem: 'En bonde har 100 dekar med hvete som gir 500 kg per dekar. Prisen er 3,50 kr per kg. Hva blir brutto inntekt fra hveteåkeren?',
+      solution: `**Beregning:**
+
+Areal: 100 dekar
+Avling per dekar: 500 kg
+Pris per kg: 3,50 kr
+
+**Total avling:**
+100 dekar × 500 kg/dekar = 50 000 kg hvete
+
+**Brutto inntekt:**
+50 000 kg × 3,50 kr/kg = 175 000 kr
+
+**Svar:** Brutto inntekt fra hveteåkeren blir 175 000 kroner.
+
+**Merk:** Fra dette må bonden trekke kostnader til såkorn, gjødsel, plantevernmidler, drivstoff, maskinhold og arbeid for å finne netto fortjeneste.`,
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'naturbruk-vg1-3-3-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-3-ex-5',
+        number: '5',
+        type: 'classic',
+        task: 'Hva er oljevekster, og hvorfor er de viktige i norsk landbruk?',
+        solution: 'Oljevekster er planter som dyrkes for oljerikt frø, hovedsakelig raps og rybs i Norge. De er viktige fordi: 1) De gir norskprodusert matolje, 2) Presskaken blir proteinfôr som reduserer soyaimport, 3) De passer godt i vekstskifte med korn, 4) De gir nektar for pollinerende insekter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
       },
     },
   ],
@@ -985,42 +988,6 @@ Grønnsaker, frukt og bær er viktige for et sunt og variert kosthold. Norge har
 - Tradisjonell kjellerlager`,
     },
     {
-      id: 'naturbruk-vg1-3-4-tip-1',
-      type: 'tip',
-      title: 'Sesongkalender',
-      content: `Ved å følge sesongene får du de beste og ferskeste produktene til best pris. Jordbær er best i juni-juli, epler i september-oktober, gulrot hele høsten. Mange grønnsaker kan lagres og er tilgjengelige lenge etter høsting. Spør etter norske produkter i butikken!`,
-    },
-    {
-      id: 'naturbruk-vg1-3-4-example-1',
-      type: 'example',
-      title: 'Eksempel: Vekstskifte i grønnsaksproduksjon',
-      problem: 'Hvorfor er vekstskifte viktig i grønnsaksproduksjon, og hvordan kan et vekstskifte se ut?',
-      solution: `**Hvorfor vekstskifte er viktig:**
-- Forebygger jordboende sykdommer og skadedyr
-- Utnytter næringsstoffene bedre
-- Forbedrer jordstrukturen
-- Reduserer behovet for plantevernmidler
-
-**Eksempel på 4-årig vekstskifte:**
-
-**År 1: Kålvekster (hodekål, blomkål)**
-- Næringskrevende, gjødsles godt
-
-**År 2: Rotgrønnsaker (gulrot, rødbete)**
-- Utnytter næring fra forrige år
-- Løsner jorda med røttene
-
-**År 3: Løkvekster og belgvekster**
-- Belgvekster samler nitrogen
-- Løk har renende effekt på jorda
-
-**År 4: Potet eller korn**
-- Renser jorda for sykdommer
-- Kan jordarbeides grundig
-
-Deretter starter man på nytt med kålvekster.`,
-    },
-    {
       id: 'naturbruk-vg1-3-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -1065,6 +1032,43 @@ Deretter starter man på nytt med kålvekster.`,
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-3-4-tip-1',
+      type: 'tip',
+      title: 'Sesongkalender',
+      content: `Ved å følge sesongene får du de beste og ferskeste produktene til best pris. Jordbær er best i juni-juli, epler i september-oktober, gulrot hele høsten. Mange grønnsaker kan lagres og er tilgjengelige lenge etter høsting. Spør etter norske produkter i butikken!`,
+    },
+    {
+      id: 'naturbruk-vg1-3-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Vekstskifte i grønnsaksproduksjon',
+      problem: 'Hvorfor er vekstskifte viktig i grønnsaksproduksjon, og hvordan kan et vekstskifte se ut?',
+      solution: `**Hvorfor vekstskifte er viktig:**
+- Forebygger jordboende sykdommer og skadedyr
+- Utnytter næringsstoffene bedre
+- Forbedrer jordstrukturen
+- Reduserer behovet for plantevernmidler
+
+**Eksempel på 4-årig vekstskifte:**
+
+**År 1: Kålvekster (hodekål, blomkål)**
+- Næringskrevende, gjødsles godt
+
+**År 2: Rotgrønnsaker (gulrot, rødbete)**
+- Utnytter næring fra forrige år
+- Løsner jorda med røttene
+
+**År 3: Løkvekster og belgvekster**
+- Belgvekster samler nitrogen
+- Løk har renende effekt på jorda
+
+**År 4: Potet eller korn**
+- Renser jorda for sykdommer
+- Kan jordarbeides grundig
+
+Deretter starter man på nytt med kålvekster.`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-4-ex-4',
       type: 'exercise',
@@ -1224,45 +1228,6 @@ Ugras er planter som vokser der vi ikke ønsker dem. De konkurrerer med kulturpl
       content: `Biologisk bekjempelse er bruk av levende organismer for å kontrollere skadegjørere. Eksempler er rovmidd som spiser planteskadelig midd, snylteveps som parasitterer bladlus, og nematoder som dreper snegler. Biologisk bekjempelse er vanlig i veksthus og økologisk produksjon.`,
     },
     {
-      id: 'naturbruk-vg1-3-5-tip-1',
-      type: 'tip',
-      title: 'Forebygging er best',
-      content: `Det beste plantevernet er å unngå problemer i utgangspunktet. Velg resistente sorter, praktiser vekstskifte, hold jorda i god hevd, og sørg for gode vekstforhold. En frisk og konkurransedyktig kulturvekst tåler mer og trenger mindre bekjempelse.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-5-example-1',
-      type: 'example',
-      title: 'Eksempel: Integrert plantevern i hvete',
-      problem: 'Hvordan kan en bonde bruke integrert plantevern mot soppsykdommer i hvete?',
-      solution: `**Integrert plantevern i hvete:**
-
-**1. Forebygging:**
-- Velge sorter med god sykdomsresistens
-- Vekstskifte - ikke hvete etter hvete
-- Moderat nitrogengjødsling
-- Såtidspunkt tilpasset området
-
-**2. Overvåking:**
-- Gå i åkeren regelmessig
-- Se etter tegn på sykdom
-- Bruke VIPS (varsling i planteskadegjørere)
-- Følge med på værprognoser
-
-**3. Terskelvurdering:**
-- Hvor mye sykdom er det?
-- Hvor er planten i utviklingen?
-- Hvilket avlingspotensial har åkeren?
-- Lønner det seg å sprøyte?
-
-**4. Tiltak ved behov:**
-- Velge riktig soppmiddel
-- Sprøyte på riktig tidspunkt
-- Riktig dose og teknikk
-- Dokumentere behandlingen
-
-Ved å følge disse trinnene kan bonden redusere sprøyting og fortsatt oppnå god avlingsbeskyttelse.`,
-    },
-    {
       id: 'naturbruk-vg1-3-5-ex-1',
       type: 'exercise',
       exercise: {
@@ -1326,6 +1291,46 @@ Ved å følge disse trinnene kan bonden redusere sprøyting og fortsatt oppnå g
         allowsCanvasDrawing: false,
       },
     },
+    {
+      id: 'naturbruk-vg1-3-5-tip-1',
+      type: 'tip',
+      title: 'Forebygging er best',
+      content: `Det beste plantevernet er å unngå problemer i utgangspunktet. Velg resistente sorter, praktiser vekstskifte, hold jorda i god hevd, og sørg for gode vekstforhold. En frisk og konkurransedyktig kulturvekst tåler mer og trenger mindre bekjempelse.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Integrert plantevern i hvete',
+      problem: 'Hvordan kan en bonde bruke integrert plantevern mot soppsykdommer i hvete?',
+      solution: `**Integrert plantevern i hvete:**
+
+**1. Forebygging:**
+- Velge sorter med god sykdomsresistens
+- Vekstskifte - ikke hvete etter hvete
+- Moderat nitrogengjødsling
+- Såtidspunkt tilpasset området
+
+**2. Overvåking:**
+- Gå i åkeren regelmessig
+- Se etter tegn på sykdom
+- Bruke VIPS (varsling i planteskadegjørere)
+- Følge med på værprognoser
+
+**3. Terskelvurdering:**
+- Hvor mye sykdom er det?
+- Hvor er planten i utviklingen?
+- Hvilket avlingspotensial har åkeren?
+- Lønner det seg å sprøyte?
+
+**4. Tiltak ved behov:**
+- Velge riktig soppmiddel
+- Sprøyte på riktig tidspunkt
+- Riktig dose og teknikk
+- Dokumentere behandlingen
+
+Ved å følge disse trinnene kan bonden redusere sprøyting og fortsatt oppnå god avlingsbeskyttelse.`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-5-ex-5',
       type: 'exercise',
@@ -1486,39 +1491,6 @@ Grovfôr er samlebetegnelsen på fôr med høyt fiberinnhold, som gras, høy og 
 - Kløver øker proteininnholdet`,
     },
     {
-      id: 'naturbruk-vg1-3-6-tip-1',
-      type: 'tip',
-      title: 'Lukt på surfôret',
-      content: `Godt surfôr har en behagelig, syrlig lukt som minner om sylteagurk. Dårlig surfôr kan lukte vondt (smørsyre), muggent eller ammoniakk. Dyra eter mer av godt surfôr, noe som gir høyere produksjon. Sjekk alltid fôrkvaliteten før du gir det til dyra!`,
-    },
-    {
-      id: 'naturbruk-vg1-3-6-example-1',
-      type: 'example',
-      title: 'Eksempel: Beregning av fôrbehov',
-      problem: 'En melkebonde har 30 melkekyr som trenger 12 kg tørrstoff surfôr per dag i innefôringsperioden (200 dager). Hvor mange rundballer trenger bonden?',
-      solution: `**Beregning:**
-
-**Daglig forbruk per ku:**
-12 kg tørrstoff
-
-**Antall kyr:** 30
-
-**Innefôringsperiode:** 200 dager
-
-**Totalt tørrstoffbehov:**
-30 kyr × 12 kg/dag × 200 dager = 72 000 kg tørrstoff
-
-**Rundballer:**
-En typisk rundball inneholder ca. 200 kg tørrstoff
-
-**Antall rundballer:**
-72 000 kg / 200 kg = 360 rundballer
-
-**Svar:** Bonden trenger minimum 360 rundballer for å dekke surfôrbehovet i innefôringsperioden.
-
-**Tillegg:** Det er lurt å ha 10-15% ekstra for uforutsette hendelser, så bonden bør sikre ca. 400 rundballer.`,
-    },
-    {
       id: 'naturbruk-vg1-3-6-ex-1',
       type: 'exercise',
       exercise: {
@@ -1563,6 +1535,40 @@ En typisk rundball inneholder ca. 200 kg tørrstoff
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-3-6-tip-1',
+      type: 'tip',
+      title: 'Lukt på surfôret',
+      content: `Godt surfôr har en behagelig, syrlig lukt som minner om sylteagurk. Dårlig surfôr kan lukte vondt (smørsyre), muggent eller ammoniakk. Dyra eter mer av godt surfôr, noe som gir høyere produksjon. Sjekk alltid fôrkvaliteten før du gir det til dyra!`,
+    },
+    {
+      id: 'naturbruk-vg1-3-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Beregning av fôrbehov',
+      problem: 'En melkebonde har 30 melkekyr som trenger 12 kg tørrstoff surfôr per dag i innefôringsperioden (200 dager). Hvor mange rundballer trenger bonden?',
+      solution: `**Beregning:**
+
+**Daglig forbruk per ku:**
+12 kg tørrstoff
+
+**Antall kyr:** 30
+
+**Innefôringsperiode:** 200 dager
+
+**Totalt tørrstoffbehov:**
+30 kyr × 12 kg/dag × 200 dager = 72 000 kg tørrstoff
+
+**Rundballer:**
+En typisk rundball inneholder ca. 200 kg tørrstoff
+
+**Antall rundballer:**
+72 000 kg / 200 kg = 360 rundballer
+
+**Svar:** Bonden trenger minimum 360 rundballer for å dekke surfôrbehovet i innefôringsperioden.
+
+**Tillegg:** Det er lurt å ha 10-15% ekstra for uforutsette hendelser, så bonden bør sikre ca. 400 rundballer.`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-6-ex-4',
       type: 'exercise',
@@ -1734,48 +1740,6 @@ export const CHAPTER_NATURBRUK_VG1_3_7: TextbookChapter = {
 - Økende etterspørsel`,
     },
     {
-      id: 'naturbruk-vg1-3-7-tip-1',
-      type: 'tip',
-      title: 'Karensperiode',
-      content: `En gård som vil legge om til økologisk drift, må gjennom en karensperiode på minst 2 år for planteproduksjon. I denne perioden må gården følge økologiske regler, men produktene kan ikke selges som økologiske. Etter godkjent karens kan produktene merkes med Debios Ø-merke.`,
-    },
-    {
-      id: 'naturbruk-vg1-3-7-example-1',
-      type: 'example',
-      title: 'Eksempel: Vekstskifte i økologisk korndyrking',
-      problem: 'Hvordan kan et vekstskifte se ut på en økologisk korngård?',
-      solution: `**5-årig vekstskifte på økologisk korngård:**
-
-**År 1: Grønngjødsling**
-- Kløver og gras
-- Samler nitrogen fra lufta
-- Bygger opp organisk materiale
-- Ingen avling - investering i jorda
-
-**År 2: Hvete**
-- Utnytter nitrogen fra grønngjødsling
-- God konkurranse mot ugras
-- Høstvete om mulig for tidlig dekking
-
-**År 3: Havre med gjenlegg**
-- Havre tåler mer ugras
-- Gjenlegg av kløver/gras under havren
-
-**År 4: Eng (slått eller beite)**
-- Kløver samler nitrogen
-- Bryter sykdomssykluser
-- Kan utnyttes til fôr
-
-**År 5: Bygg eller erter**
-- Erter samler nitrogen
-- Variasjon i vekstfamilie
-
-**Fordeler:**
-- Nitrogenforsyning uten kunstgjødsel
-- Mindre ugras, sykdom og skadedyr
-- Bedre jordstruktur`,
-    },
-    {
       id: 'naturbruk-vg1-3-7-ex-1',
       type: 'exercise',
       exercise: {
@@ -1820,6 +1784,49 @@ export const CHAPTER_NATURBRUK_VG1_3_7: TextbookChapter = {
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-3-7-tip-1',
+      type: 'tip',
+      title: 'Karensperiode',
+      content: `En gård som vil legge om til økologisk drift, må gjennom en karensperiode på minst 2 år for planteproduksjon. I denne perioden må gården følge økologiske regler, men produktene kan ikke selges som økologiske. Etter godkjent karens kan produktene merkes med Debios Ø-merke.`,
+    },
+    {
+      id: 'naturbruk-vg1-3-7-example-1',
+      type: 'example',
+      title: 'Eksempel: Vekstskifte i økologisk korndyrking',
+      problem: 'Hvordan kan et vekstskifte se ut på en økologisk korngård?',
+      solution: `**5-årig vekstskifte på økologisk korngård:**
+
+**År 1: Grønngjødsling**
+- Kløver og gras
+- Samler nitrogen fra lufta
+- Bygger opp organisk materiale
+- Ingen avling - investering i jorda
+
+**År 2: Hvete**
+- Utnytter nitrogen fra grønngjødsling
+- God konkurranse mot ugras
+- Høstvete om mulig for tidlig dekking
+
+**År 3: Havre med gjenlegg**
+- Havre tåler mer ugras
+- Gjenlegg av kløver/gras under havren
+
+**År 4: Eng (slått eller beite)**
+- Kløver samler nitrogen
+- Bryter sykdomssykluser
+- Kan utnyttes til fôr
+
+**År 5: Bygg eller erter**
+- Erter samler nitrogen
+- Variasjon i vekstfamilie
+
+**Fordeler:**
+- Nitrogenforsyning uten kunstgjødsel
+- Mindre ugras, sykdom og skadedyr
+- Bedre jordstruktur`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-7-ex-4',
       type: 'exercise',
@@ -2037,6 +2044,51 @@ Arbeidet på en gård følger årstidene og naturens rytme. Selv om moderne tekn
 - Familie og sosialt`,
     },
     {
+      id: 'naturbruk-vg1-3-8-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-8-ex-1',
+        number: '1',
+        type: 'classic',
+        task: 'Hva menes med våronn, og hvilke arbeidsoppgaver inngår?',
+        solution: 'Våronn er den intensive arbeidsperioden om våren med såing og planting. Oppgaver inkluderer: 1) Jordarbeiding (pløying, harving) når jorda er laglig, 2) Gjødsling, 3) Såing av korn og grønnsaker, 4) Setting av poteter, 5) Planting av grønnsaksplanter. God timing og fint vær er avgjørende.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-3-8-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-8-ex-2',
+        number: '2',
+        type: 'multiple-choice',
+        task: 'Når gjennomføres vanligvis første slått av eng på Østlandet?',
+        options: [
+          { id: 'a', text: 'Mai', isCorrect: false },
+          { id: 'b', text: 'Juni', isCorrect: true },
+          { id: 'c', text: 'Juli', isCorrect: false },
+          { id: 'd', text: 'August', isCorrect: false },
+        ],
+        solution: 'Første slått gjennomføres vanligvis i juni, når timoteien begynner å skyte. Tidlig slått gir høy fôrkvalitet.',
+        allowsUpload: false,
+        allowsCanvasDrawing: false,
+      },
+    },
+    {
+      id: 'naturbruk-vg1-3-8-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'naturbruk-vg1-3-8-ex-3',
+        number: '3',
+        type: 'classic',
+        task: 'Beskriv de viktigste arbeidsoppgavene på en gård om høsten.',
+        solution: 'Høsten er travelt med: 1) Tresking og lagring av korn (skuronn), 2) Potetopptaking og grønnsakshøsting, 3) Frukthøsting (epler, plommer), 4) Innsett av dyr fra beite, 5) Pløying og såing av høstkorn, 6) Slakting av lam, 7) Vedlikehold og klargjøring for vinter.',
+        allowsUpload: true,
+        allowsCanvasDrawing: true,
+      },
+    },
+    {
       id: 'naturbruk-vg1-3-8-tip-1',
       type: 'tip',
       title: 'Værmelding og planlegging',
@@ -2087,51 +2139,7 @@ Arbeidet på en gård følger årstidene og naturens rytme. Selv om moderne tekn
 
 Melking skjer daglig hele året, vanligvis morgen og kveld.`,
     },
-    {
-      id: 'naturbruk-vg1-3-8-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-8-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Hva menes med våronn, og hvilke arbeidsoppgaver inngår?',
-        solution: 'Våronn er den intensive arbeidsperioden om våren med såing og planting. Oppgaver inkluderer: 1) Jordarbeiding (pløying, harving) når jorda er laglig, 2) Gjødsling, 3) Såing av korn og grønnsaker, 4) Setting av poteter, 5) Planting av grønnsaksplanter. God timing og fint vær er avgjørende.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-8-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-8-ex-2',
-        number: '2',
-        type: 'multiple-choice',
-        task: 'Når gjennomføres vanligvis første slått av eng på Østlandet?',
-        options: [
-          { id: 'a', text: 'Mai', isCorrect: false },
-          { id: 'b', text: 'Juni', isCorrect: true },
-          { id: 'c', text: 'Juli', isCorrect: false },
-          { id: 'd', text: 'August', isCorrect: false },
-        ],
-        solution: 'Første slått gjennomføres vanligvis i juni, når timoteien begynner å skyte. Tidlig slått gir høy fôrkvalitet.',
-        allowsUpload: false,
-        allowsCanvasDrawing: false,
-      },
-    },
-    {
-      id: 'naturbruk-vg1-3-8-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'naturbruk-vg1-3-8-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv de viktigste arbeidsoppgavene på en gård om høsten.',
-        solution: 'Høsten er travelt med: 1) Tresking og lagring av korn (skuronn), 2) Potetopptaking og grønnsakshøsting, 3) Frukthøsting (epler, plommer), 4) Innsett av dyr fra beite, 5) Pløying og såing av høstkorn, 6) Slakting av lam, 7) Vedlikehold og klargjøring for vinter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-3-8-ex-4',
       type: 'exercise',
@@ -2277,43 +2285,6 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
       content: `Egenverdi betyr at noe har verdi i seg selv, uavhengig av nytten det har for andre. Dyrevelferdsloven slar fast at dyr har egenverdi - de har verdi bare ved a eksistere, ikke bare som ressurs for mennesker. Dette er et viktig etisk prinsipp som pavirker hvordan vi skal behandle dyr.`,
     },
     {
-      id: 'naturbruk-vg1-4-1-tip-1',
-      type: 'tip',
-      title: 'Varsle om darlig dyrehold',
-      content: `Hvis du ser dyr som lider eller ikke far stell, kan du varsle Mattilsynet. De har en egen varslingstelefon og nettskjema. Du kan vaere anonym. Varsling er viktig for a hjelpe dyr som ikke kan hjelpe seg selv, og det er ikke det samme som a sladre - det er a ta ansvar.`,
-    },
-    {
-      id: 'naturbruk-vg1-4-1-example-1',
-      type: 'example',
-      title: 'Eksempel: Vurdering av de fem friheter',
-      problem: 'Hvordan kan du vurdere om en besetning med melkekyr oppfyller de fem friheter?',
-      solution: `**Vurdering av de fem friheter for melkekyr:**
-
-**1. Frihet fra sult og torst:**
-- Er det nok drikkenipler/kar?
-- Er vannet rent og friskt?
-- Far alle kyr tilgang til forbrettet?
-
-**2. Frihet fra ubehag:**
-- Er fjoset rent og tort?
-- Er det nok plass i liggebasene?
-- Er temperaturen behagelig?
-
-**3. Frihet fra smerte, skade og sykdom:**
-- Har kyrne skader eller sar?
-- Er det tegn til halthet?
-- Far syke dyr behandling?
-
-**4. Frihet til normal atferd:**
-- Kan kyrne bevege seg fritt?
-- Har de mulighet til sosial kontakt?
-- Har de tilgang til beite?
-
-**5. Frihet fra frykt og stress:**
-- Hvordan reagerer kyrne pa mennesker?
-- Er handteringen rolig?`,
-    },
-    {
       id: 'naturbruk-vg1-4-1-ex-1',
       type: 'exercise',
       exercise: {
@@ -2358,6 +2329,44 @@ De fem friheter er internasjonalt anerkjente prinsipper for dyrevelferd, utvikle
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-1-tip-1',
+      type: 'tip',
+      title: 'Varsle om darlig dyrehold',
+      content: `Hvis du ser dyr som lider eller ikke far stell, kan du varsle Mattilsynet. De har en egen varslingstelefon og nettskjema. Du kan vaere anonym. Varsling er viktig for a hjelpe dyr som ikke kan hjelpe seg selv, og det er ikke det samme som a sladre - det er a ta ansvar.`,
+    },
+    {
+      id: 'naturbruk-vg1-4-1-example-1',
+      type: 'example',
+      title: 'Eksempel: Vurdering av de fem friheter',
+      problem: 'Hvordan kan du vurdere om en besetning med melkekyr oppfyller de fem friheter?',
+      solution: `**Vurdering av de fem friheter for melkekyr:**
+
+**1. Frihet fra sult og torst:**
+- Er det nok drikkenipler/kar?
+- Er vannet rent og friskt?
+- Far alle kyr tilgang til forbrettet?
+
+**2. Frihet fra ubehag:**
+- Er fjoset rent og tort?
+- Er det nok plass i liggebasene?
+- Er temperaturen behagelig?
+
+**3. Frihet fra smerte, skade og sykdom:**
+- Har kyrne skader eller sar?
+- Er det tegn til halthet?
+- Far syke dyr behandling?
+
+**4. Frihet til normal atferd:**
+- Kan kyrne bevege seg fritt?
+- Har de mulighet til sosial kontakt?
+- Har de tilgang til beite?
+
+**5. Frihet fra frykt og stress:**
+- Hvordan reagerer kyrne pa mennesker?
+- Er handteringen rolig?`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-1-ex-4',
       type: 'exercise',
@@ -2491,36 +2500,6 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
 - Daglig tilsyn`,
     },
     {
-      id: 'naturbruk-vg1-4-2-tip-1',
-      type: 'tip',
-      title: 'Kuas kroppssprak',
-      content: `Du kan lese kuas humor pa kroppspraket. Avslappede orer og rolig drovtygging = fornoyd ku. Stive orer, spent kropp og stirrende blikk = stresset eller redd. Laer a lese dyra for a oppdage problemer tidlig!`,
-    },
-    {
-      id: 'naturbruk-vg1-4-2-example-1',
-      type: 'example',
-      title: 'Eksempel: Forplan for melkeku',
-      problem: 'Hvordan kan en dagsrasjon for en melkeku som yter 30 liter melk se ut?',
-      solution: `**Forplan for hoytytende melkeku:**
-
-**Grovfor:**
-- Surfor (grassurfor): ca. 40 kg
-- Gir ca. 10-12 kg torrstoff
-
-**Kraftfor:**
-- Melkekraftfor: ca. 10-12 kg
-- Tilpasses etter ytelse
-
-**Vann:**
-- Fri tilgang til rent vann
-- En ku drikker 80-150 liter/dag
-
-**Balanse:**
-- Nok fiber for drovtygging
-- Protein tilpasset ytelse
-- Energi for hoy produksjon`,
-    },
-    {
       id: 'naturbruk-vg1-4-2-ex-1',
       type: 'exercise',
       exercise: {
@@ -2565,6 +2544,37 @@ Storfe er den viktigste husdyrarten i Norge malt i okonomisk verdi. Vi har bade 
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-2-tip-1',
+      type: 'tip',
+      title: 'Kuas kroppssprak',
+      content: `Du kan lese kuas humor pa kroppspraket. Avslappede orer og rolig drovtygging = fornoyd ku. Stive orer, spent kropp og stirrende blikk = stresset eller redd. Laer a lese dyra for a oppdage problemer tidlig!`,
+    },
+    {
+      id: 'naturbruk-vg1-4-2-example-1',
+      type: 'example',
+      title: 'Eksempel: Forplan for melkeku',
+      problem: 'Hvordan kan en dagsrasjon for en melkeku som yter 30 liter melk se ut?',
+      solution: `**Forplan for hoytytende melkeku:**
+
+**Grovfor:**
+- Surfor (grassurfor): ca. 40 kg
+- Gir ca. 10-12 kg torrstoff
+
+**Kraftfor:**
+- Melkekraftfor: ca. 10-12 kg
+- Tilpasses etter ytelse
+
+**Vann:**
+- Fri tilgang til rent vann
+- En ku drikker 80-150 liter/dag
+
+**Balanse:**
+- Nok fiber for drovtygging
+- Protein tilpasset ytelse
+- Energi for hoy produksjon`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-2-ex-4',
       type: 'exercise',
@@ -2697,26 +2707,6 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
 - Radiobjeller for sporing`,
     },
     {
-      id: 'naturbruk-vg1-4-3-tip-1',
-      type: 'tip',
-      title: 'God lamming',
-      content: `Under lammingen er det viktig at lammet far ramelk (kolostrum) innen 2-4 timer etter fodsel. Ramelken inneholder antistoffer som beskytter lammet mot sykdom. Sjekk at lammet dier aktivt!`,
-    },
-    {
-      id: 'naturbruk-vg1-4-3-example-1',
-      type: 'example',
-      title: 'Eksempel: Arshjul for sauebonde',
-      problem: 'Hvordan ser et typisk ar ut for en sauebonde?',
-      solution: `**Arshjul for sauebonde:**
-
-**Januar-februar:** Inneforing, soyene er drektige
-**Mars-mai:** Lamming, klipping, slipp pa varbeite
-**Juni-august:** Sau og lam pa utmarksbeite
-**September:** Sanking fra fjellet, slakting av lam
-**Oktober-november:** Parring, innsett til inneforing
-**Desember:** Roligere periode, foring og tilsyn`,
-    },
-    {
       id: 'naturbruk-vg1-4-3-ex-1',
       type: 'exercise',
       exercise: {
@@ -2761,6 +2751,27 @@ Sau og geit er smafe som har vaert viktige husdyr i Norge i tusenvis av ar. De u
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-3-tip-1',
+      type: 'tip',
+      title: 'God lamming',
+      content: `Under lammingen er det viktig at lammet far ramelk (kolostrum) innen 2-4 timer etter fodsel. Ramelken inneholder antistoffer som beskytter lammet mot sykdom. Sjekk at lammet dier aktivt!`,
+    },
+    {
+      id: 'naturbruk-vg1-4-3-example-1',
+      type: 'example',
+      title: 'Eksempel: Arshjul for sauebonde',
+      problem: 'Hvordan ser et typisk ar ut for en sauebonde?',
+      solution: `**Arshjul for sauebonde:**
+
+**Januar-februar:** Inneforing, soyene er drektige
+**Mars-mai:** Lamming, klipping, slipp pa varbeite
+**Juni-august:** Sau og lam pa utmarksbeite
+**September:** Sanking fra fjellet, slakting av lam
+**Oktober-november:** Parring, innsett til inneforing
+**Desember:** Roligere periode, foring og tilsyn`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-3-ex-4',
       type: 'exercise',
@@ -2884,26 +2895,6 @@ Gris og fjorfe er enmagede dyr som ikke kan utnytte grovfor like effektivt som d
 - Store besetninger`,
     },
     {
-      id: 'naturbruk-vg1-4-4-tip-1',
-      type: 'tip',
-      title: 'Les merkingen pa egget',
-      content: `Tallet pa egget forteller om produksjonsformen: 0 = okologisk, 1 = friland, 2 = frittgaende innendors. NO betyr norsk produksjon. Velg egg etter hva som er viktig for deg!`,
-    },
-    {
-      id: 'naturbruk-vg1-4-4-example-1',
-      type: 'example',
-      title: 'Eksempel: Norsk vs. EU dyrevelferd for gris',
-      problem: 'Hvordan skiller norsk dyrevelferd for gris seg fra EU?',
-      solution: `**Norge har strengere krav:**
-
-**Purker:** Norge krever losdrift hele drektigheten, EU tillater fiksering.
-**Kastrering:** Norge krever bedovelse, mange EU-land tillater uten.
-**Halekupering:** Forbudt i Norge, tillatt i mange EU-land.
-**Stro:** Krav i Norge, varierende i EU.
-
-Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrevelferd.`,
-    },
-    {
       id: 'naturbruk-vg1-4-4-ex-1',
       type: 'exercise',
       exercise: {
@@ -2948,6 +2939,27 @@ Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrev
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-4-tip-1',
+      type: 'tip',
+      title: 'Les merkingen pa egget',
+      content: `Tallet pa egget forteller om produksjonsformen: 0 = okologisk, 1 = friland, 2 = frittgaende innendors. NO betyr norsk produksjon. Velg egg etter hva som er viktig for deg!`,
+    },
+    {
+      id: 'naturbruk-vg1-4-4-example-1',
+      type: 'example',
+      title: 'Eksempel: Norsk vs. EU dyrevelferd for gris',
+      problem: 'Hvordan skiller norsk dyrevelferd for gris seg fra EU?',
+      solution: `**Norge har strengere krav:**
+
+**Purker:** Norge krever losdrift hele drektigheten, EU tillater fiksering.
+**Kastrering:** Norge krever bedovelse, mange EU-land tillater uten.
+**Halekupering:** Forbudt i Norge, tillatt i mange EU-land.
+**Stro:** Krav i Norge, varierende i EU.
+
+Disse forskjellene gjor norsk svinekjott dyrere a produsere, men med bedre dyrevelferd.`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-4-ex-4',
       type: 'exercise',
@@ -3074,25 +3086,6 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
       content: `Antibiotikaresistens oppstar nar bakterier utvikler motstand mot antibiotika. Overforbruk og feil bruk oker resistens. Norge har lavt forbruk og lite resistens.`,
     },
     {
-      id: 'naturbruk-vg1-4-5-tip-1',
-      type: 'tip',
-      title: 'Tidlig oppdagelse',
-      content: `Jo tidligere du oppdager at et dyr er sykt, jo bedre er sjansen for vellykket behandling. Bruk tid pa a observere dyra hver dag - laer deg hva som er normalt!`,
-    },
-    {
-      id: 'naturbruk-vg1-4-5-example-1',
-      type: 'example',
-      title: 'Eksempel: Tegn pa sykdom',
-      problem: 'Hvordan kan du se at et dyr er sykt?',
-      solution: `**Tegn pa sykdom:**
-- Endret atferd (slapp, isolerer seg)
-- Nedsatt appetitt
-- Feber
-- Endret avforing
-- Synlige symptomer (hoste, halthet, utslett)
-- Redusert produksjon (mindre melk, vekttap)`,
-    },
-    {
       id: 'naturbruk-vg1-4-5-ex-1',
       type: 'exercise',
       exercise: {
@@ -3137,6 +3130,26 @@ Friske dyr er en forutsetning for god dyrevelferd og lonnsom produksjon. Forebyg
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-5-tip-1',
+      type: 'tip',
+      title: 'Tidlig oppdagelse',
+      content: `Jo tidligere du oppdager at et dyr er sykt, jo bedre er sjansen for vellykket behandling. Bruk tid pa a observere dyra hver dag - laer deg hva som er normalt!`,
+    },
+    {
+      id: 'naturbruk-vg1-4-5-example-1',
+      type: 'example',
+      title: 'Eksempel: Tegn pa sykdom',
+      problem: 'Hvordan kan du se at et dyr er sykt?',
+      solution: `**Tegn pa sykdom:**
+- Endret atferd (slapp, isolerer seg)
+- Nedsatt appetitt
+- Feber
+- Endret avforing
+- Synlige symptomer (hoste, halthet, utslett)
+- Redusert produksjon (mindre melk, vekttap)`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-5-ex-4',
       type: 'exercise',
@@ -3261,29 +3274,6 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
       content: `Holdvurdering (BCS) er en metode for a vurdere dyrets ernaeringstilstand ved a kjenne og se pa fettvev pa kroppen. Skalaen gar fra 1 (avmagret) til 5 (overvektig).`,
     },
     {
-      id: 'naturbruk-vg1-4-6-tip-1',
-      type: 'tip',
-      title: 'For etter behov',
-      content: `Et friskt dyr med god appetitt skal ha tilgang til nok for. Men var obs pa at overforing ogsa er et problem - det kan gi forfetning og stoffskiftesykdommer. Laer deg a vurdere dyras hold regelmessig!`,
-    },
-    {
-      id: 'naturbruk-vg1-4-6-example-1',
-      type: 'example',
-      title: 'Eksempel: Grovfor vs. kraftfor',
-      problem: 'Hva er forskjellen mellom grovfor og kraftfor?',
-      solution: `**Grovfor:**
-- Surfor, hoy, beite
-- Hoyt fiberinnhold
-- Lavere energikonsentrasjon
-- Viktig for drovtyggere
-
-**Kraftfor:**
-- Korn, soya, ferdigfor
-- Hoy konsentrasjon av energi og protein
-- Lavt fiberinnhold
-- Brukes som tilskudd eller hovedfor`,
-    },
-    {
       id: 'naturbruk-vg1-4-6-ex-1',
       type: 'exercise',
       exercise: {
@@ -3328,6 +3318,30 @@ Riktig foring er avgjorende for dyras helse, velferd og produksjon. Hvert dyr ha
         allowsCanvasDrawing: true,
       },
     },
+    {
+      id: 'naturbruk-vg1-4-6-tip-1',
+      type: 'tip',
+      title: 'For etter behov',
+      content: `Et friskt dyr med god appetitt skal ha tilgang til nok for. Men var obs pa at overforing ogsa er et problem - det kan gi forfetning og stoffskiftesykdommer. Laer deg a vurdere dyras hold regelmessig!`,
+    },
+    {
+      id: 'naturbruk-vg1-4-6-example-1',
+      type: 'example',
+      title: 'Eksempel: Grovfor vs. kraftfor',
+      problem: 'Hva er forskjellen mellom grovfor og kraftfor?',
+      solution: `**Grovfor:**
+- Surfor, hoy, beite
+- Hoyt fiberinnhold
+- Lavere energikonsentrasjon
+- Viktig for drovtyggere
+
+**Kraftfor:**
+- Korn, soya, ferdigfor
+- Hoy konsentrasjon av energi og protein
+- Lavt fiberinnhold
+- Brukes som tilskudd eller hovedfor`,
+    },
+    // --- Samleoppgaver ---
     {
       id: 'naturbruk-vg1-4-6-ex-4',
       type: 'exercise',
