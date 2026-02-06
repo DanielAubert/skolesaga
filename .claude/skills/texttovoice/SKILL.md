@@ -13,8 +13,8 @@ Denne skillen automatiserer generering av lydbøker fra narrative lærebokkapitl
 1. **Ekstraherer tekst** fra et narrativt kapittel (hopper over audio/video/exercise-blokker)
 2. **Genererer lyd** med ElevenLabs v3 API (Liam-stemmen, norsk)
 3. **Setter sammen** chunks med ffmpeg (hvis teksten overstiger 5000 tegn)
-4. **Finner segmentgrenser** med Whisper speech-to-text
-5. **Splitter lydfilen** ved quiz-markører (fjerner "slutt på del X")
+4. **Finner segmentgrenser** med Whisper (omtrentlige) + ffmpeg silencedetect (presise)
+5. **Splitter lydfilen** ved naturlige pauser før quiz-markører (fjerner "slutt på del X")
 6. **Lagrer master-fil** i `_master/`-mappen
 
 ## Forutsetninger
@@ -120,34 +120,95 @@ ffmpeg -y -f concat -safe 0 -i concat_list.txt -c copy output-full.mp3
 
 Lagre denne sammensatte filen (uten intro) som master i `_master/`-mappen.
 
-### Steg 5: Finn segmentgrenser med Whisper
+### Steg 5: Finn segmentgrenser (to-stegs metode)
+
+Segmentering bruker **to verktøy sammen** for presise kutt:
+
+#### 5a: Whisper – finn omtrentlige markør-tidspunkter
 
 ```bash
-whisper --model tiny --language no input.mp3 --output_format json --output_dir /tmp/whisper
+whisper --model tiny --language no --word_timestamps True master.mp3 \
+  --output_format json --output_dir /tmp/whisper
 ```
 
-Søk etter "slutt" i JSON-output:
+Parse JSON og finn "slutt"-markører med ord-nivå tidsstempler:
 ```python
+import json
+with open('/tmp/whisper/master.json') as f:
+    data = json.load(f)
+
 for seg in data['segments']:
-    if 'slutt' in seg['text'].lower():
-        print(f"{seg['start']:.2f} - {seg['end']:.2f}: {seg['text']}")
+    words = seg.get('words', [])
+    first_words = ' '.join([w['word'].strip().lower() for w in words[:3]])
+    if first_words.startswith('slut') and 'på' in first_words and 'del' in first_words:
+        slutt_start = words[0]['start']
+        # Finn hvor overskriften starter (etter tall-ordet)
+        for j, w in enumerate(words):
+            wl = w['word'].strip().lower().rstrip('.,!?')
+            if wl in ['1','2','3','4','5','en','to','tre','fire','fem','ett']:
+                heading_start = words[j+1]['start'] if j+1 < len(words) else None
+                break
+        print(f"Markør: {seg['text'].strip()}")
+        print(f"  Slutt-ord starter: {slutt_start:.2f}")
+        print(f"  Overskrift starter: {heading_start:.2f}")
+```
+
+**NB:** Whisper kan transkribere "Slutt" som "Slut", "Schlutt" osv. Søk bredt.
+
+#### 5b: silencedetect – finn presist kuttpunkt
+
+Whisper-tidsstempler har ~0.5s marginfeil. Bruk `ffmpeg silencedetect` for å finne
+den eksakte stilhetsperioden mellom innhold og "Slutt"-markør:
+
+```bash
+ffmpeg -i master.mp3 -af silencedetect=noise=-30dB:d=0.3 -f null - 2>&1 | grep silence_
+```
+
+For hver markør: finn stillheten som slutter rett før Whisper-tidspunktet:
+```python
+import re, subprocess
+
+result = subprocess.run(
+    ["ffmpeg", "-i", "master.mp3", "-af", "silencedetect=noise=-30dB:d=0.3", "-f", "null", "-"],
+    capture_output=True, text=True
+)
+
+silences = []
+for line in result.stderr.split('\n'):
+    m_start = re.search(r'silence_start: ([\d.]+)', line)
+    m_end = re.search(r'silence_end: ([\d.]+) \| silence_duration: ([\d.]+)', line)
+    if m_start:
+        current_start = float(m_start.group(1))
+    if m_end:
+        silences.append((current_start, float(m_end.group(1)), float(m_end.group(2))))
+
+# For hver markør (slutt_start fra Whisper):
+for marker_t in whisper_marker_times:
+    candidates = [(s, e, d) for s, e, d in silences if e > marker_t - 5 and e <= marker_t + 0.5]
+    best = min(candidates, key=lambda x: abs(x[1] - marker_t))
+    cut_point = best[0] + 0.3  # Slutt på tale + 0.3s naturlig stillhet
+    print(f"  Markør ved ~{marker_t:.2f}s → kutt ved {cut_point:.2f}s")
 ```
 
 ### Steg 6: Splitt lydfilen
 
-For hvert segment, kutt **før** "slutt på del X" og **etter** forrige slutt:
+Bruk kuttpunktene fra steg 5b (silencedetect) for segment-slutt,
+og overskrift-start fra steg 5a (Whisper) for segment-start:
 
 ```bash
-# Del 1: 0 → før "slutt på del 1"
-ffmpeg -y -i full.mp3 -ss 0 -to 138.8 -c copy del1.mp3
+# Del 1: 0 → silence_start + 0.3 (naturlig pause etter siste ord)
+ffmpeg -y -i master.mp3 -ss 0 -to 167.86 -c copy del1.mp3
 
-# Del 2: etter "slutt på del 1" → før "slutt på del 2"
-ffmpeg -y -i full.mp3 -ss 141.4 -to 229.4 -c copy del2.mp3
+# Del 2: heading_start → silence_start + 0.3
+ffmpeg -y -i master.mp3 -ss 170.74 -to 270.73 -c copy del2.mp3
 
 # osv...
 ```
 
-**Tips:** For nøyaktige kutt rundt "Oppsummering", bruk `whisper --model small` på et kort segment.
+**Viktig:**
+- **Segment-slutt** = `silence_start + 0.3` fra silencedetect (beholder alt innhold + naturlig pause)
+- **Segment-start** = overskrift-start fra Whisper ord-tidsstempler (inkluderer seksjonstittelen)
+- IKKE bruk Whisper-tidsstempler direkte til kutt – de har for stor marginfeil
 
 ### Steg 7: Lagre master og oppdater kapittel
 
@@ -191,7 +252,12 @@ ElevenLabs kan noen ganger produsere dansk selv med `language_code: "no"`. Løsn
 Del teksten ved avsnitt (dobbel linjeskift) og generer chunks separat.
 
 ### Whisper finner ikke markører
-Bruk `--model small` eller `--model medium` for bedre nøyaktighet.
+- Whisper kan transkribere "Slutt" som "Slut", "Schlutt", etc. Søk bredt med `'slut' in text.lower()`.
+- Bruk `--word_timestamps True` for ord-nivå tidsstempler.
+- Bruk `--model small` for bedre nøyaktighet (men mye tregere på CPU).
+
+### Markør-rester høres i segmentet
+Whisper-tidsstempler har ~0.5s marginfeil. Bruk alltid silencedetect (steg 5b) for presise kuttpunkter. ALDRI bruk Whisper-tidsstempler direkte til kutt.
 
 ## Eksisterende skript
 
