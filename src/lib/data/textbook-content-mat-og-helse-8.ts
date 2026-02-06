@@ -188,7 +188,9 @@ export const CHAPTER_MAT_8_1_2: TextbookChapter = {
 5. Begrens inntak av rødt kjøtt og bearbeidet kjøtt
 6. Velg matoljer og myk margarin
 7. Begrens sukker og salt
-8. Drikk vann`,
+8. Drikk vann
+
+*Merk: Kostholdsrådene er basert på Helsedirektoratets anbefalinger og oppdateres etter hvert som ny forskning kommer til. For individuelle kostholdsråd, spesielt ved sykdom eller spesielle behov, bør du kontakte helsepersonell.*`,
     },
     {
       id: 'mat-8-1-2-def-1',

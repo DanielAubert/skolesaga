@@ -559,7 +559,9 @@ Psykiske lidelser er tilstander som pavirker tanker, folelser og atferd pa mater
 - Grensen mellom "normalt" og "sykt" er ikke alltid klar
 - Kulturelle forskjeller i hva som anses som avvikende
 - Risiko for overdiagnostisering eller underdiagnostisering
-- Stigma knyttet til diagnoser`,
+- Stigma knyttet til diagnoser
+
+*Viktig: Informasjonen i dette kapittelet er ment som faglig kunnskap for skolebruk, ikke som grunnlag for selvdiagnostisering. Psykiske lidelser diagnostiseres og behandles av kvalifisert helsepersonell. Hvis du eller noen du kjenner sliter psykisk, ta kontakt med fastlege, helsesykepleier eller Mental Helse Hjelpetelefonen (116 123).*`,
     },
     {
       id: 'psykologi-2-4-def-1',

@@ -1130,17 +1130,17 @@ Norges Grunnlov fra 1814 er en av verdens eldste grunnlover som fortsatt er i br
       title: 'Politiske partier',
       content: `**Høyresiden (borgerlig):**
 - **Høyre (H):** Konservativt, lavere skatter, privat næringsliv
-- **Fremskrittspartiet (FrP):** Lavere skatter, strengere innvandring
-- **Venstre (V):** Liberalt, miljø, individuell frihet
-- **Kristelig Folkeparti (KrF):** Kristne verdier, familiepolitikk
+- **Fremskrittspartiet (FrP):** Liberalistisk, lavere skatter, individuell frihet, innvandringskritisk
+- **Venstre (V):** Sosialliberalt, miljø, individuell frihet
+- **Kristelig Folkeparti (KrF):** Kristendemokratisk, familiepolitikk, internasjonal solidaritet
 
 **Venstresiden (sosialistisk):**
-- **Arbeiderpartiet (Ap):** Sosialdemokratisk, arbeiderbevegelsen
+- **Arbeiderpartiet (Ap):** Sosialdemokratisk, fagbevegelsen, velferdsstat
 - **Sosialistisk Venstreparti (SV):** Sosialistisk, miljø, omfordeling
-- **Rødt (R):** Sosialistisk, mot kapitalisme
+- **Rødt (R):** Sosialistisk, arbeidermakt, systemkritisk
 
 **Sentrum:**
-- **Senterpartiet (Sp):** Distriktspolitikk, nei til EU
+- **Senterpartiet (Sp):** Distriktspolitikk, desentralisering, nei til EU
 - **Miljøpartiet De Grønne (MDG):** Miljø og klima som hovedsak`,
     },
     {

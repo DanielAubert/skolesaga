@@ -604,7 +604,7 @@ Det var en historisk seier i rettssalen. Men så skjedde noe merkelig: Ingenting
 
 **Fosen-saken** viser en brutal sannhet: Rettigheter uten håndhevelse er lite verdt. Du kan vinne i Høyesterett og likevel tape i praksis -- hvis andre interesser veier tyngre.
 
-Saken viser også spenningen mellom samiske rettigheter og det grønne skiftet. Vindkraft presenteres som nødvendig for klimaet. Men når vindmøllene settes opp på samiske beiteområder, blir urfolket bedt om å bære kostnadene for majoritetssamfunnets energibehov. Noen kaller dette "grønn kolonialisme".
+Saken viser også spenningen mellom samiske rettigheter og det grønne skiftet. Vindkraft presenteres som nødvendig for klimaet. Men når vindmøllene settes opp på samiske beiteområder, blir urfolket bedt om å bære kostnadene for majoritetssamfunnets energibehov. Noen kaller dette "grønn kolonialisme". Andre mener at klimakrisen gjør vanskelige avveininger uunngåelige, og at løsningen må være bedre prosesser og kompensasjon -- ikke stopp i all utbygging. Debatten handler om hvordan ulike hensyn skal veies mot hverandre.
 
 Kampen for samiske rettigheter er ikke over. Fosen viser at det fortsatt er lang vei å gå -- at juridiske seire må følges opp med politisk handling, og at konflikter mellom urfolksrettigheter og andre samfunnsinteresser vil fortsette å oppstå.`,
     },

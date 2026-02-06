@@ -2119,7 +2119,9 @@ Du er ikke terapeut. Din rolle er å være en støttende venn og hjelpe personen
 - NASP (Nasjonalt kompetansesenter for sped- og småbarns psykiske helse)
 - ROS (Ressurssenter for spiseforstyrrelser)
 
-Husk: Det er ALDRI for tidlig å søke hjelp, men det kan bli for sent.`,
+Husk: Det er ALDRI for tidlig å søke hjelp, men det kan bli for sent.
+
+*Viktig: Informasjonen her er ment som generell veiledning og erstatter ikke profesjonell hjelp. Ved mistanke om spiseforstyrrelser eller andre psykiske helseplager, kontakt alltid kvalifisert helsepersonell.*`,
     },
     {
       id: 'kroppsoving-vg1-3-5-exercise1',

@@ -57,6 +57,7 @@ import { ENGELSK_VG1_CHAPTERS } from './textbook-content-engelsk-vg1';
 import { ENGELSK_VG1_NARRATIV_CHAPTERS } from './textbook-content-engelsk-vg1-narrativ';
 import { SAMFUNNSKUNNSKAP_CHAPTERS } from './textbook-content-samfunnskunnskap';
 import { GEOGRAFI_CHAPTERS } from './textbook-content-geografi';
+import { GEOGRAFI_NARRATIV_CHAPTERS } from './textbook-content-geografi-narrativ';
 import { KROPPSOVING_VG1_CHAPTERS } from './textbook-content-kroppsoving-vg1';
 import { NORSK_VG2_CHAPTERS } from './textbook-content-norsk-vg2';
 import { NORSK_VG2_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg2-narrativ';
@@ -117,7 +118,14 @@ import { CHAPTERS_TIF_VG1_PART1 } from './textbook-content-tif-vg1';
 import { TEXTBOOK_CONTENT_HANDVERK_DESIGN_VG1_PART1 } from './textbook-content-handverk-design-vg1';
 import { CHAPTERS_NATURBRUK_VG1 } from './textbook-content-naturbruk-vg1';
 import { CHAPTERS_RESTAURANT_MAT_VG1 } from './textbook-content-restaurant-mat-vg1';
-import { CHAPTERS_SALG_SERVICE_VG1 } from './textbook-content-salg-service-vg1';
+import { SALG_SERVICE_VG1_DEL1_CHAPTERS } from './textbook-content-salg-service-vg1-del1';
+import { SALG_SERVICE_VG1_DEL2_CHAPTERS } from './textbook-content-salg-service-vg1-del2';
+import { SALG_SERVICE_VG1_DEL3_CHAPTERS } from './textbook-content-salg-service-vg1-del3';
+import { SALG_SERVICE_VG1_DEL4_CHAPTERS } from './textbook-content-salg-service-vg1-del4';
+import { SALG_SERVICE_VG1_DEL5_CHAPTERS } from './textbook-content-salg-service-vg1-del5';
+import { SALG_SERVICE_VG1_DEL6_CHAPTERS } from './textbook-content-salg-service-vg1-del6';
+import { SALG_SERVICE_VG1_DEL7_CHAPTERS } from './textbook-content-salg-service-vg1-del7';
+import { SALG_SERVICE_VG1_DEL8_CHAPTERS } from './textbook-content-salg-service-vg1-del8';
 import { HELSEOPPVEKST_VG1_CHAPTERS } from './textbook-content-helseoppvekst-vg1';
 
 // 5. klasse fag (andre fag enn matematikk)
@@ -430,6 +438,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Geografi
   ...Object.fromEntries(GEOGRAFI_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(GEOGRAFI_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Kroppsøving VG1
   ...Object.fromEntries(KROPPSOVING_VG1_CHAPTERS.map(c => [c.id, c])),
@@ -454,7 +463,14 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   ...Object.fromEntries(CHAPTERS_RESTAURANT_MAT_VG1.map(c => [c.id, c])),
 
   // Salg, service og reiseliv VG1
-  ...Object.fromEntries(CHAPTERS_SALG_SERVICE_VG1.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(SALG_SERVICE_VG1_DEL8_CHAPTERS.map(c => [c.id, c])),
 
   // Helse- og oppvekstfag VG1
   ...HELSEOPPVEKST_VG1_CHAPTERS,

@@ -3826,7 +3826,9 @@ Hvilket system som dominerer avhenger av aktivitetens intensitet og varighet.`,
 
 7. **Hydrering:** Drikk nok vann. Dehydrering reduserer prestasjon.
 
-8. **Kreatin:** Tilskudd kan øke kreatinfosfat-lagrene og forbedre sprintytelser (valgfritt).`,
+8. **Kreatin:** Tilskudd kan øke kreatinfosfat-lagrene og forbedre sprintytelser (valgfritt).
+
+*Merk: Kostholdsanbefalinger er et felt i stadig utvikling, og rådene kan endre seg etter hvert som ny forskning kommer til. Tipsene her er basert på gjeldende konsensus for aktive ungdommer, men individuelle behov varierer. Ved spesifikke spørsmål om kosthold, snakk med helsepersonell eller klinisk ernæringsfysiolog.*`,
     },
     {
       id: 'kroppsoving-vg1-2-3-warning-1',

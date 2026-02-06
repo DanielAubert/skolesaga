@@ -1306,9 +1306,12 @@ Psykisk helse er like viktig som fysisk helse, og de henger sammen.
 - Ulike typer: generalisert angst, sosial angst, panikk
 
 **Spiseforstyrrelser:**
-- Anoreksi: overdreven slanking, frykter vektokning
-- Bulimi: overspising etterfulgt av oppkast/avforing
-- Alvorlige fysiske konsekvenser
+- Anoreksi (anorexia nervosa): overdreven slanking og frykt for vektøkning
+- Bulimi (bulimia nervosa): episoder med overspising etterfulgt av renselse (oppkast, avføringsmidler)
+- Overspisingslidelse (binge eating disorder): gjentatte episoder med ukontrollert overspising uten renselse, ofte forbundet med skam og ubehag
+- Alle spiseforstyrrelser kan ha alvorlige fysiske og psykiske konsekvenser
+
+*Ved mistanke om spiseforstyrrelser er det viktig å søke profesjonell hjelp. Kontakt fastlege, helsesykepleier eller ROS (Rådgivning om spiseforstyrrelser) på telefon 948 17 818.*
 
 ### Faktorer som pavirker psykisk helse
 - **Biologiske**: Genetikk, hjernebiokjemi
