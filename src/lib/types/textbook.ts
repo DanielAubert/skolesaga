@@ -500,3 +500,110 @@ export function isInteractiveExercise(exercise: TextbookExercise): boolean {
 export function isUploadExercise(exercise: TextbookExercise): boolean {
   return exercise.type === 'upload' || exercise.allowsUpload === true || exercise.allowsCanvasDrawing === true;
 }
+
+// ============================================================================
+// Prøver og eksamen
+// ============================================================================
+
+export interface ChapterExam {
+  id: string;
+  chapterId: string;
+  courseId: string;
+  title: string;
+  description: string;
+  instructions: string;               // Instruksjoner til eleven
+  duration: number;                   // Tid i minutter
+  questions: ExamQuestion[];
+  gradingCriteria: GradingCriteria;   // Vurderingskriterier
+  competenceGoals: string[];          // LK20-kompetansemål som prøves
+  createdAt?: Date;
+}
+
+export interface ExamQuestion {
+  id: string;
+  number: number;                     // 1, 2, 3, 4, 5
+  question: string;                   // Spørsmålet (Markdown støttet)
+  maxPoints: number;                  // Maks poeng for spørsmålet
+  gradingGuide: ExamGradingGuide;     // Detaljert veiledning for retting
+  competenceGoals?: string[];         // Spesifikke kompetansemål for dette spørsmålet
+}
+
+export interface ExamGradingGuide {
+  expectedContent: string[];          // Hva svaret bør inneholde
+  excellentAnswer: string;            // Eksempel på 6-besvarelse
+  goodAnswer: string;                 // Eksempel på 4-5 besvarelse
+  passingAnswer: string;              // Eksempel på 2-3 besvarelse
+  commonMistakes: string[];           // Vanlige feil å se etter
+  keyTerms: string[];                 // Nøkkelbegreper som bør brukes
+}
+
+export interface GradingCriteria {
+  gradeDescriptions: {
+    grade: number;                    // 1-6
+    description: string;              // Hva kjennetegner denne karakteren
+    requirements: string[];           // Spesifikke krav
+  }[];
+  totalPoints: number;                // Maks totalpoeng
+  pointsToGrade: {                    // Poenggrenser
+    grade: number;
+    minPoints: number;
+    maxPoints: number;
+  }[];
+}
+
+export interface ExamSubmission {
+  id: string;
+  examId: string;
+  studentId: string;
+  answers: ExamAnswer[];
+  startedAt: Date;
+  submittedAt?: Date;
+  timeSpent?: number;                 // Tid brukt i minutter
+  aiGrading?: ExamAIGrading;
+  teacherGrading?: ExamTeacherGrading;
+}
+
+export interface ExamAnswer {
+  questionId: string;
+  questionNumber: number;
+  answer: string;                     // Elevens svar
+  wordCount?: number;
+}
+
+export interface ExamAIGrading {
+  overallGrade: number;               // 1-6
+  totalPoints: number;
+  questionGradings: QuestionAIGrading[];
+  overallFeedback: string;
+  whyNotHigher: string;               // Forklaring på hvorfor ikke høyere karakter
+  whyNotLower: string;                // Forklaring på hvorfor ikke lavere karakter
+  strengths: string[];
+  areasForImprovement: string[];
+  gradedAt: Date;
+}
+
+export interface QuestionAIGrading {
+  questionId: string;
+  questionNumber: number;
+  points: number;                     // Poeng gitt
+  maxPoints: number;
+  feedback: string;                   // Tilbakemelding på dette svaret
+  strengths: string[];                // Hva var bra
+  improvements: string[];             // Hva kunne vært bedre
+  missingElements: string[];          // Hva manglet
+  keyTermsUsed: string[];             // Hvilke nøkkelbegreper ble brukt
+  keyTermsMissing: string[];          // Hvilke nøkkelbegreper manglet
+}
+
+export interface ExamTeacherGrading {
+  overallGrade: number;               // 1-6
+  totalPoints: number;
+  questionGradings: {
+    questionId: string;
+    points: number;
+    feedback?: string;
+  }[];
+  overallFeedback: string;
+  gradedAt: Date;
+  gradedBy: string;
+}

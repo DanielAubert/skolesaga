@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck, ArrowLeftRight, LayoutGrid } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Clock, BookOpen, GraduationCap, AlertCircle, BookCheck, ArrowLeftRight, LayoutGrid, ClipboardCheck } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Alert, AlertDescription } from '@/components/ui/alert';
@@ -49,6 +49,7 @@ interface TextbookChapterViewProps {
   linkedChapter?: LinkedChapterInfo;
   isNarrativeVersion?: boolean;
   hasQuiz?: boolean;
+  hasExam?: boolean;
 }
 
 export function TextbookChapterView({
@@ -60,6 +61,7 @@ export function TextbookChapterView({
   linkedChapter,
   isNarrativeVersion = false,
   hasQuiz = false,
+  hasExam = false,
 }: TextbookChapterViewProps) {
   const hasContent = !!chapterContent;
   const { user } = useUser();
@@ -482,6 +484,18 @@ export function TextbookChapterView({
                     <span>{quizResult.score}/{quizResult.total} poeng</span>
                   </div>
                 )}
+              </div>
+            )}
+
+            {/* Prøve-knapp */}
+            {hasExam && (
+              <div className="mt-4">
+                <Link href={`/bok/${course.id}/${chapterMeta.id}/prove`}>
+                  <Button className="w-full gap-2 bg-orange-600 hover:bg-orange-700 text-white">
+                    <ClipboardCheck className="h-5 w-5" />
+                    Ta prøve
+                  </Button>
+                </Link>
               </div>
             )}
 

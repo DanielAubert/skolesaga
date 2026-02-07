@@ -53,6 +53,10 @@ export default async function ChapterPage({ params }: PageProps) {
   // Check quiz availability on the server to avoid hydration mismatch
   const hasQuiz = hasQuizQuestions(chapterId) || hasChemistryQuiz(chapterId) || hasSamfunnskunnskapQuiz(chapterId);
 
+  // Kapitler med prøve
+  const chaptersWithExam = ['historie-1-2'];
+  const hasExam = chaptersWithExam.includes(chapterId);
+
   return (
     <TextbookChapterView
       course={course}
@@ -63,6 +67,7 @@ export default async function ChapterPage({ params }: PageProps) {
       linkedChapter={linkedChapter ? { id: linkedChapter.id, title: linkedChapter.title, isNarrativeVersion: linkedChapter.isNarrativeVersion } : undefined}
       isNarrativeVersion={chapterMeta.isNarrativeVersion}
       hasQuiz={hasQuiz}
+      hasExam={hasExam}
     />
   );
 }
