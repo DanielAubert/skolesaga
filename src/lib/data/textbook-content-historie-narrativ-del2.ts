@@ -49,6 +49,13 @@ Neste store steg kom med **Homo erectus**, som dukket opp for ca. 1,9 millioner 
 Og så -- for ca. 300 000 år siden -- oppsto *vi*. **Homo sapiens**, det moderne mennesket. Vi har den største hjernen av alle hominider, og vi utviklet noe ingen annen art hadde hatt: evnen til språk, kunst og kompleks abstrakt tenkning. Vi er den eneste gjenlevende menneskearten, men vi er ikke alene i historien. Neandertalerne levde i Europa samtidig med oss, og DNA-studier viser at vi til og med fikk barn sammen. De fleste ikke-afrikanere bærer 1 til 4 prosent neandertaler-DNA i seg den dag i dag.`,
     },
     {
+      id: 'historie-forhistorie-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -77,6 +84,13 @@ Denne teorien kalles **"Out of Africa"**-teorien, og den er den rådende vitensk
 Bevisene er overbevisende. DNA-studier viser at det største genetiske mangfoldet finnes i Afrika -- noe som gir mening hvis alle andre populasjoner stammer fra en liten utvandringsgruppe. Fossilfunn støtter tidslinjen. Og som vi nevnte: det faktum at ikke-afrikanere har neandertaler-DNA, viser at våre forfedre møtte og fikk barn med neandertalere da de kom til Europa og Vest-Asia.
 
 Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hudfarge eller kultur, har felles opprinnelse. Genetiske forskjeller mellom menneskegrupper er minimale -- ca. 0,1 prosent variasjon. Ytre forskjeller som hudfarge er overfladiske tilpasninger til ulike klimaer. Forskningen viser at alle nålevende mennesker har felles opprinnelse i Afrika.`,
+    },
+    {
+      id: 'historie-forhistorie-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz2',
@@ -111,6 +125,13 @@ Verktøyene ble stadig mer sofistikerte: **steinredskaper** som håndøkser, skr
 Men livet hadde også en mørk side. Barnedødeligheten var høy. Forventet levealder lå på ca. 30-35 år. En brukket fot eller en infisert tann kunne være en dødsdom. Det var et liv med mange kvaliteter -- men også med risikoer vi i dag ikke ville akseptert.`,
     },
     {
+      id: 'historie-forhistorie-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -141,6 +162,13 @@ Hva forteller disse maleriene oss? For det første viser de at steinaldermennesk
 Men *hvorfor* malte de? Her har forskerne flere teorier. Kanskje handlet det om **jaktmagi** -- å male byttedyr ga makt over dem og sikret god jakt. Kanskje var hulene **hellige steder** der ritualer ble utført. Kanskje ble maleriene brukt til **undervisning**, der eldre lærte unge jegere om dyrene. Eller kanskje likte menneskene rett og slett å skape vakre bilder -- kanskje **kunsten** var et mål i seg selv.
 
 Uansett motivasjon viser hulemaleriene noe viktig: Mennesker for titusenvis av år siden hadde de samme grunnleggende kognitive evnene som oss. De tenkte abstrakt, uttrykte seg kreativt og skapte mening.`,
+    },
+    {
+      id: 'historie-forhistorie-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz4',
@@ -175,6 +203,13 @@ Landskapet endret seg dramatisk i denne perioden. Isen hadde trykket ned landmas
 I **mellomsteinalderen** (ca. 8000-4000 f.Kr.) vokste befolkningen sakte. Kystmiljøet ble rikere, med fangst av sel, hval, fisk og skalldyr. **Helleristninger** -- bilder risset i stein -- fra denne perioden viser jaktscener og gir oss et glimt av livet til de første nordmennene. Disse menneskene levde tusenvis av år før noen tenkte på å dyrke jord eller holde husdyr. De var Norges jegere og sankere, og de la grunnlaget for alt som skulle komme.`,
     },
     {
+      id: 'historie-forhistorie-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -190,6 +225,13 @@ I **mellomsteinalderen** (ca. 8000-4000 f.Kr.) vokste befolkningen sakte. Kystmi
         ],
         solution: 'Kysten var isfri lenge før innlandet etter istiden. Golfstrømmen ga mildere klima, havet ga rikelig mat (fisk, sel, skalldyr), og kysten ga transportmuligheter med båt. Innlandet ble først beboelig etter hvert som isen smeltet og skog og dyreliv etablerte seg.',
       },
+    },
+    {
+      id: 'historie-forhistorie-1-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-forhistorie-1-n-summary',
@@ -257,6 +299,13 @@ Men jordbruksrevolusjonen skjedde ikke bare på ett sted. Den oppsto **uavhengig
 Det aller første tamme dyret var for øvrig ikke en ku eller en sau, men **hunden** -- domestisert fra ulven allerede for ca. 15 000 år siden. Lenge før vi begynte å dyrke korn, hadde vi allerede fått oss en beste venn.`,
     },
     {
+      id: 'historie-forhistorie-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -289,6 +338,13 @@ La oss se på ulike perspektiver. Sammenlignet med mange bønder hadde jeger-san
 Men med veksten kom nye problemer. **Sykdommer** spredte seg lettere i tette bosettinger. Nærhet til dyr ga nye sykdommer -- såkalte zoonoser. Ensidig kost ga dårligere ernæring enn jeger-sanker-kosten. Konflikter om jord og ressurser økte. Noen forskere mener at kvinner fikk en mer underordnet rolle enn i jeger-sanker-samfunn, selv om dette er vanskelig å fastslå med sikkerhet for forhistoriske samfunn.
 
 Så var jordbruket et fremskritt eller et tilbakeskritt? Svaret avhenger av perspektivet. For *arten* var det et fremskritt -- flere mennesker kunne leve, og jordbruket la grunnlaget for alle senere kulturelle og teknologiske nyvinninger. For *individet* var livet på mange måter hardere. Men uten jordbruk ville ingenting av det vi forbinder med sivilisasjon ha vært mulig.`,
+    },
+    {
+      id: 'historie-forhistorie-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-quiz2',
@@ -325,6 +381,13 @@ I **bronsealderen** (ca. 1800-500 f.Kr.) ble samfunnene rikere. Bronse -- en leg
 Til slutt, i **jernalderen** (ca. 500 f.Kr.-1050 e.Kr.), ble jern tilgjengelig. I motsetning til bronse kunne jern utvinnes lokalt fra myrmalm, noe som betydde at flere fikk tilgang til metallredskaper. Jernplogen effektiviserte jordbruket og endret landskapet for alltid. Jernalderen i Norden ender med vikingtiden.`,
     },
     {
+      id: 'historie-forhistorie-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -355,6 +418,13 @@ Men det er en annen tidlig by som virkelig fascinerer forskerne: **Catalhoyuk** 
 Det mest overraskende med Catalhoyuk er kanskje at det lenge har vært tolket som at det er lite tegn til sosial lagdeling. Husene er omtrent like store -- ingen "palass" eller spesielt rike hus. Veggmalerier med oksehorn, jaktscener og fruktbarhetssymboler finnes i mange hus, men det er ikke funnet noe sentralt tempel. Forskere har derfor foreslått at det kan ha vært et relativt **egalitært** samfunn. Nyere forskning har imidlertid funnet tegn til ulikheter i kosthold og tilgang til ressurser, noe som nyanserer bildet. Hypotesen om at Catalhoyuk var egalitært er altså omdiskutert, men funnene reiser uansett interessante spørsmål om forholdet mellom byer og hierarki.
 
 Overgangen fra landsby til by innebar mer enn bare større befolkning: det krevde spesialisering av yrker, handel med andre bosettinger, felles regler og ledelse, og offentlige bygninger. Det var begynnelsen på det vi kaller sivilisasjon.`,
+    },
+    {
+      id: 'historie-forhistorie-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-quiz4',
@@ -389,6 +459,13 @@ Tallene setter ting i perspektiv: Rundt 10 000 f.Kr. var verdens befolkning ca. 
 Kompetansemålet i LK20 om "matproduksjon og naturressurser -- bærekraft" handler nettopp om å forstå at historien til matproduksjon -- med både suksesser og feilgrep -- gir viktige perspektiver for fremtiden.`,
     },
     {
+      id: 'historie-forhistorie-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-quiz5',
       type: 'exercise',
       exercise: {
@@ -404,6 +481,13 @@ Kompetansemålet i LK20 om "matproduksjon og naturressurser -- bærekraft" handl
         ],
         solution: 'Mesopotamia er et klassisk eksempel: intensiv irrigasjon over lang tid førte til forsalting av jorda, noe som ødela jordbruksgrunnlaget. Andre eksempler er avskogingen rundt Middelhavet og kollapsen på Påskeøya.',
       },
+    },
+    {
+      id: 'historie-forhistorie-2-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: 'historie-forhistorie-2-n-summary',
