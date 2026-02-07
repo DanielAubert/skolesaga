@@ -117,6 +117,14 @@ import { CHAPTERS_ELEKTRO_DATA_VG1_PART2 } from './textbook-content-elektro-data
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART3 } from './textbook-content-elektro-data-vg1-del3';
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART4 } from './textbook-content-elektro-data-vg1-del4';
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART5 } from './textbook-content-elektro-data-vg1-del5';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP1_NY } from './textbook-content-elektro-data-vg1-kap1-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP2_NY } from './textbook-content-elektro-data-vg1-kap2-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP3A_NY } from './textbook-content-elektro-data-vg1-kap3a-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP3B_NY } from './textbook-content-elektro-data-vg1-kap3b-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP4_NY } from './textbook-content-elektro-data-vg1-kap4-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP5_NY } from './textbook-content-elektro-data-vg1-kap5-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP6_NY } from './textbook-content-elektro-data-vg1-kap6-ny';
+import { CHAPTERS_ELEKTRO_DATA_VG1_KAP78_NY } from './textbook-content-elektro-data-vg1-kap78-ny';
 import { CHAPTERS_BYGG_ANLEGG_VG1 } from './textbook-content-bygg-anlegg-vg1';
 import { CHAPTERS_TIF_VG1_PART1 } from './textbook-content-tif-vg1';
 import { TEXTBOOK_CONTENT_HANDVERK_DESIGN_VG1_PART1 } from './textbook-content-handverk-design-vg1';
@@ -454,6 +462,15 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART3.map(c => [c.id, c])),
   ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART4.map(c => [c.id, c])),
   ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_PART5.map(c => [c.id, c])),
+  // Nye kapitler for Elektro og datateknologi VG1
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP1_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP2_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP3A_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP3B_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP4_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP5_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP6_NY.map(c => [c.id, c])),
+  ...Object.fromEntries(CHAPTERS_ELEKTRO_DATA_VG1_KAP78_NY.map(c => [c.id, c])),
 
   // Bygg- og anleggsteknikk VG1
   ...Object.fromEntries(CHAPTERS_BYGG_ANLEGG_VG1.map(c => [c.id, c])),
