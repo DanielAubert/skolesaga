@@ -532,7 +532,7 @@ export function TextbookChapterView({
                     .filter((ex): ex is TextbookExercise => ex !== null);
                 });
 
-              const allExercises = [...chapterContent.exercises, ...contentExercises, ...collapsibleExercises];
+              const allExercises = [...(chapterContent.exercises || []), ...contentExercises, ...collapsibleExercises];
 
               return (
                 <>

@@ -203,6 +203,7 @@ I dette kapittelet har vi sett på det grunnleggende i personlig økonomi:
 **Bruttoinntekt** er lønnen din før skatt og trekk, mens **nettoinntekt** er det du faktisk får utbetalt. Forskjellen skyldes skatt, pensjonsinnskudd og andre trekk. Et **budsjett** gir deg oversikt over faste og variable utgifter, og 50/30/20-regelen er et godt utgangspunkt. **Likviditet** handler om å ha penger tilgjengelig når regningene forfaller – ikke bare totalt sett. Og til slutt: **nominell lønn** er kronebeløpet, mens **reallønn** er justert for prisvekst. **KPI** (konsumprisindeksen) måler prisnivået, og reallønnsvekst er omtrent lik nominell lønnsvekst minus prisstigning.`,
     },
   ],
+  exercises: [],
 };
 
 // ============================================================================
@@ -398,6 +399,7 @@ La oss regne på BSU. Sparer du 20 000 kroner per år med 3,8 prosent rente i 4 
 **Renters rente** ($K_n = K_0 \\cdot v^n$) gir eksponentiell vekst – det er kraften som gjør sparing effektiv over tid. **Annuitetslån** har like terminbeløp og er forutsigbart, mens **serielån** har like avdrag, synkende terminbeløp og lavere total rentekostnad. **Kredittkort** og forbrukslån har svært høy rente (20–25 %) og bør betales ned først. **Effektiv rente** er det reelle målet på lånekostnader. **BSU** gir 10 prosent skattefradrag og er den beste spareordningen for unge.`,
     },
   ],
+  exercises: [],
 };
 
 // ============================================================================
@@ -593,6 +595,7 @@ Nøkkelbegrepene å huske er: **inntektsskatt** (22 % av alminnelig inntekt), **
 **Inntektsskatt** beregnes som 22 % av alminnelig inntekt (etter fradrag). **Trinnskatt** er en progressiv tilleggsskatt der satsen øker stegvis med inntekten. **Minstefradrag** (46 % av lønn, maks 109 950 kr) og **personfradrag** (73 150 kr) reduserer beregningsgrunnlaget. **Merverdiavgift** betales på kjøp av varer og tjenester – 25 % generelt, 15 % på matvarer, 12 % på transport/kultur. Prisen inkl. mva finner du ved å multiplisere med vekstfaktoren, og prisen ekskl. mva ved å dele.`,
     },
   ],
+  exercises: [],
 };
 
 // ============================================================================
@@ -790,4 +793,5 @@ Bedriftsøkonomi handler ikke bare om store selskaper. Selger du hjemmelagde smy
 **Faste kostnader** løper uansett produksjon (husleie, forsikring), mens **variable kostnader** endrer seg med produksjonen (råvarer, emballasje). **Totalkostnaden** er $TK = FK + v \\cdot x$. **Inntekten** er $I = p \\cdot x$. **Nullpunktet** finner du ved $x = FK / (p - v)$, der $p - v$ er **dekningsbidraget per enhet**. **Avanse** er fortjeneste i prosent av innkjøpspris, mens **bruttofortjeneste** er fortjeneste i prosent av salgspris.`,
     },
   ],
+  exercises: [],
 };
