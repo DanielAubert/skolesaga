@@ -183,7 +183,7 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'tof1', name: 'Teknologi og forskningslære 1', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
       // Programfag samfunn/økonomi
       { courseId: 'sosiologi', name: 'Sosiologi og sosialantropologi', icon: '👥', color: 'from-violet-500 to-purple-600' },
-      { courseId: 'psykologi1', name: 'Psykologi 1', icon: '🧠', color: 'from-pink-500 to-rose-600' },
+      { courseId: 'psykologi-1', name: 'Psykologi 1', icon: '🧠', color: 'from-pink-500 to-rose-600' },
       { courseId: 'rettslære1', name: 'Rettslære 1', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
       { courseId: 'politikk', name: 'Politikk og menneskerettigheter', icon: '🏛️', color: 'from-red-600 to-rose-700' },
       { courseId: 'okonomi-ledelse', name: 'Økonomi og ledelse', icon: '📊', color: 'from-emerald-500 to-green-600' },
@@ -222,7 +222,7 @@ const GRADE_CONFIG: Record<string, {
       { courseId: 'geofag-2', name: 'Geofag 2', icon: '🌋', color: 'from-amber-600 to-orange-700', image: '/images/textbook-covers/geofag-2-hero.png' },
       { courseId: 'tof2', name: 'Teknologi og forskningslære 2', icon: '🔬', color: 'from-teal-500 to-cyan-600' },
       // Programfag samfunn/økonomi
-      { courseId: 'psykologi2', name: 'Psykologi 2', icon: '🧠', color: 'from-pink-500 to-rose-600' },
+      { courseId: 'psykologi-2', name: 'Psykologi 2', icon: '🧠', color: 'from-pink-500 to-rose-600' },
       { courseId: 'rettslære2', name: 'Rettslære 2', icon: '⚖️', color: 'from-slate-600 to-gray-700' },
       { courseId: 'markledelse2', name: 'Markedsføring og ledelse 2', icon: '📈', color: 'from-blue-500 to-indigo-600' },
       { courseId: 'entrebed2', name: 'Entreprenørskap og bedriftsutvikling 2', icon: '💡', color: 'from-yellow-500 to-amber-600' },
