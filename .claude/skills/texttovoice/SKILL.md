@@ -96,16 +96,29 @@ await fetch(`https://api.elevenlabs.io/v1/text-to-speech/${VOICE_ID}`, {
 
 ### Steg 4: Kutt intro fra hver chunk og sett sammen
 
-Hver chunk starter med den norske introen (~5-7 sekunder). Bruk Whisper på hver chunk for å finne hvor introen slutter, og kutt den bort:
+Hver chunk starter med den norske introen (~5-9 sekunder). Bruk `ffmpeg silencedetect` på hver chunk for å finne den lengste stillheten mellom 4-12 sekunder — dette er gapet mellom introen og innholdet:
 
-```bash
-# For hver chunk: finn intro-slutt med Whisper
-whisper --model tiny --language no chunk1.mp3 --output_format json --output_dir /tmp/whisper-chunk
+```python
+# Finn intro-slutt med silencedetect (IKKE Whisper — den er for upresis)
+result = subprocess.run(
+    ["ffmpeg", "-i", "chunk1.mp3", "-af", "silencedetect=noise=-30dB:d=0.3", "-f", "null", "-"],
+    capture_output=True, text=True
+)
 
-# Typisk: introen slutter ved ~5-7 sekunder (se etter "spennende" i transkripsjonen)
+# Parse stillhetsperioder
+silences = []  # (start, end, duration)
+# ... parse result.stderr ...
+
+# Finn den lengste stillheten mellom 4-12s — dette er intro→innhold-gapet
+candidates = [(s, e, d) for s, e, d in silences if s >= 4.0 and e <= 12.0]
+best = max(candidates, key=lambda x: x[2])  # lengste stillhet
+intro_end = best[1] - 0.2  # silence_end - 0.2s buffer
+
 # Kutt introen bort
-ffmpeg -y -i chunk1.mp3 -ss 6.8 -c copy chunk1-clean.mp3
+# ffmpeg -y -i chunk1.mp3 -ss {intro_end} -c copy chunk1-clean.mp3
 ```
+
+**VIKTIG:** IKKE bruk Whisper eller en fast fallback (f.eks. 6.5s) for intro-kutt. Whisper er upresis, og en fast verdi kan kutte inn i overskriften som kommer rett etter introen. Bruk alltid silencedetect.
 
 Sett sammen de rensede chunk-filene:
 
