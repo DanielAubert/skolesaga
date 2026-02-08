@@ -25,6 +25,13 @@ export const CHAPTER_HISTORIE_FORHISTORIE_1_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-forhistorie-1',
   content: [
     {
+      id: 'historie-forhistorie-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-intro',
       type: 'text',
       content: `## Da alt begynte
@@ -49,13 +56,6 @@ Neste store steg kom med **Homo erectus**, som dukket opp for ca. 1,9 millioner 
 Og så -- for ca. 300 000 år siden -- oppsto *vi*. **Homo sapiens**, det moderne mennesket. Vi har den største hjernen av alle hominider, og vi utviklet noe ingen annen art hadde hatt: evnen til språk, kunst og kompleks abstrakt tenkning. Vi er den eneste gjenlevende menneskearten, men vi er ikke alene i historien. Neandertalerne levde i Europa samtidig med oss, og DNA-studier viser at vi til og med fikk barn sammen. De fleste ikke-afrikanere bærer 1 til 4 prosent neandertaler-DNA i seg den dag i dag.`,
     },
     {
-      id: 'historie-forhistorie-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-forhistorie-1-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -73,6 +73,13 @@ Og så -- for ca. 300 000 år siden -- oppsto *vi*. **Homo sapiens**, det modern
       },
     },
     {
+      id: 'historie-forhistorie-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-section2',
       type: 'text',
       content: `## Ut av Afrika -- en reise som endret verden
@@ -84,13 +91,6 @@ Denne teorien kalles **"Out of Africa"**-teorien, og den er den rådende vitensk
 Bevisene er overbevisende. DNA-studier viser at det største genetiske mangfoldet finnes i Afrika -- noe som gir mening hvis alle andre populasjoner stammer fra en liten utvandringsgruppe. Fossilfunn støtter tidslinjen. Og som vi nevnte: det faktum at ikke-afrikanere har neandertaler-DNA, viser at våre forfedre møtte og fikk barn med neandertalere da de kom til Europa og Vest-Asia.
 
 Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hudfarge eller kultur, har felles opprinnelse. Genetiske forskjeller mellom menneskegrupper er minimale -- ca. 0,1 prosent variasjon. Ytre forskjeller som hudfarge er overfladiske tilpasninger til ulike klimaer. Forskningen viser at alle nålevende mennesker har felles opprinnelse i Afrika.`,
-    },
-    {
-      id: 'historie-forhistorie-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz2',
@@ -110,6 +110,13 @@ Denne kunnskapen har en viktig konsekvens: Alle mennesker på jorden, uansett hu
       },
     },
     {
+      id: 'historie-forhistorie-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-section3',
       type: 'text',
       content: `## Livet som jeger og sanker -- det opprinnelige velstandssamfunnet?
@@ -123,13 +130,6 @@ Mange forskere mener at disse samfunnene var preget av betydelig **likhet** samm
 Verktøyene ble stadig mer sofistikerte: **steinredskaper** som håndøkser, skrapere og pilspisser; **ild** til matlaging, varme og beskyttelse mot rovdyr; **klær av dyrehuder** mot kulda; og etter hvert **spyd, bue og pil** fra ca. 70 000 år siden. Kunnskapen ble overført gjennom muntlig tradisjon, fra generasjon til generasjon.
 
 Men livet hadde også en mørk side. Barnedødeligheten var høy. Forventet levealder lå på ca. 30-35 år. En brukket fot eller en infisert tann kunne være en dødsdom. Det var et liv med mange kvaliteter -- men også med risikoer vi i dag ikke ville akseptert.`,
-    },
-    {
-      id: 'historie-forhistorie-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz3',
@@ -149,6 +149,13 @@ Men livet hadde også en mørk side. Barnedødeligheten var høy. Forventet leve
       },
     },
     {
+      id: 'historie-forhistorie-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-section4',
       type: 'text',
       content: `## Hulemaleriene -- vinduer til fortidens sinn
@@ -162,13 +169,6 @@ Hva forteller disse maleriene oss? For det første viser de at steinaldermennesk
 Men *hvorfor* malte de? Her har forskerne flere teorier. Kanskje handlet det om **jaktmagi** -- å male byttedyr ga makt over dem og sikret god jakt. Kanskje var hulene **hellige steder** der ritualer ble utført. Kanskje ble maleriene brukt til **undervisning**, der eldre lærte unge jegere om dyrene. Eller kanskje likte menneskene rett og slett å skape vakre bilder -- kanskje **kunsten** var et mål i seg selv.
 
 Uansett motivasjon viser hulemaleriene noe viktig: Mennesker for titusenvis av år siden hadde de samme grunnleggende kognitive evnene som oss. De tenkte abstrakt, uttrykte seg kreativt og skapte mening.`,
-    },
-    {
-      id: 'historie-forhistorie-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz4',
@@ -188,6 +188,13 @@ Uansett motivasjon viser hulemaleriene noe viktig: Mennesker for titusenvis av �
       },
     },
     {
+      id: 'historie-forhistorie-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-1-n-section5',
       type: 'text',
       content: `## De første nordmennene -- kystfolk i et nytt land
@@ -201,13 +208,6 @@ Felles for de eldste funnstedene er at de ligger langs kysten. De første nordme
 Landskapet endret seg dramatisk i denne perioden. Isen hadde trykket ned landmassene, og nå hevet landet seg gradvis -- det vi kaller **landhevning**. Vegetasjonen endret seg fra kald tundra til skog etter hvert som klimaet ble varmere, og nye dyrearter vandret inn.
 
 I **mellomsteinalderen** (ca. 8000-4000 f.Kr.) vokste befolkningen sakte. Kystmiljøet ble rikere, med fangst av sel, hval, fisk og skalldyr. **Helleristninger** -- bilder risset i stein -- fra denne perioden viser jaktscener og gir oss et glimt av livet til de første nordmennene. Disse menneskene levde tusenvis av år før noen tenkte på å dyrke jord eller holde husdyr. De var Norges jegere og sankere, og de la grunnlaget for alt som skulle komme.`,
-    },
-    {
-      id: 'historie-forhistorie-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-1-n-quiz5',
@@ -275,6 +275,13 @@ export const CHAPTER_HISTORIE_FORHISTORIE_2_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-forhistorie-2',
   content: [
     {
+      id: 'historie-forhistorie-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-intro',
       type: 'text',
       content: `## Den dagen verden forandret seg
@@ -299,13 +306,6 @@ Men jordbruksrevolusjonen skjedde ikke bare på ett sted. Den oppsto **uavhengig
 Det aller første tamme dyret var for øvrig ikke en ku eller en sau, men **hunden** -- domestisert fra ulven allerede for ca. 15 000 år siden. Lenge før vi begynte å dyrke korn, hadde vi allerede fått oss en beste venn.`,
     },
     {
-      id: 'historie-forhistorie-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-forhistorie-2-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -321,6 +321,13 @@ Det aller første tamme dyret var for øvrig ikke en ku eller en sau, men **hund
         ],
         solution: 'Den fruktbare halvmåne hadde en unik kombinasjon av naturgitte forutsetninger: ville kornsorter (hvete, bygg), dyr som lot seg domestisere (sau, geit, storfe), gunstig klima, og elvene Eufrat og Tigris for irrigasjon.',
       },
+    },
+    {
+      id: 'historie-forhistorie-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-section2',
@@ -340,13 +347,6 @@ Men med veksten kom nye problemer. **Sykdommer** spredte seg lettere i tette bos
 Så var jordbruket et fremskritt eller et tilbakeskritt? Svaret avhenger av perspektivet. For *arten* var det et fremskritt -- flere mennesker kunne leve, og jordbruket la grunnlaget for alle senere kulturelle og teknologiske nyvinninger. For *individet* var livet på mange måter hardere. Men uten jordbruk ville ingenting av det vi forbinder med sivilisasjon ha vært mulig.`,
     },
     {
-      id: 'historie-forhistorie-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
       id: 'historie-forhistorie-2-n-quiz2',
       type: 'exercise',
       exercise: {
@@ -362,6 +362,13 @@ Så var jordbruket et fremskritt eller et tilbakeskritt? Svaret avhenger av pers
         ],
         solution: 'Hararis poeng er at overgangen til jordbruk ga hardere arbeid, ensidig kosthold, flere sykdommer og mer sosial ulikhet sammenlignet med jeger-sanker-livet. Det var et "fremskritt" for arten (flere mennesker ble født), men ikke nødvendigvis for det enkelte mennesket.',
       },
+    },
+    {
+      id: 'historie-forhistorie-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-section3',
@@ -381,13 +388,6 @@ I **bronsealderen** (ca. 1800-500 f.Kr.) ble samfunnene rikere. Bronse -- en leg
 Til slutt, i **jernalderen** (ca. 500 f.Kr.-1050 e.Kr.), ble jern tilgjengelig. I motsetning til bronse kunne jern utvinnes lokalt fra myrmalm, noe som betydde at flere fikk tilgang til metallredskaper. Jernplogen effektiviserte jordbruket og endret landskapet for alltid. Jernalderen i Norden ender med vikingtiden.`,
     },
     {
-      id: 'historie-forhistorie-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
       id: 'historie-forhistorie-2-n-quiz3',
       type: 'exercise',
       exercise: {
@@ -405,6 +405,13 @@ Til slutt, i **jernalderen** (ca. 500 f.Kr.-1050 e.Kr.), ble jern tilgjengelig. 
       },
     },
     {
+      id: 'historie-forhistorie-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-section4',
       type: 'text',
       content: `## Fra landsby til by -- en ny verden tar form
@@ -418,13 +425,6 @@ Men det er en annen tidlig by som virkelig fascinerer forskerne: **Catalhoyuk** 
 Det mest overraskende med Catalhoyuk er kanskje at det lenge har vært tolket som at det er lite tegn til sosial lagdeling. Husene er omtrent like store -- ingen "palass" eller spesielt rike hus. Veggmalerier med oksehorn, jaktscener og fruktbarhetssymboler finnes i mange hus, men det er ikke funnet noe sentralt tempel. Forskere har derfor foreslått at det kan ha vært et relativt **egalitært** samfunn. Nyere forskning har imidlertid funnet tegn til ulikheter i kosthold og tilgang til ressurser, noe som nyanserer bildet. Hypotesen om at Catalhoyuk var egalitært er altså omdiskutert, men funnene reiser uansett interessante spørsmål om forholdet mellom byer og hierarki.
 
 Overgangen fra landsby til by innebar mer enn bare større befolkning: det krevde spesialisering av yrker, handel med andre bosettinger, felles regler og ledelse, og offentlige bygninger. Det var begynnelsen på det vi kaller sivilisasjon.`,
-    },
-    {
-      id: 'historie-forhistorie-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-quiz4',
@@ -444,6 +444,13 @@ Overgangen fra landsby til by innebar mer enn bare større befolkning: det krevd
       },
     },
     {
+      id: 'historie-forhistorie-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-forhistorie-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-forhistorie-2-n-section5',
       type: 'text',
       content: `## Matproduksjon og bærekraft -- lærdommer fra fortiden
@@ -457,13 +464,6 @@ Historien gir oss eksempler på både bærekraft og kollaps. **Mesopotamias fors
 Tallene setter ting i perspektiv: Rundt 10 000 f.Kr. var verdens befolkning ca. 5-10 millioner. Rundt år 1 e.Kr. var den ca. 200-300 millioner. I dag er vi over 8 milliarder. Denne veksten ble muliggjort av jordbruket, og den reiser spørsmål om langsiktig bærekraft.
 
 Kompetansemålet i LK20 om "matproduksjon og naturressurser -- bærekraft" handler nettopp om å forstå at historien til matproduksjon -- med både suksesser og feilgrep -- gir viktige perspektiver for fremtiden.`,
-    },
-    {
-      id: 'historie-forhistorie-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-forhistorie-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-forhistorie-2-n-quiz5',
@@ -528,6 +528,13 @@ export const CHAPTER_HISTORIE_3_1_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-3-1',
   content: [
     {
+      id: 'historie-3-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-1-n-intro',
       type: 'text',
       content: `## Der elvene møtes
@@ -550,13 +557,6 @@ Men her er det viktig å stoppe opp og tenke kritisk. Begrepet "sivilisasjon" ha
 Og her er et spørsmål verdt å tenke på: Hvorfor oppsto de første sivilisasjonene langs store elver? Svaret er nesten elegant i sin enkelhet. Elvene ga **vann** til jordbruk i ellers tørre områder. De ga **fruktbar jord** gjennom årlige oversvømmelser, særlig i Egypt der Nilen la igjen næringsrikt slam. De ga **transport** -- det var mye lettere å frakte varer med båt enn på landeveien. Og de ga **fisk og mat**. Jordbruksoverskuddet som elvene muliggjorde, frigjorde folk til andre oppgaver: håndverk, handel, administrasjon og religion.`,
     },
     {
-      id: 'historie-3-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-3-1-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -574,6 +574,13 @@ Og her er et spørsmål verdt å tenke på: Hvorfor oppsto de første sivilisasj
       },
     },
     {
+      id: 'historie-3-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-section2',
       type: 'text',
       content: `## Mesopotamia -- landet mellom elvene
@@ -587,13 +594,6 @@ Mesopotamia var ikke ett stabilt rike, men en serie skiftende maktsentre: **Sume
 Hammurabi lovsamling forteller oss mye om samfunnet i Babylon. Den avslører et **lagdelt samfunn** med frie borgere, halvfrie og slaver. Kvinner hadde noen rettigheter, som arv og skilsmisse, men var underordnet menn. Detaljerte regler for handel, kontrakter, familierett og yrker viser et komplekst samfunn med behov for skriftlige regler -- et enormt steg fra muntlig tradisjon.
 
 Mesopotamia ga oss også **60-tallssystemet** -- grunnen til at vi har 60 minutter i en time og 60 sekunder i et minutt. Hver gang du ser på klokken, bruker du en mesopotamisk oppfinnelse som er nesten 5000 år gammel.`,
-    },
-    {
-      id: 'historie-3-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz2',
@@ -613,6 +613,13 @@ Mesopotamia ga oss også **60-tallssystemet** -- grunnen til at vi har 60 minutt
       },
     },
     {
+      id: 'historie-3-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-section3',
       type: 'text',
       content: `## Egypt -- riket langs Nilen
@@ -626,13 +633,6 @@ Egypterne utviklet sitt eget skriftsystem: **hieroglyfer** -- vakre, intrikate t
 **Pyramidene** er kanskje det mest kjente symbolet på det gamle Egypt. Den store pyramiden i Giza, bygget rundt 2560 f.Kr. for farao Khufu, var verdens høyeste menneskeskapte konstruksjon i over 3800 år. Den ble bygget av titusenvis av arbeidere -- ikke slaver, som mange tror, men organiserte arbeidslag som trolig arbeidet i bytte mot mat og hus. Pyramidene var gravkamre, knyttet til den egyptiske troen på **livet etter døden**. Gjennom **mumifisering** ble kroppen bevart for at sjelen skulle ha et sted å vende tilbake til.
 
 Egypt og Mesopotamia delte mye: begge var elvebaserte jordbrukssamfunn med skrift, monumentalarkitektur, kongemakt og presteskap. Men forskjellene er også slående. Egypt var mer stabilt, mer isolert og mer sentralisert. Mesopotamia var mer åpent, mer utsatt for invasjoner, og mer preget av skiftende makter.`,
-    },
-    {
-      id: 'historie-3-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz3',
@@ -652,6 +652,13 @@ Egypt og Mesopotamia delte mye: begge var elvebaserte jordbrukssamfunn med skrif
       },
     },
     {
+      id: 'historie-3-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-section4',
       type: 'text',
       content: `## Skriftens makt -- fra regneskap til poesi
@@ -663,13 +670,6 @@ Kileskriften i Mesopotamia og hieroglyfene i Egypt ble begge oppfunnet rundt 320
 Skriften var likevel ikke for alle. Å lese og skrive var en ferdighet forbeholdt en liten elite: **skriverne**. De gjennomgikk år med opplæring og hadde høy status i samfunnet. For de aller fleste mennesker i de tidlige sivilisasjonene forble verden muntlig. Men skriverne la grunnlaget for noe helt nytt: et samfunn der makt ikke bare handlet om fysisk styrke eller karisma, men om informasjon og kunnskap.
 
 Og dette er en arv vi fortsatt lever med. Alfabetet vårt stammer fra en lang utvikling som startet med kileskrift og hieroglyfer. Ideen om nedskrevne lover som gjelder for alle -- det rettsstatsprinsippet vi setter så høyt -- begynner her. Kalenderen vår bygger på egyptiske beregninger. Hver gang du ser at klokken er kvart over, bruker du mesopotamisk matematikk. De tidlige sivilisasjonene er ikke fjern fortid -- de er innvevd i hverdagen din.`,
-    },
-    {
-      id: 'historie-3-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz4',
@@ -689,6 +689,13 @@ Og dette er en arv vi fortsatt lever med. Alfabetet vårt stammer fra en lang ut
       },
     },
     {
+      id: 'historie-3-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-1-n-section5',
       type: 'text',
       content: `## Arven som lever videre
@@ -704,13 +711,6 @@ Når vi ser tilbake på de første sivilisasjonene, er det lett å føle en enor
 **Arkitektur og ingeniørkunst** -- buer og hvelvinger fra Mesopotamia brukes fortsatt. Og selve ideen om **staten** -- et sentralisert styresystem med administrasjon, skatteinnkrevning og lovgivning -- tar form her.
 
 Men kanskje den viktigste arven er en idé: at mennesker kan organisere seg i store, komplekse samfunn med felles regler. At vi kan samarbeide i grupper på tusenvis og millioner, ikke bare i små flokker. Det er denne evnen -- til å skape abstrakte systemer som lover, religioner og stater -- som gjør oss unike. Og det begynte langs elvene i Midtøsten for 5000 år siden.`,
-    },
-    {
-      id: 'historie-3-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-1-n-quiz5',
@@ -775,6 +775,13 @@ export const CHAPTER_HISTORIE_3_2_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-3-2',
   content: [
     {
+      id: 'historie-3-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-2-n-intro',
       type: 'text',
       content: `## En morgen i Aten
@@ -803,13 +810,6 @@ Hvorfor loddtrekning og ikke valg? Athenerne mente at valg favoriserer de rike o
 Perikles, Athens fremste politiker på 400-tallet f.Kr., sa det slik i sin berømte gravtale: *"Vår statsforfatning er ikke en etterligning av andre folks lover. Vi er snarere selv et forbilde for andre."* Han mente at Athens demokrati var unikt -- og det hadde han rett i.`,
     },
     {
-      id: 'historie-3-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-3-2-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -825,6 +825,13 @@ Perikles, Athens fremste politiker på 400-tallet f.Kr., sa det slik i sin berø
         ],
         solution: 'Athenerne mente at valg ga fordeler til de rike og veltalende som kunne drive "valgkamp." Loddtrekning sikret at makten ble spredt blant alle borgere og at ingen enkeltperson kunne monopolisere makten.',
       },
+    },
+    {
+      id: 'historie-3-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-2-n-section2',
@@ -844,13 +851,6 @@ Hvem hadde da rettigheter? Kun frie menn født av athenske foreldre. Det var ans
 Kan vi kalle dette et "demokrati"? Svaret avhenger av definisjonen. For de som var definert som borgere, var det et reelt folkestyre -- de bestemte direkte. Men for flertallet av befolkningen var det alt annet enn folkestyre.`,
     },
     {
-      id: 'historie-3-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
       id: 'historie-3-2-n-quiz2',
       type: 'exercise',
       exercise: {
@@ -868,6 +868,13 @@ Kan vi kalle dette et "demokrati"? Svaret avhenger av definisjonen. For de som v
       },
     },
     {
+      id: 'historie-3-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-section3',
       type: 'text',
       content: `## Kritikerne -- var demokrati virkelig en god idé?
@@ -881,13 +888,6 @@ Sokrates' elev **Platon** gikk lenger. Han mente at demokrati var farlig fordi f
 Aristoteles, Platons elev, hadde et mer nyansert syn. Han mente at demokrati var en av de mulige styreformene, men at den beste styreformen var en blanding -- det han kalte **politeia** -- som kombinerte elementer fra demokrati, aristokrati og monarki.
 
 Disse kritikkene er ikke bare historisk interessante -- de er fortsatt relevante. Spørsmål om populisme, "fake news" og ekspertenes rolle i demokratiet er like aktuelle i dag som de var i Aten for 2400 år siden. Er folket alltid klokt? Kan demokratiet ta katastrofalt feilaktige beslutninger? Og i så fall -- finnes det et bedre alternativ?`,
-    },
-    {
-      id: 'historie-3-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-2-n-quiz3',
@@ -907,6 +907,13 @@ Disse kritikkene er ikke bare historisk interessante -- de er fortsatt relevante
       },
     },
     {
+      id: 'historie-3-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-section4',
       type: 'text',
       content: `## Aten versus Norge -- demokrati da og nå
@@ -920,13 +927,6 @@ En annen viktig forskjell handler om beskyttelse av **menneskerettigheter**. I A
 Athenerne brukte loddtrekning. Vi bruker frie valg. Athenernes verv var ofte ettårige. Vår Stortingsperiode er fire år. Athenerne tok alle beslutninger selv. Vi delegerer til politikere og byråkrater.
 
 Men kjernen er den samme: ideen om at makten tilhører folket, ikke en konge, en adelsklasse eller en militærjunta. Denne ideen ble født i Aten for nesten 2500 år siden, og den lever videre i det norske Stortinget i dag.`,
-    },
-    {
-      id: 'historie-3-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-2-n-quiz4',
@@ -946,6 +946,13 @@ Men kjernen er den samme: ideen om at makten tilhører folket, ikke en konge, en
       },
     },
     {
+      id: 'historie-3-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-2-n-section5',
       type: 'text',
       content: `## Arven fra Aten -- en ufullstendig revolusjon
@@ -957,13 +964,6 @@ Kunne direkte demokrati som i Aten fungere i Norge i dag? Det er et interessant 
 Likevel bruker vi elementer av direkte demokrati: folkeavstemninger om store spørsmål, som EU-avstemningen i 1994 eller Brexit i Storbritannia i 2016. Disse viser både styrken og svakheten ved direkte demokrati: folket får bestemme, men komplekse spørsmål reduseres til et enkelt ja eller nei.
 
 Det athenske demokratiet var ufullkomment -- det utelukket flertallet av befolkningen. Men det plantet en idé som ble enormt innflytelsesrik i senere historie: at vanlige mennesker kan og bør ha innflytelse over styringen av samfunnet. Denne ideen om folkelig suverenitet ble videreført, omformet og utvidet gjennom århundrene -- og den preger politisk tenkning over hele verden i dag. Hver gang du stemmer ved et valg, deltar du i en tradisjon som har røtter på Pnyx-høyden i Aten for nesten 2500 år siden.`,
-    },
-    {
-      id: 'historie-3-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-2-n-quiz5',
@@ -1027,6 +1027,13 @@ export const CHAPTER_HISTORIE_3_3_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-3-3',
   content: [
     {
+      id: 'historie-3-3-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-3-n-intro',
       type: 'text',
       content: `## Den evige byen
@@ -1053,13 +1060,6 @@ Under konsulene fantes det **pretorer** (dommere), **kvestorer** (finansforvalte
 Makten var i praksis konsentrert hos **patrisiere** -- den gamle adelen. Men de vanlige borgerne, **plebeierne**, kjempet seg gradvis til flere rettigheter. De fikk sine egne embetsmenn (tribuner) med vetorett, og til slutt kunne plebeiere også bli konsuler. Denne kampen mellom adel og folk er en rød tråd gjennom hele republikkens historie.`,
     },
     {
-      id: 'historie-3-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-3-3-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -1077,6 +1077,13 @@ Makten var i praksis konsentrert hos **patrisiere** -- den gamle adelen. Men de 
       },
     },
     {
+      id: 'historie-3-3-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-section2',
       type: 'text',
       content: `## Fra republikk til keiserdømme -- maktens fristelse
@@ -1090,13 +1097,6 @@ Caesar krysset Rubicon-elven med sin hær i 49 f.Kr. -- en handling som symbolsk
 Mordet utløste nye borgerkriger. Til slutt sto Caesars adoptivsønn **Augustus** igjen som seierherre. I 27 f.Kr. ble han den første **keiseren** -- selv om han var klok nok til å beholde republikkens former. Han kalte seg "princeps" (den fremste), ikke "rex" (konge). Men i praksis var republikken død.
 
 Augustus innledet **Pax Romana** -- den romerske freden -- en periode på ca. 200 år med relativ stabilitet, handel og kulturell blomstring. Veier, akvedukter og byer ble bygget over hele riket. Denne freden var reell, men den hvilte på keiserens makt, ikke på folkelig deltakelse. Demokratiet, slik athenerne hadde praktisert det, var forlatt.`,
-    },
-    {
-      id: 'historie-3-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz2',
@@ -1116,6 +1116,13 @@ Augustus innledet **Pax Romana** -- den romerske freden -- en periode på ca. 20
       },
     },
     {
+      id: 'historie-3-3-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-section3',
       type: 'text',
       content: `## Rikets fall -- en sakte nedgang
@@ -1129,13 +1136,6 @@ Intet rike varer evig, og Romerriket var intet unntak. Etter Pax Romanas slutt r
 I 395 e.Kr. ble riket delt i to: **Vestromerriket** med hovedstad i Roma, og **Østromerriket** med hovedstad i Konstantinopel. Vestromerriket falt i 476 e.Kr., da den germanske hærføreren Odoaker avsatte den siste vestromenske keiseren. Men **Østromerriket** -- kjent som **Bysants** -- overlevde i nesten tusen år til, helt til Konstantinopel falt for osmanene i 1453.
 
 Det er verdt å merke seg at "fallet" ikke var like dramatisk som det ofte fremstilles. For mange av menneskene som levde i det vestlige Romerriket, forandret ikke hverdagen seg over natten. Germanske konger overtok styringen, men mye av den romerske kulturen, lovgivningen og infrastrukturen levde videre.`,
-    },
-    {
-      id: 'historie-3-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz3',
@@ -1155,6 +1155,13 @@ Det er verdt å merke seg at "fallet" ikke var like dramatisk som det ofte frems
       },
     },
     {
+      id: 'historie-3-3-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-section4',
       type: 'text',
       content: `## Maktfordeling -- fra Roma til Montesquieu til Norge
@@ -1170,13 +1177,6 @@ Men det er også viktige forskjeller mellom Roma og Norge. Roma hadde ingen **gr
 Norge har **uavhengige domstoler** som kan overprøve Stortingets vedtak hvis de bryter med Grunnloven. Vi har **menneskerettigheter** som beskytter individet mot flertallsovergrep. Vi har **allmenn stemmerett** -- alle voksne borgere har lik stemme. Og vi har et **rettighetsbegrep** som beskytter minoriteter mot flertallets vilje.
 
 Likevel er den grunnleggende innsikten den samme: makt korrumperer, og absolutt makt korrumperer absolutt. Romerne visste det. Montesquieu artikulerte det. Og vi lever etter det -- i hvert fall prøver vi.`,
-    },
-    {
-      id: 'historie-3-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz4',
@@ -1196,6 +1196,13 @@ Likevel er den grunnleggende innsikten den samme: makt korrumperer, og absolutt 
       },
     },
     {
+      id: 'historie-3-3-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-3-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-3-n-section5',
       type: 'text',
       content: `## Arven fra antikken -- overalt rundt oss
@@ -1213,13 +1220,6 @@ La oss avslutte med å se på den samlede arven fra antikken -- fra både Hellas
 **Litteratur og teater** som kunstformer ble skapt i antikken. Drama, komedie og tragedie -- alle oppsto på greske scener. Episk diktning som Homers *Iliaden* og Vergils *Æneiden* har inspirert forfattere i to tusen år.
 
 Det er verdt å merke seg at dette kapittelet fokuserer på den gresk-romerske arven fordi den har hatt størst direkte innflytelse på europeisk og norsk kultur. Andre sivilisasjonstradisjoner -- kinesisk, indisk, islamsk og andre -- har sine egne like betydningsfulle intellektuelle, arkitektoniske og politiske arver som har formet store deler av verden. Antikkens gresk-romerske arv er likevel ikke bare fortid for oss i Europa. Den er nåtid -- innvevd i alt fra språket vi snakker til bygningene vi ser og de politiske prinsippene samfunnet vårt bygger på.`,
-    },
-    {
-      id: 'historie-3-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-3-n-quiz5',
@@ -1284,6 +1284,13 @@ export const CHAPTER_HISTORIE_3_4_NARRATIV: TextbookChapter = {
   linkedChapterId: 'historie-3-4',
   content: [
     {
+      id: 'historie-3-4-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: 'historie-3-4-n-intro',
       type: 'text',
       content: `## En verden full av guder
@@ -1310,13 +1317,6 @@ Men så kom en radikal idé fra et lite folk i Midtøsten: **monoteisme** -- tro
 Jødedommen var et lite folks religion og ble aldri en verdensreligion i seg selv. Men ideene -- én Gud, en pakt mellom det guddommelige og det menneskelige, nedskrevne hellige tekster -- ble fundamentet for to av verdens største religioner: kristendom og islam.`,
     },
     {
-      id: 'historie-3-4-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-4-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
       id: 'historie-3-4-n-quiz1',
       type: 'exercise',
       exercise: {
@@ -1334,6 +1334,13 @@ Jødedommen var et lite folks religion og ble aldri en verdensreligion i seg sel
       },
     },
     {
+      id: 'historie-3-4-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-section2',
       type: 'text',
       content: `## En tømrersønn fra Nasaret
@@ -1345,13 +1352,6 @@ De romerske myndighetene, som styrte Palestina, så Jesus som en potensiell uros
 Men tilhengerne hans hevdet at Jesus var **Messias** -- den utvalgte frelserkongen jødene hadde ventet på -- og at han hadde **oppstått fra de døde**. Denne troen ga bevegelsen en ny kraft. Den lille gruppen tilhengere i Jerusalem -- **urkirken** -- begynte å spre budskapet.
 
 Det store vendepunktet kom med **Paulus**, en jødisk fariseer som først forfulgte de kristne, men som etter en dramatisk omvendelsesopplevelse ble kristendommens viktigste misjonær. Paulus tok en avgjørende beslutning: han spredte budskapet til **ikke-jøder** (hedninger). Kristendommen var ikke lenger bare en jødisk sekt -- den ble en universell religion med budskap om frelse for alle mennesker, uansett bakgrunn. Dette var revolusjonerende. Mens jødedommen var knyttet til ett folk, åpnet kristendommen dørene for hele verden.`,
-    },
-    {
-      id: 'historie-3-4-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-4-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz2',
@@ -1371,6 +1371,13 @@ Det store vendepunktet kom med **Paulus**, en jødisk fariseer som først forful
       },
     },
     {
+      id: 'historie-3-4-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-section3',
       type: 'text',
       content: `## Forfølgelse og triumf
@@ -1384,13 +1391,6 @@ Denne nektelsen ble sett som **statsfiendtlig**. De kristne møttes i hemmelighe
 Men forfølgelsene slo feil. **Martyrenes** mot -- de som døde for troen i stedet for å fornekte den -- imponerte mange og tiltrakk nye tilhengere. Kristendommen fortsatte å vokse blant ulike samfunnslag -- både blant fattige og marginaliserte som fant trøst i budskapet om at alle er like for Gud, og blant utdannede eliter som ble tiltrukket av den teologiske og filosofiske dybden i den kristne læren.
 
 Flere faktorer forklarer veksten: Det **universelle budskapet** om frelse for alle appellerte bredt. **Teologiske argumenter** om Guds natur, skapelsen og frelsen overbeviste også intellektuelle og filosofisk skolerte romere. Det kristne **fellesskapet** tok vare på fattige og syke på en måte som staten ikke gjorde. **Løftet om evig liv** ga håp i en usikker tid. Og ironisk nok hjalp den romerske **infrastrukturen** -- veiene og det felles språket (gresk og latin) -- kristne misjonærer å reise og spre budskapet effektivt.`,
-    },
-    {
-      id: 'historie-3-4-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-4-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz3',
@@ -1410,6 +1410,13 @@ Flere faktorer forklarer veksten: Det **universelle budskapet** om frelse for al
       },
     },
     {
+      id: 'historie-3-4-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-section4',
       type: 'text',
       content: `## Fra forfulgt sekt til statsreligion
@@ -1423,13 +1430,6 @@ Den endelige triumfen kom i 380 e.Kr., da keiser **Theodosius** gjorde kristendo
 Denne alliansen mellom **kirke og stat** -- der keiseren beskyttet kirken og kirken støttet keiserens autoritet -- preget Europa i over tusen år. Biskoper fikk politisk makt. Keiseren grep inn i teologiske spørsmål. Grensen mellom det religiøse og det politiske ble utvisket.
 
 Og denne arven lever videre. Forholdet mellom religion og stat -- sekularisme, religionsfrihet, statskirkeordninger -- er spørsmål vi fortsatt debatterer. I Norge hadde vi en statskirke helt til 2012. I mange land er forholdet mellom religiøs og politisk makt fortsatt brennaktuelt. Røttene til denne debatten ligger i det fjerde århundret, da en romersk keiser bestemte seg for å gjøre et kors til sitt symbol.`,
-    },
-    {
-      id: 'historie-3-4-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-4-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz4',
@@ -1449,6 +1449,13 @@ Og denne arven lever videre. Forholdet mellom religion og stat -- sekularisme, r
       },
     },
     {
+      id: 'historie-3-4-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/historie/historie-3-4-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: 'historie-3-4-n-section5',
       type: 'text',
       content: `## Revolusjon eller tilpasning?
@@ -1462,13 +1469,6 @@ Men **tilpasningen** er like tydelig. Da kristendommen ble statsreligion, overto
 Og noen av de gamle skikkene levde videre i ny drakt. Hedenske høytider ble kristnet -- julen ble lagt til vintersolverv, påsken til vårjevndøgn. Helgener tok over rollen til lokale guder som beskyttere av byer og yrker. Kirkebygg ble reist på stedene der templene hadde stått.
 
 Denne doble arven -- radikal etikk og konservativ institusjon, revolusjon og tilpasning -- preget kristendommen gjennom hele middelalderen og videre. Den er en av grunnene til at kristendommens historie er så kompleks: den bærer i seg både frigjøringens og maktens logikk.`,
-    },
-    {
-      id: 'historie-3-4-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/historie/historie-3-4-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: 'historie-3-4-n-quiz5',
