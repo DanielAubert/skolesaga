@@ -4,7 +4,7 @@
  * Denne filen importerer og samler alle kapitler fra separate filer.
  */
 
-import type { TextbookChapter } from '@/lib/types/textbook';
+import type { TextbookChapter, TextbookContentBlock } from '@/lib/types/textbook';
 
 // Importer kapitler fra separate filer
 import { CHAPTERS_1T } from './textbook-content-1t';
@@ -110,6 +110,13 @@ import { CHAPTERS_1P_MODELLERING } from './textbook-content-1p-modellering';
 import { CHAPTERS_1P_OKONOMI } from './textbook-content-1p-okonomi';
 import { CHAPTERS_1P_PROGRAMMERING } from './textbook-content-1p-programmering';
 import { CHAPTERS_1T_MODELLERING } from './textbook-content-1t-modellering';
+
+// Matematikk 2P
+import { MATEMATIKK_2P_DEL1_CHAPTERS } from './textbook-content-2p-del1';
+import { MATEMATIKK_2P_DEL2_CHAPTERS } from './textbook-content-2p-del2';
+import { MATEMATIKK_2P_DEL3_CHAPTERS } from './textbook-content-2p-del3';
+import { MATEMATIKK_2P_DEL4_CHAPTERS } from './textbook-content-2p-del4';
+import { MATEMATIKK_2P_DEL5_CHAPTERS } from './textbook-content-2p-del5';
 
 // Yrkesfag VG1
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
@@ -293,6 +300,13 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Matematikk 1T
   ...CHAPTERS_1T,
   ...Object.fromEntries(CHAPTERS_1T_MODELLERING.map(c => [c.id, c])),
+
+  // Matematikk 2P
+  ...Object.fromEntries(MATEMATIKK_2P_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_2P_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_2P_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_2P_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_2P_DEL5_CHAPTERS.map(c => [c.id, c])),
 
   // Matematikk R1
   ...CHAPTERS_R1,
@@ -780,7 +794,42 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
 // ============================================================================
 
 export function getChapterContent(chapterId: string): TextbookChapter | undefined {
-  return ALL_CHAPTERS[chapterId] || ALL_CHAPTERS[CHAPTER_ID_ALIASES[chapterId]];
+  const chapter = ALL_CHAPTERS[chapterId] || ALL_CHAPTERS[CHAPTER_ID_ALIASES[chapterId]];
+  if (!chapter) return undefined;
+
+  // Adapter: konverter gammel sections-format til content-format
+  // Mange innholdsfiler bruker { sections: [...], exercises: [...] } i stedet for { content: [...] }
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const chapterAny = chapter as any;
+  if (!chapter.content && chapterAny.sections) {
+    const sections = chapterAny.sections as Array<Record<string, unknown>>;
+    const contentBlocks: TextbookContentBlock[] = sections.map((section, i) => {
+      const block: TextbookContentBlock = {
+        id: (section.id as string) || `${chapter.id}-text-${i + 1}`,
+        type: 'text' as const,
+        content: section.content as string,
+      };
+      if (section.title) {
+        (block as any).title = section.title as string;
+      }
+      return block;
+    });
+
+    // Flytt exercises inn som exercise-blokker i content
+    if (chapter.exercises?.length) {
+      for (const ex of chapter.exercises) {
+        contentBlocks.push({
+          id: ex.id,
+          type: 'exercise' as const,
+          exercise: ex,
+        });
+      }
+    }
+
+    chapter.content = contentBlocks;
+  }
+
+  return chapter;
 }
 
 export function getAllChapterIds(): string[] {
