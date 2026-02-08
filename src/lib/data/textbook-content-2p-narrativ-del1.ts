@@ -29,6 +29,13 @@ export const CHAPTER_2P_1_1_NARRATIV: TextbookChapter = {
   linkedChapterId: '2p-1-1',
   content: [
     {
+      id: '2p-1-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/2p/2p-1-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: '2p-1-1-n-intro',
       type: 'text',
       content: `## Den første lønnsslippen
@@ -72,6 +79,13 @@ Det kan virke som mye som forsvinner, men tenk på det slik: skatten finansierer
       },
     },
     {
+      id: '2p-1-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/2p/2p-1-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '2p-1-1-n-section2',
       type: 'text',
       content: `## Budsjettet – din økonomiske GPS
@@ -102,6 +116,13 @@ En populær tommelfingerregel er **50/30/20-regelen**: 50 prosent av nettoinntek
       },
     },
     {
+      id: '2p-1-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/2p/2p-1-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '2p-1-1-n-section3',
       type: 'text',
       content: `## Likviditet – har du penger når du trenger dem?
@@ -130,6 +151,13 @@ Tommelfingerregel: Ha alltid minst én månedslønn i lett tilgjengelige midler 
         ],
         solution: 'Erik har et likviditetsproblem fordi husleien forfaller 1. januar (5 000 − 9 000 = −4 000 kr), selv om han har nok penger totalt sett når lønnen kommer 15. januar. Likviditet handler om å ha penger tilgjengelig *når* de trengs.',
       },
+    },
+    {
+      id: '2p-1-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/2p/2p-1-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
     },
     {
       id: '2p-1-1-n-section4',
@@ -164,6 +192,13 @@ Og det kan gå andre veien: Får du 3,5 prosent lønnsøkning mens prisene stige
       },
     },
     {
+      id: '2p-1-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/2p/2p-1-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '2p-1-1-n-section5',
       type: 'text',
       content: `## KPI – termometeret for prisnivået
@@ -192,6 +227,13 @@ Forståelsen av bruttoinntekt, nettoinntekt, budsjett, likviditet og reallønn g
         ],
         solution: 'Prisvekst = (115,2 − 108,5) / 108,5 · 100 % ≈ 6,18 %, altså ca. 6,2 %.',
       },
+    },
+    {
+      id: '2p-1-1-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til oppsummeringen',
+      src: '/audio/2p/2p-1-1-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
     },
     {
       id: '2p-1-1-n-summary',
