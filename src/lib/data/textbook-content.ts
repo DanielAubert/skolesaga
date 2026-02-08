@@ -63,7 +63,16 @@ import { NORSK_VG2_CHAPTERS } from './textbook-content-norsk-vg2';
 import { NORSK_VG2_NARRATIV_CHAPTERS } from './textbook-content-norsk-vg2-narrativ';
 import { HISTORIE_CHAPTERS } from './textbook-content-historie';
 import { HISTORIE_NARRATIV_CHAPTERS } from './textbook-content-historie-narrativ';
-import { KROPPSOVING_VG2_CHAPTERS } from './textbook-content-kroppsoving-vg2';
+import { KROPPSOVING_VG2_KAP1_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap1';
+import { KROPPSOVING_VG2_KAP2_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap2';
+import { KROPPSOVING_VG2_KAP3_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap3';
+import { KROPPSOVING_VG2_KAP4_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap4';
+import { KROPPSOVING_VG2_KAP5_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap5';
+import { KROPPSOVING_VG2_KAP6_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap6';
+import { KROPPSOVING_VG2_KAP7_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap7';
+import { KROPPSOVING_VG2_KAP8_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap8';
+import { KROPPSOVING_VG2_KAP9_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap9';
+import { KROPPSOVING_VG2_KAP10_CHAPTERS } from './textbook-content-kroppsoving-vg2-kap10';
 import { NORSK_VG3_CHAPTERS } from './textbook-content-norsk-vg3';
 import { NORSK_VG3_DEL2_EXTENDED_CHAPTERS } from './textbook-content-norsk-vg3-del2';
 import { NORSK_VG3_SPRAAKHISTORIE_CHAPTERS } from './textbook-content-norsk-vg3-spraakhistorie';
@@ -536,8 +545,17 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Historie - Narrativ versjon (lesevennlig)
   ...Object.fromEntries(HISTORIE_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
-  // Kroppsøving VG2
-  ...Object.fromEntries(KROPPSOVING_VG2_CHAPTERS.map(c => [c.id, c])),
+  // Kroppsøving VG2 (50 kapitler)
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP8_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP9_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(KROPPSOVING_VG2_KAP10_CHAPTERS.map(c => [c.id, c])),
 
   // Norsk VG3
   ...Object.fromEntries(NORSK_VG3_CHAPTERS.map(c => [c.id, c])),
@@ -715,17 +733,7 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
   'kroppsoving-vg1-8-1': 'kroppsoving-vg1-9',   // Helse og livsstil
   'kroppsoving-vg1-1-5': 'kroppsoving-vg1-10',  // Egentrening og treningsplanlegging
 
-  // Kroppsøving VG2 (10 kapitler med innhold)
-  'kroppsoving-vg2-1-1': 'kroppsoving-vg2-1',   // Avansert treningslære
-  'kroppsoving-vg2-1-2': 'kroppsoving-vg2-2',   // Periodisering og treningsplanlegging
-  'kroppsoving-vg2-2-1': 'kroppsoving-vg2-3',   // Idrettspsykologi og mental trening
-  'kroppsoving-vg2-2-3': 'kroppsoving-vg2-4',   // Prestasjon og mestring
-  'kroppsoving-vg2-3-1': 'kroppsoving-vg2-5',   // Skadeforebygging og rehabilitering
-  'kroppsoving-vg2-4-1': 'kroppsoving-vg2-6',   // Alternative treningsformer
-  'kroppsoving-vg2-5-1': 'kroppsoving-vg2-7',   // Friluftsliv og ekspedisjon
-  'kroppsoving-vg2-7-1': 'kroppsoving-vg2-8',   // Idrett, samfunn og etikk
-  'kroppsoving-vg2-8-1': 'kroppsoving-vg2-9',   // Helse, livsstil og motivasjon
-  'kroppsoving-vg2-8-4': 'kroppsoving-vg2-10',  // Egenvurdering og dokumentasjon
+  // Kroppsøving VG2 (50 kapitler med underkapitler – ingen mapping nødvendig)
 
   // IT 1 (10 kapitler med innhold)
   'it-1-1-1': 'it-1-1',   // Digital kompetanse og samfunn
