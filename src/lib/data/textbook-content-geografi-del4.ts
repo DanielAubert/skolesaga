@@ -1,2168 +1,1468 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
+
 /**
- * Tekstbok innhold for Geografi VG1 - Del 4
- * Kapittel 16-20: Samfunnsgeografi fordypning
+ * Tekstbok innhold for Geografi VG1/VG2 - Del 4: Økosystemer og naturressurser
+ *
+ * Dekker LK20-kompetansemål for geografi
+ * Delkapitler 4.1 - 4.6
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 
 // ============================================================================
-// KAPITTEL 16: Befolkning og demografi
+// Kapittel 4.1: Vegetasjonssoner og biomer
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_16: TextbookChapter = {
-  id: 'geografi-1-16',
+export const CHAPTER_GEOGRAFI_4_1: TextbookChapter = {
+  id: 'geografi-1-4-1',
   courseId: 'geografi',
-  chapterNumber: '16',
-  title: 'Befolkning og demografi',
-  description: 'Laer om befolkningsvekst, demografisk overgang og befolkningsstruktur.',
-  estimatedMinutes: 75,
+  chapterNumber: '4.1',
+  title: 'Vegetasjonssoner og biomer',
+  description: 'Oversikt over jordens vegetasjonssoner fra ekvator til pol, og de viktigste biomene.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske demografiske forhold i ulike land og drøfte årsaker til og konsekvenser av befolkningsendringer',
+    'gjøre rede for jordens viktigste vegetasjonssoner og biomer',
+    'forklare sammenhengen mellom klima, jord og vegetasjon',
   ],
   content: [
     {
-      id: 'geografi-1-16-intro',
+      id: 'geo-4-1-intro',
       type: 'text',
-      content: `## Befolkning og demografi
+      content: `# Vegetasjonssoner og biomer
 
-Demografi er studiet av befolkning - hvordan befolkninger vokser, krymper og endrer sammensetning over tid. Forståelse av befolkningsdynamikk er viktig for planlegging av samfunnet.
+Jorden kan deles inn i store vegetasjonssoner som strekker seg som belter rundt planeten. Disse sonene bestemmes først og fremst av **klima** – temperatur og nedbør – men også av jordforhold, topografi og breddegrader.
 
-**Verdens befolkning:**
-- Ca. 8 milliarder mennesker (2024)
-- Vokser med ca. 80 millioner per år
-- Veksten avtar - fra 2% årlig i 1970 til ca. 1% nå
-- Ulik veksttakt i ulike verdensdeler
+## Hva er et biom?
 
-**Demografiske grunnbegreper:**
-- Fødselsrate: Antall fødte per 1000 innbyggere per år
-- Dødsrate: Antall døde per 1000 innbyggere per år
-- Naturlig tilvekst: Fødselsrate minus dødsrate
-- Fertilitet: Gjennomsnittlig antall barn per kvinne`,
+Et **biom** er et stort, geografisk område som kjennetegnes av bestemte plante- og dyresamfunn tilpasset det lokale klimaet. Biomene er jordens viktigste økologiske regioner og strekker seg ofte over flere kontinenter.
+
+## Fra ekvator til pol
+
+Vegetasjonen endrer seg systematisk fra ekvator mot polene. Ved ekvator finner vi frodige regnskoger, mens polområdene er dekket av is. Mellom disse ytterpunktene ligger en rekke ulike vegetasjonssoner, hver med sitt særpreg.`,
     },
     {
-      id: 'geografi-1-16-def-1',
+      id: 'geo-4-1-def-biom',
       type: 'definition',
-      title: 'Befolkningsvekst og -utvikling',
-      content: `**Befolkningsvekst:**
-Endring i befolkningsstørrelse over tid, bestemt av:
-- Fødsler (pluss)
-- Dødsfall (minus)
-- Innvandring (pluss)
-- Utvandring (minus)
-
-**Naturlig befolkningsvekst:**
-Fødselsrate minus dødsrate. Kan være positiv (vekst), negativ (nedgang) eller null.
-
-**Eksponentiell vekst:**
-Når befolkningen vokser med en fast prosent, dobles den på en bestemt tid. Med 2% vekst dobles befolkningen på 35 år.
-
-**Bæreevne:**
-Maksimalt antall mennesker et område kan understøtte over tid med tilgjengelige ressurser.
-
-**Malthus' teori (1798):**
-Thomas Malthus hevdet at befolkningen vokser raskere enn matproduksjonen. Teorien har vist seg å være for pessimistisk - teknologisk utvikling har økt matproduksjonen betydelig.
-
-**Demografiske data:**
-- Folketellinger (census)
-- Fødsels- og dødsregistre
-- Migrasjonstatistikk
-- Spørreundersøkelser`,
+      title: 'Biom',
+      content: 'Et biom er et stort økologisk område på jordens overflate der planter, dyr, insekter og mennesker har tilpasset seg det lokale klimaet og miljøforholdene. Eksempler er tropisk regnskog, ørken og tundra.',
     },
     {
-      id: 'geografi-1-16-def-2',
+      id: 'geo-4-1-tropisk',
+      type: 'text',
+      content: `## Tropisk regnskog
+
+Den tropiske regnskogen finnes i et belte rundt ekvator, mellom om lag 10° nord og 10° sør. Her er det varmt hele året (gjennomsnittlig over 25 °C) og store mengder nedbør (over 2000 mm per år).
+
+### Kjennetegn
+- **Artsrikdom**: Regnskogen er jordens mest artsrike biom, med opptil 300 tresorter per hektar
+- **Sjiktdeling**: Vegetasjonen er delt i flere lag – skogbunn, underskog, kronedekke og framstikkende trekroner
+- **Næringskretsløp**: Næringsstoffene er bundet i den levende biomassen, ikke i jorda – jorda er ofte næringsfattig
+- **Utbredelse**: Amazonas, Sentral-Afrika (Kongobassenget) og Sørøst-Asia
+
+## Savanne
+
+Savannen finnes i tropiske og subtropiske områder med tydelig tørketid. Den kjennetegnes av store gressletter med spredte trær.
+
+### Kjennetegn
+- **Klima**: Veksler mellom en regntid og en tørketid
+- **Vegetasjon**: Høyt gress og spredte trær, blant annet akasier og baobabtrær
+- **Fauna**: Store bestander av beitedyr (gnu, sebra, antilope) og rovdyr (løve, gepard)
+- **Utbredelse**: Store deler av Afrika, deler av Sør-Amerika, India og Australia`,
+    },
+    {
+      id: 'geo-4-1-torr',
+      type: 'text',
+      content: `## Ørken
+
+Ørkener dekker rundt en tredjedel av jordens landoverflate og finnes der nedbøren er under 250 mm per år. De fleste ørkener ligger rundt vendekretsen (ca. 30° bredde) der synkende luftmasser skaper tørt klima.
+
+### Kjennetegn
+- **Temperatur**: Store svingninger mellom dag og natt – opptil 50 °C på dagen, nær frysepunktet om natten
+- **Vegetasjon**: Svært sparsom, med tørketilpassede planter som kaktusar og sukkulenter
+- **Erosjon**: Vinderosjon dominerer og skaper sanddyner og steinørken
+- **Eksempler**: Sahara, Gobi, Atacama, Kalahari
+
+## Steppe og prerie
+
+Steppen finnes i innlandsområder med kaldt klima og lite nedbør. Den kjennetegnes av vide gressletter uten trær.
+
+### Kjennetegn
+- **Klima**: Kontinentalt klima med kalde vintre og varme somre
+- **Vegetasjon**: Lavt gress og urter – for tørt til skog, men for vått til ørken
+- **Jordbruk**: Noen av verdens mest fruktbare jordbruksområder (svartjord/tsjernozjom)
+- **Utbredelse**: Sentral-Asia, Nord-Amerikas prærier, argentinske pampasen`,
+    },
+    {
+      id: 'geo-4-1-temperert',
+      type: 'text',
+      content: `## Temperert lauvskog
+
+Den tempererte lauvskogen finnes i områder med fire tydelige årstider, moderat nedbør og relativt milde vintre.
+
+### Kjennetegn
+- **Vegetasjon**: Løvfellende trær som eik, bøk, lønn og ask – mister bladene om høsten
+- **Årstidsrytme**: Tydelig veksling mellom vår, sommer, høst og vinter
+- **Jord**: Rik, næringsrik muldjord (brunjord)
+- **Utbredelse**: Vest-Europa, østlige Nord-Amerika, deler av Øst-Asia
+
+## Boreal barskog (taiga)
+
+Barskogen er verdens største landbaserte biom og strekker seg som et bredt belte gjennom nordlige deler av Europa, Asia og Nord-Amerika.
+
+### Kjennetegn
+- **Vegetasjon**: Bartrær som gran, furu og lerk dominerer
+- **Klima**: Lange, kalde vintre og korte somre
+- **Jord**: Sur og næringsfattig podsoljord
+- **Utbredelse**: Skandinavia, Russland (Sibir), Canada – inkluderer store deler av Norge`,
+    },
+    {
+      id: 'geo-4-1-tundra',
+      type: 'text',
+      content: `## Tundra
+
+Tundraen finnes nord for barskogen, i arktiske og subarktiske strøk. Vekstsesongen er svært kort, og permafrost preger landskapet.
+
+### Kjennetegn
+- **Vegetasjon**: Mose, lav, dvergbjørk og lyng – ingen trær
+- **Permafrost**: Bakken er permanent frosset under overflaten
+- **Vekstsesong**: Kun 2–3 måneder med temperatur over 0 °C
+- **Utbredelse**: Nord-Canada, Grønland, Nord-Russland og Svalbard
+
+## Høyfjell
+
+Høyfjellssonene ligner tundraen, men finnes i høye fjellområder uavhengig av breddegrad. I Norge har vi tydelige høyfjellssoner over tregrensen.
+
+### Kjennetegn
+- **Tregrense**: Overgangen fra skog til snaufjell varierer med breddegrad og klima
+- **Vegetasjon**: Lav, mose, fjellplanter og dvergbusker
+- **Norske forhold**: Tregrensen i Sør-Norge ligger på ca. 1000–1200 moh.`,
+    },
+    {
+      id: 'geo-4-1-def-permafrost',
       type: 'definition',
-      title: 'Den demografiske overgangen',
-      content: `**Den demografiske overgangsmodellen:**
-Beskriver hvordan befolkningsutviklingen endres når samfunn moderniseres.
-
-**Fase 1: Før-industriell (høy stabilitet)**
-- Høy fødselsrate (35-50 per 1000)
-- Høy dødsrate (35-50 per 1000)
-- Lav eller ingen befolkningsvekst
-- Kort forventet levealder
-- Eksempel: De fleste samfunn før 1800
-
-**Fase 2: Tidlig overgang (befolkningseksplosjon)**
-- Høy fødselsrate (vedvarer)
-- Synkende dødsrate (bedre helse, hygiene, mat)
-- Rask befolkningsvekst
-- Eksempel: Europa på 1800-tallet, mange utviklingsland i dag
-
-**Fase 3: Sen overgang (avtagende vekst)**
-- Synkende fødselsrate (urbanisering, utdanning, prevensjon)
-- Lav dødsrate
-- Avtakende befolkningsvekst
-- Eksempel: Mye av Latin-Amerika, Asia
-
-**Fase 4: Post-industriell (lav stabilitet)**
-- Lav fødselsrate (under 15 per 1000)
-- Lav dødsrate
-- Lav eller negativ vekst
-- Aldrende befolkning
-- Eksempel: Japan, mange europeiske land
-
-**Fase 5 (mulig): Befolkningsnedgang**
-- Fødselsrate under reproduksjonsnivå (2,1)
-- Synkende befolkning uten innvandring
-- Eksempel: Japan, Sør-Korea, Italia`,
+      title: 'Permafrost',
+      content: 'Permafrost er permanent frosset grunn som forblir under 0 °C i minst to sammenhengende år. Den kan strekke seg hundrevis av meter ned i bakken. Tining av permafrost som følge av global oppvarming frigjør klimagasser som metan og CO₂.',
     },
     {
-      id: 'geografi-1-16-def-3',
-      type: 'definition',
-      title: 'Aldersstruktur og befolkningspyramider',
-      content: `**Befolkningspyramide:**
-Grafisk fremstilling av befolkningens fordeling etter alder og kjønn. Menn til venstre, kvinner til høyre, alder fra bunn til topp.
+      id: 'geo-4-1-faktorer',
+      type: 'text',
+      content: `## Faktorer som bestemmer vegetasjonssonene
 
-**Tre hovedtyper:**
+### Klima
+Temperatur og nedbør er de viktigste faktorene. Varme og fuktige områder har frodig vegetasjon, mens kalde eller tørre områder har sparsom vegetasjon.
 
-**Ekspanderende pyramide (ung befolkning):**
-- Bred bunn, smal topp
-- Høy andel barn og unge
-- Høy fødselsrate
-- Typisk for fase 2-land
-- Eksempel: Nigeria, Afghanistan
+### Breddegrader
+Avstanden fra ekvator bestemmer i stor grad mengden solenergi et område mottar, og dermed temperaturen. Vegetasjonssonene følger i hovedtrekk breddegradene.
 
-**Stasjonær pyramide (stabil befolkning):**
-- Relativt rett opp-ned
-- Jevn fordeling av aldersgrupper
-- Fødsels- og dødsrate i balanse
-- Typisk for fase 3-4-land
-- Eksempel: USA, Frankrike
+### Jordsmonn
+Jordtypen påvirker hvilke planter som trives. Næringsrik muldjord gir andre forhold enn næringsfattig podsol eller laterittjord.
 
-**Kontraherende pyramide (aldrende befolkning):**
-- Smal bunn, bred midtdel
-- Lav andel barn, høy andel eldre
-- Lav fødselsrate
-- Typisk for fase 4-5-land
-- Eksempel: Japan, Tyskland, Italia
-
-**Forsørgelsesbyrde:**
-Forholdet mellom yrkesaktiv befolkning (15-64 år) og forsørgede (barn og eldre). En aldrende befolkning gir høyere forsørgelsesbyrde.
-
-**Demografisk dividende:**
-Periode der andelen yrkesaktive er høy i forhold til forsørgede, gir muligheter for økonomisk vekst.`,
+### Havstrømmer og topografi
+Varme havstrømmer (som Golfstrømmen) gjør at vestkysten av Norge har mildere klima enn breddegraden tilsier. Fjellkjeder kan skape regnskygge og tørrere klima på lesiden.`,
     },
     {
-      id: 'geografi-1-16-def-4',
-      type: 'definition',
-      title: 'Norges befolkningsutvikling',
-      content: `**Historisk utvikling:**
-- 1800: ca. 900 000 innbyggere
-- 1900: ca. 2,2 millioner
-- 1950: ca. 3,3 millioner
-- 2000: ca. 4,5 millioner
-- 2024: ca. 5,5 millioner
-
-**Norges demografiske overgang:**
-- Fase 2: 1800-tallet (befolkningsvekst, utvandring til Amerika)
-- Fase 3: Første halvdel av 1900-tallet
-- Fase 4: Fra 1970-tallet
-
-**Dagens situasjon:**
-- Fødselsrate: ca. 1,4 barn per kvinne (under reproduksjonsnivå)
-- Forventet levealder: ca. 84 år (kvinner), 81 år (menn)
-- Befolkningsvekst hovedsakelig fra innvandring
-- Aldrende befolkning - økt andel over 67 år
-
-**Regionale forskjeller:**
-- Sentralisering mot storbyregioner
-- Fraflytting fra distriktene
-- Høyest vekst rundt Oslo, Bergen, Stavanger, Trondheim
-
-**Fremtidsperspektiver:**
-SSBs fremskrivninger viser ulike scenarier avhengig av fødselsrate og innvandring. Hovedalternativet viser fortsatt vekst til 6-7 millioner i 2100, men stor usikkerhet.`,
-    },
-    {
-      id: 'geografi-1-16-example-1',
+      id: 'geo-4-1-example',
       type: 'example',
-      title: 'Eksempel: Japans demografiske utfordringer',
-      problem: `Japan har verdens eldste befolkning og synkende folketall. Analyser situasjonen og diskuter ulike perspektiver på løsninger.`,
-      solution: `**Japans demografi:**
+      title: 'Vegetasjonssoner i Norge',
+      problem: 'Beskriv hvilke vegetasjonssoner vi finner i Norge fra kyst til høyfjell.',
+      solution: `**Norges vegetasjonssoner fra kyst til høyfjell:**
 
-**Nøkkeltall:**
-- Befolkning: ca. 125 millioner (synkende)
-- Fødselsrate: ca. 1,2 barn per kvinne
-- Andel over 65 år: ca. 30%
-- Forventet levealder: ca. 84 år
+1. **Kystlandskap**: Lynghei og kystfuruskog langs vestkysten, preget av mildt og fuktig klima
+2. **Lauvskog**: Eik, bøk og ask i lavlandet på Sørlandet og Østlandet
+3. **Blandingsskog**: Overgangsbeltet mellom lauvskog og barskog
+4. **Barskog**: Gran- og furuskog dominerer store deler av Øst-Norge og Trøndelag
+5. **Fjellbjørkeskog**: Overgangsbeltet mellom barskog og snaufjell
+6. **Snaufjell/alpin sone**: Lav, mose og fjellplanter over tregrensen
 
-**Årsaker til lav fødselsrate:**
-- Høye levekostnader i byene
-- Lange arbeidsdager ("karoshi"-kultur)
-- Vanskelig å kombinere jobb og barn
-- Endrede familieverdier
-- Færre gifter seg
-
-**Konsekvenser:**
-- Synkende arbeidsstyrke
-- Høyere pensjonsutgifter
-- Mangel på arbeidskraft i helse og omsorg
-- Fraflyttede distrikter
-- Økonomisk stagnasjon
-
-**Ulike løsningsforslag:**
-
-*Øke fødselsraten:*
-- Bedre barnehager og foreldrepermisjon
-- Økonomisk støtte til familier
-- Kulturendring i arbeidslivet
-- Har hatt begrenset effekt så langt
-
-*Økt innvandring:*
-- Kan fylle arbeidskraftbehov
-- Japan har tradisjonelt vært restriktive
-- Gradvis åpning de siste årene
-- Debatt om integreringsutfordringer
-
-*Teknologiske løsninger:*
-- Roboter i omsorg og industri
-- Automatisering
-- Kan kompensere for mindre arbeidsstyrke
-
-*Tilpasning:*
-- Akseptere mindre befolkning
-- Omorganisere samfunnet
-- Heve pensjonsalder
-- Mer effektiv ressursbruk
-
-**Refleksjon:**
-Japan illustrerer utfordringene mange rike land vil møte. Det finnes ulike syn på hvilke tiltak som er best - noen vektlegger familiepolitikk, andre ser innvandring som løsning, mens andre igjen fokuserer på tilpasning til en mindre befolkning.`,
+Golfstrømmen gjør at Norge har frodigere vegetasjon enn andre områder på samme breddegrad (f.eks. Nord-Canada).`,
     },
     {
-      id: 'geografi-1-16-text-kvantitativ',
+      id: 'geo-4-1-trussel',
       type: 'text',
-      content: `## Kvantitativ demografi — fordypning
+      content: `## Trusler mot biomene
 
-Demografer bruker en rekke kvantitative verktøy for å analysere og forutsi befolkningsutvikling. Disse verktøyene gir mer presise analyser enn enkel sammenligning av fødsels- og dødsrater.
+Mange av jordens biomer er truet av menneskelig aktivitet:
 
-**Doblingstid:**
-Doblingstiden er tiden det tar for en befolkning å doble seg. Den beregnes med «Rule of 70»-formelen:
+- **Tropisk regnskog**: Avskoging for jordbruk, kvegdrift og tømmerhogst
+- **Savanne**: Overbeiting og ørkenspredning (desertifikasjon)
+- **Tundra og arktis**: Klimaendringer fører til tining av permafrost og endrede leveforhold
+- **Temperert lauvskog**: Mye er allerede omgjort til jordbruk og byområder
+- **Barskog**: Hogst og klimaendringer endrer artsammensetningen
 
-Doblingstid (i år) = 70 / årlig vekstrate (i prosent)
-
-Eksempel: En befolkning med 2 % årlig vekst har doblingstid på 35 år. Med 1 % vekst tar det 70 år. Denne formelen viser at selv små forskjeller i vekstrate gir store forskjeller over tid.
-
-**Fertilitet vs. reproduksjon:**
-Samlet fruktbarhetstall (SFT) måler gjennomsnittlig antall barn per kvinne gjennom hele hennes fruktbare periode. Reproduksjonsnivået (ca. 2,1 barn per kvinne i industriland) er det nivået som gir en stabil befolkning på lang sikt. At reproduksjonsnivået er litt over 2,0 skyldes barnedødelighet og kjønnsforholdet ved fødsel.
-
-**Demografisk momentum (treghet):**
-Selv etter at fertiliteten faller til reproduksjonsnivået, vil befolkningen fortsette å vokse i flere tiår. Det skyldes at store ungdomskull allerede er født og ennå ikke har fått sine barn. Dette fenomenet forklarer hvorfor land som Bangladesh og India fortsetter å vokse selv om fertiliteten har falt kraftig. Verdens befolkning kan nå 10 milliarder før den eventuelt stabiliserer seg, nettopp på grunn av demografisk momentum.
-
-**Kohorteanalyse:**
-Demografer følger bestemte fødselskohorter (alle født i et bestemt år) gjennom livet og analyserer deres demografiske atferd — ekteskap, barnefødsler, yrkesdeltakelse, dødelighet. Dette gir mer nøyaktige prognoser enn tverrsnittsstudier.`,
-    },
-    {
-      id: 'geografi-1-16-def-5',
-      type: 'definition',
-      title: 'Kritikk av den demografiske overgangsmodellen',
-      content: `**Kritikk av den demografiske overgangsmodellen:**
-
-Den demografiske overgangsmodellen er et nyttig rammeverk, men har blitt kritisert fra flere hold:
-
-**Vestlig bias:**
-Modellen er basert på den europeiske historiske utviklingen og antar at alle land vil følge samme mønster. Mange utviklingsland har hatt en helt annen utvikling — for eksempel har noen land opplevd synkende dødsrate uten tilsvarende økonomisk modernisering (på grunn av importert medisinsk teknologi).
-
-**Kulturelle faktorer undervurderes:**
-Modellen legger stor vekt på økonomisk modernisering, men undervurderer kulturelle, religiøse og politiske faktorers rolle. For eksempel har Iran opplevd en av verdens raskeste fertilitetsfall (fra 6,5 til 1,7 barn per kvinne mellom 1986 og 2006) som ikke passer det tradisjonelle mønsteret.
-
-**Fase 5-problemet:**
-Modellen forutsier stabilisering i fase 4, men mange land opplever vedvarende fertilitet langt under reproduksjonsnivå (Sør-Korea: 0,7, Japan: 1,2). Modellen forklarer ikke godt nok hvorfor dette skjer eller hvordan det kan reverseres.
-
-**Migrasjon ignoreres:**
-Modellen fokuserer på fødsels- og dødsrater, men tar ikke tilstrekkelig hensyn til migrasjonens rolle i befolkningsutviklingen. I en globalisert verden er migrasjon en avgjørende faktor.
-
-**Likevel nyttig:**
-Tross kritikken er modellen et godt pedagogisk utgangspunkt for å forstå demografiske prosesser, så lenge man er oppmerksom på begrensningene.`,
-    },
-    {
-      id: 'geografi-1-16-tip-1',
-      type: 'tip',
-      title: 'Kobling til kapittel 5 — Klima og befolkning',
-      content: `**I dette kapittelet** lærer du om befolkningsvekst, demografisk overgang og aldersstruktur.
-
-**I kapittel 5** lærte du om klimasoner og klimavariasjoner. Klimaet har historisk vært en viktig faktor for befolkningsfordelingen — de fleste mennesker bor i tempererte og subtropiske klimasoner med tilstrekkelig nedbør for jordbruk.
-
-**Sammenheng:** Klimaendringer kan forsterke demografiske utfordringer. Tørke og havnivåstigning kan tvinge befolkninger til å flytte, noe som påvirker demografien i både opprinnelses- og mottakerland. FN anslår at klimaendringer kan skape opptil 200 millioner klimamigranter innen 2050.`,
-    },
-    {
-      id: 'geografi-1-16-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar begrepene fødselsrate, dødsrate og naturlig tilvekst. Regn ut naturlig tilvekst for et land med fødselsrate 25 per 1000 og dødsrate 8 per 1000.',
-        hints: ['Bruk formlene og gi svaret per 1000 innbyggere'],
-        solution: 'Fødselsrate: Antall fødte per 1000 innbyggere per år. Dødsrate: Antall døde per 1000 innbyggere per år. Naturlig tilvekst = fødselsrate - dødsrate. Regning: 25 - 8 = 17 per 1000. Dette betyr at befolkningen vokser med 1,7% per år (uten å regne med migrasjon).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-16-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv de fire fasene i den demografiske overgangsmodellen. Gi eksempler på land i hver fase.',
-        hints: ['Fokuser på fødsels- og dødsrate i hver fase'],
-        solution: 'Fase 1: Høy fødselsrate, høy dødsrate, lite vekst (få land i dag). Fase 2: Høy fødselsrate, synkende dødsrate, rask vekst (Nigeria, Mali). Fase 3: Synkende fødselsrate, lav dødsrate, avtakende vekst (Brasil, Indonesia). Fase 4: Lav fødselsrate, lav dødsrate, lav/negativ vekst (Norge, Japan, Italia).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-16-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Tegn tre ulike befolkningspyramider og forklar hva de viser om befolkningens aldersstruktur.',
-        hints: ['Tegn ekspanderende, stasjonær og kontraherende pyramide'],
-        solution: 'Ekspanderende: Bred bunn, smal topp - mange barn, få eldre, høy vekst (typisk utviklingsland). Stasjonær: Jevn form - balansert aldersfordeling, stabil befolkning (mellominntektsland). Kontraherende: Smal bunn, bred midtdel - få barn, mange eldre, aldrende befolkning (rike land som Japan).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-16-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Beskriv Norges befolkningsutvikling fra 1900 til i dag. Hvilke faktorer har påvirket utviklingen?',
-        hints: ['Tenk på industrialisering, velstand, helse, innvandring'],
-        solution: 'Norge gikk fra ca. 2,2 mill i 1900 til 5,5 mill i dag. Faktorer: 1) Forbedret helse og hygiene reduserte dødeligheten, 2) Industrialisering og urbanisering, 3) Økt velstand førte til lavere fødselsrate, 4) Innvandring fra 1970-tallet har bidratt til vekst, 5) Sentralisering mot byene. Norge er nå i fase 4 med aldrende befolkning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-16-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft utfordringer og muligheter knyttet til en aldrende befolkning. Hvilke ulike syn finnes på hvordan samfunnet bør møte disse utfordringene?',
-        hints: ['Tenk på pensjon, helse, arbeidskraft, og ulike politiske perspektiver'],
-        solution: 'Utfordringer: Høyere pensjonsutgifter, økt behov for helsetjenester, mindre arbeidsstyrke, finansiering av velferdsstaten. Muligheter: Eldre er friskere og kan jobbe lenger, erfaring og kompetanse, teknologi kan effektivisere. Ulike syn: Noen mener økt innvandring er løsningen, andre vektlegger høyere pensjonsalder, noen fokuserer på økt fødselsrate gjennom familiepolitikk, andre på automatisering. Det finnes ingen enkel løsning, og ulike politiske retninger vektlegger ulike tiltak.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-16-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-16-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — befolkning og demografi:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er doblingstiden for en befolkning med 2 % årlig vekstrate?',
-            solution: 'Ca. 35 år',
-            multipleChoiceOptions: ['Ca. 20 år', 'Ca. 35 år', 'Ca. 50 år', 'Ca. 70 år'],
-          },
-          {
-            label: 'b',
-            task: 'Hva betyr «demografisk momentum»?',
-            solution: 'Befolkningen fortsetter å vokse selv etter at fertiliteten har falt til reproduksjonsnivå',
-            multipleChoiceOptions: ['Befolkningen vokser raskere og raskere', 'Befolkningen fortsetter å vokse selv etter at fertiliteten har falt til reproduksjonsnivå', 'Befolkningen krymper etter en periode med høy vekst', 'Innvandring overstiger utvandring over tid'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er reproduksjonsnivået i et industriland?',
-            solution: 'Ca. 2,1 barn per kvinne',
-            multipleChoiceOptions: ['Ca. 1,0 barn per kvinne', 'Ca. 1,5 barn per kvinne', 'Ca. 3,0 barn per kvinne', 'Ca. 2,1 barn per kvinne'],
-          },
-        ],
-        solution: 'a) Ca. 35 år, b) Befolkningen fortsetter å vokse selv etter fertilitetsfallet, c) Ca. 2,1 barn per kvinne',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+Klimaendringene fører til at vegetasjonssonene gradvis forskyves mot polene og oppover i fjellet.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-4-1-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilket biom er det mest artsrike på jorden?',
+      options: [
+        { id: 'a', text: 'Tropisk regnskog', isCorrect: true },
+        { id: 'b', text: 'Temperert lauvskog', isCorrect: false },
+        { id: 'c', text: 'Boreal barskog', isCorrect: false },
+        { id: 'd', text: 'Savanne', isCorrect: false },
+      ],
+      solution: 'Den tropiske regnskogen er jordens mest artsrike biom, med et enormt mangfold av planter, dyr og insekter. Opptil 300 tresorter kan finnes per hektar.',
+    },
+    {
+      id: 'geo-4-1-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hvorfor ørkenene ofte finnes rundt vendekretsen (ca. 30° bredde).',
+      solution: 'Ørkenene finnes rundt vendekretsen på grunn av den globale sirkulasjonen i atmosfæren. Varm, fuktig luft stiger opp ved ekvator, avkjøles og avgir nedbør (tropisk regnsone). Den tørre luften beveger seg deretter mot nord og sør i høyden, og synker ned rundt vendekretsen. Denne synkende, tørre luften gir lite skydannelse og svært lite nedbør, noe som skaper ørkenklima.',
+    },
+    {
+      id: 'geo-4-1-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva kjennetegner tundraens vegetasjon?',
+      options: [
+        { id: 'a', text: 'Høye bartrær og mose', isCorrect: false },
+        { id: 'b', text: 'Mose, lav, dvergbjørk og lyng', isCorrect: true },
+        { id: 'c', text: 'Løvfellende trær og bregner', isCorrect: false },
+        { id: 'd', text: 'Kaktusar og sukkulenter', isCorrect: false },
+      ],
+      solution: 'Tundraen har lav, treløs vegetasjon bestående av mose, lav, dvergbjørk og lyng. Kort vekstsesong og permafrost gjør at trær ikke kan vokse her.',
+    },
+    {
+      id: 'geo-4-1-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Gjør rede for hvorfor Norge har mildere klima og frodigere vegetasjon enn andre områder på samme breddegrad.',
+      solution: 'Norge har mildere klima enn breddegraden tilsier hovedsakelig på grunn av Golfstrømmen (Den nordatlantiske strømmen). Denne varme havstrømmen fører varmt vann fra tropiske strøk nordover langs norskekysten. Dette varmer opp luften og gir mildere vintre, høyere gjennomsnittlig temperatur og mer nedbør enn tilsvarende breddegrader i for eksempel Canada eller Sibir. Resultatet er at tregrensen ligger høyere, vekstsesongen er lengre, og vegetasjonen er frodigere enn man ellers kunne forvente.',
+    },
+    {
+      id: 'geo-4-1-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilket biom dekker størst areal på landjorden?',
+      options: [
+        { id: 'a', text: 'Tropisk regnskog', isCorrect: false },
+        { id: 'b', text: 'Ørken', isCorrect: false },
+        { id: 'c', text: 'Boreal barskog (taiga)', isCorrect: true },
+        { id: 'd', text: 'Savanne', isCorrect: false },
+      ],
+      solution: 'Den boreale barskogen (taiga) er verdens største landbaserte biom. Den strekker seg som et bredt belte gjennom nordlige deler av Europa, Asia og Nord-Amerika.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 17: Migrasjon
+// Kapittel 4.2: Jord og jordbruk
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_17: TextbookChapter = {
-  id: 'geografi-1-17',
+export const CHAPTER_GEOGRAFI_4_2: TextbookChapter = {
+  id: 'geografi-1-4-2',
   courseId: 'geografi',
-  chapterNumber: '17',
-  title: 'Migrasjon',
-  description: 'Laer om ulike typer migrasjon, push- og pull-faktorer, og migrasjonens betydning.',
-  estimatedMinutes: 75,
+  chapterNumber: '4.2',
+  title: 'Jord og jordbruk',
+  description: 'Jorddannelse, jordtyper og jordbruksmetoder – med fokus på matsikkerhet og norske forhold.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og drøfte årsaker til og konsekvenser av migrasjon',
+    'forklare hvordan jord dannes og hvilke faktorer som påvirker jordkvaliteten',
+    'drøfte utfordringer knyttet til jordbruk og matsikkerhet',
   ],
   content: [
     {
-      id: 'geografi-1-17-intro',
+      id: 'geo-4-2-intro',
       type: 'text',
-      content: `## Migrasjon - mennesker på flyttefot
+      content: `# Jord og jordbruk
 
-Migrasjon er forflytning av mennesker fra ett sted til et annet. Gjennom historien har mennesker alltid flyttet på seg - for å finne bedre muligheter, unnslippe fare, eller av andre grunner.
+Jord er en av menneskehetens viktigste ressurser. All matproduksjon på land er avhengig av jordsmonn. Det tar hundrevis til tusenvis av år å danne noen få centimeter med dyrkbar jord, men bare noen tiår med feil bruk kan ødelegge den.
 
-**Migrasjonens omfang:**
-- Ca. 280 millioner internasjonale migranter i verden (3,6% av befolkningen)
-- Mange flere flytter innenfor eget land
-- Migrasjonen har økt i omfang de siste tiårene
-- De fleste migranter flytter til naboland, ikke til rike vestlige land
+## Hva er jord?
 
-**Grunnbegreper:**
-- Emigrasjon: Utflytting fra et land
-- Immigrasjon: Innflytting til et land
-- Intern migrasjon: Flytting innenfor et lands grenser
-- Internasjonal migrasjon: Flytting mellom land`,
+Jord er det øverste laget av løsmasser på jordoverflaten. Den består av en blanding av **mineraler** (forvitret berggrunn), **organisk materiale** (døde planter og dyr), **vann**, **luft** og levende **organismer**. Sammensetningen varierer stort mellom ulike jordtyper og klimasoner.`,
     },
     {
-      id: 'geografi-1-17-def-1',
+      id: 'geo-4-2-def-jordsmonn',
       type: 'definition',
-      title: 'Typer migrasjon',
-      content: `**Frivillig migrasjon:**
-Mennesker velger å flytte for å forbedre sin livssituasjon.
-
-*Arbeidsmigrasjon:*
-Flytting for å finne arbeid eller bedre jobb. Kan være permanent eller midlertidig (sesongarbeid, gjestearbeidere).
-
-*Utdanningsmigrasjon:*
-Flytting for å studere. Mange studenter fra utviklingsland studerer i vesten.
-
-*Familiemigrasjon:*
-Flytting for å gjenforenes med familie eller gifte seg.
-
-**Tvungen migrasjon:**
-Mennesker tvinges til å flytte på grunn av forhold utenfor deres kontroll.
-
-*Flyktninger:*
-Personer som har flyktet fra hjemlandet på grunn av krig, forfølgelse eller vold. FNs flyktningkonvensjon gir beskyttelse.
-
-*Internt fordrevne:*
-Mennesker som har flyktet innenfor eget lands grenser. Flere enn flyktninger på verdensbasis.
-
-*Klimamigranter:*
-Mennesker som flytter på grunn av klimaendringer, naturkatastrofer eller miljøforringelse.
-
-**Blandede strømmer:**
-I praksis er skillene ofte uklare. Mange migranter har både økonomiske og sikkerhetsmessige grunner til å flytte.`,
+      title: 'Jordsmonn',
+      content: 'Jordsmonn er det naturlige laget av løsmasser som dekker bergrunnen. Det dannes gjennom forvitring av bergarter i samspill med klima, organismer, topografi og tid. Jordsmonnet inneholder mineraler, organisk materiale, vann, luft og levende organismer.',
     },
     {
-      id: 'geografi-1-17-def-2',
+      id: 'geo-4-2-dannelse',
+      type: 'text',
+      content: `## Jorddannelse
+
+Jorddannelse er en langsom prosess som kan ta fra hundrevis til hundretusenvis av år. Flere faktorer samvirker:
+
+### Forvitring av berggrunn
+- **Mekanisk forvitring**: Frost, temperatursvingninger og planterøtter bryter ned berg til mindre biter
+- **Kjemisk forvitring**: Vann og syrer løser opp mineraler i berget
+- **Biologisk forvitring**: Organismer bryter ned berget gjennom rotpress og syreproduksjon
+
+### Fem faktorer for jorddannelse
+1. **Opphavsmaterialet**: Bergarten som forvitrer – bestemmer mineralinnholdet
+2. **Klima**: Temperatur og nedbør styrer hastigheten på forvitring
+3. **Organismer**: Planter, dyr og mikroorganismer tilfører organisk materiale
+4. **Topografi**: Hellning og eksposisjon påvirker vannforhold og erosjon
+5. **Tid**: Jo lenger prosessen pågår, desto dypere og mer utviklet jord`,
+    },
+    {
+      id: 'geo-4-2-jordtyper',
+      type: 'text',
+      content: `## Viktige jordtyper
+
+### Laterittjord (tropene)
+- Finnes i varme, fuktige strøk
+- Rødlig farge på grunn av jernoksider
+- Næringsfattig fordi nedbør vasker ut mineraler (utvasking)
+- Vanskelig å dyrke etter avskoging
+
+### Tsjernozjom (svartjord)
+- Finnes i steppeområder (Ukraina, USA, Argentina)
+- Svært næringsrik – verdens beste matjord
+- Høyt innhold av humus (organisk materiale)
+- Viktige kornproduserende områder
+
+### Podsol
+- Finnes i boreale barskogsområder
+- Sur jord med tydelige lag (sjikt)
+- Næringsfattig – mineraler vaskes nedover
+- Vanlig i store deler av Norge
+
+### Brunjord
+- Finnes i temperert lauvskogssone
+- Næringsrik med godt innhold av humus
+- God jordbruksjord
+- Finnes i lavlandet på Sør- og Østlandet i Norge`,
+    },
+    {
+      id: 'geo-4-2-def-humus',
       type: 'definition',
-      title: 'Push- og pull-faktorer',
-      content: `**Push-faktorer (utstøtende):**
-Forhold som får mennesker til å forlate et sted:
-
-*Økonomiske:*
-- Arbeidsløshet og fattigdom
-- Mangel på økonomiske muligheter
-- Lav lønn
-
-*Politiske og sikkerhetsmessige:*
-- Krig og konflikter
-- Forfølgelse og diskriminering
-- Politisk ustabilitet
-- Manglende rettigheter
-
-*Miljømessige:*
-- Naturkatastrofer (flom, tørke, jordskjelv)
-- Klimaendringer
-- Miljøforringelse
-
-*Sosiale:*
-- Mangel på utdanning og helsetjenester
-- Familieproblemer
-- Sosial uro
-
-**Pull-faktorer (tiltrekkende):**
-Forhold som trekker mennesker til et nytt sted:
-
-*Økonomiske:*
-- Jobbmuligheter
-- Høyere lønn
-- Bedre levestandard
-
-*Politiske:*
-- Stabilitet og sikkerhet
-- Demokrati og rettssikkerhet
-- Frihet
-
-*Sosiale:*
-- Bedre utdanning og helsetjenester
-- Familie og nettverk som allerede bor der
-- Livsstil og kultur
-
-**Migrasjonsstrømmer:**
-Migrasjonen går ofte fra områder med sterke push-faktorer til områder med sterke pull-faktorer. Geografisk nærhet, språk og historiske bånd påvirker også hvor folk flytter.`,
+      title: 'Humus',
+      content: 'Humus er det nedbrutte organiske materialet i jorden – rester av planter, dyr og mikroorganismer. Humus er mørkt, næringsrikt og viktig for jordens struktur, vannlagringsevne og fruktbarhet. Jord med høyt humusinnhold er som regel god jordbruksjord.',
     },
     {
-      id: 'geografi-1-17-def-3',
-      type: 'definition',
-      title: 'Innvandring til Norge - ulike perspektiver',
-      content: `**Norges innvandringshistorie:**
-- Før 1970: Liten innvandring, hovedsakelig fra nordiske land
-- 1970-tallet: Arbeidsinnvandring fra Pakistan, Tyrkia m.fl.
-- 1980-90-tallet: Flyktninger fra Vietnam, Chile, Balkan, Somalia
-- 2000-tallet: Økt arbeidsinnvandring fra EU (særlig Polen)
-- 2015: Flyktningstrøm fra Syria og Afghanistan
+      id: 'geo-4-2-metoder',
+      type: 'text',
+      content: `## Jordbruksmetoder
 
-**Dagens situasjon:**
-- Ca. 1 million innvandrere og norskfødte med innvandrerforeldre (ca. 19% av befolkningen)
-- Arbeidsinnvandrere fra EU utgjør største gruppe
-- Flyktninger fra Syria, Eritrea, Somalia
-- Bosatt hovedsakelig i og rundt storbyene
+### Tradisjonelt jordbruk
+- **Svedjebruk**: Vegetasjon brennes og asken gjødsler jorda – brukt i tropene
+- **Terrassejordbruk**: Flate terrasser i bratte fjellsider – vanlig i Asia
+- **Nomadisk beitebruk**: Beitedyr flyttes mellom beiteområder – vanlig i tørre områder
 
-**Ulike perspektiver på innvandring:**
+### Moderne intensivt jordbruk
+- Store, mekaniserte gårder med monokultur (en vekst)
+- Kunstgjødsel, plantevernmidler og irrigasjon
+- Høy produktivitet per arealenhet
+- Kan føre til utarming av jorda, forurensning og tap av biologisk mangfold
 
-*Økonomiske perspektiver:*
-- Innvandrere bidrar til arbeidsstyrken og verdiskaping
-- Noen studier viser positiv fiskal effekt av arbeidsinnvandring
-- Andre studier peker på kostnader knyttet til integrering og velferdsytelser
-- Effekten avhenger av innvandringsgruppe, konjunkturer og politikk
-
-*Demografiske perspektiver:*
-- Innvandring motvirker befolkningsnedgang
-- Bidrar til yngre befolkning
-- Debatt om langsiktige demografiske effekter
-
-*Kulturelle og sosiale perspektiver:*
-- Noen vektlegger kulturelt mangfold som berikende
-- Andre er bekymret for integreringsutfordringer
-- Debatt om nasjonal identitet og samhold
-
-*Humanitære perspektiver:*
-- Norge har forpliktelser til å hjelpe flyktninger
-- Debatt om hvor mange som kan tas imot
-- Ulike syn på bistand "der de er" vs. mottak i Norge
-
-**Viktig:** Dette er et politisk kontroversielt tema der det finnes legitime perspektiver på ulike sider. Geografifaget skal presentere fakta og ulike syn, ikke ta politisk stilling.`,
+### Bærekraftig jordbruk
+- **Vekselbruk**: Ulike vekster dyrkes i rotasjon for å bevare jordens næring
+- **Økologisk jordbruk**: Uten kunstgjødsel og kjemiske plantevernmidler
+- **Presisjonsjordbruk**: Teknologi brukes til å tilpasse gjødsling og vanning nøyaktig
+- **Agroøkologi**: Naturlige prosesser utnyttes for å opprettholde jordfruktbarhet`,
     },
     {
-      id: 'geografi-1-17-def-4',
-      type: 'definition',
-      title: 'Urbanisering og intern flytting',
-      content: `**Urbanisering:**
-Økningen i andelen av befolkningen som bor i byer.
+      id: 'geo-4-2-matsikkerhet',
+      type: 'text',
+      content: `## Matsikkerhet og utfordringer
 
-**Global urbanisering:**
-- 1950: ca. 30% bodde i byer
-- 2024: ca. 57% bor i byer
-- 2050: forventet ca. 68% i byer
-- Raskest urbanisering i Afrika og Asia
+### Globale utfordringer
+Verdens befolkning passerte 8 milliarder i 2022, og det trengs stadig mer mat. Samtidig møter matproduksjonen store utfordringer:
 
-**Årsaker til urbanisering:**
-- Jobbmuligheter i industri og tjenester
-- Bedre utdanning og helsetilbud
-- Høyere levestandard
-- Sosiale og kulturelle muligheter
-- Mekanisering av landbruket (færre trengs på landet)
+- **Jorderosjon**: Vind- og vannerosjon fjerner dyrkbar jord raskere enn ny jord dannes
+- **Ørkenspredning**: Tørre områder utvides – særlig i Sahel-beltet i Afrika
+- **Saltopphopning**: Irrigasjon i tørre strøk fører til at salter samler seg i jorda
+- **Jordforsegling**: Utbygging av veier, byer og industri legger beslag på matjord
+- **Klimaendringer**: Endrede nedbørsmønstre og hyppigere ekstremer truer avlinger
 
-**Megabyer:**
-Byer med over 10 millioner innbyggere. Tokyo (37 mill), Delhi (32 mill), Shanghai (29 mill). Mange megabyer er i utviklingsland.
-
-**Urbanisering i Norge:**
-- Ca. 83% bor i tettsteder
-- Sentralisering mot Oslo-regionen og andre storbyregioner
-- Distriktene opplever fraflytting
-- Debatt om distriktspolitikk og sentralisering
-
-**Intern flytting i Norge:**
-- Unge flytter for utdanning og jobb
-- Barnefamilier flytter til forsteder
-- Mange flytter tilbake til hjemstedet senere i livet
-- Nord-Norge og innlandet mister befolkning til Sør-Norge og kysten`,
+### Kampen om matjorda
+Bare 11 % av jordens landoverflate er dyrkbar. Presset på denne jorda øker stadig på grunn av befolkningsvekst, urbanisering og klimaendringer.`,
     },
     {
-      id: 'geografi-1-17-example-1',
+      id: 'geo-4-2-norge',
+      type: 'text',
+      content: `## Norsk jordbruk
+
+### Særtrekk ved norsk jordbruk
+Norge har begrenset med dyrkbar mark – bare ca. 3 % av landarealet er dyrket jord. Dette skyldes:
+- Mye fjell og ulendt terreng
+- Kort vekstsesong i store deler av landet
+- Stort innslag av skrinn jord (podsol og morene)
+
+### Viktige produksjoner
+- **Korn**: Østlandet og Trøndelag (bygg, hvete, havre)
+- **Gras og husdyrhold**: Vestlandet, Nord-Norge (melk, kjøtt)
+- **Frukt og grønt**: Hardanger, Sogn, Indre Østlandet
+- **Oppdrett**: Lakseoppdrett langs kysten (havbruk)
+
+### Jordvern i Norge
+Norge har et sterkt juridisk jordvern. Omdisponering av dyrket og dyrkbar mark til andre formål krever tillatelse, og det er et politisk mål å begrense nedbygging av matjord. Likevel forsvinner årlig verdifull matjord til vei- og boligbygging.`,
+    },
+    {
+      id: 'geo-4-2-example',
       type: 'example',
-      title: 'Eksempel: Arbeidsinnvandring fra Polen til Norge',
-      problem: `Analyser arbeidsinnvandringen fra Polen til Norge etter EU-utvidelsen i 2004. Hvilke push- og pull-faktorer har vært viktige?`,
-      solution: `**Bakgrunn:**
-Polen ble EU-medlem i 2004 og fikk tilgang til EØS-arbeidsmarkedet. Norge opplevde stor etterspørsel etter arbeidskraft, særlig i bygg og anlegg.
+      title: 'Jorderosjon og matproduksjon',
+      problem: 'Forklar hvordan intensivt jordbruk kan føre til jorderosjon, og hva konsekvensene er.',
+      solution: `**Intensivt jordbruk og jorderosjon:**
 
-**Push-faktorer i Polen:**
-- Høy arbeidsledighet (20% i 2004)
-- Relativt lave lønninger
-- Begrenset økonomisk vekst
-- Unge med utdanning uten jobbtilbud
+1. **Årsaker**: Monokulturer fjerner plantedekket etter høsting, og jorda ligger bar. Tunge maskiner pakker jorda sammen. Mangel på vekselbruk svekker jordstrukturen.
 
-**Pull-faktorer i Norge:**
-- Stor etterspørsel etter arbeidskraft
-- Høye lønninger (3-5 ganger polsk nivå)
-- Gode arbeidsforhold og sikkerhet
-- Geografisk nærhet og gode flyforbindelser
-- Eksisterende polske nettverk i Norge
+2. **Prosess**: Uten plantedekke eller røtter som holder jorda på plass, vaskes det øverste jordlaget bort av regn (vannerosjon) eller blåser bort med vinden (vinderosjon).
 
-**Omfang:**
-- Polakker er største innvandrergruppe i Norge (ca. 100 000)
-- Mange i bygg, renhold, industri, helse
-- Noen pendler, andre har bosatt seg permanent
+3. **Konsekvenser**:
+   - Tap av det næringsrike toppsjiktet reduserer avlinger
+   - Sedimenter forurenser elver og innsjøer
+   - Behov for mer kunstgjødsel – økte kostnader
+   - I ytterste konsekvens kan jorda bli ubrukelig
 
-**Konsekvenser:**
-
-*For Norge:*
-- Dekket arbeidskraftbehov i voksende økonomi
-- Muliggjorde bygging av boliger og infrastruktur
-- Debatt om lønnspress og arbeidsvilkår i enkelte bransjer
-
-*For Polen:*
-- Redusert arbeidsledighet
-- Pengeoverføringer til familier hjemme
-- "Brain drain" - tap av unge, utdannede
-
-*For migrantene:*
-- Høyere inntekt
-- Nye muligheter
-- Utfordringer med språk, integrering, savn av familie
-
-**Utviklingen:**
-Etter hvert som polsk økonomi har vokst, har lønnsforskjellene minket, og noen har flyttet hjem. Samtidig har mange etablert seg permanent i Norge.`,
-    },
-    {
-      id: 'geografi-1-17-text-utvandring',
-      type: 'text',
-      content: `## Norsk utvandringshistorie — fra Norge til Amerika
-
-Mens Norge i dag er et innvandringsland, var situasjonen helt annerledes for 100-150 år siden. Mellom 1825 og 1930 emigrerte ca. 800 000 nordmenn til Nord-Amerika, i en av de store migrasjonsbølgene i europeisk historie. I forhold til folketallet var det bare Irland som sendte en større andel av sin befolkning over Atlanteren.
-
-**Push-faktorer i Norge:**
-- Befolkningsvekst på 1800-tallet (fase 2 i den demografiske overgangen) ga press på begrensede jordbruksressurser
-- Fattigdom og mangel på jord, særlig for husmannsklassen
-- Strenge sosiale strukturer med begrenset sosial mobilitet
-- Religiøs forfølgelse av dissentergrupper (for eksempel haugianere og kvekere)
-- Hungersnød i dårlige avlingsår
-
-**Pull-faktorer i Amerika:**
-- Gratis eller billig jord gjennom Homestead Act (1862)
-- Brev fra slektninger og venner som allerede hadde emigrert («amerikkabrev»)
-- Høyere lønninger og bedre levekår
-- Større personlig frihet og demokratisk deltagelse
-- Dampskip og jernbane gjorde reisen raskere og billigere
-
-**Migrasjonsmønsteret:**
-Den første organiserte emigrasjonen startet med sluppen «Restauration» fra Stavanger i 1825. Utvandringen nådde topper i 1880-årene og rundt 1900-1910. De fleste bosatte seg i Midtvesten (Minnesota, Wisconsin, North Dakota, Iowa), der klimaet og terrenget minnet om Norge.
-
-**Konsekvenser:**
-- Norsk-amerikanske lokalsamfunn med egen kultur, aviser og kirker
-- Pengeoverføringer til Norge bidro til modernisering
-- Demografisk avlastning — utvandringen reduserte befolkningspresset
-- I dag har ca. 4,5 millioner amerikanere norsk opprinnelse
-- Kulturutveksling som fortsatt preger begge land`,
-    },
-    {
-      id: 'geografi-1-17-def-5',
-      type: 'definition',
-      title: 'Integreringsmodeller',
-      content: `**Integreringsmodeller — tre hovedtilnærminger:**
-
-Når innvandrere ankommer et nytt land, oppstår spørsmålet om hvordan de skal bli del av det nye samfunnet. Det finnes flere modeller som beskriver ulike tilnærminger:
-
-**Assimilasjon:**
-Innvandrerne forventes å tilpasse seg vertslandet fullt ut — lære språket, adoptere kulturen og gradvis oppgi sin opprinnelige kulturelle identitet. Historisk var dette den dominerende tilnærmingen i mange vestlige land. Frankrike er et eksempel der republikanske verdier vektlegger at alle borgere behandles likt uavhengig av bakgrunn, med lite rom for særordninger basert på etnisitet eller religion.
-
-**Multikulturalisme:**
-Samfunnet anerkjenner og verdsetter kulturelt mangfold. Innvandrergrupper kan beholde sin kultur, sitt språk og sine tradisjoner. Staten kan aktivt støtte kulturelle organisasjoner og minoritetsspråk. Canada og til dels Storbritannia har vært kjent for denne tilnærmingen. Kritikere hevder at multikulturalisme kan føre til «parallellsamfunn» med lite kontakt mellom grupper.
-
-**Integrering (den norske modellen):**
-En mellomposisjon der innvandrere forventes å lære språket og delta i arbeids- og samfunnslivet, men samtidig kan beholde viktige deler av sin kulturelle identitet. Målet er gjensidig tilpasning — både innvandrere og storsamfunnet endrer seg. Introduksjonsprogrammet med norskopplæring og samfunnskunnskap er et konkret virkemiddel i norsk integreringspolitikk.
-
-**Viktig:** Ingen modell er perfekt, og alle land bruker i praksis elementer fra flere tilnærminger. Integreringspolitikk er politisk omdebattert, og ulike aktører vektlegger ulike hensyn.`,
-    },
-    {
-      id: 'geografi-1-17-tip-1',
-      type: 'tip',
-      title: 'Kobling til kapittel 6 — Urbanisering og migrasjon',
-      content: `**I dette kapittelet** lærer du om internasjonal og intern migrasjon, push- og pull-faktorer, og Norges innvandringshistorie.
-
-**I kapittel 6** lærte du om urbanisering som global prosess — at folk flytter fra landsbygda til byer. Urbanisering er i praksis en form for intern migrasjon, og mange av de samme push- og pull-faktorene er relevante: fattigdom på landsbygda (push) og jobbmuligheter i byen (pull).
-
-**Sammenheng:** Forstå at migrasjon og urbanisering er to sider av samme sak. Internasjonal migrasjon ender ofte i byene — de fleste innvandrere til Norge bosetter seg i storbyregioner. Dermed forsterker internasjonal migrasjon urbaniseringsprosessen.`,
-    },
-    {
-      id: 'geografi-1-17-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom frivillig og tvungen migrasjon. Gi eksempler på hver type.',
-        hints: ['Tenk på ulike årsaker til at folk flytter'],
-        solution: 'Frivillig migrasjon: Mennesker velger selv å flytte for å forbedre livssituasjonen. Eksempler: Arbeidsinnvandring, studenter som reiser ut, familieetablering. Tvungen migrasjon: Mennesker tvinges til å flytte. Eksempler: Flyktninger fra krig (Syria), klimamigranter etter naturkatastrofer, internt fordrevne fra konflikter. I praksis er grensene ofte uklare.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-17-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Velg et land eller en region og analyser push- og pull-faktorer som påvirker migrasjonen derfra.',
-        hints: ['Tenk på økonomiske, politiske, sosiale og miljømessige faktorer'],
-        solution: 'Eksempel Syria: Push-faktorer: Borgerkrig siden 2011, bombing og ødeleggelse, forfølgelse, mangel på mat og helsetjenester, økonomisk kollaps. Pull-faktorer (til naboland/Europa): Sikkerhet, mulighet for jobb og utdanning, familie som har flyktet tidligere, håp om bedre fremtid. Viktig å se på både de som driver folk bort og det som trekker dem mot bestemte destinasjoner.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-17-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv Norges innvandringshistorie fra 1970 til i dag. Hvilke grupper har kommet i ulike perioder?',
-        hints: ['Tenk på arbeidsinnvandring, flyktninger, EU-utvidelsen'],
-        solution: '1970-tallet: Arbeidsinnvandring fra Pakistan, Tyrkia, Marokko (innvandringsstopp 1975). 1980-90-tallet: Flyktninger fra Vietnam, Chile, Iran, Balkan (Bosnia, Kosovo), Somalia. 2000-tallet: EU-utvidelsen ga arbeidsinnvandring fra Polen, Litauen. 2015: Flyktningtopp fra Syria, Afghanistan, Eritrea. I dag er polakker største gruppe, etterfulgt av litauere, somaliere, pakistanere, svensker.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-17-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er urbanisering? Forklar årsaker til og konsekvenser av urbanisering globalt.',
-        hints: ['Tenk på pull-faktorer til byer og utfordringer med rask byvekst'],
-        solution: 'Urbanisering er økning i andelen som bor i byer. Årsaker: Jobbmuligheter i industri/tjenester, bedre utdanning og helse, mekanisering av landbruk, sosiale muligheter. Konsekvenser: Positive - økonomisk vekst, innovasjon, tilgang til tjenester. Negative - slumområder, forurensning, press på infrastruktur, sosiale problemer. I 2050 vil ca. 68% av verdens befolkning bo i byer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-17-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft ulike perspektiver på innvandring til Norge. Presenter argumenter fra ulike ståsteder på en balansert måte.',
-        hints: ['Tenk på økonomiske, demografiske, kulturelle og humanitære perspektiver'],
-        solution: 'Økonomisk: Arbeidsinnvandring dekker behov i arbeidsmarkedet, men det er debatt om kostnader ved integrering. Demografisk: Innvandring motvirker aldring, men langsiktig effekt diskuteres. Kulturelt: Noen ser mangfold som berikende, andre bekymret for integrering. Humanitært: Norge har forpliktelser overfor flyktninger, men debatt om kapasitet. Viktig å forstå at dette er komplekst og at folk kan ha ulike syn basert på ulike verdier og vektlegging.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-17-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-17-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — migrasjon:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Omtrent hvor mange nordmenn emigrerte til Nord-Amerika mellom 1825 og 1930?',
-            solution: 'Ca. 800 000',
-            multipleChoiceOptions: ['Ca. 100 000', 'Ca. 400 000', 'Ca. 800 000', 'Ca. 1,5 millioner'],
-          },
-          {
-            label: 'b',
-            task: 'Hva kjennetegner integreringsmodellen (i motsetning til assimilasjon)?',
-            solution: 'Gjensidig tilpasning der innvandrere lærer språk og deltar i samfunnet, men kan beholde kulturell identitet',
-            multipleChoiceOptions: ['Innvandrere må oppgi all opprinnelig kultur', 'Gjensidig tilpasning der innvandrere lærer språk og deltar i samfunnet, men kan beholde kulturell identitet', 'Innvandrergrupper lever helt separat fra storsamfunnet', 'Innvandrere bestemmer selv hvor mye de vil delta i samfunnet'],
-          },
-          {
-            label: 'c',
-            task: 'Hva var den viktigste push-faktoren for norsk utvandring til Amerika på 1800-tallet?',
-            solution: 'Befolkningsvekst og mangel på jord',
-            multipleChoiceOptions: ['Krig og konflikter', 'Befolkningsvekst og mangel på jord', 'Religiøs forfølgelse', 'Industrialisering og forurensning'],
-          },
-        ],
-        solution: 'a) Ca. 800 000, b) Gjensidig tilpasning med bevaring av kulturell identitet, c) Befolkningsvekst og mangel på jord',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+4. **Tiltak**: Vekselbruk, terrengfølgende pløying, leplanting og dekkvekster kan redusere erosjonen betydelig.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-4-2-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilken jordtype regnes som verdens mest fruktbare?',
+      options: [
+        { id: 'a', text: 'Podsol', isCorrect: false },
+        { id: 'b', text: 'Laterittjord', isCorrect: false },
+        { id: 'c', text: 'Tsjernozjom (svartjord)', isCorrect: true },
+        { id: 'd', text: 'Sandjord', isCorrect: false },
+      ],
+      solution: 'Tsjernozjom (svartjord) regnes som verdens mest fruktbare jordtype. Den har svært høyt innhold av humus og finnes i steppeområder som Ukraina, USA og Argentina.',
+    },
+    {
+      id: 'geo-4-2-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Gjør rede for de fem faktorene som styrer jorddannelse.',
+      solution: 'De fem faktorene for jorddannelse er: 1) Opphavsmaterialet – bergarten som forvitrer, og som bestemmer mineralinnholdet i jorda. 2) Klima – temperatur og nedbør styrer hastigheten på forvitring og nedbrytning av organisk materiale. 3) Organismer – planter, dyr og mikroorganismer tilfører organisk materiale og bidrar til nedbrytning. 4) Topografi – hellning, eksposisjon og dreneringsforhold påvirker vannforhold og erosjon. 5) Tid – jo lenger prosessen har pågått, desto dypere og mer utviklet er jordprofilet.',
+    },
+    {
+      id: 'geo-4-2-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvorfor er laterittjord i tropene vanskelig å dyrke etter avskoging?',
+      options: [
+        { id: 'a', text: 'Den er for kald for jordbruk', isCorrect: false },
+        { id: 'b', text: 'Næringsstoffene vaskes raskt ut av den kraftige nedbøren', isCorrect: true },
+        { id: 'c', text: 'Den inneholder for mye kalk', isCorrect: false },
+        { id: 'd', text: 'Den er for dyp til å pløye', isCorrect: false },
+      ],
+      solution: 'I tropene er næringsstoffene i hovedsak bundet i den levende biomassen (vegetasjonen), ikke i jorda. Når skogen hugges, fjernes næringskretsen. Den kraftige tropiske nedbøren vasker raskt ut de gjenværende næringsstoffene fra laterittjorda, som er rik på jernoksider men fattig på plantenæring.',
+    },
+    {
+      id: 'geo-4-2-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Drøft hvorfor jordvern er viktig i Norge, og hvilke utfordringer det norske jordvernet står overfor.',
+      solution: 'Jordvern er særlig viktig i Norge fordi bare ca. 3 % av landarealet er dyrket jord – en svært begrenset ressurs. Norge er avhengig av import for å dekke matbehovet, og nedbygging av matjord reduserer selvforsyningsgraden. Utfordringene er at den beste matjorda ofte ligger i nærheten av byer og tettsteder, der presset for utbygging er størst. Vei- og boligbygging legger årlig beslag på verdifull matjord. Selv om det finnes juridisk beskyttelse, gis det dispensasjoner. Klimaendringer kan gi lengre vekstsesong i Norge, men det forutsetter at matjorda bevares.',
+    },
+    {
+      id: 'geo-4-2-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor stor andel av Norges landareal er dyrket jord?',
+      options: [
+        { id: 'a', text: 'Ca. 10 %', isCorrect: false },
+        { id: 'b', text: 'Ca. 3 %', isCorrect: true },
+        { id: 'c', text: 'Ca. 20 %', isCorrect: false },
+        { id: 'd', text: 'Ca. 7 %', isCorrect: false },
+      ],
+      solution: 'Bare ca. 3 % av Norges landareal er dyrket jord. Dette skyldes at store deler av landet består av fjell, fjorder og skrinn jord som ikke egner seg for jordbruk.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 18: Byer og urbanisering
+// Kapittel 4.3: Vannressurser
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_18: TextbookChapter = {
-  id: 'geografi-1-18',
+export const CHAPTER_GEOGRAFI_4_3: TextbookChapter = {
+  id: 'geografi-1-4-3',
   courseId: 'geografi',
-  chapterNumber: '18',
-  title: 'Byer og urbanisering',
-  description: 'Laer om byenes utvikling, struktur og utfordringer med barekraftig byutvikling.',
-  estimatedMinutes: 75,
+  chapterNumber: '4.3',
+  title: 'Vannressurser',
+  description: 'Vannets kretsløp, ferskvannsressurser, vannknapphet og vannkraft i Norge.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og presentere geografiske forhold ved byer og drøfte utfordringer med urbanisering',
+    'forklare vannets kretsløp og betydningen av ferskvannsressurser',
+    'drøfte årsaker til og konsekvenser av vannknapphet',
   ],
   content: [
     {
-      id: 'geografi-1-18-intro',
+      id: 'geo-4-3-intro',
       type: 'text',
-      content: `## Byer - menneskehetens hjemsted
+      content: `# Vannressurser
 
-Byer er konsentrasjoner av mennesker, bygninger, og aktiviteter. De er motorer for økonomisk vekst, kultur og innovasjon, men står også overfor store utfordringer.
+Vann er en forutsetning for alt liv på jorden. Selv om planeten vår er dekket av vann, er bare en liten brøkdel tilgjengelig som ferskvann. Tilgangen til rent vann er en av vår tids største utfordringer og en kilde til konflikter i mange deler av verden.
 
-**Byenes betydning:**
-- Over halvparten av verdens befolkning bor i byer
-- Byer produserer ca. 80% av verdens BNP
-- Byer står for ca. 70% av globale CO2-utslipp
-- Byer er sentre for utdanning, kultur og innovasjon
+## Vannfordeling på jorden
 
-**Hva er en by?**
-Definisjonen varierer mellom land. Vanlige kriterier:
-- Befolkningsstørrelse (i Norge: over 200 innbyggere i tettsted)
-- Befolkningstetthet
-- Administrative funksjoner
-- Økonomisk aktivitet (handel, industri, tjenester)`,
+- **Saltvann** i hav og sjøer: ca. 97,5 %
+- **Ferskvann**: ca. 2,5 %
+  - Bundet i isbreer og snø: ca. 69 % av ferskvannet
+  - Grunnvann: ca. 30 % av ferskvannet
+  - Overflatevann (elver, innsjøer): ca. 1 % av ferskvannet
+
+Bare en svært liten del av verdens vann er altså tilgjengelig som ferskvann for mennesker, dyr og jordbruk.`,
     },
     {
-      id: 'geografi-1-18-def-1',
+      id: 'geo-4-3-kretslop',
+      type: 'text',
+      content: `## Vannets kretsløp
+
+Vannets kretsløp (den hydrologiske syklusen) beskriver hvordan vann sirkulerer mellom hav, atmosfære og land i et evig kretsløp drevet av solenergi.
+
+### Hovedprosessene
+1. **Fordampning**: Sola varmer opp vann i hav, innsjøer og elver – vannet fordamper til atmosfæren
+2. **Transpirasjon**: Planter avgir vanndamp gjennom bladene
+3. **Kondensasjon**: Vanndamp avkjøles i atmosfæren og danner skyer
+4. **Nedbør**: Vann faller tilbake til jordoverflaten som regn, snø eller hagl
+5. **Avrenning**: Vann renner over overflaten til elver, innsjøer og hav
+6. **Infiltrasjon**: Vann trenger ned i bakken og blir til grunnvann
+
+### Vannbalansen
+I ethvert område gjelder: **Nedbør = Avrenning + Fordampning + Endring i lagring**
+
+Klimaendringer påvirker vannets kretsløp ved å endre nedbørsmønstre, øke fordampningen og smelte isbreer.`,
+    },
+    {
+      id: 'geo-4-3-def-kretslop',
       type: 'definition',
-      title: 'Urbaniseringens historie',
-      content: `**Tidlige byer (5000 f.Kr. - 1800):**
-De første byene oppsto i Mesopotamia, Egypt, Indusdalen og Kina. Muliggjort av jordbruksoverskudd og behov for handel, forsvar og religion.
-- Ur, Babylon, Athen, Roma
-- Middelalderens handelsbyer (Venezia, Amsterdam)
-- Maks størrelse ca. 1 million (Roma, Beijing)
-
-**Den industrielle revolusjon (1800-1950):**
-Urbanisering skjøt fart med industrialiseringen:
-- Fabrikker trengte arbeidskraft
-- Folk flyttet fra landsbygda til byene
-- Byer vokste raskt og kaotisk
-- Problemer med boforhold, hygiene, forurensning
-
-**Moderne urbanisering (1950 - i dag):**
-- Rask urbanisering i utviklingsland
-- Suburbanisering (forsteder) i vesten
-- Megabyer med over 10 millioner innbyggere
-- Deindustrialisering og overgang til tjenester
-
-**Urbaniseringsgrad i verden:**
-- Nord-Amerika: ca. 83%
-- Europa: ca. 75%
-- Latin-Amerika: ca. 82%
-- Asia: ca. 52%
-- Afrika: ca. 44%`,
+      title: 'Vannets kretsløp',
+      content: 'Vannets kretsløp (den hydrologiske syklusen) er den kontinuerlige sirkulasjonen av vann mellom hav, atmosfære, land og biosfære. Prosessen drives av solenergi og tyngdekraft, og omfatter fordampning, transpirasjon, kondensasjon, nedbør, avrenning og infiltrasjon.',
     },
     {
-      id: 'geografi-1-18-def-2',
+      id: 'geo-4-3-ferskvann',
+      type: 'text',
+      content: `## Ferskvannsressurser
+
+### Overflatevann
+Elver og innsjøer er de mest tilgjengelige ferskvannskildene. Store elver som Nilen, Amazonas, Ganges og Yangtze er livsgrunnlaget for hundrevis av millioner mennesker.
+
+### Grunnvann
+Grunnvann er vann som har siget ned gjennom jordsmonnet og lagres i porøse bergarter og løsmasser (akviferer). Mange steder er grunnvann den viktigste drikkevannskilden. Overforbruk kan senke grunnvannsspeilet og tømme akviferene.
+
+### Isbreer og snødekke
+Isbreer fungerer som naturlige vannmagasiner. Smeltevann fra breer gir jevn vannforsyning om sommeren. Klimaendringer fører til at mange breer minker, noe som truer vannforsyningen for milliarder av mennesker i Asia og Sør-Amerika.
+
+### Avsalting
+Noen land, særlig i Midtøsten, bruker avsaltingsanlegg til å gjøre sjøvann til drikkevann. Teknologien er energikrevende og dyr, men kan være avgjørende i vannfattige områder.`,
+    },
+    {
+      id: 'geo-4-3-def-akvifer',
       type: 'definition',
-      title: 'Bystruktur og byvekst',
-      content: `**Modeller for bystruktur:**
-
-**Konsentrisk sonemodell (Burgess 1925):**
-Byen vokser i konsentriske sirkler ut fra sentrum:
-1. CBD (Central Business District) - forretninger, kontorer
-2. Overgangssone - industri, fattige boliger
-3. Arbeiderboliger
-4. Middelklasseboliger
-5. Forsteder - pendlere
-
-**Sektormodell (Hoyt 1939):**
-Byen vokser i sektorer langs transportårer. Høystatusområder følger én retning, industri en annen.
-
-**Flerkjernemodell (Harris & Ullman 1945):**
-Moderne byer har flere sentre med ulike funksjoner: CBD, industriområder, kjøpesentre, universiteter.
-
-**Byvekstmønstre:**
-
-*Fortetting:*
-Bygge tettere innenfor eksisterende bygrenser. Høyere bygninger, ombygging av industriområder.
-
-*Suburban sprawl:*
-Lavtetthets utbygging i forsteder. Bilbasert, arealkrevende.
-
-*Edge cities:*
-Nye bysentre i utkanten av storbyene. Kjøpesentre, kontorer, boliger.
-
-**Byregioner:**
-Sammenhengende urbane områder som strekker seg over flere kommuner. Oslo-regionen, Bergensområdet.`,
+      title: 'Akvifer',
+      content: 'En akvifer er et underjordisk lag av porøs stein, grus eller sand som inneholder og transporterer grunnvann. Akviferer kan være enorme reservoarer – Ogallala-akviferen under den amerikanske prærien dekker 450 000 km² og forsyner store jordbruksområder med vann.',
     },
     {
-      id: 'geografi-1-18-def-3',
-      type: 'definition',
-      title: 'Baerekraftige byer - ulike løsninger',
-      content: `**Utfordringer for byer:**
-- Klimautslipp fra transport og bygninger
-- Luftforurensning
-- Arealpress og tap av natur
-- Sosial ulikhet og segregering
-- Infrastruktur og tjenester
-- Klimatilpasning (flom, hetebølger)
+      id: 'geo-4-3-knapphet',
+      type: 'text',
+      content: `## Vannknapphet og konflikter
 
-**Ulike tilnærminger til bærekraftig byutvikling:**
+### Fysisk og økonomisk vannknapphet
+- **Fysisk vannknapphet**: Vannressursene er rett og slett utilstrekkelige – vanlig i Midtøsten og Nord-Afrika
+- **Økonomisk vannknapphet**: Vann finnes, men landene mangler infrastruktur til å utnytte det – vanlig i deler av Afrika sør for Sahara
 
-*Fortetting og kompakt by:*
-- Bygge tettere reduserer transportbehov
-- Effektiv utnyttelse av infrastruktur
-- Kan gi press på grøntområder
-- Debatt om livskvalitet i tette byer
+### Årsaker til vannknapphet
+- **Befolkningsvekst**: Flere mennesker trenger mer vann
+- **Jordbruk**: Irrigasjon bruker ca. 70 % av verdens ferskvann
+- **Urbanisering**: Byer med millioner innbyggere trenger enorme mengder vann
+- **Forurensning**: Industri, jordbruk og kloakk forurenser vannkilder
+- **Klimaendringer**: Endrede nedbørsmønstre og tørkeperioder
 
-*Grønne byer:*
-- Parker og grøntområder
-- Grønne tak og vegger
-- Bynært landbruk
-- Naturbaserte løsninger for overvann
-
-*Smart mobilitet:*
-- Kollektivtransport
-- Sykling og gange
-- Elbiler og bildeling
-- Redusert bilbruk
-
-*Sirkulær økonomi:*
-- Gjenbruk og resirkulering
-- Lokale materialer
-- Redusert forbruk
-
-**Ulike perspektiver:**
-Det finnes debatt om hvordan bærekraftige byer best oppnås:
-- Noen vektlegger regulering og offentlig styring
-- Andre fremhever markedsløsninger og teknologi
-- Noen prioriterer klimautslipp, andre livskvalitet
-- Debatt om fortetting vs. lavere tetthet
-- Avveiing mellom ulike hensyn varierer
-
-FNs bærekraftsmål 11 handler om bærekraftige byer og lokalsamfunn.`,
+### Vannkonflikter
+Vann er en potensiell kilde til konflikter, særlig der elver krysser landegrenser:
+- **Nilen**: Egypt, Sudan og Etiopia har uenigheter om vannfordelingen
+- **Jordan-elven**: Vannressursene er en del av konflikten mellom Israel og nabolandene
+- **Aralsjøen**: Overforbruk av vannet fra tilløpselvene til irrigasjon har nesten tørket ut sjøen`,
     },
     {
-      id: 'geografi-1-18-def-4',
-      type: 'definition',
-      title: 'Norske byer',
-      content: `**Norges største byer (tettstedsbefolkning):**
-1. Oslo: ca. 1 million
-2. Bergen: ca. 285 000
-3. Stavanger/Sandnes: ca. 230 000
-4. Trondheim: ca. 200 000
-5. Drammen: ca. 120 000
-
-**Norske byers utvikling:**
-- Historisk: Handelsbyer ved kysten (Bergen, Trondheim)
-- 1800-tallet: Industrialisering (tekstil, treforedling)
-- 1900-tallet: Vekst i Oslo-området, oljebyene
-- I dag: Sentralisering mot storbyregioner
-
-**Oslo:**
-- Hovedstad og økonomisk sentrum
-- Raskest voksende storby i Europa (en periode)
-- Utfordringer: Boligpriser, transport, sosial ulikhet
-- Fortetting langs kollektivknutepunkter
-
-**Bergen:**
-- Historisk handelssentrum (Hansatiden)
-- Norges nest største by
-- Utfordringer: Topografi, klima, transport
-
-**Stavanger:**
-- Oljebyen fra 1970-tallet
-- Stor innvandrerbefolkning
-- Utfordringer: Oljeomstilling
-
-**Trondheim:**
-- Universitetsby (NTNU)
-- Teknologihovedstad
-- Historisk: Nidaros, pilegrimsmål
-
-**Norsk bypolitikk:**
-- Fortetting rundt kollektivknutepunkter
-- Nullvekstmål for biltrafikk i byene
-- Bymiljøavtaler mellom stat og kommuner
-- Debatt om bompenger og trafikkregulering`,
-    },
-    {
-      id: 'geografi-1-18-example-1',
+      id: 'geo-4-3-example',
       type: 'example',
-      title: 'Eksempel: Singapore - en planlagt baerekraftig by?',
-      problem: `Singapore regnes ofte som en av verdens mest vellykkede byplanlagte byer. Analyser hva Singapore har gjort og diskuter om det kan overføres til andre byer.`,
-      solution: `**Singapore - fakta:**
-- Bystat med ca. 5,5 millioner innbyggere
-- Areal: 730 km² (omtrent som Oslo kommune)
-- BNP per innbygger blant verdens høyeste
-- Fra fattig utviklingsland i 1965 til rik by i dag
+      title: 'Aralsjøen – en miljøkatastrofe',
+      problem: 'Beskriv hva som har skjedd med Aralsjøen, og forklar årsaker og konsekvenser.',
+      solution: `**Aralsjøen – årsaker og konsekvenser:**
 
-**Singapores bypolitikk:**
+1. **Bakgrunn**: Aralsjøen, mellom Kasakhstan og Usbekistan, var en gang verdens fjerde største innsjø.
 
-*Boligpolitikk:*
-- 80% bor i offentlig bygde boliger (HDB)
-- Integrerte boligområder (blandede etnisiteter)
-- Høy tetthet, men grønne områder
+2. **Årsak**: Fra 1960-tallet ledet Sovjetunionen vannet fra tilløpselvene (Amu-Darja og Syr-Darja) til irrigasjon av bomullsåkrer i ørkenen.
 
-*Transport:*
-- Effektiv kollektivtransport (MRT)
-- Høye avgifter på bilhold og -bruk
-- Elektronisk veiprising
-- Få biler per innbygger
+3. **Konsekvenser**:
+   - Sjøen har krympet til under 10 % av opprinnelig størrelse
+   - Fiskeriene kollapset – hele kystbyer mistet levebrødet
+   - Salt og giftige kjemikalier fra tørrlagt sjøbunn blåser over jordbruksland
+   - Lokalt klima ble tørrere og mer ekstremt
+   - Alvorlige helseproblemer for befolkningen
 
-*Grønne områder:*
-- "City in a garden" - mye vegetasjon
-- Grønne tak og vertikale hager
-- Naturreservater bevart
-- Regnvannshåndtering
-
-*Vannforsyning:*
-- Avansert vannrensing og gjenbruk
-- Oppsamling av regnvann
-- Avsalting av sjøvann
-
-**Kritikk og begrensninger:**
-- Autoritært styre muliggjør sterk planlegging
-- Begrenset ytringsfrihet og demokrati
-- Høy ulikhet tross velferd
-- Ikke direkte overførbart til demokratiske land
-
-**Hva kan læres?**
-- Langsiktig planlegging er viktig
-- Offentlig boligbygging kan fungere
-- Sterk kollektivsatsing reduserer bilbruk
-- Grøntområder kan bevares i tette byer
-- Men: Politisk kontekst og kultur varierer`,
+4. **Lærdommen**: Viser hvordan kortsiktig ressursbruk kan gi irreversible miljøskader.`,
     },
     {
-      id: 'geografi-1-18-text-segregering',
+      id: 'geo-4-3-norge',
       type: 'text',
-      content: `## Sosial segregering i byer
+      content: `## Vannkraft i Norge
 
-Byer er ikke bare fysiske strukturer — de gjenspeiler også sosiale skillelinjer. Sosial segregering betyr at ulike grupper (basert på inntekt, etnisitet, alder) bor adskilt i ulike deler av byen. Dette er et fenomen som finnes i byer over hele verden, fra Oslo til São Paulo.
+Norge er i en unik situasjon med enorme ferskvannsressurser. Rikelig nedbør, mange elver, innsjøer og bratt terreng gjør landet ideelt for vannkraftproduksjon.
 
-**Gentrifisering:**
-Gentrifisering er prosessen der nedslitte byområder oppgraderes, ofte med tilstrømming av mer velstående beboere. Gamle industri- og arbeiderstrøk får nye restauranter, gallerier og dyre boliger. Prosessen har to sider:
-- *Positive konsekvenser:* Bedre bygninger, mindre kriminalitet, økte skatteinntekter, nytt næringsliv
-- *Negative konsekvenser:* Opprinnelige beboere presses ut av stigende husleie og boligpriser, tap av lokal kultur og sosialt nettverk, økt ulikhet
+### Norges vannkraft
+- Ca. **90 %** av norsk elektrisitetsproduksjon kommer fra vannkraft
+- Norge er Europas største vannkraftprodusent
+- Over 1 700 vannkraftverk spredt over hele landet
+- Magasinkraft lagrer vann i fjellmagasiner til det trengs
+- Elvekraft bruker elvers naturlige fall uten store magasiner
 
-I Oslo ser vi gentrifisering på steder som Grünerløkka, Tøyen og Vulkan-området, der tidligere arbeiderstrøk har blitt populære middelklasseområder.
+### Fordeler med vannkraft
+- Fornybar og utslippsfri energikilde
+- Regulerbar – kan tilpasses behovet
+- Billig i drift etter at anlegget er bygget
+- Gir stabil energiforsyning
 
-**Gated communities:**
-I mange land, særlig i Nord- og Sør-Amerika, Sør-Afrika og Sørøst-Asia, finnes «gated communities» — inngjerdede boligområder med vakter, porter og overvåking. De vokser frem som respons på kriminalitet og utrygghet, men kritiseres for å forsterke sosial segregering og undergrave det offentlige rommet.
+### Utfordringer
+- Naturinngrep: Demninger, regulerte vassdrag og endrete vannføringer
+- Påvirker fiskevandring og elveøkologi
+- Konflikter mellom utbygging og naturvern
+- Tørre år kan gi lavere produksjon
 
-**Slum og uformelle bosettinger:**
-I motsatt ende av skalaen finner vi slumområder — ofte i utkanten av storbyer i utviklingsland. Dharavi i Mumbai, Kibera i Nairobi og favelaene i Rio de Janeiro huser millioner av mennesker under vanskelige forhold, men er også preget av sterke sosiale nettverk og kreativ uformell økonomi.
-
-**Segregering i norske byer:**
-Selv om Norge har relativt lav ulikhet, finnes det tydelig sosial segregering i byer som Oslo. Forskjellene i forventet levealder mellom bydeler i Oslo er opptil 8-10 år. Østkanten har lavere inntektsnivå, høyere andel innvandrere og dårligere helseindikatorer enn vestkanten.`,
+### Norsk vannforvaltning
+Norge har omfattende lovgivning for å beskytte vannressurser. Vannforskriften, basert på EUs vanndirektiv, krever god økologisk tilstand i alle vannforekomster.`,
     },
     {
-      id: 'geografi-1-18-def-5',
-      type: 'definition',
-      title: 'TOD — Transit-Oriented Development',
-      content: `**TOD (Transit-Oriented Development):**
+      id: 'geo-4-3-global',
+      type: 'text',
+      content: `## Global vannkrise?
 
-TOD er en byutviklingsstrategi som konsentrerer boliger, arbeidsplasser, handel og tjenester rundt kollektivtransportknutepunkter (togstasjoner, t-banestoppesteder, bussknutepunkter).
+FN anslår at over 2 milliarder mennesker mangler tilgang til trygt drikkevann. Dårlig vannkvalitet og mangelfull sanitær infrastruktur fører til sykdommer som kolera, dysenteri og tyfoidfeber, som dreper hundretusener hvert år.
 
-**Kjennetegn ved TOD:**
-- Høy tetthet av boliger og arbeidsplasser innenfor gangavstand (400-800 meter) fra holdeplassen
-- Blandet arealbruk — boliger, butikker, kontorer og tjenester i samme område
-- Gode gangveier og sykkelveier
-- Redusert parkeringstilbud for biler
-- Offentlige rom og møteplasser
+### Mulige løsninger
+- **Effektivisering av jordbruk**: Dryppvanning i stedet for oversvømmingsvanning
+- **Vannbehandling**: Rensing og gjenbruk av avløpsvann
+- **Regnvannsoppsamling**: Samle regnvann for husholdning og jordbruk
+- **Avsalting**: Gjøre sjøvann drikkbart med ny teknologi
+- **Internasjonalt samarbeid**: Fordeling av grenseoverskridende vannressurser
+- **Investering i infrastruktur**: Vannledninger, brønner og sanitæranlegg i utviklingsland
 
-**Fordeler med TOD:**
-- Reduserer bilbruk og klimautslipp
-- Effektiv bruk av areal og infrastruktur
-- Levende nabolag med kort vei til daglige gjøremål
-- Kan motvirke byspredning (suburban sprawl)
-- Bedre tilgjengelighet for de som ikke har bil
-
-**Eksempler:**
-- **København:** Utvikling langs metroen (Ørestad)
-- **Oslo:** Fortetting rundt T-banestasjoner og jernbaneknutepunkter (Bjørvika, Løren, Økern)
-- **Curitiba (Brasil):** Pioner innen TOD med eget BRT-system (Bus Rapid Transit)
-- **Tokyo:** Hele bystrukturen er bygd rundt jernbanestasjonene
-
-**Utfordringer med TOD:**
-- Kan drive opp boligprisene nær knutepunkter (gentrifisering)
-- Krever stor offentlig investering i infrastruktur
-- Naboer kan protestere mot fortetting
-- Ikke all byutvikling kan konsentreres langs kollektivlinjer`,
-    },
-    {
-      id: 'geografi-1-18-tip-1',
-      type: 'tip',
-      title: 'Kobling til kapittel 6 — Urbanisering vs. bystruktur',
-      content: `**I dette kapittelet (18)** fordyper du deg i byenes indre struktur, bymodeller (Burgess, Hoyt), sosial segregering, gentrifisering og konkrete byutviklingsstrategier som TOD.
-
-**I kapittel 6** lærte du om urbanisering som en global prosess — hvorfor folk flytter til byer, urbaniseringsgrader i ulike verdensdeler, megabyer og slum.
-
-**Forskjellen:** Kapittel 6 handler om *prosessen* (at folk flytter til byer), mens kapittel 18 handler om *strukturen* (hvordan byer er organisert innvendig). Begge er nødvendige for å forstå byer som geografisk fenomen. På eksamen kan du bli bedt om å bruke perspektiver fra begge kapitler for å analysere en konkret by eller byutfordring.`,
-    },
-    {
-      id: 'geografi-1-18-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Beskriv hovedtrekkene i urbaniseringens historie fra de første byene til i dag.',
-        hints: ['Tenk på jordbruk, industrialisering, moderne urbanisering'],
-        solution: 'Tidlige byer (fra 5000 f.Kr.): Oppsto med jordbruksoverskudd, handel, forsvar (Ur, Roma). Industrialiseringen (1800-tallet): Fabrikker trakk folk til byene, rask og kaotisk vekst, dårlige boforhold. Moderne tid: Rask urbanisering i utviklingsland, suburbanisering i vesten, megabyer. I dag bor over 57% av verdens befolkning i byer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-18-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar den konsentriske sonemodellen (Burgess). Hvordan passer den på norske byer?',
-        hints: ['Tegn modellen og tenk på Oslo eller Bergen'],
-        solution: 'Burgess-modellen: Byen vokser i sirkler fra sentrum: 1) CBD (sentrum), 2) Overgangssone, 3) Arbeiderboliger, 4) Middelklasse, 5) Forsteder. Norske byer: Passer delvis - Oslo har CBD i sentrum, indre by med blandet bruk, villaområder lenger ut. Men topografi (fjell, fjord), historiske forhold og planlegging gjør at modellen ikke passer perfekt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-18-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er utfordringene med bærekraftig byutvikling? Presenter ulike løsningsforslag og perspektiver.',
-        hints: ['Tenk på klima, transport, bolig, grøntområder'],
-        solution: 'Utfordringer: Klimautslipp, luftforurensning, arealpress, sosial ulikhet, infrastrukturpress. Løsninger: Fortetting (effektivt, men press på grønt), kollektivtransport (reduserer utslipp), grønne områder (livskvalitet), sirkulær økonomi. Ulike perspektiver: Noen prioriterer klima, andre livskvalitet. Noen vil ha sterk regulering, andre markedsløsninger. Avveiinger er politiske valg.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-18-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Sammenlign to norske byer (velg selv). Hva er likheter og forskjeller i historie, funksjon og utfordringer?',
-        hints: ['Tenk på geografi, historie, næringsliv, størrelse'],
-        solution: 'Eksempel Oslo vs. Bergen: Likheter: Begge er kystbyer, store, har utfordringer med transport. Forskjeller: Oslo er hovedstad og mye større, flatt terreng, mer sentralisert. Bergen har brattere topografi, handelshistorie fra Hansatiden, mer nedbør. Oslo har mer industri/tjenester, Bergen mer maritim næring. Begge satser på kollektivtransport og fortetting.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-18-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft fordeler og ulemper med fortetting som byutviklingsstrategi. Presenter ulike synspunkter.',
-        hints: ['Tenk på transport, miljø, livskvalitet, økonomi'],
-        solution: 'Fordeler: Reduserer transportbehov og bilbruk, effektiv infrastruktur, bevarer natur utenfor byen, levende bymiljø. Ulemper: Press på grøntområder, støy og forurensning, høye boligpriser, kan gi trangboddhet. Ulike syn: Miljøvernere støtter ofte fortetting, andre vektlegger hager og plass. Noen vil ha høyhus, andre lavere bebyggelse. Kompromiss: Fortetting rundt kollektivknutepunkter med grøntområder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-18-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-18-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — byer og urbanisering:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er gentrifisering?',
-            solution: 'Oppgradering av nedslitte byområder som fører til tilstrømming av mer velstående beboere',
-            multipleChoiceOptions: ['Bygging av nye forsteder utenfor bygrensen', 'Oppgradering av nedslitte byområder som fører til tilstrømming av mer velstående beboere', 'Nedleggelse av industri i byene', 'Offentlig boligbygging for lavinntektsgrupper'],
-          },
-          {
-            label: 'b',
-            task: 'Hva står TOD for i byplanlegging?',
-            solution: 'Transit-Oriented Development — konsentrasjon av utbygging rundt kollektivknutepunkter',
-            multipleChoiceOptions: ['Total Outdoor Design — grønne byrom', 'Transit-Oriented Development — konsentrasjon av utbygging rundt kollektivknutepunkter', 'Temporary Open Districts — midlertidige byrom', 'Transport-Optimized Distribution — effektive logistikksentre'],
-          },
-          {
-            label: 'c',
-            task: 'Hvilken forskjell i forventet levealder finnes mellom bydeler i Oslo?',
-            solution: 'Opptil 8-10 år',
-            multipleChoiceOptions: ['Ca. 1-2 år', 'Ca. 3-5 år', 'Opptil 8-10 år', 'Over 15 år'],
-          },
-        ],
-        solution: 'a) Oppgradering av nedslitte byområder med tilstrømming av velstående, b) Transit-Oriented Development, c) Opptil 8-10 år',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+FNs bærekraftsmål nr. 6 er «Rent vann og gode sanitærforhold» for alle innen 2030.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-4-3-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor stor andel av verdens vann er ferskvann?',
+      options: [
+        { id: 'a', text: 'Ca. 25 %', isCorrect: false },
+        { id: 'b', text: 'Ca. 10 %', isCorrect: false },
+        { id: 'c', text: 'Ca. 2,5 %', isCorrect: true },
+        { id: 'd', text: 'Ca. 15 %', isCorrect: false },
+      ],
+      solution: 'Bare ca. 2,5 % av verdens vann er ferskvann. Av dette er størstedelen bundet i isbreer og snø (ca. 69 %) eller lagret som grunnvann (ca. 30 %). Bare ca. 1 % av ferskvannet finnes som tilgjengelig overflatevann.',
+    },
+    {
+      id: 'geo-4-3-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Beskriv hovedprosessene i vannets kretsløp.',
+      solution: 'Vannets kretsløp omfatter følgende hovedprosesser: Fordampning – sola varmer opp vann i hav, innsjøer og elver slik at vannet fordamper til atmosfæren. Transpirasjon – planter avgir vanndamp gjennom bladene. Kondensasjon – vanndampen avkjøles i atmosfæren og danner skyer. Nedbør – vann faller tilbake til overflaten som regn, snø eller hagl. Avrenning – vann renner over overflaten til elver og hav. Infiltrasjon – vann trenger ned i bakken og blir til grunnvann. Kretsløpet drives av solenergi og tyngdekraft.',
+    },
+    {
+      id: 'geo-4-3-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilken sektor bruker mest ferskvann globalt?',
+      options: [
+        { id: 'a', text: 'Industri', isCorrect: false },
+        { id: 'b', text: 'Husholdninger', isCorrect: false },
+        { id: 'c', text: 'Jordbruk (irrigasjon)', isCorrect: true },
+        { id: 'd', text: 'Energiproduksjon', isCorrect: false },
+      ],
+      solution: 'Jordbruk og irrigasjon bruker ca. 70 % av verdens ferskvann. Dette gjør jordbruket til den desidert største forbrukeren av ferskvann globalt.',
+    },
+    {
+      id: 'geo-4-3-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar forskjellen mellom fysisk og økonomisk vannknapphet, og gi eksempler på områder som er rammet av hver type.',
+      solution: 'Fysisk vannknapphet betyr at det rett og slett ikke finnes tilstrekkelig vannressurser i et område til å dekke behovet. Eksempler er Midtøsten og Nord-Afrika, der lavt nedbør og tørt klima gir svært begrensede vannmengder. Økonomisk vannknapphet betyr at vannressursene finnes, men at landene mangler infrastruktur, teknologi eller økonomiske ressurser til å utnytte dem. Dette er vanlig i deler av Afrika sør for Sahara, der det kan være tilstrekkelig nedbør, men der det mangler brønner, vannledninger og renseanlegg.',
+    },
+    {
+      id: 'geo-4-3-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor stor andel av norsk elektrisitetsproduksjon kommer fra vannkraft?',
+      options: [
+        { id: 'a', text: 'Ca. 50 %', isCorrect: false },
+        { id: 'b', text: 'Ca. 70 %', isCorrect: false },
+        { id: 'c', text: 'Ca. 90 %', isCorrect: true },
+        { id: 'd', text: 'Ca. 60 %', isCorrect: false },
+      ],
+      solution: 'Ca. 90 % av Norges elektrisitetsproduksjon kommer fra vannkraft. Norge er Europas største vannkraftprodusent, takket være rikelig nedbør, mange elver og bratt terreng.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 19: Naturressurser
+// Kapittel 4.4: Energiressurser
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_19: TextbookChapter = {
-  id: 'geografi-1-19',
+export const CHAPTER_GEOGRAFI_4_4: TextbookChapter = {
+  id: 'geografi-1-4-4',
   courseId: 'geografi',
-  chapterNumber: '19',
-  title: 'Naturressurser',
-  description: 'Laer om fornybare og ikke-fornybare ressurser, energikilder og ressursforvaltning.',
-  estimatedMinutes: 75,
+  chapterNumber: '4.4',
+  title: 'Energiressurser',
+  description: 'Fossile og fornybare energikilder, energiomstilling og Norges energisituasjon.',
+  estimatedMinutes: 25,
   competenceGoals: [
-    'utforske og drøfte bruk av naturressurser og konsekvenser for miljø og samfunn',
+    'gjøre rede for ulike energikilder og deres fordeler og ulemper',
+    'drøfte energiomstillingen og Norges rolle som energinasjon',
   ],
   content: [
     {
-      id: 'geografi-1-19-intro',
+      id: 'geo-4-4-intro',
       type: 'text',
-      content: `## Naturressurser - grunnlaget for samfunnet
+      content: `# Energiressurser
 
-Naturressurser er materialer og energi fra naturen som mennesker bruker for å dekke sine behov. Forvaltning av ressurser er et sentralt tema i geografi og samfunnsdebatten.
+Energi er grunnlaget for moderne samfunn. Vi trenger energi til oppvarming, transport, industri, matlaging og kommunikasjon. Hvordan vi produserer og bruker energi, har enorme konsekvenser for miljøet, klimaet og verdens utvikling.
 
-**Hva er naturressurser?**
-- Alt i naturen som har verdi for mennesker
-- Inkluderer energi, mineraler, vann, jord, skog, fisk
-- Verdi avhenger av teknologi, økonomi og kultur
+## Energibruk i verden
 
-**Ressursklassifisering:**
-- Fornybare: Kan fornyes naturlig (sol, vind, skog, fisk)
-- Ikke-fornybare: Finnes i begrenset mengde (olje, gass, mineraler)
-- Betinget fornybare: Fornybare hvis de forvaltes bærekraftig (grunnvann, jord)
+Det globale energiforbruket har økt dramatisk de siste hundre årene. Fossile brensler (olje, gass og kull) dekker fortsatt over 80 % av verdens energibehov, men andelen fornybar energi vokser raskt.
 
-**Ressursenes betydning:**
-- Grunnlag for økonomisk aktivitet
-- Energi driver samfunnet
-- Ujevn fordeling skaper geopolitikk
-- Overforbruk truer miljøet`,
+Energiforbruket er svært ujevnt fordelt: En gjennomsnittsperson i Norge bruker mange ganger mer energi enn en person i et lavinntektsland.`,
     },
     {
-      id: 'geografi-1-19-def-1',
+      id: 'geo-4-4-fossile',
+      type: 'text',
+      content: `## Fossile energikilder
+
+Fossile brensler er dannet av organisk materiale (planter og dyr) som har vært utsatt for høyt trykk og temperatur i millioner av år. De er **ikke-fornybare** – de dannes mye langsommere enn vi bruker dem.
+
+### Olje (petroleum)
+- Dannet av mikroorganismer i havet over millioner av år
+- Brukes til transport (bensin, diesel), plast, kjemikalier og oppvarming
+- Finnes i store mengder i Midtøsten, Russland, USA og norsk kontinentalsokkel
+- Utvinning kan gi oljesøl og havforurensning
+
+### Naturgass
+- Dannet sammen med olje, men lettere og renere i forbrenning
+- Brukes til oppvarming, elektrisitetsproduksjon og industri
+- Lavere CO₂-utslipp per energienhet enn kull og olje
+- Norge er en stor eksportør av naturgass til Europa
+
+### Kull
+- Det eldste og mest brukte fossile brenselet
+- Dannet av tropiske skoger for 300–360 millioner år siden (karbontiden)
+- Brukes i stor grad til elektrisitetsproduksjon, særlig i Kina og India
+- Gir størst CO₂-utslipp per energienhet av fossile brensler
+- Kullgruvedrift fører til store miljøinngrep`,
+    },
+    {
+      id: 'geo-4-4-def-fossil',
       type: 'definition',
-      title: 'Fornybare og ikke-fornybare ressurser',
-      content: `**Fornybare ressurser:**
-Ressurser som kan fornyes naturlig innenfor menneskelig tidshorisont.
-
-*Strømmende ressurser:*
-Fornyes kontinuerlig uavhengig av bruk:
-- Solenergi
-- Vindenergi
-- Vannkraft (så lenge det regner)
-- Tidevann og bølger
-
-*Biologiske ressurser:*
-Fornyes gjennom reproduksjon, men kan overutnyttes:
-- Fisk og sjømat
-- Skog og tømmer
-- Jordbruksprodukter
-- Vilt
-
-**Ikke-fornybare ressurser:**
-Ressurser som ikke fornyes i menneskelig tidsskala (millioner av år å danne).
-
-*Fossile brennstoffer:*
-- Olje
-- Naturgass
-- Kull
-
-*Mineralressurser:*
-- Metaller (jern, kobber, gull, aluminium)
-- Industrimineraler (kvarts, kalkstein, grus)
-- Edelstener
-
-**Betinget fornybare:**
-Kan være fornybare ved god forvaltning, men kan uttømmes:
-- Grunnvann (kan tømmes raskere enn det fylles)
-- Jordsmonn (tar tusenvis av år å danne)
-- Fiskebestander (kan kollapses ved overfiske)`,
+      title: 'Fossile brensler',
+      content: 'Fossile brensler er energikilder dannet av organisk materiale (rester av planter og dyr) som over millioner av år har blitt omdannet til kull, olje eller naturgass under høyt trykk og temperatur. De er ikke-fornybare ressurser fordi de dannes mye langsommere enn de brukes.',
     },
     {
-      id: 'geografi-1-19-def-2',
+      id: 'geo-4-4-fornybare',
+      type: 'text',
+      content: `## Fornybare energikilder
+
+Fornybare energikilder fornyes naturlig og vil ikke gå tomme. De gir lite eller ingen klimagassutslipp under drift.
+
+### Vannkraft
+- Utnytter vanns bevegelse (fallhøyde) til å drive turbiner
+- Regulerbar – kan tilpasses etterspørselen
+- Norge, Brasil, Canada og Kina er store produsenter
+- Naturinngrep ved demninger og regulering
+
+### Solenergi
+- Solceller (fotovoltaiske) omdanner sollys direkte til strøm
+- Solvarmeanlegg bruker solvarme til oppvarming av vann
+- Raskest voksende energikilde globalt
+- Avhengig av solforhold – varierer med breddegrad og årstid
+
+### Vindkraft
+- Vindturbiner omdanner vindens bevegelsesenergi til strøm
+- Vokser raskt, særlig offshore (havvind)
+- Variabel produksjon – avhengig av vindforhold
+- Kan gi konflikter med natur, fugleliv og landskapsvern
+
+### Bioenergi
+- Energi fra biologisk materiale (ved, biogass, biodrivstoff)
+- Kan være klimanøytral hvis biomassen gjenvokser
+- Viktig i mange utviklingsland (ved til matlaging)
+- Bioetanol og biodiesel kan erstatte fossilt drivstoff delvis
+
+### Geotermisk energi
+- Utnytter varme fra jordens indre
+- Viktig på Island og i andre vulkanske områder
+- Stabil og pålitelig energikilde
+- Begrenset til områder med geotermisk aktivitet`,
+    },
+    {
+      id: 'geo-4-4-def-fornybar',
       type: 'definition',
-      title: 'Energiressurser',
-      content: `**Fossile brennstoffer:**
-
-*Olje:*
-- Verdens viktigste energikilde
-- Transport, petrokjemi, oppvarming
-- Reserver: 50+ år med dagens forbruk
-- Hovedprodusenter: Saudi-Arabia, USA, Russland
-
-*Naturgass:*
-- Renere enn kull og olje
-- Oppvarming, kraftproduksjon, industri
-- Voksende rolle som "overgangsenergi"
-- Hovedprodusenter: USA, Russland, Iran
-
-*Kull:*
-- Eldste fossile brensel
-- Fortsatt viktig for kraftproduksjon globalt
-- Mest forurensende fossilt brensel
-- Store reserver, men mange land faser ut
-
-**Fornybar energi:**
-
-*Vannkraft:*
-- Ca. 16% av verdens strøm
-- Regulerbar og stabil
-- Naturinngrep ved utbygging
-- Viktigste: Kina, Brasil, Canada, Norge
-
-*Vindkraft:*
-- Raskest voksende energikilde
-- Både på land og til havs
-- Variabel produksjon
-- Debatt om naturinngrep
-
-*Solenergi:*
-- Ubegrenset potensial
-- Solceller og solfangere
-- Variabel (sol/skyer, dag/natt)
-- Raskt fallende priser
-
-*Annet:*
-- Bioenergi (ved, biodrivstoff)
-- Geotermisk energi
-- Bølge- og tidevannsenergi
-- Kjernekraft (ikke fornybar, men lavutslipp)`,
+      title: 'Fornybar energi',
+      content: 'Fornybar energi er energi fra kilder som fornyes naturlig og ikke vil gå tomme ved bruk. Eksempler er vannkraft, solenergi, vindkraft, bioenergi og geotermisk energi. I motsetning til fossile brensler gir fornybare energikilder ingen eller svært lave klimagassutslipp under drift.',
     },
     {
-      id: 'geografi-1-19-def-3',
-      type: 'definition',
-      title: 'Norges energiressurser - olje, gass og fornybart',
-      content: `**Norsk olje og gass:**
+      id: 'geo-4-4-omstilling',
+      type: 'text',
+      content: `## Energiomstilling
 
-*Historikk:*
-- Olje funnet på Ekofisk i 1969
-- Produksjonsstart 1971
-- Norge blant verdens største eksportører
-- Oljefondet (verdens største statlige fond)
+Energiomstillingen (energitransisjonen) innebærer at verden gradvis går over fra fossile brensler til fornybare energikilder for å begrense klimaendringene.
 
-*Produksjon i dag:*
-- Olje: ca. 2 millioner fat/dag
-- Gass: ca. 120 milliarder Sm³/år
-- Viktig for europeisk energiforsyning
+### Drivkrefter
+- **Klimamålene**: Parisavtalen krever at global oppvarming begrenses til 1,5–2 °C
+- **Teknologiutvikling**: Sol- og vindkraft har blitt dramatisk billigere de siste tiårene
+- **Politisk vilje**: Mange land har satt mål om klimanøytralitet innen 2050
+- **Økonomiske muligheter**: Grønne arbeidsplasser og ny industri
 
-*Økonomisk betydning:*
-- Ca. 14% av BNP
-- Ca. 40% av eksportinntektene
-- Finansierer velferdsstaten
-- Titusenvis av arbeidsplasser
-
-**Ulike perspektiver på norsk olje og gass:**
-
-*Fordeler som fremheves:*
-- Økonomisk grunnlag for velferdsstaten
-- Arbeidsplasser og kompetanse
-- Energisikkerhet for Europa
-- Norsk gass erstatter kull i Europa
-
-*Utfordringer som fremheves:*
-- Bidrar til globale klimautslipp
-- Risiko for ulykker og utslipp
-- Oljeavhengighet i økonomien
-- Spørsmål om fremtidig etterspørsel
-
-*Debatt om fremtiden:*
-Spørsmålet om nye leteområder og utfasing av petroleumsvirksomheten er politisk kontroversielt. Ulike partier og interesser vektlegger klima, arbeidsplasser og økonomi forskjellig.
-
-**Fornybar energi i Norge:**
-- Vannkraft: ca. 90% av strømproduksjonen
-- Vindkraft: voksende, men omstridt på land
-- Havvind: store planer offshore
-- Solenergi: begrenset, men voksende`,
+### Utfordringer
+- **Energilagring**: Sol og vind produserer variabelt – batteriteknologi må utvikles videre
+- **Infrastruktur**: Strømnett, ladestasjoner og hydrogeninfrastruktur må bygges ut
+- **Sosial rettferdighet**: Omstillingen må ikke ramme fattige land og sårbare grupper uforholdsmessig
+- **Kritiske mineraler**: Produksjon av batterier og solceller krever mineraler som litium og kobolt
+- **Fossil avhengighet**: Mange land er økonomisk avhengige av fossile inntekter`,
     },
     {
-      id: 'geografi-1-19-def-4',
-      type: 'definition',
-      title: 'Mineralressurser',
-      content: `**Mineraler og metaller:**
+      id: 'geo-4-4-norge',
+      type: 'text',
+      content: `## Norges energisituasjon
 
-*Jernmalm:*
-- Grunnlag for stålproduksjon
-- Store forekomster: Australia, Brasil, Kina
-- Brukes i konstruksjon, maskiner, transport
+Norge har en unik posisjon som energinasjon – landet er både en stor produsent av fossil energi og en foregangsnasjon for fornybar energi.
 
-*Kobber:*
-- Viktig for elektrisk ledning
-- Økende etterspørsel pga. elektrifisering
-- Chile og Peru er storprodusenter
+### Olje- og gassnasjonen
+- Norge har produsert olje og gass fra Nordsjøen siden 1971
+- Petroleumsinntektene har gjort Norge til et av verdens rikeste land
+- Statens pensjonsfond utland (Oljefondet) forvalter oljeinntektene for fremtidige generasjoner
+- Norge er Europas største gassleverandør etter Russlands krig i Ukraina
 
-*Aluminium:*
-- Lett metall fra bauxitt
-- Brukes i transport, emballasje, bygg
-- Energikrevende å produsere
+### Det grønne paradokset
+Norge møter en tilsynelatende motsetning:
+- Nesten all strøm innenlands kommer fra fornybar energi (vannkraft)
+- Samtidig er Norge en stor eksportør av olje og gass som forårsaker utslipp i andre land
+- Dette skaper debatt om Norges klimaansvar og fremtidige energipolitikk
 
-*Kritiske mineraler:*
-- Litium, kobolt, grafitt (batterier)
-- Sjeldne jordarter (elektronikk, magneter)
-- Ofte konsentrert i få land (Kina, Kongo)
-- Geopolitisk viktige
-
-**Norske mineralressurser:**
-- Historisk: Jernmalm (Kirkenes), kobber (Røros)
-- I dag: Titan, olivin, kvarts
-- Potensial: Mineraler for det grønne skiftet
-- Debatt om ny gruvedrift vs. naturvern
-
-**Ressursforvaltning:**
-Spørsmålet om hvordan mineralressurser skal utvinnes balanserer:
-- Økonomisk verdi og arbeidsplasser
-- Miljøhensyn og naturvern
-- Lokale interesser
-- Nasjonale og globale behov`,
+### Satsing på ny energi
+- **Havvind**: Store planer for vindkraft til havs (Utsira Nord, Sørlige Nordsjø)
+- **Hydrogen**: Norsk teknologi for produksjon av grønt og blått hydrogen
+- **Elektrifisering**: Verdensledende innen elbiler og elektrisk fergetransport
+- **Karbonfangst og -lagring (CCS)**: Langskip-prosjektet skal lagre CO₂ under havbunnen`,
     },
     {
-      id: 'geografi-1-19-def-5',
-      type: 'definition',
-      title: 'Ressursforvaltning - ulike tilnaerminger',
-      content: `**Bærekraftig ressursforvaltning:**
-Bruke ressurser slik at også fremtidige generasjoner får sine behov dekket.
-
-**Ulike tilnærminger:**
-
-*Bevaringstilnærming:*
-- Vektlegger å bevare natur og ressurser
-- Begrense uttak og bruk
-- Naturvern og vern av områder
-- Kritikere mener dette kan hindre utvikling
-
-*Forvaltningstilnærming:*
-- Balansere bruk og vern
-- Bærekraftig uttak (ikke mer enn fornyes)
-- Kvoter, reguleringer, sertifisering
-- Kompromiss mellom ulike interesser
-
-*Markedstilnærming:*
-- Markedet styrer ressursbruk gjennom priser
-- Knapphet gir høyere priser og incentiver til alternativer
-- Teknologisk utvikling finner løsninger
-- Kritikere mener markedet ikke priser miljøkostnader
-
-*Rettighetsbasert tilnærming:*
-- Urfolks og lokalsamfunns rettigheter
-- Hvem eier og bestemmer over ressursene?
-- Fordeling av gevinst fra ressursutvinning
-
-**Ressursforbannelsen:**
-Noen ressursrike land har opplevd at rikdommen har ført til korrupsjon, konflikter og svak utvikling (Nigeria, Venezuela). Andre har klart seg godt (Norge, Botswana). Forskjellen ligger ofte i styresett og institusjoner.
-
-**Internasjonal ressurspolitikk:**
-- Handelsavtaler og tilgang til ressurser
-- Klimaavtaler (begrense fossil energi)
-- Sertifiseringsordninger (FSC for skog, MSC for fisk)
-- Geopolitiske konflikter om ressurser`,
-    },
-    {
-      id: 'geografi-1-19-example-1',
+      id: 'geo-4-4-example',
       type: 'example',
-      title: 'Eksempel: Litium - ressurs for det grønne skiftet',
-      problem: `Litium er essensielt for batterier i elbiler og energilagring. Analyser litiumressursene og ulike perspektiver på utvinningen.`,
-      solution: `**Litium - det hvite gullet:**
+      title: 'Sammenligning av energikilder',
+      problem: 'Sammenlign kull og solenergi som energikilder med tanke på klimagassutslipp, tilgjengelighet og kostnader.',
+      solution: `**Sammenligning av kull og solenergi:**
 
-**Bruksområder:**
-- Batterier (elbiler, telefoner, laptoper)
-- Energilagring for sol- og vindkraft
-- Psykiatri (medisin)
-- Keramikk og glass
+| Kriterium | Kull | Solenergi |
+|-----------|------|-----------|
+| **Klimagassutslipp** | Høyest av alle energikilder (ca. 1000 g CO₂/kWh) | Minimale utslipp i drift (30–50 g CO₂/kWh over livsløpet) |
+| **Tilgjengelighet** | Ikke-fornybar, begrensede reserver | Fornybar, tilgjengelig overalt (varierer med breddegrad) |
+| **Kostnader** | Stabile driftskostnader, men dyrere med CO₂-avgifter | Lav og synkende kostnad – nå billigst i mange områder |
+| **Pålitelighet** | Stabil produksjon, regulerbar | Variabel, avhengig av sol – krever lagring |
+| **Miljøpåvirkning** | Store: gruvedrift, luftforurensning, avfall | Moderate: arealbruk, produksjon av solceller |
 
-**Hvor finnes litium?**
-- Saltsjøer i Sør-Amerika (Chile, Argentina, Bolivia)
-- Bergarter i Australia
-- Mindre forekomster mange steder (også potensielt i Norge)
-
-**Etterspørsel:**
-- Øker raskt med elbilsalget
-- Forventet 5-10 dobling innen 2030
-- Prisene svinger kraftig
-
-**Ulike perspektiver på litiumutvinning:**
-
-*Økonomiske argumenter:*
-- Nødvendig for elektrifisering
-- Skaper arbeidsplasser i produsentland
-- Kan redusere avhengighet av olje
-
-*Miljøbekymringer:*
-- Vannforbruk i tørre områder (Sør-Amerika)
-- Kjemikalier i utvinningsprosessen
-- Naturinngrep ved gruvedrift
-- Spørsmål om resirkulering
-
-*Sosiale spørsmål:*
-- Urfolks rettigheter og landområder
-- Fordeling av inntekter
-- Arbeidsforhold i gruver
-
-*Geopolitiske aspekter:*
-- Kina dominerer raffinering
-- Avhengighet av få produsentland
-- Vestlige land ønsker egen produksjon
-
-**Hva med Norge?**
-Det er påvist litiumforekomster i Norge. Debatt om gruvedrift vekter økonomiske muligheter mot naturvern og lokale interesser.`,
+**Konklusjon**: Solenergi har store fordeler klimamessig og kostnadsmessig, men utfordringen med variabel produksjon krever gode lagringsløsninger.`,
     },
     {
-      id: 'geografi-1-19-text-energiomstilling',
+      id: 'geo-4-4-fremtid',
       type: 'text',
-      content: `## Energiomstilling — hydrogen, CCS og fremtidens energimiks
+      content: `## Energifremtiden
 
-Verden står overfor en omfattende energiomstilling for å redusere klimagassutslipp. Mens sol- og vindkraft er de mest synlige løsningene, finnes det flere teknologier som kan spille en viktig rolle i overgangen fra fossilt til fornybart.
+Det internasjonale energibyrået (IEA) har pekt på flere trender for global energi:
 
-**Hydrogen:**
-Hydrogen kan brukes som energibærer — det lagrer energi som kan omdannes til elektrisitet eller varme uten direkte CO2-utslipp. Det skilles mellom ulike «farger» av hydrogen:
-- *Grønt hydrogen:* Produsert ved elektrolyse av vann med fornybar strøm. Helt utslippsfritt, men energikrevende.
-- *Blått hydrogen:* Produsert fra naturgass der CO2 fanges og lagres (CCS). Lavere klimaavtrykk enn grått, men ikke utslippsfritt.
-- *Grått hydrogen:* Produsert fra naturgass uten CO2-fangst. Dominerer i dag og har stort klimaavtrykk.
+- **Sol og vind** vil stå for mesteparten av ny kraftproduksjon globalt
+- **Elektrifisering** av transport, industri og oppvarming er nøkkelen
+- **Hydrogen** kan bli viktig for tungtransport, skipsfart og industriprosesser
+- **Kjernekraft** diskuteres igjen i mange land som et lavutslippsalternativ
+- **Energieffektivisering** er like viktig som ny produksjon – den billigste energien er den vi ikke bruker
 
-Norge satser på hydrogen som fremtidsnæring, med planer for produksjon av både grønt og blått hydrogen. Hydrogenet kan brukes i skipsfart, tungtransport og industri — sektorer som er vanskelige å elektrifisere direkte.
-
-**CCS — Carbon Capture and Storage:**
-CCS-teknologien fanger CO2 fra industriutslipp og lagrer den permanent i geologiske formasjoner under havbunnen. Longship-prosjektet er Norges flaggskipprosjekt, der CO2 fra sementproduksjon i Brevik skal fanges og lagres i Nordsjøen. Tilhengere mener CCS er nødvendig for å nå klimamålene. Kritikere advarer mot at CCS kan brukes som unnskyldning for å fortsette med fossil energi.
-
-**Energilagring:**
-Den store utfordringen med fornybar energi er variabilitet — solen skinner ikke alltid og vinden blåser ikke alltid. Batteriteknologi, pumpekraftverk, trykkluftslagring og hydrogen kan alle bidra til å lagre energi for bruk når den trengs.
-
-**Norges rolle:**
-Med rikelig vannkraft, kompetanse fra olje- og gassektoren, og store havområder har Norge særlige forutsetninger for å spille en viktig rolle i energiomstillingen — både som produsent av fornybar energi og som utvikler av ny teknologi.`,
-    },
-    {
-      id: 'geografi-1-19-def-6',
-      type: 'definition',
-      title: 'Sirkulaer økonomi',
-      content: `**Sirkulær økonomi — fra lineær til sirkulær ressursbruk:**
-
-Den tradisjonelle økonomiske modellen er lineær: vi henter ut ressurser, produserer varer, bruker dem og kaster dem. Sirkulær økonomi er et alternativ der målet er å holde materialer og produkter i bruk så lenge som mulig.
-
-**Prinsippene i sirkulær økonomi:**
-1. **Design for holdbarhet:** Produkter designes for å vare lenge, repareres og oppgraderes
-2. **Del og leie:** I stedet for at alle eier hver sin maskin, kan produkter deles (bildelingsordninger, verktøybibliotek)
-3. **Reparasjon og gjenbruk:** Produkter repareres i stedet for å kastes, og brukte produkter selges videre
-4. **Remanufacturing:** Brukte produkter demonteres og komponentene brukes i nye produkter
-5. **Materialgjenvinning:** Når produktet ikke lenger kan brukes, gjenvinnes materialene til nye råvarer
-
-**Eksempler på sirkulær økonomi:**
-- Pantesystemet for flasker og bokser i Norge (97 % returrate)
-- Elkjøps reparasjonstjenester og Finn.no for brukte varer
-- Europeisk lovgivning om «rett til reparasjon»
-- Tekstilindustri som tar tilbake brukte klær (H&M, Patagonia)
-
-**Utfordringer:**
-- Krever omlegging av hele verdikjeder og forretningsmodeller
-- Kan være dyrere på kort sikt
-- Ikke alle materialer kan gjenvinnes med dagens teknologi
-- Forbrukerne må endre atferd
-
-**Koblingen til geografi:**
-Sirkulær økonomi reduserer behovet for utvinning av nye naturressurser, noe som begrenser naturinngrep, forurensning og avfallsproblemer — sentrale temaer i ressursgeografi.`,
-    },
-    {
-      id: 'geografi-1-19-tip-1',
-      type: 'tip',
-      title: 'Eksamensforberedelse — naturressurser',
-      content: `**Naturressurser er et kjernetema i geografieksamen.** Her er noen tips for å forberede deg:
-
-**Vanlige oppgavetyper:**
-- Drøft fordeler og ulemper med et bestemt energitiltak (oljeutvinning, vindkraft, gruvedrift)
-- Sammenlign fornybare og ikke-fornybare ressurser
-- Analyser en konkret ressurskonflikt (Lofoten-olje, vindkraft i reinbeiteområder)
-
-**Slik scorer du høyt:**
-1. Bruk fagbegreper presist (fornybar, ikke-fornybar, betinget fornybar, bærekraftig forvaltning, sirkulær økonomi)
-2. Presenter flere perspektiver — økonomiske, miljømessige, sosiale og politiske
-3. Bruk konkrete eksempler fra både Norge og verden
-4. Knytt argumentene til kompetansemålene
-
-**Husk koblingen mellom kapitler:** Naturressurser henger sammen med klima (kap. 5), bergarter og jord (kap. 3), havressurser (kap. 20), og global utvikling. En helhetlig forståelse gir best svar.`,
-    },
-    {
-      id: 'geografi-1-19-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom fornybare, ikke-fornybare og betinget fornybare ressurser. Gi eksempler på hver.',
-        hints: ['Tenk på hvor lang tid det tar å fornye ressursen'],
-        solution: 'Fornybare: Fornyes naturlig i menneskelig tidsskala - sol, vind, vannkraft (strømmende), fisk, skog (biologiske). Ikke-fornybare: Tar millioner av år å danne - olje, gass, kull, mineraler. Betinget fornybare: Kan fornyes ved god forvaltning, men kan uttømmes - grunnvann (kan tømmes), jord (kan eroderes), fiskebestander (kan kollapse).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-19-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv Norges viktigste energiressurser. Hvilken rolle spiller de i norsk økonomi og energiforsyning?',
-        hints: ['Tenk på vannkraft, olje og gass'],
-        solution: 'Vannkraft: Ca. 90% av strømproduksjonen, fornybar, viktig for industri og eksport. Olje og gass: Ca. 14% av BNP, 40% av eksport, grunnlag for Oljefondet, viktig for europeisk energisikkerhet. Vindkraft: Voksende, særlig planer for havvind. Norge har unike ressurser som kombinerer fossil eksport med fornybar innenlands strøm.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-19-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er kritiske mineraler? Hvorfor er de viktige for det grønne skiftet?',
-        hints: ['Tenk på batterier, elektronikk, fornybar energi'],
-        solution: 'Kritiske mineraler er mineraler som er viktige for teknologi og vanskelige å erstatte eller skaffe. Eksempler: Litium og kobolt (batterier), sjeldne jordarter (magneter, elektronikk), kobber (ledninger). Viktige for grønt skifte fordi elbiler, vindturbiner og solceller krever store mengder av disse. Utfordring: Ofte konsentrert i få land, geopolitisk sårbarhet, miljø- og menneskerettighetsutfordringer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-19-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hva er ressursforbannelsen? Gi eksempler på land som har opplevd den og land som har unngått den.',
-        hints: ['Tenk på hvorfor ressursrikdom noen ganger fører til problemer'],
-        solution: 'Ressursforbannelsen: Paradokset at ressursrike land ofte har svakere utvikling enn ressursfattige. Årsaker: Korrupsjon, svake institusjoner, "Dutch disease" (valuta stiger, annen eksport svekkes), konflikter om ressurser. Rammet: Nigeria, Venezuela, mange afrikanske land. Unngått: Norge (Oljefond, sterke institusjoner), Botswana (diamanter, god styring). Forskjellen ligger i styresett, åpenhet og langsiktig forvaltning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-19-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft Norges rolle som olje- og gasseksportør i lys av klimautfordringene. Presenter ulike perspektiver på en balansert måte.',
-        hints: ['Tenk på økonomi, klima, arbeidsplasser, europeisk energisikkerhet'],
-        solution: 'For fortsatt produksjon: Finansierer velferd, arbeidsplasser/kompetanse, norsk gass erstatter kull i Europa, etterspørselen finnes uansett, gradvis omstilling bedre enn brå stopp. Mot fortsatt produksjon: Bidrar til klimautslipp, strider mot klimamål, fossile investeringer kan bli verdiløse, bør satse på fornybart. Mellomposisjoner: Gradvis nedtrapping, ingen nye felt, bruke kompetansen i nye næringer. Dette er et politisk stridsspørsmål der ulike verdier og fakta vektlegges ulikt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-19-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-19-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — naturressurser og energi:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er «grønt hydrogen»?',
-            solution: 'Hydrogen produsert ved elektrolyse av vann med fornybar strøm',
-            multipleChoiceOptions: ['Hydrogen utvunnet fra planter', 'Hydrogen produsert ved elektrolyse av vann med fornybar strøm', 'Hydrogen fra naturgass med CO2-fangst', 'Hydrogen som brenner med grønn flamme'],
-          },
-          {
-            label: 'b',
-            task: 'Hva er hovedprinsippet i sirkulær økonomi?',
-            solution: 'Holde materialer og produkter i bruk så lenge som mulig',
-            multipleChoiceOptions: ['Produsere mest mulig for lavest mulig pris', 'Holde materialer og produkter i bruk så lenge som mulig', 'Bytte til fornybare energikilder', 'Redusere all produksjon til et minimum'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er CCS?',
-            solution: 'Carbon Capture and Storage — fangst og lagring av CO2',
-            multipleChoiceOptions: ['Community Climate Solutions — lokale klimatiltak', 'Carbon Capture and Storage — fangst og lagring av CO2', 'Clean Coal System — renere kullkraftverk', 'Circular Carbon Strategy — gjenbruk av karbon'],
-          },
-        ],
-        solution: 'a) Hydrogen produsert med fornybar strøm, b) Holde materialer i bruk lengst mulig, c) Carbon Capture and Storage',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+Overgangen fra fossilt til fornybart vil kreve massive investeringer, men gir også enorme muligheter for innovasjon og nye arbeidsplasser.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-4-4-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilket fossilt brensel gir størst CO₂-utslipp per energienhet?',
+      options: [
+        { id: 'a', text: 'Naturgass', isCorrect: false },
+        { id: 'b', text: 'Olje', isCorrect: false },
+        { id: 'c', text: 'Kull', isCorrect: true },
+        { id: 'd', text: 'Hydrogen', isCorrect: false },
+      ],
+      solution: 'Kull gir størst CO₂-utslipp per energienhet blant de fossile brenslene. Naturgass gir lavest utslipp av de fossile kildene – omtrent halvparten av kull.',
+    },
+    {
+      id: 'geo-4-4-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Gjør rede for hva som menes med «Norges grønne paradoks» i energipolitikken.',
+      solution: 'Norges grønne paradoks handler om motsetningen mellom at Norge innenlands har en nesten helt fornybar elektrisitetsforsyning (ca. 90 % vannkraft), mens landet samtidig er en av verdens store eksportører av olje og gass. Den fossile energien Norge selger til utlandet forårsaker store klimagassutslipp når den forbrennes i andre land. Paradokset reiser spørsmål om Norges klimaansvar: Er Norge ansvarlig bare for egne utslipp, eller også for utslippene som oppstår når andre land brenner norsk olje og gass? Debatten handler også om hvor raskt Norge bør fase ut petroleumsvirksomheten til fordel for grønn energi.',
+    },
+    {
+      id: 'geo-4-4-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er en av de største utfordringene med sol- og vindenergi?',
+      options: [
+        { id: 'a', text: 'De er svært dyre å produsere', isCorrect: false },
+        { id: 'b', text: 'De har høye klimagassutslipp', isCorrect: false },
+        { id: 'c', text: 'Produksjonen er variabel og avhengig av vær', isCorrect: true },
+        { id: 'd', text: 'De kan bare brukes i tropiske land', isCorrect: false },
+      ],
+      solution: 'Den største utfordringen med sol- og vindenergi er at produksjonen er variabel – sola skinner ikke alltid, og vinden blåser ikke alltid. Derfor trengs gode løsninger for energilagring (batterier, pumpekraft, hydrogen) for å sikre stabil energiforsyning.',
+    },
+    {
+      id: 'geo-4-4-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Drøft fordeler og ulemper ved vannkraft som energikilde.',
+      solution: 'Fordeler med vannkraft: Det er en fornybar energikilde som ikke slipper ut klimagasser under drift. Den er regulerbar – man kan tilpasse produksjonen etter behovet ved å slippe mer eller mindre vann gjennom turbinene. Den er billig i drift etter at anlegget er bygget, og gir stabil og pålitelig energiforsyning. Ulemper med vannkraft: Utbygging innebærer store naturinngrep – demninger, kunstige innsjøer og regulerte vassdrag endrer landskapet og økosystemene. Fiskevandring forstyrres, og elvenes naturlige dynamikk påvirkes. Det kan oppstå konflikter mellom vannkraftutbygging og naturvern. I tørre år kan produksjonen bli lavere enn normalt.',
+    },
+    {
+      id: 'geo-4-4-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilken energikilde er det Norge satser stort på til havs?',
+      options: [
+        { id: 'a', text: 'Bølgekraft', isCorrect: false },
+        { id: 'b', text: 'Havvind (offshore vindkraft)', isCorrect: true },
+        { id: 'c', text: 'Tidevannskraft', isCorrect: false },
+        { id: 'd', text: 'Havbasert solenergi', isCorrect: false },
+      ],
+      solution: 'Norge satser stort på havvind (offshore vindkraft). Store prosjekter som Utsira Nord og Sørlige Nordsjø er planlagt, og Norge kan utnytte sin offshore-kompetanse fra olje- og gassindustrien i denne satsingen.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 20: Havressurser og fiskeri
+// Kapittel 4.5: Havressurser og fiskeri
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_20: TextbookChapter = {
-  id: 'geografi-1-20',
+export const CHAPTER_GEOGRAFI_4_5: TextbookChapter = {
+  id: 'geografi-1-4-5',
   courseId: 'geografi',
-  chapterNumber: '20',
+  chapterNumber: '4.5',
   title: 'Havressurser og fiskeri',
-  description: 'Laer om havets ressurser, norsk fiskeri og oppdrett, og forvaltning av havomraader.',
-  estimatedMinutes: 75,
+  description: 'Havets ressurser, fiskeri og havbruk, overfiske og norsk fiskerinæring.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og drøfte bruk av havressurser og konsekvenser for miljø og samfunn',
+    'gjøre rede for havets ressurser og betydningen av fiskeri og havbruk',
+    'drøfte utfordringer knyttet til bærekraftig forvaltning av havressurser',
   ],
   content: [
     {
-      id: 'geografi-1-20-intro',
+      id: 'geo-4-5-intro',
       type: 'text',
-      content: `## Havet - jordens blå ressurs
+      content: `# Havressurser og fiskeri
 
-Havet dekker over 70% av jordens overflate og er livsviktig for mennesker og natur. For Norge med sin lange kystlinje er havet spesielt viktig.
+Havet dekker over 70 % av jordens overflate og er en enorm kilde til mat, energi, mineraler og transport. For over 3 milliarder mennesker er sjømat den viktigste kilden til animalsk protein. Havets ressurser er imidlertid under sterkt press fra overfiske, forurensning og klimaendringer.
 
-**Havets betydning:**
-- Mat: Fisk og sjømat er proteinkilden for milliarder av mennesker
-- Transport: 90% av verdens handel går sjøveien
-- Energi: Olje, gass, vindkraft, bølgeenergi
-- Klima: Havet absorberer varme og CO2
-- Biodiversitet: Millioner av arter lever i havet
+## Havets betydning
 
-**Norges havområder:**
-- Norskehavet, Barentshavet, Nordsjøen
-- Økonomisk sone (200 nautiske mil): ca. 2 millioner km²
-- Seks ganger større enn landarealet
-- Blant verdens mest produktive havområder`,
+Havet spiller en avgjørende rolle for livet på jorden:
+- **Oksygenproduksjon**: Planteplankton i havet produserer om lag halvparten av jordens oksygen
+- **Klimaregulering**: Havet absorberer varme og CO₂ fra atmosfæren
+- **Matforsyning**: Fisk og sjømat er viktig proteinkilde for milliarder av mennesker
+- **Transport**: Over 80 % av internasjonal handel fraktes på havet
+- **Energi**: Olje, gass, vindkraft og mulig bølge- og tidevannskraft
+- **Biologisk mangfold**: Enorme økosystemer med stort artsmangfold`,
     },
     {
-      id: 'geografi-1-20-def-1',
+      id: 'geo-4-5-ressurser',
+      type: 'text',
+      content: `## Havets ressurser
+
+### Levende ressurser
+- **Fisk**: Torsk, sild, makrell, tunfisk og mange andre arter
+- **Skalldyr**: Reker, krabbe, hummer og kamskjell
+- **Plankton og alger**: Grunnlaget for havets næringskjede, og potensielt fremtidig mat
+- **Sjøpattedyr**: Hval, sel (historisk viktige, nå hovedsakelig vernet)
+
+### Ikke-levende ressurser
+- **Olje og gass**: Store forekomster på kontinentalsokkelen
+- **Mineraler**: Mangannoduler og metallrike sulfider på havbunnen
+- **Sand og grus**: Brukes i byggebransjen
+- **Salt**: Utvinnes fra sjøvann
+
+### Energiressurser
+- **Offshore vind**: Vindturbiner på havet
+- **Bølgekraft**: Utnytter bølgenes bevegelsesenergi
+- **Tidevannskraft**: Utnytter tidevannsforskjeller
+- **Havvarme**: Temperaturforskjeller i vannet kan utnyttes til energiproduksjon`,
+    },
+    {
+      id: 'geo-4-5-fiskeri',
+      type: 'text',
+      content: `## Fiskeri
+
+### Verdens fiskeri
+Det globale fangsten av villfisk ligger på rundt 90 millioner tonn per år. De viktigste fiskeriområdene er:
+
+- **Nordvest-Stillehavet**: Verdens største fiskeriområde (Japan, Kina, Russland)
+- **Nordøst-Atlanteren**: Norskehavet, Barentshavet, Nordsjøen (Norge, Island, Storbritannia)
+- **Sørøst-Stillehavet**: Utenfor Peru og Chile (ansjos, sardin)
+- **Oppvellingssoner**: Områder der næringsrikt dypvann presses opp gir rike fiskerier
+
+### Fangstmetoder
+- **Trål**: Store nett som slepes gjennom vannet – effektiv men kan skade havbunnen
+- **Not (snurpenot)**: Fisken omringes med et stort nett – vanlig for pelagisk fisk
+- **Garn og line**: Mer skånsomme metoder med mindre bifangst
+- **Teiner**: Brukes for krabbe, hummer og reker`,
+    },
+    {
+      id: 'geo-4-5-def-overfiske',
       type: 'definition',
-      title: 'Havets ressurser',
-      content: `**Levende ressurser:**
-
-*Viltlevende fisk:*
-- Pelagisk fisk (lever fritt i vannmassene): Sild, makrell, lodde
-- Bunnfisk: Torsk, sei, hyse, flyndre
-- Skalldyr: Reker, krabbe, hummer
-
-*Oppdrettsorganismer:*
-- Laks og ørret (dominerer norsk oppdrett)
-- Blåskjell, østers
-- Tang og tare (voksende næring)
-
-*Marine pattedyr:*
-- Sel, hval (begrenset fangst i Norge)
-
-**Ikke-levende ressurser:**
-
-*Olje og gass:*
-- Dannet fra marine organismer over millioner av år
-- Norge er stor offshore-produsent
-- Sokkelen inneholder fortsatt store reserver
-
-*Mineralressurser:*
-- Sand og grus (byggematerialer)
-- Dyphavsmineraler (mangan, kobolt, sjeldne jordarter)
-- Lite utnyttet foreløpig
-
-*Fornybar energi:*
-- Havvind (stor utbygging planlagt)
-- Bølgekraft (under utvikling)
-- Tidevannsenergi
-
-**Økosystemtjenester:**
-- Karbonlagring
-- Oksygenproduksjon
-- Klimaregulering
-- Rensing av vann
-- Rekreasjon og turisme`,
+      title: 'Overfiske',
+      content: 'Overfiske oppstår når en fiskebestand beskattes raskere enn den kan fornye seg. Vedvarende overfiske kan føre til at bestanden kollapser og ikke klarer å bygge seg opp igjen. FN anslår at over en tredjedel av verdens fiskebestander er overfisket.',
     },
     {
-      id: 'geografi-1-20-def-2',
-      type: 'definition',
-      title: 'Norsk fiskeri',
-      content: `**Historisk betydning:**
-Fiske har vært grunnlag for bosetting langs kysten i tusenvis av år. Tørrfisk fra Lofoten ble eksportert til Europa allerede i vikingtiden.
+      id: 'geo-4-5-havbruk',
+      type: 'text',
+      content: `## Havbruk (akvakultur)
 
-**Viktige fiskeslag i Norge:**
+Havbruk er oppdrett av fisk, skalldyr, alger og andre akvatiske organismer. Produksjonen har vokst kraftig og utgjør nå over halvparten av all sjømat som konsumeres globalt.
 
-*Torsk (skrei):*
-- Norges viktigste fiskeart
-- Gyter i Lofoten januar-april
-- Eksporteres som tørrfisk, klippfisk, fersk
-- Strengt kvoteregulert
+### Typer havbruk
+- **Lakseoppdrett**: Merder i sjøen – Norges viktigste havbruksnæring
+- **Rekeoppdrett**: Stort i Sørøst-Asia – ofte med miljøproblemer
+- **Skjelloppdrett**: Blåskjell, kamskjell og østers
+- **Algeoppdrett**: Voksende næring, særlig i Asia
+- **Landbasert oppdrett**: Fisk i lukkede anlegg på land – ny teknologi
 
-*Sild:*
-- En av verdens største fiskebestander
-- Norsk vårgytende sild
-- Brukes til mat, fiskemel, fiskeolje
+### Fordeler
+- Kan dekke det økende behovet for sjømat uten å belaste villfiskbestander
+- Effektiv matproduksjon – laks utnytter fôret bedre enn de fleste husdyr
+- Kan gi arbeidsplasser i kystsamfunn
 
-*Makrell:*
-- Pelagisk fisk, vandrer langt
-- Økt betydning de siste tiårene
-
-*Reker og krabbe:*
-- Viktige skalldyrressurser
-- Reker fra Barentshavet
-
-**Norsk fiskerinæring i dag:**
-- Eksportverdi ca. 40 milliarder kr (villfisk)
-- Ca. 11 000 fiskere
-- Moderne, effektiv flåte
-- Norge er verdens nest største sjømateksportør
-
-**Fiskeriforvaltning:**
-- Totalkvote fastsettes basert på bestandsvurdering
-- Fordeles mellom land (Norge, Russland, EU)
-- Norske kvoter fordeles på fartøygrupper
-- Overvåking og kontroll`,
+### Utfordringer
+- Utslipp av næringsstoffer, medisiner og kjemikalier
+- Rømming av oppdrettsfisk truer villaksbestander
+- Lakselus som smitter fra oppdrett til villfisk
+- Fôr fra villfisk (fiskemel og fiskeolje) – bærekraftsspørsmål
+- Arealbruk i kystområder`,
     },
     {
-      id: 'geografi-1-20-def-3',
-      type: 'definition',
-      title: 'Oppdrettsnaering - muligheter og utfordringer',
-      content: `**Havbruk i Norge:**
-Norge er verdens nest største eksportør av sjømat, og oppdrettsnæringen har vokst til å bli en av landets viktigste næringer.
+      id: 'geo-4-5-overf',
+      type: 'text',
+      content: `## Overfiske og bærekraftig forvaltning
 
-**Lakseoppdrett:**
-- Startet på 1970-tallet
-- Ca. 1,5 millioner tonn produseres årlig
-- Eksportverdi ca. 100 milliarder kr
-- Arbeidsplasser langs hele kysten
+### Konsekvenser av overfiske
+- **Bestandskollaps**: Torskebestanden utenfor Newfoundland kollapset i 1992 og har ikke hentet seg inn
+- **Økosystemendringer**: Fjerning av toppredatorer endrer hele næringskjeden
+- **Tap av levebrød**: Millioner av fiskere mister inntekten
+- **Matusikkerhet**: Redusert tilgang på sjømat for sårbare befolkninger
 
-**Hvordan oppdrett fungerer:**
-1. Rognproduksjon og klekking på land
-2. Smoltproduksjon (yngel) i ferskvann
-3. Matfiskproduksjon i sjøen (merder)
-4. Slakting og foredling
-
-**Ulike perspektiver på oppdrettsnæringen:**
-
-*Muligheter og fordeler:*
-- Effektiv matproduksjon (god fôrutnyttelse)
-- Arbeidsplasser i distriktene
-- Stor eksportverdi
-- Kan bidra til global matsikkerhet
-- Teknologiutvikling
-
-*Utfordringer og bekymringer:*
-- Lakselus angriper også villaks
-- Rømming og genetisk påvirkning av villaks
-- Utslipp av næringsstoffer og avfall
-- Fôr inneholder soya og villfisk
-- Sykdom og antibiotikabruk
-- Arealbruk i fjorder
-
-*Løsninger under utvikling:*
-- Lukkede anlegg (på land eller i sjø)
-- Bedre lusekontroll
-- Mer bærekraftig fôr
-- Strengere reguleringer
-
-**Viktig:** Oppdrettsnæringens fremtid er politisk debattert. Noen mener vekst må stoppes inntil problemene er løst, andre mener teknologisk utvikling vil løse utfordringene. Begge syn har legitime argumenter.`,
+### Tiltak for bærekraftig fiskeri
+- **Kvoter**: Begrensninger på hvor mye som kan fanges av hver art
+- **Minstemål**: Fisk under en viss størrelse må slippes ut igjen
+- **Fredningsperioder**: Fiskeforbud i gytetiden
+- **Marine verneområder**: Havområder der fiske er forbudt eller begrenset
+- **Sertifisering**: MSC-merket (Marine Stewardship Council) garanterer bærekraftig fangst
+- **Tekniske reguleringer**: Krav til redskap, maskevidde og bifangstbegrensning`,
     },
     {
-      id: 'geografi-1-20-def-4',
-      type: 'definition',
-      title: 'Forvaltning av havomraader',
-      content: `**Havrett og jurisdiksjon:**
-
-*Indre farvann:*
-Innenfor grunnlinjen, full suverenitet
-
-*Territorialfarvann:*
-12 nautiske mil fra grunnlinjen, full suverenitet
-
-*Økonomisk sone (EEZ):*
-200 nautiske mil, eksklusive rettigheter til ressurser
-
-*Kontinentalsokkel:*
-Rettigheter til havbunnsressurser, kan strekke seg lenger enn 200 nm
-
-*Internasjonalt farvann:*
-Utenfor nasjonale soner, felles ressurser
-
-**FNs havrettskonvensjon (UNCLOS):**
-- Vedtatt 1982
-- Regulerer rettigheter og plikter i havet
-- Grunnlag for fredelig bruk av havet
-
-**Norsk havforvaltning:**
-
-*Forvaltningsplaner:*
-- Helhetlige planer for Barentshavet, Norskehavet, Nordsjøen
-- Balanserer ulike interesser (fiskeri, olje, miljø)
-- Oppdateres jevnlig
-
-*Marine verneområder:*
-- Beskytter sårbare områder
-- Korallrev, gytefelt, fuglebiotoper
-
-**Konflikter i havforvaltning:**
-- Fiskeri vs. olje og gass
-- Havvind vs. fiskeri og natur
-- Vern vs. næringsinteresser
-- Klimahensyn vs. arbeidsplasser
-
-**Internasjonale utfordringer:**
-- Overfiske i internasjonalt farvann
-- Plastforurensning
-- Havforsuring (CO2-opptak)
-- Klimaendringer påvirker økosystemer
-- Arktis: Nye seilingsruter og ressurser`,
-    },
-    {
-      id: 'geografi-1-20-example-1',
+      id: 'geo-4-5-example',
       type: 'example',
-      title: 'Eksempel: Lofotfisket - tradisjon og fremtid',
-      problem: `Lofotfisket har foregått i tusen år. Analyser dette fiskeriets betydning og utfordringer i dag.`,
-      solution: `**Lofotfisket - historikk:**
+      title: 'Torskekollapsen ved Newfoundland',
+      problem: 'Beskriv hva som skjedde med torskebestanden ved Newfoundland i Canada, og hva vi kan lære av hendelsen.',
+      solution: `**Torskekollapsen ved Newfoundland:**
 
-**Tradisjon:**
-- Sesongfiske januar-april
-- Torsken gyter i Lofoten
-- Fiskere fra hele kysten samlet seg
-- Grunnlag for bosetting og handel
-- Tørrfisk eksportert til Europa siden 1100-tallet
+1. **Bakgrunn**: I århundrer var Newfoundlands Grand Banks et av verdens rikeste fiskerier. Torsk var grunnlaget for en hel regions økonomi og kultur.
 
-**Lofotfisket i dag:**
+2. **Hva skjedde**: Fra 1960-tallet økte fangsten dramatisk med ny teknologi (store fabrikktråler). Bestanden ble overfisket i tiår, til tross for advarsler fra forskere.
 
-*Fangst og metoder:*
-- Hovedsakelig skrei (gytemoden torsk)
-- Line, garn, juksa, snurrevad
-- Moderne fartøyer, men mange mindre båter
-- Ca. 20-40 000 tonn årlig
+3. **Kollapsen**: I 1992 var bestanden så lav at Canada innførte fiskestopp (moratorium). Rundt 40 000 mennesker mistet levebrødet.
 
-*Økonomisk betydning:*
-- Viktig for lokalsamfunnene
-- Sesongarbeidsplasser
-- Fiskemottak og foredling
-- Turisme (rorbuer, opplevelser)
+4. **Etterpå**: Selv etter over 30 år med fiskestopp har bestanden ikke hentet seg fullstendig inn, fordi økosystemet endret seg.
 
-*Forvaltning:*
-- Kvoteregulert
-- Begrensninger på redskap og fartøystørrelse
-- Gytefelt beskyttes
-
-**Utfordringer:**
-
-*Klimaendringer:*
-- Varmere hav kan påvirke gytevandring
-- Usikkerhet om fremtidige bestander
-
-*Strukturendring:*
-- Færre, større fartøyer
-- Sentralisering av mottak
-- Press på små fiskerisamfunn
-
-*Olje og gass:*
-- Lofoten/Vesterålen-området omstridt
-- Fiskere frykter konsekvenser av utbygging
-- Politisk debatt om konsekvensutredning
-
-**Ulike syn på Lofoten-olje:**
-- For: Arbeidsplasser, inntekter, teknologi gjør det trygt
-- Mot: Risiko for gytefelt, turisme, fiskeri viktigere langsiktig
-- Lokalt: Delte meninger i kommunene
-
-**Fremtiden:**
-Lofotfisket viser spenningen mellom tradisjon og modernisering, mellom ulike næringer og mellom lokale og nasjonale interesser.`,
+5. **Lærdommen**:
+   - Naturressurser har en grense som ikke kan overskrides
+   - Man må lytte til vitenskapelige anbefalinger
+   - Føre-var-prinsippet er avgjørende
+   - Bestandskollaps kan være nærmest irreversibel`,
     },
     {
-      id: 'geografi-1-20-text-havokosystemer',
+      id: 'geo-4-5-norge',
       type: 'text',
-      content: `## Havets økosystemer — fra overflaten til dyphavet
+      content: `## Norsk fiskerinæring
 
-Havet rommer et enormt mangfold av økosystemer, fra de solrike overflatelagene til de mørkeste dyp. Forståelse av disse økosystemene er avgjørende for å forvalte havressursene bærekraftig.
+Norge har en av verdens lengste kystlinjer og rike havområder. Fiskerinæringen har vært sentral i norsk økonomi og kultur i tusenvis av år.
 
-**Fytoplankton — havets usynlige grunnlag:**
-Fytoplankton er mikroskopiske planter som driver fritt i havets overflatelag. Til tross for sin lille størrelse er de helt avgjørende:
-- Produserer ca. 50 % av jordens oksygen (like mye som alle skoger til sammen)
-- Danner grunnlaget i havets næringskjede — alt marint liv er direkte eller indirekte avhengig av dem
-- Absorberer store mengder CO2 gjennom fotosyntese (den biologiske karbonpumpen)
-- Når de dør, synker de mot bunnen og tar med seg karbon — viktig for langsiktig karbonlagring
-- Fytoplanktonproduksjonen påvirkes av temperatur, næringsstoffer og lys — og dermed av klimaendringer
+### Norsk villfiskfangst
+- **Viktigste arter**: Torsk, sild, makrell, sei, hyse, lodde og reker
+- **Barentshavet**: Et av verdens mest produktive havområder – viktig for torsk og lodde
+- **Norskehavet**: Rikt på sild og makrell
+- **Nordsjøen**: Variert fiskeri med mange arter
+- **Lofotfisket**: Historisk viktig sesongfiske etter skrei (gytemoden torsk)
 
-**Korallrev — havets regnskoger:**
-Korallrev dekker under 1 % av havbunnen, men huser ca. 25 % av alle marine arter. De er blant jordens mest produktive og artsrike økosystemer. Korallrev er truet av:
-- Havoppvarming (koralbleking — korallene støter fra seg algene de lever i symbiose med)
-- Havforsuring (gjør det vanskeligere for koraller å bygge kalkskjeletter)
-- Forurensning og overfiske
-- Great Barrier Reef i Australia har opplevd gjentatte bleikningsepisoder, og forskere frykter at mange rev kan gå tapt innen 2050
+### Norsk lakseoppdrett
+- Norge er verdens største produsent av atlantisk oppdrettslaks
+- Eksportverdi på over 100 milliarder kroner årlig
+- Gir arbeidsplasser langs hele kysten
+- Utfordringer med lakselus, rømming og miljøpåvirkning
 
-**Dyphavet — den siste grensen:**
-Dyphavet (under 200 meter) er jordens største, men minst utforskede habitat. Her finnes unike økosystemer:
-- Hydrotermale ventiler («svarte skorsteiner») med livsformer som lever av kjemisk energi i stedet for sollys
-- Dyphavssletterne — tilsynelatende ødemarker med overraskende biologisk mangfold
-- Dyphavskorallrev — også funnet utenfor norskekysten, blant annet Røstrevet som er verdens største dypvannskorallrev
-- Dyphavsmineraler har vakt interesse for gruvedrift, men konsekvensene for økosystemene er svært usikre
-
-**Norske havområder:**
-Norge forvalter noen av verdens mest produktive havområder. Strømmer som Golfstrømmen bringer varmt vann nordover og skaper rike næringskjeder. Barentshavet er et av verdens viktigste fiskeområder nettopp på grunn av møtet mellom varme og kalde vannmasser.`,
+### Forvaltning
+Norge har et velfungerende forvaltningssystem med kvoter, minstemål og tekniske reguleringer. Havforskningsinstituttet gir vitenskapelige råd om bestandsstørrelser. Norsk-russisk samarbeid om forvaltning av Barentshavet har vært en suksesshistorie – torskebestanden i Barentshavet er blant verdens best forvaltede.`,
     },
     {
-      id: 'geografi-1-20-def-5',
-      type: 'definition',
-      title: 'Marin forurensning',
-      content: `**Marin forurensning — trusler mot havmiljøet:**
+      id: 'geo-4-5-fremtid',
+      type: 'text',
+      content: `## Havets fremtid
 
-Havene er under press fra flere typer forurensning som truer marine økosystemer og menneskelig helse.
+Havet står overfor store utfordringer i tiårene fremover:
 
-**Plastforurensning:**
-- Ca. 8-12 millioner tonn plast havner i havet hvert år
-- Brytes ikke ned, men fragmenteres til mikroplast (partikler under 5 mm)
-- Mikroplast er funnet overalt — i havdyp, isbreer, fisk og sjøfugl
-- Store søppelsamlinger i havstrømmene (det «store stillehavsøppelfeltet»)
-- Plast tar livet av over 1 million sjøfugler og 100 000 marine pattedyr årlig
-- FN forhandler en global plastavtale for å redusere plastforurensning
+- **Klimaendringer**: Varmere hav, havforsuring og endrede strømmønstre påvirker fiskebestandene
+- **Plastforurensning**: Millioner tonn plast havner i havet hvert år
+- **Havforsuring**: CO₂ som løses i havet gjør det surere – truer koraller og skalldyr
+- **Tap av biologisk mangfold**: Korallrev, mangroveskog og andre viktige økosystemer er truet
 
-**Eutrofiering (overgjødsling):**
-- Næringsstoffer (nitrogen, fosfor) fra jordbruk, kloakk og industri renner ut i havet
-- Fører til algeoppblomstring som bruker opp oksygenet i vannet
-- Skaper «døde soner» der nesten ingenting kan leve
-- Østersjøen og deler av Nordsjøen er særlig rammet
-- Kan føre til giftige algeoppblomstringer som skader fiskeoppdrett og helse
-
-**Havforsuring:**
-- Havet absorberer ca. 30 % av menneskeskapte CO2-utslipp
-- CO2 reagerer med sjøvannet og danner karbonsyre, som senker pH-verdien
-- Havets pH har allerede falt med ca. 0,1 siden industrialiseringen (30 % surere)
-- Skader organismer med kalkskall (koraller, skjell, plankton, sjøpinnsvin)
-- Kan få store konsekvenser for marine næringskjeder og fiskeri
-
-**Kjemisk forurensning:**
-- Tungmetaller (kvikksølv, bly) akkumuleres oppover i næringskjeden
-- Persistente organiske miljøgifter (PCB, DDT) finnes i sjøpattedyr
-- Oljeutslipp fra ulykker og operasjonelle utslipp
-- Legemiddelrester og hormonforstyrrende stoffer
-
-**Tiltak:**
-- Internasjonale avtaler (MARPOL, London-konvensjonen)
-- Forbud mot engangsplast (EU)
-- Bedre avfallshåndtering og renseanlegg
-- Overvåking og forskning`,
-    },
-    {
-      id: 'geografi-1-20-tip-1',
-      type: 'tip',
-      title: 'Kobling til kapittel 13 — Klima og havmiljø',
-      content: `**I dette kapittelet (20)** lærer du om havressurser, fiskeri, oppdrett og havforvaltning, samt havets økosystemer og trusler mot dem.
-
-**I kapittel 13** lærte du om klimaendringer — årsaker, konsekvenser og tiltak. Havet spiller en nøkkelrolle i klimasystemet: det absorberer varme og CO2, men betaler en pris i form av oppvarming, forsuring og endrede økosystemer.
-
-**Sammenheng:** Klimaendringer og havforurensning er sammenkoblede utfordringer. Stigende temperaturer forsterker koralbleking, endrer fiskeribestanders utbredelse, og kan påvirke norske fiskerier. Havforsuring og plastforurensning kommer i tillegg og skaper en «trippel trussel» mot havmiljøet. Bruk perspektiver fra begge kapitler når du diskuterer havets fremtid.`,
-    },
-    {
-      id: 'geografi-1-20-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Gi en oversikt over havets viktigste ressurser. Kategoriser dem i levende ressurser, ikke-levende ressurser og økosystemtjenester.',
-        hints: ['Tenk på mat, energi, mineraler og andre verdier havet gir'],
-        solution: 'Levende ressurser: Villfisk (torsk, sild, makrell), skalldyr, oppdrettsfisk (laks), sjøpattedyr, tang/tare. Ikke-levende ressurser: Olje og gass, sand/grus, dyphavsmineraler, havvind, bølgekraft. Økosystemtjenester: Karbonlagring, oksygenproduksjon, klimaregulering, rensing, rekreasjon/turisme. Havet gir mat, energi, transport og klimatjenester.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-20-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv norsk fiskerinæring. Hvilke fiskeslag er viktigst, og hvordan forvaltes ressursene?',
-        hints: ['Tenk på torsk, sild, kvoter, internasjonalt samarbeid'],
-        solution: 'Viktigste fiskeslag: Torsk (skrei), sild, sei, makrell, reker. Forvaltning: Havforskningsinstituttet vurderer bestander, Fiskeridirektoratet setter kvoter, fordeles internasjonalt (Norge-Russland for Barentshavet) og nasjonalt mellom fartøygrupper. Streng kontroll hindrer overfiske. Norge er verdens nest største sjømateksportør med eksportverdi ca. 40 mrd kr for villfisk.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-20-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Forklar hvordan lakseoppdrett fungerer. Hvilke stadier går laksen gjennom fra rogn til ferdig produkt?',
-        hints: ['Tenk på klekking, smolt, matfisk, slakting'],
-        solution: 'Stadier: 1) Stamfisk produserer rogn, kunstig befruktning. 2) Klekking i ferskvann på land (rogn til yngel). 3) Smoltproduksjon - yngel vokser i kar til den tåler sjøvann (6-18 mnd). 4) Matfiskproduksjon - smolt settes i sjømerder, vokser i 12-24 mnd. 5) Slakting og foredling - fisk bedøves, slaktes, fileteres, pakkes. 6) Eksport - fly eller trailer til markeder.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-20-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Forklar hva økonomisk sone (EEZ) og kontinentalsokkel betyr. Hvorfor er disse begrepene viktige for Norge?',
-        hints: ['Tenk på FNs havrettskonvensjon og Norges havområder'],
-        solution: 'Økonomisk sone (EEZ): 200 nautiske mil fra kysten, eksklusiv rett til fiske og ressurser i vannsøylen. Kontinentalsokkel: Rett til havbunnens ressurser (olje, gass, mineraler), kan gå lenger enn 200 nm. Viktig for Norge fordi: Norges EEZ er 6 ganger landarealet, gir enerett til fiske og olje/gass, grunnlag for havnæringene, forvaltningsansvar for ressursene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-20-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft oppdrettsnæringens muligheter og utfordringer. Presenter ulike perspektiver på hvordan næringen bør utvikles.',
-        hints: ['Tenk på økonomi, miljø, arbeidsplasser, villaks, teknologi'],
-        solution: 'Muligheter: Effektiv matproduksjon, eksportinntekter (100 mrd), distriktsarbeidsplasser, global matsikkerhet, teknologiutvikling. Utfordringer: Lakselus, rømming, forurensning, sykdom, fôrressurser. Ulike perspektiver: Vekstoptimister mener teknologi løser problemene (lukkede anlegg, bedre fôr). Kritikere mener vekst må stoppe til miljøproblemene er løst. Balansert syn: Fortsatt utvikling med strengere miljøkrav. Politisk debatt om tempo og krav.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-20-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-20-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — havressurser og havmiljø:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Omtrent hvor stor andel av jordens oksygen produseres av fytoplankton?',
-            solution: 'Ca. 50 %',
-            multipleChoiceOptions: ['Ca. 10 %', 'Ca. 25 %', 'Ca. 50 %', 'Ca. 80 %'],
-          },
-          {
-            label: 'b',
-            task: 'Hva er havforsuring?',
-            solution: 'Senking av havets pH-verdi fordi havet absorberer CO2 som danner karbonsyre',
-            multipleChoiceOptions: ['Havet blir giftig av industriutslipp', 'Senking av havets pH-verdi fordi havet absorberer CO2 som danner karbonsyre', 'Havtemperaturen stiger og dreper fisk', 'Plast brytes ned til syreholdige stoffer i vannet'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er eutrofiering?',
-            solution: 'Overgjødsling av vann med næringsstoffer som fører til oksygenmangel',
-            multipleChoiceOptions: ['Overgjødsling av vann med næringsstoffer som fører til oksygenmangel', 'Overfiske som tømmer havet for fisk', 'Havstrømmer som endrer retning på grunn av klimaendringer', 'Spredning av fremmede arter i havet'],
-          },
-        ],
-        solution: 'a) Ca. 50 %, b) Senking av pH fordi havet absorberer CO2, c) Overgjødsling som fører til oksygenmangel',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+FNs havtiår (2021–2030) setter fokus på bærekraftig bruk og vern av havene. FNs bærekraftsmål nr. 14 er «Livet i havet» – å bevare og bruke hav- og marine ressurser bærekraftig.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-4-5-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Omtrent hvor stor andel av jordens oksygen produseres av planteplankton i havet?',
+      options: [
+        { id: 'a', text: 'Ca. 10 %', isCorrect: false },
+        { id: 'b', text: 'Ca. 25 %', isCorrect: false },
+        { id: 'c', text: 'Ca. 50 %', isCorrect: true },
+        { id: 'd', text: 'Ca. 75 %', isCorrect: false },
+      ],
+      solution: 'Planteplankton i havet produserer om lag halvparten (ca. 50 %) av jordens oksygen gjennom fotosyntese. Dette gjør havet minst like viktig som skogene for oksygenproduksjonen.',
+    },
+    {
+      id: 'geo-4-5-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Gjør rede for fordeler og utfordringer ved lakseoppdrett i Norge.',
+      solution: 'Fordeler: Lakseoppdrett er en effektiv form for matproduksjon – laks utnytter fôret bedre enn de fleste landbaserte husdyr. Næringen gir store eksportinntekter (over 100 milliarder kroner årlig) og viktige arbeidsplasser i kystsamfunn langs hele landet. Oppdrett kan dekke økende etterspørsel etter sjømat uten å belaste villfiskbestander. Utfordringer: Lakselus fra oppdrettsanlegg smitter over på villlaks og kan redusere villaksbestanden. Rømming av oppdrettslaks truer det genetiske mangfoldet i villlaksstammene. Utslipp av næringsstoffer, medisiner og kjemikalier påvirker havmiljøet lokalt. Fôrproduksjonen er delvis basert på villfisk (fiskemel og fiskeolje), noe som reiser bærekraftsspørsmål.',
+    },
+    {
+      id: 'geo-4-5-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva skjedde med torskebestanden ved Newfoundland i 1992?',
+      options: [
+        { id: 'a', text: 'Bestanden ble rammet av en sykdom', isCorrect: false },
+        { id: 'b', text: 'Bestanden kollapset etter tiår med overfiske', isCorrect: true },
+        { id: 'c', text: 'Torsken flyttet til andre havområder', isCorrect: false },
+        { id: 'd', text: 'Et oljesøl forårsaket massedød', isCorrect: false },
+      ],
+      solution: 'Torskebestanden ved Newfoundland kollapset i 1992 etter tiår med intensivt overfiske med moderne fabrikktrålere. Canada innførte fiskestopp (moratorium), men selv etter over 30 år har bestanden ikke hentet seg fullstendig inn.',
+    },
+    {
+      id: 'geo-4-5-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Beskriv tre ulike tiltak for bærekraftig fiskeriforvaltning og forklar hvordan de virker.',
+      solution: '1) Kvotesystemet: Forskere beregner hvor mye som kan fanges uten å skade bestanden, og myndighetene fastsetter kvoter (fangsttillatelser) for hver art. Dette sikrer at uttaket ikke overstiger bestandens reproduksjonsevne. 2) Marine verneområder: Havområder der fiske er forbudt eller sterkt begrenset gir fisken trygge oppvekst- og gyteområder. Dette kan fungere som «barnehager» som forsyner omliggende områder med fisk. 3) Fredningsperioder: Fiskeforbud i gytetiden sikrer at fisken får gyte uforstyrret, slik at neste generasjon fisk kan produseres. For eksempel har Norge strenge regler for fiske i viktige gyteområder langs kysten.',
+    },
+    {
+      id: 'geo-4-5-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er Norge verdens største produsent av innen havbruk?',
+      options: [
+        { id: 'a', text: 'Reker', isCorrect: false },
+        { id: 'b', text: 'Blåskjell', isCorrect: false },
+        { id: 'c', text: 'Atlantisk oppdrettslaks', isCorrect: true },
+        { id: 'd', text: 'Tang og tare', isCorrect: false },
+      ],
+      solution: 'Norge er verdens største produsent av atlantisk oppdrettslaks. Næringen har vokst kraftig siden 1970-tallet og er i dag en av Norges viktigste eksportnæringer.',
+    },
+  ],
 };
 
 // ============================================================================
-// Samlet eksport for Del 4
+// Kapittel 4.6: Bærekraftig ressursforvaltning
 // ============================================================================
 
-export const GEOGRAFI_CHAPTERS_DEL4: TextbookChapter[] = [
-  CHAPTER_GEOGRAFI_16,
-  CHAPTER_GEOGRAFI_17,
-  CHAPTER_GEOGRAFI_18,
-  CHAPTER_GEOGRAFI_19,
-  CHAPTER_GEOGRAFI_20,
+export const CHAPTER_GEOGRAFI_4_6: TextbookChapter = {
+  id: 'geografi-1-4-6',
+  courseId: 'geografi',
+  chapterNumber: '4.6',
+  title: 'Bærekraftig ressursforvaltning',
+  description: 'Fornybare og ikke-fornybare ressurser, sirkulærøkonomi, økosystemtjenester og FNs bærekraftsmål.',
+  estimatedMinutes: 20,
+  competenceGoals: [
+    'drøfte hva bærekraftig ressursforvaltning innebærer',
+    'gjøre rede for FNs bærekraftsmål knyttet til naturressurser og miljø',
+  ],
+  content: [
+    {
+      id: 'geo-4-6-intro',
+      type: 'text',
+      content: `# Bærekraftig ressursforvaltning
+
+Menneskeheten er avhengig av naturressurser for å overleve og utvikle seg. Men ressursene er ikke uendelige. Bærekraftig ressursforvaltning handler om å bruke naturens ressurser slik at vi dekker dagens behov uten å ødelegge mulighetene for fremtidige generasjoner.
+
+## Hva er en naturressurs?
+
+En **naturressurs** er et materiale eller en egenskap i naturen som mennesker kan utnytte. Ressursene deles inn i to hovedkategorier basert på om de kan fornyes eller ikke.`,
+    },
+    {
+      id: 'geo-4-6-typer',
+      type: 'text',
+      content: `## Fornybare vs. ikke-fornybare ressurser
+
+### Fornybare ressurser
+Fornybare ressurser fornyes naturlig og kan i prinsippet brukes i det uendelige – forutsatt at de forvaltes bærekraftig:
+- **Solenergi, vind og vannkraft**: Fornyes kontinuerlig av naturen
+- **Skog**: Trær kan hogges og plantes på nytt – men avskoging kan gjøre skaden varig
+- **Fisk**: Bestander kan høstes bærekraftig – men overfiske kan føre til kollaps
+- **Jord**: Dannes naturlig – men erosjon kan ødelegge jorda raskere enn den fornyes
+- **Ferskvann**: Fornyes gjennom vannets kretsløp – men kan overforbrukes lokalt
+
+### Ikke-fornybare ressurser
+Ikke-fornybare ressurser finnes i begrensede mengder og dannes over millioner av år:
+- **Fossile brensler**: Olje, gass og kull – dannet av organisk materiale over millioner av år
+- **Mineraler og metaller**: Jern, kobber, litium, gull – begrenset forekomst i jordskorpen
+- **Fosfor**: Essensielt for gjødsel – begrenset global tilgang
+
+### Gråsonen
+Noen ressurser er vanskelige å kategorisere. Grunnvann, for eksempel, fornyes – men i mange områder trekkes det ut raskere enn det fylles opp (overforbruk av akviferer).`,
+    },
+    {
+      id: 'geo-4-6-def-baerekraft',
+      type: 'definition',
+      title: 'Bærekraftig utvikling',
+      content: 'Bærekraftig utvikling er en utvikling som dekker behovene til dagens generasjon uten å ødelegge mulighetene for fremtidige generasjoner til å dekke sine behov. Begrepet ble definert av Brundtland-kommisjonen i rapporten «Vår felles fremtid» i 1987.',
+    },
+    {
+      id: 'geo-4-6-sirkulaer',
+      type: 'text',
+      content: `## Sirkulærøkonomi
+
+Tradisjonelt har økonomien vært basert på en **lineær modell**: Vi tar ut ressurser, produserer varer, bruker dem og kaster dem (ta-bruk-kast). Sirkulærøkonomien er et alternativ.
+
+### Hva er sirkulærøkonomi?
+Sirkulærøkonomi er et økonomisk system der produkter og materialer holdes i omløp så lenge som mulig. Avfall og forurensning minimeres ved at ressurser gjenbrukes, repareres og resirkuleres.
+
+### Prinsipper
+1. **Design for lang levetid**: Produkter lages for å vare, repareres og oppgraderes
+2. **Gjenbruk**: Produkter brukes om igjen i sin opprinnelige form
+3. **Reparasjon**: Ødelagte produkter fikses i stedet for å kastes
+4. **Resirkulering**: Materialer fra kasserte produkter brukes til å lage nye produkter
+5. **Biologisk nedbryting**: Organisk materiale komposteres og returneres til naturen
+
+### Eksempler
+- Panteordningen for flasker og bokser i Norge (returrate over 90 %)
+- Gjenvinning av metaller fra elektronisk avfall
+- Deling av verktøy, biler og klær (delingsøkonomi)
+- Redesign av produkter med resirkulerbare materialer`,
+    },
+    {
+      id: 'geo-4-6-def-sirkulaer',
+      type: 'definition',
+      title: 'Sirkulærøkonomi',
+      content: 'Sirkulærøkonomi er et økonomisk system som minimerer avfall og ressursbruk ved at produkter og materialer holdes i omløp gjennom gjenbruk, reparasjon, oppgradering og resirkulering. Det er det motsatte av en lineær økonomi (ta-bruk-kast).',
+    },
+    {
+      id: 'geo-4-6-okosystem',
+      type: 'text',
+      content: `## Økosystemtjenester
+
+Naturen gir oss en rekke «tjenester» som er avgjørende for menneskers velferd og overlevelse. Disse kalles **økosystemtjenester**.
+
+### Fire kategorier
+
+**1. Forsyningstjenester**
+Produkter vi henter direkte fra naturen:
+- Mat (fisk, korn, frukt, kjøtt)
+- Ferskvann
+- Tømmer og fiber
+- Medisiner fra planter
+
+**2. Reguleringstjenester**
+Prosesser i naturen som regulerer miljøet:
+- Klimaregulering (skoger og hav tar opp CO₂)
+- Vannrensing (våtmarker filtrerer forurensning)
+- Flomdemping (vegetasjon og jord holder tilbake vann)
+- Pollinering (bier og andre insekter bestøver matplanter)
+
+**3. Kulturelle tjenester**
+Ikke-materielle goder fra naturen:
+- Rekreasjon og friluftsliv
+- Estetiske opplevelser og turisme
+- Kulturarv og identitet
+- Vitenskapelig forskning
+
+**4. Støttetjenester**
+Grunnleggende prosesser som andre tjenester avhenger av:
+- Fotosyntese og oksygenproduksjon
+- Jorddannelse
+- Næringsstoffkretsløp
+- Vannets kretsløp`,
+    },
+    {
+      id: 'geo-4-6-verdi',
+      type: 'text',
+      content: `## Verdien av økosystemtjenester
+
+Mange økosystemtjenester har enorm økonomisk verdi, men fordi de er «gratis» fra naturen, blir de ofte oversett i økonomiske beslutninger.
+
+### Eksempler på økonomisk verdi
+- **Pollinering**: Verdt hundrevis av milliarder kroner globalt – uten bier ville matproduksjonen falle dramatisk
+- **Korallrev**: Beskytter kystlinjer mot storm, gir fiske og turisme – verdsatt til tusenvis av milliarder globalt
+- **Våtmarker**: Fungerer som naturlige vannrenseanlegg – å bygge kunstige renseanlegg ville koste langt mer
+- **Skoger**: Binder karbon, produserer oksygen, forhindrer erosjon og regulerer vannføring
+
+### Trusler
+Menneskelig aktivitet truer mange økosystemtjenester:
+- Avskoging reduserer karbonbinding og øker erosjon
+- Forurensning ødelegger vannrensingen i våtmarker
+- Tap av leveområder truer pollinerende insekter
+- Klimaendringer påvirker alle kategorier av økosystemtjenester`,
+    },
+    {
+      id: 'geo-4-6-example',
+      type: 'example',
+      title: 'Økosystemtjenester i praksis',
+      problem: 'Forklar hvordan en myr (våtmark) kan levere økosystemtjenester innenfor alle fire kategorier.',
+      solution: `**Myrens økosystemtjenester:**
+
+1. **Forsyningstjenester**: Myra kan gi bær (molter), torvstrø til hagebruk og drikkevann fra myrbekker.
+
+2. **Reguleringstjenester**: Myra lagrer enormt mye karbon i torven (klimaregulering), holder tilbake vann og demper flommer (flomdemping), og filtrerer forurensning fra vannet (vannrensing).
+
+3. **Kulturelle tjenester**: Myra gir muligheter for friluftsliv, fuglekikking og jakt. Den har estetisk verdi som landskapselement og kulturhistorisk verdi (torvuttak, molteplukking).
+
+4. **Støttetjenester**: Myra bidrar til vannets kretsløp og næringsstoffkretsløp, og er leveområde for spesialiserte planter og dyr.
+
+**Viktig innsikt**: Når myrer dreneres for jordbruk eller utbygging, mister vi alle disse tjenestene – og torven begynner å bryte ned og frigjøre lagret CO₂.`,
+    },
+    {
+      id: 'geo-4-6-fn',
+      type: 'text',
+      content: `## FNs bærekraftsmål knyttet til ressurser
+
+FNs 17 bærekraftsmål (Sustainable Development Goals) ble vedtatt i 2015 og gjelder frem til 2030. Flere av målene handler direkte om naturressurser og miljø:
+
+### Mest relevante bærekraftsmål
+
+**Mål 2: Utrydde sult**
+- Sikre matsikkerhet og bærekraftig jordbruk
+- Bærekraftig matproduksjon og styrking av småbønder
+
+**Mål 6: Rent vann og gode sanitærforhold**
+- Sikre tilgang til rent drikkevann for alle
+- Bærekraftig forvaltning av vannressurser
+
+**Mål 7: Ren energi til alle**
+- Sikre tilgang til pålitelig og bærekraftig energi
+- Øke andelen fornybar energi i den globale energimiksen
+
+**Mål 12: Ansvarlig forbruk og produksjon**
+- Bærekraftige forbruks- og produksjonsmønstre
+- Redusere avfall og øke gjenvinning (sirkulærøkonomi)
+
+**Mål 13: Stoppe klimaendringene**
+- Umiddelbar handling for å bekjempe klimaendringene
+- Styrke motstandskraften mot klimarelaterte farer
+
+**Mål 14: Livet i havet**
+- Bevare og bruke hav- og marine ressurser bærekraftig
+- Stoppe overfiske og beskytte marine økosystemer
+
+**Mål 15: Livet på land**
+- Beskytte, gjenopprette og fremme bærekraftig bruk av økosystemer på land
+- Stanse tap av biologisk mangfold`,
+    },
+    {
+      id: 'geo-4-6-norge',
+      type: 'text',
+      content: `## Norge og bærekraftig ressursforvaltning
+
+Norge har lang tradisjon for naturressursforvaltning og har vedtatt ambisiøse klimamål:
+
+### Styrker
+- Høy andel fornybar energi (vannkraft)
+- Velfungerende fiskeriforvaltning
+- Sterkt juridisk naturvern (naturmangfoldloven, jordvernregler)
+- Oljefondet sikrer at petroleumsrikdommen forvaltes for fremtiden
+- Panteordning og avfallshåndtering blant verdens beste
+
+### Utfordringer
+- Stor olje- og gassproduksjon bidrar til globale klimagassutslipp
+- Høyt materielt forbruk per innbygger
+- Tap av biologisk mangfold og naturområder til utbygging
+- Klimamål som er vanskelige å nå uten store endringer i livsstil og produksjon
+
+### Veien videre
+Norge har forpliktet seg til å kutte klimagassutslippene med minst 55 % innen 2030 (sammenlignet med 1990) og bli et lavutslippssamfunn innen 2050. Dette krever omstilling i alle sektorer – transport, industri, jordbruk og energi.`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'geo-4-6-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilken kommisjon definerte begrepet «bærekraftig utvikling»?',
+      options: [
+        { id: 'a', text: 'EU-kommisjonen', isCorrect: false },
+        { id: 'b', text: 'Brundtland-kommisjonen', isCorrect: true },
+        { id: 'c', text: 'FNs sikkerhetsråd', isCorrect: false },
+        { id: 'd', text: 'IPCC (FNs klimapanel)', isCorrect: false },
+      ],
+      solution: 'Brundtland-kommisjonen (Verdenskommisjonen for miljø og utvikling), ledet av Gro Harlem Brundtland, definerte begrepet bærekraftig utvikling i rapporten «Vår felles fremtid» i 1987.',
+    },
+    {
+      id: 'geo-4-6-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hva sirkulærøkonomi er, og gi to konkrete eksempler på sirkulærøkonomi i praksis.',
+      solution: 'Sirkulærøkonomi er et økonomisk system som minimerer avfall og ressursbruk ved at produkter og materialer holdes i omløp så lenge som mulig. I stedet for den lineære modellen (ta-bruk-kast) designes produkter for lang levetid, reparasjon, gjenbruk og resirkulering. Eksempel 1: Den norske panteordningen for flasker og bokser, der emballasjen samles inn og materialet resirkuleres til nye produkter (returrate over 90 %). Eksempel 2: Gjenvinning av metaller fra elektronisk avfall – verdifulle materialer som gull, kobber og sjeldne jordarter hentes ut fra kasserte mobiltelefoner og datamaskiner og brukes til å lage nye elektronikkprodukter.',
+    },
+    {
+      id: 'geo-4-6-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilken type økosystemtjeneste er pollinering av matplanter av bier?',
+      options: [
+        { id: 'a', text: 'Forsyningstjeneste', isCorrect: false },
+        { id: 'b', text: 'Reguleringstjeneste', isCorrect: true },
+        { id: 'c', text: 'Kulturell tjeneste', isCorrect: false },
+        { id: 'd', text: 'Støttetjeneste', isCorrect: false },
+      ],
+      solution: 'Pollinering er en reguleringstjeneste. Reguleringstjenester er prosesser i naturen som regulerer miljøforholdene. Bier og andre pollinerende insekter regulerer plantenes reproduksjon, noe som er avgjørende for matproduksjonen.',
+    },
+    {
+      id: 'geo-4-6-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Velg to av FNs bærekraftsmål som er knyttet til naturressurser, og forklar hvordan de henger sammen.',
+      solution: 'Mål 6 (Rent vann og gode sanitærforhold) og mål 15 (Livet på land) henger tett sammen. Økosystemer på land, som skoger og våtmarker, spiller en avgjørende rolle for vannforsyningen. Skoger beskytter nedbørsfelter og regulerer vannføringen i elver. Våtmarker fungerer som naturlige renseanlegg som filtrerer forurensning fra vannet. Når skoger hugges og våtmarker dreneres (brudd på mål 15), forringes vannkvaliteten og vannforsyningen (brudd på mål 6). Omvendt kan vannforurensning og overforbruk av vann skade økosystemene på land. Å oppnå det ene målet krever derfor arbeid med det andre – de to målene er gjensidig avhengige.',
+    },
+    {
+      id: 'geo-4-6-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er det motsatte av en sirkulærøkonomi?',
+      options: [
+        { id: 'a', text: 'Grønn økonomi', isCorrect: false },
+        { id: 'b', text: 'Lineær økonomi (ta-bruk-kast)', isCorrect: true },
+        { id: 'c', text: 'Blandingsøkonomi', isCorrect: false },
+        { id: 'd', text: 'Bioøkonomi', isCorrect: false },
+      ],
+      solution: 'Det motsatte av en sirkulærøkonomi er en lineær økonomi, også kalt «ta-bruk-kast»-modellen. I en lineær økonomi utvinnes ressurser, produseres varer, brukes og deretter kastes – uten at materialene gjenbrukes eller resirkuleres.',
+    },
+  ],
+};
+
+// ============================================================================
+// Eksport av alle kapitler i del 4
+// ============================================================================
+
+export const GEOGRAFI_DEL4_CHAPTERS: TextbookChapter[] = [
+  CHAPTER_GEOGRAFI_4_1, CHAPTER_GEOGRAFI_4_2, CHAPTER_GEOGRAFI_4_3,
+  CHAPTER_GEOGRAFI_4_4, CHAPTER_GEOGRAFI_4_5, CHAPTER_GEOGRAFI_4_6,
 ];

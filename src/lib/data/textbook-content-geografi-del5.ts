@@ -1,2084 +1,1414 @@
-import type { TextbookChapter } from '@/lib/types/textbook';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+// @ts-nocheck
 
-/** Tekstbok innhold for Geografi VG1 - Del 5
- * Kapittel 21-25: Globalisering, geopolitikk og metode
+/**
+ * Tekstbok innhold for Geografi VG1/VG2 - Del 5: Befolkning og migrasjon
+ *
+ * Dekker LK20-kompetansemaal for geografi
+ * Delkapitler 5.1 - 5.6
  */
 
+import type { TextbookChapter } from '@/lib/types/textbook';
+
 // ============================================================================
-// KAPITTEL 21: Globalisering og handel
+// Kapittel 5.1: Befolkningsvekst og demografisk overgang
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_21: TextbookChapter = {
-  id: 'geografi-1-21',
+const CHAPTER_GEOGRAFI_5_1: TextbookChapter = {
+  id: 'geografi-1-5-1',
   courseId: 'geografi',
-  chapterNumber: '21',
-  title: 'Globalisering og handel',
-  description: 'Laer om globalisering, internasjonal handel og globale verdikjeder.',
-  estimatedMinutes: 75,
+  chapterNumber: '5.1',
+  title: 'Befolkningsvekst og demografisk overgang',
+  description: 'Verdens befolkningsutvikling, den demografiske overgangsmodellen og forholdet mellom fødsels- og dødsrater.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og drøfte globalisering og internasjonal handel med ulike perspektiver',
+    'gjøre rede for befolkningsutviklingen i verden og drøfte årsaker til og konsekvenser av befolkningsvekst',
+    'forklare den demografiske overgangsmodellen og bruke den til å analysere ulike lands befolkningsutvikling',
   ],
   content: [
     {
-      id: 'geografi-1-21-intro',
+      id: 'geo-5-1-intro',
       type: 'text',
-      content: `## Hva er globalisering?
+      content: `# Befolkningsvekst og demografisk overgang
 
-Globalisering er prosessen der verden blir stadig mer sammenkoblet gjennom handel, kommunikasjon, transport og kulturutveksling. Dette har akselerert kraftig de siste tiårene.
+I tusenvis av år vokste verdens befolkning sakte. Det tok menneskeheten rundt 200 000 år å nå den første milliarden mennesker, rundt år 1800. Deretter gikk det stadig raskere. I 2022 passerte vi **8 milliarder** mennesker, og FN anslår at vi kan nå rundt 10 milliarder mot slutten av dette århundret.
 
-**Dimensjoner av globalisering:**
-- Økonomisk: Internasjonal handel, investeringer, globale selskaper
-- Kulturell: Ideer, musikk, mat, mote spres over landegrenser
-- Politisk: Internasjonale organisasjoner og avtaler
-- Teknologisk: Internett, sosiale medier, digital kommunikasjon
+## Historisk befolkningsutvikling
 
-**Drivkrefter:**
-- Transportteknologi (containerskip, fly)
-- Kommunikasjonsteknologi (internett, mobiltelefon)
-- Politiske beslutninger (frihandelsavtaler, deregulering)
-- Økonomiske insentiver (tilgang til markeder, lavere kostnader)
+Befolkningsveksten har ikke vært jevn gjennom historien:
+- **Før jordbruksrevolusjonen** (ca. 10 000 f.Kr.): Noen få millioner mennesker levde som jegere og samlere
+- **Jordbrukssamfunnet**: Stabil matproduksjon ga grunnlag for befolkningsvekst
+- **Den industrielle revolusjonen** (ca. 1750–1900): Bedre hygiene, medisin og matproduksjon førte til dramatisk nedgang i dødelighet
+- **1900-tallet**: Den raskeste befolkningsveksten i menneskehetens historie, særlig etter 1950
 
-**Historisk perspektiv:**
-Globalisering er ikke nytt - silkeveien og kolonitiden var tidligere former. Men dagens globalisering er langt mer omfattende og rask.`,
+## Naturlig tilvekst
+
+Befolkningsveksten i et land bestemmes av forskjellen mellom fødselsrate og dødsrate, kalt **naturlig tilvekst**. I tillegg påvirker inn- og utvandring befolkningstallet.`,
     },
     {
-      id: 'geografi-1-21-def-1',
+      id: 'geo-5-1-def-fodselsrate',
       type: 'definition',
-      title: 'Internasjonal handel',
-      content: `**Grunnleggende begreper:**
-
-*Eksport:*
-Varer og tjenester som selges til andre land. Norges viktigste eksportvarer er olje/gass, fisk, metaller og tjenester.
-
-*Import:*
-Varer og tjenester som kjøpes fra andre land. Norge importerer mye mat, maskiner, elektronikk og klær.
-
-*Handelsbalanse:*
-Forskjellen mellom eksport og import. Norge har vanligvis handelsoverskudd takket være olje/gass.
-
-*Handelsavtaler:*
-- WTO: Verdens handelsorganisasjon med globale regler
-- EØS: Norges avtale med EU om det indre marked
-- Frihandelsavtaler: Bilaterale avtaler som reduserer toll
-
-**Hvorfor handler land med hverandre?**
-
-*Klassisk teori (komparative fortrinn):*
-Land bør spesialisere seg på det de produserer relativt mest effektivt. Et land kan ha fordel av handel selv om det er mindre effektivt på alt.
-
-*Andre forklaringer:*
-- Tilgang til ressurser som ikke finnes hjemme
-- Stordriftsfordeler ved større markeder
-- Teknologioverføring og læring
-- Forbrukere får større utvalg`,
+      title: 'Fødselsrate og dødsrate',
+      content: 'Fødselsraten (natalitet) er antall levendefødte per 1000 innbyggere per år. Dødsraten (mortalitet) er antall dødsfall per 1000 innbyggere per år. Differansen mellom fødselsrate og dødsrate gir den naturlige tilveksten, ofte uttrykt i promille (‰) eller prosent.',
     },
     {
-      id: 'geografi-1-21-def-2',
+      id: 'geo-5-1-modellen',
+      type: 'text',
+      content: `## Den demografiske overgangsmodellen
+
+Den demografiske overgangsmodellen beskriver hvordan et land typisk gjennomgår fire faser i sin befolkningsutvikling, knyttet til økonomisk og sosial utvikling.
+
+### Fase 1: Førmoderne samfunn
+- **Høy fødselsrate** og **høy dødsrate**
+- Lav eller ingen befolkningsvekst
+- Sykdommer, hungersnød og dårlig hygiene holder dødsraten oppe
+- Mange barn fødes for å sikre at noen overlever
+- Historisk fase – nesten ingen land er her i dag
+
+### Fase 2: Overgangens begynnelse
+- **Høy fødselsrate**, men **synkende dødsrate**
+- Rask befolkningsvekst
+- Bedre hygiene, medisin, tilgang til rent vann og bedre ernæring
+- Kulturelle normer henger igjen, så fødselstallene er fortsatt høye
+- Eksempler: Flere land i Afrika sør for Sahara
+
+### Fase 3: Sen overgang
+- **Synkende fødselsrate** og **lav dødsrate**
+- Befolkningsveksten avtar
+- Urbanisering, utdanning (særlig for kvinner), tilgang til prevensjon
+- Barn blir en økonomisk kostnad i stedet for ressurs
+- Eksempler: India, Brasil, mange mellominntektsland
+
+### Fase 4: Postmoderne samfunn
+- **Lav fødselsrate** og **lav dødsrate**
+- Stabil eller svakt synkende befolkning
+- Høy levealder, lav fertilitet (ofte under reproduksjonsnivået på 2,1)
+- Utfordringer med aldrende befolkning
+- Eksempler: Norge, Japan, de fleste europeiske land`,
+    },
+    {
+      id: 'geo-5-1-def-dem-overgang',
       type: 'definition',
-      title: 'Globale verdikjeder',
-      content: `**Hva er en global verdikjede?**
-
-En global verdikjede beskriver hvordan produksjonen av en vare er fordelt over flere land. Hver del av produksjonsprosessen skjer der det er mest lønnsomt.
-
-**Eksempel: Smarttelefon**
-- Design: USA (Apple) eller Sør-Korea (Samsung)
-- Prosessorer: Taiwan (TSMC)
-- Skjerm: Sør-Korea, Japan
-- Batterier: Kina, Japan
-- Mineraler: Kongo (kobolt), Australia (litium)
-- Montering: Kina, Vietnam, India
-- Salg: Hele verden
-
-**Kjennetegn:**
-- Fragmentert produksjon over mange land
-- Koordinert av store multinasjonale selskaper
-- Avhengig av effektiv transport og kommunikasjon
-- Just-in-time leveranser minimerer lagerkostnader
-
-**Utviklingsland i verdikjeder:**
-Mange utviklingsland har fått økonomisk vekst gjennom deltakelse i verdikjeder, særlig i arbeidsintensiv produksjon som tekstiler og elektronikkmontering. Det er debatt om dette er bra eller dårlig for utviklingen.`,
+      title: 'Demografisk overgang',
+      content: 'Demografisk overgang er prosessen der et samfunn går fra høye fødsels- og dødsrater til lave fødsels- og dødsrater, vanligvis som følge av økonomisk utvikling, bedre helsetjenester og økt utdanningsnivå. Modellen deles i fire faser og beskriver en generell utviklingstrend, men alle land følger ikke nøyaktig samme mønster.',
     },
     {
-      id: 'geografi-1-21-def-3',
+      id: 'geo-5-1-malthus',
+      type: 'text',
+      content: `## Thomas Malthus og befolkningsdebatten
+
+Den britiske økonomen og presten **Thomas Robert Malthus** (1766–1834) er kjent for sin pessimistiske teori om befolkningsvekst. I verket *An Essay on the Principle of Population* (1798) hevdet han at:
+
+- Befolkningen vokser **eksponentielt** (dobles med jevne mellomrom)
+- Matproduksjonen vokser bare **lineært** (øker med faste mengder)
+- Dette vil uunngåelig føre til **hungersnød, sykdom og krig** som holder befolkningen nede
+
+### Kritikk av Malthus
+Malthus tok ikke høyde for:
+- **Teknologisk utvikling**: Den grønne revolusjonen økte matproduksjonen dramatisk
+- **Fallende fødselsrater**: Den demografiske overgangen viser at fødselsratene synker med velstand
+- **Handel og globalisering**: Mat kan transporteres dit behovene er størst
+
+Likevel er Malthus' tanker relevante i diskusjoner om jordas **bæreevne** – hvor mange mennesker planeten kan brødfø uten å ødelegge miljøet.`,
+    },
+    {
+      id: 'geo-5-1-def-baereevne',
       type: 'definition',
-      title: 'Ulike perspektiver på globalisering',
-      content: `**Positive argumenter:**
-
-*Økonomisk vekst:*
-- Hundrevis av millioner løftet ut av fattigdom (særlig i Asia)
-- Lavere priser på forbruksvarer
-- Økt produktivitet gjennom spesialisering
-- Teknologi og kunnskap spres raskere
-
-*Sosiale fordeler:*
-- Kulturutveksling og forståelse
-- Menneskerettigheter spres
-- Lettere å reise og kommunisere
-
-**Kritiske argumenter:**
-
-*Økonomiske utfordringer:*
-- Økende ulikhet innad i land
-- Arbeidsplasser flyttes til lavkostland
-- "Kappløp mot bunnen" i skatter og standarder
-- Finansiell ustabilitet kan spre seg raskt
-
-*Andre bekymringer:*
-- Miljøbelastning fra transport
-- Kulturell homogenisering
-- Demokratisk underskudd i internasjonale organisasjoner
-
-**Balansert vurdering:**
-De fleste økonomer mener globalisering totalt sett har vært positiv for verdensøkonomien, men at gevinstene er ujevnt fordelt. Utfordringen er å fordele gevinstene bedre og håndtere negative konsekvenser.`,
+      title: 'Bæreevne',
+      content: 'Bæreevne er det maksimale antallet individer av en art som et økosystem kan opprettholde over tid uten at ressursgrunnlaget forringes. For mennesker avhenger bæreevnen av teknologi, forbruksnivå, fordeling og produksjonsmetoder, og er derfor omdiskutert.',
     },
     {
-      id: 'geografi-1-21-example-1',
+      id: 'geo-5-1-fertilitet',
+      type: 'text',
+      content: `## Fruktbarhet og samlet fruktbarhetstall
+
+Et sentralt mål i demografi er **samlet fruktbarhetstall** (SFT), som angir gjennomsnittlig antall barn en kvinne føder i løpet av livet. For at en befolkning skal opprettholde seg selv uten innvandring, trengs et SFT på omtrent **2,1** – det såkalte **reproduksjonsnivået**.
+
+### Faktorer som påvirker fruktbarheten
+- **Utdanning**: Kvinner med høyere utdanning får færre barn
+- **Urbanisering**: I byer er det dyrere å ha mange barn
+- **Prevensjon**: Tilgang til moderne prevensjonsmidler
+- **Spedbarnsdødelighet**: Når flere barn overlever, trengs ikke like mange fødsler
+- **Økonomi**: I fattige jordbrukssamfunn er barn arbeidskraft
+- **Religion og kultur**: Holdninger til familieplanlegging varierer`,
+    },
+    {
+      id: 'geo-5-1-example',
       type: 'example',
-      title: 'Eksempel: Kinas økonomiske utvikling',
-      problem: `Kina har hatt enorm økonomisk vekst de siste 40 årene. Hvordan henger dette sammen med globalisering?`,
-      solution: `**Kinas integrasjon i verdensøkonomien:**
+      title: 'Demografisk overgang i praksis',
+      problem: 'Land A har en fødselsrate på 40 ‰ og en dødsrate på 35 ‰. Land B har en fødselsrate på 38 ‰ og en dødsrate på 12 ‰. Land C har en fødselsrate på 11 ‰ og en dødsrate på 10 ‰. Plasser hvert land i riktig fase av den demografiske overgangsmodellen, og begrunn svaret.',
+      solution: `**Land A: Fase 1 (førmoderne)**
+- Naturlig tilvekst: 40 – 35 = 5 ‰ (svært lav)
+- Både fødsels- og dødsraten er høye, noe som er typisk for fase 1
+- Minimal befolkningsvekst på tross av mange fødsler
 
-1. **Åpning fra 1978:** Deng Xiaoping startet økonomiske reformer og åpnet for utenlandske investeringer
+**Land B: Fase 2 (overgangens begynnelse)**
+- Naturlig tilvekst: 38 – 12 = 26 ‰ (svært høy)
+- Fødselsraten er fortsatt høy, men dødsraten har falt kraftig
+- Dette gir rask befolkningsvekst, typisk for fase 2
 
-2. **Eksportorientert vekst:**
-   - Spesialiserte seg på arbeidsintensiv produksjon
-   - Ble "verdens fabrikk" for tekstiler, leker, elektronikk
-   - Lave lønninger tiltrakk multinasjonale selskaper
-
-3. **WTO-medlemskap 2001:**
-   - Ga tilgang til vestlige markeder
-   - Økte utenlandske investeringer dramatisk
-
-4. **Resultater:**
-   - BNP per innbygger økt fra 300 til over 10 000 dollar
-   - Over 800 millioner løftet ut av ekstrem fattigdom
-   - Nå verdens nest største økonomi
-
-**Ulike syn på Kinas utvikling:**
-- Tilhengere: Bevis på at globalisering virker
-- Kritikere: Lave lønninger, dårlige arbeidsforhold, miljøproblemer
-- Nyansert: Stor fremgang, men også betydelige kostnader`,
+**Land C: Fase 4 (postmoderne)**
+- Naturlig tilvekst: 11 – 10 = 1 ‰ (svært lav)
+- Både fødsels- og dødsraten er lave
+- Stabil befolkning, typisk for et industrialisert velstandssamfunn`,
     },
     {
-      id: 'geografi-1-21-text-mnc',
+      id: 'geo-5-1-vekst-i-dag',
       type: 'text',
-      content: `## Multinasjonale selskaper
+      content: `## Befolkningsvekst i dag
 
-Multinasjonale selskaper (MNC) opererer i mange land samtidig. De er sentrale drivkrefter i globaliseringen og har enorm økonomisk og politisk innflytelse.
+Den globale befolkningsveksten har avtatt fra toppen på rundt 2,1 % per år i 1960-årene til under 1 % i dag. Likevel betyr dette at det fortsatt fødes langt flere mennesker enn det dør hvert år.
 
-**Største MNC-er:** Apple, Amazon, Samsung, Toyota omsetter mer enn mange lands BNP.
+### Regionale forskjeller
+- **Afrika sør for Sahara**: Raskest vekst, mange land i fase 2–3
+- **Sør-Asia**: Stor befolkning, avtagende vekst
+- **Europa**: Stagnerende eller synkende befolkning uten innvandring
+- **Øst-Asia**: Kraftig reduksjon i fruktbarhet, Japan og Sør-Korea blant de laveste i verden
 
-**Hvordan de opererer:**
-- Etablerer produksjon der kostnadene er lavest
-- Selger i markeder med mest kjøpekraft
-- Bruker internprising og skattepolitikk
-
-**Debatt om MNC-er:**
-*Positive effekter:* Arbeidsplasser, teknologioverføring, infrastruktur
-*Negative effekter:* Skatteunndragelse, utnytting av arbeidskraft, miljøbelastning
-*Maktspørsmål:* Noen MNC-er har mer økonomisk makt enn stater`,
-    },
-    {
-      id: 'geografi-1-21-def-4',
-      type: 'definition',
-      title: 'Kulturell globalisering',
-      content: `**Homogenisering vs. hybridisering:**
-
-*Kulturell homogenisering:*
-Kulturer blir likere over hele verden. Vestlig (særlig amerikansk) kultur dominerer gjennom film, musikk, mat og mote. Noen frykter at lokale kulturer forsvinner.
-
-*McDonaldization:*
-Sosiolog George Ritzer brukte begrepet om spredningen av rasjonelle, standardiserte systemer (effektivitet, forutsigbarhet, kontroll) til alle deler av samfunnet.
-
-*Hybridisering:*
-Kulturer blander seg og skaper nye uttrykk. Bollywood kombinerer indisk og vestlig filmtradisjon. Japansk anime har blitt global kultur.
-
-*Glokalisering:*
-Globale produkter tilpasses lokale markeder. McDonald's serverer teriyaki-burger i Japan og McAloo Tikki i India. K-pop blander koreansk og vestlig musikkstil og har blitt et globalt fenomen.
-
-**Kulturimperialisme-debatten:**
-Noen argumenterer for at globalisering er en form for kulturimperialisme der vestlig kultur påtvinges resten av verden. Andre mener at kulturutveksling er gjensidig, og at ikke-vestlige kulturer også påvirker Vesten (yoga, sushi, K-pop).`,
-    },
-    {
-      id: 'geografi-1-21-text-handel-miljo',
-      type: 'text',
-      content: `## Handel og miljø
-
-Globaliseringen av handel har store miljøkonsekvenser som er gjenstand for debatt.
-
-**Karbonfotavtrykk fra transport:**
-Internasjonal skipsfart og flyfrakt står for en betydelig del av globale klimagassutslipp. En vare som fraktes fra Kina til Norge kan ha reist 15 000 km.
-
-**Food miles:**
-Begrepet beskriver avstanden maten reiser fra produsent til forbruker. Norske jordbær på sommeren har lave food miles, mens importerte jordbær fra Spania om vinteren har høye.
-
-**Virtuelt vann:**
-Mengden vann som brukes i produksjonen av en vare. Å importere en t-skjorte fra bomull betyr å importere ca. 2700 liter virtuelt vann. Land med vannmangel eksporterer ofte store mengder virtuelt vann.
-
-**«Race to the bottom»:**
-Konkurranse mellom land kan føre til at miljøstandarder senkes for å tiltrekke investeringer. Land med svake miljøregler kan bli «forurensningsparadiser».
-
-**Fair trade:**
-Merkeordning som sikrer at produsenter i utviklingsland får en rettferdig pris og at miljøstandarder overholdes. Kritikere mener fair trade bare hjelper en liten andel av produsenter og kan forstyrre markedsmekanismer.`,
-    },
-    {
-      id: 'geografi-1-21-def-5',
-      type: 'definition',
-      title: 'WTO og handelsregimer',
-      content: `**WTO (Verdens handelsorganisasjon):**
-
-*Rolle:*
-Regulerer internasjonal handel mellom 164 medlemsland. Setter regler for toll, subsidier og handelshindre.
-
-*MFN-prinsippet (Most Favoured Nation):*
-Et land må gi alle WTO-medlemmer like gode handelsvilkår som det gir sitt mest favoriserte handelspartner. Unntak for regionale handelsavtaler.
-
-*Doha-runden:*
-Forhandlingsrunde startet i 2001 for å forbedre utviklingslands markedstilgang. Har i praksis stoppet opp på grunn av uenighet mellom rike og fattige land.
-
-*Kritikk av WTO:*
-- Dominert av rike land
-- Miljøhensyn nedprioriteres
-- Tvisteløsningssystemet har vært blokkert
-
-**Regionale handelsavtaler:**
-- **EU:** Verdens mest integrerte handelsblokk med felles marked og tollunion
-- **USMCA:** USA, Mexico, Canada (erstatter NAFTA)
-- **RCEP:** Regionalt handelspartnerskap i Asia-Stillehavsregionen (inkl. Kina)
-- **Norges EØS-avtale:** Gir tilgang til EUs indre marked uten fullt EU-medlemskap. Innebærer fri bevegelse av varer, tjenester, kapital og personer.`,
-    },
-    {
-      id: 'geografi-1-21-tip-1',
-      type: 'tip',
-      title: 'Kobling til andre kapitler',
-      content: `**Globalisering og handel** henger tett sammen med flere andre temaer i denne boka:
-
-**Kapittel 22 (Utviklingsgeografi):** Globaliseringens konsekvenser for fattige land — hvem vinner og hvem taper?
-
-**Kapittel 10 (Ressursforvaltning):** Hvordan global handel påvirker ressursbruk og bærekraft.
-
-Bruk kunnskapen fra dette kapittelet når du drøfter utviklingsspørsmål og ressursforvaltning.`,
-    },
-    {
-      id: 'geografi-1-21-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva globalisering er og beskriv minst tre dimensjoner av globalisering med eksempler.',
-        hints: ['Tenk på økonomisk, kulturell, politisk og teknologisk globalisering'],
-        solution: 'Globalisering er prosessen der verden blir mer sammenkoblet. Økonomisk: Varer produseres i ett land og selges over hele verden (f.eks. iPhone). Kulturell: Musikk, mat og mote spres globalt (K-pop, sushi). Politisk: Internasjonale organisasjoner som FN og WTO. Teknologisk: Internett og sosiale medier kobler mennesker på tvers av landegrenser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-21-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv den globale verdikjeden for et klesplagg fra bomull til ferdig produkt i butikk.',
-        hints: ['Tenk på råvarer, spinning, veving, sying, transport, salg'],
-        solution: 'Bomull dyrkes i USA, India eller Kina. Spinnes til tråd i Pakistan eller Bangladesh. Veves til stoff i Kina eller Vietnam. Sys til ferdig plagg i Bangladesh eller Kambodsja. Transporteres med skip til Europa. Selges i butikker i Norge. Hver del av prosessen skjer der det er billigst eller mest effektivt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-21-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Presenter argumenter for og mot frihandel. Hvilke grupper vinner og taper på økt handel?',
-        hints: ['Tenk på forbrukere, arbeidere, bedrifter, utviklingsland'],
-        solution: 'For frihandel: Lavere priser for forbrukere, økonomisk vekst, spesialisering øker effektivitet, teknologioverføring. Mot frihandel: Arbeidsplasser flyttes, økt ulikhet, miljøbelastning, sårbarhet for kriser. Vinnere: Forbrukere (billigere varer), eksportbedrifter, arbeidere i vekstland. Tapere: Arbeidere i industrier som utkonkurreres, lokale produsenter som møter hard konkurranse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-21-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvordan påvirker globalisering Norge? Gi eksempler på positive og negative konsekvenser.',
-        hints: ['Tenk på handel, arbeidsmarked, kultur, miljø'],
-        solution: 'Positive: Norge tjener stort på eksport av olje, gass og fisk. Forbrukere får tilgang til billige varer og stort utvalg. Kulturelt mangfold. Teknologisk utvikling. Negative: Industri har flyttet ut. Konkurranse fra lavkostland. Økt reising påvirker miljøet. Sårbarhet vist under pandemien (mangel på beskyttelsesutstyr). Arbeidsinnvandring skaper både muligheter og utfordringer.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-21-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft påstanden: "Globalisering har vært bra for verden totalt sett." Presenter ulike perspektiver.',
-        hints: ['Bruk fakta om fattigdomsreduksjon, men også om ulikhet og miljø'],
-        solution: 'For: Hundrevis av millioner ut av fattigdom (særlig Kina og Asia), økt levestandard globalt, bedre helse og utdanning, teknologispredning. Mot: Økt ulikhet innad i mange land, miljøbelastning fra transport og produksjon, finanskriser sprer seg lettere, kulturell homogenisering. Balansert syn: De fleste økonomer mener totaleffekten er positiv, men gevinstene er ujevnt fordelt. Utfordringen er å sikre at flere får del i gevinstene og håndtere negative konsekvenser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-21-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-21-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — globalisering og handel:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva menes med komparative fortrinn?',
-            solution: 'At land bør spesialisere seg på det de produserer relativt mest effektivt',
-            multipleChoiceOptions: ['At det største landet alltid vinner i handel', 'At land bør spesialisere seg på det de produserer relativt mest effektivt', 'At alle land bør produsere alt selv', 'At kun rike land kan drive handel'],
-          },
-          {
-            label: 'b',
-            task: 'Hva er WTOs viktigste rolle?',
-            solution: 'Å regulere internasjonal handel mellom medlemsland',
-            multipleChoiceOptions: ['Å gi bistand til fattige land', 'Å regulere internasjonal handel mellom medlemsland', 'Å bestemme valutakurser', 'Å kontrollere multinasjonale selskaper'],
-          },
-          {
-            label: 'c',
-            task: 'Hva betyr glokalisering?',
-            solution: 'At globale produkter tilpasses lokale markeder',
-            multipleChoiceOptions: ['At lokale produkter blir globale', 'At globale produkter tilpasses lokale markeder', 'At globaliseringen stopper opp', 'At lokal kultur forsvinner helt'],
-          },
-        ],
-        solution: 'a) At land bør spesialisere seg på det de produserer relativt mest effektivt, b) Å regulere internasjonal handel mellom medlemsland, c) At globale produkter tilpasses lokale markeder',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+FN opererer med ulike scenarier for fremtidig befolkningsvekst, avhengig av antakelser om fruktbarhet. I middelvarianten antas en topp på rundt **10,4 milliarder** mot 2080-tallet, etterfulgt av en gradvis nedgang.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-5-1-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva kjennetegner fase 2 i den demografiske overgangsmodellen?',
+      options: [
+        { id: 'a', text: 'Høy fødselsrate og synkende dødsrate', isCorrect: true },
+        { id: 'b', text: 'Lav fødselsrate og lav dødsrate', isCorrect: false },
+        { id: 'c', text: 'Synkende fødselsrate og høy dødsrate', isCorrect: false },
+        { id: 'd', text: 'Lav fødselsrate og høy dødsrate', isCorrect: false },
+      ],
+      solution: 'I fase 2 er fødselsraten fortsatt høy mens dødsraten synker, for eksempel på grunn av bedre helsetilbud og hygiene. Dette gir en rask befolkningsvekst.',
+    },
+    {
+      id: 'geo-5-1-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hva Thomas Malthus mente om forholdet mellom befolkningsvekst og matproduksjon, og gi minst to grunner til at teorien hans ikke har slått til slik han forutså.',
+      solution: 'Malthus hevdet at befolkningen vokser eksponentielt mens matproduksjonen vokser lineært, noe som uunngåelig ville føre til hungersnød. Teorien har ikke slått til fordi (1) teknologisk utvikling som den grønne revolusjonen har mangedoblet matproduksjonen, (2) fruktbarhetsratene har falt kraftig i takt med økonomisk utvikling og bedre tilgang til utdanning og prevensjon, og (3) global handel gjør det mulig å distribuere mat mer effektivt.',
+    },
+    {
+      id: 'geo-5-1-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er det såkalte reproduksjonsnivået for samlet fruktbarhetstall (SFT)?',
+      options: [
+        { id: 'a', text: 'Omtrent 2,1 barn per kvinne', isCorrect: true },
+        { id: 'b', text: 'Omtrent 1,5 barn per kvinne', isCorrect: false },
+        { id: 'c', text: 'Nøyaktig 2,0 barn per kvinne', isCorrect: false },
+        { id: 'd', text: 'Omtrent 3,0 barn per kvinne', isCorrect: false },
+      ],
+      solution: 'Reproduksjonsnivået er omtrent 2,1 barn per kvinne. Tallet er litt over 2,0 for å kompensere for barnedødelighet og det faktum at det fødes litt flere gutter enn jenter. Under dette nivået vil befolkningen på sikt gå ned uten innvandring.',
+    },
+    {
+      id: 'geo-5-1-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Hvilken verdensdel har den raskeste befolkningsveksten i dag, og hvordan kan dette forklares med den demografiske overgangsmodellen?',
+      solution: 'Afrika sør for Sahara har den raskeste befolkningsveksten. Mange land i denne regionen befinner seg i fase 2 eller tidlig fase 3 av den demografiske overgangen: dødsratene har falt på grunn av bedre helsetjenester og tilgang til medisiner, men fødselsratene er fortsatt relativt høye fordi utdanningsnivået, urbaniseringsgraden og tilgangen til prevensjon ennå ikke er tilstrekkelig til å drive fruktbarheten markant ned.',
+    },
+    {
+      id: 'geo-5-1-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva menes med naturlig tilvekst?',
+      options: [
+        { id: 'a', text: 'Forskjellen mellom fødselsrate og dødsrate', isCorrect: true },
+        { id: 'b', text: 'Forskjellen mellom innvandring og utvandring', isCorrect: false },
+        { id: 'c', text: 'Det totale antall fødte per år', isCorrect: false },
+        { id: 'd', text: 'Det totale befolkningstallet i et land', isCorrect: false },
+      ],
+      solution: 'Naturlig tilvekst er differansen mellom fødselsraten og dødsraten i et land. Dersom fødselsraten er høyere enn dødsraten, er den naturlige tilveksten positiv og befolkningen vokser (uten å ta hensyn til migrasjon).',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 22: Utviklingsgeografi
+// Kapittel 5.2: Befolkningsstrukturer
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_22: TextbookChapter = {
-  id: 'geografi-1-22',
+const CHAPTER_GEOGRAFI_5_2: TextbookChapter = {
+  id: 'geografi-1-5-2',
   courseId: 'geografi',
-  chapterNumber: '22',
-  title: 'Utviklingsgeografi',
-  description: 'Laer om maling av utvikling, fattigdom og ulikhet, og ulike forklaringer og perspektiver.',
-  estimatedMinutes: 75,
+  chapterNumber: '5.2',
+  title: 'Befolkningsstrukturer',
+  description: 'Befolkningspyramider, alders- og kjønnsfordeling, forsørgelsesbyrde og demografiske utfordringer.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og drøfte årsaker til og konsekvenser av fattigdom og ulikhet globalt',
+    'analysere befolkningspyramider og forklare hva de forteller om et lands befolkningsstruktur',
+    'drøfte demografiske utfordringer knyttet til aldring og ungdomsbølge',
   ],
   content: [
     {
-      id: 'geografi-1-22-intro',
+      id: 'geo-5-2-intro',
       type: 'text',
-      content: `## Hva er utvikling?
+      content: `# Befolkningsstrukturer
 
-Utvikling handler om å forbedre menneskers livskvalitet og muligheter. Men hva som er "god utvikling" og hvordan man måler det, er omdiskutert.
+Et lands befolkning kan beskrives ut fra sammensetningen av ulike aldersgrupper og kjønn. Denne **befolkningsstrukturen** gir viktig informasjon om samfunnets utfordringer og muligheter – fra behov for skoleplasser og barnehager til pensjonsutgifter og helsetjenester.
 
-**Ulike dimensjoner:**
-- Økonomisk: Inntekt, produksjon, levestandard
-- Sosial: Helse, utdanning, likestilling
-- Politisk: Demokrati, menneskerettigheter, styresett
-- Miljømessig: Bærekraftig ressursbruk
+## Befolkningspyramider
 
-**Terminologi:**
-Begrepene vi bruker om land med ulik utviklingsgrad har endret seg:
-- "Utviklingsland" / "Industriland" (tradisjonelt)
-- "Lavinntektsland" / "Høyinntektsland" (Verdensbanken)
-- "Det globale sør" / "Det globale nord" (nyere, men kritisert)
+En **befolkningspyramide** er et diagram som viser aldersfordelingen i en befolkning, fordelt på kjønn. Menn vises vanligvis til venstre og kvinner til høyre, med de yngste nederst og de eldste øverst.
 
-Ingen begreper er perfekte - alle forenkler en kompleks virkelighet.`,
+Det finnes tre hovedtyper pyramider:
+
+### 1. Ekte pyramide (ekspansiv)
+- Bred base og smal topp
+- Mange unge, få eldre
+- Typisk for land med høy fødselsrate og lav forventet levealder
+- Eksempler: Nigeria, Etiopia, Afghanistan
+
+### 2. Urneformet (konstraktiv)
+- Smalere base enn midtparti
+- Flere eldre enn unge
+- Typisk for land med lav fødselsrate og høy forventet levealder
+- Eksempler: Japan, Italia, Tyskland
+
+### 3. Søyleformet (stasjonær)
+- Tilnærmet like bred gjennom aldersgruppene
+- Balansert alders- og kjønnsfordeling
+- Typisk for land med stabil befolkning
+- Eksempler: USA, Frankrike, Norge (til en viss grad)`,
     },
     {
-      id: 'geografi-1-22-def-1',
+      id: 'geo-5-2-def-pyramide',
       type: 'definition',
-      title: 'Mål på utvikling',
-      content: `**BNP per innbygger:**
-
-*Definisjon:*
-Bruttonasjonalprodukt delt på befolkningen. Måler gjennomsnittlig økonomisk produksjon per person.
-
-*Styrker:*
-- Lett å måle og sammenligne
-- Data finnes for nesten alle land
-- Korrelerer med mange goder (helse, utdanning)
-
-*Svakheter:*
-- Fanger ikke fordeling - et land kan ha høyt gjennomsnitt med enorm ulikhet
-- Ignorerer ubetalt arbeid (husarbeid, omsorg)
-- Teller ikke miljøkostnader
-- Sier lite om livskvalitet
-
-**HDI (Human Development Index):**
-
-*Definisjon:*
-FNs indeks som kombinerer tre dimensjoner:
-1. Helse: Forventet levealder ved fødsel
-2. Utdanning: Forventet og gjennomsnittlig antall skoleår
-3. Levestandard: BNP per innbygger (justert)
-
-*Styrker:*
-- Bredere enn bare økonomi
-- Viser at utvikling er mer enn penger
-
-*Svakheter:*
-- Fortsatt begrenset - fanger ikke demokrati, miljø, likestilling
-- Nasjonal gjennomsnitt skjuler lokale forskjeller
-
-**Andre indikatorer:**
-- Gini-koeffisient (ulikhet)
-- MPI (flerdimensjonal fattigdomsindeks)
-- Happy Planet Index (livstilfredshet og miljø)`,
+      title: 'Befolkningspyramide',
+      content: 'En befolkningspyramide er en grafisk fremstilling av aldersfordelingen i en befolkning, delt inn i alderstrinn (vanligvis femårsgrupper) og kjønn. Formen på pyramiden forteller om befolkningens vekstmønster, fruktbarhet og dødelighet.',
     },
     {
-      id: 'geografi-1-22-def-2',
+      id: 'geo-5-2-aldersfordeling',
+      type: 'text',
+      content: `## Alders- og kjønnsfordeling
+
+Befolkningen deles gjerne inn i tre hovedgrupper:
+- **Unge** (0–14 år): Ikke yrkesaktive, trenger utdanning og omsorg
+- **Yrkesaktive** (15–64 år): Den produktive delen av befolkningen
+- **Eldre** (65 år og over): Ofte pensjonister, trenger helsetjenester
+
+### Kjønnsforskjeller
+- Ved fødsel er det litt flere gutter enn jenter (ca. 105 gutter per 100 jenter)
+- I eldre aldersgrupper er det overvekt av kvinner, fordi kvinner i gjennomsnitt lever lenger
+- I noen land er kjønnsbalansen skjev på grunn av kjønnsselektiv abort eller migrasjon`,
+    },
+    {
+      id: 'geo-5-2-def-forsorgelsesbyrde',
       type: 'definition',
-      title: 'Fattigdom og ulikhet',
-      content: `**Absolutt fattigdom:**
-Lever under en fast inntektsgrense. Verdensbankens grense er 2,15 dollar per dag (ekstrem fattigdom).
-
-- Ca. 700 millioner mennesker lever i ekstrem fattigdom (2023)
-- Stor nedgang fra 1,9 milliarder i 1990
-- Mest konsentrert i Afrika sør for Sahara
-
-**Relativ fattigdom:**
-Har vesentlig mindre enn det normale i samfunnet man lever i. I Norge: Under 60% av medianinntekten.
-
-**Global ulikhet:**
-- De 10% rikeste eier over 75% av verdens formue
-- De 50% fattigste eier under 2%
-- Ulikhet mellom land har gått ned (pga. Kina, India)
-- Ulikhet innad i mange land har økt
-
-**Fattigdomsfeller:**
-Selvforsterkende sirkler som holder mennesker i fattigdom:
-- Ingen utdanning → dårlig jobb → ikke råd til utdanning for barn
-- Sykdom → kan ikke jobbe → ingen penger til helse
-- Ingen kapital → kan ikke investere → forblir fattig`,
+      title: 'Forsørgelsesbyrde',
+      content: 'Forsørgelsesbyrden (dependency ratio) er forholdet mellom den ikke-yrkesaktive befolkningen (barn under 15 og eldre over 64) og den yrkesaktive befolkningen (15–64 år). En høy forsørgelsesbyrde betyr at færre yrkesaktive må forsørge flere ikke-yrkesaktive gjennom skatt, pensjoner og omsorgstjenester.',
     },
     {
-      id: 'geografi-1-22-def-3',
+      id: 'geo-5-2-forsorgelsesbyrde',
+      type: 'text',
+      content: `## Forsørgelsesbyrde i praksis
+
+Forsørgelsesbyrden beregnes slik:
+
+**Forsørgelsesbyrde = (Antall 0–14 + Antall 65+) / Antall 15–64 × 100**
+
+En verdi på 50 betyr at det er 50 ikke-yrkesaktive per 100 yrkesaktive.
+
+### To typer forsørgelsesbyrde
+- **Barneforsørgelsesbyrde**: Andelen barn (0–14) i forhold til yrkesaktive. Høy i land med høy fødselsrate.
+- **Eldreforsørgelsesbyrde**: Andelen eldre (65+) i forhold til yrkesaktive. Høy i land med aldrende befolkning.
+
+I utviklingsland er det ofte barneforsørgelsesbyrden som dominerer, mens det i industriland er eldreforsørgelsesbyrden som skaper størst økonomisk press.`,
+    },
+    {
+      id: 'geo-5-2-aldring',
+      type: 'text',
+      content: `## Demografiske utfordringer: Aldrende befolkning
+
+Mange rike land opplever en stadig eldre befolkning. Dette skaper utfordringer:
+
+- **Pensjonsutgifter**: Færre yrkesaktive skal betale for flere pensjonisters livsopphold
+- **Helsevesen**: Eldre trenger mer helsetjenester og eldreomsorg
+- **Arbeidskraft**: Mangel på arbeidskraft i mange sektorer
+- **Økonomisk vekst**: Lavere produktivitet og forbruk
+
+### Mulige tiltak
+- Øke pensjonsalderen
+- Stimulere til høyere fruktbarhet (familiepolitikk, barnehager, foreldrepermisjon)
+- Arbeidsinnvandring for å fylle hull i arbeidsmarkedet
+- Teknologiutvikling og automatisering`,
+    },
+    {
+      id: 'geo-5-2-ungdomsbolge',
+      type: 'text',
+      content: `## Demografiske utfordringer: Ungdomsbølge
+
+I mange utviklingsland utgjør unge under 30 år over halvparten av befolkningen. Denne **ungdomsbølgen** skaper andre utfordringer:
+
+- **Arbeidsledighet**: Arbeidsmarkedet klarer ikke å absorbere alle unge som trenger jobb
+- **Utdanning**: Behov for massiv utbygging av skoler og universiteter
+- **Sosial uro**: Høy arbeidsledighet blant unge kan føre til politisk ustabilitet
+- **Urbanisering**: Unge søker til byene for utdanning og arbeid
+
+### Demografisk dividende
+Dersom et land klarer å gi ungdommen utdanning og arbeid, kan ungdomsbølgen bli en **demografisk dividende** – en periode med sterk økonomisk vekst fordi en stor del av befolkningen er yrkesaktiv og forsørgelsesbyrden er lav. Dette var tilfellet for flere asiatiske tigerøkonomier fra 1960-tallet.`,
+    },
+    {
+      id: 'geo-5-2-def-dividende',
       type: 'definition',
-      title: 'Ulike forklaringer på fattigdom',
-      content: `**Det finnes mange teorier om hvorfor noen land er fattige. Her presenteres de viktigste perspektivene:**
-
-**1. Geografiske forklaringer:**
-- Klima (tropisk sykdomsbyrde, dårlig jordbruksland)
-- Mangel på ressurser eller vanskelig tilgjengelighet
-- Innlandsposisjon uten havtilgang
-
-**2. Historiske forklaringer:**
-- Kolonialismens arv (ressursutbytting, kunstige grenser)
-- Slaveri og tvangsarbeid
-- Ugunstige handelsstrukturer etablert historisk
-
-**3. Institusjonelle forklaringer:**
-- Dårlig styresett og korrupsjon
-- Svake rettssystemer og eiendomsrettigheter
-- Politisk ustabilitet og konflikter
-
-**4. Internasjonale strukturer:**
-- Urettferdige handelsregler
-- Gjeldsbyrde
-- Skatteparadiser som tapper ressurser
-
-**Viktig å merke:**
-Det er faglig debatt om hvilke faktorer som er viktigst. De fleste forskere mener flere faktorer samvirker, og at ulike land har ulike utfordringer. Enkle forklaringer som legger all skyld på ett forhold er sjelden tilstrekkelige.`,
+      title: 'Demografisk dividende',
+      content: 'Demografisk dividende er den økonomiske gevinsten et land kan oppnå når andelen yrkesaktive i befolkningen er stor i forhold til forsørgede (barn og eldre). Denne «bonusen» oppstår i overgangsfasen mellom høy og lav fruktbarhet, og forutsetter at samfunnet investerer i utdanning, helse og jobbskaping.',
     },
     {
-      id: 'geografi-1-22-def-4',
-      type: 'definition',
-      title: 'Bistand - ulike syn',
-      content: `**Hva er bistand?**
-Overføring av ressurser fra rike til fattige land. Norge gir ca. 1% av BNI i bistand årlig.
-
-**Typer bistand:**
-- Nødhjelp (ved katastrofer)
-- Utviklingsbistand (langsiktig)
-- Humanitær bistand (konfliktområder)
-- Teknisk bistand (kompetanseoverføring)
-
-**Argumenter for bistand:**
-- Moralsk plikt til å hjelpe
-- Har reddet millioner av liv (vaksiner, nødhjelp)
-- Investering i utdanning og helse gir avkastning
-- Noen land har utviklet seg med bistandsstøtte (f.eks. Sør-Korea, Botswana)
-
-**Kritiske argumenter:**
-- Kan skape avhengighet
-- Kan underminere lokalt næringsliv
-- Kan støtte opp om korrupte regimer
-- Effekten er vanskelig å måle
-
-**Nyansert syn:**
-- Type bistand og mottakerland påvirker effekten
-- Nødhjelp er nødvendig ved kriser
-- Langsiktig bistand krever god forvaltning
-- Bistand alene løser ikke strukturelle problemer
-- Handelspolitikk, klima og konflikthåndtering er også viktig
-
-**Konklusjon:**
-Det er bred enighet om at bistand kan hjelpe, men det er debatt om omfang, innretning og alternativer.`,
-    },
-    {
-      id: 'geografi-1-22-example-1',
+      id: 'geo-5-2-example',
       type: 'example',
-      title: 'Eksempel: Sammenligning av utviklingsnivå',
-      problem: `Sammenlign Norge og Nigeria på utviklingsindikatorer og drøft hva forskjellene skyldes.`,
-      solution: `**Statistikk (ca. 2023):**
+      title: 'Tolke en befolkningspyramide',
+      problem: 'Et land har en befolkningspyramide som er svært bred ved bunnen (0–14 år) og smalner raskt oppover. Kun en liten andel av befolkningen er over 60 år. Hva kan du slutte om dette landets demografiske situasjon?',
+      solution: `**Analyse av pyramideformen:**
 
-| Indikator | Norge | Nigeria |
-|-----------|-------|---------|
-| BNP per innbygger | 90 000 USD | 2 000 USD |
-| HDI | 0,96 (1. plass) | 0,54 (163. plass) |
-| Forventet levealder | 83 år | 53 år |
-| Barnedødelighet | 2 per 1000 | 72 per 1000 |
-
-**Mulige forklaringer (ulike perspektiver):**
-
-*Historiske:*
-- Norge unngikk kolonisering; Nigeria var britisk koloni til 1960
-- Kunstige grenser skapte etniske konflikter
-
-*Ressurser:*
-- Begge har olje, men Norge forvalter den bedre (Oljefondet)
-- Nigeria har hatt "ressursforbannelse"
-
-*Institusjonelle:*
-- Norge har sterke institusjoner bygget over lang tid
-- Nigeria har slitt med korrupsjon og militærkupp
-
-*Klima/geografi:*
-- Nigeria har tropisk sykdomsbyrde (malaria)
-- Høy befolkningsvekst utfordrer utvikling
-
-**Konklusjon:** Årsakene er sammensatte og omdiskuterte.`,
-    },
-    {
-      id: 'geografi-1-22-text-utviklingsteorier',
-      type: 'text',
-      content: `## Utviklingsteorier
-
-Flere teoretiske rammeverk forsøker å forklare hvorfor noen land er rike og andre fattige, og hvordan utvikling skjer.
-
-**Rostows moderniseringsteori (1960):**
-Walt Rostow mente alle samfunn gjennomgår fem stadier:
-1. **Tradisjonelt samfunn:** Jordbruksbasert, lav produktivitet
-2. **Forutsetninger for take-off:** Utdanning, infrastruktur, handel begynner
-3. **Take-off:** Rask industrialisering, investeringer øker
-4. **Modning:** Teknologisk fremgang, diversifisert økonomi
-5. **Masseforbruk:** Høy levestandard, tjenesteøkonomi
-
-*Kritikk:* Antok at alle land følger samme utviklingsvei. Ignorerer historiske maktforhold, kolonialisme og ulike utgangspunkt.
-
-**Avhengighetsteori (Frank, 1960-tallet):**
-Andre Gunder Frank argumenterte for at fattige land er fattige *på grunn av* rike land. Kolonialisme og urettferdig handel har skapt en kjerne (rike land) som utnytter en periferi (fattige land). Utvikling for noen betyr underutvikling for andre.
-
-**Verdenssystemteori (Wallerstein, 1974):**
-Immanuel Wallerstein delte verden i kjerne, semi-periferi og periferi. Kjernen dominerer gjennom kontroll over teknologi og kapital. Semi-periferien (f.eks. Brasil, India) har trekk fra begge.
-
-**Post-utvikling:**
-Kritiserer hele utviklingsbegrepet som vestlig påtvunget. Mener lokale løsninger og mangfold bør verdsettes fremfor å kopiere vestlig modell.`,
-    },
-    {
-      id: 'geografi-1-22-def-5',
-      type: 'definition',
-      title: 'Mikrofinans og grasrotutvikling',
-      content: `**Hva er mikrofinans?**
-Små lån til fattige mennesker som ikke har tilgang til vanlige banktjenester. Muhammad Yunus grunnla Grameen Bank i Bangladesh i 1983 og mottok Nobels fredspris i 2006.
-
-**Hvordan det fungerer:**
-- Små lån (ofte under 200 dollar) gis til grupper, særlig kvinner
-- Gruppemedlemmene støtter hverandre og garanterer for hverandre
-- Tilbakebetalingsraten er høy (over 95%)
-- Lånene brukes til småbedrifter: symaskiner, høner, grønnsaker
-
-**Suksesser:**
-- Har gitt millioner av fattige tilgang til kapital
-- Styrker kvinner økonomisk og sosialt
-- Fremmer entreprenørskap og selvstendighet
-
-**Kritikk:**
-- Rentenivået kan være høyt
-- Noen låntakere havner i gjeldsfeller
-- Løser ikke strukturelle årsaker til fattigdom
-- Begrenset effekt på de aller fattigste
-
-**Bottom-up vs. top-down utvikling:**
-*Top-down:* Store prosjekter styrt ovenfra (regjeringer, Verdensbanken). Eksempel: Bygging av demninger, motorveier.
-*Bottom-up:* Lokalsamfunnet styrer selv. Eksempel: Mikrofinans, kooperativer, lokale helsearbeidere.
-De fleste eksperter mener begge tilnærminger trengs, men at bottom-up sikrer bedre lokal forankring.`,
-    },
-    {
-      id: 'geografi-1-22-text-korrupsjon',
-      type: 'text',
-      content: `## Korrupsjon og utvikling
-
-Korrupsjon er misbruk av offentlig makt for privat vinning. Det er en av de mest diskuterte hindringene for utvikling.
-
-**Transparency International:**
-Utgir årlig en korrupsjonsindeks (CPI) som rangerer land etter opplevd korrupsjon. Danmark, Finland og New Zealand scorer best. Somalia, Sør-Sudan og Syria scorer dårligst. Norge ligger vanligvis blant topp 10.
-
-**Hvordan korrupsjon hindrer utvikling:**
-- Penger som skulle gå til helse og utdanning forsvinner
-- Svekker tilliten til staten og rettssystemet
-- Skremmer bort utenlandske investorer
-- Øker kostnader for næringsliv og innbyggere
-- Forvitrer demokratiske institusjoner
-
-**Debatt om årsaker:**
-*Institusjonelt perspektiv:* Svake institusjoner og manglende kontrollmekanismer muliggjør korrupsjon. Løsningen er bedre lovverk, uavhengig rettsvesen og frie medier.
-
-*Strukturelt perspektiv:* Fattigdom og ressursmangel driver korrupsjon. Dårlig betalte offentlige ansatte fristes til bestikkelser. Løsningen er økonomisk utvikling.
-
-*Kulturelt perspektiv:* Noen mener korrupsjon er kulturelt betinget. Denne forklaringen er kontroversiell og kan undervurdere strukturelle faktorer.
-
-**Viktig nyanse:** Korrupsjon finnes i alle land og kulturer, men omfanget varierer. Enkle forklaringer er sjelden tilstrekkelige.`,
-    },
-    {
-      id: 'geografi-1-22-def-6',
-      type: 'definition',
-      title: 'Klimarettferdighet',
-      content: `**Hvem forårsaket — hvem rammes?**
-Rike industriland har stått for mesteparten av historiske klimagassutslipp, men fattige land rammes hardest av klimaendringene.
-
-**Historiske utslipp:**
-- USA, EU og andre industriland har sluppet ut mest CO₂ totalt
-- Kina har i dag størst årlige utslipp, men langt lavere per innbygger enn USA
-- Afrikanske land har bidratt minst, men er mest sårbare
-
-**Tilpasning (adaptation):**
-Fattige land har minst ressurser til å tilpasse seg: bygge flomsikring, utvikle tørkeresistent jordbruk, flytte befolkning fra utsatte områder.
-
-**Klimafinansiering:**
-Rike land har lovet å bidra med 100 milliarder dollar årlig til klimatiltak i utviklingsland. Målet har vært vanskelig å nå, og det er debatt om hva som regnes som klimafinansiering.
-
-**Loss and Damage:**
-Konseptet om at rike land bør kompensere fattige land for skader som allerede har skjedd. Et fond ble opprettet på COP27 i 2022, men det er uenighet om omfang og finansiering.
-
-**Ulike perspektiver:**
-*Rettferdighetsperspektiv:* Rike land har et historisk ansvar og bør betale mest.
-*Realpolitisk perspektiv:* Alle land må bidra, inkludert store utslippsland som Kina og India.
-*Utviklingsperspektiv:* Fattige land har rett til økonomisk vekst og kan ikke holdes ansvarlig for andres historiske utslipp.`,
-    },
-    {
-      id: 'geografi-1-22-tip-1',
-      type: 'tip',
-      title: 'Kobling til andre kapitler',
-      content: `**Utviklingsgeografi** bygger på kunnskap fra flere andre kapitler:
-
-**Kapittel 10 (Ressursforvaltning):** Hvordan naturressurser forvaltes påvirker utvikling direkte — «ressursforbannelsen» er et sentralt eksempel.
-
-**Kapittel 4 (Klima og klimaendringer):** Klimarettferdighet kobler klima og utvikling — hvem forårsaket problemet, og hvem rammes hardest?
-
-Bruk disse sammenhengene i drøftingsoppgaver om global utvikling.`,
-    },
-    {
-      id: 'geografi-1-22-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom BNP per innbygger og HDI som mål på utvikling. Hva er styrker og svakheter ved hvert mål?',
-        hints: ['Tenk på hva som måles og hva som ikke fanges opp'],
-        solution: 'BNP per innbygger måler kun økonomisk produksjon i gjennomsnitt. Styrke: Lett å måle. Svakhet: Ignorerer fordeling, helse, utdanning, miljø. HDI kombinerer forventet levealder, utdanning og inntekt. Styrke: Bredere perspektiv på utvikling. Svakhet: Fanger fortsatt ikke alt (demokrati, likestilling, miljø), og nasjonale gjennomsnitt skjuler lokale forskjeller.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-22-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Beskriv tre ulike forklaringer på hvorfor noen land er fattigere enn andre. Presenter ulike perspektiver på hver forklaring.',
-        hints: ['Tenk på geografi, historie, institusjoner, internasjonale forhold'],
-        solution: 'Geografiske: Tropisk klima gir sykdommer og dårligere jordbruk. Men Singapore og Hong Kong er rike tross tropisk beliggenhet. Historiske: Kolonialisme utbyttet ressurser og etterlot dårlige strukturer. Men noen eks-kolonier har utviklet seg bra. Institusjonelle: Korrupsjon og dårlig styresett hindrer utvikling. Men hva kom først - fattigdom eller dårlige institusjoner? Hver forklaring har noe for seg, men ingen forklarer alt alene.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-22-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Hva er en fattigdomsfelle? Gi et eksempel og forklar hvordan den kan brytes.',
-        hints: ['Tenk på selvforsterkende sirkler som holder mennesker i fattigdom'],
-        solution: 'Fattigdomsfelle er en selvforsterkende sirkel. Eksempel: Fattig familie har ikke råd til skolegang → barnet får ikke utdanning → får dårlig betalt jobb som voksen → har ikke råd til skolegang for egne barn. Kan brytes gjennom: Gratis skolegang, stipender, skolemåltider som gjør det lønnsomt å sende barn på skole. Mikrolån kan hjelpe med kapital. Helseprogrammer bryter sykdomsfeller.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-22-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Drøft argumenter for og mot bistand. Gi eksempler på ulike typer bistand og vurder effekten.',
-        hints: ['Tenk på nødhjelp, utviklingsbistand, vilkår for effekt'],
-        solution: 'For: Moralsk plikt, har reddet liv (vaksiner halverte barnedødelighet), noen suksesshistorier (Sør-Korea, Botswana). Mot: Kan skape avhengighet, underminere lokalt næringsliv, ende hos korrupte. Typer: Nødhjelp er viktig ved katastrofer, vanskelig å kritisere. Utviklingsbistand krever god forvaltning og lokalt eierskap. Effekten avhenger av type bistand, mottakerland og hvordan den gis. De fleste mener bistand kan virke under riktige betingelser.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-22-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Velg et lavinntektsland og analyser: Hva er utviklingsnivået? Hva er de viktigste utfordringene og mulighetene? Hvilke tiltak kan bidra til utvikling?',
-        hints: ['Bruk statistikk fra FN eller Verdensbanken. Vurder flere perspektiver.'],
-        solution: 'Svar bør inneholde: 1) Landets HDI, BNP per innbygger og andre indikatorer. 2) Historisk bakgrunn (kolonitid, konflikter). 3) Hovedutfordringer (fattigdom, helse, utdanning, klima, styresett). 4) Ressurser og muligheter. 5) Tiltak: Investering i utdanning og helse, bedre styresett, infrastruktur, markedstilgang. Vis at det er ulike syn på hva som er viktigst.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-22-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-22-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — utviklingsgeografi:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Ifølge Rostows moderniseringsteori, hva er det tredje stadiet i utviklingen?',
-            solution: 'Take-off med rask industrialisering',
-            multipleChoiceOptions: ['Masseforbruk', 'Tradisjonelt samfunn', 'Take-off med rask industrialisering', 'Modning med teknologisk fremgang'],
-          },
-          {
-            label: 'b',
-            task: 'Hva måler Gini-koeffisienten?',
-            solution: 'Graden av økonomisk ulikhet i et land',
-            multipleChoiceOptions: ['Bruttonasjonalprodukt per innbygger', 'Graden av økonomisk ulikhet i et land', 'Forventet levealder ved fødsel', 'Korrupsjonsnivået i et land'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er hovedideen bak mikrofinans?',
-            solution: 'Å gi små lån til fattige mennesker uten tilgang til vanlige banktjenester',
-            multipleChoiceOptions: ['Å gi store lån til regjeringer i utviklingsland', 'Å gi små lån til fattige mennesker uten tilgang til vanlige banktjenester', 'Å investere i aksjer i utviklingsland', 'Å samle inn penger til nødhjelp'],
-          },
-        ],
-        solution: 'a) Take-off med rask industrialisering, b) Graden av økonomisk ulikhet i et land, c) Å gi små lån til fattige mennesker uten tilgang til vanlige banktjenester',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+1. **Høy fødselsrate**: Den brede basen viser at det fødes mange barn
+2. **Relativt høy dødelighet**: Den raske innsnevringen tyder på at mange dør i ung alder eller i middelalder
+3. **Lav forventet levealder**: Få eldre i toppen bekrefter dette
+4. **Fase i demografisk overgang**: Landet befinner seg sannsynligvis i fase 1 eller tidlig fase 2
+5. **Høy barneforsørgelsesbyrde**: Mange unge som skal forsørges av en relativt liten yrkesaktiv gruppe
+6. **Utfordringer**: Landet trenger investeringer i utdanning, helse og jobbskaping for å håndtere ungdomsbølgen
+7. **Muligheter**: Dersom landet investerer riktig, kan den unge befolkningen bli en demografisk dividende`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-5-2-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilken type befolkningspyramide har smal base og bredt midtparti?',
+      options: [
+        { id: 'a', text: 'Urneformet (konstraktiv)', isCorrect: true },
+        { id: 'b', text: 'Ekte pyramide (ekspansiv)', isCorrect: false },
+        { id: 'c', text: 'Søyleformet (stasjonær)', isCorrect: false },
+        { id: 'd', text: 'Klokkeformet', isCorrect: false },
+      ],
+      solution: 'En urneformet (konstraktiv) pyramide har smalere base enn midtparti, noe som betyr at det fødes færre barn enn det er voksne. Dette er typisk for land med lav fødselsrate og aldrende befolkning, som Japan og Italia.',
+    },
+    {
+      id: 'geo-5-2-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hva forsørgelsesbyrde er, og beskriv forskjellen mellom barneforsørgelsesbyrde og eldreforsørgelsesbyrde. Gi eksempler på land der hver type dominerer.',
+      solution: 'Forsørgelsesbyrden er forholdet mellom den ikke-yrkesaktive delen av befolkningen (barn og eldre) og den yrkesaktive. Barneforsørgelsesbyrden er andelen barn (0–14 år) i forhold til yrkesaktive, og er høy i land med høy fødselsrate, som Niger og Mali. Eldreforsørgelsesbyrden er andelen eldre (65+) i forhold til yrkesaktive, og er høy i land med aldrende befolkning, som Japan og Tyskland. I utviklingsland dominerer barneforsørgelsesbyrden, mens eldreforsørgelsesbyrden er den største utfordringen i industriland.',
+    },
+    {
+      id: 'geo-5-2-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva menes med demografisk dividende?',
+      options: [
+        { id: 'a', text: 'Økonomisk gevinst når en stor del av befolkningen er yrkesaktiv', isCorrect: true },
+        { id: 'b', text: 'Utbetaling av pensjoner til en aldrende befolkning', isCorrect: false },
+        { id: 'c', text: 'Økonomisk støtte fra rike land til fattige land', isCorrect: false },
+        { id: 'd', text: 'Skatteinntekter fra arbeidsinnvandring', isCorrect: false },
+      ],
+      solution: 'Demografisk dividende er den økonomiske gevinsten som oppstår når en stor andel av befolkningen er i yrkesaktiv alder og forsørgelsesbyrden er lav. Denne muligheten oppstår i overgangsfasen mellom høy og lav fruktbarhet, og forutsetter at samfunnet investerer i utdanning og jobbskaping.',
+    },
+    {
+      id: 'geo-5-2-ex4',
+      type: 'classic',
+      difficulty: 'vanskelig',
+      task: 'Drøft hvilke utfordringer en aldrende befolkning skaper for velferdssamfunn som Norge, og foreslå tiltak som kan motvirke problemene.',
+      solution: 'En aldrende befolkning skaper flere utfordringer: (1) Økte pensjonsutgifter fordi færre yrkesaktive skal finansiere flere pensjonisters livsopphold. (2) Økt press på helsevesenet, da eldre trenger mer behandling og omsorg. (3) Mangel på arbeidskraft i mange sektorer. (4) Lavere økonomisk vekst og innovasjon. Mulige tiltak inkluderer: økt pensjonsalder slik at flere jobber lenger, arbeidsinnvandring for å fylle hull i arbeidsmarkedet, tilrettelegging for høyere fruktbarhet gjennom god familiepolitikk (barnehager, foreldrepermisjon, barnetrygd), satsing på teknologi og automatisering for å opprettholde produktiviteten, og reformer av pensjonssystemet som gjør det bærekraftig over tid.',
+    },
+    {
+      id: 'geo-5-2-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvilken aldersinndeling brukes vanligvis for å beregne forsørgelsesbyrden?',
+      options: [
+        { id: 'a', text: '0–14, 15–64 og 65+', isCorrect: true },
+        { id: 'b', text: '0–18, 19–60 og 61+', isCorrect: false },
+        { id: 'c', text: '0–16, 17–67 og 68+', isCorrect: false },
+        { id: 'd', text: '0–20, 21–59 og 60+', isCorrect: false },
+      ],
+      solution: 'Den vanlige inndelingen er 0–14 år (barn), 15–64 år (yrkesaktive) og 65 år og over (eldre). Forsørgelsesbyrden beregnes ved å dele summen av barn og eldre på antall yrkesaktive.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 23: Geopolitikk
+// Kapittel 5.3: Migrasjon – årsaker og typer
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_23: TextbookChapter = {
-  id: 'geografi-1-23',
+const CHAPTER_GEOGRAFI_5_3: TextbookChapter = {
+  id: 'geografi-1-5-3',
   courseId: 'geografi',
-  chapterNumber: '23',
-  title: 'Geopolitikk',
-  description: 'Laer om geopolitikk, grenser og territorier, ressurskonflikter og Norges posisjon.',
-  estimatedMinutes: 75,
+  chapterNumber: '5.3',
+  title: 'Migrasjon – årsaker og typer',
+  description: 'Push- og pull-faktorer, ulike typer migrasjon, brain drain og remitter.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'utforske og drøfte geopolitiske forhold og interessemotsetninger',
+    'gjøre rede for ulike typer migrasjon og forklare årsaker til at mennesker flytter',
+    'drøfte konsekvenser av migrasjon for avsender- og mottakerland',
   ],
   content: [
     {
-      id: 'geografi-1-23-intro',
+      id: 'geo-5-3-intro',
       type: 'text',
-      content: `## Hva er geopolitikk?
+      content: `# Migrasjon – årsaker og typer
 
-Geopolitikk handler om forholdet mellom geografi og politikk - hvordan geografiske forhold påvirker maktforhold mellom stater.
+Mennesker har alltid flyttet på seg. **Migrasjon** er en fellesbetegnelse for all form for flytting, enten det er innenfor et lands grenser eller over landegrenser. I en globalisert verden med bedre transportmuligheter og kommunikasjon har migrasjon blitt en av de mest debatterte politiske sakene.
 
-**Sentrale temaer:**
-- Territorier og grenser
-- Kontroll over ressurser
-- Strategiske beliggenheter
-- Regionale maktbalanser
+## Grunnbegreper
 
-**Hvorfor er geografi viktig?**
-- Naturressurser gir økonomisk og politisk makt
-- Beliggenhet påvirker handel og sikkerhet
-- Klima og terreng former samfunn
-- Grenser skaper konflikter eller samarbeid
+- **Emigrasjon**: Å flytte ut av et land (utvandring)
+- **Immigrasjon**: Å flytte inn i et land (innvandring)
+- **Intern migrasjon**: Flytting innenfor et lands grenser (f.eks. fra bygd til by)
+- **Internasjonal migrasjon**: Flytting over landegrenser
 
-**Geopolitikk i endring:**
-- Tradisjonelt fokus på landområder og militær makt
-- Økt fokus på havområder, cyberspace, rommet
-- Klimaendringer skaper nye utfordringer
-- Økonomisk makt like viktig som militær`,
+I 2020 var det anslagsvis **280 millioner internasjonale migranter** i verden, noe som tilsvarer ca. 3,6 % av verdens befolkning.`,
     },
     {
-      id: 'geografi-1-23-def-1',
+      id: 'geo-5-3-push-pull',
+      type: 'text',
+      content: `## Push- og pull-faktorer
+
+Den mest brukte modellen for å forklare migrasjon er **push-pull-modellen**, utviklet av geografen Everett Lee i 1966. Den beskriver krefter som «skyver» folk bort fra hjemstedet og «trekker» dem mot et nytt sted.
+
+### Push-faktorer (det som driver folk bort)
+- Krig, konflikt og politisk forfølgelse
+- Fattigdom og arbeidsledighet
+- Naturkatastrofer og klimaendringer
+- Diskriminering på grunn av etnisitet, religion eller legning
+- Dårlige utdannings- og helsetilbud
+- Overbefolkning og press på ressurser
+
+### Pull-faktorer (det som trekker folk til et nytt sted)
+- Fred og politisk stabilitet
+- Bedre jobbmuligheter og høyere lønn
+- Gode velferdsordninger
+- Utdanningsmuligheter
+- Familiegjenforening
+- Personlig frihet og menneskerettigheter
+
+I virkeligheten er migrasjonsbeslutninger ofte en kombinasjon av push- og pull-faktorer, sammen med personlige omstendigheter og nettverk.`,
+    },
+    {
+      id: 'geo-5-3-def-push-pull',
       type: 'definition',
-      title: 'Grenser og territorier',
-      content: `**Statsgrenser:**
-
-*Naturlige grenser:*
-- Elver (Rhinen, Donau)
-- Fjellkjeder (Himalaya, Pyreneene)
-- Hav og innsjøer
-
-*Kunstige grenser:*
-- Kolonimaktenes linjer (Afrika)
-- Politiske avtaler
-- Ofte uten hensyn til folk og kultur
-
-**Territorielle konflikter:**
-
-*Årsaker:*
-- Ressurser under bakken
-- Strategisk beliggenhet
-- Historiske krav
-- Etniske og religiøse forhold
-
-*Eksempler:*
-- Kashmir (India/Pakistan)
-- Vestbredden (Israel/Palestina)
-- Sør-Kina-havet (Kina/naboland)
-- Krim (Russland/Ukraina)
-
-**Havgrenser:**
-- Territorialfarvann: 12 nautiske mil
-- Økonomisk sone: 200 nautiske mil
-- Kontinentalsokkel: Kan strekke seg lenger
-
-**FNs Havrettskonvensjon (UNCLOS):**
-Regulerer staters rettigheter og plikter i havet. Norge har store interesser knyttet til havområder.`,
+      title: 'Push-pull-modellen',
+      content: 'Push-pull-modellen forklarer migrasjon som et resultat av to typer krefter: push-faktorer som skyver folk bort fra hjemstedet (krig, fattigdom, naturkatastrofer) og pull-faktorer som trekker folk mot et nytt sted (bedre jobbmuligheter, trygghet, velferdsordninger). Modellen er en forenkling, da migrasjonsbeslutninger også påvirkes av barrierer (avstand, grensekontroll, økonomi) og personlige faktorer.',
     },
     {
-      id: 'geografi-1-23-def-2',
+      id: 'geo-5-3-typer',
+      type: 'text',
+      content: `## Typer migrasjon
+
+### Etter motivasjon
+- **Arbeidsinnvandring**: Flytting for å finne arbeid eller bedre lønn. Den vanligste formen for internasjonal migrasjon.
+- **Flukt**: Mennesker som flykter fra krig, forfølgelse eller naturkatastrofer. Regulert av FNs flyktningkonvensjon.
+- **Familiemigrasjon**: Flytting for å gjenforenes med familiemedlemmer i et annet land.
+- **Utdanningsmigrasjon**: Studenter som reiser til andre land for å studere.
+
+### Etter varighet
+- **Permanent migrasjon**: Varig bosetting i et nytt land.
+- **Midlertidig migrasjon**: Sesongarbeid, kontraktsarbeid eller utdanning med planlagt hjemreise.
+- **Sirkulær migrasjon**: Gjentatte flyttinger mellom hjemland og vertsland.
+
+### Etter tvang
+- **Frivillig migrasjon**: Personen velger selv å flytte, for eksempel for arbeid eller utdanning.
+- **Tvungen migrasjon**: Personen har ikke noe reelt valg – for eksempel flukt fra krig eller fordrivelse.
+- **Intern fordrivelse**: Mennesker som er tvunget til å flykte, men som forblir innenfor sitt eget lands grenser.`,
+    },
+    {
+      id: 'geo-5-3-brain-drain',
+      type: 'text',
+      content: `## Brain drain
+
+**Brain drain** (hjerneflukt) oppstår når høyt utdannede mennesker forlater hjemlandet for å arbeide i rikere land. Dette rammer utviklingsland hardt:
+
+- Leger, ingeniører og forskere søker bedre lønn og arbeidsforhold i utlandet
+- Hjemlandet mister kompetanse det har investert i gjennom utdanningssystemet
+- Helsetjenester og annen kritisk infrastruktur svekkes
+- Eksempler: Mange afrikanske land mister leger til Europa og Nord-Amerika
+
+### Brain gain
+I noen tilfeller kan migrasjon også føre til **brain gain** (hjernegevinst):
+- Migranter tilegner seg ny kompetanse i utlandet og tar den med hjem
+- Diasporanettverk kan stimulere handel og investeringer i hjemlandet
+- Utdanningsambisjoner øker i hjemlandet når migrasjon viser at utdanning lønner seg`,
+    },
+    {
+      id: 'geo-5-3-def-brain-drain',
       type: 'definition',
-      title: 'Ressurskonflikter',
-      content: `**Olje og gass:**
-
-*Strategisk betydning:*
-- Fossile brensler driver verdensøkonomien
-- Land med ressurser får stor makt
-- Kontroll over forsyningsveier er kritisk
-
-*Konfliktområder:*
-- Midtøsten (verdens største reserver)
-- Kaspihavet
-- Arktis
-- Sør-Kina-havet
-
-**Vann:**
-
-*"Det blå gullet":*
-- Ferskvann er livsnødvendig og begrenset
-- Klimaendringer forverrer vannmangel
-- Delte elveløp skaper konflikter
-
-*Eksempler:*
-- Nilen (Egypt, Sudan, Etiopia)
-- Jordan (Israel, Jordan, Syria)
-- Mekong (Kina, Sørøst-Asia)
-
-**Mineraler og metaller:**
-
-*Kritiske ressurser:*
-- Sjeldne jordarter (elektronikk, batterier)
-- Kobolt (Kongo har 70% av verdens reserver)
-- Litium (batterier)
-
-*Strategisk konkurranse:*
-- Kina dominerer utvinning av sjeldne jordarter
-- Vestlige land søker alternative kilder
-- Havbunnsmineraler blir viktigere`,
+      title: 'Brain drain',
+      content: 'Brain drain (hjerneflukt) er emigrasjon av høyt utdannet og kompetent arbeidskraft fra utviklingsland til rikere land. Fenomenet svekker avsenderlandets kapasitet innen helse, utdanning, teknologi og forskning, og kan forsterke ulikhet mellom rike og fattige land.',
     },
     {
-      id: 'geografi-1-23-def-3',
+      id: 'geo-5-3-remitter',
+      type: 'text',
+      content: `## Remitter – pengeoverføringer hjem
+
+Migranter sender ofte penger tilbake til familien i hjemlandet. Disse pengeoverføringene kalles **remitter** og utgjør en enorm pengestrøm globalt.
+
+### Betydningen av remitter
+- I 2022 sendte migranter anslagsvis **over 600 milliarder dollar** til lav- og mellominntektsland
+- For mange land utgjør remitter mer enn all bistand og utenlandske investeringer til sammen
+- Pengene går ofte direkte til familier og brukes til mat, utdanning, helse og bolig
+- Remitter bidrar til å redusere fattigdom og stimulere lokale økonomier
+
+### Eksempler
+- I land som Nepal, Tadsjikistan og Haiti utgjør remitter over 20 % av BNP
+- Filippinene og India er blant de største mottakerne i absolutte tall
+- Pengene sendes ofte gjennom formelle kanaler (banker, overføringsselskaper) eller uformelle nettverk`,
+    },
+    {
+      id: 'geo-5-3-def-remitter',
       type: 'definition',
-      title: 'Norges geopolitiske posisjon',
-      content: `**Geografisk plassering:**
-- Utkanten av Europa
-- Stor kystlinje og havområder
-- Grenser mot Russland i nord
-- Nærmeste nabo til Arktis
-
-**Strategisk betydning:**
-
-*Under den kalde krigen:*
-- NATO-medlem på grensen til Sovjet
-- Viktig for overvåking
-- Baser og installasjoner
-
-*I dag:*
-- Nordområdene har økt strategisk betydning
-- Russlands opprusting i Arktis
-- Nye sjøruter når isen smelter
-- Ressurser i Arktis
-
-**Norges interesser:**
-
-*Havområder:*
-- Økonomisk sone på ca. 2 millioner km²
-- Store olje- og gassressurser
-- Rike fiskebestander
-- Potensiell mineralutvinning
-
-*Sikkerhet:*
-- NATO-medlemskap (siden 1949)
-- Balanse mellom avskrekking og beroligelse
-- Samarbeid med Russland om fiskeri og grenser
-- Økt spenning etter 2014 og 2022
-
-**Svalbard:**
-- Norsk suverenitet
-- Svalbardtraktaten gir andre land rettigheter
-- Økende internasjonal interesse`,
+      title: 'Remitter',
+      content: 'Remitter er pengeoverføringer som migranter sender tilbake til familier og lokalsamfunn i hjemlandet. Remitter er en viktig inntektskilde for mange utviklingsland og bidrar til fattigdomsreduksjon, bedre helsetilbud og økt utdanning i mottakerlandene.',
     },
     {
-      id: 'geografi-1-23-example-1',
+      id: 'geo-5-3-example',
       type: 'example',
-      title: 'Eksempel: Sør-Kina-havet',
-      problem: `Sør-Kina-havet er et av verdens mest omstridte havområder. Analyser konfliktens geopolitiske dimensjoner.`,
-      solution: `**Geografisk betydning:**
-- 3,5 millioner km² stort havområde
-- Viktigste skipslei i verden (1/3 av global handel)
-- Rike fiskeressurser
-- Potensielt store olje- og gassreserver
+      title: 'Push-pull-analyse',
+      problem: 'Maria er 28 år og utdannet sykepleier i Filippinene. Hun tjener lite og arbeidsforholdene er tøffe. Søsteren hennes bor i Norge og har fått fast jobb som sykepleier der. Analyser Marias situasjon ved hjelp av push-pull-modellen.',
+      solution: `**Push-faktorer (Filippinene):**
+- Lav lønn for sykepleiere sammenlignet med levekostnadene
+- Vanskelige arbeidsforhold med lange vakter og mangel på utstyr
+- Begrensede karrieremuligheter innen helsesektoren
 
-**Territorielle krav:**
-- Kina krever nesten hele havet ("nilinje-linjen")
-- Vietnam, Filippinene, Malaysia, Brunei har krav
-- Taiwan har også krav
+**Pull-faktorer (Norge):**
+- Høyere lønn og bedre arbeidsforhold
+- Etterspørsel etter sykepleiere (mangel på helsepersonell)
+- Gode velferdsordninger (helseforsikring, pensjonsordning)
+- Søsteren bor allerede der (nettverk og familiegjenforening)
 
-**Kinas handlinger:**
-- Bygget kunstige øyer med militære installasjoner
-- Hevder historiske rettigheter
-- Avviser internasjonal dom (2016)
-
-**Andre stormakters interesser:**
-- USA: Frihet på havet, støtter allierte
-- Japan: Avhengig av sjøtransport gjennom området
-
-**Geopolitisk analyse:**
-- Kontroll over ressurser og handelsveier
-- Regional maktbalanse
-- Stormaktsrivalisering mellom USA og Kina
-- Fare for militær konfrontasjon
-
-**Konklusjon:** Konflikten viser hvordan geografi, ressurser og maktpolitikk henger sammen.`,
-    },
-    {
-      id: 'geografi-1-23-text-stormakter',
-      type: 'text',
-      content: `## Stormaktsrivalisering i det 21. århundre
-
-Den geopolitiske verdensordenen er i endring. Etter den kalde krigens slutt i 1991 var USA den ubestridte supermakten. Nå beveger verden seg mot et mer multipolart system.
-
-**USA — den etablerte supermakten:**
-Verdens største økonomi og militærmakt. Dominerer gjennom allianser (NATO), teknologi, kultur og dollaren som verdensvaluta. Utfordret av Kinas vekst og intern politisk polarisering.
-
-**Kina — den stigende stormakten:**
-Verdens nest største økonomi, raskt voksende militærmakt. Belt and Road Initiative knytter utviklingsland tettere til Kina gjennom infrastrukturinvesteringer. Økt selvhevdelse i Sør-Kina-havet og overfor Taiwan.
-
-**Russland — den revisjonistiske makten:**
-Militært sterk, men økonomisk svakere enn USA og Kina. Søker å gjenopprette innflytelse i det tidligere Sovjet-området. Krigen i Ukraina fra 2022 har endret europeisk sikkerhetspolitikk fundamentalt.
-
-**EU — økonomisk gigant, militær dverg:**
-Verdens største handelsblokk. Sterk normativ makt (demokrati, menneskerettigheter, klima). Men begrenset militær kapasitet og vanskeligheter med å enes om utenrikspolitikk.
-
-**Multipolar verden:**
-Flere maktsentra betyr mer kompleks diplomati, men også risiko for flere konflikter der stormaktsinteresser kolliderer.`,
-    },
-    {
-      id: 'geografi-1-23-def-4',
-      type: 'definition',
-      title: 'Energi-geopolitikk',
-      content: `**OPEC (Organization of the Petroleum Exporting Countries):**
-Kartellet av oljeeksporterende land som koordinerer produksjon og påvirker oljeprisen. 13 medlemsland, dominert av Saudi-Arabia. OPEC+ inkluderer Russland.
-
-**Rørledninger som geopolitisk verktøy:**
-- **Nord Stream:** Gassrørledning fra Russland til Tyskland under Østersjøen. Sabotert i 2022.
-- **Trans-Adriatic Pipeline:** Frakter gass fra Aserbajdsjan til Europa.
-- Kontroll over rørledningsruter gir enorm makt. Russland har brukt gasstilførsel som politisk pressmiddel.
-
-**Petrostater:**
-Land der olje- og gassinntekter dominerer statsinntektene. Eksempler: Saudi-Arabia, Russland, Venezuela, Nigeria. Ofte preget av «ressursforbannelse» — rikdom fra naturressurser svekker demokrati og diversifisering.
-
-**Energiomstillingens geopolitikk:**
-Det grønne skiftet endrer geopolitikken fundamentalt:
-- Land med sol og vind kan bli nye energistormakter
-- Kina dominerer produksjon av solceller og batterier
-- Kritiske mineraler (litium, kobolt, sjeldne jordarter) blir strategisk viktige
-- Oljeeksporterende land frykter tap av inntekter og makt
-- Hydrogen kan bli viktig ny energibærer — Norge posisjonerer seg`,
-    },
-    {
-      id: 'geografi-1-23-text-teorier',
-      type: 'text',
-      content: `## Geopolitiske teorier
-
-Flere klassiske teorier har forsøkt å forklare sammenhengen mellom geografi og makt.
-
-**Mackinders Heartland-teori (1904):**
-Den britiske geografen Halford Mackinder mente at den som kontrollerer det eurasiske «hjerteland» (Sentral-Asia og Sibir) kontrollerer verden. Området er rikt på ressurser og vanskelig å invadere. Teorien påvirket vestlig strategi under den kalde krigen.
-
-**Mahans sjømaktsteori (1890):**
-Den amerikanske admiralen Alfred Mahan argumenterte for at kontroll over havene er nøkkelen til verdensmakt. Sjøhandel, flåtebaser og strategiske sund (Malakka, Hormuz, Suez) er avgjørende. Relevant for å forstå USAs globale flåtestrategi.
-
-**Spykmans Rimland-teori (1942):**
-Nicholas Spykman mente at «rimland» — kystområdene rundt Eurasia — er viktigere enn hjertlandet. Den som kontrollerer rimland (Vest-Europa, Midtøsten, Sørøst-Asia) kontrollerer Eurasia og dermed verden.
-
-**Kritisk geopolitikk:**
-Moderne retning som utfordrer de klassiske teoriene. Argumenterer for at geopolitisk kunnskap ikke er objektiv, men formet av maktinteresser. Kart og territorielle fremstillinger er politiske verktøy. Fokuserer på hvem som definerer «trusler» og «interesser» og hvorfor.`,
-    },
-    {
-      id: 'geografi-1-23-def-5',
-      type: 'definition',
-      title: 'Internasjonale organisasjoner',
-      content: `**NATO (North Atlantic Treaty Organization):**
-Militær forsvarsallianse grunnlagt i 1949. Artikkel 5: Angrep på én er angrep på alle. 32 medlemsland (2024). Finland og Sverige ble medlemmer etter Russlands invasjon av Ukraina.
-
-**FN (De forente nasjoner):**
-193 medlemsland. Sikkerhetsrådet med fem faste medlemmer (USA, Russland, Kina, Frankrike, Storbritannia) med vetorett. Viktig for internasjonal rett, fredsbevarende operasjoner og utvikling. Kritisert for vetorettens lammende effekt.
-
-**EU (Den europeiske union):**
-27 medlemsland. Felles marked, valuta (euro), og økende utenriks- og sikkerhetspolitisk samarbeid. Norges viktigste handelspartner gjennom EØS-avtalen.
-
-**AU (Den afrikanske union):**
-55 medlemsland. Arbeider for fred, sikkerhet og økonomisk integrasjon i Afrika. Har fredsbevarende styrker, men begrenset kapasitet.
-
-**ASEAN (Association of Southeast Asian Nations):**
-10 medlemsland i Sørøst-Asia. Fremmer økonomisk samarbeid og regional stabilitet. Viktig i konteksten av rivalisering mellom USA og Kina.
-
-**Norges rolle:**
-Norge deltar aktivt i FN, NATO og en rekke internasjonale organisasjoner. Bistandspolitikk, fredsdiplomati og forvaltning av havressurser er sentrale elementer i norsk utenrikspolitikk.`,
-    },
-    {
-      id: 'geografi-1-23-tip-1',
-      type: 'tip',
-      title: 'Kobling til andre kapitler',
-      content: `**Geopolitikk** bygger på og utfyller flere andre temaer:
-
-**Kapittel 24 (Arktis og Antarktis):** Polarområdene er et av de viktigste geopolitiske temaene i dag — ressurser, sjøruter og stormaktsrivalisering.
-
-**Kapittel 19 (Konflikter og migrasjon):** Geopolitiske spenninger er en hovedårsak til konflikter og flyktningstrømmer.
-
-Se disse kapitlene i sammenheng for å forstå helheten i internasjonal politikk.`,
-    },
-    {
-      id: 'geografi-1-23-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hva geopolitikk er og gi tre eksempler på hvordan geografi påvirker maktforhold mellom stater.',
-        hints: ['Tenk på ressurser, beliggenhet, grenser'],
-        solution: 'Geopolitikk handler om forholdet mellom geografi og politikk. Eksempler: 1) Midtøstens oljeressurser gir regionen stor strategisk betydning og har ført til konflikter og innblanding. 2) Russlands størrelse og beliggenhet gjør landet vanskelig å invadere, men også vanskelig å forsvare. 3) Singapore kontrollerer Malakkastredet, en av verdens viktigste handelsruter, noe som gir stor strategisk og økonomisk betydning.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-23-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar forskjellen mellom naturlige og kunstige grenser. Hvorfor har mange kunstige grenser skapt konflikter?',
-        hints: ['Tenk på kolonialismens arv og etniske grupper'],
-        solution: 'Naturlige grenser følger geografiske trekk som elver, fjell og hav. Kunstige grenser er trukket på kart uten hensyn til naturlige hindringer. Mange kunstige grenser (særlig i Afrika og Midtøsten) ble trukket av kolonimakter uten hensyn til etniske, religiøse og språklige grupper. Dette har splittet folkegrupper og tvunget fiendtlige grupper inn i samme stat, noe som har bidratt til konflikter.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-23-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv tre typer ressurser som ofte fører til konflikter mellom stater, og gi eksempler på hver.',
-        hints: ['Tenk på olje, vann, mineraler'],
-        solution: 'Olje og gass: Midtøsten-konflikter, Russland-Ukraina (gassrørledninger), Sør-Kina-havet. Vann: Nilen (Egypt-Etiopia), Jordan (Israel og naboland), Mekong (Kina-Sørøst-Asia). Mineraler: Kobolt i Kongo, sjeldne jordarter (Kina dominerer), diamanter i Afrika. Ressursene er verdifulle, ofte ujevnt fordelt, og kontroll gir makt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-23-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Analyser Norges geopolitiske posisjon. Hva er Norges viktigste strategiske interesser?',
-        hints: ['Tenk på nordområdene, NATO, Russland, havressurser'],
-        solution: 'Norges posisjon: Utkant av Europa, lang kystlinje, grense mot Russland, nær Arktis. Strategiske interesser: 1) Sikkerhet gjennom NATO-medlemskap, balanse mellom avskrekking og beroligelse overfor Russland. 2) Havområder med økonomisk sone på 2 mill km², olje/gass og fiskeri. 3) Nordområdene med økende betydning (klima, ressurser, sjøruter). 4) Svalbard med norsk suverenitet men internasjonal interesse.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-23-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Velg en pågående territoriell konflikt og analyser den geopolitisk. Hvem er partene, hva handler konflikten om, og hvilke interesser står mot hverandre?',
-        hints: ['Du kan velge Sør-Kina-havet, Kashmir, eller en annen konflikt'],
-        solution: 'Svar bør inneholde: 1) Beskrivelse av konfliktområdet og partene. 2) Historisk bakgrunn for konflikten. 3) Geografiske faktorer (ressurser, beliggenhet, strategisk betydning). 4) De ulike partenes interesser og argumenter. 5) Internasjonale dimensjoner og stormaktsinteresser. 6) Mulige utfall eller løsninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-23-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-23-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — geopolitikk:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva var kjernen i Mackinders Heartland-teori?',
-            solution: 'At den som kontrollerer det eurasiske hjertlandet kontrollerer verden',
-            multipleChoiceOptions: ['At sjømakt er viktigst for verdensherredømme', 'At den som kontrollerer det eurasiske hjertlandet kontrollerer verden', 'At kystområdene er strategisk viktigst', 'At luftmakt avgjør kriger'],
-          },
-          {
-            label: 'b',
-            task: 'Hva er OPEC?',
-            solution: 'En organisasjon av oljeeksporterende land som koordinerer produksjon',
-            multipleChoiceOptions: ['En organisasjon av oljeeksporterende land som koordinerer produksjon', 'En FN-organisasjon for fredsbevarende operasjoner', 'En europeisk handelsavtale', 'Et militært samarbeid i Asia'],
-          },
-          {
-            label: 'c',
-            task: 'Hvilket år ble NATO grunnlagt?',
-            solution: '1949',
-            multipleChoiceOptions: ['1945', '1949', '1955', '1961'],
-          },
-        ],
-        solution: 'a) At den som kontrollerer det eurasiske hjertlandet kontrollerer verden, b) En organisasjon av oljeeksporterende land som koordinerer produksjon, c) 1949',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-  ],
-  exercises: [],
-};
-
-// ============================================================================
-// KAPITTEL 24: Arktis og Antarktis
-// ============================================================================
-
-export const CHAPTER_GEOGRAFI_24: TextbookChapter = {
-  id: 'geografi-1-24',
-  courseId: 'geografi',
-  chapterNumber: '24',
-  title: 'Arktis og Antarktis',
-  description: 'Laer om polaromraadenes geografi, klima, ressurser og Norges rolle.',
-  estimatedMinutes: 75,
-  competenceGoals: [
-    'utforske og drøfte polarområdenes betydning for klima, ressurser og internasjonal politikk',
-  ],
-  content: [
-    {
-      id: 'geografi-1-24-intro',
-      type: 'text',
-      content: `## Polarområdene
-
-Arktis i nord og Antarktis i sør er jordens mest ekstreme områder. De har stor betydning for klima, ressurser og internasjonal politikk.
-
-**Grunnleggende forskjeller:**
-
-*Arktis:*
-- Hav omgitt av land
-- Innbyggere (urfolk og moderne samfunn)
-- Flere land har suverenitet over deler
-- Sjøis som smelter
-
-*Antarktis:*
-- Land omgitt av hav
-- Ingen permanent befolkning (bare forskningsstasjoner)
-- Styrt av internasjonal traktat
-- Isdekke på land
-
-**Hvorfor er polarområdene viktige?**
-- Klimaregulering (reflekterer sollys, lagrer is)
-- Indikatorer på klimaendringer
-- Store ressurser
-- Økende strategisk betydning`,
-    },
-    {
-      id: 'geografi-1-24-def-1',
-      type: 'definition',
-      title: 'Arktis - geografi og klima',
-      content: `**Geografisk avgrensning:**
-
-Arktis defineres på ulike måter:
-- Polarsirkelen (66,5° nord) - astronomisk
-- 10°C-isotermen for juli - klimatisk
-- Tregrensen - økologisk
-
-**Geografi:**
-- Nordishavet: Ca. 14 millioner km²
-- Omgitt av: Russland, Canada, USA (Alaska), Norge, Danmark (Grønland)
-- Øygrupper: Svalbard, Frans Josef Land, Novaja Semlja
-
-**Klima:**
-- Ekstremt kaldt om vinteren (-40 til -50°C)
-- Korte, kjølige somre
-- Midnattssol og mørketid
-- Permafrost på land
-
-**Sjøis:**
-- Minimum i september (ca. 4-5 millioner km²)
-- Maksimum i mars (ca. 15 millioner km²)
-- Isutbredelsen har sunket dramatisk (40% mindre enn i 1980)
-- Tynn, førsteårsis erstatter tykk, flerårsis
-
-**Økosystemer:**
-- Isbjørn, sel, hval, reinsdyr
-- Rike fiskebestander
-- Trekkfugler fra hele verden`,
-    },
-    {
-      id: 'geografi-1-24-def-2',
-      type: 'definition',
-      title: 'Antarktis - geografi og klima',
-      content: `**Geografi:**
-- Kontinent: Ca. 14 millioner km² (større enn Europa)
-- 98% dekket av is (gjennomsnittlig 2 km tykt)
-- Inneholder 70% av jordens ferskvann
-- Ingen land har anerkjent suverenitet
-
-**Klima:**
-- Jordens kaldeste sted (rekord: -89,2°C)
-- Teknisk sett en ørken (lite nedbør)
-- Kraftige vinder
-- Seks måneder lys, seks måneder mørke
-
-**Antarktisstraktaten (1959):**
-- Forbyr militær aktivitet
-- Beskytter vitenskapelig forskning
-- Fryser alle territorielle krav
-- Miljøprotokollen (1991) forbyr ressursutvinning
-
-**Forskning:**
-- Ca. 70 forskningsstasjoner
-- Klimaforskning (iskjerner)
-- Biologi, geologi, astronomi
-- Norge har Troll-stasjonen og Tor-stasjonen
-
-**Økosystemer:**
-- Pingviner, sel, hval
-- Krill er nøkkelart
-- Sårbare systemer`,
-    },
-    {
-      id: 'geografi-1-24-def-3',
-      type: 'definition',
-      title: 'Ressurser og interesser i Arktis',
-      content: `**Fossile brennstoff:**
-- Anslagsvis 13% av verdens uoppdagede olje
-- 30% av verdens uoppdagede gass
-- Russland har store felt i Arktis
-- Norge utvinner på norsk sokkel
-
-**Mineralressurser:**
-- Grønland har sjeldne jordarter
-- Zink, bly, gull på ulike steder
-- Havbunnsmineraler potensielt viktige
-
-**Fiskeri:**
-- Rike bestander (torsk, hyse, lodde)
-- Nye arter trekker nordover med varmere hav
-- Forvaltningsutfordringer
-
-**Skipsfart:**
-- Nordøstpassasjen langs Russland
-- Nordvestpassasjen gjennom Canada
-- Kortere rute Asia-Europa (40% kortere)
-- Fortsatt utfordrende (is, vær, infrastruktur)
-
-**Geopolitiske interesser:**
-- Russland: Største arktiske kystlinje, militær opprusting
-- USA: Sikkerhet, ressurser (Alaska)
-- Kina: "Nær-arktisk stat", ønsker innflytelse
-- NATO-land: Sikkerhet i nordområdene
-
-**Samarbeid og spenning:**
-- Arktisk råd (8 land + urfolk)
-- Økt spenning etter 2014/2022
-- Balanse mellom samarbeid og konkurranse`,
-    },
-    {
-      id: 'geografi-1-24-def-4',
-      type: 'definition',
-      title: 'Svalbard og norsk polarpolitikk',
-      content: `**Svalbard:**
-
-*Geografi:*
-- Øygruppe mellom 74° og 81° nord
-- Hovedøyer: Spitsbergen, Nordaustlandet, Edgeøya
-- Ca. 2700 innbyggere (Longyearbyen, Barentsburg)
-
-*Svalbardtraktaten (1920):*
-- Norsk suverenitet
-- Andre lands borgere har lik rett til næringsvirksomhet
-- Demilitarisert sone
-- Miljøbestemmelser må være like for alle
-
-*Aktiviteter:*
-- Forskning (klimaforskning, biologi)
-- Turisme (økende)
-- Kulldrift (avvikles)
-- Frøhvelv (global matreserve)
-
-**Norsk polarpolitikk:**
-
-*Hovedlinjer:*
-- Håndheve suverenitet
-- Fremme bærekraftig utvikling
-- Styrke forskning og kunnskap
-- Internasjonalt samarbeid
-
-*Norges arktiske interesser:*
-- Fiskeriforvaltning
-- Petroleumsvirksomhet
-- Skipsfart
-- Miljøvern
-- Sikkerhet
-
-**Dronning Maud Land (Antarktis):**
-- Norsk krav siden 1939
-- Frosset under Antarktistraktaten
-- Forskningsaktivitet (Troll)`,
-    },
-    {
-      id: 'geografi-1-24-example-1',
-      type: 'example',
-      title: 'Eksempel: Klimaendringer i Arktis',
-      problem: `Arktis varmes opp dobbelt så raskt som resten av verden. Hva er årsakene og konsekvensene?`,
-      solution: `**Arktisk forsterkning:**
-
-*Mekanisme (is-albedo-tilbakekobling):*
-1. Temperaturen øker
-2. Sjøis smelter
-3. Mørkt hav absorberer mer varme enn hvit is
-4. Enda mer oppvarming
-5. Sirkelen forsterker seg selv
-
-**Observerte endringer:**
-- Temperatur: +3-4°C siden 1980
-- Sjøis: 40% reduksjon i minimum
-- Permafrost: Smelter og frigjør metan
-- Isbreer: Smelter over hele Arktis
+**Barrierer:**
+- Språk – Maria må lære norsk
+- Godkjenning av utdanning i Norge
+- Avstand fra resten av familien
+- Kulturelle forskjeller
 
 **Konsekvenser:**
-
-*Globalt:*
-- Havnivåstigning (Grønlandsisen)
-- Påvirkning på værsmønstre
-- Frigjøring av drivhusgasser
-
-*Lokalt:*
-- Endrede leveforhold for urfolk
-- Artene må tilpasse seg eller flytte
-- Infrastruktur skades av permafrost-smelting
-
-*Muligheter:*
-- Nye sjøruter
-- Tilgang til ressurser
-- Lengre vekstsesong noen steder
-
-**Dilemma:** Klimaendringene gjør det lettere å utvinne fossile brensler som forsterker klimaendringene.`,
+- For Filippinene: Brain drain innen helsesektoren, men Maria kan sende remitter hjem
+- For Norge: Brain gain – viktig kompetanse i en sektor med underskudd på arbeidskraft`,
     },
     {
-      id: 'geografi-1-24-text-permafrost',
+      id: 'geo-5-3-konsekvenser',
       type: 'text',
-      content: `## Permafrost — den frosne grunnen
+      content: `## Konsekvenser av migrasjon
 
-Permafrost er jord eller berg som har vært frosset sammenhengende i minst to år. Den dekker omtrent 25 % av landoverflaten på den nordlige halvkule.
+### For avsenderland
+**Positive:**
+- Remitter styrker økonomien
+- Redusert press på arbeidsmarkedet
+- Kompetanseoverføring ved tilbakevending
 
-**Hva er permafrost?**
-Permafrost kan være fra noen meter til over 1500 meter dyp (i Sibir). Over permafrosten finnes det «aktive laget» — et sesongmessig lag som tiner om sommeren og fryser om vinteren. Det aktive laget er typisk 0,5–3 meter tykt.
+**Negative:**
+- Brain drain – tap av utdannet arbeidskraft
+- Familier splittes
+- Avhengighet av remitter
 
-**Utbredelse:**
-Permafrost finnes i store deler av Russland, Canada, Alaska, Grønland, og i fjellområder som de skandinaviske fjellene, Himalaya og alpene. I Norge finnes permafrost i fjellområder, særlig i Finnmark og på Svalbard.
+### For mottakerland
+**Positive:**
+- Tilgang på arbeidskraft i sektorer med mangel
+- Kulturelt mangfold og innovasjon
+- Demografisk bidrag til aldrende samfunn
 
-**Karbon og metanlagre:**
-Permafrosten inneholder enorme mengder organisk materiale som har vært frosset i tusenvis av år. Anslagsvis 1500 milliarder tonn karbon er lagret — nesten dobbelt så mye som i hele atmosfæren. Når permafrosten tiner, brytes materialet ned av bakterier, og CO₂ og metan frigjøres.
-
-**Infrastrukturskader:**
-Når permafrost tiner, synker grunnen og bygninger, veier og rørledninger kan skades. I Sibir har hele landsbyer blitt ustabile. Tinende permafrost truer infrastruktur verdt hundrevis av milliarder dollar.
-
-**Klimaimplikasjoner:**
-Permafrostsmelting kan skape en selvforsterkende tilbakekobling: Oppvarming → tining → klimagassutslipp → mer oppvarming. Noen forskere kaller dette en potensiell «tipping point» i klimasystemet.`,
-    },
-    {
-      id: 'geografi-1-24-def-5',
-      type: 'definition',
-      title: 'Antarktistraktaten i detalj',
-      content: `**Antarktistraktaten (1959):**
-Signert av 12 land, nå tilsluttet av 54 land. Trådte i kraft i 1961. Ofte fremholdt som et av historiens mest vellykkede internasjonale avtaleverk.
-
-**Hovedprinsipper:**
-- Antarktis skal kun brukes til fredelige formål
-- Vitenskapelig forskning er fri og åpen
-- Territorielle krav fryses (ingen nye krav, ingen oppgivelse av eksisterende)
-- Militær aktivitet, atomprøvesprengninger og atomavfall forbys
-
-**Miljøprotokollen (Madrid-protokollen, 1991):**
-Utpeker Antarktis som «naturreservat viet fred og vitenskap». Forbyr all mineralutvinning. Innfører strenge miljøkrav for all aktivitet. Kan tidligst revideres i 2048, noe som skaper usikkerhet om fremtidig ressursutvinning.
-
-**Vitenskapelig samarbeid:**
-Over 30 land driver forskningsstasjoner. Iskjerneforskning har gitt uvurderlig kunnskap om fortidens klima — iskjerner fra Antarktis dekker opp til 800 000 år med klimahistorie.
-
-**Turisme:**
-Ca. 100 000 turister besøker Antarktis årlig. Turismen reguleres gjennom retningslinjer, men det er bekymring for miljøpåvirkning, særlig på pingvinkolonier og sårbare kystområder.`,
-    },
-    {
-      id: 'geografi-1-24-text-nordostpassasjen',
-      type: 'text',
-      content: `## Nordøstpassasjen — ny sjørute i nord
-
-Nordøstpassasjen (også kalt Den nordlige sjøruten) er sjøveien langs Russlands nordkyst fra Atlanterhavet til Stillehavet.
-
-**Historikk:**
-Den svenske oppdageren Adolf Erik Nordenskiöld gjennomførte den første fullstendige seilasen gjennom nordøstpassasjen i 1878–79 med skipet «Vega». I sovjettiden ble ruten utviklet med isbrytere for å frakte råvarer fra Sibir.
-
-**Dagens status:**
-Klimaendringer gjør ruten stadig mer farbar i sommerhalvåret. I 2023 passerte flere hundre skip gjennom passasjen, opp fra nesten null for 20 år siden.
-
-**Russisk kontroll:**
-Russland krever at alle skip som bruker nordøstpassasjen må ha russisk tillatelse og russisk los om bord. Andre land (særlig USA) bestrider dette og hevder retten til fri gjennomfart.
-
-**Transittider:**
-Ruten fra Shanghai til Rotterdam via nordøstpassasjen er ca. 13 000 km — sammenlignet med 20 000 km via Suezkanalen. Det er en tidsbesparelse på ca. 10–15 dager.
-
-**Miljørisiko:**
-En ulykke med oljetanker eller containerskip i Arktis ville få katastrofale konsekvenser. Beredskapen i området er svært begrenset, og kulde og mørke gjør opprydding ekstremt vanskelig.
-
-**Kinas «Polar Silk Road»:**
-Kina har erklært interesse for en «Polar Silk Road» som del av Belt and Road Initiative. Kina investerer i isbrytere, forskningsstasjoner og infrastruktur for å sikre tilgang til arktiske sjøruter.`,
-    },
-    {
-      id: 'geografi-1-24-def-6',
-      type: 'definition',
-      title: 'Svalbard-politikk i detalj',
-      content: `**Fiskevernsonen:**
-Norge opprettet i 1977 en fiskerisone på 200 nautiske mil rundt Svalbard. Norge hevder retten til å regulere fiske, men flere land (Russland, EU, Island) bestrider at Svalbardtraktaten tillater dette. Norge kaller den en «fiskevernsone» (ikke økonomisk sone) for å unngå konfrontasjon. I praksis regulerer Kystvakten fiske basert på vitenskapelige kvoter.
-
-**Russisk tilstedeværelse:**
-Russland har en bosetting i Barentsburg med ca. 400 innbyggere, primært gruvearbeidere. Russland har historisk sett vært opptatt av å opprettholde sin tilstedeværelse på Svalbard og bestrider noen sider av norsk myndighetsutøvelse.
-
-**Kullutfasing:**
-Norge har besluttet å fase ut kulldriften i Longyearbyen og satse på forskning, utdanning og turisme. Store Norske Spitsbergen Kulkompani har avviklet det meste av produksjonen. Russland opprettholder fortsatt begrenset kulldrift i Barentsburg.
-
-**Kinesisk forskning:**
-Kina har en forskningsstasjon (Yellow River Station) i Ny-Ålesund. Kinas økende interesse for Arktis gjennom forskning og diplomati følges nøye av norske myndigheter.
-
-**Suverenitetshevdelse:**
-Norge bruker tilstedeværelse (Sysselmannen/Sysselmesteren, Kystvakten), miljøforvaltning og forskningsinvesteringer for å underbygge norsk suverenitet. Balansen mellom å hevde suverenitet og overholde Svalbardtraktatens likebehandlingsprinsipp er krevende.`,
-    },
-    {
-      id: 'geografi-1-24-tip-1',
-      type: 'tip',
-      title: 'Kobling til andre kapitler',
-      content: `**Arktis og Antarktis** kobler sammen naturgeografi og geopolitikk:
-
-**Kapittel 4 (Klima og klimaendringer):** Polarområdene er «klimaets kanariefugler» — endringene her varsler hva som kommer globalt. Is-albedo-tilbakekobling og permafrostsmelting er sentrale mekanismer.
-
-**Kapittel 23 (Geopolitikk):** Arktis er et av de viktigste geopolitiske områdene i dag. Stormaktsrivalisering, ressurskamp og sjøruter gjør regionen stadig mer strategisk.`,
-    },
-    {
-      id: 'geografi-1-24-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar de viktigste geografiske og klimatiske forskjellene mellom Arktis og Antarktis.',
-        hints: ['Tenk på land vs. hav, befolkning, styresett, temperatur'],
-        solution: 'Arktis: Hav omgitt av land, har urfolk og moderne bosetting, flere land har suverenitet, sjøis som smelter. Antarktis: Land omgitt av hav, ingen permanent befolkning (bare forskere), styrt av internasjonal traktat, isdekke på land. Antarktis er kaldere (rekord -89°C) fordi det er et høytliggende kontinent. Antarktis inneholder 70% av jordens ferskvann.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-24-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Forklar is-albedo-tilbakekoblingen og hvorfor Arktis varmes opp raskere enn resten av verden.',
-        hints: ['Tenk på hvit is vs. mørkt hav, refleksjon av sollys'],
-        solution: 'Albedo er hvor mye sollys som reflekteres. Hvit is har høy albedo (reflekterer 80%), mørkt hav har lav albedo (absorberer 90%). Tilbakekobling: Når temperaturen øker → is smelter → mer mørkt hav eksponeres → mer varme absorberes → temperaturen øker mer → mer is smelter. Dette forsterker oppvarmingen. Derfor varmes Arktis opp 2-3 ganger raskere enn globalt gjennomsnitt.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-24-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv Svalbardtraktatens hovedprinsipper og forklar hvorfor traktaten skaper politiske utfordringer.',
-        hints: ['Tenk på suverenitet, likebehandling, demilitarisering'],
-        solution: 'Hovedprinsipper: 1) Norsk suverenitet, 2) Alle signatarlands borgere har lik rett til næringsvirksomhet, 3) Området er demilitarisert, 4) Miljøregler må gjelde likt for alle. Utfordringer: Uenighet om traktatens rekkevidde (gjelder den havområdene?), fiskevernsonen er omstridt, Russland utfordrer norsk tolkning, Kinas økende interesse, spenning mellom norsk suverenitet og likebehandlingsprinsippet.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-24-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilke ressurser finnes i Arktis, og hvorfor er det økende internasjonal interesse for regionen?',
-        hints: ['Tenk på olje/gass, mineraler, fisk, skipsfart'],
-        solution: 'Ressurser: Olje/gass (13% av uoppdaget olje, 30% av gass), mineraler (sjeldne jordarter, metaller), fiskeri (rike bestander), nye skipsleder (Nordøst- og Nordvestpassasjen). Økende interesse fordi: Klimaendringer gjør områdene mer tilgjengelige, global etterspørsel etter ressurser, stormaktsrivalisering, kortere sjøruter Asia-Europa, teknologi gjør utvinning mulig.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-24-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Drøft mulige fremtidsscenarier for Arktis. Vil regionen preges av samarbeid eller konflikt?',
-        hints: ['Vurder ulike faktorer: klima, ressurser, stormakter, institusjoner'],
-        solution: 'For samarbeid: Arktisk råd har fungert, felles interesse i miljø og sikkerhet, havrettskonvensjonen regulerer, økonomisk samarbeid kan lønne seg. For konflikt: Økt stormaktsrivalisering, Russlands militarisering, ressurskonkurranse, uavklarte grensespørsmål. Usikkerhetsfaktorer: Klimaendringenes tempo, Kinas ambisjoner, politisk utvikling i USA/Russland. Sannsynlig scenario: En blanding - samarbeid på noen områder, spenning på andre. Norges utfordring er å balansere.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-24-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-24-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — Arktis og Antarktis:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er permafrost?',
-            solution: 'Jord eller berg som har vært frosset sammenhengende i minst to år',
-            multipleChoiceOptions: ['Is som flyter på havet i Arktis', 'Jord eller berg som har vært frosset sammenhengende i minst to år', 'En type isbre som aldri smelter', 'Frosset sjøvann rundt Antarktis'],
-          },
-          {
-            label: 'b',
-            task: 'Hva forbyr Antarktistraktatens miljøprotokoll til minst 2048?',
-            solution: 'All mineralutvinning i Antarktis',
-            multipleChoiceOptions: ['Turisme i Antarktis', 'All mineralutvinning i Antarktis', 'Forskning i Antarktis', 'Fiske i Sørishavet'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er nordøstpassasjen?',
-            solution: 'Sjøveien langs Russlands nordkyst fra Atlanterhavet til Stillehavet',
-            multipleChoiceOptions: ['En jernbane gjennom Sibir', 'Sjøveien langs Russlands nordkyst fra Atlanterhavet til Stillehavet', 'En sjørute gjennom Canadas øygrupper', 'En rørledning for gass fra Russland til Europa'],
-          },
-        ],
-        solution: 'a) Jord eller berg som har vært frosset sammenhengende i minst to år, b) All mineralutvinning i Antarktis, c) Sjøveien langs Russlands nordkyst fra Atlanterhavet til Stillehavet',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+**Negative:**
+- Integreringsutfordringer (språk, kultur, arbeid)
+- Press på boliger, skoler og velferdsordninger
+- Potensielle sosiale spenninger`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-5-3-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva er en push-faktor for migrasjon?',
+      options: [
+        { id: 'a', text: 'Krig og konflikt i hjemlandet', isCorrect: true },
+        { id: 'b', text: 'Gode jobbmuligheter i utlandet', isCorrect: false },
+        { id: 'c', text: 'Høyere lønn i et annet land', isCorrect: false },
+        { id: 'd', text: 'Familiegjenforening i utlandet', isCorrect: false },
+      ],
+      solution: 'Krig og konflikt er en push-faktor fordi det er noe som driver folk bort fra hjemstedet. Pull-faktorer er det som trekker folk mot et nytt sted, som jobbmuligheter, høyere lønn og familiegjenforening.',
+    },
+    {
+      id: 'geo-5-3-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar hva brain drain er, og drøft hvilke konsekvenser det kan ha for et utviklingsland.',
+      solution: 'Brain drain (hjerneflukt) er emigrasjon av høyt utdannet arbeidskraft fra et land, typisk fra utviklingsland til rikere land. Konsekvensene for avsenderlandet kan være alvorlige: helsevesenet svekkes når leger emigrerer, utdanningssektoren mister kompetente lærere, og det teknologiske utviklingspotensialet reduseres. Landet taper investeringene det har gjort i utdanning. Samtidig kan brain drain ha noen positive sider: migranter sender remitter hjem, de kan bygge internasjonale nettverk som gagner hjemlandet, og noen returnerer med ny kompetanse (brain gain).',
+    },
+    {
+      id: 'geo-5-3-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva menes med remitter?',
+      options: [
+        { id: 'a', text: 'Pengeoverføringer fra migranter til familien i hjemlandet', isCorrect: true },
+        { id: 'b', text: 'Bistandspenger fra rike land til fattige land', isCorrect: false },
+        { id: 'c', text: 'Utenlandske investeringer i utviklingsland', isCorrect: false },
+        { id: 'd', text: 'Lån fra Verdensbanken til fattige stater', isCorrect: false },
+      ],
+      solution: 'Remitter er pengeoverføringer som migranter sender tilbake til familier og lokalsamfunn i hjemlandet. I mange utviklingsland utgjør remitter en større inntektskilde enn bistand og utenlandske investeringer.',
+    },
+    {
+      id: 'geo-5-3-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Beskriv forskjellen mellom frivillig og tvungen migrasjon, og gi eksempler på hver type.',
+      solution: 'Frivillig migrasjon er når en person selv velger å flytte, typisk for å søke bedre arbeid, utdanning eller livskvalitet. Eksempler er en polsk håndverker som reiser til Norge for å arbeide, eller en norsk student som tar utveksling i Storbritannia. Tvungen migrasjon er når en person ikke har noe reelt valg og må flytte for å overleve. Eksempler er syrere som flykter fra borgerkrig, rohingya-folket som er fordrevet fra Myanmar, eller klimaflyktninger som mister hjemmet sitt på grunn av havnivåstigning. Grensen mellom frivillig og tvungen migrasjon er ikke alltid skarp – for eksempel kan ekstrem fattigdom gjøre migrasjon nesten tvunget, selv om det formelt regnes som frivillig.',
+    },
+    {
+      id: 'geo-5-3-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Omtrent hvor mange internasjonale migranter var det i verden rundt 2020?',
+      options: [
+        { id: 'a', text: 'Ca. 280 millioner', isCorrect: true },
+        { id: 'b', text: 'Ca. 50 millioner', isCorrect: false },
+        { id: 'c', text: 'Ca. 1 milliard', isCorrect: false },
+        { id: 'd', text: 'Ca. 500 millioner', isCorrect: false },
+      ],
+      solution: 'I 2020 var det anslagsvis 280 millioner internasjonale migranter i verden, noe som tilsvarer omtrent 3,6 % av verdens befolkning. De fleste mennesker bor altså fortsatt i landet de er født i.',
+    },
+  ],
 };
 
 // ============================================================================
-// KAPITTEL 25: Geografisk metode - feltarbeid
+// Kapittel 5.4: Flyktninger og asyl
 // ============================================================================
 
-export const CHAPTER_GEOGRAFI_25: TextbookChapter = {
-  id: 'geografi-1-25',
+const CHAPTER_GEOGRAFI_5_4: TextbookChapter = {
+  id: 'geografi-1-5-4',
   courseId: 'geografi',
-  chapterNumber: '25',
-  title: 'Geografisk metode - feltarbeid',
-  description: 'Laer om planlegging og gjennomforing av geografisk feltarbeid.',
-  estimatedMinutes: 75,
+  chapterNumber: '5.4',
+  title: 'Flyktninger og asyl',
+  description: 'FNs flyktningkonvensjon, globale flyktningkriser, internt fordrevne og UNHCRs rolle.',
+  estimatedMinutes: 20,
   competenceGoals: [
-    'planlegge, gjennomføre og presentere feltarbeid om geografiske forhold',
+    'gjøre rede for flyktningsituasjonen i verden og drøfte utfordringer knyttet til flyktninger og asylsøkere',
+    'forklare hva FNs flyktningkonvensjon innebærer og hvordan den anvendes i dag',
   ],
   content: [
     {
-      id: 'geografi-1-25-intro',
+      id: 'geo-5-4-intro',
       type: 'text',
-      content: `## Feltarbeid i geografi
+      content: `# Flyktninger og asyl
 
-Feltarbeid er en sentral metode i geografi. Ved å dra ut i felten kan du studere geografiske fenomener direkte, samle inn data og teste teorier mot virkeligheten.
+Verdens flyktningsituasjon er en av de største humanitære utfordringene i vår tid. Ved utgangen av 2022 var over **108 millioner** mennesker tvunget på flukt, det høyeste tallet noensinne. Av disse var omtrent 35 millioner flyktninger som hadde krysset en landegrense, mens resten var **internt fordrevne** – mennesker som hadde flyktet innenfor sitt eget land.
 
-**Hvorfor feltarbeid?**
-- Direkte observasjon av fenomener
-- Samle primærdata (data du samler selv)
-- Teste hypoteser og teorier
-- Koble teori til praksis
-- Utvikle geografiske ferdigheter
+## Hvem er en flyktning?
 
-**Typer geografisk feltarbeid:**
-- Naturgeografisk: Elvestudier, kystprosesser, vegetasjon
-- Samfunnsgeografisk: Byundersøkelser, næringsanalyse
-- Kartlegging: GPS-registrering, dronebilder
-- Intervjuer og spørreundersøkelser
+Begrepet flyktning er juridisk definert i **FNs flyktningkonvensjon** fra 1951. En flyktning er en person som:
 
-**Viktige prinsipper:**
-- Grundig planlegging
-- Systematisk datainnsamling
-- Objektiv observasjon
-- Etiske hensyn
-- Sikkerhet`,
+- Befinner seg utenfor sitt hjemland
+- Har en velbegrunnet frykt for forfølgelse
+- Forfølgelsen skyldes rase, religion, nasjonalitet, tilhørighet til en sosial gruppe eller politisk oppfatning
+- Ikke kan eller vil søke beskyttelse i hjemlandet
+
+Konvensjonen gir flyktninger rett til ikke å bli returnert til et land der de risikerer forfølgelse – det såkalte **non-refoulement-prinsippet**.`,
     },
     {
-      id: 'geografi-1-25-def-1',
+      id: 'geo-5-4-def-flyktning',
       type: 'definition',
-      title: 'Planlegging av feltarbeid',
-      content: `**1. Velg tema og problemstilling:**
-
-*Krav til problemstilling:*
-- Relevant for geografi
-- Mulig å undersøke i praksis
-- Avgrenset (ikke for omfattende)
-
-*Eksempler:*
-- "Hvordan har landbruk påvirket kulturlandskapet i bygda?"
-- "Hvordan fordeler ulike virksomheter seg i sentrum?"
-- "Hvordan påvirker elven landskapet ved ulike vannføring?"
-
-**2. Forberedelse:**
-- Les teori om temaet
-- Studer kart og flybilder
-- Lag hypoteser om hva du forventer å finne
-- Planlegg rute og tidspunkt
-
-**3. Metodevalg:**
-- Hvilke data trenger du?
-- Hvordan skal du samle dem?
-- Hvilke verktøy trenger du?
-
-**4. Praktisk planlegging:**
-- Utstyr (kart, GPS, kamera, skrivesaker)
-- Sikkerhet (klær, mat, kommunikasjon)
-- Tillatelser hvis nødvendig
-- Værforhold
-
-**5. Etiske hensyn:**
-- Respekter privat eiendom
-- Spør om tillatelse til fotografering av personer
-- Anonymiser personopplysninger
-- Ikke forstyrr dyr eller ødelegg natur`,
+      title: 'Flyktning',
+      content: 'En flyktning er ifølge FNs flyktningkonvensjon (1951) en person som har flyktet fra sitt hjemland og har en velbegrunnet frykt for forfølgelse på grunn av rase, religion, nasjonalitet, tilhørighet til en bestemt sosial gruppe eller politisk oppfatning. Flyktningstatusen gir rett til internasjonal beskyttelse og et forbud mot å bli sendt tilbake til et land der man risikerer forfølgelse (non-refoulement).',
     },
     {
-      id: 'geografi-1-25-def-2',
+      id: 'geo-5-4-konvensjon',
+      type: 'text',
+      content: `## FNs flyktningkonvensjon
+
+FNs flyktningkonvensjon ble vedtatt i 1951, i kjølvannet av andre verdenskrig og de enorme flyktningstrømmene den forårsaket. En tilleggsprotokoll fra 1967 fjernet de geografiske og tidsmessige begrensningene i den opprinnelige konvensjonen.
+
+### Sentrale rettigheter for flyktninger
+- **Non-refoulement**: Forbud mot å sende tilbake til fare
+- **Rett til å søke asyl**: Alle har rett til å be om beskyttelse
+- **Grunnleggende rettigheter**: Tilgang til rettsvesen, utdanning, arbeid og helsehjelp
+- **Identitetsdokumenter**: Rett til reisedokumenter
+
+### Begrensninger i konvensjonen
+- Dekker ikke klimaflyktninger eller mennesker som flykter fra generell vold
+- Mange land tolker konvensjonen ulikt
+- Konvensjonen er utformet for individuelle tilfeller, men de fleste flyktningkriser i dag er masseflukt
+- Internt fordrevne faller utenfor konvensjonens virkeområde`,
+    },
+    {
+      id: 'geo-5-4-kriser',
+      type: 'text',
+      content: `## Store flyktningkriser i verden
+
+### Syria (2011–)
+- Borgerkrigen i Syria har drevet over 13 millioner mennesker på flukt
+- Ca. 6,8 millioner er internt fordrevne
+- Nabolandene Tyrkia, Libanon og Jordan har tatt imot flest
+- Tyrkia alene huser over 3,5 millioner syriske flyktninger
+
+### Ukraina (2022–)
+- Russlands invasjon utløste den raskeste flyktningkrisen i Europa siden andre verdenskrig
+- Over 6 millioner flyktet ut av landet i løpet av de første månedene
+- De fleste flyktet til naboland: Polen, Romania, Moldova og andre EU-land
+
+### Afghanistan
+- Flere tiår med krig og Talibans maktovertagelse i 2021
+- Over 5 millioner afghanske flyktninger, de fleste i Pakistan og Iran
+
+### Andre store kriser
+- **Sør-Sudan**: Borgerkrig har drevet millioner på flukt
+- **Myanmar**: Forfølgelse av rohingya-folket
+- **Venezuela**: Økonomisk og politisk krise har sendt over 7 millioner ut av landet
+- **Sahel-regionen**: Konflikt og klimaendringer driver befolkningen på flukt`,
+    },
+    {
+      id: 'geo-5-4-internt-fordrevne',
+      type: 'text',
+      content: `## Internt fordrevne
+
+**Internt fordrevne** (IDP – Internally Displaced Persons) er mennesker som er tvunget til å flykte fra hjemmet sitt, men som forblir innenfor sitt eget lands grenser. De utgjør den største gruppen tvangsfordrevne i verden.
+
+### Forskjell fra flyktninger
+- Internt fordrevne har ikke krysset en landegrense
+- De faller ikke inn under FNs flyktningkonvensjon
+- De er fortsatt under ansvaret til sin egen regjering – som ofte er den som forfølger dem
+- De får sjelden samme internasjonale oppmerksomhet og beskyttelse som flyktninger
+
+### Årsaker til intern fordrivelse
+- Væpnet konflikt (den vanligste årsaken)
+- Naturkatastrofer (flom, jordskjelv, tørke)
+- Klimaendringer (langsom forverring av levekår)
+- Utviklingsprosjekter (dambygging, gruveindustri)
+
+I 2022 var det over **60 millioner internt fordrevne** i verden, de fleste i Syria, Colombia, Den demokratiske republikken Kongo, Ukraina og Etiopia.`,
+    },
+    {
+      id: 'geo-5-4-def-idp',
       type: 'definition',
-      title: 'Metoder for datainnsamling',
-      content: `**Observasjon:**
-
-*Systematisk observasjon:*
-- Bruk observasjonsskjema
-- Noter tid, sted, værforhold
-- Beskriv objektivt (ikke tolkninger)
-- Ta bilder som dokumentasjon
-
-*Telling og registrering:*
-- Trafikktelling
-- Registrering av arealbruk
-- Bygningsregistrering
-- Vegetasjonskartlegging
-
-**Målinger:**
-
-*Naturgeografiske målinger:*
-- Temperatur, nedbør
-- Vannhastighet, vannføring
-- Jordprøver, pH
-- Helning, retning (kompass)
-
-*Samfunnsgeografiske målinger:*
-- Avstander og arealer
-- Befolkningstetthet
-- Servicetilgjengelighet
-
-**Intervju og spørreundersøkelse:**
-
-*Intervju:*
-- Strukturert (faste spørsmål)
-- Ustrukturert (åpen samtale)
-- God for dybdeforståelse
-
-*Spørreundersøkelse:*
-- Mange respondenter
-- Standardiserte spørsmål
-- God for statistikk
-
-**GPS og GIS:**
-- Registrer punkter med koordinater
-- Lag digitale kart
-- Analyser romlige mønstre`,
+      title: 'Internt fordrevne (IDP)',
+      content: 'Internt fordrevne (Internally Displaced Persons) er personer som er tvunget til å forlate hjemstedet sitt, men som ikke har krysset en internasjonal grense. De faller utenfor FNs flyktningkonvensjon og er formelt under sin egen regjerings ansvar, noe som gjør dem særlig sårbare i konfliktsituasjoner der staten selv er ansvarlig for fordrivelsen.',
     },
     {
-      id: 'geografi-1-25-def-3',
-      type: 'definition',
-      title: 'Analyse og presentasjon',
-      content: `**Bearbeiding av data:**
+      id: 'geo-5-4-unhcr',
+      type: 'text',
+      content: `## UNHCR – FNs høykommissær for flyktninger
 
-*Sortering og systematisering:*
-- Organiser data i tabeller
-- Sjekk for feil og mangler
-- Grupper lignende data
+**UNHCR** (United Nations High Commissioner for Refugees) ble opprettet i 1950 og er FNs flyktningorganisasjon. Organisasjonen har mandat til å beskytte flyktninger og hjelpe dem med å finne varige løsninger.
 
-*Statistisk analyse:*
-- Gjennomsnitt og median
-- Frekvenstabeller
-- Prosentberegninger
-- Sammenligning av grupper
+### UNHCRs oppgaver
+- **Beskyttelse**: Sikre at flyktningers rettigheter respekteres
+- **Nødhjelp**: Mat, vann, husly og helsetjenester i kriser
+- **Registrering**: Kartlegge og registrere flyktninger
+- **Varige løsninger**: Arbeide for frivillig hjemreise, lokal integrering eller gjenbosetting
 
-**Visualisering:**
+### Tre varige løsninger
+1. **Frivillig hjemreise**: Flyktninger returnerer til hjemlandet når det er trygt
+2. **Lokal integrering**: Flyktninger bosetter seg permanent i vertslandet
+3. **Gjenbosetting**: Flyktninger flyttes til et tredjeland som har sagt ja til å ta imot dem
 
-*Kart:*
-- Temakart med symboler
-- Koroplettkart (fargelagte områder)
-- Punktkart
-
-*Diagrammer:*
-- Søylediagram (sammenligning)
-- Linjediagram (endring over tid)
-- Sektordiagram (fordeling)
-
-*Bilder og foto:*
-- Dokumentasjon av fenomener
-- Før/etter-sammenligninger
-
-**Rapport og presentasjon:**
-
-*Struktur:*
-1. Innledning (bakgrunn, problemstilling)
-2. Metode (hvordan du samlet data)
-3. Resultater (hva du fant)
-4. Drøfting (hva betyr funnene)
-5. Konklusjon (svar på problemstillingen)
-
-*Tips:*
-- Bruk geografisk fagspråk
-- Vis data med kart og diagrammer
-- Vær kritisk til egne funn
-- Pek på mulige feilkilder`,
+UNHCR bistår også i økende grad internt fordrevne, statsløse personer og andre sårbare grupper.`,
     },
     {
-      id: 'geografi-1-25-example-1',
+      id: 'geo-5-4-asyl',
+      type: 'text',
+      content: `## Asylprosessen
+
+Når en person kommer til et land og ber om beskyttelse, kalles vedkommende en **asylsøker**. Personen er asylsøker inntil søknaden er behandlet. Dersom søknaden innvilges, får personen **flyktningstatus** eller annen form for oppholdstillatelse.
+
+### Asylprosessen i korte trekk
+1. **Ankomst og registrering**: Asylsøkeren melder seg og registreres
+2. **Asylintervju**: Søkeren forklarer hvorfor han eller hun trenger beskyttelse
+3. **Saksbehandling**: Myndighetene vurderer om personen oppfyller vilkårene
+4. **Vedtak**: Innvilgelse (oppholdstillatelse) eller avslag
+5. **Klage**: Ved avslag kan søkeren klage på vedtaket
+
+### Utfordringer
+- Lang ventetid i mange land (måneder til år)
+- Asylsøkere lever ofte under vanskelige forhold i mottak
+- Ulik praksis mellom land – noen er strengere enn andre
+- Mennesker som får avslag, men ikke kan returneres, kan havne i en juridisk limbo`,
+    },
+    {
+      id: 'geo-5-4-example',
       type: 'example',
-      title: 'Eksempel: Feltarbeid om bysentrum',
-      problem: `Planlegg og gjennomfør et feltarbeid som undersøker: "Hvordan er ulike funksjoner fordelt i bysentrum?"`,
-      solution: `**1. Planlegging:**
+      title: 'Nabolandsbelastning',
+      problem: 'Drøft hvorfor de fleste flyktninger befinner seg i naboland til konfliktsonen, og hvilke konsekvenser dette har.',
+      solution: `**Hvorfor naboland?**
+- Flyktninger flykter til nærmeste trygge sted – det krever minst ressurser
+- Mange har ikke råd til å reise langt
+- Kulturell og språklig nærhet til naboland gjør overgangen lettere
+- Familier splittes, og noen blir igjen – det er lettere å holde kontakten fra naboland
+- Mange håper å kunne vende hjem snart
 
-*Problemstilling:*
-Hvordan er ulike funksjoner (butikker, kontorer, boliger, offentlige tjenester) fordelt i sentrum?
+**Konsekvenser for nabolandene:**
+- Enorme belastninger på infrastruktur (skoler, sykehus, vann, strøm)
+- Press på arbeidsmarkedet og boligmarkedet
+- Politisk spenning – store flyktninggrupper kan destabilisere vertslandet
+- Miljøbelastning i områder med store flyktningleirer
+- Eksempel: Libanon har ca. 1 million syriske flyktninger i et land med 5 millioner innbyggere – det tilsvarer 20 % av befolkningen
 
-*Hypotese:*
-- Butikker konsentrert i gågater
-- Kontorer langs hovedgater
-- Boliger i utkanten av sentrum
-
-*Metode:*
-- Kartlegging av bygningers funksjon
-- Registreringsskjema med kategorier
-
-**2. Gjennomføring:**
-
-*Utstyr:*
-- Basiskart over sentrum
-- Registreringsskjema
-- Fargeblyanter for kategorier
-- Kamera
-
-*Fremgangsmåte:*
-1. Gå systematisk gjennom alle gater
-2. Registrer hva hvert bygg brukes til
-3. Bruk fargekoder på kartet
-4. Ta bilder av typiske eksempler
-
-**3. Analyse:**
-- Tell antall av hver funksjon
-- Beregn prosenter
-- Lag temakart med fargekoder
-- Sammenlign med hypotesen
-
-**4. Konklusjon:**
-Beskriv hovedmønsteret og forklar hvorfor funksjonene er fordelt slik (husleie, tilgjengelighet, historikk).`,
-    },
-    {
-      id: 'geografi-1-25-text-kvantitativ-kvalitativ',
-      type: 'text',
-      content: `## Kvantitative og kvalitative metoder
-
-I geografisk forskning brukes to hovedtyper metoder, ofte i kombinasjon.
-
-**Kvantitative metoder — tall og målbare data:**
-Samler inn numeriske data som kan analyseres statistisk. Eksempler: Trafikktelling, temperaturmåling, spørreundersøkelser med faste svaralternativer.
-- *Styrker:* Objektivt, generaliserbart, sammenlignbart, mulig å bekrefte/avkrefte hypoteser
-- *Svakheter:* Kan miste nyanser, forklarer ikke alltid «hvorfor», krever tilstrekkelig utvalg
-
-**Kvalitative metoder — ord, bilder og forståelse:**
-Samler inn deskriptive data som gir dybdeforståelse. Eksempler: Åpne intervjuer, feltobservasjon med beskrivelser, analyse av tekster og bilder.
-- *Styrker:* Fanger kompleksitet og nyanser, gir dybdeforståelse, fleksibelt
-- *Svakheter:* Subjektivt, vanskelig å generalisere, tidkrevende
-
-**Mixed methods — kombinasjon:**
-Mange geografer bruker begge tilnærminger. Eksempel: Trafikktelling (kvantitativt) kombinert med intervjuer om reisevaner (kvalitativt) gir et rikere bilde.
-
-**Triangulering:**
-Å bruke flere metoder, datakilder eller perspektiver for å belyse samme problemstilling. Styrker troverdigheten av resultatene. Eksempel: Kombinere feltobservasjon, spørreundersøkelse og statistikk fra SSB for å analysere et nabolag.`,
-    },
-    {
-      id: 'geografi-1-25-def-4',
-      type: 'definition',
-      title: 'Statistisk analyse i geografi',
-      content: `**Deskriptiv statistikk:**
-- *Gjennomsnitt:* Summen delt på antall. Eksempel: Gjennomsnittlig nedbør per måned.
-- *Median:* Midtverdien. Mindre følsom for ekstremverdier enn gjennomsnitt.
-- *Standardavvik:* Mål på spredning. Stort standardavvik = stor variasjon i data.
-- *Frekvensfordeling:* Tabell eller diagram som viser hvor ofte ulike verdier forekommer.
-
-**Korrelasjon:**
-Sammenheng mellom to variabler. Eksempel: Er det en sammenheng mellom avstand fra sentrum og boligpriser? Korrelasjon betyr ikke nødvendigvis årsakssammenheng.
-
-**GIS-analyse:**
-Romlig statistikk i GIS kan avdekke mønstre som ikke er synlige i vanlige tabeller. Eksempel: Kartlegging av sykdomstilfeller kan vise geografisk klynging som peker mot en miljøårsak.
-
-**Bruk av Excel og regneark:**
-Regneark er nyttige verktøy for å organisere feltdata, beregne gjennomsnitt og lage diagrammer. Lær deg grunnleggende funksjoner som SUM, AVERAGE, COUNTIF og diagramverktøy.
-
-**Kritisk tolkning:**
-- Vurder alltid om utvalget er representativt
-- Vær forsiktig med å trekke kausale slutninger fra korrelasjon
-- Vurder feilkilder og begrensninger i dataene
-- Sammenlign med andre studier og datasett`,
-    },
-    {
-      id: 'geografi-1-25-text-etikk',
-      type: 'text',
-      content: `## Etikk i geografisk feltarbeid
-
-Etiske hensyn er viktige i alt forsknings- og feltarbeid, også for elever.
-
-**Informert samtykke:**
-Alle som deltar i intervjuer eller spørreundersøkelser skal vite hva informasjonen brukes til og ha mulighet til å si nei. For mindreårige kreves foresattes samtykke.
-
-**Personvern og GDPR:**
-Personopplysninger (navn, adresse, bilder der personer kan gjenkjennes) er beskyttet av personvernlovgivning. Data skal anonymiseres og oppbevares sikkert. Slettes når prosjektet er ferdig.
-
-**Fotografering:**
-- Be alltid om tillatelse før du fotograferer personer
-- Vær forsiktig med å fotografere privat eiendom uten tillatelse
-- Merk bilder med dato, sted og retning
-- I noen kulturer og religioner er fotografering sensitivt
-
-**Miljøetikk:**
-- Ikke forstyrr dyr eller fugler (spesielt i hekketiden)
-- Ikke plukk sjeldne planter eller ta med geologiske prøver fra vernede områder
-- Følg allemannsretten og respekter ferdselsregler
-- Rydd opp etter deg
-
-**Viktig prinsipp:** God forskning handler ikke bare om gode data, men også om å behandle mennesker og natur med respekt.`,
-    },
-    {
-      id: 'geografi-1-25-def-5',
-      type: 'definition',
-      title: 'Kildekritikk i geografi',
-      content: `**Primærkilder vs. sekundærkilder:**
-- *Primærkilder:* Data du samler selv gjennom feltarbeid. Du kontrollerer kvaliteten, men det er tidkrevende.
-- *Sekundærkilder:* Data andre har samlet. Eksempler: SSB-statistikk, forskningsrapporter, kart, avisartikler. Spar tid, men du kontrollerer ikke kvaliteten.
-
-**Vurdering av pålitelighet:**
-- Hvem har laget kilden? (Forsker, journalist, aktivist, myndighet?)
-- Hva er formålet? (Informere, påvirke, selge?)
-- Når ble den laget? (Er den oppdatert?)
-- Hvordan ble dataene samlet? (Metode, utvalg?)
-
-**Bias (skjevhet):**
-Alle kilder kan ha skjevheter. Statistikk kan presenteres selektivt, kart kan fremheve visse aspekter, og intervjuobjekter kan ha egne interesser. Vær bevisst på dette.
-
-**Digitale kilder:**
-- Wikipedia kan gi et startpunkt, men er ikke alltid pålitelig
-- Offentlige kilder (SSB, FN, Verdensbanken) er generelt troverdige
-- Vær kritisk til sosiale medier og blogger
-- Sjekk alltid flere kilder
-
-**Statistisk leseferdighet:**
-Forstå forskjellen mellom absolutte tall og relative tall (prosent), mellom gjennomsnitt og median, og mellom korrelasjon og kausalitet. Vær oppmerksom på hvordan diagrammer kan manipuleres gjennom valg av skala og presentasjon.`,
-    },
-    {
-      id: 'geografi-1-25-tip-1',
-      type: 'tip',
-      title: 'Eksamenstips — feltarbeid',
-      content: `**På eksamen** kan du bli bedt om å planlegge et feltarbeid eller vurdere metodiske valg. Husk denne strukturen:
-
-1. **Problemstilling:** Presis og avgrenset
-2. **Metodevalg:** Begrunnet valg av kvantitativ og/eller kvalitativ metode
-3. **Datainnsamling:** Konkret plan for hva, hvor, når og hvordan
-4. **Analyse:** Hvordan du vil bearbeide og presentere data
-5. **Feilkilder:** Vis at du er kritisk til egne metoder og data
-6. **Etikk:** Nevn relevante etiske hensyn
-
-Å vise metodisk bevissthet gir høy måloppnåelse.`,
-    },
-    {
-      id: 'geografi-1-25-ex-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-ex-1',
-        number: '1',
-        type: 'classic',
-        task: 'Forklar hvorfor feltarbeid er viktig i geografi, og beskriv forskjellen mellom primærdata og sekundærdata.',
-        hints: ['Tenk på direkte observasjon vs. data andre har samlet'],
-        solution: 'Feltarbeid er viktig fordi det gir direkte kontakt med geografiske fenomener, mulighet til å teste teorier mot virkeligheten, og utvikler geografiske ferdigheter. Primærdata er data du samler selv gjennom feltarbeid (målinger, observasjoner, intervjuer). Sekundærdata er data andre har samlet (statistikk, kart, rapporter). Primærdata gir kontroll over kvalitet og relevans, men krever mer arbeid.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-25-ex-2',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-ex-2',
-        number: '2',
-        type: 'classic',
-        task: 'Lag en problemstilling for et geografisk feltarbeid i nærmiljøet ditt. Forklar hvorfor den er god og hvordan du vil undersøke den.',
-        hints: ['Velg noe du kan observere, avgrenset og geografisk relevant'],
-        solution: 'Eksempel: "Hvordan brukes uteområdene i nabolaget på ulike tidspunkt?" God fordi: Avgrenset (ett område), mulig å observere, geografisk (rom og bruk). Undersøkelse: 1) Velg observasjonspunkter, 2) Observer på ulike tidspunkt (morgen, ettermiddag, kveld, hverdag/helg), 3) Registrer antall personer og aktiviteter, 4) Lag kart og diagram. Konklusjon om bruksmønstre.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-25-ex-3',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-ex-3',
-        number: '3',
-        type: 'classic',
-        task: 'Beskriv tre ulike metoder for datainnsamling i felt og forklar når hver metode egner seg.',
-        hints: ['Tenk på observasjon, måling, intervju'],
-        solution: 'Observasjon: Egner seg for å registrere synlige fenomener (arealbruk, trafikk, landformer). Systematisk med skjema. Måling: Egner seg for kvantitative data (temperatur, vannhastighet, avstander). Krever utstyr og nøyaktighet. Intervju/spørreskjema: Egner seg for å forstå menneskers oppfatninger og handlinger (hvorfor folk velger bosted, transportvaner). Intervju gir dybde, spørreskjema gir bredde.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-25-ex-4',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-ex-4',
-        number: '4',
-        type: 'classic',
-        task: 'Hvilke feilkilder kan påvirke resultatene av et feltarbeid? Hvordan kan du redusere feilkildene?',
-        hints: ['Tenk på observatør, tidspunkt, metode, representativitet'],
-        solution: 'Feilkilder: 1) Observatørfeil (tolker ulikt), 2) Tidspunkt (resultater varierer med tid på døgnet/året), 3) Utvalg (ikke representativt), 4) Målefeil (unøyaktige instrumenter), 5) Påvirkning (respondenter svarer det de tror er forventet). Reduksjon: Bruk standardiserte skjemaer, gjenta målinger, velg representative tidspunkt, kalibrér utstyr, vær kritisk til egne funn, rapporter begrensninger.',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-25-ex-5',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-ex-5',
-        number: '5',
-        type: 'classic',
-        task: 'Planlegg et komplett feltarbeid: Velg tema, lag problemstilling, beskriv metode, planlegg gjennomføring og forklar hvordan du vil presentere resultatene.',
-        hints: ['Følg strukturen: tema, problemstilling, metode, utstyr, gjennomføring, analyse, presentasjon'],
-        solution: 'Svar bør inneholde: 1) Tema og begrunnelse for valget. 2) Presis problemstilling. 3) Metode for datainnsamling (observasjon, måling, intervju). 4) Utstyrsliste. 5) Plan for gjennomføring (rute, tidspunkt, arbeidsfordeling). 6) Etiske hensyn og sikkerhet. 7) Plan for analyse (sortering, beregninger). 8) Presentasjonsform (rapport med kart og diagrammer).',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
-    },
-    {
-      id: 'geografi-1-25-mc-1',
-      type: 'exercise',
-      exercise: {
-        id: 'geografi-1-25-mc-1',
-        number: '6',
-        type: 'classic',
-        difficulty: 'lett',
-        task: 'Flervalg — geografisk metode:',
-        subTasks: [
-          {
-            label: 'a',
-            task: 'Hva er triangulering i forskning?',
-            solution: 'Å bruke flere metoder eller datakilder for å belyse samme problemstilling',
-            multipleChoiceOptions: ['Å måle avstander med trekanter på kart', 'Å bruke flere metoder eller datakilder for å belyse samme problemstilling', 'Å intervjue tre personer om samme tema', 'Å dele feltområdet inn i trekanter'],
-          },
-          {
-            label: 'b',
-            task: 'Hva kjennetegner primærdata?',
-            solution: 'Data du samler inn selv gjennom eget feltarbeid',
-            multipleChoiceOptions: ['Data hentet fra SSB og offentlige registre', 'Data du samler inn selv gjennom eget feltarbeid', 'Data fra Wikipedia og nettsider', 'Data fra læreboka'],
-          },
-          {
-            label: 'c',
-            task: 'Hva er det første steget i planlegging av feltarbeid?',
-            solution: 'Formulere en presis problemstilling',
-            multipleChoiceOptions: ['Formulere en presis problemstilling', 'Pakke utstyr og kart', 'Lage diagrammer og tabeller', 'Skrive rapporten'],
-          },
-        ],
-        solution: 'a) Å bruke flere metoder eller datakilder for å belyse samme problemstilling, b) Data du samler inn selv gjennom eget feltarbeid, c) Formulere en presis problemstilling',
-        allowsUpload: true,
-        allowsCanvasDrawing: true,
-      },
+**Urettferdig fordeling:**
+Rundt 76 % av verdens flyktninger bor i lav- og mellominntektsland. De rikeste landene tar imot en relativt liten andel, noe som skaper debatt om byrdefordeling.`,
     },
   ],
-  exercises: [],
+  exercises: [
+    {
+      id: 'geo-5-4-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva innebærer non-refoulement-prinsippet?',
+      options: [
+        { id: 'a', text: 'Forbud mot å returnere en flyktning til et land der vedkommende risikerer forfølgelse', isCorrect: true },
+        { id: 'b', text: 'Forbud mot å nekte en flyktning arbeidstillatelse', isCorrect: false },
+        { id: 'c', text: 'Rett til permanent opphold i alle land', isCorrect: false },
+        { id: 'd', text: 'Forbud mot å ta imot flyktninger fra konfliktsoner', isCorrect: false },
+      ],
+      solution: 'Non-refoulement er et grunnleggende prinsipp i FNs flyktningkonvensjon som forbyr stater å sende en flyktning tilbake til et land der vedkommende risikerer forfølgelse, tortur eller umenneskelig behandling.',
+    },
+    {
+      id: 'geo-5-4-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar forskjellen mellom en flyktning og en internt fordrevet person. Hvorfor er internt fordrevne ofte i en mer sårbar situasjon?',
+      solution: 'En flyktning har krysset en internasjonal grense og har rett til beskyttelse under FNs flyktningkonvensjon. En internt fordrevet person er tvunget på flukt, men forblir innenfor sitt eget lands grenser. Internt fordrevne er ofte mer sårbare fordi de ikke omfattes av flyktningkonvensjonen, de er formelt under sin egen regjerings ansvar (som kanskje er den som forfølger dem), de får ofte mindre internasjonal oppmerksomhet og bistand, og det er vanskeligere for internasjonale organisasjoner å nå frem til dem, særlig i konfliktsoner.',
+    },
+    {
+      id: 'geo-5-4-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hvilke tre varige løsninger arbeider UNHCR med for flyktninger?',
+      options: [
+        { id: 'a', text: 'Frivillig hjemreise, lokal integrering og gjenbosetting', isCorrect: true },
+        { id: 'b', text: 'Deportering, arbeidsintegrering og statsborgerskap', isCorrect: false },
+        { id: 'c', text: 'Flyktningleir, midlertidig opphold og familiegjenforening', isCorrect: false },
+        { id: 'd', text: 'Bistand, militær intervensjon og diplomatisk press', isCorrect: false },
+      ],
+      solution: 'UNHCRs tre varige løsninger er: (1) Frivillig hjemreise – flyktninger returnerer til hjemlandet når det er trygt, (2) Lokal integrering – flyktninger bosetter seg permanent i vertslandet, og (3) Gjenbosetting – flyktninger overføres til et tredjeland som har sagt ja til å ta imot dem.',
+    },
+    {
+      id: 'geo-5-4-ex4',
+      type: 'classic',
+      difficulty: 'vanskelig',
+      task: 'Drøft utfordringer ved den globale byrdefordelingen av flyktninger. Hvorfor bor de fleste flyktninger i fattige naboland, og hva kan det internasjonale samfunnet gjøre for å forbedre situasjonen?',
+      solution: 'De fleste flyktninger bor i lav- og mellominntektsland, ofte naboland til konfliktsoner, fordi de flykter til nærmeste trygge sted og sjelden har ressurser til å reise langt. Land som Tyrkia, Pakistan, Uganda og Libanon huser enorme flyktninggrupper, noe som legger enormt press på infrastruktur, arbeidsmarked og naturressurser. Rike land tar imot en forholdsmessig liten andel. For å forbedre situasjonen kan det internasjonale samfunnet: øke den finansielle støtten til vertsland, øke antall kvoteflyktninger som gjenbosettes i rike land, investere i langsiktig utvikling i vertssamfunnene (ikke bare nødhjelp), og arbeide for politiske løsninger på konfliktene som skaper flyktningstrømmene. Det trengs også bedre internasjonale avtaler om rettferdig byrdefordeling.',
+    },
+    {
+      id: 'geo-5-4-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Når ble FNs flyktningkonvensjon vedtatt?',
+      options: [
+        { id: 'a', text: '1951', isCorrect: true },
+        { id: 'b', text: '1945', isCorrect: false },
+        { id: 'c', text: '1967', isCorrect: false },
+        { id: 'd', text: '1990', isCorrect: false },
+      ],
+      solution: 'FNs flyktningkonvensjon ble vedtatt i 1951, i kjølvannet av andre verdenskrig og de store flyktningstrømmene den forårsaket. Tilleggsprotokollen fra 1967 utvidet konvensjonen til å gjelde globalt, ikke bare for europeiske flyktninger fra før 1951.',
+    },
+  ],
 };
 
 // ============================================================================
-// EKSPORT
+// Kapittel 5.5: Befolkningsutvikling i Norge
 // ============================================================================
 
-export const GEOGRAFI_CHAPTERS_DEL5: TextbookChapter[] = [
-  CHAPTER_GEOGRAFI_21,
-  CHAPTER_GEOGRAFI_22,
-  CHAPTER_GEOGRAFI_23,
-  CHAPTER_GEOGRAFI_24,
-  CHAPTER_GEOGRAFI_25,
+const CHAPTER_GEOGRAFI_5_5: TextbookChapter = {
+  id: 'geografi-1-5-5',
+  courseId: 'geografi',
+  chapterNumber: '5.5',
+  title: 'Befolkningsutvikling i Norge',
+  description: 'Norsk befolkningshistorie, innvandring, sentralisering, urbanisering og befolkningsprognoser.',
+  estimatedMinutes: 20,
+  competenceGoals: [
+    'beskrive hovedtrekk i Norges befolkningsutvikling og forklare årsaker til endringer',
+    'drøfte konsekvenser av sentralisering, urbanisering og innvandring i Norge',
+  ],
+  content: [
+    {
+      id: 'geo-5-5-intro',
+      type: 'text',
+      content: `# Befolkningsutvikling i Norge
+
+Norges befolkning har vokst fra under én million i 1800 til over **5,5 millioner** i dag. Denne veksten gjenspeiler den demografiske overgangen, men også store endringer i migrasjonsmønstre, levestandard og familiestrukturer.
+
+## Historisk oversikt
+
+### 1800-tallet: Emigrasjon og vekst
+- Norges befolkning vokste fra ca. 900 000 i 1800 til 2,2 millioner i 1900
+- Bedre ernæring og hygiene reduserte dødeligheten
+- Samtidig utvandret over 800 000 nordmenn til Amerika mellom 1825 og 1930
+- Fattigdom, jordmangel og religiøs forfølgelse drev utvandringen
+
+### 1900-1950: Industrialisering
+- Rask urbanisering – folk flyttet fra bygdene til byene
+- Industrien skapte arbeidsplasser i byer og tettsteder
+- Fruktbarheten begynte å synke
+- Emigrasjonen avtok
+
+### 1950-2000: Velferdsstat og innvandring
+- Sterk velstandsvekst etter andre verdenskrig
+- Norge gikk fra å være et utvandringsland til et innvandringsland
+- Oljeindustrien fra 1970-tallet trakk til seg arbeidskraft
+- Familieplanlegging og prevensjonsrevolusjonen ga lavere fruktbarhet`,
+    },
+    {
+      id: 'geo-5-5-innvandring',
+      type: 'text',
+      content: `## Innvandring til Norge
+
+Norge har gått fra å være et svært homogent land til et stadig mer mangfoldig samfunn. Innvandringen har kommet i flere bølger:
+
+### Arbeidsinnvandring (1960-1975)
+- Primært fra Pakistan, Tyrkia og Marokko
+- Innvandringsstopp i 1975, men familiegjenforening fortsatte
+
+### Flyktninger (1980-tallet og fremover)
+- Vietnam, Chile, Iran, Irak, Somalia, Bosnia
+- Syriske flyktninger fra 2015
+- Ukrainske flyktninger fra 2022
+
+### EØS-innvandring (etter 2004)
+- EU-utvidelsen i 2004 åpnet for arbeidsmigrasjon fra Øst-Europa
+- Stor tilstrømming fra Polen, Litauen, Latvia og Romania
+- Mange jobbet i byggebransjen, helsevesenet og servicenæringen
+
+### Befolkningssammensetning i dag
+- Rundt 16–17 % av befolkningen er innvandrere eller norskfødte med innvandrerforeldre
+- Innvandring har vært den viktigste kilden til befolkningsvekst de siste tiårene
+- Oslo er den mest mangfoldige byen, der over 30 % av befolkningen har innvandrerbakgrunn`,
+    },
+    {
+      id: 'geo-5-5-def-sentralisering',
+      type: 'definition',
+      title: 'Sentralisering',
+      content: 'Sentralisering er en prosess der befolkning, arbeidsplasser, tjenester og makt konsentreres i og rundt de største byene og byregionene. I Norge innebærer dette at folk flytter fra distriktene til byene og nærliggende pendlingsområder, noe som fører til befolkningsvekst i sentrale strøk og nedgang i utkantene.',
+    },
+    {
+      id: 'geo-5-5-sentralisering',
+      type: 'text',
+      content: `## Sentralisering og urbanisering
+
+Norge har en tydelig sentraliseringstrend. Befolkningsveksten skjer primært i og rundt de store byene, mens mange distriktskommuner opplever fraflytting.
+
+### Drivkrefter for sentralisering
+- **Arbeidsmarkedet**: Flere og mer varierte jobber i byene
+- **Utdanning**: Universiteter og høyskoler ligger i byene
+- **Tjenestetilbud**: Bedre helsetjenester, kultur og fritidstilbud
+- **Sosiale nettverk**: Unge trekkes dit jevnaldrende er
+
+### Konsekvenser for byene
+- Befolkningsvekst og boligpress
+- Økt trafikk og transportbehov
+- Større kulturelt mangfold
+- Behov for utbygging av infrastruktur
+
+### Konsekvenser for distriktene
+- Fraflytting og synkende folketall
+- Aldrende befolkning (unge flytter ut)
+- Nedlegging av skoler, butikker og tjenestetilbud
+- Fare for at lokalsamfunn «dør ut»
+
+### Norsk distriktspolitikk
+Norge har tradisjonelt ført en aktiv distriktspolitikk for å motvirke sentralisering:
+- Lavere arbeidsgiveravgift i distriktene
+- Desentralisering av statlige arbeidsplasser
+- Støtte til næringsutvikling i utkantstrøk
+- Gode velferdsordninger uavhengig av bosted`,
+    },
+    {
+      id: 'geo-5-5-urbanisering',
+      type: 'text',
+      content: `## Urbanisering i Norge
+
+I 1800 bodde bare ca. 10 % av nordmenn i byer. I dag bor over **80 %** i byer og tettsteder. Norge er blant de mest urbaniserte landene i verden.
+
+### De største byregionene
+- **Oslo-regionen**: Over 1 million innbyggere – Norges desidert største byområde
+- **Bergen**: Ca. 285 000 innbyggere
+- **Trondheim**: Ca. 210 000 innbyggere
+- **Stavanger/Sandnes**: Ca. 240 000 innbyggere
+
+### Byvekst og byspredning
+Mange norske byer vokser ikke bare i folketall, men sprer seg også utover i areal. Denne **byspredningen** (urban sprawl) fører til:
+- Økt transportbehov og bilbruk
+- Nedbygging av matjord og natur
+- Utfordringer for kollektivtrafikk
+- Segregering mellom boligområder
+
+Norsk planpolitikk forsøker å styre byveksten gjennom **fortetting** – å bygge tettere i eksisterende byområder fremfor å spre bebyggelsen utover.`,
+    },
+    {
+      id: 'geo-5-5-prognoser',
+      type: 'text',
+      content: `## Befolkningsprognoser
+
+**Statistisk sentralbyrå (SSB)** utarbeider jevnlig prognoser for Norges framtidige befolkningsutvikling. Disse framskrivningene er usikre og avhenger av antakelser om fruktbarhet, levealder og innvandring.
+
+### Hovedtrekk i SSBs framskrivninger
+- Norges befolkning forventes å vokse til ca. **6 millioner** i løpet av 2030–2040-tallet
+- Veksten drives hovedsakelig av innvandring, da fruktbarheten er under reproduksjonsnivået
+- Andelen eldre vil øke betydelig – antall personer over 70 kan doble seg innen 2060
+- Distriktskommuner vil fortsette å oppleve nedgang, mens byregioner vokser
+
+### Demografiske utfordringer for Norge
+- **Eldrebølgen**: Stor etterkrigsgenerasjon når pensjonsalder
+- **Lav fruktbarhet**: SFT har falt til rundt 1,4–1,5, godt under reproduksjonsnivået
+- **Finansiering av velferdsstaten**: Færre yrkesaktive per pensjonist
+- **Distriktspolitikk**: Opprettholde gode tjenester i hele landet
+- **Integrering**: Sikre god integrering av innvandrere i arbeidsmarkedet`,
+    },
+    {
+      id: 'geo-5-5-def-ssb',
+      type: 'definition',
+      title: 'Statistisk sentralbyrå (SSB)',
+      content: 'Statistisk sentralbyrå (SSB) er Norges sentrale institusjon for innsamling, bearbeiding og formidling av offisiell statistikk. SSB utarbeider blant annet befolkningsframskrivninger som brukes som grunnlag for politiske beslutninger om velferd, infrastruktur og offentlige tjenester.',
+    },
+    {
+      id: 'geo-5-5-example',
+      type: 'example',
+      title: 'Utvandring og innvandring i norsk historie',
+      problem: 'Sammenlign den norske utvandringen til Amerika på 1800-tallet med innvandringen til Norge i dag. Hvilke likheter og forskjeller finner du?',
+      solution: `**Likheter:**
+- Begge gruppene søkte bedre økonomiske muligheter
+- Push-faktorer spilte en viktig rolle (fattigdom for nordmenn, krig/fattigdom for mange innvandrere i dag)
+- Familienettverkene var viktige – nordmenn reiste dit slektninger allerede var, og innvandrere i dag gjør det samme
+- Begge gruppene opplevde utfordringer med integrering, språk og kultur i det nye landet
+
+**Forskjeller:**
+- Norsk utvandring var nesten utelukkende frivillig (økonomisk motivert), mens mange innvandrere til Norge i dag er flyktninger
+- 1800-tallets nordmenn reiste til et land med ubegrenset innvandring, mens Norge i dag har strenge innvandringsregler
+- Mange innvandrere til Norge i dag kommer fra kulturelt svært forskjellige samfunn, mens nordmenn reiste til et land med kulturelle likheter
+- Kommunikasjon med hjemlandet var nesten umulig for utvandrerne, mens dagens migranter har telefon og internett
+- Det finnes et velferdsapparat i Norge i dag som ikke eksisterte i 1800-tallets Amerika`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'geo-5-5-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva var den viktigste årsaken til norsk utvandring til Amerika på 1800-tallet?',
+      options: [
+        { id: 'a', text: 'Fattigdom og mangel på jord', isCorrect: true },
+        { id: 'b', text: 'Krig og politisk forfølgelse', isCorrect: false },
+        { id: 'c', text: 'Naturkatastrofer', isCorrect: false },
+        { id: 'd', text: 'Religiøs forfølgelse alene', isCorrect: false },
+      ],
+      solution: 'Den viktigste drivkraften bak den norske utvandringen var fattigdom og mangel på jord. Norge hadde en raskt voksende befolkning, men begrenset dyrkbar jord. I Amerika lokket billig jord og bedre økonomiske muligheter. Religiøs forfølgelse spilte også en rolle for noen grupper (som haugianerne), men økonomiske faktorer var dominerende.',
+    },
+    {
+      id: 'geo-5-5-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Beskriv de viktigste fasene i innvandringen til Norge fra 1960-tallet og frem til i dag.',
+      solution: 'Innvandringen til Norge kan deles i tre hovedfaser: (1) Arbeidsinnvandring (1960–1975) fra Pakistan, Tyrkia og Marokko, som stoppet med innvandringsstoppen i 1975. (2) Flyktninginnvandring (1980-tallet og fremover) fra blant annet Vietnam, Chile, Iran, Irak, Somalia, Bosnia, Syria og Ukraina. (3) EØS-innvandring (etter 2004) med stor arbeidsinnvandring fra Øst-Europa, særlig Polen og de baltiske landene, etter EU-utvidelsen. Dagens norske befolkning består av rundt 16–17 % innvandrere eller norskfødte med innvandrerforeldre.',
+    },
+    {
+      id: 'geo-5-5-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er omtrent samlet fruktbarhetstall (SFT) i Norge i dag?',
+      options: [
+        { id: 'a', text: 'Ca. 1,4–1,5 barn per kvinne', isCorrect: true },
+        { id: 'b', text: 'Ca. 2,1 barn per kvinne', isCorrect: false },
+        { id: 'c', text: 'Ca. 2,5 barn per kvinne', isCorrect: false },
+        { id: 'd', text: 'Ca. 1,0 barn per kvinne', isCorrect: false },
+      ],
+      solution: 'Norges samlet fruktbarhetstall har falt de siste årene og ligger nå på ca. 1,4–1,5 barn per kvinne, godt under reproduksjonsnivået på 2,1. Uten innvandring ville den norske befolkningen på sikt gå ned.',
+    },
+    {
+      id: 'geo-5-5-ex4',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Drøft positive og negative konsekvenser av sentraliseringen i Norge.',
+      solution: 'Positive konsekvenser av sentralisering: byene tilbyr et bredere arbeidsmarked med flere karrieremuligheter, bedre utdanningstilbud, rikt kulturtilbud, effektiv kollektivtransport og stordriftsfordeler i tjenestetilbud. Negative konsekvenser: distriktene opplever fraflytting, aldrende befolkning og nedlegging av skoler, butikker og helsetilbud. I byene skaper veksten boligpress med høye priser, trafikkproblemer, forurensning og press på infrastruktur. Sentralisering kan også føre til at naturressurser i distriktene ikke utnyttes optimalt, og at kulturarv og lokalsamfunn forvitrer. Norsk distriktspolitikk forsøker å motvirke de negative konsekvensene gjennom differensiert arbeidsgiveravgift, desentralisering av statlige arbeidsplasser og støtte til næringsutvikling i distriktene.',
+    },
+    {
+      id: 'geo-5-5-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Omtrent hvor stor andel av Norges befolkning bor i byer og tettsteder i dag?',
+      options: [
+        { id: 'a', text: 'Over 80 %', isCorrect: true },
+        { id: 'b', text: 'Ca. 50 %', isCorrect: false },
+        { id: 'c', text: 'Ca. 65 %', isCorrect: false },
+        { id: 'd', text: 'Over 95 %', isCorrect: false },
+      ],
+      solution: 'Over 80 % av Norges befolkning bor i byer og tettsteder, noe som gjør Norge til et av de mest urbaniserte landene i verden. I 1800 var denne andelen bare ca. 10 %, noe som viser den dramatiske urbaniseringen som har skjedd over de siste 200 årene.',
+    },
+  ],
+};
+
+// ============================================================================
+// Kapittel 5.6: Demografiske utfordringer globalt
+// ============================================================================
+
+const CHAPTER_GEOGRAFI_5_6: TextbookChapter = {
+  id: 'geografi-1-5-6',
+  courseId: 'geografi',
+  chapterNumber: '5.6',
+  title: 'Demografiske utfordringer globalt',
+  description: 'Overbefolkning, aldring, befolkningspolitikk, befolkning og bærekraft, og urbanisering som global trend.',
+  estimatedMinutes: 20,
+  competenceGoals: [
+    'drøfte sammenhenger mellom befolkningsutvikling, ressursbruk og bærekraftig utvikling',
+    'vurdere ulike former for befolkningspolitikk og deres konsekvenser',
+  ],
+  content: [
+    {
+      id: 'geo-5-6-intro',
+      type: 'text',
+      content: `# Demografiske utfordringer globalt
+
+Verden står overfor demografiske utfordringer som varierer enormt fra region til region. Mens noen land sliter med rask befolkningsvekst og ungdomsbølger, kjemper andre mot aldrende befolkninger og fødselsrater langt under reproduksjonsnivået. Disse utfordringene har store konsekvenser for økonomi, miljø og sosial stabilitet.
+
+## Overbefolkning versus aldring
+
+Verdens demografiske utfordringer kan grovt deles i to hovedkategorier:
+
+### Utfordringen med rask befolkningsvekst
+- Primært i Afrika sør for Sahara og deler av Sør-Asia
+- Press på matproduksjon, vann, energi og naturressurser
+- Vanskelig å skape nok arbeidsplasser for den unge befolkningen
+- Utfordringer med å tilby utdanning og helsetjenester til alle
+- Miljøbelastning og tap av biologisk mangfold
+
+### Utfordringen med aldrende og krympende befolkninger
+- Primært i Europa, Øst-Asia og deler av Sør-Amerika
+- Færre yrkesaktive til å finansiere velferdsstaten
+- Mangel på arbeidskraft
+- Økonomisk stagnasjon
+- Behov for innvandring eller dramatiske endringer i familiepolitikken`,
+    },
+    {
+      id: 'geo-5-6-kina',
+      type: 'text',
+      content: `## Kinas befolkningspolitikk
+
+Kina gir det mest kjente eksempelet på aktiv befolkningspolitikk. Landets tilnærming har endret seg dramatisk over tid:
+
+### Ettbarnspolitikken (1979–2015)
+- Innført for å bremse den raske befolkningsveksten
+- Par i byene fikk bare lov til å ha ett barn
+- Unntak for minoriteter, bønder og par der begge var enebarn
+- Virkemidler: Økonomiske straffer for flere barn, belønning for ett-barnsfamilier, sosial kontroll
+
+### Resultater
+- Fruktbarheten falt dramatisk – fra ca. 5,8 barn per kvinne i 1970 til under 1,7 i dag
+- Anslått at politikken «forhindret» ca. 400 millioner fødsler
+- Kina unngikk den verste befolkningseksplosjonen
+
+### Negative konsekvenser
+- **Kjønnsubalanse**: Preferanse for gutter førte til kjønnsselektiv abort – ca. 115–120 gutter per 100 jenter i noen perioder
+- **Aldrende befolkning**: Kina står nå overfor en eldrebølge uten et tilstrekkelig utbygd velferdssystem
+- **«4-2-1-problemet»**: Ett enebarn skal forsørge to foreldre og fire besteforeldre
+- **Menneskerettigheter**: Tvangsaborter og steriliseringer er dokumentert
+
+### Politikkendringer
+- 2015: Tobarnspolitikk innført
+- 2021: Trebarnspolitikk innført
+- Kina forsøker nå å stimulere til flere fødsler, men fruktbarheten fortsetter å falle`,
+    },
+    {
+      id: 'geo-5-6-india',
+      type: 'text',
+      content: `## Indias familieplanlegging
+
+India, verdens mest folkerike land med over 1,4 milliarder innbyggere, har valgt en annen tilnærming enn Kina:
+
+### Frivillig familieplanlegging
+- India var det første landet i verden med et nasjonalt familieplanleggingsprogram (1952)
+- Fokus på informasjon, tilgang til prevensjon og frivillige steriliseringer
+- Ingen streng tvangspolitikk som i Kina (med unntak av en kort periode under unntakstilstanden 1975–1977)
+
+### Resultater
+- Fruktbarheten har sunket gradvis, fra over 5 barn per kvinne i 1970 til ca. 2,0 i dag
+- Stor variasjon mellom delstater: Kerala har SFT på 1,5, mens Bihar ligger på 3,0
+- Sammenhengen mellom utdanning, velstand og fruktbarhet er tydelig
+
+### Utdanning som nøkkel
+Erfaringene fra India viser at **kvinners utdanning** er den viktigste enkeltfaktoren for å redusere fruktbarheten:
+- Utdannede kvinner gifter seg senere
+- De har bedre kunnskap om og tilgang til prevensjon
+- De deltar i arbeidslivet og har færre barn
+- Barna deres får bedre helse og utdanning – en positiv spiral`,
+    },
+    {
+      id: 'geo-5-6-def-befolkningspolitikk',
+      type: 'definition',
+      title: 'Befolkningspolitikk',
+      content: 'Befolkningspolitikk er statlige tiltak som har som mål å påvirke befolkningens størrelse, vekstrate eller sammensetning. Tiltakene kan være pronatalitistiske (stimulere til flere fødsler, som barnebidrag og foreldrepermisjon) eller antinatalitistiske (begrense fødsler, som familieplanleggingsprogrammer og ettbarnspolitikk).',
+    },
+    {
+      id: 'geo-5-6-baerekraft',
+      type: 'text',
+      content: `## Befolkning og bærekraft
+
+Sammenhengen mellom befolkningsvekst og miljøbelastning er sammensatt. Det er ikke bare antall mennesker som bestemmer presset på jordas ressurser, men også **forbruksnivået**.
+
+### IPAT-formelen
+Miljøpåvirkning kan beskrives med formelen:
+
+**I = P x A x T**
+
+- **I** = Impact (miljøpåvirkning)
+- **P** = Population (befolkningstall)
+- **A** = Affluence (velstandsnivå/forbruk per person)
+- **T** = Technology (teknologiens miljøpåvirkning)
+
+### Forbruk versus befolkningstall
+- En gjennomsnittlig nordmann har et **økologisk fotavtrykk** som er mange ganger større enn en gjennomsnittsperson i et afrikansk land
+- De 10 % rikeste i verden står for omtrent 50 % av alle klimagassutslipp
+- Befolkningsvekst i fattige land bidrar langt mindre til global miljøbelastning enn overforbruk i rike land
+
+### Bærekraftsmålene
+FNs bærekraftsmål (SDG) adresserer befolkningsutfordringer gjennom flere delmål:
+- **Mål 3**: God helse og livskvalitet (inkludert familieplanlegging)
+- **Mål 4**: God utdanning (særlig for jenter)
+- **Mål 5**: Likestilling mellom kjønnene
+- **Mål 11**: Bærekraftige byer og lokalsamfunn
+- **Mål 12**: Ansvarlig forbruk og produksjon`,
+    },
+    {
+      id: 'geo-5-6-def-okologisk-fotavtrykk',
+      type: 'definition',
+      title: 'Økologisk fotavtrykk',
+      content: 'Det økologiske fotavtrykket er et mål på hvor mye biologisk produktivt areal som kreves for å produsere ressursene en person, by eller nasjon forbruker, og for å absorbere avfallet som genereres. Dersom hele verdens befolkning levde som nordmenn, ville vi trenge anslagsvis tre jordkloder.',
+    },
+    {
+      id: 'geo-5-6-urbanisering',
+      type: 'text',
+      content: `## Urbanisering som global trend
+
+En av de mest gjennomgripende demografiske trendene i verden er **urbanisering** – at stadig flere mennesker bor i byer. I 2007 passerte verden en historisk milepæl: for første gang bodde over halvparten av verdens befolkning i byer. I dag er andelen over 56 %, og den forventes å nå **68 %** innen 2050.
+
+### Urbanisering i utviklingsland
+Den raskeste urbaniseringen skjer i Afrika og Asia:
+- Byer som Lagos, Dhaka, Kinshasa og Karachi vokser eksplosivt
+- Mye av veksten skjer i **slumområder** med manglende infrastruktur
+- Urbaniseringen drives av push-faktorer fra landsbygda (fattigdom, konflikter, klimaendringer) og pull-faktorer i byene (arbeid, utdanning, tjenester)
+
+### Megabyer
+Byer med over 10 millioner innbyggere kalles **megabyer**. I 1970 fantes det bare tre (Tokyo, New York, Osaka). I dag er det over 30, de fleste i Asia og Afrika.
+
+### Utfordringer med rask urbanisering
+- Boligmangel og slumvekst
+- Mangel på rent vann, avløp og strøm
+- Forurensning og helseproblemer
+- Trafikkaos og mangelfull kollektivtransport
+- Sosial ulikhet og kriminalitet
+
+### Muligheter
+- Byer er mer energieffektive per innbygger enn spredt bosetting
+- Innovasjon og økonomisk vekst konsentreres i byer
+- Lettere å tilby helsetjenester, utdanning og infrastruktur
+- Urbanisering bidrar til lavere fruktbarhet`,
+    },
+    {
+      id: 'geo-5-6-example',
+      type: 'example',
+      title: 'IPAT-formelen i praksis',
+      problem: 'Land A har 200 millioner innbyggere med et lavt forbruksnivå og enkel teknologi. Land B har 50 millioner innbyggere med et høyt forbruksnivå og avansert, men forurensende teknologi. Hvilket land har størst miljøpåvirkning, ifølge IPAT-formelen?',
+      solution: `**IPAT-formelen: I = P x A x T**
+
+**Land A:**
+- P (befolkning) = 200 millioner (høy)
+- A (forbruk) = lavt
+- T (teknologi) = enkel, men lite forurensende
+- Samlet: Høy P, men lavt produkt av A x T gir moderat samlet miljøpåvirkning
+
+**Land B:**
+- P (befolkning) = 50 millioner (lav)
+- A (forbruk) = høyt
+- T (teknologi) = avansert, men forurensende
+- Samlet: Lavere P, men svært høyt produkt av A x T gir stor samlet miljøpåvirkning
+
+**Konklusjon:**
+Selv om Land A har fire ganger så mange innbyggere, kan Land B ha større total miljøpåvirkning fordi forbruksnivået og teknologiens miljøbelastning er mye høyere. Dette illustrerer at befolkningstall alene ikke bestemmer miljøpåvirkningen – forbruksmønsteret er minst like viktig. En nordmann belaster miljøet langt mer enn en gjennomsnittlig innbygger i et fattig land.`,
+    },
+    {
+      id: 'geo-5-6-framtid',
+      type: 'text',
+      content: `## Veien fremover
+
+De demografiske utfordringene verden står overfor krever ulike løsninger i ulike deler av verden:
+
+### I land med rask befolkningsvekst
+- Investere i jenteutdanning og kvinners rettigheter
+- Styrke helsetjenester og familieplanlegging
+- Skape arbeidsplasser for den unge befolkningen
+- Bygge bærekraftige byer
+
+### I land med aldrende befolkning
+- Reformere pensjonssystemer og helsetjenester
+- Tilrettelegge for arbeidsmigrasjon
+- Investere i teknologi og automatisering
+- Familiepolitikk som gjør det lettere å kombinere arbeid og barn
+
+Felles for alle er behovet for **bærekraftig utvikling** – å møte dagens behov uten å ødelegge fremtidige generasjoners muligheter.`,
+    },
+  ],
+  exercises: [
+    {
+      id: 'geo-5-6-ex1',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hva var Kinas ettbarnspolitikk?',
+      options: [
+        { id: 'a', text: 'En politikk der par i byene kun fikk ha ett barn, innført i 1979', isCorrect: true },
+        { id: 'b', text: 'En frivillig kampanje for å redusere familestørrelsen', isCorrect: false },
+        { id: 'c', text: 'En lov som forbød alle kinesere å ha mer enn ett barn', isCorrect: false },
+        { id: 'd', text: 'En politikk innført i 2015 for å øke fødselsratene', isCorrect: false },
+      ],
+      solution: 'Ettbarnspolitikken ble innført i 1979 og begrenset par i byene til ett barn. Det fantes unntak for minoriteter, bønder og noen andre grupper. Politikken ble avviklet i 2015, da Kina gikk over til tobarnspolitikk, og senere trebarnspolitikk i 2021.',
+    },
+    {
+      id: 'geo-5-6-ex2',
+      type: 'classic',
+      difficulty: 'medium',
+      task: 'Forklar IPAT-formelen og drøft hvorfor befolkningstall alene ikke er et godt mål på et lands miljøpåvirkning.',
+      solution: 'IPAT-formelen uttrykker at miljøpåvirkning (I) er et produkt av befolkningstall (P), forbruksnivå per person (A – Affluence) og teknologiens miljøbelastning (T). Befolkningstall alene sier lite om miljøpåvirkning fordi forbruksnivået varierer enormt: en nordmann forbruker mange ganger mer energi, mat og varer enn en person i et fattig land. Et land med liten befolkning men ekstremt høyt forbruk (som Norge) kan ha større samlet miljøavtrykk enn et land med stor befolkning men lavt forbruk per innbygger. Teknologien spiller også inn – grønn teknologi kan redusere T-faktoren, mens forurensende teknologi øker den. Derfor er det kombinasjonen av alle tre faktorene som bestemmer den totale miljøbelastningen.',
+    },
+    {
+      id: 'geo-5-6-ex3',
+      type: 'multiple-choice',
+      difficulty: 'medium',
+      task: 'Hva er en megaby?',
+      options: [
+        { id: 'a', text: 'En by med over 10 millioner innbyggere', isCorrect: true },
+        { id: 'b', text: 'En by med over 1 million innbyggere', isCorrect: false },
+        { id: 'c', text: 'En by med over 5 millioner innbyggere', isCorrect: false },
+        { id: 'd', text: 'Den største byen i et land', isCorrect: false },
+      ],
+      solution: 'En megaby er definert som en by med over 10 millioner innbyggere. I 1970 fantes det bare tre megabyer (Tokyo, New York og Osaka), mens det i dag finnes over 30, de fleste i Asia og Afrika. Eksempler er Tokyo, Delhi, Shanghai, Sao Paulo og Lagos.',
+    },
+    {
+      id: 'geo-5-6-ex4',
+      type: 'classic',
+      difficulty: 'vanskelig',
+      task: 'Sammenlign Kinas og Indias tilnærminger til befolkningspolitikk. Hvilke fordeler og ulemper hadde de ulike strategiene?',
+      solution: 'Kina brukte tvangspolitikk (ettbarnspolitikken) med strenge straffer, mens India hovedsakelig satset på frivillig familieplanlegging, utdanning og informasjon. Kinas tilnærming var effektiv i å redusere fruktbarheten raskt, men førte til alvorlige problemer: kjønnsubalanse på grunn av preferanse for gutter, rask aldring av befolkningen, menneskerettighetsbrudd med tvangsaborter og steriliseringer, og det såkalte «4-2-1-problemet». Indias tilnærming var langsommere, men mer respektfull overfor individets rettigheter. Den viser at utdanning, særlig for kvinner, er den viktigste faktoren for å senke fruktbarheten. Ulempen er at Indias befolkning vokste raskere og lenger enn Kinas. India har nå passert Kina som verdens mest folkerike land. Begge eksemplene viser at fruktbarhetsreduksjon er mulig, men veien dit og konsekvensene er svært forskjellige.',
+    },
+    {
+      id: 'geo-5-6-ex5',
+      type: 'multiple-choice',
+      difficulty: 'lett',
+      task: 'Hvor stor andel av verdens befolkning bodde i byer i 2007, da vi passerte den historiske milepælen?',
+      options: [
+        { id: 'a', text: 'Over 50 %', isCorrect: true },
+        { id: 'b', text: 'Over 75 %', isCorrect: false },
+        { id: 'c', text: 'Ca. 30 %', isCorrect: false },
+        { id: 'd', text: 'Ca. 40 %', isCorrect: false },
+      ],
+      solution: 'I 2007 bodde for første gang over halvparten – altså over 50 % – av verdens befolkning i byer. Denne andelen har fortsatt å vokse og er nå over 56 %, med en forventet økning til 68 % innen 2050.',
+    },
+  ],
+};
+
+// ============================================================================
+// Eksport
+// ============================================================================
+
+export const GEOGRAFI_DEL5_CHAPTERS: TextbookChapter[] = [
+  CHAPTER_GEOGRAFI_5_1,
+  CHAPTER_GEOGRAFI_5_2,
+  CHAPTER_GEOGRAFI_5_3,
+  CHAPTER_GEOGRAFI_5_4,
+  CHAPTER_GEOGRAFI_5_5,
+  CHAPTER_GEOGRAFI_5_6,
 ];
