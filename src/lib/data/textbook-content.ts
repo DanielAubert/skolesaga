@@ -117,6 +117,7 @@ import { MATEMATIKK_2P_DEL2_CHAPTERS } from './textbook-content-2p-del2';
 import { MATEMATIKK_2P_DEL3_CHAPTERS } from './textbook-content-2p-del3';
 import { MATEMATIKK_2P_DEL4_CHAPTERS } from './textbook-content-2p-del4';
 import { MATEMATIKK_2P_DEL5_CHAPTERS } from './textbook-content-2p-del5';
+import { MATEMATIKK_2P_NARRATIV_CHAPTERS } from './textbook-content-2p-narrativ';
 
 // Yrkesfag VG1
 import { CHAPTERS_ELEKTRO_DATA_VG1_PART1 } from './textbook-content-elektro-data-vg1';
@@ -307,6 +308,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   ...Object.fromEntries(MATEMATIKK_2P_DEL3_CHAPTERS.map(c => [c.id, c])),
   ...Object.fromEntries(MATEMATIKK_2P_DEL4_CHAPTERS.map(c => [c.id, c])),
   ...Object.fromEntries(MATEMATIKK_2P_DEL5_CHAPTERS.map(c => [c.id, c])),
+
+  // Matematikk 2P - Narrativ versjon
+  ...Object.fromEntries(MATEMATIKK_2P_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Matematikk R1
   ...CHAPTERS_R1,
