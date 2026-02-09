@@ -99,6 +99,13 @@ import { RETTSLAERE_1_CHAPTERS } from './textbook-content-rettslaere-1';
 import { RETTSLAERE_2_CHAPTERS } from './textbook-content-rettslaere-2';
 import { OKONOMISTYRING_CHAPTERS } from './textbook-content-okonomistyring';
 import { MARKEDSFORING_CHAPTERS } from './textbook-content-markedsforing';
+import { ALL_KOMKULT_1_CHAPTERS } from './textbook-content-komkult-1';
+import { MEDIEINFO_1_CHAPTERS } from './textbook-content-medieinfo-1';
+import { ENTREBED_1_CHAPTERS } from './textbook-content-entrebed-1';
+import { TRENING_1_CHAPTERS } from './textbook-content-trening-1';
+import { SAMFOKONOMI_1_CHAPTERS } from './textbook-content-samfokonomi-1';
+import { OKONOMI_LEDELSE_CHAPTERS } from './textbook-content-okonomi-ledelse';
+import { HELSEOPPVEKST_VG2_CHAPTERS } from './textbook-content-helseoppvekst-vg2';
 import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
 import { TYSK_2_CHAPTERS } from './textbook-content-tysk-2';
@@ -636,6 +643,27 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Fransk nivå 3
   ...Object.fromEntries(FRANSK_3_CHAPTERS.map(c => [c.id, c])),
+
+  // Kommunikasjon og kultur 1
+  ...Object.fromEntries(ALL_KOMKULT_1_CHAPTERS.map(c => [c.id, c])),
+
+  // Medie- og informasjonskunnskap 1
+  ...Object.fromEntries(MEDIEINFO_1_CHAPTERS.map(c => [c.id, c])),
+
+  // Entreprenørskap og bedriftsutvikling 1
+  ...Object.fromEntries(ENTREBED_1_CHAPTERS.map(c => [c.id, c])),
+
+  // Treningslære 1
+  ...Object.fromEntries(TRENING_1_CHAPTERS.map(c => [c.id, c])),
+
+  // Samfunnsøkonomi 1
+  ...Object.fromEntries(SAMFOKONOMI_1_CHAPTERS.map(c => [c.id, c])),
+
+  // Økonomi og ledelse
+  ...Object.fromEntries(OKONOMI_LEDELSE_CHAPTERS.map(c => [c.id, c])),
+
+  // Helse- og oppvekstfag VG2
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_CHAPTERS.map(c => [c.id, c])),
 };
 
 // ============================================================================
