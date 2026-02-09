@@ -11,7 +11,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Button } from "@/components/ui/button";
-import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator, Shield } from "lucide-react";
+import { Menu, X, BookOpen, ExternalLink, FileSpreadsheet, Calculator, Shield, Sparkles } from "lucide-react";
 import { ThemeToggle } from "@/components/theme-toggle";
 import { Logo } from "@/components/ui/logo";
 
@@ -58,6 +58,14 @@ export function MainNav() {
               <NavigationMenuLink asChild>
                 <Link href="/hoderegning" className={navigationMenuTriggerStyle()}>
                   Hoderegning
+                </Link>
+              </NavigationMenuLink>
+            </NavigationMenuItem>
+
+            <NavigationMenuItem>
+              <NavigationMenuLink asChild>
+                <Link href="/test-deg-selv" className={navigationMenuTriggerStyle()}>
+                  Test deg selv
                 </Link>
               </NavigationMenuLink>
             </NavigationMenuItem>
@@ -126,6 +134,14 @@ export function MainNav() {
               onClick={() => setMobileMenuOpen(false)}
             >
               Hoderegning
+            </Link>
+            <Link
+              href="/test-deg-selv"
+              className="flex items-center text-sm font-medium"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              <Sparkles className="mr-2 h-4 w-4" />
+              Test deg selv
             </Link>
             <a
               href="/formelhefte-matematikk.pdf"
