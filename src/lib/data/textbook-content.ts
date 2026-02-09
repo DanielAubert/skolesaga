@@ -759,17 +759,7 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
   'biologi-1-3-8': 'biologi-1-9',   // Bioteknologi grunnlag
   'biologi-1-5-1': 'biologi-1-10',  // Kropp og helse
 
-  // Psykologi 1 (10 kapitler med innhold)
-  'psykologi-1-1-1': 'psykologi-1-1',   // Hva er psykologi?
-  'psykologi-1-2-1': 'psykologi-1-2',   // Biologisk psykologi
-  'psykologi-1-3-1': 'psykologi-1-3',   // Kognitiv psykologi
-  'psykologi-1-4-1': 'psykologi-1-4',   // Læring og atferd
-  'psykologi-1-6-1': 'psykologi-1-5',   // Motivasjon og emosjoner
-  'psykologi-1-5-1': 'psykologi-1-6',   // Utviklingspsykologi
-  'psykologi-1-5-5': 'psykologi-1-7',   // Personlighetspsykologi
-  'psykologi-1-6-2': 'psykologi-1-8',   // Sosialpsykologi
-  'psykologi-1-7-1': 'psykologi-1-9',   // Psykisk helse og lidelser
-  'psykologi-1-8-1': 'psykologi-1-10',  // Anvendt psykologi og metode
+  // Psykologi 1 - bruker nå delkapittel-IDer direkte (psykologi-1-1-1 gjennom psykologi-1-10-5)
 
   // Geofag 1 (10 kapitler med innhold)
   'geofag-1-1-1': 'geofag-1-1',   // Jordens system og sfærer
