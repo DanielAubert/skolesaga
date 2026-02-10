@@ -18,7 +18,7 @@ export const CHAPTER_SOSIOLOGI_2_1: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.1',
   title: 'Sosialisering – primær og sekundær',
-  estimatedReadingTime: 20,
+  estimatedReadingTime: 35,
   exercises: [],
   content: [
     {
@@ -125,18 +125,83 @@ export const CHAPTER_SOSIOLOGI_2_1: TextbookChapter = {
         'Gi to eksempler på formell sosialisering og to eksempler på uformell sosialisering fra din egen hverdag. Forklar hvorfor hvert eksempel tilhører den ene eller andre kategorien.',
     },
     {
+      id: 'sos-2-1-text-5',
+      type: 'text',
+      title: 'Berger og Luckmanns teori om den sosiale konstruksjonen av virkeligheten',
+      content:
+        'Peter Berger og Thomas Luckmann publiserte i 1966 verket «The Social Construction of Reality», som har blitt en av de mest innflytelsesrike bøkene i moderne sosiologi. Deres sentrale argument er at virkeligheten slik vi oppfatter den, ikke er objektivt gitt, men sosialt konstruert gjennom menneskelig samhandling.\n\nBerger og Luckmann beskrev tre sammenvevde prosesser som konstituerer den sosiale virkeligheten: eksternalisering, objektivering og internalisering. Eksternalisering handler om at mennesker skaper sosiale institusjoner, normer og meningssystemer gjennom sine handlinger og samhandling. Objektivering skjer når disse menneskeskapte fenomenene begynner å fremstå som «objektive» og selvstendige – de oppleves som noe som eksisterer uavhengig av de menneskene som skapte dem. Internalisering er prosessen der individet gjennom sosialisering tar opp i seg den objektiverte sosiale virkeligheten og gjør den til sin egen.\n\nFor sosialiseringsteorien er dette avgjørende: Primærsosialiseringen er den fasen der barnet internaliserer den sosiale virkeligheten for første gang. Barnet lærer ikke bare regler og ferdigheter – det lærer hva som er «virkelig», hva som er «sant» og hva som er «naturlig». Fordi barnet ikke har noe sammenligningsgrunnlag, oppleves denne virkeligheten som den eneste mulige. Det er først gjennom sekundærsosialiseringen at individet gradvis kan oppdage at det finnes alternative måter å forstå verden på.',
+    },
+    {
+      id: 'sos-2-1-def-3',
+      type: 'definition',
+      title: 'Internalisering',
+      content:
+        'Internalisering er prosessen der individet tar opp i seg (gjør til «sine egne») de normene, verdiene, kunnskapene og virkelighetsoppfatningene som formidles gjennom sosialiseringen. Når normer er internalisert, oppleves de som naturlige og selvfølgelige, og individet følger dem uten å tenke bevisst over det. Internalisering er det siste leddet i Berger og Luckmanns triade: eksternalisering – objektivering – internalisering.',
+    },
+    {
+      id: 'sos-2-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Den sosiale konstruksjonen av kjønn',
+      content:
+        'Et godt eksempel på Berger og Luckmanns teori er sosialiseringen av kjønn. Når foreldre kler jentebarn i rosa og guttebarn i blått, når de gir dukker til jenter og biler til gutter, og når de reagerer ulikt på gråt avhengig av barnets kjønn, driver de med eksternalisering – de skaper sosiale mønstre for kjønn. Over tid blir disse mønstrene objektivert: De fremstår som «naturlige» forskjeller mellom kjønnene, som om jenter «er» roligere og gutter «er» mer aktive. Gjennom internalisering tar barna opp i seg disse forventningene og begynner å oppføre seg i tråd med dem. Den sosialt konstruerte virkeligheten om kjønn oppleves da som biologisk og uforanderlig – selv om den i stor grad er et produkt av sosialiseringsprosessen.',
+    },
+    {
+      id: 'sos-2-1-text-6',
+      type: 'text',
+      title: 'Bourdieus habitus og sosialisering',
+      content:
+        'Den franske sosiologen Pierre Bourdieu (1930–2002) bidro med et annet viktig perspektiv på sosialisering gjennom sitt begrep habitus. Habitus refererer til de dype, varige disposisjonene – vaner, smakspreferanser, kroppsholdninger, talemåter og tenkemåter – som individet tilegner seg gjennom oppvekst og sosialisering. Habitus er «den sosiale strukturen innprentet i kroppen» – det er den måten samfunnets ulikheter og kulturelle mønstre nedfeller seg i individets daglige liv.\n\nHabitus fungerer som et «generativt prinsipp» – det styrer individets handlinger, valg og preferanser uten at individet nødvendigvis er bevisst på det. En person fra overklassen har en annen habitus enn en person fra arbeiderklassen: De snakker annerledes, kler seg annerledes, har ulike matpreferanser, ulik kropp og ulike holdninger til utdanning, kultur og fritid. Disse forskjellene er ikke resultat av bevisste valg, men av ulike sosialiseringsprosesser.\n\nDet viktige poenget hos Bourdieu er at habitus bidrar til sosial reproduksjon – at ulikheter overføres fra generasjon til generasjon gjennom sosialiseringen. Barn fra privilegerte familier tilegner seg en habitus som passer med skolens og arbeidslivets forventninger, mens barn fra mindre privilegerte familier kan oppleve at deres habitus ikke «passer inn». Slik bidrar sosialiseringen til å opprettholde sosiale klasseforskjeller, selv i samfunn som formelt sett gir alle like muligheter.',
+    },
+    {
+      id: 'sos-2-1-def-4',
+      type: 'definition',
+      title: 'Habitus (Pierre Bourdieu)',
+      content:
+        'Habitus er Pierre Bourdieus begrep for de varige, kroppsliggjorte disposisjonene som individet tilegner seg gjennom sosialisering. Det omfatter smakspreferanser, vaner, kroppsholdninger, talemåter og ubevisste tenkemåter som er formet av individets sosiale posisjon. Habitus fungerer som en «praktisk sans» som styrer handling uten bevisst refleksjon, og bidrar til å reprodusere sosiale ulikheter mellom generasjoner.',
+    },
+    {
+      id: 'sos-2-1-example-4',
+      type: 'example',
+      title: 'Eksempel: Habitus ved middagsbordet',
+      content:
+        'Tenk deg to familier som spiser middag. I Familie A, der foreldrene er akademikere, spises det med serviett i fanget, samtalene dreier seg om nyheter og bøker, og barna forventes å sitte stille og uttrykke seg i hele setninger. I Familie B, der foreldrene er håndverkere, spises det med TV-en på, samtalene er mer uformelle, og stemningen er avslappet. Ingen av måltidene er «bedre» enn det andre – men barna i Familie A tilegner seg en habitus som passer bedre med de forventningene de møter i utdanningssystemet. Når de senere i livet opplever suksess i skole og arbeidsliv, fremstår det som resultat av «talent» eller «innsats» – men ifølge Bourdieu er det like mye et resultat av habitus ervervet gjennom sosialisering.',
+    },
+    {
+      id: 'sos-2-1-text-7',
+      type: 'text',
+      title: 'Resosialisering og tertiærsosialisering',
+      content:
+        'Sosialisering stopper ikke ved overgangen til voksenlivet. Gjennom hele livet møter vi nye situasjoner som krever at vi lærer nye roller, normer og ferdigheter. Noen sosiologer bruker begrepet tertiærsosialisering om den sosialiseringen som foregår i voksenlivet – for eksempel når man begynner i en ny jobb, blir forelder, går av med pensjon eller immigrerer til et nytt land.\n\nResosialisering er et sterkere begrep som refererer til prosesser der individets tidligere sosialisering aktivt brytes ned og erstattes med nye normer, verdier og identiteter. Begrepet brukes ofte i forbindelse med det Erving Goffman kalte «totale institusjoner» – steder der alle aspekter av livet er kontrollert av en enkelt myndighet, som fengsler, militærleirer, klostre og psykiatriske institusjoner. I slike institusjoner frattas individet sin tidligere identitet (gjennom uniformering, navnebytte, tap av personlige eiendeler) og formes etter institusjonens regler og normer.\n\nMen resosialisering kan også skje frivillig og gradvis. En person som konverterer til en ny religion, gjennomgår en form for resosialisering. Det samme gjelder en person som emigrerer og gradvis tilegner seg det nye landets kultur, eller en person som etter et alvorlig sykdomsforløp må omdefinere sin identitet og sine livsmål. Resosialisering understreker at sosialiseringen er en livslang prosess, og at identiteten aldri er helt fastlåst.',
+    },
+    {
       id: 'sos-2-1-exercise-4',
       type: 'exercise',
-      exerciseType: 'classic',
+      exerciseType: 'multiple-choice',
       title: 'Oppgave 4',
-      content:
-        'Diskuter: Hvilken sosialiseringsagent tror du har størst innflytelse på ungdom i Norge i dag – familien, skolen, venner eller sosiale medier? Begrunn svaret ditt med eksempler og bruk av fagbegreper.',
+      content: 'Hva mener Bourdieu med begrepet habitus?',
+      options: [
+        'Et bevisst valg av livsstil basert på rasjonelle vurderinger.',
+        'Varige, kroppsliggjorte disposisjoner tilegnet gjennom sosialisering som styrer individets handlinger og preferanser.',
+        'De formelle reglene som gjelder i utdanningssystemet.',
+        'En psykologisk lidelse som rammer barn fra fattige familier.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Habitus er Bourdieus begrep for de dype, varige disposisjonene – vaner, smakspreferanser, talemåter og tenkemåter – som individet tilegner seg gjennom oppvekst og sosialisering. Habitus styrer handling uten bevisst refleksjon og er formet av individets sosiale posisjon. Begrepet er sentralt for å forstå hvordan sosiale ulikheter reproduseres mellom generasjoner.',
     },
     {
       id: 'sos-2-1-exercise-5',
       type: 'exercise',
-      exerciseType: 'multiple-choice',
+      exerciseType: 'classic',
       title: 'Oppgave 5',
+      content:
+        'Diskuter: Hvilken sosialiseringsagent tror du har størst innflytelse på ungdom i Norge i dag – familien, skolen, venner eller sosiale medier? Begrunn svaret ditt med eksempler og bruk av fagbegreper.',
+    },
+    {
+      id: 'sos-2-1-exercise-6',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 6',
       content: 'Hva menes med at primærsosialiseringen legger grunnlaget for «tatt-for-gitt»-kunnskap?',
       options: [
         'At barnet bevisst velger hvilke normer det vil følge.',
@@ -149,11 +214,35 @@ export const CHAPTER_SOSIOLOGI_2_1: TextbookChapter = {
         'Berger og Luckmann påpekte at det barnet lærer i primærsosialiseringen oppleves som «naturlig» og selvfølgelig. Barnet har ingen referanseramme å sammenligne med, og tar derfor for gitt at den måten ting gjøres på i familien, er den eneste eller riktige måten. Denne kunnskapen er imidlertid kulturelt og sosialt betinget.',
     },
     {
+      id: 'sos-2-1-exercise-7',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 7',
+      content: 'Hva kjennetegner resosialisering?',
+      options: [
+        'At individet lærer å snakke et nytt språk i barnehagen.',
+        'At individets tidligere sosialisering aktivt brytes ned og erstattes med nye normer, verdier og identiteter.',
+        'At individet glemmer alt det har lært i barndommen.',
+        'At foreldrene bestemmer hvilke venner barnet skal ha.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Resosialisering innebærer at individets tidligere sosialisering aktivt brytes ned og erstattes med nye normer, verdier og identiteter. Begrepet brukes ofte i forbindelse med totale institusjoner (fengsler, militærleirer), men kan også skje frivillig, for eksempel ved emigrasjon eller religiøs konvertering.',
+    },
+    {
+      id: 'sos-2-1-exercise-8',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 8',
+      content:
+        'Forklar Berger og Luckmanns tre prosesser: eksternalisering, objektivering og internalisering. Bruk et konkret eksempel (for eksempel kjønnsroller eller matskikker) for å illustrere hvordan de tre prosessene henger sammen.',
+    },
+    {
       id: 'sos-2-1-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Sosialisering er den livslange prosessen der individet tilegner seg normer, verdier og ferdigheter som trengs for å fungere i samfunnet. Primærsosialiseringen foregår i barndommen, primært i familien, og legger det grunnleggende fundamentet. Sekundærsosialiseringen skjer på arenaer utenfor familien – skole, venner, medier, arbeidsliv – og innebærer mer spesialisert og bevisst læring. Sosialiseringsagenter er de aktørene som bidrar til sosialiseringen, og deres innflytelse varierer gjennom livsløpet. Sosialisering kan være formell (planlagt, organisert) eller uformell (spontan, gjennom daglig samhandling). Begge formene er avgjørende for hvordan individet utvikler seg.',
+        'Sosialisering er den livslange prosessen der individet tilegner seg normer, verdier og ferdigheter som trengs for å fungere i samfunnet. Primærsosialiseringen foregår i barndommen, primært i familien, og legger det grunnleggende fundamentet. Sekundærsosialiseringen skjer på arenaer utenfor familien – skole, venner, medier, arbeidsliv – og innebærer mer spesialisert og bevisst læring. Berger og Luckmann viste at virkeligheten er sosialt konstruert gjennom eksternalisering, objektivering og internalisering, og at primærsosialiseringen er avgjørende fordi barnet internaliserer den sosiale virkeligheten for første gang. Bourdieus begrep habitus utdyper hvordan sosialiseringen nedfeller seg i kroppen som varige disposisjoner, og hvordan dette bidrar til sosial reproduksjon. Sosialiseringsagenter er de aktørene som bidrar til sosialiseringen, og deres innflytelse varierer gjennom livsløpet. Sosialisering kan være formell eller uformell, og den slutter aldri – resosialisering kan finne sted gjennom hele livet.',
     },
     {
       id: 'sos-2-1-exercise-6',
@@ -175,7 +264,7 @@ export const CHAPTER_SOSIOLOGI_2_2: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.2',
   title: 'Identitet og selvbilde',
-  estimatedReadingTime: 22,
+  estimatedReadingTime: 38,
   exercises: [],
   content: [
     {
@@ -282,6 +371,55 @@ export const CHAPTER_SOSIOLOGI_2_2: TextbookChapter = {
         'Gi to eksempler fra din egen hverdag der du opptrer «frontstage» og to eksempler der du er «backstage». Hvordan endrer du atferd mellom disse situasjonene? Bruk Goffmans begreper i forklaringen.',
     },
     {
+      id: 'sos-2-2-text-4',
+      type: 'text',
+      title: 'Digital identitet og sosiale medier',
+      content:
+        `I det 21. århundret har digitaliseringen skapt helt nye arenaer for identitetsdannelse. Sosiale medier som Instagram, TikTok, Snapchat og YouTube gir individet muligheten til å konstruere og presentere et «digitalt selv» for et potensielt uendelig publikum. Denne digitale identiteten er ikke bare en forlengelse av den «fysiske» identiteten – den er en aktiv konstruksjon som kan innebære forsterkninger, filtreringer og iscenesettelser av hvem man ønsker å fremstå som.\n\nSosiologer har pekt på flere viktige konsekvenser av digital identitetsdannelse. For det første har skillet mellom Goffmans frontstage og backstage blitt mye mer uklart. Sosiale medier skaper en «permanent scene» der man alltid potensielt er synlig og må forholde seg til sitt publikum. Selv det som fremstår som «autentisk» og «backstage» på sosiale medier – for eksempel «no filter»-bilder eller «dag i livet»-videoer – er ofte nøye kuratert.\n\nFor det andre har sosiale medier forsterket Cooleys speilselv-mekanisme. Mens man i det fysiske livet speiler seg i reaksjonene fra et begrenset antall mennesker, kan man på sosiale medier få umiddelbar tilbakemelding fra hundrevis eller tusenvis gjennom likes, kommentarer og delinger. Forskning viser at dette kan ha betydelig innvirkning på selvbildet, særlig blant unge. Studier har funnet sammenhenger mellom intensiv bruk av sosiale medier og lavere selvfølelse, kroppsbilde-problemer og sosial sammenligning.\n\nFor det tredje har sosiale medier gjort det mulig å eksperimentere med identitet på måter som ikke var tilgjengelige tidligere. Man kan ha ulike profiler på ulike plattformer, delta i anonyme nettfora, og utforske sider av seg selv som man kanskje ikke tør vise i det fysiske livet. For noen – særlig ungdom som tilhører seksuelle eller etniske minoriteter – kan dette være frigjørende.`,
+    },
+    {
+      id: 'sos-2-2-def-3',
+      type: 'definition',
+      title: 'Digital identitet',
+      content:
+        'Digital identitet refererer til den versjonen av seg selv som individet konstruerer og presenterer i digitale medier og på internett. Den omfatter profiler, bilder, tekster, interaksjoner og digitale spor som til sammen danner et bilde av hvem individet er – eller ønsker å fremstå som – i den digitale sfæren. Digital identitet er alltid en selektiv og kuratert fremstilling, og kan avvike betydelig fra individets opplevelse av seg selv utenfor nettet.',
+    },
+    {
+      id: 'sos-2-2-example-4',
+      type: 'example',
+      title: 'Eksempel: Identitetseksperimentering på TikTok',
+      content:
+        `En norsk 16-åring bruker TikTok til å lage korte videoer om mental helse. I det fysiske livet er hun stille og reservert – hun snakker sjelden om følelser med venner eller familie. Men på TikTok, der hun har et pseudonym og et visst anonymitetsnivå, deler hun åpent om angst, prestasjonspress og ensomhet. Videoene hennes får tusenvis av visninger og hundrevis av støttende kommentarer. For henne er TikTok-profilen ikke en «falsk» identitet – den er en del av hvem hun er som hun ikke klarer å uttrykke i andre sammenhenger. Eksempelet illustrerer hvordan digitale plattformer kan fungere som arenaer for identitetsutforsking som Mead ikke kunne ha forutsett, men som passer godt inn i hans teori om at selvet dannes gjennom sosial interaksjon.`,
+    },
+    {
+      id: 'sos-2-2-text-5',
+      type: 'text',
+      title: 'Stigma og identitet – Goffmans videre bidrag',
+      content:
+        'I tillegg til sin dramaturgiske teori utviklet Erving Goffman en innflytelsesrik analyse av stigma i boken «Stigma: Notes on the Management of Spoiled Identity» (1963). Goffman definerte stigma som et kjennetegn ved en person som er dypt diskrediterende i en gitt sosial kontekst – noe som gjør at personen blir redusert fra et «helt og vanlig menneske» til et «beskadiget og nedvurdert» et.\n\nGoffman identifiserte tre typer stigma: (1) kroppslige stigma (fysiske avvik, synlige funksjonshemminger, utseendeforskjeller), (2) karakterstigma (oppfattede svakheter i personlig karakter, som psykisk sykdom, rusmisbruk, kriminalitet eller arbeidsledighet), og (3) tribale stigma (tilhørighet til en stigmatisert gruppe basert på etnisitet, religion eller nasjonalitet).\n\nSentralt i Goffmans analyse er hvordan stigmatiserte personer håndterer sin identitet i samhandling med andre. De kan forsøke å «passere» – å skjule det stigmatiserende kjennetegnet for å fremstå som «normale». De kan drive med «inntrykksreparasjon» – forsøke å kompensere for stigmaet gjennom andre egenskaper. Eller de kan velge å omfavne stigmaet og gjøre det til en del av sin identitet – slik mange funksjonshemmede aktivister har gjort ved å kreve anerkjennelse og rettigheter.\n\nGoffmans stigma-begrep er høyst relevant i dag, for eksempel i forbindelse med psykisk helse, funksjonshemming, seksualitet og etnisitet. Stigma påvirker ikke bare hvordan andre ser en person, men også hvordan personen ser seg selv – det former identiteten.',
+    },
+    {
+      id: 'sos-2-2-def-4',
+      type: 'definition',
+      title: 'Stigma (Erving Goffman)',
+      content:
+        'Stigma er et begrep brukt av Goffman om et kjennetegn ved en person som er dypt diskrediterende i en gitt sosial kontekst. Stigma reduserer personen fra et «helt og vanlig» menneske til en nedvurdert kategori. Goffman skilte mellom kroppslige stigma, karakterstigma og tribale stigma. Stigma påvirker både sosial interaksjon og individets selvbilde, og stigmatiserte personer må aktivt håndtere sin identitet i møte med andre.',
+    },
+    {
+      id: 'sos-2-2-example-5',
+      type: 'example',
+      title: 'Eksempel: Stigma og psykisk helse',
+      content:
+        'Til tross for økende åpenhet er psykiske lidelser fortsatt stigmatisert i mange sammenhenger. En person som har vært innlagt på psykiatrisk avdeling, kan oppleve at andre behandler henne annerledes når dette blir kjent – at venner trekker seg unna, at arbeidsgivere blir skeptiske, eller at familien snakker om henne «bak hennes rygg». For å unngå dette kan personen velge å holde innleggelsen hemmelig – det Goffman kaller å «passere». Hun lever da med en dobbel belastning: selve den psykiske lidelsen og frykten for at andre skal oppdage den. Stigmaet former ikke bare andres oppfatning av henne, men også hennes eget selvbilde – hun internaliserer skammen og definerer seg selv som «annerledes» eller «svak». Dette illustrerer hvordan stigma påvirker identiteten på et dypt nivå.',
+    },
+    {
+      id: 'sos-2-2-text-6',
+      type: 'text',
+      title: 'Identitet i senmoderniteten – Anthony Giddens',
+      content:
+        'Den britiske sosiologen Anthony Giddens (f. 1938) har analysert hvordan identitetsdannelsen har endret seg i det han kaller senmoderniteten – den fasen av moderniteten som vi lever i nå. Ifølge Giddens er identiteten i senmoderniteten preget av et refleksivt selvprosjekt. Mens mennesker i tradisjonelle samfunn i stor grad «arvet» sin identitet gjennom stand, yrke, religion og familietilhørighet, må mennesker i senmoderniteten aktivt konstruere sin identitet gjennom en kontinuerlig prosess av valg og refleksjon.\n\nGiddens bruker begrepet «selvets refleksive prosjekt» for å beskrive dette: Vi må konstant spørre oss «Hvem er jeg?» og «Hvem vil jeg være?», og vi forventes å svare gjennom våre valg av utdanning, karriere, livsstil, relasjoner, kropp og forbruk. Identiteten er ikke noe vi «finner» en gang for alle, men noe vi stadig «skaper» og «vedlikeholder» gjennom en sammenhengende livsfortelling – en «narrativ identitet» som gir mening og kontinuitet til våre erfaringer.\n\nDette gir stor frihet, men også stor usikkerhet. Når identiteten ikke lenger er gitt av tradisjoner og sosiale strukturer, hviler ansvaret for å skape en meningsfull identitet på individet selv. Giddens mener dette kan føre til ontologisk usikkerhet – en grunnleggende følelse av utrygghet og meningsløshet – dersom individet ikke klarer å opprettholde en sammenhengende livsfortelling. Angst, depresjon og identitetskriser kan forstås i lys av denne utfordringen.',
+    },
+    {
       id: 'sos-2-2-exercise-4',
       type: 'exercise',
       exerciseType: 'multiple-choice',
@@ -300,17 +438,57 @@ export const CHAPTER_SOSIOLOGI_2_2: TextbookChapter = {
     {
       id: 'sos-2-2-exercise-5',
       type: 'exercise',
-      exerciseType: 'classic',
+      exerciseType: 'multiple-choice',
       title: 'Oppgave 5',
+      content: 'Hvilken av Goffmans tre stigma-typer beskriver best stigmatisering basert på etnisitet?',
+      options: [
+        'Kroppslig stigma.',
+        'Karakterstigma.',
+        'Tribalt stigma.',
+        'Institusjonelt stigma.',
+      ],
+      correctAnswer: 2,
+      explanation:
+        'Tribalt stigma refererer til stigmatisering basert på tilhørighet til en bestemt gruppe – for eksempel etnisitet, religion eller nasjonalitet. Det er en av Goffmans tre stigma-kategorier, ved siden av kroppslig stigma (fysiske avvik) og karakterstigma (oppfattede personlige svakheter).',
+    },
+    {
+      id: 'sos-2-2-exercise-6',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 6',
       content:
         'Sammenlign Meads teori om selvet med Goffmans dramaturgiske perspektiv. Hva er likheter og forskjeller? Diskuter om de to teoriene utfyller hverandre eller står i motsetning til hverandre.',
+    },
+    {
+      id: 'sos-2-2-exercise-7',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 7',
+      content:
+        `Diskuter hvordan sosiale medier påvirker identitetsdannelsen hos unge. Bruk minst to av følgende begreper i svaret ditt: Cooleys speilselv, Goffmans frontstage/backstage, inntrykksstyring, digital identitet. Gi konkrete eksempler.`,
+    },
+    {
+      id: 'sos-2-2-exercise-8',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 8',
+      content: `Hva mener Giddens med «selvets refleksive prosjekt»?`,
+      options: [
+        `At identiteten er biologisk bestemt og ikke kan endres.`,
+        `At individet i senmoderniteten aktivt må konstruere sin identitet gjennom valg, refleksjon og en sammenhengende livsfortelling.`,
+        `At identiteten bestemmes av hvilken klasse man tilhører.`,
+        `At man bør bruke mer tid på selvrefleksjon og meditasjon.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Giddens bruker begrepet «selvets refleksive prosjekt» om den kontinuerlige prosessen der individet i senmoderniteten aktivt skaper og vedlikeholder sin identitet gjennom valg, refleksjon og en sammenhengende livsfortelling. I motsetning til i tradisjonelle samfunn, der identiteten i stor grad var «gitt», må moderne mennesker ta ansvar for å konstruere sin egen identitet.`,
     },
     {
       id: 'sos-2-2-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Identitet er et sammensatt begrep som omfatter personlige, sosiale og kulturelle dimensjoner. George Herbert Mead viste at selvet dannes gjennom sosial interaksjon – vi utvikler selvbevissthet ved å ta andres perspektiv og internalisere den generaliserte andre. Cooleys speilselv-begrep utdyper hvordan andres reaksjoner former selvbildet. Erving Goffman brukte teatermetaforen for å vise at vi aktivt «spiller roller» og driver inntrykksstyring i ulike sosiale situasjoner. Identitet er ifølge disse perspektivene ikke noe fast og medfødt, men noe som kontinuerlig skapes og omformes gjennom sosial samhandling.',
+        'Identitet er et sammensatt begrep som omfatter personlige, sosiale og kulturelle dimensjoner. George Herbert Mead viste at selvet dannes gjennom sosial interaksjon – vi utvikler selvbevissthet ved å ta andres perspektiv og internalisere den generaliserte andre. Cooleys speilselv-begrep utdyper hvordan andres reaksjoner former selvbildet. Erving Goffman brukte teatermetaforen for å vise at vi aktivt «spiller roller» og driver inntrykksstyring, og hans stigma-begrep viser hvordan diskrediterende kjennetegn påvirker identiteten. Digital identitet og sosiale medier har skapt nye arenaer for identitetsdannelse som forsterker Cooleys speilselv-mekanisme og kompliserer skillet mellom frontstage og backstage. Anthony Giddens teori om selvets refleksive prosjekt viser at identiteten i senmoderniteten er noe som aktivt må konstrueres gjennom valg og refleksjon. Identitet er ifølge disse perspektivene ikke noe fast og medfødt, men noe som kontinuerlig skapes og omformes gjennom sosial samhandling.',
     },
     {
       id: 'sos-2-2-exercise-6',
@@ -332,7 +510,7 @@ export const CHAPTER_SOSIOLOGI_2_3: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.3',
   title: 'Kultur – begreper og perspektiver',
-  estimatedReadingTime: 20,
+  estimatedReadingTime: 38,
   exercises: [],
   content: [
     {
@@ -447,12 +625,69 @@ export const CHAPTER_SOSIOLOGI_2_3: TextbookChapter = {
         'Et universitetsdiplom er et eksempel på institusjonalisert kulturell kapital – en formell kvalifikasjon som gir offisiell anerkjennelse av individets kulturelle kompetanse. Det skiller seg fra kroppsliggjort kapital (internaliserte ferdigheter og vaner) og objektivert kapital (kulturelle gjenstander).',
     },
     {
+      id: 'sos-2-3-text-4',
+      type: 'text',
+      title: 'Kulturell globalisering: hybridisering og kreolisering',
+      content:
+        `Globaliseringen har ført til en omfattende utveksling av kulturelle uttrykk, ideer og praksiser på tvers av landegrenser. Denne prosessen kalles kulturell globalisering, og den reiser viktige spørsmål om kulturell identitet, makt og mangfold.\n\nNoen forskere ser kulturell globalisering som en trussel mot kulturelt mangfold – en form for «kulturimperialisme» der vestlig (og særlig amerikansk) populærkultur sprer seg over hele verden og fortrenger lokale kulturuttrykk. Denne posisjonen kalles gjerne homogeniseringstesen: Verden blir stadig mer kulturelt ensartet fordi alle konsumerer de samme filmene, musikken, matrettene og merkeklærne.\n\nAndre forskere, som den svensk-britiske antropologen Ulf Hannerz, argumenterer for at kulturell globalisering ikke nødvendigvis fører til ensretting, men snarere til hybridisering – at kulturelle elementer fra ulike tradisjoner blandes og skaper noe nytt. Begrepet kreolisering brukes om lignende prosesser: Når kulturer møtes, oppstår det nye kulturelle former som ikke kan reduseres til noen av «opphavskulturene».\n\nEt nøkkelbegrep i denne sammenhengen er glokalisering – en sammensmeltning av «globalisering» og «lokalisering». Begrepet, som ble popularisert av sosiologen Roland Robertson, beskriver hvordan globale kulturelle fenomener alltid tilpasses og omformes i lokale kontekster. McDonalds serverer ulike menyer i ulike land, Bollywood-filmer blander indisk musikktradisjoner med vestlig filmspråk, og norske ungdommer bruker engelske slanguttrykk på norsk. Kulturell globalisering er altså ikke en enveis-prosess, men en kompleks vekselvirkning mellom det globale og det lokale.`,
+    },
+    {
+      id: 'sos-2-3-def-3',
+      type: 'definition',
+      title: 'Hybridisering',
+      content:
+        'Hybridisering er en prosess der kulturelle elementer fra ulike tradisjoner blandes og skaper nye kulturelle former. Begrepet brukes i kultursosiologien for å beskrive resultatene av kulturell globalisering – at kulturmøter ikke nødvendigvis fører til ensretting, men til mangfoldige blandingsformer. Lignende begreper er kreolisering og synkretisme.',
+    },
+    {
+      id: 'sos-2-3-example-4',
+      type: 'example',
+      title: 'Eksempel: K-pop som kulturell hybridisering',
+      content:
+        'Koreansk popmusikk (K-pop) er et slående eksempel på kulturell hybridisering. K-pop kombinerer vestlige musikksjangre (pop, hip-hop, R&B, EDM) med koreansk språk, estetikk og underholdningskultur. Artistgrupper som BTS og BLACKPINK har nådd global popularitet ved å blande vestlig musikkproduksjon med koreanske trente-konsepter, sofistikert visuell estetikk og en fankultur som har røtter i japansk og koreansk underholdningstradisjon. K-pop er verken «vestlig» eller «koreansk» i ren form – det er noe genuint nytt som har oppstått gjennom kulturell hybridisering. Fenomenet illustrerer at kulturell globalisering ikke bare handler om vestlig dominans, men også om at ikke-vestlige kulturuttrykk kan oppnå global innflytelse.',
+    },
+    {
+      id: 'sos-2-3-text-5',
+      type: 'text',
+      title: 'Bourdieus felt og symbolsk vold',
+      content:
+        'For å forstå kulturens rolle i å opprettholde sosiale ulikheter utviklet Bourdieu ikke bare begrepet kulturell kapital, men også begrepene felt og symbolsk vold.\n\nEt felt er i Bourdieus terminologi et avgrenset sosialt område med egne regler, verdier og kamper – for eksempel utdanningsfeltet, kunstfeltet, det politiske feltet eller mediefeltet. Innenfor hvert felt kjemper aktørene om posisjoner og ressurser, og kampen følger feltets egne regler. I kunstfeltet handler kampen om hva som regnes som «god» kunst; i utdanningsfeltet om hva som regnes som «viktig» kunnskap.\n\nSymbolsk vold er Bourdieus begrep for den formen for dominans som utøves gjennom kulturelle og symbolske midler – uten fysisk makt, men gjennom definisjonsmakt over hva som er «normalt», «verdifullt» og «korrekt». Når overklassens smak og kultur presenteres som «finkultur» og arbeiderklassens kultur avvises som «vulgær» eller «simpel», er dette et eksempel på symbolsk vold. Det avgjørende er at de som utsettes for symbolsk vold, ofte aksepterer den som legitim – de anerkjenner selv at deres egen kultur er «mindreverd». Bourdieu kalte dette mekanismen for miskjennelse (méconnaissance).\n\nSymbolsk vold er særlig virksom i utdanningssystemet. Skolen presenterer en bestemt type kultur og kunnskap som universell og nøytral, men denne kulturen sammenfaller i stor grad med overklassens og middelklassens kultur. Barn fra disse klassene opplever skolen som en naturlig forlengelse av hjemmekulturen, mens barn fra arbeiderklassen kan oppleve fremmedgjøring og utilstrekkelighet. Skolens «nøytralitet» maskerer at den bidrar til å reprodusere sosiale ulikheter gjennom kulturell seleksjon.',
+    },
+    {
+      id: 'sos-2-3-def-4',
+      type: 'definition',
+      title: 'Symbolsk vold (Pierre Bourdieu)',
+      content:
+        'Symbolsk vold er Pierre Bourdieus begrep for den formen for dominans som utøves gjennom kulturelle og symbolske midler – gjennom definisjonsmakt over hva som anses som verdifullt, normalt og korrekt. Symbolsk vold er virksom fordi den aksepteres som legitim av de som utsettes for den (miskjennelse). Utdanningssystemet er ifølge Bourdieu en sentral arena for symbolsk vold, fordi det presenterer en bestemt (klassebestemt) kultur som universell og nøytral.',
+    },
+    {
+      id: 'sos-2-3-example-5',
+      type: 'example',
+      title: 'Eksempel: Symbolsk vold i hverdagen',
+      content:
+        `Tenk deg en elev fra en arbeiderklassefamilie som begynner på universitetet. Hun oppdager at medstudentene diskuterer bøker hun aldri har hørt om, refererer til reiser hun aldri har vært på, og bruker et språk som er mer akademisk enn det hun er vant til hjemmefra. Hun føler seg «dum» og «utenfor» – ikke fordi hun mangler intelligens, men fordi hun mangler den kulturelle kapitalen som universitetet tar for gitt. Ifølge Bourdieu er dette symbolsk vold i praksis: Universitetets kultur presenteres som nøytral og universell, men den favoriserer systematisk dem som allerede besitter den «riktige» kulturelle kapitalen. Det mest virkningsfulle er at eleven selv aksepterer premisset – hun tror at hun er «dårligere» fordi hun ikke kjenner kodene, i stedet for å se at kodene er klassebaserte.`,
+    },
+    {
+      id: 'sos-2-3-text-6',
+      type: 'text',
+      title: 'Materielle og ikke-materielle kulturdimensjoner',
+      content:
+        'Sosiologer skiller gjerne mellom materiell kultur og ikke-materiell kultur. Materiell kultur omfatter de fysiske gjenstandene og artefaktene som mennesker skaper og bruker – bygninger, verktøy, klær, mattradisjoner, kunstverk, teknologi og infrastruktur. Ikke-materiell kultur omfatter de abstrakte elementene – verdier, normer, ideer, trosforestillinger, språk, symboler og kunnskapssystemer.\n\nDe to dimensjonene henger tett sammen. En moské er et materiell kulturobjekt, men den gjenspeiler og muliggjør ikke-materielle kulturelle praksiser som bønn, fellesskap og religiøs tro. En smarttelefon er et materiell kulturobjekt, men den er meningsfull bare innenfor rammen av den ikke-materielle kulturen som omgir den – forestillinger om kommunikasjon, tilgjengelighet, sosiale medier og personvern.\n\nSosiologen William F. Ogburn introduserte begrepet kulturelt etterslep (cultural lag) for å beskrive situasjoner der den materielle kulturen endrer seg raskere enn den ikke-materielle. Når ny teknologi introduseres, tar det ofte tid før normer, verdier og lovverk tilpasser seg. Sosiale medier er et godt eksempel: Teknologien ble utviklet og tatt i bruk lenge før samfunnet utviklet normer for ansvarlig bruk, personvern og regulering. Dette etterslepet kan skape sosiale spenninger og konflikter.',
+    },
+    {
       id: 'sos-2-3-exercise-4',
       type: 'exercise',
-      exerciseType: 'classic',
+      exerciseType: 'multiple-choice',
       title: 'Oppgave 4',
-      content:
-        'Gi eksempler på hver av Bourdieus tre former for kulturell kapital fra din egen hverdag. Diskuter: Hvordan kan ulik tilgang til kulturell kapital påvirke elevers muligheter i utdanningssystemet?',
+      content: 'Hva mener Bourdieu med symbolsk vold?',
+      options: [
+        'Fysisk vold som utøves i symbolske sammenhenger, som under demonstrasjoner.',
+        'Dominans som utøves gjennom kulturelle og symbolske midler, der de som domineres aksepterer dominansen som legitim.',
+        'Verbal trakassering og mobbing i skolen.',
+        'At symboler som flagg og nasjonalsanger brukes til å undertrykke minoriteter.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Symbolsk vold er Bourdieus begrep for dominans som utøves gjennom kulturelle midler – gjennom definisjonsmakt over hva som er verdifullt, normalt og korrekt. Det som gjør den særlig virksom, er at de som utsettes for den, ofte aksepterer den som legitim (miskjennelse). Skolen er ifølge Bourdieu en sentral arena for symbolsk vold.',
     },
     {
       id: 'sos-2-3-exercise-5',
@@ -460,14 +695,46 @@ export const CHAPTER_SOSIOLOGI_2_3: TextbookChapter = {
       exerciseType: 'classic',
       title: 'Oppgave 5',
       content:
+        'Gi eksempler på hver av Bourdieus tre former for kulturell kapital fra din egen hverdag. Diskuter: Hvordan kan ulik tilgang til kulturell kapital påvirke elevers muligheter i utdanningssystemet?',
+    },
+    {
+      id: 'sos-2-3-exercise-6',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 6',
+      content:
         'Velg en subkultur du kjenner til. Beskriv dens verdier, symboler og praksiser. Er det en subkultur eller en motkultur? Begrunn svaret ditt med fagbegreper.',
+    },
+    {
+      id: 'sos-2-3-exercise-7',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 7',
+      content: 'Hva menes med kulturell hybridisering?',
+      options: [
+        'At en kultur fullstendig erstatter en annen gjennom kolonisering.',
+        'At kulturelle elementer fra ulike tradisjoner blandes og skaper nye kulturelle former.',
+        'At alle kulturer egentlig er like.',
+        'At man bevisst velger de beste elementene fra hver kultur.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Kulturell hybridisering beskriver prosessen der elementer fra ulike kulturelle tradisjoner blandes og skaper noe nytt. Det er et alternativ til homogeniseringstesen, og viser at kulturell globalisering ikke nødvendigvis fører til ensretting, men til nye, mangfoldige blandingsformer.',
+    },
+    {
+      id: 'sos-2-3-exercise-8',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 8',
+      content:
+        `Diskuter påstanden: «Kulturell globalisering fører til at alle kulturer blir like.» Bruk begrepene homogenisering, hybridisering og glokalisering i diskusjonen, og gi konkrete eksempler som støtter eller svekker påstanden.`,
     },
     {
       id: 'sos-2-3-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Kulturbegrepet i sosiologien og sosialantropologien er bredt og omfatter hele den menneskeskapte delen av tilværelsen – verdier, normer, kunnskaper, symboler og levemåter. Innenfor et samfunn finnes det subkulturer (grupper med egne kulturelle særtrekk) og motkulturer (grupper som aktivt utfordrer den dominerende kulturen). Populærkultur spiller en stadig viktigere rolle i sosialisering og identitetsdannelse. Pierre Bourdieus begrep om kulturell kapital viser hvordan kulturelle ressurser – kroppsliggjort, objektivert og institusjonalisert – er ujevnt fordelt og bidrar til å reprodusere sosiale ulikheter. Kulturforståelse er derfor uløselig knyttet til forståelse av makt og ulikhet.',
+        'Kulturbegrepet i sosiologien og sosialantropologien er bredt og omfatter hele den menneskeskapte delen av tilværelsen – verdier, normer, kunnskaper, symboler og levemåter. Innenfor et samfunn finnes det subkulturer (grupper med egne kulturelle særtrekk) og motkulturer (grupper som aktivt utfordrer den dominerende kulturen). Populærkultur spiller en stadig viktigere rolle i sosialisering og identitetsdannelse. Pierre Bourdieus begrep om kulturell kapital viser hvordan kulturelle ressurser er ujevnt fordelt og bidrar til å reprodusere sosiale ulikheter, mens begrepet symbolsk vold beskriver hvordan dominans utøves gjennom definisjonsmakt over hva som er verdifullt. Kulturell globalisering fører ikke nødvendigvis til ensretting, men til hybridisering og glokalisering – nye blandingsformer der globale og lokale kulturuttrykk smelter sammen. Kulturforståelse er derfor uløselig knyttet til forståelse av makt, ulikhet og globale prosesser.',
     },
     {
       id: 'sos-2-3-exercise-6',
@@ -489,7 +756,7 @@ export const CHAPTER_SOSIOLOGI_2_4: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.4',
   title: 'Etnosentrisme og kulturrelativisme',
-  estimatedReadingTime: 18,
+  estimatedReadingTime: 35,
   exercises: [],
   content: [
     {
@@ -596,6 +863,48 @@ export const CHAPTER_SOSIOLOGI_2_4: TextbookChapter = {
         'Forklar forskjellen mellom metodisk kulturrelativisme og moralsk kulturrelativisme. Hvorfor er det viktig å skille mellom disse to i samfunnsvitenskapelig analyse?',
     },
     {
+      id: 'sos-2-4-text-4',
+      type: 'text',
+      title: 'Orientalisme og eurosentrisme',
+      content:
+        `Begrepet orientalisme ble introdusert av den palestinsk-amerikanske litteraturviteren Edward Said i hans banebrytende verk «Orientalism» (1978). Said analyserte hvordan Vesten historisk har konstruert et bilde av «Orienten» (Midtøsten, Asia, Nord-Afrika) som eksotisk, irrasjonell, passiv og tilbakestående – som en motsetning til det «rasjonelle», «dynamiske» og «siviliserte» Vesten. Denne forestillingen var ikke bare en uskyldig misforståelse, men et maktverktøy som ble brukt til å rettferdiggjøre kolonialisme og vestlig dominans.\n\nOrientalisme er en form for etnosentrisme, men den går dypere enn individuelle fordommer. Den er innvevd i vestlig kultur, kunst, vitenskap og politikk, og den påvirker fortsatt hvordan vestlige medier og institusjoner fremstiller ikke-vestlige kulturer. Når muslimer i mediene konsekvent assosieres med terrorisme, når afrikanske land omtales primært i sammenheng med fattigdom og krig, og når asiatiske kulturer reduseres til eksotiske stereotyper, ser vi etterklangen av orientalistiske tankemønstre.\n\nEurosentrisme er et beslektet begrep som beskriver tendensen til å sette Europa (og den bredere vestlige sivilisasjonen) i sentrum av verdenshistorien og behandle den som målestokk for alle andre sivilisasjoner. Eurosentrismen har preget mye av vestlig historieskrivning, der ikke-vestlige samfunn ofte fremstilles som «underutviklede» versjoner av vestlige samfunn, snarere enn som samfunn med sin egen gyldige historie og utvikling.\n\nI nyere tid har postkolonial teori utfordret både orientalisme og eurosentrisme ved å gi stemme til perspektivene fra tidligere koloniserte folk og ved å problematisere vestlige kunnskapstradisjoners antatte universalitet.`,
+    },
+    {
+      id: 'sos-2-4-def-3',
+      type: 'definition',
+      title: 'Orientalisme (Edward Said)',
+      content:
+        `Orientalisme er Edward Saids begrep for den vestlige tradisjonen der «Orienten» (Midtøsten, Asia, Nord-Afrika) konstrueres som Vestens «andre» – eksotisk, irrasjonell og tilbakestående. Said viste at denne konstruksjonen ikke var nøytral, men fungerte som et maktverktøy som legitimerte kolonialisme og vestlig dominans. Orientalisme preger fortsatt vestlige fremstillinger av ikke-vestlige kulturer.`,
+    },
+    {
+      id: 'sos-2-4-example-4',
+      type: 'example',
+      title: 'Eksempel: Orientalisme i mediene',
+      content:
+        `Når en norsk avis skriver om Saudi-Arabia, fokuseres det gjerne på kvinneundertrykking, strenge straffer og religiøs konservatisme. Når samme avis skriver om Norge, fokuseres det på likestilling, demokrati og menneskerettigheter. Denne asymmetrien i fremstillingen kan analyseres som en form for orientalisme: Det arabiske samfunnet fremstilles som Norges motsetning – «de undertrykkende» mot «de frigjorte». Slike fremstillinger er ikke nødvendigvis usanne, men de er selektive – de utelater for eksempel Saudi-Arabias rike kulturarv, de interne reformbevegelsene, og Norges egne utfordringer med likestilling. Said ville argumentert for at denne selektive fremstillingen bidrar til å opprettholde et hierarkisk verdensbilde der Vesten er «normalt» og Midtøsten er «problematisk».`,
+    },
+    {
+      id: 'sos-2-4-text-5',
+      type: 'text',
+      title: 'Kulturforståelse i en globalisert verden',
+      content:
+        'I en verden preget av globalisering, migrasjon og kulturmøter er evnen til kulturforståelse viktigere enn noensinne. Kulturforståelse handler om å kunne se verden fra andres perspektiv, forstå at ens egne kulturelle normer ikke er universelle, og anerkjenne at meningsfulle liv kan leves på mange forskjellige måter.\n\nEn nyttig tilnærming er det sosiologen Ninian Smart kalte «empathetic understanding» – empatisk forståelse. Det innebærer å forsøke å forstå en annen kulturs praksiser, verdier og trosforestillinger «innenfra», slik de oppleves av dem som lever innenfor denne kulturen. Dette betyr ikke at man nødvendigvis er enig med alt man forstår, men at man gjør en ærlig innsats for å se verden gjennom andres briller.\n\nSamtidig er det viktig å unngå det som kan kalles «kulturell essensialisme» – forestillingen om at kulturer er faste, enhetlige og uforanderlige blokker. I virkeligheten er alle kulturer mangfoldige, dynamiske og i kontinuerlig endring. Det finnes ikke én «norsk kultur» eller én «somalisk kultur» – det finnes mange varianter, spenninger og debatter innenfor enhver kulturell tradisjon. Å anerkjenne dette mangfoldet er avgjørende for å unngå stereotypier.\n\nDen kanadiske filosofen Charles Taylor har argumentert for en «anerkjennelsens politikk» – at et rettferdig samfunn krever at alle kulturelle grupper anerkjennes som likeverdige og behandles med respekt. Taylor mener at manglende anerkjennelse kan påføre individer og grupper alvorlig skade, fordi identiteten vår er delvis formet av andres anerkjennelse eller fravær av anerkjennelse. Hvis et samfunn systematisk nedvurderer en bestemt kulturgruppes verdier og livsmåte, internaliserer medlemmene av denne gruppen et negativt selvbilde.',
+    },
+    {
+      id: 'sos-2-4-def-4',
+      type: 'definition',
+      title: 'Kulturell essensialisme',
+      content:
+        'Kulturell essensialisme er forestillingen om at kulturer er faste, enhetlige og uforanderlige enheter med en bestemt «essens» eller «kjerne». Denne forståelsen overser at kulturer alltid er mangfoldige, dynamiske og i endring, og at det finnes stor variasjon innenfor enhver kulturell tradisjon. Kulturell essensialisme kan føre til stereotypisering og overdrevne generaliseringer om kulturelle grupper.',
+    },
+    {
+      id: 'sos-2-4-example-5',
+      type: 'example',
+      title: 'Eksempel: Kulturell essensialisme i praksis',
+      content:
+        `Påstanden «muslimer er slik og slik» er et eksempel på kulturell essensialisme. Den behandler over 1,8 milliarder mennesker – fra Marokko til Indonesia, fra fattige bønder til rike forretningsfolk, fra konservative tradisjonalister til liberale reformister – som en enhetlig gruppe med felles egenskaper. I virkeligheten er det enorme forskjeller mellom muslimer med hensyn til tolkning av religionen, kulturelle praksiser, politiske holdninger og levemåter. En somalisk-norsk jente i Oslo, en sekulær forretningsmann i Istanbul og en streng wahhabi-predikant i Saudi-Arabia kan alle kalle seg muslimer, men de lever svært forskjellige liv og deler kanskje bare et minimum av felles trosforestillinger. Å redusere denne mangfoldigheten til en «essens» er en alvorlig overforenkling.`,
+    },
+    {
       id: 'sos-2-4-exercise-4',
       type: 'exercise',
       exerciseType: 'multiple-choice',
@@ -620,11 +929,51 @@ export const CHAPTER_SOSIOLOGI_2_4: TextbookChapter = {
         'Gi et eksempel fra norsk samfunnsdebatt der etnosentrisme og kulturrelativisme står mot hverandre. Analyser de ulike argumentene i debatten ved hjelp av fagbegreper fra dette kapittelet.',
     },
     {
+      id: 'sos-2-4-exercise-6',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 6',
+      content: `Hva er Edward Saids hovedpoeng i «Orientalism»?`,
+      options: [
+        `At østlige kulturer er overlegne vestlige kulturer.`,
+        `At Vesten har konstruert et stereotypisk bilde av «Orienten» som eksotisk og tilbakestående, noe som fungerte som maktverktøy for kolonialisme.`,
+        `At kulturutveksling mellom Østen og Vesten alltid har vært likeverdig.`,
+        `At orientalsk kunst er mer verdifull enn vestlig kunst.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Said viste at Vesten historisk har konstruert «Orienten» som sin «andre» – eksotisk, irrasjonell og tilbakestående. Denne konstruksjonen var ikke nøytral, men et maktverktøy som legitimerte kolonialisme og vestlig dominans. Orientalisme er en dypere form for etnosentrisme som er innvevd i vestlig kultur og vitenskap.`,
+    },
+    {
+      id: 'sos-2-4-exercise-7',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 7',
+      content:
+        `Forklar hva kulturell essensialisme er, og diskuter hvorfor det er problematisk å snakke om kulturer som om de er faste og enhetlige. Gi eksempler fra norsk samfunnsdebatt der kulturell essensialisme kommer til uttrykk.`,
+    },
+    {
+      id: 'sos-2-4-exercise-8',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 8',
+      content: 'Hva menes med kulturell essensialisme?',
+      options: [
+        'At noen kulturer er essensielt bedre enn andre.',
+        'At kulturer er faste, enhetlige og uforanderlige enheter med en bestemt kjerne.',
+        'At alle kulturer deler en felles menneskelig essens.',
+        'At kulturelle forskjeller er biologisk betinget.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Kulturell essensialisme er forestillingen om at kulturer har en fast, uforanderlig «essens» som definerer alle medlemmene. Denne forståelsen overser at kulturer alltid er mangfoldige, dynamiske og i endring, og kan føre til stereotypisering og overdrevne generaliseringer.',
+    },
+    {
       id: 'sos-2-4-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Etnosentrisme innebærer å vurdere andre kulturer ut fra sin egen kulturs målestokk, og kan lede til fordommer, stereotypier og diskriminering. Kulturrelativisme er det motsatte prinsippet: å forstå andre kulturer på deres egne premisser. Som metodisk verktøy er kulturrelativisme avgjørende for god samfunnsvitenskapelig forståelse. Men kulturrelativismen har grenser – universelle menneskerettigheter setter en ramme for hvilke praksiser som kan aksepteres uavhengig av kulturell kontekst. Utfordringen ligger i å balansere respekt for kulturelt mangfold med beskyttelse av grunnleggende rettigheter.',
+        'Etnosentrisme innebærer å vurdere andre kulturer ut fra sin egen kulturs målestokk, og kan lede til fordommer, stereotypier og diskriminering. Kulturrelativisme er det motsatte prinsippet: å forstå andre kulturer på deres egne premisser. Som metodisk verktøy er kulturrelativisme avgjørende for god samfunnsvitenskapelig forståelse. Men kulturrelativismen har grenser – universelle menneskerettigheter setter en ramme for hvilke praksiser som kan aksepteres uavhengig av kulturell kontekst. Edward Saids orientalisme-begrep avslører hvordan Vesten har konstruert bilder av «de andre» som maktverktøy, og minner oss om at etnosentrisme kan være innvevd i kultur og vitenskap. Kulturell essensialisme – forestillingen om at kulturer er faste og enhetlige – bør unngås fordi alle kulturer er mangfoldige og i endring. Utfordringen ligger i å balansere respekt for kulturelt mangfold med beskyttelse av grunnleggende rettigheter.',
     },
     {
       id: 'sos-2-4-exercise-6',
@@ -646,7 +995,7 @@ export const CHAPTER_SOSIOLOGI_2_5: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.5',
   title: 'Flerkulturelle samfunn',
-  estimatedReadingTime: 20,
+  estimatedReadingTime: 38,
   exercises: [],
   content: [
     {
@@ -746,6 +1095,55 @@ export const CHAPTER_SOSIOLOGI_2_5: TextbookChapter = {
         'Gjør rede for de tre begrepene integrering, assimilering og segregering. Gi et historisk eksempel på hver av dem, og diskuter hvilken tilnærming du mener er mest hensiktsmessig i et moderne flerkulturelt samfunn.',
     },
     {
+      id: 'sos-2-5-text-4',
+      type: 'text',
+      title: 'Rasisme og diskriminering',
+      content:
+        `Rasisme og diskriminering er blant de mest alvorlige utfordringene i flerkulturelle samfunn. Rasisme kan defineres som en ideologi som hevder at det finnes biologiske eller kulturelle forskjeller mellom menneskegrupper som gjør noen grupper overlegne andre. I sosiologien skiller man gjerne mellom flere former for rasisme.\n\nBiologisk rasisme – den «klassiske» rasismen – hevder at det finnes biologiske raser med ulike medfødte egenskaper, og at noen raser er overlegne andre. Denne formen for rasisme ble brukt til å rettferdiggjøre slaveri, kolonialisme og folkemord, og er i dag vitenskapelig tilbakevist. Moderne genetikk har vist at «rase» ikke er en biologisk kategori – den genetiske variasjonen innenfor folkegrupper er større enn variasjonen mellom dem.\n\nKulturell rasisme (nyrasisme) har i stor grad erstattet den biologiske rasismen i moderne samfunn. I stedet for å hevde at noen raser er biologisk overlegne, hevdes det at noen kulturer er «uforenlige» med andre, eller at kulturell diversitet er en trussel mot det nasjonale fellesskapet. Argumentene formuleres gjerne uten direkte referanser til rase, men effekten er den samme: bestemte grupper marginaliseres og stigmatiseres basert på sin kulturelle bakgrunn.\n\nStrukturell rasisme refererer til de systematiske ulikhetene mellom grupper som opprettholdes gjennom samfunnets institusjoner og strukturer – uten at noen enkeltperson nødvendigvis handler rasistisk. Når innvandrere systematisk har lavere sysselsetting, lavere inntekt, dårligere helse og dårligere boforhold enn majoritetsbefolkningen, kan dette skyldes strukturell rasisme – diskriminering som er innvevd i arbeidsmarkedets, boligmarkedets og helsevesenets fungering.\n\nDiskriminering handler om å behandle mennesker ulikt på grunnlag av kjennetegn som etnisitet, religion, kjønn eller funksjonsevne. Diskriminering kan være direkte (en arbeidsgiver avviser en kvalifisert søker på grunn av utenlandsk navn) eller indirekte (tilsynelatende nøytrale regler eller praksiser som i praksis rammer bestemte grupper uforholdsmessig).`,
+    },
+    {
+      id: 'sos-2-5-def-3',
+      type: 'definition',
+      title: 'Strukturell rasisme',
+      content:
+        'Strukturell rasisme refererer til de systematiske ulikhetene mellom etniske grupper som opprettholdes gjennom samfunnets institusjoner, strukturer og praksiser – uten at det nødvendigvis foreligger bevisst rasistisk motivasjon fra enkeltpersoner. Strukturell rasisme kan komme til uttrykk gjennom systematisk diskriminering i arbeidsmarkedet, boligmarkedet, utdanningssystemet og rettsvesenet.',
+    },
+    {
+      id: 'sos-2-5-example-3',
+      type: 'example',
+      title: 'Eksempel: Diskriminering på det norske arbeidsmarkedet',
+      content:
+        `Forskning har gjentatte ganger vist at jobbsøkere med utenlandsk-klingende navn har lavere sjanse for å bli kalt inn til intervju enn søkere med norsk-klingende navn – selv når kvalifikasjonene er identiske. I et kjent eksperiment sendte forskere to identiske søknader til de samme jobbene, men med ulike navn (for eksempel «Hassan» og «Erik»). «Erik» ble innkalt til intervju betydelig oftere. Dette er et eksempel på direkte diskriminering som bidrar til strukturell rasisme: Selv om ingen lov åpent diskriminerer, fører individuelle fordommer til systematisk ulikhet i utfall. For den enkelte jobbsøker oppleves dette som en usynlig barriere som er vanskelig å bevise og bekjempe.`,
+    },
+    {
+      id: 'sos-2-5-text-5',
+      type: 'text',
+      title: 'Transnasjonalisme og diaspora',
+      content:
+        'I en globalisert verden er kulturell tilhørighet ikke lenger nødvendigvis knyttet til ett territorium. Begrepet transnasjonalisme brukes om de båndene og forbindelsene migranter opprettholder på tvers av landegrenser – til hjemland, familiemedlemmer i andre land, og diaspora-fellesskap over hele verden. Mange mennesker lever i dag «transnasjonale liv» der de pendler mellom kulturer, språk og tilhørigheter.\n\nDiaspora refererer opprinnelig til den jødiske spredningen etter ødeleggelsen av tempelet i Jerusalem, men brukes i dag mer generelt om folkegrupper som lever spredt utenfor sitt opprinnelige hjemland, men som opprettholder en felles identitet og tilknytning til hjemlandet. Den somaliske, den kurdiske og den pakistanske diasporaen i Norge er eksempler på slike fellesskap.\n\nTransnasjonale forbindelser har blitt styrket av digitaliseringen. Migranter kan holde daglig kontakt med familie i hjemlandet gjennom videosamtaler, følge hjemlandets medier i sanntid, og delta i politiske debatter på tvers av grenser. Dette skaper «flerstedstilhørighet» – en opplevelse av å tilhøre flere steder og kulturer samtidig. For mange er dette berikende, men det kan også skape spenninger og en følelse av å «ikke helt tilhøre» noe sted.\n\nBegrepet «bindestrek-identitet» brukes ofte om mennesker som lever mellom to kulturer – «norsk-somalisk», «norsk-pakistansk» og lignende. Disse identitetene er ikke halve eller delte, men sammensatte og dynamiske. Forskning viser at mange «bindestrek-nordmenn» opplever sin flerkulturelle identitet som en ressurs – de har tilgang til flere kulturelle koder, språk og nettverk enn de som bare har én kulturell tilhørighet.',
+    },
+    {
+      id: 'sos-2-5-def-4',
+      type: 'definition',
+      title: 'Diaspora',
+      content:
+        'Diaspora refererer til en folkegruppe som lever spredt utenfor sitt opprinnelige hjemland, men som opprettholder en felles identitet og tilknytning til hjemlandet. Diaspora-fellesskap kjennetegnes ofte av en sterk bevissthet om felles opprinnelse, kulturelle tradisjoner som vedlikeholdes i det nye landet, og transnasjonale bånd til hjemland og andre deler av diasporaen.',
+    },
+    {
+      id: 'sos-2-5-example-4',
+      type: 'example',
+      title: 'Eksempel: Transnasjonalt liv',
+      content:
+        `Ahmed vokste opp i Tøyen i Oslo med foreldre fra Somalia. Han snakker norsk, somali og engelsk. Han følger norske nyheter, men også somalisk politikk gjennom sosiale medier. Han feirer eid med familien, men også 17. mai med vennene. Han sender penger til slektninger i Mogadishu og planlegger en ferietur dit. Han studerer på universitet i Oslo, men vurderer å ta et utvekslingssemester i London der han har slektninger. Ahmeds liv er transnasjonalt – det spenner over flere land, kulturer og tilhørigheter. Han er verken «bare norsk» eller «bare somalisk», men begge deler og mer. For ham er dette ikke en motsetning, men en sammensatt identitet som gir ham tilgang til ulike verdener.`,
+    },
+    {
+      id: 'sos-2-5-text-6',
+      type: 'text',
+      title: 'Fordommer, stereotypier og fremmedfrykt',
+      content:
+        `Fordommer er forhåndsdømte holdninger til personer eller grupper basert på deres tilhørighet til en bestemt kategori (etnisitet, religion, kjønn, seksuell orientering osv.). Fordommer bygger gjerne på stereotypier – forenklede og generaliserende oppfatninger om en gruppes egenskaper. Mens stereotypier er kognitive (de handler om hva vi tror om en gruppe), er fordommer emosjonelle (de handler om hva vi føler overfor gruppen).\n\nFremmedfrykt (xenofobi) er en intens frykt for eller fiendtlighet mot mennesker som oppfattes som «fremmede» eller «annerledes». Fremmedfrykt kan ha mange årsaker: personlige erfaringer, mediepåvirkning, økonomisk usikkerhet, kulturell utrygghet og politisk mobilisering. Forskning viser at fremmedfrykt ofte er sterkest i områder med lite faktisk kontakt med innvandrere – noe som kalles kontaktparadokset.\n\nSosialpsykologen Gordon Allport formulerte i boken «The Nature of Prejudice» (1954) kontakthypotesen, som hevder at kontakt mellom grupper under visse betingelser kan redusere fordommer. Betingelsene er: (1) lik status mellom gruppene i kontaktsituasjonen, (2) felles mål, (3) samarbeid (ikke konkurranse), og (4) institusjonell støtte. Forskning har i stor grad bekreftet hypotesen – interkulturell kontakt under gunstige betingelser reduserer fordommer og øker forståelse.`,
+    },
+    {
       id: 'sos-2-5-exercise-4',
       type: 'exercise',
       exerciseType: 'multiple-choice',
@@ -770,11 +1168,51 @@ export const CHAPTER_SOSIOLOGI_2_5: TextbookChapter = {
         'Diskuter utfordringer og muligheter knyttet til flerkulturalitet i norsk skole. Hvordan kan skolen bidra til integrering uten at det blir assimilering?',
     },
     {
+      id: 'sos-2-5-exercise-6',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 6',
+      content: 'Hva er strukturell rasisme?',
+      options: [
+        'Rasisme som bare finnes i strukturerte organisasjoner som bedrifter og offentlige etater.',
+        'Systematiske ulikheter mellom etniske grupper som opprettholdes gjennom samfunnets institusjoner og strukturer.',
+        'Rasisme som uttrykkes gjennom strukturerte argumenter og debatter.',
+        'En form for rasisme som bare finnes i diktaturer.',
+      ],
+      correctAnswer: 1,
+      explanation:
+        'Strukturell rasisme refererer til systematiske ulikheter mellom etniske grupper som opprettholdes gjennom samfunnets institusjoner, strukturer og praksiser – uten at det nødvendigvis foreligger bevisst rasistisk motivasjon fra enkeltpersoner. Det kan komme til uttrykk gjennom diskriminering i arbeidsmarked, boligmarked, utdanning og rettsvesen.',
+    },
+    {
+      id: 'sos-2-5-exercise-7',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 7',
+      content:
+        `Forklar hva som menes med transnasjonalisme og diaspora. Diskuter: Hvilke muligheter og utfordringer skaper transnasjonale tilhørigheter for den enkelte og for samfunnet?`,
+    },
+    {
+      id: 'sos-2-5-exercise-8',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 8',
+      content: `Hva sier Allports kontakthypotese?`,
+      options: [
+        `At all kontakt mellom ulike kulturer fører til konflikter.`,
+        `At kontakt mellom grupper under visse betingelser (lik status, felles mål, samarbeid, institusjonell støtte) kan redusere fordommer.`,
+        `At mennesker med fordommer bør unngå kontakt med andre grupper.`,
+        `At kontakthypotesen bare gjelder for barn og unge.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Allports kontakthypotese hevder at kontakt mellom grupper under gunstige betingelser kan redusere fordommer. Betingelsene er lik status mellom gruppene, felles mål, samarbeid og institusjonell støtte. Forskning har i stor grad bekreftet hypotesen – interkulturell kontakt under disse betingelsene øker forståelse og reduserer fordommer.`,
+    },
+    {
       id: 'sos-2-5-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Et flerkulturelt samfunn er et samfunn der mennesker med ulik kulturell bakgrunn lever sammen. Hvordan samfunnet håndterer dette mangfoldet, kan beskrives gjennom begrepene integrering (deltakelse med bevart kulturell identitet), assimilering (oppgivelse av opprinnelig kultur) og segregering (adskillelse av grupper). Norge har historisk sett vært flerkulturelt gjennom urfolk og nasjonale minoriteter, og har blitt ytterligere mangfoldig gjennom nyere innvandring. Norsk integreringspolitikk søker å kombinere deltakelse i fellesarenaer med respekt for kulturelt mangfold, men utfordringene er mange og debatten pågår.',
+        'Et flerkulturelt samfunn er et samfunn der mennesker med ulik kulturell bakgrunn lever sammen. Hvordan samfunnet håndterer dette mangfoldet, kan beskrives gjennom begrepene integrering (deltakelse med bevart kulturell identitet), assimilering (oppgivelse av opprinnelig kultur) og segregering (adskillelse av grupper). Rasisme – biologisk, kulturell og strukturell – og diskriminering er blant de mest alvorlige utfordringene i flerkulturelle samfunn. Transnasjonalisme og diaspora viser at kulturell tilhørighet i en globalisert verden spenner over landegrenser, og at mange mennesker lever med sammensatte «bindestrek-identiteter». Fordommer og stereotypier kan reduseres gjennom interkulturell kontakt under gunstige betingelser (Allports kontakthypotese). Norge har historisk sett vært flerkulturelt gjennom urfolk og nasjonale minoriteter, og har blitt ytterligere mangfoldig gjennom nyere innvandring.',
     },
     {
       id: 'sos-2-5-exercise-6',
@@ -796,7 +1234,7 @@ export const CHAPTER_SOSIOLOGI_2_6: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.6',
   title: 'Avvik og sosial kontroll',
-  estimatedReadingTime: 20,
+  estimatedReadingTime: 40,
   exercises: [],
   content: [
     {
@@ -919,6 +1357,69 @@ export const CHAPTER_SOSIOLOGI_2_6: TextbookChapter = {
         'Forklar begrepet sekundæravvik med egne ord. Gi et eksempel på hvordan stempling kan føre til en selvoppfyllende profeti.',
     },
     {
+      id: 'sos-2-6-text-4',
+      type: 'text',
+      title: `Durkheims funksjonalistiske perspektiv på avvik`,
+      content:
+        `Den franske sosiologen Emile Durkheim (1858–1917) hadde et overraskende perspektiv på avvik: Han mente at avvik er en normal og nødvendig del av ethvert samfunn. I verket «The Rules of Sociological Method» (1895) argumenterte Durkheim for at et samfunn helt uten avvik verken er mulig eller ønskelig.\n\nDurkheim pekte på flere funksjoner avvik kan ha i samfunnet. For det første bidrar avvik til å klargjøre og forsterke samfunnets normer og grenser. Når en person bryter en norm og straffes for det, sender dette et signal til resten av samfunnet om hva som er akseptabel og uakseptabel atferd. Rettssaker og straff er offentlige ritualer som bekrefter samfunnets moralske grenser.\n\nFor det andre kan avvik fungere som en kilde til sosial endring. Det som i dag regnes som avvikende, kan i morgen bli normalt – og omvendt. De som kjempet for kvinners stemmerett, avskaffelse av slaveriet eller aksept av homofili, ble i sin tid betraktet som avvikere. Uten slike «avvikere» ville samfunnet stagnere.\n\nFor det tredje kan reaksjonen på avvik styrke sosial solidaritet. Når et samfunn reagerer kollektivt på en forbrytelse eller et normbrudd, forsterkes følelsen av fellesskap og samhørighet. Durkheim observerte dette fenomenet i forbindelse med alvorlige hendelser som drap og terrorangrep – samfunnet «samler seg» i fordømmelse og sorg.\n\nDurkheim innførte også begrepet anomi for å beskrive en tilstand der samfunnets normer og regler har brutt sammen eller er uklare, noe som fører til desorientering, usikkerhet og økt forekomst av avvikende atferd. Anomi kan oppstå i perioder med rask sosial endring, økonomisk krise eller fundamentale verdiendringer.`,
+    },
+    {
+      id: 'sos-2-6-def-3',
+      type: 'definition',
+      title: 'Anomi (Emile Durkheim)',
+      content:
+        `Anomi er Durkheims begrep for en tilstand der samfunnets normer og regler har brutt sammen, er uklare eller utilstrekkelige. I en anomisk tilstand mangler individet klare retningslinjer for atferd, noe som fører til desorientering, usikkerhet og økt forekomst av avvikende atferd. Durkheim knyttet anomi til selvmord, kriminalitet og sosial uro, og mente at det særlig oppstår i perioder med rask sosial endring.`,
+    },
+    {
+      id: 'sos-2-6-example-4',
+      type: 'example',
+      title: 'Eksempel: Avvik som kilde til sosial endring',
+      content:
+        `Rosa Parks nektet i 1955 å gi fra seg plassen sin til en hvit passasjer på en buss i Montgomery, Alabama. Handlingen var et lovbrudd – hun brøt med segregeringslovene som gjaldt i de amerikanske sørstatene. I sin samtid ble hun behandlet som en avviker: Hun ble arrestert og bøtelagt. Men hennes «avvikende» handling utløste Montgomery-bussboikotten og ble en av katalysatorene for den amerikanske borgerrettighetsbevegelsen. I dag feires hun som en helt. Dette eksempelet illustrerer Durkheims poeng om at avvik kan være en motor for sosial endring – den som bryter med urettferdige normer, kan bidra til å endre dem.`,
+    },
+    {
+      id: 'sos-2-6-text-5',
+      type: 'text',
+      title: `Mertons anomi-teori og strainteori`,
+      content:
+        `Den amerikanske sosiologen Robert K. Merton (1910–2003) videreutviklet Durkheims anomi-begrep i sin innflytelsesrike strain-teori (anomi-strain-teori), presentert i artikkelen «Social Structure and Anomie» (1938). Merton observerte at samfunnet setter opp kulturelle mål (som materiell suksess og rikdom) som alle forventes å strebe etter, men at de legitime midlene for å nå disse målene (utdanning, jobb, nettverk) er ujevnt fordelt. Denne spenningen – mellom universelle mål og ulike muligheter – skaper «strain» (press) som kan føre til avvikende atferd.\n\nMerton identifiserte fem ulike tilpasningsmåter som individer kan velge i møte med denne spenningen:\n\n1. Konformitet – man aksepterer både målene og midlene, og følger samfunnets spilleregler. De fleste mennesker er konformister mesteparten av tiden.\n\n2. Innovasjon – man aksepterer målene (f.eks. rikdom), men bruker illegitime midler for å nå dem (f.eks. kriminalitet, svindel, narkotikahandel). Merton mente dette var den vanligste formen for avvikende atferd.\n\n3. Ritualisme – man gir opp de kulturelle målene (f.eks. ambisjonen om rikdom), men følger trofast de institusjonelle midlene (f.eks. fortsetter å gå på jobb uten entusiasme). Ritualisten «gjør som man skal» uten å tro på at det nytter.\n\n4. Retreatisme – man forkaster både målene og midlene, og «trekker seg ut» av samfunnet. Rusavhengige, uteliggere og sosialt isolerte personer er eksempler på retreatister ifølge Merton.\n\n5. Opprør – man forkaster de eksisterende målene og midlene og forsøker å erstatte dem med nye. Revolusjonære, radikale aktivister og ideologiske opprørere er eksempler på denne tilpasningsmåten.\n\nMertons teori har vært svært innflytelsesrik fordi den viser at avvik ikke er et resultat av individuell patologi, men av strukturelle spenninger i samfunnet. Kriminalitet og avvik oppstår ikke fordi noen mennesker er «onde», men fordi samfunnet systematisk ekskluderer bestemte grupper fra de legitime veiene til suksess.`,
+    },
+    {
+      id: 'sos-2-6-def-4',
+      type: 'definition',
+      title: `Strain-teori (Robert K. Merton)`,
+      content:
+        `Mertons strain-teori (anomi-strain-teori) hevder at avvikende atferd oppstår som følge av spenningen mellom samfunnets kulturelle mål (som materiell suksess) og den ulike fordelingen av legitime midler for å nå disse målene. Når individer ikke har tilgang til legitime midler, kan de ty til innovasjon (illegitime midler), ritualisme, retreatisme eller opprør. Teorien forklarer avvik som et strukturelt, ikke individuelt, fenomen.`,
+    },
+    {
+      id: 'sos-2-6-example-5',
+      type: 'example',
+      title: 'Eksempel: Mertons strain-teori i norsk kontekst',
+      content:
+        `I Norge presenteres utdanning som den viktigste veien til suksess og et godt liv. Men ikke alle har like muligheter til å lykkes i utdanningssystemet. En ungdom fra en marginalisert bydel med lav kulturell kapital, ustabil hjemmesituasjon og lite støtte hjemmefra, kan oppleve at den «legitime veien» til suksess er blokkert. Ifølge Mertons strain-teori kan dette presset føre til «innovasjon» – at ungdommen søker alternative, illegitime veier til status og penger, for eksempel gjennom narkotikasalg eller kriminalitet. Disse miljøene tilbyr den anerkjennelsen, tilhørigheten og de materielle godene som den legitime veien ikke ga tilgang til. Mertons poeng er at vi ikke kan forstå denne atferden uten å se den i lys av de strukturelle barrierene ungdommen møter.`,
+    },
+    {
+      id: 'sos-2-6-text-6',
+      type: 'text',
+      title: 'Moralsk panikk – Stanley Cohen',
+      content:
+        `Den britiske sosiologen Stanley Cohen (1942–2013) introduserte begrepet moralsk panikk i sitt verk «Folk Devils and Moral Panics» (1972). Cohen analyserte medienes og offentlighetens reaksjon på sammenstøt mellom ungdomsgruppene «mods» og «rockers» ved engelske badebyer i 1964. Han viste at medienes dekning var sterkt overdrevet og sensasjonspreget, og at dette skapte en samfunnsmessig panikk som var ute av proporsjon med de faktiske hendelsene.\n\nMoralsk panikk oppstår ifølge Cohen når en gruppe, en hendelse eller en tilstand defineres som en trussel mot samfunnets verdier og interesser. Prosessen følger et mønster: (1) Noe eller noen utpekes som en trussel – «folk devils» (folkefiender). (2) Mediene forsterker og forvrenger trusselen gjennom sensasjonspreget dekning. (3) Eksperter, politikere og moralske autoriteter krever handling. (4) Myndighetene reagerer med strengere kontroll og regulering. (5) Panikken avtar gradvis – enten fordi trusselen «forsvinner» eller fordi oppmerksomheten flyttes til noe annet.\n\nMoralsk panikk er relevant for å forstå hvordan samfunnet definerer og reagerer på avvik. De gruppene som blir «folk devils», er ofte allerede marginaliserte – ungdom, innvandrere, subkulturer, seksuelle minoriteter. Moralsk panikk forsterker stemplingen av disse gruppene og kan legitimere strengere sosial kontroll.\n\nModerne eksempler på moralsk panikk inkluderer reaksjoner på dataspill og voldelig atferd, frykt for «svenske tilstander» i norsk innvandringsdebatt, og bekymring for at sosiale medier ødelegger ungdommens mentale helse. I hvert tilfelle er det viktig å analysere om reaksjonen står i forhold til den faktiske trusselen, og hvem som tjener på at panikken opprettholdes.`,
+    },
+    {
+      id: 'sos-2-6-def-5',
+      type: 'definition',
+      title: 'Moralsk panikk (Stanley Cohen)',
+      content:
+        `Moralsk panikk er et begrep som beskriver en situasjon der en gruppe, hendelse eller tilstand blir definert som en trussel mot samfunnet, og der reaksjonen er ute av proporsjon med den faktiske trusselen. Prosessen involverer «folkefiender» (folk devils), medieforsterkning, ekspertuttalelser og krav om strengere kontroll. Begrepet ble introdusert av Stanley Cohen i 1972 og brukes til å analysere hvordan samfunnet konstruerer og reagerer på opplevde trusler.`,
+    },
+    {
+      id: 'sos-2-6-example-6',
+      type: 'example',
+      title: 'Eksempel: Moralsk panikk om dataspill',
+      content:
+        `På 1990- og 2000-tallet oppstod det gjentatte moralske panikkbølger rundt voldelige dataspill. Etter skoleskytinger i USA (Columbine 1999, Sandy Hook 2012) pekte politikere og medier på dataspill som en årsak til volden. Spillere ble fremstilt som «folk devils» – sosialt isolerte unge menn som ble «programmert» til vold av dataspill. Forskning har imidlertid gjentatte ganger vist at sammenhengen mellom dataspill og reell vold er svak eller fraværende. Kriminaliteten blant unge har faktisk sunket i perioden der dataspill har blitt mest utbredt. Likevel førte den moralske panikken til krav om strengere aldersgrenser, sensur og regulering. Eksempelet illustrerer Cohens poeng: Moralsk panikk handler ofte mer om samfunnets angst og behov for syndebukker enn om den faktiske trusselen.`,
+    },
+    {
       id: 'sos-2-6-exercise-5',
       type: 'exercise',
       exerciseType: 'classic',
@@ -927,11 +1428,59 @@ export const CHAPTER_SOSIOLOGI_2_6: TextbookChapter = {
         'Diskuter: Hvordan kan uformell sosial kontroll blant ungdom både ha positive og negative konsekvenser? Bruk eksempler fra skole- eller fritidsmiljø.',
     },
     {
+      id: 'sos-2-6-exercise-6',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 6',
+      content: `Ifølge Durkheim har avvik en positiv funksjon i samfunnet. Hva er denne funksjonen?`,
+      options: [
+        `Avvik gjør samfunnet mer underholdende og fargerikt.`,
+        `Avvik bidrar til å klargjøre normer, styrke sosial solidaritet og kan være en kilde til sosial endring.`,
+        `Avvik gir politiet noe å gjøre.`,
+        `Avvik er alltid positivt og bør oppmuntres.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Durkheim mente at avvik har flere funksjoner: Det klargjør og forsterker samfunnets normer (gjennom reaksjoner på normbrudd), det styrker sosial solidaritet (samfunnet samler seg i fordømmelse), og det kan være en motor for sosial endring (avvikere som utfordrer urettferdige normer). Durkheim mente at et visst nivå av avvik er normalt og nødvendig i ethvert samfunn.`,
+    },
+    {
+      id: 'sos-2-6-exercise-7',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 7',
+      content: `Hvilken tilpasningsmåte i Mertons strain-teori beskriver en person som bruker kriminalitet for å oppnå materiell suksess?`,
+      options: [
+        `Konformitet.`,
+        `Innovasjon.`,
+        `Ritualisme.`,
+        `Retreatisme.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Innovasjon i Mertons strain-teori innebærer at individet aksepterer samfunnets kulturelle mål (f.eks. rikdom og suksess), men bruker illegitime midler for å nå dem (f.eks. kriminalitet, svindel). Merton mente dette var den vanligste formen for avvikende atferd, og at den oppstår som resultat av spenningen mellom mål og ulike muligheter.`,
+    },
+    {
+      id: 'sos-2-6-exercise-8',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 8',
+      content:
+        `Forklar Stanley Cohens begrep «moralsk panikk». Gi et eksempel på moralsk panikk fra norsk eller internasjonal kontekst, og analyser prosessen ved hjelp av Cohens modell (folkefiender, medieforsterkning, ekspertreaksjoner, krav om kontroll).`,
+    },
+    {
+      id: 'sos-2-6-exercise-9',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 9',
+      content:
+        `Sammenlign Mertons strain-teori med Beckers merkelappteori. Hvordan forklarer de to teoriene avvik ulikt? Hva er styrkene og svakhetene ved hver teori?`,
+    },
+    {
       id: 'sos-2-6-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Avvik er handlinger eller egenskaper som bryter med samfunnets normer. Det som regnes som avvikende er sosialt konstruert og varierer mellom kulturer og over tid. Sosial kontroll er mekanismene samfunnet bruker for å opprettholde konformitet – den kan være formell (gjennom institusjoner og lovverk) eller uformell (gjennom hverdagslig sosial samhandling). Howard Beckers merkelappteori viser at avvik ikke er en egenskap ved handlingen, men et resultat av sosial stempling. Stemplingen kan forsterke avvikende atferd gjennom sekundæravvik og selvoppfyllende profetier. Hvem som blir stemplet som avvikende påvirkes av maktforhold, klasse, etnisitet og kjønn.',
+        'Avvik er handlinger eller egenskaper som bryter med samfunnets normer. Det som regnes som avvikende er sosialt konstruert og varierer mellom kulturer og over tid. Sosial kontroll er mekanismene samfunnet bruker for å opprettholde konformitet – den kan være formell eller uformell. Durkheim viste at avvik er en normal og nødvendig del av samfunnet: det klargjør normer, styrker solidaritet og kan drive sosial endring. Mertons strain-teori forklarer avvik som et resultat av spenningen mellom kulturelle mål og ulik tilgang til legitime midler, og identifiserer fem tilpasningsmåter. Beckers merkelappteori viser at avvik ikke er en egenskap ved handlingen, men et resultat av sosial stempling, der maktforhold påvirker hvem som stemples. Stanley Cohens begrep om moralsk panikk beskriver hvordan samfunnet kan reagere overdrevet på opplevde trusler, med ungdomskulturer som hyppige mål.',
     },
     {
       id: 'sos-2-6-exercise-6',
@@ -953,7 +1502,7 @@ export const CHAPTER_SOSIOLOGI_2_7: TextbookChapter = {
   courseId: 'sosiologi',
   chapterNumber: '2.7',
   title: 'Ungdomskultur og generasjoner',
-  estimatedReadingTime: 18,
+  estimatedReadingTime: 38,
   exercises: [],
   content: [
     {
@@ -1053,6 +1602,55 @@ export const CHAPTER_SOSIOLOGI_2_7: TextbookChapter = {
         'Gjør rede for hva som menes med generasjon i sosiologisk forstand. Gi eksempler på hvordan ulike generasjoner kan ha forskjellige verdier og virkelighetsoppfatninger.',
     },
     {
+      id: 'sos-2-7-text-4',
+      type: 'text',
+      title: 'Birmingham-skolen og ungdom som motstand',
+      content:
+        `Centre for Contemporary Cultural Studies (CCCS) ved University of Birmingham – ofte kalt Birmingham-skolen – revolusjonerte studiet av ungdomskultur på 1970-tallet. Forskere som Stuart Hall, Dick Hebdige, Paul Willis og Angela McRobbie analyserte ungdomssubkulturer ikke som tilfeldige motefenomener, men som meningsfulle kulturelle uttrykk som var dypt forankret i klassestruktur og sosiale spenninger.\n\nDick Hebdige argumenterte i boken «Subculture: The Meaning of Style» (1979) for at ungdomssubkulturer bruker stil – klær, hårfrisyrer, musikk, språk – som en form for symbolsk motstand mot den dominerende kulturen. Punkerne på 1970-tallet brukte sikkerhetsnåler, ødelagte klær og provoserende symboler for å uttrykke avvisning av det etablerte samfunnets verdier. Skinheads adopterte arbeiderklassens estetikk – boots, braces, kort hår – som et uttrykk for arbeiderklasseidentitet i en tid da tradisjonelle arbeiderklassefellesskap var truet av deindustrialisering.\n\nPaul Willis viste i studien «Learning to Labour» (1977) hvordan arbeiderklassegutter aktivt motsatte seg skolens verdier og krav. De utviklet en motkultur basert på maskulinitet, humor og forakt for «boklig lærdom». Ironisk nok bidro denne motstanden til å reprodusere deres klasseposisjon: Ved å avvise utdanning endte de opp i de samme manuell-arbeidende jobbene som fedrene deres.\n\nBirmingham-skolen ble senere kritisert for å fokusere for mye på hvite gutter fra arbeiderklassen og for lite på jenter, etniske minoriteter og andre grupper. Angela McRobbie og Jenny Garber påpekte at jenter ofte ble usynlige i subkultur-forskningen, og at jentenes kulturelle uttrykk – som foregikk mer i private rom (soverommet, dagboken, venninnegjengen) – ble oversett. McRobbie utviklet begrepet «bedroom culture» for å beskrive dette fenomenet.`,
+    },
+    {
+      id: 'sos-2-7-def-2',
+      type: 'definition',
+      title: 'Symbolsk motstand',
+      content:
+        `Symbolsk motstand er et begrep fra Birmingham-skolen som beskriver hvordan ungdomssubkulturer bruker stil, estetikk og kulturelle uttrykk som en form for opposisjon mot den dominerende kulturen. Motstanden er «symbolsk» fordi den uttrykkes gjennom tegn og symboler (klær, musikk, språk) snarere enn gjennom direkte politisk handling. Selv om symbolsk motstand sjelden endrer samfunnsstrukturene, kan den uttrykke og synliggjøre sosial misnøye og frustrasjon.`,
+    },
+    {
+      id: 'sos-2-7-example-4',
+      type: 'example',
+      title: 'Eksempel: Punk som symbolsk motstand',
+      content:
+        `Punkkulturen som oppstod i London og New York på midten av 1970-tallet, er et klassisk eksempel på symbolsk motstand. Punkerne provoserte bevisst: De brukte sikkerhetsnåler som smykker, kledde seg i søppelsekker, hadde fargede hanekammer, og bar T-skjorter med sjokkerend grafikk. Musikken var enkel, rå og aggressiv – en bevisst motsetning til den polerte progrocken som dominerte. Sex Pistols sang «God Save the Queen» med teksten «she ain\`t no human being» midt under dronningens jubileum i 1977.\n\nIfølge Hebdige var punkens stil en form for «bricolage» – en kreativ sammensetning av elementer fra ulike kontekster som ble gitt ny, provoserende mening. Sikkerhetssnålen var ikke lenger et bruksgjenstend, men et symbol på opprør. Punkerne «stjal» symboler fra mainstream-kulturen og ga dem ny, subversiv betydning. Stilen kommuniserte en klar melding: Vi er utenfor, vi er sinte, og vi avviser deres regler. Selv om punken ikke endret de sosiale strukturene, uttrykte den en frustrasjon som resonerte med mange unge i en tid preget av arbeidsledighet og sosiale spenninger.`,
+    },
+    {
+      id: 'sos-2-7-text-5',
+      type: 'text',
+      title: `Moralsk panikk og ungdom – Stanley Cohen revisited`,
+      content:
+        `Ungdomskulturer har gjennom historien vært gjenstand for moralsk panikk – overdrevne samfunnsreaksjoner på ungdommens oppførsel. Stanley Cohens analyse av mods og rockers i 1960-tallets England viste et mønster som har gjentatt seg gang på gang: Voksengenerasjonen og mediene definerer ungdomskulturen som en trussel mot samfunnets verdier, noe som utløser krav om strengere kontroll.\n\nI etterkrigstiden var det rock and roll som skapte panikk – foreldre og myndigheter fryktet at musikken ville føre til moralsk forfall og kriminalitet. På 1970-tallet var det punkens tur. På 1980- og 1990-tallet var det hip-hop og rave-kulturen. På 2000-tallet ble emo-kulturen og dataspill gjenstand for bekymring. I dag er det sosiale medier og TikTok som er i sentrum for den moralske panikken.\n\nMønsteret er påfallende likt over tid: Ungdommens kulturelle uttrykk fremstilles som farlige og nedbrytende, mediene forsterker bekymringen gjennom sensasjonspreget dekning, eksperter og politikere krever handling, og det innføres nye former for kontroll og regulering. Etter en tid avtar panikken, gjerne fordi en ny «trussel» overtar medienes oppmerksomhet.\n\nDette betyr ikke at alle bekymringer om ungdomskultur er grunnløse. Sosiale medier kan ha reelle konsekvenser for unges mentale helse, og noen ungdomskulturer inneholder problematiske elementer. Men Cohens begrepsapparat minner oss om å stille kritiske spørsmål: Er reaksjonen proporsjonal med den faktiske trusselen? Hvem definerer trusselen? Hvem tjener på panikken? Og hvilke konsekvenser har den for de unge som stemples som «folkefiender»?`,
+    },
+    {
+      id: 'sos-2-7-def-3',
+      type: 'definition',
+      title: 'Digital innfødt vs. digital immigrant',
+      content:
+        `Begrepene «digital innfødt» (digital native) og «digital immigrant» ble introdusert av Marc Prensky i 2001. Digitale innfødte er personer som har vokst opp med digital teknologi som en selvfølgelig del av tilværelsen – de har aldri kjent en verden uten internett. Digitale immigranter er eldre generasjoner som har måttet tilpasse seg digital teknologi i voksen alder. Skillet har blitt kritisert for å være for forenklet – ikke alle unge er like digitalt kompetente, og mange eldre er svært digitalt dyktige – men begrepene brukes fortsatt i debatter om generasjonsforskjeller og teknologi.`,
+    },
+    {
+      id: 'sos-2-7-example-5',
+      type: 'example',
+      title: `Eksempel: Moralsk panikk om TikTok`,
+      content:
+        `I 2020-årene har TikTok blitt gjenstand for betydelig moralsk panikk. Politikere i flere land har forsøkt å forby appen, mediene har publisert utallige artikler om TikToks farlige påvirkning på unge, og foreldre har uttrykt dyp bekymring. Bekymringene spenner fra datatilgang og personvern (TikTok eies av kinesiske ByteDance) til mental helse (avhengighet, kroppspress, farlige utfordringer) og til demokratiske verdier (spredning av feilinformasjon, algoritmemanipulasjon).\n\nNoen av disse bekymringene er berettigede og fortjener seriøs oppmerksomhet. Men Cohens begrepsapparat inviterer oss til å se kritisk på helheten: Er TikTok virkelig farligere enn TV var for 1960-tallets foreldre? Blir de unge som bruker plattformen (folk devils) urettferdig stemplet? Er medienes dekning proporsjonal? Og hvem tjener politisk på å holde panikken ved like?`,
+    },
+    {
+      id: 'sos-2-7-text-6',
+      type: 'text',
+      title: 'Ungdom, risiko og senmodernitet',
+      content:
+        `Den tyske sosiologen Ulrich Beck (1944–2015) beskrev det moderne samfunnet som et «risikosamfunn» der mennesker i økende grad konfronteres med risiko og usikkerhet som er skapt av moderniteten selv – klimaendringer, atomkraft, finanskriser, pandemier. For unge mennesker skaper dette en spesiell situasjon: De arver en verden full av risiko de ikke har vært med på å skape.\n\nBecks perspektiv utfyller Giddens teori om identitet i senmoderniteten. Unge i dag står overfor en rekke nye utfordringer sammenlignet med tidligere generasjoner: usikkerhet i arbeidsmarkedet (midlertidige jobber, gig-økonomi, automatisering), klimaangst, boligkrise, gjeldsberg fra utdanning, og et enormt press om å «realisere seg selv» og «følge drømmene sine». Samtidig har de færre av de tradisjonelle støttestrukturene som tidligere generasjoner kunne lene seg på – stabile industriarbeidsplasser, forutsigbare karriereløp, tette lokalsamfunn.\n\nDen polsk-britiske sosiologen Zygmunt Bauman (1925–2017) brukte metaforen «flytende modernitet» for å beskrive denne tilstanden. Mens det «faste moderne» samfunnet var preget av stabile strukturer, tydelige identiteter og klare livsløp, er det «flytende moderne» samfunnet preget av midlertidighet, usikkerhet og konstant endring. For unge mennesker betyr dette at identiteten aldri kan «festes» – den er alltid under forhandling, alltid foreløpig.\n\nDette perspektivet kaster lys over mange fenomener i moderne ungdomskultur: det intense fokuset på selvrealisering og autentisitet, den utbredte bruken av sosiale medier som identitetsverktøy, prestasjonsangsten og utbrentheten blant unge, og den voksende interessen for mental helse. Disse fenomenene kan forstås som reaksjoner på det enorme ansvaret og presset som senmodernitetens individualisering legger på den enkelte.`,
+    },
+    {
       id: 'sos-2-7-exercise-4',
       type: 'exercise',
       exerciseType: 'multiple-choice',
@@ -1077,11 +1675,59 @@ export const CHAPTER_SOSIOLOGI_2_7: TextbookChapter = {
         'Diskuter: Har digitaliseringen styrket eller svekket ungdomskulturen som identitetsarena? Argumenter for begge sider og trekk inn eksempler fra din egen hverdag.',
     },
     {
+      id: 'sos-2-7-exercise-6',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 6',
+      content: `Hva var Birmingham-skolens hovedargument om ungdomssubkulturer?`,
+      options: [
+        `At ungdomssubkulturer er meningsløse motefenomener uten dypere betydning.`,
+        `At ungdomssubkulturer bruker stil som en form for symbolsk motstand mot den dominerende kulturen, forankret i klassestruktur.`,
+        `At ungdomssubkulturer bare finnes i England.`,
+        `At ungdomssubkulturer er farlige og bør forbys.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Birmingham-skolen (CCCS) analyserte ungdomssubkulturer som meningsfulle kulturelle uttrykk forankret i klassestruktur og sosiale spenninger. Dick Hebdige viste at stil (klær, musikk, språk) fungerte som symbolsk motstand – en måte å uttrykke opposisjon mot den dominerende kulturen på. Paul Willis viste hvordan arbeiderklassegutter utviklet motkulturer i skolen.`,
+    },
+    {
+      id: 'sos-2-7-exercise-7',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 7',
+      content:
+        `Velg en moderne ungdomssubkultur (for eksempel gaming-kultur, K-pop-fandom, klimaaktivisme, cottagecore eller en annen). Analyser den ved hjelp av Birmingham-skolens begreper: Kan den forstås som symbolsk motstand? Hvilke verdier uttrykker den? Hvem deltar, og hvilken sosial bakgrunn har de?`,
+    },
+    {
+      id: 'sos-2-7-exercise-8',
+      type: 'exercise',
+      exerciseType: 'multiple-choice',
+      title: 'Oppgave 8',
+      content: `Hva mener Zygmunt Bauman med «flytende modernitet»?`,
+      options: [
+        `At moderne samfunn er preget av flom og naturkatastrofer.`,
+        `At det moderne samfunnet er preget av midlertidighet, usikkerhet og konstant endring, der identiteter aldri kan «festes».`,
+        `At mennesker i dag reiser mer enn noensinne.`,
+        `At vannet i moderne byer er renere enn i gamle byer.`,
+      ],
+      correctAnswer: 1,
+      explanation:
+        `Baumans metafor «flytende modernitet» beskriver et samfunn preget av midlertidighet, usikkerhet og konstant endring – i motsetning til det «faste moderne» samfunnet med stabile strukturer og tydelige identiteter. For unge betyr dette at identiteten alltid er under forhandling og aldri kan fastlåses. Dette skaper både frihet og usikkerhet.`,
+    },
+    {
+      id: 'sos-2-7-exercise-9',
+      type: 'exercise',
+      exerciseType: 'classic',
+      title: 'Oppgave 9',
+      content:
+        `Diskuter: Er prestasjonspress og psykisk uhelse blant unge et individuelt problem eller et samfunnsmessig fenomen? Bruk begreper som risikosamfunn (Beck), flytende modernitet (Bauman) og selvets refleksive prosjekt (Giddens) i diskusjonen.`,
+    },
+    {
       id: 'sos-2-7-summary',
       type: 'text',
       title: 'Oppsummering',
       content:
-        'Ungdom er en sosial kategori som er historisk og kulturelt formet – ikke bare en biologisk fase. Den moderne ungdomstiden oppstod parallelt med utdanningssamfunnets fremvekst og har blitt stadig lengre. Ungdomskultur spiller en sentral rolle i identitetsdannelsen ved å tilby uttrykksformer, tilhørigheter og fellesskap som unge bruker for å utforske hvem de er. Generasjoner – grupper preget av felles formative opplevelser – kan ha ulike verdier og virkelighetsoppfatninger, noe som fører til generasjonskonflikter. Generasjon Z, som «digitale innfødte», illustrerer hvordan teknologisk endring skaper nye former for ungdomskultur, fellesskap og konflikter på tvers av generasjoner.',
+        'Ungdom er en sosial kategori som er historisk og kulturelt formet – ikke bare en biologisk fase. Den moderne ungdomstiden oppstod parallelt med utdanningssamfunnets fremvekst og har blitt stadig lengre. Birmingham-skolen analyserte ungdomssubkulturer som meningsfulle uttrykk for symbolsk motstand mot den dominerende kulturen, forankret i klassestruktur. Moralsk panikk har gjennom historien rammet ungdomskulturer fra rock and roll til TikTok. Generasjoner – grupper preget av felles formative opplevelser – kan ha ulike verdier og virkelighetsoppfatninger, noe som fører til generasjonskonflikter. Generasjon Z, som «digitale innfødte», illustrerer hvordan teknologisk endring skaper nye former for ungdomskultur. Becks risikosamfunn og Baumans flytende modernitet setter ungdomserfaringer i en bredere sosiologisk kontekst og viser at prestasjonspress og identitetsusikkerhet blant unge er samfunnsmessige, ikke bare individuelle, fenomener.',
     },
     {
       id: 'sos-2-7-exercise-6',

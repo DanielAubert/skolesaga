@@ -156,6 +156,150 @@ const CHAPTER_SOSIOLOGI_5_1: TextbookChapter = {
       exercises: [],
     },
     {
+      id: 'sos-5-1-def-4',
+      type: 'definition',
+      title: 'Manufacturing consent (Chomsky og Herman)',
+      content:
+        'Noam Chomsky og Edward S. Herman lanserte i 1988 begrepet «manufacturing consent» (å produsere samtykke) i boken med samme navn. De utviklet en propagandamodell som beskriver hvordan massemedier i vestlige demokratier, til tross for formell pressefrihet, systematisk kan fremme elitenes interesser. Modellen identifiserer fem «filtre» som påvirker nyhetsinnholdet: (1) eierkonsentrasjon – mediene eies av store konserner med kommersielle interesser, (2) annonsørenes innflytelse – mediene er avhengige av annonseinntekter, (3) kildebruk – mediene er avhengige av elitekilder som myndigheter og store selskaper, (4) kritikk og press (flak) – medier som utfordrer makten kan møte motangrep, og (5) dominerende ideologi – visse antakelser om økonomi og politikk tas for gitt. Modellen er omdiskutert, men har vært innflytelsesrik i kritisk mediesosiologi.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-text-4',
+      type: 'text',
+      title: 'Medieeierskap og maktkonsentrasjon',
+      content:
+        'Et sentralt spørsmål i mediesosiologien er hvem som eier mediene, og hvordan eierskap påvirker innholdet. I løpet av de siste tiårene har det skjedd en betydelig konsentrasjon av medieeierskap, både internasjonalt og i Norge. Store mediekonserner kontrollerer en stadig større del av medietilbudet – aviser, TV-kanaler, nettaviser og strømmetjenester.\n\nI Norge dominerer noen få aktører: Schibsted (VG, Aftenposten, Bergens Tidende, FINN.no), Amedia (en lang rekke lokalaviser), NRK (lisensfinansiert allmennkringkaster) og TV 2. Polaris Media og Aller Media er andre sentrale aktører. Denne konsentrasjonen har ført til bekymring for mediemangfoldet – om færre eiere kan bety færre uavhengige stemmer i den offentlige debatten.\n\nNorsk mediepolitikk har tradisjonelt søkt å motvirke maktkonsentrasjon gjennom virkemidler som pressestøtte (produksjonstilskudd) til aviser, særlig nummer to-aviser og lokale medier, og gjennom eierskapsregler i medieeierskapsloven. Mediestøtterådet og Medietilsynet overvåker utviklingen. Likevel peker kritikere på at den digitale utviklingen har skapt nye utfordringer: globale teknologigiganter som Google, Meta (Facebook) og Apple kontrollerer stadig mer av distribusjonen av nyheter og tar en stor del av annonseinntektene, noe som svekker de tradisjonelle medienes økonomiske grunnlag.\n\nChomsky og Hermans propagandamodell fremhever at kommersielt medieeierskap ikke nødvendigvis fører til direkte sensur, men at det skaper strukturelle betingelser som påvirker hvilke saker som dekkes, hvordan de vinkles, og hvem som kommer til orde. Et mediehus eid av et stort industrikonsern vil kanskje ikke aktivt undertrykke kritisk journalistikk om eierens andre forretningsinteresser, men journalister kan utvikle en form for selvsensur. Det er imidlertid viktig å påpeke at modellen har blitt kritisert for å undervurdere journalisters profesjonelle autonomi og redaksjonell uavhengighet, samt for å gi et for konspiratorisk bilde av medienes virke.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-exercise-5',
+      type: 'exercise',
+      title: 'Oppgave',
+      content:
+        'Hvilke av disse er et «filter» i Chomsky og Hermans propagandamodell?',
+      exercises: [
+        {
+          id: 'sos-5-1-ex-5a',
+          type: 'multiple-choice',
+          question:
+            'Hvilke av disse er et «filter» i Chomsky og Hermans propagandamodell?',
+          options: [
+            'Journalistenes personlige meninger',
+            'Eierkonsentrasjon og annonsørers innflytelse',
+            'Publikums utdanningsnivå',
+            'Antall sider i avisen',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Chomsky og Hermans propagandamodell identifiserer fem filtre: eierkonsentrasjon, annonsørenes innflytelse, kildebruk, kritikk/press (flak) og dominerende ideologi. Disse strukturelle forholdene påvirker nyhetsinnholdet uten nødvendigvis å innebære direkte sensur.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-1-text-5',
+      type: 'text',
+      title: 'Medierammer og virkelighetsforståelse',
+      content:
+        `Mediene formidler ikke bare virkeligheten – de konstruerer den aktivt gjennom valg av perspektiv, vinkling og kontekst. Sosiologer bruker begrepet medierammer (framing) for å beskrive dette. En medieramme er en tolkningsmessig struktur som organiserer informasjon og gir den mening. Samme hendelse kan rammes inn på svært forskjellige måter: en demonstrasjon kan fremstilles som «fredelig protest mot urettferdighet» eller som «voldelige opptøyer som truer samfunnsordenen», avhengig av hvilken ramme som velges.\n\nRobert Entman har definert framing som å velge ut visse aspekter av en oppfattet virkelighet og gjøre dem mer fremtredende i en tekst, for å fremme en bestemt problemdefinisjon, årsaksforklaring, moralsk vurdering eller løsningsforslag. Medienes rammer påvirker dermed ikke bare hva vi vet, men hvordan vi forstår og vurderer samfunnsspørsmål.\n\nEt norsk eksempel er mediedekningen av innvandring. Forskning har vist at innvandringsdebatten i norske medier ofte rammes inn gjennom en kriminalitets- eller problemramme, der innvandring kobles til kriminalitet, kostnader eller kulturkonflikter, mens positive bidrag fra innvandrere – som økonomisk verdiskaping, kulturell berikelse og frivillig innsats – får mindre oppmerksomhet. Andre forskere peker på at denne analysen er forenklet, og at mediene ofte gir rom for mange stemmer og nyanser. Uansett illustrerer debatten at medienes fremstillingsvalg har reelle konsekvenser for holdninger og politikk.\n\nPierre Bourdieu var særlig opptatt av hvordan fjernsynets format former innholdet. I boken «Om fjernsynet» (1996) argumenterte han for at fjernsynets korte segmenter, dramaturgiske krav og vekt på underholdning favoriserer overfladisk behandling av komplekse spørsmål. Intellektuelle som deltar i TV-debatter, tvinges til å forenkle sine argumenter og tilpasse seg mediets logikk, noe Bourdieu mente undergravde kvaliteten på den offentlige samtalen.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-def-5',
+      type: 'definition',
+      title: 'Medieramme (framing)',
+      content:
+        'En medieramme er en tolkningsstruktur som mediene bruker for å organisere og gi mening til informasjon om hendelser og temaer. Rammer velger ut visse aspekter av virkeligheten og fremhever dem, mens andre aspekter nedtones. Framing påvirker dermed hvordan publikum forstår årsaker, ansvar og mulige løsninger knyttet til en sak. Begrepet ble utviklet av sosiologen Erving Goffman i 1974 og er senere blitt sentralt i mediesosiologien, særlig gjennom arbeidene til Robert Entman.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-example-2',
+      type: 'example',
+      title: 'Eksempel: Medieeierskap og mangfold i Norge',
+      content:
+        'Schibsted-konsernet eier blant annet Norges to største aviser, VG og Aftenposten, samt store regionale aviser som Bergens Tidende og Stavanger Aftenblad, i tillegg til digitale tjenester som FINN.no. Amedia eier over 70 lokalaviser. NRK, som allmennkringkaster finansiert av skattepenger, har et særskilt ansvar for å sikre et bredt og mangfoldig innholdstilbud. Mediestøtteordningene, inkludert produksjonstilskuddet, er ment å sikre at også mindre aviser og nisjepublikasjoner kan overleve. Likevel viser bransjens utvikling at mange lokalaviser sliter økonomisk, at redaksjonene krymper, og at konkurransesituasjonen overfor globale techplattformer er krevende. Når Google og Facebook tar en stor del av det digitale annonsemarkedet, rammes norske mediers inntektsgrunnlag direkte – noe som igjen kan påvirke bredden i det norske medietilbudet.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-exercise-6',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva innebærer begrepet «medieramme» (framing)?',
+      exercises: [
+        {
+          id: 'sos-5-1-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva innebærer begrepet «medieramme» (framing)?',
+          options: [
+            'At mediene alltid forteller sannheten på en objektiv måte',
+            'At mediene velger ut og fremhever visse aspekter av en sak, noe som påvirker hvordan publikum forstår den',
+            'At mediene bruker fysiske rammer rundt bilder og tekst',
+            'At mediene bare formidler fakta uten noen vinkling',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Framing innebærer at mediene velger ut visse aspekter av virkeligheten og gjør dem mer fremtredende, mens andre aspekter nedtones. Dette påvirker hvordan publikum forstår årsaker, ansvar og mulige løsninger. Mediene konstruerer dermed aktivt virkelighetsforståelser.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-1-text-6',
+      type: 'text',
+      title: 'Medienes rolle i den digitale tidsalderen',
+      content:
+        `Den digitale revolusjonen har grunnleggende endret medielandskapet. Tradisjonelle mediers forretningsmodell, basert på annonser og abonnementer, er under press fra gratistilbud på nett og fra teknologigianters dominans over det digitale annonsemarkedet. Mange aviser har kuttet i sine redaksjoner, og gravejournalistikk – som er ressurskrevende – er blitt vanskeligere å finansiere.\n\nSamtidig har digitaliseringen skapt nye journalistiske muligheter. Datajournalistikk bruker store datasett for å avdekke mønstre og sammenhenger. Borgerjournalistikk lar vanlige borgere dokumentere hendelser med mobilkameraer. Wikileaks og andre lekkasjeplattformer har gjort det mulig å offentliggjøre store mengder hemmeligstemplede dokumenter.\n\nEn sentral utfordring er desinformasjon og «falske nyheter» – bevisst fabrikkert feilinformasjon som spres for å villede, skape splittelse eller tjene politiske formål. Forskning har dokumentert at organiserte desinformasjonskampanjer har forsøkt å påvirke valg i flere land. For journalistikken reiser dette spørsmålet om medienes fremtidige rolle: Kan de gjenvinne sin autoritet som troverdige informasjonskilder i en tid der enhver kan publisere innhold på nett?\n\nNorge scorer høyt på internasjonale rangeringer av pressefrihet (Reporters Without Borders) og er kjennetegnet av høy tillit til mediene sammenlignet med mange andre land. Likevel viser undersøkelser at tilliten varierer mellom ulike grupper i befolkningen, og at den har falt noe de siste årene. Medieforsker Tore Slaatta har pekt på at medienes evne til å fungere som fellesskapsbyggende institusjoner utfordres av fragmenteringen av mediebruk og offentlighet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-exercise-7',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva er desinformasjon, og hvorfor er det et problem for demokratiet?',
+      exercises: [
+        {
+          id: 'sos-5-1-ex-7a',
+          type: 'multiple-choice',
+          question: 'Hva kjennetegner desinformasjon?',
+          options: [
+            'Journalistiske feil som skyldes tidspress',
+            'Bevisst fabrikkert feilinformasjon som spres for å villede',
+            'Meninger som avviker fra flertallet',
+            'Underholdningsstoff som ikke er viktig nok',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Desinformasjon er bevisst fabrikkert feilinformasjon som spres for å villede, skape splittelse eller tjene bestemte politiske formål. Det skiller seg fra feilinformasjon (utilsiktede feil) ved at det er planlagt og målrettet.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-1-example-3',
+      type: 'example',
+      title: 'Eksempel: Chomskys propagandamodell og Irak-krigen',
+      content:
+        'Et ofte brukt eksempel på Chomsky og Hermans propagandamodell er den amerikanske mediedekningen i forkant av Irak-krigen i 2003. Kritikere har pekt på at store deler av de amerikanske mediene ukritisk formidlet myndighetenes påstander om at Irak hadde masseødeleggelsesvåpen, uten tilstrekkelig kildekritikk og uten å gi alternativ informasjon fra eksperter som stilte spørsmål ved påstandene. Etter at det ble klart at masseødeleggelsesvåpnene ikke fantes, innrømmet flere redaktører at dekningen hadde vært mangelfull. Tilhengere av propagandamodellen ser dette som et eksempel på hvordan filtrene – kildebruk, dominerende ideologi og press fra makthavere – kan føre til at mediene svikter sin vaktbikkjefunksjon. Kritikere påpeker at modellen ikke forklarer hvorfor mange medier også publiserte kritisk journalistikk, og at mediedekning er mer variert enn modellen tilsier.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-1-exercise-8',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Drøft utfordringene med mediemangfold.',
+      exercises: [
+        {
+          id: 'sos-5-1-ex-8a',
+          type: 'classic',
+          question:
+            'Gjør rede for Chomsky og Hermans propagandamodell. Diskuter modellens styrker og svakheter som analyseverktøy for å forstå medienes rolle i moderne demokratier.',
+        },
+        {
+          id: 'sos-5-1-ex-8b',
+          type: 'classic',
+          question:
+            'Analyser hvordan eierkonsentrasjon i mediene kan påvirke mediemangfoldet og den offentlige debatten. Bruk eksempler fra norsk mediebransje og diskuter tiltak som kan sikre et mangfoldig medietilbud.',
+        },
+      ],
+    },
+    {
       id: 'sos-5-1-exercise-4',
       type: 'exercise',
       title: 'Oppgave',
@@ -379,6 +523,132 @@ const CHAPTER_SOSIOLOGI_5_2: TextbookChapter = {
       ],
     },
     {
+      id: 'sos-5-2-def-4',
+      type: 'definition',
+      title: 'Overvåkingskapitalisme (Zuboff)',
+      content:
+        `Shoshana Zuboff definerer overvåkingskapitalisme som en ny økonomisk orden som gjør menneskelig erfaring om til gratis råmateriale for skjulte kommersielle praksiser. Ifølge Zuboff utvinner teknologiselskaper «atferdsoverskudd» – data om brukeres handlinger, preferanser og bevegelser som går utover det som trengs for å forbedre tjenestene. Dette overskuddet brukes til å produsere «prediksjonsprodukter» – prognoser om hva brukere vil gjøre, tenke, føle og kjøpe – som selges på nye markeder. Zuboff mener at overvåkingskapitalismen representerer et like fundamentalt brudd med tidligere kapitalisme som industrikapitalismen var med føydalismen. Begrepet har fått bred akademisk og politisk resonans, men er også kritisert for å overdrive teknologiselskapenes makt og for å gi et forenklet bilde av komplekse digitale økosystemer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-text-4',
+      type: 'text',
+      title: `Zuboffs analyse: fra datautvinning til atferdspåvirkning`,
+      content:
+        `Shoshana Zuboff, professor emerita ved Harvard Business School, publiserte i 2019 boken «The Age of Surveillance Capitalism» som har blitt et sentralt referanseverk i debatten om teknologiselskapenes makt. Zuboffs analyse går dypere enn den vanlige bekymringen for personvern. Hun argumenterer for at overvåkingskapitalismen representerer en helt ny form for makt – det hun kaller «instrumentarianisme».\n\nInstrumentarianisme er ifølge Zuboff evnen til å kjenne, forme og kontrollere menneskelig atferd gjennom digital infrastruktur. Mens tradisjonell totalitarisme styrte gjennom vold og frykt, opererer instrumentarianismen gjennom subtile mekanismer: personaliserte nyhetsstrømmer som former virkelighetsoppfatningen, «nudging» som påvirker valg uten at brukeren er klar over det, og gradvis normalisering av omfattende overvåking.\n\nZuboff beskriver hvordan Google var pioneren for denne forretningsmodellen. Selskapet oppdaget at søkedata som ble samlet inn for å forbedre søkemotoren, også kunne brukes til å forutsi hva folk ønsket å kjøpe – og at disse prediksjonene hadde enorm kommersiell verdi. Facebook, Amazon og andre fulgte etter, og utviklet stadig mer sofistikerte metoder for å utvinne og utnytte brukerdata.\n\nKritikere av Zuboff har påpekt at hennes analyse kan undervurdere brukernes handlingsevne (agency) – at folk ikke bare er passive ofre, men gjør bevisste valg om hvordan de bruker teknologi. Andre mener hun overser de reelle fordelene teknologien gir, som bedre helsetjenester, økt tilgjengelighet og nye former for fellesskap. Likevel har Zuboffs analyse bidratt til økt bevissthet om de strukturelle maktforholdene i den digitale økonomien og til politisk debatt om regulering av teknologiselskaper.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-exercise-5a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva mener Zuboff med «atferdsoverskudd»?',
+      exercises: [
+        {
+          id: 'sos-5-2-ex-5a',
+          type: 'multiple-choice',
+          question: 'Hva mener Zuboff med «atferdsoverskudd» i sin teori om overvåkingskapitalisme?',
+          options: [
+            'At folk bruker for mye tid på sosiale medier',
+            'Data om brukeres handlinger som går utover det som trengs for tjenesten, og som brukes til å lage prediksjonsprodukter',
+            'At teknologiselskaper tjener mer enn de trenger',
+            'Menneskelig atferd som ikke kan forklares vitenskapelig',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Ifølge Zuboff er «atferdsoverskudd» data om brukernes handlinger, preferanser og bevegelser som samles inn utover det som er nødvendig for å forbedre tjenestene. Denne dataen brukes til å lage «prediksjonsprodukter» – prognoser om fremtidig atferd – som selges til annonsører.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-2-text-5',
+      type: 'text',
+      title: 'TikTok-generasjonen og oppmerksomhetsøkonomien',
+      content:
+        `Fremveksten av TikTok som dominerende plattform blant unge mennesker har forsterket debatten om sosiale mediers påvirkning. TikToks algoritme er spesielt sofistikert i å lære hva den enkelte brukeren engasjeres av, og serverer en endeløs strøm av korte videoer tilpasset individuelle preferanser. Plattformen eksemplifiserer det forskere kaller «oppmerksomhetsøkonomien» – et system der brukernes oppmerksomhet er den knappe ressursen som selskaper konkurrerer om.\n\nSosiologen Jonathan Crary har argumentert for at kapitalismen i den digitale tidsalderen har kolonisert selve oppmerksomheten og søvnen. Skjermtid blant unge har økt dramatisk: norske studier viser at ungdom i snitt bruker flere timer daglig på sosiale medier. Forskere diskuterer konsekvensene av dette for konsentrasjon, dybdelæring og mental helse.\n\nStudier har dokumentert sammenhenger mellom intensiv bruk av sosiale medier og økt forekomst av angst, depresjon og søvnproblemer blant unge. Psykologen Jean Twenge har pekt på at generasjonen som vokste opp med smarttelefoner (iGen) skiller seg fra tidligere generasjoner på flere områder. Det er imidlertid viktig å påpeke at forskningen er omdiskutert: noen forskere mener at effektene er små og at bekymringen er overdreven, mens andre peker på metodiske utfordringer som gjør det vanskelig å fastslå årsaksforhold.\n\nDet reises også geopolitiske spørsmål rundt TikTok, som er eid av det kinesiske selskapet ByteDance. Debatter i flere land har handlet om risikoen for at kinesiske myndigheter kan få tilgang til brukernes data, og om algoritmens potensial for å påvirke offentlig opinion. Denne debatten berører spenningsfeltet mellom ytringsfrihet, nasjonal sikkerhet og global teknologikonkurranse.\n\nSamtidig gir TikTok og andre plattformer unge mennesker muligheter som tidligere generasjoner ikke hadde: kreativ utfoldelse, globale fellesskap med likesinnede, og plattformer for politisk engasjement og aktivisme. Bevegelser som Black Lives Matter og klimaaktivisme har brukt sosiale medier effektivt for mobilisering.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-def-5',
+      type: 'definition',
+      title: 'Oppmerksomhetsøkonomi',
+      content:
+        `Oppmerksomhetsøkonomi er et begrep som beskriver et økonomisk system der menneskelig oppmerksomhet er den knappe ressursen som selskaper konkurrerer om. I en digital verden med overflod av informasjon og innhold, blir evnen til å fange og holde folks oppmerksomhet den viktigste valutaen. Sosiale medier, søkemotorer og strømmetjenester er designet for å maksimere «tid på plattform» – brukernes engasjement målt i tid og interaksjon. Kritikere mener dette skaper incentiver for sensasjonalistisk og avhengighetsskapende innhold, mens forsvarere peker på innovasjon og tilgjengelighet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-example-2',
+      type: 'example',
+      title: 'Eksempel: Cambridge Analytica-skandalen',
+      content:
+        'Cambridge Analytica-skandalen (2018) er et konkret eksempel på utfordringene Zuboff beskriver. Dataanalyseselskapet Cambridge Analytica fikk tilgang til persondata fra opptil 87 millioner Facebook-brukere gjennom en tilsynelatende ufarlig personlighetstest-app. Dataen ble brukt til å lage detaljerte psykologiske profiler av velgere og til å målrette politisk reklame under den amerikanske presidentvalgkampen i 2016 og Brexit-avstemningen i Storbritannia. Skandalen avdekket svakheter i Facebooks håndtering av brukerdata og reiste grunnleggende spørsmål om demokrati i den digitale tidsalderen: Kan mikromålrettet politisk reklame basert på personlige data undergrave forutsetningene for frie og rettferdige valg? Skandalen bidro til økt politisk vilje til regulering, blant annet gjennom GDPR i EU.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Oppmerksomhetsøkonomien skaper bestemte utfordringer.',
+      exercises: [
+        {
+          id: 'sos-5-2-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva er en sentral utfordring med oppmerksomhetsøkonomien?',
+          options: [
+            'At folk ikke har tilgang til internett',
+            'At konkurransen om oppmerksomhet kan føre til avhengighetsskapende og sensasjonalistisk innhold',
+            'At det blir for lite reklame på nett',
+            'At alle plattformer er like',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `I oppmerksomhetsøkonomien konkurrerer plattformer om brukernes tid og engasjement. Dette skaper incentiver for innhold som vekker sterke følelser og som er vanskelig å slutte å se på, noe som kan føre til avhengighetslignende mønstre og prioritering av sensasjonalisme over kvalitet.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-2-text-6',
+      type: 'text',
+      title: 'Digital ulikhet og digitalt medborgerskap',
+      content:
+        `Den digitale utviklingen skaper også nye former for sosial ulikhet. Begrepet «digitalt skille» (digital divide) beskriver ulikheter i tilgang til og kompetanse i bruk av digital teknologi. Det digitale skiltet har flere dimensjoner: det handler ikke bare om tilgang til internett og utstyr (førsteordens skille), men også om ferdigheter i å bruke teknologien kritisk og kreativt (andreordens skille) og om evnen til å omsette digital deltakelse i konkrete sosiale gevinster (tredjeordens skille).\n\nI Norge har de aller fleste tilgang til internett, men det digitale skiltet manifesterer seg likevel i ulikheter mellom generasjoner, mellom personer med ulik utdanningsbakgrunn, og mellom ulike sosioøkonomiske grupper. Eldre og personer med lav utdanning har gjennomgående lavere digitale ferdigheter, noe som kan påvirke deres tilgang til offentlige tjenester, arbeidsmarked og samfunnsdeltakelse.\n\nBegrepet «digitalt medborgerskap» viser til evnen til å delta i samfunnslivet gjennom digitale kanaler – å oppsøke informasjon, ytre seg i debatter, bruke offentlige tjenester og utøve sine rettigheter digitalt. I en tid der stadig flere samfunnsfunksjoner digitaliseres – fra NAV til skattemeldingen – kan manglende digital kompetanse føre til marginalisering. Medietilsynet gjennomfører jevnlig undersøkelser av nordmenns kritiske medieforståelse og peker på betydelige variasjoner i evnen til å vurdere troverdigheten av informasjon på nett.\n\nGlobalt er det digitale skiltet enda tydeligere. I mange utviklingsland mangler store deler av befolkningen tilgang til internett. Samtidig kan digital teknologi også virke utjevnende: mobilbanking i Øst-Afrika (M-Pesa i Kenya) har gitt millioner av mennesker tilgang til finansielle tjenester for første gang.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-2-exercise-7a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Test din forståelse av digitalt skille.',
+      exercises: [
+        {
+          id: 'sos-5-2-ex-7a',
+          type: 'multiple-choice',
+          question: 'Hva menes med «andreordens digitalt skille»?',
+          options: [
+            'At noen ikke har tilgang til internett',
+            'Ulikheter i ferdigheter og kompetanse i å bruke digital teknologi kritisk og kreativt',
+            'At noen bruker sosiale medier mer enn andre',
+            'At det finnes to typer internett',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Andreordens digitalt skille handler om ulikheter i digitale ferdigheter – evnen til å bruke teknologi kritisk, kreativt og effektivt. Selv når folk har tilgang til internett, kan forskjeller i kompetanse føre til ulik nytte av den digitale teknologien.',
+        },
+        {
+          id: 'sos-5-2-ex-7b',
+          type: 'classic',
+          question:
+            `Drøft Shoshana Zuboffs begrep «overvåkingskapitalisme» som analyseverktøy for å forstå forholdet mellom teknologiselskaper og brukere. Trekk inn både styrker og svakheter ved Zuboffs analyse.`,
+        },
+        {
+          id: 'sos-5-2-ex-7c',
+          type: 'classic',
+          question:
+            'Diskuter i hvilken grad sosiale medier som TikTok representerer nye muligheter eller nye trusler for unge menneskers identitetsutvikling og demokratisk deltakelse. Bruk sosiologiske begreper i drøftingen.',
+        },
+      ],
+    },
+    {
       id: 'sos-5-2-summary',
       type: 'text',
       title: 'Oppsummering',
@@ -594,6 +864,132 @@ const CHAPTER_SOSIOLOGI_5_3: TextbookChapter = {
       exercises: [],
     },
     {
+      id: 'sos-5-3-def-4',
+      type: 'definition',
+      title: 'Internasjonale økonomiske institusjoner',
+      content:
+        `Verdens handelsorganisasjon (WTO) er en internasjonal organisasjon som regulerer handel mellom nasjoner gjennom avtaler og tvisteløsningsmekanismer. WTO arbeider for å redusere handelshindre og fremme frihandel. Det internasjonale pengefondet (IMF) gir lån til land med betalingsbalanseproblemer, ofte med betingelser om økonomiske reformer (strukturtilpasningsprogrammer). Verdensbanken gir lån og støtte til utviklingsprosjekter i fattige land. Disse institusjonene ble grunnlagt etter andre verdenskrig (IMF og Verdensbanken i 1944, WTO-forløperen GATT i 1947) og har vært sentrale i utformingen av den globale økonomiske ordenen. De er gjenstand for intens debatt: tilhengere mener de fremmer stabilitet og vekst, kritikere mener de tjener rike lands interesser.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-text-5',
+      type: 'text',
+      title: 'Stiglitz og kritikken av globale institusjoner',
+      content:
+        `Joseph Stiglitz, nobelprisvinner i økonomi og tidligere sjeføkonom i Verdensbanken, har levert en innflytelsesrik kritikk av hvordan økonomisk globalisering er blitt styrt. I boken «Globalization and Its Discontents» (2002) argumenterer Stiglitz for at problemet ikke er globalisering i seg selv, men måten den har blitt implementert på.\n\nStiglitz retter særlig kritikk mot IMFs politikk overfor utviklingsland. Når land søkte lån fra IMF, ble de ofte pålagt «strukturtilpasningsprogrammer» som inkluderte kutt i offentlige utgifter, privatisering av statlige selskaper, liberalisering av kapitalmarkeder og fjerning av handelshindre. Stiglitz argumenterer for at disse tiltakene ofte ble påført land uten tilstrekkelig hensyn til lokale forhold, og at de i mange tilfeller forverret situasjonen – førte til økt fattigdom, deindustrialisering og sosial uro.\n\nEt konkret eksempel er den østasiatiske finanskrisen i 1997–1998. Stiglitz mener at IMFs krav om rask liberalisering av kapitalmarkeder bidro til å utløse krisen, og at de påfølgende innstrammingskravene forverret den. Han kontrasterer dette med Malaysias tilnærming: Malaysia valgte å innføre kapitalkontroller i strid med IMFs anbefalinger, og kom raskere ut av krisen enn naboland som fulgte IMFs oppskrift.\n\nStiglitz understreker at han ikke er mot globalisering, men mener den må styres bedre og mer demokratisk. Han etterlyser reformer av de internasjonale institusjonene slik at fattige land får større innflytelse, mer gradvis markedsåpning tilpasset lokale forhold, og sterkere vektlegging av sosial rettferdighet og miljøhensyn.\n\nDet er viktig å merke seg at Stiglitz sin kritikk ikke deles av alle økonomer. Mange mener at frihandel og markedsreformer, til tross for kortsiktige utfordringer, har bidratt til den mest omfattende fattigdomsreduksjonen i verdenshistorien. Andre peker på at IMFs politikk har utviklet seg betydelig siden 1990-tallet, og at organisasjonen i dag legger større vekt på sosiale sikkerhetsnett og gradvis reform.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-exercise-5a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva er Stiglitz sin hovedkritikk av IMFs politikk?',
+      exercises: [
+        {
+          id: 'sos-5-3-ex-5a',
+          type: 'multiple-choice',
+          question: 'Hva er Stiglitz sin hovedkritikk av IMFs politikk overfor utviklingsland?',
+          options: [
+            'At IMF gir for mye penger i bistand',
+            'At IMF påla strukturtilpasningsprogrammer som ofte forverret situasjonen ved å kreve rask liberalisering uten hensyn til lokale forhold',
+            'At IMF er mot all form for internasjonal handel',
+            'At IMF bare hjelper rike land',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Stiglitz kritiserer IMFs strukturtilpasningsprogrammer for å ha påtvunget utviklingsland rask markedsliberalisering, privatisering og innstramminger uten tilstrekkelig hensyn til lokale forhold. Han mener dette i mange tilfeller forverret fattigdom og økonomisk ustabilitet.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-3-text-6',
+      type: 'text',
+      title: 'Rettferdig handel og alternative globaliseringsmodeller',
+      content:
+        `Kritikken av økonomisk globalisering har også ført til fremveksten av alternative tilnærminger, der rettferdig handel (fair trade) er den mest kjente. Rettferdig handel-bevegelsen søker å sikre at produsenter i utviklingsland får en rimelig pris for sine varer, at arbeidsforholdene er anstendige, at barnearbeid unngås, og at produksjonen er miljømessig bærekraftig. Fairtrade-merket, som forbrukere kan kjenne igjen på en rekke produkter som kaffe, sjokolade, bananer og bomull, sertifiserer at bestemte minimumsstandarder er oppfylt.\n\nTilhengere av rettferdig handel argumenterer for at det gir småbønder i utviklingsland en mer stabil og forutsigbar inntekt, at det støtter lokalsamfunn gjennom Fairtrade-premien som brukes til fellesgoder, og at det bevisstgjør forbrukere om globale handelsstrukturer. Kritikere har pekt på at rettferdig handel bare når en liten andel av verdens produsenter, at det kan skape markedsforstyrrelser, og at det i noen tilfeller ikke fører til betydelig økt inntekt for den enkelte bonde. Noen økonomer mener at frihandel uten spesielle merkeordninger ville gitt bedre resultater.\n\nEn bredere bevegelse for «alternativ globalisering» har siden slutten av 1990-tallet mobilisert rundt krav om mer rettferdige handelsvilkår, gjeldslette for fattige land, skatt på finanstransaksjoner og demokratisering av internasjonale institusjoner. World Social Forum, grunnlagt i 2001 som motpol til World Economic Forum i Davos, er en viktig arena for disse bevegelsene, med slagordet «En annen verden er mulig».\n\nNorge har en aktiv fair trade-bevegelse, og mange kommuner og fylkeskommuner er sertifisert som «Fairtrade-kommuner». Norsk utviklingspolitikk har også lagt vekt på handelsrettferdighet, blant annet gjennom toll- og kvotefri markedsadgang for de fattigste landene.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-def-5',
+      type: 'definition',
+      title: 'Rettferdig handel (fair trade)',
+      content:
+        'Rettferdig handel er en handelsbevegelse og et sertifiseringssystem som søker å sikre bedre handelsvilkår for produsenter i utviklingsland. Kjerneprinsippene inkluderer minimumspriser som dekker produksjonskostnadene, en Fairtrade-premie som investeres i lokalsamfunnet, anstendige arbeidsforhold, forbud mot barnearbeid og tvungen arbeidskraft, og miljøhensyn. Fairtrade International er den største sertifiseringsorganisasjonen. Rettferdig handel er et forsøk på å bruke markedsmekanismer for å korrigere urettferdige handelsstrukturer, og kan ses som en praktisk tilnærming til globaliseringskritikken.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-example-3',
+      type: 'example',
+      title: 'Eksempel: WTO-forhandlingene og maktasymmetri',
+      content:
+        `WTOs forhandlingsrunder illustrerer maktasymmetrien i den globale handelspolitikken. Doha-runden, lansert i 2001 med mål om å ta særlig hensyn til utviklingslands interesser, har i praksis stått stille i mange år. Et sentralt stridsspørsmål er jordbrukssubsidier: rike land, særlig USA og EU, subsidierer sitt eget landbruk med enorme beløp, noe som gjør det vanskelig for bønder i utviklingsland å konkurrere. Samtidig krever rike land at utviklingsland åpner sine markeder. Kritikere, inkludert Stiglitz, mener dette er en form for dobbeltmoral – rike land krever frihandel av andre, men praktiserer den ikke selv når det gjelder egne sensitive sektorer. Forsvarere av jordbrukssubsidier peker på matvaresikkerhet, bygdesamfunn og multifunksjonelt landbruk som legitime grunner for støtte. Norge er selv et land med omfattende jordbrukssubsidier, noe som gjør denne debatten direkte relevant for norsk politikk.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Forstå rettferdig handel.',
+      exercises: [
+        {
+          id: 'sos-5-3-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva er hovedmålet med rettferdig handel (fair trade)?',
+          options: [
+            'Å stoppe all handel mellom rike og fattige land',
+            'Å sikre at produsenter i utviklingsland får en rimelig pris og anstendige arbeidsforhold',
+            'Å gjøre alle produkter gratis for forbrukere',
+            'Å fjerne all konkurranse i verdenshandelen',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Rettferdig handel søker å sikre bedre handelsvilkår for produsenter i utviklingsland gjennom minimumspriser, anstendige arbeidsforhold og miljøhensyn. Det er et forsøk på å korrigere urettferdige handelsstrukturer innenfor det globale markedet.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-3-text-7',
+      type: 'text',
+      title: 'Globalisering og kulturell identitet',
+      content:
+        `Globaliseringen utfordrer tradisjonelle forestillinger om nasjonal og kulturell identitet. Når mennesker, ideer og kulturuttrykk stadig krysser grenser, oppstår spørsmålet om hva som skjer med lokale identiteter og tilhørigheter.\n\nSosiologen Manuel Castells har beskrevet hvordan globaliseringen har skapt en spenning mellom det han kaller «the Net and the Self» – mellom globale nettverksstrømmer og individuell og kollektiv identitet. I møte med globalisering reagerer mennesker og grupper på ulike måter. Noen omfavner en kosmopolitisk identitet og føler tilhørighet til verden som helhet. Andre reagerer med det Castells kaller «motstandsidentitet» – de mobiliserer rundt lokale, etniske, religiøse eller nasjonale identiteter som motvekt til globaliseringens homogeniserende krefter.\n\nDen britiske sosiologen Stuart Hall har argumentert for at kulturell identitet ikke er noe fast og uforanderlig, men noe som stadig forhandles og rekonstrueres i møtet mellom ulike kulturelle impulser. Hall, som selv hadde jamaicansk bakgrunn, beskrev «diaspora-identiteten» som en identitet som bærer i seg flere kulturelle tradisjoner og stadig er i bevegelse.\n\nI norsk kontekst ser vi disse spenningene i debatter om norsk identitet og kultur i en tid med økt mangfold. Hva betyr det å være norsk? Er norsk identitet knyttet til bestemte kulturelle tradisjoner, språk og verdier, eller er den åpen og foranderlig? Disse spørsmålene engasjerer på tvers av politiske skillelinjer, og det finnes ulike perspektiver som alle fortjener seriøs behandling.\n\nGlobaliseringsforsker Arjun Appadurai har utviklet begrepet «-scapes» for å beskrive globaliseringens ulike dimensjoner: ethnoscape (bevegelse av mennesker), technoscape (spredning av teknologi), finanscape (kapitalflyt), mediascape (medienes virkelighetsbilder) og ideoscape (politiske ideer og verdier). Disse strømmene beveger seg med ulik hastighet og i ulike retninger, noe som skaper komplekse og til dels uforutsigbare kulturelle mønstre.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-3-exercise-7a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Test din forståelse av Castells og kulturell identitet.',
+      exercises: [
+        {
+          id: 'sos-5-3-ex-7a',
+          type: 'multiple-choice',
+          question: 'Hva mener Castells med «motstandsidentitet»?',
+          options: [
+            'En identitet som er mot all form for kultur',
+            'Mobilisering rundt lokal, etnisk, religiøs eller nasjonal identitet som motvekt til globaliseringens homogenisering',
+            'En identitet som aktivt motarbeider alle former for fellesskap',
+            'Den kosmopolitiske identiteten til verdensborgere',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Castells bruker begrepet «motstandsidentitet» om grupper og individer som mobiliserer rundt lokale, etniske, religiøse eller nasjonale identiteter som en reaksjon på globaliseringens homogeniserende krefter. Det er en form for identitetsbygging som søker å bevare eller gjenopprette lokal tilhørighet.',
+        },
+        {
+          id: 'sos-5-3-ex-7b',
+          type: 'classic',
+          question:
+            `Gjør rede for Stiglitz sin kritikk av IMFs strukturtilpasningsprogrammer. Drøft deretter i hvilken grad denne kritikken er relevant for å forstå globaliseringens konsekvenser for utviklingsland i dag.`,
+        },
+        {
+          id: 'sos-5-3-ex-7c',
+          type: 'classic',
+          question:
+            'Analyser rettferdig handel (fair trade) som strategi for å motvirke negative sider ved globalisering. Hvilke styrker og begrensninger har denne tilnærmingen?',
+        },
+      ],
+    },
+    {
       id: 'sos-5-3-summary',
       type: 'text',
       title: 'Oppsummering',
@@ -782,6 +1178,132 @@ const CHAPTER_SOSIOLOGI_5_4: TextbookChapter = {
           correctAnswer: 1,
           explanation:
             'Push-pull-modellen kan overbetone det individuelle og rasjonelle ved migrasjonsbeslutninger. I virkeligheten er migrasjon ofte en kollektiv familiestrategi, og strukturelle forhold som migrasjonspolitikk, globale ulikheter og historiske forbindelser spiller avgjørende roller.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-4-def-3',
+      type: 'definition',
+      title: 'Castles og Millers migrasjonsteori',
+      content:
+        `Stephen Castles og Mark J. Miller presenterte i boken «The Age of Migration» (første utgave 1993) en innflytelsesrik analyse av internasjonal migrasjon. De identifiserer flere generelle tendenser i moderne migrasjon: globalisering av migrasjon (flere land berøres av migrasjonsstrømmer), akselerasjon (omfanget øker), differensiering (flere typer migrasjon skjer samtidig), feminisering (kvinner utgjør en stadig større andel av migranter) og politisering (migrasjon blir et sentralt politisk tema). Castles og Miller understreker at migrasjon er en sosial prosess som skaper egendynamikk – nettverk og institusjoner som opprettholder og forsterker migrasjonsmønstre over tid.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-text-4',
+      type: 'text',
+      title: 'Norsk innvandringshistorie fra 1960-tallet til i dag',
+      content:
+        `Norges utvikling fra å være et utvandringsland til et innvandringsland er en av de mest markante demografiske endringene i norsk historie. For å forstå dagens innvandringsrelaterte debatter er det nødvendig å kjenne den historiske utviklingen.\n\nPå 1960-tallet begynte den moderne arbeidsinnvandringen til Norge. Arbeidskraftbehovet i norsk industri var stort, og arbeidstakere fra Pakistan, Tyrkia, Marokko og India kom for å fylle jobber i blant annet industri og servicenæring. I begynnelsen ble innvandringen sett som midlertidig – «gjestearbeidere» som ville returnere. Men mange ble værende, etablerte familier og ble varige deler av det norske samfunnet.\n\nInnvandringsstoppen i 1975 var et vendepunkt. Norge innførte, i likhet med andre vesteuropeiske land, begrensninger på arbeidsinnvandring. Etter dette kom innvandringen hovedsakelig gjennom tre kanaler: flukt og asyl (fra blant annet Vietnam, Chile, Iran, Somalia, Bosnia og Syria), familiegjenforening (familiemedlemmer til personer som allerede var etablert i Norge) og utdanning.\n\nEU-utvidelsen i 2004, da flere østeuropeiske land ble medlemmer, førte til en ny stor bølge av arbeidsinnvandring, særlig fra Polen og Litauen. EØS-avtalen gir borgere fra EU/EØS-land rett til å bo og arbeide i Norge. Denne arbeidsinnvandringen har hatt stor betydning for norsk økonomi, særlig i byggebransjen, landbruket og servicenæringen.\n\nFlyktningkrisen i 2015, da over 30 000 asylsøkere kom til Norge (mange fra Syria), førte til intens politisk debatt og innstramninger i asylpolitikken. Debatten berørte spørsmål om Norges kapasitet til å ta imot flyktninger, om integrering og om forholdet mellom humanitære forpliktelser og innvandringskontroll.\n\nVed inngangen til 2020-tallet hadde Norge rundt 800 000 innvandrere og norskfødte med innvandrerforeldre, som utgjorde omtrent 15 prosent av befolkningen. De største gruppene var fra Polen, Litauen, Somalia, Sverige og Pakistan. Innvandringshistorien illustrerer hvordan norsk innvandringspolitikk har endret seg i takt med skiftende økonomiske forhold, internasjonale hendelser og politiske prioriteringer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-exercise-5a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva førte innvandringsstoppen i 1975 til?',
+      exercises: [
+        {
+          id: 'sos-5-4-ex-5a',
+          type: 'multiple-choice',
+          question: 'Hva var den viktigste konsekvensen av innvandringsstoppen i 1975?',
+          options: [
+            'All innvandring til Norge ble fullstendig stoppet',
+            'Arbeidsinnvandringen ble sterkt begrenset, men innvandringen fortsatte gjennom flukt/asyl og familiegjenforening',
+            'Norge ble igjen et utvandringsland',
+            'Alle innvandrere ble sendt tilbake til hjemlandet',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Innvandringsstoppen i 1975 begrenset arbeidsinnvandringen til Norge kraftig, men stoppet ikke all innvandring. Innvandringen fortsatte gjennom flukt og asyl, familiegjenforening og utdanning. Mange arbeidsinnvandrere som allerede var i Norge, ble værende og etablerte familier.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-4-text-5',
+      type: 'text',
+      title: 'Migrasjonsnettverk og kjedemigrasjon',
+      content:
+        `En viktig innsikt fra migrasjonsforskningen er at migrasjon ofte er en selvforsterkende prosess. Når noen fra et lokalsamfunn har migrert til et bestemt sted, senker det terskelen for andre fra samme samfunn å følge etter. Dette kalles kjedemigrasjon, og den drives av migrasjonsnettverk – sosiale bånd mellom migranter, tidligere migranter og ikke-migranter i opprinnelses- og destinasjonsland.\n\nMigrasjonsnettverk gir potensielle migranter informasjon om muligheter, hjelp med praktiske ting som bolig og arbeid, og emosjonell støtte. Nettverkene forklarer hvorfor migrasjon ofte følger bestemte korridorer – for eksempel fra bestemte landsbyer i Pakistan til bestemte bydeler i Oslo, eller fra bestemte regioner i Polen til bestemte norske byer.\n\nSosiologen Douglas Massey har beskrevet dette som «kumulativ årsakssammenheng» – at migrasjon skaper sosiale og økonomiske endringer som igjen produserer mer migrasjon. Jo flere fra et lokalsamfunn som har migrert, desto lettere blir det for neste person å migrere, fordi nettverket er sterkere og kunnskapen om destinasjonslandet er større.\n\nDette perspektivet utfyller push-pull-modellen ved å forklare hvorfor migrasjon fortsetter selv etter at de opprinnelige push- og pull-faktorene har endret seg. Det forklarer også hvorfor migrasjon ikke kommer fra de aller fattigste landene og de mest marginaliserte gruppene – migrasjon krever ressurser i form av penger, kunnskap og sosiale nettverk.\n\nRemittanser – pengeoverføringer fra migranter til familie i hjemlandet – utgjør en enorm global pengestrøm, som i omfang overstiger internasjonal utviklingshjelp. Disse overføringene kan bidra til å redusere fattigdom, finansiere utdanning og helse, og stimulere lokal økonomisk utvikling. Samtidig kan de skape avhengighet og forsterke ulikhet mellom familier som mottar remittanser og de som ikke gjør det.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-def-4',
+      type: 'definition',
+      title: 'Kjedemigrasjon og remittanser',
+      content:
+        'Kjedemigrasjon beskriver prosessen der migrasjon fra et bestemt sted til et annet forsterker seg selv over tid gjennom sosiale nettverk. Når pionermigranter etablerer seg, letter de veien for etterfølgende migranter fra samme opprinnelsessted. Remittanser er pengeoverføringer fra migranter til familie og slektninger i hjemlandet. Globalt utgjør remittanser over 600 milliarder dollar årlig og er for mange utviklingsland en viktigere inntektskilde enn offisiell utviklingshjelp. Remittanser kan bidra til fattigdomsreduksjon og lokal utvikling, men kan også skape avhengighet.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-example-2',
+      type: 'example',
+      title: 'Eksempel: Den pakistansk-norske migrasjonskorridoren',
+      content:
+        `Innvandringen fra Pakistan til Norge illustrerer migrasjonsnettverk og kjedemigrasjon. De første pakistanske arbeiderne som kom til Norge på slutten av 1960-tallet, var ofte fra bestemte landsbyer i Punjab-provinsen. Etter hvert som disse pionerene etablerte seg, trakk de slektninger og naboer etter seg gjennom informasjon, hjelp med praktiske forhold og sosiale nettverk. I dag har den pakistansk-norske befolkningen vokst til rundt 40 000 personer, og det finnes etablerte transnasjonale forbindelser mellom bestemte steder i Pakistan og bestemte bydeler i Oslo. Mange norsk-pakistanere opprettholder aktive bånd til Pakistan gjennom besøk, pengeoverføringer, ekteskapsmønstre og digital kommunikasjon – et eksempel på transnasjonalisme i praksis.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-text-6',
+      type: 'text',
+      title: 'Klimamigrasjon og fremtidens utfordringer',
+      content:
+        `Klimaendringer er i ferd med å bli en stadig viktigere driver for migrasjon. Stigende havnivåer, tørke, flom, ekstremvær og ørkenspredning gjør at stadig flere områder blir ubeboelige eller uegnet for jordbruk. Verdensbanken har anslått at klimaendringer kan tvinge opptil 216 millioner mennesker til intern migrasjon innen 2050, dersom det ikke iverksettes tiltak.\n\nKlimamigrasjon utfordrer eksisterende juridiske rammeverk. FNs flyktningkonvensjon fra 1951 dekker ikke mennesker som flykter fra klimaendringer – de er strengt tatt ikke «flyktninger» i konvensjonens forstand. Det er pågående debatt om begrepet «klimaflyktning» og om det bør utvikles nye internasjonale beskyttelsesmekanismer.\n\nKlimamigrasjon er ikke et fremtidig scenario – det skjer allerede. Små øystater i Stillehavet som Tuvalu og Kiribati risikerer å bli oversvømt av stigende havnivåer. Tørkeperioder i Sahel-regionen i Afrika bidrar til migrasjon mot kysten og til Europa. I Bangladesh, et av verdens mest klimautsatte land, tvinges millioner av mennesker til å flytte fra kystområder og flomutsatte elvedeltaer.\n\nKlimamigrasjon reiser komplekse spørsmål om rettferdighet: de menneskene som er mest sårbare for klimaendringer, er ofte de som har bidratt minst til problemet. Begrepet «klimarettferdighet» kobler klimapolitikk til global ulikhet og historisk ansvar. Rike industriland, som har stått for mesteparten av de historiske klimagassutslippene, har et særlig ansvar – men hvordan dette ansvaret skal omsettes i praktisk politikk, er gjenstand for intens debatt.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-4-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Hva kjennetegner kjedemigrasjon?',
+      exercises: [
+        {
+          id: 'sos-5-4-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva kjennetegner kjedemigrasjon?',
+          options: [
+            'At migranter alltid reiser i grupper',
+            'At migrasjon fra ett sted til et annet forsterker seg selv over tid gjennom sosiale nettverk',
+            'At staten organiserer migrasjon i bestemte kjeder',
+            'At migranter stadig flytter videre fra land til land',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Kjedemigrasjon beskriver den selvforsterkende prosessen der pionermigranter letter veien for etterfølgende migranter fra samme opprinnelsessted gjennom informasjon, hjelp og sosiale nettverk. Dette forklarer hvorfor migrasjon ofte følger bestemte korridorer.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-4-exercise-7a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Drøft klimamigrasjon.',
+      exercises: [
+        {
+          id: 'sos-5-4-ex-7a',
+          type: 'multiple-choice',
+          question: 'Hvorfor utfordrer klimamigrasjon eksisterende juridiske rammeverk?',
+          options: [
+            'Fordi klimamigranter alltid er kriminelle',
+            'Fordi FNs flyktningkonvensjon ikke dekker mennesker som flykter fra klimaendringer',
+            'Fordi klimaendringer ikke er vitenskapelig bevist',
+            'Fordi alle land har de samme klimautfordringene',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'FNs flyktningkonvensjon fra 1951 definerer flyktninger som mennesker som flykter fra forfølgelse, og dekker ikke klimamigrasjon. Det er pågående debatt om nye internasjonale beskyttelsesmekanismer for mennesker som tvinges til å flytte på grunn av klimaendringer.',
+        },
+        {
+          id: 'sos-5-4-ex-7b',
+          type: 'classic',
+          question:
+            'Gjør rede for begrepet kjedemigrasjon og migrasjonsnettverk. Forklar hvordan disse begrepene utfyller push-pull-modellen for å gi en mer helhetlig forståelse av migrasjonsprosesser.',
+        },
+        {
+          id: 'sos-5-4-ex-7c',
+          type: 'classic',
+          question:
+            `Beskriv hovedtrekkene i norsk innvandringshistorie fra 1960-tallet til i dag. Hvilke ulike typer innvandring har dominert i ulike perioder, og hvilke faktorer har drevet endringene?`,
         },
       ],
     },
@@ -975,6 +1497,102 @@ const CHAPTER_SOSIOLOGI_5_5: TextbookChapter = {
           correctAnswer: 3,
           explanation:
             'Ifølge Berry er marginalisering den mest problematiske strategien, fordi personen verken opprettholder sin opprinnelige kulturelle identitet eller deltar i det nye samfunnet. Dette er forbundet med dårlig psykisk helse og sosial utstøting.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-5-def-3',
+      type: 'definition',
+      title: 'Brochmann-utvalgene',
+      content:
+        `Brochmann-utvalgene er to norske offentlige utvalg som har utredet forholdet mellom innvandring og den norske velferdsmodellen. Det første Brochmann-utvalget (NOU 2011:7 «Velferd og migrasjon») analyserte hvordan innvandring påvirker den norske velferdsstaten, og diskuterte spenningen mellom en sjenerøs velferdsstat og åpne grenser. Det andre Brochmann-utvalget (NOU 2017:2 «Integrasjon og tillit») fokuserte på langsiktige konsekvenser av høy innvandring for tillit, samhold og bærekraft i det norske samfunnet. Begge utvalgene var ledet av sosiologiprofessor Grete Brochmann ved Universitetet i Oslo.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-5-text-4',
+      type: 'text',
+      title: 'Brochmann-utvalgene og velferdsstatsdilemmaet',
+      content:
+        `Det første Brochmann-utvalget (2011) tok opp et grunnleggende dilemma: kan den norske velferdsmodellen, med sine sjenerøse universelle ytelser, opprettholdes i møte med høy innvandring? Utvalget pekte på at den norske velferdsstaten bygger på høy tillit, bred deltakelse i arbeidslivet og villighet til å betale skatt. Hvis store grupper av innvandrere står utenfor arbeidslivet over tid, kan dette utfordre velferdsstatens økonomiske bærekraft.\n\nUtvalget identifiserte det som noen kaller «velferdsstatsdilemmaet» eller «den progressive trilemmaet»: det kan være vanskelig å kombinere sjenerøse velferdsordninger, åpne grenser og høy sosial tillit. Hvis velferdsordningene er sjenerøse og grensene åpne, kan det tiltrekke migranter som motiveres av tilgang til velferdsgoder snarere enn arbeid (det som noen kaller «velferdsmigrasjon»). Hvis dette svekker tilliten i befolkningen, kan den politiske støtten til velferdsstaten undergraves.\n\nDet andre Brochmann-utvalget (2017) utdypet analysen og la særlig vekt på tillit og sosial samhørighet. Utvalget konkluderte med at vellykket integrering – særlig gjennom deltakelse i arbeidsliv og utdanning – er avgjørende for å opprettholde den nordiske modellen. Utvalget anbefalte blant annet mer kvalifiseringsrettede tiltak, styrking av norskopplæringen, og tiltak for å motvirke segregering.\n\nBrochmann-utvalgenes konklusjoner er omdiskuterte. Noen mener utvalgene bekreftet at innvandring, særlig fra land utenfor Europa, representerer en utfordring for velferdsstaten. Andre mener at utvalgene underkommuniserte at utfordringene primært skyldes manglende integreringspolitikk og diskriminering, ikke innvandring i seg selv. Det er viktig å analysere disse spørsmålene faglig og unngå å forenkle komplekse sammenhenger.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-5-exercise-5a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Forstå velferdsstatsdilemmaet.',
+      exercises: [
+        {
+          id: 'sos-5-5-ex-5a',
+          type: 'multiple-choice',
+          question: 'Hva innebærer «velferdsstatsdilemmaet» som Brochmann-utvalget diskuterte?',
+          options: [
+            'At velferdsstaten er for dyr for alle borgere',
+            'At det kan være vanskelig å kombinere sjenerøse velferdsordninger, åpne grenser og høy sosial tillit',
+            'At innvandring alltid er negativt for økonomien',
+            'At alle velferdsstater er dømt til å kollapse',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Velferdsstatsdilemmaet handler om den potensielle spenningen mellom sjenerøse velferdsordninger, åpne grenser og høy sosial tillit. Brochmann-utvalget analyserte hvordan høy innvandring kan utfordre velferdsstatens bærekraft hvis store grupper står utenfor arbeidslivet.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-5-text-5',
+      type: 'text',
+      title: 'Språkkrav og integreringsdebatt',
+      content:
+        `Språk er et sentralt tema i integreringsdebatten. I Norge har norskopplæring for innvandrere vært en bærebjelke i integreringspolitikken, og det har over tid blitt innført stadig sterkere krav til norskkompetanse.\n\nIntroduksjonsloven (2003) ga nyankomne flyktninger og familiegjenforente rett og plikt til norskopplæring og samfunnskunnskap. Integreringsloven (2021) erstattet introduksjonsloven og innførte mer differensierte og individuelle opplæringsløp, med mulighet for å stille høyere krav til de som har forutsetninger for det.\n\nSpråkkrav for permanent oppholdstillatelse og statsborgerskap har blitt skjerpet over tid. For å få permanent oppholdstillatelse kreves det bestått prøve i norsk muntlig på nivå A2 eller høyere. For statsborgerskap kreves det bestått prøve på nivå B1 muntlig. Disse kravene har vært gjenstand for debatt.\n\nTilhengere av strenge språkkrav argumenterer for at norskkompetanse er nøkkelen til deltakelse i arbeidslivet, utdanning og samfunnslivet generelt. Uten tilstrekkelige norskferdigheter er det vanskelig å få jobb, følge barnas skolegang og delta i den demokratiske samtalen. Språkkrav kan gi innvandrere tydelige mål og motivasjon for læring.\n\nKritikere mener at strenge formelle språkkrav kan virke ekskluderende, særlig overfor eldre innvandrere, personer med lav utdanningsbakgrunn og analfabeter som har store utfordringer med å bestå formelle tester. De peker på at språklæring tar tid og at noen aldri vil nå de formelle kravene, til tross for god vilje og innsats. Kritikere frykter også at språkkravene i praksis kan fungere som en barriere for rettigheter som permanent oppholdstillatelse og statsborgerskap.\n\nIntegreringsforskere peker på at konteksten for språklæring er avgjørende: norskopplæring kombinert med arbeidspraksis gir ofte bedre resultater enn ren klasseromsundervisning. Det er bred enighet om at norskopplæringen bør være av høy kvalitet og tilpasset den enkeltes forutsetninger, men det er uenighet om hvor høye de formelle kravene bør være og hvilke konsekvenser det skal ha å ikke bestå.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-5-def-4',
+      type: 'definition',
+      title: 'Introduksjonsprogrammet',
+      content:
+        'Introduksjonsprogrammet er et integreringstiltak for nyankomne flyktninger og familiegjenforente i Norge. Programmet gir deltakerne opplæring i norsk, samfunnskunnskap og forberedelse til arbeidsliv eller utdanning. Deltakerne har rett og plikt til å delta, og mottar en introduksjonsstønad. Programmet administreres av kommunene og varer normalt i to til tre år. Målet er at deltakerne etter endt program skal være i jobb eller utdanning. Introduksjonsprogrammet ble innført med introduksjonsloven i 2003 og er blitt revidert gjennom integreringsloven i 2021.',
+      exercises: [],
+    },
+    {
+      id: 'sos-5-5-example-2',
+      type: 'example',
+      title: 'Eksempel: Integreringserfaringer i ulike land',
+      content:
+        `Ulike land har valgt ulike tilnærminger til integrering, med ulike resultater. Canada har ført en aktiv multikulturalismepolitikk med vekt på å anerkjenne kulturelt mangfold, kombinert med et poengbasert innvandringssystem som prioriterer høyt utdannede innvandrere. Frankrike har lagt vekt på republikansk integrasjon med forbud mot religiøse symboler i offentlige institusjoner (laicite), men har slitt med segregering og uro i forsteder. Tyskland gikk lenge under mottoet «Vi er ikke et innvandringsland» og hadde begrenset integreringspolitikk, før en omlegging fra 2000-tallet med innføring av integreringskurs og en ny statsborgerskapslov. Sverige førte en sjenerøs asylpolitikk men opplevde integreringsutfordringer, særlig knyttet til boligsegregering og arbeidsmarkedsdeltakelse. Disse erfaringene viser at det ikke finnes én perfekt integreringsmodell, men at aktiv politikk og tilpasning til lokale forhold er viktig.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-5-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Drøft språkkrav og integrering.',
+      exercises: [
+        {
+          id: 'sos-5-5-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva var en sentral anbefaling fra Brochmann-utvalgene?',
+          options: [
+            'Å stoppe all innvandring til Norge',
+            'At vellykket integrering, særlig gjennom arbeidsdeltakelse og utdanning, er avgjørende for å opprettholde den norske velferdsmodellen',
+            'Å fjerne alle krav til innvandrere',
+            'At velferdsstaten bør avvikles',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Brochmann-utvalgene understreket at vellykket integrering – særlig gjennom deltakelse i arbeidsliv og utdanning – er avgjørende for å opprettholde den nordiske velferdsmodellen. De anbefalte styrking av kvalifiseringstiltak og norskopplæring.',
+        },
+        {
+          id: 'sos-5-5-ex-6b',
+          type: 'classic',
+          question:
+            'Drøft argumenter for og mot strenge språkkrav for permanent oppholdstillatelse og statsborgerskap. Hvem kan slike krav være gunstige for, og hvem kan de ramme negativt?',
+        },
+        {
+          id: 'sos-5-5-ex-6c',
+          type: 'classic',
+          question:
+            `Gjør rede for «velferdsstatsdilemmaet» som Brochmann-utvalgene diskuterte. Drøft i hvilken grad dette dilemmaet er reelt, og hvilke politiske løsninger som kan balansere hensynet til velferdsstat, migrasjon og sosial tillit.`,
         },
       ],
     },
@@ -1182,6 +1800,132 @@ const CHAPTER_SOSIOLOGI_5_6: TextbookChapter = {
           correctAnswer: 2,
           explanation:
             'Allports kontakthypotese sier at kontakt kan redusere fordommer dersom den foregår under riktige betingelser: lik status mellom gruppene, felles mål, samarbeid og institusjonell støtte. Uten disse betingelsene kan kontakt tvert imot forsterke fordommer.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-6-def-4',
+      type: 'definition',
+      title: 'Institusjonell rasisme',
+      content:
+        `Institusjonell rasisme refererer til rasistiske utfall som produseres av institusjoner – som politiet, helsevesenet, utdanningssystemet eller arbeidsmarkedet – gjennom sine rutiner, praksiser, kulturer og strukturer, uavhengig av om de ansatte har rasistiske intensjoner. Begrepet ble særlig aktualisert gjennom Macpherson-rapporten i Storbritannia (1999), som undersøkte politiets håndtering av drapet på den svarte ungdommen Stephen Lawrence i 1993. Rapporten definerte institusjonell rasisme som «den kollektive svikten i en organisasjon i å yte en passende og profesjonell tjeneste til mennesker på grunn av deres farge, kultur eller etniske opprinnelse». Begrepet har vært innflytelsesrikt, men også omdiskutert.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-text-5',
+      type: 'text',
+      title: 'Macpherson-rapporten og debatten om institusjonell rasisme',
+      content:
+        `Macpherson-rapporten (1999) er et av de viktigste dokumentene i nyere debatt om rasisme i vestlige samfunn. I 1993 ble den 18 år gamle Stephen Lawrence drept i et rasistisk motivert angrep i London. Politiets etterforskning var preget av alvorlige mangler – feil ble gjort i bevisinnsamling, vitner ble ikke fulgt opp, og Lawrences familie opplevde at de ikke ble tatt på alvor. De mistenkte ble først dømt i 2012, nesten 20 år etter drapet.\n\nSir William Macpherson ledet en gransking som konkluderte med at Metropolitan Police var «institusjonelt rasistisk». Rapporten definerte dette ikke som bevisst rasisme hos enkeltpersoner, men som organisasjonens kollektive svikt – holdninger, prosedyrer og kultur som systematisk stilte svarte og etniske minoriteter dårligere.\n\nMacpherson-rapporten førte til omfattende reformer i britisk politi, inkludert bedre registrering av rasistisk motiverte hendelser, endringer i rekruttering og opplæring, og nye lover mot diskriminering (Equality Act 2010). Rapporten viste at institusjonell rasisme kan eksistere uten at noen enkeltperson nødvendigvis handler med rasistisk intensjon – det er systemet som produserer ulike utfall.\n\nI Norge har det vært debatt om hvorvidt begrepet institusjonell rasisme er relevant for norske forhold. Forskning har dokumentert systematiske forskjeller i hvordan minoriteter møtes i ulike institusjoner, fra politi til helsevesen og arbeidsmarked. Likestillings- og diskrimineringsombudet har pekt på at diskriminering kan være innbakt i tilsynelatende nøytrale rutiner og praksiser. Samtidig er det uenighet om i hvilken grad slike forskjeller skyldes rasisme versus andre faktorer, og mange er kritiske til å bruke begrepet «institusjonell rasisme» om norske institusjoner.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-exercise-5a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Forstå institusjonell rasisme.',
+      exercises: [
+        {
+          id: 'sos-5-6-ex-5a',
+          type: 'multiple-choice',
+          question: 'Hva innebærer begrepet «institusjonell rasisme»?',
+          options: [
+            'At alle ansatte i en institusjon er rasister',
+            'At institusjoners rutiner, praksiser og kultur systematisk kan stille minoriteter dårligere, uavhengig av intensjon',
+            'At det finnes lover som diskriminerer',
+            'At staten bevisst fører en rasistisk politikk',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Institusjonell rasisme handler om at organisasjoners systemer, rutiner og kulturer kan produsere systematisk ulike utfall for ulike etniske grupper, uten at dette nødvendigvis skyldes bevisst rasisme hos enkeltansatte. Det er systemets virkemåte som produserer ulikheten.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-6-def-5',
+      type: 'definition',
+      title: 'Mikroaggresjoner',
+      content:
+        `Mikroaggresjoner er et begrep lansert av psykologen Derald Wing Sue som refererer til hverdagslige, ofte subtile og utilsiktede kommentarer, handlinger eller signaler som formidler negative eller nedvurderende budskap til personer basert på deres gruppetilhørighet – for eksempel etnisitet, kjønn eller seksuell orientering. Eksempler inkluderer spørsmål som «Hvor er du egentlig fra?» til en person som er født og oppvokst i Norge, komplimenter som «Du snakker jo perfekt norsk!» til en person med minoritetsbakgrunn, eller å forveksle personer av samme etnisitet. Begrepet er omdiskutert: tilhengere mener det synliggjør skjulte former for diskriminering, kritikere mener det patologiserer vanlig sosial interaksjon og kan hemme åpen kommunikasjon.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-text-6',
+      type: 'text',
+      title: 'Hverdagsrasisme og mikroaggresjoner',
+      content:
+        `Hverdagsrasisme er et begrep som beskriver de dagligdagse erfaringene med rasisme som mange mennesker med minoritetsbakgrunn opplever. Det handler ikke nødvendigvis om dramatiske hendelser, men om gjentatte, tilsynelatende små opplevelser som over tid kan ha betydelig innvirkning på helse, trivsel og tilhørighet.\n\nDerald Wing Sue har identifisert tre typer mikroaggresjoner: mikroangrep (bevisste fornærmelser eller diskriminerende handlinger), mikrofornærmelser (kommentarer eller handlinger som utilsiktet formidler uhøflighet eller ufølsomhet) og mikroinvalideringer (kommentarer som utilsiktet annullerer eller negerer en persons opplevelser eller identitet).\n\nEksempler på mikroaggresjoner i norsk kontekst kan være: å stadig spørre norske borgere med minoritetsbakgrunn om hvor de «egentlig» kommer fra (noe som kan signalisere at de ikke oppfattes som «ekte» nordmenn), å uttrykke overraskelse over at en person med minoritetsbakgrunn snakker godt norsk, eller å klemme på en persons hår uten å spørre. Mange norske ungdommer og voksne med minoritetsbakgrunn rapporterer om slike opplevelser.\n\nDebatten om mikroaggresjoner er polarisert. Kritikere mener at begrepet kan overdrive omfanget av rasisme, at det gjør det vanskelig å ha åpne samtaler på tvers av kulturelle skillelinjer, og at det kan skape en offerkultur. De peker også på metodiske svakheter i forskningen og på at intensjon bør telle i vurderingen av en handling. Forsvarere av begrepet mener at det synliggjør former for diskriminering som tidligere var usynlige, og at akkumulasjonen av tilsynelatende små hendelser kan ha betydelige psykologiske konsekvenser.\n\nForskning i Norge, blant annet gjennom IMDis integreringsbarometer, viser at en betydelig andel av personer med innvandrerbakgrunn rapporterer om opplevd diskriminering. Samtidig viser forskningen at de fleste nordmenn ønsker å behandle alle likt, og at viljen til inkludering er høy. Utfordringen ligger i gapet mellom intensjon og effekt.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-text-7',
+      type: 'text',
+      title: 'Debatter om hvit privilegium og kritisk raseteori',
+      content:
+        `Begrepet «hvit privilegium» (white privilege), opprinnelig formulert av den amerikanske forskeren Peggy McIntosh i 1988, refererer til de usynlige fordelene som hvite mennesker i vestlige samfunn automatisk nyter godt av i kraft av sin hudfarge – fordeler som folk med annen hudfarge ikke har. McIntosh beskrev det som en «usynlig ryggsekk» med ressurser man ubevisst bærer med seg: å slippe å representere hele sin rase, å se seg selv representert i medier, å ikke bli mistenkt i butikker, osv.\n\nBegrepet er blant de mest kontroversielle i den moderne rasediskusjonen. Tilhengere mener det synliggjør strukturelle fordeler som ellers forblir usynlige, og at erkjennelse av privilegium er et nødvendig steg mot rettferdighet. Kritikere mener begrepet er problematisk av flere grunner: det kan redusere komplekse ulikhetsmønstre til en rase-dimensjon og overse andre faktorer som klasse og geografi, det kan oppleves som en kollektiv skyldpåføring, og det kan skape motstand snarere enn dialog. I norsk kontekst har noen pekt på at den norske klasse- og likhetstradisjonen gjør at begrepet ikke uten videre kan oversettes fra en amerikansk til en norsk kontekst.\n\nKritisk raseteori (Critical Race Theory, CRT) er en akademisk retning som analyserer hvordan rase og rasisme er innvevd i juridiske og samfunnsmessige strukturer. CRT oppstod i amerikanske juss-miljøer på 1970- og 1980-tallet og har blitt innflytelsesrik i samfunnsvitenskapen. CRT har vært gjenstand for intens politisk debatt, særlig i USA, der motstandere mener den overdriver rasismens rolle og fremmer splittelse, mens tilhengere mener den gir nødvendige verktøy for å analysere vedvarende ulikhet.\n\nDet er viktig å understreke at disse debattene reflekterer genuine faglige og politiske uenigheter. Spørsmålet om hvorvidt begreper som «hvit privilegium» og «strukturell rasisme» er nyttige analytiske verktøy eller om de i stedet forsterker rasetenkning, er et legitimt diskusjonstema der ulike perspektiver har verdifulle innsikter.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-example-2',
+      type: 'example',
+      title: 'Eksempel: Forskning på navnediskriminering i Norge',
+      content:
+        `Flere norske forskningsprosjekter har brukt felteksperimenter for å måle diskriminering. I en studie sendte forskere identiske jobbsøknader til reelle stillingsutlysninger – med den eneste forskjellen at søkerens navn var typisk norsk eller typisk pakistansk/arabisk. Resultatet viste at søkere med utenlandsk-klingende navn hadde betydelig lavere sannsynlighet for å bli kalt inn til intervju, selv med identiske kvalifikasjoner og erfaringer. Lignende studier er gjennomført på leiemarkedet for bolig med tilsvarende funn. En studie viste at en søker med pakistansk-klingende navn måtte sende rundt 50 prosent flere søknader for å oppnå like mange innkallelser til intervju som en søker med norsk-klingende navn. Disse studiene er verdifulle fordi de kontrollerer for alle andre faktorer enn navnet, og dermed isolerer diskriminering. Samtidig er det debatt om i hvilken grad slike studier gjenspeiler hele virkeligheten – arbeidsgivere kan ha andre vurderinger enn det som fanges opp i et eksperiment.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-6-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Test forståelse av mikroaggresjoner og hverdagsrasisme.',
+      exercises: [
+        {
+          id: 'sos-5-6-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva kjennetegner mikroaggresjoner ifølge Derald Wing Sue?',
+          options: [
+            'Store, dramatiske rasistiske hendelser',
+            'Hverdagslige, ofte subtile og utilsiktede kommentarer eller handlinger som formidler negative budskap til personer basert på gruppetilhørighet',
+            'Bevisste og planlagte rasistiske angrep',
+            'Kritikk av bestemte kulturelle praksiser',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Mikroaggresjoner er ifølge Sue hverdagslige, ofte subtile og utilsiktede kommentarer, handlinger eller signaler som formidler negative budskap basert på gruppetilhørighet. De er ofte ubevisste hos avsenderen, men kan ha akkumulert negativ effekt på mottakeren over tid.`,
+        },
+        {
+          id: 'sos-5-6-ex-6b',
+          type: 'multiple-choice',
+          question: `Hvorfor er begrepet «hvit privilegium» kontroversielt?`,
+          options: [
+            `Fordi alle er enige om at det ikke eksisterer`,
+            `Fordi tilhengere mener det synliggjør strukturelle fordeler, mens kritikere mener det forenkler ulikhetsmønstre og kan oppleves som kollektiv skyldpåføring`,
+            `Fordi det bare gjelder i USA`,
+            `Fordi det ble oppfunnet av politikere, ikke forskere`,
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Debatten om «hvit privilegium» reflekterer genuine uenigheter: tilhengere mener det synliggjør usynlige strukturelle fordeler, kritikere mener det kan forenkle komplekse ulikhetsmønstre, overse klasse og geografi, og skape motstand fremfor dialog.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-6-exercise-7a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Drøftingsoppgaver om rasisme og diskriminering.',
+      exercises: [
+        {
+          id: 'sos-5-6-ex-7a',
+          type: 'classic',
+          question:
+            'Gjør rede for Macpherson-rapportens definisjon av institusjonell rasisme. Diskuter i hvilken grad dette begrepet er relevant for å analysere norske samfunnsinstitusjoner.',
+        },
+        {
+          id: 'sos-5-6-ex-7b',
+          type: 'classic',
+          question:
+            `Drøft begrepet «mikroaggresjoner» som analytisk verktøy. Presenter argumenter både for og mot begrepets nytteverdi, og vurder dets relevans i en norsk kontekst.`,
         },
       ],
     },
@@ -1415,6 +2159,132 @@ const CHAPTER_SOSIOLOGI_5_7: TextbookChapter = {
           correctAnswer: 1,
           explanation:
             'I Wallersteins verdenssystemteori er semiperiferien en mellomkategori mellom kjerne og periferi. Semiperiferiske land (for eksempel Brasil, Tyrkia, Kina) har trekk fra begge kategorier og kan bevege seg oppover mot kjernen eller nedover mot periferien.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-7-def-4',
+      type: 'definition',
+      title: 'Bistandsdebatten: Sachs vs. Easterly',
+      content:
+        `Jeffrey Sachs og William Easterly representerer to sentrale posisjoner i debatten om utviklingsbistand. Sachs, professor ved Columbia University og rådgiver for FN, argumenterer for at fattige land er fanget i en «fattigdomsfelle» der de mangler ressurser til å investere i de grunnleggende forutsetningene for utvikling (helse, utdanning, infrastruktur). Han mener at en massiv økning i bistand – en «big push» – kan bryte denne sirkelen og sette i gang en positiv utviklingsspiral. Easterly, professor ved New York University, er kritisk til denne tilnærmingen. Han argumenterer for at bistand styrt ovenfra av internasjonale «planleggere» sjelden fungerer fordi den ignorerer lokale forhold, skaper avhengighet og undergraver lokale institusjoner. Easterly mener utviklingen heller bør drives av lokale «søkere» som finner løsninger tilpasset lokale behov.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-text-5',
+      type: 'text',
+      title: 'Bistandsdebatten: virker bistand?',
+      content:
+        `Spørsmålet om hvorvidt utviklingsbistand virker, er et av de mest debatterte i utviklingspolitikken. Posisjoner spenner fra de som mener at mer og bedre bistand er nøkkelen til global fattigdomsreduksjon, til de som mener at bistand i sin nåværende form gjør mer skade enn nytte.\n\nJeffrey Sachs har vært en av de mest fremtredende talspersonene for økt bistand. Gjennom Millennium Villages Project forsøkte han å demonstrere at konsentrert bistand i utvalgte landsbyer kunne utløse en selvforsterkende utviklingsprosess. Prosjektet ble møtt med betydelig kritikk – blant annet for mangelfulle evalueringsmetoder og for å overvurdere bistandens transformative potensial.\n\nWilliam Easterly har vært en av bistandens fremste kritikere. I boken «The White Man\\'s Burden» (2006) skiller han mellom «planleggere» (som designer omfattende utviklingsplaner ovenfra) og «søkere» (som finner løsninger gjennom prøving og feiling nedenfra). Easterly mener at bistandsindustrien er dominert av planleggere som forutsetter at eksperter i Washington eller New York vet hva fattige lokalsamfunn trenger – noe de sjelden gjør.\n\nDambisa Moyo, en zambisk økonom, radikaliserte bistandskritikken ytterligere i boken «Dead Aid» (2009). Moyo argumenterer for at vestlig bistand til Afrika ikke bare har mislyktes, men aktivt har skadet kontinentets utvikling ved å skape avhengighet, finansiere korrupsjon, undergrave lokale markeder og svekke institusjonell utvikling. Hun anbefaler i stedet at afrikanske land satser på internasjonal handel, utenlandske direkteinvesteringer og obligasjonsmarkedet. Moyos analyse har blitt kritisert for å overse forskjellene mellom ulike typer bistand og for å undervurdere bistandens positive effekter på helse og utdanning.\n\nNorge er en av verdens største bistandsgivere per innbygger, med en bistandsprosent som tradisjonelt har ligget rundt eller over FNs mål om 0,7 prosent av BNI. Den norske bistandsdebatten speiler den internasjonale, med spørsmål om effektivitet, betingelser, fokusområder og forholdet mellom bistand og handel. Norad (Direktoratet for utviklingssamarbeid) evaluerer jevnlig norsk bistandsinnsats.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-exercise-6a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Forstå bistandsdebatten.',
+      exercises: [
+        {
+          id: 'sos-5-7-ex-6a',
+          type: 'multiple-choice',
+          question: 'Hva er Dambisa Moyos hovedargument i «Dead Aid»?',
+          options: [
+            'At bistand til Afrika bør dobles',
+            'At vestlig bistand aktivt har skadet Afrikas utvikling gjennom avhengighet og korrupsjon',
+            'At bistand bare bør gis til land i Asia',
+            'At bistand er det eneste som kan redde Afrika',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Moyo argumenterer for at vestlig bistand til Afrika ikke bare har mislyktes, men aktivt har skadet kontinentets utvikling gjennom avhengighet, korrupsjonsfinansiering og svekkelse av lokale institusjoner. Hun foreslår alternative finansieringskilder som handel og investeringer.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-5-7-text-6',
+      type: 'text',
+      title: 'Avkolonisering av kunnskap',
+      content:
+        `De siste tiårene har det vokst frem en bevegelse for «avkolonisering av kunnskap» (decolonization of knowledge) som utfordrer den vestlige dominansen i akademia og kunnskapsproduksjon. Bevegelsen argumenterer for at det meste av den kunnskapen som anses som «universell» i vestlige akademiske institusjoner, er produsert fra et bestemt vestlig perspektiv, og at andre kunnskapstradisjoner – fra Afrika, Asia, Latin-Amerika og urfolkssamfunn – har blitt systematisk marginalisert.\n\nDen postkoloniale tenkeren Edward Said la grunnlaget med sitt begrep «orientalisme» (1978) – ideen om at vestlig kunnskap om «Østen» ikke var nøytral, men tjente vestlige maktinteresser. Gayatri Spivak stilte det berømte spørsmålet «Can the Subaltern Speak?» (1988) – om de undertrykte har mulighet til å uttrykke sine perspektiver i en verden der vestlig kunnskapsproduksjon dominerer.\n\nI sosiologien har bevegelsen ført til diskusjon om pensumlister, forskningsmetoder og teoretiske rammeverk. Kritikere peker på at sosiologisk teori domineres av europeiske og amerikanske tenkere, og at erfaringer fra det globale sør ofte bare brukes som «case-studier» for å illustrere vestlig teori, snarere enn som kilde til egen teoriutvikling. Sosiologer fra det globale sør, som Raewyn Connell (Australia/Sør) og Boaventura de Sousa Santos (Portugal/Brasil), har argumentert for «en sosiologi fra Sør» som tar utgangspunkt i perspektiver og erfaringer fra det globale sør.\n\nDebatten om avkolonisering av kunnskap er kontroversielt. Tilhengere mener det handler om intellektuell rettferdighet og om å utvide kunnskapsgrunnlaget. Kritikere mener det kan føre til relativisme – at vitenskapelig kunnskap reduseres til «vestlig kunnskap» på linje med alle andre kunnskapstradisjoner, noe som kan undergrave vitenskapens universelle pretensjoner. Andre igjen mener at det ikke handler om å forkaste vestlig vitenskap, men om å supplere den med perspektiver som har vært systematisk oversett.\n\nI norsk akademia har debatten blant annet handlet om pensumlistenes sammensetning, om representasjon av forskere med ulik bakgrunn, og om hvordan kunnskap om samisk kultur og urfolksperspektiver integreres i forskning og undervisning.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-def-5',
+      type: 'definition',
+      title: 'Postkolonialisme',
+      content:
+        `Postkolonialisme er et tverrfaglig akademisk felt som studerer de kulturelle, politiske og økonomiske ettervirkningene av kolonialisme. Postkoloniale tenkere analyserer hvordan koloniale maktforhold fortsetter å prege globale relasjoner, kunnskapsproduksjon og identitetsforståelser etter den formelle avkoloniseringen. Sentrale begreper inkluderer Edward Saids «orientalisme» (vestlige konstruksjoner av «den andre»), Homi Bhabhas «hybriditet» (kulturblanding som oppstår i koloniale møter) og Frantz Fanons analyser av kolonialismens psykologiske virkninger. Postkolonialismen utfordrer eurosentrisme i akademia og samfunnsliv.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-example-2',
+      type: 'example',
+      title: 'Eksempel: Sachs Millennium Villages Project',
+      content:
+        `Jeffrey Sachs lanserte Millennium Villages Project (MVP) i 2005 som et praktisk forsøk på å demonstrere at konsentrert bistand kunne bryte fattigdomsfellen. Prosjektet investerte store beløp i utvalgte landsbyer i ti afrikanske land, med satsing på landbruk, helse, utdanning, infrastruktur og næringsliv. Sachs hevdet at prosjektet viste positive resultater. Uavhengige evalueringer var mer forbeholdne: de pekte på metodiske problemer (manglende kontrollgrupper), at positive resultater ikke nødvendigvis skyldtes prosjektet, og at effektene var vanskelige å videreføre etter at finansieringen tok slutt. Easterly brukte MVP som eksempel på «planleggermentaliteten» – troen på at eksperter kan designe omfattende løsninger ovenfra. Eksemplet illustrerer den bredere debatten om utviklingsbistand: gode intensjoner garanterer ikke gode resultater, og spørsmålet om hva som «virker» i utviklingsarbeid er genuint komplekst.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-exercise-7a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Test din forståelse av avkolonisering av kunnskap.',
+      exercises: [
+        {
+          id: 'sos-5-7-ex-7a',
+          type: 'multiple-choice',
+          question: 'Hva innebærer bevegelsen for «avkolonisering av kunnskap»?',
+          options: [
+            'Å fjerne all vestlig kunnskap fra pensum',
+            'Å utfordre vestlig dominans i kunnskapsproduksjonen og inkludere perspektiver fra det globale sør og urfolkssamfunn',
+            'Å gjeninnføre koloniale undervisningsmetoder',
+            'Å stoppe all forskning i vestlige land',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Avkolonisering av kunnskap handler om å utfordre den vestlige dominansen i akademia og inkludere kunnskapstradisjoner fra det globale sør og urfolkssamfunn som har vært systematisk marginalisert. Det handler ikke om å forkaste vestlig vitenskap, men om å utvide kunnskapsgrunnlaget.',
+        },
+      ],
+    },
+    {
+      id: 'sos-5-7-text-7',
+      type: 'text',
+      title: 'Norges rolle i den globale utviklingen',
+      content:
+        `Norge har en særegen posisjon i det globale utviklingslandskapet. Som et av verdens rikeste land per innbygger, med store oljeinntekter forvaltet gjennom Statens pensjonsfond utland (Oljefondet), har Norge både ressurser og forpliktelser i global sammenheng.\n\nNorsk utviklingspolitikk har tradisjonelt vektlagt fattigdomsbekjempelse, menneskerettigheter, likestilling og fredsbygging. Norge har spilt en aktiv rolle som fredsmekler i konflikter (Oslo-avtalen mellom Israel og PLO i 1993, fredsprosessen i Colombia). Bistandsbudsjettet har vært blant de høyeste i verden som andel av BNI.\n\nSamtidig reiser Norges posisjon som stor olje- og gassnasjon kritiske spørsmål om klimarettferdighet. Norge tjener store inntekter på eksport av fossil energi, som bidrar til globale klimaendringer som rammer fattige land hardest. Kritikere peker på motsetningen mellom Norges ambisiøse klimamål hjemme og den fortsatte satsingen på olje- og gassproduksjon. Forsvarere mener at norsk gass erstatter kull i Europa og at oljeinntektene finansierer klimatiltak og bistand.\n\nOljefondet, som er verdens største statlige investeringsfond, investerer globalt og har innført etiske retningslinjer som utelukker selskaper involvert i blant annet våpenproduksjon, alvorlig miljøskade og brudd på menneskerettigheter. Likevel er det debatt om hvor strengt retningslinjene bør være og om fondet i tilstrekkelig grad tar hensyn til klimarisiko.\n\nNorsk handelspolitikk har også en utviklingsdimensjon. Gjennom nulltollordningen for de minst utviklede landene og deltakelse i internasjonale forhandlinger, bidrar Norge til diskusjonen om rettferdig verdenshandel. Samtidig beskytter Norge eget landbruk med høye tollsatser, noe som kan oppfattes som inkonsistent med kravene om markedsåpning overfor fattigere land.\n\nDisse spenningene illustrerer at global utvikling og ulikhet ikke bare er abstrakte problemstillinger, men spørsmål som berører norsk politikk og norske interesser direkte. Spørsmålet om Norges globale ansvar er et legitimt politisk stridsspørsmål der ulike perspektiver fortjener seriøs behandling.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-5-7-exercise-8a',
+      type: 'exercise',
+      title: 'Oppgave',
+      content: 'Drøftingsoppgaver om global utvikling.',
+      exercises: [
+        {
+          id: 'sos-5-7-ex-8a',
+          type: 'multiple-choice',
+          question: 'Hva er Easterlys hovedinnvending mot bistand styrt av internasjonale «planleggere»?',
+          options: [
+            'At planleggere aldri har gode intensjoner',
+            'At bistand styrt ovenfra sjelden fungerer fordi den ignorerer lokale forhold og skaper avhengighet',
+            'At planleggere alltid er korrupte',
+            'At bistand er for billig til å virke',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Easterly skiller mellom «planleggere» (som designer omfattende utviklingsplaner ovenfra) og «søkere» (som finner løsninger nedenfra). Hans hovedkritikk er at bistand styrt ovenfra sjelden tar hensyn til lokale forhold, skaper avhengighet og undergraver lokale institusjoner.',
+        },
+        {
+          id: 'sos-5-7-ex-8b',
+          type: 'classic',
+          question:
+            `Gjør rede for Sachs og Easterlys ulike posisjoner i bistandsdebatten. Inkluder også Moyos perspektiv fra «Dead Aid». Drøft hvilken tilnærming du mener er mest overbevisende, og begrunn svaret.`,
+        },
+        {
+          id: 'sos-5-7-ex-8c',
+          type: 'classic',
+          question:
+            'Diskuter hva «avkolonisering av kunnskap» innebærer og hvilken relevans dette har for sosiologifaget. Presenter argumenter både for og mot denne tilnærmingen.',
         },
       ],
     },

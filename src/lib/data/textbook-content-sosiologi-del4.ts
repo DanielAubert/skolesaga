@@ -132,6 +132,144 @@ export const CHAPTER_SOSIOLOGI_4_1: TextbookChapter = {
       exercises: [],
     },
     {
+      id: 'sos-4-1-text-2',
+      type: 'text',
+      title: 'Simone de Beauvoir og kjønnets konstruksjon',
+      content:
+        `Den franske filosofen og forfatteren Simone de Beauvoir (1908–1986) regnes som en av grunnleggerne av moderne kjønnsteori. Hennes mest berømte setning – «Man fødes ikke som kvinne, man blir det» – fra boken «Det annet kjønn» (Le Deuxième Sexe, 1949) ble et vendepunkt i kjønnsforskningen. De Beauvoir argumenterte for at kvinnelighet ikke er en naturlig egenskap, men noe som formes gjennom oppdragelse, kultur og sosiale forventninger. Hun viste hvordan kvinner historisk har blitt definert som «den Andre» i forhold til mannen: mannen har vært normen, subjektet, mens kvinnen har vært avviket, objektet. Denne analysen var banebrytende fordi den utfordret forestillingen om at kjønnsforskjeller er biologisk gitte og uforanderlige. De Beauvoir knyttet kvinneundertrykkelsen til filosofiske begreper fra eksistensialismen: hun mente at kvinner ble nektet transcendens – muligheten til å overskride sin situasjon og skape seg selv fritt – og i stedet ble redusert til immanens, en passiv tilstand definert av kropp og reproduksjon. Hennes verk inspirerte den feministiske bevegelsen som vokste frem på 1960- og 1970-tallet, og regnes fortsatt som et av de viktigste bidragene til kjønnsteori.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-def-6',
+      type: 'definition',
+      title: 'Judith Butlers kjønnsperformativitet',
+      content:
+        `Den amerikanske filosofen Judith Butler (f. 1956) radikaliserte kjønnsteorien ytterligere med sin teori om kjønnsperformativitet, presentert i boken «Gender Trouble» (1990). Butler argumenterer for at kjønn ikke er noe man «er», men noe man «gjør» – kjønn er en serie gjentatte handlinger, gester og uttrykk som over tid skaper en illusjon av en stabil kjønnsidentitet. Ifølge Butler finnes det ikke et «ekte» kjønn bak performansen; selve performansen er det som konstituerer kjønnet. Vi «gjør» kjønn hver dag gjennom måten vi kler oss, snakker, beveger oss og forholder oss til andre. Butler utfordrer også skillet mellom biologisk kjønn (sex) og sosialt kjønn (gender): hun mener at også vår forståelse av biologisk kjønn er kulturelt formet, fordi det er gjennom kulturelle kategorier vi tolker biologiske kropper. Butlers teori har vært enormt innflytelsesrik, men også kontroversiell – kritikere mener den underspiller biologiens betydning og kan undergrave grunnlaget for feministisk politikk.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-example-4',
+      type: 'example',
+      title: 'Kjønnsperformativitet i praksis',
+      content:
+        `Butlers teori om kjønnsperformativitet kan illustreres med dagligdagse eksempler. Tenk på en guttegjeng der det å vise sårbarhet eller gråte blir møtt med hån – «ikke vær ei jente». Her ser vi hvordan maskulinitet aktivt «gjøres» gjennom gjentagelse av bestemte handlinger (tøffhet, undertrykkelse av følelser) og avvisning av andre (mykhet, følsomhet). Dragkultur er et annet eksempel Butler bruker: når en drag queen imiterer og overdriver feminine uttrykk, avsløres det at «femininitet» selv er en slags opptreden – det finnes ingen original som draget er en kopi av. På arbeidsplassen kan vi se kjønnsperformativitet i forventningene om at kvinnelige ledere skal være «myke» og relasjonsorienterte, mens mannlige ledere skal være «harde» og resultatorienterte. Kvinner som bryter med disse forventningene og opptrer autoritært, straffes sosialt på måter menn ikke gjør – noe forskning har dokumentert som «double bind»-fenomenet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-exercise-mc-butler',
+      type: 'exercise',
+      title: 'Oppgave: Kjønnsperformativitet',
+      content: 'Hva mener Judith Butler med at kjønn er performativt?',
+      exercises: [
+        {
+          id: 'sos-4-1-exercise-mc-butler-q',
+          type: 'multiple-choice',
+          question: 'Hva innebærer Judith Butlers teori om kjønnsperformativitet?',
+          options: [
+            'At kjønn bestemmes utelukkende av biologi og hormoner',
+            `At kjønn ikke er noe man «er», men noe man «gjør» gjennom gjentatte handlinger og uttrykk som skaper en illusjon av stabil kjønnsidentitet`,
+            'At alle mennesker bevisst spiller roller som skuespillere på en scene',
+            'At kjønn er en sosial rolle som tildeles ved fødselen og aldri kan endres',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Butler mener at kjønn ikke er en indre essens, men oppstår gjennom gjentatte handlinger – måten vi kler oss, snakker og forholder oss til andre. Disse handlingene skaper over tid en illusjon av en stabil kjønnsidentitet. Performativitet betyr ikke «skuespill» i vanlig forstand, men at selve handlingene konstituerer kjønnet – det finnes ikke et «ekte» kjønn bak performansen.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-1-text-3',
+      type: 'text',
+      title: 'Maskulinitetsforskning',
+      content:
+        `Mens tidlig kjønnsforskning i stor grad fokuserte på kvinners situasjon, har maskulinitetsforskning vokst frem som et eget felt fra 1980-tallet. Den australske sosiologen Raewyn Connell (f. 1944) introduserte begrepet «hegemonisk maskulinitet» for å beskrive den dominerende formen for mannlighet i et gitt samfunn. Hegemonisk maskulinitet refererer til det kulturelle idealet for hva en «ekte mann» er – typisk kjennetegnet av styrke, kontroll, heteroseksualitet, økonomisk suksess og emosjonell tilbakeholdenhet. Connell understreker at dette idealet ikke beskriver de fleste menns faktiske liv, men fungerer som en norm som menn forholder seg til og måles mot. Menn som ikke lever opp til idealet – for eksempel homofile menn eller menn som viser «feminine» trekk – kan oppleve marginalisering. Connell peker også på at hegemonisk maskulinitet opprettholdes delvis gjennom underordning av kvinner og av andre maskuliniteter. Maskulinitetsforskning har vist at stive kjønnsnormer ikke bare skader kvinner, men også menn – for eksempel gjennom høyere forekomst av selvmord, rusmisbruk og vold blant menn, som delvis kan knyttes til forventningen om at menn ikke skal vise sårbarhet eller søke hjelp.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-def-7',
+      type: 'definition',
+      title: 'Hegemonisk maskulinitet',
+      content:
+        `Hegemonisk maskulinitet er et begrep utviklet av Raewyn Connell som refererer til den kulturelt dominerende formen for mannlighet i et samfunn – det idealet som menn forventes å leve opp til. Begrepet er inspirert av Gramscis hegemonibegrep og peker på at denne maskulinitetsformen opprettholder sin dominans ikke primært gjennom tvang, men gjennom kulturell aksept. Hegemonisk maskulinitet defineres i relasjon til andre maskulinitetsformer: medvirkende maskulinitet (menn som drar fordel av patriarkalske strukturer uten aktivt å forsvare dem), underordnet maskulinitet (for eksempel homofile menn) og marginalisert maskulinitet (for eksempel menn fra etniske minoriteter). Connells analyse viser at maktforhold ikke bare eksisterer mellom kvinner og menn, men også mellom ulike grupper av menn.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-example-5',
+      type: 'example',
+      title: 'Maskulinitetsnormer i endring',
+      content:
+        `I mange vestlige samfunn er maskulinitetsnormene i endring. I norsk sammenheng har innføringen av fedrekvoten i foreldrepermisjonen (1993) vært et viktig grep for å endre farsrollen. Før fedrekvoten tok svært få menn ut foreldrepermisjon; i dag tar de fleste norske fedre ut hele sin kvote. Dette har bidratt til å normalisere at menn er omsorgspersoner og har endret forventningene til hva en «god far» er. Samtidig viser forskning at forventningene til maskulinitet fortsatt preger gutter og menn. I skolen presterer gutter i gjennomsnitt dårligere enn jenter, og diskusjonen om «gutteproblemet» handler delvis om maskulinitetsnormer som kan gjøre det vanskelig for gutter å be om hjelp eller vise engasjement for skolearbeid. I idretten opprettholdes ofte tradisjonelle maskulinitetsnormer gjennom vekt på styrke, tøffhet og konkurranse. Disse eksemplene viser at endring av kjønnsnormer er en langsom prosess som skjer ulikt på ulike samfunnsarenaer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-exercise-mc-masc',
+      type: 'exercise',
+      title: 'Oppgave: Hegemonisk maskulinitet',
+      content: 'Forklar begrepet hegemonisk maskulinitet.',
+      exercises: [
+        {
+          id: 'sos-4-1-exercise-mc-masc-q',
+          type: 'multiple-choice',
+          question: 'Hva mener Raewyn Connell med «hegemonisk maskulinitet»?',
+          options: [
+            'At alle menn har lik makt i samfunnet',
+            'Den kulturelt dominerende formen for mannlighet som fungerer som et ideal menn måles mot, og som opprettholder mannlig dominans',
+            'At maskulinitet er biologisk bestemt og uforanderlig',
+            'At menn er fysisk sterkere enn kvinner',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Hegemonisk maskulinitet er det kulturelle idealet for mannlighet – typisk kjennetegnet av styrke, kontroll og emosjonell tilbakeholdenhet. Det er ikke en beskrivelse av de fleste menns faktiske liv, men en norm som menn forholder seg til. Begrepet viser også at det finnes maktforhold mellom ulike grupper av menn, ikke bare mellom kvinner og menn.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-1-text-4',
+      type: 'text',
+      title: 'Kjønn og sosialisering',
+      content:
+        `Kjønnssosialisering er prosessen der barn og unge lærer hva som forventes av dem som gutt eller jente. Denne prosessen begynner allerede før fødselen – når foreldre velger navn og innreder barnerommet i bestemte farger – og fortsetter gjennom hele livet. Primærsosialiseringen i familien er spesielt viktig: forskning viser at foreldre ubevisst behandler gutter og jenter ulikt, for eksempel ved å snakke mer om følelser med jenter og oppmuntre gutter til mer fysisk aktivitet. Sekundærsosialiseringen gjennom barnehage, skole og venner forsterker ofte kjønnede mønstre. I barnehagen kan pedagoger ubevisst gi gutter mer oppmerksomhet for «utagerende» atferd, mens jenter belønnes for å være «flinke og stille». Medier spiller også en sentral rolle i kjønnssosialisering. Analyser av barn- og ungdomskultur viser at mannlige karakterer oftere er aktive, modige og handlingsrettede, mens kvinnelige karakterer oftere er passive, følelsesmessige eller opptatt av utseende. Selv om det har skjedd endringer – med flere sterke kvinnelige hovedpersoner i filmer og TV-serier – er de kjønnede mønstrene i medierepresentasjon fortsatt tydelige. Sosiologer understreker at kjønnssosialisering ikke er enveisprosess der barn passivt mottar kjønnsnormer. Barn er aktive aktører som forhandler, utfordrer og noen ganger avviser kjønnede forventninger – men de gjør det innenfor rammene av eksisterende strukturer og normer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-def-8',
+      type: 'definition',
+      title: 'Kjønnssosialisering',
+      content:
+        `Kjønnssosialisering er den prosessen der individer lærer og internaliserer samfunnets forventninger til atferd, holdninger og identitet knyttet til kjønn. Primærsosialisering skjer i familien, der foreldre og nære omsorgspersoner overfører kjønnsnormer gjennom språk, leker og forventninger. Sekundærsosialisering skjer gjennom institusjoner som barnehage, skole, medier og jevnaldrende. Sosiologer skiller mellom eksplisitt sosialisering (bevisste budskap som «gutter gråter ikke») og implisitt sosialisering (ubevisste mønstre i hvordan voksne forholder seg til barn basert på kjønn). Forskning viser at kjønnssosialiseringen starter svært tidlig og har varige konsekvenser for blant annet utdanningsvalg, karrierevalg og fordeling av omsorgsarbeid.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-example-6',
+      type: 'example',
+      title: 'Kjønn i skolen',
+      content:
+        `Skolen er en viktig arena for kjønnssosialisering. Forskning fra norske skoler viser at lærere kan ha ulike forventninger til gutter og jenter – for eksempel at gutter er mer urolige og trenger strengere grenser, mens jenter er mer samarbeidsvillige og motiverte. Disse forventningene kan bli selvoppfyllende profetier. Det kjønnsdelte arbeidsmarkedet har røtter i skolens rådgivning og i ungdommers egne valg: jenter dominerer i helse- og sosialfag, gutter i realfag og teknologi. Forsøk med «utradisjonelle» yrkesvalg – som kampanjer for å få flere jenter inn i teknologi eller flere gutter inn i omsorg – har hatt begrenset effekt, noe som viser hvor dypt kjønnsnormene sitter. Samtidig viser statistikk at jenter gjennomgående får bedre karakterer enn gutter i skolen, noe som har utløst debatt om hvorvidt skolen er bedre tilpasset jenter enn gutter.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-1-exercise-mc-sos',
+      type: 'exercise',
+      title: 'Oppgave: Kjønnssosialisering',
+      content: 'Hvordan foregår kjønnssosialisering i oppveksten?',
+      exercises: [
+        {
+          id: 'sos-4-1-exercise-mc-sos-q',
+          type: 'multiple-choice',
+          question: 'Hva er kjønnssosialisering?',
+          options: [
+            'En biologisk modningsprosess som skjer i puberteten',
+            'Prosessen der individer lærer samfunnets forventninger til atferd og identitet knyttet til kjønn, gjennom familie, skole, medier og jevnaldrende',
+            'Et kurs i likestilling som tilbys i videregående skole',
+            'En medisinsk behandling for kjønnsinkongruens',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Kjønnssosialisering er den sosiale prosessen der barn og unge lærer hva som forventes av dem basert på kjønn. Den skjer gjennom primærsosialisering (familien) og sekundærsosialisering (barnehage, skole, medier, venner). Prosessen starter allerede før fødselen og pågår gjennom hele livet.`,
+        },
+      ],
+    },
+    {
       id: 'sos-4-1-example-3',
       type: 'example',
       title: 'Interseksjonalitet i praksis',
@@ -370,6 +508,120 @@ export const CHAPTER_SOSIOLOGI_4_2: TextbookChapter = {
       content:
         'Ifølge World Economic Forums Global Gender Gap Report scorer de nordiske landene jevnlig høyest på likestilling, mens land i deler av Midtøsten, Nord-Afrika og Sør-Asia scorer lavest. Globalt har kvinner i gjennomsnitt lavere inntekt, dårligere tilgang til utdanning og svakere politisk representasjon enn menn. Ifølge FN mangler over 130 millioner jenter tilgang til skolegang, og kvinner utfører anslagsvis 75 prosent av verdens ubetalte omsorgsarbeid. Disse tallene viser at kjønnsulikhet er et globalt strukturelt problem, selv om graden varierer mellom regioner.',
       exercises: [],
+    },
+    {
+      id: 'sos-4-2-text-2',
+      type: 'text',
+      title: 'Likestillingsparadokset',
+      content:
+        `Et bemerkelsesverdig funn i likestillingsforskningen er det såkalte «likestillingsparadokset»: jo mer likestilt et samfunn er, desto mer kjønnssegregert kan arbeidsmarkedet bli. Norge, som rangerer blant verdens mest likestilte land, har et av de mest kjønnsdelte arbeidsmarkedene i den vestlige verden. Paradokset har flere mulige forklaringer. Én forklaring er at i et land der alle har råd til å velge fritt, velger mange i tråd med kjønnstypiske preferanser som er formet av sosialisering og kultur. I fattigere land kan økonomisk nødvendighet tvinge kvinner inn i mannsdominerte yrker fordi lønnen er høyere. En annen forklaring er at den nordiske velferdsstaten, med sin store offentlige sektor innen helse og omsorg, har skapt mange arbeidsplasser som tradisjonelt tiltrekker kvinner. Likestillingsparadokset viser at formell frihet ikke automatisk fører til kjønnsnøytrale valg – kulturelle normer og strukturelle forhold virker sammen på komplekse måter. Forskningen på dette feltet er omstridt: noen tolker paradokset som bevis for at kjønnsforskjeller delvis er biologiske, mens andre mener det viser at kulturelle kjønnsnormer er dypt forankret selv i likestilte samfunn.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-def-5',
+      type: 'definition',
+      title: 'Glasstaket og glassheisen',
+      content:
+        `«Glasstaket» (glass ceiling) er en metafor for de usynlige barrierene som hindrer kvinner (og andre underrepresenterte grupper) i å nå de øverste posisjonene i organisasjoner og samfunnsliv. Barrierene er usynlige fordi det ikke finnes formelle forbud – det er ikke en lov som sier at kvinner ikke kan bli toppledrere – men uformelle mekanismer som nettverksekskludering, stereotypier og kulturelle normer skaper reelle hindringer. Begrepets motstykke er «glassheisen» (glass escalator), som beskriver fenomenet der menn som jobber i kvinnedominerte yrker, raskere forfremmes til lederposisjoner enn sine kvinnelige kolleger. En mannlig sykepleier har statistisk sett større sannsynlighet for å bli avdelingsleder enn en kvinnelig sykepleier. Begge metaforene illustrerer at kjønn påvirker karrieremuligheter på måter som ikke er umiddelbart synlige.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-example-4',
+      type: 'example',
+      title: 'Likelønn og lønnsforskjeller',
+      content:
+        `Likelønnsdebatten illustrerer forskjellen mellom formell og reell likestilling. I Norge er det lovfestet at kvinner og menn skal ha lik lønn for likt arbeid. Likevel tjener kvinner i gjennomsnitt rundt 87 prosent av det menn tjener. Lønnsforskjellen har flere forklaringer: Den største faktoren er det kjønnsdelte arbeidsmarkedet – kvinnedominerte yrker som sykepleie, barnehagelærer og sosionom er lavere lønnet enn mannsdominerte yrker som ingeniør, IT-utvikler og økonom. Innenfor samme yrke og stilling er lønnsforskjellene mindre, men de finnes fortsatt. Kvinner jobber oftere deltid og har i gjennomsnitt flere avbrudd i karrieren knyttet til omsorgsansvar, noe som påvirker både lønn og pensjon. Feministiske økonomer argumenterer for at lavere lønn i kvinnedominerte yrker ikke reflekterer lavere kompetanse eller samfunnsverdi, men er et uttrykk for at arbeid som tradisjonelt har vært utført av kvinner, systematisk undervurderes i lønnssystemet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-exercise-mc-glass',
+      type: 'exercise',
+      title: 'Oppgave: Glasstaket',
+      content: 'Forklar hva som menes med «glasstaket» i likestillingssammenheng.',
+      exercises: [
+        {
+          id: 'sos-4-2-exercise-mc-glass-q',
+          type: 'multiple-choice',
+          question: `Hva beskriver metaforen «glasstaket»?`,
+          options: [
+            'At kvinner har lavere intelligens enn menn og derfor ikke når toppen',
+            'De usynlige barrierene som hindrer kvinner i å nå de øverste posisjonene i organisasjoner, til tross for fravær av formelle forbud',
+            'At det er fysisk farlig for kvinner å jobbe i høye bygninger',
+            'En lovbestemmelse som forbyr kvinner i lederstillinger',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Glasstaket er en metafor for usynlige barrierer – som nettverksekskludering, stereotypier og kulturelle normer – som hindrer kvinner i å nå toppstillinger. «Glasset» symboliserer at barrierene er usynlige: formelt er veien åpen, men i praksis stopper mange kvinner før de når toppen.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-2-text-3',
+      type: 'text',
+      title: 'Feminismens bølger',
+      content:
+        `Feminismens historie deles gjerne inn i bølger. Den første bølgen (1850-tallet–1920-tallet) handlet primært om formelle rettigheter: stemmerett, rett til utdanning og rett til eiendom. I Norge kulminerte den med innføring av allmenn stemmerett for kvinner i 1913. Den andre bølgen (1960–1980-tallet) utvidet kampen til å gjelde reell likestilling: lik lønn, rett til abort, likestilling i familien og kamp mot seksuell trakassering. I Norge førte denne bølgen til likestillingsloven (1978) og loven om selvbestemt abort (1978). Den tredje bølgen (1990-tallet–2000-tallet) vektla mangfold og interseksjonalitet: ikke alle kvinner har de samme erfaringene, og feminismen må ta hensyn til forskjeller i klasse, etnisitet, seksualitet og funksjonsevne. Den fjerde bølgen (2010-tallet–) kjennetegnes av digitalt aktivisme, #MeToo-bevegelsen og fornyet oppmerksomhet om seksuell trakassering og samtykkespørsmål. Disse bølgene viser at feminismen ikke er én bevegelse med ett mål, men et mangfoldig felt av ulike perspektiver som har utviklet seg i takt med samfunnsendringene.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-def-6',
+      type: 'definition',
+      title: 'Likestillingspolitiske virkemidler',
+      content:
+        `Likestillingspolitikk omfatter et bredt spekter av virkemidler for å fremme kjønnslikestilling. Lovgivning er det mest grunnleggende virkemiddelet: likestillingsloven forbyr diskriminering og pålegger aktivitetsplikt. Kvotering reserverer plasser for det underrepresenterte kjønnet, som i bedriftsstyrer. Fedrekvoten i foreldrepermisjonen er et eksempel på et virkemiddel som endrer menns atferd direkte. Mainstreaming (kjønnsperspektiv i all politikk) innebærer at alle offentlige beslutninger vurderes for konsekvenser for likestilling. Holdningskampanjer og informasjon søker å endre normer og forestillinger. Forskning og statistikk synliggjør kjønnsforskjeller og gir grunnlag for politikk. Hvert virkemiddel har fordeler og begrensninger, og likestillingspolitikken er gjenstand for politisk debatt der ulike syn på statens rolle, individets frihet og hva likestilling innebærer, står mot hverandre.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-example-5',
+      type: 'example',
+      title: 'Fedrekvoten som likestillingsverktøy',
+      content:
+        `Norge innførte verdens første fedrekvote i 1993 – fire uker av foreldrepermisjonen som var forbeholdt far. Før fedrekvoten tok bare to prosent av norske fedre ut foreldrepermisjon. Etter innføringen økte andelen dramatisk, og kvoten har gradvis blitt utvidet. Fedrekvoten er et eksempel på et virkemiddel som endrer både atferd og normer: ved å «dytte» fedre inn i omsorgsrollen har den bidratt til å normalisere at menn er aktive omsorgspersoner. Forskning viser at fedre som tar permisjon, også tar mer omsorgsansvar senere – effekten varer utover permisjonsperioden. Fedrekvoten har blitt eksportert som modell til mange andre land. Samtidig er den omdiskutert: noen mener den begrenser familienes valgfrihet, mens andre peker på at «frihet» uten fedrekvote i praksis betyr at kjønnstradisjonelle mønstre opprettholdes fordi det er det som er lettest å velge i en kultur med bestemte kjønnsnormer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-2-exercise-mc-paradoks',
+      type: 'exercise',
+      title: 'Oppgave: Likestillingsparadokset',
+      content: 'Forklar hva likestillingsparadokset innebærer.',
+      exercises: [
+        {
+          id: 'sos-4-2-exercise-mc-paradoks-q',
+          type: 'multiple-choice',
+          question: `Hva menes med «likestillingsparadokset»?`,
+          options: [
+            'At likestilling alltid fører til konflikt mellom kjønnene',
+            'At mer likestilte samfunn paradoksalt nok kan ha et mer kjønnssegregert arbeidsmarked',
+            'At kvinner i likestilte land tjener mer enn menn',
+            'At likestillingspolitikk alltid mislykkes',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Likestillingsparadokset beskriver funnet at jo mer likestilt et samfunn er, desto mer kjønnssegregert kan arbeidsmarkedet bli. Mulige forklaringer inkluderer at økonomisk frihet gjør det mulig å følge kjønnstypiske preferanser formet av sosialisering, og at den store offentlige sektoren i nordiske land skaper mange «kvinnejobber». Paradokset viser at formell likhet ikke automatisk gir like utfall.',
+        },
+      ],
+    },
+    {
+      id: 'sos-4-2-exercise-mc-femboelger',
+      type: 'exercise',
+      title: 'Oppgave: Feminismens bølger',
+      content: 'Beskriv hoveddtrekkene i feminismens ulike bølger.',
+      exercises: [
+        {
+          id: 'sos-4-2-exercise-mc-femboelger-q',
+          type: 'multiple-choice',
+          question: 'Hva var hovedfokuset for den andre bølgen av feminismen (1960–1980-tallet)?',
+          options: [
+            'Stemmerett og formell rett til utdanning for kvinner',
+            'Reell likestilling i arbeidsliv, familieliv og kontroll over egen kropp',
+            'Digital aktivisme og #MeToo',
+            'Interseksjonalitet og mangfold innen feminismen',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Den andre bølgen av feminismen handlet om reell likestilling utover de formelle rettighetene som var vunnet i den første bølgen. Sentrale kampsaker var lik lønn, rett til abort, likestilling i familien og motstand mot seksuell trakassering. I Norge førte den til viktige reformer som likestillingsloven (1978) og loven om selvbestemt abort (1978).`,
+        },
+      ],
     },
     {
       id: 'sos-4-2-exercise-4',
@@ -622,6 +874,128 @@ export const CHAPTER_SOSIOLOGI_4_3: TextbookChapter = {
       ],
     },
     {
+      id: 'sos-4-3-text-2',
+      type: 'text',
+      title: 'Bourdieus symbolske makt',
+      content:
+        `Den franske sosiologen Pierre Bourdieu (1930–2002) utviklet en maktteori som kombinerer elementer fra flere av de andre perspektivene. Bourdieu introduserte begrepet symbolsk makt – makt som utøves gjennom klassifiseringer, kategorier og symboler som oppfattes som nøytrale og naturlige, men som i virkeligheten tjener bestemte gruppers interesser. Symbolsk makt virker gjennom det Bourdieu kalte «symbolsk vold»: den dominerte gruppen aksepterer de dominerendes virkelighetsforståelse som selvsagt, uten å oppfatte det som maktutøvelse. For Bourdieu er utdanningssystemet et sentralt instrument for symbolsk makt: skolen presenterer den dominerende klassens kultur og kunnskap som universell og meritokratisk, mens den i realiteten favoriserer elever som allerede har den «rette» kulturelle kapitalen hjemmefra. Bourdieu koblet dermed kulturell smak og livsstil til makt: at noen former for kunst, musikk, språk og manerer regnes som «finere» enn andre, er ikke nøytralt – det er et uttrykk for symbolsk makt som opprettholder sosiale hierarkier. Begrepene habitus (de internaliserte disposisjonene som styrer vår smak og atferd) og felt (de sosiale arenaene der makt kjempes om) er sentrale i Bourdieus analyse. Habitus gjør at vi handler i tråd med vår sosiale posisjon uten å tenke over det – vi opplever våre valg som «frie» og «personlige», men de er formet av vår klasseposisjon.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-def-6',
+      type: 'definition',
+      title: 'Symbolsk makt og symbolsk vold',
+      content:
+        `Symbolsk makt er ifølge Pierre Bourdieu den formen for makt som utøves gjennom symboler, språk, klassifiseringer og kulturelle praksiser. Den virker ved at de dominertes perspektiv og kategorier aksepteres som naturlige og selvfølgelige av alle parter – også av dem som domineres. Symbolsk vold oppstår når de dominerte internaliserer de dominerendes verdier og dermed bidrar til å opprettholde sin egen underordning. Et eksempel er når arbeiderklassebarn opplever sine egne kulturelle uttrykk som «mindreverdige» sammenlignet med overklassens kultur, og aksepterer at de «fortjener» lavere status fordi de ikke mestrer den «riktige» kulturen. Symbolsk makt er særlig effektiv nettopp fordi den er usynlig – den som utsettes for den, opplever ikke at makt utøves.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-example-makt-bourdieu',
+      type: 'example',
+      title: 'Symbolsk makt i utdanningssystemet',
+      content:
+        `Bourdieus analyse av utdanningssystemet som instrument for symbolsk makt har vært enormt innflytelsesrik. Skolen presenterer seg som meritokratisk – den beste vinner uavhengig av bakgrunn. Men forskning viser at barn fra høyere sosiale lag konsekvent lykkes bedre i skolen, ikke bare fordi de har mer ressurser, men fordi skolens krav og verdier samsvarer med den kulturen de bringer med seg hjemmefra. Et barn som vokser opp i et hjem fullt av bøker, der foreldrene bruker et rikt og formelt språk, og der kulturelle aktiviteter som teaterbesøk og museumsbesøk er en del av hverdagen, har en «kulturell kapital» som skolen belønner. Et barn fra et hjem med andre kulturelle praksiser må tilegne seg denne kapitalen i tillegg til det faglige innholdet. Det avgjørende poenget for Bourdieu er at denne forskjellen oppfattes som uttrykk for ulik «begavelse» eller «innsats», ikke som uttrykk for ulike startvilkår – og dette er symbolsk vold i praksis.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-exercise-mc-bourdieu',
+      type: 'exercise',
+      title: 'Oppgave: Bourdieus symbolske makt',
+      content: 'Forklar hva Bourdieu mener med symbolsk makt.',
+      exercises: [
+        {
+          id: 'sos-4-3-exercise-mc-bourdieu-q',
+          type: 'multiple-choice',
+          question: 'Hva kjennetegner symbolsk makt ifølge Bourdieu?',
+          options: [
+            'Makt som utøves gjennom fysisk tvang og militærmakt',
+            'Makt som virker gjennom symboler, klassifiseringer og kulturelle praksiser som oppfattes som naturlige og nøytrale',
+            'Makt som kun finnes i politiske institusjoner',
+            'Makt som utøves gjennom økonomisk belønning og straff',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Symbolsk makt virker gjennom at bestemte kulturelle praksiser, smakspreferanser og kunnskapsformer presenteres som universelle og nøytrale, når de i virkeligheten favoriserer bestemte grupper. Maktens effektivitet ligger nettopp i at den er usynlig – de dominerte aksepterer de dominerendes verdier som «naturlige».`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-3-text-3',
+      type: 'text',
+      title: 'Hannah Arendt: Makt versus vold',
+      content:
+        `Den tysk-amerikanske politiske tenkeren Hannah Arendt (1906–1975) tilbød et alternativt perspektiv på makt som skiller seg markant fra de andre teoriene. For Arendt er makt og vold ikke det samme – de er faktisk motsetninger. Makt, i Arendts forstand, oppstår når mennesker handler sammen i fellesskap. Makt er den kapasiteten som oppstår mellom mennesker når de samler seg og handler i samforstand. En regjering har makt så lenge folket støtter den; den mister makten i det øyeblikket den folkelige oppslutningen forsvinner – uansett hvor mange våpen den har. Vold, derimot, er et instrument som kan brukes av enkeltpersoner eller grupper, og den krever tekniske hjelpemidler (våpen, redskaper). Arendt argumenterer for at jo mer en regjering tyr til vold, desto mindre makt har den faktisk – voldsbruk er et tegn på maktens sammenbrudd, ikke dens styrke. Denne analysen ble utviklet blant annet i boken «On Violence» (1970), som respons på de voldelige protestene og revolusjonsretorikken i 1960-tallets USA og Europa. Arendts skille mellom makt og vold har praktiske implikasjoner: det forklarer for eksempel hvorfor ikke-voldelig motstand ofte er mer effektiv enn væpnet kamp – fordi den appellerer til den felles makten som oppstår gjennom solidaritet og kollektiv handling.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-def-7',
+      type: 'definition',
+      title: 'Arendts maktbegrep',
+      content:
+        `Hannah Arendt definerer makt som den menneskelige evnen til å handle i fellesskap. Makt tilhører ikke individer, men grupper: den eksisterer bare så lenge gruppen holder sammen og handler samlet. Makt er for Arendt et positivt begrep – det er gjennom makt at mennesker skaper politiske fellesskap, institusjoner og lover. Makt forsvinner når mennesker spres eller slutter å støtte sine institusjoner. Vold, derimot, er et instrument som kan erstatte makt midlertidig, men aldri erstatte den permanent. En diktator som bare styrer gjennom vold, er ifølge Arendt maktløs i egentlig forstand – han mangler den folkelige oppslutningen som er maktens egentlige kilde. Autoritet, i motsetning til både makt og vold, bygger på anerkjennelse uten at det er nødvendig med verken argumentasjon eller tvang – den er basert på respekt for institusjoner, tradisjoner eller personers verdighet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-example-arendt',
+      type: 'example',
+      title: 'Makt og vold: Historiske eksempler',
+      content:
+        `Arendts skille mellom makt og vold kan illustreres med historiske eksempler. Berlinmurens fall i 1989 skjedde ikke gjennom militær makt, men gjennom at det østtyske regimet hadde mistet folkets støtte – dets makt hadde forvitret, og ingen mengde vold kunne gjenopprette den. Da hundretusener samlet seg i gatene i Leipzig og Berlin, var det folkets makt – mennesker som handlet sammen – som veltet regimet. Omvendt kan man se på militærdiktaturer som opprettholder kontroll gjennom vold: de kan kontrollere territorium og undertrykke motstand, men de har ikke makt i Arendts forstand fordi de mangler folkelig legitimitet. I norsk sammenheng kan motstandsbevegelsen under andre verdenskrig forstås i Arendts termer: den tyske okkupasjonsmakten hadde militær vold, men den norske motstandsbevegelsen hadde makt fordi den representerte et fellesskap som handlet i samforstand.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-exercise-mc-arendt',
+      type: 'exercise',
+      title: 'Oppgave: Arendts syn på makt og vold',
+      content: 'Forklar Arendts skille mellom makt og vold.',
+      exercises: [
+        {
+          id: 'sos-4-3-exercise-mc-arendt-q',
+          type: 'multiple-choice',
+          question: 'Hva er forholdet mellom makt og vold ifølge Hannah Arendt?',
+          options: [
+            'Makt og vold er det samme – de som har mest voldsmidler har mest makt',
+            'Makt og vold er motsetninger: makt oppstår gjennom felles handling, mens vold er et instrument som vitner om maktens sammenbrudd',
+            'Vold er alltid nødvendig for å opprettholde makt',
+            'Makt er en illusjon – bare vold er reell',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `For Arendt er makt og vold ikke det samme, men motsetninger. Makt oppstår når mennesker handler sammen og støtter hverandre. Vold er et instrument som kan brukes av enkeltpersoner. Jo mer vold en regjering må bruke, desto mindre makt har den – voldsbruk er et tegn på at den folkelige oppslutningen svikter.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-3-text-4',
+      type: 'text',
+      title: 'Makt i det norske samfunnet',
+      content:
+        `De ulike maktteoriene kan anvendes for å analysere maktforhold i det norske samfunnet. Den norske maktutredningen (1998–2003), ledet av Øyvind Østerud, var et omfattende forskningsprosjekt som kartla maktforholdene i Norge. Utredningen konkluderte med at folkestyret var i tilbakegang: makt ble overført fra folkevalgte organer til rettslige institusjoner, til markedet og til overnasjonale organer som EU/EØS. Denne «rettsliggjøringen» av politikken innebærer at stadig flere spørsmål avgjøres av domstoler og internasjonale konvensjoner i stedet for av demokratisk valgte politikere. Maktutredningen identifiserte også medienes makt som sentral: mediene setter dagsordenen for den offentlige debatten og påvirker hvilke saker som oppfattes som viktige. Med Lukes' begreper utøver mediene dagsordensmakt i stor skala. Utredningen viste videre at det norske samfunnet har et tett nettverk av eliter – personer som sitter i ledende posisjoner innen politikk, næringsliv, akademia og medier har ofte overlappende bakgrunn, utdanning og sosiale nettverk. Bourdieu ville kalt dette et uttrykk for at sosial og kulturell kapital akkumuleres hos bestemte grupper.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-3-exercise-mc-norsk',
+      type: 'exercise',
+      title: 'Oppgave: Makt i Norge',
+      content: 'Hva viste den norske maktutredningen?',
+      exercises: [
+        {
+          id: 'sos-4-3-exercise-mc-norsk-q',
+          type: 'multiple-choice',
+          question: 'Hva var en sentral konklusjon i den norske maktutredningen (1998–2003)?',
+          options: [
+            'At makten i Norge er jevnt fordelt mellom alle innbyggere',
+            'At folkestyret var i tilbakegang gjennom rettsliggjøring, markedsstyring og overføring av makt til overnasjonale organer',
+            'At Norge er verdens mest demokratiske land uten maktproblemer',
+            'At militærmakten er den viktigste maktfaktoren i Norge',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Maktutredningen (1998–2003) konkluderte med at folkestyret var under press: makt ble overført fra Stortinget til domstoler, marked og overnasjonale organer. Mediene ble identifisert som sentrale maktutøvere, og utredningen viste at norske eliter har overlappende bakgrunn og nettverk.',
+        },
+      ],
+    },
+    {
       id: 'sos-4-3-example-5',
       type: 'example',
       title: 'Sammenligning av maktteoriene',
@@ -802,6 +1176,120 @@ export const CHAPTER_SOSIOLOGI_4_4: TextbookChapter = {
           correctAnswer: 1,
           explanation:
             'Deltakelseskløften refererer til de systematiske forskjellene i valgdeltakelse mellom ulike sosiale grupper. Forskning viser at utdanning, inntekt, alder og innvandrerbakgrunn påvirker sannsynligheten for å stemme. Dette er en demokratisk utfordring fordi det betyr at noen gruppers interesser er underrepresentert i den politiske prosessen.',
+        },
+      ],
+    },
+    {
+      id: 'sos-4-4-text-2',
+      type: 'text',
+      title: 'Deliberativt demokrati – Habermas',
+      content:
+        `Den tyske filosofen og sosiologen Jürgen Habermas (f. 1929) utviklet teorien om det deliberative demokratiet, en av de mest innflytelsesrike demokratiteoriene i moderne tid. Deliberativt demokrati betyr «overveiende demokrati» – det handler om at demokratiske beslutninger skal være basert på åpen, rasjonell debatt der alle berørte parter har mulighet til å delta. Habermas mener at demokratiets legitimitet ikke bare hviler på at folk stemmer, men på kvaliteten av den offentlige debatten som går forut for avstemningen. I den ideelle samtalesituasjonen – det Habermas kaller «den herredømmefrie samtale» – gjelder bare det bedre arguments makt: deltakerne lytter til hverandre, veier argumenter og er villige til å endre standpunkt. I praksis er denne idealsituasjonen aldri fullt ut realisert – maktforskjeller, manipulasjon og tid begrenser debatten – men den fungerer som en normativ målestokk. Habermas legger stor vekt på den offentlige sfæren (Öffentlichkeit) som et rom mellom stat og privatliv der borgere diskuterer felles anliggender. Mediene spiller en avgjørende rolle i denne offentlige sfæren: de skal ideelt sett fasilitere opplyst debatt, men kan i praksis forvrenge den gjennom kommersialisering og sensasjonalisme. Habermas\` teori reiser viktige spørsmål om sosiale mediers rolle: bidrar de til en rikere offentlig debatt, eller fragmenterer de den i ekkokamre der folk bare hører synspunkter de allerede er enige i?`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-def-6',
+      type: 'definition',
+      title: 'Deliberativt demokrati',
+      content:
+        `Deliberativt demokrati er en demokratiteori som legger vekt på at demokratiske beslutninger skal baseres på åpen, rasjonell debatt der alle berørte parter kan delta. Begrepet «deliberasjon» betyr overveielse eller drøfting. I motsetning til en rent aggregativ demokratiforståelse – der demokrati handler om å telle stemmer – mener tilhengere av deliberativt demokrati at kvaliteten på den offentlige debatten er avgjørende for demokratiets legitimitet. Habermas, den fremste teoretikeren på feltet, stiller opp idealer for samtalen: deltakerne skal argumentere saklig, lytte til hverandre, og bare «det bedre arguments makt» skal gjelde. Deliberativt demokrati har inspirert konkrete reformer som borgerpaneler, plankonferanser og dialogmøter der vanlige borgere inviteres til å diskutere politiske spørsmål.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-example-4',
+      type: 'example',
+      title: 'Deliberativt demokrati i norsk praksis',
+      content:
+        `Elementer av deliberativt demokrati finnes i den norske demokratimodellen. Høringsinstituttet er et eksempel: når nye lover foreslås, har berørte parter rett til å uttale seg gjennom høringssvar. Ideelt sett sikrer dette at ulike perspektiver blir hørt og veid før beslutningen tas. Medvirkning i kommunal planlegging er et annet eksempel: når kommuner lager reguleringsplaner, skal innbyggerne få mulighet til å komme med innspill. I nyere tid har flere norske kommuner eksperimentert med borgerpaneler – tilfeldig utvalgte innbyggere som samles for å diskutere komplekse politiske spørsmål og gi råd til politikerne. Disse forsøkene er inspirert av deliberativ demokratiteori. Kritikere påpeker imidlertid at høringer og medvirkningsprosesser ofte domineres av ressurssterke aktører, og at de reelle beslutningene tas andre steder. Det er en spenning mellom det deliberative idealet om lik deltakelse og den virkeligheten der noen stemmer systematisk er sterkere enn andre.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-exercise-mc-habermas',
+      type: 'exercise',
+      title: 'Oppgave: Deliberativt demokrati',
+      content: 'Forklar hva som menes med deliberativt demokrati.',
+      exercises: [
+        {
+          id: 'sos-4-4-exercise-mc-habermas-q',
+          type: 'multiple-choice',
+          question: 'Hva er kjernen i teorien om deliberativt demokrati?',
+          options: [
+            'At alle politiske beslutninger skal avgjøres ved folkeavstemning',
+            'At demokratiets legitimitet hviler på kvaliteten av den offentlige debatten, der alle berørte parter skal kunne delta i rasjonell argumentasjon',
+            'At eksperter og fagfolk skal ta alle politiske beslutninger',
+            'At demokrati bare handler om å telle stemmer i valg',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Deliberativt demokrati legger vekt på at demokratiske beslutninger skal forankres i åpen debatt der deltakerne argumenterer saklig og lytter til hverandre. Habermas mener at demokratiets legitimitet ikke bare hviler på stemmegivning, men på kvaliteten av den forutgående diskusjonen.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-4-text-3',
+      type: 'text',
+      title: 'Agonistisk demokrati – Mouffe',
+      content:
+        `Den belgiske statsviteren Chantal Mouffe (f. 1943) har utviklet en alternativ demokratiteori som står i spenning til Habermas\` deliberative modell. Mouffe kaller sitt perspektiv «agonistisk demokrati» (av det greske agon, som betyr kamp eller konkurranse). Mens Habermas søker konsensus gjennom rasjonell debatt, mener Mouffe at politikk grunnleggende handler om konflikt mellom ulike interesser og verdier – og at denne konflikten aldri kan eller bør elimineres fullstendig. Forsøk på å oppnå endelig konsensus er ifølge Mouffe urealistiske og potensielt farlige: de kan føre til at reelle konflikter undertrykkes i stedet for å håndteres. Mouffe skiller mellom «antagonisme» (fiendtlig konflikt som kan true demokratiet) og «agonisme» (en konstruktiv form for politisk motsetning der partene anerkjenner hverandres legitimitet selv om de er uenige). Demokratiets oppgave er ifølge Mouffe å transformere antagonisme til agonisme – å gjøre politiske motstandere til medstridere som kjemper innenfor felles demokratiske rammer. Mouffe advarer mot at når demokratiet ikke tilbyr reelle alternativer – når alle partier synes å stå for det samme – kan resultatet bli politisk apati eller at konflikten kanaliseres i anti-demokratiske retninger. Hennes teori har blitt brukt til å forklare fremveksten av populistiske bevegelser i Europa: når etablerte partier konvergerer mot sentrum, føler mange velgere at de ikke har reelle valg.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-def-7',
+      type: 'definition',
+      title: 'Agonistisk demokrati',
+      content:
+        `Agonistisk demokrati er en demokratiteori utviklet av Chantal Mouffe som vektlegger at politisk konflikt er en uunngåelig og nødvendig del av demokratiet. I motsetning til deliberative teorier som søker konsensus, mener Mouffe at reell demokratisk politikk alltid innebærer kamp mellom ulike verdier og interesser. Agonisme betyr konstruktiv konkurranse mellom politiske motstandere som anerkjenner hverandres legitimitet – i motsetning til antagonisme, der motstanderen betraktes som en fiende som må elimineres. Demokratiets oppgave er å kanalisere konflikter i konstruktive former og tilby velgerne reelle alternativer. Mouffe mener at forsøk på å oppnå endelig konsensus er naive og kan føre til at undertrykte konflikter bryter ut i mer destruktive former.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-exercise-mc-mouffe',
+      type: 'exercise',
+      title: 'Oppgave: Mouffe versus Habermas',
+      content: 'Sammenlign Mouffes agonistiske demokrati med Habermas` deliberative modell.',
+      exercises: [
+        {
+          id: 'sos-4-4-exercise-mc-mouffe-q',
+          type: 'multiple-choice',
+          question: `Hva er hovedforskjellen mellom Habermas\` deliberative demokrati og Mouffes agonistiske demokrati?`,
+          options: [
+            'Habermas er mot demokrati, Mouffe er for demokrati',
+            `Habermas mener demokrati bør sikte mot konsensus gjennom rasjonell debatt, mens Mouffe mener politisk konflikt er uunngåelig og bør kanaliseres konstruktivt`,
+            'Habermas mener bare eksperter bør bestemme, Mouffe mener alle skal stemme',
+            'Det er ingen vesentlig forskjell mellom de to teoriene',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Habermas søker konsensus gjennom rasjonell offentlig debatt der «det bedre arguments makt» gjelder. Mouffe mener dette er urealistisk og potensielt farlig – politikk handler alltid om konflikt mellom ulike verdier og interesser. Demokratiet bør kanalisere konflikten konstruktivt (agonisme) i stedet for å undertrykke den.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-4-text-4',
+      type: 'text',
+      title: 'Demokratiske utfordringer i den digitale tidsalderen',
+      content:
+        `Den digitale revolusjonen har endret betingelsene for demokrati på fundamentale måter. Sosiale medier har senket terskelen for politisk deltakelse og gitt vanlige borgere mulighet til å nå et stort publikum uten å gå gjennom tradisjonelle medier. Samtidig har digitaliseringen skapt nye demokratiske utfordringer. Algoritmene i sosiale medier viser brukerne innhold de allerede er enige i, noe som kan skape «ekkokamre» og «filterbobler» der folk sjelden konfronteres med alternative synspunkter. Desinformasjon og «falske nyheter» spres raskere og bredere enn noensinne. Utenlandske aktører kan forsøke å påvirke valg gjennom koordinerte informasjonskampanjer. Politisk polarisering – at avstandene mellom ulike grupper øker og dialogen vanskeliggjøres – er en bekymring i mange demokratier. Hatefulle ytringer og trusler rammer politikere, journalister og minoritetsgrupper og kan virke avskrekkende på politisk deltakelse. Samtidig har digitaliseringen åpnet nye muligheter: nettbasert budsjettering, digitale borgerpaneler og e-valg er eksempler på demokratisk innovasjon. Spørsmålet om hvordan demokratiet kan bevares og styrkes i den digitale tidsalderen er en av de viktigste samfunnsdebattene i vår tid.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-4-exercise-mc-digital',
+      type: 'exercise',
+      title: 'Oppgave: Demokrati og digitalisering',
+      content: 'Vurder hvordan digitalisering påvirker demokratisk deltakelse.',
+      exercises: [
+        {
+          id: 'sos-4-4-exercise-mc-digital-q',
+          type: 'multiple-choice',
+          question: `Hva er en sentral demokratisk utfordring knyttet til sosiale medier?`,
+          options: [
+            'At sosiale medier koster for mye å bruke',
+            'At algoritmene kan skape ekkokamre der folk sjelden møter alternative synspunkter, og at desinformasjon spres raskt',
+            'At sosiale medier bare brukes av eldre mennesker',
+            'At sosiale medier er fullstendig kontrollert av statlige myndigheter',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Algoritmene i sosiale medier viser brukerne innhold de allerede er enige i, noe som kan skape ekkokamre og filterbobler. I tillegg kan desinformasjon spres raskt og bredt. Disse utfordringene kan undergrave den opplyste offentlige debatten som deliberative demokratiteoretikere anser som avgjørende.`,
         },
       ],
     },
@@ -1038,6 +1526,120 @@ export const CHAPTER_SOSIOLOGI_4_5: TextbookChapter = {
       ],
     },
     {
+      id: 'sos-4-5-text-2',
+      type: 'text',
+      title: 'Stiavhengighet og velferdsstatens utvikling',
+      content:
+        `Velferdsstatsforskningen bruker begrepet «stiavhengighet» (path dependency) for å forklare hvorfor velferdsstater er vanskelige å endre radikalt. Stiavhengighet betyr at tidlige politiske valg skaper strukturer og forventninger som begrenser handlingsrommet for fremtidige reformer. Når millioner av mennesker har innrettet livene sine etter bestemte velferdsordninger – planlagt pensjonstilværelsen, tatt opp boliglån basert på forventede ytelser, utdannet seg til yrker i offentlig sektor – blir det politisk svært vanskelig å endre disse ordningene fundamentalt. Velferdsstatlige institusjoner skaper sine egne støttespillere: de som mottar ytelser, de som arbeider i velferdstjenestene, og organisasjonene som representerer dem, danner koalisjoner som forsvarer systemet. Statsviteren Paul Pierson har vist at selv konservative regjeringer som ønsker å kutte i velferdsstaten, ofte møter så stor motstand at endringene blir marginale. I norsk sammenheng ser vi stiavhengighet i debatten om pensjonssystemet: pensjonsreformen fra 2011 endret systemet, men prosessen tok over ti år og resulterte i et kompromiss som bevarte mye av den eksisterende strukturen. Stiavhengighet betyr ikke at endring er umulig, men at den skjer gradvis og innenfor rammene av eksisterende institusjoner.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-def-5',
+      type: 'definition',
+      title: 'Stiavhengighet (path dependency)',
+      content:
+        `Stiavhengighet er et begrep fra institusjonell teori som beskriver hvordan tidlige valg og historiske prosesser skaper strukturer som begrenser fremtidige handlingsmuligheter. I velferdsstatssammenheng betyr det at de institusjonene og ordningene som er etablert, tenderer mot å vedvare fordi de skaper forventninger, interesser og maktforhold som gjør det kostbart å endre kurs. Begrepet brukes ofte for å forklare hvorfor velferdsmodeller er så stabile over tid: den sosialdemokratiske modellen i Norden, den liberale i USA og den konservative i Tyskland har alle vist bemerkelsesverdig motstandsdyktighet mot radikale reformer, selv når den politiske ledelsen har ønsket endring. Stiavhengighet er imidlertid ikke determinisme – det betyr ikke at endring er umulig, men at den skjer inkrementelt og at fortiden legger føringer for fremtiden.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-example-4',
+      type: 'example',
+      title: 'Innvandring og velferdsstatsdebatt',
+      content:
+        `Innvandring har blitt et sentralt tema i debatten om velferdsstatens fremtid. Spørsmålet er sammensatt og berører både økonomi, verdier og politisk legitimitet. Én side av debatten handler om økonomi: arbeidsinnvandring kan bidra til å løse velferdsstatens demografiske utfordringer ved å øke andelen yrkesaktive som betaler skatt og finansierer velferdsordningene. Samtidig kan innvandring til velferdssystemet – der mange innvandrere mottar ytelser uten å ha bidratt gjennom skatt – legge press på systemets bærekraft. En annen side handler om legitimitet: velferdsstatens oppslutning bygger på solidaritet og tillit, og forskning viser at etnisk homogene samfunn ofte har lettere for å opprettholde sjenerøse velferdsordninger fordi innbyggerne identifiserer seg med hverandre. I mer heterogene samfunn kan oppslutningen om omfordeling bli svakere dersom folk oppfatter at «de andre» profiterer på fellesskapets midler. I norsk sammenheng er debatten særlig knyttet til flyktning- og asylpolitikk: hvor mange kan det norske velferdssystemet absorbere uten at kvaliteten eller oppslutningen svekkes? Denne debatten er politisk sensitiv, og ulike aktører vektlegger ulike hensyn – fra humanitære forpliktelser og arbeidskraftbehov til kulturell identitet og økonomisk bærekraft.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-exercise-mc-stiavh',
+      type: 'exercise',
+      title: 'Oppgave: Stiavhengighet',
+      content: 'Forklar hva stiavhengighet betyr i velferdsstatsforskning.',
+      exercises: [
+        {
+          id: 'sos-4-5-exercise-mc-stiavh-q',
+          type: 'multiple-choice',
+          question: 'Hva innebærer begrepet stiavhengighet i velferdsstatsforskningen?',
+          options: [
+            'At velferdsstaten automatisk utvikler seg i riktig retning',
+            'At tidlige politiske valg skaper strukturer og forventninger som gjør det vanskelig å endre velferdsordningene radikalt',
+            'At alle land til slutt vil få lik velferdsmodell',
+            'At velferdsordninger aldri kan endres',
+          ],
+          correctAnswer: 1,
+          explanation:
+            'Stiavhengighet betyr at historiske valg og etablerte institusjoner begrenser fremtidige reformmuligheter. Når folk har innrettet livene sine etter bestemte ordninger, og sterke interessegrupper forsvarer dem, blir radikale endringer politisk kostbare. Endring skjer derfor ofte gradvis og innenfor eksisterende rammer.',
+        },
+      ],
+    },
+    {
+      id: 'sos-4-5-text-3',
+      type: 'text',
+      title: 'Den nordiske modellen under press',
+      content:
+        `Den nordiske velferdsmodellen – kjennetegnet av universelle ordninger, sjenerøse ytelser, høy skattefinansiering og sterk fagbevegelse – har lenge blitt holdt frem som en suksesshistorie. Modellen har levert høy levestandard, lav ulikhet, høy sysselsetting og sterk sosial mobilitet sammenlignet med andre velferdsmodeller. Men modellen er under press fra flere hold. Demografiske endringer – eldrebølgen og synkende fødselsrater – utfordrer finansieringsgrunnlaget. Globaliseringen og internasjonal skattekonkurranse kan presse ned skatteinntektene som finansierer velferdsstaten. Teknologisk endring og automatisering truer tradisjonelle arbeidsplasser og kan skape nye former for ulikhet mellom de som har kompetanse til å tilpasse seg og de som ikke har det. Endrede familiestrukturer – flere skilsmisser, enslige forsørgere og aleneboende – utfordrer ordninger som ble designet for toforeldre-familier. I tillegg peker kritikere fra venstresiden på at den nordiske modellen de siste tiårene har beveget seg i liberal retning: privatisering av offentlige tjenester, økt bruk av resultatstyring og konkurranseutsetting. Fra høyresiden argumenteres det for at modellen er for kostbar og at den svekker individers insentiver til å ta ansvar for eget liv. Til tross for disse utfordringene viser de nordiske landene fortsatt sterke resultater på de fleste velferdsindkatorer, og modellen har vist seg mer tilpasningsdyktig enn mange spådde.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-def-6',
+      type: 'definition',
+      title: 'Dekommodifisering',
+      content:
+        `Dekommodifisering er et sentralt begrep i Esping-Andersens velferdsstatsteori. Det refererer til i hvilken grad individer kan opprettholde en akseptabel levestandard uavhengig av markedet – altså uten å selge sin arbeidskraft. En høy grad av dekommodifisering betyr at staten sikrer innbyggernes velferd uavhengig av deres markedsposisjon. Sykepenger, arbeidsledighetstrygd og alderspensjon er eksempler på dekommodifiserende ordninger: de gjør det mulig å leve verdig selv om man ikke kan eller ikke har arbeid. Den sosialdemokratiske velferdsmodellen har høyest grad av dekommodifisering, den liberale modellen lavest. Kritikere av høy dekommodifisering argumenterer for at det kan svekke arbeidsinsentiver, mens tilhengere mener det er en forutsetning for reell frihet – at mennesker ikke skal tvinges til å akseptere dårlige arbeidsforhold av ren nødvendighet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-example-5',
+      type: 'example',
+      title: 'NAV-reformen som velferdsreform',
+      content:
+        `NAV-reformen (2006) er et av de største velferdsreformene i norsk historie og illustrerer mange av temaene i velferdsstatsforskningen. Reformen slo sammen Aetat (arbeidsformidling), trygdeetaten og den kommunale sosialtjenesten til én etat: NAV (Arbeids- og velferdsforvaltningen). Målet var å gjøre det enklere for brukerne å få hjelp og å få flere mennesker fra trygd til arbeid. Reformen var preget av New Public Management-tenkning: resultatstyring, brukerretting og effektivisering. Erfaringene har vært blandede. Mange brukere opplevde at systemet ble mer forvirrende, ikke mindre, i overgangsperioden. NAV-skandalen (2019), der det ble avdekket at minst 80 personer feilaktig ble dømt for trygdesvindel, viste svakheter i systemets evne til å ivareta borgernes rettssikkerhet. Sosiologisk sett illustrerer NAV-reformen spenningen mellom byråkratisk likebehandling og individuell tilpasning, mellom effektivitet og rettssikkerhet, og mellom politiske ambisjoner og institusjonell virkelighet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-5-exercise-mc-dekommodifisering',
+      type: 'exercise',
+      title: 'Oppgave: Dekommodifisering',
+      content: 'Forklar begrepet dekommodifisering.',
+      exercises: [
+        {
+          id: 'sos-4-5-exercise-mc-dekommodifisering-q',
+          type: 'multiple-choice',
+          question: 'Hva betyr dekommodifisering i velferdsstatssammenheng?',
+          options: [
+            'At staten overtar eierskapet av alle bedrifter',
+            'Graden av uavhengighet fra markedet – i hvilken grad individer kan opprettholde en akseptabel levestandard uten å selge sin arbeidskraft',
+            'At varer blir gratis i butikkene',
+            'At alle må jobbe for å motta velferdsytelser',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Dekommodifisering handler om i hvilken grad staten sikrer innbyggernes velferd uavhengig av deres posisjon på arbeidsmarkedet. Sykepenger, pensjon og arbeidsledighetstrygd er dekommodifiserende ordninger. Den sosialdemokratiske modellen har høyest grad av dekommodifisering.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-5-exercise-mc-innvandring',
+      type: 'exercise',
+      title: 'Oppgave: Innvandring og velferdsstat',
+      content: 'Vurder hvordan innvandring påvirker velferdsstatens legitimitet.',
+      exercises: [
+        {
+          id: 'sos-4-5-exercise-mc-innvandring-q',
+          type: 'multiple-choice',
+          question: 'Hvilken påstand reflekterer en sosiologisk analyse av innvandring og velferdsstat?',
+          options: [
+            'Innvandring er alltid positivt for velferdsstaten fordi det øker skatteinntektene',
+            'Innvandring er alltid negativt for velferdsstaten fordi innvandrere bare mottar ytelser',
+            'Forholdet mellom innvandring og velferdsstat er sammensatt og berører både økonomi, solidaritet og politisk legitimitet',
+            'Innvandring har ingen effekt på velferdsstaten',
+          ],
+          correctAnswer: 2,
+          explanation:
+            `Forholdet mellom innvandring og velferdsstat er komplekst. Arbeidsinnvandring kan bidra positivt til finansieringsgrunnlaget, mens innvandring til trygdesystemet kan legge press på bærekraften. I tillegg kan etnisk mangfold påvirke solidariteten som velferdsstaten bygger på. En sosiologisk analyse anerkjenner denne kompleksiteten.`,
+        },
+      ],
+    },
+    {
       id: 'sos-4-5-def-4',
       type: 'definition',
       title: 'Utfordringer for velferdsstaten',
@@ -1256,6 +1858,115 @@ export const CHAPTER_SOSIOLOGI_4_6: TextbookChapter = {
       ],
     },
     {
+      id: 'sos-4-6-text-2',
+      type: 'text',
+      title: 'Street-level byråkrati – Michael Lipsky',
+      content:
+        `Den amerikanske statsviteren Michael Lipsky (f. 1940) introduserte i 1980 begrepet «street-level bureaucracy» (gatenivåbyråkrati) for å beskrive de offentlig ansatte som har direkte kontakt med borgere: lærere, sosialarbeidere, politi, NAV-saksbehandlere, helsepersonell og lignende. Lipsky argumenterte for at disse frontlinjearbeiderne i praksis utformer politikken gjennom sine daglige beslutninger, like mye som politikerne som vedtar lovene. En saksbehandler i NAV som vurderer en søknad om arbeidsavklaringspenger, har et skjønnsrom som gjør at utfallet kan variere avhengig av saksbehandlerens tolkning av reglene, arbeidspress og personlige holdninger. Gatenivåbyråkrater står i et konstant dilemma mellom idealer og realiteter: de ønsker å hjelpe den enkelte, men har begrensede ressurser og må følge standardiserte prosedyrer. Resultatet er at de utvikler «overlevelsesstrategier» – forenklinger, rutiner og kategoriseringer som gjør arbeidsmengden håndterbar, men som også kan føre til at borgere behandles som «tilfeller» i stedet for individer. Lipskys analyse utfordrer den tradisjonelle forståelsen av byråkratiet som en maskin der politiske beslutninger implementeres ovenfra og ned. I virkeligheten er implementeringen en kreativ prosess der gatenivåbyråkratene former politikken «nedenfra».`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-def-4',
+      type: 'definition',
+      title: 'Street-level byråkrati (gatenivåbyråkrati)',
+      content:
+        `Street-level byråkrati er et begrep fra Michael Lipsky som refererer til offentlig ansatte som har direkte kontakt med borgere og utøver skjønn i sitt arbeid – som lærere, politi, sosialarbeidere og saksbehandlere. Lipsky argumenterer for at disse frontlinjearbeiderne i praksis former offentlig politikk gjennom sine daglige beslutninger. De har et skjønnsrom som gjør dem til de facto politikkutformere, selv om de formelt bare skal implementere vedtatt politikk. Gatenivåbyråkrater står i spenning mellom å behandle hver person individuelt og behovet for å standardisere for å håndtere stor arbeidsmengde. Begrepet har vært viktig for å forstå at avstanden mellom politiske intensjoner og faktiske resultater ofte kan forklares med prosesser på gatenivå.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-example-lipsky',
+      type: 'example',
+      title: 'Gatenivåbyråkrati i norsk kontekst',
+      content:
+        `Lipskys teori om gatenivåbyråkrati kan illustreres med mange norske eksempler. En lærer som vurderer en elevs muntlige presentasjon, utøver skjønn som direkte påvirker elevens karakterer og fremtid. To lærere kan gi ulike karakterer for samme prestasjon fordi skjønnsrommet er stort. En politibetjent som stopper en person for kontroll, tar en beslutning som kan være påvirket av ubevisste stereotypier om hvem som «ser mistenkelig ut». Forskning har vist at etniske minoriteter oftere stoppes av politiet, noe som kan forstås som et resultat av gatenivåbyråkratenes daglige skjønnsutøvelse. I NAV har saksbehandlere stor makt over brukernes liv: de vurderer arbeidsevne, bestemmer aktivitetskrav og kan sanksjonere brukere som ikke følger opp. Disse beslutningene tas under tidspress og med store saksmengder, noe som kan føre til forenklinger som rammer den enkelte. NAV-skandalen (2019), der folk ble feilaktig dømt, kan delvis forstås som et resultat av systemiske svakheter i gatenivåbyråkratiet.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-exercise-mc-lipsky',
+      type: 'exercise',
+      title: 'Oppgave: Street-level byråkrati',
+      content: 'Forklar hva Lipsky mener med street-level byråkrati.',
+      exercises: [
+        {
+          id: 'sos-4-6-exercise-mc-lipsky-q',
+          type: 'multiple-choice',
+          question: `Hva er et sentralt poeng i Lipskys teori om street-level byråkrati?`,
+          options: [
+            'At all makt i byråkratiet ligger hos toppledelsen',
+            'At frontlinjearbeidere som lærere, politi og saksbehandlere i praksis former offentlig politikk gjennom sin daglige skjønnsutøvelse',
+            'At byråkratiet alltid fungerer perfekt etter intensjonen',
+            'At borgere aldri møter byråkratiet direkte',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Lipsky viser at gatenivåbyråkrater – offentlig ansatte med direkte brukerkontakt – i praksis utformer politikk gjennom sitt daglige skjønn. De står i spenning mellom å behandle hver person individuelt og behovet for å standardisere. Deres beslutninger former borgernes opplevelse av offentlige tjenester.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-6-text-3',
+      type: 'text',
+      title: 'New Public Management',
+      content:
+        `New Public Management (NPM) er en samlebetegnelse for reformbølgen som fra 1980-tallet har forsøkt å innføre prinsipper fra privat sektor i offentlig forvaltning. NPM bygger på ideen om at offentlig sektor kan gjøres mer effektiv ved å anvende markedsmekanismer, resultatstyring og konkurranseeksponering. Sentrale elementer inkluderer mål- og resultatstyring (å sette konkrete, målbare mål og holde ledere ansvarlige for resultater), konkurranseutsetting (å la private aktører konkurrere om å levere offentlige tjenester), fristilling (å gi offentlige virksomheter mer autonomi fra politisk styring), og brukerfokus (å behandle borgere som «kunder»). I Norge har NPM-reformer preget offentlig sektor fra 1990-tallet: sykehusreformen (2002), NAV-reformen (2006) og kommunesammenslåingene er eksempler. Sosiologisk kritikk av NPM har fokusert på flere problemer. Når komplekse offentlige tjenester – som utdanning, helse og sosialt arbeid – styres etter kvantitative mål og indikatorer, kan det føre til at det som lett kan måles, prioriteres på bekostning av det som er viktigst men vanskeligere å måle. Lærere som vurderes etter elevenes testresultater, kan «undervise til prøven» i stedet for å fremme dybdelæring. Saksbehandlere som måles på antall avsluttede saker, kan prioritere raske avgjørelser over grundige. Denne problematikken kalles ofte «målforskyvning»: midlene (målene) blir viktigere enn formålet de skal tjene.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-def-5',
+      type: 'definition',
+      title: 'New Public Management (NPM)',
+      content:
+        `New Public Management er en reformretning i offentlig sektor som søker å innføre styringsprinsipper fra privat sektor: mål- og resultatstyring, konkurranseutsetting, fristilling av offentlige virksomheter og brukerfokus. NPM bygger på antakelsen om at offentlig sektor er ineffektiv og byråkratisk, og at markedsmekanismer kan gjøre den bedre. Reformretningen har vært innflytelsesrik globalt siden 1980-tallet. Kritikere påpeker at offentlige tjenester ikke er det samme som kommersielle produkter: de skal ivareta rettferdighet, rettssikkerhet og demokratisk kontroll – verdier som kan komme i konflikt med effektivitetsmål. Målforskyvning – at det som måles, blir viktigere enn det som er viktig – er en sentral kritikk av NPM.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-example-npm',
+      type: 'example',
+      title: 'NPM i norsk helsevesen',
+      content:
+        `Sykehusreformen i 2002, der norske sykehus ble omorganisert som helseforetak med mer bedriftslik styring, er et typisk eksempel på NPM i norsk kontekst. Sykehusene fikk egne styrer, ble finansiert delvis gjennom «innsatsstyrt finansiering» (der inntektene avhenger av antall behandlinger), og ble styrt gjennom konkrete målkrav og rapporteringssystemer. Tilhengere mener reformen har gjort sykehusene mer effektive: ventelistene er kortet ned, produktiviteten har økt, og pasientrettighetene er styrket. Kritikere peker på at reformen har ført til et byråkratisk rapporteringsregime som tar tid fra pasientbehandling, at kommersielle styringsprinsipper ikke passer for helseomsorg, og at fokus på «produksjon» av behandlinger kan gå på bekostning av helhetlig pasientomsorg. Helsepersonell rapporterer om «dobbel dokumentasjon» – de må rapportere til styringssystemer i tillegg til å føre journal – noe som illustrerer paradokset ved at reformer ment å redusere byråkrati kan skape nye former for byråkrati.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-6-exercise-mc-npm',
+      type: 'exercise',
+      title: 'Oppgave: New Public Management',
+      content: 'Vurder fordeler og ulemper ved New Public Management.',
+      exercises: [
+        {
+          id: 'sos-4-6-exercise-mc-npm-q',
+          type: 'multiple-choice',
+          question: `Hva er en sentral sosiologisk kritikk av New Public Management?`,
+          options: [
+            'At NPM gir for mye makt til vanlige borgere',
+            'At målstyring kan føre til «målforskyvning» der det som måles, prioriteres på bekostning av viktigere men vanskeligere målbare formål',
+            'At NPM avviser all bruk av teknologi i offentlig sektor',
+            'At NPM gjør offentlige tjenester helt gratis',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `En sentral kritikk av NPM er målforskyvning: når offentlige tjenester styres etter kvantitative indikatorer, kan det som lett måles prioriteres over det som er viktigst. Lærere «underviser til prøven», saksbehandlere prioriterer kvantitet over kvalitet, og rapportering tar tid fra kjerneoppgaver. Offentlige tjenester skal også ivareta verdier som rettferdighet og rettssikkerhet, som vanskelig lar seg måle.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-6-exercise-classic-gatenivaå',
+      type: 'exercise',
+      title: 'Samleoppgave: Byråkratiet mellom teori og praksis',
+      content:
+        `Drøft hvordan Lipskys teori om street-level byråkrati utfordrer Webers idealtypiske byråkratimodell. Bruk eksempler fra norsk offentlig forvaltning.`,
+      exercises: [
+        {
+          id: 'sos-4-6-exercise-classic-gatenivaå-q',
+          type: 'classic',
+          question:
+            `Drøft hvordan Lipskys teori om street-level byråkrati utfordrer Webers idealtypiske byråkratimodell. Bruk eksempler fra norsk offentlig forvaltning.`,
+          explanation:
+            `Et godt svar vil: (1) Beskrive Webers idealtype: hierarki, formelle regler, upersonlig likebehandling. (2) Forklare Lipskys teori: frontlinjearbeidere utøver skjønn og former politikk «nedenfra». (3) Vise at det idealtypiske byråkratiet forutsetter at regler kan dekke alle situasjoner, mens Lipsky viser at virkeligheten krever skjønn. (4) Bruke norske eksempler (NAV, skole, politi). (5) Reflektere over spenningen mellom likebehandling (som krever standardisering) og individuell tilpasning (som krever skjønn).`,
+        },
+      ],
+    },
+    {
       id: 'sos-4-6-example-4',
       type: 'example',
       title: 'Nye organisasjonsformer',
@@ -1470,6 +2181,136 @@ export const CHAPTER_SOSIOLOGI_4_7: TextbookChapter = {
           correctAnswer: 1,
           explanation:
             'Sivil ulydighet skiller seg fra vanlig kriminalitet ved å være bevisst, offentlig, ikke-voldelig og motivert av en appell til rettferdighet. Utøveren skjuler ikke handlingen, men utfører den åpent og aksepterer de juridiske konsekvensene. Vanlig kriminalitet er typisk motivert av egeninteresse og utføres i skjul.',
+        },
+      ],
+    },
+    {
+      id: 'sos-4-7-text-2',
+      type: 'text',
+      title: 'Ressursmobiliseringsteori',
+      content:
+        `Mens tidlig sosiologisk forskning på sosiale bevegelser ofte forklarte dem som uttrykk for frustrasjon og relativ deprivasjon – at folk protesterer fordi de er misfornøyde – utfordret ressursmobiliseringsteorien på 1970-tallet denne forståelsen. Teoretikere som Mayer Zald og John McCarthy argumenterte for at misnøye i seg selv ikke er nok til å skape en sosial bevegelse. Det avgjørende er ressurser: penger, organisatorisk infrastruktur, lederskap, nettverk, kommunikasjonskanaler og politiske mulighetsstrukturer. Ifølge denne teorien oppstår sosiale bevegelser ikke nødvendigvis når folk er mest undertrykt, men når de har tilstrekkelige ressurser til å organisere seg. Slaveriet i USA varte i århundrer uten en massebevegelse; borgerrettighetsbevegelsen oppsto først da afroamerikanere hadde bygget institusjoner (kirker, universiteter, organisasjoner) som kunne fungere som base for mobilisering. Ressursmobiliseringsteorien retter oppmerksomheten mot strategiske valg: hvordan bevegelser organiserer seg, hvordan de skaffer ressurser, hvordan de bygger koalisjoner og hvordan de utnytter politiske muligheter. Teorien har blitt kritisert for å overdrive de rasjonelle og strategiske aspektene ved sosiale bevegelser og undervurdere emosjonenes rolle – sinne, indignasjon, håp og solidaritet er også viktige drivkrefter for kollektiv handling.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-def-6',
+      type: 'definition',
+      title: 'Ressursmobiliseringsteori',
+      content:
+        `Ressursmobiliseringsteori er en retning innen studiet av sosiale bevegelser som vektlegger at mobilisering krever ressurser – organisatorisk infrastruktur, lederskap, penger, nettverk og politiske muligheter – og ikke bare misnøye. Teorien ble utviklet av Mayer Zald og John McCarthy på 1970-tallet som et alternativ til deprivasjonsteorier som forklarte protest med frustrasjon. Ifølge ressursmobiliseringsteorien oppstår bevegelser når mennesker har tilgang til organisatoriske ressurser som gjør kollektiv handling mulig. Teorien fokuserer på bevegelsers strategi, organisasjonsformer, ressursanskaffelse og politiske mulighetsstruturer.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-text-3',
+      type: 'text',
+      title: 'Framing-teori: Hvordan bevegelser skaper mening',
+      content:
+        `En annen viktig tilnærming til sosiale bevegelser er framing-teori, utviklet blant andre av sosiologen David Snow. Framing (innramming) handler om hvordan sosiale bevegelser definerer og presenterer sitt budskap: hvordan de tolker et problem, plasserer skyld og foreslår løsninger. En bevegelse lykkes ikke bare fordi den har ressurser, men fordi den klarer å «ramme inn» sitt budskap på en måte som resonerer med brede lag av befolkningen. Effektiv framing innebærer tre elementer: (1) Diagnostisk framing – å identifisere og definere et problem og peke på hvem eller hva som er ansvarlig. (2) Prognostisk framing – å foreslå en løsning eller strategi for endring. (3) Motivasjonsframing – å gi folk en grunn til å handle, å skape en opplevelse av at handling nytter og at det haster. Klimabevegelsen illustrerer framing-prosesser godt. Tidlige miljøbevegelser rammet inn klimaendringer som et teknisk-vitenskapelig problem; Greta Thunberg og Fridays for Future-bevegelsen rammet det inn som et spørsmål om generasjonsrettferdighet – voksengenerasjonens svik mot de unge. Denne nye innrammingen mobiliserte millioner av unge over hele verden fordi den traff en følelse av urettferdighet og urgency. Framing-teori viser at virkeligheten aldri «taler for seg selv»: det er alltid en kamp om hvordan situasjoner tolkes, og sosiale bevegelser er aktive deltakere i denne kampen om virkelighetsforståelse.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-def-7',
+      type: 'definition',
+      title: 'Framing (innramming)',
+      content:
+        `Framing er et begrep fra sosiologien som refererer til hvordan sosiale aktører – inkludert sosiale bevegelser, medier og politikere – definerer, tolker og presenterer sosiale fenomener. I studiet av sosiale bevegelser handler framing om hvordan bevegelser konstruerer sin fortelling: de identifiserer et problem (diagnostisk frame), foreslår en løsning (prognostisk frame) og motiverer folk til handling (motivasjonsframe). Effektiv framing resonerer med målgruppens verdier og erfaringer og gjør det mulig å mobilisere støtte. Framing-perspektivet viser at sosiale bevegelser ikke bare reagerer på objektive forhold, men aktivt konstruerer den virkelighetsforståelsen som mobiliserer til handling.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-example-framing',
+      type: 'example',
+      title: 'Framing i norsk samfunnsdebatt',
+      content:
+        `Framing-perspektivet kan brukes til å analysere norsk samfunnsdebatt. Debatten om oljeindustrien illustrerer hvordan ulike aktører bruker ulike innramminger av samme fenomen. Oljeindustrien og dens tilhengere rammer inn norsk olje- og gassproduksjon som ansvarlig ressursforvaltning, arbeidsplasser og velstand – «oljen finansierer velferdsstaten vår». Klimabevegelsen rammer inn den samme virksomheten som klimaskadelig fossilindustri som undergraver fremtidige generasjoners livsbetingelser. Urfolksbevegelsen kan ramme det inn som kolonialistisk utnyttelse av samiske landområder. Ingen av disse innrammingene er «feil» – de vektlegger ulike aspekter av virkeligheten og tjener ulike interesser. Kampen om den dominerende innrammingen er en kamp om makt: den som klarer å definere hvordan et tema forstås, har stor innflytelse over hvilke politiske løsninger som oppfattes som relevante.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-exercise-mc-ressurs',
+      type: 'exercise',
+      title: 'Oppgave: Ressursmobiliseringsteori',
+      content: 'Forklar ressursmobiliseringsteorien.',
+      exercises: [
+        {
+          id: 'sos-4-7-exercise-mc-ressurs-q',
+          type: 'multiple-choice',
+          question: 'Hva er kjernen i ressursmobiliseringsteorien?',
+          options: [
+            'At sosiale bevegelser oppstår automatisk når folk er misfornøyde nok',
+            'At sosiale bevegelser krever tilgang til organisatoriske ressurser, lederskap, nettverk og politiske muligheter – ikke bare misnøye',
+            'At bare elitene kan starte sosiale bevegelser',
+            'At sosiale bevegelser alltid mislykkes',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Ressursmobiliseringsteorien argumenterer for at misnøye alene ikke er nok til å skape en sosial bevegelse. Det avgjørende er tilgang til ressurser: organisasjonsinfrastruktur, lederskap, penger, nettverk og politiske muligheter. Bevegelser oppstår ikke nødvendigvis der undertrykkelsen er størst, men der ressursene for mobilisering er tilgjengelige.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-7-exercise-mc-framing',
+      type: 'exercise',
+      title: 'Oppgave: Framing',
+      content: 'Forklar hva framing betyr i studiet av sosiale bevegelser.',
+      exercises: [
+        {
+          id: 'sos-4-7-exercise-mc-framing-q',
+          type: 'multiple-choice',
+          question: 'Hva innebærer framing i konteksten av sosiale bevegelser?',
+          options: [
+            'At bevegelsen lager fysiske plakater og bannere',
+            'At bevegelsen aktivt definerer og presenterer et problem, plasserer skyld og foreslår løsninger på en måte som mobiliserer støtte',
+            'At bevegelsen rammer inn motstanderen i et bur',
+            'At bevegelsen unngår all kommunikasjon med offentligheten',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Framing handler om hvordan sosiale bevegelser konstruerer sin fortelling – de definerer et problem, peker på ansvarlige og foreslår løsninger. Effektiv framing resonerer med målgruppens verdier og erfaringer. Framing-perspektivet viser at bevegelser ikke bare reagerer på objektive forhold, men aktivt former virkelighetsforståelsen.`,
+        },
+      ],
+    },
+    {
+      id: 'sos-4-7-text-4',
+      type: 'text',
+      title: 'Nye sosiale bevegelser',
+      content:
+        `Fra 1960-tallet vokste det frem sosiale bevegelser som skilte seg fra den tradisjonelle arbeiderbevegelsen på flere måter. Sosiologen Alain Touraine og andre introduserte begrepet «nye sosiale bevegelser» for å beskrive miljøbevegelsen, feminismen, fredsbevegelsen, LHBT-bevegelsen og urfolksbevegelser. Mens den «gamle» arbeiderbevegelsen primært handlet om økonomisk fordeling og klasseinteresser, fokuserer de nye bevegelsene på identitet, livskvalitet, anerkjennelse og post-materielle verdier. De nye sosiale bevegelsene kjennetegnes av løsere organisasjonsformer (nettverk fremfor hierarkier), vekt på identitet og livsstil som politiske spørsmål, og bruk av symbolske aksjoner og medieoppmerksomhet som virkemidler. I norsk sammenheng kan Samerettighetsbevegelsen, LHBT-bevegelsen og miljøbevegelsen forstås som nye sosiale bevegelser. Debatten om de nye sosiale bevegelsene reiser spørsmål om klassens rolle: mens tradisjonell sosiologi satte klasse i sentrum, viser de nye bevegelsene at identitet, kultur og anerkjennelse også er sentrale konfliktlinjer i moderne samfunn. Filosofen Nancy Fraser har argumentert for at rettferdighet krever både omfordeling (lik fordeling av ressurser) og anerkjennelse (respekt for gruppers identitet og kultur).`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-def-8',
+      type: 'definition',
+      title: 'Nye sosiale bevegelser',
+      content:
+        `Nye sosiale bevegelser er et begrep for de bevegelsene som vokste frem fra 1960-tallet og som skiller seg fra den tradisjonelle arbeiderbevegelsen. Mens arbeiderbevegelsen fokuserte på økonomisk fordeling og klassekamp, handler de nye bevegelsene om identitet, anerkjennelse, livskvalitet og post-materielle verdier – som miljø, likestilling, LHBT-rettigheter og urfolksrettigheter. De nye bevegelsene har gjerne løsere organisasjonsformer, bruker symbolske aksjoner og mediestrategi, og mobiliserer på tvers av tradisjonelle klasselinjer. Begrepet er utviklet av blant andre Alain Touraine og Alberto Melucci.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-example-nye',
+      type: 'example',
+      title: 'Klimabevegelsen som ny sosial bevegelse',
+      content:
+        `Klimabevegelsen er et godt eksempel på en ny sosial bevegelse. Den mobiliserer på tvers av klasse, kjønn og alder, selv om den har særlig sterk tilslutning blant unge og høyt utdannede. Bevegelsens organisasjonsformer er varierte – fra etablerte organisasjoner som Naturvernforbundet og WWF til løsere nettverk som Extinction Rebellion og Fridays for Future. Virkemidlene spenner fra tradisjonelt lobbyarbeid til sivil ulydighet og mediestrategi. Greta Thunbergs skolestreik illustrerer kraften i symbolske handlinger: én tenåring som sitter utenfor Riksdagen i Stockholm, ble en global bevegelse fordi handlingen resonerte med en utbredt følelse av urettferdighet mellom generasjoner. I norsk sammenheng har klimabevegelsen utfordret den nasjonale identiteten som oljenasjonen – et eksempel på at nye sosiale bevegelser kan utfordre hegemoniske fortellinger om hvem vi er som samfunn. Bevegelsens fremvekst illustrerer også ressursmobiliseringsteorien: den har utnyttet digitale nettverk, internasjonal medieoppmerhsomhet og et politisk mulighetsivindu skapt av klimaforskning og ekstremvær.`,
+      exercises: [],
+    },
+    {
+      id: 'sos-4-7-exercise-mc-nye',
+      type: 'exercise',
+      title: 'Oppgave: Nye sosiale bevegelser',
+      content: 'Forklar hva som kjennetegner nye sosiale bevegelser.',
+      exercises: [
+        {
+          id: 'sos-4-7-exercise-mc-nye-q',
+          type: 'multiple-choice',
+          question: 'Hva skiller «nye sosiale bevegelser» fra den tradisjonelle arbeiderbevegelsen?',
+          options: [
+            'Nye bevegelser bruker bare vold som virkemiddel',
+            'Nye bevegelser fokuserer på identitet, anerkjennelse og post-materielle verdier i stedet for primært på økonomisk fordeling og klasse',
+            'Nye bevegelser har strengere hierarki enn arbeiderbevegelsen',
+            'Nye bevegelser kun finnes i utviklingsland',
+          ],
+          correctAnswer: 1,
+          explanation:
+            `Nye sosiale bevegelser skiller seg fra arbeiderbevegelsen ved å fokusere på identitet, livskvalitet og anerkjennelse – som miljø, likestilling og LHBT-rettigheter – snarere enn primært på økonomisk fordeling. De har løsere organisasjonsformer og mobiliserer ofte på tvers av tradisjonelle klasselinjer.`,
         },
       ],
     },
