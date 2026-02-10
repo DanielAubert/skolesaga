@@ -95,6 +95,7 @@ import { GEOFAG_2_CHAPTERS } from './textbook-content-geofag-2';
 import { TOF_1_CHAPTERS } from './textbook-content-tof-1';
 import { TOF_2_CHAPTERS } from './textbook-content-tof-2';
 import { SOSIOLOGI_CHAPTERS } from './textbook-content-sosiologi';
+import { POLITIKK_MENNESKERETT_CHAPTERS } from './textbook-content-politikk-menneskerett';
 import { RETTSLAERE_1_CHAPTERS } from './textbook-content-rettslaere-1';
 import { RETTSLAERE_2_CHAPTERS } from './textbook-content-rettslaere-2';
 import { OKONOMISTYRING_CHAPTERS } from './textbook-content-okonomistyring';
@@ -616,6 +617,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Sosiologi og sosialantropologi
   ...Object.fromEntries(SOSIOLOGI_CHAPTERS.map(c => [c.id, c])),
 
+  // Politikk og menneskerettigheter
+  ...Object.fromEntries(POLITIKK_MENNESKERETT_CHAPTERS.map(c => [c.id, c])),
+
   // Rettslære 1
   ...Object.fromEntries(RETTSLAERE_1_CHAPTERS.map(c => [c.id, c])),
 
@@ -765,17 +769,7 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
 
   // Kroppsøving VG2 (50 kapitler med underkapitler – ingen mapping nødvendig)
 
-  // IT 1 (10 kapitler med innhold)
-  'it-1-1-1': 'it-1-1',   // Digital kompetanse og samfunn
-  'it-1-3-1': 'it-1-2',   // Grunnleggende programmering
-  'it-1-4-5': 'it-1-3',   // Algoritmer og problemløsning
-  'it-1-5-1': 'it-1-4',   // Webteknologi - HTML og CSS
-  'it-1-6-1': 'it-1-5',   // JavaScript og dynamiske nettsider
-  'it-1-7-1': 'it-1-6',   // Databaser og datamodellering
-  'it-1-5-5': 'it-1-7',   // Brukergrensesnitt og design
-  'it-1-8-1': 'it-1-8',   // Nettverk og sikkerhet
-  'it-1-8-2': 'it-1-9',   // Personvern og etikk
-  'it-1-3-8': 'it-1-10',  // Prosjektarbeid og dokumentasjon
+  // IT 1 (41 delkapitler – ingen mapping nødvendig)
 
   // Biologi 1 (10 kapitler med innhold)
   'biologi-1-1-1': 'biologi-1-1',   // Cellebiologi og cellens oppbygging
