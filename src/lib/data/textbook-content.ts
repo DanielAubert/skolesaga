@@ -134,6 +134,7 @@ import { MATEMATIKK_2P_DEL3_CHAPTERS } from './textbook-content-2p-del3';
 import { MATEMATIKK_2P_DEL4_CHAPTERS } from './textbook-content-2p-del4';
 import { MATEMATIKK_2P_DEL5_CHAPTERS } from './textbook-content-2p-del5';
 import { MATEMATIKK_2P_NARRATIV_CHAPTERS } from './textbook-content-2p-narrativ';
+import { MATEMATIKK_1T_NARRATIV_CHAPTERS } from './textbook-content-1t-narrativ';
 
 // Matematikk 2P-Y
 import { CHAPTERS_2PY } from './textbook-content-2py';
@@ -320,6 +321,7 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   // Matematikk 1T
   ...CHAPTERS_1T,
   ...Object.fromEntries(CHAPTERS_1T_MODELLERING.map(c => [c.id, c])),
+  ...Object.fromEntries(MATEMATIKK_1T_NARRATIV_CHAPTERS.map(c => [c.id, c])),
 
   // Matematikk 2P
   ...Object.fromEntries(MATEMATIKK_2P_DEL1_CHAPTERS.map(c => [c.id, c])),
