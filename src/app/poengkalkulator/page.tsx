@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { MainNav } from "@/components/navigation/main-nav";
 import { Footer } from "@/components/layout/footer";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -83,37 +83,134 @@ const tilleggsvalg: TilleggsValg[] = [
   { id: "hoyere30", navn: "Høyere utdanning (30–59 stp)", poeng: 1, beskrivelse: "30–59 stp" },
 ];
 
-interface KarakterRad {
-  id: number;
-  fag: string;
-  karakter: number | "";
+interface FagRad {
+  id: string;
+  navn: string;
+  type: "S" | "E"; // Standpunkt / Eksamen
 }
 
-const vanligeFag = [
-  "Norsk hovedmål",
+const fagGrupper: { gruppe: string; beskrivelse?: string; fag: FagRad[] }[] = [
+  {
+    gruppe: "Norsk (VG3)",
+    beskrivelse: "Standpunktkarakter settes etter VG3. Norsk hovedmål har obligatorisk skriftlig eksamen.",
+    fag: [
+      { id: "norsk-hm-s", navn: "Norsk hovedmål", type: "S" },
+      { id: "norsk-hm-e", navn: "Norsk hovedmål", type: "E" },
+      { id: "norsk-sm-s", navn: "Norsk sidemål", type: "S" },
+      { id: "norsk-mu-s", navn: "Norsk muntlig", type: "S" },
+    ],
+  },
+  {
+    gruppe: "Engelsk (VG1)",
+    fag: [
+      { id: "eng-s", navn: "Engelsk", type: "S" },
+    ],
+  },
+  {
+    gruppe: "Matematikk",
+    beskrivelse: "Fyll inn kun fagene du har tatt. De fleste har 2–3 mattefag.",
+    fag: [
+      { id: "mat-1p-s", navn: "Matematikk 1P (VG1)", type: "S" },
+      { id: "mat-1t-s", navn: "Matematikk 1T (VG1)", type: "S" },
+      { id: "mat-2p-s", navn: "Matematikk 2P (VG2)", type: "S" },
+      { id: "mat-s1-s", navn: "Matematikk S1 (VG2)", type: "S" },
+      { id: "mat-s2-s", navn: "Matematikk S2 (VG3)", type: "S" },
+      { id: "mat-r1-s", navn: "Matematikk R1 (VG2)", type: "S" },
+      { id: "mat-r2-s", navn: "Matematikk R2 (VG3)", type: "S" },
+    ],
+  },
+  {
+    gruppe: "Andre fellesfag",
+    fag: [
+      { id: "naturfag-s", navn: "Naturfag (VG1)", type: "S" },
+      { id: "samfunnsk-s", navn: "Samfunnskunnskap (VG1)", type: "S" },
+      { id: "geografi-s", navn: "Geografi (VG1)", type: "S" },
+      { id: "fremmedsprak-s", navn: "Fremmedspråk (VG1+VG2)", type: "S" },
+      { id: "historie-s", navn: "Historie (VG2+VG3)", type: "S" },
+      { id: "religion-s", navn: "Religion og etikk (VG3)", type: "S" },
+      { id: "kroppsoving-s", navn: "Kroppsøving (VG1–VG3)", type: "S" },
+    ],
+  },
+];
+
+// Fag som kan trekkes til eksamen (trekkfag)
+const trekkfagForslag = [
   "Norsk sidemål",
   "Norsk muntlig",
   "Engelsk",
-  "Matematikk",
+  "Matematikk 1P",
+  "Matematikk 1T",
+  "Matematikk 2P",
+  "Matematikk S1",
+  "Matematikk S2",
+  "Matematikk R1",
+  "Matematikk R2",
   "Naturfag",
-  "Samfunnsfag",
+  "Samfunnskunnskap",
   "Geografi",
+  "Fremmedspråk",
   "Historie",
   "Religion og etikk",
   "Kroppsøving",
-  "Fremmedspråk",
-  "Kunst og håndverk",
-  "Musikk",
-  "Mat og helse",
 ];
 
-let nextId = 1;
+const programfagForslag = [
+  // Realfag
+  "Fysikk 1", "Fysikk 2",
+  "Kjemi 1", "Kjemi 2",
+  "Biologi 1", "Biologi 2",
+  "Informasjonsteknologi 1", "Informasjonsteknologi 2",
+  "Geofag 1", "Geofag 2",
+  "Teknologi og forskningslære 1", "Teknologi og forskningslære 2",
+  // SSØ
+  "Sosiologi og sosialantropologi",
+  "Politikk og menneskerettigheter",
+  "Samfunnsøkonomi 1", "Samfunnsøkonomi 2",
+  "Rettslære 1", "Rettslære 2",
+  "Psykologi 1", "Psykologi 2",
+  "Markedsføring og ledelse 1", "Markedsføring og ledelse 2",
+  "Entreprenørskap og bedriftsutvikling 1", "Entreprenørskap og bedriftsutvikling 2",
+  "Internasjonal engelsk",
+  "Samfunnsfaglig engelsk",
+  "Kommunikasjon og kultur 1", "Kommunikasjon og kultur 2", "Kommunikasjon og kultur 3",
+  "Medie- og informasjonskunnskap 1", "Medie- og informasjonskunnskap 2",
+  // Språk
+  "Spansk nivå I", "Spansk nivå II", "Spansk nivå III",
+  "Tysk nivå I", "Tysk nivå II", "Tysk nivå III",
+  "Fransk nivå I", "Fransk nivå II", "Fransk nivå III",
+  "Kinesisk nivå I", "Kinesisk nivå II",
+  // Andre
+  "Treningslære 1", "Treningslære 2",
+  "Breddeidrett 1", "Breddeidrett 2",
+  "Toppidrett 1", "Toppidrett 2", "Toppidrett 3",
+  "Musikk", "Drama",
+  "Design og arkitektur 1", "Design og arkitektur 2",
+  "Økonomistyring",
+];
+
+interface EgetFag {
+  id: string;
+  navn: string;
+  standpunkt: number | null;
+  eksamen: number | null;
+}
+
+interface Trekkfag {
+  id: string;
+  navn: string;
+  karakter: number | null;
+}
+
+let egendefinertTeller = 0;
+let trekkfagTeller = 0;
 
 export default function PoengkalkulatorPage() {
   const [brukKarakterliste, setBrukKarakterliste] = useState(false);
-  const [karakterer, setKarakterer] = useState<KarakterRad[]>(() =>
-    vanligeFag.slice(0, 6).map((fag) => ({ id: nextId++, fag, karakter: "" }))
-  );
+  const [karakterMap, setKarakterMap] = useState<Record<string, number | null>>({});
+  const [egneFag, setEgneFag] = useState<EgetFag[]>([]);
+  const [trekkfag, setTrekkfag] = useState<Trekkfag[]>([]);
+  const [aktivtAutocomplete, setAktivtAutocomplete] = useState<string | null>(null);
+  const autocompleteRef = useRef<HTMLDivElement>(null);
   const [snitt, setSnitt] = useState(4.0);
   const [selectedRealfag, setSelectedRealfag] = useState<string[]>([]);
   const [selectedSprak, setSelectedSprak] = useState<string[]>([]);
@@ -121,12 +218,26 @@ export default function PoengkalkulatorPage() {
   const [fodselsar, setFodselsar] = useState<string>("");
   const [kjonnspoeng, setKjonnspoeng] = useState(0);
 
+  const alleKarakterer = useMemo(() => {
+    const liste: number[] = [];
+    for (const v of Object.values(karakterMap)) {
+      if (v !== null && v !== undefined) liste.push(v);
+    }
+    for (const fag of trekkfag) {
+      if (fag.karakter !== null) liste.push(fag.karakter);
+    }
+    for (const fag of egneFag) {
+      if (fag.standpunkt !== null) liste.push(fag.standpunkt);
+      if (fag.eksamen !== null) liste.push(fag.eksamen);
+    }
+    return liste;
+  }, [karakterMap, trekkfag, egneFag]);
+
   const beregnetSnitt = useMemo(() => {
-    const gyldige = karakterer.filter((k) => k.karakter !== "" && k.karakter >= 1 && k.karakter <= 6);
-    if (gyldige.length === 0) return 0;
-    const sum = gyldige.reduce((s, k) => s + (k.karakter as number), 0);
-    return Math.round((sum / gyldige.length) * 100) / 100;
-  }, [karakterer]);
+    if (alleKarakterer.length === 0) return 0;
+    const sum = alleKarakterer.reduce((s, k) => s + k, 0);
+    return Math.round((sum / alleKarakterer.length) * 100) / 100;
+  }, [alleKarakterer]);
 
   const aktivtSnitt = brukKarakterliste ? beregnetSnitt : snitt;
   const karakterpoeng = useMemo(() => Math.round(aktivtSnitt * 10 * 10) / 10, [aktivtSnitt]);
@@ -183,23 +294,71 @@ export default function PoengkalkulatorPage() {
     [skolepoeng, tilleggspoengCapped, alderspoeng]
   );
 
-  function leggTilFag() {
-    setKarakterer((prev) => [...prev, { id: nextId++, fag: "", karakter: "" }]);
+  function settKarakter(id: string, karakter: number) {
+    setKarakterMap((prev) => ({
+      ...prev,
+      [id]: prev[id] === karakter ? null : karakter,
+    }));
   }
 
-  function fjernFag(id: number) {
-    setKarakterer((prev) => prev.filter((k) => k.id !== id));
+  function leggTilEgetFag() {
+    egendefinertTeller++;
+    setEgneFag((prev) => [
+      ...prev,
+      { id: `eget-${egendefinertTeller}`, navn: "", standpunkt: null, eksamen: null },
+    ]);
   }
 
-  function oppdaterFag(id: number, fag: string) {
-    setKarakterer((prev) => prev.map((k) => (k.id === id ? { ...k, fag } : k)));
+  function fjernEgetFag(id: string) {
+    setEgneFag((prev) => prev.filter((f) => f.id !== id));
   }
 
-  function oppdaterKarakter(id: number, value: string) {
-    const num = value === "" ? "" as const : parseInt(value);
-    if (num !== "" && (isNaN(num) || num < 1 || num > 6)) return;
-    setKarakterer((prev) => prev.map((k) => (k.id === id ? { ...k, karakter: num } : k)));
+  function oppdaterEgetFag(id: string, felt: "navn" | "standpunkt" | "eksamen", value: string | number | null) {
+    setEgneFag((prev) =>
+      prev.map((f) => (f.id === id ? { ...f, [felt]: value } : f))
+    );
   }
+
+  function leggTilTrekkfag() {
+    trekkfagTeller++;
+    setTrekkfag((prev) => [...prev, { id: `trekk-${trekkfagTeller}`, navn: "", karakter: null }]);
+  }
+
+  function fjernTrekkfag(id: string) {
+    setTrekkfag((prev) => prev.filter((f) => f.id !== id));
+  }
+
+  function oppdaterTrekkfagNavn(id: string, navn: string) {
+    setTrekkfag((prev) => prev.map((f) => (f.id === id ? { ...f, navn } : f)));
+  }
+
+  function settTrekkfagKarakter(id: string, n: number) {
+    setTrekkfag((prev) =>
+      prev.map((f) => (f.id === id ? { ...f, karakter: f.karakter === n ? null : n } : f))
+    );
+  }
+
+  function hentForslag(query: string, forslagsliste: string[]): string[] {
+    if (!query || query.length < 1) return forslagsliste.slice(0, 8);
+    const q = query.toLowerCase();
+    return forslagsliste.filter((f) => f.toLowerCase().includes(q)).slice(0, 6);
+  }
+
+  function velgForslag(fagId: string, forslag: string, type: "eget" | "trekk") {
+    if (type === "eget") oppdaterEgetFag(fagId, "navn", forslag);
+    else oppdaterTrekkfagNavn(fagId, forslag);
+    setAktivtAutocomplete(null);
+  }
+
+  useEffect(() => {
+    function handleClickOutside(e: MouseEvent) {
+      if (autocompleteRef.current && !autocompleteRef.current.contains(e.target as Node)) {
+        setAktivtAutocomplete(null);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   function toggleRealfag(id: string) {
     setSelectedRealfag((prev) =>
@@ -362,53 +521,252 @@ export default function PoengkalkulatorPage() {
                 </div>
               ) : (
                 /* Karakterliste-modus */
-                <div className="space-y-2">
-                  <div className="grid grid-cols-[1fr_60px_32px] gap-2 text-xs font-medium text-muted-foreground px-1">
-                    <span>Fag</span>
-                    <span className="text-center">Karakter</span>
-                    <span />
-                  </div>
-                  {karakterer.map((rad) => (
-                    <div key={rad.id} className="grid grid-cols-[1fr_60px_32px] gap-2 items-center">
-                      <Input
-                        value={rad.fag}
-                        onChange={(e) => oppdaterFag(rad.id, e.target.value)}
-                        placeholder="Fagnavn"
-                        className="text-sm h-9"
-                      />
-                      <Input
-                        type="number"
-                        min={1}
-                        max={6}
-                        value={rad.karakter}
-                        onChange={(e) => oppdaterKarakter(rad.id, e.target.value)}
-                        placeholder="1-6"
-                        className="text-center font-mono text-sm h-9"
-                      />
-                      <button
-                        onClick={() => fjernFag(rad.id)}
-                        className="h-9 w-8 flex items-center justify-center rounded-md hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
-                      >
-                        <X className="h-4 w-4" />
-                      </button>
+                <div className="space-y-6">
+                  <p className="text-sm text-muted-foreground">
+                    Standpunkt (S) og eksamen (E) teller som separate karakterer i snittet. Fyll inn kun fag du har tatt.
+                  </p>
+
+                  {fagGrupper.map((gruppe) => (
+                    <div key={gruppe.gruppe}>
+                      <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                        {gruppe.gruppe}
+                      </h3>
+                      {gruppe.beskrivelse && (
+                        <p className="text-xs text-muted-foreground mb-2">{gruppe.beskrivelse}</p>
+                      )}
+                      <div className="space-y-1">
+                        {gruppe.fag.map((fag) => (
+                          <div key={fag.id} className="flex items-center gap-2">
+                            <span className={`w-5 text-center text-[10px] font-bold shrink-0 ${
+                              fag.type === "E" ? "text-amber-600 dark:text-amber-400" : "text-blue-600 dark:text-blue-400"
+                            }`}>
+                              {fag.type}
+                            </span>
+                            <span className="text-sm flex-1 min-w-0 truncate">{fag.navn}</span>
+                            <div className="flex gap-1 shrink-0">
+                              {[1, 2, 3, 4, 5, 6].map((n) => (
+                                <button
+                                  key={n}
+                                  onClick={() => settKarakter(fag.id, n)}
+                                  className={`w-8 h-8 rounded-md text-sm font-medium transition-all ${
+                                    karakterMap[fag.id] === n
+                                      ? n >= 5
+                                        ? "bg-green-600 text-white shadow-sm"
+                                        : n >= 3
+                                          ? "bg-blue-600 text-white shadow-sm"
+                                          : "bg-red-500 text-white shadow-sm"
+                                      : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                                  }`}
+                                >
+                                  {n}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   ))}
-                  <button
-                    onClick={leggTilFag}
-                    className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 py-1.5 transition-colors"
-                  >
-                    <Plus className="h-4 w-4" />
-                    Legg til fag
-                  </button>
 
-                  {beregnetSnitt > 0 && (
-                    <div className="bg-muted/50 rounded-lg p-3 flex items-center justify-between">
-                      <span className="text-sm text-muted-foreground">
-                        Snitt av {karakterer.filter((k) => k.karakter !== "" && k.karakter >= 1 && k.karakter <= 6).length} fag
-                      </span>
+                  {/* Programfag / egne fag */}
+                  <div>
+                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      Programfag
+                    </h3>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      Legg til programfag med standpunkt og evt. eksamen.
+                    </p>
+                    {egneFag.length > 0 && (
+                      <div className="space-y-2 mb-2">
+                        {egneFag.map((fag) => (
+                          <div key={fag.id} className="rounded-lg border p-2.5 space-y-1.5">
+                            <div className="flex items-center gap-2">
+                              <div className="relative flex-1" ref={aktivtAutocomplete === fag.id ? autocompleteRef : undefined}>
+                                <Input
+                                  value={fag.navn}
+                                  onChange={(e) => {
+                                    oppdaterEgetFag(fag.id, "navn", e.target.value);
+                                    setAktivtAutocomplete(fag.id);
+                                  }}
+                                  onFocus={() => setAktivtAutocomplete(fag.id)}
+                                  placeholder="Søk etter fag, f.eks. Fysikk 1"
+                                  className="text-sm h-8"
+                                />
+                                {aktivtAutocomplete === fag.id && hentForslag(fag.navn, programfagForslag).length > 0 && (
+                                  <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-background border rounded-md shadow-lg max-h-48 overflow-y-auto">
+                                    {hentForslag(fag.navn, programfagForslag).map((forslag) => (
+                                      <button
+                                        key={forslag}
+                                        type="button"
+                                        onMouseDown={(e) => e.preventDefault()}
+                                        onClick={() => velgForslag(fag.id, forslag, "eget")}
+                                        className="w-full text-left px-3 py-2 text-sm hover:bg-muted transition-colors"
+                                      >
+                                        {fag.navn ? (
+                                          <HighlightMatch text={forslag} query={fag.navn} />
+                                        ) : (
+                                          forslag
+                                        )}
+                                      </button>
+                                    ))}
+                                  </div>
+                                )}
+                              </div>
+                              <button
+                                onClick={() => fjernEgetFag(fag.id)}
+                                className="h-8 w-8 flex items-center justify-center shrink-0 rounded-md hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
+                              >
+                                <X className="h-3.5 w-3.5" />
+                              </button>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-5 text-center text-[10px] font-bold text-blue-600 dark:text-blue-400 shrink-0">S</span>
+                              <span className="text-xs text-muted-foreground w-16 shrink-0">Standpunkt</span>
+                              <div className="flex gap-1">
+                                {[1, 2, 3, 4, 5, 6].map((n) => (
+                                  <button
+                                    key={n}
+                                    onClick={() => oppdaterEgetFag(fag.id, "standpunkt", fag.standpunkt === n ? null : n)}
+                                    className={`w-7 h-7 rounded text-xs font-medium transition-all ${
+                                      fag.standpunkt === n
+                                        ? n >= 5 ? "bg-green-600 text-white shadow-sm"
+                                          : n >= 3 ? "bg-blue-600 text-white shadow-sm"
+                                            : "bg-red-500 text-white shadow-sm"
+                                        : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                                    }`}
+                                  >
+                                    {n}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                            <div className="flex items-center gap-2">
+                              <span className="w-5 text-center text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">E</span>
+                              <span className="text-xs text-muted-foreground w-16 shrink-0">Eksamen</span>
+                              <div className="flex gap-1">
+                                {[1, 2, 3, 4, 5, 6].map((n) => (
+                                  <button
+                                    key={n}
+                                    onClick={() => oppdaterEgetFag(fag.id, "eksamen", fag.eksamen === n ? null : n)}
+                                    className={`w-7 h-7 rounded text-xs font-medium transition-all ${
+                                      fag.eksamen === n
+                                        ? n >= 5 ? "bg-green-600 text-white shadow-sm"
+                                          : n >= 3 ? "bg-blue-600 text-white shadow-sm"
+                                            : "bg-red-500 text-white shadow-sm"
+                                        : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                                    }`}
+                                  >
+                                    {n}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={leggTilEgetFag}
+                      className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 py-1 transition-colors"
+                    >
+                      <Plus className="h-4 w-4" />
+                      Legg til programfag
+                    </button>
+                  </div>
+
+                  {/* Trekkfag / eksamenskarakterer */}
+                  <div>
+                    <h3 className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-1">
+                      Trekkfag (eksamen)
+                    </h3>
+                    <p className="text-xs text-muted-foreground mb-2">
+                      Ble du trukket til eksamen i noen fag? Legg dem til her. Norsk hovedmål eksamen ligger allerede over.
+                    </p>
+                    {trekkfag.length > 0 && (
+                      <div className="space-y-1.5 mb-2">
+                        {trekkfag.map((tf) => (
+                          <div key={tf.id} className="flex items-center gap-2">
+                            <span className="w-5 text-center text-[10px] font-bold text-amber-600 dark:text-amber-400 shrink-0">E</span>
+                            <div className="relative flex-1 min-w-0" ref={aktivtAutocomplete === tf.id ? autocompleteRef : undefined}>
+                              <Input
+                                value={tf.navn}
+                                onChange={(e) => {
+                                  oppdaterTrekkfagNavn(tf.id, e.target.value);
+                                  setAktivtAutocomplete(tf.id);
+                                }}
+                                onFocus={() => setAktivtAutocomplete(tf.id)}
+                                placeholder="Søk etter fag..."
+                                className="text-sm h-8"
+                              />
+                              {aktivtAutocomplete === tf.id && hentForslag(tf.navn, trekkfagForslag).length > 0 && (
+                                <div className="absolute z-50 top-full left-0 right-0 mt-1 bg-background border rounded-md shadow-lg max-h-48 overflow-y-auto">
+                                  {hentForslag(tf.navn, trekkfagForslag).map((forslag) => (
+                                    <button
+                                      key={forslag}
+                                      type="button"
+                                      onMouseDown={(e) => e.preventDefault()}
+                                      onClick={() => velgForslag(tf.id, forslag, "trekk")}
+                                      className="w-full text-left px-3 py-2 text-sm hover:bg-muted transition-colors"
+                                    >
+                                      {tf.navn ? (
+                                        <HighlightMatch text={forslag} query={tf.navn} />
+                                      ) : (
+                                        forslag
+                                      )}
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                            <div className="flex gap-1 shrink-0">
+                              {[1, 2, 3, 4, 5, 6].map((n) => (
+                                <button
+                                  key={n}
+                                  onClick={() => settTrekkfagKarakter(tf.id, n)}
+                                  className={`w-8 h-8 rounded-md text-sm font-medium transition-all ${
+                                    tf.karakter === n
+                                      ? n >= 5
+                                        ? "bg-green-600 text-white shadow-sm"
+                                        : n >= 3
+                                          ? "bg-blue-600 text-white shadow-sm"
+                                          : "bg-red-500 text-white shadow-sm"
+                                      : "bg-muted hover:bg-muted/80 text-muted-foreground"
+                                  }`}
+                                >
+                                  {n}
+                                </button>
+                              ))}
+                            </div>
+                            <button
+                              onClick={() => fjernTrekkfag(tf.id)}
+                              className="h-8 w-8 flex items-center justify-center shrink-0 rounded-md hover:bg-destructive/10 text-muted-foreground hover:text-destructive transition-colors"
+                            >
+                              <X className="h-3.5 w-3.5" />
+                            </button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                    <button
+                      onClick={leggTilTrekkfag}
+                      className="flex items-center gap-2 text-sm text-blue-600 hover:text-blue-700 dark:text-blue-400 dark:hover:text-blue-300 py-1 transition-colors"
+                    >
+                      <Plus className="h-4 w-4" />
+                      Legg til eksamenskarakter
+                    </button>
+                  </div>
+
+                  {/* Oppsummering */}
+                  <div className="bg-muted/50 rounded-lg p-3 flex items-center justify-between">
+                    <span className="text-sm text-muted-foreground">
+                      {alleKarakterer.length > 0
+                        ? `Snitt av ${alleKarakterer.length} karakterer`
+                        : "Klikk på tallene for å sette karakterer"}
+                    </span>
+                    {beregnetSnitt > 0 && (
                       <span className="font-semibold text-lg font-mono">{beregnetSnitt.toFixed(2)}</span>
-                    </div>
-                  )}
+                    )}
+                  </div>
                 </div>
               )}
 
@@ -627,5 +985,18 @@ export default function PoengkalkulatorPage() {
 
       <Footer />
     </div>
+  );
+}
+
+function HighlightMatch({ text, query }: { text: string; query: string }) {
+  if (!query) return <>{text}</>;
+  const idx = text.toLowerCase().indexOf(query.toLowerCase());
+  if (idx === -1) return <>{text}</>;
+  return (
+    <>
+      {text.slice(0, idx)}
+      <span className="font-semibold text-foreground">{text.slice(idx, idx + query.length)}</span>
+      {text.slice(idx + query.length)}
+    </>
   );
 }

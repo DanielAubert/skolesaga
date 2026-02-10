@@ -138,39 +138,34 @@ export default function TestDegSelvPage() {
             </p>
           </div>
 
-          <div className="grid gap-4 max-w-3xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-5xl mx-auto">
             {tests.map((test) => (
               <Link key={test.href} href={test.href} className="group block">
-                <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="flex items-stretch">
-                      {/* Icon section */}
-                      <div className={`bg-gradient-to-br ${test.gradient} p-6 flex items-center justify-center shrink-0 w-20 sm:w-24`}>
-                        <test.icon className="h-8 w-8 text-white" />
-                      </div>
+                <Card className="border-0 shadow-md hover:shadow-xl transition-all duration-300 hover:scale-[1.02] overflow-hidden h-full">
+                  <CardContent className="p-0 flex flex-col h-full">
+                    {/* Gradient header */}
+                    <div className={`bg-gradient-to-br ${test.gradient} px-5 py-6 flex items-center gap-3`}>
+                      <test.icon className="h-7 w-7 text-white shrink-0" />
+                      <h2 className="font-bold text-white text-lg leading-tight">{test.title}</h2>
+                    </div>
 
-                      {/* Content */}
-                      <div className="flex-1 p-4 sm:p-5 flex items-center">
-                        <div className="flex-1 min-w-0">
-                          <div className="flex items-center gap-2 mb-1">
-                            <h2 className="font-bold text-lg truncate">{test.title}</h2>
-                            <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground shrink-0 hidden sm:inline">
-                              {test.tag}
-                            </span>
-                          </div>
-                          <p className="text-sm text-muted-foreground line-clamp-2 mb-2">
-                            {test.description}
-                          </p>
-                          <div className="flex items-center gap-3 text-xs text-muted-foreground">
-                            <span className="flex items-center gap-1">
-                              <Clock className="h-3 w-3" />
-                              {test.duration}
-                            </span>
-                            <span>{test.items}</span>
-                          </div>
+                    {/* Content */}
+                    <div className="p-5 flex-1 flex flex-col">
+                      <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-muted text-muted-foreground w-fit mb-3">
+                        {test.tag}
+                      </span>
+                      <p className="text-sm text-muted-foreground line-clamp-3 mb-4 flex-1">
+                        {test.description}
+                      </p>
+                      <div className="flex items-center justify-between text-xs text-muted-foreground">
+                        <div className="flex items-center gap-3">
+                          <span className="flex items-center gap-1">
+                            <Clock className="h-3 w-3" />
+                            {test.duration}
+                          </span>
+                          <span>{test.items}</span>
                         </div>
-
-                        <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all shrink-0 ml-3" />
+                        <ArrowRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all" />
                       </div>
                     </div>
                   </CardContent>
