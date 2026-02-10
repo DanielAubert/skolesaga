@@ -4,7 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import {
   Brain, Fingerprint, Users, GraduationCap, Lightbulb, Sparkles,
-  Clock, ArrowRight, CircleDot, Heart,
+  Clock, ArrowRight, CircleDot, Heart, Calculator,
 } from "lucide-react";
 import Link from "next/link";
 import type { Metadata } from "next";
@@ -90,6 +90,16 @@ const tests = [
     duration: "8 min",
     items: "48 påstander",
     tag: "Læring",
+  },
+  {
+    href: "/poengkalkulator",
+    icon: Calculator,
+    title: "Poengkalkulator",
+    description: "Beregn dine skolepoeng og konkurransepoeng for Samordna opptak. Karaktersnitt, realfag, tillegg og mer.",
+    gradient: "from-blue-500 to-cyan-600",
+    duration: "2 min",
+    items: "Interaktiv kalkulator",
+    tag: "Verktøy",
   },
 ];
 

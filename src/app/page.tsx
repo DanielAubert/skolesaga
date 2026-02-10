@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight } from 'lucide-react';
+import { BookOpen, GraduationCap, Brain, Code, ChartLine, Users, ArrowRight, Calculator } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { HomeHeader } from '@/components/home/home-header';
 
@@ -65,6 +65,20 @@ export default function HomePage() {
                   </Button>
                 </div>
               </div>
+            </Link>
+          </div>
+
+          {/* Verktøy-lenker */}
+          <div className="mt-6">
+            <Link href="/poengkalkulator" className="group flex items-center gap-4 rounded-2xl bg-white/80 dark:bg-white/10 backdrop-blur-sm p-4 shadow-md hover:shadow-lg transition-all hover:scale-[1.02]">
+              <div className="rounded-xl bg-gradient-to-br from-blue-500 to-cyan-600 p-3 shrink-0">
+                <Calculator className="h-6 w-6 text-white" />
+              </div>
+              <div className="flex-1 min-w-0">
+                <h3 className="font-semibold">Poengkalkulator</h3>
+                <p className="text-sm text-muted-foreground">Beregn dine opptakspoeng</p>
+              </div>
+              <ArrowRight className="h-5 w-5 text-muted-foreground group-hover:text-foreground group-hover:translate-x-1 transition-all shrink-0" />
             </Link>
           </div>
         </div>
@@ -141,6 +155,9 @@ export default function HomePage() {
             Interaktive lærebøker for norsk skole
           </p>
           <div className="flex justify-center gap-6 text-sm text-muted-foreground mb-4">
+            <Link href="/test-deg-selv" className="hover:text-foreground transition-colors">
+              Test deg selv
+            </Link>
             <Link href="/personvern" className="hover:text-foreground transition-colors">
               Personvern
             </Link>
