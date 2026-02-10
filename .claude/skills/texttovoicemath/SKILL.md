@@ -47,14 +47,36 @@ Vis gjeldende konverteringsregler. Disse reglene skal alltid brukes i `stripMark
 
 ### Implisitt multiplikasjon
 
-Når et tall står rett foran en parentes uten gangetegn, skal gangetegnet leses opp.
+I matematikk er gangetegnet ofte usynlig. For tale må **alle** usynlige gangetegn leses opp eksplisitt. Hovedregelen: når to faktorer står inntil hverandre uten operator, sett inn "ganger".
 
+#### Tall/bokstav foran parentes
 | LaTeX/tekst | Feil uttale | Riktig uttale |
 |-------------|-------------|---------------|
-| `3(x+2)` | "tre x pluss to" | "tre ganger startparentes x pluss 2 sluttparentes" |
-| `2(x-3)` | "to x minus tre" | "to ganger startparentes x minus 3 sluttparentes" |
-| `-3(2x-2)` | "minus tre to x minus to" | "minus 3 ganger startparentes 2 x minus 2 sluttparentes" |
-| `x(x+3)` | — | "x ganger startparentes x pluss 3 sluttparentes" |
+| `3(x+2)` | "tre x pluss to" | "3 ganger startparentes x pluss 2 sluttparentes" |
+| `2(x-3)` | "to x minus tre" | "2 ganger startparentes x minus 3 sluttparentes" |
+| `-3(2x-2)` | "minus tre to x minus to" | "minus 3 ganger startparentes 2x minus 2 sluttparentes" |
+| `x(x+3)` | "x x pluss tre" | "x ganger startparentes x pluss 3 sluttparentes" |
+| `xy(x^2+y+2)` | — | "x y ganger startparentes x i andre pluss y pluss 2 sluttparentes" |
+
+#### Tall foran bokstav (koeffisienter)
+| LaTeX/tekst | Feil uttale | Riktig uttale |
+|-------------|-------------|---------------|
+| `3x` | "tre x" (OK for enkle tilfeller) | "3 x" (OK, trenger ikke "ganger" her) |
+| `2xy` | "to x y" | "2 x y" (OK) |
+
+**NB:** For enkle koeffisienter som `3x` trenger vi IKKE sette inn "ganger" – det høres unaturlig ut. Men for `3x^2` bør det leses som "3 x i andre".
+
+#### Parentes foran parentes
+| LaTeX/tekst | Feil uttale | Riktig uttale |
+|-------------|-------------|---------------|
+| `(x+2)(x+3)` | "x pluss to x pluss tre" | "startparentes x pluss 2 sluttparentes ganger startparentes x pluss 3 sluttparentes" |
+| `(a+b)(c+d)` | — | "startparentes a pluss b sluttparentes ganger startparentes c pluss d sluttparentes" |
+
+#### Sluttparentes foran tall/bokstav
+| LaTeX/tekst | Feil uttale | Riktig uttale |
+|-------------|-------------|---------------|
+| `(x+2)x` | — | "startparentes x pluss 2 sluttparentes ganger x" |
+| `(x-3) \cdot 3` | — | "startparentes x minus 3 sluttparentes ganger 3" (allerede OK med `\cdot`) |
 
 ### Operasjoner
 
@@ -98,13 +120,22 @@ function mathToNorwegian(text: string): string {
     .replace(/\^(\d+)/g, ' opphøyd i $1')
     .replace(/\^([a-z])/g, ' opphøyd i $1')
 
-    // Implisitt multiplikasjon: tall/bokstav etterfulgt av parentes
-    .replace(/(\d)\(/g, '$1 ganger startparentes ')
-    .replace(/([a-zA-Z])\(/g, '$1 ganger startparentes ')
+    // Parenteser (konverter først, så legger vi inn ganger mellom dem)
+    .replace(/\\left\(/g, '(')
+    .replace(/\\right\)/g, ')')
 
-    // Parenteser
-    .replace(/\\left\(/g, 'startparentes ')
-    .replace(/\\right\)/g, ' sluttparentes')
+    // Implisitt multiplikasjon: tall/bokstav foran parentes
+    .replace(/(\d)\(/g, '$1 ganger (')
+    .replace(/([a-zA-Z])\(/g, '$1 ganger (')
+
+    // Implisitt multiplikasjon: sluttparentes foran startparentes
+    .replace(/\)\(/g, ') ganger (')
+
+    // Implisitt multiplikasjon: sluttparentes foran tall/bokstav
+    .replace(/\)(\d)/g, ') ganger $1')
+    .replace(/\)([a-zA-Z])/g, ') ganger $1')
+
+    // Konverter parenteser til tale
     .replace(/\(/g, 'startparentes ')
     .replace(/\)/g, ' sluttparentes')
 
@@ -124,6 +155,19 @@ function mathToNorwegian(text: string): string {
     .trim();
 }
 ```
+
+## Kjente uttalefeil i ElevenLabs
+
+### Bokstaven "x" leses som "kang" eller lignende
+ElevenLabs kan feiltolke enkeltstående `x` som et kinesisk/fremmedspråklig tegn. **Løsning:** Erstatt enkeltstående `x` med `eks` i teksten som sendes til API-et:
+
+```typescript
+// Etter all annen LaTeX-konvertering, fiks "x"-uttale
+// Erstatt enkeltstående x (ikke inne i ord) med "eks"
+.replace(/\bx\b/g, 'eks')
+```
+
+**NB:** Dette må gjøres *etter* at LaTeX er konvertert, slik at `x^2` allerede er blitt til `eks i andre` (via potensregelen), og `xy` er blitt til `eks y`.
 
 ## Merknader
 
