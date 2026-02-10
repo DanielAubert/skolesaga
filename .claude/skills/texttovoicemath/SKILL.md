@@ -16,13 +16,35 @@ Vis gjeldende konverteringsregler. Disse reglene skal alltid brukes i `stripMark
 
 | LaTeX | Feil uttale | Riktig uttale |
 |-------|-------------|---------------|
-| `=` | "ilime" | "er lik" |
+| `=` | "ilime" | varierende (se under) |
 | `\neq` | — | "er ikke lik" |
 | `\approx` | — | "er omtrent lik" |
 | `\leq` | — | "er mindre enn eller lik" |
 | `\geq` | — | "er større enn eller lik" |
 | `<` | — | "er mindre enn" |
 | `>` | — | "er større enn" |
+
+#### Muntlig variasjon av likhetstegn
+
+For å få talen til å høres mer naturlig og menneskelig ut, skal likhetstegnet (`=`) **varieres** mellom flere formuleringer. Bruk en teller som roterer gjennom disse variantene:
+
+| Variant | Eksempel |
+|---------|----------|
+| ", som er lik, " | "3x pluss 5x, som er lik, 8x" |
+| ", som altså er lik, " | "x i andre minus 5x pluss 6, som altså er lik, x minus 2 ganger x minus 3" |
+| ", som da blir, " | "2 ganger 4, som da blir, 8" |
+| ", altså, " | "3a minus 5b pluss 4a, altså, 7a minus 5b" |
+| ", det vil si, " | "x pluss x, det vil si, 2x" |
+
+**Implementasjon:** Ikke bruk kun mekanisk rotasjon. AI-en som genererer lydbok-skriptet skal **vurdere konteksten** for hvert likhetstegn og velge den varianten som passer best. Retningslinjer:
+
+- **"som er lik"** – standard, trygt valg for de fleste likhetstegn
+- **"som altså er lik"** – når resultatet følger logisk fra forrige steg, gjerne midt i en utregning
+- **"som da blir"** – når man beregner/forenkler og kommer frem til et svar
+- **"altså"** – kort og muntlig, passer godt for enkle forenklinger og sluttresultater
+- **"det vil si"** – når man omformulerer eller forklarer hva noe betyr
+
+Målet er at talen skal høres ut som en lærer som forklarer ved tavla – naturlig, variert og ikke robotaktig. Unngå å bruke samme variant to ganger på rad.
 
 ### Potenser
 
@@ -87,12 +109,39 @@ I matematikk er gangetegnet ofte usynlig. For tale må **alle** usynlige gangete
 | `\frac{a}{b}` | — | "a delt på b" |
 | `\sqrt{x}` | — | "kvadratroten av x" |
 | `\pm` | — | "pluss minus" |
+| `-` (operator) | (utelates) | "minus" |
+| `+` (operator) | (OK som regel) | "pluss" |
+
+### Minustegn
+
+ElevenLabs kan utelate minustegnet (`-`) fra talen, spesielt som operator mellom ledd. **Løsning:** Erstatt `-` med ordet "minus" i den konverterte teksten.
+
+| Tekst | Feil uttale | Riktig uttale |
+|-------|-------------|---------------|
+| `3x - 2` | "3 x 2" | "3 x minus 2" |
+| `x^2 - 5x + 6` | "x i andre 5x 6" | "x i andre minus 5x pluss 6" |
+| `-3` (negativt tall) | (utelates/feil) | "minus 3" |
+
+**NB:** Minustegnet erstattes *etter* at LaTeX-kommandoer er konvertert, men *før* parenteser konverteres til tale. Regelen må håndtere både operatoren (`a - b`) og negativt fortegn (`-a`).
 
 ## Implementasjon
 
 Disse reglene implementeres i `stripMarkdown`-funksjonen som brukes i lydbok-skript. Her er kjernekonverteringene:
 
 ```typescript
+// Likhetstegn-varianter – AI velger den beste for konteksten,
+// men som fallback i mathToNorwegian brukes syklisk rotasjon.
+// Ved generering av narrativ tekst bør AI-en heller skrive inn
+// den beste varianten direkte i teksten.
+const EQUALS_VARIANTS = [
+  ', som er lik, ',
+  ', som altså er lik, ',
+  ', som da blir, ',
+  ', altså, ',
+  ', det vil si, ',
+];
+let equalsCounter = 0;
+
 function mathToNorwegian(text: string): string {
   return text
     // Likhetstegn og relasjoner
@@ -102,7 +151,11 @@ function mathToNorwegian(text: string): string {
     .replace(/\\geq/g, ' er større enn eller lik ')
     .replace(/</g, ' er mindre enn ')
     .replace(/>/g, ' er større enn ')
-    .replace(/=/g, ' er lik ')
+    .replace(/=/g, () => {
+      const variant = EQUALS_VARIANTS[equalsCounter % EQUALS_VARIANTS.length];
+      equalsCounter++;
+      return variant;
+    })
 
     // Potenser: x^{uttrykk} og x^n
     .replace(/\^{(\d+)\s*\+\s*(\d+)}/g, ' opphøyd i $1 pluss $2')
@@ -150,6 +203,10 @@ function mathToNorwegian(text: string): string {
     .replace(/\\times/g, ' ganger ')
     .replace(/\\pm/g, ' pluss minus ')
 
+    // Pluss og minus som operatorer (etter LaTeX-konvertering)
+    .replace(/\s*-\s*/g, ' minus ')
+    .replace(/\s*\+\s*/g, ' pluss ')
+
     // Rydd opp
     .replace(/\s{2,}/g, ' ')
     .trim();
@@ -157,6 +214,17 @@ function mathToNorwegian(text: string): string {
 ```
 
 ## Kjente uttalefeil i ElevenLabs
+
+### Minustegn utelates fra talen
+ElevenLabs kan hoppe over minustegnet (`-`), spesielt når det står som operator mellom matematiske ledd. **Løsning:** Erstatt `-` med ordet "minus" eksplisitt i teksten som sendes til API-et. Pluss (`+`) bør også erstattes med "pluss" for konsistens.
+
+```typescript
+// Etter LaTeX-konvertering, erstatt +/- med ord
+.replace(/\s*-\s*/g, ' minus ')
+.replace(/\s*\+\s*/g, ' pluss ')
+```
+
+**NB:** Disse reglene må komme *etter* alle LaTeX-kommandoer er konvertert (slik at `\pm`, `\neq` osv. allerede er håndtert), men *før* parenteser konverteres til tale.
 
 ### Bokstaven "x" leses som "kang" eller lignende
 ElevenLabs kan feiltolke enkeltstående `x` som et kinesisk/fremmedspråklig tegn. **Løsning:** Erstatt enkeltstående `x` med `eks` i teksten som sendes til API-et:
