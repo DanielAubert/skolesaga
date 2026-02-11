@@ -3230,6 +3230,13 @@ export const CHAPTER_HISTORIE_4_1: TextbookChapter = {
   competenceGoals: ['makt fra middelalderen til tidlig nytid'],
   content: [
     {
+      id: 'historie-4-1-kart-europa',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-europa-kart-1200.webp',
+      alt: 'Kart over Europa ca. 1200 med Det hellige romerske rike, Frankrike, England og Pavestaten',
+      caption: 'Europa ca. 1200 – de viktigste rikene og maktsentrene i høymiddelalderen.',
+    },
+    {
       id: 'historie-4-1-intro',
       type: 'text',
       content: `## Middelalderen - en ny samfunnsorden
@@ -3266,6 +3273,13 @@ Jordområde gitt mot tjeneste. Lenet fulgte ofte med plikter som å holde rettss
 Personlig lojalitetsforhold mellom herre og vasall, bekreftet gjennom ed og seremoni.
 
 **Viktig:** Føydalisme var ikke et enhetlig "system" som ble innført, men et begrep historikere bruker for å beskrive lignende forhold i ulike land.`,
+    },
+    {
+      id: 'historie-4-1-foydalisme-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-foydalisme-pyramide.webp',
+      alt: 'Føydalhierarkiet vist som pyramide: Kongen øverst, deretter baroner, riddere og bønder nederst',
+      caption: 'Føydalismens hierarki – jord og makt ble fordelt nedover i systemet mot lojalitet og tjeneste.',
     },
     {
       id: 'historie-4-1-kildetekst-1',
@@ -3414,6 +3428,130 @@ Såing, innhøsting, slakting fulgte årstidene. Alle arbeidet, fra barn til gam
         allowsCanvasDrawing: true,
       },
     },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-4-1-text-svartedauden',
+      type: 'text',
+      content: `## Svartedauden - Europas store katastrofe
+
+I 1347 nådde en fryktelig pest Europa via handelsskip fra Svartehavet. **Svartedauden** (også kalt den store manndauden) spredte seg raskt og rammet nesten hele kontinentet. I løpet av få år døde mellom en tredjedel og halvparten av Europas befolkning – kanskje 25 millioner mennesker.
+
+**Spredning og årsak:**
+Sykdommen var byllepest, forårsaket av bakterien *Yersinia pestis*, som ble spredd av lopper på rotter. Trange og uhygieniske forhold i middelalderbyene gjorde at pesten spredte seg eksplosivt. Folk i samtiden forsto ikke årsaken, og mange trodde pesten var Guds straff for menneskenes synder.
+
+**Konsekvenser:**
+- **Arbeidskraftmangel:** Færre bønder betydde at de overlevende kunne kreve bedre vilkår. Lønningene steg, og livegenskapet begynte å svekkes.
+- **Sosiale opprør:** Bondeopprør brøt ut i flere land, blant annet i England (1381) og Frankrike (Jacquerie, 1358).
+- **Religiøs krise:** Mange mistet troen på kirken da prestene ikke kunne beskytte dem mot pesten.
+- **Kulturelle endringer:** Kunsten ble preget av døden (*danse macabre*), og en ny bevissthet om livets forgjengelighet vokste frem.
+
+Svartedauden markerer et vannskille i europeisk historie og bidro til å bryte ned middelalderens samfunnsstruktur.`,
+    },
+    {
+      id: 'historie-4-1-def-svartedauden',
+      type: 'definition',
+      title: 'Svartedauden',
+      content: `**Svartedauden** (1347-1351) var en pestepidemi som drepte mellom en tredjedel og halvparten av Europas befolkning. Sykdommen var byllepest, spredd av lopper på rotter. Pesten kom til Europa via handelsskip fra Svartehavet og spredte seg langs handelsruter.
+
+**Kronologi:**
+- 1347: Pesten når Sicilia via skip fra Kaffa (Krim)
+- 1348: Sprer seg til Italia, Frankrike, Spania, England
+- 1349: Når Skandinavia, inkludert Norge
+- 1351: Har nådd det meste av Europa
+
+**Langtidskonsekvenser:** Arbeidskraftmangel, høyere lønninger for bønder, svekkelse av føydalismen, bondeopprør, religiøs krise og kulturelle endringer.`,
+    },
+    {
+      id: 'historie-4-1-kildetekst-boccaccio',
+      type: 'example',
+      title: 'Kildetekst: Giovanni Boccaccio om pesten i Firenze (1348)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Hvor mange tapre menn, vakre kvinner og livlige ungdommer [...] som spiste frokost med sine slektninger, kamerater og venner, og som da kvelden kom, spiste til kvelds med sine forfedre i den andre verden!"*
+
+*"Det var de som mente at måtehold og et nøkternt levesett var det beste vernet mot sykdommen. [...] Andre holdt det stikk motsatte syn og mente at rikelig med drikke og nytelse [...] var det sikre middelet. [...] De gikk fra vertshus til vertshus, dag og natt."*
+
+**Kilde:** Giovanni Boccaccio, *Decameronen* (1353), innledningen
+
+**Kontekst:** Boccaccio var selv i Firenze under pestens herjinger i 1348. Han beskrev pestens virkninger i innledningen til novellesamlingen *Decameronen*, der ti unge mennesker flykter fra Firenze og forteller hverandre historier.
+
+**Kildeanalyse:**
+- **Avsender:** Giovanni Boccaccio (1313-1375), italiensk forfatter og humanist, øyenvitne til pesten
+- **Formål:** Å skildre pestens grusomme virkelighet som ramme for novellesamlingen. Boccaccio ønsker å vise hvordan mennesker reagerer i krise.
+- **Perspektiv:** En velstående, dannet mann i Firenze. Han beskriver byens overklasse og middelklasse, ikke nødvendigvis de fattigste.
+- **Kildeverdi:** Et uvurderlig førstehåndsvitnessbyrd om pestens virkning på et italiensk bysamfunn. Viser ulike reaksjoner – fra askese til hedonisme. Men som litterært verk kan Boccaccio ha forsterket dramatikken.`,
+    },
+    {
+      id: 'historie-4-1-text-universiteter',
+      type: 'text',
+      content: `## De første universitetene
+
+Middelalderen så fremveksten av en ny institusjon som har formet den vestlige verden: **universitetet**. De første universitetene vokste frem på 1100- og 1200-tallet og ble sentre for lærdom og debatt.
+
+**De viktigste tidlige universitetene:**
+- **Bologna** (ca. 1088): Det eldste universitetet, kjent for jus (rettslære)
+- **Paris** (ca. 1150): Sentrum for teologi og filosofi
+- **Oxford** (ca. 1167): Englands fremste lærested
+
+**Universitetenes rolle:**
+Universitetene samlet lærde fra hele Europa og skapte et felles intellektuelt miljø. Undervisningsspråket var latin, noe som muliggjorde utveksling på tvers av landegrenser. Den viktigste filosofiske retningen var **skolastikken**, som forsøkte å forene kristen tro med antikkens filosofi – særlig Aristoteles.
+
+Universitetene var viktige fordi de skapte en ny sosial gruppe: de lærde. Mennesker som ikke var av adel eller geistlighet, men som hadde kunnskap, fikk gradvis innflytelse i samfunnet. Dette la grunnlaget for den intellektuelle utviklingen som senere førte til renessansen.`,
+    },
+    // --- Flervalgsoppgaver for 4.1 ---
+    {
+      id: 'historie-4-1-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-1-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var grunnprinsippet i føydalismen?',
+        options: [
+          { id: 'a', text: 'Jord i bytte mot lojalitet og militærtjeneste', isCorrect: true },
+          { id: 'b', text: 'Penger i bytte mot beskyttelse', isCorrect: false },
+          { id: 'c', text: 'Alle eide jord i fellesskap', isCorrect: false },
+          { id: 'd', text: 'Kirken fordelte jord til de troende', isCorrect: false },
+        ],
+        solution: 'Føydalismens grunnprinsipp var jord i bytte mot lojalitet og militærtjeneste. Kongen ga jord (len) til vasaller, som til gjengjeld måtte stille med soldater og vise troskap. Dette personlige lojalitetsforholdet var kjernen i systemet.',
+      },
+    },
+    {
+      id: 'historie-4-1-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-1-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var de tre stendene i middelalderens standssamfunn?',
+        options: [
+          { id: 'a', text: 'Geistligheten, adelen og bøndene', isCorrect: true },
+          { id: 'b', text: 'Kongen, ridderne og kjøpmennene', isCorrect: false },
+          { id: 'c', text: 'Munkene, ridderne og slavene', isCorrect: false },
+          { id: 'd', text: 'Adelen, borgerne og trellene', isCorrect: false },
+        ],
+        solution: 'Middelalderens standssamfunn var delt i tre stender: geistligheten (de som ber), adelen (de som slåss) og bøndene (de som arbeider). Hver stand hadde sine rettigheter og plikter, og man ble vanligvis født inn i sin stand.',
+      },
+    },
+    {
+      id: 'historie-4-1-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-1-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var den viktigste konsekvensen av svartedauden for bøndene i Europa?',
+        options: [
+          { id: 'a', text: 'Arbeidskraftmangelen ga bøndene bedre forhandlingsposisjon og høyere lønninger', isCorrect: true },
+          { id: 'b', text: 'Bøndene ble enda hardere undertrykt av adelen', isCorrect: false },
+          { id: 'c', text: 'Alle bønder ble frie borgere umiddelbart etter pesten', isCorrect: false },
+          { id: 'd', text: 'Pesten rammet bare adelen og geistligheten', isCorrect: false },
+        ],
+        solution: 'Den viktigste konsekvensen for bøndene var at arbeidskraftmangelen etter pesten ga dem bedre forhandlingsposisjon. Med færre arbeidsfolk kunne bøndene kreve høyere lønn og bedre vilkår. Dette bidro til å svekke livegenskapet og føydalismens grep over tid.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -3427,6 +3565,13 @@ export const CHAPTER_HISTORIE_4_2: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['makt fra middelalderen til tidlig nytid'],
   content: [
+    {
+      id: 'historie-4-2-kart-norge',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-norge-middelalder-kart.webp',
+      alt: 'Kart over Norges rike på sitt største ca. 1260 med Island, Grønland, Færøyene, Orknøyene og Shetland',
+      caption: 'Norges rike ca. 1260 – på sitt største under Håkon Håkonsson.',
+    },
     {
       id: 'historie-4-2-intro',
       type: 'text',
@@ -3512,6 +3657,13 @@ Norsk middelalder var kortere enn den europeiske - fra vikingtiden til svartedau
 - Brudd med norrøn tradisjon - men mye ble videreført i ny form`,
     },
     {
+      id: 'historie-4-2-arkitektur-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-stavekirke-nidarosdomen.webp',
+      alt: 'Norsk middelalderarkitektur: Stavkirke og Nidarosdomen',
+      caption: 'Stavkirken og Nidarosdomen – to uttrykk for norsk middelalderarkitektur.',
+    },
+    {
       id: 'historie-4-2-ex-2',
       type: 'exercise',
       exercise: {
@@ -3524,6 +3676,59 @@ Norsk middelalder var kortere enn den europeiske - fra vikingtiden til svartedau
         allowsUpload: true,
         allowsCanvasDrawing: true,
       },
+    },
+    {
+      id: 'historie-4-2-text-lovgivning',
+      type: 'text',
+      content: `## Norsk lovgivning i middelalderen
+
+Norge utviklet tidlig et sofistikert rettssystem. De eldste lovene var knyttet til de regionale **lagtingene** – forsamlinger der frie bønder møttes for å avgjøre tvister og vedta lover.
+
+**De viktigste lagtingene:**
+- **Gulatinget** (Vestlandet) – en av Europas eldste representative forsamlinger
+- **Frostatinget** (Trøndelag) – dekket Midt-Norge
+- **Borgartinget** (Østlandet) – for Viken-området
+- **Eidsivatinget** (Innlandet) – for Opplandene
+
+Hver region hadde sine egne lover som ble overlevert muntlig. Gradvis ble lovene skrevet ned, og i **1274** gjennomførte kong Magnus Lagabøte en historisk bragd: Han ga Norge en felles **landslov** som erstattet de regionale lovene. Magnus Lagabøtes landslov var en av Europas første nasjonale lovbøker og varte helt til Christian Vs Norske Lov i 1687.
+
+Landsloven inneholdt regler om alt fra arv og eiendom til strafferett og handel. Et viktig prinsipp var **mannhelgi** – menneskers ukrenkelighet. Loven fastslo at alle mennesker hadde rett til liv og sikkerhet, uansett stand.`,
+    },
+    {
+      id: 'historie-4-2-text-svartedauden-norge',
+      type: 'text',
+      content: `## Svartedauden i Norge (1349)
+
+Svartedauden nådde Norge høsten 1349, trolig med et handelsskip fra England som la til i Bergen. Pesten spredte seg raskt langs kysten og innover i landet. Konsekvensene for Norge var katastrofale – kanskje mer enn for noe annet europeisk land.
+
+**Omfanget:**
+Historikere anslår at mellom halvparten og to tredjedeler av Norges befolkning døde. Landet gikk fra kanskje 350 000-400 000 innbyggere til under 200 000. Noen bygder ble helt avfolket.
+
+**Konsekvenser for Norge:**
+- **Ødegårder:** Tusenvis av gårder ble forlatt. Så sent som på 1600-tallet lå mange gårder fortsatt øde.
+- **Elitens fall:** Den norske adelen ble nesten utslettet. Mange adelsslekter døde ut, og de ble gradvis erstattet av danske og svenske adelsmenn.
+- **Kirkens svekkelse:** Mange prester døde, og det tok generasjoner å bygge opp kirkeorganisasjonen igjen.
+- **Unionsveien:** Uten en sterk norsk elite var det lettere for Danmark å dominere unionen.
+- **Økonomisk nedgang:** Skatteinntektene falt dramatisk, og Norges posisjon i handelen ble svekket.
+
+Svartedauden markerer slutten på Norges storhetstid og begynnelsen på en nedgangsperiode som varte i over 200 år.`,
+    },
+    {
+      id: 'historie-4-2-kildetekst-landslov',
+      type: 'example',
+      title: 'Kildetekst: Magnus Lagabøtes landslov (1274) – om mannhelgi',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Enhver mann er ukrenkelig i sitt hjem og skal leve i fred og trygghet. Den som bryter en manns husfred, skal bøte dobbelt. [...] Ingen mann skal angripe en annen med våpen. Den som dreper en mann, skal bøte til den dreptes ætt etter loven."*
+
+**Kilde:** Magnus Lagabøtes landslov (1274), fritt gjengitt og tilpasset etter mannhelgibolken
+
+**Kontekst:** Landsloven var Norges første felles lovbok og gjaldt for hele riket. Mannhelgibolken fastslo at alle mennesker hadde rett til liv og sikkerhet. Loven var et uttrykk for kongemaktens ønske om å skape orden og rettssikkerhet.
+
+**Kildeanalyse:**
+- **Avsender:** Kongen og hans rådgivere – loven representerer den norske statens ambisjoner om rettferdig styre
+- **Formål:** Å sikre fred og rettssikkerhet i hele riket, og å styrke kongemakten på bekostning av privat voldsutøvelse
+- **Perspektiv:** Loven gjelder formelt alle, men i praksis hadde ulike stender ulik rettsbeskyttelse
+- **Kildeverdi:** Viser at Norge hadde et avansert rettssystem i høymiddelalderen. Prinsippet om mannhelgi var progressivt for sin tid og viser en tidlig form for tanken om menneskerettigheter.`,
     },
     {
       id: 'historie-4-2-example-1',
@@ -3613,6 +3818,61 @@ Storhetstiden tok slutt da pesten drepte kanskje halvparten av befolkningen. Nor
         allowsCanvasDrawing: true,
       },
     },
+    // --- Flervalgsoppgaver for 4.2 ---
+    {
+      id: 'historie-4-2-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-2-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvem fullførte kristningen av Norge?',
+        options: [
+          { id: 'a', text: 'Olav Haraldsson (Olav den hellige)', isCorrect: true },
+          { id: 'b', text: 'Harald Hårfagre', isCorrect: false },
+          { id: 'c', text: 'Harald Hardråde', isCorrect: false },
+          { id: 'd', text: 'Håkon den gode', isCorrect: false },
+        ],
+        solution: 'Olav Haraldsson (Olav den hellige) fullførte kristningen av Norge. Han brukte både overtalelse og tvang for å innføre kristendommen. Etter at han falt i slaget på Stiklestad i 1030, ble han helgenkåret og ble et symbol på det kristne Norge.',
+      },
+    },
+    {
+      id: 'historie-4-2-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-2-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Når var Norges rike på sitt største?',
+        options: [
+          { id: 'a', text: 'På 1200-tallet under Håkon Håkonsson', isCorrect: true },
+          { id: 'b', text: 'I vikingtiden under Harald Hårfagre', isCorrect: false },
+          { id: 'c', text: 'Under Kalmarunionen på 1400-tallet', isCorrect: false },
+          { id: 'd', text: 'I dansketiden på 1600-tallet', isCorrect: false },
+        ],
+        solution: 'Norges rike var på sitt største på 1200-tallet under Håkon Håkonsson. Da omfattet riket fastlands-Norge, Island, Grønland, Færøyene, Orknøyene, Shetland, Hebridene og Man. Bergen var landets største by og hovedstad.',
+      },
+    },
+    {
+      id: 'historie-4-2-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-2-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var Magnus Lagabøtes landslov (1274)?',
+        options: [
+          { id: 'a', text: 'Norges første felles lovbok som gjaldt hele riket', isCorrect: true },
+          { id: 'b', text: 'En lov som ga kirken makt over kongen', isCorrect: false },
+          { id: 'c', text: 'En handelsavtale med Hansaforbundet', isCorrect: false },
+          { id: 'd', text: 'En lov som innførte eneveldet i Norge', isCorrect: false },
+        ],
+        solution: 'Magnus Lagabøtes landslov var Norges første felles lovbok og gjaldt for hele riket. Den erstattet de regionale lagtingslovene og var en av Europas første nasjonale lovbøker. Loven fastslo blant annet prinsippet om mannhelgi – at alle mennesker har rett til liv og sikkerhet.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -3626,6 +3886,13 @@ export const CHAPTER_HISTORIE_4_3: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['religionens betydning for samfunn og makt'],
   content: [
+    {
+      id: 'historie-4-3-kirkehierarki-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-kirkehierarki.webp',
+      alt: 'Kirkens maktstruktur fra pave til sogneprest i middelalderen',
+      caption: 'Kirkens hierarki – fra paven i Roma til sognepresten i den minste bygd.',
+    },
     {
       id: 'historie-4-3-intro',
       type: 'text',
@@ -3714,6 +3981,51 @@ Kirken og kongemakten samarbeidet ofte, men kom også i konflikt om hvem som had
 - Definerte rett og galt (moral)
 - Ekteskap, arv, seksualitet regulert av kirken
 - Fattigomsorg og sykehus`,
+    },
+    {
+      id: 'historie-4-3-korstog-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-korstog-kart.webp',
+      alt: 'Kart over korstogenes ruter fra Europa til Det hellige land 1096-1291',
+      caption: 'Korstogene 1096–1291 – europeiske hærer marsjerte mot Jerusalem.',
+    },
+    {
+      id: 'historie-4-3-text-korstogene',
+      type: 'text',
+      content: `## Korstogene
+
+Korstogene (1096-1291) var militære ekspedisjoner der europeiske kristne forsøkte å erobre og forsvare Det hellige land (Palestina) fra muslimsk kontroll. De ble satt i gang av paven og var en av middelalderens mest dramatiske hendelser.
+
+**Bakgrunn:**
+I 1095 holdt pave Urban II en tale i Clermont i Frankrike der han oppfordret kristne til å befri Jerusalem fra muslimene. Tusenvis meldte seg til det som ble det **første korstoget** (1096-1099). Jerusalem ble erobret i 1099, og flere korsfarer-stater ble opprettet i Midtøsten.
+
+**De viktigste korstogene:**
+- **Første korstog (1096-1099):** Jerusalem erobret, korsfarerstater opprettet
+- **Tredje korstog (1189-1192):** Richard Løvehjerte mot Saladin – Jerusalem ble ikke gjenerobret, men pilegrimer fikk tilgang
+- **Fjerde korstog (1202-1204):** Plyndret det kristne Konstantinopel i stedet for å nå Det hellige land
+
+**Konsekvenser:**
+- Kulturutveksling mellom Europa og den muslimske verden (vitenskap, medisin, matematikk)
+- Styrket handelen i Middelhavet, spesielt for Venezia og Genova
+- Svekket det bysantinske riket
+- Økt religiøs intoleranse og forfølgelse av jøder og muslimer i Europa
+- Styrket pavens autoritet, men også demonstrert dens begrensninger`,
+    },
+    {
+      id: 'historie-4-3-def-korstog',
+      type: 'definition',
+      title: 'Korstog',
+      content: `**Korstog** var militære ekspedisjoner utført av europeiske kristne for å erobre og forsvare Det hellige land fra muslimsk kontroll (1096-1291).
+
+**Kronologi:**
+- 1095: Pave Urban IIs tale i Clermont
+- 1096-1099: Første korstog – Jerusalem erobret
+- 1147-1149: Andre korstog – mislykket
+- 1189-1192: Tredje korstog – Richard Løvehjerte vs. Saladin
+- 1202-1204: Fjerde korstog – plyndringen av Konstantinopel
+- 1291: Acre faller – siste korsfarerstat i Midtøsten faller
+
+**Motivasjon:** Religiøs plikt, pavens løfte om syndsforlatelse, eventyrlyst, ønske om jord og rikdom.`,
     },
     {
       id: 'historie-4-3-kildetekst-1',
@@ -3815,6 +4127,99 @@ Investiturstriden er et tidlig eksempel på konflikten mellom religion og stat s
         allowsCanvasDrawing: true,
       },
     },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-4-3-kildetekst-urban',
+      type: 'example',
+      title: 'Kildetekst: Pave Urban IIs tale i Clermont (1095)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Jeg ber og formaner dere [...] å skynde dere å drive denne onde rasen ut av våre brødres land. [...] Alle som dør underveis, enten det er til sjøs eller til lands, eller som faller i kamp mot hedningene, skal øyeblikkelig få tilgivelse for sine synder. [...] La de som har vært røvere nå bli soldater for Kristus!"*
+
+**Kilde:** Pave Urban IIs tale i Clermont, 1095, gjengitt av kronikøren Fulcher av Chartres (ca. 1100-1127)
+
+**Kontekst:** Pave Urban II holdt denne talen på et kirkemøte i Clermont i Frankrike. Han oppfordret kristne til å dra til Det hellige land for å befri Jerusalem fra muslimsk kontroll. Talen utløste det første korstoget.
+
+**Kildeanalyse:**
+- **Avsender:** Pave Urban II, kirkens overhode, som ønsket å styrke pavens autoritet og samle kristenheten
+- **Formål:** Å mobilisere kristne til hellig krig – motivere med løfte om syndsforlatelse og evig frelse
+- **Perspektiv:** Et ensidig korsfarerperspektiv som fremstiller muslimer som «den onde rasen» – vi hører ingenting fra den andre siden
+- **Kildeverdi:** Viser hvordan religion ble brukt til å mobilisere til krig. Løftet om syndsforlatelse var et mektig virkemiddel. Men teksten er gjengitt av en kronikør i ettertid og kan ha blitt tilpasset.`,
+    },
+    {
+      id: 'historie-4-3-text-klostre',
+      type: 'text',
+      content: `## Klostre og lærdom
+
+Klostrene var middelalderens kunnskapssentre. Munker og nonner levde etter strenge regler og viet livet til bønn, arbeid og lærdom. To klosterordener var spesielt viktige:
+
+**Benediktinerne** fulgte regelen til Benedikt av Nursia (ca. 500). Deres motto var *ora et labora* (be og arbeid). Benediktinerklostrene var kjent for bokproduksjon – munker kopierte antikkens tekster for hånd og bevarte dermed kunnskapen for ettertiden.
+
+**Cistercienserne** ble grunnlagt i 1098 som en strengere retning. De var dyktige bønder og utviklet nye jordbruksmetoder. I Norge ble **Lyse kloster** ved Bergen grunnlagt av cisterciensere i 1146 – det første cistercienserklosteret i Norden.
+
+**Klostrenes bidrag:**
+- Bevarte og kopierte antikkens tekster
+- Utviklet jordbruk, brygging og medisin
+- Drev skoler og sykehus
+- Ga ly til reisende og fattige
+- Var sentre for handel og økonomi
+
+Klostrene fungerte som små, selvforsynte samfunn og var ofte de best organiserte institusjonene i middelalderen.`,
+    },
+    // --- Flervalgsoppgaver for 4.3 ---
+    {
+      id: 'historie-4-3-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-3-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var tienden i middelalderen?',
+        options: [
+          { id: 'a', text: 'En skatt der 10 % av avlingen gikk til kirken', isCorrect: true },
+          { id: 'b', text: 'En avgift til kongen for å drive handel', isCorrect: false },
+          { id: 'c', text: 'En bot man betalte for synder', isCorrect: false },
+          { id: 'd', text: 'Et bidrag til korstogsfinansiering', isCorrect: false },
+        ],
+        solution: 'Tienden var en skatt der bønder måtte gi 10 % av sin avling og sine produkter til kirken. Dette var en av kirkens viktigste inntektskilder og bidro til at kirken ble middelalderens rikeste institusjon. Tienden var obligatorisk for alle.',
+      },
+    },
+    {
+      id: 'historie-4-3-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-3-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva handlet investiturstriden om?',
+        options: [
+          { id: 'a', text: 'Hvem som hadde rett til å utnevne biskoper – paven eller kongen', isCorrect: true },
+          { id: 'b', text: 'Hvem som eide kirkens jordeiendommer', isCorrect: false },
+          { id: 'c', text: 'Om korstogene skulle fortsette eller avsluttes', isCorrect: false },
+          { id: 'd', text: 'Om Bibelen skulle oversettes til folkespråkene', isCorrect: false },
+        ],
+        solution: 'Investiturstriden (1075-1122) var en konflikt mellom paven og den tysk-romerske keiseren om retten til å utnevne (investere) biskoper. Siden biskoper hadde både åndelig og verdslig makt, ville begge parter kontrollere dem. Konflikten endte med et kompromiss i Worms (1122).',
+      },
+    },
+    {
+      id: 'historie-4-3-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-3-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var pavens mest fryktede maktmiddel mot ulydige konger?',
+        options: [
+          { id: 'a', text: 'Ekskommunikasjon – utelukkelse fra kirken og sakramentene', isCorrect: true },
+          { id: 'b', text: 'Militær invasjon med pavens hær', isCorrect: false },
+          { id: 'c', text: 'Handelsboikott av kongens rike', isCorrect: false },
+          { id: 'd', text: 'Fengsling av kongens familie', isCorrect: false },
+        ],
+        solution: 'Ekskommunikasjon – utelukkelse fra kirken – var pavens mest fryktede maktmiddel. En ekskommunisert person ble nektet sakramentene og dermed veien til frelse. Undersåtter ble løst fra sin troskap til en ekskommunisert konge. I en tid der alle trodde på himmel og helvete, var dette et enormt pressmiddel.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -3828,6 +4233,13 @@ export const CHAPTER_HISTORIE_4_4: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: ['handel og økonomiske systemer'],
   content: [
+    {
+      id: 'historie-4-4-hansa-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-handelsruter-hansa-kart.webp',
+      alt: 'Kart over hanseatiske handelsruter i Nord-Europa med kontorer i Bergen, London, Brugge og Novgorod',
+      caption: 'Hansaforbundets handelsruter – et nettverk som dominerte handelen i Nord-Europa.',
+    },
     {
       id: 'historie-4-4-intro',
       type: 'text',
@@ -3912,6 +4324,13 @@ For Norges del var handelen med fisk og tømmer avgjørende - og her kom Hansafo
 - Hadde privilegier og egen rettsmyndighet i Bergen
 - Norske kjøpmenn ble marginalisert
 - Hanseatene hadde ofte konflikter med norske myndigheter`,
+    },
+    {
+      id: 'historie-4-4-tyskebryggen-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap4-tyskebryggen-bergen.webp',
+      alt: 'Illustrasjon av Tyskebryggen i Bergen med lagerhus og handelsskip',
+      caption: 'Tyskebryggen i Bergen – sentrum for hanseatisk handel i Norge.',
     },
     {
       id: 'historie-4-4-kildetekst-1',
@@ -4011,6 +4430,109 @@ Tørrfisken var Norges viktigste eksportvare i middelalderen og bandt det spredt
         solution: 'Likheter: Internasjonal handel over store avstander, spesialisering (Norge solgte fisk, kjøpte korn), handelsposter i utlandet (som multinasjonale selskaper). Forskjeller: 1) Mye mer regulert - laug og privilegier vs. frihandel. 2) Monopoler var akseptert - i dag bekjempes de. 3) Langsommere transport. 4) Færre varer. Konklusjon: Middelalderens handel var overraskende "global" for sin tid, men langt mer regulert og begrenset enn i dag. Både dengang og nå debatteres frihandel vs. beskyttelse.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-4-4-text-champagne',
+      type: 'text',
+      content: `## Champagne-messene og internasjonal handel
+
+De store **Champagne-messene** i Frankrike var middelalderens viktigste internasjonale handelsarena. Seks ganger i året samlet kjøpmenn fra hele Europa seg i byene Troyes, Provins, Lagny og Bar-sur-Aube for å handle.
+
+**Hvorfor nettopp Champagne?**
+Regionen lå sentralt mellom Nord- og Sør-Europa, der handelsrutene fra Italia og Flandern krysset hverandre. De lokale grevene ga kjøpmennene beskyttelse og rettssikkerhet, noe som var avgjørende i en urolig tid.
+
+**Handel og finans:**
+På messene ble det ikke bare handlet med varer – her utviklet det seg også nye finansielle instrumenter. **Veksler** (verdipapirer) ble brukt slik at kjøpmenn slapp å frakte store mengder mynt. **Kreditt** ble vanlig, og italienske bankierfamilier tilbød lån. Dette var begynnelsen på det europeiske finansvesenet.
+
+Champagne-messene forfalt på 1300-tallet da handelen fant nye veier, men de hadde allerede lagt grunnlaget for moderne internasjonal handel og bankvirksomhet.`,
+    },
+    {
+      id: 'historie-4-4-text-bergen',
+      type: 'text',
+      content: `## Bergen som handelssentrum
+
+Bergen var Norges desidert viktigste by i middelalderen og en av Nord-Europas største havnebyer. Byen var knutepunktet der norsk fisk fra nord møtte europeiske varer fra sør.
+
+**Bergenshandelen:**
+Fiskerbønder fra Nord-Norge seilte sørover med tørrfisk og tran hver sommer. I Bergen byttet de fisken mot korn, mel, klede, salt og andre varer de trengte. Hanseatene på Bryggen kontrollerte mesteparten av denne handelen og hadde et stramt grep om priser og vilkår.
+
+**Norsk-hanseatisk sameksistens:**
+Forholdet mellom nordmenn og hanseatene var komplisert. De tyske kjøpmennene bodde i egne kvartaler på Bryggen med egne regler og lover. De giftet seg ikke med norske kvinner og holdt seg for seg selv. Likevel var de gjensidig avhengige: hanseatene trengte norsk fisk, og nordmennene trengte korn og andre europeiske varer.
+
+Konflikter oppsto jevnlig – om priser, privilegier og myndighet. Men handelen fortsatte fordi begge parter var avhengige av den.`,
+    },
+    {
+      id: 'historie-4-4-kildetekst-kjopmann',
+      type: 'example',
+      title: 'Kildetekst: Et kjøpmannsbrev fra Bergen (ca. 1350)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Vi har denne sommeren mottatt god tørrfisk fra Nordfarerne, og har sendt dem korn og mel i retur. Fisken er av god kvalitet og vi forventer god pris i Lübeck. Dog klager Nordfarerne over at vi gir dem for lite korn for fisken, og det har vært strid om mål og vekt. Vi har bedt fogden om å holde fred på bryggen."*
+
+**Kilde:** Fritt gjengitt etter hanseatiske handelsbrev fra Bergen, ca. 1350
+
+**Kontekst:** Hanseatiske kjøpmenn i Bergen førte regelmessig korrespondanse med sine handelspartnere i Lübeck og andre hansabyer. Brevene gir innblikk i den daglige handelsvirksomheten på Bryggen.
+
+**Kildeanalyse:**
+- **Avsender:** En hanseatisk kjøpmann i Bergen, som rapporterer til sine handelspartnere
+- **Formål:** Å informere om handelsforhold og potensielle konflikter
+- **Perspektiv:** Ensidig hanseatisk – vi hører kjøpmannens versjon, ikke fiskerbondens
+- **Kildeverdi:** Gir innblikk i den daglige handelen og spenningene mellom hanseatene og nordmennene. Viser at handelen var preget av asymmetri – hanseatene satte vilkårene.`,
+    },
+    // --- Flervalgsoppgaver for 4.4 ---
+    {
+      id: 'historie-4-4-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-4-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvor hadde Hansaforbundet sitt hovedkvarter?',
+        options: [
+          { id: 'a', text: 'Lübeck', isCorrect: true },
+          { id: 'b', text: 'Bergen', isCorrect: false },
+          { id: 'c', text: 'Hamburg', isCorrect: false },
+          { id: 'd', text: 'London', isCorrect: false },
+        ],
+        solution: 'Hansaforbundets hovedkvarter lå i Lübeck i Nord-Tyskland. Forbundet hadde opptil 200 medlemsbyer og fire store utenlandske kontorer: Bergen (Tyskebryggen), London (Steelyard), Brugge og Novgorod.',
+      },
+    },
+    {
+      id: 'historie-4-4-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-4-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var Norges viktigste eksportvare i middelalderen?',
+        options: [
+          { id: 'a', text: 'Tørrfisk', isCorrect: true },
+          { id: 'b', text: 'Trelast', isCorrect: false },
+          { id: 'c', text: 'Jernmalm', isCorrect: false },
+          { id: 'd', text: 'Ull', isCorrect: false },
+        ],
+        solution: 'Tørrfisk var Norges viktigste eksportvare i middelalderen. Torsk som ble hengt til tørking i kald vinterluft, kunne lagres i årevis og fraktes over lange avstander. Etterspørselen var stor fordi kirken forbød kjøtt mange dager i året.',
+      },
+    },
+    {
+      id: 'historie-4-4-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-4-4-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var Champagne-messene?',
+        options: [
+          { id: 'a', text: 'Middelalderens viktigste internasjonale handelsmarkeder i Frankrike', isCorrect: true },
+          { id: 'b', text: 'Religiøse festivaler arrangert av kirken', isCorrect: false },
+          { id: 'c', text: 'Militære samlinger for korsfarere', isCorrect: false },
+          { id: 'd', text: 'Lokale bondemarkeder i England', isCorrect: false },
+        ],
+        solution: 'Champagne-messene var middelalderens viktigste internasjonale handelsmarkeder, holdt seks ganger i året i regionen Champagne i Frankrike. Kjøpmenn fra hele Europa samlet seg her for å handle varer. Messene var også viktige for utviklingen av finansielle instrumenter som veksler og kreditt.',
       },
     },
   ],

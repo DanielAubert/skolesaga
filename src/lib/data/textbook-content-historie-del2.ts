@@ -21,6 +21,13 @@ export const CHAPTER_HISTORIE_5_1: TextbookChapter = {
   competenceGoals: ['reflektere over hvordan fortiden former oss'],
   content: [
     {
+      id: 'historie-5-1-italia-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-italia-bystater-kart.webp',
+      alt: 'Kart over italienske bystater ca. 1500 med Firenze, Venezia, Milano, Roma og Napoli',
+      caption: 'Italienske bystater ca. 1500 – renessansens vugge.',
+    },
+    {
       id: 'historie-5-1-intro',
       type: 'text',
       content: `## Renessansen - en kulturell gjenfødelse
@@ -81,6 +88,13 @@ Renessansekunsten kjennetegnes av realisme, perspektiv og anatomi. Kunstnerne st
 **Michelangelo** (1475-1564) skapte mesterverker som skulpturen "David" og takmaleriene i Det sixtinske kapell i Roma.
 
 **Rafael** (1483-1520) var kjent for sine harmoniske komposisjoner og fremstillinger av Madonna.`,
+    },
+    {
+      id: 'historie-5-1-perspektiv-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-renessanse-perspektiv.webp',
+      alt: 'Illustrasjon av sentralperspektivet i renessansekunst med forsvinningspunkt og hjelpelinjer',
+      caption: 'Sentralperspektivet – renessansens revolusjon innen kunst og visuell fremstilling.',
     },
     {
       id: 'historie-5-1-example-1',
@@ -182,6 +196,77 @@ Før Gutenberg måtte bøker kopieres for hånd av munker. Dette var tidkrevende
         allowsCanvasDrawing: true,
       },
     },
+    // --- Ny dybdeseksjon ---
+    {
+      id: 'historie-5-1-text-vitenskap',
+      type: 'text',
+      content: `## Den vitenskapelige revolusjonen
+
+Renessansens vekt på observasjon og fornuft la grunnlaget for en vitenskapelig revolusjon som endret menneskets forståelse av verden.
+
+**Det heliosentriske verdensbildet:**
+I middelalderen trodde man at jorden var universets sentrum (det geosentriske verdensbildet), slik den greske astronomen Ptolemaios hadde beskrevet. I 1543 publiserte den polske astronomen **Nikolaus Kopernikus** verket *Om himmelsfærenes omdreininger*, der han argumenterte for at jorden og de andre planetene kretser rundt solen – det **heliosentriske** verdensbildet.
+
+**Galileo Galilei** (1564-1642) bekreftet Kopernikus' teori med observasjoner gjennom teleskopet. Han oppdaget blant annet Jupiters måner og Venus' faser. Kirken fordømte Galileis lære, og han ble tvunget til å tilbakekalle sine påstander i 1633. Først i 1992 innrømmet paven at kirken tok feil.
+
+**Betydningen:**
+Den vitenskapelige revolusjonen viste at observasjon og fornuft kunne avdekke naturens lover – uavhengig av hva kirken lærte. Dette la grunnlaget for moderne vitenskap og skapte en ny tillit til menneskets evne til å forstå verden gjennom fornuft fremfor åpenbaring.`,
+    },
+    // --- Flervalgsoppgaver for 5.1 ---
+    {
+      id: 'historie-5-1-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-1-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva betyr ordet «renessanse»?',
+        options: [
+          { id: 'a', text: 'Gjenfødelse', isCorrect: true },
+          { id: 'b', text: 'Opplysning', isCorrect: false },
+          { id: 'c', text: 'Revolusjon', isCorrect: false },
+          { id: 'd', text: 'Reformasjon', isCorrect: false },
+        ],
+        solution: 'Renessanse betyr «gjenfødelse» (fra italiensk «rinascita»). Begrepet refererer til gjenoppdagelsen av antikkens greske og romerske kultur som preget perioden ca. 1400-1600.',
+      },
+    },
+    {
+      id: 'historie-5-1-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-1-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvem oppfant boktrykkerkunsten med løse typer?',
+        options: [
+          { id: 'a', text: 'Johannes Gutenberg', isCorrect: true },
+          { id: 'b', text: 'Leonardo da Vinci', isCorrect: false },
+          { id: 'c', text: 'Nikolaus Kopernikus', isCorrect: false },
+          { id: 'd', text: 'Martin Luther', isCorrect: false },
+        ],
+        solution: 'Johannes Gutenberg oppfant boktrykkerkunsten med løse typer i Mainz i Tyskland rundt 1450. Denne oppfinnelsen revolusjonerte spredningen av kunnskap og regnes som en av historiens viktigste oppfinnelser.',
+      },
+    },
+    {
+      id: 'historie-5-1-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-1-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var humanismens kjerneidé?',
+        options: [
+          { id: 'a', text: 'Menneskets verdighet, fornuft og skapende evner står i sentrum', isCorrect: true },
+          { id: 'b', text: 'Kirken er den eneste veien til sannhet', isCorrect: false },
+          { id: 'c', text: 'Alle mennesker er like og bør ha stemmerett', isCorrect: false },
+          { id: 'd', text: 'Naturen er viktigere enn mennesket', isCorrect: false },
+        ],
+        solution: 'Humanismens kjerneidé var at menneskets verdighet, fornuft og skapende evner står i sentrum. Humanistene mente at mennesket har evne til å forme sin egen skjebne, og la vekt på studiet av antikkens tekster. Dette brøt med middelalderens syn der Gud og kirken sto i sentrum.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -195,6 +280,13 @@ export const CHAPTER_HISTORIE_5_2: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: ['religionens betydning for samfunn og makt'],
   content: [
+    {
+      id: 'historie-5-2-reformasjon-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-reformasjonen-kart.webp',
+      alt: 'Kart over religionenes utbredelse i Europa ca. 1600: katolsk, luthersk, kalvinistisk og anglikansk',
+      caption: 'Religionene i Europa ca. 1600 – reformasjonen splittet kristenheten.',
+    },
     {
       id: 'historie-5-2-intro',
       type: 'text',
@@ -236,6 +328,13 @@ Luther utviklet nye teologiske prinsipper:
 - **Sola gratia** (Nåden alene): Frelsen er en gave fra Gud, ikke noe man kan kjøpe
 
 Takket være boktrykkerkunsten ble Luthers skrifter raskt spredt over hele Europa. Paven fordømte Luther som kjetter, men Luther nektet å trekke tilbake sine synspunkter.`,
+    },
+    {
+      id: 'historie-5-2-luther-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-luther-wittenberg.webp',
+      alt: 'Illustrasjon av Martin Luther som slår opp de 95 tesene på kirkedøren i Wittenberg 1517',
+      caption: 'Luther og de 95 tesene, 1517 – begynnelsen på reformasjonen.',
     },
     {
       id: 'historie-5-2-def-2',
@@ -362,6 +461,101 @@ Religionskrigene viste at religiøs splittelse kunne føre til enorm ødeleggels
         allowsCanvasDrawing: true,
       },
     },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-5-2-text-motreformasjon',
+      type: 'text',
+      content: `## Motreformasjonen – kirkens svar
+
+Den katolske kirken svarte på reformasjonen med en egen reformbevegelse kalt **motreformasjonen** (eller den katolske reformasjonen). Kirken erkjente at kritikken mot korrupsjon og maktmisbruk hadde noe for seg, og gjennomførte omfattende endringer.
+
+**Tridentinerkonsilet (1545-1563):**
+Det viktigste svaret var det store kirkemøtet i Trento (Trident) i Nord-Italia. Her ble kirkens lære presisert og fastslått. Konsilet bekreftet at både Bibelen og kirkens tradisjon var kilder til sannhet (mot Luthers *sola scriptura*). Avlatshandelen ble avskaffet, og det ble stilt strengere krav til geistliges utdanning og livsførsel.
+
+**Jesuittordenen:**
+I 1534 grunnla **Ignatius av Loyola** jesuittordenen (*Societas Jesu*). Jesuittene ble kirkens mest effektive våpen i kampen mot protestantismen. De var høyt utdannet, disiplinerte og drev skoler og universiteter over hele verden. De var også aktive som misjonærer i Amerika, Asia og Afrika.
+
+**Inkvisisjonen:**
+Kirken brukte også tvang. Inkvisisjonen – kirkens domstol for å forfølge kjettere – ble styrket. Den spanske inkvisisjonen var særlig fryktet og bidro til å holde Spania og Italia katolske.`,
+    },
+    {
+      id: 'historie-5-2-def-motreformasjon',
+      type: 'definition',
+      title: 'Motreformasjonen',
+      content: `**Motreformasjonen** (den katolske reformasjonen) var den katolske kirkens svar på den protestantiske reformasjonen. Den omfattet indre reformer (Tridentinerkonsilet), nye ordener (jesuittene), og forfølgelse av kjettere (inkvisisjonen). Motreformasjonen klarte å stanse protestantismens videre spredning i Sør-Europa og gjenerobret noen områder.`,
+    },
+    {
+      id: 'historie-5-2-kildetekst-trident',
+      type: 'example',
+      title: 'Kildetekst: Tridentinerkonsilets vedtak (1545-63)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Den hellige synode erklærer at den sanne lære om rettferdiggjørelsen [...] ikke bare kommer av troen alene, men også av håpet og kjærligheten. [...] Dersom noen sier at rettferdiggjørende tro ikke er noe annet enn tillit til den guddommelige barmhjertighet som ettergir synden for Kristi skyld, eller at det er denne tilliten alene som rettferdiggjør oss – han være fordømt."*
+
+**Kilde:** Dekret fra Tridentinerkonsilet, 6. sesjon (1547), om rettferdiggjørelsen
+
+**Kontekst:** Tridentinerkonsilet var kirkens svar på reformasjonen. I dette dekretet avviser konsilet direkte Luthers lære om at troen alene (sola fide) er nok for frelse. Kirken fastslår at gode gjerninger også er nødvendige.
+
+**Kildeanalyse:**
+- **Avsender:** Den katolske kirkens øverste organ – et kirkemøte samlet av paven
+- **Formål:** Å fastslå kirkens offisielle lære og trekke en tydelig grense mot protestantismen
+- **Perspektiv:** Konservativt katolsk – forsvarer kirkens tradisjonelle lære mot luthersk utfordring
+- **Kildeverdi:** Viser tydelig hvor skillelinjene gikk mellom katolikker og protestanter. Dekretet handler om teologi, men hadde enorme politiske konsekvenser fordi det cementerte splittelsen i kristenheten.`,
+    },
+    // --- Flervalgsoppgaver for 5.2 ---
+    {
+      id: 'historie-5-2-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-2-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva betyr Luthers prinsipp «sola scriptura»?',
+        options: [
+          { id: 'a', text: 'Bibelen alene er autoritet i trosspørsmål', isCorrect: true },
+          { id: 'b', text: 'Bare troen kan frelse mennesket', isCorrect: false },
+          { id: 'c', text: 'Frelsen er Guds gave, ikke noe man kan kjøpe', isCorrect: false },
+          { id: 'd', text: 'Paven er Guds stedfortreder på jorden', isCorrect: false },
+        ],
+        solution: '«Sola scriptura» betyr «Skriften alene» – at Bibelen er den eneste autoriteten i trosspørsmål. Dette brøt med katolsk lære som også anerkjente pavens og kirkemøtenes autoritet. Luthers tre «sola»-prinsipper var: sola scriptura (Skriften alene), sola fide (troen alene) og sola gratia (nåden alene).',
+      },
+    },
+    {
+      id: 'historie-5-2-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-2-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva utløste reformasjonen direkte?',
+        options: [
+          { id: 'a', text: 'Luthers protest mot avlatshandelen med de 95 tesene i 1517', isCorrect: true },
+          { id: 'b', text: 'Korstogenes nederlag i Det hellige land', isCorrect: false },
+          { id: 'c', text: 'Svartedauden og dens konsekvenser for kirken', isCorrect: false },
+          { id: 'd', text: 'Columbus\' oppdagelse av Amerika', isCorrect: false },
+        ],
+        solution: 'Reformasjonen ble direkte utløst av Martin Luthers protest mot avlatshandelen. I 1517 offentliggjorde han 95 teser som kritiserte kirkens praksis med å selge tilgivelse for synder mot betaling. Takket være boktrykkerkunsten ble tesene raskt spredt over hele Europa.',
+      },
+    },
+    {
+      id: 'historie-5-2-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-2-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvordan endte Trettiårskrigen (1618-1648)?',
+        options: [
+          { id: 'a', text: 'Med Westfalerfreden, som ga hver fyrste rett til å bestemme religionen i sitt territorium', isCorrect: true },
+          { id: 'b', text: 'Med at protestantismen ble forbudt i hele Europa', isCorrect: false },
+          { id: 'c', text: 'Med at paven gjenvant kontrollen over hele kristenheten', isCorrect: false },
+          { id: 'd', text: 'Med at Frankrike ble protestantisk', isCorrect: false },
+        ],
+        solution: 'Trettiårskrigen endte med Westfalerfreden i 1648. Freden etablerte prinsippet om at hver fyrste bestemte religionen i sitt territorium og regnes som starten på det moderne statssystemet med suverene stater. Krigen hadde ødelagt store deler av Sentral-Europa.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -375,6 +569,13 @@ export const CHAPTER_HISTORIE_5_3: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: ['kolonimakter og konsekvenser'],
   content: [
+    {
+      id: 'historie-5-3-verdenskart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-oppdagelsesreiser-kart.webp',
+      alt: 'Verdenskart med sjøruter for Columbus, da Gama og Magellan',
+      caption: 'Oppdagelsesreisene – Columbus, da Gama og Magellans ruter over verdenshavene.',
+    },
     {
       id: 'historie-5-3-intro',
       type: 'text',
@@ -460,6 +661,13 @@ Det var **Amerigo Vespucci** som forsto at dette var et nytt kontinent. Kontinen
 - Sykdommer som kopper, meslinger og influensa
 
 Sykdommene hadde katastrofale konsekvenser. Urbefolkningen hadde ingen immunitet, og millioner døde. Noen forskere anslår at 90% av urbefolkningen i Amerika døde av europeiske sykdommer.`,
+    },
+    {
+      id: 'historie-5-3-colombiansk-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-colombiansk-utveksling.webp',
+      alt: 'Illustrasjon av den colombianske utvekslingen: matvarer, dyr og sykdommer mellom Europa og Amerika',
+      caption: 'Den colombianske utvekslingen – en biologisk revolusjon som endret begge kontinenter.',
     },
     {
       id: 'historie-5-3-ex-3',
@@ -552,6 +760,103 @@ Erobringene førte til at urbefolkningen ble underkastet, tvunget til arbeid i g
         allowsCanvasDrawing: true,
       },
     },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-5-3-text-slaveri',
+      type: 'text',
+      content: `## Slaveriet og triangelhandelen
+
+En av de mørkeste konsekvensene av oppdagelsesreisene var den **transatlantiske slavehandelen**. Da urbefolkningen i Amerika ble desimert av sykdommer, trengte de europeiske kolonistene ny arbeidskraft – særlig til plantasjer for sukker, bomull og tobakk.
+
+**Triangelhandelen:**
+Et handelsnettverk mellom tre kontinenter utviklet seg:
+1. **Europa → Afrika:** Skip fraktet tekstiler, våpen og alkohol til Afrika
+2. **Afrika → Amerika:** Slaver ble fraktet over Atlanterhavet under forferdelige forhold (den såkalte «mellompassasjen»)
+3. **Amerika → Europa:** Sukker, bomull, tobakk og andre kolonivarer ble fraktet til Europa
+
+**Omfanget:**
+Mellom 1500 og 1800 ble anslagsvis 12-15 millioner afrikanere fraktet over Atlanterhavet som slaver. Kanskje like mange døde under fangst eller transport. Slaveriet ødela afrikanske samfunn og skapte lidelser som preger verden den dag i dag.
+
+Slaveriet ble gradvis avskaffet på 1800-tallet, men dets konsekvenser – rasisme, økonomisk ulikhet og kulturelle sår – lever fortsatt.`,
+    },
+    {
+      id: 'historie-5-3-def-triangelhandel',
+      type: 'definition',
+      title: 'Triangelhandelen',
+      content: `**Triangelhandelen** var det transatlantiske handelssystemet mellom Europa, Afrika og Amerika (ca. 1500-1800). Europeiske varer ble byttet mot slaver i Afrika, slavene ble fraktet til Amerika for å arbeide på plantasjer, og kolonivarer (sukker, bomull, tobakk) ble fraktet tilbake til Europa. Systemet var en sentral del av den tidlige globaliseringen og en av historiens største menneskerettighetsbrudd.`,
+    },
+    {
+      id: 'historie-5-3-kildetekst-columbus',
+      type: 'example',
+      title: 'Kildetekst: Columbus\' dagbok (1492)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"De [...] er svært vennlige og gavmilde med alt de har, og nekter ingen noe han ber om. Tvert imot byr de det selv frem [...]. De er godt bygde og har vakre kropper og fine ansikter. [...] De bærer ingen våpen og kjenner dem ikke. [...] De burde være gode og oppfinnsomme tjenere, for jeg ser at de straks gjentar alt man sier til dem. Jeg tror de lett kan gjøres til kristne, for det synes meg at de ikke har noen religion."*
+
+**Kilde:** Kristoffer Columbus, dagbokinnførsel, 12. oktober 1492
+
+**Kontekst:** Columbus skrev dette da han møtte urbefolkningen på øya Guanahani (som han kalte San Salvador) i Karibia. Det var det første møtet mellom Columbus' mannskap og folk fra den nye verden.
+
+**Kildeanalyse:**
+- **Avsender:** Columbus – en sjøfarer i spansk tjeneste som rapporterte til det spanske hoffet
+- **Formål:** Å beskrive de nye landområdene og folkene for de spanske monarkene. Columbus ønsket å vise at ekspedisjonen var verdifull.
+- **Perspektiv:** Et europeisk kolonialt perspektiv – Columbus ser urbefolkningen som potensielle tjenere og objekter for kristning, ikke som likeverdige mennesker med en egen kultur
+- **Kildeverdi:** Et unikt førstehåndsdokument fra det historiske møtet mellom verdener. Men det forteller bare Columbus' versjon. Urbefolkningens perspektiv er tapt.`,
+    },
+    // --- Flervalgsoppgaver for 5.3 ---
+    {
+      id: 'historie-5-3-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-3-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var Columbus\' største feil da han seilte vestover i 1492?',
+        options: [
+          { id: 'a', text: 'Han trodde han hadde nådd Asia, ikke et nytt kontinent', isCorrect: true },
+          { id: 'b', text: 'Han trodde jorden var flat', isCorrect: false },
+          { id: 'c', text: 'Han trodde Amerika var ubebodd', isCorrect: false },
+          { id: 'd', text: 'Han seilte i feil retning', isCorrect: false },
+        ],
+        solution: 'Columbus\' største feil var at han trodde han hadde nådd Asia da han i virkeligheten hadde kommet til Amerika. Han innså aldri at han hadde funnet et nytt kontinent. Det var Amerigo Vespucci som forsto dette, og kontinentet ble oppkalt etter ham.',
+      },
+    },
+    {
+      id: 'historie-5-3-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-3-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva innebar den colombianske utvekslingen?',
+        options: [
+          { id: 'a', text: 'Utveksling av planter, dyr og sykdommer mellom den gamle og nye verden', isCorrect: true },
+          { id: 'b', text: 'En handelsavtale mellom Spania og Portugal', isCorrect: false },
+          { id: 'c', text: 'Et fredsmøte mellom konkvistadorene og aztekerne', isCorrect: false },
+          { id: 'd', text: 'Utveksling av slaver mellom Afrika og Asia', isCorrect: false },
+        ],
+        solution: 'Den colombianske utvekslingen var utvekslingen av planter, dyr, sykdommer og mennesker mellom den gamle (Europa/Afrika/Asia) og nye verden (Amerika) etter 1492. Fra Amerika kom poteter, mais, tomater og kakao; fra Europa kom hvete, hester og – katastrofalt – sykdommer som drepte opptil 90 % av urbefolkningen.',
+      },
+    },
+    {
+      id: 'historie-5-3-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-3-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hvem var Bartolomé de las Casas?',
+        options: [
+          { id: 'a', text: 'En spansk munk som forsvarte urbefolkningens rettigheter', isCorrect: true },
+          { id: 'b', text: 'En konkvistador som erobret Inkariket', isCorrect: false },
+          { id: 'c', text: 'En portugisisk sjøfarer som nådde India', isCorrect: false },
+          { id: 'd', text: 'En pave som velsignet erobringen av Amerika', isCorrect: false },
+        ],
+        solution: 'Bartolomé de las Casas (1484-1566) var en spansk dominikanermunk som ble urbefolkningens fremste forsvarer. Han hadde selv vært i Amerika og skrev «Kort beretning om ødeleggelsen av Vestindia» (1552) for å overbevise den spanske kongen om å stanse overgrepene mot urbefolkningen.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -565,6 +870,13 @@ export const CHAPTER_HISTORIE_5_4: TextbookChapter = {
   estimatedMinutes: 50,
   competenceGoals: ['makt fra middelalderen til tidlig nytid'],
   content: [
+    {
+      id: 'historie-5-4-imperier-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-europa-imperier-kart-1600.webp',
+      alt: 'Kart over europeiske kolonier og imperier ca. 1600',
+      caption: 'Europeiske imperier ca. 1600 – Spania, Portugal, England og Nederland delte verden.',
+    },
     {
       id: 'historie-5-4-intro',
       type: 'text',
@@ -616,6 +928,13 @@ Ludvig førte en aktiv utenrikspolitikk med mange kriger for å utvide Frankrike
 4. **Prestisje**: Slottets prakt demonstrerte kongens makt for hele Europa
 
 Hoffets daglige liv var strengt ritualisert. Selv kongens morgentoalett var en seremoni der utvalgte adelsmenn fikk delta.`,
+    },
+    {
+      id: 'historie-5-4-versailles-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-versailles.webp',
+      alt: 'Illustrasjon av Slottet Versailles som symbol på eneveldig makt',
+      caption: 'Versailles – maktens teater, der Ludvig XIV kontrollerte adelen gjennom prakt og ritualer.',
     },
     {
       id: 'historie-5-4-ex-2',
@@ -735,6 +1054,80 @@ Merkantilistene mente at verdens rikdom var begrenset, og at statene konkurrerte
         allowsCanvasDrawing: true,
       },
     },
+    // --- Ny dybdeseksjon ---
+    {
+      id: 'historie-5-4-text-england',
+      type: 'text',
+      content: `## England som unntak – parlamentets makt
+
+Mens de fleste europeiske land utviklet enevelde, gikk England en annen vei. Her beholdt **parlamentet** sin makt og ble gradvis sterkere – ikke svakere – i forhold til kongen.
+
+**Magna Carta (1215):**
+Allerede i 1215 måtte den engelske kongen John signere **Magna Carta** – et dokument som begrenset kongens makt. Magna Carta fastslo blant annet at kongen ikke kunne kreve inn skatter uten baronenes samtykke, og at ingen fri mann kunne fengsles uten lov og dom. Selv om dokumentet opprinnelig gjaldt baronene, ble det senere tolket som en rettighetsgaranti for alle engelskmenn.
+
+**Borgerkrigen og Cromwell (1642-1660):**
+Da kong Karl I forsøkte å styre uten parlamentet, brøt det ut borgerkrig. Parlamentets styrker, ledet av **Oliver Cromwell**, vant. Karl I ble henrettet i 1649 – det første tilfellet i moderne historie der en regjerende monark ble formelt dømt og henrettet av sitt eget folk.
+
+**Den ærefulle revolusjonen (1688):**
+I 1688 ble kong Jakob II avsatt i en ublodig revolusjon. Parlamentet inviterte Vilhelm av Oranien til å bli ny konge, men bare på betingelse av at han aksepterte **Bill of Rights** (1689). Denne loven fastslo at kongen ikke kunne oppheve lover, kreve inn skatter eller holde en stående hær uten parlamentets samtykke.
+
+Englands utvikling viste at det fantes et alternativ til eneveldet – en modell der makten ble delt mellom konge og parlament. Denne modellen inspirerte senere demokratiske bevegelser over hele verden.`,
+    },
+    // --- Flervalgsoppgaver for 5.4 ---
+    {
+      id: 'historie-5-4-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-4-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva kjennetegnet eneveldet som styreform?',
+        options: [
+          { id: 'a', text: 'All makt var samlet hos kongen, som mente å ha sin makt fra Gud', isCorrect: true },
+          { id: 'b', text: 'Makten var delt mellom kongen og parlamentet', isCorrect: false },
+          { id: 'c', text: 'Folket valgte sine representanter til nasjonalforsamlingen', isCorrect: false },
+          { id: 'd', text: 'Adelen styrte landet gjennom et råd', isCorrect: false },
+        ],
+        solution: 'Eneveldet (absolutisme) kjennetegnes av at all makt – lovgivende, utøvende og dømmende – var samlet hos kongen. Den eneveldige kongen mente å ha sin makt direkte fra Gud (guddommelig rett) og var ikke bundet av lover eller stender.',
+      },
+    },
+    {
+      id: 'historie-5-4-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-4-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var merkantilismens hovedmål?',
+        options: [
+          { id: 'a', text: 'Å gjøre staten rik ved å eksportere mer enn man importerte', isCorrect: true },
+          { id: 'b', text: 'Å skape frie markeder uten statlig innblanding', isCorrect: false },
+          { id: 'c', text: 'Å dele rikdom likt mellom alle innbyggerne', isCorrect: false },
+          { id: 'd', text: 'Å avvikle koloniveldet og gi koloniene frihet', isCorrect: false },
+        ],
+        solution: 'Merkantilismens hovedmål var å gjøre staten rik og mektig ved å eksportere mer enn man importerte, slik at gull og sølv strømmet inn. Virkemidlene var toll på import, støtte til egen industri, handelsmonopoler og kolonier som skulle levere råvarer.',
+      },
+    },
+    {
+      id: 'historie-5-4-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-4-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva fastslo Kongeloven av 1665?',
+        options: [
+          { id: 'a', text: 'At den danske kongen hadde uinnskrenket makt og bare sto til ansvar overfor Gud', isCorrect: true },
+          { id: 'b', text: 'At Norge og Danmark skulle ha likeverdig status i unionen', isCorrect: false },
+          { id: 'c', text: 'At folket hadde rett til å velge sine representanter', isCorrect: false },
+          { id: 'd', text: 'At religionsfrihet ble innført i Danmark-Norge', isCorrect: false },
+        ],
+        solution: 'Kongeloven av 1665 var Europas eneste nedskrevne eneveldige forfatning. Den ga den danske kongen uinnskrenket makt – han hadde all lovgivende, utøvende og dømmende myndighet, og sto bare til ansvar overfor Gud. Loven varte til 1814 i Norge og 1849 i Danmark.',
+      },
+    },
   ],
   exercises: [],
 };
@@ -748,6 +1141,13 @@ export const CHAPTER_HISTORIE_5_5: TextbookChapter = {
   estimatedMinutes: 55,
   competenceGoals: ['makt fra middelalderen til tidlig nytid', 'nasjonal identitet i Norge'],
   content: [
+    {
+      id: 'historie-5-5-dk-norge-kart',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-danmark-norge-kart.webp',
+      alt: 'Kart over Danmark-Norge ca. 1700 med viktige byer og nordatlantiske besittelser',
+      caption: 'Danmark-Norge ca. 1700 – et rike styrt fra København.',
+    },
     {
       id: 'historie-5-5-intro',
       type: 'text',
@@ -822,6 +1222,13 @@ Selv om Norge var politisk underordnet, var landet økonomisk viktig for Danmark
 **Bergverk** ble en ny og viktig næring fra 1600-tallet. Kongsberg sølvverk (grunnlagt 1624) og Røros kobberverk (grunnlagt 1644) ble store virksomheter som tiltrakk arbeidere og kapital. Bergverksdriften var regulert av kongen og bidro til statens inntekter.
 
 **Norske byer** vokste i denne perioden. Bergen var Norges desidert største by og en av Nordens viktigste handelssteder. Trondheim var sentrum for handel i Midt-Norge. Oslo brant ned i 1624 og ble gjenoppbygd som **Christiania** av kong Christian IV, med et mer moderne byplan. Kongen grunnla også Kristiansand (1641) og Kongsberg.`,
+    },
+    {
+      id: 'historie-5-5-naeringer-bilde',
+      type: 'image',
+      src: '/images/textbook/historie-vg2/kap5-norsk-okonomi-dansketid.webp',
+      alt: 'Illustrasjon av norske næringer i dansketiden: trelast, fiske og bergverk',
+      caption: 'Norske næringer i dansketiden – trelast, fiske og bergverk var bærebjelkene i økonomien.',
     },
     {
       id: 'historie-5-5-def-2',
@@ -967,6 +1374,106 @@ Sannheten ligger et sted imellom: Norge var ikke en koloni, men heller ikke et l
         solution: 'Argumenter for at dansketiden var undertrykkelse: 1) Norge mistet sine politiske institusjoner - riksrådet ble avskaffet i 1536/37. 2) Landet ble styrt fra København av danske embetsmenn. 3) Dansk ble skriftspråket, og norsk kultur ble marginalisert. 4) Norske ressurser ble utnyttet for å finansiere unionens kriger og den danske kongens prosjekter. Argumenter mot: 1) Norske bønder var friere enn de fleste europeiske bønder takket være odelsretten. 2) Norge beholdt egne lover, blant annet Norges lov av 1687. 3) Norsk kultur overlevde og utviklet seg - Petter Dass, Ludvig Holberg og Det Kongelige Norske Videnskabers Selskab. 4) Norske næringer (trelast, fisk, bergverk) blomstret og skapte en selvstendig norsk elite. Grunnlaget for 1814: 1) Odelsretten og frie bønder skapte en selvbevisst bondestand. 2) Kulturell vekst på 1700-tallet styrket norsk identitet. 3) Det Norske Selskab i København samlet norske studenter som diskuterte norsk selvstyre. 4) Lofthus-opprøret og andre protester viste politisk bevissthet. 5) Erfaringene med dansk styre skapte et ønske om egne institusjoner. Konklusjon: Dansketiden var preget av politisk underordning, men den var også en periode der Norge utviklet en egen identitet og bygde opp ressurser - både materielle og kulturelle - som gjorde selvstendigheten i 1814 mulig.',
         allowsUpload: true,
         allowsCanvasDrawing: true,
+      },
+    },
+    // --- Nye dybdeseksjoner ---
+    {
+      id: 'historie-5-5-text-hekseprosesser',
+      type: 'text',
+      content: `## Hekseprosessene i Norge
+
+I perioden 1560-1700 ble hundrevis av mennesker i Norge tiltalt og dømt for trolldom. **Hekseprosessene** var et mørkt kapittel i norsk rettshistorie, og Norge var blant de hardest rammede landene i Europa i forhold til folketallet.
+
+**Omfanget:**
+Rundt 860 personer ble tiltalt for trolldom i Norge. Av disse ble anslagsvis 300 henrettet, de fleste brent på bål. Omtrent 80 % av de anklagede var kvinner.
+
+**Finnmark – verst rammet:**
+Finnmark var det hardest rammede området i Norge, med over 90 dødsdommer. Her ble både norske kvinner og samiske menn og kvinner tiltalt. Samisk religiøs praksis – **noaidien** (sjamanen) og hans tromme – ble sett som djevelens verk av de norske myndighetene. Hekseprosessene i Finnmark hadde dermed også et element av kulturell undertrykking av samene.
+
+**Årsaker:**
+- Religiøs fanatisme – Bibelen sa «En trollkvinne skal du ikke la leve»
+- Nabofeider og personlige konflikter ble kanalisert inn i trolldomsanklager
+- Rettssystemet aksepterte tortur for å fremtvinge tilståelser
+- Klimaendringer (den lille istid) skapte avlingssvikt som ble tilskrevet trolldom
+- Myndighetenes ønske om å kontrollere folkelige forestillinger og samisk religion
+
+Hekseprosessene ebbet ut på slutten av 1600-tallet etter hvert som opplysningstanker spredte seg og rettssystemet ble mer skeptisk til tilståelser fremtvunget under tortur.`,
+    },
+    {
+      id: 'historie-5-5-kildetekst-dass',
+      type: 'example',
+      title: 'Kildetekst: Petter Dass, Nordlands Trompet (ca. 1700)',
+      problem: 'Les kildeteksten nedenfor og svar på spørsmålene under.',
+      solution: `*"Her lever det Folk udi yderste Nød,
+Her slides og bides for Livets Brød,
+Her halkes og stampes i Storme;
+Her fiskes og roes i strideste Hav,
+Her bølgen vel mangen har givet sin Grav,
+Før Fiskerne komme til Hjemmet."*
+
+**Kilde:** Petter Dass, *Nordlands Trompet* (ca. 1700), utdrag om fiskerbondens liv
+
+**Kontekst:** Nordlands Trompet er et dikt på over 4000 verselinjer som beskriver natur, folk og livsvilkår i Nordland. Petter Dass (1647-1707) var prest i Alstahaug og kjente det nordnorske samfunnet fra innsiden. Verket ble enormt populært og ble avskrevet og lest i generasjoner.
+
+**Kildeanalyse:**
+- **Avsender:** Petter Dass – prest og dikter, en representant for den dansk-norske embetsstanden, men med dyp kjærlighet til Nord-Norge
+- **Formål:** Å skildre det nordnorske folkets livsvilkår for et dansk-norsk publikum. Verket fungerer som et forsvar for nordlendingene og deres harde, men verdige liv.
+- **Perspektiv:** Dass skriver med stor sympati for fiskerbøndene, men som prest er han også øvrighetens mann. Han idealiserer det harde livet, men beskriver også fattigdom og nød.
+- **Kildeverdi:** Et sjeldent førstehåndsvitnesbyrd om livet i Nord-Norge rundt 1700. Gir innblikk i en hverdag preget av fiske, naturkrefter og fattigdom. Men som dikt er teksten stilisert – den gir et poetisk bilde, ikke en nøktern beskrivelse.`,
+    },
+    // --- Flervalgsoppgaver for 5.5 ---
+    {
+      id: 'historie-5-5-mc-1',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-mc-1',
+        number: 'MC1',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Når ble Norge formelt et lydrike under Danmark?',
+        options: [
+          { id: 'a', text: '1536/37 – da riksrådet ble avskaffet', isCorrect: true },
+          { id: 'b', text: '1380 – da Norge og Danmark fikk felles konge', isCorrect: false },
+          { id: 'c', text: '1397 – da Kalmarunionen ble dannet', isCorrect: false },
+          { id: 'd', text: '1660 – da eneveldet ble innført', isCorrect: false },
+        ],
+        solution: 'Norge ble formelt et lydrike i 1536/37, da den danske riksdagen vedtok at Norge ikke lenger skulle være et eget rike. Det norske riksrådet ble avskaffet, og landet mistet sin siste politiske selvstendighet. Unionen med Danmark hadde vart siden 1380, men først nå ble Norges underordnede stilling offisiell.',
+      },
+    },
+    {
+      id: 'historie-5-5-mc-2',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-mc-2',
+        number: 'MC2',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva skilte norske odelsbønder fra danske livegne bønder?',
+        options: [
+          { id: 'a', text: 'Norske odelsbønder eide sin egen jord og hadde personlig frihet', isCorrect: true },
+          { id: 'b', text: 'Norske odelsbønder betalte ingen skatt', isCorrect: false },
+          { id: 'c', text: 'Danske livegne bønder hadde stemmerett i riksdagen', isCorrect: false },
+          { id: 'd', text: 'Det var ingen forskjell – begge var bundet til jorden', isCorrect: false },
+        ],
+        solution: 'Norske odelsbønder eide sin egen jord med arverett (odel) og hadde personlig frihet – de kunne flytte, selge og ta selvstendige valg. Danske livegne bønder var stavnsbundne til godseierens jord og måtte ha tillatelse til å flytte. Denne forskjellen var viktig for utviklingen av norsk selvforståelse og identitet.',
+      },
+    },
+    {
+      id: 'historie-5-5-mc-3',
+      type: 'exercise',
+      exercise: {
+        id: 'historie-5-5-mc-3',
+        number: 'MC3',
+        type: 'multiple-choice',
+        difficulty: 'medium',
+        task: 'Hva var Lofthus-opprøret (1786-1787)?',
+        options: [
+          { id: 'a', text: 'En bondeprotest mot urettferdige fogder, skatter og handelsmonopoler', isCorrect: true },
+          { id: 'b', text: 'Et væpnet opprør for norsk uavhengighet fra Danmark', isCorrect: false },
+          { id: 'c', text: 'En streik blant bergverksarbeidere på Kongsberg', isCorrect: false },
+          { id: 'd', text: 'En religiøs protest mot reformasjonen', isCorrect: false },
+        ],
+        solution: 'Lofthus-opprøret var en bondeprotest ledet av Kristian Jensen Lofthus mot urettferdige fogder, for høye skatter, handelsmonopoler og korrupsjon blant embetsmenn. Opprøret viste at norske bønder var villige til å stå opp mot urettferdighet, og det pekte fremover mot den politiske bevisstheten som ledet til 1814.',
       },
     },
   ],
