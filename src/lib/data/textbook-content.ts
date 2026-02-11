@@ -113,6 +113,7 @@ import { SAMF_ENGELSK_CHAPTERS } from './textbook-content-samf-engelsk';
 import { KOMKULT_2_CHAPTERS } from './textbook-content-komkult-2';
 import { MEDIEINFO_2_CHAPTERS } from './textbook-content-medieinfo-2';
 import { ENTREBED_2_CHAPTERS } from './textbook-content-entrebed-2';
+import { FILOSOFI_ETIKK_CHAPTERS } from './textbook-content-filosofi-etikk';
 import { HELSEOPPVEKST_VG2_CHAPTERS } from './textbook-content-helseoppvekst-vg2';
 import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
@@ -695,6 +696,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Entreprenørskap og bedriftsutvikling 2
   ...Object.fromEntries(ENTREBED_2_CHAPTERS.map(c => [c.id, c])),
+
+  // Filosofi og etikk
+  ...Object.fromEntries(FILOSOFI_ETIKK_CHAPTERS.map(c => [c.id, c])),
 
   // Helse- og oppvekstfag VG2
   ...Object.fromEntries(HELSEOPPVEKST_VG2_CHAPTERS.map(c => [c.id, c])),
