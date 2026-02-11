@@ -226,16 +226,24 @@ ElevenLabs kan hoppe over minustegnet (`-`), spesielt når det står som operato
 
 **NB:** Disse reglene må komme *etter* alle LaTeX-kommandoer er konvertert (slik at `\pm`, `\neq` osv. allerede er håndtert), men *før* parenteser konverteres til tale.
 
-### Bokstaven "x" leses som "kang" eller lignende
-ElevenLabs kan feiltolke enkeltstående `x` som et kinesisk/fremmedspråklig tegn. **Løsning:** Erstatt enkeltstående `x` med `eks` i teksten som sendes til API-et:
+### Bokstaven "x" leses feil
+ElevenLabs kan feiltolke enkeltstående `x` som et kinesisk/fremmedspråklig tegn ("kang"). **Løsning:**
+
+1. **x med tall ved siden av** (f.eks. `3x`, `5x`, `8x`): Skriv sammenhengende uten mellomrom. ElevenLabs leser `3x` korrekt som "tre x".
+2. **x alene** (uten tall/bokstav inntil): Bruk stor `X`. ElevenLabs leser `X` korrekt.
 
 ```typescript
 // Etter all annen LaTeX-konvertering, fiks "x"-uttale
-// Erstatt enkeltstående x (ikke inne i ord) med "eks"
-.replace(/\bx\b/g, 'eks')
+// Enkeltstående x (med ordgrenser) → stor X
+.replace(/\bx\b/g, 'X')
 ```
 
-**NB:** Dette må gjøres *etter* at LaTeX er konvertert, slik at `x^2` allerede er blitt til `eks i andre` (via potensregelen), og `xy` er blitt til `eks y`.
+**NB:** Dette må gjøres *etter* at LaTeX er konvertert. Koeffisienter som `3x` trenger ingen endring — de leses riktig sammenhengende.
+
+**Tidligere forsøk som IKKE fungerte:**
+- Bare `x` alene → ElevenLabs leser "kang" eller lignende
+- `eks` → ElevenLabs stammer: "e ek eks"
+- `iks` → Ikke korrekt norsk uttale
 
 ## Merknader
 
