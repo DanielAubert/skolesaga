@@ -1,0 +1,1457 @@
+/**
+ * Lærebøker for valgfag
+ *
+ * Alle fag med kapitler og oppgaver basert på LK20
+ */
+
+import type { TextbookCourse } from '@/lib/types/textbook';
+
+// ============================================================================
+
+export const COURSE_IT_1: TextbookCourse = {
+  id: 'it-1',
+  title: 'IT 1',
+  level: 'VG2',
+  description: 'Informasjonsteknologi 1 - grunnleggende programmering, webutvikling og datasikkerhet',
+  curriculum: 'LK20',
+  icon: '💻',
+  coverImage: '/images/subjects/it-1-hero.webp',
+  chapters: [
+    // Seksjon 1: Digital kompetanse og samfunn (1.1-1.5)
+    { id: 'it-1-1-1', number: '1.1', title: 'Hva er digital kompetanse?', description: 'Lær hva digital kompetanse innebærer og de fem dimensjonene i rammeverket for digitale ferdigheter.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Digital kompetanse', 'Digitale ferdigheter', 'Informasjonskompetanse'], competenceGoals: ['gjøre rede for begrepet digital kompetanse'] },
+    { id: 'it-1-1-2', number: '1.2', title: 'Digitaliseringens påvirkning på samfunnet', description: 'Utforsk hvordan digitaliseringen forandrer ulike sektorer og konsekvensene av stordata og KI.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Digitalisering', 'Digital transformasjon', 'Stordata', 'Kunstig intelligens'], competenceGoals: ['gjøre rede for hvordan digitalisering endrer samfunnet'] },
+    { id: 'it-1-1-3', number: '1.3', title: 'Digital dømmekraft og kildekritikk', description: 'Lær å vurdere digitale kilder kritisk og gjenkjenne falske nyheter og desinformasjon.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Kildekritikk', 'Desinformasjon', 'Falske nyheter', 'Ekkokammer'], competenceGoals: ['vurdere digitale kilder kritisk og gjenkjenne desinformasjon'] },
+    { id: 'it-1-1-4', number: '1.4', title: 'Digitalt utenforskap og universell utforming', description: 'Forstå hvem som faller utenfor digitalt, WCAG-retningslinjer og tiltak for digital inkludering.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Digitalt utenforskap', 'Universell utforming', 'WCAG', 'Digital inkludering'], competenceGoals: ['gjøre rede for utfordringer knyttet til digitalt utenforskap'] },
+    { id: 'it-1-1-5', number: '1.5', title: 'Teknologi, etikk og bærekraft', description: 'Utforsk etiske problemstillinger ved digital teknologi, personvern og KI-etikk.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Teknologietikk', 'Personvern', 'GDPR', 'Deepfake'], competenceGoals: ['drøfte etiske problemstillinger knyttet til digital teknologi'] },
+    // Seksjon 2: Grunnleggende programmering (2.1-2.6)
+    { id: 'it-1-2-1', number: '2.1', title: 'Hva er programmering?', description: 'Lær hva programmering er, kompilerte vs. tolkede språk, og skriv ditt første Python-program.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Programmering', 'Programmeringsspråk', 'Kompilering', 'IDE'], competenceGoals: ['forklare hva programmering er og hvorfor det er nyttig'] },
+    { id: 'it-1-2-2', number: '2.2', title: 'Variabler og datatyper', description: 'Lær om variabler, grunnleggende datatyper i Python, typekonvertering og input/output.', estimatedMinutes: 50, exerciseCount: 8, topics: ['Variabel', 'Datatype', 'int', 'float'], competenceGoals: ['bruke variabler til å lagre og manipulere data'] },
+    { id: 'it-1-2-3', number: '2.3', title: 'Betingelser og valg (if/else)', description: 'Lær å bruke if, elif og else for beslutninger, sammenligningsoperatorer og logiske operatorer.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Betingelse', 'if-setning', 'elif', 'Sammenligningsoperator'], competenceGoals: ['bruke if, elif og else til å kontrollere programflyten'] },
+    { id: 'it-1-2-4', number: '2.4', title: 'Løkker og gjentakelse', description: 'Lær å bruke for- og while-løkker, range(), break og continue, og nøstede løkker.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Løkke', 'for-løkke', 'while-løkke', 'range()'], competenceGoals: ['bruke for-løkker til å iterere over sekvenser og tallområder'] },
+    { id: 'it-1-2-5', number: '2.5', title: 'Funksjoner og gjenbruk', description: 'Lær å definere egne funksjoner, bruke parametere og returverdier, og importere moduler.', estimatedMinutes: 55, exerciseCount: 8, topics: ['Funksjon', 'def', 'Parameter', 'Returverdi'], competenceGoals: ['definere og kalle egne funksjoner i Python'] },
+    { id: 'it-1-2-6', number: '2.6', title: 'Feilsøking og debugging', description: 'Lær om syntaksfeil, logiske feil og runtime-feil, print-debugging og try/except.', estimatedMinutes: 50, exerciseCount: 8, topics: ['Feilsøking', 'Syntaksfeil', 'Logisk feil', 'try/except'], competenceGoals: ['identifisere og skille mellom syntaksfeil, logiske feil og kjøretidsfeil'] },
+    // Seksjon 3: Algoritmer og problemløsning (3.1-3.5)
+    { id: 'it-1-3-1', number: '3.1', title: 'Hva er en algoritme?', description: 'Lær hva en algoritme er og hvordan du kan beskrive algoritmer på en presis måte.', estimatedMinutes: 50, exerciseCount: 8, topics: ['Algoritme', 'Inndata', 'Utdata', 'Sekvens'], competenceGoals: ['forklare hva en algoritme er og gi eksempler'] },
+    { id: 'it-1-3-2', number: '3.2', title: 'Problemløsningsstrategier', description: 'Lær systematiske strategier som dekomponering, mønstergjenkjenning og abstraksjon.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Dekomponering', 'Mønstergjenkjenning', 'Abstraksjon', 'Algoritmisk tenkning'], competenceGoals: ['bruke dekomponering til å bryte ned komplekse problemer'] },
+    { id: 'it-1-3-3', number: '3.3', title: 'Pseudokode og flytdiagrammer', description: 'Lær å beskrive algoritmer ved hjelp av pseudokode og flytdiagrammer.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Pseudokode', 'Flytdiagram', 'Prosessymbol', 'Beslutningssymbol'], competenceGoals: ['skrive pseudokode for å beskrive algoritmer'] },
+    { id: 'it-1-3-4', number: '3.4', title: 'Søke- og sorteringsalgoritmer', description: 'Lær lineært søk, binærsøk, boblesortering, innsettingssortering og utvalgssortering.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Lineært søk', 'Binærsøk', 'Boblesortering', 'Innsettingssortering'], competenceGoals: ['implementere og forklare lineært søk og binærsøk'] },
+    { id: 'it-1-3-5', number: '3.5', title: 'Rekursjon og algoritmekompleksitet', description: 'Lær hva rekursjon er og forstå grunnleggende algoritmekompleksitet med Big O-notasjon.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Rekursjon', 'Basistilfelle', 'Big O-notasjon', 'Tidskompleksitet'], competenceGoals: ['forklare hva rekursjon er og implementere rekursive funksjoner'] },
+    // Seksjon 4: Webteknologi – HTML og CSS (4.1-4.5)
+    { id: 'it-1-4-1', number: '4.1', title: 'Internett og webbens oppbygging', description: 'Forstå HTTP-protokollen, DNS-systemet og klient-server-modellen.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Internett', 'World Wide Web', 'HTTP', 'DNS'], competenceGoals: ['gjøre rede for grunnleggende teknologier bak internett'] },
+    { id: 'it-1-4-2', number: '4.2', title: 'HTML – struktur og semantikk', description: 'Lær å strukturere nettsider med HTML5 og semantiske elementer.', estimatedMinutes: 65, exerciseCount: 7, topics: ['HTML', 'Element', 'Attributt', 'Semantisk HTML'], competenceGoals: ['utvikle nettsider ved bruk av HTML'] },
+    { id: 'it-1-4-3', number: '4.3', title: 'CSS – stil og layout', description: 'Lær å style nettsider med CSS, selektorer, boksmodellen, flexbox og grid.', estimatedMinutes: 70, exerciseCount: 7, topics: ['CSS', 'Selektor', 'Boksmodellen', 'Flexbox'], competenceGoals: ['utvikle nettsider ved bruk av CSS'] },
+    { id: 'it-1-4-4', number: '4.4', title: 'Responsivt design med CSS', description: 'Lær om media queries, mobile-first, responsive bilder og viewport-enheter.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Responsivt design', 'Media query', 'Breakpoint', 'Mobile-first'], competenceGoals: ['utvikle nettsider med responsivt design'] },
+    { id: 'it-1-4-5', number: '4.5', title: 'Avansert CSS – Flexbox og Grid', description: 'Mestre CSS Flexbox og Grid for avanserte og fleksible sideoppsett.', estimatedMinutes: 75, exerciseCount: 8, topics: ['Flexbox', 'CSS Grid', 'fr-enhet', 'grid-template'], competenceGoals: ['bruke CSS Flexbox og Grid til avanserte sideoppsett'] },
+    // Seksjon 5: JavaScript og interaktivitet (5.1-5.5)
+    { id: 'it-1-5-1', number: '5.1', title: 'Introduksjon til JavaScript', description: 'Lær hva JavaScript er, hvordan det kjøres i nettleseren, og skriv dine første programmer.', estimatedMinutes: 55, exerciseCount: 8, topics: ['JavaScript', 'Konsoll', 'Variabel', 'Funksjon'], competenceGoals: ['bruke JavaScript for å utvikle interaktive nettsider'] },
+    { id: 'it-1-5-2', number: '5.2', title: 'Variabler, datatyper og operatorer i JavaScript', description: 'Dykk inn i JavaScripts typesystem, operatorer for beregninger og logikk.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Datatype', 'Number', 'String', 'Boolean'], competenceGoals: ['bruke variabler, datatyper og operatorer i programmer'] },
+    { id: 'it-1-5-3', number: '5.3', title: 'DOM-manipulering', description: 'Lær å bruke JavaScript til å finne, endre, opprette og slette HTML-elementer.', estimatedMinutes: 65, exerciseCount: 8, topics: ['DOM', 'document', 'querySelector', 'innerHTML'], competenceGoals: ['bruke JavaScript til å manipulere HTML-dokumenter'] },
+    { id: 'it-1-5-4', number: '5.4', title: 'Hendelseshåndtering og brukerinteraksjon', description: 'Lær å gjøre nettsider interaktive med klikk, tastatur og skjemahendelser.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Hendelse', 'addEventListener', 'Event-objekt', 'Event delegation'], competenceGoals: ['bruke hendelseshåndtering for interaktive brukeropplevelser'] },
+    { id: 'it-1-5-5', number: '5.5', title: 'Asynkron programmering og API-er', description: 'Forstå asynkron programmering med Promises og async/await, og hent data med fetch().', estimatedMinutes: 70, exerciseCount: 8, topics: ['Asynkron programmering', 'API', 'fetch()', 'Promise'], competenceGoals: ['bruke asynkron programmering for å kommunisere med tjenester'] },
+    // Seksjon 6: Databaser (6.1-6.5)
+    { id: 'it-1-6-1', number: '6.1', title: 'Introduksjon til databaser', description: 'Lær hva databaser er, forskjellen mellom ulike typer, og grunnleggende begreper.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Database', 'DBMS', 'Tabell', 'Primærnøkkel'], competenceGoals: ['gjøre rede for hva en database er og hvorfor de brukes'] },
+    { id: 'it-1-6-2', number: '6.2', title: 'Relasjonsdatabaser og datamodellering', description: 'Forstå relasjonsdatabasemodellen, fremmednøkler, relasjonstyper og ER-diagrammer.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Fremmednøkkel', 'Relasjon', 'ER-diagram', 'Entitet'], competenceGoals: ['forklare relasjonsdatabasemodellen'] },
+    { id: 'it-1-6-3', number: '6.3', title: 'SQL – grunnleggende spørringer', description: 'Lær SELECT, INSERT, UPDATE og DELETE for å arbeide med data i en database.', estimatedMinutes: 65, exerciseCount: 8, topics: ['SELECT', 'INSERT INTO', 'UPDATE', 'DELETE'], competenceGoals: ['skrive SQL-spørringer for å hente ut data'] },
+    { id: 'it-1-6-4', number: '6.4', title: 'SQL – avanserte spørringer og JOIN', description: 'Lær JOIN, GROUP BY, HAVING og subqueries for komplekse dataspørringer.', estimatedMinutes: 70, exerciseCount: 8, topics: ['JOIN', 'INNER JOIN', 'LEFT JOIN', 'GROUP BY'], competenceGoals: ['bruke JOIN for å koble sammen data fra flere tabeller'] },
+    { id: 'it-1-6-5', number: '6.5', title: 'Normalisering og databasedesign', description: 'Lær prinsippene for god databasedesign gjennom de tre normalformene.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Normalisering', 'Redundans', '1NF', '2NF'], competenceGoals: ['forklare hva normalisering er og hvorfor det er viktig'] },
+    // Seksjon 7: Nettverk, sikkerhet og personvern (7.1-7.5)
+    { id: 'it-1-7-1', number: '7.1', title: 'Datanettverkenes oppbygging', description: 'Forstå LAN, WAN, nettverkstopologier og sentrale nettverkskomponenter.', estimatedMinutes: 55, exerciseCount: 7, topics: ['LAN', 'WAN', 'Nettverkstopologi', 'Svitsj'], competenceGoals: ['gjøre rede for hvordan datanettverk er bygd opp'] },
+    { id: 'it-1-7-2', number: '7.2', title: 'Internett og kommunikasjonsprotokoller', description: 'Lær om TCP/IP, HTTP/HTTPS, DNS og lagdelingen i nettverksmodellene.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Protokoll', 'TCP/IP', 'HTTP/HTTPS', 'DNS'], competenceGoals: ['gjøre rede for sentrale kommunikasjonsprotokoller'] },
+    { id: 'it-1-7-3', number: '7.3', title: 'Informasjonssikkerhet og trusler', description: 'Forstå trusler som malware, phishing og DDoS-angrep, og lær sikkerhetstiltak.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Informasjonssikkerhet', 'Malware', 'Phishing', 'DDoS'], competenceGoals: ['gjøre rede for trusler mot informasjonssikkerhet'] },
+    { id: 'it-1-7-4', number: '7.4', title: 'Personvern og GDPR', description: 'Forstå personopplysningsloven, GDPR, samtykke og rettigheter knyttet til personvern.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Personopplysning', 'GDPR', 'Samtykke', 'Behandlingsansvarlig'], competenceGoals: ['gjøre rede for regler knyttet til personvern'] },
+    { id: 'it-1-7-5', number: '7.5', title: 'Kryptering og autentisering', description: 'Lær om symmetrisk/asymmetrisk kryptering, hashing, 2FA og digitale sertifikater.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Kryptering', 'Symmetrisk kryptering', 'Asymmetrisk kryptering', 'Hashing'], competenceGoals: ['gjøre rede for prinsippene bak kryptering og autentisering'] },
+    // Seksjon 8: Design, prosjekt og dokumentasjon (8.1-8.5)
+    { id: 'it-1-8-1', number: '8.1', title: 'Brukergrensesnitt og UX-design', description: 'Forstå UI vs. UX, designprinsipper, wireframes og prototyper.', estimatedMinutes: 60, exerciseCount: 7, topics: ['UI', 'UX', 'Wireframe', 'Prototype'], competenceGoals: ['planlegge og designe brukergrensesnitt'] },
+    { id: 'it-1-8-2', number: '8.2', title: 'Universell utforming og tilgjengelighet', description: 'Lær om WCAG-retningslinjer, kontrastkrav, skjermlesere og tastaturnavigasjon.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Universell utforming', 'WCAG', 'Skjermleser', 'Kontrast'], competenceGoals: ['gjøre rede for krav til universell utforming'] },
+    { id: 'it-1-8-3', number: '8.3', title: 'Prosjektplanlegging og smidig utvikling', description: 'Lær om Scrum, Kanban, sprinter, brukerhistorier og MVP.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Smidig utvikling', 'Scrum', 'Kanban', 'Sprint'], competenceGoals: ['planlegge og gjennomføre IT-prosjekt med smidig metode'] },
+    { id: 'it-1-8-4', number: '8.4', title: 'Versjonskontroll med Git', description: 'Lær Git for versjonskontroll: repository, commit, branch, merge og GitHub.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Versjonskontroll', 'Git', 'Repository', 'Commit'], competenceGoals: ['bruke versjonskontroll til å håndtere kodeendringer'] },
+    { id: 'it-1-8-5', number: '8.5', title: 'Dokumentasjon og presentasjon', description: 'Lær å skrive README-filer, kodekommentarer og teknisk dokumentasjon.', estimatedMinutes: 55, exerciseCount: 7, topics: ['README', 'Markdown', 'Kodekommentar', 'Teknisk dokumentasjon'], competenceGoals: ['dokumentere utviklingsprosessen og det ferdige produktet'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_IT_2: TextbookCourse = {
+  id: 'it-2',
+  title: 'IT 2',
+  level: 'VG3',
+  description: 'Informasjonsteknologi 2 - avansert programmering, algoritmer og systemutvikling',
+  curriculum: 'LK20',
+  icon: '🖥️',
+  coverImage: '/images/subjects/it-2-hero.webp',
+  chapters: [
+    // Seksjon 1: Objektorientert programmering – grunnlag (1.1-1.5)
+    { id: 'it-2-1-1', number: '1.1', title: 'Hva er objektorientert programmering?', description: 'Introduksjon til OOP-paradigmet og dets prinsipper.', estimatedMinutes: 60, exerciseCount: 6, topics: ['OOP', 'Paradigmer', 'Prinsipper'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-1-2', number: '1.2', title: 'Klasser og objekter', description: 'Definere klasser, opprette objekter og bruke metoder.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Klasser', 'Objekter', 'Metoder', 'Attributter'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-1-3', number: '1.3', title: 'Innkapsling og tilgangskontroll', description: 'Private og offentlige attributter, getters og setters.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Innkapsling', 'Tilgangskontroll', 'Getters', 'Setters'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-1-4', number: '1.4', title: 'Arv og gjenbruk', description: 'Arv mellom klasser, super() og metodeoverstyring.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Arv', 'Super', 'Metodeoverstyring', 'Gjenbruk'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-1-5', number: '1.5', title: 'Polymorfisme og abstraksjon', description: 'Polymorfisme, abstrakte klasser og grensesnitt.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Polymorfisme', 'Abstraksjon', 'Grensesnitt', 'Duck typing'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    // Seksjon 2: Avansert OOP og designmønstre (2.1-2.5)
+    { id: 'it-2-2-1', number: '2.1', title: 'Komposisjon og aggregering', description: 'Bygge komplekse objekter med komposisjon.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Komposisjon', 'Aggregering', 'Has-a-relasjon'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-2-2', number: '2.2', title: 'Datastrukturer – lister, stakker og køer', description: 'Implementere og bruke grunnleggende datastrukturer.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Lister', 'Stakker', 'Køer', 'LIFO', 'FIFO'], competenceGoals: ['utvikle programmer som benytter egendefinerte datastrukturer'] },
+    { id: 'it-2-2-3', number: '2.3', title: 'Ordbøker og mengder', description: 'Hashtabeller, ordbøker og mengdeoperasjoner.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Ordbøker', 'Mengder', 'Hashtabeller', 'Nøkkel-verdi'], competenceGoals: ['utvikle programmer som benytter egendefinerte datastrukturer'] },
+    { id: 'it-2-2-4', number: '2.4', title: 'Designmønstre', description: 'Vanlige designmønstre som Singleton, Observer og Factory.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Designmønstre', 'Singleton', 'Observer', 'Factory'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    { id: 'it-2-2-5', number: '2.5', title: 'UML og modellering', description: 'Klassediagrammer, sekvensdiagrammer og systemmodellering.', estimatedMinutes: 55, exerciseCount: 6, topics: ['UML', 'Klassediagram', 'Sekvensdiagram', 'Modellering'], competenceGoals: ['planlegge og utvikle programmer med klasser'] },
+    // Seksjon 3: Algoritmer og databehandling (3.1-3.5)
+    { id: 'it-2-3-1', number: '3.1', title: 'Algoritmisk tenkning og effektivitet', description: 'Algoritmebegrepet, tidskompleksitet og Big O-notasjon.', estimatedMinutes: 65, exerciseCount: 7, topics: ['Algoritmer', 'Big O', 'Tidskompleksitet', 'Effektivitet'], competenceGoals: ['lese tolke og analysere andres programmer'] },
+    { id: 'it-2-3-2', number: '3.2', title: 'Søke- og sorteringsalgoritmer', description: 'Lineært søk, binærsøk, Bubble Sort, Merge Sort med mer.', estimatedMinutes: 70, exerciseCount: 7, topics: ['Søking', 'Sortering', 'Binærsøk', 'Merge Sort'], competenceGoals: ['modellere og implementere programmer ved bruk av algoritmer'] },
+    { id: 'it-2-3-3', number: '3.3', title: 'Rekursjon og dynamisk programmering', description: 'Rekursive algoritmer, memoisering og dynamisk programmering.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Rekursjon', 'Memoisering', 'Dynamisk programmering'], competenceGoals: ['modellere og implementere programmer ved bruk av algoritmer'] },
+    { id: 'it-2-3-4', number: '3.4', title: 'Grafalgoritmer og trær', description: 'Grafer, trær, BFS, DFS og korteste vei.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Grafer', 'Trær', 'BFS', 'DFS', 'Dijkstra'], competenceGoals: ['modellere og implementere programmer ved bruk av algoritmer'] },
+    { id: 'it-2-3-5', number: '3.5', title: 'Algoritmisk problemløsning i praksis', description: 'Problemdekomponering, grådige algoritmer og backtracking.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Problemløsning', 'Grådige algoritmer', 'Backtracking'], competenceGoals: ['modellere og implementere programmer ved bruk av algoritmer'] },
+    // Seksjon 4: API-er og nettverksprogrammering (4.1-4.5)
+    { id: 'it-2-4-1', number: '4.1', title: 'Hva er et API?', description: 'Introduksjon til API-er og deres rolle i moderne systemer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['API', 'REST', 'HTTP-metoder'], competenceGoals: ['arbeide med eksterne datakilder'] },
+    { id: 'it-2-4-2', number: '4.2', title: 'Hente data fra API-er', description: 'Bruke requests-biblioteket til å hente og behandle data.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Requests', 'GET', 'Autentisering', 'Statuskoder'], competenceGoals: ['arbeide med eksterne datakilder'] },
+    { id: 'it-2-4-3', number: '4.3', title: 'Dataformater – JSON og XML', description: 'Parsing og behandling av JSON- og XML-data.', estimatedMinutes: 55, exerciseCount: 6, topics: ['JSON', 'XML', 'Parsing', 'Serialisering'], competenceGoals: ['arbeide med eksterne datakilder'] },
+    { id: 'it-2-4-4', number: '4.4', title: 'Bygge eget API med Flask', description: 'Opprette REST API-endepunkter med Flask.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Flask', 'Ruting', 'Endepunkter', 'REST'], competenceGoals: ['utvikle komplekse webapplikasjoner'] },
+    { id: 'it-2-4-5', number: '4.5', title: 'Nettverkskommunikasjon', description: 'TCP/IP, sockets og klient-server-arkitektur.', estimatedMinutes: 60, exerciseCount: 6, topics: ['TCP/IP', 'Sockets', 'Klient-server', 'Protokoller'], competenceGoals: ['lage nettverksapplikasjoner'] },
+    // Seksjon 5: Databaser og datalagring (5.1-5.5)
+    { id: 'it-2-5-1', number: '5.1', title: 'Relasjonsdatabaser – repetisjon og fordypning', description: 'ER-modellering, normalisering og relasjonell algebra.', estimatedMinutes: 65, exerciseCount: 7, topics: ['ER-modell', 'Normalisering', 'Relasjoner', 'Primærnøkler'], competenceGoals: ['designe databaser'] },
+    { id: 'it-2-5-2', number: '5.2', title: 'Avansert SQL', description: 'JOINs, subqueries, views og indekser.', estimatedMinutes: 70, exerciseCount: 7, topics: ['JOIN', 'Subqueries', 'Views', 'Indekser'], competenceGoals: ['designe databaser'] },
+    { id: 'it-2-5-3', number: '5.3', title: 'Databaser i Python med SQLite', description: 'Koble til og bruke databaser fra Python-kode.', estimatedMinutes: 65, exerciseCount: 6, topics: ['SQLite', 'Python', 'CRUD', 'Parameteriserte spørringer'], competenceGoals: ['utvikle programmer som benytter databaser'] },
+    { id: 'it-2-5-4', number: '5.4', title: 'NoSQL og alternative datalagring', description: 'Dokumentdatabaser, nøkkel-verdi-lagring og grafbaser.', estimatedMinutes: 60, exerciseCount: 6, topics: ['NoSQL', 'MongoDB', 'Dokumentdatabase', 'Nøkkel-verdi'], competenceGoals: ['vurdere ulike lagringsløsninger'] },
+    { id: 'it-2-5-5', number: '5.5', title: 'Datamodellering for komplekse systemer', description: 'Modellering av store datasystemer med flere tabeller.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Datamodellering', 'Integritet', 'Transaksjoner', 'ACID'], competenceGoals: ['designe databaser'] },
+    // Seksjon 6: Webutvikling og brukeropplevelse (6.1-6.5)
+    { id: 'it-2-6-1', number: '6.1', title: 'Moderne webutvikling', description: 'HTML5, CSS3, responsivt design og tilgjengelighet.', estimatedMinutes: 60, exerciseCount: 6, topics: ['HTML5', 'CSS3', 'Responsivt design', 'Tilgjengelighet'], competenceGoals: ['utvikle komplekse webapplikasjoner'] },
+    { id: 'it-2-6-2', number: '6.2', title: 'JavaScript og DOM-manipulering', description: 'JavaScript, events og dynamisk innhold.', estimatedMinutes: 65, exerciseCount: 7, topics: ['JavaScript', 'DOM', 'Events', 'Dynamisk innhold'], competenceGoals: ['utvikle komplekse webapplikasjoner'] },
+    { id: 'it-2-6-3', number: '6.3', title: 'Backend med Python og Flask', description: 'Serverside-programmering, templating og sesjonshåndtering.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Flask', 'Jinja2', 'Sesjoner', 'Ruter'], competenceGoals: ['utvikle komplekse webapplikasjoner'] },
+    { id: 'it-2-6-4', number: '6.4', title: 'Fullstack-applikasjoner', description: 'Koble frontend og backend med databaser.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Fullstack', 'CRUD', 'Frontend-backend', 'Database'], competenceGoals: ['utvikle komplekse webapplikasjoner'] },
+    { id: 'it-2-6-5', number: '6.5', title: 'Brukeropplevelse og brukbarhetstesting', description: 'UX-design, brukertesting og universell utforming.', estimatedMinutes: 55, exerciseCount: 6, topics: ['UX', 'Brukertesting', 'Universell utforming', 'Prototyping'], competenceGoals: ['vurdere brukeropplevelse'] },
+    // Seksjon 7: Sikkerhet, etikk og standarder (7.1-7.5)
+    { id: 'it-2-7-1', number: '7.1', title: 'IT-sikkerhet og trusselmodellering', description: 'Trussellandskap, risikoanalyse og STRIDE.', estimatedMinutes: 60, exerciseCount: 6, topics: ['IT-sikkerhet', 'Trusler', 'Risikoanalyse', 'STRIDE'], competenceGoals: ['vurdere sikkerhet'] },
+    { id: 'it-2-7-2', number: '7.2', title: 'Sikker programmering', description: 'OWASP Top 10, injeksjon, XSS og inputvalidering.', estimatedMinutes: 65, exerciseCount: 7, topics: ['OWASP', 'SQL-injeksjon', 'XSS', 'Inputvalidering'], competenceGoals: ['vurdere sikkerhet'] },
+    { id: 'it-2-7-3', number: '7.3', title: 'Kryptering og autentisering i praksis', description: 'Symmetrisk/asymmetrisk kryptering, hashing og autentisering.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Kryptering', 'Hashing', 'Autentisering', 'TLS'], competenceGoals: ['vurdere sikkerhet'] },
+    { id: 'it-2-7-4', number: '7.4', title: 'Personvern, GDPR og dataetikk', description: 'Personvernlovgivning, samtykke og databehandling.', estimatedMinutes: 55, exerciseCount: 6, topics: ['GDPR', 'Personvern', 'Samtykke', 'Dataetikk'], competenceGoals: ['vurdere etikk og personvern'] },
+    { id: 'it-2-7-5', number: '7.5', title: 'Etikk og samfunnsansvar i IT', description: 'Kunstig intelligens, digital ulikhet og bærekraft.', estimatedMinutes: 55, exerciseCount: 6, topics: ['AI-etikk', 'Digital ulikhet', 'Bærekraft', 'Ansvar'], competenceGoals: ['vurdere etikk og personvern'] },
+    // Seksjon 8: Systemutvikling og prosjekt (8.1-8.5)
+    { id: 'it-2-8-1', number: '8.1', title: 'Systemutviklingsmetoder', description: 'Fossefallsmodellen, smidig utvikling og Scrum.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Fossefallsmodellen', 'Scrum', 'Kanban', 'Smidig'], competenceGoals: ['arbeide systematisk med utvikling'] },
+    { id: 'it-2-8-2', number: '8.2', title: 'Testing og kvalitetssikring', description: 'Enhetstesting, integrasjonstesting og testdrevet utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Enhetstesting', 'TDD', 'Integrasjonstest', 'Kvalitet'], competenceGoals: ['teste og feilsøke programmer'] },
+    { id: 'it-2-8-3', number: '8.3', title: 'Versjonskontroll og samarbeid', description: 'Git, GitHub, branching og pull requests.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Git', 'GitHub', 'Branching', 'Pull requests'], competenceGoals: ['arbeide systematisk med utvikling'] },
+    { id: 'it-2-8-4', number: '8.4', title: 'Dokumentasjon og vedlikehold', description: 'Teknisk dokumentasjon, README og vedlikeholdsstrategier.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Dokumentasjon', 'README', 'Vedlikehold', 'Kommentarer'], competenceGoals: ['arbeide systematisk med utvikling'] },
+    { id: 'it-2-8-5', number: '8.5', title: 'Avsluttende prosjekt', description: 'Planlegging og gjennomføring av et komplett IT-prosjekt.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Prosjekt', 'Planlegging', 'Presentasjon', 'Dokumentasjon'], competenceGoals: ['gjennomføre større IT-prosjekt'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_BIOLOGI_1: TextbookCourse = {
+  id: 'biologi-1',
+  title: 'Biologi 1',
+  level: 'VG2',
+  description: 'Biologi 1 - celler, genetikk, evolusjon og økologi',
+  curriculum: 'LK20',
+  icon: '🧬',
+  coverImage: '/images/textbook-covers/biologi-1-hero.png',
+  chapters: [
+    // Kapittel 1: Cellebiologi (1.1-1.5)
+    { id: 'biologi-1-1-1', number: '1.1', title: 'Celleteori og celler som livets grunnenhet', description: 'Celleteoriens historiske utvikling og cellens rolle.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Celleteori', 'Livsprosesser', 'Mikroskopi'], competenceGoals: ['beskrive cellens oppbygging'] },
+    { id: 'biologi-1-1-2', number: '1.2', title: 'Prokaryote og eukaryote celler', description: 'Forskjeller mellom celletyper.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Prokaryoter', 'Eukaryoter', 'Bakterier', 'Arkeer'], competenceGoals: ['forklare forskjellen mellom prokaryote og eukaryote celler'] },
+    { id: 'biologi-1-1-3', number: '1.3', title: 'Cellens organeller', description: 'Organellenes struktur og funksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kjerne', 'Mitokondrier', 'ER', 'Golgi'], competenceGoals: ['beskrive organellenes funksjoner'] },
+    { id: 'biologi-1-1-4', number: '1.4', title: 'Cellemembranen', description: 'Membranens struktur og funksjoner.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Fosfolipider', 'Membranproteiner', 'Flytende mosaikk'], competenceGoals: ['gjøre rede for cellemembranes struktur'] },
+    { id: 'biologi-1-1-5', number: '1.5', title: 'Transport over cellemembranen', description: 'Passive og aktive transportmekanismer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Diffusjon', 'Osmose', 'Aktiv transport'], competenceGoals: ['forklare transport over membranen'] },
+    // Kapittel 2: Energi i celler (2.1-2.5)
+    { id: 'biologi-1-2-1', number: '2.1', title: 'Energi og metabolisme', description: 'Grunnleggende om energi i celler.', estimatedMinutes: 45, exerciseCount: 6, topics: ['ATP', 'Metabolisme', 'Enzymer'], competenceGoals: ['forklare energiomsetning'] },
+    { id: 'biologi-1-2-2', number: '2.2', title: 'Glykolyse', description: 'Nedbrytning av glukose.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Glykolyse', 'Pyruvat', 'ATP'], competenceGoals: ['beskrive glykolysen'] },
+    { id: 'biologi-1-2-3', number: '2.3', title: 'Sitronsyresyklusen og elektrontransportkjeden', description: 'Aerob celleånding.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sitronsyresyklus', 'Elektrontransport', 'Oksidativ fosforylering'], competenceGoals: ['forklare aerob respirasjon'] },
+    { id: 'biologi-1-2-4', number: '2.4', title: 'Anaerob respirasjon og gjæring', description: 'Energiproduksjon uten oksygen.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Anaerob', 'Gjæring', 'Melkesyre'], competenceGoals: ['beskrive anaerob respirasjon'] },
+    { id: 'biologi-1-2-5', number: '2.5', title: 'Fotosyntese', description: 'Lysets og mørkets reaksjoner.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Fotosyntese', 'Kloroplast', 'Calvin-syklus'], competenceGoals: ['forklare fotosyntesen'] },
+    // Kapittel 3: DNA og gener (3.1-3.5)
+    { id: 'biologi-1-3-1', number: '3.1', title: 'DNA-struktur', description: 'DNAs oppbygging og dobbeltheliks.', estimatedMinutes: 50, exerciseCount: 6, topics: ['DNA', 'Nukleotider', 'Dobbeltheliks'], competenceGoals: ['beskrive DNA-struktur'] },
+    { id: 'biologi-1-3-2', number: '3.2', title: 'DNA-replikasjon', description: 'Kopiering av DNA.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Replikasjon', 'Polymerase', 'Semikonservativ'], competenceGoals: ['forklare DNA-replikasjon'] },
+    { id: 'biologi-1-3-3', number: '3.3', title: 'Transkripsjon', description: 'Fra DNA til RNA.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Transkripsjon', 'mRNA', 'Promotor'], competenceGoals: ['beskrive transkripsjon'] },
+    { id: 'biologi-1-3-4', number: '3.4', title: 'Translasjon', description: 'Fra RNA til protein.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Translasjon', 'Ribosom', 'tRNA'], competenceGoals: ['forklare translasjon'] },
+    { id: 'biologi-1-3-5', number: '3.5', title: 'Genetisk kode og mutasjoner', description: 'Kodonenes betydning og mutasjonstyper.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Genetisk kode', 'Mutasjoner', 'Punktmutasjon'], competenceGoals: ['gjøre rede for mutasjoner'] },
+    // Kapittel 4: Celledeling (4.1-4.4)
+    { id: 'biologi-1-4-1', number: '4.1', title: 'Cellesyklus og cellesyklusregulering', description: 'Fasene i cellesyklusen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Cellesyklus', 'Interfase', 'Kontrollpunkter'], competenceGoals: ['beskrive cellesyklusen'] },
+    { id: 'biologi-1-4-2', number: '4.2', title: 'Mitose', description: 'Celledelingens faser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Mitose', 'Kromosomer', 'Cytokinese'], competenceGoals: ['forklare mitose'] },
+    { id: 'biologi-1-4-3', number: '4.3', title: 'Meiose', description: 'Reduksjonsdeling og genetisk variasjon.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Meiose', 'Overkrysning', 'Haploide celler'], competenceGoals: ['beskrive meiose'] },
+    { id: 'biologi-1-4-4', number: '4.4', title: 'Feil i celledeling og kreft', description: 'Kromosomfeil og kreftutvikling.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Kromosomfeil', 'Kreft', 'Onkogener'], competenceGoals: ['forklare kreftutvikling'] },
+    // Kapittel 5: Arv og genetikk (5.1-5.5)
+    { id: 'biologi-1-5-1', number: '5.1', title: 'Mendels lover', description: 'Grunnleggende arvelover.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Mendel', 'Dominans', 'Segregering'], competenceGoals: ['forklare Mendels lover'] },
+    { id: 'biologi-1-5-2', number: '5.2', title: 'Monohybrid krysning', description: 'Arv av ett gen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Monohybrid', 'Punnett-rute', 'Genotype'], competenceGoals: ['løse monohybride krysninger'] },
+    { id: 'biologi-1-5-3', number: '5.3', title: 'Dihybrid krysning', description: 'Arv av to gener.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Dihybrid', 'Uavhengig sortering', 'Fenotype'], competenceGoals: ['løse dihybride krysninger'] },
+    { id: 'biologi-1-5-4', number: '5.4', title: 'Utvidelser av Mendels lover', description: 'Kodominans, multippel alleli og polygeni.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kodominans', 'Blodtyper', 'Polygeni'], competenceGoals: ['beskrive utvidelser av Mendels lover'] },
+    { id: 'biologi-1-5-5', number: '5.5', title: 'Kjønnsbundet arv og koblet arv', description: 'X-bundet arv og koblede gener.', estimatedMinutes: 50, exerciseCount: 6, topics: ['X-bundet', 'Koblet arv', 'Fargeblindhet'], competenceGoals: ['forklare kjønnsbundet arv'] },
+    // Kapittel 6: Evolusjon (6.1-6.5)
+    { id: 'biologi-1-6-1', number: '6.1', title: 'Evolusjonsteori og bevis', description: 'Darwin og bevis for evolusjon.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Darwin', 'Evolusjonsteori', 'Fossiler'], competenceGoals: ['gjøre rede for evolusjonsteori'] },
+    { id: 'biologi-1-6-2', number: '6.2', title: 'Naturlig utvalg', description: 'Mekanismen bak tilpasning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Naturlig utvalg', 'Tilpasning', 'Fitness'], competenceGoals: ['forklare naturlig utvalg'] },
+    { id: 'biologi-1-6-3', number: '6.3', title: 'Genetisk variasjon og drift', description: 'Kilder til variasjon og genetisk drift.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Variasjon', 'Genetisk drift', 'Flaskehalser'], competenceGoals: ['beskrive genetisk variasjon'] },
+    { id: 'biologi-1-6-4', number: '6.4', title: 'Artsdannelse', description: 'Hvordan nye arter oppstår.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Artsdannelse', 'Isolasjon', 'Speciering'], competenceGoals: ['forklare artsdannelse'] },
+    { id: 'biologi-1-6-5', number: '6.5', title: 'Menneskets evolusjon', description: 'Menneskeartens utvikling.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Homininer', 'Homo sapiens', 'Afrika'], competenceGoals: ['beskrive menneskets evolusjon'] },
+    // Kapittel 7: Økologi (7.1-7.5)
+    { id: 'biologi-1-7-1', number: '7.1', title: 'Økologiske nivåer og økosystemer', description: 'Organiseringen av økologien.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Økosystem', 'Populasjon', 'Samfunn'], competenceGoals: ['beskrive økologiske nivåer'] },
+    { id: 'biologi-1-7-2', number: '7.2', title: 'Energistrøm og næringskjeder', description: 'Energioverføring i økosystemer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Næringskjede', 'Energistrøm', 'Trofinivå'], competenceGoals: ['forklare energistrøm'] },
+    { id: 'biologi-1-7-3', number: '7.3', title: 'Biogeokjemiske kretsløp', description: 'Karbonkretsløp, nitrogenkretsløp med mer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Karbonkretsløp', 'Nitrogenkretsløp', 'Vannkretsløp'], competenceGoals: ['beskrive kretsløp'] },
+    { id: 'biologi-1-7-4', number: '7.4', title: 'Populasjonsdynamikk', description: 'Vekst og regulering av populasjoner.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Populasjonsvekst', 'Bæreevne', 'R-K-strategier'], competenceGoals: ['analysere populasjoner'] },
+    { id: 'biologi-1-7-5', number: '7.5', title: 'Samspill mellom arter', description: 'Konkurranse, predasjon og mutualisme.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Konkurranse', 'Predasjon', 'Symbiose'], competenceGoals: ['beskrive samspill mellom arter'] },
+    // Kapittel 8: Biodiversitet (8.1-8.4)
+    { id: 'biologi-1-8-1', number: '8.1', title: 'Biologisk mangfold', description: 'Hva er biodiversitet og hvorfor er det viktig.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Biodiversitet', 'Artsmangfold', 'Genetisk variasjon'], competenceGoals: ['beskrive biologisk mangfold'] },
+    { id: 'biologi-1-8-2', number: '8.2', title: 'Klassifisering og systematikk', description: 'Hvordan vi organiserer livet.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Taksonomi', 'Fylogeni', 'Binomial nomenklatur'], competenceGoals: ['forklare klassifisering'] },
+    { id: 'biologi-1-8-3', number: '8.3', title: 'Trusler mot biologisk mangfold', description: 'Habitattap, klimaendringer og fremmede arter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Habitattap', 'Utryddelse', 'Fremmede arter'], competenceGoals: ['drøfte trusler mot biodiversitet'] },
+    { id: 'biologi-1-8-4', number: '8.4', title: 'Bevaring av biologisk mangfold', description: 'Verneområder og naturforvaltning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Bevaring', 'Verneområder', 'Bærekraft'], competenceGoals: ['vurdere bevaringstiltak'] },
+    // Kapittel 9: Bioteknologi (9.1-9.5)
+    { id: 'biologi-1-9-1', number: '9.1', title: 'Grunnleggende bioteknologi', description: 'Introduksjon til genteknologi.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Bioteknologi', 'Rekombinant DNA', 'Restriksjonsenzym'], competenceGoals: ['beskrive bioteknologi'] },
+    { id: 'biologi-1-9-2', number: '9.2', title: 'PCR og DNA-sekvensering', description: 'Kopiering og lesing av DNA.', estimatedMinutes: 55, exerciseCount: 6, topics: ['PCR', 'Sekvensering', 'Primer'], competenceGoals: ['forklare PCR og sekvensering'] },
+    { id: 'biologi-1-9-3', number: '9.3', title: 'CRISPR og genredigering', description: 'Moderne genteknologi.', estimatedMinutes: 55, exerciseCount: 6, topics: ['CRISPR', 'Cas9', 'Genredigering'], competenceGoals: ['beskrive CRISPR'] },
+    { id: 'biologi-1-9-4', number: '9.4', title: 'GMO og anvendelser', description: 'Genmodifiserte organismer i praksis.', estimatedMinutes: 50, exerciseCount: 6, topics: ['GMO', 'Transgene', 'Landbruk'], competenceGoals: ['drøfte GMO'] },
+    { id: 'biologi-1-9-5', number: '9.5', title: 'Bioteknologi og samfunn', description: 'Etiske og samfunnsmessige aspekter.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Etikk', 'Bioetikk', 'Regulering'], competenceGoals: ['vurdere bioteknologiens konsekvenser'] },
+    // Kapittel 10: Kropp og helse (10.1-10.5)
+    { id: 'biologi-1-10-1', number: '10.1', title: 'Kroppens forsvarssystemer', description: 'Immunforsvaret og dets komponenter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Immunforsvar', 'Hvite blodceller', 'Antistoffer'], competenceGoals: ['forklare immunforsvaret'] },
+    { id: 'biologi-1-10-2', number: '10.2', title: 'Spesifikk immunitet', description: 'Adaptiv immunrespons.', estimatedMinutes: 55, exerciseCount: 6, topics: ['T-celler', 'B-celler', 'Hukommelsesceller'], competenceGoals: ['beskrive spesifikk immunitet'] },
+    { id: 'biologi-1-10-3', number: '10.3', title: 'Vaksiner og vaksinering', description: 'Hvordan vaksiner fungerer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Vaksiner', 'Flokkimmunitet', 'mRNA-vaksiner'], competenceGoals: ['forklare vaksinering'] },
+    { id: 'biologi-1-10-4', number: '10.4', title: 'Smittsomme sykdommer', description: 'Virus, bakterier og smitteveier.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Virus', 'Bakterier', 'Antibiotikaresistens'], competenceGoals: ['beskrive smittsomme sykdommer'] },
+    { id: 'biologi-1-10-5', number: '10.5', title: 'Livsstil og helse', description: 'Kosthold, aktivitet og rusmidler.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Livsstil', 'Kosthold', 'Psykisk helse'], competenceGoals: ['drøfte livsstil og helse'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_BIOLOGI_2: TextbookCourse = {
+  id: 'biologi-2',
+  title: 'Biologi 2',
+  level: 'VG3',
+  description: 'Biologi 2 - molekylærbiologi, fysiologi, økologi, bioteknologi og vitenskapelig metode',
+  curriculum: 'LK20',
+  icon: '🔬',
+  coverImage: '/images/textbook-covers/biologi-2-hero.png',
+  chapters: [
+    // Seksjon 1: Molekylærbiologi og genetikk
+    { id: 'biologi-2-1-1', number: '1.1', title: 'DNA-struktur og replikasjon', description: 'Nukleotider, dobbeltheliks, semikonservativ replikasjon og enzymer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['DNA', 'Replikasjon', 'Helikase', 'Polymerase'], competenceGoals: ['gjøre rede for DNA-struktur og replikasjon'] },
+    { id: 'biologi-2-1-2', number: '1.2', title: 'Transkripsjon', description: 'Fra DNA til mRNA – RNA-polymerase, promotor og prosessering.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Transkripsjon', 'mRNA', 'RNA-polymerase', 'Spleising'], competenceGoals: ['forklare transkripsjon'] },
+    { id: 'biologi-2-1-3', number: '1.3', title: 'Translasjon', description: 'Fra mRNA til protein – ribosom, tRNA og den genetiske koden.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Translasjon', 'Ribosom', 'tRNA', 'Kodon'], competenceGoals: ['forklare translasjon'] },
+    { id: 'biologi-2-1-4', number: '1.4', title: 'Genregulering', description: 'Regulering av genekspresjon hos prokaryoter og eukaryoter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Genregulering', 'Operon', 'Transkripsjonsfaktorer', 'Epigenetikk'], competenceGoals: ['beskrive genregulering'] },
+    { id: 'biologi-2-1-5', number: '1.5', title: 'Mutasjoner og DNA-reparasjon', description: 'Punktmutasjoner, kromosommutasjoner og reparasjonsmekanismer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Mutasjoner', 'DNA-reparasjon', 'Mutagener'], competenceGoals: ['gjøre rede for mutasjoner og konsekvenser'] },
+    { id: 'biologi-2-1-6', number: '1.6', title: 'Mendels genetikk', description: 'Arvelover, krysningsskjema og sannsynlighetsberegning.', estimatedMinutes: 30, exerciseCount: 6, topics: ['Mendel', 'Dominant', 'Recessiv', 'Krysningsskjema'], competenceGoals: ['anvende Mendels arvelover'] },
+    { id: 'biologi-2-1-7', number: '1.7', title: 'Avanserte arvemønstre', description: 'Ufullstendig dominans, kodominans, kjønnsbundet arv og polygeni.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Kodominans', 'Kjønnsbundet arv', 'Polygeni', 'Epistasi'], competenceGoals: ['forklare avanserte arvemønstre'] },
+    { id: 'biologi-2-1-8', number: '1.8', title: 'Genomikk og bioinformatikk', description: 'Genomprosjektet, sekvensering og bioinformatiske verktøy.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Genomikk', 'Bioinformatikk', 'Sekvensering', 'BLAST'], competenceGoals: ['beskrive moderne genomforskning'] },
+    // Seksjon 2: Fysiologi I – Sirkulasjon, respirasjon og fordøyelse
+    { id: 'biologi-2-2-1', number: '2.1', title: 'Fordøyelsessystemet', description: 'Munnhule, magesekk, tynntarm, tykktarm og enzymer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fordøyelse', 'Enzymer', 'Tynntarm', 'Absorpsjon'], competenceGoals: ['forklare fordøyelsessystemets oppbygning og funksjon'] },
+    { id: 'biologi-2-2-2', number: '2.2', title: 'Næringsstoffer og ernæring', description: 'Karbohydrater, lipider, proteiner, vitaminer og mineraler.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Karbohydrater', 'Lipider', 'Proteiner', 'Vitaminer'], competenceGoals: ['gjøre rede for næringsstoffenes funksjon'] },
+    { id: 'biologi-2-2-3', number: '2.3', title: 'Hjertets oppbygning og funksjon', description: 'Hjertekamre, klaffer, hjertesyklus og EKG.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Hjerte', 'Hjertesyklus', 'EKG', 'Blodtrykk'], competenceGoals: ['beskrive hjertets oppbygning og funksjon'] },
+    { id: 'biologi-2-2-4', number: '2.4', title: 'Blodet og blodkretsløpet', description: 'Blodceller, plasma, det store og lille kretsløpet.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Blod', 'Erytrocytter', 'Leukocytter', 'Kretsløp'], competenceGoals: ['forklare blodets sammensetning og kretsløpet'] },
+    { id: 'biologi-2-2-5', number: '2.5', title: 'Gassutveksling i lungene', description: 'Lungenes oppbygning, alveoler, diffusjon og ventilasjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Lunger', 'Alveoler', 'Diffusjon', 'Ventilasjon'], competenceGoals: ['beskrive gassutveksling'] },
+    { id: 'biologi-2-2-6', number: '2.6', title: 'Transport av O₂ og CO₂', description: 'Hemoglobin, oksygenbindingskurve og Bohr-effekten.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Hemoglobin', 'Oksygentransport', 'Bohr-effekten', 'CO₂-transport'], competenceGoals: ['forklare gasstransport i blodet'] },
+    { id: 'biologi-2-2-7', number: '2.7', title: 'Immunsystemet', description: 'Medfødt og ervervet immunitet, antistoffer og vaksinasjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Immunforsvar', 'Antistoffer', 'T-celler', 'Vaksinasjon'], competenceGoals: ['gjøre rede for immunsystemet'] },
+    // Seksjon 3: Fysiologi II – Nervesystem og hormoner
+    { id: 'biologi-2-3-1', number: '3.1', title: 'Nerveceller og signaloverføring', description: 'Nevroner, aksjonspotensial, synapser og nevrotransmittere.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Nevroner', 'Aksjonspotensial', 'Synapser', 'Nevrotransmittere'], competenceGoals: ['forklare nervesignaloverføring'] },
+    { id: 'biologi-2-3-2', number: '3.2', title: 'Sentralnervesystemet', description: 'Hjernen, ryggmargen og hjernens funksjonsområder.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Hjernen', 'Hjernebark', 'Ryggmarg', 'Funksjonsområder'], competenceGoals: ['beskrive sentralnervesystemets oppbygning'] },
+    { id: 'biologi-2-3-3', number: '3.3', title: 'Det perifere nervesystemet', description: 'Somatisk og autonomt nervesystem, sympatikus og parasympatikus.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Perifert nervesystem', 'Sympatikus', 'Parasympatikus', 'Refleksbue'], competenceGoals: ['forklare det perifere nervesystemet'] },
+    { id: 'biologi-2-3-4', number: '3.4', title: 'Sansene', description: 'Syn, hørsel, lukt, smak og berøring – reseptorer og signalbehandling.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Syn', 'Hørsel', 'Reseptorer', 'Sansebehandling'], competenceGoals: ['beskrive sansenes funksjon'] },
+    { id: 'biologi-2-3-5', number: '3.5', title: 'Hormonsystemet', description: 'Endokrine kjertler, hormoner og signaleringsmekanismer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Hormoner', 'Endokrine kjertler', 'Hypofysen', 'Skjoldbruskkjertelen'], competenceGoals: ['gjøre rede for hormonsystemet'] },
+    { id: 'biologi-2-3-6', number: '3.6', title: 'Homeostase og regulering', description: 'Blodsukkerregulering, temperaturregulering og negativ feedback.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Homeostase', 'Feedback', 'Blodsukker', 'Termoregulering'], competenceGoals: ['forklare homeostase'] },
+    { id: 'biologi-2-3-7', number: '3.7', title: 'Rusmidler og hjernen', description: 'Rusmidlers påvirkning på hjernen, avhengighet og belønningssystemet.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Rusmidler', 'Dopamin', 'Avhengighet', 'Belønningssystem'], competenceGoals: ['forklare rusmidlers effekt på hjernen'] },
+    // Seksjon 4: Reproduksjon, utvikling og atferd
+    { id: 'biologi-2-4-1', number: '4.1', title: 'Kjønnsceller og befruktning', description: 'Spermatogenese, oogenese, befruktning og implantasjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Spermatogenese', 'Oogenese', 'Befruktning', 'Meiose'], competenceGoals: ['forklare kjønnscelledannelse og befruktning'] },
+    { id: 'biologi-2-4-2', number: '4.2', title: 'Fosterutvikling', description: 'Embryonal- og fosterperioden, organdannelse og morkake.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fosterutvikling', 'Organogenese', 'Morkake', 'Fosterhinne'], competenceGoals: ['beskrive fosterutviklingen'] },
+    { id: 'biologi-2-4-3', number: '4.3', title: 'Hormonell regulering av reproduksjon', description: 'Menstruasjonssyklus, FSH, LH, østrogen, progesteron og prevensjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Menstruasjonssyklus', 'FSH', 'LH', 'Prevensjon'], competenceGoals: ['gjøre rede for hormonell regulering av reproduksjon'] },
+    { id: 'biologi-2-4-4', number: '4.4', title: 'Atferdsbiologi', description: 'Instinkter, læring, fikserte handlingsmønstre og betinging.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Instinkt', 'FAP', 'Betinging', 'Imprinting'], competenceGoals: ['beskrive ulike former for atferd'] },
+    { id: 'biologi-2-4-5', number: '4.5', title: 'Evolusjon og tilpasning', description: 'Naturlig seleksjon, tilpasning og artsdannelse.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Evolusjon', 'Naturlig seleksjon', 'Tilpasning', 'Artsdannelse'], competenceGoals: ['forklare evolusjon og tilpasning'] },
+    { id: 'biologi-2-4-6', number: '4.6', title: 'Seksuell seleksjon og sosial atferd', description: 'Seksuell seleksjon, altruisme, kommunikasjon og sosial organisering.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Seksuell seleksjon', 'Altruisme', 'Kommunikasjon'], competenceGoals: ['drøfte seksuell seleksjon og sosial atferd'] },
+    // Seksjon 5: Økologi og populasjonsbiologi
+    { id: 'biologi-2-5-1', number: '5.1', title: 'Populasjonsøkologi og vekstmodeller', description: 'Eksponentiell og logistisk vekst, bæreevne og r/K-strategier.', estimatedMinutes: 30, exerciseCount: 6, topics: ['Populasjonsvekst', 'Bæreevne', 'r/K-strategi'], competenceGoals: ['analysere populasjonsdynamikk'] },
+    { id: 'biologi-2-5-2', number: '5.2', title: 'Regulering av populasjoner', description: 'Tetthetsavhengige og tetthetsuavhengige faktorer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Tetthetsavhengig', 'Predasjon', 'Konkurranse', 'Sykdom'], competenceGoals: ['forklare populasjonsregulering'] },
+    { id: 'biologi-2-5-3', number: '5.3', title: 'Samspill mellom arter', description: 'Predasjon, konkurranse, symbiose, mutualisme og parasittisme.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Predasjon', 'Konkurranse', 'Symbiose', 'Parasittisme'], competenceGoals: ['beskrive samspill mellom arter'] },
+    { id: 'biologi-2-5-4', number: '5.4', title: 'Økosystemer og energiflyt', description: 'Trofiske nivåer, næringskjeder, energipyramider og produksjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Trofiske nivåer', 'Næringskjede', 'Energipyramide'], competenceGoals: ['gjøre rede for energiflyt i økosystemer'] },
+    { id: 'biologi-2-5-5', number: '5.5', title: 'Biogeokjemiske kretsløp', description: 'Karbonkretsløpet, nitrogenkretsløpet og vannkretsløpet.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Karbonkretsløp', 'Nitrogenkretsløp', 'Fosforkretsløp'], competenceGoals: ['forklare biogeokjemiske kretsløp'] },
+    { id: 'biologi-2-5-6', number: '5.6', title: 'Biologisk mangfold', description: 'Arter, økosystemer, trusler og vern.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Biodiversitet', 'Rødlista', 'Naturvern', 'Habitattap'], competenceGoals: ['drøfte biologisk mangfold'] },
+    { id: 'biologi-2-5-7', number: '5.7', title: 'Klimaendringer og økologi', description: 'Drivhuseffekten, konsekvenser for økosystemer og tilpasning.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Klimaendringer', 'Drivhuseffekt', 'Artsforflytning'], competenceGoals: ['vurdere klimaendringers effekt på økosystemer'] },
+    // Seksjon 6: Bioteknologi og metode
+    { id: 'biologi-2-6-1', number: '6.1', title: 'Genteknologiske verktøy', description: 'Restriksjonsenzymer, ligase, vektorer og kloning.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Restriksjonsenzymer', 'Kloning', 'Vektorer', 'Ligase'], competenceGoals: ['forklare genteknologiske metoder'] },
+    { id: 'biologi-2-6-2', number: '6.2', title: 'CRISPR og genredigering', description: 'CRISPR-Cas9, genterapi og presisjonsmedisin.', estimatedMinutes: 25, exerciseCount: 5, topics: ['CRISPR', 'Cas9', 'Genterapi', 'Presisjonsmedisin'], competenceGoals: ['gjøre rede for CRISPR-teknologien'] },
+    { id: 'biologi-2-6-3', number: '6.3', title: 'PCR og gensekvensering', description: 'Polymerasekjedereaksjon, Sanger-sekvensering og NGS.', estimatedMinutes: 25, exerciseCount: 5, topics: ['PCR', 'Sekvensering', 'Sanger', 'NGS'], competenceGoals: ['beskrive PCR og sekvensering'] },
+    { id: 'biologi-2-6-4', number: '6.4', title: 'Stamceller og regenerativ medisin', description: 'Embryonale og adulte stamceller, iPSC og terapeutiske muligheter.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Stamceller', 'iPSC', 'Regenerativ medisin'], competenceGoals: ['drøfte stamcelleforskning'] },
+    { id: 'biologi-2-6-5', number: '6.5', title: 'GMO og genmodifisert mat', description: 'Fremstilling av GMO, bruksområder, regulering og debatt.', estimatedMinutes: 25, exerciseCount: 4, topics: ['GMO', 'Genmodifisering', 'Regulering', 'Matproduksjon'], competenceGoals: ['drøfte GMO og genmodifisert mat'] },
+    { id: 'biologi-2-6-6', number: '6.6', title: 'Etikk i bioteknologi', description: 'Etiske problemstillinger ved genteknologi, kloning og fosterdiagnostikk.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Bioetikk', 'Føre-var', 'Fosterdiagnostikk', 'Kloning'], competenceGoals: ['drøfte etiske spørsmål i bioteknologi'] },
+    { id: 'biologi-2-6-7', number: '6.7', title: 'Vitenskapelig metode i biologi', description: 'Hypoteser, eksperimentelt design, kontrollgrupper og statistikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Vitenskapelig metode', 'Hypotese', 'Kontrollgruppe', 'Statistikk'], competenceGoals: ['planlegge og gjennomføre biologiske undersøkelser'] },
+    { id: 'biologi-2-6-8', number: '6.8', title: 'Biologisk forskning og rapportering', description: 'IMRaD-struktur, fagfellevurdering og vitenskapelig formidling.', estimatedMinutes: 25, exerciseCount: 4, topics: ['IMRaD', 'Fagfellevurdering', 'Vitenskapelig skriving'], competenceGoals: ['rapportere biologiske undersøkelser'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_PSYKOLOGI_1: TextbookCourse = {
+  id: 'psykologi-1',
+  title: 'Psykologi 1',
+  level: 'VG2',
+  description: 'Psykologi 1 - grunnleggende psykologi, biologisk psykologi, kognisjon, læring, motivasjon, utvikling, personlighet, sosialpsykologi, psykisk helse og anvendt psykologi',
+  curriculum: 'LK20',
+  icon: '🧠',
+  coverImage: '/images/subjects/psykologi-1-hero.webp',
+  chapters: [
+    // Del 1: Psykologiens grunnlag
+    { id: 'psykologi-1-1-1', number: '1.1', title: 'Hva er psykologi?', description: 'Introduksjon til psykologi som vitenskap og fag.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Psykologidefinisjon', 'Fagfelt', 'Mål'], competenceGoals: ['gjøre rede for hva psykologi er'] },
+    { id: 'psykologi-1-1-2', number: '1.2', title: 'Psykologiens historie', description: 'Fra filosofi til vitenskap - psykologiens utvikling.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Wundt', 'Strukturalisme', 'Funksjonalisme'], competenceGoals: ['gjøre rede for psykologiens historiske utvikling'] },
+    { id: 'psykologi-1-1-3', number: '1.3', title: 'Psykologiske perspektiver', description: 'Ulike tilnærminger til å forstå atferd og mentale prosesser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Psykoanalyse', 'Behaviorisme', 'Kognitivisme', 'Humanisme'], competenceGoals: ['sammenligne ulike psykologiske perspektiver'] },
+    { id: 'psykologi-1-1-4', number: '1.4', title: 'Forskningsmetoder i psykologi', description: 'Eksperimenter, observasjon og etikk i psykologisk forskning.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Eksperiment', 'Observasjon', 'Etikk', 'Kausalitet'], competenceGoals: ['vurdere psykologisk forskning og etiske retningslinjer'] },
+    { id: 'psykologi-1-1-5', number: '1.5', title: 'Psykologi som vitenskap', description: 'Vitenskapelig metode, reliabilitet og validitet.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Hypotesetesting', 'Reliabilitet', 'Validitet', 'Replikasjon'], competenceGoals: ['anvende vitenskapelig tenkemåte i psykologi'] },
+
+    // Del 2: Biologisk psykologi
+    { id: 'psykologi-1-2-1', number: '2.1', title: 'Nervesystemet', description: 'Nevroner, synapser og nervesystemets oppbygging.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Nevroner', 'Synapser', 'Sentralnervesystemet'], competenceGoals: ['forklare biologisk grunnlag for atferd'] },
+    { id: 'psykologi-1-2-2', number: '2.2', title: 'Hjernen', description: 'Hjernens oppbygging og funksjonsområder.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Hjernebarken', 'Frontallappen', 'Lateralisering'], competenceGoals: ['forklare biologisk grunnlag for atferd'] },
+    { id: 'psykologi-1-2-3', number: '2.3', title: 'Nevrotransmittere og hormoner', description: 'Kjemiske signalstoffer og deres virkning.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Dopamin', 'Serotonin', 'Hormoner', 'GABA'], competenceGoals: ['forklare biologisk grunnlag for atferd'] },
+    { id: 'psykologi-1-2-4', number: '2.4', title: 'Evolusjon og atferd', description: 'Evolusjonspsykologiske forklaringer på atferd.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Naturlig seleksjon', 'Tilpasning', 'Paringsatferd'], competenceGoals: ['drøfte biologiske forklaringsmodeller'] },
+    { id: 'psykologi-1-2-5', number: '2.5', title: 'Hjernen og rusmidler', description: 'Rusmidlers påvirkning på hjernen og avhengighet.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Rusmidler', 'Dopamin', 'Avhengighet', 'Ungdomshjernen'], competenceGoals: ['forklare biologisk grunnlag for atferd'] },
+
+    // Del 3: Kognisjon og persepsjon
+    { id: 'psykologi-1-3-1', number: '3.1', title: 'Persepsjon', description: 'Hvordan sanser vi og tolker verden rundt oss?', estimatedMinutes: 22, exerciseCount: 5, topics: ['Sensasjon', 'Gestaltprinsipper', 'Illusjoner'], competenceGoals: ['beskrive kognitive prosesser'] },
+    { id: 'psykologi-1-3-2', number: '3.2', title: 'Oppmerksomhet', description: 'Hva bestemmer hva vi legger merke til?', estimatedMinutes: 20, exerciseCount: 5, topics: ['Selektiv oppmerksomhet', 'Multitasking', 'Change blindness'], competenceGoals: ['beskrive kognitive prosesser'] },
+    { id: 'psykologi-1-3-3', number: '3.3', title: 'Hukommelse', description: 'Hvordan husker vi, og hvorfor glemmer vi?', estimatedMinutes: 24, exerciseCount: 5, topics: ['Arbeidshukommelse', 'Langtidshukommelse', 'Koding'], competenceGoals: ['beskrive kognitive prosesser'] },
+    { id: 'psykologi-1-3-4', number: '3.4', title: 'Glemsel og hukommelsesfeil', description: 'Hvorfor glemmer vi, og kan minner være falske?', estimatedMinutes: 23, exerciseCount: 5, topics: ['Glemselskurve', 'Interferens', 'Falske minner'], competenceGoals: ['beskrive kognitive prosesser'] },
+    { id: 'psykologi-1-3-5', number: '3.5', title: 'Tenkning og problemløsning', description: 'Hvordan tenker vi, og hvorfor tar vi feil?', estimatedMinutes: 25, exerciseCount: 5, topics: ['Heuristikker', 'Kognitive biases', 'Kreativitet'], competenceGoals: ['beskrive kognitive prosesser'] },
+
+    // Del 4: Læring
+    { id: 'psykologi-1-4-1', number: '4.1', title: 'Klassisk betinging', description: 'Pavlovs forsøk og assossiativ læring.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Pavlov', 'Betinget respons', 'Generalisering'], competenceGoals: ['forklare læringsteorier'] },
+    { id: 'psykologi-1-4-2', number: '4.2', title: 'Operant betinging', description: 'Forsterkningens rolle i læring.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Skinner', 'Forsterkning', 'Straff', 'Shaping'], competenceGoals: ['forklare læringsteorier'] },
+    { id: 'psykologi-1-4-3', number: '4.3', title: 'Sosial-kognitiv læring', description: 'Banduras teori om observasjonslæring.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Bandura', 'Modellæring', 'Self-efficacy'], competenceGoals: ['forklare læringsteorier'] },
+    { id: 'psykologi-1-4-4', number: '4.4', title: 'Kognitiv læring', description: 'Innsiktslæring, kognitive kart og metakognisjon.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Köhler', 'Tolman', 'Metakognisjon'], competenceGoals: ['forklare læringsteorier'] },
+    { id: 'psykologi-1-4-5', number: '4.5', title: 'Læring i skole og hverdag', description: 'Læringsstrategier og motivasjon for læring.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Dybdelæring', 'Læringsstrategier', 'Feedback'], competenceGoals: ['forklare læringsteorier'] },
+
+    // Del 5: Motivasjon og emosjoner
+    { id: 'psykologi-1-5-1', number: '5.1', title: 'Motivasjonsteorier', description: 'Teoretiske perspektiver på motivasjon.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Maslow', 'Selvbestemmelse', 'Indre motivasjon'], competenceGoals: ['drøfte motivasjon og emosjoner'] },
+    { id: 'psykologi-1-5-2', number: '5.2', title: 'Mestring og selvregulering', description: 'Opplevelse av kontroll, mestringstro og selvregulering.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Mestringstro', 'Selvregulering', 'Kontroll'], competenceGoals: ['drøfte motivasjon og emosjoner'] },
+    { id: 'psykologi-1-5-3', number: '5.3', title: 'Emosjoner', description: 'Teorier om emosjoner og emosjonell regulering.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Grunnemosjoner', 'James-Lange', 'Emosjonell regulering'], competenceGoals: ['drøfte motivasjon og emosjoner'] },
+    { id: 'psykologi-1-5-4', number: '5.4', title: 'Stress og stressmestring', description: 'Stressresponser og coping-strategier.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Stressrespons', 'Coping', 'Allostase'], competenceGoals: ['drøfte motivasjon og emosjoner'] },
+    { id: 'psykologi-1-5-5', number: '5.5', title: 'Sårbarhet og resiliens', description: 'Risikofaktorer, beskyttelsesfaktorer og motstandsdyktighet.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Resiliens', 'Risikofaktorer', 'Beskyttelsesfaktorer'], competenceGoals: ['drøfte motivasjon og emosjoner'] },
+
+    // Del 6: Utvikling
+    { id: 'psykologi-1-6-1', number: '6.1', title: 'Utviklingspsykologi - en oversikt', description: 'Grunnleggende perspektiver på menneskelig utvikling.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Arv-miljø', 'Modning', 'Kritiske perioder'], competenceGoals: ['beskrive menneskelig utvikling'] },
+    { id: 'psykologi-1-6-2', number: '6.2', title: 'Kognitiv utvikling', description: 'Piaget og Vygotskys teorier om kognitiv utvikling.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Piaget', 'Vygotsky', 'Stillasbygging'], competenceGoals: ['beskrive menneskelig utvikling'] },
+    { id: 'psykologi-1-6-3', number: '6.3', title: 'Sosial og emosjonell utvikling', description: 'Tilknytning, temperament og emosjonell regulering.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Bowlby', 'Ainsworth', 'Tilknytning', 'Temperament'], competenceGoals: ['beskrive menneskelig utvikling'] },
+    { id: 'psykologi-1-6-4', number: '6.4', title: 'Identitet og ungdomsutvikling', description: 'Identitetsdannelse og ungdomshjernens utvikling.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Erikson', 'Marcia', 'Kohlberg', 'Ungdomshjernen'], competenceGoals: ['beskrive menneskelig utvikling'] },
+    { id: 'psykologi-1-6-5', number: '6.5', title: 'Utvikling i et livsløpsperspektiv', description: 'Voksenutvikling, aldring og resiliens.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Voksenutvikling', 'Aldring', 'Livsfaser'], competenceGoals: ['beskrive menneskelig utvikling'] },
+
+    // Del 7: Personlighet
+    { id: 'psykologi-1-7-1', number: '7.1', title: 'Hva er personlighet?', description: 'Innføring i personlighetsbegrepet og trekk versus tilstander.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Personlighetsbegrep', 'Trekk', 'Temperament'], competenceGoals: ['gjøre rede for personlighetsteorier'] },
+    { id: 'psykologi-1-7-2', number: '7.2', title: 'Psykoanalytisk perspektiv', description: 'Freuds psykoanalyse og personlighetsstruktur.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Freud', 'Id-ego-superego', 'Forsvarsmekanismer'], competenceGoals: ['gjøre rede for personlighetsteorier'] },
+    { id: 'psykologi-1-7-3', number: '7.3', title: 'Trekkteori og Big Five', description: 'Personlighetstrekk og Big Five-modellen.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Big Five', 'Personlighetstester', 'Kulturell validitet'], competenceGoals: ['gjøre rede for personlighetsteorier'] },
+    { id: 'psykologi-1-7-4', number: '7.4', title: 'Humanistisk og sosial-kognitiv tilnærming', description: 'Rogers, Maslow og Banduras perspektiver.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Rogers', 'Maslow', 'Bandura', 'Self-efficacy'], competenceGoals: ['gjøre rede for personlighetsteorier'] },
+    { id: 'psykologi-1-7-5', number: '7.5', title: 'Selvbilde og identitet', description: 'Selvkonsept, selvfølelse og identitetsutvikling.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Selvkonsept', 'Selvfølelse', 'Sosial identitet'], competenceGoals: ['gjøre rede for personlighetsteorier'] },
+
+    // Del 8: Sosialpsykologi
+    { id: 'psykologi-1-8-1', number: '8.1', title: 'Sosial påvirkning', description: 'Hvordan andre påvirker vår atferd og våre valg.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Konformitet', 'Lydighet', 'Asch', 'Milgram'], competenceGoals: ['forklare sosial påvirkning'] },
+    { id: 'psykologi-1-8-2', number: '8.2', title: 'Holdninger og fordommer', description: 'Holdningsdannelse, kognitiv dissonans og fordommer.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Holdninger', 'Kognitiv dissonans', 'Fordommer'], competenceGoals: ['forklare sosial påvirkning'] },
+    { id: 'psykologi-1-8-3', number: '8.3', title: 'Grupper og gruppeprosesser', description: 'Gruppedynamikk, sosial dovenskap og polarisering.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Gruppepolarisering', 'Sosial dovenskap', 'Inngruppe-utgruppe'], competenceGoals: ['forklare sosial påvirkning'] },
+    { id: 'psykologi-1-8-4', number: '8.4', title: 'Prososial atferd og aggresjon', description: 'Hjelpsomhet, altruisme og aggresjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Prososial atferd', 'Tilskuereffekt', 'Aggresjon'], competenceGoals: ['forklare sosial påvirkning'] },
+    { id: 'psykologi-1-8-5', number: '8.5', title: 'Psykologi og bærekraft', description: 'Psykologiske perspektiver på bærekraftige valg.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Klimaatferd', 'Kognitive bias', 'Nudging'], competenceGoals: ['forklare sosial påvirkning'] },
+
+    // Del 9: Psykisk helse
+    { id: 'psykologi-1-9-1', number: '9.1', title: 'Hva er psykisk helse?', description: 'Normalitet, avvik og diagnostiske systemer.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Psykisk helse', 'Normalitet', 'Diagnostikk'], competenceGoals: ['beskrive psykiske lidelser og behandling'] },
+    { id: 'psykologi-1-9-2', number: '9.2', title: 'Angstlidelser og depresjon', description: 'De vanligste psykiske lidelsene blant unge.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Angst', 'Depresjon', 'Bipolar lidelse'], competenceGoals: ['beskrive psykiske lidelser og behandling'] },
+    { id: 'psykologi-1-9-3', number: '9.3', title: 'Spiseforstyrrelser og avhengighet', description: 'Anoreksi, bulimi, rusavhengighet og spillavhengighet.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Spiseforstyrrelser', 'Avhengighet', 'Risikofaktorer'], competenceGoals: ['beskrive psykiske lidelser og behandling'] },
+    { id: 'psykologi-1-9-4', number: '9.4', title: 'Behandlingsformer', description: 'Kognitiv atferdsterapi, medikamenter og andre tilnærminger.', estimatedMinutes: 22, exerciseCount: 5, topics: ['KBT', 'Psykodynamisk terapi', 'Medikamenter'], competenceGoals: ['beskrive psykiske lidelser og behandling'] },
+    { id: 'psykologi-1-9-5', number: '9.5', title: 'Forebygging og psykisk helsefremmende arbeid', description: 'Risikofaktorer, beskyttelsesfaktorer og folkehelse.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Forebygging', 'Folkehelse', 'Stigma'], competenceGoals: ['beskrive psykiske lidelser og behandling'] },
+
+    // Del 10: Anvendt psykologi
+    { id: 'psykologi-1-10-1', number: '10.1', title: 'Psykologi i ulike yrker', description: 'Psykologisk kunnskap i arbeidslivet.', estimatedMinutes: 22, exerciseCount: 5, topics: ['Klinisk psykologi', 'Organisasjonspsykologi', 'Pedagogisk psykologi'], competenceGoals: ['vurdere psykologisk forskning og anvendelser'] },
+    { id: 'psykologi-1-10-2', number: '10.2', title: 'Psykologi i hverdagen', description: 'Psykologisk kunnskap i dagliglivet.', estimatedMinutes: 24, exerciseCount: 5, topics: ['Beslutninger', 'Relasjoner', 'Vaner'], competenceGoals: ['vurdere psykologisk forskning og anvendelser'] },
+    { id: 'psykologi-1-10-3', number: '10.3', title: 'Psykologi og samfunn', description: 'Psykologi i politikk, markedsføring og media.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Propaganda', 'Nudging', 'Markedsføring'], competenceGoals: ['vurdere psykologisk forskning og anvendelser'] },
+    { id: 'psykologi-1-10-4', number: '10.4', title: 'Kritisk tenkning om psykologi', description: 'Populærpsykologi, pseudovitenskap og kildekritikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Pseudovitenskap', 'Replikasjonskrisen', 'Kildekritikk'], competenceGoals: ['vurdere psykologisk forskning og anvendelser'] },
+    { id: 'psykologi-1-10-5', number: '10.5', title: 'Psykologiens fremtid', description: 'Ny teknologi, AI og fremtidige utfordringer.', estimatedMinutes: 23, exerciseCount: 5, topics: ['Nevroteknologi', 'AI', 'Etikk'], competenceGoals: ['vurdere psykologisk forskning og anvendelser'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_PSYKOLOGI_2: TextbookCourse = {
+  id: 'psykologi-2',
+  title: 'Psykologi 2',
+  level: 'VG3',
+  description: 'Psykologi 2 - avansert psykologi, kommunikasjon og helsepsykologi',
+  curriculum: 'LK20',
+  icon: '💭',
+  coverImage: '/images/subjects/psykologi-2-hero.webp',
+  chapters: [
+    // Seksjon 1: Sosial påvirkning og grupper (1.1-1.5)
+    { id: 'psykologi-2-1-1', number: '1.1', title: 'Sosial påvirkning – konformitet og lydighet', description: 'Normativ og informativ påvirkning, Asch, Milgram og Zimbardo.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Konformitet', 'Lydighet', 'Asch', 'Milgram'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-1-2', number: '1.2', title: 'Holdninger og holdningsendring', description: 'Trekomponentmodellen, kognitiv dissonans og overtalelse.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Holdninger', 'Kognitiv dissonans', 'Overtalelse', 'ELM'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-1-3', number: '1.3', title: 'Gruppeprosesser og gruppetenkning', description: 'Gruppedynamikk, polarisering, deindividuering og gruppetenkning.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Gruppeprosesser', 'Gruppetenkning', 'Polarisering', 'Deindividuering'], competenceGoals: ['gjøre rede for hvordan grupper påvirker individet'] },
+    { id: 'psykologi-2-1-4', number: '1.4', title: 'Fordommer og diskriminering', description: 'Stereotypier, implisitt bias, inngruppe/utgruppe og kontakthypotesen.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Fordommer', 'Diskriminering', 'Stereotypier', 'Kontakthypotesen'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-1-5', number: '1.5', title: 'Prososial atferd og aggresjon', description: 'Altruisme, tilskuereffekten, aggresjonsteori og mediers påvirkning.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Prososial atferd', 'Tilskuereffekten', 'Aggresjon', 'Bandura'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    // Seksjon 2: Kommunikasjon og konflikter (2.1-2.5)
+    { id: 'psykologi-2-2-1', number: '2.1', title: 'Verbal kommunikasjon', description: 'Språk og tanke, pragmatikk og kommunikasjonsmodeller.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Verbal kommunikasjon', 'Pragmatikk', 'Kommunikasjonsmodeller'], competenceGoals: ['analysere kommunikasjon'] },
+    { id: 'psykologi-2-2-2', number: '2.2', title: 'Nonverbal kommunikasjon', description: 'Kroppsspråk, proksemikk, ansiktsuttrykk og kulturforskjeller.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Nonverbal', 'Proksemikk', 'Ekman', 'Kulturforskjeller'], competenceGoals: ['analysere kommunikasjon'] },
+    { id: 'psykologi-2-2-3', number: '2.3', title: 'Relasjoner og tilknytning', description: 'Bowlbys tilknytningsteori, tilknytningsstiler og interpersonlig attraksjon.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Tilknytning', 'Bowlby', 'Ainsworth', 'Relasjoner'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-2-4', number: '2.4', title: 'Konflikter og konflikthåndtering', description: 'Konflikttyper, eskalering, Thomas-Kilmann og ikkevoldelig kommunikasjon.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Konflikter', 'Konflikthåndtering', 'Mekling', 'Rosenberg'], competenceGoals: ['analysere kommunikasjon'] },
+    { id: 'psykologi-2-2-5', number: '2.5', title: 'Digital kommunikasjon og sosiale medier', description: 'Nettbasert kommunikasjon, sosiale medier og psykisk helse.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sosiale medier', 'Digital kommunikasjon', 'Nettmobbing', 'FOMO'], competenceGoals: ['analysere kommunikasjon'] },
+    // Seksjon 3: Sosial kompetanse og utenforskap (3.1-3.5)
+    { id: 'psykologi-2-3-1', number: '3.1', title: 'Sosial kompetanse – hva er det?', description: 'Definisjon, dimensjoner og Ogdens modell.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sosial kompetanse', 'Dimensjoner', 'Ogden'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-3-2', number: '3.2', title: 'Utvikling av sosial kompetanse', description: 'Arv og miljø, jevnaldrendes rolle og trening av sosiale ferdigheter.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sosial utvikling', 'Jevnaldrende', 'Sosial trening'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-3-3', number: '3.3', title: 'Mobbing og krenkelser', description: 'Definisjon, årsaker, konsekvenser og Olweus-programmet.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Mobbing', 'Olweus', 'Krenkelser', 'Digital mobbing'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-3-4', number: '3.4', title: 'Ensomhet og utenforskap', description: 'Ensomhet blant unge, sosial ekskludering og psykologiske konsekvenser.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Ensomhet', 'Utenforskap', 'Sosial ekskludering'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    { id: 'psykologi-2-3-5', number: '3.5', title: 'Forebygging og inkludering', description: 'Forebyggingsprogrammer, inkludering og Bronfenbrenners modell.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Forebygging', 'Inkludering', 'Bronfenbrenner', 'Livsmestring'], competenceGoals: ['drøfte sosialpsykologiske temaer'] },
+    // Seksjon 4: Psykisk helse – normalitet og avvik (4.1-4.5)
+    { id: 'psykologi-2-4-1', number: '4.1', title: 'Normalitet og psykisk helse', description: 'Normalitetsbegrepet, psykisk helse som kontinuum.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Normalitet', 'Psykisk helse', 'Kontinuum'], competenceGoals: ['gjøre rede for psykisk helse'] },
+    { id: 'psykologi-2-4-2', number: '4.2', title: 'Historisk syn på psykisk helse', description: 'Fra demonbesettelse til moderne psykiatri.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Psykiatrihistorie', 'Asyl', 'Deinstitusjonalisering'], competenceGoals: ['gjøre rede for psykisk helse'] },
+    { id: 'psykologi-2-4-3', number: '4.3', title: 'Diagnostisering og klassifikasjon', description: 'DSM-5, ICD-11, diagnostiske utfordringer og komorbiditet.', estimatedMinutes: 60, exerciseCount: 6, topics: ['DSM-5', 'ICD-11', 'Diagnostikk', 'Komorbiditet'], competenceGoals: ['gjøre rede for psykisk helse'] },
+    { id: 'psykologi-2-4-4', number: '4.4', title: 'Angstlidelser og stemningslidelser', description: 'Fobier, GAD, panikklidelse, depresjon og bipolar lidelse.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Angst', 'Depresjon', 'Bipolar', 'Becks kognitive triade'], competenceGoals: ['gjøre rede for psykiske lidelser'] },
+    { id: 'psykologi-2-4-5', number: '4.5', title: 'Psykoselidelser og personlighetsforstyrrelser', description: 'Schizofreni, psykose, personlighetsforstyrrelser og stigma.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Schizofreni', 'Psykose', 'Personlighetsforstyrrelser', 'Stigma'], competenceGoals: ['gjøre rede for psykiske lidelser'] },
+    // Seksjon 5: Behandling av psykiske lidelser (5.1-5.5)
+    { id: 'psykologi-2-5-1', number: '5.1', title: 'Psykoterapi – kognitiv atferdsterapi', description: 'KBT, ABC-modellen, tankefeller og eksponering.', estimatedMinutes: 60, exerciseCount: 6, topics: ['KBT', 'ABC-modellen', 'Eksponering', 'Tankefeller'], competenceGoals: ['gjøre rede for behandlingsformer'] },
+    { id: 'psykologi-2-5-2', number: '5.2', title: 'Psykodynamisk og humanistisk terapi', description: 'Freuds psykoanalyse, overføring og Rogers klientsentrert terapi.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Psykodynamisk', 'Humanistisk', 'Rogers', 'Overføring'], competenceGoals: ['gjøre rede for behandlingsformer'] },
+    { id: 'psykologi-2-5-3', number: '5.3', title: 'Biologisk behandling', description: 'Psykofarmaka, ECT og nevrostimulering.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Psykofarmaka', 'Antidepressiva', 'Antipsykotika', 'ECT'], competenceGoals: ['gjøre rede for behandlingsformer'] },
+    { id: 'psykologi-2-5-4', number: '5.4', title: 'Psykisk helsevern i Norge', description: 'Helsetjenester, DPS, pasientrettigheter og tvungent helsevern.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Helsevern', 'DPS', 'Pasientrettigheter', 'Tvang'], competenceGoals: ['gjøre rede for behandlingsformer'] },
+    { id: 'psykologi-2-5-5', number: '5.5', title: 'Evaluering av behandlingsmetoder', description: 'Evidensbasert praksis, RCT, fellesfaktorer og kulturell sensitivitet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Evidensbasert', 'RCT', 'Fellesfaktorer', 'Dodo bird'], competenceGoals: ['vurdere behandlingsformer'] },
+    // Seksjon 6: Biologisk, psykologisk og sosial helse (6.1-6.5)
+    { id: 'psykologi-2-6-1', number: '6.1', title: 'Den biopsykososiale modellen', description: 'Biologiske, psykologiske og sosiale faktorer i helse.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Biopsykososial', 'Helsemodell', 'Risikofaktorer'], competenceGoals: ['drøfte helseatferd'] },
+    { id: 'psykologi-2-6-2', number: '6.2', title: 'Stress, mestring og helse', description: 'Stressmodeller, coping-strategier og helsekonsekvenser.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Stress', 'Mestring', 'Lazarus', 'Allostase'], competenceGoals: ['drøfte helseatferd'] },
+    { id: 'psykologi-2-6-3', number: '6.3', title: 'Positiv psykologi og velvære', description: 'Seligmans PERMA-modell, flow og karakterstyrker.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Positiv psykologi', 'PERMA', 'Flow', 'Styrker'], competenceGoals: ['beskrive positiv psykologi'] },
+    { id: 'psykologi-2-6-4', number: '6.4', title: 'Livsstil og psykisk helse', description: 'Søvn, fysisk aktivitet, ernæring og skjermbruk.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Søvn', 'Fysisk aktivitet', 'Ernæring', 'Skjermbruk'], competenceGoals: ['drøfte helseatferd'] },
+    { id: 'psykologi-2-6-5', number: '6.5', title: 'Helsefremmende arbeid og forebygging', description: 'Ottawa-charteret, salutogenese og folkehelsearbeid.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Helsefremmende', 'Salutogenese', 'Antonovsky', 'Folkehelse'], competenceGoals: ['drøfte helseatferd'] },
+    // Seksjon 7: Forskningsmetode og vitenskapelig tilnærming (7.1-7.5)
+    { id: 'psykologi-2-7-1', number: '7.1', title: 'Kvantitative forskningsmetoder', description: 'Eksperimenter, surveys, korrelasjonsstudier og statistikk.', estimatedMinutes: 60, exerciseCount: 7, topics: ['Kvantitativ', 'Eksperiment', 'Survey', 'Statistikk'], competenceGoals: ['vurdere psykologisk forskning'] },
+    { id: 'psykologi-2-7-2', number: '7.2', title: 'Kvalitative forskningsmetoder', description: 'Intervju, observasjon, fenomenologi og grounded theory.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kvalitativ', 'Intervju', 'Observasjon', 'Fenomenologi'], competenceGoals: ['vurdere psykologisk forskning'] },
+    { id: 'psykologi-2-7-3', number: '7.3', title: 'Forskningsetikk', description: 'Etiske prinsipper, informert samtykke og REK.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Forskningsetikk', 'Informert samtykke', 'REK', 'Helsinki-erklæringen'], competenceGoals: ['vurdere psykologisk forskning'] },
+    { id: 'psykologi-2-7-4', number: '7.4', title: 'Kritisk tenkning og kildekritikk', description: 'Validitet, reliabilitet, replikasjonskrise og pseudovitenskap.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kritisk tenkning', 'Validitet', 'Reliabilitet', 'Pseudovitenskap'], competenceGoals: ['vurdere psykologisk forskning'] },
+    { id: 'psykologi-2-7-5', number: '7.5', title: 'Tverrfaglige perspektiver og forskningsdesign', description: 'Mixed methods, longitudinelle studier og nevrometoder.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Mixed methods', 'Longitudinell', 'fMRI', 'Forskningsdesign'], competenceGoals: ['vurdere psykologisk forskning'] },
+    // Seksjon 8: Perspektiver og anvendelser (8.1-8.5)
+    { id: 'psykologi-2-8-1', number: '8.1', title: 'Psykologiske perspektiver i sammenligning', description: 'Biologisk, kognitivt, psykodynamisk, humanistisk og sosiokulturelt perspektiv.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Perspektiver', 'Biologisk', 'Kognitiv', 'Humanistisk'], competenceGoals: ['sammenligne psykologiske perspektiver'] },
+    { id: 'psykologi-2-8-2', number: '8.2', title: 'Arbeids- og organisasjonspsykologi', description: 'Arbeidsmotivasjon, ledelse og organisasjonskultur.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Arbeidsmotivasjon', 'Herzberg', 'Ledelse', 'Organisasjonskultur'], competenceGoals: ['anvende psykologi i arbeidslivet'] },
+    { id: 'psykologi-2-8-3', number: '8.3', title: 'Kultur og psykologi', description: 'Kulturell påvirkning, individualistiske vs. kollektivistiske kulturer.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Kultur', 'Individualisme', 'Kollektivisme', 'Tverrkulturell'], competenceGoals: ['drøfte kulturell påvirkning'] },
+    { id: 'psykologi-2-8-4', number: '8.4', title: 'Helsepsykologi og klinisk praksis', description: 'Klinisk vs. helsepsykologi, psykologisk utredning og terapeutisk allianse.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Helsepsykologi', 'Klinisk', 'Terapeutisk allianse', 'Utredning'], competenceGoals: ['gjøre rede for behandlingsformer'] },
+    { id: 'psykologi-2-8-5', number: '8.5', title: 'Psykologiens samfunnsbidrag og fremtid', description: 'Psykologi i utdanning, rettsvesen, miljø og fremtidige retninger.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Rettspsykologi', 'Miljøpsykologi', 'AI', 'Fremtid'], competenceGoals: ['reflektere over fagets utvikling'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_GEOFAG_1: TextbookCourse = {
+  id: 'geofag-1',
+  title: 'Geofag 1',
+  level: 'VG2',
+  description: 'Geofag 1 - jordens oppbygging, platetektonikk, klima og landformer',
+  curriculum: 'LK20',
+  icon: '🌍',
+  coverImage: '/images/textbook-covers/geofag-1-hero.png',
+  chapters: [
+    // Del 1: Jordens system og sfærer
+    { id: 'geofag-1-1-1', number: '1.1', title: 'Introduksjon til jordsystemet', description: 'Jorden som system og sfærene.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Jordsystem', 'Sfærer'], competenceGoals: ['beskrive jordens oppbygging'] },
+    { id: 'geofag-1-1-2', number: '1.2', title: 'Jordens indre oppbygging', description: 'Skorpe, mantel og kjerne.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Skorpe', 'Mantel', 'Kjerne'], competenceGoals: ['forklare jordens lagdeling'] },
+    { id: 'geofag-1-1-3', number: '1.3', title: 'De fire hovedsfærene', description: 'Geosfære, hydrosfære, atmosfære og biosfære.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Geosfære', 'Hydrosfære', 'Atmosfære', 'Biosfære'], competenceGoals: ['beskrive sfærene'] },
+    { id: 'geofag-1-1-4', number: '1.4', title: 'Samspillet mellom sfærene', description: 'Hvordan sfærene påvirker hverandre.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Sfæresamspill', 'Kretsløp'], competenceGoals: ['forklare samspill mellom sfærer'] },
+    { id: 'geofag-1-1-5', number: '1.5', title: 'Energiflyt i jordsystemet', description: 'Solenergi og indre varme.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Energiflyt', 'Solenergi', 'Geotermisk'], competenceGoals: ['gjøre rede for energiflyt'] },
+    // Del 2: Bergarter og mineraler
+    { id: 'geofag-1-2-1', number: '2.1', title: 'Mineraler og mineralidentifikasjon', description: 'Mineralenes egenskaper og identifikasjon.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Mineraler', 'Identifikasjon', 'Egenskaper'], competenceGoals: ['identifisere mineraler'] },
+    { id: 'geofag-1-2-2', number: '2.2', title: 'Magmatiske bergarter', description: 'Dypbergarter og dagbergarter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Magmatiske', 'Granitt', 'Basalt'], competenceGoals: ['klassifisere magmatiske bergarter'] },
+    { id: 'geofag-1-2-3', number: '2.3', title: 'Sedimentære bergarter', description: 'Klastiske, kjemiske og biogene.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Sedimentære', 'Sandstein', 'Kalkstein'], competenceGoals: ['forklare sedimentær dannelse'] },
+    { id: 'geofag-1-2-4', number: '2.4', title: 'Metamorfe bergarter', description: 'Omdanning ved trykk og varme.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Metamorfe', 'Gneis', 'Marmor'], competenceGoals: ['beskrive metamorfose'] },
+    { id: 'geofag-1-2-5', number: '2.5', title: 'Bergartskretsløpet', description: 'Sammenheng mellom bergarttyper.', estimatedMinutes: 15, exerciseCount: 5, topics: ['Bergartskretsløp', 'Omdanning'], competenceGoals: ['forklare bergartskretsløpet'] },
+    // Del 3: Platetektonikk
+    { id: 'geofag-1-3-1', number: '3.1', title: 'Teorien om kontinentaldrift', description: 'Wegeners teori og bevisene.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Kontinentaldrift', 'Wegener', 'Pangea'], competenceGoals: ['gjøre rede for kontinentaldrift'] },
+    { id: 'geofag-1-3-2', number: '3.2', title: 'Tektoniske plater', description: 'Litosfæreplater og bevegelse.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Tektoniske plater', 'Litosfære'], competenceGoals: ['beskrive tektoniske plater'] },
+    { id: 'geofag-1-3-3', number: '3.3', title: 'Divergerende plategrenser', description: 'Spredningsrygger og rifter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Divergerende', 'Spredningsrygg', 'Rift'], competenceGoals: ['forklare divergerende grenser'] },
+    { id: 'geofag-1-3-4', number: '3.4', title: 'Konvergerende plategrenser og subduksjon', description: 'Kollisjon og subduksjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Konvergerende', 'Subduksjon', 'Fjellkjeder'], competenceGoals: ['beskrive subduksjon'] },
+    { id: 'geofag-1-3-5', number: '3.5', title: 'Transform grenser og drivkrefter', description: 'Sidelengs bevegelse og drivkrefter.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Transform', 'Drivkrefter', 'Mantelkonveksjon'], competenceGoals: ['forklare drivkrefter'] },
+    // Del 4: Vulkaner og jordskjelv
+    { id: 'geofag-1-4-1', number: '4.1', title: 'Vulkanenes oppbygging og typer', description: 'Vulkantyper og struktur.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Vulkantyper', 'Skjoldvulkan', 'Stratovulkan'], competenceGoals: ['beskrive vulkantyper'] },
+    { id: 'geofag-1-4-2', number: '4.2', title: 'Vulkansk aktivitet og utbrudd', description: 'Utbruddstyper og produkter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Utbrudd', 'Lava', 'Pyroklastisk'], competenceGoals: ['forklare vulkansk aktivitet'] },
+    { id: 'geofag-1-4-3', number: '4.3', title: 'Jordskjelv og seismiske bølger', description: 'Årsaker og bølgetyper.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Jordskjelv', 'Seismiske bølger', 'Magnitud'], competenceGoals: ['forklare jordskjelv'] },
+    { id: 'geofag-1-4-4', number: '4.4', title: 'Tsunamier', description: 'Dannelse og varsling.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Tsunami', 'Varsling', 'Sikkerhet'], competenceGoals: ['beskrive tsunamier'] },
+    { id: 'geofag-1-4-5', number: '4.5', title: 'Ildringen og naturfare', description: 'Risikovurdering og beredskap.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Ildringen', 'Naturfare', 'Risiko'], competenceGoals: ['vurdere naturfare'] },
+    // Del 5: Forvitring og erosjon
+    { id: 'geofag-1-5-1', number: '5.1', title: 'Fysisk forvitring', description: 'Frostsprengning og temperaturforvitring.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Fysisk forvitring', 'Frostsprengning'], competenceGoals: ['beskrive fysisk forvitring'] },
+    { id: 'geofag-1-5-2', number: '5.2', title: 'Kjemisk forvitring', description: 'Oppløsning og hydrolyse.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Kjemisk forvitring', 'Karst'], competenceGoals: ['forklare kjemisk forvitring'] },
+    { id: 'geofag-1-5-3', number: '5.3', title: 'Biologisk forvitring', description: 'Planteroeter og organismer.', estimatedMinutes: 18, exerciseCount: 5, topics: ['Biologisk forvitring', 'Rotsprengning'], competenceGoals: ['beskrive biologisk forvitring'] },
+    { id: 'geofag-1-5-4', number: '5.4', title: 'Erosjon og sedimenttransport', description: 'Transport av løsmasser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Erosjon', 'Transport', 'Avsetning'], competenceGoals: ['forklare erosjonsprosesser'] },
+    // Del 6: Landformer og landskapsutvikling
+    { id: 'geofag-1-6-1', number: '6.1', title: 'Glasiale erosjonsformer', description: 'Botner, U-daler og fjorder.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Glasial erosjon', 'Botn', 'Fjord'], competenceGoals: ['identifisere glasiale erosjonsformer'] },
+    { id: 'geofag-1-6-2', number: '6.2', title: 'Glasiale avsetningsformer', description: 'Morener og eskere.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Morene', 'Esker', 'Drumlin'], competenceGoals: ['forklare glasiale avsetninger'] },
+    { id: 'geofag-1-6-3', number: '6.3', title: 'Fluviale landformer', description: 'Elvedaler og deltaer.', estimatedMinutes: 20, exerciseCount: 4, topics: ['V-dal', 'Meander', 'Delta'], competenceGoals: ['beskrive fluviale landformer'] },
+    { id: 'geofag-1-6-4', number: '6.4', title: 'Marine og eoliske landformer', description: 'Kystformer og sanddyner.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Kyst', 'Sanddyner', 'Strandflate'], competenceGoals: ['identifisere marine landformer'] },
+    { id: 'geofag-1-6-5', number: '6.5', title: 'Norges landskapsutvikling', description: 'Fra istid til i dag.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Norsk landskap', 'Istid', 'Landhevning'], competenceGoals: ['gjøre rede for Norges landskapsutvikling'] },
+    // Del 7: Klima og klimasoner
+    { id: 'geofag-1-7-1', number: '7.1', title: 'Klimafaktorer', description: 'Breddegrad, høyde og hav.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Klimafaktorer', 'Breddegrad', 'Havstrømmer'], competenceGoals: ['forklare klimafaktorer'] },
+    { id: 'geofag-1-7-2', number: '7.2', title: 'Jordens energibalanse', description: 'Innstråling og drivhuseffekt.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Energibalanse', 'Albedo', 'Drivhuseffekt'], competenceGoals: ['beskrive energibalansen'] },
+    { id: 'geofag-1-7-3', number: '7.3', title: 'Klimasoner', description: 'Tropisk, temperert og polar.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Klimasoner', 'Köppen', 'Vegetasjon'], competenceGoals: ['klassifisere klimasoner'] },
+    { id: 'geofag-1-7-4', number: '7.4', title: 'Naturlige klimavariasjoner', description: 'Milankovitch og istider.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Milankovitch', 'Istider', 'El Niño'], competenceGoals: ['forklare naturlige klimavariasjoner'] },
+    { id: 'geofag-1-7-5', number: '7.5', title: 'Norges klima', description: 'Golfstrømmen og regioner.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Norges klima', 'Golfstrømmen', 'Regnskygge'], competenceGoals: ['beskrive Norges klimaregioner'] },
+    // Del 8: Vær og værsystemer
+    { id: 'geofag-1-8-1', number: '8.1', title: 'Atmosfærens oppbygging', description: 'Troposfære og stratosfære.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Atmosfærelag', 'Troposfære', 'Ozon'], competenceGoals: ['beskrive atmosfærens lagdeling'] },
+    { id: 'geofag-1-8-2', number: '8.2', title: 'Lufttrykk og vind', description: 'Trykksystemer og Coriolis.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Lufttrykk', 'Vind', 'Corioliseffekt'], competenceGoals: ['forklare vind og trykk'] },
+    { id: 'geofag-1-8-3', number: '8.3', title: 'Skyer og nedbør', description: 'Skydannelse og nedbørstyper.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Skyer', 'Nedbør', 'Kondensasjon'], competenceGoals: ['beskrive skydannelse'] },
+    { id: 'geofag-1-8-4', number: '8.4', title: 'Fronter og lavtrykk', description: 'Varm- og kaldfronter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fronter', 'Lavtrykk', 'Okklusjon'], competenceGoals: ['forklare frontsystemer'] },
+    { id: 'geofag-1-8-5', number: '8.5', title: 'Værvarsling og værkart', description: 'Observasjoner og modeller.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Værvarsling', 'Værkart', 'Symboler'], competenceGoals: ['tolke værkart'] },
+    // Del 9: Hydrologi og vannkretsløpet
+    { id: 'geofag-1-9-1', number: '9.1', title: 'Vannkretsløpet', description: 'Fordampning, nedbør og avrenning.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Vannkretsløp', 'Fordampning', 'Nedbør'], competenceGoals: ['beskrive vannkretsløpet'] },
+    { id: 'geofag-1-9-2', number: '9.2', title: 'Grunnvann og akviferer', description: 'Porøsitet og permeabilitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Grunnvann', 'Akvifer', 'Permeabilitet'], competenceGoals: ['forklare grunnvannsdannelse'] },
+    { id: 'geofag-1-9-3', number: '9.3', title: 'Elver og innsjøer', description: 'Vannføring og nedbørfelt.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Elver', 'Innsjøer', 'Vannføring'], competenceGoals: ['beskrive elveprosesser'] },
+    { id: 'geofag-1-9-4', number: '9.4', title: 'Vannressurser og bærekraft', description: 'Forvaltning og forurensning.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Vannressurser', 'Forurensning', 'Bærekraft'], competenceGoals: ['vurdere vannressursforvaltning'] },
+    // Del 10: Geofaglige undersøkelser
+    { id: 'geofag-1-10-1', number: '10.1', title: 'Vitenskapelig metode i geofag', description: 'Hypotese og datainnsamling.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Vitenskapelig metode', 'Hypotese'], competenceGoals: ['anvende vitenskapelig metode'] },
+    { id: 'geofag-1-10-2', number: '10.2', title: 'Feltarbeid og datainnsamling', description: 'Utstyr og teknikker.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Feltarbeid', 'Prøvetaking', 'Sikkerhet'], competenceGoals: ['planlegge feltarbeid'] },
+    { id: 'geofag-1-10-3', number: '10.3', title: 'Kart og kartanalyse', description: 'Topografiske og geologiske kart.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Kart', 'Høydekurver', 'Målestokk'], competenceGoals: ['analysere kart'] },
+    { id: 'geofag-1-10-4', number: '10.4', title: 'GIS og digitale verktøy', description: 'Geografiske informasjonssystemer.', estimatedMinutes: 20, exerciseCount: 4, topics: ['GIS', 'Geodata', 'Analyse'], competenceGoals: ['bruke digitale verktøy'] },
+    { id: 'geofag-1-10-5', number: '10.5', title: 'Rapportering og formidling', description: 'Rapportskriving og presentasjon.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Rapportering', 'Formidling', 'Kilder'], competenceGoals: ['formidle geofaglig kunnskap'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_GEOFAG_2: TextbookCourse = {
+  id: 'geofag-2',
+  title: 'Geofag 2',
+  level: 'VG3',
+  description: 'Geofag 2 - jordsystemer, atmosfære, hav, klima, energi og naturfare',
+  curriculum: 'LK20',
+  icon: '🗺️',
+  coverImage: '/images/textbook-covers/geofag-2-hero.png',
+  chapters: [
+    // Seksjon 1: Jordsystemene
+    { id: 'geofag-2-1-1', number: '1.1', title: 'Jordens sfærer og systemer', description: 'Jordens fem sfærer og deres vekselvirkninger som et integrert system.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Geosfære', 'Hydrosfære', 'Atmosfære', 'Kryosfære', 'Biosfære'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-1-2', number: '1.2', title: 'Geosfæren – berggrunn og indre prosesser', description: 'Jordens indre oppbygging, platetektonikk, vulkanisme og jordskjelv.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Jordens indre', 'Platetektonikk', 'Vulkanisme', 'Jordskjelv'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-1-3', number: '1.3', title: 'Hydrosfæren – vann i bevegelse', description: 'Vannkretsløpet, ferskvann, grunnvann og havsirkulasjon.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Vannkretsløp', 'Grunnvann', 'Akvifer', 'Havstrømmer'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-1-4', number: '1.4', title: 'Atmosfæren – lufthavet', description: 'Atmosfærens sammensetning, lagdeling og rolle i klimaregulering.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Atmosfærelag', 'Drivhuseffekt', 'Stråling'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-1-5', number: '1.5', title: 'Kryosfæren og biosfæren', description: 'Is, permafrost, biosfæren og karbonkretsløpet mellom systemene.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Kryosfære', 'Biosfære', 'Karbonkretsløp', 'Tilbakekobling'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    // Seksjon 2: Stråling og atmosfæren
+    { id: 'geofag-2-2-1', number: '2.1', title: 'Solstråling og strålingsbalanse', description: 'Solstråling, det elektromagnetiske spekteret, energibudsjett og albedo.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Solstråling', 'Albedo', 'Energibudsjett'], competenceGoals: ['gjøre rede for strålingsbalanse og strålingspådriv'] },
+    { id: 'geofag-2-2-2', number: '2.2', title: 'Drivhuseffekten og strålingspådriv', description: 'Drivhuseffekten, drivhusgasser og strålingspådriv.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Drivhuseffekt', 'Drivhusgasser', 'Strålingspådriv'], competenceGoals: ['gjøre rede for strålingsbalanse og strålingspådriv'] },
+    { id: 'geofag-2-2-3', number: '2.3', title: 'Strålingsfordeling og årstider', description: 'Solvinkel, breddegrad, årstider og strålingsvariasjon.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Solvinkel', 'Årstider', 'Breddegrad'], competenceGoals: ['gjøre rede for strålingsbalanse og strålingsfordeling'] },
+    { id: 'geofag-2-2-4', number: '2.4', title: 'Trykkforskjeller og global sirkulasjon', description: 'Atmosfærisk trykk, trykkgradientkraft, Hadley-, Ferrel- og polarceller.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Atmosfærisk trykk', 'Global sirkulasjon', 'Hadley-celle'], competenceGoals: ['forklare konsekvensene av jordens rotasjon og trykkforskjeller'] },
+    { id: 'geofag-2-2-5', number: '2.5', title: 'Vind og Coriolis-effekten', description: 'Corioliseffekten, geostrofisk vind, passatvinder og jetstrømmer.', estimatedMinutes: 20, exerciseCount: 8, topics: ['Corioliseffekt', 'Geostrofisk vind', 'Jetstrøm', 'Monsun'], competenceGoals: ['forklare konsekvensene av jordens rotasjon og trykkforskjeller'] },
+    // Seksjon 3: Vær og værsystemer
+    { id: 'geofag-2-3-1', number: '3.1', title: 'Skyer og nedbør', description: 'Skydannelse, skytyper, nedbørmekanismer og stabilitet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Skyer', 'Nedbør', 'Stabilitet'], competenceGoals: ['forklare hvordan ulike værsystemer oppstår'] },
+    { id: 'geofag-2-3-2', number: '3.2', title: 'Luftmasser og fronter', description: 'Luftmassetyper, varme, kalde og okkluderte fronter.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Luftmasser', 'Fronter', 'Frontvær'], competenceGoals: ['forklare hvordan ulike værsystemer oppstår'] },
+    { id: 'geofag-2-3-3', number: '3.3', title: 'Lavtrykk og høytrykk', description: 'Syklonutvikling, antisykloner og polarfrontteorien.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Lavtrykk', 'Høytrykk', 'Polarfrontteori', 'Værkart'], competenceGoals: ['forklare hvordan ulike værsystemer oppstår og tolke værkart'] },
+    { id: 'geofag-2-3-4', number: '3.4', title: 'Lokale værsystemer', description: 'Sjø-/landbrisen, føhneffekt, tordenvær og orografisk nedbør.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Sjøbris', 'Føhneffekt', 'Tordenvær', 'Orografisk nedbør'], competenceGoals: ['forklare værsystemer på lokal skala'] },
+    { id: 'geofag-2-3-5', number: '3.5', title: 'Numeriske værmodeller', description: 'Hvordan numeriske værmodeller fungerer, ensemblevarsling og NWP.', estimatedMinutes: 20, exerciseCount: 7, topics: ['NWP', 'Ensemblevarsling', 'Værmodell'], competenceGoals: ['forklare hvordan numeriske modeller i geofag er bygd opp og brukes'] },
+    // Seksjon 4: Klimasystemet
+    { id: 'geofag-2-4-1', number: '4.1', title: 'Hva er klima?', description: 'Forskjellen mellom vær og klima, Köppen-klassifisering og klimasoner.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Klima', 'Köppen', 'Klimasoner'], competenceGoals: ['forklare klimasystemet på ulike skalaer'] },
+    { id: 'geofag-2-4-2', number: '4.2', title: 'Klimafaktorer', description: 'Breddegrad, høyde, havstrømmer, topografi og kyst- vs. innlandsklima.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Klimafaktorer', 'Havstrømmer', 'Kontinentalitet'], competenceGoals: ['forklare klimasystemet på ulike skalaer'] },
+    { id: 'geofag-2-4-3', number: '4.3', title: 'Karbonkretsløpet', description: 'Karbonsyklusen, reservoarer, flukser og korttids-/langtidskretsløp.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Karbonkretsløp', 'Reservoar', 'Fluks'], competenceGoals: ['forklare klimasystemet på ulike skalaer'] },
+    { id: 'geofag-2-4-4', number: '4.4', title: 'Naturlige klimavariasjoner', description: 'Milankovitch-sykler, vulkanutbrudd, solvariasjoner, ENSO og NAO.', estimatedMinutes: 22, exerciseCount: 7, topics: ['Milankovitch', 'ENSO', 'NAO', 'Vulkaner'], competenceGoals: ['forklare klimasystemet på ulike skalaer i tid og rom'] },
+    { id: 'geofag-2-4-5', number: '4.5', title: 'Menneskeskapt klimapåvirkning', description: 'Antropogene utslipp, tilbakekoblinger, vippepunkter og IPCC.', estimatedMinutes: 22, exerciseCount: 8, topics: ['Klimagassutslipp', 'Vippepunkter', 'IPCC'], competenceGoals: ['vurdere antropogen klimapåvirkning'] },
+    // Seksjon 5: Paleoklima og klimaendringer
+    { id: 'geofag-2-5-1', number: '5.1', title: 'Paleoklimatologi – metoder og kilder', description: 'Iskjerner, sedimentkjerner, treringer, pollenanalyse og isotopanalyse.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Iskjerner', 'Proxydata', 'δ18O'], competenceGoals: ['forklare paleoklimatisk forskning'] },
+    { id: 'geofag-2-5-2', number: '5.2', title: 'Klimahistorie', description: 'Snøballjorda, varmeperioder, istider og holocen.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Snøballjorda', 'Istider', 'Holocen'], competenceGoals: ['forklare paleoklimatisk forskning'] },
+    { id: 'geofag-2-5-3', number: '5.3', title: 'Konsekvenser av klimaendringer', description: 'Havnivåstigning, ekstremvær, økosystemendringer og havforsuring.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Havnivå', 'Ekstremvær', 'Havforsuring'], competenceGoals: ['drøfte konsekvenser av klimaendringer'] },
+    { id: 'geofag-2-5-4', number: '5.4', title: 'Klimatilpasning', description: 'Tilpasningsstrategier, sårbarhet, resiliens og Norges tilpasning.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Tilpasning', 'Sårbarhet', 'Resiliens'], competenceGoals: ['vurdere bærekraftige løsninger for tilpasning'] },
+    { id: 'geofag-2-5-5', number: '5.5', title: 'Klimapolitikk og bærekraft', description: 'Parisavtalen, IPCC, utslippsreduksjon og klimarettferdighet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Parisavtalen', 'IPCC', 'Karbonfangst'], competenceGoals: ['vurdere bærekraftige løsninger for tilpasning'] },
+    // Seksjon 6: Hav og kryosfære
+    { id: 'geofag-2-6-1', number: '6.1', title: 'Havets egenskaper', description: 'Salinitet, temperatur, tetthet og termohaline egenskaper.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Salinitet', 'Tetthet', 'Vannmasser'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-6-2', number: '6.2', title: 'Havsirkulasjon', description: 'Vinddrevne strømmer, termohalin sirkulasjon (AMOC) og oppstrømning.', estimatedMinutes: 22, exerciseCount: 6, topics: ['AMOC', 'Ekman-transport', 'Oppstrømning'], competenceGoals: ['forklare konsekvensene av jordens rotasjon og tetthetsforskjeller'] },
+    { id: 'geofag-2-6-3', number: '6.3', title: 'Isbreer og innlandsis', description: 'Bredannelse, massebalanse, Grønland og Antarktis.', estimatedMinutes: 22, exerciseCount: 7, topics: ['Isbreer', 'Massebalanse', 'Innlandsis'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-6-4', number: '6.4', title: 'Havis og permafrost', description: 'Havisdannelse, arktisk vs. antarktisk havis og permafrost.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Havis', 'Permafrost', 'Is-albedo'], competenceGoals: ['gjøre rede for vekselvirkninger mellom jordsystemene'] },
+    { id: 'geofag-2-6-5', number: '6.5', title: 'Havnivåendringer', description: 'Eustatiske og isostatiske endringer, termisk ekspansjon og projeksjoner.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Havnivå', 'Termisk ekspansjon', 'Isostasi'], competenceGoals: ['drøfte konsekvenser av klimaendringer'] },
+    // Seksjon 7: Energi og ressurser
+    { id: 'geofag-2-7-1', number: '7.1', title: 'Fossile energikilder', description: 'Olje, gass og kull: dannelse, petroleumsgeologi og CO₂-utslipp.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Olje', 'Gass', 'Kull', 'Petroleumsgeologi'], competenceGoals: ['drøfte bærekraftig utnytting av energiressurser'] },
+    { id: 'geofag-2-7-2', number: '7.2', title: 'Havenergi', description: 'Havvind, tidevannsenergi, bølgekraft og havtermisk energi.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Havvind', 'Tidevannsenergi', 'Bølgekraft'], competenceGoals: ['drøfte bærekraftig utnytting av energiressurser fra hav'] },
+    { id: 'geofag-2-7-3', number: '7.3', title: 'Atmosfærisk energi', description: 'Vindkraft, solenergi og geotermisk energi.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Vindkraft', 'Solenergi', 'Geotermisk'], competenceGoals: ['drøfte bærekraftig utnytting av energiressurser fra atmosfæren'] },
+    { id: 'geofag-2-7-4', number: '7.4', title: 'Norges energiressurser', description: 'Vannkraft, petroleum, energiomstilling og kontinentalsokkelen.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Vannkraft', 'Petroleum', 'Energiomstilling'], competenceGoals: ['drøfte bærekraftig utnytting av energiressurser nasjonalt'] },
+    { id: 'geofag-2-7-5', number: '7.5', title: 'Bærekraftig ressursforvaltning', description: 'Sirkulær økonomi, kritiske mineraler og fremtidens energimiks.', estimatedMinutes: 20, exerciseCount: 8, topics: ['Bærekraft', 'Sirkulær økonomi', 'Kritiske mineraler'], competenceGoals: ['drøfte bærekraftig utnytting av energiressurser'] },
+    // Seksjon 8: Feltarbeid og naturfare
+    { id: 'geofag-2-8-1', number: '8.1', title: 'Geofaglig feltarbeid', description: 'Planlegging, gjennomføring og sikkerhet ved feltarbeid.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Feltarbeid', 'Datainnsamling', 'Sikkerhet'], competenceGoals: ['gjennomføre geofaglig feltarbeid'] },
+    { id: 'geofag-2-8-2', number: '8.2', title: 'Databehandling og analyse', description: 'Statistikk, GIS, grafisk fremstilling og feilanalyse.', estimatedMinutes: 20, exerciseCount: 7, topics: ['GIS', 'Statistikk', 'Feilanalyse'], competenceGoals: ['bearbeide data og presentere resultater'] },
+    { id: 'geofag-2-8-3', number: '8.3', title: 'Naturfare fra atmosfæren', description: 'Stormer, flom, tørke, hetebølger og risikovurdering.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Storm', 'Flom', 'Tørke', 'Hetebølge'], competenceGoals: ['vurdere risiko ved atmosfæriske fenomener'] },
+    { id: 'geofag-2-8-4', number: '8.4', title: 'Naturfare fra hav og kryosfære', description: 'Stormflo, tsunami, snøskred, jøkulhlaup og skred.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Stormflo', 'Tsunami', 'Snøskred', 'Jøkulhlaup'], competenceGoals: ['vurdere risiko ved oseanografiske og kryosfæriske fenomener'] },
+    { id: 'geofag-2-8-5', number: '8.5', title: 'Risikovurdering og beredskap', description: 'Risiko = fare × sårbarhet, varslingssystemer og klimatilpasning.', estimatedMinutes: 20, exerciseCount: 8, topics: ['Risikovurdering', 'Beredskap', 'Varsling'], competenceGoals: ['drøfte hvordan klimaendringer påvirker naturfarer'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_TOF_1: TextbookCourse = {
+  id: 'tof-1',
+  title: 'Teknologi og forskningslære 1',
+  level: 'VG2',
+  description: 'ToF 1 - vitenskapelig metode, elektronikk, programmering og innovasjon',
+  curriculum: 'LK20',
+  icon: '⚙️',
+  coverImage: '/images/subjects/tof-1-hero.webp',
+  chapters: [
+    // Seksjon 1: Vitenskapelig metode
+    { id: 'tof-1-1-1', number: '1.1', title: 'Hva er vitenskap?', description: 'Vitenskapens kjennetegn, naturvitenskap vs. humaniora, og vitenskapens rolle i samfunnet.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Vitenskap', 'Naturvitenskap', 'Kunnskap'], competenceGoals: ['gjøre rede for hva som kjennetegner vitenskap'] },
+    { id: 'tof-1-1-2', number: '1.2', title: 'Naturvitenskapelig metode', description: 'Den hypotetisk-deduktive metoden, induktiv og deduktiv tilnærming.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Hypotetisk-deduktiv metode', 'Induksjon', 'Deduksjon', 'Karl Popper'], competenceGoals: ['gjøre rede for vitenskapelig metode'] },
+    { id: 'tof-1-1-3', number: '1.3', title: 'Hypoteser og variabler', description: 'Formulering av hypoteser, uavhengige, avhengige og kontrollerte variabler.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Hypotese', 'Variabler', 'Kontrollgruppe', 'Falsifisering'], competenceGoals: ['formulere hypoteser og identifisere variabler'] },
+    { id: 'tof-1-1-4', number: '1.4', title: 'Eksperimentdesign', description: 'Planlegging av forsøk, kontrollgrupper, blindforsøk og replikasjon.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Eksperimentdesign', 'Kontrollgruppe', 'Blindforsøk', 'Replikasjon'], competenceGoals: ['planlegge og gjennomføre eksperimenter'] },
+    { id: 'tof-1-1-5', number: '1.5', title: 'Observasjon og feltarbeid', description: 'Systematisk observasjon, feltarbeid og kvalitative metoder.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Observasjon', 'Feltarbeid', 'Kvalitativ metode'], competenceGoals: ['gjennomføre systematiske observasjoner'] },
+    { id: 'tof-1-1-6', number: '1.6', title: 'Validitet og reliabilitet', description: 'Intern og ekstern validitet, reliabilitet og feilkilder.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Validitet', 'Reliabilitet', 'Feilkilder', 'Systematiske feil'], competenceGoals: ['vurdere validitet og reliabilitet'] },
+    { id: 'tof-1-1-7', number: '1.7', title: 'Etikk i forskning', description: 'Forskningsetikk, informert samtykke, plagiering og akademisk redelighet.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Forskningsetikk', 'Samtykke', 'Plagiat', 'Redelighet'], competenceGoals: ['drøfte etiske problemstillinger i forskning'] },
+    { id: 'tof-1-1-8', number: '1.8', title: 'Vitenskapelig rapportering', description: 'IMRaD-struktur, kildehenvisning og akademisk skriving.', estimatedMinutes: 30, exerciseCount: 5, topics: ['IMRaD', 'Kildehenvisning', 'APA', 'Rapportskriving'], competenceGoals: ['skrive vitenskapelige rapporter'] },
+    // Seksjon 2: Data og analyse
+    { id: 'tof-1-2-1', number: '2.1', title: 'Datainnsamlingsmetoder', description: 'Kvantitative og kvalitative metoder, spørreundersøkelser og intervju.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Datainnsamling', 'Kvantitativ', 'Kvalitativ', 'Spørreundersøkelse'], competenceGoals: ['velge egnede datainnsamlingsmetoder'] },
+    { id: 'tof-1-2-2', number: '2.2', title: 'Statistiske mål', description: 'Gjennomsnitt, median, modus, standardavvik og varians.', estimatedMinutes: 35, exerciseCount: 6, topics: ['Gjennomsnitt', 'Median', 'Standardavvik', 'Varians'], competenceGoals: ['beregne og tolke statistiske mål'] },
+    { id: 'tof-1-2-3', number: '2.3', title: 'Grafisk fremstilling', description: 'Histogram, søylediagram, sektordiagram og linjediagram.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Histogram', 'Diagram', 'Grafisk fremstilling'], competenceGoals: ['fremstille data grafisk'] },
+    { id: 'tof-1-2-4', number: '2.4', title: 'Normalfordeling og usikkerhet', description: 'Normalfordelingskurven, konfidensintervall og måleusikkerhet.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Normalfordeling', 'Usikkerhet', 'Konfidensintervall'], competenceGoals: ['vurdere usikkerhet i målinger'] },
+    { id: 'tof-1-2-5', number: '2.5', title: 'Korrelasjon og regresjon', description: 'Korrelasjon, regresjonsanalyse og bestemmelseskoeffisient.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Korrelasjon', 'Regresjon', 'R-kvadrat'], competenceGoals: ['utføre regresjonsanalyse'] },
+    { id: 'tof-1-2-6', number: '2.6', title: 'Regneark og dataverktøy', description: 'Bruk av Excel/Google Sheets og Python for dataanalyse.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Regneark', 'Excel', 'Python', 'Dataverktøy'], competenceGoals: ['bruke digitale verktøy for dataanalyse'] },
+    { id: 'tof-1-2-7', number: '2.7', title: 'Kritisk vurdering av data', description: 'Kildekritikk, feilkilder, bias og manipulering av statistikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Kildekritikk', 'Bias', 'Statistisk manipulering'], competenceGoals: ['vurdere data og resultater kritisk'] },
+    // Seksjon 3: Teknologi og samfunn
+    { id: 'tof-1-3-1', number: '3.1', title: 'Teknologihistorie - de tidlige oppdagelsene', description: 'Hjulet, skrift, metallurgi og tidlige teknologiske gjennombrudd.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Teknologihistorie', 'Tidlige oppfinnelser', 'Metallurgi'], competenceGoals: ['gjøre rede for teknologisk utvikling'] },
+    { id: 'tof-1-3-2', number: '3.2', title: 'Den industrielle revolusjon', description: 'Dampmaskinen, fabrikkene og samfunnsendringene.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Industriell revolusjon', 'Dampmaskin', 'Urbanisering'], competenceGoals: ['beskrive industrialiseringens betydning'] },
+    { id: 'tof-1-3-3', number: '3.3', title: 'Elektrisitet og masseproduksjon', description: 'Den andre industrielle revolusjon, elektrifisering og samlebånd.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Elektrisitet', 'Masseproduksjon', 'Edison', 'Tesla'], competenceGoals: ['beskrive elektrisitetens betydning for samfunnet'] },
+    { id: 'tof-1-3-4', number: '3.4', title: 'Dataalderen og internett', description: 'Datamaskinen, internett og den digitale revolusjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Datamaskinen', 'Internett', 'Digital revolusjon'], competenceGoals: ['gjøre rede for den digitale revolusjonen'] },
+    { id: 'tof-1-3-5', number: '3.5', title: 'Teknologi i dag - AI og Industri 4.0', description: 'Kunstig intelligens, automatisering og fremtidens teknologi.', estimatedMinutes: 30, exerciseCount: 5, topics: ['AI', 'Industri 4.0', 'Automatisering', 'Fremtidsteknologi'], competenceGoals: ['vurdere teknologiens rolle i dagens samfunn'] },
+    { id: 'tof-1-3-6', number: '3.6', title: 'Innovasjon og designtenkning', description: 'Design thinking, kreativitet og innovasjonsprosesser.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Design thinking', 'Innovasjon', 'Kreativitet', 'Empati'], competenceGoals: ['anvende designtenkning i innovasjonsprosesser'] },
+    { id: 'tof-1-3-7', number: '3.7', title: 'Bærekraftig innovasjon', description: 'Teknologi og bærekraft, sirkulær økonomi og FNs bærekraftsmål.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Bærekraft', 'Sirkulær økonomi', 'SDG', 'Grønn teknologi'], competenceGoals: ['vurdere teknologiens rolle i bærekraftig utvikling'] },
+    // Seksjon 4: Elektronikk og kretser
+    { id: 'tof-1-4-1', number: '4.1', title: 'Grunnleggende elektrisitet', description: 'Spenning, strøm, motstand og elektrisk ladning.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Spenning', 'Strøm', 'Motstand', 'Ladning'], competenceGoals: ['forklare grunnleggende elektriske størrelser'] },
+    { id: 'tof-1-4-2', number: '4.2', title: 'Ohms lov og effekt', description: 'Ohms lov, elektrisk effekt og energi i kretser.', estimatedMinutes: 35, exerciseCount: 6, topics: ['Ohms lov', 'Effekt', 'Watt', 'Joule'], competenceGoals: ['beregne spenning, strøm og motstand'] },
+    { id: 'tof-1-4-3', number: '4.3', title: 'Serie- og parallellkoblinger', description: 'Analyse av serie- og parallellkoblede kretser.', estimatedMinutes: 35, exerciseCount: 6, topics: ['Seriekobling', 'Parallellkobling', 'Totalresistans'], competenceGoals: ['analysere serie- og parallellkoblinger'] },
+    { id: 'tof-1-4-4', number: '4.4', title: 'Elektroniske komponenter', description: 'Resistorer, kondensatorer, dioder og transistorer.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Resistor', 'Kondensator', 'Diode', 'Transistor', 'LED'], competenceGoals: ['forklare funksjonen til elektroniske komponenter'] },
+    { id: 'tof-1-4-5', number: '4.5', title: 'Mikrokontrollere og Arduino', description: 'Arduino-plattformen, oppbygning og grunnleggende bruk.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Arduino', 'Mikrokontroller', 'Digitale pinner', 'Analoge pinner'], competenceGoals: ['sette opp og bruke Arduino'] },
+    { id: 'tof-1-4-6', number: '4.6', title: 'Sensorer og målinger', description: 'Temperatursensorer, lyssensorer, avstandssensorer og analoge signaler.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Sensorer', 'Temperatur', 'Lys', 'Avstand', 'Analog-digital'], competenceGoals: ['koble til og lese av sensorer'] },
+    { id: 'tof-1-4-7', number: '4.7', title: 'Aktuatorer og styring', description: 'Motorer, servoer, reléer og styring av fysiske enheter.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Motor', 'Servo', 'Relé', 'PWM', 'Aktuator'], competenceGoals: ['styre aktuatorer med mikrokontroller'] },
+    { id: 'tof-1-4-8', number: '4.8', title: 'Praktiske kretser og prosjekter', description: 'Bygge komplette kretser med sensorer, aktuatorer og mikrokontroller.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Kretskonstruksjon', 'Breadboard', 'Prosjekt', 'Feilsøking'], competenceGoals: ['bygge og feilsøke elektroniske kretser'] },
+    // Seksjon 5: Programmering
+    { id: 'tof-1-5-1', number: '5.1', title: 'Introduksjon til programmering', description: 'Algoritmer, pseudokode, flytdiagram og programmeringsmiljø.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Algoritmer', 'Pseudokode', 'Flytdiagram', 'IDE'], competenceGoals: ['beskrive algoritmer med pseudokode og flytdiagram'] },
+    { id: 'tof-1-5-2', number: '5.2', title: 'Variabler og datatyper', description: 'Variabler, talltyper, strenger og boolske verdier i Python.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Variabler', 'Datatyper', 'Strenger', 'Python'], competenceGoals: ['bruke variabler og datatyper i programmering'] },
+    { id: 'tof-1-5-3', number: '5.3', title: 'Kontrollstrukturer', description: 'If-setninger, for-løkker og while-løkker.', estimatedMinutes: 35, exerciseCount: 6, topics: ['If-setninger', 'For-løkker', 'While-løkker', 'Betingelser'], competenceGoals: ['bruke kontrollstrukturer i programmer'] },
+    { id: 'tof-1-5-4', number: '5.4', title: 'Funksjoner og moduler', description: 'Definere funksjoner, parametre, returverdier og gjenbruk av kode.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Funksjoner', 'Parametre', 'Returverdier', 'Moduler'], competenceGoals: ['strukturere programmer med funksjoner'] },
+    { id: 'tof-1-5-5', number: '5.5', title: 'Arduino-programmering', description: 'C/C++ for Arduino, setup(), loop() og biblioteker.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Arduino-kode', 'setup()', 'loop()', 'Biblioteker'], competenceGoals: ['programmere Arduino-mikrokontrollere'] },
+    { id: 'tof-1-5-6', number: '5.6', title: 'Sensordata og databehandling', description: 'Lese sensordata, filtrering, kalibrering og dataloggging.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Sensordata', 'Filtrering', 'Kalibrering', 'Datalogging'], competenceGoals: ['behandle sensordata i programmer'] },
+    { id: 'tof-1-5-7', number: '5.7', title: 'Styresystemer og regulering', description: 'Åpen og lukket sløyfe, enkel PID-regulering og automatisering.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Styresystem', 'Tilbakekobling', 'PID', 'Regulering'], competenceGoals: ['lage enkle styresystemer med tilbakekobling'] },
+    // Seksjon 6: Energi, materialer og prosjekt
+    { id: 'tof-1-6-1', number: '6.1', title: 'Energiformer og energiloven', description: 'Kinetisk, potensiell, termisk energi og energibevaring.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Energiformer', 'Energibevaring', 'Energiomforming'], competenceGoals: ['forklare energiloven og energiomforming'] },
+    { id: 'tof-1-6-2', number: '6.2', title: 'Fornybare energikilder', description: 'Solenergi, vindkraft, vannkraft og bioenergi.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Solenergi', 'Vindkraft', 'Vannkraft', 'Bioenergi'], competenceGoals: ['vurdere fornybare energikilder'] },
+    { id: 'tof-1-6-3', number: '6.3', title: 'Fossil energi og klimautfordringer', description: 'Fossile brensler, drivhuseffekten og klimaendringer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Fossilt', 'Drivhuseffekt', 'Klima', 'CO2'], competenceGoals: ['drøfte energibruk og klimautfordringer'] },
+    { id: 'tof-1-6-4', number: '6.4', title: 'Virkningsgrad og energieffektivisering', description: 'Beregne virkningsgrad, energitap og energieffektivisering.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Virkningsgrad', 'Energitap', 'Effektivisering'], competenceGoals: ['beregne virkningsgrad i energisystemer'] },
+    { id: 'tof-1-6-5', number: '6.5', title: 'Materialegenskaper', description: 'Styrke, hardhet, elastisitet, tetthet og korrosjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Styrke', 'Hardhet', 'Elastisitet', 'Tetthet', 'Korrosjon'], competenceGoals: ['beskrive materialegenskaper'] },
+    { id: 'tof-1-6-6', number: '6.6', title: 'Materialer i konstruksjon', description: 'Metaller, plast, tre, betong og kompositter i konstruksjoner.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Metaller', 'Plast', 'Tre', 'Betong', 'Kompositt'], competenceGoals: ['velge materialer til konstruksjoner'] },
+    { id: 'tof-1-6-7', number: '6.7', title: 'Prosjektplanlegging og gjennomføring', description: 'Gantt-diagram, milepæler, roller, risikoanalyse og samarbeid.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Gantt', 'Milepæler', 'Roller', 'Risikoanalyse'], competenceGoals: ['planlegge og gjennomføre teknologiprosjekter'] },
+    { id: 'tof-1-6-8', number: '6.8', title: 'Presentasjon og formidling', description: 'Muntlig presentasjon, poster, rapportskriving og visuell kommunikasjon.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Presentasjon', 'Poster', 'Rapport', 'Kommunikasjon'], competenceGoals: ['presentere og formidle tekniske emner'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_TOF_2: TextbookCourse = {
+  id: 'tof-2',
+  title: 'Teknologi og forskningslære 2',
+  level: 'VG3',
+  description: 'ToF 2 - avansert forskningsmetode, statistikk, nanoteknologi, AI, robotikk og forskningsprosjekt',
+  curriculum: 'LK20',
+  icon: '🔧',
+  coverImage: '/images/subjects/tof-2-hero.webp',
+  chapters: [
+    // Seksjon 1: Avansert forskningsmetode
+    { id: 'tof-2-1-1', number: '1.1', title: 'Forskningsdesign og metodevalg', description: 'Eksperimentelt, kvasi-eksperimentelt og observasjonelt design.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Forskningsdesign', 'Eksperiment', 'Observasjon'], competenceGoals: ['velge egnet forskningsdesign'] },
+    { id: 'tof-2-1-2', number: '1.2', title: 'Eksperimentelt design i praksis', description: 'Randomisering, kontrollgrupper, blindtesting og replikasjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Randomisering', 'Kontrollgruppe', 'Blindtest', 'Replikasjon'], competenceGoals: ['planlegge eksperimenter'] },
+    { id: 'tof-2-1-3', number: '1.3', title: 'Kvalitative forskningsmetoder', description: 'Intervju, observasjon, casestudie og fenomenologi.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Intervju', 'Casestudie', 'Fenomenologi', 'Grounded theory'], competenceGoals: ['anvende kvalitative metoder'] },
+    { id: 'tof-2-1-4', number: '1.4', title: 'Reliabilitet, validitet og feilkilder', description: 'Systematiske og tilfeldige feil, konfunderende variabler.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Reliabilitet', 'Validitet', 'Feilkilder', 'Konfunderende variabler'], competenceGoals: ['vurdere forskningskvalitet'] },
+    { id: 'tof-2-1-5', number: '1.5', title: 'Forskningsetikk', description: 'Informert samtykke, personvern, uredelighet og forskningsetiske komiteer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Forskningsetikk', 'Samtykke', 'Uredelighet', 'NESH'], competenceGoals: ['drøfte forskningsetikk'] },
+    { id: 'tof-2-1-6', number: '1.6', title: 'Litteratursøk og kildekritikk', description: 'Databaser, søkestrategier, fagfellevurderte kilder og referanser.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Litteratursøk', 'Kildekritikk', 'Referanser', 'Databaser'], competenceGoals: ['søke og vurdere vitenskapelige kilder'] },
+    { id: 'tof-2-1-7', number: '1.7', title: 'Kritisk vurdering av forskning', description: 'Lese og evaluere vitenskapelige artikler systematisk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Kritisk lesning', 'Metodekritikk', 'Vitenskapelige artikler'], competenceGoals: ['kritisk vurdere forskningsresultater'] },
+    // Seksjon 2: Statistisk analyse og modellering
+    { id: 'tof-2-2-1', number: '2.1', title: 'Populasjoner, utvalg og sannsynlighet', description: 'Populasjon vs. utvalg, utvalgsfeil, sannsynlighetsfordeling.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Populasjon', 'Utvalg', 'Sannsynlighet', 'Normalfordeling'], competenceGoals: ['forstå grunnleggende statistiske begreper'] },
+    { id: 'tof-2-2-2', number: '2.2', title: 'Hypotesetesting og p-verdier', description: 'Nullhypotese, alternativ hypotese, signifikansnivå og type I/II-feil.', estimatedMinutes: 30, exerciseCount: 6, topics: ['Hypotesetesting', 'P-verdi', 'Signifikans', 'Type I/II-feil'], competenceGoals: ['gjennomføre hypotesetester'] },
+    { id: 'tof-2-2-3', number: '2.3', title: 't-test og kjikvadratstest', description: 'Uavhengig og paret t-test, kjikvadratstest for uavhengighet.', estimatedMinutes: 30, exerciseCount: 6, topics: ['t-test', 'Kjikvadratstest', 'Fridomsgrader'], competenceGoals: ['velge og utføre statistiske tester'] },
+    { id: 'tof-2-2-4', number: '2.4', title: 'Korrelasjon og regresjon', description: 'Pearsons r, lineær regresjon, R² og prediksjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Korrelasjon', 'Regresjon', 'R²', 'Prediksjon'], competenceGoals: ['utføre korrelasjons- og regresjonsanalyse'] },
+    { id: 'tof-2-2-5', number: '2.5', title: 'Konfidensintervall og feilmarginer', description: 'Beregning av konfidensintervall, standardfeil og usikkerhet.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Konfidensintervall', 'Standardfeil', 'Feilmargin'], competenceGoals: ['beregne konfidensintervall'] },
+    { id: 'tof-2-2-6', number: '2.6', title: 'Statistisk programvare', description: 'Python, R og regneark for statistisk analyse.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Python', 'R', 'Scipy', 'Regneark'], competenceGoals: ['bruke programvare for statistisk analyse'] },
+    { id: 'tof-2-2-7', number: '2.7', title: 'Datavisualisering og tolkning', description: 'Avanserte diagrammer, statistisk tolkning og feilaktig bruk av statistikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Visualisering', 'Tolkning', 'Villedende statistikk'], competenceGoals: ['visualisere og tolke data kritisk'] },
+    // Seksjon 3: Nanoteknologi og materialer
+    { id: 'tof-2-3-1', number: '3.1', title: 'Nanoskalaen – grunnleggende prinsipper', description: 'Størrelsesforhold, overflate-til-volum og kvanteeffekter.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Nanoskala', 'Overflate-til-volum', 'Kvanteeffekter'], competenceGoals: ['forklare nanoskalaens egenskaper'] },
+    { id: 'tof-2-3-2', number: '3.2', title: 'Nanomaterialer og egenskaper', description: 'Nanopartikler, nanorør, kvanteprikker og deres unike egenskaper.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Nanopartikler', 'Nanorør', 'Kvanteprikker'], competenceGoals: ['beskrive nanomaterialer'] },
+    { id: 'tof-2-3-3', number: '3.3', title: 'Grafén og karbonnanostrukturer', description: 'Grafén, fullerener, karbonnanorør og anvendelser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Grafén', 'Fullerener', 'Karbonnanorør'], competenceGoals: ['gjøre rede for karbonnanostrukturer'] },
+    { id: 'tof-2-3-4', number: '3.4', title: 'Produksjon av nanomaterialer', description: 'Top-down og bottom-up metoder, selvorganisering.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Top-down', 'Bottom-up', 'Selvorganisering', 'Litografi'], competenceGoals: ['beskrive produksjonsmetoder'] },
+    { id: 'tof-2-3-5', number: '3.5', title: 'Nanoteknologi i medisin', description: 'Nanomedisin, målrettet legemiddellevering og diagnostikk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Nanomedisin', 'Legemiddellevering', 'Diagnostikk'], competenceGoals: ['forklare nanomedisin'] },
+    { id: 'tof-2-3-6', number: '3.6', title: 'Nanoteknologi i energi og miljø', description: 'Solceller, batterier, vannrensing og katalysatorer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Nanosolceller', 'Nanobatterier', 'Vannrensing'], competenceGoals: ['beskrive nanoteknologi i energi'] },
+    { id: 'tof-2-3-7', number: '3.7', title: 'Risiko og etikk ved nanoteknologi', description: 'Helserisiko, miljøpåvirkning og regulering av nanomaterialer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Nanorisiko', 'Regulering', 'Føre-var-prinsippet'], competenceGoals: ['drøfte risiko ved nanoteknologi'] },
+    // Seksjon 4: Moderne teknologi
+    { id: 'tof-2-4-1', number: '4.1', title: 'Romteknologi og satellitter', description: 'Banetyper, kommunikasjonssatellitter, GPS og romforskning.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Satellitter', 'GPS', 'Baner', 'Romforskning'], competenceGoals: ['forklare romteknologi og satellitter'] },
+    { id: 'tof-2-4-2', number: '4.2', title: 'Fjernmåling og jordobservasjon', description: 'Fjernmålingstyper, spektralanalyse og anvendelser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Fjernmåling', 'Spektralanalyse', 'Jordobservasjon'], competenceGoals: ['beskrive fjernmålingsteknologi'] },
+    { id: 'tof-2-4-3', number: '4.3', title: 'Medisinsk bildediagnostikk', description: 'Røntgen, CT, MR, PET og ultralyd – prinsipper og anvendelser.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Røntgen', 'CT', 'MR', 'PET', 'Ultralyd'], competenceGoals: ['forklare medisinsk bildediagnostikk'] },
+    { id: 'tof-2-4-4', number: '4.4', title: 'Bioteknologi og CRISPR', description: 'Genteknologi, CRISPR-Cas9 og medisinsk anvendelse.', estimatedMinutes: 25, exerciseCount: 5, topics: ['CRISPR', 'Genterapi', 'Bioteknologi'], competenceGoals: ['beskrive bioteknologisk utvikling'] },
+    { id: 'tof-2-4-5', number: '4.5', title: 'Kunstig intelligens – grunnlag', description: 'Maskinlæring, nevrale nettverk, trening og inferens.', estimatedMinutes: 30, exerciseCount: 5, topics: ['AI', 'Maskinlæring', 'Nevrale nettverk', 'Deep learning'], competenceGoals: ['forklare grunnleggende AI'] },
+    { id: 'tof-2-4-6', number: '4.6', title: 'Generativ AI og store språkmodeller', description: 'LLM-er, transformerarkitektur, ChatGPT og anvendelser.', estimatedMinutes: 25, exerciseCount: 5, topics: ['LLM', 'Transformer', 'ChatGPT', 'Generativ AI'], competenceGoals: ['beskrive generativ AI'] },
+    { id: 'tof-2-4-7', number: '4.7', title: 'Robotikk og automatisering', description: 'Robottyper, sensorer, aktuatorer og industriautomatisering.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Robotikk', 'Sensorer', 'Automatisering', 'Industri 4.0'], competenceGoals: ['beskrive robotikk'] },
+    { id: 'tof-2-4-8', number: '4.8', title: 'Kvanteteknologi', description: 'Kvantedatamaskiner, kvanteenkkryptering og kvantesensorer.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Kvantedatamaskin', 'Kvantekryptering', 'Qubits'], competenceGoals: ['forklare kvanteteknologi'] },
+    // Seksjon 5: Teknologi, etikk og samfunn
+    { id: 'tof-2-5-1', number: '5.1', title: 'Teknologietikk', description: 'Etiske rammeverk for teknologivurdering og ansvarlig innovasjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Teknologietikk', 'Ansvarlig innovasjon', 'Føre-var'], competenceGoals: ['drøfte teknologietikk'] },
+    { id: 'tof-2-5-2', number: '5.2', title: 'Personvern og overvåkning', description: 'GDPR, masseovervåkning, ansiktsgjenkjenning og personvern i AI-alderen.', estimatedMinutes: 25, exerciseCount: 5, topics: ['GDPR', 'Personvern', 'Overvåkning', 'Ansiktsgjenkjenning'], competenceGoals: ['vurdere personvern'] },
+    { id: 'tof-2-5-3', number: '5.3', title: 'AI-etikk og algoritmisk rettferdighet', description: 'Skjevheter i AI, transparens, forklarbarhet og regulering.', estimatedMinutes: 25, exerciseCount: 5, topics: ['AI-etikk', 'Skjevhet', 'Transparens', 'EU AI Act'], competenceGoals: ['drøfte AI-etikk'] },
+    { id: 'tof-2-5-4', number: '5.4', title: 'Bærekraftig teknologiutvikling', description: 'Grønn teknologi, sirkulær økonomi og teknologiens klimaavtrykk.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Bærekraft', 'Sirkulær økonomi', 'Klimaavtrykk'], competenceGoals: ['vurdere teknologiens bærekraft'] },
+    { id: 'tof-2-5-5', number: '5.5', title: 'Digital transformasjon og arbeidsliv', description: 'Automatisering, nye yrker, digital kompetanse og omstilling.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Digital transformasjon', 'Automatisering', 'Fremtidens arbeid'], competenceGoals: ['drøfte teknologi og arbeidsliv'] },
+    { id: 'tof-2-5-6', number: '5.6', title: 'Teknologivurdering', description: 'Technology Assessment, konsekvensutredning og interessenter.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Technology Assessment', 'Konsekvensutredning', 'Interessenter'], competenceGoals: ['gjennomføre teknologivurdering'] },
+    { id: 'tof-2-5-7', number: '5.7', title: 'Ansvarlig innovasjon', description: 'RRI-rammeverket, inkludering, refleksivitet og respons.', estimatedMinutes: 25, exerciseCount: 4, topics: ['RRI', 'Ansvarlig innovasjon', 'Inkludering'], competenceGoals: ['anvende RRI-prinsippene'] },
+    // Seksjon 6: Forskningsprosjekt og formidling
+    { id: 'tof-2-6-1', number: '6.1', title: 'Prosjektplanlegging og tidsstyring', description: 'Gantt-diagram, milepæler, risikovurdering og ressursstyring.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Prosjektplanlegging', 'Gantt', 'Milepæler'], competenceGoals: ['planlegge forskningsprosjekter'] },
+    { id: 'tof-2-6-2', number: '6.2', title: 'Forskningsspørsmål og hypoteser', description: 'Formulering av presise spørsmål, operasjonalisering og variabler.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Forskningsspørsmål', 'Operasjonalisering', 'Variabler'], competenceGoals: ['formulere forskningsspørsmål'] },
+    { id: 'tof-2-6-3', number: '6.3', title: 'Datainnsamling og analyse', description: 'Måleenheter, systematisering, koding og statistisk analyse.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Datainnsamling', 'Systematisering', 'Analyse'], competenceGoals: ['samle inn og analysere data'] },
+    { id: 'tof-2-6-4', number: '6.4', title: 'IMRaD-strukturen', description: 'Introduksjon, metode, resultater og diskusjon i vitenskapelige tekster.', estimatedMinutes: 25, exerciseCount: 5, topics: ['IMRaD', 'Vitenskapelig skriving', 'Abstract'], competenceGoals: ['skrive vitenskapelige tekster'] },
+    { id: 'tof-2-6-5', number: '6.5', title: 'Akademisk skriving', description: 'Kildehenvisning, APA-stil, sitat og parafrasering.', estimatedMinutes: 25, exerciseCount: 4, topics: ['APA', 'Kildehenvisning', 'Sitat', 'Parafrasering'], competenceGoals: ['anvende akademisk skrivestil'] },
+    { id: 'tof-2-6-6', number: '6.6', title: 'Muntlig presentasjon', description: 'Formidlingsteknikk, visualisering og vitenskapelig foredrag.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Presentasjon', 'Formidling', 'Visualisering'], competenceGoals: ['presentere forskningsresultater muntlig'] },
+    { id: 'tof-2-6-7', number: '6.7', title: 'Poster og visuell formidling', description: 'Vitenskapelig poster, infografikk og visuell kommunikasjon.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Poster', 'Infografikk', 'Visuell formidling'], competenceGoals: ['lage vitenskapelig poster'] },
+    { id: 'tof-2-6-8', number: '6.8', title: 'Fagfellevurdering og publisering', description: 'Fagfellevurdering, preprint, open access og vitenskapelig kvalitetssikring.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Fagfellevurdering', 'Open access', 'Preprint'], competenceGoals: ['forstå vitenskapelig publisering'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_SOSIOLOGI: TextbookCourse = {
+  id: 'sosiologi',
+  title: 'Sosiologi og sosialantropologi',
+  level: 'VG3',
+  description: 'Sosiologi - kultur, samfunn, sosial ulikhet og metode',
+  curriculum: 'LK20',
+  icon: '👥',
+  coverImage: '/images/subjects/sosiologi-hero.webp',
+  chapters: [
+    // Seksjon 1: Fagenes grunnlag
+    { id: 'sosiologi-1-1', number: '1.1', title: 'Hva er sosiologi?', description: 'Den sosiologiske fantasien og samfunnsvitenskapelig tenkemåte.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sosiologi', 'Sosiologisk fantasi'], competenceGoals: ['gjøre rede for sosiologi som fag'] },
+    { id: 'sosiologi-1-2', number: '1.2', title: 'Hva er sosialantropologi?', description: 'Feltarbeid, kulturrelativisme og deltakende observasjon.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sosialantropologi', 'Feltarbeid'], competenceGoals: ['gjøre rede for sosialantropologi'] },
+    { id: 'sosiologi-1-3', number: '1.3', title: 'Sosiologiens grunnleggere', description: 'Comte, Durkheim, Marx, Weber og Martineau.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Grunnleggere', 'Klassikere'], competenceGoals: ['gjøre rede for fagenes historie'] },
+    { id: 'sosiologi-1-4', number: '1.4', title: 'Sosiologiske perspektiver', description: 'Funksjonalisme, konfliktteori og symbolsk interaksjonisme.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Funksjonalisme', 'Konfliktteori', 'Interaksjonisme'], competenceGoals: ['anvende sosiologiske perspektiver'] },
+    { id: 'sosiologi-1-5', number: '1.5', title: 'Sentrale sosiologiske begreper', description: 'Samfunn, kultur, normer, rolle og status.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Begreper', 'Normer', 'Verdier'], competenceGoals: ['bruke sosiologiske begreper'] },
+    // Seksjon 2: Sosialisering, identitet og kultur
+    { id: 'sosiologi-2-1', number: '2.1', title: 'Sosialisering – primær og sekundær', description: 'Sosialiseringsagenter og prosesser.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sosialisering', 'Primær', 'Sekundær'], competenceGoals: ['forklare sosialisering'] },
+    { id: 'sosiologi-2-2', number: '2.2', title: 'Identitet og selvbilde', description: 'Mead, Cooley og Goffmans rolleteori.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Identitet', 'Speilselvet', 'Goffman'], competenceGoals: ['drøfte identitetsdannelse'] },
+    { id: 'sosiologi-2-3', number: '2.3', title: 'Kultur – begreper og perspektiver', description: 'Subkultur, motkultur og kulturell kapital.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kultur', 'Subkultur', 'Bourdieu'], competenceGoals: ['analysere kultur'] },
+    { id: 'sosiologi-2-4', number: '2.4', title: 'Etnosentrisme og kulturrelativisme', description: 'Å forstå andre kulturer.', estimatedMinutes: 18, exerciseCount: 6, topics: ['Etnosentrisme', 'Kulturrelativisme'], competenceGoals: ['drøfte kulturforståelse'] },
+    { id: 'sosiologi-2-5', number: '2.5', title: 'Flerkulturelle samfunn', description: 'Integrering, assimilering og segregering.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Flerkultur', 'Integrering'], competenceGoals: ['drøfte flerkulturelle samfunn'] },
+    { id: 'sosiologi-2-6', number: '2.6', title: 'Avvik og sosial kontroll', description: 'Normer, normbrudd og merkelappteori.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Avvik', 'Sosial kontroll', 'Becker'], competenceGoals: ['analysere avvik og kontroll'] },
+    { id: 'sosiologi-2-7', number: '2.7', title: 'Ungdomskultur og generasjoner', description: 'Ungdom som sosial kategori og digital kultur.', estimatedMinutes: 18, exerciseCount: 6, topics: ['Ungdom', 'Generasjoner', 'Digital'], competenceGoals: ['drøfte ungdomskultur'] },
+    // Seksjon 3: Familie, ulikhet og klasse
+    { id: 'sosiologi-3-1', number: '3.1', title: 'Familie og familieformer', description: 'Kjernefamilie, storfamilie og endringer.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Familie', 'Familieformer'], competenceGoals: ['drøfte familiemønstre'] },
+    { id: 'sosiologi-3-2', number: '3.2', title: 'Samliv og parforhold', description: 'Ekteskap, samboerskap og skilsmisse.', estimatedMinutes: 18, exerciseCount: 6, topics: ['Samliv', 'Ekteskap', 'Skilsmisse'], competenceGoals: ['drøfte samlivsmønstre'] },
+    { id: 'sosiologi-3-3', number: '3.3', title: 'Sosial ulikhet – begreper og perspektiver', description: 'Marx, Weber og Bourdieu om klasse.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Ulikhet', 'Klasse', 'Kapitalformer'], competenceGoals: ['analysere sosial ulikhet'] },
+    { id: 'sosiologi-3-4', number: '3.4', title: 'Sosial mobilitet', description: 'Vertikal, horisontal og strukturell mobilitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Mobilitet', 'Strukturell'], competenceGoals: ['drøfte sosial mobilitet'] },
+    { id: 'sosiologi-3-5', number: '3.5', title: 'Fattigdom og velferd', description: 'Velferdsmodeller og den nordiske modellen.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Fattigdom', 'Velferd', 'Nordisk modell'], competenceGoals: ['analysere fattigdom og velferd'] },
+    { id: 'sosiologi-3-6', number: '3.6', title: 'Utdanning og ulikhet', description: 'Bourdieu, Bernstein og reproduksjon.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Utdanning', 'Reproduksjon', 'Språkkoder'], competenceGoals: ['drøfte utdanning og ulikhet'] },
+    { id: 'sosiologi-3-7', number: '3.7', title: 'Helse og sosial ulikhet', description: 'Helsegradienten og sosiale determinanter.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Helse', 'Helsegradient', 'Determinanter'], competenceGoals: ['analysere helse og ulikhet'] },
+    // Seksjon 4: Kjønn, makt og politikk
+    { id: 'sosiologi-4-1', number: '4.1', title: 'Kjønn og kjønnsroller', description: 'Biologisk vs. sosialt kjønn og interseksjonalitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kjønn', 'Kjønnsroller', 'Interseksjonalitet'], competenceGoals: ['drøfte kjønn og kjønnsroller'] },
+    { id: 'sosiologi-4-2', number: '4.2', title: 'Likestilling i Norge og verden', description: 'Likestillingshistorie og global kjønnsulikhet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Likestilling', 'Kvotering', 'Global'], competenceGoals: ['drøfte likestilling'] },
+    { id: 'sosiologi-4-3', number: '4.3', title: 'Makt – teorier og perspektiver', description: 'Weber, Lukes, Foucault og Gramsci.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Makt', 'Herredømme', 'Hegemoni'], competenceGoals: ['analysere maktrelasjoner'] },
+    { id: 'sosiologi-4-4', number: '4.4', title: 'Demokrati og medborgerskap', description: 'Politisk deltakelse og sivilt samfunn.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Demokrati', 'Medborgerskap', 'Deltakelse'], competenceGoals: ['drøfte demokrati'] },
+    { id: 'sosiologi-4-5', number: '4.5', title: 'Velferdsstat og politikk', description: 'Velferdsmodeller og den norske velferdsstaten.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Velferdsstat', 'Modeller', 'Utfordringer'], competenceGoals: ['analysere velferdsstaten'] },
+    { id: 'sosiologi-4-6', number: '4.6', title: 'Byråkrati og organisasjoner', description: 'Webers byråkratiteori og organisasjonsformer.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Byråkrati', 'Weber', 'Organisasjoner'], competenceGoals: ['analysere byråkrati'] },
+    { id: 'sosiologi-4-7', number: '4.7', title: 'Avmakt og motstand', description: 'Sosiale bevegelser og sivil ulydighet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Avmakt', 'Sosiale bevegelser', 'Sivil ulydighet'], competenceGoals: ['drøfte motstand og avmakt'] },
+    // Seksjon 5: Media, globalisering og migrasjon
+    { id: 'sosiologi-5-1', number: '5.1', title: 'Medier og samfunn', description: 'Mediefunksjoner og Habermas.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Medier', 'Offentlighet', 'Habermas'], competenceGoals: ['vurdere mediers rolle'] },
+    { id: 'sosiologi-5-2', number: '5.2', title: 'Sosiale medier og digital kultur', description: 'Filterbobler, ekkokamre og personvern.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sosiale medier', 'Filterbobler', 'Personvern'], competenceGoals: ['drøfte digital kultur'] },
+    { id: 'sosiologi-5-3', number: '5.3', title: 'Globalisering – prosesser og perspektiver', description: 'Økonomisk, kulturell og politisk globalisering.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Globalisering', 'McDonaldisering', 'Glokalisering'], competenceGoals: ['drøfte globalisering'] },
+    { id: 'sosiologi-5-4', number: '5.4', title: 'Migrasjon – årsaker og typer', description: 'Push/pull-faktorer og migrasjonstyper.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Migrasjon', 'Push-pull', 'Flukt'], competenceGoals: ['analysere migrasjon'] },
+    { id: 'sosiologi-5-5', number: '5.5', title: 'Integrering og mangfold', description: 'Integreringspolitikk og Berrys modell.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Integrering', 'Berry', 'Multikulturalisme'], competenceGoals: ['drøfte integrering'] },
+    { id: 'sosiologi-5-6', number: '5.6', title: 'Rasisme og diskriminering', description: 'Strukturell rasisme og antidiskriminering.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Rasisme', 'Diskriminering', 'Fordommer'], competenceGoals: ['analysere rasisme og diskriminering'] },
+    { id: 'sosiologi-5-7', number: '5.7', title: 'Det globale samfunnet – utvikling og ulikhet', description: 'Nord-sør, bærekraft og FNs bærekraftsmål.', estimatedMinutes: 22, exerciseCount: 7, topics: ['Utvikling', 'Bærekraft', 'FN'], competenceGoals: ['drøfte global utvikling'] },
+    // Seksjon 6: Metode og forskningsetikk
+    { id: 'sosiologi-6-1', number: '6.1', title: 'Kvalitative metoder', description: 'Intervju, observasjon og feltarbeid.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kvalitativ', 'Intervju', 'Observasjon'], competenceGoals: ['anvende kvalitative metoder'] },
+    { id: 'sosiologi-6-2', number: '6.2', title: 'Kvantitative metoder', description: 'Spørreundersøkelser, statistikk og kausalitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kvantitativ', 'Statistikk', 'Kausalitet'], competenceGoals: ['anvende kvantitative metoder'] },
+    { id: 'sosiologi-6-3', number: '6.3', title: 'Forskningsetikk', description: 'Samtykke, anonymitet og etiske dilemmaer.', estimatedMinutes: 18, exerciseCount: 6, topics: ['Etikk', 'Samtykke', 'Anonymitet'], competenceGoals: ['drøfte forskningsetikk'] },
+    { id: 'sosiologi-6-4', number: '6.4', title: 'Kildekritikk og mediekritikk', description: 'Kildevurdering og kritisk tenkning.', estimatedMinutes: 18, exerciseCount: 6, topics: ['Kildekritikk', 'Fake news', 'Statistikk'], competenceGoals: ['vurdere kilder kritisk'] },
+    { id: 'sosiologi-6-5', number: '6.5', title: 'Å gjennomføre et sosiologisk prosjekt', description: 'Fra problemstilling til presentasjon.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Prosjekt', 'Problemstilling', 'Metodevalg'], competenceGoals: ['gjennomføre sosiologisk undersøkelse'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_RETTSLAERE_1: TextbookCourse = {
+  id: 'rettslaere-1',
+  title: 'Rettslære 1',
+  level: 'VG2',
+  description: 'Rettslære 1 - rettssystemet, avtalerett, forbrukerrett og strafferett',
+  curriculum: 'LK20',
+  icon: '⚖️',
+  coverImage: '/images/subjects/rettslaere-1-hero.webp',
+  chapters: [
+    // Seksjon 1: Rettssystemet
+    { id: 'rettslaere-1-1-1', number: '1.1', title: 'Hva er rett?', description: 'Rettens funksjon i samfunnet, rettsregler og rettsnormer.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Rett', 'Rettsregler', 'Rettsnormer', 'Rettsorden'], competenceGoals: ['gjøre rede for hva rett er og rettens funksjoner'] },
+    { id: 'rettslaere-1-1-2', number: '1.2', title: 'Maktfordeling og rettsstat', description: 'Montesquieus maktfordelingsprinsipp, Grunnloven og rettsstaten.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Maktfordeling', 'Rettsstat', 'Grunnloven', 'Montesquieu'], competenceGoals: ['forklare maktfordelingsprinsippet og rettsstaten'] },
+    { id: 'rettslaere-1-1-3', number: '1.3', title: 'Domstolshierarkiet', description: 'Tingrett, lagmannsrett og Høyesterett - oppbygning og funksjoner.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Tingrett', 'Lagmannsrett', 'Høyesterett', 'Anke'], competenceGoals: ['gjøre rede for domstolenes oppbygning'] },
+    { id: 'rettslaere-1-1-4', number: '1.4', title: 'Rettskilder', description: 'Lov, forskrift, rettspraksis, forarbeider, sedvane og reelle hensyn.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Rettskilder', 'Lov', 'Forskrift', 'Rettspraksis', 'Forarbeider'], competenceGoals: ['identifisere og rangere rettskilder'] },
+    { id: 'rettslaere-1-1-5', number: '1.5', title: 'Lovtolkning', description: 'Ordlydstolkning, formålstolkning, antitetisk og analogisk tolkning.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Lovtolkning', 'Ordlyd', 'Formål', 'Analogi', 'Antitese'], competenceGoals: ['anvende lovtolkningsprinsipper'] },
+    { id: 'rettslaere-1-1-6', number: '1.6', title: 'Juridisk metode', description: 'Å løse rettsspørsmål - fra faktum til konklusjon.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Juridisk metode', 'Subsumsjon', 'Rettsanvendelse'], competenceGoals: ['anvende juridisk metode'] },
+    { id: 'rettslaere-1-1-7', number: '1.7', title: 'Menneskerettigheter', description: 'EMK, FN-konvensjoner, Grunnloven kap. E og barnekonvensjonen.', estimatedMinutes: 35, exerciseCount: 5, topics: ['EMK', 'FN', 'Grunnloven', 'Barnekonvensjonen', 'Diskriminering'], competenceGoals: ['gjøre rede for sentrale menneskerettigheter'] },
+    // Seksjon 2: Avtale- og forbrukerrett
+    { id: 'rettslaere-1-2-1', number: '2.1', title: 'Hva er en avtale?', description: 'Avtalebegrepet, avtalefrihet og avtalelovens virkeområde.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Avtale', 'Avtalefrihet', 'Avtaleloven'], competenceGoals: ['forklare avtalebegrepet og avtalefriheten'] },
+    { id: 'rettslaere-1-2-2', number: '2.2', title: 'Avtaleinngåelse - tilbud og aksept', description: 'Tilbud, aksept, akseptfrist og re integra.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Tilbud', 'Aksept', 'Akseptfrist', 'Re integra'], competenceGoals: ['vurdere om bindende avtale er inngått'] },
+    { id: 'rettslaere-1-2-3', number: '2.3', title: 'Fullmakt og representasjon', description: 'Ulike fullmaktstyper, prokura og stillingsfullmakt.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Fullmakt', 'Prokura', 'Stillingsfullmakt', 'Representasjon'], competenceGoals: ['vurdere fullmaktsforhold'] },
+    { id: 'rettslaere-1-2-4', number: '2.4', title: 'Ugyldige avtaler', description: 'Tvang, svik, utnyttelse, umyndighet og avtaleloven § 36.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Ugyldighet', 'Tvang', 'Svik', 'Avtaleloven § 36'], competenceGoals: ['vurdere om en avtale er ugyldig'] },
+    { id: 'rettslaere-1-2-5', number: '2.5', title: 'Kjøpsloven', description: 'Kjøp mellom privatpersoner, mangel, forsinkelse og misligholdsbeføyelser.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Kjøpsloven', 'Mangel', 'Forsinkelse', 'Mislighold'], competenceGoals: ['anvende kjøpslovens regler'] },
+    { id: 'rettslaere-1-2-6', number: '2.6', title: 'Forbrukerkjøpsloven', description: 'Forbrukervern, bevisbyrde, reklamasjonsfrister og garantier.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Forbrukerkjøpsloven', 'Reklamasjon', 'Garanti', 'Bevisbyrde'], competenceGoals: ['anvende forbrukerkjøpslovens regler'] },
+    { id: 'rettslaere-1-2-7', number: '2.7', title: 'Heving, prisavslag og erstatning', description: 'Misligholdsbeføyelser ved kjøp - heving, prisavslag, retting og erstatning.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Heving', 'Prisavslag', 'Retting', 'Omlevering'], competenceGoals: ['vurdere misligholdsbeføyelser ved kjøp'] },
+    { id: 'rettslaere-1-2-8', number: '2.8', title: 'E-handel og angrerett', description: 'Angrerettloven, netthandel, digital avtale og personvern.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Angrerett', 'E-handel', 'Netthandel', 'Personvern'], competenceGoals: ['vurdere forbrukerrettigheter ved e-handel'] },
+    // Seksjon 3: Erstatningsrett
+    { id: 'rettslaere-1-3-1', number: '3.1', title: 'Hva er erstatningsrett?', description: 'Erstatningsrettens formål, grunnprinsipper og historikk.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Erstatningsrett', 'Reparasjon', 'Prevensjon'], competenceGoals: ['forklare erstatningsrettens formål'] },
+    { id: 'rettslaere-1-3-2', number: '3.2', title: 'Culpa-ansvaret', description: 'De tre vilkårene: ansvarsgrunnlag (uaktsomhet), årsakssammenheng og økonomisk tap.', estimatedMinutes: 35, exerciseCount: 6, topics: ['Culpa', 'Uaktsomhet', 'Skyld', 'Aktsomhetsnorm'], competenceGoals: ['vurdere culpa-ansvar'] },
+    { id: 'rettslaere-1-3-3', number: '3.3', title: 'Objektivt ansvar', description: 'Ansvar uten skyld, arbeidsgiveransvar, produktansvar og bilansvar.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Objektivt ansvar', 'Arbeidsgiveransvar', 'Produktansvar', 'Bilansvar'], competenceGoals: ['gjøre rede for objektivt ansvar'] },
+    { id: 'rettslaere-1-3-4', number: '3.4', title: 'Årsakssammenheng og adekvans', description: 'Betingelseslæren, samvirkende årsaker og adekvanslæren.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Årsakssammenheng', 'Adekvans', 'Betingelseslæren'], competenceGoals: ['vurdere årsakssammenheng og adekvans'] },
+    { id: 'rettslaere-1-3-5', number: '3.5', title: 'Erstatningsutmåling', description: 'Økonomisk tap, ikke-økonomisk tap, oppreisning og ménerstatning.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Erstatningsutmåling', 'Oppreisning', 'Ménerstatning'], competenceGoals: ['beregne erstatningsomfang'] },
+    { id: 'rettslaere-1-3-6', number: '3.6', title: 'Medvirkning og lemping', description: 'Skadelidtes medvirkning, lemping av erstatningsansvar og forsikring.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Medvirkning', 'Lemping', 'Forsikring'], competenceGoals: ['vurdere medvirkning og lemping'] },
+    // Seksjon 4: Strafferett
+    { id: 'rettslaere-1-4-1', number: '4.1', title: 'Hva er strafferett?', description: 'Strafferettens formål, legalitetsprinsippet og straffelovens oppbygning.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Strafferett', 'Legalitetsprinsippet', 'Straffeloven'], competenceGoals: ['gjøre rede for strafferettens grunnprinsipper'] },
+    { id: 'rettslaere-1-4-2', number: '4.2', title: 'De fire straffbarhetsvilkårene', description: 'Lovbrudd, skyld, tilregnelighet og strafferettslig alder.', estimatedMinutes: 35, exerciseCount: 6, topics: ['Straffbarhetsvilkår', 'Lovbrudd', 'Skyld', 'Tilregnelighet', 'Alder'], competenceGoals: ['anvende de fire straffbarhetsvilkårene'] },
+    { id: 'rettslaere-1-4-3', number: '4.3', title: 'Skyldkravet - forsett og uaktsomhet', description: 'Hensiktsforsett, sannsynlighetsforsett, dolus eventualis og uaktsomhet.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Forsett', 'Uaktsomhet', 'Hensikt', 'Dolus eventualis'], competenceGoals: ['skille mellom ulike skyldgrader'] },
+    { id: 'rettslaere-1-4-4', number: '4.4', title: 'Nødrett og nødverge', description: 'Straffrihetsgrunnene nødrett, nødverge og provokasjon.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Nødrett', 'Nødverge', 'Provokasjon', 'Straffrihet'], competenceGoals: ['vurdere straffrihetsgrunner'] },
+    { id: 'rettslaere-1-4-5', number: '4.5', title: 'Straffereaksjoner', description: 'Fengsel, bot, samfunnsstraff, forvaring og påtaleunnlatelse.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Fengsel', 'Bot', 'Samfunnsstraff', 'Forvaring'], competenceGoals: ['gjøre rede for ulike straffereaksjoner'] },
+    { id: 'rettslaere-1-4-6', number: '4.6', title: 'Unge lovbrytere', description: 'Kriminell lavalder, ungdomsstraff, barnevern og forebygging.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Kriminell lavalder', 'Ungdomsstraff', 'Barnevern'], competenceGoals: ['drøfte rettssystemets behandling av unge lovbrytere'] },
+    { id: 'rettslaere-1-4-7', number: '4.7', title: 'Kriminalitet og straff i perspektiv', description: 'Kriminalitetens årsaker, allmennprevensjon, individualprevensjon og rehabilitering.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Kriminalitetsårsaker', 'Prevensjon', 'Rehabilitering'], competenceGoals: ['drøfte straffens formål og virkning'] },
+    // Seksjon 5: Arbeids-, familie- og arverett
+    { id: 'rettslaere-1-5-1', number: '5.1', title: 'Arbeidsavtalen', description: 'Inngåelse av arbeidsavtale, krav til innhold og arbeidstakerrettigheter.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Arbeidsavtale', 'Rettigheter', 'Plikter', 'Arbeidsmiljøloven'], competenceGoals: ['vurdere arbeidsavtaler'] },
+    { id: 'rettslaere-1-5-2', number: '5.2', title: 'Arbeidstid, ferie og lønn', description: 'Arbeidstidsregler, ferieloven, overtid og lønn.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Arbeidstid', 'Ferie', 'Overtid', 'Lønn'], competenceGoals: ['anvende regler om arbeidstid og ferie'] },
+    { id: 'rettslaere-1-5-3', number: '5.3', title: 'Oppsigelse og avskjed', description: 'Saklig oppsigelse, avskjed, oppsigelsesfrist og drøftelsesplikt.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Oppsigelse', 'Avskjed', 'Stillingsvern', 'Drøftelse'], competenceGoals: ['vurdere lovligheten av oppsigelse og avskjed'] },
+    { id: 'rettslaere-1-5-4', number: '5.4', title: 'HMS og arbeidsmiljø', description: 'Arbeidsmiljøloven, HMS-krav, verneombud og arbeidstilsynet.', estimatedMinutes: 25, exerciseCount: 4, topics: ['HMS', 'Arbeidsmiljø', 'Verneombud', 'Arbeidstilsynet'], competenceGoals: ['gjøre rede for HMS-krav i arbeidslivet'] },
+    { id: 'rettslaere-1-5-5', number: '5.5', title: 'Ekteskap og samboerskap', description: 'Ekteskapsloven, ektepakt, felleseie, særeie og samboerrettigheter.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Ekteskap', 'Ektepakt', 'Felleseie', 'Samboer'], competenceGoals: ['gjøre rede for rettsregler om ekteskap og samboerskap'] },
+    { id: 'rettslaere-1-5-6', number: '5.6', title: 'Skilsmisse og oppgjør', description: 'Separasjon, skilsmisse, deling av formue og barnefordeling.', estimatedMinutes: 25, exerciseCount: 5, topics: ['Skilsmisse', 'Separasjon', 'Skifteoppgjør', 'Barnefordeling'], competenceGoals: ['anvende regler om skilsmisse og oppgjør'] },
+    { id: 'rettslaere-1-5-7', number: '5.7', title: 'Arv og testamente', description: 'Arveloven, legalarv, pliktdelsarv og testamente.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Arv', 'Testamente', 'Pliktdelsarv', 'Legalarv'], competenceGoals: ['anvende arvelovens regler'] },
+    { id: 'rettslaere-1-5-8', number: '5.8', title: 'Barn og barnerett', description: 'Barneloven, foreldreansvar, samværsrett og barnets beste.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Barneloven', 'Foreldreansvar', 'Samvær', 'Barnets beste'], competenceGoals: ['gjøre rede for barnerettslige regler'] },
+    // Seksjon 6: Rettsprosess og konfliktløsning
+    { id: 'rettslaere-1-6-1', number: '6.1', title: 'Sivil tvisteløsning', description: 'Tvisteloven, forlik, stevning og rettssak i sivile saker.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Tvisteloven', 'Forlik', 'Stevning', 'Sivil sak'], competenceGoals: ['gjøre rede for sivil tvisteløsning'] },
+    { id: 'rettslaere-1-6-2', number: '6.2', title: 'Forliksråd og mekling', description: 'Forliksrådets rolle, mekling og rettsmekling.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Forliksråd', 'Mekling', 'Rettsmekling'], competenceGoals: ['forklare forliksrådets funksjon'] },
+    { id: 'rettslaere-1-6-3', number: '6.3', title: 'Rettssaken - sivil prosess', description: 'Bevisføring, vitner, prosessfullmektig og dom i sivile saker.', estimatedMinutes: 30, exerciseCount: 5, topics: ['Bevisføring', 'Vitner', 'Advokat', 'Dom'], competenceGoals: ['beskrive gangen i en sivil rettssak'] },
+    { id: 'rettslaere-1-6-4', number: '6.4', title: 'Straffeprosessen', description: 'Etterforskning, tiltale, hovedforhandling, jury og dom i straffesaker.', estimatedMinutes: 35, exerciseCount: 5, topics: ['Etterforskning', 'Tiltale', 'Hovedforhandling', 'Dom'], competenceGoals: ['beskrive gangen i en straffesak'] },
+    { id: 'rettslaere-1-6-5', number: '6.5', title: 'Fri rettshjelp og juridisk bistand', description: 'Rett til advokat, fri rettshjelp, rettshjelpsforsikring.', estimatedMinutes: 20, exerciseCount: 4, topics: ['Fri rettshjelp', 'Advokat', 'Forsikring'], competenceGoals: ['gjøre rede for tilgang til juridisk bistand'] },
+    { id: 'rettslaere-1-6-6', number: '6.6', title: 'Konfliktråd og restorative justice', description: 'Konfliktråd, stormøte, gjenopprettende rett og megling.', estimatedMinutes: 25, exerciseCount: 4, topics: ['Konfliktråd', 'Restorative justice', 'Megling'], competenceGoals: ['vurdere alternative konfliktløsningsmetoder'] },
+    { id: 'rettslaere-1-6-7', number: '6.7', title: 'Internasjonale domstoler', description: 'EMD, ICJ, ICC og EFTA-domstolen.', estimatedMinutes: 25, exerciseCount: 4, topics: ['EMD', 'ICJ', 'ICC', 'EFTA-domstolen'], competenceGoals: ['gjøre rede for internasjonale domstoler'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_RETTSLAERE_2: TextbookCourse = {
+  id: 'rettslaere-2',
+  title: 'Rettslære 2',
+  level: 'VG3',
+  description: 'Rettslære 2 - fordypning i strafferett, internasjonal rett og selskapsrett',
+  curriculum: 'LK20',
+  icon: '🔨',
+  coverImage: '/images/subjects/rettslaere-2-hero.webp',
+  chapters: [
+    // Seksjon 1: Rett og rettferdighet
+    { id: 'rettslaere-2-1-1', number: '1.1', title: 'Hva er rett og rettferdighet?', description: 'Forskjellen mellom rett og moral, rettferdighetsbegrepet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Rett', 'Rettferdighet', 'Moral'], competenceGoals: ['utforske og drøfte skillet mellom rett og rettferdighet i en rettsstat'] },
+    { id: 'rettslaere-2-1-2', number: '1.2', title: 'Rettsstaten og maktfordelingsprinsippet', description: 'Rettsstatens kjennetegn og Montesquieu.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Rettsstat', 'Maktfordeling', 'Montesquieu'], competenceGoals: ['utforske og drøfte skillet mellom rett og rettferdighet i en rettsstat'] },
+    { id: 'rettslaere-2-1-3', number: '1.3', title: 'Demokrati og rettssikkerhet', description: 'Demokratiske prosesser og legalitetsprinsippet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Demokrati', 'Rettssikkerhet', 'Legalitetsprinsippet'], competenceGoals: ['utforske demokratiets stilling i Norge og Sápmi'] },
+    { id: 'rettslaere-2-1-4', number: '1.4', title: 'Samiske rettigheter og Sápmi', description: 'Samefolkets rettigheter og ILO-konvensjon 169.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sápmi', 'Sametinget', 'ILO 169'], competenceGoals: ['utforske demokratiets stilling i Norge og Sápmi'] },
+    { id: 'rettslaere-2-1-5', number: '1.5', title: 'Grunnleggende menneskerettigheter', description: 'EMK, FN-konvensjoner og Grunnloven.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Menneskerettigheter', 'EMK', 'Grunnloven'], competenceGoals: ['gjøre rede for grunnleggende menneskerettigheter'] },
+    // Seksjon 2: Rettskilder og juridisk metode
+    { id: 'rettslaere-2-2-1', number: '2.1', title: 'Rettskilder og rettskildeprinsipper', description: 'Rettskildehierarkiet og lex-prinsippene.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Rettskilder', 'Lex superior', 'Rettskildehierarki'], competenceGoals: ['utforske og bruke ulike rettskilder'] },
+    { id: 'rettslaere-2-2-2', number: '2.2', title: 'Lover, forskrifter og forarbeider', description: 'Formelle lover, forskrifter og proposisjoner.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Lover', 'Forskrifter', 'Forarbeider'], competenceGoals: ['utforske og bruke ulike rettskilder'] },
+    { id: 'rettslaere-2-2-3', number: '2.3', title: 'Rettspraksis og juridisk litteratur', description: 'Prejudikater og juridisk teori.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Rettspraksis', 'Prejudikater', 'Høyesterett'], competenceGoals: ['utforske og bruke ulike rettskilder'] },
+    { id: 'rettslaere-2-2-4', number: '2.4', title: 'Juridisk problemstilling og drøfting', description: 'IRAC-metoden og subsumpsjon.', estimatedMinutes: 25, exerciseCount: 6, topics: ['IRAC', 'Subsumpsjon', 'Juridisk drøfting'], competenceGoals: ['identifisere parter, krav, rettslig grunnlag og juridisk problemstilling'] },
+    { id: 'rettslaere-2-2-5', number: '2.5', title: 'Praktisk juridisk metode', description: 'Bruke rettskilder til å løse caser.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Juridisk metode', 'Lovtolkning', 'Caseløsning'], competenceGoals: ['gjennomføre juridisk drøfting for å komme fram til en konklusjon'] },
+    // Seksjon 3: Strafferett
+    { id: 'rettslaere-2-3-1', number: '3.1', title: 'Straffbarhetsbetingelsene', description: 'De fire vilkårene for straff.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Straffbarhet', 'Lovkrav', 'Tilregnelighet'], competenceGoals: ['bruke straffleggingsbetingelsene til å vurdere straff'] },
+    { id: 'rettslaere-2-3-2', number: '3.2', title: 'Skyldkrav og skyldgrader', description: 'Forsett og uaktsomhet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Forsett', 'Uaktsomhet', 'Skyldgrader'], competenceGoals: ['bruke straffleggingsbetingelsene til å vurdere straff'] },
+    { id: 'rettslaere-2-3-3', number: '3.3', title: 'Seksuallovbrudd', description: 'Straffeloven kap. 26.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Seksuallovbrudd', 'Samtykke', 'Straffeloven'], competenceGoals: ['vurdere straff etter rettsregler om seksuallovbrudd'] },
+    { id: 'rettslaere-2-3-4', number: '3.4', title: 'Voldslovbrudd', description: 'Kroppskrenkelse og kroppsskade.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Vold', 'Kroppskrenkelse', 'Kroppsskade'], competenceGoals: ['vurdere straff etter rettsregler om voldslovbrudd'] },
+    { id: 'rettslaere-2-3-5', number: '3.5', title: 'Vinningslovbrudd og reaksjonssystemet', description: 'Tyveri, ran og straffereaksjoner.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Vinningslovbrudd', 'Tyveri', 'Straffereaksjoner'], competenceGoals: ['utforske reaksjonssystemet og vurdere straff etter rettsregler om vinningslovbrudd'] },
+    // Seksjon 4: Forvaltningsrett
+    { id: 'rettslaere-2-4-1', number: '4.1', title: 'Offentlig forvaltning og organer', description: 'Stat, kommune og tilsyn.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Forvaltning', 'Kommune', 'Direktorater'], competenceGoals: ['utforske rettsforholdet mellom individ og offentlig forvaltning'] },
+    { id: 'rettslaere-2-4-2', number: '4.2', title: 'Saksbehandlingsregler', description: 'Habilitet og veiledningsplikt.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Saksbehandling', 'Habilitet', 'Forvaltningsloven'], competenceGoals: ['bruke sentrale regler om saksbehandling'] },
+    { id: 'rettslaere-2-4-3', number: '4.3', title: 'Enkeltvedtak og forskrifter', description: 'Vedtaksbegrepet og begrunnelsesplikt.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Enkeltvedtak', 'Forskrifter', 'Begrunnelsesplikt'], competenceGoals: ['bruke sentrale regler om saksbehandling'] },
+    { id: 'rettslaere-2-4-4', number: '4.4', title: 'Klageadgang og omgjøring', description: 'Klagerett og klageinstans.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Klagerett', 'Klagefrist', 'Omgjøring'], competenceGoals: ['bruke sentrale regler om saksbehandling'] },
+    { id: 'rettslaere-2-4-5', number: '4.5', title: 'Offentlighet og innsyn', description: 'Offentleglova og innsynsrett.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Offentlighet', 'Innsyn', 'Taushetsplikt'], competenceGoals: ['utforske rettsforholdet mellom individ og offentlig forvaltning'] },
+    // Seksjon 5: Erstatningsrett
+    { id: 'rettslaere-2-5-1', number: '5.1', title: 'Grunnvilkår for erstatning', description: 'De tre vilkårene for erstatning.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Erstatning', 'Ansvarsgrunnlag', 'Årsakssammenheng'], competenceGoals: ['bruke grunnleggende vilkår til å vurdere spørsmål om erstatning'] },
+    { id: 'rettslaere-2-5-2', number: '5.2', title: 'Ansvarsgrunnlag', description: 'Culpa, objektivt ansvar og arbeidsgiveransvar.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Culpa', 'Objektivt ansvar', 'Arbeidsgiveransvar'], competenceGoals: ['bruke grunnleggende vilkår til å vurdere spørsmål om erstatning'] },
+    { id: 'rettslaere-2-5-3', number: '5.3', title: 'Årsakssammenheng og adekvans', description: 'Betingelseslæren og adekvanskravet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Årsakssammenheng', 'Adekvans', 'Betingelseslæren'], competenceGoals: ['bruke grunnleggende vilkår til å vurdere spørsmål om erstatning'] },
+    { id: 'rettslaere-2-5-4', number: '5.4', title: 'Erstatningsutmåling', description: 'Økonomisk tap og oppreisning.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Erstatningsutmåling', 'Oppreisning', 'Ménerstatning'], competenceGoals: ['bruke grunnleggende vilkår til å vurdere spørsmål om erstatning'] },
+    { id: 'rettslaere-2-5-5', number: '5.5', title: 'Erstatning i praksis', description: 'Trafikkskade, pasientskade og produktansvar.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Trafikkskade', 'Pasientskade', 'Produktansvar'], competenceGoals: ['bruke grunnleggende vilkår til å vurdere spørsmål om erstatning'] },
+    // Seksjon 6: Personvern og IKT-rett
+    { id: 'rettslaere-2-6-1', number: '6.1', title: 'Personvern som grunnrettighet', description: 'Grunnloven § 102 og EMK art. 8.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Personvern', 'Grunnloven', 'EMK'], competenceGoals: ['bruke sentrale regler om personvern'] },
+    { id: 'rettslaere-2-6-2', number: '6.2', title: 'GDPR og personopplysningsloven', description: 'Grunnprinsipper og behandlingsgrunnlag.', estimatedMinutes: 25, exerciseCount: 6, topics: ['GDPR', 'Personopplysningsloven', 'Samtykke'], competenceGoals: ['bruke sentrale regler om personvern'] },
+    { id: 'rettslaere-2-6-3', number: '6.3', title: 'Behandling av personopplysninger', description: 'Registrertes rettigheter og databehandleravtaler.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Registrertes rettigheter', 'Databehandler', 'Personvernombud'], competenceGoals: ['bruke sentrale regler om personvern'] },
+    { id: 'rettslaere-2-6-4', number: '6.4', title: 'Personvern i digital hverdag', description: 'Sosiale medier, informasjonskapsler og overvåking.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Sosiale medier', 'Informasjonskapsler', 'Profilering'], competenceGoals: ['utforske juridiske problemstillinger knyttet til IKT'] },
+    { id: 'rettslaere-2-6-5', number: '6.5', title: 'IKT-kriminalitet og cybersikkerhet', description: 'Datainnbrudd, ID-tyveri og hacking.', estimatedMinutes: 20, exerciseCount: 6, topics: ['IKT-kriminalitet', 'Datainnbrudd', 'Cybersikkerhet'], competenceGoals: ['utforske juridiske problemstillinger knyttet til IKT'] },
+    // Seksjon 7: Miljørett
+    { id: 'rettslaere-2-7-1', number: '7.1', title: 'Miljørettens grunnlag', description: 'Grunnloven § 112 og bærekraftig utvikling.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Miljørett', 'Grunnloven § 112', 'Føre-var'], competenceGoals: ['utforske og drøfte dagsaktuelle rettsspørsmål om ivaretakelse av miljøet'] },
+    { id: 'rettslaere-2-7-2', number: '7.2', title: 'Forurensningsloven', description: 'Forbudet mot forurensning og utslippstillatelser.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Forurensningsloven', 'Utslippstillatelse', 'Opprydningsansvar'], competenceGoals: ['utforske og drøfte dagsaktuelle rettsspørsmål om ivaretakelse av miljøet'] },
+    { id: 'rettslaere-2-7-3', number: '7.3', title: 'Naturmangfoldloven', description: 'Biologisk mangfold og verneområder.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Naturmangfold', 'Fredning', 'Verneområder'], competenceGoals: ['utforske og drøfte dagsaktuelle rettsspørsmål om ivaretakelse av miljøet'] },
+    { id: 'rettslaere-2-7-4', number: '7.4', title: 'Klima og internasjonal miljørett', description: 'Parisavtalen og kvotehandel.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Parisavtalen', 'Klimapolitikk', 'Kvotehandel'], competenceGoals: ['utforske og drøfte dagsaktuelle rettsspørsmål om ivaretakelse av miljøet'] },
+    { id: 'rettslaere-2-7-5', number: '7.5', title: 'Dagsaktuelle miljørettslige spørsmål', description: 'Vindkraft, klimasøksmål og mineralutvinning.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Vindkraft', 'Klimasøksmål', 'Mineralutvinning'], competenceGoals: ['utforske og drøfte dagsaktuelle rettsspørsmål om ivaretakelse av miljøet'] },
+    // Seksjon 8: Dagsaktuelle rettsspørsmål
+    { id: 'rettslaere-2-8-1', number: '8.1', title: 'Ytringsfrihet og dens grenser', description: 'Grunnloven § 100 og hatefulle ytringer.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Ytringsfrihet', 'Hatefulle ytringer', 'EMK art. 10'], competenceGoals: ['utforske og drøfte dagsaktuelle juridiske problemstillinger'] },
+    { id: 'rettslaere-2-8-2', number: '8.2', title: 'Diskriminering og likestilling', description: 'Likestillings- og diskrimineringsloven.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Diskriminering', 'Likestilling', 'Bevisbyrde'], competenceGoals: ['utforske og drøfte dagsaktuelle juridiske problemstillinger'] },
+    { id: 'rettslaere-2-8-3', number: '8.3', title: 'Kunstig intelligens og rett', description: 'AI-regulering og ansvar for AI-beslutninger.', estimatedMinutes: 20, exerciseCount: 6, topics: ['AI', 'EU AI Act', 'Algoritmisk ansvar'], competenceGoals: ['utforske og drøfte dagsaktuelle juridiske problemstillinger'] },
+    { id: 'rettslaere-2-8-4', number: '8.4', title: 'Internasjonal rett og Norge', description: 'EØS-avtalen og menneskerettighetsdomstolen.', estimatedMinutes: 25, exerciseCount: 7, topics: ['EØS', 'Folkerett', 'EMD'], competenceGoals: ['utforske og drøfte dagsaktuelle juridiske problemstillinger'] },
+    { id: 'rettslaere-2-8-5', number: '8.5', title: 'Juridisk argumentasjon og drøfting', description: 'Komplekse caser og muntlig/skriftlig drøfting.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Juridisk argumentasjon', 'Drøfting', 'Caseløsning'], competenceGoals: ['gjennomføre juridisk drøfting for å komme fram til en konklusjon'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_OKONOMISTYRING: TextbookCourse = {
+  id: 'okonomistyring',
+  title: 'Økonomistyring',
+  level: 'VG2',
+  description: 'Økonomistyring - regnskap, budsjettering, kalkyler og personlig økonomi',
+  curriculum: 'LK20',
+  icon: '📊',
+  coverImage: '/images/subjects/okonomistyring-hero.webp',
+  chapters: [
+    { id: 'okonomistyring-1', number: '1', title: 'Innføring i økonomi', description: 'Grunnleggende regnskapsbegreper.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Regnskap', 'Begreper', 'Bilag'], competenceGoals: ['forstå regnskapsprinsipper'], wip: true },
+    { id: 'okonomistyring-2', number: '2', title: 'Balanse og resultatregnskap', description: 'Årsregnskapet.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Balanse', 'Resultat', 'Eiendeler'], competenceGoals: ['sette opp regnskap'], wip: true },
+    { id: 'okonomistyring-3', number: '3', title: 'Budsjettering', description: 'Resultat- og likviditetsbudsjett.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Budsjett', 'Likviditet', 'Planlegging'], competenceGoals: ['lage budsjetter'], wip: true },
+    { id: 'okonomistyring-4', number: '4', title: 'Kalkyler og lønnsomhet', description: 'Selvkost og bidragsmetoden.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Kalkyler', 'Selvkost', 'Bidrag'], competenceGoals: ['beregne lønnsomhet'], wip: true },
+    { id: 'okonomistyring-5', number: '5', title: 'Likviditetsstyring', description: 'Betalingsevne.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Likviditet', 'Kontantstrøm', 'Kreditt'], competenceGoals: ['vurdere likviditet'], wip: true },
+    { id: 'okonomistyring-6', number: '6', title: 'Skatt og avgifter', description: 'Skatteregler.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Skatt', 'MVA', 'Avgifter'], competenceGoals: ['beregne skatt'], wip: true },
+    { id: 'okonomistyring-7', number: '7', title: 'Finansiering og investering', description: 'Kapital og avkastning.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Finansiering', 'Investering', 'Rente'], competenceGoals: ['vurdere investeringer'], wip: true },
+    { id: 'okonomistyring-8', number: '8', title: 'Personlig økonomi', description: 'Privatøkonomi.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Personlig økonomi', 'Lån', 'Sparing'], competenceGoals: ['planlegge personlig økonomi'], wip: true },
+    { id: 'okonomistyring-9', number: '9', title: 'Bedriftsøkonomi', description: 'Drift og strategi.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Bedrift', 'Drift', 'Strategi'], competenceGoals: ['analysere bedrifters økonomi'], wip: true },
+    { id: 'okonomistyring-10', number: '10', title: 'Økonomisk analyse', description: 'Nøkkeltall og rapportering.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Analyse', 'Nøkkeltall', 'Rapport'], competenceGoals: ['gjennomføre økonomisk analyse'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_MARKEDSFORING: TextbookCourse = {
+  id: 'markedsforing',
+  title: 'Markedsføring og ledelse',
+  level: 'VG3',
+  description: 'Markedsføring - markedsanalyse, merkevarebygging, digital markedsføring og ledelse',
+  curriculum: 'LK20',
+  icon: '📈',
+  coverImage: '/images/subjects/markedsforing-hero.webp',
+  chapters: [
+    // Seksjon 1: Grunnleggende markedsføring
+    { id: 'markedsforing-1-1', number: '1.1', title: 'Hva er markedsføring?', description: 'Forstå hva markedsføring er, hvordan verdi skapes og utveksles.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Markedsføring', 'Verdiskaping', 'Kundeverdi'], competenceGoals: ['velge og bruke kilder, markedsførings- og ledelsesteorier og modeller'] },
+    { id: 'markedsforing-1-2', number: '1.2', title: 'Markedsføringens utvikling', description: 'Fra produksjonsorientering via markedsorientering til samfunnsorientering.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Produksjonsorientering', 'Markedsorientering', 'Samfunnsorientering'], competenceGoals: ['velge og bruke kilder, markedsførings- og ledelsesteorier og modeller'] },
+    { id: 'markedsforing-1-3', number: '1.3', title: 'Forretningsideer og virksomhetens mål', description: 'Forretningsidé, visjon, misjon og SMART-modellen.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Forretningsidé', 'Visjon', 'SMART-mål'], competenceGoals: ['utvikle forretningsideer og mål for virksomheten og vurdere aktuelle målgrupper'] },
+    { id: 'markedsforing-1-4', number: '1.4', title: 'Målgrupper og segmentering', description: 'Segmentering basert på demografiske, geografiske, psykografiske og atferdsbaserte kriterier.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Segmentering', 'Målgruppe', 'STP-modellen'], competenceGoals: ['utvikle forretningsideer og mål for virksomheten og vurdere aktuelle målgrupper'] },
+    { id: 'markedsforing-1-5', number: '1.5', title: 'Markedsføringsteorier og modeller', description: 'Sentrale modeller som 4P/7P, STP, Porters five forces og AIDA.', estimatedMinutes: 20, exerciseCount: 6, topics: ['4P', '7P', 'STP', 'AIDA'], competenceGoals: ['velge og bruke kilder, markedsførings- og ledelsesteorier og modeller'] },
+    // Seksjon 2: Forbrukeratferd
+    { id: 'markedsforing-2-1', number: '2.1', title: 'Hva påvirker forbrukeren?', description: 'Faktorer som påvirker forbrukeratferd og ulike kjøpssituasjoner.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Forbrukeratferd', 'Behov', 'Kjøpssituasjoner'], competenceGoals: ['vurdere forhold som påvirker forbrukeratferd'] },
+    { id: 'markedsforing-2-2', number: '2.2', title: 'Psykologiske faktorer', description: 'Motivasjon, Maslows behovspyramide, persepsjon, læring og holdninger.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Motivasjon', 'Maslow', 'Persepsjon'], competenceGoals: ['vurdere forhold som påvirker forbrukeratferd'] },
+    { id: 'markedsforing-2-3', number: '2.3', title: 'Sosiale og kulturelle faktorer', description: 'Referansegrupper, familie, sosial klasse, kultur og subkultur.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Referansegrupper', 'Kultur', 'Sosial klasse'], competenceGoals: ['vurdere forhold som påvirker forbrukeratferd'] },
+    { id: 'markedsforing-2-4', number: '2.4', title: 'Kjøpsprosessen', description: 'De fem trinnene i kjøpsprosessen fra behovserkjennelse til etterkjøpsatferd.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Kjøpsprosessen', 'Beslutning', 'Etterkjøpsatferd'], competenceGoals: ['vurdere forhold som påvirker forbrukeratferd'] },
+    { id: 'markedsforing-2-5', number: '2.5', title: 'Digital forbrukeratferd', description: 'Netthandel, influencere, sosiale medier og digital kundereise.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Netthandel', 'Influencere', 'Digital kundereise'], competenceGoals: ['vurdere forhold som påvirker forbrukeratferd'] },
+    // Seksjon 3: Markedsanalyse og research
+    { id: 'markedsforing-3-1', number: '3.1', title: 'Hva er markedsundersøkelser?', description: 'Primær- og sekundærdata, forskningsprosessen og validitet/reliabilitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Markedsundersøkelse', 'Primærdata', 'Sekundærdata'], competenceGoals: ['bruke og utvikle markedsundersøkelser for å utforske og få innsikt i markeder og målgrupper'] },
+    { id: 'markedsforing-3-2', number: '3.2', title: 'Kvalitative og kvantitative metoder', description: 'Dybdeintervju, fokusgrupper, spørreundersøkelser og observasjon.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kvalitativ metode', 'Kvantitativ metode', 'Spørreundersøkelse'], competenceGoals: ['bruke og utvikle markedsundersøkelser for å utforske og få innsikt i markeder og målgrupper'] },
+    { id: 'markedsforing-3-3', number: '3.3', title: 'Situasjonsanalyse: SWOT og PESTEL', description: 'Intern og ekstern analyse med SWOT og PESTEL.', estimatedMinutes: 25, exerciseCount: 7, topics: ['SWOT', 'PESTEL', 'Situasjonsanalyse'], competenceGoals: ['gjennomføre situasjonsanalyser som grunnlag for beslutninger'] },
+    { id: 'markedsforing-3-4', number: '3.4', title: 'Konkurranseanalyse', description: 'Porters five forces, konkurrentkartlegging og benchmarking.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Porters five forces', 'Benchmarking', 'Konkurrentanalyse'], competenceGoals: ['gjennomføre situasjonsanalyser som grunnlag for beslutninger'] },
+    { id: 'markedsforing-3-5', number: '3.5', title: 'Fra innsikt til beslutning', description: 'Analysere funn, trekke konklusjoner og ta datadrevne beslutninger.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Dataanalyse', 'Beslutninger', 'Konklusjoner'], competenceGoals: ['gjennomføre situasjonsanalyser som grunnlag for beslutninger'] },
+    // Seksjon 4: Produkt og merkevare
+    { id: 'markedsforing-4-1', number: '4.1', title: 'Produktbegrepet', description: 'Tre produktnivåer, forskjellen mellom varer og tjenester.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Produktnivåer', 'Varer', 'Tjenester'], competenceGoals: ['utforske produkt- og merkevarestrategier'] },
+    { id: 'markedsforing-4-2', number: '4.2', title: 'Produktutvikling og livssyklus', description: 'Produktlivssyklusen, innovasjon og BCG-matrisen.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Produktlivssyklus', 'BCG-matrise', 'Innovasjon'], competenceGoals: ['utforske produkt- og merkevarestrategier'] },
+    { id: 'markedsforing-4-3', number: '4.3', title: 'Merkevarebygging', description: 'Merkeverdi (brand equity), merkevareidentitet og merkeassosiasjoner.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Merkevare', 'Brand equity', 'Merkeidentitet'], competenceGoals: ['utforske produkt- og merkevarestrategier'] },
+    { id: 'markedsforing-4-4', number: '4.4', title: 'Posisjonering', description: 'USP, differensiering, posisjoneringskart og strategier.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Posisjonering', 'USP', 'Differensiering'], competenceGoals: ['utforske produkt- og merkevarestrategier'] },
+    { id: 'markedsforing-4-5', number: '4.5', title: 'Produkt som konkurransemiddel', description: 'Kvalitet, design, emballasje, garanti og produktsortiment.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Kvalitet', 'Design', 'Produktsortiment'], competenceGoals: ['utforske produkt- og merkevarestrategier'] },
+    // Seksjon 5: Pris og distribusjon
+    { id: 'markedsforing-5-1', number: '5.1', title: 'Prisstrategier og metoder', description: 'Skumming, penetrasjon, prismatching og dynamisk prising.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Skummingsprising', 'Penetrasjonsprising', 'Dynamisk prising'], competenceGoals: ['utforske ulike prisstrategier og prissettingsmetoder'] },
+    { id: 'markedsforing-5-2', number: '5.2', title: 'Kostnadsorientert og markedsorientert prissetting', description: 'Selvkostmetoden, bidragsmetoden og verdibasert prissetting.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Selvkostmetoden', 'Bidragsmetoden', 'Verdibasert prising'], competenceGoals: ['utforske ulike prisstrategier og prissettingsmetoder'] },
+    { id: 'markedsforing-5-3', number: '5.3', title: 'Distribusjonskanaler', description: 'Direkte og indirekte distribusjon, verdikjeden.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Distribusjon', 'Verdikjede', 'Intensiv distribusjon'], competenceGoals: ['utforske ulike distribusjonsstrategier i markedsføring'] },
+    { id: 'markedsforing-5-4', number: '5.4', title: 'Digital distribusjon og e-handel', description: 'Nettbutikker, plattformøkonomi og omnikanalstrategi.', estimatedMinutes: 20, exerciseCount: 6, topics: ['E-handel', 'Plattformøkonomi', 'Omnikanal'], competenceGoals: ['utforske ulike distribusjonsstrategier i markedsføring'] },
+    { id: 'markedsforing-5-5', number: '5.5', title: 'Pris og distribusjon som konkurransemidler', description: 'Helhetlig tilnærming til pris- og distribusjonsstrategier.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Konkurransemidler', 'Markedsmiks', 'Konsistens'], competenceGoals: ['utforske ulike prisstrategier og prissettingsmetoder'] },
+    // Seksjon 6: Markedskommunikasjon
+    { id: 'markedsforing-6-1', number: '6.1', title: 'Kommunikasjonsprosessen', description: 'Sender-budskap-mottaker, støy, AIDA-modellen og kommunikasjonsmål.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Kommunikasjonsprosessen', 'AIDA', 'Støy'], competenceGoals: ['utforske ulike kommunikasjonsstrategier'] },
+    { id: 'markedsforing-6-2', number: '6.2', title: 'Reklame og PR', description: 'Reklameformer, mediekanaler, public relations og sponsing.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Reklame', 'PR', 'Sponsing'], competenceGoals: ['utforske ulike kommunikasjonsstrategier'] },
+    { id: 'markedsforing-6-3', number: '6.3', title: 'Digital markedskommunikasjon', description: 'SEO, SEM, Google Ads, e-postmarkedsføring og display-annonser.', estimatedMinutes: 25, exerciseCount: 7, topics: ['SEO', 'SEM', 'Google Ads'], competenceGoals: ['planlegge mediemiks og utvikle innhold for ulike kanaler'] },
+    { id: 'markedsforing-6-4', number: '6.4', title: 'Sosiale medier og innholdsmarkedsføring', description: 'Instagram, TikTok, Facebook, YouTube og innholdsstrategi.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Sosiale medier', 'Innholdsmarkedsføring', 'TikTok'], competenceGoals: ['planlegge mediemiks og utvikle innhold for ulike kanaler'] },
+    { id: 'markedsforing-6-5', number: '6.5', title: 'Mediemiks og kanalvalg', description: 'Mediestrategi, budsjettfordeling og integrert markedskommunikasjon.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Mediemiks', 'Kanalvalg', 'IMK'], competenceGoals: ['planlegge mediemiks og utvikle innhold for ulike kanaler'] },
+    // Seksjon 7: Ledelse og strategi
+    { id: 'markedsforing-7-1', number: '7.1', title: 'Ledelsesstiler og -teorier', description: 'Autoritær, demokratisk og la-det-skure-ledelse, situasjonsbestemt ledelse.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Ledelsesstiler', 'Situasjonsbestemt ledelse', 'Demokratisk ledelse'], competenceGoals: ['reflektere over personalets og ledelsens rolle'] },
+    { id: 'markedsforing-7-2', number: '7.2', title: 'Organisasjonskultur og motivasjon', description: 'Herzbergs to-faktorteori, indre og ytre motivasjon.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Organisasjonskultur', 'Herzberg', 'Motivasjon'], competenceGoals: ['reflektere over personalets og ledelsens rolle'] },
+    { id: 'markedsforing-7-3', number: '7.3', title: 'Strategisk markedsplanlegging', description: 'Ansoffs vekstmatrise, Porters generiske strategier og markedsplanens oppbygning.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Ansoff', 'Porters strategier', 'Markedsplan'], competenceGoals: ['utforske og vurdere hvordan virksomheter kombinerer bruk av konkurransemidler'] },
+    { id: 'markedsforing-7-4', number: '7.4', title: 'Kombinasjon av konkurransemidler', description: 'Konsistens mellom P-ene, synergieffekter og markedsmiks.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Markedsmiks', 'Konsistens', 'Synergi'], competenceGoals: ['utforske og vurdere hvordan virksomheter kombinerer bruk av konkurransemidler'] },
+    { id: 'markedsforing-7-5', number: '7.5', title: 'Implementering av strategi', description: 'Fra plan til handling, endringsledelse og KPI-er.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Implementering', 'Endringsledelse', 'KPI'], competenceGoals: ['reflektere over personalets og ledelsens rolle'] },
+    // Seksjon 8: Etikk, regelverk og bærekraft
+    { id: 'markedsforing-8-1', number: '8.1', title: 'Markedsføringsloven', description: 'God markedsføringsskikk, Forbrukertilsynet og villedende markedsføring.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Markedsføringsloven', 'Forbrukertilsynet', 'God markedsføringsskikk'], competenceGoals: ['utforske og følge gjeldende regelverk for markedsføring'] },
+    { id: 'markedsforing-8-2', number: '8.2', title: 'Reklameregelverk og forbrukervern', description: 'Angrerettloven, alkohol-/tobakksreklameforbud og regler for barn.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Angrerettloven', 'Reklameforbud', 'Barn og reklame'], competenceGoals: ['utforske og følge gjeldende regelverk for markedsføring'] },
+    { id: 'markedsforing-8-3', number: '8.3', title: 'Etikk i markedsføring', description: 'Manipulasjon, skjult reklame, CSR og etikk vs. lønnsomhet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Etikk', 'CSR', 'Dark patterns'], competenceGoals: ['vurdere virksomhetens etiske ansvar'] },
+    { id: 'markedsforing-8-4', number: '8.4', title: 'Bærekraftig markedsføring', description: 'Grønn markedsføring, grønnvasking, sirkulærøkonomi og FNs bærekraftsmål.', estimatedMinutes: 25, exerciseCount: 7, topics: ['Bærekraft', 'Grønnvasking', 'Sirkulærøkonomi'], competenceGoals: ['reflektere over sammenhengen mellom markedsføring og bærekraftig utvikling'] },
+    { id: 'markedsforing-8-5', number: '8.5', title: 'Markedsplan – fra idé til gjennomføring', description: 'Markedsplanens struktur, budsjettering, tidslinjer og evaluering.', estimatedMinutes: 25, exerciseCount: 6, topics: ['Markedsplan', 'Budsjettering', 'Evaluering'], competenceGoals: ['utforske og vurdere hvordan virksomheter kombinerer bruk av konkurransemidler'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_KOMKULT_1: TextbookCourse = {
+  id: 'komkult-1',
+  title: 'Kommunikasjon og kultur 1',
+  level: 'VG2',
+  description: 'Kommunikasjon og kultur 1 - grunnleggende kommunikasjonsteori, verbal og nonverbal kommunikasjon, kultur og identitet',
+  curriculum: 'LK20',
+  icon: '🗣️',
+  coverImage: '/images/subjects/komkult-1-hero.webp',
+  chapters: [
+    { id: 'komkult-1-1', number: '1', title: 'Hva er kommunikasjon?', description: 'En introduksjon til kommunikasjonsbegrepet, kommunikasjonsmodeller og grunnleggende kommunikasjonsteori.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Kommunikasjonsprosessen', 'Kommunikasjonsmodeller', 'Sender-mottaker'], competenceGoals: ['gjøre rede for ulike kommunikasjonsmodeller og teorier'], wip: true },
+    { id: 'komkult-1-2', number: '2', title: 'Verbal og nonverbal kommunikasjon', description: 'Utforsk språkets kraft og kroppsspråkets betydning i kommunikasjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Språk', 'Kroppsspråk', 'Nonverbal kommunikasjon'], competenceGoals: ['analysere samspillet mellom verbal og nonverbal kommunikasjon'], wip: true },
+    { id: 'komkult-1-3', number: '3', title: 'Kultur og identitet', description: 'Forstå sammenhengen mellom kultur, identitet og kommunikasjon.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Kulturforståelse', 'Identitet', 'Kulturelle verdier'], competenceGoals: ['reflektere over kulturens rolle i identitetsutvikling'], wip: true },
+    { id: 'komkult-1-4', number: '4', title: 'Interkulturell kommunikasjon', description: 'Lær om kommunikasjon på tvers av kulturer.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Etnosentrisme', 'Kulturrelativisme', 'Kulturmøter'], competenceGoals: ['analysere interkulturell kommunikasjon'], wip: true },
+    { id: 'komkult-1-5', number: '5', title: 'Mediekommunikasjon', description: 'Utforsk medienes rolle i moderne kommunikasjon.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Medier', 'Sosiale medier', 'Digitalt innhold'], competenceGoals: ['vurdere medienes påvirkning på kommunikasjon'], wip: true },
+    { id: 'komkult-1-6', number: '6', title: 'Retorikk og overtalelse', description: 'Lær om retorikkens grunnprinsipper og overtalelsesteknikker.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Etos', 'Patos', 'Logos', 'Argumentasjon'], competenceGoals: ['analysere retoriske virkemidler'], wip: true },
+    { id: 'komkult-1-7', number: '7', title: 'Kommunikasjon i grupper', description: 'Forstå gruppedynamikk og kommunikasjon i team.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Gruppeprosesser', 'Samarbeid', 'Konflikthåndtering'], competenceGoals: ['forstå kommunikasjon i gruppesammenheng'], wip: true },
+    { id: 'komkult-1-8', number: '8', title: 'Kommunikasjonsetikk', description: 'Etiske aspekter ved kommunikasjon og påvirkning.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Etikk', 'Personvern', 'Ansvar'], competenceGoals: ['reflektere over etiske problemstillinger i kommunikasjon'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_KOMKULT_2: TextbookCourse = {
+  id: 'komkult-2',
+  title: 'Kommunikasjon og kultur 2',
+  level: 'VG3',
+  description: 'Kommunikasjon og kultur 2 - avansert kommunikasjonsteori, kulturteori, globalisering og medieanalyse',
+  curriculum: 'LK20',
+  icon: '🗣️',
+  coverImage: '/images/subjects/komkult-2-hero.webp',
+  chapters: [
+    { id: 'komkult-2-1', number: '1', title: 'Avansert kommunikasjonsteori', description: 'Utforsk avanserte teorier om kommunikasjon, fra klassiske modeller til moderne perspektiver.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Sapir-Whorf', 'Diskursanalyse', 'Habermas'], competenceGoals: ['analysere komplekse kommunikasjonsprosesser'], wip: true },
+    { id: 'komkult-2-2', number: '2', title: 'Kulturteori og kulturanalyse', description: 'Lær avanserte teorier om kultur og metoder for kulturanalyse.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Stuart Hall', 'Bourdieu', 'Populærkultur'], competenceGoals: ['gjøre rede for ulike kulturteoretiske perspektiver'], wip: true },
+    { id: 'komkult-2-3', number: '3', title: 'Globalisering og kultur', description: 'Utforsk globaliseringens innvirkning på kultur og kommunikasjon.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kulturimperialisme', 'Hybridisering', 'Glokalisering'], competenceGoals: ['analysere kulturell globalisering'], wip: true },
+    { id: 'komkult-2-4', number: '4', title: 'Medieanalyse', description: 'Lær å analysere medietekster og medieproduksjon.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Tekstanalyse', 'Semiotikk', 'Medieproduksjon'], competenceGoals: ['analysere medietekster kritisk'], wip: true },
+    { id: 'komkult-2-5', number: '5', title: 'Visuell kommunikasjon', description: 'Forstå bildespråk og visuell retorikk.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Bildeanalyse', 'Visuell retorikk', 'Design'], competenceGoals: ['analysere visuell kommunikasjon'], wip: true },
+    { id: 'komkult-2-6', number: '6', title: 'Digital kultur', description: 'Utforsk digitale mediers innvirkning på kultur og samfunn.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Sosiale medier', 'Algoritmer', 'Ekkokammer'], competenceGoals: ['vurdere digitale mediers rolle i samfunnet'], wip: true },
+    { id: 'komkult-2-7', number: '7', title: 'Språk, makt og identitet', description: 'Forstå sammenhengen mellom språk, makt og identitetskonstruksjon.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Språk og makt', 'Diskurs', 'Identitet'], competenceGoals: ['drøfte språkets rolle i maktrelasjoner'], wip: true },
+    { id: 'komkult-2-8', number: '8', title: 'Organisasjonskommunikasjon', description: 'Kommunikasjon i organisasjoner og bedrifter.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Intern kommunikasjon', 'Ekstern kommunikasjon', 'PR'], competenceGoals: ['analysere kommunikasjon i organisasjoner'], wip: true },
+    { id: 'komkult-2-9', number: '9', title: 'Krisekommmunikasjon', description: 'Kommunikasjon under og etter kriser.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Krisehåndtering', 'Omdømme', 'Strategier'], competenceGoals: ['forstå krisekommunikasjon'], wip: true },
+    { id: 'komkult-2-10', number: '10', title: 'Fordypningsprosjekt', description: 'Selvstendig arbeid med kommunikasjon og kultur.', estimatedMinutes: 90, exerciseCount: 3, topics: ['Prosjektarbeid', 'Analyse', 'Presentasjon'], competenceGoals: ['gjennomføre selvstendig fordypningsarbeid'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_KOMKULT_3: TextbookCourse = {
+  id: 'komkult-3',
+  title: 'Kommunikasjon og kultur 3',
+  level: 'VG3',
+  description: 'Kommunikasjon og kultur 3 - fordypning i kulturteori, profesjonell kommunikasjon og flerkulturelle samfunn',
+  curriculum: 'LK20',
+  icon: '🗣️',
+  coverImage: '/images/subjects/komkult-3-hero.webp',
+  chapters: [
+    { id: 'komkult3-1', number: '1', title: 'Fordypning i kulturteori', description: 'Avanserte kulturteoretiske perspektiver og analytiske verktøy.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Strukturalisme', 'Poststrukturalisme', 'Cultural Studies'], competenceGoals: ['analysere kulturelle uttrykk ved hjelp av ulike teoretiske perspektiver'], wip: true },
+    { id: 'komkult3-2', number: '2', title: 'Kommunikasjon i arbeidslivet', description: 'Profesjonell kommunikasjon, organisasjonskultur og strategisk kommunikasjon.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Profesjonell kommunikasjon', 'Organisasjonskultur', 'Møtekultur'], competenceGoals: ['analysere ulike kommunikasjonsformer i arbeidslivet'], wip: true },
+    { id: 'komkult3-3', number: '3', title: 'Flerkulturelle samfunn', description: 'Kommunikasjon og identitet i flerkulturelle samfunn.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Mangfold', 'Integrering', 'Identitetspolitikk'], competenceGoals: ['analysere kommunikasjon i flerkulturelle samfunn'], wip: true },
+    { id: 'komkult3-4', number: '4', title: 'Mediekritikk og kildekritikk', description: 'Kritisk analyse av medier og kilder.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Kildekritikk', 'Falske nyheter', 'Mediekritikk'], competenceGoals: ['vurdere kilder og medieinnhold kritisk'], wip: true },
+    { id: 'komkult3-5', number: '5', title: 'Påvirkning og propaganda', description: 'Forstå teknikker for påvirkning og propaganda.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Propaganda', 'Påvirkningsteknikker', 'Manipulasjon'], competenceGoals: ['analysere påvirkning og propaganda'], wip: true },
+    { id: 'komkult3-6', number: '6', title: 'Kommunikasjon og demokrati', description: 'Medienes og kommunikasjonens rolle i demokratiet.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Demokrati', 'Ytringsfrihet', 'Offentlighet'], competenceGoals: ['drøfte kommunikasjonens rolle i demokratiske prosesser'], wip: true },
+    { id: 'komkult3-7', number: '7', title: 'Kunstig intelligens og kommunikasjon', description: 'AI og fremtidens kommunikasjon.', estimatedMinutes: 70, exerciseCount: 4, topics: ['AI', 'Chatboter', 'Fremtiden'], competenceGoals: ['reflektere over teknologiens påvirkning på kommunikasjon'], wip: true },
+    { id: 'komkult3-8', number: '8', title: 'Avsluttende fordypningsprosjekt', description: 'Større fordypningsarbeid innen kommunikasjon og kultur.', estimatedMinutes: 120, exerciseCount: 3, topics: ['Forskningsmetode', 'Analyse', 'Fagskriving'], competenceGoals: ['gjennomføre et større faglig arbeid'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_MEDIEINFO_1: TextbookCourse = {
+  id: 'medieinfo-1',
+  title: 'Medie- og informasjonskunnskap 1',
+  level: 'VG2',
+  description: 'Medie- og informasjonskunnskap 1 - innføring i medier, mediehistorie, journalistikk og medieanalyse',
+  curriculum: 'LK20',
+  icon: '📺',
+  coverImage: '/images/subjects/medieinfo-1-hero.webp',
+  chapters: [
+    { id: 'medieinfo-1-1', number: '1', title: 'Introduksjon til medier', description: 'En innføring i mediebegrepet, medietyper og medienes rolle i samfunnet.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Medietyper', 'Mediefunksjoner', 'Massemedier'], competenceGoals: ['gjøre rede for hva medier er og hvilke funksjoner de har'], wip: true },
+    { id: 'medieinfo-1-2', number: '2', title: 'Mediehistorie', description: 'En reise gjennom medienes utvikling fra trykkekunsten til dagens digitale medier.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Trykkekunsten', 'Radio', 'TV', 'Internett'], competenceGoals: ['gjøre rede for viktige milepæler i mediehistorien'], wip: true },
+    { id: 'medieinfo-1-3', number: '3', title: 'Journalistikk og nyheter', description: 'Grunnleggende journalistikk, nyhetskriterier og presseetikk.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Nyhetskriterier', 'Presseetikk', 'Kilder'], competenceGoals: ['forstå journalistikkens grunnprinsipper'], wip: true },
+    { id: 'medieinfo-1-4', number: '4', title: 'Medietekster og sjangre', description: 'Ulike mediesjangre og teksttyper.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Sjangre', 'Teksttyper', 'Multimodalitet'], competenceGoals: ['analysere ulike medietekster'], wip: true },
+    { id: 'medieinfo-1-5', number: '5', title: 'Reklame og markedsføring', description: 'Forstå reklame, merkevarebygging og påvirkning.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Reklame', 'Merkevarer', 'Målgrupper'], competenceGoals: ['analysere reklame og markedskommunikasjon'], wip: true },
+    { id: 'medieinfo-1-6', number: '6', title: 'Film og TV', description: 'Filmspråk, TV-formater og audiovisuell analyse.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Filmspråk', 'TV-formater', 'Analyse'], competenceGoals: ['analysere audiovisuelt innhold'], wip: true },
+    { id: 'medieinfo-1-7', number: '7', title: 'Sosiale medier', description: 'Sosiale mediers funksjon og påvirkning.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Sosiale medier', 'Algoritmer', 'Påvirkning'], competenceGoals: ['forstå sosiale mediers rolle'], wip: true },
+    { id: 'medieinfo-1-8', number: '8', title: 'Mediebruk og medieeffekter', description: 'Hvordan medier påvirker individ og samfunn.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Mediebruk', 'Effektforskning', 'Mediepåvirkning'], competenceGoals: ['drøfte medienes påvirkning'], wip: true },
+    { id: 'medieinfo-1-9', number: '9', title: 'Informasjonssøk og kildekritikk', description: 'Finne, vurdere og bruke informasjon kritisk.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Søkestrategier', 'Kildekritikk', 'Informasjonskompetanse'], competenceGoals: ['søke og vurdere informasjon kritisk'], wip: true },
+    { id: 'medieinfo-1-10', number: '10', title: 'Medieproduksjon', description: 'Praktisk medieproduksjon og innholdsskaping.', estimatedMinutes: 80, exerciseCount: 4, topics: ['Produksjon', 'Verktøy', 'Publisering'], competenceGoals: ['produsere eget medieinnhold'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_MEDIEINFO_2: TextbookCourse = {
+  id: 'medieinfo-2',
+  title: 'Medie- og informasjonskunnskap 2',
+  level: 'VG3',
+  description: 'Medie- og informasjonskunnskap 2 - avansert medieanalyse, medieøkonomi, medieetikk og fordypning',
+  curriculum: 'LK20',
+  icon: '📺',
+  coverImage: '/images/subjects/medieinfo-2-hero.webp',
+  chapters: [
+    { id: 'medieinfo-2-1', number: '1', title: 'Avansert medieanalyse', description: 'Fordypning i metoder og teorier for å analysere medietekster på et avansert nivå.', estimatedMinutes: 90, exerciseCount: 6, topics: ['Semiotikk', 'Multimodal analyse', 'Diskursanalyse'], competenceGoals: ['anvende ulike analysemetoder på komplekse medietekster'], wip: true },
+    { id: 'medieinfo-2-2', number: '2', title: 'Medieøkonomi og mediemarked', description: 'Forstå medienes økonomiske grunnlag, eierskap og markedsstrukturer.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Finansiering', 'Eierskap', 'Marked'], competenceGoals: ['analysere medienes økonomiske vilkår'], wip: true },
+    { id: 'medieinfo-2-3', number: '3', title: 'Medieetikk og medierett', description: 'Etiske og juridiske rammer for mediene.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Presseetikk', 'Medierett', 'Personvern'], competenceGoals: ['drøfte medieetiske problemstillinger'], wip: true },
+    { id: 'medieinfo-2-4', number: '4', title: 'Politisk kommunikasjon', description: 'Medienes rolle i politikk og demokrati.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Politisk kommunikasjon', 'Valgkamp', 'Spin'], competenceGoals: ['analysere politisk kommunikasjon'], wip: true },
+    { id: 'medieinfo-2-5', number: '5', title: 'Global medielandskap', description: 'Internasjonale medier og global informasjonsflyt.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Globalisering', 'Nyhetsbyråer', 'Mediemangfold'], competenceGoals: ['forstå det globale medielandskapet'], wip: true },
+    { id: 'medieinfo-2-6', number: '6', title: 'Medieforskning', description: 'Introduksjon til medieforskning og forskningsmetoder.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Forskningsmetoder', 'Medieeffekter', 'Publikumsstudier'], competenceGoals: ['forstå medieforskning'], wip: true },
+    { id: 'medieinfo-2-7', number: '7', title: 'Fremtidens medier', description: 'Teknologiske trender og medienes fremtid.', estimatedMinutes: 65, exerciseCount: 4, topics: ['AI', 'VR/AR', 'Streaming'], competenceGoals: ['reflektere over medienes utvikling'], wip: true },
+    { id: 'medieinfo-2-8', number: '8', title: 'Avansert medieproduksjon', description: 'Større produksjonsprosjekt med flere formater.', estimatedMinutes: 90, exerciseCount: 3, topics: ['Produksjonsplanlegging', 'Multimedia', 'Distribusjon'], competenceGoals: ['planlegge og gjennomføre medieproduksjon'], wip: true },
+    { id: 'medieinfo-2-9', number: '9', title: 'Mediekritikk', description: 'Kritisk analyse av medienes rolle i samfunnet.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Mediekritikk', 'Samfunnsansvar', 'Makt'], competenceGoals: ['vurdere medienes samfunnsrolle kritisk'], wip: true },
+    { id: 'medieinfo-2-10', number: '10', title: 'Fordypningsoppgave', description: 'Selvstendig fordypning i selvvalgt emne.', estimatedMinutes: 120, exerciseCount: 3, topics: ['Prosjekt', 'Forskning', 'Presentasjon'], competenceGoals: ['gjennomføre selvstendig fordypning'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_POLITIKK_MENNESKERETT: TextbookCourse = {
+  id: 'politikk-menneskerett',
+  title: 'Politikk og menneskerettigheter',
+  level: 'VG2/VG3',
+  description: 'Politikk og menneskerettigheter - politiske systemer, demokrati, menneskerettigheter og internasjonal politikk',
+  curriculum: 'LK20',
+  icon: '⚖️',
+  coverImage: '/images/subjects/politikk-menneskerett-hero.webp',
+  chapters: [
+    // Seksjon 1: Politikkens grunnlag (1.1-1.6)
+    { id: 'politikk-menneskerett-1-1', number: '1.1', title: 'Hva er politikk?', description: 'Ulike definisjoner av politikk, forholdet mellom politikk og makt, og politiske beslutningers påvirkning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Politikk', 'Interessekonflikt', 'Formell politikk'], competenceGoals: ['gjøre rede for hva politikk er og hvordan politiske prosesser fungerer'] },
+    { id: 'politikk-menneskerett-1-2', number: '1.2', title: 'Makt og maktfordeling', description: 'Maktbegrepet, Steven Lukes tre maktdimensjoner og den norske maktfordelingen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Makt', 'Autoritet', 'Legitimitet', 'Maktens tre dimensjoner'], competenceGoals: ['gjøre rede for maktbegrepet og ulike former for makt'] },
+    { id: 'politikk-menneskerett-1-3', number: '1.3', title: 'Politiske aktører og interessegrupper', description: 'Politiske partier, interesseorganisasjoner, lobbyisme og den korporative kanalen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Politisk parti', 'Interesseorganisasjon', 'Lobbyisme'], competenceGoals: ['gjøre rede for politiske partiers rolle i demokratiet'] },
+    { id: 'politikk-menneskerett-1-4', number: '1.4', title: 'Politisk sosialisering og meningsdannelse', description: 'Hvordan politiske holdninger formes gjennom oppvekst, medier og utdanning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Politisk sosialisering', 'Sosialiseringsagent', 'Politisk kultur'], competenceGoals: ['forklare hva politisk sosialisering er'] },
+    { id: 'politikk-menneskerett-1-5', number: '1.5', title: 'Medier og politisk kommunikasjon', description: 'Medienes rolle som fjerde statsmakt, agenda-setting, sosiale medier og ekkokamre.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Den fjerde statsmakt', 'Agenda-setting', 'Framing', 'Ekkokammer'], competenceGoals: ['gjøre rede for medienes rolle i et demokrati'] },
+    { id: 'politikk-menneskerett-1-6', number: '1.6', title: 'Politisk deltakelse og medborgerskap', description: 'Konvensjonell og ukonvensjonell deltakelse, sivil ulydighet og demokratiske utfordringer.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Politisk deltakelse', 'Medborgerskap', 'Sivil ulydighet'], competenceGoals: ['gjøre rede for ulike former for politisk deltakelse'] },
+    // Seksjon 2: Styreformer og politiske systemer (2.1-2.6)
+    { id: 'politikk-menneskerett-2-1', number: '2.1', title: 'Demokrati som styreform', description: 'Demokratiets kjennetegn, forutsetninger og ulike former for demokratisk styring.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Demokrati', 'Direkte demokrati', 'Representativt demokrati'], competenceGoals: ['gjøre rede for demokrati som styreform'] },
+    { id: 'politikk-menneskerett-2-2', number: '2.2', title: 'Det norske politiske systemet', description: 'Maktfordelingen, parlamentarismens rolle og Grunnlovens betydning.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Parlamentarisme', 'Maktfordelingsprinsippet', 'Grunnloven'], competenceGoals: ['gjøre rede for det norske politiske systemet'] },
+    { id: 'politikk-menneskerett-2-3', number: '2.3', title: 'Stortinget og lovgivningsprosessen', description: 'Stortingets rolle, oppbygning og hvordan lover blir til i Norge.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Proposisjon', 'Stortingskomite', 'Innstilling', 'Høring'], competenceGoals: ['gjøre rede for Stortingets rolle og lovgivningsprosessen'] },
+    { id: 'politikk-menneskerett-2-4', number: '2.4', title: 'Regjeringen og forvaltningen', description: 'Regjeringens rolle, departementsstrukturen og den offentlige forvaltningen.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Statsråd', 'Departement', 'Direktorat', 'Byråkrati'], competenceGoals: ['gjøre rede for regjeringens rolle og forvaltningen'] },
+    { id: 'politikk-menneskerett-2-5', number: '2.5', title: 'Lokaldemokrati og kommunestyre', description: 'Det lokale selvstyret, kommunenes rolle og formannskapsmodellen.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Kommunalt selvstyre', 'Formannskapsmodellen', 'Kommunestyre'], competenceGoals: ['gjøre rede for lokaldemokratiet'] },
+    { id: 'politikk-menneskerett-2-6', number: '2.6', title: 'Autoritære regimer og demokratisk tilbakegang', description: 'Ulike autoritære regimer, hybridregimer og trusselen om demokratisk tilbakegang.', estimatedMinutes: 50, exerciseCount: 7, topics: ['Autoritært regime', 'Totalitært regime', 'Hybridregime'], competenceGoals: ['gjøre rede for kjennetegn ved autoritære regimer'] },
+    // Seksjon 3: Ideologier og partier (3.1-3.6)
+    { id: 'politikk-menneskerett-3-1', number: '3.1', title: 'Hva er en politisk ideologi?', description: 'Hva ideologier er, hvordan de oppstod historisk og deres rolle i moderne politikk.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Politisk ideologi', 'Venstre-høyre-aksen', 'Den franske revolusjonen'], competenceGoals: ['gjøre rede for hva en politisk ideologi er'] },
+    { id: 'politikk-menneskerett-3-2', number: '3.2', title: 'Liberalisme og nyliberalisme', description: 'Liberalismens grunnleggende ideer, sosialliberalisme og nyliberalisme.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Liberalisme', 'Nyliberalisme', 'Sosialliberalisme', 'Individuell frihet'], competenceGoals: ['gjøre rede for liberalismens grunnleggende ideer'] },
+    { id: 'politikk-menneskerett-3-3', number: '3.3', title: 'Sosialisme og sosialdemokrati', description: 'Sosialismens historiske røtter, marxisme og den nordiske modellen.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Sosialisme', 'Sosialdemokrati', 'Marxisme', 'Den nordiske modellen'], competenceGoals: ['gjøre rede for sosialismens historiske utvikling'] },
+    { id: 'politikk-menneskerett-3-4', number: '3.4', title: 'Konservatisme og kristendemokrati', description: 'Konservatismens forsvar for tradisjon og gradvise endringer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Konservatisme', 'Kristendemokrati', 'Edmund Burke', 'Tradisjon'], competenceGoals: ['gjøre rede for konservatismens grunnleggende ideer'] },
+    { id: 'politikk-menneskerett-3-5', number: '3.5', title: 'Populisme, nasjonalisme og andre ideologier', description: 'Populisme, nasjonalisme, grønn ideologi, feminisme og anarkisme.', estimatedMinutes: 55, exerciseCount: 7, topics: ['Populisme', 'Nasjonalisme', 'Grønn ideologi', 'Feminisme'], competenceGoals: ['gjøre rede for populisme, nasjonalisme og andre ideologier'] },
+    { id: 'politikk-menneskerett-3-6', number: '3.6', title: 'Norske politiske partier og partisystemet', description: 'Stortingspartienes ideologiske grunnlag og norske politiske skillelinjer.', estimatedMinutes: 60, exerciseCount: 8, topics: ['Stortingspartier', 'Politiske skillelinjer', 'Flerpartisystem'], competenceGoals: ['gjøre rede for de norske partiene og skillelinjene'] },
+    // Seksjon 4: Menneskerettigheter (4.1-4.6)
+    { id: 'politikk-menneskerett-4-1', number: '4.1', title: 'Menneskerettighetenes historie og utvikling', description: 'Naturrett, opplysningstiden, Verdenserklæringen og det moderne menneskerettighetssystemet.', estimatedMinutes: 45, exerciseCount: 7, topics: ['Menneskerettigheter', 'Naturrett', 'Verdenserklæringen', 'Magna Carta'], competenceGoals: ['gjøre rede for menneskerettighetenes historiske utvikling'] },
+    { id: 'politikk-menneskerett-4-2', number: '4.2', title: 'FNs verdenserklæring og konvensjoner', description: 'ICCPR, ICESCR, barnekonvensjonen og det internasjonale konvensjonssystemet.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Konvensjon', 'Ratifikasjon', 'ICCPR', 'ICESCR'], competenceGoals: ['gjøre rede for FNs sentrale menneskerettighetskonvensjoner'] },
+    { id: 'politikk-menneskerett-4-3', number: '4.3', title: 'Sivile og politiske rettigheter', description: 'Ytringsfrihet, religionsfrihet, rettssikkerhet og stemmerett.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Ytringsfrihet', 'Religionsfrihet', 'Rettssikkerhet', 'Stemmerett'], competenceGoals: ['gjøre rede for sentrale sivile og politiske rettigheter'] },
+    { id: 'politikk-menneskerett-4-4', number: '4.4', title: 'Økonomiske, sosiale og kulturelle rettigheter', description: 'Retten til arbeid, utdanning, helse og kulturelle rettigheter.', estimatedMinutes: 45, exerciseCount: 6, topics: ['ØSK-rettigheter', 'Positive rettigheter', 'Rett til utdanning', 'Rett til helse'], competenceGoals: ['gjøre rede for økonomiske, sosiale og kulturelle rettigheter'] },
+    { id: 'politikk-menneskerett-4-5', number: '4.5', title: 'Menneskerettigheter i praksis – utfordringer', description: 'Menneskerettighetsbrudd, overvåking, kulturrelativisme og universalisme.', estimatedMinutes: 45, exerciseCount: 7, topics: ['Folkemord', 'Derogasjon', 'Kulturrelativisme', 'Universalisme'], competenceGoals: ['drøfte utfordringer knyttet til menneskerettighetene'] },
+    { id: 'politikk-menneskerett-4-6', number: '4.6', title: 'Menneskerettigheter i Norge', description: 'Grunnloven, likestilling, urfolksrettigheter og Norges menneskerettighetssituasjon.', estimatedMinutes: 45, exerciseCount: 8, topics: ['Grunnloven', 'Menneskerettsloven', 'NIM', 'Fornorskingspolitikken'], competenceGoals: ['gjøre rede for menneskerettighetenes stilling i Norge'] },
+    // Seksjon 5: Internasjonal politikk (5.1-5.6)
+    { id: 'politikk-menneskerett-5-1', number: '5.1', title: 'Det internasjonale statssystemet', description: 'Suverenitetsprinsippet, folkerett, maktbalanse og ulike verdensordener.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Suverenitet', 'Folkerett', 'Maktbalanse', 'Verdensorden'], competenceGoals: ['gjøre rede for det internasjonale statssystemet'] },
+    { id: 'politikk-menneskerett-5-2', number: '5.2', title: 'FN – oppbygging og rolle', description: 'Generalforsamlingen, Sikkerhetsrådet, vetoretten og FN-organer.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Generalforsamlingen', 'Sikkerhetsrådet', 'Vetorett', 'Bærekraftsmålene'], competenceGoals: ['gjøre rede for FNs oppbygging og rolle'] },
+    { id: 'politikk-menneskerett-5-3', number: '5.3', title: 'NATO og internasjonal sikkerhet', description: 'NATOs oppbygging, artikkel 5, kollektivt forsvar og norsk sikkerhetspolitikk.', estimatedMinutes: 50, exerciseCount: 6, topics: ['NATO', 'Artikkel 5', 'Kollektivt forsvar', 'Hybridkrig'], competenceGoals: ['gjøre rede for NATOs rolle og norsk sikkerhetspolitikk'] },
+    { id: 'politikk-menneskerett-5-4', number: '5.4', title: 'EU og europeisk samarbeid', description: 'EUs institusjoner, det indre markedet, EØS-avtalen og Schengen.', estimatedMinutes: 50, exerciseCount: 6, topics: ['EU', 'EØS-avtalen', 'Schengen', 'Det indre markedet'], competenceGoals: ['gjøre rede for EU og Norges tilknytning gjennom EØS'] },
+    { id: 'politikk-menneskerett-5-5', number: '5.5', title: 'Internasjonal handel og økonomi', description: 'WTO, frihandel vs. proteksjonisme, handelsavtaler og økonomisk globalisering.', estimatedMinutes: 50, exerciseCount: 5, topics: ['WTO', 'Frihandel', 'Proteksjonisme', 'Komparative fortrinn'], competenceGoals: ['gjøre rede for internasjonal handel og økonomisk globalisering'] },
+    { id: 'politikk-menneskerett-5-6', number: '5.6', title: 'Krig, fred og konfliktløsning', description: 'Årsaker til konflikter, folkerett i krig, fredsbygging og Norges rolle.', estimatedMinutes: 50, exerciseCount: 6, topics: ['Genèvekonvensjonene', 'Krigsforbrytelse', 'Fredsbygging'], competenceGoals: ['gjøre rede for årsaker til konflikter og virkemidler for fred'] },
+    // Seksjon 6: Globale utfordringer og aktivisme (6.1-6.5)
+    { id: 'politikk-menneskerett-6-1', number: '6.1', title: 'Globale utfordringer i det 21. århundre', description: 'FNs bærekraftsmål, befolkningsvekst, pandemier og global styring.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Bærekraftsmålene', 'Befolkningsvekst', 'Pandemi', 'Global styring'], competenceGoals: ['gjøre rede for sentrale globale utfordringer'] },
+    { id: 'politikk-menneskerett-6-2', number: '6.2', title: 'Klimapolitikk og bærekraftig utvikling', description: 'Parisavtalen, klimarettferdighet, det grønne skiftet og Norges rolle.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Parisavtalen', 'Klimarettferdighet', 'Det grønne skiftet'], competenceGoals: ['gjøre rede for internasjonal klimapolitikk'] },
+    { id: 'politikk-menneskerett-6-3', number: '6.3', title: 'Fattigdom, ulikhet og utvikling', description: 'Global ulikhet, bistandspolitikk, Verdensbanken, IMF og rettferdig handel.', estimatedMinutes: 45, exerciseCount: 5, topics: ['Absolutt fattigdom', 'Bistand', 'Verdensbanken', 'Rettferdig handel'], competenceGoals: ['gjøre rede for global fattigdom og utviklingsstrategier'] },
+    { id: 'politikk-menneskerett-6-4', number: '6.4', title: 'Migrasjon og flyktningpolitikk', description: 'Flyktningkonvensjonen, asylprosessen, integrering og norsk innvandringspolitikk.', estimatedMinutes: 45, exerciseCount: 6, topics: ['Flyktning', 'Flyktningkonvensjonen', 'Asyl', 'Non-refoulement'], competenceGoals: ['gjøre rede for flyktningkonvensjonen og norsk politikk'] },
+    { id: 'politikk-menneskerett-6-5', number: '6.5', title: 'Aktivisme, sivilsamfunn og forandring', description: 'Sosiale bevegelser, sivil ulydighet, digital aktivisme og sivilsamfunnets rolle.', estimatedMinutes: 45, exerciseCount: 7, topics: ['Sivilsamfunn', 'Sosiale bevegelser', 'Sivil ulydighet', 'Digital aktivisme'], competenceGoals: ['gjøre rede for sivilsamfunnets rolle og aktivisme'] },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_ENTREBED_1: TextbookCourse = {
+  id: 'entrebed-1',
+  title: 'Entreprenørskap og bedriftsutvikling 1',
+  level: 'VG2',
+  description: 'Entreprenørskap og bedriftsutvikling 1 - grunnleggende entreprenørskap, idéutvikling, forretningsplanlegging og økonomi',
+  curriculum: 'LK20',
+  icon: '💼',
+  coverImage: '/images/subjects/entrebed-1-hero.webp',
+  chapters: [
+    { id: 'entrebed-1-1', number: '1', title: 'Hva er entreprenørskap?', description: 'Forstå hva entreprenørskap er, historisk utvikling og betydningen for samfunnet.', estimatedMinutes: 55, exerciseCount: 6, topics: ['Entreprenørskap', 'Innovasjon', 'Typer entreprenører'], competenceGoals: ['gjøre rede for hva entreprenørskap innebærer'], wip: true },
+    { id: 'entrebed-1-2', number: '2', title: 'Idéutvikling og muligheter', description: 'Lær å identifisere muligheter og utvikle forretningsideer.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kreativitet', 'Idégenerering', 'Markedsanalyse'], competenceGoals: ['utvikle forretningsideer'], wip: true },
+    { id: 'entrebed-1-3', number: '3', title: 'Forretningsmodeller', description: 'Forstå og utvikle bærekraftige forretningsmodeller.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Business Model Canvas', 'Verdiforslag', 'Inntektsmodeller'], competenceGoals: ['utvikle forretningsmodeller'], wip: true },
+    { id: 'entrebed-1-4', number: '4', title: 'Markedsføring og salg', description: 'Grunnleggende markedsføring og salgsteknikker.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Markedsføring', 'Segmentering', 'Salg'], competenceGoals: ['planlegge markedsføring'], wip: true },
+    { id: 'entrebed-1-5', number: '5', title: 'Økonomi og regnskap', description: 'Grunnleggende økonomi for bedrifter.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Budsjett', 'Regnskap', 'Lønnsomhet'], competenceGoals: ['forstå bedriftsøkonomi'], wip: true },
+    { id: 'entrebed-1-6', number: '6', title: 'Organisering og ledelse', description: 'Organisasjonsformer og ledelse.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Organisasjon', 'Ledelse', 'Team'], competenceGoals: ['forstå organisering og ledelse'], wip: true },
+    { id: 'entrebed-1-7', number: '7', title: 'Bedriftsetablering', description: 'Praktiske steg for å etablere en bedrift.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Selskapsformer', 'Registrering', 'Juridisk'], competenceGoals: ['kjenne til bedriftsetablering'], wip: true },
+    { id: 'entrebed-1-8', number: '8', title: 'Ungdomsbedrift', description: 'Praktisk arbeid med ungdomsbedrift.', estimatedMinutes: 80, exerciseCount: 4, topics: ['UB', 'Drift', 'Evaluering'], competenceGoals: ['drive ungdomsbedrift'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_ENTREBED_2: TextbookCourse = {
+  id: 'entrebed-2',
+  title: 'Entreprenørskap og bedriftsutvikling 2',
+  level: 'VG3',
+  description: 'Entreprenørskap og bedriftsutvikling 2 - avansert forretningsutvikling, skalering, finansiering og bærekraft',
+  curriculum: 'LK20',
+  icon: '💼',
+  coverImage: '/images/subjects/entrebed-2-hero.webp',
+  chapters: [
+    { id: 'entrebed2-1', number: '1', title: 'Avansert forretningsutvikling', description: 'Strategisk forretningsplanlegging og forretningsmodellinnovasjon.', estimatedMinutes: 90, exerciseCount: 5, topics: ['SWOT', 'PESTEL', 'Porters fem krefter'], competenceGoals: ['utvikle avanserte forretningsstrategier'], wip: true },
+    { id: 'entrebed2-2', number: '2', title: 'Skalering og vekst', description: 'Strategier for å skalere og vokse en bedrift.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Skalering', 'Vekstfaser', 'Vekstmålinger'], competenceGoals: ['planlegge vekst og skalering'], wip: true },
+    { id: 'entrebed2-3', number: '3', title: 'Finansiering', description: 'Ulike finansieringskilder og investeringsstrategier.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Investorer', 'Crowdfunding', 'Lån'], competenceGoals: ['forstå finansieringsmuligheter'], wip: true },
+    { id: 'entrebed2-4', number: '4', title: 'Bærekraftig entreprenørskap', description: 'Miljømessig og sosial bærekraft i forretning.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Bærekraft', 'Sirkulær økonomi', 'CSR'], competenceGoals: ['integrere bærekraft i forretningen'], wip: true },
+    { id: 'entrebed2-5', number: '5', title: 'Digitalisering', description: 'Digital transformasjon og teknologi i bedrifter.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Digitalisering', 'E-handel', 'Automatisering'], competenceGoals: ['forstå digital forretning'], wip: true },
+    { id: 'entrebed2-6', number: '6', title: 'Internasjonalisering', description: 'Ekspansjon til internasjonale markeder.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Eksport', 'Globalisering', 'Kulturforståelse'], competenceGoals: ['planlegge internasjonal ekspansjon'], wip: true },
+    { id: 'entrebed2-7', number: '7', title: 'Lederskap og organisasjonskultur', description: 'Avansert ledelse og kulturbygging.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Lederskap', 'Kultur', 'Motivasjon'], competenceGoals: ['utvikle lederegenskaper'], wip: true },
+    { id: 'entrebed2-8', number: '8', title: 'Studentbedrift', description: 'Drive og avslutte studentbedrift.', estimatedMinutes: 100, exerciseCount: 3, topics: ['Drift', 'Avslutning', 'Refleksjon'], competenceGoals: ['fullføre studentbedrift'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_TRENING_1: TextbookCourse = {
+  id: 'trening-1',
+  title: 'Treningslære 1',
+  level: 'VG2',
+  description: 'Treningslære 1 - grunnleggende treningsprinsipper, anatomi, fysiologi og treningsplanlegging',
+  curriculum: 'LK20',
+  icon: '🏋️',
+  coverImage: '/images/subjects/trening-1-hero.webp',
+  chapters: [
+    { id: 'trening-1-1', number: '1', title: 'Grunnleggende treningslære', description: 'Lær de grunnleggende prinsippene for effektiv trening og fysisk utvikling.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Treningsprinsipper', 'Superkompensasjon', 'Treningsvariabler'], competenceGoals: ['forstå grunnleggende treningsprinsipper'], wip: true },
+    { id: 'trening-1-2', number: '2', title: 'Kroppens anatomi', description: 'Oversikt over muskel- og skjelettsystemet.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Muskler', 'Skjelett', 'Ledd'], competenceGoals: ['kjenne kroppens anatomi'], wip: true },
+    { id: 'trening-1-3', number: '3', title: 'Fysiologi', description: 'Hvordan kroppen fungerer under fysisk aktivitet.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Energisystemer', 'Respirasjon', 'Sirkulasjon'], competenceGoals: ['forstå treningsfysiologi'], wip: true },
+    { id: 'trening-1-4', number: '4', title: 'Styrketrening', description: 'Prinsipper og metoder for styrketrening.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Styrke', 'Hypertrofi', 'Teknikk'], competenceGoals: ['planlegge styrketrening'], wip: true },
+    { id: 'trening-1-5', number: '5', title: 'Utholdenhetstrening', description: 'Prinsipper og metoder for utholdenhetstrening.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Utholdenhet', 'Intervall', 'Langkjøring'], competenceGoals: ['planlegge utholdenhetstrening'], wip: true },
+    { id: 'trening-1-6', number: '6', title: 'Bevegelighet og mobilitet', description: 'Tøying, mobilitet og skadeforberedelse.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Tøying', 'Mobilitet', 'Oppvarming'], competenceGoals: ['forstå betydningen av bevegelighet'], wip: true },
+    { id: 'trening-1-7', number: '7', title: 'Ernæring og restitusjon', description: 'Kosthold og restitusjon for treningseffekt.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Ernæring', 'Søvn', 'Restitusjon'], competenceGoals: ['forstå ernæringens rolle'], wip: true },
+    { id: 'trening-1-8', number: '8', title: 'Treningsplanlegging', description: 'Planlegge og gjennomføre treningsprogrammer.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Periodisering', 'Programmer', 'Testing'], competenceGoals: ['lage treningsplaner'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_TRENING_2: TextbookCourse = {
+  id: 'trening-2',
+  title: 'Treningslære 2',
+  level: 'VG3',
+  description: 'Treningslære 2 - avansert treningsteori, individuelle tilpasninger og treningsmetoder',
+  curriculum: 'LK20',
+  icon: '🏋️',
+  coverImage: '/images/subjects/trening-2-hero.webp',
+  chapters: [
+    { id: 'trening2-1', number: '1', title: 'Avansert treningsteori', description: 'Treningsprinsipper på høyt nivå og individuelle tilpasninger.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Superkompensasjon', 'Spesifisitet', 'Progressiv overbelastning'], competenceGoals: ['anvende avanserte treningsprinsipper'], wip: true },
+    { id: 'trening2-2', number: '2', title: 'Avansert styrketrening', description: 'Metoder for maksimal styrke, eksplosivitet og hypertrofi.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Maksimal styrke', 'Power', 'Avanserte metoder'], competenceGoals: ['planlegge avansert styrketrening'], wip: true },
+    { id: 'trening2-3', number: '3', title: 'Avansert utholdenhetstrening', description: 'Intervalltrening, terskeltrening og utholdenhetsutvikling.', estimatedMinutes: 80, exerciseCount: 5, topics: ['VO2max', 'Terskeltrening', 'Intervall'], competenceGoals: ['planlegge avansert utholdenhetstrening'], wip: true },
+    { id: 'trening2-4', number: '4', title: 'Idrettsspesifikk trening', description: 'Tilpasse trening til ulike idretter.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Behovsanalyse', 'Overføring', 'Spesifisitet'], competenceGoals: ['tilpasse trening til idretter'], wip: true },
+    { id: 'trening2-5', number: '5', title: 'Testing og evaluering', description: 'Testmetoder og evaluering av treningseffekt.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Testing', 'Måling', 'Evaluering'], competenceGoals: ['gjennomføre testing'], wip: true },
+    { id: 'trening2-6', number: '6', title: 'Skadeforebygging', description: 'Forebygge og håndtere skader.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Skader', 'Forebygging', 'Rehabilitering'], competenceGoals: ['forstå skadeforebygging'], wip: true },
+    { id: 'trening2-7', number: '7', title: 'Mental trening', description: 'Psykologiske aspekter ved trening og prestasjon.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Motivasjon', 'Visualisering', 'Konsentrasjon'], competenceGoals: ['anvende mental trening'], wip: true },
+    { id: 'trening2-8', number: '8', title: 'Prosjekt', description: 'Større treningsprosjekt med planlegging og gjennomføring.', estimatedMinutes: 100, exerciseCount: 3, topics: ['Prosjekt', 'Praktisk', 'Evaluering'], competenceGoals: ['gjennomføre treningsprosjekt'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_TRENING_3: TextbookCourse = {
+  id: 'trening-3',
+  title: 'Treningslære 3',
+  level: 'VG3',
+  description: 'Treningslære 3 - spesialisert treningslære, alderstilpasset trening, periodisering og fordypning',
+  curriculum: 'LK20',
+  icon: '🏋️',
+  coverImage: '/images/subjects/trening-3-hero.webp',
+  chapters: [
+    { id: 'trening-3-1', number: '1', title: 'Spesialisert treningslære', description: 'Fordypning i treningsprinsipper, periodisering og avanserte treningsmetoder.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Blokkperiodisering', 'Autoregulering', 'Avanserte metoder'], competenceGoals: ['anvende avanserte treningsprinsipper i praksis'], wip: true },
+    { id: 'trening-3-2', number: '2', title: 'Alderstilpasset trening', description: 'Forstå hvordan trening bør tilpasses ulike aldersgrupper.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Barn', 'Ungdom', 'Voksne', 'Eldre'], competenceGoals: ['tilpasse trening til ulike aldersgrupper'], wip: true },
+    { id: 'trening-3-3', number: '3', title: 'Trening for helse', description: 'Trening som forebygging og behandling.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Folkehelse', 'Livsstilssykdommer', 'Rehabilitering'], competenceGoals: ['forstå trening for helse'], wip: true },
+    { id: 'trening-3-4', number: '4', title: 'Talentutvikling', description: 'Identifisering og utvikling av idrettstalenter.', estimatedMinutes: 75, exerciseCount: 4, topics: ['Talent', 'Utvikling', 'Tidlig spesialisering'], competenceGoals: ['forstå talentutvikling'], wip: true },
+    { id: 'trening-3-5', number: '5', title: 'Dopingproblematikk', description: 'Doping, etikk og antidopingarbeid.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Doping', 'Antidoping', 'Etikk'], competenceGoals: ['drøfte dopingproblematikk'], wip: true },
+    { id: 'trening-3-6', number: '6', title: 'Teknologi i trening', description: 'Moderne teknologi for monitorering og analyse.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Teknologi', 'Pulsklokker', 'Analyse'], competenceGoals: ['bruke teknologi i trening'], wip: true },
+    { id: 'trening-3-7', number: '7', title: 'Treneryrket', description: 'Trenerrollen, kommunikasjon og etikk.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Trenerskap', 'Kommunikasjon', 'Etikk'], competenceGoals: ['forstå treneryrket'], wip: true },
+    { id: 'trening-3-8', number: '8', title: 'Fordypningsoppgave', description: 'Selvstendig fordypning i selvvalgt tema.', estimatedMinutes: 120, exerciseCount: 3, topics: ['Forskning', 'Analyse', 'Presentasjon'], competenceGoals: ['gjennomføre selvstendig fordypning'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_INT_ENGELSK: TextbookCourse = {
+  id: 'int-engelsk',
+  title: 'Internasjonal engelsk',
+  level: 'VG2/VG3',
+  description: 'Internasjonal engelsk - global English, språkvariasjon, internasjonal kommunikasjon og litteratur',
+  curriculum: 'LK20',
+  icon: '🌍',
+  coverImage: '/images/subjects/int-engelsk-hero.webp',
+  chapters: [
+    { id: 'int-engelsk-1', number: '1', title: 'English as a Global Language', description: 'Explore the history, spread, and current status of English as the world\'s lingua franca.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Global English', 'Kachrus model', 'ELF'], competenceGoals: ['analyze the position of English in the world'], wip: true },
+    { id: 'int-engelsk-2', number: '2', title: 'World Englishes', description: 'Explore the diversity of English varieties around the world.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Varieties', 'British', 'American', 'Indian English'], competenceGoals: ['compare different English varieties'], wip: true },
+    { id: 'int-engelsk-3', number: '3', title: 'Language and Identity', description: 'How language shapes and reflects identity.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Identity', 'Code-switching', 'Multilingualism'], competenceGoals: ['discuss language and identity'], wip: true },
+    { id: 'int-engelsk-4', number: '4', title: 'International Communication', description: 'Effective communication across cultures.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Intercultural communication', 'Business English'], competenceGoals: ['communicate effectively in international contexts'], wip: true },
+    { id: 'int-engelsk-5', number: '5', title: 'Postcolonial Literature', description: 'Literature from former British colonies.', estimatedMinutes: 80, exerciseCount: 5, topics: ['Postcolonialism', 'Authors', 'Themes'], competenceGoals: ['analyze postcolonial literature'], wip: true },
+    { id: 'int-engelsk-6', number: '6', title: 'Media and Globalization', description: 'English in global media and popular culture.', estimatedMinutes: 65, exerciseCount: 4, topics: ['Global media', 'Hollywood', 'Music'], competenceGoals: ['analyze English in global media'], wip: true },
+    { id: 'int-engelsk-7', number: '7', title: 'Academic English', description: 'Academic writing and research in English.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Academic writing', 'Research', 'Citation'], competenceGoals: ['write academic texts in English'], wip: true },
+    { id: 'int-engelsk-8', number: '8', title: 'The Future of English', description: 'Trends and challenges for English in the 21st century.', estimatedMinutes: 70, exerciseCount: 4, topics: ['Future trends', 'Technology', 'Language change'], competenceGoals: ['reflect on the future of English'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_SAMF_ENGELSK: TextbookCourse = {
+  id: 'samf-engelsk',
+  title: 'Samfunnsfaglig engelsk',
+  level: 'VG2/VG3',
+  description: 'Samfunnsfaglig engelsk - democracy, human rights, global issues and social studies in English',
+  curriculum: 'LK20',
+  icon: '🏛️',
+  coverImage: '/images/subjects/samf-engelsk-hero.webp',
+  chapters: [
+    { id: 'samf-engelsk-1', number: '1', title: 'Democracy and Political Systems', description: 'Explore different forms of government, democratic principles, and political participation.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Democracy', 'Political systems', 'Elections'], competenceGoals: ['discuss political systems and democracy'], wip: true },
+    { id: 'samf-engelsk-2', number: '2', title: 'Human Rights and Justice', description: 'Examine the foundations of human rights and contemporary issues of justice.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Human rights', 'Justice', 'Equality'], competenceGoals: ['discuss human rights and justice'], wip: true },
+    { id: 'samf-engelsk-3', number: '3', title: 'Social Issues', description: 'Contemporary social challenges and debates.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Inequality', 'Immigration', 'Social movements'], competenceGoals: ['analyze social issues'], wip: true },
+    { id: 'samf-engelsk-4', number: '4', title: 'Economics and Development', description: 'Global economic systems and development challenges.', estimatedMinutes: 70, exerciseCount: 5, topics: ['Economics', 'Development', 'Trade'], competenceGoals: ['discuss economic issues'], wip: true },
+    { id: 'samf-engelsk-5', number: '5', title: 'Environmental Issues', description: 'Climate change and environmental challenges.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Climate', 'Environment', 'Sustainability'], competenceGoals: ['discuss environmental issues'], wip: true },
+    { id: 'samf-engelsk-6', number: '6', title: 'Media and Society', description: 'The role of media in democracy and society.', estimatedMinutes: 60, exerciseCount: 4, topics: ['Media', 'Journalism', 'Fake news'], competenceGoals: ['analyze media\'s role in society'], wip: true },
+    { id: 'samf-engelsk-7', number: '7', title: 'International Relations', description: 'Global cooperation and conflicts.', estimatedMinutes: 70, exerciseCount: 5, topics: ['UN', 'NATO', 'Diplomacy'], competenceGoals: ['discuss international relations'], wip: true },
+    { id: 'samf-engelsk-8', number: '8', title: 'Citizenship and Participation', description: 'Active citizenship and democratic participation.', estimatedMinutes: 55, exerciseCount: 4, topics: ['Citizenship', 'Activism', 'Participation'], competenceGoals: ['reflect on citizenship and participation'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_FILOSOFI_ETIKK: TextbookCourse = {
+  id: 'filosofi-etikk',
+  title: 'Filosofi og etikk',
+  level: 'VG2/VG3',
+  description: 'Filosofi og etikk - grunnleggende filosofi, kunnskapsteori, etikk og politisk filosofi',
+  curriculum: 'LK20',
+  icon: '🤔',
+  coverImage: '/images/subjects/filosofi-etikk-hero.webp',
+  chapters: [
+    { id: 'filosofi-etikk-1', number: '1', title: 'Hva er filosofi?', description: 'Filosofiens grunnlag, historie og sentrale spørsmål.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Filosofiens opprinnelse', 'Sokrates', 'Platon', 'Aristoteles'], competenceGoals: ['gjøre rede for hva filosofi er'], wip: true },
+    { id: 'filosofi-etikk-2', number: '2', title: 'Kunnskapsteori', description: 'Hva er kunnskap, sannhet og begrunnelse?', estimatedMinutes: 100, exerciseCount: 5, topics: ['Epistemologi', 'Empirisme', 'Rasjonalisme', 'Skeptisisme'], competenceGoals: ['drøfte kunnskapsteoretiske spørsmål'], wip: true },
+    { id: 'filosofi-etikk-3', number: '3', title: 'Etikk og moral', description: 'Grunnleggende etiske teorier og begreper.', estimatedMinutes: 95, exerciseCount: 5, topics: ['Pliktetikk', 'Konsekvensetikk', 'Dydsetikk'], competenceGoals: ['analysere etiske teorier'], wip: true },
+    { id: 'filosofi-etikk-4', number: '4', title: 'Anvendt etikk', description: 'Etiske problemstillinger i praksis.', estimatedMinutes: 85, exerciseCount: 5, topics: ['Medisinsk etikk', 'Miljøetikk', 'AI-etikk'], competenceGoals: ['anvende etiske teorier på praktiske problemstillinger'], wip: true },
+    { id: 'filosofi-etikk-5', number: '5', title: 'Politisk filosofi', description: 'Rettferdighet, frihet og politiske idealer.', estimatedMinutes: 90, exerciseCount: 5, topics: ['Rettferdighet', 'Frihet', 'Demokrati'], competenceGoals: ['drøfte politisk-filosofiske spørsmål'], wip: true },
+    { id: 'filosofi-etikk-6', number: '6', title: 'Eksistensfilosofi', description: 'Mening, frihet og ansvar.', estimatedMinutes: 80, exerciseCount: 4, topics: ['Eksistensialisme', 'Kierkegaard', 'Sartre', 'Camus'], competenceGoals: ['reflektere over eksistensielle spørsmål'], wip: true },
+    { id: 'filosofi-etikk-7', number: '7', title: 'Kritisk tenkning', description: 'Argumentasjon, feilslutninger og logikk.', estimatedMinutes: 75, exerciseCount: 5, topics: ['Logikk', 'Argumentasjon', 'Feilslutninger'], competenceGoals: ['anvende kritisk tenkning'], wip: true },
+    { id: 'filosofi-etikk-8', number: '8', title: 'Filosofisk fordypning', description: 'Selvstendig arbeid med filosofiske spørsmål.', estimatedMinutes: 100, exerciseCount: 3, topics: ['Prosjekt', 'Analyse', 'Drøfting'], competenceGoals: ['gjennomføre filosofisk fordypningsarbeid'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_SAMFOKONOMI_1: TextbookCourse = {
+  id: 'samfokonomi-1',
+  title: 'Samfunnsøkonomi 1',
+  level: 'VG2',
+  description: 'Grunnleggende samfunnsøkonomi - marked, pris, BNP, arbeid, penger og internasjonal økonomi',
+  curriculum: 'LK20',
+  icon: '📊',
+  coverImage: '/images/subjects/samfokonomi-1-hero.webp',
+  chapters: [
+    // Seksjon 1: Grunnleggende økonomi
+    { id: 'samfokonomi-1-1-1', number: '1.1', title: 'Hva er samfunnsøkonomi?', description: 'Definisjon, mikro- vs. makroøkonomi og økonomisk metode.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Samfunnsøkonomi', 'Mikroøkonomi', 'Makroøkonomi'], competenceGoals: ['velge og bruke kilder, økonomiske teorier og modeller'] },
+    { id: 'samfokonomi-1-1-2', number: '1.2', title: 'Knapphet og valg', description: 'Knapphet, alternativkostnad og produksjonsmulighetskurven.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Knapphet', 'Alternativkostnad', 'PMK'], competenceGoals: ['velge og bruke kilder, økonomiske teorier og modeller'] },
+    { id: 'samfokonomi-1-1-3', number: '1.3', title: 'Produksjonsfaktorer', description: 'Arbeidskraft, realkapital, naturressurser og entreprenørskap.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Arbeidskraft', 'Realkapital', 'Naturressurser', 'Entreprenørskap'], competenceGoals: ['velge og bruke kilder, økonomiske teorier og modeller'] },
+    { id: 'samfokonomi-1-1-4', number: '1.4', title: 'Økonomiske modeller', description: 'Modeller, ceteris paribus og det økonomiske kretsløpet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Modeller', 'Ceteris paribus', 'Kretsløp'], competenceGoals: ['velge og bruke kilder, økonomiske teorier og modeller'] },
+    { id: 'samfokonomi-1-1-5', number: '1.5', title: 'Økonomisk historie og systemer', description: 'Markedsøkonomi, planøkonomi, blandingsøkonomi og den norske modellen.', estimatedMinutes: 20, exerciseCount: 8, topics: ['Markedsøkonomi', 'Planøkonomi', 'Blandingsøkonomi'], competenceGoals: ['velge og bruke kilder, økonomiske teorier og modeller'] },
+    // Seksjon 2: Markeder og prisdannelse
+    { id: 'samfokonomi-1-2-1', number: '2.1', title: 'Etterspørsel', description: 'Etterspørselskurven, etterspørselsloven og skift.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Etterspørsel', 'Etterspørselskurve', 'Inntektseffekt'], competenceGoals: ['gjøre rede for ulike markedsformer og analysere markeder'] },
+    { id: 'samfokonomi-1-2-2', number: '2.2', title: 'Tilbud', description: 'Tilbudskurven, tilbudsloven og grensekostnad.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Tilbud', 'Tilbudskurve', 'Grensekostnad'], competenceGoals: ['gjøre rede for ulike markedsformer og analysere markeder'] },
+    { id: 'samfokonomi-1-2-3', number: '2.3', title: 'Markedslikevekt', description: 'Likevektspris, overskudd, underskudd og pristilpasning.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Likevekt', 'Overskudd', 'Underskudd'], competenceGoals: ['gjøre rede for ulike markedsformer og analysere markeder'] },
+    { id: 'samfokonomi-1-2-4', number: '2.4', title: 'Priselastisitet', description: 'Etterspørselens priselastisitet, elastisk vs. uelastisk.', estimatedMinutes: 22, exerciseCount: 7, topics: ['Priselastisitet', 'Krysspriselastisitet', 'Inntektselastisitet'], competenceGoals: ['gjøre rede for ulike markedsformer og analysere markeder'] },
+    { id: 'samfokonomi-1-2-5', number: '2.5', title: 'Markedsinngrep', description: 'Prisgulv, pristak, avgifter, subsidier og dødvektstap.', estimatedMinutes: 22, exerciseCount: 8, topics: ['Prisgulv', 'Pristak', 'Avgift', 'Dødvektstap'], competenceGoals: ['gjøre rede for ulike markedsformer og analysere markeder'] },
+    // Seksjon 3: Nasjonaløkonomi
+    { id: 'samfokonomi-1-3-1', number: '3.1', title: 'Bruttonasjonalprodukt (BNP)', description: 'Hva er BNP, målemetoder og nominelt vs. reelt BNP.', estimatedMinutes: 20, exerciseCount: 6, topics: ['BNP', 'Nominelt BNP', 'Reelt BNP'], competenceGoals: ['drøfte årsaker til økonomisk vekst og reflektere over BNP'] },
+    { id: 'samfokonomi-1-3-2', number: '3.2', title: 'Realligningen', description: 'Y = C + I + G + NX og sammenhenger i økonomien.', estimatedMinutes: 22, exerciseCount: 6, topics: ['Realligningen', 'Konsum', 'Investering', 'Nettoeksport'], competenceGoals: ['bruke realligningen til å analysere sammenhengen mellom tilgang og bruk'] },
+    { id: 'samfokonomi-1-3-3', number: '3.3', title: 'Økonomisk vekst', description: 'Produktivitet, teknologi, humankapital og vekstdrivere.', estimatedMinutes: 22, exerciseCount: 7, topics: ['Produktivitet', 'Teknologi', 'Humankapital'], competenceGoals: ['drøfte årsaker til økonomisk vekst'] },
+    { id: 'samfokonomi-1-3-4', number: '3.4', title: 'BNP som velstandsmål', description: 'Begrensninger ved BNP, HDI og grønt BNP.', estimatedMinutes: 20, exerciseCount: 6, topics: ['HDI', 'Grønt BNP', 'Velstandsmåling'], competenceGoals: ['reflektere over BNP som mål for verdiskaping'] },
+    { id: 'samfokonomi-1-3-5', number: '3.5', title: 'Nasjonalregnskapet', description: 'Bearbeidingsverdi, BNP per innbygger og kjøpekraftsparitet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Nasjonalregnskap', 'BNP per innbygger', 'Kjøpekraftsparitet'], competenceGoals: ['drøfte årsaker til økonomisk vekst og reflektere over BNP'] },
+    // Seksjon 4: Privat og offentlig sektor
+    { id: 'samfokonomi-1-4-1', number: '4.1', title: 'Næringsstruktur i Norge', description: 'Primær-, sekundær- og tertiærnæringer og oljeøkonomien.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Næringsstruktur', 'Petroleumssektor', 'Hollandsk syke'], competenceGoals: ['beskrive hovedtrekkene i privat og offentlig sektor i Norge'] },
+    { id: 'samfokonomi-1-4-2', number: '4.2', title: 'Bedrifter og markedsformer', description: 'Fullkommen konkurranse, monopol, oligopol og norske eksempler.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Fullkommen konkurranse', 'Monopol', 'Oligopol'], competenceGoals: ['gjøre rede for ulike markedsformer'] },
+    { id: 'samfokonomi-1-4-3', number: '4.3', title: 'Offentlig sektor', description: 'Statens rolle, fellesgoder, velferdsstaten og skattesystemet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Fellesgoder', 'Velferdsstat', 'Skatt'], competenceGoals: ['drøfte muligheter og utfordringer for offentlig sektor'] },
+    { id: 'samfokonomi-1-4-4', number: '4.4', title: 'Statsbudsjettet', description: 'Inntekter, utgifter, handlingsregelen og Oljefondet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Statsbudsjett', 'Handlingsregelen', 'Oljefondet'], competenceGoals: ['beskrive hovedtrekkene i offentlig sektor'] },
+    { id: 'samfokonomi-1-4-5', number: '4.5', title: 'Utfordringer for norsk økonomi', description: 'Eldrebølgen, grønn omstilling, konkurranseevne og produktivitet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Eldrebølge', 'Grønn omstilling', 'Frontfagsmodellen'], competenceGoals: ['drøfte muligheter og utfordringer for næringsliv og offentlig sektor'] },
+    // Seksjon 5: Arbeid og sysselsetting
+    { id: 'samfokonomi-1-5-1', number: '5.1', title: 'Arbeidsmarkedet', description: 'Tilbud og etterspørsel etter arbeidskraft og lønnsdannelse.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Arbeidstilbud', 'Arbeidsetterspørsel', 'Lønn'], competenceGoals: ['reflektere over sysselsettingstiltak'] },
+    { id: 'samfokonomi-1-5-2', number: '5.2', title: 'Arbeidsledighet', description: 'Typer arbeidsledighet, naturlig rate og måling.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Friksjonsledighet', 'Strukturell', 'Konjunkturell', 'NAIRU'], competenceGoals: ['drøfte hvordan tiltak kan påvirke ulike typer arbeidsledighet'] },
+    { id: 'samfokonomi-1-5-3', number: '5.3', title: 'Sysselsettingstiltak', description: 'Aktiv arbeidsmarkedspolitikk, omskolering og lønnstilskudd.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Arbeidsmarkedspolitikk', 'Omskolering', 'NAV'], competenceGoals: ['reflektere over ulike sysselsettingstiltak'] },
+    { id: 'samfokonomi-1-5-4', number: '5.4', title: 'Lønn og lønnsforskjeller', description: 'Humankapitalteori, trepartssamarbeidet og frontfagsmodellen.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Humankapital', 'Trepartssamarbeid', 'Lønnsgap'], competenceGoals: ['utforske lønnsforskjeller og inntektsfordeling'] },
+    { id: 'samfokonomi-1-5-5', number: '5.5', title: 'Inntektsfordeling og ulikhet', description: 'Lorenzkurven, Gini-koeffisienten og den nordiske modellen.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Lorenzkurve', 'Gini-koeffisient', 'Velferdsmodell'], competenceGoals: ['utforske lønnsforskjeller, inntektsfordeling og økonomisk ulikhet'] },
+    // Seksjon 6: Penger og priser
+    { id: 'samfokonomi-1-6-1', number: '6.1', title: 'Penger og pengesystemet', description: 'Pengers funksjoner, pengemengde og sentralbanken.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Penger', 'Pengemengde', 'Sentralbank'], competenceGoals: ['gjøre rede for formålet med pengepolitikk'] },
+    { id: 'samfokonomi-1-6-2', number: '6.2', title: 'Inflasjon og prisstigning', description: 'KPI, årsaker til inflasjon og konsekvenser.', estimatedMinutes: 20, exerciseCount: 6, topics: ['KPI', 'Etterspørselspress', 'Kostnadspress'], competenceGoals: ['gjøre rede for hvordan prisstigning måles og drøfte årsaker'] },
+    { id: 'samfokonomi-1-6-3', number: '6.3', title: 'Pengepolitikk', description: 'Norges Banks rentesetting, inflasjonsmål og transmisjonsmekanismen.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Styringsrente', 'Inflasjonsmål', 'Transmisjonsmekanisme'], competenceGoals: ['gjøre rede for formålet med pengepolitikk og hvordan den påvirker økonomien'] },
+    { id: 'samfokonomi-1-6-4', number: '6.4', title: 'Finanspolitikk', description: 'Automatiske stabilisatorer, diskresjonær politikk og multiplikatoreffekt.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Finanspolitikk', 'Stabilisatorer', 'Multiplikator'], competenceGoals: ['gjøre rede for formålet med finanspolitikk og hvordan den påvirker økonomien'] },
+    { id: 'samfokonomi-1-6-5', number: '6.5', title: 'Finansmarkeder', description: 'Aksjemarkedet, obligasjoner, banksektoren og regulering.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Aksjer', 'Obligasjoner', 'Finanskrise'], competenceGoals: ['vurdere finansmarkedenes muligheter og utfordringer'] },
+    // Seksjon 7: Internasjonal økonomi
+    { id: 'samfokonomi-1-7-1', number: '7.1', title: 'Internasjonal handel', description: 'Absolutte og komparative fortrinn og gevinster fra handel.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Komparativt fortrinn', 'Spesialisering', 'Bytteforhold'], competenceGoals: ['gjøre rede for årsaker til internasjonal handel'] },
+    { id: 'samfokonomi-1-7-2', number: '7.2', title: 'Handelspolitikk', description: 'Frihandel vs. proteksjonisme, toll, kvoter og WTO.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Frihandel', 'Toll', 'WTO', 'EØS'], competenceGoals: ['drøfte muligheter og utfordringer knyttet til økonomisk globalisering'] },
+    { id: 'samfokonomi-1-7-3', number: '7.3', title: 'Valuta og valutakurser', description: 'Flytende og faste kursregimer, kjøpekraftsparitet.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Valutakurs', 'Flytende kurs', 'Kjøpekraftsparitet'], competenceGoals: ['analysere hva som bestemmer valutakursen'] },
+    { id: 'samfokonomi-1-7-4', number: '7.4', title: 'Betalingsbalansen', description: 'Driftsbalanse, kapitalbalanse og Norges utenriksøkonomi.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Driftsbalanse', 'Handelsbalanse', 'Kapitalbalanse'], competenceGoals: ['gjøre rede for årsaker til internasjonal handel'] },
+    { id: 'samfokonomi-1-7-5', number: '7.5', title: 'Globalisering', description: 'Flernasjonale selskaper, globale verdikjeder og ulikhet.', estimatedMinutes: 20, exerciseCount: 7, topics: ['Globalisering', 'MNS', 'Verdikjeder'], competenceGoals: ['drøfte muligheter og utfordringer knyttet til økonomisk globalisering'] },
+    // Seksjon 8: Økonomi og bærekraft
+    { id: 'samfokonomi-1-8-1', number: '8.1', title: 'Markedssvikt og eksterne virkninger', description: 'Eksternaliteter, fellesgoder og allmenningens tragedie.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Eksternaliteter', 'Fellesgoder', 'Markedssvikt'], competenceGoals: ['reflektere over sammenhengen mellom økonomisk aktivitet og miljø'] },
+    { id: 'samfokonomi-1-8-2', number: '8.2', title: 'Miljøøkonomi', description: 'Pigouvian avgifter, omsettelige kvoter og nytte-kostnadsanalyse.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Pigouskatt', 'Kvotehandel', 'Nytte-kostnadsanalyse'], competenceGoals: ['reflektere over sammenhengen mellom økonomisk aktivitet og miljø'] },
+    { id: 'samfokonomi-1-8-3', number: '8.3', title: 'Bærekraftig utvikling', description: 'Brundtland-definisjonen, FNs bærekraftsmål og sirkulær økonomi.', estimatedMinutes: 20, exerciseCount: 5, topics: ['Bærekraft', 'SDG', 'Sirkulær økonomi'], competenceGoals: ['reflektere over sammenhengen mellom økonomisk aktivitet og miljø'] },
+    { id: 'samfokonomi-1-8-4', number: '8.4', title: 'Norsk klimapolitikk', description: 'CO₂-avgift, EU ETS, grønn omstilling og petroleumssektorens fremtid.', estimatedMinutes: 20, exerciseCount: 5, topics: ['CO₂-avgift', 'EU ETS', 'Grønn omstilling'], competenceGoals: ['reflektere over sammenhengen mellom økonomisk aktivitet og miljø'] },
+    { id: 'samfokonomi-1-8-5', number: '8.5', title: 'Global økonomi og miljø', description: 'Klimafinansiering, grønn vekst og rettferdig omstilling.', estimatedMinutes: 20, exerciseCount: 6, topics: ['Klimafinansiering', 'Grønn vekst', 'Rettferdig omstilling'], competenceGoals: ['reflektere over sammenhengen mellom økonomisk aktivitet og miljø'] },
+  ],
+};
+
+export const COURSE_SAMFOKONOMI_2: TextbookCourse = {
+  id: 'samfokonomi-2',
+  title: 'Samfunnsøkonomi 2',
+  level: 'VG3',
+  description: 'Avansert samfunnsøkonomi - makroøkonomi og økonomisk politikk',
+  curriculum: 'LK20',
+  icon: '📈',
+  coverImage: '/images/subjects/samfokonomi-2-hero.webp',
+  chapters: [
+    { id: 'samfokonomi-2-1', number: '1', title: 'Makroøkonomiske modeller', description: 'Keynesiansk modell og AD-AS.', estimatedMinutes: 75, exerciseCount: 6, topics: ['Keynesiansk modell', 'AD-AS'], competenceGoals: ['anvende makroøkonomiske modeller'], wip: true },
+    { id: 'samfokonomi-2-2', number: '2', title: 'Penge- og finanspolitikk', description: 'Virkemidler i økonomisk politikk.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Pengepolitikk', 'Finanspolitikk'], competenceGoals: ['analysere økonomisk politikk'], wip: true },
+    { id: 'samfokonomi-2-3', number: '3', title: 'Internasjonal handel', description: 'Handel mellom land.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Komparativ fordel', 'Handelspolitikk'], competenceGoals: ['forstå internasjonal handel'], wip: true },
+    { id: 'samfokonomi-2-4', number: '4', title: 'Valutamarkeder', description: 'Valutakurser og valutsystemer.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Valutakurser', 'Valutasystemer'], competenceGoals: ['analysere valutamarkeder'], wip: true },
+    { id: 'samfokonomi-2-5', number: '5', title: 'Økonomisk politikk', description: 'Mål og virkemidler.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Politiske mål', 'Avveininger'], competenceGoals: ['vurdere økonomisk politikk'], wip: true },
+    { id: 'samfokonomi-2-6', number: '6', title: 'Arbeidsmarkedet', description: 'Sysselsetting og arbeidsledighet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Arbeidsledighet', 'NAIRU'], competenceGoals: ['analysere arbeidsmarkedet'], wip: true },
+    { id: 'samfokonomi-2-7', number: '7', title: 'Velferdsstaten', description: 'Fordeling og velferdsordninger.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Fordelingspolitikk', 'Gini-koeffisient'], competenceGoals: ['drøfte velferdsstaten'], wip: true },
+    { id: 'samfokonomi-2-8', number: '8', title: 'Bærekraftig økonomi', description: 'Økonomi og miljø.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Eksternaliteter', 'Grønn omstilling'], competenceGoals: ['vurdere økonomisk bærekraft'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_OKONOMI_LEDELSE: TextbookCourse = {
+  id: 'okonomi-ledelse',
+  title: 'Økonomi og ledelse',
+  level: 'VG2',
+  description: 'Grunnleggende økonomi, organisasjon og ledelse',
+  curriculum: 'LK20',
+  icon: '💼',
+  coverImage: '/images/subjects/okonomi-ledelse-hero.webp',
+  chapters: [
+    { id: 'okonomi-ledelse-1', number: '1', title: 'Introduksjon', description: 'Økonomi og ledelse i sammenheng.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Bedriftstyper', 'Interessenter'], competenceGoals: ['forstå økonomi og ledelse'], wip: true },
+    { id: 'okonomi-ledelse-2', number: '2', title: 'Organisasjon', description: 'Organisasjonsstrukturer og kultur.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Organisasjonsstruktur', 'Kultur'], competenceGoals: ['analysere organisasjoner'], wip: true },
+    { id: 'okonomi-ledelse-3', number: '3', title: 'Ledelse', description: 'Ledelsesstiler og roller.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Ledelsesstiler', 'Situasjonsbestemt ledelse'], competenceGoals: ['forstå ledelse'], wip: true },
+    { id: 'okonomi-ledelse-4', number: '4', title: 'Motivasjon', description: 'Motivasjonsteori og arbeidsmiljø.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Maslow', 'Herzberg'], competenceGoals: ['anvende motivasjonsteori'], wip: true },
+    { id: 'okonomi-ledelse-5', number: '5', title: 'Kommunikasjon', description: 'Kommunikasjon i organisasjoner.', estimatedMinutes: 50, exerciseCount: 5, topics: ['Kommunikasjonsprosess', 'Barrierer'], competenceGoals: ['kommunisere profesjonelt'], wip: true },
+    { id: 'okonomi-ledelse-6', number: '6', title: 'Økonomiske begreper', description: 'Grunnleggende bedriftsøkonomi.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Kostnader', 'Dekningsbidrag'], competenceGoals: ['forstå bedriftsøkonomi'], wip: true },
+    { id: 'okonomi-ledelse-7', number: '7', title: 'Budsjettering', description: 'Budsjetter og økonomistyring.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Budsjetttyper', 'Avviksanalyse'], competenceGoals: ['utarbeide budsjetter'], wip: true },
+    { id: 'okonomi-ledelse-8', number: '8', title: 'Etikk og samfunnsansvar', description: 'Bedriftsetikk og CSR.', estimatedMinutes: 55, exerciseCount: 5, topics: ['CSR', 'Bærekraft'], competenceGoals: ['drøfte etikk og samfunnsansvar'], wip: true },
+  ],
+};
+
+export const COURSE_REGNSKAP_REVISJON: TextbookCourse = {
+  id: 'regnskap-revisjon',
+  title: 'Regnskap og revisjon',
+  level: 'VG3',
+  description: 'Regnskapsprinsipper, bokføring og revisjon',
+  curriculum: 'LK20',
+  icon: '📒',
+  coverImage: '/images/subjects/regnskap-revisjon-hero.webp',
+  chapters: [
+    { id: 'regnskap-revisjon-1', number: '1', title: 'Regnskapsprinsipper', description: 'Grunnleggende regnskapsprinsipper.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Transaksjonsprinsippet', 'Sammenstilling'], competenceGoals: ['forstå regnskapsprinsipper'], wip: true },
+    { id: 'regnskap-revisjon-2', number: '2', title: 'Bokføring', description: 'Bilag og kontoplan.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Bokføringsloven', 'Kontoplan'], competenceGoals: ['utføre bokføring'], wip: true },
+    { id: 'regnskap-revisjon-3', number: '3', title: 'Resultatregnskap', description: 'Inntekter, kostnader og resultat.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Driftsinntekter', 'Driftskostnader'], competenceGoals: ['forstå resultatregnskapet'], wip: true },
+    { id: 'regnskap-revisjon-4', number: '4', title: 'Balanse', description: 'Eiendeler, gjeld og egenkapital.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Eiendeler', 'Gjeld', 'Egenkapital'], competenceGoals: ['forstå balansen'], wip: true },
+    { id: 'regnskap-revisjon-5', number: '5', title: 'MVA og skatt', description: 'Merverdiavgift og skatteregler.', estimatedMinutes: 60, exerciseCount: 6, topics: ['MVA', 'Skatt'], competenceGoals: ['håndtere MVA og skatt'], wip: true },
+    { id: 'regnskap-revisjon-6', number: '6', title: 'Årsregnskap', description: 'Årsberetning og noter.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Årsberetning', 'Noter'], competenceGoals: ['utarbeide årsregnskap'], wip: true },
+    { id: 'regnskap-revisjon-7', number: '7', title: 'Regnskapsanalyse', description: 'Nøkkeltall og analyse.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Lønnsomhet', 'Likviditet', 'Soliditet'], competenceGoals: ['analysere regnskap'], wip: true },
+    { id: 'regnskap-revisjon-8', number: '8', title: 'Revisjon', description: 'Revisors rolle og intern kontroll.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Revisjon', 'Intern kontroll'], competenceGoals: ['forstå revisjon'], wip: true },
+  ],
+};
+
+export const COURSE_OKONOMI_DRIFT: TextbookCourse = {
+  id: 'okonomi-drift',
+  title: 'Økonomi og driftsledelse',
+  level: 'VG3',
+  description: 'Driftsøkonomi, kalkulasjon og produksjonsstyring',
+  curriculum: 'LK20',
+  icon: '🏭',
+  coverImage: '/images/subjects/okonomi-drift-hero.webp',
+  chapters: [
+    { id: 'okonomi-drift-1', number: '1', title: 'Driftsøkonomi', description: 'Kostnader og lønnsomhet.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Faste kostnader', 'Variable kostnader'], competenceGoals: ['analysere driftsøkonomi'], wip: true },
+    { id: 'okonomi-drift-2', number: '2', title: 'Kalkulasjon', description: 'Prissetting og kalkulasjon.', estimatedMinutes: 70, exerciseCount: 6, topics: ['Selvkost', 'Bidragskalkulasjon'], competenceGoals: ['utføre kalkulasjoner'], wip: true },
+    { id: 'okonomi-drift-3', number: '3', title: 'Produksjonsplanlegging', description: 'Kapasitet og produksjon.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Kapasitet', 'Flaskehalser'], competenceGoals: ['planlegge produksjon'], wip: true },
+    { id: 'okonomi-drift-4', number: '4', title: 'Logistikk', description: 'Innkjøp og lagerstyring.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Lagerstyring', 'EOQ'], competenceGoals: ['forstå logistikk'], wip: true },
+    { id: 'okonomi-drift-5', number: '5', title: 'Kvalitetsstyring', description: 'TQM og kvalitetsarbeid.', estimatedMinutes: 55, exerciseCount: 5, topics: ['TQM', 'ISO 9001'], competenceGoals: ['arbeide med kvalitet'], wip: true },
+    { id: 'okonomi-drift-6', number: '6', title: 'Prosjektledelse', description: 'Planlegging og gjennomføring.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Gantt', 'Kritisk vei'], competenceGoals: ['lede prosjekter'], wip: true },
+    { id: 'okonomi-drift-7', number: '7', title: 'Personal', description: 'HR og arbeidsmiljø.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Rekruttering', 'Arbeidsmiljø'], competenceGoals: ['forstå personalarbeid'], wip: true },
+    { id: 'okonomi-drift-8', number: '8', title: 'Strategi', description: 'Strategisk planlegging.', estimatedMinutes: 65, exerciseCount: 5, topics: ['SWOT', 'Porter'], competenceGoals: ['anvende strategiske verktøy'], wip: true },
+  ],
+};
+
+// ============================================================================
+
+export const COURSE_SIKKERHETSFAG: TextbookCourse = {
+  id: 'sikkerhetsfag',
+  title: 'Sikkerhetsfag',
+  level: 'VG2/VG3',
+  description: 'Sikkerhet, risikovurdering og beredskap',
+  curriculum: 'LK20',
+  icon: '🛡️',
+  coverImage: '/images/subjects/sikkerhetsfag-hero.webp',
+  chapters: [
+    { id: 'sikkerhetsfag-1', number: '1', title: 'Introduksjon', description: 'Sikkerhetsfaget og yrkesroller.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Sikkerhetsarbeid', 'Yrkesroller'], competenceGoals: ['beskrive sikkerhetsfaget'], wip: true },
+    { id: 'sikkerhetsfag-2', number: '2', title: 'Risikovurdering', description: 'Risikoanalyse og tiltak.', estimatedMinutes: 65, exerciseCount: 6, topics: ['Risiko', 'Sårbarhet', 'Konsekvens'], competenceGoals: ['gjennomføre risikovurdering'], wip: true },
+    { id: 'sikkerhetsfag-3', number: '3', title: 'Forebygging', description: 'Forebyggende sikkerhetsarbeid.', estimatedMinutes: 60, exerciseCount: 5, topics: ['CPTED', 'Fysisk sikring'], competenceGoals: ['arbeide forebyggende'], wip: true },
+    { id: 'sikkerhetsfag-4', number: '4', title: 'Adgangskontroll', description: 'Adgangssystemer og overvåking.', estimatedMinutes: 55, exerciseCount: 5, topics: ['Adgangskontroll', 'Overvåking'], competenceGoals: ['håndtere adgangskontroll'], wip: true },
+    { id: 'sikkerhetsfag-5', number: '5', title: 'Brannsikkerhet', description: 'Brannvern og evakuering.', estimatedMinutes: 60, exerciseCount: 6, topics: ['Brannteori', 'Evakuering'], competenceGoals: ['arbeide med brannsikkerhet'], wip: true },
+    { id: 'sikkerhetsfag-6', number: '6', title: 'HMS', description: 'Helse, miljø og sikkerhet.', estimatedMinutes: 55, exerciseCount: 5, topics: ['HMS-system', 'Førstehjelp'], competenceGoals: ['ivareta HMS'], wip: true },
+    { id: 'sikkerhetsfag-7', number: '7', title: 'Lover og regler', description: 'Relevant lovverk.', estimatedMinutes: 60, exerciseCount: 5, topics: ['Vaktvirksomhetsloven', 'Nødrett'], competenceGoals: ['kjenne lovverket'], wip: true },
+    { id: 'sikkerhetsfag-8', number: '8', title: 'Beredskap', description: 'Krisehåndtering og beredskap.', estimatedMinutes: 65, exerciseCount: 5, topics: ['Beredskapsplan', 'Krisehåndtering'], competenceGoals: ['arbeide med beredskap'], wip: true },
+  ],
+};
