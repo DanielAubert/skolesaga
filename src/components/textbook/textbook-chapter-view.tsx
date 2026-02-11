@@ -19,6 +19,7 @@ import { useUser } from '@/lib/auth/hooks';
 import { SkillLevelIndicator } from './skill-level-indicator';
 import { CompetenceGoalsDropdown } from './competence-goals-dropdown';
 import { getTextbookChapterCompletedCount, getSubTaskProgress } from '@/lib/textbook/progress';
+import { AssignmentBanner } from '@/components/assignments/assignment-banner';
 
 function getLevelGradeSlug(level: string): string {
   const lower = level.toLowerCase();
@@ -410,6 +411,11 @@ export function TextbookChapterView({
                 </div>
               </div>
             )}
+
+            {/* Lekse-banner */}
+            <div className="mt-6">
+              <AssignmentBanner courseId={course.id} chapterId={chapterMeta.id} />
+            </div>
 
             {/* Fremgang */}
             <div className="mt-6 p-4 bg-muted/50 rounded-lg">

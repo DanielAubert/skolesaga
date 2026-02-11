@@ -41,7 +41,11 @@ import {
   Loader2,
   Dumbbell,
   ChevronRight,
+  ClipboardList,
+  Plus,
+  Calendar,
 } from "lucide-react";
+import { CreateAssignmentDialog } from "@/components/assignments/create-assignment-dialog";
 
 interface OrganizationStudent {
   id: string;
@@ -89,6 +93,33 @@ export default function ClassDetailPage({ params }: { params: Promise<{ id: stri
   const [addDialogOpen, setAddDialogOpen] = useState(false);
   const [selectedStudents, setSelectedStudents] = useState<string[]>([]);
   const [addingStudents, setAddingStudents] = useState(false);
+
+  // Assignments
+  const [classAssignments, setClassAssignments] = useState<{
+    id: string;
+    title: string;
+    due_date: string;
+    course_id: string;
+  }[]>([]);
+  const [assignmentDialogOpen, setAssignmentDialogOpen] = useState(false);
+
+  // Hent lekser for denne klassen
+  const fetchClassAssignments = async () => {
+    try {
+      const response = await fetch(`/api/assignments?classId=${id}`);
+      if (response.ok) {
+        const data = await response.json();
+        setClassAssignments(data.assignments || []);
+      }
+    } catch (error) {
+      console.error("Error fetching class assignments:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchClassAssignments();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   // Hent klassedata
   useEffect(() => {
@@ -260,6 +291,10 @@ export default function ClassDetailPage({ params }: { params: Promise<{ id: stri
               </p>
             </div>
             <div className="flex items-center gap-2">
+              <Button onClick={() => setAssignmentDialogOpen(true)}>
+                <ClipboardList className="h-4 w-4 mr-2" />
+                Gi lekse
+              </Button>
               <AlertDialog>
                 <AlertDialogTrigger asChild>
                   <Button variant="destructive" size="sm">
@@ -378,6 +413,58 @@ export default function ClassDetailPage({ params }: { params: Promise<{ id: stri
             </Card>
           </div>
 
+          {/* Aktive lekser for denne klassen */}
+          {classAssignments.length > 0 && (
+            <Card>
+              <CardHeader>
+                <div className="flex items-center justify-between">
+                  <div>
+                    <CardTitle className="flex items-center gap-2">
+                      <ClipboardList className="h-5 w-5" />
+                      Aktive lekser
+                    </CardTitle>
+                    <CardDescription>
+                      Lekser tildelt denne klassen
+                    </CardDescription>
+                  </div>
+                </div>
+              </CardHeader>
+              <CardContent>
+                <div className="space-y-3">
+                  {classAssignments.map((a) => {
+                    const isPastDue = new Date(a.due_date) < new Date();
+                    return (
+                      <Link
+                        key={a.id}
+                        href={`/dashboard/teacher/assignments/${a.id}`}
+                        className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                      >
+                        <div>
+                          <p className="font-medium text-sm">{a.title}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {a.course_id.toUpperCase()}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2">
+                          <div className="flex items-center gap-1">
+                            <Calendar className={`h-3.5 w-3.5 ${isPastDue ? "text-red-500" : "text-muted-foreground"}`} />
+                            <span className={`text-xs ${isPastDue ? "text-red-600 dark:text-red-400" : "text-muted-foreground"}`}>
+                              {new Date(a.due_date).toLocaleDateString("nb-NO", {
+                                day: "numeric",
+                                month: "short",
+                              })}
+                            </span>
+                          </div>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </CardContent>
+            </Card>
+          )}
+
           {/* Students list */}
           <Card>
             <CardHeader>
@@ -453,6 +540,17 @@ export default function ClassDetailPage({ params }: { params: Promise<{ id: stri
           </Card>
         </div>
       </main>
+
+      {/* Create assignment dialog */}
+      {classData && (
+        <CreateAssignmentDialog
+          open={assignmentDialogOpen}
+          onOpenChange={setAssignmentDialogOpen}
+          classes={[{ id: classData.id, name: classData.name }]}
+          preselectedClassId={classData.id}
+          onCreated={fetchClassAssignments}
+        />
+      )}
 
       {/* Add students from organization dialog */}
       <Dialog open={addDialogOpen} onOpenChange={setAddDialogOpen}>

@@ -19,6 +19,7 @@ import { validateExpressionAnswer } from "@/lib/math-engine/parser";
 import { markTextbookExerciseCompleted, updateSubTaskStatus, getExerciseSubTaskProgress } from "@/lib/textbook/progress";
 import type { SubTaskStatus } from "@/lib/textbook/progress";
 import type { TextbookExercise, TextbookChapter, TextbookCourse } from "@/lib/types/textbook";
+import { AssignmentBanner } from "@/components/assignments/assignment-banner";
 
 // Shuffle array using Fisher-Yates algorithm
 function shuffleArray<T>(array: T[]): T[] {
@@ -916,6 +917,11 @@ export function ExerciseTrainer({
               <BreadcrumbItem><BreadcrumbPage>Oppgave {exercise.number}</BreadcrumbPage></BreadcrumbItem>
             </BreadcrumbList>
           </Breadcrumb>
+        </div>
+
+        {/* Lekse-banner */}
+        <div className="container mb-2">
+          <AssignmentBanner courseId={courseId} chapterId={chapterId} compact />
         </div>
 
         {/* Fremgangsbar */}

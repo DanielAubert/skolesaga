@@ -25,8 +25,11 @@ import {
   Users,
   LogOut,
   Plus,
-  X
+  X,
+  ClipboardList,
+  ChevronDown,
 } from "lucide-react";
+import { StudentAssignmentCard } from "@/components/assignments/student-assignment-card";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 interface StudentClass {
@@ -67,6 +70,23 @@ export default function StudentDashboard() {
     thisWeek: number;
     completions: Array<{ completed_at: string; is_passed: boolean; course_id: string; exercise_id: string }>;
   }>({ total: 0, passed: 0, thisWeek: 0, completions: [] });
+
+  // Lekser
+  const [studentAssignments, setStudentAssignments] = useState<{
+    id: string;
+    title: string;
+    courseId: string;
+    chapterIds: string[];
+    dueDate: string;
+    description?: string;
+    teacherName: string;
+    className?: string | null;
+    status: string;
+    completedExercises: number;
+    totalExercises: number;
+    percentComplete: number;
+  }[]>([]);
+  const [showCompletedAssignments, setShowCompletedAssignments] = useState(false);
 
   // Hent URL til elevens klassetrinn
   const gradeUrl = getGradeUrl(user?.gradeLevel);
@@ -124,6 +144,20 @@ export default function StudentDashboard() {
       }
     };
     fetchTextbookCompletions();
+
+    // Hent lekser
+    const fetchAssignments = async () => {
+      try {
+        const res = await fetch("/api/student/assignments");
+        if (res.ok) {
+          const data = await res.json();
+          setStudentAssignments(data.assignments || []);
+        }
+      } catch (error) {
+        // Ignorer feil
+      }
+    };
+    fetchAssignments();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -285,6 +319,61 @@ export default function StudentDashboard() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Mine lekser */}
+          {studentAssignments.length > 0 && (() => {
+            const activeAssignments = studentAssignments.filter(
+              (a) => a.status !== "completed" && a.status !== "completed_late"
+            );
+            const completedAssignments = studentAssignments.filter(
+              (a) => a.status === "completed" || a.status === "completed_late"
+            );
+            // Sorter: forfalt > pågår > ikke startet
+            const sortOrder: Record<string, number> = { overdue: 0, in_progress: 1, not_started: 2 };
+            activeAssignments.sort((a, b) => (sortOrder[a.status] ?? 3) - (sortOrder[b.status] ?? 3));
+
+            return (
+              <div>
+                <div className="flex items-center gap-2 mb-4">
+                  <ClipboardList className="h-5 w-5 text-muted-foreground" />
+                  <h2 className="text-xl font-semibold">Mine lekser</h2>
+                  {activeAssignments.length > 0 && (
+                    <span className="text-sm text-muted-foreground">
+                      ({activeAssignments.length} aktive)
+                    </span>
+                  )}
+                </div>
+                <div className="space-y-2">
+                  {activeAssignments.map((a) => (
+                    <StudentAssignmentCard key={a.id} assignment={a} />
+                  ))}
+                  {activeAssignments.length === 0 && (
+                    <div className="text-center py-4 text-muted-foreground text-sm">
+                      Ingen aktive lekser akkurat nå
+                    </div>
+                  )}
+                  {completedAssignments.length > 0 && (
+                    <div>
+                      <button
+                        onClick={() => setShowCompletedAssignments(!showCompletedAssignments)}
+                        className="flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground transition-colors mt-2"
+                      >
+                        <ChevronDown className={`h-4 w-4 transition-transform ${showCompletedAssignments ? "rotate-180" : ""}`} />
+                        {completedAssignments.length} fullførte lekser
+                      </button>
+                      {showCompletedAssignments && (
+                        <div className="space-y-2 mt-2">
+                          {completedAssignments.map((a) => (
+                            <StudentAssignmentCard key={a.id} assignment={a} />
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  )}
+                </div>
+              </div>
+            );
+          })()}
 
           {/* Mine fag */}
           <div>

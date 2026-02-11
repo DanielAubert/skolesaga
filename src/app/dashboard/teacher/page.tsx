@@ -44,7 +44,9 @@ import {
   CheckCircle,
   XCircle,
   Shield,
+  ClipboardList,
 } from "lucide-react";
+import { CreateAssignmentDialog } from "@/components/assignments/create-assignment-dialog";
 import { useSession } from "next-auth/react";
 import { Switch } from "@/components/ui/switch";
 import { Label } from "@/components/ui/label";
@@ -140,6 +142,16 @@ export default function TeacherDashboard() {
   const [changingOrg, setChangingOrg] = useState(false);
   const [currentOrgId, setCurrentOrgId] = useState<string | null>(null);
 
+  // Assignments
+  const [assignments, setAssignments] = useState<{
+    id: string;
+    title: string;
+    due_date: string;
+    course_id: string;
+    assignment_targets: { class_id: string | null; className: string | null }[];
+  }[]>([]);
+  const [assignmentDialogOpen, setAssignmentDialogOpen] = useState(false);
+
   // Hent data
   useEffect(() => {
     const fetchData = async () => {
@@ -174,6 +186,23 @@ export default function TeacherDashboard() {
     };
 
     fetchData();
+  }, []);
+
+  // Hent lekser
+  const fetchAssignments = async () => {
+    try {
+      const response = await fetch("/api/assignments");
+      if (response.ok) {
+        const data = await response.json();
+        setAssignments(data.assignments || []);
+      }
+    } catch (error) {
+      console.error("Error fetching assignments:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchAssignments();
   }, []);
 
   // Hent organisasjons-elever
@@ -460,6 +489,76 @@ export default function TeacherDashboard() {
               </CardContent>
             </Card>
           </div>
+
+          {/* Assignments section */}
+          <Card>
+            <CardHeader>
+              <div className="flex items-center justify-between">
+                <div>
+                  <CardTitle className="flex items-center gap-2">
+                    <ClipboardList className="h-5 w-5" />
+                    Aktive lekser
+                  </CardTitle>
+                  <CardDescription>Lekser du har gitt til elevene</CardDescription>
+                </div>
+                <Button onClick={() => setAssignmentDialogOpen(true)} disabled={classes.length === 0}>
+                  <Plus className="h-4 w-4 mr-2" />
+                  Gi lekse
+                </Button>
+              </div>
+            </CardHeader>
+            <CardContent>
+              {assignments.length === 0 ? (
+                <div className="text-center py-8 text-muted-foreground">
+                  <ClipboardList className="h-12 w-12 mx-auto mb-4 opacity-50" />
+                  <p>Ingen lekser ennå</p>
+                  <p className="text-sm mt-1">
+                    {classes.length === 0
+                      ? "Opprett en klasse først, deretter kan du gi lekser"
+                      : "Klikk «Gi lekse» for å opprette din første lekse"}
+                  </p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {assignments.slice(0, 5).map((a) => {
+                    const isPastDue = new Date(a.due_date) < new Date();
+                    const className = a.assignment_targets
+                      ?.filter((t) => t.className)
+                      .map((t) => t.className)
+                      .join(", ");
+                    return (
+                      <Link
+                        key={a.id}
+                        href={`/dashboard/teacher/assignments/${a.id}`}
+                        className="flex items-center justify-between p-3 rounded-lg bg-muted/50 hover:bg-muted transition-colors"
+                      >
+                        <div className="flex-1 min-w-0">
+                          <p className="font-medium text-sm truncate">{a.title}</p>
+                          <p className="text-xs text-muted-foreground">
+                            {className || a.course_id.toUpperCase()}
+                          </p>
+                        </div>
+                        <div className="flex items-center gap-2 ml-2">
+                          <span className={`text-xs ${isPastDue ? "text-red-600 dark:text-red-400" : "text-muted-foreground"}`}>
+                            {new Date(a.due_date).toLocaleDateString("nb-NO", {
+                              day: "numeric",
+                              month: "short",
+                            })}
+                          </span>
+                          <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        </div>
+                      </Link>
+                    );
+                  })}
+                  {assignments.length > 5 && (
+                    <p className="text-sm text-center text-muted-foreground pt-2">
+                      + {assignments.length - 5} flere lekser
+                    </p>
+                  )}
+                </div>
+              )}
+            </CardContent>
+          </Card>
 
           {/* Classes section */}
           <div className="grid gap-4 md:grid-cols-2">
@@ -987,6 +1086,14 @@ export default function TeacherDashboard() {
           </DialogFooter>
         </DialogContent>
       </Dialog>
+
+      {/* Create assignment dialog */}
+      <CreateAssignmentDialog
+        open={assignmentDialogOpen}
+        onOpenChange={setAssignmentDialogOpen}
+        classes={classes.map((c) => ({ id: c.id, name: c.name }))}
+        onCreated={fetchAssignments}
+      />
 
       {/* Change organization dialog */}
       <Dialog open={changeOrgDialogOpen} onOpenChange={setChangeOrgDialogOpen}>
