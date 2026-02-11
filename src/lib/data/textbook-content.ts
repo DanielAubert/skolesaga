@@ -114,6 +114,11 @@ import { KOMKULT_2_CHAPTERS } from './textbook-content-komkult-2';
 import { MEDIEINFO_2_CHAPTERS } from './textbook-content-medieinfo-2';
 import { ENTREBED_2_CHAPTERS } from './textbook-content-entrebed-2';
 import { FILOSOFI_ETIKK_CHAPTERS } from './textbook-content-filosofi-etikk';
+import { TRENING_2_CHAPTERS } from './textbook-content-trening-2';
+import { TRENING_3_CHAPTERS } from './textbook-content-trening-3';
+import { SAMFOKONOMI_2_CHAPTERS } from './textbook-content-samfokonomi-2';
+import { OKONOMI_DRIFT_CHAPTERS } from './textbook-content-okonomi-drift';
+import { SIKKERHETSFAG_CHAPTERS } from './textbook-content-sikkerhetsfag';
 import { HELSEOPPVEKST_VG2_CHAPTERS } from './textbook-content-helseoppvekst-vg2';
 import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
@@ -699,6 +704,21 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Filosofi og etikk
   ...Object.fromEntries(FILOSOFI_ETIKK_CHAPTERS.map(c => [c.id, c])),
+
+  // Treningslære 2
+  ...Object.fromEntries(TRENING_2_CHAPTERS.map(c => [c.id, c])),
+
+  // Treningslære 3
+  ...Object.fromEntries(TRENING_3_CHAPTERS.map(c => [c.id, c])),
+
+  // Samfunnsøkonomi 2
+  ...Object.fromEntries(SAMFOKONOMI_2_CHAPTERS.map(c => [c.id, c])),
+
+  // Økonomi og driftsledelse
+  ...Object.fromEntries(OKONOMI_DRIFT_CHAPTERS.map(c => [c.id, c])),
+
+  // Sikkerhetsfag
+  ...Object.fromEntries(SIKKERHETSFAG_CHAPTERS.map(c => [c.id, c])),
 
   // Helse- og oppvekstfag VG2
   ...Object.fromEntries(HELSEOPPVEKST_VG2_CHAPTERS.map(c => [c.id, c])),
