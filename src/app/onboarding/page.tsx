@@ -109,7 +109,7 @@ function OnboardingContent() {
       orgId = null;
       orgName = null;
     } else if (organizationId === "studenthjelp") {
-      orgId = "studenthjelp";
+      orgId = null;
       orgName = "Studenthjelp Privatundervisning";
     }
 
