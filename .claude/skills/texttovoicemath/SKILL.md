@@ -26,23 +26,22 @@ Vis gjeldende konverteringsregler. Disse reglene skal alltid brukes i `stripMark
 
 #### Muntlig variasjon av likhetstegn
 
-For å få talen til å høres mer naturlig og menneskelig ut, skal likhetstegnet (`=`) **varieres** mellom flere formuleringer. Bruk en teller som roterer gjennom disse variantene:
+For å få talen til å høres mer naturlig og menneskelig ut, skal likhetstegnet (`=`) **varieres** mellom flere formuleringer:
 
-| Variant | Eksempel |
-|---------|----------|
-| ", som er lik, " | "3x pluss 5x, som er lik, 8x" |
-| ", som altså er lik, " | "x i andre minus 5x pluss 6, som altså er lik, x minus 2 ganger x minus 3" |
-| ", som da blir, " | "2 ganger 4, som da blir, 8" |
-| ", altså, " | "3a minus 5b pluss 4a, altså, 7a minus 5b" |
-| ", det vil si, " | "x pluss x, det vil si, 2x" |
+| Variant | Når den passer |
+|---------|---------------|
+| ", som er lik, " | Standard, trygt valg for de fleste likhetstegn |
+| ", som altså er lik, " | Når resultatet følger logisk fra forrige steg, gjerne midt i en utregning |
+| ", som da blir, " | Når man beregner/forenkler og kommer frem til et resultat |
+| ", altså, " | Kort og muntlig, passer for enkle forenklinger og sluttresultater |
+| ", det vil si, " | Når man omformulerer eller forklarer hva noe betyr |
+| ", lik, " | Kort og nøytralt, passer i kjeder av likhetstegn eller formelle uttrykk |
 
-**Implementasjon:** Ikke bruk kun mekanisk rotasjon. AI-en som genererer lydbok-skriptet skal **vurdere konteksten** for hvert likhetstegn og velge den varianten som passer best. Retningslinjer:
+**Implementasjon:** `mathToNorwegian()` skal IKKE håndtere likhetstegn. I stedet:
 
-- **"som er lik"** – standard, trygt valg for de fleste likhetstegn
-- **"som altså er lik"** – når resultatet følger logisk fra forrige steg, gjerne midt i en utregning
-- **"som da blir"** – når man beregner/forenkler og kommer frem til et svar
-- **"altså"** – kort og muntlig, passer godt for enkle forenklinger og sluttresultater
-- **"det vil si"** – når man omformulerer eller forklarer hva noe betyr
+1. `mathToNorwegian()` erstatter `=` med en plassholder: `[EQ]`
+2. Etter at `extractFullText()` har bygget opp hele teksten, går AI-en gjennom teksten og erstatter **hver** `[EQ]` manuelt med den varianten som passer best i konteksten
+3. AI-en skriver disse erstatningene direkte i genererings-skriptet som en post-prosessering
 
 Målet er at talen skal høres ut som en lærer som forklarer ved tavla – naturlig, variert og ikke robotaktig. Unngå å bruke samme variant to ganger på rad.
 
@@ -129,19 +128,6 @@ ElevenLabs kan utelate minustegnet (`-`) fra talen, spesielt som operator mellom
 Disse reglene implementeres i `stripMarkdown`-funksjonen som brukes i lydbok-skript. Her er kjernekonverteringene:
 
 ```typescript
-// Likhetstegn-varianter – AI velger den beste for konteksten,
-// men som fallback i mathToNorwegian brukes syklisk rotasjon.
-// Ved generering av narrativ tekst bør AI-en heller skrive inn
-// den beste varianten direkte i teksten.
-const EQUALS_VARIANTS = [
-  ', som er lik, ',
-  ', som altså er lik, ',
-  ', som da blir, ',
-  ', altså, ',
-  ', det vil si, ',
-];
-let equalsCounter = 0;
-
 function mathToNorwegian(text: string): string {
   return text
     // Likhetstegn og relasjoner
@@ -151,27 +137,25 @@ function mathToNorwegian(text: string): string {
     .replace(/\\geq/g, ' er større enn eller lik ')
     .replace(/</g, ' er mindre enn ')
     .replace(/>/g, ' er større enn ')
-    .replace(/=/g, () => {
-      const variant = EQUALS_VARIANTS[equalsCounter % EQUALS_VARIANTS.length];
-      equalsCounter++;
-      return variant;
-    })
+    // Likhetstegn → plassholder (AI erstatter manuelt etterpå)
+    .replace(/=/g, ' [EQ] ')
 
     // Potenser: x^{uttrykk} og x^n
-    .replace(/\^{(\d+)\s*\+\s*(\d+)}/g, ' opphøyd i $1 pluss $2')
+    // NB: Alle erstatninger har trailing space for å unngå "i andrey" → "i andre y"
+    .replace(/\^{(\d+)\s*\+\s*(\d+)}/g, ' opphøyd i $1 pluss $2 ')
     .replace(/\^{([^}]+)}/g, (_, exp) => {
-      if (exp === '2') return ' i andre';
-      if (exp === '3') return ' i tredje';
-      if (exp === '4') return ' i fjerde';
-      if (exp === '5') return ' i femte';
-      return ` opphøyd i ${exp}`;
+      if (exp === '2') return ' i andre ';
+      if (exp === '3') return ' i tredje ';
+      if (exp === '4') return ' i fjerde ';
+      if (exp === '5') return ' i femte ';
+      return ` opphøyd i ${exp} `;
     })
-    .replace(/\^2(?!\d)/g, ' i andre')
-    .replace(/\^3(?!\d)/g, ' i tredje')
-    .replace(/\^4(?!\d)/g, ' i fjerde')
-    .replace(/\^5(?!\d)/g, ' i femte')
-    .replace(/\^(\d+)/g, ' opphøyd i $1')
-    .replace(/\^([a-z])/g, ' opphøyd i $1')
+    .replace(/\^2(?!\d)/g, ' i andre ')
+    .replace(/\^3(?!\d)/g, ' i tredje ')
+    .replace(/\^4(?!\d)/g, ' i fjerde ')
+    .replace(/\^5(?!\d)/g, ' i femte ')
+    .replace(/\^(\d+)/g, ' opphøyd i $1 ')
+    .replace(/\^([a-z])/g, ' opphøyd i $1 ')
 
     // Parenteser (konverter først, så legger vi inn ganger mellom dem)
     .replace(/\\left\(/g, '(')
