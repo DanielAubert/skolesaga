@@ -106,6 +106,7 @@ import { ENTREBED_1_CHAPTERS } from './textbook-content-entrebed-1';
 import { TRENING_1_CHAPTERS } from './textbook-content-trening-1';
 import { SAMFOKONOMI_1_CHAPTERS } from './textbook-content-samfokonomi-1';
 import { OKONOMI_LEDELSE_CHAPTERS } from './textbook-content-okonomi-ledelse';
+import { REGNSKAP_REVISJON_CHAPTERS } from './textbook-content-regnskap-revisjon';
 import { HELSEOPPVEKST_VG2_CHAPTERS } from './textbook-content-helseoppvekst-vg2';
 import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
@@ -667,6 +668,9 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Økonomi og ledelse
   ...Object.fromEntries(OKONOMI_LEDELSE_CHAPTERS.map(c => [c.id, c])),
+
+  // Regnskap og revisjon
+  ...Object.fromEntries(REGNSKAP_REVISJON_CHAPTERS.map(c => [c.id, c])),
 
   // Helse- og oppvekstfag VG2
   ...Object.fromEntries(HELSEOPPVEKST_VG2_CHAPTERS.map(c => [c.id, c])),

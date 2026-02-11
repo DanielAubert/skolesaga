@@ -50,6 +50,11 @@ export default async function ChapterPage({ params }: PageProps) {
     ? getChapterMeta(courseId, chapterMeta.linkedChapterId)
     : undefined;
 
+  // Arv hero-bilde fra tilknyttet kapittel hvis dette kapittelet mangler ett
+  const resolvedChapterMeta = !chapterMeta.coverImage && linkedChapter?.coverImage
+    ? { ...chapterMeta, coverImage: linkedChapter.coverImage }
+    : chapterMeta;
+
   // Check quiz availability on the server to avoid hydration mismatch
   const hasQuiz = hasQuizQuestions(chapterId) || hasChemistryQuiz(chapterId) || hasSamfunnskunnskapQuiz(chapterId);
 
@@ -60,7 +65,7 @@ export default async function ChapterPage({ params }: PageProps) {
   return (
     <TextbookChapterView
       course={course}
-      chapterMeta={chapterMeta}
+      chapterMeta={resolvedChapterMeta}
       chapterContent={chapterContent}
       nextChapter={nextChapter ? { id: nextChapter.id, number: nextChapter.number, title: nextChapter.title } : undefined}
       prevChapter={prevChapter ? { id: prevChapter.id, number: prevChapter.number, title: prevChapter.title } : undefined}
