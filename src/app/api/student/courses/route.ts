@@ -30,12 +30,30 @@ export async function GET() {
 
     const supabase = getSupabaseAdmin();
 
-    // Hent bruker-ID
-    const { data: user } = await supabase
+    // Prøv med selected_courses først, fall tilbake til uten
+    const { data: user, error } = await supabase
       .from("users")
       .select("id, selected_courses")
       .eq("email", session.user.email)
       .single();
+
+    if (error) {
+      // Kolonnen finnes kanskje ikke — prøv uten
+      if (error.code === "42703") {
+        const { data: fallbackUser } = await supabase
+          .from("users")
+          .select("id")
+          .eq("email", session.user.email)
+          .single();
+
+        if (!fallbackUser) {
+          return NextResponse.json({ error: "Bruker ikke funnet" }, { status: 404 });
+        }
+        return NextResponse.json({ courses: [] });
+      }
+      console.error("Error fetching student courses:", error);
+      return NextResponse.json({ error: "Kunne ikke hente fag" }, { status: 500 });
+    }
 
     if (!user) {
       return NextResponse.json({ error: "Bruker ikke funnet" }, { status: 404 });
@@ -71,11 +89,16 @@ export async function POST(request: Request) {
     const supabase = getSupabaseAdmin();
 
     // Hent eksisterende fag
-    const { data: user } = await supabase
+    const { data: user, error: fetchError } = await supabase
       .from("users")
       .select("id, selected_courses")
       .eq("email", session.user.email)
       .single();
+
+    if (fetchError && fetchError.code === "42703") {
+      // Kolonnen finnes ikke — returnerer ok, localStorage håndterer det
+      return NextResponse.json({ message: "Fag lagt til (lokalt)", courses: [courseId] });
+    }
 
     if (!user) {
       return NextResponse.json({ error: "Bruker ikke funnet" }, { status: 404 });
@@ -135,11 +158,15 @@ export async function DELETE(request: Request) {
     const supabase = getSupabaseAdmin();
 
     // Hent eksisterende fag
-    const { data: user } = await supabase
+    const { data: user, error: fetchError } = await supabase
       .from("users")
       .select("id, selected_courses")
       .eq("email", session.user.email)
       .single();
+
+    if (fetchError && fetchError.code === "42703") {
+      return NextResponse.json({ message: "Fag fjernet (lokalt)", courses: [] });
+    }
 
     if (!user) {
       return NextResponse.json({ error: "Bruker ikke funnet" }, { status: 404 });
