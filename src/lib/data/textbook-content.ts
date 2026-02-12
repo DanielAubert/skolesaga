@@ -181,6 +181,22 @@ import { SALG_SERVICE_VG1_DEL6_CHAPTERS } from './textbook-content-salg-service-
 import { SALG_SERVICE_VG1_DEL7_CHAPTERS } from './textbook-content-salg-service-vg1-del7';
 import { SALG_SERVICE_VG1_DEL8_CHAPTERS } from './textbook-content-salg-service-vg1-del8';
 import { HELSEOPPVEKST_VG1_CHAPTERS } from './textbook-content-helseoppvekst-vg1';
+import { IM_VG1_DEL1_CHAPTERS } from './textbook-content-im-vg1-del1';
+import { IM_VG1_DEL2_CHAPTERS } from './textbook-content-im-vg1-del2';
+import { IM_VG1_DEL3_CHAPTERS } from './textbook-content-im-vg1-del3';
+import { IM_VG1_DEL4_CHAPTERS } from './textbook-content-im-vg1-del4';
+import { IM_VG1_DEL5_CHAPTERS } from './textbook-content-im-vg1-del5';
+import { IM_VG1_DEL6_CHAPTERS } from './textbook-content-im-vg1-del6';
+import { IM_VG1_DEL7_CHAPTERS } from './textbook-content-im-vg1-del7';
+import { IM_VG1_DEL8_CHAPTERS } from './textbook-content-im-vg1-del8';
+import { FRISOR_BLOMSTER_VG1_DEL1_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del1';
+import { FRISOR_BLOMSTER_VG1_DEL2_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del2';
+import { FRISOR_BLOMSTER_VG1_DEL3_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del3';
+import { FRISOR_BLOMSTER_VG1_DEL4_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del4';
+import { FRISOR_BLOMSTER_VG1_DEL5_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del5';
+import { FRISOR_BLOMSTER_VG1_DEL6_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del6';
+import { FRISOR_BLOMSTER_VG1_DEL7_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del7';
+import { FRISOR_BLOMSTER_VG1_DEL8_CHAPTERS } from './textbook-content-frisor-blomster-vg1-del8';
 
 // 5. klasse fag (andre fag enn matematikk)
 import { NORSK_5_CHAPTERS } from './textbook-content-norsk-5';
@@ -555,6 +571,26 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
 
   // Helse- og oppvekstfag VG1
   ...HELSEOPPVEKST_VG1_CHAPTERS,
+
+  // Informasjonsteknologi og medieproduksjon VG1
+  ...Object.fromEntries(IM_VG1_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(IM_VG1_DEL8_CHAPTERS.map(c => [c.id, c])),
+
+  // Frisør, blomster, interiør og eksponeringsdesign VG1
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(FRISOR_BLOMSTER_VG1_DEL8_CHAPTERS.map(c => [c.id, c])),
 
   // Norsk VG2
   ...Object.fromEntries(NORSK_VG2_CHAPTERS.map(c => [c.id, c])),
