@@ -29,7 +29,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['utføre beregninger med negative tall'],
       coverImage: '/images/subjects/1t-1-1-fortegn-og-regnerekkefolgje.webp',
       auraColor: 'rgba(180, 120, 60, 0.9)',
+      linkedChapterId: '1t-1-1-narrativ',
     },
+    { id: '1t-1-1-narrativ', number: '1.1', title: 'Fortegn og regnerekkefølge', subtitle: 'Lesevennlig versjon', description: 'En fortelling om tallenes skjulte regler -- hvorfor minus ganger minus blir pluss, og hvordan regnerekkefølgen bestemmer svaret.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Addisjon og subtraksjon', 'Multiplikasjon og divisjon', 'Potenser', 'Kvadratrøtter', 'Regnerekkefølge'], linkedChapterId: '1t-1-1', isNarrativeVersion: true },
     {
       id: '1t-1-2',
       number: '1.2',
@@ -41,7 +43,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['utforske og beskrive egenskaper ved potenser'],
       coverImage: '/images/subjects/1t-1-2-potenser-med-heltallseksponenter.webp',
       auraColor: 'rgba(80, 60, 140, 0.9)',
+      linkedChapterId: '1t-1-2-narrativ',
     },
+    { id: '1t-1-2-narrativ', number: '1.2', title: 'Potenser med heltallseksponenter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om potensenes verden -- fra gjentatt multiplikasjon til smarte regneregler som gjør store tall håndterbare.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Potenser', 'Heltallseksponenter', 'Potensregler'], linkedChapterId: '1t-1-2', isNarrativeVersion: true },
     {
       id: '1t-1-3',
       number: '1.3',
@@ -80,7 +84,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['utforske og beskrive egenskaper ved brøker og operasjoner med brøker'],
       coverImage: '/images/subjects/1t-1-4-brokregning.webp',
       auraColor: 'rgba(160, 90, 50, 0.9)',
+      linkedChapterId: '1t-1-4-narrativ',
     },
+    { id: '1t-1-4-narrativ', number: '1.4', title: 'Brøkregning', subtitle: 'Lesevennlig versjon', description: 'En fortelling om brøkenes hemmeligheter -- hvordan du mestrer fellesnevner, forkorting og regning med de tallene som ligger mellom heltallene.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Multiplikasjon av brøker', 'Divisjon av brøker', 'Forkorting', 'Utviding', 'Fellesnevner'], linkedChapterId: '1t-1-4', isNarrativeVersion: true },
     {
       id: '1t-1-5',
       number: '1.5',
@@ -91,7 +97,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Primtallsfaktorisering', 'Faktorisering av uttrykk', 'Første kvadratsetning', 'Andre kvadratsetning', 'Konjugatsetningen'],
       coverImage: '/images/subjects/1t-1-5-faktorisering-og-kvadratsetningene.webp',
       auraColor: 'rgba(100, 60, 130, 0.9)',
+      linkedChapterId: '1t-1-5-narrativ',
     },
+    { id: '1t-1-5-narrativ', number: '1.5', title: 'Faktorisering og kvadratsetningene', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å bryte tall og uttrykk ned i byggeklosser -- og de tre magiske formlene som forenkler det meste.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Primtallsfaktorisering', 'Faktorisering av uttrykk', 'Første kvadratsetning', 'Andre kvadratsetning', 'Konjugatsetningen'], linkedChapterId: '1t-1-5', isNarrativeVersion: true },
     {
       id: '1t-1-6',
       number: '1.6',
@@ -104,7 +112,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['forenkle algebraiske brøkuttrykk'],
       coverImage: '/images/subjects/1t-1-6-rasjonale-uttrykk.webp',
       auraColor: 'rgba(50, 100, 110, 0.9)',
+      linkedChapterId: '1t-1-6-narrativ',
     },
+    { id: '1t-1-6-narrativ', number: '1.6', title: 'Rasjonale uttrykk', subtitle: 'Lesevennlig versjon', description: 'En fortelling om brøker som inneholder bokstaver -- hvordan du forkorter, ganger og legger sammen algebraiske brøkuttrykk.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Forkorting av algebraiske brøker', 'Multiplikasjon og divisjon', 'Fellesnevner'], linkedChapterId: '1t-1-6', isNarrativeVersion: true },
     {
       id: '1t-1-7',
       number: '1.7',
@@ -116,7 +126,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['bruke matematisk notasjon til å beskrive mengder'],
       coverImage: '/images/subjects/1t-1-7-mengdelaere.webp',
       auraColor: 'rgba(50, 80, 140, 0.9)',
+      linkedChapterId: '1t-1-7-narrativ',
     },
+    { id: '1t-1-7-narrativ', number: '1.7', title: 'Mengdelære', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens sorteringssystem -- tallmengder, intervaller og Venn-diagrammer som setter orden på tallenes univers.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Tallmengder', 'Intervaller', 'Union', 'Snitt', 'Differanse', 'Absoluttverdi'], linkedChapterId: '1t-1-7', isNarrativeVersion: true },
     {
       id: '1t-1-8',
       number: '1.8',
@@ -129,7 +141,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['forklare polynomdivisjon'],
       coverImage: '/images/subjects/1t-1-8-polynomdivisjon-introduksjon.webp',
       auraColor: 'rgba(40, 60, 100, 0.9)',
+      linkedChapterId: '1t-1-8-narrativ',
     },
+    { id: '1t-1-8-narrativ', number: '1.8', title: 'Polynomdivisjon - introduksjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvordan vi deler polynomer på hverandre – fra enkel brøkforenkling til systematisk polynomdivisjon med kvotient og rest.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Polynomdivisjon', 'Kvotient', 'Rest'], linkedChapterId: '1t-1-8', isNarrativeVersion: true },
     {
       id: '1t-1-9',
       number: '1.9',
@@ -142,7 +156,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['bruke polynomdivisjon til å omskrive algebraiske uttrykk'],
       coverImage: '/images/subjects/1t-1-9-polynomdivisjon-med-lineaer-divisor.webp',
       auraColor: 'rgba(60, 80, 120, 0.9)',
+      linkedChapterId: '1t-1-9-narrativ',
     },
+    { id: '1t-1-9-narrativ', number: '1.9', title: 'Polynomdivisjon med lineær divisor', subtitle: 'Lesevennlig versjon', description: 'En fortelling om faktorteoremet og restteoremet – kraftfulle verktøy som lar deg finne nullpunkter og faktorisere polynomer uten full divisjon.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Lineær divisor', 'Faktorteoremet', 'Nullpunkter'], linkedChapterId: '1t-1-9', isNarrativeVersion: true },
 
     // Kapittel 2: Likninger
     {
@@ -156,7 +172,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['løse lineære likninger', 'bruke regneregler for likninger'],
       coverImage: '/images/subjects/1t-2-1-grunnleggende-likninger.webp',
       auraColor: 'rgba(170, 100, 50, 0.9)',
+      linkedChapterId: '1t-2-1-narrativ',
     },
+    { id: '1t-2-1-narrativ', number: '2.1', title: 'Grunnleggende likninger', subtitle: 'Lesevennlig versjon', description: 'En fortelling om balansens kunst -- hvordan du finner den ukjente ved å gjøre det samme på begge sider av likhetstegnet.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Lineære likninger', 'Likningsløsning', 'Brøklikninger', 'Parenteslikninger'], linkedChapterId: '1t-2-1', isNarrativeVersion: true },
     {
       id: '1t-2-2',
       number: '2.2',
@@ -168,7 +186,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-1-5'],
       coverImage: '/images/subjects/1t-2-2-andregradslikninger-faktorisering.webp',
       auraColor: 'rgba(90, 50, 120, 0.9)',
+      linkedChapterId: '1t-2-2-narrativ',
     },
+    { id: '1t-2-2-narrativ', number: '2.2', title: 'Andregradslikninger - faktorisering', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å knekke andregradslikninger ved å bryte dem opp i faktorer -- nullpunktmetoden som avslører løsningene.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Andregradslikninger', 'Faktorisering', 'Nullpunktmetoden'], linkedChapterId: '1t-2-2', isNarrativeVersion: true },
     {
       id: '1t-2-3',
       number: '2.3',
@@ -181,7 +201,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['løse andregradslikninger med abc-formelen', 'faktorisere andregradsuttrykk ved nullpunktsfaktorisering'],
       coverImage: '/images/subjects/1t-2-3-abc-formelen.webp',
       auraColor: 'rgba(140, 50, 60, 0.9)',
+      linkedChapterId: '1t-2-3-narrativ',
     },
+    { id: '1t-2-3-narrativ', number: '2.3', title: 'ABC-formelen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens universalverktøy for andregradslikninger -- diskriminanten som avgjør om det finnes null, en eller to løsninger.', estimatedMinutes: 40, exerciseCount: 5, topics: ['ABC-formelen', 'Diskriminanten', 'Antall løsninger', 'Nullpunktsfaktorisering', 'Produktregelen'], linkedChapterId: '1t-2-3', isNarrativeVersion: true },
     {
       id: '1t-2-4',
       number: '2.4',
@@ -193,7 +215,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-1-4'],
       coverImage: '/images/subjects/1t-2-4-fullstendig-kvadrat.webp',
       auraColor: 'rgba(40, 120, 160, 0.9)',
+      linkedChapterId: '1t-2-4-narrativ',
     },
+    { id: '1t-2-4-narrativ', number: '2.4', title: 'Fullstendig kvadrat', subtitle: 'Lesevennlig versjon', description: 'En fortelling om en elegant teknikk -- hvordan du omformer andregradsuttrykk til perfekte kvadrater og løser likninger med stil.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Fullstendig kvadrat', 'Andregradslikninger'], linkedChapterId: '1t-2-4', isNarrativeVersion: true },
     {
       id: '1t-2-5',
       number: '2.5',
@@ -205,7 +229,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-1-3', '1t-1-5'],
       competenceGoals: ['løse likninger med brøker', 'bruke produktregelen for brøklikninger'],
       coverImage: '/images/subjects/1t-2-5-rasjonale-likninger.webp',
+      linkedChapterId: '1t-2-5-narrativ',
     },
+    { id: '1t-2-5-narrativ', number: '2.5', title: 'Rasjonale likninger', subtitle: 'Lesevennlig versjon', description: 'En fortelling om likninger med brøker -- hvordan du kvitter deg med nevnerne og finner løsningene, men må passe på at de faktisk er gyldige.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Brøklikninger', 'Produktregelen', 'Likninger med brøk'], linkedChapterId: '1t-2-5', isNarrativeVersion: true },
     {
       id: '1t-2-6',
       number: '2.6',
@@ -216,7 +242,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Rotlikninger', 'Kvadrering', 'Kontroll av løsninger'],
       prerequisites: ['1t-1-2'],
       coverImage: '/images/subjects/1t-2-6-likninger-med-rotter.webp',
+      linkedChapterId: '1t-2-6-narrativ',
     },
+    { id: '1t-2-6-narrativ', number: '2.6', title: 'Likninger med røtter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om kvadratrøtter i likninger -- hvordan du kvitter deg med rottegnet ved å kvadrere, og hvorfor du alltid må sjekke svaret.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Rotlikninger', 'Kvadrering', 'Kontroll av løsninger'], linkedChapterId: '1t-2-6', isNarrativeVersion: true },
     {
       id: '1t-2-8',
       number: '2.8',
@@ -228,7 +256,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-2-1'],
       competenceGoals: ['omsetje problemstillingar til likningar', 'tolke og bruke likningsløysingar i kontekst'],
       coverImage: '/images/subjects/1t-2-8-praktisk-bruk-av-likninger.webp',
+      linkedChapterId: '1t-2-8-narrativ',
     },
+    { id: '1t-2-8-narrativ', number: '2.8', title: 'Praktisk bruk av likninger', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å oversette virkeligheten til matematikk -- hvordan tekstoppgaver blir til likninger som gir svar på konkrete spørsmål.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Tekstoppgaver', 'Problemløsning', 'Modellering', 'Praktiske situasjoner'], linkedChapterId: '1t-2-8', isNarrativeVersion: true },
     {
       id: '1t-2-9',
       number: '2.9',
@@ -240,7 +270,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-2-3', '1t-2-8'],
       competenceGoals: ['bruke andregradslikningar i praktiske situasjonar', 'tolke løysingar i kontekst'],
       coverImage: '/images/subjects/1t-2-9-praktisk-bruk-av-andregradslikninger.webp',
+      linkedChapterId: '1t-2-9-narrativ',
     },
+    { id: '1t-2-9-narrativ', number: '2.9', title: 'Praktisk bruk av andregradslikninger', subtitle: 'Lesevennlig versjon', description: 'En fortelling om parabelens plass i virkeligheten -- fra kastekuler i luften til optimale arealer og økonomiske modeller.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Arealproblemer', 'Kastebevegelse', 'Optimering', 'Økonomiske modeller'], linkedChapterId: '1t-2-9', isNarrativeVersion: true },
     {
       id: '1t-2-10',
       number: '2.10',
@@ -252,7 +284,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-1-8'],
       competenceGoals: ['bruke polynomdivisjon til å løyse likningar'],
       coverImage: '/images/subjects/1t-2-10-polynomdivisjon-og-likningslosning.webp',
+      linkedChapterId: '1t-2-10-narrativ',
     },
+    { id: '1t-2-10-narrativ', number: '2.10', title: 'Polynomdivisjon og likningsløsning', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å bryte ned polynomlikninger -- hvordan polynomdivisjon avslører skjulte faktorer og løser tredjegradslikninger.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Polynomlikninger', 'Faktorisering', 'Tredjegradslikninger'], linkedChapterId: '1t-2-10', isNarrativeVersion: true },
     {
       id: '1t-2-11',
       number: '2.11',
@@ -276,7 +310,9 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 4,
       topics: ['x-akse', 'y-akse', 'Punkter', 'Tolke grafer'],
       coverImage: '/images/subjects/1t-3-1-koordinatsystemet.webp',
+      linkedChapterId: '1t-3-1-narrativ',
     },
+    { id: '1t-3-1-narrativ', number: '3.1', title: 'Koordinatsystemet', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens kart -- hvordan to akser og et krysningspunkt gir oss et verktøy for å beskrive alt fra posisjoner til sammenhenger.', estimatedMinutes: 40, exerciseCount: 5, topics: ['x-akse', 'y-akse', 'Punkter', 'Tolke grafer'], linkedChapterId: '1t-3-1', isNarrativeVersion: true },
     {
       id: '1t-3-2',
       number: '3.2',
@@ -288,7 +324,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-3-1'],
       coverImage: '/images/subjects/1t-3-2-lineaere-funksjoner.webp',
       wip: true,
+      linkedChapterId: '1t-3-2-narrativ',
     },
+    { id: '1t-3-2-narrativ', number: '3.2', title: 'Lineære funksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om de rette linjene -- hvordan stigningstall og konstantledd bestemmer linjens retning og posisjon i koordinatsystemet.', estimatedMinutes: 40, exerciseCount: 5, topics: ['y = ax + b', 'Stigningstall', 'Konstantledd', 'Tegne linjer'], linkedChapterId: '1t-3-2', isNarrativeVersion: true },
     {
       id: '1t-3-3',
       number: '3.3',
@@ -299,7 +337,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Matematiske modeller', 'f(x)-notasjon', 'Verditabeller', 'Graftegning', 'Nullpunkter', 'Skjæringspunkter'],
       prerequisites: ['1t-3-1', '1t-3-2'],
       coverImage: '/images/subjects/1t-3-3-hva-er-en-funksjon.webp',
+      linkedChapterId: '1t-3-3-narrativ',
     },
+    { id: '1t-3-3-narrativ', number: '3.3', title: 'Hva er en funksjon?', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens maskiner -- hvordan funksjoner tar inn verdier, forvandler dem og gir svar som kan tegnes som grafer.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Matematiske modeller', 'f(x)-notasjon', 'Verditabeller', 'Graftegning', 'Nullpunkter', 'Skjæringspunkter'], linkedChapterId: '1t-3-3', isNarrativeVersion: true },
     {
       id: '1t-3-4',
       number: '3.4',
@@ -310,7 +350,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Parabel', 'Toppunkt', 'Bunnpunkt', 'Symmetrilinje'],
       prerequisites: ['1t-3-3'],
       coverImage: '/images/subjects/1t-3-4-andregradsfunksjoner.webp',
+      linkedChapterId: '1t-3-4-narrativ',
     },
+    { id: '1t-3-4-narrativ', number: '3.4', title: 'Andregradsfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om parabelens anatomi -- hvordan koeffisientene former kurven og bestemmer toppunkt, bunnpunkt og symmetrilinje.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Parabel', 'Toppunkt', 'Bunnpunkt', 'Symmetrilinje'], linkedChapterId: '1t-3-4', isNarrativeVersion: true },
     {
       id: '1t-3-5',
       number: '3.5',
@@ -321,7 +363,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Nullpunkter', 'Fortegnslinje', 'Faktorisert form'],
       prerequisites: ['1t-3-4', '1t-2-3'],
       coverImage: '/images/subjects/1t-3-5-nullpunkter-og-fortegn.webp',
+      linkedChapterId: '1t-3-5-narrativ',
     },
+    { id: '1t-3-5-narrativ', number: '3.5', title: 'Nullpunkter og fortegn', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hvor grafen krysser x-aksen -- og hvordan fortegnslinjer avslører når funksjonen er positiv og negativ.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Nullpunkter', 'Fortegnslinje', 'Faktorisert form'], linkedChapterId: '1t-3-5', isNarrativeVersion: true },
     {
       id: '1t-3-6',
       number: '3.6',
@@ -332,7 +376,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomgrad', 'Nullpunkter', 'Faktorisering'],
       prerequisites: ['1t-3-5'],
       coverImage: '/images/subjects/1t-3-6-polynomfunksjoner.webp',
+      linkedChapterId: '1t-3-6-narrativ',
     },
+    { id: '1t-3-6-narrativ', number: '3.6', title: 'Polynomfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om funksjoner som svinger og snor seg -- hvordan graden bestemmer antall vendepunkter og grafens oppførsel.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Polynomgrad', 'Nullpunkter', 'Faktorisering'], linkedChapterId: '1t-3-6', isNarrativeVersion: true },
     {
       id: '1t-3-7',
       number: '3.7',
@@ -343,7 +389,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Rasjonale funksjoner', 'Asymptoter', 'Definisjonsmengde'],
       prerequisites: ['1t-3-6'],
       coverImage: '/images/subjects/1t-3-7-rasjonale-funksjoner.webp',
+      linkedChapterId: '1t-3-7-narrativ',
     },
+    { id: '1t-3-7-narrativ', number: '3.7', title: 'Rasjonale funksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om brøkfunksjoner og deres usynlige grenser -- asymptoter som grafen nærmer seg men aldri når.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Rasjonale funksjoner', 'Asymptoter', 'Definisjonsmengde'], linkedChapterId: '1t-3-7', isNarrativeVersion: true },
     {
       id: '1t-3-8',
       number: '3.8',
@@ -354,7 +402,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor'],
       prerequisites: ['1t-3-3'],
       coverImage: '/images/subjects/1t-3-8-eksponentialfunksjoner.webp',
+      linkedChapterId: '1t-3-8-narrativ',
     },
+    { id: '1t-3-8-narrativ', number: '3.8', title: 'Eksponentialfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om eksplosjonsartet vekst og stille nedgang -- funksjoner der variabelen sitter i eksponenten og alt skjer raskere enn du tror.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Eksponentiell vekst', 'Eksponentiell nedgang', 'Vekstfaktor'], linkedChapterId: '1t-3-8', isNarrativeVersion: true },
     {
       id: '1t-3-9',
       number: '3.9',
@@ -379,7 +429,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-2-1', '1t-3-1'],
       competenceGoals: ['løse likningssett med to ukjente grafisk og algebraisk', 'sette opp og løse likningssett fra praktiske situasjoner'],
       coverImage: '/images/subjects/1t-4-1-likningssett.webp',
+      linkedChapterId: '1t-4-1-narrativ',
     },
+    { id: '1t-4-1-narrativ', number: '4.1', title: 'Likningssett', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å løse flere likninger samtidig -- grafisk, med innsetting og addisjon, for å finne verdiene som tilfredsstiller alle kravene.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Grafisk løsning', 'Innsettingsmetoden', 'Addisjonsmetoden', 'Tre ukjente', 'Praktiske oppgaver'], linkedChapterId: '1t-4-1', isNarrativeVersion: true },
     {
       id: '1t-4-2',
       number: '4.2',
@@ -391,7 +443,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-2-1'],
       competenceGoals: ['løyse ulikskapar av første grad'],
       coverImage: '/images/subjects/1t-4-2-lineaere-ulikheter.webp',
+      linkedChapterId: '1t-4-2-narrativ',
     },
+    { id: '1t-4-2-narrativ', number: '4.2', title: 'Lineære ulikheter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens urettferdige likninger -- når svaret ikke er ett tall, men et helt intervall av muligheter.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Førstegradsulikheter', 'Ulikhetstegn', 'Løsningsmengde', 'Intervallnotasjon'], linkedChapterId: '1t-4-2', isNarrativeVersion: true },
     {
       id: '1t-4-3',
       number: '4.3',
@@ -403,7 +457,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-4-2', '1t-1-4'],
       competenceGoals: ['bruke fortegnsskjema til å løyse ulikskapar'],
       coverImage: '/images/subjects/1t-4-3-fortegnslinjer.webp',
+      linkedChapterId: '1t-4-3-narrativ',
     },
+    { id: '1t-4-3-narrativ', number: '4.3', title: 'Fortegnslinjer', subtitle: 'Lesevennlig versjon', description: 'En fortelling om pluss og minus langs tallinjen -- hvordan fortegnslinjer og fortegnsskjema avslører hvor uttrykk skifter fortegn.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Fortegnslinjer', 'Fortegnsskjema', 'Faktorisering', 'Produkter av faktorer'], linkedChapterId: '1t-4-3', isNarrativeVersion: true },
     {
       id: '1t-4-4',
       number: '4.4',
@@ -415,7 +471,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-4-3', '1t-2-3'],
       competenceGoals: ['løyse ulikskapar av andre grad'],
       coverImage: '/images/subjects/1t-4-4-andregradsulikheter.webp',
+      linkedChapterId: '1t-4-4-narrativ',
     },
+    { id: '1t-4-4-narrativ', number: '4.4', title: 'Andregradsulikheter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om parabelen og tallinjen -- hvordan nullpunkter og fortegnsskjema løser ulikheter der x opphøyes i andre.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Andregradsulikheter', 'Nullpunktsfaktorisering', 'Fortegnsskjema', 'Løsningsmengde'], linkedChapterId: '1t-4-4', isNarrativeVersion: true },
     {
       id: '1t-4-5',
       number: '4.5',
@@ -427,7 +485,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-4-4'],
       competenceGoals: ['løyse rasjonale ulikskapar'],
       coverImage: '/images/subjects/1t-4-5-rasjonale-ulikheter.webp',
+      linkedChapterId: '1t-4-5-narrativ',
     },
+    { id: '1t-4-5-narrativ', number: '4.5', title: 'Rasjonale ulikheter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om ulikheter med brøker -- når variabelen gjemmer seg i nevneren og definisjonsmengden setter grenser for løsningene.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Rasjonale ulikheter', 'Brøkutrykk', 'Definisjonsmengde', 'Fortegnsskjema'], linkedChapterId: '1t-4-5', isNarrativeVersion: true },
 
     // Kapittel 5: Geometri og trigonometri (var kapittel 4)
     {
@@ -439,7 +499,9 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 8,
       topics: ['Vinkler', 'Vinkelsum', 'Trekanttyper'],
       coverImage: '/images/subjects/1t-5-1-vinkler-og-trekanter.webp',
+      linkedChapterId: '1t-5-1-narrativ',
     },
+    { id: '1t-5-1-narrativ', number: '5.1', title: 'Vinkler og trekanter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om geometriens grunnsteiner -- vinkler som måler retningsendring og trekanter som bygger opp hele den geometriske verden.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Vinkler', 'Vinkelsum', 'Trekanttyper'], linkedChapterId: '1t-5-1', isNarrativeVersion: true },
     {
       id: '1t-5-2',
       number: '5.2',
@@ -449,7 +511,9 @@ export const COURSE_1T: TextbookCourse = {
       exerciseCount: 10,
       topics: ['Kongruens', 'Formlikhet', 'Målestokk'],
       coverImage: '/images/subjects/1t-5-2-kongruens-og-formlikhet.webp',
+      linkedChapterId: '1t-5-2-narrativ',
     },
+    { id: '1t-5-2-narrativ', number: '5.2', title: 'Kongruens og formlikhet', subtitle: 'Lesevennlig versjon', description: 'En fortelling om figurer som er identiske og figurer som bare ligner -- kongruens, formlikhet og målestokk i geometriens verden.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Kongruens', 'Formlikhet', 'Målestokk'], linkedChapterId: '1t-5-2', isNarrativeVersion: true },
     {
       id: '1t-5-3',
       number: '5.3',
@@ -460,7 +524,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Pytagoras', 'Hypotenus', 'Kateter'],
       prerequisites: ['1t-5-1'],
       coverImage: '/images/subjects/1t-5-3-pytagoras-setning.webp',
+      linkedChapterId: '1t-5-3-narrativ',
     },
+    { id: '1t-5-3-narrativ', number: '5.3', title: 'Pytagoras\' setning', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens mest berømte formel -- sammenhengen mellom katetene og hypotenusen som har fascinert mennesker i tusenvis av år.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Pytagoras', 'Hypotenus', 'Kateter'], linkedChapterId: '1t-5-3', isNarrativeVersion: true },
     {
       id: '1t-5-4',
       number: '5.4',
@@ -472,7 +538,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-5-1'],
       competenceGoals: ['gjøre rede for definisjonene av sinus, cosinus og tangens'],
       coverImage: '/images/subjects/1t-5-4-trigonometri-i-rettvinklede-trekanter.webp',
+      linkedChapterId: '1t-5-4-narrativ',
     },
+    { id: '1t-5-4-narrativ', number: '5.4', title: 'Trigonometri i rettvinklede trekanter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om sinus, cosinus og tangens -- tre forholdstall som kobler vinkler til sidelengder i rettvinklede trekanter.', estimatedMinutes: 40, exerciseCount: 5, topics: ['sin', 'cos', 'tan', 'Rettvinklede trekanter'], linkedChapterId: '1t-5-4', isNarrativeVersion: true },
     {
       id: '1t-5-5',
       number: '5.5',
@@ -483,7 +551,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Grunnlinje', 'Høyde', 'Arealsetningen'],
       prerequisites: ['1t-5-4'],
       coverImage: '/images/subjects/1t-5-5-areal-av-trekanter.webp',
+      linkedChapterId: '1t-5-5-narrativ',
     },
+    { id: '1t-5-5-narrativ', number: '5.5', title: 'Areal av trekanter', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å finne arealet av en trekant -- fra den enkle grunnlinje-ganger-høyde-formelen til arealsetningen med sinus.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Grunnlinje', 'Høyde', 'Arealsetningen'], linkedChapterId: '1t-5-5', isNarrativeVersion: true },
     {
       id: '1t-5-6',
       number: '5.6',
@@ -495,7 +565,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-5-4'],
       competenceGoals: ['begrunne sinussetningen'],
       coverImage: '/images/subjects/1t-5-6-sinussetningen.webp',
+      linkedChapterId: '1t-5-6-narrativ',
     },
+    { id: '1t-5-6-narrativ', number: '5.6', title: 'Sinussetningen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om setningen som fungerer i alle trekanter -- hvordan sinussetningen kobler sider og motstående vinkler, og det tvetydige tilfellet.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Sinussetningen', 'Tvetydige tilfeller'], linkedChapterId: '1t-5-6', isNarrativeVersion: true },
     {
       id: '1t-5-7',
       number: '5.7',
@@ -507,7 +579,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-5-6'],
       competenceGoals: ['begrunne cosinussetningen'],
       coverImage: '/images/subjects/1t-5-7-cosinussetningen.webp',
+      linkedChapterId: '1t-5-7-narrativ',
     },
+    { id: '1t-5-7-narrativ', number: '5.7', title: 'Cosinussetningen', subtitle: 'Lesevennlig versjon', description: 'En fortelling om Pytagoras sin storebror -- cosinussetningen som fungerer i alle trekanter og kan finne både sider og vinkler.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Cosinussetningen', 'Ukjente sider', 'Ukjente vinkler'], linkedChapterId: '1t-5-7', isNarrativeVersion: true },
     {
       id: '1t-5-8',
       number: '5.8',
@@ -531,7 +605,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Argumentasjon', 'Begrunnelse', 'Logisk resonnement'],
       competenceGoals: ['argumentere for tenkemåtene sine'],
       coverImage: '/images/subjects/1t-6-1-matematisk-argumentasjon.webp',
+      linkedChapterId: '1t-6-1-narrativ',
     },
+    { id: '1t-6-1-narrativ', number: '6.1', title: 'Matematisk argumentasjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å overbevise med logikk -- hvordan du bygger vanntette matematiske argumenter steg for steg.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Argumentasjon', 'Begrunnelse', 'Logisk resonnement'], linkedChapterId: '1t-6-1', isNarrativeVersion: true },
     {
       id: '1t-6-2',
       number: '6.2',
@@ -543,7 +619,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-6-1'],
       competenceGoals: ['lese og forstå matematiske bevis', 'utforske og utvikle bevis'],
       coverImage: '/images/subjects/1t-6-2-lese-og-forsta-bevis.webp',
+      linkedChapterId: '1t-6-2-narrativ',
     },
+    { id: '1t-6-2-narrativ', number: '6.2', title: 'Lese og forstå bevis', subtitle: 'Lesevennlig versjon', description: 'En fortelling om matematikkens sannhetsjakt -- hvordan du leser, forstår og selv utvikler bevis som holder for all evighet.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Bevis', 'Algebraiske bevis', 'Geometriske bevis'], linkedChapterId: '1t-6-2', isNarrativeVersion: true },
 
     // Kapittel 7: Vekstfart og derivasjon (var kapittel 6)
     {
@@ -556,7 +634,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Stigningstall', 'Ettpunktsformelen', 'Gjennomsnittlig vekstfart', 'Sekant'],
       competenceGoals: ['beregne gjennomsnittlig vekstfart for en funksjon i et intervall'],
       coverImage: '/images/subjects/1t-7-1-gjennomsnittlig-vekstfart.webp',
+      linkedChapterId: '1t-7-1-narrativ',
     },
+    { id: '1t-7-1-narrativ', number: '7.1', title: 'Gjennomsnittlig vekstfart', subtitle: 'Lesevennlig versjon', description: 'En fortelling om helningen mellom to punkter -- sekanten som forteller hvor raskt noe endrer seg i gjennomsnitt over et intervall.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Stigningstall', 'Ettpunktsformelen', 'Gjennomsnittlig vekstfart', 'Sekant'], linkedChapterId: '1t-7-1', isNarrativeVersion: true },
     {
       id: '1t-7-2',
       number: '7.2',
@@ -568,7 +648,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-1'],
       competenceGoals: ['bruke momentan vekstfart i konkrete døme'],
       coverImage: '/images/subjects/1t-7-2-momentan-vekstfart.webp',
+      linkedChapterId: '1t-7-2-narrativ',
     },
+    { id: '1t-7-2-narrativ', number: '7.2', title: 'Momentan vekstfart', subtitle: 'Lesevennlig versjon', description: 'En fortelling om hastigheten i et øyeblikk -- tangenten som avslører den eksakte vekstfarten akkurat der og da.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Momentan vekstfart', 'Tangent', 'Grenseverdi'], linkedChapterId: '1t-7-2', isNarrativeVersion: true },
     {
       id: '1t-7-3',
       number: '7.3',
@@ -580,7 +662,9 @@ export const COURSE_1T: TextbookCourse = {
       prerequisites: ['1t-7-2'],
       competenceGoals: ['gjere greie for den deriverte', 'derivere polynomfunksjonar'],
       coverImage: '/images/subjects/1t-7-3-den-deriverte.webp',
+      linkedChapterId: '1t-7-3-narrativ',
     },
+    { id: '1t-7-3-narrativ', number: '7.3', title: 'Den deriverte', subtitle: 'Lesevennlig versjon', description: 'En fortelling om funksjonen som forteller om forandring -- den deriverte f\'(x) og de første derivasjonsreglene som gjør beregningene overraskende enkle.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Derivert', 'f\'(x)', 'Konstantregel', 'Potensregel', 'Sumregel'], linkedChapterId: '1t-7-3', isNarrativeVersion: true },
     {
       id: '1t-7-4',
       number: '7.4',
@@ -605,7 +689,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['gjere greie for definisjonen av den deriverte', 'bruke numerisk derivasjon'],
       coverImage: '/images/subjects/1t-7-5-definisjonen-av-derivasjon-og-numerisk-derivasjon.webp',
       wip: true,
+      linkedChapterId: '1t-7-5-narrativ',
     },
+    { id: '1t-7-5-narrativ', number: '7.5', title: 'Definisjonen av derivasjon og numerisk derivasjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om grenseverdien som definerer det hele -- den formelle definisjonen av den deriverte og hvordan datamaskiner tilnærmer seg den numerisk.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Grenseverdi', 'Derivasjonsdefinisjonen', 'Numerisk derivasjon', 'Differenskvotient'], linkedChapterId: '1t-7-5', isNarrativeVersion: true },
     {
       id: '1t-7-6',
       number: '7.6',
@@ -618,7 +704,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['derivere polynomfunksjonar', 'bruke derivasjonsreglar'],
       coverImage: '/images/subjects/1t-7-6-derivasjon-av-polynomfunksjoner.webp',
       wip: true,
+      linkedChapterId: '1t-7-6-narrativ',
     },
+    { id: '1t-7-6-narrativ', number: '7.6', title: 'Derivasjon av polynomfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om de tre gyllne reglene -- potensregelen, konstantregelen og sumregelen som gjør derivasjon av polynomer til en lek.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Potensregelen', 'Konstantregelen', 'Sumregelen', 'Polynomderivering'], linkedChapterId: '1t-7-6', isNarrativeVersion: true },
     {
       id: '1t-7-7',
       number: '7.7',
@@ -631,7 +719,9 @@ export const COURSE_1T: TextbookCourse = {
       competenceGoals: ['bruke derivasjon til å løyse praktiske problem', 'finne ekstremalpunkt'],
       coverImage: '/images/subjects/1t-7-7-praktisk-bruk-av-derivasjon.webp',
       wip: true,
+      linkedChapterId: '1t-7-7-narrativ',
     },
+    { id: '1t-7-7-narrativ', number: '7.7', title: 'Praktisk bruk av derivasjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om derivasjonens superkrefter i praksis -- fra å finne den raskeste farten til å optimere arealer og minimere kostnader.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Optimering', 'Fart og akselerasjon', 'Maksimum og minimum', 'Praktiske problemer'], linkedChapterId: '1t-7-7', isNarrativeVersion: true },
     // Kapittel 8: Modellering og regresjon
     {
       id: '1t-8-1',
@@ -643,7 +733,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Matematisk modellering', 'Modelleringsprosessen', 'Variable størrelser', 'Interpolering', 'Ekstrapolering'],
       prerequisites: ['1t-3-8'],
       competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige', 'identifisere variable storleikar, sette opp formlar og utforske desse ved hjelp av digitale verktoey'],
+      linkedChapterId: '1t-8-1-narrativ',
     },
+    { id: '1t-8-1-narrativ', number: '8.1', title: 'Modellering med funksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å fange virkeligheten i formler -- hvordan matematiske funksjoner kan beskrive alt fra befolkningsvekst til temperaturer.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Matematisk modellering', 'Modelleringsprosessen', 'Variable størrelser', 'Interpolering', 'Ekstrapolering'], linkedChapterId: '1t-8-1', isNarrativeVersion: true },
     {
       id: '1t-8-2',
       number: '8.2',
@@ -654,7 +746,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Potensfunksjoner', 'Eksponentens betydning', 'Grafisk gjenkjennelse', 'Praktiske anvendelser'],
       prerequisites: ['1t-8-1'],
       competenceGoals: ['utforske og beskrive eigenskapane ved potensfunksjonar'],
+      linkedChapterId: '1t-8-2-narrativ',
     },
+    { id: '1t-8-2-narrativ', number: '8.2', title: 'Potensfunksjoner', subtitle: 'Lesevennlig versjon', description: 'En fortelling om funksjoner der x opphøyes -- hvordan eksponenten former kurven og gjør potensfunksjoner til allsidige modeller.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Potensfunksjoner', 'Eksponentens betydning', 'Grafisk gjenkjennelse', 'Praktiske anvendelser'], linkedChapterId: '1t-8-2', isNarrativeVersion: true },
     {
       id: '1t-8-3',
       number: '8.3',
@@ -665,7 +759,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Spredningsdiagram', 'Lineær regresjon', 'Korrelasjon', 'r-verdi', 'Prediksjon'],
       prerequisites: ['1t-8-1'],
       competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
+      linkedChapterId: '1t-8-3-narrativ',
     },
+    { id: '1t-8-3-narrativ', number: '8.3', title: 'Lineær regresjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å trekke den beste rette linjen gjennom en sky av punkter -- og bruke r-verdien til å vurdere hvor godt linjen passer.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Spredningsdiagram', 'Lineær regresjon', 'Korrelasjon', 'r-verdi', 'Prediksjon'], linkedChapterId: '1t-8-3', isNarrativeVersion: true },
     {
       id: '1t-8-4',
       number: '8.4',
@@ -676,7 +772,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Polynomregresjon', 'Eksponentialregresjon', 'Potensregresjon', 'Modellvalg', 'r²-verdi'],
       prerequisites: ['1t-8-3'],
       competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
+      linkedChapterId: '1t-8-4-narrativ',
     },
+    { id: '1t-8-4-narrativ', number: '8.4', title: 'Ikke-lineær regresjon', subtitle: 'Lesevennlig versjon', description: 'En fortelling om kurver som passer bedre enn rette linjer -- polynom-, eksponential- og potensregresjon som fanger virkeligheten.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Polynomregresjon', 'Eksponentialregresjon', 'Potensregresjon', 'Modellvalg', 'r²-verdi'], linkedChapterId: '1t-8-4', isNarrativeVersion: true },
     {
       id: '1t-8-5',
       number: '8.5',
@@ -687,7 +785,9 @@ export const COURSE_1T: TextbookCourse = {
       topics: ['Modellsammenligning', 'Interpolering vs ekstrapolering', 'Gyldighetsområde', 'Kritisk vurdering'],
       prerequisites: ['1t-8-4'],
       competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige', 'lese, hente ut og vurdere matematikk i relevante tekstar'],
+      linkedChapterId: '1t-8-5-narrativ',
     },
+    { id: '1t-8-5-narrativ', number: '8.5', title: 'Modellvurdering og praktisk bruk', subtitle: 'Lesevennlig versjon', description: 'En fortelling om å velge riktig modell -- hvordan du sammenligner, vurderer gyldighet og bruker matematiske modeller med kritisk blikk.', estimatedMinutes: 40, exerciseCount: 5, topics: ['Modellsammenligning', 'Interpolering vs ekstrapolering', 'Gyldighetsområde', 'Kritisk vurdering'], linkedChapterId: '1t-8-5', isNarrativeVersion: true },
   ],
 };
 

@@ -119,7 +119,24 @@ import { TRENING_3_CHAPTERS } from './textbook-content-trening-3';
 import { SAMFOKONOMI_2_CHAPTERS } from './textbook-content-samfokonomi-2';
 import { OKONOMI_DRIFT_CHAPTERS } from './textbook-content-okonomi-drift';
 import { SIKKERHETSFAG_CHAPTERS } from './textbook-content-sikkerhetsfag';
-import { HELSEOPPVEKST_VG2_CHAPTERS } from './textbook-content-helseoppvekst-vg2';
+// Helse- og oppvekstfag VG2
+import { HELSEOPPVEKST_VG2_DEL1_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del1';
+import { HELSEOPPVEKST_VG2_DEL2_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del2';
+import { HELSEOPPVEKST_VG2_DEL3_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del3';
+import { HELSEOPPVEKST_VG2_DEL4_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del4';
+import { HELSEOPPVEKST_VG2_DEL5_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del5';
+import { HELSEOPPVEKST_VG2_DEL6_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del6';
+import { HELSEOPPVEKST_VG2_DEL7_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del7';
+import { HELSEOPPVEKST_VG2_DEL8_CHAPTERS } from './textbook-content-helseoppvekst-vg2-del8';
+// Helsearbeiderfaget VG3
+import { HELSEOPPVEKST_VG3_DEL1_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del1';
+import { HELSEOPPVEKST_VG3_DEL2_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del2';
+import { HELSEOPPVEKST_VG3_DEL3_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del3';
+import { HELSEOPPVEKST_VG3_DEL4_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del4';
+import { HELSEOPPVEKST_VG3_DEL5_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del5';
+import { HELSEOPPVEKST_VG3_DEL6_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del6';
+import { HELSEOPPVEKST_VG3_DEL7_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del7';
+import { HELSEOPPVEKST_VG3_DEL8_CHAPTERS } from './textbook-content-helseoppvekst-vg3-del8';
 import { SPANSK_2_CHAPTERS } from './textbook-content-spansk-2';
 import { SPANSK_3_CHAPTERS } from './textbook-content-spansk-3';
 import { TYSK_2_CHAPTERS } from './textbook-content-tysk-2';
@@ -757,7 +774,24 @@ export const ALL_CHAPTERS: Record<string, TextbookChapter> = {
   ...Object.fromEntries(SIKKERHETSFAG_CHAPTERS.map(c => [c.id, c])),
 
   // Helse- og oppvekstfag VG2
-  ...Object.fromEntries(HELSEOPPVEKST_VG2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG2_DEL8_CHAPTERS.map(c => [c.id, c])),
+
+  // Helsearbeiderfaget VG3
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL1_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL2_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL3_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL4_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL5_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL6_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL7_CHAPTERS.map(c => [c.id, c])),
+  ...Object.fromEntries(HELSEOPPVEKST_VG3_DEL8_CHAPTERS.map(c => [c.id, c])),
 };
 
 // ============================================================================
@@ -907,6 +941,102 @@ const CHAPTER_ID_ALIASES: Record<string, string> = {
   'rettslaere-1-5-1': 'rettslaere-1-8',   // Arbeidsrett
   'rettslaere-1-3-1': 'rettslaere-1-9',   // Familie- og arverett
   'rettslaere-1-8-5': 'rettslaere-1-10',  // Rettsprosess og konfliktløsning
+
+  // Helse- og oppvekstfag VG2 (52 kapitler)
+  'helseoppvekst-vg2-1-1': 'hov2-1-1',
+  'helseoppvekst-vg2-1-2': 'hov2-1-2',
+  'helseoppvekst-vg2-1-3': 'hov2-1-3',
+  'helseoppvekst-vg2-1-4': 'hov2-1-4',
+  'helseoppvekst-vg2-1-5': 'hov2-1-5',
+  'helseoppvekst-vg2-1-6': 'hov2-1-6',
+  'helseoppvekst-vg2-1-7': 'hov2-1-7',
+  'helseoppvekst-vg2-2-1': 'hov2-2-1',
+  'helseoppvekst-vg2-2-2': 'hov2-2-2',
+  'helseoppvekst-vg2-2-3': 'hov2-2-3',
+  'helseoppvekst-vg2-2-4': 'hov2-2-4',
+  'helseoppvekst-vg2-2-5': 'hov2-2-5',
+  'helseoppvekst-vg2-2-6': 'hov2-2-6',
+  'helseoppvekst-vg2-2-7': 'hov2-2-7',
+  'helseoppvekst-vg2-3-1': 'hov2-3-1',
+  'helseoppvekst-vg2-3-2': 'hov2-3-2',
+  'helseoppvekst-vg2-3-3': 'hov2-3-3',
+  'helseoppvekst-vg2-3-4': 'hov2-3-4',
+  'helseoppvekst-vg2-3-5': 'hov2-3-5',
+  'helseoppvekst-vg2-3-6': 'hov2-3-6',
+  'helseoppvekst-vg2-3-7': 'hov2-3-7',
+  'helseoppvekst-vg2-4-1': 'hov2-4-1',
+  'helseoppvekst-vg2-4-2': 'hov2-4-2',
+  'helseoppvekst-vg2-4-3': 'hov2-4-3',
+  'helseoppvekst-vg2-4-4': 'hov2-4-4',
+  'helseoppvekst-vg2-4-5': 'hov2-4-5',
+  'helseoppvekst-vg2-4-6': 'hov2-4-6',
+  'helseoppvekst-vg2-5-1': 'hov2-5-1',
+  'helseoppvekst-vg2-5-2': 'hov2-5-2',
+  'helseoppvekst-vg2-5-3': 'hov2-5-3',
+  'helseoppvekst-vg2-5-4': 'hov2-5-4',
+  'helseoppvekst-vg2-5-5': 'hov2-5-5',
+  'helseoppvekst-vg2-5-6': 'hov2-5-6',
+  'helseoppvekst-vg2-6-1': 'hov2-6-1',
+  'helseoppvekst-vg2-6-2': 'hov2-6-2',
+  'helseoppvekst-vg2-6-3': 'hov2-6-3',
+  'helseoppvekst-vg2-6-4': 'hov2-6-4',
+  'helseoppvekst-vg2-6-5': 'hov2-6-5',
+  'helseoppvekst-vg2-6-6': 'hov2-6-6',
+  'helseoppvekst-vg2-7-1': 'hov2-7-1',
+  'helseoppvekst-vg2-7-2': 'hov2-7-2',
+  'helseoppvekst-vg2-7-3': 'hov2-7-3',
+  'helseoppvekst-vg2-7-4': 'hov2-7-4',
+  'helseoppvekst-vg2-7-5': 'hov2-7-5',
+  'helseoppvekst-vg2-7-6': 'hov2-7-6',
+  'helseoppvekst-vg2-8-1': 'hov2-8-1',
+  'helseoppvekst-vg2-8-2': 'hov2-8-2',
+  'helseoppvekst-vg2-8-3': 'hov2-8-3',
+  'helseoppvekst-vg2-8-4': 'hov2-8-4',
+  'helseoppvekst-vg2-8-5': 'hov2-8-5',
+  'helseoppvekst-vg2-8-6': 'hov2-8-6',
+  'helseoppvekst-vg2-8-7': 'hov2-8-7',
+
+  // Helsearbeiderfaget VG3 (40 kapitler)
+  'helseoppvekst-vg3-1-1': 'hov3-1-1',
+  'helseoppvekst-vg3-1-2': 'hov3-1-2',
+  'helseoppvekst-vg3-1-3': 'hov3-1-3',
+  'helseoppvekst-vg3-1-4': 'hov3-1-4',
+  'helseoppvekst-vg3-1-5': 'hov3-1-5',
+  'helseoppvekst-vg3-1-6': 'hov3-1-6',
+  'helseoppvekst-vg3-2-1': 'hov3-2-1',
+  'helseoppvekst-vg3-2-2': 'hov3-2-2',
+  'helseoppvekst-vg3-2-3': 'hov3-2-3',
+  'helseoppvekst-vg3-2-4': 'hov3-2-4',
+  'helseoppvekst-vg3-2-5': 'hov3-2-5',
+  'helseoppvekst-vg3-2-6': 'hov3-2-6',
+  'helseoppvekst-vg3-3-1': 'hov3-3-1',
+  'helseoppvekst-vg3-3-2': 'hov3-3-2',
+  'helseoppvekst-vg3-3-3': 'hov3-3-3',
+  'helseoppvekst-vg3-3-4': 'hov3-3-4',
+  'helseoppvekst-vg3-3-5': 'hov3-3-5',
+  'helseoppvekst-vg3-3-6': 'hov3-3-6',
+  'helseoppvekst-vg3-3-7': 'hov3-3-7',
+  'helseoppvekst-vg3-4-1': 'hov3-4-1',
+  'helseoppvekst-vg3-4-2': 'hov3-4-2',
+  'helseoppvekst-vg3-4-3': 'hov3-4-3',
+  'helseoppvekst-vg3-4-4': 'hov3-4-4',
+  'helseoppvekst-vg3-4-5': 'hov3-4-5',
+  'helseoppvekst-vg3-4-6': 'hov3-4-6',
+  'helseoppvekst-vg3-5-1': 'hov3-5-1',
+  'helseoppvekst-vg3-5-2': 'hov3-5-2',
+  'helseoppvekst-vg3-5-3': 'hov3-5-3',
+  'helseoppvekst-vg3-5-4': 'hov3-5-4',
+  'helseoppvekst-vg3-5-5': 'hov3-5-5',
+  'helseoppvekst-vg3-6-1': 'hov3-6-1',
+  'helseoppvekst-vg3-6-2': 'hov3-6-2',
+  'helseoppvekst-vg3-6-3': 'hov3-6-3',
+  'helseoppvekst-vg3-6-4': 'hov3-6-4',
+  'helseoppvekst-vg3-7-1': 'hov3-7-1',
+  'helseoppvekst-vg3-7-2': 'hov3-7-2',
+  'helseoppvekst-vg3-7-3': 'hov3-7-3',
+  'helseoppvekst-vg3-8-1': 'hov3-8-1',
+  'helseoppvekst-vg3-8-2': 'hov3-8-2',
+  'helseoppvekst-vg3-8-3': 'hov3-8-3',
 };
 
 // ============================================================================
