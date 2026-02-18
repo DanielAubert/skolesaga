@@ -1,14 +1,115 @@
-# Text-to-Voice Math: Matematisk uttale-konvertering
+# Text-to-Voice Math: Matematisk uttale-konvertering og lydbok-pipeline
 
-Denne skillen definerer regler for hvordan LaTeX-matematikk skal konverteres til naturlig norsk tale for lydbok-generering. Brukes sammen med `/texttovoice` for matematiske kapitler.
+Denne skillen definerer regler for hvordan LaTeX-matematikk skal konverteres til naturlig norsk tale for lydbok-generering, og den fulle pipelinen for å generere, segmentere og integrere lyd i narrative kapitler.
 
 ## Bruk
 
 ```
-/texttovoicemath
+/texttovoicemath [kapittel-id]
 ```
 
-Vis gjeldende konverteringsregler. Disse reglene skal alltid brukes i `stripMarkdown`-funksjonen i lydbok-skript for matematiske kapitler.
+Uten argument: Vis gjeldende konverteringsregler.
+Med argument: Konverter kapittelet til tale-format, generer lyd, segmenter og legg til i kapittelet.
+
+## Full pipeline
+
+### Oversikt
+
+```
+1. Konverter → Lag tale-tekst i docs/ med /texttovoicemath-reglene
+2. Generer  → Send til ElevenLabs, kutt intro, lag master-fil
+3. Segmenter → Finn "Slutt på del"-markører, splitt i deler
+4. Integrer → Legg til audio-blokker i kapittelfilen
+```
+
+### Steg 1: Konverter kapittel til tale-tekst
+
+Les det narrative kapittelet og konverter ALL matematikk til norsk tale. Lagre i `docs/`:
+
+```
+docs/{fag}-uttaletest-{kapitler}.md
+```
+
+**Format:**
+- Hver seksjon + intro mellom to quizer = én "del"
+- Sett inn `... Slutt på del N. ...` etter hver dels innhold
+- IKKE inkluder quiz-spørsmålene — bare tekst-seksjonene
+
+**Eksempel:**
+```markdown
+## Kapittel 1.1: Fortegn og regnerekkefølge
+
+### Del 1: Intro og addisjon/subtraksjon
+[Konvertert tekst fra intro + section1]
+... Slutt på del 1. ...
+
+### Del 2: Multiplikasjon og divisjon
+[Konvertert tekst fra section2]
+... Slutt på del 2. ...
+
+[...osv...]
+
+### Del 6: Oppsummering
+[Konvertert tekst fra summary]
+... Slutt på del 6. ...
+```
+
+### Steg 2: Generer master-lydfil
+
+Bruk `scripts/generate-{fag}-{kap}-audio.ts` (se mønster i `generate-1t-kap1-audio.ts`):
+
+1. **Les tale-teksten** fra docs-filen
+2. **Splitt i chunks** < 4900 tegn (plass til norsk intro-prefix)
+3. **Send til ElevenLabs** med norsk intro-prefix for å tvinge norsk uttale
+4. **Kutt intro** fra hver chunk med `silencedetect` (finn lengste stillhet mellom 4-12s)
+5. **Sett sammen** rene chunks til master-fil i `public/audio/{fag}/_master/`
+
+**Nøkkelparametere:**
+- Voice: `TX3LPaxmHKxFdv7VOQHJ` (Liam)
+- Model: `eleven_v3`
+- Language: `no`
+- Norsk intro: `"Jeg er en norsk nordmann og heter Daniel. Jeg vil gjerne fortelle deg om noe spennende.\n\n"`
+- Intro-kutting: `silencedetect=noise=-30dB:d=0.3`, finn lengste stillhet 4-12s, kutt ved `silence_end - 0.2s`
+
+### Steg 3: Segmenter master-filen
+
+Bruk `scripts/segment-{fag}-{kap}.py` (se mønster i `segment-1t-kap1.py`):
+
+1. **Les tale-teksten** og finn tekstposisjon for hver "Slutt på del N" markør
+2. **Estimer tidspunkt**: `estimated_time = (char_pos / total_chars) * total_duration`
+3. **Kjør silencedetect** på master-filen
+4. **Finn lengste stillhet** i ±20s vindu rundt hvert estimat (min 0.5s varighet)
+5. **Splitt**: `seg_end = silence_start + 0.3s`, `seg_start = silence_end - 0.2s`
+6. **Lagre segmenter** i `public/audio/{fag}/{prefix}-narrativ-del{N}.mp3`
+
+**VIKTIG:** Bruk IKKE Whisper for å finne markørene — Whisper tiny gir for mange falske positiver (matcher "sluttparentes" osv.). Tekstposisjon-estimering er mye mer pålitelig.
+
+### Steg 4: Legg til audio-blokker i kapittelet
+
+Sett inn `type: 'audio'`-blokker FORAN tilhørende tekst-seksjoner:
+
+```typescript
+{
+  id: '{prefix}-n-audio-{N}',
+  type: 'audio',
+  title: N === totalDeler ? 'Lytt til oppsummeringen' : 'Lytt til denne delen',
+  src: '/audio/{fag}/{prefix}-narrativ-del{N}.mp3',
+  description: N === 1 ? 'Lydfil som leser opp teksten frem til første quiz.'
+    : N === totalDeler ? 'Lydfil som leser opp oppsummeringen.'
+    : 'Lydfil som leser opp teksten frem til neste quiz.',
+},
+```
+
+**Plassering i content-arrayet:**
+```
+audio-1 → intro → section1 → quiz1
+audio-2 → section2 → quiz2
+audio-3 → section3 → quiz3
+...
+audio-N → summary
+```
+
+Audio-blokker skal ALLTID gå FØR tekst-seksjonene (ikke etter).
 
 ## Konverteringsregler
 

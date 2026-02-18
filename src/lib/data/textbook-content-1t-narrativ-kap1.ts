@@ -29,6 +29,13 @@ export const CHAPTER_1T_1_1_NARRATIV: TextbookChapter = {
   ],
   linkedChapterId: '1t-1-1',
   content: [    {
+      id: '1t-1-1-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-1-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: '1t-1-1-n-intro',
       type: 'text',
       content: `## Hva skjer når tallene går under null?
@@ -102,6 +109,13 @@ En god huskeregel: tenk på tallinjen. Pluss betyr at du går til *høyre*, minu
         ],
       },
     },    {
+      id: '1t-1-1-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-1-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-1-n-section2',
       type: 'text',
       content: `## Multiplikasjon og divisjon – tell minustegnene
@@ -162,6 +176,13 @@ Et praktisk tips: når du har et langt uttrykk med mange faktorer, tell opp alle
         ],
       },
     },    {
+      id: '1t-1-1-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-1-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-1-n-section3',
       type: 'text',
       content: `## Potenser og negative fortegn – parentesen avgjør alt
@@ -224,6 +245,13 @@ Regelen er enkel: se nøye på om minustegnet er *inne i* eller *utenfor* parent
         ],
       },
     },    {
+      id: '1t-1-1-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-1-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-1-n-section4',
       type: 'text',
       content: `## Kvadratrøtter – tallenes opphav
@@ -282,6 +310,13 @@ Noen ganger møter du sammensatte uttrykk med kvadratrøtter. For eksempel $\\sq
         ],
       },
     },    {
+      id: '1t-1-1-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-1-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-1-n-section5',
       type: 'text',
       content: `## Regnerekkefølgen – matematikkens trafikklov
@@ -342,6 +377,13 @@ Et siste eksempel som kombinerer alt: $(3 - 2 \\cdot 4) \\cdot 2 - 3$. Inne i pa
         ],
       },
     },    {
+      id: '1t-1-1-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til oppsummeringen',
+      src: '/audio/1t/1t-1-1-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
+    },
+    {
       id: '1t-1-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -377,6 +419,13 @@ export const CHAPTER_1T_1_2_NARRATIV: TextbookChapter = {
   competenceGoals: ['utforske og beskrive egenskaper ved potenser'],
   linkedChapterId: '1t-1-2',
   content: [    {
+      id: '1t-1-2-n-audio-1',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-2-narrativ-del1.mp3',
+      description: 'Lydfil som leser opp teksten frem til første quiz.',
+    },
+    {
       id: '1t-1-2-n-intro',
       type: 'text',
       content: `## Gjentatt ganging – og behovet for en snarvei
@@ -454,6 +503,13 @@ En viktig detalj: regelen gjelder bare når grunntallene er *like*. $2^3 \\cdot 
         ],
       },
     },    {
+      id: '1t-1-2-n-audio-2',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-2-narrativ-del2.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-2-n-section2',
       type: 'text',
       content: `## Divisjon av potenser – trekk fra eksponentene
@@ -540,6 +596,13 @@ Negative eksponenter i brøker følger en nyttig snarvei: en faktor med negativ 
         ],
       },
     },    {
+      id: '1t-1-2-n-audio-3',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-2-narrativ-del3.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-2-n-section3',
       type: 'text',
       content: `## Potens av et produkt og en brøk – eksponenten sprer seg
@@ -615,6 +678,13 @@ Disse to reglene – potens av produkt og potens av brøk – er spesielt nyttig
         ],
       },
     },    {
+      id: '1t-1-2-n-audio-4',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-2-narrativ-del4.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-2-n-section4',
       type: 'text',
       content: `## Potens av potens – gang eksponentene
@@ -690,6 +760,13 @@ Denne regelen fungerer også med negative eksponenter. For eksempel: $\\left(\\f
         ],
       },
     },    {
+      id: '1t-1-2-n-audio-5',
+      type: 'audio',
+      title: 'Lytt til denne delen',
+      src: '/audio/1t/1t-1-2-narrativ-del5.mp3',
+      description: 'Lydfil som leser opp teksten frem til neste quiz.',
+    },
+    {
       id: '1t-1-2-n-section5',
       type: 'text',
       content: `## Eksponent null og en opprydding i verktøykassen
@@ -761,6 +838,13 @@ En god strategi for sammensatte oppgaver er å *omskrive alt til primtallspotens
         ],
       },
     },    {
+      id: '1t-1-2-n-audio-6',
+      type: 'audio',
+      title: 'Lytt til oppsummeringen',
+      src: '/audio/1t/1t-1-2-narrativ-del6.mp3',
+      description: 'Lydfil som leser opp oppsummeringen.',
+    },
+    {
       id: '1t-1-2-n-summary',
       type: 'text',
       content: `## Oppsummering

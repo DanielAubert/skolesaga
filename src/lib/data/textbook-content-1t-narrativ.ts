@@ -1912,7 +1912,7 @@ export const CHAPTER_1T_1_4_NARRATIV: TextbookChapter = {
       type: 'text',
       content: `## Når tallene deler seg i to
 
-Tenk deg at du og en venn bestiller en pizza. Dere deler den i åtte like store biter, og du tar tre av dem. Da har du spist $\frac{3}{8}$ av pizzaen. Tallet over brøkstreken – **telleren** – forteller hvor mange biter du tok, og tallet under – **nevneren** – forteller hvor mange biter pizzaen ble delt i.
+Tenk deg at du og en venn bestiller en pizza. Dere deler den i åtte like store biter, og du tar tre av dem. Da har du spist $\\frac{3}{8}$ av pizzaen. Tallet over brøkstreken – **telleren** – forteller hvor mange biter du tok, og tallet under – **nevneren** – forteller hvor mange biter pizzaen ble delt i.
 
 Brøker er overalt i matematikken, og de dukker opp i alt fra algebra til sannsynlighetsregning. I dette kapittelet skal vi lære å **gange** brøker, **dele** brøker, **forkorte** og **utvide** dem, og til slutt legge dem sammen selv når nevnerne er forskjellige. Hvis du mestrer dette, har du et av de viktigste verktøyene i den matematiske verktøykassen din.`,
     },
@@ -1923,13 +1923,13 @@ Brøker er overalt i matematikken, og de dukker opp i alt fra algebra til sannsy
 
 La oss starte med den enkleste operasjonen: multiplikasjon av brøker. Regelen er overraskende grei. Når du ganger to brøker med hverandre, ganger du teller med teller og nevner med nevner:
 
-$$\frac{a}{b} \cdot \frac{c}{d} = \frac{a \cdot c}{b \cdot d}$$
+$$\\frac{a}{b} \\cdot \\frac{c}{d} = \\frac{a \\cdot c}{b \\cdot d}$$
 
-La oss prøve med tall. Hva er $\frac{1}{5} \cdot \frac{3}{2}$? Vi ganger tellerne: $1 \cdot 3 = 3$. Vi ganger nevnerne: $5 \cdot 2 = 10$. Svaret er $\frac{3}{10}$.
+La oss prøve med tall. Hva er $\\frac{1}{5} \\cdot \\frac{3}{2}$? Vi ganger tellerne: $1 \\cdot 3 = 3$. Vi ganger nevnerne: $5 \\cdot 2 = 10$. Svaret er $\\frac{3}{10}$.
 
-Hva om du skal gange et heltall med en brøk? Da skriver du heltallet som en brøk med 1 i nevneren. For eksempel: $3 \cdot \frac{3}{2} = \frac{3}{1} \cdot \frac{3}{2} = \frac{9}{2}$. Heltallet 3 er det samme som $\frac{3}{1}$, og derfra bruker vi bare den vanlige regelen.
+Hva om du skal gange et heltall med en brøk? Da skriver du heltallet som en brøk med 1 i nevneren. For eksempel: $3 \\cdot \\frac{3}{2} = \\frac{3}{1} \\cdot \\frac{3}{2} = \\frac{9}{2}$. Heltallet 3 er det samme som $\\frac{3}{1}$, og derfra bruker vi bare den vanlige regelen.
 
-Et nyttig triks er å **forkorte underveis**. Hvis det finnes like faktorer i en teller og en nevner – selv om de tilhører forskjellige brøker – kan du stryke dem før du ganger. Se på $\frac{6}{5} \cdot \frac{15}{2}$. Her kan vi faktorisere: $\frac{6 \cdot 15}{5 \cdot 2} = \frac{2 \cdot 3 \cdot 3 \cdot 5}{5 \cdot 2}$. Både $2$ og $5$ finnes over og under brøkstreken, og vi stryker dem. Da sitter vi igjen med $\frac{3 \cdot 3}{1} = 9$. Mye enklere enn å gange ut $6 \cdot 15 = 90$ og $5 \cdot 2 = 10$ for så å forkorte $\frac{90}{10}$ etterpå – selv om begge veier gir riktig svar.`,
+Et nyttig triks er å **forkorte underveis**. Hvis det finnes like faktorer i en teller og en nevner – selv om de tilhører forskjellige brøker – kan du stryke dem før du ganger. Se på $\\frac{6}{5} \\cdot \\frac{15}{2}$. Her kan vi faktorisere: $\\frac{6 \\cdot 15}{5 \\cdot 2} = \\frac{2 \\cdot 3 \\cdot 3 \\cdot 5}{5 \\cdot 2}$. Både $2$ og $5$ finnes over og under brøkstreken, og vi stryker dem. Da sitter vi igjen med $\\frac{3 \\cdot 3}{1} = 9$. Mye enklere enn å gange ut $6 \\cdot 15 = 90$ og $5 \\cdot 2 = 10$ for så å forkorte $\\frac{90}{10}$ etterpå – selv om begge veier gir riktig svar.`,
     },
     {
       id: '1t-1-4-n-quiz1',
@@ -1986,11 +1986,11 @@ Et nyttig triks er å **forkorte underveis**. Hvis det finnes like faktorer i en
 
 Å forkorte en brøk betyr å finne en felles faktor i teller og nevner og dele begge på denne faktoren. Verdien til brøken endrer seg ikke – du skriver den bare på en enklere måte.
 
-Ta brøken $\frac{8}{6}$. Både $8$ og $6$ er delelige med $2$. Vi kan skrive $\frac{8}{6} = \frac{4 \cdot 2}{3 \cdot 2}$. Nå stryker vi toerne og står igjen med $\frac{4}{3}$. Brøken har samme verdi, men er enklere å jobbe med.
+Ta brøken $\\frac{8}{6}$. Både $8$ og $6$ er delelige med $2$. Vi kan skrive $\\frac{8}{6} = \\frac{4 \\cdot 2}{3 \\cdot 2}$. Nå stryker vi toerne og står igjen med $\\frac{4}{3}$. Brøken har samme verdi, men er enklere å jobbe med.
 
-La oss prøve en større brøk: $\frac{45}{75}$. Hva er felles? Begge er delelige med $15$: $\frac{45}{75} = \frac{3 \cdot 15}{5 \cdot 15} = \frac{3}{5}$. Du trenger ikke å finne den største felles faktoren med en gang. Hvis du bare ser at begge er delelige med $3$, kan du forkorte steg for steg: $\frac{45}{75} = \frac{15}{25} = \frac{3}{5}$, der vi først forkortet med $3$ og deretter med $5$.
+La oss prøve en større brøk: $\\frac{45}{75}$. Hva er felles? Begge er delelige med $15$: $\\frac{45}{75} = \\frac{3 \\cdot 15}{5 \\cdot 15} = \\frac{3}{5}$. Du trenger ikke å finne den største felles faktoren med en gang. Hvis du bare ser at begge er delelige med $3$, kan du forkorte steg for steg: $\\frac{45}{75} = \\frac{15}{25} = \\frac{3}{5}$, der vi først forkortet med $3$ og deretter med $5$.
 
-Faktorisering er nøkkelen her. Når du bryter teller og nevner ned i faktorer, ser du med en gang hva som kan strykes. Husk at $\frac{a}{1} = a$ – hvis nevneren forsvinner helt, står du igjen med et heltall. For eksempel: $\frac{81}{27} = \frac{27 \cdot 3}{27} = 3$.
+Faktorisering er nøkkelen her. Når du bryter teller og nevner ned i faktorer, ser du med en gang hva som kan strykes. Husk at $\\frac{a}{1} = a$ – hvis nevneren forsvinner helt, står du igjen med et heltall. For eksempel: $\\frac{81}{27} = \\frac{27 \\cdot 3}{27} = 3$.
 
 Forkorting er spesielt nyttig etter at du har ganget brøker, for da kan resultatet ofte forenkles. Det er derfor vi nevnte trikset med å forkorte *underveis* i forrige seksjon – det sparer deg for store tall.`,
     },
@@ -2049,17 +2049,17 @@ Forkorting er spesielt nyttig etter at du har ganget brøker, for da kan resulta
 
 Divisjon av brøker høres kanskje vanskelig ut, men det er egentlig bare en forkledd multiplikasjon. Regelen er: når du deler med en brøk, **snur du den andre brøken og ganger** i stedet:
 
-$$\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}$$
+$$\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\cdot \\frac{d}{c}$$
 
-Hvorfor fungerer dette? Å dele med $\frac{3}{2}$ er det samme som å spørre: «Hvor mange ganger går $\frac{3}{2}$ opp i dette tallet?» Og det viser seg at dette er det samme som å gange med den **omvendte brøken** $\frac{2}{3}$.
+Hvorfor fungerer dette? Å dele med $\\frac{3}{2}$ er det samme som å spørre: «Hvor mange ganger går $\\frac{3}{2}$ opp i dette tallet?» Og det viser seg at dette er det samme som å gange med den **omvendte brøken** $\\frac{2}{3}$.
 
-La oss ta et eksempel: $\frac{2}{7} \div \frac{3}{2} = \frac{2}{7} \cdot \frac{2}{3} = \frac{4}{21}$.
+La oss ta et eksempel: $\\frac{2}{7} \\div \\frac{3}{2} = \\frac{2}{7} \\cdot \\frac{2}{3} = \\frac{4}{21}$.
 
-Hva med å dele et heltall med en brøk? $7 \div \frac{15}{2} = \frac{7}{1} \cdot \frac{2}{15} = \frac{14}{15}$. Eller omvendt, en brøk delt på et heltall: $\frac{3}{4} \div 9 = \frac{3}{4} \cdot \frac{1}{9} = \frac{3}{36} = \frac{1}{12}$.
+Hva med å dele et heltall med en brøk? $7 \\div \\frac{15}{2} = \\frac{7}{1} \\cdot \\frac{2}{15} = \\frac{14}{15}$. Eller omvendt, en brøk delt på et heltall: $\\frac{3}{4} \\div 9 = \\frac{3}{4} \\cdot \\frac{1}{9} = \\frac{3}{36} = \\frac{1}{12}$.
 
-Det finnes også noe som heter en **brudden brøk** – en brøk der teller eller nevner (eller begge) selv er brøker. For eksempel $\frac{\frac{2}{3}}{\frac{5}{6}}$. Dette er bare en annen måte å skrive en divisjon på: $\frac{2}{3} \div \frac{5}{6} = \frac{2}{3} \cdot \frac{6}{5} = \frac{12}{15} = \frac{4}{5}$. Her kunne vi forkorte $\frac{12}{15}$ ved å dele begge med $3$.
+Det finnes også noe som heter en **brudden brøk** – en brøk der teller eller nevner (eller begge) selv er brøker. For eksempel $\\frac{\\frac{2}{3}}{\\frac{5}{6}}$. Dette er bare en annen måte å skrive en divisjon på: $\\frac{2}{3} \\div \\frac{5}{6} = \\frac{2}{3} \\cdot \\frac{6}{5} = \\frac{12}{15} = \\frac{4}{5}$. Her kunne vi forkorte $\\frac{12}{15}$ ved å dele begge med $3$.
 
-En alternativ metode for brudne brøker er å gange teller og nevner med den samme verdien slik at brøkene «forsvinner». Velg nevneren i den nedre brøken: gang både over og under med $6$. Telleren blir $\frac{2}{3} \cdot 6 = 4$, nevneren blir $\frac{5}{6} \cdot 6 = 5$. Svaret er $\frac{4}{5}$ – det samme som før.`,
+En alternativ metode for brudne brøker er å gange teller og nevner med den samme verdien slik at brøkene «forsvinner». Velg nevneren i den nedre brøken: gang både over og under med $6$. Telleren blir $\\frac{2}{3} \\cdot 6 = 4$, nevneren blir $\\frac{5}{6} \\cdot 6 = 5$. Svaret er $\\frac{4}{5}$ – det samme som før.`,
     },
     {
       id: '1t-1-4-n-quiz3',
@@ -2116,19 +2116,19 @@ En alternativ metode for brudne brøker er å gange teller og nevner med den sam
 
 Nå skal vi se på addisjon og subtraksjon av brøker. Det første du trenger å vite er at du bare kan legge sammen brøker som har **lik nevner**. Regelen er enkel:
 
-$$\frac{a}{c} + \frac{b}{c} = \frac{a + b}{c}$$
+$$\\frac{a}{c} + \\frac{b}{c} = \\frac{a + b}{c}$$
 
-Vi legger altså sammen tellerne og beholder nevneren. For eksempel: $\frac{1}{5} + \frac{2}{5} = \frac{3}{5}$. Det er som å si: én femdel pluss to femdeler er tre femdeler.
+Vi legger altså sammen tellerne og beholder nevneren. For eksempel: $\\frac{1}{5} + \\frac{2}{5} = \\frac{3}{5}$. Det er som å si: én femdel pluss to femdeler er tre femdeler.
 
-Subtraksjon fungerer på akkurat samme måte: $\frac{9}{4} - \frac{1}{4} = \frac{8}{4} = 2$. Her forkortet vi etterpå fordi $\frac{8}{4} = 2$.
+Subtraksjon fungerer på akkurat samme måte: $\\frac{9}{4} - \\frac{1}{4} = \\frac{8}{4} = 2$. Her forkortet vi etterpå fordi $\\frac{8}{4} = 2$.
 
 Men hva gjør vi når nevnerne er *forskjellige*? Da må vi **utvide** en eller begge brøkene slik at de får samme nevner. Å utvide en brøk betyr å gange teller og nevner med det samme tallet. Verdien til brøken endrer seg ikke – vi bare skriver den med en annen nevner.
 
-For eksempel: Utvid $\frac{5}{3}$ slik at nevneren blir $6$. Vi trenger å gange nevneren med $2$ for å gå fra $3$ til $6$, og da må vi gange telleren med $2$ også: $\frac{5}{3} = \frac{5 \cdot 2}{3 \cdot 2} = \frac{10}{6}$.
+For eksempel: Utvid $\\frac{5}{3}$ slik at nevneren blir $6$. Vi trenger å gange nevneren med $2$ for å gå fra $3$ til $6$, og da må vi gange telleren med $2$ også: $\\frac{5}{3} = \\frac{5 \\cdot 2}{3 \\cdot 2} = \\frac{10}{6}$.
 
 Det er viktig at du ganger BÅDE teller og nevner med det samme tallet. Ganger du bare den ene, endrer du verdien til brøken, og du ender opp med feil svar.
 
-Utviding kan også involvere variabler. Å utvide $\frac{2}{5}$ slik at nevneren blir $10x$ krever at vi ganger med $2x$: $\frac{2}{5} = \frac{2 \cdot 2x}{5 \cdot 2x} = \frac{4x}{10x}$.`,
+Utviding kan også involvere variabler. Å utvide $\\frac{2}{5}$ slik at nevneren blir $10x$ krever at vi ganger med $2x$: $\\frac{2}{5} = \\frac{2 \\cdot 2x}{5 \\cdot 2x} = \\frac{4x}{10x}$.`,
     },
     {
       id: '1t-1-4-n-quiz4',
@@ -2185,17 +2185,17 @@ Utviding kan også involvere variabler. Å utvide $\frac{2}{5}$ slik at nevneren
 
 Noen ganger kan du ikke bare utvide én av brøkene for å få fellesnevner – du må utvide begge. En metode som alltid fungerer er å gange den første brøkens teller og nevner med nevneren i den andre brøken, og omvendt.
 
-Ta $\frac{1}{2} + \frac{3}{7}$. Her ganger vi den første brøken med $7$ og den andre med $2$: $\frac{1 \cdot 7}{2 \cdot 7} + \frac{3 \cdot 2}{7 \cdot 2} = \frac{7}{14} + \frac{6}{14} = \frac{13}{14}$.
+Ta $\\frac{1}{2} + \\frac{3}{7}$. Her ganger vi den første brøken med $7$ og den andre med $2$: $\\frac{1 \\cdot 7}{2 \\cdot 7} + \\frac{3 \\cdot 2}{7 \\cdot 2} = \\frac{7}{14} + \\frac{6}{14} = \\frac{13}{14}$.
 
-Denne metoden er enkel, men kan gi unødvendig store nevnere. Tenk deg at du skal legge sammen $\frac{1}{21} + \frac{1}{14}$. Ganger vi nevnerne med hverandre, får vi $21 \cdot 14 = 294$. Det fungerer, men det finnes en smartere vei.
+Denne metoden er enkel, men kan gi unødvendig store nevnere. Tenk deg at du skal legge sammen $\\frac{1}{21} + \\frac{1}{14}$. Ganger vi nevnerne med hverandre, får vi $21 \\cdot 14 = 294$. Det fungerer, men det finnes en smartere vei.
 
-Trikset er å lete etter **minste felles nevner**. Vi faktoriserer nevnerne: $21 = 3 \cdot 7$ og $14 = 2 \cdot 7$. Begge inneholder faktoren $7$. Den ene har en $3$-er som den andre mangler, og den andre har en $2$-er som den første mangler. Den minste felles nevneren er altså $2 \cdot 3 \cdot 7 = 42$.
+Trikset er å lete etter **minste felles nevner**. Vi faktoriserer nevnerne: $21 = 3 \\cdot 7$ og $14 = 2 \\cdot 7$. Begge inneholder faktoren $7$. Den ene har en $3$-er som den andre mangler, og den andre har en $2$-er som den første mangler. Den minste felles nevneren er altså $2 \\cdot 3 \\cdot 7 = 42$.
 
-Da utvider vi: $\frac{1}{3 \cdot 7} + \frac{1}{2 \cdot 7} = \frac{1 \cdot 2}{2 \cdot 3 \cdot 7} + \frac{1 \cdot 3}{3 \cdot 2 \cdot 7} = \frac{2}{42} + \frac{3}{42} = \frac{5}{42}$.
+Da utvider vi: $\\frac{1}{3 \\cdot 7} + \\frac{1}{2 \\cdot 7} = \\frac{1 \\cdot 2}{2 \\cdot 3 \\cdot 7} + \\frac{1 \\cdot 3}{3 \\cdot 2 \\cdot 7} = \\frac{2}{42} + \\frac{3}{42} = \\frac{5}{42}$.
 
-Et annet eksempel: $\frac{1}{10} + \frac{1}{15}$. Vi faktoriserer: $10 = 2 \cdot 5$ og $15 = 3 \cdot 5$. Felles faktor er $5$, og minste felles nevner blir $2 \cdot 3 \cdot 5 = 30$. Vi utvider: $\frac{3}{30} + \frac{2}{30} = \frac{5}{30} = \frac{1}{6}$.
+Et annet eksempel: $\\frac{1}{10} + \\frac{1}{15}$. Vi faktoriserer: $10 = 2 \\cdot 5$ og $15 = 3 \\cdot 5$. Felles faktor er $5$, og minste felles nevner blir $2 \\cdot 3 \\cdot 5 = 30$. Vi utvider: $\\frac{3}{30} + \\frac{2}{30} = \\frac{5}{30} = \\frac{1}{6}$.
 
-Husk også at et heltall kan skrives som en brøk med $1$ i nevneren: $2 + \frac{3}{7} = \frac{2}{1} + \frac{3}{7} = \frac{14}{7} + \frac{3}{7} = \frac{17}{7}$. Dette er nyttig når du kombinerer heltall og brøker i samme regnestykke.`,
+Husk også at et heltall kan skrives som en brøk med $1$ i nevneren: $2 + \\frac{3}{7} = \\frac{2}{1} + \\frac{3}{7} = \\frac{14}{7} + \\frac{3}{7} = \\frac{17}{7}$. Dette er nyttig når du kombinerer heltall og brøker i samme regnestykke.`,
     },
     {
       id: '1t-1-4-n-quiz5',
@@ -2252,13 +2252,13 @@ Husk også at et heltall kan skrives som en brøk med $1$ i nevneren: $2 + \frac
 
 I dette kapittelet har vi lært de fem grunnleggende operasjonene for brøkregning.
 
-**Multiplikasjon** er den enkleste: $\frac{a}{b} \cdot \frac{c}{d} = \frac{ac}{bd}$. Gang teller med teller og nevner med nevner. Et heltall kan skrives som brøk med $1$ i nevneren. Forkorte underveis gjør regnestykket enklere.
+**Multiplikasjon** er den enkleste: $\\frac{a}{b} \\cdot \\frac{c}{d} = \\frac{ac}{bd}$. Gang teller med teller og nevner med nevner. Et heltall kan skrives som brøk med $1$ i nevneren. Forkorte underveis gjør regnestykket enklere.
 
 **Forkorting** handler om å finne felles faktorer i teller og nevner og stryke dem. Du kan gjøre det steg for steg eller finne den største felles faktoren med en gang. Faktorisering er nøkkelen.
 
-**Divisjon** utføres ved å snu den andre brøken og gange: $\frac{a}{b} \div \frac{c}{d} = \frac{a}{b} \cdot \frac{d}{c}$. Brudne brøker er bare en annen måte å skrive divisjon på.
+**Divisjon** utføres ved å snu den andre brøken og gange: $\\frac{a}{b} \\div \\frac{c}{d} = \\frac{a}{b} \\cdot \\frac{d}{c}$. Brudne brøker er bare en annen måte å skrive divisjon på.
 
-**Addisjon og subtraksjon** krever lik nevner. Med lik nevner legger vi sammen tellerne: $\frac{a}{c} + \frac{b}{c} = \frac{a+b}{c}$.
+**Addisjon og subtraksjon** krever lik nevner. Med lik nevner legger vi sammen tellerne: $\\frac{a}{c} + \\frac{b}{c} = \\frac{a+b}{c}$.
 
 **Fellesnevner** finner vi ved å utvide brøkene. Den sikreste metoden er å gange nevnerne med hverandre. Den smarteste er å finne minste felles nevner ved å faktorisere nevnerne og legge til det som mangler. Husk: å utvide betyr å gange BÅDE teller og nevner med det samme tallet.`,
     },
@@ -2290,13 +2290,13 @@ I dette kapittelet starter vi med å faktorisere tall, helt ned til primtallene.
       type: 'text',
       content: `## Primtallsfaktorisering – tallenes grunnsteiner
 
-La oss starte med noe du kanskje kjenner fra ungdomsskolen: **primtall**. Et primtall er et tall som bare er delelig med seg selv og $1$. De første primtallene er $2, 3, 5, 7, 11, 13, 17, 19, 23, \ldots$ Merk at $1$ ikke regnes som et primtall.
+La oss starte med noe du kanskje kjenner fra ungdomsskolen: **primtall**. Et primtall er et tall som bare er delelig med seg selv og $1$. De første primtallene er $2, 3, 5, 7, 11, 13, 17, 19, 23, \\ldots$ Merk at $1$ ikke regnes som et primtall.
 
-Når vi **primtallsfaktoriserer** et tall, skriver vi det som et produkt av bare primtall. Tallet $12$ kan for eksempel skrives som $4 \cdot 3$, men det er ikke en primtallsfaktorisering fordi $4$ ikke er et primtall. Vi må bryte det ned videre: $12 = 2 \cdot 2 \cdot 3$. Nå består produktet utelukkende av primtall, og vi er i mål.
+Når vi **primtallsfaktoriserer** et tall, skriver vi det som et produkt av bare primtall. Tallet $12$ kan for eksempel skrives som $4 \\cdot 3$, men det er ikke en primtallsfaktorisering fordi $4$ ikke er et primtall. Vi må bryte det ned videre: $12 = 2 \\cdot 2 \\cdot 3$. Nå består produktet utelukkende av primtall, og vi er i mål.
 
-Teknikken er enkel: del tallet på det minste primtallet som går opp, og gjenta til du bare har primtall igjen. La oss ta $520$: $520 = 2 \cdot 260 = 2 \cdot 2 \cdot 130 = 2 \cdot 2 \cdot 2 \cdot 65 = 2 \cdot 2 \cdot 2 \cdot 5 \cdot 13$. Ferdig.
+Teknikken er enkel: del tallet på det minste primtallet som går opp, og gjenta til du bare har primtall igjen. La oss ta $520$: $520 = 2 \\cdot 260 = 2 \\cdot 2 \\cdot 130 = 2 \\cdot 2 \\cdot 2 \\cdot 65 = 2 \\cdot 2 \\cdot 2 \\cdot 5 \\cdot 13$. Ferdig.
 
-Hvorfor bryr vi oss om dette? Fordi faktorisering er nøkkelen til å **forkorte brøker**. Når du kjenner primtallsfaktorene til teller og nevner, ser du med en gang hva som er felles og kan strykes. Ta $\frac{18}{6}$. Vi ser at $18 = 3 \cdot 6$, og da kan vi stryke $6$ over og under brøkstreken: $\frac{18}{6} = \frac{3 \cdot 6}{6} = 3$. Eller $\frac{2000}{750}$: vi forkorter først med $10$ og deretter med $25$, og ender opp med $\frac{8}{3}$.
+Hvorfor bryr vi oss om dette? Fordi faktorisering er nøkkelen til å **forkorte brøker**. Når du kjenner primtallsfaktorene til teller og nevner, ser du med en gang hva som er felles og kan strykes. Ta $\\frac{18}{6}$. Vi ser at $18 = 3 \\cdot 6$, og da kan vi stryke $6$ over og under brøkstreken: $\\frac{18}{6} = \\frac{3 \\cdot 6}{6} = 3$. Eller $\\frac{2000}{750}$: vi forkorter først med $10$ og deretter med $25$, og ender opp med $\\frac{8}{3}$.
 
 Poenget er at faktorisering gir deg «røntgensyn» inn i tallenes struktur. Jo raskere du kan bryte tall ned i faktorer, desto lettere blir resten av matematikken.`,
     },
@@ -2355,15 +2355,15 @@ Poenget er at faktorisering gir deg «røntgensyn» inn i tallenes struktur. Jo 
 
 Nå tar vi steget fra tall til algebra. Å **faktorisere et uttrykk** betyr å finne det som er felles for alle leddene og sette det utenfor en parentes.
 
-La oss starte med $4x + 8$. Begge leddene inneholder faktoren $4$: $4x + 8 = 4 \cdot x + 4 \cdot 2 = 4(x + 2)$. Vi har «løftet ut» den felles faktoren $4$, og det som ble igjen inne i parentesen er $x + 2$.
+La oss starte med $4x + 8$. Begge leddene inneholder faktoren $4$: $4x + 8 = 4 \\cdot x + 4 \\cdot 2 = 4(x + 2)$. Vi har «løftet ut» den felles faktoren $4$, og det som ble igjen inne i parentesen er $x + 2$.
 
-Hva med $6x^2 - 3x$? Her er $3x$ felles: $6x^2 - 3x = 3x \cdot 2x - 3x \cdot 1 = 3x(2x - 1)$. Legg merke til at vi faktoriserer ut både tallet $3$ og variabelen $x$, fordi begge leddene inneholder begge.
+Hva med $6x^2 - 3x$? Her er $3x$ felles: $6x^2 - 3x = 3x \\cdot 2x - 3x \\cdot 1 = 3x(2x - 1)$. Legg merke til at vi faktoriserer ut både tallet $3$ og variabelen $x$, fordi begge leddene inneholder begge.
 
 Det kan bli mer avansert. I $4x^3 - 12x^2 + 4x$ er $4x$ felles for alle tre leddene: $4x(x^2 - 3x + 1)$. Og i $15x^2y^2 - 20x^2y$ er $5x^2y$ felles: $5x^2y(3y - 4)$.
 
 Noen ganger skal du faktorisere ut et negativt tall. For eksempel: faktoriser $-3$ fra $-3x + 9$. Vi setter $-3$ utenfor og spør oss: «hva må jeg gange $-3$ med for å få $-3x$?» Svaret er $x$. «Hva må jeg gange $-3$ med for å få $+9$?» Svaret er $-3$. Altså: $-3x + 9 = -3(x - 3)$.
 
-En spesiell og nyttig teknikk er å faktorisere ut koeffisienten foran $x$ med høyest potens. Ta $3x + 1$: vi kan skrive $3(x + \frac{1}{3})$. Eller $\frac{1}{2}x^2 + 2x + 2 = \frac{1}{2}(x^2 + 4x + 4)$. Fordelen med å gjøre dette er at parentesuttrykket ofte kan faktoriseres videre – noe vi skal se i neste seksjon.
+En spesiell og nyttig teknikk er å faktorisere ut koeffisienten foran $x$ med høyest potens. Ta $3x + 1$: vi kan skrive $3(x + \\frac{1}{3})$. Eller $\\frac{1}{2}x^2 + 2x + 2 = \\frac{1}{2}(x^2 + 4x + 4)$. Fordelen med å gjøre dette er at parentesuttrykket ofte kan faktoriseres videre – noe vi skal se i neste seksjon.
 
 Et godt tips: du kan alltid **kontrollere** faktoriseringen din ved å gange ut parentesen igjen. Får du tilbake det opprinnelige uttrykket, har du gjort det riktig.`,
     },
@@ -2424,13 +2424,13 @@ Nå er det tid for de berømte **kvadratsetningene**. De virker kanskje som enkl
 
 **Første kvadratsetning** sier at $(a + b)^2 = a^2 + 2ab + b^2$. Beviset er rett frem: $(a + b)^2 = (a + b)(a + b) = a^2 + ab + ba + b^2 = a^2 + 2ab + b^2$.
 
-La oss ta et eksempel. Hva er $(x + 3)^2$? Her er $a = x$ og $b = 3$: $(x + 3)^2 = x^2 + 2 \cdot x \cdot 3 + 3^2 = x^2 + 6x + 9$. Og med mer sammensatte uttrykk: $(2x + 5y)^2 = (2x)^2 + 2 \cdot 2x \cdot 5y + (5y)^2 = 4x^2 + 20xy + 25y^2$.
+La oss ta et eksempel. Hva er $(x + 3)^2$? Her er $a = x$ og $b = 3$: $(x + 3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9$. Og med mer sammensatte uttrykk: $(2x + 5y)^2 = (2x)^2 + 2 \\cdot 2x \\cdot 5y + (5y)^2 = 4x^2 + 20xy + 25y^2$.
 
 **Andre kvadratsetning** er nesten lik, men med minus: $(a - b)^2 = a^2 - 2ab + b^2$. Beviset: $(a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$. Legg merke til at $b^2$-leddet alltid er positivt, fordi minus ganger minus er pluss.
 
-Et eksempel: $(x - 5)^2 = x^2 - 2 \cdot x \cdot 5 + 5^2 = x^2 - 10x + 25$.
+Et eksempel: $(x - 5)^2 = x^2 - 2 \\cdot x \\cdot 5 + 5^2 = x^2 - 10x + 25$.
 
-Den virkelige kraften i disse setningene ligger i å bruke dem **baklengs** – altså for å faktorisere. Ser du et uttrykk på formen $x^2 + bx + c$ der $\left(\frac{b}{2}\right)^2 = c$, kan du skrive det som $(x + \frac{b}{2})^2$. For eksempel: $x^2 + 6x + 9$. Her er $b = 6$ og $\left(\frac{6}{2}\right)^2 = 9 = c$. Altså: $x^2 + 6x + 9 = (x + 3)^2$.
+Den virkelige kraften i disse setningene ligger i å bruke dem **baklengs** – altså for å faktorisere. Ser du et uttrykk på formen $x^2 + bx + c$ der $\\left(\\frac{b}{2}\\right)^2 = c$, kan du skrive det som $(x + \\frac{b}{2})^2$. For eksempel: $x^2 + 6x + 9$. Her er $b = 6$ og $\\left(\\frac{6}{2}\\right)^2 = 9 = c$. Altså: $x^2 + 6x + 9 = (x + 3)^2$.
 
 Hvis det står en koeffisient foran $x^2$, faktoriser den ut først: $2x^2 - 12x + 18 = 2(x^2 - 6x + 9) = 2(x - 3)^2$.`,
     },
@@ -2494,13 +2494,13 @@ $$a^2 - 2ab + b^2 = (a - b)^2$$
 
 Mønsteret du leter etter er: to kvadratledd og et dobbeltprodukt i midten. Sjekk: er det midterste leddet lik to ganger produktet av røttene til de to andre leddene?
 
-Ta $x^2 + 4x + 4$. Her er $x^2$ et kvadrat av $x$, og $4 = 2^2$ er et kvadrat av $2$. Midterste ledd er $4x = 2 \cdot x \cdot 2$. Alt stemmer, og vi kan skrive $(x + 2)^2$.
+Ta $x^2 + 4x + 4$. Her er $x^2$ et kvadrat av $x$, og $4 = 2^2$ er et kvadrat av $2$. Midterste ledd er $4x = 2 \\cdot x \\cdot 2$. Alt stemmer, og vi kan skrive $(x + 2)^2$.
 
-Hva med $-x^2 + 10x - 25$? Her starter vi med å faktorisere ut $-1$: $-(x^2 - 10x + 25)$. Nå ser vi mønsteret: $x^2 - 10x + 25 = (x - 5)^2$ fordi $\left(\frac{10}{2}\right)^2 = 25$. Svaret er $-(x - 5)^2$.
+Hva med $-x^2 + 10x - 25$? Her starter vi med å faktorisere ut $-1$: $-(x^2 - 10x + 25)$. Nå ser vi mønsteret: $x^2 - 10x + 25 = (x - 5)^2$ fordi $\\left(\\frac{10}{2}\\right)^2 = 25$. Svaret er $-(x - 5)^2$.
 
-Mer avanserte uttrykk kan kreve at vi faktoriserer ut felles faktorer først. Ta $4x^3 - 8x^2 + 4x$. Først tar vi ut $4x$: $4x(x^2 - 2x + 1)$. Nå sjekker vi parentesen: $\left(\frac{2}{2}\right)^2 = 1$. Det stemmer, og vi kan faktorisere videre: $4x(x - 1)^2$.
+Mer avanserte uttrykk kan kreve at vi faktoriserer ut felles faktorer først. Ta $4x^3 - 8x^2 + 4x$. Først tar vi ut $4x$: $4x(x^2 - 2x + 1)$. Nå sjekker vi parentesen: $\\left(\\frac{2}{2}\\right)^2 = 1$. Det stemmer, og vi kan faktorisere videre: $4x(x - 1)^2$.
 
-Noen ganger er $b$ en brøk. Uttrykket $x^2 + x + \frac{1}{4}$ har $b = \frac{1}{2}$ fordi $\left(\frac{1}{2}\right)^2 = \frac{1}{4}$ og $2 \cdot x \cdot \frac{1}{2} = x$. Altså: $x^2 + x + \frac{1}{4} = \left(x + \frac{1}{2}\right)^2$.
+Noen ganger er $b$ en brøk. Uttrykket $x^2 + x + \\frac{1}{4}$ har $b = \\frac{1}{2}$ fordi $\\left(\\frac{1}{2}\\right)^2 = \\frac{1}{4}$ og $2 \\cdot x \\cdot \\frac{1}{2} = x$. Altså: $x^2 + x + \\frac{1}{4} = \\left(x + \\frac{1}{2}\\right)^2$.
 
 Denne teknikken er essensiell for å løse andregradslikninger og forenkle rasjonale uttrykk.`,
     },
@@ -2573,7 +2573,7 @@ Med koeffisienter: $4x^2 - 25 = (2x)^2 - 5^2 = (2x + 5)(2x - 5)$.
 
 Noen ganger må vi faktorisere ut en felles faktor først. Ta $12x^2 - 27 = 3(4x^2 - 9) = 3(2x + 3)(2x - 3)$.
 
-Og med røtter: $4x^2 - 12 = 4(x^2 - 3) = 4(x + \sqrt{3})(x - \sqrt{3})$.
+Og med røtter: $4x^2 - 12 = 4(x^2 - 3) = 4(x + \\sqrt{3})(x - \\sqrt{3})$.
 
 Avanserte uttrykk kan kreve konjugatsetningen flere ganger. Uttrykket $x^4 - y^4$ er en differanse mellom to kvadrater: $(x^2)^2 - (y^2)^2 = (x^2 + y^2)(x^2 - y^2)$. Men $x^2 - y^2$ er også en differanse mellom to kvadrater, som faktoriseres videre: $(x^2 + y^2)(x + y)(x - y)$. Legg merke til at $x^2 + y^2$ ikke kan faktoriseres videre med reelle tall – konjugatsetningen krever en *differanse*, ikke en sum.`,
     },
