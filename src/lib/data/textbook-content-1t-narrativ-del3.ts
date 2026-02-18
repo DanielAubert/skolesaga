@@ -26,15 +26,7 @@ export const CHAPTER_1T_3_1_NARRATIV: TextbookChapter = {
   estimatedMinutes: 30,
   competenceGoals: ['forstå og bruke koordinatsystemet'],
   linkedChapterId: '1t-3-1',
-  content: [
-    {
-      id: '1t-3-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-3-1-n-intro',
       type: 'text',
       content: `## Et kart over tallenes verden
@@ -65,24 +57,56 @@ Det finnes også noen spesielle linjer det er verdt å kjenne til. Linjen $x = -
         id: '1t-3-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvilket punkt ligger 3 enheter til venstre for origo og 5 enheter opp?',
-        options: [
-          { id: 'a', text: '$(3, 5)$', isCorrect: false },
-          { id: 'b', text: '$(-3, 5)$', isCorrect: true },
-          { id: 'c', text: '$(5, -3)$', isCorrect: false },
-          { id: 'd', text: '$(-5, 3)$', isCorrect: false },
+        task: 'Test deg selv på punkter i koordinatsystemet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-1-n-quiz1-q0',
+            task: 'Hvilket punkt ligger 3 enheter til venstre for origo og 5 enheter opp?',
+            options: [
+              { id: 'a', text: '$(3, 5)$', isCorrect: false },
+              { id: 'b', text: '$(-3, 5)$', isCorrect: true },
+              { id: 'c', text: '$(5, -3)$', isCorrect: false },
+              { id: 'd', text: '$(-5, 3)$', isCorrect: false },
+            ],
+            solution: 'Til venstre for origo betyr negativ $x$-verdi, altså $x = -3$. Opp betyr positiv $y$-verdi, altså $y = 5$. Punktet er $(-3, 5)$.',
+          },
+          {
+            id: '1t-3-1-n-quiz1-q1',
+            task: 'Hva er forskjellen på punktene $(3, 2)$ og $(2, 3)$?',
+            options: [
+              { id: 'a', text: 'De er det samme punktet, bare skrevet forskjellig', isCorrect: false },
+              { id: 'b', text: '$(3, 2)$ er 3 opp og 2 til høyre, mens $(2, 3)$ er 2 opp og 3 til høyre', isCorrect: false },
+              { id: 'c', text: '$(3, 2)$ er 3 til høyre og 2 opp, mens $(2, 3)$ er 2 til høyre og 3 opp', isCorrect: true },
+              { id: 'd', text: 'Begge ligger i samme kvadrant, men $(3, 2)$ er nærmere origo', isCorrect: false },
+            ],
+            solution: 'I et koordinatpar $(x, y)$ angir $x$ horisontal posisjon og $y$ vertikal posisjon. $(3, 2)$ betyr 3 til høyre og 2 opp, mens $(2, 3)$ betyr 2 til høyre og 3 opp. Rekkefølgen er avgjørende.',
+          },
+          {
+            id: '1t-3-1-n-quiz1-q2',
+            task: 'I hvilken kvadrant ligger punktet $(-4, -1)$?',
+            options: [
+              { id: 'a', text: 'Første kvadrant (oppe til høyre)', isCorrect: false },
+              { id: 'b', text: 'Andre kvadrant (oppe til venstre)', isCorrect: false },
+              { id: 'c', text: 'Tredje kvadrant (nede til venstre)', isCorrect: true },
+              { id: 'd', text: 'Fjerde kvadrant (nede til høyre)', isCorrect: false },
+            ],
+            solution: 'Når $x = -4$ (negativ) går vi til venstre, og når $y = -1$ (negativ) går vi nedover. Begge koordinater er negative, så punktet ligger i tredje kvadrant (nede til venstre).',
+          },
+          {
+            id: '1t-3-1-n-quiz1-q3',
+            task: 'Linjen $x = -2$ er en loddrett linje. Hvilket av disse punktene ligger på denne linjen?',
+            options: [
+              { id: 'a', text: '$(3, -2)$', isCorrect: false },
+              { id: 'b', text: '$(-2, 0)$', isCorrect: true },
+              { id: 'c', text: '$(0, -2)$', isCorrect: false },
+              { id: 'd', text: '$(2, -2)$', isCorrect: false },
+            ],
+            solution: 'Linjen $x = -2$ inneholder alle punkter der $x$-verdien er $-2$, uansett hva $y$ er. Punktet $(-2, 0)$ har $x = -2$, så det ligger på linjen. $(0, -2)$ har $x = 0$, og ligger altså på $y$-aksen, ikke på linjen $x = -2$.',
+          },
         ],
-        solution: 'Til venstre for origo betyr negativ $x$-verdi, altså $x = -3$. Opp betyr positiv $y$-verdi, altså $y = 5$. Punktet er $(-3, 5)$.',
       },
-    },
-    {
-      id: '1t-3-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-1-n-section2',
       type: 'text',
       content: `## Å lese av punkter fra en figur
@@ -102,24 +126,45 @@ Det er også lurt å sjekke at du har riktig skala på aksene. Noen ganger er de
         id: '1t-3-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Et punkt ligger på $y$-aksen, 2 enheter under origo. Hva er koordinatene til dette punktet?',
-        options: [
-          { id: 'a', text: '$(2, 0)$', isCorrect: false },
-          { id: 'b', text: '$(-2, 0)$', isCorrect: false },
-          { id: 'c', text: '$(0, 2)$', isCorrect: false },
-          { id: 'd', text: '$(0, -2)$', isCorrect: true },
+        task: 'Test deg selv på avlesning av punkter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-1-n-quiz2-q0',
+            task: 'Et punkt ligger på $y$-aksen, 2 enheter under origo. Hva er koordinatene til dette punktet?',
+            options: [
+              { id: 'a', text: '$(2, 0)$', isCorrect: false },
+              { id: 'b', text: '$(-2, 0)$', isCorrect: false },
+              { id: 'c', text: '$(0, 2)$', isCorrect: false },
+              { id: 'd', text: '$(0, -2)$', isCorrect: true },
+            ],
+            solution: 'Et punkt på $y$-aksen har alltid $x = 0$. Under origo betyr negativ $y$-verdi. Svaret er $(0, -2)$.',
+          },
+          {
+            id: '1t-3-1-n-quiz2-q1',
+            task: 'Når du leser av koordinatene til et punkt, hva gjør du først?',
+            options: [
+              { id: 'a', text: 'Trekker en vannrett linje til $y$-aksen og leser av $y$-verdien', isCorrect: false },
+              { id: 'b', text: 'Trekker en loddrett linje ned til $x$-aksen og leser av $x$-verdien', isCorrect: true },
+              { id: 'c', text: 'Måler avstanden til origo', isCorrect: false },
+              { id: 'd', text: 'Finner ut hvilken kvadrant punktet er i', isCorrect: false },
+            ],
+            solution: 'Regelen er «bortover først, så oppover» – altså finner du $x$-verdien først ved å trekke en loddrett linje ned til $x$-aksen. Deretter finner du $y$-verdien ved å trekke en vannrett linje til $y$-aksen.',
+          },
+          {
+            id: '1t-3-1-n-quiz2-q2',
+            task: 'Et punkt ligger rett over $-2$ på $x$-aksen og på samme høyde som $3$ på $y$-aksen. Hva er koordinatene?',
+            options: [
+              { id: 'a', text: '$(3, -2)$', isCorrect: false },
+              { id: 'b', text: '$(-2, 3)$', isCorrect: true },
+              { id: 'c', text: '$(2, 3)$', isCorrect: false },
+              { id: 'd', text: '$(-3, 2)$', isCorrect: false },
+            ],
+            solution: 'Rett over $-2$ på $x$-aksen gir $x = -2$. Samme høyde som $3$ på $y$-aksen gir $y = 3$. Husk at $x$ alltid skrives først, så koordinatene er $(-2, 3)$.',
+          },
         ],
-        solution: 'Et punkt på $y$-aksen har alltid $x = 0$. Under origo betyr negativ $y$-verdi. Svaret er $(0, -2)$.',
       },
-    },
-    {
-      id: '1t-3-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-1-n-section3',
       type: 'text',
       content: `## Grafer forteller historier
@@ -139,24 +184,45 @@ Denne evnen til å lese informasjon fra grafer er noe du vil bruke hele tiden, b
         id: '1t-3-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'En graf viser prisen for en taxitur. Når $x = 12$ km leser vi av at $y = 240$ kr. Hva betyr dette?',
-        options: [
-          { id: 'a', text: 'Startprisen er 240 kroner', isCorrect: false },
-          { id: 'b', text: 'Du kan kjøre 240 km for 12 kroner', isCorrect: false },
-          { id: 'c', text: 'En 12 km lang tur koster 240 kroner', isCorrect: true },
-          { id: 'd', text: 'Prisen øker med 12 kroner per kilometer', isCorrect: false },
+        task: 'Test deg selv på graflesing og historiefortelling:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-1-n-quiz3-q0',
+            task: 'En graf viser prisen for en taxitur. Når $x = 12$ km leser vi av at $y = 240$ kr. Hva betyr dette?',
+            options: [
+              { id: 'a', text: 'Startprisen er 240 kroner', isCorrect: false },
+              { id: 'b', text: 'Du kan kjøre 240 km for 12 kroner', isCorrect: false },
+              { id: 'c', text: 'En 12 km lang tur koster 240 kroner', isCorrect: true },
+              { id: 'd', text: 'Prisen øker med 12 kroner per kilometer', isCorrect: false },
+            ],
+            solution: 'Punktet $(12, 240)$ på grafen betyr at når vi kjører $x = 12$ km, er prisen $y = 240$ kr. Altså koster en 12 km lang tur 240 kroner.',
+          },
+          {
+            id: '1t-3-1-n-quiz3-q1',
+            task: 'En taxigraf starter i $y = 120$ når $x = 0$ og er en rett linje som stiger. Hva betyr verdien $y = 120$?',
+            options: [
+              { id: 'a', text: 'Taxien kjører 120 km/t', isCorrect: false },
+              { id: 'b', text: 'Turen koster 120 kroner per kilometer', isCorrect: false },
+              { id: 'c', text: 'Startprisen for taxituren er 120 kroner', isCorrect: true },
+              { id: 'd', text: 'Taxien har kjørt 120 kilometer', isCorrect: false },
+            ],
+            solution: 'Når $x = 0$ har du ikke kjørt noe ennå, men $y = 120$ kr. Det betyr at startprisen – det du betaler bare for å sette deg i taxien – er 120 kroner.',
+          },
+          {
+            id: '1t-3-1-n-quiz3-q2',
+            task: 'Grafen for taxituren er en rett linje som stiger jevnt. Hva forteller det oss?',
+            options: [
+              { id: 'a', text: 'Prisen øker raskere og raskere', isCorrect: false },
+              { id: 'b', text: 'Prisen øker like mye for hver kilometer', isCorrect: true },
+              { id: 'c', text: 'Taxien kjører med jevn fart', isCorrect: false },
+              { id: 'd', text: 'Prisen er den samme uansett avstand', isCorrect: false },
+            ],
+            solution: 'En rett linje som stiger jevnt betyr at økningen i $y$ (pris) er den samme for hver enhet økning i $x$ (kilometer). Altså øker prisen like mye for hver kilometer du kjører.',
+          },
         ],
-        solution: 'Punktet $(12, 240)$ på grafen betyr at når vi kjører $x = 12$ km, er prisen $y = 240$ kr. Altså koster en 12 km lang tur 240 kroner.',
       },
-    },
-    {
-      id: '1t-3-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-1-n-section4',
       type: 'text',
       content: `## Å lese av verdier fra en graf
@@ -176,24 +242,56 @@ Legg merke til at vi også kan finne startverdien fra grafen. Startverdien er $y
         id: '1t-3-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Gry har en graf som viser penger på konto etter $x$ feriedager. Grafen viser at $g(0) = 8000$ og $g(6) = 2000$. Hva betyr $g(0) = 8000$?',
-        options: [
-          { id: 'a', text: 'Gry bruker 8000 kroner per dag', isCorrect: false },
-          { id: 'b', text: 'Gry hadde 8000 kroner da hun dro på ferie', isCorrect: true },
-          { id: 'c', text: 'Ferien varer i 8000 dager', isCorrect: false },
-          { id: 'd', text: 'Gry har 8000 kroner etter 6 dager', isCorrect: false },
+        task: 'Test deg selv på avlesning av verdier fra grafer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-1-n-quiz4-q0',
+            task: 'Gry har en graf som viser penger på konto etter $x$ feriedager. Grafen viser at $g(0) = 8000$ og $g(6) = 2000$. Hva betyr $g(0) = 8000$?',
+            options: [
+              { id: 'a', text: 'Gry bruker 8000 kroner per dag', isCorrect: false },
+              { id: 'b', text: 'Gry hadde 8000 kroner da hun dro på ferie', isCorrect: true },
+              { id: 'c', text: 'Ferien varer i 8000 dager', isCorrect: false },
+              { id: 'd', text: 'Gry har 8000 kroner etter 6 dager', isCorrect: false },
+            ],
+            solution: 'Verdien $g(0) = 8000$ betyr at når $x = 0$ (før ferien har begynt), er det 8000 kroner på kontoen. Altså hadde Gry 8000 kroner da hun dro på ferie.',
+          },
+          {
+            id: '1t-3-1-n-quiz4-q1',
+            task: 'I taxieksempelet vil du vite hva det koster å kjøre 12 km. Hvordan leser du av svaret fra grafen?',
+            options: [
+              { id: 'a', text: 'Finn $y = 12$ på $y$-aksen og gå vannrett til grafen', isCorrect: false },
+              { id: 'b', text: 'Finn $x = 12$ på $x$-aksen og gå loddrett opp til grafen, deretter les av $y$-verdien', isCorrect: true },
+              { id: 'c', text: 'Finn punktet $(12, 12)$ i koordinatsystemet', isCorrect: false },
+              { id: 'd', text: 'Multipliser 12 med prisen per kilometer', isCorrect: false },
+            ],
+            solution: 'For å finne $y$ når du kjenner $x$: finn $x = 12$ på $x$-aksen, gå loddrett opp til du treffer grafen, og les av $y$-verdien der. Det er prisen for 12 km.',
+          },
+          {
+            id: '1t-3-1-n-quiz4-q2',
+            task: 'Du har 400 kroner og vil vite hvor langt du kan kjøre med taxi. Hvordan finner du svaret i grafen?',
+            options: [
+              { id: 'a', text: 'Finn $x = 400$ på $x$-aksen og les av $y$', isCorrect: false },
+              { id: 'b', text: 'Finn der grafen krysser $x$-aksen', isCorrect: false },
+              { id: 'c', text: 'Finn $y = 400$ på $y$-aksen og gå vannrett til grafen, deretter les av $x$-verdien', isCorrect: true },
+              { id: 'd', text: 'Del 400 på startprisen', isCorrect: false },
+            ],
+            solution: 'For å finne $x$ når du kjenner $y$: finn $y = 400$ på $y$-aksen, gå vannrett til høyre til du treffer grafen, og les av $x$-verdien. Det er antall kilometer du kan kjøre.',
+          },
+          {
+            id: '1t-3-1-n-quiz4-q3',
+            task: 'Hva kalles $y$-verdien der grafen krysser $y$-aksen (altså ved $x = 0$)?',
+            options: [
+              { id: 'a', text: 'Nullpunktet', isCorrect: false },
+              { id: 'b', text: 'Stigningstallet', isCorrect: false },
+              { id: 'c', text: 'Toppunktet', isCorrect: false },
+              { id: 'd', text: 'Konstantleddet (startverdien)', isCorrect: true },
+            ],
+            solution: 'Verdien der grafen krysser $y$-aksen (ved $x = 0$) kalles konstantleddet eller startverdien. I taxieksempelet er det startprisen, og i Grys eksempel er det beløpet hun hadde da ferien startet.',
+          },
         ],
-        solution: 'Verdien $g(0) = 8000$ betyr at når $x = 0$ (før ferien har begynt), er det 8000 kroner på kontoen. Altså hadde Gry 8000 kroner da hun dro på ferie.',
       },
-    },
-    {
-      id: '1t-3-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-1-n-section5',
       type: 'text',
       content: `## Hva punkter på en graf egentlig forteller oss
@@ -213,24 +311,45 @@ Når du tolker en graf, still deg alltid tre spørsmål: Hva står på $x$-aksen
         id: '1t-3-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En graf viser temperaturen utendørs gjennom et døgn, der $x$ er timer etter midnatt. Hvilket punkt betyr «klokken 14:00 var det 18 grader»?',
-        options: [
-          { id: 'a', text: '$(18, 14)$', isCorrect: false },
-          { id: 'b', text: '$(14, 18)$', isCorrect: true },
-          { id: 'c', text: '$(14, 0)$', isCorrect: false },
-          { id: 'd', text: '$(0, 18)$', isCorrect: false },
+        task: 'Test deg selv på tolkning av grafer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-1-n-quiz5-q0',
+            task: 'En graf viser temperaturen utendørs gjennom et døgn, der $x$ er timer etter midnatt. Hvilket punkt betyr «klokken 14:00 var det 18 grader»?',
+            options: [
+              { id: 'a', text: '$(18, 14)$', isCorrect: false },
+              { id: 'b', text: '$(14, 18)$', isCorrect: true },
+              { id: 'c', text: '$(14, 0)$', isCorrect: false },
+              { id: 'd', text: '$(0, 18)$', isCorrect: false },
+            ],
+            solution: 'Klokken 14:00 er 14 timer etter midnatt, så $x = 14$. Temperaturen er 18 grader, så $y = 18$. Punktet er $(14, 18)$.',
+          },
+          {
+            id: '1t-3-1-n-quiz5-q1',
+            task: 'Punktet $(6, 2)$ ligger på en temperaturgraf der $x$ er timer etter midnatt og $y$ er grader Celsius. Hva betyr dette?',
+            options: [
+              { id: 'a', text: 'Klokken 02:00 var det 6 grader', isCorrect: false },
+              { id: 'b', text: 'Klokken 06:00 var det 2 grader', isCorrect: true },
+              { id: 'c', text: 'Temperaturen steg med 2 grader på 6 timer', isCorrect: false },
+              { id: 'd', text: 'Klokken 06:00 hadde temperaturen sunket 2 grader', isCorrect: false },
+            ],
+            solution: 'Punktet $(6, 2)$ betyr $x = 6$ (6 timer etter midnatt, altså klokken 06:00) og $y = 2$ (temperaturen var 2 grader Celsius).',
+          },
+          {
+            id: '1t-3-1-n-quiz5-q2',
+            task: 'Når du tolker en graf, hvilke tre spørsmål bør du alltid stille deg?',
+            options: [
+              { id: 'a', text: 'Hva er $x$? Hva er $y$? Er grafen pen?', isCorrect: false },
+              { id: 'b', text: 'Hvor starter grafen? Hvor slutter den? Hvor lang er den?', isCorrect: false },
+              { id: 'c', text: 'Hva står på $x$-aksen? Hva står på $y$-aksen? Hva betyr formen på grafen?', isCorrect: true },
+              { id: 'd', text: 'Hva er nullpunktet? Hva er toppunktet? Hva er bunnpunktet?', isCorrect: false },
+            ],
+            solution: 'De tre sentrale spørsmålene er: Hva står på $x$-aksen? Hva står på $y$-aksen? Og hva betyr formen på grafen – stiger den, synker den, er den rett eller buet? Disse spørsmålene gir deg nøkkelen til å forstå enhver graf.',
+          },
         ],
-        solution: 'Klokken 14:00 er 14 timer etter midnatt, så $x = 14$. Temperaturen er 18 grader, så $y = 18$. Punktet er $(14, 18)$.',
       },
-    },
-    {
-      id: '1t-3-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-3-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-3-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -261,15 +380,7 @@ export const CHAPTER_1T_3_2_NARRATIV: TextbookChapter = {
   estimatedMinutes: 35,
   competenceGoals: ['forstå og tegne lineære funksjoner'],
   linkedChapterId: '1t-3-2',
-  content: [
-    {
-      id: '1t-3-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-3-2-n-intro',
       type: 'text',
       content: `## Når tall får liv gjennom variabler
@@ -298,24 +409,45 @@ Det fine er at denne sammenhengen kan visualiseres. Hvert par $(x, y)$ gir oss e
         id: '1t-3-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva blir $y$ når vi setter inn $x = -3$ i $y = -4x + 1$?',
-        options: [
-          { id: 'a', text: '$y = -11$', isCorrect: false },
-          { id: 'b', text: '$y = -13$', isCorrect: false },
-          { id: 'c', text: '$y = 13$', isCorrect: true },
-          { id: 'd', text: '$y = 11$', isCorrect: false },
+        task: 'Test deg selv på innsetting og variabler:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-2-n-quiz1-q0',
+            task: 'Hva blir $y$ når vi setter inn $x = -3$ i $y = -4x + 1$?',
+            options: [
+              { id: 'a', text: '$y = -11$', isCorrect: false },
+              { id: 'b', text: '$y = -13$', isCorrect: false },
+              { id: 'c', text: '$y = 13$', isCorrect: true },
+              { id: 'd', text: '$y = 11$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -3$: $y = -4 \\cdot (-3) + 1 = 12 + 1 = 13$. Husk at minus ganger minus gir pluss.',
+          },
+          {
+            id: '1t-3-2-n-quiz1-q1',
+            task: 'I uttrykket $y = 2x - 3$ – hvilken variabel er den uavhengige?',
+            options: [
+              { id: 'a', text: '$y$, fordi den står alene på venstre side', isCorrect: false },
+              { id: 'b', text: '$x$, fordi vi velger den fritt', isCorrect: true },
+              { id: 'c', text: 'Begge er uavhengige', isCorrect: false },
+              { id: 'd', text: 'Ingen av dem – tallet 3 er den uavhengige', isCorrect: false },
+            ],
+            solution: 'Den uavhengige variabelen er $x$ fordi den kan velges fritt. Verdien av $y$ bestemmes av formelen når vi kjenner $x$, så $y$ er den avhengige variabelen.',
+          },
+          {
+            id: '1t-3-2-n-quiz1-q2',
+            task: 'Hva blir $y$ når vi setter inn $x = -2$ i $y = -x + 4$?',
+            options: [
+              { id: 'a', text: '$y = 2$', isCorrect: false },
+              { id: 'b', text: '$y = -6$', isCorrect: false },
+              { id: 'c', text: '$y = 6$', isCorrect: true },
+              { id: 'd', text: '$y = -2$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -2$: $y = -(-2) + 4 = 2 + 4 = 6$. Pass på: $-(-2)$ blir $+2$, ikke $-2$. Fortegnsreglene er avgjørende her.',
+          },
         ],
-        solution: 'Vi setter inn $x = -3$: $y = -4 \\cdot (-3) + 1 = 12 + 1 = 13$. Husk at minus ganger minus gir pluss.',
       },
-    },
-    {
-      id: '1t-3-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-2-n-section2',
       type: 'text',
       content: `## Fra regel til linje
@@ -335,24 +467,56 @@ Legg merke til noe viktig: punktet $(0, -2)$ er der linjen krysser $y$-aksen. De
         id: '1t-3-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Du skal tegne linjen $y = x - 2$. Hvilke tre punkter kan du bruke?',
-        options: [
-          { id: 'a', text: '$(0, 2)$, $(1, 3)$, $(2, 4)$', isCorrect: false },
-          { id: 'b', text: '$(-2, -4)$, $(0, -2)$, $(2, 0)$', isCorrect: true },
-          { id: 'c', text: '$(0, -2)$, $(1, 0)$, $(2, -2)$', isCorrect: false },
-          { id: 'd', text: '$(-1, -1)$, $(0, 0)$, $(1, 1)$', isCorrect: false },
+        task: 'Test deg selv på å gå fra formel til linje:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-2-n-quiz2-q0',
+            task: 'Du skal tegne linjen $y = x - 2$. Hvilke tre punkter kan du bruke?',
+            options: [
+              { id: 'a', text: '$(0, 2)$, $(1, 3)$, $(2, 4)$', isCorrect: false },
+              { id: 'b', text: '$(-2, -4)$, $(0, -2)$, $(2, 0)$', isCorrect: true },
+              { id: 'c', text: '$(0, -2)$, $(1, 0)$, $(2, -2)$', isCorrect: false },
+              { id: 'd', text: '$(-1, -1)$, $(0, 0)$, $(1, 1)$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn i $y = x - 2$: for $x = -2$ får vi $y = -4$, for $x = 0$ får vi $y = -2$, for $x = 2$ får vi $y = 0$. Altså $(-2, -4)$, $(0, -2)$ og $(2, 0)$.',
+          },
+          {
+            id: '1t-3-2-n-quiz2-q1',
+            task: 'Hvor mange punkter trenger du minimum for å tegne en rett linje?',
+            options: [
+              { id: 'a', text: '1 punkt', isCorrect: false },
+              { id: 'b', text: '2 punkter', isCorrect: true },
+              { id: 'c', text: '3 punkter', isCorrect: false },
+              { id: 'd', text: '4 punkter', isCorrect: false },
+            ],
+            solution: 'En rett linje er bestemt av to punkter. Det er nok å finne to punkter som tilfredsstiller formelen, og trekke en linje gjennom dem. Et tredje punkt kan brukes som sikkerhetssjekk.',
+          },
+          {
+            id: '1t-3-2-n-quiz2-q2',
+            task: 'Linjen $y = 2x - 2$ krysser $y$-aksen. Hva er koordinatene til dette skjæringspunktet?',
+            options: [
+              { id: 'a', text: '$(0, 2)$', isCorrect: false },
+              { id: 'b', text: '$(2, 0)$', isCorrect: false },
+              { id: 'c', text: '$(-2, 0)$', isCorrect: false },
+              { id: 'd', text: '$(0, -2)$', isCorrect: true },
+            ],
+            solution: 'Der linjen krysser $y$-aksen er $x = 0$. Vi setter inn: $y = 2 \\cdot 0 - 2 = -2$. Skjæringspunktet er $(0, -2)$. Dette er konstantleddet $b = -2$.',
+          },
+          {
+            id: '1t-3-2-n-quiz2-q3',
+            task: 'Hva er $y$-verdien til $y = 2x$ når $x = -2$?',
+            options: [
+              { id: 'a', text: '$y = 4$', isCorrect: false },
+              { id: 'b', text: '$y = -4$', isCorrect: true },
+              { id: 'c', text: '$y = 0$', isCorrect: false },
+              { id: 'd', text: '$y = -2$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -2$: $y = 2 \\cdot (-2) = -4$. Punktet $(-2, -4)$ ligger på linjen $y = 2x$.',
+          },
         ],
-        solution: 'Vi setter inn i $y = x - 2$: for $x = -2$ får vi $y = -4$, for $x = 0$ får vi $y = -2$, for $x = 2$ får vi $y = 0$. Altså $(-2, -4)$, $(0, -2)$ og $(2, 0)$.',
       },
-    },
-    {
-      id: '1t-3-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-2-n-section3',
       type: 'text',
       content: `## Stigningstallet – linjens bratthetsmal
@@ -374,24 +538,67 @@ En nyttig huskeregel: hvis $a > 0$ stiger linjen, hvis $a < 0$ synker den, og hv
         id: '1t-3-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'En linje har stigningstall $a = -2$. Hva skjer med $y$-verdien når $x$ øker med 1?',
-        options: [
-          { id: 'a', text: '$y$ øker med 2', isCorrect: false },
-          { id: 'b', text: '$y$ minker med 2', isCorrect: true },
-          { id: 'c', text: '$y$ forblir uendret', isCorrect: false },
-          { id: 'd', text: '$y$ øker med $-2$, altså øker den', isCorrect: false },
+        task: 'Test deg selv på stigningstallet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-2-n-quiz3-q0',
+            task: 'En linje har stigningstall $a = -2$. Hva skjer med $y$-verdien når $x$ øker med 1?',
+            options: [
+              { id: 'a', text: '$y$ øker med 2', isCorrect: false },
+              { id: 'b', text: '$y$ minker med 2', isCorrect: true },
+              { id: 'c', text: '$y$ forblir uendret', isCorrect: false },
+              { id: 'd', text: '$y$ øker med $-2$, altså øker den', isCorrect: false },
+            ],
+            solution: 'Stigningstallet $a = -2$ betyr at $y$ endrer seg med $-2$ når $x$ øker med 1. Altså minker $y$ med 2. Linjen synker mot høyre.',
+          },
+          {
+            id: '1t-3-2-n-quiz3-q1',
+            task: 'Hva forteller stigningstallet oss om en linje?',
+            options: [
+              { id: 'a', text: 'Hvor linjen krysser $y$-aksen', isCorrect: false },
+              { id: 'b', text: 'Hvor lang linjen er', isCorrect: false },
+              { id: 'c', text: 'Hvor mye $y$ endrer seg når $x$ øker med 1', isCorrect: true },
+              { id: 'd', text: 'Hvor mange nullpunkter linjen har', isCorrect: false },
+            ],
+            solution: 'Stigningstallet $a$ forteller deg nøyaktig hvor mye $y$-verdien endrer seg for hver enhet $x$ øker. Det bestemmer linjens bratthet og retning.',
+          },
+          {
+            id: '1t-3-2-n-quiz3-q2',
+            task: 'Gitt $y = 2x + 1$. Når $x = 0$ er $y = 1$, og når $x = 1$ er $y = 3$. Hva er stigningstallet?',
+            options: [
+              { id: 'a', text: '$a = 1$', isCorrect: false },
+              { id: 'b', text: '$a = 3$', isCorrect: false },
+              { id: 'c', text: '$a = 2$', isCorrect: true },
+              { id: 'd', text: '$a = 4$', isCorrect: false },
+            ],
+            solution: 'Stigningstallet er endringen i $y$ når $x$ øker med 1: $a = 3 - 1 = 2$. Dette stemmer med koeffisienten foran $x$ i $y = 2x + 1$.',
+          },
+          {
+            id: '1t-3-2-n-quiz3-q3',
+            task: 'Hvilken linje er brattest?',
+            options: [
+              { id: 'a', text: '$y = x + 3$', isCorrect: false },
+              { id: 'b', text: '$y = -5x + 1$', isCorrect: true },
+              { id: 'c', text: '$y = 3x - 2$', isCorrect: false },
+              { id: 'd', text: '$y = -2x + 4$', isCorrect: false },
+            ],
+            solution: 'Brattheten bestemmes av absoluttverdien av stigningstallet. Vi har $|1| = 1$, $|-5| = 5$, $|3| = 3$ og $|-2| = 2$. Linjen $y = -5x + 1$ har størst absoluttverdi ($5$) og er derfor brattest, selv om den synker.',
+          },
+          {
+            id: '1t-3-2-n-quiz3-q4',
+            task: 'Hva kan vi si om en linje der $a = 0$?',
+            options: [
+              { id: 'a', text: 'Linjen er loddrett', isCorrect: false },
+              { id: 'b', text: 'Linjen er horisontal (vannrett)', isCorrect: true },
+              { id: 'c', text: 'Linjen finnes ikke', isCorrect: false },
+              { id: 'd', text: 'Linjen stiger svakt', isCorrect: false },
+            ],
+            solution: 'Når $a = 0$ endrer ikke $y$-verdien seg når $x$ øker. Formelen blir $y = 0 \\cdot x + b = b$, altså en flat, horisontal linje gjennom $y = b$.',
+          },
         ],
-        solution: 'Stigningstallet $a = -2$ betyr at $y$ endrer seg med $-2$ når $x$ øker med 1. Altså minker $y$ med 2. Linjen synker mot høyre.',
       },
-    },
-    {
-      id: '1t-3-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-2-n-section4',
       type: 'text',
       content: `## Konstantleddet – der linjen møter $y$-aksen
@@ -413,24 +620,56 @@ Denne metoden er raskere enn å beregne tre punkter med innsetting, og den gir d
         id: '1t-3-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er stigningstallet og konstantleddet til linjen $y = -x + 7$?',
-        options: [
-          { id: 'a', text: '$a = 1$ og $b = 7$', isCorrect: false },
-          { id: 'b', text: '$a = -1$ og $b = -7$', isCorrect: false },
-          { id: 'c', text: '$a = 7$ og $b = -1$', isCorrect: false },
-          { id: 'd', text: '$a = -1$ og $b = 7$', isCorrect: true },
+        task: 'Test deg selv på konstantleddet og rask graftegning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-2-n-quiz4-q0',
+            task: 'Hva er stigningstallet og konstantleddet til linjen $y = -x + 7$?',
+            options: [
+              { id: 'a', text: '$a = 1$ og $b = 7$', isCorrect: false },
+              { id: 'b', text: '$a = -1$ og $b = -7$', isCorrect: false },
+              { id: 'c', text: '$a = 7$ og $b = -1$', isCorrect: false },
+              { id: 'd', text: '$a = -1$ og $b = 7$', isCorrect: true },
+            ],
+            solution: 'I $y = -x + 7$ er det en usynlig $-1$ foran $x$, så $a = -1$. Konstantleddet er det som står uten $x$, altså $b = 7$.',
+          },
+          {
+            id: '1t-3-2-n-quiz4-q1',
+            task: 'Hva forteller konstantleddet $b$ oss geometrisk?',
+            options: [
+              { id: 'a', text: 'Hvor bratt linjen er', isCorrect: false },
+              { id: 'b', text: 'Hvor linjen krysser $x$-aksen', isCorrect: false },
+              { id: 'c', text: 'Hvor linjen krysser $y$-aksen', isCorrect: true },
+              { id: 'd', text: 'Hvor lang linjen er', isCorrect: false },
+            ],
+            solution: 'Konstantleddet $b$ angir $y$-verdien når $x = 0$: $y = a \\cdot 0 + b = b$. Geometrisk betyr det at linjen krysser $y$-aksen i punktet $(0, b)$.',
+          },
+          {
+            id: '1t-3-2-n-quiz4-q2',
+            task: 'Du vil raskt tegne $y = -3x + 4$. Du starter i $(0, 4)$. Hvor havner du etter å gå 1 til høyre og bruke stigningstallet?',
+            options: [
+              { id: 'a', text: '$(1, 7)$', isCorrect: false },
+              { id: 'b', text: '$(1, 1)$', isCorrect: true },
+              { id: 'c', text: '$(1, -3)$', isCorrect: false },
+              { id: 'd', text: '$(3, 4)$', isCorrect: false },
+            ],
+            solution: 'Fra $(0, 4)$ går du 1 til høyre (ny $x = 1$) og $a = -3$ i $y$-retning (altså 3 ned): $y = 4 + (-3) = 1$. Du havner i $(1, 1)$.',
+          },
+          {
+            id: '1t-3-2-n-quiz4-q3',
+            task: 'Linjen $y = 2x + 1$ krysser $y$-aksen i $(0, 1)$. Hva er neste punkt du tegner for å få linjen?',
+            options: [
+              { id: 'a', text: '$(1, 3)$ – gå 1 til høyre og 2 opp', isCorrect: true },
+              { id: 'b', text: '$(2, 1)$ – gå 2 til høyre og 0 opp', isCorrect: false },
+              { id: 'c', text: '$(1, 2)$ – gå 1 til høyre og 1 opp', isCorrect: false },
+              { id: 'd', text: '$(0, 3)$ – gå 0 til høyre og 2 opp', isCorrect: false },
+            ],
+            solution: 'Med stigningstall $a = 2$: gå 1 enhet til høyre og 2 enheter opp fra $(0, 1)$. Ny $x = 0 + 1 = 1$, ny $y = 1 + 2 = 3$. Neste punkt er $(1, 3)$.',
+          },
         ],
-        solution: 'I $y = -x + 7$ er det en usynlig $-1$ foran $x$, så $a = -1$. Konstantleddet er det som står uten $x$, altså $b = 7$.',
       },
-    },
-    {
-      id: '1t-3-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-2-n-section5',
       type: 'text',
       content: `## Finne formelen fra grafen
@@ -452,24 +691,56 @@ Denne teknikken – å bestemme $a$ og $b$ fra kjente punkter – er noe du vil 
         id: '1t-3-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En linje går gjennom $(0, 5)$ og $(1, 2)$. Hva er funksjonsuttrykket?',
-        options: [
-          { id: 'a', text: '$y = 3x + 5$', isCorrect: false },
-          { id: 'b', text: '$y = -3x + 5$', isCorrect: true },
-          { id: 'c', text: '$y = 2x + 5$', isCorrect: false },
-          { id: 'd', text: '$y = -3x + 2$', isCorrect: false },
+        task: 'Test deg selv på å finne formelen fra grafen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-2-n-quiz5-q0',
+            task: 'En linje går gjennom $(0, 5)$ og $(1, 2)$. Hva er funksjonsuttrykket?',
+            options: [
+              { id: 'a', text: '$y = 3x + 5$', isCorrect: false },
+              { id: 'b', text: '$y = -3x + 5$', isCorrect: true },
+              { id: 'c', text: '$y = 2x + 5$', isCorrect: false },
+              { id: 'd', text: '$y = -3x + 2$', isCorrect: false },
+            ],
+            solution: 'Konstantleddet er $b = 5$ (lest av der linjen krysser $y$-aksen). Stigningstallet er $a = \\frac{2 - 5}{1 - 0} = \\frac{-3}{1} = -3$. Formelen er $y = -3x + 5$.',
+          },
+          {
+            id: '1t-3-2-n-quiz5-q1',
+            task: 'Hva er det første du gjør for å finne formelen til en rett linje fra grafen?',
+            options: [
+              { id: 'a', text: 'Finner nullpunktet', isCorrect: false },
+              { id: 'b', text: 'Finner stigningstallet mellom to punkter', isCorrect: false },
+              { id: 'c', text: 'Leser av hvor linjen krysser $y$-aksen for å finne $b$', isCorrect: true },
+              { id: 'd', text: 'Teller antall rutenett i koordinatsystemet', isCorrect: false },
+            ],
+            solution: 'Først leser du av konstantleddet $b$ – det er $y$-verdien der linjen krysser $y$-aksen. Deretter finner du stigningstallet $a$ ved å se på endringen i $y$ per endring i $x$.',
+          },
+          {
+            id: '1t-3-2-n-quiz5-q2',
+            task: 'En linje går gjennom $(2, 7)$ og $(4, 13)$. Hva er stigningstallet $a$?',
+            options: [
+              { id: 'a', text: '$a = 2$', isCorrect: false },
+              { id: 'b', text: '$a = 6$', isCorrect: false },
+              { id: 'c', text: '$a = 3$', isCorrect: true },
+              { id: 'd', text: '$a = 10$', isCorrect: false },
+            ],
+            solution: 'Stigningstallet beregnes som endring i $y$ delt på endring i $x$: $a = \\frac{13 - 7}{4 - 2} = \\frac{6}{2} = 3$.',
+          },
+          {
+            id: '1t-3-2-n-quiz5-q3',
+            task: 'Du har funnet at $a = 3$ og at linjen går gjennom $(2, 7)$. Hva er $b$?',
+            options: [
+              { id: 'a', text: '$b = 7$', isCorrect: false },
+              { id: 'b', text: '$b = 1$', isCorrect: true },
+              { id: 'c', text: '$b = -1$', isCorrect: false },
+              { id: 'd', text: '$b = 13$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn punktet $(2, 7)$ i $y = 3x + b$: $7 = 3 \\cdot 2 + b = 6 + b$. Løser vi for $b$ får vi $b = 7 - 6 = 1$. Formelen er $y = 3x + 1$.',
+          },
         ],
-        solution: 'Konstantleddet er $b = 5$ (lest av der linjen krysser $y$-aksen). Stigningstallet er $a = \\frac{2 - 5}{1 - 0} = \\frac{-3}{1} = -3$. Formelen er $y = -3x + 5$.',
       },
-    },
-    {
-      id: '1t-3-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-3-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-3-2-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -500,15 +771,7 @@ export const CHAPTER_1T_3_3_NARRATIV: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: ['bruke funksjonsbegrepet og funksjonsnotasjon'],
   linkedChapterId: '1t-3-3',
-  content: [
-    {
-      id: '1t-3-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-3-3-n-intro',
       type: 'text',
       content: `## Matematikk som beskriver virkeligheten
@@ -541,24 +804,56 @@ Når du skal sette opp en modell, still deg spørsmålet: «Hva er det som endre
         id: '1t-3-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Line selger pølser til 30 kroner per stykk. Hvilken modell beskriver inntekten hennes når hun selger $x$ pølser?',
-        options: [
-          { id: 'a', text: '$30 + x$', isCorrect: false },
-          { id: 'b', text: '$x - 30$', isCorrect: false },
-          { id: 'c', text: '$\\frac{x}{30}$', isCorrect: false },
-          { id: 'd', text: '$30x$', isCorrect: true },
+        task: 'Test deg selv på matematiske modeller:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-3-n-quiz1-q0',
+            task: 'Line selger pølser til 30 kroner per stykk. Hvilken modell beskriver inntekten hennes når hun selger $x$ pølser?',
+            options: [
+              { id: 'a', text: '$30 + x$', isCorrect: false },
+              { id: 'b', text: '$x - 30$', isCorrect: false },
+              { id: 'c', text: '$\\frac{x}{30}$', isCorrect: false },
+              { id: 'd', text: '$30x$', isCorrect: true },
+            ],
+            solution: 'Inntekten er pris per enhet ganger antall enheter: $30 \\cdot x = 30x$ kroner.',
+          },
+          {
+            id: '1t-3-3-n-quiz1-q1',
+            task: 'Hva er verdien av $x^2 + 4x$ når $x = -2$?',
+            options: [
+              { id: 'a', text: '$12$', isCorrect: false },
+              { id: 'b', text: '$-4$', isCorrect: true },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$-12$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -2$: $(-2)^2 + 4 \\cdot (-2) = 4 - 8 = -4$. Husk at $(-2)^2 = 4$ (hele tallet kvadreres), mens $4 \\cdot (-2) = -8$.',
+          },
+          {
+            id: '1t-3-3-n-quiz1-q2',
+            task: 'Per har 20 000 kr på konto og sparer 1 000 kr per arbeidsdag. Hvilken modell beskriver beløpet etter $x$ dager?',
+            options: [
+              { id: 'a', text: '$20000x$', isCorrect: false },
+              { id: 'b', text: '$1000x + 20000$', isCorrect: true },
+              { id: 'c', text: '$20000 - 1000x$', isCorrect: false },
+              { id: 'd', text: '$1000 + 20000x$', isCorrect: false },
+            ],
+            solution: 'Beløpet har en fast del (20 000 kr fra starten) og en voksende del (1 000 kr per dag). Modellen er $1000x + 20000$. Vi kan sjekke: etter 0 dager har han $1000 \\cdot 0 + 20000 = 20000$ kr.',
+          },
+          {
+            id: '1t-3-3-n-quiz1-q3',
+            task: 'Når du setter opp en matematisk modell, hva bør du spørre deg selv?',
+            options: [
+              { id: 'a', text: 'Hva er det største og minste tallet?', isCorrect: false },
+              { id: 'b', text: 'Hva er det som endrer seg, og hva er fast?', isCorrect: true },
+              { id: 'c', text: 'Hvor mange variabler trenger jeg?', isCorrect: false },
+              { id: 'd', text: 'Er svaret positivt eller negativt?', isCorrect: false },
+            ],
+            solution: 'Nøkkelspørsmålet er: «Hva er det som endrer seg, og hva er fast?» Det som endrer seg avhenger av $x$ og blir en variabel del, mens det som er fast blir konstantleddet.',
+          },
         ],
-        solution: 'Inntekten er pris per enhet ganger antall enheter: $30 \\cdot x = 30x$ kroner.',
       },
-    },
-    {
-      id: '1t-3-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-3-n-section2',
       type: 'text',
       content: `## $f(x)$ – funksjonens språk
@@ -578,24 +873,56 @@ En **funksjon** er formelt definert som en regel som til hver verdi av $x$ gir n
         id: '1t-3-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Gitt $f(x) = x^2 + x$. Hva er $f(-2)$?',
-        options: [
-          { id: 'a', text: '$6$', isCorrect: false },
-          { id: 'b', text: '$2$', isCorrect: true },
-          { id: 'c', text: '$-2$', isCorrect: false },
-          { id: 'd', text: '$-6$', isCorrect: false },
+        task: 'Test deg selv på funksjonsnotasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-3-n-quiz2-q0',
+            task: 'Gitt $f(x) = x^2 + x$. Hva er $f(-2)$?',
+            options: [
+              { id: 'a', text: '$6$', isCorrect: false },
+              { id: 'b', text: '$2$', isCorrect: true },
+              { id: 'c', text: '$-2$', isCorrect: false },
+              { id: 'd', text: '$-6$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -2$: $f(-2) = (-2)^2 + (-2) = 4 - 2 = 2$. Husk at $(-2)^2 = 4$, ikke $-4$.',
+          },
+          {
+            id: '1t-3-3-n-quiz2-q1',
+            task: 'Hva betyr notasjonen $f(5)$?',
+            options: [
+              { id: 'a', text: 'Funksjonen $f$ ganget med 5', isCorrect: false },
+              { id: 'b', text: 'Funksjonen $f$ evaluert ved $x = 5$', isCorrect: true },
+              { id: 'c', text: 'Den femte funksjonen', isCorrect: false },
+              { id: 'd', text: 'Funksjonen $f$ pluss 5', isCorrect: false },
+            ],
+            solution: 'Notasjonen $f(5)$ betyr «sett inn $x = 5$ i formelen for $f$ og regn ut verdien». Det er en presis måte å si «evaluer funksjonen ved $x = 5$».',
+          },
+          {
+            id: '1t-3-3-n-quiz2-q2',
+            task: 'Gitt $f(x) = 3x + 1$. Hva er $f(3)$?',
+            options: [
+              { id: 'a', text: '$7$', isCorrect: false },
+              { id: 'b', text: '$10$', isCorrect: true },
+              { id: 'c', text: '$12$', isCorrect: false },
+              { id: 'd', text: '$4$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = 3$: $f(3) = 3 \\cdot 3 + 1 = 9 + 1 = 10$.',
+          },
+          {
+            id: '1t-3-3-n-quiz2-q3',
+            task: 'Hva er definisjonen av en funksjon?',
+            options: [
+              { id: 'a', text: 'En formel med bokstaver', isCorrect: false },
+              { id: 'b', text: 'En regel som til flere $x$-verdier kan gi flere $f(x)$-verdier', isCorrect: false },
+              { id: 'c', text: 'En linje i koordinatsystemet', isCorrect: false },
+              { id: 'd', text: 'En regel som til hver $x$-verdi gir nøyaktig én $f(x)$-verdi', isCorrect: true },
+            ],
+            solution: 'En funksjon er en regel der hvert inngangsverdi ($x$) gir nøyaktig én utgangsverdi ($f(x)$). Tenk på det som en maskin: du putter inn ett tall, og du får ut nøyaktig ett tall.',
+          },
         ],
-        solution: 'Vi setter inn $x = -2$: $f(-2) = (-2)^2 + (-2) = 4 - 2 = 2$. Husk at $(-2)^2 = 4$, ikke $-4$.',
       },
-    },
-    {
-      id: '1t-3-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-3-n-section3',
       type: 'text',
       content: `## Verditabeller og graftegning
@@ -615,24 +942,56 @@ Når du skal tegne en graf, er det lurt å velge $x$-verdier som er spredt over 
         id: '1t-3-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Gitt $f(x) = x^2 - 4$. Hva er $f(2)$?',
-        options: [
-          { id: 'a', text: '$8$', isCorrect: false },
-          { id: 'b', text: '$-8$', isCorrect: false },
-          { id: 'c', text: '$0$', isCorrect: true },
-          { id: 'd', text: '$4$', isCorrect: false },
+        task: 'Test deg selv på verditabeller og graftegning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-3-n-quiz3-q0',
+            task: 'Gitt $f(x) = x^2 - 4$. Hva er $f(2)$?',
+            options: [
+              { id: 'a', text: '$8$', isCorrect: false },
+              { id: 'b', text: '$-8$', isCorrect: false },
+              { id: 'c', text: '$0$', isCorrect: true },
+              { id: 'd', text: '$4$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn: $f(2) = 2^2 - 4 = 4 - 4 = 0$. Det betyr at $(2, 0)$ er et punkt på grafen – og siden $y = 0$ der, er det også et nullpunkt.',
+          },
+          {
+            id: '1t-3-3-n-quiz3-q1',
+            task: 'Gitt $f(x) = -2x^2 + 3$. Hva er $f(-1)$?',
+            options: [
+              { id: 'a', text: '$5$', isCorrect: false },
+              { id: 'b', text: '$-5$', isCorrect: false },
+              { id: 'c', text: '$1$', isCorrect: true },
+              { id: 'd', text: '$-1$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn $x = -1$: $f(-1) = -2 \\cdot (-1)^2 + 3 = -2 \\cdot 1 + 3 = -2 + 3 = 1$. Husk at $(-1)^2 = 1$.',
+          },
+          {
+            id: '1t-3-3-n-quiz3-q2',
+            task: 'Grafen til $f(x) = -2x^2 + 3$ er buet, ikke rett. Hvorfor?',
+            options: [
+              { id: 'a', text: 'Fordi koeffisienten er negativ', isCorrect: false },
+              { id: 'b', text: 'Fordi funksjonen har et konstantledd', isCorrect: false },
+              { id: 'c', text: 'Fordi funksjonen har et $x^2$-ledd', isCorrect: true },
+              { id: 'd', text: 'Fordi vi bruker for få punkter', isCorrect: false },
+            ],
+            solution: 'Grafer med $x^2$-ledd (andregradsfunksjoner) gir buede kurver kalt parabler. Uten $x^2$-ledd (førstegradsfunksjoner) får vi rette linjer.',
+          },
+          {
+            id: '1t-3-3-n-quiz3-q3',
+            task: 'Hvor mange punkter bør du minimum beregne for å tegne en parabel?',
+            options: [
+              { id: 'a', text: '2 punkter', isCorrect: false },
+              { id: 'b', text: '3 punkter', isCorrect: false },
+              { id: 'c', text: '5 eller flere', isCorrect: true },
+              { id: 'd', text: '1 punkt er nok', isCorrect: false },
+            ],
+            solution: 'For en parabel (andregradsfunksjon) bør du ha minst 5 punkter for å få en jevn, nøyaktig kurve. For lineære funksjoner holder det med 2-3, men parabler er buede og krever flere punkter.',
+          },
         ],
-        solution: 'Vi setter inn: $f(2) = 2^2 - 4 = 4 - 4 = 0$. Det betyr at $(2, 0)$ er et punkt på grafen – og siden $y = 0$ der, er det også et nullpunkt.',
       },
-    },
-    {
-      id: '1t-3-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-3-n-section4',
       type: 'text',
       content: `## Nullpunkter – der grafen møter $x$-aksen
@@ -652,24 +1011,67 @@ Andregradsfunksjoner kan ha null, ett eller to nullpunkter. For eksempel har $f(
         id: '1t-3-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er nullpunktet til $f(x) = 2x - 8$?',
-        options: [
-          { id: 'a', text: '$x = -4$', isCorrect: false },
-          { id: 'b', text: '$x = 8$', isCorrect: false },
-          { id: 'c', text: '$x = 2$', isCorrect: false },
-          { id: 'd', text: '$x = 4$', isCorrect: true },
+        task: 'Test deg selv på nullpunkter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-3-n-quiz4-q0',
+            task: 'Hva er nullpunktet til $f(x) = 2x - 8$?',
+            options: [
+              { id: 'a', text: '$x = -4$', isCorrect: false },
+              { id: 'b', text: '$x = 8$', isCorrect: false },
+              { id: 'c', text: '$x = 2$', isCorrect: false },
+              { id: 'd', text: '$x = 4$', isCorrect: true },
+            ],
+            solution: 'Vi setter $f(x) = 0$: $2x - 8 = 0 \\Rightarrow 2x = 8 \\Rightarrow x = 4$. Grafen krysser $x$-aksen i $(4, 0)$.',
+          },
+          {
+            id: '1t-3-3-n-quiz4-q1',
+            task: 'Hva betyr det grafisk at en funksjon har et nullpunkt?',
+            options: [
+              { id: 'a', text: 'Grafen krysser $y$-aksen', isCorrect: false },
+              { id: 'b', text: 'Grafen krysser eller berører $x$-aksen', isCorrect: true },
+              { id: 'c', text: 'Grafen går gjennom origo', isCorrect: false },
+              { id: 'd', text: 'Grafen har en toppunkt', isCorrect: false },
+            ],
+            solution: 'Et nullpunkt er en $x$-verdi der $f(x) = 0$, altså $y = 0$. Grafisk betyr det at grafen krysser eller berører $x$-aksen. Punktet har formen $(x, 0)$.',
+          },
+          {
+            id: '1t-3-3-n-quiz4-q2',
+            task: 'Hva er nullpunktene til $f(x) = 2x^2 - 4x$?',
+            options: [
+              { id: 'a', text: '$x = 0$ og $x = 4$', isCorrect: false },
+              { id: 'b', text: '$x = 2$ og $x = -2$', isCorrect: false },
+              { id: 'c', text: '$x = 0$ og $x = 2$', isCorrect: true },
+              { id: 'd', text: '$x = -4$ og $x = 0$', isCorrect: false },
+            ],
+            solution: 'Vi setter $2x^2 - 4x = 0$ og faktoriserer: $2x(x - 2) = 0$. Et produkt er null når minst en faktor er null: $2x = 0 \\Rightarrow x = 0$ eller $x - 2 = 0 \\Rightarrow x = 2$.',
+          },
+          {
+            id: '1t-3-3-n-quiz4-q3',
+            task: 'Funksjonen $f(x) = x^2 + 5x + 6$ kan faktoriseres som $(x + 2)(x + 3)$. Hva er nullpunktene?',
+            options: [
+              { id: 'a', text: '$x = 2$ og $x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = -2$ og $x = -3$', isCorrect: true },
+              { id: 'c', text: '$x = 5$ og $x = 6$', isCorrect: false },
+              { id: 'd', text: '$x = -5$ og $x = -6$', isCorrect: false },
+            ],
+            solution: 'Vi setter $(x + 2)(x + 3) = 0$. Enten er $x + 2 = 0 \\Rightarrow x = -2$ eller $x + 3 = 0 \\Rightarrow x = -3$. Pass på fortegnene – faktorene har pluss, så nullpunktene har minus.',
+          },
+          {
+            id: '1t-3-3-n-quiz4-q4',
+            task: 'Hvor mange nullpunkter kan en andregradsfunksjon ($f(x) = ax^2 + bx + c$) ha?',
+            options: [
+              { id: 'a', text: 'Alltid nøyaktig 2', isCorrect: false },
+              { id: 'b', text: 'Alltid nøyaktig 1', isCorrect: false },
+              { id: 'c', text: '0, 1 eller 2', isCorrect: true },
+              { id: 'd', text: '1, 2 eller 3', isCorrect: false },
+            ],
+            solution: 'En andregradsfunksjon kan ha 0 nullpunkter (grafen berører aldri $x$-aksen), 1 nullpunkt (grafen tangerer $x$-aksen) eller 2 nullpunkter (grafen krysser $x$-aksen to steder).',
+          },
         ],
-        solution: 'Vi setter $f(x) = 0$: $2x - 8 = 0 \\Rightarrow 2x = 8 \\Rightarrow x = 4$. Grafen krysser $x$-aksen i $(4, 0)$.',
       },
-    },
-    {
-      id: '1t-3-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-3-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-3-3-n-section5',
       type: 'text',
       content: `## Skjæringspunkter – der to grafer møter hverandre
@@ -691,24 +1093,67 @@ Teknikken er alltid den samme: sett funksjonene lik hverandre, løs likningen fo
         id: '1t-3-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Vi har $f(x) = x - 3$ og $g(x) = -2x + 3$. Hva er $x$-verdien i skjæringspunktet?',
-        options: [
-          { id: 'a', text: '$x = 0$', isCorrect: false },
-          { id: 'b', text: '$x = 2$', isCorrect: true },
-          { id: 'c', text: '$x = 3$', isCorrect: false },
-          { id: 'd', text: '$x = -2$', isCorrect: false },
+        task: 'Test deg selv på skjæringspunkter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-3-3-n-quiz5-q0',
+            task: 'Vi har $f(x) = x - 3$ og $g(x) = -2x + 3$. Hva er $x$-verdien i skjæringspunktet?',
+            options: [
+              { id: 'a', text: '$x = 0$', isCorrect: false },
+              { id: 'b', text: '$x = 2$', isCorrect: true },
+              { id: 'c', text: '$x = 3$', isCorrect: false },
+              { id: 'd', text: '$x = -2$', isCorrect: false },
+            ],
+            solution: 'Vi setter $f(x) = g(x)$: $x - 3 = -2x + 3$. Vi legger til $2x$ på begge sider: $3x - 3 = 3$. Legger til 3: $3x = 6$. Deler på 3: $x = 2$.',
+          },
+          {
+            id: '1t-3-3-n-quiz5-q1',
+            task: 'Hva gjør du for å finne skjæringspunkter mellom to funksjoner $f(x)$ og $g(x)$?',
+            options: [
+              { id: 'a', text: 'Setter $f(x) = 0$ og $g(x) = 0$', isCorrect: false },
+              { id: 'b', text: 'Legger sammen $f(x) + g(x)$', isCorrect: false },
+              { id: 'c', text: 'Setter $f(x) = g(x)$ og løser for $x$', isCorrect: true },
+              { id: 'd', text: 'Finner nullpunktene til begge funksjoner', isCorrect: false },
+            ],
+            solution: 'I et skjæringspunkt har de to funksjonene samme verdi for samme $x$. Vi setter derfor $f(x) = g(x)$ og løser likningen for å finne $x$-verdien(e).',
+          },
+          {
+            id: '1t-3-3-n-quiz5-q2',
+            task: 'Du har funnet at $f(x) = g(x)$ gir $x = 2$. Funksjonen $g(x) = -2x + 3$. Hva er $y$-koordinaten i skjæringspunktet?',
+            options: [
+              { id: 'a', text: '$y = 7$', isCorrect: false },
+              { id: 'b', text: '$y = -1$', isCorrect: true },
+              { id: 'c', text: '$y = 1$', isCorrect: false },
+              { id: 'd', text: '$y = 3$', isCorrect: false },
+            ],
+            solution: 'Vi setter $x = 2$ inn i $g(x) = -2x + 3$: $g(2) = -2 \\cdot 2 + 3 = -4 + 3 = -1$. Skjæringspunktet er $(2, -1)$. Vi kunne også brukt $f(x)$ og fått samme svar.',
+          },
+          {
+            id: '1t-3-3-n-quiz5-q3',
+            task: 'Gitt $f(x) = x^2 - 1$ og $g(x) = x + 1$. Vi setter $x^2 - 1 = x + 1$ og får $x^2 - x - 2 = 0$. Hva er de to $x$-verdiene?',
+            options: [
+              { id: 'a', text: '$x = 1$ og $x = -2$', isCorrect: false },
+              { id: 'b', text: '$x = 2$ og $x = -1$', isCorrect: true },
+              { id: 'c', text: '$x = -2$ og $x = 1$', isCorrect: false },
+              { id: 'd', text: '$x = 0$ og $x = 2$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer $x^2 - x - 2 = (x - 2)(x + 1) = 0$. Da er $x - 2 = 0 \\Rightarrow x = 2$ eller $x + 1 = 0 \\Rightarrow x = -1$. De to skjæringspunktenes $x$-verdier er $2$ og $-1$.',
+          },
+          {
+            id: '1t-3-3-n-quiz5-q4',
+            task: 'Hvorfor velger vi gjerne den enkleste funksjonen for å finne $y$-koordinaten i skjæringspunktet?',
+            options: [
+              { id: 'a', text: 'Fordi den kompliserte funksjonen gir feil svar', isCorrect: false },
+              { id: 'b', text: 'Fordi begge gir samme $y$-verdi, men den enkleste er lettere å regne med', isCorrect: true },
+              { id: 'c', text: 'Fordi vi bare kan bruke lineære funksjoner', isCorrect: false },
+              { id: 'd', text: 'Fordi den enkleste funksjonen alltid er $g(x)$', isCorrect: false },
+            ],
+            solution: 'I et skjæringspunkt gir $f(x)$ og $g(x)$ nøyaktig samme verdi. Derfor spiller det ingen rolle hvilken vi bruker – men den enkleste gir mindre regning og mindre sjanse for regnefeil.',
+          },
         ],
-        solution: 'Vi setter $f(x) = g(x)$: $x - 3 = -2x + 3$. Vi legger til $2x$ på begge sider: $3x - 3 = 3$. Legger til 3: $3x = 6$. Deler på 3: $x = 2$.',
       },
-    },
-    {
-      id: '1t-3-3-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-3-3-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-3-3-n-summary',
       type: 'text',
       content: `## Oppsummering

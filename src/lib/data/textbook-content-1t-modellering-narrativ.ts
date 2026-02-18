@@ -28,15 +28,7 @@ export const CHAPTER_1T_8_1_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
   linkedChapterId: '1t-8-1',
-  content: [
-    {
-      id: '1t-8-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-8-1-n-intro',
       type: 'text',
       content: `## Når matematikken møter virkeligheten
@@ -80,15 +72,7 @@ Til slutt **vurderer** du modellen. Er den god nok? Hvor gjelder den? Hva er beg
         ],
         solution: 'Modelleringsprosessen starter alltid med å observere situasjonen og samle inn data. Først når du forstår fenomenet kan du identifisere variabler og velge funksjonstype.',
       },
-    },
-    {
-      id: '1t-8-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-1-n-section2',
       type: 'text',
       content: `## Fra virkelighet til funksjon – lineære og kvadratiske modeller
@@ -117,15 +101,7 @@ Legg merke til noe viktig: modellen gjelder bare for $0 < x < 40$. Utenfor dette
         ],
         solution: 'Den faste kostnaden (99 kr) er konstantleddet, og den variable kostnaden (0,50 kr per SMS) er stigningstallet. Modellen er lineær: $K(x) = 0{,}50x + 99$.',
       },
-    },
-    {
-      id: '1t-8-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-1-n-section3',
       type: 'text',
       content: `## Eksponentielle modeller – når noe vokser prosentvis
@@ -156,15 +132,7 @@ Eksponentiell vekst er kraftig. Selv en tilsynelatende lav vekstrate på 2,5 pro
         ],
         solution: 'Når $t \\to \\infty$ går $0{,}935^t \\to 0$ (fordi $0 < 0{,}935 < 1$), og da nærmer $T(t)$ seg $20 + 70 \\cdot 0 = 20$ °C. Kaffen kjøles ned til romtemperatur, noe som er fysisk fornuftig.',
       },
-    },
-    {
-      id: '1t-8-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-1-n-section4',
       type: 'text',
       content: `## Interpolering og ekstrapolering – to helt forskjellige ting
@@ -195,15 +163,7 @@ Tommelregelen er enkel: vær forsiktig med ekstrapolering, og jo lenger du ekstr
         ],
         solution: 'Kl. 20:00 ligger utenfor intervallet 08:00 til 16:00, altså utenfor dataområdet. Dermed er dette ekstrapolering, uansett hvor nært det virker. Ekstrapolering er alltid mer usikkert enn interpolering.',
       },
-    },
-    {
-      id: '1t-8-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-1-n-section5',
       type: 'text',
       content: `## Modellering i praksis – optimering og kritisk sans
@@ -234,15 +194,7 @@ Still deg alltid disse spørsmålene når du modellerer: Gir modellen fornuftige
         ],
         solution: 'Fordi koeffisienten foran $p^2$ er negativ ($a = -4 < 0$), er parabelen vendt nedover og har et toppunkt. Toppunktet gir den høyeste verdien av overskuddet, altså den optimale prisen.',
       },
-    },
-    {
-      id: '1t-8-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-8-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-8-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -271,15 +223,7 @@ export const CHAPTER_1T_8_2_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['utforske og beskrive eigenskapane ved potensfunksjonar og bruke dei til modellering'],
   linkedChapterId: '1t-8-2',
-  content: [
-    {
-      id: '1t-8-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-8-2-n-intro',
       type: 'text',
       content: `## En funksjonsfamilie med mange ansikter
@@ -323,15 +267,7 @@ En nyttig egenskap: alle potensfunksjoner med $a > 0$ passerer gjennom punktet $
         ],
         solution: '$k(x) = 7\\sqrt[3]{x} = 7x^{1/3}$ er en potensfunksjon med $a = 7$ og $b = \\frac{1}{3}$. Alternativ a er en eksponentialfunksjon ($x$ i eksponenten), b er et polynom (ikke en ren potensfunksjon pga. $+3$), og d er en lineær funksjon med konstantledd.',
       },
-    },
-    {
-      id: '1t-8-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-2-n-section2',
       type: 'text',
       content: `## Potensfunksjoner i fysikken – fritt fall
@@ -360,15 +296,7 @@ Denne egenskapen er generell. For en potensfunksjon $f(x) = a \\cdot x^b$ gjelde
         ],
         solution: '$A(2r) = \\pi(2r)^2 = \\pi \\cdot 4r^2 = 4\\pi r^2 = 4A(r)$. Arealet ganges med $2^2 = 4$, altså firedobles. For en potensfunksjon med eksponent $b$ ganges verdien med $k^b$ når du ganger variabelen med $k$.',
       },
-    },
-    {
-      id: '1t-8-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-2-n-section3',
       type: 'text',
       content: `## Keplers tredje lov – planetenes dans
@@ -397,15 +325,7 @@ Dette viser noe vakkert med potensfunksjoner: naturen «velger» ofte en bestemt
         ],
         solution: '$T = 4^{3/2} = (4^3)^{1/2} = \\sqrt{64} = 8$ år. Alternativt: $4^{3/2} = (4^{1/2})^3 = 2^3 = 8$.',
       },
-    },
-    {
-      id: '1t-8-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-2-n-section4',
       type: 'text',
       content: `## Å bestemme en potensfunksjon fra to punkter
@@ -436,15 +356,7 @@ Pendelen er et annet godt eksempel. Svingetiden for en pendel er gitt ved $T = 2
         ],
         solution: 'Fra punktet $(1, 5)$: $5 = a \\cdot 1^b = a$, altså $a = 5$. Fra punktet $(3, 45)$: $45 = 5 \\cdot 3^b$, som gir $3^b = 9 = 3^2$, altså $b = 2$. Funksjonen er $f(x) = 5x^2$.',
       },
-    },
-    {
-      id: '1t-8-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-2-n-section5',
       type: 'text',
       content: `## Potensfunksjon eller eksponentialfunksjon? Slik skiller du dem
@@ -475,15 +387,7 @@ Et siste skille: potensfunksjoner med heltallseksponent har alltid $(0, 0)$ som 
         ],
         solution: '$\\frac{5}{x^2} = 5 \\cdot x^{-2}$, altså $a = 5$ og $b = -2$. Vi bruker regelen $\\frac{1}{x^n} = x^{-n}$. Negativ eksponent betyr at funksjonen er avtagende.',
       },
-    },
-    {
-      id: '1t-8-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-8-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-8-2-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -512,15 +416,7 @@ export const CHAPTER_1T_8_3_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
   linkedChapterId: '1t-8-3',
-  content: [
-    {
-      id: '1t-8-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-8-3-n-intro',
       type: 'text',
       content: `## Fra prikker til linjer
@@ -560,15 +456,7 @@ Du trenger ikke gjøre beregningene for hånd – GeoGebra gjør det med kommand
         ],
         solution: 'Et residual er den vertikale avstanden mellom et observert datapunkt og verdien regresjonslinjen gir: $e_i = y_i - \\hat{y}_i$. Det viser hvor mye modellen «bommer» på det aktuelle punktet.',
       },
-    },
-    {
-      id: '1t-8-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-3-n-section2',
       type: 'text',
       content: `## Et eksempel – issalg og temperatur
@@ -599,15 +487,7 @@ Skal vi anslå issalget ved 25 grader? Det er interpolering (25 ligger mellom 24
         ],
         solution: 'Stigningstallet i en regresjonslinje $y = ax + b$ forteller oss hvor mye $y$ i gjennomsnitt endrer seg når $x$ øker med 1 enhet. Her betyr det at for hver grad mer selges det omtrent 4,1 flere is.',
       },
-    },
-    {
-      id: '1t-8-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-3-n-section3',
       type: 'text',
       content: `## Korrelasjonskoeffisienten $r$ – hvor sterk er sammenhengen?
@@ -638,15 +518,7 @@ Men betyr det at leksetid *forårsaker* bedre poengsum? Ikke nødvendigvis. Kans
         ],
         solution: '$|r| = 0{,}95 > 0{,}8$ betyr sterk korrelasjon, og det negative fortegnet betyr at variablene beveger seg i motsatt retning: høyere temperatur henger sammen med lavere strømforbruk. Det gir fysisk mening – du trenger mindre oppvarming når det er varmt ute.',
       },
-    },
-    {
-      id: '1t-8-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-3-n-section4',
       type: 'text',
       content: `## Korrelasjon er IKKE kausalitet
@@ -677,15 +549,7 @@ Neste gang du leser en nyhetsartikkel som sier «Studie viser sammenheng mellom 
         ],
         solution: 'Større byer har naturlig nok flere brannstasjoner (mer å beskytte) og flere kriminalitetssaker (flere mennesker). Byens størrelse er den konfunderende variabelen som driver korrelasjonen, ikke en direkte årsakssammenheng.',
       },
-    },
-    {
-      id: '1t-8-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-3-n-section5',
       type: 'text',
       content: `## Prediksjon med regresjonslinjen
@@ -716,15 +580,7 @@ Når du bruker GeoGebra, følg disse stegene: opprett en liste med datapunkter, 
         ],
         solution: 'Modellen er basert på data fra 0 til 24 måneder. Ved 120 måneder ekstrapolerer vi dramatisk. Barns vekst avtar kraftig etter de første leveårene, så den lineære modellen gir urealistiske verdier så langt utenfor dataområdet.',
       },
-    },
-    {
-      id: '1t-8-3-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-8-3-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-8-3-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -753,15 +609,7 @@ export const CHAPTER_1T_8_4_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
   linkedChapterId: '1t-8-4',
-  content: [
-    {
-      id: '1t-8-4-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-4-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-8-4-n-intro',
       type: 'text',
       content: `## Når den rette linjen svikter
@@ -803,15 +651,7 @@ Tenk på det slik: residualene er det som «er igjen» etter at modellen har gjo
         ],
         solution: 'Et systematisk buet mønster i residualene betyr at dataene har en krumning som den lineære modellen ikke fanger opp. Du bør prøve en ikke-lineær modell som kan beskrive den buede sammenhengen.',
       },
-    },
-    {
-      id: '1t-8-4-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-4-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-4-n-section2',
       type: 'text',
       content: `## Polynomregresjon – buer og vendepunkter
@@ -842,15 +682,7 @@ Her er det viktig å bruke skjønn. Hvis forskjellen i $r^2$ er minimal og den l
         ],
         solution: '`RegPoly(liste, 2)` tilpasser et andregradspolynom ($y = ax^2 + bx + c$). Tallet 2 angir graden. `RegLin` gir lineær, `RegExp` gir eksponentiell, og `RegPot` gir potensregresjon.',
       },
-    },
-    {
-      id: '1t-8-4-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-4-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-4-n-section3',
       type: 'text',
       content: `## Eksponentialregresjon – bakterier, penger og forfall
@@ -881,15 +713,7 @@ Eksponentialregresjon fungerer også for nedgang. En metallbit som avkjøles i v
         ],
         solution: '$y = 100 \\cdot 1{,}50^2 = 100 \\cdot 2{,}25 = 225$ bakterier. Vekstfaktoren 1,50 betyr 50 % økning per time: etter 1 time har vi $150$, og etter 2 timer $150 \\cdot 1{,}50 = 225$.',
       },
-    },
-    {
-      id: '1t-8-4-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-4-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-4-n-section4',
       type: 'text',
       content: `## Potensregresjon – naturens skaleringslover
@@ -918,15 +742,7 @@ Et annet eksempel er bremsestrekninger. Data for en bil ved ulike hastigheter gi
         ],
         solution: '$d(2v) = 0{,}005 \\cdot (2v)^2 = 0{,}005 \\cdot 4v^2 = 4 \\cdot 0{,}005v^2 = 4d(v)$. Bremsestrekningen firedobles. For en potensfunksjon med eksponent 2 ganges verdien med $k^2$ når variabelen ganges med $k$, altså $2^2 = 4$.',
       },
-    },
-    {
-      id: '1t-8-4-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-4-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-4-n-section5',
       type: 'text',
       content: `## Modellvalg og faren ved overtilpasning
@@ -959,15 +775,7 @@ Et farlig feilgrep er **overtilpasning**. Med nok parametre kan du alltid lage e
         ],
         solution: 'Et tiendegradspolynom med 10 punkter er et skoleeksempel på overtilpasning. Modellen passer perfekt til akkurat disse punktene, men svinger vilt mellom dem og gir meningsløse forutsigelser. En enklere modell som fanger opp trenden er nesten alltid bedre.',
       },
-    },
-    {
-      id: '1t-8-4-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-8-4-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-8-4-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -994,15 +802,7 @@ export const CHAPTER_1T_8_5_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['modellere situasjonar, drøfte, presentere og forklare resultata og argumentere for om modellane er gyldige'],
   linkedChapterId: '1t-8-5',
-  content: [
-    {
-      id: '1t-8-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-8-5-n-intro',
       type: 'text',
       content: `## Den vanskeligste delen – å vurdere modellen
@@ -1046,15 +846,7 @@ Bruk $r^2$ som et av flere verktøy, men aldri som det eneste.`,
         ],
         solution: '$r^2 = 0{,}99$ betyr at modellen forklarer 99 % av variasjonen i de kjente dataene. Men det sier ingenting om kausalitet, og det garanterer ikke gode forutsigelser ved ekstrapolering. Modellen kan fortsatt være en overtilpasning eller gi urealistiske resultater utenfor dataområdet.',
       },
-    },
-    {
-      id: '1t-8-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-5-n-section2',
       type: 'text',
       content: `## Sammenligning av modeller i praksis
@@ -1089,15 +881,7 @@ Dette illustrerer et viktig poeng: to modeller kan passe nesten like godt til hi
         ],
         solution: 'Negativt strømforbruk er fysisk umulig. Dette viser at den lineære modellen bare gjelder innenfor et begrenset område og bryter sammen ved langvarig ekstrapolering. Alle modeller har slike begrensninger.',
       },
-    },
-    {
-      id: '1t-8-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-5-n-section3',
       type: 'text',
       content: `## Gyldighetsområde og modellens begrensninger
@@ -1130,15 +914,7 @@ Alle matematiske modeller har begrensninger. La oss systematisere de viktigste.
         ],
         solution: 'Det finnes ingen fast grense for $r^2$. Mange nyttige modeller har $r^2$ godt under 0,99. De øvrige alternativene er alle reelle begrensninger som gjelder for enhver matematisk modell.',
       },
-    },
-    {
-      id: '1t-8-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-5-n-section4',
       type: 'text',
       content: `## En helhetlig analyse – dyreparkeksempelet
@@ -1173,15 +949,7 @@ Hva anbefaler vi? For interpolering er andegradsmodellen best. For lengre fremsk
         ],
         solution: 'Parsimonitetsprinsippet handler om å velge den enkleste modellen som gir en tilstrekkelig god beskrivelse av dataene. Det betyr ikke at vi alltid velger lineær – men vi velger ikke en kompleks modell når en enklere gjør jobben like godt.',
       },
-    },
-    {
-      id: '1t-8-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-8-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-8-5-n-section5',
       type: 'text',
       content: `## Kritisk vurdering – modeller i media og samfunn
@@ -1216,15 +984,7 @@ Modeller er kraftige verktøy, men de er ikke sannheter. De er forenklinger som 
         ],
         solution: 'Artikkelen trekker en kausal slutning (sjokolade gjør deg smartere) fra en ren korrelasjon. Konfunderende variabler som velstand, utdanningsnivå og klima påvirker både sjokoladeforbruk og antall nobelprisvinnere. Korrelasjonen er reell, men årsaksslutningen er feil.',
       },
-    },
-    {
-      id: '1t-8-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-8-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-8-5-n-summary',
       type: 'text',
       content: `## Oppsummering

@@ -31,15 +31,7 @@ export const CHAPTER_1T_4_1_NARRATIV: TextbookChapter = {
     'sette opp og løse likningssett fra praktiske situasjoner',
   ],
   linkedChapterId: '1t-4-1',
-  content: [
-    {
-      id: '1t-4-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-4-1-n-intro',
       type: 'text',
       content: `## Når én likning ikke er nok
@@ -68,24 +60,56 @@ Grafisk løsning er utmerket for å forstå hva som skjer, men den har en ulempe
         id: '1t-4-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva representerer løsningen av et likningssett med to ukjente grafisk?',
-        options: [
-          { id: 'a', text: 'Stigningstallet til linjene', isCorrect: false },
-          { id: 'b', text: 'Nullpunktet til den ene linjen', isCorrect: false },
-          { id: 'c', text: 'Skjæringspunktet mellom de to linjene', isCorrect: true },
-          { id: 'd', text: 'Arealet mellom de to linjene', isCorrect: false },
+        task: 'Test deg selv på grafisk løsning av likningssett:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-1-n-quiz1-q0',
+            task: 'Hva representerer løsningen av et likningssett med to ukjente grafisk?',
+            options: [
+              { id: 'a', text: 'Stigningstallet til linjene', isCorrect: false },
+              { id: 'b', text: 'Nullpunktet til den ene linjen', isCorrect: false },
+              { id: 'c', text: 'Skjæringspunktet mellom de to linjene', isCorrect: true },
+              { id: 'd', text: 'Arealet mellom de to linjene', isCorrect: false },
+            ],
+            solution: 'Løsningen av et likningssett er den $x$- og $y$-verdien som oppfyller begge likningene samtidig. Grafisk er dette nettopp skjæringspunktet der de to linjene krysser hverandre.',
+          },
+          {
+            id: '1t-4-1-n-quiz1-q1',
+            task: 'Hva skjer når de to linjene i et likningssett er parallelle?',
+            options: [
+              { id: 'a', text: 'Likningssettet har uendelig mange løsninger', isCorrect: false },
+              { id: 'b', text: 'Likningssettet har ingen løsning', isCorrect: true },
+              { id: 'c', text: 'Likningssettet har nøyaktig to løsninger', isCorrect: false },
+              { id: 'd', text: 'Linjene krysser hverandre i origo', isCorrect: false },
+            ],
+            solution: 'Parallelle linjer har samme stigningstall men ulikt konstantledd, og de krysser aldri hverandre. Derfor finnes det ingen $x$- og $y$-verdier som oppfyller begge likningene, og likningssettet har ingen løsning.',
+          },
+          {
+            id: '1t-4-1-n-quiz1-q2',
+            task: 'Vi har likningen $y + 4 = 2x$. Hva blir den omskrevet til $y = ax + b$-form?',
+            options: [
+              { id: 'a', text: '$y = 2x + 4$', isCorrect: false },
+              { id: 'b', text: '$y = 2x - 4$', isCorrect: true },
+              { id: 'c', text: '$y = -2x + 4$', isCorrect: false },
+              { id: 'd', text: '$y = \\frac{1}{2}x - 4$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra 4 på begge sider: $y = 2x - 4$. Stigningstallet er $a = 2$ og konstantleddet er $b = -4$.',
+          },
+          {
+            id: '1t-4-1-n-quiz1-q3',
+            task: 'Når har et likningssett med to likninger uendelig mange løsninger?',
+            options: [
+              { id: 'a', text: 'Når linjene er parallelle', isCorrect: false },
+              { id: 'b', text: 'Når begge likningene beskriver samme linje', isCorrect: true },
+              { id: 'c', text: 'Når begge likningene går gjennom origo', isCorrect: false },
+              { id: 'd', text: 'Når stigningstallene har motsatt fortegn', isCorrect: false },
+            ],
+            solution: 'Når de to likningene beskriver nøyaktig samme linje (sammenfallende linjer), oppfyller alle punktene på linjen begge likningene. Da har likningssettet uendelig mange løsninger.',
+          },
         ],
-        solution: 'Løsningen av et likningssett er den $x$- og $y$-verdien som oppfyller begge likningene samtidig. Grafisk er dette nettopp skjæringspunktet der de to linjene krysser hverandre.',
       },
-    },
-    {
-      id: '1t-4-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-1-n-section2',
       type: 'text',
       content: `## Innsettingsmetoden – erstatt og løs
@@ -105,24 +129,45 @@ Et godt tips er å alltid velge den variabelen som er **enklest å isolere** –
         id: '1t-4-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Gitt likningssettet $x = 2y$ og $3x + y = 14$. Hva er verdien av $y$?',
-        options: [
-          { id: 'a', text: '$y = 4$', isCorrect: false },
-          { id: 'b', text: '$y = 2$', isCorrect: true },
-          { id: 'c', text: '$y = 7$', isCorrect: false },
-          { id: 'd', text: '$y = 3$', isCorrect: false },
+        task: 'Test deg selv på innsettingsmetoden:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-1-n-quiz2-q0',
+            task: 'Gitt likningssettet $x = 2y$ og $3x + y = 14$. Hva er verdien av $y$?',
+            options: [
+              { id: 'a', text: '$y = 4$', isCorrect: false },
+              { id: 'b', text: '$y = 2$', isCorrect: true },
+              { id: 'c', text: '$y = 7$', isCorrect: false },
+              { id: 'd', text: '$y = 3$', isCorrect: false },
+            ],
+            solution: 'Vi setter $x = 2y$ inn i den andre likningen: $3 \\cdot 2y + y = 14$, som gir $6y + y = 7y = 14$, altså $y = 2$.',
+          },
+          {
+            id: '1t-4-1-n-quiz2-q1',
+            task: 'Hvilken variabel er det lurtest å isolere i likningen $2x + 5y = 9$ og $3x - y = 5$?',
+            options: [
+              { id: 'a', text: '$x$ i den første likningen', isCorrect: false },
+              { id: 'b', text: '$x$ i den andre likningen', isCorrect: false },
+              { id: 'c', text: '$y$ i den andre likningen', isCorrect: true },
+              { id: 'd', text: '$y$ i den første likningen', isCorrect: false },
+            ],
+            solution: 'Vi velger variabelen med koeffisient $1$ eller $-1$ fordi det gir enklest uttrykk. I $3x - y = 5$ har $y$ koeffisient $-1$, så vi isolerer $y$: $y = 3x - 5$.',
+          },
+          {
+            id: '1t-4-1-n-quiz2-q2',
+            task: 'Med $y = 3x - 5$ satt inn i $2x + 5y = 9$, hva blir likningen?',
+            options: [
+              { id: 'a', text: '$2x + 5(3x - 5) = 9$, altså $17x - 25 = 9$', isCorrect: true },
+              { id: 'b', text: '$2x + 5 \\cdot 3x - 5 = 9$, altså $17x - 5 = 9$', isCorrect: false },
+              { id: 'c', text: '$2(3x - 5) + 5y = 9$, altså $6x - 10 + 5y = 9$', isCorrect: false },
+              { id: 'd', text: '$2x + 15x + 5 = 9$, altså $17x = 4$', isCorrect: false },
+            ],
+            solution: 'Vi erstatter $y$ med $(3x - 5)$: $2x + 5(3x - 5) = 9$. Løser opp parentesen: $2x + 15x - 25 = 9$, altså $17x - 25 = 9$.',
+          },
         ],
-        solution: 'Vi setter $x = 2y$ inn i den andre likningen: $3 \\cdot 2y + y = 14$, som gir $6y + y = 7y = 14$, altså $y = 2$.',
       },
-    },
-    {
-      id: '1t-4-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-1-n-section3',
       type: 'text',
       content: `## Addisjonsmetoden – eliminér en ukjent
@@ -142,24 +187,56 @@ Noen ganger må vi gange begge likningene. Har du $3x + 5y = 2$ og $2x - 2y = -4
         id: '1t-4-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Vi har likningssettet $3x + y = 6$ og $2x - y = -4$. Hva skjer om vi legger sammen de to likningene?',
-        options: [
-          { id: 'a', text: 'Vi får $5x + 2y = 2$', isCorrect: false },
-          { id: 'b', text: 'Vi får $5x = 2$', isCorrect: true },
-          { id: 'c', text: 'Vi får $x + 2y = 10$', isCorrect: false },
-          { id: 'd', text: 'Vi får $5x = 10$', isCorrect: false },
+        task: 'Test deg selv på addisjonsmetoden:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-1-n-quiz3-q0',
+            task: 'Vi har likningssettet $3x + y = 6$ og $2x - y = -4$. Hva skjer om vi legger sammen de to likningene?',
+            options: [
+              { id: 'a', text: 'Vi får $5x + 2y = 2$', isCorrect: false },
+              { id: 'b', text: 'Vi får $5x = 2$', isCorrect: true },
+              { id: 'c', text: 'Vi får $x + 2y = 10$', isCorrect: false },
+              { id: 'd', text: 'Vi får $5x = 10$', isCorrect: false },
+            ],
+            solution: 'Legger vi sammen venstresidene: $3x + y + 2x - y = 5x$ (y-leddene kansellerer). Høyresidene: $6 + (-4) = 2$. Vi får $5x = 2$, altså $x = \\frac{2}{5}$.',
+          },
+          {
+            id: '1t-4-1-n-quiz3-q1',
+            task: 'Vi har $I$: $x + 3y = 8$ og $II$: $2x - 2y = 8$. Hva bør vi gange likning $I$ med for at $x$-leddene skal kansellere ved addisjon?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$-2$', isCorrect: true },
+              { id: 'c', text: '$3$', isCorrect: false },
+              { id: 'd', text: '$-1$', isCorrect: false },
+            ],
+            solution: 'Likning $II$ har $2x$. For at $x$-leddene skal kansellere trenger vi $-2x$ i likning $I$. Vi ganger $I$ med $-2$: $-2(x + 3y) = -2x - 6y = -16$. Nå har vi $-2x$ og $2x$ som kansellerer ved addisjon.',
+          },
+          {
+            id: '1t-4-1-n-quiz3-q2',
+            task: 'Hva er hovedideen bak addisjonsmetoden?',
+            options: [
+              { id: 'a', text: 'Å tegne begge likningene som linjer', isCorrect: false },
+              { id: 'b', text: 'Å løse én likning for én variabel og sette inn', isCorrect: false },
+              { id: 'c', text: 'Å multiplisere likningene slik at én variabel forsvinner ved addisjon', isCorrect: true },
+              { id: 'd', text: 'Å dele begge likningene med den samme konstanten', isCorrect: false },
+            ],
+            solution: 'Addisjonsmetoden går ut på å multiplisere én eller begge likningene med passende tall slik at koeffisientene til én variabel blir like store med motsatt fortegn. Når vi legger likningene sammen, forsvinner den variabelen.',
+          },
+          {
+            id: '1t-4-1-n-quiz3-q3',
+            task: 'Vi har $I$: $2x + 4y = 14$ og $II$: $-2x - 2y = -8$. Hva blir $y$ etter addisjon?',
+            options: [
+              { id: 'a', text: '$y = 2$', isCorrect: false },
+              { id: 'b', text: '$y = 1$', isCorrect: false },
+              { id: 'c', text: '$y = 3$', isCorrect: true },
+              { id: 'd', text: '$y = 4$', isCorrect: false },
+            ],
+            solution: 'Vi legger sammen: $(2x + 4y) + (-2x - 2y) = 14 + (-8)$, som gir $2y = 6$, altså $y = 3$.',
+          },
         ],
-        solution: 'Legger vi sammen venstresidene: $3x + y + 2x - y = 5x$ (y-leddene kansellerer). Høyresidene: $6 + (-4) = 2$. Vi får $5x = 2$, altså $x = \\frac{2}{5}$.',
       },
-    },
-    {
-      id: '1t-4-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-1-n-section4',
       type: 'text',
       content: `## Tre ukjente – samme prinsipp, flere steg
@@ -179,24 +256,45 @@ Det krever noen flere steg, men prinsippet er nøyaktig det samme som med to ukj
         id: '1t-4-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvor mange likninger trenger du for å løse et likningssett med tre ukjente?',
-        options: [
-          { id: 'a', text: 'To likninger', isCorrect: false },
-          { id: 'b', text: 'Fire likninger', isCorrect: false },
-          { id: 'c', text: 'Én likning', isCorrect: false },
-          { id: 'd', text: 'Tre likninger', isCorrect: true },
+        task: 'Test deg selv på likningssett med tre ukjente:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-1-n-quiz4-q0',
+            task: 'Hvor mange likninger trenger du for å løse et likningssett med tre ukjente?',
+            options: [
+              { id: 'a', text: 'To likninger', isCorrect: false },
+              { id: 'b', text: 'Fire likninger', isCorrect: false },
+              { id: 'c', text: 'Én likning', isCorrect: false },
+              { id: 'd', text: 'Tre likninger', isCorrect: true },
+            ],
+            solution: 'For å finne verdien av $n$ ukjente trenger vi minst $n$ uavhengige likninger. Med tre ukjente trenger vi altså tre likninger.',
+          },
+          {
+            id: '1t-4-1-n-quiz4-q1',
+            task: 'Hva er strategien for å løse tre likninger med tre ukjente?',
+            options: [
+              { id: 'a', text: 'Legge alle tre likningene sammen på én gang', isCorrect: false },
+              { id: 'b', text: 'Redusere til to likninger med to ukjente, og deretter til én likning med én ukjent', isCorrect: true },
+              { id: 'c', text: 'Tegne tre linjer og finne fellessnittet', isCorrect: false },
+              { id: 'd', text: 'Sette alle tre variablene lik hverandre', isCorrect: false },
+            ],
+            solution: 'Vi reduserer steg for steg: først bruker vi én likning til å eliminere én variabel fra de to andre, slik at vi får to likninger med to ukjente. Deretter løser vi dette systemet som vanlig.',
+          },
+          {
+            id: '1t-4-1-n-quiz4-q2',
+            task: 'Gitt $I$: $x + 3y + z = 4$ løst for $x$: $x = 4 - 3y - z$. Hva blir likning $II$: $2x - 2y - z = 1$ etter innsetting?',
+            options: [
+              { id: 'a', text: '$8 - 6y - 2z - 2y - z = 1$, altså $-8y - 3z = -7$', isCorrect: true },
+              { id: 'b', text: '$8 - 3y - z - 2y - z = 1$, altså $-5y - 2z = -7$', isCorrect: false },
+              { id: 'c', text: '$4 - 3y - z - 2y - z = 1$, altså $-5y - 2z = -3$', isCorrect: false },
+              { id: 'd', text: '$2 - 6y - 2z - 2y - z = 1$, altså $-8y - 3z = -1$', isCorrect: false },
+            ],
+            solution: 'Vi setter $x = 4 - 3y - z$ inn i $2x - 2y - z = 1$: $2(4 - 3y - z) - 2y - z = 1$. Vi løser opp: $8 - 6y - 2z - 2y - z = 1$, som forenkles til $-8y - 3z = -7$.',
+          },
         ],
-        solution: 'For å finne verdien av $n$ ukjente trenger vi minst $n$ uavhengige likninger. Med tre ukjente trenger vi altså tre likninger.',
       },
-    },
-    {
-      id: '1t-4-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-1-n-section5',
       type: 'text',
       content: `## Fra virkeligheten til likningssett
@@ -216,24 +314,45 @@ Et annet eksempel: en taxisjåfør tar et fast oppstartsgebyr pluss en pris per 
         id: '1t-4-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En butikk selger epler og bananer. 3 epler og 2 bananer koster 21 kr. 1 eple og 4 bananer koster 17 kr. Hva koster ett eple?',
-        options: [
-          { id: 'a', text: '4 kr', isCorrect: false },
-          { id: 'b', text: '6 kr', isCorrect: false },
-          { id: 'c', text: '5 kr', isCorrect: true },
-          { id: 'd', text: '7 kr', isCorrect: false },
+        task: 'Test deg selv på praktiske likningssett:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-1-n-quiz5-q0',
+            task: 'En butikk selger epler og bananer. 3 epler og 2 bananer koster 21 kr. 1 eple og 4 bananer koster 17 kr. Hva koster ett eple?',
+            options: [
+              { id: 'a', text: '4 kr', isCorrect: false },
+              { id: 'b', text: '6 kr', isCorrect: false },
+              { id: 'c', text: '5 kr', isCorrect: true },
+              { id: 'd', text: '7 kr', isCorrect: false },
+            ],
+            solution: 'Vi setter opp: $I$: $3x + 2y = 21$ og $II$: $x + 4y = 17$. Fra $II$: $x = 17 - 4y$. Inn i $I$: $3(17 - 4y) + 2y = 21$, altså $51 - 12y + 2y = 21$, som gir $-10y = -30$, $y = 3$. Da er $x = 17 - 4 \\cdot 3 = 5$. Epler koster 5 kr.',
+          },
+          {
+            id: '1t-4-1-n-quiz5-q1',
+            task: 'Mari kjøper 5 kg poteter og 2 kg gulrøtter for 58 kr. Hvilken likning beskriver dette med $x$ = pris per kg poteter og $y$ = pris per kg gulrøtter?',
+            options: [
+              { id: 'a', text: '$5x + 2y = 58$', isCorrect: true },
+              { id: 'b', text: '$5y + 2x = 58$', isCorrect: false },
+              { id: 'c', text: '$x + y = 58$', isCorrect: false },
+              { id: 'd', text: '$5x \\cdot 2y = 58$', isCorrect: false },
+            ],
+            solution: '5 kg poteter til pris $x$ koster $5x$, og 2 kg gulrøtter til pris $y$ koster $2y$. Totalen er $5x + 2y = 58$.',
+          },
+          {
+            id: '1t-4-1-n-quiz5-q2',
+            task: 'En taxi tar oppstartsgebyr $x$ kr pluss $y$ kr per km. Kåre betalte 700 kr for 2 turer og 30 km totalt. Hvilken likning passer?',
+            options: [
+              { id: 'a', text: '$2x + 30y = 700$', isCorrect: true },
+              { id: 'b', text: '$30x + 2y = 700$', isCorrect: false },
+              { id: 'c', text: '$x + y = 700$', isCorrect: false },
+              { id: 'd', text: '$2x \\cdot 30y = 700$', isCorrect: false },
+            ],
+            solution: 'Kåre betalte oppstartsgebyr 2 ganger ($2x$) og kjørte 30 km ($30y$). Totalkostnaden gir $2x + 30y = 700$.',
+          },
         ],
-        solution: 'Vi setter opp: $I$: $3x + 2y = 21$ og $II$: $x + 4y = 17$. Fra $II$: $x = 17 - 4y$. Inn i $I$: $3(17 - 4y) + 2y = 21$, altså $51 - 12y + 2y = 21$, som gir $-10y = -30$, $y = 3$. Da er $x = 17 - 4 \\cdot 3 = 5$. Epler koster 5 kr og bananer 3 kr. Sjekk: $3 \\cdot 5 + 2 \\cdot 3 = 21$ og $5 + 4 \\cdot 3 = 17$. Stemmer!',
       },
-    },
-    {
-      id: '1t-4-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-4-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-4-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -268,15 +387,7 @@ export const CHAPTER_1T_4_2_NARRATIV: TextbookChapter = {
     'løyse ulikskapar av første grad',
   ],
   linkedChapterId: '1t-4-2',
-  content: [
-    {
-      id: '1t-4-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-4-2-n-intro',
       type: 'text',
       content: `## Fra likhetstegn til ulikhetstegn
@@ -305,24 +416,56 @@ La oss ta et eksempel. Vi løser $3x + 9 < 12$. Vi trekker fra 9 på begge sider
         id: '1t-4-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er løsningsmengden til ulikheten $2x < 8$?',
-        options: [
-          { id: 'a', text: '$x \\in [4, \\rightarrow \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle \\leftarrow, 4 \\rangle$', isCorrect: true },
-          { id: 'c', text: '$x \\in \\langle \\leftarrow, 4]$', isCorrect: false },
-          { id: 'd', text: '$x \\in \\langle 4, \\rightarrow \\rangle$', isCorrect: false },
+        task: 'Test deg selv på ulikhetstegn og intervallnotasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-2-n-quiz1-q0',
+            task: 'Hva er løsningsmengden til ulikheten $2x < 8$?',
+            options: [
+              { id: 'a', text: '$x \\in [4, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle \\leftarrow, 4 \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, 4]$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle 4, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Vi deler begge sider med 2 (positivt tall, så ulikhetstegnet beholdes): $x < 4$. Siden $x$ skal være strengt mindre enn 4, bruker vi vinkelparentes ved 4. Svaret er $x \\in \\langle \\leftarrow, 4 \\rangle$.',
+          },
+          {
+            id: '1t-4-2-n-quiz1-q1',
+            task: 'Hva betyr hakeparentesen $[$ i intervallet $[5, \\rightarrow \\rangle$?',
+            options: [
+              { id: 'a', text: 'At 5 ikke er med i løsningsmengden', isCorrect: false },
+              { id: 'b', text: 'At 5 er med i løsningsmengden', isCorrect: true },
+              { id: 'c', text: 'At intervallet starter ved 0', isCorrect: false },
+              { id: 'd', text: 'At intervallet er tomt', isCorrect: false },
+            ],
+            solution: 'Hakeparentes $[$ betyr at endepunktet er inkludert (lukket). Altså er $x = 5$ med i løsningsmengden. Dette tilsvarer $x \\geq 5$.',
+          },
+          {
+            id: '1t-4-2-n-quiz1-q2',
+            task: 'Hvilket ulikhetstegn svarer til intervallet $\\langle \\leftarrow, 3]$?',
+            options: [
+              { id: 'a', text: '$x < 3$', isCorrect: false },
+              { id: 'b', text: '$x > 3$', isCorrect: false },
+              { id: 'c', text: '$x \\leq 3$', isCorrect: true },
+              { id: 'd', text: '$x \\geq 3$', isCorrect: false },
+            ],
+            solution: 'Vinkelparentes ved $\\leftarrow$ betyr at intervallet strekker seg mot minus uendelig. Hakeparentes $]$ ved 3 betyr at 3 er inkludert. Altså $x \\leq 3$.',
+          },
+          {
+            id: '1t-4-2-n-quiz1-q3',
+            task: 'Hvorfor bruker vi alltid vinkelparentes ved uendelig ($\\rightarrow$ eller $\\leftarrow$)?',
+            options: [
+              { id: 'a', text: 'Fordi det ser penere ut', isCorrect: false },
+              { id: 'b', text: 'Fordi uendelig ikke er et tall vi kan nå eller inkludere', isCorrect: true },
+              { id: 'c', text: 'Fordi hakeparentes bare brukes ved 0', isCorrect: false },
+              { id: 'd', text: 'Fordi intervallet er åpent i den retningen', isCorrect: false },
+            ],
+            solution: 'Uendelig ($\\infty$) er ikke et reelt tall, men et konsept for at tallene fortsetter uten stopp. Siden vi ikke kan «nå» uendelig, kan vi heller ikke inkludere det, og bruker vinkelparentes.',
+          },
         ],
-        solution: 'Vi deler begge sider med 2 (positivt tall, så ulikhetstegnet beholdes): $x < 4$. Siden $x$ skal være strengt mindre enn 4, bruker vi vinkelparentes ved 4. Svaret er $x \\in \\langle \\leftarrow, 4 \\rangle$.',
       },
-    },
-    {
-      id: '1t-4-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-2-n-section2',
       type: 'text',
       content: `## Den store regelen – snu tegnet ved negative tall
@@ -344,24 +487,45 @@ Mange gjør feilen å glemme å snu tegnet. En god vane er å alltid spørre deg
         id: '1t-4-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva blir løsningen av $-10x < 50$?',
-        options: [
-          { id: 'a', text: '$x < -5$', isCorrect: false },
-          { id: 'b', text: '$x < 5$', isCorrect: false },
-          { id: 'c', text: '$x > -5$', isCorrect: true },
-          { id: 'd', text: '$x > 5$', isCorrect: false },
+        task: 'Test deg selv på regelen om negative tall:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-2-n-quiz2-q0',
+            task: 'Hva blir løsningen av $-10x < 50$?',
+            options: [
+              { id: 'a', text: '$x < -5$', isCorrect: false },
+              { id: 'b', text: '$x < 5$', isCorrect: false },
+              { id: 'c', text: '$x > -5$', isCorrect: true },
+              { id: 'd', text: '$x > 5$', isCorrect: false },
+            ],
+            solution: 'Vi deler med $-10$ på begge sider. Fordi vi deler med et negativt tall, snur vi ulikhetstegnet: $x > \\frac{50}{-10} = -5$. Løsningen er $x > -5$.',
+          },
+          {
+            id: '1t-4-2-n-quiz2-q1',
+            task: 'Hvorfor snur vi ulikhetstegnet når vi ganger med et negativt tall?',
+            options: [
+              { id: 'a', text: 'Fordi negative tall er mindre enn null', isCorrect: false },
+              { id: 'b', text: 'Fordi ganging med negativt tall speiler tallene gjennom null og snur rekkefølgen', isCorrect: true },
+              { id: 'c', text: 'Fordi vi alltid snur tegnet når vi ganger', isCorrect: false },
+              { id: 'd', text: 'Fordi negative tall ikke kan sammenlignes', isCorrect: false },
+            ],
+            solution: 'Ganging med et negativt tall speiler alle tall gjennom null på tallinjen. For eksempel er $2 < 5$, men $-2 > -5$. Rekkefølgen snur seg, og derfor må ulikhetstegnet snus.',
+          },
+          {
+            id: '1t-4-2-n-quiz2-q2',
+            task: 'Løs $-\\frac{x-2}{5} \\geq 3$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in [-13, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle \\leftarrow, -13 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, -13]$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle -13, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Vi ganger med $-1$ og snur tegnet: $\\frac{x-2}{5} \\leq -3$. Ganger med 5: $x - 2 \\leq -15$. Legger til 2: $x \\leq -13$. Løsningsmengden er $x \\in \\langle \\leftarrow, -13]$.',
+          },
         ],
-        solution: 'Vi deler med $-10$ på begge sider. Fordi vi deler med et negativt tall, snur vi ulikhetstegnet: $x > \\frac{50}{-10} = -5$. Løsningen er $x > -5$.',
       },
-    },
-    {
-      id: '1t-4-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-2-n-section3',
       type: 'text',
       content: `## Ulikheter med $x$ på begge sider
@@ -383,24 +547,45 @@ Prinsippet er det samme hver gang: isoler $x$, vær oppmerksom på fortegn, og s
         id: '1t-4-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Løs ulikheten $5 - 2x \\geq 1$. Hva er løsningsmengden?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle \\leftarrow, 2 \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle 2, \\rightarrow \\rangle$', isCorrect: false },
-          { id: 'c', text: '$x \\in [2, \\rightarrow \\rangle$', isCorrect: false },
-          { id: 'd', text: '$x \\in \\langle \\leftarrow, 2]$', isCorrect: true },
+        task: 'Test deg selv på ulikheter med $x$ på begge sider:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-2-n-quiz3-q0',
+            task: 'Løs ulikheten $5 - 2x \\geq 1$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle \\leftarrow, 2 \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle 2, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in [2, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle \\leftarrow, 2]$', isCorrect: true },
+            ],
+            solution: 'Vi trekker fra 5 på begge sider: $-2x \\geq -4$. Deler med $-2$ og snur tegnet: $x \\leq 2$. Løsningsmengden er $x \\in \\langle \\leftarrow, 2]$.',
+          },
+          {
+            id: '1t-4-2-n-quiz3-q1',
+            task: 'Løs $-3x - 1 > 2x + 4$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle \\leftarrow, -1 \\rangle$', isCorrect: true },
+              { id: 'b', text: '$x \\in \\langle -1, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, 1 \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle 1, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Trekk fra $2x$: $-5x - 1 > 4$. Legg til 1: $-5x > 5$. Del med $-5$ og snu tegnet: $x < -1$. Løsningsmengden er $x \\in \\langle \\leftarrow, -1 \\rangle$.',
+          },
+          {
+            id: '1t-4-2-n-quiz3-q2',
+            task: 'Løs $\\frac{x}{2} - 1 > \\frac{x}{3} + 2$. Hva er første steg?',
+            options: [
+              { id: 'a', text: 'Dele begge sider med $x$', isCorrect: false },
+              { id: 'b', text: 'Gange hele ulikheten med fellesnevneren 6', isCorrect: true },
+              { id: 'c', text: 'Snu ulikhetstegnet', isCorrect: false },
+              { id: 'd', text: 'Sette $x = 0$ for å prøve', isCorrect: false },
+            ],
+            solution: 'Når vi har brøker, ganger vi hele ulikheten med fellesnevneren for å kvitte oss med brøkene. Fellesnevneren til 2 og 3 er 6. Vi ganger alt med 6 (positivt, så tegnet beholdes): $3x - 6 > 2x + 12$.',
+          },
         ],
-        solution: 'Vi trekker fra 5 på begge sider: $-2x \\geq -4$. Deler med $-2$ og snur tegnet: $x \\leq 2$. Løsningsmengden er $x \\in \\langle \\leftarrow, 2]$.',
       },
-    },
-    {
-      id: '1t-4-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-2-n-section4',
       type: 'text',
       content: `## Ulikheter med brøker
@@ -420,24 +605,45 @@ Noe som er viktig å huske: $x$ kan være positiv, negativ eller null. Vi vet ik
         id: '1t-4-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er løsningsmengden til $\\frac{3x - 2}{3} \\geq 1$?',
-        options: [
-          { id: 'a', text: '$x \\in [1, \\rightarrow \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle \\leftarrow, \\frac{5}{3}]$', isCorrect: false },
-          { id: 'c', text: '$x \\in [\\frac{5}{3}, \\rightarrow \\rangle$', isCorrect: true },
-          { id: 'd', text: '$x \\in \\langle \\frac{5}{3}, \\rightarrow \\rangle$', isCorrect: false },
+        task: 'Test deg selv på ulikheter med brøker:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-2-n-quiz4-q0',
+            task: 'Hva er løsningsmengden til $\\frac{3x - 2}{3} \\geq 1$?',
+            options: [
+              { id: 'a', text: '$x \\in [1, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle \\leftarrow, \\frac{5}{3}]$', isCorrect: false },
+              { id: 'c', text: '$x \\in [\\frac{5}{3}, \\rightarrow \\rangle$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle \\frac{5}{3}, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Ganger med 3: $3x - 2 \\geq 3$. Legger til 2: $3x \\geq 5$. Deler med 3: $x \\geq \\frac{5}{3}$. Løsningsmengden er $x \\in [\\frac{5}{3}, \\rightarrow \\rangle$.',
+          },
+          {
+            id: '1t-4-2-n-quiz4-q1',
+            task: 'Løs $\\frac{x}{2} - 5x \\leq 18$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle \\leftarrow, -4]$', isCorrect: false },
+              { id: 'b', text: '$x \\in [-4, \\rightarrow \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle -4, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle \\leftarrow, -4 \\rangle$', isCorrect: false },
+            ],
+            solution: 'Felles nevner: $\\frac{x}{2} - \\frac{10x}{2} = \\frac{-9x}{2} \\leq 18$. Ganger med 2: $-9x \\leq 36$. Deler med $-9$ og snur tegnet: $x \\geq -4$. Løsningsmengden er $x \\in [-4, \\rightarrow \\rangle$.',
+          },
+          {
+            id: '1t-4-2-n-quiz4-q2',
+            task: 'Løs $\\frac{-x-2}{2} \\geq \\frac{x+3}{4}$. Hva er fellesnevneren vi bør gange med?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$8$', isCorrect: false },
+              { id: 'c', text: '$4$', isCorrect: true },
+              { id: 'd', text: '$6$', isCorrect: false },
+            ],
+            solution: 'Nevnerne er 2 og 4. Fellesnevneren er 4 (det minste tallet som er delelig med både 2 og 4). Vi ganger hele ulikheten med 4: $2(-x-2) \\geq x + 3$.',
+          },
         ],
-        solution: 'Ganger med 3: $3x - 2 \\geq 3$. Legger til 2: $3x \\geq 5$. Deler med 3: $x \\geq \\frac{5}{3}$. Løsningsmengden er $x \\in [\\frac{5}{3}, \\rightarrow \\rangle$.',
       },
-    },
-    {
-      id: '1t-4-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-2-n-section5',
       type: 'text',
       content: `## Vanlige feil og hvordan du unngår dem
@@ -459,24 +665,45 @@ Til slutt: sjekk alltid svaret ditt ved å sette inn en verdi som ligger i løsn
         id: '1t-4-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva gjør vi med ulikhetstegnet når vi ganger begge sider med $-1$?',
-        options: [
-          { id: 'a', text: 'Vi beholder det som det er', isCorrect: false },
-          { id: 'b', text: 'Vi snur det', isCorrect: true },
-          { id: 'c', text: 'Vi fjerner det og bruker likhetstegn', isCorrect: false },
-          { id: 'd', text: 'Det kommer an på verdien av $x$', isCorrect: false },
+        task: 'Test deg selv på vanlige feil i ulikheter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-2-n-quiz5-q0',
+            task: 'Hva gjør vi med ulikhetstegnet når vi ganger begge sider med $-1$?',
+            options: [
+              { id: 'a', text: 'Vi beholder det som det er', isCorrect: false },
+              { id: 'b', text: 'Vi snur det', isCorrect: true },
+              { id: 'c', text: 'Vi fjerner det og bruker likhetstegn', isCorrect: false },
+              { id: 'd', text: 'Det kommer an på verdien av $x$', isCorrect: false },
+            ],
+            solution: 'Når vi ganger (eller deler) med et negativt tall, må vi snu ulikhetstegnet. For eksempel: $-2 > -5$ stemmer, men ganger vi med $-1$ får vi $2 < 5$, som også stemmer – tegnet ble snudd.',
+          },
+          {
+            id: '1t-4-2-n-quiz5-q1',
+            task: 'Hvorfor kan vi ikke gange begge sider av en ulikhet med $x$?',
+            options: [
+              { id: 'a', text: 'Fordi $x$ alltid er negativ', isCorrect: false },
+              { id: 'b', text: 'Fordi vi ikke vet om $x$ er positiv eller negativ', isCorrect: true },
+              { id: 'c', text: 'Fordi $x$ er en variabel', isCorrect: false },
+              { id: 'd', text: 'Fordi det er regelforbud i matematikken', isCorrect: false },
+            ],
+            solution: 'Siden vi ikke vet fortegnet til $x$, vet vi heller ikke om ulikhetstegnet skal snus eller ikke. Derfor kan vi ikke trygt gange med $x$. Denne situasjonen løser vi med fortegnsskjema.',
+          },
+          {
+            id: '1t-4-2-n-quiz5-q2',
+            task: 'Hvordan kan du sjekke at $x > 3$ er riktig svar på en ulikhet?',
+            options: [
+              { id: 'a', text: 'Sette inn $x = 3$ og se at ulikheten stemmer', isCorrect: false },
+              { id: 'b', text: 'Sette inn en verdi som $x = 5$ i den opprinnelige ulikheten og sjekke', isCorrect: true },
+              { id: 'c', text: 'Tegne grafen til ulikheten', isCorrect: false },
+              { id: 'd', text: 'Det er ikke mulig å sjekke svaret', isCorrect: false },
+            ],
+            solution: 'Vi velger en verdi i løsningsmengden, for eksempel $x = 5$ (som er $> 3$), og setter den inn i den opprinnelige ulikheten. Hvis den stemmer, har vi et godt tegn. Vi kan også prøve en verdi utenfor, f.eks. $x = 1$, og sjekke at den ikke stemmer.',
+          },
         ],
-        solution: 'Når vi ganger (eller deler) med et negativt tall, må vi snu ulikhetstegnet. For eksempel: $-2 > -5$ stemmer, men ganger vi med $-1$ får vi $2 < 5$, som også stemmer – tegnet ble snudd.',
       },
-    },
-    {
-      id: '1t-4-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-4-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-4-2-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -509,15 +736,7 @@ export const CHAPTER_1T_4_3_NARRATIV: TextbookChapter = {
     'bruke fortegnsskjema til å løyse ulikskapar',
   ],
   linkedChapterId: '1t-4-3',
-  content: [
-    {
-      id: '1t-4-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-4-3-n-intro',
       type: 'text',
       content: `## Et kart over pluss og minus
@@ -548,24 +767,56 @@ Legg merke til mønsteret: for et lineært uttrykk $(ax + b)$ der $a > 0$ går f
         id: '1t-4-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Uttrykket $(x - 5)$ er negativt. Hvilke $x$-verdier gjelder dette for?',
-        options: [
-          { id: 'a', text: '$x < 5$', isCorrect: true },
-          { id: 'b', text: '$x = 5$', isCorrect: false },
-          { id: 'c', text: '$x > 5$', isCorrect: false },
-          { id: 'd', text: 'Alle $x$-verdier', isCorrect: false },
+        task: 'Test deg selv på fortegnslinjer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-3-n-quiz1-q0',
+            task: 'Uttrykket $(x - 5)$ er negativt. Hvilke $x$-verdier gjelder dette for?',
+            options: [
+              { id: 'a', text: '$x < 5$', isCorrect: true },
+              { id: 'b', text: '$x = 5$', isCorrect: false },
+              { id: 'c', text: '$x > 5$', isCorrect: false },
+              { id: 'd', text: 'Alle $x$-verdier', isCorrect: false },
+            ],
+            solution: 'Nullpunktet til $(x - 5)$ er $x = 5$. Siden koeffisienten foran $x$ er positiv, går fortegnslinjen fra negativ til positiv ved nullpunktet. Altså er uttrykket negativt for $x < 5$.',
+          },
+          {
+            id: '1t-4-3-n-quiz1-q1',
+            task: 'Hva er nullpunktet til uttrykket $(x + 3)$?',
+            options: [
+              { id: 'a', text: '$x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = -3$', isCorrect: true },
+              { id: 'c', text: '$x = 0$', isCorrect: false },
+              { id: 'd', text: '$x = -\\frac{1}{3}$', isCorrect: false },
+            ],
+            solution: 'Nullpunktet finner vi ved å sette uttrykket lik null: $x + 3 = 0$, som gir $x = -3$.',
+          },
+          {
+            id: '1t-4-3-n-quiz1-q2',
+            task: 'Hva er fortegnet til $(-x)$ for $x > 0$?',
+            options: [
+              { id: 'a', text: 'Positivt', isCorrect: false },
+              { id: 'b', text: 'Negativt', isCorrect: true },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Udefinert', isCorrect: false },
+            ],
+            solution: 'Når $x > 0$, for eksempel $x = 2$, er $-x = -2$, som er negativt. Fortegnslinjen til $(-x)$ er altså negativ for positive $x$-verdier – det er «omvendt» sammenlignet med $x$.',
+          },
+          {
+            id: '1t-4-3-n-quiz1-q3',
+            task: 'Hva er fortegnslinjen til en konstant som $-3$?',
+            options: [
+              { id: 'a', text: 'Positiv for $x > 3$ og negativ for $x < 3$', isCorrect: false },
+              { id: 'b', text: 'Alltid positiv', isCorrect: false },
+              { id: 'c', text: 'Alltid negativ', isCorrect: true },
+              { id: 'd', text: 'Null overalt', isCorrect: false },
+            ],
+            solution: 'Konstanten $-3$ avhenger ikke av $x$ og er alltid negativ, uansett hva $x$ er. Fortegnslinjen er stiplet (negativ) hele veien.',
+          },
         ],
-        solution: 'Nullpunktet til $(x - 5)$ er $x = 5$. Siden koeffisienten foran $x$ er positiv, går fortegnslinjen fra negativ til positiv ved nullpunktet. Altså er uttrykket negativt for $x < 5$.',
       },
-    },
-    {
-      id: '1t-4-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-3-n-section2',
       type: 'text',
       content: `## Fortegnsskjema – kombinere flere faktorer
@@ -585,24 +836,45 @@ Huskereglene for å kombinere fortegn er de samme som for vanlig multiplikasjon:
         id: '1t-4-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er fortegnet til $-2(x + 3)$ når $x = -5$?',
-        options: [
-          { id: 'a', text: 'Negativt', isCorrect: false },
-          { id: 'b', text: 'Udefinert', isCorrect: false },
-          { id: 'c', text: 'Null', isCorrect: false },
-          { id: 'd', text: 'Positivt', isCorrect: true },
+        task: 'Test deg selv på fortegnsskjema:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-3-n-quiz2-q0',
+            task: 'Hva er fortegnet til $-2(x + 3)$ når $x = -5$?',
+            options: [
+              { id: 'a', text: 'Negativt', isCorrect: false },
+              { id: 'b', text: 'Udefinert', isCorrect: false },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Positivt', isCorrect: true },
+            ],
+            solution: 'Vi setter inn: $-2(-5 + 3) = -2 \\cdot (-2) = 4$, som er positivt. Alternativt: nullpunktet er $x = -3$. For $x < -3$ er $(x+3)$ negativ, og $-2 \\cdot (\\text{negativ}) = \\text{positiv}$.',
+          },
+          {
+            id: '1t-4-3-n-quiz2-q1',
+            task: 'Hva er resultatet av å multiplisere fortegnene $(-)$ og $(-)$?',
+            options: [
+              { id: 'a', text: 'Negativt', isCorrect: false },
+              { id: 'b', text: 'Positivt', isCorrect: true },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Udefinert', isCorrect: false },
+            ],
+            solution: 'Minus ganger minus gir pluss. Huskeregelen: like fortegn gir pluss, ulike fortegn gir minus.',
+          },
+          {
+            id: '1t-4-3-n-quiz2-q2',
+            task: 'Vi har $f(x) = -3(x-6)$. For hvilke $x$-verdier er $f(x)$ positiv?',
+            options: [
+              { id: 'a', text: '$x > 6$', isCorrect: false },
+              { id: 'b', text: '$x < 6$', isCorrect: true },
+              { id: 'c', text: '$x = 6$', isCorrect: false },
+              { id: 'd', text: 'Ingen $x$-verdier', isCorrect: false },
+            ],
+            solution: 'Nullpunktet er $x = 6$. For $x < 6$: $(x-6)$ er negativ, og $-3 \\cdot (\\text{negativ}) = \\text{positiv}$. For $x > 6$: $(x-6)$ er positiv, og $-3 \\cdot (\\text{positiv}) = \\text{negativ}$. Altså er $f(x)$ positiv for $x < 6$.',
+          },
         ],
-        solution: 'Vi setter inn: $-2(-5 + 3) = -2 \\cdot (-2) = 4$, som er positivt. Alternativt: nullpunktet er $x = -3$. For $x < -3$ er $(x+3)$ negativ, og $-2 \\cdot (\\text{negativ}) = \\text{positiv}$.',
       },
-    },
-    {
-      id: '1t-4-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-3-n-section3',
       type: 'text',
       content: `## Faktorisering – nøkkelen til fortegnsskjema
@@ -624,24 +896,45 @@ Tenk alltid: «Kan jeg skrive dette som et produkt?» Hvis ja, har du nøkkelen 
         id: '1t-4-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er den faktoriserte formen av $-6x + 18$?',
-        options: [
-          { id: 'a', text: '$-3(2x + 6)$', isCorrect: false },
-          { id: 'b', text: '$-6(x - 3)$', isCorrect: true },
-          { id: 'c', text: '$-6(x + 3)$', isCorrect: false },
-          { id: 'd', text: '$6(x - 3)$', isCorrect: false },
+        task: 'Test deg selv på faktorisering:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-3-n-quiz3-q0',
+            task: 'Hva er den faktoriserte formen av $-6x + 18$?',
+            options: [
+              { id: 'a', text: '$-3(2x + 6)$', isCorrect: false },
+              { id: 'b', text: '$-6(x - 3)$', isCorrect: true },
+              { id: 'c', text: '$-6(x + 3)$', isCorrect: false },
+              { id: 'd', text: '$6(x - 3)$', isCorrect: false },
+            ],
+            solution: 'Vi trekker ut $-6$: $-6x + 18 = -6(x - 3)$. Vi kan verifisere: $-6 \\cdot x + (-6) \\cdot (-3) = -6x + 18$. Stemmer.',
+          },
+          {
+            id: '1t-4-3-n-quiz3-q1',
+            task: 'Faktoriser $-5x - 10$.',
+            options: [
+              { id: 'a', text: '$-5(x - 2)$', isCorrect: false },
+              { id: 'b', text: '$5(x + 2)$', isCorrect: false },
+              { id: 'c', text: '$-5(x + 2)$', isCorrect: true },
+              { id: 'd', text: '$-10(x + 1)$', isCorrect: false },
+            ],
+            solution: 'Vi trekker ut $-5$: $-5x - 10 = -5(x + 2)$. Sjekk: $-5 \\cdot x + (-5) \\cdot 2 = -5x - 10$. Stemmer.',
+          },
+          {
+            id: '1t-4-3-n-quiz3-q2',
+            task: 'Hvorfor er faktorisering viktig for fortegnsskjema?',
+            options: [
+              { id: 'a', text: 'Fordi det gjør uttrykket kortere', isCorrect: false },
+              { id: 'b', text: 'Fordi fortegnsskjemaet krever at vi ser hver faktor for seg', isCorrect: true },
+              { id: 'c', text: 'Fordi det fjerner brøker', isCorrect: false },
+              { id: 'd', text: 'Fordi det finnes bare én måte å faktorisere på', isCorrect: false },
+            ],
+            solution: 'Fortegnsskjemaet krever at uttrykket er skrevet som et produkt av faktorer. Bare da kan vi bestemme fortegnet til hver faktor separat og multiplisere dem for å finne fortegnet til hele uttrykket.',
+          },
         ],
-        solution: 'Vi trekker ut $-6$: $-6x + 18 = -6(x - 3)$. Vi kan verifisere: $-6 \\cdot x + (-6) \\cdot (-3) = -6x + 18$. Stemmer.',
       },
-    },
-    {
-      id: '1t-4-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-3-n-section4',
       type: 'text',
       content: `## Løse ulikheter med fortegnsskjema
@@ -661,24 +954,45 @@ Legg merke til at vi fikk to «komplementære» svar – den ene ulikheten dekke
         id: '1t-4-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Fra et fortegnsskjema finner vi at $f(x) = -2(x+1)$ er positivt for $x < -1$ og negativt for $x > -1$. Hva er løsningen på $-2(x+1) > 0$?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle -1, \\rightarrow \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle \\leftarrow, -1 \\rangle$', isCorrect: true },
-          { id: 'c', text: '$x \\in \\langle \\leftarrow, -1]$', isCorrect: false },
-          { id: 'd', text: '$x \\in [-1, \\rightarrow \\rangle$', isCorrect: false },
+        task: 'Test deg selv på å løse ulikheter med fortegnsskjema:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-3-n-quiz4-q0',
+            task: 'Fra et fortegnsskjema finner vi at $f(x) = -2(x+1)$ er positivt for $x < -1$ og negativt for $x > -1$. Hva er løsningen på $-2(x+1) > 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -1, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle \\leftarrow, -1 \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, -1]$', isCorrect: false },
+              { id: 'd', text: '$x \\in [-1, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Vi ønsker å finne der uttrykket er strengt positivt ($> 0$). Fra fortegnsskjemaet er uttrykket positivt for $x < -1$. Siden det er streng ulikhet ($>$ og ikke $\\geq$), inkluderer vi ikke $x = -1$ (der er uttrykket null). Svaret er $x \\in \\langle \\leftarrow, -1 \\rangle$.',
+          },
+          {
+            id: '1t-4-3-n-quiz4-q1',
+            task: 'Hva er løsningen på $-5(x+2) < 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle \\leftarrow, -2 \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle -2, \\rightarrow \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, -2]$', isCorrect: false },
+              { id: 'd', text: '$x \\in [-2, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Nullpunktet er $x = -2$. For $x < -2$: $(-) \\cdot (-) = +$ (positivt). For $x > -2$: $(-) \\cdot (+) = -$ (negativt). Vi ønsker negativt ($< 0$), altså $x > -2$. Svaret er $x \\in \\langle -2, \\rightarrow \\rangle$.',
+          },
+          {
+            id: '1t-4-3-n-quiz4-q2',
+            task: 'Hva er løsningen på $-5x - 10 \\geq 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -2, \\rightarrow \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle \\leftarrow, -2 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle \\leftarrow, -2]$', isCorrect: true },
+              { id: 'd', text: '$x \\in [-2, \\rightarrow \\rangle$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer: $-5(x+2) \\geq 0$. Nullpunkt $x = -2$. For $x < -2$: $(-) \\cdot (-) = +$ (positivt). For $x > -2$: $(-) \\cdot (+) = -$ (negativt). Vi ønsker positivt eller null ($\\geq 0$): $x \\leq -2$. Svaret er $x \\in \\langle \\leftarrow, -2]$.',
+          },
         ],
-        solution: 'Vi ønsker å finne der uttrykket er strengt positivt ($> 0$). Fra fortegnsskjemaet er uttrykket positivt for $x < -1$. Siden det er streng ulikhet ($>$ og ikke $\\geq$), inkluderer vi ikke $x = -1$ (der er uttrykket null). Svaret er $x \\in \\langle \\leftarrow, -1 \\rangle$.',
       },
-    },
-    {
-      id: '1t-4-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-3-n-section5',
       type: 'text',
       content: `## Fortegnsskjema med flere kritiske punkter
@@ -700,24 +1014,45 @@ Denne teknikken skalerer til så mange faktorer du vil. Jo flere faktorer, jo fl
         id: '1t-4-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Vi vet at $5(x-2) \\leq 0$ og $5$ er positiv. Hva kan vi si om $(x-2)$?',
-        options: [
-          { id: 'a', text: '$(x-2)$ er positiv', isCorrect: false },
-          { id: 'b', text: 'Vi kan ikke avgjøre fortegnet', isCorrect: false },
-          { id: 'c', text: '$(x-2)$ er negativ eller null', isCorrect: true },
-          { id: 'd', text: '$(x-2)$ er null', isCorrect: false },
+        task: 'Test deg selv på fortegnsskjema med flere faktorer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-3-n-quiz5-q0',
+            task: 'Vi vet at $5(x-2) \\leq 0$ og $5$ er positiv. Hva kan vi si om $(x-2)$?',
+            options: [
+              { id: 'a', text: '$(x-2)$ er positiv', isCorrect: false },
+              { id: 'b', text: 'Vi kan ikke avgjøre fortegnet', isCorrect: false },
+              { id: 'c', text: '$(x-2)$ er negativ eller null', isCorrect: true },
+              { id: 'd', text: '$(x-2)$ er null', isCorrect: false },
+            ],
+            solution: 'Produktet $5 \\cdot (x-2) \\leq 0$. Siden $5 > 0$ (alltid positiv), må $(x-2)$ være negativ eller null for at produktet skal være $\\leq 0$. Altså $x - 2 \\leq 0$, som gir $x \\leq 2$.',
+          },
+          {
+            id: '1t-4-3-n-quiz5-q1',
+            task: 'For uttrykket $2(x+4)(x-2)$, hva er fortegnet når $-4 < x < 2$?',
+            options: [
+              { id: 'a', text: 'Positivt', isCorrect: false },
+              { id: 'b', text: 'Negativt', isCorrect: true },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Udefinert', isCorrect: false },
+            ],
+            solution: 'For $-4 < x < 2$: $2$ er positiv, $(x+4)$ er positiv (fordi $x > -4$), og $(x-2)$ er negativ (fordi $x < 2$). Produktet: $(+) \\cdot (+) \\cdot (-) = -$, altså negativt.',
+          },
+          {
+            id: '1t-4-3-n-quiz5-q2',
+            task: 'Hva er løsningen på $2(x+4)(x-2) \\leq 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -4, 2 \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in [-4, 2]$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle -\\infty, -4 \\rangle \\cup \\langle 2, \\infty \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle -\\infty, -4] \\cup [2, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Uttrykket er negativt for $-4 < x < 2$ og null ved $x = -4$ og $x = 2$. Siden ulikheten er $\\leq 0$ (negativt eller null), er løsningen $x \\in [-4, 2]$.',
+          },
         ],
-        solution: 'Produktet $5 \\cdot (x-2) \\leq 0$. Siden $5 > 0$ (alltid positiv), må $(x-2)$ være negativ eller null for at produktet skal være $\\leq 0$. Altså $x - 2 \\leq 0$, som gir $x \\leq 2$.',
       },
-    },
-    {
-      id: '1t-4-3-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-4-3-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-4-3-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -750,15 +1085,7 @@ export const CHAPTER_1T_4_4_NARRATIV: TextbookChapter = {
     'løyse ulikskapar av andre grad',
   ],
   linkedChapterId: '1t-4-4',
-  content: [
-    {
-      id: '1t-4-4-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-4-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-4-4-n-intro',
       type: 'text',
       content: `## Parabolen over og under x-aksen
@@ -791,24 +1118,45 @@ Denne oppskriften fungerer for alle andregradsulikheter – uansett om parabelen
         id: '1t-4-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er det første steget når du skal løse en andregradsulikhet?',
-        options: [
-          { id: 'a', text: 'Sørge for at du har null på den ene siden', isCorrect: true },
-          { id: 'b', text: 'Tegne grafen', isCorrect: false },
-          { id: 'c', text: 'Bruke abc-formelen direkte', isCorrect: false },
-          { id: 'd', text: 'Dele begge sider med koeffisienten foran $x^2$', isCorrect: false },
+        task: 'Test deg selv på fremgangsmåten for andregradsulikheter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-4-n-quiz1-q0',
+            task: 'Hva er det første steget når du skal løse en andregradsulikhet?',
+            options: [
+              { id: 'a', text: 'Sørge for at du har null på den ene siden', isCorrect: true },
+              { id: 'b', text: 'Tegne grafen', isCorrect: false },
+              { id: 'c', text: 'Bruke abc-formelen direkte', isCorrect: false },
+              { id: 'd', text: 'Dele begge sider med koeffisienten foran $x^2$', isCorrect: false },
+            ],
+            solution: 'Det første steget er å flytte alle ledd til én side slik at du har formen «uttrykk $\\gtrless 0$». Deretter kan du faktorisere og bruke fortegnsskjema.',
+          },
+          {
+            id: '1t-4-4-n-quiz1-q1',
+            task: 'Hva kalles teknikken med å skrive $ax^2 + bx + c = a(x - x_1)(x - x_2)$?',
+            options: [
+              { id: 'a', text: 'Konjugatsetningen', isCorrect: false },
+              { id: 'b', text: 'Nullpunktsfaktorisering', isCorrect: true },
+              { id: 'c', text: 'Kvadratsetningen', isCorrect: false },
+              { id: 'd', text: 'Polynomdivisjon', isCorrect: false },
+            ],
+            solution: 'Nullpunktsfaktorisering innebærer å finne nullpunktene $x_1$ og $x_2$ (for eksempel med abc-formelen) og deretter skrive uttrykket som $a(x - x_1)(x - x_2)$.',
+          },
+          {
+            id: '1t-4-4-n-quiz1-q2',
+            task: 'I hvilken rekkefølge utføres de fire stegene for å løse andregradsulikheter?',
+            options: [
+              { id: 'a', text: 'Faktoriser, sett opp fortegnsskjema, flytt ledd, les av svar', isCorrect: false },
+              { id: 'b', text: 'Flytt ledd til null, faktoriser, fortegnsskjema, les av svar', isCorrect: true },
+              { id: 'c', text: 'Les av svar, faktoriser, fortegnsskjema, flytt ledd', isCorrect: false },
+              { id: 'd', text: 'Fortegnsskjema, flytt ledd, faktoriser, les av svar', isCorrect: false },
+            ],
+            solution: 'Rekkefølgen er: (1) flytt alt til én side slik at du har null, (2) faktoriser uttrykket, (3) sett opp fortegnsskjema, (4) les av løsningsmengden fra skjemaet.',
+          },
         ],
-        solution: 'Det første steget er å flytte alle ledd til én side slik at du har formen «uttrykk $\\gtrless 0$». Deretter kan du faktorisere og bruke fortegnsskjema.',
       },
-    },
-    {
-      id: '1t-4-4-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-4-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-4-n-section2',
       type: 'text',
       content: `## Eksempel: mellom to nullpunkter
@@ -832,24 +1180,45 @@ Grafisk tilsvarer dette intervallet der parabelen befinner seg *under* $x$-aksen
         id: '1t-4-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $(x - 2)(x + 3) > 0$?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle -3, 2 \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in [-3, 2]$', isCorrect: false },
-          { id: 'c', text: '$x \\in \\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$', isCorrect: true },
-          { id: 'd', text: '$x \\in \\langle 2, \\infty \\rangle$', isCorrect: false },
+        task: 'Test deg selv på andregradsulikheter mellom nullpunkter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-4-n-quiz2-q0',
+            task: 'Hva er løsningen på $(x - 2)(x + 3) > 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -3, 2 \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in [-3, 2]$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle 2, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Nullpunkter: $x = 2$ og $x = -3$. For $x < -3$: $(-)(-)= +$. For $-3 < x < 2$: $(+)(-) = -$. For $x > 2$: $(+)(+) = +$. Produktet er positivt for $x < -3$ eller $x > 2$.',
+          },
+          {
+            id: '1t-4-4-n-quiz2-q1',
+            task: 'Faktoriser $x^2 - 12x + 35$.',
+            options: [
+              { id: 'a', text: '$(x - 5)(x + 7)$', isCorrect: false },
+              { id: 'b', text: '$(x - 5)(x - 7)$', isCorrect: true },
+              { id: 'c', text: '$(x + 5)(x + 7)$', isCorrect: false },
+              { id: 'd', text: '$(x - 3)(x - 12)$', isCorrect: false },
+            ],
+            solution: 'Vi leter etter to tall med sum 12 og produkt 35. Tallene $5$ og $7$ passer: $5 + 7 = 12$ og $5 \\cdot 7 = 35$. Altså $x^2 - 12x + 35 = (x-5)(x-7)$.',
+          },
+          {
+            id: '1t-4-4-n-quiz2-q2',
+            task: 'For $x^2 - 12x + 35 < 0$, altså $(x-5)(x-7) < 0$, hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, 5 \\rangle \\cup \\langle 7, \\infty \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in [5, 7]$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle 5, 7 \\rangle$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle 7, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Produktet er negativt der faktorene har ulikt fortegn, altså for $5 < x < 7$. Med streng ulikhet ($<$) inkluderer vi ikke endepunktene. Løsningen er $x \\in \\langle 5, 7 \\rangle$.',
+          },
         ],
-        solution: 'Nullpunkter: $x = 2$ og $x = -3$. For $x < -3$: $(-)(-)= +$. For $-3 < x < 2$: $(+)(-) = -$. For $x > 2$: $(+)(+) = +$. Produktet er positivt for $x < -3$ eller $x > 2$.',
       },
-    },
-    {
-      id: '1t-4-4-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-4-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-4-n-section3',
       type: 'text',
       content: `## Negativ koeffisient foran $x^2$
@@ -873,24 +1242,56 @@ Legg merke til at den negative konstanten $-2$ snudde hele mønsteret. Uten den 
         id: '1t-4-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er løsningsmengden til $x^2 - 4 \\leq 0$?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle -\\infty, -2] \\cup [2, \\infty \\rangle$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle -2, 2 \\rangle$', isCorrect: false },
-          { id: 'c', text: '$x \\in [-2, 2]$', isCorrect: true },
-          { id: 'd', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle 2, \\infty \\rangle$', isCorrect: false },
+        task: 'Test deg selv på negativ koeffisient foran $x^2$:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-4-n-quiz3-q0',
+            task: 'Hva er løsningsmengden til $x^2 - 4 \\leq 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, -2] \\cup [2, \\infty \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle -2, 2 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in [-2, 2]$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle 2, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer: $x^2 - 4 = (x-2)(x+2)$. Nullpunkter: $x = 2$ og $x = -2$. For $x < -2$: $(-)(-) = +$. For $-2 < x < 2$: $(+)(-) = -$. For $x > 2$: $(+)(+) = +$. Uttrykket er $\\leq 0$ (negativt eller null) for $-2 \\leq x \\leq 2$.',
+          },
+          {
+            id: '1t-4-4-n-quiz3-q1',
+            task: 'Faktoriser $-2x^2 + 10x - 12$.',
+            options: [
+              { id: 'a', text: '$-2(x-2)(x-3)$', isCorrect: true },
+              { id: 'b', text: '$2(x-2)(x-3)$', isCorrect: false },
+              { id: 'c', text: '$-2(x+2)(x+3)$', isCorrect: false },
+              { id: 'd', text: '$-2(x-6)(x-1)$', isCorrect: false },
+            ],
+            solution: 'Først trekker vi ut $-2$: $-2(x^2 - 5x + 6)$. Så faktoriserer vi: to tall med sum 5 og produkt 6 er 2 og 3. Altså $-2(x-2)(x-3)$.',
+          },
+          {
+            id: '1t-4-4-n-quiz3-q2',
+            task: 'Løs $-2(x-2)(x-3) \\geq 0$. Hva er fortegnet for $x < 2$?',
+            options: [
+              { id: 'a', text: 'Positivt', isCorrect: false },
+              { id: 'b', text: 'Negativt', isCorrect: true },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Udefinert', isCorrect: false },
+            ],
+            solution: 'For $x < 2$: $-2$ er negativ, $(x-2)$ er negativ, $(x-3)$ er negativ. Produktet: $(-) \\cdot (-) \\cdot (-) = -$. Uttrykket er negativt for $x < 2$.',
+          },
+          {
+            id: '1t-4-4-n-quiz3-q3',
+            task: 'Hva er løsningsmengden til $-2(x-2)(x-3) \\geq 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, 2] \\cup [3, \\infty \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle 2, 3 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in [2, 3]$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle -\\infty, 2 \\rangle \\cup \\langle 3, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Fra fortegnsskjemaet: negativt for $x < 2$, positivt for $2 < x < 3$, negativt for $x > 3$, null ved $x = 2$ og $x = 3$. Vi ønsker $\\geq 0$ (positivt eller null), altså $x \\in [2, 3]$.',
+          },
         ],
-        solution: 'Vi faktoriserer: $x^2 - 4 = (x-2)(x+2)$. Nullpunkter: $x = 2$ og $x = -2$. For $x < -2$: $(-)(-) = +$. For $-2 < x < 2$: $(+)(-) = -$. For $x > 2$: $(+)(+) = +$. Uttrykket er $\\leq 0$ (negativt eller null) for $-2 \\leq x \\leq 2$.',
       },
-    },
-    {
-      id: '1t-4-4-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-4-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-4-n-section4',
       type: 'text',
       content: `## Når du må flytte ledd først
@@ -912,24 +1313,45 @@ Husk: alltid flytt alt til én side først, og jobb deretter med å faktorisere 
         id: '1t-4-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'For å løse $x^2 + 3x + 2 \\geq 0$, faktoriserer vi til $(x+1)(x+2) \\geq 0$. Hva er løsningsmengden?',
-        options: [
-          { id: 'a', text: '$x \\in [-2, -1]$', isCorrect: false },
-          { id: 'b', text: '$x \\in \\langle -2, -1 \\rangle$', isCorrect: false },
-          { id: 'c', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle -1, \\infty \\rangle$', isCorrect: false },
-          { id: 'd', text: '$x \\in \\langle -\\infty, -2] \\cup [-1, \\infty \\rangle$', isCorrect: true },
+        task: 'Test deg selv på andregradsulikheter med leddflytting:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-4-n-quiz4-q0',
+            task: 'For å løse $x^2 + 3x + 2 \\geq 0$, faktoriserer vi til $(x+1)(x+2) \\geq 0$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in [-2, -1]$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle -2, -1 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle -1, \\infty \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle -\\infty, -2] \\cup [-1, \\infty \\rangle$', isCorrect: true },
+            ],
+            solution: 'Nullpunkter: $x = -2$ og $x = -1$. For $x < -2$: $(-)(-) = +$. For $-2 < x < -1$: $(+)(-) = -$. For $x > -1$: $(+)(+) = +$. Vi ønsker $\\geq 0$, altså positivt eller null. Dette er for $x \\leq -2$ eller $x \\geq -1$.',
+          },
+          {
+            id: '1t-4-4-n-quiz4-q1',
+            task: 'For ulikheten $x^2 - 4x > 12$, hva er første steg?',
+            options: [
+              { id: 'a', text: 'Dele begge sider med $x$', isCorrect: false },
+              { id: 'b', text: 'Trekke fra 12 på begge sider: $x^2 - 4x - 12 > 0$', isCorrect: true },
+              { id: 'c', text: 'Faktorisere $x^2 - 4x$ direkte', isCorrect: false },
+              { id: 'd', text: 'Ta kvadratroten av begge sider', isCorrect: false },
+            ],
+            solution: 'Første steg er alltid å få null på den ene siden. Vi trekker fra 12: $x^2 - 4x - 12 > 0$. Deretter kan vi faktorisere og bruke fortegnsskjema.',
+          },
+          {
+            id: '1t-4-4-n-quiz4-q2',
+            task: 'Hva er løsningen på $(x-6)(x+2) > 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -2, 6 \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in [-2, 6]$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle 6, \\infty \\rangle$', isCorrect: true },
+              { id: 'd', text: '$x \\in \\langle 6, \\infty \\rangle$', isCorrect: false },
+            ],
+            solution: 'Nullpunkter: $x = 6$ og $x = -2$. For $x < -2$: $(-)(-) = +$. For $-2 < x < 6$: $(+)(-) = -$. For $x > 6$: $(+)(+) = +$. Positivt for $x < -2$ eller $x > 6$.',
+          },
         ],
-        solution: 'Nullpunkter: $x = -2$ og $x = -1$. For $x < -2$: $(-)(-) = +$. For $-2 < x < -1$: $(+)(-) = -$. For $x > -1$: $(+)(+) = +$. Vi ønsker $\\geq 0$, altså positivt eller null. Dette er for $x \\leq -2$ eller $x \\geq -1$.',
       },
-    },
-    {
-      id: '1t-4-4-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-4-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-4-n-section5',
       type: 'text',
       content: `## Tredjegradsulikheter og uttrykk med tre faktorer
@@ -953,24 +1375,45 @@ Husk også at løsningsmengden kan bestå av *flere adskilte intervaller*, slik 
         id: '1t-4-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva betyr symbolet $\\cup$ i løsningsmengden $x \\in \\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$?',
-        options: [
-          { id: 'a', text: 'Produkt – verdiene fra det ene ganget med det andre', isCorrect: false },
-          { id: 'b', text: 'Snitt – verdiene som er i begge intervallene', isCorrect: false },
-          { id: 'c', text: 'Differanse – verdiene som er i det første men ikke det andre', isCorrect: false },
-          { id: 'd', text: 'Union – verdiene som er i minst ett av intervallene', isCorrect: true },
+        task: 'Test deg selv på tredjegradsulikheter og union:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-4-n-quiz5-q0',
+            task: 'Hva betyr symbolet $\\cup$ i løsningsmengden $x \\in \\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$?',
+            options: [
+              { id: 'a', text: 'Produkt -- verdiene fra det ene ganget med det andre', isCorrect: false },
+              { id: 'b', text: 'Snitt -- verdiene som er i begge intervallene', isCorrect: false },
+              { id: 'c', text: 'Differanse -- verdiene som er i det første men ikke det andre', isCorrect: false },
+              { id: 'd', text: 'Union -- verdiene som er i minst ett av intervallene', isCorrect: true },
+            ],
+            solution: 'Symbolet $\\cup$ betyr union, altså «eller». Løsningsmengden $\\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$ betyr at $x$ kan være enten mindre enn $-3$ *eller* større enn 2.',
+          },
+          {
+            id: '1t-4-4-n-quiz5-q1',
+            task: 'For $x(x-4)(x+2) < 0$, hva er fortegnet i intervallet $0 < x < 4$?',
+            options: [
+              { id: 'a', text: 'Positivt', isCorrect: false },
+              { id: 'b', text: 'Negativt', isCorrect: true },
+              { id: 'c', text: 'Null', isCorrect: false },
+              { id: 'd', text: 'Udefinert', isCorrect: false },
+            ],
+            solution: 'For $0 < x < 4$: $x$ er positiv $(+)$, $(x-4)$ er negativ $(-)$, $(x+2)$ er positiv $(+)$. Produktet: $(+) \\cdot (-) \\cdot (+) = -$, altså negativt.',
+          },
+          {
+            id: '1t-4-4-n-quiz5-q2',
+            task: 'Hva er løsningen på $x(x-4)(x+2) < 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -2, 0 \\rangle \\cup \\langle 4, \\infty \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle -\\infty, -2 \\rangle \\cup \\langle 0, 4 \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle -2, 4 \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle 0, 4 \\rangle$', isCorrect: false },
+            ],
+            solution: 'Nullpunkter: $x = -2$, $x = 0$, $x = 4$. Fortegn: $x < -2$: $(-)(-)(-)=-$. $-2 < x < 0$: $(-)(-)( +)=+$. $0 < x < 4$: $(+)(-)(+)=-$. $x > 4$: $(+)(+)(+)=+$. Negativt for $x < -2$ eller $0 < x < 4$.',
+          },
         ],
-        solution: 'Symbolet $\\cup$ betyr union, altså «eller». Løsningsmengden $\\langle -\\infty, -3 \\rangle \\cup \\langle 2, \\infty \\rangle$ betyr at $x$ kan være enten mindre enn $-3$ *eller* større enn 2.',
       },
-    },
-    {
-      id: '1t-4-4-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-4-4-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-4-4-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1001,15 +1444,7 @@ export const CHAPTER_1T_4_5_NARRATIV: TextbookChapter = {
     'løyse rasjonale ulikskapar',
   ],
   linkedChapterId: '1t-4-5',
-  content: [
-    {
-      id: '1t-4-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-4-5-n-intro',
       type: 'text',
       content: `## Når $x$ havner under brøkstreken
@@ -1038,24 +1473,45 @@ Det viktigste å huske: der nevneren er null, er uttrykket **udefinert**. Vi mar
         id: '1t-4-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvorfor kan vi ikke gange begge sider av $\\frac{5}{x-2} > 0$ med $(x-2)$?',
-        options: [
-          { id: 'a', text: 'Fordi $(x-2)$ kan være null', isCorrect: false },
-          { id: 'b', text: 'Fordi brøker ikke kan ganges', isCorrect: false },
-          { id: 'c', text: 'Fordi vi ikke vet om $(x-2)$ er positivt eller negativt', isCorrect: true },
-          { id: 'd', text: 'Fordi 5 er en primtallsfaktor', isCorrect: false },
+        task: 'Test deg selv på grunnlaget for rasjonale ulikheter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-5-n-quiz1-q0',
+            task: 'Hvorfor kan vi ikke gange begge sider av $\\frac{5}{x-2} > 0$ med $(x-2)$?',
+            options: [
+              { id: 'a', text: 'Fordi $(x-2)$ kan være null', isCorrect: false },
+              { id: 'b', text: 'Fordi brøker ikke kan ganges', isCorrect: false },
+              { id: 'c', text: 'Fordi vi ikke vet om $(x-2)$ er positivt eller negativt', isCorrect: true },
+              { id: 'd', text: 'Fordi 5 er en primtallsfaktor', isCorrect: false },
+            ],
+            solution: 'Vi vet ikke fortegnet til $(x-2)$. Hvis $(x-2) > 0$, beholder vi ulikhetstegnet. Hvis $(x-2) < 0$, må vi snu det. Siden vi ikke vet fortegnet, kan vi ikke utføre multiplikasjonen uten å dele opp i tilfeller.',
+          },
+          {
+            id: '1t-4-5-n-quiz1-q1',
+            task: 'Hva er den generelle strategien for å løse rasjonale ulikheter?',
+            options: [
+              { id: 'a', text: 'Gange med nevneren og løse som vanlig likning', isCorrect: false },
+              { id: 'b', text: 'Flytte alt til én side, skrive om med felles nevner, og bruke fortegnsskjema', isCorrect: true },
+              { id: 'c', text: 'Sette $x = 0$ og sjekke fortegnet', isCorrect: false },
+              { id: 'd', text: 'Tegne grafen og lese av svaret', isCorrect: false },
+            ],
+            solution: 'Vi flytter alt til én side slik at vi har en brøk $\\gtrless 0$. Deretter skriver vi om med felles nevner, faktoriserer teller og nevner, og bruker fortegnsskjema for å bestemme fortegnet i hvert intervall.',
+          },
+          {
+            id: '1t-4-5-n-quiz1-q2',
+            task: 'For $\\frac{3}{x} > 1$, hva er riktig omskriving til én brøk med null på høyre side?',
+            options: [
+              { id: 'a', text: '$\\frac{3 + x}{x} > 0$', isCorrect: false },
+              { id: 'b', text: '$\\frac{3 - x}{x} > 0$', isCorrect: true },
+              { id: 'c', text: '$\\frac{3}{x - 1} > 0$', isCorrect: false },
+              { id: 'd', text: '$\\frac{x - 3}{x} > 0$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra 1: $\\frac{3}{x} - 1 > 0$. Felles nevner $x$: $\\frac{3}{x} - \\frac{x}{x} = \\frac{3-x}{x} > 0$.',
+          },
         ],
-        solution: 'Vi vet ikke fortegnet til $(x-2)$. Hvis $(x-2) > 0$, beholder vi ulikhetstegnet. Hvis $(x-2) < 0$, må vi snu det. Siden vi ikke vet fortegnet, kan vi ikke utføre multiplikasjonen uten å dele opp i tilfeller.',
       },
-    },
-    {
-      id: '1t-4-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-5-n-section2',
       type: 'text',
       content: `## Fortegnslinjer for brøkuttrykk
@@ -1077,24 +1533,45 @@ La oss ta et eksempel: $\\frac{4}{x}$. Vi skriver det som $4 \\cdot \\frac{1}{x}
         id: '1t-4-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er fortegnet til $\\frac{-3}{x-2}$ når $x = 5$?',
-        options: [
-          { id: 'a', text: 'Positivt', isCorrect: false },
-          { id: 'b', text: 'Null', isCorrect: false },
-          { id: 'c', text: 'Udefinert', isCorrect: false },
-          { id: 'd', text: 'Negativt', isCorrect: true },
+        task: 'Test deg selv på fortegnslinjer for brøkuttrykk:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-5-n-quiz2-q0',
+            task: 'Hva er fortegnet til $\\frac{-3}{x-2}$ når $x = 5$?',
+            options: [
+              { id: 'a', text: 'Positivt', isCorrect: false },
+              { id: 'b', text: 'Null', isCorrect: false },
+              { id: 'c', text: 'Udefinert', isCorrect: false },
+              { id: 'd', text: 'Negativt', isCorrect: true },
+            ],
+            solution: 'Vi setter inn: $\\frac{-3}{5-2} = \\frac{-3}{3} = -1$, som er negativt. Alternativt: for $x > 2$ er $(x-2)$ positiv, og $-3$ er negativ. Negativt delt på positivt er negativt.',
+          },
+          {
+            id: '1t-4-5-n-quiz2-q1',
+            task: 'Hva skjer med $\\frac{1}{x}$ ved $x = 0$?',
+            options: [
+              { id: 'a', text: 'Den er lik null', isCorrect: false },
+              { id: 'b', text: 'Den er positiv', isCorrect: false },
+              { id: 'c', text: 'Den er udefinert', isCorrect: true },
+              { id: 'd', text: 'Den er negativ', isCorrect: false },
+            ],
+            solution: 'Vi kan ikke dele med null, så $\\frac{1}{x}$ er udefinert ved $x = 0$. I fortegnsskjemaet markerer vi dette punktet som udefinert, ikke null.',
+          },
+          {
+            id: '1t-4-5-n-quiz2-q2',
+            task: 'Hva har $\\frac{1}{x-a}$ til felles med $(x-a)$ i et fortegnsskjema?',
+            options: [
+              { id: 'a', text: 'Ingenting, de har helt forskjellig fortegn', isCorrect: false },
+              { id: 'b', text: 'Samme fortegn overalt, men $\\frac{1}{x-a}$ er udefinert (ikke null) ved $x = a$', isCorrect: true },
+              { id: 'c', text: 'Motsatt fortegn overalt', isCorrect: false },
+              { id: 'd', text: 'Samme fortegn, og begge er null ved $x = a$', isCorrect: false },
+            ],
+            solution: '$\\frac{1}{x-a}$ har nøyaktig samme fortegn som $(x-a)$ i alle intervaller. Forskjellen er at ved $x = a$ er $\\frac{1}{x-a}$ udefinert (deling med null), mens $(x-a)$ er null.',
+          },
         ],
-        solution: 'Vi setter inn: $\\frac{-3}{5-2} = \\frac{-3}{3} = -1$, som er negativt. Alternativt: for $x > 2$ er $(x-2)$ positiv, og $-3$ er negativ. Negativt delt på positivt er negativt.',
       },
-    },
-    {
-      id: '1t-4-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-5-n-section3',
       type: 'text',
       content: `## Løse rasjonale ulikheter – steg for steg
@@ -1116,24 +1593,45 @@ Et annet eksempel: $\\frac{-3}{(x + 2)(x - 1)} \\geq 0$. Faktorene er $-3$ (allt
         id: '1t-4-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Løs $\\frac{-3}{x} < 0$. Hva er løsningsmengden?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle 0, \\infty \\rangle$', isCorrect: true },
-          { id: 'b', text: '$x \\in \\langle -\\infty, 0 \\rangle$', isCorrect: false },
-          { id: 'c', text: '$x \\in \\langle -\\infty, 0 \\rangle \\cup \\langle 0, \\infty \\rangle$', isCorrect: false },
-          { id: 'd', text: 'Ingen løsning', isCorrect: false },
+        task: 'Test deg selv på å løse rasjonale ulikheter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-5-n-quiz3-q0',
+            task: 'Løs $\\frac{-3}{x} < 0$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle 0, \\infty \\rangle$', isCorrect: true },
+              { id: 'b', text: '$x \\in \\langle -\\infty, 0 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle -\\infty, 0 \\rangle \\cup \\langle 0, \\infty \\rangle$', isCorrect: false },
+              { id: 'd', text: 'Ingen løsning', isCorrect: false },
+            ],
+            solution: 'Vi har $-3 \\cdot \\frac{1}{x} < 0$. For $x > 0$: $(-) \\cdot (+) = -$ (negativt, stemmer). For $x < 0$: $(-) \\cdot (-) = +$ (positivt, stemmer ikke). Løsningen er $x > 0$, altså $x \\in \\langle 0, \\infty \\rangle$.',
+          },
+          {
+            id: '1t-4-5-n-quiz3-q1',
+            task: 'For $\\frac{x-3}{x} \\geq 0$, hva er de kritiske punktene?',
+            options: [
+              { id: 'a', text: '$x = 3$ (nullpunkt) og $x = 0$ (udefinert)', isCorrect: true },
+              { id: 'b', text: 'Bare $x = 3$ (nullpunkt)', isCorrect: false },
+              { id: 'c', text: 'Bare $x = 0$ (nullpunkt)', isCorrect: false },
+              { id: 'd', text: '$x = 3$ og $x = -3$', isCorrect: false },
+            ],
+            solution: 'Telleren $x - 3 = 0$ gir nullpunkt $x = 3$. Nevneren $x = 0$ gir et punkt der uttrykket er udefinert. Begge er kritiske punkter i fortegnsskjemaet.',
+          },
+          {
+            id: '1t-4-5-n-quiz3-q2',
+            task: 'Hva er løsningen på $\\frac{x-3}{x} \\geq 0$?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, 0] \\cup [3, \\infty \\rangle$', isCorrect: false },
+              { id: 'b', text: '$x \\in \\langle 0, 3 \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle -\\infty, 0 \\rangle \\cup [3, \\infty \\rangle$', isCorrect: true },
+              { id: 'd', text: '$x \\in [0, 3]$', isCorrect: false },
+            ],
+            solution: 'For $x < 0$: $(-) \\cdot (-) = +$. For $0 < x < 3$: $(-) \\cdot (+) = -$. For $x > 3$: $(+) \\cdot (+) = +$. Vi ønsker $\\geq 0$: positivt for $x < 0$ og $x > 3$, null ved $x = 3$, udefinert ved $x = 0$. Løsning: $x \\in \\langle -\\infty, 0 \\rangle \\cup [3, \\infty \\rangle$.',
+          },
         ],
-        solution: 'Vi har $-3 \\cdot \\frac{1}{x} < 0$. For $x > 0$: $(-) \\cdot (+) = -$ (negativt, stemmer). For $x < 0$: $(-) \\cdot (-) = +$ (positivt, stemmer ikke). Løsningen er $x > 0$, altså $x \\in \\langle 0, \\infty \\rangle$.',
       },
-    },
-    {
-      id: '1t-4-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-5-n-section4',
       type: 'text',
       content: `## Ulikheter som krever omskriving
@@ -1153,24 +1651,45 @@ Et annet eksempel: $\\frac{2}{x-4} + 2 \\leq 0$. Felles nevner $(x-4)$: $\\frac{
         id: '1t-4-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Løs $\\frac{5}{x - 3} \\leq 0$. Hva er løsningsmengden?',
-        options: [
-          { id: 'a', text: '$x \\in \\langle -\\infty, 3]$', isCorrect: false },
-          { id: 'b', text: '$x \\in [3, \\infty \\rangle$', isCorrect: false },
-          { id: 'c', text: '$x \\in \\langle 3, \\infty \\rangle$', isCorrect: false },
-          { id: 'd', text: '$x \\in \\langle -\\infty, 3 \\rangle$', isCorrect: true },
+        task: 'Test deg selv på rasjonale ulikheter med omskriving:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-5-n-quiz4-q0',
+            task: 'Løs $\\frac{5}{x - 3} \\leq 0$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, 3]$', isCorrect: false },
+              { id: 'b', text: '$x \\in [3, \\infty \\rangle$', isCorrect: false },
+              { id: 'c', text: '$x \\in \\langle 3, \\infty \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in \\langle -\\infty, 3 \\rangle$', isCorrect: true },
+            ],
+            solution: 'Vi har $5 \\cdot \\frac{1}{x-3} \\leq 0$. Telleren er $5 > 0$ (aldri null), så brøken er aldri lik null. For $x < 3$: $(+) \\cdot (-) = -$ (negativt, stemmer). For $x > 3$: $(+) \\cdot (+) = +$ (positivt, stemmer ikke). Ved $x = 3$: udefinert. Løsningen er $x \\in \\langle -\\infty, 3 \\rangle$.',
+          },
+          {
+            id: '1t-4-5-n-quiz4-q1',
+            task: 'For $\\frac{8}{x} < 4$, hva er riktig omskriving med null på høyre side?',
+            options: [
+              { id: 'a', text: '$\\frac{8 + 4x}{x} < 0$', isCorrect: false },
+              { id: 'b', text: '$\\frac{8 - 4x}{x} < 0$', isCorrect: true },
+              { id: 'c', text: '$\\frac{4 - 8x}{x} < 0$', isCorrect: false },
+              { id: 'd', text: '$\\frac{8}{x - 4} < 0$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra 4: $\\frac{8}{x} - 4 < 0$. Felles nevner $x$: $\\frac{8}{x} - \\frac{4x}{x} = \\frac{8 - 4x}{x} < 0$.',
+          },
+          {
+            id: '1t-4-5-n-quiz4-q2',
+            task: 'Løs $\\frac{2}{x-4} + 2 \\leq 0$. Hva er løsningsmengden?',
+            options: [
+              { id: 'a', text: '$x \\in \\langle -\\infty, 3]$', isCorrect: false },
+              { id: 'b', text: '$x \\in [3, 4 \\rangle$', isCorrect: true },
+              { id: 'c', text: '$x \\in \\langle 3, 4 \\rangle$', isCorrect: false },
+              { id: 'd', text: '$x \\in [3, 4]$', isCorrect: false },
+            ],
+            solution: 'Felles nevner $(x-4)$: $\\frac{2 + 2(x-4)}{x-4} = \\frac{2x-6}{x-4} = \\frac{2(x-3)}{x-4} \\leq 0$. Nullpunkt: $x = 3$. Udefinert: $x = 4$. For $3 \\leq x < 4$ er uttrykket negativt eller null. Løsning: $x \\in [3, 4 \\rangle$.',
+          },
         ],
-        solution: 'Vi har $5 \\cdot \\frac{1}{x-3} \\leq 0$. Telleren er $5 > 0$ (aldri null), så brøken er aldri lik null. For $x < 3$: $(+) \\cdot (-) = -$ (negativt, stemmer). For $x > 3$: $(+) \\cdot (+) = +$ (positivt, stemmer ikke). Ved $x = 3$: udefinert. Løsningen er $x \\in \\langle -\\infty, 3 \\rangle$.',
       },
-    },
-    {
-      id: '1t-4-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-4-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-4-5-n-section5',
       type: 'text',
       content: `## Definisjonsmengde og fallgruver
@@ -1188,24 +1707,56 @@ Her er de viktigste fallgruvene å passe seg for. For det første: glem aldri å
         id: '1t-4-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Uttrykket $\\frac{x+1}{x-3}$ er lik null. Hva er $x$?',
-        options: [
-          { id: 'a', text: '$x = 3$', isCorrect: false },
-          { id: 'b', text: '$x = -1$ eller $x = 3$', isCorrect: false },
-          { id: 'c', text: '$x = -1$', isCorrect: true },
-          { id: 'd', text: 'Det finnes ingen slik $x$', isCorrect: false },
+        task: 'Test deg selv på definisjonsmengde og fallgruver:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-4-5-n-quiz5-q0',
+            task: 'Uttrykket $\\frac{x+1}{x-3}$ er lik null. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = -1$ eller $x = 3$', isCorrect: false },
+              { id: 'c', text: '$x = -1$', isCorrect: true },
+              { id: 'd', text: 'Det finnes ingen slik $x$', isCorrect: false },
+            ],
+            solution: 'En brøk er null bare når telleren er null og nevneren ikke er null. Telleren $x + 1 = 0$ gir $x = -1$. Vi sjekker nevneren: $-1 - 3 = -4 \\neq 0$, så $x = -1$ er gyldig. Ved $x = 3$ er uttrykket udefinert (nevneren er null), ikke lik null.',
+          },
+          {
+            id: '1t-4-5-n-quiz5-q1',
+            task: 'Hva er definisjonsmengden til $\\frac{3x+6}{x-5}$?',
+            options: [
+              { id: 'a', text: 'Alle reelle tall', isCorrect: false },
+              { id: 'b', text: 'Alle reelle tall unntatt $x = -2$', isCorrect: false },
+              { id: 'c', text: 'Alle reelle tall unntatt $x = 5$', isCorrect: true },
+              { id: 'd', text: 'Alle reelle tall unntatt $x = -2$ og $x = 5$', isCorrect: false },
+            ],
+            solution: 'Definisjonsmengden er alle $x$-verdier der nevneren ikke er null. Nevneren $x - 5 = 0$ gir $x = 5$. Altså er alle reelle tall unntatt $x = 5$ i definisjonsmengden. ($x = -2$ gjør telleren null, men det er lov.)',
+          },
+          {
+            id: '1t-4-5-n-quiz5-q2',
+            task: 'Hvilken type parentes bruker vi ved et punkt der nevneren er null i løsningsmengden?',
+            options: [
+              { id: 'a', text: 'Hakeparentes $[$ eller $]$ fordi punktet er inkludert', isCorrect: false },
+              { id: 'b', text: 'Vinkelparentes $\\langle$ eller $\\rangle$ fordi punktet er ekskludert', isCorrect: true },
+              { id: 'c', text: 'Det avhenger av ulikhetstegnet', isCorrect: false },
+              { id: 'd', text: 'Ingen parentes trengs', isCorrect: false },
+            ],
+            solution: 'Der nevneren er null, er uttrykket udefinert. Slike punkter kan aldri inkluderes i løsningsmengden, uansett om ulikheten er streng ($<$, $>$) eller svak ($\\leq$, $\\geq$). Vi bruker alltid vinkelparentes (åpen).',
+          },
+          {
+            id: '1t-4-5-n-quiz5-q3',
+            task: 'Kan $\\frac{5}{x+1} \\leq 0$ ha et punkt der brøken er lik null?',
+            options: [
+              { id: 'a', text: 'Ja, ved $x = -1$', isCorrect: false },
+              { id: 'b', text: 'Ja, ved $x = 0$', isCorrect: false },
+              { id: 'c', text: 'Nei, fordi telleren $5$ aldri er null', isCorrect: true },
+              { id: 'd', text: 'Ja, ved $x = 5$', isCorrect: false },
+            ],
+            solution: 'En brøk er null bare når telleren er null. Telleren er konstanten $5$, som aldri er null. Derfor er $\\frac{5}{x+1}$ aldri lik null, og $\\leq 0$ gir bare de intervallene der brøken er strengt negativ.',
+          },
         ],
-        solution: 'En brøk er null bare når telleren er null og nevneren ikke er null. Telleren $x + 1 = 0$ gir $x = -1$. Vi sjekker nevneren: $-1 - 3 = -4 \\neq 0$, så $x = -1$ er gyldig. Ved $x = 3$ er uttrykket udefinert (nevneren er null), ikke lik null.',
       },
-    },
-    {
-      id: '1t-4-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-4-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-4-5-n-summary',
       type: 'text',
       content: `## Oppsummering

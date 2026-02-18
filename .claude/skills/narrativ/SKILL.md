@@ -12,7 +12,7 @@ Denne skillen konverterer et vanlig lærebokkapittel til en narrativ versjon som
 
 1. **Leser originalkapittelet** og forstår innholdet
 2. **Skriver om** all teori til sammenhengende, engasjerende prosa
-3. **Konverterer øvelser** til multiple-choice quizzer (4 alternativer)
+3. **Konverterer øvelser** til sekvensielle multiple-choice quizzer (flere spørsmål per quiz)
 4. **Legger til oppsummering** på slutten
 5. **Kjører `/texttovoice`** for å generere lydbok automatisk
 
@@ -67,24 +67,24 @@ Finn kapittelet i `src/lib/data/textbook-content-*-del*.ts` og forstå:
 
 ### Steg 2: Planlegg narrativ struktur
 
-Del innholdet i **seksjoner** med én quiz etter hver seksjon:
+Del innholdet i **seksjoner** basert på de naturlige temaene i kapittelet. Sett inn én sekvensiell quiz etter hver seksjon som har nok stoff å teste:
 
 ```
 intro (2-3 avsnitt, sett scenen)
 section1 (utdyp første tema)
-quiz1
+quiz1 (sekvensiell quiz som dekker tema i section1)
 section2 (utdyp andre tema)
-quiz2
-section3 (utdyp tredje tema)
-quiz3
-section4 (utdyp fjerde tema)
-quiz4
-section5 (utdyp femte tema)
-quiz5
+quiz2 (sekvensiell quiz som dekker tema i section2)
+...flere seksjoner og quizer etter behov...
 summary (oppsummering med nøkkelbegreper)
 ```
 
-**Mål:** 5 quizzer per kapittel (6 segmenter inkl. oppsummering).
+**VIKTIG:** Verken antall seksjoner, antall quizer, eller antall spørsmål per quiz er forhåndsbestemt. La pensum styre:
+- Noen kapitler har 3 naturlige temaer → 3 quizer
+- Andre har 7 → 7 quizer
+- En quiz etter en enkel seksjon kan ha 2 spørsmål, en etter en kompleks seksjon kan ha 6
+- Ikke alle seksjoner trenger quiz — en kort overgangs-seksjon kan stå alene
+- Introen og oppsummeringen har normalt ikke quiz
 
 ### Steg 3: Skriv narrativ tekst
 
@@ -106,9 +106,14 @@ summary (oppsummering med nøkkelbegreper)
 - Legg til kontekst og overganger mellom temaer
 - Avslutt med en oppsummeringsseksjon
 
-### Steg 4: Lag quizzer
+### Steg 4: Lag sekvensielle quizzer
 
-Konverter originale oppgaver til multiple-choice format:
+Hver quiz skal ha **nok spørsmål til å dekke alle viktige konsepter fra seksjonen** — ikke et fast antall. Analyser seksjonen og bestem antall:
+- Enkel seksjon (1-2 konsepter) → 2 spørsmål
+- Normal seksjon (3-4 konsepter) → 3-4 spørsmål
+- Tung seksjon (mange varianter) → 5-6 spørsmål
+
+Quizene bruker `questions`-arrayet for sekvensiell visning (ett spørsmål om gangen med auto-sjekk):
 
 ```typescript
 {
@@ -118,25 +123,43 @@ Konverter originale oppgaver til multiple-choice format:
     id: 'historie-1-2-n-quiz1',
     number: 'Quiz 1',
     type: 'multiple-choice',
-    task: 'Spørsmål basert på teksten over?',
-    options: [
-      { id: 'a', text: 'Feil svar 1', isCorrect: false },
-      { id: 'b', text: 'Riktig svar', isCorrect: true },
-      { id: 'c', text: 'Feil svar 2', isCorrect: false },
-      { id: 'd', text: 'Feil svar 3', isCorrect: false },
+    task: 'Test deg selv på [tema for seksjonen]:',
+    options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+    questions: [
+      {
+        id: 'historie-1-2-n-quiz1-q0',
+        task: 'Første spørsmål — grunnleggende konsept?',
+        options: [
+          { id: 'a', text: 'Feil svar 1', isCorrect: false },
+          { id: 'b', text: 'Riktig svar', isCorrect: true },
+          { id: 'c', text: 'Feil svar 2', isCorrect: false },
+          { id: 'd', text: 'Feil svar 3', isCorrect: false },
+        ],
+        solution: 'Forklaring med referanse til teksten.',
+      },
+      {
+        id: 'historie-1-2-n-quiz1-q1',
+        task: 'Andre spørsmål — neste konsept fra seksjonen?',
+        options: [ ... ],
+        solution: '...',
+      },
+      // ... så mange som trengs for å dekke seksjonen
     ],
-    solution: 'Forklaring av hvorfor b er riktig, med referanse til teksten.',
   },
 }
 ```
 
 **Quiz-regler:**
-- 4 alternativer (a, b, c, d)
-- Alltid 1 riktig svar
-- Varier posisjonen til riktig svar
-- Feil svar skal være plausible, ikke åpenbart gale
-- Solution-teksten forklarer hvorfor svaret er riktig
+- Hvert spørsmål tester ETT distinkt konsept/ferdighet fra seksjonen
+- Progressiv vanskelighetsgrad — start grunnleggende, øk gradvis
+- 4 alternativer (a, b, c, d) per spørsmål
+- Alltid 1 riktig svar, varier posisjonen
+- Feil svar skal være plausible (basert på vanlige misforståelser)
+- Solution-teksten forklarer steg for steg
 - Spørsmålet skal teste forståelse, ikke bare hukommelse
+- Spørsmål-ID format: `quiz1-q0`, `quiz1-q1`, `quiz1-q2`, ...
+- Toppnivå `task` er en kort beskrivelse av quizens tema
+- Toppnivå `options` beholdes med ett dummy-alternativ for bakoverkompatibilitet
 
 ### Steg 5: Skriv TypeScript-koden
 
@@ -223,12 +246,15 @@ Kjør `/texttovoice` med det nye kapittelets ID:
 ## Sjekkliste
 
 - [ ] All faglig informasjon fra originalen er med
-- [ ] 5 quizzer med 4 alternativer hver
+- [ ] Sekvensielle quizzer med `questions`-array etter hver substansiell seksjon
+- [ ] Antall quizer og spørsmål per quiz styrt av pensum (ikke et fast tall)
+- [ ] Hvert spørsmål tester et distinkt konsept
+- [ ] Progressiv vanskelighetsgrad innen hver quiz
 - [ ] Oppsummering med nøkkelbegreper på slutten
 - [ ] Engasjerende skrivestil med "du/vi"
 - [ ] `linkedChapterId` peker til originalkapittelet
 - [ ] `subtitle: 'Narrativ versjon'`
-- [ ] Riktig ID-format (`-narrativ`, `-n-`)
+- [ ] Riktig ID-format (`-narrativ`, `-n-`, `quiz1-q0`)
 - [ ] Lagt til i eksport-array
 - [ ] TypeScript kompilerer uten feil
 - [ ] `/texttovoice` kjørt for å generere lydbok

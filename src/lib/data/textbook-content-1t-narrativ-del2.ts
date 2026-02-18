@@ -33,15 +33,7 @@ export const CHAPTER_1T_7_1_NARRATIV: TextbookChapter = {
     'tolke gjennomsnittlig vekstfart grafisk som stigningstallet til en sekant',
   ],
   linkedChapterId: '1t-7-1',
-  content: [
-    {
-      id: '1t-7-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-1-n-intro',
       type: 'text',
       content: `## Hvor bratt er det egentlig?
@@ -74,24 +66,57 @@ Hvis stigningstallet er negativt, betyr det at linjen synker. Og hvis stigningst
         id: '1t-7-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er stigningstallet til linjen gjennom punktene $(-1, -2)$ og $(1, -4)$?',
-        options: [
-          { id: 'a', text: '$1$', isCorrect: false },
-          { id: 'b', text: '$-1$', isCorrect: true },
-          { id: 'c', text: '$3$', isCorrect: false },
-          { id: 'd', text: '$-3$', isCorrect: false },
+        task: 'Test deg selv på stigningstall:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-1-n-quiz1-q0',
+            task: 'Hva er stigningstallet til linjen gjennom punktene $(-1, -2)$ og $(1, -4)$?',
+            options: [
+              { id: 'a', text: '$1$', isCorrect: false },
+              { id: 'b', text: '$-1$', isCorrect: true },
+              { id: 'c', text: '$3$', isCorrect: false },
+              { id: 'd', text: '$-3$', isCorrect: false },
+            ],
+            solution: 'Vi bruker formelen: $a = \\frac{-4 - (-2)}{1 - (-1)} = \\frac{-4 + 2}{1 + 1} = \\frac{-2}{2} = -1$. Stigningstallet er $-1$, som betyr at linjen synker.',
+          },
+          {
+            id: '1t-7-1-n-quiz1-q1',
+            task: 'Hva betyr $\\Delta y$ i formelen for stigningstall?',
+            options: [
+              { id: 'a', text: 'Summen av $y$-verdiene', isCorrect: false },
+              { id: 'b', text: 'Produktet av $y$-verdiene', isCorrect: false },
+              { id: 'c', text: 'Endringen i $y$-verdi', isCorrect: true },
+              { id: 'd', text: 'Gjennomsnittet av $y$-verdiene', isCorrect: false },
+            ],
+            solution: '$\\Delta y$ betyr endringen i $y$, altså $y_2 - y_1$. Det greske symbolet $\\Delta$ (delta) betyr «endring» i matematikken.',
+          },
+          {
+            id: '1t-7-1-n-quiz1-q2',
+            task: 'Hva er stigningstallet til linjen gjennom $(2, 5)$ og $(6, 5)$?',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: false },
+              { id: 'c', text: '$5$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: true },
+            ],
+            solution: '$a = \\frac{5 - 5}{6 - 2} = \\frac{0}{4} = 0$. Stigningstallet er $0$ fordi $y$-verdiene er like, så linjen er horisontal.',
+          },
+          {
+            id: '1t-7-1-n-quiz1-q3',
+            task: 'Hva forteller et negativt stigningstall oss om linjen?',
+            options: [
+              { id: 'a', text: 'Linjen er horisontal', isCorrect: false },
+              { id: 'b', text: 'Linjen stiger fra venstre mot høyre', isCorrect: false },
+              { id: 'c', text: 'Linjen synker fra venstre mot høyre', isCorrect: true },
+              { id: 'd', text: 'Linjen er vertikal', isCorrect: false },
+            ],
+            solution: 'Et negativt stigningstall betyr at $y$ minker når $x$ øker, altså at linjen synker fra venstre mot høyre.',
+          },
         ],
-        solution: 'Vi bruker formelen: $a = \\frac{-4 - (-2)}{1 - (-1)} = \\frac{-4 + 2}{1 + 1} = \\frac{-2}{2} = -1$. Stigningstallet er $-1$, som betyr at linjen synker.',
       },
-    },
-    {
-      id: '1t-7-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-1-n-section2',
       type: 'text',
       content: `## Ettpunktsformelen – fra punkt og stigning til likning
@@ -113,24 +138,57 @@ Ettpunktsformelen er spesielt nyttig når vi har to punkter. Da finner vi først
         id: '1t-7-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er likningen til linjen som går gjennom punktet $(2, -3)$ med stigningstall $a = -2$?',
-        options: [
-          { id: 'a', text: '$y = -2x - 3$', isCorrect: false },
-          { id: 'b', text: '$y = 2x + 1$', isCorrect: false },
-          { id: 'c', text: '$y = -2x + 1$', isCorrect: true },
-          { id: 'd', text: '$y = -2x + 7$', isCorrect: false },
+        task: 'Test deg selv på ettpunktsformelen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-1-n-quiz2-q0',
+            task: 'Hva er likningen til linjen som går gjennom punktet $(2, -3)$ med stigningstall $a = -2$?',
+            options: [
+              { id: 'a', text: '$y = -2x - 3$', isCorrect: false },
+              { id: 'b', text: '$y = 2x + 1$', isCorrect: false },
+              { id: 'c', text: '$y = -2x + 1$', isCorrect: true },
+              { id: 'd', text: '$y = -2x + 7$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn i ettpunktsformelen: $y - (-3) = -2(x - 2)$, altså $y + 3 = -2x + 4$, som gir $y = -2x + 1$.',
+          },
+          {
+            id: '1t-7-1-n-quiz2-q1',
+            task: 'Hva er ettpunktsformelen?',
+            options: [
+              { id: 'a', text: '$y = ax + b$', isCorrect: false },
+              { id: 'b', text: '$y - y_0 = a(x - x_0)$', isCorrect: true },
+              { id: 'c', text: '$a = \\frac{y_2 - y_1}{x_2 - x_1}$', isCorrect: false },
+              { id: 'd', text: '$y = x^2 + bx + c$', isCorrect: false },
+            ],
+            solution: 'Ettpunktsformelen er $y - y_0 = a(x - x_0)$, der $(x_0, y_0)$ er et kjent punkt og $a$ er stigningstallet.',
+          },
+          {
+            id: '1t-7-1-n-quiz2-q2',
+            task: 'Linjen går gjennom $(1, 5)$ og $(3, 9)$. Hva er likningen til linjen?',
+            options: [
+              { id: 'a', text: '$y = 2x + 3$', isCorrect: true },
+              { id: 'b', text: '$y = 2x + 5$', isCorrect: false },
+              { id: 'c', text: '$y = 4x + 1$', isCorrect: false },
+              { id: 'd', text: '$y = 3x + 2$', isCorrect: false },
+            ],
+            solution: 'Først finner vi stigningstallet: $a = \\frac{9 - 5}{3 - 1} = 2$. Så bruker vi ettpunktsformelen med $(1, 5)$: $y - 5 = 2(x - 1)$, som gir $y = 2x + 3$.',
+          },
+          {
+            id: '1t-7-1-n-quiz2-q3',
+            task: 'En linje har stigningstall $3$ og går gjennom $(0, -1)$. Hva er $y$ når $x = 4$?',
+            options: [
+              { id: 'a', text: '$11$', isCorrect: true },
+              { id: 'b', text: '$12$', isCorrect: false },
+              { id: 'c', text: '$7$', isCorrect: false },
+              { id: 'd', text: '$13$', isCorrect: false },
+            ],
+            solution: 'Likningen er $y - (-1) = 3(x - 0)$, altså $y = 3x - 1$. Når $x = 4$: $y = 3 \\cdot 4 - 1 = 12 - 1 = 11$.',
+          },
         ],
-        solution: 'Vi setter inn i ettpunktsformelen: $y - (-3) = -2(x - 2)$, altså $y + 3 = -2x + 4$, som gir $y = -2x + 1$.',
       },
-    },
-    {
-      id: '1t-7-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-1-n-section3',
       type: 'text',
       content: `## Gjennomsnittlig vekstfart – stigningstall for funksjoner
@@ -152,24 +210,46 @@ En sekant er altså en rett linje som skjærer grafen i to punkter. Stigningstal
         id: '1t-7-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva kalles linjen som skjærer grafen til en funksjon i to punkter?',
-        options: [
-          { id: 'a', text: 'Tangent', isCorrect: false },
-          { id: 'b', text: 'Normal', isCorrect: false },
-          { id: 'c', text: 'Asymptote', isCorrect: false },
-          { id: 'd', text: 'Sekant', isCorrect: true },
+        task: 'Test deg selv på gjennomsnittlig vekstfart og sekanter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-1-n-quiz3-q0',
+            task: 'Hva kalles linjen som skjærer grafen til en funksjon i to punkter?',
+            options: [
+              { id: 'a', text: 'Tangent', isCorrect: false },
+              { id: 'b', text: 'Normal', isCorrect: false },
+              { id: 'c', text: 'Asymptote', isCorrect: false },
+              { id: 'd', text: 'Sekant', isCorrect: true },
+            ],
+            solution: 'En **sekant** er en rett linje som skjærer grafen til en funksjon i to punkter. Stigningstallet til sekanten gir den gjennomsnittlige vekstfarten mellom de to punktene.',
+          },
+          {
+            id: '1t-7-1-n-quiz3-q1',
+            task: 'Hva er formelen for gjennomsnittlig vekstfart til $f$ i intervallet $[x_1, x_2]$?',
+            options: [
+              { id: 'a', text: '$f(x_2) \\cdot f(x_1)$', isCorrect: false },
+              { id: 'b', text: '$\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{x_2 - x_1}{f(x_2) - f(x_1)}$', isCorrect: false },
+              { id: 'd', text: '$f(x_2) + f(x_1)$', isCorrect: false },
+            ],
+            solution: 'Gjennomsnittlig vekstfart er $\\frac{f(x_2) - f(x_1)}{x_2 - x_1}$, altså endringen i funksjonsverdi delt på endringen i $x$. Dette er stigningstallet til sekanten.',
+          },
+          {
+            id: '1t-7-1-n-quiz3-q2',
+            task: 'Hva svarer den gjennomsnittlige vekstfarten grafisk til?',
+            options: [
+              { id: 'a', text: 'Arealet under grafen', isCorrect: false },
+              { id: 'b', text: 'Nullpunktet til funksjonen', isCorrect: false },
+              { id: 'c', text: 'Stigningstallet til sekanten', isCorrect: true },
+              { id: 'd', text: 'Funksjonsverdien i midtpunktet', isCorrect: false },
+            ],
+            solution: 'Gjennomsnittlig vekstfart svarer grafisk til stigningstallet til sekanten mellom de to punktene på grafen. Sekanten er den rette linjen som forbinder disse punktene.',
+          },
         ],
-        solution: 'En **sekant** er en rett linje som skjærer grafen til en funksjon i to punkter. Stigningstallet til sekanten gir den gjennomsnittlige vekstfarten mellom de to punktene.',
       },
-    },
-    {
-      id: '1t-7-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-1-n-section4',
       type: 'text',
       content: `## Regneeksempel – gjennomsnittlig vekstfart i praksis
@@ -191,24 +271,46 @@ Det er viktig å forstå at dette er et *gjennomsnitt*. Funksjonen $x^2 - 1$ syn
         id: '1t-7-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'La $f(x) = x^2 - 3x + 2$. Hva er den gjennomsnittlige vekstfarten i intervallet $[1, 5]$?',
-        options: [
-          { id: 'a', text: '$3$', isCorrect: true },
-          { id: 'b', text: '$0$', isCorrect: false },
-          { id: 'c', text: '$-3$', isCorrect: false },
-          { id: 'd', text: '$6$', isCorrect: false },
+        task: 'Test deg selv på beregning av gjennomsnittlig vekstfart:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-1-n-quiz4-q0',
+            task: 'La $f(x) = x^2 - 3x + 2$. Hva er den gjennomsnittlige vekstfarten i intervallet $[1, 5]$?',
+            options: [
+              { id: 'a', text: '$3$', isCorrect: true },
+              { id: 'b', text: '$0$', isCorrect: false },
+              { id: 'c', text: '$-3$', isCorrect: false },
+              { id: 'd', text: '$6$', isCorrect: false },
+            ],
+            solution: 'Vi finner $f(1) = 1 - 3 + 2 = 0$ og $f(5) = 25 - 15 + 2 = 12$. Gjennomsnittlig vekstfart $= \\frac{12 - 0}{5 - 1} = \\frac{12}{4} = 3$.',
+          },
+          {
+            id: '1t-7-1-n-quiz4-q1',
+            task: 'La $f(x) = x^2 - 1$. Hva er $f(-2)$?',
+            options: [
+              { id: 'a', text: '$-5$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: true },
+              { id: 'c', text: '$5$', isCorrect: false },
+              { id: 'd', text: '$-3$', isCorrect: false },
+            ],
+            solution: '$f(-2) = (-2)^2 - 1 = 4 - 1 = 3$. Husk at $(-2)^2 = 4$ fordi minus ganger minus gir pluss.',
+          },
+          {
+            id: '1t-7-1-n-quiz4-q2',
+            task: 'Gjennomsnittlig vekstfart for $f(x) = x^2 - 1$ i $[-2, 1]$ er $-1$. Hva betyr det?',
+            options: [
+              { id: 'a', text: 'Funksjonen synker med 1 enhet per $x$-enhet i gjennomsnitt', isCorrect: true },
+              { id: 'b', text: 'Funksjonen er alltid synkende i intervallet', isCorrect: false },
+              { id: 'c', text: 'Funksjonsverdien er $-1$ overalt', isCorrect: false },
+              { id: 'd', text: 'Funksjonen har et nullpunkt i $x = -1$', isCorrect: false },
+            ],
+            solution: 'Gjennomsnittlig vekstfart $-1$ betyr at funksjonsverdien i gjennomsnitt synker med 1 enhet for hver enhet $x$ øker. Det sier ingenting om hva som skjer lokalt – funksjonen kan både stige og synke underveis.',
+          },
         ],
-        solution: 'Vi finner $f(1) = 1 - 3 + 2 = 0$ og $f(5) = 25 - 15 + 2 = 12$. Gjennomsnittlig vekstfart $= \\frac{12 - 0}{5 - 1} = \\frac{12}{4} = 3$.',
       },
-    },
-    {
-      id: '1t-7-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-1-n-section5',
       type: 'text',
       content: `## Vekstfart i virkeligheten – en ball i luften
@@ -228,24 +330,57 @@ Gjennomsnittlig hastighet er faktisk bare et annet ord for gjennomsnittlig vekst
         id: '1t-7-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En ball har høydefunksjon $h(t) = -5t^2 + 20t + 1$. Hva er gjennomsnittlig hastighet i intervallet $[1, 2]$?',
-        options: [
-          { id: 'a', text: '$15$ m/s', isCorrect: false },
-          { id: 'b', text: '$5$ m/s', isCorrect: true },
-          { id: 'c', text: '$-5$ m/s', isCorrect: false },
-          { id: 'd', text: '$10$ m/s', isCorrect: false },
+        task: 'Test deg selv på gjennomsnittlig vekstfart i praksis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-1-n-quiz5-q0',
+            task: 'En ball har høydefunksjon $h(t) = -5t^2 + 20t + 1$. Hva er gjennomsnittlig hastighet i intervallet $[1, 2]$?',
+            options: [
+              { id: 'a', text: '$15$ m/s', isCorrect: false },
+              { id: 'b', text: '$5$ m/s', isCorrect: true },
+              { id: 'c', text: '$-5$ m/s', isCorrect: false },
+              { id: 'd', text: '$10$ m/s', isCorrect: false },
+            ],
+            solution: 'Vi finner $h(1) = -5 + 20 + 1 = 16$ og $h(2) = -20 + 40 + 1 = 21$. Gjennomsnittlig hastighet $= \\frac{21 - 16}{2 - 1} = \\frac{5}{1} = 5$ m/s.',
+          },
+          {
+            id: '1t-7-1-n-quiz5-q1',
+            task: 'Hva er et annet ord for gjennomsnittlig vekstfart når vi snakker om bevegelse?',
+            options: [
+              { id: 'a', text: 'Akselerasjon', isCorrect: false },
+              { id: 'b', text: 'Gjennomsnittlig hastighet', isCorrect: true },
+              { id: 'c', text: 'Momentan fart', isCorrect: false },
+              { id: 'd', text: 'Bremselengde', isCorrect: false },
+            ],
+            solution: 'Gjennomsnittlig hastighet er det samme som gjennomsnittlig vekstfart for en posisjonsfunksjon. Det forteller oss hvor langt noe beveger seg per tidsenhet i gjennomsnitt.',
+          },
+          {
+            id: '1t-7-1-n-quiz5-q2',
+            task: 'For $h(t) = -5t^2 + 20t + 1$, er gjennomsnittlig hastighet $-5$ m/s i $[2, 3]$. Hva betyr det negative fortegnet?',
+            options: [
+              { id: 'a', text: 'Ballen akselererer', isCorrect: false },
+              { id: 'b', text: 'Ballen er i ro', isCorrect: false },
+              { id: 'c', text: 'Ballen beveger seg oppover', isCorrect: false },
+              { id: 'd', text: 'Ballen er på vei ned', isCorrect: true },
+            ],
+            solution: 'Negativ gjennomsnittlig hastighet betyr at ballen i gjennomsnitt beveger seg nedover i dette intervallet. Høyden synker fra $h(2) = 21$ til $h(3) = 16$ meter.',
+          },
+          {
+            id: '1t-7-1-n-quiz5-q3',
+            task: 'Hvorfor kan gjennomsnittlig vekstfart gi forskjellige verdier for forskjellige intervaller av samme funksjon?',
+            options: [
+              { id: 'a', text: 'Fordi formelen endrer seg', isCorrect: false },
+              { id: 'b', text: 'Fordi funksjonen kan oppføre seg ulikt i ulike deler av definisjonsområdet', isCorrect: true },
+              { id: 'c', text: 'Fordi vi bruker feil formel', isCorrect: false },
+              { id: 'd', text: 'Fordi stigningstallet alltid er konstant', isCorrect: false },
+            ],
+            solution: 'Funksjonen kan stige i noen intervaller og synke i andre. Gjennomsnittlig vekstfart måler den totale endringen i et bestemt intervall, og derfor avhenger svaret av hvilket intervall vi ser på.',
+          },
         ],
-        solution: 'Vi finner $h(1) = -5 + 20 + 1 = 16$ og $h(2) = -20 + 40 + 1 = 21$. Gjennomsnittlig hastighet $= \\frac{21 - 16}{2 - 1} = \\frac{5}{1} = 5$ m/s.',
       },
-    },
-    {
-      id: '1t-7-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -278,15 +413,7 @@ export const CHAPTER_1T_7_2_NARRATIV: TextbookChapter = {
     'bruke tangenten til å finne momentan vekstfart grafisk',
   ],
   linkedChapterId: '1t-7-2',
-  content: [
-    {
-      id: '1t-7-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-2-n-intro',
       type: 'text',
       content: `## Farten akkurat nå
@@ -315,24 +442,46 @@ La oss ta et eksempel. Funksjonen $f(x) = x^2 - 1$ har en tangent i punktet $(2,
         id: '1t-7-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Grafen til en funksjon $f$ har en tangent i punktet $(3, 5)$. Tangenten går også gjennom $(5, 11)$. Hva er den momentane vekstfarten til $f$ når $x = 3$?',
-        options: [
-          { id: 'a', text: '$2$', isCorrect: false },
-          { id: 'b', text: '$3$', isCorrect: true },
-          { id: 'c', text: '$4$', isCorrect: false },
-          { id: 'd', text: '$6$', isCorrect: false },
+        task: 'Test deg selv på tangent og momentan vekstfart:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-2-n-quiz1-q0',
+            task: 'Grafen til en funksjon $f$ har en tangent i punktet $(3, 5)$. Tangenten går også gjennom $(5, 11)$. Hva er den momentane vekstfarten til $f$ når $x = 3$?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: true },
+              { id: 'c', text: '$4$', isCorrect: false },
+              { id: 'd', text: '$6$', isCorrect: false },
+            ],
+            solution: 'Stigningstallet til tangenten er $a = \\frac{11 - 5}{5 - 3} = \\frac{6}{2} = 3$. Momentan vekstfart er stigningstallet til tangenten, altså $3$.',
+          },
+          {
+            id: '1t-7-2-n-quiz1-q1',
+            task: 'Hva er en tangent til en graf?',
+            options: [
+              { id: 'a', text: 'En linje som skjærer grafen i to punkter', isCorrect: false },
+              { id: 'b', text: 'En linje som er parallell med $x$-aksen', isCorrect: false },
+              { id: 'c', text: 'En linje som berører grafen i ett punkt og har samme retning som grafen der', isCorrect: true },
+              { id: 'd', text: 'En linje som står vinkelrett på grafen', isCorrect: false },
+            ],
+            solution: 'En tangent er en rett linje som berører grafen i ett punkt og har samme retning som grafen i det punktet. Den «følger» kurven akkurat der.',
+          },
+          {
+            id: '1t-7-2-n-quiz1-q2',
+            task: 'Hva er forskjellen mellom momentan og gjennomsnittlig vekstfart?',
+            options: [
+              { id: 'a', text: 'Momentan vekstfart måles over et intervall, gjennomsnittlig i ett punkt', isCorrect: false },
+              { id: 'b', text: 'De er det samme begrepet', isCorrect: false },
+              { id: 'c', text: 'Momentan vekstfart gjelder ett punkt, gjennomsnittlig gjelder et intervall', isCorrect: true },
+              { id: 'd', text: 'Momentan vekstfart er alltid større enn gjennomsnittlig', isCorrect: false },
+            ],
+            solution: 'Momentan vekstfart beskriver endringen i et enkelt punkt (stigningstallet til tangenten), mens gjennomsnittlig vekstfart beskriver den gjennomsnittlige endringen over et intervall (stigningstallet til sekanten).',
+          },
         ],
-        solution: 'Stigningstallet til tangenten er $a = \\frac{11 - 5}{5 - 3} = \\frac{6}{2} = 3$. Momentan vekstfart er stigningstallet til tangenten, altså $3$.',
       },
-    },
-    {
-      id: '1t-7-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-2-n-section2',
       type: 'text',
       content: `## Sekant og tangent – en viktig sammenheng
@@ -354,24 +503,46 @@ Den momentane vekstfarten er altså grenseverdien av den gjennomsnittlige vekstf
         id: '1t-7-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva skjer med sekanten når de to punktene på grafen nærmer seg hverandre?',
-        options: [
-          { id: 'a', text: 'Sekanten forsvinner', isCorrect: false },
-          { id: 'b', text: 'Sekanten blir en vertikal linje', isCorrect: false },
-          { id: 'c', text: 'Sekanten nærmer seg tangenten', isCorrect: true },
-          { id: 'd', text: 'Sekanten blir horisontal', isCorrect: false },
+        task: 'Test deg selv på sammenhengen mellom sekant og tangent:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-2-n-quiz2-q0',
+            task: 'Hva skjer med sekanten når de to punktene på grafen nærmer seg hverandre?',
+            options: [
+              { id: 'a', text: 'Sekanten forsvinner', isCorrect: false },
+              { id: 'b', text: 'Sekanten blir en vertikal linje', isCorrect: false },
+              { id: 'c', text: 'Sekanten nærmer seg tangenten', isCorrect: true },
+              { id: 'd', text: 'Sekanten blir horisontal', isCorrect: false },
+            ],
+            solution: 'Når de to punktene på grafen nærmer seg hverandre, vil sekanten nærme seg tangenten. I grensen – når de to punktene «smelter sammen» – blir sekanten til tangenten.',
+          },
+          {
+            id: '1t-7-2-n-quiz2-q1',
+            task: 'Hva er gjennomsnittlig vekstfart mellom $x = a$ og $x = a + h$ uttrykt med $f$?',
+            options: [
+              { id: 'a', text: '$\\frac{f(a)}{h}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{f(a + h) - f(a)}{h}$', isCorrect: true },
+              { id: 'c', text: '$f(a + h) \\cdot h$', isCorrect: false },
+              { id: 'd', text: '$\\frac{f(a) + f(a + h)}{2}$', isCorrect: false },
+            ],
+            solution: 'Gjennomsnittlig vekstfart mellom $a$ og $a + h$ er $\\frac{f(a + h) - f(a)}{h}$. Telleren er endringen i funksjonsverdi, og nevneren er endringen i $x$.',
+          },
+          {
+            id: '1t-7-2-n-quiz2-q2',
+            task: 'Hva kalles det matematiske konseptet der $h$ «går mot null»?',
+            options: [
+              { id: 'a', text: 'Derivasjon', isCorrect: false },
+              { id: 'b', text: 'Integrasjon', isCorrect: false },
+              { id: 'c', text: 'Grenseverdi', isCorrect: true },
+              { id: 'd', text: 'Faktorisering', isCorrect: false },
+            ],
+            solution: 'Når vi lar $h$ bli uendelig liten (gå mot null), bruker vi begrepet **grenseverdi**. Det er dette som gjør at sekanten blir til tangenten, og gjennomsnittlig vekstfart blir til momentan vekstfart.',
+          },
         ],
-        solution: 'Når de to punktene på grafen nærmer seg hverandre, vil sekanten nærme seg tangenten. I grensen – når de to punktene «smelter sammen» – blir sekanten til tangenten.',
       },
-    },
-    {
-      id: '1t-7-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-2-n-section3',
       type: 'text',
       content: `## Grafisk bestemmelse av momentan vekstfart
@@ -391,24 +562,46 @@ Det er nyttig å vite at du også kan bruke digitale verktøy som GeoGebra for �
         id: '1t-7-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva representerer stigningstallet til tangenten i et punkt på grafen?',
-        options: [
-          { id: 'a', text: 'Funksjonsverdien i det punktet', isCorrect: false },
-          { id: 'b', text: 'Gjennomsnittlig vekstfart over hele definisjonsområdet', isCorrect: false },
-          { id: 'c', text: 'Nullpunktet til funksjonen', isCorrect: false },
-          { id: 'd', text: 'Den momentane vekstfarten til funksjonen i det punktet', isCorrect: true },
+        task: 'Test deg selv på grafisk bestemmelse av momentan vekstfart:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-2-n-quiz3-q0',
+            task: 'Hva representerer stigningstallet til tangenten i et punkt på grafen?',
+            options: [
+              { id: 'a', text: 'Funksjonsverdien i det punktet', isCorrect: false },
+              { id: 'b', text: 'Gjennomsnittlig vekstfart over hele definisjonsområdet', isCorrect: false },
+              { id: 'c', text: 'Nullpunktet til funksjonen', isCorrect: false },
+              { id: 'd', text: 'Den momentane vekstfarten til funksjonen i det punktet', isCorrect: true },
+            ],
+            solution: 'Stigningstallet til tangenten i et punkt er den momentane vekstfarten til funksjonen i det punktet. Det forteller oss hvor fort funksjonen endrer seg akkurat der.',
+          },
+          {
+            id: '1t-7-2-n-quiz3-q1',
+            task: 'Hvordan finner du momentan vekstfart grafisk?',
+            options: [
+              { id: 'a', text: 'Finn nullpunktene til funksjonen', isCorrect: false },
+              { id: 'b', text: 'Tegn tangenten i punktet og finn stigningstallet', isCorrect: true },
+              { id: 'c', text: 'Mål avstanden mellom to punkter på grafen', isCorrect: false },
+              { id: 'd', text: 'Finn arealet under grafen', isCorrect: false },
+            ],
+            solution: 'Du finner momentan vekstfart grafisk ved å tegne tangenten til grafen i det aktuelle punktet og deretter beregne stigningstallet til denne linjen ved hjelp av to punkter på tangentlinjen.',
+          },
+          {
+            id: '1t-7-2-n-quiz3-q2',
+            task: 'Funksjonen $g(x) = x^2 + 2x$ har momentan vekstfart $4$ når $x = 1$. Hva betyr dette?',
+            options: [
+              { id: 'a', text: 'Funksjonsverdien er $4$ når $x = 1$', isCorrect: false },
+              { id: 'b', text: 'Tangenten i $(1, 3)$ har stigningstall $4$', isCorrect: true },
+              { id: 'c', text: 'Funksjonen har et toppunkt i $x = 1$', isCorrect: false },
+              { id: 'd', text: 'Sekanten mellom $x = 0$ og $x = 2$ har stigningstall $4$', isCorrect: false },
+            ],
+            solution: 'Momentan vekstfart $4$ når $x = 1$ betyr at tangenten til grafen i punktet $(1, 3)$ har stigningstall $4$. Funksjonen endrer seg med $4$ enheter per $x$-enhet akkurat i det punktet.',
+          },
         ],
-        solution: 'Stigningstallet til tangenten i et punkt er den momentane vekstfarten til funksjonen i det punktet. Det forteller oss hvor fort funksjonen endrer seg akkurat der.',
       },
-    },
-    {
-      id: '1t-7-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-2-n-section4',
       type: 'text',
       content: `## Tangentlikning – fra berøringspunkt til formel
@@ -426,24 +619,46 @@ La oss ta et fullstendig eksempel med en bil. Avstanden $s$ (i km) fra startpunk
         id: '1t-7-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Funksjonen $f$ har momentan vekstfart $5$ i punktet $(2, 7)$. Hva er likningen for tangenten?',
-        options: [
-          { id: 'a', text: '$y = 5x + 7$', isCorrect: false },
-          { id: 'b', text: '$y = 5x - 3$', isCorrect: true },
-          { id: 'c', text: '$y = 2x + 3$', isCorrect: false },
-          { id: 'd', text: '$y = 7x - 5$', isCorrect: false },
+        task: 'Test deg selv på tangentlikning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-2-n-quiz4-q0',
+            task: 'Funksjonen $f$ har momentan vekstfart $5$ i punktet $(2, 7)$. Hva er likningen for tangenten?',
+            options: [
+              { id: 'a', text: '$y = 5x + 7$', isCorrect: false },
+              { id: 'b', text: '$y = 5x - 3$', isCorrect: true },
+              { id: 'c', text: '$y = 2x + 3$', isCorrect: false },
+              { id: 'd', text: '$y = 7x - 5$', isCorrect: false },
+            ],
+            solution: 'Vi bruker ettpunktsformelen med stigningstall $5$ og punkt $(2, 7)$: $y - 7 = 5(x - 2)$, altså $y - 7 = 5x - 10$, som gir $y = 5x - 3$.',
+          },
+          {
+            id: '1t-7-2-n-quiz4-q1',
+            task: 'Hvilken formel bruker du for å finne tangentlikningen når du kjenner momentan vekstfart og berøringspunkt?',
+            options: [
+              { id: 'a', text: 'Potensregelen', isCorrect: false },
+              { id: 'b', text: 'abc-formelen', isCorrect: false },
+              { id: 'c', text: 'Ettpunktsformelen', isCorrect: true },
+              { id: 'd', text: 'Pytagoras\' setning', isCorrect: false },
+            ],
+            solution: 'Vi bruker **ettpunktsformelen** $y - y_0 = a(x - x_0)$, der $(x_0, y_0)$ er berøringspunktet og $a$ er den momentane vekstfarten (stigningstallet til tangenten).',
+          },
+          {
+            id: '1t-7-2-n-quiz4-q2',
+            task: 'Avstanden $s(t) = t^2 + 4t$ gir momentanfart $8$ km/t etter $2$ timer. Hva er $s(2)$?',
+            options: [
+              { id: 'a', text: '$8$ km', isCorrect: false },
+              { id: 'b', text: '$12$ km', isCorrect: true },
+              { id: 'c', text: '$16$ km', isCorrect: false },
+              { id: 'd', text: '$6$ km', isCorrect: false },
+            ],
+            solution: '$s(2) = 2^2 + 4 \\cdot 2 = 4 + 8 = 12$ km. Merk at dette er avstanden (posisjon), ikke farten. Farten er den momentane vekstfarten $8$ km/t.',
+          },
         ],
-        solution: 'Vi bruker ettpunktsformelen med stigningstall $5$ og punkt $(2, 7)$: $y - 7 = 5(x - 2)$, altså $y - 7 = 5x - 10$, som gir $y = 5x - 3$.',
       },
-    },
-    {
-      id: '1t-7-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-2-n-section5',
       type: 'text',
       content: `## Fra speedometer til matematikk – tolkning av momentan vekstfart
@@ -463,24 +678,57 @@ Nøkkelforskjellen mellom gjennomsnittlig og momentan vekstfart kan oppsummeres 
         id: '1t-7-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Gjennomsnittlig vekstfart svarer til stigningstallet til en sekant. Hva svarer momentan vekstfart til?',
-        options: [
-          { id: 'a', text: 'Stigningstallet til en tangent', isCorrect: true },
-          { id: 'b', text: 'Stigningstallet til en sekant', isCorrect: false },
-          { id: 'c', text: 'Nullpunktet til funksjonen', isCorrect: false },
-          { id: 'd', text: 'Arealet under grafen', isCorrect: false },
+        task: 'Test deg selv på tolkning av momentan vekstfart:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-2-n-quiz5-q0',
+            task: 'Gjennomsnittlig vekstfart svarer til stigningstallet til en sekant. Hva svarer momentan vekstfart til?',
+            options: [
+              { id: 'a', text: 'Stigningstallet til en tangent', isCorrect: true },
+              { id: 'b', text: 'Stigningstallet til en sekant', isCorrect: false },
+              { id: 'c', text: 'Nullpunktet til funksjonen', isCorrect: false },
+              { id: 'd', text: 'Arealet under grafen', isCorrect: false },
+            ],
+            solution: 'Momentan vekstfart er stigningstallet til **tangenten** til grafen i det aktuelle punktet. Tangenten berører grafen i bare ett punkt og har samme retning som grafen der.',
+          },
+          {
+            id: '1t-7-2-n-quiz5-q1',
+            task: 'Temperaturen $T(t)$ stiger med momentan vekstfart $2$ grader per time akkurat nå. Hva betyr det?',
+            options: [
+              { id: 'a', text: 'Temperaturen har steget $2$ grader totalt', isCorrect: false },
+              { id: 'b', text: 'Temperaturen øker med $2$ grader per time i dette øyeblikket', isCorrect: true },
+              { id: 'c', text: 'Temperaturen er $2$ grader', isCorrect: false },
+              { id: 'd', text: 'Gjennomsnittstemperaturen er $2$ grader', isCorrect: false },
+            ],
+            solution: 'Momentan vekstfart $2$ betyr at temperaturen endrer seg med $2$ grader per time akkurat i dette øyeblikket. Det er den øyeblikkelige endringsraten, ikke en gjennomsnittlig endring.',
+          },
+          {
+            id: '1t-7-2-n-quiz5-q2',
+            task: 'Hva er den viktigste forskjellen mellom en sekant og en tangent?',
+            options: [
+              { id: 'a', text: 'En sekant er alltid vertikal', isCorrect: false },
+              { id: 'b', text: 'En tangent er alltid horisontal', isCorrect: false },
+              { id: 'c', text: 'En sekant skjærer grafen i to punkter, en tangent berører i ett', isCorrect: true },
+              { id: 'd', text: 'En tangent har alltid positivt stigningstall', isCorrect: false },
+            ],
+            solution: 'En **sekant** skjærer grafen i to punkter og gir gjennomsnittlig vekstfart. En **tangent** berører grafen i ett punkt og gir momentan vekstfart. Tangenten er det sekanten nærmer seg når de to punktene smelter sammen.',
+          },
+          {
+            id: '1t-7-2-n-quiz5-q3',
+            task: 'Hva viser speedometeret i bilen – momentan eller gjennomsnittlig hastighet?',
+            options: [
+              { id: 'a', text: 'Gjennomsnittlig hastighet over hele turen', isCorrect: false },
+              { id: 'b', text: 'Gjennomsnittlig hastighet siste time', isCorrect: false },
+              { id: 'c', text: 'Momentan hastighet', isCorrect: true },
+              { id: 'd', text: 'Toppfarten', isCorrect: false },
+            ],
+            solution: 'Speedometeret viser den **momentane hastigheten** – farten akkurat nå, i dette øyeblikket. Det er et praktisk eksempel på momentan vekstfart.',
+          },
         ],
-        solution: 'Momentan vekstfart er stigningstallet til **tangenten** til grafen i det aktuelle punktet. Tangenten berører grafen i bare ett punkt og har samme retning som grafen der.',
       },
-    },
-    {
-      id: '1t-7-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-2-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -513,15 +761,7 @@ export const CHAPTER_1T_7_3_NARRATIV: TextbookChapter = {
     'bruke potensregelen til å derivere polynomfunksjoner',
   ],
   linkedChapterId: '1t-7-3',
-  content: [
-    {
-      id: '1t-7-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-3-n-intro',
       type: 'text',
       content: `## En formel for vekstfart overalt
@@ -548,24 +788,46 @@ Tenk deg at du kjører bil langs en vei som svinger opp og ned. Den deriverte er
         id: '1t-7-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva betyr det at $f\'(x) < 0$ i et punkt?',
-        options: [
-          { id: 'a', text: 'Funksjonen er stigende', isCorrect: false },
-          { id: 'b', text: 'Funksjonen har et toppunkt', isCorrect: false },
-          { id: 'c', text: 'Funksjonen er synkende', isCorrect: true },
-          { id: 'd', text: 'Funksjonen har verdi 0', isCorrect: false },
+        task: 'Test deg selv på hva den deriverte forteller oss:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-3-n-quiz1-q0',
+            task: 'Hva betyr det at $f\'(x) < 0$ i et punkt?',
+            options: [
+              { id: 'a', text: 'Funksjonen er stigende', isCorrect: false },
+              { id: 'b', text: 'Funksjonen har et toppunkt', isCorrect: false },
+              { id: 'c', text: 'Funksjonen er synkende', isCorrect: true },
+              { id: 'd', text: 'Funksjonen har verdi 0', isCorrect: false },
+            ],
+            solution: 'Når $f\'(x) < 0$, er den momentane vekstfarten negativ. Det betyr at funksjonen $f$ er **synkende** i det punktet – grafen peker nedover.',
+          },
+          {
+            id: '1t-7-3-n-quiz1-q1',
+            task: 'Hva gir $f\'(a)$ oss?',
+            options: [
+              { id: 'a', text: 'Funksjonsverdien i $x = a$', isCorrect: false },
+              { id: 'b', text: 'Stigningstallet til tangenten i $(a, f(a))$', isCorrect: true },
+              { id: 'c', text: 'Nullpunktet nærmest $a$', isCorrect: false },
+              { id: 'd', text: 'Arealet under grafen fra $0$ til $a$', isCorrect: false },
+            ],
+            solution: '$f\'(a)$ gir stigningstallet til tangenten til grafen av $f$ i punktet $(a, f(a))$. Det er den momentane vekstfarten til $f$ når $x = a$.',
+          },
+          {
+            id: '1t-7-3-n-quiz1-q2',
+            task: 'Hva betyr det at $f\'(x) = 0$ i et punkt?',
+            options: [
+              { id: 'a', text: 'Funksjonen er null', isCorrect: false },
+              { id: 'b', text: 'Funksjonen er stigende', isCorrect: false },
+              { id: 'c', text: 'Grafen krysser $x$-aksen', isCorrect: false },
+              { id: 'd', text: 'Grafen har en horisontal tangent', isCorrect: true },
+            ],
+            solution: 'Når $f\'(x) = 0$, har tangenten stigningstall $0$, altså er den horisontal. Det kan bety et toppunkt, bunnpunkt eller vendepunkt.',
+          },
         ],
-        solution: 'Når $f\'(x) < 0$, er den momentane vekstfarten negativ. Det betyr at funksjonen $f$ er **synkende** i det punktet – grafen peker nedover.',
       },
-    },
-    {
-      id: '1t-7-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-3-n-section2',
       type: 'text',
       content: `## Konstantregelen og lineære funksjoner
@@ -587,24 +849,57 @@ Disse to reglene er utgangspunktet, og de er lette å huske: konstanter forsvinn
         id: '1t-7-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er $f\'(x)$ når $f(x) = -7x + 10$?',
-        options: [
-          { id: 'a', text: '$10$', isCorrect: false },
-          { id: 'b', text: '$-7$', isCorrect: true },
-          { id: 'c', text: '$-7x$', isCorrect: false },
-          { id: 'd', text: '$0$', isCorrect: false },
+        task: 'Test deg selv på konstantregelen og lineære funksjoner:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-3-n-quiz2-q0',
+            task: 'Hva er $f\'(x)$ når $f(x) = -7x + 10$?',
+            options: [
+              { id: 'a', text: '$10$', isCorrect: false },
+              { id: 'b', text: '$-7$', isCorrect: true },
+              { id: 'c', text: '$-7x$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: false },
+            ],
+            solution: '$f(x) = -7x + 10$ er en lineær funksjon med stigningstall $-7$. Den deriverte av en lineær funksjon er stigningstallet, så $f\'(x) = -7$.',
+          },
+          {
+            id: '1t-7-3-n-quiz2-q1',
+            task: 'Hva er $f\'(x)$ når $f(x) = 42$?',
+            options: [
+              { id: 'a', text: '$42$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: false },
+              { id: 'c', text: '$42x$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: true },
+            ],
+            solution: '$f(x) = 42$ er en konstant funksjon. Konstantregelen sier at den deriverte av en konstant er $0$, fordi en konstant endrer seg aldri.',
+          },
+          {
+            id: '1t-7-3-n-quiz2-q2',
+            task: 'Hva er $f\'(x)$ når $f(x) = x + 9$?',
+            options: [
+              { id: 'a', text: '$9$', isCorrect: false },
+              { id: 'b', text: '$x$', isCorrect: false },
+              { id: 'c', text: '$1$', isCorrect: true },
+              { id: 'd', text: '$10$', isCorrect: false },
+            ],
+            solution: '$f(x) = x + 9 = 1 \\cdot x + 9$ er en lineær funksjon med stigningstall $1$. Dermed er $f\'(x) = 1$. Konstanten $9$ forsvinner ved derivasjon.',
+          },
+          {
+            id: '1t-7-3-n-quiz2-q3',
+            task: 'Hvorfor er den deriverte av en konstant funksjon lik null?',
+            options: [
+              { id: 'a', text: 'Fordi konstanten er positiv', isCorrect: false },
+              { id: 'b', text: 'Fordi grafen er en horisontal linje som aldri endrer seg', isCorrect: true },
+              { id: 'c', text: 'Fordi vi deler på null', isCorrect: false },
+              { id: 'd', text: 'Fordi konstanten ikke har noen $x$', isCorrect: false },
+            ],
+            solution: 'En konstant funksjon har en graf som er en horisontal linje. Stigningstallet til en horisontal linje er alltid $0$, og dermed er den deriverte – som gir stigningstallet – også $0$.',
+          },
         ],
-        solution: '$f(x) = -7x + 10$ er en lineær funksjon med stigningstall $-7$. Den deriverte av en lineær funksjon er stigningstallet, så $f\'(x) = -7$.',
       },
-    },
-    {
-      id: '1t-7-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-3-n-section3',
       type: 'text',
       content: `## Potensregelen – den viktigste derivasjonsregelen
@@ -626,24 +921,57 @@ Hva med koeffisienter foran? Hvis $f(x) = 3x^4$, ganger vi koeffisienten med eks
         id: '1t-7-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er $f\'(x)$ når $f(x) = x^3$?',
-        options: [
-          { id: 'a', text: '$x^2$', isCorrect: false },
-          { id: 'b', text: '$3x$', isCorrect: false },
-          { id: 'c', text: '$3x^2$', isCorrect: true },
-          { id: 'd', text: '$3x^3$', isCorrect: false },
+        task: 'Test deg selv på potensregelen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-3-n-quiz3-q0',
+            task: 'Hva er $f\'(x)$ når $f(x) = x^3$?',
+            options: [
+              { id: 'a', text: '$x^2$', isCorrect: false },
+              { id: 'b', text: '$3x$', isCorrect: false },
+              { id: 'c', text: '$3x^2$', isCorrect: true },
+              { id: 'd', text: '$3x^3$', isCorrect: false },
+            ],
+            solution: 'Med potensregelen: $f(x) = x^3$ gir $f\'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tar eksponenten 3 ned som koeffisient og reduserer eksponenten med 1.',
+          },
+          {
+            id: '1t-7-3-n-quiz3-q1',
+            task: 'Hva sier potensregelen? Hvis $f(x) = x^n$, hva er $f\'(x)$?',
+            options: [
+              { id: 'a', text: '$x^{n+1}$', isCorrect: false },
+              { id: 'b', text: '$n \\cdot x^{n-1}$', isCorrect: true },
+              { id: 'c', text: '$n \\cdot x^n$', isCorrect: false },
+              { id: 'd', text: '$(n-1) \\cdot x^n$', isCorrect: false },
+            ],
+            solution: 'Potensregelen: $f(x) = x^n$ gir $f\'(x) = n \\cdot x^{n-1}$. Huskeregelen er «ta ned og trekk fra én» – eksponenten flyttes ned og reduseres med 1.',
+          },
+          {
+            id: '1t-7-3-n-quiz3-q2',
+            task: 'Hva er $f\'(x)$ når $f(x) = 3x^4$?',
+            options: [
+              { id: 'a', text: '$3x^3$', isCorrect: false },
+              { id: 'b', text: '$4x^3$', isCorrect: false },
+              { id: 'c', text: '$12x^3$', isCorrect: true },
+              { id: 'd', text: '$12x^4$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$. Koeffisienten $3$ ganges med eksponenten $4$, og eksponenten reduseres fra $4$ til $3$.',
+          },
+          {
+            id: '1t-7-3-n-quiz3-q3',
+            task: 'Hva er den momentane vekstfarten til $f(x) = x^2$ når $x = -1$?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$-2$', isCorrect: true },
+              { id: 'c', text: '$1$', isCorrect: false },
+              { id: 'd', text: '$-1$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 2x$. Vi setter inn $x = -1$: $f\'(-1) = 2 \\cdot (-1) = -2$. Den momentane vekstfarten er $-2$, altså synker funksjonen i det punktet.',
+          },
         ],
-        solution: 'Med potensregelen: $f(x) = x^3$ gir $f\'(x) = 3 \\cdot x^{3-1} = 3x^2$. Vi tar eksponenten 3 ned som koeffisient og reduserer eksponenten med 1.',
       },
-    },
-    {
-      id: '1t-7-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-3-n-section4',
       type: 'text',
       content: `## Sumregelen – derivere ledd for ledd
@@ -663,24 +991,57 @@ La oss ta enda et eksempel. Vi har $f(x) = 2x^2 - 5x$ og vil finne $f'(-2)$. Fø
         id: '1t-7-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'La $f(x) = x^2 + 2x - 3$. Hva er $f\'(x)$?',
-        options: [
-          { id: 'a', text: '$2x + 2$', isCorrect: true },
-          { id: 'b', text: '$x^2 + 2$', isCorrect: false },
-          { id: 'c', text: '$2x$', isCorrect: false },
-          { id: 'd', text: '$2x + 2 - 3$', isCorrect: false },
+        task: 'Test deg selv på sumregelen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-3-n-quiz4-q0',
+            task: 'La $f(x) = x^2 + 2x - 3$. Hva er $f\'(x)$?',
+            options: [
+              { id: 'a', text: '$2x + 2$', isCorrect: true },
+              { id: 'b', text: '$x^2 + 2$', isCorrect: false },
+              { id: 'c', text: '$2x$', isCorrect: false },
+              { id: 'd', text: '$2x + 2 - 3$', isCorrect: false },
+            ],
+            solution: 'Vi deriverer ledd for ledd: $x^2$ gir $2x$, leddet $2x$ gir $2$, og konstanten $-3$ gir $0$. Til sammen: $f\'(x) = 2x + 2$.',
+          },
+          {
+            id: '1t-7-3-n-quiz4-q1',
+            task: 'Hva sier sumregelen for derivasjon?',
+            options: [
+              { id: 'a', text: 'Vi legger sammen alle leddene', isCorrect: false },
+              { id: 'b', text: 'Vi deriverer hvert ledd for seg', isCorrect: true },
+              { id: 'c', text: 'Vi ganger alle leddene', isCorrect: false },
+              { id: 'd', text: 'Vi kan bare derivere ett ledd om gangen', isCorrect: false },
+            ],
+            solution: 'Sumregelen sier at $(f + g)\'(x) = f\'(x) + g\'(x)$. Vi deriverer hvert ledd for seg og setter sammen resultatet.',
+          },
+          {
+            id: '1t-7-3-n-quiz4-q2',
+            task: 'La $f(x) = 2x^2 - 5x$. Hva er $f\'(-2)$?',
+            options: [
+              { id: 'a', text: '$-3$', isCorrect: false },
+              { id: 'b', text: '$-13$', isCorrect: true },
+              { id: 'c', text: '$3$', isCorrect: false },
+              { id: 'd', text: '$13$', isCorrect: false },
+            ],
+            solution: 'Først deriverer vi: $f\'(x) = 4x - 5$. Så setter vi inn $x = -2$: $f\'(-2) = 4 \\cdot (-2) - 5 = -8 - 5 = -13$.',
+          },
+          {
+            id: '1t-7-3-n-quiz4-q3',
+            task: 'Hvorfor forsvinner konstanter ved derivasjon?',
+            options: [
+              { id: 'a', text: 'Fordi de er tall, ikke variabler', isCorrect: false },
+              { id: 'b', text: 'Fordi de ikke bidrar til endring – de bare løfter eller senker grafen', isCorrect: true },
+              { id: 'c', text: 'Fordi de alltid er positive', isCorrect: false },
+              { id: 'd', text: 'Fordi potensregelen ikke gjelder for dem', isCorrect: false },
+            ],
+            solution: 'Konstanter bidrar ikke til endring – de bare løfter eller senker hele grafen uten å endre brattheten. Stigningstallet er det samme uansett om vi adderer en konstant, så den forsvinner ved derivasjon.',
+          },
         ],
-        solution: 'Vi deriverer ledd for ledd: $x^2$ gir $2x$, leddet $2x$ gir $2$, og konstanten $-3$ gir $0$. Til sammen: $f\'(x) = 2x + 2$.',
       },
-    },
-    {
-      id: '1t-7-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-3-n-section5',
       type: 'text',
       content: `## Den deriverte i praksis – ballen igjen
@@ -700,24 +1061,57 @@ Vi kan også finne *når* ballen er på toppen ved å sette $h'(t) = 0$: $-10t +
         id: '1t-7-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'La $f(x) = \\frac{7}{2}x^2 - 5x$. Hva er $f\'(2)$?',
-        options: [
-          { id: 'a', text: '$4$', isCorrect: false },
-          { id: 'b', text: '$9$', isCorrect: true },
-          { id: 'c', text: '$7$', isCorrect: false },
-          { id: 'd', text: '$12$', isCorrect: false },
+        task: 'Test deg selv på den deriverte i praksis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-3-n-quiz5-q0',
+            task: 'La $f(x) = \\frac{7}{2}x^2 - 5x$. Hva er $f\'(2)$?',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: false },
+              { id: 'b', text: '$9$', isCorrect: true },
+              { id: 'c', text: '$7$', isCorrect: false },
+              { id: 'd', text: '$12$', isCorrect: false },
+            ],
+            solution: 'Vi deriverer: $f\'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter setter vi inn $x = 2$: $f\'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$.',
+          },
+          {
+            id: '1t-7-3-n-quiz5-q1',
+            task: 'Høyden til en ball er $h(t) = -5t^2 + 20t + 1$. Hva er $h\'(t)$?',
+            options: [
+              { id: 'a', text: '$-5t + 20$', isCorrect: false },
+              { id: 'b', text: '$-10t + 20$', isCorrect: true },
+              { id: 'c', text: '$-10t^2 + 20$', isCorrect: false },
+              { id: 'd', text: '$-10t + 1$', isCorrect: false },
+            ],
+            solution: 'Vi deriverer ledd for ledd: $-5t^2$ gir $-10t$, $20t$ gir $20$, og konstanten $1$ gir $0$. Altså $h\'(t) = -10t + 20$.',
+          },
+          {
+            id: '1t-7-3-n-quiz5-q2',
+            task: 'Ballen har $h\'(2) = 0$. Hva betyr det fysisk?',
+            options: [
+              { id: 'a', text: 'Ballen er på bakken', isCorrect: false },
+              { id: 'b', text: 'Ballen beveger seg oppover', isCorrect: false },
+              { id: 'c', text: 'Ballen er på sitt høyeste punkt og er i ferd med å snu', isCorrect: true },
+              { id: 'd', text: 'Ballen har falt i $2$ sekunder', isCorrect: false },
+            ],
+            solution: '$h\'(2) = 0$ betyr at farten er null – ballen verken stiger eller synker. Den er på sitt høyeste punkt og er i ferd med å snu retning.',
+          },
+          {
+            id: '1t-7-3-n-quiz5-q3',
+            task: 'Når er ballen på toppen? (Sett $h\'(t) = 0$ med $h\'(t) = -10t + 20$)',
+            options: [
+              { id: 'a', text: '$t = 0$', isCorrect: false },
+              { id: 'b', text: '$t = 1$', isCorrect: false },
+              { id: 'c', text: '$t = 2$', isCorrect: true },
+              { id: 'd', text: '$t = 4$', isCorrect: false },
+            ],
+            solution: '$h\'(t) = -10t + 20 = 0$ gir $10t = 20$, altså $t = 2$ sekunder. Ved dette tidspunktet er farten null, og ballen er på toppen.',
+          },
         ],
-        solution: 'Vi deriverer: $f\'(x) = \\frac{7}{2} \\cdot 2x - 5 = 7x - 5$. Deretter setter vi inn $x = 2$: $f\'(2) = 7 \\cdot 2 - 5 = 14 - 5 = 9$.',
       },
-    },
-    {
-      id: '1t-7-3-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-3-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-3-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -752,15 +1146,7 @@ export const CHAPTER_1T_7_5_NARRATIV: TextbookChapter = {
     'forstå numerisk derivasjon og Newton-kvotienten',
   ],
   linkedChapterId: '1t-7-5',
-  content: [
-    {
-      id: '1t-7-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-5-n-intro',
       type: 'text',
       content: `## Bak kulissene i derivasjon
@@ -791,24 +1177,57 @@ Hva skjer hvis vi gjør $h$ enda mindre? Med $h = 0{,}01$: $\\frac{f(2{,}01) - f
         id: '1t-7-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva kalles brøken $\\frac{f(x + h) - f(x)}{h}$?',
-        options: [
-          { id: 'a', text: 'Potensregelen', isCorrect: false },
-          { id: 'b', text: 'Tangentlikningen', isCorrect: false },
-          { id: 'c', text: 'Stigningstallet', isCorrect: false },
-          { id: 'd', text: 'Newton-kvotienten', isCorrect: true },
+        task: 'Test deg selv på Newton-kvotienten:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-5-n-quiz1-q0',
+            task: 'Hva kalles brøken $\\frac{f(x + h) - f(x)}{h}$?',
+            options: [
+              { id: 'a', text: 'Potensregelen', isCorrect: false },
+              { id: 'b', text: 'Tangentlikningen', isCorrect: false },
+              { id: 'c', text: 'Stigningstallet', isCorrect: false },
+              { id: 'd', text: 'Newton-kvotienten', isCorrect: true },
+            ],
+            solution: 'Brøken $\\frac{f(x + h) - f(x)}{h}$ kalles **Newton-kvotienten** (eller differanskvotienten). Den gir den gjennomsnittlige vekstfarten mellom $x$ og $x + h$.',
+          },
+          {
+            id: '1t-7-5-n-quiz1-q1',
+            task: 'Hva representerer Newton-kvotienten grafisk?',
+            options: [
+              { id: 'a', text: 'Stigningstallet til tangenten', isCorrect: false },
+              { id: 'b', text: 'Stigningstallet til sekanten mellom $(x, f(x))$ og $(x+h, f(x+h))$', isCorrect: true },
+              { id: 'c', text: 'Arealet under grafen', isCorrect: false },
+              { id: 'd', text: 'Nullpunktet til funksjonen', isCorrect: false },
+            ],
+            solution: 'Newton-kvotienten gir stigningstallet til sekanten mellom punktene $(x, f(x))$ og $(x+h, f(x+h))$ på grafen. Det er den gjennomsnittlige vekstfarten i intervallet.',
+          },
+          {
+            id: '1t-7-5-n-quiz1-q2',
+            task: 'Med $f(x) = x^2$, $x = 2$ og $h = 0{,}1$: hva gir Newton-kvotienten?',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: false },
+              { id: 'b', text: '$4{,}1$', isCorrect: true },
+              { id: 'c', text: '$4{,}01$', isCorrect: false },
+              { id: 'd', text: '$3{,}9$', isCorrect: false },
+            ],
+            solution: '$\\frac{f(2{,}1) - f(2)}{0{,}1} = \\frac{4{,}41 - 4}{0{,}1} = \\frac{0{,}41}{0{,}1} = 4{,}1$. Den eksakte deriverte er $f\'(2) = 4$, så $4{,}1$ er en tilnærming.',
+          },
+          {
+            id: '1t-7-5-n-quiz1-q3',
+            task: 'Hva skjer med Newton-kvotienten når $h$ blir mindre?',
+            options: [
+              { id: 'a', text: 'Den blir mer unøyaktig', isCorrect: false },
+              { id: 'b', text: 'Den nærmer seg den eksakte deriverte', isCorrect: true },
+              { id: 'c', text: 'Den forblir uendret', isCorrect: false },
+              { id: 'd', text: 'Den går mot null', isCorrect: false },
+            ],
+            solution: 'Jo mindre $h$, desto bedre tilnærmer Newton-kvotienten den eksakte deriverte. I grensen når $h \\to 0$ er Newton-kvotienten nøyaktig lik den deriverte.',
+          },
         ],
-        solution: 'Brøken $\\frac{f(x + h) - f(x)}{h}$ kalles **Newton-kvotienten** (eller differanskvotienten). Den gir den gjennomsnittlige vekstfarten mellom $x$ og $x + h$.',
       },
-    },
-    {
-      id: '1t-7-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-5-n-section2',
       type: 'text',
       content: `## Definisjonen av den deriverte – grenseverdien
@@ -830,24 +1249,46 @@ Dette er altså *grunnen* til at potensregelen fungerer for $x^2$. Lignende utre
         id: '1t-7-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er den formelle definisjonen av den deriverte?',
-        options: [
-          { id: 'a', text: '$f\'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$', isCorrect: true },
-          { id: 'b', text: '$f\'(x) = n \\cdot x^{n-1}$', isCorrect: false },
-          { id: 'c', text: '$f\'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$', isCorrect: false },
-          { id: 'd', text: '$f\'(x) = f(x + 1) - f(x)$', isCorrect: false },
+        task: 'Test deg selv på definisjonen av den deriverte:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-5-n-quiz2-q0',
+            task: 'Hva er den formelle definisjonen av den deriverte?',
+            options: [
+              { id: 'a', text: '$f\'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$', isCorrect: true },
+              { id: 'b', text: '$f\'(x) = n \\cdot x^{n-1}$', isCorrect: false },
+              { id: 'c', text: '$f\'(x) = \\frac{f(x_2) - f(x_1)}{x_2 - x_1}$', isCorrect: false },
+              { id: 'd', text: '$f\'(x) = f(x + 1) - f(x)$', isCorrect: false },
+            ],
+            solution: 'Den formelle definisjonen er $f\'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengden $h$ går mot null.',
+          },
+          {
+            id: '1t-7-5-n-quiz2-q1',
+            task: 'Hvorfor kan vi ikke sette $h = 0$ direkte i Newton-kvotienten?',
+            options: [
+              { id: 'a', text: 'Fordi vi aldri bruker null i matematikk', isCorrect: false },
+              { id: 'b', text: 'Fordi vi ville dele på null', isCorrect: true },
+              { id: 'c', text: 'Fordi funksjonen ikke er definert der', isCorrect: false },
+              { id: 'd', text: 'Fordi svaret alltid blir null', isCorrect: false },
+            ],
+            solution: 'Hvis $h = 0$, blir nevneren i brøken $\\frac{f(x+h) - f(x)}{h}$ lik null, og vi kan ikke dele på null. Derfor bruker vi grenseverdi og lar $h$ nærme seg null uten å bli null.',
+          },
+          {
+            id: '1t-7-5-n-quiz2-q2',
+            task: 'Bruk definisjonen: Newton-kvotienten for $f(x) = x^2$ forenkles til $2x + h$. Hva er $\\lim_{h \\to 0}(2x + h)$?',
+            options: [
+              { id: 'a', text: '$0$', isCorrect: false },
+              { id: 'b', text: '$2x$', isCorrect: true },
+              { id: 'c', text: '$2x + 1$', isCorrect: false },
+              { id: 'd', text: '$x^2$', isCorrect: false },
+            ],
+            solution: 'Når $h \\to 0$ forsvinner $h$-leddet: $\\lim_{h \\to 0}(2x + h) = 2x + 0 = 2x$. Dermed er $f\'(x) = 2x$, som stemmer med potensregelen.',
+          },
         ],
-        solution: 'Den formelle definisjonen er $f\'(x) = \\lim_{h \\to 0} \\frac{f(x + h) - f(x)}{h}$. Det er grenseverdien av Newton-kvotienten når steglengden $h$ går mot null.',
       },
-    },
-    {
-      id: '1t-7-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-5-n-section3',
       type: 'text',
       content: `## Derivasjon fra definisjonen – flere eksempler
@@ -865,24 +1306,46 @@ Et tredje eksempel: $f(x) = 2x^2 - x$. Newton-kvotienten gir $\\frac{2(x+h)^2 - 
         id: '1t-7-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Hva er $f\'(x)$?',
-        options: [
-          { id: 'a', text: '$x^2$', isCorrect: false },
-          { id: 'b', text: '$2x + 1$', isCorrect: false },
-          { id: 'c', text: '$2x$', isCorrect: true },
-          { id: 'd', text: '$x$', isCorrect: false },
+        task: 'Test deg selv på derivasjon fra definisjonen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-5-n-quiz3-q0',
+            task: 'Bruk definisjonen av den deriverte på $f(x) = x^2 + 1$. Hva er $f\'(x)$?',
+            options: [
+              { id: 'a', text: '$x^2$', isCorrect: false },
+              { id: 'b', text: '$2x + 1$', isCorrect: false },
+              { id: 'c', text: '$2x$', isCorrect: true },
+              { id: 'd', text: '$x$', isCorrect: false },
+            ],
+            solution: 'Newton-kvotienten gir $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sitter vi igjen med $f\'(x) = 2x$. Konstanten $+1$ påvirker ikke den deriverte.',
+          },
+          {
+            id: '1t-7-5-n-quiz3-q1',
+            task: 'For $f(x) = 3x$ gir Newton-kvotienten $\\frac{3(x+h) - 3x}{h}$. Hva forenkles dette til?',
+            options: [
+              { id: 'a', text: '$3x$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: true },
+              { id: 'c', text: '$3h$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: false },
+            ],
+            solution: '$\\frac{3(x+h) - 3x}{h} = \\frac{3x + 3h - 3x}{h} = \\frac{3h}{h} = 3$. Svaret er $3$ for alle $h$, og grenseverdien er også $3$. Det stemmer: den deriverte av $3x$ er $3$.',
+          },
+          {
+            id: '1t-7-5-n-quiz3-q2',
+            task: 'For $f(x) = 2x^2 - x$ gir Newton-kvotienten $4x + 2h - 1$. Hva er $f\'(x)$?',
+            options: [
+              { id: 'a', text: '$4x + 2h - 1$', isCorrect: false },
+              { id: 'b', text: '$4x - 1$', isCorrect: true },
+              { id: 'c', text: '$4x + 1$', isCorrect: false },
+              { id: 'd', text: '$2x - 1$', isCorrect: false },
+            ],
+            solution: 'Vi tar grenseverdien: $\\lim_{h \\to 0}(4x + 2h - 1) = 4x + 0 - 1 = 4x - 1$. Alle ledd med $h$ forsvinner.',
+          },
         ],
-        solution: 'Newton-kvotienten gir $\\frac{(x+h)^2 + 1 - x^2 - 1}{h} = \\frac{2xh + h^2}{h} = 2x + h$. Når $h \\to 0$ sitter vi igjen med $f\'(x) = 2x$. Konstanten $+1$ påvirker ikke den deriverte.',
       },
-    },
-    {
-      id: '1t-7-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-5-n-section4',
       type: 'text',
       content: `## Numerisk derivasjon – tilnærminger i praksis
@@ -904,24 +1367,46 @@ Sentraldifferansen er mer nøyaktig fordi den balanserer feilen på begge sider 
         id: '1t-7-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvilken metode for numerisk derivasjon er generelt mest nøyaktig?',
-        options: [
-          { id: 'a', text: 'Framoverdifferansen', isCorrect: false },
-          { id: 'b', text: 'Bakoverdifferansen', isCorrect: false },
-          { id: 'c', text: 'Sentraldifferansen', isCorrect: true },
-          { id: 'd', text: 'De er alle like nøyaktige', isCorrect: false },
+        task: 'Test deg selv på numerisk derivasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-5-n-quiz4-q0',
+            task: 'Hvilken metode for numerisk derivasjon er generelt mest nøyaktig?',
+            options: [
+              { id: 'a', text: 'Framoverdifferansen', isCorrect: false },
+              { id: 'b', text: 'Bakoverdifferansen', isCorrect: false },
+              { id: 'c', text: 'Sentraldifferansen', isCorrect: true },
+              { id: 'd', text: 'De er alle like nøyaktige', isCorrect: false },
+            ],
+            solution: '**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt mer nøyaktig enn framoverdifferansen fordi den balanserer feilen symmetrisk rundt punktet $x$.',
+          },
+          {
+            id: '1t-7-5-n-quiz4-q1',
+            task: 'Hva er formelen for sentraldifferansen?',
+            options: [
+              { id: 'a', text: '$\\frac{f(x + h) - f(x)}{h}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{f(x) - f(x - h)}{h}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{f(x + h) - f(x - h)}{2h}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{f(x + h) + f(x - h)}{2h}$', isCorrect: false },
+            ],
+            solution: 'Sentraldifferansen er $\\frac{f(x+h) - f(x-h)}{2h}$. Den ser litt til begge sider av punktet $x$, noe som gir bedre nøyaktighet enn å bare se fremover.',
+          },
+          {
+            id: '1t-7-5-n-quiz4-q2',
+            task: 'Når er numerisk derivasjon spesielt nyttig?',
+            options: [
+              { id: 'a', text: 'Når funksjonen er et polynom', isCorrect: false },
+              { id: 'b', text: 'Når vi bare har datapunkter og ingen formel', isCorrect: true },
+              { id: 'c', text: 'Når vi kjenner den deriverte allerede', isCorrect: false },
+              { id: 'd', text: 'Når $h$ er veldig stor', isCorrect: false },
+            ],
+            solution: 'Numerisk derivasjon er spesielt nyttig når vi ikke har en formel for funksjonen, for eksempel når vi bare har en tabell med målte verdier. Da kan vi tilnærme den deriverte med Newton-kvotienten eller sentraldifferansen.',
+          },
         ],
-        solution: '**Sentraldifferansen** $\\frac{f(x+h) - f(x-h)}{2h}$ er generelt mer nøyaktig enn framoverdifferansen fordi den balanserer feilen symmetrisk rundt punktet $x$.',
       },
-    },
-    {
-      id: '1t-7-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-5-n-section5',
       type: 'text',
       content: `## Sammenhengen mellom alt vi har lært
@@ -943,24 +1428,57 @@ Alle tre tilnærmingene er nyttige i ulike situasjoner. Derivasjonsreglene er de
         id: '1t-7-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'La $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Hva får du?',
-        options: [
-          { id: 'a', text: '$6{,}1$', isCorrect: true },
-          { id: 'b', text: '$6$', isCorrect: false },
-          { id: 'c', text: '$5{,}9$', isCorrect: false },
-          { id: 'd', text: '$6{,}01$', isCorrect: false },
+        task: 'Test deg selv på de tre tilnærmingene til den deriverte:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-5-n-quiz5-q0',
+            task: 'La $f(x) = x^2$. Bruk framoverdifferansen med $x = 3$ og $h = 0{,}1$. Hva får du?',
+            options: [
+              { id: 'a', text: '$6{,}1$', isCorrect: true },
+              { id: 'b', text: '$6$', isCorrect: false },
+              { id: 'c', text: '$5{,}9$', isCorrect: false },
+              { id: 'd', text: '$6{,}01$', isCorrect: false },
+            ],
+            solution: 'Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f\'(3) = 6$, så $6{,}1$ er en god tilnærming.',
+          },
+          {
+            id: '1t-7-5-n-quiz5-q1',
+            task: 'Hva er de tre tilnærmingene for å tenke på den deriverte?',
+            options: [
+              { id: 'a', text: 'Addisjon, subtraksjon og multiplikasjon', isCorrect: false },
+              { id: 'b', text: 'Grafisk, algebraisk og numerisk', isCorrect: true },
+              { id: 'c', text: 'Potensregel, sumregel og konstantregel', isCorrect: false },
+              { id: 'd', text: 'Sekant, tangent og normal', isCorrect: false },
+            ],
+            solution: 'De tre tilnærmingene er: **grafisk** (stigningstallet til tangenten), **algebraisk** (derivasjonsreglene), og **numerisk** (Newton-kvotienten eller sentraldifferansen med liten $h$).',
+          },
+          {
+            id: '1t-7-5-n-quiz5-q2',
+            task: 'Hvilken tilnærming bruker du mest til daglig for å finne den deriverte?',
+            options: [
+              { id: 'a', text: 'Den grafiske – vi tegner tangenter for hånd', isCorrect: false },
+              { id: 'b', text: 'Den numeriske – vi regner med liten $h$', isCorrect: false },
+              { id: 'c', text: 'Den algebraiske – vi bruker derivasjonsreglene', isCorrect: true },
+              { id: 'd', text: 'Ingen av dem – vi gjetter', isCorrect: false },
+            ],
+            solution: 'Den **algebraiske** tilnærmingen med derivasjonsregler (potensregelen osv.) er raskest og gir eksakte svar. Men definisjonen forklarer *hvorfor* reglene virker, og numerisk derivasjon er nyttig for data uten formel.',
+          },
+          {
+            id: '1t-7-5-n-quiz5-q3',
+            task: 'Sentraldifferansen for $f(x) = x^2$ med $x = 3$ og $h = 0{,}1$ gir $6$. Hva er den eksakte deriverte $f\'(3)$?',
+            options: [
+              { id: 'a', text: '$6{,}1$', isCorrect: false },
+              { id: 'b', text: '$5{,}9$', isCorrect: false },
+              { id: 'c', text: '$6$', isCorrect: true },
+              { id: 'd', text: '$3$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 2x$, så $f\'(3) = 6$. Sentraldifferansen traff eksakt! Det er ikke alltid slik, men for andregradspolynomer gir sentraldifferansen alltid eksakt svar.',
+          },
         ],
-        solution: 'Framoverdifferansen: $\\frac{f(3{,}1) - f(3)}{0{,}1} = \\frac{9{,}61 - 9}{0{,}1} = \\frac{0{,}61}{0{,}1} = 6{,}1$. Den eksakte verdien er $f\'(3) = 6$, så $6{,}1$ er en god tilnærming.',
       },
-    },
-    {
-      id: '1t-7-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-5-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -993,15 +1511,7 @@ export const CHAPTER_1T_7_6_NARRATIV: TextbookChapter = {
     'derivere polynomer med vilkårlige koeffisienter',
   ],
   linkedChapterId: '1t-7-6',
-  content: [
-    {
-      id: '1t-7-6-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-6-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-6-n-intro',
       type: 'text',
       content: `## Verktøykassen for derivasjon
@@ -1032,24 +1542,46 @@ Og ett til: $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$. Her får vi $f'(x) = 10x^4 - 2
         id: '1t-7-6-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er $f\'(x)$ når $f(x) = 3x^4 - 2x^3 + x$?',
-        options: [
-          { id: 'a', text: '$12x^3 - 6x^2 + 1$', isCorrect: true },
-          { id: 'b', text: '$12x^3 - 6x^2$', isCorrect: false },
-          { id: 'c', text: '$12x^4 - 6x^3 + x$', isCorrect: false },
-          { id: 'd', text: '$3x^3 - 2x^2 + 1$', isCorrect: false },
+        task: 'Test deg selv på polynomderivasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-6-n-quiz1-q0',
+            task: 'Hva er $f\'(x)$ når $f(x) = 3x^4 - 2x^3 + x$?',
+            options: [
+              { id: 'a', text: '$12x^3 - 6x^2 + 1$', isCorrect: true },
+              { id: 'b', text: '$12x^3 - 6x^2$', isCorrect: false },
+              { id: 'c', text: '$12x^4 - 6x^3 + x$', isCorrect: false },
+              { id: 'd', text: '$3x^3 - 2x^2 + 1$', isCorrect: false },
+            ],
+            solution: 'Vi deriverer ledd for ledd: $3 \\cdot 4x^3 = 12x^3$, $-2 \\cdot 3x^2 = -6x^2$, og $x$ gir $1$. Til sammen: $f\'(x) = 12x^3 - 6x^2 + 1$.',
+          },
+          {
+            id: '1t-7-6-n-quiz1-q1',
+            task: 'Hva er $f\'(x)$ når $f(x) = 5x^4$?',
+            options: [
+              { id: 'a', text: '$5x^3$', isCorrect: false },
+              { id: 'b', text: '$20x^4$', isCorrect: false },
+              { id: 'c', text: '$20x^3$', isCorrect: true },
+              { id: 'd', text: '$4x^3$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 5 \\cdot 4 \\cdot x^{4-1} = 20x^3$. Koeffisienten $5$ multipliseres med eksponenten $4$, og eksponenten reduseres med $1$.',
+          },
+          {
+            id: '1t-7-6-n-quiz1-q2',
+            task: 'Hva er $f\'(x)$ når $f(x) = 2x^5 - \\frac{1}{2}x^4 + 3x$?',
+            options: [
+              { id: 'a', text: '$10x^4 - 2x^3 + 3$', isCorrect: true },
+              { id: 'b', text: '$10x^5 - 2x^4 + 3x$', isCorrect: false },
+              { id: 'c', text: '$10x^4 - \\frac{1}{2}x^3 + 3$', isCorrect: false },
+              { id: 'd', text: '$2x^4 - \\frac{1}{2}x^3 + 3$', isCorrect: false },
+            ],
+            solution: 'Ledd for ledd: $2 \\cdot 5x^4 = 10x^4$, $\\frac{1}{2} \\cdot 4x^3 = 2x^3$ (med minus), og $3x$ gir $3$. Resultatet er $f\'(x) = 10x^4 - 2x^3 + 3$.',
+          },
         ],
-        solution: 'Vi deriverer ledd for ledd: $3 \\cdot 4x^3 = 12x^3$, $-2 \\cdot 3x^2 = -6x^2$, og $x$ gir $1$. Til sammen: $f\'(x) = 12x^3 - 6x^2 + 1$.',
       },
-    },
-    {
-      id: '1t-7-6-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-6-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-6-n-section2',
       type: 'text',
       content: `## Negative og brøk-eksponenter
@@ -1071,24 +1603,57 @@ Tilsvarende gir $\\sqrt{x} = x^{1/2}$ den deriverte $\\frac{1}{2}x^{-1/2} = \\fr
         id: '1t-7-6-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er $f\'(x)$ når $f(x) = \\frac{5}{x^3}$?',
-        options: [
-          { id: 'a', text: '$\\frac{5}{3x^2}$', isCorrect: false },
-          { id: 'b', text: '$\\frac{15}{x^4}$', isCorrect: false },
-          { id: 'c', text: '$-\\frac{5}{x^4}$', isCorrect: false },
-          { id: 'd', text: '$-\\frac{15}{x^4}$', isCorrect: true },
+        task: 'Test deg selv på negative og brøk-eksponenter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-6-n-quiz2-q0',
+            task: 'Hva er $f\'(x)$ når $f(x) = \\frac{5}{x^3}$?',
+            options: [
+              { id: 'a', text: '$\\frac{5}{3x^2}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{15}{x^4}$', isCorrect: false },
+              { id: 'c', text: '$-\\frac{5}{x^4}$', isCorrect: false },
+              { id: 'd', text: '$-\\frac{15}{x^4}$', isCorrect: true },
+            ],
+            solution: 'Vi skriver om: $f(x) = 5x^{-3}$. Med potensregelen: $f\'(x) = 5 \\cdot (-3) \\cdot x^{-4} = -15x^{-4} = -\\frac{15}{x^4}$.',
+          },
+          {
+            id: '1t-7-6-n-quiz2-q1',
+            task: 'Hvordan skriver vi $\\frac{1}{x^2}$ med negativ eksponent?',
+            options: [
+              { id: 'a', text: '$x^2$', isCorrect: false },
+              { id: 'b', text: '$x^{-2}$', isCorrect: true },
+              { id: 'c', text: '$-x^2$', isCorrect: false },
+              { id: 'd', text: '$x^{1/2}$', isCorrect: false },
+            ],
+            solution: '$\\frac{1}{x^2} = x^{-2}$. Generelt er $\\frac{1}{x^n} = x^{-n}$. Å skrive om til potensform er nøkkelen til å derivere brøker med $x$ i nevneren.',
+          },
+          {
+            id: '1t-7-6-n-quiz2-q2',
+            task: 'Hva er $f\'(x)$ når $f(x) = \\frac{1}{x} + 2x$?',
+            options: [
+              { id: 'a', text: '$-\\frac{1}{x^2} + 2$', isCorrect: true },
+              { id: 'b', text: '$\\frac{1}{x^2} + 2$', isCorrect: false },
+              { id: 'c', text: '$-\\frac{1}{x} + 2$', isCorrect: false },
+              { id: 'd', text: '$\\frac{2}{x^2}$', isCorrect: false },
+            ],
+            solution: '$f(x) = x^{-1} + 2x$. Vi deriverer: $f\'(x) = -1 \\cdot x^{-2} + 2 = -\\frac{1}{x^2} + 2$.',
+          },
+          {
+            id: '1t-7-6-n-quiz2-q3',
+            task: 'Hva er den deriverte av $\\sqrt{x} = x^{1/2}$?',
+            options: [
+              { id: 'a', text: '$\\frac{1}{2}x$', isCorrect: false },
+              { id: 'b', text: '$2\\sqrt{x}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{1}{2\\sqrt{x}}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{1}{\\sqrt{x}}$', isCorrect: false },
+            ],
+            solution: '$f(x) = x^{1/2}$ gir $f\'(x) = \\frac{1}{2} x^{-1/2} = \\frac{1}{2\\sqrt{x}}$. Eksponenten $\\frac{1}{2}$ flyttes ned og reduseres til $-\\frac{1}{2}$.',
+          },
         ],
-        solution: 'Vi skriver om: $f(x) = 5x^{-3}$. Med potensregelen: $f\'(x) = 5 \\cdot (-3) \\cdot x^{-4} = -15x^{-4} = -\\frac{15}{x^4}$.',
       },
-    },
-    {
-      id: '1t-7-6-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-6-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-6-n-section3',
       type: 'text',
       content: `## Andrederiverte – å derivere den deriverte
@@ -1108,24 +1673,46 @@ La oss ta et fullstendig eksempel. For $f(x) = x^3 - 2x^2 + x$ finner vi $f'(x) 
         id: '1t-7-6-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'La $f(x) = x^3 - 2x$. Hva er $f\'\'(x)$?',
-        options: [
-          { id: 'a', text: '$6x$', isCorrect: true },
-          { id: 'b', text: '$3x^2 - 2$', isCorrect: false },
-          { id: 'c', text: '$6$', isCorrect: false },
-          { id: 'd', text: '$3x - 2$', isCorrect: false },
+        task: 'Test deg selv på andrederiverte:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-6-n-quiz3-q0',
+            task: 'La $f(x) = x^3 - 2x$. Hva er $f\'\'(x)$?',
+            options: [
+              { id: 'a', text: '$6x$', isCorrect: true },
+              { id: 'b', text: '$3x^2 - 2$', isCorrect: false },
+              { id: 'c', text: '$6$', isCorrect: false },
+              { id: 'd', text: '$3x - 2$', isCorrect: false },
+            ],
+            solution: 'Først: $f\'(x) = 3x^2 - 2$. Deretter deriverer vi igjen: $f\'\'(x) = 6x$. Merk at $-2$ er en konstant og forsvinner ved andre derivasjon.',
+          },
+          {
+            id: '1t-7-6-n-quiz3-q1',
+            task: 'Hva er andrederiverte av $f(x) = x^4 - 3x^2 + 2x$?',
+            options: [
+              { id: 'a', text: '$4x^3 - 6x + 2$', isCorrect: false },
+              { id: 'b', text: '$12x^2 - 6$', isCorrect: true },
+              { id: 'c', text: '$24x$', isCorrect: false },
+              { id: 'd', text: '$12x^2 - 6x + 2$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 4x^3 - 6x + 2$. Deretter: $f\'\'(x) = 12x^2 - 6$. Vi deriverer $f\'(x)$ ledd for ledd: $4 \\cdot 3x^2 = 12x^2$, $-6x$ gir $-6$, og $2$ gir $0$.',
+          },
+          {
+            id: '1t-7-6-n-quiz3-q2',
+            task: 'Hvis $f(x)$ er posisjon, hva representerer $f\'\'(x)$ fysisk?',
+            options: [
+              { id: 'a', text: 'Fart', isCorrect: false },
+              { id: 'b', text: 'Avstand', isCorrect: false },
+              { id: 'c', text: 'Akselerasjon', isCorrect: true },
+              { id: 'd', text: 'Tid', isCorrect: false },
+            ],
+            solution: 'Hvis $f(x)$ er posisjon, er $f\'(x)$ fart og $f\'\'(x)$ akselerasjon. Andrederiverte forteller oss om endringshastigheten selv endrer seg.',
+          },
         ],
-        solution: 'Først: $f\'(x) = 3x^2 - 2$. Deretter deriverer vi igjen: $f\'\'(x) = 6x$. Merk at $-2$ er en konstant og forsvinner ved andre derivasjon.',
       },
-    },
-    {
-      id: '1t-7-6-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-6-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-6-n-section4',
       type: 'text',
       content: `## Beregne derivert i et punkt
@@ -1145,24 +1732,57 @@ La oss også prøve $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Den deriverte er $f'(x) 
         id: '1t-7-6-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'La $f(x) = 2x^4 + x^2 - 5$. Hva er $f\'\'(x)$?',
-        options: [
-          { id: 'a', text: '$8x^3 + 2x$', isCorrect: false },
-          { id: 'b', text: '$8x^2 + 2$', isCorrect: false },
-          { id: 'c', text: '$24x^2 + 2$', isCorrect: true },
-          { id: 'd', text: '$24x + 2$', isCorrect: false },
+        task: 'Test deg selv på å beregne deriverte i et punkt:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-6-n-quiz4-q0',
+            task: 'La $f(x) = 2x^4 + x^2 - 5$. Hva er $f\'\'(x)$?',
+            options: [
+              { id: 'a', text: '$8x^3 + 2x$', isCorrect: false },
+              { id: 'b', text: '$8x^2 + 2$', isCorrect: false },
+              { id: 'c', text: '$24x^2 + 2$', isCorrect: true },
+              { id: 'd', text: '$24x + 2$', isCorrect: false },
+            ],
+            solution: 'Først: $f\'(x) = 8x^3 + 2x$. Deretter: $f\'\'(x) = 24x^2 + 2$. Vi deriverer hvert ledd i $f\'(x)$: $8 \\cdot 3x^2 = 24x^2$ og $2x$ gir $2$.',
+          },
+          {
+            id: '1t-7-6-n-quiz4-q1',
+            task: 'La $f(x) = x^4 - 2x^3$. Hva er $f\'(1)$?',
+            options: [
+              { id: 'a', text: '$-2$', isCorrect: true },
+              { id: 'b', text: '$2$', isCorrect: false },
+              { id: 'c', text: '$-1$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 4x^3 - 6x^2$. Vi setter inn $x = 1$: $f\'(1) = 4 \\cdot 1 - 6 \\cdot 1 = 4 - 6 = -2$.',
+          },
+          {
+            id: '1t-7-6-n-quiz4-q2',
+            task: 'La $f(x) = x^4 - 2x^3$. Hva er $f\'\'(1)$?',
+            options: [
+              { id: 'a', text: '$-2$', isCorrect: false },
+              { id: 'b', text: '$0$', isCorrect: true },
+              { id: 'c', text: '$6$', isCorrect: false },
+              { id: 'd', text: '$12$', isCorrect: false },
+            ],
+            solution: '$f\'\'(x) = 12x^2 - 12x$. Vi setter inn $x = 1$: $f\'\'(1) = 12 - 12 = 0$. Andrederiverte er null, noe som kan tyde på et vendepunkt.',
+          },
+          {
+            id: '1t-7-6-n-quiz4-q3',
+            task: 'La $f(x) = \\frac{1}{3}x^3 - x^2 + x$. Hva er $f\'(3)$?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: false },
+              { id: 'c', text: '$4$', isCorrect: true },
+              { id: 'd', text: '$5$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = x^2 - 2x + 1$. Vi setter inn $x = 3$: $f\'(3) = 9 - 6 + 1 = 4$.',
+          },
         ],
-        solution: 'Først: $f\'(x) = 8x^3 + 2x$. Deretter: $f\'\'(x) = 24x^2 + 2$. Vi deriverer hvert ledd i $f\'(x)$: $8 \\cdot 3x^2 = 24x^2$ og $2x$ gir $2$.',
       },
-    },
-    {
-      id: '1t-7-6-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-6-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-6-n-section5',
       type: 'text',
       content: `## Systematisk polynomderivasjon – steg for steg
@@ -1182,24 +1802,57 @@ For andrederiverte gjentar du prosessen på den deriverte. Sjekk alltid svaret d
         id: '1t-7-6-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er $f\'(x)$ når $f(x) = -x^3 + 4x^2 - 6$?',
-        options: [
-          { id: 'a', text: '$-3x^2 + 8x - 6$', isCorrect: false },
-          { id: 'b', text: '$-3x^2 + 4x$', isCorrect: false },
-          { id: 'c', text: '$-x^2 + 8x$', isCorrect: false },
-          { id: 'd', text: '$-3x^2 + 8x$', isCorrect: true },
+        task: 'Test deg selv på systematisk polynomderivasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-6-n-quiz5-q0',
+            task: 'Hva er $f\'(x)$ når $f(x) = -x^3 + 4x^2 - 6$?',
+            options: [
+              { id: 'a', text: '$-3x^2 + 8x - 6$', isCorrect: false },
+              { id: 'b', text: '$-3x^2 + 4x$', isCorrect: false },
+              { id: 'c', text: '$-x^2 + 8x$', isCorrect: false },
+              { id: 'd', text: '$-3x^2 + 8x$', isCorrect: true },
+            ],
+            solution: 'Vi deriverer ledd for ledd: $-1 \\cdot 3x^2 = -3x^2$, $4 \\cdot 2x = 8x$, og konstanten $-6$ gir $0$. Svaret er $f\'(x) = -3x^2 + 8x$.',
+          },
+          {
+            id: '1t-7-6-n-quiz5-q1',
+            task: 'Hva er $f\'(x)$ når $f(x) = x^2 + \\frac{4}{x}$?',
+            options: [
+              { id: 'a', text: '$2x + 4$', isCorrect: false },
+              { id: 'b', text: '$2x - \\frac{4}{x^2}$', isCorrect: true },
+              { id: 'c', text: '$2x + \\frac{4}{x^2}$', isCorrect: false },
+              { id: 'd', text: '$x - \\frac{4}{x}$', isCorrect: false },
+            ],
+            solution: '$f(x) = x^2 + 4x^{-1}$. Vi deriverer: $f\'(x) = 2x + 4 \\cdot (-1) \\cdot x^{-2} = 2x - \\frac{4}{x^2}$.',
+          },
+          {
+            id: '1t-7-6-n-quiz5-q2',
+            task: 'Den deriverte av et polynom av grad $5$ er et polynom av grad...?',
+            options: [
+              { id: 'a', text: '$6$', isCorrect: false },
+              { id: 'b', text: '$5$', isCorrect: false },
+              { id: 'c', text: '$4$', isCorrect: true },
+              { id: 'd', text: '$3$', isCorrect: false },
+            ],
+            solution: 'Den deriverte av et polynom av grad $n$ er alltid et polynom av grad $n - 1$. Så et grad-5-polynom gir en derivert av grad $4$.',
+          },
+          {
+            id: '1t-7-6-n-quiz5-q3',
+            task: 'Hva er den systematiske fremgangsmåten for å derivere hvert ledd i et polynom?',
+            options: [
+              { id: 'a', text: 'Legg til eksponenten', isCorrect: false },
+              { id: 'b', text: 'Multipliser koeffisienten med eksponenten, reduser eksponenten med 1', isCorrect: true },
+              { id: 'c', text: 'Del koeffisienten på eksponenten', isCorrect: false },
+              { id: 'd', text: 'Sett eksponenten lik null', isCorrect: false },
+            ],
+            solution: 'For hvert ledd: multipliser koeffisienten med eksponenten og reduser eksponenten med 1. Konstantledd forsvinner. For eksempel: $3x^4 \\to 3 \\cdot 4 \\cdot x^{4-1} = 12x^3$.',
+          },
         ],
-        solution: 'Vi deriverer ledd for ledd: $-1 \\cdot 3x^2 = -3x^2$, $4 \\cdot 2x = 8x$, og konstanten $-6$ gir $0$. Svaret er $f\'(x) = -3x^2 + 8x$.',
       },
-    },
-    {
-      id: '1t-7-6-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-6-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-6-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1232,15 +1885,7 @@ export const CHAPTER_1T_7_7_NARRATIV: TextbookChapter = {
     'tolke derivasjon i praktiske sammenhenger som fart og akselerasjon',
   ],
   linkedChapterId: '1t-7-7',
-  content: [
-    {
-      id: '1t-7-7-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-7-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-7-7-n-intro',
       type: 'text',
       content: `## Matematikk med formål
@@ -1267,24 +1912,57 @@ La oss prøve med $f(x) = x^3 - 3x$. Først: $f'(x) = 3x^2 - 3$. Vi setter $f'(x
         id: '1t-7-7-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'La $f(x) = x^2 - 4x + 3$. Hva slags ekstremalpunkt har $f$, og hvor?',
-        options: [
-          { id: 'a', text: 'Toppunkt i $x = 2$', isCorrect: false },
-          { id: 'b', text: 'Bunnpunkt i $x = 2$', isCorrect: true },
-          { id: 'c', text: 'Toppunkt i $x = -2$', isCorrect: false },
-          { id: 'd', text: 'Bunnpunkt i $x = 4$', isCorrect: false },
+        task: 'Test deg selv på topp- og bunnpunkt:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-7-n-quiz1-q0',
+            task: 'La $f(x) = x^2 - 4x + 3$. Hva slags ekstremalpunkt har $f$, og hvor?',
+            options: [
+              { id: 'a', text: 'Toppunkt i $x = 2$', isCorrect: false },
+              { id: 'b', text: 'Bunnpunkt i $x = 2$', isCorrect: true },
+              { id: 'c', text: 'Toppunkt i $x = -2$', isCorrect: false },
+              { id: 'd', text: 'Bunnpunkt i $x = 4$', isCorrect: false },
+            ],
+            solution: '$f\'(x) = 2x - 4 = 0$ gir $x = 2$. $f\'\'(x) = 2 > 0$, altså er det et bunnpunkt. Funksjonsverdien er $f(2) = 4 - 8 + 3 = -1$, så bunnpunktet er $(2, -1)$.',
+          },
+          {
+            id: '1t-7-7-n-quiz1-q1',
+            task: 'Hva er første steg for å finne ekstremalpunkt?',
+            options: [
+              { id: 'a', text: 'Sett $f(x) = 0$', isCorrect: false },
+              { id: 'b', text: 'Sett $f\'\'(x) = 0$', isCorrect: false },
+              { id: 'c', text: 'Sett $f\'(x) = 0$', isCorrect: true },
+              { id: 'd', text: 'Sett $x = 0$', isCorrect: false },
+            ],
+            solution: 'Første steg er å finne $f\'(x)$ og sette den lik null: $f\'(x) = 0$. Dette gir kandidatene for ekstremalpunkt – punkter der grafen har horisontal tangent.',
+          },
+          {
+            id: '1t-7-7-n-quiz1-q2',
+            task: 'Hvis $f\'\'(a) < 0$, hva slags punkt er $(a, f(a))$?',
+            options: [
+              { id: 'a', text: 'Bunnpunkt', isCorrect: false },
+              { id: 'b', text: 'Toppunkt', isCorrect: true },
+              { id: 'c', text: 'Vendepunkt', isCorrect: false },
+              { id: 'd', text: 'Nullpunkt', isCorrect: false },
+            ],
+            solution: '$f\'\'(a) < 0$ betyr at grafen bøyer nedover (er konkav) i det punktet. Dermed er det et **toppunkt** (lokalt maksimum).',
+          },
+          {
+            id: '1t-7-7-n-quiz1-q3',
+            task: 'For $f(x) = x^3 - 3x$, er $x = 1$ et bunnpunkt. Hva er funksjonsverdien?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$-2$', isCorrect: true },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$-4$', isCorrect: false },
+            ],
+            solution: '$f(1) = 1^3 - 3 \\cdot 1 = 1 - 3 = -2$. Bunnpunktet er $(1, -2)$.',
+          },
         ],
-        solution: '$f\'(x) = 2x - 4 = 0$ gir $x = 2$. $f\'\'(x) = 2 > 0$, altså er det et bunnpunkt. Funksjonsverdien er $f(2) = 4 - 8 + 3 = -1$, så bunnpunktet er $(2, -1)$.',
       },
-    },
-    {
-      id: '1t-7-7-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-7-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-7-n-section2',
       type: 'text',
       content: `## Optimering – å finne det beste svaret
@@ -1304,24 +1982,46 @@ Vi deriverer: $A'(x) = 100 - 4x$. Vi setter $A'(x) = 0$: $x = 25$. Da er $y = 50
         id: '1t-7-7-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Summen av to positive tall er 20. Hva er det største mulige produktet?',
-        options: [
-          { id: 'a', text: '$80$', isCorrect: false },
-          { id: 'b', text: '$50$', isCorrect: false },
-          { id: 'c', text: '$200$', isCorrect: false },
-          { id: 'd', text: '$100$', isCorrect: true },
+        task: 'Test deg selv på optimering:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-7-n-quiz2-q0',
+            task: 'Summen av to positive tall er 20. Hva er det største mulige produktet?',
+            options: [
+              { id: 'a', text: '$80$', isCorrect: false },
+              { id: 'b', text: '$50$', isCorrect: false },
+              { id: 'c', text: '$200$', isCorrect: false },
+              { id: 'd', text: '$100$', isCorrect: true },
+            ],
+            solution: 'La tallene være $x$ og $20 - x$. Produktet er $P(x) = x(20-x) = 20x - x^2$. $P\'(x) = 20 - 2x = 0$ gir $x = 10$. Produktet er $10 \\cdot 10 = 100$. $P\'\'(x) = -2 < 0$ bekrefter at det er et maksimum.',
+          },
+          {
+            id: '1t-7-7-n-quiz2-q1',
+            task: 'En bonde har 100 m gjerde og bruker tre sider (elv på fjerde side). Arealfunksjonen er $A(x) = 100x - 2x^2$. Hvilken $x$ gir størst areal?',
+            options: [
+              { id: 'a', text: '$x = 50$', isCorrect: false },
+              { id: 'b', text: '$x = 25$', isCorrect: true },
+              { id: 'c', text: '$x = 20$', isCorrect: false },
+              { id: 'd', text: '$x = 30$', isCorrect: false },
+            ],
+            solution: '$A\'(x) = 100 - 4x = 0$ gir $x = 25$. $A\'\'(x) = -4 < 0$ bekrefter at det er et maksimum. Størst areal er $A(25) = 2500 - 1250 = 1250$ m$^2$.',
+          },
+          {
+            id: '1t-7-7-n-quiz2-q2',
+            task: 'Hva er de fire stegene i et optimeringsproblem?',
+            options: [
+              { id: 'a', text: 'Tegn, mål, beregn, kontroller', isCorrect: false },
+              { id: 'b', text: 'Sett opp funksjonen, finn $f\'(x) = 0$, sjekk type, tolk svaret', isCorrect: true },
+              { id: 'c', text: 'Derivér, integrer, faktoriser, forenkle', isCorrect: false },
+              { id: 'd', text: 'Les oppgaven, skriv likning, løs, tegn graf', isCorrect: false },
+            ],
+            solution: 'De fire stegene er: (1) sett opp funksjonen som skal optimeres, (2) finn der $f\'(x) = 0$, (3) kontroller at det er riktig type ekstremalpunkt med $f\'\'(x)$, og (4) tolk svaret i konteksten.',
+          },
         ],
-        solution: 'La tallene være $x$ og $20 - x$. Produktet er $P(x) = x(20-x) = 20x - x^2$. $P\'(x) = 20 - 2x = 0$ gir $x = 10$. Produktet er $10 \\cdot 10 = 100$. $P\'\'(x) = -2 < 0$ bekrefter at det er et maksimum.',
       },
-    },
-    {
-      id: '1t-7-7-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-7-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-7-n-section3',
       type: 'text',
       content: `## Fart og akselerasjon – derivasjon beskriver bevegelse
@@ -1341,24 +2041,57 @@ Positiv fart betyr at partikkelen beveger seg i positiv retning, negativ fart be
         id: '1t-7-7-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'En ball kastes opp med $h(t) = -5t^2 + 20t + 1$. Hva er starthastigheten (farten når $t = 0$)?',
-        options: [
-          { id: 'a', text: '$1$ m/s', isCorrect: false },
-          { id: 'b', text: '$-10$ m/s', isCorrect: false },
-          { id: 'c', text: '$20$ m/s', isCorrect: true },
-          { id: 'd', text: '$15$ m/s', isCorrect: false },
+        task: 'Test deg selv på fart og akselerasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-7-n-quiz3-q0',
+            task: 'En ball kastes opp med $h(t) = -5t^2 + 20t + 1$. Hva er starthastigheten (farten når $t = 0$)?',
+            options: [
+              { id: 'a', text: '$1$ m/s', isCorrect: false },
+              { id: 'b', text: '$-10$ m/s', isCorrect: false },
+              { id: 'c', text: '$20$ m/s', isCorrect: true },
+              { id: 'd', text: '$15$ m/s', isCorrect: false },
+            ],
+            solution: 'Farten er $v(t) = h\'(t) = -10t + 20$. Ved $t = 0$: $v(0) = -10 \\cdot 0 + 20 = 20$ m/s. Ballen starter med en hastighet på 20 m/s oppover.',
+          },
+          {
+            id: '1t-7-7-n-quiz3-q1',
+            task: 'Hvis $s(t)$ er posisjon, hva er $s\'(t)$?',
+            options: [
+              { id: 'a', text: 'Akselerasjon', isCorrect: false },
+              { id: 'b', text: 'Tid', isCorrect: false },
+              { id: 'c', text: 'Fart (hastighet)', isCorrect: true },
+              { id: 'd', text: 'Avstand', isCorrect: false },
+            ],
+            solution: '$s\'(t)$ er den deriverte av posisjon, altså **farten** (hastigheten). Den forteller hvor fort objektet beveger seg og i hvilken retning.',
+          },
+          {
+            id: '1t-7-7-n-quiz3-q2',
+            task: 'For $s(t) = t^3 - 6t^2 + 9t$ er partikkelen i ro når $v(t) = 0$. Når skjer det?',
+            options: [
+              { id: 'a', text: '$t = 0$ og $t = 3$', isCorrect: false },
+              { id: 'b', text: '$t = 1$ og $t = 3$', isCorrect: true },
+              { id: 'c', text: '$t = 2$ og $t = 4$', isCorrect: false },
+              { id: 'd', text: '$t = 1$ og $t = 2$', isCorrect: false },
+            ],
+            solution: '$v(t) = 3t^2 - 12t + 9 = 3(t^2 - 4t + 3) = 3(t-1)(t-3) = 0$ gir $t = 1$ og $t = 3$. Partikkelen er i ro ved disse tidspunktene.',
+          },
+          {
+            id: '1t-7-7-n-quiz3-q3',
+            task: 'Hva betyr negativ fart $v(t) < 0$?',
+            options: [
+              { id: 'a', text: 'Objektet er i ro', isCorrect: false },
+              { id: 'b', text: 'Objektet beveger seg i positiv retning', isCorrect: false },
+              { id: 'c', text: 'Objektet beveger seg i negativ retning', isCorrect: true },
+              { id: 'd', text: 'Objektet akselererer', isCorrect: false },
+            ],
+            solution: 'Negativ fart betyr at objektet beveger seg i **negativ retning** (for eksempel nedover eller til venstre, avhengig av kontekst). Fortegnet til farten angir retning.',
+          },
         ],
-        solution: 'Farten er $v(t) = h\'(t) = -10t + 20$. Ved $t = 0$: $v(0) = -10 \\cdot 0 + 20 = 20$ m/s. Ballen starter med en hastighet på 20 m/s oppover.',
       },
-    },
-    {
-      id: '1t-7-7-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-7-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-7-n-section4',
       type: 'text',
       content: `## Profittmaksimering – økonomi møter matematikk
@@ -1378,24 +2111,57 @@ Legg merke til at profittfunksjonen alltid har negativ koeffisient foran $x^2$, 
         id: '1t-7-7-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'En ball kastes opp med $h(t) = -5t^2 + 30t + 2$. Hva er den maksimale høyden?',
-        options: [
-          { id: 'a', text: '$47$ meter', isCorrect: true },
-          { id: 'b', text: '$45$ meter', isCorrect: false },
-          { id: 'c', text: '$32$ meter', isCorrect: false },
-          { id: 'd', text: '$52$ meter', isCorrect: false },
+        task: 'Test deg selv på profittmaksimering og økonomi:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-7-n-quiz4-q0',
+            task: 'En ball kastes opp med $h(t) = -5t^2 + 30t + 2$. Hva er den maksimale høyden?',
+            options: [
+              { id: 'a', text: '$47$ meter', isCorrect: true },
+              { id: 'b', text: '$45$ meter', isCorrect: false },
+              { id: 'c', text: '$32$ meter', isCorrect: false },
+              { id: 'd', text: '$52$ meter', isCorrect: false },
+            ],
+            solution: '$h\'(t) = -10t + 30 = 0$ gir $t = 3$. Maksimal høyde: $h(3) = -5 \\cdot 9 + 30 \\cdot 3 + 2 = -45 + 90 + 2 = 47$ meter.',
+          },
+          {
+            id: '1t-7-7-n-quiz4-q1',
+            task: 'Profittfunksjonen er $P(x) = -x^2 + 40x - 300$. Hvor mange enheter gir maksimal profitt?',
+            options: [
+              { id: 'a', text: '$10$ enheter', isCorrect: false },
+              { id: 'b', text: '$20$ enheter', isCorrect: true },
+              { id: 'c', text: '$40$ enheter', isCorrect: false },
+              { id: 'd', text: '$30$ enheter', isCorrect: false },
+            ],
+            solution: '$P\'(x) = -2x + 40 = 0$ gir $x = 20$. $P\'\'(x) = -2 < 0$ bekrefter at det er et maksimum. Produser 20 enheter for maksimal profitt.',
+          },
+          {
+            id: '1t-7-7-n-quiz4-q2',
+            task: 'Hva er den maksimale profitten for $P(x) = -x^2 + 40x - 300$?',
+            options: [
+              { id: 'a', text: '$200$ kroner', isCorrect: false },
+              { id: 'b', text: '$100$ kroner', isCorrect: true },
+              { id: 'c', text: '$300$ kroner', isCorrect: false },
+              { id: 'd', text: '$50$ kroner', isCorrect: false },
+            ],
+            solution: '$P(20) = -(20)^2 + 40 \\cdot 20 - 300 = -400 + 800 - 300 = 100$ kroner per dag.',
+          },
+          {
+            id: '1t-7-7-n-quiz4-q3',
+            task: 'Hvorfor har profittfunksjoner typisk negativ koeffisient foran $x^2$?',
+            options: [
+              { id: 'a', text: 'Fordi profitten alltid er negativ', isCorrect: false },
+              { id: 'b', text: 'Fordi det gir en nedovervendt parabel med et maksimum', isCorrect: true },
+              { id: 'c', text: 'Fordi det er en konvensjon', isCorrect: false },
+              { id: 'd', text: 'Fordi det forenkler beregningen', isCorrect: false },
+            ],
+            solution: 'Negativ koeffisient foran $x^2$ gir en nedovervendt parabel, som garanterer at det finnes et **maksimum**. I virkeligheten avtar marginalprofitten etter et visst punkt, noe som gjenspeiles i denne formen.',
+          },
         ],
-        solution: '$h\'(t) = -10t + 30 = 0$ gir $t = 3$. Maksimal høyde: $h(3) = -5 \\cdot 9 + 30 \\cdot 3 + 2 = -45 + 90 + 2 = 47$ meter.',
       },
-    },
-    {
-      id: '1t-7-7-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-7-7-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-7-7-n-section5',
       type: 'text',
       content: `## Geometrisk optimering – rektangler og former
@@ -1417,24 +2183,68 @@ Mønsteret i alle optimeringsproblemer er det samme: sett opp funksjonen, finn d
         id: '1t-7-7-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Et rektangel har omkrets 24 cm. Hvilket areal gir de optimale sidelengdene?',
-        options: [
-          { id: 'a', text: '$24 \\text{ cm}^2$', isCorrect: false },
-          { id: 'b', text: '$36 \\text{ cm}^2$', isCorrect: true },
-          { id: 'c', text: '$48 \\text{ cm}^2$', isCorrect: false },
-          { id: 'd', text: '$32 \\text{ cm}^2$', isCorrect: false },
+        task: 'Test deg selv på geometrisk optimering:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-7-7-n-quiz5-q0',
+            task: 'Et rektangel har omkrets 24 cm. Hvilket areal gir de optimale sidelengdene?',
+            options: [
+              { id: 'a', text: '$24 \\text{ cm}^2$', isCorrect: false },
+              { id: 'b', text: '$36 \\text{ cm}^2$', isCorrect: true },
+              { id: 'c', text: '$48 \\text{ cm}^2$', isCorrect: false },
+              { id: 'd', text: '$32 \\text{ cm}^2$', isCorrect: false },
+            ],
+            solution: 'Optimale sidelengder er $6$ cm og $6$ cm (et kvadrat). Arealet er $6 \\cdot 6 = 36 \\text{ cm}^2$. Vi fant dette ved å sette $A\'(x) = 12 - 2x = 0$, som gir $x = 6$.',
+          },
+          {
+            id: '1t-7-7-n-quiz5-q1',
+            task: 'Et rektangel har omkrets $2x + 2y = 24$. Hva er arealfunksjonen $A(x)$?',
+            options: [
+              { id: 'a', text: '$A(x) = x^2 + 12$', isCorrect: false },
+              { id: 'b', text: '$A(x) = 12x - x^2$', isCorrect: true },
+              { id: 'c', text: '$A(x) = 24x - 2x^2$', isCorrect: false },
+              { id: 'd', text: '$A(x) = x(24 - x)$', isCorrect: false },
+            ],
+            solution: 'Fra $2x + 2y = 24$ får vi $y = 12 - x$. Arealet er $A(x) = x \\cdot y = x(12 - x) = 12x - x^2$.',
+          },
+          {
+            id: '1t-7-7-n-quiz5-q2',
+            task: 'Blant alle rektangler med en gitt omkrets, hvilket har størst areal?',
+            options: [
+              { id: 'a', text: 'Det med lengst side', isCorrect: false },
+              { id: 'b', text: 'Det med kortest side', isCorrect: false },
+              { id: 'c', text: 'Kvadratet', isCorrect: true },
+              { id: 'd', text: 'Det avhenger av omkretsen', isCorrect: false },
+            ],
+            solution: 'Blant alle rektangler med gitt omkrets gir **kvadratet** størst areal. Dette er et generelt resultat som derivasjon beviser elegant.',
+          },
+          {
+            id: '1t-7-7-n-quiz5-q3',
+            task: 'Hva er det felles mønsteret i alle optimeringsproblemer med derivasjon?',
+            options: [
+              { id: 'a', text: 'Finn nullpunktene til funksjonen', isCorrect: false },
+              { id: 'b', text: 'Tegn grafen og les av', isCorrect: false },
+              { id: 'c', text: 'Sett opp funksjon, finn $f\'(x) = 0$, sjekk type, tolk svaret', isCorrect: true },
+              { id: 'd', text: 'Bruk prøving og feiling', isCorrect: false },
+            ],
+            solution: 'Mønsteret er alltid: (1) sett opp funksjonen som skal optimeres, (2) finn der den deriverte er null, (3) sjekk at det er riktig type ekstremalpunkt, og (4) tolk svaret i konteksten av problemet.',
+          },
+          {
+            id: '1t-7-7-n-quiz5-q4',
+            task: 'Hvordan bekrefter du at $x = 6$ gir et maksimum for $A(x) = 12x - x^2$?',
+            options: [
+              { id: 'a', text: 'Sjekk at $A(6) > 0$', isCorrect: false },
+              { id: 'b', text: 'Sjekk at $A\'(6) > 0$', isCorrect: false },
+              { id: 'c', text: 'Sjekk at $A\'\'(6) < 0$', isCorrect: true },
+              { id: 'd', text: 'Sjekk at $A\'\'(6) > 0$', isCorrect: false },
+            ],
+            solution: '$A\'\'(x) = -2$, og $A\'\'(6) = -2 < 0$. Negativ andrederiverte betyr at grafen bøyer nedover, altså er det et **maksimum**.',
+          },
         ],
-        solution: 'Optimale sidelengder er $6$ cm og $6$ cm (et kvadrat). Arealet er $6 \\cdot 6 = 36 \\text{ cm}^2$. Vi fant dette ved å sette $A\'(x) = 12 - 2x = 0$, som gir $x = 6$.',
       },
-    },
-    {
-      id: '1t-7-7-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-7-7-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-7-7-n-summary',
       type: 'text',
       content: `## Oppsummering

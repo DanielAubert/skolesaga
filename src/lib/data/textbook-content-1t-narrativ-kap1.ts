@@ -28,15 +28,7 @@ export const CHAPTER_1T_1_1_NARRATIV: TextbookChapter = {
     'bruke riktig regnerekkefølge',
   ],
   linkedChapterId: '1t-1-1',
-  content: [
-    {
-      id: '1t-1-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-1-1-n-intro',
       type: 'text',
       content: `## Hva skjer når tallene går under null?
@@ -71,24 +63,45 @@ En god huskeregel: tenk på tallinjen. Pluss betyr at du går til *høyre*, minu
         id: '1t-1-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva blir $-30 - (-20) + (-10)$?',
-        options: [
-          { id: 'a', text: '$-40$', isCorrect: false },
-          { id: 'b', text: '$-20$', isCorrect: true },
-          { id: 'c', text: '$0$', isCorrect: false },
-          { id: 'd', text: '$-60$', isCorrect: false },
+        task: 'Test deg selv på addisjon og subtraksjon med negative tall:',
+        options: [{ id: 'a', text: '$-20$', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-1-n-quiz1-q0',
+            task: 'Hva blir $8 - (-5)$?',
+            options: [
+              { id: 'a', text: '$3$', isCorrect: false },
+              { id: 'b', text: '$13$', isCorrect: true },
+              { id: 'c', text: '$-13$', isCorrect: false },
+              { id: 'd', text: '$-3$', isCorrect: false },
+            ],
+            solution: '$8 - (-5) = 8 + 5 = 13$. Minus foran negativt tall gir pluss.',
+          },
+          {
+            id: '1t-1-1-n-quiz1-q1',
+            task: 'Hva blir $4 + (-11)$?',
+            options: [
+              { id: 'a', text: '$15$', isCorrect: false },
+              { id: 'b', text: '$-15$', isCorrect: false },
+              { id: 'c', text: '$7$', isCorrect: false },
+              { id: 'd', text: '$-7$', isCorrect: true },
+            ],
+            solution: '$4 + (-11) = 4 - 11 = -7$. Pluss foran negativt tall gir minus.',
+          },
+          {
+            id: '1t-1-1-n-quiz1-q2',
+            task: 'Hva blir $-30 - (-20) + (-10)$?',
+            options: [
+              { id: 'a', text: '$-40$', isCorrect: false },
+              { id: 'b', text: '$-20$', isCorrect: true },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$-60$', isCorrect: false },
+            ],
+            solution: 'Vi tar det steg for steg: $-30 - (-20) = -30 + 20 = -10$. Deretter: $-10 + (-10) = -10 - 10 = -20$.',
+          },
         ],
-        solution: 'Vi tar det steg for steg: $-30 - (-20) = -30 + 20 = -10$. Deretter: $-10 + (-10) = -10 - 10 = -20$.',
       },
-    },
-    {
-      id: '1t-1-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-1-n-section2',
       type: 'text',
       content: `## Multiplikasjon og divisjon – tell minustegnene
@@ -110,24 +123,45 @@ Et praktisk tips: når du har et langt uttrykk med mange faktorer, tell opp alle
         id: '1t-1-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva blir $-7 \\cdot (-2) \\cdot (-1) \\cdot (-2)$?',
-        options: [
-          { id: 'a', text: '$-28$', isCorrect: false },
-          { id: 'b', text: '$14$', isCorrect: false },
-          { id: 'c', text: '$28$', isCorrect: true },
-          { id: 'd', text: '$-14$', isCorrect: false },
+        task: 'Test deg selv på multiplikasjon og divisjon med negative tall:',
+        options: [{ id: 'a', text: '$28$', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-1-n-quiz2-q0',
+            task: 'Hva blir $(-3) \\cdot (-4)$?',
+            options: [
+              { id: 'a', text: '$-12$', isCorrect: false },
+              { id: 'b', text: '$12$', isCorrect: true },
+              { id: 'c', text: '$-7$', isCorrect: false },
+              { id: 'd', text: '$7$', isCorrect: false },
+            ],
+            solution: 'To negative fortegn (partall) gir positivt svar: $(-3) \\cdot (-4) = 12$.',
+          },
+          {
+            id: '1t-1-1-n-quiz2-q1',
+            task: 'Hva blir $\\frac{-30}{-3}$?',
+            options: [
+              { id: 'a', text: '$-10$', isCorrect: false },
+              { id: 'b', text: '$-33$', isCorrect: false },
+              { id: 'c', text: '$10$', isCorrect: true },
+              { id: 'd', text: '$33$', isCorrect: false },
+            ],
+            solution: 'To negative fortegn (partall) gir positivt: $\\frac{-30}{-3} = 10$.',
+          },
+          {
+            id: '1t-1-1-n-quiz2-q2',
+            task: 'Hva blir $-7 \\cdot (-2) \\cdot (-1) \\cdot (-2)$?',
+            options: [
+              { id: 'a', text: '$-28$', isCorrect: false },
+              { id: 'b', text: '$14$', isCorrect: false },
+              { id: 'c', text: '$28$', isCorrect: true },
+              { id: 'd', text: '$-14$', isCorrect: false },
+            ],
+            solution: 'Vi teller fire negative fortegn. Fire er et partall, så svaret er positivt. Tallverdien: $7 \\cdot 2 \\cdot 1 \\cdot 2 = 28$. Svaret er $28$.',
+          },
         ],
-        solution: 'Vi teller fire negative fortegn. Fire er et partall, så svaret er positivt. Tallverdien: $7 \\cdot 2 \\cdot 1 \\cdot 2 = 28$. Svaret er $28$.',
       },
-    },
-    {
-      id: '1t-1-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-1-n-section3',
       type: 'text',
       content: `## Potenser og negative fortegn – parentesen avgjør alt
@@ -151,24 +185,45 @@ Regelen er enkel: se nøye på om minustegnet er *inne i* eller *utenfor* parent
         id: '1t-1-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom $(-5)^2$ og $-5^2$?',
-        options: [
-          { id: 'a', text: 'Begge gir $25$', isCorrect: false },
-          { id: 'b', text: 'Begge gir $-25$', isCorrect: false },
-          { id: 'c', text: '$(-5)^2 = -25$ og $-5^2 = 25$', isCorrect: false },
-          { id: 'd', text: '$(-5)^2 = 25$ og $-5^2 = -25$', isCorrect: true },
+        task: 'Test deg selv på potenser med negative fortegn:',
+        options: [{ id: 'a', text: '$(-5)^2 = 25$ og $-5^2 = -25$', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-1-n-quiz3-q0',
+            task: 'Hva blir $(-3)^4$?',
+            options: [
+              { id: 'a', text: '$81$', isCorrect: true },
+              { id: 'b', text: '$-81$', isCorrect: false },
+              { id: 'c', text: '$-12$', isCorrect: false },
+              { id: 'd', text: '$12$', isCorrect: false },
+            ],
+            solution: '$(-3)^4 = (-3) \\cdot (-3) \\cdot (-3) \\cdot (-3)$. Fire negative fortegn (partall) gir positivt: $81$.',
+          },
+          {
+            id: '1t-1-1-n-quiz3-q1',
+            task: 'Hva er forskjellen mellom $(-5)^2$ og $-5^2$?',
+            options: [
+              { id: 'a', text: 'Begge gir $25$', isCorrect: false },
+              { id: 'b', text: 'Begge gir $-25$', isCorrect: false },
+              { id: 'c', text: '$(-5)^2 = -25$ og $-5^2 = 25$', isCorrect: false },
+              { id: 'd', text: '$(-5)^2 = 25$ og $-5^2 = -25$', isCorrect: true },
+            ],
+            solution: '$(-5)^2 = (-5) \\cdot (-5) = 25$ fordi minustegnet er innenfor parentesen. $-5^2 = -(5 \\cdot 5) = -25$ fordi minustegnet er utenfor.',
+          },
+          {
+            id: '1t-1-1-n-quiz3-q2',
+            task: 'Hva blir $(-3) \\cdot (-2)^2$?',
+            options: [
+              { id: 'a', text: '$12$', isCorrect: false },
+              { id: 'b', text: '$-12$', isCorrect: true },
+              { id: 'c', text: '$36$', isCorrect: false },
+              { id: 'd', text: '$-36$', isCorrect: false },
+            ],
+            solution: 'Først potensen: $(-2)^2 = 4$. Så multiplikasjonen: $(-3) \\cdot 4 = -12$. Parentesen avgjør at $(-2)^2$ er positivt, men $-3$ gjør produktet negativt.',
+          },
         ],
-        solution: '$(-5)^2 = (-5) \\cdot (-5) = 25$ fordi minustegnet er innenfor parentesen og to negative fortegn gir positivt. $-5^2 = -(5 \\cdot 5) = -25$ fordi minustegnet er utenfor, og det er bare $5$ som opphøyes.',
       },
-    },
-    {
-      id: '1t-1-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-1-n-section4',
       type: 'text',
       content: `## Kvadratrøtter – tallenes opphav
@@ -188,24 +243,45 @@ Noen ganger møter du sammensatte uttrykk med kvadratrøtter. For eksempel $\\sq
         id: '1t-1-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvilket av disse uttrykkene har *ingen* løsning blant de reelle tallene?',
-        options: [
-          { id: 'a', text: '$-\\sqrt{49}$', isCorrect: false },
-          { id: 'b', text: '$\\sqrt{\\sqrt{16}}$', isCorrect: false },
-          { id: 'c', text: '$\\sqrt{-25}$', isCorrect: true },
-          { id: 'd', text: '$\\sqrt{0}$', isCorrect: false },
+        task: 'Test deg selv på kvadratrøtter:',
+        options: [{ id: 'a', text: '$\\sqrt{-25}$', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-1-n-quiz4-q0',
+            task: 'Hva er $-\\sqrt{64}$?',
+            options: [
+              { id: 'a', text: 'Har ingen løsning', isCorrect: false },
+              { id: 'b', text: '$8$', isCorrect: false },
+              { id: 'c', text: '$-8$', isCorrect: true },
+              { id: 'd', text: '$\\pm 8$', isCorrect: false },
+            ],
+            solution: '$-\\sqrt{64} = -8$. Vi tar først roten av $64$, som er $8$, og setter på minustegnet. Minustegnet er *utenfor* roten, så dette er gyldig.',
+          },
+          {
+            id: '1t-1-1-n-quiz4-q1',
+            task: 'Hvilket av disse uttrykkene har *ingen* løsning blant de reelle tallene?',
+            options: [
+              { id: 'a', text: '$-\\sqrt{49}$', isCorrect: false },
+              { id: 'b', text: '$\\sqrt{\\sqrt{16}}$', isCorrect: false },
+              { id: 'c', text: '$\\sqrt{-25}$', isCorrect: true },
+              { id: 'd', text: '$\\sqrt{0}$', isCorrect: false },
+            ],
+            solution: '$\\sqrt{-25}$ har ingen løsning fordi vi ikke kan ta kvadratroten av et negativt tall. $-\\sqrt{49} = -7$ er gyldig. $\\sqrt{\\sqrt{16}} = \\sqrt{4} = 2$. $\\sqrt{0} = 0$.',
+          },
+          {
+            id: '1t-1-1-n-quiz4-q2',
+            task: 'Hva blir $\\sqrt{\\sqrt{25} - \\sqrt{16}}$?',
+            options: [
+              { id: 'a', text: '$3$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: true },
+              { id: 'c', text: '$9$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: false },
+            ],
+            solution: 'Vi jobber innenfra og ut: $\\sqrt{25} = 5$ og $\\sqrt{16} = 4$. Deretter: $\\sqrt{5 - 4} = \\sqrt{1} = 1$.',
+          },
         ],
-        solution: '$\\sqrt{-25}$ har ingen løsning fordi vi ikke kan ta kvadratroten av et negativt tall. $-\\sqrt{49} = -7$ er fullt gyldig (minustegnet er utenfor roten). $\\sqrt{\\sqrt{16}} = \\sqrt{4} = 2$. $\\sqrt{0} = 0$.',
       },
-    },
-    {
-      id: '1t-1-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-1-n-section5',
       type: 'text',
       content: `## Regnerekkefølgen – matematikkens trafikklov
@@ -227,24 +303,45 @@ Et siste eksempel som kombinerer alt: $(3 - 2 \\cdot 4) \\cdot 2 - 3$. Inne i pa
         id: '1t-1-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva blir $-2 \\cdot (3 - 5)^2 + 2$?',
-        options: [
-          { id: 'a', text: '$-10$', isCorrect: false },
-          { id: 'b', text: '$10$', isCorrect: false },
-          { id: 'c', text: '$-6$', isCorrect: true },
-          { id: 'd', text: '$6$', isCorrect: false },
+        task: 'Test deg selv på regnerekkefølgen:',
+        options: [{ id: 'a', text: '$-6$', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-1-n-quiz5-q0',
+            task: 'Hva blir $10 - 3 \\cdot 3$?',
+            options: [
+              { id: 'a', text: '$21$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: true },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$-1$', isCorrect: false },
+            ],
+            solution: 'Multiplikasjon før subtraksjon: $3 \\cdot 3 = 9$, deretter $10 - 9 = 1$. Ikke $10 - 3 = 7$ først!',
+          },
+          {
+            id: '1t-1-1-n-quiz5-q1',
+            task: 'Hva blir $2^3 - (7 - 3)^2$?',
+            options: [
+              { id: 'a', text: '$-8$', isCorrect: true },
+              { id: 'b', text: '$0$', isCorrect: false },
+              { id: 'c', text: '$8$', isCorrect: false },
+              { id: 'd', text: '$48$', isCorrect: false },
+            ],
+            solution: 'Parentesen først: $7 - 3 = 4$. Potensene: $2^3 = 8$ og $4^2 = 16$. Til slutt: $8 - 16 = -8$.',
+          },
+          {
+            id: '1t-1-1-n-quiz5-q2',
+            task: 'Hva blir $-2 \\cdot (3 - 5)^2 + 2$?',
+            options: [
+              { id: 'a', text: '$-10$', isCorrect: false },
+              { id: 'b', text: '$10$', isCorrect: false },
+              { id: 'c', text: '$-6$', isCorrect: true },
+              { id: 'd', text: '$6$', isCorrect: false },
+            ],
+            solution: 'Parentesen først: $3 - 5 = -2$. Potensen: $(-2)^2 = 4$. Multiplikasjonen: $-2 \\cdot 4 = -8$. Til slutt addisjonen: $-8 + 2 = -6$.',
+          },
         ],
-        solution: 'Parentesen først: $3 - 5 = -2$. Potensen: $(-2)^2 = 4$. Multiplikasjonen: $-2 \\cdot 4 = -8$. Til slutt addisjonen: $-8 + 2 = -6$.',
       },
-    },
-    {
-      id: '1t-1-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-1-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-1-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -279,15 +376,7 @@ export const CHAPTER_1T_1_2_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['utforske og beskrive egenskaper ved potenser'],
   linkedChapterId: '1t-1-2',
-  content: [
-    {
-      id: '1t-1-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-1-2-n-intro',
       type: 'text',
       content: `## Gjentatt ganging – og behovet for en snarvei
@@ -324,24 +413,47 @@ En viktig detalj: regelen gjelder bare når grunntallene er *like*. $2^3 \\cdot 
         id: '1t-1-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva blir $3x^2 \\cdot 4x^3$?',
+        task: 'Test deg selv på multiplikasjon av potenser:',
         options: [
-          { id: 'a', text: '$7x^5$', isCorrect: false },
-          { id: 'b', text: '$12x^5$', isCorrect: true },
-          { id: 'c', text: '$12x^6$', isCorrect: false },
-          { id: 'd', text: '$7x^6$', isCorrect: false },
+          { id: 'a', text: '$12x^5$', isCorrect: true },
         ],
-        solution: 'Vi ganger koeffisientene: $3 \\cdot 4 = 12$. Vi legger sammen eksponentene: $x^2 \\cdot x^3 = x^{2+3} = x^5$. Svaret er $12x^5$.',
+        questions: [
+          {
+            id: '1t-1-2-n-quiz1-q0',
+            task: 'Hva blir $3x^2 \\cdot 4x^3$?',
+            options: [
+              { id: 'a', text: '$7x^5$', isCorrect: false },
+              { id: 'b', text: '$12x^5$', isCorrect: true },
+              { id: 'c', text: '$12x^6$', isCorrect: false },
+              { id: 'd', text: '$7x^6$', isCorrect: false },
+            ],
+            solution: 'Vi ganger koeffisientene: $3 \\cdot 4 = 12$. Vi legger sammen eksponentene: $x^2 \\cdot x^3 = x^{2+3} = x^5$. Svaret er $12x^5$.',
+          },
+          {
+            id: '1t-1-2-n-quiz1-q1',
+            task: 'Hva blir $x^4 \\cdot x^7$?',
+            options: [
+              { id: 'a', text: '$x^{28}$', isCorrect: false },
+              { id: 'b', text: '$x^{11}$', isCorrect: true },
+              { id: 'c', text: '$x^3$', isCorrect: false },
+              { id: 'd', text: '$2x^{11}$', isCorrect: false },
+            ],
+            solution: 'Vi legger sammen eksponentene: $x^4 \\cdot x^7 = x^{4+7} = x^{11}$.',
+          },
+          {
+            id: '1t-1-2-n-quiz1-q2',
+            task: 'Forenkle $a^3 \\cdot b^2 \\cdot a^5 \\cdot b$.',
+            options: [
+              { id: 'a', text: '$a^8 b^3$', isCorrect: true },
+              { id: 'b', text: '$a^{15} b^2$', isCorrect: false },
+              { id: 'c', text: '$a^8 b^2$', isCorrect: false },
+              { id: 'd', text: '$(ab)^{11}$', isCorrect: false },
+            ],
+            solution: 'Vi samler like grunntall: $a^3 \\cdot a^5 = a^{3+5} = a^8$ og $b^2 \\cdot b^1 = b^{2+1} = b^3$. Svaret er $a^8 b^3$.',
+          },
+        ],
       },
-    },
-    {
-      id: '1t-1-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-2-n-section2',
       type: 'text',
       content: `## Divisjon av potenser – trekk fra eksponentene
@@ -365,24 +477,69 @@ Negative eksponenter i brøker følger en nyttig snarvei: en faktor med negativ 
         id: '1t-1-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er $4a^{-2}$ skrevet uten negativ eksponent?',
+        task: 'Test deg selv på divisjon og negative eksponenter:',
         options: [
-          { id: 'a', text: '$\\frac{1}{4a^2}$', isCorrect: false },
-          { id: 'b', text: '$\\frac{4}{a^2}$', isCorrect: true },
-          { id: 'c', text: '$-4a^2$', isCorrect: false },
-          { id: 'd', text: '$\\frac{a^2}{4}$', isCorrect: false },
+          { id: 'a', text: '$\\frac{4}{a^2}$', isCorrect: true },
         ],
-        solution: '$4a^{-2} = 4 \\cdot \\frac{1}{a^2} = \\frac{4}{a^2}$. Det er bare $a$ som har negativ eksponent, ikke $4$. Koeffisienten $4$ blir stående i telleren.',
+        questions: [
+          {
+            id: '1t-1-2-n-quiz2-q0',
+            task: 'Hva er $4a^{-2}$ skrevet uten negativ eksponent?',
+            options: [
+              { id: 'a', text: '$\\frac{1}{4a^2}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{4}{a^2}$', isCorrect: true },
+              { id: 'c', text: '$-4a^2$', isCorrect: false },
+              { id: 'd', text: '$\\frac{a^2}{4}$', isCorrect: false },
+            ],
+            solution: '$4a^{-2} = 4 \\cdot \\frac{1}{a^2} = \\frac{4}{a^2}$. Det er bare $a$ som har negativ eksponent, ikke $4$. Koeffisienten $4$ blir stående i telleren.',
+          },
+          {
+            id: '1t-1-2-n-quiz2-q1',
+            task: 'Hva blir $\\frac{x^5}{x^2}$?',
+            options: [
+              { id: 'a', text: '$x^{10}$', isCorrect: false },
+              { id: 'b', text: '$x^7$', isCorrect: false },
+              { id: 'c', text: '$x^3$', isCorrect: true },
+              { id: 'd', text: '$x^{2.5}$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra eksponentene: $\\frac{x^5}{x^2} = x^{5-2} = x^3$.',
+          },
+          {
+            id: '1t-1-2-n-quiz2-q2',
+            task: 'Hva er $2^{-3}$?',
+            options: [
+              { id: 'a', text: '$-8$', isCorrect: false },
+              { id: 'b', text: '$-6$', isCorrect: false },
+              { id: 'c', text: '$\\frac{1}{8}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{1}{6}$', isCorrect: false },
+            ],
+            solution: '$2^{-3} = \\frac{1}{2^3} = \\frac{1}{8}$. Negativ eksponent betyr at vi flytter potensen til nevneren.',
+          },
+          {
+            id: '1t-1-2-n-quiz2-q3',
+            task: 'Forenkle $\\frac{x^4 y^3}{x^2 y^2}$.',
+            options: [
+              { id: 'a', text: '$x^2 y$', isCorrect: true },
+              { id: 'b', text: '$x^2 y^5$', isCorrect: false },
+              { id: 'c', text: '$x^6 y^5$', isCorrect: false },
+              { id: 'd', text: '$\\frac{x^2}{y}$', isCorrect: false },
+            ],
+            solution: 'Vi behandler hver variabel for seg: $\\frac{x^4}{x^2} = x^{4-2} = x^2$ og $\\frac{y^3}{y^2} = y^{3-2} = y^1 = y$. Svaret er $x^2 y$.',
+          },
+          {
+            id: '1t-1-2-n-quiz2-q4',
+            task: 'Skriv $\\frac{2^{-5}}{3^{-2}}$ uten negative eksponenter.',
+            options: [
+              { id: 'a', text: '$\\frac{3^2}{2^5} = \\frac{9}{32}$', isCorrect: true },
+              { id: 'b', text: '$\\frac{2^5}{3^2} = \\frac{32}{9}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{1}{2^5 \\cdot 3^2}$', isCorrect: false },
+              { id: 'd', text: '$6^{-3}$', isCorrect: false },
+            ],
+            solution: 'Faktorer med negativ eksponent bytter plass: $\\frac{2^{-5}}{3^{-2}} = \\frac{3^2}{2^5} = \\frac{9}{32}$. $2^{-5}$ flyttes ned i nevneren som $2^5$, og $3^{-2}$ flyttes opp i telleren som $3^2$.',
+          },
+        ],
       },
-    },
-    {
-      id: '1t-1-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-2-n-section3',
       type: 'text',
       content: `## Potens av et produkt og en brøk – eksponenten sprer seg
@@ -406,24 +563,58 @@ Disse to reglene – potens av produkt og potens av brøk – er spesielt nyttig
         id: '1t-1-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva blir $(3x)^2$?',
+        task: 'Test deg selv på potens av produkt og brøk:',
         options: [
-          { id: 'a', text: '$3x^2$', isCorrect: false },
-          { id: 'b', text: '$6x^2$', isCorrect: false },
-          { id: 'c', text: '$9x^2$', isCorrect: true },
-          { id: 'd', text: '$9x$', isCorrect: false },
+          { id: 'a', text: '$9x^2$', isCorrect: true },
         ],
-        solution: '$(3x)^2 = 3^2 \\cdot x^2 = 9x^2$. Eksponenten fordeles til begge faktorene inne i parentesen: både $3$ og $x$ opphøyes i andre.',
+        questions: [
+          {
+            id: '1t-1-2-n-quiz3-q0',
+            task: 'Hva blir $(3x)^2$?',
+            options: [
+              { id: 'a', text: '$3x^2$', isCorrect: false },
+              { id: 'b', text: '$6x^2$', isCorrect: false },
+              { id: 'c', text: '$9x^2$', isCorrect: true },
+              { id: 'd', text: '$9x$', isCorrect: false },
+            ],
+            solution: '$(3x)^2 = 3^2 \\cdot x^2 = 9x^2$. Eksponenten fordeles til begge faktorene inne i parentesen: både $3$ og $x$ opphøyes i andre.',
+          },
+          {
+            id: '1t-1-2-n-quiz3-q1',
+            task: 'Hva blir $(2a)^3$?',
+            options: [
+              { id: 'a', text: '$2a^3$', isCorrect: false },
+              { id: 'b', text: '$6a^3$', isCorrect: false },
+              { id: 'c', text: '$8a^3$', isCorrect: true },
+              { id: 'd', text: '$8a$', isCorrect: false },
+            ],
+            solution: '$(2a)^3 = 2^3 \\cdot a^3 = 8a^3$. Husk at koeffisienten $2$ også må opphøyes: $2^3 = 8$.',
+          },
+          {
+            id: '1t-1-2-n-quiz3-q2',
+            task: 'Hva blir $\\left(\\frac{x}{y}\\right)^3$?',
+            options: [
+              { id: 'a', text: '$\\frac{x^3}{y}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{x}{y^3}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{x^3}{y^3}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{3x}{3y}$', isCorrect: false },
+            ],
+            solution: '$\\left(\\frac{x}{y}\\right)^3 = \\frac{x^3}{y^3}$. Eksponenten fordeles til både teller og nevner i brøken.',
+          },
+          {
+            id: '1t-1-2-n-quiz3-q3',
+            task: 'Forenkle $3a^4 \\cdot (2a)^3$.',
+            options: [
+              { id: 'a', text: '$6a^7$', isCorrect: false },
+              { id: 'b', text: '$24a^7$', isCorrect: true },
+              { id: 'c', text: '$24a^{12}$', isCorrect: false },
+              { id: 'd', text: '$6a^{12}$', isCorrect: false },
+            ],
+            solution: 'Først løser vi opp potensen: $(2a)^3 = 2^3 \\cdot a^3 = 8a^3$. Så ganger vi: $3a^4 \\cdot 8a^3 = 24a^{4+3} = 24a^7$. Her kombinerer vi potens av produkt med multiplikasjonsregelen.',
+          },
+        ],
       },
-    },
-    {
-      id: '1t-1-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-2-n-section4',
       type: 'text',
       content: `## Potens av potens – gang eksponentene
@@ -447,24 +638,58 @@ Denne regelen fungerer også med negative eksponenter. For eksempel: $\\left(\\f
         id: '1t-1-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva blir $(5a^2)^2$?',
+        task: 'Test deg selv på potens av potens:',
         options: [
-          { id: 'a', text: '$5a^4$', isCorrect: false },
-          { id: 'b', text: '$10a^4$', isCorrect: false },
-          { id: 'c', text: '$25a^4$', isCorrect: true },
-          { id: 'd', text: '$25a^2$', isCorrect: false },
+          { id: 'a', text: '$25a^4$', isCorrect: true },
         ],
-        solution: '$(5a^2)^2 = 5^2 \\cdot (a^2)^2 = 25 \\cdot a^{2 \\cdot 2} = 25a^4$. Vi brukte først potens av produkt ($5^2 = 25$), deretter potens av potens ($a^{2 \\cdot 2} = a^4$).',
+        questions: [
+          {
+            id: '1t-1-2-n-quiz4-q0',
+            task: 'Hva blir $(5a^2)^2$?',
+            options: [
+              { id: 'a', text: '$5a^4$', isCorrect: false },
+              { id: 'b', text: '$10a^4$', isCorrect: false },
+              { id: 'c', text: '$25a^4$', isCorrect: true },
+              { id: 'd', text: '$25a^2$', isCorrect: false },
+            ],
+            solution: '$(5a^2)^2 = 5^2 \\cdot (a^2)^2 = 25 \\cdot a^{2 \\cdot 2} = 25a^4$. Vi brukte først potens av produkt ($5^2 = 25$), deretter potens av potens ($a^{2 \\cdot 2} = a^4$).',
+          },
+          {
+            id: '1t-1-2-n-quiz4-q1',
+            task: 'Hva blir $(x^3)^4$?',
+            options: [
+              { id: 'a', text: '$x^7$', isCorrect: false },
+              { id: 'b', text: '$x^{12}$', isCorrect: true },
+              { id: 'c', text: '$x^{34}$', isCorrect: false },
+              { id: 'd', text: '$4x^3$', isCorrect: false },
+            ],
+            solution: '$(x^3)^4 = x^{3 \\cdot 4} = x^{12}$. Ved potens av potens ganger vi eksponentene.',
+          },
+          {
+            id: '1t-1-2-n-quiz4-q2',
+            task: 'Forenkle $(2a^3)^4$.',
+            options: [
+              { id: 'a', text: '$2a^{12}$', isCorrect: false },
+              { id: 'b', text: '$8a^{12}$', isCorrect: false },
+              { id: 'c', text: '$16a^{12}$', isCorrect: true },
+              { id: 'd', text: '$16a^7$', isCorrect: false },
+            ],
+            solution: '$(2a^3)^4 = 2^4 \\cdot (a^3)^4 = 16 \\cdot a^{3 \\cdot 4} = 16a^{12}$. Husk å opphøye koeffisienten også: $2^4 = 16$.',
+          },
+          {
+            id: '1t-1-2-n-quiz4-q3',
+            task: 'Forenkle $\\left(\\frac{y^2}{x}\\right)^3$.',
+            options: [
+              { id: 'a', text: '$\\frac{y^6}{x^3}$', isCorrect: true },
+              { id: 'b', text: '$\\frac{y^5}{x^3}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{y^8}{x^3}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{y^6}{x}$', isCorrect: false },
+            ],
+            solution: '$\\left(\\frac{y^2}{x}\\right)^3 = \\frac{(y^2)^3}{x^3} = \\frac{y^{2 \\cdot 3}}{x^3} = \\frac{y^6}{x^3}$. Vi brukte potens av brøk og potens av potens.',
+          },
+        ],
       },
-    },
-    {
-      id: '1t-1-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-2-n-section5',
       type: 'text',
       content: `## Eksponent null og en opprydding i verktøykassen
@@ -484,24 +709,58 @@ En god strategi for sammensatte oppgaver er å *omskrive alt til primtallspotens
         id: '1t-1-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva blir $\\frac{2^5}{8^2}$?',
+        task: 'Test deg selv på null-eksponent og sammensatte uttrykk:',
         options: [
-          { id: 'a', text: '$4$', isCorrect: false },
-          { id: 'b', text: '$2$', isCorrect: false },
-          { id: 'c', text: '$\\frac{1}{2}$', isCorrect: true },
-          { id: 'd', text: '$1$', isCorrect: false },
+          { id: 'a', text: '$\\frac{1}{2}$', isCorrect: true },
         ],
-        solution: 'Vi skriver $8$ som $2^3$: $\\frac{2^5}{8^2} = \\frac{2^5}{(2^3)^2} = \\frac{2^5}{2^6} = 2^{5-6} = 2^{-1} = \\frac{1}{2}$.',
+        questions: [
+          {
+            id: '1t-1-2-n-quiz5-q0',
+            task: 'Hva blir $\\frac{2^5}{8^2}$?',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: false },
+              { id: 'b', text: '$2$', isCorrect: false },
+              { id: 'c', text: '$\\frac{1}{2}$', isCorrect: true },
+              { id: 'd', text: '$1$', isCorrect: false },
+            ],
+            solution: 'Vi skriver $8$ som $2^3$: $\\frac{2^5}{8^2} = \\frac{2^5}{(2^3)^2} = \\frac{2^5}{2^6} = 2^{5-6} = 2^{-1} = \\frac{1}{2}$.',
+          },
+          {
+            id: '1t-1-2-n-quiz5-q1',
+            task: 'Hva er verdien av $2x^0$?',
+            options: [
+              { id: 'a', text: '$0$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: false },
+              { id: 'c', text: '$2$', isCorrect: true },
+              { id: 'd', text: '$2x$', isCorrect: false },
+            ],
+            solution: '$2x^0 = 2 \\cdot x^0 = 2 \\cdot 1 = 2$. Bare $x$ har eksponenten $0$, ikke hele uttrykket. Sammenlikn med $(2x)^0 = 1$.',
+          },
+          {
+            id: '1t-1-2-n-quiz5-q2',
+            task: 'Forenkle $\\frac{4^5}{16^2}$.',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: true },
+              { id: 'b', text: '$16$', isCorrect: false },
+              { id: 'c', text: '$1$', isCorrect: false },
+              { id: 'd', text: '$\\frac{1}{4}$', isCorrect: false },
+            ],
+            solution: 'Vi skriver $16$ som $4^2$: $\\frac{4^5}{16^2} = \\frac{4^5}{(4^2)^2} = \\frac{4^5}{4^4} = 4^{5-4} = 4^1 = 4$.',
+          },
+          {
+            id: '1t-1-2-n-quiz5-q3',
+            task: 'Forenkle $\\frac{(3x^2)^3}{9x^4}$.',
+            options: [
+              { id: 'a', text: '$3x^2$', isCorrect: true },
+              { id: 'b', text: '$3x^{10}$', isCorrect: false },
+              { id: 'c', text: '$27x^2$', isCorrect: false },
+              { id: 'd', text: '$x^2$', isCorrect: false },
+            ],
+            solution: 'Telleren: $(3x^2)^3 = 3^3 \\cdot (x^2)^3 = 27x^6$. Så: $\\frac{27x^6}{9x^4} = \\frac{27}{9} \\cdot x^{6-4} = 3x^2$. Her brukte vi potens av produkt, potens av potens og divisjon.',
+          },
+        ],
       },
-    },
-    {
-      id: '1t-1-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-1-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-1-2-n-summary',
       type: 'text',
       content: `## Oppsummering

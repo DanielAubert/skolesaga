@@ -88,14 +88,46 @@ Hva med $3x^2y + 5xy^2 - 4yx^2$? Her er $3x^2y$ og $-4yx^2$ like ledd (begge har
         id: '1t-1-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva blir $5x^2 + 7x + 9 - 2x^2$?',
+        task: 'Test deg selv på like ledd:',
         options: [
-          { id: 'a', text: '$3x^2 + 7x + 9$', isCorrect: true },
-          { id: 'b', text: '$10x^2 + 9$', isCorrect: false },
-          { id: 'c', text: '$7x^2 + 7x + 9$', isCorrect: false },
-          { id: 'd', text: '$3x^2 + 16$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi samler like ledd: $5x^2 - 2x^2 = 3x^2$. Leddet $7x$ har ingen andre $x$-ledd å slå seg sammen med, og $9$ er en konstant. Svaret er $3x^2 + 7x + 9$.',
+        questions: [
+          {
+            id: '1t-1-3-n-quiz1-q0',
+            task: 'Hva blir $5x^2 + 7x + 9 - 2x^2$?',
+            options: [
+              { id: 'a', text: '$3x^2 + 7x + 9$', isCorrect: true },
+              { id: 'b', text: '$10x^2 + 9$', isCorrect: false },
+              { id: 'c', text: '$7x^2 + 7x + 9$', isCorrect: false },
+              { id: 'd', text: '$3x^2 + 16$', isCorrect: false },
+            ],
+            solution: 'Vi samler like ledd: $5x^2 - 2x^2 = 3x^2$. Leddet $7x$ har ingen andre $x$-ledd å slå seg sammen med, og $9$ er en konstant. Svaret er $3x^2 + 7x + 9$.',
+          },
+          {
+            id: '1t-1-3-n-quiz1-q1',
+            task: 'Hvilke av disse er like ledd?',
+            options: [
+              { id: 'a', text: '$3x$ og $5x^2$', isCorrect: false },
+              { id: 'b', text: '$2xy$ og $7yx$', isCorrect: true },
+              { id: 'c', text: '$4a$ og $4b$', isCorrect: false },
+              { id: 'd', text: '$x^2$ og $x^3$', isCorrect: false },
+            ],
+            solution: 'Like ledd må ha nøyaktig samme bokstaver med samme eksponenter. $2xy$ og $7yx$ er like ledd fordi $xy = yx$ (rekkefølgen spiller ingen rolle). De andre parene har forskjellige variabler eller eksponenter.',
+          },
+          {
+            id: '1t-1-3-n-quiz1-q2',
+            task: 'Hva blir $4a^2b - 2ab^2 + 3a^2b + ab^2$?',
+            options: [
+              { id: 'a', text: '$7a^2b - ab^2$', isCorrect: true },
+              { id: 'b', text: '$5a^2b^2$', isCorrect: false },
+              { id: 'c', text: '$7a^2b + ab^2$', isCorrect: false },
+              { id: 'd', text: '$7a^2b - 3ab^2$', isCorrect: false },
+            ],
+            solution: 'Vi samler like ledd: $a^2b$-leddene er $4a^2b + 3a^2b = 7a^2b$. $ab^2$-leddene er $-2ab^2 + ab^2 = -ab^2$. Svaret er $7a^2b - ab^2$.',
+          },
+        ],
+        solution: '',
       },
     },
     {
@@ -133,14 +165,57 @@ Et annet viktig tilfelle er når du har noe *pluss* en parentes: $3a - (5b - 4a)
         id: '1t-1-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva blir $-2(x^2 - 3x + 2) - x^2$?',
+        task: 'Test deg selv på distributiv lov:',
         options: [
-          { id: 'a', text: '$-3x^2 + 6x - 4$', isCorrect: true },
-          { id: 'b', text: '$-x^2 + 6x - 4$', isCorrect: false },
-          { id: 'c', text: '$-3x^2 - 6x + 4$', isCorrect: false },
-          { id: 'd', text: '$-2x^2 + 6x - 4$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Først distribuerer vi: $-2 \\cdot x^2 = -2x^2$, $-2 \\cdot (-3x) = 6x$, $-2 \\cdot 2 = -4$. Så trekker vi fra $x^2$: $-2x^2 + 6x - 4 - x^2 = -3x^2 + 6x - 4$.',
+        questions: [
+          {
+            id: '1t-1-3-n-quiz2-q0',
+            task: 'Hva blir $-2(x^2 - 3x + 2) - x^2$?',
+            options: [
+              { id: 'a', text: '$-3x^2 + 6x - 4$', isCorrect: true },
+              { id: 'b', text: '$-x^2 + 6x - 4$', isCorrect: false },
+              { id: 'c', text: '$-3x^2 - 6x + 4$', isCorrect: false },
+              { id: 'd', text: '$-2x^2 + 6x - 4$', isCorrect: false },
+            ],
+            solution: 'Først distribuerer vi: $-2 \\cdot x^2 = -2x^2$, $-2 \\cdot (-3x) = 6x$, $-2 \\cdot 2 = -4$. Så trekker vi fra $x^2$: $-2x^2 + 6x - 4 - x^2 = -3x^2 + 6x - 4$.',
+          },
+          {
+            id: '1t-1-3-n-quiz2-q1',
+            task: 'Hva blir $3(2a + 5)$?',
+            options: [
+              { id: 'a', text: '$6a + 5$', isCorrect: false },
+              { id: 'b', text: '$5a + 15$', isCorrect: false },
+              { id: 'c', text: '$6a + 15$', isCorrect: true },
+              { id: 'd', text: '$6a + 8$', isCorrect: false },
+            ],
+            solution: 'Vi ganger $3$ med hvert ledd i parentesen: $3 \\cdot 2a + 3 \\cdot 5 = 6a + 15$.',
+          },
+          {
+            id: '1t-1-3-n-quiz2-q2',
+            task: 'Hva blir $-(4x - 7)$?',
+            options: [
+              { id: 'a', text: '$-4x - 7$', isCorrect: false },
+              { id: 'b', text: '$4x + 7$', isCorrect: false },
+              { id: 'c', text: '$-4x + 7$', isCorrect: true },
+              { id: 'd', text: '$4x - 7$', isCorrect: false },
+            ],
+            solution: 'Minus foran en parentes snur fortegnet på alle ledd inni: $-(4x - 7) = -1 \\cdot 4x + (-1) \\cdot (-7) = -4x + 7$.',
+          },
+          {
+            id: '1t-1-3-n-quiz2-q3',
+            task: 'Hva blir $5a - (2a - 3b)$?',
+            options: [
+              { id: 'a', text: '$3a - 3b$', isCorrect: false },
+              { id: 'b', text: '$3a + 3b$', isCorrect: true },
+              { id: 'c', text: '$7a - 3b$', isCorrect: false },
+              { id: 'd', text: '$7a + 3b$', isCorrect: false },
+            ],
+            solution: 'Vi løser opp parentesen og snur fortegnene: $5a - 2a + 3b = 3a + 3b$.',
+          },
+        ],
+        solution: '',
       },
     },
     {
@@ -172,14 +247,46 @@ Her er noe som er verdt å merke seg: etter at du har løst opp parentesen, sjek
         id: '1t-1-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva blir $2x(x - y)$?',
+        task: 'Test deg selv på distributiv lov med variabler:',
         options: [
-          { id: 'a', text: '$2x^2 - 2y$', isCorrect: false },
-          { id: 'b', text: '$2x^2 - xy$', isCorrect: false },
-          { id: 'c', text: '$2x^2 - 2xy$', isCorrect: true },
-          { id: 'd', text: '$2x - 2xy$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi bruker distributiv lov: $2x \\cdot x - 2x \\cdot y = 2x^2 - 2xy$. Husk at $2x \\cdot x = 2x^2$, ikke bare $2x$.',
+        questions: [
+          {
+            id: '1t-1-3-n-quiz3-q0',
+            task: 'Hva blir $2x(x - y)$?',
+            options: [
+              { id: 'a', text: '$2x^2 - 2y$', isCorrect: false },
+              { id: 'b', text: '$2x^2 - xy$', isCorrect: false },
+              { id: 'c', text: '$2x^2 - 2xy$', isCorrect: true },
+              { id: 'd', text: '$2x - 2xy$', isCorrect: false },
+            ],
+            solution: 'Vi bruker distributiv lov: $2x \\cdot x - 2x \\cdot y = 2x^2 - 2xy$. Husk at $2x \\cdot x = 2x^2$, ikke bare $2x$.',
+          },
+          {
+            id: '1t-1-3-n-quiz3-q1',
+            task: 'Hva blir $a^2(a + 3b)$?',
+            options: [
+              { id: 'a', text: '$a^3 + 3ab$', isCorrect: false },
+              { id: 'b', text: '$a^3 + 3a^2b$', isCorrect: true },
+              { id: 'c', text: '$a^2 + 3a^2b$', isCorrect: false },
+              { id: 'd', text: '$a^4 + 3a^2b$', isCorrect: false },
+            ],
+            solution: 'Vi ganger $a^2$ med hvert ledd: $a^2 \\cdot a = a^{2+1} = a^3$ og $a^2 \\cdot 3b = 3a^2b$. Svaret er $a^3 + 3a^2b$.',
+          },
+          {
+            id: '1t-1-3-n-quiz3-q2',
+            task: 'Hva blir $-ab(a - 2b) + a^2b$?',
+            options: [
+              { id: 'a', text: '$2ab^2$', isCorrect: true },
+              { id: 'b', text: '$-2a^2b + 2ab^2$', isCorrect: false },
+              { id: 'c', text: '$-a^2b + 2ab^2 + a^2b$', isCorrect: false },
+              { id: 'd', text: '$0$', isCorrect: false },
+            ],
+            solution: 'Først distribuerer vi: $-ab \\cdot a + (-ab) \\cdot (-2b) = -a^2b + 2ab^2$. Deretter legger vi til $a^2b$: $-a^2b + 2ab^2 + a^2b = 2ab^2$. $a^2b$-leddene kansellerer hverandre.',
+          },
+        ],
+        solution: '',
       },
     },
     {
@@ -215,14 +322,46 @@ Noen ganger har vi en faktor foran hele uttrykket: $-2(x + 3)(x - 5)$. Da ganger
         id: '1t-1-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva blir $(x + 3)(x - 2)$?',
+        task: 'Test deg selv på parentes ganger parentes:',
         options: [
-          { id: 'a', text: '$x^2 - 6$', isCorrect: false },
-          { id: 'b', text: '$x^2 + x - 6$', isCorrect: true },
-          { id: 'c', text: '$x^2 + 5x - 6$', isCorrect: false },
-          { id: 'd', text: '$x^2 - x + 6$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi ganger alle med alle: $x \\cdot x + x \\cdot (-2) + 3 \\cdot x + 3 \\cdot (-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.',
+        questions: [
+          {
+            id: '1t-1-3-n-quiz4-q0',
+            task: 'Hva blir $(x + 3)(x - 2)$?',
+            options: [
+              { id: 'a', text: '$x^2 - 6$', isCorrect: false },
+              { id: 'b', text: '$x^2 + x - 6$', isCorrect: true },
+              { id: 'c', text: '$x^2 + 5x - 6$', isCorrect: false },
+              { id: 'd', text: '$x^2 - x + 6$', isCorrect: false },
+            ],
+            solution: 'Vi ganger alle med alle: $x \\cdot x + x \\cdot (-2) + 3 \\cdot x + 3 \\cdot (-2) = x^2 - 2x + 3x - 6 = x^2 + x - 6$.',
+          },
+          {
+            id: '1t-1-3-n-quiz4-q1',
+            task: 'Hva blir $(2x - 1)(x + 4)$?',
+            options: [
+              { id: 'a', text: '$2x^2 + 7x - 4$', isCorrect: true },
+              { id: 'b', text: '$2x^2 + 9x - 4$', isCorrect: false },
+              { id: 'c', text: '$2x^2 - 7x - 4$', isCorrect: false },
+              { id: 'd', text: '$2x^2 + 3x - 4$', isCorrect: false },
+            ],
+            solution: 'Vi ganger alle med alle: $2x \\cdot x + 2x \\cdot 4 + (-1) \\cdot x + (-1) \\cdot 4 = 2x^2 + 8x - x - 4 = 2x^2 + 7x - 4$.',
+          },
+          {
+            id: '1t-1-3-n-quiz4-q2',
+            task: 'Hva blir $-3(x + 1)(x - 2)$?',
+            options: [
+              { id: 'a', text: '$-3x^2 + 3x + 6$', isCorrect: false },
+              { id: 'b', text: '$-3x^2 - 3x - 6$', isCorrect: false },
+              { id: 'c', text: '$-3x^2 + 3x - 6$', isCorrect: false },
+              { id: 'd', text: '$-3x^2 + 3x + 6$', isCorrect: true },
+            ],
+            solution: 'Først ganger vi parentesene: $(x + 1)(x - 2) = x^2 - 2x + x - 2 = x^2 - x - 2$. Deretter ganger vi med $-3$: $-3(x^2 - x - 2) = -3x^2 + 3x + 6$.',
+          },
+        ],
+        solution: '',
       },
     },
     {
@@ -258,14 +397,46 @@ Her er en sjekkliste du kan bruke:
         id: '1t-1-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva blir $x^2 - (x + 4)(x - 1)$?',
+        task: 'Test deg selv på tre parenteser og fradrag:',
         options: [
-          { id: 'a', text: '$-3x + 4$', isCorrect: true },
-          { id: 'b', text: '$3x - 4$', isCorrect: false },
-          { id: 'c', text: '$-5x + 4$', isCorrect: false },
-          { id: 'd', text: '$x^2 - 3x + 4$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Først ganger vi parentesene: $(x + 4)(x - 1) = x^2 - x + 4x - 4 = x^2 + 3x - 4$. Så trekker vi fra: $x^2 - (x^2 + 3x - 4) = x^2 - x^2 - 3x + 4 = -3x + 4$.',
+        questions: [
+          {
+            id: '1t-1-3-n-quiz5-q0',
+            task: 'Hva blir $x^2 - (x + 4)(x - 1)$?',
+            options: [
+              { id: 'a', text: '$-3x + 4$', isCorrect: true },
+              { id: 'b', text: '$3x - 4$', isCorrect: false },
+              { id: 'c', text: '$-5x + 4$', isCorrect: false },
+              { id: 'd', text: '$x^2 - 3x + 4$', isCorrect: false },
+            ],
+            solution: 'Først ganger vi parentesene: $(x + 4)(x - 1) = x^2 - x + 4x - 4 = x^2 + 3x - 4$. Så trekker vi fra: $x^2 - (x^2 + 3x - 4) = x^2 - x^2 - 3x + 4 = -3x + 4$.',
+          },
+          {
+            id: '1t-1-3-n-quiz5-q1',
+            task: 'Hva er riktig rekkefølge når du regner ut et uttrykk med parenteser?',
+            options: [
+              { id: 'a', text: 'Samle like ledd, gang ut, forenkle', isCorrect: false },
+              { id: 'b', text: 'Gang ut parenteser, pass på fortegn, samle like ledd', isCorrect: true },
+              { id: 'c', text: 'Del på koeffisienter, gang ut, forenkle', isCorrect: false },
+              { id: 'd', text: 'Ta kvadratrot, gang ut, samle like ledd', isCorrect: false },
+            ],
+            solution: 'Riktig rekkefølge er: (1) Gang ut parentesene med distributiv lov eller «alle med alle», (2) Pass på fortegnene, spesielt minus foran parenteser, (3) Samle like ledd og skriv svaret med høyeste potens først.',
+          },
+          {
+            id: '1t-1-3-n-quiz5-q2',
+            task: 'Hva blir $x(x + 2)(x - 3)$?',
+            options: [
+              { id: 'a', text: '$x^3 - x^2 - 6x$', isCorrect: true },
+              { id: 'b', text: '$x^3 + x^2 - 6x$', isCorrect: false },
+              { id: 'c', text: '$x^3 - x^2 + 6x$', isCorrect: false },
+              { id: 'd', text: '$x^2 - x - 6$', isCorrect: false },
+            ],
+            solution: 'Først ganger vi $x$ med $(x + 2)$: $x^2 + 2x$. Deretter ganger vi dette med $(x - 3)$: $(x^2 + 2x)(x - 3) = x^3 - 3x^2 + 2x^2 - 6x = x^3 - x^2 - 6x$.',
+          },
+        ],
+        solution: '',
       },
     },
     {
@@ -306,15 +477,7 @@ export const CHAPTER_1T_2_1_NARRATIV: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: ['løse lineære likninger', 'bruke regneregler for likninger'],
   linkedChapterId: '1t-2-1',
-  content: [
-    {
-      id: '1t-2-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-2-1-n-intro',
       type: 'text',
       content: `## Jakten på den ukjente
@@ -347,24 +510,48 @@ Ta et litt større eksempel: $4x + 10 = 3x - 2$. Vi trekker fra $3x$ på begge s
         id: '1t-2-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på likningen $3x + 31 = 2x$?',
+        task: 'Test deg selv på addisjon og subtraksjon i likninger:',
         options: [
-          { id: 'a', text: '$x = 31$', isCorrect: false },
-          { id: 'b', text: '$x = -31$', isCorrect: true },
-          { id: 'c', text: '$x = -\\frac{31}{2}$', isCorrect: false },
-          { id: 'd', text: '$x = \\frac{31}{5}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi trekker fra $2x$ på begge sider: $3x - 2x + 31 = 0$, altså $x + 31 = 0$. Deretter trekker vi fra 31: $x = -31$.',
+        questions: [
+          {
+            id: '1t-2-1-n-quiz1-q0',
+            task: 'Hva er løsningen på likningen $3x + 31 = 2x$?',
+            options: [
+              { id: 'a', text: '$x = 31$', isCorrect: false },
+              { id: 'b', text: '$x = -31$', isCorrect: true },
+              { id: 'c', text: '$x = -\\frac{31}{2}$', isCorrect: false },
+              { id: 'd', text: '$x = \\frac{31}{5}$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra $2x$ på begge sider: $3x - 2x + 31 = 0$, altså $x + 31 = 0$. Deretter trekker vi fra 31: $x = -31$.',
+          },
+          {
+            id: '1t-2-1-n-quiz1-q1',
+            task: 'Hva er løsningen på $x - 7 = 12$?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: false },
+              { id: 'b', text: '$x = -5$', isCorrect: false },
+              { id: 'c', text: '$x = 19$', isCorrect: true },
+              { id: 'd', text: '$x = -19$', isCorrect: false },
+            ],
+            solution: 'Vi legger til 7 på begge sider: $x - 7 + 7 = 12 + 7$, altså $x = 19$.',
+          },
+          {
+            id: '1t-2-1-n-quiz1-q2',
+            task: 'Hva er løsningen på $5x + 3 = 4x - 8$?',
+            options: [
+              { id: 'a', text: '$x = -11$', isCorrect: true },
+              { id: 'b', text: '$x = 11$', isCorrect: false },
+              { id: 'c', text: '$x = -5$', isCorrect: false },
+              { id: 'd', text: '$x = 5$', isCorrect: false },
+            ],
+            solution: 'Vi trekker fra $4x$ på begge sider: $x + 3 = -8$. Deretter trekker vi fra 3: $x = -11$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-1-n-section2',
       type: 'text',
       content: `## Multiplikasjon og divisjon – når $x$ er ganget med noe
@@ -388,24 +575,48 @@ Hva med uttrykk som $\\frac{2x}{3} = 6$? Her ganger vi først med 3 for å fjern
         id: '1t-2-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $\\frac{5x}{2} - 4 = -9$?',
+        task: 'Test deg selv på multiplikasjon og divisjon i likninger:',
         options: [
-          { id: 'a', text: '$x = -\\frac{10}{5}$', isCorrect: false },
-          { id: 'b', text: '$x = 2$', isCorrect: false },
-          { id: 'c', text: '$x = -2$', isCorrect: true },
-          { id: 'd', text: '$x = -\\frac{5}{2}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Først legger vi til 4: $\\frac{5x}{2} = -5$. Ganger vi med 2: $5x = -10$. Deler vi på 5: $x = -2$.',
+        questions: [
+          {
+            id: '1t-2-1-n-quiz2-q0',
+            task: 'Hva er løsningen på $\\frac{5x}{2} - 4 = -9$?',
+            options: [
+              { id: 'a', text: '$x = -\\frac{10}{5}$', isCorrect: false },
+              { id: 'b', text: '$x = 2$', isCorrect: false },
+              { id: 'c', text: '$x = -2$', isCorrect: true },
+              { id: 'd', text: '$x = -\\frac{5}{2}$', isCorrect: false },
+            ],
+            solution: 'Først legger vi til 4: $\\frac{5x}{2} = -5$. Ganger vi med 2: $5x = -10$. Deler vi på 5: $x = -2$.',
+          },
+          {
+            id: '1t-2-1-n-quiz2-q1',
+            task: 'Hva er løsningen på $-4x = 20$?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: false },
+              { id: 'b', text: '$x = -5$', isCorrect: true },
+              { id: 'c', text: '$x = -80$', isCorrect: false },
+              { id: 'd', text: '$x = 24$', isCorrect: false },
+            ],
+            solution: 'Vi deler begge sider på $-4$: $x = \\frac{20}{-4} = -5$. Positivt tall delt på negativt tall gir negativt resultat.',
+          },
+          {
+            id: '1t-2-1-n-quiz2-q2',
+            task: 'Hva er løsningen på $\\frac{x}{3} + 1 = 5$?',
+            options: [
+              { id: 'a', text: '$x = 2$', isCorrect: false },
+              { id: 'b', text: '$x = 18$', isCorrect: false },
+              { id: 'c', text: '$x = 12$', isCorrect: true },
+              { id: 'd', text: '$x = 6$', isCorrect: false },
+            ],
+            solution: 'Først trekker vi fra 1: $\\frac{x}{3} = 4$. Deretter ganger vi med 3: $x = 12$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-1-n-section3',
       type: 'text',
       content: `## Brøklikninger – når $x$ gjemmer seg i nevneren
@@ -427,24 +638,48 @@ Den kraftigste teknikken for flere brøker er å gange hele likningen med **fell
         id: '1t-2-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $\\frac{6}{x} = 2$?',
+        task: 'Test deg selv på brøklikninger:',
         options: [
-          { id: 'a', text: '$x = 12$', isCorrect: false },
-          { id: 'b', text: '$x = 4$', isCorrect: false },
-          { id: 'c', text: '$x = \\frac{1}{3}$', isCorrect: false },
-          { id: 'd', text: '$x = 3$', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi ganger begge sider med $x$: $6 = 2x$. Deretter deler vi på 2: $x = 3$.',
+        questions: [
+          {
+            id: '1t-2-1-n-quiz3-q0',
+            task: 'Hva er løsningen på $\\frac{6}{x} = 2$?',
+            options: [
+              { id: 'a', text: '$x = 12$', isCorrect: false },
+              { id: 'b', text: '$x = 4$', isCorrect: false },
+              { id: 'c', text: '$x = \\frac{1}{3}$', isCorrect: false },
+              { id: 'd', text: '$x = 3$', isCorrect: true },
+            ],
+            solution: 'Vi ganger begge sider med $x$: $6 = 2x$. Deretter deler vi på 2: $x = 3$.',
+          },
+          {
+            id: '1t-2-1-n-quiz3-q1',
+            task: 'Hva er løsningen på $\\frac{x}{2} + \\frac{x}{3} = 5$?',
+            options: [
+              { id: 'a', text: '$x = \\frac{5}{6}$', isCorrect: false },
+              { id: 'b', text: '$x = 6$', isCorrect: true },
+              { id: 'c', text: '$x = 10$', isCorrect: false },
+              { id: 'd', text: '$x = 30$', isCorrect: false },
+            ],
+            solution: 'Vi ganger hele likningen med fellesnevneren 6: $3x + 2x = 30$, altså $5x = 30$ og $x = 6$.',
+          },
+          {
+            id: '1t-2-1-n-quiz3-q2',
+            task: 'Hva er løsningen på $\\frac{3}{x + 1} = 1$?',
+            options: [
+              { id: 'a', text: '$x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = 2$', isCorrect: true },
+              { id: 'c', text: '$x = 4$', isCorrect: false },
+              { id: 'd', text: '$x = 0$', isCorrect: false },
+            ],
+            solution: 'Vi ganger begge sider med $(x + 1)$: $3 = x + 1$. Deretter trekker vi fra 1: $x = 2$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-1-n-section4',
       type: 'text',
       content: `## Parenteslikninger – gang ut, så løs
@@ -466,24 +701,48 @@ En enda mer krevende variant: $\\frac{3}{4}\\left(\\frac{1}{3} - x\\right) + 2x 
         id: '1t-2-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $2(x - 1) = 4$?',
+        task: 'Test deg selv på parenteslikninger:',
         options: [
-          { id: 'a', text: '$x = 1$', isCorrect: false },
-          { id: 'b', text: '$x = 2$', isCorrect: false },
-          { id: 'c', text: '$x = 3$', isCorrect: true },
-          { id: 'd', text: '$x = 4$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi ganger ut: $2x - 2 = 4$. Legger til 2 på begge sider: $2x = 6$. Deler på 2: $x = 3$.',
+        questions: [
+          {
+            id: '1t-2-1-n-quiz4-q0',
+            task: 'Hva er løsningen på $2(x - 1) = 4$?',
+            options: [
+              { id: 'a', text: '$x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = 2$', isCorrect: false },
+              { id: 'c', text: '$x = 3$', isCorrect: true },
+              { id: 'd', text: '$x = 4$', isCorrect: false },
+            ],
+            solution: 'Vi ganger ut: $2x - 2 = 4$. Legger til 2 på begge sider: $2x = 6$. Deler på 2: $x = 3$.',
+          },
+          {
+            id: '1t-2-1-n-quiz4-q1',
+            task: 'Hva er løsningen på $5(x + 1) = 3(x - 1)$?',
+            options: [
+              { id: 'a', text: '$x = -4$', isCorrect: true },
+              { id: 'b', text: '$x = 4$', isCorrect: false },
+              { id: 'c', text: '$x = -1$', isCorrect: false },
+              { id: 'd', text: '$x = 1$', isCorrect: false },
+            ],
+            solution: 'Vi ganger ut begge sider: $5x + 5 = 3x - 3$. Trekker fra $3x$: $2x + 5 = -3$. Trekker fra 5: $2x = -8$. Deler på 2: $x = -4$.',
+          },
+          {
+            id: '1t-2-1-n-quiz4-q2',
+            task: 'Hva er løsningen på $\\frac{1}{2}(4x - 6) = 5$?',
+            options: [
+              { id: 'a', text: '$x = 2$', isCorrect: false },
+              { id: 'b', text: '$x = 4$', isCorrect: true },
+              { id: 'c', text: '$x = 8$', isCorrect: false },
+              { id: 'd', text: '$x = \\frac{7}{2}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger ut: $2x - 3 = 5$. Legger til 3: $2x = 8$. Deler på 2: $x = 4$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-1-n-section5',
       type: 'text',
       content: `## Sammensatte brøklikninger – den store finalen
@@ -503,24 +762,48 @@ Nøkkelen til å mestre disse oppgavene er å ta det steg for steg. Først ident
         id: '1t-2-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er første steg for å løse $\\frac{x}{4} + \\frac{x}{3} = 1$?',
+        task: 'Test deg selv på sammensatte brøklikninger:',
         options: [
-          { id: 'a', text: 'Trekke fra $\\frac{x}{3}$ på begge sider', isCorrect: false },
-          { id: 'b', text: 'Gange hele likningen med 12', isCorrect: true },
-          { id: 'c', text: 'Dele begge sider på $x$', isCorrect: false },
-          { id: 'd', text: 'Legge sammen brøkene til $\\frac{2x}{7}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Den mest effektive strategien er å gange hele likningen med fellesnevneren. Fellesnevneren for 4 og 3 er 12. Da får vi $3x + 4x = 12$, altså $7x = 12$ og $x = \\frac{12}{7}$.',
+        questions: [
+          {
+            id: '1t-2-1-n-quiz5-q0',
+            task: 'Hva er første steg for å løse $\\frac{x}{4} + \\frac{x}{3} = 1$?',
+            options: [
+              { id: 'a', text: 'Trekke fra $\\frac{x}{3}$ på begge sider', isCorrect: false },
+              { id: 'b', text: 'Gange hele likningen med 12', isCorrect: true },
+              { id: 'c', text: 'Dele begge sider på $x$', isCorrect: false },
+              { id: 'd', text: 'Legge sammen brøkene til $\\frac{2x}{7}$', isCorrect: false },
+            ],
+            solution: 'Den mest effektive strategien er å gange hele likningen med fellesnevneren. Fellesnevneren for 4 og 3 er 12. Da får vi $3x + 4x = 12$, altså $7x = 12$ og $x = \\frac{12}{7}$.',
+          },
+          {
+            id: '1t-2-1-n-quiz5-q1',
+            task: 'Hva er løsningen på $\\frac{x}{2} - \\frac{x}{6} = 4$?',
+            options: [
+              { id: 'a', text: '$x = 6$', isCorrect: false },
+              { id: 'b', text: '$x = 8$', isCorrect: false },
+              { id: 'c', text: '$x = 12$', isCorrect: true },
+              { id: 'd', text: '$x = 24$', isCorrect: false },
+            ],
+            solution: 'Vi ganger hele likningen med fellesnevneren 6: $3x - x = 24$, altså $2x = 24$ og $x = 12$.',
+          },
+          {
+            id: '1t-2-1-n-quiz5-q2',
+            task: 'Hva er fellesnevneren for brøkene i $\\frac{x}{3} + \\frac{2x}{5} = 7$?',
+            options: [
+              { id: 'a', text: '$8$', isCorrect: false },
+              { id: 'b', text: '$15$', isCorrect: true },
+              { id: 'c', text: '$35$', isCorrect: false },
+              { id: 'd', text: '$30$', isCorrect: false },
+            ],
+            solution: 'Fellesnevneren for 3 og 5 er $3 \\cdot 5 = 15$. Vi ganger hele likningen med 15: $5x + 6x = 105$, altså $11x = 105$ og $x = \\frac{105}{11}$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -553,15 +836,7 @@ export const CHAPTER_1T_2_2_NARRATIV: TextbookChapter = {
   estimatedMinutes: 45,
   competenceGoals: ['løse andregradslikninger ved faktorisering'],
   linkedChapterId: '1t-2-2',
-  content: [
-    {
-      id: '1t-2-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-2-2-n-intro',
       type: 'text',
       content: `## Når likningene får en ekstra potens
@@ -592,24 +867,48 @@ Hva med $x(x - 6) = 0$? Her er den ene faktoren bare $x$. Nullregelen gir $x = 0
         id: '1t-2-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $(x + 4)(x - 7) = 0$?',
+        task: 'Test deg selv på nullregelen:',
         options: [
-          { id: 'a', text: '$x = 4$ eller $x = -7$', isCorrect: false },
-          { id: 'b', text: '$x = -4$ eller $x = 7$', isCorrect: true },
-          { id: 'c', text: '$x = -4$ eller $x = -7$', isCorrect: false },
-          { id: 'd', text: '$x = 28$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi bruker nullregelen. Enten er $x + 4 = 0$, som gir $x = -4$, eller $x - 7 = 0$, som gir $x = 7$.',
+        questions: [
+          {
+            id: '1t-2-2-n-quiz1-q0',
+            task: 'Hva er løsningene til $(x + 4)(x - 7) = 0$?',
+            options: [
+              { id: 'a', text: '$x = 4$ eller $x = -7$', isCorrect: false },
+              { id: 'b', text: '$x = -4$ eller $x = 7$', isCorrect: true },
+              { id: 'c', text: '$x = -4$ eller $x = -7$', isCorrect: false },
+              { id: 'd', text: '$x = 28$', isCorrect: false },
+            ],
+            solution: 'Vi bruker nullregelen. Enten er $x + 4 = 0$, som gir $x = -4$, eller $x - 7 = 0$, som gir $x = 7$.',
+          },
+          {
+            id: '1t-2-2-n-quiz1-q1',
+            task: 'Hva er løsningene til $x(x - 5) = 0$?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: false },
+              { id: 'b', text: '$x = 0$ eller $x = -5$', isCorrect: false },
+              { id: 'c', text: '$x = 0$ eller $x = 5$', isCorrect: true },
+              { id: 'd', text: '$x = -5$', isCorrect: false },
+            ],
+            solution: 'Nullregelen gir $x = 0$ eller $x - 5 = 0$, altså $x = 0$ eller $x = 5$. Ikke glem at $x = 0$ er en gyldig løsning!',
+          },
+          {
+            id: '1t-2-2-n-quiz1-q2',
+            task: 'Hva sier nullregelen?',
+            options: [
+              { id: 'a', text: 'Hvis $A + B = 0$, er $A = 0$ og $B = 0$', isCorrect: false },
+              { id: 'b', text: 'Hvis $A \\cdot B = 0$, er $A = 0$ eller $B = 0$', isCorrect: true },
+              { id: 'c', text: 'Hvis $A \\cdot B = 0$, er $A = 0$ og $B = 0$', isCorrect: false },
+              { id: 'd', text: 'Hvis $A - B = 0$, er $A = 0$ eller $B = 0$', isCorrect: false },
+            ],
+            solution: 'Nullregelen sier at hvis et produkt er lik null, må minst én av faktorene være null. Det holder at én er null -- begge trenger ikke være det.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-2-n-section2',
       type: 'text',
       content: `## Faktorisering ved inspeksjon -- talljakt
@@ -631,24 +930,48 @@ Hva med $x^2 + 2x - 15 = 0$? Nå trenger vi sum $-2$ og produkt $-15$. Når prod
         id: '1t-2-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvilken faktorisering er riktig for $x^2 - 9x + 20 = 0$?',
+        task: 'Test deg selv på faktorisering ved inspeksjon:',
         options: [
-          { id: 'a', text: '$(x + 4)(x + 5) = 0$', isCorrect: false },
-          { id: 'b', text: '$(x - 4)(x + 5) = 0$', isCorrect: false },
-          { id: 'c', text: '$(x - 4)(x - 5) = 0$', isCorrect: true },
-          { id: 'd', text: '$(x + 4)(x - 5) = 0$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi trenger to tall med sum $9$ og produkt $20$. Tallene $4$ og $5$ oppfyller begge kravene: $4 + 5 = 9$ og $4 \\cdot 5 = 20$. Derfor er faktoriseringen $(x - 4)(x - 5) = 0$.',
+        questions: [
+          {
+            id: '1t-2-2-n-quiz2-q0',
+            task: 'Hvilken faktorisering er riktig for $x^2 - 9x + 20 = 0$?',
+            options: [
+              { id: 'a', text: '$(x + 4)(x + 5) = 0$', isCorrect: false },
+              { id: 'b', text: '$(x - 4)(x + 5) = 0$', isCorrect: false },
+              { id: 'c', text: '$(x - 4)(x - 5) = 0$', isCorrect: true },
+              { id: 'd', text: '$(x + 4)(x - 5) = 0$', isCorrect: false },
+            ],
+            solution: 'Vi trenger to tall med sum $9$ og produkt $20$. Tallene $4$ og $5$ oppfyller begge kravene: $4 + 5 = 9$ og $4 \\cdot 5 = 20$. Derfor er faktoriseringen $(x - 4)(x - 5) = 0$.',
+          },
+          {
+            id: '1t-2-2-n-quiz2-q1',
+            task: 'Hva er løsningene til $x^2 + 2x - 15 = 0$?',
+            options: [
+              { id: 'a', text: '$x = 3$ eller $x = 5$', isCorrect: false },
+              { id: 'b', text: '$x = -5$ eller $x = 3$', isCorrect: true },
+              { id: 'c', text: '$x = 5$ eller $x = -3$', isCorrect: false },
+              { id: 'd', text: '$x = -3$ eller $x = -5$', isCorrect: false },
+            ],
+            solution: 'Vi trenger to tall med sum $-2$ og produkt $-15$. Tallene $-5$ og $3$ passer: $-5 + 3 = -2$ og $(-5) \\cdot 3 = -15$. Faktoriseringen gir $(x + 5)(x - 3) = 0$, altså $x = -5$ eller $x = 3$.',
+          },
+          {
+            id: '1t-2-2-n-quiz2-q2',
+            task: 'Ved inspeksjon av $x^2 + bx + c$, hva skal summen og produktet av de to tallene $r_1$ og $r_2$ være?',
+            options: [
+              { id: 'a', text: 'Sum $= b$ og produkt $= c$', isCorrect: false },
+              { id: 'b', text: 'Sum $= -b$ og produkt $= c$', isCorrect: true },
+              { id: 'c', text: 'Sum $= c$ og produkt $= b$', isCorrect: false },
+              { id: 'd', text: 'Sum $= -c$ og produkt $= -b$', isCorrect: false },
+            ],
+            solution: 'Ved faktorisering ved inspeksjon leter vi etter to tall $r_1$ og $r_2$ slik at summen $r_1 + r_2 = -b$ og produktet $r_1 \\cdot r_2 = c$. Da kan vi skrive $x^2 + bx + c = (x - r_1)(x - r_2)$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-2-n-section3',
       type: 'text',
       content: `## Konjugatsetningen -- en snarvei for differanser
@@ -672,24 +995,48 @@ Konjugatsetningen fungerer bare når vi har en differanse -- altså et minustegn
         id: '1t-2-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $x^2 - 49 = 0$?',
+        task: 'Test deg selv på konjugatsetningen:',
         options: [
-          { id: 'a', text: '$x = 49$', isCorrect: false },
-          { id: 'b', text: '$x = \\pm 49$', isCorrect: false },
-          { id: 'c', text: '$x = \\pm 7$', isCorrect: true },
-          { id: 'd', text: '$x = 7$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi bruker konjugatsetningen: $x^2 - 49 = x^2 - 7^2 = (x + 7)(x - 7) = 0$. Nullregelen gir $x = -7$ eller $x = 7$, altså $x = \\pm 7$.',
+        questions: [
+          {
+            id: '1t-2-2-n-quiz3-q0',
+            task: 'Hva er løsningene til $x^2 - 49 = 0$?',
+            options: [
+              { id: 'a', text: '$x = 49$', isCorrect: false },
+              { id: 'b', text: '$x = \\pm 49$', isCorrect: false },
+              { id: 'c', text: '$x = \\pm 7$', isCorrect: true },
+              { id: 'd', text: '$x = 7$', isCorrect: false },
+            ],
+            solution: 'Vi bruker konjugatsetningen: $x^2 - 49 = x^2 - 7^2 = (x + 7)(x - 7) = 0$. Nullregelen gir $x = -7$ eller $x = 7$, altså $x = \\pm 7$.',
+          },
+          {
+            id: '1t-2-2-n-quiz3-q1',
+            task: 'Hva er løsningene til $4x^2 - 9 = 0$?',
+            options: [
+              { id: 'a', text: '$x = \\pm \\frac{9}{4}$', isCorrect: false },
+              { id: 'b', text: '$x = \\pm \\frac{3}{2}$', isCorrect: true },
+              { id: 'c', text: '$x = \\pm \\frac{2}{3}$', isCorrect: false },
+              { id: 'd', text: '$x = \\pm 3$', isCorrect: false },
+            ],
+            solution: 'Vi gjenkjenner $4x^2 - 9 = (2x)^2 - 3^2 = (2x + 3)(2x - 3) = 0$. Fra $2x + 3 = 0$ får vi $x = -\\frac{3}{2}$, og fra $2x - 3 = 0$ får vi $x = \\frac{3}{2}$.',
+          },
+          {
+            id: '1t-2-2-n-quiz3-q2',
+            task: 'Kan uttrykket $x^2 + 16$ faktoriseres med konjugatsetningen?',
+            options: [
+              { id: 'a', text: 'Ja, $(x + 4)(x - 4)$', isCorrect: false },
+              { id: 'b', text: 'Ja, $(x + 4)^2$', isCorrect: false },
+              { id: 'c', text: 'Nei, det er en sum av to kvadrater', isCorrect: true },
+              { id: 'd', text: 'Ja, $(x + 16)(x - 16)$', isCorrect: false },
+            ],
+            solution: 'Konjugatsetningen krever en differanse $a^2 - b^2$, ikke en sum. Uttrykket $x^2 + 16$ er en sum av to kvadrater og kan ikke faktoriseres over de reelle tallene.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-2-n-section4',
       type: 'text',
       content: `## Felles faktor -- rydd opp først!
@@ -713,24 +1060,48 @@ Noen ganger kan du sette ut en felles tallfaktor og deretter faktorisere det som
         id: '1t-2-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $3x^2 - 12x = 0$?',
+        task: 'Test deg selv på felles faktor:',
         options: [
-          { id: 'a', text: '$x = 4$', isCorrect: false },
-          { id: 'b', text: '$x = 0$ eller $x = 4$', isCorrect: true },
-          { id: 'c', text: '$x = 0$ eller $x = -4$', isCorrect: false },
-          { id: 'd', text: '$x = \\pm 4$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi setter felles faktor $3x$ utenfor: $3x(x - 4) = 0$. Nullregelen gir $3x = 0$ (altså $x = 0$) eller $x - 4 = 0$ (altså $x = 4$).',
+        questions: [
+          {
+            id: '1t-2-2-n-quiz4-q0',
+            task: 'Hva er løsningene til $3x^2 - 12x = 0$?',
+            options: [
+              { id: 'a', text: '$x = 4$', isCorrect: false },
+              { id: 'b', text: '$x = 0$ eller $x = 4$', isCorrect: true },
+              { id: 'c', text: '$x = 0$ eller $x = -4$', isCorrect: false },
+              { id: 'd', text: '$x = \\pm 4$', isCorrect: false },
+            ],
+            solution: 'Vi setter felles faktor $3x$ utenfor: $3x(x - 4) = 0$. Nullregelen gir $3x = 0$ (altså $x = 0$) eller $x - 4 = 0$ (altså $x = 4$).',
+          },
+          {
+            id: '1t-2-2-n-quiz4-q1',
+            task: 'Hva er løsningene til $x^2 + 7x = 0$?',
+            options: [
+              { id: 'a', text: '$x = -7$', isCorrect: false },
+              { id: 'b', text: '$x = 7$', isCorrect: false },
+              { id: 'c', text: '$x = 0$ eller $x = -7$', isCorrect: true },
+              { id: 'd', text: '$x = 0$ eller $x = 7$', isCorrect: false },
+            ],
+            solution: 'Felles faktor er $x$: $x(x + 7) = 0$. Nullregelen gir $x = 0$ eller $x + 7 = 0$, altså $x = 0$ eller $x = -7$.',
+          },
+          {
+            id: '1t-2-2-n-quiz4-q2',
+            task: 'Hva er løsningene til $3x^2 - 12 = 0$?',
+            options: [
+              { id: 'a', text: '$x = \\pm 4$', isCorrect: false },
+              { id: 'b', text: '$x = \\pm 2$', isCorrect: true },
+              { id: 'c', text: '$x = 2$', isCorrect: false },
+              { id: 'd', text: '$x = 0$ eller $x = 4$', isCorrect: false },
+            ],
+            solution: 'Vi setter 3 utenfor: $3(x^2 - 4) = 0$. Siden $3 \\neq 0$, må $x^2 - 4 = 0$. Konjugatsetningen gir $(x + 2)(x - 2) = 0$, altså $x = \\pm 2$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-2-n-section5',
       type: 'text',
       content: `## Kombinere teknikkene -- større utfordringer
@@ -752,24 +1123,48 @@ Strategien kan oppsummeres slik: se alltid etter felles faktor først. Deretter 
         id: '1t-2-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $2x^2 - 14x + 24 = 0$?',
+        task: 'Test deg selv på å kombinere faktoriseringsteknikker:',
         options: [
-          { id: 'a', text: '$x = -3$ eller $x = -4$', isCorrect: false },
-          { id: 'b', text: '$x = 3$ eller $x = 4$', isCorrect: true },
-          { id: 'c', text: '$x = 6$ eller $x = 2$', isCorrect: false },
-          { id: 'd', text: '$x = -6$ eller $x = -2$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi setter felles faktor 2 utenfor: $2(x^2 - 7x + 12) = 0$. Vi trenger to tall med sum $7$ og produkt $12$: det er $3$ og $4$. Altså $2(x - 3)(x - 4) = 0$, som gir $x = 3$ eller $x = 4$.',
+        questions: [
+          {
+            id: '1t-2-2-n-quiz5-q0',
+            task: 'Hva er løsningene til $2x^2 - 14x + 24 = 0$?',
+            options: [
+              { id: 'a', text: '$x = -3$ eller $x = -4$', isCorrect: false },
+              { id: 'b', text: '$x = 3$ eller $x = 4$', isCorrect: true },
+              { id: 'c', text: '$x = 6$ eller $x = 2$', isCorrect: false },
+              { id: 'd', text: '$x = -6$ eller $x = -2$', isCorrect: false },
+            ],
+            solution: 'Vi setter felles faktor 2 utenfor: $2(x^2 - 7x + 12) = 0$. Vi trenger to tall med sum $7$ og produkt $12$: det er $3$ og $4$. Altså $2(x - 3)(x - 4) = 0$, som gir $x = 3$ eller $x = 4$.',
+          },
+          {
+            id: '1t-2-2-n-quiz5-q1',
+            task: 'Hva er løsningene til $-x^2 + 4x + 5 = 0$?',
+            options: [
+              { id: 'a', text: '$x = -1$ eller $x = 5$', isCorrect: true },
+              { id: 'b', text: '$x = 1$ eller $x = -5$', isCorrect: false },
+              { id: 'c', text: '$x = -1$ eller $x = -5$', isCorrect: false },
+              { id: 'd', text: '$x = 1$ eller $x = 5$', isCorrect: false },
+            ],
+            solution: 'Vi setter $-1$ utenfor: $-(x^2 - 4x - 5) = 0$. Vi trenger to tall med sum $4$ og produkt $-5$: det er $5$ og $-1$. Altså $-(x - 5)(x + 1) = 0$, som gir $x = 5$ eller $x = -1$.',
+          },
+          {
+            id: '1t-2-2-n-quiz5-q2',
+            task: 'Hva bør du alltid sjekke først når du skal faktorisere en andregradslikning?',
+            options: [
+              { id: 'a', text: 'Om diskriminanten er positiv', isCorrect: false },
+              { id: 'b', text: 'Om det finnes en felles faktor i alle ledd', isCorrect: true },
+              { id: 'c', text: 'Om koeffisienten foran $x$ er partall', isCorrect: false },
+              { id: 'd', text: 'Om konstantleddet er et primtall', isCorrect: false },
+            ],
+            solution: 'Du bør alltid sjekke om det finnes en felles faktor i alle leddene først. Å sette den utenfor forenkler uttrykket inne i parentesen, og gjør det lettere å faktorisere videre.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-2-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -802,15 +1197,7 @@ export const CHAPTER_1T_2_3_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['løse andregradslikninger med abc-formelen', 'faktorisere andregradsuttrykk ved nullpunktsfaktorisering'],
   linkedChapterId: '1t-2-3',
-  content: [
-    {
-      id: '1t-2-3-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-3-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp introduksjonen og første seksjon om abc-formelen.',
-    },
-    {
+  content: [    {
       id: '1t-2-3-n-intro',
       type: 'text',
       content: `## Formelen som løser alt
@@ -839,24 +1226,48 @@ Et viktig poeng: likningen **må** stå på formen $ax^2 + bx + c = 0$ før du l
         id: '1t-2-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er verdiene av $a$, $b$ og $c$ i likningen $3x^2 + 7x - 2 = 0$?',
+        task: 'Test deg selv på abc-formelen:',
         options: [
-          { id: 'a', text: '$a = 3$, $b = 7$, $c = 2$', isCorrect: false },
-          { id: 'b', text: '$a = 3$, $b = 7$, $c = -2$', isCorrect: true },
-          { id: 'c', text: '$a = 3$, $b = -7$, $c = -2$', isCorrect: false },
-          { id: 'd', text: '$a = 7$, $b = 3$, $c = -2$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'I likningen $3x^2 + 7x - 2 = 0$ leser vi av koeffisientene: $a$ er tallet foran $x^2$, altså $3$. $b$ er tallet foran $x$, altså $7$. $c$ er konstantleddet, altså $-2$ (husk fortegnet!).',
+        questions: [
+          {
+            id: '1t-2-3-n-quiz1-q0',
+            task: 'Hva er verdiene av $a$, $b$ og $c$ i likningen $3x^2 + 7x - 2 = 0$?',
+            options: [
+              { id: 'a', text: '$a = 3$, $b = 7$, $c = 2$', isCorrect: false },
+              { id: 'b', text: '$a = 3$, $b = 7$, $c = -2$', isCorrect: true },
+              { id: 'c', text: '$a = 3$, $b = -7$, $c = -2$', isCorrect: false },
+              { id: 'd', text: '$a = 7$, $b = 3$, $c = -2$', isCorrect: false },
+            ],
+            solution: 'I likningen $3x^2 + 7x - 2 = 0$ leser vi av koeffisientene: $a$ er tallet foran $x^2$, altså $3$. $b$ er tallet foran $x$, altså $7$. $c$ er konstantleddet, altså $-2$ (husk fortegnet!).',
+          },
+          {
+            id: '1t-2-3-n-quiz1-q1',
+            task: 'I likningen $2x^2 - 10 = 3x$ -- hva må du gjøre før du bruker abc-formelen?',
+            options: [
+              { id: 'a', text: 'Dele på 2', isCorrect: false },
+              { id: 'b', text: 'Flytte $3x$ slik at alt står på formen $ax^2 + bx + c = 0$', isCorrect: true },
+              { id: 'c', text: 'Ta kvadratroten', isCorrect: false },
+              { id: 'd', text: 'Sette inn $a = 2$, $b = -10$, $c = 3$', isCorrect: false },
+            ],
+            solution: 'Likningen må stå på formen $ax^2 + bx + c = 0$ før du leser av koeffisientene. Vi flytter $3x$: $2x^2 - 3x - 10 = 0$. Da er $a = 2$, $b = -3$ og $c = -10$.',
+          },
+          {
+            id: '1t-2-3-n-quiz1-q2',
+            task: 'Hva er løsningene til $x^2 - 5x + 6 = 0$ med abc-formelen?',
+            options: [
+              { id: 'a', text: '$x = 2$ eller $x = 3$', isCorrect: true },
+              { id: 'b', text: '$x = -2$ eller $x = -3$', isCorrect: false },
+              { id: 'c', text: '$x = 1$ eller $x = 6$', isCorrect: false },
+              { id: 'd', text: '$x = -1$ eller $x = -6$', isCorrect: false },
+            ],
+            solution: 'Med $a = 1$, $b = -5$, $c = 6$: $x = \\frac{5 \\pm \\sqrt{25 - 24}}{2} = \\frac{5 \\pm 1}{2}$. Det gir $x_1 = \\frac{5 - 1}{2} = 2$ og $x_2 = \\frac{5 + 1}{2} = 3$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-3-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-3-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp seksjonen om diskriminanten og antall løsninger.',
-    },
-    {
+    },    {
       id: '1t-2-3-n-section2',
       type: 'text',
       content: `## Diskriminanten – nøkkelen til antall løsninger
@@ -876,24 +1287,48 @@ Oppsummert: er diskriminanten positiv, har vi to løsninger. Er den null, har vi
         id: '1t-2-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Likningen $x^2 - 7x + 15 = 0$ har diskriminant $b^2 - 4ac = 49 - 60 = -11$. Hvor mange løsninger har likningen?',
+        task: 'Test deg selv på diskriminanten:',
         options: [
-          { id: 'a', text: 'To løsninger', isCorrect: false },
-          { id: 'b', text: 'Én løsning', isCorrect: false },
-          { id: 'c', text: 'Ingen løsninger', isCorrect: true },
-          { id: 'd', text: 'Uendelig mange løsninger', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Diskriminanten er $-11$, altså negativ. Vi kan ikke ta kvadratroten av et negativt tall, så likningen har ingen reelle løsninger. Vi skriver $L = \\emptyset$.',
+        questions: [
+          {
+            id: '1t-2-3-n-quiz2-q0',
+            task: 'Likningen $x^2 - 7x + 15 = 0$ har diskriminant $b^2 - 4ac = 49 - 60 = -11$. Hvor mange løsninger har likningen?',
+            options: [
+              { id: 'a', text: 'To løsninger', isCorrect: false },
+              { id: 'b', text: 'Én løsning', isCorrect: false },
+              { id: 'c', text: 'Ingen løsninger', isCorrect: true },
+              { id: 'd', text: 'Uendelig mange løsninger', isCorrect: false },
+            ],
+            solution: 'Diskriminanten er $-11$, altså negativ. Vi kan ikke ta kvadratroten av et negativt tall, så likningen har ingen reelle løsninger. Vi skriver $L = \\emptyset$.',
+          },
+          {
+            id: '1t-2-3-n-quiz2-q1',
+            task: 'Hva er diskriminanten til $x^2 + 10x + 25 = 0$, og hvor mange løsninger har likningen?',
+            options: [
+              { id: 'a', text: 'Diskriminant $= 0$, én løsning', isCorrect: true },
+              { id: 'b', text: 'Diskriminant $= 100$, to løsninger', isCorrect: false },
+              { id: 'c', text: 'Diskriminant $= -100$, ingen løsninger', isCorrect: false },
+              { id: 'd', text: 'Diskriminant $= 25$, to løsninger', isCorrect: false },
+            ],
+            solution: '$b^2 - 4ac = 10^2 - 4 \\cdot 1 \\cdot 25 = 100 - 100 = 0$. Diskriminanten er null, og likningen har nøyaktig én løsning: $x = \\frac{-10}{2} = -5$.',
+          },
+          {
+            id: '1t-2-3-n-quiz2-q2',
+            task: 'Hva forteller en positiv diskriminant oss?',
+            options: [
+              { id: 'a', text: 'Likningen har ingen løsninger', isCorrect: false },
+              { id: 'b', text: 'Likningen har nøyaktig én løsning', isCorrect: false },
+              { id: 'c', text: 'Likningen har to forskjellige løsninger', isCorrect: true },
+              { id: 'd', text: 'Likningen har uendelig mange løsninger', isCorrect: false },
+            ],
+            solution: 'Når $b^2 - 4ac > 0$, gir $\\pm\\sqrt{b^2 - 4ac}$ to forskjellige verdier, og abc-formelen gir to forskjellige løsninger $x_1$ og $x_2$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-3-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-3-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp seksjonen om nullpunktsfaktorisering.',
-    },
-    {
+    },    {
       id: '1t-2-3-n-section3',
       type: 'text',
       content: `## Nullpunktsfaktorisering – fra løsninger til faktorer
@@ -919,24 +1354,48 @@ Hva hvis likningen bare har én løsning? Da setter vi inn den samme verdien for
         id: '1t-2-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Gitt at $x^2 + 3x - 10 = 0$ har løsningene $x_1 = -5$ og $x_2 = 2$, hva er den faktoriserte formen?',
+        task: 'Test deg selv på nullpunktsfaktorisering:',
         options: [
-          { id: 'a', text: '$(x - 5)(x + 2)$', isCorrect: false },
-          { id: 'b', text: '$(x + 5)(x + 2)$', isCorrect: false },
-          { id: 'c', text: '$(x - 5)(x - 2)$', isCorrect: false },
-          { id: 'd', text: '$(x + 5)(x - 2)$', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 1$, $x_1 = -5$ og $x_2 = 2$. Det gir $(x - (-5))(x - 2) = (x + 5)(x - 2)$.',
+        questions: [
+          {
+            id: '1t-2-3-n-quiz3-q0',
+            task: 'Gitt at $x^2 + 3x - 10 = 0$ har løsningene $x_1 = -5$ og $x_2 = 2$, hva er den faktoriserte formen?',
+            options: [
+              { id: 'a', text: '$(x - 5)(x + 2)$', isCorrect: false },
+              { id: 'b', text: '$(x + 5)(x + 2)$', isCorrect: false },
+              { id: 'c', text: '$(x - 5)(x - 2)$', isCorrect: false },
+              { id: 'd', text: '$(x + 5)(x - 2)$', isCorrect: true },
+            ],
+            solution: 'Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 1$, $x_1 = -5$ og $x_2 = 2$. Det gir $(x - (-5))(x - 2) = (x + 5)(x - 2)$.',
+          },
+          {
+            id: '1t-2-3-n-quiz3-q1',
+            task: 'Gitt at $2x^2 - 12x + 16 = 0$ har løsningene $x_1 = 2$ og $x_2 = 4$, hva er den faktoriserte formen?',
+            options: [
+              { id: 'a', text: '$(x - 2)(x - 4)$', isCorrect: false },
+              { id: 'b', text: '$2(x - 2)(x - 4)$', isCorrect: true },
+              { id: 'c', text: '$2(x + 2)(x + 4)$', isCorrect: false },
+              { id: 'd', text: '$(2x - 2)(x - 4)$', isCorrect: false },
+            ],
+            solution: 'Vi bruker formelen $a(x - x_1)(x - x_2)$ med $a = 2$. Det gir $2(x - 2)(x - 4)$. Husk at $a$-verdien alltid skal stå foran parentesene.',
+          },
+          {
+            id: '1t-2-3-n-quiz3-q2',
+            task: 'Hva er formelen for nullpunktsfaktorisering?',
+            options: [
+              { id: 'a', text: '$ax^2 + bx + c = (x - x_1)(x - x_2)$', isCorrect: false },
+              { id: 'b', text: '$ax^2 + bx + c = a(x + x_1)(x + x_2)$', isCorrect: false },
+              { id: 'c', text: '$ax^2 + bx + c = a(x - x_1)(x - x_2)$', isCorrect: true },
+              { id: 'd', text: '$ax^2 + bx + c = (ax - x_1)(x - x_2)$', isCorrect: false },
+            ],
+            solution: 'Formelen er $ax^2 + bx + c = a(x - x_1)(x - x_2)$, der $x_1$ og $x_2$ er løsningene og $a$ er koeffisienten foran $x^2$. Legg merke til at $a$ alltid står foran.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-3-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-3-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp seksjonen om forkorting av brøker med nullpunktsfaktorisering.',
-    },
-    {
+    },    {
       id: '1t-2-3-n-section4',
       type: 'text',
       content: `## Forkorting av brøker med faktorisering
@@ -956,24 +1415,48 @@ Noen ganger må vi faktorisere ut en felles faktor før vi bruker nullpunktsfakt
         id: '1t-2-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva blir $\\frac{x^2 + 5x + 6}{x + 2}$ etter forkorting?',
+        task: 'Test deg selv på forkorting med faktorisering:',
         options: [
-          { id: 'a', text: '$x + 2$', isCorrect: false },
-          { id: 'b', text: '$x + 6$', isCorrect: false },
-          { id: 'c', text: '$x + 3$', isCorrect: true },
-          { id: 'd', text: '$\\frac{x + 6}{x + 2}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi faktoriserer telleren: $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nevneren er $(x + 2)$. Felles faktor strykes, og vi sitter igjen med $x + 3$.',
+        questions: [
+          {
+            id: '1t-2-3-n-quiz4-q0',
+            task: 'Hva blir $\\frac{x^2 + 5x + 6}{x + 2}$ etter forkorting?',
+            options: [
+              { id: 'a', text: '$x + 2$', isCorrect: false },
+              { id: 'b', text: '$x + 6$', isCorrect: false },
+              { id: 'c', text: '$x + 3$', isCorrect: true },
+              { id: 'd', text: '$\\frac{x + 6}{x + 2}$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer telleren: $x^2 + 5x + 6 = (x + 2)(x + 3)$. Nevneren er $(x + 2)$. Felles faktor strykes, og vi sitter igjen med $x + 3$.',
+          },
+          {
+            id: '1t-2-3-n-quiz4-q1',
+            task: 'Hva blir $\\frac{x^2 - 16}{x + 4}$ etter forkorting?',
+            options: [
+              { id: 'a', text: '$x + 4$', isCorrect: false },
+              { id: 'b', text: '$x - 4$', isCorrect: true },
+              { id: 'c', text: '$x - 16$', isCorrect: false },
+              { id: 'd', text: '$\\frac{x - 4}{x + 4}$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer telleren med konjugatsetningen: $x^2 - 16 = (x + 4)(x - 4)$. Nevneren er $(x + 4)$. Etter forkorting sitter vi igjen med $x - 4$.',
+          },
+          {
+            id: '1t-2-3-n-quiz4-q2',
+            task: 'Hva er første steg for å forkorte $\\frac{x^2 - 10x + 24}{x^2 - 16}$?',
+            options: [
+              { id: 'a', text: 'Dele teller og nevner på $x$', isCorrect: false },
+              { id: 'b', text: 'Sette inn et tall for $x$', isCorrect: false },
+              { id: 'c', text: 'Faktorisere både teller og nevner', isCorrect: true },
+              { id: 'd', text: 'Trekke nevneren fra telleren', isCorrect: false },
+            ],
+            solution: 'For å forkorte en brøk med andregradsuttrykk må vi faktorisere både teller og nevner. Telleren gir $(x - 4)(x - 6)$, nevneren gir $(x + 4)(x - 4)$. Felles faktor $(x - 4)$ strykes.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-3-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-3-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp seksjonen om produktregelen.',
-    },
-    {
+    },    {
       id: '1t-2-3-n-section5',
       type: 'text',
       content: `## Produktregelen – når svaret allerede er faktorisert
@@ -995,24 +1478,48 @@ Legg merke til sammenhengen med nullpunktsfaktorisering. Når vi faktoriserer $x
         id: '1t-2-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $(x + 7)(x - 3) = 0$?',
+        task: 'Test deg selv på produktregelen:',
         options: [
-          { id: 'a', text: '$x = 7$ eller $x = -3$', isCorrect: false },
-          { id: 'b', text: '$x = -7$ eller $x = 3$', isCorrect: true },
-          { id: 'c', text: '$x = 7$ eller $x = 3$', isCorrect: false },
-          { id: 'd', text: '$x = -7$ eller $x = -3$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Produktregelen sier at enten $x + 7 = 0$ eller $x - 3 = 0$. Fra den første: $x = -7$. Fra den andre: $x = 3$. Løsningene er altså $x = -7$ eller $x = 3$.',
+        questions: [
+          {
+            id: '1t-2-3-n-quiz5-q0',
+            task: 'Hva er løsningene til $(x + 7)(x - 3) = 0$?',
+            options: [
+              { id: 'a', text: '$x = 7$ eller $x = -3$', isCorrect: false },
+              { id: 'b', text: '$x = -7$ eller $x = 3$', isCorrect: true },
+              { id: 'c', text: '$x = 7$ eller $x = 3$', isCorrect: false },
+              { id: 'd', text: '$x = -7$ eller $x = -3$', isCorrect: false },
+            ],
+            solution: 'Produktregelen sier at enten $x + 7 = 0$ eller $x - 3 = 0$. Fra den første: $x = -7$. Fra den andre: $x = 3$. Løsningene er altså $x = -7$ eller $x = 3$.',
+          },
+          {
+            id: '1t-2-3-n-quiz5-q1',
+            task: 'Hva er løsningene til $5(x - 1)(x + 4)(x - 2) = 0$?',
+            options: [
+              { id: 'a', text: '$x = 5$, $x = 1$, $x = -4$ eller $x = 2$', isCorrect: false },
+              { id: 'b', text: '$x = 1$, $x = -4$ eller $x = 2$', isCorrect: true },
+              { id: 'c', text: '$x = -1$, $x = 4$ eller $x = -2$', isCorrect: false },
+              { id: 'd', text: '$x = 0$, $x = 1$, $x = -4$ eller $x = 2$', isCorrect: false },
+            ],
+            solution: 'Konstanten $5$ kan aldri bli null. Vi setter hver parentes lik null: $x - 1 = 0$ gir $x = 1$, $x + 4 = 0$ gir $x = -4$, $x - 2 = 0$ gir $x = 2$.',
+          },
+          {
+            id: '1t-2-3-n-quiz5-q2',
+            task: 'Hva er sammenhengen mellom abc-formelen og produktregelen?',
+            options: [
+              { id: 'a', text: 'De er helt uavhengige teknikker', isCorrect: false },
+              { id: 'b', text: 'Abc-formelen gir løsninger fra uttrykk, produktregelen gir løsninger fra faktorer', isCorrect: true },
+              { id: 'c', text: 'Produktregelen er bare en forenklet versjon av abc-formelen', isCorrect: false },
+              { id: 'd', text: 'Abc-formelen brukes bare for lineære likninger', isCorrect: false },
+            ],
+            solution: 'Abc-formelen tar oss fra et andregradsuttrykk til løsninger, mens produktregelen tar oss fra et faktorisert uttrykk til løsninger. De er to sider av samme sak -- abc-formelen finner løsningene, som vi kan bruke til å faktorisere.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-3-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-3-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-3-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1045,15 +1552,7 @@ export const CHAPTER_1T_2_4_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['løse andregradslikninger ved å fullføre kvadratet'],
   linkedChapterId: '1t-2-4',
-  content: [
-    {
-      id: '1t-2-4-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-4-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp introduksjonen og første seksjon om kvadratsetningene.',
-    },
-    {
+  content: [    {
       id: '1t-2-4-n-intro',
       type: 'text',
       content: `## En gammel teknikk i ny drakt
@@ -1085,24 +1584,48 @@ Hemmeligheten er enkel: ta koeffisienten foran $x$, del den på 2, og opphøy i 
         id: '1t-2-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvilket av disse uttrykkene er et fullstendig kvadrat?',
+        task: 'Test deg selv på å gjenkjenne perfekte kvadrater:',
         options: [
-          { id: 'a', text: '$x^2 + 6x + 12$', isCorrect: false },
-          { id: 'b', text: '$x^2 - 8x + 16$', isCorrect: true },
-          { id: 'c', text: '$x^2 + 10x + 20$', isCorrect: false },
-          { id: 'd', text: '$x^2 - 4x + 8$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'For $x^2 - 8x + 16$: halvparten av $-8$ er $-4$, og $(-4)^2 = 16$. Det stemmer med konstantleddet, så dette er $(x - 4)^2$. De andre har konstantledd som ikke passer.',
+        questions: [
+          {
+            id: '1t-2-4-n-quiz1-q0',
+            task: 'Hvilket av disse uttrykkene er et fullstendig kvadrat?',
+            options: [
+              { id: 'a', text: '$x^2 + 6x + 12$', isCorrect: false },
+              { id: 'b', text: '$x^2 - 8x + 16$', isCorrect: true },
+              { id: 'c', text: '$x^2 + 10x + 20$', isCorrect: false },
+              { id: 'd', text: '$x^2 - 4x + 8$', isCorrect: false },
+            ],
+            solution: 'For $x^2 - 8x + 16$: halvparten av $-8$ er $-4$, og $(-4)^2 = 16$. Det stemmer med konstantleddet, så dette er $(x - 4)^2$. De andre har konstantledd som ikke passer.',
+          },
+          {
+            id: '1t-2-4-n-quiz1-q1',
+            task: 'Hva er $(x + 3)^2$ skrevet ut?',
+            options: [
+              { id: 'a', text: '$x^2 + 9$', isCorrect: false },
+              { id: 'b', text: '$x^2 + 3x + 9$', isCorrect: false },
+              { id: 'c', text: '$x^2 + 6x + 9$', isCorrect: true },
+              { id: 'd', text: '$x^2 + 6x + 3$', isCorrect: false },
+            ],
+            solution: 'Vi bruker første kvadratsetning: $(x + 3)^2 = x^2 + 2 \\cdot x \\cdot 3 + 3^2 = x^2 + 6x + 9$. Det midterste leddet er det dobbelte produktet $2 \\cdot x \\cdot 3 = 6x$.',
+          },
+          {
+            id: '1t-2-4-n-quiz1-q2',
+            task: 'Hvordan sjekker du om $x^2 + bx + c$ er et perfekt kvadrat?',
+            options: [
+              { id: 'a', text: 'Sjekk om $b = c$', isCorrect: false },
+              { id: 'b', text: 'Sjekk om $b^2 = c$', isCorrect: false },
+              { id: 'c', text: 'Sjekk om $\\left(\\frac{b}{2}\\right)^2 = c$', isCorrect: true },
+              { id: 'd', text: 'Sjekk om $2b = c$', isCorrect: false },
+            ],
+            solution: 'Ta koeffisienten foran $x$, del den på 2, og opphøy i andre. Hvis resultatet er lik konstantleddet $c$, er det et perfekt kvadrat. For eksempel: $x^2 + 6x + 9$ har $\\left(\\frac{6}{2}\\right)^2 = 9 = c$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-4-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-4-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp seksjonen om metoden for å fullføre kvadratet.',
-    },
-    {
+    },    {
       id: '1t-2-4-n-section2',
       type: 'text',
       content: `## Metoden: fullføre kvadratet steg for steg
@@ -1130,24 +1653,48 @@ Metoden fungerer fordi vi «tvinger» venstresiden til å bli et fullstendig kva
         id: '1t-2-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'I likningen $x^2 + 4x - 5 = 0$ flytter vi konstantleddet og får $x^2 + 4x = 5$. Hva legger vi til på begge sider for å fullføre kvadratet?',
+        task: 'Test deg selv på å fullføre kvadratet:',
         options: [
-          { id: 'a', text: '$2$', isCorrect: false },
-          { id: 'b', text: '$8$', isCorrect: false },
-          { id: 'c', text: '$16$', isCorrect: false },
-          { id: 'd', text: '$4$', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Koeffisienten foran $x$ er 4. Halvparten er 2, og $2^2 = 4$. Vi legger altså til 4 på begge sider, slik at venstresiden blir $x^2 + 4x + 4 = (x + 2)^2$.',
+        questions: [
+          {
+            id: '1t-2-4-n-quiz2-q0',
+            task: 'I likningen $x^2 + 4x - 5 = 0$ flytter vi konstantleddet og får $x^2 + 4x = 5$. Hva legger vi til på begge sider for å fullføre kvadratet?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$8$', isCorrect: false },
+              { id: 'c', text: '$16$', isCorrect: false },
+              { id: 'd', text: '$4$', isCorrect: true },
+            ],
+            solution: 'Koeffisienten foran $x$ er 4. Halvparten er 2, og $2^2 = 4$. Vi legger altså til 4 på begge sider, slik at venstresiden blir $x^2 + 4x + 4 = (x + 2)^2$.',
+          },
+          {
+            id: '1t-2-4-n-quiz2-q1',
+            task: 'Hva er løsningene til $x^2 + 6x - 7 = 0$ ved å fullføre kvadratet?',
+            options: [
+              { id: 'a', text: '$x = 1$ eller $x = -7$', isCorrect: true },
+              { id: 'b', text: '$x = -1$ eller $x = 7$', isCorrect: false },
+              { id: 'c', text: '$x = 3$ eller $x = -3$', isCorrect: false },
+              { id: 'd', text: '$x = 7$ eller $x = -1$', isCorrect: false },
+            ],
+            solution: 'Flytt konstantleddet: $x^2 + 6x = 7$. Legg til $\\left(\\frac{6}{2}\\right)^2 = 9$: $x^2 + 6x + 9 = 16$, altså $(x + 3)^2 = 16$. Kvadratrot: $x + 3 = \\pm 4$. Da er $x = -3 + 4 = 1$ eller $x = -3 - 4 = -7$.',
+          },
+          {
+            id: '1t-2-4-n-quiz2-q2',
+            task: 'Hva er de fire stegene i metoden «fullstendig kvadrat»?',
+            options: [
+              { id: 'a', text: 'Gang ut, samle like ledd, del på $a$, ta kvadratrot', isCorrect: false },
+              { id: 'b', text: 'Flytt konstantleddet, legg til $\\left(\\frac{b}{2}\\right)^2$, skriv som kvadrat, ta kvadratrot', isCorrect: true },
+              { id: 'c', text: 'Faktoriser, bruk nullregelen, sjekk svaret, forenkle', isCorrect: false },
+              { id: 'd', text: 'Finn diskriminanten, sett inn i formelen, forenkle, sjekk', isCorrect: false },
+            ],
+            solution: 'De fire stegene er: (1) Flytt konstantleddet til høyre side, (2) Legg til $\\left(\\frac{b}{2}\\right)^2$ på begge sider, (3) Skriv venstresiden som et perfekt kvadrat, (4) Ta kvadratrot av begge sider og løs for $x$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-4-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-4-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp seksjonen om irrasjonale løsninger.',
-    },
-    {
+    },    {
       id: '1t-2-4-n-section3',
       type: 'text',
       content: `## Når svaret inneholder røtter
@@ -1169,24 +1716,48 @@ Poenget er at metoden alltid gir deg eksakte svar. Når høyresiden er et positi
         id: '1t-2-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er løsningene til $(x - 3)^2 = 5$?',
+        task: 'Test deg selv på løsninger med røtter:',
         options: [
-          { id: 'a', text: '$x = 3 + \\sqrt{5}$ eller $x = 3 - \\sqrt{5}$', isCorrect: true },
-          { id: 'b', text: '$x = \\sqrt{5} + 3$ eller $x = \\sqrt{5} - 3$', isCorrect: false },
-          { id: 'c', text: '$x = 5 + \\sqrt{3}$ eller $x = 5 - \\sqrt{3}$', isCorrect: false },
-          { id: 'd', text: '$x = 3 + 5$ eller $x = 3 - 5$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi tar kvadratrot av begge sider: $x - 3 = \\pm\\sqrt{5}$. Deretter legger vi til 3: $x = 3 \\pm \\sqrt{5}$. Det gir $x = 3 + \\sqrt{5}$ eller $x = 3 - \\sqrt{5}$.',
+        questions: [
+          {
+            id: '1t-2-4-n-quiz3-q0',
+            task: 'Hva er løsningene til $(x - 3)^2 = 5$?',
+            options: [
+              { id: 'a', text: '$x = 3 + \\sqrt{5}$ eller $x = 3 - \\sqrt{5}$', isCorrect: true },
+              { id: 'b', text: '$x = \\sqrt{5} + 3$ eller $x = \\sqrt{5} - 3$', isCorrect: false },
+              { id: 'c', text: '$x = 5 + \\sqrt{3}$ eller $x = 5 - \\sqrt{3}$', isCorrect: false },
+              { id: 'd', text: '$x = 3 + 5$ eller $x = 3 - 5$', isCorrect: false },
+            ],
+            solution: 'Vi tar kvadratrot av begge sider: $x - 3 = \\pm\\sqrt{5}$. Deretter legger vi til 3: $x = 3 \\pm \\sqrt{5}$. Det gir $x = 3 + \\sqrt{5}$ eller $x = 3 - \\sqrt{5}$.',
+          },
+          {
+            id: '1t-2-4-n-quiz3-q1',
+            task: 'Hva er løsningene til $x^2 + 2x - 1 = 0$ ved å fullføre kvadratet?',
+            options: [
+              { id: 'a', text: '$x = 1 \\pm \\sqrt{2}$', isCorrect: false },
+              { id: 'b', text: '$x = -1 \\pm \\sqrt{2}$', isCorrect: true },
+              { id: 'c', text: '$x = -2 \\pm \\sqrt{1}$', isCorrect: false },
+              { id: 'd', text: '$x = 2 \\pm \\sqrt{1}$', isCorrect: false },
+            ],
+            solution: 'Vi får $x^2 + 2x = 1$, legger til $1$: $(x + 1)^2 = 2$. Kvadratrot: $x + 1 = \\pm\\sqrt{2}$, altså $x = -1 \\pm \\sqrt{2}$.',
+          },
+          {
+            id: '1t-2-4-n-quiz3-q2',
+            task: 'Hva skjer hvis høyresiden blir negativ etter å ha fullført kvadratet, f.eks. $(x + 2)^2 = -3$?',
+            options: [
+              { id: 'a', text: 'Vi tar kvadratroten og får $x = -2 \\pm \\sqrt{-3}$', isCorrect: false },
+              { id: 'b', text: 'Vi ganger med $-1$ og får $(x + 2)^2 = 3$', isCorrect: false },
+              { id: 'c', text: 'Likningen har ingen reelle løsninger', isCorrect: true },
+              { id: 'd', text: 'Løsningen er $x = -2$', isCorrect: false },
+            ],
+            solution: 'Et kvadrat kan aldri være negativt (for reelle tall). Hvis $(x + k)^2 = d$ der $d < 0$, finnes det ingen reelle løsninger. Vi skriver $L = \\emptyset$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-4-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-4-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp seksjonen om likninger der koeffisienten foran x^2 ikke er 1.',
-    },
-    {
+    },    {
       id: '1t-2-4-n-section4',
       type: 'text',
       content: `## Når koeffisienten foran $x^2$ ikke er 1
@@ -1208,24 +1779,48 @@ Huskeregelen er: se alltid på koeffisienten foran $x^2$ først. Er den noe anne
         id: '1t-2-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er første steg for å løse $4x^2 - 8x - 12 = 0$ ved å fullføre kvadratet?',
+        task: 'Test deg selv på fullstendig kvadrat med koeffisient:',
         options: [
-          { id: 'a', text: 'Flytte $-12$ til høyre side', isCorrect: false },
-          { id: 'b', text: 'Legge til $4$ på begge sider', isCorrect: false },
-          { id: 'c', text: 'Dele hele likningen på $4$', isCorrect: true },
-          { id: 'd', text: 'Ta kvadratroten av begge sider', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Koeffisienten foran $x^2$ er 4, som ikke er 1. Derfor deler vi hele likningen på 4 først: $x^2 - 2x - 3 = 0$. Deretter kan vi fullføre kvadratet som vanlig.',
+        questions: [
+          {
+            id: '1t-2-4-n-quiz4-q0',
+            task: 'Hva er første steg for å løse $4x^2 - 8x - 12 = 0$ ved å fullføre kvadratet?',
+            options: [
+              { id: 'a', text: 'Flytte $-12$ til høyre side', isCorrect: false },
+              { id: 'b', text: 'Legge til $4$ på begge sider', isCorrect: false },
+              { id: 'c', text: 'Dele hele likningen på $4$', isCorrect: true },
+              { id: 'd', text: 'Ta kvadratroten av begge sider', isCorrect: false },
+            ],
+            solution: 'Koeffisienten foran $x^2$ er 4, som ikke er 1. Derfor deler vi hele likningen på 4 først: $x^2 - 2x - 3 = 0$. Deretter kan vi fullføre kvadratet som vanlig.',
+          },
+          {
+            id: '1t-2-4-n-quiz4-q1',
+            task: 'Hva er løsningene til $2x^2 + 8x - 10 = 0$?',
+            options: [
+              { id: 'a', text: '$x = 1$ eller $x = -5$', isCorrect: true },
+              { id: 'b', text: '$x = -1$ eller $x = 5$', isCorrect: false },
+              { id: 'c', text: '$x = 2$ eller $x = -5$', isCorrect: false },
+              { id: 'd', text: '$x = -2$ eller $x = 5$', isCorrect: false },
+            ],
+            solution: 'Del på 2: $x^2 + 4x - 5 = 0$. Flytt: $x^2 + 4x = 5$. Legg til $4$: $(x + 2)^2 = 9$. Kvadratrot: $x + 2 = \\pm 3$. Altså $x = 1$ eller $x = -5$.',
+          },
+          {
+            id: '1t-2-4-n-quiz4-q2',
+            task: 'Hva gjør du med $-x^2 + 6x - 5 = 0$ før du fullstendiggjør kvadratet?',
+            options: [
+              { id: 'a', text: 'Legger til $x^2$ på begge sider', isCorrect: false },
+              { id: 'b', text: 'Deler hele likningen på $-1$', isCorrect: true },
+              { id: 'c', text: 'Flytter $-5$ til høyre side', isCorrect: false },
+              { id: 'd', text: 'Tar kvadratroten av alle ledd', isCorrect: false },
+            ],
+            solution: 'Koeffisienten foran $x^2$ er $-1$. Vi deler hele likningen på $-1$: $x^2 - 6x + 5 = 0$. Alle fortegn snur seg. Deretter fullstendiggjør vi kvadratet som vanlig.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-4-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-4-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp seksjonen om sammenhengen med abc-formelen.',
-    },
-    {
+    },    {
       id: '1t-2-4-n-section5',
       type: 'text',
       content: `## Sammenhengen med abc-formelen
@@ -1247,24 +1842,37 @@ Når bør du bruke fullstendig kvadrat i stedet for abc-formelen? Det er vanskel
         id: '1t-2-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva fremkommer når vi fullfører kvadratet på den generelle likningen $ax^2 + bx + c = 0$?',
+        task: 'Test deg selv på sammenhengen med abc-formelen:',
         options: [
-          { id: 'a', text: 'Konjugatsetningen', isCorrect: false },
-          { id: 'b', text: 'Produktregelen', isCorrect: false },
-          { id: 'c', text: 'Første kvadratsetning', isCorrect: false },
-          { id: 'd', text: 'ABC-formelen', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Når vi fullfører kvadratet på $ax^2 + bx + c = 0$ med bokstaver i stedet for tall, ender vi opp med $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$, som er nettopp abc-formelen.',
+        questions: [
+          {
+            id: '1t-2-4-n-quiz5-q0',
+            task: 'Hva fremkommer når vi fullfører kvadratet på den generelle likningen $ax^2 + bx + c = 0$?',
+            options: [
+              { id: 'a', text: 'Konjugatsetningen', isCorrect: false },
+              { id: 'b', text: 'Produktregelen', isCorrect: false },
+              { id: 'c', text: 'Første kvadratsetning', isCorrect: false },
+              { id: 'd', text: 'ABC-formelen', isCorrect: true },
+            ],
+            solution: 'Når vi fullfører kvadratet på $ax^2 + bx + c = 0$ med bokstaver i stedet for tall, ender vi opp med $x = \\frac{-b \\pm \\sqrt{b^2 - 4ac}}{2a}$, som er nettopp abc-formelen.',
+          },
+          {
+            id: '1t-2-4-n-quiz5-q1',
+            task: 'Når er fullstendig kvadrat spesielt nyttig sammenlignet med abc-formelen?',
+            options: [
+              { id: 'a', text: 'Når tallene er store', isCorrect: false },
+              { id: 'b', text: 'Når du skal finne toppunktet til en parabel', isCorrect: true },
+              { id: 'c', text: 'Når diskriminanten er negativ', isCorrect: false },
+              { id: 'd', text: 'Når $a = 0$', isCorrect: false },
+            ],
+            solution: 'Fullstendig kvadrat er spesielt nyttig når du skal finne toppunktet til en parabel eller skrive om funksjonsuttrykk. Formen $(x + k)^2 + d$ viser direkte at toppunktet er $(-k, d)$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-2-4-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-4-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-4-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1299,15 +1907,7 @@ export const CHAPTER_1T_1_4_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['utforske og beskrive egenskaper ved brøker og operasjoner med brøker'],
   linkedChapterId: '1t-1-4',
-  content: [
-    {
-      id: '1t-1-4-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-4-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-1-4-n-intro',
       type: 'text',
       content: `## Når tallene deler seg i to
@@ -1338,24 +1938,48 @@ Et nyttig triks er å **forkorte underveis**. Hvis det finnes like faktorer i en
         id: '1t-1-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er $\frac{3}{4} \cdot \frac{2}{5}$?',
+        task: 'Test deg selv på multiplikasjon av brøker:',
         options: [
-          { id: 'a', text: '$\frac{5}{9}$', isCorrect: false },
-          { id: 'b', text: '$\frac{3}{10}$', isCorrect: true },
-          { id: 'c', text: '$\frac{6}{9}$', isCorrect: false },
-          { id: 'd', text: '$\frac{5}{20}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi ganger teller med teller og nevner med nevner: $\frac{3 \cdot 2}{4 \cdot 5} = \frac{6}{20}$. Deretter forkorter vi med 2: $\frac{6}{20} = \frac{3}{10}$.',
+        questions: [
+          {
+            id: '1t-1-4-n-quiz1-q0',
+            task: 'Hva er $\\frac{3}{4} \\cdot \\frac{2}{5}$?',
+            options: [
+              { id: 'a', text: '$\\frac{5}{9}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{3}{10}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{6}{9}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{5}{20}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger teller med teller og nevner med nevner: $\\frac{3 \\cdot 2}{4 \\cdot 5} = \\frac{6}{20}$. Deretter forkorter vi med 2: $\\frac{6}{20} = \\frac{3}{10}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz1-q1',
+            task: 'Hva er $5 \\cdot \\frac{2}{3}$?',
+            options: [
+              { id: 'a', text: '$\\frac{7}{3}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{10}{15}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{10}{3}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{2}{15}$', isCorrect: false },
+            ],
+            solution: 'Vi skriver heltallet som brøk: $5 = \\frac{5}{1}$. Deretter ganger vi: $\\frac{5}{1} \\cdot \\frac{2}{3} = \\frac{10}{3}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz1-q2',
+            task: 'Hva er $\\frac{6}{5} \\cdot \\frac{15}{2}$ forkortet underveis?',
+            options: [
+              { id: 'a', text: '$\\frac{90}{10}$', isCorrect: false },
+              { id: 'b', text: '$9$', isCorrect: true },
+              { id: 'c', text: '$\\frac{45}{5}$', isCorrect: false },
+              { id: 'd', text: '$18$', isCorrect: false },
+            ],
+            solution: 'Vi forkorter underveis: $6$ og $2$ deler begge med $2$ (gir $3$ og $1$), og $5$ og $15$ deler begge med $5$ (gir $1$ og $3$). Da sitter vi igjen med $\\frac{3 \\cdot 3}{1 \\cdot 1} = 9$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-4-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-4-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-4-n-section2',
       type: 'text',
       content: `## Å forkorte brøker – finn det som er felles
@@ -1377,24 +2001,48 @@ Forkorting er spesielt nyttig etter at du har ganget brøker, for da kan resulta
         id: '1t-1-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er $\frac{12 \cdot 20}{4 \cdot 6}$ ferdig forkortet?',
+        task: 'Test deg selv på forkorting av brøker:',
         options: [
-          { id: 'a', text: '$8$', isCorrect: false },
-          { id: 'b', text: '$12$', isCorrect: false },
-          { id: 'c', text: '$10$', isCorrect: true },
-          { id: 'd', text: '$\frac{20}{3}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi forenkler: $\frac{12 \cdot 20}{4 \cdot 6} = \frac{240}{24} = 10$. Alternativt kan vi forkorte underveis: $\frac{12}{6} = 2$ og $\frac{20}{4} = 5$, så $2 \cdot 5 = 10$.',
+        questions: [
+          {
+            id: '1t-1-4-n-quiz2-q0',
+            task: 'Hva er $\\frac{12 \\cdot 20}{4 \\cdot 6}$ ferdig forkortet?',
+            options: [
+              { id: 'a', text: '$8$', isCorrect: false },
+              { id: 'b', text: '$12$', isCorrect: false },
+              { id: 'c', text: '$10$', isCorrect: true },
+              { id: 'd', text: '$\\frac{20}{3}$', isCorrect: false },
+            ],
+            solution: 'Vi forenkler: $\\frac{12 \\cdot 20}{4 \\cdot 6} = \\frac{240}{24} = 10$. Alternativt kan vi forkorte underveis: $\\frac{12}{6} = 2$ og $\\frac{20}{4} = 5$, så $2 \\cdot 5 = 10$.',
+          },
+          {
+            id: '1t-1-4-n-quiz2-q1',
+            task: 'Hva er $\\frac{45}{75}$ forkortet?',
+            options: [
+              { id: 'a', text: '$\\frac{9}{15}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{3}{5}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{15}{25}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{5}{3}$', isCorrect: false },
+            ],
+            solution: 'Vi finner felles faktor: $45 = 3 \\cdot 15$ og $75 = 5 \\cdot 15$. Vi forkorter med $15$: $\\frac{45}{75} = \\frac{3}{5}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz2-q2',
+            task: 'Hva betyr det å «forkorte» en brøk?',
+            options: [
+              { id: 'a', text: 'Gjøre telleren mindre', isCorrect: false },
+              { id: 'b', text: 'Dele teller og nevner med en felles faktor', isCorrect: true },
+              { id: 'c', text: 'Trekke fra samme tall i teller og nevner', isCorrect: false },
+              { id: 'd', text: 'Bytte om teller og nevner', isCorrect: false },
+            ],
+            solution: 'Å forkorte betyr å dele BÅDE teller og nevner med den samme felles faktoren. Verdien til brøken endres ikke -- vi skriver den bare på en enklere form.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-4-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-4-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-4-n-section3',
       type: 'text',
       content: `## Å dele brøker – snu og gang
@@ -1420,24 +2068,48 @@ En alternativ metode for brudne brøker er å gange teller og nevner med den sam
         id: '1t-1-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er $\frac{5}{6} \div 3$?',
+        task: 'Test deg selv på divisjon av brøker:',
         options: [
-          { id: 'a', text: '$\frac{15}{6}$', isCorrect: false },
-          { id: 'b', text: '$\frac{5}{2}$', isCorrect: false },
-          { id: 'c', text: '$\frac{3}{6}$', isCorrect: false },
-          { id: 'd', text: '$\frac{5}{18}$', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi snur og ganger: $\frac{5}{6} \div 3 = \frac{5}{6} \cdot \frac{1}{3} = \frac{5}{18}$. Husk at å dele en brøk med et heltall betyr at nevneren blir større – du deler brøken i enda flere deler.',
+        questions: [
+          {
+            id: '1t-1-4-n-quiz3-q0',
+            task: 'Hva er $\\frac{5}{6} \\div 3$?',
+            options: [
+              { id: 'a', text: '$\\frac{15}{6}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{5}{2}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{3}{6}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{5}{18}$', isCorrect: true },
+            ],
+            solution: 'Vi snur og ganger: $\\frac{5}{6} \\div 3 = \\frac{5}{6} \\cdot \\frac{1}{3} = \\frac{5}{18}$. Husk at å dele en brøk med et heltall betyr at nevneren blir større.',
+          },
+          {
+            id: '1t-1-4-n-quiz3-q1',
+            task: 'Hva er $\\frac{2}{7} \\div \\frac{3}{2}$?',
+            options: [
+              { id: 'a', text: '$\\frac{6}{14}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{4}{21}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{3}{7}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{7}{6}$', isCorrect: false },
+            ],
+            solution: 'Vi snur den andre brøken og ganger: $\\frac{2}{7} \\div \\frac{3}{2} = \\frac{2}{7} \\cdot \\frac{2}{3} = \\frac{4}{21}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz3-q2',
+            task: 'Hva er $\\frac{\\frac{2}{3}}{\\frac{5}{6}}$?',
+            options: [
+              { id: 'a', text: '$\\frac{10}{18}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{5}{9}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{4}{5}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{12}{15}$', isCorrect: false },
+            ],
+            solution: 'En brudden brøk er det samme som divisjon: $\\frac{2}{3} \\div \\frac{5}{6} = \\frac{2}{3} \\cdot \\frac{6}{5} = \\frac{12}{15} = \\frac{4}{5}$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-4-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-4-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-4-n-section4',
       type: 'text',
       content: `## Å utvide brøker og legge sammen med lik nevner
@@ -1465,24 +2137,48 @@ Utviding kan også involvere variabler. Å utvide $\frac{2}{5}$ slik at nevneren
         id: '1t-1-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er $\frac{4}{7} - \frac{1}{14}$?',
+        task: 'Test deg selv på addisjon og subtraksjon av brøker:',
         options: [
-          { id: 'a', text: '$\frac{3}{7}$', isCorrect: false },
-          { id: 'b', text: '$\frac{1}{2}$', isCorrect: true },
-          { id: 'c', text: '$\frac{3}{14}$', isCorrect: false },
-          { id: 'd', text: '$\frac{7}{14}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi utvider $\frac{4}{7}$ til nevner 14: $\frac{4}{7} = \frac{8}{14}$. Da blir regnestykket $\frac{8}{14} - \frac{1}{14} = \frac{7}{14} = \frac{1}{2}$.',
+        questions: [
+          {
+            id: '1t-1-4-n-quiz4-q0',
+            task: 'Hva er $\\frac{4}{7} - \\frac{1}{14}$?',
+            options: [
+              { id: 'a', text: '$\\frac{3}{7}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{1}{2}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{3}{14}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{7}{14}$', isCorrect: false },
+            ],
+            solution: 'Vi utvider $\\frac{4}{7}$ til nevner 14: $\\frac{4}{7} = \\frac{8}{14}$. Da blir regnestykket $\\frac{8}{14} - \\frac{1}{14} = \\frac{7}{14} = \\frac{1}{2}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz4-q1',
+            task: 'Hva er $\\frac{2}{5} + \\frac{3}{5}$?',
+            options: [
+              { id: 'a', text: '$\\frac{5}{10}$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: true },
+              { id: 'c', text: '$\\frac{5}{5}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{6}{25}$', isCorrect: false },
+            ],
+            solution: 'Med lik nevner legger vi sammen tellerne: $\\frac{2}{5} + \\frac{3}{5} = \\frac{5}{5} = 1$.',
+          },
+          {
+            id: '1t-1-4-n-quiz4-q2',
+            task: 'Hva er $\\frac{5}{3}$ utvida til nevner $12$?',
+            options: [
+              { id: 'a', text: '$\\frac{60}{12}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{15}{12}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{20}{12}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{5}{12}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger teller og nevner med $4$ (fordi $3 \\cdot 4 = 12$): $\\frac{5}{3} = \\frac{5 \\cdot 4}{3 \\cdot 4} = \\frac{20}{12}$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-4-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-4-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-4-n-section5',
       type: 'text',
       content: `## Fellesnevner – når nevnerne ikke går opp i hverandre
@@ -1508,24 +2204,48 @@ Husk også at et heltall kan skrives som en brøk med $1$ i nevneren: $2 + \frac
         id: '1t-1-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er $\frac{1}{6} + \frac{1}{8}$ med minste felles nevner?',
+        task: 'Test deg selv på fellesnevner:',
         options: [
-          { id: 'a', text: '$\frac{2}{14}$', isCorrect: false },
-          { id: 'b', text: '$\frac{14}{48}$', isCorrect: false },
-          { id: 'c', text: '$\frac{7}{24}$', isCorrect: true },
-          { id: 'd', text: '$\frac{1}{7}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi faktoriserer: $6 = 2 \cdot 3$ og $8 = 2 \cdot 2 \cdot 2$. Minste felles nevner er $2 \cdot 2 \cdot 2 \cdot 3 = 24$. Vi utvider: $\frac{1 \cdot 4}{24} + \frac{1 \cdot 3}{24} = \frac{4}{24} + \frac{3}{24} = \frac{7}{24}$.',
+        questions: [
+          {
+            id: '1t-1-4-n-quiz5-q0',
+            task: 'Hva er $\\frac{1}{6} + \\frac{1}{8}$ med minste felles nevner?',
+            options: [
+              { id: 'a', text: '$\\frac{2}{14}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{14}{48}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{7}{24}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{1}{7}$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer: $6 = 2 \\cdot 3$ og $8 = 2^3$. Minste felles nevner er $2^3 \\cdot 3 = 24$. Vi utvider: $\\frac{4}{24} + \\frac{3}{24} = \\frac{7}{24}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz5-q1',
+            task: 'Hva er $\\frac{1}{2} + \\frac{3}{7}$?',
+            options: [
+              { id: 'a', text: '$\\frac{4}{9}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{13}{14}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{7}{14}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{3}{14}$', isCorrect: false },
+            ],
+            solution: 'Fellesnevner er $14$. Vi utvider: $\\frac{7}{14} + \\frac{6}{14} = \\frac{13}{14}$.',
+          },
+          {
+            id: '1t-1-4-n-quiz5-q2',
+            task: 'Hva er $2 + \\frac{3}{5}$?',
+            options: [
+              { id: 'a', text: '$\\frac{5}{5}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{13}{5}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{6}{5}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{23}{5}$', isCorrect: false },
+            ],
+            solution: 'Vi skriver $2 = \\frac{10}{5}$. Da blir regnestykket $\\frac{10}{5} + \\frac{3}{5} = \\frac{13}{5}$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-4-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-1-4-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-1-4-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1556,15 +2276,7 @@ export const CHAPTER_1T_1_5_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['behandle og faktorisere algebraiske uttrykk'],
   linkedChapterId: '1t-1-5',
-  content: [
-    {
-      id: '1t-1-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-1-5-n-intro',
       type: 'text',
       content: `## Å se det usynlige mønsteret
@@ -1595,24 +2307,48 @@ Poenget er at faktorisering gir deg «røntgensyn» inn i tallenes struktur. Jo 
         id: '1t-1-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er primtallsfaktoriseringen av $50$?',
+        task: 'Test deg selv på primtallsfaktorisering:',
         options: [
-          { id: 'a', text: '$5 \cdot 10$', isCorrect: false },
-          { id: 'b', text: '$2 \cdot 5 \cdot 5$', isCorrect: true },
-          { id: 'c', text: '$2 \cdot 25$', isCorrect: false },
-          { id: 'd', text: '$1 \cdot 2 \cdot 5 \cdot 5$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi deler med det minste primtallet: $50 = 2 \cdot 25 = 2 \cdot 5 \cdot 5$. Alternativene $5 \cdot 10$ og $2 \cdot 25$ er faktoriseringer, men ikke primtallsfaktoriseringer fordi $10$ og $25$ ikke er primtall. Alternativet med $1$ er feil fordi $1$ ikke er et primtall.',
+        questions: [
+          {
+            id: '1t-1-5-n-quiz1-q0',
+            task: 'Hva er primtallsfaktoriseringen av $50$?',
+            options: [
+              { id: 'a', text: '$5 \\cdot 10$', isCorrect: false },
+              { id: 'b', text: '$2 \\cdot 5 \\cdot 5$', isCorrect: true },
+              { id: 'c', text: '$2 \\cdot 25$', isCorrect: false },
+              { id: 'd', text: '$1 \\cdot 2 \\cdot 5 \\cdot 5$', isCorrect: false },
+            ],
+            solution: 'Vi deler med det minste primtallet: $50 = 2 \\cdot 25 = 2 \\cdot 5 \\cdot 5$. Alternativene med $10$ og $25$ er ikke primtallsfaktoriseringer, og $1$ er ikke et primtall.',
+          },
+          {
+            id: '1t-1-5-n-quiz1-q1',
+            task: 'Hva er primtallsfaktoriseringen av $72$?',
+            options: [
+              { id: 'a', text: '$2^3 \\cdot 3^2$', isCorrect: true },
+              { id: 'b', text: '$8 \\cdot 9$', isCorrect: false },
+              { id: 'c', text: '$2 \\cdot 36$', isCorrect: false },
+              { id: 'd', text: '$2^2 \\cdot 18$', isCorrect: false },
+            ],
+            solution: '$72 = 2 \\cdot 36 = 2 \\cdot 2 \\cdot 18 = 2 \\cdot 2 \\cdot 2 \\cdot 9 = 2 \\cdot 2 \\cdot 2 \\cdot 3 \\cdot 3 = 2^3 \\cdot 3^2$.',
+          },
+          {
+            id: '1t-1-5-n-quiz1-q2',
+            task: 'Hva er $\\frac{18}{6}$ forkortet ved hjelp av faktorisering?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: true },
+              { id: 'c', text: '$\\frac{9}{3}$', isCorrect: false },
+              { id: 'd', text: '$6$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer: $18 = 3 \\cdot 6$. Da kan vi stryke $6$ over og under brøkstreken: $\\frac{18}{6} = \\frac{3 \\cdot 6}{6} = 3$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-5-n-section2',
       type: 'text',
       content: `## Faktorisering av algebraiske uttrykk – sett det felles utenfor
@@ -1638,24 +2374,48 @@ Et godt tips: du kan alltid **kontrollere** faktoriseringen din ved å gange ut 
         id: '1t-1-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er $15x^2 - 3xy^3$ ferdig faktorisert?',
+        task: 'Test deg selv på faktorisering av algebraiske uttrykk:',
         options: [
-          { id: 'a', text: '$3(5x^2 - xy^3)$', isCorrect: false },
-          { id: 'b', text: '$x(15x - 3y^3)$', isCorrect: false },
-          { id: 'c', text: '$3x(5x - y^3)$', isCorrect: true },
-          { id: 'd', text: '$15x(x - \frac{1}{5}y^3)$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Den største felles faktoren er $3x$. Vi faktoriserer: $15x^2 - 3xy^3 = 3x \cdot 5x - 3x \cdot y^3 = 3x(5x - y^3)$. De andre alternativene er riktige faktoriseringer, men ikke ferdig faktorisert fordi det fortsatt er en felles faktor inne i parentesen.',
+        questions: [
+          {
+            id: '1t-1-5-n-quiz2-q0',
+            task: 'Hva er $15x^2 - 3xy^3$ ferdig faktorisert?',
+            options: [
+              { id: 'a', text: '$3(5x^2 - xy^3)$', isCorrect: false },
+              { id: 'b', text: '$x(15x - 3y^3)$', isCorrect: false },
+              { id: 'c', text: '$3x(5x - y^3)$', isCorrect: true },
+              { id: 'd', text: '$15x(x - \\frac{1}{5}y^3)$', isCorrect: false },
+            ],
+            solution: 'Den største felles faktoren er $3x$. Vi faktoriserer: $15x^2 - 3xy^3 = 3x(5x - y^3)$. De andre alternativene har ikke tatt ut hele den felles faktoren.',
+          },
+          {
+            id: '1t-1-5-n-quiz2-q1',
+            task: 'Hva er $6a^2 - 3a$ faktorisert?',
+            options: [
+              { id: 'a', text: '$3a(2a - 1)$', isCorrect: true },
+              { id: 'b', text: '$3(2a^2 - a)$', isCorrect: false },
+              { id: 'c', text: '$6a(a - \\frac{1}{2})$', isCorrect: false },
+              { id: 'd', text: '$a(6a - 3)$', isCorrect: false },
+            ],
+            solution: 'Felles faktor er $3a$: $6a^2 - 3a = 3a \\cdot 2a - 3a \\cdot 1 = 3a(2a - 1)$.',
+          },
+          {
+            id: '1t-1-5-n-quiz2-q2',
+            task: 'Hva er $-3x + 9$ faktorisert med $-3$ tatt ut?',
+            options: [
+              { id: 'a', text: '$-3(x + 3)$', isCorrect: false },
+              { id: 'b', text: '$-3(x - 3)$', isCorrect: true },
+              { id: 'c', text: '$3(-x + 3)$', isCorrect: false },
+              { id: 'd', text: '$-3(-x - 3)$', isCorrect: false },
+            ],
+            solution: 'Vi setter $-3$ utenfor: $-3 \\cdot x = -3x$ og $-3 \\cdot (-3) = 9$. Altså $-3x + 9 = -3(x - 3)$. Kontroll: $-3(x - 3) = -3x + 9$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-5-n-section3',
       type: 'text',
       content: `## Første og andre kvadratsetning – hurtigreglene
@@ -1681,24 +2441,48 @@ Hvis det står en koeffisient foran $x^2$, faktoriser den ut først: $2x^2 - 12x
         id: '1t-1-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er $(2x - 7)^2$?',
+        task: 'Test deg selv på kvadratsetningene:',
         options: [
-          { id: 'a', text: '$4x^2 - 14x + 49$', isCorrect: false },
-          { id: 'b', text: '$4x^2 + 28x + 49$', isCorrect: false },
-          { id: 'c', text: '$2x^2 - 28x + 49$', isCorrect: false },
-          { id: 'd', text: '$4x^2 - 28x + 49$', isCorrect: true },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi bruker andre kvadratsetning med $a = 2x$ og $b = 7$: $(2x - 7)^2 = (2x)^2 - 2 \cdot 2x \cdot 7 + 7^2 = 4x^2 - 28x + 49$. Merk at midterste ledd er $2 \cdot 2x \cdot 7 = 28x$, ikke $14x$.',
+        questions: [
+          {
+            id: '1t-1-5-n-quiz3-q0',
+            task: 'Hva er $(2x - 7)^2$?',
+            options: [
+              { id: 'a', text: '$4x^2 - 14x + 49$', isCorrect: false },
+              { id: 'b', text: '$4x^2 + 28x + 49$', isCorrect: false },
+              { id: 'c', text: '$2x^2 - 28x + 49$', isCorrect: false },
+              { id: 'd', text: '$4x^2 - 28x + 49$', isCorrect: true },
+            ],
+            solution: 'Vi bruker andre kvadratsetning med $a = 2x$ og $b = 7$: $(2x - 7)^2 = (2x)^2 - 2 \\cdot 2x \\cdot 7 + 7^2 = 4x^2 - 28x + 49$.',
+          },
+          {
+            id: '1t-1-5-n-quiz3-q1',
+            task: 'Hva er $(x + 4)^2$?',
+            options: [
+              { id: 'a', text: '$x^2 + 16$', isCorrect: false },
+              { id: 'b', text: '$x^2 + 4x + 16$', isCorrect: false },
+              { id: 'c', text: '$x^2 + 8x + 16$', isCorrect: true },
+              { id: 'd', text: '$x^2 + 8x + 4$', isCorrect: false },
+            ],
+            solution: 'Første kvadratsetning: $(x + 4)^2 = x^2 + 2 \\cdot x \\cdot 4 + 4^2 = x^2 + 8x + 16$. Husk det dobbelte produktet $2 \\cdot x \\cdot 4 = 8x$.',
+          },
+          {
+            id: '1t-1-5-n-quiz3-q2',
+            task: 'Hva er mønsteret i første og andre kvadratsetning?',
+            options: [
+              { id: 'a', text: 'Kvadrat av første, pluss produktet, pluss kvadrat av andre', isCorrect: false },
+              { id: 'b', text: 'Kvadrat av første, pluss/minus det dobbelte produktet, pluss kvadrat av andre', isCorrect: true },
+              { id: 'c', text: 'Summen av kvadratene pluss resten', isCorrect: false },
+              { id: 'd', text: 'Første ganger andre pluss kvadratene', isCorrect: false },
+            ],
+            solution: 'Mønsteret er $(a \\pm b)^2 = a^2 \\pm 2ab + b^2$: kvadratet av det første, pluss (eller minus) det dobbelte produktet, pluss kvadratet av det andre. Siste ledd er alltid positivt.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-5-n-section4',
       type: 'text',
       content: `## Faktorisering med kvadratsetningene baklengs
@@ -1727,24 +2511,48 @@ Denne teknikken er essensiell for å løse andregradslikninger og forenkle rasjo
         id: '1t-1-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er $3x^2 - 18x + 27$ faktorisert?',
+        task: 'Test deg selv på faktorisering med kvadratsetningene baklengs:',
         options: [
-          { id: 'a', text: '$3(x - 3)^2$', isCorrect: true },
-          { id: 'b', text: '$(3x - 9)^2$', isCorrect: false },
-          { id: 'c', text: '$3(x + 3)^2$', isCorrect: false },
-          { id: 'd', text: '$3(x^2 - 6x + 9)$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Først faktoriserer vi ut $3$: $3(x^2 - 6x + 9)$. Deretter sjekker vi: $\left(\frac{6}{2}\right)^2 = 9$. Det stemmer, så $x^2 - 6x + 9 = (x - 3)^2$. Svaret er $3(x - 3)^2$. Alternativ d) er riktig men ikke ferdig faktorisert.',
+        questions: [
+          {
+            id: '1t-1-5-n-quiz4-q0',
+            task: 'Hva er $3x^2 - 18x + 27$ faktorisert?',
+            options: [
+              { id: 'a', text: '$3(x - 3)^2$', isCorrect: true },
+              { id: 'b', text: '$(3x - 9)^2$', isCorrect: false },
+              { id: 'c', text: '$3(x + 3)^2$', isCorrect: false },
+              { id: 'd', text: '$3(x^2 - 6x + 9)$', isCorrect: false },
+            ],
+            solution: 'Først tar vi ut $3$: $3(x^2 - 6x + 9)$. Sjekk: $\\left(\\frac{6}{2}\\right)^2 = 9$. Stemmer! Svaret er $3(x - 3)^2$.',
+          },
+          {
+            id: '1t-1-5-n-quiz4-q1',
+            task: 'Hva er $x^2 + 4x + 4$ faktorisert?',
+            options: [
+              { id: 'a', text: '$(x + 4)^2$', isCorrect: false },
+              { id: 'b', text: '$(x + 2)^2$', isCorrect: true },
+              { id: 'c', text: '$(x + 1)(x + 4)$', isCorrect: false },
+              { id: 'd', text: '$(x - 2)^2$', isCorrect: false },
+            ],
+            solution: 'Vi sjekker: $\\left(\\frac{4}{2}\\right)^2 = 4 = c$. Det er et fullstendig kvadrat! Svaret er $(x + 2)^2$.',
+          },
+          {
+            id: '1t-1-5-n-quiz4-q2',
+            task: 'Hva er $-x^2 + 10x - 25$ faktorisert?',
+            options: [
+              { id: 'a', text: '$(x - 5)^2$', isCorrect: false },
+              { id: 'b', text: '$-(x + 5)^2$', isCorrect: false },
+              { id: 'c', text: '$-(x - 5)^2$', isCorrect: true },
+              { id: 'd', text: '$(5 - x)^2$', isCorrect: false },
+            ],
+            solution: 'Faktoriser ut $-1$: $-(x^2 - 10x + 25)$. Sjekk: $\\left(\\frac{10}{2}\\right)^2 = 25$. Stemmer! Svaret er $-(x - 5)^2$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-1-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-1-5-n-section5',
       type: 'text',
       content: `## Tredje kvadratsetning – konjugatsetningen
@@ -1776,24 +2584,59 @@ Avanserte uttrykk kan kreve konjugatsetningen flere ganger. Uttrykket $x^4 - y^4
         id: '1t-1-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er $9x^2 - 81$ ferdig faktorisert?',
+        task: 'Test deg selv på konjugatsetningen:',
         options: [
-          { id: 'a', text: '$(3x + 9)(3x - 9)$', isCorrect: false },
-          { id: 'b', text: '$9(x + 3)(x - 3)$', isCorrect: true },
-          { id: 'c', text: '$(9x + 81)(x - 1)$', isCorrect: false },
-          { id: 'd', text: '$9(x^2 - 9)$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Først faktoriserer vi ut $9$: $9(x^2 - 9)$. Deretter bruker vi konjugatsetningen: $x^2 - 9 = (x + 3)(x - 3)$. Svaret er $9(x + 3)(x - 3)$. Alternativ a) er teknisk riktig, men ikke ferdig faktorisert fordi $9$ ikke er tatt ut. Alternativ d) er ufullstendig.',
+        questions: [
+          {
+            id: '1t-1-5-n-quiz5-q0',
+            task: 'Hva er $9x^2 - 81$ ferdig faktorisert?',
+            options: [
+              { id: 'a', text: '$(3x + 9)(3x - 9)$', isCorrect: false },
+              { id: 'b', text: '$9(x + 3)(x - 3)$', isCorrect: true },
+              { id: 'c', text: '$(9x + 81)(x - 1)$', isCorrect: false },
+              { id: 'd', text: '$9(x^2 - 9)$', isCorrect: false },
+            ],
+            solution: 'Først tar vi ut $9$: $9(x^2 - 9)$. Konjugatsetningen gir $x^2 - 9 = (x + 3)(x - 3)$. Svaret er $9(x + 3)(x - 3)$.',
+          },
+          {
+            id: '1t-1-5-n-quiz5-q1',
+            task: 'Hva er $(x + 2)(x - 2)$?',
+            options: [
+              { id: 'a', text: '$x^2 + 4$', isCorrect: false },
+              { id: 'b', text: '$x^2 - 4$', isCorrect: true },
+              { id: 'c', text: '$x^2 - 2$', isCorrect: false },
+              { id: 'd', text: '$x^2 + 2x - 4$', isCorrect: false },
+            ],
+            solution: 'Konjugatsetningen: $(a + b)(a - b) = a^2 - b^2$. Med $a = x$ og $b = 2$: $(x + 2)(x - 2) = x^2 - 4$.',
+          },
+          {
+            id: '1t-1-5-n-quiz5-q2',
+            task: 'Hva er $x^4 - y^4$ ferdig faktorisert?',
+            options: [
+              { id: 'a', text: '$(x^2 + y^2)(x^2 - y^2)$', isCorrect: false },
+              { id: 'b', text: '$(x + y)(x - y)(x^2 + y^2)$', isCorrect: true },
+              { id: 'c', text: '$(x + y)^2(x - y)^2$', isCorrect: false },
+              { id: 'd', text: '$(x^2 - y^2)^2$', isCorrect: false },
+            ],
+            solution: 'Først: $x^4 - y^4 = (x^2 + y^2)(x^2 - y^2)$. Deretter faktoriserer vi $x^2 - y^2 = (x + y)(x - y)$. Men $x^2 + y^2$ kan ikke faktoriseres videre. Endelig svar: $(x^2 + y^2)(x + y)(x - y)$.',
+          },
+          {
+            id: '1t-1-5-n-quiz5-q3',
+            task: 'Hva er $4x^2 - 25$ faktorisert?',
+            options: [
+              { id: 'a', text: '$(4x + 25)(4x - 25)$', isCorrect: false },
+              { id: 'b', text: '$(2x + 5)(2x - 5)$', isCorrect: true },
+              { id: 'c', text: '$(2x + 25)(2x - 1)$', isCorrect: false },
+              { id: 'd', text: '$4(x + 5)(x - 5)$', isCorrect: false },
+            ],
+            solution: 'Vi gjenkjenner $4x^2 = (2x)^2$ og $25 = 5^2$. Konjugatsetningen gir $(2x + 5)(2x - 5)$.',
+          },
+        ],
+        solution: '',
       },
-    },
-    {
-      id: '1t-1-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-1-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-1-5-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1843,9 +2686,7 @@ export const CHAPTER_1T_3_7_NARRATIV: TextbookChapter = {
   estimatedMinutes: 35,
   competenceGoals: ['forstå rasjonale funksjoner og asymptoter'],
   linkedChapterId: '1t-3-7',
-  content: [
-    { id: '1t-3-7-n-audio-1', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-7-narrativ-del1.mp3', description: 'Lydfil som leser opp teksten frem til første quiz.' },
-    {
+  content: [    {
       id: '1t-3-7-n-intro',
       type: 'text',
       content: `## Brøker som lever sitt eget liv
@@ -1878,18 +2719,48 @@ Legg merke til mønsteret: jo høyere grad nevneren har, desto flere verdier kan
         id: '1t-3-7-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er definisjonsmengden til $f(x) = \\frac{x + 5}{x^2 - 16}$?',
+        task: 'Test deg selv på definisjonsmengde:',
         options: [
-          { id: 'a', text: '$D_f = \\mathbb{R} \\setminus \\{16\\}$', isCorrect: false },
-          { id: 'b', text: '$D_f = \\mathbb{R} \\setminus \\{-4, 4\\}$', isCorrect: true },
-          { id: 'c', text: '$D_f = \\mathbb{R} \\setminus \\{-5\\}$', isCorrect: false },
-          { id: 'd', text: '$D_f = \\mathbb{R}$', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        solution: 'Vi setter nevneren lik null: $x^2 - 16 = 0$, som gir $(x - 4)(x + 4) = 0$, altså $x = 4$ eller $x = -4$. Definisjonsmengden er $D_f = \\mathbb{R} \\setminus \\{-4, 4\\}$.',
+        questions: [
+          {
+            id: '1t-3-7-n-quiz1-q0',
+            task: 'Hva er definisjonsmengden til $f(x) = \\frac{x + 5}{x^2 - 16}$?',
+            options: [
+              { id: 'a', text: '$D_f = \\mathbb{R} \\setminus \\{16\\}$', isCorrect: false },
+              { id: 'b', text: '$D_f = \\mathbb{R} \\setminus \\{-4, 4\\}$', isCorrect: true },
+              { id: 'c', text: '$D_f = \\mathbb{R} \\setminus \\{-5\\}$', isCorrect: false },
+              { id: 'd', text: '$D_f = \\mathbb{R}$', isCorrect: false },
+            ],
+            solution: 'Vi setter nevneren lik null: $x^2 - 16 = 0$, som gir $(x - 4)(x + 4) = 0$, altså $x = 4$ eller $x = -4$. Definisjonsmengden er $D_f = \\mathbb{R} \\setminus \\{-4, 4\\}$.',
+          },
+          {
+            id: '1t-3-7-n-quiz1-q1',
+            task: 'Hva er definisjonsmengden til $g(x) = \\frac{1}{x + 3}$?',
+            options: [
+              { id: 'a', text: '$D_g = \\mathbb{R} \\setminus \\{3\\}$', isCorrect: false },
+              { id: 'b', text: '$D_g = \\mathbb{R}$', isCorrect: false },
+              { id: 'c', text: '$D_g = \\mathbb{R} \\setminus \\{-3\\}$', isCorrect: true },
+              { id: 'd', text: '$D_g = \\mathbb{R} \\setminus \\{0\\}$', isCorrect: false },
+            ],
+            solution: 'Nevneren er null når $x + 3 = 0$, altså $x = -3$. Definisjonsmengden er $D_g = \\mathbb{R} \\setminus \\{-3\\}$.',
+          },
+          {
+            id: '1t-3-7-n-quiz1-q2',
+            task: 'Hvorfor er det viktig å finne definisjonsmengden til en rasjonal funksjon?',
+            options: [
+              { id: 'a', text: 'Fordi funksjonen alltid er lik null der', isCorrect: false },
+              { id: 'b', text: 'Fordi deling på null er udefinert', isCorrect: true },
+              { id: 'c', text: 'Fordi telleren er null der', isCorrect: false },
+              { id: 'd', text: 'Fordi grafen alltid krysser $x$-aksen der', isCorrect: false },
+            ],
+            solution: 'En rasjonal funksjon har en brøk, og deling på null er udefinert. Vi må finne hvor nevneren er null og utelukke disse $x$-verdiene fra definisjonsmengden.',
+          },
+        ],
+        solution: '',
       },
-    },
-    { id: '1t-3-7-n-audio-2', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-7-narrativ-del2.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-3-7-n-section2',
       type: 'text',
       content: `## Vertikale asymptoter – usynlige vegger
@@ -1906,9 +2777,41 @@ Et annet eksempel: $f(x) = \\frac{2}{x - 4}$. Nevneren er null når $x = 4$, og 
 
 Hva skjer fysisk med funksjonsverdiene nær en vertikal asymptote? Hvis du setter inn $x$-verdier som er veldig nære asymptoten, blir nevneren veldig liten, og en brøk med en liten nevner gir en stor verdi. For eksempel gir $f(x) = \\frac{1}{x - 2}$ verdien $f(2{,}001) = \\frac{1}{0{,}001} = 1000$ og $f(1{,}999) = \\frac{1}{-0{,}001} = -1000$. Grafen eksploderer oppover på den ene siden og nedover på den andre.`,
     },
-    { id: '1t-3-7-n-quiz2', type: 'exercise', exercise: { id: '1t-3-7-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hvilke vertikale asymptoter har $g(x) = \\frac{x + 2}{x^2 - 25}$?', options: [ { id: 'a', text: '$x = 25$', isCorrect: false }, { id: 'b', text: '$x = -2$', isCorrect: false }, { id: 'c', text: '$x = 5$ og $x = -5$', isCorrect: true }, { id: 'd', text: '$x = 5$', isCorrect: false } ], solution: 'Nevneren er $x^2 - 25 = (x - 5)(x + 5)$, som er null for $x = 5$ og $x = -5$. Telleren $x + 2$ er henholdsvis $7$ og $-3$ i disse punktene, altså ikke null. Vertikale asymptoter: $x = 5$ og $x = -5$.' } },
-    { id: '1t-3-7-n-audio-3', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-7-narrativ-del3.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-7-n-quiz2', type: 'exercise', exercise: { id: '1t-3-7-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv på vertikale asymptoter:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-7-n-quiz2-q0',
+            task: 'Hvilke vertikale asymptoter har $g(x) = \\frac{x + 2}{x^2 - 25}$?',
+            options: [
+              { id: 'a', text: '$x = 25$', isCorrect: false },
+              { id: 'b', text: '$x = -2$', isCorrect: false },
+              { id: 'c', text: '$x = 5$ og $x = -5$', isCorrect: true },
+              { id: 'd', text: '$x = 5$', isCorrect: false },
+            ],
+            solution: 'Nevneren er $x^2 - 25 = (x - 5)(x + 5)$, som er null for $x = 5$ og $x = -5$. Telleren er ikke null i disse punktene. Vertikale asymptoter: $x = 5$ og $x = -5$.',
+          },
+          {
+            id: '1t-3-7-n-quiz2-q1',
+            task: 'Hva skjer med funksjonsverdien nær en vertikal asymptote?',
+            options: [
+              { id: 'a', text: 'Funksjonen blir lik null', isCorrect: false },
+              { id: 'b', text: 'Funksjonen nærmer seg $\\pm\\infty$', isCorrect: true },
+              { id: 'c', text: 'Funksjonen krysser asymptoten', isCorrect: false },
+              { id: 'd', text: 'Funksjonen er konstant', isCorrect: false },
+            ],
+            solution: 'Nær en vertikal asymptote blir nevneren veldig liten, og brøken eksploderer mot pluss eller minus uendelig. Grafen skyter rett opp eller rett ned.',
+          },
+          {
+            id: '1t-3-7-n-quiz2-q2',
+            task: 'Funksjonen $f(x) = \\frac{2}{x - 4}$ har en vertikal asymptote i $x = 4$. Hva er $f(4{,}001)$?',
+            options: [
+              { id: 'a', text: '$200$', isCorrect: false },
+              { id: 'b', text: '$2000$', isCorrect: true },
+              { id: 'c', text: '$20$', isCorrect: false },
+              { id: 'd', text: '$-2000$', isCorrect: false },
+            ],
+            solution: '$f(4{,}001) = \\frac{2}{4{,}001 - 4} = \\frac{2}{0{,}001} = 2000$. Jo nærmere vi kommer asymptoten, desto større blir verdien.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-7-n-section3',
       type: 'text',
       content: `## Horisontale asymptoter – hva skjer langt borte?
@@ -1925,9 +2828,41 @@ Hvis graden til telleren er *lik* graden til nevneren, er den horisontale asympt
 
 Hvis graden til telleren er *høyere* enn graden til nevneren, finnes det ingen horisontal asymptote. Da vokser funksjonen uten grense.`,
     },
-    { id: '1t-3-7-n-quiz3', type: 'exercise', exercise: { id: '1t-3-7-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hva er den horisontale asymptoten til $f(x) = \\frac{5x + 7}{2x - 1}$?', options: [ { id: 'a', text: '$y = 0$', isCorrect: false }, { id: 'b', text: '$y = 7$', isCorrect: false }, { id: 'c', text: '$y = \\frac{5}{2}$', isCorrect: true }, { id: 'd', text: 'Funksjonen har ingen horisontal asymptote', isCorrect: false } ], solution: 'Teller og nevner har begge grad 1. Ledende koeffisient i telleren er $5$, i nevneren $2$. Horisontal asymptote: $y = \\frac{5}{2}$.' } },
-    { id: '1t-3-7-n-audio-4', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-7-narrativ-del4.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-7-n-quiz3', type: 'exercise', exercise: { id: '1t-3-7-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv på horisontale asymptoter:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-7-n-quiz3-q0',
+            task: 'Hva er den horisontale asymptoten til $f(x) = \\frac{5x + 7}{2x - 1}$?',
+            options: [
+              { id: 'a', text: '$y = 0$', isCorrect: false },
+              { id: 'b', text: '$y = 7$', isCorrect: false },
+              { id: 'c', text: '$y = \\frac{5}{2}$', isCorrect: true },
+              { id: 'd', text: 'Funksjonen har ingen horisontal asymptote', isCorrect: false },
+            ],
+            solution: 'Teller og nevner har begge grad 1. Ledende koeffisient i telleren er $5$, i nevneren $2$. Horisontal asymptote: $y = \\frac{5}{2}$.',
+          },
+          {
+            id: '1t-3-7-n-quiz3-q1',
+            task: 'Hva er den horisontale asymptoten til $f(x) = \\frac{3}{x + 1}$?',
+            options: [
+              { id: 'a', text: '$y = 3$', isCorrect: false },
+              { id: 'b', text: '$y = 1$', isCorrect: false },
+              { id: 'c', text: '$y = 0$', isCorrect: true },
+              { id: 'd', text: 'Ingen horisontal asymptote', isCorrect: false },
+            ],
+            solution: 'Telleren har grad 0 og nevneren grad 1. Tellergraden er lavere, altså er den horisontale asymptoten $y = 0$.',
+          },
+          {
+            id: '1t-3-7-n-quiz3-q2',
+            task: 'Når har en rasjonal funksjon INGEN horisontal asymptote?',
+            options: [
+              { id: 'a', text: 'Når teller og nevner har lik grad', isCorrect: false },
+              { id: 'b', text: 'Når tellergraden er lavere enn nevnergraden', isCorrect: false },
+              { id: 'c', text: 'Når tellergraden er høyere enn nevnergraden', isCorrect: true },
+              { id: 'd', text: 'Når nevneren er lineær', isCorrect: false },
+            ],
+            solution: 'Når tellergraden er høyere enn nevnergraden, vokser funksjonen uten grense for store $x$-verdier, og det finnes ingen horisontal asymptote.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-7-n-section4',
       type: 'text',
       content: `## Hull i grafen – når teller og nevner deler en faktor
@@ -1942,9 +2877,41 @@ La oss ta et eksempel til. Hva med $f(x) = \\frac{x^2 - x - 6}{x - 3}$? Vi fakto
 
 Huskeregelen er enkel: hvis teller og nevner har en felles faktor, forkorter vi og får et hull. Hvis nevneren er null mens telleren ikke er det, får vi en vertikal asymptote.`,
     },
-    { id: '1t-3-7-n-quiz4', type: 'exercise', exercise: { id: '1t-3-7-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hva skjer med grafen til $f(x) = \\frac{x^2 - 4}{x + 2}$ i $x = -2$?', options: [ { id: 'a', text: 'Det er en vertikal asymptote', isCorrect: false }, { id: 'b', text: 'Funksjonen har verdien $0$', isCorrect: false }, { id: 'c', text: 'Grafen krysser $x$-aksen', isCorrect: false }, { id: 'd', text: 'Det er et hull i grafen i punktet $(-2, -4)$', isCorrect: true } ], solution: 'Vi faktoriserer: $\\frac{x^2 - 4}{x + 2} = \\frac{(x - 2)(x + 2)}{x + 2} = x - 2$ for $x \\neq -2$. Grafen er linjen $y = x - 2$ med et hull i $x = -2$, der $y = -2 - 2 = -4$. Altså hull i $(-2, -4)$.' } },
-    { id: '1t-3-7-n-audio-5', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-7-narrativ-del5.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-7-n-quiz4', type: 'exercise', exercise: { id: '1t-3-7-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv på hull i grafen:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-7-n-quiz4-q0',
+            task: 'Hva skjer med grafen til $f(x) = \\frac{x^2 - 4}{x + 2}$ i $x = -2$?',
+            options: [
+              { id: 'a', text: 'Det er en vertikal asymptote', isCorrect: false },
+              { id: 'b', text: 'Funksjonen har verdien $0$', isCorrect: false },
+              { id: 'c', text: 'Grafen krysser $x$-aksen', isCorrect: false },
+              { id: 'd', text: 'Det er et hull i grafen i punktet $(-2, -4)$', isCorrect: true },
+            ],
+            solution: 'Vi faktoriserer: $\\frac{(x - 2)(x + 2)}{x + 2} = x - 2$ for $x \\neq -2$. Grafen er linjen $y = x - 2$ med hull i $(-2, -4)$.',
+          },
+          {
+            id: '1t-3-7-n-quiz4-q1',
+            task: 'Hva er forskjellen mellom et hull og en vertikal asymptote?',
+            options: [
+              { id: 'a', text: 'Det er ingen forskjell', isCorrect: false },
+              { id: 'b', text: 'Hull oppstår når teller og nevner har felles faktor, asymptote når de ikke har det', isCorrect: true },
+              { id: 'c', text: 'Hull oppstår bare i lineære funksjoner', isCorrect: false },
+              { id: 'd', text: 'Asymptote oppstår bare i nevneren', isCorrect: false },
+            ],
+            solution: 'Et hull oppstår når teller og nevner begge er null i samme punkt (felles faktor som kan strykes). En vertikal asymptote oppstår når bare nevneren er null -- da eksploderer funksjonen.',
+          },
+          {
+            id: '1t-3-7-n-quiz4-q2',
+            task: 'I $f(x) = \\frac{x^2 - 1}{x - 1}$: hva er koordinatene til hullet?',
+            options: [
+              { id: 'a', text: '$(1, 0)$', isCorrect: false },
+              { id: 'b', text: '$(1, 2)$', isCorrect: true },
+              { id: 'c', text: '$(-1, 0)$', isCorrect: false },
+              { id: 'd', text: '$(1, 1)$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer: $\\frac{(x-1)(x+1)}{x-1} = x + 1$ for $x \\neq 1$. Hullet er i $x = 1$, og $y = 1 + 1 = 2$. Koordinatene er $(1, 2)$.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-7-n-section5',
       type: 'text',
       content: `## Å skissere rasjonale funksjoner – hele bildet
@@ -1965,9 +2932,41 @@ La oss prøve en til: $f(x) = \\frac{2x - 4}{x + 3}$. Vertikal asymptote der $x 
 
 Med disse fem stegene – definisjonsmengde, vertikale asymptoter, horisontale asymptoter, nullpunkter og $y$-skjæring – kan du tegne en god skisse av enhver rasjonal funksjon du møter.`,
     },
-    { id: '1t-3-7-n-quiz5', type: 'exercise', exercise: { id: '1t-3-7-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva er nullpunktene til $f(x) = \\frac{x^2 - 9}{x - 1}$?', options: [ { id: 'a', text: '$x = 1$', isCorrect: false }, { id: 'b', text: '$x = 3$ og $x = -3$', isCorrect: true }, { id: 'c', text: '$x = 9$ og $x = -9$', isCorrect: false }, { id: 'd', text: '$x = 3$', isCorrect: false } ], solution: 'Nullpunktene finner vi ved å sette telleren lik null: $x^2 - 9 = 0$, altså $(x - 3)(x + 3) = 0$, som gir $x = 3$ og $x = -3$. Vi sjekker at nevneren ikke er null i disse punktene: $3 - 1 = 2 \\neq 0$ og $-3 - 1 = -4 \\neq 0$. Begge er gyldige nullpunkter.' } },
-    { id: '1t-3-7-n-audio-6', type: 'audio', title: 'Lytt til oppsummeringen', src: '/audio/1t/1t-3-7-narrativ-del6.mp3', description: 'Lydfil som leser opp oppsummeringen.' },
-    {
+    { id: '1t-3-7-n-quiz5', type: 'exercise', exercise: { id: '1t-3-7-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv på å analysere rasjonale funksjoner:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-7-n-quiz5-q0',
+            task: 'Hva er nullpunktene til $f(x) = \\frac{x^2 - 9}{x - 1}$?',
+            options: [
+              { id: 'a', text: '$x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = 3$ og $x = -3$', isCorrect: true },
+              { id: 'c', text: '$x = 9$ og $x = -9$', isCorrect: false },
+              { id: 'd', text: '$x = 3$', isCorrect: false },
+            ],
+            solution: 'Nullpunktene finner vi ved å sette telleren lik null: $x^2 - 9 = (x-3)(x+3) = 0$, altså $x = 3$ og $x = -3$. Nevneren er ikke null i disse punktene.',
+          },
+          {
+            id: '1t-3-7-n-quiz5-q1',
+            task: 'For $f(x) = \\frac{x + 2}{x - 1}$, hva er $y$-skjæringen?',
+            options: [
+              { id: 'a', text: '$(0, -2)$', isCorrect: true },
+              { id: 'b', text: '$(0, 2)$', isCorrect: false },
+              { id: 'c', text: '$(0, 1)$', isCorrect: false },
+              { id: 'd', text: '$(0, -1)$', isCorrect: false },
+            ],
+            solution: '$y$-skjæringen finner vi ved $f(0) = \\frac{0 + 2}{0 - 1} = \\frac{2}{-1} = -2$. Punktet er $(0, -2)$.',
+          },
+          {
+            id: '1t-3-7-n-quiz5-q2',
+            task: 'Hvilke fem steg bruker vi for å analysere en rasjonal funksjon fullstendig?',
+            options: [
+              { id: 'a', text: 'Derivere, integrere, faktorisere, tegne, sjekke', isCorrect: false },
+              { id: 'b', text: 'Definisjonsmengde, vertikale asymptoter, horisontale asymptoter, nullpunkter, $y$-skjæring', isCorrect: true },
+              { id: 'c', text: 'ABC-formelen, diskriminant, nullregel, inspeksjon, konjugat', isCorrect: false },
+              { id: 'd', text: 'Teller, nevner, brøk, forenkling, fortegn', isCorrect: false },
+            ],
+            solution: 'De fem stegene er: (1) Definisjonsmengde, (2) Vertikale asymptoter, (3) Horisontale asymptoter, (4) Nullpunkter og (5) $y$-skjæring. Sammen gir de et komplett bilde av funksjonen.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-7-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -2000,9 +2999,7 @@ export const CHAPTER_1T_3_8_NARRATIV: TextbookChapter = {
   estimatedMinutes: 35,
   competenceGoals: ['forstå eksponentialfunksjoner'],
   linkedChapterId: '1t-3-8',
-  content: [
-    { id: '1t-3-8-n-audio-1', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-8-narrativ-del1.mp3', description: 'Lydfil som leser opp teksten frem til første quiz.' },
-    {
+  content: [    {
       id: '1t-3-8-n-intro',
       type: 'text',
       content: `## Når veksten tar av
@@ -2025,9 +3022,41 @@ Men vekstfaktoren trenger ikke være et helt tall. I mange situasjoner er den kn
 
 Nøkkelen er at eksponentiell vekst ikke legger til et fast beløp hver gang (det ville vært lineær vekst), men *multipliserer* med en fast faktor. Det gjør at veksten akselererer over tid – i starten virker den beskjeden, men etter hvert blir den eksplosiv.`,
     },
-    { id: '1t-3-8-n-quiz1', type: 'exercise', exercise: { id: '1t-3-8-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'En investering på 20 000 kr vokser med 6% per år. Hvilken funksjon beskriver verdien etter $t$ år?', options: [ { id: 'a', text: '$V(t) = 20\\,000 + 0{,}06t$', isCorrect: false }, { id: 'b', text: '$V(t) = 20\\,000 \\cdot 0{,}06^t$', isCorrect: false }, { id: 'c', text: '$V(t) = 20\\,000 \\cdot 1{,}06^t$', isCorrect: true }, { id: 'd', text: '$V(t) = 20\\,000 \\cdot 6^t$', isCorrect: false } ], solution: 'Startverdien er $a = 20\\,000$ og vekstfaktoren er $b = 1 + 0{,}06 = 1{,}06$. Funksjonen blir $V(t) = 20\\,000 \\cdot 1{,}06^t$.' } },
-    { id: '1t-3-8-n-audio-2', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-8-narrativ-del2.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-8-n-quiz1', type: 'exercise', exercise: { id: '1t-3-8-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv på eksponentiell vekst:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-8-n-quiz1-q0',
+            task: 'En investering på 20 000 kr vokser med 6% per år. Hvilken funksjon beskriver verdien etter $t$ år?',
+            options: [
+              { id: 'a', text: '$V(t) = 20\\,000 + 0{,}06t$', isCorrect: false },
+              { id: 'b', text: '$V(t) = 20\\,000 \\cdot 0{,}06^t$', isCorrect: false },
+              { id: 'c', text: '$V(t) = 20\\,000 \\cdot 1{,}06^t$', isCorrect: true },
+              { id: 'd', text: '$V(t) = 20\\,000 \\cdot 6^t$', isCorrect: false },
+            ],
+            solution: 'Startverdien er $a = 20\\,000$ og vekstfaktoren er $b = 1 + 0{,}06 = 1{,}06$. Funksjonen blir $V(t) = 20\\,000 \\cdot 1{,}06^t$.',
+          },
+          {
+            id: '1t-3-8-n-quiz1-q1',
+            task: 'Hva er vekstfaktoren $b$ når noe øker med $p\\%$ per tidsenhet?',
+            options: [
+              { id: 'a', text: '$b = p$', isCorrect: false },
+              { id: 'b', text: '$b = 1 + \\frac{p}{100}$', isCorrect: true },
+              { id: 'c', text: '$b = \\frac{p}{100}$', isCorrect: false },
+              { id: 'd', text: '$b = 1 - \\frac{p}{100}$', isCorrect: false },
+            ],
+            solution: 'Vekstfaktoren ved $p\\%$ økning er $b = 1 + \\frac{p}{100}$. For eksempel gir $8\\%$ økning $b = 1{,}08$.',
+          },
+          {
+            id: '1t-3-8-n-quiz1-q2',
+            task: 'Hva er forskjellen mellom lineær og eksponentiell vekst?',
+            options: [
+              { id: 'a', text: 'Lineær vekst legger til et fast beløp, eksponentiell multipliserer med en fast faktor', isCorrect: true },
+              { id: 'b', text: 'De er det samme, bare skrevet forskjellig', isCorrect: false },
+              { id: 'c', text: 'Eksponentiell vekst er alltid raskere', isCorrect: false },
+              { id: 'd', text: 'Lineær vekst har alltid høyere startverdi', isCorrect: false },
+            ],
+            solution: 'Lineær vekst legger til et fast beløp hvert steg (f.eks. $+100$ per år), mens eksponentiell vekst multipliserer med en fast faktor (f.eks. $\\cdot 1{,}08$ per år). Eksponentiell vekst akselererer over tid.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-8-n-section2', type: 'text',
       content: `## Eksponentiell nedgang – når ting krymper
 
@@ -2039,9 +3068,41 @@ Generelt: hvis noe avtar med $p\\%$ per tidsenhet, er vekstfaktoren $b = 1 - \\f
 
 Det som er spesielt med eksponentiell nedgang er at verdien aldri når null. Den krymper og krymper, men det er alltid litt igjen. Matematisk betyr dette at grafen har en **horisontal asymptote** i $y = 0$. Merk deg forskjellen: vekstfaktor $b > 1$ gir vekst, og $0 < b < 1$ gir nedgang. Grensen ved $b = 1$ gir en konstant funksjon.`,
     },
-    { id: '1t-3-8-n-quiz2', type: 'exercise', exercise: { id: '1t-3-8-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'En datamaskin koster 12 000 kr og mister 30% av verdien per år. Hva er verdien etter 3 år?', options: [ { id: 'a', text: 'Ca. 1 200 kr', isCorrect: false }, { id: 'b', text: 'Ca. 4 116 kr', isCorrect: true }, { id: 'c', text: 'Ca. 8 400 kr', isCorrect: false }, { id: 'd', text: 'Ca. 2 520 kr', isCorrect: false } ], solution: 'Vekstfaktoren er $b = 1 - 0{,}30 = 0{,}70$. Etter 3 år: $V(3) = 12\\,000 \\cdot 0{,}70^3 = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kr.' } },
-    { id: '1t-3-8-n-audio-3', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-8-narrativ-del3.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-8-n-quiz2', type: 'exercise', exercise: { id: '1t-3-8-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv på eksponentiell nedgang:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-8-n-quiz2-q0',
+            task: 'En datamaskin koster 12 000 kr og mister 30% av verdien per år. Hva er verdien etter 3 år?',
+            options: [
+              { id: 'a', text: 'Ca. 1 200 kr', isCorrect: false },
+              { id: 'b', text: 'Ca. 4 116 kr', isCorrect: true },
+              { id: 'c', text: 'Ca. 8 400 kr', isCorrect: false },
+              { id: 'd', text: 'Ca. 2 520 kr', isCorrect: false },
+            ],
+            solution: 'Vekstfaktoren er $b = 1 - 0{,}30 = 0{,}70$. Etter 3 år: $V(3) = 12\\,000 \\cdot 0{,}70^3 = 12\\,000 \\cdot 0{,}343 = 4\\,116$ kr.',
+          },
+          {
+            id: '1t-3-8-n-quiz2-q1',
+            task: 'Hva er vekstfaktoren når noe mister $15\\%$ per år?',
+            options: [
+              { id: 'a', text: '$b = 1{,}15$', isCorrect: false },
+              { id: 'b', text: '$b = 0{,}15$', isCorrect: false },
+              { id: 'c', text: '$b = 0{,}85$', isCorrect: true },
+              { id: 'd', text: '$b = -0{,}15$', isCorrect: false },
+            ],
+            solution: 'Ved $15\\%$ nedgang: $b = 1 - \\frac{15}{100} = 1 - 0{,}15 = 0{,}85$. Vi trekker prosenten fra 1 fordi verdien avtar.',
+          },
+          {
+            id: '1t-3-8-n-quiz2-q2',
+            task: 'Når har vi eksponentiell nedgang?',
+            options: [
+              { id: 'a', text: 'Når $b > 1$', isCorrect: false },
+              { id: 'b', text: 'Når $b = 1$', isCorrect: false },
+              { id: 'c', text: 'Når $0 < b < 1$', isCorrect: true },
+              { id: 'd', text: 'Når $b < 0$', isCorrect: false },
+            ],
+            solution: 'Eksponentiell nedgang skjer når vekstfaktoren $b$ er mellom 0 og 1. Da krymper verdien for hvert steg, men når aldri helt null.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-8-n-section3', type: 'text',
       content: `## Grafens egenskaper – hva eksponentialfunksjoner ser ut som
 
@@ -2053,9 +3114,41 @@ Når $b > 1$, stiger grafen fra venstre mot høyre. For små $x$-verdier er den 
 
 Et fint eksempel er å sammenligne $f(x) = 2^x$ og $g(x) = \\left(\\frac{1}{2}\\right)^x$. Begge har $y$-skjæring i $(0, 1)$, men $f$ stiger mens $g$ synker. Faktisk er $\\left(\\frac{1}{2}\\right)^x = 2^{-x}$, så $g$ er bare en speiling av $f$ om $y$-aksen. Funksjonen $h(x) = 50 \\cdot 2^{-x}$ er også nedgang fordi $2^{-x} = \\left(\\frac{1}{2}\\right)^x$, altså har vi egentlig $b = 0{,}5 < 1$.`,
     },
-    { id: '1t-3-8-n-quiz3', type: 'exercise', exercise: { id: '1t-3-8-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hvilken av disse funksjonene viser eksponentiell nedgang?', options: [ { id: 'a', text: '$f(x) = 3 \\cdot 1{,}5^x$', isCorrect: false }, { id: 'b', text: '$g(x) = 100 \\cdot 0{,}9^x$', isCorrect: true }, { id: 'c', text: '$h(x) = 5 \\cdot 3^x$', isCorrect: false }, { id: 'd', text: '$k(x) = 2x + 10$', isCorrect: false } ], solution: 'Eksponentiell nedgang har vekstfaktor $0 < b < 1$. Funksjonen $g(x) = 100 \\cdot 0{,}9^x$ har $b = 0{,}9 < 1$, altså nedgang.' } },
-    { id: '1t-3-8-n-audio-4', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-8-narrativ-del4.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-8-n-quiz3', type: 'exercise', exercise: { id: '1t-3-8-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv på grafens egenskaper:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-8-n-quiz3-q0',
+            task: 'Hvilken av disse funksjonene viser eksponentiell nedgang?',
+            options: [
+              { id: 'a', text: '$f(x) = 3 \\cdot 1{,}5^x$', isCorrect: false },
+              { id: 'b', text: '$g(x) = 100 \\cdot 0{,}9^x$', isCorrect: true },
+              { id: 'c', text: '$h(x) = 5 \\cdot 3^x$', isCorrect: false },
+              { id: 'd', text: '$k(x) = 2x + 10$', isCorrect: false },
+            ],
+            solution: 'Eksponentiell nedgang har vekstfaktor $0 < b < 1$. Funksjonen $g(x) = 100 \\cdot 0{,}9^x$ har $b = 0{,}9 < 1$, altså nedgang.',
+          },
+          {
+            id: '1t-3-8-n-quiz3-q1',
+            task: 'Hva er $y$-skjæringen til $f(x) = 7 \\cdot 2^x$?',
+            options: [
+              { id: 'a', text: '$(0, 2)$', isCorrect: false },
+              { id: 'b', text: '$(0, 14)$', isCorrect: false },
+              { id: 'c', text: '$(0, 7)$', isCorrect: true },
+              { id: 'd', text: '$(7, 0)$', isCorrect: false },
+            ],
+            solution: '$f(0) = 7 \\cdot 2^0 = 7 \\cdot 1 = 7$. $y$-skjæringen er $(0, 7)$, altså startverdien $a$.',
+          },
+          {
+            id: '1t-3-8-n-quiz3-q2',
+            task: 'Har eksponentialfunksjonen $f(x) = 4 \\cdot 3^x$ noen nullpunkter?',
+            options: [
+              { id: 'a', text: 'Ja, i $x = 0$', isCorrect: false },
+              { id: 'b', text: 'Ja, i $x = -4$', isCorrect: false },
+              { id: 'c', text: 'Nei, funksjonen er alltid positiv', isCorrect: true },
+              { id: 'd', text: 'Ja, i $x = -\\infty$', isCorrect: false },
+            ],
+            solution: 'Siden $3^x > 0$ for alle $x$, og $4 > 0$, er $f(x) = 4 \\cdot 3^x > 0$ for alle $x$. Grafen krysser aldri $x$-aksen, og $y = 0$ er en horisontal asymptote.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-8-n-section4', type: 'text',
       content: `## Doblingstid, halveringstid og praktiske anvendelser
 
@@ -2069,9 +3162,41 @@ La oss også se på et renteeksempel. Du setter 10 000 kr i banken med $3\\%$ å
 
 Uansett om det handler om bakterier, penger, radioaktivitet eller bilverdi – modellen er den samme: $f(x) = a \\cdot b^x$. Du trenger bare å identifisere startverdien og vekstfaktoren.`,
     },
-    { id: '1t-3-8-n-quiz4', type: 'exercise', exercise: { id: '1t-3-8-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Et radioaktivt stoff har halveringstid 8 år. Du starter med 160 gram. Hvor mye er igjen etter 24 år?', options: [ { id: 'a', text: '80 gram', isCorrect: false }, { id: 'b', text: '40 gram', isCorrect: false }, { id: 'c', text: '20 gram', isCorrect: true }, { id: 'd', text: '10 gram', isCorrect: false } ], solution: '$N(t) = 160 \\cdot 0{,}5^{t/8}$. Etter 24 år: $N(24) = 160 \\cdot 0{,}5^{24/8} = 160 \\cdot 0{,}5^3 = 160 \\cdot 0{,}125 = 20$ gram.' } },
-    { id: '1t-3-8-n-audio-5', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-3-8-narrativ-del5.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    { id: '1t-3-8-n-quiz4', type: 'exercise', exercise: { id: '1t-3-8-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv på doblingstid og halveringstid:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-8-n-quiz4-q0',
+            task: 'Et radioaktivt stoff har halveringstid 8 år. Du starter med 160 gram. Hvor mye er igjen etter 24 år?',
+            options: [
+              { id: 'a', text: '80 gram', isCorrect: false },
+              { id: 'b', text: '40 gram', isCorrect: false },
+              { id: 'c', text: '20 gram', isCorrect: true },
+              { id: 'd', text: '10 gram', isCorrect: false },
+            ],
+            solution: '$N(24) = 160 \\cdot 0{,}5^{24/8} = 160 \\cdot 0{,}5^3 = 160 \\cdot 0{,}125 = 20$ gram. Etter 24 år har stoffet halvert seg 3 ganger.',
+          },
+          {
+            id: '1t-3-8-n-quiz4-q1',
+            task: 'En bakteriekoloni dobler seg hvert 4. døgn, og starter med 500 bakterier. Hvor mange er det etter 12 døgn?',
+            options: [
+              { id: 'a', text: '1 500', isCorrect: false },
+              { id: 'b', text: '2 000', isCorrect: false },
+              { id: 'c', text: '4 000', isCorrect: true },
+              { id: 'd', text: '6 000', isCorrect: false },
+            ],
+            solution: '$N(12) = 500 \\cdot 2^{12/4} = 500 \\cdot 2^3 = 500 \\cdot 8 = 4\\,000$ bakterier. Etter 12 døgn har kolonien doblet seg 3 ganger.',
+          },
+          {
+            id: '1t-3-8-n-quiz4-q2',
+            task: 'Hva er halveringstid?',
+            options: [
+              { id: 'a', text: 'Tiden det tar før verdien er null', isCorrect: false },
+              { id: 'b', text: 'Tiden det tar før verdien er halvert', isCorrect: true },
+              { id: 'c', text: 'Halvparten av doblingstiden', isCorrect: false },
+              { id: 'd', text: 'Tiden det tar før vekstfaktoren halveres', isCorrect: false },
+            ],
+            solution: 'Halveringstid er tiden det tar før verdien er halvparten av hva den var. Med halveringstid $T$ er funksjonen $N(t) = N_0 \\cdot 0{,}5^{t/T}$. Verdien når aldri helt null.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-8-n-section5', type: 'text',
       content: `## Finne $a$ og $b$ fra opplysninger
 
@@ -2083,9 +3208,41 @@ Hvis begge punktene har $x \\neq 0$, må vi sette opp et likningssystem. For eks
 
 Huskeregelen for vekstfaktorer: $p\\%$ økning gir $b = 1 + \\frac{p}{100}$, $p\\%$ nedgang gir $b = 1 - \\frac{p}{100}$, dobling gir $b = 2$, tredobling gir $b = 3$, og halvering gir $b = 0{,}5$.`,
     },
-    { id: '1t-3-8-n-quiz5', type: 'exercise', exercise: { id: '1t-3-8-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Grafen til $f(x) = a \\cdot b^x$ går gjennom $(0, 5)$ og $(2, 45)$. Hva er funksjonsuttrykket?', options: [ { id: 'a', text: '$f(x) = 5 \\cdot 9^x$', isCorrect: false }, { id: 'b', text: '$f(x) = 45 \\cdot 3^x$', isCorrect: false }, { id: 'c', text: '$f(x) = 5 \\cdot 3^x$', isCorrect: true }, { id: 'd', text: '$f(x) = 5 \\cdot 45^x$', isCorrect: false } ], solution: 'Fra $(0, 5)$: $a = 5$. Fra $(2, 45)$: $5 \\cdot b^2 = 45$, altså $b^2 = 9$ og $b = 3$. Funksjonen er $f(x) = 5 \\cdot 3^x$.' } },
-    { id: '1t-3-8-n-audio-6', type: 'audio', title: 'Lytt til oppsummeringen', src: '/audio/1t/1t-3-8-narrativ-del6.mp3', description: 'Lydfil som leser opp oppsummeringen.' },
-    {
+    { id: '1t-3-8-n-quiz5', type: 'exercise', exercise: { id: '1t-3-8-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv på å finne $a$ og $b$:', options: [ { id: 'a', text: 'placeholder', isCorrect: true } ], questions: [
+          {
+            id: '1t-3-8-n-quiz5-q0',
+            task: 'Grafen til $f(x) = a \\cdot b^x$ går gjennom $(0, 5)$ og $(2, 45)$. Hva er funksjonsuttrykket?',
+            options: [
+              { id: 'a', text: '$f(x) = 5 \\cdot 9^x$', isCorrect: false },
+              { id: 'b', text: '$f(x) = 45 \\cdot 3^x$', isCorrect: false },
+              { id: 'c', text: '$f(x) = 5 \\cdot 3^x$', isCorrect: true },
+              { id: 'd', text: '$f(x) = 5 \\cdot 45^x$', isCorrect: false },
+            ],
+            solution: 'Fra $(0, 5)$: $a = 5$. Fra $(2, 45)$: $5 \\cdot b^2 = 45$, altså $b^2 = 9$ og $b = 3$. Funksjonen er $f(x) = 5 \\cdot 3^x$.',
+          },
+          {
+            id: '1t-3-8-n-quiz5-q1',
+            task: 'Hvis $f(0) = a \\cdot b^0$, hva er $f(0)$?',
+            options: [
+              { id: 'a', text: '$f(0) = 0$', isCorrect: false },
+              { id: 'b', text: '$f(0) = b$', isCorrect: false },
+              { id: 'c', text: '$f(0) = a$', isCorrect: true },
+              { id: 'd', text: '$f(0) = ab$', isCorrect: false },
+            ],
+            solution: 'Siden $b^0 = 1$ for alle $b > 0$, blir $f(0) = a \\cdot 1 = a$. Startverdien $a$ kan alltid leses direkte av $y$-skjæringen.',
+          },
+          {
+            id: '1t-3-8-n-quiz5-q2',
+            task: 'Grafen til $f(x) = a \\cdot b^x$ går gjennom $(1, 6)$ og $(3, 54)$. Hva er $b$?',
+            options: [
+              { id: 'a', text: '$b = 9$', isCorrect: false },
+              { id: 'b', text: '$b = 3$', isCorrect: true },
+              { id: 'c', text: '$b = 6$', isCorrect: false },
+              { id: 'd', text: '$b = 54$', isCorrect: false },
+            ],
+            solution: 'Vi har $ab = 6$ og $ab^3 = 54$. Vi deler: $\\frac{ab^3}{ab} = \\frac{54}{6}$, altså $b^2 = 9$ og $b = 3$.',
+          },
+        ], solution: '' } },    {
       id: '1t-3-8-n-summary', type: 'text',
       content: `## Oppsummering
 

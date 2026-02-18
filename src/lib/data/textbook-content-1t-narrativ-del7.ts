@@ -25,9 +25,7 @@ export const CHAPTER_1T_1_8_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['forklare polynomdivisjon', 'utfore enkel polynomdivisjon'],
   linkedChapterId: '1t-1-8',
-  content: [
-    { id: '1t-1-8-n-audio-1', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-8-narrativ-del1.mp3', description: 'Lydfil som leser opp teksten frem til forste quiz.' },
-    {
+  content: [    {
       id: '1t-1-8-n-intro',
       type: 'text',
       content: `## Divisjon med bokstaver
@@ -64,18 +62,56 @@ Det finnes ogsaa et spesialtilfelle som er verdt aa merke seg: $\\frac{x^n}{x^n}
         id: '1t-1-8-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva blir $\\frac{12x^5}{4x^2}$?',
-        options: [
-          { id: 'a', text: '$3x^3$', isCorrect: true },
-          { id: 'b', text: '$3x^7$', isCorrect: false },
-          { id: 'c', text: '$8x^3$', isCorrect: false },
-          { id: 'd', text: '$3x^{2{,}5}$', isCorrect: false },
+        task: 'Test deg selv paa monomdivisjon og potensregler:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-8-n-quiz1-q0',
+            task: 'Hva blir $\\frac{12x^5}{4x^2}$?',
+            options: [
+              { id: 'a', text: '$3x^3$', isCorrect: true },
+              { id: 'b', text: '$3x^7$', isCorrect: false },
+              { id: 'c', text: '$8x^3$', isCorrect: false },
+              { id: 'd', text: '$3x^{2{,}5}$', isCorrect: false },
+            ],
+            solution: 'Vi deler koeffisientene: $12 / 4 = 3$. Deretter trekker vi fra eksponentene: $x^{5-2} = x^3$. Svaret er $3x^3$.',
+          },
+          {
+            id: '1t-1-8-n-quiz1-q1',
+            task: 'Hva blir $\\frac{-10x^6}{2x^2}$?',
+            options: [
+              { id: 'a', text: '$-5x^3$', isCorrect: false },
+              { id: 'b', text: '$5x^4$', isCorrect: false },
+              { id: 'c', text: '$-5x^4$', isCorrect: true },
+              { id: 'd', text: '$-8x^4$', isCorrect: false },
+            ],
+            solution: 'Koeffisientene: $-10 / 2 = -5$. Eksponentene: $x^{6-2} = x^4$. Husk at minus delt paa pluss gir minus. Svaret er $-5x^4$.',
+          },
+          {
+            id: '1t-1-8-n-quiz1-q2',
+            task: 'Hva blir $\\frac{15x^3}{5x^3}$?',
+            options: [
+              { id: 'a', text: '$3x$', isCorrect: false },
+              { id: 'b', text: '$10$', isCorrect: false },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$3$', isCorrect: true },
+            ],
+            solution: 'Koeffisientene: $15 / 5 = 3$. Eksponentene: $x^{3-3} = x^0 = 1$. Naar eksponentene er like, forsvinner $x$ helt. Svaret er $3 \\cdot 1 = 3$.',
+          },
+          {
+            id: '1t-1-8-n-quiz1-q3',
+            task: 'Hvilken potensregel bruker vi naar vi deler $x^m$ paa $x^n$?',
+            options: [
+              { id: 'a', text: '$x^m \\cdot x^n = x^{m+n}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{x^m}{x^n} = x^{m \\cdot n}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{x^m}{x^n} = x^{m-n}$', isCorrect: true },
+              { id: 'd', text: '$\\frac{x^m}{x^n} = x^{n-m}$', isCorrect: false },
+            ],
+            solution: 'Potensregelen for divisjon sier at $\\frac{x^m}{x^n} = x^{m-n}$. Vi trekker eksponenten i nevneren fra eksponenten i telleren. For eksempel: $\\frac{x^5}{x^2} = x^{5-2} = x^3$.',
+          },
         ],
-        solution: 'Vi deler koeffisientene: $12 / 4 = 3$. Deretter trekker vi fra eksponentene: $x^{5-2} = x^3$. Svaret er $3x^3$.',
       },
-    },
-    { id: '1t-1-8-n-audio-2', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-8-narrativ-del2.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-8-n-section2',
       type: 'text',
       content: `## Dele et polynom paa et monom -- ledd for ledd
@@ -107,18 +143,56 @@ Legg merke til at denne metoden alltid fungerer naar divisoren er et monom. Men 
         id: '1t-1-8-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva blir $\\frac{8x^2 + 4x}{2x}$?',
-        options: [
-          { id: 'a', text: '$4x^2 + 2$', isCorrect: false },
-          { id: 'b', text: '$4x + 2$', isCorrect: true },
-          { id: 'c', text: '$6x$', isCorrect: false },
-          { id: 'd', text: '$4x + 4$', isCorrect: false },
+        task: 'Test deg selv paa polynom delt paa monom:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-8-n-quiz2-q0',
+            task: 'Hva blir $\\frac{8x^2 + 4x}{2x}$?',
+            options: [
+              { id: 'a', text: '$4x^2 + 2$', isCorrect: false },
+              { id: 'b', text: '$4x + 2$', isCorrect: true },
+              { id: 'c', text: '$6x$', isCorrect: false },
+              { id: 'd', text: '$4x + 4$', isCorrect: false },
+            ],
+            solution: 'Vi deler hvert ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$.',
+          },
+          {
+            id: '1t-1-8-n-quiz2-q1',
+            task: 'Hvilken regel gjor at vi kan dele hvert ledd i telleren for seg?',
+            options: [
+              { id: 'a', text: '$\\frac{a \\cdot b}{c} = \\frac{a}{c} \\cdot \\frac{b}{c}$', isCorrect: false },
+              { id: 'b', text: '$\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{a}{b + c} = \\frac{a}{b} + \\frac{a}{c}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{a + b}{c} = \\frac{a + b}{c}$ (kan ikke forenkles)', isCorrect: false },
+            ],
+            solution: 'Regelen er $\\frac{a + b}{c} = \\frac{a}{c} + \\frac{b}{c}$. Vi kan dele hvert ledd i telleren paa nevneren separat. Merk at dette IKKE fungerer andre veien -- vi kan ikke splitte nevneren paa samme maate.',
+          },
+          {
+            id: '1t-1-8-n-quiz2-q2',
+            task: 'Hva blir $\\frac{9x^3 - 6x^2 + 3x}{3x}$?',
+            options: [
+              { id: 'a', text: '$3x^2 - 2x + 1$', isCorrect: true },
+              { id: 'b', text: '$3x^3 - 2x^2 + x$', isCorrect: false },
+              { id: 'c', text: '$3x^2 - 6x + 3$', isCorrect: false },
+              { id: 'd', text: '$3x^2 - 2x$', isCorrect: false },
+            ],
+            solution: 'Vi deler ledd for ledd: $\\frac{9x^3}{3x} = 3x^2$, $\\frac{-6x^2}{3x} = -2x$, $\\frac{3x}{3x} = 1$. Svaret er $3x^2 - 2x + 1$.',
+          },
+          {
+            id: '1t-1-8-n-quiz2-q3',
+            task: 'Hva blir $\\frac{x^4 + x^3 + x^2}{x^2}$?',
+            options: [
+              { id: 'a', text: '$x^2 + x$', isCorrect: false },
+              { id: 'b', text: '$x^6 + x^5 + x^4$', isCorrect: false },
+              { id: 'c', text: '$x^2 + x + 1$', isCorrect: true },
+              { id: 'd', text: '$x^2 + x + x^0$', isCorrect: false },
+            ],
+            solution: 'Ledd for ledd: $\\frac{x^4}{x^2} = x^2$, $\\frac{x^3}{x^2} = x$, $\\frac{x^2}{x^2} = 1$. Svaret er $x^2 + x + 1$. Merk at alternativ d) skriver $x^0$ i stedet for $1$, men $x^0 = 1$ saa dette er teknisk sett likt -- dog skriver vi alltid $1$, ikke $x^0$.',
+          },
         ],
-        solution: 'Vi deler hvert ledd for seg: $\\frac{8x^2}{2x} = 4x$ og $\\frac{4x}{2x} = 2$. Svaret er $4x + 2$.',
       },
-    },
-    { id: '1t-1-8-n-audio-3', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-8-narrativ-del3.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-8-n-section3',
       type: 'text',
       content: `## Lang divisjon av polynomer -- steg for steg
@@ -152,18 +226,56 @@ Vi kan sjekke: $(x + 2)(x + 3) = x^2 + 3x + 2x + 6 = x^2 + 5x + 6$. Stemmer! Den
         id: '1t-1-8-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er det forste steget naar du utforer $(x^2 + 7x + 12) : (x + 3)$?',
-        options: [
-          { id: 'a', text: 'Gang $x^2$ med $(x + 3)$', isCorrect: false },
-          { id: 'b', text: 'Trekk $3$ fra $12$', isCorrect: false },
-          { id: 'c', text: 'Del $x^2 + 7x$ paa $x + 3$', isCorrect: false },
-          { id: 'd', text: 'Del $x^2$ paa $x$ og faa $x$', isCorrect: true },
+        task: 'Test deg selv paa lang divisjon av polynomer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-8-n-quiz3-q0',
+            task: 'Hva er det forste steget naar du utforer $(x^2 + 7x + 12) : (x + 3)$?',
+            options: [
+              { id: 'a', text: 'Gang $x^2$ med $(x + 3)$', isCorrect: false },
+              { id: 'b', text: 'Trekk $3$ fra $12$', isCorrect: false },
+              { id: 'c', text: 'Del $x^2 + 7x$ paa $x + 3$', isCorrect: false },
+              { id: 'd', text: 'Del $x^2$ paa $x$ og faa $x$', isCorrect: true },
+            ],
+            solution: 'Det forste steget i lang divisjon er alltid aa dele det forste leddet i dividenden ($x^2$) paa det forste leddet i divisoren ($x$). Det gir $x$, som blir det forste leddet i kvotienten.',
+          },
+          {
+            id: '1t-1-8-n-quiz3-q1',
+            task: 'Hva er kvotienten naar $(x^2 + 5x + 6)$ deles paa $(x + 2)$?',
+            options: [
+              { id: 'a', text: '$x + 2$', isCorrect: false },
+              { id: 'b', text: '$x + 3$', isCorrect: true },
+              { id: 'c', text: '$x + 6$', isCorrect: false },
+              { id: 'd', text: '$x^2 + 3$', isCorrect: false },
+            ],
+            solution: 'Steg 1: $x^2 / x = x$. Gang: $x(x+2) = x^2 + 2x$. Trekk fra: $(x^2+5x+6)-(x^2+2x) = 3x+6$. Steg 2: $3x / x = 3$. Gang: $3(x+2) = 3x+6$. Trekk fra: $0$. Kvotienten er $x + 3$.',
+          },
+          {
+            id: '1t-1-8-n-quiz3-q2',
+            task: 'I lang divisjon av polynomer, naar stopper vi prosessen?',
+            options: [
+              { id: 'a', text: 'Naar resten er et positivt tall', isCorrect: false },
+              { id: 'b', text: 'Naar vi har gjort like mange runder som graden av dividenden', isCorrect: false },
+              { id: 'c', text: 'Naar graden av resten er lavere enn graden av divisoren', isCorrect: true },
+              { id: 'd', text: 'Naar resten er $0$', isCorrect: false },
+            ],
+            solution: 'Vi stopper naar graden av resten er lavere enn graden av divisoren. Resten $0$ er et spesialtilfelle av dette (divisjonen gaar opp), men vi stopper ogsaa ved en rest som $2$ eller $3x+1$, saa lenge den har lavere grad enn divisoren.',
+          },
+          {
+            id: '1t-1-8-n-quiz3-q3',
+            task: 'Hvordan kontrollerer du at svaret paa en polynomdivisjon er riktig?',
+            options: [
+              { id: 'a', text: 'Sett inn $x = 0$ i kvotienten', isCorrect: false },
+              { id: 'b', text: 'Gang kvotienten med divisoren og legg til resten -- du skal faa dividenden', isCorrect: true },
+              { id: 'c', text: 'Divider dividenden paa kvotienten -- du skal faa divisoren', isCorrect: false },
+              { id: 'd', text: 'Sjekk at graden av kvotienten er $1$', isCorrect: false },
+            ],
+            solution: 'Kontrollen baserer seg paa formelen $P(x) = D(x) \\cdot Q(x) + R(x)$. Gang kvotienten med divisoren og legg til resten. Hvis du faar tilbake dividenden, er svaret riktig.',
+          },
         ],
-        solution: 'Det forste steget i lang divisjon er alltid aa dele det forste leddet i dividenden ($x^2$) paa det forste leddet i divisoren ($x$). Det gir $x$, som blir det forste leddet i kvotienten.',
       },
-    },
-    { id: '1t-1-8-n-audio-4', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-8-narrativ-del4.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-8-n-section4',
       type: 'text',
       content: `## Naar divisjonen ikke gaar opp -- rest
@@ -193,18 +305,56 @@ Her er et eksempel til: $(2x^2 + 5x + 1) : (x + 2)$. Forste runde: $\\frac{2x^2}
         id: '1t-1-8-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er resten naar $(x^2 + 4x + 5)$ deles paa $(x + 1)$?',
-        options: [
-          { id: 'a', text: '$0$', isCorrect: false },
-          { id: 'b', text: '$1$', isCorrect: false },
-          { id: 'c', text: '$2$', isCorrect: true },
-          { id: 'd', text: '$5$', isCorrect: false },
+        task: 'Test deg selv paa polynomdivisjon med rest:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-8-n-quiz4-q0',
+            task: 'Hva er resten naar $(x^2 + 4x + 5)$ deles paa $(x + 1)$?',
+            options: [
+              { id: 'a', text: '$0$', isCorrect: false },
+              { id: 'b', text: '$1$', isCorrect: false },
+              { id: 'c', text: '$2$', isCorrect: true },
+              { id: 'd', text: '$5$', isCorrect: false },
+            ],
+            solution: 'Vi utforer lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk fra: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk fra: $(3x+5)-(3x+3) = 2$. Resten er $2$.',
+          },
+          {
+            id: '1t-1-8-n-quiz4-q1',
+            task: 'Hvordan skrives svaret naar $(x^2 + 5x + 8)$ deles paa $(x + 2)$ og resten ikke er null?',
+            options: [
+              { id: 'a', text: '$x + 3$ rest $2$', isCorrect: false },
+              { id: 'b', text: '$x + 3 + \\frac{2}{x + 2}$', isCorrect: true },
+              { id: 'c', text: '$\\frac{x + 3}{x + 2} + 2$', isCorrect: false },
+              { id: 'd', text: '$(x + 3)(x + 2) + 2$', isCorrect: false },
+            ],
+            solution: 'Naar divisjonen ikke gaar opp, skriver vi svaret som $Q(x) + \\frac{R(x)}{D(x)}$. Her er kvotienten $x + 3$, resten $2$, og divisoren $(x + 2)$, saa svaret er $x + 3 + \\frac{2}{x + 2}$.',
+          },
+          {
+            id: '1t-1-8-n-quiz4-q2',
+            task: 'Hva er kvotienten og resten naar $(2x^2 + 5x + 1)$ deles paa $(x + 2)$?',
+            options: [
+              { id: 'a', text: 'Kvotient $2x + 1$, rest $-1$', isCorrect: true },
+              { id: 'b', text: 'Kvotient $2x + 1$, rest $1$', isCorrect: false },
+              { id: 'c', text: 'Kvotient $2x + 9$, rest $0$', isCorrect: false },
+              { id: 'd', text: 'Kvotient $2x - 1$, rest $3$', isCorrect: false },
+            ],
+            solution: 'Runde 1: $2x^2 / x = 2x$. Gang: $2x(x+2) = 2x^2 + 4x$. Trekk fra: $(2x^2+5x+1)-(2x^2+4x) = x + 1$. Runde 2: $x / x = 1$. Gang: $1(x+2) = x+2$. Trekk fra: $(x+1)-(x+2) = -1$. Kvotient $2x+1$, rest $-1$.',
+          },
+          {
+            id: '1t-1-8-n-quiz4-q3',
+            task: 'Formelen $P(x) = D(x) \\cdot Q(x) + R(x)$ gir oss en kontroll. Hvis $P(x) = x^2 + 5x + 8$, $D(x) = x + 2$, $Q(x) = x + 3$ og $R(x) = 2$, hva boer $(x+2)(x+3) + 2$ bli?',
+            options: [
+              { id: 'a', text: '$x^2 + 5x + 6$', isCorrect: false },
+              { id: 'b', text: '$x^2 + 5x + 8$', isCorrect: true },
+              { id: 'c', text: '$x^2 + 5x + 10$', isCorrect: false },
+              { id: 'd', text: '$x^2 + 7x + 8$', isCorrect: false },
+            ],
+            solution: '$(x+2)(x+3) + 2 = x^2 + 3x + 2x + 6 + 2 = x^2 + 5x + 8$. Dette er akkurat dividenden $P(x)$, saa svaret stemmer. Kontrollen bekrefter at divisjonen er utfort riktig.',
+          },
         ],
-        solution: 'Vi utforer lang divisjon. $x^2 / x = x$. Gang: $x(x+1) = x^2 + x$. Trekk fra: $3x + 5$. Neste: $3x / x = 3$. Gang: $3(x+1) = 3x + 3$. Trekk fra: $(3x+5)-(3x+3) = 2$. Resten er $2$.',
       },
-    },
-    { id: '1t-1-8-n-audio-5', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-8-narrativ-del5.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-8-n-section5',
       type: 'text',
       content: `## Divisjon med polynomer av hoyere grad
@@ -232,18 +382,56 @@ Her er et annet eksempel med tredjegradspolynom: $(x^3 + 6x^2 + 11x + 6) : (x + 
         id: '1t-1-8-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Naar du skal dele $(x^3 - 8)$ paa $(x - 2)$, hvordan boer du skrive dividenden?',
-        options: [
-          { id: 'a', text: '$x^3 - 8$, akkurat som den er', isCorrect: false },
-          { id: 'b', text: '$x^3 + 0x^2 + 0x - 8$', isCorrect: true },
-          { id: 'c', text: '$(x - 2)(x^2 + 2x + 4)$', isCorrect: false },
-          { id: 'd', text: '$x^3 - 2x^2 - 8$', isCorrect: false },
+        task: 'Test deg selv paa divisjon med polynomer av hoyere grad:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-8-n-quiz5-q0',
+            task: 'Naar du skal dele $(x^3 - 8)$ paa $(x - 2)$, hvordan boer du skrive dividenden?',
+            options: [
+              { id: 'a', text: '$x^3 - 8$, akkurat som den er', isCorrect: false },
+              { id: 'b', text: '$x^3 + 0x^2 + 0x - 8$', isCorrect: true },
+              { id: 'c', text: '$(x - 2)(x^2 + 2x + 4)$', isCorrect: false },
+              { id: 'd', text: '$x^3 - 2x^2 - 8$', isCorrect: false },
+            ],
+            solution: 'Naar dividenden mangler ledd (her mangler $x^2$- og $x$-leddene), maa du sette inn null-koeffisienter saa du beholder oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngaar du aa miste ledd underveis i lang divisjon.',
+          },
+          {
+            id: '1t-1-8-n-quiz5-q1',
+            task: 'Hva er kvotienten naar $(x^3 - 6x^2 + 11x - 6)$ deles paa $(x - 1)$?',
+            options: [
+              { id: 'a', text: '$x^2 + 5x + 6$', isCorrect: false },
+              { id: 'b', text: '$x^2 - 5x + 6$', isCorrect: true },
+              { id: 'c', text: '$x^2 - 6x + 11$', isCorrect: false },
+              { id: 'd', text: '$x^2 - 7x + 6$', isCorrect: false },
+            ],
+            solution: 'Runde 1: $x^3 / x = x^2$. Gang: $x^2(x-1) = x^3 - x^2$. Rest: $-5x^2 + 11x - 6$. Runde 2: $-5x^2 / x = -5x$. Gang: $-5x(x-1) = -5x^2 + 5x$. Rest: $6x - 6$. Runde 3: $6x / x = 6$. Gang: $6(x-1) = 6x - 6$. Rest: $0$. Kvotienten er $x^2 - 5x + 6$.',
+          },
+          {
+            id: '1t-1-8-n-quiz5-q2',
+            task: 'Kvotienten $x^2 - 5x + 6$ kan faktoriseres videre. Hva blir resultatet?',
+            options: [
+              { id: 'a', text: '$(x - 1)(x - 6)$', isCorrect: false },
+              { id: 'b', text: '$(x + 2)(x + 3)$', isCorrect: false },
+              { id: 'c', text: '$(x - 2)(x - 3)$', isCorrect: true },
+              { id: 'd', text: '$(x - 5)(x - 1)$', isCorrect: false },
+            ],
+            solution: 'Vi leter etter to tall som ganger til $6$ og summerer til $-5$. Det er $-2$ og $-3$: $(-2) \\cdot (-3) = 6$ og $(-2) + (-3) = -5$. Altsaa: $x^2 - 5x + 6 = (x - 2)(x - 3)$.',
+          },
+          {
+            id: '1t-1-8-n-quiz5-q3',
+            task: 'Hvor mange runder med divisjon trenger du naar du deler et tredjegradspolynom paa et foerstegradspolynom (og divisjonen gaar opp)?',
+            options: [
+              { id: 'a', text: '$1$ runde', isCorrect: false },
+              { id: 'b', text: '$2$ runder', isCorrect: false },
+              { id: 'c', text: '$3$ runder', isCorrect: true },
+              { id: 'd', text: '$4$ runder', isCorrect: false },
+            ],
+            solution: 'Et tredjegradspolynom delt paa et foerstegradspolynom gir en andregradskotient. I forste runde finner vi $x^2$-leddet, i andre runde $x$-leddet, og i tredje runde konstantleddet. Det er $3$ runder -- generelt like mange runder som graden av kvotienten pluss $1$.',
+          },
         ],
-        solution: 'Naar dividenden mangler ledd (her mangler $x^2$- og $x$-leddene), maa du sette inn null-koeffisienter saa du beholder oversikten: $x^3 + 0x^2 + 0x - 8$. Da unngaar du aa miste ledd underveis i lang divisjon.',
       },
-    },
-    { id: '1t-1-8-n-audio-6', type: 'audio', title: 'Lytt til oppsummeringen', src: '/audio/1t/1t-1-8-narrativ-del6.mp3', description: 'Lydfil som leser opp oppsummeringen.' },
-    {
+    },    {
       id: '1t-1-8-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -278,9 +466,7 @@ export const CHAPTER_1T_1_9_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['bruke polynomdivisjon til aa omskrive algebraiske uttrykk', 'bruke faktorteoremet'],
   linkedChapterId: '1t-1-9',
-  content: [
-    { id: '1t-1-9-n-audio-1', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-9-narrativ-del1.mp3', description: 'Lydfil som leser opp teksten frem til forste quiz.' },
-    {
+  content: [    {
       id: '1t-1-9-n-intro',
       type: 'text',
       content: `## Nullpunkter og faktorer -- en dyp sammenheng
@@ -317,18 +503,56 @@ La oss ogsaa sjekke et negativt eksempel. Er $(x + 1)$ en faktor i $x^2 + 2x + 3
         id: '1t-1-9-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Hva kan vi konkludere?',
-        options: [
-          { id: 'a', text: '$(x + 1)$ er en faktor i $P(x)$', isCorrect: false },
-          { id: 'b', text: '$(x - 1)$ er en faktor i $P(x)$', isCorrect: true },
-          { id: 'c', text: 'Resten ved divisjon med $(x - 1)$ er $1$', isCorrect: false },
-          { id: 'd', text: '$P(x)$ kan ikke faktoriseres', isCorrect: false },
+        task: 'Test deg selv paa faktorteoremet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-9-n-quiz1-q0',
+            task: 'Polynomet $P(x) = x^2 - 3x + 2$ har $P(1) = 0$. Hva kan vi konkludere?',
+            options: [
+              { id: 'a', text: '$(x + 1)$ er en faktor i $P(x)$', isCorrect: false },
+              { id: 'b', text: '$(x - 1)$ er en faktor i $P(x)$', isCorrect: true },
+              { id: 'c', text: 'Resten ved divisjon med $(x - 1)$ er $1$', isCorrect: false },
+              { id: 'd', text: '$P(x)$ kan ikke faktoriseres', isCorrect: false },
+            ],
+            solution: 'Faktorteoremet sier at naar $P(a) = 0$, er $(x - a)$ en faktor. Siden $P(1) = 0$, er $(x - 1)$ en faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz1-q1',
+            task: 'Hva sier faktorteoremet?',
+            options: [
+              { id: 'a', text: 'Hvis $P(a) = 0$, saa er $(x + a)$ en faktor i $P(x)$', isCorrect: false },
+              { id: 'b', text: 'Hvis $P(a) = 0$, saa er $a$ en faktor i $P(x)$', isCorrect: false },
+              { id: 'c', text: 'Hvis $P(a) = 0$, saa er $(x - a)$ en faktor i $P(x)$', isCorrect: true },
+              { id: 'd', text: 'Hvis $(x - a)$ er en faktor, saa er $P(a) = a$', isCorrect: false },
+            ],
+            solution: 'Faktorteoremet sier: Hvis $P(a) = 0$, saa er $(x - a)$ en faktor i $P(x)$. Merk at det er $(x - a)$, ikke $(x + a)$. For eksempel gir nullpunktet $a = 3$ faktoren $(x - 3)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz1-q2',
+            task: 'Er $(x + 1)$ en faktor i $P(x) = x^2 + 2x + 3$?',
+            options: [
+              { id: 'a', text: 'Ja, fordi $P(1) = 6$', isCorrect: false },
+              { id: 'b', text: 'Ja, fordi koeffisienten foran $x$ er $2$', isCorrect: false },
+              { id: 'c', text: 'Nei, fordi $P(-1) = 2 \\neq 0$', isCorrect: true },
+              { id: 'd', text: 'Nei, fordi polynomet har odde koeffisienter', isCorrect: false },
+            ],
+            solution: '$(x + 1) = (x - (-1))$, saa vi maa sjekke $P(-1)$. $P(-1) = (-1)^2 + 2(-1) + 3 = 1 - 2 + 3 = 2 \\neq 0$. Siden $P(-1) \\neq 0$, er $(x + 1)$ IKKE en faktor.',
+          },
+          {
+            id: '1t-1-9-n-quiz1-q3',
+            task: 'Du har $P(x) = x^3 - 6x^2 + 11x - 6$ og finner at $P(2) = 0$. Hva gir polynomdivisjonen $(x^3 - 6x^2 + 11x - 6) : (x - 2)$?',
+            options: [
+              { id: 'a', text: '$x^2 - 4x + 3$', isCorrect: true },
+              { id: 'b', text: '$x^2 - 8x + 3$', isCorrect: false },
+              { id: 'c', text: '$x^2 + 4x - 3$', isCorrect: false },
+              { id: 'd', text: '$x^2 - 4x + 6$', isCorrect: false },
+            ],
+            solution: 'Runde 1: $x^3/x = x^2$. Gang: $x^2(x-2) = x^3 - 2x^2$. Rest: $-4x^2 + 11x - 6$. Runde 2: $-4x^2/x = -4x$. Gang: $-4x(x-2) = -4x^2 + 8x$. Rest: $3x - 6$. Runde 3: $3x/x = 3$. Gang: $3(x-2) = 3x - 6$. Rest: $0$. Kvotienten er $x^2 - 4x + 3 = (x-1)(x-3)$.',
+          },
         ],
-        solution: 'Faktorteoremet sier at naar $P(a) = 0$, er $(x - a)$ en faktor. Siden $P(1) = 0$, er $(x - 1)$ en faktor i $P(x)$. Vi kan bekrefte: $x^2 - 3x + 2 = (x-1)(x-2)$.',
       },
-    },
-    { id: '1t-1-9-n-audio-2', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-9-narrativ-del2.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-9-n-section2',
       type: 'text',
       content: `## Aa finne nullpunkter -- divisorer av konstantleddet
@@ -354,18 +578,56 @@ Et annet eksempel: $P(x) = x^3 + 6x^2 + 11x + 6$. Konstantleddet er $6$. Vi proe
         id: '1t-1-9-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Hvilke verdier boer du proeve forst?',
-        options: [
-          { id: 'a', text: 'Alle desimaltall mellom $-10$ og $10$', isCorrect: false },
-          { id: 'b', text: '$x = 0, 1, 2, 3, 4, 5, 6$', isCorrect: false },
-          { id: 'c', text: '$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$', isCorrect: true },
-          { id: 'd', text: 'Bare positive tall', isCorrect: false },
+        task: 'Test deg selv paa aa finne nullpunkter med divisorer av konstantleddet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-9-n-quiz2-q0',
+            task: 'Du skal finne nullpunkter for $P(x) = x^3 - 4x^2 + x + 6$. Hvilke verdier boer du proeve forst?',
+            options: [
+              { id: 'a', text: 'Alle desimaltall mellom $-10$ og $10$', isCorrect: false },
+              { id: 'b', text: '$x = 0, 1, 2, 3, 4, 5, 6$', isCorrect: false },
+              { id: 'c', text: '$x = \\pm 1, \\pm 2, \\pm 3, \\pm 6$', isCorrect: true },
+              { id: 'd', text: 'Bare positive tall', isCorrect: false },
+            ],
+            solution: 'Vi proever divisorene av konstantleddet. Konstantleddet er $6$, og divisorene er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi maa proeve baade positive og negative verdier, fordi nullpunkter kan vaere negative.',
+          },
+          {
+            id: '1t-1-9-n-quiz2-q1',
+            task: 'For $P(x) = x^3 - 2x^2 - 5x + 6$, er $P(1) = 1 - 2 - 5 + 6 = 0$. Hva gjor vi naa?',
+            options: [
+              { id: 'a', text: 'Vi er ferdige -- svaret er $x = 1$', isCorrect: false },
+              { id: 'b', text: 'Vi deler $P(x)$ paa $(x - 1)$ for aa faa en andregradskvotient vi kan faktorisere videre', isCorrect: true },
+              { id: 'c', text: 'Vi proever $x = 2$ som neste nullpunkt uten aa dele forst', isCorrect: false },
+              { id: 'd', text: 'Vi bruker abc-formelen direkte paa tredjegradspolynomet', isCorrect: false },
+            ],
+            solution: 'Naar vi har funnet et nullpunkt i et tredjegradspolynom, deler vi paa den tilhorende faktoren. $(x^3 - 2x^2 - 5x + 6) : (x - 1) = x^2 - x - 6$. Denne andregradskvotienten kan vi faktorisere med kjente metoder: $(x - 3)(x + 2)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz2-q2',
+            task: 'Hva er den fullstendige faktoriseringen av $P(x) = x^3 + 6x^2 + 11x + 6$ naar du vet at $P(-1) = 0$?',
+            options: [
+              { id: 'a', text: '$(x + 1)(x + 2)(x + 3)$', isCorrect: true },
+              { id: 'b', text: '$(x - 1)(x + 2)(x + 3)$', isCorrect: false },
+              { id: 'c', text: '$(x + 1)(x + 6)(x + 1)$', isCorrect: false },
+              { id: 'd', text: '$(x + 1)(x^2 + 6)$', isCorrect: false },
+            ],
+            solution: 'Siden $P(-1) = 0$, er $(x + 1)$ en faktor. Divisjon gir $(x^3 + 6x^2 + 11x + 6) : (x + 1) = x^2 + 5x + 6$. Vi faktoriserer kvotienten: to tall som ganger til $6$ og summerer til $5$ er $2$ og $3$. Altsaa: $x^2 + 5x + 6 = (x+2)(x+3)$. Komplett: $(x+1)(x+2)(x+3)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz2-q3',
+            task: 'Konstantleddet i $P(x) = x^3 + 3x^2 - 4x - 12$ er $-12$. Hvilken av folgende er IKKE en divisor av $-12$ som vi boer proeve?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: true },
+              { id: 'b', text: '$x = -2$', isCorrect: false },
+              { id: 'c', text: '$x = 4$', isCorrect: false },
+              { id: 'd', text: '$x = -6$', isCorrect: false },
+            ],
+            solution: 'Divisorene av $-12$ er $\\pm 1, \\pm 2, \\pm 3, \\pm 4, \\pm 6, \\pm 12$. Tallet $5$ er ikke en divisor av $12$ ($12 / 5 = 2{,}4$), saa $x = 5$ trenger vi ikke proeve. De andre ($-2$, $4$, $-6$) er alle divisorer av $12$.',
+          },
         ],
-        solution: 'Vi proever divisorene av konstantleddet. Konstantleddet er $6$, og divisorene er $\\pm 1, \\pm 2, \\pm 3, \\pm 6$. Vi maa proeve baade positive og negative verdier, fordi nullpunkter kan vaere negative.',
       },
-    },
-    { id: '1t-1-9-n-audio-3', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-9-narrativ-del3.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-9-n-section3',
       type: 'text',
       content: `## Restteoremet -- resten uten divisjon
@@ -397,18 +659,67 @@ Legg merke til hvordan faktorteoremet egentlig er et spesialtilfelle av restteor
         id: '1t-1-9-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er resten naar $P(x) = 2x^3 - 5x + 3$ deles paa $(x + 2)$?',
-        options: [
-          { id: 'a', text: '$17$', isCorrect: false },
-          { id: 'b', text: '$-3$', isCorrect: true },
-          { id: 'c', text: '$3$', isCorrect: false },
-          { id: 'd', text: '$-13$', isCorrect: false },
+        task: 'Test deg selv paa restteoremet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-9-n-quiz3-q0',
+            task: 'Hva er resten naar $P(x) = 2x^3 - 5x + 3$ deles paa $(x + 2)$?',
+            options: [
+              { id: 'a', text: '$17$', isCorrect: false },
+              { id: 'b', text: '$-3$', isCorrect: true },
+              { id: 'c', text: '$3$', isCorrect: false },
+              { id: 'd', text: '$-13$', isCorrect: false },
+            ],
+            solution: 'Vi bruker restteoremet. Divisoren er $(x + 2) = (x - (-2))$, saa $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$.',
+          },
+          {
+            id: '1t-1-9-n-quiz3-q1',
+            task: 'Hva sier restteoremet?',
+            options: [
+              { id: 'a', text: 'Resten naar $P(x)$ deles paa $(x - a)$ er lik $P(0)$', isCorrect: false },
+              { id: 'b', text: 'Resten naar $P(x)$ deles paa $(x - a)$ er lik $P(a)$', isCorrect: true },
+              { id: 'c', text: 'Resten naar $P(x)$ deles paa $(x - a)$ er lik $P(-a)$', isCorrect: false },
+              { id: 'd', text: 'Resten naar $P(x)$ deles paa $(x - a)$ er lik $a$', isCorrect: false },
+            ],
+            solution: 'Restteoremet sier at naar $P(x)$ deles paa $(x - a)$, er resten lik $P(a)$. Vi trenger altsaa bare aa sette inn $a$ i polynomet for aa finne resten -- uten aa utfore hele lang divisjonen.',
+          },
+          {
+            id: '1t-1-9-n-quiz3-q2',
+            task: 'Hva er resten naar $P(x) = x^2 + 3x + 5$ deles paa $(x - 1)$?',
+            options: [
+              { id: 'a', text: '$5$', isCorrect: false },
+              { id: 'b', text: '$7$', isCorrect: false },
+              { id: 'c', text: '$9$', isCorrect: true },
+              { id: 'd', text: '$1$', isCorrect: false },
+            ],
+            solution: 'Restteoremet gir resten som $P(1) = 1^2 + 3 \\cdot 1 + 5 = 1 + 3 + 5 = 9$.',
+          },
+          {
+            id: '1t-1-9-n-quiz3-q3',
+            task: 'Hva er resten naar $(x^3 - 2x + 1)$ deles paa $(x + 1)$?',
+            options: [
+              { id: 'a', text: '$2$', isCorrect: true },
+              { id: 'b', text: '$-2$', isCorrect: false },
+              { id: 'c', text: '$0$', isCorrect: false },
+              { id: 'd', text: '$4$', isCorrect: false },
+            ],
+            solution: '$(x + 1) = (x - (-1))$, saa $a = -1$. Resten er $P(-1) = (-1)^3 - 2(-1) + 1 = -1 + 2 + 1 = 2$. Husk at $(x + 1)$ betyr at vi setter inn $-1$, ikke $1$.',
+          },
+          {
+            id: '1t-1-9-n-quiz3-q4',
+            task: 'Hvordan henger faktorteoremet sammen med restteoremet?',
+            options: [
+              { id: 'a', text: 'De er helt uavhengige teoremer', isCorrect: false },
+              { id: 'b', text: 'Restteoremet er et spesialtilfelle av faktorteoremet', isCorrect: false },
+              { id: 'c', text: 'Faktorteoremet er spesialtilfellet av restteoremet der resten $P(a) = 0$', isCorrect: true },
+              { id: 'd', text: 'Faktorteoremet gjelder bare for andregradspolynomer', isCorrect: false },
+            ],
+            solution: 'Faktorteoremet er et spesialtilfelle av restteoremet. Restteoremet sier at resten er $P(a)$. Naar $P(a) = 0$ (resten er null), gaar divisjonen opp, og $(x - a)$ er en faktor. Det er nettopp det faktorteoremet sier.',
+          },
         ],
-        solution: 'Vi bruker restteoremet. Divisoren er $(x + 2) = (x - (-2))$, saa $a = -2$. Resten er $P(-2) = 2(-2)^3 - 5(-2) + 3 = 2 \\cdot (-8) + 10 + 3 = -16 + 10 + 3 = -3$.',
       },
-    },
-    { id: '1t-1-9-n-audio-4', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-9-narrativ-del4.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-9-n-section4',
       type: 'text',
       content: `## Fullstendig faktorisering -- strategi
@@ -439,18 +750,56 @@ Noen ganger finner du nullpunktet paa andre forsok. For $P(x) = x^3 - 4x^2 + x +
         id: '1t-1-9-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: '$P(x) = x^3 - 6x^2 + 11x - 6$. Du finner at $P(1) = 0$. Hva er neste steg?',
-        options: [
-          { id: 'a', text: 'Faktoriser direkte til $(x-1)(x-2)(x-3)$ uten videre regning', isCorrect: false },
-          { id: 'b', text: 'Proev aa finne flere nullpunkter ved aa sette inn $x = 2, 3, ...$', isCorrect: false },
-          { id: 'c', text: 'Del $P(x)$ paa $(x - 1)$ og faktoriser kvotienten', isCorrect: true },
-          { id: 'd', text: 'Bruk restteoremet til aa finne resten', isCorrect: false },
+        task: 'Test deg selv paa fullstendig faktorisering:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-9-n-quiz4-q0',
+            task: '$P(x) = x^3 - 6x^2 + 11x - 6$. Du finner at $P(1) = 0$. Hva er neste steg?',
+            options: [
+              { id: 'a', text: 'Faktoriser direkte til $(x-1)(x-2)(x-3)$ uten videre regning', isCorrect: false },
+              { id: 'b', text: 'Proev aa finne flere nullpunkter ved aa sette inn $x = 2, 3, ...$', isCorrect: false },
+              { id: 'c', text: 'Del $P(x)$ paa $(x - 1)$ og faktoriser kvotienten', isCorrect: true },
+              { id: 'd', text: 'Bruk restteoremet til aa finne resten', isCorrect: false },
+            ],
+            solution: 'Naar du har funnet et nullpunkt, er neste steg aa utfore polynomdivisjon med den tilhorende faktoren. Del $P(x)$ paa $(x - 1)$ for aa faa en andregradskvotient, og faktoriser den videre.',
+          },
+          {
+            id: '1t-1-9-n-quiz4-q1',
+            task: 'Hva er riktig strategi for aa faktorisere et tredjegradspolynom fullstendig?',
+            options: [
+              { id: 'a', text: 'Bruk abc-formelen direkte paa tredjegradspolynomet', isCorrect: false },
+              { id: 'b', text: 'Finn ett nullpunkt, divider for aa faa andregradspolynom, faktoriser det', isCorrect: true },
+              { id: 'c', text: 'Proev aa gjette alle tre faktorene paa en gang', isCorrect: false },
+              { id: 'd', text: 'Trekk ut storste felles faktor -- det holder alltid', isCorrect: false },
+            ],
+            solution: 'Strategien er: (1) Finn ett nullpunkt $a$ ved aa proeve divisorer av konstantleddet. (2) Divider paa $(x - a)$ for aa faa et andregradspolynom. (3) Faktoriser andregradspolynomet med kjente metoder (inspeksjon eller abc-formelen).',
+          },
+          {
+            id: '1t-1-9-n-quiz4-q2',
+            task: 'Faktoriser $P(x) = x^3 - 7x + 6$ fullstendig. (Hint: $P(1) = 0$.)',
+            options: [
+              { id: 'a', text: '$(x - 1)(x - 2)(x + 3)$', isCorrect: false },
+              { id: 'b', text: '$(x - 1)(x + 2)(x - 3)$', isCorrect: false },
+              { id: 'c', text: '$(x - 1)(x - 3)(x + 2)$', isCorrect: false },
+              { id: 'd', text: '$(x - 1)(x + 3)(x - 2)$', isCorrect: true },
+            ],
+            solution: 'Siden $P(1) = 0$, deler vi: $(x^3 + 0x^2 - 7x + 6) : (x - 1) = x^2 + x - 6$. Vi faktoriserer: to tall som ganger til $-6$ og summerer til $1$ er $3$ og $-2$. Altsaa $x^2 + x - 6 = (x + 3)(x - 2)$. Komplett: $(x-1)(x+3)(x-2)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz4-q3',
+            task: 'For $P(x) = x^3 - 4x^2 + x + 6$ gir $P(1) = 4 \\neq 0$. Hva gjor du?',
+            options: [
+              { id: 'a', text: 'Gir opp -- polynomet kan ikke faktoriseres', isCorrect: false },
+              { id: 'b', text: 'Proever $P(-1)$, deretter $P(2)$, $P(-2)$, osv.', isCorrect: true },
+              { id: 'c', text: 'Bruker lang divisjon med $(x - 1)$ uansett', isCorrect: false },
+              { id: 'd', text: 'Endrer konstantleddet til $4$', isCorrect: false },
+            ],
+            solution: 'Naar forste forsok ikke gir null, proever vi neste divisor. $P(-1) = -1 - 4 - 1 + 6 = 0$. Bingo! $(x + 1)$ er en faktor. Divisjon gir $x^2 - 5x + 6 = (x-2)(x-3)$. Fullstendig: $(x+1)(x-2)(x-3)$.',
+          },
         ],
-        solution: 'Naar du har funnet et nullpunkt, er neste steg aa utfore polynomdivisjon med den tilhorende faktoren. Del $P(x)$ paa $(x - 1)$ for aa faa en andregradskvotient, og faktoriser den videre.',
       },
-    },
-    { id: '1t-1-9-n-audio-5', type: 'audio', title: 'Lytt til denne delen', src: '/audio/1t/1t-1-9-narrativ-del5.mp3', description: 'Lydfil som leser opp teksten frem til neste quiz.' },
-    {
+    },    {
       id: '1t-1-9-n-section5',
       type: 'text',
       content: `## Spesialtilfeller -- kuber og fjerdepotenser
@@ -478,18 +827,67 @@ Og helt til slutt: $(x^4 - 1) : (x - 1) = x^3 + x^2 + x + 1$. Denne kvotienten k
         id: '1t-1-9-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er den fullstendige faktoriseringen av $x^4 - 10x^2 + 9$?',
-        options: [
-          { id: 'a', text: '$(x - 1)(x + 1)(x^2 - 9)$', isCorrect: false },
-          { id: 'b', text: '$(x^2 - 1)(x^2 - 9)$', isCorrect: false },
-          { id: 'c', text: '$(x - 1)(x + 1)(x - 3)(x + 3)$', isCorrect: true },
-          { id: 'd', text: '$(x - 3)^2(x + 1)^2$', isCorrect: false },
+        task: 'Test deg selv paa spesialtilfeller med kuber og fjerdepotenser:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-1-9-n-quiz5-q0',
+            task: 'Hva er den fullstendige faktoriseringen av $x^4 - 10x^2 + 9$?',
+            options: [
+              { id: 'a', text: '$(x - 1)(x + 1)(x^2 - 9)$', isCorrect: false },
+              { id: 'b', text: '$(x^2 - 1)(x^2 - 9)$', isCorrect: false },
+              { id: 'c', text: '$(x - 1)(x + 1)(x - 3)(x + 3)$', isCorrect: true },
+              { id: 'd', text: '$(x - 3)^2(x + 1)^2$', isCorrect: false },
+            ],
+            solution: 'Start med $P(1) = 1 - 10 + 9 = 0$, saa $(x-1)$ er en faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Proev $P(-1) = -1 + 1 + 9 - 9 = 0$, saa $(x+1)$ er en faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz5-q1',
+            task: 'Hva er faktoriseringen av $x^3 - 8$?',
+            options: [
+              { id: 'a', text: '$(x - 2)(x^2 - 2x + 4)$', isCorrect: false },
+              { id: 'b', text: '$(x - 2)(x^2 + 2x + 4)$', isCorrect: true },
+              { id: 'c', text: '$(x - 2)(x^2 + 4)$', isCorrect: false },
+              { id: 'd', text: '$(x - 2)^3$', isCorrect: false },
+            ],
+            solution: '$x^3 - 8 = x^3 - 2^3$. Vi bruker formelen $a^3 - b^3 = (a - b)(a^2 + ab + b^2)$ med $a = x$ og $b = 2$: $(x - 2)(x^2 + 2x + 4)$. Merk pluss-tegnene i andregradsuttrykket -- det er lett aa forveksle med $(a-b)^2$-formelen.',
+          },
+          {
+            id: '1t-1-9-n-quiz5-q2',
+            task: 'Hva er faktoriseringen av $x^3 + 27$?',
+            options: [
+              { id: 'a', text: '$(x + 3)(x^2 + 3x + 9)$', isCorrect: false },
+              { id: 'b', text: '$(x + 3)(x^2 + 9)$', isCorrect: false },
+              { id: 'c', text: '$(x + 3)(x^2 - 3x + 9)$', isCorrect: true },
+              { id: 'd', text: '$(x + 3)^3$', isCorrect: false },
+            ],
+            solution: '$x^3 + 27 = x^3 + 3^3$. Formelen $a^3 + b^3 = (a + b)(a^2 - ab + b^2)$ gir $(x + 3)(x^2 - 3x + 9)$. Merk at fortegnene i andregradsuttrykket er motsatt av tilfellet $a^3 - b^3$: her er det minus foran $ab$-leddet.',
+          },
+          {
+            id: '1t-1-9-n-quiz5-q3',
+            task: 'Hva er faktoriseringen av $x^4 - 16$?',
+            options: [
+              { id: 'a', text: '$(x - 2)(x + 2)(x - 2)(x + 2)$', isCorrect: false },
+              { id: 'b', text: '$(x^2 - 4)(x^2 + 4)$', isCorrect: false },
+              { id: 'c', text: '$(x - 2)(x + 2)(x^2 + 4)$', isCorrect: true },
+              { id: 'd', text: '$(x - 4)(x + 4)$', isCorrect: false },
+            ],
+            solution: 'Vi kan starte med $P(2) = 16 - 16 = 0$, saa $(x - 2)$ er en faktor. Divisjon gir $x^3 + 2x^2 + 4x + 8$. Proev $P(-2) = -8 + 8 - 8 + 8 = 0$, saa $(x + 2)$ er en faktor. Ny divisjon gir $x^2 + 4$, som ikke har reelle nullpunkter. Alternativ b) er ufullstendig -- $(x^2 - 4)$ kan faktoriseres videre til $(x-2)(x+2)$.',
+          },
+          {
+            id: '1t-1-9-n-quiz5-q4',
+            task: 'Naar vi faktoriserer $x^4 - 1$, faar vi $(x - 1)(x + 1)(x^2 + 1)$. Hvorfor stopper vi her og faktoriserer ikke $x^2 + 1$ videre?',
+            options: [
+              { id: 'a', text: 'Fordi $x^2 + 1$ er et foerstegradspolynom', isCorrect: false },
+              { id: 'b', text: 'Fordi vi allerede har fire faktorer', isCorrect: false },
+              { id: 'c', text: 'Fordi $x^2 + 1$ ikke har noen reelle nullpunkter ($x^2 + 1 > 0$ for alle reelle $x$)', isCorrect: true },
+              { id: 'd', text: 'Fordi $x^2 + 1 = (x + 1)^2$ og vi allerede har $(x + 1)$', isCorrect: false },
+            ],
+            solution: '$x^2 + 1 = 0$ gir $x^2 = -1$, som ikke har noen reell losning. Siden $x^2 \\geq 0$ for alle reelle $x$, er $x^2 + 1 \\geq 1 > 0$ alltid. Polynomet har ingen reelle nullpunkter og kan ikke faktoriseres videre over de reelle tallene.',
+          },
         ],
-        solution: 'Start med $P(1) = 1 - 10 + 9 = 0$, saa $(x-1)$ er en faktor. Divisjon gir $x^3 + x^2 - 9x - 9$. Proev $P(-1) = -1 + 1 + 9 - 9 = 0$, saa $(x+1)$ er en faktor. Ny divisjon gir $x^2 - 9 = (x-3)(x+3)$. Fullstendig: $(x-1)(x+1)(x-3)(x+3)$.',
       },
-    },
-    { id: '1t-1-9-n-audio-6', type: 'audio', title: 'Lytt til oppsummeringen', src: '/audio/1t/1t-1-9-narrativ-del6.mp3', description: 'Lydfil som leser opp oppsummeringen.' },
-    {
+    },    {
       id: '1t-1-9-n-summary',
       type: 'text',
       content: `## Oppsummering

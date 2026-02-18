@@ -26,6 +26,7 @@ import { ImageUpload } from './image-upload';
 import { CanvasDrawing } from './canvas-drawing';
 import { SpreadsheetInput } from './spreadsheet-input';
 import { MultipleChoiceExercise } from './multiple-choice-exercise';
+import { SequentialQuizExercise } from './sequential-quiz-exercise';
 import { TeacherCommentPanel, TeacherCommentDisplay } from './teacher-comment-panel';
 import { useExerciseSubmission, useSubmitAnswer, useRecordAttempt, Submission } from '@/lib/textbook/hooks';
 import { useUser } from '@/lib/auth/hooks';
@@ -216,6 +217,19 @@ export function TextbookExerciseItem({
       // Error håndteres i hook
     }
   };
+
+  // Håndter sekvensielle quiz (flere spørsmål)
+  if (exercise.type === 'multiple-choice' && exercise.questions && exercise.questions.length > 0) {
+    return (
+      <SequentialQuizExercise
+        questions={exercise.questions}
+        exerciseId={exercise.id}
+        chapterId={chapterId}
+        courseId={courseId}
+        viewingAsStudentId={viewingAsStudentId}
+      />
+    );
+  }
 
   // Håndter flervalgsoppgaver
   if (exercise.type === 'multiple-choice' && exercise.options) {

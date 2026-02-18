@@ -25,15 +25,7 @@ export const CHAPTER_1T_2_5_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['løse likninger med brøker', 'bruke produktregelen for brøklikninger'],
   linkedChapterId: '1t-2-5',
-  content: [
-    {
-      id: '1t-2-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-2-5-n-intro',
       type: 'text',
       content: `## Når den ukjente gjemmer seg i en brøk
@@ -64,24 +56,67 @@ Når vi har et helt uttrykk i telleren, som $\\frac{x + 2}{2} = 4$, ganger vi fo
         id: '1t-2-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $\\frac{2x}{3} = 2$?',
-        options: [
-          { id: 'a', text: '$x = 6$', isCorrect: false },
-          { id: 'b', text: '$x = 3$', isCorrect: true },
-          { id: 'c', text: '$x = \\frac{2}{3}$', isCorrect: false },
-          { id: 'd', text: '$x = \\frac{4}{3}$', isCorrect: false },
+        task: 'Test deg selv på å gange bort nevneren:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-5-n-quiz1-q0',
+            task: 'Hva er løsningen på $\\frac{2x}{3} = 2$?',
+            options: [
+              { id: 'a', text: '$x = 6$', isCorrect: false },
+              { id: 'b', text: '$x = 3$', isCorrect: true },
+              { id: 'c', text: '$x = \\frac{2}{3}$', isCorrect: false },
+              { id: 'd', text: '$x = \\frac{4}{3}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger begge sider med $3$: $2x = 6$. Deretter deler vi på $2$: $x = 3$.',
+          },
+          {
+            id: '1t-2-5-n-quiz1-q1',
+            task: 'Hva er løsningen på $\\frac{6}{x} = 2$?',
+            options: [
+              { id: 'a', text: '$x = 12$', isCorrect: false },
+              { id: 'b', text: '$x = 4$', isCorrect: false },
+              { id: 'c', text: '$x = 3$', isCorrect: true },
+              { id: 'd', text: '$x = \\frac{1}{3}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger begge sider med $x$: $6 = 2x$. Deler på $2$: $x = 3$. Merk at $x \\neq 0$ fordi $x$ står i nevneren.',
+          },
+          {
+            id: '1t-2-5-n-quiz1-q2',
+            task: 'Hvorfor må vi passe på når vi ganger med et uttrykk som inneholder $x$?',
+            options: [
+              { id: 'a', text: 'Fordi $x$ kan være negativt', isCorrect: false },
+              { id: 'b', text: 'Fordi vi da innfører en ny variabel', isCorrect: false },
+              { id: 'c', text: 'Fordi likningen kan bli vanskeligere', isCorrect: false },
+              { id: 'd', text: 'Fordi $x$ ikke kan være null (da deler vi på null)', isCorrect: true },
+            ],
+            solution: 'Når $x$ står i nevneren, kan ikke $x = 0$ fordi det ville bety å dele på null. Etter at vi har funnet en løsning, bør vi sjekke at den ikke gjør nevneren lik null.',
+          },
+          {
+            id: '1t-2-5-n-quiz1-q3',
+            task: 'Løs $\\frac{x + 2}{2} = 4$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 6$', isCorrect: true },
+              { id: 'b', text: '$x = 4$', isCorrect: false },
+              { id: 'c', text: '$x = 10$', isCorrect: false },
+              { id: 'd', text: '$x = 3$', isCorrect: false },
+            ],
+            solution: 'Vi ganger begge sider med $2$: $x + 2 = 8$. Trekker fra $2$: $x = 6$.',
+          },
+          {
+            id: '1t-2-5-n-quiz1-q4',
+            task: 'Løs $\\frac{x}{3} = \\frac{5}{4}$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = \\frac{5}{12}$', isCorrect: false },
+              { id: 'b', text: '$x = \\frac{20}{3}$', isCorrect: false },
+              { id: 'c', text: '$x = \\frac{15}{4}$', isCorrect: true },
+              { id: 'd', text: '$x = \\frac{4}{15}$', isCorrect: false },
+            ],
+            solution: 'Vi ganger begge sider med $3$: $x = \\frac{5}{4} \\cdot 3 = \\frac{15}{4}$. Alternativt kan vi gange med fellesnevneren $12$: $4x = 15$, altså $x = \\frac{15}{4}$.',
+          },
         ],
-        solution: 'Vi ganger begge sider med $3$: $2x = 6$. Deretter deler vi på $2$: $x = 3$.',
       },
-    },
-    {
-      id: '1t-2-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-5-n-section2',
       type: 'text',
       content: `## Flere brøkledd -- fellesnevner er nøkkelen
@@ -103,24 +138,56 @@ Hva med likninger som $\\frac{x}{2} - \\frac{3x}{5} = -2$? Fellesnevneren er $10
         id: '1t-2-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er fellesnevneren når vi skal løse $\\frac{x}{4} + \\frac{1}{12} = \\frac{1}{3}$?',
-        options: [
-          { id: 'a', text: '$4$', isCorrect: false },
-          { id: 'b', text: '$48$', isCorrect: false },
-          { id: 'c', text: '$12$', isCorrect: true },
-          { id: 'd', text: '$36$', isCorrect: false },
+        task: 'Test deg selv på fellesnevner og flere brøkledd:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-5-n-quiz2-q0',
+            task: 'Hva er fellesnevneren når vi skal løse $\\frac{x}{4} + \\frac{1}{12} = \\frac{1}{3}$?',
+            options: [
+              { id: 'a', text: '$4$', isCorrect: false },
+              { id: 'b', text: '$48$', isCorrect: false },
+              { id: 'c', text: '$12$', isCorrect: true },
+              { id: 'd', text: '$36$', isCorrect: false },
+            ],
+            solution: 'Nevnerne er $4$, $12$ og $3$. Det minste tallet som alle tre går opp i er $12$. Ganger vi hele likningen med $12$ får vi $3x + 1 = 4$, altså $x = 1$.',
+          },
+          {
+            id: '1t-2-5-n-quiz2-q1',
+            task: 'Løs $\\frac{2x}{3} + \\frac{x}{5} = -2$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = -\\frac{30}{13}$', isCorrect: true },
+              { id: 'b', text: '$x = -\\frac{13}{30}$', isCorrect: false },
+              { id: 'c', text: '$x = -2$', isCorrect: false },
+              { id: 'd', text: '$x = -\\frac{10}{3}$', isCorrect: false },
+            ],
+            solution: 'Fellesnevneren er $15$. Gang alt med $15$: $10x + 3x = -30$, altså $13x = -30$, og $x = -\\frac{30}{13}$.',
+          },
+          {
+            id: '1t-2-5-n-quiz2-q2',
+            task: 'Løs $\\frac{x}{2} - \\frac{3x}{5} = -2$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = -20$', isCorrect: false },
+              { id: 'b', text: '$x = 10$', isCorrect: false },
+              { id: 'c', text: '$x = 20$', isCorrect: true },
+              { id: 'd', text: '$x = -10$', isCorrect: false },
+            ],
+            solution: 'Fellesnevneren er $10$. Gang alt med $10$: $5x - 6x = -20$, altså $-x = -20$, og $x = 20$.',
+          },
+          {
+            id: '1t-2-5-n-quiz2-q3',
+            task: 'I likningen $-3x = \\frac{6}{7}$, hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = \\frac{2}{7}$', isCorrect: false },
+              { id: 'b', text: '$x = -\\frac{18}{7}$', isCorrect: false },
+              { id: 'c', text: '$x = -\\frac{6}{21}$', isCorrect: false },
+              { id: 'd', text: '$x = -\\frac{2}{7}$', isCorrect: true },
+            ],
+            solution: 'Vi deler begge sider på $-3$: $x = \\frac{6}{-3 \\cdot 7} = -\\frac{2}{7}$. Husk at et negativt fortegn foran brøken betyr at hele brøken er negativ.',
+          },
         ],
-        solution: 'Nevnerne er $4$, $12$ og $3$. Det minste tallet som alle tre går opp i er $12$. Ganger vi hele likningen med $12$ får vi $3x + 1 = 4$, altså $x = 1$.',
       },
-    },
-    {
-      id: '1t-2-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-5-n-section3',
       type: 'text',
       content: `## Produktregelen -- når brøken skal bli null
@@ -142,24 +209,56 @@ Men pass opp! Hvis en verdi som gjør telleren null *også* gjør nevneren null,
         id: '1t-2-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $\\frac{x + 2}{x} = 0$?',
-        options: [
-          { id: 'a', text: '$x = 0$', isCorrect: false },
-          { id: 'b', text: '$x = -2$', isCorrect: true },
-          { id: 'c', text: '$x = 2$', isCorrect: false },
-          { id: 'd', text: 'Ingen løsning', isCorrect: false },
+        task: 'Test deg selv på produktregelen for brøklikninger:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-5-n-quiz3-q0',
+            task: 'Hva er løsningen på $\\frac{x + 2}{x} = 0$?',
+            options: [
+              { id: 'a', text: '$x = 0$', isCorrect: false },
+              { id: 'b', text: '$x = -2$', isCorrect: true },
+              { id: 'c', text: '$x = 2$', isCorrect: false },
+              { id: 'd', text: 'Ingen løsning', isCorrect: false },
+            ],
+            solution: 'Vi setter telleren lik null: $x + 2 = 0$ gir $x = -2$. Vi sjekker at nevneren ikke er null: $x = -2 \\neq 0$, så løsningen er gyldig. Merk at $x = 0$ er *ikke* en løsning fordi nevneren da blir null.',
+          },
+          {
+            id: '1t-2-5-n-quiz3-q1',
+            task: 'Når er en brøk $\\frac{a}{b}$ lik null?',
+            options: [
+              { id: 'a', text: 'Når nevneren $b = 0$', isCorrect: false },
+              { id: 'b', text: 'Når både teller og nevner er null', isCorrect: false },
+              { id: 'c', text: 'Når telleren $a = 0$ og nevneren $b \\neq 0$', isCorrect: true },
+              { id: 'd', text: 'Når $a = b$', isCorrect: false },
+            ],
+            solution: 'En brøk er lik null hvis og bare hvis telleren er null, forutsatt at nevneren ikke er null. $\\frac{0}{b} = 0$ for alle $b \\neq 0$.',
+          },
+          {
+            id: '1t-2-5-n-quiz3-q2',
+            task: 'Hva er løsningene til $\\frac{x^2 + 5x + 6}{x - 1} = 0$?',
+            options: [
+              { id: 'a', text: '$x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = -2$ og $x = -3$', isCorrect: true },
+              { id: 'c', text: '$x = 2$ og $x = 3$', isCorrect: false },
+              { id: 'd', text: '$x = -2$, $x = -3$ og $x = 1$', isCorrect: false },
+            ],
+            solution: 'Vi faktoriserer telleren: $x^2 + 5x + 6 = (x + 2)(x + 3)$. Telleren er null for $x = -2$ eller $x = -3$. Ingen av disse gjør nevneren $x - 1$ lik null, så begge er gyldige løsninger. $x = 1$ gjør nevneren null og er derfor ikke definert.',
+          },
+          {
+            id: '1t-2-5-n-quiz3-q3',
+            task: 'Likningen $\\frac{x(x - 1)}{x - 1} = 0$ har en «felle». Hva er riktig løsningsmengde?',
+            options: [
+              { id: 'a', text: '$x = 0$ og $x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = 1$', isCorrect: false },
+              { id: 'c', text: 'Ingen løsning', isCorrect: false },
+              { id: 'd', text: '$x = 0$', isCorrect: true },
+            ],
+            solution: 'Telleren $x(x - 1) = 0$ for $x = 0$ eller $x = 1$. Men $x = 1$ gjør *nevneren* $x - 1$ også lik null, og da er brøken udefinert. Derfor er $x = 0$ den eneste gyldige løsningen.',
+          },
         ],
-        solution: 'Vi setter telleren lik null: $x + 2 = 0$ gir $x = -2$. Vi sjekker at nevneren ikke er null: $x = -2 \\neq 0$, så løsningen er gyldig. Merk at $x = 0$ er *ikke* en løsning fordi nevneren da blir null.',
       },
-    },
-    {
-      id: '1t-2-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-5-n-section4',
       type: 'text',
       content: `## Spesielle tilfeller -- ingen løsning eller uendelig mange
@@ -179,24 +278,56 @@ Disse spesielle tilfellene oppstår fordi $x$-leddene kansellerer hverandre. Nå
         id: '1t-2-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva skjer med likningen $\\frac{3x + 1}{2} - \\frac{3x + 1}{2} = 5$?',
-        options: [
-          { id: 'a', text: '$x = 5$', isCorrect: false },
-          { id: 'b', text: 'Alle reelle tall er løsninger', isCorrect: false },
-          { id: 'c', text: '$x = 0$', isCorrect: false },
-          { id: 'd', text: 'Ingen løsning', isCorrect: true },
+        task: 'Test deg selv på spesielle tilfeller:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-5-n-quiz4-q0',
+            task: 'Hva skjer med likningen $\\frac{3x + 1}{2} - \\frac{3x + 1}{2} = 5$?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: false },
+              { id: 'b', text: 'Alle reelle tall er løsninger', isCorrect: false },
+              { id: 'c', text: '$x = 0$', isCorrect: false },
+              { id: 'd', text: 'Ingen løsning', isCorrect: true },
+            ],
+            solution: 'Venstre side forenkles til $0$ uansett hva $x$ er, fordi vi trekker noe fra seg selv. Vi får $0 = 5$, som aldri er sant. Likningen har ingen løsning.',
+          },
+          {
+            id: '1t-2-5-n-quiz4-q1',
+            task: 'Hva er løsningsmengden for $\\frac{2x + 3}{5} = \\frac{4x + 6}{10}$?',
+            options: [
+              { id: 'a', text: '$x = 0$', isCorrect: false },
+              { id: 'b', text: 'Alle reelle tall ($x \\in \\mathbb{R}$)', isCorrect: true },
+              { id: 'c', text: 'Ingen løsning', isCorrect: false },
+              { id: 'd', text: '$x = \\frac{3}{2}$', isCorrect: false },
+            ],
+            solution: 'Ganger vi med $10$: $2(2x + 3) = 4x + 6$, altså $4x + 6 = 4x + 6$. Dette er sant for alle verdier av $x$. Brøkene er egentlig identiske uttrykk.',
+          },
+          {
+            id: '1t-2-5-n-quiz4-q2',
+            task: 'Etter forenkling av en brøklikning ender du opp med $7 = 7$. Hva betyr dette?',
+            options: [
+              { id: 'a', text: '$x = 7$', isCorrect: false },
+              { id: 'b', text: 'Ingen løsning', isCorrect: false },
+              { id: 'c', text: 'Alle reelle tall er løsninger', isCorrect: true },
+              { id: 'd', text: 'Du har gjort en feil', isCorrect: false },
+            ],
+            solution: 'Når $x$-leddene kansellerer hverandre og vi sitter igjen med et sant utsagn som $7 = 7$, betyr det at likningen er oppfylt for alle verdier av $x$. Likningen har uendelig mange løsninger.',
+          },
+          {
+            id: '1t-2-5-n-quiz4-q3',
+            task: 'Etter forenkling av en brøklikning ender du opp med $0 = 3$. Hva betyr dette?',
+            options: [
+              { id: 'a', text: 'Ingen løsning', isCorrect: true },
+              { id: 'b', text: '$x = 3$', isCorrect: false },
+              { id: 'c', text: '$x = 0$', isCorrect: false },
+              { id: 'd', text: 'Alle reelle tall er løsninger', isCorrect: false },
+            ],
+            solution: 'Når $x$-leddene kansellerer hverandre og vi sitter igjen med et usant utsagn som $0 = 3$, finnes det ingen verdi av $x$ som oppfyller likningen. Likningen har ingen løsning.',
+          },
         ],
-        solution: 'Venstre side forenkles til $0$ uansett hva $x$ er, fordi vi trekker noe fra seg selv. Vi får $0 = 5$, som aldri er sant. Likningen har ingen løsning.',
       },
-    },
-    {
-      id: '1t-2-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-5-n-section5',
       type: 'text',
       content: `## Gange med uttrykk -- når nevneren inneholder $x$
@@ -218,24 +349,56 @@ Oppsummert er strategien for brøklikninger med $x$ i nevneren: gang med nevneru
         id: '1t-2-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Du løser likningen $\\frac{x - 5}{x + 1} = 0$ og finner $x = 5$. Hva må du sjekke?',
-        options: [
-          { id: 'a', text: 'Om $x = 5$ er et primtall', isCorrect: false },
-          { id: 'b', text: 'Om $5 - 5 = 0$ stemmer', isCorrect: false },
-          { id: 'c', text: 'Om nevneren $x + 1$ blir null for $x = 5$', isCorrect: true },
-          { id: 'd', text: 'Om likningen har flere løsninger', isCorrect: false },
+        task: 'Test deg selv på brøklikninger med $x$ i nevneren:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-5-n-quiz5-q0',
+            task: 'Du løser likningen $\\frac{x - 5}{x + 1} = 0$ og finner $x = 5$. Hva må du sjekke?',
+            options: [
+              { id: 'a', text: 'Om $x = 5$ er et primtall', isCorrect: false },
+              { id: 'b', text: 'Om $5 - 5 = 0$ stemmer', isCorrect: false },
+              { id: 'c', text: 'Om nevneren $x + 1$ blir null for $x = 5$', isCorrect: true },
+              { id: 'd', text: 'Om likningen har flere løsninger', isCorrect: false },
+            ],
+            solution: 'Vi setter telleren lik null: $x - 5 = 0$ gir $x = 5$. Vi må sjekke at nevneren ikke blir null: $5 + 1 = 6 \\neq 0$. Løsningen er gyldig.',
+          },
+          {
+            id: '1t-2-5-n-quiz5-q1',
+            task: 'Løs $\\frac{x - 3}{2x + 4} = -2$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = -1$', isCorrect: true },
+              { id: 'b', text: '$x = -2$', isCorrect: false },
+              { id: 'c', text: '$x = 1$', isCorrect: false },
+              { id: 'd', text: '$x = 5$', isCorrect: false },
+            ],
+            solution: 'Gang begge sider med $(2x + 4)$: $x - 3 = -2(2x + 4) = -4x - 8$. Samle $x$-ledd: $5x = -5$, altså $x = -1$. Sjekk nevneren: $2(-1) + 4 = 2 \\neq 0$. Gyldig!',
+          },
+          {
+            id: '1t-2-5-n-quiz5-q2',
+            task: 'Løs $2x - 2 - \\frac{x - 1}{3} = 0$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 2$', isCorrect: false },
+              { id: 'b', text: '$x = 0$', isCorrect: false },
+              { id: 'c', text: '$x = 1$', isCorrect: true },
+              { id: 'd', text: '$x = \\frac{5}{3}$', isCorrect: false },
+            ],
+            solution: 'Gang hele likningen med $3$: $3(2x - 2) - (x - 1) = 0$. Utvid: $6x - 6 - x + 1 = 0$, altså $5x - 5 = 0$, og $x = 1$.',
+          },
+          {
+            id: '1t-2-5-n-quiz5-q3',
+            task: 'Hva er den generelle strategien for brøklikninger med $x$ i nevneren?',
+            options: [
+              { id: 'a', text: 'Sett $x = 0$ og forenkle', isCorrect: false },
+              { id: 'b', text: 'Gang med nevneruttrykket, løs likningen, og sjekk at svaret ikke gjør nevneren null', isCorrect: true },
+              { id: 'c', text: 'Del begge sider med $x$', isCorrect: false },
+              { id: 'd', text: 'Flytt alle ledd til venstre side og faktoriser', isCorrect: false },
+            ],
+            solution: 'Den riktige strategien er: (1) gang begge sider med nevneruttrykket for å fjerne brøken, (2) løs den resulterende likningen, og (3) sjekk at løsningen ikke gjør noen nevner lik null.',
+          },
         ],
-        solution: 'Vi setter telleren lik null: $x - 5 = 0$ gir $x = 5$. Vi må sjekke at nevneren ikke blir null: $5 + 1 = 6 \\neq 0$. Løsningen er gyldig.',
       },
-    },
-    {
-      id: '1t-2-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-5-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -266,15 +429,7 @@ export const CHAPTER_1T_2_6_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['løse likninger med røtter'],
   linkedChapterId: '1t-2-6',
-  content: [
-    {
-      id: '1t-2-6-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-6-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-2-6-n-intro',
       type: 'text',
       content: `## Å befri den ukjente fra rottegnet
@@ -301,24 +456,56 @@ La oss starte med de enkleste rotlikningene. For $\\sqrt{x} = 4$ kvadrerer vi be
         id: '1t-2-6-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er løsningen på $\\sqrt{x} = -2$?',
-        options: [
-          { id: 'a', text: '$x = 4$', isCorrect: false },
-          { id: 'b', text: '$x = -4$', isCorrect: false },
-          { id: 'c', text: 'Ingen løsning', isCorrect: true },
-          { id: 'd', text: '$x = 2$', isCorrect: false },
+        task: 'Test deg selv på kvadratroten og dens egenskaper:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-6-n-quiz1-q0',
+            task: 'Hva er løsningen på $\\sqrt{x} = -2$?',
+            options: [
+              { id: 'a', text: '$x = 4$', isCorrect: false },
+              { id: 'b', text: '$x = -4$', isCorrect: false },
+              { id: 'c', text: 'Ingen løsning', isCorrect: true },
+              { id: 'd', text: '$x = 2$', isCorrect: false },
+            ],
+            solution: 'Kvadratroten er alltid $\\geq 0$ per definisjon, så $\\sqrt{x}$ kan aldri bli $-2$. Likningen har ingen løsning. Hvis du kvadrerer og får $x = 4$, er det en falsk løsning: $\\sqrt{4} = 2 \\neq -2$.',
+          },
+          {
+            id: '1t-2-6-n-quiz1-q1',
+            task: 'Hva er $\\sqrt{9}$?',
+            options: [
+              { id: 'a', text: '$3$ og $-3$', isCorrect: false },
+              { id: 'b', text: '$3$', isCorrect: true },
+              { id: 'c', text: '$-3$', isCorrect: false },
+              { id: 'd', text: '$81$', isCorrect: false },
+            ],
+            solution: 'Per definisjon er $\\sqrt{a}$ det *positive* tallet som opphøyd i andre gir $a$. Så $\\sqrt{9} = 3$, ikke $-3$, selv om $(-3)^2 = 9$.',
+          },
+          {
+            id: '1t-2-6-n-quiz1-q2',
+            task: 'Løs $\\sqrt{x} = 4$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 2$', isCorrect: false },
+              { id: 'b', text: '$x = 8$', isCorrect: false },
+              { id: 'c', text: '$x = 16$', isCorrect: true },
+              { id: 'd', text: '$x = \\pm 4$', isCorrect: false },
+            ],
+            solution: 'Vi kvadrerer begge sider: $(\\sqrt{x})^2 = 4^2$, altså $x = 16$. Kontroll: $\\sqrt{16} = 4$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz1-q3',
+            task: 'Hvorfor må vi alltid kontrollere svarene i rotlikninger?',
+            options: [
+              { id: 'a', text: 'Fordi kvadratroten er vanskelig å beregne', isCorrect: false },
+              { id: 'b', text: 'Fordi kvadrering kan innføre falske løsninger', isCorrect: true },
+              { id: 'c', text: 'Fordi kalkulatoren kan gjøre feil', isCorrect: false },
+              { id: 'd', text: 'Fordi det er et ekstra poeng på eksamen', isCorrect: false },
+            ],
+            solution: 'Når vi kvadrerer begge sider, «glemmer» vi fortegnet. Kvadrering av $a = b$ gir $a^2 = b^2$, men dette er også sant for $a = -b$. Derfor kan vi få løsninger som tilfredsstiller den kvadrerte likningen, men ikke den opprinnelige.',
+          },
         ],
-        solution: 'Kvadratroten er alltid $\\geq 0$ per definisjon, så $\\sqrt{x}$ kan aldri bli $-2$. Likningen har ingen løsning. Hvis du kvadrerer og får $x = 4$, er det en falsk løsning: $\\sqrt{4} = 2 \\neq -2$.',
       },
-    },
-    {
-      id: '1t-2-6-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-6-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-6-n-section2',
       type: 'text',
       content: `## Uttrykk under rottegnet
@@ -336,24 +523,56 @@ Legg merke til mønsteret: kvadrering fjerner rottegnet, og det som var under ro
         id: '1t-2-6-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Løs $\\sqrt{2x + 1} = 3$. Hva er $x$?',
-        options: [
-          { id: 'a', text: '$x = 5$', isCorrect: false },
-          { id: 'b', text: '$x = 1$', isCorrect: false },
-          { id: 'c', text: '$x = 8$', isCorrect: false },
-          { id: 'd', text: '$x = 4$', isCorrect: true },
+        task: 'Test deg selv på uttrykk under rottegnet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-6-n-quiz2-q0',
+            task: 'Løs $\\sqrt{2x + 1} = 3$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 5$', isCorrect: false },
+              { id: 'b', text: '$x = 1$', isCorrect: false },
+              { id: 'c', text: '$x = 8$', isCorrect: false },
+              { id: 'd', text: '$x = 4$', isCorrect: true },
+            ],
+            solution: 'Vi kvadrerer begge sider: $2x + 1 = 9$. Trekker fra $1$: $2x = 8$. Deler på $2$: $x = 4$. Kontroll: $\\sqrt{2 \\cdot 4 + 1} = \\sqrt{9} = 3$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz2-q1',
+            task: 'Løs $\\sqrt{x + 5} = 3$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 4$', isCorrect: true },
+              { id: 'b', text: '$x = -2$', isCorrect: false },
+              { id: 'c', text: '$x = 14$', isCorrect: false },
+              { id: 'd', text: '$x = 8$', isCorrect: false },
+            ],
+            solution: 'Vi kvadrerer begge sider: $x + 5 = 9$. Trekker fra $5$: $x = 4$. Kontroll: $\\sqrt{4 + 5} = \\sqrt{9} = 3$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz2-q2',
+            task: 'Løs $\\sqrt{3x - 5} = 4$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = 7$', isCorrect: true },
+              { id: 'c', text: '$x = \\frac{11}{3}$', isCorrect: false },
+              { id: 'd', text: '$x = 9$', isCorrect: false },
+            ],
+            solution: 'Vi kvadrerer: $3x - 5 = 16$. Legger til $5$: $3x = 21$. Deler på $3$: $x = 7$. Kontroll: $\\sqrt{3 \\cdot 7 - 5} = \\sqrt{16} = 4$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz2-q3',
+            task: 'Hva skjer når vi kvadrerer $\\sqrt{x - 1} = 4$?',
+            options: [
+              { id: 'a', text: '$x - 1 = 2$', isCorrect: false },
+              { id: 'b', text: '$\\sqrt{x} - 1 = 16$', isCorrect: false },
+              { id: 'c', text: '$x - 1 = 16$', isCorrect: true },
+              { id: 'd', text: '$x^2 - 1 = 16$', isCorrect: false },
+            ],
+            solution: 'Når vi kvadrerer begge sider, fjernes rottegnet: $(\\sqrt{x - 1})^2 = 4^2$ gir $x - 1 = 16$. Hele uttrykket under roten havner direkte på venstre side.',
+          },
         ],
-        solution: 'Vi kvadrerer begge sider: $2x + 1 = 9$. Trekker fra $1$: $2x = 8$. Deler på $2$: $x = 4$. Kontroll: $\\sqrt{2 \\cdot 4 + 1} = \\sqrt{9} = 3$. Stemmer!',
       },
-    },
-    {
-      id: '1t-2-6-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-6-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-6-n-section3',
       type: 'text',
       content: `## Falske løsninger -- hvorfor kontroll er livsviktig
@@ -377,24 +596,67 @@ Moralen er klar: kontroller alltid *alle* kandidatløsninger i den opprinnelige 
         id: '1t-2-6-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Du løser $\\sqrt{x + 3} = x + 1$ og finner kandidatene $x = 1$ og $x = -2$. Hvilken er gyldig?',
-        options: [
-          { id: 'a', text: 'Bare $x = -2$', isCorrect: false },
-          { id: 'b', text: 'Bare $x = 1$', isCorrect: true },
-          { id: 'c', text: 'Begge', isCorrect: false },
-          { id: 'd', text: 'Ingen av dem', isCorrect: false },
+        task: 'Test deg selv på falske løsninger:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-6-n-quiz3-q0',
+            task: 'Du løser $\\sqrt{x + 3} = x + 1$ og finner kandidatene $x = 1$ og $x = -2$. Hvilken er gyldig?',
+            options: [
+              { id: 'a', text: 'Bare $x = -2$', isCorrect: false },
+              { id: 'b', text: 'Bare $x = 1$', isCorrect: true },
+              { id: 'c', text: 'Begge', isCorrect: false },
+              { id: 'd', text: 'Ingen av dem', isCorrect: false },
+            ],
+            solution: 'Kontroll for $x = 1$: $\\sqrt{1 + 3} = \\sqrt{4} = 2$ og $1 + 1 = 2$. Stemmer! Kontroll for $x = -2$: $\\sqrt{-2 + 3} = \\sqrt{1} = 1$ og $-2 + 1 = -1$. $1 \\neq -1$, så denne er falsk.',
+          },
+          {
+            id: '1t-2-6-n-quiz3-q1',
+            task: 'Hvorfor oppstår falske løsninger når vi kvadrerer begge sider av en likning?',
+            options: [
+              { id: 'a', text: 'Fordi kvadrering ikke er en gyldig operasjon', isCorrect: false },
+              { id: 'b', text: 'Fordi vi glemmer å kontrollere', isCorrect: false },
+              { id: 'c', text: 'Fordi kvadrering "glemmer" fortegnet -- både $a = b$ og $a = -b$ gir $a^2 = b^2$', isCorrect: true },
+              { id: 'd', text: 'Fordi rotlikninger alltid har to løsninger', isCorrect: false },
+            ],
+            solution: 'Når vi kvadrerer $\\sqrt{x + 2} = x$, behandler vi det som om $|x|$ står på høyre side. Verdier som tilfredsstiller $\\sqrt{x + 2} = -x$ (en *annen* likning) kan snike seg inn som falske løsninger.',
+          },
+          {
+            id: '1t-2-6-n-quiz3-q2',
+            task: 'Du løser $\\sqrt{x + 2} = x$ og finner kandidatene $x = 2$ og $x = -1$. Hvilke(n) er gyldig(e)?',
+            options: [
+              { id: 'a', text: 'Begge', isCorrect: false },
+              { id: 'b', text: 'Bare $x = -1$', isCorrect: false },
+              { id: 'c', text: 'Ingen av dem', isCorrect: false },
+              { id: 'd', text: 'Bare $x = 2$', isCorrect: true },
+            ],
+            solution: 'Kontroll for $x = 2$: $\\sqrt{2 + 2} = \\sqrt{4} = 2 = x$. Stemmer! Kontroll for $x = -1$: $\\sqrt{-1 + 2} = \\sqrt{1} = 1$, men $x = -1$. $1 \\neq -1$, så denne er falsk.',
+          },
+          {
+            id: '1t-2-6-n-quiz3-q3',
+            task: 'I likningen $\\sqrt{x - 3} = x - 5$ finner du kandidatene $x = 4$ og $x = 7$. Hva er kontrollresultatet for $x = 4$?',
+            options: [
+              { id: 'a', text: '$\\sqrt{1} = -1$, stemmer', isCorrect: false },
+              { id: 'b', text: '$\\sqrt{1} = 1$ og $4 - 5 = -1$, stemmer ikke', isCorrect: true },
+              { id: 'c', text: '$\\sqrt{7} = 2$, stemmer', isCorrect: false },
+              { id: 'd', text: '$\\sqrt{1} = 1$ og $4 - 5 = 1$, stemmer', isCorrect: false },
+            ],
+            solution: 'For $x = 4$: venstre side er $\\sqrt{4 - 3} = \\sqrt{1} = 1$. Høyre side er $4 - 5 = -1$. Siden $1 \\neq -1$, er $x = 4$ en falsk løsning. Bare $x = 7$ er gyldig.',
+          },
+          {
+            id: '1t-2-6-n-quiz3-q4',
+            task: 'Når bør du være ekstra oppmerksom på falske løsninger?',
+            options: [
+              { id: 'a', text: 'Når likningen bare har $\\sqrt{x}$ på venstre side', isCorrect: false },
+              { id: 'b', text: 'Når høyre side er et positivt tall', isCorrect: false },
+              { id: 'c', text: 'Når $x$ opptrer både under og utenfor rottegnet', isCorrect: true },
+              { id: 'd', text: 'Når nevneren inneholder $x$', isCorrect: false },
+            ],
+            solution: 'Falske løsninger er mest vanlige når $x$ dukker opp både under rottegnet og utenfor (som i $\\sqrt{x + 2} = x$). Da kan kvadrering gi andregradslikninger med ekstra løsninger. Når høyre side er en positiv konstant (som $\\sqrt{x} = 3$), er falske løsninger sjeldne.',
+          },
         ],
-        solution: 'Kontroll for $x = 1$: $\\sqrt{1 + 3} = \\sqrt{4} = 2$ og $1 + 1 = 2$. Stemmer! Kontroll for $x = -2$: $\\sqrt{-2 + 3} = \\sqrt{1} = 1$ og $-2 + 1 = -1$. $1 \\neq -1$, så denne er falsk.',
       },
-    },
-    {
-      id: '1t-2-6-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-6-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-6-n-section4',
       type: 'text',
       content: `## Isoler roten først
@@ -416,24 +678,67 @@ Et viktig spesialtilfelle er $\\sqrt{x^2} = 4$. Siden $\\sqrt{x^2} = |x|$ (absol
         id: '1t-2-6-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er det første steget for å løse $\\sqrt{x - 4} + 1 = 6$?',
-        options: [
-          { id: 'a', text: 'Kvadrere begge sider', isCorrect: false },
-          { id: 'b', text: 'Trekke fra $1$ på begge sider', isCorrect: true },
-          { id: 'c', text: 'Trekke fra $4$ under roten', isCorrect: false },
-          { id: 'd', text: 'Gange begge sider med $2$', isCorrect: false },
+        task: 'Test deg selv på å isolere roten:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-6-n-quiz4-q0',
+            task: 'Hva er det første steget for å løse $\\sqrt{x - 4} + 1 = 6$?',
+            options: [
+              { id: 'a', text: 'Kvadrere begge sider', isCorrect: false },
+              { id: 'b', text: 'Trekke fra $1$ på begge sider', isCorrect: true },
+              { id: 'c', text: 'Trekke fra $4$ under roten', isCorrect: false },
+              { id: 'd', text: 'Gange begge sider med $2$', isCorrect: false },
+            ],
+            solution: 'Vi må isolere rotuttrykket først. Trekker vi fra $1$ på begge sider, får vi $\\sqrt{x - 4} = 5$. Deretter kvadrerer vi: $x - 4 = 25$, altså $x = 29$.',
+          },
+          {
+            id: '1t-2-6-n-quiz4-q1',
+            task: 'Løs $\\sqrt{x} - 2 = 3$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = 9$', isCorrect: false },
+              { id: 'c', text: '$x = 25$', isCorrect: true },
+              { id: 'd', text: '$x = 5$', isCorrect: false },
+            ],
+            solution: 'Isoler roten: $\\sqrt{x} = 3 + 2 = 5$. Kvadrer: $x = 25$. Kontroll: $\\sqrt{25} - 2 = 5 - 2 = 3$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz4-q2',
+            task: 'Løs $3\\sqrt{x + 2} = 12$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 14$', isCorrect: true },
+              { id: 'b', text: '$x = 16$', isCorrect: false },
+              { id: 'c', text: '$x = 2$', isCorrect: false },
+              { id: 'd', text: '$x = 18$', isCorrect: false },
+            ],
+            solution: 'Del på $3$: $\\sqrt{x + 2} = 4$. Kvadrer: $x + 2 = 16$, altså $x = 14$. Kontroll: $3\\sqrt{14 + 2} = 3\\sqrt{16} = 3 \\cdot 4 = 12$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz4-q3',
+            task: 'Hva blir $\\sqrt{x^2}$ forenklet til?',
+            options: [
+              { id: 'a', text: '$x$', isCorrect: false },
+              { id: 'b', text: '$x^2$', isCorrect: false },
+              { id: 'c', text: '$|x|$', isCorrect: true },
+              { id: 'd', text: '$\\pm x$', isCorrect: false },
+            ],
+            solution: 'Siden $\\sqrt{a}$ alltid er $\\geq 0$, gir $\\sqrt{x^2} = |x|$ (absoluttverdien av $x$). For $x = -4$ er $\\sqrt{(-4)^2} = \\sqrt{16} = 4 = |-4|$.',
+          },
+          {
+            id: '1t-2-6-n-quiz4-q4',
+            task: 'Hvorfor bør vi *ikke* kvadrere $\\sqrt{x + 1} + 3 = 7$ direkte uten å isolere roten først?',
+            options: [
+              { id: 'a', text: 'Fordi det gir feil svar', isCorrect: false },
+              { id: 'b', text: 'Fordi rottegnet ikke forsvinner -- vi får et kryssledd $2 \\cdot 3 \\cdot \\sqrt{x + 1}$', isCorrect: true },
+              { id: 'c', text: 'Fordi det er umulig å kvadrere en sum', isCorrect: false },
+              { id: 'd', text: 'Fordi vi da deler på null', isCorrect: false },
+            ],
+            solution: 'Hvis vi kvadrerer hele venstre side direkte, bruker vi formelen $(a + b)^2 = a^2 + 2ab + b^2$ og får $(\\sqrt{x+1})^2 + 2 \\cdot 3\\sqrt{x+1} + 9 = 49$. Rotuttrykket er der fortsatt! Isolerer vi roten først, unngår vi dette problemet.',
+          },
         ],
-        solution: 'Vi må isolere rotuttrykket først. Trekker vi fra $1$ på begge sider, får vi $\\sqrt{x - 4} = 5$. Deretter kvadrerer vi: $x - 4 = 25$, altså $x = 29$.',
       },
-    },
-    {
-      id: '1t-2-6-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-2-6-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-2-6-n-section5',
       type: 'text',
       content: `## Avanserte tilfeller -- rot på begge sider
@@ -455,24 +760,56 @@ Uansett hvor komplisert en rotlikning ser ut, er oppskriften: isoler roten, kvad
         id: '1t-2-6-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er $\\sqrt{x - 1} = \\sqrt{2x - 5}$ løst for $x$?',
-        options: [
-          { id: 'a', text: '$x = 3$', isCorrect: false },
-          { id: 'b', text: '$x = 6$', isCorrect: false },
-          { id: 'c', text: '$x = 4$', isCorrect: true },
-          { id: 'd', text: '$x = 2$', isCorrect: false },
+        task: 'Test deg selv på avanserte rotlikninger:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        questions: [
+          {
+            id: '1t-2-6-n-quiz5-q0',
+            task: 'Hva er $\\sqrt{x - 1} = \\sqrt{2x - 5}$ løst for $x$?',
+            options: [
+              { id: 'a', text: '$x = 3$', isCorrect: false },
+              { id: 'b', text: '$x = 6$', isCorrect: false },
+              { id: 'c', text: '$x = 4$', isCorrect: true },
+              { id: 'd', text: '$x = 2$', isCorrect: false },
+            ],
+            solution: 'Vi kvadrerer begge sider: $x - 1 = 2x - 5$. Ordner: $-1 + 5 = 2x - x$, altså $4 = x$. Kontroll: $\\sqrt{4 - 1} = \\sqrt{3}$ og $\\sqrt{8 - 5} = \\sqrt{3}$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz5-q1',
+            task: 'Likningen $\\sqrt{x + 5} - \\sqrt{x} = 1$ har to rotuttrykk. Hva er det første steget?',
+            options: [
+              { id: 'a', text: 'Kvadrere begge sider direkte', isCorrect: false },
+              { id: 'b', text: 'Gange med fellesnevneren', isCorrect: false },
+              { id: 'c', text: 'Isolere den ene roten: $\\sqrt{x + 5} = 1 + \\sqrt{x}$', isCorrect: true },
+              { id: 'd', text: 'Sette $x = 0$ og sjekke', isCorrect: false },
+            ],
+            solution: 'Når vi har to rotuttrykk, isolerer vi én rot på én side, slik at vi kan kvadrere og håndtere kryssled det. Her får vi $\\sqrt{x + 5} = 1 + \\sqrt{x}$, og kvadrering gir $x + 5 = 1 + 2\\sqrt{x} + x$, som forenkles til $\\sqrt{x} = 2$.',
+          },
+          {
+            id: '1t-2-6-n-quiz5-q2',
+            task: 'Løs $\\sqrt{x + 5} - \\sqrt{x} = 1$. Hva er $x$?',
+            options: [
+              { id: 'a', text: '$x = 1$', isCorrect: false },
+              { id: 'b', text: '$x = 4$', isCorrect: true },
+              { id: 'c', text: '$x = 9$', isCorrect: false },
+              { id: 'd', text: '$x = 5$', isCorrect: false },
+            ],
+            solution: 'Isoler: $\\sqrt{x + 5} = 1 + \\sqrt{x}$. Kvadrer: $x + 5 = 1 + 2\\sqrt{x} + x$. Forenkle: $4 = 2\\sqrt{x}$, altså $\\sqrt{x} = 2$ og $x = 4$. Kontroll: $\\sqrt{9} - \\sqrt{4} = 3 - 2 = 1$. Stemmer!',
+          },
+          {
+            id: '1t-2-6-n-quiz5-q3',
+            task: 'Hvor mange ganger må du kvadrere for å løse en likning med to rotuttrykk som $\\sqrt{x + 5} - \\sqrt{x} = 1$?',
+            options: [
+              { id: 'a', text: 'Én gang', isCorrect: false },
+              { id: 'b', text: 'To ganger', isCorrect: true },
+              { id: 'c', text: 'Tre ganger', isCorrect: false },
+              { id: 'd', text: 'Det avhenger av verdien av $x$', isCorrect: false },
+            ],
+            solution: 'Første kvadrering fjerner den ene roten, men den andre overlever i et kryssledd. Andre kvadrering fjerner den gjenværende roten. Etter to kvadreringer har vi en vanlig likning uten røtter.',
+          },
         ],
-        solution: 'Vi kvadrerer begge sider: $x - 1 = 2x - 5$. Ordner: $-1 + 5 = 2x - x$, altså $4 = x$. Kontroll: $\\sqrt{4 - 1} = \\sqrt{3}$ og $\\sqrt{8 - 5} = \\sqrt{3}$. Stemmer!',
       },
-    },
-    {
-      id: '1t-2-6-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-2-6-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-2-6-n-summary',
       type: 'text',
       content: `## Oppsummering

@@ -28,15 +28,7 @@ export const CHAPTER_1T_5_5_NARRATIV: TextbookChapter = {
   estimatedMinutes: 35,
   competenceGoals: ['beregne areal av trekanter med ulike metoder'],
   linkedChapterId: '1t-5-5',
-  content: [
-    {
-      id: '1t-5-5-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-5-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-5-5-n-intro',
       type: 'text',
       content: `## Hvor stort er egentlig et trekantet felt?
@@ -69,24 +61,46 @@ Denne formelen fungerer for **alle** trekanter, men den har én begrensning: du 
         id: '1t-5-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'En trekant har grunnlinje 14 cm og høyde 9 cm. Hva er arealet?',
-        options: [
-          { id: 'a', text: '$126$ cm²', isCorrect: false },
-          { id: 'b', text: '$63$ cm²', isCorrect: true },
-          { id: 'c', text: '$56$ cm²', isCorrect: false },
-          { id: 'd', text: '$72$ cm²', isCorrect: false },
+        task: 'Test deg selv på grunnlinje og høyde:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-5-n-quiz1-q0',
+            task: 'En trekant har grunnlinje 14 cm og høyde 9 cm. Hva er arealet?',
+            options: [
+              { id: 'a', text: '$126$ cm²', isCorrect: false },
+              { id: 'b', text: '$63$ cm²', isCorrect: true },
+              { id: 'c', text: '$56$ cm²', isCorrect: false },
+              { id: 'd', text: '$72$ cm²', isCorrect: false },
+            ],
+            solution: 'Vi bruker formelen $A = \\frac{1}{2} \\cdot g \\cdot h = \\frac{1}{2} \\cdot 14 \\cdot 9 = \\frac{126}{2} = 63$ cm².',
+          },
+          {
+            id: '1t-5-5-n-quiz1-q1',
+            task: 'Hvorfor har arealformelen for trekanter faktoren $\\frac{1}{2}$?',
+            options: [
+              { id: 'a', text: 'Fordi en trekant har halvparten så mange sider som et rektangel', isCorrect: false },
+              { id: 'b', text: 'Fordi en trekant er halvparten av et rektangel med samme grunnlinje og høyde', isCorrect: true },
+              { id: 'c', text: 'Fordi vi bare bruker halvparten av grunnlinjen', isCorrect: false },
+              { id: 'd', text: 'Fordi høyden alltid er halvparten av grunnlinjen', isCorrect: false },
+            ],
+            solution: 'Et rektangel med grunnlinje $g$ og høyde $h$ har areal $g \\cdot h$. En trekant med samme grunnlinje og høyde utgjør nøyaktig halvparten av dette rektangelet, derav faktoren $\\frac{1}{2}$.',
+          },
+          {
+            id: '1t-5-5-n-quiz1-q2',
+            task: 'En trekant har areal $36$ cm² og grunnlinje $12$ cm. Hva er høyden?',
+            options: [
+              { id: 'a', text: '$3$ cm', isCorrect: false },
+              { id: 'b', text: '$4$ cm', isCorrect: false },
+              { id: 'c', text: '$6$ cm', isCorrect: true },
+              { id: 'd', text: '$8$ cm', isCorrect: false },
+            ],
+            solution: 'Vi løser formelen for $h$: $A = \\frac{1}{2} \\cdot g \\cdot h \\Rightarrow h = \\frac{2A}{g} = \\frac{2 \\cdot 36}{12} = \\frac{72}{12} = 6$ cm.',
+          },
         ],
-        solution: 'Vi bruker formelen $A = \\frac{1}{2} \\cdot g \\cdot h = \\frac{1}{2} \\cdot 14 \\cdot 9 = \\frac{126}{2} = 63$ cm².',
       },
-    },
-    {
-      id: '1t-5-5-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-5-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-5-n-section2',
       type: 'text',
       content: `## Arealsetningen – når du kjenner to sider og vinkelen mellom
@@ -110,24 +124,57 @@ Hva med en likesidet trekant med side 6 cm? Alle vinkler er 60°, så $A = \\fra
         id: '1t-5-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'En trekant har sider 5 cm og 8 cm med vinkel 30° mellom dem. Hva er arealet?',
-        options: [
-          { id: 'a', text: '$20$ cm²', isCorrect: false },
-          { id: 'b', text: '$15$ cm²', isCorrect: false },
-          { id: 'c', text: '$10$ cm²', isCorrect: true },
-          { id: 'd', text: '$8$ cm²', isCorrect: false },
+        task: 'Test deg selv på arealsetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-5-n-quiz2-q0',
+            task: 'En trekant har sider 5 cm og 8 cm med vinkel 30° mellom dem. Hva er arealet?',
+            options: [
+              { id: 'a', text: '$20$ cm²', isCorrect: false },
+              { id: 'b', text: '$15$ cm²', isCorrect: false },
+              { id: 'c', text: '$10$ cm²', isCorrect: true },
+              { id: 'd', text: '$8$ cm²', isCorrect: false },
+            ],
+            solution: 'Vi bruker arealsetningen: $A = \\frac{1}{2} \\cdot 5 \\cdot 8 \\cdot \\sin 30° = \\frac{1}{2} \\cdot 40 \\cdot 0{,}5 = 10$ cm². Husk at $\\sin 30° = 0{,}5$.',
+          },
+          {
+            id: '1t-5-5-n-quiz2-q1',
+            task: 'Hvorfor fungerer arealsetningen $A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$?',
+            options: [
+              { id: 'a', text: 'Fordi $\\sin C$ alltid er lik 1', isCorrect: false },
+              { id: 'b', text: 'Fordi høyden kan uttrykkes som $h = a \\cdot \\sin C$, og vi setter dette inn i $A = \\frac{1}{2} \\cdot b \\cdot h$', isCorrect: true },
+              { id: 'c', text: 'Fordi alle trekanter egentlig er rettvinklede', isCorrect: false },
+              { id: 'd', text: 'Fordi $\\sin C = \\frac{a}{b}$ alltid', isCorrect: false },
+            ],
+            solution: 'Høyden fra det ene hjørnet kan uttrykkes med sinus: $h = a \\cdot \\sin C$. Setter vi dette inn i den klassiske formelen $A = \\frac{1}{2} \\cdot b \\cdot h$, får vi $A = \\frac{1}{2} \\cdot b \\cdot a \\cdot \\sin C$.',
+          },
+          {
+            id: '1t-5-5-n-quiz2-q2',
+            task: 'En likesidet trekant har side $6$ cm. Alle vinkler er $60°$. Hva er arealet?',
+            options: [
+              { id: 'a', text: '$18$ cm²', isCorrect: false },
+              { id: 'b', text: '$9\\sqrt{3} \\approx 15{,}6$ cm²', isCorrect: true },
+              { id: 'c', text: '$12\\sqrt{2} \\approx 17{,}0$ cm²', isCorrect: false },
+              { id: 'd', text: '$36$ cm²', isCorrect: false },
+            ],
+            solution: '$A = \\frac{1}{2} \\cdot 6 \\cdot 6 \\cdot \\sin 60° = 18 \\cdot \\frac{\\sqrt{3}}{2} = 9\\sqrt{3} \\approx 15{,}6$ cm².',
+          },
+          {
+            id: '1t-5-5-n-quiz2-q3',
+            task: 'I arealsetningen $A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$, hva er $C$?',
+            options: [
+              { id: 'a', text: 'En tilfeldig vinkel i trekanten', isCorrect: false },
+              { id: 'b', text: 'Den største vinkelen', isCorrect: false },
+              { id: 'c', text: 'Vinkelen mellom sidene $a$ og $b$', isCorrect: true },
+              { id: 'd', text: 'Vinkelen motstående den lengste siden', isCorrect: false },
+            ],
+            solution: 'I arealsetningen må $C$ være vinkelen *mellom* de to sidene $a$ og $b$. Bruker du feil vinkel, får du feil areal.',
+          },
         ],
-        solution: 'Vi bruker arealsetningen: $A = \\frac{1}{2} \\cdot 5 \\cdot 8 \\cdot \\sin 30° = \\frac{1}{2} \\cdot 40 \\cdot 0{,}5 = 10$ cm². Husk at $\\sin 30° = 0{,}5$.',
       },
-    },
-    {
-      id: '1t-5-5-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-5-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-5-n-section3',
       type: 'text',
       content: `## Finne vinkelen når arealet er kjent
@@ -155,24 +202,46 @@ Det er også verdt å merke seg at arealet av en trekant med to gitte sider blir
         id: '1t-5-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'To sider i en trekant er 6 cm og 10 cm. Hva er det størst mulige arealet?',
-        options: [
-          { id: 'a', text: '$60$ cm²', isCorrect: false },
-          { id: 'b', text: '$25$ cm²', isCorrect: false },
-          { id: 'c', text: '$15$ cm²', isCorrect: false },
-          { id: 'd', text: '$30$ cm²', isCorrect: true },
+        task: 'Test deg selv på arealsetningen baklengs:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-5-n-quiz3-q0',
+            task: 'To sider i en trekant er 6 cm og 10 cm. Hva er det størst mulige arealet?',
+            options: [
+              { id: 'a', text: '$60$ cm²', isCorrect: false },
+              { id: 'b', text: '$25$ cm²', isCorrect: false },
+              { id: 'c', text: '$15$ cm²', isCorrect: false },
+              { id: 'd', text: '$30$ cm²', isCorrect: true },
+            ],
+            solution: 'Arealet er størst når vinkelen mellom sidene er $90°$ (fordi $\\sin 90° = 1$). Da blir $A = \\frac{1}{2} \\cdot 6 \\cdot 10 \\cdot 1 = 30$ cm².',
+          },
+          {
+            id: '1t-5-5-n-quiz3-q1',
+            task: 'To sider i en trekant er 8 m og 10 m, og arealet er 32 m². Hva er $\\sin C$?',
+            options: [
+              { id: 'a', text: '$\\sin C = 0{,}4$', isCorrect: false },
+              { id: 'b', text: '$\\sin C = 0{,}6$', isCorrect: false },
+              { id: 'c', text: '$\\sin C = 0{,}8$', isCorrect: true },
+              { id: 'd', text: '$\\sin C = 1{,}0$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn i arealsetningen: $32 = \\frac{1}{2} \\cdot 8 \\cdot 10 \\cdot \\sin C = 40 \\cdot \\sin C$. Deler vi begge sider på 40, får vi $\\sin C = \\frac{32}{40} = 0{,}8$.',
+          },
+          {
+            id: '1t-5-5-n-quiz3-q2',
+            task: 'Ligningen $\\sin C = 0{,}8$ har to løsninger for $C$ mellom $0°$ og $180°$. Hvilke?',
+            options: [
+              { id: 'a', text: '$C \\approx 53{,}1°$ eller $C \\approx 126{,}9°$', isCorrect: true },
+              { id: 'b', text: '$C \\approx 53{,}1°$ eller $C \\approx 53{,}1°$', isCorrect: false },
+              { id: 'c', text: '$C = 80°$ eller $C = 100°$', isCorrect: false },
+              { id: 'd', text: '$C \\approx 36{,}9°$ eller $C \\approx 143{,}1°$', isCorrect: false },
+            ],
+            solution: 'Siden $\\sin(180° - v) = \\sin v$, gir $\\sin C = 0{,}8$ to løsninger: $C = \\sin^{-1}(0{,}8) \\approx 53{,}1°$ og $C = 180° - 53{,}1° = 126{,}9°$. Begge er matematisk mulige.',
+          },
         ],
-        solution: 'Arealet er størst når vinkelen mellom sidene er $90°$ (fordi $\\sin 90° = 1$). Da blir $A = \\frac{1}{2} \\cdot 6 \\cdot 10 \\cdot 1 = 30$ cm².',
       },
-    },
-    {
-      id: '1t-5-5-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-5-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-5-n-section4',
       type: 'text',
       content: `## Herons formel – bare sidene er nok
@@ -200,24 +269,57 @@ Et viktig poeng: Herons formel er spesielt nyttig i praksis, for eksempel i land
         id: '1t-5-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Du skal bruke arealsetningen. Hvilken informasjon trenger du?',
-        options: [
-          { id: 'a', text: 'Alle tre sidene', isCorrect: false },
-          { id: 'b', text: 'To sider og vinkelen mellom dem', isCorrect: true },
-          { id: 'c', text: 'Grunnlinje og høyde', isCorrect: false },
-          { id: 'd', text: 'Alle tre vinklene', isCorrect: false },
+        task: 'Test deg selv på Herons formel:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-5-n-quiz4-q0',
+            task: 'Du skal bruke arealsetningen. Hvilken informasjon trenger du?',
+            options: [
+              { id: 'a', text: 'Alle tre sidene', isCorrect: false },
+              { id: 'b', text: 'To sider og vinkelen mellom dem', isCorrect: true },
+              { id: 'c', text: 'Grunnlinje og høyde', isCorrect: false },
+              { id: 'd', text: 'Alle tre vinklene', isCorrect: false },
+            ],
+            solution: 'Arealsetningen $A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$ krever to sider ($a$ og $b$) og vinkelen mellom dem ($C$). Kjenner du bare sidene, bruker du Herons formel. Kjenner du grunnlinje og høyde, bruker du den klassiske formelen.',
+          },
+          {
+            id: '1t-5-5-n-quiz4-q1',
+            task: 'Hva er den halve omkretsen $s$ for en trekant med sider 5, 12 og 13?',
+            options: [
+              { id: 'a', text: '$s = 30$', isCorrect: false },
+              { id: 'b', text: '$s = 10$', isCorrect: false },
+              { id: 'c', text: '$s = 15$', isCorrect: true },
+              { id: 'd', text: '$s = 20$', isCorrect: false },
+            ],
+            solution: '$s = \\frac{a + b + c}{2} = \\frac{5 + 12 + 13}{2} = \\frac{30}{2} = 15$.',
+          },
+          {
+            id: '1t-5-5-n-quiz4-q2',
+            task: 'En trekant har sider 5, 12 og 13 (med $s = 15$). Hva er arealet med Herons formel?',
+            options: [
+              { id: 'a', text: '$A = \\sqrt{15 \\cdot 10 \\cdot 3 \\cdot 2} = 30$', isCorrect: true },
+              { id: 'b', text: '$A = \\sqrt{15 \\cdot 10 \\cdot 3 \\cdot 2} = 15$', isCorrect: false },
+              { id: 'c', text: '$A = \\sqrt{15 \\cdot 5 \\cdot 12 \\cdot 13} = 34{,}2$', isCorrect: false },
+              { id: 'd', text: '$A = 15 \\cdot 10 \\cdot 3 \\cdot 2 = 900$', isCorrect: false },
+            ],
+            solution: '$A = \\sqrt{s(s-a)(s-b)(s-c)} = \\sqrt{15 \\cdot (15-5) \\cdot (15-12) \\cdot (15-13)} = \\sqrt{15 \\cdot 10 \\cdot 3 \\cdot 2} = \\sqrt{900} = 30$. En 5-12-13-trekant er rettvinklet, og $\\frac{1}{2} \\cdot 5 \\cdot 12 = 30$ stemmer.',
+          },
+          {
+            id: '1t-5-5-n-quiz4-q3',
+            task: 'Når er Herons formel spesielt nyttig?',
+            options: [
+              { id: 'a', text: 'Når vi kjenner to sider og vinkelen mellom dem', isCorrect: false },
+              { id: 'b', text: 'Når vi kjenner grunnlinje og høyde', isCorrect: false },
+              { id: 'c', text: 'Når vi bare kjenner de tre sidelengdene, men ingen vinkler eller høyder', isCorrect: true },
+              { id: 'd', text: 'Når trekanten er rettvinklet', isCorrect: false },
+            ],
+            solution: 'Herons formel $A = \\sqrt{s(s-a)(s-b)(s-c)}$ trenger bare de tre sidelengdene. Den er spesielt nyttig i praksis, for eksempel i landmåling, der man kan måle sidelengder direkte uten å kjenne vinkler eller høyder.',
+          },
         ],
-        solution: 'Arealsetningen $A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$ krever to sider ($a$ og $b$) og vinkelen mellom dem ($C$). Kjenner du bare sidene, bruker du Herons formel. Kjenner du grunnlinje og høyde, bruker du den klassiske formelen.',
       },
-    },
-    {
-      id: '1t-5-5-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-5-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-5-n-section5',
       type: 'text',
       content: `## Velg riktig formel – og et nyttig triks for parallellogrammer
@@ -241,24 +343,57 @@ Det store bildet er dette: arealsetningen er en av de mest allsidige formlene i 
         id: '1t-5-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En parallellogram har sider 10 cm og 6 cm, og vinkelen mellom dem er 90°. Hva er arealet?',
-        options: [
-          { id: 'a', text: '$30$ cm²', isCorrect: false },
-          { id: 'b', text: '$120$ cm²', isCorrect: false },
-          { id: 'c', text: '$60$ cm²', isCorrect: true },
-          { id: 'd', text: '$45$ cm²', isCorrect: false },
+        task: 'Test deg selv på valg av formel og parallellogrammer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-5-n-quiz5-q0',
+            task: 'En parallellogram har sider 10 cm og 6 cm, og vinkelen mellom dem er 90°. Hva er arealet?',
+            options: [
+              { id: 'a', text: '$30$ cm²', isCorrect: false },
+              { id: 'b', text: '$120$ cm²', isCorrect: false },
+              { id: 'c', text: '$60$ cm²', isCorrect: true },
+              { id: 'd', text: '$45$ cm²', isCorrect: false },
+            ],
+            solution: 'Arealet av parallellogrammet er $a \\cdot b \\cdot \\sin C = 10 \\cdot 6 \\cdot \\sin 90° = 60 \\cdot 1 = 60$ cm². Når vinkelen er $90°$, er parallellogrammet et rektangel.',
+          },
+          {
+            id: '1t-5-5-n-quiz5-q1',
+            task: 'Hvorfor mangler faktoren $\\frac{1}{2}$ i arealformelen for parallellogrammer?',
+            options: [
+              { id: 'a', text: 'Fordi parallellogrammer ikke er trekanter', isCorrect: false },
+              { id: 'b', text: 'Fordi et parallellogram består av to kongruente trekanter, altså dobbelt areal', isCorrect: true },
+              { id: 'c', text: 'Fordi $\\sin C$ kompenserer for dette', isCorrect: false },
+              { id: 'd', text: 'Det er en feil – faktoren $\\frac{1}{2}$ skal være med', isCorrect: false },
+            ],
+            solution: 'En diagonal deler parallellogrammet i to kongruente trekanter, hver med areal $\\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$. Hele parallellogrammet har da areal $2 \\cdot \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C = a \\cdot b \\cdot \\sin C$.',
+          },
+          {
+            id: '1t-5-5-n-quiz5-q2',
+            task: 'Du kjenner sidelengdene 7 m, 11 m og 13 m i en trekant, men ingen vinkler. Hvilken formel bruker du?',
+            options: [
+              { id: 'a', text: '$A = \\frac{1}{2} \\cdot g \\cdot h$', isCorrect: false },
+              { id: 'b', text: '$A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$', isCorrect: false },
+              { id: 'c', text: 'Herons formel: $A = \\sqrt{s(s-a)(s-b)(s-c)}$', isCorrect: true },
+              { id: 'd', text: 'Pytagoras\' setning', isCorrect: false },
+            ],
+            solution: 'Når du bare kjenner de tre sidelengdene, er Herons formel det rette valget. Du har ingen vinkler (så arealsetningen passer ikke) og ingen høyde (så den klassiske formelen passer ikke).',
+          },
+          {
+            id: '1t-5-5-n-quiz5-q3',
+            task: 'Et trekantet tomt har sider 40 m og 55 m med vinkel $65°$ mellom dem. Hva er arealet (avrundet)?',
+            options: [
+              { id: 'a', text: '$A \\approx 1100$ m²', isCorrect: false },
+              { id: 'b', text: '$A \\approx 997$ m²', isCorrect: true },
+              { id: 'c', text: '$A \\approx 500$ m²', isCorrect: false },
+              { id: 'd', text: '$A \\approx 1994$ m²', isCorrect: false },
+            ],
+            solution: '$A = \\frac{1}{2} \\cdot 40 \\cdot 55 \\cdot \\sin 65° = 1100 \\cdot 0{,}906 \\approx 997$ m². Det er nesten en dekar.',
+          },
         ],
-        solution: 'Arealet av parallellogrammet er $a \\cdot b \\cdot \\sin C = 10 \\cdot 6 \\cdot \\sin 90° = 60 \\cdot 1 = 60$ cm². Når vinkelen er $90°$, er parallellogrammet et rektangel, og formelen gir det vanlige arealet lengde ganger bredde.',
       },
-    },
-    {
-      id: '1t-5-5-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-5-5-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-5-5-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -291,15 +426,7 @@ export const CHAPTER_1T_5_6_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['begrunne sinussetningen', 'bruke sinussetningen til å løse trekanter'],
   linkedChapterId: '1t-5-6',
-  content: [
-    {
-      id: '1t-5-6-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-6-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-5-6-n-intro',
       type: 'text',
       content: `## Sider og vinkler i samtale
@@ -330,24 +457,46 @@ Siden begge uttrykkene er lik samme $h$, kan vi sette dem like: $b \\cdot \\sin 
         id: '1t-5-6-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva sier sinussetningen om en trekant med sider $a$, $b$, $c$ og motstående vinkler $A$, $B$, $C$?',
-        options: [
-          { id: 'a', text: '$a^2 = b^2 + c^2 - 2bc \\cos A$', isCorrect: false },
-          { id: 'b', text: '$A + B + C = 180°$', isCorrect: false },
-          { id: 'c', text: '$a \\cdot \\sin B = b \\cdot \\sin A = c$', isCorrect: false },
-          { id: 'd', text: '$\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$', isCorrect: true },
+        task: 'Test deg selv på sinussetningen og dens begrunnelse:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-6-n-quiz1-q0',
+            task: 'Hva sier sinussetningen om en trekant med sider $a$, $b$, $c$ og motstående vinkler $A$, $B$, $C$?',
+            options: [
+              { id: 'a', text: '$a^2 = b^2 + c^2 - 2bc \\cos A$', isCorrect: false },
+              { id: 'b', text: '$A + B + C = 180°$', isCorrect: false },
+              { id: 'c', text: '$a \\cdot \\sin B = b \\cdot \\sin A = c$', isCorrect: false },
+              { id: 'd', text: '$\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$', isCorrect: true },
+            ],
+            solution: 'Sinussetningen sier at forholdstallet mellom en side og sinusverdien til den motstående vinkelen er det samme for alle tre parene: $\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$.',
+          },
+          {
+            id: '1t-5-6-n-quiz1-q1',
+            task: 'I beviset for sinussetningen trekker vi høyden $h$ fra hjørne $C$. Hva gir dette?',
+            options: [
+              { id: 'a', text: '$h = a + b$', isCorrect: false },
+              { id: 'b', text: '$h = b \\cdot \\sin A$ og $h = a \\cdot \\sin B$', isCorrect: true },
+              { id: 'c', text: '$h = a \\cdot \\cos A$ og $h = b \\cdot \\cos B$', isCorrect: false },
+              { id: 'd', text: '$h = \\frac{a \\cdot b}{c}$', isCorrect: false },
+            ],
+            solution: 'Høyden $h$ kan uttrykkes fra to rettvinklede trekanter: $\\sin A = \\frac{h}{b}$ gir $h = b \\cdot \\sin A$, og $\\sin B = \\frac{h}{a}$ gir $h = a \\cdot \\sin B$. Siden begge er lik $h$, får vi $b \\cdot \\sin A = a \\cdot \\sin B$.',
+          },
+          {
+            id: '1t-5-6-n-quiz1-q2',
+            task: 'Hvilken sammenheng kobler sinussetningen – en side med sin motstående eller tilstøtende vinkel?',
+            options: [
+              { id: 'a', text: 'Tilstøtende vinkel', isCorrect: false },
+              { id: 'b', text: 'Den minste vinkelen', isCorrect: false },
+              { id: 'c', text: 'Motstående vinkel', isCorrect: true },
+              { id: 'd', text: 'Alle vinklene samtidig', isCorrect: false },
+            ],
+            solution: 'Sinussetningen kobler alltid en side med sin *motstående* vinkel. Side $a$ hører sammen med vinkel $A$, side $b$ med vinkel $B$, og side $c$ med vinkel $C$.',
+          },
         ],
-        solution: 'Sinussetningen sier at forholdstallet mellom en side og sinusverdien til den motstående vinkelen er det samme for alle tre parene: $\\frac{a}{\\sin A} = \\frac{b}{\\sin B} = \\frac{c}{\\sin C}$.',
       },
-    },
-    {
-      id: '1t-5-6-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-6-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-6-n-section2',
       type: 'text',
       content: `## Finne en ukjent side
@@ -373,24 +522,46 @@ Et annet eksempel: i en trekant er $A = 55°$, $B = 65°$ og $c = 12$. Først fi
         id: '1t-5-6-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'I en trekant er $A = 50°$, $B = 70°$ og $a = 15$. Hva er $b$ (avrundet)?',
-        options: [
-          { id: 'a', text: '$b \\approx 18{,}4$', isCorrect: true },
-          { id: 'b', text: '$b \\approx 15{,}0$', isCorrect: false },
-          { id: 'c', text: '$b \\approx 12{,}2$', isCorrect: false },
-          { id: 'd', text: '$b \\approx 20{,}1$', isCorrect: false },
+        task: 'Test deg selv på å finne ukjent side:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-6-n-quiz2-q0',
+            task: 'I en trekant er $A = 50°$, $B = 70°$ og $a = 15$. Hva er $b$ (avrundet)?',
+            options: [
+              { id: 'a', text: '$b \\approx 18{,}4$', isCorrect: true },
+              { id: 'b', text: '$b \\approx 15{,}0$', isCorrect: false },
+              { id: 'c', text: '$b \\approx 12{,}2$', isCorrect: false },
+              { id: 'd', text: '$b \\approx 20{,}1$', isCorrect: false },
+            ],
+            solution: 'Vi bruker sinussetningen: $b = \\frac{15 \\cdot \\sin 70°}{\\sin 50°} = \\frac{15 \\cdot 0{,}940}{0{,}766} \\approx 18{,}4$. Siden $B > A$, er $b > a$, noe som stemmer.',
+          },
+          {
+            id: '1t-5-6-n-quiz2-q1',
+            task: 'I en trekant er $A = 55°$, $B = 65°$ og $c = 12$. Hva er vinkel $C$?',
+            options: [
+              { id: 'a', text: '$C = 50°$', isCorrect: false },
+              { id: 'b', text: '$C = 60°$', isCorrect: true },
+              { id: 'c', text: '$C = 70°$', isCorrect: false },
+              { id: 'd', text: '$C = 120°$', isCorrect: false },
+            ],
+            solution: 'Vinkelsummen i en trekant er $180°$. Derfor: $C = 180° - 55° - 65° = 60°$. Vi trenger denne vinkelen for å bruke sinussetningen med side $c$.',
+          },
+          {
+            id: '1t-5-6-n-quiz2-q2',
+            task: 'Hvis $B > A$ i en trekant, hva gjelder for sidene?',
+            options: [
+              { id: 'a', text: '$b < a$', isCorrect: false },
+              { id: 'b', text: '$b = a$', isCorrect: false },
+              { id: 'c', text: '$b > a$', isCorrect: true },
+              { id: 'd', text: 'Det avhenger av den tredje vinkelen', isCorrect: false },
+            ],
+            solution: 'I enhver trekant gjelder: den største vinkelen ligger overfor den lengste siden. Så hvis $B > A$, da er $b > a$. Dette er en nyttig sjekk for at svaret gir mening.',
+          },
         ],
-        solution: 'Vi bruker sinussetningen: $b = \\frac{15 \\cdot \\sin 70°}{\\sin 50°} = \\frac{15 \\cdot 0{,}940}{0{,}766} \\approx 18{,}4$. Siden $B > A$, er $b > a$, noe som stemmer.',
       },
-    },
-    {
-      id: '1t-5-6-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-6-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-6-n-section3',
       type: 'text',
       content: `## Finne en ukjent vinkel
@@ -418,24 +589,46 @@ Nå til en viktig detalj som vi skal dykke dypere inn i neste seksjon: når $\\s
         id: '1t-5-6-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'I en trekant er $a = 10$, $b = 14$ og $A = 40°$. Hva er $\\sin B$ (avrundet)?',
-        options: [
-          { id: 'a', text: '$\\sin B \\approx 0{,}64$', isCorrect: false },
-          { id: 'b', text: '$\\sin B \\approx 0{,}46$', isCorrect: false },
-          { id: 'c', text: '$\\sin B \\approx 1{,}12$', isCorrect: false },
-          { id: 'd', text: '$\\sin B \\approx 0{,}90$', isCorrect: true },
+        task: 'Test deg selv på å finne ukjent vinkel:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-6-n-quiz3-q0',
+            task: 'I en trekant er $a = 10$, $b = 14$ og $A = 40°$. Hva er $\\sin B$ (avrundet)?',
+            options: [
+              { id: 'a', text: '$\\sin B \\approx 0{,}64$', isCorrect: false },
+              { id: 'b', text: '$\\sin B \\approx 0{,}46$', isCorrect: false },
+              { id: 'c', text: '$\\sin B \\approx 1{,}12$', isCorrect: false },
+              { id: 'd', text: '$\\sin B \\approx 0{,}90$', isCorrect: true },
+            ],
+            solution: 'Vi regner: $\\sin B = \\frac{b \\cdot \\sin A}{a} = \\frac{14 \\cdot \\sin 40°}{10} = \\frac{14 \\cdot 0{,}643}{10} \\approx 0{,}90$.',
+          },
+          {
+            id: '1t-5-6-n-quiz3-q1',
+            task: 'I en trekant er $a = 8$, $b = 12$ og $A = 35°$. Vi finner $\\sin B \\approx 0{,}861$. Hva er $B$?',
+            options: [
+              { id: 'a', text: '$B \\approx 59{,}4°$ (eneste mulighet)', isCorrect: false },
+              { id: 'b', text: '$B \\approx 59{,}4°$ eller $B \\approx 120{,}6°$ (to muligheter)', isCorrect: true },
+              { id: 'c', text: '$B \\approx 30{,}6°$ (eneste mulighet)', isCorrect: false },
+              { id: 'd', text: 'Ingen løsning fordi $\\sin B > 1$', isCorrect: false },
+            ],
+            solution: '$\\sin B = 0{,}861$ gir $B = \\sin^{-1}(0{,}861) \\approx 59{,}4°$, men også $B = 180° - 59{,}4° = 120{,}6°$. Begge muligheter må sjekkes videre.',
+          },
+          {
+            id: '1t-5-6-n-quiz3-q2',
+            task: 'Hva betyr det hvis vi regner ut $\\sin B = 1{,}3$ ved bruk av sinussetningen?',
+            options: [
+              { id: 'a', text: 'Vinkelen $B$ er veldig stor', isCorrect: false },
+              { id: 'b', text: 'Vi har regnet feil – $\\sin B$ kan aldri være større enn $1$', isCorrect: false },
+              { id: 'c', text: 'De gitte opplysningene kan ikke danne en trekant', isCorrect: true },
+              { id: 'd', text: 'Vinkelen er stump', isCorrect: false },
+            ],
+            solution: 'Siden sinus aldri kan bli større enn 1, betyr $\\sin B > 1$ at det ikke finnes noen trekant med de gitte opplysningene. Sinussetningen gir oss altså en innebygd sjekk.',
+          },
         ],
-        solution: 'Vi regner: $\\sin B = \\frac{14 \\cdot \\sin 40°}{10} = \\frac{14 \\cdot 0{,}643}{10} \\approx 0{,}90$. Vinkel $B \\approx 64°$ (eller muligens $116°$ – det tvetydige tilfellet).',
       },
-    },
-    {
-      id: '1t-5-6-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-6-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-6-n-section4',
       type: 'text',
       content: `## Det tvetydige tilfellet
@@ -461,24 +654,57 @@ Altså finnes det i dette tilfellet faktisk **to ulike trekanter** med de gitte 
         id: '1t-5-6-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvis $\\sin B = 0{,}5$, hva er de mulige verdiene for $B$ i en trekant?',
-        options: [
-          { id: 'a', text: 'Bare $B = 30°$', isCorrect: false },
-          { id: 'b', text: 'Bare $B = 150°$', isCorrect: false },
-          { id: 'c', text: '$B = 30°$ eller $B = 150°$', isCorrect: true },
-          { id: 'd', text: '$B = 60°$ eller $B = 120°$', isCorrect: false },
+        task: 'Test deg selv på det tvetydige tilfellet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-6-n-quiz4-q0',
+            task: 'Hvis $\\sin B = 0{,}5$, hva er de mulige verdiene for $B$ i en trekant?',
+            options: [
+              { id: 'a', text: 'Bare $B = 30°$', isCorrect: false },
+              { id: 'b', text: 'Bare $B = 150°$', isCorrect: false },
+              { id: 'c', text: '$B = 30°$ eller $B = 150°$', isCorrect: true },
+              { id: 'd', text: '$B = 60°$ eller $B = 120°$', isCorrect: false },
+            ],
+            solution: 'Siden $\\sin 30° = 0{,}5$ og $\\sin(180° - 30°) = \\sin 150° = 0{,}5$, er begge verdiene mulige. Du må sjekke om begge gir en gyldig trekant.',
+          },
+          {
+            id: '1t-5-6-n-quiz4-q1',
+            task: 'I en trekant er $a = 7$, $b = 9$ og $A = 30°$. Vi finner $B_1 \\approx 40°$ og $B_2 \\approx 140°$. Hvor mange gyldige trekanter finnes?',
+            options: [
+              { id: 'a', text: 'Ingen', isCorrect: false },
+              { id: 'b', text: 'Én', isCorrect: false },
+              { id: 'c', text: 'To', isCorrect: true },
+              { id: 'd', text: 'Tre', isCorrect: false },
+            ],
+            solution: 'Begge gir gyldige trekanter: $B_1 = 40°$ gir $C = 180° - 30° - 40° = 110°$ (alle vinkler positive). $B_2 = 140°$ gir $C = 180° - 30° - 140° = 10°$ (alle vinkler positive). Begge fungerer!',
+          },
+          {
+            id: '1t-5-6-n-quiz4-q2',
+            task: 'Hvorfor oppstår $\\sin v = \\sin(180° - v)$?',
+            options: [
+              { id: 'a', text: 'Fordi sinusfunksjonen er symmetrisk om $90°$ i intervallet $[0°, 180°]$', isCorrect: true },
+              { id: 'b', text: 'Fordi sinusfunksjonen alltid er positiv', isCorrect: false },
+              { id: 'c', text: 'Det er en tilfeldighet som bare gjelder noen vinkler', isCorrect: false },
+              { id: 'd', text: 'Fordi $\\sin v + \\sin(180° - v) = 1$', isCorrect: false },
+            ],
+            solution: 'Sinusfunksjonen er symmetrisk om $90°$ i intervallet $[0°, 180°]$. Det betyr at to ulike vinkler i dette intervallet kan gi samme sinusverdi: $v$ og $180° - v$.',
+          },
+          {
+            id: '1t-5-6-n-quiz4-q3',
+            task: 'Tvetydigheten kan bare oppstå når vi kjenner ...',
+            options: [
+              { id: 'a', text: 'To vinkler og én side', isCorrect: false },
+              { id: 'b', text: 'Alle tre sidene', isCorrect: false },
+              { id: 'c', text: 'To sider og vinkelen mellom dem', isCorrect: false },
+              { id: 'd', text: 'To sider og en vinkel som ikke ligger mellom dem', isCorrect: true },
+            ],
+            solution: 'Tvetydigheten oppstår kun når vi kjenner to sider og en vinkel motstående til en av dem. Kjenner vi to vinkler og én side, er løsningen alltid unik. Kjenner vi vinkelen mellom sidene, bruker vi uansett cosinussetningen.',
+          },
         ],
-        solution: 'Siden $\\sin 30° = 0{,}5$ og $\\sin(180° - 30°) = \\sin 150° = 0{,}5$, er begge verdiene mulige. Du må sjekke om begge gir en gyldig trekant (der alle vinkler er positive og summen er $180°$).',
       },
-    },
-    {
-      id: '1t-5-6-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-6-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-6-n-section5',
       type: 'text',
       content: `## Når bruker vi sinussetningen?
@@ -502,24 +728,46 @@ Til slutt: husk alltid den innebygde sjekken. Hvis $\\sin B$ blir større enn 1,
         id: '1t-5-6-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Du kjenner to sider og vinkelen *mellom* dem. Hvilken setning bør du bruke?',
-        options: [
-          { id: 'a', text: 'Sinussetningen', isCorrect: false },
-          { id: 'b', text: 'Pytagoras\' setning', isCorrect: false },
-          { id: 'c', text: 'Arealsetningen', isCorrect: false },
-          { id: 'd', text: 'Cosinussetningen', isCorrect: true },
+        task: 'Test deg selv på når du bruker sinussetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-6-n-quiz5-q0',
+            task: 'Du kjenner to sider og vinkelen *mellom* dem. Hvilken setning bør du bruke?',
+            options: [
+              { id: 'a', text: 'Sinussetningen', isCorrect: false },
+              { id: 'b', text: 'Pytagoras\' setning', isCorrect: false },
+              { id: 'c', text: 'Arealsetningen', isCorrect: false },
+              { id: 'd', text: 'Cosinussetningen', isCorrect: true },
+            ],
+            solution: 'Når du kjenner to sider og vinkelen mellom dem (SVS), bruker du cosinussetningen. Sinussetningen krever et par av side og motstående vinkel.',
+          },
+          {
+            id: '1t-5-6-n-quiz5-q1',
+            task: 'Hva trenger du minst for å starte med sinussetningen?',
+            options: [
+              { id: 'a', text: 'Alle tre sidene', isCorrect: false },
+              { id: 'b', text: 'Ett komplett par: en side og dens motstående vinkel', isCorrect: true },
+              { id: 'c', text: 'To sider og vinkelen mellom dem', isCorrect: false },
+              { id: 'd', text: 'Alle tre vinklene', isCorrect: false },
+            ],
+            solution: 'Sinussetningen $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$ krever minst ett komplett par (side + motstående vinkel) for å komme i gang. Uten et slikt par har vi ikke nok informasjon.',
+          },
+          {
+            id: '1t-5-6-n-quiz5-q2',
+            task: 'Du kjenner $A = 45°$, $B = 60°$ og $a = 10$. Når du finner $b$, er det noen tvetydighet?',
+            options: [
+              { id: 'a', text: 'Ja, det er alltid tvetydighet med sinussetningen', isCorrect: false },
+              { id: 'b', text: 'Nei, fordi vi kjenner to vinkler og én side – løsningen er unik', isCorrect: true },
+              { id: 'c', text: 'Ja, fordi $\\sin 60°$ har to mulige vinkler', isCorrect: false },
+              { id: 'd', text: 'Det avhenger av størrelsen på sidene', isCorrect: false },
+            ],
+            solution: 'Når vi kjenner to vinkler og én side, er det aldri noen tvetydighet. Den tredje vinkelen er bestemt ($C = 180° - 45° - 60° = 75°$), og alle sider kan finnes entydig.',
+          },
         ],
-        solution: 'Når du kjenner to sider og vinkelen mellom dem (SVS), bruker du cosinussetningen. Sinussetningen krever et par av side og motstående vinkel, som du ikke har i SVS-tilfellet.',
       },
-    },
-    {
-      id: '1t-5-6-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-5-6-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-5-6-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -550,15 +798,7 @@ export const CHAPTER_1T_5_7_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['begrunne cosinussetningen', 'bruke cosinussetningen til å løse trekanter'],
   linkedChapterId: '1t-5-7',
-  content: [
-    {
-      id: '1t-5-7-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-7-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-5-7-n-intro',
       type: 'text',
       content: `## Pytagoras for alle trekanter
@@ -593,24 +833,46 @@ Når vi ganger ut, får vi $c^2 = a^2 \\cos^2 C - 2ab \\cos C + b^2 + a^2 \\sin^
         id: '1t-5-7-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva skjer med cosinussetningen $c^2 = a^2 + b^2 - 2ab \\cos C$ når $C = 90°$?',
-        options: [
-          { id: 'a', text: 'Vi får $c^2 = a^2 + b^2 + 2ab$', isCorrect: false },
-          { id: 'b', text: 'Formelen gjelder ikke', isCorrect: false },
-          { id: 'c', text: 'Vi får $c^2 = a^2 + b^2$ (Pytagoras)', isCorrect: true },
-          { id: 'd', text: 'Vi får $c^2 = a^2 - b^2$', isCorrect: false },
+        task: 'Test deg selv på cosinussetningen og dens begrunnelse:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-7-n-quiz1-q0',
+            task: 'Hva skjer med cosinussetningen $c^2 = a^2 + b^2 - 2ab \\cos C$ når $C = 90°$?',
+            options: [
+              { id: 'a', text: 'Vi får $c^2 = a^2 + b^2 + 2ab$', isCorrect: false },
+              { id: 'b', text: 'Formelen gjelder ikke', isCorrect: false },
+              { id: 'c', text: 'Vi får $c^2 = a^2 + b^2$ (Pytagoras)', isCorrect: true },
+              { id: 'd', text: 'Vi får $c^2 = a^2 - b^2$', isCorrect: false },
+            ],
+            solution: 'Når $C = 90°$, er $\\cos 90° = 0$, så leddet $-2ab \\cos C$ forsvinner. Da gjenstår $c^2 = a^2 + b^2$, som er Pytagoras\' setning.',
+          },
+          {
+            id: '1t-5-7-n-quiz1-q1',
+            task: 'Hvilken identitet brukes i beviset for cosinussetningen?',
+            options: [
+              { id: 'a', text: '$\\sin v = \\cos(90° - v)$', isCorrect: false },
+              { id: 'b', text: '$\\sin^2 C + \\cos^2 C = 1$', isCorrect: true },
+              { id: 'c', text: '$\\sin 2v = 2 \\sin v \\cos v$', isCorrect: false },
+              { id: 'd', text: '$\\cos(A + B) = \\cos A \\cos B - \\sin A \\sin B$', isCorrect: false },
+            ],
+            solution: 'I beviset plasserer vi trekanten i et koordinatsystem og bruker avstandsformelen. Etter utregning dukker $a^2\\cos^2 C + a^2\\sin^2 C$ opp, som forenkles til $a^2$ ved identiteten $\\sin^2 C + \\cos^2 C = 1$.',
+          },
+          {
+            id: '1t-5-7-n-quiz1-q2',
+            task: 'Cosinussetningen kan skrives for alle tre sidene. Hvilken er korrekt for side $a$?',
+            options: [
+              { id: 'a', text: '$a^2 = b^2 + c^2 - 2bc \\cos A$', isCorrect: true },
+              { id: 'b', text: '$a^2 = b^2 + c^2 - 2bc \\cos C$', isCorrect: false },
+              { id: 'c', text: '$a^2 = b^2 - c^2 + 2bc \\cos A$', isCorrect: false },
+              { id: 'd', text: '$a^2 = b^2 + c^2 + 2bc \\cos A$', isCorrect: false },
+            ],
+            solution: 'Mønsteret er: siden vi finner ($a$) står alene på venstre side, de to andre sidene ($b$ og $c$) adderes, og cosinusleddet bruker vinkelen motstående den siden vi finner (vinkel $A$).',
+          },
         ],
-        solution: 'Når $C = 90°$, er $\\cos 90° = 0$, så leddet $-2ab \\cos C$ forsvinner. Da gjenstår $c^2 = a^2 + b^2$, som er Pytagoras\' setning.',
       },
-    },
-    {
-      id: '1t-5-7-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-7-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-7-n-section2',
       type: 'text',
       content: `## Finne en ukjent side
@@ -640,24 +902,46 @@ Skipene er altså ca. 41 km fra hverandre. Legg merke til at uten cosinussetning
         id: '1t-5-7-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'I en trekant er $b = 5$, $c = 8$ og $A = 45°$. Hva er $a^2$?',
-        options: [
-          { id: 'a', text: '$a^2 = 89 - 80 \\cos 45° \\approx 32{,}4$', isCorrect: true },
-          { id: 'b', text: '$a^2 = 89 + 80 \\cos 45° \\approx 145{,}6$', isCorrect: false },
-          { id: 'c', text: '$a^2 = 39 - 40 \\cos 45° \\approx 10{,}7$', isCorrect: false },
-          { id: 'd', text: '$a^2 = 89 - 40 \\cos 45° \\approx 60{,}7$', isCorrect: false },
+        task: 'Test deg selv på å finne en ukjent side med cosinussetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-7-n-quiz2-q0',
+            task: 'I en trekant er $b = 5$, $c = 8$ og $A = 45°$. Hva er $a^2$?',
+            options: [
+              { id: 'a', text: '$a^2 = 89 - 80 \\cos 45° \\approx 32{,}4$', isCorrect: true },
+              { id: 'b', text: '$a^2 = 89 + 80 \\cos 45° \\approx 145{,}6$', isCorrect: false },
+              { id: 'c', text: '$a^2 = 39 - 40 \\cos 45° \\approx 10{,}7$', isCorrect: false },
+              { id: 'd', text: '$a^2 = 89 - 40 \\cos 45° \\approx 60{,}7$', isCorrect: false },
+            ],
+            solution: 'Vi setter inn: $a^2 = b^2 + c^2 - 2bc \\cos A = 25 + 64 - 2 \\cdot 5 \\cdot 8 \\cdot \\cos 45° = 89 - 80 \\cdot 0{,}707 \\approx 32{,}4$. Da er $a \\approx 5{,}7$.',
+          },
+          {
+            id: '1t-5-7-n-quiz2-q1',
+            task: 'I en trekant er $b = 7$, $c = 10$ og $A = 60°$. Hva er $a$ (avrundet)?',
+            options: [
+              { id: 'a', text: '$a \\approx 7{,}2$', isCorrect: false },
+              { id: 'b', text: '$a \\approx 8{,}9$', isCorrect: true },
+              { id: 'c', text: '$a \\approx 12{,}2$', isCorrect: false },
+              { id: 'd', text: '$a \\approx 6{,}1$', isCorrect: false },
+            ],
+            solution: '$a^2 = 49 + 100 - 2 \\cdot 7 \\cdot 10 \\cdot \\cos 60° = 149 - 140 \\cdot 0{,}5 = 149 - 70 = 79$. Dermed $a = \\sqrt{79} \\approx 8{,}9$.',
+          },
+          {
+            id: '1t-5-7-n-quiz2-q2',
+            task: 'To skip starter fra samme havn. Det ene seiler 30 km mot nord, det andre 40 km i en retning som gjør vinkel $70°$ med det første. Hva er avstanden mellom dem (avrundet)?',
+            options: [
+              { id: 'a', text: 'Ca. $50$ km', isCorrect: false },
+              { id: 'b', text: 'Ca. $41$ km', isCorrect: true },
+              { id: 'c', text: 'Ca. $35$ km', isCorrect: false },
+              { id: 'd', text: 'Ca. $55$ km', isCorrect: false },
+            ],
+            solution: '$d^2 = 30^2 + 40^2 - 2 \\cdot 30 \\cdot 40 \\cdot \\cos 70° = 900 + 1600 - 2400 \\cdot 0{,}342 \\approx 2500 - 820{,}8 \\approx 1679$. Da er $d \\approx \\sqrt{1679} \\approx 41$ km.',
+          },
         ],
-        solution: 'Vi setter inn: $a^2 = 5^2 + 8^2 - 2 \\cdot 5 \\cdot 8 \\cdot \\cos 45° = 25 + 64 - 80 \\cdot 0{,}707 = 89 - 56{,}6 \\approx 32{,}4$. Da er $a \\approx 5{,}7$.',
       },
-    },
-    {
-      id: '1t-5-7-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-7-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-7-n-section3',
       type: 'text',
       content: `## Finne en ukjent vinkel
@@ -685,24 +969,57 @@ Et annet eksempel: sidene 3, 4 og 5 gir $\\cos C = \\frac{9 + 16 - 25}{24} = 0$,
         id: '1t-5-7-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva forteller det oss at $\\cos A$ er negativ?',
-        options: [
-          { id: 'a', text: 'Vinkel $A$ er spiss (mellom $0°$ og $90°$)', isCorrect: false },
-          { id: 'b', text: 'Trekanten finnes ikke', isCorrect: false },
-          { id: 'c', text: 'Vinkel $A$ er rett ($90°$)', isCorrect: false },
-          { id: 'd', text: 'Vinkel $A$ er stump (mellom $90°$ og $180°$)', isCorrect: true },
+        task: 'Test deg selv på å finne ukjent vinkel med cosinussetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-7-n-quiz3-q0',
+            task: 'Hva forteller det oss at $\\cos A$ er negativ?',
+            options: [
+              { id: 'a', text: 'Vinkel $A$ er spiss (mellom $0°$ og $90°$)', isCorrect: false },
+              { id: 'b', text: 'Trekanten finnes ikke', isCorrect: false },
+              { id: 'c', text: 'Vinkel $A$ er rett ($90°$)', isCorrect: false },
+              { id: 'd', text: 'Vinkel $A$ er stump (mellom $90°$ og $180°$)', isCorrect: true },
+            ],
+            solution: 'Cosinus er negativ for vinkler mellom $90°$ og $180°$. En stump vinkel i en trekant betyr at den er større enn $90°$. Den lengste siden i trekanten ligger alltid overfor den stumpe vinkelen.',
+          },
+          {
+            id: '1t-5-7-n-quiz3-q1',
+            task: 'Sidene i en trekant er $a = 5$, $b = 7$ og $c = 9$. Hva er $\\cos C$?',
+            options: [
+              { id: 'a', text: '$\\cos C = \\frac{25 + 49 - 81}{70} = -0{,}1$', isCorrect: true },
+              { id: 'b', text: '$\\cos C = \\frac{25 + 49 - 81}{70} = 0{,}1$', isCorrect: false },
+              { id: 'c', text: '$\\cos C = \\frac{81 - 25 - 49}{70} = 0{,}1$', isCorrect: false },
+              { id: 'd', text: '$\\cos C = \\frac{25 + 49 + 81}{70} \\approx 2{,}2$', isCorrect: false },
+            ],
+            solution: '$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{25 + 49 - 81}{2 \\cdot 5 \\cdot 7} = \\frac{-7}{70} = -0{,}1$. Negativ cosinus betyr at vinkel $C$ er stump ($C \\approx 95{,}7°$).',
+          },
+          {
+            id: '1t-5-7-n-quiz3-q2',
+            task: 'Hvorfor gir cosinussetningen aldri tvetydige svar, i motsetning til sinussetningen?',
+            options: [
+              { id: 'a', text: 'Fordi cosinussetningen har flere ledd', isCorrect: false },
+              { id: 'b', text: 'Fordi cosinus er unik for vinkler mellom $0°$ og $180°$', isCorrect: true },
+              { id: 'c', text: 'Fordi vi alltid kjenner alle tre sidene', isCorrect: false },
+              { id: 'd', text: 'Fordi cosinussetningen bare gjelder for rettvinklede trekanter', isCorrect: false },
+            ],
+            solution: 'Cosinus er strengt avtagende i intervallet $[0°, 180°]$ – hver cosinusverdi svarer til nøyaktig én vinkel. Sinus derimot kan gi to vinkler fordi den er symmetrisk om $90°$.',
+          },
+          {
+            id: '1t-5-7-n-quiz3-q3',
+            task: 'Sidene i en trekant er 3, 4 og 5. Hva er $\\cos C$ når $c = 5$?',
+            options: [
+              { id: 'a', text: '$\\cos C = 0{,}5$', isCorrect: false },
+              { id: 'b', text: '$\\cos C = -0{,}5$', isCorrect: false },
+              { id: 'c', text: '$\\cos C = 0$', isCorrect: true },
+              { id: 'd', text: '$\\cos C = 1$', isCorrect: false },
+            ],
+            solution: '$\\cos C = \\frac{9 + 16 - 25}{24} = \\frac{0}{24} = 0$. Siden $\\cos C = 0$, er $C = 90°$. Trekanten 3-4-5 er altså rettvinklet – noe vi allerede visste fra Pytagoras.',
+          },
         ],
-        solution: 'Cosinus er negativ for vinkler mellom $90°$ og $180°$. En stump vinkel i en trekant betyr at den er større enn $90°$. Den lengste siden i trekanten ligger alltid overfor den stumpe vinkelen.',
       },
-    },
-    {
-      id: '1t-5-7-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-7-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-7-n-section4',
       type: 'text',
       content: `## Praktiske anvendelser
@@ -728,24 +1045,46 @@ En parallellogram har sider 8 cm og 12 cm, og den ene diagonalen er 15 cm. Vi ka
         id: '1t-5-7-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'En trekant har sider 7, 8 og 9. Hva er $\\cos C$ når $c = 9$?',
-        options: [
-          { id: 'a', text: '$\\cos C = \\frac{49 + 64 - 81}{112} \\approx 0{,}286$', isCorrect: true },
-          { id: 'b', text: '$\\cos C = \\frac{49 + 81 - 64}{126} \\approx 0{,}524$', isCorrect: false },
-          { id: 'c', text: '$\\cos C = \\frac{64 + 81 - 49}{144} \\approx 0{,}667$', isCorrect: false },
-          { id: 'd', text: '$\\cos C = \\frac{81 - 49 - 64}{112} \\approx -0{,}286$', isCorrect: false },
+        task: 'Test deg selv på praktiske anvendelser av cosinussetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-7-n-quiz4-q0',
+            task: 'En trekant har sider 7, 8 og 9. Hva er $\\cos C$ når $c = 9$?',
+            options: [
+              { id: 'a', text: '$\\cos C = \\frac{49 + 64 - 81}{112} \\approx 0{,}286$', isCorrect: true },
+              { id: 'b', text: '$\\cos C = \\frac{49 + 81 - 64}{126} \\approx 0{,}524$', isCorrect: false },
+              { id: 'c', text: '$\\cos C = \\frac{64 + 81 - 49}{144} \\approx 0{,}667$', isCorrect: false },
+              { id: 'd', text: '$\\cos C = \\frac{81 - 49 - 64}{112} \\approx -0{,}286$', isCorrect: false },
+            ],
+            solution: '$\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{49 + 64 - 81}{2 \\cdot 7 \\cdot 8} = \\frac{32}{112} \\approx 0{,}286$. Positiv cosinus betyr at vinkel $C$ er spiss (ca. $73°$).',
+          },
+          {
+            id: '1t-5-7-n-quiz4-q1',
+            task: 'Et fly flyr 200 km rett øst, snur 50° mot venstre, og flyr 150 km. Hva er vinkelen i trekanten mellom de to rutene?',
+            options: [
+              { id: 'a', text: '$50°$', isCorrect: false },
+              { id: 'b', text: '$130°$', isCorrect: true },
+              { id: 'c', text: '$90°$', isCorrect: false },
+              { id: 'd', text: '$40°$', isCorrect: false },
+            ],
+            solution: 'Vinkelen i trekanten måles på innsiden. Flyet snur $50°$ fra sin opprinnelige retning, så den indre vinkelen er $180° - 50° = 130°$.',
+          },
+          {
+            id: '1t-5-7-n-quiz4-q2',
+            task: 'Hva skjer med cosinusleddet $-2ab \\cos C$ når vinkelen $C$ er stump (over $90°$)?',
+            options: [
+              { id: 'a', text: 'Leddet forsvinner', isCorrect: false },
+              { id: 'b', text: 'Leddet blir negativt, så vi trekker fra', isCorrect: false },
+              { id: 'c', text: 'Leddet blir positivt, så vi legger til', isCorrect: true },
+              { id: 'd', text: 'Formelen gjelder ikke for stumpe vinkler', isCorrect: false },
+            ],
+            solution: 'Når $C > 90°$, er $\\cos C < 0$. Da blir $-2ab \\cos C = -2ab \\cdot (\\text{negativt tall})$ = positivt. Vi legger altså til, noe som gir en lengre side $c$ – logisk, fordi en stump vinkel «sprer ut» trekanten.',
+          },
         ],
-        solution: 'Vi bruker $\\cos C = \\frac{a^2 + b^2 - c^2}{2ab} = \\frac{49 + 64 - 81}{2 \\cdot 7 \\cdot 8} = \\frac{32}{112} \\approx 0{,}286$. Positiv cosinus betyr at vinkel $C$ er spiss (ca. $73°$).',
       },
-    },
-    {
-      id: '1t-5-7-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-5-7-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-5-7-n-section5',
       type: 'text',
       content: `## Sinussetningen eller cosinussetningen?
@@ -767,24 +1106,57 @@ I praksis er det lurt å starte med å identifisere hva du vet: vinkler, sider, 
         id: '1t-5-7-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Du kjenner alle tre sidene i en trekant, men ingen vinkler. Hva gjør du?',
-        options: [
-          { id: 'a', text: 'Bruker sinussetningen direkte', isCorrect: false },
-          { id: 'b', text: 'Bruker cosinussetningen til å finne en vinkel', isCorrect: true },
-          { id: 'c', text: 'Bruker Pytagoras\' setning', isCorrect: false },
-          { id: 'd', text: 'Det er ikke mulig å finne vinklene', isCorrect: false },
+        task: 'Test deg selv på valget mellom sinussetningen og cosinussetningen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-5-7-n-quiz5-q0',
+            task: 'Du kjenner alle tre sidene i en trekant, men ingen vinkler. Hva gjør du?',
+            options: [
+              { id: 'a', text: 'Bruker sinussetningen direkte', isCorrect: false },
+              { id: 'b', text: 'Bruker cosinussetningen til å finne en vinkel', isCorrect: true },
+              { id: 'c', text: 'Bruker Pytagoras\' setning', isCorrect: false },
+              { id: 'd', text: 'Det er ikke mulig å finne vinklene', isCorrect: false },
+            ],
+            solution: 'Når du kjenner alle tre sidene (SSS), bruker du cosinussetningen: $\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}$. Sinussetningen krever minst ett par (side + vinkel).',
+          },
+          {
+            id: '1t-5-7-n-quiz5-q1',
+            task: 'Du kjenner $A = 40°$, $B = 75°$ og $a = 10$. Hvilken setning bruker du for å finne $b$?',
+            options: [
+              { id: 'a', text: 'Cosinussetningen', isCorrect: false },
+              { id: 'b', text: 'Sinussetningen', isCorrect: true },
+              { id: 'c', text: 'Pytagoras\' setning', isCorrect: false },
+              { id: 'd', text: 'Arealsetningen', isCorrect: false },
+            ],
+            solution: 'Du har to vinkler og én side – altså et komplett par ($a$ og $A$). Da er sinussetningen det naturlige valget: $\\frac{a}{\\sin A} = \\frac{b}{\\sin B}$.',
+          },
+          {
+            id: '1t-5-7-n-quiz5-q2',
+            task: 'En likebent trekant har to sider på 10 cm og grunnlinje 12 cm. Hva er toppvinkelen $C$ (avrundet)?',
+            options: [
+              { id: 'a', text: '$C \\approx 53{,}1°$', isCorrect: false },
+              { id: 'b', text: '$C \\approx 73{,}7°$', isCorrect: true },
+              { id: 'c', text: '$C \\approx 90°$', isCorrect: false },
+              { id: 'd', text: '$C \\approx 60°$', isCorrect: false },
+            ],
+            solution: '$\\cos C = \\frac{100 + 100 - 144}{200} = \\frac{56}{200} = 0{,}28$. Da er $C = \\cos^{-1}(0{,}28) \\approx 73{,}7°$.',
+          },
+          {
+            id: '1t-5-7-n-quiz5-q3',
+            task: 'I praksis bruker vi ofte cosinussetningen og sinussetningen i kombinasjon. Hva er en typisk strategi?',
+            options: [
+              { id: 'a', text: 'Bruk sinussetningen til alt', isCorrect: false },
+              { id: 'b', text: 'Bruk cosinussetningen først for den tredje siden, deretter sinussetningen for de resterende vinklene', isCorrect: true },
+              { id: 'c', text: 'Bruk begge setningene samtidig i en ligning', isCorrect: false },
+              { id: 'd', text: 'Det er aldri nødvendig å bruke begge', isCorrect: false },
+            ],
+            solution: 'En typisk strategi er å bruke cosinussetningen til å finne den tredje siden (SVS-tilfellet), og deretter sinussetningen til å finne de resterende vinklene (fordi vi da har et komplett par).',
+          },
         ],
-        solution: 'Når du kjenner alle tre sidene (SSS), bruker du cosinussetningen omskrevet til å finne vinkel: $\\cos A = \\frac{b^2 + c^2 - a^2}{2bc}$. Sinussetningen krever minst ett par (side + vinkel), som du ikke har ennå.',
       },
-    },
-    {
-      id: '1t-5-7-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-5-7-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-5-7-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -817,15 +1189,7 @@ export const CHAPTER_1T_6_1_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['argumentere for tenkemåtene sine'],
   linkedChapterId: '1t-6-1',
-  content: [
-    {
-      id: '1t-6-1-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-1-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-6-1-n-intro',
       type: 'text',
       content: `## Mer enn bare riktig svar
@@ -854,24 +1218,46 @@ Legg merke til at vi brukte bokstaver i stedet for konkrete tall. Vi skrev $a = 
         id: '1t-6-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom et eksempel og et bevis?',
-        options: [
-          { id: 'a', text: 'Det er ingen forskjell – begge viser at noe er sant', isCorrect: false },
-          { id: 'b', text: 'Et bevis bruker tall, et eksempel bruker bokstaver', isCorrect: false },
-          { id: 'c', text: 'Et eksempel viser at noe kan være sant, et bevis viser at det alltid er sant', isCorrect: true },
-          { id: 'd', text: 'Et bevis er lengre enn et eksempel', isCorrect: false },
+        task: 'Test deg selv på matematiske argumenter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-1-n-quiz1-q0',
+            task: 'Hva er forskjellen mellom et eksempel og et bevis?',
+            options: [
+              { id: 'a', text: 'Det er ingen forskjell – begge viser at noe er sant', isCorrect: false },
+              { id: 'b', text: 'Et bevis bruker tall, et eksempel bruker bokstaver', isCorrect: false },
+              { id: 'c', text: 'Et eksempel viser at noe kan være sant, et bevis viser at det alltid er sant', isCorrect: true },
+              { id: 'd', text: 'Et bevis er lengre enn et eksempel', isCorrect: false },
+            ],
+            solution: 'Et eksempel viser at noe *kan* være sant (for eksempel at $2 + 4 = 6$ er partall), mens et bevis viser at det *alltid* er sant for alle tilfeller. Selv tusen eksempler utgjør ikke et bevis.',
+          },
+          {
+            id: '1t-6-1-n-quiz1-q1',
+            task: 'Hva er de tre delene i et godt matematisk argument?',
+            options: [
+              { id: 'a', text: 'Innledning, hoveddel, avslutning', isCorrect: false },
+              { id: 'b', text: 'Forutsetninger, resonnement, konklusjon', isCorrect: true },
+              { id: 'c', text: 'Hypotese, eksperiment, resultat', isCorrect: false },
+              { id: 'd', text: 'Tall, formler, svar', isCorrect: false },
+            ],
+            solution: 'Et godt argument har: (1) **Forutsetninger** – hva vet vi? (2) **Resonnement** – en kjede av logiske steg. (3) **Konklusjon** – hva har vi vist?',
+          },
+          {
+            id: '1t-6-1-n-quiz1-q2',
+            task: 'Hvorfor bruker vi bokstaver (som $a = 2m$) i stedet for konkrete tall i bevis?',
+            options: [
+              { id: 'a', text: 'For å gjøre det vanskeligere', isCorrect: false },
+              { id: 'b', text: 'For at argumentet skal gjelde for alle tilfeller, ikke bare et spesifikt tall', isCorrect: true },
+              { id: 'c', text: 'Fordi tall ikke er tillatt i bevis', isCorrect: false },
+              { id: 'd', text: 'For å spare plass', isCorrect: false },
+            ],
+            solution: 'Bokstaver representerer vilkårlige tall. Ved å skrive $a = 2m$ i stedet for f.eks. $a = 4$, viser vi at argumentet gjelder for *alle* partall, ikke bare ett spesifikt.',
+          },
         ],
-        solution: 'Et eksempel viser at noe *kan* være sant (for eksempel at $2 + 4 = 6$ er partall), mens et bevis viser at det *alltid* er sant for alle tilfeller. Selv tusen eksempler utgjør ikke et bevis.',
       },
-    },
-    {
-      id: '1t-6-1-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-1-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-1-n-section2',
       type: 'text',
       content: `## Direkte bevis
@@ -897,24 +1283,57 @@ Poenget er: i et direkte bevis velger vi en smart representasjon av tallene vår
         id: '1t-6-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Vi vil vise at summen av et partall og et oddetall alltid er oddetall. Hva er summen $2m + (2n + 1)$?',
-        options: [
-          { id: 'a', text: '$4mn + 1$', isCorrect: false },
-          { id: 'b', text: '$2(m + n + 1)$', isCorrect: false },
-          { id: 'c', text: '$2m + 2n + 2$', isCorrect: false },
-          { id: 'd', text: '$2(m + n) + 1$', isCorrect: true },
+        task: 'Test deg selv på direkte bevis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-1-n-quiz2-q0',
+            task: 'Vi vil vise at summen av et partall og et oddetall alltid er oddetall. Hva er summen $2m + (2n + 1)$?',
+            options: [
+              { id: 'a', text: '$4mn + 1$', isCorrect: false },
+              { id: 'b', text: '$2(m + n + 1)$', isCorrect: false },
+              { id: 'c', text: '$2m + 2n + 2$', isCorrect: false },
+              { id: 'd', text: '$2(m + n) + 1$', isCorrect: true },
+            ],
+            solution: '$2m + (2n + 1) = 2m + 2n + 1 = 2(m + n) + 1$. Dette er på formen $2k + 1$ der $k = m + n$, altså et oddetall.',
+          },
+          {
+            id: '1t-6-1-n-quiz2-q1',
+            task: 'Produktet av to oddetall $(2m+1)(2n+1)$ er lik:',
+            options: [
+              { id: 'a', text: '$4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$ – et oddetall', isCorrect: true },
+              { id: 'b', text: '$4mn + 1$ – et oddetall', isCorrect: false },
+              { id: 'c', text: '$2mn + m + n + 1$ – et partall', isCorrect: false },
+              { id: 'd', text: '$4mn + 2$ – et partall', isCorrect: false },
+            ],
+            solution: '$(2m+1)(2n+1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$. Dette er på formen $2k + 1$, altså et oddetall. Produktet av to oddetall er alltid oddetall.',
+          },
+          {
+            id: '1t-6-1-n-quiz2-q2',
+            task: 'Summen av tre påfølgende hele tall $n + (n+1) + (n+2)$ er lik:',
+            options: [
+              { id: 'a', text: '$3n$', isCorrect: false },
+              { id: 'b', text: '$n^3 + 3$', isCorrect: false },
+              { id: 'c', text: '$3(n + 1)$', isCorrect: true },
+              { id: 'd', text: '$3n + 1$', isCorrect: false },
+            ],
+            solution: '$n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$. Siden dette er $3 \\cdot (\\text{helt tall})$, er summen alltid delelig med 3.',
+          },
+          {
+            id: '1t-6-1-n-quiz2-q3',
+            task: 'Hva er nøkkelen i et direkte bevis?',
+            options: [
+              { id: 'a', text: 'Å finne et moteksempel', isCorrect: false },
+              { id: 'b', text: 'Å anta det motsatte av konklusjonen', isCorrect: false },
+              { id: 'c', text: 'Å sjekke mange talleksempler', isCorrect: false },
+              { id: 'd', text: 'Å velge en smart representasjon og vise at resultatet har ønsket form', isCorrect: true },
+            ],
+            solution: 'I et direkte bevis velger vi en generell representasjon (f.eks. $2k$ for partall), gjør beregninger, og viser at resultatet har den egenskapen vi ønsker å bevise.',
+          },
         ],
-        solution: '$2m + (2n + 1) = 2m + 2n + 1 = 2(m + n) + 1$. Dette er på formen $2k + 1$ der $k = m + n$, altså et oddetall. Dermed er summen av et partall og et oddetall alltid oddetall.',
       },
-    },
-    {
-      id: '1t-6-1-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-1-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-1-n-section3',
       type: 'text',
       content: `## Logiske slutninger og implikasjon
@@ -936,24 +1355,57 @@ Men her er noe fascinerende: selv om $P \\Rightarrow Q$ og $Q \\Rightarrow P$ er
         id: '1t-6-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er kontraposisjonen av «Hvis $n^2$ er partall, så er $n$ partall»?',
-        options: [
-          { id: 'a', text: 'Hvis $n$ er oddetall, så er $n^2$ oddetall', isCorrect: true },
-          { id: 'b', text: 'Hvis $n$ er partall, så er $n^2$ partall', isCorrect: false },
-          { id: 'c', text: 'Hvis $n^2$ er oddetall, så er $n$ partall', isCorrect: false },
-          { id: 'd', text: 'Hvis $n$ er oddetall, så er $n^2$ partall', isCorrect: false },
+        task: 'Test deg selv på logiske slutninger og implikasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-1-n-quiz3-q0',
+            task: 'Hva er kontraposisjonen av «Hvis $n^2$ er partall, så er $n$ partall»?',
+            options: [
+              { id: 'a', text: 'Hvis $n$ er oddetall, så er $n^2$ oddetall', isCorrect: true },
+              { id: 'b', text: 'Hvis $n$ er partall, så er $n^2$ partall', isCorrect: false },
+              { id: 'c', text: 'Hvis $n^2$ er oddetall, så er $n$ partall', isCorrect: false },
+              { id: 'd', text: 'Hvis $n$ er oddetall, så er $n^2$ partall', isCorrect: false },
+            ],
+            solution: 'Kontraposisjonen av «Hvis $P$, så $Q$» er «Hvis ikke $Q$, så ikke $P$». Her er $P$ = «$n^2$ er partall» og $Q$ = «$n$ er partall». Kontraposisjon: «Hvis $n$ er oddetall, så er $n^2$ oddetall.»',
+          },
+          {
+            id: '1t-6-1-n-quiz3-q1',
+            task: '«Hvis det regner, er bakken våt.» Er det sant at «Hvis bakken er våt, regner det»?',
+            options: [
+              { id: 'a', text: 'Ja, det er logisk ekvivalent', isCorrect: false },
+              { id: 'b', text: 'Nei, omvendingen er ikke nødvendigvis sann', isCorrect: true },
+              { id: 'c', text: 'Ja, det er kontraposisjonen', isCorrect: false },
+              { id: 'd', text: 'Nei, fordi regn aldri gjør bakken våt', isCorrect: false },
+            ],
+            solution: '$P \\Rightarrow Q$ er *ikke* det samme som $Q \\Rightarrow P$. Bakken kan være våt av andre grunner (f.eks. hageslange). Omvendingen av en sann implikasjon er ikke nødvendigvis sann.',
+          },
+          {
+            id: '1t-6-1-n-quiz3-q2',
+            task: 'Hva er logisk ekvivalent med $P \\Rightarrow Q$?',
+            options: [
+              { id: 'a', text: '$Q \\Rightarrow P$ (omvendingen)', isCorrect: false },
+              { id: 'b', text: '$P \\Rightarrow \\neg Q$ (negasjonen)', isCorrect: false },
+              { id: 'c', text: '$\\neg Q \\Rightarrow \\neg P$ (kontraposisjonen)', isCorrect: true },
+              { id: 'd', text: '$\\neg P \\Rightarrow \\neg Q$', isCorrect: false },
+            ],
+            solution: 'Kontraposisjonen $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalent med $P \\Rightarrow Q$. «Hvis det regner, er bakken våt» betyr det samme som «Hvis bakken IKKE er våt, regner det IKKE.»',
+          },
+          {
+            id: '1t-6-1-n-quiz3-q3',
+            task: '«Alle primtall større enn 2 er oddetall.» Betyr det at alle oddetall er primtall?',
+            options: [
+              { id: 'a', text: 'Ja', isCorrect: false },
+              { id: 'b', text: 'Nei – for eksempel er 9 oddetall men ikke primtall', isCorrect: true },
+              { id: 'c', text: 'Ja, men bare for tall under 100', isCorrect: false },
+              { id: 'd', text: 'Det avhenger av definisjonen av primtall', isCorrect: false },
+            ],
+            solution: 'Nei. $P \\Rightarrow Q$ betyr ikke $Q \\Rightarrow P$. At et primtall > 2 er oddetall betyr ikke at alle oddetall er primtall. Tallet 9 = 3 $\\times$ 3 er oddetall, men ikke primtall.',
+          },
         ],
-        solution: 'Kontraposisjonen av «Hvis $P$, så $Q$» er «Hvis ikke $Q$, så ikke $P$». Her: $P$ = «$n^2$ er partall» og $Q$ = «$n$ er partall». Kontraposisjonen blir: «Hvis $n$ *ikke* er partall (altså oddetall), så er $n^2$ *ikke* partall (altså oddetall).»',
       },
-    },
-    {
-      id: '1t-6-1-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-1-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-1-n-section4',
       type: 'text',
       content: `## Bevis ved kontraposisjon og motbevis
@@ -977,24 +1429,46 @@ Det mest berømte motbeviset viser at $\\sqrt{2}$ er irrasjonalt. Anta det motsa
         id: '1t-6-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'I et bevis ved selvmotsigelse, hva gjør vi?',
-        options: [
-          { id: 'a', text: 'Vi finner et moteksempel', isCorrect: false },
-          { id: 'b', text: 'Vi viser kontraposisjonen direkte', isCorrect: false },
-          { id: 'c', text: 'Vi antar det motsatte av konklusjonen og viser at det fører til en selvmotsigelse', isCorrect: true },
-          { id: 'd', text: 'Vi sjekker mange eksempler til vi er sikre', isCorrect: false },
+        task: 'Test deg selv på kontraposisjon og motbevis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-1-n-quiz4-q0',
+            task: 'I et bevis ved selvmotsigelse, hva gjør vi?',
+            options: [
+              { id: 'a', text: 'Vi finner et moteksempel', isCorrect: false },
+              { id: 'b', text: 'Vi viser kontraposisjonen direkte', isCorrect: false },
+              { id: 'c', text: 'Vi antar det motsatte av konklusjonen og viser at det fører til en selvmotsigelse', isCorrect: true },
+              { id: 'd', text: 'Vi sjekker mange eksempler til vi er sikre', isCorrect: false },
+            ],
+            solution: 'I et motbevis antar vi at det vi ønsker å bevise er usant, utleder logiske konsekvenser, og viser at vi når en selvmotsigelse (noe umulig). Dermed var antagelsen feil.',
+          },
+          {
+            id: '1t-6-1-n-quiz4-q1',
+            task: 'Vi viser at «$n$ oddetall $\\Rightarrow$ $n^2$ oddetall» med kontraposisjon. La $n = 2k + 1$. Hva er $n^2$?',
+            options: [
+              { id: 'a', text: '$4k^2 + 1$', isCorrect: false },
+              { id: 'b', text: '$2(2k^2 + 2k) + 1$ – et oddetall', isCorrect: true },
+              { id: 'c', text: '$4k^2 + 4k$ – et partall', isCorrect: false },
+              { id: 'd', text: '$2k^2 + 1$ – et oddetall', isCorrect: false },
+            ],
+            solution: '$n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$. Dette er på formen $2m + 1$, altså et oddetall. Dermed er kontraposisjonen vist.',
+          },
+          {
+            id: '1t-6-1-n-quiz4-q2',
+            task: 'I beviset for at $\\sqrt{2}$ er irrasjonalt, hva er selvmotsigelsen?',
+            options: [
+              { id: 'a', text: 'Vi finner at $\\sqrt{2} = 2$', isCorrect: false },
+              { id: 'b', text: 'Vi finner at $p$ og $q$ begge er partall, men vi antok at brøken $\\frac{p}{q}$ var forkortet', isCorrect: true },
+              { id: 'c', text: 'Vi finner at $p = q$', isCorrect: false },
+              { id: 'd', text: 'Vi finner at $p^2$ er negativt', isCorrect: false },
+            ],
+            solution: 'Vi antok $\\sqrt{2} = \\frac{p}{q}$ med brøken fullt forkortet. Vi utledet at både $p$ og $q$ er partall – altså har de felles faktor 2. Det motsier at brøken var forkortet. Selvmotsigelse!',
+          },
         ],
-        solution: 'I et motbevis antar vi at det vi ønsker å bevise er usant. Deretter utleder vi logiske konsekvenser av denne antagelsen helt til vi når en selvmotsigelse (noe som ikke kan være sant). Siden antagelsen førte til noe umulig, må den ha vært feil, og det opprinnelige utsagnet er sant.',
       },
-    },
-    {
-      id: '1t-6-1-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-1-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-1-n-section5',
       type: 'text',
       content: `## Fallgruver og feilslutninger
@@ -1016,24 +1490,57 @@ Vi kan oppsummere bevismetodene. I et **direkte bevis** viser vi $P \\Rightarrow
         id: '1t-6-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er feilen i «beviset» for at $2 = 1$ der vi starter med $a = b$?',
-        options: [
-          { id: 'a', text: 'Vi kan ikke skrive $a^2 = ab$', isCorrect: false },
-          { id: 'b', text: 'Faktoriseringen er feil', isCorrect: false },
-          { id: 'c', text: 'Vi deler på $(a - b) = 0$, som er divisjon med null', isCorrect: true },
-          { id: 'd', text: 'Vi kan ikke anta at $a = b$', isCorrect: false },
+        task: 'Test deg selv på fallgruver og bevismetoder:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-1-n-quiz5-q0',
+            task: 'Hva er feilen i «beviset» for at $2 = 1$ der vi starter med $a = b$?',
+            options: [
+              { id: 'a', text: 'Vi kan ikke skrive $a^2 = ab$', isCorrect: false },
+              { id: 'b', text: 'Faktoriseringen er feil', isCorrect: false },
+              { id: 'c', text: 'Vi deler på $(a - b) = 0$, som er divisjon med null', isCorrect: true },
+              { id: 'd', text: 'Vi kan ikke anta at $a = b$', isCorrect: false },
+            ],
+            solution: 'Siden $a = b$, er $a - b = 0$. Å dele på $(a - b)$ er divisjon med null – noe som aldri er tillatt. Alle steg før dette er korrekte.',
+          },
+          {
+            id: '1t-6-1-n-quiz5-q1',
+            task: 'Hvilken bevismetode viser $P \\Rightarrow Q$ ved å vise $\\neg Q \\Rightarrow \\neg P$?',
+            options: [
+              { id: 'a', text: 'Direkte bevis', isCorrect: false },
+              { id: 'b', text: 'Motbevis (selvmotsigelse)', isCorrect: false },
+              { id: 'c', text: 'Kontrapositivt bevis', isCorrect: true },
+              { id: 'd', text: 'Induksjonsbevis', isCorrect: false },
+            ],
+            solution: 'Et kontrapositivt bevis viser $\\neg Q \\Rightarrow \\neg P$, som er logisk ekvivalent med $P \\Rightarrow Q$. Noen ganger er dette lettere enn å vise det opprinnelige utsagnet direkte.',
+          },
+          {
+            id: '1t-6-1-n-quiz5-q2',
+            task: 'En elev sjekker at $n^2 + n + 41$ er primtall for $n = 0, 1, 2, \\ldots, 39$ og konkluderer at formelen alltid gir primtall. Hva er feil med dette?',
+            options: [
+              { id: 'a', text: 'Formelen er skrevet feil', isCorrect: false },
+              { id: 'b', text: 'Man kan ikke trekke en generell konklusjon fra et endelig antall eksempler', isCorrect: true },
+              { id: 'c', text: 'Beregningene er feil', isCorrect: false },
+              { id: 'd', text: 'Primtall er ikke godt definert', isCorrect: false },
+            ],
+            solution: 'Selv 40 vellykkede eksempler er ikke et bevis. For $n = 40$ gir formelen $40^2 + 40 + 41 = 1681 = 41^2$, som IKKE er primtall. Man kan aldri generalisere fra eksempler.',
+          },
+          {
+            id: '1t-6-1-n-quiz5-q3',
+            task: 'Hvilken bevismetode brukes i følgende: «Vi antar at $\\sqrt{2}$ er rasjonalt, og utleder en selvmotsigelse»?',
+            options: [
+              { id: 'a', text: 'Direkte bevis', isCorrect: false },
+              { id: 'b', text: 'Kontrapositivt bevis', isCorrect: false },
+              { id: 'c', text: 'Induksjonsbevis', isCorrect: false },
+              { id: 'd', text: 'Motbevis (bevis ved selvmotsigelse)', isCorrect: true },
+            ],
+            solution: 'Vi antar det *motsatte* av det vi vil vise (at $\\sqrt{2}$ er rasjonalt), og utleder noe umulig. Det er et motbevis, eller bevis ved selvmotsigelse.',
+          },
         ],
-        solution: 'Siden $a = b$, er $a - b = 0$. Når vi deler begge sider på $(a - b)$, deler vi på null, noe som ikke er tillatt i matematikken. Alle stegene frem til den delingen er helt korrekte – det er delingen som er feilen.',
       },
-    },
-    {
-      id: '1t-6-1-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-6-1-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-6-1-n-summary',
       type: 'text',
       content: `## Oppsummering
@@ -1066,15 +1573,7 @@ export const CHAPTER_1T_6_2_NARRATIV: TextbookChapter = {
   estimatedMinutes: 40,
   competenceGoals: ['lese og forstå matematiske bevis', 'utforske og utvikle bevis'],
   linkedChapterId: '1t-6-2',
-  content: [
-    {
-      id: '1t-6-2-n-audio-1',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-2-narrativ-del1.mp3',
-      description: 'Lydfil som leser opp teksten frem til første quiz.',
-    },
-    {
+  content: [    {
       id: '1t-6-2-n-intro',
       type: 'text',
       content: `## Å lese matematikkens språk
@@ -1105,24 +1604,57 @@ De to bevisene viser det samme resultatet fra to ulike vinkler – ett algebrais
         id: '1t-6-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er $(a - b)^2$?',
-        options: [
-          { id: 'a', text: '$a^2 - b^2$', isCorrect: false },
-          { id: 'b', text: '$a^2 + 2ab + b^2$', isCorrect: false },
-          { id: 'c', text: '$a^2 - 2ab - b^2$', isCorrect: false },
-          { id: 'd', text: '$a^2 - 2ab + b^2$', isCorrect: true },
+        task: 'Test deg selv på algebraiske bevis og kvadratsetningene:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-2-n-quiz1-q0',
+            task: 'Hva er $(a - b)^2$?',
+            options: [
+              { id: 'a', text: '$a^2 - b^2$', isCorrect: false },
+              { id: 'b', text: '$a^2 + 2ab + b^2$', isCorrect: false },
+              { id: 'c', text: '$a^2 - 2ab - b^2$', isCorrect: false },
+              { id: 'd', text: '$a^2 - 2ab + b^2$', isCorrect: true },
+            ],
+            solution: '$(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$. Dette er 2. kvadratsetning.',
+          },
+          {
+            id: '1t-6-2-n-quiz1-q1',
+            task: 'Hva er $(a + b)^2$ ifølge 1. kvadratsetning?',
+            options: [
+              { id: 'a', text: '$a^2 + b^2$', isCorrect: false },
+              { id: 'b', text: '$a^2 + 2ab + b^2$', isCorrect: true },
+              { id: 'c', text: '$2a^2 + 2b^2$', isCorrect: false },
+              { id: 'd', text: '$a^2 + ab + b^2$', isCorrect: false },
+            ],
+            solution: '$(a + b)^2 = (a + b)(a + b) = a^2 + ab + ab + b^2 = a^2 + 2ab + b^2$. Beviset bruker bare distributiv lov.',
+          },
+          {
+            id: '1t-6-2-n-quiz1-q2',
+            task: 'Hva gjør beviset for 1. kvadratsetning til et *bevis* og ikke bare en utregning?',
+            options: [
+              { id: 'a', text: 'Vi brukte mange forskjellige tall for å sjekke', isCorrect: false },
+              { id: 'b', text: 'Vi brukte $a$ og $b$ som vilkårlige tall, så det gjelder for alle', isCorrect: true },
+              { id: 'c', text: 'Vi brukte en kalkulator', isCorrect: false },
+              { id: 'd', text: 'Vi tegnet en figur', isCorrect: false },
+            ],
+            solution: 'Fordi $a$ og $b$ er vilkårlige tall (ikke spesifikke verdier), gjelder utregningen for *alle* tall. Det er dette som gjør det til et bevis og ikke bare et eksempel.',
+          },
+          {
+            id: '1t-6-2-n-quiz1-q3',
+            task: 'I det geometriske beviset for 1. kvadratsetning deler vi et kvadrat med side $(a+b)$ i fire deler. Hvilke?',
+            options: [
+              { id: 'a', text: 'Fire like store trekanter', isCorrect: false },
+              { id: 'b', text: 'To rektangler med areal $ab$ og to kvadrater med areal $a^2$ og $b^2$', isCorrect: true },
+              { id: 'c', text: 'Fire like store kvadrater', isCorrect: false },
+              { id: 'd', text: 'Et stort rektangel og en trekant', isCorrect: false },
+            ],
+            solution: 'Det store kvadratet $(a+b)^2$ deles i: et $a \\times a$-kvadrat ($a^2$), et $b \\times b$-kvadrat ($b^2$), og to $a \\times b$-rektangler ($2ab$). Totalt: $a^2 + 2ab + b^2$.',
+          },
         ],
-        solution: 'Vi ganger ut: $(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$. Dette er 2. kvadratsetning, og den bevises på nøyaktig samme måte som den første.',
       },
-    },
-    {
-      id: '1t-6-2-n-audio-2',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-2-narrativ-del2.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-2-n-section2',
       type: 'text',
       content: `## Geometriske bevis – Pytagoras' setning
@@ -1148,24 +1680,46 @@ Legg merke til hva vi gjorde: vi uttrykte *det samme arealet* på to ulike måte
         id: '1t-6-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'I beviset for Pytagoras\' setning, hva er nøkkelideen?',
-        options: [
-          { id: 'a', text: 'Vi uttrykker det samme arealet på to ulike måter', isCorrect: true },
-          { id: 'b', text: 'Vi bruker sinussetningen', isCorrect: false },
-          { id: 'c', text: 'Vi antar det motsatte og finner en selvmotsigelse', isCorrect: false },
-          { id: 'd', text: 'Vi bruker induksjon', isCorrect: false },
+        task: 'Test deg selv på geometriske bevis og Pytagoras:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-2-n-quiz2-q0',
+            task: 'I beviset for Pytagoras\' setning, hva er nøkkelideen?',
+            options: [
+              { id: 'a', text: 'Vi uttrykker det samme arealet på to ulike måter', isCorrect: true },
+              { id: 'b', text: 'Vi bruker sinussetningen', isCorrect: false },
+              { id: 'c', text: 'Vi antar det motsatte og finner en selvmotsigelse', isCorrect: false },
+              { id: 'd', text: 'Vi bruker induksjon', isCorrect: false },
+            ],
+            solution: 'Nøkkelideen er å uttrykke arealet av det store kvadratet $(a+b)^2$ på to måter: direkte som $a^2 + 2ab + b^2$, og som summen av delene $2ab + c^2$. Vi setter dem like og forenkler.',
+          },
+          {
+            id: '1t-6-2-n-quiz2-q1',
+            task: 'I beviset plasserer vi fire rettvinklede trekanter inne i et stort kvadrat med side $(a+b)$. Hva er det totale arealet av de fire trekantene?',
+            options: [
+              { id: 'a', text: '$4ab$', isCorrect: false },
+              { id: 'b', text: '$2ab$', isCorrect: true },
+              { id: 'c', text: '$ab$', isCorrect: false },
+              { id: 'd', text: '$\\frac{ab}{2}$', isCorrect: false },
+            ],
+            solution: 'Hver trekant har areal $\\frac{1}{2}ab$. Fire trekanter gir $4 \\cdot \\frac{1}{2}ab = 2ab$.',
+          },
+          {
+            id: '1t-6-2-n-quiz2-q2',
+            task: 'Vi får $a^2 + 2ab + b^2 = 2ab + c^2$. Hva skjer når vi trekker $2ab$ fra begge sider?',
+            options: [
+              { id: 'a', text: '$a^2 + b^2 = c^2$ – Pytagoras\' setning!', isCorrect: true },
+              { id: 'b', text: '$a^2 - b^2 = c^2$', isCorrect: false },
+              { id: 'c', text: '$a^2 + b^2 = 2c^2$', isCorrect: false },
+              { id: 'd', text: '$a^2 + b^2 + 2ab = c^2$', isCorrect: false },
+            ],
+            solution: '$a^2 + 2ab + b^2 = 2ab + c^2$. Trekker vi $2ab$ fra begge sider: $a^2 + b^2 = c^2$. Det er Pytagoras\' setning!',
+          },
         ],
-        solution: 'Nøkkelideen er å uttrykke arealet av det store kvadratet på to måter: direkte som $(a+b)^2 = a^2 + 2ab + b^2$, og som summen av delene $2ab + c^2$. Ved å sette de to uttrykkene like, kan vi forenkle til $a^2 + b^2 = c^2$.',
       },
-    },
-    {
-      id: '1t-6-2-n-audio-3',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-2-narrativ-del3.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-2-n-section3',
       type: 'text',
       content: `## Indirekte bevis – irrasjonale tall
@@ -1191,24 +1745,46 @@ Mønsteret er det samme som for $\\sqrt{2}$: anta rasjonalitet, vis at teller og
         id: '1t-6-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er selvmotsigelsen i beviset for at $\\sqrt{3}$ er irrasjonalt?',
-        options: [
-          { id: 'a', text: 'Både $p$ og $q$ er delelige med 3, men vi antok at brøken var forkortet', isCorrect: true },
-          { id: 'b', text: 'Vinkelsummen blir mer enn $180°$', isCorrect: false },
-          { id: 'c', text: 'Vi får at $p^2$ er negativt', isCorrect: false },
-          { id: 'd', text: 'Vi får $3 = 0$', isCorrect: false },
+        task: 'Test deg selv på indirekte bevis og irrasjonale tall:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-2-n-quiz3-q0',
+            task: 'Hva er selvmotsigelsen i beviset for at $\\sqrt{3}$ er irrasjonalt?',
+            options: [
+              { id: 'a', text: 'Både $p$ og $q$ er delelige med 3, men vi antok at brøken var forkortet', isCorrect: true },
+              { id: 'b', text: 'Vinkelsummen blir mer enn $180°$', isCorrect: false },
+              { id: 'c', text: 'Vi får at $p^2$ er negativt', isCorrect: false },
+              { id: 'd', text: 'Vi får $3 = 0$', isCorrect: false },
+            ],
+            solution: 'Vi antok at $\\frac{p}{q}$ var forkortet. Men vi utledet at begge er delelige med 3 – altså har de felles faktor 3. Selvmotsigelse! Antagelsen var feil, så $\\sqrt{3}$ er irrasjonalt.',
+          },
+          {
+            id: '1t-6-2-n-quiz3-q1',
+            task: 'I beviset antar vi $\\sqrt{3} = \\frac{p}{q}$ og kvadrerer. Hva får vi?',
+            options: [
+              { id: 'a', text: '$p = 3q$', isCorrect: false },
+              { id: 'b', text: '$p^2 = 3q^2$', isCorrect: true },
+              { id: 'c', text: '$p^2 = 9q^2$', isCorrect: false },
+              { id: 'd', text: '$p^2 + q^2 = 3$', isCorrect: false },
+            ],
+            solution: '$\\sqrt{3} = \\frac{p}{q}$ gir $3 = \\frac{p^2}{q^2}$, altså $p^2 = 3q^2$. Herfra ser vi at $p^2$ er delelig med 3.',
+          },
+          {
+            id: '1t-6-2-n-quiz3-q2',
+            task: 'Metoden for å bevise at $\\sqrt{p}$ er irrasjonalt fungerer for alle ...',
+            options: [
+              { id: 'a', text: 'Alle naturlige tall $p$', isCorrect: false },
+              { id: 'b', text: 'Bare $p = 2$ og $p = 3$', isCorrect: false },
+              { id: 'c', text: 'Alle primtall $p$', isCorrect: true },
+              { id: 'd', text: 'Alle partall $p$', isCorrect: false },
+            ],
+            solution: 'Mønsteret fungerer for $\\sqrt{p}$ der $p$ er et primtall. For et primtall $p$ gjelder: hvis $p$ deler $n^2$, så deler $p$ også $n$. Det er denne egenskapen som gir selvmotsigelsen.',
+          },
         ],
-        solution: 'Vi antok at $\\frac{p}{q}$ var maksimalt forkortet (ingen felles faktorer). Men vi utledet at begge er delelige med 3, altså har de felles faktor 3. Dette er en selvmotsigelse, som betyr at antagelsen om at $\\sqrt{3}$ er rasjonalt, var feil.',
       },
-    },
-    {
-      id: '1t-6-2-n-audio-4',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-2-narrativ-del4.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-2-n-section4',
       type: 'text',
       content: `## Bevis ved induksjon – dominoeffekten
@@ -1236,24 +1812,57 @@ Og det er nettopp formelen med $n = k + 1$. Beviset er fullført!`,
         id: '1t-6-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er de tre stegene i et indusjonsbevis?',
-        options: [
-          { id: 'a', text: 'Forutsetning, resonnement, konklusjon', isCorrect: false },
-          { id: 'b', text: 'Grunntilfelle, induksjonsantagelse, induksjonssteg', isCorrect: true },
-          { id: 'c', text: 'Antagelse, selvmotsigelse, konklusjon', isCorrect: false },
-          { id: 'd', text: 'Premiss, kontraposisjon, bevis', isCorrect: false },
+        task: 'Test deg selv på matematisk induksjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-2-n-quiz4-q0',
+            task: 'Hva er de tre stegene i et indusjonsbevis?',
+            options: [
+              { id: 'a', text: 'Forutsetning, resonnement, konklusjon', isCorrect: false },
+              { id: 'b', text: 'Grunntilfelle, induksjonsantagelse, induksjonssteg', isCorrect: true },
+              { id: 'c', text: 'Antagelse, selvmotsigelse, konklusjon', isCorrect: false },
+              { id: 'd', text: 'Premiss, kontraposisjon, bevis', isCorrect: false },
+            ],
+            solution: 'Et indusjonsbevis har: (1) **Grunntilfellet** – vis at det er sant for $n = 1$. (2) **Induksjonsantagelsen** – anta det er sant for $n = k$. (3) **Induksjonssteget** – vis at det da er sant for $n = k + 1$.',
+          },
+          {
+            id: '1t-6-2-n-quiz4-q1',
+            task: 'Induksjon sammenlignes med dominobrikker. Hva tilsvarer grunntilfellet?',
+            options: [
+              { id: 'a', text: 'At alle brikkene er like store', isCorrect: false },
+              { id: 'b', text: 'At den første brikken faller', isCorrect: true },
+              { id: 'c', text: 'At brikkene står i en linje', isCorrect: false },
+              { id: 'd', text: 'At den siste brikken faller', isCorrect: false },
+            ],
+            solution: 'Grunntilfellet er som den første brikken som faller. Induksjonssteget viser at «enhver brikke som faller, slår ned den neste». Sammen garanterer de at *alle* brikkene faller.',
+          },
+          {
+            id: '1t-6-2-n-quiz4-q2',
+            task: 'Vi beviser $1 + 2 + \\ldots + n = \\frac{n(n+1)}{2}$. I induksjonssteget legger vi til $(k+1)$ på begge sider. Hva får vi på høyre side?',
+            options: [
+              { id: 'a', text: '$\\frac{k(k+1)}{2} + (k+1) = \\frac{(k+1)(k+2)}{2}$', isCorrect: true },
+              { id: 'b', text: '$\\frac{k(k+1)}{2} + k = \\frac{k(k+2)}{2}$', isCorrect: false },
+              { id: 'c', text: '$\\frac{(k+1)^2}{2}$', isCorrect: false },
+              { id: 'd', text: '$\\frac{k(k+1)}{2} + 1 = \\frac{k^2 + k + 2}{2}$', isCorrect: false },
+            ],
+            solution: '$\\frac{k(k+1)}{2} + (k+1) = \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$. Dette er nøyaktig formelen med $n = k+1$, og induksjonssteget er fullført.',
+          },
+          {
+            id: '1t-6-2-n-quiz4-q3',
+            task: 'Hva gjelder grunntilfellet $n = 1$ for formelen $1 + 2 + \\ldots + n = \\frac{n(n+1)}{2}$?',
+            options: [
+              { id: 'a', text: 'Venstre side er $1$, høyre side er $\\frac{1 \\cdot 2}{2} = 1$. Det stemmer.', isCorrect: true },
+              { id: 'b', text: 'Venstre side er $0$, høyre side er $1$. Det stemmer ikke.', isCorrect: false },
+              { id: 'c', text: 'Venstre side er $1$, høyre side er $\\frac{1}{2}$. Det stemmer ikke.', isCorrect: false },
+              { id: 'd', text: 'Vi trenger ikke sjekke grunntilfellet.', isCorrect: false },
+            ],
+            solution: 'For $n = 1$: venstre side er $1$, høyre side er $\\frac{1 \\cdot 2}{2} = 1$. De er like, så grunntilfellet er bekreftet. Uten dette steget ville ikke induksjonsbeviset vært gyldig.',
+          },
         ],
-        solution: 'Et indusjonsbevis har tre deler: (1) **Grunntilfellet** – vis at påstanden er sann for $n = 1$. (2) **Induksjonsantagelsen** – anta at den er sann for $n = k$. (3) **Induksjonssteget** – vis at den da er sann for $n = k + 1$.',
       },
-    },
-    {
-      id: '1t-6-2-n-audio-5',
-      type: 'audio',
-      title: 'Lytt til denne delen',
-      src: '/audio/1t/1t-6-2-narrativ-del5.mp3',
-      description: 'Lydfil som leser opp teksten frem til neste quiz.',
-    },
-    {
+    },    {
       id: '1t-6-2-n-section5',
       type: 'text',
       content: `## Hvordan lese et bevis – og utvikle egne
@@ -1279,24 +1888,57 @@ Det finnes fire hovedtyper bevis du bør kjenne til: **direkte bevis** (vis at $
         id: '1t-6-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Summen av de første $n$ oddetallene er $1 + 3 + 5 + \\ldots + (2n-1)$. Hva er denne summen lik?',
-        options: [
-          { id: 'a', text: '$\\frac{n(n+1)}{2}$', isCorrect: false },
-          { id: 'b', text: '$2n - 1$', isCorrect: false },
-          { id: 'c', text: '$n^2$', isCorrect: true },
-          { id: 'd', text: '$n(2n-1)$', isCorrect: false },
+        task: 'Test deg selv på å lese og forstå bevis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: '1t-6-2-n-quiz5-q0',
+            task: 'Summen av de første $n$ oddetallene er $1 + 3 + 5 + \\ldots + (2n-1)$. Hva er denne summen lik?',
+            options: [
+              { id: 'a', text: '$\\frac{n(n+1)}{2}$', isCorrect: false },
+              { id: 'b', text: '$2n - 1$', isCorrect: false },
+              { id: 'c', text: '$n^2$', isCorrect: true },
+              { id: 'd', text: '$n(2n-1)$', isCorrect: false },
+            ],
+            solution: 'Summen av de første $n$ oddetallene er $n^2$. Grunntilfellet: $n=1$ gir $1 = 1^2$. Induksjonssteget: $k^2 + (2k+1) = k^2 + 2k + 1 = (k+1)^2$.',
+          },
+          {
+            id: '1t-6-2-n-quiz5-q1',
+            task: 'Hva er det første du bør gjøre når du leser et bevis?',
+            options: [
+              { id: 'a', text: 'Hoppe til konklusjonen', isCorrect: false },
+              { id: 'b', text: 'Lære beviset utenat', isCorrect: false },
+              { id: 'c', text: 'Forstå påstanden – hva er det som skal bevises?', isCorrect: true },
+              { id: 'd', text: 'Telle antall linjer', isCorrect: false },
+            ],
+            solution: 'Første steg er alltid å forstå *hva* som skal bevises. Hva betyr begrepene? Kan du sjekke med et konkret eksempel? Uten å forstå påstanden kan du ikke forstå beviset.',
+          },
+          {
+            id: '1t-6-2-n-quiz5-q2',
+            task: 'Hvilke fire hovedtyper bevis bør du kjenne til?',
+            options: [
+              { id: 'a', text: 'Direkte bevis, kontraposisjon, motbevis, induksjon', isCorrect: true },
+              { id: 'b', text: 'Algebraisk, geometrisk, grafisk, numerisk', isCorrect: false },
+              { id: 'c', text: 'Kort bevis, langt bevis, visuelt bevis, formelt bevis', isCorrect: false },
+              { id: 'd', text: 'Tallbevis, bokstavbevis, figurbevis, datamaskinbevis', isCorrect: false },
+            ],
+            solution: 'De fire hovedtypene er: (1) **Direkte bevis** – vis $P \\Rightarrow Q$ steg for steg. (2) **Kontraposisjon** – vis $\\neg Q \\Rightarrow \\neg P$. (3) **Motbevis** – anta $\\neg Q$, finn selvmotsigelse. (4) **Induksjon** – grunntilfelle + induksjonssteg.',
+          },
+          {
+            id: '1t-6-2-n-quiz5-q3',
+            task: 'Hva er den ultimate testen for å sjekke om du har forstått et bevis?',
+            options: [
+              { id: 'a', text: 'Å lese det mange ganger', isCorrect: false },
+              { id: 'b', text: 'Å sjekke med tall', isCorrect: false },
+              { id: 'c', text: 'Å lukke boka og prøve å gjenskape beviset selv', isCorrect: true },
+              { id: 'd', text: 'Å spørre læreren', isCorrect: false },
+            ],
+            solution: 'Den beste testen er å lukke boka og prøve å gjenskape beviset. Du trenger ikke huske det ord for ord – det viktige er at du forstår logikken godt nok til å rekonstruere den.',
+          },
         ],
-        solution: 'Summen av de første $n$ oddetallene er $n^2$. Dette kan bevises med induksjon: grunntilfellet er $n=1$, der $1 = 1^2$. For induksjonssteget: $1 + 3 + \\ldots + (2k-1) + (2k+1) = k^2 + 2k + 1 = (k+1)^2$.',
       },
-    },
-    {
-      id: '1t-6-2-n-audio-6',
-      type: 'audio',
-      title: 'Lytt til oppsummeringen',
-      src: '/audio/1t/1t-6-2-narrativ-del6.mp3',
-      description: 'Lydfil som leser opp oppsummeringen.',
-    },
-    {
+    },    {
       id: '1t-6-2-n-summary',
       type: 'text',
       content: `## Oppsummering

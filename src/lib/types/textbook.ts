@@ -325,6 +325,9 @@ export interface TextbookExercise {
   // Flervalg
   options?: (MultipleChoiceOption | string)[];
 
+  // Sekvensiell quiz (flere spørsmål etter hverandre)
+  questions?: QuizQuestion[];
+
   // Hjelp
   hints?: string[];
   solution?: string;
@@ -377,6 +380,14 @@ export interface MultipleChoiceOption {
   text: string;
   isCorrect?: boolean;           // Kan utelates når correctAnswer brukes på oppgaven
   feedback?: string;             // Vises når valgt
+}
+
+// Spørsmål i en sekvensiell quiz (brukes med questions-feltet på TextbookExercise)
+export interface QuizQuestion {
+  id: string;
+  task: string;
+  options: (MultipleChoiceOption | string)[];
+  solution?: string;
 }
 
 // ============================================================================
