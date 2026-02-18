@@ -83,15 +83,12 @@ export function MultipleChoiceExercise({
     loadSavedAnswer();
   }, [courseId, chapterId, exerciseId, viewingAsStudentId]);
 
-  const handleSelect = (optionId: string) => {
+  const handleSelect = async (optionId: string) => {
     if (isSubmitted || isReadOnly) return;
     setSelectedId(optionId);
-  };
 
-  const handleSubmit = async () => {
-    if (!selectedId || isReadOnly) return;
-
-    const selectedOption = options.find((o) => o.id === selectedId);
+    // Auto-submit immediately
+    const selectedOption = options.find((o) => o.id === optionId);
     const correct = selectedOption?.isCorrect || false;
 
     setIsCorrect(correct);
@@ -108,7 +105,7 @@ export function MultipleChoiceExercise({
             chapterId,
             courseId,
             submissionType: 'multiple-choice',
-            content: { selectedId },
+            content: { selectedId: optionId },
             isCorrect: correct,
           }),
         });
@@ -119,7 +116,7 @@ export function MultipleChoiceExercise({
 
     // Callback for parent component
     if (onSave) {
-      onSave(selectedId, correct);
+      onSave(optionId, correct);
     }
   };
 
@@ -203,18 +200,14 @@ export function MultipleChoiceExercise({
         })}
       </div>
 
-      {/* Knapper */}
-      <div className="flex gap-2">
-        {!isSubmitted ? (
-          <Button onClick={handleSubmit} disabled={!selectedId}>
-            Sjekk svar
-          </Button>
-        ) : (
+      {/* Prøv på nytt-knapp */}
+      {isSubmitted && (
+        <div className="flex gap-2">
           <Button variant="outline" onClick={handleReset}>
             Prøv på nytt
           </Button>
-        )}
-      </div>
+        </div>
+      )}
 
       {/* Resultat */}
       {isSubmitted && (
