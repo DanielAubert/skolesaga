@@ -514,7 +514,6 @@ $$p'(x) = 2x \\cdot e^x + x^2 \\cdot e^x = e^x(2x + x^2) = e^x \\cdot x(x + 2)$$
   exercises: [],
 };
 
-
 export const CHAPTER_R2_2_2: TextbookChapter = {
   id: 'r2-2-2',
   courseId: 'r2',
@@ -938,7 +937,6 @@ $$\\int (x^2 - 2) \\, dx = \\frac{x^3}{3} - 2x + C$$`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_2_3: TextbookChapter = {
   id: 'r2-2-3',
   courseId: 'r2',
@@ -1234,7 +1232,6 @@ $$\\int_a^b e^x \\, dx = \\Big[e^x\\Big]_a^b = e^b - e^a$$
   exercises: [],
 };
 
-
 export const CHAPTER_R2_2_4: TextbookChapter = {
   id: 'r2-2-4',
   courseId: 'r2',
@@ -1258,20 +1255,6 @@ Hvordan finner vi arealet under en kurve? For rektangler og trekanter har vi enk
 Ideen er gammel - allerede Arkimedes (ca. 250 f.Kr.) brukte en genial metode: **Del opp arealet i mange smale rektangler**, og la antallet rektangler ga mot uendelig.
 
 Denne ideen er selve grunnlaget for integrasjon og kalles **Riemannsummen**, oppkalt etter den tyske matematikeren Bernhard Riemann (1826-1866).`,
-    },
-    {
-      id: 'r2-2-4-riemann-bilde',
-      type: 'image',
-      src: '/images/r2/integrasjon-riemann.svg',
-      alt: 'Riemannsum med rektangler under en kurve',
-      caption: 'Riemannsum - arealet tilnarmet med rektangler',
-    },
-    {
-      id: 'r2-2-4-areal-bilde',
-      type: 'image',
-      src: '/images/r2/integrasjon-areal.svg',
-      alt: 'Areal under en kurve beregnet med integral',
-      caption: 'Bestemt integral - areal under kurven',
     },
 
     // ========== DEFINISJON 1: Inndeling ==========
@@ -1554,7 +1537,6 @@ Riemannsummer er likevel viktige:
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_2_5: TextbookChapter = {
   id: 'r2-2-5',
@@ -1842,7 +1824,6 @@ $$A = \\left[\\frac{x^3}{3}\\right]_0^3 = \\frac{3^3}{3} - \\frac{0^3}{3} = \\fr
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_2_6: TextbookChapter = {
   id: 'r2-2-6',
@@ -2351,7 +2332,6 @@ I dette kapittelet har vi laert:
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_2_7: TextbookChapter = {
   id: 'r2-2-7',

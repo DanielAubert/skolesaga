@@ -31,14 +31,6 @@ Tidligere har vi beskrevet kurver i planet med likninger som $y = f(x)$ eller $x
 Tenk på det som å beskrive bevegelsen til et punkt som beveger seg langs kurven. For hver verdi av $t$ (som kan tenkes som tid), får vi en posisjon $(x(t), y(t))$ i planet.`,
     },
 
-    {
-      id: 'r2-6-1-polar-form-bilde',
-      type: 'image',
-      src: '/images/r2/polar-form.svg',
-      alt: 'Illustrasjon av polarkoordinater og parameterframstilling',
-      caption: 'Polarkoordinater - en annen mate a beskrive punkter i planet',
-    },
-
     // Definisjon: Parameterframstilling
     {
       id: 'r2-6-1-def-param',
@@ -1271,7 +1263,6 @@ Alternativt: $x = 3\\cos(-t + \\frac{\\pi}{2})$, $y = 3\\sin(-t + \\frac{\\pi}{2
   ],
 };
 
-
 export const CHAPTER_R2_6_2: TextbookChapter = {
   id: 'r2-6-2',
   courseId: 'r2',
@@ -2473,7 +2464,6 @@ $\\approx 21{,}26$`,
   ],
 };
 
-
 export const CHAPTER_R2_6_3: TextbookChapter = {
   id: 'r2-6-3',
   courseId: 'r2',
@@ -3647,7 +3637,6 @@ $$\\vec{r}(t) = [v_0 t \\cos\\alpha, v_0 t \\sin\\alpha - \\frac{1}{2}gt^2]$$
     },
   ],
 };
-
 
 export const CHAPTER_R2_6_4: TextbookChapter = {
   id: 'r2-6-4',
@@ -4835,7 +4824,6 @@ d) Diskuter minst tre faktorer som kan gjøre modellen upålitelig.`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_6_5: TextbookChapter = {
   id: 'r2-6-5',
   courseId: 'r2',
@@ -5967,7 +5955,6 @@ I dette kapitlet har du laert:
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_6_6: TextbookChapter = {
   id: 'r2-6-6',

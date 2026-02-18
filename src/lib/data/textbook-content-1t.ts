@@ -30,13 +30,6 @@ Når vi regner med negative tall, må vi være nøye med fortegnene. Her er noen
     },
 
     // Bilde: Fortegnsregler
-    {
-      id: '1t-1-1-fortegnsregler-bilde',
-      type: 'image',
-      src: '/textbook/1t/kap1/fortegnsregler.png',
-      alt: 'Fortegnsregler: a - (-b) = a + b og a + (-b) = a - b',
-      caption: 'Husk disse reglene for regning med negative tall',
-    },
 
     // Eksempel 1: Addisjon og subtraksjon
     {
@@ -136,13 +129,6 @@ Når vi ganger og deler negative tall kan vi telle antall negative fortegn for �
     },
 
     // Bilde: Multiplikasjon med fortegn
-    {
-      id: '1t-1-1-mult-fortegn-bilde',
-      type: 'image',
-      src: '/textbook/1t/kap1/multiplikasjon-fortegn.png',
-      alt: 'Multiplikasjon med fortegn: 3 · (-4) = -12 og -3 · (-4) = 12',
-      caption: 'Oddetall minuser gir negativt svar, partall minuser gir positivt svar',
-    },
 
     // Eksempel 2: Multiplikasjon
     {
@@ -742,13 +728,6 @@ $$x^a \\cdot x^b = x^{a+b}$$`,
     },
 
     // Illustrasjon: Potensregler
-    {
-      id: '1t-1-2-potensregler-bilde',
-      type: 'image',
-      src: '/images/algebra/potensregler.svg',
-      alt: 'Oversikt over potensreglene: multiplikasjon, divisjon, potens av potens',
-      caption: 'De viktigste potensreglene samlet',
-    },
 
     // ========== EKSEMPEL 2 ==========
     {
@@ -1791,13 +1770,6 @@ Husk: $b \\cdot a = a \\cdot b$`,
     },
 
     // Illustrasjon: 1. Kvadratsetning
-    {
-      id: '1t-1-5-kvadratsetning-1-bilde',
-      type: 'image',
-      src: '/images/algebra/kvadratsetning-1.svg',
-      alt: 'Geometrisk visualisering av første kvadratsetning (a+b)^2',
-      caption: '1. Kvadratsetning: Arealet av et kvadrat med sidelengde (a+b)',
-    },
 
     // ========== 2. KVADRATSETNING ==========
     {
@@ -1812,13 +1784,6 @@ $(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$`,
     },
 
     // Illustrasjon: 2. Kvadratsetning
-    {
-      id: '1t-1-5-kvadratsetning-2-bilde',
-      type: 'image',
-      src: '/images/algebra/kvadratsetning-2.svg',
-      alt: 'Geometrisk visualisering av andre kvadratsetning (a-b)^2',
-      caption: '2. Kvadratsetning: Arealet av et kvadrat med sidelengde (a-b)',
-    },
 
     // ========== EKSEMPEL 6 ==========
     {
@@ -2023,13 +1988,6 @@ $(a + b)(a - b) = a^2 - ab + ab - b^2 = a^2 - b^2$`,
     },
 
     // Illustrasjon: Konjugatsetningen
-    {
-      id: '1t-1-5-konjugatsetning-bilde',
-      type: 'image',
-      src: '/images/algebra/konjugatsetningen.svg',
-      alt: 'Geometrisk visualisering av konjugatsetningen (a+b)(a-b) = a^2 - b^2',
-      caption: 'Konjugatsetningen: Differansen mellom to kvadrater',
-    },
 
     // ========== EKSEMPEL 9 ==========
     {
@@ -2755,13 +2713,6 @@ export const CHAPTER_1T_1_4: TextbookChapter = {
     },
 
     // Illustrasjon: Brøkregning
-    {
-      id: '1t-1-4-brokregning-bilde',
-      type: 'image',
-      src: '/images/algebra/brokregning.svg',
-      alt: 'Visualisering av brøkregning med teller og nevner',
-      caption: 'Brøkregning - grunnleggende prinsipper',
-    },
 
     {
       id: '1t-1-4-theorem-mult',
@@ -3148,13 +3099,6 @@ Når vi møter på brøker med ulik nevner må vi utvide en eller begge brøkene
     },
 
     // Illustrasjon: Fellesnevner
-    {
-      id: '1t-1-4-fellesnevner-bilde',
-      type: 'image',
-      src: '/images/algebra/fellesnevner.svg',
-      alt: 'Hvordan finne fellesnevner ved å utvide brøker',
-      caption: 'Fellesnevner - utviding av brøker for addisjon og subtraksjon',
-    },
 
     // ========== EKSEMPEL 9 ==========
     {
@@ -4604,13 +4548,6 @@ der:
     },
 
     // Illustrasjon: Polynomdivisjon
-    {
-      id: '1t-1-8-polynomdivisjon-bilde',
-      type: 'image',
-      src: '/images/algebra/polynomdivisjon.svg',
-      alt: 'Illustrasjon av polynomdivisjon med lang divisjon',
-      caption: 'Polynomdivisjon - steg for steg',
-    },
 
     // ========== EKSEMPEL 1 ==========
     {
@@ -4980,13 +4917,6 @@ For polynomer med heltallskoeffisienter kan vi ofte finne nullpunkter ved å pr�
     },
 
     // Illustrasjon: Nullpunktmetoden
-    {
-      id: '1t-1-9-nullpunktmetoden-bilde',
-      type: 'image',
-      src: '/images/algebra/nullpunktmetoden.svg',
-      alt: 'Grafisk fremstilling av nullpunktmetoden for polynomer',
-      caption: 'Nullpunktmetoden - finne nullpunkter ved faktorisering',
-    },
 
     // ========== EKSEMPEL 2 ==========
     {
@@ -5202,13 +5132,6 @@ Hovedprinsippet for å løse likninger er at vi alltid gjør det samme på begge
     },
 
     // Illustrasjon: Likningsvekt
-    {
-      id: '1t-2-1-likningsvekt-bilde',
-      type: 'image',
-      src: '/images/algebra/likningsvekt.svg',
-      alt: 'En vekt som illustrerer likhetsprinsippet i likninger',
-      caption: 'En likning er som en vekt - det vi gjor på den ene siden må vi også gjøre på den andre',
-    },
 
     // ========== EKSEMPEL 1 ==========
     {
@@ -6108,13 +6031,6 @@ For å finne nullpunktene til en andregradslikning på formen $ax^2 + bx + c = 0
     },
 
     // Illustrasjon: ABC-formelen
-    {
-      id: 'bi-okonomi-2-2-abc-bilde',
-      type: 'image',
-      src: '/images/algebra/abc-formelen.svg',
-      alt: 'ABC-formelen for andregradslikninger',
-      caption: 'ABC-formelen brukes til å finne nullpunktene til andregradslikninger',
-    },
 
     // ========== EKSEMPEL 1 ==========
     {
@@ -9755,13 +9671,6 @@ For eksempel betyr målestokk **1:100** at 1 cm på tegningen tilsvarer 100 cm (
     },
 
     // ========== FIGUR: MÅLESTOKK ==========
-    {
-      id: '1t-5-2-img-malestokk',
-      type: 'image',
-      src: '/images/geometry/malestokk-eksempel.svg',
-      alt: 'Illustrasjon av målestokk 1:100 som viser at 5 cm på tegningen tilsvarer 5 m i virkeligheten',
-      caption: 'Målestokk 1:100 - tegningen er 100 ganger mindre enn virkeligheten',
-    },
 
     // ========== EKSEMPEL 4 ==========
     {
@@ -9981,13 +9890,6 @@ Et punkt i koordinatsystemet skrives som $(x, y)$ der $x$ er avstanden langs $x$
     },
 
     // Illustrasjon: Koordinatsystem intro
-    {
-      id: '1t-3-1-koordinatsystem-bilde',
-      type: 'image',
-      src: '/images/functions/koordinatsystem-intro.svg',
-      alt: 'Koordinatsystem med x-akse, y-akse og origo markert',
-      caption: 'Koordinatsystemet med aksene og origo',
-    },
 
     // GeoGebra: Koordinatsystem med punkt
     {
@@ -10521,22 +10423,8 @@ Skjæringspunktet med $y$-aksen er altså $(0, b)$.`,
     },
 
     // Illustrasjon: Stigningstall
-    {
-      id: '1t-3-2-stigningstall-bilde',
-      type: 'image',
-      src: '/images/functions/stigningstall.svg',
-      alt: 'Visualisering av stigningstall: hvor mye y oker når x oker med 1',
-      caption: 'Stigningstallet viser hvor bratt linjen er',
-    },
 
     // Illustrasjon: Lineær funksjon
-    {
-      id: '1t-3-2-lineaer-bilde',
-      type: 'image',
-      src: '/images/functions/lineaer-funksjon.svg',
-      alt: 'Graf av en lineær funksjon y = ax + b',
-      caption: 'En lineær funksjon med stigningstall a og konstantledd b',
-    },
 
     // GeoGebra: y = 2x + 1 med stigningstall
     {
@@ -11513,22 +11401,8 @@ I dette kapitlet lærer du:
     },
 
     // Illustrasjon: Andregradsfunksjon
-    {
-      id: '1t-3-4-andregradsfunksjon-bilde',
-      type: 'image',
-      src: '/images/functions/andregradsfunksjon.svg',
-      alt: 'Graf av en andregradsfunksjon (parabel) med toppunkt/bunnpunkt markert',
-      caption: 'En andregradsfunksjon - parabelen viser topp- eller bunnpunkt',
-    },
 
     // Illustrasjon: Diskriminanten
-    {
-      id: '1t-3-4-diskriminant-bilde',
-      type: 'image',
-      src: '/images/functions/diskriminanten.svg',
-      alt: 'Diskriminanten bestemmer antall nullpunkter for en andregradsfunksjon',
-      caption: 'Diskriminanten avgjor om parabelen har 0, 1 eller 2 nullpunkter',
-    },
 
     {
       id: '1t-3-4-def-andregrads',
@@ -12770,31 +12644,10 @@ Den enkleste måten å forstå likningssett på er å tegne begge likningene som
     },
 
     // Illustrasjon: Grafisk løsning
-    {
-      id: '1t-4-1-grafisk-losning-bilde',
-      type: 'image',
-      src: '/images/functions/grafisk-losning.svg',
-      alt: 'Grafisk losning av likningssett - to linjer som krysser i et punkt',
-      caption: 'Grafisk losning: skjæringspunktet mellom to linjer er losningen',
-    },
 
     // Illustrasjon: Parallelle linjer
-    {
-      id: '1t-4-1-parallelle-linjer-bilde',
-      type: 'image',
-      src: '/images/functions/parallelle-linjer.svg',
-      alt: 'Parallelle linjer har samme stigningstall og krysser aldri',
-      caption: 'Parallelle linjer: samme stigningstall, ingen losning',
-    },
 
     // Illustrasjon: Vinkelrette linjer
-    {
-      id: '1t-4-1-vinkelrette-linjer-bilde',
-      type: 'image',
-      src: '/images/functions/vinkelrette-linjer.svg',
-      alt: 'Vinkelrette linjer star 90 grader på hverandre',
-      caption: 'Vinkelrette linjer: produktet av stigningstallene er -1',
-    },
 
     {
       id: '1t-4-1-example-1',
@@ -14304,13 +14157,6 @@ til å finne likningen for linjen.`,
     },
 
     // Illustrasjon: Ettpunktsformelen
-    {
-      id: '1t-7-1-ettpunktsformel-bilde',
-      type: 'image',
-      src: '/images/functions/ettpunktsformel.svg',
-      alt: 'Ettpunktsformelen: finn likningen til en linje fra et punkt og stigningstall',
-      caption: 'Ettpunktsformelen bruker et punkt og stigningstallet',
-    },
 
     // Eksempel 2: Ettpunktsformelen
     {
@@ -14352,13 +14198,6 @@ $$y = 3x - 1$$`,
     },
 
     // Illustrasjon: To-punkts-formelen
-    {
-      id: '1t-7-1-topunktsformel-bilde',
-      type: 'image',
-      src: '/images/functions/to-punkts-formel.svg',
-      alt: 'To-punkts-formelen: finn likningen til en linje gjennom to punkter',
-      caption: 'Med to punkter kan vi finne stigningstallet og deretter likningen',
-    },
 
     // Eksempel 3: Linje gjennom to punkter
     {
@@ -16877,13 +16716,6 @@ I en rettvinklet trekant kaller vi:
 Hypotenusen er alltid den **lengste siden** i en rettvinklet trekant.`,
     },
     {
-      id: '1t-5-3-figur-345',
-      type: 'image',
-      src: '/images/textbook/1t/kap5/pytagoras-345.svg',
-      alt: 'Rettvinklet trekant med kateter 3 og 4, og hypotenus 5',
-      caption: 'Den klassiske 3-4-5 trekanten: $3^2 + 4^2 = 9 + 16 = 25 = 5^2$',
-    },
-    {
       id: '1t-5-3-theorem',
       type: 'theorem',
       title: 'Pytagoras\' setning',
@@ -17138,7 +16970,6 @@ unitsize(1cm);
         type: 'classic',
         difficulty: 'medium',
         task: 'Bruk figuren over til å løse oppgaven. I en rettvinklet trekant er katet $a = 9$ cm og katet $b = 12$ cm. Bruk Pytagoras\' setning til å finne hypotenusen $c$.',
-        image: '/images/geometry/pytagoras.svg',
         solution: `Vi bruker formelen fra figuren: $c^2 = a^2 + b^2$
 
 $c^2 = 9^2 + 12^2 = 81 + 144 = 225$
@@ -17157,7 +16988,6 @@ $c = \\sqrt{225} = 15$ cm
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Studer figuren for Pytagoras\' setning. En rettvinklet trekant har hypotenus $c = 20$ cm og én katet $b = 16$ cm. Finn den andre kateten $a$.',
-        image: '/images/geometry/pytagoras.svg',
         solution: `Fra figuren ser vi at vi kan omforme formelen til å finne en katet:
 $a = \\sqrt{c^2 - b^2}$
 
@@ -17178,7 +17008,6 @@ $a = \\sqrt{144} = 12$ cm
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Se på figuren. En TV-skjerm oppgis i tommer diagonalt. En 55-tommers TV har bredde 48 tommer. Hvor høy er skjermen? (Bruk at diagonalen deler rektangelet i to rettvinklede trekanter der diagonalen er hypotenusen.)',
-        image: '/images/geometry/pytagoras.svg',
         solution: `Diagonalen er hypotenusen ($c = 55$), bredden er én katet ($b = 48$).
 
 $a = \\sqrt{c^2 - b^2} = \\sqrt{55^2 - 48^2}$
@@ -17358,13 +17187,6 @@ Når vi kjenner sidene og skal finne en vinkel, bruker vi **inverse trigonometri
 På kalkulatoren finner du disse som «sin⁻¹», «cos⁻¹» og «tan⁻¹».`,
     },
     {
-      id: '1t-5-4-spesielle-vinkler-bilde',
-      type: 'image',
-      src: '/images/trigonometry/spesielle-vinkler.svg',
-      alt: 'Tabelloversikt over trigonometriske verdier for 30, 45 og 60 grader',
-      caption: 'Eksakte verdier for sinus, cosinus og tangens for spesielle vinkler',
-    },
-    {
       id: '1t-5-4-example-3',
       type: 'example',
       title: 'Eksempel 3',
@@ -17512,13 +17334,6 @@ Verdiene for 30°, 45° og 60° er nyttige å kjenne:
     },
     // ========== NYE OPPGAVER MED ILLUSTRASJONER ==========
     {
-      id: '1t-5-4-ill-trig',
-      type: 'image',
-      src: '/images/trigonometry/sincos-trekant.svg',
-      alt: 'Trigonometri i rettvinklet trekant med sinus, cosinus og tangens',
-      caption: 'Trigonometriske forhold i en rettvinklet trekant',
-    },
-    {
       id: '1t-5-4-ex-7',
       type: 'exercise',
       exercise: {
@@ -17527,7 +17342,6 @@ Verdiene for 30°, 45° og 60° er nyttige å kjenne:
         type: 'classic',
         difficulty: 'medium',
         task: 'Studer figuren over som viser de trigonometriske forholdene. I en rettvinklet trekant er vinkelen $v = 40°$ og hypotenusen $c = 15$ cm. Bruk definisjonene fra figuren til å finne motstående katet $a$ og hosliggende katet $b$.',
-        image: '/images/trigonometry/sincos-trekant.svg',
         subTasks: [
           { label: 'a', task: 'Finn motstående katet $a$', solution: '$a = c \\cdot \\sin v = 15 \\cdot \\sin 40° \\approx 9{,}64$ cm' },
           { label: 'b', task: 'Finn hosliggende katet $b$', solution: '$b = c \\cdot \\cos v = 15 \\cdot \\cos 40° \\approx 11{,}49$ cm' },
@@ -17545,7 +17359,6 @@ Verdiene for 30°, 45° og 60° er nyttige å kjenne:
         type: 'classic',
         difficulty: 'medium',
         task: 'Se på figuren for trigonometri. I trekanten er hosliggende katet $b = 8$ cm og motstående katet $a = 6$ cm. Bruk tangens fra figuren til å finne vinkelen $v$.',
-        image: '/images/trigonometry/sincos-trekant.svg',
         solution: `Fra figuren ser vi at $\\tan v = a/b$ (motstående/hosliggende).
 
 $\\tan v = \\frac{6}{8} = 0{,}75$
@@ -17564,7 +17377,6 @@ $v = \\tan^{-1}(0{,}75) \\approx 36{,}9°$
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Bruk huskeregelen SOH-CAH-TOA fra figuren. En fyrlykt er 35 m høy. Fra et punkt på bakken ser man toppen av fyrlykten med en elevasjonsvinkel på 28°. Hvor langt unna fyrlykten står man?',
-        image: '/images/trigonometry/sincos-trekant.svg',
         solution: `Fyrlykthøyden er motstående katet, avstanden er hosliggende katet.
 
 $\\tan 28° = \\frac{\\text{motstående}}{\\text{hosliggende}} = \\frac{35}{d}$
@@ -17582,13 +17394,6 @@ $d = \\frac{35}{\\tan 28°} = \\frac{35}{0{,}532} \\approx 65{,}8$ m
       content: `### Oppgaver med figurer
 
 I oppgavene nedenfor skal du bruke trigonometri til å finne ukjente sider eller vinkler. Studer figuren nøye og identifiser hvilke sider som er hosliggende, motstående og hypotenus i forhold til den gitte vinkelen.`,
-    },
-    {
-      id: '1t-5-4-figur-trig',
-      type: 'image',
-      src: '/images/textbook/1t/kap5/trig-rettvinklet.svg',
-      alt: 'Rettvinklet trekant med hosliggende, motstående og hypotenus markert',
-      caption: 'Huskeregel: $\\sin v = \\frac{\\text{motstående}}{\\text{hypotenus}}$, $\\cos v = \\frac{\\text{hosliggende}}{\\text{hypotenus}}$, $\\tan v = \\frac{\\text{motstående}}{\\text{hosliggende}}$',
     },
     {
       id: '1t-5-4-ex-10',
@@ -17685,13 +17490,6 @@ Denne formelen fungerer for **alle** trekanter.`,
 $$A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$$
 
 der $a$ og $b$ er to sider, og $C$ er vinkelen mellom dem.`,
-    },
-    {
-      id: '1t-5-5-arealsetningen-bilde',
-      type: 'image',
-      src: '/images/trigonometry/arealsetningen.svg',
-      alt: 'Trekant med to sider a og b og vinkelen C mellom dem',
-      caption: 'Arealsetningen bruker to sider og vinkelen mellom dem',
     },
     {
       id: '1t-5-5-text-bevis',
@@ -17853,62 +17651,6 @@ unitsize(1cm);
       showCode: false,
     },
     {
-      id: '1t-5-5-ill-areal-parallellogram',
-      type: 'image',
-      src: '/images/geometry/areal-parallellogram.svg',
-      alt: 'Areal av parallellogram med grunnlinje og hoyde',
-      caption: 'Arealformelen for parallellogram: $A = g \\cdot h$',
-    },
-    {
-      id: '1t-5-5-ill-areal-trapes',
-      type: 'image',
-      src: '/images/geometry/areal-trapes.svg',
-      alt: 'Areal av trapes med parallelle sider og hoyde',
-      caption: 'Arealformelen for trapes: $A = \\frac{(a + b) \\cdot h}{2}$',
-    },
-    {
-      id: '1t-5-5-ill-areal-sirkel',
-      type: 'image',
-      src: '/images/geometry/areal-sirkel.svg',
-      alt: 'Areal av sirkel med radius',
-      caption: 'Arealformelen for sirkel: $A = \\pi r^2$',
-    },
-    {
-      id: '1t-5-5-ill-omkrets-sirkel',
-      type: 'image',
-      src: '/images/geometry/omkrets-sirkel.svg',
-      alt: 'Omkrets av sirkel med radius',
-      caption: 'Omkretsen til en sirkel: $O = 2\\pi r$',
-    },
-    {
-      id: '1t-5-5-ill-volum-sylinder',
-      type: 'image',
-      src: '/images/geometry/volum-sylinder.svg',
-      alt: 'Volum av sylinder med radius og hoyde',
-      caption: 'Volumformelen for sylinder: $V = \\pi r^2 h$',
-    },
-    {
-      id: '1t-5-5-ill-volum-kjegle',
-      type: 'image',
-      src: '/images/geometry/volum-kjegle.svg',
-      alt: 'Volum av kjegle med radius og hoyde',
-      caption: 'Volumformelen for kjegle: $V = \\frac{1}{3}\\pi r^2 h$',
-    },
-    {
-      id: '1t-5-5-ill-volum-kule',
-      type: 'image',
-      src: '/images/geometry/volum-kule.svg',
-      alt: 'Volum av kule med radius',
-      caption: 'Volumformelen for kule: $V = \\frac{4}{3}\\pi r^3$',
-    },
-    {
-      id: '1t-5-5-ill-overflate-kube',
-      type: 'image',
-      src: '/images/geometry/overflate-kube.svg',
-      alt: 'Overflate av kube med sidelengde',
-      caption: 'Overflaten til en kube: $O = 6s^2$',
-    },
-    {
       id: '1t-5-5-ex-6',
       type: 'exercise',
       exercise: {
@@ -17917,7 +17659,6 @@ unitsize(1cm);
         type: 'classic',
         difficulty: 'medium',
         task: 'Studer figuren over som viser hvordan arealet av en trekant beregnes. En trekant har grunnlinje $g = 14$ cm og høyde $h = 9$ cm. Beregn arealet.',
-        image: '/images/geometry/areal-trekant.svg',
         solution: `Fra figuren ser vi formelen $A = \\frac{g \\cdot h}{2}$
 
 $A = \\frac{14 \\cdot 9}{2} = \\frac{126}{2} = 63$ cm²
@@ -17935,7 +17676,6 @@ $A = \\frac{14 \\cdot 9}{2} = \\frac{126}{2} = 63$ cm²
         type: 'classic',
         difficulty: 'medium',
         task: 'Se på figuren for areal av trekant. Et trekantet skilt har areal 180 cm² og grunnlinje 24 cm. Hvor høyt er skiltet? (Finn høyden $h$.)',
-        image: '/images/geometry/areal-trekant.svg',
         solution: `Vi løser arealformelen for $h$:
 $A = \\frac{g \\cdot h}{2}$
 $180 = \\frac{24 \\cdot h}{2}$
@@ -17947,13 +17687,6 @@ $h = 15$ cm
       },
     },
     {
-      id: '1t-5-5-ill-formlike',
-      type: 'image',
-      src: '/images/geometry/formlike-trekanter.svg',
-      alt: 'Formlike trekanter med forholdstall k = 2',
-      caption: 'Formlike trekanter har samme vinkler og proporsjonale sider',
-    },
-    {
       id: '1t-5-5-ex-8',
       type: 'exercise',
       exercise: {
@@ -17962,7 +17695,6 @@ $h = 15$ cm
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Studer figuren for formlike trekanter. Den lille trekanten har sider 3, 4 og 5, mens den store har sider 6, 8 og 10 (forholdstallet $k = 2$). Hva er forholdet mellom arealene til de to trekantene?',
-        image: '/images/geometry/formlike-trekanter.svg',
         solution: `Liten trekant: $A_1 = \\frac{4 \\cdot 3}{2} = 6$ (med 4 som grunnlinje og 3 som høyde i en 3-4-5 trekant)
 
 Stor trekant: $A_2 = \\frac{8 \\cdot 6}{2} = 24$
@@ -17984,13 +17716,6 @@ Dette er en generell regel: Når sidene i en trekant ganges med $k$, ganges area
 I oppgavene nedenfor skal du beregne arealet av trekanter. Studer figuren og velg riktig formel basert på informasjonen som er gitt.`,
     },
     {
-      id: '1t-5-5-figur-grunnlinje-hoyde',
-      type: 'image',
-      src: '/images/textbook/1t/kap5/areal-grunnlinje-hoyde.svg',
-      alt: 'Trekant med grunnlinje g og høyde h markert',
-      caption: 'Areal med grunnlinje og høyde: $A = \\frac{g \\cdot h}{2}$',
-    },
-    {
       id: '1t-5-5-ex-9',
       type: 'exercise',
       exercise: {
@@ -18007,13 +17732,6 @@ $A = \\frac{g \\cdot h}{2} = \\frac{8 \\cdot 5}{2} = \\frac{40}{2} = 20$
 **Arealet av trekanten er 20.**`,
         hints: ['Bruk formelen $A = \\frac{g \\cdot h}{2}$'],
       },
-    },
-    {
-      id: '1t-5-5-figur-to-sider-vinkel',
-      type: 'image',
-      src: '/images/textbook/1t/kap5/areal-to-sider-vinkel.svg',
-      alt: 'Trekant med to sider a og b og mellomliggende vinkel C',
-      caption: 'Areal med to sider og mellomliggende vinkel: $A = \\frac{1}{2} \\cdot a \\cdot b \\cdot \\sin C$',
     },
     {
       id: '1t-5-5-ex-10',

@@ -33,14 +33,6 @@ Radianer gjør mange formler enklere og mer elegante. For eksempel blir derivasj
 - Enhetssirkelen`,
     },
 
-    {
-      id: 'r2-4-1-komplekse-tall-bilde',
-      type: 'image',
-      src: '/images/r2/komplekse-tall.svg',
-      alt: 'Illustrasjon av komplekse tall i det komplekse planet',
-      caption: 'Komplekse tall - sammenheng mellom trigonometri og det komplekse planet',
-    },
-
     // ========== DEFINISJON AV RADIAN ==========
     {
       id: 'r2-4-1-def-radian',
@@ -55,13 +47,6 @@ $$v = \\frac{s}{r}$$
 En hel omdreining ($360°$) tilsvarer en bue med lengde lik hele omkretsen $2\\pi r$, så:
 
 $$360° = \\frac{2\\pi r}{r} = 2\\pi \\text{ radianer}$$`,
-    },
-    {
-      id: 'r2-4-1-radianer-grader-bilde',
-      type: 'image',
-      src: '/images/trigonometry/radianer-grader.svg',
-      alt: 'Sammenligning av grader og radianer med enhetssirkel',
-      caption: 'Omregning mellom grader og radianer',
     },
 
     {
@@ -1191,7 +1176,6 @@ $\\frac{\\pi}{6} = 30°$, $\\frac{\\pi}{4} = 45°$, $\\frac{\\pi}{3} = 60°$, $\
   nextChapter: 'r2-4-2',
 };
 
-
 export const CHAPTER_R2_4_2: TextbookChapter = {
   id: 'r2-4-2',
   courseId: 'r2',
@@ -1217,13 +1201,6 @@ For aa utvide de trigonometriske funksjonene til **alle vinkler** - positive, ne
 
 Enhetssirkelen er et av de viktigste verktøyene i matematikk og fysikk, og gir oss en elegant maate aa forsta trigonometri paa.`,
     },
-    {
-      id: 'r2-4-2-enhetssirkel-bilde',
-      type: 'image',
-      src: '/images/r1/trigonometri-enhetssirkel.svg',
-      alt: 'Enhetssirkelen med sinus og cosinus markert',
-      caption: 'Enhetssirkelen - grunnlaget for trigonometriske funksjoner',
-    },
 
     // ========== DEFINISJON: ENHETSSIRKELEN ==========
     {
@@ -1236,13 +1213,6 @@ Ligningen for enhetssirkelen er:
 $$x^2 + y^2 = 1$$
 
 Ethvert punkt $P$ paa enhetssirkelen kan skrives som $P = (x, y)$ der $x^2 + y^2 = 1$.`,
-    },
-    {
-      id: 'r2-4-2-enhetssirkel-bilde',
-      type: 'image',
-      src: '/images/trigonometry/enhetssirkel.svg',
-      alt: 'Enhetssirkelen med punkt P, vinkel v, og koordinatene (cos v, sin v)',
-      caption: 'Enhetssirkelen definerer sinus og cosinus for alle vinkler',
     },
 
     {
@@ -2091,7 +2061,6 @@ Tangens er negativ i 2. og 4. kvadrant.
   exercises: [],
 };
 
-
 export const CHAPTER_R2_4_3: TextbookChapter = {
   id: 'r2-4-3',
   courseId: 'r2',
@@ -2125,13 +2094,6 @@ Sinuslikninger er likninger der den ukjente $x$ star som argument i en sinusfunk
 
 **Hvorfor er dette viktig?**
 Sinusfunksjonen beskriver periodiske fenomener overalt i naturen: havbolger, lydbolgr, vekselstrom, pendelbevegelser og mye mer. Aa kunne lose sinuslikninger er derfor essensielt for aa forstaa og modellere slike fenomener.`,
-    },
-    {
-      id: 'r2-4-3-triggrafer-bilde',
-      type: 'image',
-      src: '/images/r1/trigonometri-grafer.svg',
-      alt: 'Grafene til sinus, cosinus og tangens',
-      caption: 'De trigonometriske funksjonene og deres grafer',
     },
 
     // ============================================================================
@@ -2998,7 +2960,6 @@ Hvis sykkelen har hastighet $v = 300$ cm/s, hvor ofte er punktet noyaktig 45 cm 
     },
   ],
 };
-
 
 export const CHAPTER_R2_4_4: TextbookChapter = {
   id: 'r2-4-4',
@@ -3932,7 +3893,6 @@ $t = 15$ min og $t = -15 + 90 = 75$ min`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_4_5: TextbookChapter = {
   id: 'r2-4-5',
   courseId: 'r2',
@@ -4631,7 +4591,6 @@ $$\\tan(kx + c) = a \\quad \\Rightarrow \\quad x = \\frac{\\arctan(a) - c + n\\p
   exercises: [],
 };
 
-
 export const CHAPTER_R2_4_6: TextbookChapter = {
   id: 'r2-4-6',
   courseId: 'r2',
@@ -4679,13 +4638,6 @@ $$\\sin(u - v) = \\sin u \\cos v - \\cos u \\sin v$$
 **Cosinus:**
 $$\\cos(u + v) = \\cos u \\cos v - \\sin u \\sin v$$
 $$\\cos(u - v) = \\cos u \\cos v + \\sin u \\sin v$$`,
-    },
-    {
-      id: 'r2-4-6-trig-identitet-bilde',
-      type: 'image',
-      src: '/images/trigonometry/trigonometrisk-identitet.svg',
-      alt: 'Oversikt over de viktigste trigonometriske identitetene',
-      caption: 'De grunnleggende trigonometriske identitetene og formlene',
     },
 
     {
@@ -6363,13 +6315,6 @@ Sinusfunksjonen $f(x) = \\sin(x)$ er definert for alle reelle tall $x$. Når vi 
 - **Minimum:** $\\sin(x) = -1$ når $x = \\frac{3\\pi}{2} + 2\\pi n$ eller $x = -\\frac{\\pi}{2} + 2\\pi n$
 - **Symmetri:** Odde funksjon, $\\sin(-x) = -\\sin(x)$`,
     },
-    {
-      id: 'r2-4-7-sinuskurve-bilde',
-      type: 'image',
-      src: '/images/trigonometry/sinuskurve.svg',
-      alt: 'Grafen til sinusfunksjonen med periode, amplitude og nullpunkter markert',
-      caption: 'Sinuskurven viser periodisk oppforsel med periode 2pi',
-    },
 
     {
       id: 'r2-4-7-sin-geogebra',
@@ -6433,13 +6378,6 @@ $$\\cos(x) = \\sin\\left(x + \\frac{\\pi}{2}\\right)$$
 
 Dette betyr at cosinusgrafen er sinusgrafen forskjøvet $\\frac{\\pi}{2}$ til venstre.`,
     },
-    {
-      id: 'r2-4-7-cosinuskurve-bilde',
-      type: 'image',
-      src: '/images/trigonometry/cosinuskurve.svg',
-      alt: 'Grafen til cosinusfunksjonen med periode, amplitude og nullpunkter markert',
-      caption: 'Cosinuskurven er sinuskurven forskjøvet pi/2 til venstre',
-    },
 
     {
       id: 'r2-4-7-cos-geogebra',
@@ -6500,13 +6438,6 @@ $$\\tan(x) = \\frac{\\sin(x)}{\\cos(x)}$$
 - **Nullpunkter:** $x = n\\pi$ der $n \\in \\mathbb{Z}$
 - **Vertikale asymptoter:** $x = \\frac{\\pi}{2} + n\\pi$
 - **Symmetri:** Odde funksjon, $\\tan(-x) = -\\tan(x)$`,
-    },
-    {
-      id: 'r2-4-7-tangenskurve-bilde',
-      type: 'image',
-      src: '/images/trigonometry/tangenskurve.svg',
-      alt: 'Grafen til tangensfunksjonen med vertikale asymptoter og periode markert',
-      caption: 'Tangensfunksjonen har periode pi og vertikale asymptoter',
     },
 
     {
@@ -6592,13 +6523,6 @@ Amplituden angir avstanden fra likevektslinjen ($y = D$) til maksimums- eller mi
 $$T = \\frac{2\\pi}{|B|}$$
 
 Perioden er den minste positive verdien $T$ slik at $f(x + T) = f(x)$ for alle $x$.`,
-    },
-    {
-      id: 'r2-4-7-amplitude-periode-bilde',
-      type: 'image',
-      src: '/images/trigonometry/amplitude-periode.svg',
-      alt: 'Sinuskurve med amplitude, periode og likevektslinje markert',
-      caption: 'Amplitude og periode bestemmer formen pa trigonometriske funksjoner',
     },
 
     // Eksempel 4: Bestemme amplitude og periode

@@ -308,7 +308,7 @@ export interface TextbookExercise {
   subTasks?: SubTask[];          // a), b), c) osv.
 
   // Illustrasjon
-  image?: string;                // Sti til illustrasjon (f.eks. '/images/geometry/pytagoras.svg')
+  image?: string;                // Sti til illustrasjon
 
   // Verktøy
   tool?: ExerciseTool;

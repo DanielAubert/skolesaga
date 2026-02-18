@@ -922,7 +922,6 @@ $$= \\ln(e^x + e^{-x}) + C$$
   exercises: [],
 };
 
-
 export const CHAPTER_R2_3_2: TextbookChapter = {
   id: 'r2-3-2',
   courseId: 'r2',
@@ -1922,7 +1921,6 @@ $$\\int u \\cdot v' \\, dx = u \\cdot v - \\int u' \\cdot v \\, dx$$
   exercises: [],
 };
 
-
 export const CHAPTER_R2_3_3: TextbookChapter = {
   id: 'r2-3-3',
   courseId: 'r2',
@@ -2921,7 +2919,6 @@ $$\\frac{2x + 5}{(x - 1)(x + 3)} = \\frac{7}{4(x - 1)} + \\frac{1}{4(x + 3)}$$`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_3_4: TextbookChapter = {
   id: 'r2-3-4',
   courseId: 'r2',
@@ -3549,7 +3546,6 @@ Simpsons metode gir utmerket nøyaktighet selv med bare 4 delintervaller!`,
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_3_5: TextbookChapter = {
   id: 'r2-3-5',
@@ -5827,7 +5823,6 @@ For svært små $h$ kan avrundingsfeil dominere. Bruk høyere-ordens metoder i s
   exercises: [],
 };
 
-
 export const CHAPTER_R2_3_6: TextbookChapter = {
   id: 'r2-3-6',
   courseId: 'r2',
@@ -5859,14 +5854,6 @@ I dette kapitlet skal vi:
 - Utlede klassiske volumformler ved integrasjon
 - Løse praktiske problemer med omdreiningslegemer
 - Introdusere skallmetoden som et alternativ`,
-    },
-
-    {
-      id: 'r2-3-6-rotvolum-bilde',
-      type: 'image',
-      src: '/images/r2/rotvolum.svg',
-      alt: 'Illustrasjon av et omdreiningslegeme dannet ved rotasjon rundt x-aksen',
-      caption: 'Omdreiningslegeme - volum beregnet ved integrasjon av sirkelskiver',
     },
 
     // ========== DEFINISJON: OMDREININGSLEGEME ==========
@@ -7066,7 +7053,6 @@ $$V_y = \\pi \\left[ 4y - \\frac{y^2}{2} \\right]_0^4 = \\pi (16 - 8) = 8\\pi$$
     },
   ],
 };
-
 
 export const CHAPTER_R2_3_7: TextbookChapter = {
   id: 'r2-3-7',

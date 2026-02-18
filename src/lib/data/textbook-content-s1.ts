@@ -6987,22 +6987,6 @@ I dette kapittelet skal vi se på:
 - Kombinasjoner (uordnede utvalg)`,
     },
 
-    {
-      id: 's1-5-1-valgtre-bilde',
-      type: 'image',
-      src: '/images/s1/kombinatorikk-valgtre.svg',
-      alt: 'Illustrasjon av et valgtre for systematisk telling',
-      caption: 'Valgtre - visualisering av multiplikasjonsprinsippet',
-    },
-
-    {
-      id: 's1-5-1-venn-bilde',
-      type: 'image',
-      src: '/images/s1/sannsynlighet-venn.svg',
-      alt: 'Venn-diagram for sannsynlighet og hendelser',
-      caption: 'Venn-diagram - visualisering av hendelser og sannsynlighet',
-    },
-
     // ========== MULTIPLIKASJONSPRINSIPPET ==========
     {
       id: 's1-5-1-mult-prinsipp',
@@ -7670,14 +7654,6 @@ Ofte onsker vi a finne sannsynligheten for at en hendelse A inntreffer, gitt at 
 **Eksempel:** Hva er sannsynligheten for at en tilfeldig valgt student bestar eksamen, gitt at studenten har gjort alle obliger?
 
 Notasjon: $P(A|B)$ leses "sannsynligheten for A gitt B".`,
-    },
-
-    {
-      id: 's1-5-2-betinget-bilde',
-      type: 'image',
-      src: '/images/s1/betinget-sannsynlighet.svg',
-      alt: 'Illustrasjon av betinget sannsynlighet med Venn-diagram',
-      caption: 'Betinget sannsynlighet - sannsynlighet for A gitt at B har inntruffet',
     },
 
     // ========== DEFINISJON ==========

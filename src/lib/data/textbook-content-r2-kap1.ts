@@ -204,7 +204,6 @@ $F_8 = 8+13 = 21$`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_1_2: TextbookChapter = {
   id: 'r2-1-2',
   courseId: 'r2',
@@ -371,7 +370,6 @@ $S_{12} = \\frac{12}{2}(2 \\cdot 1000 + 11 \\cdot 200) = 6(2000 + 2200) = 25200$
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_1_3: TextbookChapter = {
   id: 'r2-1-3',
@@ -554,7 +552,6 @@ $a_3 = 200 \\cdot 0{,}5^3 = 200 \\cdot 0{,}125 = 25$ gram`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_1_4: TextbookChapter = {
   id: 'r2-1-4',
   courseId: 'r2',
@@ -728,7 +725,6 @@ $S_{12} = \\frac{12(500 + 1600)}{2} = \\frac{12 \\cdot 2100}{2} = 12\\,600$ kr`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_1_5: TextbookChapter = {
   id: 'r2-1-5',
   courseId: 'r2',
@@ -746,13 +742,6 @@ export const CHAPTER_R2_1_5: TextbookChapter = {
 I forrige kapittel sa vi på endelige rekker - summer med et bestemt antall ledd. Men hva skjer nar vi lar antall ledd ga mot uendelig?
 
 Tenk på rekken $1 + \\frac{1}{2} + \\frac{1}{4} + \\frac{1}{8} + \\cdots$. Selv om vi legger sammen uendelig mange ledd, vokser ikke summen over alle grenser - den narmer seg tallet 2.`,
-    },
-    {
-      id: 'r2-1-5-konvergens-bilde',
-      type: 'image',
-      src: '/images/r2/rekker-konvergens.svg',
-      alt: 'Illustrasjon av konvergens og divergens for rekker',
-      caption: 'Konvergens av rekker - delsummene narmer seg en grense',
     },
     {
       id: 'r2-1-5-def-1',
@@ -773,13 +762,6 @@ Den $n$-te **delsummen** er $S_n = a_1 + a_2 + \\cdots + a_n$.`,
 $$S = \\lim_{n \\to \\infty} S_n$$
 
 Da sier vi at rekken har **summen** $S$. Hvis grenseverdien ikke eksisterer eller er uendelig, sier vi at rekken **divergerer**.`,
-    },
-    {
-      id: 'r2-1-5-taylor-bilde',
-      type: 'image',
-      src: '/images/r2/taylor-polynom.svg',
-      alt: 'Illustrasjon av Taylor-polynom som tilnarming til en funksjon',
-      caption: 'Taylor-polynom - tilnarming av funksjoner ved hjelp av uendelige rekker',
     },
     {
       id: 'r2-1-5-example-1',
@@ -934,7 +916,6 @@ Hver gruppe er storre enn $\\frac{1}{2}$, sa summen vokser uten grense.`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_1_6: TextbookChapter = {
   id: 'r2-1-6',
   courseId: 'r2',
@@ -1070,7 +1051,6 @@ Summen er delelig med 6. ✓`,
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_1_7: TextbookChapter = {
   id: 'r2-1-7',

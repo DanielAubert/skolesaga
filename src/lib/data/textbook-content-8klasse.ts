@@ -30,13 +30,6 @@ Vi kan vise heltallene på en **tallinje**:
 - Tall til venstre for 0 er **negative** (mindre enn 0)`,
     },
     {
-      id: '8-1-1-tallinje-bilde',
-      type: 'image',
-      src: '/images/8-klasse/tallinje-negative.svg',
-      alt: 'Tallinje med positive og negative heltall markert',
-      caption: 'Tallinjen viser heltallene med positive tall til høyre og negative til venstre',
-    },
-    {
       id: '8-1-1-def-fortegn',
       type: 'definition',
       title: 'Fortegnsregler',
@@ -186,13 +179,6 @@ c) $20 - 12 \\div 4 = 20 - 3 = 17$ (divisjon først)`,
       },
     },
     // ========== NYE OPPGAVER MED ILLUSTRASJONER ==========
-    {
-      id: '8-1-1-ill-tallinje',
-      type: 'image',
-      src: '/images/8-klasse/tallinje-negative.svg',
-      alt: 'Tallinje med negative og positive tall',
-      caption: 'Tallinjen viser negative tall til venstre for 0 og positive tall til høyre',
-    },
     {
       id: '8-1-1-ex-5',
       type: 'exercise',
@@ -487,13 +473,6 @@ export const CHAPTER_8_1_4: TextbookChapter = {
 $$25\\% = \\frac{25}{100} = 0,25$$`,
     },
     {
-      id: '8-1-4-prosent-sirkel-bilde',
-      type: 'image',
-      src: '/images/8-klasse/prosent-sirkel.svg',
-      alt: 'Sektordiagram som viser prosent som andel av en helhet',
-      caption: 'Prosent viser hvor stor andel noe utgjor av en helhet',
-    },
-    {
       id: '8-1-4-def',
       type: 'definition',
       title: 'Tre typer prosentoppgaver',
@@ -502,13 +481,6 @@ $$25\\% = \\frac{25}{100} = 0,25$$`,
 2. **Finne hvor mange prosent:** $\\frac{\\text{del}}{\\text{helhet}} \\cdot 100\\%$
 
 3. **Finne hele tallet:** $\\frac{\\text{del}}{\\text{prosent}} \\cdot 100$`,
-    },
-    {
-      id: '8-1-4-prosent-beregning-bilde',
-      type: 'image',
-      src: '/images/8-klasse/prosent-beregning.svg',
-      alt: 'Illustrasjon av prosentberegning med del, helhet og prosent',
-      caption: 'Sammenheng mellom del, helhet og prosent',
     },
     {
       id: '8-1-4-ex-1',
@@ -721,13 +693,6 @@ For eksempel kan vi skrive:
 - **Konstantledd**: Et tall uten variabel (f.eks. $5$ i uttrykket $3x + 5$)
 - **Koeffisient**: Tallet foran variabelen (f.eks. $3$ i $3x$)
 - **Ledd**: Deler av et uttrykk adskilt med $+$ eller $-$`,
-    },
-    {
-      id: '8-2-1-variabel-bilde',
-      type: 'image',
-      src: '/images/8-klasse/variabel-uttrykk.svg',
-      alt: 'Illustrasjon av variabler og algebraiske uttrykk',
-      caption: 'Variabler er bokstaver som representerer ukjente tall',
     },
     {
       id: '8-2-1-example-1',
@@ -1727,13 +1692,6 @@ De fire vinklene er: $70°$, $110°$, $70°$, $110°$`,
     },
     // ========== NYE OPPGAVER MED ILLUSTRASJONER ==========
     {
-      id: '8-3-1-ill-vinkeltyper',
-      type: 'image',
-      src: '/images/geometry/spiss-rett-stump-vinkel.svg',
-      alt: 'De tre vinkeltypene: spiss, rett og stump vinkel',
-      caption: 'Spiss vinkel (< 90), rett vinkel (= 90) og stump vinkel (> 90)',
-    },
-    {
       id: '8-3-1-ex-7',
       type: 'exercise',
       exercise: {
@@ -1742,7 +1700,6 @@ De fire vinklene er: $70°$, $110°$, $70°$, $110°$`,
         type: 'classic',
         difficulty: 'medium',
         task: 'Studer figuren over som viser de tre vinkeltypene. En trekant har en vinkel pa 55 grader og en vinkel pa 90 grader. Finn den tredje vinkelen og klassifiser alle tre vinklene som spiss, rett eller stump.',
-        image: '/images/geometry/spiss-rett-stump-vinkel.svg',
         solution: `Summen av vinklene i en trekant er 180 grader.
 Den tredje vinkelen er: $180 - 55 - 90 = 35$ grader.
 
@@ -1758,13 +1715,6 @@ Trekanten har to spisse vinkler og en rett vinkel.`,
       },
     },
     {
-      id: '8-3-1-ill-toppvinkler',
-      type: 'image',
-      src: '/images/geometry/parallelle-linjer-toppvinkler.svg',
-      alt: 'Toppvinkler og samsvarende vinkler ved parallelle linjer',
-      caption: 'Naar to linjer krysses, er toppvinkler alltid like store',
-    },
-    {
       id: '8-3-1-ex-8',
       type: 'exercise',
       exercise: {
@@ -1773,7 +1723,6 @@ Trekanten har to spisse vinkler og en rett vinkel.`,
         type: 'classic',
         difficulty: 'vanskelig',
         task: 'Se pa figuren som viser to linjer som krysser hverandre. Bruk reglene for toppvinkler og nabovinkler til a lose oppgaven: Hvis en av vinklene er 72 grader, hva er de andre tre vinklene?',
-        image: '/images/geometry/parallelle-linjer-toppvinkler.svg',
         solution: `Naar to linjer krysser hverandre:
 - **Toppvinkler** er like store
 - **Nabovinkler** er supplementvinkler (sum = 180 grader)
@@ -2561,13 +2510,6 @@ Noen ganger møter vi figurer som er satt sammen av flere enkle figurer. For å 
 Del figuren opp i enkle figurer (rektangler, trekanter, sirkler osv.) og legg sammen arealene.
 
 **Strategi 2: Trekk fra**`,
-    },
-    {
-      id: '8-3-4-areal-sammensatt-bilde',
-      type: 'image',
-      src: '/images/8-klasse/areal-sammensatt.svg',
-      alt: 'Sammensatt figur som deles opp i enkle former',
-      caption: 'Sammensatte figurer kan deles opp i enkle former',
     },
     {
       id: '8-3-4-sammensatt-strategi',
@@ -4459,13 +4401,6 @@ export const CHAPTER_8_5_1: TextbookChapter = {
 $$\\text{Gjennomsnitt} = \\frac{\\text{sum av alle verdier}}{\\text{antall verdier}}$$`,
     },
     {
-      id: '8-5-1-gjennomsnitt-bilde',
-      type: 'image',
-      src: '/images/8-klasse/gjennomsnitt-median.svg',
-      alt: 'Illustrasjon av gjennomsnitt og median i et datasett',
-      caption: 'Gjennomsnitt og median som sentralmål',
-    },
-    {
       id: '8-5-1-example-1',
       type: 'example',
       title: 'Eksempel 1',
@@ -4653,20 +4588,6 @@ Diagrammer brukes til å visualisere data. De vanligste typene er:
 - **Linjediagram**: Viser utvikling over tid`,
     },
     {
-      id: '8-5-2-stolpediagram-bilde',
-      type: 'image',
-      src: '/images/8-klasse/statistikk-stolpediagram.svg',
-      alt: 'Stolpediagram som viser data i kategorier',
-      caption: 'Stolpediagram brukes til a sammenligne kategorier',
-    },
-    {
-      id: '8-5-2-linjediagram-bilde',
-      type: 'image',
-      src: '/images/8-klasse/statistikk-linjediagram.svg',
-      alt: 'Linjediagram som viser utvikling over tid',
-      caption: 'Linjediagram viser hvordan verdier endrer seg over tid',
-    },
-    {
       id: '8-5-2-def-1',
       type: 'definition',
       title: 'Frekvens og relativ frekvens',
@@ -4827,13 +4748,6 @@ export const CHAPTER_8_5_3: TextbookChapter = {
 
 - **P = 0**: Umulig
 - **P = 1**: Sikkert`,
-    },
-    {
-      id: '8-5-3-terning-bilde',
-      type: 'image',
-      src: '/images/8-klasse/sannsynlighet-terning.svg',
-      alt: 'En terning med alle seks sider synlig',
-      caption: 'Terningkast er et klassisk eksempel pa sannsynlighetsregning',
     },
     {
       id: '8-5-3-def-1',

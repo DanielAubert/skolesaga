@@ -27,13 +27,6 @@ export const CHAPTER_R1_1_1: TextbookChapter = {
 
 Et polynom er et uttrykk som består av ledd med variabler opphøyd i ikke-negative heltall, multiplisert med konstanter (koeffisienter). Polynomer er grunnleggende i matematikk og dukker opp i mange sammenhenger.`,
     },
-    {
-      id: 'r1-1-1-polynomfunksjon-bilde',
-      type: 'image',
-      src: '/images/r1/polynomfunksjon.svg',
-      alt: 'Graf av en polynomfunksjon med nullpunkter og ekstremalpunkter',
-      caption: 'Polynomfunksjoner - form og egenskaper',
-    },
 
     // Definisjon: Polynom
     {
@@ -2549,13 +2542,6 @@ Grenseverdier er et av de mest fundamentale begrepene i matematisk analyse. De b
 
 Tenk på funksjonen $f(x) = \\frac{x^2 - 1}{x - 1}$. Vi kan ikke sette inn $x = 1$ direkte fordi vi da får $\\frac{0}{0}$. Men vi kan undersøke hva som skjer når $x$ kommer *veldig nær* 1.`,
     },
-    {
-      id: 'r1-3-1-grenseverdi-bilde',
-      type: 'image',
-      src: '/images/r1/derivasjon-grenseverdi.svg',
-      alt: 'Illustrasjon av grenseverdi og sekantlinje som narmer seg tangent',
-      caption: 'Grenseverdi - grunnlaget for derivasjon',
-    },
 
     // Eksempel: Motivasjon
     {
@@ -3733,13 +3719,6 @@ export const CHAPTER_R1_3_3: TextbookChapter = {
 I dette kapittelet skal vi utvikle den matematiske definisjonen av den deriverte. Vi starter med det intuitive begrepet **vekstfart** og ser hvordan vi kan gjore dette presist ved hjelp av **grenseverdier**.
 
 Tenk på en bil som kjorer langs en vei. Hvis bilen tilbakelegger 100 km på 2 timer, er **gjennomsnittsfarten** $\\frac{100}{2} = 50$ km/t. Men hva er farten akkurat i et gitt oyeblikk? Dette er et sporsmal om **momentan vekstfart**, og svaret ligger i derivasjonens definisjon.`,
-    },
-    {
-      id: 'r1-3-3-tangent-bilde',
-      type: 'image',
-      src: '/images/r1/derivasjon-tangent.svg',
-      alt: 'Sekantlinje som narmer seg tangentlinje',
-      caption: 'Den deriverte er stigningstallet til tangentlinjen',
     },
 
     // ========== GJENNOMSNITTLIG VEKSTFART ==========
@@ -5087,13 +5066,6 @@ Derivasjon er et sentralt verktøy i matematikk og naturvitenskap. Det brukes ti
 
 Vi starter med de enkleste reglene og bygger opp til mer komplekse derivasjoner.`,
     },
-    {
-      id: 'r1-4-1-derivasjonsregler-bilde',
-      type: 'image',
-      src: '/images/r1/derivasjonsregler.svg',
-      alt: 'Oversikt over de viktigste derivasjonsreglene',
-      caption: 'De grunnleggende derivasjonsreglene',
-    },
 
     // ========== DERIVASJON AV KONSTANTER ==========
     {
@@ -5971,13 +5943,6 @@ export const CHAPTER_R1_4_2: TextbookChapter = {
       content: `## Derivasjon av eksponential- og logaritmefunksjoner
 
 Eksponentialfunksjoner og logaritmefunksjoner har spesielle derivasjonsregler. I dette kapittelet skal vi se hvorfor $e^x$ er så spesiell – den er sin egen deriverte!`,
-    },
-    {
-      id: 'r1-4-2-logaritme-bilde',
-      type: 'image',
-      src: '/images/r1/logaritme-graf.svg',
-      alt: 'Graf av logaritmefunksjoner med ulike grunntall',
-      caption: 'Logaritmefunksjoner og deres egenskaper',
     },
 
     // ========== DERIVASJON AV e^x ==========
@@ -7717,20 +7682,6 @@ Funksjonsdrøfting handler om å analysere en funksjon systematisk for å forst�
 6. **Asymptoter** - Hvordan oppfører funksjonen seg mot grensene?
 
 Med denne informasjonen kan vi tegne en nøyaktig skisse av grafen.`,
-    },
-    {
-      id: 'r1-4-6-ekstremalpunkt-bilde',
-      type: 'image',
-      src: '/images/r1/ekstremalpunkt.svg',
-      alt: 'Illustrasjon av ekstremalpunkter - maksimum og minimum',
-      caption: 'Ekstremalpunkter - topp- og bunnpunkter pa en graf',
-    },
-    {
-      id: 'r1-4-6-vendepunkt-bilde',
-      type: 'image',
-      src: '/images/r1/vendepunkt.svg',
-      alt: 'Illustrasjon av vendepunkt der krumningen endrer retning',
-      caption: 'Vendepunkt - grafen endrer krumning',
     },
 
     // ========== MONOTONIEGENSKAPER ==========
@@ -10540,20 +10491,6 @@ I matematikk og fysikk trenger vi ofte å beskrive størrelser som har både **s
 
 En slik størrelse kalles en **vektor**. I motsetning til vanlige tall (skalarer), som bare har en verdi, har vektorer altså to egenskaper: hvor lang de er, og hvilken retning de peker.`,
     },
-    {
-      id: 'r1-6-1-vektor2d-bilde',
-      type: 'image',
-      src: '/images/r1/vektorer-2d.svg',
-      alt: 'Vektorer i planet med komponentform',
-      caption: 'Vektorer i planet - storrelse og retning',
-    },
-    {
-      id: 'r1-6-1-vektoraddisjon-bilde',
-      type: 'image',
-      src: '/images/r1/vektorer-addisjon.svg',
-      alt: 'Vektoraddisjon med trekantregelen',
-      caption: 'Vektoraddisjon - summen av to vektorer',
-    },
 
     // Definisjon: Vektor
     {
@@ -11183,13 +11120,6 @@ export const CHAPTER_R1_6_2: TextbookChapter = {
       content: `## Lengde av en vektor
 
 Lengden (eller normen) til en vektor er avstanden fra startpunktet til sluttpunktet. Vi bruker Pytagoras' setning til å beregne denne.`,
-    },
-    {
-      id: 'r1-6-2-skalarprodukt-bilde',
-      type: 'image',
-      src: '/images/r1/vektorer-skalarprodukt.svg',
-      alt: 'Skalarprodukt mellom to vektorer',
-      caption: 'Skalarproduktet - sammenheng med vinkelen mellom vektorene',
     },
 
     // Definisjon: Lengde

@@ -771,34 +771,6 @@ Integrasjon brukes til å løse mange praktiske problemer:
 - Beregne forbrukernes og produsentenes overskudd i økonomi`
     },
     {
-      id: 's2-1-4-integral-okonomi-bilde',
-      type: 'image',
-      src: '/images/s2/integral-okonomi.svg',
-      alt: 'Illustrasjon av integrasjon i okonomiske sammenhenger',
-      caption: 'Integrasjon i okonomi - beregning av akkumulerte storrelser',
-    },
-    {
-      id: 's2-1-4-konsumentoverskudd-bilde',
-      type: 'image',
-      src: '/images/s2/konsumentoverskudd.svg',
-      alt: 'Illustrasjon av konsumentoverskudd',
-      caption: 'Konsumentoverskudd - gevinst for forbrukere under markedspris',
-    },
-    {
-      id: 's2-1-4-produsentoverskudd-bilde',
-      type: 'image',
-      src: '/images/s2/produsentoverskudd.svg',
-      alt: 'Illustrasjon av produsentoverskudd',
-      caption: 'Produsentoverskudd - gevinst for produsenter over markedspris',
-    },
-    {
-      id: 's2-1-4-indeks-bilde',
-      type: 'image',
-      src: '/images/s2/indeks-prisutvikling.svg',
-      alt: 'Illustrasjon av prisindeks og prisutvikling',
-      caption: 'Prisindeks - mal pa relativ prisutvikling over tid',
-    },
-    {
       id: 's2-1-4-gjennomsnitt',
       type: 'definition',
       title: 'Gjennomsnittsverdi',
@@ -1023,13 +995,6 @@ export const CHAPTER_S2_2_1: TextbookChapter = {
 En **differensiallikning** er en likning som inneholder en ukjent funksjon og dens deriverte. Vi vil finne funksjonen som tilfredsstiller likningen.
 
 **Eksempel:** $y' = 2x$ er en differensiallikning. Løsningen er $y = x^2 + C$.`
-    },
-    {
-      id: 's2-2-1-differensiallikning-bilde',
-      type: 'image',
-      src: '/images/r2/differensiallikning.svg',
-      alt: 'Illustrasjon av losningskurver for en differensiallikning',
-      caption: 'Differensiallikninger - losningskurver viser hvordan funksjonen oppforer seg',
     },
     {
       id: 's2-2-1-def',
@@ -1754,13 +1719,6 @@ Differensiallikninger er kraftige verktøy for å modellere prosesser der endrin
 - Epidemimodeller
 - Økonomiske modeller
 - Fysiske prosesser`
-    },
-    {
-      id: 's2-2-4-vekstmodeller-bilde',
-      type: 'image',
-      src: '/images/s2/vekstmodeller.svg',
-      alt: 'Illustrasjon av ulike vekstmodeller',
-      caption: 'Vekstmodeller - eksponentiell og logistisk vekst',
     },
     {
       id: 's2-2-4-eksponentiell',

@@ -35,13 +35,6 @@ Mange praktiske problemer krever at vi arbeider i tre dimensjoner:
 
 Heldigvis er overgangen fra to til tre dimensjoner ganske naturlig. De fleste regnereglene fra R1 gjelder fortsatt - vi legger bare til en ekstra koordinat.`,
     },
-    {
-      id: 'r2-5-1-vektor3d-bilde',
-      type: 'image',
-      src: '/images/r2/vektor-3d.svg',
-      alt: 'Vektor i tre dimensjoner med x, y og z-komponenter',
-      caption: 'Vektorer i rommet - tre koordinater (x, y, z)',
-    },
 
     // ========== KOORDINATSYSTEMET ==========
     {
@@ -513,7 +506,6 @@ $$\\hat{u} = \\frac{1}{5}[3, 4, 0] = \\left[\\frac{3}{5}, \\frac{4}{5}, 0\\right
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_5_2: TextbookChapter = {
   id: 'r2-5-2',
@@ -1050,7 +1042,6 @@ Så $P = \\left(5, \\frac{1}{3}, 3\\right)$.`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_5_3: TextbookChapter = {
   id: 'r2-5-3',
   courseId: 'r2',
@@ -1523,7 +1514,6 @@ Projeksjonen er vektoren $[4, 0, 0]$, som er komponenten av $\\vec{a}$ langs $x$
   exercises: [],
 };
 
-
 export const CHAPTER_R2_5_4: TextbookChapter = {
   id: 'r2-5-4',
   courseId: 'r2',
@@ -1549,13 +1539,6 @@ Kryssproduktet (også kalt **vektorproduktet**) er en annen måte å "multiplise
 Den resulterende vektoren står **vinkelrett** på begge de opprinnelige vektorene, noe som gjør kryssproduktet svært nyttig for å finne normalvektorer til plan.
 
 **Viktig:** Kryssproduktet er kun definert i tre dimensjoner!`,
-    },
-    {
-      id: 'r2-5-4-kryssprodukt-bilde',
-      type: 'image',
-      src: '/images/r2/kryssprodukt.svg',
-      alt: 'Kryssproduktet av to vektorer som gir en vinkelrett vektor',
-      caption: 'Kryssproduktet - resultatet star vinkelrett pa begge vektorene',
     },
 
     // ========== DEFINISJON ==========
@@ -1992,7 +1975,6 @@ Dette kan forenkles til $\\vec{n} = [1, -1, 1]$ (delt på 3).`,
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_5_5: TextbookChapter = {
   id: 'r2-5-5',
@@ -2470,7 +2452,6 @@ Siden trippelproduktet er 0, er vektorene **koplanare**.
   exercises: [],
 };
 
-
 export const CHAPTER_R2_5_6: TextbookChapter = {
   id: 'r2-5-6',
   courseId: 'r2',
@@ -2497,13 +2478,6 @@ Et plan i rommet kan beskrives på flere måter. I dette kapittelet skal vi lær
 3. **Determinantform** - ved hjelp av tre punkter
 
 Alle disse metodene gir oss verktøy til å arbeide med plan i rommet, for eksempel for å finne skjæringspunkter, vinkler og avstander.`,
-    },
-    {
-      id: 'r2-5-6-planrom-bilde',
-      type: 'image',
-      src: '/images/r2/plan-rom.svg',
-      alt: 'Et plan i rommet med normalvektor og punkter',
-      caption: 'Plan i rommet - normalvektor og parameterframstilling',
     },
     {
       id: 'r2-5-6-def-param',
@@ -2861,7 +2835,6 @@ $\\theta = \\arccos\\left(\\frac{12}{\\sqrt{769}}\\right) \\approx 64.4°$`,
   exercises: [],
 };
 
-
 export const CHAPTER_R2_5_7: TextbookChapter = {
   id: 'r2-5-7',
   courseId: 'r2',
@@ -2888,13 +2861,6 @@ I dette kapittelet skal vi lære å:
 - Finne skjæringspunkter mellom linjer
 - Klassifisere linjepar (parallelle, skjærende, vindskjeve)
 - Beregne vinkler mellom linjer`,
-    },
-    {
-      id: 'r2-5-7-linjerom-bilde',
-      type: 'image',
-      src: '/images/r2/linje-rom.svg',
-      alt: 'En linje i rommet med parameterframstilling',
-      caption: 'Linje i rommet - punkt og retningsvektor',
     },
     {
       id: 'r2-5-7-def-param',
@@ -3282,7 +3248,6 @@ $d = |t| \\cdot |\\vec{n}| = \\frac{1}{9} \\cdot \\sqrt{4 + 1 + 4} = \\frac{1}{9
   ],
   exercises: [],
 };
-
 
 export const CHAPTER_R2_5_8: TextbookChapter = {
   id: 'r2-5-8',

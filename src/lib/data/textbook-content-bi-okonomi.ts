@@ -91,13 +91,6 @@ $$x^a \\cdot x^b = x^{a+b}$$`,
     },
 
     // Illustrasjon: Potensregler
-    {
-      id: 'bi-okonomi-1-1-potensregler-bilde',
-      type: 'image',
-      src: '/images/algebra/potensregler.svg',
-      alt: 'Oversikt over potensreglene: multiplikasjon, divisjon, potens av potens',
-      caption: 'De viktigste potensreglene samlet',
-    },
 
     // ========== EKSEMPEL 2 ==========
     {
@@ -1441,13 +1434,6 @@ export const CHAPTER_BI_OKONOMI_1_3: TextbookChapter = {
     },
 
     // Illustrasjon: Brøkregning
-    {
-      id: 'bi-okonomi-1-3-brokregning-bilde',
-      type: 'image',
-      src: '/images/algebra/brokregning.svg',
-      alt: 'Visualisering av brøkregning med teller og nevner',
-      caption: 'Brøkregning - grunnleggende prinsipper',
-    },
 
     {
       id: 'bi-okonomi-1-3-theorem-mult',
@@ -1834,13 +1820,6 @@ Når vi møter på brøker med ulik nevner må vi utvide en eller begge brøkene
     },
 
     // Illustrasjon: Fellesnevner
-    {
-      id: 'bi-okonomi-1-3-fellesnevner-bilde',
-      type: 'image',
-      src: '/images/algebra/fellesnevner.svg',
-      alt: 'Hvordan finne fellesnevner ved å utvide brøker',
-      caption: 'Fellesnevner - utviding av brøker for addisjon og subtraksjon',
-    },
 
     // ========== EKSEMPEL 9 ==========
     {
@@ -2629,13 +2608,6 @@ Hovedprinsippet for å løse likninger er at vi alltid gjør det samme på begge
     },
 
     // Illustrasjon: Likningsvekt
-    {
-      id: 'bi-okonomi-2-1-likningsvekt-bilde',
-      type: 'image',
-      src: '/images/algebra/likningsvekt.svg',
-      alt: 'En vekt som illustrerer likhetsprinsippet i likninger',
-      caption: 'En likning er som en vekt - det vi gjor på den ene siden må vi også gjøre på den andre',
-    },
 
     // ========== EKSEMPEL 1 ==========
     {
@@ -3535,13 +3507,6 @@ For å finne nullpunktene til en andregradslikning på formen $ax^2 + bx + c = 0
     },
 
     // Illustrasjon: ABC-formelen
-    {
-      id: 'bi-okonomi-2-2-abc-bilde',
-      type: 'image',
-      src: '/images/algebra/abc-formelen.svg',
-      alt: 'ABC-formelen for andregradslikninger',
-      caption: 'ABC-formelen brukes til å finne nullpunktene til andregradslikninger',
-    },
 
     // ========== EKSEMPEL 1 ==========
     {
@@ -3985,31 +3950,10 @@ Den enkleste måten å forstå likningssett på er å tegne begge likningene som
     },
 
     // Illustrasjon: Grafisk løsning
-    {
-      id: 'bi-okonomi-2-3-grafisk-losning-bilde',
-      type: 'image',
-      src: '/images/functions/grafisk-losning.svg',
-      alt: 'Grafisk losning av likningssett - to linjer som krysser i et punkt',
-      caption: 'Grafisk losning: skjæringspunktet mellom to linjer er losningen',
-    },
 
     // Illustrasjon: Parallelle linjer
-    {
-      id: 'bi-okonomi-2-3-parallelle-linjer-bilde',
-      type: 'image',
-      src: '/images/functions/parallelle-linjer.svg',
-      alt: 'Parallelle linjer har samme stigningstall og krysser aldri',
-      caption: 'Parallelle linjer: samme stigningstall, ingen losning',
-    },
 
     // Illustrasjon: Vinkelrette linjer
-    {
-      id: 'bi-okonomi-2-3-vinkelrette-linjer-bilde',
-      type: 'image',
-      src: '/images/functions/vinkelrette-linjer.svg',
-      alt: 'Vinkelrette linjer star 90 grader på hverandre',
-      caption: 'Vinkelrette linjer: produktet av stigningstallene er -1',
-    },
 
     {
       id: 'bi-okonomi-2-3-example-1',
@@ -5044,22 +4988,8 @@ Skjæringspunktet med $y$-aksen er altså $(0, b)$.`,
     },
 
     // Illustrasjon: Stigningstall
-    {
-      id: 'bi-okonomi-3-1-stigningstall-bilde',
-      type: 'image',
-      src: '/images/functions/stigningstall.svg',
-      alt: 'Visualisering av stigningstall: hvor mye y oker når x oker med 1',
-      caption: 'Stigningstallet viser hvor bratt linjen er',
-    },
 
     // Illustrasjon: Lineær funksjon
-    {
-      id: 'bi-okonomi-3-1-lineaer-bilde',
-      type: 'image',
-      src: '/images/functions/lineaer-funksjon.svg',
-      alt: 'Graf av en lineær funksjon y = ax + b',
-      caption: 'En lineær funksjon med stigningstall a og konstantledd b',
-    },
 
     // GeoGebra: y = 2x + 1 med stigningstall
     {
@@ -5304,22 +5234,8 @@ I dette kapitlet lærer du:
     },
 
     // Illustrasjon: Andregradsfunksjon
-    {
-      id: 'bi-okonomi-3-2-andregradsfunksjon-bilde',
-      type: 'image',
-      src: '/images/functions/andregradsfunksjon.svg',
-      alt: 'Graf av en andregradsfunksjon (parabel) med toppunkt/bunnpunkt markert',
-      caption: 'En andregradsfunksjon - parabelen viser topp- eller bunnpunkt',
-    },
 
     // Illustrasjon: Diskriminanten
-    {
-      id: 'bi-okonomi-3-2-diskriminant-bilde',
-      type: 'image',
-      src: '/images/functions/diskriminanten.svg',
-      alt: 'Diskriminanten bestemmer antall nullpunkter for en andregradsfunksjon',
-      caption: 'Diskriminanten avgjor om parabelen har 0, 1 eller 2 nullpunkter',
-    },
 
     {
       id: 'bi-okonomi-3-2-def-andregrads',
@@ -9314,13 +9230,6 @@ Husk: $b \\cdot a = a \\cdot b$`,
     },
 
     // Illustrasjon: 1. Kvadratsetning
-    {
-      id: 'bi-okonomi-1-5-kvadratsetning-1-bilde',
-      type: 'image',
-      src: '/images/algebra/kvadratsetning-1.svg',
-      alt: 'Geometrisk visualisering av første kvadratsetning (a+b)^2',
-      caption: '1. Kvadratsetning: Arealet av et kvadrat med sidelengde (a+b)',
-    },
 
     // ========== 2. KVADRATSETNING ==========
     {
@@ -9335,13 +9244,6 @@ $(a - b)^2 = (a - b)(a - b) = a^2 - ab - ab + b^2 = a^2 - 2ab + b^2$`,
     },
 
     // Illustrasjon: 2. Kvadratsetning
-    {
-      id: 'bi-okonomi-1-5-kvadratsetning-2-bilde',
-      type: 'image',
-      src: '/images/algebra/kvadratsetning-2.svg',
-      alt: 'Geometrisk visualisering av andre kvadratsetning (a-b)^2',
-      caption: '2. Kvadratsetning: Arealet av et kvadrat med sidelengde (a-b)',
-    },
 
     // ========== EKSEMPEL 6 ==========
     {
@@ -9546,13 +9448,6 @@ $(a + b)(a - b) = a^2 - ab + ab - b^2 = a^2 - b^2$`,
     },
 
     // Illustrasjon: Konjugatsetningen
-    {
-      id: 'bi-okonomi-1-5-konjugatsetning-bilde',
-      type: 'image',
-      src: '/images/algebra/konjugatsetningen.svg',
-      alt: 'Geometrisk visualisering av konjugatsetningen (a+b)(a-b) = a^2 - b^2',
-      caption: 'Konjugatsetningen: Differansen mellom to kvadrater',
-    },
 
     // ========== EKSEMPEL 9 ==========
     {

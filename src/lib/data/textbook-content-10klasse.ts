@@ -44,13 +44,6 @@ der:
 - $a$ er **stigningstallet** (hvor mye $y$ øker når $x$ øker med 1)
 - $b$ er **konstantleddet** (der grafen krysser $y$-aksen)`,
     },
-    {
-      id: '10-3-1-funksjoner-bilde',
-      type: 'image',
-      src: '/images/10-klasse/funksjoner-typer.svg',
-      alt: 'Oversikt over ulike typer funksjoner med grafer',
-      caption: 'Ulike typer funksjoner: lineaer, andregradsfunksjon og eksponentiell',
-    },
 
     // Stigningstall
     {
@@ -611,13 +604,6 @@ der:
 - $a$ bestemmer om parabelen åpner **oppover** ($a > 0$) eller **nedover** ($a < 0$)
 - $c$ er konstantleddet (der grafen krysser $y$-aksen)`,
     },
-    {
-      id: '10-3-2-andregradsfunksjon-bilde',
-      type: 'image',
-      src: '/images/10-klasse/andregradsfunksjon-intro.svg',
-      alt: 'Andregradsfunksjon med toppunkt, bunnpunkt og symmetrilinje',
-      caption: 'En parabel med viktige punkter markert',
-    },
 
     // Eksempel 1
     {
@@ -1136,13 +1122,6 @@ I dette kapittelet skal vi bruke funksjoner til å modellere situasjoner fra vir
 - Løse praktiske problemer med funksjoner
 
 Funksjoner er et kraftig verktøy for å forstå sammenhenger og gjøre beregninger i mange ulike situasjoner.`,
-    },
-    {
-      id: '10-3-3-modellering-bilde',
-      type: 'image',
-      src: '/images/10-klasse/modellering.svg',
-      alt: 'Illustrasjon av matematisk modellering med funksjoner',
-      caption: 'Matematisk modellering - a bruke funksjoner til a beskrive virkeligheten',
     },
 
     // Tolke grafer
@@ -2294,13 +2273,6 @@ Trigonometri betyr "trekantmaling" og handler om forholdet mellom vinkler og sid
 I dette kapittelet larer vi om de tre trigonometriske forholdene sinus, cosinus og tangens, og hvordan vi bruker dem til å løse problemer.`,
     },
     {
-      id: '10-4-2-trigonometri-bilde',
-      type: 'image',
-      src: '/images/10-klasse/trigonometri-intro.svg',
-      alt: 'Introduksjon til trigonometri med rettvinklet trekant',
-      caption: 'Trigonometri i rettvinklede trekanter - sinus, cosinus og tangens',
-    },
-    {
       id: '10-4-2-def-1',
       type: 'definition',
       title: 'Trigonometriske forhold',
@@ -3093,20 +3065,6 @@ export const CHAPTER_10_4_4: TextbookChapter = {
 I dette kapittelet skal vi arbeide med volum og overflate av tredimensjonale figurer. Vi skal se på kjegler, kuler og pyramider, samt sammensatte figurer som bestar av flere enkle former.
 
 Dette er praktisk kunnskap som brukes i alt fra arkitektur til emballasjedesign!`,
-    },
-    {
-      id: '10-4-4-volum-bilde',
-      type: 'image',
-      src: '/images/10-klasse/geometri-volum.svg',
-      alt: 'Illustrasjon av volumformler for romfigurer',
-      caption: 'Volum av tredimensjonale figurer - sylinder, kjegle og kule',
-    },
-    {
-      id: '10-4-4-overflate-bilde',
-      type: 'image',
-      src: '/images/10-klasse/geometri-overflate.svg',
-      alt: 'Illustrasjon av overflateformler for romfigurer',
-      caption: 'Overflate av tredimensjonale figurer',
     },
     {
       id: '10-4-4-def-1',
@@ -3998,13 +3956,6 @@ Sannsynlighetsregning handler om å beregne sjansen for at hendelser inntreffer.
 - **Avhengige hendelser** - utfallet av én påvirker den andre
 - **Betinget sannsynlighet** - sannsynlighet gitt at noe har skjedd`,
     },
-    {
-      id: '10-5-2-sannsynlighet-bilde',
-      type: 'image',
-      src: '/images/10-klasse/sannsynlighet-utfall.svg',
-      alt: 'Illustrasjon av sannsynlighet og utfall',
-      caption: 'Sannsynlighetsberegning - gunstige utfall av mulige utfall',
-    },
 
     // ========== GRUNNLEGGENDE SANNSYNLIGHET ==========
     {
@@ -4594,13 +4545,6 @@ I dette kapittelet lærer vi:
 - Hvordan analysere og presentere data
 - Hvordan vurdere gyldigheten av resultater`,
     },
-    {
-      id: '10-5-3-boksplot-bilde',
-      type: 'image',
-      src: '/images/10-klasse/statistikk-boksplot.svg',
-      alt: 'Boksplot som viser femtallsoppsummering av data',
-      caption: 'Boksplot - en grafisk fremstilling av data med kvartiler',
-    },
 
     // ========== PLANLEGGING ==========
     {
@@ -5085,13 +5029,6 @@ Prosentregning brukes overalt i hverdagen: når du handler på salg, får lønns
 
 Prosent betyr "per hundre", og vi skriver det med symbolet %. For eksempel betyr 25% det samme som $\\frac{25}{100} = 0{,}25$.`,
     },
-    {
-      id: '10-6-1-prosent-bilde',
-      type: 'image',
-      src: '/images/10-klasse/prosentregning-avansert.svg',
-      alt: 'Illustrasjon av avansert prosentregning',
-      caption: 'Prosentregning - rabatt, moms og prosentpoeng',
-    },
 
     // Definisjon: Grunnleggende prosentbegreper
     {
@@ -5510,13 +5447,6 @@ export const CHAPTER_10_6_2: TextbookChapter = {
       content: `## Innledning
 
 Når noe endres med en fast prosent flere ganger, er det tungvint å beregne hver endring for seg. Vekstfaktor gjør dette mye enklere! Vekstfaktor brukes til å beskrive eksponentiell vekst og nedgang, som vi finner overalt: befolkningsvekst, inflasjon, renter og verdifall på biler.`,
-    },
-    {
-      id: '10-6-2-eksponentiell-bilde',
-      type: 'image',
-      src: '/images/10-klasse/eksponentiell-vekst.svg',
-      alt: 'Graf som viser eksponentiell vekst',
-      caption: 'Eksponentiell vekst - vekstfaktor storre enn 1 gir vekst, mindre enn 1 gir nedgang',
     },
 
     // Definisjon: Vekstfaktor
@@ -6706,13 +6636,6 @@ export const CHAPTER_10_1_3: TextbookChapter = {
       content: 'Faktorisering er prosessen med å skrive et uttrykk som et produkt av faktorer. Dette er en viktig ferdighet for å løse likninger og forenkle algebraiske brøker.',
     },
     {
-      id: '10-1-3-faktorisering-bilde',
-      type: 'image',
-      src: '/images/10-klasse/algebra-faktorisering.svg',
-      alt: 'Illustrasjon av faktorisering av algebraiske uttrykk',
-      caption: 'Faktorisering - å skrive uttrykk som produkt av faktorer',
-    },
-    {
       id: '10-1-3-def-1',
       type: 'definition',
       title: 'Faktorisering',
@@ -7227,13 +7150,6 @@ export const CHAPTER_10_2_3: TextbookChapter = {
       id: '10-2-3-text-1',
       type: 'text',
       content: 'Et likningssett er to eller flere likninger som skal løses samtidig. Vi skal lære to metoder: innsettingsmetoden og addisjonsmetoden.',
-    },
-    {
-      id: '10-2-3-likningssett-bilde',
-      type: 'image',
-      src: '/images/10-klasse/likningssett-grafisk.svg',
-      alt: 'Grafisk fremstilling av likningssett med to linjer som krysser',
-      caption: 'Grafisk losning av likningssett - skjaeringspunktet er losningen',
     },
     {
       id: '10-2-3-def-1',
