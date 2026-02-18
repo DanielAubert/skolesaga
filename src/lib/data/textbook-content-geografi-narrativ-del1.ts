@@ -63,15 +63,47 @@ I moderne tid har flybilder og satellitter fullstendig forandret kartleggingen. 
         id: 'geografi-1-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvem beregnet jordens omkrets med stor noyaktighet allerede rundt 240 f.Kr.?',
-        options: [
-          { id: 'a', text: 'Ptolemaios', isCorrect: false },
-          { id: 'b', text: 'Eratosthenes', isCorrect: true },
-          { id: 'c', text: 'Mercator', isCorrect: false },
-          { id: 'd', text: 'Al-Idrisi', isCorrect: false },
+        task: 'Test deg selv paa karthistorie og geografiens grunnlag:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-1-n-quiz1-q0',
+            task: 'Hvem beregnet jordens omkrets med stor noyaktighet allerede rundt 240 f.Kr.?',
+            options: [
+              { id: 'a', text: 'Ptolemaios', isCorrect: false },
+              { id: 'b', text: 'Eratosthenes', isCorrect: true },
+              { id: 'c', text: 'Mercator', isCorrect: false },
+              { id: 'd', text: 'Al-Idrisi', isCorrect: false },
+            ],
+            solution:
+              'Eratosthenes beregnet jordens omkrets ved aa maale skyggelengder i to byer og bruke geometri. Han kom frem til ca. 40 000 km, som bare er noen faa prosent fra det riktige svaret.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz1-q1',
+            task: 'Hva var det revolusjonerende med Ptolemaios sitt verdenskart?',
+            options: [
+              { id: 'a', text: 'Det var det foerste kartet som viste hele verden noeyaktig', isCorrect: false },
+              { id: 'b', text: 'Det brukte et koordinatsystem med bredde- og lengdegrader', isCorrect: true },
+              { id: 'c', text: 'Det var tegnet med farger for foerste gang', isCorrect: false },
+              { id: 'd', text: 'Det viste sjoruter mellom kontinentene', isCorrect: false },
+            ],
+            solution:
+              'Ptolemaios laget rundt 150 e.Kr. et verdenskart med et koordinatsystem basert paa bredde- og lengdegrader -- det samme prinsippet vi bruker i dag. Kartet var ikke perfekt, men ideen om koordinater var revolusjonerende.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz1-q2',
+            task: 'Hva er den stoerste svakheten ved Mercator-projeksjonen?',
+            options: [
+              { id: 'a', text: 'Den kan ikke brukes til sjoefart', isCorrect: false },
+              { id: 'b', text: 'Den viser bare den nordlige halvkulen', isCorrect: false },
+              { id: 'c', text: 'Arealer forvrenger kraftig mot polene', isCorrect: true },
+              { id: 'd', text: 'Den mangler koordinatsystem', isCorrect: false },
+            ],
+            solution:
+              'Mercator-projeksjonen bevarer vinkler, noe som er ideelt for navigasjon. Men den forvrenger arealer mot polene -- for eksempel ser Groenland like stort ut som Afrika, selv om Afrika er 14 ganger stoerre.',
+          },
         ],
-        solution:
-          'Eratosthenes beregnet jordens omkrets ved aa maale skyggelengder i to byer og bruke geometri. Han kom frem til ca. 40 000 km, som bare er noen faa prosent fra det riktige svaret.',
       },
     },
     {
@@ -100,15 +132,47 @@ Det viktige poenget er dette: Det finnes ingen perfekt kartprojeksjon. Valg av p
         id: 'geografi-1-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva betyr det naar hoydekurvene paa et kart ligger svart taett?',
-        options: [
-          { id: 'a', text: 'Terrenget er flatt og lett aa gaa i', isCorrect: false },
-          { id: 'b', text: 'Terrenget er bratt', isCorrect: true },
-          { id: 'c', text: 'Omraadet er dekket av skog', isCorrect: false },
-          { id: 'd', text: 'Det er et byomraade', isCorrect: false },
+        task: 'Test deg selv paa malestokk, hoydekurver og kartprojeksjoner:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-1-n-quiz2-q0',
+            task: 'Hva betyr det naar hoydekurvene paa et kart ligger svart taett?',
+            options: [
+              { id: 'a', text: 'Terrenget er flatt og lett aa gaa i', isCorrect: false },
+              { id: 'b', text: 'Terrenget er bratt', isCorrect: true },
+              { id: 'c', text: 'Omraadet er dekket av skog', isCorrect: false },
+              { id: 'd', text: 'Det er et byomraade', isCorrect: false },
+            ],
+            solution:
+              'Hoydekurver forbinder punkter med samme hoyde. Naar kurvene ligger taett, betyr det at hoydene endrer seg raskt over kort avstand -- altsaa bratt terreng.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz2-q1',
+            task: 'Hva betyr malestokk 1:50 000?',
+            options: [
+              { id: 'a', text: '1 cm paa kartet tilsvarer 50 meter i virkeligheten', isCorrect: false },
+              { id: 'b', text: '1 cm paa kartet tilsvarer 5 kilometer i virkeligheten', isCorrect: false },
+              { id: 'c', text: '1 cm paa kartet tilsvarer 500 meter i virkeligheten', isCorrect: true },
+              { id: 'd', text: '1 cm paa kartet tilsvarer 50 kilometer i virkeligheten', isCorrect: false },
+            ],
+            solution:
+              'Malestokk 1:50 000 betyr at 1 cm paa kartet tilsvarer 50 000 cm i virkeligheten. 50 000 cm = 500 meter. Et slikt kart viser middels detaljnivaa.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz2-q2',
+            task: 'Hvilken kartprojeksjon bevarer arealer slik at land vises i riktig stoerrelse i forhold til hverandre?',
+            options: [
+              { id: 'a', text: 'Mercator-projeksjonen', isCorrect: false },
+              { id: 'b', text: 'UTM-projeksjonen', isCorrect: false },
+              { id: 'c', text: 'Gnomonic-projeksjonen', isCorrect: false },
+              { id: 'd', text: 'Peters-projeksjonen', isCorrect: true },
+            ],
+            solution:
+              'Peters-projeksjonen er ekvivalent, som betyr at den bevarer arealer. Landene vises i riktig stoerrelse i forhold til hverandre, men formene blir forvrengt. Mercator-projeksjonen bevarer vinkler, men forvrenger arealer.',
+          },
         ],
-        solution:
-          'Hoydekurver forbinder punkter med samme hoyde. Naar kurvene ligger taett, betyr det at hoydene endrer seg raskt over kort avstand -- altsaa bratt terreng.',
       },
     },
     {
@@ -140,15 +204,47 @@ Tenk paa alle maatene GIS og GPS brukes i dag: Nodtjenester finner raskeste rute
         id: 'geografi-1-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er en bufferanalyse i GIS?',
-        options: [
-          { id: 'a', text: 'En metode for aa lagre data midlertidig i minnet', isCorrect: false },
-          { id: 'b', text: 'En analyse som oppretter en sone rundt et objekt for aa finne hva som ligger innenfor', isCorrect: true },
-          { id: 'c', text: 'En teknikk for aa fjerne feil fra datasett', isCorrect: false },
-          { id: 'd', text: 'En maate aa komprimere kartfiler paa', isCorrect: false },
+        task: 'Test deg selv paa GIS og GPS:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-1-n-quiz3-q0',
+            task: 'Hva er en bufferanalyse i GIS?',
+            options: [
+              { id: 'a', text: 'En metode for aa lagre data midlertidig i minnet', isCorrect: false },
+              { id: 'b', text: 'En analyse som oppretter en sone rundt et objekt for aa finne hva som ligger innenfor', isCorrect: true },
+              { id: 'c', text: 'En teknikk for aa fjerne feil fra datasett', isCorrect: false },
+              { id: 'd', text: 'En maate aa komprimere kartfiler paa', isCorrect: false },
+            ],
+            solution:
+              'En bufferanalyse oppretter en sone (buffer) rundt et geografisk objekt og finner alt som ligger innenfor denne sonen. For eksempel: finn alle boliger innenfor 500 meter fra en planlagt motorvei for aa vurdere stoypaavirkning.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz3-q1',
+            task: 'Hva er en overlay-analyse i GIS?',
+            options: [
+              { id: 'a', text: 'Aa legge flere kartlag oppaa hverandre for aa finne sammenhenger', isCorrect: true },
+              { id: 'b', text: 'Aa zoome inn paa et bestemt omraade', isCorrect: false },
+              { id: 'c', text: 'Aa konvertere et kart til 3D-visning', isCorrect: false },
+              { id: 'd', text: 'Aa lage et overflybilde av terrenget', isCorrect: false },
+            ],
+            solution:
+              'En overlay-analyse kombinerer flere kartlag for aa finne sammenhenger. For eksempel kan en kommune legge kart over befolkning, veier, stoysoner og flomfare oppaa hverandre for aa finne den beste plasseringen for en ny skole.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz3-q2',
+            task: 'Hvordan beregner GPS posisjonen din?',
+            options: [
+              { id: 'a', text: 'Ved aa maale jordens magnetfelt', isCorrect: false },
+              { id: 'b', text: 'Ved aa sammenligne med et detaljert kart i minnet', isCorrect: false },
+              { id: 'c', text: 'Ved aa motta signaler fra flere satellitter og beregne posisjon ut fra tidsforskjeller', isCorrect: true },
+              { id: 'd', text: 'Ved aa bruke mobilnettverkets signaler', isCorrect: false },
+            ],
+            solution:
+              'GPS bruker ca. 30 satellitter som kretser rundt jorden. GPS-mottakeren mottar signaler fra flere satellitter og beregner posisjonen ut fra tidsforskjellene i signalene. Noyaktigheten er typisk noen faa meter.',
+          },
         ],
-        solution:
-          'En bufferanalyse oppretter en sone (buffer) rundt et geografisk objekt og finner alt som ligger innenfor denne sonen. For eksempel: finn alle boliger innenfor 500 meter fra en planlagt motorvei for aa vurdere stoypaavirkning.',
       },
     },
     {
@@ -177,15 +273,47 @@ I Norge bruker Norsk Regnesentral og NIBIO satellittdata for aa overvaake skog, 
         id: 'geografi-1-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvilken type satellittbilder kan se gjennom skyer?',
-        options: [
-          { id: 'a', text: 'Optiske bilder', isCorrect: false },
-          { id: 'b', text: 'Termiske bilder', isCorrect: false },
-          { id: 'c', text: 'Radarbilder', isCorrect: true },
-          { id: 'd', text: 'Infrarode bilder', isCorrect: false },
+        task: 'Test deg selv paa satellittbilder og fjernanalyse:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-1-n-quiz4-q0',
+            task: 'Hvilken type satellittbilder kan se gjennom skyer?',
+            options: [
+              { id: 'a', text: 'Optiske bilder', isCorrect: false },
+              { id: 'b', text: 'Termiske bilder', isCorrect: false },
+              { id: 'c', text: 'Radarbilder', isCorrect: true },
+              { id: 'd', text: 'Infrarode bilder', isCorrect: false },
+            ],
+            solution:
+              'Radarbilder bruker mikrobilger som kan trenge gjennom skyer og fungerer i morke. Optiske bilder og vanlige infrarode bilder blokkeres av skydekke.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz4-q1',
+            task: 'Hva brukes termiske satellittbilder til?',
+            options: [
+              { id: 'a', text: 'Aa fotografere landskap i hoey opploesning', isCorrect: false },
+              { id: 'b', text: 'Aa kartlegge havtemperaturer, byvarmeoeyer og vulkanaktivitet', isCorrect: true },
+              { id: 'c', text: 'Aa maale vindstyrke i atmosfaeren', isCorrect: false },
+              { id: 'd', text: 'Aa finne mineraler under jordoverflaten', isCorrect: false },
+            ],
+            solution:
+              'Termiske bilder registrerer varmestraaling og brukes til aa kartlegge havtemperaturer, finne byvarmeoeyer (omraader i byer som er varmere enn omgivelsene), og oppdage vulkanaktivitet.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz4-q2',
+            task: 'Hva er fjernanalyse?',
+            options: [
+              { id: 'a', text: 'Analyse av data som er lagret paa fjerne servere', isCorrect: false },
+              { id: 'b', text: 'Innsamling av informasjon om jordoverflaten uten fysisk kontakt, for eksempel fra satellitter', isCorrect: true },
+              { id: 'c', text: 'Analyse av vaerdata fra fjerne vaerstasjoner', isCorrect: false },
+              { id: 'd', text: 'Fjernstyring av utstyr i felt', isCorrect: false },
+            ],
+            solution:
+              'Fjernanalyse er innsamling av informasjon om jordoverflaten uten fysisk kontakt. Satellitter og fly samler inn data som brukes til aa overvaake alt fra avskoging i Amazonas til issmelting i Arktis.',
+          },
         ],
-        solution:
-          'Radarbilder bruker mikrobilger som kan trenge gjennom skyer og fungerer i morke. Optiske bilder og vanlige infrarode bilder blokkeres av skydekke.',
       },
     },
     {
@@ -212,15 +340,35 @@ Til eksamen er det lurt aa ove paa aa beregne avstander med malestokk -- dette e
         id: 'geografi-1-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Paa et kart med malestokk 1:50 000 maaler du at avstanden mellom to steder er 4 cm. Hvor lang er avstanden i virkeligheten?',
-        options: [
-          { id: 'a', text: '200 meter', isCorrect: false },
-          { id: 'b', text: '2 kilometer', isCorrect: true },
-          { id: 'c', text: '20 kilometer', isCorrect: false },
-          { id: 'd', text: '4 kilometer', isCorrect: false },
+        task: 'Test deg selv paa praktisk kartbruk og digitale verktoy:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-1-n-quiz5-q0',
+            task: 'Paa et kart med malestokk 1:50 000 maaler du at avstanden mellom to steder er 4 cm. Hvor lang er avstanden i virkeligheten?',
+            options: [
+              { id: 'a', text: '200 meter', isCorrect: false },
+              { id: 'b', text: '2 kilometer', isCorrect: true },
+              { id: 'c', text: '20 kilometer', isCorrect: false },
+              { id: 'd', text: '4 kilometer', isCorrect: false },
+            ],
+            solution:
+              '1:50 000 betyr at 1 cm paa kartet = 50 000 cm i virkeligheten. 4 cm paa kartet = 4 x 50 000 cm = 200 000 cm = 2000 m = 2 km.',
+          },
+          {
+            id: 'geografi-1-1-n-quiz5-q1',
+            task: 'Hvilket av disse kartene viser mest detaljer?',
+            options: [
+              { id: 'a', text: '1:100 000', isCorrect: false },
+              { id: 'b', text: '1:50 000', isCorrect: false },
+              { id: 'c', text: '1:25 000', isCorrect: true },
+              { id: 'd', text: '1:250 000', isCorrect: false },
+            ],
+            solution:
+              'Et kart med malestokk 1:25 000 viser mest detaljer fordi hver centimeter paa kartet representerer et mindre omraade (250 meter). Jo lavere tallet etter kolon er, jo mer detaljert er kartet.',
+          },
         ],
-        solution:
-          '1:50 000 betyr at 1 cm paa kartet = 50 000 cm i virkeligheten. 4 cm paa kartet = 4 x 50 000 cm = 200 000 cm = 2000 m = 2 km.',
       },
     },
     {
@@ -301,15 +449,47 @@ Midt i Atlanterhavet ligger en undersjoeisk fjellkjede kalt **Midtatlantiske ryg
         id: 'geografi-1-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva het superkontinentet der alle landmasser var samlet for ca. 200 millioner aar siden?',
-        options: [
-          { id: 'a', text: 'Gondwana', isCorrect: false },
-          { id: 'b', text: 'Laurasia', isCorrect: false },
-          { id: 'c', text: 'Pangea', isCorrect: true },
-          { id: 'd', text: 'Rodinia', isCorrect: false },
+        task: 'Test deg selv paa platetektonikk og kontinentaldrift:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-2-n-quiz1-q0',
+            task: 'Hva het superkontinentet der alle landmasser var samlet for ca. 200 millioner aar siden?',
+            options: [
+              { id: 'a', text: 'Gondwana', isCorrect: false },
+              { id: 'b', text: 'Laurasia', isCorrect: false },
+              { id: 'c', text: 'Pangea', isCorrect: true },
+              { id: 'd', text: 'Rodinia', isCorrect: false },
+            ],
+            solution:
+              'Pangea var superkontinentet som inneholdt alle dagens kontinenter. Det begynte aa brytes opp for ca. 200 millioner aar siden. Gondwana og Laurasia var to store landmasser som Pangea delte seg i.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz1-q1',
+            task: 'Hva er litosfaeren?',
+            options: [
+              { id: 'a', text: 'Det flytende laget av jern i jordens kjerne', isCorrect: false },
+              { id: 'b', text: 'Det seige, delvis smeltede laget under platene', isCorrect: false },
+              { id: 'c', text: 'Det ytre faste laget av jorden som bestaar av skorpen og oeverste del av mantelen', isCorrect: true },
+              { id: 'd', text: 'Atmosfaerens nederste lag', isCorrect: false },
+            ],
+            solution:
+              'Litosfaeren er det ytre faste laget av jorden, som bestaar av jordskorpen pluss den oeverste delen av mantelen. De tektoniske platene er deler av litosfaeren, og de flyter paa astenosfaeren under.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz1-q2',
+            task: 'Hvorfor har Island saa mye vulkansk aktivitet?',
+            options: [
+              { id: 'a', text: 'Fordi Island ligger naer Nordpolen', isCorrect: false },
+              { id: 'b', text: 'Fordi Island ligger paa den Midtatlantiske ryggen der to plater beveger seg fra hverandre', isCorrect: true },
+              { id: 'c', text: 'Fordi Island er omgitt av varme havstroemmer', isCorrect: false },
+              { id: 'd', text: 'Fordi Islands berggrunn er laget av kalkstein', isCorrect: false },
+            ],
+            solution:
+              'Island ligger paa den Midtatlantiske ryggen, der den eurasiske og den nordamerikanske platen beveger seg fra hverandre. Magma stiger opp i sprekken mellom platene, noe som gir vulkaner og geysirer.',
+          },
         ],
-        solution:
-          'Pangea var superkontinentet som inneholdt alle dagens kontinenter. Det begynte aa brytes opp for ca. 200 millioner aar siden. Gondwana og Laurasia var to store landmasser som Pangea delte seg i.',
       },
     },
     {
@@ -336,15 +516,59 @@ Rundt Stillehavet ligger en sone med intens vulkansk og seismisk aktivitet som k
         id: 'geografi-1-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva skjer ved en konvergerende plategrense naar en havplate moeter en kontinentplate?',
-        options: [
-          { id: 'a', text: 'Platene glir sideveis forbi hverandre', isCorrect: false },
-          { id: 'b', text: 'Ny havbunn dannes', isCorrect: false },
-          { id: 'c', text: 'Havplaten presses ned under kontinentplaten (subduksjon) og det dannes vulkaner', isCorrect: true },
-          { id: 'd', text: 'Begge platene smelter', isCorrect: false },
+        task: 'Test deg selv paa plategrenser og landformer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-2-n-quiz2-q0',
+            task: 'Hva skjer ved en konvergerende plategrense naar en havplate moeter en kontinentplate?',
+            options: [
+              { id: 'a', text: 'Platene glir sideveis forbi hverandre', isCorrect: false },
+              { id: 'b', text: 'Ny havbunn dannes', isCorrect: false },
+              { id: 'c', text: 'Havplaten presses ned under kontinentplaten (subduksjon) og det dannes vulkaner', isCorrect: true },
+              { id: 'd', text: 'Begge platene smelter', isCorrect: false },
+            ],
+            solution:
+              'Ved subduksjon presses den tyngre havplaten ned under den lettere kontinentplaten. Den nedpressede platen smelter, og magmaet stiger opp og danner vulkaner langs kysten.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz2-q1',
+            task: 'Hvordan ble Himalaya dannet?',
+            options: [
+              { id: 'a', text: 'Ved vulkansk aktivitet langs en subduksjonssone', isCorrect: false },
+              { id: 'b', text: 'Ved at den indiske platen kolliderte med den eurasiske platen', isCorrect: true },
+              { id: 'c', text: 'Ved erosjon fra store elver', isCorrect: false },
+              { id: 'd', text: 'Ved at en stor isbre formet landskapet', isCorrect: false },
+            ],
+            solution:
+              'Himalaya ble dannet da den indiske platen krasjet inn i den eurasiske for ca. 50 millioner aar siden. Siden begge er kontinentplater og ingen kan presses ned, ble bergartene presset opp og dannet fjellkjeden. Kollisjonen paagaar fortsatt.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz2-q2',
+            task: 'Hva er Ildringen (Ring of Fire)?',
+            options: [
+              { id: 'a', text: 'Et belte av aktive vulkaner langs Middelhavet', isCorrect: false },
+              { id: 'b', text: 'En sone med vulkansk og seismisk aktivitet rundt Stillehavet', isCorrect: true },
+              { id: 'c', text: 'Et omraade med hoey temperatur i jordens indre', isCorrect: false },
+              { id: 'd', text: 'En sirkulaer havstroem i Atlanterhavet', isCorrect: false },
+            ],
+            solution:
+              'Ildringen er en sone med intens vulkansk og seismisk aktivitet som gaar rundt Stillehavet. Her finnes ca. 75 % av verdens aktive vulkaner, og den omfatter kyster fra Japan til New Zealand til vestkysten av Amerika.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz2-q3',
+            task: 'Hva kjennetegner en transform plategrense?',
+            options: [
+              { id: 'a', text: 'Platene beveger seg mot hverandre og danner fjellkjeder', isCorrect: false },
+              { id: 'b', text: 'Platene beveger seg fra hverandre og ny skorpe dannes', isCorrect: false },
+              { id: 'c', text: 'Platene beveger seg oppover og nedover', isCorrect: false },
+              { id: 'd', text: 'Platene glir sideveis forbi hverandre og foraarsaker jordskjelv', isCorrect: true },
+            ],
+            solution:
+              'Ved transforme plategrenser glir platene sideveis forbi hverandre. Det dannes verken vulkaner eller fjell, men spenningene som bygges opp utloeses som jordskjelv. San Andreas-forkastningen i California er det mest kjente eksempelet.',
+          },
         ],
-        solution:
-          'Ved subduksjon presses den tyngre havplaten ned under den lettere kontinentplaten. Den nedpressede platen smelter, og magmaet stiger opp og danner vulkaner langs kysten.',
       },
     },
     {
@@ -369,15 +593,47 @@ Disse tre typene haenger sammen i det vi kaller **bergartssyklusen**. Magmatiske
         id: 'geografi-1-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hvilken bergart dannes naar granitt utsettes for hoyt trykk og temperatur?',
-        options: [
-          { id: 'a', text: 'Basalt', isCorrect: false },
-          { id: 'b', text: 'Sandstein', isCorrect: false },
-          { id: 'c', text: 'Gneis', isCorrect: true },
-          { id: 'd', text: 'Kalkstein', isCorrect: false },
+        task: 'Test deg selv paa bergarter og bergartssyklusen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-2-n-quiz3-q0',
+            task: 'Hvilken bergart dannes naar granitt utsettes for hoyt trykk og temperatur?',
+            options: [
+              { id: 'a', text: 'Basalt', isCorrect: false },
+              { id: 'b', text: 'Sandstein', isCorrect: false },
+              { id: 'c', text: 'Gneis', isCorrect: true },
+              { id: 'd', text: 'Kalkstein', isCorrect: false },
+            ],
+            solution:
+              'Gneis er en metamorf bergart som dannes naar granitt utsettes for hoyt trykk og temperatur. Mineralkornene i granitten omorganiseres og danner det karakteristiske baandede monsteret i gneis.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz3-q1',
+            task: 'Hva er forskjellen mellom granitt og basalt?',
+            options: [
+              { id: 'a', text: 'Granitt er sedimentaer, basalt er metamorf', isCorrect: false },
+              { id: 'b', text: 'Granitt storknet langsomt dypt nede og har store krystaller, basalt storknet raskt paa overflaten og har smaa krystaller', isCorrect: true },
+              { id: 'c', text: 'Basalt er eldre enn granitt', isCorrect: false },
+              { id: 'd', text: 'Granitt finnes bare i Norge, basalt finnes over hele verden', isCorrect: false },
+            ],
+            solution:
+              'Bade granitt og basalt er magmatiske bergarter. Granitt er plutonsk og storknet langsomt dypt i jordskorpen, noe som gir store krystaller. Basalt er vulkansk og storknet raskt paa overflaten, noe som gir smaa krystaller.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz3-q2',
+            task: 'Hvilken bergartgruppe kan inneholde fossiler?',
+            options: [
+              { id: 'a', text: 'Magmatiske bergarter', isCorrect: false },
+              { id: 'b', text: 'Metamorfe bergarter', isCorrect: false },
+              { id: 'c', text: 'Sedimentaere bergarter', isCorrect: true },
+              { id: 'd', text: 'Alle bergartgrupper inneholder like mange fossiler', isCorrect: false },
+            ],
+            solution:
+              'Sedimentaere bergarter dannes av materiale som avsettes lag paa lag over tid. Dyr og planter kan begraves i sedimentene og bevares som fossiler. Magmatiske og metamorfe bergarter dannes under forhold som oedelegger eventuelle biologiske rester.',
+          },
         ],
-        solution:
-          'Gneis er en metamorf bergart som dannes naar granitt utsettes for hoyt trykk og temperatur. Mineralkornene i granitten omorganiseres og danner det karakteristiske baandede monsteret i gneis.',
       },
     },
     {
@@ -408,15 +664,47 @@ Denne kampen mellom oppbygging og nedbrytning har paagaatt i milliarder av aar o
         id: 'geografi-1-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er den viktigste formen for mekanisk forvitring i norske fjell?',
-        options: [
-          { id: 'a', text: 'Temperaturforvitring', isCorrect: false },
-          { id: 'b', text: 'Frostsprengning', isCorrect: true },
-          { id: 'c', text: 'Rotsprengning', isCorrect: false },
-          { id: 'd', text: 'Kjemisk opplosning', isCorrect: false },
+        task: 'Test deg selv paa indre og ytre krefter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-2-n-quiz4-q0',
+            task: 'Hva er den viktigste formen for mekanisk forvitring i norske fjell?',
+            options: [
+              { id: 'a', text: 'Temperaturforvitring', isCorrect: false },
+              { id: 'b', text: 'Frostsprengning', isCorrect: true },
+              { id: 'c', text: 'Rotsprengning', isCorrect: false },
+              { id: 'd', text: 'Kjemisk opplosning', isCorrect: false },
+            ],
+            solution:
+              'Frostsprengning er dominerende i Norge paa grunn av klimaet. Vann trenger inn i sprekker, fryser og utvider seg, og sprenger gradvis fjellet fra hverandre.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz4-q1',
+            task: 'Hva er forskjellen mellom indre (endogene) og ytre (eksogene) krefter?',
+            options: [
+              { id: 'a', text: 'Indre krefter virker paa havet, ytre krefter virker paa land', isCorrect: false },
+              { id: 'b', text: 'Indre krefter bygger opp landformer, ytre krefter bryter dem ned', isCorrect: true },
+              { id: 'c', text: 'Indre krefter er raskere enn ytre krefter', isCorrect: false },
+              { id: 'd', text: 'Det er ingen forskjell, begge bryter ned fjell', isCorrect: false },
+            ],
+            solution:
+              'Indre (endogene) krefter som vulkanisme og platetektonikk bygger opp landformer -- fjellkjeder, vulkaner, plataaer. Ytre (eksogene) krefter som forvitring, erosjon og sedimentasjon bryter ned det de indre kreftene har bygget opp.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz4-q2',
+            task: 'Hva er karstlandskap?',
+            options: [
+              { id: 'a', text: 'Landskap formet av vulkansk aktivitet', isCorrect: false },
+              { id: 'b', text: 'Landskap med store sanddyner', isCorrect: false },
+              { id: 'c', text: 'Landskap formet av isbreer i fjellomraader', isCorrect: false },
+              { id: 'd', text: 'Landskap med huler og grotter dannet av kjemisk forvitring av kalkstein', isCorrect: true },
+            ],
+            solution:
+              'Karstlandskap dannes naar surt regnvann over tusener av aar loeser opp kalkstein gjennom kjemisk forvitring. Resultatet er landskap med huler, grotter, underjordiske elver og synkehuller.',
+          },
         ],
-        solution:
-          'Frostsprengning er dominerende i Norge paa grunn av klimaet. Vann trenger inn i sprekker, fryser og utvider seg, og sprenger gradvis fjellet fra hverandre.',
       },
     },
     {
@@ -445,15 +733,59 @@ Til og med i dag, etter 10 000 aar, hever landet seg fortsatt. Isen trykte landm
         id: 'geografi-1-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor har norske daler som er formet av isbreer U-form i stedet for V-form?',
-        options: [
-          { id: 'a', text: 'Fordi elver eroderer raskere enn isbreer', isCorrect: false },
-          { id: 'b', text: 'Fordi isbreer eroderer bade bunnen og sidene av dalen og lager brede, flate bunner', isCorrect: true },
-          { id: 'c', text: 'Fordi U-daler alltid er eldre enn V-daler', isCorrect: false },
-          { id: 'd', text: 'Fordi havet har fylt dalene med sedimenter', isCorrect: false },
+        task: 'Test deg selv paa istider og Norges landskap:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-2-n-quiz5-q0',
+            task: 'Hvorfor har norske daler som er formet av isbreer U-form i stedet for V-form?',
+            options: [
+              { id: 'a', text: 'Fordi elver eroderer raskere enn isbreer', isCorrect: false },
+              { id: 'b', text: 'Fordi isbreer eroderer bade bunnen og sidene av dalen og lager brede, flate bunner', isCorrect: true },
+              { id: 'c', text: 'Fordi U-daler alltid er eldre enn V-daler', isCorrect: false },
+              { id: 'd', text: 'Fordi havet har fylt dalene med sedimenter', isCorrect: false },
+            ],
+            solution:
+              'Isbreer eroderer bade bunnen og sidene av dalen de beveger seg gjennom, og skaper dermed brede daler med flate bunner og bratte sider -- en U-form. Elver graver hovedsakelig nedover, noe som skaper V-formede daler.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz5-q1',
+            task: 'Hva er en fjord?',
+            options: [
+              { id: 'a', text: 'En innsjoe omgitt av fjell', isCorrect: false },
+              { id: 'b', text: 'En overfordypet bredal der havet har stroemmet inn', isCorrect: true },
+              { id: 'c', text: 'En elv som renner gjennom en trang dal', isCorrect: false },
+              { id: 'd', text: 'En bukt dannet av boeelger og havstroemmer', isCorrect: false },
+            ],
+            solution:
+              'En fjord er en overfordypet dal gravet ut av isbreer. Breene gravde dalene saa dypt at bunnen havnet under havnivaaet. Naar isen smeltet, stroemmet havet inn. Sognefjorden er 1308 meter dyp og 204 kilometer lang.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz5-q2',
+            task: 'Hva er landhevning?',
+            options: [
+              { id: 'a', text: 'At fjellkjeder vokser paa grunn av platetektonikk', isCorrect: false },
+              { id: 'b', text: 'At landmasser stiger etter at tyngden av isbreene er borte', isCorrect: true },
+              { id: 'c', text: 'At vulkaner bygger nytt land over havnivaaet', isCorrect: false },
+              { id: 'd', text: 'At sedimenter hoper seg opp langs kysten', isCorrect: false },
+            ],
+            solution:
+              'Landhevning skjer fordi de enorme isbreene trykte landmassene ned. Etter at isen smeltet for ca. 10 000 aar siden, har landet sakte steget tilbake. I noen deler av Skandinavia stiger landet fortsatt med nesten en centimeter i aaret.',
+          },
+          {
+            id: 'geografi-1-2-n-quiz5-q3',
+            task: 'Hva er en botn?',
+            options: [
+              { id: 'a', text: 'En flat slette etterlatt av isbreer', isCorrect: false },
+              { id: 'b', text: 'En stor stein transportert av isen og lagt igjen langt fra opprinnelsesstedet', isCorrect: false },
+              { id: 'c', text: 'En sirkelformet fordypning hoeyt i fjellet der en isbre startet', isCorrect: true },
+              { id: 'd', text: 'En haug av grus og stein skjoevet sammen av en bre', isCorrect: false },
+            ],
+            solution:
+              'En botn er en sirkelformet fordypning hoeyt i fjellet der en bre hadde sitt utspring. Breen gravde ut en skaalformet fordypning som ofte er fylt med en innsjoe i dag. Flyttblokker er store steiner transportert av isen, og morener er hauger av grus etterlatt av breen.',
+          },
         ],
-        solution:
-          'Isbreer eroderer bade bunnen og sidene av dalen de beveger seg gjennom, og skaper dermed brede daler med flate bunner og bratte sider -- en U-form. Elver graver hovedsakelig nedover, noe som skaper V-formede daler.',
       },
     },
     {
@@ -537,15 +869,47 @@ Men hvorfor blaeser vindene fra vest og ikke bare rett fra ekvator mot polene? S
         id: 'geografi-1-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvorfor ligger de fleste store orkenene paa rundt 30 graders bredde?',
-        options: [
-          { id: 'a', text: 'Fordi solen er staerkest der', isCorrect: false },
-          { id: 'b', text: 'Fordi det er der synkende luft fra Hadley-cellen skaper hoyttrykk og torke', isCorrect: true },
-          { id: 'c', text: 'Fordi det ikke finnes fjell der som kan stoppe vindene', isCorrect: false },
-          { id: 'd', text: 'Fordi havet er for kaldt til aa gi fuktighet', isCorrect: false },
+        task: 'Test deg selv paa atmosfaerisk sirkulasjon og vindsystemer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-3-n-quiz1-q0',
+            task: 'Hvorfor ligger de fleste store orkenene paa rundt 30 graders bredde?',
+            options: [
+              { id: 'a', text: 'Fordi solen er staerkest der', isCorrect: false },
+              { id: 'b', text: 'Fordi det er der synkende luft fra Hadley-cellen skaper hoyttrykk og torke', isCorrect: true },
+              { id: 'c', text: 'Fordi det ikke finnes fjell der som kan stoppe vindene', isCorrect: false },
+              { id: 'd', text: 'Fordi havet er for kaldt til aa gi fuktighet', isCorrect: false },
+            ],
+            solution:
+              'I Hadley-cellen stiger varm luft ved ekvator og synker ned rundt 30 graders bredde. Synkende luft skaper hoyttrykk og hemmer skydannelse, noe som gir lite nedbor og orkendannelse.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz1-q1',
+            task: 'Hva er Coriolis-effekten?',
+            options: [
+              { id: 'a', text: 'At vinder akselererer naar de passerer over fjell', isCorrect: false },
+              { id: 'b', text: 'At jordrotasjonen avboeyer bevegende luft og vann til hoeyre paa nordlige halvkule', isCorrect: true },
+              { id: 'c', text: 'At varm luft alltid stiger og kald luft synker', isCorrect: false },
+              { id: 'd', text: 'At solen varmer ekvator mer enn polene', isCorrect: false },
+            ],
+            solution:
+              'Coriolis-effekten skyldes jordrotasjonen. Bevegende luft og vann avboeyes til hoeyre paa nordlige halvkule og til venstre paa soerlige. Dette er grunnen til at vinder ikke gaar rett fra ekvator til polene, men faar en oestlig eller vestlig komponent.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz1-q2',
+            task: 'Hvorfor er vestavindsbeltet saa viktig for Norges klima?',
+            options: [
+              { id: 'a', text: 'Det bringer toerr luft fra Russland', isCorrect: false },
+              { id: 'b', text: 'Det blokkerer kald luft fra Arktis', isCorrect: false },
+              { id: 'c', text: 'Det bringer fuktig, mild luft fra Atlanterhavet inn over norskekysten', isCorrect: true },
+              { id: 'd', text: 'Det skaper hoyttrykk som gir stabilt vaer', isCorrect: false },
+            ],
+            solution:
+              'Vestavindsbeltet dominerer mellom 30 og 60 graders bredde og bringer varm, fuktig luft fra Atlanterhavet inn over Norge. Dette er en hovedgrunn til at norskekysten faar mye nedbor og milde temperaturer.',
+          },
         ],
-        solution:
-          'I Hadley-cellen stiger varm luft ved ekvator og synker ned rundt 30 graders bredde. Synkende luft skaper hoyttrykk og hemmer skydannelse, noe som gir lite nedbor og orkendannelse.',
       },
     },
     {
@@ -570,15 +934,47 @@ Denne sirkelen er kritisk for jordens klima. Hvis den skulle bremses -- for ekse
         id: 'geografi-1-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvorfor er Bergen saa mye varmere enn steder paa samme breddegrad i Canada?',
-        options: [
-          { id: 'a', text: 'Fordi Bergen faar mer sol', isCorrect: false },
-          { id: 'b', text: 'Fordi Golfstrommen transporterer varme fra tropene til norskekysten', isCorrect: true },
-          { id: 'c', text: 'Fordi fjellene beskytter Bergen mot kald luft', isCorrect: false },
-          { id: 'd', text: 'Fordi Bergen ligger lavere enn kanadiske byer', isCorrect: false },
+        task: 'Test deg selv paa havstroemmer og havsirkulasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-3-n-quiz2-q0',
+            task: 'Hvorfor er Bergen saa mye varmere enn steder paa samme breddegrad i Canada?',
+            options: [
+              { id: 'a', text: 'Fordi Bergen faar mer sol', isCorrect: false },
+              { id: 'b', text: 'Fordi Golfstroemmen transporterer varme fra tropene til norskekysten', isCorrect: true },
+              { id: 'c', text: 'Fordi fjellene beskytter Bergen mot kald luft', isCorrect: false },
+              { id: 'd', text: 'Fordi Bergen ligger lavere enn kanadiske byer', isCorrect: false },
+            ],
+            solution:
+              'Golfstroemmen (og dens forlengelse, Den nordatlantiske stroemmen) transporterer varmt vann fra Mexicogulfen nordover langs norskekysten. Denne varmen frigis til atmosfaeren og gjoer klimaet i Norge mye mildere enn det breddegraden skulle tilsi.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz2-q1',
+            task: 'Hva driver den termohaline sirkulasjonen?',
+            options: [
+              { id: 'a', text: 'Vindene paa havoverflaten', isCorrect: false },
+              { id: 'b', text: 'Tidevannets krefter fra maanen', isCorrect: false },
+              { id: 'c', text: 'Forskjeller i temperatur og saltinnhold i havet', isCorrect: true },
+              { id: 'd', text: 'Jordrotasjonen alene', isCorrect: false },
+            ],
+            solution:
+              'Den termohaline sirkulasjonen drives av forskjeller i temperatur (thermo) og saltinnhold (halin). Kaldt, salt vann er tyngre og synker ned, mens varmt vann stroemmer til for aa erstatte det. Denne prosessen tar ca. 1000 aar for en hel syklus.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz2-q2',
+            task: 'Hva kunne skje med Europas klima hvis den termohaline sirkulasjonen bremset opp?',
+            options: [
+              { id: 'a', text: 'Europa ville bli varmere og toerrere', isCorrect: false },
+              { id: 'b', text: 'Europa ville faa mer nedbor og mildere vintre', isCorrect: false },
+              { id: 'c', text: 'Det ville ikke ha noen effekt paa klimaet', isCorrect: false },
+              { id: 'd', text: 'Nordvest-Europa kunne bli mye kaldere fordi varmetransporten fra tropene stoppes', isCorrect: true },
+            ],
+            solution:
+              'Hvis den termohaline sirkulasjonen svekkes -- for eksempel av store mengder ferskvann fra smeltende isbreer -- ville varmetransporten fra tropene til Nordvest-Europa reduseres kraftig. Konsekvensene for Europas klima kunne vaere dramatiske med mye kaldere vintre.',
+          },
         ],
-        solution:
-          'Golfstrommen (og dens forlengelse, Den nordatlantiske strommen) transporterer varmt vann fra Mexicogulfen nordover langs norskekysten. Denne varmen frigis til atmosfaeren og gjor klimaet i Norge mye mildere enn det breddegraden skulle tilsi.',
       },
     },
     {
@@ -609,15 +1005,47 @@ Nedbor kommer i ulike former, avhengig av hvordan luften stiger:
         id: 'geografi-1-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hvilken skytype kan gi kraftig nedbor, lyn og torden?',
-        options: [
-          { id: 'a', text: 'Cirrus', isCorrect: false },
-          { id: 'b', text: 'Stratus', isCorrect: false },
-          { id: 'c', text: 'Cumulonimbus', isCorrect: true },
-          { id: 'd', text: 'Altostratus', isCorrect: false },
+        task: 'Test deg selv paa skyer og nedborstyper:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-3-n-quiz3-q0',
+            task: 'Hvilken skytype kan gi kraftig nedbor, lyn og torden?',
+            options: [
+              { id: 'a', text: 'Cirrus', isCorrect: false },
+              { id: 'b', text: 'Stratus', isCorrect: false },
+              { id: 'c', text: 'Cumulonimbus', isCorrect: true },
+              { id: 'd', text: 'Altostratus', isCorrect: false },
+            ],
+            solution:
+              'Cumulonimbus er mektige tarnkjempeskyer som kan naa 12-15 km hoyde. De dannes ved kraftig konveksjon og kan gi styrtregn, hagl, lyn og torden.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz3-q1',
+            task: 'Hva er orografisk nedbor?',
+            options: [
+              { id: 'a', text: 'Nedbor som oppstaar naar bakken varmes opp paa varme sommerdager', isCorrect: false },
+              { id: 'b', text: 'Nedbor som faller naar kald og varm luft moetes langs en front', isCorrect: false },
+              { id: 'c', text: 'Nedbor som oppstaar naar fuktig luft presses opp over fjell', isCorrect: true },
+              { id: 'd', text: 'Nedbor som kommer fra tropiske stormsystemer', isCorrect: false },
+            ],
+            solution:
+              'Orografisk nedbor oppstaar naar fuktig luft presses opp over fjell. Luften avkjoeles, og vanndampen kondenserer. Dette er hovedgrunnen til at Vestlandet faar saa mye nedbor -- vestavindsbeltet bringer fuktig luft fra havet, og fjellene tvinger den oppover.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz3-q2',
+            task: 'Hvilken skytype varsler ofte at en vaerfront er paa vei?',
+            options: [
+              { id: 'a', text: 'Cumulus', isCorrect: false },
+              { id: 'b', text: 'Stratus', isCorrect: false },
+              { id: 'c', text: 'Altocumulus', isCorrect: false },
+              { id: 'd', text: 'Cirrus', isCorrect: true },
+            ],
+            solution:
+              'Cirrus er tynne, fjaerlignende hoye skyer laget av iskrystaller. De er ofte de foerste skyene som dukker opp naar en vaerfront naermer seg, og kan varsle at nedbor er paa vei innen ett til to doegn.',
+          },
         ],
-        solution:
-          'Cumulonimbus er mektige tornkjempeskyer som kan naa 12-15 km hoyde. De dannes ved kraftig konveksjon og kan gi styrtregn, hagl, lyn og torden.',
       },
     },
     {
@@ -648,15 +1076,47 @@ I tillegg har vi **hoydeklima**, som overskriver de andre sonene. Temperaturen s
         id: 'geografi-1-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Omtrent hvor mye synker temperaturen per 100 meters hoydeokning?',
-        options: [
-          { id: 'a', text: 'Ca. 0,2 grader C', isCorrect: false },
-          { id: 'b', text: 'Ca. 0,6 grader C', isCorrect: true },
-          { id: 'c', text: 'Ca. 1,0 grader C', isCorrect: false },
-          { id: 'd', text: 'Ca. 2,0 grader C', isCorrect: false },
+        task: 'Test deg selv paa klimasoner og klimafaktorer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-3-n-quiz4-q0',
+            task: 'Omtrent hvor mye synker temperaturen per 100 meters hoydeokning?',
+            options: [
+              { id: 'a', text: 'Ca. 0,2 grader C', isCorrect: false },
+              { id: 'b', text: 'Ca. 0,6 grader C', isCorrect: true },
+              { id: 'c', text: 'Ca. 1,0 grader C', isCorrect: false },
+              { id: 'd', text: 'Ca. 2,0 grader C', isCorrect: false },
+            ],
+            solution:
+              'Temperaturen synker med ca. 0,6 grader Celsius for hver 100 meter du stiger i hoyden. Dette kalles den adiabatiske avkjolingen og er grunnen til at fjelltopper er kalde selv i varme land.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz4-q1',
+            task: 'Hva kjennetegner temperert klima?',
+            options: [
+              { id: 'a', text: 'Det er varmt hele aaret med temperaturer over 18 grader', isCorrect: false },
+              { id: 'b', text: 'Det har fire tydelige aarstider', isCorrect: true },
+              { id: 'c', text: 'Det er kaldt hele aaret med permafrost', isCorrect: false },
+              { id: 'd', text: 'Det har bare en toerresesong og en regnesesong', isCorrect: false },
+            ],
+            solution:
+              'Temperert klima finnes mellom 35 og 60 graders bredde og kjennetegnes av fire tydelige aarstider. Norge har temperert klima, men med store variasjoner mellom kyst (oseanisk) og innland (kontinentalt).',
+          },
+          {
+            id: 'geografi-1-3-n-quiz4-q2',
+            task: 'Hva er forskjellen mellom oseanisk og kontinentalt klima?',
+            options: [
+              { id: 'a', text: 'Oseanisk klima har varme somre og kalde vintre, kontinentalt har milde aarstider', isCorrect: false },
+              { id: 'b', text: 'De er identiske, bare forskjellige navn', isCorrect: false },
+              { id: 'c', text: 'Oseanisk klima har milde vintre og kjolige somre, kontinentalt har kalde vintre og varme somre', isCorrect: true },
+              { id: 'd', text: 'Oseanisk klima er alltid varmere enn kontinentalt', isCorrect: false },
+            ],
+            solution:
+              'Oseanisk klima (naer kysten) har milde vintre og kjoelige somre fordi havet modererer temperatursvingningene. Kontinentalt klima (i innlandet) har kalde vintre og varme somre fordi land varmes opp og avkjoeles raskere enn hav.',
+          },
         ],
-        solution:
-          'Temperaturen synker med ca. 0,6 grader Celsius for hver 100 meter du stiger i hoyden. Dette kalles den adiabatiske avkjolingen og er grunnen til at fjelltopper er kalde selv i varme land.',
       },
     },
     {
@@ -683,15 +1143,35 @@ Disse syklusene minner oss om hvor sammenkoblet jordens klimasystem er. Endringe
         id: 'geografi-1-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er El Nino?',
-        options: [
-          { id: 'a', text: 'En type tropisk storm', isCorrect: false },
-          { id: 'b', text: 'En permanent havstrom langs Afrikas kyst', isCorrect: false },
-          { id: 'c', text: 'Unormal oppvarming av havoverflaten i det ostlige Stillehavet', isCorrect: true },
-          { id: 'd', text: 'Et annet navn for Golfstrommen', isCorrect: false },
+        task: 'Test deg selv paa El Nino og globale vaerfenomener:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-3-n-quiz5-q0',
+            task: 'Hva er El Nino?',
+            options: [
+              { id: 'a', text: 'En type tropisk storm', isCorrect: false },
+              { id: 'b', text: 'En permanent havstroem langs Afrikas kyst', isCorrect: false },
+              { id: 'c', text: 'Unormal oppvarming av havoverflaten i det oestlige Stillehavet', isCorrect: true },
+              { id: 'd', text: 'Et annet navn for Golfstroemmen', isCorrect: false },
+            ],
+            solution:
+              'El Nino er en periodisk oppvarming av havoverflaten i det oestlige Stillehavet som oppstaar med 2-7 aars mellomrom. Det pavirker vaermonster globalt og kan gi toerke i Australia og kraftig regn i Soer-Amerika.',
+          },
+          {
+            id: 'geografi-1-3-n-quiz5-q1',
+            task: 'Hva er La Nina?',
+            options: [
+              { id: 'a', text: 'Det samme fenomenet som El Nino', isCorrect: false },
+              { id: 'b', text: 'Det motsatte av El Nino -- uvanlig kaldt vann i det oestlige Stillehavet', isCorrect: true },
+              { id: 'c', text: 'En tropisk orkan i Atlanterhavet', isCorrect: false },
+              { id: 'd', text: 'En varm havstroem i Det indiske hav', isCorrect: false },
+            ],
+            solution:
+              'La Nina er det motsatte av El Nino. Under La Nina blir det kaldere enn normalt i det oestlige Stillehavet, og de normale vaaermonstrene forsterkes. Bade El Nino og La Nina pavirker vaeret globalt.',
+          },
         ],
-        solution:
-          'El Nino er en periodisk oppvarming av havoverflaten i det ostlige Stillehavet som oppstaar med 2-7 aars mellomrom. Det pavirker vaermonster globalt og kan gi torke i Australia og kraftig regn i Sor-Amerika.',
       },
     },
     {
@@ -775,15 +1255,47 @@ Denne okte konsentrasjonen av klimagasser forsterker drivhuseffekten. Mer varme 
         id: 'geografi-1-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva ville jordens gjennomsnittstemperatur vaert uten den naturlige drivhuseffekten?',
-        options: [
-          { id: 'a', text: '+5 grader C', isCorrect: false },
-          { id: 'b', text: '0 grader C', isCorrect: false },
-          { id: 'c', text: '-18 grader C', isCorrect: true },
-          { id: 'd', text: '-40 grader C', isCorrect: false },
+        task: 'Test deg selv paa drivhuseffekten og klimagasser:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-4-n-quiz1-q0',
+            task: 'Hva ville jordens gjennomsnittstemperatur vaert uten den naturlige drivhuseffekten?',
+            options: [
+              { id: 'a', text: '+5 grader C', isCorrect: false },
+              { id: 'b', text: '0 grader C', isCorrect: false },
+              { id: 'c', text: '-18 grader C', isCorrect: true },
+              { id: 'd', text: '-40 grader C', isCorrect: false },
+            ],
+            solution:
+              'Uten drivhuseffekten ville jordens gjennomsnittstemperatur vaert ca. -18 grader C i stedet for dagens +15 grader C. Drivhuseffekten er altsaa 33 grader og er livsnoodvendig.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz1-q1',
+            task: 'Hva er den viktigste aarsaken til at drivhuseffekten forsterkes?',
+            options: [
+              { id: 'a', text: 'Oekt solaktivitet', isCorrect: false },
+              { id: 'b', text: 'Naturlige svingninger i jordens bane', isCorrect: false },
+              { id: 'c', text: 'Menneskelige utslipp av CO2 og andre klimagasser fra fossilt brensel', isCorrect: true },
+              { id: 'd', text: 'Vulkanutbrudd som frigjoer gasser', isCorrect: false },
+            ],
+            solution:
+              'Forbrenning av fossilt brensel (kull, olje, gass) slipper ut CO2 som har vaert lagret i bakken i millioner av aar. CO2-konsentrasjonen har oekt fra ca. 280 ppm foer industriell tid til over 420 ppm i dag -- hoeyere enn paa minst 800 000 aar.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz1-q2',
+            task: 'Hvilke av disse er viktige klimagasser?',
+            options: [
+              { id: 'a', text: 'Oksygen, nitrogen og helium', isCorrect: false },
+              { id: 'b', text: 'Karbondioksid (CO2), metan (CH4) og lystgass (N2O)', isCorrect: true },
+              { id: 'c', text: 'Ozon, argon og hydrogen', isCorrect: false },
+              { id: 'd', text: 'Bare karbondioksid (CO2)', isCorrect: false },
+            ],
+            solution:
+              'De viktigste klimagassene er karbondioksid (CO2), metan (CH4), lystgass (N2O) og vanndamp. CO2 kommer fra fossilt brensel, metan fra droeovtyggere og avfall, og lystgass fra kunstgjoedsel.',
+          },
         ],
-        solution:
-          'Uten drivhuseffekten ville jordens gjennomsnittstemperatur vaert ca. -18 grader C i stedet for dagens +15 grader C. Drivhuseffekten er altsaa 33 grader og er livsnodvendig.',
       },
     },
     {
@@ -810,15 +1322,47 @@ Forskerne snakker om **vippepunkter** -- terskler der endringene kan bli selvfor
         id: 'geografi-1-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvorfor varmes Arktis opp mye raskere enn resten av verden?',
-        options: [
-          { id: 'a', text: 'Fordi det er mer forurensning der', isCorrect: false },
-          { id: 'b', text: 'Fordi solen skinner mer paa polene', isCorrect: false },
-          { id: 'c', text: 'Paa grunn av is-albedo-tilbakekoblingen -- naar isen smelter, absorberes mer varme', isCorrect: true },
-          { id: 'd', text: 'Fordi Arktis ligger naermere solen', isCorrect: false },
+        task: 'Test deg selv paa tilbakekoblingsmekanismer og vippepunkter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-4-n-quiz2-q0',
+            task: 'Hvorfor varmes Arktis opp mye raskere enn resten av verden?',
+            options: [
+              { id: 'a', text: 'Fordi det er mer forurensning der', isCorrect: false },
+              { id: 'b', text: 'Fordi solen skinner mer paa polene', isCorrect: false },
+              { id: 'c', text: 'Paa grunn av is-albedo-tilbakekoblingen -- naar isen smelter, absorberes mer varme', isCorrect: true },
+              { id: 'd', text: 'Fordi Arktis ligger naermere solen', isCorrect: false },
+            ],
+            solution:
+              'Is-albedo-tilbakekoblingen er nokkelen. Is og snoe reflekterer sollys, mens moerk jord og hav absorberer det. Naar isen smelter, erstattes hvitt med moerkt, mer varme absorberes, temperaturen stiger, og enda mer is smelter.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz2-q1',
+            task: 'Hva er permafrost-tilbakekoblingen?',
+            options: [
+              { id: 'a', text: 'At frossen jord reflekterer mer sollys enn ufrosset jord', isCorrect: false },
+              { id: 'b', text: 'At tining av permafrost frigjoer CO2 og metan, som gir mer oppvarming og mer tining', isCorrect: true },
+              { id: 'c', text: 'At permafrost beskytter mot erosjon', isCorrect: false },
+              { id: 'd', text: 'At permafrost hindrer plantevekst', isCorrect: false },
+            ],
+            solution:
+              'Permafrost inneholder enorme mengder organisk materiale fra tusener av aar. Naar permafrosten tiner, brytes dette ned og frigjoer CO2 og metan. Disse klimagassene forsterker oppvarmingen, som gir mer tining -- en selvforsterkende spiral.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz2-q2',
+            task: 'Hva menes med et klimatisk vippepunkt?',
+            options: [
+              { id: 'a', text: 'Det tidspunktet paa aaret da temperaturen er hoeyest', isCorrect: false },
+              { id: 'b', text: 'Temperaturgrensen for naar is begynner aa smelte', isCorrect: false },
+              { id: 'c', text: 'En terskel der endringene kan bli selvforsterkende og irreversible', isCorrect: true },
+              { id: 'd', text: 'Det aaret da utslippene naar sitt maksimum', isCorrect: false },
+            ],
+            solution:
+              'Et vippepunkt er en kritisk terskel i klimasystemet. Naar terskelen overskrides, kan endringene bli selvforsterkende og irreversible -- for eksempel fullstendig smelting av Groenlandsisen eller doed av Amazonas-regnskogen.',
+          },
         ],
-        solution:
-          'Is-albedo-tilbakekoblingen er nokkelen. Is og sno reflekterer sollys, mens mork jord og hav absorberer det. Naar isen smelter, erstattes hvitt med morkt, mer varme absorberes, temperaturen stiger, og enda mer is smelter.',
       },
     },
     {
@@ -845,15 +1389,47 @@ I Norge ser vi allerede endringer: Mildere vintre, mer nedbor paa Vestlandet, ti
         id: 'geografi-1-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er et vippepunkt i klimasammenheng?',
-        options: [
-          { id: 'a', text: 'Det punktet der klimaet er paa sitt varmeste', isCorrect: false },
-          { id: 'b', text: 'En terskel der endringene kan bli selvforsterkende og irreversible', isCorrect: true },
-          { id: 'c', text: 'Tidspunktet da utslippene naar maksimum', isCorrect: false },
-          { id: 'd', text: 'Temperaturen der is begynner aa smelte', isCorrect: false },
+        task: 'Test deg selv paa konsekvensene av klimaendringer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-4-n-quiz3-q0',
+            task: 'Hva er de to hovedaarsakene til havnivaaastigning?',
+            options: [
+              { id: 'a', text: 'Oekt nedbor og flere elver som renner ut i havet', isCorrect: false },
+              { id: 'b', text: 'Issmelting og termisk ekspansjon (havet utvider seg naar det varmes opp)', isCorrect: true },
+              { id: 'c', text: 'Vulkanutbrudd under havet og jordskjelv', isCorrect: false },
+              { id: 'd', text: 'Maanens tiltrekning og endrede tidevannsmoenstre', isCorrect: false },
+            ],
+            solution:
+              'Havnivaaet stiger bade fordi isbreer og innlandsis smelter (smeltevannet renner ut i havet) og fordi varmt vann tar storre plass enn kaldt vann (termisk ekspansjon). Siden 1900 har havnivaaet steget med ca. 20 cm.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz3-q1',
+            task: 'Hvilke klimaendringer ser vi allerede i Norge?',
+            options: [
+              { id: 'a', text: 'Kaldere vintre og toerrere somre', isCorrect: false },
+              { id: 'b', text: 'Mildere vintre, mer nedbor paa Vestlandet og tilbaketrekkende isbreer', isCorrect: true },
+              { id: 'c', text: 'Stabile temperaturer men kraftigere vind', isCorrect: false },
+              { id: 'd', text: 'Lavere havnivaa langs norskekysten', isCorrect: false },
+            ],
+            solution:
+              'Norge opplever allerede mildere vintre, mer nedbor (saerlig paa Vestlandet), tidligere vaar og tilbaketrekkende isbreer. Fremover kan vi ogsaa forvente kortere snoesesong og nye skadedyr.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz3-q2',
+            task: 'Hvordan pavirker klimaendringene oekosystemene?',
+            options: [
+              { id: 'a', text: 'Alle arter tilpasser seg raskt til nye forhold', isCorrect: false },
+              { id: 'b', text: 'Bare arktiske arter paavirkes', isCorrect: false },
+              { id: 'c', text: 'Arter flytter nordover og oppover, korallrev blekes, og tregrensen stiger', isCorrect: true },
+              { id: 'd', text: 'Artsmangfoldet oeker overalt paa grunn av varmere klima', isCorrect: false },
+            ],
+            solution:
+              'Klimaendringer pavirker oekosystemene paa mange maater. Arter flytter nordover og oppover for aa foelge temperaturen de trives i. Korallrev blekes og doer i for varmt vann. I Norge har tregrensen flyttet seg 50-100 meter oppover de siste hundre aarene.',
+          },
         ],
-        solution:
-          'Et vippepunkt er en kritisk terskel der smaa endringer kan utlose store, selvforsterkende og potensielt irreversible endringer i klimasystemet. Eksempler er fullstendig smelting av Gronlandsisen eller dod av Amazonas-regnskogen.',
       },
     },
     {
@@ -886,15 +1462,35 @@ Det er viktig aa merke seg at selv om det er bred vitenskapelig enighet om selve
         id: 'geografi-1-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er IPCCs rolle?',
-        options: [
-          { id: 'a', text: 'Aa vedta internasjonal klimapolitikk', isCorrect: false },
-          { id: 'b', text: 'Aa samle og vurdere forskning om klimaendringer', isCorrect: true },
-          { id: 'c', text: 'Aa sette utslippsgrenser for hvert land', isCorrect: false },
-          { id: 'd', text: 'Aa drive egen klimaforskning', isCorrect: false },
+        task: 'Test deg selv paa IPCC og klimascenarier:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-4-n-quiz4-q0',
+            task: 'Hva er IPCCs rolle?',
+            options: [
+              { id: 'a', text: 'Aa vedta internasjonal klimapolitikk', isCorrect: false },
+              { id: 'b', text: 'Aa samle og vurdere forskning om klimaendringer', isCorrect: true },
+              { id: 'c', text: 'Aa sette utslippsgrenser for hvert land', isCorrect: false },
+              { id: 'd', text: 'Aa drive egen klimaforskning', isCorrect: false },
+            ],
+            solution:
+              'IPCC er et vitenskapelig organ som samler og vurderer eksisterende forskning om klimaendringer. Det gir ikke politiske anbefalinger, men oppsummerer hva vitenskapen sier. Selve klimapolitikken bestemmes av land og internasjonale forhandlinger.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz4-q1',
+            task: 'Hva er SSP-scenariene som IPCC bruker?',
+            options: [
+              { id: 'a', text: 'Historiske beskrivelser av tidligere klimaendringer', isCorrect: false },
+              { id: 'b', text: 'Modeller av mulige fremtider basert paa ulike utslippsbaner og samfunnsutvikling', isCorrect: true },
+              { id: 'c', text: 'Maalestasjoner for aa registrere temperaturendringer', isCorrect: false },
+              { id: 'd', text: 'Internasjonale avtaler om utslippsreduksjon', isCorrect: false },
+            ],
+            solution:
+              'SSP (Shared Socioeconomic Pathways) er scenarier som beskriver mulige fremtider. De spenner fra SSP1-1.9 (baerekraftig utvikling, ca. 1,5 graders oppvarming) til SSP5-8.5 (fossildriven vekst, opp mot 4,4 graders oppvarming). Hvilket scenario vi ender i avhenger av valgene vi gjoer.',
+          },
         ],
-        solution:
-          'IPCC er et vitenskapelig organ som samler og vurderer eksisterende forskning om klimaendringer. Det gir ikke politiske anbefalinger, men oppsummerer hva vitenskapen sier. Selve klimapolitikken bestemmes av land og internasjonale forhandlinger.',
       },
     },
     {
@@ -925,15 +1521,47 @@ Dette er spoorsmaal det ikke finnes enkle svar paa, og ulike politiske syn gir u
         id: 'geografi-1-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom mitigasjon og adaptasjon i klimasammenheng?',
-        options: [
-          { id: 'a', text: 'Det er ingen forskjell, begge betyr det samme', isCorrect: false },
-          { id: 'b', text: 'Mitigasjon reduserer utslipp, adaptasjon tilpasser seg konsekvensene', isCorrect: true },
-          { id: 'c', text: 'Mitigasjon er internasjonalt, adaptasjon er lokalt', isCorrect: false },
-          { id: 'd', text: 'Mitigasjon er billigere enn adaptasjon', isCorrect: false },
+        task: 'Test deg selv paa klimapolitikk og tiltak:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-4-n-quiz5-q0',
+            task: 'Hva er forskjellen mellom mitigasjon og adaptasjon i klimasammenheng?',
+            options: [
+              { id: 'a', text: 'Det er ingen forskjell, begge betyr det samme', isCorrect: false },
+              { id: 'b', text: 'Mitigasjon reduserer utslipp, adaptasjon tilpasser seg konsekvensene', isCorrect: true },
+              { id: 'c', text: 'Mitigasjon er internasjonalt, adaptasjon er lokalt', isCorrect: false },
+              { id: 'd', text: 'Mitigasjon er billigere enn adaptasjon', isCorrect: false },
+            ],
+            solution:
+              'Mitigasjon (utslippsreduksjon) handler om aa redusere utslipp for aa bremse klimaendringene. Adaptasjon (tilpasning) handler om aa tilpasse samfunnet til endringene som allerede skjer. De fleste fagfolk mener begge deler er noodvendig.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz5-q1',
+            task: 'Hva er Parisavtalens maal for global oppvarming?',
+            options: [
+              { id: 'a', text: 'Aa stoppe all oppvarming umiddelbart', isCorrect: false },
+              { id: 'b', text: 'Aa holde oppvarmingen under 5 grader', isCorrect: false },
+              { id: 'c', text: 'Aa holde oppvarmingen godt under 2 grader, helst 1,5 grader', isCorrect: true },
+              { id: 'd', text: 'Aa redusere oppvarmingen tilbake til forindustrielt nivaa', isCorrect: false },
+            ],
+            solution:
+              'Parisavtalen fra 2015 har som maal aa holde oppvarmingen godt under 2 grader, og helst under 1,5 grader, over foerindustrielt nivaa. Naesten alle verdens land har sluttet seg til avtalen.',
+          },
+          {
+            id: 'geografi-1-4-n-quiz5-q2',
+            task: 'Hva er karbonfangst og -lagring (CCS)?',
+            options: [
+              { id: 'a', text: 'Aa plante treer som tar opp CO2', isCorrect: false },
+              { id: 'b', text: 'Aa fange CO2 fra utslippskilder og lagre det under bakken', isCorrect: true },
+              { id: 'c', text: 'Aa forby bruk av fossilt brensel', isCorrect: false },
+              { id: 'd', text: 'Aa konvertere CO2 til oksygen i fabrikker', isCorrect: false },
+            ],
+            solution:
+              'CCS (Carbon Capture and Storage) er en teknologi der CO2 fanges fra utslippskilder (som kraftverk eller industri) og lagres permanent under bakken, for eksempel i tomme oljereservoarer. Det er ett av flere mulige tiltak for aa redusere utslipp.',
+          },
         ],
-        solution:
-          'Mitigasjon (utslippsreduksjon) handler om aa redusere utslipp for aa bremse klimaendringene. Adaptasjon (tilpasning) handler om aa tilpasse samfunnet til endringene som allerede skjer. De fleste fagfolk mener begge deler er noodvendig.',
       },
     },
     {
@@ -1017,15 +1645,47 @@ Denne overgangen forklarer hvorfor verden har vokst saa raskt: Mange land har va
         id: 'geografi-1-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'I hvilken fase av den demografiske overgangen er befolkningsveksten raskest?',
-        options: [
-          { id: 'a', text: 'Fase 1 -- Foerindustriell', isCorrect: false },
-          { id: 'b', text: 'Fase 2 -- Tidlig overgang', isCorrect: true },
-          { id: 'c', text: 'Fase 3 -- Sen overgang', isCorrect: false },
-          { id: 'd', text: 'Fase 4 -- Postindustriell', isCorrect: false },
+        task: 'Test deg selv paa den demografiske overgangen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-5-n-quiz1-q0',
+            task: 'I hvilken fase av den demografiske overgangen er befolkningsveksten raskest?',
+            options: [
+              { id: 'a', text: 'Fase 1 -- Foerindustriell', isCorrect: false },
+              { id: 'b', text: 'Fase 2 -- Tidlig overgang', isCorrect: true },
+              { id: 'c', text: 'Fase 3 -- Sen overgang', isCorrect: false },
+              { id: 'd', text: 'Fase 4 -- Postindustriell', isCorrect: false },
+            ],
+            solution:
+              'I fase 2 faller doedsraten paa grunn av bedre helse og ernaering, men foedselstallet forblir hoeyt. Dette gir rask befolkningsvekst. I senere faser synker ogsaa foedselstallet.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz1-q1',
+            task: 'Hva kjennetegner fase 5 i den demografiske overgangen?',
+            options: [
+              { id: 'a', text: 'Hoeye fodsels- og doedsrater', isCorrect: false },
+              { id: 'b', text: 'Rask befolkningsvekst', isCorrect: false },
+              { id: 'c', text: 'Befolkningen begynner aa krympe fordi fruktbarheten er svart lav', isCorrect: true },
+              { id: 'd', text: 'Stabil befolkning med moderate fodselsrater', isCorrect: false },
+            ],
+            solution:
+              'I fase 5 har fruktbarheten falt saa lavt at befolkningen begynner aa krympe. Japan, Soer-Korea og mange europeiske land opplever dette. Doedsraten overstiger foedselsraten.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz1-q2',
+            task: 'Naar forventes verdens befolkning aa naa sin topp, ifoelge FN?',
+            options: [
+              { id: 'a', text: 'Rundt 2030, med ca. 9 milliarder', isCorrect: false },
+              { id: 'b', text: 'Rundt 2050, med ca. 11 milliarder', isCorrect: false },
+              { id: 'c', text: 'Rundt 2080-aarene, med ca. 10,4 milliarder', isCorrect: true },
+              { id: 'd', text: 'Befolkningen vil fortsette aa vokse i all overskuelig fremtid', isCorrect: false },
+            ],
+            solution:
+              'FN anslaar at verdens befolkning vil naa en topp rundt 10,4 milliarder i 2080-aarene og deretter begynne aa synke. Veksten bremser fordi fruktbarheten faller naesten overalt i verden.',
+          },
         ],
-        solution:
-          'I fase 2 faller dodsraten paa grunn av bedre helse og ernaering, men foedselstallet forblir hoeyt. Dette gir rask befolkningsvekst. I senere faser synker ogsaa foedselstallet.',
       },
     },
     {
@@ -1058,15 +1718,47 @@ Resultatet er at fruktbarheten synker naesten overalt. I Sor-Korea har fruktbarh
         id: 'geografi-1-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er reproduksjonsnivaaet for fruktbarhetstallet?',
-        options: [
-          { id: 'a', text: 'Ca. 1,0 barn per kvinne', isCorrect: false },
-          { id: 'b', text: 'Ca. 2,1 barn per kvinne', isCorrect: true },
-          { id: 'c', text: 'Ca. 3,0 barn per kvinne', isCorrect: false },
-          { id: 'd', text: 'Ca. 4,0 barn per kvinne', isCorrect: false },
+        task: 'Test deg selv paa fruktbarhet og aarsaker til synkende foedselstall:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-5-n-quiz2-q0',
+            task: 'Hva er reproduksjonsnivaaet for fruktbarhetstallet?',
+            options: [
+              { id: 'a', text: 'Ca. 1,0 barn per kvinne', isCorrect: false },
+              { id: 'b', text: 'Ca. 2,1 barn per kvinne', isCorrect: true },
+              { id: 'c', text: 'Ca. 3,0 barn per kvinne', isCorrect: false },
+              { id: 'd', text: 'Ca. 4,0 barn per kvinne', isCorrect: false },
+            ],
+            solution:
+              'Reproduksjonsnivaaet er ca. 2,1 barn per kvinne. Det er det fruktbarhetsnivaaet som trengs for at befolkningen skal holde seg stabil over tid uten innvandring. Tallet er over 2,0 fordi ikke alle jenter overlever til fruktbar alder.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz2-q1',
+            task: 'Hva er den viktigste enkeltfaktoren bak synkende fruktbarhet i verden?',
+            options: [
+              { id: 'a', text: 'Tilgang til prevensjon', isCorrect: false },
+              { id: 'b', text: 'Utdanning, saerlig for kvinner', isCorrect: true },
+              { id: 'c', text: 'Strengere lovgivning om barnebegrensning', isCorrect: false },
+              { id: 'd', text: 'Oekende matpriser', isCorrect: false },
+            ],
+            solution:
+              'Utdanning, saerlig for kvinner, er den viktigste faktoren bak synkende fruktbarhet. Kvinner med utdanning faar typisk faerre barn, faar dem senere, og har stoerre muligheter i arbeidslivet.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz2-q2',
+            task: 'Hvilket land har det laveste fruktbarhetstallet som noensinne er registrert?',
+            options: [
+              { id: 'a', text: 'Japan', isCorrect: false },
+              { id: 'b', text: 'Tyskland', isCorrect: false },
+              { id: 'c', text: 'Italia', isCorrect: false },
+              { id: 'd', text: 'Soer-Korea', isCorrect: true },
+            ],
+            solution:
+              'Soer-Korea har det laveste fruktbarhetstallet som noensinne er registrert i noe land -- under 1,0 barn per kvinne. Selv i Afrika, der fruktbarheten fortsatt er hoeyest, synker den raskt.',
+          },
         ],
-        solution:
-          'Reproduksjonsnivaaet er ca. 2,1 barn per kvinne. Det er det fruktbarhetsnivaaet som trengs for at befolkningen skal holde seg stabil over tid uten innvandring. Tallet er over 2,0 fordi ikke alle jenter overlever til fruktbar alder.',
       },
     },
     {
@@ -1093,15 +1785,47 @@ Det finnes ogsaa en positiv side ved aldrende befolkninger: Den generasjonen som
         id: 'geografi-1-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva kjennetegner en befolkningspyramide i et land med aldrende befolkning?',
-        options: [
-          { id: 'a', text: 'Bred bunn og smal topp -- pyramideform', isCorrect: false },
-          { id: 'b', text: 'Smal bunn og bred midtdel -- urneform', isCorrect: true },
-          { id: 'c', text: 'Lik bredde hele veien -- soyleform', isCorrect: false },
-          { id: 'd', text: 'Bred topp og smal bunn -- trekantform', isCorrect: false },
+        task: 'Test deg selv paa befolkningspyramider og forsoergerbyrde:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-5-n-quiz3-q0',
+            task: 'Hva kjennetegner en befolkningspyramide i et land med aldrende befolkning?',
+            options: [
+              { id: 'a', text: 'Bred bunn og smal topp -- pyramideform', isCorrect: false },
+              { id: 'b', text: 'Smal bunn og bred midtdel -- urneform', isCorrect: true },
+              { id: 'c', text: 'Lik bredde hele veien -- soeyleform', isCorrect: false },
+              { id: 'd', text: 'Bred topp og smal bunn -- trekantform', isCorrect: false },
+            ],
+            solution:
+              'En aldrende befolkning har faerre barn (smal bunn) og mange voksne/eldre (bred midtdel og topp). Formen ligner en urne. Dette er typisk for land i fase 4-5 av den demografiske overgangen.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz3-q1',
+            task: 'Hva betyr oekende forsoergerbyrde?',
+            options: [
+              { id: 'a', text: 'At det blir dyrere aa produsere mat', isCorrect: false },
+              { id: 'b', text: 'At faerre yrkesaktive maa forsoerge flere barn og eldre', isCorrect: true },
+              { id: 'c', text: 'At staten maa laane mer penger', isCorrect: false },
+              { id: 'd', text: 'At innvandringen oeker', isCorrect: false },
+            ],
+            solution:
+              'Forsoergerbyrden er forholdet mellom de yrkesaktive (15-64 aar) og de ikke-yrkesaktive (barn og eldre). Naar andelen eldre stiger, maa faerre arbeidsfoere forsoerge flere. Norge har i dag ca. 4 yrkesaktive per pensjonist, men dette kan falle til 2.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz3-q2',
+            task: 'Hva kjennetegner befolkningspyramiden i et land med rask befolkningsvekst?',
+            options: [
+              { id: 'a', text: 'Smal bunn og bred topp', isCorrect: false },
+              { id: 'b', text: 'Lik bredde i alle aldersgrupper', isCorrect: false },
+              { id: 'c', text: 'Bred bunn og smal topp -- klassisk pyramideform', isCorrect: true },
+              { id: 'd', text: 'Svart smal i midten med brede ender', isCorrect: false },
+            ],
+            solution:
+              'En ung befolkning med rask vekst har mange barn (bred bunn) og faa eldre (smal topp), som gir en klassisk pyramideform. Dette er typisk for mange afrikanske land som er i fase 2-3 av den demografiske overgangen.',
+          },
         ],
-        solution:
-          'En aldrende befolkning har faerre barn (smal bunn) og mange voksne/eldre (bred midtdel og topp). Formen ligner en urne. Dette er typisk for land i fase 4-5 av den demografiske overgangen.',
       },
     },
     {
@@ -1128,15 +1852,47 @@ I praksis har **oekonomisk utvikling** vist seg aa vaere den mest effektive maat
         id: 'geografi-1-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva mente Ester Boserup om befolkningsvekst?',
-        options: [
-          { id: 'a', text: 'At den uunngaaelig foerer til hungersnoed', isCorrect: false },
-          { id: 'b', text: 'At den driver innovasjon og nye loesninger', isCorrect: true },
-          { id: 'c', text: 'At den er irrelevant for ressursbruk', isCorrect: false },
-          { id: 'd', text: 'At den maa stoppes med tvang', isCorrect: false },
+        task: 'Test deg selv paa befolkning og baerekraft:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-5-n-quiz4-q0',
+            task: 'Hva mente Ester Boserup om befolkningsvekst?',
+            options: [
+              { id: 'a', text: 'At den uunngaaelig foerer til hungersnoed', isCorrect: false },
+              { id: 'b', text: 'At den driver innovasjon og nye loesninger', isCorrect: true },
+              { id: 'c', text: 'At den er irrelevant for ressursbruk', isCorrect: false },
+              { id: 'd', text: 'At den maa stoppes med tvang', isCorrect: false },
+            ],
+            solution:
+              'Ester Boserup mente at befolkningsvekst driver innovasjon -- naar flere munner maa mettes, finner mennesker nye loesninger. Den groenne revolusjonen stoetter dette synet. Dette staar i motsetning til Malthus, som mente befolkningsvekst ville foere til kollaps.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz4-q1',
+            task: 'Hva var Thomas Malthus sitt syn paa befolkningsvekst?',
+            options: [
+              { id: 'a', text: 'At den er positiv fordi den gir stoerre arbeidsstyrke', isCorrect: false },
+              { id: 'b', text: 'At den er irrelevant for samfunnsutviklingen', isCorrect: false },
+              { id: 'c', text: 'At befolkningsvekst vil overgaa matproduksjonen og foere til hungersnoed og kollaps', isCorrect: true },
+              { id: 'd', text: 'At den bare er et problem i rike land', isCorrect: false },
+            ],
+            solution:
+              'Thomas Malthus (1798) argumenterte for at befolkningen vokser raskere enn matproduksjonen, noe som uunngaaelig vil foere til hungersnoed, krig og kollaps. Moderne neomalthusianere bekymrer seg for at jorden ikke kan forsoerge 10 milliarder mennesker med dagens forbruksnivaer.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz4-q2',
+            task: 'Hva hevder forbruksperspektivet om forholdet mellom befolkning og miljoe?',
+            options: [
+              { id: 'a', text: 'At antall mennesker er det eneste som betyr noe', isCorrect: false },
+              { id: 'b', text: 'At teknologi kan loese alle problemer uansett befolkningsstoerrelse', isCorrect: false },
+              { id: 'c', text: 'At det er de rikes forbruk, ikke de fattiges barn, som driver ressursbruk og utslipp', isCorrect: true },
+              { id: 'd', text: 'At alle mennesker har like stort oekologisk fotavtrykk', isCorrect: false },
+            ],
+            solution:
+              'Forbruksperspektivet peker paa at problemet ikke er antall mennesker alene, men hvordan vi lever. En person i Norge har omtrent ti ganger stoerre karbonfotavtrykk enn en person i Bangladesh. Det er rike lands forbruk som driver det meste av ressursbruk og klimagassutslipp.',
+          },
         ],
-        solution:
-          'Ester Boserup mente at befolkningsvekst driver innovasjon -- naar flere munner maa mettes, finner mennesker nye loesninger. Den groenne revolusjonen stoetter dette synet. Dette staar i motsetning til Malthus, som mente befolkningsvekst ville foere til kollaps.',
       },
     },
     {
@@ -1171,15 +1927,47 @@ Det finnes ikke et enkelt svar. Trolig trengs en kombinasjon av tiltak.`,
         id: 'geografi-1-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Omtrent hva er Norges fruktbarhetstall i dag?',
-        options: [
-          { id: 'a', text: 'Ca. 0,8', isCorrect: false },
-          { id: 'b', text: 'Ca. 1,4', isCorrect: true },
-          { id: 'c', text: 'Ca. 2,1', isCorrect: false },
-          { id: 'd', text: 'Ca. 2,8', isCorrect: false },
+        task: 'Test deg selv paa Norges demografiske utfordringer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'geografi-1-5-n-quiz5-q0',
+            task: 'Omtrent hva er Norges fruktbarhetstall i dag?',
+            options: [
+              { id: 'a', text: 'Ca. 0,8', isCorrect: false },
+              { id: 'b', text: 'Ca. 1,4', isCorrect: true },
+              { id: 'c', text: 'Ca. 2,1', isCorrect: false },
+              { id: 'd', text: 'Ca. 2,8', isCorrect: false },
+            ],
+            solution:
+              'Norges fruktbarhetstall er ca. 1,4 barn per kvinne -- godt under reproduksjonsnivaaet paa 2,1. Uten innvandring ville befolkningen paa sikt synke.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz5-q1',
+            task: 'Hva er den stoerste demografiske utfordringen for den norske velferdsstaten?',
+            options: [
+              { id: 'a', text: 'For rask befolkningsvekst', isCorrect: false },
+              { id: 'b', text: 'Mangel paa naturressurser', isCorrect: false },
+              { id: 'c', text: 'Oekende forsoergerbyrde fordi faerre yrkesaktive maa forsoerge flere pensjonister', isCorrect: true },
+              { id: 'd', text: 'For mange barn i skolealder', isCorrect: false },
+            ],
+            solution:
+              'Norges stoerste demografiske utfordring er den oekende forsoergerbyrden. Etterkrigsgenerasjonen naar pensjonsalderen, samtidig som foedselskullene er smaa. Norge har i dag ca. 4 yrkesaktive per pensjonist, men dette kan falle til 2 i fremtiden.',
+          },
+          {
+            id: 'geografi-1-5-n-quiz5-q2',
+            task: 'Hvilke tiltak diskuteres for aa moete Norges demografiske utfordringer?',
+            options: [
+              { id: 'a', text: 'Bare innvandring kan loese problemet', isCorrect: false },
+              { id: 'b', text: 'Hoeyere pensjonsalder, arbeidsinnvandring, tiltak for aa oeke fruktbarheten, og automatisering', isCorrect: true },
+              { id: 'c', text: 'Kutt i alle velferdsordninger', isCorrect: false },
+              { id: 'd', text: 'Tvungen pensjonering ved 60 aar', isCorrect: false },
+            ],
+            solution:
+              'Det diskuteres flere mulige tiltak: hoeyere pensjonsalder (folk lever lenger og er friskere), arbeidsinnvandring, tiltak for aa oeke fruktbarheten (barnehagedekning, foreldrepermisjon), og automatisering. De fleste mener det trengs en kombinasjon av tiltak.',
+          },
         ],
-        solution:
-          'Norges fruktbarhetstall er ca. 1,4 barn per kvinne -- godt under reproduksjonsnivaaet paa 2,1. Uten innvandring ville befolkningen paa sikt synke.',
       },
     },
     {

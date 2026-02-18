@@ -77,15 +77,55 @@ The effects of 1066 are still visible today in English law (influenced by Norman
         id: 'engelsk-vg1-8-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Why does English have pairs like "cow/beef" and "pig/pork"?',
-        options: [
-          { id: 'a', text: 'Because English borrowed randomly from Latin', isCorrect: false },
-          { id: 'b', text: 'Because Anglo-Saxon farmers used one word while Norman French nobles used another', isCorrect: true },
-          { id: 'c', text: 'Because the Romans introduced the animal words', isCorrect: false },
-          { id: 'd', text: 'Because medieval poets invented fancy alternatives', isCorrect: false },
+        task: 'Test yourself on early British history:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-1-n-quiz1-q0',
+            task: 'Why does English have pairs like "cow/beef" and "pig/pork"?',
+            options: [
+              { id: 'a', text: 'Because English borrowed randomly from Latin', isCorrect: false },
+              { id: 'b', text: 'Because Anglo-Saxon farmers used one word while Norman French nobles used another', isCorrect: true },
+              { id: 'c', text: 'Because the Romans introduced the animal words', isCorrect: false },
+              { id: 'd', text: 'Because medieval poets invented fancy alternatives', isCorrect: false },
+            ],
+            solution: 'After 1066, Norman French became the language of the ruling class while English remained the language of common people. Farmers used English words for animals (cow, pig, sheep), but by the time the meat reached noble tables, it had French names (beef, pork, mutton).',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz1-q1',
+            task: 'What did the Romans build across northern Britain to keep out the Picts?',
+            options: [
+              { id: 'a', text: 'The Tower of London', isCorrect: false },
+              { id: 'b', text: 'Windsor Castle', isCorrect: false },
+              { id: 'c', text: 'Hadrian\'s Wall, stretching 73 miles', isCorrect: true },
+              { id: 'd', text: 'A series of wooden forts along the Thames', isCorrect: false },
+            ],
+            solution: 'Emperor Hadrian ordered a massive wall built across the narrowest part of Britain to keep out the fierce Pictish tribes of Scotland. The wall stretched 73 miles and still stands in ruins today.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz1-q2',
+            task: 'Where do the names of English weekdays like Tuesday and Thursday come from?',
+            options: [
+              { id: 'a', text: 'Roman emperors', isCorrect: false },
+              { id: 'b', text: 'Celtic druids', isCorrect: false },
+              { id: 'c', text: 'Norman French lords', isCorrect: false },
+              { id: 'd', text: 'Anglo-Saxon gods like Tiw and Thor', isCorrect: true },
+            ],
+            solution: 'The Anglo-Saxons named days after their gods: Tiw (Tuesday), Woden (Wednesday), Thor (Thursday), and Freya (Friday). These names survive in modern English over a thousand years later.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz1-q3',
+            task: 'What major event happened in 1066?',
+            options: [
+              { id: 'a', text: 'The Romans left Britain', isCorrect: false },
+              { id: 'b', text: 'William of Normandy conquered England at the Battle of Hastings', isCorrect: true },
+              { id: 'c', text: 'The Anglo-Saxons arrived from Germany', isCorrect: false },
+              { id: 'd', text: 'Christianity was introduced to Britain', isCorrect: false },
+            ],
+            solution: 'In 1066, William, Duke of Normandy, defeated King Harold II at the Battle of Hastings and became king of England. This Norman Conquest created a French-speaking ruling class and permanently changed the English language and society.',
+          },
         ],
-        correctAnswer: 'b',
-        solution: 'After 1066, Norman French became the language of the ruling class while English remained the language of common people. Farmers used English words for animals (cow, pig, sheep), but by the time the meat reached noble tables, it had French names (beef, pork, mutton).',
       },
     },
     {
@@ -118,15 +158,44 @@ The religious question would shape British politics for the next 200 years. Cath
         id: 'engelsk-vg1-8-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What was revolutionary about Magna Carta?',
-        options: [
-          { id: 'a', text: 'It established democracy with universal voting', isCorrect: false },
-          { id: 'b', text: 'It established that even the king is subject to the law', isCorrect: true },
-          { id: 'c', text: 'It freed all the serfs and peasants', isCorrect: false },
-          { id: 'd', text: 'It created the Church of England', isCorrect: false },
+        task: 'Test yourself on Magna Carta and the Reformation:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-1-n-quiz2-q0',
+            task: 'What was revolutionary about Magna Carta?',
+            options: [
+              { id: 'a', text: 'It established democracy with universal voting', isCorrect: false },
+              { id: 'b', text: 'It established that even the king is subject to the law', isCorrect: true },
+              { id: 'c', text: 'It freed all the serfs and peasants', isCorrect: false },
+              { id: 'd', text: 'It created the Church of England', isCorrect: false },
+            ],
+            solution: 'While Magna Carta was primarily about feudal rights, its key innovation was limiting royal power. The idea that the monarch must follow the law laid the groundwork for constitutional government and influenced human rights documents worldwide.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz2-q1',
+            task: 'What principle did the development of Parliament establish?',
+            options: [
+              { id: 'a', text: 'That the king could rule alone without consulting anyone', isCorrect: false },
+              { id: 'b', text: 'That only nobles could make laws', isCorrect: false },
+              { id: 'c', text: 'No taxation without representation', isCorrect: true },
+              { id: 'd', text: 'That the Church controlled all finances', isCorrect: false },
+            ],
+            solution: 'By the 1300s, the king could not levy new taxes without Parliament\'s consent. This principle of "no taxation without representation" would later inspire the American Revolution and remains a cornerstone of democratic government.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz2-q2',
+            task: 'Why did Henry VIII break with the Catholic Church in 1534?',
+            options: [
+              { id: 'a', text: 'He was a devout Protestant who disagreed with Catholic theology', isCorrect: false },
+              { id: 'b', text: 'He wanted an annulment to remarry and get a male heir', isCorrect: true },
+              { id: 'c', text: 'Parliament forced him to create a new church', isCorrect: false },
+              { id: 'd', text: 'The Pope declared war on England', isCorrect: false },
+            ],
+            solution: 'Henry VIII broke with Rome not from theological conviction but from desperation for a male heir. When the Pope refused to annul his marriage to Catherine of Aragon, Henry declared himself Supreme Head of the Church of England.',
+          },
         ],
-        correctAnswer: 'b',
-        solution: 'While Magna Carta was primarily about feudal rights, its key innovation was limiting royal power. The idea that the monarch must follow the law laid the groundwork for constitutional government and influenced human rights documents worldwide.',
       },
     },
     {
@@ -163,15 +232,44 @@ By 1707, Britain had established something remarkable: a constitutional monarchy
         id: 'engelsk-vg1-8-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What was unprecedented about the English Civil War\'s outcome?',
-        options: [
-          { id: 'a', text: 'Parliament was permanently dissolved', isCorrect: false },
-          { id: 'b', text: 'A king was executed by his own people and the monarchy temporarily abolished', isCorrect: true },
-          { id: 'c', text: 'England was invaded by France', isCorrect: false },
-          { id: 'd', text: 'The Church of England was abolished', isCorrect: false },
+        task: 'Test yourself on the English Civil War and revolution:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-1-n-quiz3-q0',
+            task: 'What was unprecedented about the English Civil War\'s outcome?',
+            options: [
+              { id: 'a', text: 'Parliament was permanently dissolved', isCorrect: false },
+              { id: 'b', text: 'A king was executed by his own people and the monarchy temporarily abolished', isCorrect: true },
+              { id: 'c', text: 'England was invaded by France', isCorrect: false },
+              { id: 'd', text: 'The Church of England was abolished', isCorrect: false },
+            ],
+            solution: 'The execution of Charles I in 1649 shocked Europe. It demonstrated that royal power was not absolute and kings could be held accountable. Though the monarchy returned in 1660, it never regained its former power.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz3-q1',
+            task: 'What did the Glorious Revolution of 1688 establish?',
+            options: [
+              { id: 'a', text: 'That kings ruled by divine right', isCorrect: false },
+              { id: 'b', text: 'That England would become a republic permanently', isCorrect: false },
+              { id: 'c', text: 'That Parliament was supreme and the king ruled by consent', isCorrect: true },
+              { id: 'd', text: 'That Catholicism would be the state religion', isCorrect: false },
+            ],
+            solution: 'The Bill of Rights of 1689 established parliamentary supremacy: the king could not suspend laws, raise taxes, or maintain an army without parliamentary consent. The king ruled by consent, not by divine right.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz3-q2',
+            task: 'What did the 1707 Act of Union create?',
+            options: [
+              { id: 'a', text: 'The United Kingdom of Great Britain by merging England and Scotland', isCorrect: true },
+              { id: 'b', text: 'A union between England and France', isCorrect: false },
+              { id: 'c', text: 'The Church of England', isCorrect: false },
+              { id: 'd', text: 'The American colonies', isCorrect: false },
+            ],
+            solution: 'The Act of Union merged the Kingdoms of England and Scotland into the Kingdom of Great Britain. Scotland kept its own legal system, church, and education, but joined a united Parliament at Westminster.',
+          },
         ],
-        correctAnswer: 'b',
-        solution: 'The execution of Charles I in 1649 shocked Europe. It demonstrated that royal power was not absolute and kings could be held accountable. Though the monarchy returned in 1660, it never regained its former power.',
       },
     },
     {
@@ -210,15 +308,44 @@ The Industrial Revolution spread from Britain to Belgium, Germany, France, and e
         id: 'engelsk-vg1-8-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Why did the Industrial Revolution begin in Britain?',
-        options: [
-          { id: 'a', text: 'Britain had the largest population in Europe', isCorrect: false },
-          { id: 'b', text: 'Britain had coal, a culture of innovation, and investment capital', isCorrect: true },
-          { id: 'c', text: 'The British government forced industrialization', isCorrect: false },
-          { id: 'd', text: 'Britain was isolated from European wars', isCorrect: false },
+        task: 'Test yourself on the Industrial Revolution:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-1-n-quiz4-q0',
+            task: 'Why did the Industrial Revolution begin in Britain?',
+            options: [
+              { id: 'a', text: 'Britain had the largest population in Europe', isCorrect: false },
+              { id: 'b', text: 'Britain had coal, a culture of innovation, and investment capital', isCorrect: true },
+              { id: 'c', text: 'The British government forced industrialization', isCorrect: false },
+              { id: 'd', text: 'Britain was isolated from European wars', isCorrect: false },
+            ],
+            solution: 'Britain had the necessary resources (coal), institutions (banks, property rights), and cultural factors (entrepreneurship, scientific thinking) that enabled industrialization. No single factor explains it - it was a combination of geography, economy, and culture.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz4-q1',
+            task: 'What was the dark side of the Industrial Revolution?',
+            options: [
+              { id: 'a', text: 'Too many people moved to the countryside', isCorrect: false },
+              { id: 'b', text: 'There were not enough factories to employ everyone', isCorrect: false },
+              { id: 'c', text: 'Child labor, terrible working conditions, and pollution devastated workers\' lives', isCorrect: true },
+              { id: 'd', text: 'Foreign nations refused to trade with Britain', isCorrect: false },
+            ],
+            solution: 'Children as young as five worked in mines and factories. Workers lived in crowded slums without clean water. Life expectancy actually dropped in industrial areas. The stark inequality between factory owners and starving workers inspired political movements and thinkers like Karl Marx.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz4-q2',
+            task: 'What new political movements emerged as a response to industrial inequality?',
+            options: [
+              { id: 'a', text: 'Monarchist movements demanding more royal power', isCorrect: false },
+              { id: 'b', text: 'Trade unions, Chartism, and socialism', isCorrect: true },
+              { id: 'c', text: 'Religious movements opposing all technology', isCorrect: false },
+              { id: 'd', text: 'Colonial independence movements', isCorrect: false },
+            ],
+            solution: 'Trade unions organized workers to demand better conditions. The Chartist movement demanded political reform including universal male suffrage. Socialists proposed alternatives to capitalism. Reformers pushed for factory acts limiting child labor.',
+          },
         ],
-        correctAnswer: 'b',
-        solution: 'Britain had the necessary resources (coal), institutions (banks, property rights), and cultural factors (entrepreneurship, scientific thinking) that enabled industrialization. No single factor explains it - it was a combination of geography, economy, and culture.',
       },
     },
     {
@@ -261,15 +388,44 @@ Understanding this history - the glory and the shame, the victories and the defe
         id: 'engelsk-vg1-8-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What major change happened to Britain after World War II?',
-        options: [
-          { id: 'a', text: 'Britain expanded its empire into Asia', isCorrect: false },
-          { id: 'b', text: 'Britain became isolated from world affairs', isCorrect: false },
-          { id: 'c', text: 'The British Empire dissolved and Britain became multicultural', isCorrect: true },
-          { id: 'd', text: 'Britain adopted a new constitution', isCorrect: false },
+        task: 'Test yourself on World Wars and modern Britain:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-1-n-quiz5-q0',
+            task: 'What major change happened to Britain after World War II?',
+            options: [
+              { id: 'a', text: 'Britain expanded its empire into Asia', isCorrect: false },
+              { id: 'b', text: 'Britain became isolated from world affairs', isCorrect: false },
+              { id: 'c', text: 'The British Empire dissolved and Britain became multicultural', isCorrect: true },
+              { id: 'd', text: 'Britain adopted a new constitution', isCorrect: false },
+            ],
+            solution: 'After WWII, Britain was bankrupt and could not maintain its empire. Decolonization followed, with India gaining independence in 1947 and African colonies in the 1950s-60s. Immigration from former colonies transformed Britain into a multicultural society.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz5-q1',
+            task: 'What was created by the Labour government of 1945-1951 that remains Britain\'s most beloved institution?',
+            options: [
+              { id: 'a', text: 'The BBC', isCorrect: false },
+              { id: 'b', text: 'The National Health Service (NHS)', isCorrect: true },
+              { id: 'c', text: 'The House of Lords', isCorrect: false },
+              { id: 'd', text: 'The Commonwealth of Nations', isCorrect: false },
+            ],
+            solution: 'The NHS was created to provide healthcare free at the point of use for all citizens. It was part of the welfare state inspired by the 1942 Beveridge Report, which aimed to fight the "five giants" of Want, Disease, Ignorance, Squalor, and Idleness.',
+          },
+          {
+            id: 'engelsk-vg1-8-1-n-quiz5-q2',
+            task: 'What did Britain vote for in the 2016 referendum?',
+            options: [
+              { id: 'a', text: 'Scottish independence', isCorrect: false },
+              { id: 'b', text: 'Abolishing the monarchy', isCorrect: false },
+              { id: 'c', text: 'Joining NATO', isCorrect: false },
+              { id: 'd', text: 'Leaving the European Union (Brexit)', isCorrect: true },
+            ],
+            solution: 'Britain voted 52% to 48% to leave the EU. Brexit was implemented in January 2020, ending 47 years of European membership and leaving Britain\'s future relationship with the continent uncertain.',
+          },
         ],
-        correctAnswer: 'c',
-        solution: 'After WWII, Britain was bankrupt and could not maintain its empire. Decolonization followed, with India gaining independence in 1947 and African colonies in the 1950s-60s. Immigration from former colonies transformed Britain into a multicultural society.',
       },
     },
     {
@@ -367,15 +523,44 @@ The first British Empire effectively ended in 1783 when the American colonies wo
         id: 'engelsk-vg1-8-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What was the economic foundation of the early British Caribbean colonies?',
-        options: [
+        task: 'Test yourself on the early British Empire:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-2-n-quiz1-q0',
+            task: 'What was the economic foundation of the early British Caribbean colonies?',
+            options: [
           { id: 'a', text: 'Gold and silver mining', isCorrect: false },
           { id: 'b', text: 'Sugar plantations worked by enslaved Africans', isCorrect: true },
           { id: 'c', text: 'Fishing and whaling industries', isCorrect: false },
           { id: 'd', text: 'Tobacco farming by European settlers', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Caribbean sugar plantations were enormously profitable but required intensive labor. The British relied on the Atlantic slave trade, transporting over 3 million Africans to work in brutal conditions. This system generated massive wealth for Britain.',
+            solution: 'Caribbean sugar plantations were enormously profitable but required intensive labor. The British relied on the Atlantic slave trade, transporting over 3 million Africans to work in brutal conditions. This system generated massive wealth for Britain.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz1-q1',
+            task: 'What happened to the compensation money when Britain abolished slavery in 1833?',
+            options: [
+              { id: 'a', text: 'It was paid to the formerly enslaved people', isCorrect: false },
+              { id: 'b', text: 'It was donated to African nations', isCorrect: false },
+              { id: 'c', text: 'It was paid to the slave owners for their "property loss"', isCorrect: true },
+              { id: 'd', text: 'It was used to build schools in the Caribbean', isCorrect: false },
+            ],
+            solution: 'When Britain abolished slavery in 1833, the government paid £20 million in compensation - not to the formerly enslaved people, but to the slave owners. The debt was so large that British taxpayers were still paying it off until 2015.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz1-q2',
+            task: 'What ended the first British Empire in 1783?',
+            options: [
+              { id: 'a', text: 'A French invasion of Britain', isCorrect: false },
+              { id: 'b', text: 'The abolition of slavery', isCorrect: false },
+              { id: 'c', text: 'A devastating plague', isCorrect: false },
+              { id: 'd', text: 'The American colonies won their independence', isCorrect: true },
+            ],
+            solution: 'Britain tried to tax the American colonists without giving them representation in Parliament, and they rebelled. With French help, the Americans won independence in 1783, ending Britain\'s most populous colonies.',
+          },
+        ],
       },
     },
     {
@@ -410,15 +595,44 @@ Understanding what the British Empire meant for India requires holding all of th
         id: 'engelsk-vg1-8-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'How did British rule in India begin?',
-        options: [
+        task: 'Test yourself on British rule in India:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-2-n-quiz2-q0',
+            task: 'How did British rule in India begin?',
+            options: [
           { id: 'a', text: 'Through a military invasion ordered by the British king', isCorrect: false },
           { id: 'b', text: 'Through gradual expansion by the East India Company, a trading corporation', isCorrect: true },
           { id: 'c', text: 'Through a peaceful agreement with Indian rulers', isCorrect: false },
           { id: 'd', text: 'Through settlement by British farmers and colonists', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The East India Company, founded in 1600 for trade, gradually gained territorial control through commerce, diplomacy, and military force. Only after the 1857 rebellion did the British government take direct control, creating the British Raj.',
+            solution: 'The East India Company, founded in 1600 for trade, gradually gained territorial control through commerce, diplomacy, and military force. Only after the 1857 rebellion did the British government take direct control, creating the British Raj.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz2-q1',
+            task: 'What was the effect of British economic policies on Indian manufacturing?',
+            options: [
+              { id: 'a', text: 'India became the world\'s largest manufacturer', isCorrect: false },
+              { id: 'b', text: 'Indian manufacturing was deliberately destroyed to create markets for British goods', isCorrect: true },
+              { id: 'c', text: 'Britain invested heavily in Indian factories', isCorrect: false },
+              { id: 'd', text: 'Indian and British manufacturing grew equally', isCorrect: false },
+            ],
+            solution: 'British policies deliberately destroyed Indian manufacturing to create markets for British goods. India, which had produced about a quarter of the world\'s manufactured goods in 1750, was deindustrialized to benefit Manchester cotton mills.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz2-q2',
+            task: 'What happened during the partition of India in 1947?',
+            options: [
+              { id: 'a', text: 'A peaceful transition with no casualties', isCorrect: false },
+              { id: 'b', text: 'India was divided into three countries', isCorrect: false },
+              { id: 'c', text: 'One to two million people died and 15 million were displaced', isCorrect: true },
+              { id: 'd', text: 'Britain maintained control of half of India', isCorrect: false },
+            ],
+            solution: 'The partition into Hindu-majority India and Muslim-majority Pakistan killed perhaps one to two million people and displaced about 15 million - the largest forced migration in human history. The border was drawn in weeks by a British lawyer who had never been to India.',
+          },
+        ],
       },
     },
     {
@@ -453,15 +667,44 @@ Independence came in a rush. Ghana became the first sub-Saharan African colony t
         id: 'engelsk-vg1-8-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What was significant about the Berlin Conference of 1884-85?',
-        options: [
+        task: 'Test yourself on the Scramble for Africa:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-2-n-quiz3-q0',
+            task: 'What was significant about the Berlin Conference of 1884-85?',
+            options: [
           { id: 'a', text: 'African leaders negotiated independence for their nations', isCorrect: false },
           { id: 'b', text: 'European powers divided Africa among themselves, drawing borders without African input', isCorrect: true },
           { id: 'c', text: 'Britain agreed to abolish slavery throughout Africa', isCorrect: false },
           { id: 'd', text: 'European nations decided to leave Africa alone', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'At the Berlin Conference, European powers divided Africa among themselves, drawing arbitrary borders that ignored existing communities and kingdoms. These colonial borders, often cutting through ethnic groups, still cause problems today.',
+            solution: 'At the Berlin Conference, European powers divided Africa among themselves, drawing arbitrary borders that ignored existing communities and kingdoms. These colonial borders, often cutting through ethnic groups, still cause problems today.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz3-q1',
+            task: 'What was the primary goal of British colonial rule in Africa?',
+            options: [
+              { id: 'a', text: 'To develop African economies for African benefit', isCorrect: false },
+              { id: 'b', text: 'To spread democracy and human rights', isCorrect: false },
+              { id: 'c', text: 'Extraction of resources and raw materials', isCorrect: true },
+              { id: 'd', text: 'To create equal partnerships with African nations', isCorrect: false },
+            ],
+            solution: 'The goal was always extraction. Mining companies dug copper and gold, agricultural schemes forced cash crops instead of food, and infrastructure was built to move resources to ports for export, not to connect African communities.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz3-q2',
+            task: 'When did most British African colonies gain independence?',
+            options: [
+              { id: 'a', text: 'In the 1920s after World War I', isCorrect: false },
+              { id: 'b', text: 'In the late 1950s and 1960s', isCorrect: true },
+              { id: 'c', text: 'In the 1990s', isCorrect: false },
+              { id: 'd', text: 'They are still colonies today', isCorrect: false },
+            ],
+            solution: 'Ghana became the first sub-Saharan African colony to gain independence in 1957. Nigeria followed in 1960, Kenya in 1963, and others throughout the decade. By the mid-1960s, most British African colonies were independent nations.',
+          },
+        ],
       },
     },
     {
@@ -496,15 +739,44 @@ King Charles III, who became Head of the Commonwealth in 2022, has spoken of the
         id: 'engelsk-vg1-8-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is the Commonwealth of Nations?',
-        options: [
+        task: 'Test yourself on the Commonwealth:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-2-n-quiz4-q0',
+            task: 'What is the Commonwealth of Nations?',
+            options: [
           { id: 'a', text: 'A military alliance similar to NATO', isCorrect: false },
           { id: 'b', text: 'A trade bloc like the European Union', isCorrect: false },
           { id: 'c', text: 'A voluntary association of mostly former British colonies', isCorrect: true },
           { id: 'd', text: 'A group of countries still ruled by Britain', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'The Commonwealth is a voluntary association of 54 nations, mostly former British colonies. Members cooperate on issues like education, democracy, and human rights. The British monarch is ceremonial head, but members are independent equals.',
+            solution: 'The Commonwealth is a voluntary association of 54 nations, mostly former British colonies. Members cooperate on issues like education, democracy, and human rights. The British monarch is ceremonial head, but members are independent equals.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz4-q1',
+            task: 'How many member states does the Commonwealth of Nations include?',
+            options: [
+              { id: 'a', text: '12 nations', isCorrect: false },
+              { id: 'b', text: '27 nations', isCorrect: false },
+              { id: 'c', text: '56 nations with about 2.5 billion people', isCorrect: true },
+              { id: 'd', text: 'Over 100 nations', isCorrect: false },
+            ],
+            solution: 'The Commonwealth includes 56 member states with a combined population of 2.5 billion people - nearly a third of humanity. It is remarkably diverse, including some of the world\'s largest and smallest, wealthiest and poorest countries.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz4-q2',
+            task: 'What binds Commonwealth nations together?',
+            options: [
+              { id: 'a', text: 'Shared military obligations', isCorrect: false },
+              { id: 'b', text: 'A common currency', isCorrect: false },
+              { id: 'c', text: 'Shared language, legal systems, and institutional ties from the colonial era', isCorrect: true },
+              { id: 'd', text: 'A single trade agreement', isCorrect: false },
+            ],
+            solution: 'Commonwealth nations share English as a common language, similar legal systems based on common law, parliamentary institutions, and habits of cooperation developed over decades, reinforced by regular meetings, educational exchanges, and the Commonwealth Games.',
+          },
+        ],
       },
     },
     {
@@ -548,15 +820,44 @@ We still live with the Empire's consequences. Understanding that history helps u
         id: 'engelsk-vg1-8-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why is English now a global language?',
-        options: [
+        task: 'Test yourself on the Empire\'s legacy:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-2-n-quiz5-q0',
+            task: 'Why is English now a global language?',
+            options: [
           { id: 'a', text: 'Because English is the easiest language to learn', isCorrect: false },
           { id: 'b', text: 'Because the United Nations made it the official world language', isCorrect: false },
           { id: 'c', text: 'Largely because of British colonialism and later American influence', isCorrect: true },
           { id: 'd', text: 'Because Shakespeare wrote in English', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'English became global primarily because of the British Empire, which spread the language across continents. American economic and cultural power in the 20th century reinforced this. Today, over 1.5 billion people speak English.',
+            solution: 'English became global primarily because of the British Empire, which spread the language across continents. American economic and cultural power in the 20th century reinforced this. Today, over 1.5 billion people speak English.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz5-q1',
+            task: 'How has the British Empire affected modern borders and conflicts?',
+            options: [
+              { id: 'a', text: 'Colonial borders created stability worldwide', isCorrect: false },
+              { id: 'b', text: 'Arbitrary borders drawn by colonial powers still cause conflicts today', isCorrect: true },
+              { id: 'c', text: 'The Empire had no effect on modern borders', isCorrect: false },
+              { id: 'd', text: 'All colonial borders have been redrawn since independence', isCorrect: false },
+            ],
+            solution: 'Colonial borders divided ethnic groups and combined historic enemies, contributing to conflicts like the Kashmir dispute, the Rwandan genocide, and the Nigerian civil war. These arbitrary lines, drawn with little knowledge of local realities, continue to shape geopolitics.',
+          },
+          {
+            id: 'engelsk-vg1-8-2-n-quiz5-q2',
+            task: 'How should we remember the British Empire, according to the text?',
+            options: [
+              { id: 'a', text: 'Only as a civilizing mission that brought progress', isCorrect: false },
+              { id: 'b', text: 'Only as a criminal enterprise of theft and murder', isCorrect: false },
+              { id: 'c', text: 'By acknowledging complexity: both achievements and crimes together', isCorrect: true },
+              { id: 'd', text: 'By forgetting it entirely and moving on', isCorrect: false },
+            ],
+            solution: 'The honest approach acknowledges complexity: railways and famines, legal systems and exploitation, English language and cultural destruction. It means recognizing ongoing moral obligations while understanding why the world is organized as it is.',
+          },
+        ],
       },
     },
     {
@@ -639,15 +940,33 @@ The debate continues, but for now, Britain remains a constitutional monarchy - o
         id: 'engelsk-vg1-8-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What does it mean that the British monarch "reigns but does not rule"?',
-        options: [
+        task: 'Test yourself on the British monarchy:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-3-n-quiz1-q0',
+            task: 'What does it mean that the British monarch "reigns but does not rule"?',
+            options: [
           { id: 'a', text: 'The monarch makes all important decisions but delegates routine matters', isCorrect: false },
           { id: 'b', text: 'The monarch has a ceremonial role while real power belongs to elected officials', isCorrect: true },
           { id: 'c', text: 'The monarch only rules in Scotland, not England', isCorrect: false },
           { id: 'd', text: 'The monarch shares power equally with Parliament', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'In a constitutional monarchy, the monarch has ceremonial duties (reigning) but no real political power (not ruling). Real decisions are made by elected politicians. The monarch remains neutral and acts on the advice of the government.',
+            solution: 'In a constitutional monarchy, the monarch has ceremonial duties (reigning) but no real political power (not ruling). Real decisions are made by elected politicians. The monarch remains neutral and acts on the advice of the government.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz1-q1',
+            task: 'What argument do supporters of the monarchy make for keeping it?',
+            options: [
+              { id: 'a', text: 'The monarch makes better decisions than Parliament', isCorrect: false },
+              { id: 'b', text: 'It provides stability, continuity, and a non-political head of state', isCorrect: true },
+              { id: 'c', text: 'The monarch controls the military effectively', isCorrect: false },
+              { id: 'd', text: 'Most countries still have monarchies', isCorrect: false },
+            ],
+            solution: 'Supporters argue the monarchy provides stability and continuity above party politics, attracts tourists, and allows the head of state to be separate from the head of government. Critics see it as an outdated, expensive relic of privilege.',
+          },
+        ],
       },
     },
     {
@@ -672,15 +991,44 @@ One crucial thing Britain lacks: a written constitution. There is no single docu
         id: 'engelsk-vg1-8-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What is unusual about the House of Lords?',
-        options: [
+        task: 'Test yourself on Parliament:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-3-n-quiz2-q0',
+            task: 'What is unusual about the House of Lords?',
+            options: [
           { id: 'a', text: 'Its members are all elected by proportional representation', isCorrect: false },
           { id: 'b', text: 'Its members are not elected - they are appointed or inherit their positions', isCorrect: true },
           { id: 'c', text: 'It has more power than the House of Commons', isCorrect: false },
           { id: 'd', text: 'It only meets once a year', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The House of Lords has about 800 unelected members - life peers appointed for expertise, some remaining hereditary peers, and Church of England bishops. It can review legislation but cannot ultimately block the elected Commons.',
+            solution: 'The House of Lords has about 800 unelected members - life peers appointed for expertise, some remaining hereditary peers, and Church of England bishops. It can review legislation but cannot ultimately block the elected Commons.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz2-q1',
+            task: 'What is unusual about Britain\'s constitution?',
+            options: [
+              { id: 'a', text: 'It is the longest written constitution in the world', isCorrect: false },
+              { id: 'b', text: 'It was written by the United Nations', isCorrect: false },
+              { id: 'c', text: 'There is no single written constitution - it consists of accumulated laws and traditions', isCorrect: true },
+              { id: 'd', text: 'It is identical to the American Constitution', isCorrect: false },
+            ],
+            solution: 'Unlike the American Constitution, there is no single document defining British constitutional rules. Instead, there are laws, traditions, and conventions accumulated over centuries. This makes the system flexible but sometimes unclear.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz2-q2',
+            task: 'How many members does the House of Commons have?',
+            options: [
+              { id: 'a', text: '100 members', isCorrect: false },
+              { id: 'b', text: '435 members', isCorrect: false },
+              { id: 'c', text: '650 elected Members of Parliament', isCorrect: true },
+              { id: 'd', text: '800 appointed members', isCorrect: false },
+            ],
+            solution: 'The House of Commons has 650 Members of Parliament (MPs), each elected to represent a geographic constituency. The party that wins the most seats usually forms the government.',
+          },
+        ],
       },
     },
     {
@@ -703,15 +1051,33 @@ Unlike American presidents, British PMs can be questioned directly in Parliament
         id: 'engelsk-vg1-8-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'How does someone become British Prime Minister?',
-        options: [
+        task: 'Test yourself on the Prime Minister:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-3-n-quiz3-q0',
+            task: 'How does someone become British Prime Minister?',
+            options: [
           { id: 'a', text: 'By winning a direct national election for the position', isCorrect: false },
           { id: 'b', text: 'By being appointed by the monarch after showing they can command a Commons majority', isCorrect: true },
           { id: 'c', text: 'By being elected by the House of Lords', isCorrect: false },
           { id: 'd', text: 'By winning the most votes in their local constituency', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'There is no direct election for PM. The monarch appoints whoever can command a majority in the Commons - usually the leader of the largest party. Voters choose MPs, not the PM directly.',
+            solution: 'There is no direct election for PM. The monarch appoints whoever can command a majority in the Commons - usually the leader of the largest party. Voters choose MPs, not the PM directly.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz3-q1',
+            task: 'What is "collective responsibility" in the British Cabinet?',
+            options: [
+              { id: 'a', text: 'All ministers must vote the same way in elections', isCorrect: false },
+              { id: 'b', text: 'Once the Cabinet decides something, all ministers must support it publicly or resign', isCorrect: true },
+              { id: 'c', text: 'Ministers share their salaries equally', isCorrect: false },
+              { id: 'd', text: 'The Cabinet votes on every decision by majority', isCorrect: false },
+            ],
+            solution: 'Collective responsibility means that once the Cabinet makes a decision, all ministers must publicly support it, even if they personally disagree. Ministers who cannot support a decision must resign.',
+          },
+        ],
       },
     },
     {
@@ -736,15 +1102,44 @@ England, containing 84% of the UK's population, has no separate parliament. This
         id: 'engelsk-vg1-8-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What does "devolution" mean in the UK context?',
-        options: [
+        task: 'Test yourself on devolution:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-3-n-quiz4-q0',
+            task: 'What does "devolution" mean in the UK context?',
+            options: [
           { id: 'a', text: 'The process of leaving the European Union', isCorrect: false },
           { id: 'b', text: 'Transferring some powers from Westminster to Scotland, Wales, and Northern Ireland', isCorrect: true },
           { id: 'c', text: 'Reducing the power of the monarchy', isCorrect: false },
           { id: 'd', text: 'Abolishing the House of Lords', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Devolution means transferring certain powers from the central UK Parliament in Westminster to regional parliaments in Scotland, Wales, and Northern Ireland. These bodies control areas like education and health, while Westminster handles defense and foreign policy.',
+            solution: 'Devolution means transferring certain powers from the central UK Parliament in Westminster to regional parliaments in Scotland, Wales, and Northern Ireland. These bodies control areas like education and health, while Westminster handles defense and foreign policy.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz4-q1',
+            task: 'What created new tensions in Northern Ireland after Brexit?',
+            options: [
+              { id: 'a', text: 'Northern Ireland voted to leave the UK', isCorrect: false },
+              { id: 'b', text: 'Northern Ireland now has a different trading relationship with both Britain and the EU', isCorrect: true },
+              { id: 'c', text: 'Scotland demanded control over Northern Ireland', isCorrect: false },
+              { id: 'd', text: 'The Good Friday Agreement was abolished', isCorrect: false },
+            ],
+            solution: 'Brexit created special status for Northern Ireland, which now has different trading rules from the rest of the UK due to its border with EU member Ireland. This has created ongoing tensions about Northern Ireland\'s relationship with both Britain and the EU.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz4-q2',
+            task: 'What was the result of the 2014 Scottish independence referendum?',
+            options: [
+              { id: 'a', text: 'Scotland voted to become independent', isCorrect: false },
+              { id: 'b', text: 'The referendum was cancelled', isCorrect: false },
+              { id: 'c', text: 'Scotland voted 55% to 45% to remain in the UK', isCorrect: true },
+              { id: 'd', text: 'It was a tie', isCorrect: false },
+            ],
+            solution: 'Scotland voted 55% to 45% to remain in the United Kingdom. However, Brexit has renewed demands for another independence vote, since Scotland opposed leaving the EU.',
+          },
+        ],
       },
     },
     {
@@ -769,15 +1164,33 @@ Brexit revealed deep divisions in British society - between young and old, citie
         id: 'engelsk-vg1-8-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What was the main argument of Brexit supporters?',
-        options: [
+        task: 'Test yourself on Brexit:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-3-n-quiz5-q0',
+            task: 'What was the main argument of Brexit supporters?',
+            options: [
           { id: 'a', text: 'The UK should adopt the Euro currency', isCorrect: false },
           { id: 'b', text: 'The UK should take back control of borders, laws, and sovereignty from the EU', isCorrect: true },
           { id: 'c', text: 'The UK should become a republic and abolish the monarchy', isCorrect: false },
           { id: 'd', text: 'The UK should join the United States', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Brexit supporters argued for "taking back control" - regaining national sovereignty over laws, borders, and policy from the European Union. The 2016 referendum passed 52% to 48%, and the UK left the EU in 2020.',
+            solution: 'Brexit supporters argued for "taking back control" - regaining national sovereignty over laws, borders, and policy from the European Union. The 2016 referendum passed 52% to 48%, and the UK left the EU in 2020.',
+          },
+          {
+            id: 'engelsk-vg1-8-3-n-quiz5-q1',
+            task: 'What divisions did Brexit reveal in British society?',
+            options: [
+              { id: 'a', text: 'Only economic divisions between rich and poor', isCorrect: false },
+              { id: 'b', text: 'Deep divides between young and old, cities and rural areas, globalists and nationalists', isCorrect: true },
+              { id: 'c', text: 'No significant divisions were revealed', isCorrect: false },
+              { id: 'd', text: 'Only divisions between England and Scotland', isCorrect: false },
+            ],
+            solution: 'Brexit revealed deep divisions between young (pro-EU) and old (pro-Brexit), cities (Remain) and rural areas (Leave), and those who see Britain\'s future in global engagement versus those wanting more national control.',
+          },
+        ],
       },
     },
     {
@@ -866,15 +1279,33 @@ Of course, these stereotypes do not capture everyone. Young Britons may never dr
         id: 'engelsk-vg1-8-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What is characteristic of British humor and communication style?',
-        options: [
+        task: 'Test yourself on traditional British culture:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-4-n-quiz1-q0',
+            task: 'What is characteristic of British humor and communication style?',
+            options: [
           { id: 'a', text: 'Direct, loud, and enthusiastic expression', isCorrect: false },
           { id: 'b', text: 'Understatement, irony, and self-deprecation', isCorrect: true },
           { id: 'c', text: 'Physical comedy and slapstick', isCorrect: false },
           { id: 'd', text: 'Formal and serious at all times', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'British communication often features understatement (\"not bad\" meaning \"good\"), irony, and self-deprecation. Understanding these codes helps interpret what British people actually mean.',
+            solution: 'British communication often features understatement (\"not bad\" meaning \"good\"), irony, and self-deprecation. Understanding these codes helps interpret what British people actually mean.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz1-q1',
+            task: 'What does "putting the kettle on" represent in British culture?',
+            options: [
+              { id: 'a', text: 'A punishment for bad behavior', isCorrect: false },
+              { id: 'b', text: 'The standard British response to any crisis or difficult situation', isCorrect: true },
+              { id: 'c', text: 'A morning exercise routine', isCorrect: false },
+              { id: 'd', text: 'A signal that guests should leave', isCorrect: false },
+            ],
+            solution: 'Making tea is the quintessential British response to any situation, from minor inconveniences to major crises. It reflects the broader cultural values of calm, patience, and carrying on.',
+          },
+        ],
       },
     },
     {
@@ -901,15 +1332,33 @@ Beyond national identities, regional and class identities matter enormously. A w
         id: 'engelsk-vg1-8-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why is identity in Northern Ireland particularly complex?',
-        options: [
+        task: 'Test yourself on regional identities:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-4-n-quiz2-q0',
+            task: 'Why is identity in Northern Ireland particularly complex?',
+            options: [
           { id: 'a', text: 'Because people speak many different languages', isCorrect: false },
           { id: 'b', text: 'Because of the division between those identifying as British and those as Irish', isCorrect: true },
           { id: 'c', text: 'Because Northern Ireland has no distinct culture', isCorrect: false },
           { id: 'd', text: 'Because it is geographically isolated', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Northern Ireland is divided between unionists (mainly Protestant) who identify as British and want to stay in the UK, and nationalists (mainly Catholic) who identify as Irish and favor unification with Ireland. This division caused decades of conflict.',
+            solution: 'Northern Ireland is divided between unionists (mainly Protestant) who identify as British and want to stay in the UK, and nationalists (mainly Catholic) who identify as Irish and favor unification with Ireland. This division caused decades of conflict.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz2-q1',
+            task: 'What is distinctive about Welsh identity within the UK?',
+            options: [
+              { id: 'a', text: 'Wales has no distinct culture from England', isCorrect: false },
+              { id: 'b', text: 'Wales maintains its own language, spoken by about 20% of the population', isCorrect: true },
+              { id: 'c', text: 'Wales has been independent since 1999', isCorrect: false },
+              { id: 'd', text: 'Welsh identity is identical to Scottish identity', isCorrect: false },
+            ],
+            solution: 'Wales maintains a distinct language (Welsh is spoken by about 20% of the population), culture, and traditions including the Eisteddfod festival. Welsh identity balances pride in culture with economic ties to England.',
+          },
+        ],
       },
     },
     {
@@ -938,15 +1387,44 @@ But tensions exist. Racism has not disappeared. Debates about integration, "Brit
         id: 'engelsk-vg1-8-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What was the Windrush generation?',
-        options: [
+        task: 'Test yourself on multicultural Britain:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-4-n-quiz3-q0',
+            task: 'What was the Windrush generation?',
+            options: [
           { id: 'a', text: 'British soldiers who fought in World War II', isCorrect: false },
           { id: 'b', text: 'Caribbean immigrants invited to Britain after WWII to help rebuild the economy', isCorrect: true },
           { id: 'c', text: 'European refugees who fled to Britain in the 1930s', isCorrect: false },
           { id: 'd', text: 'The first group of Indian immigrants to Britain', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Windrush generation refers to Caribbean immigrants who came to Britain from 1948 onwards, named after the ship Empire Windrush. They were invited to help rebuild post-war Britain and became a foundational part of multicultural Britain.',
+            solution: 'The Windrush generation refers to Caribbean immigrants who came to Britain from 1948 onwards, named after the ship Empire Windrush. They were invited to help rebuild post-war Britain and became a foundational part of multicultural Britain.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz3-q1',
+            task: 'What dish is sometimes called Britain\'s national dish, reflecting its multicultural identity?',
+            options: [
+              { id: 'a', text: 'Fish and chips', isCorrect: false },
+              { id: 'b', text: 'Shepherd\'s pie', isCorrect: false },
+              { id: 'c', text: 'Chicken tikka masala', isCorrect: true },
+              { id: 'd', text: 'Bangers and mash', isCorrect: false },
+            ],
+            solution: 'Chicken tikka masala, a dish influenced by South Asian cuisine, is sometimes called Britain\'s national dish. This reflects how immigration has transformed British culture - curry houses became a quintessentially British institution.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz3-q2',
+            task: 'What percentage of UK residents were born abroad?',
+            options: [
+              { id: 'a', text: 'About 3%', isCorrect: false },
+              { id: 'b', text: 'About 14%', isCorrect: true },
+              { id: 'c', text: 'About 35%', isCorrect: false },
+              { id: 'd', text: 'About 50%', isCorrect: false },
+            ],
+            solution: 'About 14% of UK residents were born abroad. In London, the figure is over 35%. British schools, workplaces, and neighborhoods are far more diverse than a generation ago.',
+          },
+        ],
       },
     },
     {
@@ -975,15 +1453,33 @@ This cultural soft power means that British culture influences the world, even a
         id: 'engelsk-vg1-8-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is the BBC and how is it funded?',
-        options: [
+        task: 'Test yourself on British popular culture:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-4-n-quiz4-q0',
+            task: 'What is the BBC and how is it funded?',
+            options: [
           { id: 'a', text: 'A private company funded by advertising', isCorrect: false },
           { id: 'b', text: 'A public broadcaster funded by a license fee paid by TV owners', isCorrect: true },
           { id: 'c', text: 'A government department funded by taxes', isCorrect: false },
           { id: 'd', text: 'A streaming service funded by subscriptions', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The BBC (British Broadcasting Corporation) is a public broadcaster funded by a license fee that TV owners must pay. This allows it to operate without advertising. It is known for high-quality programming and global reach.',
+            solution: 'The BBC (British Broadcasting Corporation) is a public broadcaster funded by a license fee that TV owners must pay. This allows it to operate without advertising. It is known for high-quality programming and global reach.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz4-q1',
+            task: 'What is the world\'s most-watched football league?',
+            options: [
+              { id: 'a', text: 'Spain\'s La Liga', isCorrect: false },
+              { id: 'b', text: 'Germany\'s Bundesliga', isCorrect: false },
+              { id: 'c', text: 'England\'s Premier League', isCorrect: true },
+              { id: 'd', text: 'Italy\'s Serie A', isCorrect: false },
+            ],
+            solution: 'The English Premier League is the world\'s most-watched football league. Football is Britain\'s national obsession, and its cultural soft power extends British influence far beyond its political and economic reach.',
+          },
+        ],
       },
     },
     {
@@ -1012,15 +1508,44 @@ These debates have no resolution. British identity will continue to evolve, shap
         id: 'engelsk-vg1-8-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What is the difference between "melting pot" and "salad bowl" approaches to diversity?',
-        options: [
+        task: 'Test yourself on British identity debates:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-8-4-n-quiz5-q0',
+            task: 'What is the difference between "melting pot" and "salad bowl" approaches to diversity?',
+            options: [
           { id: 'a', text: 'Melting pot refers to cooking traditions while salad bowl refers to eating habits', isCorrect: false },
           { id: 'b', text: 'Melting pot means immigrants assimilate into one culture; salad bowl means cultures remain distinct while coexisting', isCorrect: true },
           { id: 'c', text: 'Melting pot is an American term while salad bowl is British', isCorrect: false },
           { id: 'd', text: 'There is no meaningful difference between the terms', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The "melting pot" metaphor suggests immigrants should assimilate into a unified culture. The "salad bowl" (or "cultural mosaic") suggests different cultures can maintain their distinctness while contributing to a diverse whole. Both models have supporters and critics.',
+            solution: 'The "melting pot" metaphor suggests immigrants should assimilate into a unified culture. The "salad bowl" (or "cultural mosaic") suggests different cultures can maintain their distinctness while contributing to a diverse whole. Both models have supporters and critics.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz5-q1',
+            task: 'Why was the statue of Edward Colston toppled in Bristol in 2020?',
+            options: [
+              { id: 'a', text: 'It was damaged by a storm', isCorrect: false },
+              { id: 'b', text: 'The city needed space for a new building', isCorrect: false },
+              { id: 'c', text: 'Protesters pulled it down because he was a slave trader', isCorrect: true },
+              { id: 'd', text: 'It was moved to a museum for preservation', isCorrect: false },
+            ],
+            solution: 'Protesters toppled the statue of slave trader Edward Colston during Black Lives Matter protests, sparking debates about how Britain should remember its history and which figures deserve public monuments.',
+          },
+          {
+            id: 'engelsk-vg1-8-4-n-quiz5-q2',
+            task: 'What are the official "British values" as defined by the UK government?',
+            options: [
+              { id: 'a', text: 'Tea drinking, queuing, and politeness', isCorrect: false },
+              { id: 'b', text: 'Democracy, rule of law, individual liberty, and tolerance', isCorrect: true },
+              { id: 'c', text: 'Monarchy, tradition, and empire', isCorrect: false },
+              { id: 'd', text: 'Hard work, competition, and self-reliance', isCorrect: false },
+            ],
+            solution: 'The government defined "British values" as democracy, rule of law, individual liberty, and tolerance. Critics argue these are universal values, not specifically British, and question whether Britain has always lived up to them.',
+          },
+        ],
       },
     },
     {
@@ -1117,15 +1642,44 @@ You cannot understand America without understanding what was destroyed to create
         id: 'engelsk-vg1-9-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What caused the massive decline in indigenous American population after European contact?',
-        options: [
+        task: 'Test yourself on Indigenous America:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-1-n-quiz1-q0',
+            task: 'What caused the massive decline in indigenous American population after European contact?',
+            options: [
           { id: 'a', text: 'Wars with European settlers killed most indigenous people', isCorrect: false },
           { id: 'b', text: 'Indigenous people voluntarily moved to other continents', isCorrect: false },
           { id: 'c', text: 'European diseases like smallpox killed up to 90% of the population', isCorrect: true },
           { id: 'd', text: 'Climate change made North America uninhabitable', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'European diseases, particularly smallpox, measles, and influenza, were the primary cause of indigenous population collapse. Indigenous peoples had no immunity to these diseases. While violence and displacement also caused deaths, disease was by far the biggest killer.',
+            solution: 'European diseases, particularly smallpox, measles, and influenza, were the primary cause of indigenous population collapse. Indigenous peoples had no immunity to these diseases. While violence and displacement also caused deaths, disease was by far the biggest killer.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz1-q1',
+            task: 'How long had indigenous peoples lived in North America before European contact?',
+            options: [
+              { id: 'a', text: 'About 500 years', isCorrect: false },
+              { id: 'b', text: 'About 2,000 years', isCorrect: false },
+              { id: 'c', text: 'At least 15,000 years', isCorrect: true },
+              { id: 'd', text: 'About 500,000 years', isCorrect: false },
+            ],
+            solution: 'Indigenous peoples had lived in North America for at least 15,000 years, developing sophisticated civilizations, complex social structures, and sustainable relationships with the land long before any Europeans arrived.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz1-q2',
+            task: 'What was the Trail of Tears?',
+            options: [
+              { id: 'a', text: 'A trade route between indigenous nations', isCorrect: false },
+              { id: 'b', text: 'A forced march of indigenous peoples from their ancestral lands that killed about 15,000 people', isCorrect: true },
+              { id: 'c', text: 'A peaceful migration to better farming land', isCorrect: false },
+              { id: 'd', text: 'A mourning ceremony practiced by the Cherokee', isCorrect: false },
+            ],
+            solution: 'The Trail of Tears in the 1830s was the forced march of Cherokee, Creek, Choctaw, Chickasaw, and Seminole peoples from the Southeast to "Indian Territory" (now Oklahoma). About 15,000 people died along the way from cold, hunger, and disease.',
+          },
+        ],
       },
     },
     {
@@ -1150,15 +1704,33 @@ Yet the ideals mattered. "All men are created equal" would become a rallying cry
         id: 'engelsk-vg1-9-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What was the main contradiction in the American founding?',
-        options: [
+        task: 'Test yourself on the American founding:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-1-n-quiz2-q0',
+            task: 'What was the main contradiction in the American founding?',
+            options: [
           { id: 'a', text: 'The Constitution was too short', isCorrect: false },
           { id: 'b', text: 'Ideals of equality and liberty coexisted with slavery and exclusion', isCorrect: true },
           { id: 'c', text: 'Americans wanted to rejoin Britain but could not', isCorrect: false },
           { id: 'd', text: 'The president had too little power', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Declaration proclaimed "all men are created equal" while many founders owned enslaved people. The Constitution protected slavery and excluded women, Native Americans, and non-property owners from full citizenship. This contradiction has shaped American history ever since.',
+            solution: 'The Declaration proclaimed "all men are created equal" while many founders owned enslaved people. The Constitution protected slavery and excluded women, Native Americans, and non-property owners from full citizenship. This contradiction has shaped American history ever since.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz2-q1',
+            task: 'What document established separation of powers in the American government?',
+            options: [
+              { id: 'a', text: 'The Declaration of Independence', isCorrect: false },
+              { id: 'b', text: 'The Bill of Rights', isCorrect: false },
+              { id: 'c', text: 'The Constitution of 1787', isCorrect: true },
+              { id: 'd', text: 'The Emancipation Proclamation', isCorrect: false },
+            ],
+            solution: 'The Constitution, written in 1787, created a federal system with separation of powers - executive, legislative, and judicial branches - to prevent tyranny. The Bill of Rights (1791) then protected individual freedoms.',
+          },
+        ],
       },
     },
     {
@@ -1183,15 +1755,44 @@ The Civil War ended slavery but not racism. The failure of Reconstruction meant 
         id: 'engelsk-vg1-9-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Why did Reconstruction fail to achieve lasting equality?',
-        options: [
+        task: 'Test yourself on the Civil War and Reconstruction:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-1-n-quiz3-q0',
+            task: 'Why did Reconstruction fail to achieve lasting equality?',
+            options: [
           { id: 'a', text: 'Formerly enslaved people did not want citizenship', isCorrect: false },
           { id: 'b', text: 'The Constitution did not allow equal rights', isCorrect: false },
           { id: 'c', text: 'White Southern resistance, violence, and eventual federal withdrawal allowed Jim Crow laws', isCorrect: true },
           { id: 'd', text: 'The Civil War never actually ended', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Reconstruction was undermined by violent white resistance (including the KKK), and when federal troops withdrew in 1877, Southern states implemented Jim Crow laws - legal segregation and disenfranchisement that lasted until the 1960s.',
+            solution: 'Reconstruction was undermined by violent white resistance (including the KKK), and when federal troops withdrew in 1877, Southern states implemented Jim Crow laws - legal segregation and disenfranchisement that lasted until the 1960s.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz3-q1',
+            task: 'How many soldiers died in the American Civil War?',
+            options: [
+              { id: 'a', text: 'About 50,000', isCorrect: false },
+              { id: 'b', text: 'Over 620,000', isCorrect: true },
+              { id: 'c', text: 'About 200,000', isCorrect: false },
+              { id: 'd', text: 'Over 2 million', isCorrect: false },
+            ],
+            solution: 'Over 620,000 soldiers died in the Civil War - more than in all other American wars combined until Vietnam. It was the bloodiest conflict in American history.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz3-q2',
+            task: 'What were "Jim Crow" laws?',
+            options: [
+              { id: 'a', text: 'Laws that gave Black Americans full citizenship', isCorrect: false },
+              { id: 'b', text: 'Laws requiring all children to attend school', isCorrect: false },
+              { id: 'c', text: 'Laws enforcing segregation, disenfranchisement, and systematic oppression of Black Americans', isCorrect: true },
+              { id: 'd', text: 'Laws that limited presidential power', isCorrect: false },
+            ],
+            solution: 'After federal troops withdrew from the South in 1877, Southern states implemented Jim Crow laws: legal segregation in public facilities, disenfranchisement of Black voters, and systematic oppression that lasted nearly a century.',
+          },
+        ],
       },
     },
     {
@@ -1218,15 +1819,33 @@ World War II completed America's transformation. Emerging victorious and economi
         id: 'engelsk-vg1-9-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What was the New Deal?',
-        options: [
+        task: 'Test yourself on American industrialization:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-1-n-quiz4-q0',
+            task: 'What was the New Deal?',
+            options: [
           { id: 'a', text: 'A peace treaty ending World War II', isCorrect: false },
           { id: 'b', text: 'Roosevelt\'s expansion of government programs to combat the Great Depression', isCorrect: true },
           { id: 'c', text: 'An agreement with Native American tribes', isCorrect: false },
           { id: 'd', text: 'A trade deal with European countries', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The New Deal was President Franklin Roosevelt\'s program of government intervention during the Great Depression (1930s). It created Social Security, labor protections, and public works programs, permanently expanding the federal government\'s role in the economy.',
+            solution: 'The New Deal was President Franklin Roosevelt\'s program of government intervention during the Great Depression (1930s). It created Social Security, labor protections, and public works programs, permanently expanding the federal government\'s role in the economy.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz4-q1',
+            task: 'What was notable about the Chinese Exclusion Act of 1882?',
+            options: [
+              { id: 'a', text: 'It was the first law banning immigration based on nationality', isCorrect: true },
+              { id: 'b', text: 'It welcomed Chinese immigrants to America', isCorrect: false },
+              { id: 'c', text: 'It gave Chinese Americans the right to vote', isCorrect: false },
+              { id: 'd', text: 'It established trade relations with China', isCorrect: false },
+            ],
+            solution: 'The Chinese Exclusion Act was the first US law to ban immigration based on nationality, reflecting how immigrants faced discrimination even as they built the nation\'s infrastructure.',
+          },
+        ],
       },
     },
     {
@@ -1251,15 +1870,44 @@ Today's America faces polarization, racial reckoning, economic inequality, and d
         id: 'engelsk-vg1-9-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What was the significance of the Civil Rights Movement?',
-        options: [
+        task: 'Test yourself on modern America:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-1-n-quiz5-q0',
+            task: 'What was the significance of the Civil Rights Movement?',
+            options: [
           { id: 'a', text: 'It established American independence from Britain', isCorrect: false },
           { id: 'b', text: 'It ended the Cold War', isCorrect: false },
           { id: 'c', text: 'It fought to end legal segregation and secure equal rights for Black Americans', isCorrect: true },
           { id: 'd', text: 'It gave women the right to vote', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'The Civil Rights Movement (1950s-60s) used nonviolent protest to challenge segregation and discrimination. Key achievements include Brown v. Board of Education, the Civil Rights Act (1964), and the Voting Rights Act (1965), which dismantled legal Jim Crow.',
+            solution: 'The Civil Rights Movement (1950s-60s) used nonviolent protest to challenge segregation and discrimination. Key achievements include Brown v. Board of Education, the Civil Rights Act (1964), and the Voting Rights Act (1965), which dismantled legal Jim Crow.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz5-q1',
+            task: 'What was the Cold War?',
+            options: [
+              { id: 'a', text: 'A war fought in Arctic regions', isCorrect: false },
+              { id: 'b', text: 'A period of tension between the US and Soviet Union from 1945-1991', isCorrect: true },
+              { id: 'c', text: 'A trade dispute between the US and China', isCorrect: false },
+              { id: 'd', text: 'A civil war within the United States', isCorrect: false },
+            ],
+            solution: 'The Cold War (1945-1991) was a period of political and military tension between the US and Soviet Union that shaped American foreign and domestic policy for decades. It drove interventions in Korea and Vietnam and the nuclear arms race.',
+          },
+          {
+            id: 'engelsk-vg1-9-1-n-quiz5-q2',
+            task: 'What event on January 6, 2021, raised concerns about American democracy?',
+            options: [
+              { id: 'a', text: 'A peaceful inauguration ceremony', isCorrect: false },
+              { id: 'b', text: 'An attack on the US Capitol by Trump supporters', isCorrect: true },
+              { id: 'c', text: 'A Supreme Court ruling on voting rights', isCorrect: false },
+              { id: 'd', text: 'A major earthquake in Washington DC', isCorrect: false },
+            ],
+            solution: 'On January 6, 2021, supporters of President Trump attacked the Capitol while Congress was certifying Biden\'s election victory, showing how fragile democratic institutions can be.',
+          },
+        ],
       },
     },
     {
@@ -1341,15 +1989,33 @@ At its best, the Dream represents genuine values: that people should be judged o
         id: 'engelsk-vg1-9-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What is the core idea of the American Dream?',
-        options: [
+        task: 'Test yourself on the American Dream\'s origins:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-2-n-quiz1-q0',
+            task: 'What is the core idea of the American Dream?',
+            options: [
           { id: 'a', text: 'That America is the richest country in the world', isCorrect: false },
           { id: 'b', text: 'That anyone can succeed through hard work, regardless of background', isCorrect: true },
           { id: 'c', text: 'That everyone should own a large house', isCorrect: false },
           { id: 'd', text: 'That America will always be a superpower', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The American Dream is the belief that anyone, regardless of where they started in life, can achieve success and prosperity through hard work and determination. It emphasizes merit over birth and opportunity for all.',
+            solution: 'The American Dream is the belief that anyone, regardless of where they started in life, can achieve success and prosperity through hard work and determination. It emphasizes merit over birth and opportunity for all.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz1-q1',
+            task: 'Who coined the term "American Dream" and when?',
+            options: [
+              { id: 'a', text: 'Thomas Jefferson in 1776', isCorrect: false },
+              { id: 'b', text: 'James Truslow Adams in 1931', isCorrect: true },
+              { id: 'c', text: 'Benjamin Franklin in 1790', isCorrect: false },
+              { id: 'd', text: 'Abraham Lincoln in 1863', isCorrect: false },
+            ],
+            solution: 'Historian James Truslow Adams coined the term in 1931, during the Great Depression, defining it as "that dream of a land in which life should be better and richer and fuller for everyone." The idea itself is much older.',
+          },
+        ],
       },
     },
     {
@@ -1376,15 +2042,33 @@ This cultural saturation matters. It shapes how Americans understand their socie
         id: 'engelsk-vg1-9-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'How does "The Great Gatsby" relate to the American Dream?',
-        options: [
+        task: 'Test yourself on the Dream in culture:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-2-n-quiz2-q0',
+            task: 'How does "The Great Gatsby" relate to the American Dream?',
+            options: [
           { id: 'a', text: 'It shows that the Dream always works perfectly', isCorrect: false },
           { id: 'b', text: 'It both celebrates and critiques the Dream, showing its tragic side', isCorrect: true },
           { id: 'c', text: 'It argues that the Dream is only for immigrants', isCorrect: false },
           { id: 'd', text: 'It has nothing to do with the American Dream', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Fitzgerald\'s novel both celebrates Gatsby\'s self-made rise and critiques the Dream\'s corruption. Gatsby achieves wealth but not happiness or acceptance. His tragic end questions whether the Dream delivers what it promises.',
+            solution: 'Fitzgerald\'s novel both celebrates Gatsby\'s self-made rise and critiques the Dream\'s corruption. Gatsby achieves wealth but not happiness or acceptance. His tragic end questions whether the Dream delivers what it promises.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz2-q1',
+            task: 'What does "Death of a Salesman" by Arthur Miller show about the American Dream?',
+            options: [
+              { id: 'a', text: 'That the Dream always comes true with hard work', isCorrect: false },
+              { id: 'b', text: 'That the Dream is only for immigrants', isCorrect: false },
+              { id: 'c', text: 'The Dream\'s dark side - Willy Loman destroys himself chasing unattainable success', isCorrect: true },
+              { id: 'd', text: 'That salesmen are the most successful Americans', isCorrect: false },
+            ],
+            solution: 'Arthur Miller\'s play shows the destructive side of the American Dream through Willy Loman, who destroys himself pursuing a version of success he can never achieve, revealing how the Dream can become a curse.',
+          },
+        ],
       },
     },
     {
@@ -1411,15 +2095,33 @@ Why is American mobility declining? Economists point to rising inequality, expen
         id: 'engelsk-vg1-9-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'How does American social mobility compare to Nordic countries?',
-        options: [
+        task: 'Test yourself on social mobility:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-2-n-quiz3-q0',
+            task: 'How does American social mobility compare to Nordic countries?',
+            options: [
           { id: 'a', text: 'America has much higher social mobility', isCorrect: false },
           { id: 'b', text: 'They are exactly equal', isCorrect: false },
           { id: 'c', text: 'Nordic countries like Norway have higher social mobility than America', isCorrect: true },
           { id: 'd', text: 'Social mobility cannot be measured, so comparison is impossible', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Research shows Nordic countries have higher social mobility than America. In these countries, your parents\' income is less predictive of your own income. The "land of opportunity" actually offers less upward mobility than Scandinavia.',
+            solution: 'Research shows Nordic countries have higher social mobility than America. In these countries, your parents\' income is less predictive of your own income. The "land of opportunity" actually offers less upward mobility than Scandinavia.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz3-q1',
+            task: 'What chance does a child born to the bottom 20% in America have of reaching the top 20%?',
+            options: [
+              { id: 'a', text: 'About 50%', isCorrect: false },
+              { id: 'b', text: 'About 25%', isCorrect: false },
+              { id: 'c', text: 'About 7.5%', isCorrect: true },
+              { id: 'd', text: 'About 1%', isCorrect: false },
+            ],
+            solution: 'A child born to parents in the bottom 20% of income has only about a 7.5% chance of reaching the top 20% as an adult. The "rags to riches" story is real but statistically rare.',
+          },
+        ],
       },
     },
     {
@@ -1446,15 +2148,44 @@ Why do so many Americans struggle to achieve the Dream? Several structural barri
         id: 'engelsk-vg1-9-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is the leading cause of personal bankruptcy in America?',
-        options: [
+        task: 'Test yourself on barriers to the Dream:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-2-n-quiz4-q0',
+            task: 'What is the leading cause of personal bankruptcy in America?',
+            options: [
           { id: 'a', text: 'Gambling debts', isCorrect: false },
           { id: 'b', text: 'Student loans', isCorrect: false },
           { id: 'c', text: 'Medical bills', isCorrect: true },
           { id: 'd', text: 'Failed businesses', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Medical bills are the leading cause of personal bankruptcy in America. Unlike countries with universal healthcare, American families can be financially devastated by serious illness. This makes the American Dream harder to achieve and easier to lose.',
+            solution: 'Medical bills are the leading cause of personal bankruptcy in America. Unlike countries with universal healthcare, American families can be financially devastated by serious illness. This makes the American Dream harder to achieve and easier to lose.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz4-q1',
+            task: 'Why does school quality vary so much across America?',
+            options: [
+              { id: 'a', text: 'Schools are funded equally by the federal government', isCorrect: false },
+              { id: 'b', text: 'School quality depends heavily on local property taxes', isCorrect: true },
+              { id: 'c', text: 'All schools receive the same funding', isCorrect: false },
+              { id: 'd', text: 'School quality is unrelated to funding', isCorrect: false },
+            ],
+            solution: 'In America, school quality depends heavily on local property taxes. Rich neighborhoods have well-funded schools; poor neighborhoods have struggling ones. This creates a cycle where educational advantages pass from generation to generation.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz4-q2',
+            task: 'How can belief in the American Dream paradoxically be a barrier to mobility?',
+            options: [
+              { id: 'a', text: 'It makes people too optimistic to work hard', isCorrect: false },
+              { id: 'b', text: 'It leads people to oppose policies that would actually increase mobility', isCorrect: true },
+              { id: 'c', text: 'It encourages people to leave America', isCorrect: false },
+              { id: 'd', text: 'It has no effect on policy preferences', isCorrect: false },
+            ],
+            solution: 'If you believe anyone can succeed through hard work, you may oppose policies like progressive taxation or welfare that would actually increase mobility. You may blame yourself for failures that have structural causes.',
+          },
+        ],
       },
     },
     {
@@ -1483,15 +2214,33 @@ The debate continues. But understanding the gap between the Dream and reality is
         id: 'engelsk-vg1-9-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why do some critics want to redefine the American Dream?',
-        options: [
+        task: 'Test yourself on the Dream today:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-2-n-quiz5-q0',
+            task: 'Why do some critics want to redefine the American Dream?',
+            options: [
           { id: 'a', text: 'They want America to become a monarchy', isCorrect: false },
           { id: 'b', text: 'They think individual success is more important than ever', isCorrect: false },
           { id: 'c', text: 'They argue collective well-being (healthcare, education for all) is more achievable than individual rags-to-riches', isCorrect: true },
           { id: 'd', text: 'They want to end all immigration', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Critics suggest redefining the Dream from individual achievement to collective well-being - ensuring everyone has access to healthcare, education, and security. This Nordic-style model might be more achievable and beneficial than the traditional rags-to-riches narrative.',
+            solution: 'Critics suggest redefining the Dream from individual achievement to collective well-being - ensuring everyone has access to healthcare, education, and security. This Nordic-style model might be more achievable and beneficial than the traditional rags-to-riches narrative.',
+          },
+          {
+            id: 'engelsk-vg1-9-2-n-quiz5-q1',
+            task: 'How does the Dream differ depending on who you are?',
+            options: [
+              { id: 'a', text: 'The Dream means the same thing for everyone', isCorrect: false },
+              { id: 'b', text: 'For white Americans it often means getting ahead; for Black Americans it may mean being treated equally', isCorrect: true },
+              { id: 'c', text: 'Only immigrants believe in the Dream', isCorrect: false },
+              { id: 'd', text: 'The Dream is only about wealth', isCorrect: false },
+            ],
+            solution: 'The Dream looks different depending on who you are. For white Americans, it often means getting ahead. For Black Americans, it may mean being treated equally. For immigrants, it may simply mean safety and basic opportunity.',
+          },
+        ],
       },
     },
     {
@@ -1576,15 +2325,33 @@ The Founders designed this system to prevent tyranny through "checks and balance
         id: 'engelsk-vg1-9-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Why did the Founders create three separate branches of government?',
-        options: [
+        task: 'Test yourself on the US Constitution:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-3-n-quiz1-q0',
+            task: 'Why did the Founders create three separate branches of government?',
+            options: [
           { id: 'a', text: 'To make government more efficient', isCorrect: false },
           { id: 'b', text: 'To prevent any one branch from becoming too powerful (tyranny)', isCorrect: true },
           { id: 'c', text: 'To copy the British system exactly', isCorrect: false },
           { id: 'd', text: 'To give each state its own branch', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The separation of powers and checks and balances were designed to prevent tyranny. Each branch can limit the others: Congress can impeach the President, the President can veto laws, and the Supreme Court can strike down unconstitutional actions.',
+            solution: 'The separation of powers and checks and balances were designed to prevent tyranny. Each branch can limit the others: Congress can impeach the President, the President can veto laws, and the Supreme Court can strike down unconstitutional actions.',
+          },
+          {
+            id: 'engelsk-vg1-9-3-n-quiz1-q1',
+            task: 'How long do Supreme Court justices serve?',
+            options: [
+              { id: 'a', text: 'Four-year terms like the President', isCorrect: false },
+              { id: 'b', text: 'Six-year terms like Senators', isCorrect: false },
+              { id: 'c', text: 'For life, giving enormous power to whoever appoints them', isCorrect: true },
+              { id: 'd', text: 'Ten-year terms with possible renewal', isCorrect: false },
+            ],
+            solution: 'Nine Supreme Court justices serve for life, giving enormous power to the presidents who appoint them. The Court\'s ability to strike down unconstitutional laws makes it hugely influential in American politics.',
+          },
+        ],
       },
     },
     {
@@ -1611,15 +2378,33 @@ The result is that Americans often vote against the party they dislike rather th
         id: 'engelsk-vg1-9-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why does America have only two major parties while Norway has many?',
-        options: [
+        task: 'Test yourself on the two-party system:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-3-n-quiz2-q0',
+            task: 'Why does America have only two major parties while Norway has many?',
+            options: [
           { id: 'a', text: 'Americans are less politically interested', isCorrect: false },
           { id: 'b', text: 'The Constitution forbids other parties', isCorrect: false },
           { id: 'c', text: 'Winner-take-all elections reward large parties while proportional representation allows smaller ones', isCorrect: true },
           { id: 'd', text: 'Third parties are illegal in America', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'In America\'s winner-take-all system, only the top vote-getter wins; others get nothing. This rewards large coalitions. Norway\'s proportional representation gives seats based on vote share, allowing smaller parties to win representation.',
+            solution: 'In America\'s winner-take-all system, only the top vote-getter wins; others get nothing. This rewards large coalitions. Norway\'s proportional representation gives seats based on vote share, allowing smaller parties to win representation.',
+          },
+          {
+            id: 'engelsk-vg1-9-3-n-quiz2-q1',
+            task: 'What is a common result of America\'s two-party system?',
+            options: [
+              { id: 'a', text: 'All Americans feel well-represented', isCorrect: false },
+              { id: 'b', text: 'People often vote against the party they dislike rather than for the party they love', isCorrect: true },
+              { id: 'c', text: 'Third parties regularly win elections', isCorrect: false },
+              { id: 'd', text: 'Both parties have identical platforms', isCorrect: false },
+            ],
+            solution: 'Because only two parties can realistically win, Americans often vote against the party they dislike rather than for one they love. Many feel neither party truly represents them.',
+          },
+        ],
       },
     },
     {
@@ -1644,15 +2429,33 @@ Voting itself has become controversial. Republican-controlled states have passed
         id: 'engelsk-vg1-9-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What unusual result can the Electoral College produce?',
-        options: [
+        task: 'Test yourself on American elections:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-3-n-quiz3-q0',
+            task: 'What unusual result can the Electoral College produce?',
+            options: [
           { id: 'a', text: 'A president who serves more than two terms', isCorrect: false },
           { id: 'b', text: 'A president who loses the popular vote but wins the election', isCorrect: true },
           { id: 'c', text: 'A president chosen by the Supreme Court', isCorrect: false },
           { id: 'd', text: 'No president at all', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Electoral College can produce presidents who lose the popular vote but win the election by carrying key states. This happened in 2000 (Bush) and 2016 (Trump). It results from winner-take-all state rules and unequal representation.',
+            solution: 'The Electoral College can produce presidents who lose the popular vote but win the election by carrying key states. This happened in 2000 (Bush) and 2016 (Trump). It results from winner-take-all state rules and unequal representation.',
+          },
+          {
+            id: 'engelsk-vg1-9-3-n-quiz3-q1',
+            task: 'Why do presidential campaigns focus on "swing states"?',
+            options: [
+              { id: 'a', text: 'Swing states have the most people', isCorrect: false },
+              { id: 'b', text: 'Swing states could go either way, making them decisive in the Electoral College', isCorrect: true },
+              { id: 'c', text: 'Only swing states are allowed to vote', isCorrect: false },
+              { id: 'd', text: 'Swing states have different voting rules', isCorrect: false },
+            ],
+            solution: 'Since most states reliably vote for one party, campaigns focus on "swing states" that could go either way. This means a voter in Ohio or Pennsylvania matters more than one in reliably Democratic California or Republican Texas.',
+          },
+        ],
       },
     },
     {
@@ -1683,15 +2486,33 @@ The result is a country where basic facts are disputed, where cooperation is pun
         id: 'engelsk-vg1-9-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What contributes to American political polarization?',
-        options: [
+        task: 'Test yourself on political polarization:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-3-n-quiz4-q0',
+            task: 'What contributes to American political polarization?',
+            options: [
           { id: 'a', text: 'Americans all watching the same news sources', isCorrect: false },
           { id: 'b', text: 'Partisan media, geographic sorting, and politics becoming tied to identity', isCorrect: true },
           { id: 'c', text: 'Too many political parties competing', isCorrect: false },
           { id: 'd', text: 'Constitutional requirements for disagreement', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Multiple factors drive polarization: partisan media creating separate information worlds, geographic sorting so people rarely encounter different views, primary elections pushing candidates to extremes, and politics becoming tied to personal identity.',
+            solution: 'Multiple factors drive polarization: partisan media creating separate information worlds, geographic sorting so people rarely encounter different views, primary elections pushing candidates to extremes, and politics becoming tied to personal identity.',
+          },
+          {
+            id: 'engelsk-vg1-9-3-n-quiz4-q1',
+            task: 'What role does "geographic sorting" play in polarization?',
+            options: [
+              { id: 'a', text: 'Americans are moving to smaller states', isCorrect: false },
+              { id: 'b', text: 'People increasingly live near others who share their political views', isCorrect: true },
+              { id: 'c', text: 'Geography has no effect on politics', isCorrect: false },
+              { id: 'd', text: 'Rural and urban areas have identical voting patterns', isCorrect: false },
+            ],
+            solution: 'Americans have increasingly moved to places where people share their political views. Cities are overwhelmingly Democratic; rural areas overwhelmingly Republican. People encounter fewer neighbors with different views, reinforcing their existing beliefs.',
+          },
+        ],
       },
     },
     {
@@ -1722,15 +2543,33 @@ These divisions reflect deeper disagreements about what America is and should be
         id: 'engelsk-vg1-9-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What happened on January 6, 2021?',
-        options: [
+        task: 'Test yourself on current American issues:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-3-n-quiz5-q0',
+            task: 'What happened on January 6, 2021?',
+            options: [
           { id: 'a', text: 'A peaceful transfer of power after the election', isCorrect: false },
           { id: 'b', text: 'Trump supporters attacked the Capitol to try to overturn the election', isCorrect: true },
           { id: 'c', text: 'Congress passed major healthcare reform', isCorrect: false },
           { id: 'd', text: 'The Supreme Court made a major ruling', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'On January 6, 2021, supporters of President Trump attacked the US Capitol while Congress was certifying Joe Biden\'s election victory. The event raised serious concerns about American democracy and remains deeply divisive.',
+            solution: 'On January 6, 2021, supporters of President Trump attacked the US Capitol while Congress was certifying Joe Biden\'s election victory. The event raised serious concerns about American democracy and remains deeply divisive.',
+          },
+          {
+            id: 'engelsk-vg1-9-3-n-quiz5-q1',
+            task: 'What happened to abortion law in America after 2022?',
+            options: [
+              { id: 'a', text: 'Abortion was banned nationwide', isCorrect: false },
+              { id: 'b', text: 'The Supreme Court overturned Roe v. Wade, returning abortion law to individual states', isCorrect: true },
+              { id: 'c', text: 'Abortion was made legal in all states', isCorrect: false },
+              { id: 'd', text: 'Congress passed a national abortion law', isCorrect: false },
+            ],
+            solution: 'After the Supreme Court overturned Roe v. Wade in 2022, abortion law returned to individual states. Some have banned it almost entirely while others have protected it, creating a patchwork of laws across the country.',
+          },
+        ],
       },
     },
     {
@@ -1819,15 +2658,33 @@ But nativist reactions recur. Fear of immigrants - as economic competitors, cult
         id: 'engelsk-vg1-9-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What was the Chinese Exclusion Act?',
-        options: [
+        task: 'Test yourself on American immigration history:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-4-n-quiz1-q0',
+            task: 'What was the Chinese Exclusion Act?',
+            options: [
           { id: 'a', text: 'A law welcoming Chinese immigrants', isCorrect: false },
           { id: 'b', text: 'The first US law to ban immigration based on nationality', isCorrect: true },
           { id: 'c', text: 'A trade agreement with China', isCorrect: false },
           { id: 'd', text: 'A law giving Chinese Americans voting rights', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Chinese Exclusion Act (1882) was the first US law to ban immigration based on nationality. It prohibited Chinese laborers from entering America and prevented Chinese residents from becoming citizens. It lasted until 1943.',
+            solution: 'The Chinese Exclusion Act (1882) was the first US law to ban immigration based on nationality. It prohibited Chinese laborers from entering America and prevented Chinese residents from becoming citizens. It lasted until 1943.',
+          },
+          {
+            id: 'engelsk-vg1-9-4-n-quiz1-q1',
+            task: 'What happened to Japanese Americans during World War II?',
+            options: [
+              { id: 'a', text: 'They were honored for their military service', isCorrect: false },
+              { id: 'b', text: 'They were imprisoned in internment camps despite being citizens', isCorrect: true },
+              { id: 'c', text: 'They were deported to Japan', isCorrect: false },
+              { id: 'd', text: 'They faced no discrimination during the war', isCorrect: false },
+            ],
+            solution: 'Japanese Americans were imprisoned in internment camps during WWII despite being American citizens. This was one of the worst violations of civil liberties in American history, driven by racial prejudice and wartime hysteria.',
+          },
+        ],
       },
     },
     {
@@ -1856,15 +2713,33 @@ These categories are social constructions, but they have real consequences. Race
         id: 'engelsk-vg1-9-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why were Irish and Italian immigrants not always considered "white"?',
-        options: [
+        task: 'Test yourself on race in America:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-4-n-quiz2-q0',
+            task: 'Why were Irish and Italian immigrants not always considered "white"?',
+            options: [
           { id: 'a', text: 'They had different skin colors than other Europeans', isCorrect: false },
           { id: 'b', text: 'Whiteness is a social construction whose boundaries have shifted over time', isCorrect: true },
           { id: 'c', text: 'They refused to identify as white', isCorrect: false },
           { id: 'd', text: 'The US government classified them differently', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Race is socially constructed, not biologically fixed. Irish, Italians, and Jews were initially seen as racially different from Anglo-Protestants. They "became white" as boundaries shifted and new groups (like later immigrants) were excluded instead.',
+            solution: 'Race is socially constructed, not biologically fixed. Irish, Italians, and Jews were initially seen as racially different from Anglo-Protestants. They "became white" as boundaries shifted and new groups (like later immigrants) were excluded instead.',
+          },
+          {
+            id: 'engelsk-vg1-9-4-n-quiz2-q1',
+            task: 'What is the "model minority" stereotype applied to Asian Americans?',
+            options: [
+              { id: 'a', text: 'That they are the smallest minority group', isCorrect: false },
+              { id: 'b', text: 'That they are hardworking, successful, and quiet - obscuring actual diversity', isCorrect: true },
+              { id: 'c', text: 'That they prefer to live separately from other groups', isCorrect: false },
+              { id: 'd', text: 'That they all speak the same language', isCorrect: false },
+            ],
+            solution: 'The "model minority" stereotype portrays Asian Americans as uniformly hardworking and successful. This obscures the huge diversity within the group and creates its own problems, including pressure to conform and denial of struggles.',
+          },
+        ],
       },
     },
     {
@@ -1891,15 +2766,33 @@ Americans are divided. Surveys show that while most value diversity in principle
         id: 'engelsk-vg1-9-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is the difference between "melting pot" and "salad bowl" models?',
-        options: [
+        task: 'Test yourself on diversity models:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-4-n-quiz3-q0',
+            task: 'What is the difference between "melting pot" and "salad bowl" models?',
+            options: [
           { id: 'a', text: 'They refer to different cooking traditions', isCorrect: false },
           { id: 'b', text: 'Melting pot expects assimilation into one culture; salad bowl allows maintaining distinct identities', isCorrect: true },
           { id: 'c', text: 'Salad bowl is the older model; melting pot is newer', isCorrect: false },
           { id: 'd', text: 'There is no real difference between them', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The "melting pot" expects immigrants to assimilate into a unified American culture, giving up old identities. The "salad bowl" allows groups to maintain distinct cultures while contributing to diversity. Both models shape debates about immigration and identity.',
+            solution: 'The "melting pot" expects immigrants to assimilate into a unified American culture, giving up old identities. The "salad bowl" allows groups to maintain distinct cultures while contributing to diversity. Both models shape debates about immigration and identity.',
+          },
+          {
+            id: 'engelsk-vg1-9-4-n-quiz3-q1',
+            task: 'What was "Americanization" in early 20th-century schools?',
+            options: [
+              { id: 'a', text: 'Teaching American history to all students', isCorrect: false },
+              { id: 'b', text: 'Deliberately teaching immigrants to abandon their old cultures and adopt American ways', isCorrect: true },
+              { id: 'c', text: 'Celebrating diverse cultures in the classroom', isCorrect: false },
+              { id: 'd', text: 'Teaching English as a second language', isCorrect: false },
+            ],
+            solution: 'Public schools deliberately taught "Americanization," expecting immigrants to give up their old languages, customs, and identities. Immigrants often anglicized their names. This "melting pot" approach was dominant for much of American history.',
+          },
+        ],
       },
     },
     {
@@ -1930,15 +2823,33 @@ But influence flows both ways. American culture itself absorbs global influences
         id: 'engelsk-vg1-9-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is "soft power"?',
-        options: [
+        task: 'Test yourself on American cultural influence:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-4-n-quiz4-q0',
+            task: 'What is "soft power"?',
+            options: [
           { id: 'a', text: 'Military force used carefully', isCorrect: false },
           { id: 'b', text: 'Cultural and economic influence that shapes preferences without coercion', isCorrect: true },
           { id: 'c', text: 'A type of renewable energy', isCorrect: false },
           { id: 'd', text: 'Diplomatic negotiations', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Soft power refers to cultural, economic, and ideological influence that shapes other countries\' preferences without force. American soft power comes from entertainment, technology, language, and lifestyle that spread globally.',
+            solution: 'Soft power refers to cultural, economic, and ideological influence that shapes other countries\' preferences without force. American soft power comes from entertainment, technology, language, and lifestyle that spread globally.',
+          },
+          {
+            id: 'engelsk-vg1-9-4-n-quiz4-q1',
+            task: 'Which American tech companies dominate the digital world?',
+            options: [
+              { id: 'a', text: 'Sony, Samsung, and Huawei', isCorrect: false },
+              { id: 'b', text: 'Google, Apple, Meta, Amazon, and Microsoft', isCorrect: true },
+              { id: 'c', text: 'Toyota, Volkswagen, and Shell', isCorrect: false },
+              { id: 'd', text: 'BBC, Spotify, and Nokia', isCorrect: false },
+            ],
+            solution: 'American tech giants - Google, Apple, Facebook/Meta, Amazon, and Microsoft - dominate the digital world, shaping how people worldwide communicate, learn, and consume. Their platforms are a major source of American soft power.',
+          },
+        ],
       },
     },
     {
@@ -1969,15 +2880,33 @@ Some see diversity as America's greatest strength, the source of creativity and 
         id: 'engelsk-vg1-9-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What demographic change is making America a "majority-minority" nation?',
-        options: [
+        task: 'Test yourself on America\'s demographic change:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-9-4-n-quiz5-q0',
+            task: 'What demographic change is making America a "majority-minority" nation?',
+            options: [
           { id: 'a', text: 'The population is getting younger', isCorrect: false },
           { id: 'b', text: 'More Americans are moving to cities', isCorrect: false },
           { id: 'c', text: 'No single racial group will form a majority as the white population declines relative to others', isCorrect: true },
           { id: 'd', text: 'Immigration has stopped entirely', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'America is becoming "majority-minority" as the white population share declines (and in 2021, its absolute numbers). By around 2045, no single racial group is projected to be a majority. This demographic shift shapes politics and culture.',
+            solution: 'America is becoming "majority-minority" as the white population share declines (and in 2021, its absolute numbers). By around 2045, no single racial group is projected to be a majority. This demographic shift shapes politics and culture.',
+          },
+          {
+            id: 'engelsk-vg1-9-4-n-quiz5-q1',
+            task: 'By around what year is America projected to become "majority-minority"?',
+            options: [
+              { id: 'a', text: '2025', isCorrect: false },
+              { id: 'b', text: '2045', isCorrect: true },
+              { id: 'c', text: '2075', isCorrect: false },
+              { id: 'd', text: '2100', isCorrect: false },
+            ],
+            solution: 'By around 2045, no single racial group is projected to be a majority in America. The 2021 Census already showed the white population declining in absolute numbers. This demographic shift is reshaping politics and culture.',
+          },
+        ],
       },
     },
     {
@@ -2060,15 +2989,44 @@ Today, Aboriginal Australians are about 3% of the population. They have the wors
         id: 'engelsk-vg1-10-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What does "terra nullius" mean and why does it matter?',
-        options: [
+        task: 'Test yourself on Australian history:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-1-n-quiz1-q0',
+            task: 'What does "terra nullius" mean and why does it matter?',
+            options: [
           { id: 'a', text: 'It means "beautiful land" and was a compliment to Australia', isCorrect: false },
           { id: 'b', text: 'It means "empty land" and was used to justify taking Aboriginal land without treaties', isCorrect: true },
           { id: 'c', text: 'It means "prison colony" and refers to Australia\'s convict history', isCorrect: false },
           { id: 'd', text: 'It means "isolated continent" and describes Australia\'s geography', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Terra nullius (Latin for "land belonging to no one") was the legal fiction Britain used to claim Australia. By declaring the land empty despite 65,000 years of Aboriginal habitation, they avoided treaties and any recognition of Aboriginal ownership.',
+            solution: 'Terra nullius (Latin for "land belonging to no one") was the legal fiction Britain used to claim Australia. By declaring the land empty despite 65,000 years of Aboriginal habitation, they avoided treaties and any recognition of Aboriginal ownership.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz1-q1',
+            task: 'How long have Aboriginal Australians lived on the continent?',
+            options: [
+              { id: 'a', text: 'About 5,000 years', isCorrect: false },
+              { id: 'b', text: 'At least 65,000 years', isCorrect: true },
+              { id: 'c', text: 'About 1,000 years', isCorrect: false },
+              { id: 'd', text: 'About 20,000 years', isCorrect: false },
+            ],
+            solution: 'Aboriginal Australians arrived at least 65,000 years ago, making theirs the oldest continuous culture on Earth. When Europeans arrived in the 1770s, they found hundreds of distinct language groups and complex spiritual traditions.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz1-q2',
+            task: 'What were the "Stolen Generations"?',
+            options: [
+              { id: 'a', text: 'Convicts transported from Britain to Australia', isCorrect: false },
+              { id: 'b', text: 'Aboriginal children forcibly removed from their families to be raised in white institutions', isCorrect: true },
+              { id: 'c', text: 'Australian soldiers lost in World War I', isCorrect: false },
+              { id: 'd', text: 'Immigrants who returned to their home countries', isCorrect: false },
+            ],
+            solution: 'The "Stolen Generations" policy (roughly 1910-1970) forcibly removed Aboriginal children from their families to be raised in white institutions or families, erasing cultural connections. This constituted cultural genocide.',
+          },
+        ],
       },
     },
     {
@@ -2093,15 +3051,33 @@ Yet Australia remains remarkably successful by most measures - prosperous, democ
         id: 'engelsk-vg1-10-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What happened to the 2023 Aboriginal "Voice to Parliament" referendum?',
-        options: [
+        task: 'Test yourself on modern Australia:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-1-n-quiz2-q0',
+            task: 'What happened to the 2023 Aboriginal "Voice to Parliament" referendum?',
+            options: [
           { id: 'a', text: 'It passed with overwhelming support', isCorrect: false },
           { id: 'b', text: 'It was rejected by voters, revealing divisions over addressing colonial history', isCorrect: true },
           { id: 'c', text: 'It was cancelled before voting could occur', isCorrect: false },
           { id: 'd', text: 'Only Aboriginal people were allowed to vote on it', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The 2023 referendum to create an Aboriginal advisory body ("Voice to Parliament") was rejected by Australian voters. The defeat revealed deep divisions about how - or whether - to give Aboriginal peoples a formal role in policies affecting them.',
+            solution: 'The 2023 referendum to create an Aboriginal advisory body ("Voice to Parliament") was rejected by Australian voters. The defeat revealed deep divisions about how - or whether - to give Aboriginal peoples a formal role in policies affecting them.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz2-q1',
+            task: 'What percentage of Australians were born overseas?',
+            options: [
+              { id: 'a', text: 'About 5%', isCorrect: false },
+              { id: 'b', text: 'About 30%', isCorrect: true },
+              { id: 'c', text: 'About 50%', isCorrect: false },
+              { id: 'd', text: 'About 10%', isCorrect: false },
+            ],
+            solution: 'About 30% of Australians were born overseas, making it one of the world\'s most multicultural societies. Post-WWII immigration from Italy, Greece, Vietnam, China, India, and others transformed the population.',
+          },
+        ],
       },
     },
     {
@@ -2124,15 +3100,33 @@ Today, Maori are about 17% of New Zealand's population - a much larger proportio
         id: 'engelsk-vg1-10-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Why was the Treaty of Waitangi significant?',
-        options: [
+        task: 'Test yourself on New Zealand:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-1-n-quiz3-q0',
+            task: 'Why was the Treaty of Waitangi significant?',
+            options: [
           { id: 'a', text: 'It ended all conflict between Maori and British', isCorrect: false },
           { id: 'b', text: 'It acknowledged Maori presence and (in theory) protected their rights, forming New Zealand\'s founding document', isCorrect: true },
           { id: 'c', text: 'It was signed between New Zealand and Australia', isCorrect: false },
           { id: 'd', text: 'It established New Zealand as a republic', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Treaty of Waitangi (1840) was New Zealand\'s founding document, signed between the British Crown and Maori chiefs. Unlike Australia\'s terra nullius, it acknowledged Maori existence and rights. Though often violated, it remains a basis for Maori claims today.',
+            solution: 'The Treaty of Waitangi (1840) was New Zealand\'s founding document, signed between the British Crown and Maori chiefs. Unlike Australia\'s terra nullius, it acknowledged Maori existence and rights. Though often violated, it remains a basis for Maori claims today.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz3-q1',
+            task: 'What problem arose from the Treaty of Waitangi?',
+            options: [
+              { id: 'a', text: 'Maori refused to sign it', isCorrect: false },
+              { id: 'b', text: 'The English and Maori versions differed significantly', isCorrect: true },
+              { id: 'c', text: 'It was destroyed in a fire', isCorrect: false },
+              { id: 'd', text: 'Britain never signed its version', isCorrect: false },
+            ],
+            solution: 'The English and Maori versions of the Treaty differed significantly in key areas like sovereignty and land rights. These differences, combined with settlers ignoring treaty provisions, led to wars and land confiscation.',
+          },
+        ],
       },
     },
     {
@@ -2157,15 +3151,33 @@ New Zealand faces challenges: housing affordability, inequality, and the ongoing
         id: 'engelsk-vg1-10-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What social achievement makes New Zealand historically significant?',
-        options: [
+        task: 'Test yourself on modern New Zealand:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-1-n-quiz4-q0',
+            task: 'What social achievement makes New Zealand historically significant?',
+            options: [
           { id: 'a', text: 'It was the first country to achieve full literacy', isCorrect: false },
           { id: 'b', text: 'It was the first country to give women the right to vote (1893)', isCorrect: true },
           { id: 'c', text: 'It was the first country to abolish all taxes', isCorrect: false },
           { id: 'd', text: 'It was the first country to leave the British Empire', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'New Zealand was the first self-governing country to grant women the right to vote, in 1893. This pioneering achievement reflects New Zealand\'s reputation for progressive social policies.',
+            solution: 'New Zealand was the first self-governing country to grant women the right to vote, in 1893. This pioneering achievement reflects New Zealand\'s reputation for progressive social policies.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz4-q1',
+            task: 'What environmental policy set New Zealand apart from the United States?',
+            options: [
+              { id: 'a', text: 'New Zealand built the most nuclear power plants per capita', isCorrect: false },
+              { id: 'b', text: 'New Zealand banned nuclear-armed ships from its waters in 1984', isCorrect: true },
+              { id: 'c', text: 'New Zealand eliminated all carbon emissions', isCorrect: false },
+              { id: 'd', text: 'New Zealand banned all imports from the US', isCorrect: false },
+            ],
+            solution: 'New Zealand banned nuclear-armed ships from its waters in 1984, causing a rift with the United States. The country has no nuclear power and has committed to ambitious climate targets.',
+          },
+        ],
       },
     },
     {
@@ -2198,15 +3210,33 @@ For other countries grappling with indigenous rights - including Norway with the
         id: 'engelsk-vg1-10-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why is New Zealand\'s approach to indigenous rights often seen as more successful than Australia\'s?',
-        options: [
+        task: 'Test yourself on comparing Australia and New Zealand:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-1-n-quiz5-q0',
+            task: 'Why is New Zealand\'s approach to indigenous rights often seen as more successful than Australia\'s?',
+            options: [
           { id: 'a', text: 'New Zealand has fewer indigenous people to worry about', isCorrect: false },
           { id: 'b', text: 'The Treaty of Waitangi provides a legal foundation for addressing grievances that Australia lacks', isCorrect: true },
           { id: 'c', text: 'Australia tried harder but failed anyway', isCorrect: false },
           { id: 'd', text: 'Maori do not want recognition', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Treaty of Waitangi, despite its problems, provides a legal basis for Maori claims that Australia\'s terra nullius doctrine denied Aboriginal peoples. This foundation, plus larger Maori demographic weight, has enabled greater recognition and reconciliation.',
+            solution: 'The Treaty of Waitangi, despite its problems, provides a legal basis for Maori claims that Australia\'s terra nullius doctrine denied Aboriginal peoples. This foundation, plus larger Maori demographic weight, has enabled greater recognition and reconciliation.',
+          },
+          {
+            id: 'engelsk-vg1-10-1-n-quiz5-q1',
+            task: 'What is the haka, and what does its use by the All Blacks rugby team demonstrate?',
+            options: [
+              { id: 'a', text: 'A British song adopted by New Zealand', isCorrect: false },
+              { id: 'b', text: 'A Maori ceremonial war dance, showing Maori culture is central to national identity', isCorrect: true },
+              { id: 'c', text: 'An Aboriginal Australian dance performed at cricket matches', isCorrect: false },
+              { id: 'd', text: 'A modern dance created by the rugby team', isCorrect: false },
+            ],
+            solution: 'The haka is a traditional Maori war dance. The fact that New Zealand\'s national rugby team performs it before matches demonstrates how Maori culture has become central to New Zealand\'s national identity.',
+          },
+        ],
       },
     },
     {
@@ -2286,15 +3316,33 @@ Today, Canada is officially bilingual. Federal services are available in both la
         id: 'engelsk-vg1-10-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What happened in the 1995 Quebec referendum?',
-        options: [
+        task: 'Test yourself on Canada\'s two founding nations:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-2-n-quiz1-q0',
+            task: 'What happened in the 1995 Quebec referendum?',
+            options: [
           { id: 'a', text: 'Quebec voted overwhelmingly to remain in Canada', isCorrect: false },
           { id: 'b', text: 'Quebec voted narrowly to become independent', isCorrect: false },
           { id: 'c', text: 'Quebec narrowly voted to remain in Canada, by about 1%', isCorrect: true },
           { id: 'd', text: 'The referendum was cancelled before voting', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'The 1995 referendum on Quebec independence was defeated by just 50.6% to 49.4% - roughly 1%. This extremely close result showed how divided Quebec was and kept the separation question alive in Canadian politics.',
+            solution: 'The 1995 referendum on Quebec independence was defeated by just 50.6% to 49.4% - roughly 1%. This extremely close result showed how divided Quebec was and kept the separation question alive in Canadian politics.',
+          },
+          {
+            id: 'engelsk-vg1-10-2-n-quiz1-q1',
+            task: 'What was Quebec\'s "Quiet Revolution" in the 1960s?',
+            options: [
+              { id: 'a', text: 'A military uprising against the British', isCorrect: false },
+              { id: 'b', text: 'A transformation from conservative, church-dominated society to modern, secular one', isCorrect: true },
+              { id: 'c', text: 'A peaceful separation from Canada', isCorrect: false },
+              { id: 'd', text: 'The adoption of English as Quebec\'s language', isCorrect: false },
+            ],
+            solution: 'The Quiet Revolution transformed Quebec from a conservative, church-dominated society to a modern, secular one. It also sparked separatism that led to independence referendums in 1980 and 1995.',
+          },
+        ],
       },
     },
     {
@@ -2319,15 +3367,33 @@ Today, indigenous peoples are about 5% of Canada's population. They face ongoing
         id: 'engelsk-vg1-10-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What were Canadian residential schools?',
-        options: [
+        task: 'Test yourself on Canadian indigenous peoples:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-2-n-quiz2-q0',
+            task: 'What were Canadian residential schools?',
+            options: [
           { id: 'a', text: 'High-quality boarding schools for indigenous children', isCorrect: false },
           { id: 'b', text: 'Institutions designed to forcibly assimilate indigenous children by destroying their culture', isCorrect: true },
           { id: 'c', text: 'Schools where indigenous and non-indigenous children learned together', isCorrect: false },
           { id: 'd', text: 'Temporary housing during World War II', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Residential schools (1880s-1990s) forcibly removed indigenous children from families to destroy their cultural identity. Children were forbidden to speak their languages and faced widespread abuse. Thousands died. This constitutes a cultural genocide.',
+            solution: 'Residential schools (1880s-1990s) forcibly removed indigenous children from families to destroy their cultural identity. Children were forbidden to speak their languages and faced widespread abuse. Thousands died. This constitutes a cultural genocide.',
+          },
+          {
+            id: 'engelsk-vg1-10-2-n-quiz2-q1',
+            task: 'What was discovered at former residential school sites in 2021?',
+            options: [
+              { id: 'a', text: 'Hidden treasures from the colonial era', isCorrect: false },
+              { id: 'b', text: 'Unmarked graves of indigenous children', isCorrect: true },
+              { id: 'c', text: 'Ancient indigenous artifacts', isCorrect: false },
+              { id: 'd', text: 'Secret government documents', isCorrect: false },
+            ],
+            solution: 'In 2021, unmarked graves were discovered at former residential school sites, sparking national mourning and a renewed reckoning with Canada\'s treatment of indigenous children, thousands of whom died in these institutions.',
+          },
+        ],
       },
     },
     {
@@ -2352,15 +3418,33 @@ But multiculturalism has critics. Some argue it ghettoizes communities rather th
         id: 'engelsk-vg1-10-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is Canada\'s "cultural mosaic" approach to diversity?',
-        options: [
+        task: 'Test yourself on Canadian multiculturalism:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-2-n-quiz3-q0',
+            task: 'What is Canada\'s "cultural mosaic" approach to diversity?',
+            options: [
           { id: 'a', text: 'Requiring immigrants to abandon their original cultures', isCorrect: false },
           { id: 'b', text: 'Allowing different cultures to coexist while maintaining their distinctness', isCorrect: true },
           { id: 'c', text: 'Separating different ethnic groups into different provinces', isCorrect: false },
           { id: 'd', text: 'Teaching all children the same uniform culture', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The "cultural mosaic" (versus American "melting pot") describes Canada\'s approach where different cultures can coexist while maintaining their distinctness. Canada was the first country to adopt official multiculturalism policy (1971).',
+            solution: 'The "cultural mosaic" (versus American "melting pot") describes Canada\'s approach where different cultures can coexist while maintaining their distinctness. Canada was the first country to adopt official multiculturalism policy (1971).',
+          },
+          {
+            id: 'engelsk-vg1-10-2-n-quiz3-q1',
+            task: 'How does Canada select immigrants differently from many other countries?',
+            options: [
+              { id: 'a', text: 'Canada accepts no immigrants at all', isCorrect: false },
+              { id: 'b', text: 'Canada uses a points-based system prioritizing skills and education', isCorrect: true },
+              { id: 'c', text: 'Canada only accepts immigrants from Commonwealth countries', isCorrect: false },
+              { id: 'd', text: 'Canada selects immigrants by lottery', isCorrect: false },
+            ],
+            solution: 'Canada selects immigrants primarily on skills and education rather than family ties, using a points-based system that has been copied worldwide. Canada also accepts more immigrants per capita than almost any other country.',
+          },
+        ],
       },
     },
     {
@@ -2387,15 +3471,33 @@ The relationship has been tested by presidents from Nixon (who called Canada a "
         id: 'engelsk-vg1-10-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'How do Canadians typically distinguish themselves from Americans?',
-        options: [
+        task: 'Test yourself on Canada-US relations:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-2-n-quiz4-q0',
+            task: 'How do Canadians typically distinguish themselves from Americans?',
+            options: [
           { id: 'a', text: 'By speaking a different language', isCorrect: false },
           { id: 'b', text: 'By having universal healthcare, stricter gun laws, and more immigration', isCorrect: true },
           { id: 'c', text: 'By having a completely separate culture with no American influence', isCorrect: false },
           { id: 'd', text: 'By refusing to trade with the United States', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Canadians often define themselves against Americans by pointing to policy differences: universal healthcare, stricter gun control, more welcoming immigration, and less militaristic foreign policy. "We\'re not American" is a key part of Canadian identity.',
+            solution: 'Canadians often define themselves against Americans by pointing to policy differences: universal healthcare, stricter gun control, more welcoming immigration, and less militaristic foreign policy. "We\'re not American" is a key part of Canadian identity.',
+          },
+          {
+            id: 'engelsk-vg1-10-2-n-quiz4-q1',
+            task: 'What is notable about the Canada-US border?',
+            options: [
+              { id: 'a', text: 'It is the most heavily fortified border in the world', isCorrect: false },
+              { id: 'b', text: 'It is the world\'s longest undefended border at 8,891 km', isCorrect: true },
+              { id: 'c', text: 'There is no official border between the two countries', isCorrect: false },
+              { id: 'd', text: 'It was established in 2020', isCorrect: false },
+            ],
+            solution: 'Canada and the US share the world\'s longest undefended border at 8,891 km. They also share the largest bilateral trade relationship and deep cultural ties, though Canadians work hard to distinguish themselves from Americans.',
+          },
+        ],
       },
     },
     {
@@ -2426,15 +3528,33 @@ Perhaps most importantly, Canada shows that a country can be modern, prosperous,
         id: 'engelsk-vg1-10-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why is climate change particularly significant for Canada?',
-        options: [
+        task: 'Test yourself on modern Canada:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-2-n-quiz5-q0',
+            task: 'Why is climate change particularly significant for Canada?',
+            options: [
           { id: 'a', text: 'Canada produces no greenhouse gases', isCorrect: false },
           { id: 'b', text: 'Canada is warming twice as fast as the global average, threatening Arctic communities', isCorrect: true },
           { id: 'c', text: 'Climate change only affects southern Canada', isCorrect: false },
           { id: 'd', text: 'Canada has no ecosystems vulnerable to climate change', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Canada is warming at twice the global average rate. This particularly affects Arctic regions, threatening Inuit communities, wildlife, and ecosystems. It also creates opportunities like Arctic shipping routes but poses challenges for national planning.',
+            solution: 'Canada is warming at twice the global average rate. This particularly affects Arctic regions, threatening Inuit communities, wildlife, and ecosystems. It also creates opportunities like Arctic shipping routes but poses challenges for national planning.',
+          },
+          {
+            id: 'engelsk-vg1-10-2-n-quiz5-q1',
+            task: 'What housing challenge does Canada face?',
+            options: [
+              { id: 'a', text: 'There are too many houses available', isCorrect: false },
+              { id: 'b', text: 'Major cities like Toronto and Vancouver have become unaffordable', isCorrect: true },
+              { id: 'c', text: 'Most Canadians prefer to rent rather than own', isCorrect: false },
+              { id: 'd', text: 'Housing is only a problem in rural areas', isCorrect: false },
+            ],
+            solution: 'Major cities like Toronto and Vancouver have become unaffordable, with immigration adding pressure on housing. Young Canadians struggle to buy homes their parents took for granted.',
+          },
+        ],
       },
     },
     {
@@ -2521,15 +3641,33 @@ Indian English has its own vocabulary ("prepone" for moving earlier, "do the nee
         id: 'engelsk-vg1-10-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Why did India keep English after independence?',
-        options: [
+        task: 'Test yourself on English in India:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-3-n-quiz1-q0',
+            task: 'Why did India keep English after independence?',
+            options: [
           { id: 'a', text: 'Indians preferred English to their own languages', isCorrect: false },
           { id: 'b', text: 'English was a neutral compromise since southern states resisted Hindi dominance', isCorrect: true },
           { id: 'c', text: 'Britain required India to keep English', isCorrect: false },
           { id: 'd', text: 'Hindi was not widely spoken enough', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'When southern states (Tamil Nadu, etc.) resisted Hindi becoming the sole national language, English served as a "neutral" compromise. No Indian region claims English as its own, making it acceptable across the country\'s linguistic diversity.',
+            solution: 'When southern states (Tamil Nadu, etc.) resisted Hindi becoming the sole national language, English served as a "neutral" compromise. No Indian region claims English as its own, making it acceptable across the country\'s linguistic diversity.',
+          },
+          {
+            id: 'engelsk-vg1-10-3-n-quiz1-q1',
+            task: 'What is "Hinglish"?',
+            options: [
+              { id: 'a', text: 'A formal academic language used in Indian universities', isCorrect: false },
+              { id: 'b', text: 'A mix of Hindi and English common in urban India', isCorrect: true },
+              { id: 'c', text: 'The official language of India', isCorrect: false },
+              { id: 'd', text: 'An ancient Indian language predating Hindi', isCorrect: false },
+            ],
+            solution: 'Hinglish is a mix of Hindi and English commonly used in urban India. It represents how Indian speakers have made English their own, blending it with local languages in everyday conversation.',
+          },
+        ],
       },
     },
     {
@@ -2556,15 +3694,33 @@ The challenge is balancing English's practical benefits (global communication, e
         id: 'engelsk-vg1-10-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why is English the only official language in Nigeria despite 500+ indigenous languages?',
-        options: [
+        task: 'Test yourself on English in Africa:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-3-n-quiz2-q0',
+            task: 'Why is English the only official language in Nigeria despite 500+ indigenous languages?',
+            options: [
           { id: 'a', text: 'Nigerians do not want to use their own languages', isCorrect: false },
           { id: 'b', text: 'No single Nigerian language has a majority, so English serves as neutral link', isCorrect: true },
           { id: 'c', text: 'Britain still controls Nigerian language policy', isCorrect: false },
           { id: 'd', text: 'Nigerian languages have no written forms', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'With over 500 languages and no single majority, Nigeria uses English as a "neutral" link language. Choosing any Nigerian language would advantage that ethnic group. English, while colonial, does not belong to any Nigerian group.',
+            solution: 'With over 500 languages and no single majority, Nigeria uses English as a "neutral" link language. Choosing any Nigerian language would advantage that ethnic group. English, while colonial, does not belong to any Nigerian group.',
+          },
+          {
+            id: 'engelsk-vg1-10-3-n-quiz2-q1',
+            task: 'Who are Chinua Achebe and Chimamanda Ngozi Adichie?',
+            options: [
+              { id: 'a', text: 'Nigerian political leaders', isCorrect: false },
+              { id: 'b', text: 'World-renowned Nigerian writers who produced literature in English', isCorrect: true },
+              { id: 'c', text: 'South African anti-apartheid activists', isCorrect: false },
+              { id: 'd', text: 'Kenyan language teachers', isCorrect: false },
+            ],
+            solution: 'Chinua Achebe and Chimamanda Ngozi Adichie are world-renowned Nigerian writers who have produced critically acclaimed literature in English, incorporating African rhythms and perspectives.',
+          },
+        ],
       },
     },
     {
@@ -2591,15 +3747,33 @@ Across the region, English ability correlates with economic opportunity. This cr
         id: 'engelsk-vg1-10-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is "Singlish"?',
-        options: [
+        task: 'Test yourself on English in Southeast Asia:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-3-n-quiz3-q0',
+            task: 'What is "Singlish"?',
+            options: [
           { id: 'a', text: 'The formal English taught in Singapore schools', isCorrect: false },
           { id: 'b', text: 'A distinctive variety of English mixing with Chinese and Malay, used informally', isCorrect: true },
           { id: 'c', text: 'The official language of Singapore', isCorrect: false },
           { id: 'd', text: 'A completely separate language unrelated to English', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Singlish is Singapore\'s informal variety of English that mixes English with Mandarin, Malay, and Tamil. It has distinctive grammar, vocabulary, and pronunciation. While not used in formal settings, it is a marker of Singaporean identity.',
+            solution: 'Singlish is Singapore\'s informal variety of English that mixes English with Mandarin, Malay, and Tamil. It has distinctive grammar, vocabulary, and pronunciation. While not used in formal settings, it is a marker of Singaporean identity.',
+          },
+          {
+            id: 'engelsk-vg1-10-3-n-quiz3-q1',
+            task: 'Why does the Philippines export English-speaking workers worldwide?',
+            options: [
+              { id: 'a', text: 'The Philippines has too many workers', isCorrect: false },
+              { id: 'b', text: 'American colonialism (1898-1946) established English-medium education', isCorrect: true },
+              { id: 'c', text: 'The Philippines is a native English-speaking country', isCorrect: false },
+              { id: 'd', text: 'Other countries require Filipino workers by law', isCorrect: false },
+            ],
+            solution: 'American colonialism (1898-1946) established English-medium education in the Philippines. Today, the Philippines exports English-speaking workers worldwide - nurses, teachers, and call center workers.',
+          },
+        ],
       },
     },
     {
@@ -2630,15 +3804,33 @@ However, power dynamics persist. Academic journals often require "standard" (Bri
         id: 'engelsk-vg1-10-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'According to the "World Englishes" model, is Indian English "broken" English?',
-        options: [
+        task: 'Test yourself on World Englishes:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-3-n-quiz4-q0',
+            task: 'According to the "World Englishes" model, is Indian English "broken" English?',
+            options: [
           { id: 'a', text: 'Yes, it deviates from correct British English', isCorrect: false },
           { id: 'b', text: 'No, it is a legitimate variety with its own rules', isCorrect: true },
           { id: 'c', text: 'Only if spoken by uneducated people', isCorrect: false },
           { id: 'd', text: 'It depends on British approval', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The World Englishes model recognizes Indian English as a legitimate variety that developed its own rules over 200 years. It is not "broken" British English - it is a distinct variety with its own vocabulary, grammar, and pronunciation norms.',
+            solution: 'The World Englishes model recognizes Indian English as a legitimate variety that developed its own rules over 200 years. It is not "broken" British English - it is a distinct variety with its own vocabulary, grammar, and pronunciation norms.',
+          },
+          {
+            id: 'engelsk-vg1-10-3-n-quiz4-q1',
+            task: 'What are the three circles in Kachru\'s World Englishes model?',
+            options: [
+              { id: 'a', text: 'Small, medium, and large English-speaking countries', isCorrect: false },
+              { id: 'b', text: 'Inner Circle (native speakers), Outer Circle (former colonies), Expanding Circle (foreign language learners)', isCorrect: true },
+              { id: 'c', text: 'British, American, and Australian English', isCorrect: false },
+              { id: 'd', text: 'Formal, informal, and slang English', isCorrect: false },
+            ],
+            solution: 'Kachru\'s model divides English use into Inner Circle (native language countries like UK, USA), Outer Circle (former colonies like India, Nigeria), and Expanding Circle (foreign language countries like Norway, China).',
+          },
+        ],
       },
     },
     {
@@ -2673,15 +3865,33 @@ For countries like Norway, this might seem distant. But consider: Norway increas
         id: 'engelsk-vg1-10-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why did Ngugi wa Thiong\'o stop writing in English?',
-        options: [
+        task: 'Test yourself on the English debate:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-3-n-quiz5-q0',
+            task: 'Why did Ngugi wa Thiong\'o stop writing in English?',
+            options: [
           { id: 'a', text: 'He forgot how to write in English', isCorrect: false },
           { id: 'b', text: 'He believed writing in colonial languages perpetuates mental colonization', isCorrect: true },
           { id: 'c', text: 'English publishers refused to print his books', isCorrect: false },
           { id: 'd', text: 'Kenyan law required writing in Gikuyu', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Ngugi wa Thiong\'o argued that African writers using English perpetuate "mental colonization." By writing in Gikuyu (his mother tongue), he asserted African cultural independence. This contrasts with Chinua Achebe\'s choice to write in English.',
+            solution: 'Ngugi wa Thiong\'o argued that African writers using English perpetuate "mental colonization." By writing in Gikuyu (his mother tongue), he asserted African cultural independence. This contrasts with Chinua Achebe\'s choice to write in English.',
+          },
+          {
+            id: 'engelsk-vg1-10-3-n-quiz5-q1',
+            task: 'How did Chinua Achebe and Ngugi wa Thiong\'o differ in their approach to language?',
+            options: [
+              { id: 'a', text: 'Both wrote only in English', isCorrect: false },
+              { id: 'b', text: 'Achebe chose to write in English to reach wider audiences; Ngugi abandoned English for Gikuyu to resist "mental colonization"', isCorrect: true },
+              { id: 'c', text: 'Both wrote only in African languages', isCorrect: false },
+              { id: 'd', text: 'Neither wrote in English', isCorrect: false },
+            ],
+            solution: 'Achebe chose to write in English, arguing he could shape the language to express African experience. Ngugi abandoned English for Gikuyu, arguing that writing in colonial languages perpetuates "mental colonization." Their debate continues today.',
+          },
+        ],
       },
     },
     {
@@ -2768,15 +3978,33 @@ Today, indigenous peoples across the English-speaking world face similar challen
         id: 'engelsk-vg1-10-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What do "Stolen Generations" (Australia) and "residential schools" (Canada/US) have in common?',
-        options: [
+        task: 'Test yourself on indigenous experiences:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-4-n-quiz1-q0',
+            task: 'What do "Stolen Generations" (Australia) and "residential schools" (Canada/US) have in common?',
+            options: [
           { id: 'a', text: 'Both were high-quality educational institutions', isCorrect: false },
           { id: 'b', text: 'Both involved forcibly removing indigenous children to destroy their cultural identity', isCorrect: true },
           { id: 'c', text: 'Both were programs to teach indigenous languages', isCorrect: false },
           { id: 'd', text: 'Both were created by indigenous peoples themselves', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Both policies forcibly removed indigenous children from their families with the goal of eliminating indigenous cultures. Children were forbidden to speak their languages or practice their cultures. These policies constituted cultural genocide.',
+            solution: 'Both policies forcibly removed indigenous children from their families with the goal of eliminating indigenous cultures. Children were forbidden to speak their languages or practice their cultures. These policies constituted cultural genocide.',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz1-q1',
+            task: 'What common policy goal was expressed as "kill the Indian in the child"?',
+            options: [
+              { id: 'a', text: 'Teaching indigenous children military skills', isCorrect: false },
+              { id: 'b', text: 'Forcibly assimilating indigenous children by destroying their cultural identity', isCorrect: true },
+              { id: 'c', text: 'Protecting indigenous children from disease', isCorrect: false },
+              { id: 'd', text: 'Giving indigenous children equal educational opportunities', isCorrect: false },
+            ],
+            solution: 'The phrase "kill the Indian, save the man" was the explicit goal of boarding and residential schools across the English-speaking world. Children were forbidden to speak their languages or practice their cultures.',
+          },
+        ],
       },
     },
     {
@@ -2805,15 +4033,44 @@ Each country's approach reflects its particular history, but all grapple with ho
         id: 'engelsk-vg1-10-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Which country has no treaty with its indigenous peoples?',
-        options: [
+        task: 'Test yourself on indigenous peoples by country:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-4-n-quiz2-q0',
+            task: 'Which country has no treaty with its indigenous peoples?',
+            options: [
           { id: 'a', text: 'New Zealand', isCorrect: false },
           { id: 'b', text: 'Canada', isCorrect: false },
           { id: 'c', text: 'Australia', isCorrect: true },
           { id: 'd', text: 'United States', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Australia declared its territory "terra nullius" (empty land) and never signed treaties with Aboriginal peoples. This contrasts with New Zealand (Treaty of Waitangi), Canada (numerous treaties), and the US (many treaties, though often violated).',
+            solution: 'Australia declared its territory "terra nullius" (empty land) and never signed treaties with Aboriginal peoples. This contrasts with New Zealand (Treaty of Waitangi), Canada (numerous treaties), and the US (many treaties, though often violated).',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz2-q1',
+            task: 'How many federally recognized tribes exist in the United States?',
+            options: [
+              { id: 'a', text: 'About 50', isCorrect: false },
+              { id: 'b', text: '574 tribes with about 6 million people', isCorrect: true },
+              { id: 'c', text: 'About 1,000 tribes', isCorrect: false },
+              { id: 'd', text: 'Only 10 tribes remain', isCorrect: false },
+            ],
+            solution: 'There are 574 federally recognized tribes in the US with about 6 million people. They face issues including sovereignty rights, sacred site protection, and persistent poverty on reservations.',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz2-q2',
+            task: 'What percentage of New Zealand\'s population is Maori?',
+            options: [
+              { id: 'a', text: 'About 3%', isCorrect: false },
+              { id: 'b', text: 'About 17%', isCorrect: true },
+              { id: 'c', text: 'About 5%', isCorrect: false },
+              { id: 'd', text: 'About 50%', isCorrect: false },
+            ],
+            solution: 'Maori are about 17% of New Zealand\'s population - a much larger proportion than Aboriginal Australians (3%) or Canadian indigenous peoples (5%). This demographic weight gives Maori more political influence.',
+          },
+        ],
       },
     },
     {
@@ -2849,15 +4106,33 @@ Key concepts in indigenous rights:
         id: 'engelsk-vg1-10-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Which four countries initially voted against the UN Declaration on the Rights of Indigenous Peoples?',
-        options: [
+        task: 'Test yourself on international indigenous rights:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-4-n-quiz3-q0',
+            task: 'Which four countries initially voted against the UN Declaration on the Rights of Indigenous Peoples?',
+            options: [
           { id: 'a', text: 'Britain, France, Germany, and Spain', isCorrect: false },
           { id: 'b', text: 'United States, Canada, Australia, and New Zealand', isCorrect: true },
           { id: 'c', text: 'India, China, Japan, and Brazil', isCorrect: false },
           { id: 'd', text: 'Russia, Norway, Sweden, and Finland', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The four English-speaking settler states initially opposed UNDRIP, likely because of concerns about land claims and self-determination implications. All have since endorsed it, though implementation remains incomplete.',
+            solution: 'The four English-speaking settler states initially opposed UNDRIP, likely because of concerns about land claims and self-determination implications. All have since endorsed it, though implementation remains incomplete.',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz3-q1',
+            task: 'What does "free, prior, and informed consent" (FPIC) mean?',
+            options: [
+              { id: 'a', text: 'That indigenous peoples can freely move between countries', isCorrect: false },
+              { id: 'b', text: 'That genuine consent must be obtained before projects affecting indigenous peoples', isCorrect: true },
+              { id: 'c', text: 'That all information must be given in indigenous languages', isCorrect: false },
+              { id: 'd', text: 'That indigenous peoples must consent to all government laws', isCorrect: false },
+            ],
+            solution: 'FPIC means that before governments or companies undertake projects affecting indigenous peoples (mining, pipelines, etc.), they must obtain genuine consent - not just consultation. This principle is often violated in practice.',
+          },
+        ],
       },
     },
     {
@@ -2886,15 +4161,33 @@ These issues connect. Land rights affect resources and climate. Cultural surviva
         id: 'engelsk-vg1-10-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Why are indigenous peoples important in climate discussions?',
-        options: [
+        task: 'Test yourself on contemporary indigenous issues:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-4-n-quiz4-q0',
+            task: 'Why are indigenous peoples important in climate discussions?',
+            options: [
           { id: 'a', text: 'They produce most greenhouse gas emissions', isCorrect: false },
           { id: 'b', text: 'They are on the front lines of climate impacts and hold knowledge about sustainable living', isCorrect: true },
           { id: 'c', text: 'They oppose all environmental protection', isCorrect: false },
           { id: 'd', text: 'Climate change does not affect indigenous peoples', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Indigenous peoples are disproportionately affected by climate change (Arctic melting, changing ecosystems) while contributing least to it. Their traditional knowledge about sustainable living is increasingly recognized as valuable for addressing the climate crisis.',
+            solution: 'Indigenous peoples are disproportionately affected by climate change (Arctic melting, changing ecosystems) while contributing least to it. Their traditional knowledge about sustainable living is increasingly recognized as valuable for addressing the climate crisis.',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz4-q1',
+            task: 'What was the Standing Rock protest about?',
+            options: [
+              { id: 'a', text: 'A dispute over fishing rights', isCorrect: false },
+              { id: 'b', text: 'Opposition to the Dakota Access Pipeline crossing indigenous sacred lands', isCorrect: true },
+              { id: 'c', text: 'A protest against residential schools', isCorrect: false },
+              { id: 'd', text: 'A demand for a new national holiday', isCorrect: false },
+            ],
+            solution: 'The Standing Rock protests in 2016 opposed the Dakota Access Pipeline, which threatened indigenous water supplies and sacred sites. The protests drew global attention to the collision between indigenous rights and energy development.',
+          },
+        ],
       },
     },
     {
@@ -2931,15 +4224,33 @@ Understanding indigenous rights in English-speaking countries helps you understa
         id: 'engelsk-vg1-10-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What does the Fosen case reveal about indigenous rights in Norway?',
-        options: [
+        task: 'Test yourself on Norway and the Sami:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-10-4-n-quiz5-q0',
+            task: 'What does the Fosen case reveal about indigenous rights in Norway?',
+            options: [
           { id: 'a', text: 'That Sami have no legal rights', isCorrect: false },
           { id: 'b', text: 'That legal recognition of rights does not always translate into practical implementation', isCorrect: true },
           { id: 'c', text: 'That Norway has fully resolved all Sami rights issues', isCorrect: false },
           { id: 'd', text: 'That reindeer herding is no longer practiced', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The Supreme Court ruled wind turbines violated Sami rights, but they remained standing. This shows that even when indigenous peoples win legal battles, implementation can be delayed or ignored - a gap between rights on paper and rights in practice.',
+            solution: 'The Supreme Court ruled wind turbines violated Sami rights, but they remained standing. This shows that even when indigenous peoples win legal battles, implementation can be delayed or ignored - a gap between rights on paper and rights in practice.',
+          },
+          {
+            id: 'engelsk-vg1-10-4-n-quiz5-q1',
+            task: 'What is "Norwegianization" and how does it compare to policies in other countries?',
+            options: [
+              { id: 'a', text: 'A celebration of Norwegian culture with no parallel elsewhere', isCorrect: false },
+              { id: 'b', text: 'Forced assimilation of Sami, paralleling boarding schools in Canada and Australia', isCorrect: true },
+              { id: 'c', text: 'A modern integration program for immigrants', isCorrect: false },
+              { id: 'd', text: 'The process of learning Norwegian as a second language', isCorrect: false },
+            ],
+            solution: 'Norwegianization was the forced assimilation of Sami people, paralleling residential schools in Canada and the Stolen Generations in Australia. Sami languages were suppressed, and cultural practices were banned.',
+          },
+        ],
       },
     },
     {

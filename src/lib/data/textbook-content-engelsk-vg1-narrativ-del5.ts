@@ -63,15 +63,44 @@ Electronic music, pop, R&B, country, indie rock, grunge, metal, and countless su
         id: 'engelsk-vg1-11-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Where did hip hop music originate?',
-        options: [
+        task: 'Test yourself on music history:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-1-n-quiz1-q0',
+            task: 'Where did hip hop music originate?',
+            options: [
           { id: 'a', text: 'Los Angeles in the 1980s', isCorrect: false },
           { id: 'b', text: 'The Bronx, New York in the 1970s', isCorrect: true },
           { id: 'c', text: 'London in the 1960s', isCorrect: false },
           { id: 'd', text: 'Memphis in the 1950s', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Hip hop emerged from the Bronx, New York in the 1970s. It began at block parties and gave voice to communities that had been marginalized by mainstream media.',
+            solution: 'Hip hop emerged from the Bronx, New York in the 1970s. It began at block parties and gave voice to communities that had been marginalized by mainstream media.',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz1-q1',
+            task: 'What was the "British Invasion" of the 1960s?',
+            options: [
+              { id: 'a', text: 'A military operation by Britain', isCorrect: false },
+              { id: 'b', text: 'British bands like The Beatles crossing the Atlantic and dominating American pop', isCorrect: true },
+              { id: 'c', text: 'British tourists visiting America in large numbers', isCorrect: false },
+              { id: 'd', text: 'British food becoming popular in America', isCorrect: false },
+            ],
+            solution: 'The British Invasion saw bands like The Beatles and The Rolling Stones achieve massive popularity in America, proving that English-language pop music was truly a global phenomenon.',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz1-q2',
+            task: 'Why was rock and roll considered revolutionary in the 1950s?',
+            options: [
+              { id: 'a', text: 'It used electronic instruments for the first time', isCorrect: false },
+              { id: 'b', text: 'For the first time, young people had their own music separate from their parents\' tastes', isCorrect: true },
+              { id: 'c', text: 'It was the first music to be recorded', isCorrect: false },
+              { id: 'd', text: 'It was performed only by professional musicians', isCorrect: false },
+            ],
+            solution: 'Rock and roll gave young people their own music for the first time in modern history, creating a generational divide. Adults worried it would corrupt youth, while teenagers embraced it as a cultural revolution.',
+          },
+        ],
       },
     },
     {
@@ -96,15 +125,33 @@ Finally, think about what the song makes you feel. This might seem obvious, but 
         id: 'engelsk-vg1-11-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What is the difference between a metaphor and a simile?',
-        options: [
+        task: 'Test yourself on analyzing lyrics:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-1-n-quiz2-q0',
+            task: 'What is the difference between a metaphor and a simile?',
+            options: [
           { id: 'a', text: 'Metaphors are longer than similes', isCorrect: false },
           { id: 'b', text: 'Similes use "like" or "as" while metaphors do not', isCorrect: true },
           { id: 'c', text: 'Metaphors are only used in poetry, similes in songs', isCorrect: false },
           { id: 'd', text: 'There is no difference; they are the same thing', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'A simile compares two things using "like" or "as" (e.g., "Life is like a box of chocolates"). A metaphor makes a direct comparison without these words (e.g., "Life is a journey").',
+            solution: 'A simile compares two things using "like" or "as" (e.g., "Life is like a box of chocolates"). A metaphor makes a direct comparison without these words (e.g., "Life is a journey").',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz2-q1',
+            task: 'What is "register" in the context of song lyrics?',
+            options: [
+              { id: 'a', text: 'The musical key of the song', isCorrect: false },
+              { id: 'b', text: 'The level of formality in the language used', isCorrect: true },
+              { id: 'c', text: 'How loud the singer performs', isCorrect: false },
+              { id: 'd', text: 'The number of instruments used', isCorrect: false },
+            ],
+            solution: 'Register refers to the level of formality in the language. Punk uses crude, direct language as rebellion; musical theater uses elevated language for emotional grandeur. The choice reveals the artist\'s intended audience and message.',
+          },
+        ],
       },
     },
     {
@@ -129,15 +176,33 @@ Even the music industry context matters in ways we often overlook. Was this song
         id: 'engelsk-vg1-11-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Why is understanding context important when analyzing a song?',
-        options: [
+        task: 'Test yourself on context in music:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-1-n-quiz3-q0',
+            task: 'Why is understanding context important when analyzing a song?',
+            options: [
           { id: 'a', text: 'It helps you memorize the lyrics better', isCorrect: false },
           { id: 'b', text: 'It reveals deeper meanings connected to the artist and their time', isCorrect: true },
           { id: 'c', text: 'It makes the song sound better musically', isCorrect: false },
           { id: 'd', text: 'It is required by copyright law', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Understanding context (the artist\'s background, historical period, and cultural moment) reveals deeper meanings in songs that you might miss otherwise. A protest song means more when you understand what was being protested.',
+            solution: 'Understanding context (the artist\'s background, historical period, and cultural moment) reveals deeper meanings in songs that you might miss otherwise. A protest song means more when you understand what was being protested.',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz3-q1',
+            task: 'Why is Marvin Gaye\'s "What\'s Going On" (1971) considered more than just a song?',
+            options: [
+              { id: 'a', text: 'It was the best-selling song of all time', isCorrect: false },
+              { id: 'b', text: 'It addressed the Vietnam War and civil rights movement, becoming a historical document', isCorrect: true },
+              { id: 'c', text: 'It introduced a new musical genre', isCorrect: false },
+              { id: 'd', text: 'It was the first song played on radio', isCorrect: false },
+            ],
+            solution: 'Released during the Vietnam War and civil rights era, the song addressed a nation at war with itself. Knowing the historical context transforms how you hear it - it becomes a historical document and a message that remains relevant.',
+          },
+        ],
       },
     },
     {
@@ -162,15 +227,33 @@ Even mainstream pop music, often dismissed as superficial entertainment, can be 
         id: 'engelsk-vg1-11-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Which of the following is an example of music being used for social change?',
-        options: [
+        task: 'Test yourself on music as social commentary:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-1-n-quiz4-q0',
+            task: 'Which of the following is an example of music being used for social change?',
+            options: [
           { id: 'a', text: 'A jingle written for a commercial advertisement', isCorrect: false },
           { id: 'b', text: 'Background music in an elevator', isCorrect: false },
           { id: 'c', text: '"We Shall Overcome" being sung at civil rights protests', isCorrect: true },
           { id: 'd', text: 'A lullaby sung to help a baby sleep', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: '"We Shall Overcome" became the unofficial anthem of the American civil rights movement. It was sung at marches and protests, uniting people and giving voice to their struggle for equality.',
+            solution: '"We Shall Overcome" became the unofficial anthem of the American civil rights movement. It was sung at marches and protests, uniting people and giving voice to their struggle for equality.',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz4-q1',
+            task: 'How did Kendrick Lamar\'s "Alright" connect to the Black Lives Matter movement?',
+            options: [
+              { id: 'a', text: 'He performed it at a political rally', isCorrect: false },
+              { id: 'b', text: 'Protesters chanted "We gon\' be alright" during BLM marches', isCorrect: true },
+              { id: 'c', text: 'The song was written specifically for BLM', isCorrect: false },
+              { id: 'd', text: 'It had nothing to do with the movement', isCorrect: false },
+            ],
+            solution: 'Kendrick Lamar\'s "Alright" became an anthem for Black Lives Matter when protesters chanted its chorus during marches, proving that songs can still mobilize people and transcend entertainment to shape history.',
+          },
+        ],
       },
     },
     {
@@ -197,15 +280,33 @@ Music is one of humanity's greatest achievements, a form of expression that pred
         id: 'engelsk-vg1-11-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What is the best approach to critical music analysis?',
-        options: [
+        task: 'Test yourself on critical listening:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-1-n-quiz5-q0',
+            task: 'What is the best approach to critical music analysis?',
+            options: [
           { id: 'a', text: 'Only analyze music you dislike', isCorrect: false },
           { id: 'b', text: 'Focus only on whether the beat is good', isCorrect: false },
           { id: 'c', text: 'Consider lyrics, technique, context, and impact together', isCorrect: true },
           { id: 'd', text: 'Always agree with professional music critics', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution: 'Good music analysis considers multiple elements: the lyrics and their meaning, the techniques used, the context of creation, and the song\'s cultural impact. This holistic approach gives the deepest understanding.',
+            solution: 'Good music analysis considers multiple elements: the lyrics and their meaning, the techniques used, the context of creation, and the song\'s cultural impact. This holistic approach gives the deepest understanding.',
+          },
+          {
+            id: 'engelsk-vg1-11-1-n-quiz5-q1',
+            task: 'Does critical analysis ruin the enjoyment of music?',
+            options: [
+              { id: 'a', text: 'Yes, understanding how music works destroys the magic', isCorrect: false },
+              { id: 'b', text: 'No, understanding music more deeply usually increases appreciation', isCorrect: true },
+              { id: 'c', text: 'Only for professional musicians', isCorrect: false },
+              { id: 'd', text: 'Critical analysis is only useful for academic purposes', isCorrect: false },
+            ],
+            solution: 'Understanding music more deeply usually increases rather than diminishes appreciation. When you can hear the specific techniques and choices an artist makes, the song becomes richer. Like knowing how a magic trick works can increase admiration for the magician\'s skill.',
+          },
+        ],
       },
     },
     {
@@ -288,15 +389,33 @@ Understanding this context helps us watch more critically. When we recognize tha
         id: 'engelsk-vg1-11-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What is one consequence of Hollywood\'s global dominance?',
-        options: [
+        task: 'Test yourself on media dominance:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-2-n-quiz1-q0',
+            task: 'What is one consequence of Hollywood\'s global dominance?',
+            options: [
           { id: 'a', text: 'All countries now make films in English', isCorrect: false },
           { id: 'b', text: 'American perspectives and values become normalized worldwide', isCorrect: true },
           { id: 'c', text: 'Local filmmaking has completely disappeared', isCorrect: false },
           { id: 'd', text: 'Movies have become shorter', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'When Hollywood dominates global entertainment, American perspectives on history, values, and culture become normalized. Audiences worldwide absorb American viewpoints, sometimes without realizing it.',
+            solution: 'When Hollywood dominates global entertainment, American perspectives on history, values, and culture become normalized. Audiences worldwide absorb American viewpoints, sometimes without realizing it.',
+          },
+          {
+            id: 'engelsk-vg1-11-2-n-quiz1-q1',
+            task: 'What is "cultural flattening"?',
+            options: [
+              { id: 'a', text: 'When movies become simpler and shorter', isCorrect: false },
+              { id: 'b', text: 'When Hollywood dominance overshadows local storytelling traditions worldwide', isCorrect: true },
+              { id: 'c', text: 'When cultures become more diverse', isCorrect: false },
+              { id: 'd', text: 'When film budgets decrease over time', isCorrect: false },
+            ],
+            solution: 'Cultural flattening occurs when everyone watches the same Hollywood content, overshadowing local storytelling traditions. Norwegian films, for example, compete against productions with budgets a hundred times larger.',
+          },
+        ],
       },
     },
     {
@@ -323,15 +442,33 @@ When analyzing a film or show, ask yourself these questions: What is this story 
         id: 'engelsk-vg1-11-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What is the "theme" of a film?',
-        options: [
+        task: 'Test yourself on narrative elements:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-2-n-quiz2-q0',
+            task: 'What is the "theme" of a film?',
+            options: [
           { id: 'a', text: 'The main character\'s name', isCorrect: false },
           { id: 'b', text: 'The underlying message or central idea', isCorrect: true },
           { id: 'c', text: 'The movie\'s soundtrack', isCorrect: false },
           { id: 'd', text: 'The location where it was filmed', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'A theme is the underlying message or central idea of a film. While a movie might be "about" a superhero on the surface, its theme might explore deeper ideas like responsibility, sacrifice, or identity.',
+            solution: 'A theme is the underlying message or central idea of a film. While a movie might be "about" a superhero on the surface, its theme might explore deeper ideas like responsibility, sacrifice, or identity.',
+          },
+          {
+            id: 'engelsk-vg1-11-2-n-quiz2-q1',
+            task: 'What is the three-act structure in film?',
+            options: [
+              { id: 'a', text: 'Three different films shown in sequence', isCorrect: false },
+              { id: 'b', text: 'Setup, confrontation, and resolution', isCorrect: true },
+              { id: 'c', text: 'Three main characters in every story', isCorrect: false },
+              { id: 'd', text: 'Beginning, middle, and credits', isCorrect: false },
+            ],
+            solution: 'The three-act structure consists of setup (meet characters, establish stakes), confrontation (problems arise, obstacles multiply), and resolution (climax and consequences). Most mainstream Hollywood films follow this pattern.',
+          },
+        ],
       },
     },
     {
@@ -358,15 +495,33 @@ None of these techniques are random. Every choice is deliberate, made by directo
         id: 'engelsk-vg1-11-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What effect does a low-angle camera shot typically create?',
-        options: [
+        task: 'Test yourself on cinematic techniques:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-2-n-quiz3-q0',
+            task: 'What effect does a low-angle camera shot typically create?',
+            options: [
           { id: 'a', text: 'It makes the character appear weak and vulnerable', isCorrect: false },
           { id: 'b', text: 'It makes the character appear powerful or intimidating', isCorrect: true },
           { id: 'c', text: 'It shows the character\'s surroundings clearly', isCorrect: false },
           { id: 'd', text: 'It indicates the scene is a flashback', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'A low-angle shot looks up at a character, making them appear larger, more powerful, and potentially intimidating. This technique is often used for villains, heroes at triumphant moments, or authority figures.',
+            solution: 'A low-angle shot looks up at a character, making them appear larger, more powerful, and potentially intimidating. This technique is often used for villains, heroes at triumphant moments, or authority figures.',
+          },
+          {
+            id: 'engelsk-vg1-11-2-n-quiz3-q1',
+            task: 'How does high-key lighting differ from low-key lighting in terms of mood?',
+            options: [
+              { id: 'a', text: 'High-key is dark; low-key is bright', isCorrect: false },
+              { id: 'b', text: 'High-key creates cheerful, safe feelings; low-key creates mystery and menace', isCorrect: true },
+              { id: 'c', text: 'They create the same mood', isCorrect: false },
+              { id: 'd', text: 'High-key is used outdoors; low-key is used indoors', isCorrect: false },
+            ],
+            solution: 'High-key lighting (bright, even, few shadows) creates cheerful, open, safe feelings - used in comedies and musicals. Low-key lighting (lots of shadows, strong contrast) creates mystery and menace - used in horror and film noir.',
+          },
+        ],
       },
     },
     {
@@ -391,15 +546,33 @@ Progress is happening, but slowly and unevenly. More diverse casts, more stories
         id: 'engelsk-vg1-11-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is the "white savior" trope in film?',
-        options: [
+        task: 'Test yourself on representation in film:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-2-n-quiz4-q0',
+            task: 'What is the "white savior" trope in film?',
+            options: [
           { id: 'a', text: 'A film genre about rescue missions', isCorrect: false },
           { id: 'b', text: 'Stories where a white character saves or helps people of color', isCorrect: true },
           { id: 'c', text: 'Films that only cast white actors', isCorrect: false },
           { id: 'd', text: 'Historical dramas set in Europe', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The "white savior" trope refers to stories where a white protagonist saves or helps people of color, often positioning the white character as the active hero while reducing others to passive roles. This is common in films about racism, colonialism, or poverty.',
+            solution: 'The "white savior" trope refers to stories where a white protagonist saves or helps people of color, often positioning the white character as the active hero while reducing others to passive roles. This is common in films about racism, colonialism, or poverty.',
+          },
+          {
+            id: 'engelsk-vg1-11-2-n-quiz4-q1',
+            task: 'Why do media stereotypes matter even if we know they are unfair?',
+            options: [
+              { id: 'a', text: 'They don\'t matter because everyone knows they are fake', isCorrect: false },
+              { id: 'b', text: 'Research shows we absorb media stereotypes even when we know they are unfair', isCorrect: true },
+              { id: 'c', text: 'Only children are affected by stereotypes', isCorrect: false },
+              { id: 'd', text: 'Stereotypes only exist in old movies', isCorrect: false },
+            ],
+            solution: 'Research consistently shows that media stereotypes affect our perception even when we know intellectually they are unfair. If the only Muslims you see in films are terrorists, it subtly influences how you view Muslims in real life.',
+          },
+        ],
       },
     },
     {
@@ -430,15 +603,33 @@ This process might seem elaborate, but with practice, critical thinking becomes 
         id: 'engelsk-vg1-11-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What should you consider when analyzing representation in film?',
-        options: [
+        task: 'Test yourself on critical film analysis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-2-n-quiz5-q0',
+            task: 'What should you consider when analyzing representation in film?',
+            options: [
           { id: 'a', text: 'Only whether the actors were famous', isCorrect: false },
           { id: 'b', text: 'Who is centered, how groups are portrayed, and whose perspective is missing', isCorrect: true },
           { id: 'c', text: 'Only the number of characters in the film', isCorrect: false },
           { id: 'd', text: 'Whether the film won awards', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Analyzing representation means examining who is centered in the story, how different groups are portrayed (positively, negatively, stereotypically), and whose perspectives or stories are absent from the narrative.',
+            solution: 'Analyzing representation means examining who is centered in the story, how different groups are portrayed (positively, negatively, stereotypically), and whose perspectives or stories are absent from the narrative.',
+          },
+          {
+            id: 'engelsk-vg1-11-2-n-quiz5-q1',
+            task: 'What is the recommended approach to watching a film critically?',
+            options: [
+              { id: 'a', text: 'Analyze every frame from the start, never enjoying yourself', isCorrect: false },
+              { id: 'b', text: 'Engage naturally first, then reflect on narrative, technique, and representation afterward', isCorrect: true },
+              { id: 'c', text: 'Only watch films that critics approve of', isCorrect: false },
+              { id: 'd', text: 'Read the script before watching', isCorrect: false },
+            ],
+            solution: 'Start by engaging naturally - enjoy the experience. Then reflect on narrative (what was it really about?), technique (what visual/audio choices were made?), representation (who was centered?), and context (when was it made and by whom?).',
+          },
+        ],
       },
     },
     {
@@ -523,15 +714,33 @@ When analyzing games as stories, ask yourself: What narrative is being told, and
         id: 'engelsk-vg1-11-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What makes video game storytelling unique compared to film?',
-        options: [
+        task: 'Test yourself on games as storytelling:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-3-n-quiz1-q0',
+            task: 'What makes video game storytelling unique compared to film?',
+            options: [
           { id: 'a', text: 'Games have better graphics than films', isCorrect: false },
           { id: 'b', text: 'Player agency and interactivity affect the narrative experience', isCorrect: true },
           { id: 'c', text: 'Games are always longer than films', isCorrect: false },
           { id: 'd', text: 'Games cannot tell emotional stories', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Unlike passive media like film, games offer player agency and interactivity. Players make choices that can affect the story, creating a more personal and engaged narrative experience.',
+            solution: 'Unlike passive media like film, games offer player agency and interactivity. Players make choices that can affect the story, creating a more personal and engaged narrative experience.',
+          },
+          {
+            id: 'engelsk-vg1-11-3-n-quiz1-q1',
+            task: 'What is "emergent narrative" in games?',
+            options: [
+              { id: 'a', text: 'Stories written by professional writers for games', isCorrect: false },
+              { id: 'b', text: 'Stories that arise naturally from play rather than being pre-scripted', isCorrect: true },
+              { id: 'c', text: 'Stories that emerge from reading game manuals', isCorrect: false },
+              { id: 'd', text: 'Stories told through cutscenes only', isCorrect: false },
+            ],
+            solution: 'Emergent narratives are stories that arise from play itself, not from scripted content. A match of Fortnite or a Minecraft building session creates unique stories that exist nowhere in the game\'s code but emerge naturally from player interaction.',
+          },
+        ],
       },
     },
     {
@@ -558,15 +767,33 @@ When analyzing games, ask: What does the gameplay reward? What does it punish? W
         id: 'engelsk-vg1-11-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'How can game mechanics communicate meaning?',
-        options: [
+        task: 'Test yourself on gameplay as meaning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-3-n-quiz2-q0',
+            task: 'How can game mechanics communicate meaning?',
+            options: [
           { id: 'a', text: 'Through the price of the game', isCorrect: false },
           { id: 'b', text: 'Through what behaviors the game rewards and punishes', isCorrect: true },
           { id: 'c', text: 'Through the number of levels', isCorrect: false },
           { id: 'd', text: 'Through the game\'s age rating', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Game mechanics communicate meaning through what they reward, punish, make easy, or make difficult. A game that rewards violence embeds different values than one that rewards cooperation or creativity.',
+            solution: 'Game mechanics communicate meaning through what they reward, punish, make easy, or make difficult. A game that rewards violence embeds different values than one that rewards cooperation or creativity.',
+          },
+          {
+            id: 'engelsk-vg1-11-3-n-quiz2-q1',
+            task: 'How does "Spec Ops: The Line" use gameplay to make its point?',
+            options: [
+              { id: 'a', text: 'By having the best graphics of any war game', isCorrect: false },
+              { id: 'b', text: 'By making players complicit in war crimes, then asking why they kept playing', isCorrect: true },
+              { id: 'c', text: 'By telling a love story set during wartime', isCorrect: false },
+              { id: 'd', text: 'By offering peaceful alternatives to combat', isCorrect: false },
+            ],
+            solution: '"Spec Ops: The Line" gradually makes players complicit in terrible acts, then asks: why didn\'t you stop? It uses its mechanics to critique military shooter games and players\' willingness to commit virtual atrocities for entertainment.',
+          },
+        ],
       },
     },
     {
@@ -593,15 +820,33 @@ When analyzing game aesthetics, ask: What visual style was chosen and why? What 
         id: 'engelsk-vg1-11-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is "environmental storytelling" in games?',
-        options: [
+        task: 'Test yourself on game aesthetics:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-3-n-quiz3-q0',
+            task: 'What is "environmental storytelling" in games?',
+            options: [
           { id: 'a', text: 'Games about environmental issues', isCorrect: false },
           { id: 'b', text: 'Discovering narrative through exploration and environmental details', isCorrect: true },
           { id: 'c', text: 'Games set outdoors in nature', isCorrect: false },
           { id: 'd', text: 'The game\'s background music', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Environmental storytelling means discovering narrative through the game world itself, examining objects, spaces, and details to piece together what happened. Instead of being told the story, you find it.',
+            solution: 'Environmental storytelling means discovering narrative through the game world itself, examining objects, spaces, and details to piece together what happened. Instead of being told the story, you find it.',
+          },
+          {
+            id: 'engelsk-vg1-11-3-n-quiz3-q1',
+            task: 'Why do some games choose stylized visuals instead of photorealism?',
+            options: [
+              { id: 'a', text: 'Only because they have smaller budgets', isCorrect: false },
+              { id: 'b', text: 'To communicate specific tones and meanings through artistic choices', isCorrect: true },
+              { id: 'c', text: 'Because photorealism is impossible to achieve', isCorrect: false },
+              { id: 'd', text: 'Players prefer simpler graphics', isCorrect: false },
+            ],
+            solution: 'Visual style choices communicate tone and meaning. Cel-shading creates a comic book aesthetic, pixel art evokes nostalgia, and painterly styles make frames feel like art. A photorealistic war game makes a different statement than a cartoonish one.',
+          },
+        ],
       },
     },
     {
@@ -628,15 +873,33 @@ When analyzing representation in games, ask: Who are the heroes we're meant to i
         id: 'engelsk-vg1-11-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'How has representation in video games changed in recent years?',
-        options: [
+        task: 'Test yourself on representation in games:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-3-n-quiz4-q0',
+            task: 'How has representation in video games changed in recent years?',
+            options: [
           { id: 'a', text: 'Games no longer have any characters at all', isCorrect: false },
           { id: 'b', text: 'More diverse protagonists including women, people of color, and LGBTQ+ characters', isCorrect: true },
           { id: 'c', text: 'All games now feature the same protagonist', isCorrect: false },
           { id: 'd', text: 'Representation has not changed at all', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'While problems remain, recent years have seen more diverse protagonists in games, including women, people of color, and LGBTQ+ characters. Games like "The Last of Us Part II" and "Life is Strange" represent this shift.',
+            solution: 'While problems remain, recent years have seen more diverse protagonists in games, including women, people of color, and LGBTQ+ characters. Games like "The Last of Us Part II" and "Life is Strange" represent this shift.',
+          },
+          {
+            id: 'engelsk-vg1-11-3-n-quiz4-q1',
+            task: 'What is an example of a game that features LGBTQ+ protagonists whose identities are treated as simply part of who they are?',
+            options: [
+              { id: 'a', text: 'Minecraft', isCorrect: false },
+              { id: 'b', text: 'The Last of Us Part II', isCorrect: true },
+              { id: 'c', text: 'Call of Duty', isCorrect: false },
+              { id: 'd', text: 'Tetris', isCorrect: false },
+            ],
+            solution: 'Games like "The Last of Us Part II" feature LGBTQ+ protagonists whose identities are treated as simply part of who they are, not as defining characteristics or problems. This represents progress in game representation.',
+          },
+        ],
       },
     },
     {
@@ -663,15 +926,33 @@ Whether you play games yourself or not, whether you find them appealing or can't
         id: 'engelsk-vg1-11-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why is it important to analyze video games as cultural artifacts?',
-        options: [
+        task: 'Test yourself on games and culture:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-3-n-quiz5-q0',
+            task: 'Why is it important to analyze video games as cultural artifacts?',
+            options: [
           { id: 'a', text: 'To determine which games are the most fun', isCorrect: false },
           { id: 'b', text: 'Because games reflect and shape culture, values, and how people see the world', isCorrect: true },
           { id: 'c', text: 'Because all games are educational', isCorrect: false },
           { id: 'd', text: 'To decide game prices', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Games are important cultural artifacts because they both reflect the values of their creators and shape the perspectives of their players. As the largest entertainment industry, their cultural influence is significant.',
+            solution: 'Games are important cultural artifacts because they both reflect the values of their creators and shape the perspectives of their players. As the largest entertainment industry, their cultural influence is significant.',
+          },
+          {
+            id: 'engelsk-vg1-11-3-n-quiz5-q1',
+            task: 'How has gaming terminology entered everyday language?',
+            options: [
+              { id: 'a', text: 'It has not entered everyday language', isCorrect: false },
+              { id: 'b', text: 'Through terms like "leveling up," "final boss," "respawn," and "easter eggs"', isCorrect: true },
+              { id: 'c', text: 'Only through the word "game" itself', isCorrect: false },
+              { id: 'd', text: 'Only in Asian countries', isCorrect: false },
+            ],
+            solution: 'Gaming terms have entered everyday language: we talk about "leveling up" skills, facing the "final boss" of a project, seeking "easter eggs" in products, and hoping for a "respawn" or second chance. This reflects gaming\'s cultural influence.',
+          },
+        ],
       },
     },
     {
@@ -755,15 +1036,33 @@ Power distance refers to how cultures handle inequality. High power distance cul
         id: 'engelsk-vg1-11-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What does "power distance" refer to in cultural studies?',
-        options: [
+        task: 'Test yourself on cultural dimensions:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-4-n-quiz1-q0',
+            task: 'What does "power distance" refer to in cultural studies?',
+            options: [
           { id: 'a', text: 'The physical distance between people when talking', isCorrect: false },
           { id: 'b', text: 'How cultures handle inequality and hierarchical relationships', isCorrect: true },
           { id: 'c', text: 'The distance to the nearest power source', isCorrect: false },
           { id: 'd', text: 'The volume of voice used in conversation', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Power distance describes how cultures handle inequality and hierarchy. High power distance cultures accept that authority should not be questioned, while low power distance cultures expect more equality and open dialogue.',
+            solution: 'Power distance describes how cultures handle inequality and hierarchy. High power distance cultures accept that authority should not be questioned, while low power distance cultures expect more equality and open dialogue.',
+          },
+          {
+            id: 'engelsk-vg1-11-4-n-quiz1-q1',
+            task: 'What is the difference between monochronic and polychronic cultures?',
+            options: [
+              { id: 'a', text: 'Monochronic cultures speak one language; polychronic speak many', isCorrect: false },
+              { id: 'b', text: 'Monochronic cultures treat time as linear and schedules as sacred; polychronic prioritize relationships over schedules', isCorrect: true },
+              { id: 'c', text: 'There is no meaningful difference', isCorrect: false },
+              { id: 'd', text: 'Monochronic cultures are older than polychronic ones', isCorrect: false },
+            ],
+            solution: 'Monochronic cultures (like Norway) view time as linear with sacred schedules and crucial punctuality. Polychronic cultures (like many Latin American cultures) prioritize relationships over schedules and are more flexible with time.',
+          },
+        ],
       },
     },
     {
@@ -790,15 +1089,33 @@ The key is observation and adaptation. When in doubt, watch what others do and f
         id: 'engelsk-vg1-11-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why is it important to be aware of nonverbal communication in cross-cultural contexts?',
-        options: [
+        task: 'Test yourself on nonverbal communication:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-4-n-quiz2-q0',
+            task: 'Why is it important to be aware of nonverbal communication in cross-cultural contexts?',
+            options: [
           { id: 'a', text: 'Nonverbal communication is the same everywhere', isCorrect: false },
           { id: 'b', text: 'Gestures, eye contact, and personal space norms vary across cultures', isCorrect: true },
           { id: 'c', text: 'Nonverbal communication is not important', isCorrect: false },
           { id: 'd', text: 'Only verbal communication matters in business', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Nonverbal cues like gestures, eye contact, personal space, and touch vary significantly across cultures. What is polite in one culture may be rude in another, making awareness essential to avoid misunderstandings.',
+            solution: 'Nonverbal cues like gestures, eye contact, personal space, and touch vary significantly across cultures. What is polite in one culture may be rude in another, making awareness essential to avoid misunderstandings.',
+          },
+          {
+            id: 'engelsk-vg1-11-4-n-quiz2-q1',
+            task: 'Why can the "OK" hand gesture be problematic across cultures?',
+            options: [
+              { id: 'a', text: 'It means the same thing everywhere', isCorrect: false },
+              { id: 'b', text: 'It means approval in the US but is offensive in Brazil and some European countries', isCorrect: true },
+              { id: 'c', text: 'It is only used in sign language', isCorrect: false },
+              { id: 'd', text: 'It is considered informal everywhere', isCorrect: false },
+            ],
+            solution: 'The OK sign means approval in the US but is offensive in Brazil and some European countries. This illustrates why gestures can be "dangerous territory" in cross-cultural communication - never assume your gestures are universal.',
+          },
+        ],
       },
     },
     {
@@ -823,15 +1140,33 @@ Self-awareness is crucial. Before you can understand others' cultures, you need 
         id: 'engelsk-vg1-11-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is the foundation of intercultural competence?',
-        options: [
+        task: 'Test yourself on intercultural competence:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-4-n-quiz3-q0',
+            task: 'What is the foundation of intercultural competence?',
+            options: [
           { id: 'a', text: 'Memorizing facts about every country', isCorrect: false },
           { id: 'b', text: 'Curiosity, respect, tolerance for ambiguity, and humility', isCorrect: true },
           { id: 'c', text: 'Speaking as many languages as possible', isCorrect: false },
           { id: 'd', text: 'Avoiding people from other cultures', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Intercultural competence is built on attitudes: curiosity about difference, respect for other ways, tolerance for not understanding everything, and humility about your own cultural assumptions.',
+            solution: 'Intercultural competence is built on attitudes: curiosity about difference, respect for other ways, tolerance for not understanding everything, and humility about your own cultural assumptions.',
+          },
+          {
+            id: 'engelsk-vg1-11-4-n-quiz3-q1',
+            task: 'Why is self-awareness important in intercultural communication?',
+            options: [
+              { id: 'a', text: 'So you can prove your culture is superior', isCorrect: false },
+              { id: 'b', text: 'Because you need to understand your own cultural programming before understanding others\'', isCorrect: true },
+              { id: 'c', text: 'Self-awareness is not relevant to intercultural communication', isCorrect: false },
+              { id: 'd', text: 'So you can avoid all cultural interactions', isCorrect: false },
+            ],
+            solution: 'Before you can understand others\' cultures, you need to understand your own. What are your assumptions about how things should be done? Where do those assumptions come from? How might they seem strange to others?',
+          },
+        ],
       },
     },
     {
@@ -858,15 +1193,33 @@ Remember that your culture has patterns too. To others, Norwegians might seem co
         id: 'engelsk-vg1-11-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What is the difference between a cultural generalization and a stereotype?',
-        options: [
+        task: 'Test yourself on stereotypes vs. generalizations:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-4-n-quiz4-q0',
+            task: 'What is the difference between a cultural generalization and a stereotype?',
+            options: [
           { id: 'a', text: 'There is no difference; they mean the same thing', isCorrect: false },
           { id: 'b', text: 'Generalizations are flexible starting points; stereotypes are rigid and judgmental', isCorrect: true },
           { id: 'c', text: 'Stereotypes are always positive, generalizations are negative', isCorrect: false },
           { id: 'd', text: 'Generalizations only apply to large groups', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Generalizations acknowledge patterns ("many people tend to...") while remaining flexible. Stereotypes are rigid boxes that claim all members of a group behave the same way, often with negative judgments attached.',
+            solution: 'Generalizations acknowledge patterns ("many people tend to...") while remaining flexible. Stereotypes are rigid boxes that claim all members of a group behave the same way, often with negative judgments attached.',
+          },
+          {
+            id: 'engelsk-vg1-11-4-n-quiz4-q1',
+            task: 'How should you treat individuals from other cultures?',
+            options: [
+              { id: 'a', text: 'Assume they behave exactly like their culture\'s stereotypes', isCorrect: false },
+              { id: 'b', text: 'As individuals, since cultural background influences but does not determine behavior', isCorrect: true },
+              { id: 'c', text: 'Ignore their cultural background entirely', isCorrect: false },
+              { id: 'd', text: 'Ask them to explain their entire culture before speaking', isCorrect: false },
+            ],
+            solution: 'Always treat individuals as individuals. Cultural background influences but does not determine behavior. Someone may be bicultural, acculturated, or simply different from the norm. Hold expectations lightly and adjust based on the actual person.',
+          },
+        ],
       },
     },
     {
@@ -897,15 +1250,33 @@ Remember that you're also representing your culture. Like it or not, you shape o
         id: 'engelsk-vg1-11-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What should you do when a cross-cultural misunderstanding occurs?',
-        options: [
+        task: 'Test yourself on practical cross-cultural tips:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-11-4-n-quiz5-q0',
+            task: 'What should you do when a cross-cultural misunderstanding occurs?',
+            options: [
           { id: 'a', text: 'Assume the other person is being deliberately rude', isCorrect: false },
           { id: 'b', text: 'Assume good intentions and address it calmly', isCorrect: true },
           { id: 'c', text: 'Ignore it and hope it goes away', isCorrect: false },
           { id: 'd', text: 'Immediately end the conversation', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'When cross-cultural misunderstandings occur, assume good intentions. Most cultural mistakes are not deliberate rudeness but different norms. Address misunderstandings calmly and use them as learning opportunities.',
+            solution: 'When cross-cultural misunderstandings occur, assume good intentions. Most cultural mistakes are not deliberate rudeness but different norms. Address misunderstandings calmly and use them as learning opportunities.',
+          },
+          {
+            id: 'engelsk-vg1-11-4-n-quiz5-q1',
+            task: 'What does "mirror and adapt" mean in cross-cultural communication?',
+            options: [
+              { id: 'a', text: 'Copy everything the other person does exactly', isCorrect: false },
+              { id: 'b', text: 'Pay attention to how others communicate and adapt your style accordingly', isCorrect: true },
+              { id: 'c', text: 'Use a mirror to check your appearance', isCorrect: false },
+              { id: 'd', text: 'Always speak in the other person\'s language', isCorrect: false },
+            ],
+            solution: 'Mirroring and adapting means observing how others communicate and adjusting your style. If they are formal, be formal. If they value relationship-building before business, invest time in that. Flexibility is key.',
+          },
+        ],
       },
     },
     {
@@ -988,15 +1359,33 @@ Understanding what's being tested helps you prepare effectively. You're not stud
         id: 'engelsk-vg1-12-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What does English VG1 assessment primarily evaluate?',
-        options: [
+        task: 'Test yourself on exam assessment:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-1-n-quiz1-q0',
+            task: 'What does English VG1 assessment primarily evaluate?',
+            options: [
           { id: 'a', text: 'Only grammar and spelling', isCorrect: false },
           { id: 'b', text: 'Communication ability, language accuracy, content/reflection, and source use', isCorrect: true },
           { id: 'c', text: 'Only vocabulary size', isCorrect: false },
           { id: 'd', text: 'Only oral presentation skills', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'English VG1 assessment evaluates multiple competences: communication ability, language accuracy (vocabulary, grammar, structure), content and reflection, and appropriate source use. The grade reflects the whole picture.',
+            solution: 'English VG1 assessment evaluates multiple competences: communication ability, language accuracy (vocabulary, grammar, structure), content and reflection, and appropriate source use. The grade reflects the whole picture.',
+          },
+          {
+            id: 'engelsk-vg1-12-1-n-quiz1-q1',
+            task: 'Can a strong vocabulary compensate for grammar weaknesses in the exam?',
+            options: [
+              { id: 'a', text: 'No, grammar is the only thing that matters', isCorrect: false },
+              { id: 'b', text: 'Yes, examiners look at the whole picture across all competence areas', isCorrect: true },
+              { id: 'c', text: 'Only if you also have perfect spelling', isCorrect: false },
+              { id: 'd', text: 'Vocabulary is never assessed in exams', isCorrect: false },
+            ],
+            solution: 'Your grade reflects overall competence across all areas. A strong vocabulary can compensate somewhat for grammar weaknesses, and deep reflection can balance some language errors. Examiners look at the whole picture.',
+          },
+        ],
       },
     },
     {
@@ -1023,15 +1412,33 @@ You don't need to be perfect. No one writes error-free prose under exam conditio
         id: 'engelsk-vg1-12-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What primarily distinguishes a Grade 6 response from a Grade 4 response?',
-        options: [
+        task: 'Test yourself on grade levels:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-1-n-quiz2-q0',
+            task: 'What primarily distinguishes a Grade 6 response from a Grade 4 response?',
+            options: [
           { id: 'a', text: 'Grade 6 must be longer', isCorrect: false },
           { id: 'b', text: 'Deeper reflection, more nuanced analysis, and richer language', isCorrect: true },
           { id: 'c', text: 'Grade 6 must have no errors at all', isCorrect: false },
           { id: 'd', text: 'Grade 6 must use more difficult words', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Excellent (Grade 6) work differs from good (Grade 4) work through deeper, more nuanced thinking and richer, more varied language. It is not about perfection or length but about quality of thought and expression.',
+            solution: 'Excellent (Grade 6) work differs from good (Grade 4) work through deeper, more nuanced thinking and richer, more varied language. It is not about perfection or length but about quality of thought and expression.',
+          },
+          {
+            id: 'engelsk-vg1-12-1-n-quiz2-q1',
+            task: 'What is the key difference between Grade 2 (adequate) and Grade 4 (good)?',
+            options: [
+              { id: 'a', text: 'Grade 4 must be twice as long', isCorrect: false },
+              { id: 'b', text: 'Grade 4 develops ideas more fully and uses language more precisely', isCorrect: true },
+              { id: 'c', text: 'Grade 4 must use more quotations', isCorrect: false },
+              { id: 'd', text: 'There is no real difference', isCorrect: false },
+            ],
+            solution: 'The jump from adequate to good is largely about developing your ideas more fully and using language more precisely. Adequate work communicates basics but sometimes unclearly; good work communicates clearly with adequate development.',
+          },
+        ],
       },
     },
     {
@@ -1060,15 +1467,33 @@ Not proofreading leaves easily-fixed errors. Always save time at the end to read
         id: 'engelsk-vg1-12-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What is one of the most common mistakes students make in exams?',
-        options: [
+        task: 'Test yourself on common exam mistakes:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-1-n-quiz3-q0',
+            task: 'What is one of the most common mistakes students make in exams?',
+            options: [
           { id: 'a', text: 'Writing too much', isCorrect: false },
           { id: 'b', text: 'Not directly answering what the question asks', isCorrect: true },
           { id: 'c', text: 'Using too many paragraphs', isCorrect: false },
           { id: 'd', text: 'Writing too neatly', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'A common exam mistake is writing about the topic generally without addressing the specific question asked. Always read the question carefully and make sure your answer responds to what is actually being asked.',
+            solution: 'A common exam mistake is writing about the topic generally without addressing the specific question asked. Always read the question carefully and make sure your answer responds to what is actually being asked.',
+          },
+          {
+            id: 'engelsk-vg1-12-1-n-quiz3-q1',
+            task: 'What is a "superficial treatment" in an exam answer?',
+            options: [
+              { id: 'a', text: 'Writing about topics related to the surface of the Earth', isCorrect: false },
+              { id: 'b', text: 'Saying "this is good" or "this is bad" without explaining why', isCorrect: true },
+              { id: 'c', text: 'Writing a very short answer', isCorrect: false },
+              { id: 'd', text: 'Using simple vocabulary', isCorrect: false },
+            ],
+            solution: 'Superficial treatment means stating conclusions without showing your thinking. Examiners want to see analysis, reasoning, and explanation - not just opinions without support.',
+          },
+        ],
       },
     },
     {
@@ -1097,15 +1522,33 @@ Consider asking a teacher or peer for their perspective. Sometimes others see ou
         id: 'engelsk-vg1-12-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Why is self-assessment important for exam preparation?',
-        options: [
+        task: 'Test yourself on self-assessment:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-1-n-quiz4-q0',
+            task: 'Why is self-assessment important for exam preparation?',
+            options: [
           { id: 'a', text: 'To feel bad about your weaknesses', isCorrect: false },
           { id: 'b', text: 'To identify where to focus your preparation efforts', isCorrect: true },
           { id: 'c', text: 'To compare yourself negatively to others', isCorrect: false },
           { id: 'd', text: 'To avoid studying altogether', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Self-assessment helps you prepare efficiently by identifying your strengths and weaknesses. You can then focus your limited preparation time on areas that need the most improvement.',
+            solution: 'Self-assessment helps you prepare efficiently by identifying your strengths and weaknesses. You can then focus your limited preparation time on areas that need the most improvement.',
+          },
+          {
+            id: 'engelsk-vg1-12-1-n-quiz4-q1',
+            task: 'What areas should you consider when assessing yourself for the English exam?',
+            options: [
+              { id: 'a', text: 'Only your writing skills', isCorrect: false },
+              { id: 'b', text: 'Written communication, oral communication, reading comprehension, and cultural knowledge', isCorrect: true },
+              { id: 'c', text: 'Only your vocabulary size', isCorrect: false },
+              { id: 'd', text: 'Only your grammar knowledge', isCorrect: false },
+            ],
+            solution: 'Effective self-assessment covers written communication (different text types), oral communication (fluency, pronunciation), reading comprehension (analysis skills), and cultural knowledge (English-speaking world). Focus preparation on your weakest areas.',
+          },
+        ],
       },
     },
     {
@@ -1132,15 +1575,33 @@ Remember: the exam isn't trying to trick you. It's designed to let you show what
         id: 'engelsk-vg1-12-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What is the best way to practice for the exam?',
-        options: [
+        task: 'Test yourself on exam preparation strategies:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-1-n-quiz5-q0',
+            task: 'What is the best way to practice for the exam?',
+            options: [
           { id: 'a', text: 'Only read theory about how to write', isCorrect: false },
           { id: 'b', text: 'Practice with past exam papers under timed conditions', isCorrect: true },
           { id: 'c', text: 'Memorize sample essays word for word', isCorrect: false },
           { id: 'd', text: 'Avoid practicing to save energy for the real exam', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Practicing with past exam papers under timed conditions is the most effective preparation. It familiarizes you with the format, helps you manage time, and reveals areas that need more work.',
+            solution: 'Practicing with past exam papers under timed conditions is the most effective preparation. It familiarizes you with the format, helps you manage time, and reveals areas that need more work.',
+          },
+          {
+            id: 'engelsk-vg1-12-1-n-quiz5-q1',
+            task: 'Why should you think about the examiner when writing?',
+            options: [
+              { id: 'a', text: 'To figure out what answers they want to hear', isCorrect: false },
+              { id: 'b', text: 'Because they are reading many responses and want clear, engaging, organized answers', isCorrect: true },
+              { id: 'c', text: 'To write longer essays', isCorrect: false },
+              { id: 'd', text: 'Thinking about the examiner is not important', isCorrect: false },
+            ],
+            solution: 'Examiners read many responses and appreciate clear, engaging, well-organized answers. Making their job easy with reader-friendly responses can positively influence the grading experience.',
+          },
+        ],
       },
     },
     {
@@ -1225,15 +1686,33 @@ These are guidelines, not rules. Adjust based on the specific exam. But always r
         id: 'engelsk-vg1-12-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Why should you reserve time at the end of the exam?',
-        options: [
+        task: 'Test yourself on time management:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-2-n-quiz1-q0',
+            task: 'Why should you reserve time at the end of the exam?',
+            options: [
           { id: 'a', text: 'To relax before leaving', isCorrect: false },
           { id: 'b', text: 'To review, revise, and fix errors in your writing', isCorrect: true },
           { id: 'c', text: 'To start writing a new essay', isCorrect: false },
           { id: 'd', text: 'To check what others wrote', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Reserving time at the end for review and revision is crucial. Reading through your work allows you to catch errors, improve word choices, and strengthen weak sections. This final polish can significantly improve your grade.',
+            solution: 'Reserving time at the end for review and revision is crucial. Reading through your work allows you to catch errors, improve word choices, and strengthen weak sections. This final polish can significantly improve your grade.',
+          },
+          {
+            id: 'engelsk-vg1-12-2-n-quiz1-q1',
+            task: 'What should you do in the first 30 minutes of the exam?',
+            options: [
+              { id: 'a', text: 'Start writing immediately', isCorrect: false },
+              { id: 'b', text: 'Read everything carefully and understand all tasks before writing', isCorrect: true },
+              { id: 'c', text: 'Write your conclusion first', isCorrect: false },
+              { id: 'd', text: 'Choose which questions to skip', isCorrect: false },
+            ],
+            solution: 'The first 30 minutes should be spent reading everything carefully and understanding all tasks. This prevents costly mistakes like misunderstanding questions. Note requirements and plan your approach before writing anything.',
+          },
+        ],
       },
     },
     {
@@ -1260,15 +1739,33 @@ Underline or highlight key words in the question. Keep referring back to make su
         id: 'engelsk-vg1-12-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What does "discuss" typically mean in an academic essay question?',
-        options: [
+        task: 'Test yourself on task analysis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-2-n-quiz2-q0',
+            task: 'What does "discuss" typically mean in an academic essay question?',
+            options: [
           { id: 'a', text: 'Simply list facts about the topic', isCorrect: false },
           { id: 'b', text: 'Examine different aspects, consider viewpoints, and form a conclusion', isCorrect: true },
           { id: 'c', text: 'Repeat the question in different words', isCorrect: false },
           { id: 'd', text: 'Only describe one side of the issue', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'In academic writing, "discuss" means to examine different aspects of an issue, consider various viewpoints, analyze the evidence, and form a conclusion. It requires more than description or listing.',
+            solution: 'In academic writing, "discuss" means to examine different aspects of an issue, consider various viewpoints, analyze the evidence, and form a conclusion. It requires more than description or listing.',
+          },
+          {
+            id: 'engelsk-vg1-12-2-n-quiz2-q1',
+            task: 'Why is it important to identify the text type before writing?',
+            options: [
+              { id: 'a', text: 'Different text types have different conventions and expectations', isCorrect: true },
+              { id: 'b', text: 'It is not important; all text types are the same', isCorrect: false },
+              { id: 'c', text: 'To decide how many pages to write', isCorrect: false },
+              { id: 'd', text: 'Only to choose a font style', isCorrect: false },
+            ],
+            solution: 'Different text types have different conventions. An argumentative essay needs a thesis and logical reasoning. A personal essay can be more reflective. An article needs a hook and accessible style. Knowing the type guides your approach.',
+          },
+        ],
       },
     },
     {
@@ -1295,15 +1792,33 @@ Think about evidence. What examples, facts, or quotations will support your poin
         id: 'engelsk-vg1-12-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Why might it be good to write your introduction last?',
-        options: [
+        task: 'Test yourself on planning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-2-n-quiz3-q0',
+            task: 'Why might it be good to write your introduction last?',
+            options: [
           { id: 'a', text: 'Introductions are not important', isCorrect: false },
           { id: 'b', text: 'Once you have written the body, you know exactly what you are introducing', isCorrect: true },
           { id: 'c', text: 'Introductions should always be short', isCorrect: false },
           { id: 'd', text: 'Examiners do not read introductions', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Writing the introduction last (or keeping it flexible) can be effective because after writing the body, you know exactly what your essay argues. This prevents mismatches between your introduction\'s promises and your body\'s delivery.',
+            solution: 'Writing the introduction last (or keeping it flexible) can be effective because after writing the body, you know exactly what your essay argues. This prevents mismatches between your introduction\'s promises and your body\'s delivery.',
+          },
+          {
+            id: 'engelsk-vg1-12-2-n-quiz3-q1',
+            task: 'How many main points should an exam essay typically have?',
+            options: [
+              { id: 'a', text: 'Only 1 main point', isCorrect: false },
+              { id: 'b', text: '2-4 main points', isCorrect: true },
+              { id: 'c', text: 'At least 10 main points', isCorrect: false },
+              { id: 'd', text: 'As many as possible', isCorrect: false },
+            ],
+            solution: 'An exam essay typically works best with 2-4 main points. This allows enough depth for each point while covering the topic adequately within the time available.',
+          },
+        ],
       },
     },
     {
@@ -1332,15 +1847,33 @@ Use transition words to connect paragraphs and ideas: however, furthermore, on t
         id: 'engelsk-vg1-12-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What should a strong paragraph typically include?',
-        options: [
+        task: 'Test yourself on paragraph writing:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-2-n-quiz4-q0',
+            task: 'What should a strong paragraph typically include?',
+            options: [
           { id: 'a', text: 'Only one sentence', isCorrect: false },
           { id: 'b', text: 'A topic sentence, development, evidence, and a link', isCorrect: true },
           { id: 'c', text: 'As many ideas as possible', isCorrect: false },
           { id: 'd', text: 'Only quotations, no original writing', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'A strong paragraph has a topic sentence (stating the paragraph\'s point), development (explaining the point), evidence (supporting it), and a link (connecting to the thesis or next paragraph).',
+            solution: 'A strong paragraph has a topic sentence (stating the paragraph\'s point), development (explaining the point), evidence (supporting it), and a link (connecting to the thesis or next paragraph).',
+          },
+          {
+            id: 'engelsk-vg1-12-2-n-quiz4-q1',
+            task: 'What are transition words used for in essay writing?',
+            options: [
+              { id: 'a', text: 'To make the essay longer', isCorrect: false },
+              { id: 'b', text: 'To guide the reader through the argument by connecting paragraphs and ideas', isCorrect: true },
+              { id: 'c', text: 'To replace topic sentences', isCorrect: false },
+              { id: 'd', text: 'To impress the examiner with vocabulary', isCorrect: false },
+            ],
+            solution: 'Transition words (however, furthermore, on the other hand, consequently, for example) connect paragraphs and ideas, guiding the reader through your argument smoothly and logically.',
+          },
+        ],
       },
     },
     {
@@ -1369,15 +1902,33 @@ If time permits, read the whole thing once more. Every pass catches something yo
         id: 'engelsk-vg1-12-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What should you check for when revising your exam essay?',
-        options: [
+        task: 'Test yourself on revision:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-2-n-quiz5-q0',
+            task: 'What should you check for when revising your exam essay?',
+            options: [
           { id: 'a', text: 'Only spelling', isCorrect: false },
           { id: 'b', text: 'Content, structure, language, and variety', isCorrect: true },
           { id: 'c', text: 'Only the introduction', isCorrect: false },
           { id: 'd', text: 'Whether it is long enough', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Effective revision checks multiple levels: content (did you answer the question?), structure (is it organized?), language (grammar, spelling, word choice), and variety (sentence structure, vocabulary). Each pass catches different issues.',
+            solution: 'Effective revision checks multiple levels: content (did you answer the question?), structure (is it organized?), language (grammar, spelling, word choice), and variety (sentence structure, vocabulary). Each pass catches different issues.',
+          },
+          {
+            id: 'engelsk-vg1-12-2-n-quiz5-q1',
+            task: 'In what order should you check your work during revision?',
+            options: [
+              { id: 'a', text: 'Only check spelling, nothing else matters', isCorrect: false },
+              { id: 'b', text: 'Content first, then structure, then language, then variety', isCorrect: true },
+              { id: 'c', text: 'Start with commas and work backward', isCorrect: false },
+              { id: 'd', text: 'Order does not matter', isCorrect: false },
+            ],
+            solution: 'Revise systematically: first content (does it answer the question?), then structure (do paragraphs flow?), then language (grammar, spelling, word choice), then variety (sentence structure, vocabulary). Each pass catches different issues.',
+          },
+        ],
       },
     },
     {
@@ -1465,15 +2016,33 @@ The conversation isn't meant to trip you up. Examiners want you to succeed. They
         id: 'engelsk-vg1-12-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What is the purpose of the conversation portion of the oral exam?',
-        options: [
+        task: 'Test yourself on the oral exam format:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-3-n-quiz1-q0',
+            task: 'What is the purpose of the conversation portion of the oral exam?',
+            options: [
           { id: 'a', text: 'To trick you with difficult questions', isCorrect: false },
           { id: 'b', text: 'To test spontaneous communication and dialogue ability', isCorrect: true },
           { id: 'c', text: 'To let you memorize answers beforehand', isCorrect: false },
           { id: 'd', text: 'To give you time to rest after the presentation', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'The conversation portion tests your ability to communicate spontaneously, respond to questions, and engage in genuine dialogue. It is not meant to trick you but to assess real communication competence.',
+            solution: 'The conversation portion tests your ability to communicate spontaneously, respond to questions, and engage in genuine dialogue. It is not meant to trick you but to assess real communication competence.',
+          },
+          {
+            id: 'engelsk-vg1-12-3-n-quiz1-q1',
+            task: 'What are you assessed on throughout the oral exam?',
+            options: [
+              { id: 'a', text: 'Only pronunciation', isCorrect: false },
+              { id: 'b', text: 'Content (knowledge, reflection), language (vocabulary, grammar), and communication (fluency, interaction)', isCorrect: true },
+              { id: 'c', text: 'Only how many facts you can remember', isCorrect: false },
+              { id: 'd', text: 'Only body language', isCorrect: false },
+            ],
+            solution: 'Assessment covers three areas: content (knowledge, ideas, reflection), language (vocabulary, grammar, pronunciation), and communication (fluency, interaction, adaptation to context). All three matter throughout the exam.',
+          },
+        ],
       },
     },
     {
@@ -1506,15 +2075,33 @@ Don't try to memorize perfectly. You want to sound natural, not robotic. Knowing
         id: 'engelsk-vg1-12-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Why should you make notes rather than write a full script for your oral presentation?',
-        options: [
+        task: 'Test yourself on presentation preparation:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-3-n-quiz2-q0',
+            task: 'Why should you make notes rather than write a full script for your oral presentation?',
+            options: [
           { id: 'a', text: 'Scripts are against the rules', isCorrect: false },
           { id: 'b', text: 'Notes help you speak naturally; scripts make you sound like you are reciting', isCorrect: true },
           { id: 'c', text: 'Notes are faster to write', isCorrect: false },
           { id: 'd', text: 'Examiners cannot read your notes', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Notes with keywords help you speak naturally and flexibly. Full scripts tend to make speakers sound robotic and unnatural as they try to recite memorized text rather than genuinely communicate.',
+            solution: 'Notes with keywords help you speak naturally and flexibly. Full scripts tend to make speakers sound robotic and unnatural as they try to recite memorized text rather than genuinely communicate.',
+          },
+          {
+            id: 'engelsk-vg1-12-3-n-quiz2-q1',
+            task: 'Why is it important to plan your opening strong?',
+            options: [
+              { id: 'a', text: 'The opening is the only part examiners listen to', isCorrect: false },
+              { id: 'b', text: 'First impressions matter and a confident opening sets the tone', isCorrect: true },
+              { id: 'c', text: 'You can only speak for 30 seconds', isCorrect: false },
+              { id: 'd', text: 'Examiners grade the opening separately', isCorrect: false },
+            ],
+            solution: 'First impressions matter. A clear, confident opening sets the tone for your entire presentation. Know exactly how you will start so you begin with certainty rather than fumbling.',
+          },
+        ],
       },
     },
     {
@@ -1543,15 +2130,33 @@ Accept imperfection. You will stumble. You will forget something. You will make 
         id: 'engelsk-vg1-12-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'What should you do if you make a mistake during your oral presentation?',
-        options: [
+        task: 'Test yourself on delivery:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-3-n-quiz3-q0',
+            task: 'What should you do if you make a mistake during your oral presentation?',
+            options: [
           { id: 'a', text: 'Stop the presentation and start over', isCorrect: false },
           { id: 'b', text: 'Correct yourself briefly and move on', isCorrect: true },
           { id: 'c', text: 'Pretend it did not happen and hope no one noticed', isCorrect: false },
           { id: 'd', text: 'Apologize extensively before continuing', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'When you make a mistake, correct yourself briefly and move on. Everyone makes errors when speaking. Dwelling on mistakes or apologizing extensively draws more attention to them and disrupts your flow.',
+            solution: 'When you make a mistake, correct yourself briefly and move on. Everyone makes errors when speaking. Dwelling on mistakes or apologizing extensively draws more attention to them and disrupts your flow.',
+          },
+          {
+            id: 'engelsk-vg1-12-3-n-quiz3-q1',
+            task: 'Why is it better to speak more slowly during an oral exam?',
+            options: [
+              { id: 'a', text: 'To use up more time', isCorrect: false },
+              { id: 'b', text: 'Nervousness makes us speed up, and saying less clearly is better than rushing incomprehensibly', isCorrect: true },
+              { id: 'c', text: 'Slow speech always gets higher grades', isCorrect: false },
+              { id: 'd', text: 'Examiners cannot understand fast English', isCorrect: false },
+            ],
+            solution: 'Nervousness causes people to speed up. Consciously slowing down gives you time to think and gives listeners time to process. It is better to say less, clearly, than to rush through more content incomprehensibly.',
+          },
+        ],
       },
     },
     {
@@ -1580,15 +2185,33 @@ Don't panic if you blank. Ask for the question again. Take a breath. Often the a
         id: 'engelsk-vg1-12-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What should you do if you do not understand a question from the examiner?',
-        options: [
+        task: 'Test yourself on handling questions:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-3-n-quiz4-q0',
+            task: 'What should you do if you do not understand a question from the examiner?',
+            options: [
           { id: 'a', text: 'Guess what they meant and answer that', isCorrect: false },
           { id: 'b', text: 'Ask for clarification or repetition', isCorrect: true },
           { id: 'c', text: 'Remain silent until they ask something else', isCorrect: false },
           { id: 'd', text: 'Change the topic to something you know better', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Asking for clarification or repetition is perfectly acceptable and shows engaged listening. It is better to understand the question properly than to answer something that was not asked.',
+            solution: 'Asking for clarification or repetition is perfectly acceptable and shows engaged listening. It is better to understand the question properly than to answer something that was not asked.',
+          },
+          {
+            id: 'engelsk-vg1-12-3-n-quiz4-q1',
+            task: 'What should you do if you truly do not know the answer to an examiner\'s question?',
+            options: [
+              { id: 'a', text: 'Make up an answer and hope for the best', isCorrect: false },
+              { id: 'b', text: 'Acknowledge it honestly and redirect to what you do know', isCorrect: true },
+              { id: 'c', text: 'Refuse to answer any more questions', isCorrect: false },
+              { id: 'd', text: 'Repeat the question back slowly to use up time', isCorrect: false },
+            ],
+            solution: 'Be honest about uncertainty. "I\'m not certain about that, but I think..." is better than making things up. You can redirect: "I don\'t know much about that specifically, but I do know that..." Honesty is respected.',
+          },
+        ],
       },
     },
     {
@@ -1617,15 +2240,33 @@ Simulate exam conditions. Find a quiet space. Have someone play examiner. Practi
         id: 'engelsk-vg1-12-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Why is practicing out loud important for oral exam preparation?',
-        options: [
+        task: 'Test yourself on practice strategies:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-3-n-quiz5-q0',
+            task: 'Why is practicing out loud important for oral exam preparation?',
+            options: [
           { id: 'a', text: 'Silent practice is just as effective', isCorrect: false },
           { id: 'b', text: 'Your mouth and brain need to practice the actual experience of speaking', isCorrect: true },
           { id: 'c', text: 'Practicing out loud impresses your neighbors', isCorrect: false },
           { id: 'd', text: 'Out loud practice helps you memorize scripts word for word', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Speaking out loud engages different skills than silent practice. Your mouth needs to form words, your ears need to hear your voice, and your brain needs to process the experience of actually speaking, not just thinking about speaking.',
+            solution: 'Speaking out loud engages different skills than silent practice. Your mouth needs to form words, your ears need to hear your voice, and your brain needs to process the experience of actually speaking, not just thinking about speaking.',
+          },
+          {
+            id: 'engelsk-vg1-12-3-n-quiz5-q1',
+            task: 'Why is recording yourself helpful for oral exam preparation?',
+            options: [
+              { id: 'a', text: 'To create a study playlist', isCorrect: false },
+              { id: 'b', text: 'To notice your speaking pace, clarity, filler words, and areas for improvement', isCorrect: true },
+              { id: 'c', text: 'Because examiners require recordings', isCorrect: false },
+              { id: 'd', text: 'To share with classmates for comparison', isCorrect: false },
+            ],
+            solution: 'Recording yourself and listening back is uncomfortable but invaluable. It helps you notice your speaking pace, clarity, filler words, and specific areas where you can improve. You often cannot hear these things while speaking.',
+          },
+        ],
       },
     },
     {
@@ -1713,15 +2354,33 @@ Set specific goals. "Get better at English" is too vague. "Learn 10 new academic
         id: 'engelsk-vg1-12-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'What is the most effective approach to language learning?',
-        options: [
+        task: 'Test yourself on language learning strategies:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-4-n-quiz1-q0',
+            task: 'What is the most effective approach to language learning?',
+            options: [
           { id: 'a', text: 'Only practice what you are already good at', isCorrect: false },
           { id: 'b', text: 'Active engagement, producing language, and targeting weaknesses', isCorrect: true },
           { id: 'c', text: 'Passive watching of English movies without interaction', isCorrect: false },
           { id: 'd', text: 'Cramming all content the night before the exam', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Effective language learning requires active engagement (not just passive exposure), actually producing language (speaking and writing), and targeting your weaknesses rather than just practicing strengths.',
+            solution: 'Effective language learning requires active engagement (not just passive exposure), actually producing language (speaking and writing), and targeting your weaknesses rather than just practicing strengths.',
+          },
+          {
+            id: 'engelsk-vg1-12-4-n-quiz1-q1',
+            task: 'Why is "spaced learning" more effective than cramming?',
+            options: [
+              { id: 'a', text: 'It takes less total time', isCorrect: false },
+              { id: 'b', text: 'Regular practice over weeks builds lasting competence better than cramming the night before', isCorrect: true },
+              { id: 'c', text: 'Teachers can monitor your progress better', isCorrect: false },
+              { id: 'd', text: 'Spaced learning only works for languages', isCorrect: false },
+            ],
+            solution: 'Cramming the night before doesn\'t build lasting competence. Regular practice over weeks is far more effective because your brain consolidates learning during rest. Even a few weeks of daily practice helps significantly.',
+          },
+        ],
       },
     },
     {
@@ -1750,15 +2409,33 @@ Revision: First drafts are never best. Budget time to review, improve word choic
         id: 'engelsk-vg1-12-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'What does "development" mean in the context of essay writing?',
-        options: [
+        task: 'Test yourself on writing skills:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-4-n-quiz2-q0',
+            task: 'What does "development" mean in the context of essay writing?',
+            options: [
           { id: 'a', text: 'Making the essay longer by repeating points', isCorrect: false },
           { id: 'b', text: 'Explaining and supporting points with examples and reasoning', isCorrect: true },
           { id: 'c', text: 'Using more difficult vocabulary', isCorrect: false },
           { id: 'd', text: 'Writing a longer introduction', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Development means explaining your points fully and supporting them with examples, evidence, and reasoning. It is about showing your thinking, not just stating conclusions.',
+            solution: 'Development means explaining your points fully and supporting them with examples, evidence, and reasoning. It is about showing your thinking, not just stating conclusions.',
+          },
+          {
+            id: 'engelsk-vg1-12-4-n-quiz2-q1',
+            task: 'When should you quote versus paraphrase a source?',
+            options: [
+              { id: 'a', text: 'Always quote; never paraphrase', isCorrect: false },
+              { id: 'b', text: 'Quote when exact words matter; paraphrase when the idea matters', isCorrect: true },
+              { id: 'c', text: 'Always paraphrase; never quote', isCorrect: false },
+              { id: 'd', text: 'Neither quoting nor paraphrasing is needed', isCorrect: false },
+            ],
+            solution: 'Quote when the exact words matter (distinctive phrasing, authority). Paraphrase when the idea matters more than the specific wording. Always cite in both cases, and use sources to support your arguments, not replace them.',
+          },
+        ],
       },
     },
     {
@@ -1787,15 +2464,33 @@ Make connections: Don't just memorize facts. Connect cultural knowledge to theme
         id: 'engelsk-vg1-12-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Why is cultural knowledge important in English VG1?',
-        options: [
+        task: 'Test yourself on cultural knowledge:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-4-n-quiz3-q0',
+            task: 'Why is cultural knowledge important in English VG1?',
+            options: [
           { id: 'a', text: 'You must memorize all facts about every English-speaking country', isCorrect: false },
           { id: 'b', text: 'It helps you engage deeply with texts and discussions about the English-speaking world', isCorrect: true },
           { id: 'c', text: 'Cultural knowledge is only tested in history class', isCorrect: false },
           { id: 'd', text: 'It is not actually important for the exam', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Cultural knowledge enriches your engagement with texts and discussions. Understanding historical and social context deepens analysis and allows for more meaningful reflection on issues in the English-speaking world.',
+            solution: 'Cultural knowledge enriches your engagement with texts and discussions. Understanding historical and social context deepens analysis and allows for more meaningful reflection on issues in the English-speaking world.',
+          },
+          {
+            id: 'engelsk-vg1-12-4-n-quiz3-q1',
+            task: 'What is the best approach to using cultural knowledge in exams?',
+            options: [
+              { id: 'a', text: 'Memorize dates and names without understanding context', isCorrect: false },
+              { id: 'b', text: 'Connect cultural knowledge to themes, texts, and discussions, and compare with Norwegian context', isCorrect: true },
+              { id: 'c', text: 'Only mention cultural facts if specifically asked', isCorrect: false },
+              { id: 'd', text: 'Avoid cultural topics in exam writing', isCorrect: false },
+            ],
+            solution: 'Don\'t just memorize facts. Connect cultural knowledge to themes, texts, and discussions. Compare with Norwegian context. Analyze critically. This shows deeper understanding and earns higher grades.',
+          },
+        ],
       },
     },
     {
@@ -1826,15 +2521,33 @@ Finally, stay flexible. If something isn't working, adjust. If you find unexpect
         id: 'engelsk-vg1-12-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'What makes a good study goal?',
-        options: [
+        task: 'Test yourself on study planning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-4-n-quiz4-q0',
+            task: 'What makes a good study goal?',
+            options: [
           { id: 'a', text: 'Vague intentions like "study more"', isCorrect: false },
           { id: 'b', text: 'Specific, achievable targets like "write one practice essay every two days"', isCorrect: true },
           { id: 'c', text: 'Impossible goals that force you to work harder', isCorrect: false },
           { id: 'd', text: 'Goals that only focus on your strongest areas', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Good study goals are specific and achievable. "Write one practice essay every two days" is better than "study more" because it is concrete, measurable, and actionable.',
+            solution: 'Good study goals are specific and achievable. "Write one practice essay every two days" is better than "study more" because it is concrete, measurable, and actionable.',
+          },
+          {
+            id: 'engelsk-vg1-12-4-n-quiz4-q1',
+            task: 'Why should a study plan include rest?',
+            options: [
+              { id: 'a', text: 'Studying without rest is more effective', isCorrect: false },
+              { id: 'b', text: 'Burned-out brains don\'t learn well, and the brain consolidates learning during rest', isCorrect: true },
+              { id: 'c', text: 'Rest is only needed after exams', isCorrect: false },
+              { id: 'd', text: 'Rest is a reward for finishing all studying', isCorrect: false },
+            ],
+            solution: 'Burned-out brains don\'t learn well. Sleep, breaks, and exercise are essential because your brain consolidates learning during rest. Studying continuously without breaks leads to diminishing returns.',
+          },
+        ],
       },
     },
     {
@@ -1865,15 +2578,33 @@ Good luck. You've got this.`,
         id: 'engelsk-vg1-12-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'What is the most important mindset for exam success?',
-        options: [
+        task: 'Test yourself on exam mindset:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'engelsk-vg1-12-4-n-quiz5-q0',
+            task: 'What is the most important mindset for exam success?',
+            options: [
           { id: 'a', text: 'Fear of failure', isCorrect: false },
           { id: 'b', text: 'Confidence based on preparation and consistent effort', isCorrect: true },
           { id: 'c', text: 'Hoping to be lucky', isCorrect: false },
           { id: 'd', text: 'Comparing yourself negatively to others', isCorrect: false },
         ],
-        correctAnswer: 'b',
-        solution: 'Confidence based on preparation and effort is the best mindset. When you have prepared thoroughly, you can approach the exam knowing you have done what you can, which reduces anxiety and improves performance.',
+            solution: 'Confidence based on preparation and effort is the best mindset. When you have prepared thoroughly, you can approach the exam knowing you have done what you can, which reduces anxiety and improves performance.',
+          },
+          {
+            id: 'engelsk-vg1-12-4-n-quiz5-q1',
+            task: 'Why is it important to focus on your own progress rather than comparing yourself to others?',
+            options: [
+              { id: 'a', text: 'Because other students are always better', isCorrect: false },
+              { id: 'b', text: 'Your goal is to demonstrate your competence, not beat classmates', isCorrect: true },
+              { id: 'c', text: 'Comparison is encouraged by examiners', isCorrect: false },
+              { id: 'd', text: 'Other students\' grades affect yours', isCorrect: false },
+            ],
+            solution: 'Comparison is the thief of joy. Focus on your own progress because your goal is to demonstrate your competence, not beat classmates. Natural talent varies, but effort is a choice - students who prepare consistently outperform those who coast on talent.',
+          },
+        ],
       },
     },
     {

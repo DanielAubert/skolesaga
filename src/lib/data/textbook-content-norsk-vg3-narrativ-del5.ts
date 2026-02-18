@@ -65,15 +65,46 @@ Albert Camus, en annen sentral tenker, fokuserte paa det absurde - gapet mellom 
         id: 'norsk-vg3-3-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva menes med at "eksistensen kommer for essensen"?',
+        task: 'Test deg selv pa eksistensialismens grunntanker:',
         options: [
-          { id: 'a', text: 'At mennesket maa eksistere for aa kunne tenke', isCorrect: false },
-          { id: 'b', text: 'At vi forst eksisterer, og saa skaper vi oss selv gjennom valg', isCorrect: true },
-          { id: 'c', text: 'At eksistens er viktigere enn vaeren', isCorrect: false },
-          { id: 'd', text: 'At det essensielle alltid kommer etter det eksisterende', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        correctAnswer: 'b',
-        solution: 'Sartres formulering betyr at mennesket ikke er skapt med en forutbestemt natur eller oppgave. Vi eksisterer forst, og gjennom valgene vi tar, skaper vi hvem vi er. Dette er kjernen i eksistensialistisk tenkning.',
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg3-3-1-n-quiz1-q0',
+            task: 'Hva menes med at "eksistensen kommer for essensen"?',
+            options: [
+              { id: 'a', text: 'At mennesket maa eksistere for aa kunne tenke', isCorrect: false },
+              { id: 'b', text: 'At vi forst eksisterer, og saa skaper vi oss selv gjennom valg', isCorrect: true },
+              { id: 'c', text: 'At eksistens er viktigere enn vaeren', isCorrect: false },
+              { id: 'd', text: 'At det essensielle alltid kommer etter det eksisterende', isCorrect: false },
+            ],
+            solution: 'Sartres formulering betyr at mennesket ikke er skapt med en forutbestemt natur eller oppgave. Vi eksisterer forst, og gjennom valgene vi tar, skaper vi hvem vi er.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz1-q1',
+            task: 'Hvem sammenligner menneskets situasjon med Sisyfos?',
+            options: [
+              { id: 'a', text: 'Jean-Paul Sartre', isCorrect: false },
+              { id: 'b', text: 'Simone de Beauvoir', isCorrect: false },
+              { id: 'c', text: 'Albert Camus', isCorrect: true },
+              { id: 'd', text: 'Soren Kierkegaard', isCorrect: false },
+            ],
+            solution: 'Albert Camus sammenligner menneskets situasjon med Sisyfos i "Myten om Sisyfos". Sisyfos ruller en stein opp en bakke for all evighet, men Camus konkluderer: "Vi maa forestille oss Sisyfos lykkelig."',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz1-q2',
+            task: 'Hva fokuserte Camus pa i sin filosofi?',
+            options: [
+              { id: 'a', text: 'Friheten og ansvaret', isCorrect: false },
+              { id: 'b', text: 'Det absurde - gapet mellom menneskets lengsel etter mening og universets likegyldighet', isCorrect: true },
+              { id: 'c', text: 'Klassekamp og revolusjon', isCorrect: false },
+              { id: 'd', text: 'Religionens betydning', isCorrect: false },
+            ],
+            solution: 'Camus fokuserte pa det absurde - gapet mellom menneskets lengsel etter mening og universtes tause likegyldighet. Opproret mot meningsloesheten er selv meningsfullt.',
+          },
+        ],
       },
     },
     {
@@ -100,15 +131,46 @@ Simone de Beauvoir, Sartres partner og selv en stor tenker, utvidet denne analys
         id: 'norsk-vg3-3-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva mente Sartre med at mennesket er "domt til aa vaere fritt"?',
+        task: 'Test deg selv pa angst, frihet og ansvar:',
         options: [
-          { id: 'a', text: 'At frihet er en straff for mennesket', isCorrect: false },
-          { id: 'b', text: 'At vi ikke kan unnslippe ansvaret for valgene vaare', isCorrect: true },
-          { id: 'c', text: 'At samfunnet tvinger oss til aa vaere frie', isCorrect: false },
-          { id: 'd', text: 'At friheten er en domstol som doemmer oss', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        correctAnswer: 'b',
-        solution: 'Nar Sartre sier vi er "domt til frihet", mener han at vi ikke kan unnslippe ansvaret. Selv nar vi proever aa flykte fra valg, er det et valg. Friheten er uunngaelig - og med den folger det fulle ansvaret for hvem vi blir.',
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg3-3-1-n-quiz2-q0',
+            task: 'Hva mente Sartre med at mennesket er "domt til aa vaere fritt"?',
+            options: [
+              { id: 'a', text: 'At frihet er en straff for mennesket', isCorrect: false },
+              { id: 'b', text: 'At vi ikke kan unnslippe ansvaret for valgene vaare', isCorrect: true },
+              { id: 'c', text: 'At samfunnet tvinger oss til aa vaere frie', isCorrect: false },
+              { id: 'd', text: 'At friheten er en domstol som doemmer oss', isCorrect: false },
+            ],
+            solution: 'Nar Sartre sier vi er "domt til frihet", mener han at vi ikke kan unnslippe ansvaret. Selv nar vi proever aa flykte fra valg, er det et valg.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz2-q1',
+            task: 'Hva kalte Kierkegaard den eksistensielle uroen?',
+            options: [
+              { id: 'a', text: 'Eksistensiell depresjon', isCorrect: false },
+              { id: 'b', text: 'Angstens svimmelhet', isCorrect: true },
+              { id: 'c', text: 'Frihetens forbannelse', isCorrect: false },
+              { id: 'd', text: 'Tilvaerelsens kvalme', isCorrect: false },
+            ],
+            solution: 'Kierkegaard kalte det "angstens svimmelhet" - folelsen av aa staa ved kanten av en avgrunn av frihet. Det er ikke angst for noe bestemt, men en dypere uro overfor tilvaerelsens apne muligheter.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz2-q2',
+            task: 'Hva viste Simone de Beauvoir i "Det annet kjonn"?',
+            options: [
+              { id: 'a', text: 'At kvinner ikke kan vaere frie', isCorrect: false },
+              { id: 'b', text: 'At menn og kvinner er helt like', isCorrect: false },
+              { id: 'c', text: 'Hvordan kvinner var blitt definert av menn og matte ta ansvar for egen frihet', isCorrect: true },
+              { id: 'd', text: 'At eksistensialismen bare gjaldt menn', isCorrect: false },
+            ],
+            solution: 'Simone de Beauvoir utvidet eksistensialismen til kvinners situasjon. I "Det annet kjonn" viste hun hvordan kvinner var blitt definert av menn, og oppfordret dem til aa ta ansvar for sin egen frihet.',
+          },
+        ],
       },
     },
     {
@@ -135,15 +197,35 @@ Felles for disse verkene er fokuset paa valget, paa ansvaret, paa konfrontasjone
         id: 'norsk-vg3-3-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva representerer Meursault i Camus\' "Den fremmede"?',
+        task: 'Test deg selv pa eksistensialistisk litteratur:',
         options: [
-          { id: 'a', text: 'Den ideelle eksistensialistiske helten', isCorrect: false },
-          { id: 'b', text: 'Et menneske som er fremmed for samfunnets konvensjoner og forventninger', isCorrect: true },
-          { id: 'c', text: 'En psykisk syk person som trenger behandling', isCorrect: false },
-          { id: 'd', text: 'En typisk franskmann paa 1940-tallet', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        correctAnswer: 'b',
-        solution: 'Meursault er fremmed for samfunnets forventninger om hvordan man skal foele og oppfoere seg. Han nekter aa spille med paa de sosiale spillene, aa late som han foeler noe han ikke foeler. Dette gjoer ham til en trussel for samfunnet - men ogsaa til en aerlig karakter.',
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg3-3-1-n-quiz3-q0',
+            task: 'Hva representerer Meursault i Camus\' "Den fremmede"?',
+            options: [
+              { id: 'a', text: 'Den ideelle eksistensialistiske helten', isCorrect: false },
+              { id: 'b', text: 'Et menneske som er fremmed for samfunnets konvensjoner og forventninger', isCorrect: true },
+              { id: 'c', text: 'En psykisk syk person som trenger behandling', isCorrect: false },
+              { id: 'd', text: 'En typisk franskmann paa 1940-tallet', isCorrect: false },
+            ],
+            solution: 'Meursault er fremmed for samfunnets forventninger. Han nekter aa spille med paa de sosiale spillene, noe som gjoer ham til en trussel for samfunnet.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz3-q1',
+            task: 'Hva betyr den beroemte setningen "Helvete er de andre" fra Sartres drama?',
+            options: [
+              { id: 'a', text: 'At man bor unngaa andre mennesker', isCorrect: false },
+              { id: 'b', text: 'At andre menneskers blikk og domme er vaar verste straff', isCorrect: true },
+              { id: 'c', text: 'At helvete er et fysisk sted', isCorrect: false },
+              { id: 'd', text: 'At mennesker er onde av natur', isCorrect: false },
+            ],
+            solution: 'I "For lukkede doerer" viser Sartre at straffen er aa vaere utsatt for hverandres blikk og domme for alltid. Andre menneskers oppfatning av oss kan bli et fengsel.',
+          },
+        ],
       },
     },
     {
@@ -168,15 +250,35 @@ Ogsaa i lyrikken finner vi eksistensielle temaer. Olav H. Hauges enkle, dype dik
         id: 'norsk-vg3-3-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvordan skilte norsk eksistensialistisk litteratur seg fra den franske?',
+        task: 'Test deg selv pa eksistensialismen i Norge:',
         options: [
-          { id: 'a', text: 'Den var mer optimistisk og troende', isCorrect: false },
-          { id: 'b', text: 'Den var mer poetisk og knyttet til natur og landskap', isCorrect: true },
-          { id: 'c', text: 'Den avviste eksistensialismen helt', isCorrect: false },
-          { id: 'd', text: 'Den fokuserte bare paa politiske sporsmal', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        correctAnswer: 'b',
-        solution: 'Mens fransk eksistensialisme ofte utspilte seg i byer og kafeer, tok norske forfattere som Vesaas eksistensielle temaer inn i naturen og landskapet. Ensomheten ble konkret i fysisk avstand og stillhet. Stilen var ofte mer poetisk enn filosofisk.',
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg3-3-1-n-quiz4-q0',
+            task: 'Hvordan skilte norsk eksistensialistisk litteratur seg fra den franske?',
+            options: [
+              { id: 'a', text: 'Den var mer optimistisk og troende', isCorrect: false },
+              { id: 'b', text: 'Den var mer poetisk og knyttet til natur og landskap', isCorrect: true },
+              { id: 'c', text: 'Den avviste eksistensialismen helt', isCorrect: false },
+              { id: 'd', text: 'Den fokuserte bare paa politiske sporsmal', isCorrect: false },
+            ],
+            solution: 'Norske forfattere tok eksistensielle temaer inn i naturen og landskapet. Ensomheten ble konkret i fysisk avstand og stillhet.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz4-q1',
+            task: 'Hvilken norsk forfatter konfronterte ondskapen og ansvaret direkte?',
+            options: [
+              { id: 'a', text: 'Tarjei Vesaas', isCorrect: false },
+              { id: 'b', text: 'Olav H. Hauge', isCorrect: false },
+              { id: 'c', text: 'Jens Bjorneboe', isCorrect: true },
+              { id: 'd', text: 'Rolf Jacobsen', isCorrect: false },
+            ],
+            solution: 'Jens Bjorneboe var direkte pavirket av fransk eksistensialisme. I "Bestialitetens historie" sporr han hvordan mennesker kan begaa grusomheter og hva vaart ansvar er.',
+          },
+        ],
       },
     },
     {
@@ -201,15 +303,35 @@ Som Camus sa: Kampen mot toppunktet er i seg selv nok til aa fylle et menneskehj
         id: 'norsk-vg3-3-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er eksistensialismens viktigste arv i litteraturen?',
+        task: 'Test deg selv pa eksistensialismens arv:',
         options: [
-          { id: 'a', text: 'At alle romaner maa handle om filosofi', isCorrect: false },
-          { id: 'b', text: 'At forfattere ikke lenger kan late som de store sporsmaalene har enkle svar', isCorrect: true },
-          { id: 'c', text: 'At litteraturen skal vaere pessimistisk og morsk', isCorrect: false },
-          { id: 'd', text: 'At bare fransk litteratur er verdt aa lese', isCorrect: false },
+          { id: 'a', text: 'placeholder', isCorrect: true },
         ],
-        correctAnswer: 'b',
-        solution: 'Eksistensialismens stoerste arv er at litteraturen ikke lenger kan tilby enkle svar eller troest. Forfattere maa ta de store sporsmaalene paa alvor - om mening, frihet, doed og ansvar - uten aa ty til ferdiglagde loesninger.',
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg3-3-1-n-quiz5-q0',
+            task: 'Hva er eksistensialismens viktigste arv i litteraturen?',
+            options: [
+              { id: 'a', text: 'At alle romaner maa handle om filosofi', isCorrect: false },
+              { id: 'b', text: 'At forfattere ikke lenger kan late som de store sporsmaalene har enkle svar', isCorrect: true },
+              { id: 'c', text: 'At litteraturen skal vaere pessimistisk og morsk', isCorrect: false },
+              { id: 'd', text: 'At bare fransk litteratur er verdt aa lese', isCorrect: false },
+            ],
+            solution: 'Eksistensialismens stoerste arv er at vi ikke lenger kan late som de store sporsmaalene har enkle svar. Vi maa selv staa ansikt til ansikt med tilvaerelsens usikkerhet.',
+          },
+          {
+            id: 'norsk-vg3-3-1-n-quiz5-q1',
+            task: 'Hvilken norsk forfatter grubler over sin egen eksistens i tusener av sider?',
+            options: [
+              { id: 'a', text: 'Jon Fosse', isCorrect: false },
+              { id: 'b', text: 'Karl Ove Knausgaard', isCorrect: true },
+              { id: 'c', text: 'Dag Solstad', isCorrect: false },
+              { id: 'd', text: 'Erlend Loe', isCorrect: false },
+            ],
+            solution: 'Karl Ove Knausgaard grubler over sin egen eksistens i tusener av sider og gjoer det Sartre og Camus ba oss gjore: aa ta vaar egen tilvaerelse paa alvor.',
+          },
+        ],
       },
     },
     {
@@ -301,15 +423,13 @@ Det var i de siste tiaarene av forfatterskapet - fra 1950-tallet og utover - at 
         id: 'norsk-vg3-3-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvor levde Tarjei Vesaas det meste av livet sitt?',
-        options: [
-          { id: 'a', text: 'I Oslo, der han var del av det litteraere miljoeeet', isCorrect: false },
-          { id: 'b', text: 'Paa garden Midtboe i Vinje, Telemark', isCorrect: true },
-          { id: 'c', text: 'I utlandet, som de fleste modernister', isCorrect: false },
-          { id: 'd', text: 'I Bergen, naer universitetet', isCorrect: false },
+        task: 'Test deg selv pa Vesaas\' bakgrunn:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-2-n-quiz1-q0', task: 'Hvor levde Tarjei Vesaas det meste av livet sitt?', options: [{ id: 'a', text: 'I Oslo, der han var del av det litteraere miljoeeet', isCorrect: false }, { id: 'b', text: 'Paa garden Midtboe i Vinje, Telemark', isCorrect: true }, { id: 'c', text: 'I utlandet, som de fleste modernister', isCorrect: false }, { id: 'd', text: 'I Bergen, naer universitetet', isCorrect: false }], solution: 'Vesaas levde nesten hele livet paa garden Midtboe i Vinje i Telemark. Han fant det universelle gjennom det lokale.' },
+          { id: 'norsk-vg3-3-2-n-quiz1-q1', task: 'Hvem var Vesaas gift med?', options: [{ id: 'a', text: 'Cora Sandel', isCorrect: false }, { id: 'b', text: 'Sigrid Undset', isCorrect: false }, { id: 'c', text: 'Halldis Moren Vesaas', isCorrect: true }, { id: 'd', text: 'Torborg Nedreaas', isCorrect: false }], solution: 'Vesaas giftet seg med Halldis Moren i 1934. Hun var selv dikter, og de hadde et ekteskap preget av kreativt partnerskap og livslang kjaerlighet.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Vesaas levde nesten hele livet paa garden Midtboe i Vinje i Telemark. Dette ga ham en dyp tilknytning til naturen og landskapet som preger hele forfatterskapet. Han fant det universelle gjennom det lokale.',
       },
     },
     {
@@ -336,15 +456,13 @@ Romanen ender tragisk. Mattis ror ut paa vatnet og velter baaten med vilje. Han 
         id: 'norsk-vg3-3-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva symboliserer rugdetrekket i "Fuglane"?',
-        options: [
-          { id: 'a', text: 'At vaaren kommer og vinteren er over', isCorrect: false },
-          { id: 'b', text: 'At Mattis har verdi og er sett - et tegn paa tilhoerighet', isCorrect: true },
-          { id: 'c', text: 'At Hege snart vil forlate ham', isCorrect: false },
-          { id: 'd', text: 'At garden gaar med overskudd', isCorrect: false },
+        task: 'Test deg selv pa "Fuglane":',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-2-n-quiz2-q0', task: 'Hva symboliserer rugdetrekket i "Fuglane"?', options: [{ id: 'a', text: 'At vaaren kommer og vinteren er over', isCorrect: false }, { id: 'b', text: 'At Mattis har verdi og er sett - et tegn paa tilhoerighet', isCorrect: true }, { id: 'c', text: 'At Hege snart vil forlate ham', isCorrect: false }, { id: 'd', text: 'At garden gaar med overskudd', isCorrect: false }], solution: 'Rugdetrekket over huset bekrefter for Mattis at han har verdi og er sett av noe stoerre.' },
+          { id: 'norsk-vg3-3-2-n-quiz2-q1', task: 'Hva betyr det lokale ordet "tufs" i romanen?', options: [{ id: 'a', text: 'En dyktig bonde', isCorrect: false }, { id: 'b', text: 'En som er utviklingshemmet eller annerledes', isCorrect: true }, { id: 'c', text: 'En fuglekjenner', isCorrect: false }, { id: 'd', text: 'En reisende', isCorrect: false }], solution: '"Tufs" er det lokale ordet for en som er utviklingshemmet, enkel, annerledes. Mattis er "tufs" - men gjennom hans oyne ser vi naturen med en intensitet de "normale" ofte overser.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Rugdetrekket over huset blir for Mattis et tegn paa at han har verdi, at han er sett av noe stoerre. Det bekrefter hans plass i verden. Nar fuglen ikke kommer tilbake, oppleves det som et tap av mening.',
       },
     },
     {
@@ -371,15 +489,13 @@ Is-slottet selv er et av litteraturens mest kraftfulle symboler. Det er vakkert 
         id: 'norsk-vg3-3-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva symboliserer is-slottet i romanen?',
-        options: [
-          { id: 'a', text: 'Vinteren og kulden i Telemark', isCorrect: false },
-          { id: 'b', text: 'Det vakre og farlige - det vi lengter mot men ikke kan naa', isCorrect: true },
-          { id: 'c', text: 'Unns fattigdom og utenforskap', isCorrect: false },
-          { id: 'd', text: 'De voksnes uforstand', isCorrect: false },
+        task: 'Test deg selv pa "Is-slottet":',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-2-n-quiz3-q0', task: 'Hva symboliserer is-slottet i romanen?', options: [{ id: 'a', text: 'Vinteren og kulden i Telemark', isCorrect: false }, { id: 'b', text: 'Det vakre og farlige - det vi lengter mot men ikke kan naa', isCorrect: true }, { id: 'c', text: 'Unns fattigdom og utenforskap', isCorrect: false }, { id: 'd', text: 'De voksnes uforstand', isCorrect: false }], solution: 'Is-slottet representerer det vakre og farlige - det som lokker oss mot det ukjente, det forbudte, det usagte.' },
+          { id: 'norsk-vg3-3-2-n-quiz3-q1', task: 'Hvem er de to hovedpersonene i "Is-slottet"?', options: [{ id: 'a', text: 'Mattis og Hege', isCorrect: false }, { id: 'b', text: 'Siss og Unn', isCorrect: true }, { id: 'c', text: 'Halldis og Tarjei', isCorrect: false }, { id: 'd', text: 'Joergen og Hege', isCorrect: false }], solution: 'De to hovedpersonene er Siss og Unn - to jenter hvis vennskap knapt faar begynne foer det tar slutt. Romanen handler om tapet og sorgen som foelger.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Is-slottet representerer det vakre og farlige - det som lokker oss mot det ukjente, det forbudte, det usagte. Det er et bilde paa alt vi lengter mot men ikke kan naa, og paa faren i aa folge denne lengselen.',
       },
     },
     {
@@ -408,15 +524,13 @@ Denne stilen - enkel, poetisk, full av det usagte - er Vesaas' signatur. Den er 
         id: 'norsk-vg3-3-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva kjennetegner Vesaas\' litteraere stil?',
-        options: [
-          { id: 'a', text: 'Lange, kompliserte setninger og avansert spraak', isCorrect: false },
-          { id: 'b', text: 'Enkelt spraak, poetiske bilder og mye usagt', isCorrect: true },
-          { id: 'c', text: 'Politiske budskap og direkte tale til leseren', isCorrect: false },
-          { id: 'd', text: 'Vitenskapelig presis beskrivelse av naturfenomener', isCorrect: false },
+        task: 'Test deg selv pa Vesaas\' stil:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-2-n-quiz4-q0', task: 'Hva kjennetegner Vesaas\' litteraere stil?', options: [{ id: 'a', text: 'Lange, kompliserte setninger og avansert spraak', isCorrect: false }, { id: 'b', text: 'Enkelt spraak, poetiske bilder og mye usagt', isCorrect: true }, { id: 'c', text: 'Politiske budskap og direkte tale til leseren', isCorrect: false }, { id: 'd', text: 'Vitenskapelig presis beskrivelse av naturfenomener', isCorrect: false }], solution: 'Vesaas\' stil kjennetegnes av enkelt spraak, poetiske naturbilder som speiler sjelen, og mye usagt som leseren maa tolke.' },
+          { id: 'norsk-vg3-3-2-n-quiz4-q1', task: 'Hva er rollen til naturen i Vesaas\' prosa?', options: [{ id: 'a', text: 'Bare bakgrunn for handlingen', isCorrect: false }, { id: 'b', text: 'Den speiler menneskets indre liv - er medspiller og motstander', isCorrect: true }, { id: 'c', text: 'Den beskrives vitenskapelig', isCorrect: false }, { id: 'd', text: 'Den er irrelevant', isCorrect: false }], solution: 'Naturen er aldri bare kulisse hos Vesaas. Den er medspiller, motstander og speil. Nar Mattis foeler seg glad, skinner sola. Landskapet reflekterer alltid det indre dramaet.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Vesaas\' stil kjennetegnes av enkelt spraak og korte setninger, poetiske naturbilder som speiler sjelen, rytmisk prosa, og mye usagt som leseren selv maa tolke. Denne tilsynelatende enkelheten skjuler stor kunstnerisk raffinement.',
       },
     },
     {
@@ -443,15 +557,13 @@ Kanskje er det slik med Vesaas som med rugden over Mattis' tak: Man maa stoppe o
         id: 'norsk-vg3-3-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er Vesaas\' stoerste bidrag til norsk litteratur?',
-        options: [
-          { id: 'a', text: 'At han innfoerte fransk eksistensialisme til Norge', isCorrect: false },
-          { id: 'b', text: 'At han skapte en norsk modernisme forankret i natur og det enkle liv', isCorrect: true },
-          { id: 'c', text: 'At han grunnla nynorsken som skriftspraak', isCorrect: false },
-          { id: 'd', text: 'At han vant Nobelprisen for Norge', isCorrect: false },
+        task: 'Test deg selv pa Vesaas\' betydning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-2-n-quiz5-q0', task: 'Hva er Vesaas\' stoerste bidrag til norsk litteratur?', options: [{ id: 'a', text: 'At han innfoerte fransk eksistensialisme til Norge', isCorrect: false }, { id: 'b', text: 'At han skapte en norsk modernisme forankret i natur og det enkle liv', isCorrect: true }, { id: 'c', text: 'At han grunnla nynorsken som skriftspraak', isCorrect: false }, { id: 'd', text: 'At han vant Nobelprisen for Norge', isCorrect: false }], solution: 'Vesaas skapte en unik norsk modernisme forankret i norsk natur og landskap, og ga stemme til de ensomme og annerledes.' },
+          { id: 'norsk-vg3-3-2-n-quiz5-q1', task: 'Hva beviste Vesaas om nynorsk?', options: [{ id: 'a', text: 'At nynorsk bare egner seg for lyrikk', isCorrect: false }, { id: 'b', text: 'At nynorsk kunne baere avansert, moderne litteratur', isCorrect: true }, { id: 'c', text: 'At nynorsk burde avskaffes', isCorrect: false }, { id: 'd', text: 'At nynorsk var uforandret', isCorrect: false }], solution: 'Vesaas beviste at nynorsk kunne baere avansert, moderne litteratur. Han var en inspirasjon for generasjoner av nynorskforfattere.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Vesaas skapte en unik norsk modernisme som ikke fulgte den urbane, intellektuelle tradisjonen fra Europa. Han forankret modernismen i norsk natur og landskap, i det enkle livet, og ga stemme til de ensomme og annerledes.',
       },
     },
     {
@@ -553,15 +665,13 @@ Erfaringene fra skolen ble grunnlaget for hans debutroman "Jonas" (1955). Det va
         id: 'norsk-vg3-3-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvilken erfaring preget Bjorneboes forfatterskap mest?',
-        options: [
-          { id: 'a', text: 'Hans tid som sjoeemann', isCorrect: false },
-          { id: 'b', text: 'Opplevelsen av fascismen i Tyskland paa 1930-tallet', isCorrect: true },
-          { id: 'c', text: 'Hans studier i filosofi ved universitetet', isCorrect: false },
-          { id: 'd', text: 'Hans karriere som journalist', isCorrect: false },
+        task: 'Test deg selv pa Bjorneboes bakgrunn:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-3-n-quiz1-q0', task: 'Hvilken erfaring preget Bjorneboes forfatterskap mest?', options: [{ id: 'a', text: 'Hans tid som sjoeemann', isCorrect: false }, { id: 'b', text: 'Opplevelsen av fascismen i Tyskland paa 1930-tallet', isCorrect: true }, { id: 'c', text: 'Hans studier i filosofi ved universitetet', isCorrect: false }, { id: 'd', text: 'Hans karriere som journalist', isCorrect: false }], solution: 'Bjorneboe opplevde nazismens fremvekst da han studerte i Tyskland paa 1930-tallet. Denne erfaringen preget hele forfatterskapet.' },
+          { id: 'norsk-vg3-3-3-n-quiz1-q1', task: 'Hva var Bjorneboes grunnleggende sporsmal gjennom hele forfatterskapet?', options: [{ id: 'a', text: 'Hvordan bli rik og mektig', isCorrect: false }, { id: 'b', text: 'Hvordan kan mennesker begaa slike grusomheter?', isCorrect: true }, { id: 'c', text: 'Hvordan finne den rette religionen', isCorrect: false }, { id: 'd', text: 'Hvordan skrive den perfekte romanen', isCorrect: false }], solution: 'Bjorneboe spurte stadig: Hvordan kan mennesker begaa slike grusomheter? Og hva er vaart ansvar for aa forhindre dem? Dette var kjernespoersmaalene i hele hans forfatterskap.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Bjorneboe opplevde nazismens fremvekst paa naert hold da han studerte i Tyskland paa 1930-tallet. Denne erfaringen preget hele hans forfatterskap - saerlig interessen for hvordan ondskap kan bli systematisk og akseptert i et samfunn.',
       },
     },
     {
@@ -588,15 +698,13 @@ Debatten var typisk for Bjorneboes forfatterskap. Han greide aldri aa skrive noe
         id: 'norsk-vg3-3-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er hovedtemaet i "Jonas"?',
-        options: [
-          { id: 'a', text: 'En gutts vei til suksess gjennom hard arbeid', isCorrect: false },
-          { id: 'b', text: 'Kritikk av et skolesystem som knuser annerledeshet', isCorrect: true },
-          { id: 'c', text: 'En forsvarstal for tradisjonell undervisning', isCorrect: false },
-          { id: 'd', text: 'En morsom skildring av livet paa en norsk skole', isCorrect: false },
+        task: 'Test deg selv pa "Jonas":',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-3-n-quiz2-q0', task: 'Hva er hovedtemaet i "Jonas"?', options: [{ id: 'a', text: 'En gutts vei til suksess gjennom hard arbeid', isCorrect: false }, { id: 'b', text: 'Kritikk av et skolesystem som knuser annerledeshet', isCorrect: true }, { id: 'c', text: 'En forsvarstal for tradisjonell undervisning', isCorrect: false }, { id: 'd', text: 'En morsom skildring av livet paa en norsk skole', isCorrect: false }], solution: '"Jonas" er kritikk av et skolesystem som krever konformitet og straffer individualitet.' },
+          { id: 'norsk-vg3-3-3-n-quiz2-q1', task: 'Hva kjennetegner Jonas som karakter?', options: [{ id: 'a', text: 'Han er skoleflink og populaer', isCorrect: false }, { id: 'b', text: 'Han er kunstnerisk begavet men passer ikke inn', isCorrect: true }, { id: 'c', text: 'Han er en bully som plager andre', isCorrect: false }, { id: 'd', text: 'Han er laererens yndling', isCorrect: false }], solution: 'Jonas er sensitiv og kunstnerisk begavet, men passer ikke inn i skolesystemet. Han tenker annerledes og foeler dypere, noe som gjor ham til et offer for systemet.' },
         ],
-        correctAnswer: 'b',
-        solution: '"Jonas" er en skarp kritikk av skolesystemets manglende evne til aa ta vare paa dem som er annerledes. Gjennom Jonas\' lidelseshistorie anklager Bjorneboe et system som krever konformitet og straffer individualitet.',
       },
     },
     {
@@ -621,15 +729,13 @@ Og boeddelen selv? Han er ikke et monster. Han er et vanlig menneske som gjoer e
         id: 'norsk-vg3-3-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er det mest skremmende med boeddel-figuren i "Bestialitetens historie"?',
-        options: [
-          { id: 'a', text: 'At han er et psykopat med glede av vold', isCorrect: false },
-          { id: 'b', text: 'At han er et vanlig menneske som bare gjoer en jobb', isCorrect: true },
-          { id: 'c', text: 'At han angrer dypt paa det han har gjort', isCorrect: false },
-          { id: 'd', text: 'At han er en historisk person vi kan identifisere', isCorrect: false },
+        task: 'Test deg selv pa "Bestialitetens historie":',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-3-n-quiz3-q0', task: 'Hva er det mest skremmende med boeddel-figuren i "Bestialitetens historie"?', options: [{ id: 'a', text: 'At han er et psykopat med glede av vold', isCorrect: false }, { id: 'b', text: 'At han er et vanlig menneske som bare gjoer en jobb', isCorrect: true }, { id: 'c', text: 'At han angrer dypt paa det han har gjort', isCorrect: false }, { id: 'd', text: 'At han er en historisk person vi kan identifisere', isCorrect: false }], solution: 'Boeddelen er ikke et monster, men et helt vanlig menneske. De som utfoerer historiens grusomheter er ofte alminnelige folk som "bare foelger ordre".' },
+          { id: 'norsk-vg3-3-3-n-quiz3-q1', task: 'Hva heter de tre bindene i trilogien?', options: [{ id: 'a', text: 'Jonas, Haiene, Stillheten', isCorrect: false }, { id: 'b', text: 'Frihetens oeyeblikk, Kruttaarnet, Stillheten', isCorrect: true }, { id: 'c', text: 'Ondskapen, Volden, Freden', isCorrect: false }, { id: 'd', text: 'Historien, Samtiden, Fremtiden', isCorrect: false }], solution: 'Trilogien bestar av "Frihetens oeyeblikk", "Kruttaarnet" og "Stillheten", utgitt mellom 1966 og 1973.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Boeddelen er ikke et monster, men et helt vanlig menneske. Dette er Bjorneboes mest skremmende innsikt: De som utfoerer historiens grusomheter er ofte alminnelige folk som "bare foelger ordre". Ondskapen krever ikke ondskap i den enkelte.',
       },
     },
     {
@@ -654,15 +760,13 @@ Likevel: Det var noe ved Bjorneboes kompromissloeshet som var viktig. Han nektet
         id: 'norsk-vg3-3-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvilke saker engasjerte Bjorneboe seg mest i?',
-        options: [
-          { id: 'a', text: 'Naeringslivspolitikk og skattereform', isCorrect: false },
-          { id: 'b', text: 'Fengselsvesenet, narkotikapolitikk og doedstraff', isCorrect: true },
-          { id: 'c', text: 'Idrettspolitikk og kultursponsing', isCorrect: false },
-          { id: 'd', text: 'Militaert forsvar og sikkerhetspolitikk', isCorrect: false },
+        task: 'Test deg selv pa Bjorneboe som samfunnskritiker:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-3-n-quiz4-q0', task: 'Hvilke saker engasjerte Bjorneboe seg mest i?', options: [{ id: 'a', text: 'Naeringslivspolitikk og skattereform', isCorrect: false }, { id: 'b', text: 'Fengselsvesenet, narkotikapolitikk og doedstraff', isCorrect: true }, { id: 'c', text: 'Idrettspolitikk og kultursponsing', isCorrect: false }, { id: 'd', text: 'Militaert forsvar og sikkerhetspolitikk', isCorrect: false }], solution: 'Bjorneboe engasjerte seg i humanitaere sporsmal som fengselsvesenet, narkotikapolitikk, og kampen mot doedstraffen.' },
+          { id: 'norsk-vg3-3-3-n-quiz4-q1', task: 'Hva mente Bjorneboe om doedstraff?', options: [{ id: 'a', text: 'Den var nodvendig for sikkerhet', isCorrect: false }, { id: 'b', text: 'Den var statslig drap og bevis paa at barbariet levde videre', isCorrect: true }, { id: 'c', text: 'Den burde utvides', isCorrect: false }, { id: 'd', text: 'Han hadde ingen mening om det', isCorrect: false }], solution: 'For Bjorneboe var doedstraffen statslig drap - det mest systematiske uttrykket for den volden han hadde skrevet om i trilogien. At siviliserte stater henrettet mennesker, beviste at barbariet levde videre.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Bjorneboe engasjerte seg sterkt i humanitaere sporsmal som fengselsvesenet (som han mente var basert paa hevn), narkotikapolitikk, og kampen mot doedstraffen. Han var opptatt av hvordan samfunnet behandlet de svakeste.',
       },
     },
     {
@@ -689,15 +793,13 @@ Det var det Bjorneboe proevde aa laere oss. Og det er kanskje hans stoerste gave
         id: 'norsk-vg3-3-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er Bjorneboes viktigste bidrag til norsk litteratur?',
-        options: [
-          { id: 'a', text: 'At han innfoerte humoristisk litteratur', isCorrect: false },
-          { id: 'b', text: 'Motet til aa konfrontere ondskapen og det ubehagelige', isCorrect: true },
-          { id: 'c', text: 'At han fornyet det norske spraaket', isCorrect: false },
-          { id: 'd', text: 'At han grunnla en ny litteraer skole', isCorrect: false },
+        task: 'Test deg selv pa Bjorneboes betydning:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-3-n-quiz5-q0', task: 'Hva er Bjorneboes viktigste bidrag til norsk litteratur?', options: [{ id: 'a', text: 'At han innfoerte humoristisk litteratur', isCorrect: false }, { id: 'b', text: 'Motet til aa konfrontere ondskapen og det ubehagelige', isCorrect: true }, { id: 'c', text: 'At han fornyet det norske spraaket', isCorrect: false }, { id: 'd', text: 'At han grunnla en ny litteraer skole', isCorrect: false }], solution: 'Bjorneboes stoerste bidrag er motet til aa konfrontere menneskehetens morkeste sider. Han nektet aa se bort og tvang leserne til aa gjore det samme.' },
+          { id: 'norsk-vg3-3-3-n-quiz5-q1', task: 'Nar dode Bjorneboe?', options: [{ id: 'a', text: '1968', isCorrect: false }, { id: 'b', text: '1970', isCorrect: false }, { id: 'c', text: '1976', isCorrect: true }, { id: 'd', text: '1980', isCorrect: false }], solution: 'Bjorneboe tok sitt eget liv 9. mai 1976. Han kaempet med alkoholisme og depresjoner gjennom store deler av livet.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Bjorneboes stoerste bidrag er motet til aa konfrontere menneskehetens morkeste sider - ondskapen, volden, undertrykkelsen. Han nektet aa se bort og tvang leserne til aa gjore det samme. Denne kompromissloesheten gjoer ham fortsatt relevant.',
       },
     },
     {
@@ -792,15 +894,13 @@ Nedreaas var politisk engasjert hele livet. Hun tilhoerte den radikale venstresi
         id: 'norsk-vg3-3-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Naar debuterte Torborg Nedreaas som forfatter?',
-        options: [
-          { id: 'a', text: 'Som 20-aaring', isCorrect: false },
-          { id: 'b', text: 'I 1945, naesten 40 aar gammel', isCorrect: true },
-          { id: 'c', text: 'Som 60-aaring', isCorrect: false },
-          { id: 'd', text: 'Under krigen, med motstandslitteratur', isCorrect: false },
+        task: 'Test deg selv pa Torborg Nedreaas:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-4-n-quiz1-q0', task: 'Naar debuterte Torborg Nedreaas som forfatter?', options: [{ id: 'a', text: 'Som 20-aaring', isCorrect: false }, { id: 'b', text: 'I 1945, naesten 40 aar gammel', isCorrect: true }, { id: 'c', text: 'Som 60-aaring', isCorrect: false }, { id: 'd', text: 'Under krigen, med motstandslitteratur', isCorrect: false }], solution: 'Nedreaas debuterte sent, i 1945, da hun var naesten 40 aar gammel.' },
+          { id: 'norsk-vg3-3-4-n-quiz1-q1', task: 'Hvor var Nedreaas fra?', options: [{ id: 'a', text: 'Oslo', isCorrect: false }, { id: 'b', text: 'Tromso', isCorrect: false }, { id: 'c', text: 'Bergen', isCorrect: true }, { id: 'd', text: 'Trondheim', isCorrect: false }], solution: 'Torborg Nedreaas ble foedt i Bergen i 1906 og brukte byen som kulisse for sine mest kjente romaner.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Nedreaas debuterte sent, i 1945, da hun var naesten 40 aar gammel.',
       },
     },
     {
@@ -821,15 +921,13 @@ Herdis er ikke et offer. Hun er en kaemper. Hun nekter aa la omstendighetene def
         id: 'norsk-vg3-3-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva kjennetegner Herdis som karakter?',
-        options: [
-          { id: 'a', text: 'Hun er passiv og aksepterer sin skjebne', isCorrect: false },
-          { id: 'b', text: 'Hun er intelligent og kaemper mot fattigdom og kjoennsbegrensninger', isCorrect: true },
-          { id: 'c', text: 'Hun er rik og privilegert', isCorrect: false },
-          { id: 'd', text: 'Hun er likegyldig til kunst', isCorrect: false },
+        task: 'Test deg selv pa Herdis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-4-n-quiz2-q0', task: 'Hva kjennetegner Herdis som karakter?', options: [{ id: 'a', text: 'Hun er passiv og aksepterer sin skjebne', isCorrect: false }, { id: 'b', text: 'Hun er intelligent og kaemper mot fattigdom og kjoennsbegrensninger', isCorrect: true }, { id: 'c', text: 'Hun er rik og privilegert', isCorrect: false }, { id: 'd', text: 'Hun er likegyldig til kunst', isCorrect: false }], solution: 'Herdis kaemper paa to fronter: mot fattigdommen og mot kjoennets begrensninger.' },
+          { id: 'norsk-vg3-3-4-n-quiz2-q1', task: 'Hva droemmer Herdis om?', options: [{ id: 'a', text: 'Aa reise til utlandet', isCorrect: false }, { id: 'b', text: 'Musikk, kunst og et annet liv', isCorrect: true }, { id: 'c', text: 'Aa bli rik', isCorrect: false }, { id: 'd', text: 'Aa bli laerer', isCorrect: false }], solution: 'Herdis droemmer om musikk og kunst, men veien dit er stengt for fattige jenter. Hennes talent og lengsel er kjernen i romanene.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Herdis kaemper paa to fronter: mot fattigdommen og mot kjoennets begrensninger.',
       },
     },
     {
@@ -850,15 +948,13 @@ Spraaket hennes er enkelt og direkte, men aldri banalt. Hun skriver taett paa ka
         id: 'norsk-vg3-3-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva kjennetegner Nedreaas litteraere stil?',
-        options: [
-          { id: 'a', text: 'Poetisk, symbolrik prosa', isCorrect: false },
-          { id: 'b', text: 'Psykologisk presis skildring av hverdagens dramaer', isCorrect: true },
-          { id: 'c', text: 'Eksperimentell modernisme', isCorrect: false },
-          { id: 'd', text: 'Politiske taler', isCorrect: false },
+        task: 'Test deg selv pa Nedreaas\' stil:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-4-n-quiz3-q0', task: 'Hva kjennetegner Nedreaas litteraere stil?', options: [{ id: 'a', text: 'Poetisk, symbolrik prosa', isCorrect: false }, { id: 'b', text: 'Psykologisk presis skildring av hverdagens dramaer', isCorrect: true }, { id: 'c', text: 'Eksperimentell modernisme', isCorrect: false }, { id: 'd', text: 'Politiske taler', isCorrect: false }], solution: 'Nedreaas stoerste styrke er den psykologiske presisjonen.' },
+          { id: 'norsk-vg3-3-4-n-quiz3-q1', task: 'Hva er fri indirekte stil som Nedreaas bruker?', options: [{ id: 'a', text: 'En forteller som aldri tar parti', isCorrect: false }, { id: 'b', text: 'Fortelleren glir inn i karakterens tanker uten aa markere det', isCorrect: true }, { id: 'c', text: 'Bare dialog uten beskrivelser', isCorrect: false }, { id: 'd', text: 'Brev mellom karakterene', isCorrect: false }], solution: 'Fri indirekte stil betyr at fortelleren glir inn i karakterens tanker og opplevelser uten aa bruke direkte sitater. Det gir intimitet og naerhet til karakteren.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Nedreaas stoerste styrke er den psykologiske presisjonen.',
       },
     },
     {
@@ -879,15 +975,13 @@ Alle disse forfatterne utvidet litteraturen og viste at kvinners liv var verdt a
         id: 'norsk-vg3-3-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva bidro de kvinnelige etterkrigsforfatterne med?',
-        options: [
-          { id: 'a', text: 'De innfoerte kriminalromanen', isCorrect: false },
-          { id: 'b', text: 'De viste at kvinners liv var verdt aa skrive om som hovedtema', isCorrect: true },
-          { id: 'c', text: 'De skrev bare om overklassen', isCorrect: false },
-          { id: 'd', text: 'De avviste all tidligere litteratur', isCorrect: false },
+        task: 'Test deg selv pa andre kvinnestemmer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-4-n-quiz4-q0', task: 'Hva bidro de kvinnelige etterkrigsforfatterne med?', options: [{ id: 'a', text: 'De innfoerte kriminalromanen', isCorrect: false }, { id: 'b', text: 'De viste at kvinners liv var verdt aa skrive om som hovedtema', isCorrect: true }, { id: 'c', text: 'De skrev bare om overklassen', isCorrect: false }, { id: 'd', text: 'De avviste all tidligere litteratur', isCorrect: false }], solution: 'De kvinnelige etterkrigsforfatterne utvidet litteraturen og viste at kvinners liv var verdt aa skrive om.' },
+          { id: 'norsk-vg3-3-4-n-quiz4-q1', task: 'Hvem ga stemme til kvinner i Nord-Norge?', options: [{ id: 'a', text: 'Ebba Haslund', isCorrect: false }, { id: 'b', text: 'Herbjorg Wassmo', isCorrect: true }, { id: 'c', text: 'Liv Koltzoew', isCorrect: false }, { id: 'd', text: 'Cecilie Loeveid', isCorrect: false }], solution: 'Herbjorg Wassmo ga stemme til kvinner i Nord-Norge. Hun var en av flere sterke kvinnelige stemmer i etterkrigslitteraturen.' },
         ],
-        correctAnswer: 'b',
-        solution: 'De kvinnelige etterkrigsforfatterne viste at kvinners liv var verdt aa skrive om.',
       },
     },
     {
@@ -908,15 +1002,13 @@ Kanskje er det det viktigste Nedreaas laerer oss: At selv i de trangeste omstend
         id: 'norsk-vg3-3-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor er Nedreaas fortsatt relevant i dag?',
-        options: [
-          { id: 'a', text: 'Fordi hun skrev science fiction', isCorrect: false },
-          { id: 'b', text: 'Fordi kampen mot fattigdom og begrensede muligheter fortsatt finnes', isCorrect: true },
-          { id: 'c', text: 'Fordi hun forutsa internett', isCorrect: false },
-          { id: 'd', text: 'Fordi hun er den eneste norske forfatteren', isCorrect: false },
+        task: 'Test deg selv pa Nedreaas\' aktualitet:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          { id: 'norsk-vg3-3-4-n-quiz5-q0', task: 'Hvorfor er Nedreaas fortsatt relevant i dag?', options: [{ id: 'a', text: 'Fordi hun skrev science fiction', isCorrect: false }, { id: 'b', text: 'Fordi kampen mot fattigdom og begrensede muligheter fortsatt finnes', isCorrect: true }, { id: 'c', text: 'Fordi hun forutsa internett', isCorrect: false }, { id: 'd', text: 'Fordi hun er den eneste norske forfatteren', isCorrect: false }], solution: 'Nedreaas er fortsatt relevant fordi temaene hennes lever videre - kampen mot fattigdom og begrensede muligheter.' },
+          { id: 'norsk-vg3-3-4-n-quiz5-q1', task: 'Hva laerer Nedreaas oss?', options: [{ id: 'a', text: 'At fattigdom alltid foerer til suksess', isCorrect: false }, { id: 'b', text: 'At bak hver statistikk finnes individer med droemmer og verdighet', isCorrect: true }, { id: 'c', text: 'At bare de rike fortjener oppmerksomhet', isCorrect: false }, { id: 'd', text: 'At litteratur er uvesentlig', isCorrect: false }], solution: 'Nedreaas laerer oss aa se menneskene bak statistikken. Hun minner oss om at selv i de trangeste omstendighetene finnes det rom for skjoennhet og haap.' },
         ],
-        correctAnswer: 'b',
-        solution: 'Nedreaas er fortsatt relevant fordi temaene hennes lever videre.',
       },
     },
     {
@@ -962,23 +1054,41 @@ export const CHAPTER_NORSK_VG3_3_5_NARRATIV: TextbookChapter = {
     { id: 'norsk-vg3-3-5-n-section1', type: 'text', content: `## 1970-tallet: Litteraturen som vaapen
 
 Profil-bevegelsen samlet unge radikale forfattere. Dag Solstad gikk fra eksperimentell modernisme til politisk engasjert realisme. Kvinnelitteraturen blomstret med Bjorg Vik og Gerd Brantenberg. Litteraturen skulle tjene revolusjonen - men mot slutten av tiaaret begynte mange aa tvile.` },
-    { id: 'norsk-vg3-3-5-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Hva kjennetegnet 1970-tallets litteratur?', options: [{ id: 'a', text: 'Flukt fra virkeligheten', isCorrect: false }, { id: 'b', text: 'Politisk engasjement og revolusjonaer litteratur', isCorrect: true }, { id: 'c', text: 'Tilbakevending til romantikken', isCorrect: false }, { id: 'd', text: 'Bare underholdning', isCorrect: false }], correctAnswer: 'b', solution: '1970-tallet var preget av politisk engasjement.' } },
+    { id: 'norsk-vg3-3-5-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv paa 1970-tallets litteratur:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-5-n-quiz1-q0', task: 'Hva kjennetegnet 1970-tallets litteratur?', options: [{ id: 'a', text: 'Flukt fra virkeligheten', isCorrect: false }, { id: 'b', text: 'Politisk engasjement og revolusjonaer litteratur', isCorrect: true }, { id: 'c', text: 'Tilbakevending til romantikken', isCorrect: false }, { id: 'd', text: 'Bare underholdning', isCorrect: false }], solution: '1970-tallet var preget av politisk engasjement. Profil-bevegelsen samlet unge radikale forfattere som mente litteraturen skulle tjene revolusjonen.' },
+      { id: 'norsk-vg3-3-5-n-quiz1-q1', task: 'Hva var Profil-bevegelsen?', options: [{ id: 'a', text: 'En gruppe forfattere som skrev romantisk lyrikk', isCorrect: false }, { id: 'b', text: 'Et forlag for kriminalromaner', isCorrect: false }, { id: 'c', text: 'En samling av unge radikale forfattere', isCorrect: true }, { id: 'd', text: 'En teatergruppe i Bergen', isCorrect: false }], solution: 'Profil-bevegelsen samlet unge radikale forfattere paa 1970-tallet. De mente at litteraturen skulle vaere politisk engasjert og tjene revolusjonen.' },
+      { id: 'norsk-vg3-3-5-n-quiz1-q2', task: 'Hvordan utviklet Dag Solstad seg paa 1970-tallet?', options: [{ id: 'a', text: 'Han sluttet aa skrive', isCorrect: false }, { id: 'b', text: 'Han gikk fra krim til fantasy', isCorrect: false }, { id: 'c', text: 'Han ble mer romantisk', isCorrect: false }, { id: 'd', text: 'Han gikk fra eksperimentell modernisme til politisk engasjert realisme', isCorrect: true }], solution: 'Dag Solstad gikk fra eksperimentell modernisme til politisk engasjert realisme paa 1970-tallet, som del av den politiske bevegelsen i norsk litteratur.' },
+    ] } },
     { id: 'norsk-vg3-3-5-n-section2', type: 'text', content: `## 1980-90-tallet: Postmodernisme
 
 De store fortellingene mistet kraft. Jan Kjaaerstad lekte med identitet og sannhet i Jonas Wergeland-trilogien. Dag Solstad skrev selvreflekterende romaner. Erlend Loe debuterte med ironi og minimalisme. Litteraturen skulle stille spoersmaal, ikke forkynne.` },
-    { id: 'norsk-vg3-3-5-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hva kjennetegnet postmodernismen?', options: [{ id: 'a', text: 'Politisk propaganda', isCorrect: false }, { id: 'b', text: 'Ironi og skepsis til sannhetskrav', isCorrect: true }, { id: 'c', text: 'Romantiske idealer', isCorrect: false }, { id: 'd', text: 'Streng realisme', isCorrect: false }], correctAnswer: 'b', solution: 'Postmodernismen braakte ironi og skepsis.' } },
+    { id: 'norsk-vg3-3-5-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv paa postmodernismen:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-5-n-quiz2-q0', task: 'Hva kjennetegnet postmodernismen?', options: [{ id: 'a', text: 'Politisk propaganda', isCorrect: false }, { id: 'b', text: 'Ironi og skepsis til sannhetskrav', isCorrect: true }, { id: 'c', text: 'Romantiske idealer', isCorrect: false }, { id: 'd', text: 'Streng realisme', isCorrect: false }], solution: 'Postmodernismen braakte ironi og skepsis til sannhetskrav. De store fortellingene mistet kraft, og litteraturen skulle stille spoersmaal, ikke forkynne.' },
+      { id: 'norsk-vg3-3-5-n-quiz2-q1', task: 'Hva handlet Jonas Wergeland-trilogien av Jan Kjaaerstad om?', options: [{ id: 'a', text: 'En krigshelts liv fra een vinkel', isCorrect: false }, { id: 'b', text: 'Et manns liv fortalt fra mange ulike vinkler', isCorrect: true }, { id: 'c', text: 'Henrik Wergelands biografi', isCorrect: false }, { id: 'd', text: 'En familiesaga over tre generasjoner', isCorrect: false }], solution: 'Jonas Wergeland-trilogien (1993-1999) forteller samme manns liv fra mange vinkler. Kjaaerstad lekte med identitet og sannhet, og ingen versjon er helt "sann".' },
+      { id: 'norsk-vg3-3-5-n-quiz2-q2', task: 'Hvilken forfatter debuterte med ironi og minimalisme?', options: [{ id: 'a', text: 'Dag Solstad', isCorrect: false }, { id: 'b', text: 'Jan Kjaaerstad', isCorrect: false }, { id: 'c', text: 'Erlend Loe', isCorrect: true }, { id: 'd', text: 'Karl Ove Knausgaard', isCorrect: false }], solution: 'Erlend Loe debuterte med ironi og minimalisme som kjennetegn. Han var en av de sentrale stemmene i den postmodernistiske perioden paa 1980-90-tallet.' },
+    ] } },
     { id: 'norsk-vg3-3-5-n-section3', type: 'text', content: `## 2000-tallet: Knausgaard og autofisjon
 
 Karl Ove Knausgaard skapte en sensasjon med "Min kamp" (2009-2011) - seks bind om sitt eget liv. Autofiskjonen visket ut grensen mellom fiksjon og virkelighet. Noen kalte det narcissisme, andre radikal aerlighet.` },
-    { id: 'norsk-vg3-3-5-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hva er autofisjon?', options: [{ id: 'a', text: 'Romaner skrevet av roboter', isCorrect: false }, { id: 'b', text: 'Litteratur som blander selvbiografi og fiksjon', isCorrect: true }, { id: 'c', text: 'Boeeker om biler', isCorrect: false }, { id: 'd', text: 'Science fiction', isCorrect: false }], correctAnswer: 'b', solution: 'Autofisjon blander selvbiografi og fiksjon.' } },
+    { id: 'norsk-vg3-3-5-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv paa Knausgaard og autofisjon:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-5-n-quiz3-q0', task: 'Hva er autofisjon?', options: [{ id: 'a', text: 'Romaner skrevet av roboter', isCorrect: false }, { id: 'b', text: 'Litteratur som blander selvbiografi og fiksjon', isCorrect: true }, { id: 'c', text: 'Boeker om biler', isCorrect: false }, { id: 'd', text: 'Science fiction', isCorrect: false }], solution: 'Autofisjon er litteratur som blander selvbiografi og fiksjon. Karl Ove Knausgaard er den mest kjente representanten med sitt verk "Min kamp".' },
+      { id: 'norsk-vg3-3-5-n-quiz3-q1', task: 'Naar ga Knausgaard ut "Min kamp"?', options: [{ id: 'a', text: '1990-1995', isCorrect: false }, { id: 'b', text: '2000-2005', isCorrect: false }, { id: 'c', text: '2009-2011', isCorrect: true }, { id: 'd', text: '2015-2020', isCorrect: false }], solution: 'Karl Ove Knausgaard skapte sensasjon med "Min kamp" (2009-2011) - seks bind om sitt eget liv. Det var et banebrytende verk innen autofiksjonssjangeren.' },
+    ] } },
     { id: 'norsk-vg3-3-5-n-section4', type: 'text', content: `## Jon Fosse - Nobelprisen 2023
 
 Jon Fosse fikk Nobelprisen "for hans nyskapande dramatikk og prosa som gjev stemme til det usigelege". Hans langsomme, repetitive stil gir stemme til stillheten og det usagte. "Septologien" er skrevet som en uendelig lang setning.` },
-    { id: 'norsk-vg3-3-5-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hvorfor fikk Fosse Nobelprisen?', options: [{ id: 'a', text: 'For kriminalromaner', isCorrect: false }, { id: 'b', text: 'For aa gi stemme til det usigelige', isCorrect: true }, { id: 'c', text: 'For politiske debattboeeker', isCorrect: false }, { id: 'd', text: 'For oversettelser', isCorrect: false }], correctAnswer: 'b', solution: 'Fosse skriver om det som ikke kan uttrykkes direkte.' } },
+    { id: 'norsk-vg3-3-5-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv paa Jon Fosse:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-5-n-quiz4-q0', task: 'Hvorfor fikk Fosse Nobelprisen?', options: [{ id: 'a', text: 'For kriminalromaner', isCorrect: false }, { id: 'b', text: 'For aa gi stemme til det usigelige', isCorrect: true }, { id: 'c', text: 'For politiske debattboeker', isCorrect: false }, { id: 'd', text: 'For oversettelser', isCorrect: false }], solution: 'Jon Fosse fikk Nobelprisen i 2023 "for hans nyskapande dramatikk og prosa som gjev stemme til det usigelege". Han skriver om det som ikke kan uttrykkes direkte.' },
+      { id: 'norsk-vg3-3-5-n-quiz4-q1', task: 'Hva kjennetegner Fosses litteraere stil?', options: [{ id: 'a', text: 'Rask, actionfylt fortelling', isCorrect: false }, { id: 'b', text: 'Korte, konsise setninger', isCorrect: false }, { id: 'c', text: 'Langsom, repetitiv stil som gir stemme til stillheten', isCorrect: true }, { id: 'd', text: 'Humoristisk og lett spraak', isCorrect: false }], solution: 'Fosses stil er langsom og repetitiv. Han gir stemme til stillheten og det usagte. "Septologien" er til og med skrevet som en uendelig lang setning.' },
+      { id: 'norsk-vg3-3-5-n-quiz4-q2', task: 'Naar fikk Jon Fosse Nobelprisen i litteratur?', options: [{ id: 'a', text: '2019', isCorrect: false }, { id: 'b', text: '2021', isCorrect: false }, { id: 'c', text: '2023', isCorrect: true }, { id: 'd', text: '2024', isCorrect: false }], solution: 'Jon Fosse fikk Nobelprisen i 2023 for sin nyskapende dramatikk og prosa.' },
+    ] } },
     { id: 'norsk-vg3-3-5-n-section5', type: 'text', content: `## Mangfold i dag
 
 Norsk litteratur er mer mangfoldig enn noen gang. Nye stemmer har kommet til - Zeshan Shakar, Maria Navarro Skaranger, samiske forfattere. Sjangermangfoldet har oekt. Litteraturen forandrer seg med samfunnet, men fortsetter aa utforske hva det vil si aa vaere menneske.` },
-    { id: 'norsk-vg3-3-5-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva kjennetegner norsk litteratur i dag?', options: [{ id: 'a', text: 'Dominert av en stil', isCorrect: false }, { id: 'b', text: 'Stoerre mangfold i stemmer og sjangre', isCorrect: true }, { id: 'c', text: 'Har sluttet aa utvikle seg', isCorrect: false }, { id: 'd', text: 'Bare menn fra Oslo', isCorrect: false }], correctAnswer: 'b', solution: 'Norsk litteratur i dag er mer mangfoldig enn noen gang.' } },
+    { id: 'norsk-vg3-3-5-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-5-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv paa mangfold i norsk litteratur:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-5-n-quiz5-q0', task: 'Hva kjennetegner norsk litteratur i dag?', options: [{ id: 'a', text: 'Dominert av en stil', isCorrect: false }, { id: 'b', text: 'Stoerre mangfold i stemmer og sjangre', isCorrect: true }, { id: 'c', text: 'Har sluttet aa utvikle seg', isCorrect: false }, { id: 'd', text: 'Bare menn fra Oslo', isCorrect: false }], solution: 'Norsk litteratur i dag er mer mangfoldig enn noen gang med nye stemmer fra ulike bakgrunner og et oekende sjangermangfold.' },
+      { id: 'norsk-vg3-3-5-n-quiz5-q1', task: 'Hvem av disse er blant de nye stemmene i norsk litteratur?', options: [{ id: 'a', text: 'Henrik Ibsen og Knut Hamsun', isCorrect: false }, { id: 'b', text: 'Bjornstjerne Bjornson og Alexander Kielland', isCorrect: false }, { id: 'c', text: 'Zeshan Shakar og Maria Navarro Skaranger', isCorrect: true }, { id: 'd', text: 'Sigrid Undset og Olav Duun', isCorrect: false }], solution: 'Zeshan Shakar og Maria Navarro Skaranger er blant de nye stemmene som har beriket norsk litteratur. Sammen med samiske forfattere representerer de det voksende mangfoldet.' },
+    ] } },
     { id: 'norsk-vg3-3-5-n-summary', type: 'text', content: `## Oppsummering
 
 **1970-tallet:** Politisk litteratur, Profil-bevegelsen, kvinnelitteratur
@@ -1019,31 +1129,48 @@ Paa 1980-tallet kom postmodernismen for alvor til Norge. Den braakte med seg lek
 Postmodernismen avviser universelle sannheter. Den leker med sjangergrenser. Den er full av referanser til andre tekster - intertekstualitet. Og den bruker metafisjon: tekster som reflekterer over seg selv.
 
 Mens modernismen soekte mening i fragmentene, aksepterer postmodernismen meningsloesheten - ofte med et ironisk smil. Alvoret er erstattet av lek.` },
-    { id: 'norsk-vg3-3-6-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Hva er metafisjon?', options: [{ id: 'a', text: 'Fiksjon om metafysikk', isCorrect: false }, { id: 'b', text: 'Fiksjon som reflekterer over seg selv som fiksjon', isCorrect: true }, { id: 'c', text: 'Svenske krimromaner', isCorrect: false }, { id: 'd', text: 'Historiske romaner', isCorrect: false }], correctAnswer: 'b', solution: 'Metafisjon er fiksjon som reflekterer over seg selv.' } },
+    { id: 'norsk-vg3-3-6-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv paa postmodernismens kjennetegn:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-6-n-quiz1-q0', task: 'Hva er metafisjon?', options: [{ id: 'a', text: 'Fiksjon om metafysikk', isCorrect: false }, { id: 'b', text: 'Fiksjon som reflekterer over seg selv som fiksjon', isCorrect: true }, { id: 'c', text: 'Svenske krimromaner', isCorrect: false }, { id: 'd', text: 'Historiske romaner', isCorrect: false }], solution: 'Metafisjon er fiksjon som reflekterer over seg selv som fiksjon. Fortelleren kan for eksempel stoppe opp og kommentere at alt er oppdiktet.' },
+      { id: 'norsk-vg3-3-6-n-quiz1-q1', task: 'Hva er forskjellen mellom modernismen og postmodernismen naar det gjelder mening?', options: [{ id: 'a', text: 'Begge avviser all mening', isCorrect: false }, { id: 'b', text: 'Modernismen soeker mening i fragmentene, postmodernismen aksepterer meningsloesheten', isCorrect: true }, { id: 'c', text: 'Postmodernismen er mer alvorlig enn modernismen', isCorrect: false }, { id: 'd', text: 'Modernismen aksepterer meningsloesheten', isCorrect: false }], solution: 'Mens modernismen soekte mening i fragmentene, aksepterer postmodernismen meningsloesheten - ofte med et ironisk smil. Alvoret er erstattet av lek.' },
+      { id: 'norsk-vg3-3-6-n-quiz1-q2', task: 'Naar kom postmodernismen for alvor til Norge?', options: [{ id: 'a', text: 'Paa 1950-tallet', isCorrect: false }, { id: 'b', text: 'Paa 1970-tallet', isCorrect: false }, { id: 'c', text: 'Paa 1980-tallet', isCorrect: true }, { id: 'd', text: 'Paa 2000-tallet', isCorrect: false }], solution: 'Paa 1980-tallet kom postmodernismen for alvor til Norge. Den braakte med seg lek, ironi og en grunnleggende skepsis til alle store fortellinger.' },
+    ] } },
     { id: 'norsk-vg3-3-6-n-section2', type: 'text', content: `## Jan Kjaaerstad - mesteren
 
 Jan Kjaaerstad er Norges fremste postmodernist. Jonas Wergeland-trilogien (1993-1999) forteller samme manns liv fra mange vinkler. Ingen versjon er "sann".
 
 Romanene er fulle av referanser til litteratur, populaerkultur, vitenskap. De spoer: Hva er identitet? Er det mulig aa fange et helt menneske i en fortelling?` },
-    { id: 'norsk-vg3-3-6-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hva kjennetegner Kjaaerstads romaner?', options: [{ id: 'a', text: 'Enkle historier med tydelig moral', isCorrect: false }, { id: 'b', text: 'Multiperspektivisme, intertekstualitet og metafisjon', isCorrect: true }, { id: 'c', text: 'Bare realistiske skildringer', isCorrect: false }, { id: 'd', text: 'Korte noveller', isCorrect: false }], correctAnswer: 'b', solution: 'Kjaaerstad bruker multiperspektivisme, intertekstualitet og metafisjon.' } },
+    { id: 'norsk-vg3-3-6-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv paa Jan Kjaaerstad:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-6-n-quiz2-q0', task: 'Hva kjennetegner Kjaaerstads romaner?', options: [{ id: 'a', text: 'Enkle historier med tydelig moral', isCorrect: false }, { id: 'b', text: 'Multiperspektivisme, intertekstualitet og metafisjon', isCorrect: true }, { id: 'c', text: 'Bare realistiske skildringer', isCorrect: false }, { id: 'd', text: 'Korte noveller', isCorrect: false }], solution: 'Kjaaerstad bruker multiperspektivisme, intertekstualitet og metafisjon. Romanene hans er fulle av referanser til litteratur, populaerkultur og vitenskap.' },
+      { id: 'norsk-vg3-3-6-n-quiz2-q1', task: 'Hva spoer Jonas Wergeland-trilogien om?', options: [{ id: 'a', text: 'Om Norge bor bli republikk', isCorrect: false }, { id: 'b', text: 'Om identitet og om det er mulig aa fange et helt menneske i en fortelling', isCorrect: true }, { id: 'c', text: 'Om klimaendringer', isCorrect: false }, { id: 'd', text: 'Om norsk matkultur', isCorrect: false }], solution: 'Jonas Wergeland-trilogien spoer: Hva er identitet? Er det mulig aa fange et helt menneske i en fortelling? Trilogien forteller samme manns liv fra mange vinkler, og ingen versjon er "sann".' },
+    ] } },
     { id: 'norsk-vg3-3-6-n-section3', type: 'text', content: `## Intertekstualitet - tekstenes vev
 
 Intertekstualitet betyr at tekster forholder seg til andre tekster - gjennom sitater, allusjoner, pastisj, parodi. Julia Kristeva sa: "Teksten er et vev av sitater."
 
 Postmodernister bruker intertekstualitet bevisst. De blander hoey og lav kultur, sjangre, epoker. Alt er allerede skrevet - kunsten er aa sette det sammen paa nye maater.` },
-    { id: 'norsk-vg3-3-6-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hva er intertekstualitet?', options: [{ id: 'a', text: 'Tekster paa flere spraak', isCorrect: false }, { id: 'b', text: 'At tekster forholder seg til andre tekster', isCorrect: true }, { id: 'c', text: 'Tekster som handler om internett', isCorrect: false }, { id: 'd', text: 'Tekster mellom kapitlene', isCorrect: false }], correctAnswer: 'b', solution: 'Intertekstualitet betyr at tekster forholder seg til andre tekster.' } },
+    { id: 'norsk-vg3-3-6-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv paa intertekstualitet:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-6-n-quiz3-q0', task: 'Hva er intertekstualitet?', options: [{ id: 'a', text: 'Tekster paa flere spraak', isCorrect: false }, { id: 'b', text: 'At tekster forholder seg til andre tekster', isCorrect: true }, { id: 'c', text: 'Tekster som handler om internett', isCorrect: false }, { id: 'd', text: 'Tekster mellom kapitlene', isCorrect: false }], solution: 'Intertekstualitet betyr at tekster forholder seg til andre tekster - gjennom sitater, allusjoner, pastisj eller parodi.' },
+      { id: 'norsk-vg3-3-6-n-quiz3-q1', task: 'Hvem sa at "teksten er et vev av sitater"?', options: [{ id: 'a', text: 'Jan Kjaaerstad', isCorrect: false }, { id: 'b', text: 'Dag Solstad', isCorrect: false }, { id: 'c', text: 'Julia Kristeva', isCorrect: true }, { id: 'd', text: 'Erlend Loe', isCorrect: false }], solution: 'Julia Kristeva er kjent for utsagnet "teksten er et vev av sitater". Hun var sentral i utviklingen av intertekstualitetsbegrepet.' },
+      { id: 'norsk-vg3-3-6-n-quiz3-q2', task: 'Hvordan bruker postmodernister intertekstualitet?', options: [{ id: 'a', text: 'De unngaar alle referanser til andre tekster', isCorrect: false }, { id: 'b', text: 'De kopierer bare klassiske verk', isCorrect: false }, { id: 'c', text: 'De blander hoey og lav kultur, sjangre og epoker bevisst', isCorrect: true }, { id: 'd', text: 'De skriver bare fotnoter', isCorrect: false }], solution: 'Postmodernister bruker intertekstualitet bevisst ved aa blande hoey og lav kultur, sjangre og epoker. Alt er allerede skrevet - kunsten er aa sette det sammen paa nye maater.' },
+    ] } },
     { id: 'norsk-vg3-3-6-n-section4', type: 'text', content: `## Skepsis til store fortellinger
 
 Postmodernismen avviser de store fortellingene - marxismen, fremskrittsoptimismen, religionene. Den sier: Det finnes ikke een sannhet, bare perspektiver. Det finnes ikke en riktig maate aa leve paa.
 
 Dette kan virke befriende - eller skremmende. Uten store fortellinger, hva har vi igjen? Postmodernismen svarer ofte med ironi og lek: Hvis alt er relativt, kan vi like gjerne ha det goy.` },
-    { id: 'norsk-vg3-3-6-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hva menes med "skepsis til store fortellinger"?', options: [{ id: 'a', text: 'At lange romaner er kjedelige', isCorrect: false }, { id: 'b', text: 'Avvisning av universelle sannheter og ideologier', isCorrect: true }, { id: 'c', text: 'At forfattere ikke liker eventyr', isCorrect: false }, { id: 'd', text: 'At historieundervisning er unodvendig', isCorrect: false }], correctAnswer: 'b', solution: 'Postmodernismen avviser universelle sannheter og ideologier.' } },
+    { id: 'norsk-vg3-3-6-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv paa store fortellinger:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-6-n-quiz4-q0', task: 'Hva menes med "skepsis til store fortellinger"?', options: [{ id: 'a', text: 'At lange romaner er kjedelige', isCorrect: false }, { id: 'b', text: 'Avvisning av universelle sannheter og ideologier', isCorrect: true }, { id: 'c', text: 'At forfattere ikke liker eventyr', isCorrect: false }, { id: 'd', text: 'At historieundervisning er unodvendig', isCorrect: false }], solution: 'Postmodernismen avviser de store fortellingene - marxismen, fremskrittsoptimismen, religionene. Den sier: Det finnes ikke een sannhet, bare perspektiver.' },
+      { id: 'norsk-vg3-3-6-n-quiz4-q1', task: 'Hvordan reagerer postmodernismen paa at det ikke finnes een sannhet?', options: [{ id: 'a', text: 'Med dyp fortvilelse og pessimisme', isCorrect: false }, { id: 'b', text: 'Ved aa gjeninnfoere religion', isCorrect: false }, { id: 'c', text: 'Ofte med ironi og lek', isCorrect: true }, { id: 'd', text: 'Ved aa ignorere problemet helt', isCorrect: false }], solution: 'Postmodernismen svarer ofte med ironi og lek: Hvis alt er relativt, kan vi like gjerne ha det goy. Det kan virke baade befriende og skremmende.' },
+    ] } },
     { id: 'norsk-vg3-3-6-n-section5', type: 'text', content: `## Postmodernismens arv
 
 Postmodernismen som bevegelse har ebbet ut, men dens teknikker lever videre. Ironi, intertekstualitet og metafisjon er naa standard verktoy for forfattere.
 
 Kanskje har vi alle blitt postmoderne - skeptiske til store sannheter, vant til aa se verden fra flere perspektiver samtidig, bevisste paa at alle fortellinger er konstruksjoner.` },
-    { id: 'norsk-vg3-3-6-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva er postmodernismens viktigste arv?', options: [{ id: 'a', text: 'At alle maa skrive politisk', isCorrect: false }, { id: 'b', text: 'Bevissthet om at fortellinger er konstruksjoner', isCorrect: true }, { id: 'c', text: 'At bare norske forfattere teller', isCorrect: false }, { id: 'd', text: 'At litteratur skal vaere kjedelig', isCorrect: false }], correctAnswer: 'b', solution: 'Postmodernismen ga oss bevissthet om at alle fortellinger er konstruksjoner.' } },
+    { id: 'norsk-vg3-3-6-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-6-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv paa postmodernismens arv:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-6-n-quiz5-q0', task: 'Hva er postmodernismens viktigste arv?', options: [{ id: 'a', text: 'At alle maa skrive politisk', isCorrect: false }, { id: 'b', text: 'Bevissthet om at fortellinger er konstruksjoner', isCorrect: true }, { id: 'c', text: 'At bare norske forfattere teller', isCorrect: false }, { id: 'd', text: 'At litteratur skal vaere kjedelig', isCorrect: false }], solution: 'Postmodernismen ga oss bevissthet om at alle fortellinger er konstruksjoner. Denne innsikten lever videre i samtidslitteraturen.' },
+      { id: 'norsk-vg3-3-6-n-quiz5-q1', task: 'Hvilke postmodernistiske teknikker lever videre som standard verktoy for forfattere?', options: [{ id: 'a', text: 'Bare rim og rytme', isCorrect: false }, { id: 'b', text: 'Ironi, intertekstualitet og metafisjon', isCorrect: true }, { id: 'c', text: 'Bare dialektskriving', isCorrect: false }, { id: 'd', text: 'Kun lineaer kronologi', isCorrect: false }], solution: 'Postmodernismen som bevegelse har ebbet ut, men dens teknikker - ironi, intertekstualitet og metafisjon - er naa standard verktoy for forfattere i dagens litteratur.' },
+    ] } },
     { id: 'norsk-vg3-3-6-n-summary', type: 'text', content: `## Oppsummering
 
 **Postmodernismen** er preget av skepsis til store fortellinger, lek med konvensjoner, intertekstualitet og metafisjon.
@@ -1088,7 +1215,11 @@ Dag Solstad (f. 1941) har vaert forfatter i over femti aar. Han gikk fra eksperi
 Paa 70-tallet var han overbevist revolusjonaer. "Arild Asnes, 1970" handler om en intellektuell som proever aa bli kommunist. Paa 80-tallet kom tvilen: "Roman 1987" handler om en forfatter som skriver en roman og tviler paa alt.
 
 Solstads stil er umiskjennelig: lange, buktende setninger, intellektuell refleksjon, ironi og alvor i blanding.` },
-    { id: 'norsk-vg3-3-7-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Hvordan utviklet Solstads forfatterskap seg?', options: [{ id: 'a', text: 'Fra krim til fantasy', isCorrect: false }, { id: 'b', text: 'Fra politisk engasjement til selvrefleksjon og tvil', isCorrect: true }, { id: 'c', text: 'Fra lyrikk til drama', isCorrect: false }, { id: 'd', text: 'Han skrev alltid det samme', isCorrect: false }], correctAnswer: 'b', solution: 'Solstad gikk fra politisk engasjement til selvrefleksjon og tvil.' } },
+    { id: 'norsk-vg3-3-7-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv paa Dag Solstad:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-7-n-quiz1-q0', task: 'Hvordan utviklet Solstads forfatterskap seg?', options: [{ id: 'a', text: 'Fra krim til fantasy', isCorrect: false }, { id: 'b', text: 'Fra politisk engasjement til selvrefleksjon og tvil', isCorrect: true }, { id: 'c', text: 'Fra lyrikk til drama', isCorrect: false }, { id: 'd', text: 'Han skrev alltid det samme', isCorrect: false }], solution: 'Solstad gikk fra eksperimentell modernisme via politisk ml-litteratur til selvreflekterende romaner. Paa 70-tallet var han overbevist revolusjonaer, paa 80-tallet kom tvilen.' },
+      { id: 'norsk-vg3-3-7-n-quiz1-q1', task: 'Hva handler "Arild Asnes, 1970" om?', options: [{ id: 'a', text: 'En krigshistorie fra 1970', isCorrect: false }, { id: 'b', text: 'En intellektuell som proever aa bli kommunist', isCorrect: true }, { id: 'c', text: 'En kjaeerlighetshistorie', isCorrect: false }, { id: 'd', text: 'En barns oppvekst', isCorrect: false }], solution: '"Arild Asnes, 1970" handler om en intellektuell som proever aa bli kommunist. Romanen speiler Solstads egen politiske utvikling paa 1970-tallet.' },
+      { id: 'norsk-vg3-3-7-n-quiz1-q2', task: 'Hva kjennetegner Solstads stil?', options: [{ id: 'a', text: 'Korte, enkle setninger uten refleksjon', isCorrect: false }, { id: 'b', text: 'Lange, buktende setninger med intellektuell refleksjon', isCorrect: true }, { id: 'c', text: 'Bare dialog uten beskrivelser', isCorrect: false }, { id: 'd', text: 'Humoristiske anekdoter', isCorrect: false }], solution: 'Solstads stil er umiskjennelig med lange, buktende setninger, intellektuell refleksjon, og en blanding av ironi og alvor.' },
+    ] } },
     { id: 'norsk-vg3-3-7-n-section2', type: 'text', content: `## "Genanse og verdighet" - et midtlivsdrama
 
 I "Genanse og verdighet" (1994) moeter vi Elias Rukla, en 50 aar gammel norsklaerer som en dag tar av seg buksene foran elevene og gaar hjem.
@@ -1096,7 +1227,10 @@ I "Genanse og verdighet" (1994) moeter vi Elias Rukla, en 50 aar gammel norsklae
 Romanen er en refleksjon over dette oeyeblikket - og over et helt liv. Rukla representerer en generasjon som har mistet troen paa sine idealer. Han foeler seg fremmedgjort fra arbeidet, ekteskapet, seg selv.
 
 Solstad utforsker skammens psykologi med presisjon. Det er vondt aa lese - og umulig aa legge fra seg.` },
-    { id: 'norsk-vg3-3-7-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hva handler "Genanse og verdighet" om?', options: [{ id: 'a', text: 'En ungdoms oppvekst', isCorrect: false }, { id: 'b', text: 'En laerers midtlivskrise og refleksjon over livet', isCorrect: true }, { id: 'c', text: 'En detektivhistorie', isCorrect: false }, { id: 'd', text: 'En historisk roman', isCorrect: false }], correctAnswer: 'b', solution: 'Romanen handler om en laerers midtlivskrise og refleksjon over livet.' } },
+    { id: 'norsk-vg3-3-7-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv paa "Genanse og verdighet":', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-7-n-quiz2-q0', task: 'Hva handler "Genanse og verdighet" om?', options: [{ id: 'a', text: 'En ungdoms oppvekst', isCorrect: false }, { id: 'b', text: 'En laerers midtlivskrise og refleksjon over livet', isCorrect: true }, { id: 'c', text: 'En detektivhistorie', isCorrect: false }, { id: 'd', text: 'En historisk roman', isCorrect: false }], solution: '"Genanse og verdighet" (1994) handler om Elias Rukla, en 50 aar gammel norsklaerer som tar av seg buksene foran elevene. Romanen er en refleksjon over dette oeyeblikket - og over et helt liv.' },
+      { id: 'norsk-vg3-3-7-n-quiz2-q1', task: 'Hva representerer Elias Rukla?', options: [{ id: 'a', text: 'Den unge, optimistiske generasjonen', isCorrect: false }, { id: 'b', text: 'En vellykket akademiker', isCorrect: false }, { id: 'c', text: 'En generasjon som har mistet troen paa sine idealer', isCorrect: true }, { id: 'd', text: 'En revolusjonaer leder', isCorrect: false }], solution: 'Rukla representerer en generasjon som har mistet troen paa sine idealer. Han foeler seg fremmedgjort fra arbeidet, ekteskapet og seg selv.' },
+    ] } },
     { id: 'norsk-vg3-3-7-n-section3', type: 'text', content: `## Jan Kjaaerstad - den ambisioese konstruktoeren
 
 Jan Kjaaerstad (f. 1953) er kanskje den mest ambisioese norske romanforfatteren. Hans verk er preget av intellektuell lek og storslaaatte konstruksjoner.
@@ -1104,7 +1238,10 @@ Jan Kjaaerstad (f. 1953) er kanskje den mest ambisioese norske romanforfatteren.
 Jonas Wergeland-trilogien (1993-1999) forteller et manns liv fra tre ulike vinkler. Romanene er fulle av referanser, strukturelle eksperimenter og tematisk kompleksitet. De spoer: Hva er identitet? Hva er sannhet?
 
 Kjaaerstad krever mye av leseren, men belonenner innsatsen.` },
-    { id: 'norsk-vg3-3-7-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hva kjennetegner Kjaaerstads romaner?', options: [{ id: 'a', text: 'Enkle, korte fortellinger', isCorrect: false }, { id: 'b', text: 'Ambisioese konstruksjoner og intellektuell lek', isCorrect: true }, { id: 'c', text: 'Bare realistiske skildringer', isCorrect: false }, { id: 'd', text: 'Kun lyrikk', isCorrect: false }], correctAnswer: 'b', solution: 'Kjaaerstads romaner er preget av ambisioese konstruksjoner og intellektuell lek.' } },
+    { id: 'norsk-vg3-3-7-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv paa Jan Kjaaerstad:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-7-n-quiz3-q0', task: 'Hva kjennetegner Kjaaerstads romaner?', options: [{ id: 'a', text: 'Enkle, korte fortellinger', isCorrect: false }, { id: 'b', text: 'Ambisioese konstruksjoner og intellektuell lek', isCorrect: true }, { id: 'c', text: 'Bare realistiske skildringer', isCorrect: false }, { id: 'd', text: 'Kun lyrikk', isCorrect: false }], solution: 'Kjaaerstads romaner er preget av ambisioese konstruksjoner, intellektuell lek og storslaaatte referanser til litteratur, populaerkultur og vitenskap.' },
+      { id: 'norsk-vg3-3-7-n-quiz3-q1', task: 'Hva utforsker Jonas Wergeland-trilogien?', options: [{ id: 'a', text: 'Norsk natur og friluftsliv', isCorrect: false }, { id: 'b', text: 'Identitet og sannhet gjennom et manns liv fra tre vinkler', isCorrect: true }, { id: 'c', text: 'Kriminaletterforskning i Oslo', isCorrect: false }, { id: 'd', text: 'Barns oppvekstvilkaar', isCorrect: false }], solution: 'Jonas Wergeland-trilogien (1993-1999) forteller et manns liv fra tre ulike vinkler. Den spoer: Hva er identitet? Hva er sannhet? Romanene er fulle av referanser og strukturelle eksperimenter.' },
+    ] } },
     { id: 'norsk-vg3-3-7-n-section4', type: 'text', content: `## Sammenligning: To tilnaerminger
 
 Begge er postmodernistiske og intellektuelle. Begge er sentrale i norsk litteraturdebatt. Men:
@@ -1112,7 +1249,10 @@ Begge er postmodernistiske og intellektuelle. Begge er sentrale i norsk litterat
 Solstad er mer personlig og selvutleverende. Han skriver om tvilen, skammen, usikkerheten. Spraaket buker seg og graver i sinnet.
 
 Kjaaerstad er mer konstruerende og leken. Han bygger komplekse verdener og inviterer leseren inn i spillet. Spraaket er presist og virtuost.` },
-    { id: 'norsk-vg3-3-7-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hva skiller Solstad og Kjaaerstad?', options: [{ id: 'a', text: 'Solstad skriver kun lyrikk', isCorrect: false }, { id: 'b', text: 'Solstad er mer selvutleverende, Kjaaerstad mer konstruerende', isCorrect: true }, { id: 'c', text: 'Kjaaerstad skriver bare korte noveller', isCorrect: false }, { id: 'd', text: 'De er helt like', isCorrect: false }], correctAnswer: 'b', solution: 'Solstad er mer personlig og selvutleverende, Kjaaerstad mer konstruerende og leken.' } },
+    { id: 'norsk-vg3-3-7-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv paa sammenligningen:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-7-n-quiz4-q0', task: 'Hva skiller Solstad og Kjaaerstad?', options: [{ id: 'a', text: 'Solstad skriver kun lyrikk', isCorrect: false }, { id: 'b', text: 'Solstad er mer selvutleverende, Kjaaerstad mer konstruerende', isCorrect: true }, { id: 'c', text: 'Kjaaerstad skriver bare korte noveller', isCorrect: false }, { id: 'd', text: 'De er helt like', isCorrect: false }], solution: 'Solstad er mer personlig og selvutleverende - han skriver om tvilen, skammen, usikkerheten. Kjaaerstad er mer konstruerende og leken - han bygger komplekse litteraere verdener.' },
+      { id: 'norsk-vg3-3-7-n-quiz4-q1', task: 'Hvordan beskrives Solstads spraak sammenlignet med Kjaaerstads?', options: [{ id: 'a', text: 'Solstads spraak buker seg og graver i sinnet, Kjaaerstads er presist og virtuost', isCorrect: true }, { id: 'b', text: 'Begge skriver minimalistisk', isCorrect: false }, { id: 'c', text: 'Kjaaerstad skriver paa dialekt, Solstad paa bokmaal', isCorrect: false }, { id: 'd', text: 'Solstad er kort og presis, Kjaaerstad er lang og omstaendelig', isCorrect: false }], solution: 'Solstads spraak buker seg og graver i sinnet. Kjaaerstads spraak er presist og virtuost. Forskjellen speiler de to forfatternes ulike tilnaerminger til litteraturen.' },
+    ] } },
     { id: 'norsk-vg3-3-7-n-section5', type: 'text', content: `## Betydning
 
 Baade Solstad og Kjaaerstad har pavirket norsk litteratur dypt. De har vist at romanen kan vaere intellektuelt ambisioes uten aa miste kontakten med leseren.
@@ -1120,7 +1260,10 @@ Baade Solstad og Kjaaerstad har pavirket norsk litteratur dypt. De har vist at r
 De representerer ogsaa en tradisjon der forfatteren er offentlig intellektuell - en som deltar i debatten, som tar standpunkt, som mener noe om samfunnet.
 
 I en tid da litteraturen kanskje er marginalisert, minner de oss om hva romanen kan vaere.` },
-    { id: 'norsk-vg3-3-7-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva har Solstad og Kjaaerstad felles?', options: [{ id: 'a', text: 'De skriver kun krim', isCorrect: false }, { id: 'b', text: 'De er begge intellektuelle og sentrale i litteraturdebatten', isCorrect: true }, { id: 'c', text: 'De bor begge i Bergen', isCorrect: false }, { id: 'd', text: 'De skriver kun paa nynorsk', isCorrect: false }], correctAnswer: 'b', solution: 'Begge er intellektuelle forfattere som er sentrale i den norske litteraturdebatten.' } },
+    { id: 'norsk-vg3-3-7-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-7-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv paa Solstad og Kjaaerstads betydning:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-7-n-quiz5-q0', task: 'Hva har Solstad og Kjaaerstad felles?', options: [{ id: 'a', text: 'De skriver kun krim', isCorrect: false }, { id: 'b', text: 'De er begge intellektuelle og sentrale i litteraturdebatten', isCorrect: true }, { id: 'c', text: 'De bor begge i Bergen', isCorrect: false }, { id: 'd', text: 'De skriver kun paa nynorsk', isCorrect: false }], solution: 'Begge er intellektuelle forfattere som er sentrale i den norske litteraturdebatten. De har vist at romanen kan vaere intellektuelt ambisioes uten aa miste kontakten med leseren.' },
+      { id: 'norsk-vg3-3-7-n-quiz5-q1', task: 'Hvilken tradisjon representerer baade Solstad og Kjaaerstad?', options: [{ id: 'a', text: 'Kriminallitteratur', isCorrect: false }, { id: 'b', text: 'Barnebokforfattere', isCorrect: false }, { id: 'c', text: 'Forfatteren som offentlig intellektuell', isCorrect: true }, { id: 'd', text: 'Nynorskforfattere', isCorrect: false }], solution: 'Baade Solstad og Kjaaerstad representerer en tradisjon der forfatteren er offentlig intellektuell - en som deltar i debatten, tar standpunkt og mener noe om samfunnet.' },
+    ] } },
     { id: 'norsk-vg3-3-7-n-summary', type: 'text', content: `## Oppsummering
 
 **Dag Solstad (f. 1941):** Fra politisk engasjement til selvrefleksjon. Lange setninger, tvil, skam. Hovedverk: "Genanse og verdighet" (1994).
@@ -1166,7 +1309,11 @@ Karl Ove Knausgaard (f. 1968) debuterte i 1998, men det var "Min kamp" som gjord
 De seks bindene foelger hans liv fra barndom til naaatid. Han bruker ekte navn - paa seg selv, familien, venner. Han skriver om farens alkoholisme og doed. Om ekteskapet. Om barna. Ingenting er for privat.
 
 Stilen er detaljert, langsom, dvelende. Knausgaard beskriver tennissko og frokostblanding med samme intensitet som de store foelelsene.` },
-    { id: 'norsk-vg3-3-8-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Hva handler "Min kamp" om?', options: [{ id: 'a', text: 'Andre verdenskrig', isCorrect: false }, { id: 'b', text: 'Knausgaards eget liv fra barndom til naaatid', isCorrect: true }, { id: 'c', text: 'Livet i Oslo paa 1800-tallet', isCorrect: false }, { id: 'd', text: 'En fiktiv families historie', isCorrect: false }], correctAnswer: 'b', solution: '"Min kamp" handler om Knausgaards eget liv fra barndom til naaatid.' } },
+    { id: 'norsk-vg3-3-8-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv paa "Min kamp":', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-8-n-quiz1-q0', task: 'Hva handler "Min kamp" om?', options: [{ id: 'a', text: 'Andre verdenskrig', isCorrect: false }, { id: 'b', text: 'Knausgaards eget liv fra barndom til naaatid', isCorrect: true }, { id: 'c', text: 'Livet i Oslo paa 1800-tallet', isCorrect: false }, { id: 'd', text: 'En fiktiv families historie', isCorrect: false }], solution: '"Min kamp" handler om Knausgaards eget liv fra barndom til naaatid. De seks bindene foelger hans liv og han bruker ekte navn paa seg selv, familien og venner.' },
+      { id: 'norsk-vg3-3-8-n-quiz1-q1', task: 'Hvor mange bind bestaar "Min kamp" av?', options: [{ id: 'a', text: 'Tre bind', isCorrect: false }, { id: 'b', text: 'Fire bind', isCorrect: false }, { id: 'c', text: 'Seks bind', isCorrect: true }, { id: 'd', text: 'Ti bind', isCorrect: false }], solution: '"Min kamp" bestaar av seks bind - over 3500 sider om Knausgaards liv. Det er et av de mest omfangsrike selvbiografiske romanprosjektene i norsk litteratur.' },
+      { id: 'norsk-vg3-3-8-n-quiz1-q2', task: 'Hvordan beskrives Knausgaards stil i "Min kamp"?', options: [{ id: 'a', text: 'Rask og actionfylt', isCorrect: false }, { id: 'b', text: 'Detaljert, langsom og dvelende', isCorrect: true }, { id: 'c', text: 'Poetisk og symbolrik', isCorrect: false }, { id: 'd', text: 'Vitenskapelig og saklitg', isCorrect: false }], solution: 'Stilen er detaljert, langsom og dvelende. Knausgaard beskriver tennissko og frokostblanding med samme intensitet som de store foelelsene.' },
+    ] } },
     { id: 'norsk-vg3-3-8-n-section2', type: 'text', content: `## Autofisjon - fakta eller fiksjon?
 
 Knausgaard kaller "Min kamp" roman, men det leser som selvbiografi. Dette er autofisjon - litteratur som blander fakta og fiksjon, der forfatteren bruker sitt eget liv som materiale.
@@ -1174,7 +1321,10 @@ Knausgaard kaller "Min kamp" roman, men det leser som selvbiografi. Dette er aut
 Men hvor sant er det? Knausgaard former minnene litteraert. Han velger hva som skal med, hva som skal utelates. Er det da fortsatt sannhet?
 
 Kanskje er spoersmaalet feil stilt. Kanskje er poenget at grensen mellom fiksjon og virkelighet er umulig aa trekke - i litteraturen som i livet.` },
-    { id: 'norsk-vg3-3-8-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hva er autofisjon?', options: [{ id: 'a', text: 'Fiksjon skrevet av datamaskiner', isCorrect: false }, { id: 'b', text: 'Litteratur som blander selvbiografi og fiksjon', isCorrect: true }, { id: 'c', text: 'Romaner om biler', isCorrect: false }, { id: 'd', text: 'Historiske dokumenter', isCorrect: false }], correctAnswer: 'b', solution: 'Autofisjon blander selvbiografi og fiksjon.' } },
+    { id: 'norsk-vg3-3-8-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv paa autofisjon:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-8-n-quiz2-q0', task: 'Hva er autofisjon?', options: [{ id: 'a', text: 'Fiksjon skrevet av datamaskiner', isCorrect: false }, { id: 'b', text: 'Litteratur som blander selvbiografi og fiksjon', isCorrect: true }, { id: 'c', text: 'Romaner om biler', isCorrect: false }, { id: 'd', text: 'Historiske dokumenter', isCorrect: false }], solution: 'Autofisjon er litteratur som blander selvbiografi og fiksjon. Knausgaard kaller "Min kamp" roman, men det leser som selvbiografi.' },
+      { id: 'norsk-vg3-3-8-n-quiz2-q1', task: 'Hvorfor er grensen mellom fiksjon og virkelighet uklar i "Min kamp"?', options: [{ id: 'a', text: 'Fordi Knausgaard bruker pseudonymer', isCorrect: false }, { id: 'b', text: 'Fordi han handler om en fiktiv verden', isCorrect: false }, { id: 'c', text: 'Fordi han former minnene litteraert og velger hva som skal med', isCorrect: true }, { id: 'd', text: 'Fordi han skriver paa et annet spraak', isCorrect: false }], solution: 'Knausgaard former minnene litteraert. Han velger hva som skal med og hva som utelates. Kanskje er poenget at grensen mellom fiksjon og virkelighet er umulig aa trekke.' },
+    ] } },
     { id: 'norsk-vg3-3-8-n-section3', type: 'text', content: `## Kontroverser og etikk
 
 "Min kamp" skapte ogsaa problemer. Knausgaard skrev om virkelige mennesker uten aa spoerre dem foerst. Onkelen hans saksoeekte. Ekskona protesterte.
@@ -1182,7 +1332,10 @@ Kanskje er spoersmaalet feil stilt. Kanskje er poenget at grensen mellom fiksjon
 Dette reiste viktige spoersmaal: Har forfatteren rett til aa bruke andres liv som materiale? Hvor gaar grensen mellom kunstnerisk frihet og personvern?
 
 Knausgaard selv hevdet at aerligheten var nodvendig - at bare slik kunne litteraturen vaere sann. Men ikke alle var enige.` },
-    { id: 'norsk-vg3-3-8-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hvilket etisk sporsmaal reiser autofiksjonen?', options: [{ id: 'a', text: 'Om man kan skrive paa dialekt', isCorrect: false }, { id: 'b', text: 'Om forfatteren har rett til aa skrive om andre uten samtykke', isCorrect: true }, { id: 'c', text: 'Om boeeker bor vaere gratis', isCorrect: false }, { id: 'd', text: 'Om det finnes for mange forfattere', isCorrect: false }], correctAnswer: 'b', solution: 'Autofiksjonen reiser sporsmaal om retten til aa skrive om andre uten samtykke.' } },
+    { id: 'norsk-vg3-3-8-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv paa kontroverser og etikk:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-8-n-quiz3-q0', task: 'Hvilket etisk spoersmaal reiser autofiksjonen?', options: [{ id: 'a', text: 'Om man kan skrive paa dialekt', isCorrect: false }, { id: 'b', text: 'Om forfatteren har rett til aa skrive om andre uten samtykke', isCorrect: true }, { id: 'c', text: 'Om boeker boer vaere gratis', isCorrect: false }, { id: 'd', text: 'Om det finnes for mange forfattere', isCorrect: false }], solution: 'Autofiksjonen reiser spoersmaal om retten til aa skrive om andre uten samtykke. Knausgaard skrev om virkelige mennesker uten aa spoerre dem foerst.' },
+      { id: 'norsk-vg3-3-8-n-quiz3-q1', task: 'Hva skjedde som foelge av at Knausgaard brukte ekte navn i "Min kamp"?', options: [{ id: 'a', text: 'Alle var fornoyde', isCorrect: false }, { id: 'b', text: 'Onkelen saksoeekte og ekskona protesterte', isCorrect: true }, { id: 'c', text: 'Han vant en pris for etikk', isCorrect: false }, { id: 'd', text: 'Boken ble forbudt', isCorrect: false }], solution: 'Knausgaards onkel saksoeekte og ekskona protesterte. Dette viste de reelle konsekvensene av aa bruke andres liv som materiale i litteraturen.' },
+    ] } },
     { id: 'norsk-vg3-3-8-n-section4', type: 'text', content: `## Hvorfor leste folk?
 
 Hva var det ved "Min kamp" som traff saa mange? Kanskje gjenkaennelsen - Knausgaard skriver om erfaringer vi alle har: barndom, foreldre, kjaerlighet, skam.
@@ -1190,7 +1343,10 @@ Hva var det ved "Min kamp" som traff saa mange? Kanskje gjenkaennelsen - Knausga
 Kanskje lengselen etter autentisitet i en iscenesatt verden. I sosiale mediers tid, der alle kuraterer sitt image, var det befriende med Knausgaards skamloese selvutlevering.
 
 Eller kanskje bare den gode, gammeldagse fortellerkunsten: Knausgaard kan holde paa leseren, selv naar han skriver om aa rydde i farens dodsbo i hundrevis av sider.` },
-    { id: 'norsk-vg3-3-8-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hvorfor ble "Min kamp" saa populaer?', options: [{ id: 'a', text: 'Fordi den var veldig kort', isCorrect: false }, { id: 'b', text: 'Gjenkaennelse, lengsel etter autentisitet, og god fortellerteknikk', isCorrect: true }, { id: 'c', text: 'Fordi den var gratis', isCorrect: false }, { id: 'd', text: 'Fordi den handlet om krim', isCorrect: false }], correctAnswer: 'b', solution: 'Suksessen skyldes gjenkaennelse, lengsel etter autentisitet, og god fortellerteknikk.' } },
+    { id: 'norsk-vg3-3-8-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv paa hvorfor folk leste:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-8-n-quiz4-q0', task: 'Hvorfor ble "Min kamp" saa populaer?', options: [{ id: 'a', text: 'Fordi den var veldig kort', isCorrect: false }, { id: 'b', text: 'Gjenkaennelse, lengsel etter autentisitet, og god fortellerteknikk', isCorrect: true }, { id: 'c', text: 'Fordi den var gratis', isCorrect: false }, { id: 'd', text: 'Fordi den handlet om krim', isCorrect: false }], solution: 'Suksessen skyldes gjenkaennelse, lengsel etter autentisitet, og god fortellerteknikk. I sosiale mediers tid var det befriende med Knausgaards skamloese selvutlevering.' },
+      { id: 'norsk-vg3-3-8-n-quiz4-q1', task: 'Hvorfor var Knausgaards aerlighet spesielt relevant i sosiale mediers tid?', options: [{ id: 'a', text: 'Fordi alle leste boeeker paa telefonen', isCorrect: false }, { id: 'b', text: 'Fordi det var befriende med selvutlevering i en verden der alle kuraterer sitt image', isCorrect: true }, { id: 'c', text: 'Fordi han hadde mange foelgere paa Instagram', isCorrect: false }, { id: 'd', text: 'Fordi sosiale medier ikke fantes', isCorrect: false }], solution: 'I sosiale mediers tid, der alle kuraterer sitt image, var det befriende med Knausgaards skamloese selvutlevering. Han viste en raa aerlighet som kontrasterte den polerte virkeligheten online.' },
+    ] } },
     { id: 'norsk-vg3-3-8-n-section5', type: 'text', content: `## Arven etter Knausgaard
 
 Knausgaard aapnet en dor. Etter "Min kamp" har mange forfattere brukt egne liv som materiale. Autofiksjonen har blitt en dominerende tendens.
@@ -1198,7 +1354,10 @@ Knausgaard aapnet en dor. Etter "Min kamp" har mange forfattere brukt egne liv s
 Men kanskje viktigere: Han viste at det hverdagslige kunne vaere stort nok. At en frokost, et barns graat, et uoppvasket kjoekken kunne baere litteraer tyngde.
 
 Det er en demokratisering av litteraturen. Du trenger ikke store hendelser for aa ha en historie verdt aa fortelle. Du trenger bare evnen til aa se.` },
-    { id: 'norsk-vg3-3-8-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva er Knausgaards viktigste bidrag?', options: [{ id: 'a', text: 'At han innfoerte krimsjangeren', isCorrect: false }, { id: 'b', text: 'At han viste at det hverdagslige kunne baere stor litteratur', isCorrect: true }, { id: 'c', text: 'At han grunnla nynorsken', isCorrect: false }, { id: 'd', text: 'At han vant Nobelprisen', isCorrect: false }], correctAnswer: 'b', solution: 'Knausgaard viste at det hverdagslige kunne baere stor litteratur.' } },
+    { id: 'norsk-vg3-3-8-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-8-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv paa Knausgaards arv:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-8-n-quiz5-q0', task: 'Hva er Knausgaards viktigste bidrag?', options: [{ id: 'a', text: 'At han innfoerte krimsjangeren', isCorrect: false }, { id: 'b', text: 'At han viste at det hverdagslige kunne baere stor litteratur', isCorrect: true }, { id: 'c', text: 'At han grunnla nynorsken', isCorrect: false }, { id: 'd', text: 'At han vant Nobelprisen', isCorrect: false }], solution: 'Knausgaard viste at det hverdagslige kunne baere stor litteratur. En frokost, et barns graat eller et uoppvasket kjoekken kan baere litteraer tyngde.' },
+      { id: 'norsk-vg3-3-8-n-quiz5-q1', task: 'Hva menes med at Knausgaard "demokratiserte litteraturen"?', options: [{ id: 'a', text: 'At han lot leserne stemme over handlingen', isCorrect: false }, { id: 'b', text: 'At han ga ut boekene gratis', isCorrect: false }, { id: 'c', text: 'At du ikke trenger store hendelser for aa ha en historie verdt aa fortelle', isCorrect: true }, { id: 'd', text: 'At han startet en politisk bevegelse', isCorrect: false }], solution: 'Demokratisering av litteraturen betyr at du ikke trenger store hendelser for aa ha en historie verdt aa fortelle. Du trenger bare evnen til aa se. Det hverdagslige er stort nok.' },
+    ] } },
     { id: 'norsk-vg3-3-8-n-summary', type: 'text', content: `## Oppsummering
 
 **Karl Ove Knausgaard (f. 1968)** skapte internasjonal sensasjon med "Min kamp" (2009-2011).
@@ -1246,7 +1405,11 @@ Maria Navarro Skaranger debuterte i 2015 med "Alle utlendinger har lukka gardine
 Zeshan Shakar fikk gjennombrudd med "Tante Ulrikkes vei" (2017). Romanen foelger to venner fra Stovner - Jamal og Mo - og veksler mellom deres perspektiver. Den ene dropper ut, den andre tar utdanning. Romanen viser forskjells-Norge innenfra.
 
 Sumaya Jirde Ali skriver lyrikk om identitet og tilhoerighet. Roda Ahmed skriver romaner om somalisk-norsk erfaring.` },
-    { id: 'norsk-vg3-3-9-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Hva handler "Tante Ulrikkes vei" om?', options: [{ id: 'a', text: 'En tante som bor i en vei', isCorrect: false }, { id: 'b', text: 'To venner fra Stovner med ulike livsloep', isCorrect: true }, { id: 'c', text: 'Historien om Oslo', isCorrect: false }, { id: 'd', text: 'En familie paa landet', isCorrect: false }], correctAnswer: 'b', solution: 'Romanen handler om to venner fra Stovner med ulike livsloep.' } },
+    { id: 'norsk-vg3-3-9-n-quiz1', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz1', number: 'Quiz 1', type: 'multiple-choice', task: 'Test deg selv paa flerkulturelle forfattere:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-9-n-quiz1-q0', task: 'Hva handler "Tante Ulrikkes vei" om?', options: [{ id: 'a', text: 'En tante som bor i en vei', isCorrect: false }, { id: 'b', text: 'To venner fra Stovner med ulike livsloep', isCorrect: true }, { id: 'c', text: 'Historien om Oslo', isCorrect: false }, { id: 'd', text: 'En familie paa landet', isCorrect: false }], solution: '"Tante Ulrikkes vei" (2017) av Zeshan Shakar foelger to venner fra Stovner - Jamal og Mo - og veksler mellom deres perspektiver. Den ene dropper ut, den andre tar utdanning.' },
+      { id: 'norsk-vg3-3-9-n-quiz1-q1', task: 'Hva er spesielt med spraaket i "Alle utlendinger har lukka gardiner"?', options: [{ id: 'a', text: 'Det er skrevet paa nynorsk', isCorrect: false }, { id: 'b', text: 'Det er skrevet paa engelsk', isCorrect: false }, { id: 'c', text: 'Det reflekterer hvordan ungdom paa Romsaas faktisk snakker, med innslag av urdu, engelsk og slang', isCorrect: true }, { id: 'd', text: 'Det er skrevet i verseform', isCorrect: false }], solution: 'Maria Navarro Skarangers roman er skrevet i et spraak som reflekterer hvordan ungdom paa Romsaas faktisk snakker - med innslag av urdu, engelsk og slang.' },
+      { id: 'norsk-vg3-3-9-n-quiz1-q2', task: 'Hvem skriver lyrikk om identitet og tilhoerighet?', options: [{ id: 'a', text: 'Zeshan Shakar', isCorrect: false }, { id: 'b', text: 'Maria Navarro Skaranger', isCorrect: false }, { id: 'c', text: 'Roda Ahmed', isCorrect: false }, { id: 'd', text: 'Sumaya Jirde Ali', isCorrect: true }], solution: 'Sumaya Jirde Ali skriver lyrikk om identitet og tilhoerighet. Hun er en av flere nye stemmer som bringer med seg nye erfaringer til norsk litteratur.' },
+    ] } },
     { id: 'norsk-vg3-3-9-n-section2', type: 'text', content: `## Spraaklig fornyelse
 
 Mange flerkulturelle forfattere bruker et spraak som reflekterer hvordan folk faktisk snakker. Det betyr kodeskifte - bytte mellom spraak midt i en setning. Det betyr slang og uttrykk fra innvandrermiljoeer.
@@ -1254,7 +1417,10 @@ Mange flerkulturelle forfattere bruker et spraak som reflekterer hvordan folk fa
 Dette er ikke "daarlig norsk". Det er spraaklig mangfold. Og det viser at det norske spraaket lever, utvikler seg, tar opp i seg nye impulser.
 
 For noen lesere kan dette vaere uvant. Men det aapner ogsaa nye muligheter - nye rytmer, nye uttrykk, nye maater aa skildre virkeligheten paa.` },
-    { id: 'norsk-vg3-3-9-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Hva er kodeskifte?', options: [{ id: 'a', text: 'Aa skrive i kode', isCorrect: false }, { id: 'b', text: 'Aa bytte mellom spraak midt i en setning', isCorrect: true }, { id: 'c', text: 'Aa bruke hemmelig spraak', isCorrect: false }, { id: 'd', text: 'Aa oversette fra ett spraak til et annet', isCorrect: false }], correctAnswer: 'b', solution: 'Kodeskifte er aa bytte mellom spraak midt i en setning.' } },
+    { id: 'norsk-vg3-3-9-n-quiz2', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz2', number: 'Quiz 2', type: 'multiple-choice', task: 'Test deg selv paa spraaklig fornyelse:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-9-n-quiz2-q0', task: 'Hva er kodeskifte?', options: [{ id: 'a', text: 'Aa skrive i kode', isCorrect: false }, { id: 'b', text: 'Aa bytte mellom spraak midt i en setning', isCorrect: true }, { id: 'c', text: 'Aa bruke hemmelig spraak', isCorrect: false }, { id: 'd', text: 'Aa oversette fra ett spraak til et annet', isCorrect: false }], solution: 'Kodeskifte er aa bytte mellom spraak midt i en setning. Mange flerkulturelle forfattere bruker dette for aa reflektere hvordan folk faktisk snakker.' },
+      { id: 'norsk-vg3-3-9-n-quiz2-q1', task: 'Hva viser den spraaklige fornyelsen i flerkulturell litteratur?', options: [{ id: 'a', text: 'At norsk er et doende spraak', isCorrect: false }, { id: 'b', text: 'At forfatterne ikke kan norsk ordentlig', isCorrect: false }, { id: 'c', text: 'At det norske spraaket lever, utvikler seg og tar opp nye impulser', isCorrect: true }, { id: 'd', text: 'At man boer skrive paa engelsk i stedet', isCorrect: false }], solution: 'Den spraaklige fornyelsen viser at det norske spraaket lever, utvikler seg og tar opp i seg nye impulser. Det er spraaklig mangfold, ikke daarlig norsk.' },
+    ] } },
     { id: 'norsk-vg3-3-9-n-section3', type: 'text', content: `## Samisk litteratur
 
 Ogsaa samiske forfattere har fatt stoerre plass i norsk litteratur. Nils-Aslak Valkeapaeae var en pioner som skrev paa samisk og ble internasjonalt anerkjent.
@@ -1262,7 +1428,11 @@ Ogsaa samiske forfattere har fatt stoerre plass i norsk litteratur. Nils-Aslak V
 Sigbjoern Skaaden skriver romaner som utforsker samisk identitet i moetet med det moderne Norge. Han stiller sporsmaal om tilhoerighet, spraak og kulturell overlevelse.
 
 Den samiske litteraturen minner oss om at Norge aldri har vaert en enhetlig kultur. Mangfoldet har alltid vaert der - det er bare naa det faar mer plass.` },
-    { id: 'norsk-vg3-3-9-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Hvorfor er samisk litteratur viktig?', options: [{ id: 'a', text: 'Den minner oss om at Norge aldri har vaert en enhetlig kultur', isCorrect: true }, { id: 'b', text: 'Den er skrevet paa engelsk', isCorrect: false }, { id: 'c', text: 'Den handler bare om reinsdyr', isCorrect: false }, { id: 'd', text: 'Den er uvesentlig', isCorrect: false }], correctAnswer: 'a', solution: 'Samisk litteratur minner oss om at Norge aldri har vaert en enhetlig kultur.' } },
+    { id: 'norsk-vg3-3-9-n-quiz3', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz3', number: 'Quiz 3', type: 'multiple-choice', task: 'Test deg selv paa samisk litteratur:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-9-n-quiz3-q0', task: 'Hvorfor er samisk litteratur viktig?', options: [{ id: 'a', text: 'Den minner oss om at Norge aldri har vaert en enhetlig kultur', isCorrect: true }, { id: 'b', text: 'Den er skrevet paa engelsk', isCorrect: false }, { id: 'c', text: 'Den handler bare om reinsdyr', isCorrect: false }, { id: 'd', text: 'Den er uvesentlig', isCorrect: false }], solution: 'Samisk litteratur minner oss om at Norge aldri har vaert en enhetlig kultur. Mangfoldet har alltid vaert der - det er bare naa det faar mer plass.' },
+      { id: 'norsk-vg3-3-9-n-quiz3-q1', task: 'Hvem var en samisk pioner som ble internasjonalt anerkjent?', options: [{ id: 'a', text: 'Zeshan Shakar', isCorrect: false }, { id: 'b', text: 'Sigbjoern Skaaden', isCorrect: false }, { id: 'c', text: 'Nils-Aslak Valkeapaeae', isCorrect: true }, { id: 'd', text: 'Maria Navarro Skaranger', isCorrect: false }], solution: 'Nils-Aslak Valkeapaeae var en pioner i samisk litteratur som skrev paa samisk og ble internasjonalt anerkjent for sitt bidrag.' },
+      { id: 'norsk-vg3-3-9-n-quiz3-q2', task: 'Hva utforsker Sigbjoern Skaaden i sine romaner?', options: [{ id: 'a', text: 'Norsk matkultur', isCorrect: false }, { id: 'b', text: 'Kriminalhistorier', isCorrect: false }, { id: 'c', text: 'Samisk identitet i moetet med det moderne Norge', isCorrect: true }, { id: 'd', text: 'Europeisk historie', isCorrect: false }], solution: 'Sigbjoern Skaaden skriver romaner som utforsker samisk identitet i moetet med det moderne Norge. Han stiller spoersmaal om tilhoerighet, spraak og kulturell overlevelse.' },
+    ] } },
     { id: 'norsk-vg3-3-9-n-section4', type: 'text', content: `## Nye temaer
 
 De nye stemmene bringer ogsaa nye temaer til litteraturen. Erfaringen av aa leve mellom kulturer. Rasisme og fordommer. Klassereiser og sosial mobilitet. Generasjonskonflikter mellom foreldre som innvandret og barn som vokste opp her.
@@ -1270,7 +1440,10 @@ De nye stemmene bringer ogsaa nye temaer til litteraturen. Erfaringen av aa leve
 Dette er temaer som angaar mange nordmenn - ikke bare de med innvandrerbakgrunn. For hvem er egentlig "norsk"? Hva betyr tilhoerighet? Hvordan lever vi sammen i et samfunn med mange kulturer?
 
 Litteraturen gir ikke ferdige svar. Men den gir oss muligheten til aa se verden gjennom andre oyne - og kanskje forstaa litt mer.` },
-    { id: 'norsk-vg3-3-9-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Hvilke temaer bringer de nye stemmene til litteraturen?', options: [{ id: 'a', text: 'Bare historiske temaer', isCorrect: false }, { id: 'b', text: 'Aa leve mellom kulturer, rasisme, identitet og tilhoerighet', isCorrect: true }, { id: 'c', text: 'Bare natur og landskap', isCorrect: false }, { id: 'd', text: 'Bare kjaerlighetshistorier', isCorrect: false }], correctAnswer: 'b', solution: 'De nye stemmene skriver om aa leve mellom kulturer, rasisme, identitet og tilhoerighet.' } },
+    { id: 'norsk-vg3-3-9-n-quiz4', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz4', number: 'Quiz 4', type: 'multiple-choice', task: 'Test deg selv paa nye temaer:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-9-n-quiz4-q0', task: 'Hvilke temaer bringer de nye stemmene til litteraturen?', options: [{ id: 'a', text: 'Bare historiske temaer', isCorrect: false }, { id: 'b', text: 'Aa leve mellom kulturer, rasisme, identitet og tilhoerighet', isCorrect: true }, { id: 'c', text: 'Bare natur og landskap', isCorrect: false }, { id: 'd', text: 'Bare kjaerlighetshistorier', isCorrect: false }], solution: 'De nye stemmene skriver om erfaringen av aa leve mellom kulturer, rasisme og fordommer, klassereiser og generasjonskonflikter.' },
+      { id: 'norsk-vg3-3-9-n-quiz4-q1', task: 'Hva gir litteraturen oss muligheten til naar vi leser disse nye stemmene?', options: [{ id: 'a', text: 'Bare underholdning', isCorrect: false }, { id: 'b', text: 'Aa se verden gjennom andre oyne og kanskje forstaa litt mer', isCorrect: true }, { id: 'c', text: 'Aa unngaa vanskelige temaer', isCorrect: false }, { id: 'd', text: 'Aa lese raskere', isCorrect: false }], solution: 'Litteraturen gir oss muligheten til aa se verden gjennom andre oyne - og kanskje forstaa litt mer. Den gir ikke ferdige svar, men aapner for nye perspektiver.' },
+    ] } },
     { id: 'norsk-vg3-3-9-n-section5', type: 'text', content: `## Fremtiden
 
 Norsk litteratur i dag er mer mangfoldig enn noen gang. Og dette er bare begynnelsen. Ettersom Norge blir mer mangfoldig, vil ogsaa litteraturen bli det.
@@ -1278,7 +1451,10 @@ Norsk litteratur i dag er mer mangfoldig enn noen gang. Og dette er bare begynne
 Noen er bekymret for at dette truer "norsk" litteratur. Men kanskje er det motsatte sant: Mangfoldet beriker litteraturen, gir den nye impulser, nye perspektiver, nye historier.
 
 Det som gjoer litteratur god, er ikke hvor forfatteren kommer fra. Det er evnen til aa skildre menneskelivet - med all dets kompleksitet - paa en maate som beveeger og beriker leseren.` },
-    { id: 'norsk-vg3-3-9-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Hva tilforer mangfoldet norsk litteratur?', options: [{ id: 'a', text: 'Ingenting nytt', isCorrect: false }, { id: 'b', text: 'Nye impulser, perspektiver og historier', isCorrect: true }, { id: 'c', text: 'Bare forvirring', isCorrect: false }, { id: 'd', text: 'Doaarligere kvalitet', isCorrect: false }], correctAnswer: 'b', solution: 'Mangfoldet beriker litteraturen med nye impulser, perspektiver og historier.' } },
+    { id: 'norsk-vg3-3-9-n-quiz5', type: 'exercise', exercise: { id: 'norsk-vg3-3-9-n-quiz5', number: 'Quiz 5', type: 'multiple-choice', task: 'Test deg selv paa fremtiden for norsk litteratur:', options: [{ id: 'a', text: 'placeholder', isCorrect: true }], solution: '', questions: [
+      { id: 'norsk-vg3-3-9-n-quiz5-q0', task: 'Hva tilforer mangfoldet norsk litteratur?', options: [{ id: 'a', text: 'Ingenting nytt', isCorrect: false }, { id: 'b', text: 'Nye impulser, perspektiver og historier', isCorrect: true }, { id: 'c', text: 'Bare forvirring', isCorrect: false }, { id: 'd', text: 'Daarligere kvalitet', isCorrect: false }], solution: 'Mangfoldet beriker litteraturen med nye impulser, perspektiver og historier. Ettersom Norge blir mer mangfoldig, vil ogsaa litteraturen bli det.' },
+      { id: 'norsk-vg3-3-9-n-quiz5-q1', task: 'Hva er det som gjoer litteratur god, ifølge teksten?', options: [{ id: 'a', text: 'Hvor forfatteren kommer fra', isCorrect: false }, { id: 'b', text: 'Hvor mange sider boken har', isCorrect: false }, { id: 'c', text: 'Evnen til aa skildre menneskelivet paa en maate som beveeger og beriker leseren', isCorrect: true }, { id: 'd', text: 'Hvor mange priser forfatteren har vunnet', isCorrect: false }], solution: 'Det som gjoer litteratur god er ikke hvor forfatteren kommer fra, men evnen til aa skildre menneskelivet - med all dets kompleksitet - paa en maate som beveeger og beriker leseren.' },
+    ] } },
     { id: 'norsk-vg3-3-9-n-summary', type: 'text', content: `## Oppsummering
 
 **Flerkulturelle stemmer** i norsk litteratur inkluderer:

@@ -64,32 +64,44 @@ Fra Hellas spredte retorikken seg til Romerriket. Cicero og Quintilian viderefor
         id: 'norsk-vg2-5-1-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvorfor ble retorikk sa viktig i antikkens Athen?',
-        options: [
+        task: 'Test deg selv pa retorikkens historie:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Fordi det var det eneste faget som ble undervist',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz1-q0',
+            task: 'Hvorfor ble retorikk sa viktig i antikkens Athen?',
+            options: [
+              { id: 'a', text: 'Fordi det var det eneste faget som ble undervist', isCorrect: false },
+              { id: 'b', text: 'Fordi kongen krevde gode talere ved hoffet', isCorrect: false },
+              { id: 'c', text: 'Fordi demokratiet krevde at borgere matte overbevise hverandre', isCorrect: true },
+              { id: 'd', text: 'Fordi det var den eneste maten a underhalde folk pa', isCorrect: false },
+            ],
+            solution: 'I det athenske demokratiet matte borgere forsvare seg selv i retten og argumentere for forslag i folkeforsamlingen. A kunne tale overbevisende var dermed avgjorende for a pavirke beslutninger og beskytte sine egne interesser.',
           },
           {
-            id: 'b',
-            text: 'Fordi kongen krevde gode talere ved hoffet',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz1-q1',
+            task: 'Hva kritiserte Platon sofistene for?',
+            options: [
+              { id: 'a', text: 'At de ikke kunne snakke gresk ordentlig', isCorrect: false },
+              { id: 'b', text: 'At de tok for lite betalt for undervisningen', isCorrect: false },
+              { id: 'c', text: 'At de var mer opptatt av a vinne enn av sannhet', isCorrect: true },
+              { id: 'd', text: 'At de nektet a undervise vanlige borgere', isCorrect: false },
+            ],
+            solution: 'Platon mente sofistene var mer opptatt av a vinne enn av sannhet. De kunne fa folk til a tro pa hva som helst, uavhengig av om det var sant eller rettferdig. Denne kritikken er fortsatt relevant i debatter om retorikk og manipulasjon.',
           },
           {
-            id: 'c',
-            text: 'Fordi demokratiet krevde at borgere matte overbevise hverandre',
-            isCorrect: true,
-          },
-          {
-            id: 'd',
-            text: 'Fordi det var den eneste maten a underhalde folk pa',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz1-q2',
+            task: 'Hvem systematiserte retorikken som fag?',
+            options: [
+              { id: 'a', text: 'Platon', isCorrect: false },
+              { id: 'b', text: 'Cicero', isCorrect: false },
+              { id: 'c', text: 'Sofistene', isCorrect: false },
+              { id: 'd', text: 'Aristoteles', isCorrect: true },
+            ],
+            solution: 'Aristoteles, Platons elev, systematiserte retorikken i verket Retorikken, som fortsatt regnes som grunnboken i faget. For Aristoteles var retorikk en kunst og et verktoy som kunne brukes til godt eller ondt.',
           },
         ],
-        correctAnswer: 'c',
-        solution:
-          'I det athenske demokratiet matte borgere forsvare seg selv i retten og argumentere for forslag i folkeforsamlingen. A kunne tale overbevisende var dermed avgjorende for a pavirke beslutninger og beskytte sine egne interesser.',
       },
     },
 
@@ -118,28 +130,44 @@ Hvorfor er dette relevant for deg? Fordi enhver overbevisende tekst du leser ell
         id: 'norsk-vg2-5-1-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'En bryllupstale som hyller brudeparet og onsker dem lykke til - hvilken taletype er dette?',
-        options: [
+        task: 'Test deg selv pa de tre taletypene:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Genus judiciale (juridisk tale)',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz2-q0',
+            task: 'En bryllupstale som hyller brudeparet og onsker dem lykke til - hvilken taletype er dette?',
+            options: [
+              { id: 'a', text: 'Genus judiciale (juridisk tale)', isCorrect: false },
+              { id: 'b', text: 'Genus deliberativum (politisk tale)', isCorrect: false },
+              { id: 'c', text: 'Genus demonstrativum (festtale)', isCorrect: true },
+              { id: 'd', text: 'Genus rhetoricum (retorisk tale)', isCorrect: false },
+            ],
+            solution: 'En bryllupstale er en festtale (genus demonstrativum) fordi den handler om natiden og har som formal a rose og feire brudeparet. Festtaler styrker fellesskap og bekrefter verdier.',
           },
           {
-            id: 'b',
-            text: 'Genus deliberativum (politisk tale)',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz2-q1',
+            task: 'En forsvarsadvokat argumenterer for at klienten er uskyldig. Hvilken taletype er dette?',
+            options: [
+              { id: 'a', text: 'Genus demonstrativum (festtale)', isCorrect: false },
+              { id: 'b', text: 'Genus judiciale (juridisk tale)', isCorrect: true },
+              { id: 'c', text: 'Genus deliberativum (politisk tale)', isCorrect: false },
+              { id: 'd', text: 'Ingen av taletypene', isCorrect: false },
+            ],
+            solution: 'En forsvarsadvokats argumentasjon er genus judiciale (juridisk tale) fordi den handler om fortiden - hva som faktisk skjedde. Retten ser bakover i tid og prover a finne sannheten.',
           },
           {
-            id: 'c',
-            text: 'Genus demonstrativum (festtale)',
-            isCorrect: true,
+            id: 'norsk-vg2-5-1-n-quiz2-q2',
+            task: 'Hvilket tidsperspektiv handler den radgivende talen (genus deliberativum) om?',
+            options: [
+              { id: 'a', text: 'Fortiden - hva som har skjedd', isCorrect: false },
+              { id: 'b', text: 'Natiden - hva som skjer akkurat na', isCorrect: false },
+              { id: 'c', text: 'Fremtiden - hva vi bor gjore', isCorrect: true },
+              { id: 'd', text: 'Alle tidsperspektiver samtidig', isCorrect: false },
+            ],
+            solution: 'Genus deliberativum handler om fremtiden: Hva bor vi gjore? Hvilken vei bor vi velge? Denne taletypen brukes nar politikere argumenterer for reformer, nar bedriftsledere presenterer strategier, eller nar du prover a overbevise noen om en plan.',
           },
-          { id: 'd', text: 'Genus rhetoricum (retorisk tale)', isCorrect: false },
         ],
-        correctAnswer: 'c',
-        solution:
-          'En bryllupstale er en festtale (genus demonstrativum) fordi den handler om natiden og har som formal a rose og feire brudeparet. Festtaler styrker fellesskap og bekrefter verdier.',
       },
     },
 
@@ -170,32 +198,33 @@ Femte og siste fase er actio, selve fremforingen. Stemme, kroppssprak, oyekontak
         id: 'norsk-vg2-5-1-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'I hvilken rekkefolgee bor du jobbe med en tale ifolgee de fem arbeidsfasene?',
-        options: [
+        task: 'Test deg selv pa de fem arbeidsfasene:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Elocutio, inventio, dispositio, memoria, actio',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz3-q0',
+            task: 'I hvilken rekkefolge bor du jobbe med en tale ifolge de fem arbeidsfasene?',
+            options: [
+              { id: 'a', text: 'Elocutio, inventio, dispositio, memoria, actio', isCorrect: false },
+              { id: 'b', text: 'Inventio, dispositio, elocutio, memoria, actio', isCorrect: true },
+              { id: 'c', text: 'Actio, memoria, elocutio, dispositio, inventio', isCorrect: false },
+              { id: 'd', text: 'Dispositio, elocutio, inventio, actio, memoria', isCorrect: false },
+            ],
+            solution: 'Riktig rekkefolge er: inventio (finne stoff), dispositio (ordne stoffet), elocutio (formulere spraklig), memoria (huske), actio (fremfore). Denne logiske rekkefolgen sikrer at du forst har noe a si, deretter organiserer det, sa formulerer det godt, laerer det, og til slutt fremforer det.',
           },
           {
-            id: 'b',
-            text: 'Inventio, dispositio, elocutio, memoria, actio',
-            isCorrect: true,
-          },
-          {
-            id: 'c',
-            text: 'Actio, memoria, elocutio, dispositio, inventio',
-            isCorrect: false,
-          },
-          {
-            id: 'd',
-            text: 'Dispositio, elocutio, inventio, actio, memoria',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz3-q1',
+            task: 'Hva handler "elocutio" om?',
+            options: [
+              { id: 'a', text: 'A samle argumenter og fakta', isCorrect: false },
+              { id: 'b', text: 'A huske talen utenat', isCorrect: false },
+              { id: 'c', text: 'Den spraklige utformingen - ordvalg, setninger, bilder', isCorrect: true },
+              { id: 'd', text: 'A holde talen foran publikum', isCorrect: false },
+            ],
+            solution: 'Elocutio er den tredje fasen og handler om den spraklige utformingen. Her velger du ord, bygger setninger og skaper bilder. Skal du bruke metaforer, gjentakelser eller retoriske sporsmal? Det er i denne fasen ravarene blir til kunst.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Riktig rekkefolge er: inventio (finne stoff), dispositio (ordne stoffet), elocutio (formulere spraklig), memoria (huske), actio (fremfore). Denne logiske rekkefolgen sikrer at du forst har noe a si, deretter organiserer det, sa formulerer det godt, laerer det, og til slutt fremforer det.',
       },
     },
 
@@ -226,32 +255,33 @@ Men a mestre kairos og aptum? Det er a vaere en retor som virkelig forstar sitt 
         id: 'norsk-vg2-5-1-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom kairos og aptum?',
-        options: [
+        task: 'Test deg selv pa kairos og aptum:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Kairos handler om ordvalg, aptum om setningsbygning',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz4-q0',
+            task: 'Hva er forskjellen mellom kairos og aptum?',
+            options: [
+              { id: 'a', text: 'Kairos handler om ordvalg, aptum om setningsbygning', isCorrect: false },
+              { id: 'b', text: 'Kairos handler om timing og oyeblikk, aptum om tilpasning til situasjon og publikum', isCorrect: true },
+              { id: 'c', text: 'Kairos er en taletype, aptum er en arbeidsfase', isCorrect: false },
+              { id: 'd', text: 'Kairos brukes i juridiske taler, aptum i politiske taler', isCorrect: false },
+            ],
+            solution: 'Kairos handler om timing og det rette oyeblikket - nar noe bor sies. Aptum handler om tilpasning til publikum, situasjon og emne - hvordan noe bor sies. Begge handler om kontekst, men fra ulike vinkler.',
           },
           {
-            id: 'b',
-            text: 'Kairos handler om timing og oyeblikk, aptum om tilpasning til situasjon og publikum',
-            isCorrect: true,
-          },
-          {
-            id: 'c',
-            text: 'Kairos er en taletype, aptum er en arbeidsfase',
-            isCorrect: false,
-          },
-          {
-            id: 'd',
-            text: 'Kairos brukes i juridiske taler, aptum i politiske taler',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz4-q1',
+            task: 'En politiker holder en morsom tale ved en minneseremoni. Hvilket begrep bryter hun med?',
+            options: [
+              { id: 'a', text: 'Kairos - feil tidspunkt', isCorrect: false },
+              { id: 'b', text: 'Logos - mangel pa fakta', isCorrect: false },
+              { id: 'c', text: 'Aptum - upassende tilpasning til situasjonen', isCorrect: true },
+              { id: 'd', text: 'Etos - manglende troverdighet', isCorrect: false },
+            ],
+            solution: 'A holde en morsom tale ved en minneseremoni bryter med aptum - det passende. En minneseremoni krever alvor og verdighet, ikke humor. A bryte med aptum oppfattes som malplassert, pinlig eller respektlost.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Kairos handler om timing og det rette oyeblikket - nar noe bor sies. Aptum handler om tilpasning til publikum, situasjon og emne - hvordan noe bor sies. Begge handler om kontekst, men fra ulike vinkler.',
       },
     },
 
@@ -282,32 +312,33 @@ Sofistene hadde rett i en ting: Retorikk er makt. Men Aristoteles hadde ogsa ret
         id: 'norsk-vg2-5-1-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor er retorisk kompetanse viktig i dag?',
-        options: [
+        task: 'Test deg selv pa retorikkens relevans i dag:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Fordi det er et krav pa eksamen i norsk',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz5-q0',
+            task: 'Hvorfor er retorisk kompetanse viktig i dag?',
+            options: [
+              { id: 'a', text: 'Fordi det er et krav pa eksamen i norsk', isCorrect: false },
+              { id: 'b', text: 'Fordi det gjor deg bedre til a skrive dikter', isCorrect: false },
+              { id: 'c', text: 'Fordi det hjelper deg a kommunisere bedre og gjennomskue pavirkning', isCorrect: true },
+              { id: 'd', text: 'Fordi det er den eneste maten a bli politiker pa', isCorrect: false },
+            ],
+            solution: 'Retorisk kompetanse gjor deg til bade en bedre kommunikator og en mer kritisk mottaker. I en tid med mye informasjon og pavirkning er det avgjorende a forsta hvordan overtalelse fungerer.',
           },
           {
-            id: 'b',
-            text: 'Fordi det gjor deg bedre til a skrive dikter',
-            isCorrect: false,
-          },
-          {
-            id: 'c',
-            text: 'Fordi det hjelper deg a kommunisere bedre og gjennomskue pavirkning',
-            isCorrect: true,
-          },
-          {
-            id: 'd',
-            text: 'Fordi det er den eneste maten a bli politiker pa',
-            isCorrect: false,
+            id: 'norsk-vg2-5-1-n-quiz5-q1',
+            task: 'Hvor finner du retorikk i hverdagen din?',
+            options: [
+              { id: 'a', text: 'Bare i politiske taler', isCorrect: false },
+              { id: 'b', text: 'Bare i skoleoppgaver', isCorrect: false },
+              { id: 'c', text: 'Bare i reklame', isCorrect: false },
+              { id: 'd', text: 'Overalt - fra sosiale medier og reklame til jobbintervjuer og hverdagssamtaler', isCorrect: true },
+            ],
+            solution: 'Retorikken er overalt i hverdagen: influencere pa sosiale medier, politikere som vil ha stemmen din, jobbintervjuer, klager til nettbutikker. Vi er alle retorer, enten vi vet det eller ikke. Retorikken lever videre i nye forkledninger.',
           },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Retorisk kompetanse gjor deg til bade en bedre kommunikator og en mer kritisk mottaker. I en tid med mye informasjon og pavirkning er det avgjorende a forsta hvordan overtalelse fungerer.',
       },
     },
 
@@ -405,16 +436,44 @@ Legg merke til hvordan reklamer bruker etos. Kjendiser som anbefaler produkter. 
         id: 'norsk-vg2-5-2-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'En advokat skriver: "Som jurist med 20 ars erfaring fra familierett kan jeg si at denne loven vil skade barna." Hva bygger dette utsagnet pa?',
-        options: [
-          { id: 'a', text: 'Logos - logikk og fakta', isCorrect: false },
-          { id: 'b', text: 'Patos - folelsesappell', isCorrect: false },
-          { id: 'c', text: 'Etos - avsenderens troverdighet', isCorrect: true },
-          { id: 'd', text: 'Kairos - timing', isCorrect: false },
+        task: 'Test deg selv pa etos:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-2-n-quiz1-q0',
+            task: 'En advokat skriver: "Som jurist med 20 ars erfaring fra familierett kan jeg si at denne loven vil skade barna." Hva bygger dette utsagnet pa?',
+            options: [
+              { id: 'a', text: 'Logos - logikk og fakta', isCorrect: false },
+              { id: 'b', text: 'Patos - folelsesappell', isCorrect: false },
+              { id: 'c', text: 'Etos - avsenderens troverdighet', isCorrect: true },
+              { id: 'd', text: 'Kairos - timing', isCorrect: false },
+            ],
+            solution: 'Advokaten bygger etos ved a vise til sin tittel (jurist), sin erfaring (20 ar) og sitt spesialfelt (familierett). Alt dette styrker troverdigheten og gjor at vi lettere tror pa konklusjonen om at loven vil skade barna.',
+          },
+          {
+            id: 'norsk-vg2-5-2-n-quiz1-q1',
+            task: 'Hva er forskjellen mellom innledende etos og avledet etos?',
+            options: [
+              { id: 'a', text: 'Innledende etos er sterkere enn avledet etos', isCorrect: false },
+              { id: 'b', text: 'Innledende etos er ryktet fra for, avledet etos bygges gjennom selve teksten', isCorrect: true },
+              { id: 'c', text: 'Innledende etos brukes i innledningen, avledet etos i avslutningen', isCorrect: false },
+              { id: 'd', text: 'Det er ingen forskjell mellom dem', isCorrect: false },
+            ],
+            solution: 'Innledende etos er troverdigheten du har for du apner munnen - titler, rykte, status. Avledet etos er det du bygger gjennom selve teksten ved a vise kunnskap, vaere aerlig og uttrykke omtanke for publikum. Selv en ukjent person kan bygge sterk avledet etos.',
+          },
+          {
+            id: 'norsk-vg2-5-2-n-quiz1-q2',
+            task: 'Hvilke tre ting pekte Aristoteles pa som grunnlag for troverdighet?',
+            options: [
+              { id: 'a', text: 'Makt, rikdom og berommelse', isCorrect: false },
+              { id: 'b', text: 'Utdanning, alder og kjonn', isCorrect: false },
+              { id: 'c', text: 'Kompetanse, aerlighet og velvilje', isCorrect: true },
+              { id: 'd', text: 'Logikk, folelser og bevis', isCorrect: false },
+            ],
+            solution: 'Aristoteles pekte pa tre ting som bygger troverdighet: kompetanse (vet personen hva de snakker om?), aerlighet (virker personen oppriktig?) og velvilje (bryr personen seg om oss?). Disse tre er fortsatt grunnlaget for a vurdere troverdighet.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Advokaten bygger etos ved a vise til sin tittel (jurist), sin erfaring (20 ar) og sitt spesialfelt (familierett). Alt dette styrker troverdigheten og gjor at vi lettere tror pa konklusjonen om at loven vil skade barna.',
       },
     },
 
@@ -445,32 +504,33 @@ Nar du skriver en fagartikkel, er logos avgjorende. Du ma ha fakta, kilder og lo
         id: 'norsk-vg2-5-2-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvilket av disse utsagnene er det beste eksempelet pa logos?',
-        options: [
+        task: 'Test deg selv pa logos:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: '"Tenk pa alle barna som lider! Vi kan ikke sitte stille!"',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz2-q0',
+            task: 'Hvilket av disse utsagnene er det beste eksempelet pa logos?',
+            options: [
+              { id: 'a', text: '"Tenk pa alle barna som lider! Vi kan ikke sitte stille!"', isCorrect: false },
+              { id: 'b', text: '"Som mor til tre vet jeg hvor vanskelig dette er."', isCorrect: false },
+              { id: 'c', text: '"Ifolge Folkehelseinstituttet har forekomsten okt med 23 prosent siden 2015."', isCorrect: true },
+              { id: 'd', text: '"Dette er en skandale! Noe ma gjores NA!"', isCorrect: false },
+            ],
+            solution: 'Logos appellerer til fornuft gjennom fakta og logikk. Henvisningen til Folkehelseinstituttet med konkret tall (23 prosent) og tidsperiode (siden 2015) er et tydelig logos-argument.',
           },
           {
-            id: 'b',
-            text: '"Som mor til tre vet jeg hvor vanskelig dette er."',
-            isCorrect: false,
-          },
-          {
-            id: 'c',
-            text: '"Ifolge Folkehelseinstituttet har forekomsten okt med 23 prosent siden 2015."',
-            isCorrect: true,
-          },
-          {
-            id: 'd',
-            text: '"Dette er en skandale! Noe ma gjores NA!"',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz2-q1',
+            task: 'Hva er en svakhet ved a kun bruke logos i en tekst?',
+            options: [
+              { id: 'a', text: 'Logos er alltid feil', isCorrect: false },
+              { id: 'b', text: 'Logos alene varmer ikke - folk handler ofte pa folelser', isCorrect: true },
+              { id: 'c', text: 'Logos krever for mye forskning', isCorrect: false },
+              { id: 'd', text: 'Logos er for vanskelig a forsta', isCorrect: false },
+            ],
+            solution: 'Logos alene kan virke kaldt og upersonlig. Selv om fakta appellerer til intellektet, beveger de ikke hjertet. Folk handler ofte pa folelser, sa logos trenger gjerne folge av etos og patos.',
           },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Logos appellerer til fornuft gjennom fakta og logikk. Henvisningen til Folkehelseinstituttet med konkret tall (23 prosent) og tidsperiode (siden 2015) er et tydelig logos-argument. De andre alternativene bruker patos (folelsesappell) eller etos (personlig erfaring).',
       },
     },
 
@@ -501,16 +561,33 @@ Vurdert kritisk: Nar en tekst far deg til a fole sterkt, stopp opp og spor. Er f
         id: 'norsk-vg2-5-2-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'En veldedighetsorganisasjon viser bilder av sultne barn og forteller historien til lille Ahmed som mistet foreldrene sine. Hvilken appellform dominerer?',
-        options: [
-          { id: 'a', text: 'Etos - organisasjonens troverdighet', isCorrect: false },
-          { id: 'b', text: 'Logos - statistikk om sult', isCorrect: false },
-          { id: 'c', text: 'Patos - folelsesappell', isCorrect: true },
-          { id: 'd', text: 'Kairos - timing', isCorrect: false },
+        task: 'Test deg selv pa patos:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-2-n-quiz3-q0',
+            task: 'En veldedighetsorganisasjon viser bilder av sultne barn og forteller historien til lille Ahmed som mistet foreldrene sine. Hvilken appellform dominerer?',
+            options: [
+              { id: 'a', text: 'Etos - organisasjonens troverdighet', isCorrect: false },
+              { id: 'b', text: 'Logos - statistikk om sult', isCorrect: false },
+              { id: 'c', text: 'Patos - folelsesappell', isCorrect: true },
+              { id: 'd', text: 'Kairos - timing', isCorrect: false },
+            ],
+            solution: 'Dette er et tydelig patos-argument. Bilder av sultne barn og personlige historier vekker medfolelse. Det bor ideelt kombineres med logos og etos.',
+          },
+          {
+            id: 'norsk-vg2-5-2-n-quiz3-q1',
+            task: 'Nar kan patos misbrukes?',
+            options: [
+              { id: 'a', text: 'Nar det brukes i festtaler', isCorrect: false },
+              { id: 'b', text: 'Nar det kombineres med logos', isCorrect: false },
+              { id: 'c', text: 'Nar det brukes til a skremme eller manipulere uten faktagrunnlag', isCorrect: true },
+              { id: 'd', text: 'Patos kan aldri misbrukes', isCorrect: false },
+            ],
+            solution: 'Patos kan misbrukes gjennom fryktpropaganda eller sentimentale reklamer som manipulerer. Patos uten fakta er manipulasjon. God overtalelse kombinerer patos med etos og logos.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Dette er et tydelig patos-argument. Bilder av sultne barn og personlige historier er klassiske patos-virkemidler som vekker medfolelse og onsket om a hjelpe. Det er effektivt, men bor ideelt kombineres med logos (hvor gar pengene?) og etos (er organisasjonen palitelig?).',
       },
     },
 
@@ -539,32 +616,33 @@ Vurder alltid: Hvem er publikum? Hva forventer de? En akademisk tekst trenger st
         id: 'norsk-vg2-5-2-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvorfor bruker de fleste overbevisende tekster en kombinasjon av etos, logos og patos?',
-        options: [
+        task: 'Test deg selv pa balansen mellom appellformene:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Fordi det er et krav i laereplanen',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz4-q0',
+            task: 'Hvorfor bruker de fleste overbevisende tekster en kombinasjon av etos, logos og patos?',
+            options: [
+              { id: 'a', text: 'Fordi det er et krav i laereplanen', isCorrect: false },
+              { id: 'b', text: 'Fordi mennesker overbevises av ulike ting, og en kombinasjon treffer flere', isCorrect: true },
+              { id: 'c', text: 'Fordi Aristoteles sa det', isCorrect: false },
+              { id: 'd', text: 'Fordi det gjor teksten lengre og mer imponerende', isCorrect: false },
+            ],
+            solution: 'Mennesker overbevises av ulike ting. En kombinasjon sikrer at teksten treffer flere typer lesere og at budskapet stotter seg pa flere bein.',
           },
           {
-            id: 'b',
-            text: 'Fordi mennesker overbevises av ulike ting, og en kombinasjon treffer flere',
-            isCorrect: true,
-          },
-          {
-            id: 'c',
-            text: 'Fordi Aristoteles sa det',
-            isCorrect: false,
-          },
-          {
-            id: 'd',
-            text: 'Fordi det gjor teksten lengre og mer imponerende',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz4-q1',
+            task: 'Hvilken appellform dominerer i en vitenskapelig artikkel?',
+            options: [
+              { id: 'a', text: 'Patos - folelser dominerer', isCorrect: false },
+              { id: 'b', text: 'Etos - forfatterens status er viktigst', isCorrect: false },
+              { id: 'c', text: 'Logos - fakta, logikk og bevis dominerer', isCorrect: true },
+              { id: 'd', text: 'Ingen appellform dominerer', isCorrect: false },
+            ],
+            solution: 'En vitenskapelig artikkel er nesten rent logos. En begravelsestale er nesten ren patos. Balansen avhenger av sjanger og situasjon.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Mennesker overbevises av ulike ting. Noen stoler pa eksperter (etos), noen vil ha bevis (logos), noen drives av folelser (patos). En kombinasjon sikrer at teksten treffer flere typer lesere og at budskapet stotter seg pa flere bein.',
       },
     },
 
@@ -595,32 +673,33 @@ Med denne kunnskapen er du bedre rustet bade som avsender og mottaker av overbev
         id: 'norsk-vg2-5-2-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Du ser en reklame der en kjent idrettsstjerne sier "Jeg bruker dette produktet hver dag, og det gir meg energi til a prestere." Hvilken appellform er mest fremtredende?',
-        options: [
+        task: 'Test deg selv pa appellformer i hverdagen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Logos - fordi det nevnes daglig bruk',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz5-q0',
+            task: 'Du ser en reklame der en kjent idrettsstjerne sier "Jeg bruker dette produktet hver dag." Hvilken appellform er mest fremtredende?',
+            options: [
+              { id: 'a', text: 'Logos - fordi det nevnes daglig bruk', isCorrect: false },
+              { id: 'b', text: 'Etos - fordi en kjent person anbefaler produktet', isCorrect: true },
+              { id: 'c', text: 'Patos - fordi energi er en folelse', isCorrect: false },
+              { id: 'd', text: 'Kairos - fordi timing er viktig i idrett', isCorrect: false },
+            ],
+            solution: 'Dette er primaert en etos-appell. En kjent person har status, og nar hun anbefaler noe, laaner produktet av hennes troverdighet.',
           },
           {
-            id: 'b',
-            text: 'Etos - fordi en kjent person anbefaler produktet',
-            isCorrect: true,
-          },
-          {
-            id: 'c',
-            text: 'Patos - fordi energi er en folelse',
-            isCorrect: false,
-          },
-          {
-            id: 'd',
-            text: 'Kairos - fordi timing er viktig i idrett',
-            isCorrect: false,
+            id: 'norsk-vg2-5-2-n-quiz5-q1',
+            task: 'Hvordan bruker reklame for luksusvarer typisk appellformene?',
+            options: [
+              { id: 'a', text: 'De bruker hovedsakelig logos med statistikk', isCorrect: false },
+              { id: 'b', text: 'De bruker ofte etos - kjendiser og eksperter som anbefaler', isCorrect: true },
+              { id: 'c', text: 'De bruker bare patos med triste historier', isCorrect: false },
+              { id: 'd', text: 'De bruker ingen appellformer', isCorrect: false },
+            ],
+            solution: 'Luksusvarer bruker ofte etos gjennom kjendiser og eksperter. Teknologiprodukter bruker oftere logos (spesifikasjoner), mens veldedighet bruker patos (bilder og historier).',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Dette er primaert en etos-appell. En kjent idrettsstjerne har status og beundring, og nar hun anbefaler noe, laaner produktet av hennes troverdighet. Kritisk sporsmaal: Har hun faktisk kompetanse pa produktets effekt, eller er hun bare betalt for a reklamere?',
       },
     },
 
@@ -715,32 +794,49 @@ Nar du har kartlagt den retoriske situasjonen, har du et kart over tekstens terr
         id: 'norsk-vg2-5-3-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er det FORSTE du bor gjore nar du skal analysere en sakprosatekst?',
-        options: [
+        task: 'Test deg selv pa den retoriske situasjonen:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-3-n-quiz1-q0',
+            task: 'Hva er det FORSTE du bor gjore nar du skal analysere en sakprosatekst?',
+            options: [
+            {
             id: 'a',
             text: 'Telle alle metaforene i teksten',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Lese teksten for a fa et helhetsinntrykk',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Skrive ned konklusjonen din',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Sla opp alle ord du ikke forstar',
             isCorrect: false,
+            },
+            ],
+            solution: 'Forste steg er alltid a lese teksten for a fa et helhetsinntrykk. For du kan analysere detaljer, ma du forsta hva teksten handler om i store trekk. Deretter kan du ga over til mer systematisk kartlegging av retorisk situasjon og virkemidler.',
+          },
+          {
+            id: 'norsk-vg2-5-3-n-quiz1-q1',
+            task: 'Hvilke elementer inngaar i den retoriske situasjonen?',
+            options: [
+              { id: 'a', text: 'Bare avsender og mottaker', isCorrect: false },
+              { id: 'b', text: 'Etos, logos og patos', isCorrect: false },
+              { id: 'c', text: 'Avsender, mottaker, sak, situasjon og formal', isCorrect: true },
+              { id: 'd', text: 'Innledning, hoveddel og avslutning', isCorrect: false },
+            ],
+            solution: 'Den retoriske situasjonen bestar av: avsender (hvem), mottaker (til hvem), saken (om hva), situasjonen/kairos (nar/hvor), og formalet (hvorfor).',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Forste steg er alltid a lese teksten for a fa et helhetsinntrykk. For du kan analysere detaljer, ma du forsta hva teksten handler om i store trekk. Deretter kan du ga over til mer systematisk kartlegging av retorisk situasjon og virkemidler.',
       },
     },
 
@@ -770,35 +866,47 @@ Nar du analyserer, spor alltid: Hvilken sjanger er dette? Folger teksten sjanger
       id: 'norsk-vg2-5-3-n-quiz2',
       type: 'exercise',
       exercise: {
-        id: 'norsk-vg2-5-2-n-quiz2',
+        id: 'norsk-vg2-5-3-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva kjennetegner en lederartikkel til forskjell fra en kronikk?',
-        options: [
+        task: 'Test deg selv pa sakprosasjangre:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
-            id: 'a',
-            text: 'Lederen er lengre og mer personlig',
-            isCorrect: false,
+            id: 'norsk-vg2-5-3-n-quiz2-q0',
+            task: 'Hva kjennetegner en lederartikkel til forskjell fra en kronikk?',
+            options: [
+              { id: 'a', text: 'Lederen er lengre og mer personlig', isCorrect: false },
+              { id: 'b', text: 'Lederen representerer avisens offisielle standpunkt, ikke en enkeltpersons', isCorrect: true },
+              { id: 'c', text: 'Lederen bruker aldri kilder', isCorrect: false },
+              { id: 'd', text: 'Lederen handler alltid om politikk', isCorrect: false },
+            ],
+            solution: 'En leder (lederartikkel) representerer avisens offisielle standpunkt og publiseres uten forfatterangivelse fordi den snakker pa vegne av redaksjonen. En kronikk er derimot en lengre, signert tekst med personlig vinkling fra en navngitt forfatter.',
           },
           {
-            id: 'b',
-            text: 'Lederen representerer avisens offisielle standpunkt, ikke en enkeltpersons',
-            isCorrect: true,
+            id: 'norsk-vg2-5-3-n-quiz2-q1',
+            task: 'Hva er typisk for et essay sammenlignet med et debattinnlegg?',
+            options: [
+              { id: 'a', text: 'Essayet har en klar tese allerede i tittelen', isCorrect: false },
+              { id: 'b', text: 'Essayet er kortere og mer direkte', isCorrect: false },
+              { id: 'c', text: 'Essayet er utforskende og assosierende, uten a konkludere skarpt', isCorrect: true },
+              { id: 'd', text: 'Essayet ma alltid ha fast struktur med innledning, hoveddel og avslutning', isCorrect: false },
+            ],
+            solution: 'Essayet er den frieste sjangeren. Det er personlig, assosierende og reflekterende - det stiller sporsmal og prover ut ideer uten a matte konkludere skarpt. Et debattinnlegg er derimot kort, direkte og spisset, med en klar tese.',
           },
           {
-            id: 'c',
-            text: 'Lederen bruker aldri kilder',
-            isCorrect: false,
-          },
-          {
-            id: 'd',
-            text: 'Lederen handler alltid om politikk',
-            isCorrect: false,
+            id: 'norsk-vg2-5-3-n-quiz2-q2',
+            task: 'Hvilket kjennetegn skiller fagartikkelen fra de andre sakprosasjangrene?',
+            options: [
+              { id: 'a', text: 'Den har alltid en personlig vinkling', isCorrect: false },
+              { id: 'b', text: 'Den publiseres uten forfatterangivelse', isCorrect: false },
+              { id: 'c', text: 'Den inviterer til debatt og diskusjon', isCorrect: false },
+              { id: 'd', text: 'Den har fast struktur, bruker kilder og referanser, og drofter systematisk', isCorrect: true },
+            ],
+            solution: 'Fagartikkelen er den mest formelle sakprosasjangeren. Den har fast struktur med innledning, hoveddel og avslutning, bruker kilder og referanser, har saklig tone, og drofter en problemstilling systematisk.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'En leder (lederartikkel) representerer avisens offisielle standpunkt og publiseres uten forfatterangivelse fordi den snakker pa vegne av redaksjonen. En kronikk er derimot en lengre, signert tekst med personlig vinkling fra en navngitt forfatter.',
       },
     },
 
@@ -829,32 +937,49 @@ Strukturanalyse avslorer mye om tekstens strategi. En tekst som gjemmer motargum
         id: 'norsk-vg2-5-3-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom et faktaargument og et erfaringsargument?',
-        options: [
+        task: 'Test deg selv pa argumenttyper:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-3-n-quiz3-q0',
+            task: 'Hva er forskjellen mellom et faktaargument og et erfaringsargument?',
+            options: [
+            {
             id: 'a',
             text: 'Faktaargumenter er alltid sanne, erfaringsargumenter er alltid falske',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Faktaargumenter brukes i aviser, erfaringsargumenter brukes i boker',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Faktaargumenter bygger pa etterprøvbar informasjon, erfaringsargumenter bygger pa personlige opplevelser',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Det er ingen forskjell, de betyr det samme',
             isCorrect: false,
+            },
+            ],
+            solution: 'Faktaargumenter bygger pa etterprøvbare fakta som statistikk og forskning ("Temperaturen har steget 1,5 grader"). Erfaringsargumenter bygger pa personlige eller andres opplevelser ("Som laerer ser jeg at elevene sliter"). Begge kan vaere gyldige, men de har ulik beviskraft.',
+          },
+          {
+            id: 'norsk-vg2-5-3-n-quiz3-q1',
+            task: 'Hva er et autoritetsargument?',
+            options: [
+              { id: 'a', text: 'Et argument basert pa personlig erfaring', isCorrect: false },
+              { id: 'b', text: 'Et argument som stotter seg pa eksperter eller respekterte kilder', isCorrect: true },
+              { id: 'c', text: 'Et argument basert pa statistikk', isCorrect: false },
+              { id: 'd', text: 'Et argument som appellerer til moral', isCorrect: false },
+            ],
+            solution: 'Et autoritetsargument stotter seg pa eksperter eller respekterte kilder for a gi tyngde til paastanden.',
           },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Faktaargumenter bygger pa etterprøvbare fakta som statistikk og forskning ("Temperaturen har steget 1,5 grader"). Erfaringsargumenter bygger pa personlige eller andres opplevelser ("Som laerer ser jeg at elevene sliter"). Begge kan vaere gyldige, men de har ulik beviskraft.',
       },
     },
 
@@ -883,20 +1008,37 @@ Men her er en viktig advarsel: Ikke bare list opp virkemidler. Det er ikke nok a
         id: 'norsk-vg2-5-3-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'En forfatter skriver: "Mobilen stjeler barndommen fra barna vare." Hva er dette et eksempel pa?',
-        options: [
-          { id: 'a', text: 'Litotes (underdrivelse)', isCorrect: false },
+        task: 'Test deg selv pa virkemidler i sakprosa:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-3-n-quiz4-q0',
+            task: 'En forfatter skriver: "Mobilen stjeler barndommen fra barna vare." Hva er dette et eksempel pa?',
+            options: [
+            { id: 'a', text: 'Litotes (underdrivelse)', isCorrect: false },
+            {
             id: 'b',
             text: 'Metafor (mobilen fremstilles som en tyv)',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Ironi (forfatteren mener det motsatte)', isCorrect: false },
+            { id: 'd', text: 'Eufemisme (mildere uttrykk)', isCorrect: false },
+            ],
+            solution: 'Dette er en metafor der mobilen fremstilles som en tyv som stjeler. Metaforen gjor det abstrakte (barns skjermbruk) konkret og negativt ladet. Den vekker beskyttelsesinstinkt hos foreldre (patos) og gjor budskapet minneverdig.',
           },
-          { id: 'c', text: 'Ironi (forfatteren mener det motsatte)', isCorrect: false },
-          { id: 'd', text: 'Eufemisme (mildere uttrykk)', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-3-n-quiz4-q1',
+            task: 'Hva er viktig nar du identifiserer virkemidler i en analyse?',
+            options: [
+              { id: 'a', text: 'Bare navngi sa mange virkemidler som mulig', isCorrect: false },
+              { id: 'b', text: 'Forklare hvordan virkemiddelet virker og pavirker leseren', isCorrect: true },
+              { id: 'c', text: 'Bare nevne virkemidler du liker', isCorrect: false },
+              { id: 'd', text: 'Kopiere eksempler fra lareboken', isCorrect: false },
+            ],
+            solution: 'Du maa forklare hvordan virkemidlene virker og pavirker leseren. Analysen er ikke komplett for du har svart pa dette.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Dette er en metafor der mobilen fremstilles som en tyv som stjeler. Metaforen gjor det abstrakte (barns skjermbruk) konkret og negativt ladet. Den vekker beskyttelsesinstinkt hos foreldre (patos) og gjor budskapet minneverdig.',
       },
     },
 
@@ -929,28 +1071,45 @@ Til slutt: Trekk en konklusjon. Hva er ditt helhetlige inntrykk? Lykkes teksten 
         id: 'norsk-vg2-5-3-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er den vanligste feilen elever gjor i sakprosaanalyse?',
-        options: [
+        task: 'Test deg selv pa analyse vs. gjenfortelling:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-3-n-quiz5-q0',
+            task: 'Hva er den vanligste feilen elever gjor i sakprosaanalyse?',
+            options: [
+            {
             id: 'a',
             text: 'De bruker for mange fagbegreper',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'De gjenforteller innholdet i stedet for a analysere',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'De er for kritiske mot teksten',
             isCorrect: false,
+            },
+            { id: 'd', text: 'De skriver for korte analyser', isCorrect: false },
+            ],
+            solution: 'Den vanligste feilen er parafrase - a bare gjenfortelle hva teksten sier i stedet for a analysere hvordan og hvorfor den sier det. God analyse undersooker virkemidler og deres effekt, ikke bare innholdet.',
           },
-          { id: 'd', text: 'De skriver for korte analyser', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-3-n-quiz5-q1',
+            task: 'Hva er forskjellen mellom a gjenfortelle og a analysere?',
+            options: [
+              { id: 'a', text: 'Gjenfortelling er lengre enn analyse', isCorrect: false },
+              { id: 'b', text: 'Analyse handler bare om HVA teksten sier', isCorrect: false },
+              { id: 'c', text: 'Gjenfortelling sier hva teksten handler om, analyse undersooker hvordan og hvorfor', isCorrect: true },
+              { id: 'd', text: 'Det er ingen forskjell', isCorrect: false },
+            ],
+            solution: 'Gjenfortelling bare oppsummerer innholdet. Analyse undersooker hvordan teksten bruker virkemidler og om de fungerer.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Den vanligste feilen er parafrase - a bare gjenfortelle hva teksten sier i stedet for a analysere hvordan og hvorfor den sier det. God analyse undersooker virkemidler og deres effekt, ikke bare innholdet.',
       },
     },
 
@@ -1045,20 +1204,37 @@ Alle disse tropene har det til felles at de gjor spraket rikere, mer levende, me
         id: 'norsk-vg2-5-4-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom metafor og simile?',
-        options: [
-          { id: 'a', text: 'Metafor brukes i poesi, simile i prosa', isCorrect: false },
+        task: 'Test deg selv pa troper og spraklige bilder:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-4-n-quiz1-q0',
+            task: 'Hva er forskjellen mellom metafor og simile?',
+            options: [
+            { id: 'a', text: 'Metafor brukes i poesi, simile i prosa', isCorrect: false },
+            {
             id: 'b',
             text: 'Metafor sier at noe ER noe annet, simile sammenligner med "som"',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Metafor er gammelmodig, simile er moderne', isCorrect: false },
+            { id: 'd', text: 'Det er ingen forskjell, de betyr det samme', isCorrect: false },
+            ],
+            solution: 'Metafor sier direkte at noe er noe annet ("Livet er en reise"), mens simile bruker "som" eller "liksom" for a sammenligne ("Livet er som en reise"). Metaforen er mer direkte og ofte kraftigere, mens similen er mer forsiktig.',
           },
-          { id: 'c', text: 'Metafor er gammelmodig, simile er moderne', isCorrect: false },
-          { id: 'd', text: 'Det er ingen forskjell, de betyr det samme', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-4-n-quiz1-q1',
+            task: 'Hva er besjeling (personifikasjon)?',
+            options: [
+              { id: 'a', text: 'A sammenligne med "som"', isCorrect: false },
+              { id: 'b', text: 'A bruke en del for helheten', isCorrect: false },
+              { id: 'c', text: 'A gi liv og menneskelige egenskaper til det livlose', isCorrect: true },
+              { id: 'd', text: 'A overdrive for effekt', isCorrect: false },
+            ],
+            solution: 'Besjeling gir liv til det livlose: "Solen smilte", "Naturen grater". Det skaper emosjonell tilknytning.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Metafor sier direkte at noe er noe annet ("Livet er en reise"), mens simile bruker "som" eller "liksom" for a sammenligne ("Livet er som en reise"). Metaforen er mer direkte og ofte kraftigere, mens similen er mer forsiktig.',
       },
     },
 
@@ -1091,16 +1267,33 @@ Alle disse figurene har det til felles at de skaper monster. Og moonstre er lett
         id: 'norsk-vg2-5-4-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: '"Vi skal kjempe pa strendene, vi skal kjempe pa landestedene, vi skal kjempe pa feltene og gatene." Hvilket virkemiddel er mest fremtredende?',
-        options: [
-          { id: 'a', text: 'Metafor', isCorrect: false },
-          { id: 'b', text: 'Anafor (gjentakelse av "vi skal kjempe")', isCorrect: true },
-          { id: 'c', text: 'Ironi', isCorrect: false },
-          { id: 'd', text: 'Hyperbel', isCorrect: false },
+        task: 'Test deg selv pa stilistiske figurer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-4-n-quiz2-q0',
+            task: '"Vi skal kjempe pa strendene, vi skal kjempe pa landestedene, vi skal kjempe pa feltene og gatene." Hvilket virkemiddel er mest fremtredende?',
+            options: [
+            { id: 'a', text: 'Metafor', isCorrect: false },
+            { id: 'b', text: 'Anafor (gjentakelse av "vi skal kjempe")', isCorrect: true },
+            { id: 'c', text: 'Ironi', isCorrect: false },
+            { id: 'd', text: 'Hyperbel', isCorrect: false },
+            ],
+            solution: 'Dette berømte sitatet fra Winston Churchill bruker anafor - gjentakelse av "vi skal kjempe" i begynnelsen av hver del. Anaforen bygger intensitet, hamrer inn besluttsomheten, og gjor ordene minneverdige.',
+          },
+          {
+            id: 'norsk-vg2-5-4-n-quiz2-q1',
+            task: 'Hvorfor er trikolon (tre elementer) sa effektivt i retorikk?',
+            options: [
+              { id: 'a', text: 'Fordi tre er et hellig tall', isCorrect: false },
+              { id: 'b', text: 'Fordi to foeles for lite og fire for mye - tre skaper helhet og rytme', isCorrect: true },
+              { id: 'c', text: 'Fordi Aristoteles bestemte det', isCorrect: false },
+              { id: 'd', text: 'Fordi mennesker bare kan huske tre ting', isCorrect: false },
+            ],
+            solution: 'Trikolon skaper helhet og rytme. "Frihet, likhet, brorskap" og "Veni, vidi, vici" er klassiske eksempler.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Dette berømte sitatet fra Winston Churchill bruker anafor - gjentakelse av "vi skal kjempe" i begynnelsen av hver del. Anaforen bygger intensitet, hamrer inn besluttsomheten, og gjor ordene minneverdige.',
       },
     },
 
@@ -1133,16 +1326,33 @@ Alle disse virkemidlene krever at du leser mellom linjene. De forteller ikke bar
         id: 'norsk-vg2-5-4-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'En politiker kaller en skatteokning for "investering i fellesskapet". Hva er dette et eksempel pa?',
-        options: [
-          { id: 'a', text: 'Hyperbel - overdrivelse', isCorrect: false },
-          { id: 'b', text: 'Ironi - sier det motsatte', isCorrect: false },
-          { id: 'c', text: 'Eufemisme - mildere uttrykk', isCorrect: true },
-          { id: 'd', text: 'Litotes - underdrivelse', isCorrect: false },
+        task: 'Test deg selv pa tonemarkorer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-4-n-quiz3-q0',
+            task: 'En politiker kaller en skatteokning for "investering i fellesskapet". Hva er dette et eksempel pa?',
+            options: [
+            { id: 'a', text: 'Hyperbel - overdrivelse', isCorrect: false },
+            { id: 'b', text: 'Ironi - sier det motsatte', isCorrect: false },
+            { id: 'c', text: 'Eufemisme - mildere uttrykk', isCorrect: true },
+            { id: 'd', text: 'Litotes - underdrivelse', isCorrect: false },
+            ],
+            solution: 'Dette er en eufemisme - et mildere, mer positivt ladet uttrykk for noe som kan oppfattes negativt (skatteokning). Ved a kalle det "investering i fellesskapet" fremstilles det som noe positivt og nodvendig, ikke som en byrde.',
+          },
+          {
+            id: 'norsk-vg2-5-4-n-quiz3-q1',
+            task: 'Hva er ironi i retorisk sammenheng?',
+            options: [
+              { id: 'a', text: 'A bruke mildere ord', isCorrect: false },
+              { id: 'b', text: 'A overdrive for effekt', isCorrect: false },
+              { id: 'c', text: 'A si det motsatte av det man mener', isCorrect: true },
+              { id: 'd', text: 'A gjenta et ord mange ganger', isCorrect: false },
+            ],
+            solution: 'Ironi sier det motsatte av det man mener. Det skaper distanse og er et kraftig kritisk verktoy.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Dette er en eufemisme - et mildere, mer positivt ladet uttrykk for noe som kan oppfattes negativt (skatteokning). Ved a kalle det "investering i fellesskapet" fremstilles det som noe positivt og nodvendig, ikke som en byrde.',
       },
     },
 
@@ -1173,20 +1383,37 @@ Det viktigste er aptum - a tilpasse virkemidlene til situasjonen. En politisk ta
         id: 'norsk-vg2-5-4-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hvorfor brukes det faerre retoriske virkemidler i vitenskapelige tekster?',
-        options: [
-          { id: 'a', text: 'Fordi forskere ikke kan skrive godt', isCorrect: false },
+        task: 'Test deg selv pa virkemidler i kontekst:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-4-n-quiz4-q0',
+            task: 'Hvorfor brukes det faerre retoriske virkemidler i vitenskapelige tekster?',
+            options: [
+            { id: 'a', text: 'Fordi forskere ikke kan skrive godt', isCorrect: false },
+            {
             id: 'b',
             text: 'Fordi objektivitet og klarhet er viktigere enn overtalelse',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Fordi vitenskapelige tekster alltid er kjedelige', isCorrect: false },
+            { id: 'd', text: 'Fordi det er forbudt i akademiske regler', isCorrect: false },
+            ],
+            solution: 'I vitenskapelige tekster er objektivitet og klarhet avgjorende. For mye retoriske virkemidler kan fa teksten til a virke partisk eller manipulerende. Logos (logikk og fakta) dominerer, mens patos og blomstrende sprak holdes til et minimum.',
           },
-          { id: 'c', text: 'Fordi vitenskapelige tekster alltid er kjedelige', isCorrect: false },
-          { id: 'd', text: 'Fordi det er forbudt i akademiske regler', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-4-n-quiz4-q1',
+            task: 'Hvilke virkemidler dominerer i politiske taler?',
+            options: [
+              { id: 'a', text: 'Eufemisme og litotes', isCorrect: false },
+              { id: 'b', text: 'Anafor, trikolon og retoriske sporsmal', isCorrect: true },
+              { id: 'c', text: 'Bare metaforer', isCorrect: false },
+              { id: 'd', text: 'Ingen virkemidler - bare fakta', isCorrect: false },
+            ],
+            solution: 'Politiske taler bruker ofte anafor, trikolon og retoriske sporsmal - virkemidler som fungerer godt muntlig.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'I vitenskapelige tekster er objektivitet og klarhet avgjorende. For mye retoriske virkemidler kan fa teksten til a virke partisk eller manipulerende. Logos (logikk og fakta) dominerer, mens patos og blomstrende sprak holdes til et minimum.',
       },
     },
 
@@ -1217,20 +1444,37 @@ A vaere kritisk betyr ikke a vaere negativ. Det betyr a stille sporsmal, a ikke 
         id: 'norsk-vg2-5-4-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'En politiker sier: "Mine motstandere vil rive ned alt vi har bygget opp!" Dette er trolig et eksempel pa:',
-        options: [
-          { id: 'a', text: 'Presis gjengivelse av motstandernes politikk', isCorrect: false },
+        task: 'Test deg selv pa kritisk bruk av virkemidler:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-4-n-quiz5-q0',
+            task: 'En politiker sier: "Mine motstandere vil rive ned alt vi har bygget opp!" Dette er trolig et eksempel pa:',
+            options: [
+            { id: 'a', text: 'Presis gjengivelse av motstandernes politikk', isCorrect: false },
+            {
             id: 'b',
             text: 'Stramannsargumentasjon - a forvrenge motstanderens posisjon',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Logos - faktabasert argumentasjon', isCorrect: false },
+            { id: 'd', text: 'Etos - troverdighetsbygging', isCorrect: false },
+            ],
+            solution: 'Dette er trolig en stramann - en forvrengt fremstilling av motstandernes posisjon. Det er lite sannsynlig at noen faktisk vil "rive ned alt". Ved a karikere motstanderen blir det lettere a kritisere dem, men dette er ikke aerlig argumentasjon.',
           },
-          { id: 'c', text: 'Logos - faktabasert argumentasjon', isCorrect: false },
-          { id: 'd', text: 'Etos - troverdighetsbygging', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-4-n-quiz5-q1',
+            task: 'Hva er en "falsk motsetning" i argumentasjon?',
+            options: [
+              { id: 'a', text: 'A bruke kontraster i teksten', isCorrect: false },
+              { id: 'b', text: 'A presentere et kunstig valg mellom bare to alternativer', isCorrect: true },
+              { id: 'c', text: 'A vaere uenig med motstanderen', isCorrect: false },
+              { id: 'd', text: 'A bruke ironi', isCorrect: false },
+            ],
+            solution: '"Enten er du med oss, eller mot oss" er en falsk motsetning. Virkeligheten er sjelden sa svart-hvit.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Dette er trolig en stramann - en forvrengt fremstilling av motstandernes posisjon. Det er lite sannsynlig at noen faktisk vil "rive ned alt". Ved a karikere motstanderen blir det lettere a kritisere dem, men dette er ikke aerlig argumentasjon.',
       },
     },
 
@@ -1322,20 +1566,37 @@ En klassisk feil er a begynne for smalt: "I denne oppgaven skal jeg skrive om...
         id: 'norsk-vg2-5-5-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvilken av disse er den beste problemstillingen for en fagartikkel?',
-        options: [
-          { id: 'a', text: '"Hva er romantikken?"', isCorrect: false },
-          { id: 'b', text: '"Er Ibsen en god forfatter?"', isCorrect: false },
+        task: 'Test deg selv pa fagartikkelens struktur:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-5-n-quiz1-q0',
+            task: 'Hvilken av disse er den beste problemstillingen for en fagartikkel?',
+            options: [
+            { id: 'a', text: '"Hva er romantikken?"', isCorrect: false },
+            { id: 'b', text: '"Er Ibsen en god forfatter?"', isCorrect: false },
+            {
             id: 'c',
             text: '"Hvordan bruker Bjørnson retoriske virkemidler i sin 17. mai-tale?"',
             isCorrect: true,
+            },
+            { id: 'd', text: '"Skrev Wergeland dikt?"', isCorrect: false },
+            ],
+            solution: 'Alternativ C er best fordi det er avgrenset (en spesifikk tale), apent (ikke ja/nei), og analytisk (krever analyse av virkemidler). A er for vid, B er subjektivt og vanskelig a besvare akademisk, og D er et ja/nei-sporsmal.',
           },
-          { id: 'd', text: '"Skrev Wergeland dikt?"', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-5-n-quiz1-q1',
+            task: 'Hva bor en god innledning inneholde?',
+            options: [
+              { id: 'a', text: 'Bare en personlig anekdote', isCorrect: false },
+              { id: 'b', text: 'Presentasjon av tema, problemstilling og eventuelt tese', isCorrect: true },
+              { id: 'c', text: 'Alle argumentene oppsummert', isCorrect: false },
+              { id: 'd', text: 'Bare definisjoner av fagbegreper', isCorrect: false },
+            ],
+            solution: 'En god innledning presenterer temaet, avgrenser problemstillingen og gir retning for teksten.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Alternativ C er best fordi det er avgrenset (en spesifikk tale), apent (ikke ja/nei), og analytisk (krever analyse av virkemidler). A er for vid, B er subjektivt og vanskelig a besvare akademisk, og D er et ja/nei-sporsmal.',
       },
     },
 
@@ -1364,20 +1625,37 @@ Hvert avsnitt bor ha ett hovedpoeng. Start med en temasetning som sier hva avsni
         id: 'norsk-vg2-5-5-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva betyr det å "drofte" i en fagartikkel?',
-        options: [
-          { id: 'a', text: 'A gjenfortelle hva kildene sier', isCorrect: false },
-          { id: 'b', text: 'A gi sin personlige mening uten begrunnelse', isCorrect: false },
+        task: 'Test deg selv pa kildebruk:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-5-n-quiz2-q0',
+            task: 'Hva betyr det å "drofte" i en fagartikkel?',
+            options: [
+            { id: 'a', text: 'A gjenfortelle hva kildene sier', isCorrect: false },
+            { id: 'b', text: 'A gi sin personlige mening uten begrunnelse', isCorrect: false },
+            {
             id: 'c',
             text: 'A belyse en sak fra flere sider og veie argumenter mot hverandre',
             isCorrect: true,
+            },
+            { id: 'd', text: 'A skrive sa langt som mulig om et tema', isCorrect: false },
+            ],
+            solution: 'A drofte betyr a belyse en sak fra flere sider, vurdere ulike argumenter, og veie dem mot hverandre for a komme frem til en begrunnet konklusjon. Det er noe mer enn bare gjenfortelling eller personlig synsing.',
           },
-          { id: 'd', text: 'A skrive sa langt som mulig om et tema', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-5-n-quiz2-q1',
+            task: 'Hvorfor er det viktig a oppgi kilder?',
+            options: [
+              { id: 'a', text: 'Bare for a gjore teksten lengre', isCorrect: false },
+              { id: 'b', text: 'For a vise at pastander er dokumentert og la leseren sjekke', isCorrect: true },
+              { id: 'c', text: 'Fordi laereren krever det', isCorrect: false },
+              { id: 'd', text: 'For a unnga a tenke selv', isCorrect: false },
+            ],
+            solution: 'Kildehenvisninger bygger troverdighet og lar leseren sjekke kildene. Det er grunnleggende for akademisk aerlighet.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'A drofte betyr a belyse en sak fra flere sider, vurdere ulike argumenter, og veie dem mot hverandre for a komme frem til en begrunnet konklusjon. Det er noe mer enn bare gjenfortelling eller personlig synsing.',
       },
     },
 
@@ -1404,32 +1682,49 @@ Det viktigste prinsippet er: Skill alltid mellom ditt og andres. Nar du parafras
         id: 'norsk-vg2-5-5-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom en primærkilde og en sekundærkilde?',
-        options: [
+        task: 'Test deg selv pa drofting:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-5-n-quiz3-q0',
+            task: 'Hva er forskjellen mellom en primærkilde og en sekundærkilde?',
+            options: [
+            {
             id: 'a',
             text: 'Primærkilder er fra internett, sekundærkilder er fra boker',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Primærkilder er originalmaterialet, sekundærkilder er andres analyser',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Primærkilder er viktigere, sekundærkilder er uviktige',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Primærkilder er gamle, sekundærkilder er nye',
             isCorrect: false,
+            },
+            ],
+            solution: 'En primærkilde er originalmaterialet du analyserer (f.eks. et dikt av Wergeland), mens en sekundærkilde er andres behandling av primærkilden (f.eks. en litteraturhistorisk analyse av diktet). Begge typer er viktige i en fagartikkel.',
+          },
+          {
+            id: 'norsk-vg2-5-5-n-quiz3-q1',
+            task: 'Hva betyr det a drofte i en fagartikkel?',
+            options: [
+              { id: 'a', text: 'A bare presentere sin mening', isCorrect: false },
+              { id: 'b', text: 'A belyse fra flere sider og veie argumenter mot hverandre', isCorrect: true },
+              { id: 'c', text: 'A gjenfortelle hva andre har skrevet', isCorrect: false },
+              { id: 'd', text: 'A skrive sa langt som mulig', isCorrect: false },
+            ],
+            solution: 'A drofte betyr a belyse fra flere sider, veie for og mot, og vurdere ulike perspektiver.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'En primærkilde er originalmaterialet du analyserer (f.eks. et dikt av Wergeland), mens en sekundærkilde er andres behandling av primærkilden (f.eks. en litteraturhistorisk analyse av diktet). Begge typer er viktige i en fagartikkel.',
       },
     },
 
@@ -1456,16 +1751,33 @@ Husk at avslutningen ofte er det leseren husker best. De forste og siste inntryk
         id: 'norsk-vg2-5-5-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva bor avslutningen i en fagartikkel IKKE gjore?',
-        options: [
-          { id: 'a', text: 'Oppsummere hovedpunktene', isCorrect: false },
-          { id: 'b', text: 'Svare pa problemstillingen', isCorrect: false },
-          { id: 'c', text: 'Introdusere helt nye argumenter', isCorrect: true },
-          { id: 'd', text: 'Knytte tilbake til innledningen', isCorrect: false },
+        task: 'Test deg selv pa akademisk sprak:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-5-n-quiz4-q0',
+            task: 'Hva bor avslutningen i en fagartikkel IKKE gjore?',
+            options: [
+            { id: 'a', text: 'Oppsummere hovedpunktene', isCorrect: false },
+            { id: 'b', text: 'Svare pa problemstillingen', isCorrect: false },
+            { id: 'c', text: 'Introdusere helt nye argumenter', isCorrect: true },
+            { id: 'd', text: 'Knytte tilbake til innledningen', isCorrect: false },
+            ],
+            solution: 'Avslutningen skal samle det som allerede er sagt, ikke introdusere nye argumenter. Nytt stoff i avslutningen forvirrer leseren og tyder pa darlig planlegging. Oppsummering, svar pa problemstilling og tilbakekobling til innledningen er derimot gode avslutningsgrep.',
+          },
+          {
+            id: 'norsk-vg2-5-5-n-quiz4-q1',
+            task: 'Hva kjennetegner godt akademisk sprak?',
+            options: [
+              { id: 'a', text: 'Lange, kompliserte setninger', isCorrect: false },
+              { id: 'b', text: 'Presist, saklig og klart sprak med relevante fagbegreper', isCorrect: true },
+              { id: 'c', text: 'Uformelt og personlig sprak', isCorrect: false },
+              { id: 'd', text: 'Sprak helt uten fagbegreper', isCorrect: false },
+            ],
+            solution: 'Godt akademisk sprak er presist, saklig og klart. Det bruker relevante fagbegreper men er ikke unodvendig komplisert.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Avslutningen skal samle det som allerede er sagt, ikke introdusere nye argumenter. Nytt stoff i avslutningen forvirrer leseren og tyder pa darlig planlegging. Oppsummering, svar pa problemstilling og tilbakekobling til innledningen er derimot gode avslutningsgrep.',
       },
     },
 
@@ -1494,20 +1806,37 @@ Husk: A skrive en god fagartikkel tar tid. Ikke forvent perfeksjon pa forste for
         id: 'norsk-vg2-5-5-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor bor du la teksten ligge en dag for du reviderer?',
-        options: [
-          { id: 'a', text: 'For a fa bedre karakter', isCorrect: false },
+        task: 'Test deg selv pa fagartikler i praksis:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-5-n-quiz5-q0',
+            task: 'Hvorfor bor du la teksten ligge en dag for du reviderer?',
+            options: [
+            { id: 'a', text: 'For a fa bedre karakter', isCorrect: false },
+            {
             id: 'b',
             text: 'For a fa avstand og se teksten med friske oyne',
             isCorrect: true,
+            },
+            { id: 'c', text: 'For a slippe a jobbe sa hardt', isCorrect: false },
+            { id: 'd', text: 'For a glemme hva du skrev', isCorrect: false },
+            ],
+            solution: 'Avstand gir perspektiv. Nar du akkurat har skrevet noe, er du for naer teksten til a se den objektivt. Ved a vente en dag eller mer, kan du lese teksten med friske oyne og oppdage feil og forbedringspotensial du ikke sa for.',
           },
-          { id: 'c', text: 'For a slippe a jobbe sa hardt', isCorrect: false },
-          { id: 'd', text: 'For a glemme hva du skrev', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-5-n-quiz5-q1',
+            task: 'Hva er en vanlig svakhet i elevers fagartikler?',
+            options: [
+              { id: 'a', text: 'De er for korte', isCorrect: false },
+              { id: 'b', text: 'De bruker for mange kilder', isCorrect: false },
+              { id: 'c', text: 'De presenterer stoff uten a drofte det', isCorrect: true },
+              { id: 'd', text: 'De bruker for mange fagbegreper', isCorrect: false },
+            ],
+            solution: 'En vanlig svakhet er a bare presentere informasjon uten a drofte den. En fagartikkel krever bade redegorelse og drofting.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Avstand gir perspektiv. Nar du akkurat har skrevet noe, er du for naer teksten til a se den objektivt. Ved a vente en dag eller mer, kan du lese teksten med friske oyne og oppdage feil og forbedringspotensial du ikke sa for.',
       },
     },
 
@@ -1603,20 +1932,37 @@ Til slutt: Kilder beskytter deg. Hvis du har oppgitt hvor informasjonen kommer f
         id: 'norsk-vg2-5-6-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hvilken av disse grunnene er IKKE en god grunn til a oppgi kilder?',
-        options: [
-          { id: 'a', text: 'A vise akademisk aerlighet', isCorrect: false },
-          { id: 'b', text: 'A la leseren etterprøve pastandene', isCorrect: false },
+        task: 'Test deg selv pa debattinnlegg:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-6-n-quiz1-q0',
+            task: 'Hvilken av disse grunnene er IKKE en god grunn til a oppgi kilder?',
+            options: [
+            { id: 'a', text: 'A vise akademisk aerlighet', isCorrect: false },
+            { id: 'b', text: 'A la leseren etterprøve pastandene', isCorrect: false },
+            {
             id: 'c',
             text: 'A gjore teksten lengre og mer imponerende',
             isCorrect: true,
+            },
+            { id: 'd', text: 'A styrke egen troverdighet', isCorrect: false },
+            ],
+            solution: 'Kilder skal ikke brukes for a gjore teksten lengre eller mer imponerende, men for a vaere aerlig om hvor informasjonen kommer fra, la leseren etterprøve pastander, og styrke egen troverdighet. Kildebruk for a "pynte" er meningslos.',
           },
-          { id: 'd', text: 'A styrke egen troverdighet', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-6-n-quiz1-q1',
+            task: 'Hva er forskjellen mellom en tese og et argument?',
+            options: [
+              { id: 'a', text: 'Det er ingen forskjell', isCorrect: false },
+              { id: 'b', text: 'Tesen er hovedpaastanden, argumentene er begrunnelsene', isCorrect: true },
+              { id: 'c', text: 'Tesen er et sporsmaal, argumentet er et svar', isCorrect: false },
+              { id: 'd', text: 'Tesen kommer alltid etter argumentene', isCorrect: false },
+            ],
+            solution: 'Tesen er hovedpaastanden. Argumentene er begrunnelsene som stotter tesen.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Kilder skal ikke brukes for a gjore teksten lengre eller mer imponerende, men for a vaere aerlig om hvor informasjonen kommer fra, la leseren etterprøve pastander, og styrke egen troverdighet. Kildebruk for a "pynte" er meningslos.',
       },
     },
 
@@ -1651,20 +1997,37 @@ Det viktigste er a vaere konsekvent og tydelig. Leseren skal alltid vite hva som
         id: 'norsk-vg2-5-6-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Nar bor du bruke direkte sitat i stedet for parafrase?',
-        options: [
-          { id: 'a', text: 'Alltid - sitater er bedre enn parafraser', isCorrect: false },
+        task: 'Test deg selv pa motargumenter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-6-n-quiz2-q0',
+            task: 'Nar bor du bruke direkte sitat i stedet for parafrase?',
+            options: [
+            { id: 'a', text: 'Alltid - sitater er bedre enn parafraser', isCorrect: false },
+            {
             id: 'b',
             text: 'Nar formuleringen er spesielt god eller viktig a gjengi noyaktig',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Aldri - parafraser er alltid best', isCorrect: false },
+            { id: 'd', text: 'Nar du ikke forstar kilden godt nok til a parafrasere', isCorrect: false },
+            ],
+            solution: 'Direkte sitat bor brukes nar formuleringen er spesielt god, nar det er viktig a vise noyaktig hva kilden sier (f.eks. for a analysere ordvalg), eller nar parafrase ville miste nyanser. For mye sitering kan gjore teksten oppstykket.',
           },
-          { id: 'c', text: 'Aldri - parafraser er alltid best', isCorrect: false },
-          { id: 'd', text: 'Nar du ikke forstar kilden godt nok til a parafrasere', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-6-n-quiz2-q1',
+            task: 'Hvorfor styrker det teksten a ta opp motargumenter?',
+            options: [
+              { id: 'a', text: 'Det gjor teksten lengre', isCorrect: false },
+              { id: 'b', text: 'Det viser grundig tenkning og forstaelse for kompleksiteten', isCorrect: true },
+              { id: 'c', text: 'Det forvirrer leseren', isCorrect: false },
+              { id: 'd', text: 'Det svekker alltid posisjonen din', isCorrect: false },
+            ],
+            solution: 'A ta opp og tilbakevise motargumenter styrker troverdigheten og viser at du forstar saken fra flere sider.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Direkte sitat bor brukes nar formuleringen er spesielt god, nar det er viktig a vise noyaktig hva kilden sier (f.eks. for a analysere ordvalg), eller nar parafrase ville miste nyanser. For mye sitering kan gjore teksten oppstykket.',
       },
     },
 
@@ -1699,32 +2062,49 @@ Hvordan unnga plagiat? Regelen er enkel: Oppgi kilde nar du bruker andres ord, i
         id: 'norsk-vg2-5-6-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er parafraseplagiat?',
-        options: [
+        task: 'Test deg selv pa sprak i debatt:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-6-n-quiz3-q0',
+            task: 'Hva er parafraseplagiat?',
+            options: [
+            {
             id: 'a',
             text: 'A kopiere tekst ordrett uten kilde',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'A gjengi innhold med litt endrede ord, men uten kilde',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'A oversette tekst fra et annet sprak',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'A bruke egne notater som kilde',
             isCorrect: false,
+            },
+            ],
+            solution: 'Parafraseplagiat er a gjengi andres innhold med litt endrede ord, men uten a oppgi kilde. Det hjelper ikke a "skrive om" teksten - ideene er fortsatt andres, og de krever kilde. Dette er en vanlig form for plagiat fordi mange ikke vet at det er galt.',
+          },
+          {
+            id: 'norsk-vg2-5-6-n-quiz3-q1',
+            task: 'Hvorfor bor et debattinnlegg ha en klar tittel?',
+            options: [
+              { id: 'a', text: 'Fordi det er en regel i aviser', isCorrect: false },
+              { id: 'b', text: 'Fordi lesere skummer og maa raskt vite hva teksten argumenterer for', isCorrect: true },
+              { id: 'c', text: 'Fordi tittelen er det eneste folk leser', isCorrect: false },
+              { id: 'd', text: 'Fordi mystiske titler er kjedelige', isCorrect: false },
+            ],
+            solution: 'En klar tittel fanger oppmerksomheten og kommuniserer standpunktet raskt. Lesere skummer overskrifter.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Parafraseplagiat er a gjengi andres innhold med litt endrede ord, men uten a oppgi kilde. Det hjelper ikke a "skrive om" teksten - ideene er fortsatt andres, og de krever kilde. Dette er en vanlig form for plagiat fordi mange ikke vet at det er galt.',
       },
     },
 
@@ -1755,32 +2135,49 @@ Litteraturlisten til slutt er like viktig som referansene i teksten. Her oppgir 
         id: 'norsk-vg2-5-6-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er hovedforskjellen mellom APA-stilen og Chicago-stilen?',
-        options: [
+        task: 'Test deg selv pa appellformer i debatt:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-6-n-quiz4-q0',
+            task: 'Hva er hovedforskjellen mellom APA-stilen og Chicago-stilen?',
+            options: [
+            {
             id: 'a',
             text: 'APA er amerikansk, Chicago er europeisk',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'APA bruker parenteser i teksten, Chicago bruker fotnoter',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'APA er for boker, Chicago er for artikler',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Det er ingen forskjell, de er det samme',
             isCorrect: false,
+            },
+            ],
+            solution: 'Hovedforskjellen er at APA (og Harvard) bruker parenteshenvisninger i teksten (Forfatter, ar), mens Chicago bruker fotnoter nederst pa siden. Begge fungerer godt, men valget avhenger ofte av faglig tradisjon.',
+          },
+          {
+            id: 'norsk-vg2-5-6-n-quiz4-q1',
+            task: 'Hvorfor trengs bade patos og logos i debattinnlegg?',
+            options: [
+              { id: 'a', text: 'Fordi det er et sjangerkrav', isCorrect: false },
+              { id: 'b', text: 'Bare patos virker manipulerende, bare logos virker kaldt - begge trengs', isCorrect: true },
+              { id: 'c', text: 'Fordi de betyr det samme', isCorrect: false },
+              { id: 'd', text: 'Bare patos trengs', isCorrect: false },
+            ],
+            solution: 'Balanse gjor at teksten bade engasjerer (patos) og overbeviser (logos). Ensidighet svekker virkningen.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Hovedforskjellen er at APA (og Harvard) bruker parenteshenvisninger i teksten (Forfatter, ar), mens Chicago bruker fotnoter nederst pa siden. Begge fungerer godt, men valget avhenger ofte av faglig tradisjon.',
       },
     },
 
@@ -1811,16 +2208,33 @@ Nar du er i tvil, oppgi kilde. Det verste som kan skje er at du refererer mer en
         id: 'norsk-vg2-5-6-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hva er det beste radet nar du er usikker pa om noe trenger kilde?',
-        options: [
-          { id: 'a', text: 'Dropp kilden - det er sikkert greit', isCorrect: false },
-          { id: 'b', text: 'Spor en venn om de tror det trenger kilde', isCorrect: false },
-          { id: 'c', text: 'Oppgi kilde - det er bedre a referere for mye enn for lite', isCorrect: true },
-          { id: 'd', text: 'Slett hele avsnittet sa du slipper a tenke pa det', isCorrect: false },
+        task: 'Test deg selv pa debattinnlegg vs. kronikk:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-6-n-quiz5-q0',
+            task: 'Hva er det beste radet nar du er usikker pa om noe trenger kilde?',
+            options: [
+            { id: 'a', text: 'Dropp kilden - det er sikkert greit', isCorrect: false },
+            { id: 'b', text: 'Spor en venn om de tror det trenger kilde', isCorrect: false },
+            { id: 'c', text: 'Oppgi kilde - det er bedre a referere for mye enn for lite', isCorrect: true },
+            { id: 'd', text: 'Slett hele avsnittet sa du slipper a tenke pa det', isCorrect: false },
+            ],
+            solution: 'Nar du er i tvil, oppgi kilde. Det verste som kan skje er at du refererer mer enn nodvendig, og det er aldri feil. Manglende kildehenvisning kan derimot vaere plagiat, som har alvorlige konsekvenser.',
+          },
+          {
+            id: 'norsk-vg2-5-6-n-quiz5-q1',
+            task: 'Hva er den viktigste forskjellen mellom debattinnlegg og kronikk?',
+            options: [
+              { id: 'a', text: 'Debattinnlegget er kortere, mer direkte og tar klarere stilling', isCorrect: true },
+              { id: 'b', text: 'Kronikken er alltid kortere', isCorrect: false },
+              { id: 'c', text: 'Debattinnlegget bruker aldri kilder', isCorrect: false },
+              { id: 'd', text: 'Det er ingen forskjell', isCorrect: false },
+            ],
+            solution: 'Debattinnlegget er kortere med klar tese. Kronikken er lenger med mer plass til dybde og refleksjon.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Nar du er i tvil, oppgi kilde. Det verste som kan skje er at du refererer mer enn nodvendig, og det er aldri feil. Manglende kildehenvisning kan derimot vaere plagiat, som har alvorlige konsekvenser.',
       },
     },
 
@@ -1915,16 +2329,33 @@ Disse fire sporsmalene tar ikke lang tid a stille. Men de kan spare deg for a fa
         id: 'norsk-vg2-5-7-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'En nettside om sunn mat er sponset av et kosttilskuddsfirma. Hvilket sporsmal bor du stille?',
-        options: [
-          { id: 'a', text: 'HVA sier kilden?', isCorrect: false },
-          { id: 'b', text: 'HVORFOR er kilden skrevet - har de en agenda?', isCorrect: true },
-          { id: 'c', text: 'HVORDAN er informasjonen fremskaffet?', isCorrect: false },
-          { id: 'd', text: 'HVEM har flest folgerere pa sosiale medier?', isCorrect: false },
+        task: 'Test deg selv pa kreativ skriving:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-7-n-quiz1-q0',
+            task: 'En nettside om sunn mat er sponset av et kosttilskuddsfirma. Hvilket sporsmal bor du stille?',
+            options: [
+            { id: 'a', text: 'HVA sier kilden?', isCorrect: false },
+            { id: 'b', text: 'HVORFOR er kilden skrevet - har de en agenda?', isCorrect: true },
+            { id: 'c', text: 'HVORDAN er informasjonen fremskaffet?', isCorrect: false },
+            { id: 'd', text: 'HVEM har flest folgerere pa sosiale medier?', isCorrect: false },
+            ],
+            solution: 'Nar en kilde er sponset av et firma, er HVORFOR-sporsmaalet avgjorende. Firmaet har okonomisk interesse av at du kjoper produktene deres, noe som kan farge fremstillingen. Det betyr ikke at alt er feil, men du bor vaere ekstra kritisk.',
+          },
+          {
+            id: 'norsk-vg2-5-7-n-quiz1-q1',
+            task: 'Hvorfor er "show, don\'t tell" viktig?',
+            options: [
+              { id: 'a', text: 'Fordi det gjor teksten kortere', isCorrect: false },
+              { id: 'b', text: 'Fordi det lar leseren oppleve situasjonen selv', isCorrect: true },
+              { id: 'c', text: 'Fordi det er lettere a skrive slik', isCorrect: false },
+              { id: 'd', text: 'Fordi alle forfattere gjor det', isCorrect: false },
+            ],
+            solution: '"Show" betyr a vise gjennom detaljer. "Han var redd" er telling. "Hendene skalv" er showing.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Nar en kilde er sponset av et firma, er HVORFOR-sporsmaalet avgjorende. Firmaet har okonomisk interesse av at du kjoper produktene deres, noe som kan farge fremstillingen. Det betyr ikke at alt er feil, men du bor vaere ekstra kritisk.',
       },
     },
 
@@ -1955,16 +2386,33 @@ Som hovedregel: Jo mer kvalitetskontroll en kilde har gjennomgatt, jo mer palite
         id: 'norsk-vg2-5-7-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvilken kildetype har typisk hoyest troverdighet?',
-        options: [
-          { id: 'a', text: 'Blogginnlegg fra en engasjert person', isCorrect: false },
-          { id: 'b', text: 'Fagfellevurderte vitenskapelige artikler', isCorrect: true },
-          { id: 'c', text: 'Twitter-traader med mange likes', isCorrect: false },
-          { id: 'd', text: 'YouTube-videoer med mange visninger', isCorrect: false },
+        task: 'Test deg selv pa fortellerperspektiv:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-7-n-quiz2-q0',
+            task: 'Hvilken kildetype har typisk hoyest troverdighet?',
+            options: [
+            { id: 'a', text: 'Blogginnlegg fra en engasjert person', isCorrect: false },
+            { id: 'b', text: 'Fagfellevurderte vitenskapelige artikler', isCorrect: true },
+            { id: 'c', text: 'Twitter-traader med mange likes', isCorrect: false },
+            { id: 'd', text: 'YouTube-videoer med mange visninger', isCorrect: false },
+            ],
+            solution: 'Fagfellevurderte vitenskapelige artikler har hoyest troverdighet fordi de er kvalitetssikret av eksperter, beskriver metode, og bygger pa dokumentert forskning. Popularitet (likes, visninger) sier ingenting om palitelighet.',
+          },
+          {
+            id: 'norsk-vg2-5-7-n-quiz2-q1',
+            task: 'Hva er fordelen med jeg-forteller?',
+            options: [
+              { id: 'a', text: 'Jeg-fortelleren vet alt', isCorrect: false },
+              { id: 'b', text: 'Jeg-fortelleren skaper naerhet og intimitet', isCorrect: true },
+              { id: 'c', text: 'Jeg-fortelleren er alltid palitelig', isCorrect: false },
+              { id: 'd', text: 'Det er ingen fordel', isCorrect: false },
+            ],
+            solution: 'Jeg-fortelleren skaper naerhet fordi leseren opplever gjennom en persons oyne. Ulempen er begrenset utsyn.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Fagfellevurderte vitenskapelige artikler har hoyest troverdighet fordi de er kvalitetssikret av eksperter, beskriver metode, og bygger pa dokumentert forskning. Popularitet (likes, visninger) sier ingenting om palitelighet.',
       },
     },
 
@@ -1993,32 +2441,49 @@ Triangulering tar litt tid, men det er tiden verdt. Det er forskjellen mellom a 
         id: 'norsk-vg2-5-7-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hva er triangulering i kildekritisk sammenheng?',
-        options: [
+        task: 'Test deg selv pa dialog og karakterer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-7-n-quiz3-q0',
+            task: 'Hva er triangulering i kildekritisk sammenheng?',
+            options: [
+            {
             id: 'a',
             text: 'A dele teksten inn i tre deler',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'A sjekke informasjonen mot flere uavhengige kilder',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'A bruke tre forskjellige referansestiler',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'A skrive tre utkast av teksten',
             isCorrect: false,
+            },
+            ],
+            solution: 'Triangulering betyr a sjekke informasjon mot flere uavhengige kilder. Hvis tre ulike, palitelige kilder bekrefter samme informasjon, er den trolig korrekt. Det er en av de viktigste teknikkene for a unnga feilinformasjon.',
+          },
+          {
+            id: 'norsk-vg2-5-7-n-quiz3-q1',
+            task: 'Hva gjor god dialog?',
+            options: [
+              { id: 'a', text: 'Den gjengir alt folk sier ordrett', isCorrect: false },
+              { id: 'b', text: 'Den avslorer karaktertrekk, driver handlingen og foeles naturlig', isCorrect: true },
+              { id: 'c', text: 'Den er alltid formell', isCorrect: false },
+              { id: 'd', text: 'Den brukes bare i begynnelsen', isCorrect: false },
+            ],
+            solution: 'God dialog avslorer hvem karakterene er, driver handlingen fremover og foeles naturlig.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Triangulering betyr a sjekke informasjon mot flere uavhengige kilder. Hvis tre ulike, palitelige kilder bekrefter samme informasjon, er den trolig korrekt. Det er en av de viktigste teknikkene for a unnga feilinformasjon.',
       },
     },
 
@@ -2047,32 +2512,49 @@ Hva gjor du nar du mistenker falsk informasjon? Bruk triangulering. Sjekk faktas
         id: 'norsk-vg2-5-7-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva er forskjellen mellom desinformasjon og misinformasjon?',
-        options: [
+        task: 'Test deg selv pa spenning og dramaturgi:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-7-n-quiz4-q0',
+            task: 'Hva er forskjellen mellom desinformasjon og misinformasjon?',
+            options: [
+            {
             id: 'a',
             text: 'Det er ingen forskjell, begge betyr det samme',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Desinformasjon spres bevisst for a villede, misinformasjon spres uten vond hensikt',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Desinformasjon finnes bare pa internett',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Misinformasjon er alltid mer skadelig',
             isCorrect: false,
+            },
+            ],
+            solution: 'Desinformasjon er bevisst falsk informasjon spredt for a villede - avsenderen vet at det er usant. Misinformasjon er feilaktig informasjon spredt uten vond hensikt - avsenderen tror det er sant. Begge er problematiske, men intensjonen er ulik.',
+          },
+          {
+            id: 'norsk-vg2-5-7-n-quiz4-q1',
+            task: 'Hva er et vendepunkt i en fortelling?',
+            options: [
+              { id: 'a', text: 'Begynnelsen av historien', isCorrect: false },
+              { id: 'b', text: 'Et avgjorende oyeblikk der handlingen endrer retning', isCorrect: true },
+              { id: 'c', text: 'Slutten av historien', isCorrect: false },
+              { id: 'd', text: 'En pause i handlingen', isCorrect: false },
+            ],
+            solution: 'Et vendepunkt er et avgjorende oyeblikk der handlingen tar en ny retning. Det driver historien mot avslutningen.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Desinformasjon er bevisst falsk informasjon spredt for a villede - avsenderen vet at det er usant. Misinformasjon er feilaktig informasjon spredt uten vond hensikt - avsenderen tror det er sant. Begge er problematiske, men intensjonen er ulik.',
       },
     },
 
@@ -2103,20 +2585,37 @@ Husk: A vaere kritisk er ikke a vaere kynisk. Det er a vaere nysgjerrig, a still
         id: 'norsk-vg2-5-7-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvilket av disse er et varseltegn pa falsk informasjon?',
-        options: [
-          { id: 'a', text: 'Artikkelen oppgir kilder og forfatternavn', isCorrect: false },
-          { id: 'b', text: 'Artikkelen har noytral tone og balansert fremstilling', isCorrect: false },
+        task: 'Test deg selv pa revisjon av tekster:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-7-n-quiz5-q0',
+            task: 'Hvilket av disse er et varseltegn pa falsk informasjon?',
+            options: [
+            { id: 'a', text: 'Artikkelen oppgir kilder og forfatternavn', isCorrect: false },
+            { id: 'b', text: 'Artikkelen har noytral tone og balansert fremstilling', isCorrect: false },
+            {
             id: 'c',
             text: 'Artikkelen bruker sensasjonelle pastander og oppfordrer til rask deling',
             isCorrect: true,
+            },
+            { id: 'd', text: 'Artikkelen er publisert av et universitet', isCorrect: false },
+            ],
+            solution: 'Sensasjonelle pastander og oppfordring til rask deling er klassiske varseltegn pa falsk informasjon. Serioose kilder har noytral tone, oppgir forfatter og kilder, og presser deg ikke til a dele for du har tenkt deg om.',
           },
-          { id: 'd', text: 'Artikkelen er publisert av et universitet', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-7-n-quiz5-q1',
+            task: 'Hva er viktig nar du reviderer egne tekster?',
+            options: [
+              { id: 'a', text: 'Aldri endre noe etter forste utkast', isCorrect: false },
+              { id: 'b', text: 'La teksten ligge en stund for du leser den med friske oyne', isCorrect: true },
+              { id: 'c', text: 'Bare rette stavefeil', isCorrect: false },
+              { id: 'd', text: 'Be noen andre skrive om teksten', isCorrect: false },
+            ],
+            solution: 'Avstand gir friske oyne. God skriving er omskriving - profesjonelle forfattere reviderer mange ganger.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'Sensasjonelle pastander og oppfordring til rask deling er klassiske varseltegn pa falsk informasjon. Serioose kilder har noytral tone, oppgir forfatter og kilder, og presser deg ikke til a dele for du har tenkt deg om.',
       },
     },
 
@@ -2211,32 +2710,49 @@ Nokkelen er a jobbe ovenfra og ned. Ikke bruk tid pa komma for du vet at avsnitt
         id: 'norsk-vg2-5-8-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'I hvilken rekkefolge bor du revidere en tekst?',
-        options: [
+        task: 'Test deg selv pa muntlig kommunikasjon:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-8-n-quiz1-q0',
+            task: 'I hvilken rekkefolge bor du revidere en tekst?',
+            options: [
+            {
             id: 'a',
             text: 'Forst skrivefeil, deretter struktur, sa innhold',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Forst innhold og struktur, deretter avsnitt, sa setninger, til slutt korrektur',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Alt pa en gang for a spare tid',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Bare korrektur - resten er bra nok',
             isCorrect: false,
+            },
+            ],
+            solution: 'Revisjon bor ga fra det store til det lille: forst innhold og struktur (de viktigste sporsmalene), deretter avsnitt og sammenheng, sa setninger og sprak, og til slutt korrektur. A rette skrivefeil i setninger du ender opp med a slette er bortkastet tid.',
+          },
+          {
+            id: 'norsk-vg2-5-8-n-quiz1-q1',
+            task: 'Hva skiller muntlig fra skriftlig kommunikasjon?',
+            options: [
+              { id: 'a', text: 'Skriftlig er alltid bedre', isCorrect: false },
+              { id: 'b', text: 'Muntlig inkluderer kroppssprak, stemme og umiddelbar respons', isCorrect: true },
+              { id: 'c', text: 'Muntlig krever ikke forberedelse', isCorrect: false },
+              { id: 'd', text: 'Det er ingen forskjell', isCorrect: false },
+            ],
+            solution: 'Muntlig kommunikasjon er flerdimensjonal med kroppssprak, stemme, pauser og umiddelbar respons.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Revisjon bor ga fra det store til det lille: forst innhold og struktur (de viktigste sporsmalene), deretter avsnitt og sammenheng, sa setninger og sprak, og til slutt korrektur. A rette skrivefeil i setninger du ender opp med a slette er bortkastet tid.',
       },
     },
 
@@ -2267,20 +2783,37 @@ Print ut teksten. Vi leser annerledes pa papir enn pa skjerm. Feil vi overser di
         id: 'norsk-vg2-5-8-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hvorfor bor du la teksten ligge for du reviderer?',
-        options: [
-          { id: 'a', text: 'For a slippe a jobbe sa mye', isCorrect: false },
+        task: 'Test deg selv pa presentasjonsteknikk:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-8-n-quiz2-q0',
+            task: 'Hvorfor bor du la teksten ligge for du reviderer?',
+            options: [
+            { id: 'a', text: 'For a slippe a jobbe sa mye', isCorrect: false },
+            {
             id: 'b',
             text: 'For a fa avstand og se teksten med friske oyne',
             isCorrect: true,
+            },
+            { id: 'c', text: 'For a glemme hva du skrev', isCorrect: false },
+            { id: 'd', text: 'For a gjore laereren glad', isCorrect: false },
+            ],
+            solution: 'Avstand gir perspektiv. Nar du akkurat har skrevet noe, leser du det du mente a skrive, ikke det du faktisk skrev. Ved a la teksten ligge en dag eller mer, kan du se den mer objektivt og oppdage feil du ikke sa for.',
           },
-          { id: 'c', text: 'For a glemme hva du skrev', isCorrect: false },
-          { id: 'd', text: 'For a gjore laereren glad', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-8-n-quiz2-q1',
+            task: 'Hvorfor er oyekontakt viktig i en presentasjon?',
+            options: [
+              { id: 'a', text: 'Fordi det er en hoflighetsregel', isCorrect: false },
+              { id: 'b', text: 'Fordi det skaper kontakt, troverdighet og engasjement', isCorrect: true },
+              { id: 'c', text: 'Fordi du slipper se pa notatene', isCorrect: false },
+              { id: 'd', text: 'Fordi det gjor deg mindre nervos', isCorrect: false },
+            ],
+            solution: 'Oyekontakt skaper kontakt og bygger troverdighet. Publikum foler seg sett og inkludert.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Avstand gir perspektiv. Nar du akkurat har skrevet noe, leser du det du mente a skrive, ikke det du faktisk skrev. Ved a la teksten ligge en dag eller mer, kan du se den mer objektivt og oppdage feil du ikke sa for.',
       },
     },
 
@@ -2313,32 +2846,49 @@ Nar du reviderer, let aktivt etter disse feilene. De er vanlige fordi de er lett
         id: 'norsk-vg2-5-8-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: 'Hvilken setning har best tekstbinding?',
-        options: [
+        task: 'Test deg selv pa stemmebruk og pauser:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-8-n-quiz3-q0',
+            task: 'Hvilken setning har best tekstbinding?',
+            options: [
+            {
             id: 'a',
             text: '"Ibsen skrev stykket. Nora er hovedpersonen. Torvald er mannen hennes."',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: '"Ibsen skrev stykket der Nora er hovedpersonen. Hun er gift med Torvald, og ekteskapet er sentralt i handlingen."',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: '"Stykket. Nora. Torvald. Ekteskap."',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: '"Han skrev det. Hun er der. De er gift."',
             isCorrect: false,
+            },
+            ],
+            solution: 'Alternativ B har best tekstbinding fordi det bruker relativsetninger ("der Nora er hovedpersonen") og konjunksjoner ("og ekteskapet er sentralt") til a skape sammenheng mellom opplysningene. De andre alternativene er hakkete eller uklare.',
+          },
+          {
+            id: 'norsk-vg2-5-8-n-quiz3-q1',
+            task: 'Hva er virkningen av bevisste pauser i en tale?',
+            options: [
+              { id: 'a', text: 'Det viser at du har glemt teksten', isCorrect: false },
+              { id: 'b', text: 'Det gir publikum tid til a fordoye poenger og skaper spenning', isCorrect: true },
+              { id: 'c', text: 'Det gjor talen kortere', isCorrect: false },
+              { id: 'd', text: 'Det har ingen virkning', isCorrect: false },
+            ],
+            solution: 'Bevisste pauser gir publikum tid til a fordoye, skaper spenning, og viser at du er i kontroll.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Alternativ B har best tekstbinding fordi det bruker relativsetninger ("der Nora er hovedpersonen") og konjunksjoner ("og ekteskapet er sentralt") til a skape sammenheng mellom opplysningene. De andre alternativene er hakkete eller uklare.',
       },
     },
 
@@ -2367,32 +2917,49 @@ Til slutt: Se monster. Hvis du far samme kommentar gang pa gang, har du funnet e
         id: 'norsk-vg2-5-8-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: 'Hva betyr laererkommentaren "Utdyp!" vanligvis?',
-        options: [
+        task: 'Test deg selv pa nervositet og mestring:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-8-n-quiz4-q0',
+            task: 'Hva betyr laererkommentaren "Utdyp!" vanligvis?',
+            options: [
+            {
             id: 'a',
             text: 'Du har skrevet helt feil og ma begynne pa nytt',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Du har en god ide, men leseren trenger mer forklaring eller eksempler',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Teksten er for lang og ma kortes ned',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Du har brukt for mange kilder',
             isCorrect: false,
+            },
+            ],
+            solution: '"Utdyp" betyr at du har et godt poeng, men at det trenger mer utvikling. Leseren forstar ikke helt hva du mener, eller trenger flere eksempler, forklaringer eller begrunnelser for a folge tanken din. Det er ikke kritikk av ideen, men et onske om mer.',
+          },
+          {
+            id: 'norsk-vg2-5-8-n-quiz4-q1',
+            task: 'Hva er det mest effektive mot nervositet?',
+            options: [
+              { id: 'a', text: 'A unnga oyekontakt', isCorrect: false },
+              { id: 'b', text: 'A lese alt fra manuset', isCorrect: false },
+              { id: 'c', text: 'God forberedelse og ovelse', isCorrect: true },
+              { id: 'd', text: 'A late som publikum ikke er der', isCorrect: false },
+            ],
+            solution: 'God forberedelse er det mest effektive. Nar du kjenner stoffet godt, far du storre trygghet.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          '"Utdyp" betyr at du har et godt poeng, men at det trenger mer utvikling. Leseren forstar ikke helt hva du mener, eller trenger flere eksempler, forklaringer eller begrunnelser for a folge tanken din. Det er ikke kritikk av ideen, men et onske om mer.',
       },
     },
 
@@ -2421,32 +2988,49 @@ For det er sannheten om skriving: Det er en ferdighet, ikke en gave. Og ferdighe
         id: 'norsk-vg2-5-8-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor er revisjon en livslang ferdighet?',
-        options: [
+        task: 'Test deg selv pa muntlig framforing:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-8-n-quiz5-q0',
+            task: 'Hvorfor er revisjon en livslang ferdighet?',
+            options: [
+            {
             id: 'a',
             text: 'Fordi skolen krever det i alle fag',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'Fordi du alltid vil ha behov for a forbedre tekster du skriver',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'Fordi datamaskiner ikke kan rette feil',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'Fordi det star i laereplanen',
             isCorrect: false,
+            },
+            ],
+            solution: 'Revisjon er en livslang ferdighet fordi du alltid vil skrive tekster som kan forbedres - jobbsoknader, rapporter, mailer, innlegg. Evnen til a se og forbedre egne svakheter er verdifull i alle sammenhenger der skriftlig kommunikasjon er viktig.',
+          },
+          {
+            id: 'norsk-vg2-5-8-n-quiz5-q1',
+            task: 'Hvorfor bor du unnga a lese fra manuset?',
+            options: [
+              { id: 'a', text: 'Fordi det er forbudt', isCorrect: false },
+              { id: 'b', text: 'Fordi det bryter kontakten med publikum og gjor fremforingen stiv', isCorrect: true },
+              { id: 'c', text: 'Fordi det gjor presentasjonen for lang', isCorrect: false },
+              { id: 'd', text: 'Fordi publikum ikke kan lese', isCorrect: false },
+            ],
+            solution: 'A lese fra manuset bryter oyekontakten og gjor fremforingen monoton. Bruk stikkord i stedet.',
           },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Revisjon er en livslang ferdighet fordi du alltid vil skrive tekster som kan forbedres - jobbsoknader, rapporter, mailer, innlegg. Evnen til a se og forbedre egne svakheter er verdifull i alle sammenhenger der skriftlig kommunikasjon er viktig.',
       },
     },
 
@@ -2541,16 +3125,33 @@ A identifisere disse elementene i tekster du leser er forste steg mot kritisk an
         id: 'norsk-vg2-5-9-n-quiz1',
         number: 'Quiz 1',
         type: 'multiple-choice',
-        task: 'Hva er de tre hovedelementene i et argument?',
-        options: [
-          { id: 'a', text: 'Innledning, hoveddel, avslutning', isCorrect: false },
-          { id: 'b', text: 'Etos, logos, patos', isCorrect: false },
-          { id: 'c', text: 'Pastand, begrunnelse, belegg', isCorrect: true },
-          { id: 'd', text: 'Forste, andre, tredje', isCorrect: false },
+        task: 'Test deg selv pa digital retorikk:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-9-n-quiz1-q0',
+            task: 'Hva er de tre hovedelementene i et argument?',
+            options: [
+            { id: 'a', text: 'Innledning, hoveddel, avslutning', isCorrect: false },
+            { id: 'b', text: 'Etos, logos, patos', isCorrect: false },
+            { id: 'c', text: 'Pastand, begrunnelse, belegg', isCorrect: true },
+            { id: 'd', text: 'Forste, andre, tredje', isCorrect: false },
+            ],
+            solution: 'De tre hovedelementene er pastand (det du hevder), begrunnelse (hvorfor du mener det), og belegg (fakta, eksempler eller data som stotter begrunnelsen). Etos, logos og patos er appellformer, ikke argumentstrukturer.',
+          },
+          {
+            id: 'norsk-vg2-5-9-n-quiz1-q1',
+            task: 'Hva kjennetegner retorikk pa sosiale medier?',
+            options: [
+              { id: 'a', text: 'Sosiale medier bruker ikke retorikk', isCorrect: false },
+              { id: 'b', text: 'Den krever kortere, mer visuell og umiddelbar kommunikasjon', isCorrect: true },
+              { id: 'c', text: 'Tradisjonelle medier er alltid bedre', isCorrect: false },
+              { id: 'd', text: 'Det er ingen forskjell', isCorrect: false },
+            ],
+            solution: 'Pa sosiale medier er oppmerksomhetsspennet kort. Kommunikasjonen maa vaere kortere og mer visuell.',
+          },
         ],
-        correctAnswer: 'c',
-        solution:
-          'De tre hovedelementene er pastand (det du hevder), begrunnelse (hvorfor du mener det), og belegg (fakta, eksempler eller data som stotter begrunnelsen). Etos, logos og patos er appellformer, ikke argumentstrukturer.',
       },
     },
 
@@ -2577,20 +3178,37 @@ Se hvor mye rikere analysen blir? Du ser ikke bare hva som pastas, men hele stru
         id: 'norsk-vg2-5-9-n-quiz2',
         number: 'Quiz 2',
         type: 'multiple-choice',
-        task: 'Hva er "hjemmel" i Toulmins modell?',
-        options: [
-          { id: 'a', text: 'Fakta som stotter pastanden', isCorrect: false },
+        task: 'Test deg selv pa kildekritikk pa nett:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-9-n-quiz2-q0',
+            task: 'Hva er "hjemmel" i Toulmins modell?',
+            options: [
+            { id: 'a', text: 'Fakta som stotter pastanden', isCorrect: false },
+            {
             id: 'b',
             text: 'Den underliggende regelen som kobler belegg til pastand',
             isCorrect: true,
+            },
+            { id: 'c', text: 'Situasjoner der argumentet ikke gjelder', isCorrect: false },
+            { id: 'd', text: 'Hvor sikker konklusjonen er', isCorrect: false },
+            ],
+            solution: 'Hjemmel (warrant) er den underliggende regelen eller prinsippet som kobler belegget til pastanden. I eksempelet om mobil er hjemmelen "det som forstyrrer laeringen bor fjernes". Hjemmelen er ofte implisitt og tas for gitt.',
           },
-          { id: 'c', text: 'Situasjoner der argumentet ikke gjelder', isCorrect: false },
-          { id: 'd', text: 'Hvor sikker konklusjonen er', isCorrect: false },
+          {
+            id: 'norsk-vg2-5-9-n-quiz2-q1',
+            task: 'Hvorfor er kildekritikk saerlig viktig pa internett?',
+            options: [
+              { id: 'a', text: 'Fordi alt pa internett er usant', isCorrect: false },
+              { id: 'b', text: 'Fordi hvem som helst kan publisere uten redaksjonell kontroll', isCorrect: true },
+              { id: 'c', text: 'Fordi internett er nyere enn boker', isCorrect: false },
+              { id: 'd', text: 'Fordi sokemotorer alltid viser feil', isCorrect: false },
+            ],
+            solution: 'Pa internett kan hvem som helst publisere hva som helst. Du maa selv vurdere troverdigheten.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Hjemmel (warrant) er den underliggende regelen eller prinsippet som kobler belegget til pastanden. I eksempelet om mobil er hjemmelen "det som forstyrrer laeringen bor fjernes". Hjemmelen er ofte implisitt og tas for gitt.',
       },
     },
 
@@ -2623,16 +3241,33 @@ Disse feilslutningene dukker opp overalt: i politiske debatter, i reklame, i sos
         id: 'norsk-vg2-5-9-n-quiz3',
         number: 'Quiz 3',
         type: 'multiple-choice',
-        task: '"Hvorfor skal vi lytte til din mening om okonomi? Du er jo bare en student!" Dette er et eksempel pa:',
-        options: [
-          { id: 'a', text: 'Stramann', isCorrect: false },
-          { id: 'b', text: 'Ad hominem', isCorrect: true },
-          { id: 'c', text: 'Falsk dilemma', isCorrect: false },
-          { id: 'd', text: 'Sirkelargumentasjon', isCorrect: false },
+        task: 'Test deg selv pa falske nyheter:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-9-n-quiz3-q0',
+            task: '"Hvorfor skal vi lytte til din mening om okonomi? Du er jo bare en student!" Dette er et eksempel pa:',
+            options: [
+            { id: 'a', text: 'Stramann', isCorrect: false },
+            { id: 'b', text: 'Ad hominem', isCorrect: true },
+            { id: 'c', text: 'Falsk dilemma', isCorrect: false },
+            { id: 'd', text: 'Sirkelargumentasjon', isCorrect: false },
+            ],
+            solution: 'Dette er ad hominem fordi det angriper personen (en student) i stedet for a ta stilling til argumentet. Om noen er student eller professor er irrelevant for om argumentet deres om okonomi er gyldig eller ikke.',
+          },
+          {
+            id: 'norsk-vg2-5-9-n-quiz3-q1',
+            task: 'Hva er forskjellen mellom feilinformasjon og desinformasjon?',
+            options: [
+              { id: 'a', text: 'Det er ingen forskjell', isCorrect: false },
+              { id: 'b', text: 'Feilinformasjon er ufrivillig feil, desinformasjon er bevisst villedende', isCorrect: true },
+              { id: 'c', text: 'Desinformasjon er alltid sant', isCorrect: false },
+              { id: 'd', text: 'Feilinformasjon finnes bare pa internett', isCorrect: false },
+            ],
+            solution: 'Feilinformasjon spres uten ond hensikt. Desinformasjon er bevisst villedende. Forskjellen ligger i intensjonen.',
+          },
         ],
-        correctAnswer: 'b',
-        solution:
-          'Dette er ad hominem fordi det angriper personen (en student) i stedet for a ta stilling til argumentet. Om noen er student eller professor er irrelevant for om argumentet deres om okonomi er gyldig eller ikke.',
       },
     },
 
@@ -2663,16 +3298,33 @@ Nokkelen er a vaere oppmerksom. Nar du hoorer et argument som fooles riktig, sto
         id: 'norsk-vg2-5-9-n-quiz4',
         number: 'Quiz 4',
         type: 'multiple-choice',
-        task: '"Min bestemor roykte hele livet og ble 95 ar gammel. Altsa er ikke royking farlig." Dette er et eksempel pa:',
-        options: [
-          { id: 'a', text: 'Hastig generalisering', isCorrect: true },
-          { id: 'b', text: 'Stramann', isCorrect: false },
-          { id: 'c', text: 'Ad hominem', isCorrect: false },
-          { id: 'd', text: 'Sirkelargumentasjon', isCorrect: false },
+        task: 'Test deg selv pa ekkokamre og algoritmer:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
+          {
+            id: 'norsk-vg2-5-9-n-quiz4-q0',
+            task: '"Min bestemor roykte hele livet og ble 95 ar gammel. Altsa er ikke royking farlig." Dette er et eksempel pa:',
+            options: [
+            { id: 'a', text: 'Hastig generalisering', isCorrect: true },
+            { id: 'b', text: 'Stramann', isCorrect: false },
+            { id: 'c', text: 'Ad hominem', isCorrect: false },
+            { id: 'd', text: 'Sirkelargumentasjon', isCorrect: false },
+            ],
+            solution: 'Dette er hastig generalisering fordi det trekker en generell konklusjon ("royking er ikke farlig") fra ett enkelt eksempel (bestemoren). Ett unntak motbeviser ikke omfattende forskning som viser at royking oker risikoen for sykdom.',
+          },
+          {
+            id: 'norsk-vg2-5-9-n-quiz4-q1',
+            task: 'Hva er et "ekkokammer"?',
+            options: [
+              { id: 'a', text: 'Et spesielt lydprogram', isCorrect: false },
+              { id: 'b', text: 'En situasjon der du bare moter meninger som bekrefter dine egne', isCorrect: true },
+              { id: 'c', text: 'En type sosiale medier', isCorrect: false },
+              { id: 'd', text: 'Et diskusjonsforum', isCorrect: false },
+            ],
+            solution: 'Et ekkokammer oppstar nar algoritmer viser deg innhold som bekrefter det du allerede tror.',
+          },
         ],
-        correctAnswer: 'a',
-        solution:
-          'Dette er hastig generalisering fordi det trekker en generell konklusjon ("royking er ikke farlig") fra ett enkelt eksempel (bestemoren). Ett unntak motbeviser ikke omfattende forskning som viser at royking oker risikoen for sykdom.',
       },
     },
 
@@ -2703,32 +3355,49 @@ Og husk: Formalet med argumentasjon er ikke a vinne, men a finne sannheten. De b
         id: 'norsk-vg2-5-9-n-quiz5',
         number: 'Quiz 5',
         type: 'multiple-choice',
-        task: 'Hvorfor bor du anerkjenne motargumenter i din egen argumentasjon?',
-        options: [
+        task: 'Test deg selv pa digitalt medborgerskap:',
+        options: [{ id: 'a', text: 'placeholder', isCorrect: true }],
+        solution: '',
+        questions: [
           {
+            id: 'norsk-vg2-5-9-n-quiz5-q0',
+            task: 'Hvorfor bor du anerkjenne motargumenter i din egen argumentasjon?',
+            options: [
+            {
             id: 'a',
             text: 'For a vise at du er usikker pa saken',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'b',
             text: 'For a gjore teksten lengre',
             isCorrect: false,
-          },
-          {
+            },
+            {
             id: 'c',
             text: 'For a vise at du har tenkt grundig og styrke din egen troverdighet',
             isCorrect: true,
-          },
-          {
+            },
+            {
             id: 'd',
             text: 'For a forvirre leseren',
             isCorrect: false,
+            },
+            ],
+            solution: 'A anerkjenne motargumenter viser at du har tenkt grundig pa saken og ikke bare ignorerer innvendinger. Det styrker din troverdighet (etos) og gjor argumentasjonen mer overbevisende. Det er ikke et tegn pa svakhet, men pa intellektuell aerlighet.',
+          },
+          {
+            id: 'norsk-vg2-5-9-n-quiz5-q1',
+            task: 'Hva innebærer digitalt medborgerskap?',
+            options: [
+              { id: 'a', text: 'A bruke sosiale medier sa mye som mulig', isCorrect: false },
+              { id: 'b', text: 'A delta ansvarlig, kritisk og etisk i den digitale offentligheten', isCorrect: true },
+              { id: 'c', text: 'A ha konto pa alle plattformer', isCorrect: false },
+              { id: 'd', text: 'A unnga internett helt', isCorrect: false },
+            ],
+            solution: 'Digitalt medborgerskap betyr a delta ansvarlig og kritisk - sjekke kilder, vaere respektfull, og forsta algoritmer.',
           },
         ],
-        correctAnswer: 'c',
-        solution:
-          'A anerkjenne motargumenter viser at du har tenkt grundig pa saken og ikke bare ignorerer innvendinger. Det styrker din troverdighet (etos) og gjor argumentasjonen mer overbevisende. Det er ikke et tegn pa svakhet, men pa intellektuell aerlighet.',
       },
     },
 
