@@ -293,7 +293,7 @@ export interface AsymptoteBlock extends BaseContentBlock {
 // Oppgavetyper
 // ============================================================================
 
-export type ExerciseType = 'interactive' | 'classic' | 'upload' | 'multiple-choice' | 'exercise';
+export type ExerciseType = 'interactive' | 'classic' | 'upload' | 'multiple-choice' | 'exercise' | 'short-answer';
 export type ExerciseTool = 'geogebra-graph' | 'geogebra-cas' | 'geogebra-geometry' | 'geogebra-3d' | 'python' | 'none';
 export type ExerciseDifficulty = 'lett' | 'medium' | 'vanskelig';
 

@@ -1,7 +1,7 @@
 /**
  * Tekstbok kapitler for R1 - Kapittel 1.4-1.5 (Algebra utvidelse) og 9.1-9.2 (Bevisfoering)
  * Seksjon 1 utvidelser: Rasjonale uttrykk, Ulikheter og absoluttverdier
- * Seksjon 9: Bevis og bevisstrategier, Matematisk argumentasjon
+ * Seksjon 9: Direkte bevis og moteksempler, Induksjon
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -949,3 +949,574 @@ b) $x \\leq -2$ eller $x \\geq 1$. Svar: $(-\\infty, -2] \\cup [1, \\infty)$.`,
   ],
   exercises: [],
 };
+
+// ============================================================================
+// KAPITTEL 9.1: Direkte bevis og moteksempler
+// ============================================================================
+
+export const CHAPTER_R1_9_1: TextbookChapter = {
+  id: 'r1-9-1',
+  courseId: 'r1',
+  chapterNumber: '9.1',
+  title: 'Direkte bevis og moteksempler',
+  description: 'Direkte bevisfoering, bruk av moteksempler og logisk argumentasjon.',
+  estimatedMinutes: 50,
+  competenceGoals: [
+    'utfoere og presentere bevis og argumentere for framgangsmaatar',
+  ],
+  content: [
+    {
+      id: 'r1-9-1-intro',
+      type: 'text',
+      content: `## Hvorfor bevise?
+
+I matematikk noeyer vi oss ikke med aa observere moenstre eller sjekke eksempler -- vi krever **bevis**. Et bevis er en logisk argumentrekke som viser at en paastand er sann i alle tilfeller, ikke bare i de eksemplene vi har sjekket.
+
+Tenk deg at du har sjekket at $1 + 3 = 4$, $1 + 3 + 5 = 9$, $1 + 3 + 5 + 7 = 16$ og legger merke til at svarene er kvadrattall. Er det alltid slik? Selv om du sjekker tusen eksempler, vet du ikke om det gjelder for alle. Et bevis gir deg denne sikkerheten.
+
+I dette kapittelet laerer du to grunnleggende teknikker: **direkte bevis** og **moteksempler**.`,
+    },
+    {
+      id: 'r1-9-1-def-implikasjon',
+      type: 'definition',
+      title: 'Implikasjon og ekvivalens',
+      content: `En **implikasjon** er en paastand paa formen "hvis $P$, saa $Q$", skrevet $P \\Rightarrow Q$.
+
+- $P$ kalles **forutsetningen** (hypotesen)
+- $Q$ kalles **konklusjonen**
+
+En **ekvivalens** betyr at baade $P \\Rightarrow Q$ og $Q \\Rightarrow P$ gjelder. Vi skriver $P \\Leftrightarrow Q$ og sier "$P$ hvis og bare hvis $Q$".
+
+**Eksempel:** "Hvis $n$ er delelig med $4$, saa er $n$ delelig med $2$" er en implikasjon. Den omvendte gjelder ikke: $6$ er delelig med $2$ men ikke med $4$.`,
+    },
+    {
+      id: 'r1-9-1-note-logikk',
+      type: 'note',
+      title: 'Logiske begreper',
+      content: `**Kontrapositiv:** Den kontrapositive av $P \\Rightarrow Q$ er $\\neg Q \\Rightarrow \\neg P$. Disse er logisk ekvivalente.
+
+**Eksempel:** "Hvis det regner, er bakken vaat" har kontrapositiv: "Hvis bakken ikke er vaat, regner det ikke."
+
+**Noedvendig og tilstrekkelig:**
+- "$P$ er **tilstrekkelig** for $Q$" betyr $P \\Rightarrow Q$
+- "$Q$ er **noedvendig** for $P$" betyr ogsaa $P \\Rightarrow Q$`,
+    },
+    {
+      id: 'r1-9-1-direkte-intro',
+      type: 'text',
+      content: `## Direkte bevis
+
+I et **direkte bevis** starter vi med forutsetningen $P$ og utleder konklusjonen $Q$ gjennom en rekke logiske steg. Hvert steg maa vaere begrunnet med en definisjon, en kjent setning, eller en algebraisk omforming.
+
+**Oppskrift for direkte bevis:**
+1. Skriv forutsetningen tydelig
+2. Bruk definisjoner til aa omformulere
+3. Utfoer algebraiske manipulasjoner
+4. Vis at konklusjonen foelger`,
+    },
+    {
+      id: 'r1-9-1-def-partall',
+      type: 'definition',
+      title: 'Partall og oddetall',
+      content: `Et heltall $n$ er et **partall** hvis det finnes et heltall $k$ slik at $n = 2k$.
+
+Et heltall $n$ er et **oddetall** hvis det finnes et heltall $k$ slik at $n = 2k + 1$.
+
+Disse definisjonene er utgangspunktet for mange bevis om heltall. Vi bruker dem til aa "oversette" fra ord til algebra.`,
+    },
+    {
+      id: 'r1-9-1-example-partall',
+      type: 'example',
+      title: 'Eksempel 1: Summen av to partall',
+      problem: `Vis at summen av to partall er et partall.`,
+      solution: `**Bevis:**
+
+La $a$ og $b$ vaere partall. Da finnes heltall $m$ og $n$ slik at $a = 2m$ og $b = 2n$.
+
+$$a + b = 2m + 2n = 2(m + n)$$
+
+Siden $m + n$ er et heltall, er $a + b = 2(m+n)$ et partall. $\\square$`,
+    },
+    {
+      id: 'r1-9-1-example-oddetall',
+      type: 'example',
+      title: 'Eksempel 2: Produktet av to oddetall',
+      problem: `Vis at produktet av to oddetall er et oddetall.`,
+      solution: `**Bevis:**
+
+La $a$ og $b$ vaere oddetall. Da er $a = 2m + 1$ og $b = 2n + 1$ for heltall $m$ og $n$.
+
+$$a \\cdot b = (2m+1)(2n+1) = 4mn + 2m + 2n + 1 = 2(2mn + m + n) + 1$$
+
+Siden $2mn + m + n$ er et heltall, er $a \\cdot b$ paa formen $2k + 1$, altsaa et oddetall. $\\square$`,
+    },
+    {
+      id: 'r1-9-1-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-1',
+        number: '1',
+        type: 'short-answer',
+        difficulty: 'lett',
+        task: 'Vis at summen av et partall og et oddetall er et oddetall.',
+        hints: ['Skriv partallet som $2m$ og oddetallet som $2n + 1$'],
+        solution: 'La $a = 2m$ (partall) og $b = 2n+1$ (oddetall). Da er $a + b = 2m + 2n + 1 = 2(m+n) + 1$. Siden $m+n$ er et heltall, er summen et oddetall. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-1-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-2',
+        number: '2',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Vis at kvadratet av et oddetall er et oddetall.',
+        hints: ['Skriv oddetallet som $2k + 1$ og regn ut $(2k+1)^2$'],
+        solution: 'La $n = 2k + 1$ vaere et oddetall. Da er $n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1$. Siden $2k^2 + 2k$ er et heltall, er $n^2$ et oddetall. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-1-moteksempel-intro',
+      type: 'text',
+      content: `## Moteksempler
+
+Ikke alle paastander er sanne. For aa **motbevise** en generell paastand trenger vi bare aa finne **ett eneste eksempel** der paastanden ikke holder. Et slikt eksempel kalles et **moteksempel**.
+
+**Viktig:** Det kreves bare ett moteksempel for aa motbevise en paastand, men ingen mengde eksempler kan bevise en generell paastand.
+
+**Fremgangsmaate:**
+1. Forstaa hva paastanden sier
+2. Proev systematisk med enkle tall
+3. Presenter moteksempelet og vis at det bryter med paastanden`,
+    },
+    {
+      id: 'r1-9-1-example-moteks1',
+      type: 'example',
+      title: 'Eksempel 3: Moteksempel for primtall',
+      problem: `Er foelgende paastand sann? "Summen av to primtall er alltid et partall."`,
+      solution: `**Loesning:**
+
+**Moteksempel:** $2 + 3 = 5$.
+
+Baade $2$ og $3$ er primtall, men summen $5$ er et oddetall. Paastanden er **usann**.
+
+(Paastanden holder naar begge primtallene er odde, men $2$ er et partall-primtall.)`,
+    },
+    {
+      id: 'r1-9-1-example-moteks2',
+      type: 'example',
+      title: 'Eksempel 4: Moteksempel for algebraisk uttrykk',
+      problem: `Er foelgende paastand sann? "For alle reelle tall $a$ og $b$ gjelder $\\sqrt{a^2 + b^2} = a + b$."`,
+      solution: `**Loesning:**
+
+**Moteksempel:** La $a = 3$ og $b = 4$.
+
+Venstre side: $\\sqrt{3^2 + 4^2} = \\sqrt{25} = 5$
+
+Hoeyre side: $3 + 4 = 7$
+
+Siden $5 \\neq 7$, er paastanden **usann**.`,
+    },
+    {
+      id: 'r1-9-1-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-3',
+        number: '3',
+        type: 'short-answer',
+        difficulty: 'lett',
+        task: 'Finn et moteksempel som viser at foelgende paastand er usann: "Hvis $n$ er et positivt heltall, saa er $n^2 + n + 41$ et primtall."',
+        hints: ['Proev $n = 41$'],
+        solution: 'For $n = 41$: $41^2 + 41 + 41 = 41(41 + 1 + 1) = 41 \\cdot 43$. Dette er ikke et primtall. (Merk: for $n = 1, 2, \\ldots, 40$ gir formelen faktisk primtall, men $n = 41$ er et moteksempel.)',
+      },
+    },
+    {
+      id: 'r1-9-1-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-4',
+        number: '4',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Avgjoer om foelgende paastander er sanne eller usanne. Bevis de sanne, og finn moteksempel for de usanne.\n\na) Produktet av to irrasjonale tall er alltid irrasjonalt.\n\nb) Summen av tre paafoelgende heltall er alltid delelig med $3$.',
+        hints: ['For a): tenk paa $\\sqrt{2} \\cdot \\sqrt{2}$', 'For b): skriv tallene som $n$, $n+1$, $n+2$'],
+        solution: 'a) **Usann.** Moteksempel: $\\sqrt{2} \\cdot \\sqrt{2} = 2$, som er rasjonalt.\n\nb) **Sann.** Bevis: $n + (n+1) + (n+2) = 3n + 3 = 3(n+1)$. Siden $n+1$ er et heltall, er summen delelig med $3$. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-1-algebraisk-intro',
+      type: 'text',
+      content: `## Algebraiske identiteter og ulikheter
+
+Mange bevis handler om aa vise at en algebraisk identitet eller ulikhet gjelder for alle verdier av variablene. Strategien er ofte aa omforme den ene siden til den andre, eller aa vise at differansen har et bestemt fortegn.
+
+**Nyttig teknikk:** For aa vise at $A \\geq B$, vis at $A - B \\geq 0$, gjerne ved aa skrive $A - B$ som et fullstendig kvadrat.`,
+    },
+    {
+      id: 'r1-9-1-example-alg1',
+      type: 'example',
+      title: 'Eksempel 5: AM-GM for to tall',
+      problem: `Vis at $a^2 + b^2 \\geq 2ab$ for alle reelle tall $a$ og $b$.`,
+      solution: `**Bevis:**
+
+Vi regner ut differansen:
+
+$$a^2 + b^2 - 2ab = a^2 - 2ab + b^2 = (a - b)^2$$
+
+Siden ethvert kvadrat er $\\geq 0$, har vi $(a-b)^2 \\geq 0$, altsaa:
+
+$$a^2 + b^2 \\geq 2ab \\quad \\square$$
+
+**Merk:** Likhet gjelder naar $a = b$.`,
+    },
+    {
+      id: 'r1-9-1-example-alg2',
+      type: 'example',
+      title: 'Eksempel 6: Tre paafoelgende heltall',
+      problem: `Vis at produktet av tre paafoelgende heltall er delelig med $6$.`,
+      solution: `**Bevis:**
+
+La de tre paafoelgende heltallene vaere $n$, $n+1$ og $n+2$.
+
+**Delelig med $2$:** Blant tre paafoelgende heltall er minst ett partall (annenhvert tall er partall). Altsaa er produktet delelig med $2$.
+
+**Delelig med $3$:** Blant tre paafoelgende heltall har ett rest $0$ ved divisjon med $3$, ett har rest $1$, og ett har rest $2$. Altsaa er noeyaktig ett av dem delelig med $3$.
+
+Siden produktet er delelig med baade $2$ og $3$, og $\\gcd(2,3) = 1$, er produktet delelig med $2 \\cdot 3 = 6$. $\\square$`,
+    },
+    {
+      id: 'r1-9-1-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-5',
+        number: '5',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Vis at differansen mellom kvadratene til to paafoelgende heltall er lik summen av de to tallene. Det vil si: vis at $(n+1)^2 - n^2 = n + (n+1)$.',
+        hints: ['Regn ut $(n+1)^2$ og forenkle'],
+        solution: '$(n+1)^2 - n^2 = n^2 + 2n + 1 - n^2 = 2n + 1$. Videre er $n + (n+1) = 2n + 1$. Altsaa er $(n+1)^2 - n^2 = n + (n+1) = 2n + 1$. $\\square$',
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'r1-9-1-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-1-ex-6',
+        number: '6',
+        type: 'short-answer',
+        difficulty: 'vanskelig',
+        task: 'Vis at $\\frac{a}{b} + \\frac{b}{a} \\geq 2$ for alle $a, b > 0$.',
+        hints: ['Gang med $ab > 0$ og bruk resultatet fra eksempel 5'],
+        solution: 'Gang med $ab > 0$: ulikheten er ekvivalent med $a^2 + b^2 \\geq 2ab$, som vi viste i eksempel 5 at gjelder (med likhet naar $a = b$). $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-1-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Direkte bevis:** Start med forutsetningen, bruk definisjoner og kjente resultater, og utled konklusjonen steg for steg.
+
+**Moteksempler:** For aa motbevise en generell paastand holder det med ett eneste moteksempel.
+
+**Implikasjon:** $P \\Rightarrow Q$ betyr "hvis $P$, saa $Q$". Kontrapositiven $\\neg Q \\Rightarrow \\neg P$ er logisk ekvivalent.
+
+**Algebraiske bevis:** For aa vise $A \\geq B$, vis at $A - B \\geq 0$, gjerne ved aa skrive differansen som et fullstendig kvadrat.
+
+**Tips for godt bevis:**
+- Definer alle variable tydelig
+- Begrunn hvert steg
+- Bruk hele setninger
+- Avslutt med $\\square$ eller "q.e.d."`,
+    },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Implikasjon', definition: 'Paastand paa formen "hvis P, saa Q" ($P \\Rightarrow Q$)' },
+    { term: 'Ekvivalens', definition: 'Baade $P \\Rightarrow Q$ og $Q \\Rightarrow P$ gjelder ($P \\Leftrightarrow Q$)' },
+    { term: 'Direkte bevis', definition: 'Bevis der man gaar rett fra forutsetning til konklusjon' },
+    { term: 'Moteksempel', definition: 'Et eksempel som viser at en generell paastand er usann' },
+    { term: 'Kontrapositiv', definition: 'Av $P \\Rightarrow Q$ er kontrapositiven $\\neg Q \\Rightarrow \\neg P$' },
+  ],
+};
+
+// ============================================================================
+// KAPITTEL 9.2: Induksjon
+// ============================================================================
+
+export const CHAPTER_R1_9_2: TextbookChapter = {
+  id: 'r1-9-2',
+  courseId: 'r1',
+  chapterNumber: '9.2',
+  title: 'Induksjon',
+  description: 'Matematisk induksjon med basissteg, induksjonsantagelse og induksjonssteg.',
+  estimatedMinutes: 55,
+  competenceGoals: [
+    'utfoere og presentere bevis og argumentere for framgangsmaatar',
+  ],
+  content: [
+    {
+      id: 'r1-9-2-intro',
+      type: 'text',
+      content: `## Matematisk induksjon
+
+Tenk deg en uendelig rad med dominobrikker. Hvis du vet at:
+1. Den foerste brikken velter
+2. Hver gang en brikke velter, velter den ogsaa den neste
+
+Da vet du at **alle** brikkene velter.
+
+Dette er ideen bak **matematisk induksjon** -- en bevismetode for paastander som gjelder for alle naturlige tall $n \\geq n_0$. Metoden er spesielt nyttig for aa bevise formler for summer, delelighet og ulikheter.`,
+    },
+    {
+      id: 'r1-9-2-def-induksjon',
+      type: 'definition',
+      title: 'Prinsippet for matematisk induksjon',
+      content: `For aa bevise at en paastand $P(n)$ gjelder for alle heltall $n \\geq n_0$, viser vi:
+
+**1. Basissteg:** Vis at $P(n_0)$ er sann.
+
+**2. Induksjonssteg:** Vis at hvis $P(k)$ er sann for et vilkaarlig $k \\geq n_0$ (**induksjonsantagelsen**), saa er ogsaa $P(k+1)$ sann.
+
+Da foelger det at $P(n)$ gjelder for alle $n \\geq n_0$.`,
+    },
+    {
+      id: 'r1-9-2-note-hvorfor',
+      type: 'note',
+      title: 'Hvorfor fungerer induksjon?',
+      content: `Basissteget gir oss $P(n_0)$.
+
+Induksjonssteget med $k = n_0$ gir oss $P(n_0) \\Rightarrow P(n_0 + 1)$, altsaa $P(n_0 + 1)$.
+
+Induksjonssteget med $k = n_0 + 1$ gir oss $P(n_0 + 1) \\Rightarrow P(n_0 + 2)$, altsaa $P(n_0 + 2)$.
+
+Slik fortsetter vi og naar ethvert naturlig tall $n \\geq n_0$.`,
+    },
+    {
+      id: 'r1-9-2-example-sum1',
+      type: 'example',
+      title: 'Eksempel 1: Summen av de $n$ foerste naturlige tallene',
+      problem: `Vis at $1 + 2 + 3 + \\cdots + n = \\frac{n(n+1)}{2}$ for alle $n \\geq 1$.`,
+      solution: `**Bevis ved induksjon:**
+
+**Basissteg ($n = 1$):** Venstre side: $1$. Hoeyre side: $\\frac{1 \\cdot 2}{2} = 1$. Stemmer. $\\checkmark$
+
+**Induksjonsantagelse:** Anta at formelen gjelder for $n = k$, dvs.:
+$$1 + 2 + \\cdots + k = \\frac{k(k+1)}{2}$$
+
+**Induksjonssteg (vis for $n = k+1$):**
+
+$$1 + 2 + \\cdots + k + (k+1) = \\frac{k(k+1)}{2} + (k+1)$$
+
+$$= \\frac{k(k+1) + 2(k+1)}{2} = \\frac{(k+1)(k+2)}{2}$$
+
+Dette er formelen med $n = k + 1$. $\\checkmark$
+
+Ved induksjonsprinsippet gjelder formelen for alle $n \\geq 1$. $\\square$`,
+    },
+    {
+      id: 'r1-9-2-warning-feil',
+      type: 'warning',
+      title: 'Vanlige feil ved induksjon',
+      content: `1. **Glemmer basissteget:** Uten basissteg har beviset ingen forankring. Man kan "bevise" usanne paastander.
+
+2. **Sirkelargument:** I induksjonssteget maa du vise $P(k) \\Rightarrow P(k+1)$. Du maa bruke $P(k)$ som en **antagelse** og utlede $P(k+1)$, ikke anta $P(k+1)$ direkte.
+
+3. **Feil retning:** Start med den siden du vet noe om (som inneholder $P(k)$), og omform til $P(k+1)$.`,
+    },
+    {
+      id: 'r1-9-2-ex-1',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-1',
+        number: '1',
+        type: 'short-answer',
+        difficulty: 'lett',
+        task: 'Vis ved induksjon at $1 + 3 + 5 + \\cdots + (2n-1) = n^2$ for alle $n \\geq 1$.',
+        hints: ['Basissteg: sjekk $n = 1$', 'Induksjonssteg: legg til $(2(k+1) - 1) = 2k+1$ paa begge sider'],
+        solution: '**Basis ($n=1$):** $1 = 1^2$. $\\checkmark$\n\n**Antagelse:** $1 + 3 + \\cdots + (2k-1) = k^2$.\n\n**Steg:** $1 + 3 + \\cdots + (2k-1) + (2k+1) = k^2 + 2k + 1 = (k+1)^2$. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-2-example-sum2',
+      type: 'example',
+      title: 'Eksempel 2: Summen av kvadrattall',
+      problem: `Vis at $1^2 + 2^2 + 3^2 + \\cdots + n^2 = \\frac{n(n+1)(2n+1)}{6}$ for alle $n \\geq 1$.`,
+      solution: `**Bevis ved induksjon:**
+
+**Basissteg ($n = 1$):** Venstre side: $1$. Hoeyre side: $\\frac{1 \\cdot 2 \\cdot 3}{6} = 1$. $\\checkmark$
+
+**Induksjonsantagelse:** $1^2 + 2^2 + \\cdots + k^2 = \\frac{k(k+1)(2k+1)}{6}$.
+
+**Induksjonssteg:**
+
+$$1^2 + \\cdots + k^2 + (k+1)^2 = \\frac{k(k+1)(2k+1)}{6} + (k+1)^2$$
+
+$$= \\frac{k(k+1)(2k+1) + 6(k+1)^2}{6} = \\frac{(k+1)[k(2k+1) + 6(k+1)]}{6}$$
+
+$$= \\frac{(k+1)(2k^2 + 7k + 6)}{6} = \\frac{(k+1)(k+2)(2k+3)}{6}$$
+
+Dette er formelen med $n = k+1$ (sjekk: $(k+1)((k+1)+1)(2(k+1)+1)/6$). $\\square$`,
+    },
+    {
+      id: 'r1-9-2-ex-2',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-2',
+        number: '2',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Vis ved induksjon at $1 + r + r^2 + \\cdots + r^n = \\frac{r^{n+1} - 1}{r - 1}$ for alle $n \\geq 0$ og $r \\neq 1$.',
+        hints: ['Basissteg: sjekk $n = 0$', 'Induksjonssteg: legg til $r^{k+1}$ paa begge sider'],
+        solution: '**Basis ($n=0$):** $1 = \\frac{r-1}{r-1} = 1$. $\\checkmark$\n\n**Antagelse:** $1 + r + \\cdots + r^k = \\frac{r^{k+1}-1}{r-1}$.\n\n**Steg:** $1 + r + \\cdots + r^k + r^{k+1} = \\frac{r^{k+1}-1}{r-1} + r^{k+1} = \\frac{r^{k+1}-1 + r^{k+1}(r-1)}{r-1} = \\frac{r^{k+2}-1}{r-1}$. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-2-delelighet-intro',
+      type: 'text',
+      content: `## Induksjon og delelighet
+
+Induksjon er ogsaa et kraftig verktoy for aa bevise at visse uttrykk alltid er delelige med et bestemt tall. Strategien er aa skrive $P(k+1)$ ved hjelp av $P(k)$ og vise at delelighetskravet er oppfylt.`,
+    },
+    {
+      id: 'r1-9-2-example-delelighet',
+      type: 'example',
+      title: 'Eksempel 3: Delelighet med 6',
+      problem: `Vis at $n^3 - n$ er delelig med $6$ for alle $n \\geq 1$.`,
+      solution: `**Bevis ved induksjon:**
+
+**Basissteg ($n = 1$):** $1^3 - 1 = 0 = 6 \\cdot 0$. Delelig med $6$. $\\checkmark$
+
+**Induksjonsantagelse:** $k^3 - k$ er delelig med $6$, dvs. $k^3 - k = 6m$ for et heltall $m$.
+
+**Induksjonssteg:**
+
+$$(k+1)^3 - (k+1) = k^3 + 3k^2 + 3k + 1 - k - 1 = (k^3 - k) + 3k^2 + 3k$$
+
+$$= (k^3 - k) + 3k(k + 1)$$
+
+Foerste ledd er delelig med $6$ (induksjonsantagelsen). For andre ledd: $k(k+1)$ er produktet av to paafoelgende heltall, saa det er alltid partall. Altsaa er $3k(k+1)$ delelig med $6$.
+
+Summen av to tall delelige med $6$ er delelig med $6$. $\\square$`,
+    },
+    {
+      id: 'r1-9-2-ex-3',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-3',
+        number: '3',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Vis ved induksjon at $3^n - 1$ er delelig med $2$ for alle $n \\geq 1$.',
+        hints: ['Skriv $3^{k+1} - 1 = 3 \\cdot 3^k - 1 = 3(3^k - 1) + 2$'],
+        solution: '**Basis ($n=1$):** $3^1 - 1 = 2$. Delelig med $2$. $\\checkmark$\n\n**Antagelse:** $3^k - 1 = 2m$ for et heltall $m$.\n\n**Steg:** $3^{k+1} - 1 = 3 \\cdot 3^k - 1 = 3(3^k - 1) + 3 - 1 = 3 \\cdot 2m + 2 = 2(3m + 1)$. Delelig med $2$. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-2-ex-4',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-4',
+        number: '4',
+        type: 'short-answer',
+        difficulty: 'medium',
+        task: 'Vis ved induksjon at summen $\\frac{1}{1 \\cdot 2} + \\frac{1}{2 \\cdot 3} + \\cdots + \\frac{1}{n(n+1)} = \\frac{n}{n+1}$ for alle $n \\geq 1$.',
+        hints: ['Basissteg: sjekk $n = 1$', 'Induksjonssteg: legg til $\\frac{1}{(k+1)(k+2)}$ og finn fellesnevner'],
+        solution: '**Basis ($n=1$):** $\\frac{1}{1 \\cdot 2} = \\frac{1}{2}$. $\\checkmark$\n\n**Antagelse:** Summen opp til $k$ er $\\frac{k}{k+1}$.\n\n**Steg:** $\\frac{k}{k+1} + \\frac{1}{(k+1)(k+2)} = \\frac{k(k+2) + 1}{(k+1)(k+2)} = \\frac{k^2 + 2k + 1}{(k+1)(k+2)} = \\frac{(k+1)^2}{(k+1)(k+2)} = \\frac{k+1}{k+2}$. $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-2-ulikheter-intro',
+      type: 'text',
+      content: `## Induksjon og ulikheter
+
+Induksjon kan ogsaa brukes til aa bevise ulikheter. Fremgangsmaaten er den samme, men i induksjonssteget bruker vi ofte at $P(k)$ gir en nedre (eller oevre) skranke som vi kan bygge videre paa.`,
+    },
+    {
+      id: 'r1-9-2-example-ulikhet',
+      type: 'example',
+      title: 'Eksempel 4: Bernoullis ulikhet',
+      problem: `Vis at $(1 + x)^n \\geq 1 + nx$ for alle $n \\geq 1$ og $x \\geq -1$.`,
+      solution: `**Bevis ved induksjon over $n$:**
+
+**Basissteg ($n = 1$):** $(1+x)^1 = 1 + x = 1 + 1 \\cdot x$. Likhet gjelder. $\\checkmark$
+
+**Induksjonsantagelse:** $(1+x)^k \\geq 1 + kx$ for et $k \\geq 1$.
+
+**Induksjonssteg:**
+
+$$(1+x)^{k+1} = (1+x)^k \\cdot (1+x) \\geq (1+kx)(1+x)$$
+
+der vi brukte antagelsen og at $(1+x) \\geq 0$ (siden $x \\geq -1$).
+
+$$(1+kx)(1+x) = 1 + kx + x + kx^2 = 1 + (k+1)x + kx^2 \\geq 1 + (k+1)x$$
+
+der siste ulikhet gjelder fordi $kx^2 \\geq 0$.
+
+Altsaa $(1+x)^{k+1} \\geq 1 + (k+1)x$. $\\square$`,
+    },
+    {
+      id: 'r1-9-2-ex-5',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-5',
+        number: '5',
+        type: 'short-answer',
+        difficulty: 'vanskelig',
+        task: 'Vis ved induksjon at $2^n > n$ for alle $n \\geq 1$.',
+        hints: ['Basissteg: $2^1 = 2 > 1$', 'Induksjonssteg: $2^{k+1} = 2 \\cdot 2^k > 2k$. Vis saa at $2k \\geq k + 1$ for $k \\geq 1$'],
+        solution: '**Basis ($n=1$):** $2^1 = 2 > 1$. $\\checkmark$\n\n**Antagelse:** $2^k > k$.\n\n**Steg:** $2^{k+1} = 2 \\cdot 2^k > 2k = k + k \\geq k + 1$ (siden $k \\geq 1$). Altsaa $2^{k+1} > k + 1$. $\\square$',
+      },
+    },
+    // --- Samleoppgaver ---
+    {
+      id: 'r1-9-2-ex-6',
+      type: 'exercise',
+      exercise: {
+        id: 'r1-9-2-ex-6',
+        number: '6',
+        type: 'short-answer',
+        difficulty: 'vanskelig',
+        task: 'Vis ved induksjon at $n! \\geq 2^{n-1}$ for alle $n \\geq 1$.',
+        hints: ['Basissteg: $1! = 1 \\geq 2^0 = 1$', 'Induksjonssteg: $(k+1)! = (k+1) \\cdot k! \\geq (k+1) \\cdot 2^{k-1}$. Vis at $(k+1) \\cdot 2^{k-1} \\geq 2^k$ for $k \\geq 1$'],
+        solution: '**Basis ($n=1$):** $1! = 1 \\geq 2^0 = 1$. $\\checkmark$\n\n**Antagelse:** $k! \\geq 2^{k-1}$.\n\n**Steg:** $(k+1)! = (k+1) \\cdot k! \\geq (k+1) \\cdot 2^{k-1} \\geq 2 \\cdot 2^{k-1} = 2^k$ (siden $k+1 \\geq 2$ for $k \\geq 1$). $\\square$',
+      },
+    },
+    {
+      id: 'r1-9-2-oppsummering',
+      type: 'text',
+      content: `## Oppsummering
+
+**Matematisk induksjon** er en bevismetode for paastander $P(n)$ som gjelder for alle $n \\geq n_0$:
+
+1. **Basissteg:** Vis at $P(n_0)$ er sann
+2. **Induksjonssteg:** Vis at $P(k) \\Rightarrow P(k+1)$
+
+**Vanlige bruksomraader:**
+- **Summeformler:** $1 + 2 + \\cdots + n = \\frac{n(n+1)}{2}$
+- **Delelighet:** "$n^3 - n$ er delelig med $6$"
+- **Ulikheter:** "$2^n > n$" (Bernoullis ulikhet)
+
+**Tips:**
+- Skriv alltid induksjonsantagelsen tydelig
+- I induksjonssteget: start med venstre side for $k+1$ og bruk antagelsen
+- Marker tydelig hvor induksjonsantagelsen brukes
+- Husk at induksjonsantagelsen ikke er "sirkelbevis" -- den er en **betinget** antagelse i implikasjonen $P(k) \\Rightarrow P(k+1)$`,
+    },
+  ],
+  exercises: [],
+  keyTerms: [
+    { term: 'Matematisk induksjon', definition: 'Bevismetode med basissteg og induksjonssteg for paastander om naturlige tall' },
+    { term: 'Basissteg', definition: 'Viser at paastanden gjelder for startverdien $n_0$' },
+    { term: 'Induksjonsantagelse', definition: 'Antagelsen om at $P(k)$ er sann for et vilkaarlig $k$' },
+    { term: 'Induksjonssteg', definition: 'Viser at $P(k) \\Rightarrow P(k+1)$' },
+  ],
+};
+
+// ============================================================================
+// EKSPORTER ALLE KAPITLER
+// ============================================================================
+
+export const R1_KAP1B_CHAPTERS = [CHAPTER_R1_1_4, CHAPTER_R1_1_5, CHAPTER_R1_9_1, CHAPTER_R1_9_2];

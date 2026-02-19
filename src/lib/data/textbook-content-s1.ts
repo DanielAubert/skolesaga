@@ -8,6 +8,9 @@ import { CHAPTER_S1_6_1, CHAPTER_S1_6_2, CHAPTER_S1_6_3, CHAPTER_S1_7_1, CHAPTER
 import { CHAPTER_S1_1_4, CHAPTER_S1_1_5, CHAPTER_S1_3_6, CHAPTER_S1_3_7, CHAPTER_S1_3_8 } from './textbook-content-s1-kap1b';
 import { CHAPTER_S1_4_4, CHAPTER_S1_4_5, CHAPTER_S1_4_6, CHAPTER_S1_5_4, CHAPTER_S1_6_4 } from './textbook-content-s1-kap4b';
 import { CHAPTER_S1_2_6, CHAPTER_S1_7_4, CHAPTER_S1_8_1, CHAPTER_S1_8_2 } from './textbook-content-s1-kap8';
+import { CHAPTER_S1_1_6, CHAPTER_S1_1_7, CHAPTER_S1_1_8, CHAPTER_S1_1_9, CHAPTER_S1_2_7 } from './textbook-content-s1-kap1c';
+import { CHAPTER_S1_3_9, CHAPTER_S1_3_10, CHAPTER_S1_4_7, CHAPTER_S1_4_8 } from './textbook-content-s1-kap3b';
+import { CHAPTER_S1_5_5, CHAPTER_S1_5_6, CHAPTER_S1_6_5, CHAPTER_S1_6_6, CHAPTER_S1_6_7, CHAPTER_S1_8_3, CHAPTER_S1_8_4, CHAPTER_S1_8_5 } from './textbook-content-s1-kap5b';
 
 export const CHAPTER_S1_1_1: TextbookChapter = {
   id: 's1-1-1',
@@ -9000,4 +9003,21 @@ export const CHAPTERS_S1: Record<string, TextbookChapter> = {
   's1-7-4': CHAPTER_S1_7_4,
   's1-8-1': CHAPTER_S1_8_1,
   's1-8-2': CHAPTER_S1_8_2,
+  's1-1-6': CHAPTER_S1_1_6,
+  's1-1-7': CHAPTER_S1_1_7,
+  's1-1-8': CHAPTER_S1_1_8,
+  's1-1-9': CHAPTER_S1_1_9,
+  's1-2-7': CHAPTER_S1_2_7,
+  's1-3-9': CHAPTER_S1_3_9,
+  's1-3-10': CHAPTER_S1_3_10,
+  's1-4-7': CHAPTER_S1_4_7,
+  's1-4-8': CHAPTER_S1_4_8,
+  's1-5-5': CHAPTER_S1_5_5,
+  's1-5-6': CHAPTER_S1_5_6,
+  's1-6-5': CHAPTER_S1_6_5,
+  's1-6-6': CHAPTER_S1_6_6,
+  's1-6-7': CHAPTER_S1_6_7,
+  's1-8-3': CHAPTER_S1_8_3,
+  's1-8-4': CHAPTER_S1_8_4,
+  's1-8-5': CHAPTER_S1_8_5,
 };

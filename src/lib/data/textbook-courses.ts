@@ -506,6 +506,7 @@ export const SECTION_NAMES_S2: Record<string, string> = {
   '6': 'Regresjon og korrelasjon',
   '7': 'Rekker og serier',
   '8': 'Økonomi og matematisk modellering',
+  '9': 'Følger og programmering',
 };
 
 // Seksjonsnavn for 2P
