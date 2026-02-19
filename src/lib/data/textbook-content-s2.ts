@@ -4,6 +4,10 @@
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
+import { CHAPTER_S2_3_1, CHAPTER_S2_3_2, CHAPTER_S2_3_3 } from './textbook-content-s2-kap3';
+import { CHAPTER_S2_4_1, CHAPTER_S2_4_2, CHAPTER_S2_4_3 } from './textbook-content-s2-kap4';
+import { CHAPTER_S2_5_1, CHAPTER_S2_5_2, CHAPTER_S2_5_3 } from './textbook-content-s2-kap5';
+import { CHAPTER_S2_6_1, CHAPTER_S2_6_2, CHAPTER_S2_6_3 } from './textbook-content-s2-kap6';
 
 export const CHAPTER_S2_1_1: TextbookChapter = {
   id: 's2-1-1',
@@ -1942,4 +1946,16 @@ export const CHAPTERS_S2: Record<string, TextbookChapter> = {
   's2-2-2': CHAPTER_S2_2_2,
   's2-2-3': CHAPTER_S2_2_3,
   's2-2-4': CHAPTER_S2_2_4,
+  's2-3-1': CHAPTER_S2_3_1,
+  's2-3-2': CHAPTER_S2_3_2,
+  's2-3-3': CHAPTER_S2_3_3,
+  's2-4-1': CHAPTER_S2_4_1,
+  's2-4-2': CHAPTER_S2_4_2,
+  's2-4-3': CHAPTER_S2_4_3,
+  's2-5-1': CHAPTER_S2_5_1,
+  's2-5-2': CHAPTER_S2_5_2,
+  's2-5-3': CHAPTER_S2_5_3,
+  's2-6-1': CHAPTER_S2_6_1,
+  's2-6-2': CHAPTER_S2_6_2,
+  's2-6-3': CHAPTER_S2_6_3,
 };

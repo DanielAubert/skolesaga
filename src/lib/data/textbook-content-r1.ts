@@ -4,6 +4,7 @@
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
+import { CHAPTER_R1_7_1, CHAPTER_R1_7_2, CHAPTER_R1_7_3, CHAPTER_R1_7_4, CHAPTER_R1_7_5, CHAPTER_R1_7_6 } from './textbook-content-r1-kap7';
 
 export const CHAPTER_R1_1_1: TextbookChapter = {
   id: 'r1-1-1',
@@ -12199,4 +12200,10 @@ export const CHAPTERS_R1: Record<string, TextbookChapter> = {
   'r1-6-1': CHAPTER_R1_6_1,
   'r1-6-2': CHAPTER_R1_6_2,
   'r1-6-3': CHAPTER_R1_6_3,
+  'r1-7-1': CHAPTER_R1_7_1,
+  'r1-7-2': CHAPTER_R1_7_2,
+  'r1-7-3': CHAPTER_R1_7_3,
+  'r1-7-4': CHAPTER_R1_7_4,
+  'r1-7-5': CHAPTER_R1_7_5,
+  'r1-7-6': CHAPTER_R1_7_6,
 };

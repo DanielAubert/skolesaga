@@ -4,6 +4,7 @@
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
+import { CHAPTER_2PY_9_1, CHAPTER_2PY_9_2, CHAPTER_2PY_9_3, CHAPTER_2PY_10_1, CHAPTER_2PY_10_2, CHAPTER_2PY_11_1 } from './textbook-content-2py-kap9';
 
 // ============================================================================
 // KAPITTEL 1: ØKONOMI I HVERDAGEN
@@ -3195,4 +3196,10 @@ export const CHAPTERS_2PY: Record<string, TextbookChapter> = {
   '2py-7-2': CHAPTER_2PY_7_2,
   '2py-8-1': CHAPTER_2PY_8_1,
   '2py-8-2': CHAPTER_2PY_8_2,
+  '2py-9-1': CHAPTER_2PY_9_1,
+  '2py-9-2': CHAPTER_2PY_9_2,
+  '2py-9-3': CHAPTER_2PY_9_3,
+  '2py-10-1': CHAPTER_2PY_10_1,
+  '2py-10-2': CHAPTER_2PY_10_2,
+  '2py-11-1': CHAPTER_2PY_11_1,
 };
