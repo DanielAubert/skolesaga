@@ -493,6 +493,7 @@ export const SECTION_NAMES_S1: Record<string, string> = {
   '5': 'Sannsynlighet',
   '6': 'Statistikk',
   '7': 'Regresjon og korrelasjon',
+  '8': 'Modellering og anvendelser',
 };
 
 // Seksjonsnavn for S2
@@ -503,6 +504,8 @@ export const SECTION_NAMES_S2: Record<string, string> = {
   '4': 'Statistikk og sannsynlighet',
   '5': 'Statistisk inferens',
   '6': 'Regresjon og korrelasjon',
+  '7': 'Rekker og serier',
+  '8': 'Økonomi og matematisk modellering',
 };
 
 // Seksjonsnavn for 2P
@@ -513,6 +516,9 @@ export const SECTION_NAMES_2P: Record<string, string> = {
   '4': 'Sannsynlighet',
   '5': 'Geometri i praksis',
   '6': 'Modellering',
+  '7': 'Algebra',
+  '8': 'Måling og enheter',
+  '9': 'Tallregning',
 };
 
 // Seksjonsnavn for 2P-Y
@@ -528,6 +534,7 @@ export const SECTION_NAMES_2PY: Record<string, string> = {
   '9': 'Algebra og likninger',
   '10': 'Personlig økonomi',
   '11': 'Utvidet statistikk',
+  '12': 'Tallforståelse og tallsystemer',
 };
 
 // Seksjonsnavn for R1
@@ -539,6 +546,8 @@ export const SECTION_NAMES_R1: Record<string, string> = {
   '5': 'Vekstmodeller og modellering',
   '6': 'Vektorer og parameterframstilling',
   '7': 'Trigonometri',
+  '8': 'Kombinatorikk og sannsynlighet',
+  '9': 'Bevisføring',
 };
 
 // Seksjonsnavn for R2

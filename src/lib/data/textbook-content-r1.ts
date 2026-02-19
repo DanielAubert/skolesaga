@@ -5,6 +5,8 @@
 
 import type { TextbookChapter } from '@/lib/types/textbook';
 import { CHAPTER_R1_7_1, CHAPTER_R1_7_2, CHAPTER_R1_7_3, CHAPTER_R1_7_4, CHAPTER_R1_7_5, CHAPTER_R1_7_6 } from './textbook-content-r1-kap7';
+import { CHAPTER_R1_8_1, CHAPTER_R1_8_2, CHAPTER_R1_8_3, CHAPTER_R1_8_4, CHAPTER_R1_8_5, CHAPTER_R1_8_6 } from './textbook-content-r1-kap8';
+import { CHAPTER_R1_1_4, CHAPTER_R1_1_5, CHAPTER_R1_9_1, CHAPTER_R1_9_2 } from './textbook-content-r1-kap1b';
 
 export const CHAPTER_R1_1_1: TextbookChapter = {
   id: 'r1-1-1',
@@ -12206,4 +12208,14 @@ export const CHAPTERS_R1: Record<string, TextbookChapter> = {
   'r1-7-4': CHAPTER_R1_7_4,
   'r1-7-5': CHAPTER_R1_7_5,
   'r1-7-6': CHAPTER_R1_7_6,
+  'r1-1-4': CHAPTER_R1_1_4,
+  'r1-1-5': CHAPTER_R1_1_5,
+  'r1-8-1': CHAPTER_R1_8_1,
+  'r1-8-2': CHAPTER_R1_8_2,
+  'r1-8-3': CHAPTER_R1_8_3,
+  'r1-8-4': CHAPTER_R1_8_4,
+  'r1-8-5': CHAPTER_R1_8_5,
+  'r1-8-6': CHAPTER_R1_8_6,
+  'r1-9-1': CHAPTER_R1_9_1,
+  'r1-9-2': CHAPTER_R1_9_2,
 };
