@@ -1247,7 +1247,7 @@ For **tredjegradslikninger** prøver du divisorer av konstantleddet for å finne
 
 For **fjerdegradslikninger** har du to hovedstrategier. Er likningen biquadratisk (bare partallspotenser av $x$), bruker du substitusjon $u = x^2$ for å redusere til en andregradslikning. Ellers settes felles faktor utenfor, eller du finner nullpunkter og bruker polynomdivisjon gjentatte ganger til du kommer ned til andregradslikninger.
 
-Spesialtilfellene $x^3 = a$ og $x^4 = a$ løses direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Husk at en tredjegradsligning har opptil tre reelle løsninger, mens en fjerdegradsligning kan ha opptil fire. Noen av disse kan vaere doble nullpunkter. Og noen ganger gir andregradslikningen du ender opp med negativ diskriminant, noe som betyr at det ikke finnes flere reelle løsninger.`,
+Spesialtilfellene $x^3 = a$ og $x^4 = a$ løses direkte med $x = \\sqrt[3]{a}$ og $x = \\pm \\sqrt[4]{a}$. Husk at en tredjegradsligning har opptil tre reelle løsninger, mens en fjerdegradsligning kan ha opptil fire. Noen av disse kan være doble nullpunkter. Og noen ganger gir andregradslikningen du ender opp med negativ diskriminant, noe som betyr at det ikke finnes flere reelle løsninger.`,
     },
   ],
   exercises: [],
