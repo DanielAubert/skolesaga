@@ -6,11 +6,13 @@
  * Dekker LK20 laereplan for fremmedsprak niva 3
  * Avansert spansk med fokus pa kompleks grammatikk, litteratur, kultur og samfunn
  *
- * Innholdet er delt opp i 4 filer:
+ * Innholdet er delt opp i 6 filer:
  * - textbook-content-spansk-3-kap1-3.ts (Konjunktiv, Sammensatte tider, Indirekte tale)
  * - textbook-content-spansk-3-kap4-6.ts (Litteratur, Film/Kunst, Politikk)
  * - textbook-content-spansk-3-kap7-8.ts (Okonomi, Reise/Turisme)
  * - textbook-content-spansk-3-kap9-10.ts (Identitet, Eksamensforberedelse)
+ * - textbook-content-spansk-3-kap11-13.ts (Miljo, Medier, Historie)
+ * - textbook-content-spansk-3-kap14-16.ts (Vitenskap, Oversettelse, Akademisk)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,6 +22,8 @@ import { SPANSK_3_CHAPTERS_1_3 } from './textbook-content-spansk-3-kap1-3';
 import { SPANSK_3_CHAPTERS_4_6 } from './textbook-content-spansk-3-kap4-6';
 import { SPANSK_3_CHAPTERS_7_8 } from './textbook-content-spansk-3-kap7-8';
 import { SPANSK_3_CHAPTERS_9_10 } from './textbook-content-spansk-3-kap9-10';
+import { SPANSK_3_CHAPTERS_11_13 } from './textbook-content-spansk-3-kap11-13';
+import { SPANSK_3_CHAPTERS_14_16 } from './textbook-content-spansk-3-kap14-16';
 
 // Re-eksporter individuelle kapitler for bakoverkompatibilitet
 export {
@@ -74,6 +78,36 @@ export {
   CHAPTER_SPANSK_3_10_4,
 } from './textbook-content-spansk-3-kap9-10';
 
+export {
+  CHAPTER_SPANSK_3_11_1,
+  CHAPTER_SPANSK_3_11_2,
+  CHAPTER_SPANSK_3_11_3,
+  CHAPTER_SPANSK_3_11_4,
+  CHAPTER_SPANSK_3_12_1,
+  CHAPTER_SPANSK_3_12_2,
+  CHAPTER_SPANSK_3_12_3,
+  CHAPTER_SPANSK_3_12_4,
+  CHAPTER_SPANSK_3_13_1,
+  CHAPTER_SPANSK_3_13_2,
+  CHAPTER_SPANSK_3_13_3,
+  CHAPTER_SPANSK_3_13_4,
+} from './textbook-content-spansk-3-kap11-13';
+
+export {
+  CHAPTER_SPANSK_3_14_1,
+  CHAPTER_SPANSK_3_14_2,
+  CHAPTER_SPANSK_3_14_3,
+  CHAPTER_SPANSK_3_14_4,
+  CHAPTER_SPANSK_3_15_1,
+  CHAPTER_SPANSK_3_15_2,
+  CHAPTER_SPANSK_3_15_3,
+  CHAPTER_SPANSK_3_15_4,
+  CHAPTER_SPANSK_3_16_1,
+  CHAPTER_SPANSK_3_16_2,
+  CHAPTER_SPANSK_3_16_3,
+  CHAPTER_SPANSK_3_16_4,
+} from './textbook-content-spansk-3-kap14-16';
+
 // ============================================================================
 // Eksporter alle kapitler samlet
 // ============================================================================
@@ -83,4 +117,6 @@ export const SPANSK_3_CHAPTERS: TextbookChapter[] = [
   ...SPANSK_3_CHAPTERS_4_6,
   ...SPANSK_3_CHAPTERS_7_8,
   ...SPANSK_3_CHAPTERS_9_10,
+  ...SPANSK_3_CHAPTERS_11_13,
+  ...SPANSK_3_CHAPTERS_14_16,
 ];
