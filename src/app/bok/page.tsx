@@ -82,43 +82,7 @@ export default function TextbookOverviewPage() {
       <div className="container mx-auto px-4 py-8">
         <div className="max-w-6xl mx-auto space-y-8">
 
-          {/* Barneskole */}
-          <section>
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <div className="h-1 w-8 bg-gradient-to-r from-lime-400 to-green-500 rounded-full" />
-              <h2 className="text-xl font-bold text-foreground">Barneskole</h2>
-              <div className="h-1 w-8 bg-gradient-to-r from-lime-400 to-green-500 rounded-full" />
-            </div>
-            <div className="flex flex-wrap justify-center gap-6">
-              <div className="w-56">
-                <GradeCard
-                  href="/bok/trinn/5"
-                  grade="5. klasse"
-                  subtitle="10–11 år"
-                  gradient="bg-gradient-to-br from-lime-400 to-green-500"
-                  image="/images/grades/5-klasse.jpg"
-                />
-              </div>
-              <div className="w-56">
-                <GradeCard
-                  href="/bok/trinn/6"
-                  grade="6. klasse"
-                  subtitle="11–12 år"
-                  gradient="bg-gradient-to-br from-green-400 to-emerald-500"
-                  image="/images/grades/6-klasse.jpg"
-                />
-              </div>
-              <div className="w-56">
-                <GradeCard
-                  href="/bok/trinn/7"
-                  grade="7. klasse"
-                  subtitle="12–13 år"
-                  gradient="bg-gradient-to-br from-emerald-400 to-teal-500"
-                  image="/images/grades/7-klasse.jpg"
-                />
-              </div>
-            </div>
-          </section>
+          {/* Barneskole - skjult inntil videre, ikke ferdig utviklet */}
 
           {/* Ungdomsskole */}
           <section>

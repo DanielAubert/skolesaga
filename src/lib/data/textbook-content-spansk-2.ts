@@ -6,11 +6,13 @@
  * Dekker LK20 laereplan for fremmedsprak niva 2
  * Videregaende spansk for elever som har fullfort niva 1
  *
- * Innholdet er delt opp i 4 filer:
+ * Innholdet er delt opp i 6 filer:
  * - textbook-content-spansk-2-kap1-3.ts (Fortidsformer, Konjunktiv, Vilkar/Fremtid)
  * - textbook-content-spansk-2-kap4-6.ts (Pronomen, Litteratur, Kultur)
  * - textbook-content-spansk-2-kap7-8.ts (Arbeidsliv, Miljo)
  * - textbook-content-spansk-2-kap9-10.ts (Historie, Kommunikasjon)
+ * - textbook-content-spansk-2-kap11-13.ts (Reise, Helse, Teknologi)
+ * - textbook-content-spansk-2-kap14-16.ts (Identitet, Skriving, Eksamensforberedelse)
  */
 
 import type { TextbookChapter } from '@/lib/types/textbook';
@@ -20,6 +22,8 @@ import { SPANSK_2_CHAPTERS_1_3 } from './textbook-content-spansk-2-kap1-3';
 import { SPANSK_2_CHAPTERS_4_6 } from './textbook-content-spansk-2-kap4-6';
 import { SPANSK_2_CHAPTERS_7_8 } from './textbook-content-spansk-2-kap7-8';
 import { SPANSK_2_CHAPTERS_9_10 } from './textbook-content-spansk-2-kap9-10';
+import { SPANSK_2_CHAPTERS_11_13 } from './textbook-content-spansk-2-kap11-13';
+import { SPANSK_2_CHAPTERS_14_16 } from './textbook-content-spansk-2-kap14-16';
 
 // Re-eksporter individuelle kapitler for bakoverkompatibilitet
 export {
@@ -74,6 +78,36 @@ export {
   CHAPTER_SPANSK_2_10_4,
 } from './textbook-content-spansk-2-kap9-10';
 
+export {
+  CHAPTER_SPANSK_2_11_1,
+  CHAPTER_SPANSK_2_11_2,
+  CHAPTER_SPANSK_2_11_3,
+  CHAPTER_SPANSK_2_11_4,
+  CHAPTER_SPANSK_2_12_1,
+  CHAPTER_SPANSK_2_12_2,
+  CHAPTER_SPANSK_2_12_3,
+  CHAPTER_SPANSK_2_12_4,
+  CHAPTER_SPANSK_2_13_1,
+  CHAPTER_SPANSK_2_13_2,
+  CHAPTER_SPANSK_2_13_3,
+  CHAPTER_SPANSK_2_13_4,
+} from './textbook-content-spansk-2-kap11-13';
+
+export {
+  CHAPTER_SPANSK_2_14_1,
+  CHAPTER_SPANSK_2_14_2,
+  CHAPTER_SPANSK_2_14_3,
+  CHAPTER_SPANSK_2_14_4,
+  CHAPTER_SPANSK_2_15_1,
+  CHAPTER_SPANSK_2_15_2,
+  CHAPTER_SPANSK_2_15_3,
+  CHAPTER_SPANSK_2_15_4,
+  CHAPTER_SPANSK_2_16_1,
+  CHAPTER_SPANSK_2_16_2,
+  CHAPTER_SPANSK_2_16_3,
+  CHAPTER_SPANSK_2_16_4,
+} from './textbook-content-spansk-2-kap14-16';
+
 // ============================================================================
 // Eksporter alle kapitler samlet
 // ============================================================================
@@ -83,4 +117,6 @@ export const SPANSK_2_CHAPTERS: TextbookChapter[] = [
   ...SPANSK_2_CHAPTERS_4_6,
   ...SPANSK_2_CHAPTERS_7_8,
   ...SPANSK_2_CHAPTERS_9_10,
+  ...SPANSK_2_CHAPTERS_11_13,
+  ...SPANSK_2_CHAPTERS_14_16,
 ];
